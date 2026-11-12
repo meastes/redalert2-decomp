@@ -1684,8 +1684,8 @@
     "??_ERadarClass@@UAEPAXI@Z": 6507216,
     "??_EWaveClass@@UAEPAXI@Z": 7489024,
     "??_EMSPrintAnim@@UAEPAXI@Z": 5963392,
-    "_$E42": 6117264,
-    "_$S43": 10956761,
+    "_$E44": 6117264,
+    "_$S45": 10956761,
     "??_7?$VectorClass@PAVObjectTypeClass@@@@6B@": 8025772,
     "??_7?$DynamicVectorClass@PAVObjectTypeClass@@@@6B@": 8025740,
     "??0AbstractTypeClass@@QAE@PBD@Z": 4261248,
@@ -1694,9 +1694,9 @@
     "??1AbstractTypeClass@@UAE@XZ": 4261696,
     "??1UnknownObjectPair@@QAE@XZ": 6113888,
     "?unknown_a72fdc@@3HA": 10956764,
-    "_?$S47@?1??Occupy_List@ObjectTypeClass@@UBEPBVCell@@H@Z@4EA": 10956760,
+    "_?$S49@?1??Occupy_List@ObjectTypeClass@@UBEPBVCell@@H@Z@4EA": 10956760,
     "_?unknown_list@?1??Occupy_List@ObjectTypeClass@@UBEPBVCell@@H@Z@4QBUUnknownStaticCell@@B": 10956720,
-    "_$E48": 6118896,
+    "_$E50": 6118896,
     "??0RawFileClass@@QAE@PBD@Z": 6523712,
     "??1RawFileClass@@UAE@XZ": 6523584,
     "?Load_Alloc_Data@@YIPAXAAVFileClass@@@Z": 4805168,
@@ -1797,7 +1797,7 @@
     "_$E32": 6117120,
     "_$E35": 6117136,
     "_$E38": 6117168,
-    "_$E45": 6117200,
+    "_$E47": 6117200,
     "?Max_Pips@ObjectTypeClass@@UBEHXZ": 6118656,
     "?Pixel_Dimensions@ObjectTypeClass@@UBE?AUCoordStruct@@XZ": 6118672,
     "?Lepton_Dimensions@ObjectTypeClass@@UBE?AUCoordStruct@@XZ": 6118704,
@@ -13015,8 +13015,8 @@
     {
       "entry": 6117200,
       "method": "005d5750",
-      "symbol": "_$E45",
-      "symbol_prefix": "_$E45",
+      "symbol": "_$E47",
+      "symbol_prefix": "_$E47",
       "options": [
         "/O2",
         "/Ob2",
@@ -13032,7 +13032,7 @@
         {
           "offset": 3,
           "kind": 6,
-          "symbol": "_$E42",
+          "symbol": "_$E44",
           "target": 6117264,
           "addend": 0,
           "resolved": 6117264
@@ -13110,7 +13110,7 @@
           "resolved": 1757695
         }
       ],
-      "source_sha256": "51500d3295ea6734e5c271677ad3aa3fa93004f2d9339a2ad9a02a06c4c0bb0b",
+      "source_sha256": "9469d32e23f00b9814bac53c5170a0198196984ea43c893f54115b5721f4e061",
       "source": "src/recovered/classes/ObjectTypeClass/ObjectTypeClass_ObjectTypes_init_005d5750.cpp",
       "population": "population-4378",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -13295,8 +13295,8 @@
     {
       "entry": 6118896,
       "method": "005d5df0",
-      "symbol": "_$E48",
-      "symbol_prefix": "_$E48",
+      "symbol": "_$E50",
+      "symbol_prefix": "_$E50",
       "options": [
         "/O2",
         "/Ob2",
@@ -13731,7 +13731,7 @@
         {
           "offset": 3,
           "kind": 6,
-          "symbol": "_?$S47@?1??Occupy_List@ObjectTypeClass@@UBEPBVCell@@H@Z@4EA",
+          "symbol": "_?$S49@?1??Occupy_List@ObjectTypeClass@@UBEPBVCell@@H@Z@4EA",
           "target": 10956760,
           "addend": 0,
           "resolved": 10956760
@@ -13739,7 +13739,7 @@
         {
           "offset": 16,
           "kind": 6,
-          "symbol": "_$E48",
+          "symbol": "_$E50",
           "target": 6118896,
           "addend": 0,
           "resolved": 6118896
@@ -13747,7 +13747,7 @@
         {
           "offset": 40,
           "kind": 6,
-          "symbol": "_?$S47@?1??Occupy_List@ObjectTypeClass@@UBEPBVCell@@H@Z@4EA",
+          "symbol": "_?$S49@?1??Occupy_List@ObjectTypeClass@@UBEPBVCell@@H@Z@4EA",
           "target": 10956760,
           "addend": 0,
           "resolved": 10956760
@@ -13785,7 +13785,7 @@
           "resolved": 10956720
         }
       ],
-      "source_sha256": "0c70d58c889197ddd1eecd04c89bfb151d9b0f09a7103be1eeba2ac9a1db6cd8",
+      "source_sha256": "133009c732823d201d1f243051fb3736fb8777ae5d632745441cdd9ed2a54f25",
       "source": "src/recovered/classes/ObjectTypeClass/ObjectTypeClass_Occupy_List_005d5d90.cpp",
       "population": "population-4378",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -18197,8 +18197,8 @@
     {
       "entry": 6117264,
       "method": "005d5790",
-      "symbol": "_$E42",
-      "symbol_prefix": "_$E42",
+      "symbol": "_$E44",
+      "symbol_prefix": "_$E44",
       "options": [
         "/O2",
         "/Ob2",
@@ -18214,7 +18214,7 @@
         {
           "offset": 2,
           "kind": 6,
-          "symbol": "_$S43",
+          "symbol": "_$S45",
           "target": 10956761,
           "addend": 0,
           "resolved": 10956761
@@ -18246,7 +18246,7 @@
         {
           "offset": 35,
           "kind": 6,
-          "symbol": "_$S43",
+          "symbol": "_$S45",
           "target": 10956761,
           "addend": 0,
           "resolved": 10956761

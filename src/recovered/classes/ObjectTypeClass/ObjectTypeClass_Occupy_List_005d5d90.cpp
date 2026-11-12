@@ -2,10 +2,10 @@
 // The default occupation list: the origin cell, then the 0x7FFF end marker
 // (a function-local static array registered with atexit on first use).
 #include "shared/object_type.hpp"
-// @ref _?$S47@?1??Occupy_List@ObjectTypeClass@@UBEPBVCell@@H@Z@4EA=00a72fd8
+// @ref _?$S49@?1??Occupy_List@ObjectTypeClass@@UBEPBVCell@@H@Z@4EA=00a72fd8
 // @ref _?unknown_list@?1??Occupy_List@ObjectTypeClass@@UBEPBVCell@@H@Z@4QBUUnknownStaticCell@@B=00a72fb0
 // @ref _atexit=0078298a
-// @ref _$E48=005d5df0
+// @ref _$E50=005d5df0
 
 Cell const *ObjectTypeClass::Occupy_List(int arg1) const
 {

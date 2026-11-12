@@ -4,8 +4,8 @@ DynamicVectorClass<IsometricTileTypeClass::TileInsertType *> IsometricTileTypeCl
 // @ref ??_7?$DynamicVectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@6B@=007a513c
 // @ref ??_7?$VectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@6B@=007a515c
 // @ref ?TileInsertTypes@IsometricTileTypeClass@@2V?$DynamicVectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@A=00a52ec8
-// @ref _$S47=00a52c6c
-// @ref _$E46=005285d0
+// @ref _$S49=00a52c6c
+// @ref _$E48=005285d0
 // @ref _atexit=0078298a
 // @ref ??_G?$DynamicVectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@UAEPAXI@Z=0052ed40
 // @ref ??_E?$DynamicVectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@UAEPAXI@Z=0052ed40

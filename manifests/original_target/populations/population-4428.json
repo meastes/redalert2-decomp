@@ -28,8 +28,8 @@
     "?unknown_math_4ba520@@YANN@Z": 4957472,
     "?unknown_math_4ba5b0@@YANN@Z": 4957616,
     "?unknown_sqrt_4ba410@@YANN@Z": 4957200,
-    "_$E42": 4934560,
-    "_$S43": 8739280,
+    "_$E44": 4934560,
+    "_$S45": 8739280,
     "__CIpow": 7872944,
     "__ftol": 7860496,
     "__real@8@3ff78000000000000000": 7972656,
@@ -5780,7 +5780,7 @@
     "_$E32": 4934416,
     "_$E35": 4934432,
     "_$E38": 4934464,
-    "_$E45": 4934496,
+    "_$E47": 4934496,
     "?target@Call_40d890_0@@QAIIII@Z": 5930144,
     "?target@Call_40d890_1@@QAIIII@Z": 5930144,
     "?target@Target_40d8c0@@QAEII@Z": 6522768,
@@ -13462,7 +13462,7 @@
           "resolved": 8739320
         }
       ],
-      "source_sha256": "dc85b18d0998ba846ebb887b9dffc73bc77dec4dc856cd2e8f79e8b295e8e27e",
+      "source_sha256": "40c7c199563580ec7452e12e47a93aab958df9db92255ad6f7ef5fce90216d96",
       "source": "src/recovered/header_statics/004b4970/HeaderStatics_diagonal_init_004b4970.cpp",
       "population": "population-4428",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -14142,8 +14142,8 @@
     {
       "entry": 4934496,
       "method": "004b4b60",
-      "symbol": "_$E45",
-      "symbol_prefix": "_$E45",
+      "symbol": "_$E47",
+      "symbol_prefix": "_$E47",
       "options": [
         "/O2",
         "/Ob2",
@@ -14159,7 +14159,7 @@
         {
           "offset": 3,
           "kind": 6,
-          "symbol": "_$E42",
+          "symbol": "_$E44",
           "target": 4934560,
           "addend": 0,
           "resolved": 4934560
@@ -14308,8 +14308,8 @@
     {
       "entry": 4934560,
       "method": "004b4ba0",
-      "symbol": "_$E42",
-      "symbol_prefix": "_$E42",
+      "symbol": "_$E44",
+      "symbol_prefix": "_$E44",
       "options": [
         "/O2",
         "/Ob2",
@@ -14325,7 +14325,7 @@
         {
           "offset": 2,
           "kind": 6,
-          "symbol": "_$S43",
+          "symbol": "_$S45",
           "target": 8739280,
           "addend": 0,
           "resolved": 8739280
@@ -14357,7 +14357,7 @@
         {
           "offset": 35,
           "kind": 6,
-          "symbol": "_$S43",
+          "symbol": "_$S45",
           "target": 8739280,
           "addend": 0,
           "resolved": 8739280

@@ -1,8 +1,8 @@
 // Cell const *InfantryTypeClass::Occupy_List(int arg1) const (0x0050A000)
 // The occupation list: the origin cell and the end marker.
 #include "shared/infantry_type.hpp"
-// @ref _?$S40@?1??Occupy_List@InfantryTypeClass@@UBEPBVCell@@H@Z@4EA=00a411a0
-// @ref _$E41=0050a060
+// @ref _?$S42@?1??Occupy_List@InfantryTypeClass@@UBEPBVCell@@H@Z@4EA=00a411a0
+// @ref _$E43=0050a060
 // @ref _?unknown_list@?1??Occupy_List@InfantryTypeClass@@UBEPBVCell@@H@Z@4QBUUnknownStaticCell@@B=00a4117c
 // @ref _atexit=0078298a
 

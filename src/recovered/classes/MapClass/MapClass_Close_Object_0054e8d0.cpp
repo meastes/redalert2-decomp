@@ -14,9 +14,9 @@
 #include "shared/map_cell.hpp"
 #include "shared/map_techno.hpp"
 // @ref _atexit=0078298a
-// @ref _?$S63@?1??Close_Object@MapClass@@QAEPAVObjectClass@@ABUCoordStruct@@@Z@4EA=00a6f9f0
+// @ref _?$S65@?1??Close_Object@MapClass@@QAEPAVObjectClass@@ABUCoordStruct@@@Z@4EA=00a6f9f0
 // @ref _?_offsets@?1??Close_Object@MapClass@@QAEPAVObjectClass@@ABUCoordStruct@@@Z@4PAVCell@@A=00a6f1ec
-// @ref _$E64=0054ebc0
+// @ref _$E66=0054ebc0
 // @ref ??GCoordStruct@@QBE?AU0@ABU0@@Z=004348f0
 // @ref ??0CoordStruct@@QAE@HHH@Z=0041b630
 // @ref ?Length@CoordStruct@@QBEHXZ=0041b780

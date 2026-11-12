@@ -1339,8 +1339,8 @@
     "??_ERadarClass@@UAEPAXI@Z": 6507216,
     "??BSystemTimerClass@@QBEJXZ": 6923312,
     "?Timer@MouseClass@@2V?$CDTimerClass@VSystemTimerClass@@@@A": 10948464,
-    "_$E82": 5894144,
-    "_$S83": 10948376,
+    "_$E84": 5894144,
+    "_$S85": 10948376,
     "??0ScrollClass@@QAE@XZ": 6723040,
     "??_7MouseClass@@6BSidebarClass@@@": 7973204,
     "??_7MouseClass@@6BINoticeSink@@@": 7973196,
@@ -1415,7 +1415,7 @@
     "_$E32": 5894016,
     "_$E35": 5894032,
     "_$E38": 5894064,
-    "_$E85": 5894096,
+    "_$E87": 5894096,
     "??0MouseClass@@QAE@XZ": 5894176,
     "?Set_Default_Mouse@MouseClass@@": 5894240,
     "?Revert_Mouse_Shape@MouseClass@@": 5894272,
@@ -11761,8 +11761,8 @@
     {
       "entry": 5894096,
       "method": "0059efd0",
-      "symbol": "_$E85",
-      "symbol_prefix": "_$E85",
+      "symbol": "_$E87",
+      "symbol_prefix": "_$E87",
       "options": [
         "/O2",
         "/Ob2",
@@ -11794,7 +11794,7 @@
         {
           "offset": 11,
           "kind": 6,
-          "symbol": "_$E82",
+          "symbol": "_$E84",
           "target": 5894144,
           "addend": 0,
           "resolved": 5894144
@@ -11824,7 +11824,7 @@
           "resolved": 1980823
         }
       ],
-      "source_sha256": "ba7a872f7ca254c967810badf09c96e98ddeaaa2eb721074427c1605bb273675",
+      "source_sha256": "42474a2e680e3ffa9262059602f78a15690ece1acbe8b5093e1364dd56c5c6c6",
       "source": "src/recovered/classes/MouseClass/MouseClass_Timer_init_0059efd0.cpp",
       "population": "population-2666",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -11901,8 +11901,8 @@
     {
       "entry": 5894144,
       "method": "0059f000",
-      "symbol": "_$E82",
-      "symbol_prefix": "_$E82",
+      "symbol": "_$E84",
+      "symbol_prefix": "_$E84",
       "options": [
         "/O2",
         "/Ob2",
@@ -11918,7 +11918,7 @@
         {
           "offset": 2,
           "kind": 6,
-          "symbol": "_$S83",
+          "symbol": "_$S85",
           "target": 10948376,
           "addend": 0,
           "resolved": 10948376
@@ -11926,7 +11926,7 @@
         {
           "offset": 16,
           "kind": 6,
-          "symbol": "_$S83",
+          "symbol": "_$S85",
           "target": 10948376,
           "addend": 0,
           "resolved": 10948376

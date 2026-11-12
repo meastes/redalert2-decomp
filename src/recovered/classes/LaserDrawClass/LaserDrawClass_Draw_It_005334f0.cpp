@@ -24,8 +24,8 @@ extern Rect unknown_rect_839630;
 // @ref ?unknown_random_839218@@3VRandom2Class@@A=00839218
 // @ref ?unknown_a40b2c@@3HA=00a40b2c
 // @ref ?Draw_House_Color@LaserDrawClass@@QAEXXZ=00533c80
-// @ref _?$S47@?7??Draw_It@LaserDrawClass@@QAEXXZ@4EA=00a6e539
-// @ref _$E48=00533c70
+// @ref _?$S49@?7??Draw_It@LaserDrawClass@@QAEXXZ@4EA=00a6e539
+// @ref _$E50=00533c70
 // @ref _?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAULaserGlowOffset@@A=00a6e558
 
 // The direction from one coordinate to another (TibSun inline.h Direction(Coord const &, Coord const &);

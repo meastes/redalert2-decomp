@@ -1922,10 +1922,10 @@
     "?Buttons@TabClass@@2PAVShapeButtonClass@@A": 11262232,
     "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A": 11265024,
     "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A": 11264912,
-    "_$E78": 6947984,
-    "_$E84": 6948064,
-    "_$E89": 6948128,
-    "_$S79": 11262212,
+    "_$E80": 6947984,
+    "_$E86": 6948064,
+    "_$E91": 6948128,
+    "_$S81": 11262212,
     "?ButtonShapes@TabClass@@2PAPBXA": 11262112,
     "?ButtonShapeAllocated@TabClass@@2PA_NA": 11264812,
     "?unknown_command_names_7f67f8@@3PAPBDA": 8349688,
@@ -2031,12 +2031,12 @@
     "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z": 4845216,
     "?Draw_Me@ShapeButtonClass@@UAEHH@Z": 6771168,
     "?Unknown_00494530@UnknownTab4EEC@@QAEX_N@Z": 4801840,
-    "_?$S94@?1??Draw_It@TabClass@@UAEX_N@Z@4EA": 11264664,
+    "_?$S96@?1??Draw_It@TabClass@@UAEX_N@Z@4EA": 11264664,
     "_?last_spot@?1??Draw_It@TabClass@@UAEX_N@Z@4UUnknownTabSpot@@A": 11264840,
     "_?mouse_inside@?1??Draw_It@TabClass@@UAEX_N@Z@4_NA": 11265152,
     "_?drawn_on@?1??Draw_It@TabClass@@UAEX_N@Z@4PAPAVSurface@@A": 11264848,
     "_?drawn_count@?1??Draw_It@TabClass@@UAEX_N@Z@4HA": 11265156,
-    "_$E95": 6952704,
+    "_$E97": 6952704,
     "?Frame@@3JA": 10751276,
     "??_C@_0P@BNNL@Tip?3AttackMove?$AA@": 8349956,
     "??_C@_0O@PKIE@Tip?3ThumbOpen?$AA@": 8349808,
@@ -2066,9 +2066,9 @@
     "_$E32": 6947840,
     "_$E35": 6947888,
     "_$E38": 6947904,
-    "_$E81": 6947936,
-    "_$E86": 6948032,
-    "_$E91": 6948096,
+    "_$E83": 6947936,
+    "_$E88": 6948032,
+    "_$E93": 6948096,
     "?Unknown_006A0540@TabClass@@": 6948160,
     "?Unknown_006A0580@TabClass@@": 6948224,
     "?Unknown_006A05E0@TabClass@@": 6948320,
@@ -7353,7 +7353,6 @@
     "??_7TeamTypeClass@@6BINoticeSink@@@": 8047052,
     "??_7TeamTypeClass@@6BINoticeSource@@@": 8047044,
     "??_GTeamTypeClass@@UAEPAXI@Z": 7078528,
-    "_$E80": 6483360,
     "?Landing_Direction@AircraftClass@@UAGHXZ": 4304560,
     "?unknown_set_frame_rate_0053d820@@YIXH@Z": 5494816,
     "??_7UnitClass@@6BIPersistStream@@@": 8052216,
@@ -10484,8 +10483,8 @@
     {
       "entry": 6952704,
       "method": "006a1700",
-      "symbol": "_$E95",
-      "symbol_prefix": "_$E95",
+      "symbol": "_$E97",
+      "symbol_prefix": "_$E97",
       "options": [
         "/O2",
         "/Ob2",
@@ -10510,8 +10509,8 @@
     {
       "entry": 6947936,
       "method": "006a0460",
-      "symbol": "_$E81",
-      "symbol_prefix": "_$E81",
+      "symbol": "_$E83",
+      "symbol_prefix": "_$E83",
       "options": [
         "/O2",
         "/Ob2",
@@ -10543,7 +10542,7 @@
         {
           "offset": 26,
           "kind": 6,
-          "symbol": "_$E78",
+          "symbol": "_$E80",
           "target": 6947984,
           "addend": 0,
           "resolved": 6947984
@@ -10557,7 +10556,7 @@
           "resolved": 926983
         }
       ],
-      "source_sha256": "3223efd7179d914e9ce433544f35f0249ff7e08de465e6a060fe926f53fee95f",
+      "source_sha256": "24b3ad44122726d95c92fc4efdb9ffa2c2b4b3313589e9f74288f4adc65067aa",
       "source": "src/recovered/classes/TabClass/TabClass_static_members_init_006a0460.cpp",
       "population": "population-4406",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -10568,8 +10567,8 @@
     {
       "entry": 6947984,
       "method": "006a0490",
-      "symbol": "_$E78",
-      "symbol_prefix": "_$E78",
+      "symbol": "_$E80",
+      "symbol_prefix": "_$E80",
       "options": [
         "/O2",
         "/Ob2",
@@ -10585,7 +10584,7 @@
         {
           "offset": 2,
           "kind": 6,
-          "symbol": "_$S79",
+          "symbol": "_$S81",
           "target": 11262212,
           "addend": 0,
           "resolved": 11262212
@@ -10593,7 +10592,7 @@
         {
           "offset": 18,
           "kind": 6,
-          "symbol": "_$S79",
+          "symbol": "_$S81",
           "target": 11262212,
           "addend": 0,
           "resolved": 11262212
@@ -10626,8 +10625,8 @@
     {
       "entry": 6948032,
       "method": "006a04c0",
-      "symbol": "_$E86",
-      "symbol_prefix": "_$E86",
+      "symbol": "_$E88",
+      "symbol_prefix": "_$E88",
       "options": [
         "/O2",
         "/Ob2",
@@ -10659,7 +10658,7 @@
         {
           "offset": 11,
           "kind": 6,
-          "symbol": "_$E84",
+          "symbol": "_$E86",
           "target": 6948064,
           "addend": 0,
           "resolved": 6948064
@@ -10684,8 +10683,8 @@
     {
       "entry": 6948064,
       "method": "006a04e0",
-      "symbol": "_$E84",
-      "symbol_prefix": "_$E84",
+      "symbol": "_$E86",
+      "symbol_prefix": "_$E86",
       "options": [
         "/O2",
         "/Ob2",
@@ -10701,7 +10700,7 @@
         {
           "offset": 2,
           "kind": 6,
-          "symbol": "_$S79",
+          "symbol": "_$S81",
           "target": 11262212,
           "addend": 0,
           "resolved": 11262212
@@ -10709,7 +10708,7 @@
         {
           "offset": 16,
           "kind": 6,
-          "symbol": "_$S79",
+          "symbol": "_$S81",
           "target": 11262212,
           "addend": 0,
           "resolved": 11262212
@@ -10742,8 +10741,8 @@
     {
       "entry": 6948096,
       "method": "006a0500",
-      "symbol": "_$E91",
-      "symbol_prefix": "_$E91",
+      "symbol": "_$E93",
+      "symbol_prefix": "_$E93",
       "options": [
         "/O2",
         "/Ob2",
@@ -10775,7 +10774,7 @@
         {
           "offset": 11,
           "kind": 6,
-          "symbol": "_$E89",
+          "symbol": "_$E91",
           "target": 6948128,
           "addend": 0,
           "resolved": 6948128
@@ -10800,8 +10799,8 @@
     {
       "entry": 6948128,
       "method": "006a0520",
-      "symbol": "_$E89",
-      "symbol_prefix": "_$E89",
+      "symbol": "_$E91",
+      "symbol_prefix": "_$E91",
       "options": [
         "/O2",
         "/Ob2",
@@ -10817,7 +10816,7 @@
         {
           "offset": 2,
           "kind": 6,
-          "symbol": "_$S79",
+          "symbol": "_$S81",
           "target": 11262212,
           "addend": 0,
           "resolved": 11262212
@@ -10825,7 +10824,7 @@
         {
           "offset": 16,
           "kind": 6,
-          "symbol": "_$S79",
+          "symbol": "_$S81",
           "target": 11262212,
           "addend": 0,
           "resolved": 11262212
@@ -14030,7 +14029,7 @@
         {
           "offset": 4,
           "kind": 6,
-          "symbol": "_?$S94@?1??Draw_It@TabClass@@UAEX_N@Z@4EA",
+          "symbol": "_?$S96@?1??Draw_It@TabClass@@UAEX_N@Z@4EA",
           "target": 11264664,
           "addend": 0,
           "resolved": 11264664
@@ -14038,7 +14037,7 @@
         {
           "offset": 30,
           "kind": 6,
-          "symbol": "_$E95",
+          "symbol": "_$E97",
           "target": 6952704,
           "addend": 0,
           "resolved": 6952704
@@ -14046,7 +14045,7 @@
         {
           "offset": 36,
           "kind": 6,
-          "symbol": "_?$S94@?1??Draw_It@TabClass@@UAEX_N@Z@4EA",
+          "symbol": "_?$S96@?1??Draw_It@TabClass@@UAEX_N@Z@4EA",
           "target": 11264664,
           "addend": 0,
           "resolved": 11264664
@@ -14548,7 +14547,7 @@
           "resolved": 4294817945
         }
       ],
-      "source_sha256": "096a317f6566a3baf8774ec3141b9301c59df70b3c5f8d569b82e58322496ec9",
+      "source_sha256": "a9c47e734c85191fc3824c7675d7cd1f3178ceeed2fd708cbaeed9cb283f67b7",
       "source": "src/recovered/classes/TabClass/TabClass_Draw_It_006a12d0.cpp",
       "population": "population-4406",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",

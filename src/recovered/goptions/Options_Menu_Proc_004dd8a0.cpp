@@ -52,7 +52,7 @@
 // @ref ??_C@_0CB@KDKL@LATENCYFUDGE?5event?5created?5?9?5?$CFd?6@=007d9c70
 // @ref ??_C@_0CL@OFHF@Ignoring?5latency?5change?5to?5avoid@=007d9c44
 // @ref ??_C@_0CJ@JEPF@Ignoring?5speed?5change?5to?5avoid?5c@=007d9c18
-// @ref _?$S41@?1??Options_Menu_Command@@YIXPAUHWND__@@H0I@Z@4EA=00a40de4
+// @ref _?$S43@?1??Options_Menu_Command@@YIXPAUHWND__@@H0I@Z@4EA=00a40de4
 // @ref _?speed_timer@?1??Options_Menu_Command@@YIXPAUHWND__@@H0I@Z@4V?$CDTimerClass@VSystemTimerClass@@@@A=00a40dd8
 // @ref _?latency_timer@?1??Options_Menu_Command@@YIXPAUHWND__@@H0I@Z@4V?$CDTimerClass@VSystemTimerClass@@@@A=00a40de8
 

@@ -14,7 +14,7 @@
 // @ref ?Set_Under_Bridge@CellClass@@QAEXI_N@Z=004732d0
 // @ref ?Set_Under_Rail_Bridge@CellClass@@QAEXI_N@Z=00473700
 
-// @ref _?$S41@?EA@??Mark@OverlayClass@@UAE_NH@Z@4EA=00a73120
+// @ref _?$S43@?EA@??Mark@OverlayClass@@UAE_NH@Z@4EA=00a73120
 // @ref _?_type_to_offset@?EA@??Mark@OverlayClass@@UAE_NH@Z@4PAVCell@@A=00a730a8
 // @ref _?_offset_fixup@?EA@??Mark@OverlayClass@@UAE_NH@Z@4PAY02VCell@@A=00a730e0
 // @ref _?_type_to_direction@?EA@??Mark@OverlayClass@@UAE_NH@Z@4PAHA=007e8a90

@@ -13,7 +13,7 @@
 ShapeButtonClass TabClass::Buttons[25];
 ShapeButtonClass TabClass::unknown_button_abe400;
 ShapeButtonClass TabClass::unknown_button_abe390;
-// @ref _$E78=006a0490
-// @ref _$E84=006a04e0
-// @ref _$E89=006a0520
-// @ref _$S79=00abd904
+// @ref _$E80=006a0490
+// @ref _$E86=006a04e0
+// @ref _$E91=006a0520
+// @ref _$S81=00abd904

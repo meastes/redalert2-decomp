@@ -3535,12 +3535,12 @@
     "?unknown_tactical_83996c@@3PAVTactical@@A": 8624492,
     "?unknown_random_839218@@3VRandom2Class@@A": 8622616,
     "?unknown_a40b2c@@3HA": 10750764,
-    "_?$S47@?7??Draw_It@LaserDrawClass@@QAEXXZ@4EA": 10937657,
-    "_$E48": 5454960,
+    "_?$S49@?7??Draw_It@LaserDrawClass@@QAEXXZ@4EA": 10937657,
+    "_$E50": 5454960,
     "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAULaserGlowOffset@@A": 10937688,
     "_?house_offsets@?1??Draw_House_Color@LaserDrawClass@@QAEXXZ@4PAULaserGlowOffset@@A": 10937880,
-    "_?$S49@?1??Draw_House_Color@LaserDrawClass@@QAEXXZ@4EA": 10937848,
-    "_$E50": 5456704,
+    "_?$S51@?1??Draw_House_Color@LaserDrawClass@@QAEXXZ@4EA": 10937848,
+    "_$E52": 5456704,
     "_$E2": 5451392,
     "_$E5": 5451440,
     "_$E8": 5451472,
@@ -8016,8 +8016,8 @@
     {
       "entry": 5454960,
       "method": "00533c70",
-      "symbol": "_$E48",
-      "symbol_prefix": "_$E48",
+      "symbol": "_$E50",
+      "symbol_prefix": "_$E50",
       "options": [
         "/O2",
         "/Ob2",
@@ -8736,7 +8736,7 @@
         {
           "offset": 41,
           "kind": 6,
-          "symbol": "_?$S47@?7??Draw_It@LaserDrawClass@@QAEXXZ@4EA",
+          "symbol": "_?$S49@?7??Draw_It@LaserDrawClass@@QAEXXZ@4EA",
           "target": 10937657,
           "addend": 0,
           "resolved": 10937657
@@ -8968,7 +8968,7 @@
         {
           "offset": 293,
           "kind": 6,
-          "symbol": "_$E48",
+          "symbol": "_$E50",
           "target": 5454960,
           "addend": 0,
           "resolved": 5454960
@@ -8976,7 +8976,7 @@
         {
           "offset": 299,
           "kind": 6,
-          "symbol": "_?$S47@?7??Draw_It@LaserDrawClass@@QAEXXZ@4EA",
+          "symbol": "_?$S49@?7??Draw_It@LaserDrawClass@@QAEXXZ@4EA",
           "target": 10937657,
           "addend": 0,
           "resolved": 10937657
@@ -9614,7 +9614,7 @@
           "resolved": 8623664
         }
       ],
-      "source_sha256": "93b4b9ff15c6c4c1208cf02cb2da84cc2403c33927131ea4ae4a0fe51854d506",
+      "source_sha256": "b6ea30cad6f8e187ac73f37c3395e9bf7814a31fccd6ad3aed30da8a66d70116",
       "source": "src/recovered/classes/LaserDrawClass/LaserDrawClass_Draw_It_005334f0.cpp",
       "population": "population-4300",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -9643,7 +9643,7 @@
         {
           "offset": 4,
           "kind": 6,
-          "symbol": "_?$S49@?1??Draw_House_Color@LaserDrawClass@@QAEXXZ@4EA",
+          "symbol": "_?$S51@?1??Draw_House_Color@LaserDrawClass@@QAEXXZ@4EA",
           "target": 10937848,
           "addend": 0,
           "resolved": 10937848
@@ -9883,7 +9883,7 @@
         {
           "offset": 273,
           "kind": 6,
-          "symbol": "_$E50",
+          "symbol": "_$E52",
           "target": 5456704,
           "addend": 0,
           "resolved": 5456704
@@ -9891,7 +9891,7 @@
         {
           "offset": 279,
           "kind": 6,
-          "symbol": "_?$S49@?1??Draw_House_Color@LaserDrawClass@@QAEXXZ@4EA",
+          "symbol": "_?$S51@?1??Draw_House_Color@LaserDrawClass@@QAEXXZ@4EA",
           "target": 10937848,
           "addend": 0,
           "resolved": 10937848
@@ -10321,7 +10321,7 @@
           "resolved": 8623664
         }
       ],
-      "source_sha256": "f9f09802016dee20c9feb80d31aa1bbd367bd13145267110b13cd21cc683c589",
+      "source_sha256": "9f053788a458a44ed79054cc22af93b576162c7a9cd4b4274834a6e9684513a2",
       "source": "src/recovered/classes/LaserDrawClass/LaserDrawClass_Draw_House_Color_00533c80.cpp",
       "population": "population-4300",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",

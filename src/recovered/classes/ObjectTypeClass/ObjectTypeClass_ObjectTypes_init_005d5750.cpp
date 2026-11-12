@@ -6,7 +6,7 @@
 // @ref ?ObjectTypes@ObjectTypeClass@@2V?$DynamicVectorClass@PAVObjectTypeClass@@@@A=00a72f90
 
 DynamicVectorClass<ObjectTypeClass *> ObjectTypeClass::ObjectTypes;
-// @ref _$E42=005d5790
-// @ref _$S43=00a72fd9
+// @ref _$E44=005d5790
+// @ref _$S45=00a72fd9
 // @ref ??_7?$VectorClass@PAVObjectTypeClass@@@@6B@=007a76ac
 // @ref ??_7?$DynamicVectorClass@PAVObjectTypeClass@@@@6B@=007a768c

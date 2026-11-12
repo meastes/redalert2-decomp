@@ -39,8 +39,8 @@ DynamicVectorClass<VeinholeMonsterClass *> VeinholeMonsterClass::VeinholeMonster
 // @ref ?unknown_math_4ba520@@YANN@Z=004ba520
 // @ref ?unknown_math_4ba5b0@@YANN@Z=004ba5b0
 // @ref ?unknown_sqrt_4ba410@@YANN@Z=004ba410
-// @ref _$E42=0070f7c0
-// @ref _$S43=00ad0708
+// @ref _$E44=0070f7c0
+// @ref _$S45=00ad0708
 // @ref __CIpow=007821b0
 // @ref __ftol=0077f110
 // @ref __real@8@3ff78000000000000000=0079a730

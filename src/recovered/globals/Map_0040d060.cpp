@@ -36,6 +36,6 @@
 // @ref ?Resize@?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@UAE_NHPBU?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@Z=00634ca0
 // @ref ?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z=0040b0b0
 // @ref ?unknown_slot40@MouseClass@@UAEHXZ=0040d150
-// @ref _$E82=0040d080
+// @ref _$E84=0040d080
 
 MouseClass Map;

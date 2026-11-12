@@ -2,8 +2,8 @@
 // The occupation list: the origin cell, then the 0x7FFF end marker (a
 // function-local static registered with atexit on first use).
 #include "shared/overlay_type.hpp"
-// @ref _?$S40@?1??Occupy_List@OverlayTypeClass@@UBEPBVCell@@H@Z@4EA=00a73188
-// @ref _$E41=005dc860
+// @ref _?$S42@?1??Occupy_List@OverlayTypeClass@@UBEPBVCell@@H@Z@4EA=00a73188
+// @ref _$E43=005dc860
 // @ref _?unknown_list@?1??Occupy_List@OverlayTypeClass@@UBEPBVCell@@H@Z@4QBUUnknownStaticCell@@B=00a7318c
 // @ref _atexit=0078298a
 

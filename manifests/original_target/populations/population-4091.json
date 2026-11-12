@@ -1956,7 +1956,7 @@
     "?Draw_Cursor@ScoreClass@@QAEXHH@Z": 6714016,
     "??_C@_04JDGB@Back?$AA@": 8333444,
     "??_C@_04FCOP@Type?$AA@": 8232684,
-    "_?$S62@?1??Draw_Cursor@ScoreClass@@QAEXHH@Z@4EA": 11235096,
+    "_?$S64@?1??Draw_Cursor@ScoreClass@@QAEXHH@Z@4EA": 11235096,
     "_?timer@?1??Draw_Cursor@ScoreClass@@QAEXHH@Z@4V?$CDTimerClass@VSystemTimerClass@@@@A": 11235152,
     "_?blink@?1??Draw_Cursor@ScoreClass@@QAEXHH@Z@4HA": 11235208,
     "_?lastx@?1??Draw_Cursor@ScoreClass@@QAEXHH@Z@4HA": 11235232,
@@ -2002,7 +2002,7 @@
     "?Count_Up_Print@ScoreClass@@": 6712784,
     "?Input_Name@ScoreClass@@": 6712944,
     "?Draw_Cursor@ScoreClass@@": 6714016,
-    "_$E63": 6714384,
+    "_$E65": 6714384,
     "?ScoreDelay@ScoreClass@@": 6714400,
     "?Update_Anims@ScoreClass@@": 6714912,
     "?Blit_Score@ScoreClass@@": 6715072,
@@ -12646,8 +12646,8 @@
     {
       "entry": 6714384,
       "method": "00667410",
-      "symbol": "_$E63",
-      "symbol_prefix": "_$E63",
+      "symbol": "_$E65",
+      "symbol_prefix": "_$E65",
       "options": [
         "/O2",
         "/Ob2",
@@ -14661,7 +14661,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "_?$S62@?1??Draw_Cursor@ScoreClass@@QAEXHH@Z@4EA",
+          "symbol": "_?$S64@?1??Draw_Cursor@ScoreClass@@QAEXHH@Z@4EA",
           "target": 11235096,
           "addend": 0,
           "resolved": 11235096
@@ -14677,7 +14677,7 @@
         {
           "offset": 29,
           "kind": 6,
-          "symbol": "_?$S62@?1??Draw_Cursor@ScoreClass@@QAEXHH@Z@4EA",
+          "symbol": "_?$S64@?1??Draw_Cursor@ScoreClass@@QAEXHH@Z@4EA",
           "target": 11235096,
           "addend": 0,
           "resolved": 11235096
@@ -14693,7 +14693,7 @@
         {
           "offset": 39,
           "kind": 6,
-          "symbol": "_$E63",
+          "symbol": "_$E65",
           "target": 6714384,
           "addend": 0,
           "resolved": 6714384
@@ -14867,7 +14867,7 @@
           "resolved": 11235160
         }
       ],
-      "source_sha256": "4ef08cb3689a261689efd3dbcf158eddf7789191693ad18a28216720bcad7781",
+      "source_sha256": "132d405ba286322598a64cac3871655db01067c7f13ba7ef7c2addb7259496f9",
       "source": "src/recovered/classes/ScoreClass/ScoreClass_Draw_Cursor_006672a0.cpp",
       "population": "population-4091",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",

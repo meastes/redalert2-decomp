@@ -7,5 +7,5 @@
 // @ref ?Timer@MouseClass@@2V?$CDTimerClass@VSystemTimerClass@@@@A=00a70f70
 
 CDTimerClass<SystemTimerClass> MouseClass::Timer;
-// @ref _$E82=0059f000
-// @ref _$S83=00a70f18
+// @ref _$E84=0059f000
+// @ref _$S85=00a70f18

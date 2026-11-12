@@ -50,6 +50,15 @@ checks). With --header-users, units that include a changed header are also
 recompiled and must verify with their manifest rows unchanged. A header-only
 spec (no affected population) implies --header-users.
 
+Compiler-numbered names (`_$E<n>` initializers and atexit destructors, `$S<n>`
+static-local guard flags) follow a unit's declaration count, so a header change
+renumbers them without changing a byte: after compiling, each unit's names are
+re-bound by content and position (initializer_rebind.py; the map is kept as
+rebound-initializers.json) in the rows, reference tables, receipts and
+`// @ref` comments, before the strict audit compares every byte as usual. A
+header user may change only by that re-binding and its `$T<n>` scope-table
+spelling (folded as verify_manifest.receipt_key folds it).
+
 Any miss, unbound reference or old name left anywhere refuses: every written
 file is restored and the catalog is untouched. On success the catalog is
 written once. Run ./build.command afterwards; it remains the final gate.
@@ -283,6 +292,42 @@ def bind_changed(catalog, populations, files, config):
                     table.setdefault(name, value)
 
 
+def rebind_source_refs(catalog, rebound, files):
+    """{path: new bytes} for accepted sources of re-bound populations whose
+    `// @ref _$E<n>=` comments name a re-bound initializer; each row's
+    source_sha256 follows."""
+    import initializer_rebind
+    changed = {}
+    for row in catalog['regions']:
+        mapping = rebound.get(row['population'])
+        if not mapping:
+            continue
+        path = row['source']
+        if path not in changed:
+            current = files[path] if path in files else (REPOSITORY / path).read_bytes()
+            text = initializer_rebind.rebind_source_refs(current.decode('latin-1'), mapping).encode('latin-1')
+            changed[path] = text if text != current else None
+        if changed[path] is not None:
+            row['source_sha256'] = sha(changed[path])
+    return {p: d for p, d in changed.items() if d is not None}
+
+
+def header_user_drifted(text, mapping, after, refs):
+    """True when a header user's row changed beyond what a header change may
+    renumber: its initializers re-bound (`mapping`, with the `// @ref` comment
+    hash that follows them) and its `$T<n>` scope-table spelling (folded as
+    verify_manifest.receipt_key folds it; the table is bound by `$T`)."""
+    from verify_manifest import receipt_key
+    row = json.loads(text)
+    if mapping:
+        import initializer_rebind
+        initializer_rebind.rebind_rows([row], mapping)
+    if row['source'] in refs:
+        row['source_sha256'] = after['source_sha256']
+    key = lambda r: json.dumps(dict(r, relocations=receipt_key(r.get('relocations') or [])), sort_keys=True)
+    return key(row) != key(after)
+
+
 def use_header_users(requested, headers, populations):
     """A batch that changes headers but no accepted source, name or binding (a
     header-only spec) has no affected population, so the header users are its
@@ -319,9 +364,34 @@ def restore(backup, written, removed):
         (REPOSITORY / path).write_bytes((backup / path).read_bytes())
 
 
-def verify(catalog, populations, config, output, phase):
+def rebind_initializers(catalog, compiled, load, original):
+    """Re-bind the compiler-numbered `_$E<n>` initializers of each compiled unit
+    by content and position (initializer_rebind.py): a header change that
+    renumbers them changes no byte. Returns {population: {old: new}} for the
+    populations whose names moved; a population whose units disagree keeps
+    its names (and refuses as before). `load` parses a compiled object."""
+    import initializer_rebind
+    by_population = {}
+    for group, obj in compiled:
+        pid = group[0]['population']
+        table = group[0].get('references') or {}
+        if initializer_rebind.uses_initializers(group, table):
+            by_population.setdefault(pid, []).append(
+                initializer_rebind.group_mapping(load(obj), group, table, original))
+    rebound = {}
+    for pid, mappings in sorted(by_population.items()):
+        mapping = initializer_rebind.merge_population_mappings(mappings)
+        if mapping:
+            initializer_rebind.rebind_rows([r for r in catalog['regions'] if r['population'] == pid], mapping)
+            rebound[pid] = mapping
+    return rebound
+
+
+def verify(catalog, populations, config, output, phase, rebound_out=None):
     """Compile `populations` as whole canonical units and run the strict audit;
-    record each region's fresh symbol and relocation receipt first."""
+    re-bind renumbered `_$E<n>` initializers (rebind_initializers), then record
+    each region's fresh symbol and relocation receipt."""
+    rebound_out = {} if rebound_out is None else rebound_out
     from build import compile_sources
     from compile_candidates import compare_candidate
     from coff import Coff
@@ -331,6 +401,7 @@ def verify(catalog, populations, config, output, phase):
     phase('compile')
     audit = CanonicalAudit(REPOSITORY, catalog, config)
     phase('audit setup')
+    rebound_out.update(rebind_initializers(catalog, compiled, lambda obj: Coff(obj.read_bytes()), audit.original))
     misses = []
     for group, obj in compiled:
         coff = Coff(obj.read_bytes())
@@ -423,7 +494,10 @@ def main():
             raise SystemExit('refused: old names left after the rename (tree restored): %s' % left[:10])
         phase('write and bind')
         before = {r['entry']: json.dumps(r, sort_keys=True) for r in catalog['regions'] if r['population'] in users}
-        misses, manifest = verify(catalog, populations | users, config, output, phase)
+        rebound = {}
+        misses, manifest = verify(catalog, populations | users, config, output, phase, rebound)
+        if rebound:
+            (output / 'rebound-initializers.json').write_text(json.dumps(rebound, indent=1, sort_keys=True) + '\n')
         if misses:
             (output / 'misses.json').write_text(json.dumps(misses, indent=1) + '\n')
             raise SystemExit('refused, %d regions no longer match (tree restored):\n%s' %
@@ -434,8 +508,16 @@ def main():
             validate_modules(REPOSITORY, catalog)
         except ValueError as error:
             raise SystemExit('refused (tree restored): %s' % error)
-        drifted = [r['source'] for r in catalog['regions']
-                   if r['entry'] in before and json.dumps(r, sort_keys=True) != before[r['entry']]]
+        # Re-bound initializer names: `// @ref _$E<n>=` comments follow the catalog
+        # (comment text only; the compiled bytes are unchanged).
+        refs = rebind_source_refs(catalog, rebound, files)
+        if refs:
+            written += write_files({p: d for p, d in refs.items() if p not in files}, [], backup)
+            for path in set(refs) & set(files):     # already written (and backed up) by the batch
+                (REPOSITORY / path).write_bytes(refs[path])
+            files.update(refs)
+        drifted = [r['source'] for r in catalog['regions'] if r['entry'] in before and
+                   header_user_drifted(before[r['entry']], rebound.get(r['population']), r, refs)]
         if drifted:
             raise SystemExit('refused: header users outside the batch changed: %s' % drifted[:5])
         # Provenance as accept_sources.py records it: the frozen population and

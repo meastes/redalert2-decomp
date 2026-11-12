@@ -1535,8 +1535,8 @@
     "??1TechnoTypeClass@@UAE@XZ": 7186768,
     "?Closest_Free_Spot@UnknownPlacementCellView@@QBE?AUCoordStruct@@ABU2@_N1@Z": 4678832,
     "?unknown_invalid_coord_a41170@@3UCoordStruct@@B": 10752368,
-    "_?$S40@?1??Occupy_List@InfantryTypeClass@@UBEPBVCell@@H@Z@4EA": 10752416,
-    "_$E41": 5283936,
+    "_?$S42@?1??Occupy_List@InfantryTypeClass@@UBEPBVCell@@H@Z@4EA": 10752416,
+    "_$E43": 5283936,
     "_?unknown_list@?1??Occupy_List@InfantryTypeClass@@UBEPBVCell@@H@Z@4QBUUnknownStaticCell@@B": 10752380,
     "??_C@_06CPHF@?$DMnone?$DO?$AA@": 8183500,
     "??_C@_04KIKH@none?$AA@": 8184044,
@@ -10209,8 +10209,8 @@
     {
       "entry": 5283936,
       "method": "0050a060",
-      "symbol": "_$E41",
-      "symbol_prefix": "_$E41",
+      "symbol": "_$E43",
+      "symbol_prefix": "_$E43",
       "options": [
         "/O2",
         "/Ob2",
@@ -10557,7 +10557,7 @@
         {
           "offset": 3,
           "kind": 6,
-          "symbol": "_?$S40@?1??Occupy_List@InfantryTypeClass@@UBEPBVCell@@H@Z@4EA",
+          "symbol": "_?$S42@?1??Occupy_List@InfantryTypeClass@@UBEPBVCell@@H@Z@4EA",
           "target": 10752416,
           "addend": 0,
           "resolved": 10752416
@@ -10565,7 +10565,7 @@
         {
           "offset": 16,
           "kind": 6,
-          "symbol": "_$E41",
+          "symbol": "_$E43",
           "target": 5283936,
           "addend": 0,
           "resolved": 5283936
@@ -10573,7 +10573,7 @@
         {
           "offset": 40,
           "kind": 6,
-          "symbol": "_?$S40@?1??Occupy_List@InfantryTypeClass@@UBEPBVCell@@H@Z@4EA",
+          "symbol": "_?$S42@?1??Occupy_List@InfantryTypeClass@@UBEPBVCell@@H@Z@4EA",
           "target": 10752416,
           "addend": 0,
           "resolved": 10752416
@@ -10611,7 +10611,7 @@
           "resolved": 10752380
         }
       ],
-      "source_sha256": "85e6d26487ef3493935797871ca7a8cbc2cc01ee17f0ddbaae160926ec178be1",
+      "source_sha256": "28c59a37f3dcce0796363ea92fa50c4dc75ddf9264ed36652e2f9902f6a6e9e1",
       "source": "src/recovered/classes/InfantryTypeClass/InfantryTypeClass_Occupy_List_0050a000.cpp",
       "population": "population-3263",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",

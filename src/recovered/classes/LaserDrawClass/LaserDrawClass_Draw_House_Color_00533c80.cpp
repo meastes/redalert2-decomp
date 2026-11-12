@@ -1,6 +1,6 @@
 // @ref _?house_offsets@?1??Draw_House_Color@LaserDrawClass@@QAEXXZ@4PAULaserGlowOffset@@A=00a6e618
-// @ref _?$S49@?1??Draw_House_Color@LaserDrawClass@@QAEXXZ@4EA=00a6e5f8
-// @ref _$E50=00534340
+// @ref _?$S51@?1??Draw_House_Color@LaserDrawClass@@QAEXXZ@4EA=00a6e5f8
+// @ref _$E52=00534340
 // LaserDrawClass::Draw_House_Color (00533C80), reconstructed from the exact base RA2 body.
 // The LaserGlowOffset element type and Direction helper belong to this unit's
 // existing Draw_It source. Its nontrivial empty destructor explains the original

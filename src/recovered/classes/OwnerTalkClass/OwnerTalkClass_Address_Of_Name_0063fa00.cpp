@@ -22,5 +22,5 @@ IPXAddressClass *OwnerTalkClass::Unknown_0063FA00(char *name)
 // @ref ?Set_Port@IPXAddressClass@@QAEXG@Z=00523960
 // @ref _?address@?1??Unknown_0063FA00@OwnerTalkClass@@QAEPAVIPXAddressClass@@PAD@Z@4V3@A=00ab6d08
 // @ref __stricmp=00781f20
-// @ref _$E68=0063fae0
-// @ref _?$S67@?1??Unknown_0063FA00@OwnerTalkClass@@QAEPAVIPXAddressClass@@PAD@Z@4EA=00ab6cf0
+// @ref _$E70=0063fae0
+// @ref _?$S69@?1??Unknown_0063FA00@OwnerTalkClass@@QAEPAVIPXAddressClass@@PAD@Z@4EA=00ab6cf0

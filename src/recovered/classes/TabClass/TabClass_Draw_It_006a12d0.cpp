@@ -22,12 +22,12 @@
 // @ref ?Draw_It@SidebarClass@@UAEX_N@Z=0067cf80
 // @ref ?Draw_Me@ShapeButtonClass@@UAEHH@Z=006751e0
 // @ref ?Unknown_00494530@UnknownTab4EEC@@QAEX_N@Z=00494530
-// @ref _?$S94@?1??Draw_It@TabClass@@UAEX_N@Z@4EA=00abe298
+// @ref _?$S96@?1??Draw_It@TabClass@@UAEX_N@Z@4EA=00abe298
 // @ref _?last_spot@?1??Draw_It@TabClass@@UAEX_N@Z@4UUnknownTabSpot@@A=00abe348
 // @ref _?mouse_inside@?1??Draw_It@TabClass@@UAEX_N@Z@4_NA=00abe480
 // @ref _?drawn_on@?1??Draw_It@TabClass@@UAEX_N@Z@4PAPAVSurface@@A=00abe350
 // @ref _?drawn_count@?1??Draw_It@TabClass@@UAEX_N@Z@4HA=00abe484
-// @ref _$E95=006a1700
+// @ref _$E97=006a1700
 
 void TabClass::Draw_It(bool complete)
 {

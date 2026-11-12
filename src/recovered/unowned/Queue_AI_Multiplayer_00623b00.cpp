@@ -308,7 +308,7 @@ static void __fastcall Queue_AI_Multiplayer()
 // @ref ?unknown_null_modem_a40a28@@3VNullModemClass@@A=00a40a28
 // @ref ?unknown_queue_timeouts_7ec438@@3PAUQueueTimeouts@@A=007ec438
 // @ref ?unknown_sync_counts_a76b74@@3PAY07HA=00a76b74
-// @ref _$E79=00624840
-// @ref _?$S78@?3??Queue_AI_Multiplayer@@YIXXZ@4EA=00a780d0
+// @ref _$E81=00624840
+// @ref _?$S80@?3??Queue_AI_Multiplayer@@YIXXZ@4EA=00a780d0
 // @ref _?skip_crc@?3??Queue_AI_Multiplayer@@YIXXZ@4V?$CDTimerClass@VFrameTimerClass@@@@A=00aabeb8
 

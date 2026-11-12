@@ -26,7 +26,6 @@
    ]
   ],
   "header_gaps": [
-   "Random2Class is declared in src/shared/random2.hpp, not random.hpp: merging it flips 153 regions (units that include only random2.hpp see random.hpp's anonymous enums and renumber their _$E initializers)",
    "Pick_Random_Number precedes the classes: the template's position after them changes SidebarClass::Reposition_Sidebar (2 bytes) and the owner-draw trackbar procedure (8 bytes)",
    "RandomClass's constructor is inline outside the module (RA2_RANDOM_UNIT): the out-of-line declaration alone changes Print_CRCs (4 bytes)",
    "Random2Class's TABLE_SIZE is spelled 250: adding it beside Random3Class's changes the owner-draw trackbar procedure 0x5FB270 (8 bytes; an unflagged row with no twin form). Random3Class's TABLE_SIZE is adopted (Reposition_Sidebar re-rolled under DECISIONS row 24 (b))"
@@ -266,7 +265,7 @@
    ]
   ],
   "header_gaps": [
-   "Get_Color_Scheme and CurrentColorScheme are the free Gadget_Color_Scheme and the global Gadget_Scheme_Name (template: static members of GadgetClass): the static member function changes WinMain (826 bytes); the static data member changes 145 regions in 20 populations that include gadget.hpp (their _$E initializer numbers shift, Destroy_Map_Paths and WinMain change)",
+   "Get_Color_Scheme and CurrentColorScheme are the free Gadget_Color_Scheme and the global Gadget_Scheme_Name (template: static members of GadgetClass): the static member function changes WinMain (826 bytes); the static data member changes Print_CRCs 0x62A360 (8 bytes) and WinMain 0x68E280 (826 bytes) (the other units it renumbers re-bind their _$E/$S names; Scout1299)",
    "Key codes are unsigned, not KeyNumType (Input returns int; Action and Clicked_On take unsigned &): the keyboard module is not converted",
    "The flag enumerators LEFTUP, RIGHTPRESS, RIGHTHELD, RIGHTRELEASE and RIGHTUP are not declared (Input and Sticky_Process spell 0x08-0x80): adding them to the enum changes Generate_Rural_Buildings 0x589AC0 (tried 2026-11-11)",
    "The screen size tables keep the stand-in names unknown_screen_widths_7add68/unknown_screen_heights_7add74 (template ScreenWidths, ScreenHeights; owned by another unit)",

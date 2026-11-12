@@ -7,5 +7,5 @@
 // @ref ?Counter@ScrollClass@@2V?$CDTimerClass@VSystemTimerClass@@@@A=00ab7048
 
 CDTimerClass<SystemTimerClass> ScrollClass::Counter;
-// @ref _$E79=006695c0
-// @ref _$S80=00ab7038
+// @ref _$E81=006695c0
+// @ref _$S82=00ab7038

@@ -1746,8 +1746,8 @@
     "?unknown_caption_7d64f4@@3QBGB": 8217844,
     "?unknown_null_modem_a40a28@@3VNullModemClass@@A": 10750504,
     "?unknown_queue_timeouts_7ec438@@3PAUQueueTimeouts@@A": 8307768,
-    "_$E79": 6441024,
-    "_?$S78@?3??Queue_AI_Multiplayer@@YIXXZ@4EA": 10977488,
+    "_$E81": 6441024,
+    "_?$S80@?3??Queue_AI_Multiplayer@@YIXXZ@4EA": 10977488,
     "_?skip_crc@?3??Queue_AI_Multiplayer@@YIXXZ@4V?$CDTimerClass@VFrameTimerClass@@@@A": 11189944,
     "??_C@_0BB@FKCM@Dolist?5is?5full?$CB?6?$AA@": 8308288,
     "??_C@_0BE@ILKF@Entering?5wait?5loop?6?$AA@": 8308404,
@@ -2080,14 +2080,14 @@
     "_$E35": 6435168,
     "_$E38": 6435200,
     "??0UnknownFrameTiming@@QAE@XZ": 6435344,
-    "_$E63": 6435376,
+    "_$E65": 6435376,
     "?Unknown_00623260@@YIXXZ": 6435424,
     "?Unknown_00623280@@YIXXZ": 6435456,
-    "_$E68": 6435488,
-    "_$E66": 6435520,
-    "_$E71": 6435536,
-    "_$E76": 6435616,
-    "_$E74": 6435696,
+    "_$E70": 6435488,
+    "_$E68": 6435520,
+    "_$E73": 6435536,
+    "_$E78": 6435616,
+    "_$E76": 6435696,
     "?Queue_Mission@@YI_NVTargetClass@@HABV1@1@Z": 6435744,
     "?Queue_Mission@@YI_NVTargetClass@@HABV1@1HH@Z": 6435968,
     "?Queue_Options@@YI_NXZ": 6436176,
@@ -16584,8 +16584,8 @@
     {
       "entry": 6435520,
       "method": "006232c0",
-      "symbol": "_$E66",
-      "symbol_prefix": "_$E66",
+      "symbol": "_$E68",
+      "symbol_prefix": "_$E68",
       "options": [
         "/O2",
         "/Ob2",
@@ -16610,8 +16610,8 @@
     {
       "entry": 6441024,
       "method": "00624840",
-      "symbol": "_$E79",
-      "symbol_prefix": "_$E79",
+      "symbol": "_$E81",
+      "symbol_prefix": "_$E81",
       "options": [
         "/O2",
         "/Ob2",
@@ -16635,8 +16635,8 @@
     {
       "entry": 6435488,
       "method": "006232a0",
-      "symbol": "_$E68",
-      "symbol_prefix": "_$E68",
+      "symbol": "_$E70",
+      "symbol_prefix": "_$E70",
       "options": [
         "/O2",
         "/Ob2",
@@ -16668,7 +16668,7 @@
         {
           "offset": 11,
           "kind": 6,
-          "symbol": "_$E66",
+          "symbol": "_$E68",
           "target": 6435520,
           "addend": 0,
           "resolved": 6435520
@@ -23917,8 +23917,8 @@
     {
       "entry": 6435376,
       "method": "00623230",
-      "symbol": "_$E63",
-      "symbol_prefix": "_$E63",
+      "symbol": "_$E65",
+      "symbol_prefix": "_$E65",
       "options": [
         "/O2",
         "/Ob2",
@@ -23952,8 +23952,8 @@
     {
       "entry": 6435536,
       "method": "006232d0",
-      "symbol": "_$E71",
-      "symbol_prefix": "_$E71",
+      "symbol": "_$E73",
+      "symbol_prefix": "_$E73",
       "options": [
         "/O2",
         "/Ob2",
@@ -23987,8 +23987,8 @@
     {
       "entry": 6435616,
       "method": "00623320",
-      "symbol": "_$E76",
-      "symbol_prefix": "_$E76",
+      "symbol": "_$E78",
+      "symbol_prefix": "_$E78",
       "options": [
         "/O2",
         "/Ob2",
@@ -24012,7 +24012,7 @@
         {
           "offset": 63,
           "kind": 6,
-          "symbol": "_$E74",
+          "symbol": "_$E76",
           "target": 6435696,
           "addend": 0,
           "resolved": 6435696
@@ -24038,8 +24038,8 @@
     {
       "entry": 6435696,
       "method": "00623370",
-      "symbol": "_$E74",
-      "symbol_prefix": "_$E74",
+      "symbol": "_$E76",
+      "symbol_prefix": "_$E76",
       "options": [
         "/O2",
         "/Ob2",
@@ -33027,7 +33027,7 @@
         {
           "offset": 26,
           "kind": 6,
-          "symbol": "_?$S78@?3??Queue_AI_Multiplayer@@YIXXZ@4EA",
+          "symbol": "_?$S80@?3??Queue_AI_Multiplayer@@YIXXZ@4EA",
           "target": 10977488,
           "addend": 0,
           "resolved": 10977488
@@ -33043,7 +33043,7 @@
         {
           "offset": 48,
           "kind": 6,
-          "symbol": "_$E79",
+          "symbol": "_$E81",
           "target": 6441024,
           "addend": 0,
           "resolved": 6441024
@@ -33051,7 +33051,7 @@
         {
           "offset": 54,
           "kind": 6,
-          "symbol": "_?$S78@?3??Queue_AI_Multiplayer@@YIXXZ@4EA",
+          "symbol": "_?$S80@?3??Queue_AI_Multiplayer@@YIXXZ@4EA",
           "target": 10977488,
           "addend": 0,
           "resolved": 10977488
@@ -35425,7 +35425,7 @@
           "resolved": 6439496
         }
       ],
-      "source_sha256": "8118e7b2f082dfa36b4f23b4df8fed95f736b7ec1739d0607c757dd0e42c5a89",
+      "source_sha256": "487ac44cb0ac59d89028217c2defda0245dec499eccb0f659167fde3f780896f",
       "switch_data_bytes": 32,
       "source": "src/recovered/unowned/Queue_AI_Multiplayer_00623b00.cpp",
       "population": "population-4343",

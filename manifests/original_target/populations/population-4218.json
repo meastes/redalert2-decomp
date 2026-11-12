@@ -1905,8 +1905,8 @@
     "??_EMSPrintAnim@@UAEPAXI@Z": 5963392,
     "??BSystemTimerClass@@QBEJXZ": 6923312,
     "?Counter@ScrollClass@@2V?$CDTimerClass@VSystemTimerClass@@@@A": 11235400,
-    "_$E79": 6723008,
-    "_$S80": 11235384,
+    "_$E81": 6723008,
+    "_$S82": 11235384,
     "??0TabClass@@QAE@XZ": 6948576,
     "??_7ScrollClass@@6BSidebarClass@@@": 8033348,
     "??_7ScrollClass@@6BINoticeSink@@@": 8033340,
@@ -2024,7 +2024,7 @@
     "_$E32": 6722864,
     "_$E35": 6722912,
     "_$E38": 6722928,
-    "_$E82": 6722960,
+    "_$E84": 6722960,
     "??0ScrollClass@@QAE@XZ": 6723040,
     "?AI@ScrollClass@@": 6723120,
     "?Resolve_Point@ScrollClass@@": 6723152,
@@ -13168,8 +13168,8 @@
     {
       "entry": 6722960,
       "method": "00669590",
-      "symbol": "_$E82",
-      "symbol_prefix": "_$E82",
+      "symbol": "_$E84",
+      "symbol_prefix": "_$E84",
       "options": [
         "/O2",
         "/Ob2",
@@ -13201,7 +13201,7 @@
         {
           "offset": 11,
           "kind": 6,
-          "symbol": "_$E79",
+          "symbol": "_$E81",
           "target": 6723008,
           "addend": 0,
           "resolved": 6723008
@@ -13231,7 +13231,7 @@
           "resolved": 1151959
         }
       ],
-      "source_sha256": "b1123c94178fecb40cf15465db824e01ab2b1ce06bda69a5edcf2205974aa446",
+      "source_sha256": "302defe0aad72a266b85d7ced6528458e944b6357ffaa355421654dcde6f1e55",
       "source": "src/recovered/classes/ScrollClass/ScrollClass_Counter_init_00669590.cpp",
       "population": "population-4218",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -13408,8 +13408,8 @@
     {
       "entry": 6723008,
       "method": "006695c0",
-      "symbol": "_$E79",
-      "symbol_prefix": "_$E79",
+      "symbol": "_$E81",
+      "symbol_prefix": "_$E81",
       "options": [
         "/O2",
         "/Ob2",
@@ -13425,7 +13425,7 @@
         {
           "offset": 2,
           "kind": 6,
-          "symbol": "_$S80",
+          "symbol": "_$S82",
           "target": 11235384,
           "addend": 0,
           "resolved": 11235384
@@ -13433,7 +13433,7 @@
         {
           "offset": 16,
           "kind": 6,
-          "symbol": "_$S80",
+          "symbol": "_$S82",
           "target": 11235384,
           "addend": 0,
           "resolved": 11235384

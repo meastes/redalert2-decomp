@@ -8,7 +8,7 @@
 #include "shared/unknown_globals.hpp"
 // @ref ??BSystemTimerClass@@QBEJXZ=0069a430
 // @ref _atexit=0078298a
-// @ref _?$S62@?1??Draw_Cursor@ScoreClass@@QAEXHH@Z@4EA=00ab6f18
+// @ref _?$S64@?1??Draw_Cursor@ScoreClass@@QAEXHH@Z@4EA=00ab6f18
 // @ref _?timer@?1??Draw_Cursor@ScoreClass@@QAEXHH@Z@4V?$CDTimerClass@VSystemTimerClass@@@@A=00ab6f50
 // @ref _?blink@?1??Draw_Cursor@ScoreClass@@QAEXHH@Z@4HA=00ab6f88
 // @ref _?lastx@?1??Draw_Cursor@ScoreClass@@QAEXHH@Z@4HA=00ab6fa0

@@ -2,19 +2,41 @@
 // include/random.h; the module is src/recovered/random.cpp).
 //
 // RandomClass: 32-bit linear congruential generator returning 15 bits.
-// Random2Class (shared/random2.hpp): 250-entry XOR lagged-Fibonacci table.
+// Random2Class: 250-entry XOR lagged-Fibonacci table.
 // Random3Class: counter-based generator using the "psdes" mixing function with the Mix1/Mix2
 //   tables.
 // The ranged operator()(min, max) of each class expands the Pick_Random_Number template inline.
 //
 // Known differences from the template header, each kept because the template form changes other
-// units' code (manifests/original_target/modules.json): Random2Class is declared in random2.hpp; the
-// template precedes the classes; Random2Class spells TABLE_SIZE as 250; units other
-// than the module see RandomClass's constructor inline.
+// units' code (manifests/original_target/modules.json): the template precedes the classes;
+// Random2Class spells TABLE_SIZE as 250; units other than the module see RandomClass's constructor
+// inline.
 #ifndef RA2_SHARED_RANDOM_HPP
 #define RA2_SHARED_RANDOM_HPP
 
-#include "shared/random2.hpp"
+// A 250-entry XOR lagged-Fibonacci table seeded from a Random3Class; its ranged operator() expands
+// the Pick_Random_Number template.
+class Random2Class {
+public:
+    Random2Class(unsigned seed = 0);
+
+    operator int() { return operator()(); }
+    int operator()();
+    int operator()(int minval, int maxval);
+
+    enum {
+        SIGNIFICANT_BITS = 32
+    };
+
+    bool IsLocked;          // while set, the generator returns 0 without advancing (Clear_Scenario)
+
+protected:
+    int Index1;             // table entry updated next
+    int Index2;             // table entry mixed in (103 ahead)
+    int Table[250];
+};
+
+extern Random2Class unknown_random_839218;      // 0x00839218 the generator audio and techno use
 
 // A random number in [minval, maxval] drawn with rejection sampling from the
 // generator's low bits.

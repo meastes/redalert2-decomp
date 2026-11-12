@@ -81,9 +81,9 @@ DynamicVectorClass<LightSourceClass::PendingCellClass *> LightSourceClass::Pendi
 // @ref ?unknown_math_4ba520@@YANN@Z=004ba520
 // @ref ?unknown_math_4ba5b0@@YANN@Z=004ba5b0
 // @ref ?unknown_sqrt_4ba410@@YANN@Z=004ba410
-// @ref _$E47=00537160
-// @ref _$E52=005371e0
-// @ref _$S53=00a6e7c8
+// @ref _$E49=00537160
+// @ref _$E54=005371e0
+// @ref _$S55=00a6e7c8
 // @ref __CIpow=007821b0
 // @ref __ftol=0077f110
 // @ref __real@8@3ff78000000000000000=0079a730

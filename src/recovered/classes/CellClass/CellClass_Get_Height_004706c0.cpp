@@ -1,6 +1,6 @@
 // int CellClass::unknown_4706c0(Point2D const &point) const (0x004706C0): TibSun Get_Height.
 #include "shared/cell.hpp"
-// @ref _?$S40@?1??unknown_4706c0@CellClass@@QBEHABUPoint2D@@@Z@4EA=00850bb8
+// @ref _?$S42@?1??unknown_4706c0@CellClass@@QBEHABUPoint2D@@@Z@4EA=00850bb8
 // @ref _?_level_height@?1??unknown_4706c0@CellClass@@QBEHABUPoint2D@@@Z@4NA=00850ba8
 // @ref _?_level_slope@?1??unknown_4706c0@CellClass@@QBEHABUPoint2D@@@Z@4NA=00850bd0
 // @ref _?_ramp_control@?1??unknown_4706c0@CellClass@@QBEHABUPoint2D@@@Z@4PAU__unnamed@2@A=007d27e8
