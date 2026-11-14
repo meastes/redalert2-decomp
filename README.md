@@ -1,54 +1,62 @@
-# Red Alert 2 original-target recovery
+# Red Alert 2 decompilation and native port
 
-The active project reconstructs readable C/C++ for the exact user-supplied base
-RA2 executable before a later native Mac adaptation. It is incomplete.
+This project recovers C/C++ source for the base Red Alert 2 executable
+(`game.exe` 1.006, not Yuri's Revenge) that recompiles with the original
+compiler (Visual C++ 6 SP3) into the exact original file, byte for byte. The same
+source also builds a native game for macOS (arm64), iOS and Windows.
 
-Root `src/recovered/` holds the accepted, exactly matching recovered source;
-current counts (regions, matched body bytes, padding, remaining scaffold and
-matched bytes per hour) are generated into [status](docs/STATUS.md). Most
-original code is still scaffold. Regions are matched intervals, not certified
-original functions or a playable-game claim.
+## Where it stands
 
-| Path | Purpose |
-| --- | --- |
-| `src/recovered/` | Canonical accepted recovered C/C++, tracked in Git |
-| `manifests/` | Source hashes, recorded options, bindings and frozen provenance identities |
-| `tools/original_target/`, `tests/` | Active authored build/acceptance tools and synthetic tests |
-| `docs/` | Active process, generated status, handoff; `docs/history/` batch records |
-| `historical/native-reconstruction/` | Preserved native source, CMake, scripts, tests, tools and docs |
-| Ignored `private/`, `build/` | Legitimate game/compiler inputs, byte scaffolding, experiments and outputs |
+Numbers are generated into [docs/STATUS.md](docs/STATUS.md); the headline ones:
 
-Navigate by [supported source purpose](docs/RECOVERED_SOURCE_INDEX.md).
-Read [status](docs/STATUS.md), [handoff](docs/HANDOFF.md) and
-[build setup](docs/ORIGINAL_TARGET_BUILD.md). Configure private inputs in
-`private/original-target.local.json` and select a Python with the dependencies in
-`requirements-research.txt` through `RA2_PYTHON`. Then:
+| Measure | Value |
+| --- | ---: |
+| Reproduced .text (built from real inputs, not copied from the original) | 93.48% |
+| In-scope C/C++ bytes matched exactly | 93.08% |
+| In-scope functions matched exactly | 17,889 of 17,985 (99.47%) |
+| In-scope functions with source (exact or draft) | 17,982 of 17,985 |
+
+The whole-file build reproduces the original executable exactly (4,485,392
+bytes, SHA256 `e6418111c2c36081a1795fb000e0927beea1630170b334c5013d12102602e70f`).
+What it still takes from the original rather than from source is counted in
+STATUS.
+
+## What is in the repo
+
+- **Exact source** (`src/recovered/`, `src/shared/`): every accepted function
+  compiles to the original bytes, checked by a strict audit and the whole-file
+  build. Most units are in their original translation-unit form (module form).
+- **Non-exact drafts**: the best drafts of the remaining functions, kept in
+  their units under `#ifdef RA2_NON_MATCHING`, each labelled with its score. The
+  exact build never compiles them.
+- **Native port** (`native/`): the recovered source built with modern clang on
+  an SDL3 platform layer, with touch controls on iOS and optional enhancements
+  (all off by default). It reads game data from your own installation at run
+  time. See [native/README.md](native/README.md).
+- **Tools and tests** (`tools/original_target/`, `tests/`), **manifests**
+  (`manifests/`) and **docs** (`docs/`).
+
+Never in the repo: the game, its data or executables, the compiler, extracted
+bytes, disassembly or build outputs. You need your own copy of the game.
+
+## Building
+
+See [docs/ORIGINAL_TARGET_BUILD.md](docs/ORIGINAL_TARGET_BUILD.md) for the
+exact build (VC6 under Wine) and [native/README.md](native/README.md) for the
+native one. The exact build:
 
 ```sh
 ./test.command
-./run.command       # verify input/source hashes; does not launch the game
-./build.command     # fresh compile, strict extent checks, assemble/link/package
+./build.command     # fresh compile, strict checks, link and package
 ```
 
-The fresh build consumes tracked root sources, using their recorded VC6 options
-under local Wine (plain Wine 11.18 by default, CrossOver supported). It executes no ignored authored scripts
-and reruns no candidate-search matrix. Private input paths are configurable;
-clang selection honors `DEVELOPER_DIR` through `xcrun`, or an explicit assembler.
-No download or installer is part of the build.
-
-Complete packaged reference size: **4,485,392 bytes**, SHA256
-`e6418111c2c36081a1795fb000e0927beea1630170b334c5013d12102602e70f`.
-Raw linker output differs. Packaging retains original headers, file padding and
-overlay after checking every logical payload and the complete zero virtual tail.
-Exact output still relies on substantial original-byte scaffolding.
-
-The recovery goal is active and incomplete. Native adaptation
-and Yuri's Revenge remain later work. See [provenance](THIRD_PARTY.md); this local
-migration grants no rights to proprietary material and publishes nothing.
+The process and completion criteria are in
+[docs/ORIGINAL_TARGET_PROCESS.md](docs/ORIGINAL_TARGET_PROCESS.md); current work
+is in [docs/HANDOFF.md](docs/HANDOFF.md).
 
 ## Credits
 
-This work stands on other people's. Text from these projects is adopted with
+This work stands on other people's. Text adopted from these projects carries
 attribution; licences and pinned commits are in [THIRD_PARTY.md](THIRD_PARTY.md).
 
 - **Luke Gibson ([gibbo101](https://github.com/gibbo101))** and the
@@ -65,9 +73,5 @@ attribution; licences and pinned commits are in [THIRD_PARTY.md](THIRD_PARTY.md)
 - **Electronic Arts**: the GPL source releases of Red Alert, Tiberian Dawn and
   Renegade.
 
-Day-to-day recovery uses the iteration tools in
-[build setup](docs/ORIGINAL_TARGET_BUILD.md#iteration-tools): Ghidra seeding,
-scored instruction diffs, bulk seed sweeps and a vtable class inventory. The
-loop and the completion criteria are in
-[the process](docs/ORIGINAL_TARGET_PROCESS.md); earlier batch records are in
-[docs/history/](docs/history/).
+Red Alert 2 is a trademark of Electronic Arts. This project grants no rights to
+the game or its assets.

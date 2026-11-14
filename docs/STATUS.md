@@ -2,8 +2,9 @@
 
 Generated numbers below come from `tools/original_target/status.py --write`
 (canonical manifest plus its git history); edit only the text outside the
-markers. Full decompilation and the later native port remain incomplete; most
-original code is still scaffold. Per-batch evidence through A15 is in
+markers. The decompilation is not finished: the table says how much of the
+original is reproduced from source and what is still taken from the original;
+the native port is in progress. Per-batch evidence through A15 is in
 [history/](history/); current work is in [HANDOFF.md](HANDOFF.md).
 
 <!-- generated:status -->
