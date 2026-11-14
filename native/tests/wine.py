@@ -29,17 +29,22 @@ HOST_RETRIES = 2
 PREFIX_TRIES = 3
 
 
-def host_failure(output, timed_out=False):
+def host_failure(output, timed_out=False, code=0):
     """Why a launch under Wine failed in the Mac host rather than in the program, or ''.
     An Objective-C exception anywhere, a prefix Wine could not start in, or a launch that
-    hung before the program's first start-up milestone (`run-to: reached main`). Anything
-    else is the program's own result."""
+    hung or ended (a nonzero exit, its output cut off, C15e) before the program's first
+    start-up milestone (`run-to: reached main`). Anything else is the program's own result.
+    Retries are capped (HOST_RETRIES), so a failure that is really the program's, such as
+    one in its static initialisers, still fails the test after the last launch."""
     m = HOST_EXCEPTION.search(output or '')
     if m:
         line = next((l for l in output.splitlines() if 'reason:' in l), m.group(0))
         return 'Wine host failure: ' + line.strip()[:160]
-    if timed_out and 'run-to: reached main' not in (output or ''):
-        return 'Wine host stalled before the program started'
+    if 'run-to: reached main' not in (output or ''):
+        if timed_out:
+            return 'Wine host stalled before the program started'
+        if code != 0:
+            return 'Wine ended the launch (exit %d) before the program started' % code
     return ''
 
 

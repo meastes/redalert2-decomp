@@ -1202,7 +1202,11 @@ game?" (Main Menu / Resume; `RA2_NATIVE_RESUME_ANSWER=resume|menu` for tests). R
 goes through the game's own menus: the port presses Single Player in the main menu (0xE2)
 and Load Saved Game in the single-player menu (0x100), and the Load dialog's entry
 (link/behaviour_m15.cpp, Load_Dialog 0x0053B190) takes Dialog 0x0053B770's steps for
-CHECKPT.SAV instead of waiting for a row. The touch app also starts with the pointer in
+CHECKPT.SAV instead of waiting for a row; a load that fails (a damaged or truncated save)
+shows the game's own "Error loading game" box, as the dialog does, and then the list (C15e).
+A truncated port save never opens (its container is length-checked) and is left out of the
+list; ctest `native-truncated-save` loads one cut by 4,096 bytes (codex4 R684/R714) through
+the menus, clicks the box's OK and Back, and loads the uncut save as the control. The touch app also starts with the pointer in
 the middle of the picture (the game's cursor began at the top left corner, which
 edge-scrolled a resumed map out of view). Every 30 s of
 play the log gets the frame rate and, on iOS, memory footprint and thermal state.

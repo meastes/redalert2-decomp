@@ -62,16 +62,16 @@ def run(a, tag, enhancements, prefix=None, attempt=0):
     try:
         p = subprocess.run(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors='replace',
                            timeout=a.seconds + 60)
-        out, timed_out = p.stdout, False
+        out, timed_out, code = p.stdout, False, p.returncode
     except subprocess.TimeoutExpired as e:
         out = e.stdout.decode('utf-8', 'replace') if isinstance(e.stdout, bytes) else (e.stdout or '')
-        out, timed_out = out + '\nenhancements-frames: launch timed out\n', True
+        out, timed_out, code = out + '\nenhancements-frames: launch timed out\n', True, -1
     with open(os.path.join(work, 'run.log'), 'w') as f:
         f.write(out)
     # Under Wine, a launch the Mac host killed (winehost.host_failure) is run again, at most
     # HOST_RETRIES times; each retry is printed. A failure of the game itself is never retried.
     if prefix and attempt < winehost.HOST_RETRIES:
-        why = winehost.host_failure(out, timed_out)
+        why = winehost.host_failure(out, timed_out, code)
         if why:
             print('enhancements-frames: %s: %s; launching again' % (tag, why))
             return run(a, tag, enhancements, prefix, attempt + 1)

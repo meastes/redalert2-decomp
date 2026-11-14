@@ -75,7 +75,7 @@ def main():
                 except subprocess.TimeoutExpired as e:
                     out = e.stdout.decode('utf-8', 'replace') if isinstance(e.stdout, bytes) else (e.stdout or '')
                     code, timed_out = -1, True
-                why = winehost.host_failure(out, timed_out) if prefix else ''
+                why = winehost.host_failure(out, timed_out, code) if prefix else ''
                 if not why or attempt == winehost.HOST_RETRIES:
                     break
                 print('native-original-save: %s; launching again' % why)

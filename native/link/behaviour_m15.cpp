@@ -50,6 +50,8 @@ void __fastcall Unit_Unknown_Shake_00482e00(int)
 #include <stdio.h>
 #include "shared/cd.hpp"
 #include "shared/campaign.hpp"
+#include "shared/ww_message_box.hpp"
+#include "shared/string_table.hpp"
 extern "C" const char *ra2port_take_resume(void);   // port/src/port_core.cpp
 
 char LoadOptionsClass::Load_Dialog_0053b190()
@@ -93,6 +95,10 @@ char LoadOptionsClass::Load_Dialog_0053b190()
         }
         WWMouse->Show_Mouse();
         fprintf(stderr, "resume: could not load %s\n", file);
+        // As Dialog 0x0053B770 answers a failed Load (LoadDlg.CPP line 0x218): the game's
+        // "Error loading game" box, then the list (a truncated or damaged save: R714, C15e).
+        WWMessageBox((unsigned short const *)L" ").Process(StringTable::Load_String("TXT_ERROR_LOADING_GAME", 0, "D:\\Ra2\\LoadDlg.CPP", 0x218),
+            StringTable::Load_String("TXT_OK", 0, "D:\\Ra2\\LoadDlg.CPP", 0x218), 0, 0, false);
     }
     return Dialog();
 }

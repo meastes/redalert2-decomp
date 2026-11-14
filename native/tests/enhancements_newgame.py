@@ -31,16 +31,23 @@ import wine as winehost
 # dropdowns open on their rightmost pixels) and its 1.5x entry, the page's Ok (the column's
 # top slot), the Options dialog's Main Menu, then Single Player, Skirmish, Start Game
 # (build/routeA sk.script).
-SCRIPT = """d1+1500 click 834 472
-d2+2000 click 834 388
-d3+1500 click 588 304
-d3+2500 click 500 357
-d3+3500 click 834 304
-d3+5500 click 834 639
-d4+2000 click 834 304
-d5+2000 click 834 388
-d6+2500 click 834 346
-d6+%d quit
+# Each click waits for its menu to settle ("s<k>": the k-th dialog shown and its slide-in
+# done, host.cpp), not a fixed time after an earlier dialog was shown: the Single Player
+# click had been timed from the Options dialog and landed while the main menu was still
+# being made, which failed under load (C15e). Dialogs: 1 main menu, 2 Options, 3 the
+# Enhancements page, 4 Options again after Ok, 5 the main menu (Main Menu), 6 Single
+# Player, 7 the skirmish setup. A step that never happens stalls the script, and the run
+# fails on its time limit rather than checking the wrong game.
+SCRIPT = """s1+1000 click 834 472
+s2+1000 click 834 388
+s3+1000 click 588 304
+s3+2000 click 500 357
+s3+3000 click 834 304
+s4+1000 click 834 639
+s5+1000 click 834 304
+s6+1000 click 834 388
+s7+1500 click 834 346
+s7+%d quit
 """
 
 
@@ -75,7 +82,7 @@ def main():
     os.makedirs(os.path.join(work, 'home'))
     script = os.path.join(work, 'newgame.script')
     with open(script, 'w') as f:
-        f.write(SCRIPT % (2500 + a.play_ms))
+        f.write(SCRIPT % (1500 + a.play_ms))
     env = dict(os.environ)
     for k in ('RA2_NATIVE_ENHANCEMENTS', 'RA2_NATIVE_SETUP', 'RA2_DATA_DIR'):
         env.pop(k, None)

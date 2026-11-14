@@ -407,6 +407,13 @@ if(RA2_NATIVE_SDL)
                  --work "${CMAKE_CURRENT_BINARY_DIR}/windows-gui" ${ra2_wine_args_gui})
         set_tests_properties(native-windows-gui PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 900)
       endif()
+      # 8d. A truncated port save is refused with the game's error box and the menus stay
+      #     usable; the untruncated save loads (C15e, codex4 R684/R714; tests/truncated_save.py).
+      add_test(NAME native-truncated-save COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/truncated_save.py"
+               --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+               --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/truncated-save"
+               ${ra2_wine_args_truncated})
+      set_tests_properties(native-truncated-save PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 1200)
       # 8b. Original saves (C6, C15): one of the user's saves from the original game
       #     (Allied 1, in the installation) loads through the menus (--load-save) with
       #     the field maps and plays 300 frames; on Windows the .exe under Wine.
