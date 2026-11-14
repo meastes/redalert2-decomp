@@ -5627,7 +5627,7 @@
    "entry": "00578d80",
    "bytes": 334,
    "population": "population-2542",
-   "source": "src/recovered/classes/MapSeedClass/Clamp_Parameters.cpp",
+   "source": "src/recovered/classes/MapSeedClass/Fixup_Settings.cpp",
    "cause": "held by population-2542; not joined: rows of the unit differ when it joins (00587cf0)"
   },
   {
@@ -5835,7 +5835,7 @@
    "entry": "0058d9d0",
    "bytes": 61,
    "population": "population-2898",
-   "source": "src/recovered/mapgen/Set_Generation_Path_Tile_Indices.cpp",
+   "source": "src/recovered/mapgen/Init_Dirt_Roads.cpp",
    "cause": "held by population-2898; not joined: differs in the batch apply (1)"
   },
   {

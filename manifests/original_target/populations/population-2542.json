@@ -4,8 +4,8 @@
     "id": "population-2542",
     "inventory_sha256": "3a110f46e7c4e8a521b486a67268cb55d470a5cb0fd6f23b6a7ded159f95a68f",
     "gaps_sha256": "c381c9f852b00800992661f62d4fe556baed9a444597fb1a043482d69fbd0c46",
-    "historical_population_sha256": "5554d2993dd2b30a54ca5bbaea1e57c0b0ee27b0f0a2d5d38dcd063711d65645",
-    "historical_acceptance_sha256": "a36a839296ff4dfcf6f5e6f263116da98e9f2328d9df21a3be8b78f79ec48f6a"
+    "historical_population_sha256": "81be231cc6040643ac184fd3c5bffcf260f6a125f603fc7e0b79d33416aadba2",
+    "historical_acceptance_sha256": "d6e3ca3b3f5d88da03becbc5f364aee46754081cdf3f133a362ff03f83d38522"
   },
   "references": {
     "??0LoadOptionsClass@@": 5484768,
@@ -3965,7 +3965,10 @@
     "??_ECacheStraw@@UAEPAXI@Z": 5311184,
     "??_EWideString@@QAEPAXI@Z": 6296624,
     "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
-    "?Reset@BitFontClass@@QAEXXZ": 4399536
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "?Load_Dialog_0053b190@seed_0053b190@@YIXH@Z": 5484944,
+    "?Save_Dialog_0053b1b0@Owner_0053b1b0@seed_0053b1b0@@QAEXH@Z": 5484976,
+    "?Delete_Dialog_0053b1e0@seed_0053b1e0@@YIXH@Z": 5485024
   },
   "regions": [
     {
@@ -4558,12 +4561,12 @@
       "full_extent_sha256": "f044871fe102203ced21ed928002efc39c1cf72faed1918c67e5ff63a7f8da9b",
       "relocations": [],
       "source_sha256": "0bc374d5dfd0a20f9f59de506707e0b2f0d8630b8af894c53144dbd95cdcccaf",
-      "source": "src/recovered/classes/MapSeedClass/Clamp_Parameters.cpp",
+      "source": "src/recovered/classes/MapSeedClass/Fixup_Settings.cpp",
       "population": "population-2542",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Clamp_Parameters",
+      "semantic_name": "Fixup_Settings",
       "source_order": 97114
     },
     {
