@@ -10,8 +10,14 @@
   "/Gy",
   "/GR"
  ],
- "compile_group": 410,
+ "compile_group": 408,
  "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "004a4da0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
   {
    "symbol": "??0DropListClass@@QAE@HPAGHIHHHHPBX1@Z",
    "entry": "004a4dc0",
@@ -187,7 +193,7 @@
    "padding_bytes": 4
   }
  ],
- "code_bytes": 2704,
+ "code_bytes": 2736,
  "data": [
   {
    "symbol": "??_7DropListClass@@6B@",
@@ -852,6 +858,14 @@
    "population": "population-4471",
    "bound": "own frozen bound (population-4471)",
    "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "004a4da0",
+   "bytes": 23,
+   "population": "population-1969",
+   "bound": "the unit's compile group (population-1969)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
   }
  ],
  "residuals": [],

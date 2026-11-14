@@ -6,9 +6,9 @@
 
 | Directory under `src/recovered/` | Regions | Body bytes | Descriptive names | Address range |
 | --- | ---: | ---: | ---: | --- |
-| (discovery: address-named) | 15301 | 3,044,657 | 15227 | 0x00401000–0x00793976 |
+| (discovery: address-named) | 15501 | 3,050,551 | 15427 | 0x00401000–0x00793976 |
 | [header_statics/004d2ba0](../src/recovered/header_statics/004d2ba0/) | 351 | 25,025 | 351 | 0x004D2BA0–0x004DBBC0 |
-| [unowned](../src/recovered/unowned/) | 148 | 16,211 | 148 | 0x0040AEA0–0x007694F0 |
+| [unowned](../src/recovered/unowned/) | 146 | 16,174 | 146 | 0x0040AEA0–0x007694F0 |
 | [ownrdraw](../src/recovered/ownrdraw/) | 22 | 9,504 | 22 | 0x005DEF80–0x00600FD0 |
 | [classes/CChatEventSink](../src/recovered/classes/CChatEventSink/) | 5 | 7,696 | 5 | 0x0075E000–0x00765980 |
 | [sendfile](../src/recovered/sendfile/) | 5 | 6,593 | 5 | 0x0066AEA0–0x0066C5B0 |
@@ -22,7 +22,6 @@
 | [wonline](../src/recovered/wonline/) | 19 | 3,371 | 19 | 0x0073BCC0–0x00766E60 |
 | [classes/MapGeneratorClass](../src/recovered/classes/MapGeneratorClass/) | 6 | 3,109 | 6 | 0x0057ACE0–0x00589890 |
 | [containers](../src/recovered/containers/) | 17 | 2,067 | 17 | 0x0042B620–0x00682580 |
-| [classes/Tactical](../src/recovered/classes/Tactical/) | 10 | 1,742 | 10 | 0x006A2DD0–0x006AA960 |
 | [word_storage](../src/recovered/word_storage/) | 15 | 1,739 | 15 | 0x0046CE20–0x006C03E0 |
 | [auddev](../src/recovered/auddev/) | 13 | 1,676 | 13 | 0x00402900–0x00403810 |
 | [classes/VoxelAnimClass](../src/recovered/classes/VoxelAnimClass/) | 6 | 1,653 | 6 | 0x0040EC40–0x0070CFC0 |
@@ -31,6 +30,7 @@
 | [classes/MapRegionClass](../src/recovered/classes/MapRegionClass/) | 6 | 1,504 | 6 | 0x0056D720–0x005709C0 |
 | [classes/ScoreFontClass](../src/recovered/classes/ScoreFontClass/) | 9 | 1,448 | 9 | 0x00667840–0x006683D0 |
 | [MPScore](../src/recovered/MPScore/) | 1 | 1,392 | 1 | 0x005AAE40–0x005AAE40 |
+| [classes/Tactical](../src/recovered/classes/Tactical/) | 6 | 1,202 | 6 | 0x006A2DD0–0x006A7110 |
 | [classes/VQAMovieCompanion](../src/recovered/classes/VQAMovieCompanion/) | 6 | 1,193 | 6 | 0x0069B190–0x0069B500 |
 | [drv_dsnd](../src/recovered/drv_dsnd/) | 4 | 1,158 | 4 | 0x00409D00–0x0040A990 |
 | [classes/BeaconManagerClass](../src/recovered/classes/BeaconManagerClass/) | 3 | 1,127 | 3 | 0x0042EC20–0x0042EFD0 |
@@ -135,34 +135,24 @@
 | [classes/DynamicVectorClass_WarheadTypeClass_ptr](../src/recovered/classes/DynamicVectorClass_WarheadTypeClass_ptr/) | 5 | 356 | 4 | 0x0040F3C0–0x0040F6D0 |
 | [classes/DynamicVectorClass_WeaponTypeClass_ptr](../src/recovered/classes/DynamicVectorClass_WeaponTypeClass_ptr/) | 5 | 356 | 4 | 0x0040F970–0x0040FC80 |
 | [header_statics/0040acb0](../src/recovered/header_statics/0040acb0/) | 13 | 356 | 13 | 0x0040ACB0–0x0040AE80 |
-| [header_statics/0040fd00](../src/recovered/header_statics/0040fd00/) | 13 | 356 | 13 | 0x0040FD00–0x0040FED0 |
 | [header_statics/0041c3d0](../src/recovered/header_statics/0041c3d0/) | 13 | 356 | 13 | 0x0041C3D0–0x0041C5A0 |
-| [header_statics/00424c40](../src/recovered/header_statics/00424c40/) | 13 | 356 | 13 | 0x00424C40–0x00424E10 |
-| [header_statics/00426910](../src/recovered/header_statics/00426910/) | 13 | 356 | 13 | 0x00426910–0x00426AE0 |
 | [header_statics/00467b40](../src/recovered/header_statics/00467b40/) | 13 | 356 | 13 | 0x00467B40–0x00467D10 |
 | [header_statics/00468770](../src/recovered/header_statics/00468770/) | 13 | 356 | 13 | 0x00468770–0x00468940 |
-| [header_statics/00468ac0](../src/recovered/header_statics/00468ac0/) | 13 | 356 | 13 | 0x00468AC0–0x00468C90 |
 | [header_statics/0048dc70](../src/recovered/header_statics/0048dc70/) | 13 | 356 | 13 | 0x0048DC70–0x0048DE40 |
 | [header_statics/004b7a00](../src/recovered/header_statics/004b7a00/) | 13 | 356 | 13 | 0x004B7A00–0x004B7BD0 |
 | [header_statics/004bb160](../src/recovered/header_statics/004bb160/) | 13 | 356 | 13 | 0x004BB160–0x004BB330 |
 | [header_statics/004bb6a0](../src/recovered/header_statics/004bb6a0/) | 13 | 356 | 13 | 0x004BB6A0–0x004BB870 |
 | [header_statics/0052ef70](../src/recovered/header_statics/0052ef70/) | 13 | 356 | 13 | 0x0052EF70–0x0052F140 |
-| [header_statics/00531360](../src/recovered/header_statics/00531360/) | 13 | 356 | 13 | 0x00531360–0x00531530 |
 | [header_statics/00531f30](../src/recovered/header_statics/00531f30/) | 13 | 356 | 13 | 0x00531F30–0x00532100 |
 | [header_statics/00538670](../src/recovered/header_statics/00538670/) | 13 | 356 | 13 | 0x00538670–0x00538840 |
 | [header_statics/00593340](../src/recovered/header_statics/00593340/) | 13 | 356 | 13 | 0x00593340–0x00593510 |
 | [header_statics/0059d590](../src/recovered/header_statics/0059d590/) | 13 | 356 | 13 | 0x0059D590–0x0059D760 |
-| [header_statics/0059ede0](../src/recovered/header_statics/0059ede0/) | 13 | 356 | 13 | 0x0059EDE0–0x0059EFB0 |
-| [header_statics/005a0060](../src/recovered/header_statics/005a0060/) | 13 | 356 | 13 | 0x005A0060–0x005A0230 |
 | [header_statics/005a2610](../src/recovered/header_statics/005a2610/) | 13 | 356 | 13 | 0x005A2610–0x005A27E0 |
 | [header_statics/005ab3b0](../src/recovered/header_statics/005ab3b0/) | 13 | 356 | 13 | 0x005AB3B0–0x005AB580 |
 | [header_statics/005b49e0](../src/recovered/header_statics/005b49e0/) | 13 | 356 | 13 | 0x005B49E0–0x005B4BB0 |
 | [header_statics/005bbb20](../src/recovered/header_statics/005bbb20/) | 13 | 356 | 13 | 0x005BBB20–0x005BBCF0 |
 | [header_statics/005dd320](../src/recovered/header_statics/005dd320/) | 13 | 356 | 13 | 0x005DD320–0x005DD4F0 |
 | [header_statics/0060a880](../src/recovered/header_statics/0060a880/) | 13 | 356 | 13 | 0x0060A880–0x0060AA50 |
-| [header_statics/0060d780](../src/recovered/header_statics/0060d780/) | 13 | 356 | 13 | 0x0060D780–0x0060D950 |
-| [header_statics/00639770](../src/recovered/header_statics/00639770/) | 13 | 356 | 13 | 0x00639770–0x00639940 |
-| [header_statics/0063aea0](../src/recovered/header_statics/0063aea0/) | 13 | 356 | 13 | 0x0063AEA0–0x0063B070 |
 | [header_statics/0063b300](../src/recovered/header_statics/0063b300/) | 13 | 356 | 13 | 0x0063B300–0x0063B4D0 |
 | [header_statics/0066acb0](../src/recovered/header_statics/0066acb0/) | 13 | 356 | 13 | 0x0066ACB0–0x0066AE80 |
 | [header_statics/006dfab0](../src/recovered/header_statics/006dfab0/) | 13 | 356 | 13 | 0x006DFAB0–0x006DFC80 |
@@ -171,23 +161,18 @@
 | [header_statics/006f13d0](../src/recovered/header_statics/006f13d0/) | 13 | 356 | 13 | 0x006F13D0–0x006F15A0 |
 | [header_statics/006f1810](../src/recovered/header_statics/006f1810/) | 13 | 356 | 13 | 0x006F1810–0x006F19E0 |
 | [header_statics/0070c610](../src/recovered/header_statics/0070c610/) | 13 | 356 | 13 | 0x0070C610–0x0070C7E0 |
-| [header_statics/0070dfb0](../src/recovered/header_statics/0070dfb0/) | 13 | 356 | 13 | 0x0070DFB0–0x0070E180 |
 | [header_statics/00728fd0](../src/recovered/header_statics/00728fd0/) | 13 | 356 | 13 | 0x00728FD0–0x007291A0 |
-| [header_statics/0072bbd0](../src/recovered/header_statics/0072bbd0/) | 13 | 356 | 13 | 0x0072BBD0–0x0072BDA0 |
 | [classes/VectorClass_double](../src/recovered/classes/VectorClass_double/) | 5 | 350 | 5 | 0x0058DEB0–0x0058EAE0 |
 | [subtitle](../src/recovered/subtitle/) | 5 | 344 | 5 | 0x0069B4E0–0x0069BF70 |
 | [uicmnds2](../src/recovered/uicmnds2/) | 6 | 343 | 6 | 0x006F9E90–0x006FA180 |
 | [classes/VectorClass_ThemeControl_ptr](../src/recovered/classes/VectorClass_ThemeControl_ptr/) | 5 | 339 | 5 | 0x004D4C40–0x004D6AD0 |
 | [classes/CoopCampaignClass](../src/recovered/classes/CoopCampaignClass/) | 1 | 335 | 1 | 0x0048E210–0x0048E210 |
 | [classes/GraphicMenuAnimItem](../src/recovered/classes/GraphicMenuAnimItem/) | 1 | 333 | 1 | 0x004DF5F0–0x004DF5F0 |
-| [header_statics/00403ce0](../src/recovered/header_statics/00403ce0/) | 12 | 333 | 12 | 0x00403CE0–0x00403E90 |
 | [header_statics/00406900](../src/recovered/header_statics/00406900/) | 12 | 333 | 12 | 0x00406900–0x00406AB0 |
 | [header_statics/0040e3c0](../src/recovered/header_statics/0040e3c0/) | 12 | 333 | 12 | 0x0040E3C0–0x0040E570 |
 | [header_statics/0040f0a0](../src/recovered/header_statics/0040f0a0/) | 12 | 333 | 12 | 0x0040F0A0–0x0040F250 |
 | [header_statics/0040f720](../src/recovered/header_statics/0040f720/) | 12 | 333 | 12 | 0x0040F720–0x0040F8D0 |
 | [header_statics/0056d0e0](../src/recovered/header_statics/0056d0e0/) | 12 | 333 | 12 | 0x0056D100–0x0056D2B0 |
-| [header_statics/00675410](../src/recovered/header_statics/00675410/) | 12 | 333 | 12 | 0x00675410–0x006755C0 |
-| [header_statics/0067ac40](../src/recovered/header_statics/0067ac40/) | 12 | 333 | 12 | 0x0067AC40–0x0067ADF0 |
 | [classes/DynamicVectorClass_RadarEventClass_ptr](../src/recovered/classes/DynamicVectorClass_RadarEventClass_ptr/) | 5 | 332 | 5 | 0x0063C7C0–0x0063CA90 |
 | [classes/VectorClass_Rect](../src/recovered/classes/VectorClass_Rect/) | 2 | 328 | 2 | 0x0058E530–0x0058E5A0 |
 | [classes/VectorClass_MapRegionClass_ptr](../src/recovered/classes/VectorClass_MapRegionClass_ptr/) | 5 | 327 | 5 | 0x0058DC60–0x0058E070 |
@@ -463,8 +448,6 @@
 | [wdtsel](../src/recovered/wdtsel/) | 2 | 25 | 2 | 0x00730310–0x00730360 |
 | [classes/BinkClass](../src/recovered/classes/BinkClass/) | 1 | 23 | 1 | 0x0042FE50–0x0042FE50 |
 | [header_statics/0040d950](../src/recovered/header_statics/0040d950/) | 1 | 23 | 1 | 0x0040D950–0x0040D950 |
-| [header_statics/004a4da0](../src/recovered/header_statics/004a4da0/) | 1 | 23 | 1 | 0x004A4DA0–0x004A4DA0 |
-| [header_statics/006846c0](../src/recovered/header_statics/006846c0/) | 1 | 23 | 1 | 0x006846C0–0x006846C0 |
 | [header_statics/00716d80](../src/recovered/header_statics/00716d80/) | 1 | 23 | 1 | 0x00716D80–0x00716D80 |
 | [classes/ScoreAnimClass](../src/recovered/classes/ScoreAnimClass/) | 1 | 22 | 1 | 0x00668350–0x00668350 |
 | [rules](../src/recovered/rules/) | 2 | 20 | 2 | 0x00652710–0x00652720 |
@@ -494,7 +477,7 @@
 | [vqalib/drawer](../src/recovered/vqalib/drawer/) | 2 | 5 | 2 | 0x00778430–0x00778440 |
 | [classes/RawFileClass](../src/recovered/classes/RawFileClass/) | 1 | 4 | 0 | 0x00401940–0x00401940 |
 
-487 directories, 17907 regions. Generated by `tools/original_target/source_index.py`.
+470 directories, 17907 regions. Generated by `tools/original_target/source_index.py`.
 
 <!-- /generated:units -->
 

@@ -10,8 +10,14 @@
   "/Gy",
   "/GR"
  ],
- "compile_group": 717,
+ "compile_group": 712,
  "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "006846c0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
   {
    "symbol": "??0SliderClass@@QAE@IHHHHH@Z",
    "entry": "006846e0",
@@ -85,7 +91,7 @@
    "padding_bytes": 7
   }
  ],
- "code_bytes": 1648,
+ "code_bytes": 1680,
  "data": [
   {
    "symbol": "??_7SliderClass@@6B@",
@@ -533,7 +539,16 @@
   }
  ],
  "held_rows": [],
- "joined": [],
+ "joined": [
+  {
+   "entry": "006846c0",
+   "bytes": 23,
+   "population": "population-3537",
+   "bound": "the unit's compile group (population-3537)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  }
+ ],
  "residuals": [],
  "unit_functions": 13,
  "data_unproven": [

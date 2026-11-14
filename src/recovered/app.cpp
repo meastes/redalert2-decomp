@@ -4,6 +4,62 @@
 // manifests/original_target/modules/app.json carries the addresses and the rows that
 // stay in their own files.
 
+// Header-static dynamic initializers of the unit at 0x00426910: the shape_file.hpp empty rect and the
+// shared/unknown_geometry.hpp constants (0x00426910-0x00426AF1); the other
+// drafts of this plan are emitted by these includes.
+#include "shared/shape_file.hpp"
+#include "shared/unknown_geometry.hpp"
+
+
+// Dynamic initializer (0x00426930, _$E) of diagonal from the header(s) included
+// by HeaderStatics_empty_rect_init_00426910.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00426960, _$E) of b from the header(s) included
+// by HeaderStatics_empty_rect_init_00426910.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00426980, _$E) of c from the header(s) included
+// by HeaderStatics_empty_rect_init_00426910.cpp; no source of its own.
+
+
+// Dynamic initializer (0x004269A0, _$E) of angle45 from the header(s) included
+// by HeaderStatics_empty_rect_init_00426910.cpp; no source of its own.
+
+
+// Dynamic initializer (0x004269C0, _$E) of angle60 from the header(s) included
+// by HeaderStatics_empty_rect_init_00426910.cpp; no source of its own.
+
+
+// Dynamic initializer (0x004269E0, _$E) of angle90 from the header(s) included
+// by HeaderStatics_empty_rect_init_00426910.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00426A00, _$E) of g from the header(s) included
+// by HeaderStatics_empty_rect_init_00426910.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00426A40, _$E) of h from the header(s) included
+// by HeaderStatics_empty_rect_init_00426910.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00426A70, _$E) of i from the header(s) included
+// by HeaderStatics_empty_rect_init_00426910.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00426AA0, _$E) of j from the header(s) included
+// by HeaderStatics_empty_rect_init_00426910.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00426AD0, _$E) of k from the header(s) included
+// by HeaderStatics_empty_rect_init_00426910.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00426AE0, _$E) of l from the header(s) included
+// by HeaderStatics_empty_rect_init_00426910.cpp; no source of its own.
+
+
+
 
 #include "shared/tiberian_sun_class_factory.hpp"
 #include "shared/application.hpp"

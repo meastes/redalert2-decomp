@@ -2060,6 +2060,32 @@ void Tactical::Draw_Tile_Shadows(int, Rect const &area)
 }
 
 
+// void Tactical::Scroll_Map_006a8b70(int direction, int distance) (0x006A8B70)
+// Moves the view position along one of eight facing directions (table of Point2D unit steps, a function-local
+// static) and carries the requested position by the same delta.
+
+void Tactical::Scroll_Map_006a8b70(int arg1, int arg2)
+{
+    static Point2D directions[8] = {
+        Point2D(0, -1), Point2D(1, -1), Point2D(1, 0), Point2D(1, 1),
+        Point2D(0, 1), Point2D(-1, 1), Point2D(-1, 0), Point2D(-1, -1)
+    };
+    int x = unknown_d64.X;
+    int y = unknown_d64.Y;
+    int newx = directions[arg1].X * arg2 + x;
+    int newy = directions[arg1].Y * arg2 + y;
+    if (x != newx || y != newy) {
+        Point2D d(newx - x, newy - y);
+        unknown_d74.X += d.X;
+        unknown_d74.Y += d.Y;
+    }
+}
+
+
+// Destructor callback (0x006A8C70, a bare ret) registered by Tactical::Scroll_Map_006a8b70 for its function-local
+// static direction table; its code is emitted naturally by Tactical_Move_View_006a8b70.cpp.
+
+
 // Point2D Tactical::Clamp_Pixel_To_Tactical(Point2D const &pixel) (0x006A8B10): the
 // pixel clamped to the view (0x006A8C80) unless the map editor flag 0x00A40D13
 // is set (TibSun Tactical::Clamp_Pixel_To_Tactical).
@@ -2864,6 +2890,39 @@ void Tactical::Unknown_006AA790()
         unknown_surface_83995c->Draw_Rect(unknown_rect_839630, rect, color);
     }
 }
+
+
+// int Tactical::Scroll_Dir_006aa840(int direction) (0x006AA840): moves the view position one step in a
+// facing direction (function-local static table, atexit stub 0x006AA960), clamped by 0x006A8C80 unless
+// 0x00A40D13 is set; returns the facing of the step actually taken (3x3 table 0x007F6930), or the
+// direction when the step is empty.
+
+extern int unknown_facings_7f6930[3][3];
+
+int Tactical::Scroll_Dir_006aa840(int direction)
+{
+    static Point2D directions[8] = {
+        Point2D(0, -1), Point2D(1, -1), Point2D(1, 0), Point2D(1, 1),
+        Point2D(0, 1), Point2D(-1, 1), Point2D(-1, 0), Point2D(-1, -1)
+    };
+    int x = unknown_d64.X;
+    int y = unknown_d64.Y;
+    int newx = directions[direction].X + x;
+    int newy = directions[direction].Y + y;
+    if (newx != x || newy != y) {
+        Point2D point(newx, newy);
+        if (Unknown_006A8C80(&point) && !Debug_Map) {
+            newx = point.X;
+            newy = point.Y;
+        }
+        Point2D delta(unknown_d64.X - newx, unknown_d64.Y - newy);
+        return unknown_facings_7f6930[delta.Y + 1][delta.X + 1];
+    }
+    return direction;
+}
+
+
+// Destructor callback (0x006AA960, a bare ret) for Scroll_Dir_006aa840's function-local static table.
 
 
 // Cell Tactical::Clamp_Cursor_To_Tactical(Cell const &cell, Cell const *list)

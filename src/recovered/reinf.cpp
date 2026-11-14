@@ -4,6 +4,65 @@
 // manifests/original_target/modules/reinf.json carries the addresses and the rows that
 // stay in their own files.
 
+#define RA2_COORD_FROM_CELL  // the unit calls CoordStruct(Cell const &, int) 0x0061EA80 (shared/coord.hpp)
+#define RA2_COORD_FROM_CELL_INLINE  // Create_Reinforcement converts a cell to a coordinate inline (shared/coord.hpp)
+#define RA2_TECHNO_PAIR_ROOKIE  // VeterancyClass 0x007134E0 for _Create_Group (shared/techno.hpp)
+// Header-static dynamic initializers of the unit at 0x00639770: the shape_file.hpp empty rect and the
+// shared/unknown_geometry.hpp constants (0x00639770-0x00639951); the other
+// drafts of this plan are emitted by these includes.
+#include "shared/shape_file.hpp"
+#include "shared/unknown_geometry.hpp"
+
+
+// Dynamic initializer (0x00639790, _$E) of diagonal from the header(s) included
+// by HeaderStatics_empty_rect_init_00639770.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006397C0, _$E) of b from the header(s) included
+// by HeaderStatics_empty_rect_init_00639770.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006397E0, _$E) of c from the header(s) included
+// by HeaderStatics_empty_rect_init_00639770.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00639800, _$E) of angle45 from the header(s) included
+// by HeaderStatics_empty_rect_init_00639770.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00639820, _$E) of angle60 from the header(s) included
+// by HeaderStatics_empty_rect_init_00639770.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00639840, _$E) of angle90 from the header(s) included
+// by HeaderStatics_empty_rect_init_00639770.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00639860, _$E) of g from the header(s) included
+// by HeaderStatics_empty_rect_init_00639770.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006398A0, _$E) of h from the header(s) included
+// by HeaderStatics_empty_rect_init_00639770.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006398D0, _$E) of i from the header(s) included
+// by HeaderStatics_empty_rect_init_00639770.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00639900, _$E) of j from the header(s) included
+// by HeaderStatics_empty_rect_init_00639770.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00639930, _$E) of k from the header(s) included
+// by HeaderStatics_empty_rect_init_00639770.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00639940, _$E) of l from the header(s) included
+// by HeaderStatics_empty_rect_init_00639770.cpp; no source of its own.
+
+
+
 
 #include "shared/reinforcement.hpp"
 #include "shared/team.hpp"

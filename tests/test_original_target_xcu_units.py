@@ -78,6 +78,20 @@ class LiftGroupsTest(unittest.TestCase):
                                'd': 'xcu-prefix', 'e': 'stay'})
 
 
+class HiddenUnitTest(unittest.TestCase):
+    def test_pick_already_binds_the_static(self):
+        records = [dict(file='e', tier='xcu-exclusion', unit='u', reason='r'),
+                   dict(file='c', tier='xcu-exclusion', unit='u', reason='r'),     # comment-only, same group
+                   dict(file='o', tier='xcu-prefix', unit='v', reason='r')]
+        rows = {'e': [dict(relocations=[dict(symbol='_static_k', target=0x200), dict(symbol='_$E3', target=5)])],
+                'c': [dict(relocations=[])],
+                'o': [dict(relocations=[dict(symbol='_static_k', target=0x300)])]}
+        bindings = {'u': {'_static_k': 0x100, '_$E3': 9}, 'v': {'_static_k': 0x300}}
+        out = {r['file']: (r['tier'], r['unit']) for r in xcu_units.hidden_unit_groups(
+            records, rows, bindings, {'e': 'p', 'c': 'p', 'o': 'q'})}
+        self.assertEqual(out, {'e': ('group', None), 'c': ('group', None), 'o': ('xcu-prefix', 'v')})
+
+
 class XcuJoinTest(unittest.TestCase):
     """refile_unit.py join-xcu placement, the unit_evidence flag (canonical) and its STATUS lines."""
 

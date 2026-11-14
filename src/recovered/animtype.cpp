@@ -4,6 +4,63 @@
 // manifests/original_target/modules/animtype.json carries the addresses and the rows that
 // stay in their own files.
 
+// Header-static dynamic initializers of the unit at 0x00424C40:  the
+// shared/unknown_geometry.hpp constants and unknown_static_rect.hpp
+// (0x00424C40-0x00424E26); the other
+// drafts of this plan are emitted by these includes.
+#include "shared/unknown_geometry.hpp"
+#include "shared/unknown_static_rect.hpp"
+
+
+// Dynamic initializer (0x00424C70, _$E) of b from the header(s) included
+// by HeaderStatics_diagonal_init_00424c40.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00424C90, _$E) of c from the header(s) included
+// by HeaderStatics_diagonal_init_00424c40.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00424CB0, _$E) of angle45 from the header(s) included
+// by HeaderStatics_diagonal_init_00424c40.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00424CD0, _$E) of angle60 from the header(s) included
+// by HeaderStatics_diagonal_init_00424c40.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00424CF0, _$E) of angle90 from the header(s) included
+// by HeaderStatics_diagonal_init_00424c40.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00424D10, _$E) of g from the header(s) included
+// by HeaderStatics_diagonal_init_00424c40.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00424D50, _$E) of h from the header(s) included
+// by HeaderStatics_diagonal_init_00424c40.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00424D80, _$E) of i from the header(s) included
+// by HeaderStatics_diagonal_init_00424c40.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00424DB0, _$E) of j from the header(s) included
+// by HeaderStatics_diagonal_init_00424c40.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00424DE0, _$E) of k from the header(s) included
+// by HeaderStatics_diagonal_init_00424c40.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00424DF0, _$E) of l from the header(s) included
+// by HeaderStatics_diagonal_init_00424c40.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00424E10, _$E) of static_rect from the header(s) included
+// by HeaderStatics_diagonal_init_00424c40.cpp; no source of its own.
+
+
+
 
 #include "shared/anim_type.hpp"
 #include "shared/cc_file_class.hpp"

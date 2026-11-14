@@ -4,6 +4,63 @@
 // manifests/original_target/modules/mouse.json carries the addresses and the rows that
 // stay in their own files.
 
+// Header-static dynamic initializers of the unit at 0x0059EDE0:  the
+// shared/unknown_geometry.hpp constants and unknown_static_rect.hpp
+// (0x0059EDE0-0x0059EFC6); the other
+// drafts of this plan are emitted by these includes.
+#include "shared/unknown_geometry.hpp"
+#include "shared/unknown_static_rect.hpp"
+
+
+// Dynamic initializer (0x0059EE10, _$E) of b from the header(s) included
+// by HeaderStatics_diagonal_init_0059ede0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0059EE30, _$E) of c from the header(s) included
+// by HeaderStatics_diagonal_init_0059ede0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0059EE50, _$E) of angle45 from the header(s) included
+// by HeaderStatics_diagonal_init_0059ede0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0059EE70, _$E) of angle60 from the header(s) included
+// by HeaderStatics_diagonal_init_0059ede0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0059EE90, _$E) of angle90 from the header(s) included
+// by HeaderStatics_diagonal_init_0059ede0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0059EEB0, _$E) of g from the header(s) included
+// by HeaderStatics_diagonal_init_0059ede0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0059EEF0, _$E) of h from the header(s) included
+// by HeaderStatics_diagonal_init_0059ede0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0059EF20, _$E) of i from the header(s) included
+// by HeaderStatics_diagonal_init_0059ede0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0059EF50, _$E) of j from the header(s) included
+// by HeaderStatics_diagonal_init_0059ede0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0059EF80, _$E) of k from the header(s) included
+// by HeaderStatics_diagonal_init_0059ede0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0059EF90, _$E) of l from the header(s) included
+// by HeaderStatics_diagonal_init_0059ede0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0059EFB0, _$E) of static_rect from the header(s) included
+// by HeaderStatics_diagonal_init_0059ede0.cpp; no source of its own.
+
+
+
 
 #include "shared/mouse_class.hpp"
 #include "shared/mouse.hpp"

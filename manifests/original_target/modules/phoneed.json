@@ -10,8 +10,86 @@
   "/Gy",
   "/GR"
  ],
- "compile_group": 744,
+ "compile_group": 739,
  "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "0060d780",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "0060d7a0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "0060d7d0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "0060d7f0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "0060d810",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "0060d830",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "0060d850",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "0060d870",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "0060d8b0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "0060d8e0",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "0060d910",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "0060d940",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "0060d950",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
   {
    "symbol": "?Dialog@PhoneEdit@@QAE_NXZ",
    "entry": "0060d970",
@@ -91,7 +169,7 @@
    "padding_bytes": 14
   }
  ],
- "code_bytes": 4336,
+ "code_bytes": 4832,
  "data": [
   {
    "symbol": "__real@8@40008000000000000000",
@@ -534,7 +612,112 @@
   }
  ],
  "held_rows": [],
- "joined": [],
+ "joined": [
+  {
+   "entry": "0060d780",
+   "bytes": 23,
+   "population": "population-3624",
+   "bound": "the unit's compile group (population-3624)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0060d7a0",
+   "bytes": 40,
+   "population": "population-3624",
+   "bound": "the unit's compile group (population-3624)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0060d7d0",
+   "bytes": 19,
+   "population": "population-3624",
+   "bound": "the unit's compile group (population-3624)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0060d7f0",
+   "bytes": 19,
+   "population": "population-3624",
+   "bound": "the unit's compile group (population-3624)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0060d810",
+   "bytes": 19,
+   "population": "population-3624",
+   "bound": "the unit's compile group (population-3624)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0060d830",
+   "bytes": 19,
+   "population": "population-3624",
+   "bound": "the unit's compile group (population-3624)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0060d850",
+   "bytes": 19,
+   "population": "population-3624",
+   "bound": "the unit's compile group (population-3624)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0060d870",
+   "bytes": 49,
+   "population": "population-3624",
+   "bound": "the unit's compile group (population-3624)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0060d8b0",
+   "bytes": 33,
+   "population": "population-3624",
+   "bound": "the unit's compile group (population-3624)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0060d8e0",
+   "bytes": 44,
+   "population": "population-3624",
+   "bound": "the unit's compile group (population-3624)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0060d910",
+   "bytes": 39,
+   "population": "population-3624",
+   "bound": "the unit's compile group (population-3624)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0060d940",
+   "bytes": 15,
+   "population": "population-3624",
+   "bound": "the unit's compile group (population-3624)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0060d950",
+   "bytes": 18,
+   "population": "population-3624",
+   "bound": "the unit's compile group (population-3624)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  }
+ ],
  "residuals": [],
  "unit_functions": 14,
  "data_unproven": [

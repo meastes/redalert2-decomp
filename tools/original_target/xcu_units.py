@@ -25,7 +25,8 @@ Tiers (first that applies):
                   ends with ordinary code) and the unit map agree on the next unit;
   xcu-prefix      two candidates; prefix rule alone.
 The rows of one compile group with one pick (a header-statics group: one include emits them all)
-take the strongest flagged tier among them.
+take the strongest flagged tier among them. A group whose pick already binds one of its names
+(a header static) at another address is a hidden unit's: it becomes `group`.
 
 Anchors: every function of a re-filed unit's module map (manifests/original_target/modules/*.json
 `code`), else the unit whose module source holds the row. The table order equals .text order, so
@@ -358,6 +359,36 @@ def lift_groups(records, group_of):
     return records
 
 
+COMPILER_NAME = re.compile(r'^(?:_?\$[EST]\d+|_\?\$S\d+@.*)$')
+
+
+def hidden_unit_groups(records, rows_by_file, unit_bindings, group_of):
+    """Flagged records whose pick already binds one of their names (a header static, a global) at
+    another address: one unit cannot instantiate a header static twice, so neither boundary unit owns
+    the run (a hidden unit lies between; lane E1, docs/CRT_XCU_TABLE.md). Every flagged record of such
+    a compile group becomes `group`. `unit_bindings` {unit: {symbol: address}} from the unit's own
+    module rows' relocation receipts (names its own code uses; a population table can
+    hold another module's names)."""
+    bad = set()
+    for r in records:
+        if r['tier'] not in FLAG_TIERS:
+            continue
+        own = unit_bindings.get(r['unit'], {})
+        for row in rows_by_file.get(r['file'], []):
+            for reloc in row.get('relocations') or []:
+                name = reloc['symbol']
+                if not COMPILER_NAME.match(name) and name in own and own[name] != reloc['target']:
+                    bad.add(group_of.get(r['file'], r['file']))
+                    r.setdefault('conflict', '%s at %08x (this run: %08x)' % (name, own[name], reloc['target']))
+    for r in records:
+        if r['tier'] in FLAG_TIERS and group_of.get(r['file'], r['file']) in bad:
+            r['reason'] = 'hidden unit: the pick already binds %s; was %s' % (
+                r.get('conflict', 'a name of this compile group at another address'), r['tier'])
+            r['tier'], r['unit'] = 'group', None
+            r.pop('conflict', None)
+    return records
+
+
 # ----------------------------------------------------------------------------- inputs
 
 def load_inputs(repository, executable):
@@ -409,6 +440,13 @@ def report(repository=REPOSITORY, config=DEFAULT_CONFIG):
     local = local_static_destructors(image, regions, reached)
     group_of = {source: rows[0]['population'] for source, rows in e_sources.items()}
     files = classify_files(facts, e_sources, extremes, local, group_of)
+    bindings = collections.defaultdict(dict)
+    for row in catalog['regions']:
+        unit = source_owner.get(row['source'])
+        if unit:
+            for reloc in row.get('relocations') or []:
+                bindings[unit].setdefault(reloc['symbol'], reloc['target'])
+    hidden_unit_groups(files, e_sources, bindings, group_of)
     for record in files:
         record['file'] = record['file'].replace('src/recovered/', '', 1)
     return dict(slots=len(slots), entries=collections.Counter(f['cls'] for f in facts), files=files,

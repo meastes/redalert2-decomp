@@ -4,8 +4,8 @@
     "id": "population-3624",
     "inventory_sha256": "cd5c08ee907185d236137c3968283bc2d6d97b1a062ce84587fb10d16177336d",
     "gaps_sha256": "a14a948d87d00cdfd26a09e215e27a8b340ff78059505e66f1cb06d64e5cfb2a",
-    "historical_population_sha256": "039cd61d61ffa82a3d306b8375a31da4b7316d4a48a152e228b42b30b0b73677",
-    "historical_acceptance_sha256": "db1c5764baadadf6a87144b21731969009b3c79b1d68937972fb0dd71d006802"
+    "historical_population_sha256": "302f27d4f323239fd292c5facf7cceb3c794328a4bd4bce0579f6eabf61af603",
+    "historical_acceptance_sha256": "2b08acfc753060b17ae8f8caca6aaa3a9fb468e595d7810746cdc4fa80aeb738"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -6041,7 +6041,14 @@
     "??_R0?AVWDTState@@@8": 8372688,
     "??_R0?AVWinModemClass@@@8": 8374768,
     "??_R0?AVCNetUtilEventSink@@@8": 8378712,
-    "??_R0?AVMouse@@@8": 8393616
+    "??_R0?AVMouse@@@8": 8393616,
+    "?Service_Game_IO_00481fb0@seed_00482100@@YAXXZ": 4726704,
+    "?Service_Game_IO_00481fb0@seed_005bbd10@@YAXXZ": 4726704,
+    "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z": 7049136,
+    "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
+    "?Compute_Y@MessageListClass@@QAEXXZ": 5987712,
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "__ramp_corners": 8339828
   },
   "regions": [
     {
@@ -6095,14 +6102,14 @@
           "resolved": 10970564
         }
       ],
-      "source_sha256": "546fcf25fa58bea1b8243a7330e06cc397ff482a0a555895151b49d9e5a33bdf",
-      "source": "src/recovered/header_statics/0060d780/HeaderStatics_empty_rect_init_0060d780.cpp",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
+      "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_empty_rect_init_0060d780",
-      "source_order": 160063
+      "source_order": 160063,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 6346656,
@@ -6163,14 +6170,14 @@
           "resolved": 10970576
         }
       ],
-      "source_sha256": "f067bb72e6ef17af2d96e64f84cc5e654d7dbeaa106045897d336e9232c3da7a",
-      "source": "src/recovered/header_statics/0060d780/HeaderStatics_diagonal_init_0060d7a0.cpp",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
+      "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_diagonal_init_0060d7a0",
-      "source_order": 160064
+      "source_order": 160064,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 6346704,
@@ -6215,14 +6222,14 @@
           "resolved": 10970648
         }
       ],
-      "source_sha256": "7b5d377a1f7ee8ace144443ce2530c34e3094cfbc9a74a946e4e6e88bf9b03c0",
-      "source": "src/recovered/header_statics/0060d780/HeaderStatics_b_init_0060d7d0.cpp",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
+      "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_b_init_0060d7d0",
-      "source_order": 160065
+      "source_order": 160065,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 6346736,
@@ -6267,14 +6274,14 @@
           "resolved": 10970632
         }
       ],
-      "source_sha256": "4c7ce8a694788a67d43f5885b50b722c2e02c7ba737d4bc9860d3c41c72d7145",
-      "source": "src/recovered/header_statics/0060d780/HeaderStatics_c_init_0060d7f0.cpp",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
+      "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_c_init_0060d7f0",
-      "source_order": 160066
+      "source_order": 160066,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 6346768,
@@ -6319,14 +6326,14 @@
           "resolved": 10970624
         }
       ],
-      "source_sha256": "f0034cf0fede387935fce7b51f8866a199704e19cb16db77a68eb1f7f766a4ef",
-      "source": "src/recovered/header_statics/0060d780/HeaderStatics_angle45_init_0060d810.cpp",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
+      "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_angle45_init_0060d810",
-      "source_order": 160067
+      "source_order": 160067,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 6346800,
@@ -6371,14 +6378,14 @@
           "resolved": 10970584
         }
       ],
-      "source_sha256": "95245da9cad259269d4df70a55632e9421a31eabfdb62e4ea60197c455e63a19",
-      "source": "src/recovered/header_statics/0060d780/HeaderStatics_angle60_init_0060d830.cpp",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
+      "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_angle60_init_0060d830",
-      "source_order": 160068
+      "source_order": 160068,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 6346832,
@@ -6423,14 +6430,14 @@
           "resolved": 10970544
         }
       ],
-      "source_sha256": "2ff4a394374fcbb2740731b8018b99815318ce2a619539412a4a1c86e992d94d",
-      "source": "src/recovered/header_statics/0060d780/HeaderStatics_angle90_init_0060d850.cpp",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
+      "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_angle90_init_0060d850",
-      "source_order": 160069
+      "source_order": 160069,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 6346864,
@@ -6507,14 +6514,14 @@
           "resolved": 10970656
         }
       ],
-      "source_sha256": "d74116a493623376a2fd3613fa7e95e94856a9fb31eb134d285922c45bab3468",
-      "source": "src/recovered/header_statics/0060d780/HeaderStatics_g_init_0060d870.cpp",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
+      "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_g_init_0060d870",
-      "source_order": 160070
+      "source_order": 160070,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 6346928,
@@ -6567,14 +6574,14 @@
           "resolved": 10970592
         }
       ],
-      "source_sha256": "902078552c7ae166c1ada387eaa8acaead46ff8cda7801629d2b2bda2f49ac02",
-      "source": "src/recovered/header_statics/0060d780/HeaderStatics_h_init_0060d8b0.cpp",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
+      "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_h_init_0060d8b0",
-      "source_order": 160071
+      "source_order": 160071,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 6346976,
@@ -6627,14 +6634,14 @@
           "resolved": 10970616
         }
       ],
-      "source_sha256": "f493061bc67e16143b6c26d8bd397067106d6f59c4b60ea347121b8e10551530",
-      "source": "src/recovered/header_statics/0060d780/HeaderStatics_i_init_0060d8e0.cpp",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
+      "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_i_init_0060d8e0",
-      "source_order": 160072
+      "source_order": 160072,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 6347024,
@@ -6687,14 +6694,14 @@
           "resolved": 10970640
         }
       ],
-      "source_sha256": "e44f77855720628133806a96fbed1d7229e750c53e2cf92a96496224917c758a",
-      "source": "src/recovered/header_statics/0060d780/HeaderStatics_j_init_0060d910.cpp",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
+      "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_j_init_0060d910",
-      "source_order": 160073
+      "source_order": 160073,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 6347072,
@@ -6731,14 +6738,14 @@
           "resolved": 10970570
         }
       ],
-      "source_sha256": "494bf3bfaf4ce190f1dfdbd7751f2418ee345aaa706d5f1ba976d547e65ff0ae",
-      "source": "src/recovered/header_statics/0060d780/HeaderStatics_k_init_0060d940.cpp",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
+      "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_k_init_0060d940",
-      "source_order": 160074
+      "source_order": 160074,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 6347088,
@@ -6783,14 +6790,14 @@
           "resolved": 10970608
         }
       ],
-      "source_sha256": "37b8ebdb7761f02d0555b10449f5cbfdc7a135b48d559cec41a70858cdb8f248",
-      "source": "src/recovered/header_statics/0060d780/HeaderStatics_l_init_0060d950.cpp",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
+      "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_l_init_0060d950",
-      "source_order": 160075
+      "source_order": 160075,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 6347120,
@@ -6891,7 +6898,7 @@
           "resolved": 403870
         }
       ],
-      "source_sha256": "3f82662136194453e82c13e3bcc98591f3552c479987630047694f10432a0c0a",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
       "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -7094,7 +7101,7 @@
           "resolved": 1650
         }
       ],
-      "source_sha256": "3f82662136194453e82c13e3bcc98591f3552c479987630047694f10432a0c0a",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
       "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -7449,7 +7456,7 @@
           "resolved": 1448319
         }
       ],
-      "source_sha256": "3f82662136194453e82c13e3bcc98591f3552c479987630047694f10432a0c0a",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
       "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -7524,7 +7531,7 @@
           "resolved": 7971724
         }
       ],
-      "source_sha256": "3f82662136194453e82c13e3bcc98591f3552c479987630047694f10432a0c0a",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
       "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -7703,7 +7710,7 @@
           "resolved": 1521967
         }
       ],
-      "source_sha256": "3f82662136194453e82c13e3bcc98591f3552c479987630047694f10432a0c0a",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
       "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -7810,7 +7817,7 @@
           "resolved": 8635740
         }
       ],
-      "source_sha256": "3f82662136194453e82c13e3bcc98591f3552c479987630047694f10432a0c0a",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
       "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -7901,7 +7908,7 @@
           "resolved": 4294906287
         }
       ],
-      "source_sha256": "3f82662136194453e82c13e3bcc98591f3552c479987630047694f10432a0c0a",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
       "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -8056,7 +8063,7 @@
           "resolved": 7971972
         }
       ],
-      "source_sha256": "3f82662136194453e82c13e3bcc98591f3552c479987630047694f10432a0c0a",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
       "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -8195,7 +8202,7 @@
           "resolved": 4292837381
         }
       ],
-      "source_sha256": "3f82662136194453e82c13e3bcc98591f3552c479987630047694f10432a0c0a",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
       "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -8254,7 +8261,7 @@
           "resolved": 7971996
         }
       ],
-      "source_sha256": "3f82662136194453e82c13e3bcc98591f3552c479987630047694f10432a0c0a",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
       "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -8289,7 +8296,7 @@
           "resolved": 1527240
         }
       ],
-      "source_sha256": "3f82662136194453e82c13e3bcc98591f3552c479987630047694f10432a0c0a",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
       "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -8492,7 +8499,7 @@
           "resolved": 10746564
         }
       ],
-      "source_sha256": "3f82662136194453e82c13e3bcc98591f3552c479987630047694f10432a0c0a",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
       "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -8727,7 +8734,7 @@
           "resolved": 7971992
         }
       ],
-      "source_sha256": "3f82662136194453e82c13e3bcc98591f3552c479987630047694f10432a0c0a",
+      "source_sha256": "e9a6b528d4d5defda8a9dc00130667fbca56b1ba51ba2b3c3b74587a74c0faa2",
       "source": "src/recovered/phoneed.cpp",
       "population": "population-3624",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",

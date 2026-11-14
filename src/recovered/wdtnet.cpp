@@ -13,10 +13,66 @@
 #define VECTOR_IMPLEMENT_VECTOR_DESTRUCTOR
 #define WDT_STATE_DECLARE_CONSTRUCTORS
 #define RA2_VECTOR_SIGNED_SIZE
+#include "shared/unknown_geometry.hpp"
+#include "shared/unknown_static_rect.hpp"
 #include "shared/wdt_territory.hpp"
 #include "shared/wdt_state.hpp"
 #include "shared/packet.hpp"
 #include "shared/crt_memory.hpp"
+
+
+// Header-static dynamic initializers of the unit at 0x0072BBD0:  the
+// shared/unknown_geometry.hpp constants and unknown_static_rect.hpp
+// (0x0072BBD0-0x0072BDB6); the other
+// drafts of this plan are emitted by these includes.
+
+
+// Dynamic initializer (0x0072BC00, _$E) of b from the header(s) included
+// by HeaderStatics_diagonal_init_0072bbd0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0072BC20, _$E) of c from the header(s) included
+// by HeaderStatics_diagonal_init_0072bbd0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0072BC40, _$E) of angle45 from the header(s) included
+// by HeaderStatics_diagonal_init_0072bbd0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0072BC60, _$E) of angle60 from the header(s) included
+// by HeaderStatics_diagonal_init_0072bbd0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0072BC80, _$E) of angle90 from the header(s) included
+// by HeaderStatics_diagonal_init_0072bbd0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0072BCA0, _$E) of g from the header(s) included
+// by HeaderStatics_diagonal_init_0072bbd0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0072BCE0, _$E) of h from the header(s) included
+// by HeaderStatics_diagonal_init_0072bbd0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0072BD10, _$E) of i from the header(s) included
+// by HeaderStatics_diagonal_init_0072bbd0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0072BD40, _$E) of j from the header(s) included
+// by HeaderStatics_diagonal_init_0072bbd0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0072BD70, _$E) of k from the header(s) included
+// by HeaderStatics_diagonal_init_0072bbd0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0072BD80, _$E) of l from the header(s) included
+// by HeaderStatics_diagonal_init_0072bbd0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0072BDA0, _$E) of static_rect from the header(s) included
+// by HeaderStatics_diagonal_init_0072bbd0.cpp; no source of its own.
 
 
 // rc_ptr<WDTTerritory> __fastcall WDTTerritory::Create() (0x0072BDC0): a new territory, counted.

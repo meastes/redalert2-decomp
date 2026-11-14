@@ -10,8 +10,80 @@
   "/Gy",
   "/GR"
  ],
- "compile_group": 994,
+ "compile_group": 989,
  "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00403ce0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "00403d10",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "00403d30",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "00403d50",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "00403d70",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "00403d90",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "00403db0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "00403df0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "00403e20",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "00403e50",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "00403e80",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "00403e90",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
   {
    "symbol": "?Audio_Events_Init@@YIHPAUAudioDevice@@PAUAudioBag@@@Z",
    "entry": "00403eb0",
@@ -457,55 +529,172 @@
    "padding_bytes": 15
   }
  ],
- "code_bytes": 10800,
+ "code_bytes": 11264,
  "data": [
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "0079a6e8",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
   {
    "symbol": "__real@4@00000000000000000000",
    "address": "0079a738",
    "bytes": 4,
    "kind": "table",
-   "section": 37
+   "section": 71
   },
   {
    "symbol": "??_C@_0BJ@FGPD@event?5mempool?5size?5?$DN?5?$CFd?6?$AA@",
    "address": "007cccb8",
    "bytes": 25,
    "kind": "string",
-   "section": 3
+   "section": 38
   },
   {
    "symbol": "??_C@_09OKKF@no?5events?$AA@",
    "address": "007cccd4",
    "bytes": 10,
    "kind": "string",
-   "section": 42
+   "section": 76
   },
   {
    "symbol": "??_C@_0BD@MMLH@Missing?5sample?5?$CFs?6?$AA@",
    "address": "007ccce8",
    "bytes": 19,
    "kind": "string",
-   "section": 107
+   "section": 141
   },
   {
    "symbol": "??_C@_0BP@ELKE@StaticSounds?3?5?$CF05d?5?9?5Max?3?5?$CF05d?$AA@",
    "address": "007cccfc",
    "bytes": 31,
    "kind": "string",
-   "section": 146
+   "section": 180
   },
   {
    "symbol": "??_C@_0BP@BEKK@AudioEvents?5?3?5?$CF05d?5?9?5Max?3?5?$CF05d?$AA@",
    "address": "007ccd1c",
    "bytes": 31,
    "kind": "string",
-   "section": 147
+   "section": 181
   }
  ],
  "data_ranges": [],
  "data_bytes_proven": 0,
  "data_complete": true,
  "kept_elsewhere": [
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "0079a6e8",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
   {
    "symbol": "__real@4@00000000000000000000",
    "address": "0079a738",
@@ -10976,10 +11165,22 @@
    "address": "00401080"
   },
   {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
    "symbol": "?unknown_random_839218@@3VRandom2Class@@A",
    "address": "00839218"
   },
   {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
    "symbol": "_Audio_Enabled_007ccbd8",
    "address": "007ccbd8"
   },
@@ -11022,6 +11223,10 @@
   {
    "symbol": "_Audio_Events_Ready_00830fb8",
    "address": "00830fb8"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
   },
   {
    "symbol": "__alldiv",
@@ -11034,6 +11239,10 @@
   {
    "symbol": "__fltused",
    "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
   },
   {
    "symbol": "__stricmp",
@@ -11175,105 +11384,117 @@
    "population": "population-4352",
    "bound": "own frozen bound (population-4352)",
    "options": "joined under the unit's /GR (frozen without it)"
-  }
- ],
- "residuals": [
+  },
   {
-   "kind": "split",
    "entry": "00403ce0",
    "bytes": 40,
    "population": "population-163",
-   "source": "src/recovered/header_statics/00403ce0/HeaderStatics_diagonal_init_00403ce0.cpp",
-   "cause": "frozen in another population's inventory pass (population-163)"
+   "bound": "own frozen bound (population-163)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "00403d10",
    "bytes": 19,
    "population": "population-163",
-   "source": "src/recovered/header_statics/00403ce0/HeaderStatics_b_init_00403d10.cpp",
-   "cause": "held by population-163; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E119)"
+   "bound": "own frozen bound (population-163)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "00403d30",
    "bytes": 19,
    "population": "population-163",
-   "source": "src/recovered/header_statics/00403ce0/HeaderStatics_c_init_00403d30.cpp",
-   "cause": "held by population-163; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E120)"
+   "bound": "own frozen bound (population-163)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "00403d50",
    "bytes": 19,
    "population": "population-163",
-   "source": "src/recovered/header_statics/00403ce0/HeaderStatics_angle45_init_00403d50.cpp",
-   "cause": "held by population-163; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E121)"
+   "bound": "own frozen bound (population-163)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "00403d70",
    "bytes": 19,
    "population": "population-163",
-   "source": "src/recovered/header_statics/00403ce0/HeaderStatics_angle60_init_00403d70.cpp",
-   "cause": "held by population-163; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E122)"
+   "bound": "own frozen bound (population-163)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "00403d90",
    "bytes": 19,
    "population": "population-163",
-   "source": "src/recovered/header_statics/00403ce0/HeaderStatics_angle90_init_00403d90.cpp",
-   "cause": "held by population-163; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E123)"
+   "bound": "own frozen bound (population-163)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "00403db0",
    "bytes": 49,
    "population": "population-163",
-   "source": "src/recovered/header_statics/00403ce0/HeaderStatics_g_init_00403db0.cpp",
-   "cause": "held by population-163; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E124)"
+   "bound": "own frozen bound (population-163)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "00403df0",
    "bytes": 33,
    "population": "population-163",
-   "source": "src/recovered/header_statics/00403ce0/HeaderStatics_h_init_00403df0.cpp",
-   "cause": "held by population-163; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E125)"
+   "bound": "own frozen bound (population-163)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "00403e20",
    "bytes": 44,
    "population": "population-163",
-   "source": "src/recovered/header_statics/00403ce0/HeaderStatics_i_init_00403e20.cpp",
-   "cause": "held by population-163; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E126)"
+   "bound": "own frozen bound (population-163)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "00403e50",
    "bytes": 39,
    "population": "population-163",
-   "source": "src/recovered/header_statics/00403ce0/HeaderStatics_j_init_00403e50.cpp",
-   "cause": "held by population-163; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E127)"
+   "bound": "own frozen bound (population-163)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "00403e80",
    "bytes": 15,
    "population": "population-163",
-   "source": "src/recovered/header_statics/00403ce0/HeaderStatics_k_init_00403e80.cpp",
-   "cause": "held by population-163; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E128)"
+   "bound": "own frozen bound (population-163)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "00403e90",
    "bytes": 18,
    "population": "population-163",
-   "source": "src/recovered/header_statics/00403ce0/HeaderStatics_l_init_00403e90.cpp",
-   "cause": "held by population-163; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E129)"
-  },
+   "bound": "own frozen bound (population-163)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  }
+ ],
+ "residuals": [
   {
    "kind": "split",
    "entry": "00405bf0",
@@ -11284,7 +11505,12 @@
   }
  ],
  "unit_functions": 89,
- "data_unproven": [],
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
  "stand_in_references": [
   {
    "site": "006ebe90",
@@ -21021,8 +21247,8 @@
  ],
  "stand_in_reference_count": 1622,
  "residual_split": {
-  "rows": 13,
-  "bytes": 351
+  "rows": 1,
+  "bytes": 18
  },
  "residual_flipped": {
   "rows": 0,

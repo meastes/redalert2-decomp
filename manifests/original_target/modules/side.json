@@ -10,8 +10,80 @@
   "/Gy",
   "/GR"
  ],
- "compile_group": 791,
+ "compile_group": 786,
  "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "0067ac40",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "0067ac70",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "0067ac90",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "0067acb0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "0067acd0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "0067acf0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "0067ad10",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "0067ad50",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "0067ad80",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "0067adb0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "0067ade0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "0067adf0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
   {
    "symbol": "??0SideClass@@QAE@PBD@Z",
    "entry": "0067ae10",
@@ -73,7 +145,7 @@
    "padding_bytes": 1
   }
  ],
- "code_bytes": 1200,
+ "code_bytes": 1664,
  "data": [
   {
    "symbol": "__real@8@40008000000000000000",
@@ -1015,7 +1087,104 @@
   }
  ],
  "held_rows": [],
- "joined": [],
+ "joined": [
+  {
+   "entry": "0067ac40",
+   "bytes": 40,
+   "population": "population-3727",
+   "bound": "the unit's compile group (population-3727)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0067ac70",
+   "bytes": 19,
+   "population": "population-3727",
+   "bound": "the unit's compile group (population-3727)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0067ac90",
+   "bytes": 19,
+   "population": "population-3727",
+   "bound": "the unit's compile group (population-3727)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0067acb0",
+   "bytes": 19,
+   "population": "population-3727",
+   "bound": "the unit's compile group (population-3727)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0067acd0",
+   "bytes": 19,
+   "population": "population-3727",
+   "bound": "the unit's compile group (population-3727)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0067acf0",
+   "bytes": 19,
+   "population": "population-3727",
+   "bound": "the unit's compile group (population-3727)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0067ad10",
+   "bytes": 49,
+   "population": "population-3727",
+   "bound": "the unit's compile group (population-3727)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0067ad50",
+   "bytes": 33,
+   "population": "population-3727",
+   "bound": "the unit's compile group (population-3727)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0067ad80",
+   "bytes": 44,
+   "population": "population-3727",
+   "bound": "the unit's compile group (population-3727)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0067adb0",
+   "bytes": 39,
+   "population": "population-3727",
+   "bound": "the unit's compile group (population-3727)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0067ade0",
+   "bytes": 15,
+   "population": "population-3727",
+   "bound": "the unit's compile group (population-3727)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0067adf0",
+   "bytes": 18,
+   "population": "population-3727",
+   "bound": "the unit's compile group (population-3727)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  }
+ ],
  "residuals": [],
  "unit_functions": 10,
  "data_unproven": [

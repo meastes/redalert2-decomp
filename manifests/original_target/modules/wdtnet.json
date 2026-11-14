@@ -10,8 +10,86 @@
   "/Gy",
   "/GR"
  ],
- "compile_group": 935,
+ "compile_group": 930,
  "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "0072bbd0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "0072bc00",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "0072bc20",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "0072bc40",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "0072bc60",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "0072bc80",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "0072bca0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "0072bce0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "0072bd10",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "0072bd40",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "0072bd70",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "0072bd80",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "0072bda0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
   {
    "symbol": "?Create@WDTTerritory@@SI?AV?$rc_ptr@VWDTTerritory@@@@XZ",
    "entry": "0072bdc0",
@@ -115,350 +193,413 @@
    "padding_bytes": 14
   }
  ],
- "code_bytes": 3392,
+ "code_bytes": 3888,
  "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
   {
    "symbol": "??_7?$rc_ptr@VWDTTerritory@@@@6B@",
    "address": "007a4528",
    "bytes": 8,
    "kind": "vtable",
-   "section": 10
+   "section": 47
   },
   {
    "symbol": "??_7?$rc_ptr@VWDTState@@@@6B@",
    "address": "007af1a0",
    "bytes": 8,
    "kind": "vtable",
-   "section": 32
+   "section": 69
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007af2b8",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
   },
   {
    "symbol": "??_7WDTState@@6B@",
    "address": "007af304",
    "bytes": 16,
    "kind": "vtable",
-   "section": 51
+   "section": 88
   },
   {
    "symbol": "??_R1A@?0A@A@rc_ptr_base@@8",
    "address": "007bc618",
    "bytes": 24,
    "kind": "rtti",
-   "section": 4
+   "section": 41
   },
   {
    "symbol": "??_R1A@?0A@A@?$rc_ptr@VWDTTerritory@@@@8",
    "address": "007bc630",
    "bytes": 24,
    "kind": "rtti",
-   "section": 5
+   "section": 42
   },
   {
    "symbol": "??_R2?$rc_ptr@VWDTTerritory@@@@8",
    "address": "007bc648",
    "bytes": 9,
    "kind": "rtti",
-   "section": 6
+   "section": 43
   },
   {
    "symbol": "??_R3?$rc_ptr@VWDTTerritory@@@@8",
    "address": "007bc658",
    "bytes": 16,
    "kind": "rtti",
-   "section": 7
+   "section": 44
   },
   {
    "symbol": "??_R4?$rc_ptr@VWDTTerritory@@@@6B@",
    "address": "007bc668",
    "bytes": 20,
    "kind": "rtti",
-   "section": 9
+   "section": 46
   },
   {
    "symbol": "??_R1A@?0A@A@ReferenceCounted@@8",
    "address": "007c0720",
    "bytes": 24,
    "kind": "rtti",
-   "section": 14
+   "section": 51
   },
   {
    "symbol": "??_R1A@?0A@A@?$rc_ptr@VWDTState@@@@8",
    "address": "007c58a8",
    "bytes": 24,
    "kind": "rtti",
-   "section": 27
+   "section": 64
   },
   {
    "symbol": "??_R2?$rc_ptr@VWDTState@@@@8",
    "address": "007c58c0",
    "bytes": 9,
    "kind": "rtti",
-   "section": 28
+   "section": 65
   },
   {
    "symbol": "??_R3?$rc_ptr@VWDTState@@@@8",
    "address": "007c58d0",
    "bytes": 16,
    "kind": "rtti",
-   "section": 29
+   "section": 66
   },
   {
    "symbol": "??_R4?$rc_ptr@VWDTState@@@@6B@",
    "address": "007c58e0",
    "bytes": 20,
    "kind": "rtti",
-   "section": 31
+   "section": 68
   },
   {
    "symbol": "??_R1A@?0A@A@WDTTerritory@@8",
    "address": "007c5c48",
    "bytes": 24,
    "kind": "rtti",
-   "section": 15
+   "section": 52
   },
   {
    "symbol": "??_R2WDTTerritory@@8",
    "address": "007c5c60",
    "bytes": 9,
    "kind": "rtti",
-   "section": 16
+   "section": 53
   },
   {
    "symbol": "??_R3WDTTerritory@@8",
    "address": "007c5c70",
    "bytes": 16,
    "kind": "rtti",
-   "section": 17
+   "section": 54
   },
   {
    "symbol": "??_R4WDTTerritory@@6B@",
    "address": "007c5c80",
    "bytes": 20,
    "kind": "rtti",
-   "section": 19
+   "section": 56
   },
   {
    "symbol": "??_R2?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@8",
    "address": "007c5c94",
    "bytes": 5,
    "kind": "rtti",
-   "section": 35
+   "section": 72
   },
   {
    "symbol": "??_R3?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@8",
    "address": "007c5ca0",
    "bytes": 16,
    "kind": "rtti",
-   "section": 36
+   "section": 73
   },
   {
    "symbol": "??_R4?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@6B@",
    "address": "007c5cb0",
    "bytes": 20,
    "kind": "rtti",
-   "section": 37
+   "section": 74
   },
   {
    "symbol": "??_R1A@?0A@A@?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@8",
    "address": "007c5cc8",
    "bytes": 24,
    "kind": "rtti",
-   "section": 39
+   "section": 76
   },
   {
    "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@8",
    "address": "007c5ce0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 40
+   "section": 77
   },
   {
    "symbol": "??_R2?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@8",
    "address": "007c5cf8",
    "bytes": 9,
    "kind": "rtti",
-   "section": 41
+   "section": 78
   },
   {
    "symbol": "??_R3?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@8",
    "address": "007c5d08",
    "bytes": 16,
    "kind": "rtti",
-   "section": 42
+   "section": 79
   },
   {
    "symbol": "??_R4?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@6B@",
    "address": "007c5d18",
    "bytes": 20,
    "kind": "rtti",
-   "section": 44
+   "section": 81
   },
   {
    "symbol": "??_R1A@?0A@A@WDTState@@8",
    "address": "007c5d30",
    "bytes": 24,
    "kind": "rtti",
-   "section": 45
+   "section": 82
   },
   {
    "symbol": "??_R2WDTState@@8",
    "address": "007c5d48",
    "bytes": 9,
    "kind": "rtti",
-   "section": 46
+   "section": 83
   },
   {
    "symbol": "??_R3WDTState@@8",
    "address": "007c5d58",
    "bytes": 16,
    "kind": "rtti",
-   "section": 47
+   "section": 84
   },
   {
    "symbol": "??_R4WDTState@@6B@",
    "address": "007c5d68",
    "bytes": 20,
    "kind": "rtti",
-   "section": 49
+   "section": 86
   },
   {
    "symbol": "??_R0?AVrc_ptr_base@@@8",
    "address": "007ddac8",
    "bytes": 26,
    "kind": "rtti",
-   "section": 3
+   "section": 40
   },
   {
    "symbol": "??_R0?AV?$rc_ptr@VWDTTerritory@@@@@8",
    "address": "007ddae8",
    "bytes": 39,
    "kind": "rtti",
-   "section": 8
+   "section": 45
   },
   {
    "symbol": "??_R0?AVReferenceCounted@@@8",
    "address": "007ee550",
    "bytes": 31,
    "kind": "rtti",
-   "section": 13
+   "section": 50
   },
   {
    "symbol": "??_R0?AV?$rc_ptr@VWDTState@@@@@8",
    "address": "007fbcb0",
    "bytes": 35,
    "kind": "rtti",
-   "section": 30
+   "section": 67
   },
   {
    "symbol": "??_R0?AVWDTTerritory@@@8",
    "address": "007fc138",
    "bytes": 27,
    "kind": "rtti",
-   "section": 18
+   "section": 55
   },
   {
    "symbol": "??_R0?AV?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@@8",
    "address": "007fc158",
    "bytes": 56,
    "kind": "rtti",
-   "section": 38
+   "section": 75
   },
   {
    "symbol": "??_R0?AV?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@@8",
    "address": "007fc190",
    "bytes": 63,
    "kind": "rtti",
-   "section": 43
+   "section": 80
   },
   {
    "symbol": "??_R0?AVWDTState@@@8",
    "address": "007fc1d0",
    "bytes": 23,
    "kind": "rtti",
-   "section": 48
+   "section": 85
   },
   {
    "symbol": "??_C@_04BIMG@TICC?$AA@",
    "address": "007fc1e8",
    "bytes": 5,
    "kind": "string",
-   "section": 57
+   "section": 94
   },
   {
    "symbol": "??_C@_04FLNH@CYID?$AA@",
    "address": "007fc1f0",
    "bytes": 5,
    "kind": "string",
-   "section": 58
+   "section": 95
   },
   {
    "symbol": "??_C@_04DCOH@CMID?$AA@",
    "address": "007fc1f8",
    "bytes": 5,
    "kind": "string",
-   "section": 59
+   "section": 96
   },
   {
    "symbol": "??_C@_04MBGE@HSVC?$AA@",
    "address": "007fc200",
    "bytes": 5,
    "kind": "string",
-   "section": 60
+   "section": 97
   },
   {
    "symbol": "??_C@_04IHEF@MPVC?$AA@",
    "address": "007fc208",
    "bytes": 5,
    "kind": "string",
-   "section": 61
+   "section": 98
   },
   {
    "symbol": "??_C@_04IHCH@LDSC?$AA@",
    "address": "007fc210",
    "bytes": 5,
    "kind": "string",
-   "section": 62
+   "section": 99
   },
   {
    "symbol": "??_C@_04CCI@SDSC?$AA@",
    "address": "007fc218",
    "bytes": 5,
    "kind": "string",
-   "section": 63
+   "section": 100
   },
   {
    "symbol": "??_C@_04PDOL@WURL?$AA@",
    "address": "007fc220",
    "bytes": 5,
    "kind": "string",
-   "section": 64
+   "section": 101
   },
   {
    "symbol": "??_C@_04BGEB@CYLN?$AA@",
    "address": "007fc228",
    "bytes": 5,
    "kind": "string",
-   "section": 65
+   "section": 102
   },
   {
    "symbol": "??_C@_04KPPJ@CRTK?$AA@",
    "address": "007fc230",
    "bytes": 5,
    "kind": "string",
-   "section": 66
+   "section": 103
   },
   {
    "symbol": "??_C@_04KLPF@TOTK?$AA@",
    "address": "007fc238",
    "bytes": 5,
    "kind": "string",
-   "section": 67
+   "section": 104
   },
   {
    "symbol": "??_C@_04OJNO@NACK?$AA@",
    "address": "007fc240",
    "bytes": 5,
    "kind": "string",
-   "section": 68
+   "section": 105
   }
  ],
  "data_ranges": [],
@@ -466,6 +607,54 @@
  "data_complete": true,
  "kept_elsewhere": [
   {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
    "symbol": "??_7?$rc_ptr@VWDTTerritory@@@@6B@",
    "address": "007a4528",
    "bytes": 8,
@@ -476,6 +665,12 @@
    "address": "007af1a0",
    "bytes": 8,
    "kind": "vtable"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007af2b8",
+   "bytes": 16,
+   "kind": "table"
   },
   {
    "symbol": "??_7WDTState@@6B@",
@@ -913,16 +1108,40 @@
    "address": "006394e0"
   },
   {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
    "symbol": "?unknown_slot1@ReferenceCounted@@UAE_NH@Z",
    "address": "00639740"
   },
   {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
    "symbol": "_PTR_FUN_007af2d8",
    "address": "007af2d8"
   },
   {
    "symbol": "_PTR_FUN_007af2d8",
    "address": "007af2d8"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
   },
   {
    "symbol": "_data_72caa0_7a452c",
@@ -1005,113 +1224,126 @@
    "population": "population-02",
    "bound": "own frozen bound (population-02)",
    "options": "joined under the unit's /GR (frozen without it)"
-  }
- ],
- "residuals": [
+  },
   {
-   "kind": "split",
    "entry": "0072bbd0",
    "bytes": 40,
    "population": "population-498",
-   "source": "src/recovered/header_statics/0072bbd0/HeaderStatics_diagonal_init_0072bbd0.cpp",
-   "cause": "frozen in another population's inventory pass (population-498)"
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "0072bc00",
    "bytes": 19,
    "population": "population-498",
-   "source": "src/recovered/header_statics/0072bbd0/HeaderStatics_b_init_0072bc00.cpp",
-   "cause": "held by population-498; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E2)"
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "0072bc20",
    "bytes": 19,
    "population": "population-498",
-   "source": "src/recovered/header_statics/0072bbd0/HeaderStatics_c_init_0072bc20.cpp",
-   "cause": "held by population-498; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E3)"
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "0072bc40",
    "bytes": 19,
    "population": "population-498",
-   "source": "src/recovered/header_statics/0072bbd0/HeaderStatics_angle45_init_0072bc40.cpp",
-   "cause": "held by population-498; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E4)"
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "0072bc60",
    "bytes": 19,
    "population": "population-498",
-   "source": "src/recovered/header_statics/0072bbd0/HeaderStatics_angle60_init_0072bc60.cpp",
-   "cause": "held by population-498; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E5)"
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "0072bc80",
    "bytes": 19,
    "population": "population-498",
-   "source": "src/recovered/header_statics/0072bbd0/HeaderStatics_angle90_init_0072bc80.cpp",
-   "cause": "held by population-498; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E6)"
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "0072bca0",
    "bytes": 49,
    "population": "population-498",
-   "source": "src/recovered/header_statics/0072bbd0/HeaderStatics_g_init_0072bca0.cpp",
-   "cause": "held by population-498; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E7)"
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "0072bce0",
    "bytes": 33,
    "population": "population-498",
-   "source": "src/recovered/header_statics/0072bbd0/HeaderStatics_h_init_0072bce0.cpp",
-   "cause": "held by population-498; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E8)"
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "0072bd10",
    "bytes": 44,
    "population": "population-498",
-   "source": "src/recovered/header_statics/0072bbd0/HeaderStatics_i_init_0072bd10.cpp",
-   "cause": "held by population-498; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E9)"
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "0072bd40",
    "bytes": 39,
    "population": "population-498",
-   "source": "src/recovered/header_statics/0072bbd0/HeaderStatics_j_init_0072bd40.cpp",
-   "cause": "held by population-498; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E10)"
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "0072bd70",
    "bytes": 15,
    "population": "population-498",
-   "source": "src/recovered/header_statics/0072bbd0/HeaderStatics_k_init_0072bd70.cpp",
-   "cause": "held by population-498; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E11)"
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "0072bd80",
    "bytes": 18,
    "population": "population-498",
-   "source": "src/recovered/header_statics/0072bbd0/HeaderStatics_l_init_0072bd80.cpp",
-   "cause": "held by population-498; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E12)"
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "0072bda0",
    "bytes": 23,
    "population": "population-498",
-   "source": "src/recovered/header_statics/0072bbd0/HeaderStatics_static_rect_init_0072bda0.cpp",
-   "cause": "held by population-498; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E13)"
-  },
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  }
+ ],
+ "residuals": [
   {
    "kind": "split",
    "entry": "0072ca20",
@@ -1204,6 +1436,10 @@
  "unit_functions": 41,
  "data_unproven": [
   {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  },
+  {
    "symbol": "??_7WDTTerritory@@6B@",
    "reason": "relocation target unbound: ??_EWDTTerritory@@UAEPAXI@Z"
   },
@@ -1238,8 +1474,8 @@
  ],
  "stand_in_reference_count": 3,
  "residual_split": {
-  "rows": 24,
-  "bytes": 1459
+  "rows": 11,
+  "bytes": 1103
  },
  "residual_flipped": {
   "rows": 0,

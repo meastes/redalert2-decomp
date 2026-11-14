@@ -7,10 +7,60 @@
 
 #define RA2_AUDIO_EVENT_LIST_STATIC
 #define RA2_AUDIO_EVENT_SERVICE
+#include "shared/unknown_geometry.hpp"
 #include "shared/audio_event.hpp"
 #include "shared/crt_memory.hpp"
 #include "shared/crt_string.hpp"
 #include "shared/audio.hpp"
+
+
+// Header-static dynamic initializers of the unit at 0x00403CE0:  the
+// shared/unknown_geometry.hpp constants (0x00403CE0-0x00403EA1); the other
+// drafts of this plan are emitted by these includes.
+
+
+// Dynamic initializer (0x00403D10, _$E) of b from the header(s) included
+// by HeaderStatics_diagonal_init_00403ce0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00403D30, _$E) of c from the header(s) included
+// by HeaderStatics_diagonal_init_00403ce0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00403D50, _$E) of angle45 from the header(s) included
+// by HeaderStatics_diagonal_init_00403ce0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00403D70, _$E) of angle60 from the header(s) included
+// by HeaderStatics_diagonal_init_00403ce0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00403D90, _$E) of angle90 from the header(s) included
+// by HeaderStatics_diagonal_init_00403ce0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00403DB0, _$E) of g from the header(s) included
+// by HeaderStatics_diagonal_init_00403ce0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00403DF0, _$E) of h from the header(s) included
+// by HeaderStatics_diagonal_init_00403ce0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00403E20, _$E) of i from the header(s) included
+// by HeaderStatics_diagonal_init_00403ce0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00403E50, _$E) of j from the header(s) included
+// by HeaderStatics_diagonal_init_00403ce0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00403E80, _$E) of k from the header(s) included
+// by HeaderStatics_diagonal_init_00403ce0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00403E90, _$E) of l from the header(s) included
+// by HeaderStatics_diagonal_init_00403ce0.cpp; no source of its own.
 
 
 // int __fastcall Audio_Events_Init(AudioDevice *device, AudioBag *bag) -- 0x00403EB0

@@ -10,8 +10,86 @@
   "/Gy",
   "/GR"
  ],
- "compile_group": 741,
+ "compile_group": 736,
  "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00424c40",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "00424c70",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "00424c90",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "00424cb0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "00424cd0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "00424cf0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "00424d10",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "00424d50",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "00424d80",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "00424db0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "00424de0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "00424df0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "00424e10",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
   {
    "symbol": "??0AnimTypeClass@@QAE@ABVNoInitClass@@@Z",
    "entry": "00425140",
@@ -151,21 +229,21 @@
    "padding_bytes": 1
   }
  ],
- "code_bytes": 5968,
+ "code_bytes": 6464,
  "data": [
   {
    "symbol": "??_7CDFileClass@@6B@",
    "address": "0079a654",
    "bytes": 72,
    "kind": "vtable",
-   "section": 198
+   "section": 196
   },
   {
    "symbol": "??_7CCFileClass@@6B@",
    "address": "0079a69c",
    "bytes": 72,
    "kind": "vtable",
-   "section": 199
+   "section": 197
   },
   {
    "symbol": "__real@8@40008000000000000000",
@@ -235,98 +313,98 @@
    "address": "0079c2e8",
    "bytes": 28,
    "kind": "vtable",
-   "section": 67
+   "section": 69
   },
   {
    "symbol": "??_7AnimTypeClass@@6BINoticeSource@@@",
    "address": "0079c304",
    "bytes": 8,
    "kind": "vtable",
-   "section": 68
+   "section": 67
   },
   {
    "symbol": "??_7AnimTypeClass@@6BINoticeSink@@@",
    "address": "0079c30c",
    "bytes": 8,
    "kind": "vtable",
-   "section": 69
+   "section": 68
   },
   {
    "symbol": "??_R1A@?0A@A@CCFileClass@@8",
    "address": "007b2500",
    "bytes": 24,
    "kind": "rtti",
-   "section": 182
+   "section": 180
   },
   {
    "symbol": "??_R2CCFileClass@@8",
    "address": "007b2518",
    "bytes": 21,
    "kind": "rtti",
-   "section": 183
+   "section": 181
   },
   {
    "symbol": "??_R3CCFileClass@@8",
    "address": "007b2530",
    "bytes": 16,
    "kind": "rtti",
-   "section": 184
+   "section": 182
   },
   {
    "symbol": "??_R4CCFileClass@@6B@",
    "address": "007b2540",
    "bytes": 20,
    "kind": "rtti",
-   "section": 186
+   "section": 184
   },
   {
    "symbol": "??_R1A@?0A@A@FileClass@@8",
    "address": "007b2558",
    "bytes": 24,
    "kind": "rtti",
-   "section": 188
+   "section": 186
   },
   {
    "symbol": "??_R1A@?0A@A@RawFileClass@@8",
    "address": "007b2570",
    "bytes": 24,
    "kind": "rtti",
-   "section": 190
+   "section": 188
   },
   {
    "symbol": "??_R1A@?0A@A@BufferIOFileClass@@8",
    "address": "007b2588",
    "bytes": 24,
    "kind": "rtti",
-   "section": 192
+   "section": 190
   },
   {
    "symbol": "??_R1A@?0A@A@CDFileClass@@8",
    "address": "007b25a0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 193
+   "section": 191
   },
   {
    "symbol": "??_R2CDFileClass@@8",
    "address": "007b25b8",
    "bytes": 17,
    "kind": "rtti",
-   "section": 194
+   "section": 192
   },
   {
    "symbol": "??_R3CDFileClass@@8",
    "address": "007b25d0",
    "bytes": 16,
    "kind": "rtti",
-   "section": 195
+   "section": 193
   },
   {
    "symbol": "??_R4CDFileClass@@6B@",
    "address": "007b25e0",
    "bytes": 20,
    "kind": "rtti",
-   "section": 197
+   "section": 195
   },
   {
    "symbol": "??_R1M@?0A@A@INoticeSource@@8",
@@ -452,35 +530,35 @@
    "address": "007cc8b0",
    "bytes": 26,
    "kind": "rtti",
-   "section": 185
+   "section": 183
   },
   {
    "symbol": "??_R0?AVFileClass@@@8",
    "address": "007cc8d0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 187
+   "section": 185
   },
   {
    "symbol": "??_R0?AVRawFileClass@@@8",
    "address": "007cc8e8",
    "bytes": 27,
    "kind": "rtti",
-   "section": 189
+   "section": 187
   },
   {
    "symbol": "??_R0?AVBufferIOFileClass@@@8",
    "address": "007cc908",
    "bytes": 32,
    "kind": "rtti",
-   "section": 191
+   "section": 189
   },
   {
    "symbol": "??_R0?AVCDFileClass@@@8",
    "address": "007cc928",
    "bytes": 26,
    "kind": "rtti",
-   "section": 196
+   "section": 194
   },
   {
    "symbol": "??_R0?AVINoticeSink@@@8",
@@ -501,21 +579,21 @@
    "address": "007cd8d4",
    "bytes": 7,
    "kind": "string",
-   "section": 155
+   "section": 153
   },
   {
    "symbol": "??_C@_06CPHF@?$DMnone?$DO?$AA@",
    "address": "007cdecc",
    "bytes": 7,
    "kind": "string",
-   "section": 113
+   "section": 111
   },
   {
    "symbol": "??_C@_04KIKH@none?$AA@",
    "address": "007ce0ec",
    "bytes": 5,
    "kind": "string",
-   "section": 112
+   "section": 110
   },
   {
    "symbol": "??_R0?AVINoticeSource@@@8",
@@ -578,455 +656,455 @@
    "address": "007ced14",
    "bytes": 5,
    "kind": "string",
-   "section": 91
+   "section": 89
   },
   {
    "symbol": "??_C@_0L@OLGE@RandomRate?$AA@",
    "address": "007ced1c",
    "bytes": 11,
    "kind": "string",
-   "section": 102
+   "section": 100
   },
   {
    "symbol": "??_C@_0P@PDHN@UseNormalLight?$AA@",
    "address": "007ced28",
    "bytes": 15,
    "kind": "string",
-   "section": 103
+   "section": 101
   },
   {
    "symbol": "??_C@_0BE@ENKN@ShouldUseCellDrawer?$AA@",
    "address": "007ced38",
    "bytes": 20,
    "kind": "string",
-   "section": 104
+   "section": 102
   },
   {
    "symbol": "??_C@_05LIK@Tiled?$AA@",
    "address": "007ced4c",
    "bytes": 6,
    "kind": "string",
-   "section": 105
+   "section": 103
   },
   {
    "symbol": "??_C@_07EMEC@Bouncer?$AA@",
    "address": "007ced54",
    "bytes": 8,
    "kind": "string",
-   "section": 106
+   "section": 104
   },
   {
    "symbol": "??_C@_07LOND@Warhead?$AA@",
    "address": "007ced5c",
    "bytes": 8,
    "kind": "string",
-   "section": 107
+   "section": 105
   },
   {
    "symbol": "??_C@_0N@DNBP@DamageRadius?$AA@",
    "address": "007ced64",
    "bytes": 13,
    "kind": "string",
-   "section": 108
+   "section": 106
   },
   {
    "symbol": "??_C@_0BC@KAB@TrailerSeperation?$AA@",
    "address": "007ced74",
    "bytes": 18,
    "kind": "string",
-   "section": 109
+   "section": 107
   },
   {
    "symbol": "??_C@_0M@IPI@TrailerAnim?$AA@",
    "address": "007ced88",
    "bytes": 12,
    "kind": "string",
-   "section": 110
+   "section": 108
   },
   {
    "symbol": "??_C@_0L@DJNP@ExpireAnim?$AA@",
    "address": "007ced94",
    "bytes": 11,
    "kind": "string",
-   "section": 111
+   "section": 109
   },
   {
    "symbol": "??_C@_0L@JDDE@BounceAnim?$AA@",
    "address": "007ceda0",
    "bytes": 11,
    "kind": "string",
-   "section": 114
+   "section": 112
   },
   {
    "symbol": "??_C@_09MJBN@StopSound?$AA@",
    "address": "007cedac",
    "bytes": 10,
    "kind": "string",
-   "section": 115
+   "section": 113
   },
   {
    "symbol": "??_C@_06LKEP@Report?$AA@",
    "address": "007cedb8",
    "bytes": 7,
    "kind": "string",
-   "section": 116
+   "section": 114
   },
   {
    "symbol": "??_C@_0L@OGNJ@StartSound?$AA@",
    "address": "007cedc0",
    "bytes": 11,
    "kind": "string",
-   "section": 117
+   "section": 115
   },
   {
    "symbol": "??_C@_07KNHB@ZAdjust?$AA@",
    "address": "007cedcc",
    "bytes": 8,
    "kind": "string",
-   "section": 118
+   "section": 116
   },
   {
    "symbol": "??_C@_0M@GPK@YDrawOffset?$AA@",
    "address": "007cedd4",
    "bytes": 12,
    "kind": "string",
-   "section": 119
+   "section": 117
   },
   {
    "symbol": "??_C@_0O@LHIF@RunningFrames?$AA@",
    "address": "007cede0",
    "bytes": 14,
    "kind": "string",
-   "section": 120
+   "section": 118
   },
   {
    "symbol": "??_C@_0N@DCNG@IsFlamingGuy?$AA@",
    "address": "007cedf0",
    "bytes": 13,
    "kind": "string",
-   "section": 121
+   "section": 119
   },
   {
    "symbol": "??_C@_0BA@FAMI@ShouldFogRemove?$AA@",
    "address": "007cee00",
    "bytes": 16,
    "kind": "string",
-   "section": 122
+   "section": 120
   },
   {
    "symbol": "??_C@_0BD@HGN@IsAnimatedTiberium?$AA@",
    "address": "007cee10",
    "bytes": 19,
    "kind": "string",
-   "section": 123
+   "section": 121
   },
   {
    "symbol": "??_C@_0BC@LFDJ@TiberiumSpawnType?$AA@",
    "address": "007cee24",
    "bytes": 18,
    "kind": "string",
-   "section": 124
+   "section": 122
   },
   {
    "symbol": "??_C@_0BF@DDPM@TiberiumSpreadRadius?$AA@",
    "address": "007cee38",
    "bytes": 21,
    "kind": "string",
-   "section": 125
+   "section": 123
   },
   {
    "symbol": "??_C@_07FLNF@IsVeins?$AA@",
    "address": "007cee50",
    "bytes": 8,
    "kind": "string",
-   "section": 126
+   "section": 124
   },
   {
    "symbol": "??_C@_08IHLE@IsMeteor?$AA@",
    "address": "007cee58",
    "bytes": 9,
    "kind": "string",
-   "section": 127
+   "section": 125
   },
   {
    "symbol": "??_C@_0L@MFM@SpawnCount?$AA@",
    "address": "007cee64",
    "bytes": 11,
    "kind": "string",
-   "section": 128
+   "section": 126
   },
   {
    "symbol": "??_C@_06BMBE@Spawns?$AA@",
    "address": "007cee70",
    "bytes": 7,
    "kind": "string",
-   "section": 129
+   "section": 127
   },
   {
    "symbol": "??_C@_07HOLF@MinZVel?$AA@",
    "address": "007cee78",
    "bytes": 8,
    "kind": "string",
-   "section": 130
+   "section": 128
   },
   {
    "symbol": "??_C@_08CGML@MaxXYVel?$AA@",
    "address": "007cee80",
    "bytes": 9,
    "kind": "string",
-   "section": 131
+   "section": 129
   },
   {
    "symbol": "??_C@_0L@CMEP@Elasticity?$AA@",
    "address": "007cee8c",
    "bytes": 11,
    "kind": "string",
-   "section": 132
+   "section": 130
   },
   {
    "symbol": "??_C@_0BB@JPDF@FreeAfterPlaying?$AA@",
    "address": "007cee98",
    "bytes": 17,
    "kind": "string",
-   "section": 133
+   "section": 131
   },
   {
    "symbol": "??_C@_0L@BGFD@DemandLoad?$AA@",
    "address": "007ceeac",
    "bytes": 11,
    "kind": "string",
-   "section": 134
+   "section": 132
   },
   {
    "symbol": "??_C@_0M@FPGM@YSortAdjust?$AA@",
    "address": "007ceeb8",
    "bytes": 12,
    "kind": "string",
-   "section": 135
+   "section": 133
   },
   {
    "symbol": "??_C@_0M@GGAD@HideIfNoOre?$AA@",
    "address": "007ceec4",
    "bytes": 12,
    "kind": "string",
-   "section": 136
+   "section": 134
   },
   {
    "symbol": "??_C@_0L@PIJE@IsTiberium?$AA@",
    "address": "007ceed0",
    "bytes": 11,
    "kind": "string",
-   "section": 137
+   "section": 135
   },
   {
    "symbol": "??_C@_0N@LMP@Translucency?$AA@",
    "address": "007ceedc",
    "bytes": 13,
    "kind": "string",
-   "section": 138
+   "section": 136
   },
   {
    "symbol": "??_C@_0BA@EFKJ@RandomLoopDelay?$AA@",
    "address": "007ceeec",
    "bytes": 16,
    "kind": "string",
-   "section": 139
+   "section": 137
   },
   {
    "symbol": "??_C@_0BI@OEKI@TranslucencyDetailLevel?$AA@",
    "address": "007ceefc",
    "bytes": 24,
    "kind": "string",
-   "section": 140
+   "section": 138
   },
   {
    "symbol": "??_C@_0M@PNCF@DetailLevel?$AA@",
    "address": "007cef14",
    "bytes": 12,
    "kind": "string",
-   "section": 141
+   "section": 139
   },
   {
    "symbol": "??_C@_04CIMM@Next?$AA@",
    "address": "007cef20",
    "bytes": 5,
    "kind": "string",
-   "section": 142
+   "section": 140
   },
   {
    "symbol": "??_C@_09ON@LoopCount?$AA@",
    "address": "007cef28",
    "bytes": 10,
    "kind": "string",
-   "section": 144
+   "section": 142
   },
   {
    "symbol": "??_C@_07EKPB@LoopEnd?$AA@",
    "address": "007cef34",
    "bytes": 8,
    "kind": "string",
-   "section": 145
+   "section": 143
   },
   {
    "symbol": "??_C@_09POJI@LoopStart?$AA@",
    "address": "007cef3c",
    "bytes": 10,
    "kind": "string",
-   "section": 146
+   "section": 144
   },
   {
    "symbol": "??_C@_03HPMG@End?$AA@",
    "address": "007cef48",
    "bytes": 4,
    "kind": "string",
-   "section": 147
+   "section": 145
   },
   {
    "symbol": "??_C@_05IMKO@Start?$AA@",
    "address": "007cef4c",
    "bytes": 6,
    "kind": "string",
-   "section": 148
+   "section": 146
   },
   {
    "symbol": "??_C@_06ILDP@Damage?$AA@",
    "address": "007cef54",
    "bytes": 7,
    "kind": "string",
-   "section": 149
+   "section": 147
   },
   {
    "symbol": "??_C@_04GGHG@Rate?$AA@",
    "address": "007cef5c",
    "bytes": 5,
    "kind": "string",
-   "section": 150
+   "section": 148
   },
   {
    "symbol": "??_C@_0BG@OGGM@TiberiumChainReaction?$AA@",
    "address": "007cef64",
    "bytes": 22,
    "kind": "string",
-   "section": 151
+   "section": 149
   },
   {
    "symbol": "??_C@_0L@CAKH@PsiWarning?$AA@",
    "address": "007cef7c",
    "bytes": 11,
    "kind": "string",
-   "section": 152
+   "section": 150
   },
   {
    "symbol": "??_C@_07BEOP@Reverse?$AA@",
    "address": "007cef88",
    "bytes": 8,
    "kind": "string",
-   "section": 153
+   "section": 151
   },
   {
    "symbol": "??_C@_08DCPG@PingPong?$AA@",
    "address": "007cef90",
    "bytes": 9,
    "kind": "string",
-   "section": 154
+   "section": 152
   },
   {
    "symbol": "??_C@_0BA@OFLL@ForceBigCraters?$AA@",
    "address": "007cef9c",
    "bytes": 16,
    "kind": "string",
-   "section": 156
+   "section": 154
   },
   {
    "symbol": "??_C@_06NEFL@Crater?$AA@",
    "address": "007cefac",
    "bytes": 7,
    "kind": "string",
-   "section": 157
+   "section": 155
   },
   {
    "symbol": "??_C@_06OKDL@Scorch?$AA@",
    "address": "007cefb4",
    "bytes": 7,
    "kind": "string",
-   "section": 158
+   "section": 156
   },
   {
    "symbol": "??_C@_0M@EMBH@Translucent?$AA@",
    "address": "007cefbc",
    "bytes": 12,
    "kind": "string",
-   "section": 159
+   "section": 157
   },
   {
    "symbol": "??_C@_0L@CLCE@Normalized?$AA@",
    "address": "007cefc8",
    "bytes": 11,
    "kind": "string",
-   "section": 160
+   "section": 158
   },
   {
    "symbol": "??_C@_06DHBC@Flamer?$AA@",
    "address": "007cefd4",
    "bytes": 7,
    "kind": "string",
-   "section": 161
+   "section": 159
   },
   {
    "symbol": "??_C@_04JKI@Flat?$AA@",
    "address": "007cefdc",
    "bytes": 5,
    "kind": "string",
-   "section": 162
+   "section": 160
   },
   {
    "symbol": "??_C@_0L@MCEI@AltPalette?$AA@",
    "address": "007cefe4",
    "bytes": 11,
    "kind": "string",
-   "section": 163
+   "section": 161
   },
   {
    "symbol": "??_C@_05EPEB@Layer?$AA@",
    "address": "007ceff0",
    "bytes": 6,
    "kind": "string",
-   "section": 164
+   "section": 162
   },
   {
    "symbol": "??_C@_0L@CNEJ@NewTheater?$AA@",
    "address": "007ceff8",
    "bytes": 11,
    "kind": "string",
-   "section": 165
+   "section": 163
   },
   {
    "symbol": "??_C@_07OHHF@Theater?$AA@",
    "address": "007cf004",
    "bytes": 8,
    "kind": "string",
-   "section": 166
+   "section": 164
   },
   {
    "symbol": "??_C@_06HEMM@Shadow?$AA@",
    "address": "007cf00c",
    "bytes": 7,
    "kind": "string",
-   "section": 167
+   "section": 165
   },
   {
    "symbol": "??_C@_0BN@LGMO@Demand?5loading?5image?5for?5?$CFs?6?$AA@",
    "address": "007cf014",
    "bytes": 29,
    "kind": "string",
-   "section": 200
+   "section": 198
   },
   {
    "symbol": "??_C@_0BN@GDLI@Freeing?5loaded?5image?5for?5?$CFs?6?$AA@",
    "address": "007cf034",
    "bytes": 29,
    "kind": "string",
-   "section": 209
+   "section": 207
   }
  ],
  "data_ranges": [],
@@ -2711,6 +2789,110 @@
    "population": "population-42",
    "bound": "own frozen bound (population-42)",
    "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00424c40",
+   "bytes": 40,
+   "population": "population-3599",
+   "bound": "the unit's compile group (population-3599)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "00424c70",
+   "bytes": 19,
+   "population": "population-3599",
+   "bound": "the unit's compile group (population-3599)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "00424c90",
+   "bytes": 19,
+   "population": "population-3599",
+   "bound": "the unit's compile group (population-3599)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "00424cb0",
+   "bytes": 19,
+   "population": "population-3599",
+   "bound": "the unit's compile group (population-3599)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "00424cd0",
+   "bytes": 19,
+   "population": "population-3599",
+   "bound": "the unit's compile group (population-3599)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "00424cf0",
+   "bytes": 19,
+   "population": "population-3599",
+   "bound": "the unit's compile group (population-3599)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "00424d10",
+   "bytes": 49,
+   "population": "population-3599",
+   "bound": "the unit's compile group (population-3599)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "00424d50",
+   "bytes": 33,
+   "population": "population-3599",
+   "bound": "the unit's compile group (population-3599)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "00424d80",
+   "bytes": 44,
+   "population": "population-3599",
+   "bound": "the unit's compile group (population-3599)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "00424db0",
+   "bytes": 39,
+   "population": "population-3599",
+   "bound": "the unit's compile group (population-3599)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "00424de0",
+   "bytes": 15,
+   "population": "population-3599",
+   "bound": "the unit's compile group (population-3599)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "00424df0",
+   "bytes": 18,
+   "population": "population-3599",
+   "bound": "the unit's compile group (population-3599)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "00424e10",
+   "bytes": 23,
+   "population": "population-3599",
+   "bound": "the unit's compile group (population-3599)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
   }
  ],
  "residuals": [],

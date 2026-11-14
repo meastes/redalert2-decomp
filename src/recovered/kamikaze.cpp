@@ -4,6 +4,63 @@
 // manifests/original_target/modules/kamikaze.json carries the addresses and the rows that
 // stay in their own files.
 
+// Header-static dynamic initializers of the unit at 0x00531360:  the
+// shared/unknown_geometry.hpp constants and unknown_static_rect.hpp
+// (0x00531360-0x00531546); the other
+// drafts of this plan are emitted by these includes.
+#include "shared/unknown_geometry.hpp"
+#include "shared/unknown_static_rect.hpp"
+
+
+// Dynamic initializer (0x00531390, _$E) of b from the header(s) included
+// by HeaderStatics_diagonal_init_00531360.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005313B0, _$E) of c from the header(s) included
+// by HeaderStatics_diagonal_init_00531360.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005313D0, _$E) of angle45 from the header(s) included
+// by HeaderStatics_diagonal_init_00531360.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005313F0, _$E) of angle60 from the header(s) included
+// by HeaderStatics_diagonal_init_00531360.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00531410, _$E) of angle90 from the header(s) included
+// by HeaderStatics_diagonal_init_00531360.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00531430, _$E) of g from the header(s) included
+// by HeaderStatics_diagonal_init_00531360.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00531470, _$E) of h from the header(s) included
+// by HeaderStatics_diagonal_init_00531360.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005314A0, _$E) of i from the header(s) included
+// by HeaderStatics_diagonal_init_00531360.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005314D0, _$E) of j from the header(s) included
+// by HeaderStatics_diagonal_init_00531360.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00531500, _$E) of k from the header(s) included
+// by HeaderStatics_diagonal_init_00531360.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00531510, _$E) of l from the header(s) included
+// by HeaderStatics_diagonal_init_00531360.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00531530, _$E) of static_rect from the header(s) included
+// by HeaderStatics_diagonal_init_00531360.cpp; no source of its own.
+
+
+
 
 // KamikazeTrackerClass KamikazeTracker (0x00A6E428): its dynamic initializer
 // (0x00531550; the constructor expanded, the VectorClass constructor called) and

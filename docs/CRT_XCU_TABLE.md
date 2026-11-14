@@ -118,6 +118,30 @@ unit's own entries, so the audit refusal shows only that they belong in wonline'
 population (population-4248), in table order around 0x0073BD20 and 0x0073BFC0, not that they
 belong to another unit. J1's note in ROUTE_A_OWN_JOINS.md should be corrected.
 
+## Hidden units found while joining (lane E1, 2026-11-13)
+
+Two-candidate runs whose pick already has its own copy of the same header statics. Its own
+code relocates to that copy, so one translation unit would instantiate the statics twice:
+
+- **0x0056CEF0-0x0056D2B0 (map, mapgen; 26 entries, two 13-entry `unknown_geometry`/`static_rect`
+  groups).** mapgen's code uses its own copy at 0x00A70xxx (`_unknown_geometry_diagonal`
+  0x00A70098, `_unknown_static_rect` 0x00A70080). These runs write 0x00A6FCxx. The prefix rule and
+  the duplicate-static exclusion both point at mapgen, and both are wrong here: at least one unit
+  lies between map and mapgen.
+- **0x0040F720-0x0040F8F0 (_warhead, abstract; 12 header statics plus the WeaponTypeClass list
+  initialiser and destructor).** abstract's code uses `_unknown_geometry_l` at 0x00839CA8, which
+  belongs to the 0x0040FD00 run. So the 0x0040F720 run is not abstract's.
+
+`xcu_units.py` now moves such a compile group to `group` when the pick's own rows relocate one of
+its names to another address (40 files). It reads the module rows' relocation receipts, not the population
+table, because a population can hold another module's names. The reason column
+reads "hidden unit".
+
+mpcoop (0x005A2610-0x005A27E0) is **not** a hidden-unit case. Its join is refused because mpcoop's
+compile group also holds multiplayer.cpp, which binds its own copy of the statics at 0x00A719C8.
+mpcoop's own code uses none of them. The run stays in its tier, refused at the join with that
+cause.
+
 ## Runs
 
 Generated from the table at a4ed83025. "Files" counts address-named `_$E` files whose rows fall

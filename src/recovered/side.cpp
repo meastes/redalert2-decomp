@@ -4,6 +4,59 @@
 // manifests/original_target/modules/side.json carries the addresses and the rows that
 // stay in their own files.
 
+// Header-static dynamic initializers of the unit at 0x0067AC40:  the
+// shared/unknown_geometry.hpp constants (0x0067AC40-0x0067AE01); the other
+// drafts of this plan are emitted by these includes.
+// Unit-wide (Side.cpp 0x0067AC40): side.hpp leaves ~SideClass out of line here.
+#define RA2_SIDE_UNIT
+#include "shared/unknown_geometry.hpp"
+
+
+// Dynamic initializer (0x0067AC70, _$E) of b from the header(s) included
+// by HeaderStatics_diagonal_init_0067ac40.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0067AC90, _$E) of c from the header(s) included
+// by HeaderStatics_diagonal_init_0067ac40.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0067ACB0, _$E) of angle45 from the header(s) included
+// by HeaderStatics_diagonal_init_0067ac40.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0067ACD0, _$E) of angle60 from the header(s) included
+// by HeaderStatics_diagonal_init_0067ac40.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0067ACF0, _$E) of angle90 from the header(s) included
+// by HeaderStatics_diagonal_init_0067ac40.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0067AD10, _$E) of g from the header(s) included
+// by HeaderStatics_diagonal_init_0067ac40.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0067AD50, _$E) of h from the header(s) included
+// by HeaderStatics_diagonal_init_0067ac40.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0067AD80, _$E) of i from the header(s) included
+// by HeaderStatics_diagonal_init_0067ac40.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0067ADB0, _$E) of j from the header(s) included
+// by HeaderStatics_diagonal_init_0067ac40.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0067ADE0, _$E) of k from the header(s) included
+// by HeaderStatics_diagonal_init_0067ac40.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0067ADF0, _$E) of l from the header(s) included
+// by HeaderStatics_diagonal_init_0067ac40.cpp; no source of its own.
+
+
+
 
 #include "shared/side.hpp"
 

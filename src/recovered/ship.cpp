@@ -4,6 +4,70 @@
 // manifests/original_target/modules/ship.json carries the addresses and the rows that
 // stay in their own files.
 
+#define RA2_SHIP_SOM
+#define RA2_COORD_POINT_Z
+#define RA2_TPOINT3D_DIFFERENCE
+#define RA2_COORD_TPOINT3D
+#define RA2_COORD_CELL_BASE_INIT
+#define RA2_COORD_AS_CELL
+#define RA2_CELL_AS_COORD
+#define RA2_COORD_FROM_CELL_INLINE
+#define RA2_TRACK_POINT_STRUCT
+#define RA2_SHIP_MOVE_TO_VALUE
+#define RA2_SHIP_CELL_ACCESSORS
+// Header-static dynamic initializers of the unit at 0x00675410:  the
+// shared/unknown_geometry.hpp constants and unknown_static_rect.hpp
+// (0x00675410-0x006755F6); the other
+// drafts of this plan are emitted by these includes.
+#include "shared/unknown_geometry.hpp"
+#include "shared/unknown_static_rect.hpp"
+
+
+// Dynamic initializer (0x00675440, _$E) of b from the header(s) included
+// by HeaderStatics_diagonal_init_00675410.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00675460, _$E) of c from the header(s) included
+// by HeaderStatics_diagonal_init_00675410.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00675480, _$E) of angle45 from the header(s) included
+// by HeaderStatics_diagonal_init_00675410.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006754A0, _$E) of angle60 from the header(s) included
+// by HeaderStatics_diagonal_init_00675410.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006754C0, _$E) of angle90 from the header(s) included
+// by HeaderStatics_diagonal_init_00675410.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006754E0, _$E) of g from the header(s) included
+// by HeaderStatics_diagonal_init_00675410.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00675520, _$E) of h from the header(s) included
+// by HeaderStatics_diagonal_init_00675410.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00675550, _$E) of i from the header(s) included
+// by HeaderStatics_diagonal_init_00675410.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00675580, _$E) of j from the header(s) included
+// by HeaderStatics_diagonal_init_00675410.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006755B0, _$E) of k from the header(s) included
+// by HeaderStatics_diagonal_init_00675410.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006755C0, _$E) of l from the header(s) included
+// by HeaderStatics_diagonal_init_00675410.cpp; no source of its own.
+
+
+
 
 #include "shared/ship_locomotion.hpp"
 #include "shared/com_ptr.hpp"

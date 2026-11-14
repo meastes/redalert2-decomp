@@ -69,13 +69,25 @@
 // by HeaderStatics_empty_rect_init_00738450.cpp; no source of its own.
 
 
+// Dynamic initializer of a global Wstring (0x00738640, _$E): constructs
+// unknown_wstring_b26418 (0x00b26418) from a literal and registers its atexit destructor
+// (0x00738660, the following _$E draft, emitted by this definition).
+// The owning unit (a small WOL-area unit) is not identified yet.
+
+Wstring unknown_wstring_b26418("_Default_");
+
+
+// atexit destructor of unknown_wstring_b26418 (0x00738660, _$E): emitted by
+// the definition in unknown_wstring_b26418_init_00738640.cpp; no source of its own.
+
+
 // rc_ptr<PlayerProfile> __fastcall PlayerProfile::Load_Default() (0x00738670): the profile in
 // wolinfo.ini's [_Default_] section (unknown_wstring_b26418): Server, Locale, Country and Color
 // (-2 when absent); creates wolinfo.ini when it does not exist. Name is a hypothesis.
 // The section test goes through an inline Find_Section(Wstring const &) (ini_class.hpp): the
 // original spends one more inline site here (its GenericList constructor stays out of line).
 
-extern Wstring unknown_wstring_b26418;
+
 
 rc_ptr<PlayerProfile> __fastcall PlayerProfile::Load_Default()
 {
@@ -323,7 +335,7 @@ unsigned int Leaf_7395b0::get() { *(unsigned int*)(((unsigned int)this)) = (unsi
 // LocaleVerified, Country, Color, Rank, Points, Wins, Losses and Disconnects, then clears the flag.
 // Creates wolinfo.ini when it does not exist.
 
-extern Wstring unknown_wstring_b26418;
+
 
 void PlayerProfile::Save_007395d0(Wstring const &name)
 {

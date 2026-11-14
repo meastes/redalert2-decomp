@@ -4,6 +4,62 @@
 // manifests/original_target/modules/restate.json carries the addresses and the rows that
 // stay in their own files.
 
+// Header-static dynamic initializers of the unit at 0x0063AEA0: the shape_file.hpp empty rect and the
+// shared/unknown_geometry.hpp constants (0x0063AEA0-0x0063B081); the other
+// drafts of this plan are emitted by these includes.
+#include "shared/shape_file.hpp"
+#include "shared/unknown_geometry.hpp"
+
+
+// Dynamic initializer (0x0063AEC0, _$E) of diagonal from the header(s) included
+// by HeaderStatics_empty_rect_init_0063aea0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0063AEF0, _$E) of b from the header(s) included
+// by HeaderStatics_empty_rect_init_0063aea0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0063AF10, _$E) of c from the header(s) included
+// by HeaderStatics_empty_rect_init_0063aea0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0063AF30, _$E) of angle45 from the header(s) included
+// by HeaderStatics_empty_rect_init_0063aea0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0063AF50, _$E) of angle60 from the header(s) included
+// by HeaderStatics_empty_rect_init_0063aea0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0063AF70, _$E) of angle90 from the header(s) included
+// by HeaderStatics_empty_rect_init_0063aea0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0063AF90, _$E) of g from the header(s) included
+// by HeaderStatics_empty_rect_init_0063aea0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0063AFD0, _$E) of h from the header(s) included
+// by HeaderStatics_empty_rect_init_0063aea0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0063B000, _$E) of i from the header(s) included
+// by HeaderStatics_empty_rect_init_0063aea0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0063B030, _$E) of j from the header(s) included
+// by HeaderStatics_empty_rect_init_0063aea0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0063B060, _$E) of k from the header(s) included
+// by HeaderStatics_empty_rect_init_0063aea0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0063B070, _$E) of l from the header(s) included
+// by HeaderStatics_empty_rect_init_0063aea0.cpp; no source of its own.
+
+
+
 
 #define GENERIC_LIST_IMPLEMENT_CONSTRUCTOR  // the unit calls GenericList::GenericList 0x00490E80 (shared/ini_class.hpp)
 #define INDEX_DECLARE_CONSTRUCTOR          // and IndexClass<int, INISection *>::IndexClass 0x004910C0

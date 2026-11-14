@@ -10,8 +10,86 @@
   "/Gy",
   "/GR"
  ],
- "compile_group": 819,
+ "compile_group": 814,
  "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "0070dfb0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "0070dfe0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "0070e000",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "0070e020",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "0070e040",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "0070e060",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "0070e080",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "0070e0c0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "0070e0f0",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "0070e120",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "0070e150",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "0070e160",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "0070e180",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
   {
    "symbol": "??0VoxelAnimTypeClass@@QAE@PBD@Z",
    "entry": "0070e1a0",
@@ -97,7 +175,7 @@
    "padding_bytes": 11
   }
  ],
- "code_bytes": 3232,
+ "code_bytes": 3728,
  "data": [
   {
    "symbol": "__real@8@40008000000000000000",
@@ -1723,7 +1801,112 @@
   }
  ],
  "held_rows": [],
- "joined": [],
+ "joined": [
+  {
+   "entry": "0070dfb0",
+   "bytes": 40,
+   "population": "population-3795",
+   "bound": "the unit's compile group (population-3795)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0070dfe0",
+   "bytes": 19,
+   "population": "population-3795",
+   "bound": "the unit's compile group (population-3795)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0070e000",
+   "bytes": 19,
+   "population": "population-3795",
+   "bound": "the unit's compile group (population-3795)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0070e020",
+   "bytes": 19,
+   "population": "population-3795",
+   "bound": "the unit's compile group (population-3795)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0070e040",
+   "bytes": 19,
+   "population": "population-3795",
+   "bound": "the unit's compile group (population-3795)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0070e060",
+   "bytes": 19,
+   "population": "population-3795",
+   "bound": "the unit's compile group (population-3795)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0070e080",
+   "bytes": 49,
+   "population": "population-3795",
+   "bound": "the unit's compile group (population-3795)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0070e0c0",
+   "bytes": 33,
+   "population": "population-3795",
+   "bound": "the unit's compile group (population-3795)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0070e0f0",
+   "bytes": 44,
+   "population": "population-3795",
+   "bound": "the unit's compile group (population-3795)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0070e120",
+   "bytes": 39,
+   "population": "population-3795",
+   "bound": "the unit's compile group (population-3795)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0070e150",
+   "bytes": 15,
+   "population": "population-3795",
+   "bound": "the unit's compile group (population-3795)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0070e160",
+   "bytes": 18,
+   "population": "population-3795",
+   "bound": "the unit's compile group (population-3795)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0070e180",
+   "bytes": 23,
+   "population": "population-3795",
+   "bound": "the unit's compile group (population-3795)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  }
+ ],
  "residuals": [],
  "unit_functions": 16,
  "data_unproven": [
