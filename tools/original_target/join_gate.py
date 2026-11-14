@@ -96,6 +96,8 @@ def main():
     receipt['checks']['whole_file_exact'] = dict(ok=bool(exact), sha256=found and found.get('output_sha256'),
                                                  tracked_sources=found and found.get('tracked_sources'))
     ok &= bool(exact)
+    import whole_file_receipt
+    whole_file_receipt.record('join_gate.py', bool(exact), found and found.get('output_sha256'), base=args.base)
     # 2. module maps and the RTTI condition
     if exact:
         run([python, '-B', 'tools/original_target/module_ledger.py', str(build_dir), '--write'], out.parent / 'join-gate-maps.log')

@@ -814,6 +814,8 @@ def main():
             'Build output must stay beneath ignored root build/private')
     require('"' not in str(destination) and '\n' not in str(destination),'Unsupported assembler path')
     destination.mkdir(parents=True,exist_ok=False)
+    # A gate that fails from here on still leaves a receipt (whole_file_receipt.py).
+    global GATE_STARTED; GATE_STARTED=not args.shift_module
     # Pin authored tools and source catalog at build start. Verify again at end.
     inputs=[REPOSITORY/'manifests/toolchain.json',
             *[Path(__file__).with_name(name) for name in ['build.py','remote_compile.py','canonical.py','catalog_io.py','source_paths.py','verify_manifest.py','coff.py','compiler_output.py',
@@ -877,10 +879,23 @@ def main():
             reason='Intermediates of a verified build; hashes stay in compile-receipt.json, fresh-verification.json '
                    'and integration-receipt.json. Rebuild with --keep-intermediates to keep them.'))
     write_json(destination/'build-receipt.json',report)
+    if not args.shift_module:
+        import whole_file_receipt
+        whole_file_receipt.record('build.command',report['whole_file_exact'],report['output_sha256'],
+                                  build_receipt=str(destination/'build-receipt.json'))
     if not args.keep_intermediates:
         remove_intermediates(destination,len(compiled))
     print(json.dumps(dict(receipt=str(destination/'build-receipt.json'),**{k:report[k] for k in ['whole_file_exact','output_sha256','tracked_sources','seconds']})))
 
 
+GATE_STARTED=False
+
+
 if __name__=='__main__':
-    main()
+    try:
+        main()
+    except BaseException as error:
+        if GATE_STARTED and not isinstance(error, KeyboardInterrupt):
+            import whole_file_receipt
+            whole_file_receipt.record('build.command',False,None,error=str(error)[:300])
+        raise
