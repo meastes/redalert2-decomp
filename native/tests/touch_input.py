@@ -7,9 +7,14 @@ by game state in the harness-input log (link/harness_input.cpp):
 
   two-finger   a tank tapped (selected 1), then a two-finger tap on the ground: selected 0
                (the right click deselects: DisplayClass::Mouse_Right_Release 0x0049AF90).
-  attack-move  a tank tapped, the toolbar's A-Move (item 3, as its button sends it), then a tap
-               on the ground: the tank has the attack-move order pending (FootClass +0x4B4 = 0x1D,
-               ':p29') and is moving.
+  attack-move  a tank tapped, the toolbar's A-Move (item 3, as its button sends it) turned on, then
+               a tap on the ground: the tank has the attack-move order pending (FootClass +0x4B4 =
+               0x1D, ':p29') and is moving (frame 250); it arrives (frame 400: guarding, no order).
+               A-Move stays on (lane C10: a toggle like Fire, Move and Add), so a second tap on
+               another spot is a second attack-move (frame 450: ':p29' again, moving). A-Move
+               tapped again turns it off, and the next tap is a plain move (frame 650: moving, no
+               pending order). Each order gets 200 frames (they arrive in about 100; the skirmish's
+               start positions vary between runs).
 
 Both failed when a touch's press reached the game before its mouse thread had read the pointer's
 new position (host.cpp kPointerSeenMs).
@@ -37,8 +42,37 @@ SCRIPTS = {
                    '201 tup 300 300 1', '201 tup 360 320 2'],
     'attack-move': ['100 tdown @MTNK', '100 tup @MTNK',
                     '200 toolbar 3',
-                    '205 tdown @MTNK+6,2', '205 tup @MTNK+6,2'],
+                    '205 tdown @MTNK+6,2', '205 tup @MTNK+6,2',
+                    '405 tdown @MTNK-4,4', '405 tup @MTNK-4,4',
+                    '605 toolbar 3',
+                    '610 tdown @MTNK+4,-3', '610 tup @MTNK+4,-3'],
 }
+# The run's last frame per case (each tank order takes under 100 frames to arrive).
+FRAMES = {'two-finger': 240, 'attack-move': 660}
+TANK = re.compile(r' MTNK\*:m(\d+)@([-\d]+),([-\d]+)(?::p(-?\d+))?')
+
+
+def tank(state):
+    """(mission, cell, pending order or None) of the selected tank, or None"""
+    m = TANK.search(state[1]) if state else None
+    return (int(m.group(1)), (int(m.group(2)), int(m.group(3))), m.group(4)) if m else None
+
+
+def attack_move_problems(st):
+    """The attack-move case's checks (MISSION_MOVE 2, MISSION_GUARD 5; order 29 attack-move)."""
+    want = [(250, 'first attack-move', lambda t: t[2] == '29' and t[0] == 2),
+            (400, 'first attack-move arrived', lambda t: t[2] is None and t[0] == 5),
+            (450, 'second attack-move', lambda t: t[2] == '29' and t[0] == 2),
+            (650, 'plain move after A-Move off', lambda t: t[2] is None and t[0] == 2)]
+    problems = []
+    for frame, what, ok in want:
+        t = tank(st.get(frame))
+        print('frame %d (%s): %s' % (frame, what, t))
+        if t is None:
+            problems.append('no selected tank at frame %d' % frame)
+        elif not ok(t):
+            problems.append('frame %d: not the %s (mission %d, order %s)' % (frame, what, t[0], t[2]))
+    return problems
 
 
 def states(out):
@@ -57,7 +91,7 @@ def main():
     ap.add_argument('--binary', required=True)
     ap.add_argument('--data-dir', default=os.environ.get('RA2_NATIVE_CENSUS_DATA_DIR', ''))
     ap.add_argument('--game-exe', default=os.environ.get('RA2_NATIVE_CENSUS_GAME_EXE', ''))
-    ap.add_argument('--frames', type=int, default=240)   # the attack-move tank is still on its way (it arrives near 300)
+    ap.add_argument('--frames', type=int, default=0)   # 0: the case's own (FRAMES)
     ap.add_argument('--seconds', type=int, default=300)
     ap.add_argument('--log', default='')
     a = ap.parse_args()
@@ -79,7 +113,7 @@ def main():
         os.mkdir(write_dir)
         cmd = [a.binary, '--data-dir', a.data_dir, '--run-to=frames', '--run-seconds=%d' % a.seconds,
                '--write-dir=' + write_dir, '--game-args=-noaudio -CD.', '--skirmish=#5',
-               '--skirmish-frames=%d' % a.frames, '--input-script=' + script]
+               '--skirmish-frames=%d' % (a.frames or FRAMES[a.case]), '--input-script=' + script]
         p = subprocess.run(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors='replace')
     out = p.stdout
     if a.log:
@@ -102,14 +136,7 @@ def main():
             if last[0] != 0:
                 problems.append('after the two-finger tap %d objects are still selected' % last[0])
         else:
-            tank = re.search(r' MTNK\*:m(\d+)@[-\d]+,[-\d]+(?::p(-?\d+))?', last[1])
-            if not tank:
-                problems.append('no selected tank at the end')
-            elif tank.group(2) != '29':
-                problems.append('the selected tank has no attack-move order pending (mission %s, order %s)'
-                                % (tank.group(1), tank.group(2)))
-            elif tank.group(1) == '5':
-                problems.append('the selected tank still guards (mission 5): the order did not start')
+            problems += attack_move_problems(st)
     for l in bad[:20]:
         print('  ' + l)
     if problems:

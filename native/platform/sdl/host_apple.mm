@@ -154,9 +154,12 @@ bool toolbar_create(void *, ToolbarItem const *, int, void (*)(int)) { return fa
 void toolbar_set(int, bool, const char *) {}
 void toolbar_place(Rect) {}
 bool toolbar_hit(double, double) { return false; }
-void toolbar_notice(const char *text) { fprintf(stderr, "host: notice \"%s\"\n", text); }
+void toolbar_show(bool) {}
 void skip_button_create(void *, void (*)()) {}
 void skip_button_show(bool) {}
+void keys_button_create(void *, void (*)()) {}
+void keys_button_show(bool) {}
+void keys_button_set(bool) {}
 bool app_active() { return false; }
 
 #elif TARGET_OS_IOS
@@ -326,16 +329,16 @@ void watch_audio_interruptions(void (*callback)(bool))
 @property(nonatomic, strong) NSMutableArray<UIButton *> *buttons;
 @property(nonatomic) BOOL open;
 @property(nonatomic) void (*tapped)(int);
-@property(nonatomic, strong) UIVisualEffectView *notice;   // a note under the bar (toolbar_notice)
-@property(nonatomic) NSUInteger noticeSerial;
 @property(nonatomic, strong) UIVisualEffectView *skip;      // the Skip button over a cutscene
 @property(nonatomic) void (*skipTapped)();
+@property(nonatomic, strong) UIVisualEffectView *keys;      // the Keys button in the menus (lane C10)
+@property(nonatomic) void (*keysTapped)();
 @property(nonatomic) CGRect usable;                          // the usable area, window points
 @end
 
 namespace {
 RA2Toolbar *toolbar = nil;
-const CGFloat kBar = 48, kGap = 8, kItem = 46;   // nine items fit beside the Skip button on the Duo
+const CGFloat kBar = 48, kGap = 8, kItem = 46;   // eight items fit beside the Skip or Keys button on the Duo
 UIColor *text_colour() { return [UIColor colorWithWhite:0.95 alpha:1]; }
 UIColor *accent_colour() { return [UIColor colorWithRed:0xF5 / 255.0 green:0x9E / 255.0 blue:0x8B / 255.0 alpha:1]; }
 // Dark glass, as duo-vnc's toolbar (a blur before iOS 26).
@@ -380,6 +383,10 @@ UIVisualEffectView *glass_view(BOOL capsule)
 - (void)skipPressed
 {
     if (self.skipTapped) self.skipTapped();
+}
+- (void)keysPressed
+{
+    if (self.keysTapped) self.keysTapped();
 }
 @end
 
@@ -455,10 +462,16 @@ bool toolbar_create(void *native_window, ToolbarItem const *items, int count, vo
                     if (!toolbar.skip || toolbar.skip.hidden) { fprintf(stderr, "host: toolbar test tap -2: skip button hidden\n"); return; }
                     for (UIView *sub in toolbar.skip.contentView.subviews)
                         if ([sub isKindOfClass:UIButton.class]) b = (UIButton *)sub;
+                } else if (item == -3) {
+                    if (!toolbar.keys || toolbar.keys.hidden) { fprintf(stderr, "host: toolbar test tap -3: keys button hidden\n"); return; }
+                    for (UIView *sub in toolbar.keys.contentView.subviews)
+                        if ([sub isKindOfClass:UIButton.class]) b = (UIButton *)sub;
                 } else if (item < 0) {
+                    if (toolbar.holder.hidden) { fprintf(stderr, "host: toolbar test tap -1: toolbar hidden\n"); return; }
                     for (UIView *sub in toolbar.more.contentView.subviews)
                         if ([sub isKindOfClass:UIButton.class]) b = (UIButton *)sub;
                 } else if (item < (int)toolbar.buttons.count) {
+                    if (toolbar.holder.hidden) { fprintf(stderr, "host: toolbar test tap %d: toolbar hidden\n", item); return; }
                     b = toolbar.buttons[item];
                 }
                 [b sendActionsForControlEvents:UIControlEventTouchUpInside];
@@ -468,40 +481,6 @@ bool toolbar_create(void *native_window, ToolbarItem const *items, int count, vo
     return true;
 }
 
-void toolbar_notice(const char *text)
-{
-    fprintf(stderr, "host: notice \"%s\"\n", text);
-    if (!toolbar) return;
-    UIView *view = toolbar.holder.superview;
-    if (!toolbar.notice) {
-        UIVisualEffectView *n = glass_view(YES);
-        UILabel *label = [UILabel new];
-        label.tag = 1;
-        label.textColor = text_colour();
-        label.font = [UIFont systemFontOfSize:13 weight:UIFontWeightSemibold];
-        label.textAlignment = NSTextAlignmentCenter;
-        [n.contentView addSubview:label];
-        n.userInteractionEnabled = NO;
-        n.alpha = 0;
-        [view addSubview:n];
-        toolbar.notice = n;
-    }
-    UIVisualEffectView *n = toolbar.notice;
-    UILabel *label = [n.contentView viewWithTag:1];
-    label.text = [NSString stringWithUTF8String:text];
-    CGSize size = [label sizeThatFits:CGSizeMake(view.bounds.size.width - 32, 30)];
-    CGRect bar = toolbar.holder.frame;
-    n.frame = CGRectMake(bar.origin.x, CGRectGetMaxY(bar) + kGap, size.width + 32, 34);
-    label.frame = n.contentView.bounds;
-    if (@available(iOS 26.0, *)) {} else n.layer.cornerRadius = 17;
-    [view bringSubviewToFront:n];
-    NSUInteger serial = ++toolbar.noticeSerial;
-    [UIView animateWithDuration:0.2 animations:^{ n.alpha = 1; }];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        if (!toolbar || toolbar.noticeSerial != serial) return;
-        [UIView animateWithDuration:0.3 animations:^{ n.alpha = 0; }];
-    });
-}
 
 void toolbar_set(int index, bool on, const char *title)
 {
@@ -525,10 +504,11 @@ void toolbar_place(Rect usable)
     CGRect f = toolbar.holder.frame;
     f.origin = CGPointMake(in_view.origin.x + 8, in_view.origin.y + 8);
     toolbar.holder.frame = f;
-    if (toolbar.skip) {
-        CGRect k = toolbar.skip.frame;
+    for (UIView *corner in @[toolbar.skip ?: NSNull.null, toolbar.keys ?: NSNull.null]) {
+        if (![corner isKindOfClass:UIView.class]) continue;
+        CGRect k = corner.frame;
         k.origin = CGPointMake(CGRectGetMaxX(in_view) - k.size.width - 8, in_view.origin.y + 8);
-        toolbar.skip.frame = k;
+        corner.frame = k;
     }
 }
 
@@ -537,25 +517,30 @@ bool toolbar_hit(double x, double y)
     if (!toolbar) return false;
     CGPoint p = CGPointMake(x, y);
     // The holder's hit test answers nil between its controls (RA2PassView) and for the
-    // hidden capsule; the Skip button sits beside it.
+    // hidden capsule; the Skip and Keys buttons sit in the top right corner.
     UIView *holder = toolbar.holder;
     if (!holder.hidden && [holder hitTest:[holder convertPoint:p fromView:nil] withEvent:nil]) return true;
-    UIView *skip = toolbar.skip;
-    return skip && !skip.hidden && skip.alpha > 0 && [skip hitTest:[skip convertPoint:p fromView:nil] withEvent:nil] != nil;
+    for (UIView *corner in @[toolbar.skip ?: NSNull.null, toolbar.keys ?: NSNull.null])
+        if ([corner isKindOfClass:UIView.class] && !corner.hidden && corner.alpha > 0
+            && [corner hitTest:[corner convertPoint:p fromView:nil] withEvent:nil] != nil)
+            return true;
+    return false;
 }
 
-void skip_button_create(void *, void (*tapped)())
+// A glass capsule with one button at the usable area's top right (Skip, Keys), hidden until
+// shown (corner_show).
+const CGFloat kCornerWidth = 96;
+UIVisualEffectView *corner_button(NSString *symbol, NSString *title, NSString *label, SEL action, NSDirectionalRectEdge image_edge)
 {
-    if (!toolbar || toolbar.skip) return;
     UIView *view = toolbar.holder.superview;
     UIVisualEffectView *v = glass_view(YES);
-    v.frame = CGRectMake(0, 0, 96, kBar);
+    v.frame = CGRectMake(0, 0, kCornerWidth, kBar);
     UIButton *b = [UIButton buttonWithType:UIButtonTypeSystem];
     UIButtonConfiguration *c = [UIButtonConfiguration plainButtonConfiguration];
-    c.image = [UIImage systemImageNamed:@"forward.end.fill"];
+    c.image = [UIImage systemImageNamed:symbol];
     c.preferredSymbolConfigurationForImage = [UIImageSymbolConfiguration configurationWithPointSize:14 weight:UIImageSymbolWeightSemibold];
-    c.title = @"Skip";
-    c.imagePlacement = NSDirectionalRectEdgeTrailing;
+    c.title = title;
+    c.imagePlacement = image_edge;
     c.imagePadding = 6;
     c.titleTextAttributesTransformer = ^NSDictionary *(NSDictionary *in) {
         NSMutableDictionary *out = [in mutableCopy];
@@ -566,26 +551,66 @@ void skip_button_create(void *, void (*tapped)())
     b.tintColor = text_colour();
     b.frame = v.contentView.bounds;
     b.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    b.accessibilityLabel = @"Skip movie";
-    [b addTarget:toolbar action:@selector(skipPressed) forControlEvents:UIControlEventTouchUpInside];
+    b.accessibilityLabel = label;
+    [b addTarget:toolbar action:action forControlEvents:UIControlEventTouchUpInside];
     [v.contentView addSubview:b];
     v.hidden = YES;
     v.alpha = 0;
     [view addSubview:v];
-    toolbar.skip = v;
-    toolbar.skipTapped = tapped;
     CGRect u = toolbar.usable;
-    if (!CGRectIsEmpty(u)) v.frame = CGRectMake(CGRectGetMaxX(u) - 96 - 8, u.origin.y + 8, 96, kBar);
+    if (!CGRectIsEmpty(u)) v.frame = CGRectMake(CGRectGetMaxX(u) - kCornerWidth - 8, u.origin.y + 8, kCornerWidth, kBar);
+    return v;
 }
-
-void skip_button_show(bool show)
+// Shown or hidden with a short fade (hidden once faded, so it takes no touches).
+void fade_show(UIView *v, bool show)
 {
-    if (!toolbar || !toolbar.skip) return;
-    UIVisualEffectView *v = toolbar.skip;
+    if (!v) return;
     [v.superview bringSubviewToFront:v];
     if (show) v.hidden = NO;
     [UIView animateWithDuration:0.2 animations:^{ v.alpha = show ? 1 : 0; }
                      completion:^(BOOL) { if (!show && v.alpha == 0) v.hidden = YES; }];
+}
+
+void skip_button_create(void *, void (*tapped)())
+{
+    if (!toolbar || toolbar.skip) return;
+    toolbar.skip = corner_button(@"forward.end.fill", @"Skip", @"Skip movie", @selector(skipPressed), NSDirectionalRectEdgeTrailing);
+    toolbar.skipTapped = tapped;
+}
+
+void skip_button_show(bool show)
+{
+    if (toolbar) fade_show(toolbar.skip, show);
+}
+
+void keys_button_create(void *, void (*tapped)())
+{
+    if (!toolbar || toolbar.keys) return;
+    toolbar.keys = corner_button(@"keyboard", @"Keys", @"Keyboard", @selector(keysPressed), NSDirectionalRectEdgeLeading);
+    toolbar.keysTapped = tapped;
+}
+
+void keys_button_show(bool show)
+{
+    if (toolbar) fade_show(toolbar.keys, show);
+}
+
+void keys_button_set(bool on)
+{
+    if (!toolbar || !toolbar.keys) return;
+    for (UIView *sub in toolbar.keys.contentView.subviews) {
+        if (![sub isKindOfClass:UIButton.class]) continue;
+        UIButton *b = (UIButton *)sub;
+        UIButtonConfiguration *c = b.configuration;
+        c.baseForegroundColor = on ? accent_colour() : text_colour();
+        b.configuration = c;
+        b.accessibilityValue = on ? @"on" : @"off";
+    }
+}
+
+void toolbar_show(bool show)
+{
+    if (toolbar) fade_show(toolbar.holder, show);
 }
 
 bool app_active()

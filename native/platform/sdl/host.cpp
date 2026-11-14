@@ -20,6 +20,7 @@ namespace ra2port { void set_key_state(int vk, bool down); }
 void ra2_enhancements_start();   // platform/sdl/enhancements.cpp
 bool ra2_enh_sidebar_split(int picture_height, double *ratio);   // platform/sdl/enhancements.cpp
 bool ra2_enh_map_zoomed(int picture_width, int picture_height, int view[4], int full[4]);   // platform/sdl/enhancements.cpp
+bool ra2_enh_game_in_play();   // platform/sdl/enhancements.cpp: a game frame ran since the scenario started
 // A scripted point "@ID..." as game pixels (port/src/run_progress.cpp asks the
 // skirmish harness); 0 when it has no answer.
 extern "C" int ra2port_resolve_point(const char *spec, int *x, int *y);
@@ -123,24 +124,31 @@ bool layout_dirty = true;
 // The touch controls (Scout1248): on where the screen is touched (iOS), or with
 // RA2_NATIVE_TOUCH_UI=1 (tests). A column of toggles at the usable part's left edge:
 // force fire (Ctrl), force move (Alt), add to the selection (Shift) stay held while
-// on; attack-move for the next tap (Ctrl and Shift held together, the original's
-// keyboard form: Unknown_Can_Force_Order 0x006F6670 reads 0x00A40BAC and 0x00A40BB4,
-// Options +0x94 KeyForceAttack (Ctrl) and +0x9C KeySelect (Shift); cleared by the next
-// left click); Deploy (the D key, DeployObject's default); Guard (the G key, GuardObject's
-// default); the keyboard; Escape (a key press); the interface scale (takes effect at the
-// next start). (Lane I: attack-move, Deploy, Guard, Escape.)
+// on; attack-move (Ctrl and Shift held together, the original's keyboard form:
+// Unknown_Can_Force_Order 0x006F6670 reads 0x00A40BAC and 0x00A40BB4, Options +0x94
+// KeyForceAttack (Ctrl) and +0x9C KeySelect (Shift)) stays on too, every tap an
+// attack-move, until A-Move is tapped again or Fire, Move or Add is picked (lane C10:
+// A-Move is exclusive with those three); Deploy (the D key, DeployObject's default); Guard (the G key, GuardObject's
+// default); the keyboard; Escape (a key press). (Lane I: attack-move, Deploy, Guard, Escape.)
+// They are the game's commands, shown in play only (lane C10): in the menus a floating Keys
+// button alone (the keyboard for names and save descriptions), during a cutscene the Skip
+// button alone (Controls). The interface scale item is gone: Game interface size is on the
+// Enhancements page.
 bool touch_ui = false;
 bool system_toolbar = false;   // the iOS glass toolbar holds the toggles (hostos::toolbar_create; Scout1249)
 struct Toggle { const char *label; int vk; bool on; };
 Toggle toggles[] = {{"FIRE", 0x11, false}, {"MOVE", 0x12, false}, {"ADD", 0x10, false}, {"A-MOVE", 0, false},
-                    {"DEPLOY", 0, false}, {"GUARD", 0, false}, {"KEYS", 0, false}, {"ESC", 0, false}, {"SCALE", 0, false}};
-constexpr int kToggleCount = 9, kFireToggle = 0, kAddToggle = 2, kAttackMove = 3, kDeployItem = 4, kGuardItem = 5,
-              kKeysToggle = 6, kEscItem = 7, kScaleToggle = 8;
-bool skip_shown = false;   // the Skip button over a cutscene (lane I)
-Uint64 attack_move_clear_at = 0;   // when the order's release has been read (0: armed or off)
-double ui_scale = 1.0;
-double started_scale = 1.0;   // the scale this run's resolution was picked with
-void (*scale_changed)(double) = nullptr;
+                    {"DEPLOY", 0, false}, {"GUARD", 0, false}, {"KEYS", 0, false}, {"ESC", 0, false}};
+constexpr int kToggleCount = 8, kFireToggle = 0, kAddToggle = 2, kAttackMove = 3, kDeployItem = 4, kGuardItem = 5,
+              kKeysToggle = 6, kEscItem = 7;
+// The floating buttons, as the input script's "toolbar ITEM" and RA2_NATIVE_TOOLBAR_TAPS name
+// them: -2 Skip (lane I), -3 Keys (lane C10).
+constexpr int kSkipButton = -2, kKeysButton = -3;
+// Which touch controls are shown (lane C10): the toolbar in play (a game frame ran, no dialog
+// up, no movie), the Keys button in the menus (a dialog up, in play too: Options, save
+// descriptions), the Skip button during a cutscene, nothing otherwise (start-up, loading).
+enum class Controls { none, play, menu, movie };
+Controls controls = Controls::none;
 bool text_input_on = false;
 SDL_TouchID const script_touch = 0x5C5D;   // scripted fingers: coordinates in game pixels
 SDL_FingerID toggle_finger = 0;            // the finger that pressed a toggle (its gesture is the toggle's)
@@ -262,6 +270,8 @@ SDL_Mutex *deferred_lock = nullptr;
 
 void sync_toolbar();
 void toolbar_tapped(int i);
+void keys_button_tapped();
+void show_controls();
 void press_escape();
 void set_attack_move(bool on);
 void sync_toolbar();
@@ -293,10 +303,17 @@ void update_layout()
             {"scope", "Fire"}, {"arrow.up.and.down.and.arrow.left.and.right", "Move"},
             {"plus.square.on.square", "Add"}, {"target", "A-Move"}, {"arrow.down.to.line", "Deploy"},
             {"shield", "Guard"},
-            {"keyboard", "Keys"}, {"escape", "Esc"}, {"textformat.size", "1x"}};
+            {"keyboard", "Keys"}, {"escape", "Esc"}};
         system_toolbar = hostos::toolbar_create(native, items, kToggleCount, toolbar_tapped);
         if (system_toolbar) hostos::skip_button_create(native, press_escape);
-        if (system_toolbar) sync_toolbar();
+        if (system_toolbar) hostos::keys_button_create(native, keys_button_tapped);
+        if (system_toolbar) {
+            // Made visible: set to the controls shown now (show_controls follows each change).
+            hostos::toolbar_show(controls == Controls::play);
+            hostos::keys_button_show(controls == Controls::menu);
+            hostos::skip_button_show(controls == Controls::movie);
+            sync_toolbar();
+        }
     }
     if (system_toolbar) hostos::toolbar_place(usable);
     // Split (Game interface size): in play with no dialog up and a sidebar surface shorter
@@ -388,16 +405,29 @@ void convert_event(SDL_Event &e)
         window_to_game(e.wheel.mouse_x, e.wheel.mouse_y, &e.wheel.mouse_x, &e.wheel.mouse_y);
     }
 }
-// The toggles' places in window points: a column at the usable part's left edge.
+// The toggles' places in window points (the Mac's drawn controls, tests): a column at the
+// usable part's left edge in play; the floating Keys or Skip button at its top right.
 hostos::Rect toggle_rect(int i)
 {
     double size = 44, gap = 6;
+    if (i < 0) return hostos::Rect{usable.x + usable.w - 6 - 2 * size, usable.y + 6, 2 * size, size};
     return hostos::Rect{usable.x + 6, usable.y + 6 + i * (size + gap), size, size};
 }
+// The drawn controls shown now: the toggles (play), or one floating button (-2, -3).
+int shown_buttons(int *first)
+{
+    if (controls == Controls::play) return *first = 0, kToggleCount;
+    if (controls == Controls::menu) return *first = kKeysButton, 1;
+    if (controls == Controls::movie) return *first = kSkipButton, 1;
+    return *first = 0, 0;
+}
+// The drawn control under a window point (an item, kSkipButton, kKeysButton), or -1.
 int toggle_at(float wx, float wy)
 {
     if (!touch_ui || system_toolbar) return -1;
-    for (int i = 0; i < kToggleCount; ++i) {
+    int first = 0, count = shown_buttons(&first);
+    for (int k = 0; k < count; ++k) {
+        int i = first + k;
         hostos::Rect r = toggle_rect(i);
         if (wx >= r.x && wx < r.x + r.w && wy >= r.y && wy < r.y + r.h) return i;
     }
@@ -521,9 +551,6 @@ void release_button(int b)
     button_down[b] = false;
     ra2port::set_key_state(b ? 0x02 : 0x01, false);
     ra2port::post_message(ra2port::main_window(), b ? 0x0205 : 0x0202, 0, mouse_lparam(held[b].x, held[b].y));   // WM_RBUTTONUP / WM_LBUTTONUP
-    // Start the one-shot expiry after the actual release is queued. A quick tap's
-    // release may wait for game frames in release_held_buttons.
-    if (b == 0 && toggles[kAttackMove].on) attack_move_clear_at = SDL_GetTicks() + 250;
 }
 // The game has seen the button held: two game frames ran since the press, or
 // none ran for 50 ms (the menus read the queue only).
@@ -756,13 +783,33 @@ void redraw();
 void sync_toolbar()
 {
     if (!system_toolbar) return;
-    char scale[8];
-    snprintf(scale, sizeof scale, "%gx", ui_scale);
     for (int i = 0; i < kToggleCount; ++i)
-        hostos::toolbar_set(i, toggles[i].on || (i == kKeysToggle && text_input_on), i == kScaleToggle ? scale : nullptr);
+        hostos::toolbar_set(i, toggles[i].on || (i == kKeysToggle && text_input_on), nullptr);
+    hostos::keys_button_set(toggles[kKeysToggle].on || text_input_on);
 }
 void press_toggle(int i);
-void toolbar_tapped(int i) { press_toggle(i); }
+// A floating button or a toolbar item, as its button sends it. A hidden control cannot be
+// touched: the input script's and RA2_NATIVE_TOOLBAR_TAPS' taps on one do nothing.
+void toolbar_tapped(int i)
+{
+    if (i == kSkipButton || i == kKeysButton) {
+        bool shown = controls == (i == kSkipButton ? Controls::movie : Controls::menu);
+        if (!shown) {
+            fprintf(stderr, "host: %s button tapped while hidden: nothing\n", i == kSkipButton ? "skip" : "keys");
+            return;
+        }
+        fprintf(stderr, "host: %s button tapped\n", i == kSkipButton ? "skip" : "keys");
+        if (i == kSkipButton) press_escape();
+        else press_toggle(kKeysToggle);
+        return;
+    }
+    if (controls != Controls::play) {
+        fprintf(stderr, "host: toolbar item %d tapped while hidden: nothing\n", i);
+        return;
+    }
+    press_toggle(i);
+}
+void keys_button_tapped() { toolbar_tapped(kKeysButton); }
 // Escape as the keyboard sends it (lane I: the toolbar's Esc and the Skip button over a
 // cutscene, which BinkClass::Play 0x00430430 ends on key 0x81B): a key press and release
 // through SDL's own key events, read at the next event pump like a real key.
@@ -788,23 +835,35 @@ void hold_modifier(int vk, bool on)
     ra2port::set_key_state(vk, on);
     ra2port::post_message(w, on ? 0x0100 : 0x0101, (WPARAM)vk, (LPARAM)(on ? 1 : (1 | (3u << 30))));
 }
-// Attack-move armed or cleared: Ctrl and Shift held together (each also stays held while
-// its own Fire or Add toggle is on).
+// Fire, Move or Add on or off: its modifier held while on.
+void set_modifier_toggle(int i, bool on)
+{
+    Toggle &t = toggles[i];
+    if (t.on == on) return;
+    t.on = on;
+    hold_modifier(t.vk, on);
+    fprintf(stderr, "host: toggle %s %s\n", t.label, on ? "on" : "off");
+}
+// Attack-move on or off: Ctrl and Shift held together while on, so every left click is an
+// attack-move, until A-Move is tapped again or another mode is picked (lane C10: a toggle like
+// Fire, Move and Add; it was armed for one tap, which lane I's 250 ms expiry after the release
+// ended). Exclusive with Fire, Move and Add: those are turned off first, so the modifiers
+// held are A-Move's alone.
 void set_attack_move(bool on)
 {
-    attack_move_clear_at = 0;
     if (toggles[kAttackMove].on == on) return;
+    if (on)
+        for (int i = kFireToggle; i <= kAddToggle; ++i) set_modifier_toggle(i, false);
     toggles[kAttackMove].on = on;
-    if (!toggles[kFireToggle].on) hold_modifier(0x11, on);
-    if (!toggles[kAddToggle].on) hold_modifier(0x10, on);
-    fprintf(stderr, "host: attack-move %s\n", on ? "armed for the next tap" : "cleared");
+    hold_modifier(0x11, on);
+    hold_modifier(0x10, on);
+    fprintf(stderr, "host: attack-move %s\n", on ? "on (every tap until A-Move is tapped again)" : "off");
     sync_toolbar();
     redraw();
 }
 void press_toggle(int i)
 {
     Toggle &t = toggles[i];
-    HWND w = ra2port::main_window();
     if (i == kEscItem) {
         press_escape();
     } else if (i == kDeployItem) {
@@ -814,28 +873,50 @@ void press_toggle(int i)
     } else if (i == kAttackMove) {
         set_attack_move(!t.on);
         return;
-    } else if (i == kScaleToggle) {
-        ui_scale = ui_scale < 1.1 ? 1.25 : ui_scale < 1.4 ? 1.5 : 1.0;
-        fprintf(stderr, "host: interface scale %.2f (at the next start)\n", ui_scale);
-        if (scale_changed) scale_changed(ui_scale);
-        // The size is the game's resolution, picked before the game starts: say so on
-        // screen, since nothing else changes when the item is tapped (lane I).
-        char notice[96];
-        if (ui_scale == started_scale)
-            snprintf(notice, sizeof notice, "Interface size %gx (as now)", ui_scale);
-        else
-            snprintf(notice, sizeof notice, "Interface size %gx from the next start of the app", ui_scale);
-        hostos::toolbar_notice(notice);
+    } else if (t.vk) {
+        // Fire, Move or Add: picking one ends attack-move (releasing its Ctrl and Shift).
+        if (!t.on) set_attack_move(false);
+        set_modifier_toggle(i, !t.on);
     } else {
         t.on = !t.on;
-        // A modifier attack-move holds stays down for it.
-        if (t.vk && !(toggles[kAttackMove].on && (t.vk == 0x11 || t.vk == 0x10))) {
-            ra2port::set_key_state(t.vk, t.on);
-            ra2port::post_message(w, t.on ? 0x0100 : 0x0101, (WPARAM)t.vk, (LPARAM)(t.on ? 1 : (1 | (3u << 30))));
-        }
         fprintf(stderr, "host: toggle %s %s\n", t.label, t.on ? "on" : "off");
     }
     sync_toolbar();
+    redraw();
+}
+// The touch controls follow the game (lane C10): the toolbar in play, the Keys button in the
+// menus, the Skip button during a cutscene (Controls).
+void show_controls()
+{
+    if (!touch_ui) return;
+    Controls want = ra2port::movie_playing() ? Controls::movie
+                    : ra2port_menu_shown()   ? Controls::menu
+                    : ra2_enh_game_in_play() ? Controls::play
+                                             : Controls::none;
+    if (want == controls) return;
+    // Leaving play: the modes' Ctrl, Alt and Shift must not stay held in a menu or a movie
+    // (a held Shift or Ctrl changes what a click does there), and the toolbar showing them is
+    // hidden; they start off when play resumes.
+    if (controls == Controls::play) {
+        set_attack_move(false);
+        for (int i = kFireToggle; i <= kAddToggle; ++i) set_modifier_toggle(i, false);
+    }
+    // The keyboard asked for (Keys) belongs to the screen it was asked on.
+    if (toggles[kKeysToggle].on) {
+        toggles[kKeysToggle].on = false;
+        fprintf(stderr, "host: toggle %s off\n", toggles[kKeysToggle].label);
+    }
+    controls = want;
+    static const char *const names[] = {"none", "play", "menu", "movie"};
+    fprintf(stderr, "host: touch controls: %s (toolbar %s, keys button %s, skip button %s)\n", names[(int)want],
+            want == Controls::play ? "shown" : "hidden", want == Controls::menu ? "shown" : "hidden",
+            want == Controls::movie ? "shown" : "hidden");
+    if (system_toolbar) {
+        hostos::toolbar_show(want == Controls::play);
+        hostos::keys_button_show(want == Controls::menu);
+        hostos::skip_button_show(want == Controls::movie);
+        sync_toolbar();
+    }
     redraw();
 }
 
@@ -865,15 +946,15 @@ void finger_event(SDL_TouchFingerEvent const &f, Uint32 type)
         float wx = f.x * ww, wy = f.y * wh;
         if (type == SDL_EVENT_FINGER_DOWN) {
             int t = toggle_at(wx, wy);
-            if (t >= 0) {
+            if (t != -1) {
                 toggle_finger = f.fingerID;
-                press_toggle(t);
+                toolbar_tapped(t);
                 return;
             }
             // A finger on the glass toolbar is its button's (the button's own action presses
             // the item). Should UIKit also hand it to SDL's view, it must not become a tap
             // as well: a tap there would be a click on the map under the toolbar, with A-Move's
-            // Ctrl+Shift already held, that spent the armed attack-move (lane C8).
+            // Ctrl+Shift held, an attack-move there (lane C8).
             if (system_toolbar && hostos::toolbar_hit(wx, wy)) {
                 fprintf(stderr, "touch: finger on the toolbar: not the game's\n");
                 toggle_finger = f.fingerID;
@@ -984,20 +1065,12 @@ void pump_events()
     play_timed();
     if (SDL_IsMainThread()) present_deferred();
     HWND w = ra2port::main_window();
+    // The touch controls follow the game: play, menus, cutscenes (lane C10).
+    show_controls();
     // A touch screen has no pointer until the first touch, and the game's cursor starts
     // at the screen's top left corner, where a game edge-scrolls the map away (lane I:
     // a checkpoint resumed without a touch showed a black map). The touch app starts
     // with the pointer in the middle of the picture.
-    if (attack_move_clear_at && SDL_GetTicks() >= attack_move_clear_at) {
-        attack_move_clear_at = 0;
-        set_attack_move(false);
-    }
-    // The Skip button follows the cutscene (lane I: ra2port::movie_playing).
-    if (system_toolbar && ra2port::movie_playing() != skip_shown) {
-        skip_shown = !skip_shown;
-        hostos::skip_button_show(skip_shown);
-        fprintf(stderr, "host: skip button %s\n", skip_shown ? "shown (movie playing)" : "hidden");
-    }
     static bool pointer_placed = false;
     if (touch_ui && w && !pointer_placed) {
         pointer_placed = true;
@@ -1151,6 +1224,7 @@ void pump_events()
         if (want != text_input_on) {
             text_input_on = want;
             if (want) SDL_StartTextInput(window); else SDL_StopTextInput(window);
+            fprintf(stderr, "host: on-screen keyboard %s\n", want ? "shown" : "hidden");
             sync_toolbar();
         }
     }
@@ -1199,17 +1273,19 @@ void draw_overlay(float density)
     }
     if (!touch_ui || system_toolbar) return;
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
-    for (int i = 0; i < kToggleCount; ++i) {
+    int first = 0, count = shown_buttons(&first);
+    for (int k = 0; k < count; ++k) {
+        int i = first + k;
         hostos::Rect r = toggle_rect(i);
         SDL_FRect box = {(float)(r.x * density), (float)(r.y * density), (float)(r.w * density), (float)(r.h * density)};
-        if (toggles[i].on) SDL_SetRenderDrawColor(renderer, 200, 30, 20, 210);
+        bool on = i >= 0 ? toggles[i].on : i == kKeysButton && (toggles[kKeysToggle].on || text_input_on);
+        if (on) SDL_SetRenderDrawColor(renderer, 200, 30, 20, 210);
         else SDL_SetRenderDrawColor(renderer, 0, 0, 0, 150);
         SDL_RenderFillRect(renderer, &box);
         SDL_SetRenderDrawColor(renderer, 230, 200, 60, 230);
         SDL_RenderRect(renderer, &box);
         char label[8];
-        if (i == kScaleToggle) snprintf(label, sizeof label, "%gx", ui_scale);
-        else snprintf(label, sizeof label, "%s", toggles[i].label);
+        snprintf(label, sizeof label, "%s", i == kSkipButton ? "SKIP" : i == kKeysButton ? "KEYS" : toggles[i].label);
         float text_scale = density * 1.25f;
         float tw = 8.0f * (float)strlen(label);
         SDL_SetRenderScale(renderer, text_scale, text_scale);
@@ -1479,13 +1555,15 @@ void load_script()
             continue;
         }
         if (action == "toolbar") {
-            // toolbar ITEM: the touch controls' item as its button sends it (press_toggle;
-            // 3 is A-Move; lane C8's tests, as RA2_NATIVE_TOOLBAR_TAPS on iOS).
+            // toolbar ITEM: the touch controls' item as its button sends it (toolbar_tapped;
+            // 3 is A-Move, -2 the Skip button, -3 the Keys button; lane C8's tests, as
+            // RA2_NATIVE_TOOLBAR_TAPS on iOS). A hidden control's tap does nothing.
             Scripted s = {frame, {}, std::string()};
             if (script_ms >= 0) { s.ms = script_ms; s.frame = 0x7FFFFFFF; s.dialog = script_dialog; }
             s.event.type = kScriptedToolbar;
             s.event.user.code = tokens.size() >= 3 ? atoi(tokens[2].c_str()) : -1;
-            ok = s.event.user.code >= 0 && s.event.user.code < kToggleCount;
+            ok = (s.event.user.code >= 0 && s.event.user.code < kToggleCount) || s.event.user.code == kSkipButton
+                 || s.event.user.code == kKeysButton;
             if (ok) script.push_back(s);
             if (!ok) fprintf(stderr, "input-script: cannot read line %d %s\n", frame, action.c_str());
             continue;
@@ -1845,13 +1923,10 @@ void ra2_sdl_host_options(bool app, bool fullscreen, void (*on_quit)())
     before_exit = on_quit;
     pause_on_focus_loss = app;
 }
-// The touch app (iOS, main.cpp; Scout1248): the interface scale shown on its toggle and
-// where a new choice goes; checkpoints when it goes to the background and every
-// `checkpoint_seconds` of play.
-void ra2_sdl_host_touch_options(double scale, void (*on_scale)(double), int checkpoint_seconds)
+// The touch app (iOS, main.cpp; Scout1248): checkpoints when it goes to the background and
+// every `checkpoint_seconds` of play.
+void ra2_sdl_host_touch_options(int checkpoint_seconds)
 {
-    ui_scale = started_scale = scale;
-    scale_changed = on_scale;
     checkpoints = true;
     if (!getenv("RA2_NATIVE_CHECKPOINT_SECONDS")) checkpoint_period_ms = (Uint64)checkpoint_seconds * 1000u;
 }

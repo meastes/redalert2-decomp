@@ -51,7 +51,7 @@ void ra2_install_sdl_host();
 void ra2_sdl_host_options(bool app, bool fullscreen, void (*on_quit)());
 bool ra2_sdl_host_fullscreen();
 void ra2_sdl_host_use_window(SDL_Window *window);
-void ra2_sdl_host_touch_options(double scale, void (*on_scale)(double), int checkpoint_seconds);
+void ra2_sdl_host_touch_options(int checkpoint_seconds);
 #endif
 extern "C" int ra2port_initterm_last(int *units);
 extern "C" void ra2port_run_to(const char *target, int seconds);
@@ -74,14 +74,6 @@ extern "C" void ra2port_set_frames(int frames);
 namespace {
 app::Settings app_settings;
 SDL_Window *app_window = nullptr;     // iOS: the window made before the game (setup_imported)
-// The interface scale the player picks on the touch controls (Scout1248): kept for the next start.
-void save_ui_scale(double scale)
-{
-    char text[16];
-    snprintf(text, sizeof text, "%g", scale);
-    app_settings.values["ui_scale"] = text;
-    app_settings.save();
-}
 // The fullscreen state is remembered for the next start, however the game ends
 // (WinMain returning, the game's own exit, the host's quit fallback).
 void save_app_settings()
@@ -248,9 +240,9 @@ int main(int argc, char **argv)
         atexit(save_app_settings);
         if (hostos::imports_game_files() && app_window) {
             // The touch app (Scout1248): the in-game resolution from the usable part of the
-            // screen and the interface scale; checkpoints in the background and every 3 minutes.
-            double scale = atof(app_settings.get("ui_scale").c_str());
-            if (scale != 1.25 && scale != 1.5) scale = 1.0;
+            // screen; checkpoints in the background and every 3 minutes. (The toolbar's
+            // interface scale, "ui_scale", is gone (lane C10): Game interface size on the
+            // Enhancements page sizes the interface; a scale saved before is not applied.)
             for (int i = 0; i < 10; ++i) SDL_PumpEvents();     // the safe area settles with the window
             void *native = SDL_GetPointerProperty(SDL_GetWindowProperties(app_window), SDL_PROP_WINDOW_UIKIT_WINDOW_POINTER, nullptr);
             hostos::Rect r;
@@ -265,7 +257,7 @@ int main(int argc, char **argv)
                 if (sscanf(v, "%lfx%lf", &fw, &fh) == 2 && fw > 0 && fh > 0) r.w = fw, r.h = fh;
             }
             int gw = 0, gh = 0;
-            app::game_resolution(r.w, r.h, scale, gw, gh);
+            app::game_resolution(r.w, r.h, 1.0, gw, gh);
             // Game interface size (enhancements, C3): a sidebar column shown larger than the
             // map takes more of the width, so the game's width gives that back (never below 800).
             {
@@ -276,9 +268,9 @@ int main(int argc, char **argv)
                     gw = narrower < 800 ? 800 : narrower;
                 }
             }
-            fprintf(stderr, "app: usable %.0fx%.0f points (window %dx%d), scale %g\n", r.w, r.h, ww, wh, scale);
+            fprintf(stderr, "app: usable %.0fx%.0f points (window %dx%d)\n", r.w, r.h, ww, wh);
             app::set_ini_resolution(ra2port::write_dir() ? ra2port::write_dir() : app::game_write_dir().c_str(), folder, gw, gh);
-            ra2_sdl_host_touch_options(scale, save_ui_scale, 180);
+            ra2_sdl_host_touch_options(180);
             // Resume at start (lane I): the system ended the app in the background after a
             // checkpoint (host.cpp's marker). Offer it once; Resume goes through the menus to
             // the load (ra2port::request_resume). RA2_NATIVE_RESUME_ANSWER=resume|menu

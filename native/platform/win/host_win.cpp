@@ -110,9 +110,12 @@ bool toolbar_create(void *, ToolbarItem const *, int, void (*)(int)) { return fa
 void toolbar_set(int, bool, const char *) {}
 void toolbar_place(Rect) {}
 bool toolbar_hit(double, double) { return false; }
+void toolbar_show(bool) {}
 void skip_button_create(void *, void (*)()) {}
 void skip_button_show(bool) {}
-void toolbar_notice(const char *text) { fprintf(stderr, "host: notice \"%s\"\n", text); }
+void keys_button_create(void *, void (*)()) {}
+void keys_button_show(bool) {}
+void keys_button_set(bool) {}
 bool app_active() { return false; }
 std::string device_report() { return ""; }
 void exclude_from_backup(const char *) {}

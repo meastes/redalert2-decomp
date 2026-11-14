@@ -318,6 +318,9 @@ extern "C" void ra2_enh_map_view(int x, int y, int w, int h, int full_x, int ful
 // In play (a game frame ran) or not (a scenario starting or loading: its loading screen
 // and movies are shown whole).
 extern "C" void ra2_enh_in_play(int on) { in_play = on != 0; }
+// The host's question (the touch controls, lane C10): has a game frame run since the last
+// scenario start or load?
+bool ra2_enh_game_in_play() { return in_play; }
 // The host's question: is the map shown zoomed now, for a picture this size? view and full
 // get the two rectangles (game pixels).
 bool ra2_enh_map_zoomed(int picture_width, int picture_height, int view[4], int full[4])

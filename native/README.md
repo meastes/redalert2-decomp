@@ -1060,22 +1060,32 @@ pointer within 10 pixels of the picture's edge (no edge scrolling from touches).
 look of the user's duo-vnc toolbar: dark interactive UIGlassEffect, capsule corners, SF
 Symbols) sit under a "…" button at the usable area's top left that slides them in and out,
 so nothing stays over the map: Fire holds Ctrl (force fire), Move holds Alt (force move)
-and Add holds Shift (add to the selection) while on (accent tint); A-Move arms the original's
-attack-move for the next tap (Ctrl and Shift held together, the keyboard form the game checks in
+and Add holds Shift (add to the selection) while on (accent tint); A-Move turns the original's
+attack-move on (Ctrl and Shift held together, the keyboard form the game checks in
 Unknown_Can_Force_Order 0x006F6670: 0x00A40BAC and 0x00A40BB4 are Options +0x94 KeyForceAttack
-and +0x9C KeySelect; tinted while armed, cleared a quarter second after the next left click's
-release); Deploy and Guard press D and G (the DeployObject and GuardObject commands' default
+and +0x9C KeySelect): every tap is an attack-move until A-Move is tapped again or Fire, Move or
+Add is picked (lane C10: a toggle, tinted while on, exclusive with those three; it used to arm one
+tap); Deploy and Guard press D and G (the DeployObject and GuardObject commands' default
 keys; a player who rebinds them in Options > Keyboard would need the toolbar to follow); Esc presses Escape (lane I);
 Keys shows the keyboard
-(it also appears while an edit control has the focus, `ra2port_text_input_wanted`) and
-the last item picks the interface scale (1x, 1.25x, 1.5x; next start, which a note under the
-toolbar says for 3 s: `hostos::toolbar_notice`). `RA2_NATIVE_TOOLBAR_TAPS="<ms>:<item>;..."`
-(tests; item -1 is "…") sends the toolbar buttons' own actions for Simulator runs. On the Mac
-(`RA2_NATIVE_TOUCH_UI=1`, tests) the host draws a plain column of the same toggles. The
+(it also appears while an edit control has the focus, `ra2port_text_input_wanted`). The
+toolbar holds the game's commands and shows in play only (lane C10, `show_controls` in host.cpp:
+a game frame ran, no dialog up, no movie); leaving play turns Fire, Move, Add and A-Move off, so
+no modifier stays held in a menu. In the menus (dialogs in play too: Options, save descriptions)
+a glass Keys button alone sits at the usable area's top right (`hostos::keys_button_*`), and
+turns the keyboard on and off for names and descriptions; during a cutscene the Skip button
+alone takes that corner; at start-up and on loading screens nothing shows. Each change logs
+`host: touch controls: <movie|menu|play|none> (...)`. The interface scale item is gone (Game
+interface size is on the Enhancements page; a scale saved by earlier builds is no longer
+applied). `RA2_NATIVE_TOOLBAR_TAPS="<ms>:<item>;..."`
+(tests; item -1 is "…", -2 Skip, -3 Keys; a hidden control's tap does nothing) sends the
+buttons' own actions for Simulator runs. On the Mac
+(`RA2_NATIVE_TOUCH_UI=1`, tests) the host draws a plain column of the same toggles in play, and a
+KEYS or SKIP box at the top right. The
 touch app hides the game's own cursor (`link/native_touch_cursor.cpp`: one extra
 WWMouseClass::Hide_Mouse whenever it is shown; `RA2_NATIVE_TOUCH_CURSOR=1` keeps it). Input scripts take `tdown|tmove|tup X Y
 [finger]` (or an `@ID` point, as for the mouse: Scout1295) and `toolbar ITEM` (the item's own
-action, 3 A-Move; lane C8); `RA2_NATIVE_TOUCH_UI=1` shows the toggles on the Mac.
+action, 3 A-Move; lane C8; -2 Skip, -3 Keys, ignored while hidden: C10); `RA2_NATIVE_TOUCH_UI=1` shows the toggles on the Mac.
 A touch's press waits 40 ms after the pointer moved to it (lane C8, `kPointerSeenMs` in host.cpp):
 a mouse is already where it clicks, but a touch puts the pointer there at the press, and the game
 reads the pointer twice, the press message's position and, while held, WWMouseClass's, which only
@@ -1085,11 +1095,15 @@ left press began a selection band (more than 4 pixels), so A-Move's tap (Shift h
 nothing. A finger landing on the glass toolbar's controls never reaches the gestures
 (`hostos::toolbar_hit`). ctest `native-touch-two-finger` and `native-touch-attack-move`
 (`tests/touch_input.py`) play both with scripted fingers and check the selection and the pending
-attack-move order (harness-input `:p29`; the state is also logged as `harness-state` on stderr).
+attack-move orders (harness-input `:p29`; the state is also logged as `harness-state` on stderr):
+with A-Move on, two taps on two spots give two attack-moves, and after A-Move is turned off a tap
+is a plain move (C10). ctest `native-touch-controls` (`tests/touch_controls.py`) runs the app
+through its movies, the menus and into a skirmish, checking which controls show in each and that
+the Keys button turns the keyboard on.
 The picture is drawn into the largest landscape rectangle clear of the safe area and the
 device's reserved regions (`hostos::usable_rect`; the renderer no longer uses SDL's logical
 presentation, the host converts coordinates itself). The in-game resolution (RA2.INI
-[Video], written before the game starts) is that rectangle divided by the scale, at least
+[Video], written before the game starts) is that rectangle (in points), at least
 800x600 (the menus share the primary surface: 656x480 cut them off), the width a
 multiple of 8 (the Duo: 824x600 in the Simulator, 944x634 on the device). The original
 centres its 800x600 menu panel only at 1024x768 or more, while its drawing and dialogs

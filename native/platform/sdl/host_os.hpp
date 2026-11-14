@@ -75,9 +75,12 @@ void watch_audio_interruptions(void (*callback)(bool interrupted));
 // there is no system toolbar (macOS: the host draws its own toggles for tests).
 struct ToolbarItem { const char *symbol; const char *title; };
 bool toolbar_create(void *native_window, ToolbarItem const *items, int count, void (*tapped)(int index));
-// An item's state: on (accent tint) or off, and its title (the scale: "1x").
+// An item's state: on (accent tint) or off, and its title (nullptr: unchanged).
 void toolbar_set(int index, bool on, const char *title);
-// The usable area moved (window points): the toolbar keeps to its top left.
+// The toolbar ("…" and its items) shown or hidden: in play only (lane C10; the host decides).
+void toolbar_show(bool show);
+// The usable area moved (window points): the toolbar keeps to its top left, the Skip and
+// Keys buttons to its top right.
 void toolbar_place(Rect usable);
 // The Skip button over a cutscene (lane I): a glass "Skip" capsule at the usable area's
 // top right, shown and hidden by the host while ra2port::movie_playing(); `tapped` runs on
@@ -87,16 +90,21 @@ void toolbar_place(Rect usable);
 // button over the game window); the movie test and the Escape press are shared host code.
 void skip_button_create(void *native_window, void (*tapped)());
 void skip_button_show(bool show);
+// The Keys button in the menus (lane C10): a glass "Keys" capsule like Skip, at the usable
+// area's top right (clear in the menus; Skip takes the corner during a cutscene, when Keys is
+// hidden). `tapped` runs on the main thread (the host turns the on-screen keyboard on or
+// off); keys_button_set tints it while the keyboard is up. Made with the toolbar.
+void keys_button_create(void *native_window, void (*tapped)());
+void keys_button_show(bool show);
+void keys_button_set(bool on);
 // A window point (points) lies on one of the toolbar's controls (the "…" button, a shown
-// item, the Skip button): a finger that lands there is the control's, never the game's
+// item, the Skip or Keys button): a finger that lands there is the control's, never the game's
 // (lane C8). False where there is no system toolbar.
 bool toolbar_hit(double x, double y);
-// A short note under the toolbar for a few seconds (the interface scale takes effect at
-// the next start: lane I). Logged only where there is no system toolbar.
-void toolbar_notice(const char *text);
 // Tests (iOS): RA2_NATIVE_TOOLBAR_TAPS="<ms>:<item>[;<ms>:<item>...]" sends the toolbar's
 // own button actions that many milliseconds after the toolbar is made (item -1 is the
-// "..." button, -2 the Skip button, 0.. the items), the path a tap's touch-up takes, for Simulator runs
+// "..." button, -2 the Skip button, -3 the Keys button, 0.. the items; a hidden control's
+// tap does nothing), the path a tap's touch-up takes, for Simulator runs
 // without the Simulator's pointer. Started by toolbar_create.
 
 // iOS: the app is active (UIApplication applicationState, read on the main thread),

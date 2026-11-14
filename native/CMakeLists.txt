@@ -421,13 +421,21 @@ if(RA2_NATIVE_SDL)
                  ${ra2_wine_args_newgame})
         set_tests_properties(native-enhancements-newgame PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 600)
         # 12. Touch input (C8): scripted fingers with the touch controls on; a two-finger tap
-        #     deselects, and the toolbar's A-Move then a tap gives an attack-move order.
+        #     deselects; A-Move is a toggle: two taps give two attack-move orders, and after
+        #     A-Move is turned off a tap is a plain move (C10).
         foreach(ra2_touch_case two-finger attack-move)
           add_test(NAME native-touch-${ra2_touch_case} COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/touch_input.py"
                    --case ${ra2_touch_case} --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
                    --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --log "${CMAKE_CURRENT_BINARY_DIR}/native-touch-${ra2_touch_case}.log")
           set_tests_properties(native-touch-${ra2_touch_case} PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 400)
         endforeach()
+        # 13. Touch controls (C10): the app's movies, menus and a game with the touch controls on;
+        #     Skip alone during a movie, the Keys button alone in the menus (its tap turns the
+        #     keyboard on), the toolbar alone in play.
+        add_test(NAME native-touch-controls COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/touch_controls.py"
+                 --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+                 --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/touch-controls")
+        set_tests_properties(native-touch-controls PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 400)
       endif()
     else()
       add_executable(ra2-native platform/sdl/main.cpp)
