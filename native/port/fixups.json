@@ -2797,8 +2797,15 @@
   {
    "source": "src/recovered/unowned/OwnerDraw_Control_Test_005e6860.cpp",
    "old": "    if (kind == 0xd5) {\n        return id == 0x5ce || id == 0x5cd;\n    }\n",
-   "new": "    if (kind == 0xd5) {\n        return id == 0x5ce || id == 0x5cd || id == 0x7f80;   // NATIVE (C3): the ENHANCEMENTS button\n    }\n",
+   "new": "    if (kind == 0xd5) {\n        return id == 0x5ce || id == 0x5cd || id == 0x7f80   // NATIVE (C3): the Enhancements button\n            || id == 0x7f02 || id == 0x7f00 || id == 0x7f01;   // NATIVE (C7): the Enhancements page's Ok, Original, Enhanced\n    }\n",
    "why": "Native addition (C3, enhancements menu; not original behaviour): the shell Options dialog 0xD5 gains an ENHANCEMENTS button (id 0x7F80, appended to the template by port/src/native_dialogs.cpp). 0x005E6860 lists, per dialog kind, the buttons that belong in the right-hand button column (moved there by 0x005E8E20 and drawn as column buttons); for 0xD5 they are Keyboard 0x5CE and Network 0x5CD. Listing 0x7F80 with them puts the new button in the next slot of the column, like the original buttons. No original id is affected.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/ownrdraw.cpp",
+   "old": "    return id == 0x686;\n}\n",
+   "new": "    return id == 0x686 || id == 0x7f03;   // NATIVE (C7): the Enhancements page's Cancel\n}\n",
+   "why": "Native addition (C7, the Enhancements page restyled as the game's own dialogs, the user's request; not original behaviour): 0x005E72C0 names, per dialog kind, the button that sits in the bottom slot of the right-hand column (moved there by 0x005E8FA0, as IPX Options' Cancel id 2 and the Options dialog's Main Menu 0x686). The page is created under the Options dialog's id 0xD5 (port/src/native_dialogs.cpp), so listing its Cancel 0x7F03 beside 0x686 puts it in that slot as a column button. No original dialog has a control 0x7F03, so no original id is affected.",
    "verified": false
   },
   {

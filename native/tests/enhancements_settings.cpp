@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // The Enhancements page's settings (platform/sdl/enhancements.cpp, lane C7): every row is
-// there, CHANGE and ACCEPT save it in the app's settings, a fresh start reads it back and
+// there with its dropdown's values, a choice and Ok save it in the app's settings, a fresh start reads it back and
 // applies it, and the ORIGINAL preset sets every preset row back to the original look.
 // Runs the page's own entry points (ra2_enh_*, as link/native_enhancements.cpp calls
 // them) against a stand-in host and a settings file; tests/enhancements_settings.py runs
 // the two phases as two processes (a fresh start), on the Mac and, under Wine, on Windows.
 //
-//   native-enhancements-settings change <settings file>   CHANGE each row once, ACCEPT
+//   native-enhancements-settings change <settings file>   each row's next value in its dropdown, Ok
 //   native-enhancements-settings reload <settings file>   read back; ORIGINAL; ACCEPT
 #include <stdio.h>
 #include <stdlib.h>
@@ -17,15 +17,18 @@
 extern "C" {
 int ra2_enh_rows(void);
 const char *ra2_enh_label(int i);
-const char *ra2_enh_value(int i);
+int ra2_enh_value_count(int i);
+const char *ra2_enh_value_name(int i, int k);
+int ra2_enh_value_index(int i);
+void ra2_enh_set_value(int i, int k);
 const char *ra2_enh_help(int i);
 const char *ra2_enh_preset(void);
 int ra2_enh_automatic(int i);
 void ra2_enh_begin(void);
-void ra2_enh_change(int i);
 void ra2_enh_set_preset(int enhanced);
 void ra2_enh_accept(void);
 double ra2_enh_map_zoom(void);
+int ra2_enh_sidebar_buttons_inside(int rows);
 int ra2_enh_sidebar_height(int screen_height);
 }
 void ra2_enhancements_store(std::string (*get)(const char *), void (*set)(const char *, const char *));
@@ -84,7 +87,8 @@ static void expect(bool ok, const char *what, const std::string &got = std::stri
     }
 }
 
-// The rows the page must have, in its order, and each one's value after one CHANGE.
+// The rows the page must have, in its order, and each one's value after choosing the next
+// entry of its dropdown.
 struct Want { const char *label, *original, *changed, *key, *saved_original, *saved_changed; };
 static const Want rows[] = {
     {"Fullscreen", "Off", "On", nullptr, nullptr, nullptr},
@@ -102,13 +106,23 @@ static int row_of(const char *label)
     return -1;
 }
 
+// What the row's dropdown shows (its chosen entry), and choosing an entry, as the page
+// does (link/native_enhancements.cpp: CB_SETCURSEL from ra2_enh_value_index, and
+// ra2_enh_set_value with CB_GETCURSEL on CBN_SELCHANGE).
+static std::string shown(int i) { return ra2_enh_value_name(i, ra2_enh_value_index(i)); }
+static void choose_next(int i)
+{
+    int n = ra2_enh_value_count(i);
+    if (n > 0) ra2_enh_set_value(i, (ra2_enh_value_index(i) + 1) % n);
+}
+
 static void check_values(bool changed, const char *when)
 {
     for (const Want &w : rows) {
         int i = row_of(w.label);
         if (i < 0) continue;
         std::string what = std::string(when) + ": " + w.label;
-        expect(!strcmp(ra2_enh_value(i), changed ? w.changed : w.original), what.c_str(), ra2_enh_value(i));
+        expect(shown(i) == (changed ? w.changed : w.original), what.c_str(), shown(i));
     }
 }
 
@@ -132,6 +146,15 @@ int main(int argc, char **argv)
         if (i >= 0) expect(!ra2_enh_automatic(i), (std::string("row ") + w.label + " not Automatic").c_str());
     }
     expect(ra2_enh_rows() == kRows, "row count", std::to_string(ra2_enh_rows()));
+    // Each dropdown lists its setting's values, the original look first.
+    static const char *const lists[kRows] = {"Off,On", "Off,On", "1x,1.25x,1.5x,2x", "1x,1.25x,1.5x,2x", "Sharp,Nearest,Smooth"};
+    for (int r = 0; r < kRows; ++r) {
+        int i = row_of(rows[r].label);
+        if (i < 0) continue;
+        std::string list;
+        for (int k = 0; k < ra2_enh_value_count(i); ++k) list += (k ? "," : "") + std::string(ra2_enh_value_name(i, k));
+        expect(list == lists[r], (std::string("dropdown of ") + rows[r].label).c_str(), list);
+    }
     // The Fullscreen row names this platform's shortcut (host.cpp).
 #if defined(_WIN32)
     const char *keys = "Alt+Return";
@@ -150,10 +173,10 @@ int main(int argc, char **argv)
         expect(!strcmp(ra2_enh_preset(), "Preset: Original"), "first start preset", ra2_enh_preset());
         for (const Want &w : rows) {
             int i = row_of(w.label);
-            if (i >= 0) ra2_enh_change(i);
+            if (i >= 0) choose_next(i);
         }
-        check_values(true, "after CHANGE");
-        expect(!strcmp(ra2_enh_preset(), "Preset: Custom"), "preset after CHANGE", ra2_enh_preset());
+        check_values(true, "after the dropdowns");
+        expect(!strcmp(ra2_enh_preset(), "Preset: Custom"), "preset after the dropdowns", ra2_enh_preset());
         ra2_enh_accept();
         for (const Want &w : rows)
             if (w.key) expect(get(w.key) == w.saved_changed, (std::string("saved ") + w.key).c_str(), get(w.key));
@@ -167,13 +190,13 @@ int main(int argc, char **argv)
         expect(ra2_enh_map_zoom() == 1.25, "same process: next game's map zoom");
         ra2_enh_begin();
         for (const char *label : {"Game interface size", "Map zoom"})
-            for (int k = 0; k < 3; ++k) ra2_enh_change(row_of(label));     // 1.25x -> 1.5x -> 2x -> 1x
+            ra2_enh_set_value(row_of(label), 0);     // 1x, the dropdown's first entry
         ra2_enh_accept();
         expect(ra2_enh_sidebar_height(768) == 768 && ra2_enh_map_zoom() == 1.0, "same process: back to 1x",
                std::to_string(ra2_enh_sidebar_height(768)));
         ra2_enh_begin();
-        ra2_enh_change(row_of("Game interface size"));
-        ra2_enh_change(row_of("Map zoom"));
+        choose_next(row_of("Game interface size"));
+        choose_next(row_of("Map zoom"));
         ra2_enh_accept();
         expect(ra2_enh_sidebar_height(768) == 614 && ra2_enh_map_zoom() == 1.25, "same process: 1.25x again");
         // main.cpp keeps the window's fullscreen state in the same file at exit.
@@ -195,7 +218,7 @@ int main(int argc, char **argv)
             int i = row_of(w.label);
             if (i < 0) continue;
             const char *want = w.key ? w.original : w.changed;
-            expect(!strcmp(ra2_enh_value(i), want), (std::string("ORIGINAL: ") + w.label).c_str(), ra2_enh_value(i));
+            expect(shown(i) == want, (std::string("ORIGINAL: ") + w.label).c_str(), shown(i));
         }
         ra2_enh_accept();
         for (const Want &w : rows)
@@ -206,6 +229,27 @@ int main(int argc, char **argv)
         ra2_enh_begin();
         ra2_enh_set_preset(1);
         expect(!strcmp(ra2_enh_preset(), "Preset: Enhanced"), "preset after ENHANCED", ra2_enh_preset());
+        // Every interface size, at every screen height from 480 to 2160 rows: the sidebar is
+        // no taller than the screen, and either the screen's own (1x) or one whose bottom
+        // buttons lie inside it (codex4 R703/R705/R706: they once sat past a 512-row sidebar).
+        int row = row_of("Game interface size");
+        for (int k = 0; k < ra2_enh_value_count(row); ++k) {
+            ra2_enh_begin();
+            ra2_enh_set_value(row, k);
+            ra2_enh_accept();
+            for (int screen = 480; screen <= 2160; screen += 2) {
+                int h = ra2_enh_sidebar_height(screen);
+                bool ok = h <= screen && (k == 0 ? h == screen : ra2_enh_sidebar_buttons_inside(h) != 0);
+                if (!ok) {
+                    expect(false, (std::string("sidebar for ") + std::to_string(screen) + " rows at " +
+                                   ra2_enh_value_name(row, k)).c_str(), std::to_string(h));
+                    break;
+                }
+            }
+        }
+        ra2_enh_begin();
+        ra2_enh_set_preset(0);
+        ra2_enh_accept();
     }
     fprintf(stderr, "enhancements-settings %s: %s\n", argv[1], failures ? "FAILED" : "ok");
     return failures ? 1 : 0;

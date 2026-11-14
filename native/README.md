@@ -650,20 +650,27 @@ Other class-typed globals and pointers to pointers are not loaded (`--report`).
 ### Enhancements menu (C3)
 
 Native additions, not in the original (docs/HANDOFF.md "ENHANCEMENTS MENU MODEL";
-the Outpost 2 port's model). The shell Options dialog gains an ENHANCEMENTS button
+the Outpost 2 port's model). The shell Options dialog gains an Enhancements button
 in its button column (`port/src/native_dialogs.cpp` appends it to template 0xD5;
 `port/fixups.json` lists id 0x7F80 as a column button of 0xD5); it opens the
 Enhancements page (`link/native_enhancements.cpp`), built in the Options dialog's
-size and styles and created under its id so the game's own dialog code draws it:
-one row per setting with its value and CHANGE, ORIGINAL and ENHANCED presets
-(`Preset: Custom` when mixed), a line saying what the last changed row does,
-ACCEPT and CANCEL. Rows: Fullscreen (Automatic on touch hosts), Vertical sync,
+size and styles and created under its id so the game's own dialog code draws it with
+the game's own controls (C7, the user's restyle): one row per setting with its name
+and a dropdown of its values (the red-bordered owner-drawn dropdown of the Options
+dialog's resolution and IPX Options' network card, filled as Main_Options_Proc fills
+its own; a row the display decides shows Automatic, disabled), the preset line
+(`Preset: Custom` when mixed) and a line saying what the last changed row does; the
+menu buttons sit in the right-hand column as in IPX Options: Ok in the top slot,
+Original and Enhanced under it, Cancel in the bottom slot (0x005E6860 and 0x005E72C0
+list them, native fixups). Rows: Fullscreen (Automatic on touch hosts), Vertical sync,
 Game interface size (1x, 1.25x, 1.5x, 2x), Map zoom (1x, 1.25x, 1.5x, 2x), Picture
 scaling (Sharp, the original look; Nearest; Smooth).
 
 Game interface size (enhancements v2 part 1): in play, the sidebar column is shown
 larger than the map. The game's sidebar surface is made shorter than the screen
-(screen height / size, at least 360 rows: native fixups at the three sidebar surface
+(screen height / size, at least 360 rows, a few rows more where the sidebar's bottom scroll
+buttons would fall past it: `ra2_enh_sidebar_buttons_inside`; the cameo strips and those buttons are
+laid out for the sidebar's height, `Native_Sidebar_Bottom`, C7: native fixups at the three sidebar surface
 allocations and the two sidebar layout calls ask `Native_Sidebar_Height`,
 `link/native_enhancements.cpp`), and the host draws the picture split: the map at its
 scale, the sidebar column's rows that many times larger, filling the height
@@ -695,7 +702,7 @@ scenario loading the whole picture is shown. The zoom is taken at the end of Sta
 set again when it changed. The window keeps its size (play screen = window / zoom); on iOS
 the game's width only gives back the sidebar's extra width as before (the zoom does not
 change the screen). Every setting is off by default;
-the ORIGINAL preset sets them back (fullscreen is a choice the presets leave alone).
+the Original preset sets them back (fullscreen is a choice the presets leave alone).
 The settings (`platform/sdl/enhancements.cpp`) are kept in the app's own settings
 file (`enh_vsync`, `enh_scaling`, `enh_uisize`, `enh_mapzoom`), never in RA2.INI; `RA2_NATIVE_ENHANCEMENTS=
 "preset=enhanced"` or `"vsync=on,scaling=smooth"` sets them for one run (tests).

@@ -165,7 +165,7 @@ void ra2_enhancements_start()
     apply();
 }
 
-// The page (link/native_enhancements.cpp) works on a pending copy: CHANGE and the
+// The page (link/native_enhancements.cpp) works on a pending copy: the dropdowns and the
 // presets edit it, ACCEPT applies and saves it, CANCEL drops it.
 extern "C" {
 int ra2_enh_rows(void) { return (int)rows().size(); }
@@ -173,21 +173,11 @@ const char *ra2_enh_label(int i) { return i >= 0 && i < ra2_enh_rows() ? rows()[
 const char *ra2_enh_help(int i)
 {
     if (i < 0 || i >= ra2_enh_rows())
-        return "Native additions, not in the original. Each is off in the ORIGINAL preset.";
+        return "Native additions, not in the original. Each is off in the Original preset.";
     if (automatic(rows()[i])) return "Fullscreen follows the display here.";
     return rows()[i].help;
 }
 int ra2_enh_automatic(int i) { return i >= 0 && i < ra2_enh_rows() && automatic(rows()[i]); }
-const char *ra2_enh_value(int i)
-{
-    static std::string text;
-    if (i < 0 || i >= ra2_enh_rows()) return "";
-    const Row &r = rows()[i];
-    if (automatic(r)) return "Automatic";
-    std::string v = value_of(pending, r);
-    for (size_t k = 0; k < r.values.size(); ++k) if (r.values[k] == v) return (text = r.names[k]).c_str();
-    return (text = v).c_str();
-}
 const char *ra2_enh_preset(void)
 {
     static std::string text;
@@ -199,14 +189,32 @@ void ra2_enh_begin(void)
     pending = current;
     pending["fullscreen"] = ra2_host_is_fullscreen() ? "on" : "off";
 }
-void ra2_enh_change(int i)
+// Each row's dropdown (link/native_enhancements.cpp): its values' names, the one chosen,
+// and a choice. An Automatic row has its one name and takes no choice.
+int ra2_enh_value_count(int i)
+{
+    if (i < 0 || i >= ra2_enh_rows()) return 0;
+    return automatic(rows()[i]) ? 1 : (int)rows()[i].values.size();
+}
+const char *ra2_enh_value_name(int i, int k)
+{
+    if (i < 0 || i >= ra2_enh_rows() || k < 0 || k >= ra2_enh_value_count(i)) return "";
+    if (automatic(rows()[i])) return "Automatic";
+    return rows()[i].names[k].c_str();
+}
+int ra2_enh_value_index(int i)
+{
+    if (i < 0 || i >= ra2_enh_rows() || automatic(rows()[i])) return 0;
+    const Row &r = rows()[i];
+    std::string v = value_of(pending, r);
+    for (size_t k = 0; k < r.values.size(); ++k) if (r.values[k] == v) return (int)k;
+    return 0;
+}
+void ra2_enh_set_value(int i, int k)
 {
     if (i < 0 || i >= ra2_enh_rows() || automatic(rows()[i])) return;
     const Row &r = rows()[i];
-    std::string v = value_of(pending, r);
-    size_t k = 0;
-    while (k < r.values.size() && r.values[k] != v) ++k;
-    pending[r.key] = r.values[k + 1 < r.values.size() ? k + 1 : 0];
+    if (k >= 0 && k < (int)r.values.size()) pending[r.key] = r.values[k];
 }
 void ra2_enh_set_preset(int enhanced) { set_value(pending, "preset", enhanced ? "enhanced" : "original"); }
 void ra2_enh_accept(void)
@@ -236,6 +244,22 @@ namespace {
 constexpr int kSidebarMinHeight = 360;     // three cameo rows below the radar and tabs (tried at 384: plays)
 int sidebar_for = 0, sidebar_rows = 0;     // the last screen height asked about and the answer
 }
+// Whether the sidebar's bottom buttons (the two cameo scroll buttons, 27 rows tall) lie inside
+// a sidebar this many rows tall. SidebarClass::Unknown_0067B910 (0x0067B910) gives the cameo
+// strips the rows below y 158 less the bottom piece (18 rows, 26 in the other side's art) and
+// 76 more, in whole cameo rows of 50, and puts the scroll buttons 0xEA below that (C7: at
+// 1.5x they once sat at y 734 of a 512-row sidebar, and the native layout now takes the
+// sidebar's height: link/native_map_zoom.cpp Native_Sidebar_Bottom). Some heights leave the
+// buttons up to 9 rows past the bottom (the original's own 960-row screen among them); the
+// interface sizes avoid those.
+extern "C" int ra2_enh_sidebar_buttons_inside(int rows)
+{
+    for (int piece : {18, 26}) {
+        int strips = (rows - 158 - piece - 76) / 50 * 50;
+        if (strips + 0xEA + 27 > rows) return 0;
+    }
+    return 1;
+}
 extern "C" int ra2_enh_sidebar_height(int screen_height)
 {
     load();
@@ -244,6 +268,7 @@ extern "C" int ra2_enh_sidebar_height(int screen_height)
     if (ratio > 1.0) {
         h = (int)(screen_height / ratio + 0.5) & ~1;
         if (h < kSidebarMinHeight) h = kSidebarMinHeight;
+        while (h < screen_height && !ra2_enh_sidebar_buttons_inside(h)) h += 2;   // a few rows less enlarged
         if (h > screen_height) h = screen_height;
     }
     if (h != sidebar_rows || screen_height != sidebar_for)

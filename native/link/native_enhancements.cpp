@@ -1,15 +1,17 @@
 // The Enhancements page (native addition, not in the original; C3, docs/HANDOFF.md
-// "ENHANCEMENTS MENU MODEL"). The shell Options dialog's ENHANCEMENTS button (port/src/
+// "ENHANCEMENTS MENU MODEL"). The shell Options dialog's Enhancements button (port/src/
 // native_dialogs.cpp adds it to template 0xD5; Main_Options_Proc 0x00542590, a native
 // behaviour row, link/behaviour_m22_options.cpp, opens this page) runs the native dialog
 // through the game's own dialog code, as the Options dialog runs its pages: one row
-// per setting (name, value, CHANGE), the ORIGINAL and ENHANCED presets, a one-line hint,
-// ACCEPT and CANCEL. The page is created under the Options dialog's id (0xD5) so the
+// per setting (its name and a dropdown of its values), the preset line, a one-line hint,
+// and the Ok, Original, Enhanced and Cancel menu buttons in the right-hand column (C7,
+// the user's restyle: the game's own controls, as IPX Options has them). The page is created under the Options dialog's id (0xD5) so the
 // game's dialog code gives it the Options look. The settings and what they change are the host's
 // (platform/sdl/enhancements.cpp, ra2_enh_*); every one is off by default.
 #include "shared/unknown_globals.hpp"
 #include "shared/rect.hpp"
 #include "shared/surface.hpp"
+#include "shared/string_table.hpp"
 #include "shared/win32_api.hpp"
 #include "shared/win32_window.hpp"
 #include "shared/dialog_create.hpp"
@@ -25,53 +27,69 @@ extern "C" void ra2port_native_page(int on);           // port/src/native_dialog
 // the SDL host has no rows.
 extern "C" __attribute__((weak)) int ra2_enh_rows(void) { return 0; }
 extern "C" __attribute__((weak)) const char *ra2_enh_label(int) { return ""; }
-extern "C" __attribute__((weak)) const char *ra2_enh_value(int) { return ""; }
 extern "C" __attribute__((weak)) const char *ra2_enh_help(int) { return ""; }
 extern "C" __attribute__((weak)) int ra2_enh_automatic(int) { return 0; }
+extern "C" __attribute__((weak)) int ra2_enh_value_count(int) { return 0; }
+extern "C" __attribute__((weak)) const char *ra2_enh_value_name(int, int) { return ""; }
+extern "C" __attribute__((weak)) int ra2_enh_value_index(int) { return 0; }
+extern "C" __attribute__((weak)) void ra2_enh_set_value(int, int) {}
 extern "C" __attribute__((weak)) const char *ra2_enh_preset(void) { return ""; }
 extern "C" __attribute__((weak)) void ra2_enh_begin(void) {}
-extern "C" __attribute__((weak)) void ra2_enh_change(int) {}
 extern "C" __attribute__((weak)) void ra2_enh_set_preset(int) {}
 extern "C" __attribute__((weak)) void ra2_enh_accept(void) {}
 
 namespace {
 
 constexpr int kRows = 6;            // rows the template has (port/src/native_dialogs.cpp)
-constexpr int kLabel = 0x7F20, kValue = 0x7F30, kChange = 0x7F10, kPresetText = 0x7F40;
-constexpr int kOriginal = 0x7F00, kEnhanced = 0x7F01, kAccept = 0x7F02, kCancel = 0x7F03;
+constexpr int kLabel = 0x7F20, kDropdown = 0x7F10, kPresetText = 0x7F40;
+constexpr int kOriginal = 0x7F00, kEnhanced = 0x7F01, kOk = 0x7F02, kCancel = 0x7F03;   // the column's menu buttons
 constexpr int kHint = 0x695, kTitle = 0x694, kHeading = 0x7F7E;   // hint line and title box: the Options ids
 constexpr int kRowHelp = 0x7F70;    // under the presets: what the last changed row does
 
 // A control's text, through the owner-draw message the game itself uses to change one
 // (0x4B2 with a wide string; Main_Options_Proc sets its slider labels this way), which
 // stores it in the control's record and redraws it over the backdrop.
-void set_text(HWND dialog, int id, char const *text)
+void set_wide(HWND dialog, int id, wchar_t const *text)
 {
     HWND control = GetDlgItem(dialog, id);
-    if (!control) return;
+    if (control) SendMessageA(control, 0x4B2, 0, (LPARAM)text);
+}
+void set_text(HWND dialog, int id, char const *text)
+{
     wchar_t wide[256];
     int n = 0;
     for (; text && text[n] && n < 255; ++n) wide[n] = (unsigned char)text[n];
     wide[n] = 0;
-    SendMessageA(control, 0x4B2, 0, (LPARAM)wide);
+    set_wide(dialog, id, wide);
 }
 
 int hint_row = -1;      // the row the hint line describes (the last one changed; -1: the page)
+
+// Each row's dropdown gets its values once, as Main_Options_Proc fills its resolution
+// dropdown 0x6ED: the game's owner-draw add (0x4BC, a narrow string), then CB_SETCURSEL.
+// A row the display decides (Fullscreen on a touch host) shows its one value, disabled.
+void fill(HWND dialog)
+{
+    for (int i = 0; i < kRows && i < ra2_enh_rows(); ++i) {
+        HWND combo = GetDlgItem(dialog, kDropdown + i);
+        if (!combo) continue;
+        for (int k = 0; k < ra2_enh_value_count(i); ++k) SendMessageA(combo, 0x4BC, 0, (LPARAM)ra2_enh_value_name(i, k));
+        EnableWindow(combo, !ra2_enh_automatic(i));
+    }
+}
 
 void refresh(HWND dialog)
 {
     int rows = ra2_enh_rows();
     for (int i = 0; i < kRows; ++i) {
-        bool shown = i < rows;
-        if (!shown) {
+        if (i >= rows) {
             ShowWindow(GetDlgItem(dialog, kLabel + i), 0);
-            ShowWindow(GetDlgItem(dialog, kValue + i), 0);
-            ShowWindow(GetDlgItem(dialog, kChange + i), 0);
+            ShowWindow(GetDlgItem(dialog, kDropdown + i), 0);
             continue;
         }
         set_text(dialog, kLabel + i, ra2_enh_label(i));
-        set_text(dialog, kValue + i, ra2_enh_value(i));
-        EnableWindow(GetDlgItem(dialog, kChange + i), !ra2_enh_automatic(i));
+        HWND combo = GetDlgItem(dialog, kDropdown + i);
+        if (combo) SendMessageA(combo, 0x14E, ra2_enh_value_index(i), 0);          // CB_SETCURSEL
     }
     set_text(dialog, kPresetText, ra2_enh_preset());
     set_text(dialog, kHint, ra2_enh_help(-1));
@@ -85,27 +103,31 @@ int __stdcall Native_Enhancements_Proc(HWND window, UINT message, WPARAM wparam,
     int *result = (int *)ra2port_get_dialog_user(window);
     switch (message) {
     case 0x497:                                     // the dialog's controls are set up
-        set_text(window, kTitle, "ENHANCEMENTS");
+        set_text(window, kTitle, "Enhancements");
         set_text(window, kHeading, "Native additions (not in the original game)");
-        set_text(window, kOriginal, "ORIGINAL");
-        set_text(window, kEnhanced, "ENHANCED");
-        set_text(window, kAccept, "ACCEPT");
-        set_text(window, kCancel, "CANCEL");
-        for (int i = 0; i < kRows; ++i) set_text(window, kChange + i, "CHANGE");
+        set_wide(window, kOk, StringTable::Load_String("GUI:Ok", 0, __FILE__, __LINE__));
+        set_wide(window, kCancel, StringTable::Load_String("GUI:Cancel", 0, __FILE__, __LINE__));
+        set_text(window, kOriginal, "Original");
+        set_text(window, kEnhanced, "Enhanced");
+        fill(window);
         refresh(window);
         return 0;
     case 0x111: {                                   // WM_COMMAND
-        if ((wparam >> 16) != 0) return 0;          // clicks only
         int id = wparam & 0xFFFF;
-        if (id >= kChange && id < kChange + ra2_enh_rows()) {
-            hint_row = id - kChange;
-            ra2_enh_change(hint_row);
+        int code = (int)(wparam >> 16);
+        if (id >= kDropdown && id < kDropdown + ra2_enh_rows()) {
+            if (code != 1) return 0;                // CBN_SELCHANGE only
+            hint_row = id - kDropdown;
+            ra2_enh_set_value(hint_row, (int)SendMessageA(GetDlgItem(window, id), 0x147, 0, 0));   // CB_GETCURSEL
             refresh(window);
-        } else if (id == kOriginal || id == kEnhanced) {
+            return 0;
+        }
+        if (code != 0) return 0;                    // button clicks only
+        if (id == kOriginal || id == kEnhanced) {
             ra2_enh_set_preset(id == kEnhanced);
             hint_row = -1;
             refresh(window);
-        } else if (id == kAccept) {
+        } else if (id == kOk) {
             ra2_enh_accept();
             if (result) *result = 1;
         } else if (id == kCancel) {
@@ -121,7 +143,7 @@ int __stdcall Native_Enhancements_Proc(HWND window, UINT message, WPARAM wparam,
 
 // Runs the page over the Options dialog (its button 0x7F80), as the Options dialog's own
 // procedure runs the resolution test dialog: created, shown, the shell's idle steps until
-// ACCEPT or CANCEL, closed.
+// Ok or Cancel, closed.
 void Native_Run_Enhancements()
 {
     int result = -1;
@@ -141,10 +163,11 @@ void Native_Run_Enhancements()
     fprintf(stderr, "enhancements: page closed (%s)\n", result == 1 ? "accept" : "cancel");
 }
 
-// The Options dialog's ENHANCEMENTS button text (its template label is empty).
+// The Options dialog's Enhancements button text (its template label is empty), in the
+// mixed case of its other buttons.
 void Native_Enhancements_Button_Text(HWND options)
 {
-    set_text(options, 0x7F80, "ENHANCEMENTS");
+    set_text(options, 0x7F80, "Enhancements");
 }
 
 // The sidebar surface's height for a screen this tall (Game interface size, C3): the

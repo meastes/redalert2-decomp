@@ -26,6 +26,7 @@
 #include "shared/display.hpp"     // before map_view.hpp (full DisplayClass)
 #include "shared/map_view.hpp"
 #include "shared/rect.hpp"
+#include "shared/unknown_globals.hpp"
 
 Rect __fastcall Get_Title_Screen_Area_006f1f30();     // the tactical rectangle for the screen (0x006F1F30)
 extern Rect unknown_rect_839630;        // the view rectangle Set_View_Dimensions keeps
@@ -69,10 +70,18 @@ int Native_Sidebar_X(int view_right)
 }
 
 // The sidebar's layout 0x0067B910 (native fixup) takes the view's bottom edge as the command
-// bar's top (the sidebar's height from it): the tactical rectangle's while zoomed.
+// bar's top (the sidebar's height from it): the tactical rectangle's while zoomed. With a Game
+// interface size above 1x the sidebar surface is shorter than the screen (Native_Sidebar_Height,
+// link/native_enhancements.cpp), so the edge moves up by the rows the surface lacks: the
+// cameo rows, the scroll buttons under them (0x0067B910's abcd78) and the background then
+// lie inside the surface (C7; at 1.5x the scroll buttons sat at y 734 of 512 rows and their
+// draws ran past the surface, the heap damage behind codex4 R703/R705/R706).
+int Native_Sidebar_Height(int screen_height);
 int Native_Sidebar_Bottom(int view_bottom)
 {
-    return zoomed ? full_bottom : view_bottom;
+    int bottom = zoomed ? full_bottom : view_bottom;
+    int screen = unknown_window_839640.Height;
+    return bottom - (screen - Native_Sidebar_Height(screen));
 }
 
 // CCToolTip::Show 0x0046DFC0 (native fixup, after it placed a tip): a tip placed for the map

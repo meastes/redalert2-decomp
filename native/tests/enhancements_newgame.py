@@ -5,7 +5,7 @@ the Enhancements page applies to the next new game in the same process, as the p
 ("From the next game"), not only after a restart or a load.
 
 The app (--app, a fresh settings folder: the interface at 1x) goes through the real menus:
-Options > ENHANCEMENTS, Game interface size CHANGE twice (1.5x), ACCEPT, Back, Single Player >
+Options > Enhancements, Game interface size dropdown set to 1.5x, Ok, Main Menu, Single Player >
 Skirmish > Start Game, and plays for a while. Passes when the new game made its sidebar
 surface for 1.5x (link/native_enhancements.cpp Native_Sidebar_New_Game: 512 of 768 rows)
 and the window shown in play is wider than the menu's (the host's larger sidebar column),
@@ -27,14 +27,16 @@ import sys
 import wine as winehost
 
 # The shell's controls at 1024x768 (RA2_NATIVE_MSG_LOG): main menu Options, the Options
-# dialog's ENHANCEMENTS, the page's Game interface size CHANGE and ACCEPT, the Options
-# dialog's Back, then Single Player, Skirmish, Start Game (build/routeA sk.script).
+# dialog's Enhancements, the page's Game interface size dropdown (its arrow: the game's
+# dropdowns open on their rightmost pixels) and its 1.5x entry, the page's Ok (the column's
+# top slot), the Options dialog's Main Menu, then Single Player, Skirmish, Start Game
+# (build/routeA sk.script).
 SCRIPT = """d1+1500 click 834 472
 d2+2000 click 834 388
-d3+1500 click 580 292
-d3+2000 click 580 292
-d3+2500 click 444 567
-d3+4500 click 834 639
+d3+1500 click 588 304
+d3+2500 click 500 357
+d3+3500 click 834 304
+d3+5500 click 834 639
 d4+2000 click 834 304
 d5+2000 click 834 388
 d6+2500 click 834 346
