@@ -976,6 +976,12 @@
    "symbol": "??0?$VectorClass@PAD@@QAE@IPBQAD@Z",
    "target": "004913e0",
    "function_entry": true
+  },
+  {
+   "site": "00603d50",
+   "symbol": "??0?$VectorClass@PAD@@QAE@IPBQAD@Z",
+   "target": "004913e0",
+   "function_entry": true
   }
  ],
  "references_out": [
@@ -1736,9 +1742,15 @@
    "target": "004913e0",
    "symbol": "??0?$VectorClass@PAD@@QAE@IPBQAD@Z",
    "module_symbol": "?get@Storage_4913e0@@QAEPAXIPAI@Z"
+  },
+  {
+   "site": "00603d50",
+   "target": "004913e0",
+   "symbol": "??0?$VectorClass@PAD@@QAE@IPBQAD@Z",
+   "module_symbol": "?get@Storage_4913e0@@QAEPAXIPAI@Z"
   }
  ],
- "stand_in_reference_count": 8,
+ "stand_in_reference_count": 9,
  "residual_split": {
   "rows": 27,
   "bytes": 1582

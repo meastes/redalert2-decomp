@@ -173,6 +173,63 @@ int Unknown_00603C10()
 }
 
 
+// From ra2-decomp 0x00626DA0 (gibbo101/ra2-decomp c10706e, src/palette.cpp: Next_Key, PaletteSchemeIterator,
+// FUN_00626DA0; GPL-3.0-or-later, Copyright 2026 ra2-decomp contributors), adapted to our names.
+// int Unknown_00603D50() (0x00603D50; TechnoTypeClass::Read_INI): the number of palettes with a scheme list
+// (the table is made on first use). The iterator's Next and the table's Find expand inline.
+
+inline HashString *Next_Key(HashTableClass<HashString, SchemeNode *> *table, UnknownSchemeListIterator *it)
+{
+    if (!it->Done) {
+        while (it->Bucket < table->BucketCount) {
+            DynamicVectorClass<HashObject<HashString, SchemeNode *> > &bucket = table->Buckets[it->Bucket];
+            while (it->Index < bucket.Count()) {
+                HashObject<HashString, SchemeNode *> *object = &bucket[it->Index];
+                it->Index++;
+                if (!object->Key.Is_Empty()) {
+                    return &object->Key;
+                }
+            }
+            it->Bucket++;
+            it->Index = 0;
+        }
+        it->Done = true;
+    }
+    return 0;
+}
+
+class PaletteSchemeIterator
+{
+  public:
+
+    DynamicVectorClass<ColorScheme *> *Next()
+    {
+        HashString *key = Next_Key(unknown_scheme_table_a76414->Table, &Position);
+        if (key == 0)
+            return 0;
+        SchemeNode **node = unknown_scheme_table_a76414->Table->Find(*key);
+        if (node == 0)
+            return 0;
+        return (*node)->Schemes;
+    }
+
+  private:
+    UnknownSchemeListIterator Position;
+};
+
+int Unknown_00603D50()
+{
+    Scheme_Table();
+    PaletteSchemeIterator it;
+    int count = 0;
+    DynamicVectorClass<ColorScheme *> *schemes = it.Next();
+    while (schemes != 0) {
+        count++;
+        schemes = it.Next();
+    }
+    return count;
+}
+
 // void Unknown_00603FA0() (0x00603FA0; Prog_End and 0x006910E5): deletes the per-palette scheme table.
 
 void Unknown_00603FA0()

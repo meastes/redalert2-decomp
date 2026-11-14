@@ -110,6 +110,9 @@ inspection tools; VC6 and CrossOver are legitimate user-supplied local build too
   Adopted 2026-11-11 (Scout1266, owner ruling under DECISIONS row 24): the member AbstractClass::Is_Techno from
   include/abstract.h:92 (header inline in src/shared/abstract_class.hpp; its COMDAT 0x006F8A70 is emitted by
   UICmnds.cpp); the body is respelled to the out-of-line bytes.
+  Adopted 2026-11-14 (lane T1): Next_Key, PaletteSchemeIterator and FUN_00626DA0 from src/palette.cpp at c10706e
+  (GPL-3.0-or-later, Copyright 2026 ra2-decomp contributors), adapted to our names as Unknown_00603D50 in
+  src/recovered/palette.cpp (RA2 0x00603D50, YR twin 0x00626DA0).
 
 - **mischa85/RedAlert2** (`github.com/mischa85/RedAlert2` commit `5a79accc`, 2026-11-09): a matching decompilation
   of the same RA2 1.006 game.exe (config/ra2-1.006/game.sha256 equals our target), VC6, built on the TibSun archive

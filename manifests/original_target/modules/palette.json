@@ -73,6 +73,12 @@
    "padding_bytes": 9
   },
   {
+   "symbol": "?Unknown_00603D50@@YAHXZ",
+   "entry": "00603d50",
+   "body_bytes": 592,
+   "padding_bytes": 0
+  },
+  {
    "symbol": "?Unknown_00603FA0@@YAXXZ",
    "entry": "00603fa0",
    "body_bytes": 39,
@@ -391,7 +397,7 @@
    "padding_bytes": 3
   }
  ],
- "code_bytes": 10160,
+ "code_bytes": 10752,
  "data": [
   {
    "symbol": "??_7?$DynamicVectorClass@VHSVClass@@@@6B@",
@@ -419,7 +425,7 @@
    "address": "007a7bf4",
    "bytes": 32,
    "kind": "vtable",
-   "section": 166
+   "section": 168
   },
   {
    "symbol": "??_R1A@?0A@A@?$VectorClass@PAD@@8",
@@ -461,21 +467,21 @@
    "address": "007b73e4",
    "bytes": 5,
    "kind": "rtti",
-   "section": 191
+   "section": 193
   },
   {
    "symbol": "??_R3?$VectorClass@PAD@@8",
    "address": "007b73f0",
    "bytes": 16,
    "kind": "rtti",
-   "section": 192
+   "section": 194
   },
   {
    "symbol": "??_R4?$VectorClass@PAD@@6B@",
    "address": "007b7400",
    "bytes": 20,
    "kind": "rtti",
-   "section": 193
+   "section": 195
   },
   {
    "symbol": "??_R1A@?0A@A@?$VectorClass@VHSVClass@@@@8",
@@ -552,56 +558,56 @@
    "address": "007bf84c",
    "bytes": 5,
    "kind": "rtti",
-   "section": 71
+   "section": 73
   },
   {
    "symbol": "??_R3?$VectorClass@PAVColorScheme@@@@8",
    "address": "007bf858",
    "bytes": 16,
    "kind": "rtti",
-   "section": 72
+   "section": 74
   },
   {
    "symbol": "??_R4?$VectorClass@PAVColorScheme@@@@6B@",
    "address": "007bf868",
    "bytes": 20,
    "kind": "rtti",
-   "section": 73
+   "section": 75
   },
   {
    "symbol": "??_R1A@?0A@A@?$VectorClass@PAVColorScheme@@@@8",
    "address": "007bf880",
    "bytes": 24,
    "kind": "rtti",
-   "section": 75
+   "section": 77
   },
   {
    "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAVColorScheme@@@@8",
    "address": "007bf898",
    "bytes": 24,
    "kind": "rtti",
-   "section": 76
+   "section": 78
   },
   {
    "symbol": "??_R2?$DynamicVectorClass@PAVColorScheme@@@@8",
    "address": "007bf8b0",
    "bytes": 9,
    "kind": "rtti",
-   "section": 77
+   "section": 79
   },
   {
    "symbol": "??_R3?$DynamicVectorClass@PAVColorScheme@@@@8",
    "address": "007bf8c0",
    "bytes": 16,
    "kind": "rtti",
-   "section": 78
+   "section": 80
   },
   {
    "symbol": "??_R4?$DynamicVectorClass@PAVColorScheme@@@@6B@",
    "address": "007bf8d0",
    "bytes": 20,
    "kind": "rtti",
-   "section": 80
+   "section": 82
   },
   {
    "symbol": "??_R2?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@8",
@@ -629,21 +635,21 @@
    "address": "007bf914",
    "bytes": 5,
    "kind": "rtti",
-   "section": 163
+   "section": 165
   },
   {
    "symbol": "??_R3?$VectorClass@VHSVClass@@@@8",
    "address": "007bf920",
    "bytes": 16,
    "kind": "rtti",
-   "section": 164
+   "section": 166
   },
   {
    "symbol": "??_R4?$VectorClass@VHSVClass@@@@6B@",
    "address": "007bf930",
    "bytes": 20,
    "kind": "rtti",
-   "section": 165
+   "section": 167
   },
   {
    "symbol": "??_R0?AV?$VectorClass@PAD@@@8",
@@ -692,14 +698,14 @@
    "address": "007eb6f0",
    "bytes": 45,
    "kind": "rtti",
-   "section": 74
+   "section": 76
   },
   {
    "symbol": "??_R0?AV?$DynamicVectorClass@PAVColorScheme@@@@@8",
    "address": "007eb720",
    "bytes": 52,
    "kind": "rtti",
-   "section": 79
+   "section": 81
   }
  ],
  "data_ranges": [],
@@ -995,6 +1001,12 @@
    "site": "006daf60",
    "symbol": "?Load@PaletteName@@QAIPAXXZ",
    "target": "00603380",
+   "function_entry": true
+  },
+  {
+   "site": "006daf60",
+   "symbol": "?Unknown_00603D50@@YAHXZ",
+   "target": "00603d50",
    "function_entry": true
   },
   {

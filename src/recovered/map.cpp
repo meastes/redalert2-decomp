@@ -11111,8 +11111,6 @@ void MapClass::Set_WasUnderBridge_Flags()
 }
 
 
-// Not exact (RA2_NON_MATCHING): MapClass::Closest_Edge_Cell at 0x005689D0, best score 58.18, 2026-11-13; differs: 109 instructions in the original, 111 in the draft (shape 97.27)
-#ifdef RA2_NON_MATCHING
 // Cell MapClass::Closest_Edge_Cell(Cell const &cell, bool inset) (0x005689D0)
 // The cell on the local view's nearest edge to a cell (one cell inside it
 // when inset; TibSun Closest_Edge_Cell): the cell's local view point is
@@ -11121,21 +11119,19 @@ extern "C" int __cdecl abs(int value);
 
 Cell MapClass::Unknown_005689D0(Cell const &cell, bool inset)
 {
-    Point2D point = Unknown_00547DB0(Point2D(cell.X, cell.Y));
-    point = point - MapLocalSize.Top_Left();
+    Point2D point = Unknown_00547DB0(Point2D(cell.X, cell.Y)) - MapLocalSize.Top_Left();
 
-    Point2D center(MapLocalSize.Width / 2, MapLocalSize.Height / 2);
-    int x = point.X - center.X;
-    int y = point.Y - center.Y;
+    int x = point.X - MapLocalSize.Width / 2;
+    int y = point.Y - MapLocalSize.Height / 2;
 
     if (abs(x) < abs(y)) {
-        if (point.X < center.X) {
+        if (point.X < MapLocalSize.Width / 2) {
             point.X = inset ? 1 : 0;
         } else {
             point.X = inset ? MapLocalSize.Width - 1 : MapLocalSize.Width;
         }
     } else {
-        if (point.Y < center.Y) {
+        if (point.Y < MapLocalSize.Height / 2) {
             point.Y = inset ? 1 : 0;
         } else {
             point.Y = inset ? MapLocalSize.Height - 1 : MapLocalSize.Height;
@@ -11145,7 +11141,6 @@ Cell MapClass::Unknown_005689D0(Cell const &cell, bool inset)
     point = Unknown_00547D70(point);
     return(Cell(point.X, point.Y));
 }
-#endif
 
 // Cell MapClass::Clip_To_Map(Cell const &cell) (0x00568D60)
 // A cell moved inside the local view (TibSun Clip_To_Map): first onto the
