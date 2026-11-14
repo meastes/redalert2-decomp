@@ -402,9 +402,10 @@ if(RA2_NATIVE_SDL)
       if(RA2_NATIVE_SUBSYSTEM STREQUAL "all" AND ((CMAKE_SYSTEM_PROCESSOR MATCHES "arm64|aarch64" AND NOT WIN32) OR WIN32))
         add_test(NAME native-original-save COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/original_save_load.py"
                  --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
-                 --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --save ALL01T.sav --frames 300 --seconds 300
+                 --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --save ALL01T.sav --frames 300 --seconds 240
                  --log "${CMAKE_CURRENT_BINARY_DIR}/native-original-save.log" ${ra2_wine_args_original})
-        set_tests_properties(native-original-save PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 360)
+        # Room for the Wine host retries (tests/wine.py host_failure: at most two more launches).
+        set_tests_properties(native-original-save PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 900)
       endif()
       # 9. Plain-virtual views against the real classes' arm64 vtables (Scout1288,
       #    tools/vtable_views.py, data/vtable_views.tsv): every view classified, and each
@@ -433,7 +434,8 @@ if(RA2_NATIVE_SDL)
                  --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
                  --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/enhancements-frames"
                  ${ra2_wine_args_frames})
-        set_tests_properties(native-enhancements-frames PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 600)
+        # Room for the Wine host retries (tests/wine.py host_failure), one launch hung at most.
+        set_tests_properties(native-enhancements-frames PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 900)
         # A Game interface size accepted on the page applies to the next new game in the
         # same process (C7, codex4 R700): the app through the real menus.
         add_test(NAME native-enhancements-newgame COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/enhancements_newgame.py"

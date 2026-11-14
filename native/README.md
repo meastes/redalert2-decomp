@@ -1246,7 +1246,12 @@ run the .exe under Wine, each
 in a fresh prefix of its own under `build/native-win/wine/` (`tests/wine.py`), and are skipped
 when no Wine is found (`RA2_NATIVE_WINE`, cache or environment, else `wine` on PATH, else the
 Wine bundle under the main checkout's `private/tools/wine-11.18`; a local test host, never
-shipped). `native-link-closure` compares the Windows closure with the Mac baseline
+shipped). Wine itself fails now and then on this Mac, never the game (C15): a prefix
+wineboot left without `kernel32.dll` is made again, and `native-enhancements-frames` and
+`native-original-save` launch again (at most twice, each retry printed) when Wine's macOS
+driver dies with an Objective-C exception (MoltenVK, `-[... lock]: unrecognized selector`) or
+a launch hangs before the game's `main` milestone (`tests/wine.py` `host_failure`); any other
+failure fails the test. `native-link-closure` compares the Windows closure with the Mac baseline
 (`--target=windows`: Win64's `long long` is the Mac's 64-bit `long`), `native-vtable-views`
 reads the .exe's COFF names, `native-original-layouts` checks the x86_64 field maps (C15). The
 unit checks (core, asm, view audit) are the Mac build's. What

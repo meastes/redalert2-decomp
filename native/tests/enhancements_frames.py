@@ -40,7 +40,7 @@ import sys
 import wine as winehost
 
 
-def run(a, tag, enhancements, prefix=None):
+def run(a, tag, enhancements, prefix=None, attempt=0):
     work = os.path.join(a.work, tag)
     shutil.rmtree(work, ignore_errors=True)
     os.makedirs(os.path.join(work, 'write'))
@@ -58,12 +58,26 @@ def run(a, tag, enhancements, prefix=None):
            '--write-dir=' + os.path.join(work, 'write'), '--game-args=-noaudio', '--input-script=' + script]
     if prefix:
         cmd, env = prefix.command(cmd), prefix.env(env)
-    p = subprocess.run(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors='replace')
+    # The game ends itself after --run-seconds; a launch still running a minute later hung.
+    try:
+        p = subprocess.run(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors='replace',
+                           timeout=a.seconds + 60)
+        out, timed_out = p.stdout, False
+    except subprocess.TimeoutExpired as e:
+        out = e.stdout.decode('utf-8', 'replace') if isinstance(e.stdout, bytes) else (e.stdout or '')
+        out, timed_out = out + '\nenhancements-frames: launch timed out\n', True
     with open(os.path.join(work, 'run.log'), 'w') as f:
-        f.write(p.stdout)
+        f.write(out)
+    # Under Wine, a launch the Mac host killed (winehost.host_failure) is run again, at most
+    # HOST_RETRIES times; each retry is printed. A failure of the game itself is never retried.
+    if prefix and attempt < winehost.HOST_RETRIES:
+        why = winehost.host_failure(out, timed_out)
+        if why:
+            print('enhancements-frames: %s: %s; launching again' % (tag, why))
+            return run(a, tag, enhancements, prefix, attempt + 1)
     dumps = sorted(glob.glob(os.path.join(work, 'w.*.bmp')), key=lambda s: int(s.rsplit('.', 2)[1]))
-    settings = [l for l in p.stdout.splitlines() if l.startswith('enhancements: vsync')]
-    settled = any(l.startswith('run-to: reached menu-settled') for l in p.stdout.splitlines())
+    settings = [l for l in out.splitlines() if l.startswith('enhancements: vsync')]
+    settled = any(l.startswith('run-to: reached menu-settled') for l in out.splitlines())
     return dumps, (settings[0] if settings else ''), settled
 
 

@@ -36,16 +36,22 @@ import sys
 WIDTH, HEIGHT = 896, 634
 # The shell's controls at 896x634 (RA2_NATIVE_MSG_LOG): Movies & Credits, Play Movies, the
 # list's first row, Play Movie, Back / Main Menu (the column's bottom slot).
-SCRIPT = """d1+2500 click 770 363
-d2+2500 click 770 279
-d3+2000 click 236 168
-d3+3000 click 770 237
-d3+6000 blur
-d3+6400 focus
-d3+9000 key Escape
-d3+12000 click 770 573
-d3+16000 click 770 573
-d3+22000 quit
+# Each click waits for its menu to settle ("s<k>": the k-th dialog shown and its slide-in done,
+# host.cpp), not a fixed time after it was shown: under load (a full ctest at load ~30) the
+# slide-in ran past the fixed delays and a click missed its button (C15). Dialogs: 1 main menu,
+# 2 Movies & Credits, 3 the movie list, 4 the list again after the movie, 5 Movies & Credits
+# again (Back), 6 the main menu again (Main Menu). A step that never happens stalls the
+# script, and the run fails on its time limit rather than checking the wrong frames.
+SCRIPT = """s1+1000 click 770 363
+s2+1000 click 770 279
+s3+1000 click 236 168
+s3+2000 click 770 237
+s3+5000 blur
+s3+5400 focus
+s3+8000 key Escape
+s4+1000 click 770 573
+s5+1000 click 770 573
+s6+5000 quit
 """
 
 

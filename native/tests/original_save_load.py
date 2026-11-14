@@ -61,13 +61,27 @@ def main():
                '--write-dir=' + write_dir, '--game-args=-noaudio -CD.', '--load-save=' + a.save,
                '--frames=%d' % a.frames]
         if prefix:
-            cmd, env = prefix.command(cmd), prefix.env(env)
+            env = prefix.env(env)
         try:
-            p = subprocess.run(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors='replace')
+            # Under Wine a launch the Mac host killed (wine.host_failure) runs again, at most
+            # HOST_RETRIES times (in a prefix made again if it was left unusable); a failure of
+            # the game itself is never retried.
+            for attempt in range(winehost.HOST_RETRIES + 1):
+                argv = prefix.command(cmd) if prefix else cmd
+                try:
+                    p = subprocess.run(argv, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
+                                       errors='replace', timeout=a.seconds + 60)
+                    out, code, timed_out = p.stdout, p.returncode, False
+                except subprocess.TimeoutExpired as e:
+                    out = e.stdout.decode('utf-8', 'replace') if isinstance(e.stdout, bytes) else (e.stdout or '')
+                    code, timed_out = -1, True
+                why = winehost.host_failure(out, timed_out) if prefix else ''
+                if not why or attempt == winehost.HOST_RETRIES:
+                    break
+                print('native-original-save: %s; launching again' % why)
         finally:
             if prefix:
                 prefix.close()
-    out = p.stdout
     if a.log:
         with open(a.log, 'w') as f:
             f.write(out)
@@ -80,9 +94,9 @@ def main():
     print('\n'.join([l for l in lines if l.startswith('run-to:')][-3:]))
     print('native-original-save: %s opened as an original: %s, loaded: %s, %d objects converted'
           % (a.save, 'yes' if opened else 'no', 'yes' if loaded else 'no', converted))
-    if p.returncode != 0 or not (reached and opened and loaded and converted) or bad:
+    if code != 0 or not (reached and opened and loaded and converted) or bad:
         print('native-original-save: FAILED (exit %d, target %s, %d bad lines)'
-              % (p.returncode, 'reached' if reached else 'not reached', len(bad)))
+              % (code, 'reached' if reached else 'not reached', len(bad)))
         for l in bad[:20]:
             print('  ' + l)
         return 1

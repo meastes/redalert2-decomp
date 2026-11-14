@@ -13,10 +13,34 @@ is the Mac's root).
   prefix.close()                  # stops its wineserver
 """
 import os
+import re
 import shutil
 import subprocess
 
 SKIP = 77
+# Wine's macOS driver (with MoltenVK) sometimes dies at a launch with an Objective-C
+# exception ("-[__NSArrayM lock]: unrecognized selector", C15). The Windows program cannot
+# raise one: an Objective-C exception is the Mac host's, never the game's.
+# A prefix wineboot left without its system folder ("could not load kernel32.dll") is the
+# host's too; Prefix.make makes it again.
+HOST_EXCEPTION = re.compile(r'Terminating app due to uncaught exception|uncaught exception of type NSException'
+                            r'|^wine: could not load kernel32\.dll', re.M)
+HOST_RETRIES = 2
+PREFIX_TRIES = 3
+
+
+def host_failure(output, timed_out=False):
+    """Why a launch under Wine failed in the Mac host rather than in the program, or ''.
+    An Objective-C exception anywhere, a prefix Wine could not start in, or a launch that
+    hung before the program's first start-up milestone (`run-to: reached main`). Anything
+    else is the program's own result."""
+    m = HOST_EXCEPTION.search(output or '')
+    if m:
+        line = next((l for l in output.splitlines() if 'reason:' in l), m.group(0))
+        return 'Wine host failure: ' + line.strip()[:160]
+    if timed_out and 'run-to: reached main' not in (output or ''):
+        return 'Wine host stalled before the program started'
+    return ''
 
 
 def find_wine(path=''):
@@ -34,15 +58,29 @@ class Prefix:
         # wineserver beside wine (the Wine bundle's bin folder), else on PATH.
         server = os.path.join(os.path.dirname(wine), 'wineserver')
         self.server = server if os.path.isfile(server) else (shutil.which('wineserver') or '')
-        shutil.rmtree(self.folder, ignore_errors=True)
-        os.makedirs(self.folder)
-        # The prefix's own wineserver, started first and persistent: a server that a
-        # program run started would inherit (and hold open) that run's output pipe.
-        if self.server:
-            subprocess.run([self.server, '-p'], env=self.env(), stdin=subprocess.DEVNULL,
+        self.make()
+
+    def make(self):
+        """A fresh prefix, made again (at most PREFIX_TRIES times) while wineboot leaves it
+        without its system folder: under load wineboot sometimes ends early, and every
+        launch in such a prefix fails ("could not load kernel32.dll", C15)."""
+        for _ in range(PREFIX_TRIES):
+            self.close()
+            shutil.rmtree(self.folder, ignore_errors=True)
+            os.makedirs(self.folder)
+            # The prefix's own wineserver, started first and persistent: a server that a
+            # program run started would inherit (and hold open) that run's output pipe.
+            if self.server:
+                subprocess.run([self.server, '-p'], env=self.env(), stdin=subprocess.DEVNULL,
+                               stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            subprocess.run([self.wine, 'wineboot', '-i'], env=self.env(), stdin=subprocess.DEVNULL,
                            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        subprocess.run([wine, 'wineboot', '-i'], env=self.env(), stdin=subprocess.DEVNULL,
-                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            if self.ready():
+                return
+            print('wine: prefix %s not made (no kernel32.dll after wineboot); making it again' % self.folder)
+
+    def ready(self):
+        return os.path.isfile(os.path.join(self.folder, 'drive_c', 'windows', 'system32', 'kernel32.dll'))
 
     def env(self, base=None):
         e = dict(os.environ if base is None else base)
@@ -51,6 +89,8 @@ class Prefix:
         return e
 
     def command(self, argv):
+        if not self.ready():          # a launch's host failure left the prefix unusable
+            self.make()
         return [self.wine] + list(argv)
 
     def close(self):
