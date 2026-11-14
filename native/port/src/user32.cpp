@@ -403,6 +403,15 @@ extern "C" int ra2port_text_input_wanted(void)
     Window *w = win(focus_hwnd);
     return w && w->visible && !strcasecmp(w->cls.c_str(), "Edit");
 }
+// The game pixel (screen coordinates) lies on the control that has the focus (not the main
+// window): a tap on a text field brings back a keyboard put away with Return or the Keys
+// toggle (lane C14).
+extern "C" int ra2port_focus_at(int x, int y)
+{
+    if (!focus_hwnd || focus_hwnd == main_hwnd) return 0;
+    POINT p = {x, y};
+    return ra2port_window_at(p, false) == focus_hwnd;
+}
 // The focus moves to a window, as on Windows: a control's dialog remembers it, and a dialog
 // given the focus passes it on to the control that had it last (DefDlgProc's WM_SETFOCUS).
 // Focus_Restore 0x00737400 calls SetFocus(dialog) at every activation: the lobby's name field

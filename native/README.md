@@ -1095,7 +1095,12 @@ A-Move are one either-or group: turning one on turns the lit one off, tapping th
 off (lane C10, the user's choice; ctest `native-touch-controls` checks all six pairs); Deploy and Guard press D and G (the DeployObject and GuardObject commands' default
 keys; a player who rebinds them in Options > Keyboard would need the toolbar to follow); Esc presses Escape (lane I);
 Keys shows the keyboard
-(it also appears while an edit control has the focus, `ra2port_text_input_wanted`); Keys and the
+(it also appears while text can be typed: a Win32 edit control has the focus,
+`ra2port_text_input_wanted` (save descriptions); a Westwood NewEdit control has it (the player-name
+fields: a list box whose owner-draw procedure is 0x005F22A0) or the game's own chat/beacon edit line
+is open (`link/native_text_entry.cpp`, lane C14; before C14 the name fields raised nothing). Return
+on a keyboard raised that way puts it away as iOS text fields do (one asked for with Keys stays), and
+a tap on the focused field brings it back); Keys and the
 Keys button are one toggle of the keyboard as shown (lane C13): tapped while it is up (asked for, or
 raised by an edit control's focus) it goes away and stays away while that focus lasts, tapped while
 it is down it comes up; the button is lit (accent tint and fill) while it is up. A screen change (another dialog on
@@ -1141,9 +1146,14 @@ reserved regions the Simulator reports, about 85 points on one side and 34 at th
 the device's and cannot be told apart from it, so they are only logged); the touch controls keep a
 small fixed margin (8 points) from the window's edges. The renderer no longer uses SDL's logical
 presentation, the host converts coordinates itself. The in-game resolution (RA2.INI
-[Video], written before the game starts) is the window (in points), at least
-800x600 (the menus share the primary surface: 656x480 cut them off), the width a
-multiple of 8 (the Duo: 824x600 in the Simulator, 944x634 on the device). The original
+[Video], written before the game starts) is a fixed number of lines by the screen's size
+in points (lane C14, `app::game_resolution` in app_mode.hpp; never by device name): 720
+lines on a large screen (the shorter side at least 600 points and the aspect at most
+1.75:1: iPads, the Duo unfolded), else 600; the width that many lines times the screen's
+aspect, rounded to a multiple of 8, at least 800 (the menus share the primary surface:
+656x480 cut them off; a squarer screen than 4:3 grows taller instead). The Duo: 872x600 in
+the Simulator (678x466 points), 1072x720 unfolded (944x634); a 1024x768 iPad 960x720. A larger
+Game interface size narrows the width as before (Duo unfolded at 1.5x: 984x720). The original
 centres its 800x600 menu panel only at 1024x768 or more, while its drawing and dialogs
 centre above 800x600, so between them the art and the buttons landed apart over unpainted
 noise; three fixups (Unknown_Layout_Interface 0x006F3E70 and the border blackout 0x006F34D0)

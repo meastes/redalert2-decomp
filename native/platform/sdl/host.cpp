@@ -46,6 +46,14 @@ extern "C" __attribute__((weak)) int ra2_native_network_game(void) { return 0; }
 extern "C" __attribute__((weak)) int ra2_native_hide_game_cursor(void) { return 1; }
 extern "C" int ra2port_last_frame(void);
 extern "C" int ra2port_text_input_wanted(void);   // port/src/user32.cpp: an edit control has the focus
+extern "C" int ra2port_focus_at(int x, int y);   // port/src/user32.cpp: the pixel is on the focused control
+// The game's own text fields (lane C14; link/native_text_entry.cpp): a Westwood NewEdit control
+// (the player-name fields) has the focus; the message list's edit line (chat, beacon text) is
+// open. Weak defaults: never.
+extern "C" __attribute__((weak)) int ra2_native_new_edit_focused(void) { return 0; }
+extern "C" __attribute__((weak)) int ra2_native_message_edit_open(void) { return 0; }
+// Text can be typed into a control with the focus: a Win32 edit control or a NewEdit.
+bool text_field_focused() { return ra2port_text_input_wanted() || ra2_native_new_edit_focused(); }
 extern "C" int ra2port_menu_shown(void);          // port/src/user32.cpp: a menu dialog is shown (no sidebar)
 extern "C" uintptr_t ra2port_top_dialog(void);    // port/src/user32.cpp: the topmost shown dialog (0: none)
 extern "C" __attribute__((weak)) bool ra2port_presents_held(void);   // port/src/user32.cpp
@@ -1028,6 +1036,12 @@ void finger_event(SDL_TouchFingerEvent const &f, Uint32 type)
         }
         window_to_game(wx, wy, &gx, &gy);
     }
+    // A tap on the focused edit control brings back a keyboard put away while it kept the
+    // focus (Return, or Keys; lane C14), as tapping an iOS text field does.
+    if (type == SDL_EVENT_FINGER_DOWN && keys_dismissed && text_field_focused() && ra2port_focus_at((int)gx, (int)gy)) {
+        keys_dismissed = false;
+        fprintf(stderr, "host: tap on the edit control: keyboard back\n");
+    }
     touch::set_screen(pic_w, pic_h, ra2port_menu_shown() ? 0 : pic_w - 168);
     // When the finger moved, not when the game read the queue (Scout1274): taps queued during
     // one long frame (menus pump seldom) were otherwise read at one time, and two separate
@@ -1173,6 +1187,13 @@ void pump_events()
             int vk = virtual_key(e.key.key);
             if (!vk) break;
             bool down = e.type == SDL_EVENT_KEY_DOWN;
+            // Return on a keyboard raised by an edit control's focus puts it away, as iOS text
+            // fields do (lane C14); the key still goes to the game. A keyboard asked for with
+            // Keys stays (the player types commands). Tapping the field brings it back.
+            if (down && vk == 0x0D && text_input_on && !toggles[kKeysToggle].on && !keys_dismissed) {
+                keys_dismissed = true;
+                fprintf(stderr, "host: Return puts the keyboard away\n");
+            }
             ra2port::set_key_state(vk, down);
             LPARAM lp = (LPARAM)(1 | ((int)e.key.scancode << 16) | (down ? 0 : (3u << 30)));
             ra2port::post_message(w, down ? 0x0100 : 0x0101, (WPARAM)vk, lp);   // WM_KEYDOWN/UP
@@ -1289,7 +1310,10 @@ void pump_events()
         }
     }
     if (SDL_HasScreenKeyboardSupport() && window) {
-        bool edit = ra2port_text_input_wanted();
+        // A text field with the focus (a Win32 edit control: save descriptions; a Westwood
+        // NewEdit: player names) or the game's own edit line (chat and beacon text in network
+        // games); lane C14 added the last two.
+        bool edit = text_field_focused() || ra2_native_message_edit_open();
         if (!edit && keys_dismissed && !toggles[kKeysToggle].on) keys_dismissed = false;   // the focus left the edit control
         bool want = toggles[kKeysToggle].on || (edit && !keys_dismissed);
         if (want != text_input_on) {

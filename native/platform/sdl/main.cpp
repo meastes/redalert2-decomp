@@ -239,8 +239,8 @@ int main(int argc, char **argv)
         ra2_enhancements_store(enhancement_get, enhancement_set);
         atexit(save_app_settings);
         if (hostos::imports_game_files() && app_window) {
-            // The touch app (Scout1248): the in-game resolution from the usable part of the
-            // screen; checkpoints in the background and every 3 minutes. (The toolbar's
+            // The touch app (Scout1248): the in-game resolution from the screen's size
+            // (720 lines on a large screen, 600 on a phone-sized one: lane C14); checkpoints in the background and every 3 minutes. (The toolbar's
             // interface scale, "ui_scale", is gone (lane C10): Game interface size on the
             // Enhancements page sizes the interface; a scale saved before is not applied.)
             for (int i = 0; i < 10; ++i) SDL_PumpEvents();     // the safe area settles with the window
@@ -257,7 +257,7 @@ int main(int argc, char **argv)
                 if (sscanf(v, "%lfx%lf", &fw, &fh) == 2 && fw > 0 && fh > 0) r.w = fw, r.h = fh;
             }
             int gw = 0, gh = 0;
-            app::game_resolution(r.w, r.h, 1.0, gw, gh);
+            app::game_resolution(r.w, r.h, gw, gh);
             // Game interface size (enhancements, C3): a sidebar column shown larger than the
             // map takes more of the width, so the game's width gives that back (never below 800).
             {
@@ -268,7 +268,8 @@ int main(int argc, char **argv)
                     gw = narrower < 800 ? 800 : narrower;
                 }
             }
-            fprintf(stderr, "app: usable %.0fx%.0f points (window %dx%d)\n", r.w, r.h, ww, wh);
+            fprintf(stderr, "app: usable %.0fx%.0f points (window %dx%d): %s screen, play %dx%d\n", r.w, r.h, ww, wh,
+                    app::large_screen(r.w, r.h) ? "large" : "phone-sized", gw, gh);
             app::set_ini_resolution(ra2port::write_dir() ? ra2port::write_dir() : app::game_write_dir().c_str(), folder, gw, gh);
             ra2_sdl_host_touch_options(180);
             // Resume at start (lane I): the system ended the app in the background after a

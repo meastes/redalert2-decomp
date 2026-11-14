@@ -574,23 +574,35 @@ bool setup_imported(void *native_window, bool force, std::string &data_dir, std:
     return true;
 }
 
-// ---- iOS: the in-game resolution from the screen (Scout1248) ----------------
+// ---- iOS: the in-game resolution from the screen (Scout1248; lane C14) --------
 // The game's resolution in play is RA2.INI's [Video] ScreenWidth/ScreenHeight (the
-// menus are 800x600 whatever it says). On a phone it is the usable part of the
-// screen (hostos::usable_rect, points) divided by the interface scale the player
-// chose (1, 1.25 or 1.5), the width a multiple of 8, but never below 800x600: the
-// game keeps its 800x600 menus on the same primary surface, and a smaller one cut
-// them off (Scout1248, a 656x480 trial). Below that the same aspect is enlarged and
-// the picture scaled down to fit (on the iPhone Duo, 594x432 points clear: 824x600,
-// then 800x600 below).
-void game_resolution(double usable_w, double usable_h, double scale, int &w, int &h)
+// menus are 800x600 whatever it says). On a touch screen it is a fixed number of lines
+// by the screen's size (lane C14): 720 lines on a large screen, 600 on a phone-sized one,
+// the width that many lines times the screen's aspect, rounded to a multiple of 8. Large
+// is decided by the screen's size in points, not by the device's name: the shorter side
+// at least kLargeScreenPoints (every iPad's is 744 or more, the iPhone Duo unfolded 634;
+// iPhones in landscape stay under 450) and the aspect at most 1.75:1 (a wider screen of
+// that size shows the map at 600 lines). Never narrower than 800 (the game keeps its
+// 800x600 menus on the same primary surface, and a smaller one cut them off: Scout1248, a
+// 656x480 trial); a squarer screen than 4:3 keeps 800 wide and grows taller instead.
+// Examples: the Duo Simulator's 678x466 points 872x600; the Duo unfolded (944x634) 1072x720;
+// a 1180x820 iPad 1040x720, a 1024x768 iPad 960x720.
+constexpr double kLargeScreenPoints = 600;
+constexpr double kLargeScreenAspect = 1.75;
+bool large_screen(double usable_w, double usable_h)
 {
-    if (scale < 1) scale = 1;
-    double gw = usable_w / scale, gh = usable_h / scale;
-    if (gh < 600) { gw *= 600 / gh; gh = 600; }
-    if (gw < 800) { gh *= 800 / gw; gw = 800; }
-    w = ((int)(gw + 0.5)) & ~7;
-    h = ((int)(gh + 0.5)) & ~1;
+    double longer = usable_w > usable_h ? usable_w : usable_h, shorter = usable_w > usable_h ? usable_h : usable_w;
+    return shorter >= kLargeScreenPoints && longer <= shorter * kLargeScreenAspect;
+}
+void game_resolution(double usable_w, double usable_h, int &w, int &h)
+{
+    double aspect = usable_h > 0 ? usable_w / usable_h : 4.0 / 3.0;
+    h = large_screen(usable_w, usable_h) ? 720 : 600;
+    w = (int)(h * aspect / 8 + 0.5) * 8;
+    if (w < 800) {
+        w = 800;
+        h = ((int)(800 / aspect + 0.5)) & ~1;
+    }
     // Any size: the menu panel is centred above 800x600 (the interface layout's fixup,
     // Scout1274; before it only 800x600 and 1024x768 laid out whole, Scout1249/r27).
 }
