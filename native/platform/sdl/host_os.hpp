@@ -57,11 +57,11 @@ bool imports_game_files();
 // folder is readable (inside the picker's security scope), on the main thread.
 // False when no picker can be shown (macOS uses SDL's dialogs).
 bool pick_import_folder(void *native_window, void (*done)(void *user, const char *path), void *user);
-// The part of the window the game may draw in and take touches from (Scout1248):
-// the largest landscape rectangle, in window points, clear of the safe-area
-// insets and the device's reserved regions (the iPhone Duo's hinge and its
-// camera occlusion; UIView reserved regions, iOS 27.1). False where the whole
-// window is usable (macOS).
+// The part of the window the game may draw in and take touches from, in window
+// points (Scout1248). iOS: the whole window (lane C13: the safe-area insets and
+// reserved regions the Simulator reports are not the iPhone Duo's, which has no
+// cutout or home indicator; they are logged, not used). False where the whole
+// window is usable without asking (macOS, Windows).
 struct Rect { double x, y, w, h; };
 bool usable_rect(void *native_window, Rect *out);
 // Audio-session interruptions (iOS: a call, Siri, another app's audio session):

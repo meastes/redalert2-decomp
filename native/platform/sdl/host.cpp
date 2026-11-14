@@ -47,6 +47,7 @@ extern "C" __attribute__((weak)) int ra2_native_hide_game_cursor(void) { return 
 extern "C" int ra2port_last_frame(void);
 extern "C" int ra2port_text_input_wanted(void);   // port/src/user32.cpp: an edit control has the focus
 extern "C" int ra2port_menu_shown(void);          // port/src/user32.cpp: a menu dialog is shown (no sidebar)
+extern "C" uintptr_t ra2port_top_dialog(void);    // port/src/user32.cpp: the topmost shown dialog (0: none)
 extern "C" __attribute__((weak)) bool ra2port_presents_held(void);   // port/src/user32.cpp
 
 namespace {
@@ -94,7 +95,7 @@ bool checkpoints = false;
 Uint64 checkpoint_period_ms = 0, last_checkpoint_ms = 0;
 
 // The layout (Scout1248): the usable part of the window in points (hostos::usable_rect:
-// the iOS safe area less the hinge; elsewhere the whole window) and the game picture
+// the whole window everywhere since lane C13; the touch controls keep a small margin in) and the game picture
 // fitted into it, aspect kept, in points. Window coordinates convert to the game's
 // pixels through it (the renderer draws in device pixels, no logical presentation).
 hostos::Rect usable = {0, 0, 800, 600};
@@ -151,6 +152,12 @@ constexpr int kSkipButton = -2, kKeysButton = -3;
 enum class Controls { none, play, menu, movie };
 Controls controls = Controls::none;
 bool text_input_on = false;
+// The on-screen keyboard put away with the Keys button (lane C13, user: no way to dismiss it):
+// while set, an edit control's focus does not bring it back. Cleared when the focus leaves the
+// edit control, at a screen change (another dialog on top, the controls changing) or when
+// Keys is tapped again.
+bool keys_dismissed = false;
+uintptr_t top_dialog = 0;      // the topmost dialog last seen (a change is a screen change)
 SDL_TouchID const script_touch = 0x5C5D;   // scripted fingers: coordinates in game pixels
 SDL_FingerID toggle_finger = 0;            // the finger that pressed a toggle (its gesture is the toggle's)
 Uint32 const kScriptedToolbar = SDL_EVENT_USER + 0x5C;   // input script "toolbar ITEM" (never pushed to SDL)
@@ -420,35 +427,24 @@ void convert_event(SDL_Event &e)
         window_to_game(e.wheel.mouse_x, e.wheel.mouse_y, &e.wheel.mouse_x, &e.wheel.mouse_y);
     }
 }
-// The Keys button's place in window points (lane C12, user report: at the usable area's top
-// right it covered the main menu's art, the meter above Single Player). The menus' 800x600
-// panel is centred in the picture; the button goes where the panel is not, in this order: the
-// band right of the panel (the full capsule, or the keyboard symbol alone in a 48-point circle
-// when the band is narrower), the band above it, else the panel's lower left corner just above
-// its hint line (the darkest part of the main menu's art). With the Menu fill on the bands are
-// the fill.
+// The Keys button's place in window points (lane C13, user: at the top left of the screen, a
+// toggle). Its corner is the usable area's top left (the "…" toolbar's, shown in play only;
+// Skip takes the top right during movies), a small fixed margin in. The full capsule when the
+// band left of the menus' 800x600 panel holds it, else the keyboard symbol alone in a 48-point
+// circle (less of the panel's art covered). (Lane C12 had put it right of the panel.)
 hostos::Rect keys_rect()
 {
     const double bar = 48, wide = 96, margin = 8;
+    double left = usable.w;
     if (pic_w >= 800 && pic_h >= 600 && picture.h > 0) {
         double scale = picture.h / pic_h;
-        double panel_right = picture.x + ((pic_w - 800) / 2 + 800) * scale;
-        double panel_top = picture.y + (pic_h - 600) / 2 * scale;
-        double right = usable.x + usable.w - panel_right, above = panel_top - usable.y;
-        if (right >= wide + 2 * margin) return hostos::Rect{panel_right + (right - wide) / 2, usable.y + margin, wide, bar};
-        if (right >= bar + 2 * margin) return hostos::Rect{panel_right + (right - bar) / 2, usable.y + margin, bar, bar};
-        if (above >= bar + 2 * margin) return hostos::Rect{usable.x + usable.w - wide - margin, usable.y + (above - bar) / 2, wide, bar};
-        // Over the art's lower left corner, just above the hint line along the panel's bottom
-        // (its frame starts about 40 rows above the panel's bottom edge).
-        double panel_left = picture.x + (pic_w - 800) / 2 * scale;
-        double x = SDL_max(usable.x, panel_left) + margin;
-        double y = SDL_min(usable.y + usable.h, panel_top + (600 - 40) * scale) - bar - margin;
-        return hostos::Rect{x, y, wide, bar};
+        left = picture.x + (pic_w - 800) / 2 * scale - usable.x;
     }
-    return hostos::Rect{usable.x + margin, usable.y + usable.h - bar - margin, wide, bar};
+    return hostos::Rect{usable.x + margin, usable.y + margin, left >= wide + 2 * margin ? wide : bar, bar};
 }
 // The toggles' places in window points (the Mac's drawn controls, tests): a column at the
-// usable part's left edge in play; the floating Skip button at its top right, Keys at keys_rect.
+// usable part's left edge in play; the floating Skip button at its top right, Keys at its top
+// left (keys_rect; never shown with the toolbar).
 hostos::Rect toggle_rect(int i)
 {
     double size = 44, gap = 6;
@@ -916,6 +912,13 @@ void press_toggle(int i)
     } else if (i == kAttackMove) {
         set_attack_move(!t.on);
         return;
+    } else if (i == kKeysToggle) {
+        // A toggle of the keyboard as shown (lane C13): up (asked for, or raised by an edit
+        // control's focus) it goes away and stays away while that focus lasts; down it comes up.
+        bool shown = t.on || text_input_on;
+        t.on = !shown;
+        keys_dismissed = shown;
+        fprintf(stderr, "host: toggle %s %s\n", t.label, t.on ? "on" : "off");
     } else if (t.vk) {
         // Fire, Move or Add. The four modes (with A-Move) are one either-or group (lane C10,
         // user): picking one turns the others off first, so only its own modifier is held;
@@ -933,6 +936,17 @@ void press_toggle(int i)
     }
     sync_toolbar();
     redraw();
+}
+// A screen change (lane C13): the keyboard asked for with Keys is put away, and a dismissal
+// ends (an edit control focused on the new screen may raise it again).
+void keys_screen_changed()
+{
+    keys_dismissed = false;
+    if (toggles[kKeysToggle].on) {
+        toggles[kKeysToggle].on = false;
+        fprintf(stderr, "host: toggle %s off\n", toggles[kKeysToggle].label);
+        sync_toolbar();
+    }
 }
 // The touch controls follow the game (lane C10): the toolbar in play, the Keys button in the
 // menus, the Skip button during a cutscene (Controls).
@@ -952,10 +966,7 @@ void show_controls()
         for (int i = kFireToggle; i <= kAddToggle; ++i) set_modifier_toggle(i, false);
     }
     // The keyboard asked for (Keys) belongs to the screen it was asked on.
-    if (toggles[kKeysToggle].on) {
-        toggles[kKeysToggle].on = false;
-        fprintf(stderr, "host: toggle %s off\n", toggles[kKeysToggle].label);
-    }
+    keys_screen_changed();
     controls = want;
     static const char *const names[] = {"none", "play", "menu", "movie"};
     fprintf(stderr, "host: touch controls: %s (toolbar %s, keys button %s, skip button %s)\n", names[(int)want],
@@ -1269,8 +1280,18 @@ void pump_events()
     touch_moves_due();
     static const bool keep_cursor = getenv("RA2_NATIVE_TOUCH_CURSOR") != nullptr;
     if (touch_ui && !keep_cursor) ra2_native_hide_game_cursor();
+    if (touch_ui) {
+        // Another dialog on top is another screen (lane C13): the keyboard asked for goes away.
+        uintptr_t top = ra2port_top_dialog();
+        if (top != top_dialog) {
+            top_dialog = top;
+            keys_screen_changed();
+        }
+    }
     if (SDL_HasScreenKeyboardSupport() && window) {
-        bool want = toggles[kKeysToggle].on || ra2port_text_input_wanted();
+        bool edit = ra2port_text_input_wanted();
+        if (!edit && keys_dismissed && !toggles[kKeysToggle].on) keys_dismissed = false;   // the focus left the edit control
+        bool want = toggles[kKeysToggle].on || (edit && !keys_dismissed);
         if (want != text_input_on) {
             text_input_on = want;
             if (want) SDL_StartTextInput(window); else SDL_StopTextInput(window);

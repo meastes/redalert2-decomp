@@ -243,40 +243,34 @@ RA2ImportPicker *active_picker = nil;
 
 namespace hostos {
 
-// The largest rectangle of `area` that avoids `obstacle`: the area itself when
-// they do not meet, else the biggest of the four strips beside the obstacle
-// (landscape strips first when sizes tie).
-static CGRect clear_of(CGRect area, CGRect obstacle)
-{
-    CGRect cut = CGRectIntersection(area, obstacle);
-    if (CGRectIsNull(cut) || CGRectIsEmpty(cut)) return area;
-    CGRect strips[4] = {
-        CGRectMake(area.origin.x, area.origin.y, CGRectGetMinX(cut) - area.origin.x, area.size.height),   // left
-        CGRectMake(CGRectGetMaxX(cut), area.origin.y, CGRectGetMaxX(area) - CGRectGetMaxX(cut), area.size.height),   // right
-        CGRectMake(area.origin.x, area.origin.y, area.size.width, CGRectGetMinY(cut) - area.origin.y),    // above
-        CGRectMake(area.origin.x, CGRectGetMaxY(cut), area.size.width, CGRectGetMaxY(area) - CGRectGetMaxY(cut)),   // below
-    };
-    CGRect best = CGRectZero;
-    for (CGRect r : strips) {
-        if (r.size.width <= 0 || r.size.height <= 0) continue;
-        double a = r.size.width * r.size.height, b = best.size.width * best.size.height;
-        if (a > b || (a == b && r.size.width >= r.size.height)) best = r;
-    }
-    return best;
-}
-
+// The whole window (lane C13, user: no black bars in play, like an iPad port's widescreen
+// viewport). The iPhone Duo has no camera cutout and no home indicator; the Simulator's profile
+// reports safe-area insets (about 85 points on one side, 34 at the bottom) and reserved regions
+// the device does not have, and the device cannot be told apart from it here, so neither is
+// used: the game's picture and resolution take every edge, and the touch controls keep a small
+// fixed margin from the window's edges (host.cpp). The insets and regions are logged when they
+// change. (Scout1248 had used the largest rectangle clear of both.)
 bool usable_rect(void *native_window, Rect *out)
 {
     UIWindow *window = (__bridge UIWindow *)native_window;
     UIView *view = window.rootViewController.view;
     if (!view) return false;
-    CGRect area = UIEdgeInsetsInsetRect(view.bounds, view.safeAreaInsets);
+    UIEdgeInsets in = view.safeAreaInsets;
+    int regions = 0;
     if (@available(iOS 27.1, *)) {
         for (UIViewReservedRegionKind *kind in @[[UIViewReservedRegionKind occlusionRegionKind], [UIViewReservedRegionKind divisionRegionKind]])
             for (UIViewReservedRegion *region in [view reservedRegionsOfKind:kind])
-                if (region.active) area = clear_of(area, region.frame);
+                if (region.active) ++regions;
     }
-    CGRect in_window = [view convertRect:area toView:nil];
+    static UIEdgeInsets logged = {-1, -1, -1, -1};
+    static int logged_regions = -1;
+    if (!UIEdgeInsetsEqualToEdgeInsets(in, logged) || regions != logged_regions) {
+        logged = in;
+        logged_regions = regions;
+        fprintf(stderr, "host: safe-area insets %.0f/%.0f/%.0f/%.0f (top/left/bottom/right), %d reserved region(s): not used, the whole window is the game's\n",
+                in.top, in.left, in.bottom, in.right, regions);
+    }
+    CGRect in_window = [view convertRect:view.bounds toView:nil];
     *out = Rect{in_window.origin.x, in_window.origin.y, in_window.size.width, in_window.size.height};
     return true;
 }
@@ -620,7 +614,11 @@ void keys_button_set(bool on)
         if (![sub isKindOfClass:UIButton.class]) continue;
         UIButton *b = (UIButton *)sub;
         UIButtonConfiguration *c = b.configuration;
+        // Lit while the keyboard is up (lane C13: the button is its toggle): the accent tint
+        // over a faint accent fill, as a toolbar item that is on.
         c.baseForegroundColor = on ? accent_colour() : text_colour();
+        c.background.backgroundColor = on ? [accent_colour() colorWithAlphaComponent:0.22] : UIColor.clearColor;
+        c.background.cornerRadius = kBar / 2;
         b.configuration = c;
         b.accessibilityValue = on ? @"on" : @"off";
     }

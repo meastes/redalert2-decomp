@@ -689,6 +689,14 @@ static bool dialog_shown()
 }
 // A menu dialog is shown (the host's touch gestures: no sidebar then; Scout1248).
 extern "C" int ra2port_menu_shown(void) { return dialog_shown() ? 1 : 0; }
+// The topmost shown dialog (the last visible one: mouse routing's order), 0 when none: the
+// host's screen changes (lane C13: the on-screen keyboard asked for is put away).
+extern "C" uintptr_t ra2port_top_dialog(void)
+{
+    for (auto it = dialog_windows.rbegin(); it != dialog_windows.rend(); ++it)
+        if (Window *w = win(*it)) if (w->visible) return (uintptr_t)*it;
+    return 0;
+}
 extern "C" bool ra2port_presents_held(void)
 {
     bool menu = dialog_shown();

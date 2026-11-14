@@ -1095,15 +1095,20 @@ A-Move are one either-or group: turning one on turns the lit one off, tapping th
 off (lane C10, the user's choice; ctest `native-touch-controls` checks all six pairs); Deploy and Guard press D and G (the DeployObject and GuardObject commands' default
 keys; a player who rebinds them in Options > Keyboard would need the toolbar to follow); Esc presses Escape (lane I);
 Keys shows the keyboard
-(it also appears while an edit control has the focus, `ra2port_text_input_wanted`). The
+(it also appears while an edit control has the focus, `ra2port_text_input_wanted`); Keys and the
+Keys button are one toggle of the keyboard as shown (lane C13): tapped while it is up (asked for, or
+raised by an edit control's focus) it goes away and stays away while that focus lasts, tapped while
+it is down it comes up; the button is lit (accent tint and fill) while it is up. A screen change (another dialog on
+top, `ra2port_top_dialog`, or the controls changing) puts away a keyboard asked for and ends a
+dismissal. The
 toolbar holds the game's commands and shows in play only (lane C10, `show_controls` in host.cpp:
 a game frame ran, no dialog up, no movie); leaving play turns Fire, Move, Add and A-Move off, so
 no modifier stays held in a menu. In the menus (dialogs in play too: Options, save descriptions)
-a glass Keys button alone sits beside the 800x600 menu panel (`hostos::keys_button_*`, placed by
-`keys_rect` in host.cpp, C12: at the top right it covered the main menu's meter): in the band
-right of the panel (the keyboard symbol alone in a circle when the band is narrower than the
-capsule), else in the band above it, else over the panel's lower left corner, above its hint line; it turns the
-keyboard on and off for names and descriptions; during a cutscene the Skip button
+a glass Keys button alone sits at the window's top left, a small fixed margin in (`hostos::keys_button_*`,
+placed by `keys_rect` in host.cpp; lane C13, user: C12 had put it right of the panel): the full
+capsule when the band left of the 800x600 panel holds it, else the keyboard symbol alone in a
+circle; it turns the keyboard on and off for names and descriptions (the "…" toolbar, which shares
+that corner, shows in play only, and Skip takes the top right during movies); during a cutscene the Skip button
 alone takes that corner; at start-up and on loading screens nothing shows. Each change logs
 `host: touch controls: <movie|menu|play|none> (...)`. The interface scale item is gone (Game
 interface size is on the Enhancements page; a scale saved by earlier builds is no longer
@@ -1111,7 +1116,7 @@ applied). `RA2_NATIVE_TOOLBAR_TAPS="<ms>:<item>;..."`
 (tests; item -1 is "…", -2 Skip, -3 Keys; a hidden control's tap does nothing) sends the
 buttons' own actions for Simulator runs. On the Mac
 (`RA2_NATIVE_TOUCH_UI=1`, tests) the host draws a plain column of the same toggles in play, and a
-KEYS or SKIP box at the top right. The
+KEYS box at the top left or a SKIP box at the top right. The
 touch app hides the game's own cursor (`link/native_touch_cursor.cpp`: one extra
 WWMouseClass::Hide_Mouse whenever it is shown; `RA2_NATIVE_TOUCH_CURSOR=1` keeps it). Input scripts take `tdown|tmove|tup X Y
 [finger]` (or an `@ID` point, as for the mouse: Scout1295) and `toolbar ITEM` (the item's own
@@ -1130,10 +1135,13 @@ with A-Move on, two taps on two spots give two attack-moves, and after A-Move is
 is a plain move (C10). ctest `native-touch-controls` (`tests/touch_controls.py`) runs the app
 through its movies, the menus and into a skirmish, checking which controls show in each and that
 the Keys button turns the keyboard on.
-The picture is drawn into the largest landscape rectangle clear of the safe area and the
-device's reserved regions (`hostos::usable_rect`; the renderer no longer uses SDL's logical
-presentation, the host converts coordinates itself). The in-game resolution (RA2.INI
-[Video], written before the game starts) is that rectangle (in points), at least
+The picture is drawn over the whole window (`hostos::usable_rect`; lane C13, user: no black bars
+in play. The iPhone Duo has no camera cutout and no home indicator; the safe-area insets and
+reserved regions the Simulator reports, about 85 points on one side and 34 at the bottom, are not
+the device's and cannot be told apart from it, so they are only logged); the touch controls keep a
+small fixed margin (8 points) from the window's edges. The renderer no longer uses SDL's logical
+presentation, the host converts coordinates itself. The in-game resolution (RA2.INI
+[Video], written before the game starts) is the window (in points), at least
 800x600 (the menus share the primary surface: 656x480 cut them off), the width a
 multiple of 8 (the Duo: 824x600 in the Simulator, 944x634 on the device). The original
 centres its 800x600 menu panel only at 1024x768 or more, while its drawing and dialogs
