@@ -120,6 +120,7 @@ double map_zoom = 1.0;
 struct Region { double sx, sy, sw, sh; double dx, dy, dw, dh; };
 std::vector<Region> regions;
 bool layout_dirty = true;
+bool menu_fill_on = false;        // the Menu fill enhancement (fill_menu_bands)
 
 // The touch controls (Scout1248): on where the screen is touched (iOS), or with
 // RA2_NATIVE_TOUCH_UI=1 (tests). A column of toggles at the usable part's left edge:
@@ -275,6 +276,7 @@ void show_controls();
 void press_escape();
 void set_attack_move(bool on);
 void sync_toolbar();
+hostos::Rect keys_rect();
 void redraw();
 float pixel_density()
 {
@@ -360,6 +362,7 @@ void update_layout()
         }
         add(map_w, 0, kSidebarWidth, pic_h / split_ratio, px + map_w * scale, py, kSidebarWidth * split_ratio * scale, pic_h * scale);
     }
+    if (system_toolbar) hostos::keys_button_place(keys_rect());
 }
 // Window points to game pixels and back through the regions (split or zoom layout); a point
 // outside every region (a letterbox bar) is taken at the nearest region's edge.
@@ -417,11 +420,39 @@ void convert_event(SDL_Event &e)
         window_to_game(e.wheel.mouse_x, e.wheel.mouse_y, &e.wheel.mouse_x, &e.wheel.mouse_y);
     }
 }
+// The Keys button's place in window points (lane C12, user report: at the usable area's top
+// right it covered the main menu's art, the meter above Single Player). The menus' 800x600
+// panel is centred in the picture; the button goes where the panel is not, in this order: the
+// band right of the panel (the full capsule, or the keyboard symbol alone in a 48-point circle
+// when the band is narrower), the band above it, else the panel's lower left corner just above
+// its hint line (the darkest part of the main menu's art). With the Menu fill on the bands are
+// the fill.
+hostos::Rect keys_rect()
+{
+    const double bar = 48, wide = 96, margin = 8;
+    if (pic_w >= 800 && pic_h >= 600 && picture.h > 0) {
+        double scale = picture.h / pic_h;
+        double panel_right = picture.x + ((pic_w - 800) / 2 + 800) * scale;
+        double panel_top = picture.y + (pic_h - 600) / 2 * scale;
+        double right = usable.x + usable.w - panel_right, above = panel_top - usable.y;
+        if (right >= wide + 2 * margin) return hostos::Rect{panel_right + (right - wide) / 2, usable.y + margin, wide, bar};
+        if (right >= bar + 2 * margin) return hostos::Rect{panel_right + (right - bar) / 2, usable.y + margin, bar, bar};
+        if (above >= bar + 2 * margin) return hostos::Rect{usable.x + usable.w - wide - margin, usable.y + (above - bar) / 2, wide, bar};
+        // Over the art's lower left corner, just above the hint line along the panel's bottom
+        // (its frame starts about 40 rows above the panel's bottom edge).
+        double panel_left = picture.x + (pic_w - 800) / 2 * scale;
+        double x = SDL_max(usable.x, panel_left) + margin;
+        double y = SDL_min(usable.y + usable.h, panel_top + (600 - 40) * scale) - bar - margin;
+        return hostos::Rect{x, y, wide, bar};
+    }
+    return hostos::Rect{usable.x + margin, usable.y + usable.h - bar - margin, wide, bar};
+}
 // The toggles' places in window points (the Mac's drawn controls, tests): a column at the
-// usable part's left edge in play; the floating Keys or Skip button at its top right.
+// usable part's left edge in play; the floating Skip button at its top right, Keys at keys_rect.
 hostos::Rect toggle_rect(int i)
 {
     double size = 44, gap = 6;
+    if (i == kKeysButton) return keys_rect();
     if (i < 0) return hostos::Rect{usable.x + usable.w - 6 - 2 * size, usable.y + 6, 2 * size, size};
     return hostos::Rect{usable.x + 6, usable.y + 6 + i * (size + gap), size, size};
 }
@@ -1314,94 +1345,68 @@ void draw_overlay(float density)
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_NONE);
 }
 
-// PROTOTYPE (C11, the aspect question; off unless RA2_NATIVE_MENU_FILL is set): in the menus
-// the 800x600 panel is centred in a larger picture and the rest is black (the game's own bands
-// above 800x600, then the window's letterbox). Two fills, both at a uniform scale:
-//   mirror:   the panel's edge mirrored outwards (tiled when wider than half the panel), darkened;
-//   backdrop: the whole panel scaled up uniformly to cover the window, blurred (drawn through a
-//             64x48 texture with linear filtering) and darkened, the panel drawn over it.
-// Not in play, not during a movie. Returns whether it drew the picture itself.
-SDL_Texture *menu_blur = nullptr;
+// Menu fill (Enhancements row "Menu fill", lane C12 from the C11 prototype; off by default and
+// in the ORIGINAL preset): in the menus the 800x600 panel is centred in a larger picture and
+// the rest is black (the game's own bands above 800x600, then the window's letterbox, on a
+// wider or a taller screen). Blurred backdrop draws the panel scaled up uniformly to cover the
+// whole window, both ways (its overflow cut), blurred (halved four times through small
+// textures with linear filtering, then enlarged) and darkened, and the panel over it at the
+// picture's scale. Not in play (dialogs in play included), not during a movie: those draw as
+// before. RA2_NATIVE_MENU_FILL=backdrop|off overrides the setting (tests). Returns whether it
+// drew the picture itself.
+SDL_Texture *menu_blur[4] = {nullptr, nullptr, nullptr, nullptr};
+bool menu_fill_active()
+{
+    if (!menu_fill_on || !texture) return false;
+    if (!ra2port_menu_shown() || ra2port::movie_playing() || ra2_enh_game_in_play()) return false;
+    return pic_w >= 800 && pic_h >= 600;
+}
 bool fill_menu_bands(float density)
 {
-    static const char *mode = getenv("RA2_NATIVE_MENU_FILL");
-    if (!mode || !*mode || !texture) return false;
-    if (!ra2port_menu_shown() || ra2port::movie_playing() || ra2_enh_game_in_play()) return false;
-    if (pic_w < 800 || pic_h < 600) return false;
+    if (!menu_fill_active()) return false;
     double scale = picture.w / pic_w;
     double gx0 = (pic_w - 800) / 2, gy0 = (pic_h - 600) / 2;            // the panel in game pixels
-    double wx0 = picture.x + gx0 * scale, wx1 = wx0 + 800 * scale;      // ... and in window points
-    double wy0 = picture.y + gy0 * scale, wy1 = wy0 + 600 * scale;
+    double wx0 = picture.x + gx0 * scale, wy0 = picture.y + gy0 * scale; // ... and in window points
     int ww = 0, wh = 0;
     SDL_GetWindowSize(window, &ww, &wh);
-    auto put = [&](SDL_Texture *t, double sx, double sy, double sw, double sh, double dx, double dy, double dw, double dh,
-                   SDL_FlipMode flip) {
-        SDL_FRect src = {(float)sx, (float)sy, (float)sw, (float)sh};
-        SDL_FRect to = {(float)(dx * density), (float)(dy * density), (float)(dw * density), (float)(dh * density)};
-        SDL_RenderTextureRotated(renderer, t, &src, &to, 0, nullptr, flip);
-    };
-    if (!strcmp(mode, "backdrop")) {
-        if (!menu_blur) {
-            menu_blur = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, 64, 48);
-            if (menu_blur) SDL_SetTextureScaleMode(menu_blur, SDL_SCALEMODE_LINEAR);
+    static const int sizes[4][2] = {{400, 300}, {200, 150}, {100, 75}, {50, 38}};
+    for (int i = 0; i < 4; ++i) {
+        if (!menu_blur[i]) {
+            menu_blur[i] = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, sizes[i][0], sizes[i][1]);
+            if (menu_blur[i]) SDL_SetTextureScaleMode(menu_blur[i], SDL_SCALEMODE_LINEAR);
         }
-        if (!menu_blur) return false;
-        SDL_Texture *old = SDL_GetRenderTarget(renderer);
-        SDL_ScaleMode mode_before = SDL_SCALEMODE_NEAREST;
-        SDL_GetTextureScaleMode(texture, &mode_before);
-        SDL_SetTextureScaleMode(texture, SDL_SCALEMODE_LINEAR);
-        SDL_SetRenderTarget(renderer, menu_blur);
-        SDL_FRect src = {(float)gx0, (float)gy0, 800, 600}, all = {0, 0, 64, 48};
-        SDL_RenderTexture(renderer, texture, &src, &all);
-        SDL_SetRenderTarget(renderer, old);
-        SDL_SetTextureScaleMode(texture, mode_before);
-        // Cover the window at the panel's aspect (4:3), centred: uniform scale, the overflow cut.
-        double cover = SDL_max(ww / 800.0, wh / 600.0);
-        double cw = 800 * cover, ch = 600 * cover;
-        put(menu_blur, 0, 0, 64, 48, (ww - cw) / 2, (wh - ch) / 2, cw, ch, SDL_FLIP_NONE);
-        SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
-        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 170);
-        SDL_FRect whole = {0, 0, (float)(ww * density), (float)(wh * density)};
-        SDL_RenderFillRect(renderer, &whole);
-        SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_NONE);
-        put(texture, gx0, gy0, 800, 600, wx0, wy0, 800 * scale, 600 * scale, SDL_FLIP_NONE);
-        return true;
+        if (!menu_blur[i]) return false;
     }
-    // mirror
-    SDL_FRect dst = {(float)(picture.x * density), (float)(picture.y * density), (float)(picture.w * density),
-                     (float)(picture.h * density)};
-    SDL_RenderTexture(renderer, texture, nullptr, &dst);
-    for (int side = 0; side < 2; ++side) {
-        double edge = side ? wx1 : wx0, limit = side ? ww : 0;
-        double left = SDL_fabs(edge - limit) / scale;
-        bool mirrored = true;
-        double at = edge;
-        while (left > 0.5) {
-            double w = SDL_min(left, 400.0);
-            double sx = side ? gx0 + 800 - w : gx0;
-            double dx = side ? at : at - w * scale;
-            put(texture, sx, gy0, w, 600, dx, wy0, w * scale, 600 * scale, mirrored ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
-            at += side ? w * scale : -w * scale;
-            left -= w;
-            mirrored = !mirrored;
+    SDL_Texture *old = SDL_GetRenderTarget(renderer);
+    SDL_ScaleMode mode_before = SDL_SCALEMODE_NEAREST;
+    SDL_GetTextureScaleMode(texture, &mode_before);
+    SDL_SetTextureScaleMode(texture, SDL_SCALEMODE_LINEAR);
+    for (int i = 0; i < 4; ++i) {
+        SDL_SetRenderTarget(renderer, menu_blur[i]);
+        SDL_FRect to = {0, 0, (float)sizes[i][0], (float)sizes[i][1]};
+        if (i == 0) {
+            SDL_FRect src = {(float)gx0, (float)gy0, 800, 600};
+            SDL_RenderTexture(renderer, texture, &src, &to);
+        } else {
+            SDL_RenderTexture(renderer, menu_blur[i - 1], nullptr, &to);
         }
     }
-    for (int side = 0; side < 2; ++side) {
-        double edge = side ? wy1 : wy0, limit = side ? wh : 0;
-        double h = SDL_min(SDL_fabs(edge - limit) / scale, 300.0);
-        if (h < 0.5) continue;
-        double sy = side ? gy0 + 600 - h : gy0;
-        put(texture, gx0, sy, 800, h, wx0, side ? edge : edge - h * scale, 800 * scale, h * scale, SDL_FLIP_VERTICAL);
-    }
+    SDL_SetRenderTarget(renderer, old);
+    SDL_SetTextureScaleMode(texture, mode_before);
+    // Cover the whole window at the panel's aspect (4:3), centred: uniform scale, the overflow cut.
+    double cover = SDL_max(ww / 800.0, wh / 600.0);
+    double cw = 800 * cover, ch = 600 * cover;
+    SDL_FRect back = {(float)((ww - cw) / 2 * density), (float)((wh - ch) / 2 * density), (float)(cw * density),
+                      (float)(ch * density)};
+    SDL_RenderTexture(renderer, menu_blur[3], nullptr, &back);
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 150);
-    SDL_FRect bands[4] = {{0, 0, (float)(wx0 * density), (float)(wh * density)},
-                          {(float)(wx1 * density), 0, (float)((ww - wx1) * density), (float)(wh * density)},
-                          {(float)(wx0 * density), 0, (float)((wx1 - wx0) * density), (float)(wy0 * density)},
-                          {(float)(wx0 * density), (float)(wy1 * density), (float)((wx1 - wx0) * density),
-                           (float)((wh - wy1) * density)}};
-    SDL_RenderFillRects(renderer, bands, 4);
+    SDL_FRect whole = {0, 0, (float)(ww * density), (float)(wh * density)};
+    SDL_RenderFillRect(renderer, &whole);
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_NONE);
+    SDL_FRect src = {(float)gx0, (float)gy0, 800, 600};
+    SDL_FRect panel = {(float)(wx0 * density), (float)(wy0 * density), (float)(800 * scale * density), (float)(600 * scale * density)};
+    SDL_RenderTexture(renderer, texture, &src, &panel);
     return true;
 }
 
@@ -2002,6 +2007,19 @@ void ra2_host_set_vsync(bool on)
     if (picture_vsync == on) return;
     picture_vsync = on;
     if (renderer) SDL_SetRenderVSync(renderer, on ? 1 : 0);
+}
+// Menu fill: 0 off (the original look), 1 blurred backdrop; RA2_NATIVE_MENU_FILL=backdrop|off
+// overrides it (tests, the C11 prototype's variable).
+void ra2_host_set_menu_fill(int mode)
+{
+    bool on = mode == 1;
+    if (const char *env = getenv("RA2_NATIVE_MENU_FILL")) {
+        if (!strcmp(env, "backdrop")) on = true;
+        else if (!strcmp(env, "off")) on = false;
+    }
+    if (on != menu_fill_on) fprintf(stderr, "host: menu fill %s\n", on ? "blurred backdrop" : "off");
+    menu_fill_on = on;
+    redraw();
 }
 void ra2_host_set_fullscreen(bool on) { set_fullscreen(on); }
 bool ra2_host_is_fullscreen() { return is_fullscreen(); }

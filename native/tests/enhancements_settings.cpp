@@ -37,9 +37,11 @@ void ra2_enhancements_start();
 // The host as the page sees it (platform/sdl/host.cpp on a desktop: not a touch host).
 static int picture_scaling = -1;
 static int vsync = -1;
+static int menu_fill = -1;
 static bool fullscreen = false;
 void ra2_host_set_picture_scaling(int mode) { picture_scaling = mode; }
 void ra2_host_set_vsync(bool on) { vsync = on; }
+void ra2_host_set_menu_fill(int mode) { menu_fill = mode; }
 void ra2_host_set_fullscreen(bool on) { fullscreen = on; }
 bool ra2_host_is_fullscreen() { return fullscreen; }
 bool ra2_host_touch() { return false; }
@@ -96,6 +98,7 @@ static const Want rows[] = {
     {"Game interface size", "1x", "1.25x", "enh_uisize", "1", "1.25"},
     {"Map zoom", "1x", "1.25x", "enh_mapzoom", "1", "1.25"},
     {"Picture scaling", "Sharp", "Nearest", "enh_scaling", "sharp", "nearest"},
+    {"Menu fill", "Off", "Blurred backdrop", "enh_menufill", "off", "backdrop"},
 };
 static const int kRows = sizeof rows / sizeof rows[0];
 
@@ -147,7 +150,8 @@ int main(int argc, char **argv)
     }
     expect(ra2_enh_rows() == kRows, "row count", std::to_string(ra2_enh_rows()));
     // Each dropdown lists its setting's values, the original look first.
-    static const char *const lists[kRows] = {"Off,On", "Off,On", "1x,1.25x,1.5x,2x", "1x,1.25x,1.5x,2x", "Sharp,Nearest,Smooth"};
+    static const char *const lists[kRows] = {"Off,On", "Off,On", "1x,1.25x,1.5x,2x", "1x,1.25x,1.5x,2x", "Sharp,Nearest,Smooth",
+                                               "Off,Blurred backdrop"};
     for (int r = 0; r < kRows; ++r) {
         int i = row_of(rows[r].label);
         if (i < 0) continue;
@@ -167,7 +171,7 @@ int main(int argc, char **argv)
 
     if (change) {
         // A first start: the original look, applied.
-        expect(picture_scaling == 0 && vsync == 0, "defaults applied at start");
+        expect(picture_scaling == 0 && vsync == 0 && menu_fill == 0, "defaults applied at start");
         ra2_enh_begin();
         check_values(false, "first start");
         expect(!strcmp(ra2_enh_preset(), "Preset: Original"), "first start preset", ra2_enh_preset());
@@ -181,7 +185,7 @@ int main(int argc, char **argv)
         for (const Want &w : rows)
             if (w.key) expect(get(w.key) == w.saved_changed, (std::string("saved ") + w.key).c_str(), get(w.key));
         expect(fullscreen, "ACCEPT turned fullscreen on");
-        expect(picture_scaling == 1 && vsync == 1, "changed settings applied at ACCEPT");
+        expect(picture_scaling == 1 && vsync == 1 && menu_fill == 1, "changed settings applied at ACCEPT");
         // The next game in this same process (codex4 R700): what a new game's start asks
         // (link/native_enhancements.cpp Native_Sidebar_New_Game, native_map_zoom.cpp) answers
         // the accepted interface size and map zoom, without a restart; and back at 1x.
@@ -205,7 +209,7 @@ int main(int argc, char **argv)
         // A fresh start reads the saved values back and applies them; the window starts in
         // fullscreen from the file (main.cpp, ra2_sdl_host_options).
         fullscreen = get("fullscreen") == "1";
-        expect(picture_scaling == 1 && vsync == 1, "saved settings applied at start");
+        expect(picture_scaling == 1 && vsync == 1 && menu_fill == 1, "saved settings applied at start");
         expect(ra2_enh_map_zoom() == 1.25, "map zoom read back");
         expect(ra2_enh_sidebar_height(768) == 614, "interface size read back", std::to_string(ra2_enh_sidebar_height(768)));
         ra2_enh_begin();
@@ -223,12 +227,13 @@ int main(int argc, char **argv)
         ra2_enh_accept();
         for (const Want &w : rows)
             if (w.key) expect(get(w.key) == w.saved_original, (std::string("saved after ORIGINAL ") + w.key).c_str(), get(w.key));
-        expect(picture_scaling == 0 && vsync == 0, "ORIGINAL applied at ACCEPT");
+        expect(picture_scaling == 0 && vsync == 0 && menu_fill == 0, "ORIGINAL applied at ACCEPT");
         expect(ra2_enh_map_zoom() == 1.0 && ra2_enh_sidebar_height(768) == 768, "ORIGINAL map zoom and interface size");
         // ENHANCED is recognised as such.
         ra2_enh_begin();
         ra2_enh_set_preset(1);
         expect(!strcmp(ra2_enh_preset(), "Preset: Enhanced"), "preset after ENHANCED", ra2_enh_preset());
+        expect(shown(row_of("Menu fill")) == "Blurred backdrop", "ENHANCED: Menu fill", shown(row_of("Menu fill")));
         // Every interface size, at every screen height from 480 to 2160 rows: the sidebar is
         // no taller than the screen, and either the screen's own (1x) or one whose bottom
         // buttons lie inside it (codex4 R703/R705/R706: they once sat past a 512-row sidebar).

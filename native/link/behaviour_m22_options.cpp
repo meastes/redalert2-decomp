@@ -9,7 +9,7 @@
 #include <stdio.h>
 
 // The native Enhancements page (link/native_enhancements.cpp; C3).
-void Native_Run_Enhancements();
+void Native_Run_Enhancements(HWND options);
 void Native_Enhancements_Button_Text(HWND options);
 
 // The Options dialog's state (main_opt.hpp; BSS in the original, -1 for the
@@ -42,7 +42,7 @@ int __stdcall Main_Options_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
                 *(int *)ra2port_get_dialog_user(window) = 0x5CB;
             }
         } else if (id == 0x7F80) {                  // NATIVE (C3): ENHANCEMENTS (port/src/native_dialogs.cpp)
-            if ((wparam >> 16) == 0) Native_Run_Enhancements();
+            if ((wparam >> 16) == 0) Native_Run_Enhancements(window);
         } else if (id == 0x5CD || id == 0x5CE) {    // the second page, the keyboard dialog
             Free_Memory_00781d3b(unknown_modes_a6ed10);
             unknown_modes_a6ed10 = 0;

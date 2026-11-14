@@ -21,6 +21,9 @@
 void __fastcall unknown_dialog_5ff7c0(HWND window);    // 0x005FF7C0 shows a created dialog
 void __fastcall unknown_dialog_5ff6e0(HWND window);    // 0x005FF6E0 closes it
 void __fastcall unknown_517370(bool unknown1);         // 0x00517370 the shell's idle step
+namespace OwnerDraw {
+bool __fastcall unknown_5e5fc0(HWND dialog);           // 0x005E5FC0 a dialog's buttons slide out
+}
 extern "C" void ra2port_native_page(int on);           // port/src/native_dialogs.cpp
 
 // The host's settings (platform/sdl/enhancements.cpp). Weak defaults: a build without
@@ -143,16 +146,29 @@ int __stdcall Native_Enhancements_Proc(HWND window, UINT message, WPARAM wparam,
 
 // Runs the page over the Options dialog (its button 0x7F80), as the Options dialog's own
 // procedure runs the resolution test dialog: created, shown, the shell's idle steps until
-// Ok or Cancel, closed.
-void Native_Run_Enhancements()
+// Ok or Cancel, closed. Around it the Options dialog's buttons slide out and back in, as
+// for the shell's other screens (lane C12, user report: the page used to appear with the
+// Options column still in place): the original's own in-place transition, the Random Map
+// button of the skirmish map dialog (netshare.cpp 0x583): the slide out 0x005E5FC0 (its
+// GUIMoveOutSound) and the dialog hidden (WM_SHOWWINDOW resets its slide state, 0x1FC of
+// its record), then shown again: its next paint draws it and slides its column in (the
+// paint path calls the slide in 0x005E61B0, GUIMoveInSound), as for a new screen.
+void Native_Run_Enhancements(HWND options)
 {
     int result = -1;
     hint_row = -1;
     ra2_enh_begin();
+    if (options) {
+        OwnerDraw::unknown_5e5fc0(options);
+        ShowWindow(options, 0);
+    }
     ra2port_native_page(1);     // the page's template under the Options id (port/src/native_dialogs.cpp)
     HWND dialog = unknown_create_dialog_5ff610(0xD5, Native_Enhancements_Proc, 0);
     ra2port_native_page(0);
-    if (!dialog) return;
+    if (!dialog) {
+        if (options) ShowWindow(options, 5);
+        return;
+    }
     ra2port_set_dialog_user(dialog, &result);
     unknown_dialog_5ff7c0(dialog);
     while (result < 0) {
@@ -160,6 +176,10 @@ void Native_Run_Enhancements()
         unknown_517370(false);
     }
     unknown_dialog_5ff6e0(dialog);
+    if (options) {
+        ShowWindow(options, 5);
+        InvalidateRect(options, 0, FALSE);
+    }
     fprintf(stderr, "enhancements: page closed (%s)\n", result == 1 ? "accept" : "cancel");
 }
 

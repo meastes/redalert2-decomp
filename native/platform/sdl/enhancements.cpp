@@ -19,6 +19,7 @@
 
 void ra2_host_set_picture_scaling(int mode);
 void ra2_host_set_vsync(bool on);
+void ra2_host_set_menu_fill(int mode);
 void ra2_host_set_fullscreen(bool on);
 bool ra2_host_is_fullscreen();
 bool ra2_host_touch();
@@ -54,14 +55,21 @@ const std::vector<Row> &rows()
          {"1", "1.25", "1.5", "2"}, {"1x", "1.25x", "1.5x", "2x"}, true},
         {"scaling", "Picture scaling", "Sharp keeps pixel edges, Nearest is blocky, Smooth softens.",
          {"sharp", "nearest", "smooth"}, {"Sharp", "Nearest", "Smooth"}, true},
+        // Lane C12 (from the C11 prototype; the user's "no black bars"): in the menus the
+        // 800x600 panel is centred and the rest of the screen is black on a wider or taller
+        // screen; Blurred backdrop fills it with the panel itself, enlarged, blurred and
+        // darkened (host.cpp fill_menu_bands). Menus only: play and movies draw as before.
+        {"menufill", "Menu fill", "Wide screens: the menus' black bands show the menu, blurred.",
+         {"off", "backdrop"}, {"Off", "Blurred backdrop"}, true},
     };
     return r;
 }
 
 const std::map<std::string, std::string> &preset_values(bool enhanced)
 {
-    static const std::map<std::string, std::string> original = {{"vsync", "off"}, {"scaling", "sharp"}, {"uisize", "1"}, {"mapzoom", "1"}};
-    static const std::map<std::string, std::string> better = {{"vsync", "on"}, {"scaling", "smooth"}};
+    static const std::map<std::string, std::string> original = {{"vsync", "off"}, {"scaling", "sharp"}, {"uisize", "1"}, {"mapzoom", "1"},
+                                                                         {"menufill", "off"}};
+    static const std::map<std::string, std::string> better = {{"vsync", "on"}, {"scaling", "smooth"}, {"menufill", "backdrop"}};
     return enhanced ? better : original;
 }
 
@@ -98,6 +106,7 @@ void apply()
     const std::string &scaling = current["scaling"];
     ra2_host_set_picture_scaling(scaling == "nearest" ? 1 : scaling == "smooth" ? 2 : 0);
     ra2_host_set_vsync(current["vsync"] == "on");
+    ra2_host_set_menu_fill(current["menufill"] == "backdrop" ? 1 : 0);
 }
 
 void load()
@@ -121,8 +130,8 @@ void load()
         }
         store_set = nullptr;
     }
-    fprintf(stderr, "enhancements: vsync %s, scaling %s, interface %sx, map zoom %sx\n", current["vsync"].c_str(),
-            current["scaling"].c_str(), current["uisize"].c_str(), current["mapzoom"].c_str());
+    fprintf(stderr, "enhancements: vsync %s, scaling %s, interface %sx, map zoom %sx, menu fill %s\n", current["vsync"].c_str(),
+            current["scaling"].c_str(), current["uisize"].c_str(), current["mapzoom"].c_str(), current["menufill"].c_str());
 }
 
 bool automatic(const Row &r) { return std::string(r.key) == "fullscreen" && ra2_host_touch(); }
@@ -227,9 +236,9 @@ void ra2_enh_accept(void)
     if (store_set)
         for (const Row &r : rows())
             if (r.preset) store_set((std::string("enh_") + r.key).c_str(), current[r.key].c_str());
-    fprintf(stderr, "enhancements: accepted vsync %s, scaling %s, interface %sx, map zoom %sx, fullscreen %s\n",
+    fprintf(stderr, "enhancements: accepted vsync %s, scaling %s, interface %sx, map zoom %sx, menu fill %s, fullscreen %s\n",
             current["vsync"].c_str(), current["scaling"].c_str(), current["uisize"].c_str(), current["mapzoom"].c_str(),
-            full ? "on" : "off");
+            current["menufill"].c_str(), full ? "on" : "off");
 }
 }
 

@@ -160,6 +160,7 @@ void skip_button_show(bool) {}
 void keys_button_create(void *, void (*)()) {}
 void keys_button_show(bool) {}
 void keys_button_set(bool) {}
+void keys_button_place(Rect) {}
 bool app_active() { return false; }
 
 #elif TARGET_OS_IOS
@@ -504,7 +505,7 @@ void toolbar_place(Rect usable)
     CGRect f = toolbar.holder.frame;
     f.origin = CGPointMake(in_view.origin.x + 8, in_view.origin.y + 8);
     toolbar.holder.frame = f;
-    for (UIView *corner in @[toolbar.skip ?: NSNull.null, toolbar.keys ?: NSNull.null]) {
+    for (UIView *corner in @[toolbar.skip ?: NSNull.null]) {
         if (![corner isKindOfClass:UIView.class]) continue;
         CGRect k = corner.frame;
         k.origin = CGPointMake(CGRectGetMaxX(in_view) - k.size.width - 8, in_view.origin.y + 8);
@@ -593,6 +594,23 @@ void keys_button_create(void *, void (*tapped)())
 void keys_button_show(bool show)
 {
     if (toolbar) fade_show(toolbar.keys, show);
+}
+
+void keys_button_place(Rect r)
+{
+    if (!toolbar || !toolbar.keys) return;
+    UIView *view = toolbar.keys.superview;
+    CGRect f = CGRectMake(r.x, r.y, r.w, r.h);
+    if (view) f = [view convertRect:f fromView:nil];
+    toolbar.keys.frame = f;
+    // Narrower than the capsule (a side band): the keyboard symbol alone, a glass circle.
+    for (UIView *sub in toolbar.keys.contentView.subviews) {
+        if (![sub isKindOfClass:UIButton.class]) continue;
+        UIButton *b = (UIButton *)sub;
+        UIButtonConfiguration *c = b.configuration;
+        c.title = r.w < kCornerWidth ? nil : @"Keys";
+        b.configuration = c;
+    }
 }
 
 void keys_button_set(bool on)

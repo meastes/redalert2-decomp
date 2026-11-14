@@ -79,8 +79,8 @@ bool toolbar_create(void *native_window, ToolbarItem const *items, int count, vo
 void toolbar_set(int index, bool on, const char *title);
 // The toolbar ("…" and its items) shown or hidden: in play only (lane C10; the host decides).
 void toolbar_show(bool show);
-// The usable area moved (window points): the toolbar keeps to its top left, the Skip and
-// Keys buttons to its top right.
+// The usable area moved (window points): the toolbar keeps to its top left, the Skip button
+// to its top right (the Keys button is placed by keys_button_place).
 void toolbar_place(Rect usable);
 // The Skip button over a cutscene (lane I): a glass "Skip" capsule at the usable area's
 // top right, shown and hidden by the host while ra2port::movie_playing(); `tapped` runs on
@@ -90,13 +90,15 @@ void toolbar_place(Rect usable);
 // button over the game window); the movie test and the Escape press are shared host code.
 void skip_button_create(void *native_window, void (*tapped)());
 void skip_button_show(bool show);
-// The Keys button in the menus (lane C10): a glass "Keys" capsule like Skip, at the usable
-// area's top right (clear in the menus; Skip takes the corner during a cutscene, when Keys is
-// hidden). `tapped` runs on the main thread (the host turns the on-screen keyboard on or
+// The Keys button in the menus (lane C10): a glass "Keys" capsule like Skip, placed by
+// keys_button_place (lane C12: beside the menu panel, not over its art). `tapped` runs on the main thread (the host turns the on-screen keyboard on or
 // off); keys_button_set tints it while the keyboard is up. Made with the toolbar.
 void keys_button_create(void *native_window, void (*tapped)());
 void keys_button_show(bool show);
 void keys_button_set(bool on);
+// The Keys button's place in window points (lane C12; the host decides it clear of the menu's
+// art: host.cpp keys_rect). Narrower than the full capsule, it shows its symbol alone.
+void keys_button_place(Rect r);
 // A window point (points) lies on one of the toolbar's controls (the "…" button, a shown
 // item, the Skip or Keys button): a finger that lands there is the control's, never the game's
 // (lane C8). False where there is no system toolbar.

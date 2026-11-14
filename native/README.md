@@ -672,7 +672,21 @@ menu buttons sit in the right-hand column as in IPX Options: Ok in the top slot,
 Original and Enhanced under it, Cancel in the bottom slot (0x005E6860 and 0x005E72C0
 list them, native fixups). Rows: Fullscreen (Automatic on touch hosts), Vertical sync,
 Game interface size (1x, 1.25x, 1.5x, 2x), Map zoom (1x, 1.25x, 1.5x, 2x), Picture
-scaling (Sharp, the original look; Nearest; Smooth).
+scaling (Sharp, the original look; Nearest; Smooth), Menu fill (Off, the original look;
+Blurred backdrop). The page opens as the shell's other screens do (C12): the Options
+dialog's column slides out (0x005E5FC0, the original's in-place transition of the skirmish
+map dialog's Random Map button) and the dialog is hidden; when the page closes the dialog is
+shown again and its next paint slides the column back in.
+
+Menu fill (C12, from the C11 prototype; the user's "no black bars"): in the menus the
+800x600 panel is centred and the rest of a wider or taller screen is black (the game's
+own bands above 800x600, then the window's letterbox). Blurred backdrop covers the whole
+window with the panel itself, enlarged at its own aspect (the overflow cut), blurred
+(halved four times, linear filtering) and darkened, the panel drawn over it at the picture's
+scale (`host.cpp` `fill_menu_bands`). Menus only: in play (dialogs in play too) and during
+movies the picture is drawn as before. Off by default on every platform (no per-platform
+default exists in the preset model); the Enhanced preset turns it on, Original off.
+`RA2_NATIVE_MENU_FILL=backdrop|off` overrides the setting (tests).
 
 Game interface size (enhancements v2 part 1): in play, the sidebar column is shown
 larger than the map. The game's sidebar surface is made shorter than the screen
@@ -716,7 +730,7 @@ the game's width only gives back the sidebar's extra width as before (the zoom d
 change the screen). Every setting is off by default;
 the Original preset sets them back (fullscreen is a choice the presets leave alone).
 The settings (`platform/sdl/enhancements.cpp`) are kept in the app's own settings
-file (`enh_vsync`, `enh_scaling`, `enh_uisize`, `enh_mapzoom`), never in RA2.INI; `RA2_NATIVE_ENHANCEMENTS=
+file (`enh_vsync`, `enh_scaling`, `enh_uisize`, `enh_mapzoom`, `enh_menufill`), never in RA2.INI; `RA2_NATIVE_ENHANCEMENTS=
 "preset=enhanced"` or `"vsync=on,scaling=smooth"` sets them for one run (tests).
 ctest `native-enhancements-frames` (`tests/enhancements_frames.py`) runs the main
 menu with the window at 0.75x the picture (`RA2_NATIVE_WINDOW_ZOOM`) and proves the
@@ -1085,8 +1099,11 @@ Keys shows the keyboard
 toolbar holds the game's commands and shows in play only (lane C10, `show_controls` in host.cpp:
 a game frame ran, no dialog up, no movie); leaving play turns Fire, Move, Add and A-Move off, so
 no modifier stays held in a menu. In the menus (dialogs in play too: Options, save descriptions)
-a glass Keys button alone sits at the usable area's top right (`hostos::keys_button_*`), and
-turns the keyboard on and off for names and descriptions; during a cutscene the Skip button
+a glass Keys button alone sits beside the 800x600 menu panel (`hostos::keys_button_*`, placed by
+`keys_rect` in host.cpp, C12: at the top right it covered the main menu's meter): in the band
+right of the panel (the keyboard symbol alone in a circle when the band is narrower than the
+capsule), else in the band above it, else over the panel's lower left corner, above its hint line; it turns the
+keyboard on and off for names and descriptions; during a cutscene the Skip button
 alone takes that corner; at start-up and on loading screens nothing shows. Each change logs
 `host: touch controls: <movie|menu|play|none> (...)`. The interface scale item is gone (Game
 interface size is on the Enhancements page; a scale saved by earlier builds is no longer

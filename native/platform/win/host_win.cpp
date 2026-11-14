@@ -116,6 +116,7 @@ void skip_button_show(bool) {}
 void keys_button_create(void *, void (*)()) {}
 void keys_button_show(bool) {}
 void keys_button_set(bool) {}
+void keys_button_place(Rect) {}
 bool app_active() { return false; }
 std::string device_report() { return ""; }
 void exclude_from_backup(const char *) {}
