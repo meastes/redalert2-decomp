@@ -2297,7 +2297,7 @@ bool SidebarClass::StripClass::Unknown_006816D0(FactoryClass *factory, int type,
 // Owner: SidebarClass::SBGadgetClass, virtual slot 31 (vtable +0x7c) (from RTTI/vtables).
 // Body: 22 bytes (frozen inventory bound).
 // Referenced from 1 site (data).
-// Ghidra prototype: undefined4 FUN_006816b0(void)
+// Ghidra prototype: undefined4 Action(void)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -2308,7 +2308,7 @@ namespace seed_006816b0 {
 struct Callee_0059f250 { unsigned int Override_Mouse_Shape_0059f250(int mouse_shape, char wsmall); };
 extern "C" unsigned int Map_008324e0;
 
-unsigned int __stdcall FUN_006816b0(int unused_0, int unused_1)
+unsigned int __stdcall Action(int unused_0, int unused_1)
 {
     ((Callee_0059f250*)(&Map_008324e0))->Override_Mouse_Shape_0059f250((int)(0), (char)(0));
     return 1;
@@ -2409,7 +2409,7 @@ int SidebarClass::Unknown_00681980()
 //
 // Body: 53 bytes (frozen inventory bound).
 // Referenced from 1 site (unconditional call).
-// Ghidra prototype: uint __fastcall FUN_00681940(int param_1,int param_2)
+// Ghidra prototype: uint __fastcall Which_Column(int param_1,int param_2)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -2417,7 +2417,7 @@ int SidebarClass::Unknown_00681980()
 
 namespace seed_00681940 {
 
-unsigned int __fastcall FUN_00681940(int kind, int subtype, int unused_0)
+unsigned int __fastcall Which_Column(int kind, int subtype, int unused_0)
 {
     if (kind == 0x10) {
         return 2;

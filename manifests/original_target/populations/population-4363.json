@@ -4,8 +4,8 @@
     "id": "population-4363",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "2002f32e6de838dfa04557b87b08e0497f3d6781238fa7855c85c5e450544876",
-    "historical_acceptance_sha256": "472049032ce1b88d2c3745558fa1cf95d653fe2c850eef984689e7870ebe45c9"
+    "historical_population_sha256": "273b786f11425f0e3755dc9b83f3e5172b0a9846f0df0f9b3132407947cd7bb3",
+    "historical_acceptance_sha256": "4c4792f48f092fcfc6b7394573f30db8d6f2792cefc5538774f5da45c14af129"
   },
   "references": {
     "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
@@ -1834,7 +1834,7 @@
     "?FUN_00431460@": 4396128,
     "?FUN_004b25c0@": 4924864,
     "?Mark_Scouted_004eec70@": 5172336,
-    "?FUN_0053b1e0@": 5485024,
+    "?Delete_Dialog_0053b1e0@": 5485024,
     "?FUN_0053b770@": 5486448,
     "_map_generation_cells_00a70a24": 10947108,
     "?Get_Generation_Cell_By_Index_0056dbc0@": 5692352,
@@ -7439,7 +7439,6 @@
     "?Save@TerrainClass@@UAGJPAUIStream@@H@Z": 7227136,
     "?Save@TerrainTypeClass@@UAGJPAUIStream@@H@Z": 7231936,
     "?Save@ThemeClass@@QAEJPAUIStream@@@Z": 7242512,
-    "?Save@ThemeClass@@QAEXPAUIStream@@@Z": 7242512,
     "?Save@TiberiumClass@@UAGJPAUIStream@@H@Z": 7246768,
     "?Save@TriggerClass@@UAGJPAUIStream@@H@Z": 7265088,
     "?Save@TriggerTypeClass@@UAGJPAUIStream@@H@Z": 7270048,

@@ -5,26 +5,18 @@
 // +0x14 (elements +0x18, count +0x24); +0x284 is taken to be the length.
 // @ref __ftol=0077f110
 
-struct ThemeControl {
-    char unknown_000[0x284];
-    float unknown_284;                      // +0x284
-};
 
-class ThemeClass {
-public:
-    int unknown_theme_length(unsigned theme) const;
 
-    char unknown_00[0x18];
-    ThemeControl **Themes;                  // +0x18 (vector storage)
-    int unknown_1c;
-    int unknown_20;
-    unsigned ThemeCount;                    // +0x24 (active count)
-};
+
+
+#define THEME_CONTROL_RECORD
+#define THEME_SOUND_CONTROLS
+#include "shared/theme.hpp"
 
 int ThemeClass::unknown_theme_length(unsigned theme) const
 {
-    if (theme < ThemeCount) {
-        return (int)Themes[theme]->unknown_284;
+    if (theme < Themes.Count()) {
+        return (int)Themes[theme]->Duration;
     }
     return 0;
 }

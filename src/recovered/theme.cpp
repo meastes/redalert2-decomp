@@ -228,7 +228,7 @@ ThemeClass::ThemeClass() :
 //
 // Body: 30 bytes (frozen inventory bound).
 // Referenced from 1 site (unconditional call).
-// Ghidra prototype: int __thiscall FUN_006e7cb0(int param_1,uint param_2)
+// Ghidra prototype: int __thiscall Full_Name(int param_1,uint param_2)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -236,9 +236,9 @@ ThemeClass::ThemeClass() :
 
 namespace seed_006e7cb0 {
 
-struct Owner_006e7cb0 { int FUN_006e7cb0(unsigned int theme_index); };
+struct Owner_006e7cb0 { int Full_Name(unsigned int theme_index); };
 
-int Owner_006e7cb0::FUN_006e7cb0(unsigned int theme_index)
+int Owner_006e7cb0::Full_Name(unsigned int theme_index)
 {
     int theme_address = (int)this;
     if (theme_index < *(unsigned int *)(theme_address + 0x24)) {

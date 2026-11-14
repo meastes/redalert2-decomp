@@ -451,7 +451,7 @@ void MSOverlayAnim::Restore(int unknown1)
 // Owner: MSOverlayAnim, virtual slot 7 (vtable +0x1c) (from RTTI/vtables).
 // Body: 22 bytes (frozen inventory bound).
 // Referenced from 1 site (data).
-// Ghidra prototype: undefined4 __fastcall FUN_005ad8c0(int param_1)
+// Ghidra prototype: undefined4 __fastcall Has_Finished(int param_1)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -459,7 +459,7 @@ void MSOverlayAnim::Restore(int unknown1)
 
 namespace seed_005ad8c0 {
 
-unsigned int __fastcall FUN_005ad8c0(int animation_address)
+unsigned int __fastcall Has_Finished(int animation_address)
 {
     if ((*(char *)(animation_address + 0xc) != '\0') && (*(unsigned int *)(animation_address + 0x40) < 4)) {
         return 0;

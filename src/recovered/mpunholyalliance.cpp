@@ -101,7 +101,7 @@ bool UnholyAlliance::AssignTeams()
 // Owner: UnholyAlliance, virtual slot 5 (vtable +0x14) (from RTTI/vtables).
 // Body: 36 bytes (frozen inventory bound).
 // Referenced from 1 site (data).
-// Ghidra prototype: undefined4 FUN_005ac390(undefined4 param_1)
+// Ghidra prototype: undefined4 CheckStartConditions(undefined4 param_1)
 // Callees with accepted source:
 //   FUN_005b73a0 -> src/recovered/classes/MultiplayerGameMode/005b73a0.cpp
 //
@@ -114,7 +114,7 @@ namespace seed_005ac390 {
 extern unsigned int __stdcall CheckStartConditions_005b73a0(int);
 extern "C" char DAT_00a3d2b8;
 
-unsigned int __stdcall FUN_005ac390(unsigned int message_address)
+unsigned int __stdcall CheckStartConditions(unsigned int message_address)
 {
     char result_byte;
 

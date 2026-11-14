@@ -106,7 +106,7 @@ LoadOptionsClass::~LoadOptionsClass()
 //
 // Body: 19 bytes (frozen inventory bound).
 // Referenced from 3 sites (unconditional call).
-// Ghidra prototype: void __fastcall FUN_0053b190(int param_1)
+// Ghidra prototype: void __fastcall Load_Dialog_0053b190(int param_1)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -116,7 +116,7 @@ namespace seed_0053b190 {
 
 extern unsigned int __fastcall Dialog_0053b770(void);
 
-void __fastcall FUN_0053b190(int object_address)
+void __fastcall Load_Dialog_0053b190(int object_address)
 {
     *(unsigned int *)(object_address + 4) = 1;
     *(unsigned int *)(object_address + 0xc) = 0;
@@ -131,7 +131,7 @@ void __fastcall FUN_0053b190(int object_address)
 //
 // Body: 36 bytes (frozen inventory bound).
 // Referenced from 2 sites (unconditional call).
-// Ghidra prototype: void __thiscall FUN_0053b1b0(int param_1,int param_2)
+// Ghidra prototype: void __thiscall Save_Dialog_0053b1b0(int param_1,int param_2)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -142,9 +142,9 @@ namespace seed_0053b1b0 {
 extern unsigned int __fastcall Dialog_0053b770(void);
 extern "C" unsigned int Scen_00a3d290;
 
-struct Owner_0053b1b0 { void FUN_0053b1b0(int unknown_0x0c); };
+struct Owner_0053b1b0 { void Save_Dialog_0053b1b0(int unknown_0x0c); };
 
-void Owner_0053b1b0::FUN_0053b1b0(int unknown_0x0c)
+void Owner_0053b1b0::Save_Dialog_0053b1b0(int unknown_0x0c)
 {
     int object_address = (int)this;
     *(unsigned int *)(object_address + 4) = 2;
@@ -163,7 +163,7 @@ void Owner_0053b1b0::FUN_0053b1b0(int unknown_0x0c)
 //
 // Body: 19 bytes (frozen inventory bound).
 // Referenced from 1 site (unconditional call).
-// Ghidra prototype: void __fastcall FUN_0053b1e0(int param_1)
+// Ghidra prototype: void __fastcall Delete_Dialog_0053b1e0(int param_1)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -173,7 +173,7 @@ namespace seed_0053b1e0 {
 
 extern unsigned int __fastcall Dialog_0053b770(void);
 
-void __fastcall FUN_0053b1e0(int object_address)
+void __fastcall Delete_Dialog_0053b1e0(int object_address)
 {
     *(unsigned int *)(object_address + 4) = 3;
     *(unsigned int *)(object_address + 0xc) = 0;

@@ -2171,7 +2171,7 @@ bool IsometricTileTypeClass::Get_Tile_Image(int tile, unsigned char **buffer, in
 //
 // Body: 90 bytes (frozen inventory bound).
 // Referenced from 0 sites.
-// Ghidra prototype: void __fastcall FUN_0052df40(int param_1,int param_2,int *param_3,int *param_4)
+// Ghidra prototype: void __fastcall World_To_Screen(int param_1,int param_2,int *param_3,int *param_4)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -2179,7 +2179,7 @@ bool IsometricTileTypeClass::Get_Tile_Image(int tile, unsigned char **buffer, in
 
 namespace seed_0052df40 {
 
-void __fastcall FUN_0052df40(int grid_x, int grid_y, int *pixel_x, int *pixel_y)
+void __fastcall World_To_Screen(int grid_x, int grid_y, int *pixel_x, int *pixel_y)
 {
     *pixel_x = (grid_x * 0x3c) / 2;
     *pixel_y = (grid_x * 0x1e) / 2;
