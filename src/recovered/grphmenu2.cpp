@@ -70,7 +70,7 @@ GraphicMenuAnimItem::~GraphicMenuAnimItem()
 // Owner: GraphicMenuAnimItem, virtual slot 2 (vtable +0x8) (from RTTI/vtables).
 // Body: 66 bytes (frozen inventory bound).
 // Referenced from 1 site (data).
-// Ghidra prototype: undefined4 __thiscall FUN_004df760(int param_1,int *param_2)
+// Ghidra prototype: undefined4 __thiscall Is_Mouse_Over_004df760(int param_1,int *param_2)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -80,9 +80,9 @@ GraphicMenuAnimItem::~GraphicMenuAnimItem()
 
 namespace seed_004df760 {
 
-struct Owner_004df760 { unsigned int FUN_004df760(int *mouse); };
+struct Owner_004df760 { unsigned int Is_Mouse_Over_004df760(int *mouse); };
 
-unsigned int Owner_004df760::FUN_004df760(int *mouse)
+unsigned int Owner_004df760::Is_Mouse_Over_004df760(int *mouse)
 {
     int item_address = (int)this;
     if (*(char *)(item_address + 9) != '\0') {

@@ -493,13 +493,13 @@ int FactoryClass::Size_Of() const
 
 namespace seed_004ba060 {
 
-extern void  FUN_00781d3b(unsigned int allocation_address);
+extern void  operator_delete_00781d3b(unsigned int allocation_address);
 
 void __fastcall Clear_004ba060(int vector_address)
 {
     *(unsigned int *)(vector_address + 0x10) = 0;
     if ((*(int *)(vector_address + 4) != 0) && (*(char *)(vector_address + 0xd) != '\0')) {
-        FUN_00781d3b((unsigned int)(*(int *)(vector_address + 4)));
+        operator_delete_00781d3b((unsigned int)(*(int *)(vector_address + 4)));
         *(unsigned int *)(vector_address + 4) = 0;
     }
     *(unsigned char *)(vector_address + 0xd) = 0;

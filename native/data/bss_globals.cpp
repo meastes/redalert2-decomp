@@ -36,11 +36,11 @@ alignas(16) unsigned char ra2_bss_0025[16] __asm__("_Audio_Clock_Sequence");  //
 alignas(16) unsigned char ra2_bss_0026[80] __asm__("_Audio_Thread");  // 0x00831560 Audio_Thread (?Audio_Thread@@3UAudioThreadBlock@@A)
 alignas(16) unsigned char ra2_bss_0027[16] __asm__("_Audio_Thread_Users");  // 0x00831588 Audio_Thread_Users (?Audio_Thread_Users@@3HC)
 alignas(16) unsigned char ra2_bss_0028[48] __asm__("_Audio_Lock");  // 0x00831590 Audio_Lock (?Audio_Lock@@3UCRITICAL_SECTION@@A)
-__asm__(".globl _DAT_00831590\n.set _DAT_00831590, _Audio_Lock\n");  // same address: DAT_00831590
+__asm__(".globl _Audio_Lock_00831590\n.set _Audio_Lock_00831590, _Audio_Lock\n");  // same address: Audio_Lock_00831590
 alignas(16) unsigned char ra2_bss_0029[16] __asm__("_Audio_Thread_Running");  // 0x008315A8 Audio_Thread_Running (?Audio_Thread_Running@@3HA)
 alignas(16) unsigned char ra2_bss_0030[16] __asm__("_Audio_DirectSound");  // 0x008315AC Audio_DirectSound (?Audio_DirectSound@@3PAUIDirectSound@@A)
 alignas(16) unsigned char ra2_bss_0031[16] __asm__("_Audio_Primary_Buffer");  // 0x008315B0 Audio_Primary_Buffer (?Audio_Primary_Buffer@@3PAUIDirectSoundBuffer@@A)
-__asm__(".globl _DAT_008315b0\n.set _DAT_008315b0, _Audio_Primary_Buffer\n");  // same address: DAT_008315b0
+__asm__(".globl _Audio_Primary_Buffer_008315b0\n.set _Audio_Primary_Buffer_008315b0, _Audio_Primary_Buffer\n");  // same address: Audio_Primary_Buffer_008315b0
 alignas(16) unsigned char ra2_bss_0032[16] __asm__("_AlphaBuffer");  // 0x008315B4 AlphaBuffer (?AlphaBuffer@@3PAVABuffer@@A)
 __asm__(".globl _unknown_8315b4\n.set _unknown_8315b4, _AlphaBuffer\n");  // same address: unknown_8315b4
 alignas(16) unsigned char ra2_bss_0033[16] __asm__("_unknown_drawer_8323b0");  // 0x008323B0 unknown_drawer_8323b0 (?unknown_drawer_8323b0@@3PAVConvertClass@@A)
@@ -218,7 +218,6 @@ __asm__(".globl _unknown_value_8523e4\n.set _unknown_value_8523e4, _direct_draw_
 alignas(16) unsigned char ra2_bss_0163[16] __asm__("_direct_draw_depth_008523e8");  // 0x008523E8 direct_draw_depth_008523e8 (?direct_draw_depth_008523e8@@3HA)
 __asm__(".globl _unknown_depth_8523e8\n.set _unknown_depth_8523e8, _direct_draw_depth_008523e8\n");  // same address: unknown_depth_8523e8
 alignas(16) unsigned char ra2_bss_0164[280] __asm__("_direct_draw_error_handler_008523ec");  // 0x008523EC direct_draw_error_handler_008523ec (?direct_draw_error_handler_008523ec@@3P6IXJ@ZA)
-__asm__(".globl _DAT_008523ec\n.set _DAT_008523ec, _direct_draw_error_handler_008523ec\n");  // same address: DAT_008523ec
 alignas(16) unsigned char ra2_bss_0165[16] __asm__("_unknown_dial_drag_00852478");  // 0x00852478 unknown_dial_drag_00852478 (?unknown_dial_drag_00852478@@3HA)
 alignas(16) unsigned char ra2_bss_0166[96] __asm__("_unknown_buffer_852480");  // 0x00852480 unknown_buffer_852480 (?unknown_buffer_852480@@3PAEA)
 alignas(16) unsigned char ra2_bss_0167[56] __asm__("__ZN12DisplayClass12TransIconsetE");  // 0x00852614 DisplayClass::TransIconset (?TransIconset@DisplayClass@@2PBXB)
@@ -445,7 +444,7 @@ alignas(16) unsigned char ra2_bss_0354[16] __asm__("_unknown_tileset_a52ea4");  
 alignas(16) unsigned char ra2_bss_0355[16] __asm__("_unknown_tileset_a52ea8");  // 0x00A52EA8 unknown_tileset_a52ea8 (?unknown_tileset_a52ea8@@3HA)
 alignas(16) unsigned char ra2_bss_0356[16] __asm__("_unknown_cell_a52eac");  // 0x00A52EAC unknown_cell_a52eac (?unknown_cell_a52eac@@3VCell@@B)
 alignas(16) unsigned char ra2_bss_0357[32] __asm__("_SlopeZShapes");  // 0x00A52EB0 SlopeZShapes (?SlopeZShapes@@3PAPAXA)
-__asm__(".globl _DAT_00a52eb0\n.set _DAT_00a52eb0, _SlopeZShapes\n");  // same address: DAT_00a52eb0
+__asm__(".globl _SlopeZShapes_00a52eb0\n.set _SlopeZShapes_00a52eb0, _SlopeZShapes\n");  // same address: SlopeZShapes_00a52eb0
 __asm__(".globl _unknown_block_a52eb0\n.set _unknown_block_a52eb0, _SlopeZShapes\n");  // same address: unknown_block_a52eb0
 __asm__(".globl _unknown_slope_shapes_a52eb0\n.set _unknown_slope_shapes_a52eb0, _SlopeZShapes\n");  // same address: unknown_slope_shapes_a52eb0
 __asm__(".globl _unknown_block_a52eb4\n.set _unknown_block_a52eb4, _SlopeZShapes + 8\n");  // member SlopeZShapes[1] (+0x4 original)
@@ -845,7 +844,7 @@ alignas(16) unsigned char ra2_bss_0688[16] __asm__("_unknown_block_abd488");  //
 alignas(16) unsigned char ra2_bss_0689[16] __asm__("_unknown_flag_abd48c");  // 0x00ABD48C unknown_flag_abd48c (?unknown_flag_abd48c@@3_NA)
 alignas(16) unsigned char ra2_bss_0690[102] __asm__("_unknown_flag_abd48d");  // 0x00ABD48D unknown_flag_abd48d (?unknown_flag_abd48d@@3_NA)
 alignas(16) unsigned char ra2_bss_0691[16] __asm__("_GameTimer");  // 0x00ABD4C0 GameTimer (?GameTimer@@3V?$BasicTimerClass@VSystemTimerClass@@@@A)
-__asm__(".globl _DAT_00abd4c0\n.set _DAT_00abd4c0, _GameTimer\n");  // same address: DAT_00abd4c0
+__asm__(".globl _GameTimer_00abd4c0\n.set _GameTimer_00abd4c0, _GameTimer\n");  // same address: GameTimer_00abd4c0
 __asm__(".globl _unknown_base_abd4c0\n.set _unknown_base_abd4c0, _GameTimer\n");  // same address: unknown_base_abd4c0
 alignas(16) unsigned char ra2_bss_0692[56] __asm__("_DAT_00abd4c4");  // 0x00ABD4C4 DAT_00abd4c4
 __asm__(".globl _unknown_time_source_abd4c4\n.set _unknown_time_source_abd4c4, _DAT_00abd4c4\n");  // same address: unknown_time_source_abd4c4
@@ -1322,7 +1321,7 @@ alignas(16) unsigned char ra2_bss_0999[16] __asm__("_unknown_cursor_b263d0");  /
 alignas(16) unsigned char ra2_bss_1000[16] __asm__("_unknown_icon_b263d4");  // 0x00B263D4 unknown_icon_b263d4 (?unknown_icon_b263d4@@3PAXA)
 alignas(16) unsigned char ra2_bss_1001[16] __asm__("_MainWindow");  // 0x00B263D8 MainWindow (?MainWindow@@3PAUHWND__@@A)
 __asm__(".globl _game_window_00b263d8\n.set _game_window_00b263d8, _MainWindow\n");  // same address: game_window_00b263d8
-__asm__(".globl _DAT_00b263d8\n.set _DAT_00b263d8, _MainWindow\n");  // same address: DAT_00b263d8
+__asm__(".globl _MainWindow_00b263d8\n.set _MainWindow_00b263d8, _MainWindow\n");  // same address: MainWindow_00b263d8
 __asm__(".globl _unknown_b263d8\n.set _unknown_b263d8, _MainWindow\n");  // same address: unknown_b263d8
 __asm__(".globl _unknown_parent_b263d8\n.set _unknown_parent_b263d8, _MainWindow\n");  // same address: unknown_parent_b263d8
 __asm__(".globl _unknown_window_b263d8\n.set _unknown_window_b263d8, _MainWindow\n");  // same address: unknown_window_b263d8

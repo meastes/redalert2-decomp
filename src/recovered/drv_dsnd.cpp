@@ -763,11 +763,11 @@ unsigned int Leaf_40a6c0::get() { unsigned int unused_this_address = (unsigned i
 
 namespace seed_0040a6d0 {
 
-extern "C" unsigned int DAT_008315b0;
+extern "C" unsigned int Audio_Primary_Buffer_008315b0;
 
 unsigned int  FUN_0040a6d0(void)
 {
-    return DAT_008315b0;
+    return Audio_Primary_Buffer_008315b0;
 }
 
 }  // namespace seed_0040a6d0

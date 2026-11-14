@@ -632,9 +632,9 @@ bool MPCooperative::UnfixAlliances()
 }
 
 
-class Target_5a3f70 { public: unsigned int target(unsigned int p0, unsigned int p1); };
-class Leaf_5a3f70 { public: unsigned int get(unsigned int a1, unsigned int a2); };
-unsigned int Leaf_5a3f70::get(unsigned int a1, unsigned int a2) { return ((Target_5a3f70*)(this))->target((unsigned int)(a1), (unsigned int)(a2)); }
+class Target_5a3f70 { public: unsigned int PopulateTeamDropdownForPlayer_005b75d0(unsigned int target_window, unsigned int target_player_index); };
+class Leaf_5a3f70 { public: unsigned int get(unsigned int window_address, unsigned int player_index); };
+unsigned int Leaf_5a3f70::get(unsigned int window_address, unsigned int player_index) { return ((Target_5a3f70*)(this))->PopulateTeamDropdownForPlayer_005b75d0((unsigned int)(window_address), (unsigned int)(player_index)); }
 
 
 // Cell MPCooperative::AssignStartingPositionsToHouse(int house, DynamicVectorClass<Cell> &cells, bool *taken) -- 0x005A3F90

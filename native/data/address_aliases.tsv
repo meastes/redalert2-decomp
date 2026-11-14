@@ -441,14 +441,13 @@ __Z16Unknown_0075B590v	__Z33Send_Pending_Ping_Report_0075b590v	0x0075B590	functi
 __ZN11WolIntArray12Get_00768260ERii	__ZN18UnknownList_7682603GetEPPvi	0x00768260	function	same address, IR signature zeroext i1 (ptr, ptr, i32)
 __Z26Unknown_Territory_00769690i	__Z26Get_WDT_Territory_00769690i	0x00769690	function	same address, IR signature void (ptr dead_on_unwind writable sret(), i32)
 __Z14Int_To_Wstringi	__Z20Wstring_From_Integeri	0x0076F580	function	same address, IR signature void (ptr dead_on_unwind writable sret(), i32)
-__ZNK10WideString8Is_ASCIIEv	__ZNK10WideString9Is_NarrowEv	0x00771080	function	same address, IR signature zeroext i1 (ptr)
 __Z16unknown_007717c0v	__Z24Process_Mouse_Unthreadedv	0x007717C0	function	same address, IR signature void ()
 __Z23Compare_Narrow_00781f20PKcS0_	__Z22unknown_compare_781f20PKvS0_	0x00781F20	function	same address, IR signature i32 (ptr, ptr)
-__ZN13seed_00663c4012FUN_00781f20EPhS0_	__Z22unknown_compare_781f20PKvS0_	0x00781F20	function	same address, IR signature i32 (ptr, ptr)
-__ZN13seed_00663c7012FUN_00781f20EPhS0_	__Z22unknown_compare_781f20PKvS0_	0x00781F20	function	same address, IR signature i32 (ptr, ptr)
-__ZN13seed_006720c012FUN_00781f20EPhS0_	__Z22unknown_compare_781f20PKvS0_	0x00781F20	function	same address, IR signature i32 (ptr, ptr)
-__ZN13seed_0067214012FUN_00781f20EPhS0_	__Z22unknown_compare_781f20PKvS0_	0x00781F20	function	same address, IR signature i32 (ptr, ptr)
-__ZN13seed_006f9f8012FUN_00781f20EPhS0_	__Z22unknown_compare_781f20PKvS0_	0x00781F20	function	same address, IR signature i32 (ptr, ptr)
+__ZN13seed_00663c4016stricmp_00781f20EPhS0_	__Z22unknown_compare_781f20PKvS0_	0x00781F20	function	same address, IR signature i32 (ptr, ptr)
+__ZN13seed_00663c7016stricmp_00781f20EPhS0_	__Z22unknown_compare_781f20PKvS0_	0x00781F20	function	same address, IR signature i32 (ptr, ptr)
+__ZN13seed_006720c016stricmp_00781f20EPhS0_	__Z22unknown_compare_781f20PKvS0_	0x00781F20	function	same address, IR signature i32 (ptr, ptr)
+__ZN13seed_0067214016stricmp_00781f20EPhS0_	__Z22unknown_compare_781f20PKvS0_	0x00781F20	function	same address, IR signature i32 (ptr, ptr)
+__ZN13seed_006f9f8016stricmp_00781f20EPhS0_	__Z22unknown_compare_781f20PKvS0_	0x00781F20	function	same address, IR signature i32 (ptr, ptr)
 _CLSID_CompressStream	_CLSID_CStreamClass	0x007A1AB0	data	same address
 _CLSID_UnitTypeClass	_Startup_CLSID_UnitTypeClass	0x007A1B00	data	same address, COM GUID definition
 _CLSID_InfantryTypeClass	_Startup_CLSID_InfantryTypeClass	0x007A1B10	data	same address, COM GUID definition

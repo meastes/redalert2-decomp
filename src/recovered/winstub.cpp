@@ -313,7 +313,7 @@ char *__fastcall Unknown_00737ad0(char *buffer, int size)
 
 namespace seed_00737b20 {
 
-extern unsigned int  FUN_00784130(unsigned int *text_words, char delimiter);
+extern unsigned int  strchr_00784130(unsigned int *text_words, char delimiter);
 extern "C" char s_gsmallwoo_007d8904[];
 
 char * __fastcall FUN_00737b20(char *destination)
@@ -323,7 +323,7 @@ char * __fastcall FUN_00737b20(char *destination)
     *destination = s_gsmallwoo_007d8904[0];
     destination[1] = '\0';
     destination[2] = '\0';
-    separator_address = (int)(FUN_00784130((unsigned int *)(s_gsmallwoo_007d8904), (char)(0x5f)));
+    separator_address = (int)(strchr_00784130((unsigned int *)(s_gsmallwoo_007d8904), (char)(0x5f)));
     if (separator_address != 0) {
         destination[1] = *(char *)(separator_address + 1);
     }
@@ -700,8 +700,8 @@ void __fastcall Load_Title_Screen_00738190(char const *name, Surface *surface, P
 
 namespace seed_00738420 {
 
-extern void __fastcall FUN_006eb390(void);
-extern void  FUN_00781d3b(unsigned int allocation_address);
+extern void __fastcall ToolTipManager_Destructor_006eb390(void);
+extern void  operator_delete_00781d3b(unsigned int allocation_address);
 extern "C" void* PTR_FUN_007af51c;
 
 struct Owner_00738420 { unsigned int * FUN_00738420(unsigned char deletion_flags); };
@@ -710,9 +710,9 @@ unsigned int * Owner_00738420::FUN_00738420(unsigned char deletion_flags)
 {
     unsigned int * object_words = (unsigned int *)this;
     *object_words = (unsigned int)(&PTR_FUN_007af51c);
-    FUN_006eb390();
+    ToolTipManager_Destructor_006eb390();
     if ((deletion_flags & 1) != 0) {
-        FUN_00781d3b((unsigned int)(object_words));
+        operator_delete_00781d3b((unsigned int)(object_words));
     }
     return object_words;
 }

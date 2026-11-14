@@ -4,8 +4,8 @@
     "id": "population-67",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "656f848135b5284564666be94f7e4a36c9842080bc8619f2d7b3e4abf199a0bd",
-    "historical_acceptance_sha256": "08ebf1131135439b82026ffbe3799035c0d9b8f44f7ff56d2e57e5e27bc60e1b"
+    "historical_population_sha256": "8fc2ce4036390ef5649d442370b1392634ebd18a42b17e195d2ce0bff3b43421",
+    "historical_acceptance_sha256": "f033ee509271f7a42a225c73e460400cf918d0bbda8cd4ffe811b8bb4f0de9d2"
   },
   "references": {
     "?Audio_Event_Channel_End_00405a00@": 4217344,
@@ -398,7 +398,7 @@
     "??_ELightSourceClass@@UAEPAXI@Z": 5471280,
     "?MSSfx_Constructor_005b69b0@Owner_005b69b0@seed_005b69b0@@QAEPAIIH@Z": 5990832,
     "?FUN_00406f30@seed_005b69b0@@YAIXZ": 4222768,
-    "?FUN_0078d816@seed_005b69b0@@YAIPAD@Z": 7919638,
+    "?strdup_0078d816@seed_005b69b0@@YAIPAD@Z": 7919638,
     "?Service_Game_IO_00481fb0@seed_00482100@@YAXXZ": 4726704,
     "?FUN_005bbd10@seed_005bbd10@@YAEXZ": 6012176,
     "?Service_Game_IO_00481fb0@seed_005bbd10@@YAXXZ": 4726704,
@@ -2514,13 +2514,13 @@
         {
           "offset": 28,
           "kind": 20,
-          "symbol": "?FUN_0078d816@seed_005b69b0@@YAIPAD@Z",
+          "symbol": "?strdup_0078d816@seed_005b69b0@@YAIPAD@Z",
           "target": 7919638,
           "addend": 0,
           "resolved": 1928774
         }
       ],
-      "source_sha256": "108f5fb18429a5f3300f83967691918732ed3922fbf0837604c221cf14995d8d",
+      "source_sha256": "0a7933b6daaabd7ebed89c22c71e9d6e9ea88caba9d10eddbd15d130f577b65d",
       "source": "src/recovered/005b69b0.cpp",
       "source_order": 8053,
       "population": "population-67",

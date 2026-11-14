@@ -84,7 +84,7 @@ WDTTerritory::WDTTerritory()
 // Referenced from 0 sites.
 // Ghidra prototype: void __fastcall FUN_0072bea0(undefined4 *param_1)
 // Callees with accepted source:
-//   FUN_00639710 -> src/recovered/classes/ReferenceCounted/00639710.cpp
+//   ReferenceCounted_Destructor_00639710 -> src/recovered/classes/ReferenceCounted/00639710.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -92,13 +92,13 @@ WDTTerritory::WDTTerritory()
 
 namespace seed_0072bea0 {
 
-extern void __fastcall FUN_00639710(void);
+extern void __fastcall ReferenceCounted_Destructor_00639710(void);
 extern "C" void* PTR_FUN_007af2d8;
 
 void __fastcall FUN_0072bea0(unsigned int *object_words)
 {
     *object_words = (unsigned int)(&PTR_FUN_007af2d8);
-    FUN_00639710();
+    ReferenceCounted_Destructor_00639710();
     return;
 }
 
@@ -403,7 +403,7 @@ bool WDTState::unknown_72c490(void *data, int length)
 // Referenced from 1 site (data).
 // Ghidra prototype: undefined4 * __thiscall FUN_0072c9d0(undefined4 *param_1,byte param_2)
 // Callees with accepted source:
-//   FUN_00639710 -> src/recovered/classes/ReferenceCounted/00639710.cpp
+//   ReferenceCounted_Destructor_00639710 -> src/recovered/classes/ReferenceCounted/00639710.cpp
 //   FUN_00781d3b -> src/recovered/00781d3b.cpp
 //
 // Types and names are Ghidra placeholders;
@@ -412,8 +412,8 @@ bool WDTState::unknown_72c490(void *data, int length)
 
 namespace seed_0072c9d0 {
 
-extern void __fastcall FUN_00639710(void);
-extern void  FUN_00781d3b(unsigned int allocation_address);
+extern void __fastcall ReferenceCounted_Destructor_00639710(void);
+extern void  operator_delete_00781d3b(unsigned int allocation_address);
 extern "C" void* PTR_FUN_007af2d8;
 
 struct Owner_0072c9d0 { unsigned int * FUN_0072c9d0(unsigned char deletion_flags); };
@@ -422,9 +422,9 @@ unsigned int * Owner_0072c9d0::FUN_0072c9d0(unsigned char deletion_flags)
 {
     unsigned int * object_words = (unsigned int *)this;
     *object_words = (unsigned int)(&PTR_FUN_007af2d8);
-    FUN_00639710();
+    ReferenceCounted_Destructor_00639710();
     if ((deletion_flags & 1) != 0) {
-        FUN_00781d3b((unsigned int)(object_words));
+        operator_delete_00781d3b((unsigned int)(object_words));
     }
     return object_words;
 }
@@ -439,9 +439,9 @@ void* Leaf_72ca00::get(unsigned int flags) { cleanup(); if (flags & 1) release_7
 
 class Call_72caa0_0 {public: unsigned int target();};
 extern "C" unsigned char data_72caa0_7a452c[];
-class Call_72caa0_1 {public: unsigned int target(unsigned int p0);};
-class Leaf_72caa0 { public: unsigned int get(unsigned int a1); };
-unsigned int Leaf_72caa0::get(unsigned int a1) { unsigned int r0 = ((Call_72caa0_0*)((unsigned int)this))->target(); *(unsigned int*)(((unsigned int)this)) = (unsigned int)data_72caa0_7a452c; unsigned int r1 = ((Call_72caa0_1*)((unsigned int)this))->target((unsigned int)(a1)); return (unsigned int)this; }
+class Call_72caa0_1 {public: unsigned int Set_00639530(unsigned int target_object);};
+class Leaf_72caa0 { public: unsigned int get(unsigned int referenced_object_address); };
+unsigned int Leaf_72caa0::get(unsigned int referenced_object_address) { unsigned int unused_base_return = ((Call_72caa0_0*)((unsigned int)this))->target(); *(unsigned int*)(((unsigned int)this)) = (unsigned int)data_72caa0_7a452c; unsigned int unused_set_return = ((Call_72caa0_1*)((unsigned int)this))->Set_00639530((unsigned int)(referenced_object_address)); return (unsigned int)this; }
 
 
 // VectorClass<rc_ptr<WDTTerritory>> scalar deleting destructor (0x0072CED0; vtable 0x007AF2E8 slot 0):
@@ -456,4 +456,4 @@ unsigned int Leaf_72caa0::get(unsigned int a1) { unsigned int r0 = ((Call_72caa0
 class Call_72cf70_0 {public: unsigned int target();};
 extern "C" unsigned char data_72cf70_7a452c[];
 class Leaf_72cf70 { public: unsigned int get(); };
-unsigned int Leaf_72cf70::get() { unsigned int r0 = ((Call_72cf70_0*)((unsigned int)this))->target(); *(unsigned int*)(((unsigned int)this)) = (unsigned int)data_72cf70_7a452c; return (unsigned int)this; }
+unsigned int Leaf_72cf70::get() { unsigned int unused_base_return = ((Call_72cf70_0*)((unsigned int)this))->target(); *(unsigned int*)(((unsigned int)this)) = (unsigned int)data_72cf70_7a452c; return (unsigned int)this; }

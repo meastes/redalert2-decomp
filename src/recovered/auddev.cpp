@@ -45,19 +45,19 @@ void __fastcall Audio_Channel_Detach(AudioChannel *channel)
 
 
 extern "C" unsigned int global_402940_7cc968;
-class Call_402940_0 {public: unsigned int target();};
-class Call_402940_1 {public: unsigned int target();};
+class Call_402940_0 {public: unsigned int Audio_List_Init_004071f0();};
+class Call_402940_1 {public: unsigned int Audio_List_Init_004071f0();};
 extern "C" unsigned int global_402940_830b50;
-class Call_402940_2 {public: unsigned int target();};
+class Call_402940_2 {public: unsigned int Init_00401000();};
 extern "C" unsigned int global_402940_830b4c;
 class Leaf_402940 { public: unsigned int get(); };
-unsigned int Leaf_402940::get() { unsigned int r0 = ((Call_402940_0*)(global_402940_7cc968))->target(); unsigned int r1 = ((Call_402940_1*)((global_402940_7cc968) + 0xc))->target(); *(unsigned int*)((global_402940_7cc968) + 0x18) = 0; global_402940_830b50 = (global_402940_7cc968) + 0x20; unsigned int r2 = ((Call_402940_2*)((global_402940_7cc968) + 0x20))->target(); global_402940_830b4c = 1; return 0; }
+unsigned int Leaf_402940::get() { unsigned int unused_list_init_return = ((Call_402940_0*)(global_402940_7cc968))->Audio_List_Init_004071f0(); unsigned int unused_sublist_init_return = ((Call_402940_1*)((global_402940_7cc968) + 0xc))->Audio_List_Init_004071f0(); *(unsigned int*)((global_402940_7cc968) + 0x18) = 0; global_402940_830b50 = (global_402940_7cc968) + 0x20; unsigned int unused_level_init_return = ((Call_402940_2*)((global_402940_7cc968) + 0x20))->Init_00401000(); global_402940_830b4c = 1; return 0; }
 
 
 extern "C" unsigned int global_402c00_7cc968;
-class Call_402c00_0 {public: unsigned int target();};
+class Call_402c00_0 {public: unsigned int Audio_List_First_004072f0();};
 class Leaf_402c00 { public: unsigned int get(); };
-unsigned int Leaf_402c00::get() { unsigned int r0 = ((Call_402c00_0*)(global_402c00_7cc968))->target(); *(unsigned int*)(((unsigned int)this)) = r0; return r0; }
+unsigned int Leaf_402c00::get() { unsigned int first_node_address = ((Call_402c00_0*)(global_402c00_7cc968))->Audio_List_First_004072f0(); *(unsigned int*)(((unsigned int)this)) = first_node_address; return first_node_address; }
 
 
 // void __fastcall Audio_Device_Destroy(AudioDevice *device) -- 0x00402EF0

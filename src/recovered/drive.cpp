@@ -895,11 +895,11 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 
                 dir = ptr[unknown_5c].Facing;
                 CoordStruct newcoord = Point_Coord(Smooth_Turn(offset, dir), 0);
-                Cell a0 = newcoord.As_Cell();
-                Cell b0 = Object_Coord(LinkedTo).As_Cell();
+                Cell newcoord_cell = newcoord.As_Cell();
+                Cell linked_coord_cell = Object_Coord(LinkedTo).As_Cell();
                 Cell newcell = newcoord.As_Cell();
 
-                if (a0 != b0) {
+                if (newcoord_cell != linked_coord_cell) {
                     LinkedTo->Mark(0);
                     LinkedTo->Set_Coord(newcoord);
                     CellClass *oldcellptr = &Map[oldcell];
@@ -1935,7 +1935,7 @@ void UnknownComPtr<IPersistStream, &unknown_uuid_IPersistStream_7d5f38>::Release
 //
 // Body: 28 bytes (frozen inventory bound).
 // Referenced from 7 sites (unconditional call).
-// Ghidra prototype: int __fastcall FUN_004a4d20(int *param_1)
+// Ghidra prototype: int __fastcall CDTimerClass_FrameTimerClass_Value_004a4d20(int *param_1)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -1945,7 +1945,7 @@ namespace seed_004a4d20 {
 
 extern "C" unsigned int Frame_00a40d2c;
 
-int __fastcall FUN_004a4d20(int *timer_words)
+int __fastcall CDTimerClass_FrameTimerClass_Value_004a4d20(int *timer_words)
 {
     int remaining;
     int elapsed;

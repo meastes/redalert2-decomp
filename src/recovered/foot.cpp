@@ -4464,12 +4464,12 @@ void* Leaf_4cde10::get(unsigned int flags) { cleanup(); if (flags & 1) release_4
 
 namespace seed_004cde90 {
 
-extern void __stdcall FUN_00795940(unsigned int error_code);
+extern void __stdcall com_issue_error_00795940(unsigned int error_code);
 
 int __fastcall FUN_004cde90(int *pointer_words)
 {
     if (*pointer_words == 0) {
-        FUN_00795940((unsigned int)(0x80004003));
+        com_issue_error_00795940((unsigned int)(0x80004003));
     }
     return *pointer_words;
 }

@@ -1764,14 +1764,14 @@ void Leaf_6715c0::get() {  }
 
 namespace seed_006720c0 {
 
-extern unsigned int  FUN_00781f20(unsigned char *first_buffer, unsigned char *second_buffer);
+extern unsigned int  stricmp_00781f20(unsigned char *first_buffer, unsigned char *second_buffer);
 extern "C" char s_RandMap_Sed_007e16e8[];
 
 bool __fastcall FUN_006720c0(int session_address)
 {
     int comparison_result;
 
-    comparison_result = (int)(FUN_00781f20((unsigned char *)(session_address + 0x58), (unsigned char *)(s_RandMap_Sed_007e16e8)));
+    comparison_result = (int)(stricmp_00781f20((unsigned char *)(session_address + 0x58), (unsigned char *)(s_RandMap_Sed_007e16e8)));
     return comparison_result == 0;
 }
 
@@ -1790,14 +1790,14 @@ bool __fastcall FUN_006720c0(int session_address)
 
 namespace seed_00672140 {
 
-extern unsigned int  FUN_00781f20(unsigned char *first_buffer, unsigned char *second_buffer);
+extern unsigned int  stricmp_00781f20(unsigned char *first_buffer, unsigned char *second_buffer);
 extern "C" char s_RandMap_Sed_007e16e8[];
 
 bool __fastcall FUN_00672140(int session_address)
 {
     int comparison_result;
 
-    comparison_result = (int)(FUN_00781f20((unsigned char *)(session_address + 0x658), (unsigned char *)(s_RandMap_Sed_007e16e8)));
+    comparison_result = (int)(stricmp_00781f20((unsigned char *)(session_address + 0x658), (unsigned char *)(s_RandMap_Sed_007e16e8)));
     return comparison_result == 0;
 }
 

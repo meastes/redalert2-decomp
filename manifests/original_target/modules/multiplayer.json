@@ -1700,7 +1700,7 @@
  "references_in": [
   {
    "site": "005a3f70",
-   "symbol": "?target@Target_5a3f70@@QAEIII@Z",
+   "symbol": "?PopulateTeamDropdownForPlayer_005b75d0@Target_5a3f70@@QAEIII@Z",
    "target": "005b75d0",
    "function_entry": true
   },
@@ -1718,7 +1718,7 @@
   },
   {
    "site": "005a7500",
-   "symbol": "?FUN_005b6e20@seed_005a7500@@YIXXZ",
+   "symbol": "?MultiplayerGameMode_Destructor_005b6e20@seed_005a7500@@YIXXZ",
    "target": "005b6e20",
    "function_entry": true
   },
@@ -1730,7 +1730,7 @@
   },
   {
    "site": "005abba0",
-   "symbol": "?FUN_005b6e20@seed_005abba0@@YIXXZ",
+   "symbol": "?MultiplayerGameMode_Destructor_005b6e20@seed_005abba0@@YIXXZ",
    "target": "005b6e20",
    "function_entry": true
   },
@@ -1748,7 +1748,7 @@
   },
   {
    "site": "005a74f0",
-   "symbol": "?FUN_005b6e20@seed_005a74f0@@YIXXZ",
+   "symbol": "?MultiplayerGameMode_Destructor_005b6e20@seed_005a74f0@@YIXXZ",
    "target": "005b6e20",
    "function_entry": true
   },
@@ -1760,7 +1760,7 @@
   },
   {
    "site": "005ab5e0",
-   "symbol": "?FUN_005b6e20@seed_005ab5e0@@YIXXZ",
+   "symbol": "?MultiplayerGameMode_Destructor_005b6e20@seed_005ab5e0@@YIXXZ",
    "target": "005b6e20",
    "function_entry": true
   },
@@ -1784,7 +1784,7 @@
   },
   {
    "site": "005ab5a0",
-   "symbol": "?FUN_005b6cd0@Callee_005b6cd0@seed_005ab5a0@@QAEXIIIIEI@Z",
+   "symbol": "?MultiplayerGameMode_Constructor_005b6cd0@Callee_005b6cd0@seed_005ab5a0@@QAEXIIIIEI@Z",
    "target": "005b6cd0",
    "function_entry": true
   },
@@ -2435,14 +2435,6 @@
    "address": "00638b30"
   },
   {
-   "symbol": "?FUN_00781d3b@seed_005b8ec0@@YAXI@Z",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "?FUN_00781d3b@seed_005b9000@@YAXI@Z",
-   "address": "00781d3b"
-  },
-  {
    "symbol": "?Fill_Side_Combos_4d16d0@@YIXPAUHWND__@@@Z",
    "address": "004d16d0"
   },
@@ -2655,6 +2647,10 @@
    "address": null
   },
   {
+   "symbol": "?PopulateTeamDropdownForPlayer_005b75d0@Target_5a3f70@@QAEIII@Z",
+   "address": "005b75d0"
+  },
+  {
    "symbol": "?Read@BufferIOFileClass@@UAEJPAXJ@Z",
    "address": "0042fa80"
   },
@@ -2851,12 +2847,16 @@
    "address": "005a2b50"
   },
   {
-   "symbol": "?player_statistics_00a3d584@@3PAUUnknownNetworkPlayerStatistics@@A",
-   "address": "00a3d584"
+   "symbol": "?operator_delete_00781d3b@seed_005b8ec0@@YAXI@Z",
+   "address": "00781d3b"
   },
   {
-   "symbol": "?target@Target_5a3f70@@QAEIII@Z",
-   "address": "005b75d0"
+   "symbol": "?operator_delete_00781d3b@seed_005b9000@@YAXI@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?player_statistics_00a3d584@@3PAUUnknownNetworkPlayerStatistics@@A",
+   "address": "00a3d584"
   },
   {
    "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
@@ -3602,13 +3602,13 @@
   {
    "site": "005a3f70",
    "target": "005b75d0",
-   "symbol": "?target@Target_5a3f70@@QAEIII@Z",
+   "symbol": "?PopulateTeamDropdownForPlayer_005b75d0@Target_5a3f70@@QAEIII@Z",
    "module_symbol": "?PopulateTeamDropdownForPlayer@MultiplayerGameMode@@UAEXPAUHWND__@@H@Z"
   },
   {
    "site": "005a7500",
    "target": "005b6e20",
-   "symbol": "?FUN_005b6e20@seed_005a7500@@YIXXZ",
+   "symbol": "?MultiplayerGameMode_Destructor_005b6e20@seed_005a7500@@YIXXZ",
    "module_symbol": "??1MultiplayerGameMode@@UAE@XZ"
   },
   {
@@ -3620,13 +3620,13 @@
   {
    "site": "005abba0",
    "target": "005b6e20",
-   "symbol": "?FUN_005b6e20@seed_005abba0@@YIXXZ",
+   "symbol": "?MultiplayerGameMode_Destructor_005b6e20@seed_005abba0@@YIXXZ",
    "module_symbol": "??1MultiplayerGameMode@@UAE@XZ"
   },
   {
    "site": "005a74f0",
    "target": "005b6e20",
-   "symbol": "?FUN_005b6e20@seed_005a74f0@@YIXXZ",
+   "symbol": "?MultiplayerGameMode_Destructor_005b6e20@seed_005a74f0@@YIXXZ",
    "module_symbol": "??1MultiplayerGameMode@@UAE@XZ"
   },
   {
@@ -3638,7 +3638,7 @@
   {
    "site": "005ab5e0",
    "target": "005b6e20",
-   "symbol": "?FUN_005b6e20@seed_005ab5e0@@YIXXZ",
+   "symbol": "?MultiplayerGameMode_Destructor_005b6e20@seed_005ab5e0@@YIXXZ",
    "module_symbol": "??1MultiplayerGameMode@@UAE@XZ"
   },
   {
@@ -3650,7 +3650,7 @@
   {
    "site": "005ab5a0",
    "target": "005b6cd0",
-   "symbol": "?FUN_005b6cd0@Callee_005b6cd0@seed_005ab5a0@@QAEXIIIIEI@Z",
+   "symbol": "?MultiplayerGameMode_Constructor_005b6cd0@Callee_005b6cd0@seed_005ab5a0@@QAEXIIIIEI@Z",
    "module_symbol": "??0MultiplayerGameMode@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z"
   },
   {

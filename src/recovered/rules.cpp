@@ -3204,14 +3204,14 @@ void __fastcall Read_Art_INI()
 
 namespace seed_00652810 {
 
-extern void  FUN_00781d3b(unsigned int allocation_address);
+extern void  operator_delete_00781d3b(unsigned int allocation_address);
 extern "C" void* PTR_FUN_0079d9d4;
 
 void __fastcall FUN_00652810(unsigned int *vector_words)
 {
     *vector_words = (unsigned int)(&PTR_FUN_0079d9d4);
     if ((vector_words[1] != 0) && (*(char *)((int)vector_words + 0xd) != '\0')) {
-        FUN_00781d3b((unsigned int)(vector_words[1]));
+        operator_delete_00781d3b((unsigned int)(vector_words[1]));
         vector_words[1] = 0;
     }
     *(unsigned char *)((int)vector_words + 0xd) = 0;
@@ -3425,12 +3425,12 @@ void* Leaf_654520::get(unsigned int flags) { unsigned int pointer = *(unsigned i
 
 namespace seed_006532b0 {
 
-extern void  FUN_00781d3b(unsigned int allocation_address);
+extern void  operator_delete_00781d3b(unsigned int allocation_address);
 
 void __fastcall Clear_006532b0(int vector_address)
 {
     if ((*(int *)(vector_address + 4) != 0) && (*(char *)(vector_address + 0xd) != '\0')) {
-        FUN_00781d3b((unsigned int)(*(int *)(vector_address + 4)));
+        operator_delete_00781d3b((unsigned int)(*(int *)(vector_address + 4)));
         *(unsigned int *)(vector_address + 4) = 0;
     }
     *(unsigned char *)(vector_address + 0xd) = 0;

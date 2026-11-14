@@ -75,13 +75,13 @@
 
 namespace seed_005abe10 {
 
-extern void __fastcall FUN_005b9b50(void);
+extern void __fastcall MultiplayerTeam_Destructor_005b9b50(void);
 extern "C" void* PTR_FUN_007a6c54;
 
 void __fastcall FUN_005abe10(unsigned int *object_words)
 {
     *object_words = (unsigned int)(&PTR_FUN_007a6c54);
-    FUN_005b9b50();
+    MultiplayerTeam_Destructor_005b9b50();
     return;
 }
 
@@ -101,13 +101,13 @@ void __fastcall FUN_005abe10(unsigned int *object_words)
 
 namespace seed_005abeb0 {
 
-extern void __fastcall FUN_005b9b50(void);
+extern void __fastcall MultiplayerTeam_Destructor_005b9b50(void);
 extern "C" void* PTR_FUN_007a6c64;
 
 void __fastcall FUN_005abeb0(unsigned int *object_words)
 {
     *object_words = (unsigned int)(&PTR_FUN_007a6c64);
-    FUN_005b9b50();
+    MultiplayerTeam_Destructor_005b9b50();
     return;
 }
 
@@ -129,8 +129,8 @@ void __fastcall FUN_005abeb0(unsigned int *object_words)
 
 namespace seed_005abec0 {
 
-extern void __fastcall FUN_005b9b50(void);
-extern void  FUN_00781d3b(unsigned int allocation_address);
+extern void __fastcall MultiplayerTeam_Destructor_005b9b50(void);
+extern void  operator_delete_00781d3b(unsigned int allocation_address);
 extern "C" void* PTR_FUN_007a6c54;
 
 struct Owner_005abec0 { unsigned int * FUN_005abec0(unsigned char deletion_flags); };
@@ -139,9 +139,9 @@ unsigned int * Owner_005abec0::FUN_005abec0(unsigned char deletion_flags)
 {
     unsigned int * object_words = (unsigned int *)this;
     *object_words = (unsigned int)(&PTR_FUN_007a6c54);
-    FUN_005b9b50();
+    MultiplayerTeam_Destructor_005b9b50();
     if ((deletion_flags & 1) != 0) {
-        FUN_00781d3b((unsigned int)(object_words));
+        operator_delete_00781d3b((unsigned int)(object_words));
     }
     return object_words;
 }
@@ -164,8 +164,8 @@ unsigned int * Owner_005abec0::FUN_005abec0(unsigned char deletion_flags)
 
 namespace seed_005abef0 {
 
-extern void __fastcall FUN_005b9b50(void);
-extern void  FUN_00781d3b(unsigned int allocation_address);
+extern void __fastcall MultiplayerTeam_Destructor_005b9b50(void);
+extern void  operator_delete_00781d3b(unsigned int allocation_address);
 extern "C" void* PTR_FUN_007a6c64;
 
 struct Owner_005abef0 { unsigned int * FUN_005abef0(unsigned char deletion_flags); };
@@ -174,9 +174,9 @@ unsigned int * Owner_005abef0::FUN_005abef0(unsigned char deletion_flags)
 {
     unsigned int * object_words = (unsigned int *)this;
     *object_words = (unsigned int)(&PTR_FUN_007a6c64);
-    FUN_005b9b50();
+    MultiplayerTeam_Destructor_005b9b50();
     if ((deletion_flags & 1) != 0) {
-        FUN_00781d3b((unsigned int)(object_words));
+        operator_delete_00781d3b((unsigned int)(object_words));
     }
     return object_words;
 }

@@ -701,14 +701,14 @@ class Leaf_6f6740 { public: unsigned int get(); };
 unsigned int Leaf_6f6740::get() { return 0x16; }
 
 
-class Target_6f6750 { public: unsigned int target(unsigned int p0, unsigned int p1); };
+class Target_6f6750 { public: unsigned int Get_Mouse_Start_Frame_0059f170(unsigned int mouse_shape, unsigned int use_small_shape); };
 class Leaf_6f6750 { public: unsigned int get(); };
-unsigned int Leaf_6f6750::get() { return ((Target_6f6750*)(0x8324e0))->target((unsigned int)(0x4d), (unsigned int)(0)); }
+unsigned int Leaf_6f6750::get() { return ((Target_6f6750*)(0x8324e0))->Get_Mouse_Start_Frame_0059f170((unsigned int)(0x4d), (unsigned int)(0)); }
 
 
-class Target_6f6760 { public: unsigned int target(unsigned int p0, unsigned int p1); };
+class Target_6f6760 { public: unsigned int Get_Mouse_Start_Frame_0059f170(unsigned int mouse_shape, unsigned int use_small_shape); };
 class Leaf_6f6760 { public: unsigned int get(); };
-unsigned int Leaf_6f6760::get() { return ((Target_6f6760*)(0x8324e0))->target((unsigned int)(0x4c), (unsigned int)(0)); }
+unsigned int Leaf_6f6760::get() { return ((Target_6f6760*)(0x8324e0))->Get_Mouse_Start_Frame_0059f170((unsigned int)(0x4c), (unsigned int)(0)); }
 
 
 // void Unknown_Click_End_006F6770() (0x006F6770): clears the flag at 0x00AC1330

@@ -201,7 +201,7 @@ LightConvertClass::~LightConvertClass()
 // Owner: LightConvertClass, virtual slot 0 (vtable +0x0) (from RTTI/vtables).
 // Body: 36 bytes (frozen inventory bound).
 // Referenced from 1 site (data).
-// Ghidra prototype: undefined4 * __thiscall FUN_00538f30(undefined4 *param_1,byte param_2)
+// Ghidra prototype: undefined4 * __thiscall LightConvertClass_Scalar_Deleting_Destructor_00538f30(undefined4 *param_1,byte param_2)
 // Callees with accepted source:
 //   FUN_00781d3b -> src/recovered/00781d3b.cpp
 //
@@ -211,19 +211,19 @@ LightConvertClass::~LightConvertClass()
 
 namespace seed_00538f30 {
 
-extern void __fastcall FUN_00485310(void);
-extern void  FUN_00781d3b(unsigned int allocation_address);
-extern "C" void* PTR_FUN_007a55dc;
+extern void __fastcall ConvertClass_Destructor_00485310(void);
+extern void  operator_delete_00781d3b(unsigned int allocation_address);
+extern "C" void* LightConvertClass_VTable_007a55dc;
 
-struct Owner_00538f30 { unsigned int * FUN_00538f30(unsigned char deletion_flags); };
+struct Owner_00538f30 { unsigned int * LightConvertClass_Scalar_Deleting_Destructor_00538f30(unsigned char deletion_flags); };
 
-unsigned int * Owner_00538f30::FUN_00538f30(unsigned char deletion_flags)
+unsigned int * Owner_00538f30::LightConvertClass_Scalar_Deleting_Destructor_00538f30(unsigned char deletion_flags)
 {
     unsigned int * object_words = (unsigned int *)this;
-    *object_words = (unsigned int)(&PTR_FUN_007a55dc);
-    FUN_00485310();
+    *object_words = (unsigned int)(&LightConvertClass_VTable_007a55dc);
+    ConvertClass_Destructor_00485310();
     if ((deletion_flags & 1) != 0) {
-        FUN_00781d3b((unsigned int)(object_words));
+        operator_delete_00781d3b((unsigned int)(object_words));
     }
     return object_words;
 }

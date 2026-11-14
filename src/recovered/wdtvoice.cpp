@@ -679,7 +679,7 @@ void __fastcall FUN_00732c30(unsigned int *vector_words)
 // Referenced from 1 site (data).
 // Ghidra prototype: undefined4 * __thiscall FUN_00732c80(undefined4 *param_1,byte param_2)
 // Callees with accepted source:
-//   FUN_005ac690 -> src/recovered/classes/MSAnim/005ac690.cpp
+//   MSAnim_Destructor_005ac690 -> src/recovered/classes/MSAnim/005ac690.cpp
 //   FUN_00781d3b -> src/recovered/00781d3b.cpp
 //
 // Types and names are Ghidra placeholders;
@@ -688,8 +688,8 @@ void __fastcall FUN_00732c30(unsigned int *vector_words)
 
 namespace seed_00732c80 {
 
-extern void __fastcall FUN_005ac690(void);
-extern void  FUN_00781d3b(unsigned int allocation_address);
+extern void __fastcall MSAnim_Destructor_005ac690(void);
+extern void  operator_delete_00781d3b(unsigned int allocation_address);
 extern "C" void* PTR_FUN_007af40c;
 
 struct Owner_00732c80 { unsigned int * FUN_00732c80(unsigned char deletion_flags); };
@@ -698,9 +698,9 @@ unsigned int * Owner_00732c80::FUN_00732c80(unsigned char deletion_flags)
 {
     unsigned int * object_words = (unsigned int *)this;
     *object_words = (unsigned int)(&PTR_FUN_007af40c);
-    FUN_005ac690();
+    MSAnim_Destructor_005ac690();
     if ((deletion_flags & 1) != 0) {
-        FUN_00781d3b((unsigned int)(object_words));
+        operator_delete_00781d3b((unsigned int)(object_words));
     }
     return object_words;
 }

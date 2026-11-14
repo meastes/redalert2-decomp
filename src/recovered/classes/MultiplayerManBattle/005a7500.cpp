@@ -13,8 +13,8 @@
 
 namespace seed_005a7500 {
 
-extern void __fastcall FUN_005b6e20(void);
-extern void  FUN_00781d3b(unsigned int allocation_address);
+extern void __fastcall MultiplayerGameMode_Destructor_005b6e20(void);
+extern void  operator_delete_00781d3b(unsigned int allocation_address);
 extern "C" void* PTR_FUN_007a69dc;
 
 struct Owner_005a7500 { unsigned int * FUN_005a7500(unsigned char deletion_flags); };
@@ -23,9 +23,9 @@ unsigned int * Owner_005a7500::FUN_005a7500(unsigned char deletion_flags)
 {
     unsigned int * object_words = (unsigned int *)this;
     *object_words = (unsigned int)(&PTR_FUN_007a69dc);
-    FUN_005b6e20();
+    MultiplayerGameMode_Destructor_005b6e20();
     if ((deletion_flags & 1) != 0) {
-        FUN_00781d3b((unsigned int)(object_words));
+        operator_delete_00781d3b((unsigned int)(object_words));
     }
     return object_words;
 }

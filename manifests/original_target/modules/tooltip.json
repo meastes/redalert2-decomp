@@ -374,7 +374,7 @@
  "references_in": [
   {
    "site": "00738420",
-   "symbol": "?FUN_006eb390@seed_00738420@@YIXXZ",
+   "symbol": "?ToolTipManager_Destructor_006eb390@seed_00738420@@YIXXZ",
    "target": "006eb390",
    "function_entry": true
   },
@@ -825,12 +825,12 @@
    "address": "004068f0"
   },
   {
-   "symbol": "?FUN_00781d3b@seed_006ec220@@YAXI@Z",
-   "address": "00781d3b"
-  },
-  {
    "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
    "address": "006f9ec0"
+  },
+  {
+   "symbol": "?operator_delete_00781d3b@seed_006ec220@@YAXI@Z",
+   "address": "00781d3b"
   },
   {
    "symbol": "?unknown_show_cursor_position_a416bc@@3_NA",
@@ -999,7 +999,7 @@
   {
    "site": "00738420",
    "target": "006eb390",
-   "symbol": "?FUN_006eb390@seed_00738420@@YIXXZ",
+   "symbol": "?ToolTipManager_Destructor_006eb390@seed_00738420@@YIXXZ",
    "module_symbol": "??1ToolTipManager@@UAE@XZ"
   }
  ],

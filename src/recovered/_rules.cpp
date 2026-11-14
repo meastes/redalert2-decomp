@@ -116,7 +116,7 @@ unsigned int Leaf_40e160::get() { unsigned int initialization_value = (unsigned 
 //
 // Body: 75 bytes (frozen inventory bound).
 // Referenced from 25 sites (unconditional call).
-// Ghidra prototype: void __thiscall FUN_0040e180(int param_1,int param_2)
+// Ghidra prototype: void __thiscall Link_0040e180(int param_1,int param_2)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -124,9 +124,9 @@ unsigned int Leaf_40e160::get() { unsigned int initialization_value = (unsigned 
 
 namespace seed_0040e180 {
 
-struct Owner_0040e180 { void FUN_0040e180(int node_address); };
+struct Owner_0040e180 { void Link_0040e180(int node_address); };
 
-void Owner_0040e180::FUN_0040e180(int node_address)
+void Owner_0040e180::Link_0040e180(int node_address)
 {
     int anchor_address = (int)this;
     unsigned int neighbor_address;
@@ -154,7 +154,7 @@ void Owner_0040e180::FUN_0040e180(int node_address)
 //
 // Body: 69 bytes (frozen inventory bound).
 // Referenced from 1 site (data).
-// Ghidra prototype: undefined4 * __thiscall FUN_0040e1d0(undefined4 *param_1,byte param_2)
+// Ghidra prototype: undefined4 * __thiscall GenericNode_Scalar_Deleting_Destructor_0040e1d0(undefined4 *param_1,byte param_2)
 // Callees with accepted source:
 //   FUN_00781d3b -> src/recovered/00781d3b.cpp
 //
@@ -164,15 +164,15 @@ void Owner_0040e180::FUN_0040e180(int node_address)
 
 namespace seed_0040e1d0 {
 
-extern void  FUN_00781d3b(unsigned int allocation_address);
-extern "C" void* PTR_FUN_0079aafc;
+extern void  operator_delete_00781d3b(unsigned int allocation_address);
+extern "C" void* GenericNode_VTable_0079aafc;
 
-struct Owner_0040e1d0 { unsigned int * FUN_0040e1d0(unsigned char deletion_flags); };
+struct Owner_0040e1d0 { unsigned int * GenericNode_Scalar_Deleting_Destructor_0040e1d0(unsigned char deletion_flags); };
 
-unsigned int * Owner_0040e1d0::FUN_0040e1d0(unsigned char deletion_flags)
+unsigned int * Owner_0040e1d0::GenericNode_Scalar_Deleting_Destructor_0040e1d0(unsigned char deletion_flags)
 {
     unsigned int * object_words = (unsigned int *)this;
-    *object_words = (unsigned int)(&PTR_FUN_0079aafc);
+    *object_words = (unsigned int)(&GenericNode_VTable_0079aafc);
     if (((object_words != (unsigned int *)0x0) && (object_words[1] != 0)) && (object_words[2] != 0)) {
         *(unsigned int *)(object_words[2] + 4) = object_words[1];
         *(unsigned int *)(object_words[1] + 8) = object_words[2];
@@ -180,7 +180,7 @@ unsigned int * Owner_0040e1d0::FUN_0040e1d0(unsigned char deletion_flags)
         object_words[1] = 0;
     }
     if ((deletion_flags & 1) != 0) {
-        FUN_00781d3b((unsigned int)(object_words));
+        operator_delete_00781d3b((unsigned int)(object_words));
     }
     return object_words;
 }

@@ -41,7 +41,7 @@ void AudioLevelSet::Update()
 //
 // Body: 27 bytes (frozen inventory bound).
 // Referenced from 7 sites (unconditional call).
-// Ghidra prototype: undefined4 __fastcall FUN_004010a0(byte *param_1)
+// Ghidra prototype: undefined4 __fastcall AudioLevelSet_Changed_004010a0(byte *param_1)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -49,7 +49,7 @@ void AudioLevelSet::Update()
 
 namespace seed_004010a0 {
 
-unsigned int __fastcall FUN_004010a0(unsigned char *level_set)
+unsigned int __fastcall AudioLevelSet_Changed_004010a0(unsigned char *level_set)
 {
     if ((((*level_set & 2) == 0) && ((level_set[0x28] & 2) == 0)) && ((level_set[0x50] & 2) == 0)) {
         return 0;

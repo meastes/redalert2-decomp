@@ -59,8 +59,8 @@ alignas(16) unsigned char ra2_orig_0011[144] __asm__("_vtable_40d6d0");
 __asm__(".globl _vtable_40d720\n.set _vtable_40d720, _vtable_40d6d0\n");
 // row	_Keys	0x0079AA70	116	bytes	Keys	src/recovered/header_statics/0068d950/HeaderStatics_empty_rect_init_0068d950.cpp
 alignas(16) unsigned char ra2_orig_0012[128] __asm__("_Keys");
-// row	_PTR_FUN_0079aafc	0x0079AAFC	24	ptr	PTR_FUN_0079aafc	src/recovered/004919b0.cpp
-alignas(16) unsigned char ra2_orig_0013[48] __asm__("_PTR_FUN_0079aafc");
+// row	_GenericNode_VTable_0079aafc	0x0079AAFC	24	ptr	GenericNode_VTable_0079aafc	src/recovered/004919b0.cpp
+alignas(16) unsigned char ra2_orig_0013[48] __asm__("_GenericNode_VTable_0079aafc");
 // row	_vtable_40e8d0	0x0079AB34	28	bytes	vtable_40e8d0	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
 // row	_vtable_40e920	0x0079AB34	28	bytes	vtable_40e920	src/recovered/classes/VectorClass_SubzoneConnectionStruct/0040b230.cpp
 alignas(16) unsigned char ra2_orig_0014[32] __asm__("_vtable_40e8d0");
@@ -842,8 +842,8 @@ __asm__(".globl _vtable_5382b0\n.set _vtable_5382b0, _vtable_538260\n");
 // row	_vtable_538350	0x007A5514	32	bytes	vtable_538350	src/recovered/classes/VectorClass_SubzoneConnectionStruct/0040b230.cpp
 alignas(16) unsigned char ra2_orig_0225[32] __asm__("_vtable_538300");
 __asm__(".globl _vtable_538350\n.set _vtable_538350, _vtable_538300\n");
-// row	_PTR_FUN_007a55dc	0x007A55DC	12	ptr	PTR_FUN_007a55dc	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
-alignas(16) unsigned char ra2_orig_0226[32] __asm__("_PTR_FUN_007a55dc");
+// row	_LightConvertClass_VTable_007a55dc	0x007A55DC	12	ptr	LightConvertClass_VTable_007a55dc	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
+alignas(16) unsigned char ra2_orig_0226[32] __asm__("_LightConvertClass_VTable_007a55dc");
 // row	_vtable_539b30	0x007A5624	32	bytes	vtable_539b30	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
 // row	_vtable_539b80	0x007A5624	32	bytes	vtable_539b80	src/recovered/classes/VectorClass_SubzoneConnectionStruct/0040b230.cpp
 alignas(16) unsigned char ra2_orig_0227[32] __asm__("_vtable_539b30");

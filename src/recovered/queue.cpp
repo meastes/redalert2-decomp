@@ -61,12 +61,12 @@ UnknownState_006231a0::UnknownState_006231a0()
 
 namespace seed_006231f0 {
 
-extern void  FUN_00781d3b(unsigned int allocation_address);
+extern void  operator_delete_00781d3b(unsigned int allocation_address);
 
 void __fastcall FUN_006231f0(int object_address)
 {
     if (*(int *)(object_address + 0x334) != 0) {
-        FUN_00781d3b((unsigned int)(*(int *)(object_address + 0x334)));
+        operator_delete_00781d3b((unsigned int)(*(int *)(object_address + 0x334)));
     }
     return;
 }

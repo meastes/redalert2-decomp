@@ -100,15 +100,15 @@
 namespace seed_00698cd0 {
 
 extern void __cdecl FUN_00698cf0(void);
-struct Callee_0069a430 { unsigned int FUN_0069a430(); };
-extern unsigned int  FUN_0078298a(unsigned int callback_address);
-extern "C" unsigned int DAT_00abd4c0;
+struct Callee_0069a430 { unsigned int SystemTimerClass_Long_Conversion_0069a430(); };
+extern unsigned int  atexit_0078298a(unsigned int callback_address);
+extern "C" unsigned int GameTimer_00abd4c0;
 extern "C" unsigned int DAT_00abd4c4;
 
 void  FUN_00698cd0(void)
 {
-    DAT_00abd4c0 = ((Callee_0069a430*)(&DAT_00abd4c4))->FUN_0069a430();
-    FUN_0078298a((unsigned int)(FUN_00698cf0));
+    GameTimer_00abd4c0 = ((Callee_0069a430*)(&DAT_00abd4c4))->SystemTimerClass_Long_Conversion_0069a430();
+    atexit_0078298a((unsigned int)(FUN_00698cf0));
     return;
 }
 

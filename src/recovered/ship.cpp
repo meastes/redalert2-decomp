@@ -812,11 +812,11 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
 
                 dir = ptr[unknown_5c].Facing;
                 CoordStruct newcoord = Point_Coord(Smooth_Turn(offset, dir), 0);
-                Cell a0 = newcoord.As_Cell();
-                Cell b0 = Object_Coord(LinkedTo).As_Cell();
+                Cell newcoord_cell = newcoord.As_Cell();
+                Cell linked_coord_cell = Object_Coord(LinkedTo).As_Cell();
                 Cell newcell = newcoord.As_Cell();
 
-                if (a0 != b0) {
+                if (newcoord_cell != linked_coord_cell) {
                     LinkedTo->Mark(0);
                     LinkedTo->Set_Coord(newcoord);
                     CellClass *oldcellptr = &Map[oldcell];

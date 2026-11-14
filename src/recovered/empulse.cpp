@@ -324,7 +324,7 @@ void* Leaf_4b5770::get(unsigned int flags) { unsigned int pointer = *(unsigned i
 
 namespace seed_004b57c0 {
 
-extern void  FUN_00781d3b(unsigned int allocation_address);
+extern void  operator_delete_00781d3b(unsigned int allocation_address);
 extern "C" void* PTR_FUN_007a0d6c;
 
 struct Owner_004b57c0 { unsigned int * FUN_004b57c0(unsigned char deletion_flags); };
@@ -334,13 +334,13 @@ unsigned int * Owner_004b57c0::FUN_004b57c0(unsigned char deletion_flags)
     unsigned int * object_words = (unsigned int *)this;
     *object_words = (unsigned int)(&PTR_FUN_007a0d6c);
     if ((object_words[1] != 0) && (*(char *)((int)object_words + 0xd) != '\0')) {
-        FUN_00781d3b((unsigned int)(object_words[1]));
+        operator_delete_00781d3b((unsigned int)(object_words[1]));
         object_words[1] = 0;
     }
     *(unsigned char *)((int)object_words + 0xd) = 0;
     object_words[2] = 0;
     if ((deletion_flags & 1) != 0) {
-        FUN_00781d3b((unsigned int)(object_words));
+        operator_delete_00781d3b((unsigned int)(object_words));
     }
     return object_words;
 }

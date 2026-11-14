@@ -25,7 +25,7 @@
    "padding_bytes": 7
   },
   {
-   "symbol": "?FUN_004010a0@seed_004010a0@@YIIPAE@Z",
+   "symbol": "?AudioLevelSet_Changed_004010a0@seed_004010a0@@YIIPAE@Z",
    "entry": "004010a0",
    "body_bytes": 27,
    "padding_bytes": 5
@@ -59,13 +59,13 @@
  "references_in": [
   {
    "site": "00402190",
-   "symbol": "?target@Call_402190_0@@QAEIXZ",
+   "symbol": "?Init_00401000@Call_402190_0@@QAEIXZ",
    "target": "00401000",
    "function_entry": true
   },
   {
    "site": "00402940",
-   "symbol": "?target@Call_402940_2@@QAEIXZ",
+   "symbol": "?Init_00401000@Call_402940_2@@QAEIXZ",
    "target": "00401000",
    "function_entry": true
   },
@@ -557,13 +557,13 @@
   {
    "site": "00402190",
    "target": "00401000",
-   "symbol": "?target@Call_402190_0@@QAEIXZ",
+   "symbol": "?Init_00401000@Call_402190_0@@QAEIXZ",
    "module_symbol": "?Init@AudioLevelSet@@QAIXXZ"
   },
   {
    "site": "00402940",
    "target": "00401000",
-   "symbol": "?target@Call_402940_2@@QAEIXZ",
+   "symbol": "?Init_00401000@Call_402940_2@@QAEIXZ",
    "module_symbol": "?Init@AudioLevelSet@@QAIXXZ"
   },
   {
@@ -630,43 +630,43 @@
    "site": "00402f60",
    "target": "004010a0",
    "symbol": "?Changed@AudioLevelSet@@QAEHXZ",
-   "module_symbol": "?FUN_004010a0@seed_004010a0@@YIIPAE@Z"
+   "module_symbol": "?AudioLevelSet_Changed_004010a0@seed_004010a0@@YIIPAE@Z"
   },
   {
    "site": "00402f60",
    "target": "004010a0",
    "symbol": "?Changed@AudioLevelSet@@QAEHXZ",
-   "module_symbol": "?FUN_004010a0@seed_004010a0@@YIIPAE@Z"
+   "module_symbol": "?AudioLevelSet_Changed_004010a0@seed_004010a0@@YIIPAE@Z"
   },
   {
    "site": "00402f60",
    "target": "004010a0",
    "symbol": "?Changed@AudioLevelSet@@QAEHXZ",
-   "module_symbol": "?FUN_004010a0@seed_004010a0@@YIIPAE@Z"
+   "module_symbol": "?AudioLevelSet_Changed_004010a0@seed_004010a0@@YIIPAE@Z"
   },
   {
    "site": "00402f60",
    "target": "004010a0",
    "symbol": "?Changed@AudioLevelSet@@QAEHXZ",
-   "module_symbol": "?FUN_004010a0@seed_004010a0@@YIIPAE@Z"
+   "module_symbol": "?AudioLevelSet_Changed_004010a0@seed_004010a0@@YIIPAE@Z"
   },
   {
    "site": "00402f60",
    "target": "004010a0",
    "symbol": "?Changed@AudioLevelSet@@QAEHXZ",
-   "module_symbol": "?FUN_004010a0@seed_004010a0@@YIIPAE@Z"
+   "module_symbol": "?AudioLevelSet_Changed_004010a0@seed_004010a0@@YIIPAE@Z"
   },
   {
    "site": "00402f60",
    "target": "004010a0",
    "symbol": "?Changed@AudioLevelSet@@QAEHXZ",
-   "module_symbol": "?FUN_004010a0@seed_004010a0@@YIIPAE@Z"
+   "module_symbol": "?AudioLevelSet_Changed_004010a0@seed_004010a0@@YIIPAE@Z"
   },
   {
    "site": "00402f60",
    "target": "004010a0",
    "symbol": "?Changed@AudioLevelSet@@QAEHXZ",
-   "module_symbol": "?FUN_004010a0@seed_004010a0@@YIIPAE@Z"
+   "module_symbol": "?AudioLevelSet_Changed_004010a0@seed_004010a0@@YIIPAE@Z"
   },
   {
    "site": "00402f60",

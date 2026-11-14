@@ -428,13 +428,13 @@ void RadSiteClass::Update_Light()
 
 namespace seed_00637fb0 {
 
-extern void  FUN_00781d3b(unsigned int allocation_address);
+extern void  operator_delete_00781d3b(unsigned int allocation_address);
 
 void __fastcall Clear_00637fb0(int vector_address)
 {
     *(unsigned int *)(vector_address + 0x10) = 0;
     if ((*(int *)(vector_address + 4) != 0) && (*(char *)(vector_address + 0xd) != '\0')) {
-        FUN_00781d3b((unsigned int)(*(int *)(vector_address + 4)));
+        operator_delete_00781d3b((unsigned int)(*(int *)(vector_address + 4)));
         *(unsigned int *)(vector_address + 4) = 0;
     }
     *(unsigned char *)(vector_address + 0xd) = 0;

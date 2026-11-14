@@ -846,13 +846,13 @@
   },
   {
    "site": "007701b0",
-   "symbol": "?target@Call_7701b0_0@@QAEII@Z",
+   "symbol": "?Remove_Character_00770110@Call_7701b0_0@@QAEII@Z",
    "target": "00770110",
    "function_entry": true
   },
   {
    "site": "007701b0",
-   "symbol": "?target@Call_7701b0_1@@QAEII@Z",
+   "symbol": "?Remove_Character_00770110@Call_7701b0_1@@QAEII@Z",
    "target": "00770110",
    "function_entry": true
   },
@@ -2922,7 +2922,7 @@
   },
   {
    "site": "0073c0b0",
-   "symbol": "?Is_ASCII@WideString@@QBE_NXZ",
+   "symbol": "?Is_Narrow@WideString@@QBE_NXZ",
    "target": "00771080",
    "function_entry": true
   },
@@ -21339,10 +21339,6 @@
    "address": "006fa0c0"
   },
   {
-   "symbol": "?FUN_00781d3b@seed_00770330@@YAXI@Z",
-   "address": "00781d3b"
-  },
-  {
    "symbol": "?FUN_00783605@seed_00770400@@YAIPAF@Z",
    "address": "00783605"
   },
@@ -21353,6 +21349,10 @@
   {
    "symbol": "?WideToCharString_006fa0f0@@YIXPADPBGH@Z",
    "address": "006fa0f0"
+  },
+  {
+   "symbol": "?operator_delete_00781d3b@seed_00770330@@YAXI@Z",
+   "address": "00781d3b"
   },
   {
    "symbol": "_atoi",
@@ -21526,13 +21526,13 @@
   {
    "site": "007701b0",
    "target": "00770110",
-   "symbol": "?target@Call_7701b0_0@@QAEII@Z",
+   "symbol": "?Remove_Character_00770110@Call_7701b0_0@@QAEII@Z",
    "module_symbol": "?Remove_Character@WideString@@QAE_NG@Z"
   },
   {
    "site": "007701b0",
    "target": "00770110",
-   "symbol": "?target@Call_7701b0_1@@QAEII@Z",
+   "symbol": "?Remove_Character_00770110@Call_7701b0_1@@QAEII@Z",
    "module_symbol": "?Remove_Character@WideString@@QAE_NG@Z"
   },
   {
@@ -21588,12 +21588,6 @@
    "target": "00770330",
    "symbol": "?Release@WideString@@QAEXXZ",
    "module_symbol": "?FUN_00770330@seed_00770330@@YIXPAH@Z"
-  },
-  {
-   "site": "0073c0b0",
-   "target": "00771080",
-   "symbol": "?Is_ASCII@WideString@@QBE_NXZ",
-   "module_symbol": "?Is_Narrow@WideString@@QBE_NXZ"
   },
   {
    "site": "005b75d0",
@@ -21842,7 +21836,7 @@
    "module_symbol": "?get@Leaf_770430@@QAEIXZ"
   }
  ],
- "stand_in_reference_count": 58,
+ "stand_in_reference_count": 57,
  "residual_split": {
   "rows": 1,
   "bytes": 21

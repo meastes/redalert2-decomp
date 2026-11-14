@@ -6,7 +6,7 @@
 // Assumptions: the flags object and the two globals are unidentified; the
 // function name is a guess from the WOL chat callers' area.
 // @ref ?WS_Find_Dialog_00735940@@YIPAUHWND__@@H@Z=00735940
-// @ref ?Is_ASCII@WideString@@QBE_NXZ=00771080
+// @ref ?Is_Narrow@WideString@@QBE_NXZ=00771080
 // @ref ?unknown_b2a7e8@@3HA=00b2a7e8
 // @ref ?unknown_b2a804@@3HA=00b2a804
 
@@ -14,13 +14,7 @@ struct UnknownFlags_0073c0b0 {
     unsigned char Bits;
 };
 
-class WideString {
-public:
-    bool Is_ASCII() const;      // 0x00771080
-
-private:
-    unsigned short *Buffer;
-};
+#include "shared/wide_string.hpp"
 
 struct HWND__ *__fastcall WS_Find_Dialog_00735940(int id);  // 0x00735940 (a dialog by id)
 extern int unknown_b2a7e8;
@@ -40,7 +34,7 @@ bool __fastcall unknown_can_send_chat(UnknownFlags_0073c0b0 const *flags, WideSt
     if (WS_Find_Dialog_00735940(0xC9) != 0) {
         return true;
     }
-    if (text.Is_ASCII()) {
+    if (text.Is_Narrow()) {
         return unknown_b2a7e8 != 0;
     }
     return unknown_b2a804 != 0;

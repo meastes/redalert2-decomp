@@ -610,7 +610,7 @@ void Unknown_006F9D90()
 
 namespace seed_006f9f80 {
 
-extern unsigned int  FUN_00781f20(unsigned char *first_buffer, unsigned char *second_buffer);
+extern unsigned int  stricmp_00781f20(unsigned char *first_buffer, unsigned char *second_buffer);
 extern "C" unsigned int DAT_007f8da0;
 extern "C" unsigned int DAT_007f8e34;
 
@@ -622,7 +622,7 @@ int  FUN_006f9f80(void)
     if (entry_or_comparison_result == 0) {
         return true;
     }
-    entry_or_comparison_result = (int)(FUN_00781f20((unsigned char *)(entry_or_comparison_result), (unsigned char *)(&DAT_007f8e34)));
+    entry_or_comparison_result = (int)(stricmp_00781f20((unsigned char *)(entry_or_comparison_result), (unsigned char *)(&DAT_007f8e34)));
     return entry_or_comparison_result == 0;
 }
 

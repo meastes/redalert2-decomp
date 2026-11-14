@@ -11,13 +11,13 @@
 
 namespace seed_005a74f0 {
 
-extern void __fastcall FUN_005b6e20(void);
+extern void __fastcall MultiplayerGameMode_Destructor_005b6e20(void);
 extern "C" void* PTR_FUN_007a69dc;
 
 void __fastcall FUN_005a74f0(unsigned int *object_words)
 {
     *object_words = (unsigned int)(&PTR_FUN_007a69dc);
-    FUN_005b6e20();
+    MultiplayerGameMode_Destructor_005b6e20();
     return;
 }
 

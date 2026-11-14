@@ -289,7 +289,7 @@ void* Leaf_4def10::get(unsigned int flags) { cleanup(); if (flags & 1) release_4
 // Owner: VectorCursor<GraphicMenuItem *, DynamicVectorClass<GraphicMenuItem *>>, virtual slot 1 (vtable +0x4) (from RTTI/vtables).
 // Body: 14 bytes (frozen inventory bound).
 // Referenced from 8 sites (computed call, data).
-// Ghidra prototype: bool __fastcall FUN_004def90(int param_1)
+// Ghidra prototype: bool __fastcall VectorCursor_GraphicMenuItem_Boolean_Conversion_004def90(int param_1)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -297,7 +297,7 @@ void* Leaf_4def10::get(unsigned int flags) { cleanup(); if (flags & 1) release_4
 
 namespace seed_004def90 {
 
-bool __fastcall FUN_004def90(int cursor_address)
+bool __fastcall VectorCursor_GraphicMenuItem_Boolean_Conversion_004def90(int cursor_address)
 {
     return *(unsigned int *)(cursor_address + 8) < *(unsigned int *)(*(int *)(cursor_address + 4) + 0x10);
 }
@@ -320,7 +320,7 @@ bool __fastcall FUN_004def90(int cursor_address)
 
 namespace seed_004defa0 {
 
-extern void  FUN_00781d3b(unsigned int allocation_address);
+extern void  operator_delete_00781d3b(unsigned int allocation_address);
 extern "C" void* PTR_FUN_007a2b84;
 
 struct Owner_004defa0 { unsigned int * FUN_004defa0(unsigned char deletion_flags); };
@@ -330,7 +330,7 @@ unsigned int * Owner_004defa0::FUN_004defa0(unsigned char deletion_flags)
     unsigned int * object_words = (unsigned int *)this;
     *object_words = (unsigned int)(&PTR_FUN_007a2b84);
     if ((deletion_flags & 1) != 0) {
-        FUN_00781d3b((unsigned int)(object_words));
+        operator_delete_00781d3b((unsigned int)(object_words));
     }
     return object_words;
 }

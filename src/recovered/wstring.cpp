@@ -1260,12 +1260,12 @@ void WideString::Copy_Padded(unsigned short *buffer, unsigned size) const
 
 namespace seed_00770330 {
 
-extern void  FUN_00781d3b(unsigned int allocation_address);
+extern void  operator_delete_00781d3b(unsigned int allocation_address);
 
 void __fastcall FUN_00770330(int *string_words)
 {
     if (*string_words != 0) {
-        FUN_00781d3b((unsigned int)(*string_words));
+        operator_delete_00781d3b((unsigned int)(*string_words));
     }
     *string_words = 0;
     return;

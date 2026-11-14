@@ -1936,9 +1936,9 @@ void TeamClass::TMission_unknown_6bc1e0(ScriptMissionClass const &mission, bool 
 
 
 extern "C" unsigned int global_6bc210_a35db4;
-class Call_6bc210_0 {public: unsigned int target(unsigned int p0);};
-class Leaf_6bc210 { public: unsigned int get(unsigned int a1, unsigned int a2); };
-unsigned int Leaf_6bc210::get(unsigned int a1, unsigned int a2) { unsigned int r0 = ((Call_6bc210_0*)(global_6bc210_a35db4))->target((unsigned int)(0)); *(unsigned char*)(((unsigned int)this) + 0x80) = 1; return r0; }
+class Call_6bc210_0 {public: unsigned int Flag_To_Win_004e7ee0(unsigned int flag_argument);};
+class Leaf_6bc210 { public: unsigned int get(unsigned int unused_script_argument_1, unsigned int unused_script_argument_2); };
+unsigned int Leaf_6bc210::get(unsigned int unused_script_argument_1, unsigned int unused_script_argument_2) { unsigned int flag_result = ((Call_6bc210_0*)(global_6bc210_a35db4))->Flag_To_Win_004e7ee0((unsigned int)(0)); *(unsigned char*)(((unsigned int)this) + 0x80) = 1; return flag_result; }
 
 
 // void TeamClass::TMission_unknown_6bc250(ScriptMissionClass const &mission, bool unknown) (0x006BC250)
@@ -2107,14 +2107,14 @@ void TeamClass::TMission_unknown_6bc4c0(ScriptMissionClass const &mission, bool 
 
 extern "C" unsigned char data_6bc570_8324e0[];
 class Call_6bc570_0 {public: unsigned int target();};
-class Leaf_6bc570 { public: unsigned int get(unsigned int a1, unsigned int a2); };
-unsigned int Leaf_6bc570::get(unsigned int a1, unsigned int a2) { unsigned int r0 = ((Call_6bc570_0*)((unsigned int)data_6bc570_8324e0))->target(); *(unsigned char*)(((unsigned int)this) + 0x80) = 1; return r0; }
+class Leaf_6bc570 { public: unsigned int get(unsigned int unused_script_argument_1, unsigned int unused_script_argument_2); };
+unsigned int Leaf_6bc570::get(unsigned int unused_script_argument_1, unsigned int unused_script_argument_2) { unsigned int call_result = ((Call_6bc570_0*)((unsigned int)data_6bc570_8324e0))->target(); *(unsigned char*)(((unsigned int)this) + 0x80) = 1; return call_result; }
 
 
 extern "C" unsigned char data_6bc590_8324e0[];
 class Call_6bc590_0 {public: unsigned int target();};
-class Leaf_6bc590 { public: unsigned int get(unsigned int a1, unsigned int a2); };
-unsigned int Leaf_6bc590::get(unsigned int a1, unsigned int a2) { unsigned int r0 = ((Call_6bc590_0*)((unsigned int)data_6bc590_8324e0))->target(); *(unsigned char*)(((unsigned int)this) + 0x80) = 1; return r0; }
+class Leaf_6bc590 { public: unsigned int get(unsigned int unused_script_argument_1, unsigned int unused_script_argument_2); };
+unsigned int Leaf_6bc590::get(unsigned int unused_script_argument_1, unsigned int unused_script_argument_2) { unsigned int call_result = ((Call_6bc590_0*)((unsigned int)data_6bc590_8324e0))->target(); *(unsigned char*)(((unsigned int)this) + 0x80) = 1; return call_result; }
 
 
 // void TeamClass::TMission_unknown_6bc5b0(ScriptMissionClass const &mission, bool unknown) (0x006BC5B0)

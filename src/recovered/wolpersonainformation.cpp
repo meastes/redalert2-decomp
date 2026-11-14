@@ -314,7 +314,7 @@ extern "C" unsigned char data_7395b0_7af554[];
 class Call_7395b0_0 {public: unsigned int target();};
 class Call_7395b0_1 {public: unsigned int target();};
 class Leaf_7395b0 { public: unsigned int get(); };
-unsigned int Leaf_7395b0::get() { *(unsigned int*)(((unsigned int)this)) = (unsigned int)data_7395b0_7af554; unsigned int r0 = ((Call_7395b0_0*)(((unsigned int)this) + 0xc))->target(); unsigned int r1 = ((Call_7395b0_1*)((unsigned int)this))->target(); return r1; }
+unsigned int Leaf_7395b0::get() { *(unsigned int*)(((unsigned int)this)) = (unsigned int)data_7395b0_7af554; unsigned int unused_member_return = ((Call_7395b0_0*)(((unsigned int)this) + 0xc))->target(); unsigned int base_return = ((Call_7395b0_1*)((unsigned int)this))->target(); return base_return; }
 
 
 // void PlayerProfile::Save_007395d0(Wstring const &name) (0x007395D0): when the profile changed
@@ -414,8 +414,8 @@ void __fastcall Unknown_Persona_Stats_Text_00739a50(HWND window, bool clear)
 
 namespace seed_0073a0c0 {
 
-extern void __fastcall FUN_00639510(void);
-extern void  FUN_00781d3b(unsigned int allocation_address);
+extern void __fastcall rc_ptr_base_Destructor_00639510(void);
+extern void  operator_delete_00781d3b(unsigned int allocation_address);
 extern "C" void* PTR_FUN_007af54c;
 
 struct Owner_0073a0c0 { unsigned int * FUN_0073a0c0(unsigned char deletion_flags); };
@@ -424,9 +424,9 @@ unsigned int * Owner_0073a0c0::FUN_0073a0c0(unsigned char deletion_flags)
 {
     unsigned int * object_words = (unsigned int *)this;
     *object_words = (unsigned int)(&PTR_FUN_007af54c);
-    FUN_00639510();
+    rc_ptr_base_Destructor_00639510();
     if ((deletion_flags & 1) != 0) {
-        FUN_00781d3b((unsigned int)(object_words));
+        operator_delete_00781d3b((unsigned int)(object_words));
     }
     return object_words;
 }

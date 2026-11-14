@@ -1304,10 +1304,10 @@ SpeedType CCINIClass::Get_SpeedType(char const *section, char const *entry, Spee
 }
 
 
-class Call_46c460_0 {public: unsigned int target();};
-class Call_46c460_1 {public: unsigned int target(unsigned int p0, unsigned int p1, unsigned int p2);};
-class Leaf_46c460 { public: unsigned int get(unsigned int a1, unsigned int a2, unsigned int a3); };
-unsigned int Leaf_46c460::get(unsigned int a1, unsigned int a2, unsigned int a3) { unsigned int r0 = ((Call_46c460_0*)(a3))->target(); unsigned int r1 = ((Call_46c460_1*)((unsigned int)this))->target((unsigned int)(a1), (unsigned int)(a2), (unsigned int)(r0)); return r1; }
+class Call_46c460_0 {public: unsigned int Name_From_Speed_00482f60();};
+class Call_46c460_1 {public: unsigned int Put_String_0050e5f0(unsigned int target_section, unsigned int target_entry, unsigned int target_value);};
+class Leaf_46c460 { public: unsigned int get(unsigned int section_name, unsigned int entry_name, unsigned int speed); };
+unsigned int Leaf_46c460::get(unsigned int section_name, unsigned int entry_name, unsigned int speed) { unsigned int speed_name_address = ((Call_46c460_0*)(speed))->Name_From_Speed_00482f60(); unsigned int write_result = ((Call_46c460_1*)((unsigned int)this))->Put_String_0050e5f0((unsigned int)(section_name), (unsigned int)(entry_name), (unsigned int)(speed_name_address)); return write_result; }
 
 
 // CCINIClass::Get_LayerType (0x0046C490).
@@ -1323,10 +1323,10 @@ LayerType CCINIClass::Get_LayerType(char const *section, char const *entry, Laye
 }
 
 
-class Call_46c4f0_0 {public: unsigned int target();};
-class Call_46c4f0_1 {public: unsigned int target(unsigned int p0, unsigned int p1, unsigned int p2);};
-class Leaf_46c4f0 { public: unsigned int get(unsigned int a1, unsigned int a2, unsigned int a3); };
-unsigned int Leaf_46c4f0::get(unsigned int a1, unsigned int a2, unsigned int a3) { unsigned int r0 = ((Call_46c4f0_0*)(a3))->target(); unsigned int r1 = ((Call_46c4f0_1*)((unsigned int)this))->target((unsigned int)(a1), (unsigned int)(a2), (unsigned int)(r0)); return r1; }
+class Call_46c4f0_0 {public: unsigned int Name_From_Layer_00482fc0();};
+class Call_46c4f0_1 {public: unsigned int Put_String_0050e5f0(unsigned int target_section, unsigned int target_entry, unsigned int target_value);};
+class Leaf_46c4f0 { public: unsigned int get(unsigned int section_name, unsigned int entry_name, unsigned int layer); };
+unsigned int Leaf_46c4f0::get(unsigned int section_name, unsigned int entry_name, unsigned int layer) { unsigned int layer_name_address = ((Call_46c4f0_0*)(layer))->Name_From_Layer_00482fc0(); unsigned int write_result = ((Call_46c4f0_1*)((unsigned int)this))->Put_String_0050e5f0((unsigned int)(section_name), (unsigned int)(entry_name), (unsigned int)(layer_name_address)); return write_result; }
 
 
 // Get_Prerequisite_List (0x0046C520).

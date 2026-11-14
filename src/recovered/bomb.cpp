@@ -336,9 +336,9 @@ void BombListClass::Unknown_004361F0()
 // External references checked against complete original body operands.
 
 
-class Target_4361d0 { public: unsigned int target(unsigned int p0, unsigned int p1, unsigned int p2); };
-class Leaf_4361d0 { public: unsigned int get(unsigned int a1, unsigned int a2, unsigned int a3); };
-unsigned int Leaf_4361d0::get(unsigned int a1, unsigned int a2, unsigned int a3) { return ((Target_4361d0*)(a2))->target((unsigned int)(a1), (unsigned int)(a2), (unsigned int)(a3)); }
+class Target_4361d0 { public: unsigned int Save_004100c0(unsigned int target_object, unsigned int target_stream, unsigned int target_clear_dirty); };
+class Leaf_4361d0 { public: unsigned int get(unsigned int object_address, unsigned int stream_address, unsigned int clear_dirty); };
+unsigned int Leaf_4361d0::get(unsigned int object_address, unsigned int stream_address, unsigned int clear_dirty) { return ((Target_4361d0*)(stream_address))->Save_004100c0((unsigned int)(object_address), (unsigned int)(stream_address), (unsigned int)(clear_dirty)); }
 
 
 // 0x00436460: function not yet identified

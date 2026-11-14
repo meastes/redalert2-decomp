@@ -585,9 +585,9 @@ void DisplayClass::Unknown_00499970(Cell const &cell, bool set)
 }
 
 
-class Target_499a20 { public: unsigned int target(unsigned int p0, unsigned int p1); };
-class Leaf_499a20 { public: unsigned int get(unsigned int a1, unsigned int a2); };
-unsigned int Leaf_499a20::get(unsigned int a1, unsigned int a2) { return ((Target_499a20*)(this))->target((unsigned int)(a1), (unsigned int)(a2)); }
+class Target_499a20 { public: unsigned int AI_004e10c0(unsigned int target_input, unsigned int target_mouse_position); };
+class Leaf_499a20 { public: unsigned int get(unsigned int input_address, unsigned int mouse_position_address); };
+unsigned int Leaf_499a20::get(unsigned int input_address, unsigned int mouse_position_address) { return ((Target_499a20*)(this))->AI_004e10c0((unsigned int)(input_address), (unsigned int)(mouse_position_address)); }
 
 
 // void DisplayClass::Submit(ObjectClass *object) (0x00499A40)
@@ -935,10 +935,10 @@ bool DisplayClass::unknown_slot39(Cell const &cell, HouseClass *house)
 }
 
 
-class Call_49a5b0_0 {public: unsigned int target(unsigned int p0, unsigned int p1, unsigned int p2);};
-class Call_49a5b0_1 {public: unsigned int target();};
-class Leaf_49a5b0 { public: unsigned int get(unsigned int a1, unsigned int a2); };
-unsigned int Leaf_49a5b0::get(unsigned int a1, unsigned int a2) { unsigned int r0 = ((Call_49a5b0_0*)((unsigned int)this))->target((unsigned int)(a1), (unsigned int)(a2), (unsigned int)(0)); unsigned int r1 = ((Call_49a5b0_1*)(r0))->target(); return r1; }
+class Call_49a5b0_0 {public: unsigned int target(unsigned int forwarded_cell, unsigned int forwarded_point, unsigned int forwarded_flag);};
+class Call_49a5b0_1 {public: unsigned int Cell_Object_00471830();};
+class Leaf_49a5b0 { public: unsigned int get(unsigned int cell_address, unsigned int point_address); };
+unsigned int Leaf_49a5b0::get(unsigned int cell_address, unsigned int point_address) { unsigned int cell_result_address = ((Call_49a5b0_0*)((unsigned int)this))->target((unsigned int)(cell_address), (unsigned int)(point_address), (unsigned int)(0)); unsigned int object_result_address = ((Call_49a5b0_1*)(cell_result_address))->Cell_Object_00471830(); return object_result_address; }
 
 
 // ObjectClass *DisplayClass::Next_Object(ObjectClass *object) (0x0049A5D0)

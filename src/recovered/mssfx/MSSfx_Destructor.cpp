@@ -11,12 +11,12 @@
 
 namespace seed_005b69e0 {
 
-extern void  FUN_007825e8(LPVOID allocation_address);
+extern void  free_007825e8(LPVOID allocation_address);
 
 void __fastcall MSSfx_Destructor_005b69e0(int *object_words)
 {
     if (*object_words != 0) {
-        FUN_007825e8((LPVOID)(*object_words));
+        free_007825e8((LPVOID)(*object_words));
     }
     return;
 }

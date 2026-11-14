@@ -163,7 +163,7 @@ bool GraphicMenuShortcutItem::Is_Input_Key(int key)
 // Owner: VectorCursor<unsigned int, DynamicVectorClass<unsigned int>>, virtual slot 1 (vtable +0x4) (from RTTI/vtables).
 // Body: 14 bytes (frozen inventory bound).
 // Referenced from 4 sites (computed call, data).
-// Ghidra prototype: bool __fastcall FUN_004e0690(int param_1)
+// Ghidra prototype: bool __fastcall VectorCursor_UnsignedInt_Boolean_Conversion_004e0690(int param_1)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -171,7 +171,7 @@ bool GraphicMenuShortcutItem::Is_Input_Key(int key)
 
 namespace seed_004e0690 {
 
-bool __fastcall FUN_004e0690(int cursor_address)
+bool __fastcall VectorCursor_UnsignedInt_Boolean_Conversion_004e0690(int cursor_address)
 {
     return *(unsigned int *)(cursor_address + 8) < *(unsigned int *)(*(int *)(cursor_address + 4) + 0x10);
 }
@@ -194,7 +194,7 @@ bool __fastcall FUN_004e0690(int cursor_address)
 
 namespace seed_004e06a0 {
 
-extern void  FUN_00781d3b(unsigned int allocation_address);
+extern void  operator_delete_00781d3b(unsigned int allocation_address);
 extern "C" void* PTR_FUN_007a2c08;
 
 struct Owner_004e06a0 { unsigned int * FUN_004e06a0(unsigned char deletion_flags); };
@@ -204,7 +204,7 @@ unsigned int * Owner_004e06a0::FUN_004e06a0(unsigned char deletion_flags)
     unsigned int * object_words = (unsigned int *)this;
     *object_words = (unsigned int)(&PTR_FUN_007a2c08);
     if ((deletion_flags & 1) != 0) {
-        FUN_00781d3b((unsigned int)(object_words));
+        operator_delete_00781d3b((unsigned int)(object_words));
     }
     return object_words;
 }

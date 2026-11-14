@@ -290,7 +290,7 @@ void ObjectTypeClass::One_Time()
 
 namespace seed_005d5f40 {
 
-extern void  FUN_00781d3b(unsigned int allocation_address);
+extern void  operator_delete_00781d3b(unsigned int allocation_address);
 extern "C" unsigned int DAT_00a72fe0;
 extern "C" unsigned int DAT_00a72fe4;
 extern "C" unsigned int DAT_00a72fe8;
@@ -303,19 +303,19 @@ extern "C" char DAT_00a72ff3;
 void  FUN_005d5f40(void)
 {
     if (DAT_00a72ff0 != '\0') {
-        FUN_00781d3b((unsigned int)(DAT_00a72fe0));
+        operator_delete_00781d3b((unsigned int)(DAT_00a72fe0));
         DAT_00a72ff0 = '\0';
     }
     if (DAT_00a72ff1 != '\0') {
-        FUN_00781d3b((unsigned int)(DAT_00a72fe4));
+        operator_delete_00781d3b((unsigned int)(DAT_00a72fe4));
         DAT_00a72ff1 = '\0';
     }
     if (DAT_00a72ff2 != '\0') {
-        FUN_00781d3b((unsigned int)(DAT_00a72fe8));
+        operator_delete_00781d3b((unsigned int)(DAT_00a72fe8));
         DAT_00a72ff2 = '\0';
     }
     if (DAT_00a72ff3 != '\0') {
-        FUN_00781d3b((unsigned int)(DAT_00a72fec));
+        operator_delete_00781d3b((unsigned int)(DAT_00a72fec));
         DAT_00a72ff3 = '\0';
     }
     return;

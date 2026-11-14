@@ -18,7 +18,7 @@
 
 namespace seed_005ab5a0 {
 
-struct Callee_005b6cd0 { void FUN_005b6cd0(unsigned int name_address, unsigned int description_address, unsigned int ini_name_address, unsigned int unknown_string_address, unsigned char unknown_flag, unsigned int mode_id); };
+struct Callee_005b6cd0 { void MultiplayerGameMode_Constructor_005b6cd0(unsigned int name_address, unsigned int description_address, unsigned int ini_name_address, unsigned int unknown_string_address, unsigned char unknown_flag, unsigned int mode_id); };
 extern "C" void* PTR_FUN_007a6b8c;
 
 struct Owner_005ab5a0 { unsigned int * FUN_005ab5a0(unsigned int name_address, unsigned int description_address, unsigned int ini_name_address, unsigned int unknown_string_address, unsigned int unknown_flag, unsigned int mode_id); };
@@ -26,7 +26,7 @@ struct Owner_005ab5a0 { unsigned int * FUN_005ab5a0(unsigned int name_address, u
 unsigned int * Owner_005ab5a0::FUN_005ab5a0(unsigned int name_address, unsigned int description_address, unsigned int ini_name_address, unsigned int unknown_string_address, unsigned int unknown_flag, unsigned int mode_id)
 {
     unsigned int * object_words = (unsigned int *)this;
-    ((Callee_005b6cd0*)(object_words))->FUN_005b6cd0((unsigned int)(name_address), (unsigned int)(description_address), (unsigned int)(ini_name_address), (unsigned int)(unknown_string_address), (unsigned char)(unknown_flag), (unsigned int)(mode_id));
+    ((Callee_005b6cd0*)(object_words))->MultiplayerGameMode_Constructor_005b6cd0((unsigned int)(name_address), (unsigned int)(description_address), (unsigned int)(ini_name_address), (unsigned int)(unknown_string_address), (unsigned char)(unknown_flag), (unsigned int)(mode_id));
     *object_words = (unsigned int)(&PTR_FUN_007a6b8c);
     return object_words;
 }
@@ -47,13 +47,13 @@ unsigned int * Owner_005ab5a0::FUN_005ab5a0(unsigned int name_address, unsigned 
 
 namespace seed_005ab5e0 {
 
-extern void __fastcall FUN_005b6e20(void);
+extern void __fastcall MultiplayerGameMode_Destructor_005b6e20(void);
 extern "C" void* PTR_FUN_007a6b8c;
 
 void __fastcall FUN_005ab5e0(unsigned int *object_words)
 {
     *object_words = (unsigned int)(&PTR_FUN_007a6b8c);
-    FUN_005b6e20();
+    MultiplayerGameMode_Destructor_005b6e20();
     return;
 }
 
@@ -265,8 +265,8 @@ bool MultiplayerSiege::SpawnBaseUnits(HouseClass *house, int *money)
 
 namespace seed_005abba0 {
 
-extern void __fastcall FUN_005b6e20(void);
-extern void  FUN_00781d3b(unsigned int allocation_address);
+extern void __fastcall MultiplayerGameMode_Destructor_005b6e20(void);
+extern void  operator_delete_00781d3b(unsigned int allocation_address);
 extern "C" void* PTR_FUN_007a6b8c;
 
 struct Owner_005abba0 { unsigned int * FUN_005abba0(unsigned char deletion_flags); };
@@ -275,9 +275,9 @@ unsigned int * Owner_005abba0::FUN_005abba0(unsigned char deletion_flags)
 {
     unsigned int * object_words = (unsigned int *)this;
     *object_words = (unsigned int)(&PTR_FUN_007a6b8c);
-    FUN_005b6e20();
+    MultiplayerGameMode_Destructor_005b6e20();
     if ((deletion_flags & 1) != 0) {
-        FUN_00781d3b((unsigned int)(object_words));
+        operator_delete_00781d3b((unsigned int)(object_words));
     }
     return object_words;
 }

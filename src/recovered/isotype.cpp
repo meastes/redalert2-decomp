@@ -2179,12 +2179,12 @@ bool IsometricTileTypeClass::Get_Tile_Image(int tile, unsigned char **buffer, in
 
 namespace seed_0052df40 {
 
-void __fastcall FUN_0052df40(int param_1, int param_2, int *param_3, int *param_4)
+void __fastcall FUN_0052df40(int grid_x, int grid_y, int *pixel_x, int *pixel_y)
 {
-    *param_3 = (param_1 * 0x3c) / 2;
-    *param_4 = (param_1 * 0x1e) / 2;
-    *param_3 = *param_3 + (param_2 * -0x3c) / 2;
-    *param_4 = *param_4 + (param_2 * 0x1e) / 2;
+    *pixel_x = (grid_x * 0x3c) / 2;
+    *pixel_y = (grid_x * 0x1e) / 2;
+    *pixel_x = *pixel_x + (grid_y * -0x3c) / 2;
+    *pixel_y = *pixel_y + (grid_y * 0x1e) / 2;
     return;
 }
 
@@ -2250,7 +2250,7 @@ ObjectClass *IsometricTileTypeClass::Create_One_Of(HouseClass *house) const
 
 namespace seed_0052e070 {
 
-extern "C" unsigned int DAT_00a52eb0;
+extern "C" unsigned int SlopeZShapes_00a52eb0;
 extern "C" unsigned int DAT_00a52eb4;
 extern "C" unsigned int DAT_00a52eb8;
 extern "C" unsigned int DAT_00a52ebc;
@@ -2259,7 +2259,7 @@ extern "C" unsigned int DAT_00a6e38c;
 void  FUN_0052e070(void)
 {
     DAT_00a6e38c = 0;
-    DAT_00a52eb0 = 0;
+    SlopeZShapes_00a52eb0 = 0;
     DAT_00a52eb4 = 0;
     DAT_00a52eb8 = 0;
     DAT_00a52ebc = 0;
@@ -2489,15 +2489,15 @@ void* Leaf_52e6b0::get(unsigned int flags) { cleanup(); if (flags & 1) release_5
 
 namespace seed_0052e700 {
 
-struct Owner_0052e700 { unsigned int FUN_0052e700(int param_2); };
+struct Owner_0052e700 { unsigned int FUN_0052e700(int element_address); };
 
-unsigned int Owner_0052e700::FUN_0052e700(int param_2)
+unsigned int Owner_0052e700::FUN_0052e700(int element_address)
 {
-    int param_1 = (int)this;
-    if (*(char *)(param_1 + 0xc) == '\0') {
+    int vector_address = (int)this;
+    if (*(char *)(vector_address + 0xc) == '\0') {
         return 0;
     }
-    return (unsigned int)(param_2 - *(int *)(param_1 + 4)) >> 2;
+    return (unsigned int)(element_address - *(int *)(vector_address + 4)) >> 2;
 }
 
 }  // namespace seed_0052e700

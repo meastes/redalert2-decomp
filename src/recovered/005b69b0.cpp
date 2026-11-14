@@ -14,7 +14,7 @@
 namespace seed_005b69b0 {
 
 extern unsigned int  FUN_00406f30(void);
-extern unsigned int  FUN_0078d816(char *source_text);
+extern unsigned int  strdup_0078d816(char *source_text);
 
 struct Owner_005b69b0 { unsigned int * MSSfx_Constructor_005b69b0(unsigned int source_address, int unused_1); };
 
@@ -29,7 +29,7 @@ unsigned int * Owner_005b69b0::MSSfx_Constructor_005b69b0(unsigned int source_ad
     *(unsigned char *)(object_words + 2) = 0;
     audio_status = (int)(FUN_00406f30());
     if (audio_status != 0) {
-        sample_value = (unsigned int)(FUN_0078d816((char *)(source_address)));
+        sample_value = (unsigned int)(strdup_0078d816((char *)(source_address)));
         *object_words = sample_value;
     }
     return object_words;

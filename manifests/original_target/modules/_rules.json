@@ -151,13 +151,13 @@
    "padding_bytes": 15
   },
   {
-   "symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z",
+   "symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z",
    "entry": "0040e180",
    "body_bytes": 75,
    "padding_bytes": 5
   },
   {
-   "symbol": "?FUN_0040e1d0@Owner_0040e1d0@seed_0040e1d0@@QAEPAIE@Z",
+   "symbol": "?GenericNode_Scalar_Deleting_Destructor_0040e1d0@Owner_0040e1d0@seed_0040e1d0@@QAEPAIE@Z",
    "entry": "0040e1d0",
    "body_bytes": 69,
    "padding_bytes": 11
@@ -965,12 +965,12 @@
    "address": "0040e1d0"
   },
   {
-   "symbol": "?FUN_00781d3b@seed_0040e1d0@@YAXI@Z",
-   "address": "00781d3b"
-  },
-  {
    "symbol": "?cleanup@Leaf_40e2e0@@QAEXXZ",
    "address": "0050b8d0"
+  },
+  {
+   "symbol": "?operator_delete_00781d3b@seed_0040e1d0@@YAXI@Z",
+   "address": "00781d3b"
   },
   {
    "symbol": "?unknown_math_4ba520@@YANN@Z",
@@ -985,7 +985,7 @@
    "address": "004ba410"
   },
   {
-   "symbol": "_PTR_FUN_0079aafc",
+   "symbol": "_GenericNode_VTable_0079aafc",
    "address": "0079aafc"
   },
   {
@@ -1086,13 +1086,13 @@
    "site": "0050e5f0",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   },
   {
    "site": "0050e5f0",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   },
   {
    "site": "00725de0",
@@ -1110,7 +1110,7 @@
    "site": "00725de0",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   },
   {
    "site": "007263b0",
@@ -1128,7 +1128,7 @@
    "site": "007263b0",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   },
   {
    "site": "00726580",
@@ -1146,7 +1146,7 @@
    "site": "00726580",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   },
   {
    "site": "007267c0",
@@ -1164,31 +1164,31 @@
    "site": "007267c0",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   },
   {
    "site": "007390b0",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   },
   {
    "site": "00739330",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   },
   {
    "site": "007391f0",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   },
   {
    "site": "00739470",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   },
   {
    "site": "00738880",
@@ -1206,43 +1206,43 @@
    "site": "00738880",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   },
   {
    "site": "00738cb0",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   },
   {
    "site": "00738da0",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   },
   {
    "site": "00738eb0",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   },
   {
    "site": "00738fa0",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   },
   {
    "site": "00578f00",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   },
   {
    "site": "005791c0",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   },
   {
    "site": "005794e0",
@@ -1260,7 +1260,7 @@
    "site": "005794e0",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   },
   {
    "site": "006433a0",
@@ -1272,7 +1272,7 @@
    "site": "006433a0",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   },
   {
    "site": "005a2800",
@@ -1290,7 +1290,7 @@
    "site": "005a2800",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   },
   {
    "site": "005c6600",
@@ -1308,7 +1308,7 @@
    "site": "005c6600",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   },
   {
    "site": "004de260",
@@ -1320,7 +1320,7 @@
    "site": "004de260",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   },
   {
    "site": "00744090",
@@ -1338,7 +1338,7 @@
    "site": "00744090",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   },
   {
    "site": "005b7840",
@@ -1350,13 +1350,13 @@
    "site": "005b7840",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   },
   {
    "site": "007395d0",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   },
   {
    "site": "00529870",
@@ -1374,7 +1374,7 @@
    "site": "00529870",
    "target": "0040e180",
    "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
-   "module_symbol": "?FUN_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
+   "module_symbol": "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z"
   }
  ],
  "stand_in_reference_count": 50,

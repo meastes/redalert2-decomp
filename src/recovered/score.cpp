@@ -1011,7 +1011,7 @@ void ScoreAnimClass::Pause()
 
 namespace seed_00668390 {
 
-extern void  FUN_00781d3b(unsigned int allocation_address);
+extern void  operator_delete_00781d3b(unsigned int allocation_address);
 extern "C" void* PTR_FUN_007a928c;
 
 struct Owner_00668390 { unsigned int * FUN_00668390(unsigned char deletion_flags); };
@@ -1021,7 +1021,7 @@ unsigned int * Owner_00668390::FUN_00668390(unsigned char deletion_flags)
     unsigned int * object_words = (unsigned int *)this;
     *object_words = (unsigned int)(&PTR_FUN_007a928c);
     if ((deletion_flags & 1) != 0) {
-        FUN_00781d3b((unsigned int)(object_words));
+        operator_delete_00781d3b((unsigned int)(object_words));
     }
     return object_words;
 }

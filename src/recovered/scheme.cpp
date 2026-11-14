@@ -169,7 +169,7 @@ void ColorScheme::Unknown_00663B40(PaletteClass *unknown_a, PaletteClass *palett
 
 namespace seed_00663c40 {
 
-extern unsigned int  FUN_00781f20(unsigned char *first_buffer, unsigned char *second_buffer);
+extern unsigned int  stricmp_00781f20(unsigned char *first_buffer, unsigned char *second_buffer);
 
 struct Owner_00663c40 { bool FUN_00663c40(int other_scheme_address); };
 
@@ -178,7 +178,7 @@ bool Owner_00663c40::FUN_00663c40(int other_scheme_address)
     int scheme_address = (int)this;
     int comparison_result;
 
-    comparison_result = (int)(FUN_00781f20((unsigned char *)(*(unsigned int *)(scheme_address + 0x304)), (unsigned char *)(*(unsigned int *)(other_scheme_address + 0x304))));
+    comparison_result = (int)(stricmp_00781f20((unsigned char *)(*(unsigned int *)(scheme_address + 0x304)), (unsigned char *)(*(unsigned int *)(other_scheme_address + 0x304))));
     return comparison_result == 0;
 }
 
@@ -197,7 +197,7 @@ bool Owner_00663c40::FUN_00663c40(int other_scheme_address)
 
 namespace seed_00663c70 {
 
-extern unsigned int  FUN_00781f20(unsigned char *first_buffer, unsigned char *second_buffer);
+extern unsigned int  stricmp_00781f20(unsigned char *first_buffer, unsigned char *second_buffer);
 
 struct Owner_00663c70 { bool FUN_00663c70(int other_scheme_address); };
 
@@ -206,7 +206,7 @@ bool Owner_00663c70::FUN_00663c70(int other_scheme_address)
     int scheme_address = (int)this;
     int comparison_result;
 
-    comparison_result = (int)(FUN_00781f20((unsigned char *)(*(unsigned int *)(scheme_address + 0x304)), (unsigned char *)(*(unsigned int *)(other_scheme_address + 0x304))));
+    comparison_result = (int)(stricmp_00781f20((unsigned char *)(*(unsigned int *)(scheme_address + 0x304)), (unsigned char *)(*(unsigned int *)(other_scheme_address + 0x304))));
     return comparison_result != 0;
 }
 

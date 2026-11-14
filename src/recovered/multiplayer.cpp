@@ -960,7 +960,7 @@ void MultiplayerGameMode::unknown_delete_modes_5b8d40()
 
 namespace seed_005b8ec0 {
 
-extern void  FUN_00781d3b(unsigned int allocation_address);
+extern void  operator_delete_00781d3b(unsigned int allocation_address);
 extern "C" void* PTR_FUN_007a72b0;
 
 struct Owner_005b8ec0 { unsigned int * FUN_005b8ec0(unsigned char deletion_flags); };
@@ -970,7 +970,7 @@ unsigned int * Owner_005b8ec0::FUN_005b8ec0(unsigned char deletion_flags)
     unsigned int * object_words = (unsigned int *)this;
     *object_words = (unsigned int)(&PTR_FUN_007a72b0);
     if ((deletion_flags & 1) != 0) {
-        FUN_00781d3b((unsigned int)(object_words));
+        operator_delete_00781d3b((unsigned int)(object_words));
     }
     return object_words;
 }
@@ -1023,13 +1023,13 @@ unsigned int * Owner_005b8ec0::FUN_005b8ec0(unsigned char deletion_flags)
 
 namespace seed_005b9000 {
 
-extern void  FUN_00781d3b(unsigned int allocation_address);
+extern void  operator_delete_00781d3b(unsigned int allocation_address);
 
 void __fastcall Clear_005b9000(int vector_address)
 {
     *(unsigned int *)(vector_address + 0x10) = 0;
     if ((*(int *)(vector_address + 4) != 0) && (*(char *)(vector_address + 0xd) != '\0')) {
-        FUN_00781d3b((unsigned int)(*(int *)(vector_address + 4)));
+        operator_delete_00781d3b((unsigned int)(*(int *)(vector_address + 4)));
         *(unsigned int *)(vector_address + 4) = 0;
     }
     *(unsigned char *)(vector_address + 0xd) = 0;

@@ -10,21 +10,21 @@
 #include <stdint.h>
 struct ra2_pair { long long lo, hi; };   // a 16-byte struct returned in x0/x1
 
-// 0x00401000 Call_402190_0::target() -> AudioLevelSet::Init() [seed view result 0]
+// 0x00401000 Call_402190_0::Init_00401000() -> AudioLevelSet::Init() [seed view result 0]
 extern "C" void ra2_adapter_target_0000(void *) __asm__("__ZN13AudioLevelSet4InitEv");
-extern "C" int ra2_adapter_0000(void * a0) __asm__("__ZN13Call_402190_06targetEv");
+extern "C" int ra2_adapter_0000(void * a0) __asm__("__ZN13Call_402190_013Init_00401000Ev");
 extern "C" int ra2_adapter_0000(void * a0) { ra2_adapter_target_0000(a0); return 0; }
-// 0x00401000 Call_402940_2::target() -> AudioLevelSet::Init() [seed view result 0]
+// 0x00401000 Call_402940_2::Init_00401000() -> AudioLevelSet::Init() [seed view result 0]
 extern "C" void ra2_adapter_target_0001(void *) __asm__("__ZN13AudioLevelSet4InitEv");
-extern "C" int ra2_adapter_0001(void * a0) __asm__("__ZN13Call_402940_26targetEv");
+extern "C" int ra2_adapter_0001(void * a0) __asm__("__ZN13Call_402940_213Init_00401000Ev");
 extern "C" int ra2_adapter_0001(void * a0) { ra2_adapter_target_0001(a0); return 0; }
-// 0x004071F0 Call_402940_0::target() -> Audio_List_Init(AudioListNode*) [seed view result 0]
+// 0x004071F0 Call_402940_0::Audio_List_Init_004071f0() -> Audio_List_Init(AudioListNode*) [seed view result 0]
 extern "C" void ra2_adapter_target_0002(void *) __asm__("__Z15Audio_List_InitP13AudioListNode");
-extern "C" int ra2_adapter_0002(void * a0) __asm__("__ZN13Call_402940_06targetEv");
+extern "C" int ra2_adapter_0002(void * a0) __asm__("__ZN13Call_402940_024Audio_List_Init_004071f0Ev");
 extern "C" int ra2_adapter_0002(void * a0) { ra2_adapter_target_0002(a0); return 0; }
-// 0x004071F0 Call_402940_1::target() -> Audio_List_Init(AudioListNode*) [seed view result 0]
+// 0x004071F0 Call_402940_1::Audio_List_Init_004071f0() -> Audio_List_Init(AudioListNode*) [seed view result 0]
 extern "C" void ra2_adapter_target_0003(void *) __asm__("__Z15Audio_List_InitP13AudioListNode");
-extern "C" int ra2_adapter_0003(void * a0) __asm__("__ZN13Call_402940_16targetEv");
+extern "C" int ra2_adapter_0003(void * a0) __asm__("__ZN13Call_402940_124Audio_List_Init_004071f0Ev");
 extern "C" int ra2_adapter_0003(void * a0) { ra2_adapter_target_0003(a0); return 0; }
 // 0x00411050 Unknown8315B4::Unknown_00411050(int) -> ABuffer::Fill(unsigned short) [width]
 extern "C" void ra2_adapter_target_0004(void *, unsigned short) __asm__("__ZN7ZBuffer4FillEt");
@@ -62,13 +62,13 @@ extern "C" bool ra2_adapter_0011(void * a0, int a1, int a2, int a3, int a4, int 
 extern "C" int ra2_adapter_target_0012(void *, int, int, bool) __asm__("__ZN10HouseClass18Abandon_ProductionEiib");
 extern "C" void ra2_adapter_0012(void * a0, int a1, int a2, int a3) __asm__("__ZN10HouseClass19unknown_func_4e64f0Eiii");
 extern "C" void ra2_adapter_0012(void * a0, int a1, int a2, int a3) { ra2_adapter_target_0012(a0, a1, a2, (((unsigned int)(int)a3 & 0xFFu) != 0)); }
-// 0x004E7EE0 Call_6bc210_0::target(unsigned int) -> HouseClass::Flag_To_Win(bool) [return width, width]
+// 0x004E7EE0 Call_6bc210_0::Flag_To_Win_004e7ee0(unsigned int) -> HouseClass::Flag_To_Win(bool) [return width, width]
 extern "C" bool ra2_adapter_target_0013(void *, bool) __asm__("__ZN10HouseClass11Flag_To_WinEb");
-extern "C" int ra2_adapter_0013(void * a0, int a1) __asm__("__ZN13Call_6bc210_06targetEj");
+extern "C" int ra2_adapter_0013(void * a0, int a1) __asm__("__ZN13Call_6bc210_020Flag_To_Win_004e7ee0Ej");
 extern "C" int ra2_adapter_0013(void * a0, int a1) { return (int)(unsigned int)(int)ra2_adapter_target_0013(a0, (((unsigned int)(int)a1 & 0xFFu) != 0)); }
-// 0x004E80D0 Call_6bc230_0::target(unsigned int) -> HouseClass::Flag_To_Lose(bool) [return width, width]
+// 0x004E80D0 Call_6bc230_0::Flag_To_Lose_004e80d0(unsigned int) -> HouseClass::Flag_To_Lose(bool) [return width, width]
 extern "C" bool ra2_adapter_target_0014(void *, bool) __asm__("__ZN10HouseClass12Flag_To_LoseEb");
-extern "C" int ra2_adapter_0014(void * a0, int a1) __asm__("__ZN13Call_6bc230_06targetEj");
+extern "C" int ra2_adapter_0014(void * a0, int a1) __asm__("__ZN13Call_6bc230_021Flag_To_Lose_004e80d0Ej");
 extern "C" int ra2_adapter_0014(void * a0, int a1) { return (int)(unsigned int)(int)ra2_adapter_target_0014(a0, (((unsigned int)(int)a1 & 0xFFu) != 0)); }
 // 0x0051FC30 Is_Storm_Pending_Bool_0051FC30() -> Is_Storm_Pending_0051FC30() [return width]
 extern "C" int ra2_adapter_target_0015(void) __asm__("__Z25Is_Storm_Pending_0051FC30v");
@@ -106,13 +106,13 @@ extern "C" int ra2_adapter_0022(void * a0, void * a1, int a2) { return ra2_adapt
 extern "C" void ra2_adapter_target_0023(void) __asm__("__Z19Fixup_Cliff_Cornersv");
 extern "C" void ra2_adapter_0023(void * a0) __asm__("__ZN17MapGeneratorClass19Fixup_Cliff_CornersEv");
 extern "C" void ra2_adapter_0023(void * a0) { ra2_adapter_target_0023(); }
-// 0x0059F170 Target_6f6750::target(unsigned int, unsigned int) -> MouseClass::Get_Mouse_Start_Frame(int, bool) const [width]
+// 0x0059F170 Target_6f6750::Get_Mouse_Start_Frame_0059f170(unsigned int, unsigned int) -> MouseClass::Get_Mouse_Start_Frame(int, bool) const [width]
 extern "C" int ra2_adapter_target_0024(void *, int, bool) __asm__("__ZNK10MouseClass21Get_Mouse_Start_FrameEib");
-extern "C" int ra2_adapter_0024(void * a0, int a1, int a2) __asm__("__ZN13Target_6f67506targetEjj");
+extern "C" int ra2_adapter_0024(void * a0, int a1, int a2) __asm__("__ZN13Target_6f675030Get_Mouse_Start_Frame_0059f170Ejj");
 extern "C" int ra2_adapter_0024(void * a0, int a1, int a2) { return ra2_adapter_target_0024(a0, a1, (((unsigned int)(int)a2 & 0xFFu) != 0)); }
-// 0x0059F170 Target_6f6760::target(unsigned int, unsigned int) -> MouseClass::Get_Mouse_Start_Frame(int, bool) const [width]
+// 0x0059F170 Target_6f6760::Get_Mouse_Start_Frame_0059f170(unsigned int, unsigned int) -> MouseClass::Get_Mouse_Start_Frame(int, bool) const [width]
 extern "C" int ra2_adapter_target_0025(void *, int, bool) __asm__("__ZNK10MouseClass21Get_Mouse_Start_FrameEib");
-extern "C" int ra2_adapter_0025(void * a0, int a1, int a2) __asm__("__ZN13Target_6f67606targetEjj");
+extern "C" int ra2_adapter_0025(void * a0, int a1, int a2) __asm__("__ZN13Target_6f676030Get_Mouse_Start_Frame_0059f170Ejj");
 extern "C" int ra2_adapter_0025(void * a0, int a1, int a2) { return ra2_adapter_target_0025(a0, a1, (((unsigned int)(int)a2 & 0xFFu) != 0)); }
 // 0x0059F250 seed_006816b0::Callee_0059f250::Override_Mouse_Shape_0059f250(int, char) -> MouseClass::Override_Mouse_Shape(int, bool) [return width, width]
 extern "C" bool ra2_adapter_target_0026(void *, int, bool) __asm__("__ZN10MouseClass20Override_Mouse_ShapeEib");
@@ -130,9 +130,9 @@ extern "C" void ra2_adapter_0028(int a0, int a1, int a2, int a3, int a4) { ra2_a
 extern "C" void ra2_adapter_target_0029(void *, int, int, int, int, int, int, int, bool, int, int, int) __asm__("__ZN16MessageListClass4InitEiiiiiiibiii");
 extern "C" void ra2_adapter_0029(void * a0, int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11) __asm__("__ZN19UnknownObjectA3DC7016Unknown_005B4C60Eiiiiiiiiiii");
 extern "C" void ra2_adapter_0029(void * a0, int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11) { ra2_adapter_target_0029(a0, a1, a2, a3, a4, a5, a6, a7, (((unsigned int)(int)a8 & 0xFFu) != 0), a9, a10, a11); }
-// 0x005B75D0 Target_5a3f70::target(unsigned int, unsigned int) -> MultiplayerGameMode::PopulateTeamDropdownForPlayer(HWND__*, int) [handle, seed view result 0]
+// 0x005B75D0 Target_5a3f70::PopulateTeamDropdownForPlayer_005b75d0(unsigned int, unsigned int) -> MultiplayerGameMode::PopulateTeamDropdownForPlayer(HWND__*, int) [handle, seed view result 0]
 extern "C" void ra2_adapter_target_0030(void *, void *, int) __asm__("__ZN19MultiplayerGameMode29PopulateTeamDropdownForPlayerEP6HWND__i");
-extern "C" int ra2_adapter_0030(void * a0, int a1, int a2) __asm__("__ZN13Target_5a3f706targetEjj");
+extern "C" int ra2_adapter_0030(void * a0, int a1, int a2) __asm__("__ZN13Target_5a3f7038PopulateTeamDropdownForPlayer_005b75d0Ejj");
 extern "C" int ra2_adapter_0030(void * a0, int a1, int a2) { ra2_adapter_target_0030(a0, (void *)(uintptr_t)(unsigned int)a1, a2); return 0; }
 // 0x005B9B60 Target_5aa800::target(unsigned int) -> MultiplayerTeam::IsTeamIncluded(int) [return width]
 extern "C" bool ra2_adapter_target_0031(void *, int) __asm__("__ZN15MultiplayerTeam14IsTeamIncludedEi");
@@ -202,13 +202,13 @@ extern "C" void ra2_adapter_0046(void * a0, signed char a1) { ra2_adapter_target
 extern "C" void ra2_adapter_target_0047(void *, signed char) __asm__("__Z35Handle_Matchmaking_Command_0075b910PKcc");
 extern "C" void ra2_adapter_0047(void * a0, bool a1) __asm__("__Z16Unknown_0075B910PKcb");
 extern "C" void ra2_adapter_0047(void * a0, bool a1) { ra2_adapter_target_0047(a0, (signed char)(unsigned int)(int)a1); }
-// 0x00770110 Call_7701b0_0::target(unsigned int) -> WideString::Remove_Character(unsigned short) [return width, width]
+// 0x00770110 Call_7701b0_0::Remove_Character_00770110(unsigned int) -> WideString::Remove_Character(unsigned short) [return width, width]
 extern "C" bool ra2_adapter_target_0048(void *, unsigned short) __asm__("__ZN10WideString16Remove_CharacterEt");
-extern "C" int ra2_adapter_0048(void * a0, int a1) __asm__("__ZN13Call_7701b0_06targetEj");
+extern "C" int ra2_adapter_0048(void * a0, int a1) __asm__("__ZN13Call_7701b0_025Remove_Character_00770110Ej");
 extern "C" int ra2_adapter_0048(void * a0, int a1) { return (int)(unsigned int)(int)ra2_adapter_target_0048(a0, (unsigned short)(unsigned int)(int)a1); }
-// 0x00770110 Call_7701b0_1::target(unsigned int) -> WideString::Remove_Character(unsigned short) [return width, width]
+// 0x00770110 Call_7701b0_1::Remove_Character_00770110(unsigned int) -> WideString::Remove_Character(unsigned short) [return width, width]
 extern "C" bool ra2_adapter_target_0049(void *, unsigned short) __asm__("__ZN10WideString16Remove_CharacterEt");
-extern "C" int ra2_adapter_0049(void * a0, int a1) __asm__("__ZN13Call_7701b0_16targetEj");
+extern "C" int ra2_adapter_0049(void * a0, int a1) __asm__("__ZN13Call_7701b0_125Remove_Character_00770110Ej");
 extern "C" int ra2_adapter_0049(void * a0, int a1) { return (int)(unsigned int)(int)ra2_adapter_target_0049(a0, (unsigned short)(unsigned int)(int)a1); }
 // 0x00776160 Unknown839C6C::Unknown_00776160(int) -> ZBuffer::Fill(unsigned short) [width]
 extern "C" void ra2_adapter_target_0050(void *, unsigned short) __asm__("__ZN7ABuffer4FillEt");

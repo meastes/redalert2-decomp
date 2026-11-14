@@ -1570,18 +1570,18 @@ unsigned int Leaf_6328d0::get(unsigned int type_address) { unsigned int radar_ad
 void RadarClass::Radar_Cell(Cell const &cell)
 {
     if (unknown_1218 != 0) {
-        Rect r1 = Cell_Radar_Rect(cell);
-        r1 = Intersect(r1, Rect(0, 0, RadarCellWidth, RadarCellHeight));
+        Rect clipped_cell_radar_rect = Cell_Radar_Rect(cell);
+        clipped_cell_radar_rect = Intersect(clipped_cell_radar_rect, Rect(0, 0, RadarCellWidth, RadarCellHeight));
         int swidth = unknown_1218->Get_Width();
         int sheight = unknown_1218->Get_Height();
-        if (r1.Is_Valid()) {
-            int zx = (int)(r1.X * unknown_1484);
+        if (clipped_cell_radar_rect.Is_Valid()) {
+            int zx = (int)(clipped_cell_radar_rect.X * unknown_1484);
             int startx = (zx - 1 < 0) ? 0 : zx - 1;
-            int ex = (int)((double)(r1.X + r1.Width) * unknown_1484) + 1;
+            int ex = (int)((double)(clipped_cell_radar_rect.X + clipped_cell_radar_rect.Width) * unknown_1484) + 1;
             int width = (ex < swidth) ? ex : swidth;
-            int zy = (int)(r1.Y * unknown_1484);
+            int zy = (int)(clipped_cell_radar_rect.Y * unknown_1484);
             int starty = (zy - 1 < 0) ? 0 : zy - 1;
-            int ey = (int)((double)(r1.Y + r1.Height) * unknown_1484) + 1;
+            int ey = (int)((double)(clipped_cell_radar_rect.Y + clipped_cell_radar_rect.Height) * unknown_1484) + 1;
             int height = (ey < sheight) ? ey : sheight;
             for (int y = starty; y < height; y++) {
                 for (int x = startx; x < width; x++) {

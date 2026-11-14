@@ -2695,14 +2695,14 @@ void __fastcall Unknown_00682140(wchar_t const *text, Point2D const &point, Rect
 }
 
 
-class Target_682290 { public: unsigned int target(unsigned int p0); };
-class Leaf_682290 { public: unsigned int get(unsigned int a1); };
-unsigned int Leaf_682290::get(unsigned int a1) { return ((Target_682290*)(this))->target((unsigned int)(a1)); }
+class Target_682290 { public: unsigned int Load_00632bf0(unsigned int target_stream); };
+class Leaf_682290 { public: unsigned int get(unsigned int stream_address); };
+unsigned int Leaf_682290::get(unsigned int stream_address) { return ((Target_682290*)(this))->Load_00632bf0((unsigned int)(stream_address)); }
 
 
-class Target_6822a0 { public: unsigned int target(unsigned int p0); };
-class Leaf_6822a0 { public: unsigned int get(unsigned int a1); };
-unsigned int Leaf_6822a0::get(unsigned int a1) { return ((Target_6822a0*)(this))->target((unsigned int)(a1)); }
+class Target_6822a0 { public: unsigned int Save_00632e10(unsigned int target_stream); };
+class Leaf_6822a0 { public: unsigned int get(unsigned int stream_address); };
+unsigned int Leaf_6822a0::get(unsigned int stream_address) { return ((Target_6822a0*)(this))->Save_00632e10((unsigned int)(stream_address)); }
 
 
 // void SidebarClass::Unknown_006822B0(TechnoTypeClass *type, int delay) (0x006822B0)
