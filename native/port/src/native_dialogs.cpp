@@ -93,13 +93,13 @@ std::vector<unsigned char> enhancements_dialog()
     };
     item(0x694, 0x82, kTitle, 318, 1, 108, 10, "");                    // the title box
     item(0x7F7E, 0x82, kHeading, 10, 10, 298, 10, "");
-    for (int i = 0; i < 6; ++i) {                   // up to six rows; unused ones are hidden
+    for (int i = 0; i < 8; ++i) {                   // up to eight rows (lane C16); unused ones are hidden
         int y = 34 + 30 * i;                        // an open list (four values) stops short of the row after next
         item(0x7F20 + i, 0x82, kLabel, 25, y, 120, 10, "");
         item(0x7F10 + i, 0x85, kDropdown, 150, y - 2, 120, 74, "");
     }
-    item(0x7F40, 0x82, kLabel, 25, 205, 280, 10, "");
-    item(0x7F70, 0x82, kLabel, 25, 229, 280, 10, "");                  // what the last row changed does
+    item(0x7F40, 0x82, kLabel, 25, 259, 280, 10, "");                  // below the eighth row (lane C16; was 205)
+    item(0x7F70, 0x82, kLabel, 25, 270, 280, 10, "");                  // what the last row changed does (was 229)
     item(0x7F02, 0x80, kButton, 317, 122, 108, 23, "");               // Ok
     item(0x7F00, 0x80, kButton, 317, 149, 108, 23, "");               // Original
     item(0x7F01, 0x80, kButton, 317, 176, 108, 23, "");               // Enhanced

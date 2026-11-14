@@ -137,7 +137,7 @@ if(NOT RA2_NATIVE_WINE)
     endforeach()
   endif()
 endif()
-foreach(check census frames settings newgame original gui truncated)
+foreach(check census frames settings newgame original gui truncated controls)
   set(ra2_wine_args_${check} --wine-prefix "${CMAKE_CURRENT_BINARY_DIR}/wine/${check}" --wine "${RA2_NATIVE_WINE}")
 endforeach()
 # The link-closure baseline is the Mac link's: Win64's long long is the Mac's long.

@@ -1087,6 +1087,27 @@
    "verified": true
   },
   {
+   "source": "src/recovered/sidebar.cpp",
+   "old": "long Native_House_Available_Money(HouseClass *house);   // NATIVE: native/link/native_house_iface.cpp\nint SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)\n{\n",
+   "new": "int Native_Queue_Five_Add(EventClass const &event);   // NATIVE (C16): link/native_queue_five.cpp\nlong Native_House_Available_Money(HouseClass *house);   // NATIVE: native/link/native_house_iface.cpp\nint SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)\n{\n",
+   "why": "Native addition (C16, Queue five with Shift; not original behaviour): with the Enhancements setting on and Shift held, a sidebar build icon's production click (event 0x0E) or right-click abandon (0x10) adds its event five times, as five clicks would (link/native_queue_five.cpp Native_Queue_Five_Add). Off (the default and the ORIGINAL preset), or without Shift, it is OutList.Add once, as the original. This row: SidebarClass::StripClass::SelectClass::Action 0x006809F0: declares the adder.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/sidebar.cpp",
+   "old": "OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 0xE, Strip->Buildables[index].unknown_04,",
+   "new": "Native_Queue_Five_Add(EventClass(unknown_player_a35db4->ArrayIndex, 0xE, Strip->Buildables[index].unknown_04,",
+   "why": "Native addition (C16, Queue five with Shift; not original behaviour): with the Enhancements setting on and Shift held, a sidebar build icon's production click (event 0x0E) or right-click abandon (0x10) adds its event five times, as five clicks would (link/native_queue_five.cpp Native_Queue_Five_Add). Off (the default and the ORIGINAL preset), or without Shift, it is OutList.Add once, as the original. This row: SidebarClass::StripClass::SelectClass::Action 0x006809F0: its two production adds (the original's 0x0068119E and 0x006813EF sites).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/sidebar.cpp",
+   "old": "OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 0x10, kind, id, choice->Naval));",
+   "new": "Native_Queue_Five_Add(EventClass(unknown_player_a35db4->ArrayIndex, 0x10, kind, id, choice->Naval));",
+   "why": "Native addition (C16, Queue five with Shift; not original behaviour): with the Enhancements setting on and Shift held, a sidebar build icon's production click (event 0x0E) or right-click abandon (0x10) adds its event five times, as five clicks would (link/native_queue_five.cpp Native_Queue_Five_Add). Off (the default and the ORIGINAL preset), or without Shift, it is OutList.Add once, as the original. This row: SidebarClass::StripClass::SelectClass::Action 0x006809F0: its two right-click abandon adds (the hold event 0x0F stays one).",
+   "verified": false
+  },
+  {
    "source": "src/recovered/ownrdraw.cpp",
    "old": "            LONG *data = (LONG *)operator new(8);\n            data[0] = (LONG)\"NewEdit\";",
    "new": "            intptr_t *data = (intptr_t *)operator new(2 * sizeof(intptr_t));   // native: pointer-sized words\n            data[0] = (intptr_t)\"NewEdit\";",

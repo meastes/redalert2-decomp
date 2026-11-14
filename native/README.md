@@ -673,7 +673,7 @@ Original and Enhanced under it, Cancel in the bottom slot (0x005E6860 and 0x005E
 list them, native fixups). Rows: Fullscreen (Automatic on touch hosts), Vertical sync,
 Game interface size (1x, 1.25x, 1.5x, 2x), Map zoom (1x, 1.25x, 1.5x, 2x), Picture
 scaling (Sharp, the original look; Nearest; Smooth), Menu fill (Off, the original look;
-Blurred backdrop). The page opens as the shell's other screens do (C12): the Options
+Blurred backdrop), Queue five with Shift (Off, On; C16). The page opens as the shell's other screens do (C12): the Options
 dialog's column slides out (0x005E5FC0, the original's in-place transition of the skirmish
 map dialog's Random Map button) and the dialog is hidden; when the page closes the dialog is
 shown again and its next paint slides the column back in.
@@ -730,12 +730,32 @@ the game's width only gives back the sidebar's extra width as before (the zoom d
 change the screen). Every setting is off by default;
 the Original preset sets them back (fullscreen is a choice the presets leave alone).
 The settings (`platform/sdl/enhancements.cpp`) are kept in the app's own settings
-file (`enh_vsync`, `enh_scaling`, `enh_uisize`, `enh_mapzoom`, `enh_menufill`), never in RA2.INI; `RA2_NATIVE_ENHANCEMENTS=
+file (`enh_vsync`, `enh_scaling`, `enh_uisize`, `enh_mapzoom`, `enh_menufill`, `enh_queuefive`), never in RA2.INI; `RA2_NATIVE_ENHANCEMENTS=
 "preset=enhanced"` or `"vsync=on,scaling=smooth"` sets them for one run (tests).
 ctest `native-enhancements-frames` (`tests/enhancements_frames.py`) runs the main
 menu with the window at 0.75x the picture (`RA2_NATIVE_WINDOW_ZOOM`) and proves the
 ORIGINAL preset's frames byte-identical to the defaults outside the menu's animated
 pixels, and the ENHANCED preset's different.
+
+Queue five with Shift (C16, the user's 2026-11-14 list; written from the behaviour the
+redalert2-recomp design notes describe, no code taken): with the setting on, Shift with a click
+on a build icon in the sidebar queues five of it, and Shift with a right click removes five
+(the original's right click on an icon in production first puts it on hold, once; the
+right clicks after that remove). SidebarClass::StripClass::SelectClass::Action 0x006809F0 adds
+its production (0x0E) and abandon (0x10) events through `Native_Queue_Five_Add`
+(`link/native_queue_five.cpp`, native fixups in sidebar.cpp), which adds the same event five
+times while Shift is held (WWKeyboardClass::Down, as the selection band reads it), stopping when
+OutList's 128 entries are full: the events are the original's kinds, so a multiplayer game
+sends them as it sends clicks, and the house executes them as five clicks
+(HouseClass::Begin_Production, Abandon_Production 0x004E64F0: a queued copy first). Off by
+default and in the Original preset; the Enhanced preset turns it on. The touch toolbar's Add
+holds Shift, so with Add on a tap on a build icon queues five. ctest
+`native-controls-queue-five` and `native-controls-queue-five-off` (`tests/controls_input.py`)
+build a barracks (`--skirmish-order=build`, `RA2_NATIVE_BUILD_LIST=GAPOWR,GAPILE`), then click
+the infantry tab and the GI's icon with and without Shift and right-click it, and check the
+barracks' factory (harness-input ` inf=N`: the one in production plus the queue,
+`link/harness_sidebar.cpp`, which also answers the input script's `@tab=N` and `@cameo=ID`
+points: a tab button, a build icon shown in the strip).
 
 ### Original saves (C6, roadmap (d))
 

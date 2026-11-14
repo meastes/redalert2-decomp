@@ -6,7 +6,9 @@
 // (Tactical::Coord_To_Pixel 0x006A29D0 of its centre). At the run's last frame
 // "@=X,Y" names the centre of cell X,Y (any object there). At the run's last frame
 // it logs harness-input: the selected objects and each of the player's
-// objects (type ID, mission, cell; '*' when selected; :p<order> a pending order).
+// objects (type ID, mission, cell; '*' when selected; :p<order> a pending order), then
+// the player's production (" inf=N veh=N", harness_sidebar.cpp). "@tab=N" and
+// "@cameo=ID" are the sidebar's tab buttons and build icons (harness_sidebar.cpp).
 #define RA2_COORD_AS_CELL   // CoordStruct::As_Cell (shared/coord.hpp)
 #include "shared/display.hpp"     // before map_view.hpp (full DisplayClass)
 #include "shared/map_view.hpp"
@@ -79,10 +81,17 @@ bool Is_Selected(ObjectClass *object)
     return false;
 }
 
+}  // namespace
+int Native_Harness_Sidebar_Point(char const *spec, int *x, int *y);   // harness_sidebar.cpp (lane C16)
+int Native_Harness_Production(int kind);
+namespace {
+
 int Resolve(char const *spec, int *x, int *y)
 {
     HouseClass *player = unknown_player_a35db4;
     if (player == 0 || unknown_tactical_83996c == 0) return 0;
+    // "@tab=N", "@cameo=ID": the sidebar's tab button, a build icon shown (lane C16).
+    if (Native_Harness_Sidebar_Point(spec, x, y)) return 1;
     if (spec[0] == '=') {
         // "@=X,Y": the centre of cell X,Y (Scout1153, M19: a building of another house, a bridge hut).
         char const *p = spec + 1;
@@ -152,7 +161,7 @@ void Native_Harness_Input(int frame)
         Append_Int(name, frame, 24);
         milestone = name;
     }
-    char detail[600] = "selected ";
+    char detail[1200] = "selected ";
     Append_Int(detail, unknown_objects_a40c60.Count(), sizeof detail);
     Append(detail, ";", sizeof detail);
     for (int i = 0; i < Technos.Count(); ++i) {
@@ -175,6 +184,11 @@ void Native_Harness_Input(int frame)
             Append_Int(detail, pending, sizeof detail);
         }
     }
+    // The player's production (lane C16, Queue five): infantry and vehicles in their factories.
+    Append(detail, " inf=", sizeof detail);
+    Append_Int(detail, Native_Harness_Production(0x10), sizeof detail);
+    Append(detail, " veh=", sizeof detail);
+    Append_Int(detail, Native_Harness_Production(0x28), sizeof detail);
     // Also on stderr, so RA2.app runs (no run-to milestones) log the state (C8: iOS touch checks).
     fprintf(stderr, "harness-state %d %s\n", frame, detail);
     if (milestone) ra2port_progress(milestone, detail);
