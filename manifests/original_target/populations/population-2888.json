@@ -4,8 +4,8 @@
     "id": "population-2888",
     "inventory_sha256": "3eb61f49fd96152d63a132b8b3abe756ec3f606bbf0e08948e632351ad8aec54",
     "gaps_sha256": "4bb3b5053c7f55be4b2d384941de4ffcbb72975bfd7ec448cba1f87098c01750",
-    "historical_population_sha256": "35e3d08c49ea526ebe89cfe7a65e58fc4bbb84e6484a229235f4cdfc3be32a73",
-    "historical_acceptance_sha256": "866179f4e75075d4cbf023200fa042f9d26f751c7dc0f312d4f8058538c0335e"
+    "historical_population_sha256": "407b2eba64d85db60397b20f268cdb9751e9d8133f1a56efcc4d38712dd724a7",
+    "historical_acceptance_sha256": "e8d92aaacb6dbd7b2d63d49afbacccbca06810cd8270e9a29cf9d668efc2508e"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -10175,7 +10175,11 @@
     "??_R0?AVPlayerProfile@@@8": 8376904,
     "??_R0?AVWWMouseClass@@@8": 8393584,
     "??_R0?AVMouse@@@8": 8393616,
-    "__ramp_corners": 8339828
+    "__ramp_corners": 8339828,
+    "?Service_Game_IO_00481fb0@seed_00482100@@YAXXZ": 4726704,
+    "?Service_Game_IO_00481fb0@seed_005bbd10@@YAXXZ": 4726704,
+    "?Get_Y_Offset@IsometricTileTypeClass@@QAEHH@Z": 5431200,
+    "?Reset@BitFontClass@@QAEXXZ": 4399536
   },
   "regions": [
     {
@@ -10237,13 +10241,14 @@
           "resolved": 10822952
         }
       ],
-      "source_sha256": "098f8356ac7a052bf5dcf2b50cf22997b5591991930722a9df0d9e44e9977222",
-      "source": "src/recovered/header_statics/00527890/HeaderStatics_diagonal_init_00527890.cpp",
+      "source_sha256": "0e48ba7c8dd2a942253b32dfe62bd24f9b5a108cb3f65174b9bc6f4a2f18d355",
+      "source": "src/recovered/isotile.cpp",
       "population": "population-2888",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 110731
+      "source_order": 110731,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 5404864,
@@ -10288,13 +10293,14 @@
           "resolved": 10823024
         }
       ],
-      "source_sha256": "ca99c80405c4375de7d7edcb5f1b49e1d99f1ab84fa66b59da7cbd5255b92943",
-      "source": "src/recovered/header_statics/00527890/HeaderStatics_b_init_005278c0.cpp",
+      "source_sha256": "0e48ba7c8dd2a942253b32dfe62bd24f9b5a108cb3f65174b9bc6f4a2f18d355",
+      "source": "src/recovered/isotile.cpp",
       "population": "population-2888",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 110732
+      "source_order": 110732,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 5404896,
@@ -10339,13 +10345,14 @@
           "resolved": 10823008
         }
       ],
-      "source_sha256": "289a6535246bbe6445186d963d729f7fd07e76c68bd6bf8935bfd4827ca3f802",
-      "source": "src/recovered/header_statics/00527890/HeaderStatics_c_init_005278e0.cpp",
+      "source_sha256": "0e48ba7c8dd2a942253b32dfe62bd24f9b5a108cb3f65174b9bc6f4a2f18d355",
+      "source": "src/recovered/isotile.cpp",
       "population": "population-2888",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 110733
+      "source_order": 110733,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 5404928,
@@ -10390,13 +10397,14 @@
           "resolved": 10823000
         }
       ],
-      "source_sha256": "d8e91c9b4f649b028f7f7131ef8c20b567f677f02b84f538d78c195548e68dd9",
-      "source": "src/recovered/header_statics/00527890/HeaderStatics_angle45_init_00527900.cpp",
+      "source_sha256": "0e48ba7c8dd2a942253b32dfe62bd24f9b5a108cb3f65174b9bc6f4a2f18d355",
+      "source": "src/recovered/isotile.cpp",
       "population": "population-2888",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 110734
+      "source_order": 110734,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 5404960,
@@ -10441,13 +10449,14 @@
           "resolved": 10822960
         }
       ],
-      "source_sha256": "a4eb1d92bc641018e22088d33502f122d20faca2d9bb335734ada3c5f5340c5a",
-      "source": "src/recovered/header_statics/00527890/HeaderStatics_angle60_init_00527920.cpp",
+      "source_sha256": "0e48ba7c8dd2a942253b32dfe62bd24f9b5a108cb3f65174b9bc6f4a2f18d355",
+      "source": "src/recovered/isotile.cpp",
       "population": "population-2888",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 110735
+      "source_order": 110735,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 5404992,
@@ -10492,13 +10501,14 @@
           "resolved": 10822920
         }
       ],
-      "source_sha256": "bde22891626c3db3c57c58fdc85d8bc044d8b72ab8788b9967efc91aad53243f",
-      "source": "src/recovered/header_statics/00527890/HeaderStatics_angle90_init_00527940.cpp",
+      "source_sha256": "0e48ba7c8dd2a942253b32dfe62bd24f9b5a108cb3f65174b9bc6f4a2f18d355",
+      "source": "src/recovered/isotile.cpp",
       "population": "population-2888",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 110736
+      "source_order": 110736,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 5405024,
@@ -10575,13 +10585,14 @@
           "resolved": 10823032
         }
       ],
-      "source_sha256": "43f3ef0599f327f415171bc6a85c31725400b7ea43aa62430e0be037f3d6d89c",
-      "source": "src/recovered/header_statics/00527890/HeaderStatics_g_init_00527960.cpp",
+      "source_sha256": "0e48ba7c8dd2a942253b32dfe62bd24f9b5a108cb3f65174b9bc6f4a2f18d355",
+      "source": "src/recovered/isotile.cpp",
       "population": "population-2888",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 110737
+      "source_order": 110737,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 5405184,
@@ -10634,13 +10645,14 @@
           "resolved": 10823016
         }
       ],
-      "source_sha256": "12d4643f03ea73264d603ae81963b0512bbe5b7581cc2099bf49d65fadad2b9e",
-      "source": "src/recovered/header_statics/00527890/HeaderStatics_j_init_00527a00.cpp",
+      "source_sha256": "0e48ba7c8dd2a942253b32dfe62bd24f9b5a108cb3f65174b9bc6f4a2f18d355",
+      "source": "src/recovered/isotile.cpp",
       "population": "population-2888",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 110740
+      "source_order": 110740,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 5405232,
@@ -10677,13 +10689,14 @@
           "resolved": 10822946
         }
       ],
-      "source_sha256": "640a51f5762313d221ed96d682559f55010b8155836643a33d2d18de80eb71ee",
-      "source": "src/recovered/header_statics/00527890/HeaderStatics_k_init_00527a30.cpp",
+      "source_sha256": "0e48ba7c8dd2a942253b32dfe62bd24f9b5a108cb3f65174b9bc6f4a2f18d355",
+      "source": "src/recovered/isotile.cpp",
       "population": "population-2888",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 110741
+      "source_order": 110741,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 5405248,
@@ -10728,13 +10741,14 @@
           "resolved": 10822984
         }
       ],
-      "source_sha256": "6d0ff796520c56c6cf3ca1771062517abf2936170a94b4d28416cfbe0ce15d22",
-      "source": "src/recovered/header_statics/00527890/HeaderStatics_l_init_00527a40.cpp",
+      "source_sha256": "0e48ba7c8dd2a942253b32dfe62bd24f9b5a108cb3f65174b9bc6f4a2f18d355",
+      "source": "src/recovered/isotile.cpp",
       "population": "population-2888",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 110742
+      "source_order": 110742,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 5405280,
@@ -10787,13 +10801,14 @@
           "resolved": 10822940
         }
       ],
-      "source_sha256": "de5bfdd470eb6cc35a5ce444023c044ad1b346a949531807801a12d67087c5b1",
-      "source": "src/recovered/header_statics/00527890/HeaderStatics_static_rect_init_00527a60.cpp",
+      "source_sha256": "0e48ba7c8dd2a942253b32dfe62bd24f9b5a108cb3f65174b9bc6f4a2f18d355",
+      "source": "src/recovered/isotile.cpp",
       "population": "population-2888",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 110743
+      "source_order": 110743,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 5407072,
@@ -10813,7 +10828,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "fa1a8ad917194caa30b8fcae92bb4aa4ced44f9337d3860db521a8c5c37985eb",
       "relocations": [],
-      "source_sha256": "165771aebb6b09b67e9b08d2ace1d7079a712705bda3cfcf79645cc0e89190d7",
+      "source_sha256": "0e48ba7c8dd2a942253b32dfe62bd24f9b5a108cb3f65174b9bc6f4a2f18d355",
       "source": "src/recovered/isotile.cpp",
       "population": "population-2888",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -10839,7 +10854,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "51eea8ed1edeab918f21478946cdd7164766b4fcf661a6d1f9d679acb4609745",
       "relocations": [],
-      "source_sha256": "165771aebb6b09b67e9b08d2ace1d7079a712705bda3cfcf79645cc0e89190d7",
+      "source_sha256": "0e48ba7c8dd2a942253b32dfe62bd24f9b5a108cb3f65174b9bc6f4a2f18d355",
       "source": "src/recovered/isotile.cpp",
       "population": "population-2888",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -10865,7 +10880,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "980bacf763b922e0e1d720530ba558ba1f0dca3c19641680e5e67fd57d403988",
       "relocations": [],
-      "source_sha256": "165771aebb6b09b67e9b08d2ace1d7079a712705bda3cfcf79645cc0e89190d7",
+      "source_sha256": "0e48ba7c8dd2a942253b32dfe62bd24f9b5a108cb3f65174b9bc6f4a2f18d355",
       "source": "src/recovered/isotile.cpp",
       "population": "population-2888",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -10924,7 +10939,7 @@
           "resolved": 8002492
         }
       ],
-      "source_sha256": "165771aebb6b09b67e9b08d2ace1d7079a712705bda3cfcf79645cc0e89190d7",
+      "source_sha256": "0e48ba7c8dd2a942253b32dfe62bd24f9b5a108cb3f65174b9bc6f4a2f18d355",
       "source": "src/recovered/isotile.cpp",
       "population": "population-2888",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -10950,7 +10965,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "481c6a7bee7c3498d5d33c7caebaa012418257550fa590bd50f9a042c44a2d33",
       "relocations": [],
-      "source_sha256": "165771aebb6b09b67e9b08d2ace1d7079a712705bda3cfcf79645cc0e89190d7",
+      "source_sha256": "0e48ba7c8dd2a942253b32dfe62bd24f9b5a108cb3f65174b9bc6f4a2f18d355",
       "source": "src/recovered/isotile.cpp",
       "population": "population-2888",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -10976,7 +10991,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "2a2f950faf0d7851fcb17366fb6bc179054ac4270b9c00d37aa03373db6cc20a",
       "relocations": [],
-      "source_sha256": "165771aebb6b09b67e9b08d2ace1d7079a712705bda3cfcf79645cc0e89190d7",
+      "source_sha256": "0e48ba7c8dd2a942253b32dfe62bd24f9b5a108cb3f65174b9bc6f4a2f18d355",
       "source": "src/recovered/isotile.cpp",
       "population": "population-2888",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -11011,7 +11026,7 @@
           "resolved": 4293820268
         }
       ],
-      "source_sha256": "165771aebb6b09b67e9b08d2ace1d7079a712705bda3cfcf79645cc0e89190d7",
+      "source_sha256": "0e48ba7c8dd2a942253b32dfe62bd24f9b5a108cb3f65174b9bc6f4a2f18d355",
       "source": "src/recovered/isotile.cpp",
       "population": "population-2888",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -11070,13 +11085,14 @@
           "resolved": 10822968
         }
       ],
-      "source_sha256": "6179a0ac8d6b138ac773757ea4c464bf0ed75fad9f40b639fc8b84ea75441c55",
-      "source": "src/recovered/header_statics/00527890/HeaderStatics_h_init_005279a0.cpp",
+      "source_sha256": "0e48ba7c8dd2a942253b32dfe62bd24f9b5a108cb3f65174b9bc6f4a2f18d355",
+      "source": "src/recovered/isotile.cpp",
       "population": "population-2888",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 110738
+      "source_order": 110738,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 5405136,
@@ -11129,13 +11145,14 @@
           "resolved": 10822992
         }
       ],
-      "source_sha256": "b09beafdec5d31d658a84ff8489f89d13e55993046e378a31e10f78127c121f0",
-      "source": "src/recovered/header_statics/00527890/HeaderStatics_i_init_005279d0.cpp",
+      "source_sha256": "0e48ba7c8dd2a942253b32dfe62bd24f9b5a108cb3f65174b9bc6f4a2f18d355",
+      "source": "src/recovered/isotile.cpp",
       "population": "population-2888",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 110739
+      "source_order": 110739,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 5406416,
@@ -11300,7 +11317,7 @@
           "resolved": 8594508
         }
       ],
-      "source_sha256": "165771aebb6b09b67e9b08d2ace1d7079a712705bda3cfcf79645cc0e89190d7",
+      "source_sha256": "0e48ba7c8dd2a942253b32dfe62bd24f9b5a108cb3f65174b9bc6f4a2f18d355",
       "source": "src/recovered/isotile.cpp",
       "population": "population-2888",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -11479,7 +11496,7 @@
           "resolved": 697437
         }
       ],
-      "source_sha256": "165771aebb6b09b67e9b08d2ace1d7079a712705bda3cfcf79645cc0e89190d7",
+      "source_sha256": "0e48ba7c8dd2a942253b32dfe62bd24f9b5a108cb3f65174b9bc6f4a2f18d355",
       "source": "src/recovered/isotile.cpp",
       "population": "population-2888",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -11570,7 +11587,7 @@
           "resolved": 1538541
         }
       ],
-      "source_sha256": "165771aebb6b09b67e9b08d2ace1d7079a712705bda3cfcf79645cc0e89190d7",
+      "source_sha256": "0e48ba7c8dd2a942253b32dfe62bd24f9b5a108cb3f65174b9bc6f4a2f18d355",
       "source": "src/recovered/isotile.cpp",
       "population": "population-2888",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -11605,7 +11622,7 @@
           "resolved": 10750296
         }
       ],
-      "source_sha256": "165771aebb6b09b67e9b08d2ace1d7079a712705bda3cfcf79645cc0e89190d7",
+      "source_sha256": "0e48ba7c8dd2a942253b32dfe62bd24f9b5a108cb3f65174b9bc6f4a2f18d355",
       "source": "src/recovered/isotile.cpp",
       "population": "population-2888",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -12115,7 +12132,7 @@
           "resolved": 5405807
         }
       ],
-      "source_sha256": "165771aebb6b09b67e9b08d2ace1d7079a712705bda3cfcf79645cc0e89190d7",
+      "source_sha256": "0e48ba7c8dd2a942253b32dfe62bd24f9b5a108cb3f65174b9bc6f4a2f18d355",
       "switch_data_bytes": 52,
       "source": "src/recovered/isotile.cpp",
       "population": "population-2888",

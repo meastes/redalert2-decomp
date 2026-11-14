@@ -87,6 +87,10 @@ void toolbar_place(Rect usable);
 // button over the game window); the movie test and the Escape press are shared host code.
 void skip_button_create(void *native_window, void (*tapped)());
 void skip_button_show(bool show);
+// A window point (points) lies on one of the toolbar's controls (the "…" button, a shown
+// item, the Skip button): a finger that lands there is the control's, never the game's
+// (lane C8). False where there is no system toolbar.
+bool toolbar_hit(double x, double y);
 // A short note under the toolbar for a few seconds (the interface scale takes effect at
 // the next start: lane I). Logged only where there is no system toolbar.
 void toolbar_notice(const char *text);

@@ -151,6 +151,8 @@ template <class T> struct original_vptr<T, true> {
 }  // namespace ra2port
 
 extern "C" int ra2port_original_save_mode;
+// The port save container version being read (port/src/storage.cpp): 1 (RA2NSTG1) or 2.
+extern "C" int ra2port_port_save_version;
 // stream_read: the stream's own (virtual) Read, through a thunk; vptr: the object's
 // primary vtable pointer when its type is polymorphic (its most derived type gives
 // the layout), else type_name (original_type_name's text) names the static type.

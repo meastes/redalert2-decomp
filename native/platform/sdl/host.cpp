@@ -144,6 +144,7 @@ void (*scale_changed)(double) = nullptr;
 bool text_input_on = false;
 SDL_TouchID const script_touch = 0x5C5D;   // scripted fingers: coordinates in game pixels
 SDL_FingerID toggle_finger = 0;            // the finger that pressed a toggle (its gesture is the toggle's)
+Uint32 const kScriptedToolbar = SDL_EVENT_USER + 0x5C;   // input script "toolbar ITEM" (never pushed to SDL)
 void (*before_exit)() = nullptr;     // the app's settings (main.cpp)
 // The last pointer position in game pixels (the trackpad hook's cursor).
 float pointer_x = 0, pointer_y = 0;
@@ -656,10 +657,58 @@ void touch_wheel(int notches, float x, float y)
 bool touch_move_waiting = false;
 float touch_move_x = 0, touch_move_y = 0;
 void touch_moves_due();
+// A touch presses where the pointer was not a moment before (a mouse is already there when
+// it clicks). The game reads the pointer twice: the press message's own position
+// (ScrollClass::Message_Handler 0x0066A400: the right press point, the left band start) and,
+// every frame while the button is held, WWMouseClass's position (Scroll_AI 0x0066A290),
+// which only the mouse thread updates from the cursor, every 16 ms (Mouse_Thread 0x00771900,
+// Process_Mouse 0x00773400). A press read before that thread had seen the move met the
+// pointer's old position in Scroll_AI: a right press became a coast-scroll drag
+// (Scroll_Coast 0x0066A7A0 allows GetSystemMetrics(SM_CXDRAG) * 2 pixels, none here), so its
+// release did not deselect (lane C8, user report: a two-finger tap did not deselect); a left
+// press became a selection band (Mouse_Left_Held, more than 4 pixels), so the release
+// selected instead of ordering, and with Shift held (attack-move's Ctrl+Shift) nothing was
+// ordered (user report: A-Move did nothing). A press after a move therefore waits
+// kPointerSeenMs, and the gesture's later moves and buttons wait behind it in order.
+constexpr Uint64 kPointerSeenMs = 40;   // two and a half mouse-thread periods
+struct TouchOut { bool button; int b; bool down; float x, y; };
+std::vector<TouchOut> touch_queue;
+Uint64 pointer_moved_ms = 0;            // when a touch last moved the pointer (0: not since)
+float pointer_posted_x = -1, pointer_posted_y = -1;
+bool press_waits(TouchOut const &o)
+{
+    return o.button && o.down && pointer_moved_ms && SDL_GetTicks() - pointer_moved_ms < kPointerSeenMs;
+}
+void touch_button_now(int b, bool down, float x, float y);
+void touch_move_now(float x, float y);
+void touch_queue_due()
+{
+    size_t n = 0;
+    for (; n < touch_queue.size() && !press_waits(touch_queue[n]); ++n) {
+        TouchOut o = touch_queue[n];
+        if (o.button) touch_button_now(o.b, o.down, o.x, o.y);
+        else touch_move_now(o.x, o.y);
+    }
+    touch_queue.erase(touch_queue.begin(), touch_queue.begin() + n);
+}
 void touch_button(int b, bool down, float x, float y)
+{
+    TouchOut o = {true, b, down, x, y};
+    if (touch_queue.empty() && !press_waits(o)) { touch_button_now(b, down, x, y); return; }
+    if (touch_queue.empty()) fprintf(stderr, "touch: %s press waits for the pointer\n", b ? "right" : "left");
+    touch_queue.push_back(o);
+}
+void touch_move(float x, float y)
+{
+    if (touch_queue.empty()) { touch_move_now(x, y); return; }
+    touch_queue.push_back({false, 0, false, x, y});
+}
+void touch_button_now(int b, bool down, float x, float y)
 {
     if (!down && touch_move_waiting) {          // the drag's last move before its release
         touch_move_waiting = false;
+        pointer_posted_x = touch_move_x;
+        pointer_posted_y = touch_move_y;
         mouse_move(touch_move_x, touch_move_y);
     }
     fprintf(stderr, "touch: %s %s at %.0f,%.0f\n", b ? "right" : "left", down ? "down" : "up", x, y);
@@ -681,7 +730,7 @@ bool left_down_unseen()
 {
     return button_down[0] && !seen_held(0);
 }
-void touch_move(float x, float y)
+void touch_move_now(float x, float y)
 {
     if (left_down_unseen()) {
         touch_move_waiting = true;
@@ -690,11 +739,15 @@ void touch_move(float x, float y)
         return;
     }
     touch_move_waiting = false;
+    if (x != pointer_posted_x || y != pointer_posted_y) pointer_moved_ms = SDL_GetTicks();
+    pointer_posted_x = x;
+    pointer_posted_y = y;
     mouse_move(x, y);
 }
 void touch_moves_due()
 {
-    if (touch_move_waiting && !left_down_unseen()) touch_move(touch_move_x, touch_move_y);
+    if (touch_move_waiting && !left_down_unseen()) touch_move_now(touch_move_x, touch_move_y);
+    touch_queue_due();
 }
 const touch::Output touch_out = {touch_move, touch_button, touch_pan_logged, touch_wheel_logged};
 
@@ -815,6 +868,15 @@ void finger_event(SDL_TouchFingerEvent const &f, Uint32 type)
             if (t >= 0) {
                 toggle_finger = f.fingerID;
                 press_toggle(t);
+                return;
+            }
+            // A finger on the glass toolbar is its button's (the button's own action presses
+            // the item). Should UIKit also hand it to SDL's view, it must not become a tap
+            // as well: a tap there would be a click on the map under the toolbar, with A-Move's
+            // Ctrl+Shift already held, that spent the armed attack-move (lane C8).
+            if (system_toolbar && hostos::toolbar_hit(wx, wy)) {
+                fprintf(stderr, "touch: finger on the toolbar: not the game's\n");
+                toggle_finger = f.fingerID;
                 return;
             }
         }
@@ -1416,6 +1478,18 @@ void load_script()
             script.push_back(s);
             continue;
         }
+        if (action == "toolbar") {
+            // toolbar ITEM: the touch controls' item as its button sends it (press_toggle;
+            // 3 is A-Move; lane C8's tests, as RA2_NATIVE_TOOLBAR_TAPS on iOS).
+            Scripted s = {frame, {}, std::string()};
+            if (script_ms >= 0) { s.ms = script_ms; s.frame = 0x7FFFFFFF; s.dialog = script_dialog; }
+            s.event.type = kScriptedToolbar;
+            s.event.user.code = tokens.size() >= 3 ? atoi(tokens[2].c_str()) : -1;
+            ok = s.event.user.code >= 0 && s.event.user.code < kToggleCount;
+            if (ok) script.push_back(s);
+            if (!ok) fprintf(stderr, "input-script: cannot read line %d %s\n", frame, action.c_str());
+            continue;
+        }
         if (action == "quit" || action == "wheel") {
             // quit: what Cmd+Q sends (SDL_EVENT_QUIT). wheel DX DY [X Y]: a
             // trackpad scroll of that many SDL units at the game pixel X, Y.
@@ -1574,6 +1648,11 @@ void play(Scripted &s, int number)
     Uint32 id = window ? SDL_GetWindowID(window) : 0;
     {
         SDL_Event e = s.event;
+        if (e.type == kScriptedToolbar) {
+            fprintf(stderr, "input-script: frame %d: toolbar item %d\n", number, (int)e.user.code);
+            toolbar_tapped((int)e.user.code);
+            return;
+        }
         if (e.type == SDL_EVENT_KEY_DOWN || e.type == SDL_EVENT_KEY_UP) {
             e.key.windowID = id;
         } else if (e.type == SDL_EVENT_WINDOW_FOCUS_LOST || e.type == SDL_EVENT_WINDOW_FOCUS_GAINED) {

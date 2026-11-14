@@ -13,6 +13,84 @@
  "compile_group": 758,
  "code": [
   {
+   "symbol": "_$E2",
+   "entry": "006ed030",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "006ed060",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "006ed080",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "006ed0a0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "006ed0c0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "006ed0e0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "006ed100",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "006ed140",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "006ed170",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "006ed1a0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "006ed1d0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "006ed1e0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "006ed200",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
    "symbol": "??0TriggerClass@@QAE@PAVTriggerTypeClass@@@Z",
    "entry": "006ed220",
    "body_bytes": 402,
@@ -175,7 +253,7 @@
    "padding_bytes": 1
   }
  ],
- "code_bytes": 2704,
+ "code_bytes": 3200,
  "data": [
   {
    "symbol": "__real@8@40008000000000000000",
@@ -1009,7 +1087,112 @@
   }
  ],
  "held_rows": [],
- "joined": [],
+ "joined": [
+  {
+   "entry": "006ed030",
+   "bytes": 40,
+   "population": "population-3657",
+   "bound": "the unit's compile group (population-3657)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006ed060",
+   "bytes": 19,
+   "population": "population-3657",
+   "bound": "the unit's compile group (population-3657)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006ed080",
+   "bytes": 19,
+   "population": "population-3657",
+   "bound": "the unit's compile group (population-3657)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006ed0a0",
+   "bytes": 19,
+   "population": "population-3657",
+   "bound": "the unit's compile group (population-3657)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006ed0c0",
+   "bytes": 19,
+   "population": "population-3657",
+   "bound": "the unit's compile group (population-3657)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006ed0e0",
+   "bytes": 19,
+   "population": "population-3657",
+   "bound": "the unit's compile group (population-3657)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006ed100",
+   "bytes": 49,
+   "population": "population-3657",
+   "bound": "the unit's compile group (population-3657)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006ed140",
+   "bytes": 33,
+   "population": "population-3657",
+   "bound": "the unit's compile group (population-3657)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006ed170",
+   "bytes": 44,
+   "population": "population-3657",
+   "bound": "the unit's compile group (population-3657)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006ed1a0",
+   "bytes": 39,
+   "population": "population-3657",
+   "bound": "the unit's compile group (population-3657)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006ed1d0",
+   "bytes": 15,
+   "population": "population-3657",
+   "bound": "the unit's compile group (population-3657)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006ed1e0",
+   "bytes": 18,
+   "population": "population-3657",
+   "bound": "the unit's compile group (population-3657)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006ed200",
+   "bytes": 23,
+   "population": "population-3657",
+   "bound": "the unit's compile group (population-3657)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  }
+ ],
  "residuals": [],
  "unit_functions": 28,
  "data_unproven": [

@@ -4,6 +4,63 @@
 // manifests/original_target/modules/trigger.json carries the addresses and the rows that
 // stay in their own files.
 
+// Header-static dynamic initializers of the unit at 0x006ED030:  the
+// shared/unknown_geometry.hpp constants and unknown_static_rect.hpp
+// (0x006ED030-0x006ED216); the other
+// drafts of this plan are emitted by these includes.
+#include "shared/unknown_geometry.hpp"
+#include "shared/unknown_static_rect.hpp"
+
+
+// Dynamic initializer (0x006ED060, _$E) of b from the header(s) included
+// by HeaderStatics_diagonal_init_006ed030.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006ED080, _$E) of c from the header(s) included
+// by HeaderStatics_diagonal_init_006ed030.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006ED0A0, _$E) of angle45 from the header(s) included
+// by HeaderStatics_diagonal_init_006ed030.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006ED0C0, _$E) of angle60 from the header(s) included
+// by HeaderStatics_diagonal_init_006ed030.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006ED0E0, _$E) of angle90 from the header(s) included
+// by HeaderStatics_diagonal_init_006ed030.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006ED100, _$E) of g from the header(s) included
+// by HeaderStatics_diagonal_init_006ed030.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006ED140, _$E) of h from the header(s) included
+// by HeaderStatics_diagonal_init_006ed030.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006ED170, _$E) of i from the header(s) included
+// by HeaderStatics_diagonal_init_006ed030.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006ED1A0, _$E) of j from the header(s) included
+// by HeaderStatics_diagonal_init_006ed030.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006ED1D0, _$E) of k from the header(s) included
+// by HeaderStatics_diagonal_init_006ed030.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006ED1E0, _$E) of l from the header(s) included
+// by HeaderStatics_diagonal_init_006ed030.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006ED200, _$E) of static_rect from the header(s) included
+// by HeaderStatics_diagonal_init_006ed030.cpp; no source of its own.
+
+
+
 
 #include "shared/object.hpp"
 #include "shared/random.hpp"

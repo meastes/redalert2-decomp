@@ -4,6 +4,62 @@
 // manifests/original_target/modules/wdthistory.json carries the addresses and the rows that
 // stay in their own files.
 
+// Header-static dynamic initializers of the unit at 0x00728C60: the shape_file.hpp empty rect and the
+// shared/unknown_geometry.hpp constants (0x00728C60-0x00728E41); the other
+// drafts of this plan are emitted by these includes.
+#include "shared/shape_file.hpp"
+#include "shared/unknown_geometry.hpp"
+
+
+// Dynamic initializer (0x00728C80, _$E) of diagonal from the header(s) included
+// by HeaderStatics_empty_rect_init_00728c60.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00728CB0, _$E) of b from the header(s) included
+// by HeaderStatics_empty_rect_init_00728c60.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00728CD0, _$E) of c from the header(s) included
+// by HeaderStatics_empty_rect_init_00728c60.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00728CF0, _$E) of angle45 from the header(s) included
+// by HeaderStatics_empty_rect_init_00728c60.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00728D10, _$E) of angle60 from the header(s) included
+// by HeaderStatics_empty_rect_init_00728c60.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00728D30, _$E) of angle90 from the header(s) included
+// by HeaderStatics_empty_rect_init_00728c60.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00728D50, _$E) of g from the header(s) included
+// by HeaderStatics_empty_rect_init_00728c60.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00728D90, _$E) of h from the header(s) included
+// by HeaderStatics_empty_rect_init_00728c60.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00728DC0, _$E) of i from the header(s) included
+// by HeaderStatics_empty_rect_init_00728c60.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00728DF0, _$E) of j from the header(s) included
+// by HeaderStatics_empty_rect_init_00728c60.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00728E20, _$E) of k from the header(s) included
+// by HeaderStatics_empty_rect_init_00728c60.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00728E30, _$E) of l from the header(s) included
+// by HeaderStatics_empty_rect_init_00728c60.cpp; no source of its own.
+
+
+
 
 #include "shared/world_domination_tour.hpp"
 

@@ -4,8 +4,8 @@
     "id": "population-4358",
     "inventory_sha256": "da0fe9af7b46bb30af3b093e23274895e03e631706bc27c32971d695c89779a5",
     "gaps_sha256": "12cc7382cf13557596ba54ad4815fab3bd74b3482283828e2c27691fde7c2dda",
-    "historical_population_sha256": "401dc3aba9e7cfc59e7f25e70f2b5bf9d1b8d8033f6f9cacb7ea09819a5eec77",
-    "historical_acceptance_sha256": "ca1a7fa825c5952cd7ef3df3992555345781178b14e649f300ae1d55fd89c7e6"
+    "historical_population_sha256": "950c4e81ccc0fa038cea43267739787e6fd2ee58e584e5d7d64dc44b5138c43a",
+    "historical_acceptance_sha256": "ef0f83bd7a0870be2a2c82117b062ecc9737aa4be4b2335e1a04224eeaf09148"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -9840,7 +9840,8 @@
     "_vtable_6365f0": 8030332,
     "?Service_Game_IO_00481fb0@seed_00482100@@YAXXZ": 4726704,
     "?Service_Game_IO_00481fb0@seed_005bbd10@@YAXXZ": 4726704,
-    "__ramp_corners": 8339828
+    "__ramp_corners": 8339828,
+    "?Reset@BitFontClass@@QAEXXZ": 4399536
   },
   "regions": [
     {
@@ -9954,14 +9955,14 @@
           "resolved": 11232552
         }
       ],
-      "source_sha256": "05d21b22fa0c50bc7d5708ea82d57c9ceb4a062d6dbafe1c3dad2da8e2c27046",
-      "source": "src/recovered/header_statics/006351b0/HeaderStatics_b_init_006351e0.cpp",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
+      "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_b_init_006351e0",
-      "source_order": 231422
+      "source_order": 231422,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6509056,
@@ -10006,14 +10007,14 @@
           "resolved": 11232536
         }
       ],
-      "source_sha256": "ccbccff8a94358e146827d1d6af42880660759c847749366733b8e4fa3ad88ad",
-      "source": "src/recovered/header_statics/006351b0/HeaderStatics_c_init_00635200.cpp",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
+      "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_c_init_00635200",
-      "source_order": 231423
+      "source_order": 231423,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6509088,
@@ -10058,14 +10059,14 @@
           "resolved": 11232528
         }
       ],
-      "source_sha256": "231f11b1d2d0ef5e61ca4a2c69e377e19fb11463e44190a15bda8dd1c4898235",
-      "source": "src/recovered/header_statics/006351b0/HeaderStatics_angle45_init_00635220.cpp",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
+      "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_angle45_init_00635220",
-      "source_order": 231424
+      "source_order": 231424,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6509120,
@@ -10110,14 +10111,14 @@
           "resolved": 11232464
         }
       ],
-      "source_sha256": "864950c0e1e4ea5ad1dd9c170779ae728d8857630d73ece67c57006c986c9423",
-      "source": "src/recovered/header_statics/006351b0/HeaderStatics_angle60_init_00635240.cpp",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
+      "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_angle60_init_00635240",
-      "source_order": 231425
+      "source_order": 231425,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6509152,
@@ -10162,14 +10163,14 @@
           "resolved": 11232424
         }
       ],
-      "source_sha256": "2fcba59c98f051b02725ea0921e15a86056f44a7dc4a8ab8b6d9770800e8d588",
-      "source": "src/recovered/header_statics/006351b0/HeaderStatics_angle90_init_00635260.cpp",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
+      "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_angle90_init_00635260",
-      "source_order": 231426
+      "source_order": 231426,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6509184,
@@ -10246,14 +10247,14 @@
           "resolved": 11232564
         }
       ],
-      "source_sha256": "4beec062ba4860d233f45ece295fa73b0efbbf5a3ed931249e62b3533d7cb653",
-      "source": "src/recovered/header_statics/006351b0/HeaderStatics_g_init_00635280.cpp",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
+      "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_g_init_00635280",
-      "source_order": 231427
+      "source_order": 231427,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6509248,
@@ -10306,14 +10307,14 @@
           "resolved": 11232472
         }
       ],
-      "source_sha256": "675b111178e1f654e38771c48b16226628aefce3595d9144709324cdf1321373",
-      "source": "src/recovered/header_statics/006351b0/HeaderStatics_h_init_006352c0.cpp",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
+      "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_h_init_006352c0",
-      "source_order": 231428
+      "source_order": 231428,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6509296,
@@ -10366,14 +10367,14 @@
           "resolved": 11232520
         }
       ],
-      "source_sha256": "849932c3aff602b50fc501e664bbdaf62848f33418f29448eeeda602257451e2",
-      "source": "src/recovered/header_statics/006351b0/HeaderStatics_i_init_006352f0.cpp",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
+      "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_i_init_006352f0",
-      "source_order": 231429
+      "source_order": 231429,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6509344,
@@ -10426,14 +10427,14 @@
           "resolved": 11232544
         }
       ],
-      "source_sha256": "d8e0a4bf155e8cf7858b14f10da02214f1530893e0256c2d581828ab974ee4fa",
-      "source": "src/recovered/header_statics/006351b0/HeaderStatics_j_init_00635320.cpp",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
+      "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_j_init_00635320",
-      "source_order": 231430
+      "source_order": 231430,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6509392,
@@ -10470,14 +10471,14 @@
           "resolved": 11232450
         }
       ],
-      "source_sha256": "4a023e2e77ca0bc53efbca4de2a1c2ef0e8efc6210d2be82db9681bc429785ad",
-      "source": "src/recovered/header_statics/006351b0/HeaderStatics_k_init_00635350.cpp",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
+      "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_k_init_00635350",
-      "source_order": 231431
+      "source_order": 231431,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6509408,
@@ -10522,14 +10523,14 @@
           "resolved": 11232512
         }
       ],
-      "source_sha256": "002dcd6fdc6c136de580a354101f331284510064081bac22f16343da4c5ba244",
-      "source": "src/recovered/header_statics/006351b0/HeaderStatics_l_init_00635360.cpp",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
+      "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_l_init_00635360",
-      "source_order": 231432
+      "source_order": 231432,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6509440,
@@ -10582,14 +10583,14 @@
           "resolved": 11232444
         }
       ],
-      "source_sha256": "87d528085d96df67304d453b6707568d1d59987db22eb07c6dc8dcfc3cec139b",
-      "source": "src/recovered/header_statics/006351b0/HeaderStatics_static_rect_init_00635380.cpp",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
+      "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_static_rect_init_00635380",
-      "source_order": 231433
+      "source_order": 231433,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6509472,
@@ -10690,14 +10691,14 @@
           "resolved": 1365423
         }
       ],
-      "source_sha256": "96bbcf633df65d8d4d68ec15e6b4e68e52e1df0a0d014f307769d40d8dc951f4",
-      "source": "src/recovered/classes/RadBeam/RadBeam_list_init_006353a0.cpp",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
+      "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "RadBeam_list_init_006353a0",
-      "source_order": 231434
+      "source_order": 231434,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6510384,
@@ -10798,7 +10799,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "c6c6fe8d2ed44d8ff431d13ac93e2c6e41d6681de17967b497d16bf4aeda58bc",
       "relocations": [],
-      "source_sha256": "fe9ad64937f9820b404ba037c6e3acb188906192836591e53032d9b7f0ceabad",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
       "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -10824,7 +10825,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "f19d1591760836879a351da268c3a8b41c06e77d46fc27725aea64bfa5e3936c",
       "relocations": [],
-      "source_sha256": "fe9ad64937f9820b404ba037c6e3acb188906192836591e53032d9b7f0ceabad",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
       "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -10859,7 +10860,7 @@
           "resolved": 1358400
         }
       ],
-      "source_sha256": "fe9ad64937f9820b404ba037c6e3acb188906192836591e53032d9b7f0ceabad",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
       "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -10886,7 +10887,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "relocations": [],
-      "source_sha256": "fe9ad64937f9820b404ba037c6e3acb188906192836591e53032d9b7f0ceabad",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
       "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -10913,7 +10914,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
       "relocations": [],
-      "source_sha256": "fe9ad64937f9820b404ba037c6e3acb188906192836591e53032d9b7f0ceabad",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
       "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -10940,7 +10941,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
       "relocations": [],
-      "source_sha256": "fe9ad64937f9820b404ba037c6e3acb188906192836591e53032d9b7f0ceabad",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
       "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -10976,7 +10977,7 @@
           "resolved": 1358067
         }
       ],
-      "source_sha256": "fe9ad64937f9820b404ba037c6e3acb188906192836591e53032d9b7f0ceabad",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
       "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -11003,7 +11004,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
       "relocations": [],
-      "source_sha256": "fe9ad64937f9820b404ba037c6e3acb188906192836591e53032d9b7f0ceabad",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
       "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -11030,7 +11031,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "relocations": [],
-      "source_sha256": "fe9ad64937f9820b404ba037c6e3acb188906192836591e53032d9b7f0ceabad",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
       "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -11057,7 +11058,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
       "relocations": [],
-      "source_sha256": "fe9ad64937f9820b404ba037c6e3acb188906192836591e53032d9b7f0ceabad",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
       "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -11110,7 +11111,7 @@
         }
       ],
       "source": "src/recovered/radbeam.cpp",
-      "source_sha256": "fe9ad64937f9820b404ba037c6e3acb188906192836591e53032d9b7f0ceabad",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
       "source_order": 243267,
       "population": "population-4358",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -11161,7 +11162,7 @@
         }
       ],
       "source": "src/recovered/radbeam.cpp",
-      "source_sha256": "fe9ad64937f9820b404ba037c6e3acb188906192836591e53032d9b7f0ceabad",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
       "source_order": 243268,
       "population": "population-4358",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -11203,7 +11204,7 @@
           "resolved": 1358144
         }
       ],
-      "source_sha256": "fe9ad64937f9820b404ba037c6e3acb188906192836591e53032d9b7f0ceabad",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
       "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -11230,7 +11231,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "1f5dc18c4125d3f33b3b7758e8888cbb8bbb4de73aab4efd572de457ba88f80a",
       "relocations": [],
-      "source_sha256": "fe9ad64937f9820b404ba037c6e3acb188906192836591e53032d9b7f0ceabad",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
       "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -11256,7 +11257,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "922cf12737d5e8a543c510b84f79711e0145f62d6d578dd29c4c7878fc23eab0",
       "relocations": [],
-      "source_sha256": "fe9ad64937f9820b404ba037c6e3acb188906192836591e53032d9b7f0ceabad",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
       "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -11282,7 +11283,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "4dd970540c3b2e16c37ae37e92b6126dfa57d96bb54eb9505f0d933ab9ad7ab1",
       "relocations": [],
-      "source_sha256": "fe9ad64937f9820b404ba037c6e3acb188906192836591e53032d9b7f0ceabad",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
       "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -11389,14 +11390,14 @@
           "resolved": 11232488
         }
       ],
-      "source_sha256": "e7f39218f5b1264de0e5323d1cfc09ba86f267149ad98f9e2fe6b497081a1363",
-      "source": "src/recovered/classes/RadBeam/RadBeam_list_atexit_destructor_006353e0.cpp",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
+      "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "RadBeam_list_atexit_destructor_006353e0",
-      "source_order": 231435
+      "source_order": 231435,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6513856,
@@ -11433,7 +11434,7 @@
           "resolved": 1357837
         }
       ],
-      "source_sha256": "fe9ad64937f9820b404ba037c6e3acb188906192836591e53032d9b7f0ceabad",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
       "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -11789,7 +11790,7 @@
           "resolved": 8623664
         }
       ],
-      "source_sha256": "fe9ad64937f9820b404ba037c6e3acb188906192836591e53032d9b7f0ceabad",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
       "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -11824,7 +11825,7 @@
           "resolved": 4293412999
         }
       ],
-      "source_sha256": "fe9ad64937f9820b404ba037c6e3acb188906192836591e53032d9b7f0ceabad",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
       "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -12027,7 +12028,7 @@
           "resolved": 8623664
         }
       ],
-      "source_sha256": "fe9ad64937f9820b404ba037c6e3acb188906192836591e53032d9b7f0ceabad",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
       "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -12070,7 +12071,7 @@
           "resolved": 1347880
         }
       ],
-      "source_sha256": "fe9ad64937f9820b404ba037c6e3acb188906192836591e53032d9b7f0ceabad",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
       "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -12121,7 +12122,7 @@
           "resolved": 1347626
         }
       ],
-      "source_sha256": "fe9ad64937f9820b404ba037c6e3acb188906192836591e53032d9b7f0ceabad",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
       "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -12156,7 +12157,7 @@
           "resolved": 1348959
         }
       ],
-      "source_sha256": "fe9ad64937f9820b404ba037c6e3acb188906192836591e53032d9b7f0ceabad",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
       "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -12367,7 +12368,7 @@
           "resolved": 8623664
         }
       ],
-      "source_sha256": "fe9ad64937f9820b404ba037c6e3acb188906192836591e53032d9b7f0ceabad",
+      "source_sha256": "c2074a76cd4bd764909d3b0512d9710a1b20557e3f33be465f48a261355c5435",
       "source": "src/recovered/radbeam.cpp",
       "population": "population-4358",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",

@@ -12,6 +12,84 @@
  "compile_group": 953,
  "code": [
   {
+   "symbol": "_$E2",
+   "entry": "006d9950",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "006d9980",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "006d99a0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "006d99c0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "006d99e0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "006d9a00",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "006d9a20",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "006d9a60",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "006d9a90",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "006d9ac0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "006d9af0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "006d9b00",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "006d9b20",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
    "symbol": "?CanUseWaypoint@TechnoTypeClass@@UBE_NXZ",
    "entry": "006dacb0",
    "body_bytes": 3,
@@ -240,7 +318,7 @@
    "padding_bytes": 15
   }
  ],
- "code_bytes": 19824,
+ "code_bytes": 20320,
  "data": [
   {
    "symbol": "__real@8@40008000000000000000",
@@ -303,14 +381,14 @@
    "address": "0079b610",
    "bytes": 8,
    "kind": "table",
-   "section": 130
+   "section": 103
   },
   {
    "symbol": "??_7?$VectorClass@PAVParticleSystemTypeClass@@@@6B@",
    "address": "0079d0ac",
    "bytes": 28,
    "kind": "vtable",
-   "section": 64
+   "section": 237
   },
   {
    "symbol": "??_7?$DynamicVectorClass@PAVParticleSystemTypeClass@@@@6B@",
@@ -324,21 +402,21 @@
    "address": "0079d578",
    "bytes": 8,
    "kind": "table",
-   "section": 340
+   "section": 323
   },
   {
    "symbol": "??_7?$VectorClass@H@@6B@",
    "address": "0079d9d4",
    "bytes": 28,
    "kind": "vtable",
-   "section": 62
+   "section": 299
   },
   {
    "symbol": "??_7?$TypeList@H@@6B@",
    "address": "0079d9f4",
    "bytes": 28,
    "kind": "vtable",
-   "section": 47
+   "section": 300
   },
   {
    "symbol": "??_7?$DynamicVectorClass@H@@6B@",
@@ -352,14 +430,14 @@
    "address": "0079dd80",
    "bytes": 4,
    "kind": "table",
-   "section": 90
+   "section": 63
   },
   {
    "symbol": "??_7?$VectorClass@PAVBuildingTypeClass@@@@6B@",
    "address": "007a2f08",
    "bytes": 28,
    "kind": "vtable",
-   "section": 61
+   "section": 259
   },
   {
    "symbol": "??_7?$DynamicVectorClass@PAVBuildingTypeClass@@@@6B@",
@@ -373,14 +451,14 @@
    "address": "007a3b3c",
    "bytes": 28,
    "kind": "vtable",
-   "section": 45
+   "section": 297
   },
   {
    "symbol": "??_7?$VectorClass@PAVAnimTypeClass@@@@6B@",
    "address": "007a3b5c",
    "bytes": 28,
    "kind": "vtable",
-   "section": 63
+   "section": 296
   },
   {
    "symbol": "??_7?$DynamicVectorClass@PAVAnimTypeClass@@@@6B@",
@@ -394,21 +472,21 @@
    "address": "007a5e4c",
    "bytes": 28,
    "kind": "vtable",
-   "section": 46
+   "section": 260
   },
   {
    "symbol": "??_7?$TypeList@PAVVoxelAnimTypeClass@@@@6B@",
    "address": "007a90f8",
    "bytes": 28,
    "kind": "vtable",
-   "section": 48
+   "section": 303
   },
   {
    "symbol": "??_7?$VectorClass@PAVVoxelAnimTypeClass@@@@6B@",
    "address": "007a9118",
    "bytes": 28,
    "kind": "vtable",
-   "section": 60
+   "section": 302
   },
   {
    "symbol": "??_7?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@6B@",
@@ -422,7 +500,7 @@
    "address": "007ad028",
    "bytes": 8,
    "kind": "table",
-   "section": 75
+   "section": 48
   },
   {
    "symbol": "_unknown_geometry_sixty",
@@ -436,1897 +514,1897 @@
    "address": "007ad054",
    "bytes": 4,
    "kind": "vtable",
-   "section": 40
+   "section": 381
   },
   {
    "symbol": "??_7TechnoTypeClass@@6BINoticeSink@@@",
    "address": "007ad05c",
    "bytes": 4,
    "kind": "vtable",
-   "section": 41
+   "section": 382
   },
   {
    "symbol": "??_7TechnoTypeClass@@6BIRTTITypeInfo@@@",
    "address": "007ad064",
    "bytes": 24,
    "kind": "vtable",
-   "section": 42
+   "section": 383
   },
   {
    "symbol": "??_7TechnoTypeClass@@6BIPersistStream@@@",
    "address": "007ad080",
    "bytes": 192,
    "kind": "vtable",
-   "section": 43
+   "section": 384
   },
   {
    "symbol": "??_7?$TypeList@PAVParticleSystemTypeClass@@@@6B@",
    "address": "007ad144",
    "bytes": 28,
    "kind": "vtable",
-   "section": 44
+   "section": 238
   },
   {
    "symbol": "__real@8@3ff98efa351294e9c800",
    "address": "007ad160",
    "bytes": 8,
    "kind": "table",
-   "section": 339
+   "section": 322
   },
   {
    "symbol": "__real@8@3ffe947ae147ae147800",
    "address": "007ad168",
    "bytes": 8,
    "kind": "table",
-   "section": 389
+   "section": 372
   },
   {
    "symbol": "??_C@_01KMAE@?0?$AA@",
    "address": "007ce9c0",
    "bytes": 2,
    "kind": "string",
-   "section": 321
+   "section": 304
   },
   {
    "symbol": "??_C@_04BOIE@?4SHP?$AA@",
    "address": "007ced14",
    "bytes": 5,
    "kind": "string",
-   "section": 122
+   "section": 95
   },
   {
    "symbol": "??_C@_06BMBE@Spawns?$AA@",
    "address": "007cee70",
    "bytes": 7,
    "kind": "string",
-   "section": 173
+   "section": 146
   },
   {
    "symbol": "??_C@_0L@CLCE@Normalized?$AA@",
    "address": "007cefc8",
    "bytes": 11,
    "kind": "string",
-   "section": 116
+   "section": 89
   },
   {
    "symbol": "??_C@_03NIKF@ROT?$AA@",
    "address": "007d1404",
    "bytes": 4,
    "kind": "string",
-   "section": 192
+   "section": 165
   },
   {
    "symbol": "??_C@_07PPNB@Crusher?$AA@",
    "address": "007d1b28",
    "bytes": 8,
    "kind": "string",
-   "section": 179
+   "section": 152
   },
   {
    "symbol": "??_C@_0L@DPKL@Passengers?$AA@",
    "address": "007d1b98",
    "bytes": 11,
    "kind": "string",
-   "section": 191
+   "section": 164
   },
   {
    "symbol": "??_C@_04EMIP@Ammo?$AA@",
    "address": "007d1ba4",
    "bytes": 5,
    "kind": "string",
-   "section": 220
+   "section": 193
   },
   {
    "symbol": "??_C@_05PDDA@Speed?$AA@",
    "address": "007d381c",
    "bytes": 6,
    "kind": "string",
-   "section": 225
+   "section": 198
   },
   {
    "symbol": "??_C@_09HHHN@Explosion?$AA@",
    "address": "007d3850",
    "bytes": 10,
    "kind": "string",
-   "section": 268
+   "section": 243
   },
   {
    "symbol": "??_C@_04BBDK@Size?$AA@",
    "address": "007d5e28",
    "bytes": 5,
    "kind": "string",
-   "section": 328
+   "section": 311
   },
   {
    "symbol": "??_C@_0L@PJAI@XXICON?4SHP?$AA@",
    "address": "007d61bc",
    "bytes": 11,
    "kind": "string",
-   "section": 110
+   "section": 83
   },
   {
    "symbol": "??_C@_07NBFD@Palette?$AA@",
    "address": "007d9e2c",
    "bytes": 8,
    "kind": "string",
-   "section": 121
+   "section": 94
   },
   {
    "symbol": "??_C@_09FKED@TechLevel?$AA@",
    "address": "007da8bc",
    "bytes": 10,
    "kind": "string",
-   "section": 226
+   "section": 199
   },
   {
    "symbol": "??_C@_04IHF@Cost?$AA@",
    "address": "007dae28",
    "bytes": 5,
    "kind": "string",
-   "section": 224
+   "section": 197
   },
   {
    "symbol": "??_C@_08LAIG@Explodes?$AA@",
    "address": "007e8c20",
    "bytes": 9,
    "kind": "string",
-   "section": 347
+   "section": 330
   },
   {
    "symbol": "??_C@_0P@JJIJ@ChronoOutSound?$AA@",
    "address": "007ef6c0",
    "bytes": 15,
    "kind": "string",
-   "section": 269
+   "section": 244
   },
   {
    "symbol": "??_C@_0O@IPFA@ChronoInSound?$AA@",
    "address": "007ef6d0",
    "bytes": 14,
    "kind": "string",
-   "section": 270
+   "section": 245
   },
   {
    "symbol": "??_C@_0N@IJKM@SinkingSound?$AA@",
    "address": "007ef6e0",
    "bytes": 13,
    "kind": "string",
-   "section": 294
+   "section": 271
   },
   {
    "symbol": "??_C@_0BA@PGHM@ImpactLandSound?$AA@",
    "address": "007ef6f0",
    "bytes": 16,
    "kind": "string",
-   "section": 296
+   "section": 273
   },
   {
    "symbol": "??_C@_0BB@ECLL@ImpactWaterSound?$AA@",
    "address": "007ef700",
    "bytes": 17,
    "kind": "string",
-   "section": 297
+   "section": 274
   },
   {
    "symbol": "??_C@_0M@DKHF@DeathWeapon?$AA@",
    "address": "007efd30",
    "bytes": 12,
    "kind": "string",
-   "section": 345
+   "section": 328
   },
   {
    "symbol": "??_C@_0M@ENDA@FlightLevel?$AA@",
    "address": "007f1100",
    "bytes": 12,
    "kind": "string",
-   "section": 343
+   "section": 326
   },
   {
    "symbol": "??_C@_0N@MDLC@TiberiumHeal?$AA@",
    "address": "007f14c8",
    "bytes": 13,
    "kind": "string",
-   "section": 185
+   "section": 158
   },
   {
    "symbol": "??_C@_09HAOM@AutoCrush?$AA@",
    "address": "007f1a40",
    "bytes": 10,
    "kind": "string",
-   "section": 178
+   "section": 151
   },
   {
    "symbol": "??_C@_0N@LNIM@MovementZone?$AA@",
    "address": "007f71c8",
    "bytes": 13,
    "kind": "string",
-   "section": 91
+   "section": 64
   },
   {
    "symbol": "??_C@_0BK@BMBP@TurretNotExportedOnGround?$AA@",
    "address": "007f71d8",
    "bytes": 26,
    "kind": "string",
-   "section": 92
+   "section": 65
   },
   {
    "symbol": "??_C@_0BG@BHCO@EliteSBarrelThickness?$AA@",
    "address": "007f71f4",
    "bytes": 22,
    "kind": "string",
-   "section": 93
+   "section": 66
   },
   {
    "symbol": "??_C@_0BD@COHB@EliteSBarrelLength?$AA@",
    "address": "007f720c",
    "bytes": 19,
    "kind": "string",
-   "section": 94
+   "section": 67
   },
   {
    "symbol": "??_C@_0BG@GLPH@EliteSecondaryFireFLH?$AA@",
    "address": "007f7220",
    "bytes": 22,
    "kind": "string",
-   "section": 95
+   "section": 68
   },
   {
    "symbol": "??_C@_0BG@HFGJ@ElitePBarrelThickness?$AA@",
    "address": "007f7238",
    "bytes": 22,
    "kind": "string",
-   "section": 96
+   "section": 69
   },
   {
    "symbol": "??_C@_0BD@NNMH@ElitePBarrelLength?$AA@",
    "address": "007f7250",
    "bytes": 19,
    "kind": "string",
-   "section": 97
+   "section": 70
   },
   {
    "symbol": "??_C@_0BE@HFPJ@ElitePrimaryFireFLH?$AA@",
    "address": "007f7264",
    "bytes": 20,
    "kind": "string",
-   "section": 98
+   "section": 71
   },
   {
    "symbol": "??_C@_0BB@GMFL@SBarrelThickness?$AA@",
    "address": "007f7278",
    "bytes": 17,
    "kind": "string",
-   "section": 99
+   "section": 72
   },
   {
    "symbol": "??_C@_0O@GIEP@SBarrelLength?$AA@",
    "address": "007f728c",
    "bytes": 14,
    "kind": "string",
-   "section": 100
+   "section": 73
   },
   {
    "symbol": "??_C@_0BB@BAIC@SecondaryFireFLH?$AA@",
    "address": "007f729c",
    "bytes": 17,
    "kind": "string",
-   "section": 101
+   "section": 74
   },
   {
    "symbol": "??_C@_0BB@OBM@PBarrelThickness?$AA@",
    "address": "007f72b0",
    "bytes": 17,
    "kind": "string",
-   "section": 102
+   "section": 75
   },
   {
    "symbol": "??_C@_0O@JLPJ@PBarrelLength?$AA@",
    "address": "007f72c4",
    "bytes": 14,
    "kind": "string",
-   "section": 103
+   "section": 76
   },
   {
    "symbol": "??_C@_0P@PDLP@PrimaryFireFLH?$AA@",
    "address": "007f72d4",
    "bytes": 15,
    "kind": "string",
-   "section": 104
+   "section": 77
   },
   {
    "symbol": "??_C@_0P@MCMK@?$CFsTurretLocked?$AA@",
    "address": "007f72e4",
    "bytes": 15,
    "kind": "string",
-   "section": 105
+   "section": 78
   },
   {
    "symbol": "??_C@_0BC@PEJB@?$CFsBarrelThickness?$AA@",
    "address": "007f72f4",
    "bytes": 18,
    "kind": "string",
-   "section": 106
+   "section": 79
   },
   {
    "symbol": "??_C@_0P@GOML@?$CFsBarrelLength?$AA@",
    "address": "007f7308",
    "bytes": 15,
    "kind": "string",
-   "section": 107
+   "section": 80
   },
   {
    "symbol": "??_C@_05DNPE@?$CFsFLH?$AA@",
    "address": "007f7318",
    "bytes": 6,
    "kind": "string",
-   "section": 108
+   "section": 81
   },
   {
    "symbol": "??_C@_08JAIB@AltCameo?$AA@",
    "address": "007f7320",
    "bytes": 9,
    "kind": "string",
-   "section": 109
+   "section": 82
   },
   {
    "symbol": "??_C@_05LKKC@Cameo?$AA@",
    "address": "007f732c",
    "bytes": 6,
    "kind": "string",
-   "section": 111
+   "section": 84
   },
   {
    "symbol": "??_C@_0BD@OPGD@DisableShadowCache?$AA@",
    "address": "007f7334",
    "bytes": 19,
    "kind": "string",
-   "section": 112
+   "section": 85
   },
   {
    "symbol": "??_C@_0BC@HEPP@DisableVoxelCache?$AA@",
    "address": "007f7348",
    "bytes": 18,
    "kind": "string",
-   "section": 113
+   "section": 86
   },
   {
    "symbol": "??_C@_0M@MEPC@ShadowIndex?$AA@",
    "address": "007f735c",
    "bytes": 12,
    "kind": "string",
-   "section": 114
+   "section": 87
   },
   {
    "symbol": "??_C@_0M@CFLM@VisibleLoad?$AA@",
    "address": "007f7368",
    "bytes": 12,
    "kind": "string",
-   "section": 115
+   "section": 88
   },
   {
    "symbol": "??_C@_09FKGL@Remapable?$AA@",
    "address": "007f7374",
    "bytes": 10,
    "kind": "string",
-   "section": 117
+   "section": 90
   },
   {
    "symbol": "??_C@_08HBNM@RotCount?$AA@",
    "address": "007f7380",
    "bytes": 9,
    "kind": "string",
-   "section": 118
+   "section": 91
   },
   {
    "symbol": "??_C@_0N@MNAG@TurretOffset?$AA@",
    "address": "007f738c",
    "bytes": 13,
    "kind": "string",
-   "section": 119
+   "section": 92
   },
   {
    "symbol": "??_C@_0EI@LFNF@You?5have?5violated?5the?5limit?5of?5h@",
    "address": "007f739c",
    "bytes": 72,
    "kind": "string",
-   "section": 120
+   "section": 93
   },
   {
    "symbol": "??_C@_0BG@GPOD@IsSelectableCombatant?$AA@",
    "address": "007f73e4",
    "bytes": 22,
    "kind": "string",
-   "section": 123
+   "section": 96
   },
   {
    "symbol": "??_C@_0BD@OBGP@SpecialThreatValue?$AA@",
    "address": "007f73fc",
    "bytes": 19,
    "kind": "string",
-   "section": 124
+   "section": 97
   },
   {
    "symbol": "??_C@_0BK@NFLG@TargetDistanceCoefficient?$AA@",
    "address": "007f7410",
    "bytes": 26,
    "kind": "string",
-   "section": 125
+   "section": 98
   },
   {
    "symbol": "??_C@_0BK@FKPM@TargetStrengthCoefficient?$AA@",
    "address": "007f742c",
    "bytes": 26,
    "kind": "string",
-   "section": 126
+   "section": 99
   },
   {
    "symbol": "??_C@_0BP@IODG@TargetSpecialThreatCoefficient?$AA@",
    "address": "007f7448",
    "bytes": 31,
    "kind": "string",
-   "section": 127
+   "section": 100
   },
   {
    "symbol": "??_C@_0BP@MMII@TargetEffectivenessCoefficient?$AA@",
    "address": "007f7468",
    "bytes": 31,
    "kind": "string",
-   "section": 128
+   "section": 101
   },
   {
    "symbol": "??_C@_0BL@INNB@MyEffectivenessCoefficient?$AA@",
    "address": "007f7488",
    "bytes": 27,
    "kind": "string",
-   "section": 129
+   "section": 102
   },
   {
    "symbol": "??_C@_0P@MBFL@EliteAbilities?$AA@",
    "address": "007f74a4",
    "bytes": 15,
    "kind": "string",
-   "section": 131
+   "section": 104
   },
   {
    "symbol": "??_C@_0BB@CJNK@VeteranAbilities?$AA@",
    "address": "007f74b4",
    "bytes": 17,
    "kind": "string",
-   "section": 132
+   "section": 105
   },
   {
    "symbol": "??_C@_0N@NECA@ZFudgeBridge?$AA@",
    "address": "007f74c8",
    "bytes": 13,
    "kind": "string",
-   "section": 133
+   "section": 106
   },
   {
    "symbol": "??_C@_0N@IOEE@ZFudgeTunnel?$AA@",
    "address": "007f74d8",
    "bytes": 13,
    "kind": "string",
-   "section": 134
+   "section": 107
   },
   {
    "symbol": "??_C@_0N@JCCJ@ZFudgeColumn?$AA@",
    "address": "007f74e8",
    "bytes": 13,
    "kind": "string",
-   "section": 135
+   "section": 108
   },
   {
    "symbol": "??_C@_0M@EMOA@ZFudgeCliff?$AA@",
    "address": "007f74f8",
    "bytes": 12,
    "kind": "string",
-   "section": 136
+   "section": 109
   },
   {
    "symbol": "??_C@_0M@CEPI@Accelerates?$AA@",
    "address": "007f7504",
    "bytes": 12,
    "kind": "string",
-   "section": 137
+   "section": 110
   },
   {
    "symbol": "??_C@_0BB@IFOJ@TiltsWhenCrushes?$AA@",
    "address": "007f7510",
    "bytes": 17,
    "kind": "string",
-   "section": 138
+   "section": 111
   },
   {
    "symbol": "??_C@_0BE@FIGJ@BarrelRecoverFrames?$AA@",
    "address": "007f7524",
    "bytes": 20,
    "kind": "string",
-   "section": 139
+   "section": 112
   },
   {
    "symbol": "??_C@_0BB@HBEJ@BarrelHoldFrames?$AA@",
    "address": "007f7538",
    "bytes": 17,
    "kind": "string",
-   "section": 140
+   "section": 113
   },
   {
    "symbol": "??_C@_0BF@NGMJ@BarrelCompressFrames?$AA@",
    "address": "007f754c",
    "bytes": 21,
    "kind": "string",
-   "section": 141
+   "section": 114
   },
   {
    "symbol": "??_C@_0N@DGPM@BarrelTravel?$AA@",
    "address": "007f7564",
    "bytes": 13,
    "kind": "string",
-   "section": 142
+   "section": 115
   },
   {
    "symbol": "??_C@_0BE@LCEF@TurretRecoverFrames?$AA@",
    "address": "007f7574",
    "bytes": 20,
    "kind": "string",
-   "section": 143
+   "section": 116
   },
   {
    "symbol": "??_C@_0BB@HFOK@TurretHoldFrames?$AA@",
    "address": "007f7588",
    "bytes": 17,
    "kind": "string",
-   "section": 144
+   "section": 117
   },
   {
    "symbol": "??_C@_0BF@EHCD@TurretCompressFrames?$AA@",
    "address": "007f759c",
    "bytes": 21,
    "kind": "string",
-   "section": 145
+   "section": 118
   },
   {
    "symbol": "??_C@_0N@BLBP@TurretTravel?$AA@",
    "address": "007f75b4",
    "bytes": 13,
    "kind": "string",
-   "section": 146
+   "section": 119
   },
   {
    "symbol": "??_C@_0N@ECOD@TurretRecoil?$AA@",
    "address": "007f75c4",
    "bytes": 13,
    "kind": "string",
-   "section": 147
+   "section": 120
   },
   {
    "symbol": "??_C@_0BJ@BMBB@AttackCursorOnFriendlies?$AA@",
    "address": "007f75d4",
    "bytes": 25,
    "kind": "string",
-   "section": 148
+   "section": 121
   },
   {
    "symbol": "??_C@_0BB@MABP@AttackFriendlies?$AA@",
    "address": "007f75f0",
    "bytes": 17,
    "kind": "string",
-   "section": 149
+   "section": 122
   },
   {
    "symbol": "??_C@_09HKEH@Crashable?$AA@",
    "address": "007f7604",
    "bytes": 10,
    "kind": "string",
-   "section": 150
+   "section": 123
   },
   {
    "symbol": "??_C@_07DIIK@JumpJet?$AA@",
    "address": "007f7610",
    "bytes": 8,
    "kind": "string",
-   "section": 151
+   "section": 124
   },
   {
    "symbol": "??_C@_0BB@HFOF@JumpjetDeviation?$AA@",
    "address": "007f7618",
    "bytes": 17,
    "kind": "string",
-   "section": 152
+   "section": 125
   },
   {
    "symbol": "??_C@_0BB@KGBA@JumpjetNoWobbles?$AA@",
    "address": "007f762c",
    "bytes": 17,
    "kind": "string",
-   "section": 153
+   "section": 126
   },
   {
    "symbol": "??_C@_0P@LHED@JumpjetWobbles?$AA@",
    "address": "007f7640",
    "bytes": 15,
    "kind": "string",
-   "section": 154
+   "section": 127
   },
   {
    "symbol": "??_C@_0N@DCBB@JumpjetAccel?$AA@",
    "address": "007f7650",
    "bytes": 13,
    "kind": "string",
-   "section": 155
+   "section": 128
   },
   {
    "symbol": "??_C@_0O@PCPD@JumpjetHeight?$AA@",
    "address": "007f7660",
    "bytes": 14,
    "kind": "string",
-   "section": 156
+   "section": 129
   },
   {
    "symbol": "??_C@_0N@BBAP@JumpjetCrash?$AA@",
    "address": "007f7670",
    "bytes": 13,
    "kind": "string",
-   "section": 157
+   "section": 130
   },
   {
    "symbol": "??_C@_0N@IIHD@JumpjetClimb?$AA@",
    "address": "007f7680",
    "bytes": 13,
    "kind": "string",
-   "section": 158
+   "section": 131
   },
   {
    "symbol": "??_C@_0N@PCBG@JumpjetSpeed?$AA@",
    "address": "007f7690",
    "bytes": 13,
    "kind": "string",
-   "section": 159
+   "section": 132
   },
   {
    "symbol": "??_C@_0BA@GLFO@JumpjetTurnRate?$AA@",
    "address": "007f76a0",
    "bytes": 16,
    "kind": "string",
-   "section": 160
+   "section": 133
   },
   {
    "symbol": "??_C@_08EEGD@NoShadow?$AA@",
    "address": "007f76b0",
    "bytes": 9,
    "kind": "string",
-   "section": 161
+   "section": 134
   },
   {
    "symbol": "??_C@_0BF@COME@SuppressionThreshold?$AA@",
    "address": "007f76bc",
    "bytes": 21,
    "kind": "string",
-   "section": 162
+   "section": 135
   },
   {
    "symbol": "??_C@_07GMNO@Organic?$AA@",
    "address": "007f76d4",
    "bytes": 8,
    "kind": "string",
-   "section": 163
+   "section": 136
   },
   {
    "symbol": "??_C@_0BD@GAAP@ConsideredAircraft?$AA@",
    "address": "007f76dc",
    "bytes": 19,
    "kind": "string",
-   "section": 164
+   "section": 137
   },
   {
    "symbol": "??_C@_0BB@PDHB@ImmuneToPsionics?$AA@",
    "address": "007f76f0",
    "bytes": 17,
    "kind": "string",
-   "section": 165
+   "section": 138
   },
   {
    "symbol": "??_C@_0N@BFFM@Parasiteable?$AA@",
    "address": "007f7704",
    "bytes": 13,
    "kind": "string",
-   "section": 166
+   "section": 139
   },
   {
    "symbol": "??_C@_08FFAN@Warpable?$AA@",
    "address": "007f7714",
    "bytes": 9,
    "kind": "string",
-   "section": 167
+   "section": 140
   },
   {
    "symbol": "??_C@_0BD@HJOO@DefaultToGuardArea?$AA@",
    "address": "007f7720",
    "bytes": 19,
    "kind": "string",
-   "section": 168
+   "section": 141
   },
   {
    "symbol": "??_C@_0N@CIE@MissileSpawn?$AA@",
    "address": "007f7734",
    "bytes": 13,
    "kind": "string",
-   "section": 169
+   "section": 142
   },
   {
    "symbol": "??_C@_0BA@DMGG@SpawnReloadRate?$AA@",
    "address": "007f7744",
    "bytes": 16,
    "kind": "string",
-   "section": 170
+   "section": 143
   },
   {
    "symbol": "??_C@_0N@MFDE@SpawnsNumber?$AA@",
    "address": "007f7754",
    "bytes": 13,
    "kind": "string",
-   "section": 171
+   "section": 144
   },
   {
    "symbol": "??_C@_0P@PNDO@SpawnRegenRate?$AA@",
    "address": "007f7764",
    "bytes": 15,
    "kind": "string",
-   "section": 172
+   "section": 145
   },
   {
    "symbol": "??_C@_0N@FFLN@BalloonHover?$AA@",
    "address": "007f7774",
    "bytes": 13,
    "kind": "string",
-   "section": 174
+   "section": 147
   },
   {
    "symbol": "??_C@_0L@LKBN@Underwater?$AA@",
    "address": "007f7784",
    "bytes": 11,
    "kind": "string",
-   "section": 175
+   "section": 148
   },
   {
    "symbol": "??_C@_07JADG@Spawned?$AA@",
    "address": "007f7790",
    "bytes": 8,
    "kind": "string",
-   "section": 176
+   "section": 149
   },
   {
    "symbol": "??_C@_0BC@OFCH@ImmuneToRadiation?$AA@",
    "address": "007f7798",
    "bytes": 18,
    "kind": "string",
-   "section": 177
+   "section": 150
   },
   {
    "symbol": "??_C@_0N@HMBF@HunterSeeker?$AA@",
    "address": "007f77ac",
    "bytes": 13,
    "kind": "string",
-   "section": 180
+   "section": 153
   },
   {
    "symbol": "??_C@_0M@ODMB@TargetLaser?$AA@",
    "address": "007f77bc",
    "bytes": 12,
    "kind": "string",
-   "section": 181
+   "section": 154
   },
   {
    "symbol": "??_C@_0L@LCAL@StupidHunt?$AA@",
    "address": "007f77c8",
    "bytes": 11,
    "kind": "string",
-   "section": 182
+   "section": 155
   },
   {
    "symbol": "??_C@_0BM@CHLC@AllowedToStartInMultiplayer?$AA@",
    "address": "007f77d4",
    "bytes": 28,
    "kind": "string",
-   "section": 183
+   "section": 156
   },
   {
    "symbol": "??_C@_0O@IABC@ImmuneToVeins?$AA@",
    "address": "007f77f0",
    "bytes": 14,
    "kind": "string",
-   "section": 184
+   "section": 157
   },
   {
    "symbol": "??_C@_09NGKJ@ToProtect?$AA@",
    "address": "007f7800",
    "bytes": 10,
    "kind": "string",
-   "section": 186
+   "section": 159
   },
   {
    "symbol": "??_C@_0M@PANJ@Disableable?$AA@",
    "address": "007f780c",
    "bytes": 12,
    "kind": "string",
-   "section": 187
+   "section": 160
   },
   {
    "symbol": "??_C@_0O@IICM@UndeployDelay?$AA@",
    "address": "007f7818",
    "bytes": 14,
    "kind": "string",
-   "section": 188
+   "section": 161
   },
   {
    "symbol": "??_C@_0L@DNPE@DeployTime?$AA@",
    "address": "007f7828",
    "bytes": 11,
    "kind": "string",
-   "section": 189
+   "section": 162
   },
   {
    "symbol": "??_C@_09HICA@FireAngle?$AA@",
    "address": "007f7834",
    "bytes": 10,
    "kind": "string",
-   "section": 190
+   "section": 163
   },
   {
    "symbol": "??_C@_0L@JMIA@NoAutoFire?$AA@",
    "address": "007f7840",
    "bytes": 11,
    "kind": "string",
-   "section": 193
+   "section": 166
   },
   {
    "symbol": "??_C@_0M@MKBK@SelfHealing?$AA@",
    "address": "007f784c",
    "bytes": 12,
    "kind": "string",
-   "section": 194
+   "section": 167
   },
   {
    "symbol": "??_C@_0N@JM@RadarVisible?$AA@",
    "address": "007f7858",
    "bytes": 13,
    "kind": "string",
-   "section": 195
+   "section": 168
   },
   {
    "symbol": "??_C@_09DKMA@Invisible?$AA@",
    "address": "007f7868",
    "bytes": 10,
    "kind": "string",
-   "section": 196
+   "section": 169
   },
   {
    "symbol": "??_C@_0L@KCOL@Repairable?$AA@",
    "address": "007f7874",
    "bytes": 11,
    "kind": "string",
-   "section": 197
+   "section": 170
   },
   {
    "symbol": "??_C@_05HJMP@Naval?$AA@",
    "address": "007f7880",
    "bytes": 6,
    "kind": "string",
-   "section": 198
+   "section": 171
   },
   {
    "symbol": "??_C@_06CHPN@Gunner?$AA@",
    "address": "007f7888",
    "bytes": 7,
    "kind": "string",
-   "section": 199
+   "section": 172
   },
   {
    "symbol": "??_C@_06OBCK@Crewed?$AA@",
    "address": "007f7890",
    "bytes": 7,
    "kind": "string",
-   "section": 200
+   "section": 173
   },
   {
    "symbol": "??_C@_09NKB@Trainable?$AA@",
    "address": "007f7898",
    "bytes": 10,
    "kind": "string",
-   "section": 201
+   "section": 174
   },
   {
    "symbol": "??_C@_0BD@MAOK@AIBasePlanningSide?$AA@",
    "address": "007f78a4",
    "bytes": 19,
    "kind": "string",
-   "section": 202
+   "section": 175
   },
   {
    "symbol": "??_C@_05LKOI@Owner?$AA@",
    "address": "007f78b8",
    "bytes": 6,
    "kind": "string",
-   "section": 203
+   "section": 176
   },
   {
    "symbol": "??_C@_0M@BIIO@ThreatPosed?$AA@",
    "address": "007f78c0",
    "bytes": 12,
    "kind": "string",
-   "section": 204
+   "section": 177
   },
   {
    "symbol": "??_C@_06PKIA@Points?$AA@",
    "address": "007f78cc",
    "bytes": 7,
    "kind": "string",
-   "section": 205
+   "section": 178
   },
   {
    "symbol": "??_C@_0BC@KFKB@PreventAttackMove?$AA@",
    "address": "007f78d4",
    "bytes": 18,
    "kind": "string",
-   "section": 206
+   "section": 179
   },
   {
    "symbol": "??_C@_0BN@CCKJ@ReadinessReductionMultiplier?$AA@",
    "address": "007f78e8",
    "bytes": 29,
    "kind": "string",
-   "section": 207
+   "section": 180
   },
   {
    "symbol": "??_C@_0BH@LFA@DamageReducesReadiness?$AA@",
    "address": "007f7908",
    "bytes": 23,
    "kind": "string",
-   "section": 208
+   "section": 181
   },
   {
    "symbol": "??_C@_0BA@MPOB@ReloadIncrement?$AA@",
    "address": "007f7920",
    "bytes": 16,
    "kind": "string",
-   "section": 209
+   "section": 182
   },
   {
    "symbol": "??_C@_0M@BKME@EmptyReload?$AA@",
    "address": "007f7930",
    "bytes": 12,
    "kind": "string",
-   "section": 210
+   "section": 183
   },
   {
    "symbol": "??_C@_06KIJA@Reload?$AA@",
    "address": "007f793c",
    "bytes": 7,
    "kind": "string",
-   "section": 211
+   "section": 184
   },
   {
    "symbol": "??_C@_0BA@BJNB@DistributedFire?$AA@",
    "address": "007f7944",
    "bytes": 16,
    "kind": "string",
-   "section": 212
+   "section": 185
   },
   {
    "symbol": "??_C@_0BA@LPLK@OpportunityFire?$AA@",
    "address": "007f7954",
    "bytes": 16,
    "kind": "string",
-   "section": 213
+   "section": 186
   },
   {
    "symbol": "??_C@_0L@EAKF@MobileFire?$AA@",
    "address": "007f7964",
    "bytes": 11,
    "kind": "string",
-   "section": 214
+   "section": 187
   },
   {
    "symbol": "??_C@_0L@JMNJ@DeployFire?$AA@",
    "address": "007f7970",
    "bytes": 11,
    "kind": "string",
-   "section": 215
+   "section": 188
   },
   {
    "symbol": "??_C@_0BB@DEKJ@DeployFireWeapon?$AA@",
    "address": "007f797c",
    "bytes": 17,
    "kind": "string",
-   "section": 216
+   "section": 189
   },
   {
    "symbol": "??_C@_0BD@IDNF@RadialFireSegments?$AA@",
    "address": "007f7990",
    "bytes": 19,
    "kind": "string",
-   "section": 217
+   "section": 190
   },
   {
    "symbol": "??_C@_0O@DAME@AirRangeBonus?$AA@",
    "address": "007f79a4",
    "bytes": 14,
    "kind": "string",
-   "section": 218
+   "section": 191
   },
   {
    "symbol": "??_C@_07NEFF@IFVMode?$AA@",
    "address": "007f79b4",
    "bytes": 8,
    "kind": "string",
-   "section": 219
+   "section": 192
   },
   {
    "symbol": "??_C@_0M@EIOB@InitialAmmo?$AA@",
    "address": "007f79bc",
    "bytes": 12,
    "kind": "string",
-   "section": 221
+   "section": 194
   },
   {
    "symbol": "??_C@_0P@DGDG@UnloadingClass?$AA@",
    "address": "007f79c8",
    "bytes": 15,
    "kind": "string",
-   "section": 222
+   "section": 195
   },
   {
    "symbol": "??_C@_07NNDI@Soylent?$AA@",
    "address": "007f79d8",
    "bytes": 8,
    "kind": "string",
-   "section": 223
+   "section": 196
   },
   {
    "symbol": "??_C@_0BA@JPHL@ForbiddenHouses?$AA@",
    "address": "007f79e0",
    "bytes": 16,
    "kind": "string",
-   "section": 227
+   "section": 200
   },
   {
    "symbol": "??_C@_0P@EEJC@RequiredHouses?$AA@",
    "address": "007f79f0",
    "bytes": 15,
    "kind": "string",
-   "section": 228
+   "section": 201
   },
   {
    "symbol": "??_C@_0BJ@NNNB@RequiresStolenAlliedTech?$AA@",
    "address": "007f7a00",
    "bytes": 25,
    "kind": "string",
-   "section": 229
+   "section": 202
   },
   {
    "symbol": "??_C@_0BJ@CJDM@RequiresStolenSovietTech?$AA@",
    "address": "007f7a1c",
    "bytes": 25,
    "kind": "string",
-   "section": 230
+   "section": 203
   },
   {
    "symbol": "??_C@_0BI@DNEJ@CanRecalcApproachTarget?$AA@",
    "address": "007f7a38",
    "bytes": 24,
    "kind": "string",
-   "section": 231
+   "section": 204
   },
   {
    "symbol": "??_C@_0BC@NKBB@CanApproachTarget?$AA@",
    "address": "007f7a50",
    "bytes": 18,
    "kind": "string",
-   "section": 232
+   "section": 205
   },
   {
    "symbol": "??_C@_0N@OLOK@CanRetaliate?$AA@",
    "address": "007f7a64",
    "bytes": 13,
    "kind": "string",
-   "section": 233
+   "section": 206
   },
   {
    "symbol": "??_C@_0BB@EAKM@CanPassiveAquire?$AA@",
    "address": "007f7a74",
    "bytes": 17,
    "kind": "string",
-   "section": 234
+   "section": 207
   },
   {
    "symbol": "??_C@_0BC@CNGM@DisguiseWhenStill?$AA@",
    "address": "007f7a88",
    "bytes": 18,
    "kind": "string",
-   "section": 235
+   "section": 208
   },
   {
    "symbol": "??_C@_0P@BBAA@DetectDisguise?$AA@",
    "address": "007f7a9c",
    "bytes": 15,
    "kind": "string",
-   "section": 236
+   "section": 209
   },
   {
    "symbol": "??_C@_0O@JEMD@PermaDisguise?$AA@",
    "address": "007f7aac",
    "bytes": 14,
    "kind": "string",
-   "section": 237
+   "section": 210
   },
   {
    "symbol": "??_C@_0M@MLPM@CanDisguise?$AA@",
    "address": "007f7abc",
    "bytes": 12,
    "kind": "string",
-   "section": 238
+   "section": 211
   },
   {
    "symbol": "??_C@_0M@OHBF@RevealToAll?$AA@",
    "address": "007f7ac8",
    "bytes": 12,
    "kind": "string",
-   "section": 239
+   "section": 212
   },
   {
    "symbol": "??_C@_0BB@HGKA@LeadershipRating?$AA@",
    "address": "007f7ad4",
    "bytes": 17,
    "kind": "string",
-   "section": 240
+   "section": 213
   },
   {
    "symbol": "??_C@_09JMHE@BombSight?$AA@",
    "address": "007f7ae8",
    "bytes": 10,
    "kind": "string",
-   "section": 241
+   "section": 214
   },
   {
    "symbol": "??_C@_0BE@DHDJ@DetectDisguiseRange?$AA@",
    "address": "007f7af4",
    "bytes": 20,
    "kind": "string",
-   "section": 242
+   "section": 215
   },
   {
    "symbol": "??_C@_0N@FOMO@SensorsSight?$AA@",
    "address": "007f7b08",
    "bytes": 13,
    "kind": "string",
-   "section": 243
+   "section": 216
   },
   {
    "symbol": "??_C@_0BE@COAI@RejoinTeamIfLimboed?$AA@",
    "address": "007f7b18",
    "bytes": 20,
    "kind": "string",
-   "section": 244
+   "section": 217
   },
   {
    "symbol": "??_C@_0BC@CNML@ReselectIfLimboed?$AA@",
    "address": "007f7b2c",
    "bytes": 18,
    "kind": "string",
-   "section": 245
+   "section": 218
   },
   {
    "symbol": "??_C@_05FNNK@Sight?$AA@",
    "address": "007f7b40",
    "bytes": 6,
    "kind": "string",
-   "section": 246
+   "section": 219
   },
   {
    "symbol": "??_C@_0BF@MEFJ@PrerequisiteOverride?$AA@",
    "address": "007f7b48",
    "bytes": 21,
    "kind": "string",
-   "section": 247
+   "section": 220
   },
   {
    "symbol": "??_C@_0N@KOBB@Prerequisite?$AA@",
    "address": "007f7b60",
    "bytes": 13,
    "kind": "string",
-   "section": 248
+   "section": 221
   },
   {
    "symbol": "??_C@_07CJBK@PipWrap?$AA@",
    "address": "007f7b70",
    "bytes": 8,
    "kind": "string",
-   "section": 249
+   "section": 222
   },
   {
    "symbol": "??_C@_08KKHD@PipScale?$AA@",
    "address": "007f7b78",
    "bytes": 9,
    "kind": "string",
-   "section": 250
+   "section": 223
   },
   {
    "symbol": "??_C@_07FIPD@Sensors?$AA@",
    "address": "007f7b84",
    "bytes": 8,
    "kind": "string",
-   "section": 251
+   "section": 224
   },
   {
    "symbol": "??_C@_0L@DCNK@Teleporter?$AA@",
    "address": "007f7b8c",
    "bytes": 11,
    "kind": "string",
-   "section": 252
+   "section": 225
   },
   {
    "symbol": "??_C@_0BG@BIOE@SuperGapRadiusInCells?$AA@",
    "address": "007f7b98",
    "bytes": 22,
    "kind": "string",
-   "section": 253
+   "section": 226
   },
   {
    "symbol": "??_C@_0BB@EOGD@GapRadiusInCells?$AA@",
    "address": "007f7bb0",
    "bytes": 17,
    "kind": "string",
-   "section": 254
+   "section": 227
   },
   {
    "symbol": "??_C@_0N@ENMM@GapGenerator?$AA@",
    "address": "007f7bc4",
    "bytes": 13,
    "kind": "string",
-   "section": 255
+   "section": 228
   },
   {
    "symbol": "??_C@_09LMA@Cloakable?$AA@",
    "address": "007f7bd4",
    "bytes": 10,
    "kind": "string",
-   "section": 256
+   "section": 229
   },
   {
    "symbol": "??_C@_07KJJB@Nominal?$AA@",
    "address": "007f7be0",
    "bytes": 8,
    "kind": "string",
-   "section": 257
+   "section": 230
   },
   {
    "symbol": "??_C@_0BD@HPIL@RefnSmokeOffsetTwo?$AA@",
    "address": "007f7be8",
    "bytes": 19,
    "kind": "string",
-   "section": 258
+   "section": 231
   },
   {
    "symbol": "??_C@_0BD@PAKO@RefnSmokeOffsetOne?$AA@",
    "address": "007f7bfc",
    "bytes": 19,
    "kind": "string",
-   "section": 259
+   "section": 232
   },
   {
    "symbol": "??_C@_0BD@HFED@DestroySmokeOffset?$AA@",
    "address": "007f7c10",
    "bytes": 19,
    "kind": "string",
-   "section": 260
+   "section": 233
   },
   {
    "symbol": "??_C@_0BB@ELOD@DamSmkOffScrnRel?$AA@",
    "address": "007f7c24",
    "bytes": 17,
    "kind": "string",
-   "section": 261
+   "section": 234
   },
   {
    "symbol": "??_C@_0BC@OFFG@DamageSmokeOffset?$AA@",
    "address": "007f7c38",
    "bytes": 18,
    "kind": "string",
-   "section": 262
+   "section": 235
   },
   {
    "symbol": "??_C@_0BH@IHKL@DestroyParticleSystems?$AA@",
    "address": "007f7c4c",
    "bytes": 23,
    "kind": "string",
-   "section": 263
+   "section": 236
   },
   {
    "symbol": "??_C@_0BG@NDFL@DamageParticleSystems?$AA@",
    "address": "007f7c64",
    "bytes": 22,
    "kind": "string",
-   "section": 264
+   "section": 239
   },
   {
    "symbol": "??_C@_0BI@INLB@NaturalParticleLocation?$AA@",
    "address": "007f7c7c",
    "bytes": 24,
    "kind": "string",
-   "section": 265
+   "section": 240
   },
   {
    "symbol": "??_C@_0BG@CICI@NaturalParticleSystem?$AA@",
    "address": "007f7c94",
    "bytes": 22,
    "kind": "string",
-   "section": 266
+   "section": 241
   },
   {
    "symbol": "??_C@_0M@OFPK@DestroyAnim?$AA@",
    "address": "007f7cac",
    "bytes": 12,
    "kind": "string",
-   "section": 267
+   "section": 242
   },
   {
    "symbol": "??_C@_0O@EAHM@UndeploySound?$AA@",
    "address": "007f7cb8",
    "bytes": 14,
    "kind": "string",
-   "section": 271
+   "section": 246
   },
   {
    "symbol": "??_C@_0M@IMCD@DeploySound?$AA@",
    "address": "007f7cc8",
    "bytes": 12,
    "kind": "string",
-   "section": 272
+   "section": 247
   },
   {
    "symbol": "??_C@_08MACI@DieSound?$AA@",
    "address": "007f7cd4",
    "bytes": 9,
    "kind": "string",
-   "section": 273
+   "section": 248
   },
   {
    "symbol": "??_C@_09EDMA@MoveSound?$AA@",
    "address": "007f7ce0",
    "bytes": 10,
    "kind": "string",
-   "section": 274
+   "section": 249
   },
   {
    "symbol": "??_C@_0BE@BHIF@LeaveTransportSound?$AA@",
    "address": "007f7cec",
    "bytes": 20,
    "kind": "string",
-   "section": 275
+   "section": 250
   },
   {
    "symbol": "??_C@_0BE@PHDB@EnterTransportSound?$AA@",
    "address": "007f7d00",
    "bytes": 20,
    "kind": "string",
-   "section": 276
+   "section": 251
   },
   {
    "symbol": "??_C@_0BC@PJOC@TurretRotateSound?$AA@",
    "address": "007f7d14",
    "bytes": 18,
    "kind": "string",
-   "section": 277
+   "section": 252
   },
   {
    "symbol": "??_C@_06CPBB@Turret?$AA@",
    "address": "007f7d28",
    "bytes": 7,
    "kind": "string",
-   "section": 278
+   "section": 253
   },
   {
    "symbol": "??_C@_0M@OIKJ@TurretSpins?$AA@",
    "address": "007f7d30",
    "bytes": 12,
    "kind": "string",
-   "section": 279
+   "section": 254
   },
   {
    "symbol": "??_C@_0N@OCHO@ManualReload?$AA@",
    "address": "007f7d3c",
    "bytes": 13,
    "kind": "string",
-   "section": 280
+   "section": 255
   },
   {
    "symbol": "??_C@_0N@BCOO@LightningRod?$AA@",
    "address": "007f7d4c",
    "bytes": 13,
    "kind": "string",
-   "section": 281
+   "section": 256
   },
   {
    "symbol": "??_C@_0O@CPDF@UndeploysInto?$AA@",
    "address": "007f7d5c",
    "bytes": 14,
    "kind": "string",
-   "section": 282
+   "section": 257
   },
   {
    "symbol": "??_C@_0M@ODGK@DeploysInto?$AA@",
    "address": "007f7d6c",
    "bytes": 12,
    "kind": "string",
-   "section": 283
+   "section": 258
   },
   {
    "symbol": "??_C@_04DAEP@Dock?$AA@",
    "address": "007f7d78",
    "bytes": 5,
    "kind": "string",
-   "section": 284
+   "section": 261
   },
   {
    "symbol": "??_C@_08CPI@Category?$AA@",
    "address": "007f7d80",
    "bytes": 9,
    "kind": "string",
-   "section": 285
+   "section": 262
   },
   {
    "symbol": "??_C@_0L@PDBI@BuildLimit?$AA@",
    "address": "007f7d8c",
    "bytes": 11,
    "kind": "string",
-   "section": 286
+   "section": 263
   },
   {
    "symbol": "??_C@_07BOEP@Storage?$AA@",
    "address": "007f7d98",
    "bytes": 8,
    "kind": "string",
-   "section": 287
+   "section": 264
   },
   {
    "symbol": "??_C@_09OBFO@CloakStop?$AA@",
    "address": "007f7da0",
    "bytes": 10,
    "kind": "string",
-   "section": 288
+   "section": 265
   },
   {
    "symbol": "??_C@_0N@GEFE@VoiceCapture?$AA@",
    "address": "007f7dac",
    "bytes": 13,
    "kind": "string",
-   "section": 289
+   "section": 266
   },
   {
    "symbol": "??_C@_0L@CHH@VoiceEnter?$AA@",
    "address": "007f7dbc",
    "bytes": 11,
    "kind": "string",
-   "section": 290
+   "section": 267
   },
   {
    "symbol": "??_C@_0N@EPFM@VoiceSinking?$AA@",
    "address": "007f7dc8",
    "bytes": 13,
    "kind": "string",
-   "section": 291
+   "section": 268
   },
   {
    "symbol": "??_C@_0O@LPPJ@VoiceCrashing?$AA@",
    "address": "007f7dd8",
    "bytes": 14,
    "kind": "string",
-   "section": 292
+   "section": 269
   },
   {
    "symbol": "??_C@_0N@CFDA@VoiceFalling?$AA@",
    "address": "007f7de8",
    "bytes": 13,
    "kind": "string",
-   "section": 293
+   "section": 270
   },
   {
    "symbol": "??_C@_0O@NBIA@CrashingSound?$AA@",
    "address": "007f7df8",
    "bytes": 14,
    "kind": "string",
-   "section": 295
+   "section": 272
   },
   {
    "symbol": "??_C@_0M@LCEP@DamageSound?$AA@",
    "address": "007f7e08",
    "bytes": 12,
    "kind": "string",
-   "section": 298
+   "section": 275
   },
   {
    "symbol": "??_C@_0M@MDCH@CreateSound?$AA@",
    "address": "007f7e14",
    "bytes": 12,
    "kind": "string",
-   "section": 299
+   "section": 276
   },
   {
    "symbol": "??_C@_09JFAF@AuxSound2?$AA@",
    "address": "007f7e20",
    "bytes": 10,
    "kind": "string",
-   "section": 300
+   "section": 277
   },
   {
    "symbol": "??_C@_09GKLM@AuxSound1?$AA@",
    "address": "007f7e2c",
    "bytes": 10,
    "kind": "string",
-   "section": 301
+   "section": 278
   },
   {
    "symbol": "??_C@_0O@DEMB@VoiceFeedback?$AA@",
    "address": "007f7e38",
    "bytes": 14,
    "kind": "string",
-   "section": 302
+   "section": 279
   },
   {
    "symbol": "??_C@_08FCMA@VoiceDie?$AA@",
    "address": "007f7e48",
    "bytes": 9,
    "kind": "string",
-   "section": 303
+   "section": 280
   },
   {
    "symbol": "??_C@_0BD@OEAL@VoiceSpecialAttack?$AA@",
    "address": "007f7e54",
    "bytes": 19,
    "kind": "string",
-   "section": 304
+   "section": 281
   },
   {
    "symbol": "??_C@_0M@FCMP@VoiceAttack?$AA@",
    "address": "007f7e68",
    "bytes": 12,
    "kind": "string",
-   "section": 305
+   "section": 282
   },
   {
    "symbol": "??_C@_0M@BODL@VoiceSelect?$AA@",
    "address": "007f7e74",
    "bytes": 12,
    "kind": "string",
-   "section": 306
+   "section": 283
   },
   {
    "symbol": "??_C@_09FMFK@VoiceMove?$AA@",
    "address": "007f7e80",
    "bytes": 10,
    "kind": "string",
-   "section": 307
+   "section": 284
   },
   {
    "symbol": "??_C@_0P@KBOC@EliteSecondary?$AA@",
    "address": "007f7e8c",
    "bytes": 15,
    "kind": "string",
-   "section": 308
+   "section": 285
   },
   {
    "symbol": "??_C@_0N@OBDC@ElitePrimary?$AA@",
    "address": "007f7e9c",
    "bytes": 13,
    "kind": "string",
-   "section": 309
+   "section": 286
   },
   {
    "symbol": "??_C@_09KBCF@Secondary?$AA@",
    "address": "007f7eac",
    "bytes": 10,
    "kind": "string",
-   "section": 310
+   "section": 287
   },
   {
    "symbol": "??_C@_07CENM@Primary?$AA@",
    "address": "007f7eb8",
    "bytes": 8,
    "kind": "string",
-   "section": 311
+   "section": 288
   },
   {
    "symbol": "??_C@_0O@ECCD@EliteWeapon?$CFd?$AA@",
    "address": "007f7ec0",
    "bytes": 14,
    "kind": "string",
-   "section": 312
+   "section": 289
   },
   {
    "symbol": "??_C@_08IFOG@Weapon?$CFd?$AA@",
    "address": "007f7ed0",
    "bytes": 9,
    "kind": "string",
-   "section": 313
+   "section": 290
   },
   {
    "symbol": "??_C@_0BA@IMPA@ClearAllWeapons?$AA@",
    "address": "007f7edc",
    "bytes": 16,
    "kind": "string",
-   "section": 314
+   "section": 291
   },
   {
    "symbol": "??_C@_0P@IJHB@IsChargeTurret?$AA@",
    "address": "007f7eec",
    "bytes": 15,
    "kind": "string",
-   "section": 315
+   "section": 292
   },
   {
    "symbol": "??_C@_0M@HOF@WeaponCount?$AA@",
    "address": "007f7efc",
    "bytes": 12,
    "kind": "string",
-   "section": 316
+   "section": 293
   },
   {
    "symbol": "??_C@_0M@MDJD@TurretCount?$AA@",
    "address": "007f7f08",
    "bytes": 12,
    "kind": "string",
-   "section": 317
+   "section": 294
   },
   {
    "symbol": "??_C@_0BC@EPCP@HasTurretTooltips?$AA@",
    "address": "007f7f14",
    "bytes": 18,
    "kind": "string",
-   "section": 318
+   "section": 295
   },
   {
    "symbol": "??_C@_0M@GHNF@DebrisAnims?$AA@",
    "address": "007f7f28",
    "bytes": 12,
    "kind": "string",
-   "section": 319
+   "section": 298
   },
   {
    "symbol": "??_C@_0P@GHDN@DebrisMaximums?$AA@",
    "address": "007f7f34",
    "bytes": 15,
    "kind": "string",
-   "section": 320
+   "section": 301
   },
   {
    "symbol": "??_C@_0M@LMDC@DebrisTypes?$AA@",
    "address": "007f7f44",
    "bytes": 12,
    "kind": "string",
-   "section": 322
+   "section": 305
   },
   {
    "symbol": "??_C@_09DAHP@MinDebris?$AA@",
    "address": "007f7f50",
    "bytes": 10,
    "kind": "string",
-   "section": 323
+   "section": 306
   },
   {
    "symbol": "??_C@_09HPCM@MaxDebris?$AA@",
    "address": "007f7f5c",
    "bytes": 10,
    "kind": "string",
-   "section": 324
+   "section": 307
   },
   {
    "symbol": "??_C@_07POH@VHPScan?$AA@",
    "address": "007f7f68",
    "bytes": 8,
    "kind": "string",
-   "section": 325
+   "section": 308
   },
   {
    "symbol": "??_C@_0M@DIAD@HoverAttack?$AA@",
    "address": "007f7f70",
    "bytes": 12,
    "kind": "string",
-   "section": 326
+   "section": 309
   },
   {
    "symbol": "??_C@_09EDDM@SizeLimit?$AA@",
    "address": "007f7f7c",
    "bytes": 10,
    "kind": "string",
-   "section": 327
+   "section": 310
   },
   {
    "symbol": "??_C@_0N@GJJP@PhysicalSize?$AA@",
    "address": "007f7f88",
    "bytes": 13,
    "kind": "string",
-   "section": 329
+   "section": 312
   },
   {
    "symbol": "??_C@_06EBJB@Weight?$AA@",
    "address": "007f7f98",
    "bytes": 7,
    "kind": "string",
-   "section": 330
+   "section": 313
   },
   {
    "symbol": "??_C@_0BD@HHCM@AccelerationFactor?$AA@",
    "address": "007f7fa0",
    "bytes": 19,
    "kind": "string",
-   "section": 331
+   "section": 314
   },
   {
    "symbol": "??_C@_0BF@HIFE@DeaccelerationFactor?$AA@",
    "address": "007f7fb4",
    "bytes": 21,
    "kind": "string",
-   "section": 332
+   "section": 315
   },
   {
    "symbol": "??_C@_0BB@HICE@SlowdownDistance?$AA@",
    "address": "007f7fcc",
    "bytes": 17,
    "kind": "string",
-   "section": 333
+   "section": 316
   },
   {
    "symbol": "??_C@_0BL@OLCL@ThreatAvoidanceCoefficient?$AA@",
    "address": "007f7fe0",
    "bytes": 27,
    "kind": "string",
-   "section": 334
+   "section": 317
   },
   {
    "symbol": "??_C@_0O@KIOL@CloakingSpeed?$AA@",
    "address": "007f7ffc",
    "bytes": 14,
    "kind": "string",
-   "section": 335
+   "section": 318
   },
   {
    "symbol": "??_C@_09KPOE@Locomotor?$AA@",
    "address": "007f800c",
    "bytes": 10,
    "kind": "string",
-   "section": 336
+   "section": 319
   },
   {
    "symbol": "??_C@_0L@CNML@PitchSpeed?$AA@",
    "address": "007f8018",
    "bytes": 11,
    "kind": "string",
-   "section": 337
+   "section": 320
   },
   {
    "symbol": "??_C@_09KHEO@RollAngle?$AA@",
    "address": "007f8024",
    "bytes": 10,
    "kind": "string",
-   "section": 338
+   "section": 321
   },
   {
    "symbol": "??_C@_0L@GCMN@PitchAngle?$AA@",
    "address": "007f8030",
    "bytes": 11,
    "kind": "string",
-   "section": 341
+   "section": 324
   },
   {
    "symbol": "??_C@_0L@NHOA@IsDropship?$AA@",
    "address": "007f803c",
    "bytes": 11,
    "kind": "string",
-   "section": 342
+   "section": 325
   },
   {
    "symbol": "??_C@_0BK@IEP@DeathWeaponDamageModifier?$AA@",
    "address": "007f8048",
    "bytes": 26,
    "kind": "string",
-   "section": 344
+   "section": 327
   },
   {
    "symbol": "??_C@_0L@KGGK@GuardRange?$AA@",
    "address": "007f8064",
    "bytes": 11,
    "kind": "string",
-   "section": 348
+   "section": 331
   },
   {
    "symbol": "??_C@_0M@DAGH@DoubleOwned?$AA@",
    "address": "007f8070",
    "bytes": 12,
    "kind": "string",
-   "section": 349
+   "section": 332
   },
   {
    "symbol": "??_C@_07LIOD@IsTrain?$AA@",
    "address": "007f807c",
    "bytes": 8,
    "kind": "string",
-   "section": 350
+   "section": 333
   },
   {
    "symbol": "??_C@_0N@NHOB@MoveToShroud?$AA@",
    "address": "007f8084",
    "bytes": 13,
    "kind": "string",
-   "section": 351
+   "section": 334
   },
   {
    "symbol": "??_C@_08KDMB@IdleRate?$AA@",
    "address": "007f8094",
    "bytes": 9,
    "kind": "string",
-   "section": 352
+   "section": 335
   },
   {
    "symbol": "??_C@_08IFIN@WalkRate?$AA@",
    "address": "007f80a0",
    "bytes": 9,
    "kind": "string",
-   "section": 353
+   "section": 336
   },
   {
    "symbol": "??_C@_0L@NNNE@TypeImmune?$AA@",
    "address": "007f80ac",
    "bytes": 11,
    "kind": "string",
-   "section": 354
+   "section": 337
   },
   {
    "symbol": "??_C@_09FPHJ@SpeedType?$AA@",
    "address": "007f80b8",
    "bytes": 10,
    "kind": "string",
-   "section": 355
+   "section": 338
   },
   {
    "symbol": "??_C@_0P@NDGK@NavalTargeting?$AA@",
    "address": "007f80c4",
    "bytes": 15,
    "kind": "string",
-   "section": 356
+   "section": 339
   },
   {
    "symbol": "??_C@_0O@NGKL@LandTargeting?$AA@",
    "address": "007f80d4",
    "bytes": 14,
    "kind": "string",
-   "section": 357
+   "section": 340
   },
   {
    "symbol": "??_C@_06MNFJ@XXICON?$AA@",
    "address": "007f80e4",
    "bytes": 7,
    "kind": "string",
-   "section": 364
+   "section": 347
   }
  ],
  "data_ranges": [],
@@ -5112,6 +5190,110 @@
    "bytes": 34,
    "population": "population-1621",
    "bound": "own frozen bound (population-1621)"
+  },
+  {
+   "entry": "006d9950",
+   "bytes": 40,
+   "population": "population-4341",
+   "bound": "the unit's compile group (population-4341)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006d9980",
+   "bytes": 19,
+   "population": "population-4341",
+   "bound": "the unit's compile group (population-4341)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006d99a0",
+   "bytes": 19,
+   "population": "population-4341",
+   "bound": "the unit's compile group (population-4341)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006d99c0",
+   "bytes": 19,
+   "population": "population-4341",
+   "bound": "the unit's compile group (population-4341)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006d99e0",
+   "bytes": 19,
+   "population": "population-4341",
+   "bound": "the unit's compile group (population-4341)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006d9a00",
+   "bytes": 19,
+   "population": "population-4341",
+   "bound": "the unit's compile group (population-4341)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006d9a20",
+   "bytes": 49,
+   "population": "population-4341",
+   "bound": "the unit's compile group (population-4341)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006d9a60",
+   "bytes": 33,
+   "population": "population-4341",
+   "bound": "the unit's compile group (population-4341)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006d9a90",
+   "bytes": 44,
+   "population": "population-4341",
+   "bound": "the unit's compile group (population-4341)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006d9ac0",
+   "bytes": 39,
+   "population": "population-4341",
+   "bound": "the unit's compile group (population-4341)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006d9af0",
+   "bytes": 15,
+   "population": "population-4341",
+   "bound": "the unit's compile group (population-4341)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006d9b00",
+   "bytes": 18,
+   "population": "population-4341",
+   "bound": "the unit's compile group (population-4341)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006d9b20",
+   "bytes": 23,
+   "population": "population-4341",
+   "bound": "the unit's compile group (population-4341)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
   }
  ],
  "residuals": [

@@ -4,6 +4,67 @@
 // manifests/original_target/modules/overtype.json carries the addresses and the rows that
 // stay in their own files.
 
+// Header-static dynamic initializers of the unit at 0x005DC3B0: the shape_file.hpp empty rect and the
+// shared/unknown_geometry.hpp constants (0x005DC3B0-0x005DC591); the other
+// drafts of this plan are emitted by these includes.
+// The unit expands ShapeFileStruct::Get_Color with its Is_Shape_Index_Valid test and the
+// RGBClass channel accessors (OverlayTypeClass 0x005DD000).
+#define RA2_SHAPE_FRAME_COLOR
+#define RGB_DECLARE_ACCESSORS
+#define RA2_DRAW_SHAPE_OPERATIONS
+#include "shared/shape_file.hpp"
+#include "shared/unknown_geometry.hpp"
+
+
+// Dynamic initializer (0x005DC3D0, _$E) of diagonal from the header(s) included
+// by HeaderStatics_empty_rect_init_005dc3b0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005DC400, _$E) of b from the header(s) included
+// by HeaderStatics_empty_rect_init_005dc3b0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005DC420, _$E) of c from the header(s) included
+// by HeaderStatics_empty_rect_init_005dc3b0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005DC440, _$E) of angle45 from the header(s) included
+// by HeaderStatics_empty_rect_init_005dc3b0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005DC460, _$E) of angle60 from the header(s) included
+// by HeaderStatics_empty_rect_init_005dc3b0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005DC480, _$E) of angle90 from the header(s) included
+// by HeaderStatics_empty_rect_init_005dc3b0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005DC4A0, _$E) of g from the header(s) included
+// by HeaderStatics_empty_rect_init_005dc3b0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005DC4E0, _$E) of h from the header(s) included
+// by HeaderStatics_empty_rect_init_005dc3b0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005DC510, _$E) of i from the header(s) included
+// by HeaderStatics_empty_rect_init_005dc3b0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005DC540, _$E) of j from the header(s) included
+// by HeaderStatics_empty_rect_init_005dc3b0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005DC570, _$E) of k from the header(s) included
+// by HeaderStatics_empty_rect_init_005dc3b0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005DC580, _$E) of l from the header(s) included
+// by HeaderStatics_empty_rect_init_005dc3b0.cpp; no source of its own.
+
+
+
 
 #include "shared/overlay_type.hpp"
 #include "shared/overlay.hpp"

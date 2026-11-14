@@ -4,6 +4,65 @@
 // manifests/original_target/modules/terrain.json carries the addresses and the rows that
 // stay in their own files.
 
+// TerrainClass Render (0x006E4430) expands TibSun's Rect + Top_Left() inline (rect.hpp RA2_RECT_POINT_INLINE).
+#define RA2_RECT_POINT_INLINE
+// Header-static dynamic initializers of the unit at 0x006E2E10:  the
+// shared/unknown_geometry.hpp constants and unknown_static_rect.hpp
+// (0x006E2E10-0x006E2FF6); the other
+// drafts of this plan are emitted by these includes.
+#include "shared/unknown_geometry.hpp"
+#include "shared/unknown_static_rect.hpp"
+
+
+// Dynamic initializer (0x006E2E40, _$E) of b from the header(s) included
+// by HeaderStatics_diagonal_init_006e2e10.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006E2E60, _$E) of c from the header(s) included
+// by HeaderStatics_diagonal_init_006e2e10.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006E2E80, _$E) of angle45 from the header(s) included
+// by HeaderStatics_diagonal_init_006e2e10.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006E2EA0, _$E) of angle60 from the header(s) included
+// by HeaderStatics_diagonal_init_006e2e10.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006E2EC0, _$E) of angle90 from the header(s) included
+// by HeaderStatics_diagonal_init_006e2e10.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006E2EE0, _$E) of g from the header(s) included
+// by HeaderStatics_diagonal_init_006e2e10.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006E2F20, _$E) of h from the header(s) included
+// by HeaderStatics_diagonal_init_006e2e10.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006E2F50, _$E) of i from the header(s) included
+// by HeaderStatics_diagonal_init_006e2e10.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006E2F80, _$E) of j from the header(s) included
+// by HeaderStatics_diagonal_init_006e2e10.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006E2FB0, _$E) of k from the header(s) included
+// by HeaderStatics_diagonal_init_006e2e10.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006E2FC0, _$E) of l from the header(s) included
+// by HeaderStatics_diagonal_init_006e2e10.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006E2FE0, _$E) of static_rect from the header(s) included
+// by HeaderStatics_diagonal_init_006e2e10.cpp; no source of its own.
+
+
+
 
 #include "shared/terrain.hpp"
 #include "shared/terrain_object_index.hpp"

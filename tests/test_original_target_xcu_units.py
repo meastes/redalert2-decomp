@@ -100,6 +100,18 @@ class XcuJoinTest(unittest.TestCase):
         # the unit text alone comes back when nothing is placed
         self.assertEqual(refile_unit.place_xcu(module, [0x401100, 0x401300], [], {})[0], module)
 
+    def test_drop_redundant_externs(self):
+        import refile_unit
+        text = ('a\nrc_ptr<X> g_one;\nWstring w1;\nb\nextern rc_ptr<X> g_one;\nextern Wstring w0,w1,w2;\n'
+                'extern Wstring w1;\nextern "C" int g_one;\nextern int g_two;')
+        out, dropped = refile_unit.drop_redundant_externs(text, {1: (2, 3)})
+        self.assertEqual(out.split('\n')[4:], ['', 'extern Wstring w0, w2;', '', 'extern "C" int g_one;',
+                                               'extern int g_two;'])
+        self.assertEqual(len(dropped), 3)
+        # a redeclaration before the definition stays
+        out, dropped = refile_unit.drop_redundant_externs('extern int g;\nint g;\n', {1: (2, 2)})
+        self.assertEqual(dropped, [])
+
     def test_unit_evidence(self):
         import canonical
         row = dict(entry=0x401000, body_bytes=10, unit_evidence='xcu-prefix')

@@ -4,6 +4,62 @@
 // manifests/original_target/modules/houstype.json carries the addresses and the rows that
 // stay in their own files.
 
+// Header-static dynamic initializers of the unit at 0x004F8F00: the shape_file.hpp empty rect and the
+// shared/unknown_geometry.hpp constants (0x004F8F00-0x004F90E1); the other
+// drafts of this plan are emitted by these includes.
+#include "shared/shape_file.hpp"
+#include "shared/unknown_geometry.hpp"
+
+
+// Dynamic initializer (0x004F8F20, _$E) of diagonal from the header(s) included
+// by HeaderStatics_empty_rect_init_004f8f00.cpp; no source of its own.
+
+
+// Dynamic initializer (0x004F8F50, _$E) of b from the header(s) included
+// by HeaderStatics_empty_rect_init_004f8f00.cpp; no source of its own.
+
+
+// Dynamic initializer (0x004F8F70, _$E) of c from the header(s) included
+// by HeaderStatics_empty_rect_init_004f8f00.cpp; no source of its own.
+
+
+// Dynamic initializer (0x004F8F90, _$E) of angle45 from the header(s) included
+// by HeaderStatics_empty_rect_init_004f8f00.cpp; no source of its own.
+
+
+// Dynamic initializer (0x004F8FB0, _$E) of angle60 from the header(s) included
+// by HeaderStatics_empty_rect_init_004f8f00.cpp; no source of its own.
+
+
+// Dynamic initializer (0x004F8FD0, _$E) of angle90 from the header(s) included
+// by HeaderStatics_empty_rect_init_004f8f00.cpp; no source of its own.
+
+
+// Dynamic initializer (0x004F8FF0, _$E) of g from the header(s) included
+// by HeaderStatics_empty_rect_init_004f8f00.cpp; no source of its own.
+
+
+// Dynamic initializer (0x004F9030, _$E) of h from the header(s) included
+// by HeaderStatics_empty_rect_init_004f8f00.cpp; no source of its own.
+
+
+// Dynamic initializer (0x004F9060, _$E) of i from the header(s) included
+// by HeaderStatics_empty_rect_init_004f8f00.cpp; no source of its own.
+
+
+// Dynamic initializer (0x004F9090, _$E) of j from the header(s) included
+// by HeaderStatics_empty_rect_init_004f8f00.cpp; no source of its own.
+
+
+// Dynamic initializer (0x004F90C0, _$E) of k from the header(s) included
+// by HeaderStatics_empty_rect_init_004f8f00.cpp; no source of its own.
+
+
+// Dynamic initializer (0x004F90D0, _$E) of l from the header(s) included
+// by HeaderStatics_empty_rect_init_004f8f00.cpp; no source of its own.
+
+
+
 
 #include "shared/house_type.hpp"
 #include "shared/ccini_class.hpp"

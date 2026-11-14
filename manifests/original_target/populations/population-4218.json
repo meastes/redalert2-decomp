@@ -4,8 +4,8 @@
     "id": "population-4218",
     "inventory_sha256": "900bc24dd5fcf1086e21df5926a9c3985c60491d2de98a969e97ab13fd9bf040",
     "gaps_sha256": "e258909821479693fc18e4797f0c9d45fd12222448d86534807fe4ffe7c25f51",
-    "historical_population_sha256": "274811fe99b99ab0a25a4042f15427f85d3cca232cead13789d54ac50114b0c0",
-    "historical_acceptance_sha256": "5f260313bf3b80cff2d75b86f1a89dd39660f3e4c7fcee2fd51bc712f0a8930f"
+    "historical_population_sha256": "b289c781bb9585c1ee4e3aa14a8327ad2df0e54d53298b6aa3ce504a875995c2",
+    "historical_acceptance_sha256": "85d5f7eb0ccf06aedbc635329759abc4a11a2cc0f0b2ddf7d71801b98cfd64a5"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -12476,7 +12476,8 @@
     "?Service_Game_IO_00481fb0@seed_00482100@@YAXXZ": 4726704,
     "?Service_Game_IO_00481fb0@seed_005bbd10@@YAXXZ": 4726704,
     "__ramp_corners": 8339828,
-    "?Compare_Nodes_006d98d0@seed_006d98d0@@YAHPAH0@Z": 7182544
+    "?Compare_Nodes_006d98d0@seed_006d98d0@@YAHPAH0@Z": 7182544,
+    "?Reset@BitFontClass@@QAEXXZ": 4399536
   },
   "regions": [
     {
@@ -12529,13 +12530,14 @@
           "resolved": 11235428
         }
       ],
-      "source_sha256": "db1b42d2eee3a0a2994be41b6af96b2bdf42cacec8e4cbd0159ea5d1fd255806",
-      "source": "src/recovered/header_statics/006693a0/HeaderStatics_empty_rect_init_006693a0.cpp",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
+      "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 216027
+      "source_order": 216027,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6722496,
@@ -12595,13 +12597,14 @@
           "resolved": 11235440
         }
       ],
-      "source_sha256": "fb9c9c28bca484bf7074b8e83814f2be1b2ac2de4a454b3cd037f54e8007b60f",
-      "source": "src/recovered/header_statics/006693a0/HeaderStatics_diagonal_init_006693c0.cpp",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
+      "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 216028
+      "source_order": 216028,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6722544,
@@ -12645,13 +12648,14 @@
           "resolved": 11235520
         }
       ],
-      "source_sha256": "63dae1c2a9e151b86364819cb78f5b4e3b217dfceab55803341182995f5a68a8",
-      "source": "src/recovered/header_statics/006693a0/HeaderStatics_b_init_006693f0.cpp",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
+      "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 216029
+      "source_order": 216029,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6722576,
@@ -12695,13 +12699,14 @@
           "resolved": 11235504
         }
       ],
-      "source_sha256": "1ff74ea7651fd31bcb57a47eefb95f6b649e75fd197106b52aba423ed62fc05f",
-      "source": "src/recovered/header_statics/006693a0/HeaderStatics_c_init_00669410.cpp",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
+      "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 216030
+      "source_order": 216030,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6722608,
@@ -12745,13 +12750,14 @@
           "resolved": 11235496
         }
       ],
-      "source_sha256": "2e3a333dce05ed2e183618e53855a95170bb78ec18b8f3f8520230dc5d75a10b",
-      "source": "src/recovered/header_statics/006693a0/HeaderStatics_angle45_init_00669430.cpp",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
+      "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 216031
+      "source_order": 216031,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6722640,
@@ -12795,13 +12801,14 @@
           "resolved": 11235448
         }
       ],
-      "source_sha256": "cfbd3793943902d7103ecbe0557b3a3fc8124212918ca5d3dbec7aba65c875b4",
-      "source": "src/recovered/header_statics/006693a0/HeaderStatics_angle60_init_00669450.cpp",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
+      "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 216032
+      "source_order": 216032,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6722672,
@@ -12845,13 +12852,14 @@
           "resolved": 11235392
         }
       ],
-      "source_sha256": "7392794f12636836f681cce1b755a678807464423e8e4ab8221cfad9a77866b8",
-      "source": "src/recovered/header_statics/006693a0/HeaderStatics_angle90_init_00669470.cpp",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
+      "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 216033
+      "source_order": 216033,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6722704,
@@ -12927,13 +12935,14 @@
           "resolved": 11235528
         }
       ],
-      "source_sha256": "c0025735e7d08c90268788e37041b65d281e45afb5daa9c99d1a636dc8046c17",
-      "source": "src/recovered/header_statics/006693a0/HeaderStatics_g_init_00669490.cpp",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
+      "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 216034
+      "source_order": 216034,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6722864,
@@ -12985,13 +12994,14 @@
           "resolved": 11235512
         }
       ],
-      "source_sha256": "591e58b9a57bf60f2c9993645f25050db2f0c720a9c21295d3f41af13ecce0b5",
-      "source": "src/recovered/header_statics/006693a0/HeaderStatics_j_init_00669530.cpp",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
+      "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 216037
+      "source_order": 216037,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6722912,
@@ -13027,13 +13037,14 @@
           "resolved": 11235434
         }
       ],
-      "source_sha256": "c2640c4881a23dbd42ccdc621d28b574614a5d02b440baeb2caf232b4242e035",
-      "source": "src/recovered/header_statics/006693a0/HeaderStatics_k_init_00669560.cpp",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
+      "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 216038
+      "source_order": 216038,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6722928,
@@ -13077,13 +13088,14 @@
           "resolved": 11235472
         }
       ],
-      "source_sha256": "c1b0da9e728409419708f80612c19970cf9d29edc6b892a7c8acdf2df7536e50",
-      "source": "src/recovered/header_statics/006693a0/HeaderStatics_l_init_00669570.cpp",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
+      "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 216039
+      "source_order": 216039,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6723120,
@@ -13119,7 +13131,7 @@
           "resolved": 227559
         }
       ],
-      "source_sha256": "84af9f0be2b6bae85b7347a7a382bb55a102cd49a0fa9ea9a4458c0452a79884",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
       "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -13144,7 +13156,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "relocations": [],
-      "source_sha256": "84af9f0be2b6bae85b7347a7a382bb55a102cd49a0fa9ea9a4458c0452a79884",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
       "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -13218,7 +13230,7 @@
           "resolved": 1151959
         }
       ],
-      "source_sha256": "84af9f0be2b6bae85b7347a7a382bb55a102cd49a0fa9ea9a4458c0452a79884",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
       "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -13268,7 +13280,7 @@
           "resolved": 8033340
         }
       ],
-      "source_sha256": "84af9f0be2b6bae85b7347a7a382bb55a102cd49a0fa9ea9a4458c0452a79884",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
       "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -13326,13 +13338,14 @@
           "resolved": 11235456
         }
       ],
-      "source_sha256": "ea93364067d32df2b95a71980cdc1e1b416eda6c69b46981fed3bf9598e9ffee",
-      "source": "src/recovered/header_statics/006693a0/HeaderStatics_h_init_006694d0.cpp",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
+      "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 216035
+      "source_order": 216035,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6722816,
@@ -13384,13 +13397,14 @@
           "resolved": 11235480
         }
       ],
-      "source_sha256": "60623e127af4508fb623cebab3d174a172cdbead3a996a30025180da026a32ec",
-      "source": "src/recovered/header_statics/006693a0/HeaderStatics_i_init_00669500.cpp",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
+      "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 216036
+      "source_order": 216036,
+      "unit_evidence": "xcu-exclusion"
     },
     {
       "entry": 6723008,
@@ -13426,7 +13440,7 @@
           "resolved": 11235384
         }
       ],
-      "source_sha256": "84af9f0be2b6bae85b7347a7a382bb55a102cd49a0fa9ea9a4458c0452a79884",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
       "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -13476,7 +13490,7 @@
           "resolved": 7972664
         }
       ],
-      "source_sha256": "84af9f0be2b6bae85b7347a7a382bb55a102cd49a0fa9ea9a4458c0452a79884",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
       "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -13518,7 +13532,7 @@
           "resolved": 4293067708
         }
       ],
-      "source_sha256": "84af9f0be2b6bae85b7347a7a382bb55a102cd49a0fa9ea9a4458c0452a79884",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
       "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -13568,7 +13582,7 @@
           "resolved": 8625256
         }
       ],
-      "source_sha256": "84af9f0be2b6bae85b7347a7a382bb55a102cd49a0fa9ea9a4458c0452a79884",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
       "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -13642,7 +13656,7 @@
           "resolved": 4292459680
         }
       ],
-      "source_sha256": "84af9f0be2b6bae85b7347a7a382bb55a102cd49a0fa9ea9a4458c0452a79884",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
       "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -13878,7 +13892,7 @@
           "resolved": 4294966029
         }
       ],
-      "source_sha256": "84af9f0be2b6bae85b7347a7a382bb55a102cd49a0fa9ea9a4458c0452a79884",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
       "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -14384,7 +14398,7 @@
           "resolved": 6727528
         }
       ],
-      "source_sha256": "84af9f0be2b6bae85b7347a7a382bb55a102cd49a0fa9ea9a4458c0452a79884",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
       "switch_data_bytes": 45,
       "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
@@ -14715,7 +14729,7 @@
           "resolved": 8334384
         }
       ],
-      "source_sha256": "84af9f0be2b6bae85b7347a7a382bb55a102cd49a0fa9ea9a4458c0452a79884",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
       "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -15253,7 +15267,7 @@
           "resolved": 8599172
         }
       ],
-      "source_sha256": "84af9f0be2b6bae85b7347a7a382bb55a102cd49a0fa9ea9a4458c0452a79884",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
       "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -15599,7 +15613,7 @@
           "resolved": 4292946366
         }
       ],
-      "source_sha256": "84af9f0be2b6bae85b7347a7a382bb55a102cd49a0fa9ea9a4458c0452a79884",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
       "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -16033,7 +16047,7 @@
           "resolved": 11235408
         }
       ],
-      "source_sha256": "84af9f0be2b6bae85b7347a7a382bb55a102cd49a0fa9ea9a4458c0452a79884",
+      "source_sha256": "67a4eee1db90c5056920b5635003be3ef542f743a7c90832924d849543e9e8b3",
       "source": "src/recovered/scroll.cpp",
       "population": "population-4218",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",

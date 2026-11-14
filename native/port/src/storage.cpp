@@ -7,7 +7,8 @@
 //
 // A storage is one host file in the port's own container format (not the
 // compound-file format: native save games are read by the native game only):
-// "RA2NSTG1", the named streams, then the property sets. Streams live in
+// "RA2NSTG2" (version 2: MouseClass saved whole; "RA2NSTG1" saves still load),
+// the named streams, then the property sets. Streams live in
 // memory; Commit (or the last Release of a writable storage) writes the file.
 #include "ra2port/win32_port.hpp"
 
@@ -23,6 +24,9 @@
 using namespace ra2port;
 
 extern "C" int ra2port_original_save_mode;   // port/src/original_save.cpp
+// The version of the port save being read (1 or 2; 0 when none): MouseClass::Load reads
+// 0x4F3C bytes of a version 1 save, its whole native object from version 2 (port/fixups.json).
+extern "C" int ra2port_port_save_version = 0;
 
 namespace {
 const HRESULT S_OK = 0, S_FALSE = 1, E_NOTIMPL = (HRESULT)0x80004001u, E_NOINTERFACE = (HRESULT)0x80004002u,
@@ -403,24 +407,44 @@ void mark_original(Data &data)
     b.insert(b.begin(), prefix.begin(), prefix.end());
 }
 
+struct Storage;
+std::vector<Storage *> &open_port_saves()
+{
+    static std::vector<Storage *> open;
+    return open;
+}
+
 struct Storage : IUnknownPort {
     ULONG refs = 1;
     std::string path;        // host path
     bool writable;
     bool dirty = false;
     bool original = false;   // an original save (compound file): read only, original_save_mode while open
+    int version = 0;         // a port save read: its container version (ra2port_port_save_version while open)
     Data data;
     PropertySetStorage props{this};
     Storage(std::string const &host, bool write) : path(host), writable(write) {}
     ~Storage()
     {
         if (original) --ra2port_original_save_mode;
+        if (version) {
+            // The version of the most recently opened port save still open (a storage
+            // closed out of order, such as the summary read's, leaves the others' own).
+            auto &open = open_port_saves();
+            for (size_t i = open.size(); i-- > 0;) {
+                if (open[i] == this) { open.erase(open.begin() + (long)i); break; }
+            }
+            ra2port_port_save_version = open.empty() ? 0 : open.back()->version;
+            stg_log("close %s: port save version now %d", path.c_str(), ra2port_port_save_version);
+        }
         if (writable && dirty && !original) Save();
     }
     bool Save()
     {
         std::vector<uint8_t> o;
-        const char magic[8] = {'R', 'A', '2', 'N', 'S', 'T', 'G', '1'};
+        // A storage read from a version 1 file and written back (the summary read opens it
+        // read-write) stays version 1: its MouseClass image is the 0x4F3C-byte one.
+        const char magic[8] = {'R', 'A', '2', 'N', 'S', 'T', 'G', (char)(version == 1 ? '1' : '2')};
         o.insert(o.end(), magic, magic + 8);
         put32(o, (uint32_t)data.streams.size());
         for (auto &s : data.streams) {
@@ -475,7 +499,8 @@ struct Storage : IUnknownPort {
         }
         Reader r{in.data(), in.data() + in.size()};
         char magic[8];
-        if (!r.bytes(magic, 8) || memcmp(magic, "RA2NSTG1", 8)) return false;
+        if (!r.bytes(magic, 8) || memcmp(magic, "RA2NSTG", 7) || (magic[7] != '1' && magic[7] != '2')) return false;
+        version = magic[7] - '0';
         uint32_t streams = r.u32();
         for (uint32_t i = 0; i < streams && r.ok; ++i) {
             wstr name = r.w();
@@ -502,6 +527,13 @@ struct Storage : IUnknownPort {
                 p.wide = r.w();
                 set[id] = p;
             }
+        }
+        if (r.ok) {
+            open_port_saves().push_back(this);
+            stg_log("open %s: port save version %d", path.c_str(), version);
+            ra2port_port_save_version = version;
+        } else {
+            version = 0;
         }
         return r.ok;
     }

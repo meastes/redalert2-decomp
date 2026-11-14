@@ -4,6 +4,63 @@
 // manifests/original_target/modules/airctype.json carries the addresses and the rows that
 // stay in their own files.
 
+// Header-static dynamic initializers of the unit at 0x0041BAA0:  the
+// shared/unknown_geometry.hpp constants and unknown_static_rect.hpp
+// (0x0041BAA0-0x0041BC86); the other
+// drafts of this plan are emitted by these includes.
+#include "shared/unknown_geometry.hpp"
+#include "shared/unknown_static_rect.hpp"
+
+
+// Dynamic initializer (0x0041BAD0, _$E) of b from the header(s) included
+// by HeaderStatics_diagonal_init_0041baa0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0041BAF0, _$E) of c from the header(s) included
+// by HeaderStatics_diagonal_init_0041baa0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0041BB10, _$E) of angle45 from the header(s) included
+// by HeaderStatics_diagonal_init_0041baa0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0041BB30, _$E) of angle60 from the header(s) included
+// by HeaderStatics_diagonal_init_0041baa0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0041BB50, _$E) of angle90 from the header(s) included
+// by HeaderStatics_diagonal_init_0041baa0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0041BB70, _$E) of g from the header(s) included
+// by HeaderStatics_diagonal_init_0041baa0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0041BBB0, _$E) of h from the header(s) included
+// by HeaderStatics_diagonal_init_0041baa0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0041BBE0, _$E) of i from the header(s) included
+// by HeaderStatics_diagonal_init_0041baa0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0041BC10, _$E) of j from the header(s) included
+// by HeaderStatics_diagonal_init_0041baa0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0041BC40, _$E) of k from the header(s) included
+// by HeaderStatics_diagonal_init_0041baa0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0041BC50, _$E) of l from the header(s) included
+// by HeaderStatics_diagonal_init_0041baa0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0041BC70, _$E) of static_rect from the header(s) included
+// by HeaderStatics_diagonal_init_0041baa0.cpp; no source of its own.
+
+
+
 
 #include "shared/aircraft_type.hpp"
 #include "shared/mix_file_class.hpp"

@@ -6,7 +6,7 @@
 // (Tactical::Coord_To_Pixel 0x006A29D0 of its centre). At the run's last frame
 // "@=X,Y" names the centre of cell X,Y (any object there). At the run's last frame
 // it logs harness-input: the selected objects and each of the player's
-// objects (type ID, mission, cell; '*' when selected).
+// objects (type ID, mission, cell; '*' when selected; :p<order> a pending order).
 #define RA2_COORD_AS_CELL   // CoordStruct::As_Cell (shared/coord.hpp)
 #include "shared/display.hpp"     // before map_view.hpp (full DisplayClass)
 #include "shared/map_view.hpp"
@@ -143,8 +143,9 @@ void Native_Harness_Input(int frame)
     static char names[64][24];
     static int named = 0;
     char const *milestone = "harness-input";
-    if (!last) {
-        if (named >= 64) return;
+    if (!last && named >= 64) {
+        milestone = 0;   // the milestones' names are spent: the state goes to stderr only
+    } else if (!last) {
         char *name = names[named++];
         name[0] = 0;
         Append(name, "harness-input-", 24);
@@ -167,6 +168,14 @@ void Native_Harness_Input(int frame)
         Append_Int(detail, cell.X, sizeof detail);
         Append(detail, ",", sizeof detail);
         Append_Int(detail, cell.Y, sizeof detail);
+        // A pending order (FootClass slot 272: 0x1D an attack-move; C8 touch tests).
+        int pending = techno->unknown_slot272();
+        if (pending != -1) {
+            Append(detail, ":p", sizeof detail);
+            Append_Int(detail, pending, sizeof detail);
+        }
     }
-    ra2port_progress(milestone, detail);
+    // Also on stderr, so RA2.app runs (no run-to milestones) log the state (C8: iOS touch checks).
+    fprintf(stderr, "harness-state %d %s\n", frame, detail);
+    if (milestone) ra2port_progress(milestone, detail);
 }

@@ -109,6 +109,7 @@ void watch_audio_interruptions(void (*)(bool)) {}
 bool toolbar_create(void *, ToolbarItem const *, int, void (*)(int)) { return false; }
 void toolbar_set(int, bool, const char *) {}
 void toolbar_place(Rect) {}
+bool toolbar_hit(double, double) { return false; }
 void skip_button_create(void *, void (*)()) {}
 void skip_button_show(bool) {}
 void toolbar_notice(const char *text) { fprintf(stderr, "host: notice \"%s\"\n", text); }

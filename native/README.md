@@ -252,8 +252,11 @@ Save_Game 0x006554A0 as the options menu's Save ends in; with
 `RA2_NATIVE_SAVE_LEAVE=1` the game is then left as the menu's Abort does. Ole32
 structured storage is ported (`port/src/storage.cpp`: IStorage, IStream,
 IPropertySetStorage, OleSaveToStream/OleLoadFromStream; one host file per
-storage in the port's own container format, `RA2NSTG1`; `RA2_NATIVE_STG_LOG=1`
-logs it). LZO1X's dictionary keeps 32-bit offsets natively (its 64 KB work
+storage in the port's own container format, `RA2NSTG2` (C6: version 2 saves
+MouseClass whole, its native sizeof instead of VC6's 0x4F3C bytes, which lost the
+Map/Mouse hierarchy's tail from every version 1 save; `RA2NSTG1` saves still load,
+MouseClass::Load reading 0x4F3C bytes of them as before, `ra2port_port_save_version`);
+`RA2_NATIVE_STG_LOG=1` logs it). LZO1X's dictionary keeps 32-bit offsets natively (its 64 KB work
 memory held 16,384 VC6 pointers), swizzle IDs are pointer-wide (the saved
 object address is 8 bytes natively), FindFirstFileA also lists the write
 directory (saved games), and the load dialog's list shows the saves' descriptions.
@@ -738,7 +741,11 @@ added when all those units lay it out alike (light views such as MapClass are le
 out). `size=` gives the original's object size (Size_Of slot 12, a locomotor's Size
 slot 9), and ctest `native-original-layouts` checks each type's i686 layout against
 it and that every member pairs (66 sizes; the five classes C5's probe found
-different match when taken from their Load units). `RA2_NATIVE_ORIGINAL_LOG=1`
+different match when taken from their Load units). A row can name the member
+function that reads the type and give `load=<address>`: when a rename leaves a listed
+name undefined, the check names the class that now carries that address, else the
+nearest RTTI and Load class names. The tool reads only the units `gen/units.cmake`
+lists (`gen/units` keeps files of earlier configures). `RA2_NATIVE_ORIGINAL_LOG=1`
 logs each conversion; a type read without a map is reported once on stderr
 (`original-save: no layout for ...`). `RA2_NATIVE_STG_LOG=1` logs the open of each
 original. All five of the user's saves (Allied 1, 2 twice, 3 twice) load from the
@@ -1060,7 +1067,18 @@ toolbar says for 3 s: `hostos::toolbar_notice`). `RA2_NATIVE_TOOLBAR_TAPS="<ms>:
 (`RA2_NATIVE_TOUCH_UI=1`, tests) the host draws a plain column of the same toggles. The
 touch app hides the game's own cursor (`link/native_touch_cursor.cpp`: one extra
 WWMouseClass::Hide_Mouse whenever it is shown; `RA2_NATIVE_TOUCH_CURSOR=1` keeps it). Input scripts take `tdown|tmove|tup X Y
-[finger]` (or an `@ID` point, as for the mouse: Scout1295); `RA2_NATIVE_TOUCH_UI=1` shows the toggles on the Mac.
+[finger]` (or an `@ID` point, as for the mouse: Scout1295) and `toolbar ITEM` (the item's own
+action, 3 A-Move; lane C8); `RA2_NATIVE_TOUCH_UI=1` shows the toggles on the Mac.
+A touch's press waits 40 ms after the pointer moved to it (lane C8, `kPointerSeenMs` in host.cpp):
+a mouse is already where it clicks, but a touch puts the pointer there at the press, and the game
+reads the pointer twice, the press message's position and, while held, WWMouseClass's, which only
+its mouse thread (16 ms) updates. Read stale, a two-finger tap's right press was a coast-scroll
+drag (Scroll_Coast 0x0066A7A0; the port's SM_CXDRAG is 0), so it did not deselect, and a tap's
+left press began a selection band (more than 4 pixels), so A-Move's tap (Shift held) ordered
+nothing. A finger landing on the glass toolbar's controls never reaches the gestures
+(`hostos::toolbar_hit`). ctest `native-touch-two-finger` and `native-touch-attack-move`
+(`tests/touch_input.py`) play both with scripted fingers and check the selection and the pending
+attack-move order (harness-input `:p29`; the state is also logged as `harness-state` on stderr).
 The picture is drawn into the largest landscape rectangle clear of the safe area and the
 device's reserved regions (`hostos::usable_rect`; the renderer no longer uses SDL's logical
 presentation, the host converts coordinates itself). The in-game resolution (RA2.INI

@@ -4,6 +4,65 @@
 // manifests/original_target/modules/particle.json carries the addresses and the rows that
 // stay in their own files.
 
+#define RA2_VECTOR_UNSIGNED_INDEX  // migration holdout: unit not yet re-rolled to VectorClass::operator[](int) (docs/HANDOFF.md)
+#define RA2_MATRIX3D_INLINE_COPY
+// Header-static dynamic initializers of the unit at 0x00608250:  the
+// shared/unknown_geometry.hpp constants and unknown_static_rect.hpp
+// (0x00608250-0x00608436); the other
+// drafts of this plan are emitted by these includes.
+#include "shared/unknown_geometry.hpp"
+#include "shared/unknown_static_rect.hpp"
+
+
+// Dynamic initializer (0x00608280, _$E) of b from the header(s) included
+// by HeaderStatics_diagonal_init_00608250.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006082A0, _$E) of c from the header(s) included
+// by HeaderStatics_diagonal_init_00608250.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006082C0, _$E) of angle45 from the header(s) included
+// by HeaderStatics_diagonal_init_00608250.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006082E0, _$E) of angle60 from the header(s) included
+// by HeaderStatics_diagonal_init_00608250.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00608300, _$E) of angle90 from the header(s) included
+// by HeaderStatics_diagonal_init_00608250.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00608320, _$E) of g from the header(s) included
+// by HeaderStatics_diagonal_init_00608250.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00608360, _$E) of h from the header(s) included
+// by HeaderStatics_diagonal_init_00608250.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00608390, _$E) of i from the header(s) included
+// by HeaderStatics_diagonal_init_00608250.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006083C0, _$E) of j from the header(s) included
+// by HeaderStatics_diagonal_init_00608250.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006083F0, _$E) of k from the header(s) included
+// by HeaderStatics_diagonal_init_00608250.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00608400, _$E) of l from the header(s) included
+// by HeaderStatics_diagonal_init_00608250.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00608420, _$E) of static_rect from the header(s) included
+// by HeaderStatics_diagonal_init_00608250.cpp; no source of its own.
+
+
+
 
 #include "shared/particle.hpp"
 #include "shared/map_view.hpp"

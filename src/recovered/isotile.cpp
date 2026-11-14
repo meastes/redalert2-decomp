@@ -4,6 +4,63 @@
 // manifests/original_target/modules/isotile.json carries the addresses and the rows that
 // stay in their own files.
 
+// Header-static dynamic initializers of the unit at 0x00527890:  the
+// shared/unknown_geometry.hpp constants and unknown_static_rect.hpp
+// (0x00527890-0x00527A76); the other
+// drafts of this plan are emitted by these includes.
+#include "shared/unknown_geometry.hpp"
+#include "shared/unknown_static_rect.hpp"
+
+
+// Dynamic initializer (0x005278C0, _$E) of b from the header(s) included
+// by HeaderStatics_diagonal_init_00527890.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005278E0, _$E) of c from the header(s) included
+// by HeaderStatics_diagonal_init_00527890.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00527900, _$E) of angle45 from the header(s) included
+// by HeaderStatics_diagonal_init_00527890.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00527920, _$E) of angle60 from the header(s) included
+// by HeaderStatics_diagonal_init_00527890.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00527940, _$E) of angle90 from the header(s) included
+// by HeaderStatics_diagonal_init_00527890.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00527960, _$E) of g from the header(s) included
+// by HeaderStatics_diagonal_init_00527890.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005279A0, _$E) of h from the header(s) included
+// by HeaderStatics_diagonal_init_00527890.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005279D0, _$E) of i from the header(s) included
+// by HeaderStatics_diagonal_init_00527890.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00527A00, _$E) of j from the header(s) included
+// by HeaderStatics_diagonal_init_00527890.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00527A30, _$E) of k from the header(s) included
+// by HeaderStatics_diagonal_init_00527890.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00527A40, _$E) of l from the header(s) included
+// by HeaderStatics_diagonal_init_00527890.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00527A60, _$E) of static_rect from the header(s) included
+// by HeaderStatics_diagonal_init_00527890.cpp; no source of its own.
+
+
+
 
 #include "shared/isometric_tile.hpp"
 #include "shared/isometric_tile_type.hpp"

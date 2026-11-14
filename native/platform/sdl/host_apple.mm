@@ -153,6 +153,7 @@ std::string device_report() { return ""; }
 bool toolbar_create(void *, ToolbarItem const *, int, void (*)(int)) { return false; }
 void toolbar_set(int, bool, const char *) {}
 void toolbar_place(Rect) {}
+bool toolbar_hit(double, double) { return false; }
 void toolbar_notice(const char *text) { fprintf(stderr, "host: notice \"%s\"\n", text); }
 void skip_button_create(void *, void (*)()) {}
 void skip_button_show(bool) {}
@@ -529,6 +530,18 @@ void toolbar_place(Rect usable)
         k.origin = CGPointMake(CGRectGetMaxX(in_view) - k.size.width - 8, in_view.origin.y + 8);
         toolbar.skip.frame = k;
     }
+}
+
+bool toolbar_hit(double x, double y)
+{
+    if (!toolbar) return false;
+    CGPoint p = CGPointMake(x, y);
+    // The holder's hit test answers nil between its controls (RA2PassView) and for the
+    // hidden capsule; the Skip button sits beside it.
+    UIView *holder = toolbar.holder;
+    if (!holder.hidden && [holder hitTest:[holder convertPoint:p fromView:nil] withEvent:nil]) return true;
+    UIView *skip = toolbar.skip;
+    return skip && !skip.hidden && skip.alpha > 0 && [skip hitTest:[skip convertPoint:p fromView:nil] withEvent:nil] != nil;
 }
 
 void skip_button_create(void *, void (*tapped)())

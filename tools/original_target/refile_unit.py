@@ -2364,6 +2364,49 @@ def place_xcu(module_text, unit_entries, chunks, where):
     return '\n'.join(out).rstrip('\n') + '\n', new_spans
 
 
+# A global definition a joining chunk brings (`Type name;` at top level, no initializer list).
+XCU_DEFINITION = re.compile(r'^(?!\s*(?:extern|typedef|return|using|class|struct|enum|namespace|friend)\b)'
+                            r'[A-Za-z_][\w:<>,\s\*&]*?[\s\*&>](\w+)\s*(?:\([^;]*\))?;\s*$')
+EXTERN_LINE = re.compile(r'^(\s*)extern\s+(?!"C")([^;=(){}]*);\s*(//.*)?$')
+DECLARATOR = re.compile(r'^(.*?)([\*&\s]*)(\w+)\s*$', re.S)
+
+
+def drop_redundant_externs(text, spans):
+    """DECISIONS (owner 2026-11-13, "redundant extern redeclarations"): an `extern` redeclaration of a
+    global after its definition in the same unit is dead text, and VC6 emits a second dynamic
+    initializer for it. For each global a placed chunk defines, the later `extern` lines naming it are
+    blanked (a name in a several-name line leaves the list). Returns (text, dropped lines)."""
+    lines = text.split('\n')
+    dropped = []
+    for first, last in sorted(spans.values()):
+        names = {m.group(1) for m in (XCU_DEFINITION.match(l) for l in lines[first - 1:last]) if m}
+        if not names:
+            continue
+        for index in range(last, len(lines)):
+            match = EXTERN_LINE.match(lines[index])
+            if not match:
+                continue
+            parts = match.group(2).split(',')
+            head = DECLARATOR.match(parts[0])
+            if head is None:
+                continue
+            kind = head.group(1).strip()
+            declarators = [(head.group(2) + head.group(3)).strip()] + [x.strip() for x in parts[1:]]
+            keep = [d for d in declarators if re.sub(r'[\*&\s]', '', d) not in names]
+            if len(keep) == len(declarators) or not kind:
+                continue
+            dropped.append(lines[index].strip())
+            lines[index] = '%sextern %s %s;' % (match.group(1), kind, ', '.join(keep)) if keep else ''
+    return '\n'.join(lines), dropped
+
+
+def place_xcu_dropping(module_text, unit_entries, chunks, where):
+    """place_xcu, then drop_redundant_externs over the placed chunks."""
+    text, spans = place_xcu(module_text, unit_entries, chunks, where)
+    text, _ = drop_redundant_externs(text, spans)
+    return text, spans
+
+
 def xcu_chunk(text):
     """A same-population file's text as it moves into the module: in place, `// @ref` and seed
     marker lines dropped (its population's table binds the names)."""
@@ -2461,7 +2504,7 @@ def xcu_plan(catalog, config, unit, item, records, read, closure, fixups, tier, 
     return candidates, chunks, where, refused, table, pid
 
 
-def join_xcu(tier, config_path, units=None, dry_run=False, attempts=80, apply_attempts=8, refuse=None):
+def join_xcu(tier, config_path, units=None, dry_run=False, attempts=80, apply_attempts=8, refuse=None, drop_externs=False):
     """Join the `$E` rows xcu_units.py places in `tier` into their unit (Route A modules only):
     rows of the unit's own compile group move their text into the module in compile order;
     rows of another population join on their own frozen bound in address order (join-own's
@@ -2483,6 +2526,7 @@ def join_xcu(tier, config_path, units=None, dry_run=False, attempts=80, apply_at
     audit = Audit(REPOSITORY, config['executable'])
     fixups = native_fixups()
     records = xcu_records(tier)
+    placer = place_xcu_dropping if drop_externs else place_xcu
     folder = REPOSITORY / PENDING / ('join-xcu-%s-%d' % (tier.replace('+', '-'), time.time_ns()))
     plan, report_units, not_refiled = {}, {}, {}
     for unit in sorted(records):
@@ -2513,7 +2557,7 @@ def join_xcu(tier, config_path, units=None, dry_run=False, attempts=80, apply_at
         if candidates:
             exact, flipped = own_join_screen(config, catalog, audit, unit, module, pid, members, read, candidates,
                                              chunks, table, folder / unit, attempts, log,
-                                             place=lambda t, u, c, w=where: place_xcu(t, u, c, w))
+                                             place=lambda t, u, c, w=where: placer(t, u, c, w))
         # a comment-only row of another population whose emitter left is not exact without it
         for e in list(exact):
             row = exact[e]
@@ -2539,7 +2583,7 @@ def join_xcu(tier, config_path, units=None, dry_run=False, attempts=80, apply_at
         for unit, p in plan.items():
             if not p['candidates']:
                 continue
-            text, _ = place_xcu(read(p['module']), p['entries'], sorted((e, p['chunks'][e]) for e in p['candidates']),
+            text, _ = placer(read(p['module']), p['entries'], sorted((e, p['chunks'][e]) for e in p['candidates']),
                                 p['where'])
             draft = attempt / (unit + '.cpp')
             catalog_io.write_text_lf(draft, text)
@@ -2745,6 +2789,8 @@ def unjoin(unit, entries, base, unit_evidence=None):
             was = old[row['entry']]
             donor = next((r for r in catalog['regions'] if r['population'] == was['population']
                           and r['entry'] not in wanted), None)
+            if unit_table is not None and was['population'] == pid:
+                donor = dict(references=unit_table)     # a row of the unit's own compile group (join-xcu)
             catalog['regions'][index] = dict(was, references=donor['references'] if donor else was.get('references'))
         else:
             if row['source'] == module:
@@ -2926,6 +2972,8 @@ def main():
     p.add_argument('--attempts', type=int, default=80, help='screen compiles per unit')
     p.add_argument('--refuse', action='append', default=[], metavar='ENTRY=CAUSE',
                    help='a row that does not try, with the cause recorded')
+    p.add_argument('--drop-externs', action='store_true',
+                   help='blank `extern` redeclarations of a joined global after its definition (DECISIONS, owner 2026-11-13)')
     p = sub.add_parser('maps'); p.add_argument('build_dir', type=Path)
     for name in ('plan', 'run', 'native', 'maps', 'join', 'join-template', 'join-template-batch', 'join-own', 'join-xcu'):
         sub.choices[name].add_argument('--config', type=Path, default=catalog_io.config_path(REPOSITORY),
@@ -2993,7 +3041,7 @@ def main():
         unjoin(args.unit, [int(e, 16) for e in args.entries], args.base, args.unit_evidence)
     elif args.command == 'join-xcu':
         refuse = {int(e, 16): c.strip() for e, _, c in (item.partition('=') for item in args.refuse)}
-        join_xcu(args.tier, args.config, args.units, args.dry_run, args.attempts, refuse=refuse)
+        join_xcu(args.tier, args.config, args.units, args.dry_run, args.attempts, refuse=refuse, drop_externs=args.drop_externs)
     elif args.command == 'join-own':
         units = list(units_with_own_join_rows(args.classes.split(','))) if args.units == ['all'] else args.units
         refuse = {int(e, 16): c.strip() for e, _, c in (item.partition('=') for item in args.refuse)}

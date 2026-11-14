@@ -6,13 +6,13 @@
 
 | Directory under `src/recovered/` | Regions | Body bytes | Descriptive names | Address range |
 | --- | ---: | ---: | ---: | --- |
-| (discovery: address-named) | 15083 | 3,037,533 | 15009 | 0x00401000–0x00793976 |
+| (discovery: address-named) | 15299 | 3,043,773 | 15225 | 0x00401000–0x00793976 |
 | [header_statics/004d2ba0](../src/recovered/header_statics/004d2ba0/) | 351 | 25,025 | 351 | 0x004D2BA0–0x004DBBC0 |
 | [unowned](../src/recovered/unowned/) | 148 | 16,211 | 148 | 0x0040AEA0–0x007694F0 |
 | [ownrdraw](../src/recovered/ownrdraw/) | 22 | 9,504 | 22 | 0x005DEF80–0x00600FD0 |
 | [classes/CChatEventSink](../src/recovered/classes/CChatEventSink/) | 5 | 7,696 | 5 | 0x0075E000–0x00765980 |
 | [sendfile](../src/recovered/sendfile/) | 5 | 6,593 | 5 | 0x0066AEA0–0x0066C5B0 |
-| [txtlabel2](../src/recovered/txtlabel2/) | 24 | 5,728 | 24 | 0x006F1A20–0x006F5540 |
+| [txtlabel2](../src/recovered/txtlabel2/) | 22 | 5,575 | 22 | 0x006F1A20–0x006F5540 |
 | [skirmish](../src/recovered/skirmish/) | 6 | 5,553 | 6 | 0x006829F0–0x00683D10 |
 | [classes/EventClass](../src/recovered/classes/EventClass/) | 1 | 5,176 | 1 | 0x004B65C0–0x004B65C0 |
 | [classes/TechnoTypeClass](../src/recovered/classes/TechnoTypeClass/) | 5 | 4,554 | 5 | 0x004D4310–0x006DA950 |
@@ -37,7 +37,6 @@
 | [vqalib_unvqtran](../src/recovered/vqalib_unvqtran/) | 1 | 1,101 | 1 | 0x0077D940–0x0077D940 |
 | [mapgen](../src/recovered/mapgen/) | 17 | 1,035 | 17 | 0x0056D5D0–0x0058DA10 |
 | [classes/AnimTypeClass](../src/recovered/classes/AnimTypeClass/) | 4 | 1,019 | 4 | 0x00424E30–0x004D3DD0 |
-| [classes/RadBeam](../src/recovered/classes/RadBeam/) | 11 | 963 | 11 | 0x006353A0–0x00635790 |
 | [classes/WolLadderCache](../src/recovered/classes/WolLadderCache/) | 4 | 961 | 4 | 0x007670F0–0x00767550 |
 | [netshare](../src/recovered/netshare/) | 5 | 957 | 5 | 0x005C3480–0x005C99D0 |
 | [classes/ScenarioClass](../src/recovered/classes/ScenarioClass/) | 2 | 915 | 2 | 0x0065E730–0x00662E00 |
@@ -45,6 +44,7 @@
 | [word_sequences](../src/recovered/word_sequences/) | 20 | 847 | 20 | 0x004546E0–0x0076D840 |
 | [classes/FootClass](../src/recovered/classes/FootClass/) | 2 | 835 | 2 | 0x004BB350–0x004BB3F0 |
 | [classes/XSurface](../src/recovered/classes/XSurface/) | 6 | 816 | 6 | 0x004112E0–0x007743C0 |
+| [classes/RadBeam](../src/recovered/classes/RadBeam/) | 9 | 814 | 9 | 0x00635440–0x00635790 |
 | [classes/MPCooperative](../src/recovered/classes/MPCooperative/) | 4 | 789 | 4 | 0x005A2800–0x005A46A0 |
 | [conquer](../src/recovered/conquer/) | 1 | 780 | 1 | 0x00481BF0–0x00481BF0 |
 | [classes/AircraftTrackerClass](../src/recovered/classes/AircraftTrackerClass/) | 4 | 778 | 4 | 0x00412720–0x00413600 |
@@ -97,7 +97,6 @@
 | [classes/DynamicVectorClass_EgoClass_ptr](../src/recovered/classes/DynamicVectorClass_EgoClass_ptr/) | 6 | 417 | 4 | 0x004B35A0–0x004B4640 |
 | [classes/WolChannelArray](../src/recovered/classes/WolChannelArray/) | 1 | 407 | 1 | 0x00766C20–0x00766C20 |
 | [classes/DynamicVectorClass_ObjectClass_ptr](../src/recovered/classes/DynamicVectorClass_ObjectClass_ptr/) | 6 | 403 | 6 | 0x0040CB60–0x004D45B0 |
-| [classes/IsometricTileClass](../src/recovered/classes/IsometricTileClass/) | 3 | 402 | 3 | 0x0040C690–0x00528260 |
 | [classes/WarheadTypeClass](../src/recovered/classes/WarheadTypeClass/) | 3 | 400 | 3 | 0x0040F270–0x00721090 |
 | [classes/DynamicVectorClass_rc_ptr_WDTTerritory](../src/recovered/classes/DynamicVectorClass_rc_ptr_WDTTerritory/) | 4 | 397 | 4 | 0x0072CA20–0x0072CEA0 |
 | [classes/DynamicVectorClass_rc_ptr_WorldDominationTour__Territory](../src/recovered/classes/DynamicVectorClass_rc_ptr_WorldDominationTour__Territory/) | 4 | 397 | 4 | 0x0072AF80–0x0072B430 |
@@ -137,7 +136,6 @@
 | [classes/DynamicVectorClass_WeaponTypeClass_ptr](../src/recovered/classes/DynamicVectorClass_WeaponTypeClass_ptr/) | 5 | 356 | 4 | 0x0040F970–0x0040FC80 |
 | [header_statics/0040acb0](../src/recovered/header_statics/0040acb0/) | 13 | 356 | 13 | 0x0040ACB0–0x0040AE80 |
 | [header_statics/0040fd00](../src/recovered/header_statics/0040fd00/) | 13 | 356 | 13 | 0x0040FD00–0x0040FED0 |
-| [header_statics/0041baa0](../src/recovered/header_statics/0041baa0/) | 13 | 356 | 13 | 0x0041BAA0–0x0041BC70 |
 | [header_statics/0041c3d0](../src/recovered/header_statics/0041c3d0/) | 13 | 356 | 13 | 0x0041C3D0–0x0041C5A0 |
 | [header_statics/00424c40](../src/recovered/header_statics/00424c40/) | 13 | 356 | 13 | 0x00424C40–0x00424E10 |
 | [header_statics/00426910](../src/recovered/header_statics/00426910/) | 13 | 356 | 13 | 0x00426910–0x00426AE0 |
@@ -148,47 +146,32 @@
 | [header_statics/004b7a00](../src/recovered/header_statics/004b7a00/) | 13 | 356 | 13 | 0x004B7A00–0x004B7BD0 |
 | [header_statics/004bb160](../src/recovered/header_statics/004bb160/) | 13 | 356 | 13 | 0x004BB160–0x004BB330 |
 | [header_statics/004bb6a0](../src/recovered/header_statics/004bb6a0/) | 13 | 356 | 13 | 0x004BB6A0–0x004BB870 |
-| [header_statics/004f8f00](../src/recovered/header_statics/004f8f00/) | 13 | 356 | 13 | 0x004F8F00–0x004F90D0 |
-| [header_statics/00527890](../src/recovered/header_statics/00527890/) | 13 | 356 | 13 | 0x00527890–0x00527A60 |
-| [header_statics/00528380](../src/recovered/header_statics/00528380/) | 13 | 356 | 13 | 0x00528380–0x00528550 |
 | [header_statics/0052ef70](../src/recovered/header_statics/0052ef70/) | 13 | 356 | 13 | 0x0052EF70–0x0052F140 |
 | [header_statics/00531360](../src/recovered/header_statics/00531360/) | 13 | 356 | 13 | 0x00531360–0x00531530 |
 | [header_statics/00531f30](../src/recovered/header_statics/00531f30/) | 13 | 356 | 13 | 0x00531F30–0x00532100 |
 | [header_statics/00538670](../src/recovered/header_statics/00538670/) | 13 | 356 | 13 | 0x00538670–0x00538840 |
-| [header_statics/0056d2d0](../src/recovered/header_statics/0056d2d0/) | 13 | 356 | 13 | 0x0056D2D0–0x0056D4A0 |
 | [header_statics/00593340](../src/recovered/header_statics/00593340/) | 13 | 356 | 13 | 0x00593340–0x00593510 |
 | [header_statics/0059d590](../src/recovered/header_statics/0059d590/) | 13 | 356 | 13 | 0x0059D590–0x0059D760 |
 | [header_statics/0059ede0](../src/recovered/header_statics/0059ede0/) | 13 | 356 | 13 | 0x0059EDE0–0x0059EFB0 |
 | [header_statics/005a0060](../src/recovered/header_statics/005a0060/) | 13 | 356 | 13 | 0x005A0060–0x005A0230 |
 | [header_statics/005a2610](../src/recovered/header_statics/005a2610/) | 13 | 356 | 13 | 0x005A2610–0x005A27E0 |
-| [header_statics/005aa830](../src/recovered/header_statics/005aa830/) | 13 | 356 | 13 | 0x005AA830–0x005AAA00 |
 | [header_statics/005ab3b0](../src/recovered/header_statics/005ab3b0/) | 13 | 356 | 13 | 0x005AB3B0–0x005AB580 |
 | [header_statics/005b49e0](../src/recovered/header_statics/005b49e0/) | 13 | 356 | 13 | 0x005B49E0–0x005B4BB0 |
 | [header_statics/005bbb20](../src/recovered/header_statics/005bbb20/) | 13 | 356 | 13 | 0x005BBB20–0x005BBCF0 |
-| [header_statics/005dc3b0](../src/recovered/header_statics/005dc3b0/) | 13 | 356 | 13 | 0x005DC3B0–0x005DC580 |
 | [header_statics/005dd320](../src/recovered/header_statics/005dd320/) | 13 | 356 | 13 | 0x005DD320–0x005DD4F0 |
-| [header_statics/00608250](../src/recovered/header_statics/00608250/) | 13 | 356 | 13 | 0x00608250–0x00608420 |
 | [header_statics/0060a880](../src/recovered/header_statics/0060a880/) | 13 | 356 | 13 | 0x0060A880–0x0060AA50 |
 | [header_statics/0060d780](../src/recovered/header_statics/0060d780/) | 13 | 356 | 13 | 0x0060D780–0x0060D950 |
-| [header_statics/006351b0](../src/recovered/header_statics/006351b0/) | 13 | 356 | 13 | 0x006351B0–0x00635380 |
-| [header_statics/00637030](../src/recovered/header_statics/00637030/) | 13 | 356 | 13 | 0x00637030–0x00637200 |
 | [header_statics/00639770](../src/recovered/header_statics/00639770/) | 13 | 356 | 13 | 0x00639770–0x00639940 |
 | [header_statics/0063aea0](../src/recovered/header_statics/0063aea0/) | 13 | 356 | 13 | 0x0063AEA0–0x0063B070 |
 | [header_statics/0063b300](../src/recovered/header_statics/0063b300/) | 13 | 356 | 13 | 0x0063B300–0x0063B4D0 |
-| [header_statics/006693a0](../src/recovered/header_statics/006693a0/) | 13 | 356 | 13 | 0x006693A0–0x00669570 |
 | [header_statics/0066acb0](../src/recovered/header_statics/0066acb0/) | 13 | 356 | 13 | 0x0066ACB0–0x0066AE80 |
-| [header_statics/006d9950](../src/recovered/header_statics/006d9950/) | 13 | 356 | 13 | 0x006D9950–0x006D9B20 |
 | [header_statics/006dfab0](../src/recovered/header_statics/006dfab0/) | 13 | 356 | 13 | 0x006DFAB0–0x006DFC80 |
-| [header_statics/006e2e10](../src/recovered/header_statics/006e2e10/) | 13 | 356 | 13 | 0x006E2E10–0x006E2FE0 |
 | [header_statics/006e4b70](../src/recovered/header_statics/006e4b70/) | 13 | 356 | 13 | 0x006E4B70–0x006E4D40 |
 | [header_statics/006e7550](../src/recovered/header_statics/006e7550/) | 13 | 356 | 13 | 0x006E7550–0x006E7720 |
-| [header_statics/006ec3a0](../src/recovered/header_statics/006ec3a0/) | 13 | 356 | 13 | 0x006EC3A0–0x006EC570 |
-| [header_statics/006ed030](../src/recovered/header_statics/006ed030/) | 13 | 356 | 13 | 0x006ED030–0x006ED200 |
 | [header_statics/006f13d0](../src/recovered/header_statics/006f13d0/) | 13 | 356 | 13 | 0x006F13D0–0x006F15A0 |
 | [header_statics/006f1810](../src/recovered/header_statics/006f1810/) | 13 | 356 | 13 | 0x006F1810–0x006F19E0 |
 | [header_statics/0070c610](../src/recovered/header_statics/0070c610/) | 13 | 356 | 13 | 0x0070C610–0x0070C7E0 |
 | [header_statics/0070dfb0](../src/recovered/header_statics/0070dfb0/) | 13 | 356 | 13 | 0x0070DFB0–0x0070E180 |
-| [header_statics/00728c60](../src/recovered/header_statics/00728c60/) | 13 | 356 | 13 | 0x00728C60–0x00728E30 |
 | [header_statics/00728fd0](../src/recovered/header_statics/00728fd0/) | 13 | 356 | 13 | 0x00728FD0–0x007291A0 |
 | [header_statics/0072bbd0](../src/recovered/header_statics/0072bbd0/) | 13 | 356 | 13 | 0x0072BBD0–0x0072BDA0 |
 | [classes/VectorClass_double](../src/recovered/classes/VectorClass_double/) | 5 | 350 | 5 | 0x0058DEB0–0x0058EAE0 |
@@ -219,7 +202,6 @@
 | [classes/ToggleClass](../src/recovered/classes/ToggleClass/) | 1 | 308 | 1 | 0x006EB180–0x006EB180 |
 | [classes/WolChannelNameSet](../src/recovered/classes/WolChannelNameSet/) | 3 | 304 | 3 | 0x00767570–0x007679A0 |
 | [classes/DynamicVectorClass](../src/recovered/classes/DynamicVectorClass/) | 1 | 298 | 1 | 0x0056B330–0x0056B330 |
-| [globals](../src/recovered/globals/) | 13 | 294 | 13 | 0x0040D0D0–0x00716F10 |
 | [alphashp](../src/recovered/alphashp/) | 1 | 289 | 1 | 0x0041FDF0–0x0041FDF0 |
 | [classes/ScoreBigFontClass](../src/recovered/classes/ScoreBigFontClass/) | 2 | 288 | 2 | 0x00667E80–0x00668490 |
 | [classes/ScoreFullFontClass](../src/recovered/classes/ScoreFullFontClass/) | 2 | 288 | 2 | 0x00667DC0–0x00668430 |
@@ -237,6 +219,7 @@
 | [classes/DynamicVectorClass_ThemeControl_ptr](../src/recovered/classes/DynamicVectorClass_ThemeControl_ptr/) | 4 | 283 | 4 | 0x006E85B0–0x006E86B0 |
 | [classes/DynamicVectorClass_WDTAnimationPalette_ptr](../src/recovered/classes/DynamicVectorClass_WDTAnimationPalette_ptr/) | 4 | 283 | 4 | 0x0072B000–0x0072B690 |
 | [classes/DynamicVectorClass_char_ptr](../src/recovered/classes/DynamicVectorClass_char_ptr/) | 4 | 283 | 4 | 0x00491060–0x00491310 |
+| [classes/IsometricTileClass](../src/recovered/classes/IsometricTileClass/) | 1 | 282 | 1 | 0x00528260–0x00528260 |
 | [classes/ParticleClass](../src/recovered/classes/ParticleClass/) | 3 | 278 | 3 | 0x004D3210–0x0060A7E0 |
 | [classes/SmudgeTypeClass](../src/recovered/classes/SmudgeTypeClass/) | 5 | 274 | 5 | 0x004D3B10–0x00688C20 |
 | [classes/PlayerProfile](../src/recovered/classes/PlayerProfile/) | 5 | 273 | 5 | 0x00739920–0x007399F0 |
@@ -256,6 +239,7 @@
 | [classes/SuperClass](../src/recovered/classes/SuperClass/) | 4 | 240 | 4 | 0x004D4190–0x004D4250 |
 | [classes/VectorClass_PassabilityType](../src/recovered/classes/VectorClass_PassabilityType/) | 3 | 240 | 3 | 0x0056BCD0–0x0056BDF0 |
 | [classes/DynamicVectorClass_TRect_int](../src/recovered/classes/DynamicVectorClass_TRect_int/) | 1 | 235 | 1 | 0x0058E740–0x0058E740 |
+| [globals](../src/recovered/globals/) | 12 | 235 | 12 | 0x0040D0D0–0x00716F10 |
 | [tactical](../src/recovered/tactical/) | 2 | 232 | 2 | 0x006A68C0–0x006A6920 |
 | [classes/DynamicVectorClass_CellDistribution](../src/recovered/classes/DynamicVectorClass_CellDistribution/) | 4 | 221 | 4 | 0x004CE7C0–0x004CE9B0 |
 | [uicmnds](../src/recovered/uicmnds/) | 4 | 217 | 4 | 0x006F6490–0x006F8130 |
@@ -331,7 +315,6 @@
 | [classes/ParticleSystemClass](../src/recovered/classes/ParticleSystemClass/) | 2 | 120 | 2 | 0x004D2F90–0x004D2FD0 |
 | [classes/ParticleSystemTypeClass](../src/recovered/classes/ParticleSystemTypeClass/) | 2 | 120 | 2 | 0x004D4090–0x004D40D0 |
 | [classes/ParticleTypeClass](../src/recovered/classes/ParticleTypeClass/) | 2 | 120 | 2 | 0x004D4010–0x004D4050 |
-| [classes/RadSiteClass](../src/recovered/classes/RadSiteClass/) | 2 | 120 | 2 | 0x00637220–0x00637260 |
 | [classes/ScriptClass](../src/recovered/classes/ScriptClass/) | 2 | 120 | 2 | 0x0040E590–0x0040E5D0 |
 | [classes/ScriptTypeClass](../src/recovered/classes/ScriptTypeClass/) | 2 | 120 | 2 | 0x004D3A10–0x004D3A50 |
 | [classes/SideClass](../src/recovered/classes/SideClass/) | 2 | 120 | 2 | 0x004D3810–0x004D3850 |
@@ -381,7 +364,6 @@
 | [classes/TVelocity3D](../src/recovered/classes/TVelocity3D/) | 1 | 99 | 1 | 0x0041B6E0–0x0041B6E0 |
 | [voxdrsys](../src/recovered/voxdrsys/) | 3 | 99 | 3 | 0x00716FA0–0x00717C80 |
 | [classes/WaypointClass](../src/recovered/classes/WaypointClass/) | 1 | 97 | 1 | 0x0041B890–0x0041B890 |
-| [header_statics/0040c4a0](../src/recovered/header_statics/0040c4a0/) | 2 | 96 | 2 | 0x0040C670–0x0040CB10 |
 | [classes/Vector3](../src/recovered/classes/Vector3/) | 4 | 94 | 4 | 0x00437690–0x00717CD0 |
 | [classes/DynamicVectorClass_char_const_ptr](../src/recovered/classes/DynamicVectorClass_char_const_ptr/) | 1 | 93 | 1 | 0x006F8AE0–0x006F8AE0 |
 | [classes/TemporalClass](../src/recovered/classes/TemporalClass/) | 1 | 93 | 1 | 0x006E2610–0x006E2610 |
@@ -401,6 +383,7 @@
 | [audlevel](../src/recovered/audlevel/) | 2 | 73 | 2 | 0x00407030–0x00407090 |
 | [classes/DynamicVectorClass_UndoInfoStruct](../src/recovered/classes/DynamicVectorClass_UndoInfoStruct/) | 1 | 73 | 0 | 0x00687380–0x00687380 |
 | [classes/VectorClass_UndoInfoStruct](../src/recovered/classes/VectorClass_UndoInfoStruct/) | 1 | 73 | 0 | 0x00687330–0x00687330 |
+| [header_statics/0040c4a0](../src/recovered/header_statics/0040c4a0/) | 1 | 73 | 1 | 0x0040CB10–0x0040CB10 |
 | [base](../src/recovered/base/) | 1 | 72 | 1 | 0x0042C350–0x0042C350 |
 | [classes/ScrollClass](../src/recovered/classes/ScrollClass/) | 1 | 71 | 1 | 0x0066AC60–0x0066AC60 |
 | [classes/BlitTransXlat_unsigned_short](../src/recovered/classes/BlitTransXlat_unsigned_short/) | 1 | 70 | 1 | 0x004861C0–0x004861C0 |
@@ -411,6 +394,7 @@
 | [classes/DynamicVectorClass_PlanningMemberClass_ptr](../src/recovered/classes/DynamicVectorClass_PlanningMemberClass_ptr/) | 1 | 65 | 1 | 0x0061AD90–0x0061AD90 |
 | [classes/VersionClass](../src/recovered/classes/VersionClass/) | 3 | 65 | 3 | 0x004D45F0–0x004D4980 |
 | [classes/WinModemClass](../src/recovered/classes/WinModemClass/) | 1 | 65 | 1 | 0x007348B0–0x007348B0 |
+| [header_statics/00528380](../src/recovered/header_statics/00528380/) | 2 | 63 | 2 | 0x00528380–0x005283A0 |
 | [load](../src/recovered/load/) | 1 | 61 | 1 | 0x0053AEB0–0x0053AEB0 |
 | [classes/AITriggerTypeDistribution](../src/recovered/classes/AITriggerTypeDistribution/) | 1 | 59 | 1 | 0x006C0890–0x006C0890 |
 | [classes/CellDistribution](../src/recovered/classes/CellDistribution/) | 1 | 59 | 1 | 0x004CEAF0–0x004CEAF0 |
@@ -444,6 +428,7 @@
 | [classes/VocClass](../src/recovered/classes/VocClass/) | 1 | 43 | 1 | 0x00714A00–0x00714A00 |
 | [classes/TPoint2D](../src/recovered/classes/TPoint2D/) | 1 | 41 | 1 | 0x0042ADD0–0x0042ADD0 |
 | [wincomm](../src/recovered/wincomm/) | 1 | 41 | 1 | 0x00734950–0x00734950 |
+| [header_statics/006351b0](../src/recovered/header_statics/006351b0/) | 1 | 40 | 1 | 0x006351B0–0x006351B0 |
 | [classes/Point2D](../src/recovered/classes/Point2D/) | 1 | 38 | 1 | 0x0047D060–0x0047D060 |
 | [classes/RGBClass](../src/recovered/classes/RGBClass/) | 2 | 38 | 2 | 0x00432D70–0x004A9AF0 |
 | [hover](../src/recovered/hover/) | 1 | 37 | 1 | 0x004BFB60–0x004BFB60 |
@@ -481,7 +466,6 @@
 | [header_statics/004a4da0](../src/recovered/header_statics/004a4da0/) | 1 | 23 | 1 | 0x004A4DA0–0x004A4DA0 |
 | [header_statics/006846c0](../src/recovered/header_statics/006846c0/) | 1 | 23 | 1 | 0x006846C0–0x006846C0 |
 | [header_statics/00716d80](../src/recovered/header_statics/00716d80/) | 1 | 23 | 1 | 0x00716D80–0x00716D80 |
-| [header_statics/0073a0f0](../src/recovered/header_statics/0073a0f0/) | 1 | 23 | 1 | 0x0073A0F0–0x0073A0F0 |
 | [classes/ScoreAnimClass](../src/recovered/classes/ScoreAnimClass/) | 1 | 22 | 1 | 0x00668350–0x00668350 |
 | [rules](../src/recovered/rules/) | 2 | 20 | 2 | 0x00652710–0x00652720 |
 | [classes/IndexClass_int_INISection_ptr](../src/recovered/classes/IndexClass_int_INISection_ptr/) | 1 | 19 | 1 | 0x004910C0–0x004910C0 |
@@ -510,7 +494,7 @@
 | [vqalib/drawer](../src/recovered/vqalib/drawer/) | 2 | 5 | 2 | 0x00778430–0x00778440 |
 | [classes/RawFileClass](../src/recovered/classes/RawFileClass/) | 1 | 4 | 0 | 0x00401940–0x00401940 |
 
-503 directories, 17905 regions. Generated by `tools/original_target/source_index.py`.
+487 directories, 17905 regions. Generated by `tools/original_target/source_index.py`.
 
 <!-- /generated:units -->
 

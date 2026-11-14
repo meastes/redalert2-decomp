@@ -13,6 +13,90 @@
  "compile_group": 982,
  "code": [
   {
+   "symbol": "_$E5",
+   "entry": "006351e0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "00635200",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "00635220",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "00635240",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "00635260",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "00635280",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "006352c0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "006352f0",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "00635320",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "00635350",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "00635360",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "00635380",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E45",
+   "entry": "006353a0",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E42",
+   "entry": "006353e0",
+   "body_bytes": 88,
+   "padding_bytes": 8
+  },
+  {
    "symbol": "?unknown_6357b0@RadBeam@@QAEXN@Z",
    "entry": "006357b0",
    "body_bytes": 17,
@@ -157,7 +241,7 @@
    "padding_bytes": 7
   }
  ],
- "code_bytes": 2832,
+ "code_bytes": 3440,
  "data": [
   {
    "symbol": "__real@8@40008000000000000000",
@@ -220,21 +304,21 @@
    "address": "0079b610",
    "bytes": 8,
    "kind": "table",
-   "section": 60
+   "section": 70
   },
   {
    "symbol": "__real@8@4005c800000000000000",
    "address": "0079b7f0",
    "bytes": 8,
    "kind": "table",
-   "section": 58
+   "section": 88
   },
   {
    "symbol": "__real@8@4002a000000000000000",
    "address": "0079d130",
    "bytes": 8,
    "kind": "table",
-   "section": 59
+   "section": 89
   },
   {
    "symbol": "_unknown_geometry_sixty",
@@ -735,6 +819,118 @@
    "population": "population-12",
    "bound": "own frozen bound (population-12)",
    "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006351e0",
+   "bytes": 19,
+   "population": "population-4358",
+   "bound": "the unit's compile group (population-4358)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "00635200",
+   "bytes": 19,
+   "population": "population-4358",
+   "bound": "the unit's compile group (population-4358)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "00635220",
+   "bytes": 19,
+   "population": "population-4358",
+   "bound": "the unit's compile group (population-4358)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "00635240",
+   "bytes": 19,
+   "population": "population-4358",
+   "bound": "the unit's compile group (population-4358)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "00635260",
+   "bytes": 19,
+   "population": "population-4358",
+   "bound": "the unit's compile group (population-4358)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "00635280",
+   "bytes": 49,
+   "population": "population-4358",
+   "bound": "the unit's compile group (population-4358)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006352c0",
+   "bytes": 33,
+   "population": "population-4358",
+   "bound": "the unit's compile group (population-4358)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006352f0",
+   "bytes": 44,
+   "population": "population-4358",
+   "bound": "the unit's compile group (population-4358)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "00635320",
+   "bytes": 39,
+   "population": "population-4358",
+   "bound": "the unit's compile group (population-4358)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "00635350",
+   "bytes": 15,
+   "population": "population-4358",
+   "bound": "the unit's compile group (population-4358)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "00635360",
+   "bytes": 18,
+   "population": "population-4358",
+   "bound": "the unit's compile group (population-4358)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "00635380",
+   "bytes": 23,
+   "population": "population-4358",
+   "bound": "the unit's compile group (population-4358)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006353a0",
+   "bytes": 61,
+   "population": "population-4358",
+   "bound": "the unit's compile group (population-4358)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
+  },
+  {
+   "entry": "006353e0",
+   "bytes": 88,
+   "population": "population-4358",
+   "bound": "the unit's compile group (population-4358)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-exclusion"
   }
  ],
  "residuals": [],

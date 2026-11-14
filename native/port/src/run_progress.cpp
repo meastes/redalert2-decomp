@@ -348,6 +348,18 @@ void ra2port_trap_reached(const char *name)
 
 }  // extern "C"
 
+// Prep_For_Blit 0x007753B0 (port/fixups.json, C6): a blit that reached outside its
+// destination surface, clipped to it (the original never draws there; a native layout
+// did, and wrote outside the surface). The first few are reported, then a count.
+extern "C" void ra2port_blit_window_clipped(int x, int y, int width, int height, int surface_width, int surface_height)
+{
+    static int reported = 0;
+    if (++reported <= 8) {
+        fprintf(stderr, "blit: %d,%d %dx%d reaches outside its %dx%d surface: clipped%s\n", x, y, width, height,
+                surface_width, surface_height, reported == 8 ? " (no more reports)" : "");
+    }
+}
+
 // SwizzleManagerClass::Process_Tables 0x0069FC30 (port/fixups.json, Scout1133):
 // a loaded pointer whose object never called Here_I_Am. The original faults
 // there (1 / 0; arm64 integer division does not trap, so the native loop spun).

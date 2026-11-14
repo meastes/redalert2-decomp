@@ -1,9 +1,10 @@
 # Types read from the original game's saves as whole objects (lane C6; native/tools/original_layouts.py).
-# One per line: the type's name as the port spells it, optionally the generated unit (gen/units/<file>)
-# whose layout to take (default: the unit defining <Type>::Load, else Size_Of), and optionally
-# size=<n>: the original's object size, which the i686 layout must equal (the immediate its
-# Size_Of, vtable slot 12, returns; a locomotor's Size, slot 9; or a literal read size). Without
-# a size the layout is still used (all five of the user's saves load with it).
+# One per line: the type's name as the port spells it, then optionally
+#   <Member>      the member function that reads it (default: <Type>::Load, else Size_Of); its unit's layouts are taken;
+#   size=<n>      the original's object size, which the i686 layout must equal (the immediate its Size_Of,
+#                 vtable slot 12, returns; a locomotor's Size, slot 9; or a literal read size);
+#   load=<addr>   the original address of its Load: when a rename leaves the name unknown, the check names
+#                 the class that now carries that address (polymorphic types get the nearest RTTI names).
 # The other records the loads read (members, list elements, structs) are taken from the units
 # that read streams; see the tool.
 #
@@ -81,8 +82,8 @@ ShipLocomotionClass size=112
 RocketLocomotionClass size=88
 TunnelLocomotionClass size=60
 # Read with sizeof(*this) (or a literal size) by their own loads:
-ScenarioClass
-EnvironmentClass g0752_p3643.cpp   # Read_004B5C50 0x004B5C50
-MouseClass size=20284              # MouseClass::Load reads 0x4F3C bytes
-RulesClass
-BaseClass
+ScenarioClass load=0x006610C0
+EnvironmentClass Read_004B5C50     # reads sizeof(*this) at 0x004B5C50
+MouseClass size=20284 load=0x0059F530   # MouseClass::Load reads 0x4F3C bytes
+RulesClass load=0x0064E6B0
+BaseClass load=0x0042C6A0

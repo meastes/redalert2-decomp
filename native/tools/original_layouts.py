@@ -21,6 +21,7 @@ with their NoInit constructors anyway), nor are members only one layout has
     python3 native/tools/original_layouts.py --build <native build> --out <file.cpp> [--report r.json] [-j N]
 """
 import argparse
+import difflib
 import json
 import re
 import subprocess
@@ -320,8 +321,8 @@ def dump(build, unit, triple, cache):
 
 
 def read_types(path):
-    """[(type name, unit hint or None)], {type name: the original's size}"""
-    rows, sizes = [], {}
+    """[(type name, unit hint or None)], {type name: the original's size}, {type name: its Load's address}"""
+    rows, sizes, loads = [], {}, {}
     for line in path.read_text().splitlines():
         line = line.split('#', 1)[0].strip()
         if not line:
@@ -331,18 +332,48 @@ def read_types(path):
         for p in parts[1:]:
             if p.startswith('size='):
                 sizes[parts[0]] = int(p[5:], 0)
+            elif p.startswith('load='):
+                loads[parts[0]] = int(p[5:], 0)
             else:
                 hint = p
         rows.append((parts[0], hint))
-    return rows, sizes
+    return rows, sizes, loads
+
+
+def rtti_names():
+    path = ROOT / 'manifests/rtti_classes.json'
+    try:
+        return sorted({v['class_name'] for v in json.loads(path.read_text())['vtables']})
+    except (OSError, ValueError, KeyError):
+        return []
+
+
+def suggest(name, load, units_text):
+    """What a listed type that no unit defines is probably called now (a rename): the class
+    whose function carries the listed Load address in the units' address comments, else the
+    nearest RTTI names and classes with a Load."""
+    if load is not None:
+        rx = re.compile(r'([A-Za-z_]\w*(?:<[^>\n]*>)?)::\w+\s*\([^\n]*\(0x0*%X\b' % load, re.I)
+        for _, text in units_text:
+            m = rx.search(text)
+            if m:
+                return 'its Load 0x%08X is now %s\'s: rename the row' % (load, m.group(1))
+    with_load = set()
+    rx = re.compile(r'^[A-Za-z_][^\n;]*?\b([A-Za-z_]\w*)::Load\s*\(', re.M)
+    for _, text in units_text:
+        with_load.update(rx.findall(text))
+    pool = sorted(set(rtti_names()) | with_load)
+    near = difflib.get_close_matches(name, pool, n=3, cutoff=0.6)
+    if near:
+        return 'nearest RTTI/Load class names: %s' % ', '.join(near)
+    return 'no RTTI or Load class name is close (give the row load=<address> to find a renamed class)'
 
 
 def find_unit(build, name, hint, units_text):
-    if hint:
-        p = build / 'gen/units' / hint
-        return p if p.exists() else None
+    """The unit defining <name>::Load (else Size_Of); a hint names the member function
+    that reads the type instead (generated unit names change with the catalog)."""
     plain = name.split('<')[0]
-    for kind in ('Load', 'Size_Of'):
+    for kind in ([hint] if hint else ['Load', 'Size_Of']):
         rx = re.compile(r'^[A-Za-z_][^\n;]*\b%s::%s\s*\(' % (re.escape(plain), kind), re.M)
         for path, text in units_text:
             if rx.search(text):
@@ -365,15 +396,19 @@ def main():
     build = args.build.resolve()
     cache = build / 'gen/original_layouts'
     cache.mkdir(parents=True, exist_ok=True)
-    rows, sizes = read_types(args.types)
-    units = sorted((build / 'gen/units').glob('*.cpp'))
+    rows, sizes, loads = read_types(args.types)
+    # The build's units (gen/units.cmake): gen/units keeps files of earlier configures
+    # whose groups the catalog has since renumbered or renamed.
+    listed = re.findall(r'units/([^"/\s]+\.cpp)', (build / 'gen/units.cmake').read_text())
+    units = sorted(build / 'gen/units' / n for n in listed)
     units_text = [(u, u.read_text(errors='replace')) for u in units]
     where = {}
     problems = []
     for name, hint in rows:
         u = find_unit(build, name, hint, units_text)
         if u is None:
-            problems.append('%s: no unit defines its Load' % name)
+            problems.append('%s (data/original_save_types.txt): no generated unit defines %s::Load or Size_Of; '
+                            'renamed or removed? %s' % (name, name, suggest(name, loads.get(name), units_text)))
             continue
         where[name] = u
     # And every unit that reads a stream itself (its records: the structs and lists it loads).
@@ -391,7 +426,8 @@ def main():
         ri, ra = parsed[where[name]]
         key = canonical(name)
         if key not in ri or key not in ra:
-            problems.append('%s: no layout in %s' % (name, where[name].name))
+            problems.append('%s (data/original_save_types.txt): %s has no record layout of that name; %s'
+                            % (name, where[name].name, suggest(name, loads.get(name), units_text)))
             continue
         ops, unmatched = ops_for(ri, ra, key, problems)
         if name in sizes and sizes[name] != ri[key].size:
@@ -449,6 +485,9 @@ def main():
         args.out.write_text(text)
     if args.report:
         args.report.write_text(json.dumps({'problems': problems, 'types': report, 'others': report_others}, indent=1) + '\n')
+    if args.check:
+        for p in problems:
+            print('original layouts: PROBLEM: ' + p, file=sys.stderr)
     print('original layouts: %d types, %d ops, %d problems, %d unmatched members' %
           (len(index), first, len(problems), sum(len(r['unmatched']) for r in report.values())))
     return 1 if args.check and problems else 0

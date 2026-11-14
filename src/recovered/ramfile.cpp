@@ -4,6 +4,64 @@
 // manifests/original_target/modules/ramfile.json carries the addresses and the rows that
 // stay in their own files.
 
+#define RA2_RADSITE_COORD_DISTANCE_DIFFERENCE
+// Header-static dynamic initializers of the unit at 0x00637030 and the
+// unit's RadSiteClass list; the other drafts of this plan are emitted by this file.
+#include "shared/unknown_geometry.hpp"
+#include "shared/unknown_static_rect.hpp"
+#ifndef VECTOR_IMPLEMENT_ALL
+#define VECTOR_IMPLEMENT_ALL
+#endif
+#include "shared/vector_class.hpp"
+#include "shared/radsite.hpp"
+
+// The unit's list of RadSiteClass objects (0x00AB6620; name is a hypothesis).
+DynamicVectorClass<RadSiteClass *> unknown_RadSiteClass_list_00ab6620;
+
+
+// Dynamic initializer (0x00637060, _$E) emitted by HeaderStatics_diagonal_init_00637030.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00637080, _$E) emitted by HeaderStatics_diagonal_init_00637030.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006370A0, _$E) emitted by HeaderStatics_diagonal_init_00637030.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006370C0, _$E) emitted by HeaderStatics_diagonal_init_00637030.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006370E0, _$E) emitted by HeaderStatics_diagonal_init_00637030.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00637100, _$E) emitted by HeaderStatics_diagonal_init_00637030.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00637140, _$E) emitted by HeaderStatics_diagonal_init_00637030.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00637170, _$E) emitted by HeaderStatics_diagonal_init_00637030.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006371A0, _$E) emitted by HeaderStatics_diagonal_init_00637030.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006371D0, _$E) emitted by HeaderStatics_diagonal_init_00637030.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006371E0, _$E) emitted by HeaderStatics_diagonal_init_00637030.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00637200, _$E) emitted by HeaderStatics_diagonal_init_00637030.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00637220, _$E) emitted by HeaderStatics_diagonal_init_00637030.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00637260, _$E) emitted by HeaderStatics_diagonal_init_00637030.cpp; no source of its own.
+
+
+
 
 #include "shared/radsite.hpp"
 #include "shared/map_view.hpp"
