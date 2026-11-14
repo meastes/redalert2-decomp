@@ -1,0 +1,2277 @@
+{
+ "module": "counter",
+ "source": "src/recovered/counter.cpp",
+ "header": null,
+ "population": "population-1701",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 387,
+ "code": [
+  {
+   "symbol": "??0CounterClass@@QAE@XZ",
+   "entry": "00491c00",
+   "body_bytes": 24,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "??1?$VectorClass@H@@UAE@XZ",
+   "entry": "00491c20",
+   "body_bytes": 45,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Increment@CounterClass@@QAEHH@Z",
+   "entry": "00491c50",
+   "body_bytes": 93,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Decrement@CounterClass@@QAEHH@Z",
+   "entry": "00491cb0",
+   "body_bytes": 93,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Get@CounterClass@@QAEHH@Z",
+   "entry": "00491d10",
+   "body_bytes": 81,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Clear@CounterClass@@UAEXXZ",
+   "entry": "00491d70",
+   "body_bytes": 29,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Sum@CounterClass@@QBEHXZ",
+   "entry": "00491d90",
+   "body_bytes": 25,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Save@CounterClass@@QAEJPAUIStream@@@Z",
+   "entry": "00491db0",
+   "body_bytes": 85,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Load@CounterClass@@QAEJPAUIStream@@@Z",
+   "entry": "00491e10",
+   "body_bytes": 137,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Ensure_Index@CounterClass@@QAE_NH@Z",
+   "entry": "00491ea0",
+   "body_bytes": 81,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "??_GCounterClass@@UAEPAXI@Z",
+   "entry": "00491f00",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  }
+ ],
+ "code_bytes": 848,
+ "data": [
+  {
+   "symbol": "??_7CounterClass@@6B@",
+   "address": "0079e5ac",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 3
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7CounterClass@@6B@",
+   "address": "0079e5ac",
+   "bytes": 28,
+   "kind": "vtable"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "004e1680",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e1680",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e1680",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e1680",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e1680",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e1680",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e1680",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e1680",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e1680",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e1680",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e1680",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e1680",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e30c0",
+   "symbol": "??1UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c20",
+   "function_entry": true
+  },
+  {
+   "site": "004e30c0",
+   "symbol": "??1UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c20",
+   "function_entry": true
+  },
+  {
+   "site": "004e30c0",
+   "symbol": "??1UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c20",
+   "function_entry": true
+  },
+  {
+   "site": "004e30c0",
+   "symbol": "??1UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c20",
+   "function_entry": true
+  },
+  {
+   "site": "004e30c0",
+   "symbol": "??1UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c20",
+   "function_entry": true
+  },
+  {
+   "site": "004e30c0",
+   "symbol": "??1UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c20",
+   "function_entry": true
+  },
+  {
+   "site": "004e30c0",
+   "symbol": "??1UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c20",
+   "function_entry": true
+  },
+  {
+   "site": "004e30c0",
+   "symbol": "??1UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c20",
+   "function_entry": true
+  },
+  {
+   "site": "004e30c0",
+   "symbol": "??1UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c20",
+   "function_entry": true
+  },
+  {
+   "site": "004e30c0",
+   "symbol": "??1UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c20",
+   "function_entry": true
+  },
+  {
+   "site": "004e30c0",
+   "symbol": "??1UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c20",
+   "function_entry": true
+  },
+  {
+   "site": "004e30c0",
+   "symbol": "??1UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c20",
+   "function_entry": true
+  },
+  {
+   "site": "004e7440",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e8560",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004ee440",
+   "symbol": "?Save@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "target": "00491db0",
+   "function_entry": true
+  },
+  {
+   "site": "004ee440",
+   "symbol": "?Save@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "target": "00491db0",
+   "function_entry": true
+  },
+  {
+   "site": "004ee440",
+   "symbol": "?Save@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "target": "00491db0",
+   "function_entry": true
+  },
+  {
+   "site": "004ee440",
+   "symbol": "?Save@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "target": "00491db0",
+   "function_entry": true
+  },
+  {
+   "site": "004ee440",
+   "symbol": "?Save@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "target": "00491db0",
+   "function_entry": true
+  },
+  {
+   "site": "004ee440",
+   "symbol": "?Save@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "target": "00491db0",
+   "function_entry": true
+  },
+  {
+   "site": "004ee440",
+   "symbol": "?Save@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "target": "00491db0",
+   "function_entry": true
+  },
+  {
+   "site": "004ee440",
+   "symbol": "?Save@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "target": "00491db0",
+   "function_entry": true
+  },
+  {
+   "site": "004ee440",
+   "symbol": "?Save@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "target": "00491db0",
+   "function_entry": true
+  },
+  {
+   "site": "004ee440",
+   "symbol": "?Save@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "target": "00491db0",
+   "function_entry": true
+  },
+  {
+   "site": "004ee440",
+   "symbol": "?Save@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "target": "00491db0",
+   "function_entry": true
+  },
+  {
+   "site": "004ee440",
+   "symbol": "?Save@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "target": "00491db0",
+   "function_entry": true
+  },
+  {
+   "site": "00439240",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "00439240",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "00452800",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "00452860",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "00704440",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "00704b10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "0041cd50",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "0041cd50",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "0041cd50",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "0041cd50",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "0041cef0",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "0041cef0",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "0041cef0",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "0041cef0",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "0041d0f0",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "0041d0f0",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "0041d0f0",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "0041d0f0",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004cd760",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "00445620",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Load@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "target": "00491e10",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Load@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "target": "00491e10",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Load@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "target": "00491e10",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Load@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "target": "00491e10",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Load@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "target": "00491e10",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Load@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "target": "00491e10",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Load@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "target": "00491e10",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Load@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "target": "00491e10",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Load@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "target": "00491e10",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Load@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "target": "00491e10",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Load@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "target": "00491e10",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Load@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "target": "00491e10",
+   "function_entry": true
+  },
+  {
+   "site": "004e6f10",
+   "symbol": "?Increment@UnknownHouseCounter@@QAEXH@Z",
+   "target": "00491c50",
+   "function_entry": true
+  },
+  {
+   "site": "004e6f10",
+   "symbol": "?Increment@UnknownHouseCounter@@QAEXH@Z",
+   "target": "00491c50",
+   "function_entry": true
+  },
+  {
+   "site": "004e6f10",
+   "symbol": "?Increment@UnknownHouseCounter@@QAEXH@Z",
+   "target": "00491c50",
+   "function_entry": true
+  },
+  {
+   "site": "004e6f10",
+   "symbol": "?Increment@UnknownHouseCounter@@QAEXH@Z",
+   "target": "00491c50",
+   "function_entry": true
+  },
+  {
+   "site": "004ed440",
+   "symbol": "?Decrement@UnknownHouseCounter@@QAEXH@Z",
+   "target": "00491cb0",
+   "function_entry": true
+  },
+  {
+   "site": "004ed440",
+   "symbol": "?Decrement@UnknownHouseCounter@@QAEXH@Z",
+   "target": "00491cb0",
+   "function_entry": true
+  },
+  {
+   "site": "004ed440",
+   "symbol": "?Decrement@UnknownHouseCounter@@QAEXH@Z",
+   "target": "00491cb0",
+   "function_entry": true
+  },
+  {
+   "site": "004ed440",
+   "symbol": "?Decrement@UnknownHouseCounter@@QAEXH@Z",
+   "target": "00491cb0",
+   "function_entry": true
+  },
+  {
+   "site": "004ed610",
+   "symbol": "?Increment@UnknownHouseCounter@@QAEXH@Z",
+   "target": "00491c50",
+   "function_entry": true
+  },
+  {
+   "site": "004ed610",
+   "symbol": "?Increment@UnknownHouseCounter@@QAEXH@Z",
+   "target": "00491c50",
+   "function_entry": true
+  },
+  {
+   "site": "004ed610",
+   "symbol": "?Increment@UnknownHouseCounter@@QAEXH@Z",
+   "target": "00491c50",
+   "function_entry": true
+  },
+  {
+   "site": "004ed610",
+   "symbol": "?Increment@UnknownHouseCounter@@QAEXH@Z",
+   "target": "00491c50",
+   "function_entry": true
+  },
+  {
+   "site": "004ea800",
+   "symbol": "?Decrement@UnknownHouseCounter@@QAEXH@Z",
+   "target": "00491cb0",
+   "function_entry": true
+  },
+  {
+   "site": "004ea800",
+   "symbol": "?Decrement@UnknownHouseCounter@@QAEXH@Z",
+   "target": "00491cb0",
+   "function_entry": true
+  },
+  {
+   "site": "004ea800",
+   "symbol": "?Decrement@UnknownHouseCounter@@QAEXH@Z",
+   "target": "00491cb0",
+   "function_entry": true
+  },
+  {
+   "site": "004ea800",
+   "symbol": "?Decrement@UnknownHouseCounter@@QAEXH@Z",
+   "target": "00491cb0",
+   "function_entry": true
+  },
+  {
+   "site": "004ea970",
+   "symbol": "?Increment@UnknownHouseCounter@@QAEXH@Z",
+   "target": "00491c50",
+   "function_entry": true
+  },
+  {
+   "site": "004ea970",
+   "symbol": "?Increment@UnknownHouseCounter@@QAEXH@Z",
+   "target": "00491c50",
+   "function_entry": true
+  },
+  {
+   "site": "004ea970",
+   "symbol": "?Increment@UnknownHouseCounter@@QAEXH@Z",
+   "target": "00491c50",
+   "function_entry": true
+  },
+  {
+   "site": "004ea970",
+   "symbol": "?Increment@UnknownHouseCounter@@QAEXH@Z",
+   "target": "00491c50",
+   "function_entry": true
+  },
+  {
+   "site": "00465d10",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "target": "00491d90",
+   "function_entry": true
+  },
+  {
+   "site": "00465d10",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "target": "00491d90",
+   "function_entry": true
+  },
+  {
+   "site": "00465d10",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "target": "00491d90",
+   "function_entry": true
+  },
+  {
+   "site": "00465d10",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "target": "00491d90",
+   "function_entry": true
+  },
+  {
+   "site": "004f3720",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004f3720",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e9c90",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e9c90",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e9c90",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "target": "00491c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e27e0",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e27e0",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e27e0",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e27e0",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e27e0",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e8d80",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e8d80",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e90f0",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e90f0",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e90f0",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e90f0",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004f4f30",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004f4f30",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004f4f30",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004f4f30",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004f4f30",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004f4f30",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004f4f30",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e4110",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e4110",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e4110",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e4110",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e4110",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e4110",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004cbb40",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004426d0",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "005aabd0",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "target": "00491d90",
+   "function_entry": true
+  },
+  {
+   "site": "005aabd0",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "target": "00491d90",
+   "function_entry": true
+  },
+  {
+   "site": "005aabd0",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "target": "00491d90",
+   "function_entry": true
+  },
+  {
+   "site": "005aabd0",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "target": "00491d90",
+   "function_entry": true
+  },
+  {
+   "site": "006e6050",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "006e6050",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "0048e210",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "target": "00491d90",
+   "function_entry": true
+  },
+  {
+   "site": "0048e210",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "target": "00491d90",
+   "function_entry": true
+  },
+  {
+   "site": "0048e210",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "target": "00491d90",
+   "function_entry": true
+  },
+  {
+   "site": "0048e210",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "target": "00491d90",
+   "function_entry": true
+  },
+  {
+   "site": "00666040",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "target": "00491d90",
+   "function_entry": true
+  },
+  {
+   "site": "00666040",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "target": "00491d90",
+   "function_entry": true
+  },
+  {
+   "site": "00666040",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "target": "00491d90",
+   "function_entry": true
+  },
+  {
+   "site": "00666040",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "target": "00491d90",
+   "function_entry": true
+  },
+  {
+   "site": "004e3660",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e3660",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e3660",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e3660",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e3660",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e3660",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e3660",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e3660",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e3660",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e3660",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e3660",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e3660",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e3660",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e3660",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e3660",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004e3660",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "004f4070",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "007025a0",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "007025a0",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "00476cc0",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "00476cc0",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "00476cc0",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "00476cc0",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  },
+  {
+   "site": "00476cc0",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "target": "00491d10",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??8?$VectorClass@H@@UBE_NABV0@@Z",
+   "address": "0046d070"
+  },
+  {
+   "symbol": "??_G?$VectorClass@H@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@H@@UBEHH@Z",
+   "address": "0046ccd0"
+  },
+  {
+   "symbol": "?ID@?$VectorClass@H@@UAEHABH@Z",
+   "address": "0046d190"
+  },
+  {
+   "symbol": "?ID@?$VectorClass@H@@UAEHPBH@Z",
+   "address": "0046d1d0"
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@H@@UAE_NHPBH@Z",
+   "address": "0046d0b0"
+  }
+ ],
+ "route": "A",
+ "unit": "counter.cpp",
+ "form": "one include block",
+ "switches": [
+  "VECTOR_IMPLEMENT_VECTOR_CONSTRUCTOR",
+  "VECTOR_IMPLEMENT_VECTOR_DESTRUCTOR"
+ ],
+ "include_blocks": [
+  {
+   "before": "00491c00",
+   "lines": 3
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 11,
+ "data_unproven": [
+  {
+   "symbol": "??_7?$VectorClass@H@@6B@",
+   "reason": "relocation target unbound: ??_E?$VectorClass@H@@UAEPAXI@Z"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "004e1680",
+   "target": "00491c00",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??0CounterClass@@QAE@XZ"
+  },
+  {
+   "site": "004e1680",
+   "target": "00491c00",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??0CounterClass@@QAE@XZ"
+  },
+  {
+   "site": "004e1680",
+   "target": "00491c00",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??0CounterClass@@QAE@XZ"
+  },
+  {
+   "site": "004e1680",
+   "target": "00491c00",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??0CounterClass@@QAE@XZ"
+  },
+  {
+   "site": "004e1680",
+   "target": "00491c00",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??0CounterClass@@QAE@XZ"
+  },
+  {
+   "site": "004e1680",
+   "target": "00491c00",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??0CounterClass@@QAE@XZ"
+  },
+  {
+   "site": "004e1680",
+   "target": "00491c00",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??0CounterClass@@QAE@XZ"
+  },
+  {
+   "site": "004e1680",
+   "target": "00491c00",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??0CounterClass@@QAE@XZ"
+  },
+  {
+   "site": "004e1680",
+   "target": "00491c00",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??0CounterClass@@QAE@XZ"
+  },
+  {
+   "site": "004e1680",
+   "target": "00491c00",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??0CounterClass@@QAE@XZ"
+  },
+  {
+   "site": "004e1680",
+   "target": "00491c00",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??0CounterClass@@QAE@XZ"
+  },
+  {
+   "site": "004e1680",
+   "target": "00491c00",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??0CounterClass@@QAE@XZ"
+  },
+  {
+   "site": "004e30c0",
+   "target": "00491c20",
+   "symbol": "??1UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??1?$VectorClass@H@@UAE@XZ"
+  },
+  {
+   "site": "004e30c0",
+   "target": "00491c20",
+   "symbol": "??1UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??1?$VectorClass@H@@UAE@XZ"
+  },
+  {
+   "site": "004e30c0",
+   "target": "00491c20",
+   "symbol": "??1UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??1?$VectorClass@H@@UAE@XZ"
+  },
+  {
+   "site": "004e30c0",
+   "target": "00491c20",
+   "symbol": "??1UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??1?$VectorClass@H@@UAE@XZ"
+  },
+  {
+   "site": "004e30c0",
+   "target": "00491c20",
+   "symbol": "??1UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??1?$VectorClass@H@@UAE@XZ"
+  },
+  {
+   "site": "004e30c0",
+   "target": "00491c20",
+   "symbol": "??1UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??1?$VectorClass@H@@UAE@XZ"
+  },
+  {
+   "site": "004e30c0",
+   "target": "00491c20",
+   "symbol": "??1UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??1?$VectorClass@H@@UAE@XZ"
+  },
+  {
+   "site": "004e30c0",
+   "target": "00491c20",
+   "symbol": "??1UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??1?$VectorClass@H@@UAE@XZ"
+  },
+  {
+   "site": "004e30c0",
+   "target": "00491c20",
+   "symbol": "??1UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??1?$VectorClass@H@@UAE@XZ"
+  },
+  {
+   "site": "004e30c0",
+   "target": "00491c20",
+   "symbol": "??1UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??1?$VectorClass@H@@UAE@XZ"
+  },
+  {
+   "site": "004e30c0",
+   "target": "00491c20",
+   "symbol": "??1UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??1?$VectorClass@H@@UAE@XZ"
+  },
+  {
+   "site": "004e30c0",
+   "target": "00491c20",
+   "symbol": "??1UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??1?$VectorClass@H@@UAE@XZ"
+  },
+  {
+   "site": "004e7440",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e8560",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004ee440",
+   "target": "00491db0",
+   "symbol": "?Save@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "module_symbol": "?Save@CounterClass@@QAEJPAUIStream@@@Z"
+  },
+  {
+   "site": "004ee440",
+   "target": "00491db0",
+   "symbol": "?Save@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "module_symbol": "?Save@CounterClass@@QAEJPAUIStream@@@Z"
+  },
+  {
+   "site": "004ee440",
+   "target": "00491db0",
+   "symbol": "?Save@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "module_symbol": "?Save@CounterClass@@QAEJPAUIStream@@@Z"
+  },
+  {
+   "site": "004ee440",
+   "target": "00491db0",
+   "symbol": "?Save@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "module_symbol": "?Save@CounterClass@@QAEJPAUIStream@@@Z"
+  },
+  {
+   "site": "004ee440",
+   "target": "00491db0",
+   "symbol": "?Save@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "module_symbol": "?Save@CounterClass@@QAEJPAUIStream@@@Z"
+  },
+  {
+   "site": "004ee440",
+   "target": "00491db0",
+   "symbol": "?Save@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "module_symbol": "?Save@CounterClass@@QAEJPAUIStream@@@Z"
+  },
+  {
+   "site": "004ee440",
+   "target": "00491db0",
+   "symbol": "?Save@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "module_symbol": "?Save@CounterClass@@QAEJPAUIStream@@@Z"
+  },
+  {
+   "site": "004ee440",
+   "target": "00491db0",
+   "symbol": "?Save@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "module_symbol": "?Save@CounterClass@@QAEJPAUIStream@@@Z"
+  },
+  {
+   "site": "004ee440",
+   "target": "00491db0",
+   "symbol": "?Save@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "module_symbol": "?Save@CounterClass@@QAEJPAUIStream@@@Z"
+  },
+  {
+   "site": "004ee440",
+   "target": "00491db0",
+   "symbol": "?Save@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "module_symbol": "?Save@CounterClass@@QAEJPAUIStream@@@Z"
+  },
+  {
+   "site": "004ee440",
+   "target": "00491db0",
+   "symbol": "?Save@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "module_symbol": "?Save@CounterClass@@QAEJPAUIStream@@@Z"
+  },
+  {
+   "site": "004ee440",
+   "target": "00491db0",
+   "symbol": "?Save@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "module_symbol": "?Save@CounterClass@@QAEJPAUIStream@@@Z"
+  },
+  {
+   "site": "00439240",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "00439240",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "00452800",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "00452860",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "00704440",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "00704b10",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "0041cd50",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "0041cd50",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "0041cd50",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "0041cd50",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "0041cef0",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "0041cef0",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "0041cef0",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "0041cef0",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "0041d0f0",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "0041d0f0",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "0041d0f0",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "0041d0f0",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004cd760",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "00445620",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004eda60",
+   "target": "00491e10",
+   "symbol": "?Load@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "module_symbol": "?Load@CounterClass@@QAEJPAUIStream@@@Z"
+  },
+  {
+   "site": "004eda60",
+   "target": "00491e10",
+   "symbol": "?Load@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "module_symbol": "?Load@CounterClass@@QAEJPAUIStream@@@Z"
+  },
+  {
+   "site": "004eda60",
+   "target": "00491e10",
+   "symbol": "?Load@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "module_symbol": "?Load@CounterClass@@QAEJPAUIStream@@@Z"
+  },
+  {
+   "site": "004eda60",
+   "target": "00491e10",
+   "symbol": "?Load@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "module_symbol": "?Load@CounterClass@@QAEJPAUIStream@@@Z"
+  },
+  {
+   "site": "004eda60",
+   "target": "00491e10",
+   "symbol": "?Load@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "module_symbol": "?Load@CounterClass@@QAEJPAUIStream@@@Z"
+  },
+  {
+   "site": "004eda60",
+   "target": "00491e10",
+   "symbol": "?Load@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "module_symbol": "?Load@CounterClass@@QAEJPAUIStream@@@Z"
+  },
+  {
+   "site": "004eda60",
+   "target": "00491e10",
+   "symbol": "?Load@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "module_symbol": "?Load@CounterClass@@QAEJPAUIStream@@@Z"
+  },
+  {
+   "site": "004eda60",
+   "target": "00491e10",
+   "symbol": "?Load@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "module_symbol": "?Load@CounterClass@@QAEJPAUIStream@@@Z"
+  },
+  {
+   "site": "004eda60",
+   "target": "00491e10",
+   "symbol": "?Load@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "module_symbol": "?Load@CounterClass@@QAEJPAUIStream@@@Z"
+  },
+  {
+   "site": "004eda60",
+   "target": "00491e10",
+   "symbol": "?Load@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "module_symbol": "?Load@CounterClass@@QAEJPAUIStream@@@Z"
+  },
+  {
+   "site": "004eda60",
+   "target": "00491e10",
+   "symbol": "?Load@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "module_symbol": "?Load@CounterClass@@QAEJPAUIStream@@@Z"
+  },
+  {
+   "site": "004eda60",
+   "target": "00491e10",
+   "symbol": "?Load@UnknownHouseCounter@@QAEXPAUIStream@@@Z",
+   "module_symbol": "?Load@CounterClass@@QAEJPAUIStream@@@Z"
+  },
+  {
+   "site": "004e6f10",
+   "target": "00491c50",
+   "symbol": "?Increment@UnknownHouseCounter@@QAEXH@Z",
+   "module_symbol": "?Increment@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e6f10",
+   "target": "00491c50",
+   "symbol": "?Increment@UnknownHouseCounter@@QAEXH@Z",
+   "module_symbol": "?Increment@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e6f10",
+   "target": "00491c50",
+   "symbol": "?Increment@UnknownHouseCounter@@QAEXH@Z",
+   "module_symbol": "?Increment@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e6f10",
+   "target": "00491c50",
+   "symbol": "?Increment@UnknownHouseCounter@@QAEXH@Z",
+   "module_symbol": "?Increment@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004ed440",
+   "target": "00491cb0",
+   "symbol": "?Decrement@UnknownHouseCounter@@QAEXH@Z",
+   "module_symbol": "?Decrement@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004ed440",
+   "target": "00491cb0",
+   "symbol": "?Decrement@UnknownHouseCounter@@QAEXH@Z",
+   "module_symbol": "?Decrement@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004ed440",
+   "target": "00491cb0",
+   "symbol": "?Decrement@UnknownHouseCounter@@QAEXH@Z",
+   "module_symbol": "?Decrement@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004ed440",
+   "target": "00491cb0",
+   "symbol": "?Decrement@UnknownHouseCounter@@QAEXH@Z",
+   "module_symbol": "?Decrement@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004ed610",
+   "target": "00491c50",
+   "symbol": "?Increment@UnknownHouseCounter@@QAEXH@Z",
+   "module_symbol": "?Increment@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004ed610",
+   "target": "00491c50",
+   "symbol": "?Increment@UnknownHouseCounter@@QAEXH@Z",
+   "module_symbol": "?Increment@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004ed610",
+   "target": "00491c50",
+   "symbol": "?Increment@UnknownHouseCounter@@QAEXH@Z",
+   "module_symbol": "?Increment@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004ed610",
+   "target": "00491c50",
+   "symbol": "?Increment@UnknownHouseCounter@@QAEXH@Z",
+   "module_symbol": "?Increment@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004ea800",
+   "target": "00491cb0",
+   "symbol": "?Decrement@UnknownHouseCounter@@QAEXH@Z",
+   "module_symbol": "?Decrement@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004ea800",
+   "target": "00491cb0",
+   "symbol": "?Decrement@UnknownHouseCounter@@QAEXH@Z",
+   "module_symbol": "?Decrement@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004ea800",
+   "target": "00491cb0",
+   "symbol": "?Decrement@UnknownHouseCounter@@QAEXH@Z",
+   "module_symbol": "?Decrement@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004ea800",
+   "target": "00491cb0",
+   "symbol": "?Decrement@UnknownHouseCounter@@QAEXH@Z",
+   "module_symbol": "?Decrement@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004ea970",
+   "target": "00491c50",
+   "symbol": "?Increment@UnknownHouseCounter@@QAEXH@Z",
+   "module_symbol": "?Increment@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004ea970",
+   "target": "00491c50",
+   "symbol": "?Increment@UnknownHouseCounter@@QAEXH@Z",
+   "module_symbol": "?Increment@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004ea970",
+   "target": "00491c50",
+   "symbol": "?Increment@UnknownHouseCounter@@QAEXH@Z",
+   "module_symbol": "?Increment@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004ea970",
+   "target": "00491c50",
+   "symbol": "?Increment@UnknownHouseCounter@@QAEXH@Z",
+   "module_symbol": "?Increment@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "00465d10",
+   "target": "00491d90",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "module_symbol": "?Sum@CounterClass@@QBEHXZ"
+  },
+  {
+   "site": "00465d10",
+   "target": "00491d90",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "module_symbol": "?Sum@CounterClass@@QBEHXZ"
+  },
+  {
+   "site": "00465d10",
+   "target": "00491d90",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "module_symbol": "?Sum@CounterClass@@QBEHXZ"
+  },
+  {
+   "site": "00465d10",
+   "target": "00491d90",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "module_symbol": "?Sum@CounterClass@@QBEHXZ"
+  },
+  {
+   "site": "004f3720",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004f3720",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e9c90",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e9c90",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e9c90",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e18c0",
+   "target": "00491c00",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??0CounterClass@@QAE@XZ"
+  },
+  {
+   "site": "004e18c0",
+   "target": "00491c00",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??0CounterClass@@QAE@XZ"
+  },
+  {
+   "site": "004e18c0",
+   "target": "00491c00",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??0CounterClass@@QAE@XZ"
+  },
+  {
+   "site": "004e18c0",
+   "target": "00491c00",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??0CounterClass@@QAE@XZ"
+  },
+  {
+   "site": "004e18c0",
+   "target": "00491c00",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??0CounterClass@@QAE@XZ"
+  },
+  {
+   "site": "004e18c0",
+   "target": "00491c00",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??0CounterClass@@QAE@XZ"
+  },
+  {
+   "site": "004e18c0",
+   "target": "00491c00",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??0CounterClass@@QAE@XZ"
+  },
+  {
+   "site": "004e18c0",
+   "target": "00491c00",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??0CounterClass@@QAE@XZ"
+  },
+  {
+   "site": "004e18c0",
+   "target": "00491c00",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??0CounterClass@@QAE@XZ"
+  },
+  {
+   "site": "004e18c0",
+   "target": "00491c00",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??0CounterClass@@QAE@XZ"
+  },
+  {
+   "site": "004e18c0",
+   "target": "00491c00",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??0CounterClass@@QAE@XZ"
+  },
+  {
+   "site": "004e18c0",
+   "target": "00491c00",
+   "symbol": "??0UnknownHouseCounter@@QAE@XZ",
+   "module_symbol": "??0CounterClass@@QAE@XZ"
+  },
+  {
+   "site": "004e27e0",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e27e0",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e27e0",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e27e0",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e27e0",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e8d80",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e8d80",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e90f0",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e90f0",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e90f0",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e90f0",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004f4f30",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004f4f30",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004f4f30",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004f4f30",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004f4f30",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004f4f30",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004f4f30",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e4110",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e4110",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e4110",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e4110",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e4110",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e4110",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004cbb40",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004426d0",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "005aabd0",
+   "target": "00491d90",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "module_symbol": "?Sum@CounterClass@@QBEHXZ"
+  },
+  {
+   "site": "005aabd0",
+   "target": "00491d90",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "module_symbol": "?Sum@CounterClass@@QBEHXZ"
+  },
+  {
+   "site": "005aabd0",
+   "target": "00491d90",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "module_symbol": "?Sum@CounterClass@@QBEHXZ"
+  },
+  {
+   "site": "005aabd0",
+   "target": "00491d90",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "module_symbol": "?Sum@CounterClass@@QBEHXZ"
+  },
+  {
+   "site": "006e6050",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "006e6050",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "0048e210",
+   "target": "00491d90",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "module_symbol": "?Sum@CounterClass@@QBEHXZ"
+  },
+  {
+   "site": "0048e210",
+   "target": "00491d90",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "module_symbol": "?Sum@CounterClass@@QBEHXZ"
+  },
+  {
+   "site": "0048e210",
+   "target": "00491d90",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "module_symbol": "?Sum@CounterClass@@QBEHXZ"
+  },
+  {
+   "site": "0048e210",
+   "target": "00491d90",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "module_symbol": "?Sum@CounterClass@@QBEHXZ"
+  },
+  {
+   "site": "00666040",
+   "target": "00491d90",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "module_symbol": "?Sum@CounterClass@@QBEHXZ"
+  },
+  {
+   "site": "00666040",
+   "target": "00491d90",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "module_symbol": "?Sum@CounterClass@@QBEHXZ"
+  },
+  {
+   "site": "00666040",
+   "target": "00491d90",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "module_symbol": "?Sum@CounterClass@@QBEHXZ"
+  },
+  {
+   "site": "00666040",
+   "target": "00491d90",
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "module_symbol": "?Sum@CounterClass@@QBEHXZ"
+  },
+  {
+   "site": "004e3660",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e3660",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e3660",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e3660",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e3660",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e3660",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e3660",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e3660",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e3660",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e3660",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e3660",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e3660",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e3660",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e3660",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e3660",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004e3660",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "004f4070",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "007025a0",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "007025a0",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "00476cc0",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "00476cc0",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "00476cc0",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "00476cc0",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  },
+  {
+   "site": "00476cc0",
+   "target": "00491d10",
+   "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
+   "module_symbol": "?Get@CounterClass@@QAEHH@Z"
+  }
+ ],
+ "stand_in_reference_count": 175,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

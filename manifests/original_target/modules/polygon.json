@@ -1,0 +1,73 @@
+{
+ "module": "polygon",
+ "source": "src/recovered/polygon.cpp",
+ "header": null,
+ "population": "population-4111",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 890,
+ "code": [
+  {
+   "symbol": "?Rasterize_Polygon_0061be40@@YIXABUWavePolygonInput@@AAUWaveScanlineBuffer@@@Z",
+   "entry": "0061be40",
+   "body_bytes": 602,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Rasterize_Line_Span_0061c0a0@@YIXHHHHHHAAPAUPoint2D@@@Z",
+   "entry": "0061c0a0",
+   "body_bytes": 439,
+   "padding_bytes": 9
+  }
+ ],
+ "code_bytes": 1056,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [],
+ "references_out": [
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  }
+ ],
+ "route": "A",
+ "unit": "polygon.cpp",
+ "form": "one include block",
+ "switches": [
+  "RA2_TRACK_POINT_STRUCT"
+ ],
+ "include_blocks": [
+  {
+   "before": "0061be40",
+   "lines": 3
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 2,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

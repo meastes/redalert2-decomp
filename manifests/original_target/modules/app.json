@@ -1,0 +1,391 @@
+{
+ "module": "app",
+ "source": "src/recovered/app.cpp",
+ "header": null,
+ "population": "population-4477",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 1263,
+ "code": [
+  {
+   "symbol": "?get@Leaf_426b00@@QAEXXZ",
+   "entry": "00426b00",
+   "body_bytes": 11,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?QueryInterface@TiberianSunClassFactory@@UAGJABUGUID@@PAPAX@Z",
+   "entry": "00426b10",
+   "body_bytes": 91,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?CreateInstance@TiberianSunClassFactory@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+   "entry": "00426b70",
+   "body_bytes": 236,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?QueryInterface@ApplicationClass@@UAGJABUGUID@@PAPAX@Z",
+   "entry": "00426c60",
+   "body_bytes": 123,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?AddRef@ApplicationClass@@UAGKXZ",
+   "entry": "00426ce0",
+   "body_bytes": 8,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Release@ApplicationClass@@UAGKXZ",
+   "entry": "00426cf0",
+   "body_bytes": 8,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?App_Interface@ApplicationClass@@UAGJPAPAX@Z",
+   "entry": "00426d00",
+   "body_bytes": 22,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?get_FullName@ApplicationClass@@UAGJPAPAG@Z",
+   "entry": "00426d20",
+   "body_bytes": 37,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?get_Name@ApplicationClass@@UAGJPAPAG@Z",
+   "entry": "00426d50",
+   "body_bytes": 37,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Application_Interface@ApplicationClass@@UAGJPAPAX@Z",
+   "entry": "00426d80",
+   "body_bytes": 22,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Quit@ApplicationClass@@UAGJXZ",
+   "entry": "00426da0",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?get_ScenarioName@ApplicationClass@@UAGJPAPAG@Z",
+   "entry": "00426db0",
+   "body_bytes": 78,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?get_FrameCount@ApplicationClass@@UAGJPAJ@Z",
+   "entry": "00426e00",
+   "body_bytes": 70,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?get_Swizzle_Interface@ApplicationClass@@UAGJPAPAUISwizzle@@@Z",
+   "entry": "00426e50",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  }
+ ],
+ "code_bytes": 880,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "0079c3c0",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_C@_1BK@CPNL@?$AAT?$AAi?$AAb?$AAe?$AAr?$AAi?$AAa?$AAn?$AA?5?$AAS?$AAu?$AAn?$AA?$AA@",
+   "address": "007cf098",
+   "bytes": 26,
+   "kind": "string",
+   "section": 54
+  },
+  {
+   "symbol": "??_C@_17KLCK@?$AAS?$AAu?$AAn?$AA?$AA@",
+   "address": "007cf0b4",
+   "bytes": 8,
+   "kind": "string",
+   "section": 57
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "0079c3c0",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_C@_1BK@CPNL@?$AAT?$AAi?$AAb?$AAe?$AAr?$AAi?$AAa?$AAn?$AA?5?$AAS?$AAu?$AAn?$AA?$AA@",
+   "address": "007cf098",
+   "bytes": 26,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_17KLCK@?$AAS?$AAu?$AAn?$AA?$AA@",
+   "address": "007cf0b4",
+   "bytes": 8,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "004e2ad0",
+   "symbol": "?Unknown_00426C60@@YGXPAPAUIUnknown@@ABUGUID@@PAPAX@Z",
+   "target": "00426c60",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??BSystemTimerClass@@QBEJXZ",
+   "address": "0069a430"
+  },
+  {
+   "symbol": "?QueryInterface@SwizzleManagerClass@@UAGJABUGUID@@PAPAX@Z",
+   "address": "0069fd10"
+  },
+  {
+   "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+   "address": "00abd868"
+  },
+  {
+   "symbol": "?unknown_application_object_84c7dc@@3VApplicationClass@@A",
+   "address": "0084c7dc"
+  },
+  {
+   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
+   "symbol": "?unknown_map_object_8324e0@@3DA",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "_IID_IApplication_79c3d0",
+   "address": "0079c3d0"
+  },
+  {
+   "symbol": "_IID_IClassFactory",
+   "address": "007afcf0"
+  },
+  {
+   "symbol": "_IID_ISwizzle",
+   "address": "007a2060"
+  },
+  {
+   "symbol": "_IID_IUnknown_7afce0",
+   "address": "007afce0"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__MultiByteToWideChar@24",
+   "address": "0079a1b8"
+  },
+  {
+   "symbol": "__imp__SysAllocString@4",
+   "address": "0079a360"
+  },
+  {
+   "symbol": "_unknown_iid_7a2c28",
+   "address": "007a2c28"
+  }
+ ],
+ "route": "A",
+ "unit": "app.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00426b10",
+   "lines": 3
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "00426b00",
+   "bytes": 11,
+   "population": "population-09",
+   "bound": "own frozen bound (population-09)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [],
+ "unit_functions": 14,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "004e2ad0",
+   "target": "00426c60",
+   "symbol": "?Unknown_00426C60@@YGXPAPAUIUnknown@@ABUGUID@@PAPAX@Z",
+   "module_symbol": "?QueryInterface@ApplicationClass@@UAGJABUGUID@@PAPAX@Z"
+  }
+ ],
+ "stand_in_reference_count": 1,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

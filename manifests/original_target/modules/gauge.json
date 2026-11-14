@@ -1,0 +1,617 @@
+{
+ "module": "gauge",
+ "source": "src/recovered/gauge.cpp",
+ "header": null,
+ "population": "population-2702",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 539,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "004d00d0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??0GaugeClass@@QAE@IHHHH@Z",
+   "entry": "004d00f0",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Set_Maximum@GaugeClass@@UAEHH@Z",
+   "entry": "004d0170",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Set_Value@GaugeClass@@UAEHH@Z",
+   "entry": "004d0190",
+   "body_bytes": 47,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Pixel_To_Value@GaugeClass@@UAEHH@Z",
+   "entry": "004d01c0",
+   "body_bytes": 125,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Value_To_Pixel@GaugeClass@@UAEHH@Z",
+   "entry": "004d0240",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Draw_Me@GaugeClass@@UAEHH@Z",
+   "entry": "004d0280",
+   "body_bytes": 416,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Action@GaugeClass@@UAEHIAAI@Z",
+   "entry": "004d0420",
+   "body_bytes": 350,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Draw_Thumb@GaugeClass@@UAEXXZ",
+   "entry": "004d0580",
+   "body_bytes": 172,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "??0TriColorGaugeClass@@QAE@IHHHH@Z",
+   "entry": "004d0630",
+   "body_bytes": 147,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Set_Red_Limit@TriColorGaugeClass@@UAEHH@Z",
+   "entry": "004d06d0",
+   "body_bytes": 34,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Set_Yellow_Limit@TriColorGaugeClass@@UAEHH@Z",
+   "entry": "004d0700",
+   "body_bytes": 34,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Draw_Me@TriColorGaugeClass@@UAEHH@Z",
+   "entry": "004d0730",
+   "body_bytes": 1360,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Get_Value@GaugeClass@@UBEHXZ",
+   "entry": "004d0c80",
+   "body_bytes": 4,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Use_Thumb@GaugeClass@@UAEXH@Z",
+   "entry": "004d0c90",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Thumb_Pixels@GaugeClass@@UAEHXZ",
+   "entry": "004d0ca0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "??_GGaugeClass@@UAEPAXI@Z",
+   "entry": "004d0cb0",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "??_GTriColorGaugeClass@@UAEPAXI@Z",
+   "entry": "004d0cd0",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  }
+ ],
+ "code_bytes": 3104,
+ "data": [
+  {
+   "symbol": "??_7GaugeClass@@6B@",
+   "address": "007a18f0",
+   "bytes": 172,
+   "kind": "vtable",
+   "section": 18
+  },
+  {
+   "symbol": "??_7TriColorGaugeClass@@6B@",
+   "address": "007a199c",
+   "bytes": 180,
+   "kind": "vtable",
+   "section": 54
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LinkClass@@8",
+   "address": "007b4a18",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 8
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GadgetClass@@8",
+   "address": "007b4f38",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 10
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ControlClass@@8",
+   "address": "007b4f50",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 12
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GaugeClass@@8",
+   "address": "007b8788",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 13
+  },
+  {
+   "symbol": "??_R2GaugeClass@@8",
+   "address": "007b87a0",
+   "bytes": 17,
+   "kind": "rtti",
+   "section": 14
+  },
+  {
+   "symbol": "??_R3GaugeClass@@8",
+   "address": "007b87b8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 15
+  },
+  {
+   "symbol": "??_R4GaugeClass@@6B@",
+   "address": "007b87c8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 17
+  },
+  {
+   "symbol": "??_R1A@?0A@A@TriColorGaugeClass@@8",
+   "address": "007b87e0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 49
+  },
+  {
+   "symbol": "??_R2TriColorGaugeClass@@8",
+   "address": "007b87f8",
+   "bytes": 21,
+   "kind": "rtti",
+   "section": 50
+  },
+  {
+   "symbol": "??_R3TriColorGaugeClass@@8",
+   "address": "007b8810",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 51
+  },
+  {
+   "symbol": "??_R4TriColorGaugeClass@@6B@",
+   "address": "007b8820",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 53
+  },
+  {
+   "symbol": "??_R0?AVLinkClass@@@8",
+   "address": "007d17a8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 7
+  },
+  {
+   "symbol": "??_R0?AVGadgetClass@@@8",
+   "address": "007d2f30",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 9
+  },
+  {
+   "symbol": "??_R0?AVControlClass@@@8",
+   "address": "007d2f50",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 11
+  },
+  {
+   "symbol": "??_R0?AVGaugeClass@@@8",
+   "address": "007d84f0",
+   "bytes": 25,
+   "kind": "rtti",
+   "section": 16
+  },
+  {
+   "symbol": "??_R0?AVTriColorGaugeClass@@@8",
+   "address": "007d8510",
+   "bytes": 33,
+   "kind": "rtti",
+   "section": 52
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7GaugeClass@@6B@",
+   "address": "007a18f0",
+   "bytes": 172,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7TriColorGaugeClass@@6B@",
+   "address": "007a199c",
+   "bytes": 180,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LinkClass@@8",
+   "address": "007b4a18",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GadgetClass@@8",
+   "address": "007b4f38",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ControlClass@@8",
+   "address": "007b4f50",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GaugeClass@@8",
+   "address": "007b8788",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2GaugeClass@@8",
+   "address": "007b87a0",
+   "bytes": 17,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3GaugeClass@@8",
+   "address": "007b87b8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4GaugeClass@@6B@",
+   "address": "007b87c8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@TriColorGaugeClass@@8",
+   "address": "007b87e0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2TriColorGaugeClass@@8",
+   "address": "007b87f8",
+   "bytes": 21,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3TriColorGaugeClass@@8",
+   "address": "007b8810",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4TriColorGaugeClass@@6B@",
+   "address": "007b8820",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVLinkClass@@@8",
+   "address": "007d17a8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVGadgetClass@@@8",
+   "address": "007d2f30",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVControlClass@@@8",
+   "address": "007d2f50",
+   "bytes": 27,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVGaugeClass@@@8",
+   "address": "007d84f0",
+   "bytes": 25,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVTriColorGaugeClass@@@8",
+   "address": "007d8510",
+   "bytes": 33,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00684900",
+   "symbol": "?Set_Maximum@GaugeClass@@UAEHH@Z",
+   "target": "004d0170",
+   "function_entry": true
+  },
+  {
+   "site": "00684a10",
+   "symbol": "?Set_Value@GaugeClass@@UAEHH@Z",
+   "target": "004d0190",
+   "function_entry": true
+  },
+  {
+   "site": "00684ca0",
+   "symbol": "?Draw_Me@GaugeClass@@UAEHH@Z",
+   "target": "004d0280",
+   "function_entry": true
+  },
+  {
+   "site": "006846e0",
+   "symbol": "??0GaugeClass@@QAE@IHHHH@Z",
+   "target": "004d00f0",
+   "function_entry": true
+  },
+  {
+   "site": "00684b10",
+   "symbol": "?Action@GaugeClass@@UAEHIAAI@Z",
+   "target": "004d0420",
+   "function_entry": true
+  },
+  {
+   "site": "00684b10",
+   "symbol": "?Action@GaugeClass@@UAEHIAAI@Z",
+   "target": "004d0420",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0ControlClass@@QAE@IHHHHI_N@Z",
+   "address": "00483430"
+  },
+  {
+   "symbol": "??1GadgetClass@@UAE@XZ",
+   "address": "004cf080"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "?Action@ControlClass@@UAEHIAAI@Z",
+   "address": "004834b0"
+  },
+  {
+   "symbol": "?Add@LinkClass@@UAEAAV1@AAV1@@Z",
+   "address": "005390a0"
+  },
+  {
+   "symbol": "?Add_Head@LinkClass@@UAEAAV1@AAV1@@Z",
+   "address": "005390c0"
+  },
+  {
+   "symbol": "?Add_Tail@LinkClass@@UAEAAV1@AAV1@@Z",
+   "address": "005390e0"
+  },
+  {
+   "symbol": "?Clear_Focus@GadgetClass@@UAEXXZ",
+   "address": "004cf610"
+  },
+  {
+   "symbol": "?Clicked_On@GadgetClass@@EAEHAAIIHH@Z",
+   "address": "004cf0e0"
+  },
+  {
+   "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+   "address": "00ab6ef8"
+  },
+  {
+   "symbol": "?Delete_List@GadgetClass@@UAEXXZ",
+   "address": "004cf1b0"
+  },
+  {
+   "symbol": "?Disable@GadgetClass@@UAEXXZ",
+   "address": "004cf150"
+  },
+  {
+   "symbol": "?Draw_All@GadgetClass@@UAEX_N@Z",
+   "address": "004cf260"
+  },
+  {
+   "symbol": "?Draw_Box@@YIXABVRect@@H_N@Z",
+   "address": "004973d0"
+  },
+  {
+   "symbol": "?Draw_Me@ControlClass@@UAEHH@Z",
+   "address": "00483530"
+  },
+  {
+   "symbol": "?Enable@GadgetClass@@UAEXXZ",
+   "address": "004cf140"
+  },
+  {
+   "symbol": "?Extract_Gadget@GadgetClass@@UAEPAVControlClass@@I@Z",
+   "address": "004cf560"
+  },
+  {
+   "symbol": "?Flag_To_Redraw@GadgetClass@@UAEXXZ",
+   "address": "004cf5a0"
+  },
+  {
+   "symbol": "?Gadget_Color_Scheme@@YAHXZ",
+   "address": "004cefc0"
+  },
+  {
+   "symbol": "?Get_ID@ControlClass@@UBEIXZ",
+   "address": "00483520"
+  },
+  {
+   "symbol": "?Get_Next@GadgetClass@@UBEPAVLinkClass@@XZ",
+   "address": "004cf190"
+  },
+  {
+   "symbol": "?Get_Prev@GadgetClass@@UBEPAVLinkClass@@XZ",
+   "address": "004cf1a0"
+  },
+  {
+   "symbol": "?Has_Focus@GadgetClass@@UAE_NXZ",
+   "address": "004cf630"
+  },
+  {
+   "symbol": "?Head_Of_List@LinkClass@@UAEAAV1@XZ",
+   "address": "00539040"
+  },
+  {
+   "symbol": "?Input@GadgetClass@@UAEHXZ",
+   "address": "004cf330"
+  },
+  {
+   "symbol": "?Is_List_To_Redraw@GadgetClass@@UAEHXZ",
+   "address": "004cf640"
+  },
+  {
+   "symbol": "?LastList@GadgetClass@@1PAV1@A",
+   "address": "00865ff4"
+  },
+  {
+   "symbol": "?Make_Peer@ControlClass@@UAEXAAVGadgetClass@@@Z",
+   "address": "00483510"
+  },
+  {
+   "symbol": "?Mouse_Enter@GadgetClass@@UAEXXZ",
+   "address": "004cf200"
+  },
+  {
+   "symbol": "?Mouse_Leave@GadgetClass@@UAEXXZ",
+   "address": "004cf210"
+  },
+  {
+   "symbol": "?Remove@GadgetClass@@UAEPAVLinkClass@@XZ",
+   "address": "004cf170"
+  },
+  {
+   "symbol": "?Set_Focus@GadgetClass@@UAEXXZ",
+   "address": "004cf5e0"
+  },
+  {
+   "symbol": "?Set_Position@GadgetClass@@UAEXHH@Z",
+   "address": "004cf660"
+  },
+  {
+   "symbol": "?Set_Size@GadgetClass@@UAEXHH@Z",
+   "address": "004cf680"
+  },
+  {
+   "symbol": "?Sticky_Process@GadgetClass@@MAEXI@Z",
+   "address": "004cf5b0"
+  },
+  {
+   "symbol": "?StuckOn@GadgetClass@@1PAV1@A",
+   "address": "00865ff0"
+  },
+  {
+   "symbol": "?Tail_Of_List@LinkClass@@UAEAAV1@XZ",
+   "address": "00539070"
+  },
+  {
+   "symbol": "?WWMouse@@3PAVMouse@@A",
+   "address": "00839c68"
+  },
+  {
+   "symbol": "?Zap@LinkClass@@UAEXXZ",
+   "address": "00538ff0"
+  },
+  {
+   "symbol": "?unknown_drawer_8323c4@@3PAVConvertClass@@A",
+   "address": "008323c4"
+  },
+  {
+   "symbol": "?unknown_surface_83995c@@3PAVSurface@@A",
+   "address": "0083995c"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  }
+ ],
+ "route": "A",
+ "unit": "gauge.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "004d00d0",
+   "lines": 8
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 18,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

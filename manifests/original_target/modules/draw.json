@@ -1,0 +1,1411 @@
+{
+ "module": "draw",
+ "source": "src/recovered/draw.cpp",
+ "header": null,
+ "population": "population-3633",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 749,
+ "code": [
+  {
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "entry": "0049eea0",
+   "body_bytes": 1275,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z",
+   "entry": "0049f3a0",
+   "body_bytes": 139,
+   "padding_bytes": 5
+  }
+ ],
+ "code_bytes": 1424,
+ "data": [
+  {
+   "symbol": "??_7Surface@@6B@",
+   "address": "0079b01c",
+   "bytes": 140,
+   "kind": "vtable",
+   "section": 48
+  },
+  {
+   "symbol": "??_R2XSurface@@8",
+   "address": "007b3278",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 31
+  },
+  {
+   "symbol": "??_R3XSurface@@8",
+   "address": "007b3288",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 32
+  },
+  {
+   "symbol": "??_R4XSurface@@6B@",
+   "address": "007b3298",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 33
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Surface@@8",
+   "address": "007b32b0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 8
+  },
+  {
+   "symbol": "??_R1A@?0A@A@XSurface@@8",
+   "address": "007b32c8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 10
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BSurface@@8",
+   "address": "007b32e0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 11
+  },
+  {
+   "symbol": "??_R2BSurface@@8",
+   "address": "007b32f8",
+   "bytes": 13,
+   "kind": "rtti",
+   "section": 12
+  },
+  {
+   "symbol": "??_R3BSurface@@8",
+   "address": "007b3308",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 13
+  },
+  {
+   "symbol": "??_R4BSurface@@6B@",
+   "address": "007b3318",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 15
+  },
+  {
+   "symbol": "??_R2Surface@@8",
+   "address": "007b332c",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 45
+  },
+  {
+   "symbol": "??_R3Surface@@8",
+   "address": "007b3338",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 46
+  },
+  {
+   "symbol": "??_R4Surface@@6B@",
+   "address": "007b3348",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 47
+  },
+  {
+   "symbol": "??_R0?AVSurface@@@8",
+   "address": "007ce2b0",
+   "bytes": 22,
+   "kind": "rtti",
+   "section": 7
+  },
+  {
+   "symbol": "??_R0?AVXSurface@@@8",
+   "address": "007ce2c8",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 9
+  },
+  {
+   "symbol": "??_R0?AVBSurface@@@8",
+   "address": "007ce2e0",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 14
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7Surface@@6B@",
+   "address": "0079b01c",
+   "bytes": 140,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R2XSurface@@8",
+   "address": "007b3278",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3XSurface@@8",
+   "address": "007b3288",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4XSurface@@6B@",
+   "address": "007b3298",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Surface@@8",
+   "address": "007b32b0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@XSurface@@8",
+   "address": "007b32c8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BSurface@@8",
+   "address": "007b32e0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2BSurface@@8",
+   "address": "007b32f8",
+   "bytes": 13,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3BSurface@@8",
+   "address": "007b3308",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4BSurface@@6B@",
+   "address": "007b3318",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2Surface@@8",
+   "address": "007b332c",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3Surface@@8",
+   "address": "007b3338",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4Surface@@6B@",
+   "address": "007b3348",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVSurface@@@8",
+   "address": "007ce2b0",
+   "bytes": 22,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVXSurface@@@8",
+   "address": "007ce2c8",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVBSurface@@@8",
+   "address": "007ce2e0",
+   "bytes": 23,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00772740",
+   "symbol": "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z",
+   "target": "0049f3a0",
+   "function_entry": true
+  },
+  {
+   "site": "005ad840",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f3650",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f3650",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f3650",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f3650",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f3650",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f3930",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f3930",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f3a60",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f3ac0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f3b20",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f3b90",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f3bf0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f3c70",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f3cd0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006a1710",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "004a95c0",
+   "symbol": "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z",
+   "target": "0049f3a0",
+   "function_entry": true
+  },
+  {
+   "site": "004a97b0",
+   "symbol": "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z",
+   "target": "0049f3a0",
+   "function_entry": true
+  },
+  {
+   "site": "005dbd00",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00463a00",
+   "symbol": "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z",
+   "target": "0049f3a0",
+   "function_entry": true
+  },
+  {
+   "site": "006a12d0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006a12d0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006a12d0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006a12d0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006a12d0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006d5440",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0062f580",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0062f580",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0062f580",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0062f580",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00630350",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00633d30",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "005dc8e0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006880d0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0061f8f0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0067cf80",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0067cf80",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0067cf80",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0067cf80",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0067cf80",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0067cf80",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0067cf80",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006e3b40",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006e3b40",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006751e0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00667f90",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00667f90",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "005b43d0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0042da20",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "005acbb0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "005ad210",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "005ad6b0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "005ace30",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "005ad450",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "005ad450",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006e3990",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006e3990",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00667b60",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00667c70",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00474830",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00500550",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00500550",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006a5460",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0043b660",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006d1510",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006d1510",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006d1510",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006d24e0",
+   "symbol": "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z",
+   "target": "0049f3a0",
+   "function_entry": true
+  },
+  {
+   "site": "006d2810",
+   "symbol": "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z",
+   "target": "0049f3a0",
+   "function_entry": true
+  },
+  {
+   "site": "0052b770",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f4620",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f4620",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f4620",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f4620",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f4620",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f4620",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f4620",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f4620",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f4620",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f4620",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f4620",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f4620",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006f4620",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "005ac850",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00516560",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "005b44f0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00738190",
+   "symbol": "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z",
+   "target": "0049f3a0",
+   "function_entry": true
+  },
+  {
+   "site": "00609d10",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00420e50",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00420e50",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00420e50",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00420e50",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0070cfc0",
+   "symbol": "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z",
+   "target": "0049f3a0",
+   "function_entry": true
+  },
+  {
+   "site": "0070cfc0",
+   "symbol": "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z",
+   "target": "0049f3a0",
+   "function_entry": true
+  },
+  {
+   "site": "006d4920",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006d4920",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006d4920",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006d4920",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006d4920",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006d4920",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006d4920",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006ab360",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006a6290",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006a6010",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006c2c40",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006c2c40",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006c2c40",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "007005b0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "004749c0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "004749c0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "005fee70",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0061a3c0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0042de20",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00700e70",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00700e70",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00633210",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "006a5d70",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0061c8c0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0061c8c0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0061c8c0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0061c8c0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0061c8c0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z",
+   "target": "0049f3a0",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z",
+   "target": "0049f3a0",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z",
+   "target": "0049f3a0",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z",
+   "target": "0049f3a0",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "004610d0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "004610d0",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00710880",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "004c1010",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "004c1010",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "004c1010",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "004c1010",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "004c1010",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "004c1010",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "005e5150",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "005e5150",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "005e5150",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "005e5150",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "005e5150",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "005e5150",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "005e5150",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "005e5150",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0067f800",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0067f800",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0067f800",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "0067f800",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  },
+  {
+   "site": "00473f20",
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "target": "0049eea0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "address": "004382c0"
+  },
+  {
+   "symbol": "??1Buffer@@QAE@XZ",
+   "address": "00438410"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_GBSurface@@UAEPAXI@Z",
+   "address": "004113d0"
+  },
+  {
+   "symbol": "??_GSurface@@UAEPAXI@Z",
+   "address": "00411350"
+  },
+  {
+   "symbol": "??_GXSurface@@UAEPAXI@Z",
+   "address": "00411320"
+  },
+  {
+   "symbol": "?Bit_Blit@@YI_NAAVSurface@@ABVRect@@1011ABVBlitter@@HHHH@Z",
+   "address": "00434b40"
+  },
+  {
+   "symbol": "?Copy_From@XSurface@@UAE_NAAVSurface@@_N1@Z",
+   "address": "00774e60"
+  },
+  {
+   "symbol": "?Copy_From@XSurface@@UAE_NABVRect@@0AAVSurface@@00_N2@Z",
+   "address": "00775060"
+  },
+  {
+   "symbol": "?Copy_From@XSurface@@UAE_NABVRect@@AAVSurface@@0_N2@Z",
+   "address": "00774f00"
+  },
+  {
+   "symbol": "?Draw_Dashed_Line@XSurface@@UAEHABUPoint2D@@0HPB_NH@Z",
+   "address": "00773c30"
+  },
+  {
+   "symbol": "?Draw_Dashed_Line_Depth_Masked@XSurface@@UAEHABUPoint2D@@0HPB_NH_N@Z",
+   "address": "00773ea0"
+  },
+  {
+   "symbol": "?Draw_Depth_Antialiased_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@HH_N333M@Z",
+   "address": "00773ee0"
+  },
+  {
+   "symbol": "?Draw_Depth_Glow_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1HHH_N@Z",
+   "address": "00773ed0"
+  },
+  {
+   "symbol": "?Draw_Depth_Shaded_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1IHH_N@Z",
+   "address": "00773ec0"
+  },
+  {
+   "symbol": "?Draw_Ellipse@XSurface@@UAE_NUPoint2D@@HHVRect@@H@Z",
+   "address": null
+  },
+  {
+   "symbol": "?Draw_Line@XSurface@@UAE_NABUPoint2D@@0H@Z",
+   "address": "00773950"
+  },
+  {
+   "symbol": "?Draw_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1H@Z",
+   "address": "00773980"
+  },
+  {
+   "symbol": "?Draw_Line_Depth_Masked@XSurface@@UAE_NABUPoint2D@@0H_N@Z",
+   "address": "00773eb0"
+  },
+  {
+   "symbol": "?Draw_Rect@XSurface@@UAE_NABVRect@@0H@Z",
+   "address": "00774130"
+  },
+  {
+   "symbol": "?Draw_Rect@XSurface@@UAE_NABVRect@@H@Z",
+   "address": "00774100"
+  },
+  {
+   "symbol": "?Fill@XSurface@@UAE_NH@Z",
+   "address": "00774e20"
+  },
+  {
+   "symbol": "?Fill_Rect@XSurface@@UAE_NABVRect@@0H@Z",
+   "address": "007743c0"
+  },
+  {
+   "symbol": "?Fill_Rect@XSurface@@UAE_NABVRect@@H@Z",
+   "address": "00774390"
+  },
+  {
+   "symbol": "?Fill_Rect_Trans@XSurface@@UAE_NABVRect@@ABVRGBClass@@I@Z",
+   "address": "007746b0"
+  },
+  {
+   "symbol": "?Get_Pixel@XSurface@@UAEHABUPoint2D@@@Z",
+   "address": "007741d0"
+  },
+  {
+   "symbol": "?Get_Pixel@XSurface@@UAEHABUPoint2D@@ABVRect@@@Z",
+   "address": "00774280"
+  },
+  {
+   "symbol": "?Intersect@@YI?AVRect@@ABV1@0PAH1@Z",
+   "address": "0041fdf0"
+  },
+  {
+   "symbol": "?Plot_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1P6IX1@Z@Z",
+   "address": null
+  },
+  {
+   "symbol": "?Put_Pixel@XSurface@@UAE_NABUPoint2D@@H@Z",
+   "address": "00774220"
+  },
+  {
+   "symbol": "?Put_Pixel@XSurface@@UAE_NABUPoint2D@@HABVRect@@@Z",
+   "address": "00774300"
+  },
+  {
+   "symbol": "?RLEBlitter_From_Flags_00485d60@ConvertClass@@QBEPBVRLEBlitter@@I@Z",
+   "address": "00485d60"
+  },
+  {
+   "symbol": "?RLE_Blit@@YI_NAAVSurface@@ABVRect@@1011ABVRLEBlitter@@HHHHPAV1@UBlitPair@@@Z",
+   "address": "004350c0"
+  },
+  {
+   "symbol": "?Select_Blitter_00485AA0@ConvertClass@@QAEPAVBlitter@@I@Z",
+   "address": "00485aa0"
+  },
+  {
+   "symbol": "?Unknown_Slot16@XSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@MHH@Z",
+   "address": "00773ef0"
+  },
+  {
+   "symbol": "__purecall",
+   "address": "004b8960"
+  }
+ ],
+ "route": "A",
+ "unit": "draw.cpp",
+ "form": "one include block",
+ "switches": [
+  "SHAPE_FILE_EMPTY_RECT"
+ ],
+ "include_blocks": [
+  {
+   "before": "0049eea0",
+   "lines": 6
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 2,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  },
+  {
+   "symbol": "??_7BSurface@@6B@",
+   "reason": "relocation target unbound: ?Draw_Ellipse@XSurface@@UAE_NUPoint2D@@HHVRect@@H@Z"
+  },
+  {
+   "symbol": "??_7XSurface@@6B@",
+   "reason": "relocation target unbound: ?Draw_Ellipse@XSurface@@UAE_NUPoint2D@@HHVRect@@H@Z"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

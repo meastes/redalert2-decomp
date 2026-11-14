@@ -454,12 +454,24 @@
    "reason": "alignment fill"
   },
   {
+   "entry": "0x57979A",
+   "reason": "alignment fill"
+  },
+  {
    "entry": "0x579D30",
    "reason": "mid-body: argument build continuing FUN_00579960 (no prologue, no call/jmp reaches it); FUN_00579960 epilogue add esp,0x128; ret at 0x57A0C2 ends this row, so 0x579960-0x57A0C9 is one 1,897 B function (Scout1211, 2026-11-10)"
   },
   {
    "entry": "0x582AA6",
    "reason": "mid-body (Scout1233 bound check, 2026-11-10)"
+  },
+  {
+   "entry": "0x58977F",
+   "reason": "alignment fill"
+  },
+  {
+   "entry": "0x58DE5E",
+   "reason": "alignment fill"
   },
   {
    "entry": "0x594626",

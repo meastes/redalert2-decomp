@@ -1,0 +1,199 @@
+{
+ "module": "pixelfx",
+ "source": "src/recovered/pixelfx.cpp",
+ "header": null,
+ "population": "population-3582",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 732,
+ "code": [
+  {
+   "symbol": "?Init@PixelFXClass@@QAEXH@Z",
+   "entry": "0060eb20",
+   "body_bytes": 205,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??0PixelFXClass@@QAE@XZ",
+   "entry": "0060ebf0",
+   "body_bytes": 20,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "??0PixelFXClass@@QAE@H@Z",
+   "entry": "0060ec10",
+   "body_bytes": 25,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Update@PixelFXClass@@QAEXH@Z",
+   "entry": "0060ec30",
+   "body_bytes": 130,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Reduce_Life@PixelFXClass@@QAE_NH@Z",
+   "entry": "0060ecc0",
+   "body_bytes": 35,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Set_Offset@PixelFXClass@@QAEXHH@Z",
+   "entry": "0060ecf0",
+   "body_bytes": 17,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "??1PixelFXClass@@UAE@XZ",
+   "entry": "0060ed10",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??_GPixelFXClass@@UAEPAXI@Z",
+   "entry": "0060ed20",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  }
+ ],
+ "code_bytes": 544,
+ "data": [
+  {
+   "symbol": "??_7PixelFXClass@@6B@",
+   "address": "007a8178",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 10
+  },
+  {
+   "symbol": "??_R1A@?0A@A@PixelFXClass@@8",
+   "address": "007bfc00",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 5
+  },
+  {
+   "symbol": "??_R2PixelFXClass@@8",
+   "address": "007bfc18",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 6
+  },
+  {
+   "symbol": "??_R3PixelFXClass@@8",
+   "address": "007bfc20",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 7
+  },
+  {
+   "symbol": "??_R4PixelFXClass@@6B@",
+   "address": "007bfc30",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 9
+  },
+  {
+   "symbol": "??_R0?AVPixelFXClass@@@8",
+   "address": "007eb990",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 8
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7PixelFXClass@@6B@",
+   "address": "007a8178",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@PixelFXClass@@8",
+   "address": "007bfc00",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2PixelFXClass@@8",
+   "address": "007bfc18",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3PixelFXClass@@8",
+   "address": "007bfc20",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4PixelFXClass@@6B@",
+   "address": "007bfc30",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVPixelFXClass@@@8",
+   "address": "007eb990",
+   "bytes": 27,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [],
+ "references_out": [
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "?PixelFXTypes@@3PAUPixelFXTypeStruct@@A",
+   "address": "007eb940"
+  },
+  {
+   "symbol": "_rand",
+   "address": "007846aa"
+  }
+ ],
+ "route": "A",
+ "unit": "pixelfx.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "0060eb20",
+   "lines": 2
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 8,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

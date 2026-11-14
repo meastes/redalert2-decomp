@@ -165,7 +165,7 @@ struct UnknownGlobalPacket {
             unsigned short Names[(0x1C7 - 0x2F) / 2];   // +0x2F the slot names (wide; Unknown_Slot_Names_005c8cf0 fills them)
         } Slots;                        // command 0x16
         struct {
-            int Percent;                // +0x2F the sender's loading progress (UnknownSessionState 0x00672160)
+            int Percent;                // +0x2F the sender's loading progress (SessionClass 0x00672160)
         } Progress;                     // command 0x0F
 #ifdef RA2_CONQUER_IPX_CALL_BACK
         struct {
@@ -199,8 +199,8 @@ struct UnknownGlobalPacket {
 extern UnknownGlobalPacket unknown_gpacket_a3f640;
 // The session object (0x00A3D298; its first word is unknown_game_mode_a3d298; SessionClass in TS,
 // hypothesis); its layout is in shared/session_state.hpp.
-struct UnknownSessionState;
-extern UnknownSessionState unknown_session_a3d298;
+struct SessionClass;
+extern SessionClass unknown_session_a3d298;
 // Two flags (0x00A3F120 for game mode 3, 0x00A3F121 for mode 4: session +0x1E88/+0x1E89; a received
 // taunt packet is played only while the mode's flag is set; next to unknown_flags_a3f118).
 extern bool unknown_flag_a3f120;
@@ -310,11 +310,11 @@ extern PaletteClass unknown_palette_837e10;         // 0x00837E10
 // Do_Win's campaign steps (meanings not recovered): 0x00491A10 decides whether the
 // campaign goes on, 0x004B37C0 is the end of the campaign, 0x0058F510 the map
 // selection and 0x0058F620 picks the named next scenario.
-class UnknownIDSource;
+class ScenarioClass;
 bool __fastcall Unknown_00491A10();
 void __fastcall Unknown_004B37C0();
-void __fastcall Unknown_0058F510(UnknownIDSource *scenario);
-void __fastcall Unknown_0058F620(UnknownIDSource *scenario, char const *name);
+void __fastcall Unknown_0058F510(ScenarioClass *scenario);
+void __fastcall Unknown_0058F620(ScenarioClass *scenario, char const *name);
 // Do_Win's score screen (0x0069A640 empty constructor, 0x0069A650 shows it;
 // built as a temporary unless the scenario's SkipScore; names hypotheses).
 class UnknownScore_0069A640 {
@@ -343,22 +343,22 @@ void __fastcall Unknown_Free_Art_Sets_006F2510();                 // 0x006F2510
 void __fastcall Unknown_Free_Art_Pair_006F26D0();                 // 0x006F26D0
 // Deletes every LightConvertClass in the global list (0x00832398) and makes a
 // new default one (tint 1000, 1000, 1000) (0x00529720; DisplayClass 0x0049E570
-// and UnknownIDSource::Read_Basic call it; name hypothesis).
+// and ScenarioClass::Read_Basic call it; name hypothesis).
 void __cdecl Reset_Light_Converts_00529720();
 // Deletes every radar event (0x0063C640).
 void RadarEventClass_unknown_delete_all_63c640();
 // The object at 0x0084E8D0 (moved from shared/display.hpp).
 class UnknownBeacon;
-class Unknown84E8D0 {
+class BeaconManagerClass {
 public:
-    UnknownBeacon *Unknown_0042E860(CoordStruct coord);  // 0x0042E860 (the beacon within 128 of the point)
+    UnknownBeacon *FindBeaconAt_0042e860(CoordStruct coord);  // 0x0042E860 (the beacon within 128 of the point)
     bool Unknown_0042E740(CoordStruct coord);            // 0x0042E740 (selects the beacon within 128 of the point)
-    Unknown84E8D0();                                        // 0x0042D960 (the static initializer; inline)
-    ~Unknown84E8D0();                                       // 0x0042D990 (the atexit destructor; inline)
+    BeaconManagerClass();                                        // 0x0042D960 (the static initializer; inline)
+    ~BeaconManagerClass();                                       // 0x0042D990 (the atexit destructor; inline)
     void Unknown_0042E370(int house, CoordStruct coord, int slot);   // 0x0042E370 (places a beacon; slot -1: the first free one)
     void Unknown_0042E290(Surface *surface, Rect rect);     // 0x0042E290 (draws the allied beacons)
-    void Unknown_0042EED0(Surface *surface, Rect rect);     // 0x0042EED0 (draws the allied beacons during the blink phase)
-    bool Unknown_0042EFD0();                               // 0x0042EFD0 (an allied beacon is shown and the blink phase is on)
+    void Draw_On_Radar_0042eed0(Surface *surface, Rect rect);     // 0x0042EED0 (draws the allied beacons during the blink phase)
+    bool Is_Flashing_0042efd0();                               // 0x0042EFD0 (an allied beacon is shown and the blink phase is on)
     void Unknown_0042E150();                    // 0x0042E150 (frees the per-house blocks; last call of 0x00519960)
     void Unknown_0042E1A0();                    // 0x0042E1A0 (Read_Scenario_INI)
     void Unknown_0042EBE0(int house); // removes the house beacon slots, original56-byte RET4
@@ -367,7 +367,7 @@ public:
     // The house's beacon whose text is being edited (flag 2; house -1: any), else none (0x0042E940).
     UnknownBeacon *Unknown_0042E940(int house);
     // Sets the edited beacon's text (none: the edit was cancelled; done: the text is final; 0x0042EC20).
-    void Unknown_0042EC20(unsigned short const *text, int x, int y, bool done);
+    void EditBeaconMessage_0042ec20(unsigned short const *text, int x, int y, bool done);
 #endif
 #ifdef UNKNOWN_BEACONS_DECLARE_MEMBERS
     // Removes the beacon in the house's slot (house and slot -1: the edited one; 0x0042E990).
@@ -386,7 +386,7 @@ public:
     int unknown_7c;                 // +0x7C the radar beacon's blink cycle (frames << 2)
     CoordStruct unknown_80;         // +0x80 the position a new beacon starts at
 };
-extern Unknown84E8D0 unknown_object_84e8d0;
+extern BeaconManagerClass unknown_object_84e8d0;
 // Read_Scenario_INI's settings and helpers (0x0065EB40; meanings mostly not recovered).
 extern int unknown_difficulty_a40b1c;           // 0x00A40B1C the campaign difficulty (the scenario's Difficulty)
 extern int unknown_session_difficulty_a3d2d8;   // 0x00A3D2D8 (session +0x40) the multiplayer difficulty
@@ -553,7 +553,7 @@ extern int unknown_ini_format_a40d24;
 extern bool unknown_flag_a40d28;  // 0x00A40D28 application active (focus)
 extern bool unknown_flag_a40d44;  // 0x00A40D44
 extern int unknown_ab9174;        // 0x00AB9174 (cleared when the game pauses or resumes)
-// The game speed kept by UnknownSessionState::Unknown_00672DE0 (0x007F3230; -1: none).
+// The game speed kept by SessionClass::Unknown_00672DE0 (0x007F3230; -1: none).
 extern int unknown_game_speed_7f3230;
 // An empty function 0x00672E70 calls first (0x005173A0).
 void Unknown_005173A0();

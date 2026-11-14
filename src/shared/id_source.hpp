@@ -20,16 +20,16 @@ struct IStream;
 // Only the41-byte stride and final value byte are observed by the checkpoint.
 struct UnknownScenarioVariable_004B5AB0 { char unknown_00[40]; bool Value; };
 typedef char ScenarioVariable_stride_check[(sizeof(UnknownScenarioVariable_004B5AB0)==41)?1:-1];
-class UnknownIDSource {
+class ScenarioClass {
 public:
     void Set_Scenario_Name_0065e730(char const *name);
     // Builds the scenario with its defaults (0x0065B4F0; Set_Defaults, the
     // special options, no waypoints, names or variables).
-    UnknownIDSource();
+    ScenarioClass();
     // Restores a saved scenario in place: the generator and the +0x620 timer
     // and loadout lists are rebuilt, the mission timer text reloaded from its
     // label (0x0065B780).
-    UnknownIDSource(NoInitClass const &noinit);
+    ScenarioClass(NoInitClass const &noinit);
     // 0x0051FC50 is a free function (shared/lightning_storm.hpp): it reads the byte at 0x00A51934.
     // Adds the scenario's state to a CRC (0x00662E00; Game_CRC).
     void Compute_CRC(WWCRCEngine &crc) const;
@@ -165,7 +165,7 @@ public:
     // per type).
     TypeList<TechnoTypeClass *> AllowableUnits; // +0x2254 [Basic] AllowableUnits
     TypeList<int> AllowableUnitMaximums;        // +0x2270 [Basic] AllowableUnitMaximums (-1: no limit)
-    TypeList<int> AllowableUnitCounts;          // +0x228C the number taken of each type (Unknown4A6AE0Owner; name hypothesis)
+    TypeList<int> AllowableUnitCounts;          // +0x228C the number taken of each type (DropshipLoadoutClass; name hypothesis)
     int unknown_22a8;                           // +0x22A8 [Lighting] Ambient, hundredths (set from a trigger action's data, 0x006B2260)
     int unknown_22ac;                           // +0x22AC (receives the [Lighting] Ambient level too)
     int unknown_22b0;                           // +0x22B0 (receives +0x22A8 unless Unknown_0051FC50 holds)
@@ -210,7 +210,7 @@ public:
     char LS640BkgdName[64];                     // +0x23E0 MISSION.INI LS640BkgdName
     char LS800BkgdName[64];                     // +0x2420 MISSION.INI LS800BkgdName
 };
-extern UnknownIDSource *unknown_id_source_a3d290;    // 0x00A3D290
+extern ScenarioClass *unknown_id_source_a3d290;    // 0x00A3D290
 // A value in [a, b] from the scenario's generator (Westwood's Random_Pick:
 // the inline's result is a variable, so callers add it after the rest of an
 // expression; VoxelAnimClass::AI 0x0070D380).

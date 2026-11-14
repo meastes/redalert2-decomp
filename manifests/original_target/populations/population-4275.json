@@ -4,8 +4,8 @@
     "id": "population-4275",
     "inventory_sha256": "5f07e34092134b173e969f47dfa648a15ad5eefae0318d3f92128bc7211554e2",
     "gaps_sha256": "0951b2b3c59869c9f27df1c483020bbcaef60ba11a4e5e47b648704b26b3fdc9",
-    "historical_population_sha256": "744fa341b1424be81e61d3030a6de2d7ed8e3cf0087ea599db35f7d8f230e935",
-    "historical_acceptance_sha256": "c6967218b8964bdd38a492ac71697c54b542b16ced8c7cec355f141c2a06149c"
+    "historical_population_sha256": "13f1567259a7a0aa24caf02ab6ae0cdeaa5d314fe83108f0e2ad32eb85ce39e8",
+    "historical_acceptance_sha256": "6c8ece4fb29f6653b31c8b3ff3140051709a10f179a1bbf47db84deeab270f49"
   },
   "references": {
     "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
@@ -311,7 +311,7 @@
     "?Detach@ObjectClass@@UAEXPAVAbstractClass@@_N@Z": 6110160,
     "??8CoordStruct@@QBE_NABU0@@Z": 6400176,
     "?Next@?$QueueClass@VEventClass@@$0IA@@@QAEHXZ": 6482400,
-    "__DAT_00ab6e88": 11234952,
+    "__waypoint_none_00ab6e88": 11234952,
     "?Reset@ScriptClass@@QAE_NXZ": 6719744,
     "__strncpy": 7873488,
     "?Reset_All_Timed_Events@TriggerClass@@QAEXXZ": 7263872,
@@ -323,7 +323,7 @@
     "___amsg_exit": 7887784,
     "?Set@Quaternion@@QAEXMMMM@Z": 6431104,
     "?Bytes_For_Time@AudioFormat@@QAEH_J@Z": 4228192,
-    "__DAT_0084ed10": 8711440,
+    "__cell_none_0084ed10": 8711440,
     "?_com_issue_error@@YGXJ@Z": 7952704,
     "?unknown_application_84c7dc@@3PAUIUnknown@@A": 8701916,
     "?Detach@IsometricTileTypeClass@@UAEXPAVAbstractClass@@_N@Z": 5432080,
@@ -588,8 +588,8 @@
     "?Lock@DSurface@@UAEPAXUPoint2D@@@Z": 4893824,
     "?Unlock@DSurface@@UAE_NXZ": 4894272,
     "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A": 8624512,
-    "__DAT_00ab6ea8": 11234984,
-    "__DAT_00ab6eb0": 11234992,
+    "__unknown_timer_start_00ab6ea8": 11234984,
+    "__unknown_timer_accum_00ab6eb0": 11234992,
     "?Update@PixelFXClass@@QAEXH@Z": 6351920,
     "__imp__CreateMutexA@12": 7971384,
     "__imp__CreateThread@24": 7971308,
@@ -1345,8 +1345,8 @@
     "?Unknown_0051A2B0@@YA_NXZ": 5350064,
     "?Unknown_00496460@@YAXPBDZZ": 4809824,
     "__wcsdup": 7958579,
-    "?Read@UnknownGameOptions@@QAEXAAVCCINIClass@@PBDHH@Z": 6746608,
-    "?Write@UnknownGameOptions@@QAEXAAVCCINIClass@@PBD@Z": 6750832,
+    "?Read@SessionOptionsClass@@QAEXAAVCCINIClass@@PBDHH@Z": 6746608,
+    "?Write@SessionOptionsClass@@QAEXAAVCCINIClass@@PBD@Z": 6750832,
     "?Init@NullModemClass@@QAEHHHPADHDHH@Z": 6095072,
     "__imp__GetSystemTime@4": 7971024,
     "?Seed@@3IA": 10751292,
@@ -1455,7 +1455,7 @@
     "??HCoordStruct@@QBE?AU0@ABU0@@Z": 6941936,
     "?Set@RGBClass@@QAEAAV1@ABV1@M@Z": 6540784,
     "__real@8@3ffbaaaaaaaaaaaaa800": 8016520,
-    "_?entry@?1??Get_Image_0068ca40@UnknownBitmapWriter@@QAEPAVSurface@@PBDH@Z@4UUnknownBitmapEntry@@A": 11260136,
+    "_?entry@?1??Get_Image_0068ca40@SurfaceCacheClass@@QAEPAVSurface@@PBDH@Z@4UUnknownBitmapEntry@@A": 11260136,
     "__real@8@3fe2c0000000c0000000": 8019920,
     "_?name@?1??Theme_File_Name@ThemeClass@@QAEPBDH@Z@4PADA": 11274328,
     "__imp__ScreenToClient@8": 7971920,
@@ -1505,7 +1505,7 @@
     "?Restart@MSOverlayAnim@@QAEXXZ": 5953552,
     "?Dialog@LoadOptionsClass@@QAE_NXZ": 5486448,
     "?Unknown_00406100@UnknownAudioController@@QAIXPAUAudioEvent@@PAUAudioEventType@@@Z": 4219136,
-    "?Release@UnknownAlphaTableCache_008315B8@@QAEXPAY0BAA@$$CBG@Z": 4318480,
+    "?Release@AlphaLightingRemapInitClass@@QAEXPAY0BAA@$$CBG@Z": 4318480,
     "?Format@AudioTimeSpan@@QAIXPAD@Z": 4209088,
     "__strrev": 7958640,
     "__real@8@3ffec90fdaa22168c000": 7981696,
@@ -1953,7 +1953,46 @@
     "_WinMain@16": 6873728,
     "__except_handler3": 7885524,
     "__except_list": 0,
-    "??_EWinModemClass@@UAEPAXI@Z": 7558672
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672,
+    "?Quit@ApplicationClass@@UAGJXZ": 4353440,
+    "?Timing@VQMovieHandle@@UAEHXZ": 5904688,
+    "?Pause@BinkClass@@QAEX_N@Z": 4391936,
+    "?Play@BinkClass@@QAEXXZ": 4391984,
+    "?Restore@MSBinkAnim@@UAEXH@Z": 5954448,
+    "?Restore@MSAnim@@UAEXH@Z": 5962896,
+    "?Restore@Anim@Voices@WorldDominationTour@@UAEXH@Z": 7547936,
+    "?Timing@BinkMovieHandle@@UAEHXZ": 5905232,
+    "?Restore@MSOverlayAnim@@UAEXH@Z": 5953600,
+    "?Restore@MSVQAnim@@UAEXH@Z": 5956496,
+    "?Restore@MSPCXAnim@@UAEXH@Z": 5962624,
+    "?Read@WinsockInterfaceClass@@UAEHPAXPAH01PAG@Z": 7779744,
+    "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
+    "?Detach@CargoClass@@QAEXPAVFootClass@@@Z": 4622960,
+    "?Init@VeinholeMonsterClass@@SIXH@Z": 7407680,
+    "?Reset@VeinholeMonsterClass@@SAXXZ": 7408464,
+    "?Fill@ZBuffer@@QAEXG@Z": 7823712,
+    "?Update@ZBuffer@@QAEXVRect@@@Z": 7823808,
+    "?Set@ZBuffer@@QAEXPAGHG@Z": 7822592,
+    "?Pan@ZBuffer@@QAEXHHG@Z": 7822688,
+    "?Set@ABuffer@@QAEXPAGHG@Z": 4262896,
+    "?Pan@ABuffer@@QAEXHHG@Z": 4262992,
+    "?Fill@ABuffer@@QAEXG@Z": 4264016,
+    "?Update@ABuffer@@QAEXVRect@@@Z": 4264112,
+    "?Reset@AStarClass@@QAEXXZ": 4364944,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVFileClass@@@8": 8177872,
+    "??_R0?AVRawFileClass@@@8": 8177896,
+    "??_R0?AUIUnknown@@@8": 8181304,
+    "??_R0?AVRadarClass@@@8": 8181440,
+    "??_R0?AVTabClass@@@8": 8181536,
+    "??_R0?AVMixFileClass@@@8": 8265192,
+    "??_R0?AVVoxelAnimClass@@@8": 8360976,
+    "??_R0?AVWinModemClass@@@8": 8374768
   },
   "regions": [
     {
@@ -1965,7 +2004,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 4,
       "body_sha256": "01d3abacb68aac3537badfe563d0e21d0244fb61db1d805bcef8f455407fad96",
@@ -1973,13 +2013,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "e3260bde03b483ec8272c5f50ff35530c0995f2acb01be226e3d12246027c69d",
       "relocations": [],
-      "source_sha256": "03759d5ae6be446d689adda41f7f915be1247942ab01e86eea17153c39eb2def",
-      "source": "src/recovered/unowned/Audio_Ring_Size_00408c70.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Ring_Size_00408c70",
       "source_order": 221738
     },
     {
@@ -1991,7 +2030,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 45,
       "body_sha256": "f2b13cbd78f130dd58249c49b8a3dcbe8fbe364505f5f1898e151b5d1626cf06",
@@ -2008,13 +2048,12 @@
           "resolved": 4294960696
         }
       ],
-      "source_sha256": "f138d78a9a507c081ccbccb8bbc73de8d43c4b396e551208116cad34dcb0f943",
-      "source": "src/recovered/unowned/Audio_Ring_Node_Remove_00408d40.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Ring_Node_Remove_00408d40",
       "source_order": 221742
     },
     {
@@ -2026,7 +2065,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 6,
       "body_sha256": "b7de27cc2933122fe7c77660195215e51d34a9f338794cd727fd8511ae0a1bde",
@@ -2034,13 +2074,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "44041cac83345919b979f6e935f0f2103faa5c0db664c4b3e879a2bafb24a452",
       "relocations": [],
-      "source_sha256": "19191eed6ca2c8da3896eacd8b64521017a85e43436774673d6fe5db355ee7cb",
-      "source": "src/recovered/unowned/Audio_Queue_Set_18_00408dd0.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Queue_Set_18_00408dd0",
       "source_order": 221745
     },
     {
@@ -2052,7 +2091,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 4,
       "body_sha256": "38058506e8e859d5be73a33baa621352c08ea01f2224ee170173253757193941",
@@ -2060,13 +2100,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "7eb88cd4e133095c53e94b3dbf6d2e398ac1bb3c43db8d553a7853f4e99c33dd",
       "relocations": [],
-      "source_sha256": "fdb3704f0c926833bc1dcd4ddd46af6b843f646023fabe06508b61dfbc7903ff",
-      "source": "src/recovered/unowned/Audio_Queue_Get_18_00408de0.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Queue_Get_18_00408de0",
       "source_order": 221746
     },
     {
@@ -2078,7 +2117,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 4,
       "body_sha256": "01d3abacb68aac3537badfe563d0e21d0244fb61db1d805bcef8f455407fad96",
@@ -2086,13 +2126,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "e3260bde03b483ec8272c5f50ff35530c0995f2acb01be226e3d12246027c69d",
       "relocations": [],
-      "source_sha256": "a33573e0d9072682d65ebfe0c034c2c2543123efeb179e2b739b56f9857eca4c",
-      "source": "src/recovered/unowned/Audio_Queue_Index_00408df0.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Queue_Index_00408df0",
       "source_order": 221747
     },
     {
@@ -2104,7 +2143,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 4,
       "body_sha256": "e27121b8816e0aef2ed29676899d26e79f66af7e5ee5aed902be7208122bb635",
@@ -2112,13 +2152,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "31fa0b8d3632bf95ba787af99d5d58ec945f39283ee2dfa83cd82c8464046067",
       "relocations": [],
-      "source_sha256": "ba35eb888f63045e2a51ee70bc6ed7974e909c92ad618ed5ceb9018ac43fefb7",
-      "source": "src/recovered/unowned/Audio_Queue_Error_00409010.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Queue_Error_00409010",
       "source_order": 221751
     },
     {
@@ -2130,7 +2169,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 4,
       "body_sha256": "c8cc0b90c656bd6a43ec1c5684c1a494142d2fce4803153d9b1a0944cad7e281",
@@ -2138,13 +2178,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "cddc6ef2c7b4e08c4c25f4fd190a1ab160fe57a2f87c2e2a07aba0a8180233d8",
       "relocations": [],
-      "source_sha256": "02085208449e51fb86671bade924a2fef91f3bb2c33a27881cd8be69465cca73",
-      "source": "src/recovered/unowned/Audio_Queue_Position_00409250.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Queue_Position_00409250",
       "source_order": 221758
     },
     {
@@ -2156,7 +2195,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 30,
       "body_sha256": "cff5e2e5597008a0cfe310810c70380479c2d112d39e4640745ca72c73aeb5a7",
@@ -2181,13 +2221,12 @@
           "resolved": 3641346
         }
       ],
-      "source_sha256": "4fb4c3cd645026369040827ffdb9efaa0caeccf5dcd73585c87a10100642e114",
-      "source": "src/recovered/unowned/Audio_Ring_Node_Destroy_00408d20.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Ring_Node_Destroy_00408d20",
       "source_order": 221741
     },
     {
@@ -2199,7 +2238,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 21,
       "body_sha256": "b2bdfcbc0dd8174275d2a0be973ed50a610a3e274d0d3d6b903c04be725ec885",
@@ -2207,13 +2247,12 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "feb518f898cc34790dd5152bd1a2d9da23db7849215dfec2c35cba7546e51c40",
       "relocations": [],
-      "source_sha256": "b593b1448d47c7e43aa36a4bfa35ae5abf63e34d7e00b8b237b2bc423e880b74",
-      "source": "src/recovered/unowned/Audio_Queue_Partner_00409260.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Queue_Partner_00409260",
       "source_order": 221759
     },
     {
@@ -2225,7 +2264,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 15,
       "body_sha256": "4a1b84a04e98d573f698fe94883c49e66fab0510b490686b157dae116e06ed74",
@@ -2242,13 +2282,12 @@
           "resolved": 4294966950
         }
       ],
-      "source_sha256": "13c5e35ff3e144bd145b72c9c4c25c687ea9e11657c8ae2f91058298545d2009",
-      "source": "src/recovered/unowned/Audio_Queue_Ready_00409230.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Queue_Ready_00409230",
       "source_order": 221756
     },
     {
@@ -2260,7 +2299,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 44,
       "body_sha256": "cab0e350708603641380d6b2420571dfaf5a2c32cf2f013d895d35a39543b24f",
@@ -2277,13 +2317,12 @@
           "resolved": 4294961458
         }
       ],
-      "source_sha256": "11345db62fbc5ac7543e4db981ef627be999d90fb96f45a6de4fbf44f728e78a",
-      "source": "src/recovered/unowned/Audio_Ring_Add_Node_00408a30.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Ring_Add_Node_00408a30",
       "source_order": 221733
     },
     {
@@ -2295,7 +2334,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 31,
       "body_sha256": "3e649fbebfbb20362e3a66571d9c42e37af6a3f20d11ec4610316ec727009959",
@@ -2320,13 +2360,12 @@
           "resolved": 4294966968
         }
       ],
-      "source_sha256": "a8cfc4f8ed30d4aaa7a72c07b43d3ce1f6e28406dbd8c14596474603388856c4",
-      "source": "src/recovered/unowned/Audio_Queue_Flush_00409210.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Queue_Flush_00409210",
       "source_order": 221755
     },
     {
@@ -2338,7 +2377,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 77,
       "body_sha256": "b9e1d7e097270ed960b589a1f51fd225a2ba93dc99a0381cf8bfeb83b62b2d75",
@@ -2363,13 +2403,12 @@
           "resolved": 4294961852
         }
       ],
-      "source_sha256": "bd98bd37028b0d66b3589a2111f87dcc5077ef3d60341219e66fdd3d53bb7225",
-      "source": "src/recovered/unowned/Audio_Ring_Create_00408710.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Ring_Create_00408710",
       "source_order": 221728
     },
     {
@@ -2381,7 +2420,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 56,
       "body_sha256": "0d850792389ca428c6a992076e8476b6d75e57206b2f173913c56d8364b0bec7",
@@ -2389,13 +2429,12 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "01b1b513f2a29ec662c506dbcc8d3f8ff6216034b673f36ba07baea7d9ffd23d",
       "relocations": [],
-      "source_sha256": "97394fd71318a410439f0dc75bf677d9abc0746e8b05a921da23be835a0d5038",
-      "source": "src/recovered/unowned/Audio_Queue_Reset_00408850.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Queue_Reset_00408850",
       "source_order": 221730
     },
     {
@@ -2407,7 +2446,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 242,
       "body_sha256": "9231bf1cda86c90066fa3126e787690043d74b8deccc67cab73a056d62372cba",
@@ -2440,13 +2480,12 @@
           "resolved": 3642452
         }
       ],
-      "source_sha256": "ed27343f5b666f64f539c18580286894766ff84e5a6274f90181913f7db23004",
-      "source": "src/recovered/unowned/Audio_Ring_Clear_00408890.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Ring_Clear_00408890",
       "source_order": 221731
     },
     {
@@ -2458,7 +2497,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 159,
       "body_sha256": "44c943aee2eefa93c5e43d413485d6c1f7a2682b055edc72b3fa7a5e5acde9f0",
@@ -2466,13 +2506,12 @@
       "full_extent_bytes": 160,
       "full_extent_sha256": "238f96838eb8c855c81cb586e85d9e888c9bc0e50107b7e70a3ff115c6f0f4be",
       "relocations": [],
-      "source_sha256": "30473cd1b64fd8afc2d82ccdc43fc2d04eb0696854b15ad6b8a47bf666d9ad4d",
-      "source": "src/recovered/unowned/Audio_Ring_Reset_00408990.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Ring_Reset_00408990",
       "source_order": 221732
     },
     {
@@ -2484,7 +2523,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 235,
       "body_sha256": "254af40b0db339f193efc195332072a8385d3e48f7caa46bfb48eb809f8da174",
@@ -2533,13 +2573,12 @@
           "resolved": 3641857
         }
       ],
-      "source_sha256": "1ba7ddeb3623fbe847478be16c88c016cf090e32a96e2da9761ee6619b00930d",
-      "source": "src/recovered/unowned/Audio_Ring_Add_Nodes_00408a60.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Ring_Add_Nodes_00408a60",
       "source_order": 221734
     },
     {
@@ -2551,7 +2590,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 254,
       "body_sha256": "ec8d916e46026634053c18a2d093cc60f41662c7ac072bf1991501974f8425a1",
@@ -2592,13 +2632,12 @@
           "resolved": 4294958440
         }
       ],
-      "source_sha256": "ccb5c1e1d8cdc2eaf1fb20e0d1e27f4558a2d2bebc5fb9136be0a594ee8b5551",
-      "source": "src/recovered/unowned/Audio_Ring_Acquire_00408b50.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Ring_Acquire_00408b50",
       "source_order": 221735
     },
     {
@@ -2610,7 +2649,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 15,
       "body_sha256": "34734d5873e04862a74b8e02d74e48f24e25b84318a93e3a040ab437a9a838a2",
@@ -2618,13 +2658,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "fee7a96ca4ff909b9d9843a3026042c2e44cd954eb061acd5172fbd5be7984af",
       "relocations": [],
-      "source_sha256": "86125dc9888a5f380041ec85a7dbdce760511a7b061690cdd8462d8370b55be4",
-      "source": "src/recovered/unowned/Audio_Ring_Drain_Available_00408c50.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Ring_Drain_Available_00408c50",
       "source_order": 221736
     },
     {
@@ -2636,7 +2675,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 9,
       "body_sha256": "3edb2230f576085396cff53d9f694b66c0462fbcc226dba1ecce474913e620bb",
@@ -2644,13 +2684,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "9dbbc240d2b89896254e8e56b77dcdd08fb147f5777f8c93c753c4767fbb1cc8",
       "relocations": [],
-      "source_sha256": "57fdabe9978d2a8b68068bab8a1c10a0335654ce82679beeb58df9270f53a869",
-      "source": "src/recovered/unowned/Audio_Ring_Fill_Available_00408c60.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Ring_Fill_Available_00408c60",
       "source_order": 221737
     },
     {
@@ -2662,7 +2701,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 115,
       "body_sha256": "2471c740ed2a313e074ffaf315cd1450821d27a7933fcf125bbe5536c874d1a7",
@@ -2703,13 +2743,12 @@
           "resolved": 3641423
         }
       ],
-      "source_sha256": "ad7470fc864e53942c0efa05bba169a3e29d1a05ae772b878761fda8d6234da6",
-      "source": "src/recovered/unowned/Audio_Ring_Node_Create_00408ca0.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Ring_Node_Create_00408ca0",
       "source_order": 221740
     },
     {
@@ -2721,7 +2760,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 21,
       "body_sha256": "f585fddf925afd9fae07cfec191c17249d93777476e927026c5be902245ba7a4",
@@ -2729,13 +2769,12 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "ab50d8c3c169cb0143286efc3feec0fe37bf0396636ecfa3db59f1206e298cb8",
       "relocations": [],
-      "source_sha256": "a9449ae0954b72496d595405401d2973ee4da8bcfb392dfaa330dbc8607653e3",
-      "source": "src/recovered/unowned/Audio_Ring_Node_Next_00408d70.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Ring_Node_Next_00408d70",
       "source_order": 221743
     },
     {
@@ -2747,7 +2786,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 50,
       "body_sha256": "a83075393675b12ae5c11af6a0c65442d6a008858feb3e1cf4265e2a44490776",
@@ -2755,13 +2795,12 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "b607fd6f6bb1cf51b8a2fd82e50b71cab0b7ccf27eee1c92a084511efca3c873",
       "relocations": [],
-      "source_sha256": "5ecb697b3c196ded5502ffcc3a95012e6ffbb99d6c2cf85fb7541a0fcc7f8ee1",
-      "source": "src/recovered/unowned/Audio_Queue_Release_00408d90.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Queue_Release_00408d90",
       "source_order": 221744
     },
     {
@@ -2773,7 +2812,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 152,
       "body_sha256": "36c47b1e9bf099df45cdd729ea9bf55d30b41ae85bf43e738650ebcc2aba0abb",
@@ -2798,13 +2838,12 @@
           "resolved": 632
         }
       ],
-      "source_sha256": "224afe9a8065f1b12684409bf0109e26455d745afe9a2845b39612c35c410ea4",
-      "source": "src/recovered/unowned/Audio_Queue_Copy_00408e00.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Queue_Copy_00408e00",
       "source_order": 221748
     },
     {
@@ -2816,7 +2855,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 174,
       "body_sha256": "1e9a06914d44080dcd6377eebf7a0472a5a769bb96c24c2d5b2982a65004b390",
@@ -2841,13 +2881,12 @@
           "resolved": 456
         }
       ],
-      "source_sha256": "deee7ae84383308801fa6ad0b81e60dbcd5a74da3289bb1ac73be8e5c3d5c94f",
-      "source": "src/recovered/unowned/Audio_Queue_File_00408ea0.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Queue_File_00408ea0",
       "source_order": 221749
     },
     {
@@ -2859,7 +2898,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 187,
       "body_sha256": "b34adfc2545218770dad552156ef6f4d583056daa37992104233c8a6ce63a97e",
@@ -2900,13 +2940,12 @@
           "resolved": 267
         }
       ],
-      "source_sha256": "1a94194e13e095ffa812642e6cbc97bef90b777c491ee470c9ab6f93a0107fe9",
-      "source": "src/recovered/unowned/Audio_Queue_Stdio_00408f50.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Queue_Stdio_00408f50",
       "source_order": 221750
     },
     {
@@ -2918,7 +2957,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 188,
       "body_sha256": "a3090d3db6169632c279bc0edb0de8c1aeaa0b1fad6e9c956661cb2e5aa48ba2",
@@ -2935,13 +2975,12 @@
           "resolved": 10
         }
       ],
-      "source_sha256": "b9b09ac089999b43cc48794cea75237d481f36ddb87e2f827cf4edce9872ff6e",
-      "source": "src/recovered/unowned/Audio_Queue_Commit_00409020.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Queue_Commit_00409020",
       "source_order": 221752
     },
     {
@@ -2953,7 +2992,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 51,
       "body_sha256": "a04f90c3d98a0658705208f6df9f63719940587c7e64abb8804d5fb62c4dff8c",
@@ -2970,13 +3010,12 @@
           "resolved": 4294967005
         }
       ],
-      "source_sha256": "86a58b91b532908ced491d3077aebcb33ace2d08b398819b821ad3ac531a8f74",
-      "source": "src/recovered/unowned/Audio_Queue_Rewind_004091d0.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Queue_Rewind_004091d0",
       "source_order": 221754
     },
     {
@@ -2988,7 +3027,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 9,
       "body_sha256": "0d0123b01b975054b33de7a8618b5703a7e7db4d52273d7143605e12b334a607",
@@ -2996,13 +3036,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "c667cc4db630986ed0c40f66a8651d5486ebec5ef88a1692bcee3f37b5af2ea0",
       "relocations": [],
-      "source_sha256": "9a37b7a74a97ebe0a55c63cc8351a5a95f5c97cc7c4ffcc259f193845257bfea",
-      "source": "src/recovered/unowned/Audio_Queue_Available_00409240.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Queue_Available_00409240",
       "source_order": 221757
     },
     {
@@ -3014,7 +3053,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 18,
       "body_sha256": "d922c323774a21d6632b038ae72d0e86a3590801c8300a5e37dd0dd193b11585",
@@ -3022,13 +3062,12 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "af8b6e3856e246e602574d077d117c480b5b1106d89051d01689a422975c780a",
       "relocations": [],
-      "source_sha256": "f96fe92e2fdb7f06758fa25b7c4b6b69bbbaa5e0597be2c4b7113e80fc0b5ca8",
-      "source": "src/recovered/unowned/Audio_Ring_Is_Full_00408c80.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Ring_Is_Full_00408c80",
       "source_order": 221739
     },
     {
@@ -3040,7 +3079,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 228,
       "body_sha256": "e1a770176b1095cfec37c5f68080f4642fe1a382dc95d503ca5d57616d86d62e",
@@ -3089,13 +3129,12 @@
           "resolved": 3642624
         }
       ],
-      "source_sha256": "e47f140b531d4f1d05622f01d4b983c3abf14b5301443020957ebeb18486cf71",
-      "source": "src/recovered/unowned/Audio_Ring_Destroy_00408760.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Ring_Destroy_00408760",
       "source_order": 221729
     },
     {
@@ -3107,7 +3146,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 237,
       "body_sha256": "15dbae56558bdfdb41ba6eaccf918e7a8d380132f6c00a6b665993e33f47b9b5",
@@ -3124,13 +3164,12 @@
           "resolved": 4294966875
         }
       ],
-      "source_sha256": "b2900b8a6ec9637b2608d681766e5829b6bf604ef7a713e52391525782ced9f6",
-      "source": "src/recovered/unowned/Audio_Queue_Update_004090e0.cpp",
+      "source_sha256": "fe7ea414c5e8c4e297c0df0587d39d1f6d41ea5575fc8ac90d4d0fce1803468f",
+      "source": "src/recovered/audstrm.cpp",
       "population": "population-4275",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Audio_Queue_Update_004090e0",
       "source_order": 221753
     }
   ]

@@ -96,25 +96,3 @@ void RadarClass::Unknown_00634670(int arg1, int index, HouseClass *house)
     SendMessageA(score, 0x498, 0, color);
     SendMessageA(score, 0x4B2, 0, (LPARAM)text);
 }
-
-#include "shared/tactical.hpp"
-
-// 0x006AA5A0 / 0x006AA5E0 (Leaf seeds; DisplayClass slot 47 calls them from the scroll
-// and mouse AI): the selection band. Start: when no band is open (both coordinates of
-// the first corner zero), both corners become the point. Drag: while a band is open,
-// the second corner follows the point. Reached by the RA2.app pass (M25): a click on the
-// map held for a frame aborted the game here.
-void Tactical::Unknown_006AA5A0(Point2D const &point)
-{
-    if (RubberBandStart.X == 0 && RubberBandStart.Y == 0) {
-        RubberBandStart = point;
-        RubberBandEnd = point;
-    }
-}
-
-void Tactical::Unknown_006AA5E0(Point2D const &point)
-{
-    if (RubberBandStart.X != 0 || RubberBandStart.Y != 0) {
-        RubberBandEnd = point;
-    }
-}

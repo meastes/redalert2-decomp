@@ -70,6 +70,7 @@ std::vector<HWND> dialog_windows;   // dialogs in creation order (mouse routing:
 int cursor_count = 0;
 int dialogs_shown = 0;   // dialogs from templates shown so far (--run-to `menu`)
 std::vector<DWORD> dialog_show_times;   // when each was shown (scripted input "d<k>+<ms>")
+std::vector<DWORD> dialog_settle_times;   // when the menu had settled after each (scripted input "s<k>+<ms>", C5)
 POINT cursor = {0, 0};
 // The screen size: the desktop until the game sets a DirectDraw display mode.
 int screen_width = 800, screen_height = 600;
@@ -719,6 +720,18 @@ static void exposure_check(const MSG *found, std::chrono::steady_clock::time_poi
     if (activity || (app_active && now - last_peek > milliseconds(animating ? 50 : 3))) idle_since = now;
     animating = found && !activity;
     last_peek = steady_clock::now();
+    // Test runs (C5): the menu has settled once, after the latest dialog was shown, the game
+    // has been reading its queue for 250 ms with no work, input or pending repaint in between
+    // (its slide-in done; only the timed animations go on). Scripted input anchors on it
+    // ("s<k>+<ms>"), so a busy machine that draws the menu slowly waits longer instead of
+    // dumping a half-drawn one.
+    if (dialog_settle_times.size() < dialog_show_times.size() && app_active && !exposure_pending && !hold_presents
+            && now - idle_since >= milliseconds(250) && dialog_shown() && !dialogs_dirty()) {
+        char detail[64];
+        snprintf(detail, sizeof detail, "after dialog %zu shown", dialog_show_times.size());
+        while (dialog_settle_times.size() < dialog_show_times.size()) dialog_settle_times.push_back(now_ms());
+        progress("menu-settled", detail);
+    }
     if (!exposure_pending) return;
     bool shown = false;
     for (HWND d : dialog_windows) if (Window *w = win(d)) shown = shown || w->visible;
@@ -1592,6 +1605,12 @@ HWND build_dialog(const void *templ, unsigned id, HWND parent, DLGPROC proc, LPA
     progress_count("dialogs created", detail);
     if (proc) proc(hdlg, 0x0110, (WPARAM)(dlg->children.empty() ? nullptr : dlg->children[0]), init);   // WM_INITDIALOG
     if (style & 0x10000000u) ShowWindow(hdlg, 5);    // WS_VISIBLE
+    // Resume at start (lane I, NATIVE): the menu button the host's request presses,
+    // posted so the dialog's own loop reads it as a click's WM_COMMAND.
+    if (int command = ra2port::resume_dialog_command(id)) {
+        fprintf(stderr, "port: resume: dialog #%u, command 0x%x\n", id, command);
+        PostMessageA(hdlg, 0x0111, (WPARAM)command, 0);   // WM_COMMAND
+    }
     return hdlg;
 }
 
@@ -1628,7 +1647,15 @@ HWND CreateDialogIndirectParamA(HINSTANCE instance, const void *templ, HWND pare
 {
     (void)instance;
     note_dialog("CreateDialogIndirectParamA", nullptr);
-    return build_dialog(templ, 0, parent, proc, init, "CreateDialogIndirectParamA");
+    // The game loads its templates itself (0x005FF610: Load_Resource, then this call):
+    // while a resume is pending, the id of a menu template it presses is found by
+    // the template's address (lane I).
+    unsigned id = 0;
+    if (ra2port::resume_pending()) {
+        for (unsigned menu : {0xE2u, 0x100u})
+            if (templ == dialog_template((const char *)(uintptr_t)menu)) id = menu;
+    }
+    return build_dialog(templ, id, parent, proc, init, "CreateDialogIndirectParamA");
 }
 static intptr_t run_modal(HWND hdlg)
 {
@@ -1759,5 +1786,10 @@ extern "C" HWND ra2port_window_at(POINT p, bool enabled_only)
 extern "C" long long ra2port_dialog_shown_ms(int k)
 {
     return k >= 1 && k <= (int)dialog_show_times.size() ? (long long)dialog_show_times[k - 1] : -1;
+}
+// The time the menu had settled after the k-th dialog was shown (exposure_check), -1 until then.
+extern "C" long long ra2port_dialog_settled_ms(int k)
+{
+    return k >= 1 && k <= (int)dialog_settle_times.size() ? (long long)dialog_settle_times[k - 1] : -1;
 }
 extern "C" long long ra2port_now_ms(void) { return (long long)now_ms(); }

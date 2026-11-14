@@ -1,0 +1,1034 @@
+{
+ "module": "smartdeform",
+ "source": "src/recovered/smartdeform.cpp",
+ "header": null,
+ "population": "population-4135",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 894,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00684d50",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "00684d80",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "00684da0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "00684dc0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "00684de0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "00684e00",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "00684e20",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "00684e60",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "00684e90",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "00684ec0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "00684ef0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "00684f00",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "00684f20",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E43",
+   "entry": "00684f40",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E41",
+   "entry": "00684f80",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?unknown_undo_record_684fc0@@YIXABUPoint2D@@H@Z",
+   "entry": "00684fc0",
+   "body_bytes": 111,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?unknown_undo_restore_685030@@YAXXZ",
+   "entry": "00685030",
+   "body_bytes": 122,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?unknown_undo_cell_open_6850b0@@YI_NPAVCellClass@@_N@Z",
+   "entry": "006850b0",
+   "body_bytes": 149,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?unknown_undo_cell_free_685150@@YI_NPAVCellClass@@_N@Z",
+   "entry": "00685150",
+   "body_bytes": 306,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Build_Deform_Grid_00685290@@YIX_NVCell@@@Z",
+   "entry": "00685290",
+   "body_bytes": 866,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Init_Deform_Grid_RMG_00685600@@YAXXZ",
+   "entry": "00685600",
+   "body_bytes": 1209,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Commit_Deform_Grid_00685ac0@@YI_N_NVCell@@@Z",
+   "entry": "00685ac0",
+   "body_bytes": 2327,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Commit_Deform_Grid_RMG_006863e0@@YA_NXZ",
+   "entry": "006863e0",
+   "body_bytes": 557,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Ripple_Deform_Points_00686610@@YI_NUPoint2D@@H_N@Z",
+   "entry": "00686610",
+   "body_bytes": 587,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Deform_Cell_00686860@@YI_NVCell@@H_NI@Z",
+   "entry": "00686860",
+   "body_bytes": 393,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Deform_Cell_RMG_006869f0@@YI_NVCell@@H_NI@Z",
+   "entry": "006869f0",
+   "body_bytes": 669,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Get_Deformed_Cell_Height_00686c90@@YIHPAVCellClass@@@Z",
+   "entry": "00686c90",
+   "body_bytes": 306,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Get_Deformable_Cell_Corners_00686dd0@@YIHPAVCellClass@@H@Z",
+   "entry": "00686dd0",
+   "body_bytes": 365,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Clear@?$DynamicVectorClass@UUndoInfoStruct@@@@UAEXXZ",
+   "entry": "00686f40",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@UUndoInfoStruct@@@@UAEHPBUUndoInfoStruct@@@Z",
+   "entry": "00686f70",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@UUndoInfoStruct@@@@UBE?AUUndoInfoStruct@@H@Z",
+   "entry": "00686fa0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "??8?$VectorClass@UUndoInfoStruct@@@@UBE_NABV0@@Z",
+   "entry": "00686fd0",
+   "body_bytes": 92,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@UUndoInfoStruct@@@@UAE_NHPBUUndoInfoStruct@@@Z",
+   "entry": "00687030",
+   "body_bytes": 253,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Clear@?$VectorClass@UUndoInfoStruct@@@@UAEXXZ",
+   "entry": "00687130",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?ID@?$VectorClass@UUndoInfoStruct@@@@UAEHABUUndoInfoStruct@@@Z",
+   "entry": "00687160",
+   "body_bytes": 80,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?ID@?$VectorClass@UUndoInfoStruct@@@@UAEHPBUUndoInfoStruct@@@Z",
+   "entry": "006871b0",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Resize@?$DynamicVectorClass@UUndoInfoStruct@@@@UAE_NHPBUUndoInfoStruct@@@Z",
+   "entry": "006871e0",
+   "body_bytes": 259,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@UUndoInfoStruct@@@@UAEHABUUndoInfoStruct@@@Z",
+   "entry": "006872f0",
+   "body_bytes": 64,
+   "padding_bytes": 0
+  }
+ ],
+ "code_bytes": 9696,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 13
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 16
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 19
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 22
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 25
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 28
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007ab4f8",
+   "bytes": 16,
+   "kind": "table",
+   "section": 5
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@UUndoInfoStruct@@@@6B@",
+   "address": "007ab508",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 48
+  },
+  {
+   "symbol": "??_7?$VectorClass@UUndoInfoStruct@@@@6B@",
+   "address": "007ab528",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 54
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAVObjectClass@@@@8",
+   "address": "007b2938",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 77
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAVObjectClass@@@@8",
+   "address": "007b2950",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 78
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAVObjectClass@@@@8",
+   "address": "007b29d4",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 73
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAVObjectClass@@@@8",
+   "address": "007b29e0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 74
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAVObjectClass@@@@6B@",
+   "address": "007b29f0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 75
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAVObjectClass@@@@8",
+   "address": "007b4f00",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 79
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAVObjectClass@@@@8",
+   "address": "007b4f10",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 80
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAVObjectClass@@@@6B@",
+   "address": "007b4f20",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 82
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@UUndoInfoStruct@@@@8",
+   "address": "007c1518",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 42
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@UUndoInfoStruct@@@@8",
+   "address": "007c1530",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 43
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@UUndoInfoStruct@@@@8",
+   "address": "007c1548",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@UUndoInfoStruct@@@@8",
+   "address": "007c1558",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 45
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@UUndoInfoStruct@@@@6B@",
+   "address": "007c1568",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 47
+  },
+  {
+   "symbol": "??_R2?$VectorClass@UUndoInfoStruct@@@@8",
+   "address": "007c157c",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 51
+  },
+  {
+   "symbol": "??_R3?$VectorClass@UUndoInfoStruct@@@@8",
+   "address": "007c1588",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 52
+  },
+  {
+   "symbol": "??_R4?$VectorClass@UUndoInfoStruct@@@@6B@",
+   "address": "007c1598",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 53
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAVObjectClass@@@@@8",
+   "address": "007cd570",
+   "bytes": 45,
+   "kind": "rtti",
+   "section": 76
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAVObjectClass@@@@@8",
+   "address": "007cd5a0",
+   "bytes": 52,
+   "kind": "rtti",
+   "section": 81
+  },
+  {
+   "symbol": "__ramp_corners1",
+   "address": "007f4034",
+   "bytes": 404,
+   "kind": "table",
+   "section": 3,
+   "bound_by": [
+    "layout"
+   ]
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@UUndoInfoStruct@@@@@8",
+   "address": "007f41c8",
+   "bytes": 46,
+   "kind": "rtti",
+   "section": 41
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@UUndoInfoStruct@@@@@8",
+   "address": "007f41f8",
+   "bytes": 53,
+   "kind": "rtti",
+   "section": 46
+  }
+ ],
+ "data_ranges": [
+  {
+   "start": "007f4034",
+   "end": "007f4230",
+   "bytes": 508,
+   "proven_bytes": 503,
+   "alignment_bytes": 5,
+   "sections": 3,
+   "complete": true,
+   "gaps": []
+  }
+ ],
+ "data_bytes_proven": 503,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007ab4f8",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@UUndoInfoStruct@@@@6B@",
+   "address": "007ab508",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@UUndoInfoStruct@@@@6B@",
+   "address": "007ab528",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAVObjectClass@@@@8",
+   "address": "007b2938",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAVObjectClass@@@@8",
+   "address": "007b2950",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAVObjectClass@@@@8",
+   "address": "007b29d4",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAVObjectClass@@@@8",
+   "address": "007b29e0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAVObjectClass@@@@6B@",
+   "address": "007b29f0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAVObjectClass@@@@8",
+   "address": "007b4f00",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAVObjectClass@@@@8",
+   "address": "007b4f10",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAVObjectClass@@@@6B@",
+   "address": "007b4f20",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@UUndoInfoStruct@@@@8",
+   "address": "007c1518",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@UUndoInfoStruct@@@@8",
+   "address": "007c1530",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@UUndoInfoStruct@@@@8",
+   "address": "007c1548",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@UUndoInfoStruct@@@@8",
+   "address": "007c1558",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@UUndoInfoStruct@@@@6B@",
+   "address": "007c1568",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@UUndoInfoStruct@@@@8",
+   "address": "007c157c",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@UUndoInfoStruct@@@@8",
+   "address": "007c1588",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@UUndoInfoStruct@@@@6B@",
+   "address": "007c1598",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAVObjectClass@@@@@8",
+   "address": "007cd570",
+   "bytes": 45,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAVObjectClass@@@@@8",
+   "address": "007cd5a0",
+   "bytes": 52,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00584dd0",
+   "symbol": "?Init_Deform_Grid_RMG_00685600@@YAXXZ",
+   "target": "00685600",
+   "function_entry": true
+  },
+  {
+   "site": "00584dd0",
+   "symbol": "?Get_Deformed_Cell_Height_00686c90@@YIHPAVCellClass@@@Z",
+   "target": "00686c90",
+   "function_entry": true
+  },
+  {
+   "site": "00584dd0",
+   "symbol": "?Get_Deformable_Cell_Corners_00686dd0@@YIHPAVCellClass@@H@Z",
+   "target": "00686dd0",
+   "function_entry": true
+  },
+  {
+   "site": "00584dd0",
+   "symbol": "?Deform_Cell_RMG_006869f0@@YI_NVCell@@H_NI@Z",
+   "target": "006869f0",
+   "function_entry": true
+  },
+  {
+   "site": "00584dd0",
+   "symbol": "?Commit_Deform_Grid_RMG_006863e0@@YA_NXZ",
+   "target": "006863e0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z",
+   "address": "00548070"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVObjectClass@@@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@UUndoInfoStruct@@@@UAEPAXI@Z",
+   "address": "00687380"
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVObjectClass@@@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "??_G?$VectorClass@UUndoInfoStruct@@@@UAEPAXI@Z",
+   "address": "00687330"
+  },
+  {
+   "symbol": "?AdjacentCell@@3QBVCell@@B",
+   "address": "00851a70"
+  },
+  {
+   "symbol": "?Cell_Render_Rect@CellClass@@QBE?AVRect@@XZ",
+   "address": "004752b0"
+  },
+  {
+   "symbol": "?Fixup_LAT@CellClass@@QAE_NXZ",
+   "address": "00471d10"
+  },
+  {
+   "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
+   "address": "0054aab0"
+  },
+  {
+   "symbol": "?IsoTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A",
+   "address": "00a40cd0"
+  },
+  {
+   "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
+   "address": "0055a490"
+  },
+  {
+   "symbol": "?Lower_Max_Level@MapClass@@QAEXH@Z",
+   "address": "0056a870"
+  },
+  {
+   "symbol": "?Map@@3VMouseClass@@A",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "?Radar_Background@RadarClass@@QAEXABVCell@@@Z",
+   "address": "00631570"
+  },
+  {
+   "symbol": "?Recalc_Attributes@CellClass@@QAEXH@Z",
+   "address": "00472540"
+  },
+  {
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "address": "006a3020"
+  },
+  {
+   "symbol": "?Remove_Fogged_Objects@CellClass@@QAEXXZ",
+   "address": "0047be60"
+  },
+  {
+   "symbol": "?Reset_Iterator@MapClass@@QAEXXZ",
+   "address": "0055a550"
+  },
+  {
+   "symbol": "?SmudgeTypes@@3V?$DynamicVectorClass@PAVSmudgeTypeClass@@@@A",
+   "address": "00a40bc8"
+  },
+  {
+   "symbol": "?unknown_generation_cell_56dba0@@YIPAUUnknownMapGenerationCell@@ABVCell@@@Z",
+   "address": "0056dba0"
+  },
+  {
+   "symbol": "?unknown_map_max_a70a20@@3HA",
+   "address": "00a70a20"
+  },
+  {
+   "symbol": "?unknown_map_min_a70a1c@@3HA",
+   "address": "00a70a1c"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_rect_839630@@3VRect@@A",
+   "address": "00839630"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_tactical_83996c@@3PAVTactical@@A",
+   "address": "0083996c"
+  },
+  {
+   "symbol": "?unknown_tileset_a52f00@@3HA",
+   "address": "00a52f00"
+  },
+  {
+   "symbol": "?unknown_tileset_a6e018@@3HA",
+   "address": "00a6e018"
+  },
+  {
+   "symbol": "?unknown_undo_cells_abceac@@3PAUUnknownUndoCell@@A",
+   "address": "00abceac"
+  },
+  {
+   "symbol": "?unknown_undo_rows_8286e0@@3HA",
+   "address": "008286e0"
+  },
+  {
+   "symbol": "?unknown_undo_width_8286e4@@3HA",
+   "address": "008286e4"
+  },
+  {
+   "symbol": "?unknown_undo_x_8286e8@@3HA",
+   "address": "008286e8"
+  },
+  {
+   "symbol": "?unknown_undo_y_8286ec@@3HA",
+   "address": "008286ec"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "_atexit",
+   "address": "0078298a"
+  }
+ ],
+ "route": "A",
+ "unit": "smartdeform.cpp",
+ "form": "include blocks held",
+ "switches": [
+  "RA2_UNDO_INFO_POINT",
+  "RA2_RECT_POINT_INLINE",
+  "RA2_RECT_MINUS_INLINE",
+  "RA2_CELL_LAT_BOOL",
+  "RA2_MAP_VIEW_56A870",
+  "VECTOR_IMPLEMENT_ALL"
+ ],
+ "include_blocks": [],
+ "held_rows": [
+  {
+   "entry": "00684f40",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "00684f80",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "00684fc0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "00685030",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006850b0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "00685150",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "00685600",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "00685ac0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006863e0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "00686610",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "00686860",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006869f0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "00686c90",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "00687030",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006871e0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  }
+ ],
+ "joined": [
+  {
+   "entry": "00686f40",
+   "bytes": 42,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "00686f70",
+   "bytes": 36,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "00686fa0",
+   "bytes": 40,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "00686fd0",
+   "bytes": 92,
+   "population": "population-2187",
+   "bound": "own frozen bound (population-2187)"
+  },
+  {
+   "entry": "00687130",
+   "bytes": 39,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "00687160",
+   "bytes": 80,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "006871b0",
+   "bytes": 36,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "006872f0",
+   "bytes": 64,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "00687330",
+   "bytes": 73,
+   "population": "population-15",
+   "source": "src/recovered/classes/VectorClass_UndoInfoStruct/00687330.cpp",
+   "cause": "held by population-15; not joined: the unit's rows carry a data_bound_by declaration (it would have to cover the row)"
+  },
+  {
+   "kind": "split",
+   "entry": "00687380",
+   "bytes": 73,
+   "population": "population-12",
+   "source": "src/recovered/classes/DynamicVectorClass_UndoInfoStruct/00687380.cpp",
+   "cause": "held by population-12; not joined: the unit's rows carry a data_bound_by declaration (it would have to cover the row)"
+  }
+ ],
+ "unit_functions": 44,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVObjectClass@@@@6B@",
+   "reason": "relocation target unbound: ??_E?$VectorClass@PAVObjectClass@@@@UAEPAXI@Z"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVObjectClass@@@@6B@",
+   "reason": "relocation target unbound: ??_E?$DynamicVectorClass@PAVObjectClass@@@@UAEPAXI@Z"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 2,
+  "bytes": 146
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

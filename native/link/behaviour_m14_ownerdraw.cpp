@@ -41,7 +41,7 @@ extern "C" int dprintf(int fd, char const *format, ...);
 extern WolDictionary<HWND, WNDPROC> unknown_window_proc_table_a73688;   // 0x00A73688 (its initializer 0x005DE9C0)
 extern void *unknown_art_ac10c0;                                        // 0x00AC10C0 (kind-3 button shape; 0x006F1B60 loads it)
 
-void __fastcall Unknown_006FA0F0(char *out, unsigned short const *text, int size);   // 0x006FA0F0 (wide to narrow)
+void __fastcall WideToCharString_006fa0f0(char *out, unsigned short const *text, int size);   // 0x006FA0F0 (wide to narrow)
 
 void *Unknown_Get_Art_006f34c0();
 void *Unknown_Get_Art_006f45f0();
@@ -85,7 +85,7 @@ void Frame(Rect const &area, int color)
     s->Draw_Line(Point2D(r, area.Y), Point2D(r, b), color);
 }
 
-void Text(UnknownControlRecord *record, Rect const &area, wchar_t const *text, int x_alignment, int y_alignment)
+void Text(WinData *record, Rect const &area, wchar_t const *text, int x_alignment, int y_alignment)
 {
     if (!text || !*text) return;
     int length = 0;
@@ -128,7 +128,7 @@ bool Item_Text(HWND window, bool combo, int index, wchar_t *out, int size)
 // right and 2 down while pressed. NOT EXACT: the original's pressed/up click
 // sound memory (0x007E8D4C), its saved background (+0x10) for kind 0, the
 // side-coloured disabled text and the disabled darkening are left out.
-void Paint_Button(HWND window, UnknownControlRecord *record, bool lit)
+void Paint_Button(HWND window, WinData *record, bool lit)
 {
     Rect area = Area(window);
     bool pressed = (record->unknown_e8 & 1) != 0 || (Original(window, 0xF2, 0, 0) & 4) != 0;   // ODS_SELECTED / BST_PUSHED
@@ -189,7 +189,7 @@ void Paint_Button(HWND window, UnknownControlRecord *record, bool lit)
 // 0x005F0320: the push button procedure.
 LRESULT __stdcall unknown_button_proc_5f0320(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    UnknownControlRecord *record = Get_Record(window);
+    WinData *record = Get_Record(window);
     if (!record) {
         return Original(window, message, wparam, lparam);
     }
@@ -275,15 +275,15 @@ void Static_Extra_Release(HWND window)
         if (slot.window == window) slot.window = 0;
     }
 }
-int &Static_Text_Arg(UnknownControlRecord *record)          // +0xAC
+int &Static_Text_Arg(WinData *record)          // +0xAC
 {
     return *(int *)((char *)record->unknown_a9 + (0xAC - 0xA9));
 }
-bool &Static_Fill(UnknownControlRecord *record)             // +0xB4
+bool &Static_Fill(WinData *record)             // +0xB4
 {
     return *(bool *)((char *)record->unknown_b4 + 0);
 }
-unsigned long &Static_Fill_Color(UnknownControlRecord *record)   // +0xB8
+unsigned long &Static_Fill_Color(WinData *record)   // +0xB8
 {
     return *(unsigned long *)((char *)record->unknown_b4 + 4);
 }
@@ -314,7 +314,7 @@ void Static_Start_Movie(HWND window, StaticExtra &extra, char const *name)
 
 LRESULT __stdcall unknown_static_proc_5f2b50(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    UnknownControlRecord *record = Get_Record(window);
+    WinData *record = Get_Record(window);
     if (!record) {
         return 0;
     }
@@ -497,7 +497,7 @@ LRESULT __stdcall unknown_static_proc_5f2b50(HWND window, UINT message, WPARAM w
         if (!record->unknown_78 || record->unknown_70 != 4 || record->unknown_a8) return 0;
         record->unknown_a8 = true;
         HWND parent = GetParent(window);
-        UnknownControlRecord *dialog = parent ? Get_Record(parent) : 0;
+        WinData *dialog = parent ? Get_Record(parent) : 0;
         int dialog_kind = dialog ? dialog->unknown_6c : 0;
         int id = GetDlgCtrlID(window);
         static int const listed[] = {0x94, 0xD8, 0xF5, 0xE2, 0xD5, 0x101, 0x129, 0xD7, 0xBB, 0x100, 0xD6, 0x125, 0x122, 0x112, 0xE7, 0x116,
@@ -613,7 +613,7 @@ void List_Shift_Rows(ListColumns *columns, int row, int delta)
 // 0x005F6690: the list box procedure.
 LRESULT __stdcall unknown_list_proc_5f6690(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    UnknownControlRecord *record = Get_Record(window);
+    WinData *record = Get_Record(window);
     if (record && message == 0x4A6) {
         ListColumns *columns = List_Columns(window, true);
         if (!columns || columns->count >= 8) return -1;
@@ -778,7 +778,7 @@ HWND &Combo_Drop(HWND combo, bool make)
 
 LRESULT __stdcall unknown_combo_proc_5f4ba0(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    UnknownControlRecord *record = Get_Record(window);
+    WinData *record = Get_Record(window);
     if (record) {
         switch (message) {
         case 0x4BB: case 0x4BC: case 0x4C1: case 0x4C2: {
@@ -791,7 +791,7 @@ LRESULT __stdcall unknown_combo_proc_5f4ba0(HWND window, UINT message, WPARAM wp
                 else while (((char const *)lparam)[length]) ++length;
             }
             if (wide) {
-                Unknown_006FA0F0(narrow, (unsigned short const *)lparam, sizeof narrow);
+                WideToCharString_006fa0f0(narrow, (unsigned short const *)lparam, sizeof narrow);
             } else {
                 int n = length < (int)sizeof narrow - 1 ? length : (int)sizeof narrow - 1;
                 for (int i = 0; i < n; ++i) narrow[i] = ((char const *)lparam)[i];
@@ -1069,7 +1069,7 @@ LRESULT __stdcall unknown_combo_proc_5f4ba0(HWND window, UINT message, WPARAM wp
 // 0x005F0F40: the tab control procedure.
 LRESULT __stdcall unknown_tab_proc_5f0f40(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    UnknownControlRecord *record = Get_Record(window);
+    WinData *record = Get_Record(window);
     if (!record || message != 0xF) {
         if (message == 0x14) return 1;
         return Original(window, message, wparam, lparam);
@@ -1087,7 +1087,7 @@ LRESULT __stdcall unknown_tab_proc_5f0f40(HWND window, UINT message, WPARAM wpar
 // text; 0x4B3/0x4B5 read it wide/narrow, 0x4B2/0x4B4 reset it from +0x28.
 LRESULT __stdcall unknown_new_edit_proc_5f22a0(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    UnknownControlRecord *record = Get_Record(window);
+    WinData *record = Get_Record(window);
     if (!record || !record->unknown_3c) {
         return Original(window, message, wparam, lparam);
     }
@@ -1128,7 +1128,7 @@ LRESULT __stdcall unknown_new_edit_proc_5f22a0(HWND window, UINT message, WPARAM
     }
     case 0x4B5: {                                   // the text, narrow
         char *out = (char *)lparam;
-        Unknown_006FA0F0(out, text.Get(), (int)wparam);
+        WideToCharString_006fa0f0(out, text.Get(), (int)wparam);
         out[wparam - 1] = 0;
         int i = 0;
         while (out[i]) ++i;
@@ -1201,12 +1201,6 @@ LRESULT __stdcall unknown_new_edit_proc_5f22a0(HWND window, UINT message, WPARAM
         return 0;
     }
     return Original(window, message, wparam, lparam);
-}
-
-// 0x005EAD00 (decompile: DefWindowProcA): the drop list's frame window procedure.
-LRESULT __stdcall unknown_new_edit_proc_5ead00(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
-{
-    return DefWindowProcA(window, message, wparam, lparam);
 }
 
 } // namespace OwnerDraw

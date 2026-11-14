@@ -1,0 +1,987 @@
+{
+ "module": "multiplayerteam2",
+ "source": "src/recovered/multiplayerteam2.cpp",
+ "header": null,
+ "population": "population-4351",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 29,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "005b9c50",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "005b9c80",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "005b9ca0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "005b9cc0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "005b9ce0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "005b9d00",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "005b9d20",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "005b9d60",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "005b9d90",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "005b9dc0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "005b9df0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "005b9e00",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "005b9e20",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E57",
+   "entry": "005b9e40",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??0FirewallSettings@@QAE@XZ",
+   "entry": "005b9e60",
+   "body_bytes": 16,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Detect_And_Save_005b9e80@FirewallSettings@@QAEXXZ",
+   "entry": "005b9e80",
+   "body_bytes": 132,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Get_Next_Port@FirewallSettings@@QAEGH@Z",
+   "entry": "005b9f10",
+   "body_bytes": 119,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Send_Mangler_Query@FirewallSettings@@QAE_NPAVIPXAddressClass@@GH_N@Z",
+   "entry": "005b9f90",
+   "body_bytes": 305,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Wait_For_Mangler_Reply@FirewallSettings@@QAEGHH@Z",
+   "entry": "005ba0d0",
+   "body_bytes": 307,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Save_005ba210@FirewallSettings@@QAEXXZ",
+   "entry": "005ba210",
+   "body_bytes": 102,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Load_005ba280@FirewallSettings@@QAEXXZ",
+   "entry": "005ba280",
+   "body_bytes": 55,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Detect_005ba2c0@FirewallSettings@@QAEHPA_N@Z",
+   "entry": "005ba2c0",
+   "body_bytes": 2447,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Get_Allocation_Delta@FirewallSettings@@QAEHHPAG0PA_N1@Z",
+   "entry": "005bac50",
+   "body_bytes": 647,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Connection_Weight_005baee0@FirewallSettings@@QAEHE@Z",
+   "entry": "005baee0",
+   "body_bytes": 57,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Connection_Step_005baf20@FirewallSettings@@QAEHH@Z",
+   "entry": "005baf20",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Get_Mangled_Port@FirewallSettings@@QAEGG@Z",
+   "entry": "005baf50",
+   "body_bytes": 1014,
+   "padding_bytes": 10
+  }
+ ],
+ "code_bytes": 5872,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a7320",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_C@_07IBND@RA2?4INI?$AA@",
+   "address": "007db8b8",
+   "bytes": 8,
+   "kind": "string",
+   "section": 47
+  },
+  {
+   "symbol": "??_C@_0M@MLEF@MultiPlayer?$AA@",
+   "address": "007dbce4",
+   "bytes": 12,
+   "kind": "string",
+   "section": 45
+  },
+  {
+   "symbol": "??_C@_0O@OMOI@FirewallDelta?$AA@",
+   "address": "007e63dc",
+   "bytes": 14,
+   "kind": "string",
+   "section": 44
+  },
+  {
+   "symbol": "??_C@_0BB@DHMB@FirewallSettings?$AA@",
+   "address": "007e63ec",
+   "bytes": 17,
+   "kind": "string",
+   "section": 46
+  },
+  {
+   "symbol": "??_C@_0BM@OCAO@Sending?5from?5port?5?$CFd?5to?5?$CFs?6?$AA@",
+   "address": "007e6400",
+   "bytes": 28,
+   "kind": "string",
+   "section": 52
+  },
+  {
+   "symbol": "??_C@_02PIAM@WW?$AA@",
+   "address": "007e641c",
+   "bytes": 3,
+   "kind": "string",
+   "section": 53
+  },
+  {
+   "symbol": "??_C@_0DP@PFHK@Mangler?5is?5seeing?5packets?5from?5p@",
+   "address": "007e6420",
+   "bytes": 63,
+   "kind": "string",
+   "section": 56
+  },
+  {
+   "symbol": "??_C@_0DP@JKOA@NAT?5uses?5the?5same?5source?5port?5fo@",
+   "address": "007e6460",
+   "bytes": 63,
+   "kind": "string",
+   "section": 63
+  },
+  {
+   "symbol": "??_C@_0BJ@BLDP@Testing?5for?5Netgear?5bug?6?$AA@",
+   "address": "007e64a0",
+   "bytes": 25,
+   "kind": "string",
+   "section": 64
+  },
+  {
+   "symbol": "??_C@_0EB@IJDC@NAT?5uses?5different?5source?5ports?5@",
+   "address": "007e64bc",
+   "bytes": 65,
+   "kind": "string",
+   "section": 65
+  },
+  {
+   "symbol": "??_C@_0FD@KGBG@Testing?5to?5see?5if?5the?5NAT?5mangle@",
+   "address": "007e6500",
+   "bytes": 83,
+   "kind": "string",
+   "section": 66
+  },
+  {
+   "symbol": "??_C@_0CF@NPCK@gethostbyname?5failed?$CB?5Error?5code@",
+   "address": "007e6554",
+   "bytes": 37,
+   "kind": "string",
+   "section": 67
+  },
+  {
+   "symbol": "??_C@_0CG@GEGA@Found?5mangler?5address?5at?5?$CFd?4?$CFd?4?$CF@",
+   "address": "007e657c",
+   "bytes": 38,
+   "kind": "string",
+   "section": 68
+  },
+  {
+   "symbol": "??_C@_0BN@JACA@Using?5mangler?5from?5servserv?6?$AA@",
+   "address": "007e65a4",
+   "bytes": 29,
+   "kind": "string",
+   "section": 69
+  },
+  {
+   "symbol": "??_C@_0DF@KLHC@About?5to?5call?5gethostbyname?5for?5@",
+   "address": "007e65c4",
+   "bytes": 53,
+   "kind": "string",
+   "section": 70
+  },
+  {
+   "symbol": "??_C@_0DJ@CHII@Netgear?5bug?5specified?5by?5command@",
+   "address": "007e65fc",
+   "bytes": 57,
+   "kind": "string",
+   "section": 71
+  },
+  {
+   "symbol": "??_C@_0CC@IKGL@Source?5port?5?$CFd?5specified?5by?5user@",
+   "address": "007e6638",
+   "bytes": 34,
+   "kind": "string",
+   "section": 72
+  },
+  {
+   "symbol": "??_C@_0DK@OEFH@Detected?5probable?5broken?5relativ@",
+   "address": "007e665c",
+   "bytes": 58,
+   "kind": "string",
+   "section": 77
+  },
+  {
+   "symbol": "??_C@_0DC@FED@Looks?5good?5for?5a?5relative?5port?5r@",
+   "address": "007e6698",
+   "bytes": 50,
+   "kind": "string",
+   "section": 78
+  },
+  {
+   "symbol": "??_C@_0DD@DPKI@Probable?5absolute?5allocation?5seq@",
+   "address": "007e66cc",
+   "bytes": 51,
+   "kind": "string",
+   "section": 79
+  },
+  {
+   "symbol": "??_C@_0DJ@KLFN@Looks?5good?5for?5absolute?5allocati@",
+   "address": "007e6700",
+   "bytes": 57,
+   "kind": "string",
+   "section": 80
+  },
+  {
+   "symbol": "??_C@_0CL@GAG@Semi?9incremental?5port?5allocation@",
+   "address": "007e673c",
+   "bytes": 43,
+   "kind": "string",
+   "section": 81
+  },
+  {
+   "symbol": "??_C@_0CG@NGDL@Incremental?5port?5allocation?5dete@",
+   "address": "007e6768",
+   "bytes": 38,
+   "kind": "string",
+   "section": 82
+  },
+  {
+   "symbol": "??_C@_0EG@CPIC@Looking?5for?5port?5allocation?5patt@",
+   "address": "007e6790",
+   "bytes": 70,
+   "kind": "string",
+   "section": 83
+  },
+  {
+   "symbol": "??_C@_0DE@CNHK@FirewallHelper?5?9?5Returning?5next?5@",
+   "address": "007e67d8",
+   "bytes": 52,
+   "kind": "string",
+   "section": 90
+  },
+  {
+   "symbol": "??_C@_0DD@LEJG@Couldn?8t?5find?5mangled?5port?0?5retu@",
+   "address": "007e680c",
+   "bytes": 51,
+   "kind": "string",
+   "section": 91
+  },
+  {
+   "symbol": "??_C@_0CE@LLMM@FirewallHelper?5?9?5Mangled?5port?5?$DN?5@",
+   "address": "007e6840",
+   "bytes": 36,
+   "kind": "string",
+   "section": 92
+  },
+  {
+   "symbol": "??_C@_0CP@BKLK@FirewallHelper?5?9?5Getting?5manglin@",
+   "address": "007e6864",
+   "bytes": 47,
+   "kind": "string",
+   "section": 93
+  },
+  {
+   "symbol": "??_C@_0L@HLJL@fw?5?$DN?5?$CF08x?6?$AA@",
+   "address": "007e6894",
+   "bytes": 11,
+   "kind": "string",
+   "section": 94
+  },
+  {
+   "symbol": "??_C@_0BH@BBKO@Mangler?5address?5is?5?$CFs?6?$AA@",
+   "address": "007e68a0",
+   "bytes": 23,
+   "kind": "string",
+   "section": 95
+  },
+  {
+   "symbol": "??_C@_0CF@LNBH@Mangler?5address?5is?5?$CFd?4?$CFd?4?$CFd?4?$CFd?5?$DL@",
+   "address": "007e68b8",
+   "bytes": 37,
+   "kind": "string",
+   "section": 96
+  },
+  {
+   "symbol": "??_C@_0DG@OIGL@Firewall?5helper?5?9?5About?5to?5call?5@",
+   "address": "007e68e0",
+   "bytes": 54,
+   "kind": "string",
+   "section": 97
+  },
+  {
+   "symbol": "??_C@_0BG@MLDE@mangler1?4westwood?4com?$AA@",
+   "address": "007e6918",
+   "bytes": 22,
+   "kind": "string",
+   "section": 98
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a7320",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_C@_07IBND@RA2?4INI?$AA@",
+   "address": "007db8b8",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@MLEF@MultiPlayer?$AA@",
+   "address": "007dbce4",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@OMOI@FirewallDelta?$AA@",
+   "address": "007e63dc",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@DHMB@FirewallSettings?$AA@",
+   "address": "007e63ec",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BM@OCAO@Sending?5from?5port?5?$CFd?5to?5?$CFs?6?$AA@",
+   "address": "007e6400",
+   "bytes": 28,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_02PIAM@WW?$AA@",
+   "address": "007e641c",
+   "bytes": 3,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DP@PFHK@Mangler?5is?5seeing?5packets?5from?5p@",
+   "address": "007e6420",
+   "bytes": 63,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DP@JKOA@NAT?5uses?5the?5same?5source?5port?5fo@",
+   "address": "007e6460",
+   "bytes": 63,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BJ@BLDP@Testing?5for?5Netgear?5bug?6?$AA@",
+   "address": "007e64a0",
+   "bytes": 25,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0EB@IJDC@NAT?5uses?5different?5source?5ports?5@",
+   "address": "007e64bc",
+   "bytes": 65,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0FD@KGBG@Testing?5to?5see?5if?5the?5NAT?5mangle@",
+   "address": "007e6500",
+   "bytes": 83,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CF@NPCK@gethostbyname?5failed?$CB?5Error?5code@",
+   "address": "007e6554",
+   "bytes": 37,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CG@GEGA@Found?5mangler?5address?5at?5?$CFd?4?$CFd?4?$CF@",
+   "address": "007e657c",
+   "bytes": 38,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BN@JACA@Using?5mangler?5from?5servserv?6?$AA@",
+   "address": "007e65a4",
+   "bytes": 29,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DF@KLHC@About?5to?5call?5gethostbyname?5for?5@",
+   "address": "007e65c4",
+   "bytes": 53,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DJ@CHII@Netgear?5bug?5specified?5by?5command@",
+   "address": "007e65fc",
+   "bytes": 57,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CC@IKGL@Source?5port?5?$CFd?5specified?5by?5user@",
+   "address": "007e6638",
+   "bytes": 34,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DK@OEFH@Detected?5probable?5broken?5relativ@",
+   "address": "007e665c",
+   "bytes": 58,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DC@FED@Looks?5good?5for?5a?5relative?5port?5r@",
+   "address": "007e6698",
+   "bytes": 50,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DD@DPKI@Probable?5absolute?5allocation?5seq@",
+   "address": "007e66cc",
+   "bytes": 51,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DJ@KLFN@Looks?5good?5for?5absolute?5allocati@",
+   "address": "007e6700",
+   "bytes": 57,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CL@GAG@Semi?9incremental?5port?5allocation@",
+   "address": "007e673c",
+   "bytes": 43,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CG@NGDL@Incremental?5port?5allocation?5dete@",
+   "address": "007e6768",
+   "bytes": 38,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0EG@CPIC@Looking?5for?5port?5allocation?5patt@",
+   "address": "007e6790",
+   "bytes": 70,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DE@CNHK@FirewallHelper?5?9?5Returning?5next?5@",
+   "address": "007e67d8",
+   "bytes": 52,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DD@LEJG@Couldn?8t?5find?5mangled?5port?0?5retu@",
+   "address": "007e680c",
+   "bytes": 51,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CE@LLMM@FirewallHelper?5?9?5Mangled?5port?5?$DN?5@",
+   "address": "007e6840",
+   "bytes": 36,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CP@BKLK@FirewallHelper?5?9?5Getting?5manglin@",
+   "address": "007e6864",
+   "bytes": 47,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@HLJL@fw?5?$DN?5?$CF08x?6?$AA@",
+   "address": "007e6894",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BH@BBKO@Mangler?5address?5is?5?$CFs?6?$AA@",
+   "address": "007e68a0",
+   "bytes": 23,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CF@LNBH@Mangler?5address?5is?5?$CFd?4?$CFd?4?$CFd?4?$CFd?5?$DL@",
+   "address": "007e68b8",
+   "bytes": 37,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DG@OIGL@Firewall?5helper?5?9?5About?5to?5call?5@",
+   "address": "007e68e0",
+   "bytes": 54,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BG@MLDE@mangler1?4westwood?4com?$AA@",
+   "address": "007e6918",
+   "bytes": 22,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0075e000",
+   "symbol": "?Detect_And_Save_005b9e80@FirewallSettings@@QAEXXZ",
+   "target": "005b9e80",
+   "function_entry": true
+  },
+  {
+   "site": "0066f3a0",
+   "symbol": "?Load_005ba280@FirewallSettings@@QAEXXZ",
+   "target": "005ba280",
+   "function_entry": true
+  },
+  {
+   "site": "0074ef80",
+   "symbol": "?Connection_Step_005baf20@FirewallSettings@@QAEHH@Z",
+   "target": "005baf20",
+   "function_entry": true
+  },
+  {
+   "site": "0074ef80",
+   "symbol": "?Connection_Step_005baf20@FirewallSettings@@QAEHH@Z",
+   "target": "005baf20",
+   "function_entry": true
+  },
+  {
+   "site": "0074ef80",
+   "symbol": "?Connection_Step_005baf20@FirewallSettings@@QAEHH@Z",
+   "target": "005baf20",
+   "function_entry": true
+  },
+  {
+   "site": "0074e070",
+   "symbol": "?Connection_Weight_005baee0@FirewallSettings@@QAEHE@Z",
+   "target": "005baee0",
+   "function_entry": true
+  },
+  {
+   "site": "0074e070",
+   "symbol": "?Connection_Weight_005baee0@FirewallSettings@@QAEHE@Z",
+   "target": "005baee0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "address": "00523410"
+  },
+  {
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "address": "00638b40"
+  },
+  {
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "address": "00638ac0"
+  },
+  {
+   "symbol": "??BSystemTimerClass@@QBEJXZ",
+   "address": "0069a430"
+  },
+  {
+   "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
+   "address": "00523840"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+   "address": "0050d7f0"
+  },
+  {
+   "symbol": "?Global_Num_Receive@IPXManagerClass@@UAEHXZ",
+   "address": "00526a60"
+  },
+  {
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "address": "00526a40"
+  },
+  {
+   "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
+   "address": "00839c50"
+  },
+  {
+   "symbol": "?Put_Int@INIClass@@QAE_NPBD0HH@Z",
+   "address": "0050d6e0"
+  },
+  {
+   "symbol": "?Save@CCINIClass@@QAEHAAVFileClass@@_N@Z",
+   "address": "004698f0"
+  },
+  {
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "address": "00525830"
+  },
+  {
+   "symbol": "?Service@IPXManagerClass@@UAEHXZ",
+   "address": "00525f60"
+  },
+  {
+   "symbol": "?Set_Node@IPXAddressClass@@QAEXQAE@Z",
+   "address": "00523540"
+  },
+  {
+   "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
+   "address": "00523960"
+  },
+  {
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "address": "00481fb0"
+  },
+  {
+   "symbol": "?unknown_525af0@IPXManagerClass@@QAEHHPAXPAHPAVIPXAddressClass@@PAGPAK@Z",
+   "address": "00525af0"
+  },
+  {
+   "symbol": "?unknown_525b30@IPXManagerClass@@QAEXH@Z",
+   "address": "00525b30"
+  },
+  {
+   "symbol": "?unknown_default_manglers_7e6334@@3PAY0CA@DA",
+   "address": "007e6334"
+  },
+  {
+   "symbol": "?unknown_game_mode_a3d298@@3HA",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_ini_839740@@3VCCINIClass@@A",
+   "address": "00839740"
+  },
+  {
+   "symbol": "?unknown_ipx_manager_a40978@@3VIPXManagerClass@@A",
+   "address": "00a40978"
+  },
+  {
+   "symbol": "?unknown_mangler_addresses_b26cbc@@3PAY0IA@DA",
+   "address": "00b26cbc"
+  },
+  {
+   "symbol": "?unknown_mangler_count_b2ac34@@3HA",
+   "address": "00b2ac34"
+  },
+  {
+   "symbol": "?unknown_mangler_index_b2ac38@@3HA",
+   "address": "00b2ac38"
+  },
+  {
+   "symbol": "?unknown_mangler_packet_id_7e63d4@@3HA",
+   "address": "007e63d4"
+  },
+  {
+   "symbol": "?unknown_mangler_ports_b291a4@@3PAHA",
+   "address": "00b291a4"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_netgear_bug_a40188@@3_NA",
+   "address": "00a40188"
+  },
+  {
+   "symbol": "?unknown_router_b2ac30@@3HA",
+   "address": "00b2ac30"
+  },
+  {
+   "symbol": "?unknown_source_port_a4025c@@3HA",
+   "address": "00a4025c"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "_WSAGetLastError@0",
+   "address": "00781b7e"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "_gethostbyname@4",
+   "address": "00781b84"
+  }
+ ],
+ "route": "A",
+ "unit": "multiplayerteam2.cpp",
+ "form": "one include block",
+ "switches": [
+  "RA2_FIREWALL_SETTINGS_UNIT"
+ ],
+ "include_blocks": [
+  {
+   "before": "005b9c50",
+   "lines": 15
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "005b9e80",
+   "population": "population-3733"
+  },
+  {
+   "entry": "005ba210",
+   "population": "population-3733"
+  },
+  {
+   "entry": "005baf20",
+   "population": "population-45"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "005b9e70",
+   "bytes": 7,
+   "population": "population-4352",
+   "source": "src/recovered/classes/FirewallSettings/Clear.cpp",
+   "cause": "frozen in another population's inventory pass (population-4352)"
+  }
+ ],
+ "unit_functions": 27,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 1,
+  "bytes": 7
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

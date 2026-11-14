@@ -1,1 +1,0 @@
-EnumConnectionPointsClass::EnumConnectionPointsClass(EnumConnectionPointsClass const &other):Position(other.Position),RefCount(0),Points(other.Points) { for(int i=0;i<Points.Count();++i) Points[i]->AddRef(); }

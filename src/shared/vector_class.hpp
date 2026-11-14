@@ -44,17 +44,23 @@
 // VC6 groups overloaded virtuals in reverse declaration order, so
 // ID(T const *) is declared before ID(T const &).
 //
-// Compiling one member at a time
-// ------------------------------
-// VC6 ignores explicit instantiation of a single member function, and a
-// whole-class explicit instantiation (`template class X<T>;`) emits every
-// member whose definition is visible. Member definitions are therefore
-// grouped below under VECTOR_IMPLEMENT_<CLASS>_<MEMBER> guards (or
-// VECTOR_IMPLEMENT_ALL for ordinary users). A recovery source defines the
-// guard of its one member, includes this header and explicitly instantiates
-// the class; only that member is emitted (no vtable, no other members).
-// Bodies access fields directly instead of through inline accessors so no
-// accessor copy is emitted either.
+// Instantiation
+// -------------
+// A file that selects no member gets every member, as in Westwood's own
+// header: TibSun code/vector.h defines each member in the header with no
+// guard (VectorClass constructor :144, destructor :181, copy constructor :203,
+// operator== :268, ID :301 and :325, Clear :355, Resize :386;
+// DynamicVectorClass Resize :599, Add :656, Add_Head :702, Delete :839 and
+// Delete_Index :867), so a unit that uses a list instantiates the members it
+// needs (every virtual member once it emits the class's vtable).
+// The VECTOR_IMPLEMENT_<CLASS>_<MEMBER> switches remain only for the
+// single-member files of rows that stay in their own files: VC6 ignores the
+// explicit instantiation of a single member function, and a whole-class
+// explicit instantiation (`template class X<T>;`) emits every member whose
+// definition is visible, so such a file defines the switch of its one member,
+// includes this header and explicitly instantiates the class. Bodies access
+// fields directly instead of through inline accessors so no accessor copy is
+// emitted either.
 
 #ifndef SHARED_VECTOR_CLASS_HPP
 #define SHARED_VECTOR_CLASS_HPP
@@ -81,6 +87,41 @@ public:
 
 #include "shared/vector_class_decl.hpp"
 
+
+// A file that selects no member gets every member (TibSun code/vector.h, see
+// "Instantiation" above). VECTOR_DECLARATIONS_ONLY keeps every member
+// undefined in the few sources whose text does not yet reproduce the original
+// unit's list uses; their rows carry the declarations_only judgment flag.
+#if !defined(VECTOR_DECLARATIONS_ONLY) && \
+    !defined(VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS) && \
+    !defined(VECTOR_IMPLEMENT_DYNAMIC_ADD) && \
+    !defined(VECTOR_IMPLEMENT_DYNAMIC_ADD_AFTER) && \
+    !defined(VECTOR_IMPLEMENT_DYNAMIC_ADD_HEAD) && \
+    !defined(VECTOR_IMPLEMENT_DYNAMIC_ASSIGN) && \
+    !defined(VECTOR_IMPLEMENT_DYNAMIC_CLEAR) && \
+    !defined(VECTOR_IMPLEMENT_DYNAMIC_CONSTRUCTOR) && \
+    !defined(VECTOR_IMPLEMENT_DYNAMIC_DELETE_INDEX) && \
+    !defined(VECTOR_IMPLEMENT_DYNAMIC_DELETE_OBJECT) && \
+    !defined(VECTOR_IMPLEMENT_DYNAMIC_ID_OBJECT) && \
+    !defined(VECTOR_IMPLEMENT_DYNAMIC_ID_POINTER) && \
+    !defined(VECTOR_IMPLEMENT_DYNAMIC_INSERT_AFTER) && \
+    !defined(VECTOR_IMPLEMENT_DYNAMIC_NOINIT_CONSTRUCTOR) && \
+    !defined(VECTOR_IMPLEMENT_DYNAMIC_RESIZE) && \
+    !defined(VECTOR_IMPLEMENT_DYNAMIC_SET_GROWTH_STEP) && \
+    !defined(VECTOR_IMPLEMENT_VECTOR_ACCESSORS) && \
+    !defined(VECTOR_IMPLEMENT_VECTOR_ASSIGN) && \
+    !defined(VECTOR_IMPLEMENT_VECTOR_CLEAR) && \
+    !defined(VECTOR_IMPLEMENT_VECTOR_CONSTRUCTOR) && \
+    !defined(VECTOR_IMPLEMENT_VECTOR_COPY_CONSTRUCTOR) && \
+    !defined(VECTOR_IMPLEMENT_VECTOR_DESTRUCTOR) && \
+    !defined(VECTOR_IMPLEMENT_VECTOR_EQUAL) && \
+    !defined(VECTOR_IMPLEMENT_VECTOR_FETCH) && \
+    !defined(VECTOR_IMPLEMENT_VECTOR_ID_OBJECT) && \
+    !defined(VECTOR_IMPLEMENT_VECTOR_ID_POINTER) && \
+    !defined(VECTOR_IMPLEMENT_VECTOR_NOINIT_CONSTRUCTOR) && \
+    !defined(VECTOR_IMPLEMENT_VECTOR_RESIZE)
+#define VECTOR_IMPLEMENT_ALL
+#endif
 
 #ifdef VECTOR_IMPLEMENT_ALL
 #define VECTOR_IMPLEMENT_VECTOR_ACCESSORS

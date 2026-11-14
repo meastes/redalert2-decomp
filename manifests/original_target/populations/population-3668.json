@@ -4,8 +4,8 @@
     "id": "population-3668",
     "inventory_sha256": "8c96d07c59d9594da71a7bef6da41ee4b676d420a90147a15697d52e6f35b0c5",
     "gaps_sha256": "df177c8103268fc13c4dde60f1263da5ba5f0be5f2463bd639f35035f0938f6e",
-    "historical_population_sha256": "349d481a853ffe9211977723048bac04be100cecf40bc6c08abbe85302df5786",
-    "historical_acceptance_sha256": "af770cfe9651e489713141eb5f3610d3b320c89e3f6b8454a770f01aaee7a2fa"
+    "historical_population_sha256": "b54de39bcbed7458c93e3fac6999f2516c88d4036f67fe03d000ae42ecfffe85",
+    "historical_acceptance_sha256": "129983187e7d732272f978d0ac9a9761f11178d56524bda8b4569d22774270bf"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -658,7 +658,7 @@
     "??8CoordStruct@@QBE_NABU0@@Z": 6400176,
     "?ID@?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@UAEHABU?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@Z": 6507984,
     "?ID@?$DynamicVectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@UAEHABU?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@Z": 6508368,
-    "__DAT_00ab6e88": 11234952,
+    "__waypoint_none_00ab6e88": 11234952,
     "?ID@?$DynamicVectorClass@UUndoInfoStruct@@@@UAEHPBUUndoInfoStruct@@@Z": 6844272,
     "?ID@?$VectorClass@UUndoInfoStruct@@@@UAEHPBUUndoInfoStruct@@@Z": 6844848,
     "?ID@?$DynamicVectorClass@UDirtyAreaStruct@@@@UAEHPBUDirtyAreaStruct@@@Z": 6998176,
@@ -693,7 +693,7 @@
     "?ID@?$VectorClass@UWstring@@@@UAEHPBUWstring@@@Z": 6766288,
     "?ID@?$VectorClass@PAVSpawnControl@@@@UAEHPBQAVSpawnControl@@@Z": 6859840,
     "?ID@?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UAEHPBV?$rc_ptr@VConflict@WorldDominationTour@@@@@Z": 7499136,
-    "__DAT_0084ed10": 8711440,
+    "__cell_none_0084ed10": 8711440,
     "_free": 7874024,
     "__strdup": 7919638,
     "??_GAbstractClass@@UAEPAXI@Z": 4260672,
@@ -1015,8 +1015,8 @@
     "?Lock@DSurface@@UAEPAXUPoint2D@@@Z": 4893824,
     "??HRectPoint2D@@QBE?BU0@ABU0@@Z": 4412736,
     "?Top_Left@Rect@@QBE?AURectPoint2D@@XZ": 4412768,
-    "__DAT_00ab6ea8": 11234984,
-    "__DAT_00ab6eb0": 11234992,
+    "__unknown_timer_start_00ab6ea8": 11234984,
+    "__unknown_timer_accum_00ab6eb0": 11234992,
     "__DAT_00ac0168": 11272552,
     "__DAT_00ac0170": 11272560,
     "??0Rect@@QAE@HHHH@Z": 4373712,
@@ -2850,7 +2850,7 @@
     "?Flag_Event_Tripped@TriggerClass@@QAEXH@Z": 7264560,
     "?Name@HouseClass@@UAGPAGXZ": 5122800,
     "?Name@MissionControlClass@@QBEPBDXZ": 5852688,
-    "?Next_ID@UnknownIDSource@@QAEJXZ": 6697328,
+    "?Next_ID@ScenarioClass@@QAEJXZ": 6697328,
     "?One_Time@DisplayClass@@UAEXXZ": 4819824,
     "?One_Time@GScreenClass@@UAEXXZ": 5114192,
     "?One_Time@MapClass@@UAEXXZ": 5538000,
@@ -3436,7 +3436,7 @@
     "?Is_Linked_To_Local@TriggerTypeClass@@QBE_NH@Z": 7266944,
     "?Attaches_To@TriggerTypeClass@@QBEHXZ": 7267344,
     "?unknown_game_mode_a3d298@@3HA": 10736280,
-    "?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A": 10736272,
+    "?unknown_id_source_a3d290@@3PAVScenarioClass@@A": 10736272,
     "?unknown_map_8324e0@@3VRadSiteMap@@A": 8594656,
     "?unknown_map_8324e0@@3VUnknownMap8324E0@@A": 8594656,
     "?unknown_objects_a40368@@3V?$DynamicVectorClass@PAVObjectClass@@@@A": 10748776,
@@ -3941,7 +3941,7 @@
     "??0BombClass@@QAE@XZ": 4414432,
     "?Load@UnknownBlock_a3d2b0@@QAE_NPAUIStream@@@Z": 6760576,
     "?Save@UnknownBlock_a3d2b0@@QAE_NPAUIStream@@@Z": 6760496,
-    "?Set_Text@SubTitle@@QAEXPBG@Z": 6926624,
+    "?Set_Caption@SubTitle@@QAEXPBG@Z": 6926624,
     "?Contains_Any@UnknownWideString_00771540@@QBE_NPBG@Z": 7804224,
     "?Get@UnknownList_768260@@QAE_NPAPAXH@Z": 7766624,
     "?Find_Or_Make@TerrainTypeClass@@SIPAV1@PBD@Z": 7232032,
@@ -3988,7 +3988,7 @@
     "??1TeamTypeClass@@UAE@XZ": 7072688,
     "?Read_INI@TeamTypeClass@@UAE_NAAVCCINIClass@@@Z": 7074608,
     "?Write_INI@TeamTypeClass@@UBE_NAAVCCINIClass@@@Z": 7075696,
-    "?Get_Waypoint_Location@UnknownIDSource@@QBE?AVCell@@H@Z": 6697344,
+    "?Get_Waypoint_Location@ScenarioClass@@QBE?AVCell@@H@Z": 6697344,
     "?Read_INI@ParticleSystemTypeClass@@UAE_NAAVCCINIClass@@@Z": 6424624,
     "?Compute_CRC@ParticleSystemTypeClass@@UBEXAAVWWCRCEngine@@@Z": 6425696,
     "?Load@ParticleSystemTypeClass@@UAGJPAUIStream@@@Z": 6425920,
@@ -4332,9 +4332,9 @@
     "?AI@ObjectClass@@UAEXXZ": 6105072,
     "?Write_INI@InfantryClass@@SIXAAVCCINIClass@@@Z": 5270896,
     "?Load@InfantryClass@@UAGJPAUIStream@@@Z": 5277040,
-    "?unknown_6612c0@UnknownIDSource@@QAE_NI_N@Z": 6689472,
-    "?unknown_661560@UnknownIDSource@@QAE_NI_N@Z": 6690144,
-    "?unknown_6631a0@UnknownIDSource@@QAEPAVCellClass@@H@Z": 6697376,
+    "?unknown_6612c0@ScenarioClass@@QAE_NI_N@Z": 6689472,
+    "?unknown_661560@ScenarioClass@@QAE_NI_N@Z": 6690144,
+    "?unknown_6631a0@ScenarioClass@@QAEPAVCellClass@@H@Z": 6697376,
     "?Compute_CRC@HouseClass@@UBEXAAVWWCRCEngine@@@Z": 5166992,
     "__imp__ScreenToClient@8": 7971920,
     "__imp__ScreenToClient": 7971920,
@@ -4429,12 +4429,12 @@
     "?Put@UnknownCRCPipe@@UAEHPBXH@Z": 4801040,
     "?Get@UnknownCRCStraw@@UAEHPAXH@Z": 4801168,
     "??0RGBClass@@QAE@XZ": 4889328,
-    "?Get@UnknownAlphaTableCache_008315B8@@QAEPAY0BAA@$$CBGH@Z": 4318176,
+    "?Get@AlphaLightingRemapInitClass@@QAEPAY0BAA@$$CBGH@Z": 4318176,
     "??0RGBClass@@QAE@ABV0@0M@Z": 6540416,
     "?AI@InfantryClass@@UAEXXZ": 5254432,
     "?Read_INI@InfantryClass@@SIXAAVCCINIClass@@@Z": 5269856,
     "?search_compfunc@?$IndexClass@HPAVCommandClass@@@@CAHPBX0@Z": 4721664,
-    "?Clear@GdiBitmapSurface_004981C0@@QAEXE@Z": 4817824,
+    "?Clear@DIB8Class@@QAEXE@Z": 4817824,
     "?Fill@ZBuffer@@QAEXG@Z": 7823712,
     "?Difference@RGBClass@@QBEHABV1@@Z": 6541232,
     "_strstr": 7878320,
@@ -4511,8 +4511,8 @@
     "?Init@OverlayTypeClass@@SIXH@Z": 6146400,
     "?Init@SmudgeTypeClass@@SIXH@Z": 6848432,
     "??_GTabClass@@UAEPAXI@Z": 5898128,
-    "?Unknown_00663240@UnknownIDSource@@QBE_NH@Z": 6697536,
-    "?Set_Waypoint_Location@UnknownIDSource@@QAEXHVCell@@@Z": 6697984,
+    "?Unknown_00663240@ScenarioClass@@QBE_NH@Z": 6697536,
+    "?Set_Waypoint_Location@ScenarioClass@@QAEXHVCell@@@Z": 6697984,
     "?Scroll@MonoClass@@QAEXH@Z": 5891088,
     "?Value@?$CDTimerClass@VFrameTimerClass@@@@QBEJXZ": 4538032,
     "?unknown_set_session_flag_222b@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7011136,
@@ -5218,7 +5218,7 @@
     "_wcstol": 7883704,
     "?RandomAICountryIndex@MultiplayerGameMode@@UAEHXZ": 5993680,
     "_wcsncpy": 7878178,
-    "?Set_Scenario_Name_0065e730@UnknownIDSource@@QAEXPBD@Z": 6678320,
+    "?Set_Scenario_Name_0065e730@ScenarioClass@@QAEXPBD@Z": 6678320,
     "?Is_Active@ToolTipManager@@QBE_NXZ": 7257824,
     "?unknown_application_84c7dc@@3PAUIUnknown@@A": 8701916,
     "?Get_Save_Size@SwizzleManagerClass@@UAGJPAH@Z": 6946032,
@@ -5254,8 +5254,8 @@
     "??4WideString@@QAEAAV0@ABV0@@Z": 7797712,
     "__imp__GetParent@4": 7972096,
     "__imp__SetFocus@4": 7971724,
-    "?Get_Global_Variable@UnknownIDSource@@QAE_NHPA_N@Z": 6689712,
-    "?Get_Local_Variable@UnknownIDSource@@QAE_NHPA_N@Z": 6690384,
+    "?Get_Global_Variable@ScenarioClass@@QAE_NHPA_N@Z": 6689712,
+    "?Get_Local_Variable@ScenarioClass@@QAE_NHPA_N@Z": 6690384,
     "??4WideString@@QAEAAV0@PBG@Z": 7797616,
     "__imp__MapVirtualKeyA@8": 7971800,
     "__imp__GetSystemMetrics@4": 7971804,
@@ -5363,7 +5363,7 @@
     "__imp__lstrlenA@4": 7971228,
     "__imp__RegOpenKeyExA@20": 7970828,
     "__imp__RegCloseKey@4": 7970820,
-    "??0Unknown4A6AE0Owner@@QAE@XZ": 4876560,
+    "??0DropshipLoadoutClass@@QAE@XZ": 4876560,
     "__imp__RegQueryValueExA@24": 7970824,
     "?unknown_452f50@BuildingClass@@QAEXH@Z": 4534096,
     "?Get_Wide_String@CampaignINI@@QBEHPBD0PAGH@Z": 5304336,
@@ -5394,7 +5394,7 @@
     "??BUnknownTimeSource_0069a440@@QBEJXZ": 6923328,
     "__imp__CreateDialogParamA@20": 7971844,
     "__imp__DestroyWindow@4": 7971796,
-    "?Write_Basic@UnknownIDSource@@QAE_NAAVCCINIClass@@_N@Z": 6694320,
+    "?Write_Basic@ScenarioClass@@QAE_NAAVCCINIClass@@_N@Z": 6694320,
     "?unknown_basic_section_7a9204@@3PBDB": 8032772,
     "?unknown_variable_names_section_7a9200@@3PBDB": 8032768,
     "?On_Ground@CellClass@@UBE_NXZ": 4700656,
@@ -5410,9 +5410,9 @@
     "?Clear@BombListClass@@QAEXXZ": 4417296,
     "?Detach@BombListClass@@QAEXPAVAbstractClass@@@Z": 4417360,
     "?Save@BombListClass@@QAEJPAUIStream@@@Z": 4417472,
-    "?Read_Variables@UnknownIDSource@@QAE_NAAVCCINIClass@@@Z": 6690672,
-    "?Write_Variables@UnknownIDSource@@QAE_NAAVCCINIClass@@@Z": 6690992,
-    "?Read_Basic@UnknownIDSource@@QAE_NAAVCCINIClass@@@Z": 6691200,
+    "?Read_Variables@ScenarioClass@@QAE_NAAVCCINIClass@@@Z": 6690672,
+    "?Write_Variables@ScenarioClass@@QAE_NAAVCCINIClass@@@Z": 6690992,
+    "?Read_Basic@ScenarioClass@@QAE_NAAVCCINIClass@@@Z": 6691200,
     "?Get_Time@INIClass@@QBEHPBD0H@Z": 5309536,
     "?Assign_Houses_0065fbb0@@YIXXZ": 6683568,
     "?Load@LightSourceClass@@UAGJPAUIStream@@@Z": 5471136,
@@ -5445,18 +5445,18 @@
     "?Compute_CRC@TerrainTypeClass@@UBEXAAVWWCRCEngine@@@Z": 7231680,
     "?Load@TerrainTypeClass@@UAGJPAUIStream@@@Z": 7231824,
     "??_GTerrainTypeClass@@UAEPAXI@Z": 7232224,
-    "?Set_Global_Variable@UnknownIDSource@@QAE_NPBD_N@Z": 6689552,
-    "?Get_Global_Variable@UnknownIDSource@@QAE_NPBDPA_N@Z": 6689760,
-    "?Find_Global_Variable@UnknownIDSource@@QAEHPBD@Z": 6689904,
-    "?Read_Global_Variables@UnknownIDSource@@QAE_NAAVCCINIClass@@@Z": 6690000,
-    "?Set_Local_Variable@UnknownIDSource@@QAE_NPBD_N@Z": 6690224,
-    "?Get_Local_Variable@UnknownIDSource@@QAE_NPBDPA_N@Z": 6690432,
-    "?Find_Local_Variable@UnknownIDSource@@QAEHPBD@Z": 6690576,
-    "?Waypoint_Coord@UnknownIDSource@@QBE?AUCoordStruct@@H@Z": 6697408,
-    "?Read_Waypoints@UnknownIDSource@@QAEXAAVCCINIClass@@@Z": 6697600,
-    "?Write_Waypoints@UnknownIDSource@@QAEXAAVCCINIClass@@@Z": 6697808,
+    "?Set_Global_Variable@ScenarioClass@@QAE_NPBD_N@Z": 6689552,
+    "?Get_Global_Variable@ScenarioClass@@QAE_NPBDPA_N@Z": 6689760,
+    "?Find_Global_Variable@ScenarioClass@@QAEHPBD@Z": 6689904,
+    "?Read_Global_Variables@ScenarioClass@@QAE_NAAVCCINIClass@@@Z": 6690000,
+    "?Set_Local_Variable@ScenarioClass@@QAE_NPBD_N@Z": 6690224,
+    "?Get_Local_Variable@ScenarioClass@@QAE_NPBDPA_N@Z": 6690432,
+    "?Find_Local_Variable@ScenarioClass@@QAEHPBD@Z": 6690576,
+    "?Waypoint_Coord@ScenarioClass@@QBE?AUCoordStruct@@H@Z": 6697408,
+    "?Read_Waypoints@ScenarioClass@@QAEXAAVCCINIClass@@@Z": 6697600,
+    "?Write_Waypoints@ScenarioClass@@QAEXAAVCCINIClass@@@Z": 6697808,
     "?unknown_waypoints_section_7a9218@@3PBDB": 8032792,
-    "?Free_Waypoint_Name@UnknownIDSource@@QBEPBDXZ": 6698048,
+    "?Free_Waypoint_Name@ScenarioClass@@QBEPBDXZ": 6698048,
     "?unknown_func_6b0d30@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7015728,
     "?unknown_func_6b0d50@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7015760,
     "?Unknown_005A0920@@YIXH_N@Z": 5900576,
@@ -5491,8 +5491,8 @@
     "?unknown_func_6b1e20@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7020064,
     "?unknown_func_6b1e70@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7020144,
     "?unknown_func_6b1f10@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7020304,
-    "??0UnknownIDSource@@QAE@XZ": 6665456,
-    "?Set_Defaults@UnknownIDSource@@QAEXXZ": 6666288,
+    "??0ScenarioClass@@QAE@XZ": 6665456,
+    "?Set_Defaults@ScenarioClass@@QAEXXZ": 6666288,
     "?Init@SpecialClass@@QAEXXZ": 6861600,
     "?Toggle_Display_Mode_0065c480@@YIX_N@Z": 6669440,
     "_?list@?1??Occupy_List@IsometricTileTypeClass@@UBEPBVCell@@H@Z@4PAUUnknownStaticCell@@A": 10824836,
@@ -5500,7 +5500,7 @@
     "?Load@SaveVersionInfo@@QAEJPAUIStorage@@@Z": 6658704,
     "?Save@SaveVersionInfo@@QAEJPAUIStorage@@@Z": 6657328,
     "?Game_CRC@@YI?AVWWCRCEngine@@XZ": 6638736,
-    "?Compute_CRC@UnknownIDSource@@QBEXAAVWWCRCEngine@@@Z": 6696448,
+    "?Compute_CRC@ScenarioClass@@QBEXAAVWWCRCEngine@@@Z": 6696448,
     "?Do_Restart_0065e440@@YIXXZ": 6677568,
     "?Start_Scenario_0065bc70@@YI_NPBD_NH@Z": 6667376,
     "?Unknown_0065e590@@YIXXZ": 6677904,
@@ -5513,13 +5513,13 @@
     "?Write_Scenario_INI_0065f980@@YIXPBD_N@Z": 6683008,
     "?Write_INI@OverlayClass@@SIXAAVCCINIClass@@@Z": 6142512,
     "?Write_INI@TubeClass@@SIXAAVCCINIClass@@@Z": 7271552,
-    "?Save@UnknownIDSource@@QAEXPAUIStream@@@Z": 6688608,
+    "?Save@ScenarioClass@@QAEXPAUIStream@@@Z": 6688608,
     "?Unknown_0065c7d0@@YI_NPBD@Z": 6670288,
     "?Do_Win_0065d7f0@@YIXXZ": 6674416,
     "?Do_Lose_0065dec0@@YIXXZ": 6676160,
     "?Process@WWMessageBox@@QAEHPBG000_N@Z": 5981872,
-    "?Load@UnknownIDSource@@QAEXPAUIStream@@@Z": 6688960,
-    "??0UnknownIDSource@@QAE@ABVNoInitClass@@@Z": 6666112,
+    "?Load@ScenarioClass@@QAEXPAUIStream@@@Z": 6688960,
+    "??0ScenarioClass@@QAE@ABVNoInitClass@@@Z": 6666112,
     "?Add@?$DynamicVectorClass@PAVTechnoTypeClass@@@@QAE_NABQAVTechnoTypeClass@@@Z": 6698304,
     "?INoticeSink_Unknown@UnitClass@@UAE_NHH@Z": 7379088,
     "__imp__RegQueryInfoKeyA@48": 7970816,
@@ -5746,9 +5746,9 @@
     "?Execute@SetView4CommandClass@@UBEXH@Z": 5362688,
     "?Execute@FollowCommandClass@@UBEXH@Z": 5362880,
     "?Execute@ScreenCaptureCommandClass@@UBEXH@Z": 5363056,
-    "?One_Time@UnknownSessionState@@QAEXXZ": 6745520,
-    "?Read@UnknownGameOptions@@QAEXAAVCCINIClass@@PBDHH@Z": 6746608,
-    "?Write@UnknownGameOptions@@QAEXAAVCCINIClass@@PBD@Z": 6750832,
+    "?One_Time@SessionClass@@QAEXXZ": 6745520,
+    "?Read@SessionOptionsClass@@QAEXAAVCCINIClass@@PBDHH@Z": 6746608,
+    "?Write@SessionOptionsClass@@QAEXAAVCCINIClass@@PBD@Z": 6750832,
     "?Init@NullModemClass@@QAEHHHPADHDHH@Z": 6095072,
     "__imp__GetSystemTime@4": 7971024,
     "__imp__GetTickCount@0": 7971020,
@@ -5812,7 +5812,7 @@
     "?Put_UnknownHex_469f30@CCINIClass@@QAE_NPBD0H@Z": 4628272,
     "?Create@CarryoverClass@@QBE_NXZ": 4623696,
     "__imp__CallWindowProcA@20": 7972032,
-    "?Get@UnknownControlIndex@OwnerDraw@@QBE_NABIAAPAUUnknownControlRecord@2@@Z": 6297360,
+    "?Get@UnknownControlIndex@OwnerDraw@@QBE_NABIAAPAUWinData@2@@Z": 6297360,
     "__imp__GetKeyNameTextA@12": 7971916,
     "__imp__GetCurrentDirectoryA@8": 7971204,
     "__imp__CreateDirectoryA@8": 7971068,
@@ -5886,7 +5886,7 @@
     "?From_Name@IsometricTileTypeClass@@SIHPBD@Z": 5411840,
     "?Compute_CRC@IsometricTileTypeClass@@UBEXAAVWWCRCEngine@@@Z": 5431472,
     "?Add@?$DynamicVectorClass@PAVCellClass@@@@QAE_NABQAVCellClass@@@Z": 7489328,
-    "_?entry@?1??Get_Image_0068ca40@UnknownBitmapWriter@@QAEPAVSurface@@PBDH@Z@4UUnknownBitmapEntry@@A": 11260136,
+    "_?entry@?1??Get_Image_0068ca40@SurfaceCacheClass@@QAEPAVSurface@@PBDH@Z@4UUnknownBitmapEntry@@A": 11260136,
     "?Load@ThemeClass@@QAEJPAUIStream@@@Z": 7242560,
     "?Find@ToolTipManager@@QAE_NIPAVToolTip@@@Z": 7256992,
     "?Find@ToolTipManager@@QAEPAVToolTip@@PBUPOINT@@@Z": 7257360,
@@ -5901,10 +5901,10 @@
     "?Init@PhoneEntryEdit@@QAEXXZ": 6351104,
     "?Save@PhoneEntryEdit@@QAEXXZ": 6350752,
     "??BRGBClass@@QBE?AVHSVClass@@XZ": 6541312,
-    "?Save@UnknownLobbyState@@QAE_NPAUIStream@@@Z": 6760496,
+    "?Save@GameOptionsType@@QAE_NPAUIStream@@@Z": 6760496,
     "?Save@ThemeClass@@QAEJPAUIStream@@@Z": 7242512,
     "?Load@BombListClass@@QAEJPAUIStream@@@Z": 4417632,
-    "?Load@UnknownLobbyState@@QAE_NPAUIStream@@@Z": 6760576,
+    "?Load@GameOptionsType@@QAE_NPAUIStream@@@Z": 6760576,
     "?Load@TiberiumClass@@UAGJPAUIStream@@@Z": 7246176,
     "?Read_INI@MapPreviewClass@@QAE_NABVCCINIClass@@@Z": 6414032,
     "?Init@BounceClass@@QAEXABUCoordStruct@@NNNABUVector3@@N@Z": 4419008,
@@ -5924,7 +5924,7 @@
     "?Binary_Search@@YIPAUNodeElement@?$IndexClass@HPAVCommandClass@@@@PAU12@HABU12@@Z": 6137232,
     "?Dialog@LoadOptionsClass@@QAE_NXZ": 5486448,
     "?Unknown_00406100@UnknownAudioController@@QAIXPAUAudioEvent@@PAUAudioEventType@@@Z": 4219136,
-    "?Release@UnknownAlphaTableCache_008315B8@@QAEXPAY0BAA@$$CBG@Z": 4318480,
+    "?Release@AlphaLightingRemapInitClass@@QAEXPAY0BAA@$$CBG@Z": 4318480,
     "?Clear@UnknownVeinHeap@@QAEXXZ": 7416336,
     "?Create@Map@WorldDominationTour@@SI?AV?$rc_ptr@VMap@WorldDominationTour@@@@HHH@Z": 7508704,
     "?Create@WDTTerritory@@SI?AV?$rc_ptr@VWDTTerritory@@@@XZ": 7519680,
@@ -6115,7 +6115,7 @@
     "?unknown_slot2@SimpleDialogControl@OwnerDraw@@UAE_NXZ": 6295920,
     "?FUN_006f8a00@seed_006f8a00@@YIXH@Z": 7309824,
     "?FUN_006f8a20@seed_006f8a20@@YIXH@Z": 7309856,
-    "?unknown_object_84e8d0@@3VUnknown84E8D0@@A": 8710352,
+    "?unknown_object_84e8d0@@3VBeaconManagerClass@@A": 8710352,
     "??_GBitFontClass@@UAEPAXI@Z": 4399616,
     "??_7BitFontClass@@6B@": 7980936,
     "??_GCCFileClass@@UAEPAXI@Z": 4200864,
@@ -6125,7 +6125,7 @@
     "?unknown_slot3@MultiplayerGameMode@@UAE_NPAVWideString@@@Z": 5907360,
     "?CheckStartConditions@MultiplayerGameMode@@UAE_NPAVWideString@@@Z": 5993376,
     "?unknown_slot7@MultiplayerGameMode@@UAE_NH@Z": 5994544,
-    "??0Unknown84E8D0@@QAE@XZ": 4382944,
+    "??0BeaconManagerClass@@QAE@XZ": 4382944,
     "?unknown_a40774@@3HA": 10749812,
     "?Is_Dead@LineTrail@@QBEHXZ": 5478112,
     "?Open_Socket@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
@@ -6143,7 +6143,7 @@
     "??0DSurface@@QAE@XZ": 4892176,
     "??_GDSurface@@UAEPAXI@Z": 4920560,
     "?unknown_flag_a40d28@@3_NA": 10751272,
-    "?unknown_session_a3d298@@3UUnknownSessionState@@A": 10736280,
+    "?unknown_session_a3d298@@3USessionClass@@A": 10736280,
     "??0MultiplayerGameMode@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z": 5991632,
     "?unknown_flag_a40b30@@3_NA": 10750768,
     "?unknown_int_839638@@3HA": 8623672,
@@ -6237,7 +6237,7 @@
     "?Unknown_004955D0@@YIXPAXHP6AXXZ@Z": 4806096,
     "_?startup@?1??Override_Mouse_Shape@MouseClass@@UAE_NH_N@Z@4_NA": 10948517,
     "?Help_Text@TabClass@@UAEPBGH@Z": 6955184,
-    "?Unknown_0042E700@Unknown84E8D0@@QAE_NH@Z": 4384512,
+    "?Unknown_0042E700@BeaconManagerClass@@QAE_NH@Z": 4384512,
     "?Decrement@CounterClass@@QAEHH@Z": 4791472,
     "?unknown_a3d3bc@@3HA": 10736572,
     "?unknown_a3d3b4@@3HA": 10736564,
@@ -6292,7 +6292,7 @@
     "?Unknown_006e9520@@YIXXZ": 7247136,
     "?unknown_7df630@@3_NA": 8255024,
     "?unknown_a40d39@@3_NA": 10751289,
-    "?Unknown_0042E1A0@Unknown84E8D0@@QAEXXZ": 4383136,
+    "?Unknown_0042E1A0@BeaconManagerClass@@QAEXXZ": 4383136,
     "?Unknown_006ecf10@@YAXXZ": 7261968,
     "?unknown_house_a72d28@@3PAVHouseClass@@A": 10956072,
     "?unknown_house_setting_7d88d8@@3HA": 8227032,
@@ -6364,8 +6364,8 @@
     "?Presentation_0069A650@UnknownScore_0069A640@@QAEXXZ": 6923856,
     "?Unknown_00491A10@@YI_NXZ": 4790800,
     "?Unknown_004B37C0@@YIXXZ": 4929472,
-    "?Unknown_0058F620@@YIXPAVUnknownIDSource@@PBD@Z": 5830176,
-    "?Unknown_0058F510@@YIXPAVUnknownIDSource@@@Z": 5829904,
+    "?Unknown_0058F620@@YIXPAVScenarioClass@@PBD@Z": 5830176,
+    "?Unknown_0058F510@@YIXPAVScenarioClass@@@Z": 5829904,
     "?Unknown_005BC460@@YI_NXZ": 6014048,
     "?unknown_a3d580@@3HA": 10737024,
     "?unknown_slot49@TechnoClass@@UAE_NPAVHouseClass@@@Z": 4305952,
@@ -6409,7 +6409,7 @@
     "?Update_All@SpotLightClass@@SAXXZ": 6149840,
     "?Decrement@UnknownHouseCounter@@QAEXH@Z": 4791472,
     "??_GMultiplayerGameMode@@UAEPAXI@Z": 6000144,
-    "?Unknown_0042E150@Unknown84E8D0@@QAEXXZ": 4383056,
+    "?Unknown_0042E150@BeaconManagerClass@@QAEXXZ": 4383056,
     "?unknown_session_a3d2b4@@3HA": 10736308,
     "?unknown_session_a3d33d@@3_NA": 10736445,
     "?unknown_session_a3d2c8@@3HA": 10736328,
@@ -6423,9 +6423,9 @@
     "?Unknown_Play_Taunt_00715fb0@@YIXD@Z": 7430064,
     "?unknown_session_a3d2c3@@3EA": 10736323,
     "?Print_Box@BitTextClass@@QAE_NPAVBitFontClass@@PAVSurface@@PBGHHHHHHH@Z": 4400272,
-    "?Unknown_0042E290@Unknown84E8D0@@QAEXPAVSurface@@VRect@@@Z": 4383376,
-    "?Unknown_0042EED0@Unknown84E8D0@@QAEXPAVSurface@@VRect@@@Z": 4386512,
-    "?Unknown_0042EFD0@Unknown84E8D0@@QAE_NXZ": 4386768,
+    "?Unknown_0042E290@BeaconManagerClass@@QAEXPAVSurface@@VRect@@@Z": 4383376,
+    "?Draw_On_Radar_0042eed0@BeaconManagerClass@@QAEXPAVSurface@@VRect@@@Z": 4386512,
+    "?Is_Flashing_0042efd0@BeaconManagerClass@@QAE_NXZ": 4386768,
     "??1IsometricTileTypeClass@@UAE@XZ": 5411216,
     "??0LightConvertClass@@QAE@ABVPaletteClass@@0PAVSurface@@HHH_NPBEH@Z": 5474400,
     "??_7LightConvertClass@@6B@": 8017372,
@@ -6491,7 +6491,7 @@
     "?Unknown_00436680@UnknownList8322E0@@QAEXPAVTechnoClass@@@Z": 4417152,
     "?Unknown_00435FF0@BombClass@@QBEHXZ": 4415472,
     "?unknown_a72c68@@3HA": 10955880,
-    "?Unknown_00672DE0@@YIXPAUUnknownSessionState@@@Z": 6761952,
+    "?Unknown_00672DE0@@YIXPAUSessionClass@@@Z": 6761952,
     "?Get_Input@GScreenClass@@UAEXAAH00@Z": 5114320,
     "?unknown_last_message_a3f122@@3PAGA": 10744098,
     "?Propose_Kick_Player@@YIXPAUHWND__@@H@Z": 6451168,
@@ -6525,10 +6525,10 @@
     "?unknown_session_a3f616@@3_NA": 10745366,
     "?unknown_a3fba4@@3HA": 10746788,
     "?Unknown_0074DA60@@YAPAUUser@WOL@@XZ": 7658080,
-    "?Unknown_00672DE0@UnknownSessionState@@QAEXXZ": 6761952,
+    "?Unknown_00672DE0@SessionClass@@QAEXXZ": 6761952,
     "?unknown_game_speed_7f3230@@3HA": 8335920,
     "?Unknown_005173A0@@YAXXZ": 5338016,
-    "??1UnknownSessionState@@QAE@XZ": 6744864,
+    "??1SessionClass@@QAE@XZ": 6744864,
     "?unknown_load_progress_a6e7c4@@3PAUUnknown535910@@A": 10938308,
     "??_7Unknown535910@@6B@": 8017052,
     "?Unknown_00535970@@YAXXZ": 5462384,
@@ -6589,13 +6589,13 @@
     "?unknown_slot38@DisplayClass@@QAE_NABVCell@@PAVHouseClass@@@Z": 4825328,
     "?RevealFogShroud@RadarClass@@QAE_NABVCell@@PAVHouseClass@@_N@Z": 6487200,
     "?unknown_slot93@UnitClass@@UAEXH@Z": 7333392,
-    "?Unknown_0042EBE0@Unknown84E8D0@@QAEXH@Z": 4385760,
+    "?Unknown_0042EBE0@BeaconManagerClass@@QAEXH@Z": 4385760,
     "?Receive_Message@AircraftClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z": 4294720,
     "?Take_Damage@InfantryClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z": 5241712,
     "?unknown_slot67@InfantryClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5244240,
     "?unknown_slot67@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5020608,
     "?Can_Enter_Cell@InfantryClass@@UAEHPAVCellClass@@HH0_N@Z": 5255568,
-    "?Unknown_0042E860@Unknown84E8D0@@QAEPAVUnknownBeacon@@UCoordStruct@@@Z": 4384864,
+    "?FindBeaconAt_0042e860@BeaconManagerClass@@QAEPAVUnknownBeacon@@UCoordStruct@@@Z": 4384864,
     "?Closest_Free_Spot@CellClass@@QBE?AUCoordStruct@@ABU2@_N1@Z": 4678832,
     "??0RadioClass@@QAE@XZ": 6514736,
     "?Unknown_006F8A00@@YIXPAVBuildingClass@@@Z": 7309824,
@@ -6604,12 +6604,12 @@
     "?unknown_slot28@BuildingClass@@UAEHPAVObjectClass@@_N@Z": 4470944,
     "?Render@VoxelDrawSystem@@YI?AUSurfaceRegion@@XZ": 7436512,
     "?Scroll_Map@DisplayClass@@QAE_NHPAH_N@Z": 4823904,
-    "?Unknown_0042E940@Unknown84E8D0@@QAEPAVUnknownBeacon@@H@Z": 4385088,
-    "?Unknown_0042EC20@Unknown84E8D0@@QAEXPBGHH_N@Z": 4385824,
+    "?Unknown_0042E940@BeaconManagerClass@@QAEPAVUnknownBeacon@@H@Z": 4385088,
+    "?EditBeaconMessage_0042ec20@BeaconManagerClass@@QAEXPBGHH_N@Z": 4385824,
     "??0UnknownBeacon@@QAE@XZ": 4381152,
-    "??1Unknown84E8D0@@QAE@XZ": 4382976,
-    "?Unknown_0042E740@Unknown84E8D0@@QAE_NUCoordStruct@@@Z": 4384576,
-    "?Unknown_0042E990@Unknown84E8D0@@QAEXHH@Z": 4385168,
+    "??1BeaconManagerClass@@QAE@XZ": 4382976,
+    "?Unknown_0042E740@BeaconManagerClass@@QAE_NUCoordStruct@@@Z": 4384576,
+    "?Unknown_0042E990@BeaconManagerClass@@QAEXHH@Z": 4385168,
     "??0IsometricTileTypeClass@@QAE@HHEPBD_N@Z": 5410528,
     "??0IsometricTileTypeClass@@QAE@ABVNoInitClass@@@Z": 5411104,
     "??0AlphaShapeClass@@QAE@XZ": 4320624,
@@ -6973,7 +6973,7 @@
     "?Save@WaypointPathClass@@UAGJPAUIStream@@H@Z": 7491952,
     "?unknown_show_text@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7013440,
     "??9BaseNodeClass@@QAE_NABV0@@Z": 4374288,
-    "??0UnknownSessionState@@QAE@XZ": 6742912,
+    "??0SessionClass@@QAE@XZ": 6742912,
     "?Render@TerrainClass@@UAE_NPAVRect@@_N1@Z": 7226416,
     "?Get_Buildings@CCINIClass@@QBEHPBD0H@Z": 4632224,
     "?Put_House_List@CCINIClass@@QAE_NPBD0V?$TypeList@H@@@Z": 4636256,
@@ -7049,7 +7049,7 @@
     "?Next@?$HashTableClass@VHashString@@PAVSchemeNode@@@@QAEPAVHashString@@AAUUnknownSchemeListIterator@@@Z": 6312224,
     "?Process@DriveLocomotionClass@@UAG_NXZ": 4851184,
     "_?sounds@?4??Initialize_WDT_Sounds_00752210@@YIXXZ@4PAVWstring@@A": 11704272,
-    "?Unknown_0042E370@Unknown84E8D0@@QAEXHUCoordStruct@@H@Z": 4383600,
+    "?Unknown_0042E370@BeaconManagerClass@@QAEXHUCoordStruct@@H@Z": 4383600,
     "?Load@Map@WorldDominationTour@@QAEXAAVINIClass@@PAVMSEngine@@H@Z": 7509264,
     "?Mark@OverlayClass@@UAE_NH@Z": 6138224,
     "?Stop@HoverLocomotionClass@@QAEXXZ": 5233232,
@@ -7102,7 +7102,7 @@
     "?unknown_slot28@UnitClass@@UAEHPAVObjectClass@@_N@Z": 7355344,
     "__real@4@40069600000000000000": 7981736,
     "?Start@?$CDTimerClass@VFrameTimerClass@@@@QAEXXZ": 6942000,
-    "?Add@?$WolDictionary@IUUnknownControlRecord@OwnerDraw@@@@QAE_NABIABUUnknownControlRecord@OwnerDraw@@@Z": 6296800,
+    "?Add@?$WolDictionary@IUWinData@OwnerDraw@@@@QAE_NABIABUWinData@OwnerDraw@@@Z": 6296800,
     "?Assign_Destination@InfantryClass@@UAEXPAVAbstractClass@@_N@Z": 5250272,
     "__real@8@400f8000000000000000": 8017344,
     "?Delete@?$DynamicVectorClass@PAUUnknownGlobalPacket@@@@QAE_NH@Z": 6482432,
@@ -7237,7 +7237,117 @@
     "__pad": 7980572,
     "__decoder": 7980580,
     "??0RandomClass@@QAE@I@Z": 6522608,
-    "__real@8@bff6b6db6db6db6db800": 8026880
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVCCFileClass@@@8": 8177840,
+    "??_R0?AVFileClass@@@8": 8177872,
+    "??_R0?AVRawFileClass@@@8": 8177896,
+    "??_R0?AVINoticeSink@@@8": 8181272,
+    "??_R0?AUIUnknown@@@8": 8181304,
+    "??_R0?AVMapClass@@@8": 8181384,
+    "??_R0?AVDisplayClass@@@8": 8181408,
+    "??_R0?AVRadarClass@@@8": 8181440,
+    "??_R0?AVPowerClass@@@8": 8181472,
+    "??_R0?AVSidebarClass@@@8": 8181504,
+    "??_R0?AVTabClass@@@8": 8181536,
+    "??_R0?AVMouseClass@@@8": 8181592,
+    "??_R0?AVINIClass@@@8": 8183560,
+    "??_R0?AVCCINIClass@@@8": 8183584,
+    "??_R0?AVGenericNode@@@8": 8183616,
+    "??_R0?AVGenericList@@@8": 8183648,
+    "??_R0?AVINoticeSource@@@8": 8184264,
+    "??_R0?AUIRTTITypeInfo@@@8": 8184296,
+    "??_R0?AUIPersist@@@8": 8184328,
+    "??_R0?AUIPersistStream@@@8": 8184352,
+    "??_R0?AVAbstractClass@@@8": 8184384,
+    "??_R0?AVAbstractTypeClass@@@8": 8184416,
+    "??_R0?AVSurface@@@8": 8184496,
+    "??_R0?AVXSurface@@@8": 8184520,
+    "??_R0?AVObjectClass@@@8": 8185160,
+    "??_R0?AVRadioClass@@@8": 8185224,
+    "??_R0?AVTechnoClass@@@8": 8185256,
+    "??_R0?AVFootClass@@@8": 8185288,
+    "??_R0?AVAircraftClass@@@8": 8185312,
+    "??_R0?AVObjectTypeClass@@@8": 8186312,
+    "??_R0?AVTechnoTypeClass@@@8": 8186344,
+    "??_R0?AVAircraftTypeClass@@@8": 8186376,
+    "??_R0?AVAlphaShapeClass@@@8": 8187000,
+    "??_R0?AVAnimClass@@@8": 8187032,
+    "??_R0?AVAnimTypeClass@@@8": 8187128,
+    "??_R0?AVApplicationClass@@@8": 8188024,
+    "??_R0?AVBuildingLightClass@@@8": 8189320,
+    "??_R0?AVBombClass@@@8": 8189376,
+    "??_R0?AVBuildingClass@@@8": 8189608,
+    "??_R0?AVBuildingTypeClass@@@8": 8191376,
+    "??_R0?AVBulletClass@@@8": 8196624,
+    "??_R0?AVBulletTypeClass@@@8": 8196688,
+    "??_R0?AVPipe@@@8": 8199824,
+    "??_R0?AVStraw@@@8": 8199872,
+    "??_R0?AVFileStraw@@@8": 8199896,
+    "??_R0?AVFilePipe@@@8": 8199928,
+    "??_R0?AVCellClass@@@8": 8203352,
+    "??_R0?AVConvertClass@@@8": 8207080,
+    "??_R0?AUISequentialStream@@@8": 8214832,
+    "??_R0?AUIStream@@@8": 8214864,
+    "??_R0?AUILocomotion@@@8": 8216272,
+    "??_R0?AVDropPodLocomotionClass@@@8": 8216512,
+    "??_R0?AVDSurface@@@8": 8217240,
+    "??_R0?AVFactoryClass@@@8": 8224552,
+    "??_R0?AVFoggedObjectClass@@@8": 8225112,
+    "??_R0?AUIHouse@@@8": 8233360,
+    "??_R0?AVHouseClass@@@8": 8233384,
+    "??_R0?AVTagClass@@@8": 8234264,
+    "??_R0?AVHouseTypeClass@@@8": 8235896,
+    "??_R0?AVInfantryClass@@@8": 8236736,
+    "??_R0?AVInfantryTypeClass@@@8": 8237392,
+    "??_R0?AVCacheStraw@@@8": 8238120,
+    "??_R0?AVIsometricTileTypeClass@@@8": 8252624,
+    "??_R0?AVLightConvertClass@@@8": 8255600,
+    "??_R0?AVMSEngine@@@8": 8264552,
+    "??_R0?AVMapSelect@@@8": 8264576,
+    "??_R0?AVMixFileClass@@@8": 8265192,
+    "??_R0?AVMultiplayerGameMode@@@8": 8270672,
+    "??_R0?AVMPCooperative@@@8": 8270824,
+    "??_R0?AVMSAnim@@@8": 8280064,
+    "??_R0?AVMSShapeAnim@@@8": 8280088,
+    "??_R0?AVMSPrintAnim@@@8": 8280272,
+    "??_R0?AVOverlayClass@@@8": 8293160,
+    "??_R0?AVOverlayTypeClass@@@8": 8293248,
+    "??_R0?AVParticleClass@@@8": 8304744,
+    "??_R0?AVParticleSystemClass@@@8": 8304840,
+    "??_R0?AVParticleSystemTypeClass@@@8": 8306704,
+    "??_R0?AVParticleTypeClass@@@8": 8307144,
+    "??_R0?AVRadSiteClass@@@8": 8316008,
+    "??_R0?AVSideClass@@@8": 8338744,
+    "??_R0?AVSmudgeTypeClass@@@8": 8340064,
+    "??_R0?AVSuperClass@@@8": 8348968,
+    "??_R0?AVSuperWeaponTypeClass@@@8": 8349304,
+    "??_R0?AUISwizzle@@@8": 8349624,
+    "??_R0?AVSwizzleManagerClass@@@8": 8349648,
+    "??_R0?AVTactical@@@8": 8350296,
+    "??_R0?AVTActionClass@@@8": 8350544,
+    "??_R0?AVTagTypeClass@@@8": 8350872,
+    "??_R0?AVTriggerClass@@@8": 8350928,
+    "??_R0?AVTriggerTypeClass@@@8": 8350960,
+    "??_R0?AVTeamTypeClass@@@8": 8350992,
+    "??_R0?AVTerrainClass@@@8": 8351024,
+    "??_R0?AVTeamClass@@@8": 8351056,
+    "??_R0?AVUnitClass@@@8": 8351080,
+    "??_R0?AVTaskForceClass@@@8": 8351104,
+    "??_R0?AVTerrainTypeClass@@@8": 8356280,
+    "??_R0?AVTEventClass@@@8": 8356552,
+    "??_R0?AVTiberiumClass@@@8": 8357016,
+    "??_R0?AVUnitTypeClass@@@8": 8359920,
+    "??_R0?AVVoxelAnimClass@@@8": 8360976,
+    "??_R0?AVVoxelAnimTypeClass@@@8": 8361008,
+    "??_R0?AVVeinholeMonsterClass@@@8": 8361640,
+    "??_R0?AVWarheadTypeClass@@@8": 8368568,
+    "??_R0?AVWaveClass@@@8": 8369160,
+    "??_R0?AVWDTState@@@8": 8372688,
+    "??_R0?AVWeaponTypeClass@@@8": 8374128,
+    "??_R0?AVWinModemClass@@@8": 8374768,
+    "??_R0?AVPlayerProfile@@@8": 8376904,
+    "??_R0?AVMouse@@@8": 8393616
   },
   "regions": [
     {
@@ -7249,7 +7359,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 40,
       "body_sha256": "99058969467625a9831fde3bb5576a6bacabb39a3a792cfc3e6c7787f20f7a85",
@@ -7298,13 +7409,12 @@
           "resolved": 11275816
         }
       ],
-      "source_sha256": "de97e4ab8fadfe65862c10e37122a52c34235212f87b7cb71e35142f3f80c23f",
-      "source": "src/recovered/header_statics/006edcc0/HeaderStatics_diagonal_init_006edcc0.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_diagonal_init_006edcc0",
       "source_order": 162074
     },
     {
@@ -7316,7 +7426,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 19,
       "body_sha256": "bfeb74fd82b33dded3cafa4c8df94c38dd0705a0838b83108e7ff9a231c084eb",
@@ -7349,13 +7460,12 @@
           "resolved": 11275888
         }
       ],
-      "source_sha256": "69a6d03d64d3159f5c0981598b91fcbb77a697686541605b5bcb8b58651f49bd",
-      "source": "src/recovered/header_statics/006edcc0/HeaderStatics_b_init_006edcf0.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_b_init_006edcf0",
       "source_order": 162075
     },
     {
@@ -7367,7 +7477,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 19,
       "body_sha256": "16ce2d616ee5709b05cd612b5150ec3e50a8f595158d604adffaaafedb2e457a",
@@ -7400,13 +7511,12 @@
           "resolved": 11275824
         }
       ],
-      "source_sha256": "cf4468abe9236a5d2552ac5520201ced5dd8efe87246b31ce6436563692abfbf",
-      "source": "src/recovered/header_statics/006edcc0/HeaderStatics_angle60_init_006edd50.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_angle60_init_006edd50",
       "source_order": 162078
     },
     {
@@ -7418,7 +7528,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 19,
       "body_sha256": "ff3b2b8cd1cc920041a09cd5f65596e29fe9a3edd017e7735790e43f281234f9",
@@ -7451,13 +7562,12 @@
           "resolved": 11275784
         }
       ],
-      "source_sha256": "436dbdb94ada0ca494aa68b3aa43ef66e583ee01bcc8ec976c45e309b601fb9c",
-      "source": "src/recovered/header_statics/006edcc0/HeaderStatics_angle90_init_006edd70.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_angle90_init_006edd70",
       "source_order": 162079
     },
     {
@@ -7469,7 +7579,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 49,
       "body_sha256": "03560788dcf29bdd1b0fffb86966c19951549d940d5d87d29d15ebe81bb2799d",
@@ -7534,13 +7645,12 @@
           "resolved": 11275896
         }
       ],
-      "source_sha256": "e2ebd35f0f6034d505cd693515f2361a458b9ff1bfe3a3afa73bdce6e40da677",
-      "source": "src/recovered/header_statics/006edcc0/HeaderStatics_g_init_006edd90.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_g_init_006edd90",
       "source_order": 162080
     },
     {
@@ -7552,7 +7662,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 33,
       "body_sha256": "7d3e2fed5ad8355e4e6a3e9232b0eb36279aeda907e39fc757618d648f8aaf92",
@@ -7593,13 +7704,12 @@
           "resolved": 11275832
         }
       ],
-      "source_sha256": "36db448182b992684b2a7b687e3f8f3d7f05349cc0af875e609878b4229a1e4d",
-      "source": "src/recovered/header_statics/006edcc0/HeaderStatics_h_init_006eddd0.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_h_init_006eddd0",
       "source_order": 162081
     },
     {
@@ -7611,7 +7721,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 44,
       "body_sha256": "df3bd50c0722b30fbbbd35058ce4bb828a2901c75eab642ec9937bb912aa7e7d",
@@ -7652,13 +7763,12 @@
           "resolved": 11275856
         }
       ],
-      "source_sha256": "1b75ea198696bb9b9d2e348690c4e1396619f9d586981c08b6b8e87c76737d5f",
-      "source": "src/recovered/header_statics/006edcc0/HeaderStatics_i_init_006ede00.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_i_init_006ede00",
       "source_order": 162082
     },
     {
@@ -7670,7 +7780,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 39,
       "body_sha256": "ccce6d0ed0831c09850f718f17bece6499966ac8a934be238fea4bf6950cec7c",
@@ -7711,13 +7822,12 @@
           "resolved": 11275880
         }
       ],
-      "source_sha256": "8cdafcbddded84ae2b6b01a831deaa9b278336f7166bc6517e278ecf0728faf1",
-      "source": "src/recovered/header_statics/006edcc0/HeaderStatics_j_init_006ede30.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_j_init_006ede30",
       "source_order": 162083
     },
     {
@@ -7729,7 +7839,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 15,
       "body_sha256": "89e393769b0d14dca18eed187e73c1be8b45e391de0d3b6824613dee6e09f650",
@@ -7754,13 +7865,12 @@
           "resolved": 11275810
         }
       ],
-      "source_sha256": "e536291200d4620dd97ddf396044e6ab4490d8ca09eb4d495a872ddd78d6cb5b",
-      "source": "src/recovered/header_statics/006edcc0/HeaderStatics_k_init_006ede60.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_k_init_006ede60",
       "source_order": 162084
     },
     {
@@ -7772,7 +7882,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 18,
       "body_sha256": "c44d77c910fa8bf8580a6a3a12a3c6015f379a3135cd2e1ab17ca5e17afd573f",
@@ -7805,13 +7916,12 @@
           "resolved": 11275848
         }
       ],
-      "source_sha256": "8ad47628bee0adb0cc30767778b785c6ec5e62dc78e9e9792512e257a38d7567",
-      "source": "src/recovered/header_statics/006edcc0/HeaderStatics_l_init_006ede70.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_l_init_006ede70",
       "source_order": 162085
     },
     {
@@ -7823,7 +7933,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 23,
       "body_sha256": "65699d8abfa96a60198cf1208312a193f096f6baa83dd1c8158a50d18e3aabec",
@@ -7864,13 +7975,12 @@
           "resolved": 11275804
         }
       ],
-      "source_sha256": "2497fe9e88d29327e27bc15015570d2c540ebf9af171c7b15ced19f3b94b05c4",
-      "source": "src/recovered/header_statics/006edcc0/HeaderStatics_static_rect_init_006ede90.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_static_rect_init_006ede90",
       "source_order": 162086
     },
     {
@@ -7882,7 +7992,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 131,
       "body_sha256": "f891ff730f2376911b0c5f562978241db3a54dd9ee052bece6438eed2e0cc5f1",
@@ -7979,13 +8090,12 @@
           "resolved": 8806924
         }
       ],
-      "source_sha256": "798aaa46276ccb7086e1c76fe6acc492abe575565f33bf74473cf5210646bc19",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_Find_Or_Make_006eecc0.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_Find_Or_Make_006eecc0",
       "source_order": 162106
     },
     {
@@ -7997,7 +8107,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 56,
       "body_sha256": "aa1953f016e5df622c8e951fc142607be358a0fd045c156187516e170c992912",
@@ -8038,13 +8149,12 @@
           "resolved": 8002924
         }
       ],
-      "source_sha256": "db6de78830117d61aa427054dc40dce88afe2dbaff154cfc99409b26ac96d008",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_GetClassID_006eedd0.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_GetClassID_006eedd0",
       "source_order": 162108
     },
     {
@@ -8056,7 +8166,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 6,
       "body_sha256": "fa4bf79d8d3543f89d5d44856d6c3c927ed62c96b847c79b998fde2dc6dd3437",
@@ -8064,13 +8175,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "4609695c5a3a8748fb56455336be5096ba9ce3891193e4c9dcb73bd14241f9c6",
       "relocations": [],
-      "source_sha256": "b1d30f1e2baa1d051db83bf9e935c539b9b2b2cef888b2113ba373f10b9e39d1",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_Kind_Of_006eeec0.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_Kind_Of_006eeec0",
       "source_order": 162111
     },
     {
@@ -8082,7 +8192,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 6,
       "body_sha256": "bbc5efc902f7b593291ae32695ca4450f05d42684c917c26a5e2a36a4beb15b4",
@@ -8090,13 +8201,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "db28d399a35cfdbcafb0ec66825895f8659e60e151b1ca30d0e42231059dc215",
       "relocations": [],
-      "source_sha256": "e0a8b76674f422f940f44a78b335b479196b185ff996407027a282df89df1871",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_Size_Of_006eeed0.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_Size_Of_006eeed0",
       "source_order": 162112
     },
     {
@@ -8108,7 +8218,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 7,
       "body_sha256": "84358b64bfaccfd336ed4b2ce706f45729f875f610a80f96346cc982b5cad304",
@@ -8116,13 +8227,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "481c6a7bee7c3498d5d33c7caebaa012418257550fa590bd50f9a042c44a2d33",
       "relocations": [],
-      "source_sha256": "7e56ba569cba41544001124749baf50e899b985ee5523ee5ad47a5a53d818c1f",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_Fetch_Heap_ID_006eeee0.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_Fetch_Heap_ID_006eeee0",
       "source_order": 162113
     },
     {
@@ -8134,7 +8244,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 30,
       "body_sha256": "1966e4e9afae9e34fc8dc7b484e76bec535234b64f65e4d343ccd707a26c1cdb",
@@ -8159,13 +8270,12 @@
           "resolved": 601654
         }
       ],
-      "source_sha256": "690fed745b16137d0e4054a2c0f6e6547141a78e654dad5949d9d6f38285dbb5",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_scalar_deleting_destructor_006eeef0.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_scalar_deleting_destructor_006eeef0",
       "source_order": 162114
     },
     {
@@ -8177,7 +8287,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 29,
       "body_sha256": "025d605ecd44c9b9a7c719f38f13d4cedc292c358c49dd0df01b11d329455e0f",
@@ -8194,13 +8305,12 @@
           "resolved": 4291957260
         }
       ],
-      "source_sha256": "605a7302119c46a7e8736691647326f62c2d6249268764f55f0bc2985b2bd7f0",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_Save_006eeea0.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_Save_006eeea0",
       "source_order": 162110
     },
     {
@@ -8212,7 +8322,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 8,
       "body_sha256": "ddbec6a23770bc42218344fe715c3025bc9da599003161f4cec54119e9ee55ec",
@@ -8229,13 +8340,12 @@
           "resolved": 8357312
         }
       ],
-      "source_sha256": "c9d0b25aa92ee54b206c7b35e35b003a98de9818179757ed76ddc8cac8fa1b9c",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_Name_From_Persistence_006ee400.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_Name_From_Persistence_006ee400",
       "source_order": 162098
     },
     {
@@ -8247,7 +8357,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 19,
       "body_sha256": "d2013d88d7d697d541a0fa6c746d03c718ca1fd37ff1d07e4e9b2973ac4c47b7",
@@ -8280,13 +8391,12 @@
           "resolved": 11275872
         }
       ],
-      "source_sha256": "b88fac6cf6896ab149e87b8af0793d1617845cba69b55d8610b2862149a708da",
-      "source": "src/recovered/header_statics/006edcc0/HeaderStatics_c_init_006edd10.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_c_init_006edd10",
       "source_order": 162076
     },
     {
@@ -8298,7 +8408,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 19,
       "body_sha256": "ef91134c91c918ae0652530ad66fa2d2adad7d409d07214ec135dc97d4772c8a",
@@ -8331,13 +8442,12 @@
           "resolved": 11275864
         }
       ],
-      "source_sha256": "9d88f3cb883dfdec8b31a33cf963a277a05c8b881f01fa57cc3f36fd8376591b",
-      "source": "src/recovered/header_statics/006edcc0/HeaderStatics_angle45_init_006edd30.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_angle45_init_006edd30",
       "source_order": 162077
     },
     {
@@ -8349,7 +8459,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 33,
       "body_sha256": "18146654c2ab0c99dfbf797a8faa43c877002bfb63846d751237717d2727d673",
@@ -8357,13 +8468,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "8ff1e133a5a38595d1fbc8ac3a6c2e159ac901b11487c2b08ca80d3434c28890",
       "relocations": [],
-      "source_sha256": "bc8e549de8ce590b18f5803815ad8a5e2e5cde07859e58fce0b46ce0513dced1",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_Is_Cross_Vertical_006ee180.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_Is_Cross_Vertical_006ee180",
       "source_order": 162089
     },
     {
@@ -8375,7 +8485,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 33,
       "body_sha256": "6ecb612fa5e7cb7973a75c4dac963ef89fc80b2a07b0115b54ae94383f6ed260",
@@ -8383,13 +8494,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "b3ee7e3a75092c3a5aa8400da1743ea831f6cb85ef7f96b6f9343930bc062b66",
       "relocations": [],
-      "source_sha256": "a63d7bf9b2b34de1230343540e3dc48ed5386aaf0ca1475ecc7a8e56d9b31635",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_Is_Cross_Horizontal_006ee1b0.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_Is_Cross_Horizontal_006ee1b0",
       "source_order": 162090
     },
     {
@@ -8401,7 +8511,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 33,
       "body_sha256": "9298573446510fbec79f225d77e0a1531a42941876343bd33827ab95c2045b26",
@@ -8409,13 +8520,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "3ec38f2d12080e503bca3dcca33cbb67e23bcfb4088d58b755dd7a232953b741",
       "relocations": [],
-      "source_sha256": "de8d5a889476cd307ebc0c630b18b6bfa39bbf80cfd9ef12b9762691824d31ed",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_Is_Enters_Zone_006ee1e0.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_Is_Enters_Zone_006ee1e0",
       "source_order": 162091
     },
     {
@@ -8427,7 +8537,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 33,
       "body_sha256": "be6496bc1bbbd67afc0487aa940be63da958e061d78ee2afedfc91b5e5899e65",
@@ -8435,13 +8546,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "65822ebd475d9cc3caa0f0474420bd07787b2daeedeca51e7ab47d70c923a796",
       "relocations": [],
-      "source_sha256": "7b6c9c1974440eb5a2c7d5523e28fd76b3a009030d48eda22ec9b533531e2f3a",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_Is_Allow_Win_006ee210.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_Is_Allow_Win_006ee210",
       "source_order": 162092
     },
     {
@@ -8453,7 +8563,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 52,
       "body_sha256": "7ba148c4cc296bd8f400b055a8e98032d4ca078d9b8498b1affaaa733cfc6bf5",
@@ -8461,13 +8572,12 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "9bfe371f42640ffabbf613e20728fd7c19acbafcf230449e3c9ae92bf6b7b1cb",
       "relocations": [],
-      "source_sha256": "85778870214373397e6cc43245431a09169fc4557b8319f49940f8b6973dfc99",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_Is_Linked_To_Global_006ee240.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_Is_Linked_To_Global_006ee240",
       "source_order": 162093
     },
     {
@@ -8479,7 +8589,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 52,
       "body_sha256": "b90e865c50b06f826c922c5e6ff94edcb2e694159ec497f2763ceed8ea726378",
@@ -8487,13 +8598,12 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "8252c518fa1df320abf740b6016168646bfbd649e0682ea643f15a155304c5df",
       "relocations": [],
-      "source_sha256": "20bbdcd883006366fb29e8ec6fe6c93a297a1326963d4a87edf51a309aebe409",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_Is_Linked_To_Local_006ee280.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_Is_Linked_To_Local_006ee280",
       "source_order": 162094
     },
     {
@@ -8505,7 +8615,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 133,
       "body_sha256": "72a2d9ec4270de79314d3214ebfbc256b2eef0acf35e13a9f8316d0415fbea41",
@@ -8513,13 +8624,12 @@
       "full_extent_bytes": 144,
       "full_extent_sha256": "89314ef9fd16ff117d558f106dc5b085e4fe0eae9404c41515959412c0dcea18",
       "relocations": [],
-      "source_sha256": "bb524162731bdfc86af68c7d4e730ec06faf8a09c059a7e5504194faed14e6c9",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_Detach_006ee2c0.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_Detach_006ee2c0",
       "source_order": 162095
     },
     {
@@ -8531,7 +8641,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 97,
       "body_sha256": "7634aed24e1df087bb11d4bdcdbac6d2bf25d4b1102c8cd91e9d88b5f9b8c0a0",
@@ -8596,13 +8707,12 @@
           "resolved": 8806924
         }
       ],
-      "source_sha256": "26e7ba4ed36a70ef6bf34c41cabbdf354a931470ef0dc4080824131dcd0f1d87",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_From_Name_006ee350.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_From_Name_006ee350",
       "source_order": 162096
     },
     {
@@ -8614,7 +8724,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 52,
       "body_sha256": "de541c2e05a9015bc73ea4f06d49b3e4dc5b84143bd57905021fd63306d44422",
@@ -8647,13 +8758,12 @@
           "resolved": 8357324
         }
       ],
-      "source_sha256": "d730649e7c989629d3fc5acb1b54ce388097db14c5d97ea63f01f9f0a2a84263",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_Persistence_From_Name_006ee3c0.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_Persistence_From_Name_006ee3c0",
       "source_order": 162097
     },
     {
@@ -8665,7 +8775,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 88,
       "body_sha256": "e481bc9efc0823722db07daffdd4d314eff254e691adc7d0d13a90287748bd6e",
@@ -8698,13 +8809,12 @@
           "resolved": 4294967220
         }
       ],
-      "source_sha256": "c6651ead2018959ea3d1678d616dccf674cb45b308c36d62042fe30639dae125",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_Attaches_To_006ee410.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_Attaches_To_006ee410",
       "source_order": 162099
     },
     {
@@ -8716,7 +8826,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 88,
       "body_sha256": "0ff96769ca03020ecd7b44b16122e2e926e8957f9753fcf25c42b445d38d58dc",
@@ -8724,13 +8835,12 @@
       "full_extent_bytes": 96,
       "full_extent_sha256": "68ee60b6317eac77e1f2d5c7a866a3f3e29ca3d4d6dfa476673ef19b6a93e55a",
       "relocations": [],
-      "source_sha256": "0efeb22032e67035c2062985c68538d11ebaf0356fd3aa45ccc395d198bf513d",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_Delete_Event_006eec60.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_Delete_Event_006eec60",
       "source_order": 162105
     },
     {
@@ -8742,7 +8852,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 126,
       "body_sha256": "4a50bab1ac29df1d06500a03c5213cefad0961a72abc3ec17e583b323dcb2f12",
@@ -8791,13 +8902,12 @@
           "resolved": 4292497767
         }
       ],
-      "source_sha256": "09e10b9e58884ae1dab5d6f39b6bb6265c3cd2ca5c056e48293083bc5caf871a",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_Compute_CRC_006eed50.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_Compute_CRC_006eed50",
       "source_order": 162107
     },
     {
@@ -8809,7 +8919,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 137,
       "body_sha256": "fcc241ce18aa7485bcf99f3d4b7e83d9006e0cfe992f5f99ba0916a0d452a641",
@@ -8930,13 +9041,12 @@
           "resolved": 4294642829
         }
       ],
-      "source_sha256": "0bb1995a9a88c9584bafb08a89f435839eda20d957cfa535444919f098165098",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_Load_006eee10.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_Load_006eee10",
       "source_order": 162109
     },
     {
@@ -8948,7 +9058,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 103,
       "body_sha256": "f74f2347897d673f5bbc099b5c39a5700ddc02520be3fc5828f03cb7c83c7ebc",
@@ -8956,13 +9067,12 @@
       "full_extent_bytes": 112,
       "full_extent_sha256": "24a0b3451189b32a640163708cd97f4c97a1ac674df99e8c1e0b663b52f4b449",
       "relocations": [],
-      "source_sha256": "43039e608bd5c1dbdd8a08f4bc008fb2223d6de77c16de43d3ea3e1c3327d1fb",
-      "source": "src/recovered/classes/TriggerTypeClass/strtrim_006eef10.cpp",
+      "source_sha256": "d524059233b13f3f922a779a01ffc7dfb10e260f3d50d7079944eaf675af6016",
+      "source": "src/recovered/trim.cpp",
       "population": "population-3668",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "strtrim_006eef10",
       "source_order": 162115
     },
     {
@@ -8974,7 +9084,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 95,
       "body_sha256": "0fd3604e4375a4d3c94b46b5fb1980fa28b4919afdf90765dc9c0fa0d0c72a73",
@@ -8999,13 +9110,12 @@
           "resolved": 607821
         }
       ],
-      "source_sha256": "680f7a695a1369e7b3a17c272367bfe041a8fbd769cc23e174c9c4b9e33355c0",
-      "source": "src/recovered/classes/TriggerTypeClass/wcstrim_006eef80.cpp",
+      "source_sha256": "d524059233b13f3f922a779a01ffc7dfb10e260f3d50d7079944eaf675af6016",
+      "source": "src/recovered/trim.cpp",
       "population": "population-3668",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "wcstrim_006eef80",
       "source_order": 162116
     },
     {
@@ -9017,7 +9127,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 197,
       "body_sha256": "86e8506f0088d4bd278441015ffcdbb1ff0e1de53eaa56cd8ee64844c0910ede",
@@ -9146,13 +9257,12 @@
           "resolved": 8806924
         }
       ],
-      "source_sha256": "95483ba6c56f1ecc4e04ce1086314bbf0cffc5050dedad325527bbd02cc10226",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_Read_Scenario_INI_006ee7f0.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_Read_Scenario_INI_006ee7f0",
       "source_order": 162101
     },
     {
@@ -9164,7 +9274,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 477,
       "body_sha256": "cd4de4c754d82ec4877daed8125f4e5330d66acf77ec5ab3df289326af2bc781",
@@ -9317,13 +9428,12 @@
           "resolved": 4293000034
         }
       ],
-      "source_sha256": "02625e66f1850d12dcfcfd525253b2c7842013d55f091312033c2d403d18c261",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_Write_INI_006ee8c0.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_Write_INI_006ee8c0",
       "source_order": 162102
     },
     {
@@ -9335,7 +9445,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 339,
       "body_sha256": "1633c3e28d062ffdc62df080a828d39122537b792d05f8962222308795a2efb4",
@@ -9608,13 +9719,12 @@
           "resolved": 8806936
         }
       ],
-      "source_sha256": "11c18f51063f8af41dc8f357b9cd0be8d1c08e55cb7e08b80ff9704a125abd87",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_Write_Scenario_INI_006eeaa0.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_Write_Scenario_INI_006eeaa0",
       "source_order": 162103
     },
     {
@@ -9626,7 +9736,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 374,
       "body_sha256": "b0a6204a03698642f88728336eb45dfb35ddb4cacef67cfac5d60c548947f5b9",
@@ -9899,13 +10010,12 @@
           "resolved": 8806924
         }
       ],
-      "source_sha256": "09868ab154719eeac408619306abf16a7103cc7cbac6d0fdfdba357043361c5a",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_constructor_006edeb0.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_constructor_006edeb0",
       "source_order": 162087
     },
     {
@@ -9917,7 +10027,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 329,
       "body_sha256": "9ba34e568537e0ec4a4fe86452be3f7a6e42ecf43a861633eca2200afc42319c",
@@ -10118,13 +10229,12 @@
           "resolved": 4291962314
         }
       ],
-      "source_sha256": "76925414a6e896fed9537c4b11758ee98d63c878bfa06773151cee2f72ea9160",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_destructor_006ee030.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_destructor_006ee030",
       "source_order": 162088
     },
     {
@@ -10136,7 +10246,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 884,
       "body_sha256": "2ebec1a6c038d5c8ba27cf3ed2f1727a9805087497f5c8ecad19b442b089e0b0",
@@ -10633,13 +10744,12 @@
           "resolved": 4294701233
         }
       ],
-      "source_sha256": "6660a6e1e5b26e1ac25f3cf7ee439f8e9328bec82a1e82070ef2dc38c685af57",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_Read_INI_006ee470.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_Read_INI_006ee470",
       "source_order": 162100
     },
     {
@@ -10651,7 +10761,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 88,
       "body_sha256": "085942a75fd86135405a18e360a15a83e83ebdad9a04feda17f3580c73a9453c",
@@ -10659,13 +10770,12 @@
       "full_extent_bytes": 96,
       "full_extent_sha256": "e8347cd5faea8eb11c4bd83702e4997cfafa73d5d11b8bb6b64662ea5d059dbf",
       "relocations": [],
-      "source_sha256": "f21d71f2ae660111a042e0c88ddb70b6ef53c8c46067268c166da70c12e2d05d",
-      "source": "src/recovered/classes/TriggerTypeClass/TriggerTypeClass_Delete_Action_006eec00.cpp",
+      "source_sha256": "c5047cd55c400864e1c9b46398bfbf98ce88c9f21a5485a9655800ebffd80b2f",
+      "source": "src/recovered/trigtype.cpp",
       "population": "population-3668",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TriggerTypeClass_Delete_Action_006eec00",
       "source_order": 162104
     }
   ]

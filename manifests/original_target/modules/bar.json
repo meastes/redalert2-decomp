@@ -1,0 +1,140 @@
+{
+ "module": "bar",
+ "source": "src/recovered/bar.cpp",
+ "header": null,
+ "population": "population-3092",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 629,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "0042b950",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??0ProgressBarClass@@QAE@HHHHHHH@Z",
+   "entry": "0042b970",
+   "body_bytes": 70,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Is_Horizontal@ProgressBarClass@@ABE_NXZ",
+   "entry": "0042b9c0",
+   "body_bytes": 12,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Update@ProgressBarClass@@QAE_NN@Z",
+   "entry": "0042b9d0",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Outline@ProgressBarClass@@ABEXXZ",
+   "entry": "0042ba10",
+   "body_bytes": 100,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Redraw@ProgressBarClass@@QBEXXZ",
+   "entry": "0042ba80",
+   "body_bytes": 591,
+   "padding_bytes": 1
+  }
+ ],
+ "code_bytes": 896,
+ "data": [
+  {
+   "symbol": "__real@8@3ffbccccccccccccd000",
+   "address": "0079c570",
+   "bytes": 8,
+   "kind": "table",
+   "section": 11
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@3ffbccccccccccccd000",
+   "address": "0079c570",
+   "bytes": 8,
+   "kind": "table"
+  }
+ ],
+ "failures": [],
+ "references_in": [],
+ "references_out": [
+  {
+   "symbol": "?WWMouse@@3PAVMouse@@A",
+   "address": "00839c68"
+  },
+  {
+   "symbol": "?unknown_drawer_8323c4@@3PAVConvertClass@@A",
+   "address": "008323c4"
+  },
+  {
+   "symbol": "?unknown_surface_83995c@@3PAVSurface@@A",
+   "address": "0083995c"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  }
+ ],
+ "route": "A",
+ "unit": "bar.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "0042b950",
+   "lines": 6
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "0042bcd0",
+   "bytes": 32,
+   "population": "population-3693",
+   "source": "src/recovered/classes/Rect/Constructor.cpp",
+   "cause": "frozen in another population's inventory pass (population-3693)"
+  }
+ ],
+ "unit_functions": 8,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 1,
+  "bytes": 32
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

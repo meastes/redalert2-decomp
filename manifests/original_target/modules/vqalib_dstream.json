@@ -1,0 +1,106 @@
+{
+ "module": "vqalib_dstream",
+ "source": "src/recovered/vqalib_dstream.cpp",
+ "header": null,
+ "population": "population-3129",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 637,
+ "code": [
+  {
+   "symbol": "?Disk_VQA_Stream_Handler@@YAHPAUVQAHandle@@HHH@Z",
+   "entry": "00778450",
+   "body_bytes": 344,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Memory_VQA_Stream_Handler@@YAHPAUVQAHandle@@HHH@Z",
+   "entry": "007785b0",
+   "body_bytes": 208,
+   "padding_bytes": 0
+  }
+ ],
+ "code_bytes": 560,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00778680",
+   "symbol": "?Memory_VQA_Stream_Handler@@YAHPAUVQAHandle@@HHH@Z",
+   "target": "007785b0",
+   "function_entry": true
+  },
+  {
+   "site": "00778680",
+   "symbol": "?Memory_VQA_Stream_Handler@@YAHPAUVQAHandle@@HHH@Z",
+   "target": "007785b0",
+   "function_entry": true
+  },
+  {
+   "site": "0077b7a0",
+   "symbol": "?Disk_VQA_Stream_Handler@@YAHPAUVQAHandle@@HHH@Z",
+   "target": "00778450",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "__close",
+   "address": "0078ad04"
+  },
+  {
+   "symbol": "__filelength",
+   "address": "00797198"
+  },
+  {
+   "symbol": "__lseek",
+   "address": "0078fd48"
+  },
+  {
+   "symbol": "__open",
+   "address": "0078d841"
+  },
+  {
+   "symbol": "__read",
+   "address": "00788a6f"
+  }
+ ],
+ "route": "A",
+ "unit": "vqalib_dstream.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00778450",
+   "lines": 3
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 3,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

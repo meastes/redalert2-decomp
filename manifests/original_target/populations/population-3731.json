@@ -4,8 +4,8 @@
     "id": "population-3731",
     "inventory_sha256": "36ef9dafb9249ba93f72268a8c93853996694e6963993c7eb614a535a303e40c",
     "gaps_sha256": "3b6a3fa68bec0f1aeaea3125f29e353851fbefa7d6651747c734278f32932dd5",
-    "historical_population_sha256": "24aec2fe18f0c645be2000c49bbde6358d151fc2827d4065af2238d56b3231b6",
-    "historical_acceptance_sha256": "59ba1913269b69653172f03ae6cfa3587d8d1dd779fe1c5397780f4369cbfb65"
+    "historical_population_sha256": "259f544476b099b0234cc1d8c4a4d831156b8be550579275f69831756fd9c940",
+    "historical_acceptance_sha256": "e9cffc279a478abee1626cb5965f65543bab9af7f128cfde47febfb3f05e2875"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -25,13 +25,13 @@
     "__stricmp": 7872288,
     "??2@YAPAXI@Z": 7872535,
     "?Index@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A": 8805952,
-    "__DAT_00ab6e88": 11234952,
+    "__waypoint_none_00ab6e88": 11234952,
     "__strncpy": 7873488,
     "__strcmp": 7888160,
     "__strlen": 7903280,
     "__malloc": 7874096,
     "___amsg_exit": 7887784,
-    "__DAT_0084ed10": 8711440,
+    "__cell_none_0084ed10": 8711440,
     "__strdup": 7919638,
     "__real@8@3ff8a3d70a3d70a3d800": 7980312,
     "__splitpath": 7882867,
@@ -51,8 +51,8 @@
     "??RRandom3Class@@QAEHHH@Z": 6523344,
     "__chkstk": 7878736,
     "__strnicmp": 7878672,
-    "__DAT_00ab6ea8": 11234984,
-    "__DAT_00ab6eb0": 11234992,
+    "__unknown_timer_start_00ab6ea8": 11234984,
+    "__unknown_timer_accum_00ab6eb0": 11234992,
     "__DAT_00ac0168": 11272552,
     "__DAT_00ac0170": 11272560,
     "__DAT_00a769e8": 10971624,
@@ -201,7 +201,7 @@
     "__real@8@4004d800000000000000": 8045168,
     "__real@4@400e8000000000000000": 7980928,
     "__real@8@3ffbaaaaaaaaaaaaa800": 8016520,
-    "_?entry@?1??Get_Image_0068ca40@UnknownBitmapWriter@@QAEPAVSurface@@PBDH@Z@4UUnknownBitmapEntry@@A": 11260136,
+    "_?entry@?1??Get_Image_0068ca40@SurfaceCacheClass@@QAEPAVSurface@@PBDH@Z@4UUnknownBitmapEntry@@A": 11260136,
     "__real@8@3fe2c0000000c0000000": 8019920,
     "__real@4@4006c800000000000000": 8028512,
     "__real@4@4000c000000000000000": 8028508,
@@ -309,7 +309,12 @@
     "__real@8@3fe3c8000000c8000000": 8019992,
     "__except_handler3": 7885524,
     "__except_list": 0,
-    "__real@8@3ffefd70a3d70a3d7000": 7986552
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "??_7type_info@@6B@": 8066532
   },
   "regions": [
     {
@@ -321,7 +326,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 24,
       "body_sha256": "523293291b38dd040bcff763b68c3adec9b827a9af04bdadd3f3bc093689a587",
@@ -346,7 +352,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 106,
       "body_sha256": "2ec84a63eb412d311ffabbded0dd5c8ba5648d05ff2aac730e0af7c291e27543",
@@ -371,7 +378,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 170,
       "body_sha256": "9691f50e548b63b02bff3812dde10572915c8fa89c1e00819443f052de9587d7",
@@ -413,7 +421,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 81,
       "body_sha256": "cf081827914bebb075b66d2c900d946c68af2028ffc8d9a5c3f86b55e18eec6d",
@@ -438,7 +447,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 173,
       "body_sha256": "491f7e640b1a946d48267acb7f314472d13bfdad51b53e850e3c99ceb2b76829",
@@ -463,7 +473,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 18,
       "body_sha256": "0d4641e22a94bf3e3d952540cba846c6865d42df80cd139af0ea42c5333f9379",
@@ -488,7 +499,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 94,
       "body_sha256": "b32291c0723b1aaac54f1bc45fdcdad9654c39b364cb5473fdadfdd211eddd19",
@@ -530,7 +542,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 230,
       "body_sha256": "12264b1a5adee55292c0383ccea57d23c83b3e3089606c111dbfc1326d7cf2ee",
@@ -572,7 +585,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 11,
       "body_sha256": "0d9d4797ad8c81da5b9f78b6e3eba5066720c9a41fbd098a5dac1e8581c3c29c",

@@ -2,22 +2,20 @@
 //
 // Body: 11 bytes (frozen inventory bound).
 // Referenced from 3512 sites (unconditional call).
-// Ghidra prototype: void FUN_00781d3b(undefined4 param_1)
+// Ghidra prototype: void operator_delete_00781d3b(undefined4 block)
 //
-// Types and names are Ghidra placeholders (see shared/ghidra_types.hpp);
+// Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
 //
-// seed-generated: tools/original_target/regenerate_seeds.py may rewrite this file;
-// delete this line when editing it by hand.
-#include "shared/ghidra_types.hpp"
+#include "shared/win32_types.hpp"
 
 namespace seed_00781d3b {
 
-extern void  FUN_007825e8(LPVOID param_1);
+extern void  free_007825e8(LPVOID block);
 
-void  FUN_00781d3b(undefined4 param_1)
+void  operator_delete_00781d3b(unsigned int block)
 {
-    FUN_007825e8((LPVOID)(param_1));
+    free_007825e8((LPVOID)(block));
     return;
 }
 

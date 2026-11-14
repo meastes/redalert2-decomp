@@ -4,8 +4,8 @@
     "id": "population-4435",
     "inventory_sha256": "534b151322a42709ccd261f00e147cb16971c130f289a7d7fc4be5993936375c",
     "gaps_sha256": "1dc6775c65bd655f456203e9cefbf0a0e721e00846106781b1d6431d9ced4401",
-    "historical_population_sha256": "795562622a34e429e0b05d6df5687fe797a97719e5fbf5c58a554d08f21a1f58",
-    "historical_acceptance_sha256": "096d8a85bcef32347ad46943766788cd7a4bf46f118fc48d0b3c3ec81d099081"
+    "historical_population_sha256": "3d7bef6a01b81a355a1e6885ac8c12ebfab5bb71e4905edee2dcec65c66cfb2e",
+    "historical_acceptance_sha256": "d7bac2d834904e99a287a45b77254a94b5b9aa9b8fba337d8b531494641cfd14"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -22,10 +22,10 @@
     "_atexit": 7874954,
     "__stricmp": 7872288,
     "??2@YAPAXI@Z": 7872535,
-    "__DAT_00ab6e88": 11234952,
+    "__waypoint_none_00ab6e88": 11234952,
     "__strncpy": 7873488,
     "___amsg_exit": 7887784,
-    "__DAT_0084ed10": 8711440,
+    "__cell_none_0084ed10": 8711440,
     "__strdup": 7919638,
     "__real@8@3ff8a3d70a3d70a3d800": 7980312,
     "__splitpath": 7882867,
@@ -33,8 +33,8 @@
     "__strupr": 7954916,
     "__chkstk": 7878736,
     "__strnicmp": 7878672,
-    "__DAT_00ab6ea8": 11234984,
-    "__DAT_00ab6eb0": 11234992,
+    "__unknown_timer_start_00ab6ea8": 11234984,
+    "__unknown_timer_accum_00ab6eb0": 11234992,
     "__real@8@4006ff00000000000000": 8007504,
     "__real@8@00000000000000000000": 7976464,
     "__real@8@3ffee666666666666800": 8048680,
@@ -272,7 +272,15 @@
     "__DAT_00a70cc0": 10947776,
     "__DAT_00ac0168": 11272552,
     "__DAT_00ac0170": 11272560,
-    "__DAT_00a769e8": 10971624
+    "__DAT_00a769e8": 10971624,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "_?as@?1??Faction_Code@@YIABVWstring@@H@Z@4V2@A": 11709748,
+    "_?address@?1??Unknown_0063FA00@OwnerTalkClass@@QAEPAVIPXAddressClass@@PAD@Z@4V3@A": 11234568,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "??_7type_info@@6B@": 8066532
   },
   "regions": [
     {
@@ -284,7 +292,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 38,
       "body_sha256": "eaeca203cdeaae13ae53dcd81c018b58a44b013ef39c301ad4ebabe1efbdd372",
@@ -292,13 +301,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "79a9f5fd800a2132789d6cd9cddd853f4ed62ff5cc6e37dd3c9a5fae2d99a23d",
       "relocations": [],
-      "source_sha256": "7604ab4b41fd7f04f6f2ce33fd2833a16b6b874a540986eca49930d100f36ac7",
-      "source": "src/recovered/unowned/rgb32_to_rgb24_clamped_004e12d0.cpp",
+      "source_sha256": "b3f9a46e727ea0c86cad7dd02a5fc4602b0ee455d82986158f2d9b9da3faa231",
+      "source": "src/recovered/hicolor.cpp",
       "population": "population-4435",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "rgb32_to_rgb24_clamped_004e12d0",
       "source_order": 237499
     },
     {
@@ -310,7 +318,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 46,
       "body_sha256": "9e66be1f7057b3e1598c9e270012e553f5aad659e133a712b63999c601f0c8be",
@@ -318,13 +327,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "44b148fb4bf155188f24cf5587861a38392e8c3f833e9c5a3e828364e81153c2",
       "relocations": [],
-      "source_sha256": "47a0a58973f7f3a85884ed7415df600deb80d7962dfcce39681fdbffa80b0550",
-      "source": "src/recovered/unowned/rgb32_to_rgb24_004e13c0.cpp",
+      "source_sha256": "b3f9a46e727ea0c86cad7dd02a5fc4602b0ee455d82986158f2d9b9da3faa231",
+      "source": "src/recovered/hicolor.cpp",
       "population": "population-4435",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "rgb32_to_rgb24_004e13c0",
       "source_order": 237501
     },
     {
@@ -336,7 +344,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 80,
       "body_sha256": "a0ebc4e919e9b2b95c0421cfb6d3b6cbe35f87667cacc72b8549d8812e1a1c01",
@@ -344,13 +353,12 @@
       "full_extent_bytes": 80,
       "full_extent_sha256": "a0ebc4e919e9b2b95c0421cfb6d3b6cbe35f87667cacc72b8549d8812e1a1c01",
       "relocations": [],
-      "source_sha256": "958489c607b713a2a49b4f41653ddb597907d5c76861061111a29ac4d4368bfd",
-      "source": "src/recovered/unowned/rgb24_to_rgb555_004e1300.cpp",
+      "source_sha256": "b3f9a46e727ea0c86cad7dd02a5fc4602b0ee455d82986158f2d9b9da3faa231",
+      "source": "src/recovered/hicolor.cpp",
       "population": "population-4435",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "rgb24_to_rgb555_004e1300",
       "source_order": 237502
     },
     {
@@ -362,7 +370,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 108,
       "body_sha256": "0d00e06b3fdbd8476bbb03bf48b3cfa49cab97aa394aa77a633f0966edb00f68",
@@ -370,13 +379,12 @@
       "full_extent_bytes": 112,
       "full_extent_sha256": "f847a1b61745850bfcd696d56463b1fe5a3067b8ffdaf2db26d92989e69df4ac",
       "relocations": [],
-      "source_sha256": "e4d8281e656e565e877e976c2555038e27d2be140b5823a8803481264a0a53e5",
-      "source": "src/recovered/unowned/rgb24_to_rgb1555_004e1350.cpp",
+      "source_sha256": "b3f9a46e727ea0c86cad7dd02a5fc4602b0ee455d82986158f2d9b9da3faa231",
+      "source": "src/recovered/hicolor.cpp",
       "population": "population-4435",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "rgb24_to_rgb1555_004e1350",
       "source_order": 237500
     }
   ]

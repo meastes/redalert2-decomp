@@ -1,0 +1,2001 @@
+{
+ "module": "theme",
+ "source": "src/recovered/theme.cpp",
+ "header": null,
+ "population": "population-4447",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 1246,
+ "code": [
+  {
+   "symbol": "??0ThemeControl@@QAE@XZ",
+   "entry": "006e7740",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Fill_In@ThemeControl@@QAE_NABVCCINIClass@@@Z",
+   "entry": "006e7780",
+   "body_bytes": 259,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Unknown_006E7890@ThemeClass@@QAEXAAVCCINIClass@@@Z",
+   "entry": "006e7890",
+   "body_bytes": 473,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Unknown_006E7A70@ThemeClass@@QAEXXZ",
+   "entry": "006e7a70",
+   "body_bytes": 113,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Scan@ThemeClass@@QAEXXZ",
+   "entry": "006e7af0",
+   "body_bytes": 329,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Base_Name@ThemeClass@@QBEPBDH@Z",
+   "entry": "006e7c40",
+   "body_bytes": 28,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "??0ThemeClass@@QAE@XZ",
+   "entry": "006e7c60",
+   "body_bytes": 65,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?FUN_006e7cb0@Owner_006e7cb0@seed_006e7cb0@@QAEHI@Z",
+   "entry": "006e7cb0",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?AI@ThemeClass@@QAEXXZ",
+   "entry": "006e7cd0",
+   "body_bytes": 173,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Pick_Next_Song@ThemeClass@@QAEHH@Z",
+   "entry": "006e7d80",
+   "body_bytes": 160,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "entry": "006e7e20",
+   "body_bytes": 134,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Play_Song@ThemeClass@@QAEHH@Z",
+   "entry": "006e7eb0",
+   "body_bytes": 608,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Theme_File_Name@ThemeClass@@QAEPBDH@Z",
+   "entry": "006e8110",
+   "body_bytes": 62,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "entry": "006e81a0",
+   "body_bytes": 195,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Still_Playing@ThemeClass@@QBE_NXZ",
+   "entry": "006e82d0",
+   "body_bytes": 54,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Load@ThemeClass@@QAEJPAUIStream@@@Z",
+   "entry": "006e8340",
+   "body_bytes": 251,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?FUN_006e8440@Owner_006e8440@seed_006e8440@@QAE_NI@Z",
+   "entry": "006e8440",
+   "body_bytes": 147,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?From_Name@ThemeClass@@QBEHPBD@Z",
+   "entry": "006e8510",
+   "body_bytes": 83,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Name@ThemeClass@@QBEPBDH@Z",
+   "entry": "006e8570",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Set_Volume@ThemeClass@@QAEXH@Z",
+   "entry": "006e8590",
+   "body_bytes": 22,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?get@Leaf_6e86e0@@QAEPAXI@Z",
+   "entry": "006e86e0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  }
+ ],
+ "code_bytes": 3504,
+ "data": [
+  {
+   "symbol": "??_7?$VectorClass@PAUThemeControl@@@@6B@",
+   "address": "007a2ac0",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 112
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAUThemeControl@@@@6B@",
+   "address": "007ad810",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 57
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CCFileClass@@8",
+   "address": "007b2500",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 20
+  },
+  {
+   "symbol": "??_R2CCFileClass@@8",
+   "address": "007b2518",
+   "bytes": 21,
+   "kind": "rtti",
+   "section": 21
+  },
+  {
+   "symbol": "??_R3CCFileClass@@8",
+   "address": "007b2530",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 22
+  },
+  {
+   "symbol": "??_R4CCFileClass@@6B@",
+   "address": "007b2540",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 24
+  },
+  {
+   "symbol": "??_R1A@?0A@A@FileClass@@8",
+   "address": "007b2558",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 26
+  },
+  {
+   "symbol": "??_R1A@?0A@A@RawFileClass@@8",
+   "address": "007b2570",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 28
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BufferIOFileClass@@8",
+   "address": "007b2588",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 30
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CDFileClass@@8",
+   "address": "007b25a0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 31
+  },
+  {
+   "symbol": "??_R2CDFileClass@@8",
+   "address": "007b25b8",
+   "bytes": 17,
+   "kind": "rtti",
+   "section": 32
+  },
+  {
+   "symbol": "??_R3CDFileClass@@8",
+   "address": "007b25d0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 33
+  },
+  {
+   "symbol": "??_R4CDFileClass@@6B@",
+   "address": "007b25e0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 35
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAUThemeControl@@@@8",
+   "address": "007ba0a8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 51
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAUThemeControl@@@@8",
+   "address": "007ba0c0",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 109
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAUThemeControl@@@@8",
+   "address": "007ba0c8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 110
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAUThemeControl@@@@6B@",
+   "address": "007ba0d8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 111
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAUThemeControl@@@@8",
+   "address": "007c4278",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 52
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAUThemeControl@@@@8",
+   "address": "007c4290",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 53
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAUThemeControl@@@@8",
+   "address": "007c42a0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 54
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAUThemeControl@@@@6B@",
+   "address": "007c42b0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 56
+  },
+  {
+   "symbol": "??_R0?AVCCFileClass@@@8",
+   "address": "007cc8b0",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 23
+  },
+  {
+   "symbol": "??_R0?AVFileClass@@@8",
+   "address": "007cc8d0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 25
+  },
+  {
+   "symbol": "??_R0?AVRawFileClass@@@8",
+   "address": "007cc8e8",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 27
+  },
+  {
+   "symbol": "??_R0?AVBufferIOFileClass@@@8",
+   "address": "007cc908",
+   "bytes": 32,
+   "kind": "rtti",
+   "section": 29
+  },
+  {
+   "symbol": "??_R0?AVCDFileClass@@@8",
+   "address": "007cc928",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 34
+  },
+  {
+   "symbol": "??_C@_04LJDI@Side?$AA@",
+   "address": "007cdd8c",
+   "bytes": 5,
+   "kind": "string",
+   "section": 6
+  },
+  {
+   "symbol": "??_C@_04KIKH@none?$AA@",
+   "address": "007ce0ec",
+   "bytes": 5,
+   "kind": "string",
+   "section": 90
+  },
+  {
+   "symbol": "??_C@_04EFNI@Name?$AA@",
+   "address": "007ce2a4",
+   "bytes": 5,
+   "kind": "string",
+   "section": 5
+  },
+  {
+   "symbol": "??_C@_08DFKC@Scenario?$AA@",
+   "address": "007d145c",
+   "bytes": 9,
+   "kind": "string",
+   "section": 9
+  },
+  {
+   "symbol": "??_C@_06BILL@Normal?$AA@",
+   "address": "007d1b30",
+   "bytes": 7,
+   "kind": "string",
+   "section": 8
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAUThemeControl@@@@@8",
+   "address": "007d9b20",
+   "bytes": 46,
+   "kind": "rtti",
+   "section": 50
+  },
+  {
+   "symbol": "??_C@_06NPIB@Repeat?$AA@",
+   "address": "007f8310",
+   "bytes": 7,
+   "kind": "string",
+   "section": 7
+  },
+  {
+   "symbol": "??_C@_05NJPO@Sound?$AA@",
+   "address": "007f8318",
+   "bytes": 6,
+   "kind": "string",
+   "section": 10
+  },
+  {
+   "symbol": "??_C@_0N@ELFH@Music?5Stream?$AA@",
+   "address": "007f8320",
+   "bytes": 13,
+   "kind": "string",
+   "section": 14
+  },
+  {
+   "symbol": "??_C@_06PJBK@Themes?$AA@",
+   "address": "007f8330",
+   "bytes": 7,
+   "kind": "string",
+   "section": 15
+  },
+  {
+   "symbol": "??_C@_04KFC@?4WAV?$AA@",
+   "address": "007f8338",
+   "bytes": 5,
+   "kind": "string",
+   "section": 38
+  },
+  {
+   "symbol": "??_C@_08HDLJ@No?5theme?$AA@",
+   "address": "007f8340",
+   "bytes": 9,
+   "kind": "string",
+   "section": 47
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAUThemeControl@@@@@8",
+   "address": "007f8350",
+   "bytes": 53,
+   "kind": "rtti",
+   "section": 55
+  },
+  {
+   "symbol": "??_C@_0BL@CLMO@Theme?3?3AI?$CINext?5song?5?$DN?5?$CFd?$CJ?6?$AA@",
+   "address": "007f8388",
+   "bytes": 27,
+   "kind": "string",
+   "section": 62
+  },
+  {
+   "symbol": "??_C@_0BG@IALJ@Theme?3?3QueueSong?$CI?$CFd?$CJ?6?$AA@",
+   "address": "007f83a4",
+   "bytes": 22,
+   "kind": "string",
+   "section": 67
+  },
+  {
+   "symbol": "??_C@_0BK@EJAP@Theme?3?3PlaySong?$CI?$CFd?$CJ?5?9?5?$CFs?6?$AA@",
+   "address": "007f83bc",
+   "bytes": 26,
+   "kind": "string",
+   "section": 70
+  },
+  {
+   "symbol": "??_C@_09FMGB@Repeating?$AA@",
+   "address": "007f83d8",
+   "bytes": 10,
+   "kind": "string",
+   "section": 71
+  },
+  {
+   "symbol": "??_C@_07HIAE@Playing?$AA@",
+   "address": "007f83e4",
+   "bytes": 8,
+   "kind": "string",
+   "section": 72
+  },
+  {
+   "symbol": "??_C@_0BB@CDIM@Theme?3?3Stop?$CI?$CFd?$CJ?6?$AA@",
+   "address": "007f83ec",
+   "bytes": 17,
+   "kind": "string",
+   "section": 74
+  },
+  {
+   "symbol": "??_C@_0BK@GOIH@Theme?3?3Stop?$CI?$CFd?$CJ?5?9?5Fading?6?$AA@",
+   "address": "007f8400",
+   "bytes": 26,
+   "kind": "string",
+   "section": 79
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7?$VectorClass@PAUThemeControl@@@@6B@",
+   "address": "007a2ac0",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAUThemeControl@@@@6B@",
+   "address": "007ad810",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CCFileClass@@8",
+   "address": "007b2500",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2CCFileClass@@8",
+   "address": "007b2518",
+   "bytes": 21,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3CCFileClass@@8",
+   "address": "007b2530",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4CCFileClass@@6B@",
+   "address": "007b2540",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@FileClass@@8",
+   "address": "007b2558",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@RawFileClass@@8",
+   "address": "007b2570",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BufferIOFileClass@@8",
+   "address": "007b2588",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CDFileClass@@8",
+   "address": "007b25a0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2CDFileClass@@8",
+   "address": "007b25b8",
+   "bytes": 17,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3CDFileClass@@8",
+   "address": "007b25d0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4CDFileClass@@6B@",
+   "address": "007b25e0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAUThemeControl@@@@8",
+   "address": "007ba0a8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAUThemeControl@@@@8",
+   "address": "007ba0c0",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAUThemeControl@@@@8",
+   "address": "007ba0c8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAUThemeControl@@@@6B@",
+   "address": "007ba0d8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAUThemeControl@@@@8",
+   "address": "007c4278",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAUThemeControl@@@@8",
+   "address": "007c4290",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAUThemeControl@@@@8",
+   "address": "007c42a0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAUThemeControl@@@@6B@",
+   "address": "007c42b0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVCCFileClass@@@8",
+   "address": "007cc8b0",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVFileClass@@@8",
+   "address": "007cc8d0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVRawFileClass@@@8",
+   "address": "007cc8e8",
+   "bytes": 27,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVBufferIOFileClass@@@8",
+   "address": "007cc908",
+   "bytes": 32,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVCDFileClass@@@8",
+   "address": "007cc928",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_04LJDI@Side?$AA@",
+   "address": "007cdd8c",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04KIKH@none?$AA@",
+   "address": "007ce0ec",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04EFNI@Name?$AA@",
+   "address": "007ce2a4",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08DFKC@Scenario?$AA@",
+   "address": "007d145c",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06BILL@Normal?$AA@",
+   "address": "007d1b30",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAUThemeControl@@@@@8",
+   "address": "007d9b20",
+   "bytes": 46,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_06NPIB@Repeat?$AA@",
+   "address": "007f8310",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_05NJPO@Sound?$AA@",
+   "address": "007f8318",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@ELFH@Music?5Stream?$AA@",
+   "address": "007f8320",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06PJBK@Themes?$AA@",
+   "address": "007f8330",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04KFC@?4WAV?$AA@",
+   "address": "007f8338",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08HDLJ@No?5theme?$AA@",
+   "address": "007f8340",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAUThemeControl@@@@@8",
+   "address": "007f8350",
+   "bytes": 53,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0BL@CLMO@Theme?3?3AI?$CINext?5song?5?$DN?5?$CFd?$CJ?6?$AA@",
+   "address": "007f8388",
+   "bytes": 27,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BG@IALJ@Theme?3?3QueueSong?$CI?$CFd?$CJ?6?$AA@",
+   "address": "007f83a4",
+   "bytes": 22,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BK@EJAP@Theme?3?3PlaySong?$CI?$CFd?$CJ?5?9?5?$CFs?6?$AA@",
+   "address": "007f83bc",
+   "bytes": 26,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09FMGB@Repeating?$AA@",
+   "address": "007f83d8",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07HIAE@Playing?$AA@",
+   "address": "007f83e4",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@CDIM@Theme?3?3Stop?$CI?$CFd?$CJ?6?$AA@",
+   "address": "007f83ec",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BK@GOIH@Theme?3?3Stop?$CI?$CFd?$CJ?5?9?5Fading?6?$AA@",
+   "address": "007f8400",
+   "bytes": 26,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0046ad90",
+   "symbol": "?Base_Name@ThemeClass@@QBEPBDH@Z",
+   "target": "006e7c40",
+   "function_entry": true
+  },
+  {
+   "site": "0051a870",
+   "symbol": "?From_Name_006e8510@Callee_006e8510@seed_0051a870@@QAEIPAD@Z",
+   "target": "006e8510",
+   "function_entry": true
+  },
+  {
+   "site": "006bc2c0",
+   "symbol": "?Queue_Song_006e7e20@Callee_006e7e20@seed_006bc2c0@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "005a14d0",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "0046e750",
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "target": "006e81a0",
+   "function_entry": true
+  },
+  {
+   "site": "0046e750",
+   "symbol": "?Scan@ThemeClass@@QAEXXZ",
+   "target": "006e7af0",
+   "function_entry": true
+  },
+  {
+   "site": "0046ad30",
+   "symbol": "?From_Name@ThemeClass@@QBEHPBD@Z",
+   "target": "006e8510",
+   "function_entry": true
+  },
+  {
+   "site": "00406ea0",
+   "symbol": "?unknown_006e7cd0@@YIXPAUunknown_00a35d78_type@@@Z",
+   "target": "006e7cd0",
+   "function_entry": true
+  },
+  {
+   "site": "006b1160",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "006ad640",
+   "symbol": "?Name@ThemeClass@@QBEPBDH@Z",
+   "target": "006e8570",
+   "function_entry": true
+  },
+  {
+   "site": "006ad860",
+   "symbol": "?From_Name@ThemeClass@@QBEHPBD@Z",
+   "target": "006e8510",
+   "function_entry": true
+  },
+  {
+   "site": "005d8980",
+   "symbol": "?Set_Volume@ThemeClass@@QAEXH@Z",
+   "target": "006e8590",
+   "function_entry": true
+  },
+  {
+   "site": "005d8b00",
+   "symbol": "?Set_Volume@ThemeClass@@QAEXH@Z",
+   "target": "006e8590",
+   "function_entry": true
+  },
+  {
+   "site": "005d95e0",
+   "symbol": "?Set_Volume@ThemeClass@@QAEXH@Z",
+   "target": "006e8590",
+   "function_entry": true
+  },
+  {
+   "site": "0065e440",
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "target": "006e81a0",
+   "function_entry": true
+  },
+  {
+   "site": "0065e590",
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "target": "006e81a0",
+   "function_entry": true
+  },
+  {
+   "site": "0065bc70",
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "target": "006e81a0",
+   "function_entry": true
+  },
+  {
+   "site": "0065bc70",
+   "symbol": "?From_Name@ThemeClass@@QBEHPBD@Z",
+   "target": "006e8510",
+   "function_entry": true
+  },
+  {
+   "site": "0065bc70",
+   "symbol": "?Play_Song@ThemeClass@@QAEHH@Z",
+   "target": "006e7eb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065bc70",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "0065bc70",
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "target": "006e81a0",
+   "function_entry": true
+  },
+  {
+   "site": "00515e70",
+   "symbol": "?Scan@ThemeClass@@QAEXXZ",
+   "target": "006e7af0",
+   "function_entry": true
+  },
+  {
+   "site": "00730160",
+   "symbol": "?From_Name@ThemeClass@@QBEHPBD@Z",
+   "target": "006e8510",
+   "function_entry": true
+  },
+  {
+   "site": "00730160",
+   "symbol": "?Play_Song@ThemeClass@@QAEHH@Z",
+   "target": "006e7eb0",
+   "function_entry": true
+  },
+  {
+   "site": "00730230",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "0072d990",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "00542280",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "00542280",
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "target": "006e81a0",
+   "function_entry": true
+  },
+  {
+   "site": "006909e0",
+   "symbol": "?Unknown_006E7A70@ThemeClass@@QAEXXZ",
+   "target": "006e7a70",
+   "function_entry": true
+  },
+  {
+   "site": "004d4660",
+   "symbol": "??0ThemeClass@@QAE@XZ",
+   "target": "006e7c60",
+   "function_entry": true
+  },
+  {
+   "site": "0073c1b0",
+   "symbol": "?Still_Playing@ThemeClass@@QBE_NXZ",
+   "target": "006e82d0",
+   "function_entry": true
+  },
+  {
+   "site": "0073c1b0",
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "target": "006e81a0",
+   "function_entry": true
+  },
+  {
+   "site": "0073c1b0",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "0073c1b0",
+   "symbol": "?From_Name@ThemeClass@@QBEHPBD@Z",
+   "target": "006e8510",
+   "function_entry": true
+  },
+  {
+   "site": "0073c1b0",
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "target": "006e81a0",
+   "function_entry": true
+  },
+  {
+   "site": "0073c1b0",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "0073c1b0",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?Unknown_006E7A70@ThemeClass@@QAEXXZ",
+   "target": "006e7a70",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?Unknown_006E7890@ThemeClass@@QAEXAAVCCINIClass@@@Z",
+   "target": "006e7890",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?Scan@ThemeClass@@QAEXXZ",
+   "target": "006e7af0",
+   "function_entry": true
+  },
+  {
+   "site": "0058f900",
+   "symbol": "?From_Name@ThemeClass@@QBEHPBD@Z",
+   "target": "006e8510",
+   "function_entry": true
+  },
+  {
+   "site": "0058f900",
+   "symbol": "?Play_Song@ThemeClass@@QAEHH@Z",
+   "target": "006e7eb0",
+   "function_entry": true
+  },
+  {
+   "site": "006b7ad0",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "0053fbd0",
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "target": "006e81a0",
+   "function_entry": true
+  },
+  {
+   "site": "0053fbd0",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "004de9e0",
+   "symbol": "?From_Name@ThemeClass@@QBEHPBD@Z",
+   "target": "006e8510",
+   "function_entry": true
+  },
+  {
+   "site": "004de9e0",
+   "symbol": "?Play_Song@ThemeClass@@QAEHH@Z",
+   "target": "006e7eb0",
+   "function_entry": true
+  },
+  {
+   "site": "004de9e0",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "00656b80",
+   "symbol": "?Load@ThemeClass@@QAEJPAUIStream@@@Z",
+   "target": "006e8340",
+   "function_entry": true
+  },
+  {
+   "site": "005aae40",
+   "symbol": "?From_Name@ThemeClass@@QBEHPBD@Z",
+   "target": "006e8510",
+   "function_entry": true
+  },
+  {
+   "site": "005aae40",
+   "symbol": "?Play_Song@ThemeClass@@QAEHH@Z",
+   "target": "006e7eb0",
+   "function_entry": true
+  },
+  {
+   "site": "00688da0",
+   "symbol": "?unknown_6e8440@ThemeClass@@QAE_NI@Z",
+   "target": "006e8440",
+   "function_entry": true
+  },
+  {
+   "site": "00688da0",
+   "symbol": "?Full_Name@ThemeClass@@QBEPBGI@Z",
+   "target": "006e7cb0",
+   "function_entry": true
+  },
+  {
+   "site": "00688da0",
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "target": "006e81a0",
+   "function_entry": true
+  },
+  {
+   "site": "00688da0",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "00688da0",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "00688da0",
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "target": "006e81a0",
+   "function_entry": true
+  },
+  {
+   "site": "00688da0",
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "target": "006e81a0",
+   "function_entry": true
+  },
+  {
+   "site": "00688da0",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "0073a300",
+   "symbol": "?From_Name@ThemeClass@@QBEHPBD@Z",
+   "target": "006e8510",
+   "function_entry": true
+  },
+  {
+   "site": "0073a300",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "0069a7d0",
+   "symbol": "?From_Name@ThemeClass@@QBEHPBD@Z",
+   "target": "006e8510",
+   "function_entry": true
+  },
+  {
+   "site": "0069a7d0",
+   "symbol": "?Play_Song@ThemeClass@@QAEHH@Z",
+   "target": "006e7eb0",
+   "function_entry": true
+  },
+  {
+   "site": "0046e520",
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "target": "006e81a0",
+   "function_entry": true
+  },
+  {
+   "site": "0046e520",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "target": "006e81a0",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "?From_Name@ThemeClass@@QBEHPBD@Z",
+   "target": "006e8510",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "?Play_Song@ThemeClass@@QAEHH@Z",
+   "target": "006e7eb0",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "target": "006e81a0",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "0073c990",
+   "symbol": "?Still_Playing@ThemeClass@@QBE_NXZ",
+   "target": "006e82d0",
+   "function_entry": true
+  },
+  {
+   "site": "0073c990",
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "target": "006e81a0",
+   "function_entry": true
+  },
+  {
+   "site": "0073c990",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "0073c990",
+   "symbol": "?From_Name@ThemeClass@@QBEHPBD@Z",
+   "target": "006e8510",
+   "function_entry": true
+  },
+  {
+   "site": "0073c990",
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "target": "006e81a0",
+   "function_entry": true
+  },
+  {
+   "site": "0073c990",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "0073c990",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Still_Playing@ThemeClass@@QBE_NXZ",
+   "target": "006e82d0",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Still_Playing@ThemeClass@@QBE_NXZ",
+   "target": "006e82d0",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "target": "006e81a0",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?From_Name@ThemeClass@@QBEHPBD@Z",
+   "target": "006e8510",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "target": "006e81a0",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "00749b50",
+   "symbol": "?Still_Playing@ThemeClass@@QBE_NXZ",
+   "target": "006e82d0",
+   "function_entry": true
+  },
+  {
+   "site": "00749b50",
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "target": "006e81a0",
+   "function_entry": true
+  },
+  {
+   "site": "00749b50",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "00749b50",
+   "symbol": "?From_Name@ThemeClass@@QBEHPBD@Z",
+   "target": "006e8510",
+   "function_entry": true
+  },
+  {
+   "site": "00749b50",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "006adae0",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?From_Name@ThemeClass@@QBEHPBD@Z",
+   "target": "006e8510",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Play_Song@ThemeClass@@QAEHH@Z",
+   "target": "006e7eb0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "target": "006e81a0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?From_Name@ThemeClass@@QBEHPBD@Z",
+   "target": "006e8510",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Play_Song@ThemeClass@@QAEHH@Z",
+   "target": "006e7eb0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?From_Name@ThemeClass@@QBEHPBD@Z",
+   "target": "006e8510",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "target": "006e7e20",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?From_Name@ThemeClass@@QBEHPBD@Z",
+   "target": "006e8510",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Play_Song@ThemeClass@@QAEHH@Z",
+   "target": "006e7eb0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "target": "006e81a0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Still_Playing@ThemeClass@@QBE_NXZ",
+   "target": "006e82d0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Still_Playing@ThemeClass@@QBE_NXZ",
+   "target": "006e82d0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "target": "006e81a0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "target": "006e81a0",
+   "function_entry": true
+  },
+  {
+   "site": "0068e280",
+   "symbol": "?Unknown_006E7A70@ThemeClass@@QAEXXZ",
+   "target": "006e7a70",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0CCFileClass@@QAE@PBD@Z",
+   "address": "00468f50"
+  },
+  {
+   "symbol": "??1Buffer@@QAE@XZ",
+   "address": "00438410"
+  },
+  {
+   "symbol": "??1BufferIOFileClass@@UAE@XZ",
+   "address": "0042f350"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??RRandom2Class@@QAEHHH@Z",
+   "address": "006388a0"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAUThemeControl@@@@UAEPAXI@Z",
+   "address": "006e86e0"
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAUThemeControl@@@@UAEPAXI@Z",
+   "address": "004dc050"
+  },
+  {
+   "symbol": "??_GCCFileClass@@UAEPAXI@Z",
+   "address": "004019a0"
+  },
+  {
+   "symbol": "??_GCDFileClass@@UAEPAXI@Z",
+   "address": "00401950"
+  },
+  {
+   "symbol": "?Audio_Format_Init@@YIXPAUAudioFormat@@@Z",
+   "address": "004084c0"
+  },
+  {
+   "symbol": "?Audio_Format_Read_Wave@@YIHPAVFileClass@@PAUAudioFormat@@PAH@Z",
+   "address": "00408530"
+  },
+  {
+   "symbol": "?Audio_Get_Device@@YAPAUAudioDevice@@XZ",
+   "address": "00406f40"
+  },
+  {
+   "symbol": "?Audio_Stream_Create@@YIPAUAudioStreamPlayer@@PAUAudioDevice@@_J@Z",
+   "address": "00407790"
+  },
+  {
+   "symbol": "?Audio_Stream_Open@@YIHPAUAudioStreamPlayer@@PBDH@Z",
+   "address": "00407a90"
+  },
+  {
+   "symbol": "?Audio_Stream_Set_Levels_94@@YIXPAUAudioStreamPlayer@@PAUAudioLevelSet@@@Z",
+   "address": "00407a70"
+  },
+  {
+   "symbol": "?Audio_Stream_Set_Levels_9c@@YIXPAUAudioStreamPlayer@@PAUAudioLevelSet@@@Z",
+   "address": "00407a80"
+  },
+  {
+   "symbol": "?Audio_Stream_Set_Name@@YIXPAUAudioStreamPlayer@@PBD@Z",
+   "address": "00407fa0"
+  },
+  {
+   "symbol": "?Close@BufferIOFileClass@@UAEXXZ",
+   "address": "0042fda0"
+  },
+  {
+   "symbol": "?Close@CCFileClass@@UAEXXZ",
+   "address": "004691f0"
+  },
+  {
+   "symbol": "?Create@RawFileClass@@UAEHXZ",
+   "address": "00639200"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Delete@RawFileClass@@UAEHXZ",
+   "address": "00639240"
+  },
+  {
+   "symbol": "?Entry_Count@INIClass@@QBEHPBD@Z",
+   "address": "0050cb00"
+  },
+  {
+   "symbol": "?Error@CCFileClass@@UAEXHHPBD@Z",
+   "address": "00469000"
+  },
+  {
+   "symbol": "?Error@RawFileClass@@UAEXHHPBD@Z",
+   "address": "00638b30"
+  },
+  {
+   "symbol": "?Find_Section@INIClass@@QBEPAUINISection@1@PBD@Z",
+   "address": "0050c9b0"
+  },
+  {
+   "symbol": "?Get_Bool@INIClass@@QBE_NPBD0_N@Z",
+   "address": "0050f410"
+  },
+  {
+   "symbol": "?Get_Date_Time@CCFileClass@@UAEKXZ",
+   "address": "00469350"
+  },
+  {
+   "symbol": "?Get_Date_Time@RawFileClass@@UAEKXZ",
+   "address": "006392a0"
+  },
+  {
+   "symbol": "?Get_Entry@INIClass@@QBEPBDPBDH@Z",
+   "address": "0050ce00"
+  },
+  {
+   "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+   "address": "0050d7f0"
+  },
+  {
+   "symbol": "?Get_Side@CCINIClass@@QBEHPBD0H@Z",
+   "address": "0046ab30"
+  },
+  {
+   "symbol": "?Get_String@INIClass@@QBEHPBD00PADH@Z",
+   "address": "0050e9a0"
+  },
+  {
+   "symbol": "?Get_Wide_String@INIClass@@QBEHPBD0PAGH@Z",
+   "address": "0050f010"
+  },
+  {
+   "symbol": "?IsLocal@CD@@2_NA",
+   "address": "00850828"
+  },
+  {
+   "symbol": "?Is_Available@BufferIOFileClass@@UAE_NH@Z",
+   "address": "0042f6e0"
+  },
+  {
+   "symbol": "?Is_Available@CCFileClass@@UAE_NH@Z",
+   "address": "004691a0"
+  },
+  {
+   "symbol": "?Is_Open@BufferIOFileClass@@UBE_NXZ",
+   "address": "0042f700"
+  },
+  {
+   "symbol": "?Is_Open@CCFileClass@@UBE_NXZ",
+   "address": "004691e0"
+  },
+  {
+   "symbol": "?Open@CCFileClass@@UAEHH@Z",
+   "address": "00469220"
+  },
+  {
+   "symbol": "?Open@CCFileClass@@UAEHPBDH@Z",
+   "address": "00401980"
+  },
+  {
+   "symbol": "?Open@CDFileClass@@UAEHH@Z",
+   "address": "0046fe10"
+  },
+  {
+   "symbol": "?Open@CDFileClass@@UAEHPBDH@Z",
+   "address": "00470250"
+  },
+  {
+   "symbol": "?Read@BufferIOFileClass@@UAEJPAXJ@Z",
+   "address": "0042fa80"
+  },
+  {
+   "symbol": "?Read@CCFileClass@@UAEJPAXJ@Z",
+   "address": "00469060"
+  },
+  {
+   "symbol": "?Seek@BufferIOFileClass@@UAEJJH@Z",
+   "address": "0042fc90"
+  },
+  {
+   "symbol": "?Seek@CCFileClass@@UAEJJH@Z",
+   "address": "004690f0"
+  },
+  {
+   "symbol": "?Set_Date_Time@CCFileClass@@UAE_NK@Z",
+   "address": "00469400"
+  },
+  {
+   "symbol": "?Set_Date_Time@RawFileClass@@UAE_NK@Z",
+   "address": "006392f0"
+  },
+  {
+   "symbol": "?Set_Name@CDFileClass@@UAEPBDPBD@Z",
+   "address": "00470150"
+  },
+  {
+   "symbol": "?Size@BufferIOFileClass@@UAEJXZ",
+   "address": "0042fd80"
+  },
+  {
+   "symbol": "?Size@CCFileClass@@UAEJXZ",
+   "address": "00469150"
+  },
+  {
+   "symbol": "?Theme@@3VThemeClass@@A",
+   "address": "00a35d78"
+  },
+  {
+   "symbol": "?Time_For_Bytes@AudioFormat@@QAI_KH@Z",
+   "address": "00408480"
+  },
+  {
+   "symbol": "?Unknown_0046E4C0@@YIHH@Z",
+   "address": "0046e4c0"
+  },
+  {
+   "symbol": "?Write@BufferIOFileClass@@UAEJPBXJ@Z",
+   "address": "0042f830"
+  },
+  {
+   "symbol": "?Write@CCFileClass@@UAEJPBXJ@Z",
+   "address": "00469030"
+  },
+  {
+   "symbol": "?unknown_6e8440@ThemeClass@@QAE_NI@Z",
+   "address": "006e8440"
+  },
+  {
+   "symbol": "?unknown_a40774@@3HA",
+   "address": "00a40774"
+  },
+  {
+   "symbol": "?unknown_audio_levels_831454@@3PAUAudioLevelSet@@A",
+   "address": "00831454"
+  },
+  {
+   "symbol": "?unknown_audio_levels_831464@@3PAUAudioLevelSet@@A",
+   "address": "00831464"
+  },
+  {
+   "symbol": "?unknown_check_406f30@@YAHXZ",
+   "address": "00406f30"
+  },
+  {
+   "symbol": "?unknown_flag_a40b51@@3_NA",
+   "address": "00a40b51"
+  },
+  {
+   "symbol": "?unknown_flag_a40d0c@@3DA",
+   "address": "00a40d0c"
+  },
+  {
+   "symbol": "?unknown_random_839218@@3VRandom2Class@@A",
+   "address": "00839218"
+  },
+  {
+   "symbol": "?unknown_sample_4079c0@@YIXPAX@Z",
+   "address": "004079c0"
+  },
+  {
+   "symbol": "?unknown_sample_407f90@@YIHPAX@Z",
+   "address": "00407f90"
+  },
+  {
+   "symbol": "?unknown_sample_407fe0@@YIXPAX@Z",
+   "address": "00407fe0"
+  },
+  {
+   "symbol": "?unknown_sample_407ff0@@YIHPAX@Z",
+   "address": "00407ff0"
+  },
+  {
+   "symbol": "?unknown_sample_408010@@YIXPAX@Z",
+   "address": "00408010"
+  },
+  {
+   "symbol": "?unknown_sound_enabled_a40c18@@3DA",
+   "address": "00a40c18"
+  },
+  {
+   "symbol": "?unknown_stop_sample_407e60@@YIXPAX@Z",
+   "address": "00407e60"
+  },
+  {
+   "symbol": "_DAT_00a35db4",
+   "address": "00a35db4"
+  },
+  {
+   "symbol": "_Scen_00a3d290",
+   "address": "00a3d290"
+  },
+  {
+   "symbol": "_Session_00a3d298",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "__aulldiv",
+   "address": "00782580"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__makepath",
+   "address": "007831f0"
+  },
+  {
+   "symbol": "__stricmp",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "_release_buffer_6e86e0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_6e86e0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_vtable_6e86e0",
+   "address": "007a2ac4"
+  }
+ ],
+ "route": "A",
+ "unit": "theme.cpp",
+ "form": "one include block",
+ "switches": [
+  "THEME_CONTROL_RECORD",
+  "VECTOR_IMPLEMENT_VECTOR_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ADD",
+  "VECTOR_IMPLEMENT_DYNAMIC_DELETE_INDEX",
+  "VECTOR_IMPLEMENT_VECTOR_CONSTRUCTOR",
+  "VECTOR_IMPLEMENT_DYNAMIC_CONSTRUCTOR"
+ ],
+ "include_blocks": [
+  {
+   "before": "006e7740",
+   "lines": 13
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "006e7cb0",
+   "bytes": 30,
+   "population": "population-42",
+   "bound": "own frozen bound (population-42)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006e8440",
+   "bytes": 147,
+   "population": "population-148",
+   "bound": "own frozen bound (population-148)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006e86e0",
+   "bytes": 73,
+   "population": "population-12",
+   "bound": "own frozen bound (population-12)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "006e7550",
+   "bytes": 40,
+   "population": "population-486",
+   "source": "src/recovered/header_statics/006e7550/HeaderStatics_diagonal_init_006e7550.cpp",
+   "cause": "frozen in another population's inventory pass (population-486)"
+  },
+  {
+   "kind": "split",
+   "entry": "006e7580",
+   "bytes": 19,
+   "population": "population-486",
+   "source": "src/recovered/header_statics/006e7550/HeaderStatics_b_init_006e7580.cpp",
+   "cause": "held by population-486; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E124)"
+  },
+  {
+   "kind": "split",
+   "entry": "006e75a0",
+   "bytes": 19,
+   "population": "population-486",
+   "source": "src/recovered/header_statics/006e7550/HeaderStatics_c_init_006e75a0.cpp",
+   "cause": "held by population-486; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E125)"
+  },
+  {
+   "kind": "split",
+   "entry": "006e75c0",
+   "bytes": 19,
+   "population": "population-486",
+   "source": "src/recovered/header_statics/006e7550/HeaderStatics_angle45_init_006e75c0.cpp",
+   "cause": "held by population-486; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E126)"
+  },
+  {
+   "kind": "split",
+   "entry": "006e75e0",
+   "bytes": 19,
+   "population": "population-486",
+   "source": "src/recovered/header_statics/006e7550/HeaderStatics_angle60_init_006e75e0.cpp",
+   "cause": "held by population-486; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E127)"
+  },
+  {
+   "kind": "split",
+   "entry": "006e7600",
+   "bytes": 19,
+   "population": "population-486",
+   "source": "src/recovered/header_statics/006e7550/HeaderStatics_angle90_init_006e7600.cpp",
+   "cause": "held by population-486; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E128)"
+  },
+  {
+   "kind": "split",
+   "entry": "006e7620",
+   "bytes": 49,
+   "population": "population-486",
+   "source": "src/recovered/header_statics/006e7550/HeaderStatics_g_init_006e7620.cpp",
+   "cause": "held by population-486; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E129)"
+  },
+  {
+   "kind": "split",
+   "entry": "006e7660",
+   "bytes": 33,
+   "population": "population-486",
+   "source": "src/recovered/header_statics/006e7550/HeaderStatics_h_init_006e7660.cpp",
+   "cause": "held by population-486; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E130)"
+  },
+  {
+   "kind": "split",
+   "entry": "006e7690",
+   "bytes": 44,
+   "population": "population-486",
+   "source": "src/recovered/header_statics/006e7550/HeaderStatics_i_init_006e7690.cpp",
+   "cause": "held by population-486; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E131)"
+  },
+  {
+   "kind": "split",
+   "entry": "006e76c0",
+   "bytes": 39,
+   "population": "population-486",
+   "source": "src/recovered/header_statics/006e7550/HeaderStatics_j_init_006e76c0.cpp",
+   "cause": "held by population-486; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E132)"
+  },
+  {
+   "kind": "split",
+   "entry": "006e76f0",
+   "bytes": 15,
+   "population": "population-486",
+   "source": "src/recovered/header_statics/006e7550/HeaderStatics_k_init_006e76f0.cpp",
+   "cause": "held by population-486; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E133)"
+  },
+  {
+   "kind": "split",
+   "entry": "006e7700",
+   "bytes": 18,
+   "population": "population-486",
+   "source": "src/recovered/header_statics/006e7550/HeaderStatics_l_init_006e7700.cpp",
+   "cause": "held by population-486; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E134)"
+  },
+  {
+   "kind": "split",
+   "entry": "006e7720",
+   "bytes": 23,
+   "population": "population-486",
+   "source": "src/recovered/header_statics/006e7550/HeaderStatics_static_rect_init_006e7720.cpp",
+   "cause": "held by population-486; not joined: binding: _unknown_static_rect is 00832248 in the unit and 00ac0a60 in the row's population"
+  },
+  {
+   "kind": "split",
+   "entry": "006e8150",
+   "bytes": 36,
+   "population": "population-4391",
+   "source": "src/recovered/classes/ThemeClass/unknown_theme_length.cpp",
+   "cause": "held by population-4391; not joined: does not compile in the unit: accepted.cpp(507) : error C2011: 'ThemeControl' : 'struct' type redefinition"
+  },
+  {
+   "kind": "split",
+   "entry": "006e8180",
+   "bytes": 21,
+   "population": "population-2332",
+   "source": "src/recovered/classes/ThemeClass/Fade_Stream.cpp",
+   "cause": "held by population-2332; not joined: does not compile in the unit: accepted.cpp(541) : error C2011: 'ThemeClass' : 'class' type redefinition"
+  },
+  {
+   "kind": "split",
+   "entry": "006e8270",
+   "bytes": 85,
+   "population": "population-2214",
+   "source": "src/recovered/classes/ThemeClass/Suspend.cpp",
+   "cause": "held by population-2214; not joined: does not compile in the unit: accepted.cpp(610) : error C2011: 'ThemeClass' : 'class' type redefinition"
+  },
+  {
+   "kind": "split",
+   "entry": "006e8310",
+   "bytes": 45,
+   "population": "population-3353",
+   "source": "src/recovered/classes/ThemeClass/Save.cpp",
+   "cause": "held by population-3353; not joined: does not compile in the unit: accepted.cpp(387) : error C2011: 'ThemeClass' : 'class' type redefinition"
+  },
+  {
+   "kind": "split",
+   "entry": "006e84e0",
+   "bytes": 44,
+   "population": "population-3046",
+   "source": "src/recovered/classes/ThemeClass/unknown_is_flagged.cpp",
+   "cause": "held by population-3046; not joined: does not compile in the unit: accepted.cpp(732) : error C2011: 'ThemeControl' : 'struct' type redefinition"
+  },
+  {
+   "kind": "split",
+   "entry": "006e85b0",
+   "bytes": 42,
+   "population": "population-1622",
+   "source": "src/recovered/classes/DynamicVectorClass_ThemeControl_ptr/Clear.cpp",
+   "cause": "frozen in another population's inventory pass (population-1622)"
+  },
+  {
+   "kind": "split",
+   "entry": "006e85e0",
+   "bytes": 27,
+   "population": "population-1622",
+   "source": "src/recovered/classes/DynamicVectorClass_ThemeControl_ptr/DynamicVectorClass_ThemeControl_ptr_ID_pointer_006e85e0.cpp",
+   "cause": "frozen in another population's inventory pass (population-1622)"
+  },
+  {
+   "kind": "split",
+   "entry": "006e8600",
+   "bytes": 176,
+   "population": "population-1622",
+   "source": "src/recovered/classes/DynamicVectorClass_ThemeControl_ptr/Resize.cpp",
+   "cause": "frozen in another population's inventory pass (population-1622)"
+  },
+  {
+   "kind": "split",
+   "entry": "006e86b0",
+   "bytes": 38,
+   "population": "population-1622",
+   "source": "src/recovered/classes/DynamicVectorClass_ThemeControl_ptr/DynamicVectorClass_ThemeControl_ptr_ID_object_006e86b0.cpp",
+   "cause": "frozen in another population's inventory pass (population-1622)"
+  }
+ ],
+ "unit_functions": 45,
+ "data_unproven": [
+  {
+   "symbol": "??_7CDFileClass@@6B@",
+   "reason": "relocation target unbound: ?File_Name@RawFileClass@@UBEPBDXZ"
+  },
+  {
+   "symbol": "??_7CCFileClass@@6B@",
+   "reason": "relocation target unbound: ?File_Name@RawFileClass@@UBEPBDXZ"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "0051a870",
+   "target": "006e8510",
+   "symbol": "?From_Name_006e8510@Callee_006e8510@seed_0051a870@@QAEIPAD@Z",
+   "module_symbol": "?From_Name@ThemeClass@@QBEHPBD@Z"
+  },
+  {
+   "site": "006bc2c0",
+   "target": "006e7e20",
+   "symbol": "?Queue_Song_006e7e20@Callee_006e7e20@seed_006bc2c0@@QAEXH@Z",
+   "module_symbol": "?Queue_Song@ThemeClass@@QAEXH@Z"
+  },
+  {
+   "site": "00406ea0",
+   "target": "006e7cd0",
+   "symbol": "?unknown_006e7cd0@@YIXPAUunknown_00a35d78_type@@@Z",
+   "module_symbol": "?AI@ThemeClass@@QAEXXZ"
+  },
+  {
+   "site": "00688da0",
+   "target": "006e8440",
+   "symbol": "?unknown_6e8440@ThemeClass@@QAE_NI@Z",
+   "module_symbol": "?FUN_006e8440@Owner_006e8440@seed_006e8440@@QAE_NI@Z"
+  },
+  {
+   "site": "00688da0",
+   "target": "006e7cb0",
+   "symbol": "?Full_Name@ThemeClass@@QBEPBGI@Z",
+   "module_symbol": "?FUN_006e7cb0@Owner_006e7cb0@seed_006e7cb0@@QAEHI@Z"
+  }
+ ],
+ "stand_in_reference_count": 5,
+ "residual_split": {
+  "rows": 22,
+  "bytes": 870
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

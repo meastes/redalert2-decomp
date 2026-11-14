@@ -1,0 +1,864 @@
+{
+ "module": "voxlib",
+ "source": "src/recovered/voxlib.cpp",
+ "header": null,
+ "population": "population-4226",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 913,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00719040",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??0VoxelLibrary@@QAE@XZ",
+   "entry": "00719060",
+   "body_bytes": 25,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??0VoxelLibrary@@QAE@PAVFileClass@@H@Z",
+   "entry": "00719080",
+   "body_bytes": 55,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??1VoxelLibrary@@QAE@XZ",
+   "entry": "007190c0",
+   "body_bytes": 66,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Clear@VoxelLibrary@@QAEXXZ",
+   "entry": "00719110",
+   "body_bytes": 66,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Read_File@VoxelLibrary@@QAEHPAVFileClass@@H@Z",
+   "entry": "00719160",
+   "body_bytes": 1762,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Get_Layer@VoxelLibrary@@QAEPAUUnknownVoxelSection@@H@Z",
+   "entry": "00719850",
+   "body_bytes": 16,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "entry": "00719860",
+   "body_bytes": 34,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Get_Bounding_Box_Center@VoxelLibrary@@QAE?AUVector3@@HH@Z",
+   "entry": "00719890",
+   "body_bytes": 133,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Memory_Used@VoxelLibrary@@QAEHXZ",
+   "entry": "00719920",
+   "body_bytes": 29,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Render_Object@VoxelLibrary@@QAEXPAUUnknownVoxelDrawState@@PBUVector3@@@Z",
+   "entry": "00719940",
+   "body_bytes": 711,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Render_Shadow@VoxelLibrary@@QAEXPAUUnknownVoxelRecord48@@PBUVector3@@@Z",
+   "entry": "00719c10",
+   "body_bytes": 837,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Compute_Bounding_Box@VoxelLibrary@@QAEXXZ",
+   "entry": "00719f60",
+   "body_bytes": 542,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Draw_Voxel_Regular_Normals@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+   "entry": "0071a180",
+   "body_bytes": 417,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Draw_Voxel_Reverse_Normals@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+   "entry": "0071a330",
+   "body_bytes": 411,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Draw_Voxel_Regular_Normals_ZBuffer@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+   "entry": "0071a4d0",
+   "body_bytes": 565,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Draw_Voxel_Reverse_Normals_ZBuffer@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+   "entry": "0071a710",
+   "body_bytes": 563,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Draw_Voxel_Regular_Normals_Lighting@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+   "entry": "0071a950",
+   "body_bytes": 491,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Draw_Voxel_Reverse_Normals_Lighting@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+   "entry": "0071ab40",
+   "body_bytes": 483,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Draw_Voxel_Regular_Normals_ZBuffer_Lighting@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+   "entry": "0071ad30",
+   "body_bytes": 613,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Draw_Voxel_Reverse_Normals_ZBuffer_Lighting@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+   "entry": "0071afa0",
+   "body_bytes": 635,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Draw_Voxel_Regular@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+   "entry": "0071b220",
+   "body_bytes": 438,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Draw_Voxel_Reverse@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+   "entry": "0071b3e0",
+   "body_bytes": 446,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Draw_Voxel_Regular_ZBuffer@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+   "entry": "0071b5a0",
+   "body_bytes": 563,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Draw_Voxel_Reverse_ZBuffer@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+   "entry": "0071b7e0",
+   "body_bytes": 561,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?unknown_71ba20@@YIXPBUVector3@@H@Z",
+   "entry": "0071ba20",
+   "body_bytes": 120,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?unknown_71baa0@@YIXPBUVector3@@0MH@Z",
+   "entry": "0071baa0",
+   "body_bytes": 391,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?unknown_71bc30@@YIHPBUVector3@@H@Z",
+   "entry": "0071bc30",
+   "body_bytes": 167,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?unknown_71bce0@@YAXXZ",
+   "entry": "0071bce0",
+   "body_bytes": 20,
+   "padding_bytes": 12
+  }
+ ],
+ "code_bytes": 11456,
+ "data": [
+  {
+   "symbol": "__real@4@00000000000000000000",
+   "address": "0079a738",
+   "bytes": 4,
+   "kind": "table",
+   "section": 67
+  },
+  {
+   "symbol": "__real@4@4006ff00000000000000",
+   "address": "0079b0a8",
+   "bytes": 4,
+   "kind": "table",
+   "section": 85
+  },
+  {
+   "symbol": "__real@4@40078000000000000000",
+   "address": "0079b0ac",
+   "bytes": 4,
+   "kind": "table",
+   "section": 31
+  },
+  {
+   "symbol": "__real@8@00000000000000000000",
+   "address": "0079b610",
+   "bytes": 8,
+   "kind": "table",
+   "section": 64
+  },
+  {
+   "symbol": "__real@4@3ffe8000000000000000",
+   "address": "0079dd80",
+   "bytes": 4,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@4@3ffdcccccd0000000000",
+   "address": "007a7b18",
+   "bytes": 4,
+   "kind": "table",
+   "section": 86
+  },
+  {
+   "symbol": "__real@4@3ffb8000000000000000",
+   "address": "007a7b20",
+   "bytes": 4,
+   "kind": "table",
+   "section": 88
+  },
+  {
+   "symbol": "__real@4@40068000000000000000",
+   "address": "007aea3c",
+   "bytes": 4,
+   "kind": "table",
+   "section": 32
+  },
+  {
+   "symbol": "__real@4@40038000000000000000",
+   "address": "007aea40",
+   "bytes": 4,
+   "kind": "table",
+   "section": 63
+  },
+  {
+   "symbol": "__real@4@3ffccccccd0000000000",
+   "address": "007aea44",
+   "bytes": 4,
+   "kind": "table",
+   "section": 70
+  },
+  {
+   "symbol": "_?_addend@?1??Calculate_Lookup_Table@VoxelPaletteLibrary@@QAEXPAMH@Z@4MB",
+   "address": "007aea48",
+   "bytes": 4,
+   "kind": "static",
+   "section": 2
+  },
+  {
+   "symbol": "__real@4@3ffecccccd0000000000",
+   "address": "007aea4c",
+   "bytes": 4,
+   "kind": "table",
+   "section": 87
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@4@00000000000000000000",
+   "address": "0079a738",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@4006ff00000000000000",
+   "address": "0079b0a8",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@40078000000000000000",
+   "address": "0079b0ac",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@00000000000000000000",
+   "address": "0079b610",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@3ffe8000000000000000",
+   "address": "0079dd80",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@3ffdcccccd0000000000",
+   "address": "007a7b18",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@3ffb8000000000000000",
+   "address": "007a7b20",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@40068000000000000000",
+   "address": "007aea3c",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@40038000000000000000",
+   "address": "007aea40",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@3ffccccccd0000000000",
+   "address": "007aea44",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "_?_addend@?1??Calculate_Lookup_Table@VoxelPaletteLibrary@@QAEXPAMH@Z@4MB",
+   "address": "007aea48",
+   "bytes": 4,
+   "kind": "static"
+  },
+  {
+   "symbol": "__real@4@3ffecccccd0000000000",
+   "address": "007aea4c",
+   "bytes": 4,
+   "kind": "table"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "005d4a60",
+   "symbol": "??1VoxelLibrary@@QAE@XZ",
+   "target": "007190c0",
+   "function_entry": true
+  },
+  {
+   "site": "0070e470",
+   "symbol": "??1VoxelLibrary@@QAE@XZ",
+   "target": "007190c0",
+   "function_entry": true
+  },
+  {
+   "site": "0070e470",
+   "symbol": "??0VoxelLibrary@@QAE@PAVFileClass@@H@Z",
+   "target": "00719080",
+   "function_entry": true
+  },
+  {
+   "site": "005d6150",
+   "symbol": "??0VoxelLibrary@@QAE@PAVFileClass@@H@Z",
+   "target": "00719080",
+   "function_entry": true
+  },
+  {
+   "site": "005d6150",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "target": "00719860",
+   "function_entry": true
+  },
+  {
+   "site": "005d6150",
+   "symbol": "??1VoxelLibrary@@QAE@XZ",
+   "target": "007190c0",
+   "function_entry": true
+  },
+  {
+   "site": "005d63f0",
+   "symbol": "??0VoxelLibrary@@QAE@PAVFileClass@@H@Z",
+   "target": "00719080",
+   "function_entry": true
+  },
+  {
+   "site": "005d63f0",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "target": "00719860",
+   "function_entry": true
+  },
+  {
+   "site": "005d63f0",
+   "symbol": "??1VoxelLibrary@@QAE@XZ",
+   "target": "007190c0",
+   "function_entry": true
+  },
+  {
+   "site": "005d66a0",
+   "symbol": "??1VoxelLibrary@@QAE@XZ",
+   "target": "007190c0",
+   "function_entry": true
+  },
+  {
+   "site": "005d66a0",
+   "symbol": "??1VoxelLibrary@@QAE@XZ",
+   "target": "007190c0",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "??1VoxelLibrary@@QAE@XZ",
+   "target": "007190c0",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "??0VoxelLibrary@@QAE@PAVFileClass@@H@Z",
+   "target": "00719080",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "target": "00719860",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "??1VoxelLibrary@@QAE@XZ",
+   "target": "007190c0",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "??0VoxelLibrary@@QAE@PAVFileClass@@H@Z",
+   "target": "00719080",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "target": "00719860",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "??1VoxelLibrary@@QAE@XZ",
+   "target": "007190c0",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "??0VoxelLibrary@@QAE@PAVFileClass@@H@Z",
+   "target": "00719080",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "target": "00719860",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "??1VoxelLibrary@@QAE@XZ",
+   "target": "007190c0",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "??0VoxelLibrary@@QAE@PAVFileClass@@H@Z",
+   "target": "00719080",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "target": "00719860",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "??1VoxelLibrary@@QAE@XZ",
+   "target": "007190c0",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "??0VoxelLibrary@@QAE@PAVFileClass@@H@Z",
+   "target": "00719080",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "target": "00719860",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "??1VoxelLibrary@@QAE@XZ",
+   "target": "007190c0",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "??1VoxelLibrary@@QAE@XZ",
+   "target": "007190c0",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "target": "00719860",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "target": "00719860",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "target": "00719860",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "target": "00719860",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "target": "00719860",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "target": "00719860",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "target": "00719860",
+   "function_entry": true
+  },
+  {
+   "site": "005d72b0",
+   "symbol": "??1VoxelLibrary@@QAE@XZ",
+   "target": "007190c0",
+   "function_entry": true
+  },
+  {
+   "site": "005d72b0",
+   "symbol": "??0VoxelLibrary@@QAE@PAVFileClass@@H@Z",
+   "target": "00719080",
+   "function_entry": true
+  },
+  {
+   "site": "005d72b0",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "target": "00719860",
+   "function_entry": true
+  },
+  {
+   "site": "005d72b0",
+   "symbol": "??1VoxelLibrary@@QAE@XZ",
+   "target": "007190c0",
+   "function_entry": true
+  },
+  {
+   "site": "005d72b0",
+   "symbol": "??0VoxelLibrary@@QAE@PAVFileClass@@H@Z",
+   "target": "00719080",
+   "function_entry": true
+  },
+  {
+   "site": "005d72b0",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "target": "00719860",
+   "function_entry": true
+  },
+  {
+   "site": "005d7c30",
+   "symbol": "??1VoxelLibrary@@QAE@XZ",
+   "target": "007190c0",
+   "function_entry": true
+  },
+  {
+   "site": "005d7c30",
+   "symbol": "??1VoxelLibrary@@QAE@XZ",
+   "target": "007190c0",
+   "function_entry": true
+  },
+  {
+   "site": "005d7c30",
+   "symbol": "??1VoxelLibrary@@QAE@XZ",
+   "target": "007190c0",
+   "function_entry": true
+  },
+  {
+   "site": "00459640",
+   "symbol": "??1VoxelLibrary@@QAE@XZ",
+   "target": "007190c0",
+   "function_entry": true
+  },
+  {
+   "site": "00459640",
+   "symbol": "??0VoxelLibrary@@QAE@PAVFileClass@@H@Z",
+   "target": "00719080",
+   "function_entry": true
+  },
+  {
+   "site": "00459640",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "target": "00719860",
+   "function_entry": true
+  },
+  {
+   "site": "00459640",
+   "symbol": "??1VoxelLibrary@@QAE@XZ",
+   "target": "007190c0",
+   "function_entry": true
+  },
+  {
+   "site": "00459640",
+   "symbol": "??0VoxelLibrary@@QAE@PAVFileClass@@H@Z",
+   "target": "00719080",
+   "function_entry": true
+  },
+  {
+   "site": "00459640",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "target": "00719860",
+   "function_entry": true
+  },
+  {
+   "site": "006daf60",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "target": "00719860",
+   "function_entry": true
+  },
+  {
+   "site": "006daf60",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "target": "00719860",
+   "function_entry": true
+  },
+  {
+   "site": "00516900",
+   "symbol": "??0VoxelLibrary@@QAE@PAVFileClass@@H@Z",
+   "target": "00719080",
+   "function_entry": true
+  },
+  {
+   "site": "00717050",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "target": "00719860",
+   "function_entry": true
+  },
+  {
+   "site": "00717050",
+   "symbol": "?unknown_normal_lookup_71ba20@@YIXABUVector3@@H@Z",
+   "target": "0071ba20",
+   "function_entry": true
+  },
+  {
+   "site": "007170d0",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "target": "00719860",
+   "function_entry": true
+  },
+  {
+   "site": "007170d0",
+   "symbol": "?unknown_normal_lookup_71baa0@@YIXABUVector3@@0MH@Z",
+   "target": "0071baa0",
+   "function_entry": true
+  },
+  {
+   "site": "00717360",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "target": "00719860",
+   "function_entry": true
+  },
+  {
+   "site": "007174c0",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "target": "00719860",
+   "function_entry": true
+  },
+  {
+   "site": "007176c0",
+   "symbol": "?Render_Shadow@VoxelLibrary@@QAEXPAUUnknownVoxelRecord48@@PBUVector3@@@Z",
+   "target": "00719c10",
+   "function_entry": true
+  },
+  {
+   "site": "007176c0",
+   "symbol": "?Render_Object@VoxelLibrary@@QAEXPAUUnknownVoxelDrawState@@PBUVector3@@@Z",
+   "target": "00719940",
+   "function_entry": true
+  },
+  {
+   "site": "007176c0",
+   "symbol": "?Render_Object@VoxelLibrary@@QAEXPAUUnknownVoxelDrawState@@PBUVector3@@@Z",
+   "target": "00719940",
+   "function_entry": true
+  },
+  {
+   "site": "007178e0",
+   "symbol": "?Render_Shadow@VoxelLibrary@@QAEXPAUUnknownVoxelRecord48@@PBUVector3@@@Z",
+   "target": "00719c10",
+   "function_entry": true
+  },
+  {
+   "site": "007178e0",
+   "symbol": "?Render_Object@VoxelLibrary@@QAEXPAUUnknownVoxelDrawState@@PBUVector3@@@Z",
+   "target": "00719940",
+   "function_entry": true
+  },
+  {
+   "site": "007178e0",
+   "symbol": "?Render_Object@VoxelLibrary@@QAEXPAUUnknownVoxelDrawState@@PBUVector3@@@Z",
+   "target": "00719940",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0Matrix3D@@QAE@PBM@Z",
+   "address": "0058fde0"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?Fast_Sqrt@@YAMN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?VoxelPaletteTranslateTable@@3PAEA",
+   "address": "00af4608"
+  },
+  {
+   "symbol": "?VoxelRGBColors@@3PAUVxlRGB@@A",
+   "address": "00ae3008"
+  },
+  {
+   "symbol": "?unknown_af6610@@3HA",
+   "address": "00af6610"
+  },
+  {
+   "symbol": "?unknown_af6614@@3HA",
+   "address": "00af6614"
+  },
+  {
+   "symbol": "?unknown_drawers_7f9de0@@3PAP6AXPAUVoxelFuncArgumentStruct@@@ZA",
+   "address": "007f9de0"
+  },
+  {
+   "symbol": "?unknown_grid_ae3408@@3PAEA",
+   "address": "00ae3408"
+  },
+  {
+   "symbol": "?unknown_lit_colors_af4608@@3PAY0BAA@EA",
+   "address": "00af4608"
+  },
+  {
+   "symbol": "?unknown_normal_counts_7f9f94@@3PAHA",
+   "address": "007f9f94"
+  },
+  {
+   "symbol": "?unknown_normal_tables_7f9f80@@3PAPBUVector3@@A",
+   "address": "007f9f80"
+  },
+  {
+   "symbol": "?unknown_views_7f9e60@@3PAUUnknownVoxelView@@A",
+   "address": "007f9e60"
+  },
+  {
+   "symbol": "?unknown_zbuffer_ad0a70@@3PAEA",
+   "address": "00ad0a70"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  }
+ ],
+ "route": "A",
+ "unit": "voxlib.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00719040",
+   "lines": 8
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 31,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "00717050",
+   "target": "0071ba20",
+   "symbol": "?unknown_normal_lookup_71ba20@@YIXABUVector3@@H@Z",
+   "module_symbol": "?unknown_71ba20@@YIXPBUVector3@@H@Z"
+  },
+  {
+   "site": "007170d0",
+   "target": "0071baa0",
+   "symbol": "?unknown_normal_lookup_71baa0@@YIXABUVector3@@0MH@Z",
+   "module_symbol": "?unknown_71baa0@@YIXPBUVector3@@0MH@Z"
+  }
+ ],
+ "stand_in_reference_count": 2,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

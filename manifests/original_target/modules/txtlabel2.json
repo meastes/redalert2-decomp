@@ -1,0 +1,2065 @@
+{
+ "module": "txtlabel2",
+ "source": "src/recovered/txtlabel2.cpp",
+ "header": null,
+ "population": "population-4360",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/Gr"
+ ],
+ "compile_group": 984,
+ "code": [
+  {
+   "symbol": "?unknown_init_color_ac1124@@YIXXZ",
+   "entry": "006f1a00",
+   "body_bytes": 20,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?unknown_init_color_ac1028@@YIXXZ",
+   "entry": "006f1ac0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Unknown_Free_All_Art_006F1D20@@YIXXZ",
+   "entry": "006f1d20",
+   "body_bytes": 525,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Unknown_Free_Art_Sets_006F2130@@YIXXZ",
+   "entry": "006f2130",
+   "body_bytes": 239,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Unknown_Load_Art_Buffers_006F2260@@YIXXZ",
+   "entry": "006f2260",
+   "body_bytes": 85,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Unknown_Free_Art_Buffers_006F22F0@@YIXXZ",
+   "entry": "006f22f0",
+   "body_bytes": 147,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Unknown_Free_Art_Sets_006F2510@@YIXXZ",
+   "entry": "006f2510",
+   "body_bytes": 143,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Unknown_Free_Art_Buffers_006F2980@@YIXXZ",
+   "entry": "006f2980",
+   "body_bytes": 112,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Unknown_006F2AB0@@YIXXZ",
+   "entry": "006f2ab0",
+   "body_bytes": 101,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Unknown_Free_Backdrop_006F2BD0@@YIXXZ",
+   "entry": "006f2bd0",
+   "body_bytes": 41,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Unknown_006F2C00@@YIXXZ",
+   "entry": "006f2c00",
+   "body_bytes": 55,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Unknown_006F2C40@@YIXXZ",
+   "entry": "006f2c40",
+   "body_bytes": 189,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Unknown_006F2DF0@@YIXXZ",
+   "entry": "006f2df0",
+   "body_bytes": 177,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Unknown_Free_Art_Buffers_006F2ED0@@YIXXZ",
+   "entry": "006f2ed0",
+   "body_bytes": 147,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Unknown_006F2FB0@@YIXXZ",
+   "entry": "006f2fb0",
+   "body_bytes": 316,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Unknown_Free_Art_Set_006F30F0@@YIXXZ",
+   "entry": "006f30f0",
+   "body_bytes": 183,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Unknown_Reload_Art_Set_006F31B0@@YIXXZ",
+   "entry": "006f31b0",
+   "body_bytes": 497,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Unknown_Reset_Art_006F33B0@@YIXHH@Z",
+   "entry": "006f33b0",
+   "body_bytes": 165,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Unknown_Get_Art_006f3460@@YI_NXZ",
+   "entry": "006f3460",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Unknown_Get_Art_006f3470@@YIPAXXZ",
+   "entry": "006f3470",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Unknown_Get_Art_006f3480@@YIPAXXZ",
+   "entry": "006f3480",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Unknown_Get_Art_006f3490@@YIPAXXZ",
+   "entry": "006f3490",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Unknown_Get_Art_006f34a0@@YIPAXXZ",
+   "entry": "006f34a0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Unknown_Get_Art_006f34b0@@YIPAXXZ",
+   "entry": "006f34b0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Unknown_Get_Art_006f34c0@@YIPAXXZ",
+   "entry": "006f34c0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Unknown_006F3D50@@YIXXZ",
+   "entry": "006f3d50",
+   "body_bytes": 211,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Unknown_Load_Art_Pairs_006F3E30@@YIXXZ",
+   "entry": "006f3e30",
+   "body_bytes": 64,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Unknown_006F4160@@YIXXZ",
+   "entry": "006f4160",
+   "body_bytes": 361,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Unknown_6F4360@@YIXXZ",
+   "entry": "006f4360",
+   "body_bytes": 149,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Unknown_6F4450@@YIXXZ",
+   "entry": "006f4450",
+   "body_bytes": 113,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Unknown_Reload_Art_006F44D0@@YIXXZ",
+   "entry": "006f44d0",
+   "body_bytes": 184,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Unknown_Get_Art_006f4590@@YI_NXZ",
+   "entry": "006f4590",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Unknown_Get_Art_006f45e0@@YIPAXXZ",
+   "entry": "006f45e0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Unknown_Get_Art_006f4600@@YIPAXXZ",
+   "entry": "006f4600",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Unknown_006F4B00@@YIXXZ",
+   "entry": "006f4b00",
+   "body_bytes": 337,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Unknown_006F5150@@YIXXZ",
+   "entry": "006f5150",
+   "body_bytes": 575,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Unknown_006F5390@@YIXXZ",
+   "entry": "006f5390",
+   "body_bytes": 97,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Unknown_6F5400@@YIXXZ",
+   "entry": "006f5400",
+   "body_bytes": 290,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Unknown_Reload_Art_Buffers_006F5530@@YIXXZ",
+   "entry": "006f5530",
+   "body_bytes": 10,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Unknown_Reset_Art_006F55D0@@YIXHH@Z",
+   "entry": "006f55d0",
+   "body_bytes": 22,
+   "padding_bytes": 10
+  }
+ ],
+ "code_bytes": 6000,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0067bd90",
+   "symbol": "?Unknown_006F45E0@@YAPAVPaletteClass@@XZ",
+   "target": "006f45e0",
+   "function_entry": true
+  },
+  {
+   "site": "006f3650",
+   "symbol": "?Unknown_006F3D50@@YIXXZ",
+   "target": "006f3d50",
+   "function_entry": true
+  },
+  {
+   "site": "006a0c50",
+   "symbol": "?Unknown_Get_Art_006f4590@@YI_NXZ",
+   "target": "006f4590",
+   "function_entry": true
+  },
+  {
+   "site": "0065bc70",
+   "symbol": "?Unknown_Free_Art_Set_006F30F0@@YIXXZ",
+   "target": "006f30f0",
+   "function_entry": true
+  },
+  {
+   "site": "00536e20",
+   "symbol": "?Unknown_Free_Art_Sets_006F2510@@YIXXZ",
+   "target": "006f2510",
+   "function_entry": true
+  },
+  {
+   "site": "0051a330",
+   "symbol": "?Unknown_Reload_Art_006F44D0@@YIXXZ",
+   "target": "006f44d0",
+   "function_entry": true
+  },
+  {
+   "site": "00467a20",
+   "symbol": "?Unknown_006F2AB0@@YIXXZ",
+   "target": "006f2ab0",
+   "function_entry": true
+  },
+  {
+   "site": "005434e0",
+   "symbol": "?Unknown_Reset_Art_006F33B0@@YIXHH@Z",
+   "target": "006f33b0",
+   "function_entry": true
+  },
+  {
+   "site": "005e1820",
+   "symbol": "?Unknown_Get_Art_006f3480@@YIPAXXZ",
+   "target": "006f3480",
+   "function_entry": true
+  },
+  {
+   "site": "005e1820",
+   "symbol": "?Unknown_Get_Art_006f34a0@@YIPAXXZ",
+   "target": "006f34a0",
+   "function_entry": true
+  },
+  {
+   "site": "006909e0",
+   "symbol": "?Unknown_Free_All_Art_006F1D20@@YIXXZ",
+   "target": "006f1d20",
+   "function_entry": true
+  },
+  {
+   "site": "005ea960",
+   "symbol": "?Unknown_Get_Art_006f3480@@YIPAXXZ",
+   "target": "006f3480",
+   "function_entry": true
+  },
+  {
+   "site": "0053f840",
+   "symbol": "?Unknown_Reload_Art_Set_006F31B0@@YIXXZ",
+   "target": "006f31b0",
+   "function_entry": true
+  },
+  {
+   "site": "0053f840",
+   "symbol": "?Unknown_Reload_Art_Set_006F31B0@@YIXXZ",
+   "target": "006f31b0",
+   "function_entry": true
+  },
+  {
+   "site": "0053f840",
+   "symbol": "?Unknown_Reload_Art_Set_006F31B0@@YIXXZ",
+   "target": "006f31b0",
+   "function_entry": true
+  },
+  {
+   "site": "00656890",
+   "symbol": "?Unknown_Free_Art_Set_006F30F0@@YIXXZ",
+   "target": "006f30f0",
+   "function_entry": true
+  },
+  {
+   "site": "005aaa40",
+   "symbol": "?Unknown_006F2AB0@@YIXXZ",
+   "target": "006f2ab0",
+   "function_entry": true
+  },
+  {
+   "site": "006f4620",
+   "symbol": "?Unknown_Load_Art_Buffers_006F4B00@@YIXXZ",
+   "target": "006f4b00",
+   "function_entry": true
+  },
+  {
+   "site": "006f4400",
+   "symbol": "?Unknown_Load_Art_Buffers_006F4B00@@YIXXZ",
+   "target": "006f4b00",
+   "function_entry": true
+  },
+  {
+   "site": "005fee70",
+   "symbol": "?Unknown_Get_Art_006f3460@@YI_NXZ",
+   "target": "006f3460",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Unknown_006F2C40@@YIXXZ",
+   "target": "006f2c40",
+   "function_entry": true
+  },
+  {
+   "site": "00481bf0",
+   "symbol": "?Unknown_Reload_Art_Set_006F31B0@@YIXXZ",
+   "target": "006f31b0",
+   "function_entry": true
+  },
+  {
+   "site": "005e5150",
+   "symbol": "?Unknown_Get_Art_006f3480@@YIPAXXZ",
+   "target": "006f3480",
+   "function_entry": true
+  },
+  {
+   "site": "005e5150",
+   "symbol": "?Unknown_Get_Art_006f34c0@@YIPAXXZ",
+   "target": "006f34c0",
+   "function_entry": true
+  },
+  {
+   "site": "0068e280",
+   "symbol": "?Unknown_Free_All_Art_006F1D20@@YIXXZ",
+   "target": "006f1d20",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?Unknown_00495270@@YIPAXPBDPA_N@Z",
+   "address": "00495270"
+  },
+  {
+   "symbol": "?Unknown_0051A270@@YIXXZ",
+   "address": "0051a270"
+  },
+  {
+   "symbol": "?Unknown_0051A2B0@@YIXXZ",
+   "address": "0051a2b0"
+  },
+  {
+   "symbol": "?Unknown_006F3E70@@YIXHH@Z",
+   "address": "006f3e70"
+  },
+  {
+   "symbol": "?Unknown_006F4C90@@YIXHH@Z",
+   "address": "006f4c90"
+  },
+  {
+   "symbol": "?Unknown_006F5400@@YIXXZ",
+   "address": "006f5400"
+  },
+  {
+   "symbol": "?Unknown_6F42D0@@YIXXZ",
+   "address": "006f42d0"
+  },
+  {
+   "symbol": "?unknown_art_ac0fec@@3PAXA",
+   "address": "00ac0fec"
+  },
+  {
+   "symbol": "?unknown_art_ac0ff0@@3PAXA",
+   "address": "00ac0ff0"
+  },
+  {
+   "symbol": "?unknown_art_ac0ff8@@3PAXA",
+   "address": "00ac0ff8"
+  },
+  {
+   "symbol": "?unknown_art_ac100c@@3PAXA",
+   "address": "00ac100c"
+  },
+  {
+   "symbol": "?unknown_art_ac1010@@3PAXA",
+   "address": "00ac1010"
+  },
+  {
+   "symbol": "?unknown_art_ac1040@@3PAXA",
+   "address": "00ac1040"
+  },
+  {
+   "symbol": "?unknown_art_ac1044@@3PAXA",
+   "address": "00ac1044"
+  },
+  {
+   "symbol": "?unknown_art_ac1048@@3PAXA",
+   "address": "00ac1048"
+  },
+  {
+   "symbol": "?unknown_art_ac1058@@3PAXA",
+   "address": "00ac1058"
+  },
+  {
+   "symbol": "?unknown_art_ac105c@@3PAXA",
+   "address": "00ac105c"
+  },
+  {
+   "symbol": "?unknown_art_ac1060@@3PAXA",
+   "address": "00ac1060"
+  },
+  {
+   "symbol": "?unknown_art_ac1070@@3PAXA",
+   "address": "00ac1070"
+  },
+  {
+   "symbol": "?unknown_art_ac1074@@3PAXA",
+   "address": "00ac1074"
+  },
+  {
+   "symbol": "?unknown_art_ac1078@@3PAXA",
+   "address": "00ac1078"
+  },
+  {
+   "symbol": "?unknown_art_ac107c@@3PAXA",
+   "address": "00ac107c"
+  },
+  {
+   "symbol": "?unknown_art_ac1094@@3PAXA",
+   "address": "00ac1094"
+  },
+  {
+   "symbol": "?unknown_art_ac1098@@3PAXA",
+   "address": "00ac1098"
+  },
+  {
+   "symbol": "?unknown_art_ac10a4@@3PAXA",
+   "address": "00ac10a4"
+  },
+  {
+   "symbol": "?unknown_art_ac10b0@@3PAXA",
+   "address": "00ac10b0"
+  },
+  {
+   "symbol": "?unknown_art_ac10b4@@3PAXA",
+   "address": "00ac10b4"
+  },
+  {
+   "symbol": "?unknown_art_ac10b8@@3PAXA",
+   "address": "00ac10b8"
+  },
+  {
+   "symbol": "?unknown_art_ac10bc@@3PAXA",
+   "address": "00ac10bc"
+  },
+  {
+   "symbol": "?unknown_art_ac10c0@@3PAXA",
+   "address": "00ac10c0"
+  },
+  {
+   "symbol": "?unknown_art_ac10c4@@3PAXA",
+   "address": "00ac10c4"
+  },
+  {
+   "symbol": "?unknown_art_ac10d8@@3PAXA",
+   "address": "00ac10d8"
+  },
+  {
+   "symbol": "?unknown_art_ac10e8@@3PAXA",
+   "address": "00ac10e8"
+  },
+  {
+   "symbol": "?unknown_art_ac10ec@@3PAXA",
+   "address": "00ac10ec"
+  },
+  {
+   "symbol": "?unknown_art_ac10f0@@3PAXA",
+   "address": "00ac10f0"
+  },
+  {
+   "symbol": "?unknown_art_ac10f8@@3PAXA",
+   "address": "00ac10f8"
+  },
+  {
+   "symbol": "?unknown_art_ac10fc@@3PAXA",
+   "address": "00ac10fc"
+  },
+  {
+   "symbol": "?unknown_art_ac1104@@3PAXA",
+   "address": "00ac1104"
+  },
+  {
+   "symbol": "?unknown_art_ac1108@@3PAXA",
+   "address": "00ac1108"
+  },
+  {
+   "symbol": "?unknown_art_ac110c@@3PAXA",
+   "address": "00ac110c"
+  },
+  {
+   "symbol": "?unknown_art_ac1120@@3PAXA",
+   "address": "00ac1120"
+  },
+  {
+   "symbol": "?unknown_art_ac1128@@3PAXA",
+   "address": "00ac1128"
+  },
+  {
+   "symbol": "?unknown_art_ac1130@@3PAXA",
+   "address": "00ac1130"
+  },
+  {
+   "symbol": "?unknown_art_ac1134@@3PAVUnknownArtData_006f2390@@A",
+   "address": "00ac1134"
+  },
+  {
+   "symbol": "?unknown_art_ac1138@@3PAXA",
+   "address": "00ac1138"
+  },
+  {
+   "symbol": "?unknown_art_ac113c@@3PAVUnknownArtData_006f2390@@A",
+   "address": "00ac113c"
+  },
+  {
+   "symbol": "?unknown_art_ac1140@@3PAXA",
+   "address": "00ac1140"
+  },
+  {
+   "symbol": "?unknown_art_ac1144@@3PAVUnknownArtData_006f2390@@A",
+   "address": "00ac1144"
+  },
+  {
+   "symbol": "?unknown_art_ac1148@@3PAXA",
+   "address": "00ac1148"
+  },
+  {
+   "symbol": "?unknown_art_ac114c@@3PAVUnknownArtData_006f2390@@A",
+   "address": "00ac114c"
+  },
+  {
+   "symbol": "?unknown_art_ac1150@@3PAXA",
+   "address": "00ac1150"
+  },
+  {
+   "symbol": "?unknown_art_ac1154@@3PAVUnknownArtData_006f2390@@A",
+   "address": "00ac1154"
+  },
+  {
+   "symbol": "?unknown_art_ac116c@@3PAXA",
+   "address": "00ac116c"
+  },
+  {
+   "symbol": "?unknown_art_ac1170@@3PAVUnknownArtData_006f2390@@A",
+   "address": "00ac1170"
+  },
+  {
+   "symbol": "?unknown_art_ac1178@@3PAXA",
+   "address": "00ac1178"
+  },
+  {
+   "symbol": "?unknown_art_ac117c@@3PAXA",
+   "address": "00ac117c"
+  },
+  {
+   "symbol": "?unknown_art_ac1184@@3PAXA",
+   "address": "00ac1184"
+  },
+  {
+   "symbol": "?unknown_art_ac1188@@3PAXA",
+   "address": "00ac1188"
+  },
+  {
+   "symbol": "?unknown_art_ac118c@@3PAXA",
+   "address": "00ac118c"
+  },
+  {
+   "symbol": "?unknown_art_ac1190@@3PAXA",
+   "address": "00ac1190"
+  },
+  {
+   "symbol": "?unknown_art_ac1194@@3PAXA",
+   "address": "00ac1194"
+  },
+  {
+   "symbol": "?unknown_art_ac1198@@3PAXA",
+   "address": "00ac1198"
+  },
+  {
+   "symbol": "?unknown_art_ac11a0@@3PAXA",
+   "address": "00ac11a0"
+  },
+  {
+   "symbol": "?unknown_art_ac11a4@@3PAVUnknownArtData_006f2390@@A",
+   "address": "00ac11a4"
+  },
+  {
+   "symbol": "?unknown_art_ac11a8@@3PAXA",
+   "address": "00ac11a8"
+  },
+  {
+   "symbol": "?unknown_art_ac11ac@@3PAVUnknownArtData_006f2390@@A",
+   "address": "00ac11ac"
+  },
+  {
+   "symbol": "?unknown_art_ac11b4@@3PAXA",
+   "address": "00ac11b4"
+  },
+  {
+   "symbol": "?unknown_art_ac11b8@@3PAXA",
+   "address": "00ac11b8"
+  },
+  {
+   "symbol": "?unknown_art_ac11bc@@3PAXA",
+   "address": "00ac11bc"
+  },
+  {
+   "symbol": "?unknown_art_ac11c0@@3PAXA",
+   "address": "00ac11c0"
+  },
+  {
+   "symbol": "?unknown_art_ac11c4@@3PAXA",
+   "address": "00ac11c4"
+  },
+  {
+   "symbol": "?unknown_art_ac11c8@@3PAXA",
+   "address": "00ac11c8"
+  },
+  {
+   "symbol": "?unknown_art_ac11cc@@3PAXA",
+   "address": "00ac11cc"
+  },
+  {
+   "symbol": "?unknown_art_ac11d0@@3PAXA",
+   "address": "00ac11d0"
+  },
+  {
+   "symbol": "?unknown_art_ac1218@@3PAXA",
+   "address": "00ac1218"
+  },
+  {
+   "symbol": "?unknown_art_ac121c@@3PAXA",
+   "address": "00ac121c"
+  },
+  {
+   "symbol": "?unknown_art_ac1220@@3PAXA",
+   "address": "00ac1220"
+  },
+  {
+   "symbol": "?unknown_art_acac11b4@@3PAXA",
+   "address": "00ac11b4"
+  },
+  {
+   "symbol": "?unknown_art_acac11b8@@3PAXA",
+   "address": "00ac11b8"
+  },
+  {
+   "symbol": "?unknown_art_acac11bc@@3PAXA",
+   "address": "00ac11bc"
+  },
+  {
+   "symbol": "?unknown_art_acac11c0@@3PAXA",
+   "address": "00ac11c0"
+  },
+  {
+   "symbol": "?unknown_art_acac11c4@@3PAXA",
+   "address": "00ac11c4"
+  },
+  {
+   "symbol": "?unknown_art_acac11c8@@3PAXA",
+   "address": "00ac11c8"
+  },
+  {
+   "symbol": "?unknown_art_acac11cc@@3PAXA",
+   "address": "00ac11cc"
+  },
+  {
+   "symbol": "?unknown_art_acac11d0@@3PAXA",
+   "address": "00ac11d0"
+  },
+  {
+   "symbol": "?unknown_art_acac11d4@@3PAXA",
+   "address": "00ac11d4"
+  },
+  {
+   "symbol": "?unknown_art_acac11d8@@3PAXA",
+   "address": "00ac11d8"
+  },
+  {
+   "symbol": "?unknown_art_acac11dc@@3PAXA",
+   "address": "00ac11dc"
+  },
+  {
+   "symbol": "?unknown_art_acac11e0@@3PAXA",
+   "address": "00ac11e0"
+  },
+  {
+   "symbol": "?unknown_art_acac11e4@@3PAXA",
+   "address": "00ac11e4"
+  },
+  {
+   "symbol": "?unknown_art_acac11e8@@3PAXA",
+   "address": "00ac11e8"
+  },
+  {
+   "symbol": "?unknown_art_acac11ec@@3PAXA",
+   "address": "00ac11ec"
+  },
+  {
+   "symbol": "?unknown_art_acac11f0@@3PAXA",
+   "address": "00ac11f0"
+  },
+  {
+   "symbol": "?unknown_art_acac11f4@@3PAXA",
+   "address": "00ac11f4"
+  },
+  {
+   "symbol": "?unknown_art_acac11f8@@3PAXA",
+   "address": "00ac11f8"
+  },
+  {
+   "symbol": "?unknown_art_acac11fc@@3PAXA",
+   "address": "00ac11fc"
+  },
+  {
+   "symbol": "?unknown_art_acac1200@@3PAXA",
+   "address": "00ac1200"
+  },
+  {
+   "symbol": "?unknown_art_acac1204@@3PAXA",
+   "address": "00ac1204"
+  },
+  {
+   "symbol": "?unknown_art_acac1208@@3PAXA",
+   "address": "00ac1208"
+  },
+  {
+   "symbol": "?unknown_art_acac120c@@3PAXA",
+   "address": "00ac120c"
+  },
+  {
+   "symbol": "?unknown_art_acac1210@@3PAXA",
+   "address": "00ac1210"
+  },
+  {
+   "symbol": "?unknown_block_ac11a0@@3PAXA",
+   "address": "00ac11a0"
+  },
+  {
+   "symbol": "?unknown_block_ac11a8@@3PAXA",
+   "address": "00ac11a8"
+  },
+  {
+   "symbol": "?unknown_buffer_ac0ff0@@3PAXA",
+   "address": "00ac0ff0"
+  },
+  {
+   "symbol": "?unknown_buffer_ac0ff8@@3PAXA",
+   "address": "00ac0ff8"
+  },
+  {
+   "symbol": "?unknown_buffer_ac100c@@3PAXA",
+   "address": "00ac100c"
+  },
+  {
+   "symbol": "?unknown_buffer_ac1048@@3PAXA",
+   "address": "00ac1048"
+  },
+  {
+   "symbol": "?unknown_buffer_ac1058@@3PAXA",
+   "address": "00ac1058"
+  },
+  {
+   "symbol": "?unknown_buffer_ac105c@@3PAXA",
+   "address": "00ac105c"
+  },
+  {
+   "symbol": "?unknown_buffer_ac1070@@3PAXA",
+   "address": "00ac1070"
+  },
+  {
+   "symbol": "?unknown_buffer_ac1078@@3PAXA",
+   "address": "00ac1078"
+  },
+  {
+   "symbol": "?unknown_buffer_ac1094@@3PAXA",
+   "address": "00ac1094"
+  },
+  {
+   "symbol": "?unknown_buffer_ac1098@@3PAXA",
+   "address": "00ac1098"
+  },
+  {
+   "symbol": "?unknown_buffer_ac10a4@@3PAXA",
+   "address": "00ac10a4"
+  },
+  {
+   "symbol": "?unknown_buffer_ac10b0@@3PAXA",
+   "address": "00ac10b0"
+  },
+  {
+   "symbol": "?unknown_buffer_ac10bc@@3PAXA",
+   "address": "00ac10bc"
+  },
+  {
+   "symbol": "?unknown_buffer_ac10c4@@3PAXA",
+   "address": "00ac10c4"
+  },
+  {
+   "symbol": "?unknown_buffer_ac10ec@@3PAXA",
+   "address": "00ac10ec"
+  },
+  {
+   "symbol": "?unknown_buffer_ac10f8@@3PAXA",
+   "address": "00ac10f8"
+  },
+  {
+   "symbol": "?unknown_color_ac1028@@3VRGBClass@@A",
+   "address": "00ac1028"
+  },
+  {
+   "symbol": "?unknown_color_ac1124@@3VRGBClass@@A",
+   "address": "00ac1124"
+  },
+  {
+   "symbol": "?unknown_flag_ac1174@@3_NA",
+   "address": "00ac1174"
+  },
+  {
+   "symbol": "?unknown_flag_ac119c@@3_NA",
+   "address": "00ac119c"
+  },
+  {
+   "symbol": "?unknown_flag_ac11b0@@3_NA",
+   "address": "00ac11b0"
+  },
+  {
+   "symbol": "?unknown_flag_ac1214@@3_NA",
+   "address": "00ac1214"
+  },
+  {
+   "symbol": "?unknown_flag_ac1215@@3_NA",
+   "address": "00ac1215"
+  },
+  {
+   "symbol": "?unknown_flag_ac1216@@3_NA",
+   "address": "00ac1216"
+  },
+  {
+   "symbol": "?unknown_flag_ac1217@@3_NA",
+   "address": "00ac1217"
+  },
+  {
+   "symbol": "?unknown_flag_ac1224@@3_NA",
+   "address": "00ac1224"
+  },
+  {
+   "symbol": "?unknown_flag_ac1225@@3_NA",
+   "address": "00ac1225"
+  },
+  {
+   "symbol": "?unknown_flag_ac1226@@3_NA",
+   "address": "00ac1226"
+  },
+  {
+   "symbol": "?unknown_flag_ac1227@@3_NA",
+   "address": "00ac1227"
+  },
+  {
+   "symbol": "?unknown_flag_ac1228@@3_NA",
+   "address": "00ac1228"
+  },
+  {
+   "symbol": "?unknown_flag_ac1229@@3_NA",
+   "address": "00ac1229"
+  },
+  {
+   "symbol": "?unknown_flag_ac122a@@3_NA",
+   "address": "00ac122a"
+  },
+  {
+   "symbol": "?unknown_flag_ac122b@@3_NA",
+   "address": "00ac122b"
+  },
+  {
+   "symbol": "?unknown_flag_ac122c@@3_NA",
+   "address": "00ac122c"
+  },
+  {
+   "symbol": "?unknown_flag_ac122d@@3_NA",
+   "address": "00ac122d"
+  },
+  {
+   "symbol": "?unknown_flag_ac122e@@3_NA",
+   "address": "00ac122e"
+  },
+  {
+   "symbol": "?unknown_flag_ac122f@@3_NA",
+   "address": "00ac122f"
+  },
+  {
+   "symbol": "?unknown_flag_ac1230@@3_NA",
+   "address": "00ac1230"
+  },
+  {
+   "symbol": "?unknown_flag_ac1231@@3_NA",
+   "address": "00ac1231"
+  },
+  {
+   "symbol": "?unknown_flag_ac1232@@3_NA",
+   "address": "00ac1232"
+  },
+  {
+   "symbol": "?unknown_flag_ac1233@@3_NA",
+   "address": "00ac1233"
+  },
+  {
+   "symbol": "?unknown_flag_ac1234@@3_NA",
+   "address": "00ac1234"
+  },
+  {
+   "symbol": "?unknown_flag_ac1235@@3_NA",
+   "address": "00ac1235"
+  },
+  {
+   "symbol": "?unknown_flag_ac1236@@3_NA",
+   "address": "00ac1236"
+  },
+  {
+   "symbol": "?unknown_flag_ac1237@@3_NA",
+   "address": "00ac1237"
+  },
+  {
+   "symbol": "?unknown_flag_ac1238@@3_NA",
+   "address": "00ac1238"
+  },
+  {
+   "symbol": "?unknown_flag_ac1239@@3_NA",
+   "address": "00ac1239"
+  },
+  {
+   "symbol": "?unknown_flag_ac123a@@3_NA",
+   "address": "00ac123a"
+  },
+  {
+   "symbol": "?unknown_flag_ac123b@@3_NA",
+   "address": "00ac123b"
+  },
+  {
+   "symbol": "?unknown_flag_ac123c@@3_NA",
+   "address": "00ac123c"
+  },
+  {
+   "symbol": "?unknown_flag_ac123d@@3_NA",
+   "address": "00ac123d"
+  },
+  {
+   "symbol": "?unknown_flag_ac123e@@3_NA",
+   "address": "00ac123e"
+  },
+  {
+   "symbol": "?unknown_flag_ac123f@@3_NA",
+   "address": "00ac123f"
+  },
+  {
+   "symbol": "?unknown_flag_ac1240@@3_NA",
+   "address": "00ac1240"
+  },
+  {
+   "symbol": "?unknown_flag_ac1241@@3_NA",
+   "address": "00ac1241"
+  },
+  {
+   "symbol": "?unknown_flag_ac1242@@3_NA",
+   "address": "00ac1242"
+  },
+  {
+   "symbol": "?unknown_flag_ac1243@@3_NA",
+   "address": "00ac1243"
+  },
+  {
+   "symbol": "?unknown_flag_ac1244@@3_NA",
+   "address": "00ac1244"
+  },
+  {
+   "symbol": "?unknown_flag_ac1245@@3_NA",
+   "address": "00ac1245"
+  },
+  {
+   "symbol": "?unknown_load_art_6f1fa0@@YIXPBDPAPAX1@Z",
+   "address": "006f1fa0"
+  },
+  {
+   "symbol": "?unknown_name_7f8718@@3QBDB",
+   "address": "007f8718"
+  },
+  {
+   "symbol": "?unknown_name_7f871c@@3QBDB",
+   "address": "007f871c"
+  },
+  {
+   "symbol": "?unknown_name_7f8720@@3QBDB",
+   "address": "007f8720"
+  },
+  {
+   "symbol": "?unknown_name_7f8724@@3QBDB",
+   "address": "007f8724"
+  },
+  {
+   "symbol": "?unknown_name_7f8728@@3QBDB",
+   "address": "007f8728"
+  },
+  {
+   "symbol": "?unknown_name_7f872c@@3QBDB",
+   "address": "007f872c"
+  },
+  {
+   "symbol": "?unknown_name_7f8740@@3QBDB",
+   "address": "007f8740"
+  },
+  {
+   "symbol": "?unknown_name_7f8744@@3QBDB",
+   "address": "007f8744"
+  },
+  {
+   "symbol": "?unknown_name_7f8748@@3QBDB",
+   "address": "007f8748"
+  },
+  {
+   "symbol": "?unknown_name_7f874c@@3QBDB",
+   "address": "007f874c"
+  },
+  {
+   "symbol": "?unknown_name_7f8790@@3QBDB",
+   "address": "007f8790"
+  },
+  {
+   "symbol": "?unknown_name_7f8794@@3QBDB",
+   "address": "007f8794"
+  },
+  {
+   "symbol": "?unknown_name_7f8798@@3QBDB",
+   "address": "007f8798"
+  },
+  {
+   "symbol": "?unknown_name_7f879c@@3QBDB",
+   "address": "007f879c"
+  },
+  {
+   "symbol": "?unknown_name_7f87a0@@3QBDB",
+   "address": "007f87a0"
+  },
+  {
+   "symbol": "?unknown_name_7f87a4@@3QBDB",
+   "address": "007f87a4"
+  },
+  {
+   "symbol": "?unknown_name_7f87a8@@3QBDB",
+   "address": "007f87a8"
+  },
+  {
+   "symbol": "?unknown_name_7f87ac@@3QBDB",
+   "address": "007f87ac"
+  },
+  {
+   "symbol": "?unknown_name_7f87b0@@3QBDB",
+   "address": "007f87b0"
+  },
+  {
+   "symbol": "?unknown_name_7f87b4@@3QBDB",
+   "address": "007f87b4"
+  },
+  {
+   "symbol": "?unknown_name_7f87b8@@3QBDB",
+   "address": "007f87b8"
+  },
+  {
+   "symbol": "?unknown_name_7f87bc@@3QBDB",
+   "address": "007f87bc"
+  },
+  {
+   "symbol": "?unknown_name_7f87c0@@3QBDB",
+   "address": "007f87c0"
+  },
+  {
+   "symbol": "?unknown_name_7f87c4@@3QBDB",
+   "address": "007f87c4"
+  },
+  {
+   "symbol": "?unknown_name_7f87c8@@3QBDB",
+   "address": "007f87c8"
+  },
+  {
+   "symbol": "?unknown_name_7f87cc@@3QBDB",
+   "address": "007f87cc"
+  },
+  {
+   "symbol": "?unknown_name_7f87d0@@3QBDB",
+   "address": "007f87d0"
+  },
+  {
+   "symbol": "?unknown_name_7f87d4@@3QBDB",
+   "address": "007f87d4"
+  },
+  {
+   "symbol": "?unknown_name_7f87d8@@3QBDB",
+   "address": "007f87d8"
+  },
+  {
+   "symbol": "?unknown_name_7f87dc@@3QBDB",
+   "address": "007f87dc"
+  },
+  {
+   "symbol": "?unknown_name_7f87e0@@3QBDB",
+   "address": "007f87e0"
+  },
+  {
+   "symbol": "?unknown_name_7f87e4@@3QBDB",
+   "address": "007f87e4"
+  },
+  {
+   "symbol": "?unknown_name_7f87e8@@3QBDB",
+   "address": "007f87e8"
+  },
+  {
+   "symbol": "?unknown_name_7f87ec@@3QBDB",
+   "address": "007f87ec"
+  },
+  {
+   "symbol": "?unknown_name_7f87f0@@3QBDB",
+   "address": "007f87f0"
+  },
+  {
+   "symbol": "?unknown_name_7f87f4@@3QBDB",
+   "address": "007f87f4"
+  },
+  {
+   "symbol": "?unknown_name_7f87f8@@3QBDB",
+   "address": "007f87f8"
+  },
+  {
+   "symbol": "?unknown_name_7f87fc@@3QBDB",
+   "address": "007f87fc"
+  },
+  {
+   "symbol": "?unknown_name_7f8800@@3QBDB",
+   "address": "007f8800"
+  },
+  {
+   "symbol": "?unknown_name_7f8804@@3QBDB",
+   "address": "007f8804"
+  },
+  {
+   "symbol": "?unknown_name_7f8808@@3QBDB",
+   "address": "007f8808"
+  },
+  {
+   "symbol": "?unknown_name_7f880c@@3QBDB",
+   "address": "007f880c"
+  },
+  {
+   "symbol": "?unknown_name_7f8810@@3QBDB",
+   "address": "007f8810"
+  },
+  {
+   "symbol": "?unknown_name_7f8814@@3QBDB",
+   "address": "007f8814"
+  },
+  {
+   "symbol": "?unknown_object_ac11a4@@3PAUUnknownOwnedObject@@A",
+   "address": "00ac11a4"
+  },
+  {
+   "symbol": "?unknown_object_ac11ac@@3PAUUnknownOwnedObject@@A",
+   "address": "00ac11ac"
+  },
+  {
+   "symbol": "?unknown_owned_ac1236@@3_NA",
+   "address": "00ac1236"
+  },
+  {
+   "symbol": "?unknown_owned_ac1237@@3_NA",
+   "address": "00ac1237"
+  },
+  {
+   "symbol": "?unknown_owned_ac1238@@3_NA",
+   "address": "00ac1238"
+  },
+  {
+   "symbol": "?unknown_owned_ac1239@@3_NA",
+   "address": "00ac1239"
+  },
+  {
+   "symbol": "?unknown_owned_ac123a@@3_NA",
+   "address": "00ac123a"
+  },
+  {
+   "symbol": "?unknown_owned_ac123b@@3_NA",
+   "address": "00ac123b"
+  },
+  {
+   "symbol": "?unknown_owned_ac123c@@3_NA",
+   "address": "00ac123c"
+  },
+  {
+   "symbol": "?unknown_owned_ac123d@@3_NA",
+   "address": "00ac123d"
+  },
+  {
+   "symbol": "?unknown_owned_ac123e@@3_NA",
+   "address": "00ac123e"
+  },
+  {
+   "symbol": "?unknown_owned_ac123f@@3_NA",
+   "address": "00ac123f"
+  },
+  {
+   "symbol": "?unknown_owned_ac1240@@3_NA",
+   "address": "00ac1240"
+  },
+  {
+   "symbol": "?unknown_owned_ac1241@@3_NA",
+   "address": "00ac1241"
+  },
+  {
+   "symbol": "?unknown_owned_ac1242@@3_NA",
+   "address": "00ac1242"
+  },
+  {
+   "symbol": "?unknown_owned_ac1243@@3_NA",
+   "address": "00ac1243"
+  },
+  {
+   "symbol": "?unknown_owned_ac1244@@3_NA",
+   "address": "00ac1244"
+  },
+  {
+   "symbol": "?unknown_owned_ac1245@@3_NA",
+   "address": "00ac1245"
+  },
+  {
+   "symbol": "?unknown_value_8523e0@@3HA",
+   "address": "008523e0"
+  },
+  {
+   "symbol": "?unknown_value_8523e4@@3HA",
+   "address": "008523e4"
+  }
+ ],
+ "route": "A",
+ "unit": "txtlabel2.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "006f1a00",
+   "lines": 2
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "006f2980",
+   "bytes": 112,
+   "population": "population-3726",
+   "bound": "own frozen bound (population-3726)",
+   "options": "joined under the unit's options (frozen under /O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "entry": "006f2bd0",
+   "bytes": 41,
+   "population": "population-3726",
+   "bound": "own frozen bound (population-3726)",
+   "options": "joined under the unit's options (frozen under /O2 /Ob2 /G5 /Gy)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "006f1830",
+   "bytes": 40,
+   "population": "population-370",
+   "source": "src/recovered/header_statics/006f1810/HeaderStatics_diagonal_init_006f1830.cpp",
+   "cause": "held by population-370 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f1860",
+   "bytes": 19,
+   "population": "population-370",
+   "source": "src/recovered/header_statics/006f1810/HeaderStatics_b_init_006f1860.cpp",
+   "cause": "held by population-370 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f1880",
+   "bytes": 19,
+   "population": "population-370",
+   "source": "src/recovered/header_statics/006f1810/HeaderStatics_c_init_006f1880.cpp",
+   "cause": "held by population-370 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f18a0",
+   "bytes": 19,
+   "population": "population-370",
+   "source": "src/recovered/header_statics/006f1810/HeaderStatics_angle45_init_006f18a0.cpp",
+   "cause": "held by population-370 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f18c0",
+   "bytes": 19,
+   "population": "population-370",
+   "source": "src/recovered/header_statics/006f1810/HeaderStatics_angle60_init_006f18c0.cpp",
+   "cause": "held by population-370 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f18e0",
+   "bytes": 19,
+   "population": "population-370",
+   "source": "src/recovered/header_statics/006f1810/HeaderStatics_angle90_init_006f18e0.cpp",
+   "cause": "held by population-370 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f1900",
+   "bytes": 49,
+   "population": "population-370",
+   "source": "src/recovered/header_statics/006f1810/HeaderStatics_g_init_006f1900.cpp",
+   "cause": "held by population-370 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f1940",
+   "bytes": 33,
+   "population": "population-370",
+   "source": "src/recovered/header_statics/006f1810/HeaderStatics_h_init_006f1940.cpp",
+   "cause": "held by population-370 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f1970",
+   "bytes": 44,
+   "population": "population-370",
+   "source": "src/recovered/header_statics/006f1810/HeaderStatics_i_init_006f1970.cpp",
+   "cause": "held by population-370 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f19a0",
+   "bytes": 39,
+   "population": "population-370",
+   "source": "src/recovered/header_statics/006f1810/HeaderStatics_j_init_006f19a0.cpp",
+   "cause": "held by population-370 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f19d0",
+   "bytes": 15,
+   "population": "population-370",
+   "source": "src/recovered/header_statics/006f1810/HeaderStatics_k_init_006f19d0.cpp",
+   "cause": "held by population-370 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f19e0",
+   "bytes": 18,
+   "population": "population-370",
+   "source": "src/recovered/header_statics/006f1810/HeaderStatics_l_init_006f19e0.cpp",
+   "cause": "held by population-370 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f1a20",
+   "bytes": 20,
+   "population": "population-3353",
+   "source": "src/recovered/txtlabel2/unknown_reset_flags.cpp",
+   "cause": "held by population-3353 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f1a40",
+   "bytes": 22,
+   "population": "population-1692",
+   "source": "src/recovered/unowned/unknown_init_color_ac1008_006f1a40.cpp",
+   "cause": "held by population-1692 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f1a60",
+   "bytes": 20,
+   "population": "population-2717",
+   "source": "src/recovered/unowned/unknown_init_color_ac1100_006f1a60.cpp",
+   "cause": "held by population-2717; not joined: differs under the unit's state (Function symbol ambiguous/missing: ?unknown_init_color_ac1100@@YAXXZ)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f1a80",
+   "bytes": 22,
+   "population": "population-1692",
+   "source": "src/recovered/unowned/unknown_init_color_ac0fe8_006f1a80.cpp",
+   "cause": "held by population-1692 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f1aa0",
+   "bytes": 20,
+   "population": "population-2717",
+   "source": "src/recovered/unowned/unknown_init_color_ac10f4_006f1aa0.cpp",
+   "cause": "held by population-2717; not joined: differs under the unit's state (Function symbol ambiguous/missing: ?unknown_init_color_ac10f4@@YAXXZ)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f1ae0",
+   "bytes": 13,
+   "population": "population-1692",
+   "source": "src/recovered/txtlabel2/Unknown_Point_Copy.cpp",
+   "cause": "held by population-1692 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f1af0",
+   "bytes": 11,
+   "population": "population-1692",
+   "source": "src/recovered/txtlabel2/Unknown_Point_Assign.cpp",
+   "cause": "held by population-1692 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f1b00",
+   "bytes": 34,
+   "population": "population-1692",
+   "source": "src/recovered/unowned/Unknown_Rect_Shrink_006f1b00.cpp",
+   "cause": "held by population-1692 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f1b30",
+   "bytes": 47,
+   "population": "population-1692",
+   "source": "src/recovered/unowned/Unknown_Rect_Shrink_006f1b30.cpp",
+   "cause": "held by population-1692 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "kept",
+   "entry": "006f1b60",
+   "bytes": 448,
+   "population": "population-4360",
+   "source": "src/recovered/unowned/Unknown_Load_Interface_Art_006f1b60.cpp",
+   "cause": "population-4360 compiles each source alone; its file declares a global, function or class that another file of the unit declares differently (or repeats a class definition), so it cannot share one translation unit without a line being re-written"
+  },
+  {
+   "kind": "split",
+   "entry": "006f1f30",
+   "bytes": 98,
+   "population": "population-4337",
+   "source": "src/recovered/txtlabel2/Get_Title_Screen_Area.cpp",
+   "cause": "held by population-4337 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f1fa0",
+   "bytes": 269,
+   "population": "population-4337",
+   "source": "src/recovered/txtlabel2/Unknown_Load_Palette.cpp",
+   "cause": "held by population-4337 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "kept",
+   "entry": "006f20b0",
+   "bytes": 127,
+   "population": "population-4360",
+   "source": "src/recovered/txtlabel2/Unknown_Load_Art_Sets.cpp",
+   "cause": "population-4360 compiles each source alone; its file declares a global, function or class that another file of the unit declares differently (or repeats a class definition), so it cannot share one translation unit without a line being re-written"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2220",
+   "bytes": 6,
+   "population": "population-1241",
+   "source": "src/recovered/unowned/Unknown_Get_Art_006f2220.cpp",
+   "cause": "held by population-1241 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2230",
+   "bytes": 6,
+   "population": "population-1241",
+   "source": "src/recovered/unowned/Unknown_Get_Art_006f2230.cpp",
+   "cause": "held by population-1241 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2240",
+   "bytes": 6,
+   "population": "population-1241",
+   "source": "src/recovered/unowned/Unknown_Get_Art_006f2240.cpp",
+   "cause": "held by population-1241 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2250",
+   "bytes": 6,
+   "population": "population-1241",
+   "source": "src/recovered/unowned/Unknown_Get_Art_006f2250.cpp",
+   "cause": "held by population-1241 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "kept",
+   "entry": "006f22c0",
+   "bytes": 43,
+   "population": "population-4360",
+   "source": "src/recovered/unowned/Unknown_Load_Art_Pairs_006f22c0.cpp",
+   "cause": "population-4360 compiles each source alone; its file declares a global, function or class that another file of the unit declares differently (or repeats a class definition), so it cannot share one translation unit without a line being re-written"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2390",
+   "bytes": 97,
+   "population": "population-1642",
+   "source": "src/recovered/txtlabel2/unknown_free_art.cpp",
+   "cause": "held by population-1642; not joined: does not compile in the unit: accepted.cpp(367) : error C2011: 'UnknownArtData_006f2390' : 'class' type redefinition"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2400",
+   "bytes": 21,
+   "population": "population-1241",
+   "source": "src/recovered/unowned/Unknown_Select_Art_006f2400.cpp",
+   "cause": "held by population-1241 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2420",
+   "bytes": 21,
+   "population": "population-1241",
+   "source": "src/recovered/unowned/Unknown_Select_Art_006f2420.cpp",
+   "cause": "held by population-1241 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2440",
+   "bytes": 6,
+   "population": "population-1241",
+   "source": "src/recovered/unowned/Unknown_Get_Art_006f2440.cpp",
+   "cause": "held by population-1241 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2450",
+   "bytes": 6,
+   "population": "population-1241",
+   "source": "src/recovered/unowned/Unknown_Get_Art_006f2450.cpp",
+   "cause": "held by population-1241 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2460",
+   "bytes": 6,
+   "population": "population-1241",
+   "source": "src/recovered/unowned/Unknown_Get_Art_006f2460.cpp",
+   "cause": "held by population-1241 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2470",
+   "bytes": 6,
+   "population": "population-1241",
+   "source": "src/recovered/unowned/Unknown_Get_Art_006f2470.cpp",
+   "cause": "held by population-1241 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2480",
+   "bytes": 6,
+   "population": "population-1241",
+   "source": "src/recovered/unowned/Unknown_Get_Art_006f2480.cpp",
+   "cause": "held by population-1241 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2490",
+   "bytes": 6,
+   "population": "population-1241",
+   "source": "src/recovered/unowned/Unknown_Get_Art_006f2490.cpp",
+   "cause": "held by population-1241 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f24a0",
+   "bytes": 105,
+   "population": "population-4337",
+   "source": "src/recovered/txtlabel2/Unknown_Load_Loading_Palettes.cpp",
+   "cause": "held by population-4337; not joined: its population changes when it leaves (006f4620)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f25a0",
+   "bytes": 6,
+   "population": "population-1241",
+   "source": "src/recovered/unowned/Unknown_Get_Art_006f25a0.cpp",
+   "cause": "held by population-1241 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f25b0",
+   "bytes": 6,
+   "population": "population-1241",
+   "source": "src/recovered/unowned/Unknown_Get_Art_006f25b0.cpp",
+   "cause": "held by population-1241 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f25c0",
+   "bytes": 264,
+   "population": "population-4337",
+   "source": "src/recovered/txtlabel2/Unknown_Load_MP_Loading_Palette.cpp",
+   "cause": "held by population-4337 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f26d0",
+   "bytes": 55,
+   "population": "population-4337",
+   "source": "src/recovered/unowned/Unknown_Free_Art_Pair_006f26d0.cpp",
+   "cause": "held by population-4337 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2710",
+   "bytes": 57,
+   "population": "population-1241",
+   "source": "src/recovered/txtlabel2/Unknown_Load_Art_Once.cpp",
+   "cause": "held by population-1241; not joined: does not compile in the unit: accepted.cpp(437) : error C2011: 'UnknownArtData_006f2390' : 'class' type redefinition"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2750",
+   "bytes": 177,
+   "population": "population-1241",
+   "source": "src/recovered/txtlabel2/Unknown_Free_Art_Flagged.cpp",
+   "cause": "held by population-1241; not joined: does not compile in the unit: accepted.cpp(467) : error C2011: 'UnknownArtData_006f2390' : 'class' type redefinition"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2810",
+   "bytes": 6,
+   "population": "population-1241",
+   "source": "src/recovered/unowned/Unknown_Get_Art_006f2810.cpp",
+   "cause": "held by population-1241 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2820",
+   "bytes": 6,
+   "population": "population-1241",
+   "source": "src/recovered/unowned/Unknown_Get_Art_006f2820.cpp",
+   "cause": "held by population-1241 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2830",
+   "bytes": 6,
+   "population": "population-1241",
+   "source": "src/recovered/unowned/Unknown_Get_Art_006f2830.cpp",
+   "cause": "held by population-1241 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2840",
+   "bytes": 273,
+   "population": "population-1241",
+   "source": "src/recovered/txtlabel2/Unknown_Load_Art_Flagged.cpp",
+   "cause": "held by population-1241; not joined: does not compile in the unit: accepted.cpp(522) : error C2011: 'UnknownArtData_006f2390' : 'class' type redefinition"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2960",
+   "bytes": 32,
+   "population": "population-974",
+   "source": "src/recovered/unowned/unknown_load_art_7f8708_006f2960.cpp",
+   "cause": "held by population-974 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f29f0",
+   "bytes": 55,
+   "population": "population-3726",
+   "source": "src/recovered/unowned/Unknown_Free_Art_Pair_006f29f0.cpp",
+   "cause": "held by population-3726; not joined: does not compile in the unit: accepted.cpp(612) : error C2011: 'UnknownArtData_006f2390' : 'class' type redefinition"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2a30",
+   "bytes": 127,
+   "population": "population-4337",
+   "source": "src/recovered/txtlabel2/Unknown_Load_MP_Score_Art.cpp",
+   "cause": "held by population-4337; not joined: its population changes when it leaves (006f4620)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2b20",
+   "bytes": 6,
+   "population": "population-1241",
+   "source": "src/recovered/unowned/Unknown_Get_Art_006f2b20.cpp",
+   "cause": "held by population-1241 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2b30",
+   "bytes": 6,
+   "population": "population-1241",
+   "source": "src/recovered/unowned/Unknown_Get_Art_006f2b30.cpp",
+   "cause": "held by population-1241 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2b40",
+   "bytes": 6,
+   "population": "population-1241",
+   "source": "src/recovered/unowned/Unknown_Get_Art_006f2b40.cpp",
+   "cause": "held by population-1241 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2b50",
+   "bytes": 90,
+   "population": "population-4337",
+   "source": "src/recovered/unowned/Unknown_Load_Backdrop_006f2b50.cpp",
+   "cause": "held by population-4337; not joined: its population changes when it leaves (006f4620)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2bb0",
+   "bytes": 32,
+   "population": "population-974",
+   "source": "src/recovered/unowned/unknown_load_art_7f8710_006f2bb0.cpp",
+   "cause": "held by population-974 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "kept",
+   "entry": "006f2d00",
+   "bytes": 193,
+   "population": "population-4360",
+   "source": "src/recovered/unowned/Unknown_Release_Shapes_006f2d00.cpp",
+   "cause": "population-4360 compiles each source alone; its file declares a global, function or class that another file of the unit declares differently (or repeats a class definition), so it cannot share one translation unit without a line being re-written"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2dd0",
+   "bytes": 6,
+   "population": "population-1241",
+   "source": "src/recovered/unowned/Unknown_Get_Art_006f2dd0.cpp",
+   "cause": "held by population-1241 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2de0",
+   "bytes": 6,
+   "population": "population-1241",
+   "source": "src/recovered/unowned/Unknown_Get_Art_006f2de0.cpp",
+   "cause": "held by population-1241 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f2eb0",
+   "bytes": 22,
+   "population": "population-974",
+   "source": "src/recovered/unowned/unknown_load_art_7f8718_006f2eb0.cpp",
+   "cause": "held by population-974 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "kept",
+   "entry": "006f2f70",
+   "bytes": 55,
+   "population": "population-4360",
+   "source": "src/recovered/unowned/Unknown_Free_Art_Pair_006f2f70.cpp",
+   "cause": "population-4360 compiles each source alone; its file declares a global, function or class that another file of the unit declares differently (or repeats a class definition), so it cannot share one translation unit without a line being re-written"
+  },
+  {
+   "kind": "split",
+   "entry": "006f34d0",
+   "bytes": 384,
+   "population": "population-4337",
+   "source": "src/recovered/txtlabel2/Unknown_Draw_Interface_Borders.cpp",
+   "cause": "held by population-4337 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "flipped",
+   "entry": "006f3650",
+   "bytes": 724,
+   "population": "population-4360",
+   "source": "src/recovered/unowned/Unknown_Draw_Interface_006f3650.cpp",
+   "cause": "not exact in the unit's text in any form (one include block, blocks held, lines in place, canonical text): mismatch"
+  },
+  {
+   "kind": "split",
+   "entry": "006f3930",
+   "bytes": 238,
+   "population": "population-1226",
+   "source": "src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp",
+   "cause": "held by population-1226 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f3a20",
+   "bytes": 50,
+   "population": "population-1226",
+   "source": "src/recovered/txtlabel2/Fill_Surface_Rect.cpp",
+   "cause": "held by population-1226 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f3a60",
+   "bytes": 82,
+   "population": "population-1226",
+   "source": "src/recovered/unowned/Unknown_Draw_Shape_006f3a60.cpp",
+   "cause": "held by population-1226 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f3ac0",
+   "bytes": 83,
+   "population": "population-1226",
+   "source": "src/recovered/unowned/Unknown_Draw_Shape_006f3ac0.cpp",
+   "cause": "held by population-1226 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f3b20",
+   "bytes": 103,
+   "population": "population-1226",
+   "source": "src/recovered/unowned/Unknown_Draw_Shape_006f3b20.cpp",
+   "cause": "held by population-1226 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f3b90",
+   "bytes": 82,
+   "population": "population-1226",
+   "source": "src/recovered/unowned/Unknown_Draw_Shape_006f3b90.cpp",
+   "cause": "held by population-1226 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f3bf0",
+   "bytes": 113,
+   "population": "population-1226",
+   "source": "src/recovered/unowned/Unknown_Draw_Shape_006f3bf0.cpp",
+   "cause": "held by population-1226 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f3c70",
+   "bytes": 82,
+   "population": "population-1226",
+   "source": "src/recovered/unowned/Unknown_Draw_Shape_006f3c70.cpp",
+   "cause": "held by population-1226 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f3cd0",
+   "bytes": 113,
+   "population": "population-1226",
+   "source": "src/recovered/unowned/Unknown_Draw_Shape_006f3cd0.cpp",
+   "cause": "held by population-1226 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f3e70",
+   "bytes": 740,
+   "population": "population-4337",
+   "source": "src/recovered/txtlabel2/Unknown_Layout_Interface.cpp",
+   "cause": "held by population-4337 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f42d0",
+   "bytes": 143,
+   "population": "population-1226",
+   "source": "src/recovered/unowned/Unknown_Release_Art_Pairs_006f42d0.cpp",
+   "cause": "held by population-1226; not joined: does not compile in the unit: accepted.cpp(1370) : error C2011: 'UnknownArtData_006f2390' : 'class' type redefinition"
+  },
+  {
+   "kind": "split",
+   "entry": "006f4400",
+   "bytes": 72,
+   "population": "population-4337",
+   "source": "src/recovered/txtlabel2/Unknown_Init_Sidebar_Art.cpp",
+   "cause": "held by population-4337; not joined: its population changes when it leaves (006f4620)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f45a0",
+   "bytes": 54,
+   "population": "population-4391",
+   "source": "src/recovered/txtlabel2/unknown_select_color.cpp",
+   "cause": "held by population-4391; not joined: does not compile in the unit: accepted.cpp(1568) : error C2371: 'unknown_color_ac10f4' : redefinition; different basic types"
+  },
+  {
+   "kind": "kept",
+   "entry": "006f45f0",
+   "bytes": 6,
+   "population": "population-4360",
+   "source": "src/recovered/unowned/Unknown_Get_Art_006f45f0.cpp",
+   "cause": "population-4360 compiles each source alone; its file declares a global, function or class that another file of the unit declares differently (or repeats a class definition), so it cannot share one translation unit without a line being re-written"
+  },
+  {
+   "kind": "kept",
+   "entry": "006f4610",
+   "bytes": 6,
+   "population": "population-4360",
+   "source": "src/recovered/unowned/Unknown_Get_Art_006f4610.cpp",
+   "cause": "population-4360 compiles each source alone; its file declares a global, function or class that another file of the unit declares differently (or repeats a class definition), so it cannot share one translation unit without a line being re-written"
+  },
+  {
+   "kind": "split",
+   "entry": "006f4620",
+   "bytes": 1244,
+   "population": "population-4337",
+   "source": "src/recovered/txtlabel2/Unknown_Draw_Sidebar.cpp",
+   "cause": "held by population-4337 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f4c60",
+   "bytes": 43,
+   "population": "population-4337",
+   "source": "src/recovered/txtlabel2/Unknown_Load_Art_Pairs.cpp",
+   "cause": "held by population-4337; not joined: its population changes when it leaves (006f4620)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f4c90",
+   "bytes": 1211,
+   "population": "population-4337",
+   "source": "src/recovered/txtlabel2/Unknown_Layout_Sidebar.cpp",
+   "cause": "held by population-4337 under another option set (/O2 /Ob2 /G5 /Gy)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f5540",
+   "bytes": 139,
+   "population": "population-2809",
+   "source": "src/recovered/txtlabel2/Unknown_Release_Reload_Art_Pairs.cpp",
+   "cause": "held by population-2809; not joined: does not compile in the unit: accepted.cpp(1925) : error C2011: 'UnknownArtData_006f2390' : 'class' type redefinition"
+  }
+ ],
+ "unit_functions": 133,
+ "data_unproven": [],
+ "stand_in_references": [
+  {
+   "site": "0067bd90",
+   "target": "006f45e0",
+   "symbol": "?Unknown_006F45E0@@YAPAVPaletteClass@@XZ",
+   "module_symbol": "?Unknown_Get_Art_006f45e0@@YIPAXXZ"
+  },
+  {
+   "site": "006f4620",
+   "target": "006f4b00",
+   "symbol": "?Unknown_Load_Art_Buffers_006F4B00@@YIXXZ",
+   "module_symbol": "?Unknown_006F4B00@@YIXXZ"
+  },
+  {
+   "site": "006f4400",
+   "target": "006f4b00",
+   "symbol": "?Unknown_Load_Art_Buffers_006F4B00@@YIXXZ",
+   "module_symbol": "?Unknown_006F4B00@@YIXXZ"
+  }
+ ],
+ "stand_in_reference_count": 3,
+ "residual_split": {
+  "rows": 76,
+  "bytes": 7433
+ },
+ "residual_flipped": {
+  "rows": 1,
+  "bytes": 724
+ },
+ "residual_kept": {
+  "rows": 7,
+  "bytes": 878
+ }
+}

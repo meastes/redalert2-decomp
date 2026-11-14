@@ -3,13 +3,13 @@
 // origin lane: Scout782 (build/class-work/Scout782/w/bw_9937.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
 // Scout1069 (native/drafts.json). Not original bytes.
-// bool UnknownBitmapWriter::Draw_0068cce0(Rect const &, Surface *, Surface *, int, int) (0x0068CCE0):
+// bool SurfaceCacheClass::Draw_0068cce0(Rect const &, Surface *, Surface *, int, int) (0x0068CCE0):
 // tiles the 16-bit image over rect of destination, centred when the image is the larger, from the
 // source offset.
 #include "shared/pcx_cache.hpp"
 #include "shared/surface.hpp"
 
-bool UnknownBitmapWriter::Draw_0068cce0(Rect const &rect, Surface *destination, Surface *image, int source_x, int source_y)
+bool SurfaceCacheClass::Draw_0068cce0(Rect const &rect, Surface *destination, Surface *image, int source_x, int source_y)
 {
     unsigned short *target = (unsigned short *)destination->Lock();
     if (target == 0) {

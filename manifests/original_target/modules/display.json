@@ -1,0 +1,4816 @@
+{
+ "module": "display",
+ "source": "src/recovered/display.cpp",
+ "header": null,
+ "population": "population-4405",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 1024,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00498760",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "00498780",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "004987b0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "004987d0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "004987f0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "00498810",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "00498830",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "00498850",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "00498890",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "004988c0",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "004988f0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "00498920",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "00498930",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E64",
+   "entry": "00498950",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "_$E61",
+   "entry": "004989a0",
+   "body_bytes": 81,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E70",
+   "entry": "00498a00",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E67",
+   "entry": "00498a30",
+   "body_bytes": 31,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "??0DisplayClass@@QAE@XZ",
+   "entry": "00498a50",
+   "body_bytes": 281,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?One_Time@DisplayClass@@UAEXXZ",
+   "entry": "00498b70",
+   "body_bytes": 97,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Init_Clear@DisplayClass@@UAEXXZ",
+   "entry": "00498be0",
+   "body_bytes": 98,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Init_IO@DisplayClass@@UAEXXZ",
+   "entry": "00498c50",
+   "body_bytes": 41,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?unknown_slot42@DisplayClass@@UAEXABVRect@@@Z",
+   "entry": "00498c80",
+   "body_bytes": 644,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Unknown_00498F10@DisplayClass@@QAEXPBVCell@@@Z",
+   "entry": "00498f10",
+   "body_bytes": 321,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E73",
+   "entry": "00499060",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Set_Cursor_Shape@DisplayClass@@QAEXPBVCell@@@Z",
+   "entry": "00499070",
+   "body_bytes": 321,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E75",
+   "entry": "004991c0",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Passes_Proximity_Check_004991D0@DisplayClass@@QBE_NPBVObjectTypeClass@@HPBVCell@@ABV3@@Z",
+   "entry": "004991d0",
+   "body_bytes": 438,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Unknown_00499390@DisplayClass@@QAE_NPAVBuildingTypeClass@@HHPBVCell@@@Z",
+   "entry": "00499390",
+   "body_bytes": 312,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Unknown_00499810@DisplayClass@@QAE?AVCell@@PBV2@@Z",
+   "entry": "00499810",
+   "body_bytes": 169,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Unknown_004998C0@DisplayClass@@QAEXABVCell@@_N@Z",
+   "entry": "004998c0",
+   "body_bytes": 166,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Unknown_00499970@DisplayClass@@QAEXABVCell@@_N@Z",
+   "entry": "00499970",
+   "body_bytes": 166,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?get@Leaf_499a20@@QAEIII@Z",
+   "entry": "00499a20",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Submit@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "entry": "00499a40",
+   "body_bytes": 77,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Remove@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "entry": "00499a90",
+   "body_bytes": 203,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Scroll_Map@DisplayClass@@UAE_NHPAH_N@Z",
+   "entry": "00499b60",
+   "body_bytes": 78,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Map_Cell@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z",
+   "entry": "00499bb0",
+   "body_bytes": 1036,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?RevealFogShroud@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@_N@Z",
+   "entry": "00499fc0",
+   "body_bytes": 297,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?unknown_slot38@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z",
+   "entry": "0049a0f0",
+   "body_bytes": 630,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?unknown_slot39@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z",
+   "entry": "0049a370",
+   "body_bytes": 573,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?get@Leaf_49a5b0@@QAEIII@Z",
+   "entry": "0049a5b0",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Next_Object@DisplayClass@@QAEPAVObjectClass@@PAV2@@Z",
+   "entry": "0049a5d0",
+   "body_bytes": 150,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Prev_Object@DisplayClass@@QAEPAVObjectClass@@PAV2@@Z",
+   "entry": "0049a670",
+   "body_bytes": 137,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Calculated_Cell@DisplayClass@@QAE?AVCell@@HABV2@0H_NH@Z",
+   "entry": "0049a700",
+   "body_bytes": 1680,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Unknown_0049AD90@DisplayClass@@QAE_NABVCell@@0HHH@Z",
+   "entry": "0049ad90",
+   "body_bytes": 220,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Action@TacticalClass@DisplayClass@@UAEHIAAI@Z",
+   "entry": "0049ae70",
+   "body_bytes": 270,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?get@Leaf_49af80@@QAEXI@Z",
+   "entry": "0049af80",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Mouse_Right_Release@DisplayClass@@UAEXABUPoint2D@@@Z",
+   "entry": "0049af90",
+   "body_bytes": 343,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Mouse_Left_Release@DisplayClass@@UAEXABUCoordStruct@@ABVCell@@PAVObjectClass@@H_N@Z",
+   "entry": "0049bb20",
+   "body_bytes": 2250,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Unknown_0049C3F0@@YIXPAVObjectClass@@@Z",
+   "entry": "0049c3f0",
+   "body_bytes": 149,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Mouse_Left_Press@DisplayClass@@UAEXABUPoint2D@@@Z",
+   "entry": "0049c490",
+   "body_bytes": 97,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Mouse_Left_Held@DisplayClass@@UAEXABUPoint2D@@@Z",
+   "entry": "0049c500",
+   "body_bytes": 359,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Unknown_0049C670@DisplayClass@@QAEXXZ",
+   "entry": "0049c670",
+   "body_bytes": 335,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Unknown_0049C7C0@DisplayClass@@QAEXH@Z",
+   "entry": "0049c7c0",
+   "body_bytes": 152,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Unknown_0049C860@DisplayClass@@QAEXH_N@Z",
+   "entry": "0049c860",
+   "body_bytes": 274,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Unknown_0049C980@DisplayClass@@QAEXH@Z",
+   "entry": "0049c980",
+   "body_bytes": 152,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Unknown_0049CA20@DisplayClass@@QAEXH@Z",
+   "entry": "0049ca20",
+   "body_bytes": 152,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Unknown_0049CAC0@DisplayClass@@QAEXH@Z",
+   "entry": "0049cac0",
+   "body_bytes": 167,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Unknown_0049CB70@DisplayClass@@QAE?AUCoordStruct@@ABU2@_N@Z",
+   "entry": "0049cb70",
+   "body_bytes": 113,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Unknown_0049CBF0@DisplayClass@@QAE_NABUCoordStruct@@_N@Z",
+   "entry": "0049cbf0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Unknown_0049CC20@DisplayClass@@QAEXXZ",
+   "entry": "0049cc20",
+   "body_bytes": 242,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Unknown_0049CD20@DisplayClass@@QAEXXZ",
+   "entry": "0049cd20",
+   "body_bytes": 142,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Unknown_0049CDB0@DisplayClass@@QAEXABVCell@@@Z",
+   "entry": "0049cdb0",
+   "body_bytes": 321,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Unknown_0049CF00@DisplayClass@@QAEXABVCell@@@Z",
+   "entry": "0049cf00",
+   "body_bytes": 196,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Read_INI_0049CFD0@DisplayClass@@QAEXAAVCCINIClass@@@Z",
+   "entry": "0049cfd0",
+   "body_bytes": 2358,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Write_INI_0049D910@DisplayClass@@QAEXAAVCCINIClass@@@Z",
+   "entry": "0049d910",
+   "body_bytes": 581,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Unknown_0049DB60@DisplayClass@@QAEHPAXH@Z",
+   "entry": "0049db60",
+   "body_bytes": 363,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Unknown_0049DCD0@DisplayClass@@QAEXPAX@Z",
+   "entry": "0049dcd0",
+   "body_bytes": 291,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Unknown_0049DE00@DisplayClass@@QAEX_N0@Z",
+   "entry": "0049de00",
+   "body_bytes": 511,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Unknown_0049E000@DisplayClass@@QAEX_N0@Z",
+   "entry": "0049e000",
+   "body_bytes": 268,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Unknown_0049E110@DisplayClass@@QAEX_N0@Z",
+   "entry": "0049e110",
+   "body_bytes": 184,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Constrained_Look@DisplayClass@@QAEXABUCoordStruct@@H@Z",
+   "entry": "0049e1d0",
+   "body_bytes": 467,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Unknown_0049E3B0@DisplayClass@@QAEXXZ",
+   "entry": "0049e3b0",
+   "body_bytes": 436,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Unknown_0049E570@DisplayClass@@QAEXXZ",
+   "entry": "0049e570",
+   "body_bytes": 98,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Unknown_0049E5E0@DisplayClass@@QAEXXZ",
+   "entry": "0049e5e0",
+   "body_bytes": 46,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Help_Text@DisplayClass@@UAEPBGH@Z",
+   "entry": "0049e610",
+   "body_bytes": 437,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Reposition_Sidebar@DisplayClass@@UAEXXZ",
+   "entry": "0049e7d0",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Load@DisplayClass@@UAEJPAUIStream@@@Z",
+   "entry": "0049e810",
+   "body_bytes": 35,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Save@DisplayClass@@UAEJPAUIStream@@@Z",
+   "entry": "0049e840",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Active_Click_0049E870@DisplayClass@@QAEXPAVObjectClass@@VCell@@H@Z",
+   "entry": "0049e870",
+   "body_bytes": 595,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Action_To_Waypoint_Action@DisplayClass@@QAEHHABVCell@@@Z",
+   "entry": "0049ead0",
+   "body_bytes": 99,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Update_Waypoint_Color@DisplayClass@@QAEXH@Z",
+   "entry": "0049eb40",
+   "body_bytes": 169,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Abort_Drag_Select@DisplayClass@@UAEXXZ",
+   "entry": "0049ebf0",
+   "body_bytes": 65,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?FUN_0049ec40@seed_0049ec40@@YIHH@Z",
+   "entry": "0049ec40",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Unknown_0049EC60@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "entry": "0049ec60",
+   "body_bytes": 24,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "??_GLayerClass@@UAEPAXI@Z",
+   "entry": "0049ec80",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Get_ID@GadgetClass@@UBEIXZ",
+   "entry": "0049ecd0",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "??_GTacticalClass@DisplayClass@@UAEPAXI@Z",
+   "entry": "0049ece0",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?get@Leaf_49ed00@@QAEXI@Z",
+   "entry": "0049ed00",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Is_Scrolling@MapClass@@UAE_NXZ",
+   "entry": "0049ed10",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "??_GDisplayClass@@UAEPAXI@Z",
+   "entry": "0049ed20",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "??_GPipe@@UAEPAXI@Z",
+   "entry": "0049edb0",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "??_GBufferPipe@@UAEPAXI@Z",
+   "entry": "0049edd0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  }
+ ],
+ "code_bytes": 22688,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 16
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 30
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 33
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 36
+  },
+  {
+   "symbol": "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@",
+   "address": "0079a768",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 425
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVObjectClass@@@@6B@",
+   "address": "0079a918",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 66
+  },
+  {
+   "symbol": "??_7Surface@@6B@",
+   "address": "0079b01c",
+   "bytes": 140,
+   "kind": "vtable",
+   "section": 277
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@VCell@@@@6B@",
+   "address": "0079c59c",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 192
+  },
+  {
+   "symbol": "??_7?$VectorClass@VCell@@@@6B@",
+   "address": "0079c5dc",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 191
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVObjectClass@@@@6B@",
+   "address": "0079db78",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 65
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "0079e820",
+   "bytes": 64,
+   "kind": "table",
+   "section": 2
+  },
+  {
+   "symbol": "??_7LayerClass@@6B@",
+   "address": "0079e864",
+   "bytes": 44,
+   "kind": "vtable",
+   "section": 64
+  },
+  {
+   "symbol": "??_7TacticalClass@DisplayClass@@6B@",
+   "address": "0079e890",
+   "bytes": 136,
+   "kind": "vtable",
+   "section": 84
+  },
+  {
+   "symbol": "??_7DisplayClass@@6B@",
+   "address": "0079e918",
+   "bytes": 204,
+   "kind": "vtable",
+   "section": 112
+  },
+  {
+   "symbol": "??_7BufferStraw@@6B@",
+   "address": "0079e9e4",
+   "bytes": 16,
+   "kind": "vtable",
+   "section": 261
+  },
+  {
+   "symbol": "??_7Straw@@6B@",
+   "address": "0079e9f4",
+   "bytes": 16,
+   "kind": "vtable",
+   "section": 262
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@USubzoneConnectionStruct@@@@8",
+   "address": "007b25f8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 420
+  },
+  {
+   "symbol": "??_R2?$VectorClass@USubzoneConnectionStruct@@@@8",
+   "address": "007b2610",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 421
+  },
+  {
+   "symbol": "??_R3?$VectorClass@USubzoneConnectionStruct@@@@8",
+   "address": "007b2618",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 422
+  },
+  {
+   "symbol": "??_R4?$VectorClass@USubzoneConnectionStruct@@@@6B@",
+   "address": "007b2628",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 424
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAVObjectClass@@@@8",
+   "address": "007b2938",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 56
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAVObjectClass@@@@8",
+   "address": "007b2950",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 58
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LayerClass@@8",
+   "address": "007b2968",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 59
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAVObjectClass@@@@8",
+   "address": "007b29d4",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 49
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAVObjectClass@@@@8",
+   "address": "007b29e0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 50
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAVObjectClass@@@@6B@",
+   "address": "007b29f0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 51
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IUnknown@@8",
+   "address": "007b2a38",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 100
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IGameMap@@8",
+   "address": "007b2a50",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 102
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GScreenClass@@8",
+   "address": "007b2a68",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 104
+  },
+  {
+   "symbol": "??_R1A@?0A@A@MapClass@@8",
+   "address": "007b2a80",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 106
+  },
+  {
+   "symbol": "??_R1A@?0A@A@DisplayClass@@8",
+   "address": "007b2a98",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 107
+  },
+  {
+   "symbol": "??_R2XSurface@@8",
+   "address": "007b3278",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 249
+  },
+  {
+   "symbol": "??_R3XSurface@@8",
+   "address": "007b3288",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 250
+  },
+  {
+   "symbol": "??_R4XSurface@@6B@",
+   "address": "007b3298",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 252
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Surface@@8",
+   "address": "007b32b0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 247
+  },
+  {
+   "symbol": "??_R1A@?0A@A@XSurface@@8",
+   "address": "007b32c8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 248
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BSurface@@8",
+   "address": "007b32e0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 238
+  },
+  {
+   "symbol": "??_R2BSurface@@8",
+   "address": "007b32f8",
+   "bytes": 13,
+   "kind": "rtti",
+   "section": 239
+  },
+  {
+   "symbol": "??_R3BSurface@@8",
+   "address": "007b3308",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 240
+  },
+  {
+   "symbol": "??_R4BSurface@@6B@",
+   "address": "007b3318",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 242
+  },
+  {
+   "symbol": "??_R2Surface@@8",
+   "address": "007b332c",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 274
+  },
+  {
+   "symbol": "??_R3Surface@@8",
+   "address": "007b3338",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 275
+  },
+  {
+   "symbol": "??_R4Surface@@6B@",
+   "address": "007b3348",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 276
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@VCell@@@@8",
+   "address": "007b3d18",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 186
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@VCell@@@@8",
+   "address": "007b3d30",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 181
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@VCell@@@@8",
+   "address": "007b3d48",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 182
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@VCell@@@@8",
+   "address": "007b3d58",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 183
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@VCell@@@@6B@",
+   "address": "007b3d68",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 185
+  },
+  {
+   "symbol": "??_R2?$VectorClass@VCell@@@@8",
+   "address": "007b3d7c",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 187
+  },
+  {
+   "symbol": "??_R3?$VectorClass@VCell@@@@8",
+   "address": "007b3d88",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 188
+  },
+  {
+   "symbol": "??_R4?$VectorClass@VCell@@@@6B@",
+   "address": "007b3d98",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 190
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LinkClass@@8",
+   "address": "007b4a18",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 76
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Pipe@@8",
+   "address": "007b4ae8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 320
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Straw@@8",
+   "address": "007b4b50",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 254
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAVObjectClass@@@@8",
+   "address": "007b4f00",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 52
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAVObjectClass@@@@8",
+   "address": "007b4f10",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 53
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAVObjectClass@@@@6B@",
+   "address": "007b4f20",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 54
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GadgetClass@@8",
+   "address": "007b4f38",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 78
+  },
+  {
+   "symbol": "??_R2LayerClass@@8",
+   "address": "007b7898",
+   "bytes": 13,
+   "kind": "rtti",
+   "section": 60
+  },
+  {
+   "symbol": "??_R3LayerClass@@8",
+   "address": "007b78a8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 61
+  },
+  {
+   "symbol": "??_R4LayerClass@@6B@",
+   "address": "007b78b8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 63
+  },
+  {
+   "symbol": "??_R1A@?0A@A@TacticalClass@DisplayClass@@8",
+   "address": "007b78d0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 79
+  },
+  {
+   "symbol": "??_R2TacticalClass@DisplayClass@@8",
+   "address": "007b78e8",
+   "bytes": 13,
+   "kind": "rtti",
+   "section": 80
+  },
+  {
+   "symbol": "??_R3TacticalClass@DisplayClass@@8",
+   "address": "007b78f8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 81
+  },
+  {
+   "symbol": "??_R4TacticalClass@DisplayClass@@6B@",
+   "address": "007b7908",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 83
+  },
+  {
+   "symbol": "??_R2DisplayClass@@8",
+   "address": "007b7920",
+   "bytes": 21,
+   "kind": "rtti",
+   "section": 108
+  },
+  {
+   "symbol": "??_R3DisplayClass@@8",
+   "address": "007b7938",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 109
+  },
+  {
+   "symbol": "??_R4DisplayClass@@6B@",
+   "address": "007b7948",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 111
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BufferStraw@@8",
+   "address": "007b7960",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 255
+  },
+  {
+   "symbol": "??_R2BufferStraw@@8",
+   "address": "007b7978",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 256
+  },
+  {
+   "symbol": "??_R3BufferStraw@@8",
+   "address": "007b7988",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 257
+  },
+  {
+   "symbol": "??_R4BufferStraw@@6B@",
+   "address": "007b7998",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 259
+  },
+  {
+   "symbol": "??_R2Straw@@8",
+   "address": "007b79ac",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 243
+  },
+  {
+   "symbol": "??_R3Straw@@8",
+   "address": "007b79b8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 244
+  },
+  {
+   "symbol": "??_R4Straw@@6B@",
+   "address": "007b79c8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 245
+  },
+  {
+   "symbol": "??_R2Pipe@@8",
+   "address": "007b79dc",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 316
+  },
+  {
+   "symbol": "??_R3Pipe@@8",
+   "address": "007b79e8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 317
+  },
+  {
+   "symbol": "??_R4Pipe@@6B@",
+   "address": "007b79f8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 318
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BufferPipe@@8",
+   "address": "007b7a10",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 321
+  },
+  {
+   "symbol": "??_R2BufferPipe@@8",
+   "address": "007b7a28",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 322
+  },
+  {
+   "symbol": "??_R3BufferPipe@@8",
+   "address": "007b7a38",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 323
+  },
+  {
+   "symbol": "??_R4BufferPipe@@6B@",
+   "address": "007b7a48",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 325
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@USubzoneConnectionStruct@@@@@8",
+   "address": "007cd310",
+   "bytes": 55,
+   "kind": "rtti",
+   "section": 423
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAVObjectClass@@@@@8",
+   "address": "007cd570",
+   "bytes": 45,
+   "kind": "rtti",
+   "section": 55
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAVObjectClass@@@@@8",
+   "address": "007cd5a0",
+   "bytes": 52,
+   "kind": "rtti",
+   "section": 57
+  },
+  {
+   "symbol": "??_R0?AVLayerClass@@@8",
+   "address": "007cd5d8",
+   "bytes": 25,
+   "kind": "rtti",
+   "section": 62
+  },
+  {
+   "symbol": "??_R0?AUIUnknown@@@8",
+   "address": "007cd638",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 99
+  },
+  {
+   "symbol": "??_R0?AUIGameMap@@@8",
+   "address": "007cd650",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 101
+  },
+  {
+   "symbol": "??_R0?AVGScreenClass@@@8",
+   "address": "007cd668",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 103
+  },
+  {
+   "symbol": "??_R0?AVMapClass@@@8",
+   "address": "007cd688",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 105
+  },
+  {
+   "symbol": "??_R0?AVDisplayClass@@@8",
+   "address": "007cd6a0",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 110
+  },
+  {
+   "symbol": "??_R0?AVSurface@@@8",
+   "address": "007ce2b0",
+   "bytes": 22,
+   "kind": "rtti",
+   "section": 246
+  },
+  {
+   "symbol": "??_R0?AVXSurface@@@8",
+   "address": "007ce2c8",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 251
+  },
+  {
+   "symbol": "??_R0?AVBSurface@@@8",
+   "address": "007ce2e0",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 241
+  },
+  {
+   "symbol": "??_C@_02MECO@?$CFd?$AA@",
+   "address": "007ce9bc",
+   "bytes": 3,
+   "kind": "string",
+   "section": 328
+  },
+  {
+   "symbol": "??_R0?AVObjectTypeClass@@@8",
+   "address": "007ce9c8",
+   "bytes": 30,
+   "kind": "rtti",
+   "section": 204
+  },
+  {
+   "symbol": "??_R0?AVTechnoTypeClass@@@8",
+   "address": "007ce9e8",
+   "bytes": 30,
+   "kind": "rtti",
+   "section": 205
+  },
+  {
+   "symbol": "??_C@_07OHHF@Theater?$AA@",
+   "address": "007cf004",
+   "bytes": 8,
+   "kind": "string",
+   "section": 266
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@VCell@@@@@8",
+   "address": "007cf2e8",
+   "bytes": 36,
+   "kind": "rtti",
+   "section": 189
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@VCell@@@@@8",
+   "address": "007cf310",
+   "bytes": 43,
+   "kind": "rtti",
+   "section": 184
+  },
+  {
+   "symbol": "??_C@_05PGGH@Level?$AA@",
+   "address": "007d1374",
+   "bytes": 6,
+   "kind": "string",
+   "section": 270
+  },
+  {
+   "symbol": "??_R0?AVLinkClass@@@8",
+   "address": "007d17a8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 75
+  },
+  {
+   "symbol": "??_C@_05CGKI@Water?$AA@",
+   "address": "007d1ab8",
+   "bytes": 6,
+   "kind": "string",
+   "section": 267
+  },
+  {
+   "symbol": "??_R0?AVPipe@@@8",
+   "address": "007d1e90",
+   "bytes": 19,
+   "kind": "rtti",
+   "section": 319
+  },
+  {
+   "symbol": "??_R0?AVStraw@@@8",
+   "address": "007d1ec0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 253
+  },
+  {
+   "symbol": "??_R0?AVGadgetClass@@@8",
+   "address": "007d2f30",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 77
+  },
+  {
+   "symbol": "??_C@_05BHDE@Clear?$AA@",
+   "address": "007d3a6c",
+   "bytes": 6,
+   "kind": "string",
+   "section": 269
+  },
+  {
+   "symbol": "??_C@_08CFMK@CellTags?$AA@",
+   "address": "007d5c90",
+   "bytes": 9,
+   "kind": "string",
+   "section": 3
+  },
+  {
+   "symbol": "??_C@_03DIFO@Map?$AA@",
+   "address": "007d5c9c",
+   "bytes": 4,
+   "kind": "string",
+   "section": 4
+  },
+  {
+   "symbol": "??_C@_0M@OJNL@IsoMapPack5?$AA@",
+   "address": "007d5ca0",
+   "bytes": 12,
+   "kind": "string",
+   "section": 5
+  },
+  {
+   "symbol": "??_C@_0M@EDEM@IsoMapPack4?$AA@",
+   "address": "007d5cac",
+   "bytes": 12,
+   "kind": "string",
+   "section": 6
+  },
+  {
+   "symbol": "??_C@_0M@BGKJ@IsoMapPack3?$AA@",
+   "address": "007d5cb8",
+   "bytes": 12,
+   "kind": "string",
+   "section": 7
+  },
+  {
+   "symbol": "??_C@_0M@LMDO@IsoMapPack2?$AA@",
+   "address": "007d5cc4",
+   "bytes": 12,
+   "kind": "string",
+   "section": 8
+  },
+  {
+   "symbol": "??_C@_0L@IADI@IsoMapPack?$AA@",
+   "address": "007d5cd0",
+   "bytes": 11,
+   "kind": "string",
+   "section": 9
+  },
+  {
+   "symbol": "??_R0?AVTacticalClass@DisplayClass@@@8",
+   "address": "007d5cf8",
+   "bytes": 41,
+   "kind": "rtti",
+   "section": 82
+  },
+  {
+   "symbol": "??_C@_0L@BIBI@SHADOW?4SHP?$AA@",
+   "address": "007d5d24",
+   "bytes": 11,
+   "kind": "string",
+   "section": 125
+  },
+  {
+   "symbol": "??_C@_09LGJG@PLACE?4SHP?$AA@",
+   "address": "007d5d30",
+   "bytes": 10,
+   "kind": "string",
+   "section": 126
+  },
+  {
+   "symbol": "??_C@_0BL@EKMA@Set_View_Dimensions?$CIexit?$CJ?6?$AA@",
+   "address": "007d5d3c",
+   "bytes": 27,
+   "kind": "string",
+   "section": 133
+  },
+  {
+   "symbol": "??_C@_0BM@KIKC@Allocating?5ABuffer?5?$CI?$CFdx?$CFd?$CJ?6?$AA@",
+   "address": "007d5d58",
+   "bytes": 28,
+   "kind": "string",
+   "section": 134
+  },
+  {
+   "symbol": "??_C@_0BC@MLFK@Deleting?5ABuffer?6?$AA@",
+   "address": "007d5d74",
+   "bytes": 18,
+   "kind": "string",
+   "section": 135
+  },
+  {
+   "symbol": "??_C@_0BM@NINK@Allocating?5ZBuffer?5?$CI?$CFdx?$CFd?$CJ?6?$AA@",
+   "address": "007d5d88",
+   "bytes": 28,
+   "kind": "string",
+   "section": 136
+  },
+  {
+   "symbol": "??_C@_0BC@NALE@Deleting?5ZBuffer?6?$AA@",
+   "address": "007d5da4",
+   "bytes": 18,
+   "kind": "string",
+   "section": 137
+  },
+  {
+   "symbol": "??_C@_0CC@JMFC@Set_View_Dimensions?$CI?$CFd?0?$CFd?0?$CFd?0?$CFd?$CJ@",
+   "address": "007d5db8",
+   "bytes": 34,
+   "kind": "string",
+   "section": 138
+  },
+  {
+   "symbol": "??_C@_0BF@JPJL@EVA_CannotDeployHere?$AA@",
+   "address": "007d5ddc",
+   "bytes": 21,
+   "kind": "string",
+   "section": 203
+  },
+  {
+   "symbol": "??_R0?AVBufferStraw@@@8",
+   "address": "007d5df8",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 258
+  },
+  {
+   "symbol": "??_C@_09OOBE@LocalSize?$AA@",
+   "address": "007d5e14",
+   "bytes": 10,
+   "kind": "string",
+   "section": 260
+  },
+  {
+   "symbol": "??_C@_04BHHI@Fill?$AA@",
+   "address": "007d5e20",
+   "bytes": 5,
+   "kind": "string",
+   "section": 268
+  },
+  {
+   "symbol": "??_C@_04BBDK@Size?$AA@",
+   "address": "007d5e28",
+   "bytes": 5,
+   "kind": "string",
+   "section": 271
+  },
+  {
+   "symbol": "??_R0?AVBufferPipe@@@8",
+   "address": "007d5e30",
+   "bytes": 25,
+   "kind": "rtti",
+   "section": 324
+  },
+  {
+   "symbol": "??_C@_0L@NALF@TXT_SHADOW?$AA@",
+   "address": "007d5e4c",
+   "bytes": 11,
+   "kind": "string",
+   "section": 354
+  },
+  {
+   "symbol": "??_C@_0BD@GHCE@D?3?2Ra2?2Display?4CPP?$AA@",
+   "address": "007d5e58",
+   "bytes": 19,
+   "kind": "string",
+   "section": 355
+  },
+  {
+   "symbol": "??_C@_1BA@DJFG@?$AA?$CI?$AA?$CF?$AAd?$AA?0?$AA?$CF?$AAd?$AA?$CJ?$AA?$AA@",
+   "address": "007d5e6c",
+   "bytes": 16,
+   "kind": "string",
+   "section": 356
+  },
+  {
+   "symbol": "??_C@_0BO@HGAG@Display?3?5Abort_Drag_Select?$CI?$CJ?6?$AA@",
+   "address": "007d5e7c",
+   "bytes": 30,
+   "kind": "string",
+   "section": 371
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@",
+   "address": "0079a768",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVObjectClass@@@@6B@",
+   "address": "0079a918",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7Surface@@6B@",
+   "address": "0079b01c",
+   "bytes": 140,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@VCell@@@@6B@",
+   "address": "0079c59c",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@VCell@@@@6B@",
+   "address": "0079c5dc",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVObjectClass@@@@6B@",
+   "address": "0079db78",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "0079e820",
+   "bytes": 64,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7LayerClass@@6B@",
+   "address": "0079e864",
+   "bytes": 44,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7TacticalClass@DisplayClass@@6B@",
+   "address": "0079e890",
+   "bytes": 136,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7DisplayClass@@6B@",
+   "address": "0079e918",
+   "bytes": 204,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7BufferStraw@@6B@",
+   "address": "0079e9e4",
+   "bytes": 16,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7Straw@@6B@",
+   "address": "0079e9f4",
+   "bytes": 16,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@USubzoneConnectionStruct@@@@8",
+   "address": "007b25f8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@USubzoneConnectionStruct@@@@8",
+   "address": "007b2610",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@USubzoneConnectionStruct@@@@8",
+   "address": "007b2618",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@USubzoneConnectionStruct@@@@6B@",
+   "address": "007b2628",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAVObjectClass@@@@8",
+   "address": "007b2938",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAVObjectClass@@@@8",
+   "address": "007b2950",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LayerClass@@8",
+   "address": "007b2968",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAVObjectClass@@@@8",
+   "address": "007b29d4",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAVObjectClass@@@@8",
+   "address": "007b29e0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAVObjectClass@@@@6B@",
+   "address": "007b29f0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IUnknown@@8",
+   "address": "007b2a38",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IGameMap@@8",
+   "address": "007b2a50",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GScreenClass@@8",
+   "address": "007b2a68",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@MapClass@@8",
+   "address": "007b2a80",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@DisplayClass@@8",
+   "address": "007b2a98",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2XSurface@@8",
+   "address": "007b3278",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3XSurface@@8",
+   "address": "007b3288",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4XSurface@@6B@",
+   "address": "007b3298",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Surface@@8",
+   "address": "007b32b0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@XSurface@@8",
+   "address": "007b32c8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BSurface@@8",
+   "address": "007b32e0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2BSurface@@8",
+   "address": "007b32f8",
+   "bytes": 13,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3BSurface@@8",
+   "address": "007b3308",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4BSurface@@6B@",
+   "address": "007b3318",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2Surface@@8",
+   "address": "007b332c",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3Surface@@8",
+   "address": "007b3338",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4Surface@@6B@",
+   "address": "007b3348",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@VCell@@@@8",
+   "address": "007b3d18",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@VCell@@@@8",
+   "address": "007b3d30",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@VCell@@@@8",
+   "address": "007b3d48",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@VCell@@@@8",
+   "address": "007b3d58",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@VCell@@@@6B@",
+   "address": "007b3d68",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@VCell@@@@8",
+   "address": "007b3d7c",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@VCell@@@@8",
+   "address": "007b3d88",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@VCell@@@@6B@",
+   "address": "007b3d98",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LinkClass@@8",
+   "address": "007b4a18",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Pipe@@8",
+   "address": "007b4ae8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Straw@@8",
+   "address": "007b4b50",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAVObjectClass@@@@8",
+   "address": "007b4f00",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAVObjectClass@@@@8",
+   "address": "007b4f10",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAVObjectClass@@@@6B@",
+   "address": "007b4f20",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GadgetClass@@8",
+   "address": "007b4f38",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2LayerClass@@8",
+   "address": "007b7898",
+   "bytes": 13,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3LayerClass@@8",
+   "address": "007b78a8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4LayerClass@@6B@",
+   "address": "007b78b8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@TacticalClass@DisplayClass@@8",
+   "address": "007b78d0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2TacticalClass@DisplayClass@@8",
+   "address": "007b78e8",
+   "bytes": 13,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3TacticalClass@DisplayClass@@8",
+   "address": "007b78f8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4TacticalClass@DisplayClass@@6B@",
+   "address": "007b7908",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2DisplayClass@@8",
+   "address": "007b7920",
+   "bytes": 21,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3DisplayClass@@8",
+   "address": "007b7938",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4DisplayClass@@6B@",
+   "address": "007b7948",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BufferStraw@@8",
+   "address": "007b7960",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2BufferStraw@@8",
+   "address": "007b7978",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3BufferStraw@@8",
+   "address": "007b7988",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4BufferStraw@@6B@",
+   "address": "007b7998",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2Straw@@8",
+   "address": "007b79ac",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3Straw@@8",
+   "address": "007b79b8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4Straw@@6B@",
+   "address": "007b79c8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2Pipe@@8",
+   "address": "007b79dc",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3Pipe@@8",
+   "address": "007b79e8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4Pipe@@6B@",
+   "address": "007b79f8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BufferPipe@@8",
+   "address": "007b7a10",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2BufferPipe@@8",
+   "address": "007b7a28",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3BufferPipe@@8",
+   "address": "007b7a38",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4BufferPipe@@6B@",
+   "address": "007b7a48",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@USubzoneConnectionStruct@@@@@8",
+   "address": "007cd310",
+   "bytes": 55,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAVObjectClass@@@@@8",
+   "address": "007cd570",
+   "bytes": 45,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAVObjectClass@@@@@8",
+   "address": "007cd5a0",
+   "bytes": 52,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVLayerClass@@@8",
+   "address": "007cd5d8",
+   "bytes": 25,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIUnknown@@@8",
+   "address": "007cd638",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIGameMap@@@8",
+   "address": "007cd650",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVGScreenClass@@@8",
+   "address": "007cd668",
+   "bytes": 27,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVMapClass@@@8",
+   "address": "007cd688",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVDisplayClass@@@8",
+   "address": "007cd6a0",
+   "bytes": 27,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVSurface@@@8",
+   "address": "007ce2b0",
+   "bytes": 22,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVXSurface@@@8",
+   "address": "007ce2c8",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVBSurface@@@8",
+   "address": "007ce2e0",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_02MECO@?$CFd?$AA@",
+   "address": "007ce9bc",
+   "bytes": 3,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AVObjectTypeClass@@@8",
+   "address": "007ce9c8",
+   "bytes": 30,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVTechnoTypeClass@@@8",
+   "address": "007ce9e8",
+   "bytes": 30,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_07OHHF@Theater?$AA@",
+   "address": "007cf004",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@VCell@@@@@8",
+   "address": "007cf2e8",
+   "bytes": 36,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@VCell@@@@@8",
+   "address": "007cf310",
+   "bytes": 43,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_05PGGH@Level?$AA@",
+   "address": "007d1374",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AVLinkClass@@@8",
+   "address": "007d17a8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_05CGKI@Water?$AA@",
+   "address": "007d1ab8",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AVPipe@@@8",
+   "address": "007d1e90",
+   "bytes": 19,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVStraw@@@8",
+   "address": "007d1ec0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVGadgetClass@@@8",
+   "address": "007d2f30",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_05BHDE@Clear?$AA@",
+   "address": "007d3a6c",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08CFMK@CellTags?$AA@",
+   "address": "007d5c90",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_03DIFO@Map?$AA@",
+   "address": "007d5c9c",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@OJNL@IsoMapPack5?$AA@",
+   "address": "007d5ca0",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@EDEM@IsoMapPack4?$AA@",
+   "address": "007d5cac",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@BGKJ@IsoMapPack3?$AA@",
+   "address": "007d5cb8",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@LMDO@IsoMapPack2?$AA@",
+   "address": "007d5cc4",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@IADI@IsoMapPack?$AA@",
+   "address": "007d5cd0",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AVTacticalClass@DisplayClass@@@8",
+   "address": "007d5cf8",
+   "bytes": 41,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0L@BIBI@SHADOW?4SHP?$AA@",
+   "address": "007d5d24",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09LGJG@PLACE?4SHP?$AA@",
+   "address": "007d5d30",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BL@EKMA@Set_View_Dimensions?$CIexit?$CJ?6?$AA@",
+   "address": "007d5d3c",
+   "bytes": 27,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BM@KIKC@Allocating?5ABuffer?5?$CI?$CFdx?$CFd?$CJ?6?$AA@",
+   "address": "007d5d58",
+   "bytes": 28,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@MLFK@Deleting?5ABuffer?6?$AA@",
+   "address": "007d5d74",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BM@NINK@Allocating?5ZBuffer?5?$CI?$CFdx?$CFd?$CJ?6?$AA@",
+   "address": "007d5d88",
+   "bytes": 28,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@NALE@Deleting?5ZBuffer?6?$AA@",
+   "address": "007d5da4",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CC@JMFC@Set_View_Dimensions?$CI?$CFd?0?$CFd?0?$CFd?0?$CFd?$CJ@",
+   "address": "007d5db8",
+   "bytes": 34,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BF@JPJL@EVA_CannotDeployHere?$AA@",
+   "address": "007d5ddc",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AVBufferStraw@@@8",
+   "address": "007d5df8",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_09OOBE@LocalSize?$AA@",
+   "address": "007d5e14",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04BHHI@Fill?$AA@",
+   "address": "007d5e20",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04BBDK@Size?$AA@",
+   "address": "007d5e28",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AVBufferPipe@@@8",
+   "address": "007d5e30",
+   "bytes": 25,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0L@NALF@TXT_SHADOW?$AA@",
+   "address": "007d5e4c",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@GHCE@D?3?2Ra2?2Display?4CPP?$AA@",
+   "address": "007d5e58",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_1BA@DJFG@?$AA?$CI?$AA?$CF?$AAd?$AA?0?$AA?$CF?$AAd?$AA?$CJ?$AA?$AA@",
+   "address": "007d5e6c",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BO@HGAG@Display?3?5Abort_Drag_Select?$CI?$CJ?6?$AA@",
+   "address": "007d5e7c",
+   "bytes": 30,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0051c4b0",
+   "symbol": "?Unknown_0049CA20@DisplayClass@@QAEXH@Z",
+   "target": "0049ca20",
+   "function_entry": true
+  },
+  {
+   "site": "0051c530",
+   "symbol": "?Unknown_0049C7C0@DisplayClass@@QAEXH@Z",
+   "target": "0049c7c0",
+   "function_entry": true
+  },
+  {
+   "site": "00634aa0",
+   "symbol": "?Help_Text@DisplayClass@@UAEPBGH@Z",
+   "target": "0049e610",
+   "function_entry": true
+  },
+  {
+   "site": "006aab60",
+   "symbol": "?Set_Cursor_Shape@DisplayClass@@QAEXPBVCell@@@Z",
+   "target": "00499070",
+   "function_entry": true
+  },
+  {
+   "site": "006f64b0",
+   "symbol": "?FUN_0049cac0@Callee_0049cac0@seed_006f64b0@@QAEXH@Z",
+   "target": "0049cac0",
+   "function_entry": true
+  },
+  {
+   "site": "0051c0a0",
+   "symbol": "?Unknown_0049E3B0@DisplayClass@@QAEXXZ",
+   "target": "0049e3b0",
+   "function_entry": true
+  },
+  {
+   "site": "005d2df0",
+   "symbol": "?Unknown_0049EC40@DisplayClass@@QAEPAVObjectClass@@XZ",
+   "target": "0049ec40",
+   "function_entry": true
+  },
+  {
+   "site": "005d2df0",
+   "symbol": "?Unknown_0049EC60@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "0049ec60",
+   "function_entry": true
+  },
+  {
+   "site": "00422b20",
+   "symbol": "?Remove@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "00499a90",
+   "function_entry": true
+  },
+  {
+   "site": "0066aba0",
+   "symbol": "?Mouse_Right_Release@DisplayClass@@UAEXABUPoint2D@@@Z",
+   "target": "0049af90",
+   "function_entry": true
+  },
+  {
+   "site": "0066abe0",
+   "symbol": "?Mouse_Right_Press@DisplayClass@@UAEXABUPoint2D@@@Z",
+   "target": "0049af80",
+   "function_entry": true
+  },
+  {
+   "site": "0066ac20",
+   "symbol": "?Abort_Drag_Select@DisplayClass@@UAEXXZ",
+   "target": "0049ebf0",
+   "function_entry": true
+  },
+  {
+   "site": "0062ede0",
+   "symbol": "??0DisplayClass@@QAE@XZ",
+   "target": "00498a50",
+   "function_entry": true
+  },
+  {
+   "site": "0062f170",
+   "symbol": "?One_Time@DisplayClass@@UAEXXZ",
+   "target": "00498b70",
+   "function_entry": true
+  },
+  {
+   "site": "0062f260",
+   "symbol": "?Init_Clear@DisplayClass@@UAEXXZ",
+   "target": "00498be0",
+   "function_entry": true
+  },
+  {
+   "site": "0062f490",
+   "symbol": "?Init_IO@DisplayClass@@UAEXXZ",
+   "target": "00498c50",
+   "function_entry": true
+  },
+  {
+   "site": "0062fc80",
+   "symbol": "?Map_Cell@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z",
+   "target": "00499bb0",
+   "function_entry": true
+  },
+  {
+   "site": "0062fca0",
+   "symbol": "?RevealFogShroud@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@_N@Z",
+   "target": "00499fc0",
+   "function_entry": true
+  },
+  {
+   "site": "006306d0",
+   "symbol": "?Reposition_Sidebar@DisplayClass@@UAEXXZ",
+   "target": "0049e7d0",
+   "function_entry": true
+  },
+  {
+   "site": "00632bf0",
+   "symbol": "?Load@DisplayClass@@UAEJPAUIStream@@@Z",
+   "target": "0049e810",
+   "function_entry": true
+  },
+  {
+   "site": "00632e10",
+   "symbol": "?Save@DisplayClass@@UAEJPAUIStream@@@Z",
+   "target": "0049e840",
+   "function_entry": true
+  },
+  {
+   "site": "00415300",
+   "symbol": "?Calculated_Cell@DisplayClass@@QAE?AVCell@@HABV2@0H_NH@Z",
+   "target": "0049a700",
+   "function_entry": true
+  },
+  {
+   "site": "004c8d80",
+   "symbol": "?Calculated_Cell@DisplayClass@@QAE?AVCell@@HABV2@0H_NH@Z",
+   "target": "0049a700",
+   "function_entry": true
+  },
+  {
+   "site": "004c8d80",
+   "symbol": "?Calculated_Cell@DisplayClass@@QAE?AVCell@@HABV2@0H_NH@Z",
+   "target": "0049a700",
+   "function_entry": true
+  },
+  {
+   "site": "006f61f0",
+   "symbol": "?Unknown_0049C980@DisplayClass@@QAEXH@Z",
+   "target": "0049c980",
+   "function_entry": true
+  },
+  {
+   "site": "006f61f0",
+   "symbol": "?Unknown_0049C860@DisplayClass@@QAEXH_N@Z",
+   "target": "0049c860",
+   "function_entry": true
+  },
+  {
+   "site": "006f61f0",
+   "symbol": "?Unknown_0049CA20@DisplayClass@@QAEXH@Z",
+   "target": "0049ca20",
+   "function_entry": true
+  },
+  {
+   "site": "006f61f0",
+   "symbol": "?Unknown_0049C7C0@DisplayClass@@QAEXH@Z",
+   "target": "0049c7c0",
+   "function_entry": true
+  },
+  {
+   "site": "006f61f0",
+   "symbol": "?Unknown_0049CAC0@DisplayClass@@QAEXH@Z",
+   "target": "0049cac0",
+   "function_entry": true
+  },
+  {
+   "site": "005d2ac0",
+   "symbol": "?Remove@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "00499a90",
+   "function_entry": true
+  },
+  {
+   "site": "005d2ac0",
+   "symbol": "?Submit@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "00499a40",
+   "function_entry": true
+  },
+  {
+   "site": "005d3c10",
+   "symbol": "?Unknown_0049EC40@DisplayClass@@QAEPAVObjectClass@@XZ",
+   "target": "0049ec40",
+   "function_entry": true
+  },
+  {
+   "site": "005d3c10",
+   "symbol": "?Unknown_0049EC60@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "0049ec60",
+   "function_entry": true
+  },
+  {
+   "site": "00420a90",
+   "symbol": "?Remove@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "00499a90",
+   "function_entry": true
+  },
+  {
+   "site": "00422540",
+   "symbol": "?Remove@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "00499a90",
+   "function_entry": true
+  },
+  {
+   "site": "00422540",
+   "symbol": "?Submit@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "00499a40",
+   "function_entry": true
+  },
+  {
+   "site": "00422540",
+   "symbol": "?Remove@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "00499a90",
+   "function_entry": true
+  },
+  {
+   "site": "00422540",
+   "symbol": "?Submit@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "00499a40",
+   "function_entry": true
+  },
+  {
+   "site": "00422ed0",
+   "symbol": "?Remove@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "00499a90",
+   "function_entry": true
+  },
+  {
+   "site": "007224d0",
+   "symbol": "?Remove@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "00499a90",
+   "function_entry": true
+  },
+  {
+   "site": "00722410",
+   "symbol": "?Submit@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "00499a40",
+   "function_entry": true
+  },
+  {
+   "site": "0062fcc0",
+   "symbol": "?AI@DisplayClass@@UAEXAAHABUPoint2D@@@Z",
+   "target": "00499a20",
+   "function_entry": true
+  },
+  {
+   "site": "004616b0",
+   "symbol": "?Remove@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "00499a90",
+   "function_entry": true
+  },
+  {
+   "site": "004616b0",
+   "symbol": "?Submit@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "00499a40",
+   "function_entry": true
+  },
+  {
+   "site": "006b0620",
+   "symbol": "?Unknown_0049CC20@DisplayClass@@QAEXXZ",
+   "target": "0049cc20",
+   "function_entry": true
+  },
+  {
+   "site": "00559f10",
+   "symbol": "?Unknown_0049E000@DisplayClass@@QAEX_N0@Z",
+   "target": "0049e000",
+   "function_entry": true
+  },
+  {
+   "site": "00559f10",
+   "symbol": "?Unknown_0049DE00@DisplayClass@@QAEX_N0@Z",
+   "target": "0049de00",
+   "function_entry": true
+  },
+  {
+   "site": "00559fd0",
+   "symbol": "?Unknown_0049E110@DisplayClass@@QAEX_N0@Z",
+   "target": "0049e110",
+   "function_entry": true
+  },
+  {
+   "site": "0055a070",
+   "symbol": "?Unknown_0049E110@DisplayClass@@QAEX_N0@Z",
+   "target": "0049e110",
+   "function_entry": true
+  },
+  {
+   "site": "0055a120",
+   "symbol": "?Unknown_0049E000@DisplayClass@@QAEX_N0@Z",
+   "target": "0049e000",
+   "function_entry": true
+  },
+  {
+   "site": "0055a120",
+   "symbol": "?Unknown_0049DE00@DisplayClass@@QAEX_N0@Z",
+   "target": "0049de00",
+   "function_entry": true
+  },
+  {
+   "site": "005d27f0",
+   "symbol": "?Submit@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "00499a40",
+   "function_entry": true
+  },
+  {
+   "site": "005d27f0",
+   "symbol": "?Remove@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "00499a90",
+   "function_entry": true
+  },
+  {
+   "site": "005d3700",
+   "symbol": "?Remove@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "00499a90",
+   "function_entry": true
+  },
+  {
+   "site": "005d3890",
+   "symbol": "?Submit@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "00499a40",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Read_INI_0049CFD0@DisplayClass@@QAEXAAVCCINIClass@@@Z",
+   "target": "0049cfd0",
+   "function_entry": true
+  },
+  {
+   "site": "0065e8c0",
+   "symbol": "?Unknown_0049C670@DisplayClass@@QAEXXZ",
+   "target": "0049c670",
+   "function_entry": true
+  },
+  {
+   "site": "0065f980",
+   "symbol": "?Write_INI_0049D910@DisplayClass@@QAEXAAVCCINIClass@@@Z",
+   "target": "0049d910",
+   "function_entry": true
+  },
+  {
+   "site": "0055a1f0",
+   "symbol": "?unknown_slot39@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z",
+   "target": "0049a370",
+   "function_entry": true
+  },
+  {
+   "site": "004e5a70",
+   "symbol": "?Unknown_0049E000@DisplayClass@@QAEX_N0@Z",
+   "target": "0049e000",
+   "function_entry": true
+  },
+  {
+   "site": "004e5a70",
+   "symbol": "?Unknown_0049DE00@DisplayClass@@QAEX_N0@Z",
+   "target": "0049de00",
+   "function_entry": true
+  },
+  {
+   "site": "004cfa00",
+   "symbol": "?Unknown_0049E570@DisplayClass@@QAEXXZ",
+   "target": "0049e570",
+   "function_entry": true
+  },
+  {
+   "site": "005a46c0",
+   "symbol": "?Unknown_00498F10@DisplayClass@@QAEXPBVCell@@@Z",
+   "target": "00498f10",
+   "function_entry": true
+  },
+  {
+   "site": "0051b8b0",
+   "symbol": "?Unknown_0049C980@DisplayClass@@QAEXH@Z",
+   "target": "0049c980",
+   "function_entry": true
+  },
+  {
+   "site": "0051b8b0",
+   "symbol": "?Unknown_0049C860@DisplayClass@@QAEXH_N@Z",
+   "target": "0049c860",
+   "function_entry": true
+  },
+  {
+   "site": "0051b8b0",
+   "symbol": "?Unknown_0049CA20@DisplayClass@@QAEXH@Z",
+   "target": "0049ca20",
+   "function_entry": true
+  },
+  {
+   "site": "0051b8b0",
+   "symbol": "?Unknown_0049C7C0@DisplayClass@@QAEXH@Z",
+   "target": "0049c7c0",
+   "function_entry": true
+  },
+  {
+   "site": "0051b8b0",
+   "symbol": "?Next_Object@DisplayClass@@QAEPAVObjectClass@@PAV2@@Z",
+   "target": "0049a5d0",
+   "function_entry": true
+  },
+  {
+   "site": "0051b8b0",
+   "symbol": "?Unknown_0049E3B0@DisplayClass@@QAEXXZ",
+   "target": "0049e3b0",
+   "function_entry": true
+  },
+  {
+   "site": "0051bd20",
+   "symbol": "?Unknown_0049C980@DisplayClass@@QAEXH@Z",
+   "target": "0049c980",
+   "function_entry": true
+  },
+  {
+   "site": "0051bd20",
+   "symbol": "?Unknown_0049C860@DisplayClass@@QAEXH_N@Z",
+   "target": "0049c860",
+   "function_entry": true
+  },
+  {
+   "site": "0051bd20",
+   "symbol": "?Unknown_0049CA20@DisplayClass@@QAEXH@Z",
+   "target": "0049ca20",
+   "function_entry": true
+  },
+  {
+   "site": "0051bd20",
+   "symbol": "?Unknown_0049C7C0@DisplayClass@@QAEXH@Z",
+   "target": "0049c7c0",
+   "function_entry": true
+  },
+  {
+   "site": "0051bd20",
+   "symbol": "?Prev_Object@DisplayClass@@QAEPAVObjectClass@@PAV2@@Z",
+   "target": "0049a670",
+   "function_entry": true
+  },
+  {
+   "site": "0051bd20",
+   "symbol": "?Unknown_0049E3B0@DisplayClass@@QAEXXZ",
+   "target": "0049e3b0",
+   "function_entry": true
+  },
+  {
+   "site": "0051c140",
+   "symbol": "?Unknown_0049EC60@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "0049ec60",
+   "function_entry": true
+  },
+  {
+   "site": "0051d4c0",
+   "symbol": "?Unknown_0049EC40@DisplayClass@@QAEPAVObjectClass@@XZ",
+   "target": "0049ec40",
+   "function_entry": true
+  },
+  {
+   "site": "0051d4c0",
+   "symbol": "?Unknown_0049EC60@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "0049ec60",
+   "function_entry": true
+  },
+  {
+   "site": "0051d4c0",
+   "symbol": "?Unknown_0049EC60@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "0049ec60",
+   "function_entry": true
+  },
+  {
+   "site": "004e7070",
+   "symbol": "?Unknown_0049CA20@DisplayClass@@QAEXH@Z",
+   "target": "0049ca20",
+   "function_entry": true
+  },
+  {
+   "site": "004e7070",
+   "symbol": "?Unknown_0049C7C0@DisplayClass@@QAEXH@Z",
+   "target": "0049c7c0",
+   "function_entry": true
+  },
+  {
+   "site": "004e7070",
+   "symbol": "?Unknown_00498F10@DisplayClass@@QAEXPBVCell@@@Z",
+   "target": "00498f10",
+   "function_entry": true
+  },
+  {
+   "site": "004e5660",
+   "symbol": "?Unknown_0049E000@DisplayClass@@QAEX_N0@Z",
+   "target": "0049e000",
+   "function_entry": true
+  },
+  {
+   "site": "004e5660",
+   "symbol": "?Unknown_0049DE00@DisplayClass@@QAEX_N0@Z",
+   "target": "0049de00",
+   "function_entry": true
+  },
+  {
+   "site": "004e64f0",
+   "symbol": "?Unknown_00498F10@DisplayClass@@QAEXPBVCell@@@Z",
+   "target": "00498f10",
+   "function_entry": true
+  },
+  {
+   "site": "00520b00",
+   "symbol": "?Unknown_0049E5E0@DisplayClass@@QAEXXZ",
+   "target": "0049e5e0",
+   "function_entry": true
+  },
+  {
+   "site": "00542280",
+   "symbol": "?Unknown_0049E570@DisplayClass@@QAEXXZ",
+   "target": "0049e570",
+   "function_entry": true
+  },
+  {
+   "site": "005434e0",
+   "symbol": "?unknown_slot42@DisplayClass@@UAEXABVRect@@@Z",
+   "target": "00498c80",
+   "function_entry": true
+  },
+  {
+   "site": "0066a290",
+   "symbol": "?Mouse_Left_Held@DisplayClass@@UAEXABUPoint2D@@@Z",
+   "target": "0049c500",
+   "function_entry": true
+  },
+  {
+   "site": "0066a400",
+   "symbol": "?Mouse_Left_Press@DisplayClass@@UAEXABUPoint2D@@@Z",
+   "target": "0049c490",
+   "function_entry": true
+  },
+  {
+   "site": "0066a400",
+   "symbol": "?Mouse_Left_Release@DisplayClass@@UAEXABUCoordStruct@@ABVCell@@PAVObjectClass@@H_N@Z",
+   "target": "0049bb20",
+   "function_entry": true
+  },
+  {
+   "site": "0066a400",
+   "symbol": "?Mouse_Right_Press@DisplayClass@@UAEXABUPoint2D@@@Z",
+   "target": "0049af80",
+   "function_entry": true
+  },
+  {
+   "site": "0066a400",
+   "symbol": "?Mouse_Right_Release@DisplayClass@@UAEXABUPoint2D@@@Z",
+   "target": "0049af90",
+   "function_entry": true
+  },
+  {
+   "site": "0066a400",
+   "symbol": "?Abort_Drag_Select@DisplayClass@@UAEXXZ",
+   "target": "0049ebf0",
+   "function_entry": true
+  },
+  {
+   "site": "0066a7a0",
+   "symbol": "?Scroll_Map@DisplayClass@@UAE_NHPAH_N@Z",
+   "target": "00499b60",
+   "function_entry": true
+  },
+  {
+   "site": "0066a7a0",
+   "symbol": "?Scroll_Map@DisplayClass@@UAE_NHPAH_N@Z",
+   "target": "00499b60",
+   "function_entry": true
+  },
+  {
+   "site": "0066a7a0",
+   "symbol": "?Scroll_Map@DisplayClass@@UAE_NHPAH_N@Z",
+   "target": "00499b60",
+   "function_entry": true
+  },
+  {
+   "site": "0052f3c0",
+   "symbol": "?Submit@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "00499a40",
+   "function_entry": true
+  },
+  {
+   "site": "00530940",
+   "symbol": "?Remove@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "00499a90",
+   "function_entry": true
+  },
+  {
+   "site": "00530940",
+   "symbol": "?Submit@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "00499a40",
+   "function_entry": true
+  },
+  {
+   "site": "005310a0",
+   "symbol": "?Unknown_0049CB70@DisplayClass@@QAE?AUCoordStruct@@ABU2@_N@Z",
+   "target": "0049cb70",
+   "function_entry": true
+  },
+  {
+   "site": "0065cdd0",
+   "symbol": "?Unknown_0049DE00@DisplayClass@@QAEX_N0@Z",
+   "target": "0049de00",
+   "function_entry": true
+  },
+  {
+   "site": "0055b060",
+   "symbol": "?Unknown_00498F10@DisplayClass@@QAEXPBVCell@@@Z",
+   "target": "00498f10",
+   "function_entry": true
+  },
+  {
+   "site": "00567ae0",
+   "symbol": "?Unknown_00498F10@DisplayClass@@QAEXPBVCell@@@Z",
+   "target": "00498f10",
+   "function_entry": true
+  },
+  {
+   "site": "00549c50",
+   "symbol": "?unknown_slot38@DisplayClass@@QAE_NABVCell@@PAVHouseClass@@@Z",
+   "target": "0049a0f0",
+   "function_entry": true
+  },
+  {
+   "site": "00583740",
+   "symbol": "?Unknown_00498F10@DisplayClass@@QAEXPBVCell@@@Z",
+   "target": "00498f10",
+   "function_entry": true
+  },
+  {
+   "site": "004e6950",
+   "symbol": "?Set_Cursor_Shape@DisplayClass@@QAEXPBVCell@@@Z",
+   "target": "00499070",
+   "function_entry": true
+  },
+  {
+   "site": "004e6950",
+   "symbol": "?Unknown_00498F10@DisplayClass@@QAEXPBVCell@@@Z",
+   "target": "00498f10",
+   "function_entry": true
+  },
+  {
+   "site": "004e6950",
+   "symbol": "?Unknown_00498F10@DisplayClass@@QAEXPBVCell@@@Z",
+   "target": "00498f10",
+   "function_entry": true
+  },
+  {
+   "site": "004e6950",
+   "symbol": "?Set_Cursor_Shape@DisplayClass@@QAEXPBVCell@@@Z",
+   "target": "00499070",
+   "function_entry": true
+  },
+  {
+   "site": "00570810",
+   "symbol": "?Unknown_00498F10@DisplayClass@@QAEXPBVCell@@@Z",
+   "target": "00498f10",
+   "function_entry": true
+  },
+  {
+   "site": "004e77f0",
+   "symbol": "?Unknown_0049CAC0@DisplayClass@@QAEXH@Z",
+   "target": "0049cac0",
+   "function_entry": true
+  },
+  {
+   "site": "004e4110",
+   "symbol": "?Unknown_0049C7C0@DisplayClass@@QAEXH@Z",
+   "target": "0049c7c0",
+   "function_entry": true
+  },
+  {
+   "site": "004e4110",
+   "symbol": "?Unknown_0049DE00@DisplayClass@@QAEX_N0@Z",
+   "target": "0049de00",
+   "function_entry": true
+  },
+  {
+   "site": "0055c2c0",
+   "symbol": "?Unknown_00498F10@DisplayClass@@QAEXPBVCell@@@Z",
+   "target": "00498f10",
+   "function_entry": true
+  },
+  {
+   "site": "00567490",
+   "symbol": "?Unknown_00498F10@DisplayClass@@QAEXPBVCell@@@Z",
+   "target": "00498f10",
+   "function_entry": true
+  },
+  {
+   "site": "0053fbd0",
+   "symbol": "?Scroll_Map@DisplayClass@@QAE_NHPAH_N@Z",
+   "target": "00499b60",
+   "function_entry": true
+  },
+  {
+   "site": "0053fbd0",
+   "symbol": "?Scroll_Map@DisplayClass@@QAE_NHPAH_N@Z",
+   "target": "00499b60",
+   "function_entry": true
+  },
+  {
+   "site": "0053fbd0",
+   "symbol": "?Scroll_Map@DisplayClass@@QAE_NHPAH_N@Z",
+   "target": "00499b60",
+   "function_entry": true
+  },
+  {
+   "site": "0053fbd0",
+   "symbol": "?Scroll_Map@DisplayClass@@QAE_NHPAH_N@Z",
+   "target": "00499b60",
+   "function_entry": true
+  },
+  {
+   "site": "0063a690",
+   "symbol": "?Calculated_Cell@DisplayClass@@QAE?AVCell@@HABV2@0H_NH@Z",
+   "target": "0049a700",
+   "function_entry": true
+  },
+  {
+   "site": "00639970",
+   "symbol": "?Calculated_Cell@DisplayClass@@QAE?AVCell@@HABV2@0H_NH@Z",
+   "target": "0049a700",
+   "function_entry": true
+  },
+  {
+   "site": "00656b80",
+   "symbol": "?unknown_slot42@MouseClass@@QAEXABVRect@@@Z",
+   "target": "00498c80",
+   "function_entry": true
+  },
+  {
+   "site": "0053dfb0",
+   "symbol": "?Unknown_0049CC20@DisplayClass@@QAEXXZ",
+   "target": "0049cc20",
+   "function_entry": true
+  },
+  {
+   "site": "0053dfb0",
+   "symbol": "?Unknown_0049CD20@DisplayClass@@QAEXXZ",
+   "target": "0049cd20",
+   "function_entry": true
+  },
+  {
+   "site": "0053d890",
+   "symbol": "?Unknown_0049CC20@DisplayClass@@QAEXXZ",
+   "target": "0049cc20",
+   "function_entry": true
+  },
+  {
+   "site": "0053d890",
+   "symbol": "?Unknown_0049CD20@DisplayClass@@QAEXXZ",
+   "target": "0049cd20",
+   "function_entry": true
+  },
+  {
+   "site": "0053d890",
+   "symbol": "?Unknown_0049E5E0@DisplayClass@@QAEXXZ",
+   "target": "0049e5e0",
+   "function_entry": true
+  },
+  {
+   "site": "0053d890",
+   "symbol": "?Unknown_0049EC40@DisplayClass@@QAEPAVObjectClass@@XZ",
+   "target": "0049ec40",
+   "function_entry": true
+  },
+  {
+   "site": "0053d890",
+   "symbol": "?Unknown_0049EC40@DisplayClass@@QAEPAVObjectClass@@XZ",
+   "target": "0049ec40",
+   "function_entry": true
+  },
+  {
+   "site": "004bca00",
+   "symbol": "?Remove@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "00499a90",
+   "function_entry": true
+  },
+  {
+   "site": "004bca00",
+   "symbol": "?Submit@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "00499a40",
+   "function_entry": true
+  },
+  {
+   "site": "0054a110",
+   "symbol": "?unknown_slot38@DisplayClass@@QAE_NABVCell@@PAVHouseClass@@@Z",
+   "target": "0049a0f0",
+   "function_entry": true
+  },
+  {
+   "site": "006ecb90",
+   "symbol": "?Unknown_00498F10@DisplayClass@@QAEXPBVCell@@@Z",
+   "target": "00498f10",
+   "function_entry": true
+  },
+  {
+   "site": "006f5f00",
+   "symbol": "?Unknown_0049C980@DisplayClass@@QAEXH@Z",
+   "target": "0049c980",
+   "function_entry": true
+  },
+  {
+   "site": "006f5f00",
+   "symbol": "?Unknown_0049C860@DisplayClass@@QAEXH_N@Z",
+   "target": "0049c860",
+   "function_entry": true
+  },
+  {
+   "site": "006f5f00",
+   "symbol": "?Unknown_0049CA20@DisplayClass@@QAEXH@Z",
+   "target": "0049ca20",
+   "function_entry": true
+  },
+  {
+   "site": "006f5f00",
+   "symbol": "?Unknown_0049C7C0@DisplayClass@@QAEXH@Z",
+   "target": "0049c7c0",
+   "function_entry": true
+  },
+  {
+   "site": "006f5f00",
+   "symbol": "?Unknown_0049CAC0@DisplayClass@@QAEXH@Z",
+   "target": "0049cac0",
+   "function_entry": true
+  },
+  {
+   "site": "006f60d0",
+   "symbol": "?Unknown_0049C980@DisplayClass@@QAEXH@Z",
+   "target": "0049c980",
+   "function_entry": true
+  },
+  {
+   "site": "006f60d0",
+   "symbol": "?Unknown_0049C860@DisplayClass@@QAEXH_N@Z",
+   "target": "0049c860",
+   "function_entry": true
+  },
+  {
+   "site": "006f60d0",
+   "symbol": "?Unknown_0049CA20@DisplayClass@@QAEXH@Z",
+   "target": "0049ca20",
+   "function_entry": true
+  },
+  {
+   "site": "006f60d0",
+   "symbol": "?Unknown_0049C7C0@DisplayClass@@QAEXH@Z",
+   "target": "0049c7c0",
+   "function_entry": true
+  },
+  {
+   "site": "006f60d0",
+   "symbol": "?Unknown_0049CAC0@DisplayClass@@QAEXH@Z",
+   "target": "0049cac0",
+   "function_entry": true
+  },
+  {
+   "site": "006f60d0",
+   "symbol": "?Unknown_0049E3B0@DisplayClass@@QAEXXZ",
+   "target": "0049e3b0",
+   "function_entry": true
+  },
+  {
+   "site": "006ab360",
+   "symbol": "?Update_Waypoint_Color@DisplayClass@@QAEXH@Z",
+   "target": "0049eb40",
+   "function_entry": true
+  },
+  {
+   "site": "006a5670",
+   "symbol": "?Unknown_00499810@DisplayClass@@QAE?AVCell@@PBV2@@Z",
+   "target": "00499810",
+   "function_entry": true
+  },
+  {
+   "site": "006a5670",
+   "symbol": "?Unknown_00499810@DisplayClass@@QAE?AVCell@@PBV2@@Z",
+   "target": "00499810",
+   "function_entry": true
+  },
+  {
+   "site": "0052f600",
+   "symbol": "?Unknown_0049CB70@DisplayClass@@QAE?AUCoordStruct@@ABU2@_N@Z",
+   "target": "0049cb70",
+   "function_entry": true
+  },
+  {
+   "site": "00701580",
+   "symbol": "?Unknown_0049CB70@DisplayClass@@QAE?AUCoordStruct@@ABU2@_N@Z",
+   "target": "0049cb70",
+   "function_entry": true
+  },
+  {
+   "site": "004bcd50",
+   "symbol": "?Remove@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "00499a90",
+   "function_entry": true
+  },
+  {
+   "site": "004bcd50",
+   "symbol": "?Submit@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "target": "00499a40",
+   "function_entry": true
+  },
+  {
+   "site": "006809f0",
+   "symbol": "?Unknown_00498F10@DisplayClass@@QAEXPBVCell@@@Z",
+   "target": "00498f10",
+   "function_entry": true
+  },
+  {
+   "site": "006809f0",
+   "symbol": "?Unknown_00498F10@DisplayClass@@QAEXPBVCell@@@Z",
+   "target": "00498f10",
+   "function_entry": true
+  },
+  {
+   "site": "006809f0",
+   "symbol": "?Unknown_0049CA20@DisplayClass@@QAEXH@Z",
+   "target": "0049ca20",
+   "function_entry": true
+  },
+  {
+   "site": "006809f0",
+   "symbol": "?Unknown_0049C7C0@DisplayClass@@QAEXH@Z",
+   "target": "0049c7c0",
+   "function_entry": true
+  },
+  {
+   "site": "006adae0",
+   "symbol": "?Unknown_0049CC20@DisplayClass@@QAEXXZ",
+   "target": "0049cc20",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Unknown_00498F10@DisplayClass@@QAEXPBVCell@@@Z",
+   "target": "00498f10",
+   "function_entry": true
+  },
+  {
+   "site": "0043d3a0",
+   "symbol": "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z",
+   "target": "0049a5b0",
+   "function_entry": true
+  },
+  {
+   "site": "0062fe30",
+   "symbol": "?Mouse_Left_Release@DisplayClass@@UAEXABUCoordStruct@@ABVCell@@PAVObjectClass@@H_N@Z",
+   "target": "0049bb20",
+   "function_entry": true
+  },
+  {
+   "site": "0067dc90",
+   "symbol": "?Unknown_0049C7C0@DisplayClass@@QAEXH@Z",
+   "target": "0049c7c0",
+   "function_entry": true
+  },
+  {
+   "site": "0067dc90",
+   "symbol": "?Unknown_0049CA20@DisplayClass@@QAEXH@Z",
+   "target": "0049ca20",
+   "function_entry": true
+  },
+  {
+   "site": "00444660",
+   "symbol": "?Unknown_00498F10@DisplayClass@@QAEXPBVCell@@@Z",
+   "target": "00498f10",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0ABuffer@@QAE@VRect@@@Z",
+   "address": "00410a60"
+  },
+  {
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "address": "004382c0"
+  },
+  {
+   "symbol": "??0EventClass@@QAE@HEABVCell@@@Z",
+   "address": "004b5f60"
+  },
+  {
+   "symbol": "??0EventClass@@QAE@HEHABVCell@@@Z",
+   "address": "004b6470"
+  },
+  {
+   "symbol": "??0EventClass@@QAE@HHHHHABVCell@@@Z",
+   "address": "004b63f0"
+  },
+  {
+   "symbol": "??0EventClass@@QAE@HHVTargetClass@@@Z",
+   "address": "004b5ef0"
+  },
+  {
+   "symbol": "??0GadgetClass@@QAE@HHHHI_N@Z",
+   "address": "004cefe0"
+  },
+  {
+   "symbol": "??0MapClass@@QAE@XZ",
+   "address": "00547960"
+  },
+  {
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "address": "006b54a0"
+  },
+  {
+   "symbol": "??0UnknownVector3@@QAE@HHH@Z",
+   "address": "0041b630"
+  },
+  {
+   "symbol": "??0ZBuffer@@QAE@VRect@@@Z",
+   "address": "00775b80"
+  },
+  {
+   "symbol": "??1ABuffer@@QAE@XZ",
+   "address": "00410bd0"
+  },
+  {
+   "symbol": "??1Buffer@@QAE@XZ",
+   "address": "00438410"
+  },
+  {
+   "symbol": "??1GadgetClass@@UAE@XZ",
+   "address": "004cf080"
+  },
+  {
+   "symbol": "??1MapClass@@UAE@XZ",
+   "address": "00547b90"
+  },
+  {
+   "symbol": "??1Pipe@@UAE@XZ",
+   "address": "0060ea60"
+  },
+  {
+   "symbol": "??1Straw@@UAE@XZ",
+   "address": "0069b010"
+  },
+  {
+   "symbol": "??1ZBuffer@@QAE@XZ",
+   "address": "00775cf0"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??AMapClass@@QAEAAVCellClass@@ABUCoordStruct@@@Z",
+   "address": "00548000"
+  },
+  {
+   "symbol": "??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z",
+   "address": "00548070"
+  },
+  {
+   "symbol": "??RRandom2Class@@QAEHHH@Z",
+   "address": "006388a0"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVObjectClass@@@@UAEPAXI@Z",
+   "address": "0047d090"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@VCell@@@@UAEPAXI@Z",
+   "address": "0042d3e0"
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVObjectClass@@@@UAEPAXI@Z",
+   "address": "0040ce20"
+  },
+  {
+   "symbol": "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z",
+   "address": "0040b230"
+  },
+  {
+   "symbol": "??_G?$VectorClass@VCell@@@@UAEPAXI@Z",
+   "address": "0042d390"
+  },
+  {
+   "symbol": "??_GBSurface@@UAEPAXI@Z",
+   "address": "004113d0"
+  },
+  {
+   "symbol": "??_GBufferStraw@@UAEPAXI@Z",
+   "address": "0049ed60"
+  },
+  {
+   "symbol": "??_GStraw@@UAEPAXI@Z",
+   "address": "0049ed40"
+  },
+  {
+   "symbol": "??_GSurface@@UAEPAXI@Z",
+   "address": "00411350"
+  },
+  {
+   "symbol": "??_GXSurface@@UAEPAXI@Z",
+   "address": "00411320"
+  },
+  {
+   "symbol": "?AI@DisplayClass@@UAEXAAHABUPoint2D@@@Z",
+   "address": "00499a20"
+  },
+  {
+   "symbol": "?Action@GadgetClass@@MAEHIAAI@Z",
+   "address": "004cf220"
+  },
+  {
+   "symbol": "?Add@LinkClass@@UAEAAV1@AAV1@@Z",
+   "address": "005390a0"
+  },
+  {
+   "symbol": "?Add@ToolTipManager@@QAE_NABVToolTip@@@Z",
+   "address": "006eb860"
+  },
+  {
+   "symbol": "?Add_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z",
+   "address": "004e0ac0"
+  },
+  {
+   "symbol": "?Add_Head@LinkClass@@UAEAAV1@AAV1@@Z",
+   "address": "005390c0"
+  },
+  {
+   "symbol": "?Add_Tail@LinkClass@@UAEAAV1@AAV1@@Z",
+   "address": "005390e0"
+  },
+  {
+   "symbol": "?AdjacentCell@@3QBVCell@@B",
+   "address": "00851a70"
+  },
+  {
+   "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
+   "address": "008315b4"
+  },
+  {
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "address": "0040dc20"
+  },
+  {
+   "symbol": "?Attach_Tag@CellClass@@QAEXPAVTagClass@@@Z",
+   "address": "0047a460"
+  },
+  {
+   "symbol": "?Blit_Display@GScreenClass@@UAEXXZ",
+   "address": "004e0c50"
+  },
+  {
+   "symbol": "?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ",
+   "address": "004717b0"
+  },
+  {
+   "symbol": "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z",
+   "address": "006a8d40"
+  },
+  {
+   "symbol": "?Clear@INIClass@@QAE_NPBD0@Z",
+   "address": "0050b9a0"
+  },
+  {
+   "symbol": "?Clear_Focus@GadgetClass@@UAEXXZ",
+   "address": "004cf610"
+  },
+  {
+   "symbol": "?Clear_Selected_Objects_00482bc0@@YAXXZ",
+   "address": "00482bc0"
+  },
+  {
+   "symbol": "?Clicked_On@GadgetClass@@EAEHAAIIHH@Z",
+   "address": "004cf0e0"
+  },
+  {
+   "symbol": "?Clip_To_Map@MapClass@@QAE?AVCell@@ABV2@@Z",
+   "address": "00568d60"
+  },
+  {
+   "symbol": "?Closest_Free_Spot@CellClass@@QBE?AUCoordStruct@@ABU2@_NH@Z",
+   "address": "004764b0"
+  },
+  {
+   "symbol": "?Compare_Narrow_00781f20@@YAHPBD0@Z",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "?Copy_From@XSurface@@UAE_NAAVSurface@@_N1@Z",
+   "address": "00774e60"
+  },
+  {
+   "symbol": "?Copy_From@XSurface@@UAE_NABVRect@@0AAVSurface@@00_N2@Z",
+   "address": "00775060"
+  },
+  {
+   "symbol": "?Copy_From@XSurface@@UAE_NABVRect@@AAVSurface@@0_N2@Z",
+   "address": "00774f00"
+  },
+  {
+   "symbol": "?Debug_Map@@3_NA",
+   "address": "00a40d13"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Delete_List@GadgetClass@@UAEXXZ",
+   "address": "004cf1b0"
+  },
+  {
+   "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
+   "address": "00839c6c"
+  },
+  {
+   "symbol": "?Detach@MapClass@@UAEXPAVAbstractClass@@_N@Z",
+   "address": "00559d80"
+  },
+  {
+   "symbol": "?Disable@GadgetClass@@UAEXXZ",
+   "address": "004cf150"
+  },
+  {
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "address": "00532890"
+  },
+  {
+   "symbol": "?Draw_All@GadgetClass@@UAEX_N@Z",
+   "address": "004cf260"
+  },
+  {
+   "symbol": "?Draw_Dashed_Line@XSurface@@UAEHABUPoint2D@@0HPB_NH@Z",
+   "address": "00773c30"
+  },
+  {
+   "symbol": "?Draw_Dashed_Line_Depth_Masked@XSurface@@UAEHABUPoint2D@@0HPB_NH_N@Z",
+   "address": "00773ea0"
+  },
+  {
+   "symbol": "?Draw_Depth_Antialiased_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@HH_N333M@Z",
+   "address": "00773ee0"
+  },
+  {
+   "symbol": "?Draw_Depth_Glow_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1HHH_N@Z",
+   "address": "00773ed0"
+  },
+  {
+   "symbol": "?Draw_Depth_Shaded_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1IHH_N@Z",
+   "address": "00773ec0"
+  },
+  {
+   "symbol": "?Draw_Ellipse@XSurface@@UAE_NUPoint2D@@HHVRect@@H@Z",
+   "address": null
+  },
+  {
+   "symbol": "?Draw_Line@XSurface@@UAE_NABUPoint2D@@0H@Z",
+   "address": "00773950"
+  },
+  {
+   "symbol": "?Draw_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1H@Z",
+   "address": "00773980"
+  },
+  {
+   "symbol": "?Draw_Line_Depth_Masked@XSurface@@UAE_NABUPoint2D@@0H_N@Z",
+   "address": "00773eb0"
+  },
+  {
+   "symbol": "?Draw_Me@GadgetClass@@UAEHH@Z",
+   "address": "004cf240"
+  },
+  {
+   "symbol": "?Draw_Rect@XSurface@@UAE_NABVRect@@0H@Z",
+   "address": "00774130"
+  },
+  {
+   "symbol": "?Draw_Rect@XSurface@@UAE_NABVRect@@H@Z",
+   "address": "00774100"
+  },
+  {
+   "symbol": "?Enable@GadgetClass@@UAEXXZ",
+   "address": "004cf140"
+  },
+  {
+   "symbol": "?Entry_Count@INIClass@@QBEHPBD@Z",
+   "address": "0050cb00"
+  },
+  {
+   "symbol": "?Extract_Gadget@GadgetClass@@UAEPAVControlClass@@I@Z",
+   "address": "004cf560"
+  },
+  {
+   "symbol": "?Fast_Sqrt@@YAMN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?Fetch_Waypoint_Data@HouseClass@@QAE_NPAVWaypointClass@@PAHPAD@Z",
+   "address": "004ed2b0"
+  },
+  {
+   "symbol": "?Fill@XSurface@@UAE_NH@Z",
+   "address": "00774e20"
+  },
+  {
+   "symbol": "?Fill_Rect@XSurface@@UAE_NABVRect@@0H@Z",
+   "address": "007743c0"
+  },
+  {
+   "symbol": "?Fill_Rect@XSurface@@UAE_NABVRect@@H@Z",
+   "address": "00774390"
+  },
+  {
+   "symbol": "?Fill_Rect_Trans@XSurface@@UAE_NABVRect@@ABVRGBClass@@I@Z",
+   "address": "007746b0"
+  },
+  {
+   "symbol": "?Find_Or_Make@TagClass@@SIPAV1@PAVTagTypeClass@@@Z",
+   "address": "006b3d30"
+  },
+  {
+   "symbol": "?Find_Or_Make@TagTypeClass@@SIPAV1@PBD@Z",
+   "address": "006b4d20"
+  },
+  {
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "address": "006aadd0"
+  },
+  {
+   "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXH@Z",
+   "address": "004e09a0"
+  },
+  {
+   "symbol": "?Flag_To_Redraw@GadgetClass@@UAEXXZ",
+   "address": "004cf5a0"
+  },
+  {
+   "symbol": "?Flush@Pipe@@UAEHXZ",
+   "address": "0060eb10"
+  },
+  {
+   "symbol": "?Fog_Cell@CellClass@@QAEXXZ",
+   "address": "0047bc80"
+  },
+  {
+   "symbol": "?Foundation_Height@BuildingTypeClass@@QBEH_N@Z",
+   "address": "00458940"
+  },
+  {
+   "symbol": "?From_Action@SuperWeaponTypeClass@@SIPAV1@H@Z",
+   "address": "0069f7e0"
+  },
+  {
+   "symbol": "?Get@BufferStraw@@UAEHPAXH@Z",
+   "address": "00773840"
+  },
+  {
+   "symbol": "?Get@Straw@@UAEHPAXH@Z",
+   "address": "0069b0a0"
+  },
+  {
+   "symbol": "?Get_Entry@INIClass@@QBEPBDPBDH@Z",
+   "address": "0050ce00"
+  },
+  {
+   "symbol": "?Get_From@Straw@@UAEXPAV1@@Z",
+   "address": "0069b050"
+  },
+  {
+   "symbol": "?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z",
+   "address": "0055a280"
+  },
+  {
+   "symbol": "?Get_Input@GScreenClass@@UAEXAAH00@Z",
+   "address": "004e09d0"
+  },
+  {
+   "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+   "address": "0050d7f0"
+  },
+  {
+   "symbol": "?Get_Next@GadgetClass@@UBEPAVLinkClass@@XZ",
+   "address": "004cf190"
+  },
+  {
+   "symbol": "?Get_Pixel@XSurface@@UAEHABUPoint2D@@@Z",
+   "address": "007741d0"
+  },
+  {
+   "symbol": "?Get_Pixel@XSurface@@UAEHABUPoint2D@@ABVRect@@@Z",
+   "address": "00774280"
+  },
+  {
+   "symbol": "?Get_Prev@GadgetClass@@UBEPAVLinkClass@@XZ",
+   "address": "004cf1a0"
+  },
+  {
+   "symbol": "?Get_Rect@INIClass@@QBE?AUINIRect@@PBD0ABU2@@Z",
+   "address": "0050dd50"
+  },
+  {
+   "symbol": "?Get_String@INIClass@@QBEHPBD00PADH@Z",
+   "address": "0050e9a0"
+  },
+  {
+   "symbol": "?Get_TheaterType@CCINIClass@@QBE?AW4TheaterType@@PBD0W42@@Z",
+   "address": "0046acb0"
+  },
+  {
+   "symbol": "?Get_Title_Screen_Area_006f1f30@@YI?AVRect@@XZ",
+   "address": "006f1f30"
+  },
+  {
+   "symbol": "?Get_UUBlock@INIClass@@QBEHPBDPAXH@Z",
+   "address": "0050d0f0"
+  },
+  {
+   "symbol": "?Get_Waypoint_Location@ScenarioClass@@QBE?AVCell@@H@Z",
+   "address": "00663180"
+  },
+  {
+   "symbol": "?Has_Focus@GadgetClass@@UAE_NXZ",
+   "address": "004cf630"
+  },
+  {
+   "symbol": "?Head_Of_List@LinkClass@@UAEAAV1@XZ",
+   "address": "00539040"
+  },
+  {
+   "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+   "address": "00a32298"
+  },
+  {
+   "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
+   "address": "0054aab0"
+  },
+  {
+   "symbol": "?Init@AnimTypeClass@@SIXH@Z",
+   "address": "00425230"
+  },
+  {
+   "symbol": "?Init@BuildingTypeClass@@SIXH@Z",
+   "address": "00458600"
+  },
+  {
+   "symbol": "?Init@GScreenClass@@UAEXH@Z",
+   "address": "004e0960"
+  },
+  {
+   "symbol": "?Init@OverlayTypeClass@@SIXH@Z",
+   "address": "005dc960"
+  },
+  {
+   "symbol": "?Init@SmudgeTypeClass@@SIXH@Z",
+   "address": "00687fb0"
+  },
+  {
+   "symbol": "?Init@TerrainTypeClass@@SIXH@Z",
+   "address": "006e5460"
+  },
+  {
+   "symbol": "?Init@VeinholeMonsterClass@@SIXH@Z",
+   "address": "00710840"
+  },
+  {
+   "symbol": "?Init_Clear@MapClass@@UAEXXZ",
+   "address": "005482c0"
+  },
+  {
+   "symbol": "?Init_Drawer@CellClass@@QAEXPAVLightConvertClass@@HHHHH@Z",
+   "address": "004790f0"
+  },
+  {
+   "symbol": "?Init_IO@GScreenClass@@UAEXXZ",
+   "address": "004e0990"
+  },
+  {
+   "symbol": "?Input@GadgetClass@@UAEHXZ",
+   "address": "004cf330"
+  },
+  {
+   "symbol": "?Is_Ally@HouseClass@@QBE_NPBV1@@Z",
+   "address": "004e5540"
+  },
+  {
+   "symbol": "?Is_Button_Listed@GScreenClass@@UAE_NAAVGadgetClass@@@Z",
+   "address": "004e0aa0"
+  },
+  {
+   "symbol": "?Is_List_To_Redraw@GadgetClass@@UAEHXZ",
+   "address": "004cf640"
+  },
+  {
+   "symbol": "?Is_Player_Control@HouseClass@@QAE_NXZ",
+   "address": "004f52b0"
+  },
+  {
+   "symbol": "?Is_Sensed@CellClass@@QBE_NH@Z",
+   "address": "0047c2e0"
+  },
+  {
+   "symbol": "?Is_Shrouded@MapClass@@QAE_NABUCoordStruct@@@Z",
+   "address": "00568140"
+  },
+  {
+   "symbol": "?Is_Spot_Free@CellClass@@QBE_NH_N@Z",
+   "address": "00476460"
+  },
+  {
+   "symbol": "?Is_Visible@MapClass@@UAGJVCell@@@Z",
+   "address": "00547fa0"
+  },
+  {
+   "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
+   "address": "0055a490"
+  },
+  {
+   "symbol": "?LastList@GadgetClass@@1PAV1@A",
+   "address": "00865ff4"
+  },
+  {
+   "symbol": "?Length@UnknownVector3@@QBEHXZ",
+   "address": "0041b780"
+  },
+  {
+   "symbol": "?Load@LayerClass@@QAEJPAUIStream@@@Z",
+   "address": "00534a80"
+  },
+  {
+   "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
+   "address": "006f9ec0"
+  },
+  {
+   "symbol": "?Loading_Progress_00672160@SessionClass@@QAEXH@Z",
+   "address": "00672160"
+  },
+  {
+   "symbol": "?Map@@3VMouseClass@@A",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "?Modify_Rubber_Band@Tactical@@QAEXABUPoint2D@@@Z",
+   "address": "006aa5e0"
+  },
+  {
+   "symbol": "?Mouse_Enter@GadgetClass@@UAEXXZ",
+   "address": "004cf200"
+  },
+  {
+   "symbol": "?Mouse_Leave@GadgetClass@@UAEXXZ",
+   "address": "004cf210"
+  },
+  {
+   "symbol": "?Mouse_Right_Press@DisplayClass@@UAEXABUPoint2D@@@Z",
+   "address": "0049af80"
+  },
+  {
+   "symbol": "?One_Time@MapClass@@UAEXXZ",
+   "address": "005480d0"
+  },
+  {
+   "symbol": "?OutList@@3V?$QueueClass@VEventClass@@$0IA@@@A",
+   "address": "00a32338"
+  },
+  {
+   "symbol": "?Override_Mouse_Shape@MouseClass@@UAE_NH_N@Z",
+   "address": "0059f250"
+  },
+  {
+   "symbol": "?Pixel_To_Coord@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
+   "address": "006a2b10"
+  },
+  {
+   "symbol": "?Planning_Can_Add@@YI_NXZ",
+   "address": "00615ed0"
+  },
+  {
+   "symbol": "?Plot_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1P6IX1@Z@Z",
+   "address": null
+  },
+  {
+   "symbol": "?Put@BufferPipe@@UAEHPBXH@Z",
+   "address": "00773730"
+  },
+  {
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "address": "0060eaf0"
+  },
+  {
+   "symbol": "?Put_Pixel@XSurface@@UAE_NABUPoint2D@@H@Z",
+   "address": "00774220"
+  },
+  {
+   "symbol": "?Put_Pixel@XSurface@@UAE_NABUPoint2D@@HABVRect@@@Z",
+   "address": "00774300"
+  },
+  {
+   "symbol": "?Put_Rect@INIClass@@QAE_NPBD0ABUINIRect@@@Z",
+   "address": "0050dca0"
+  },
+  {
+   "symbol": "?Put_String@INIClass@@QAE_NPBD00@Z",
+   "address": "0050e5f0"
+  },
+  {
+   "symbol": "?Put_TheaterType@CCINIClass@@QAE_NPBD0W4TheaterType@@@Z",
+   "address": "0046ad00"
+  },
+  {
+   "symbol": "?Put_To@Pipe@@UAEXPAV1@@Z",
+   "address": "0060eaa0"
+  },
+  {
+   "symbol": "?Put_UUBlock@INIClass@@QAE_NPBDPBXH@Z",
+   "address": "0050cfc0"
+  },
+  {
+   "symbol": "?QueryInterface@GScreenClass@@UAGJABUGUID@@PAPAX@Z",
+   "address": "004e08f0"
+  },
+  {
+   "symbol": "?Read_Waypoints@ScenarioClass@@QAEXAAVCCINIClass@@@Z",
+   "address": "00663280"
+  },
+  {
+   "symbol": "?Recalc_Light@CellClass@@QAEXXZ",
+   "address": "004798f0"
+  },
+  {
+   "symbol": "?Remove@GadgetClass@@UAEPAVLinkClass@@XZ",
+   "address": "004cf170"
+  },
+  {
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "address": "006eba10"
+  },
+  {
+   "symbol": "?Remove_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z",
+   "address": "004e0b00"
+  },
+  {
+   "symbol": "?Render@GScreenClass@@UAEXXZ",
+   "address": "004e0b30"
+  },
+  {
+   "symbol": "?Reposition_Sidebar@SidebarClass@@UAEXXZ",
+   "address": "006819a0"
+  },
+  {
+   "symbol": "?Reset_Iterator@MapClass@@QAEXXZ",
+   "address": "0055a550"
+  },
+  {
+   "symbol": "?Reset_Light_Converts_00529720@@YAXXZ",
+   "address": "00529720"
+  },
+  {
+   "symbol": "?Resolve_Point@ScrollClass@@QAE_NABUPoint2D@@AAVCell@@AAUCoordStruct@@AAPAVObjectClass@@AA_N4@Z",
+   "address": "00669650"
+  },
+  {
+   "symbol": "?Retrieve@MixFileClass@@SIPBXPBD@Z",
+   "address": "005956c0"
+  },
+  {
+   "symbol": "?Rules@@3PAVRulesClass@@A",
+   "address": "00839848"
+  },
+  {
+   "symbol": "?Save@LayerClass@@QAEJPAUIStream@@@Z",
+   "address": "00534a10"
+  },
+  {
+   "symbol": "?Scroll_Dir_006aa840@Tactical@@QAEHH@Z",
+   "address": "006aa840"
+  },
+  {
+   "symbol": "?Scroll_Map_006a8b70@Tactical@@QAEXHH@Z",
+   "address": "006a8b70"
+  },
+  {
+   "symbol": "?Set_Cell@TagClass@@QAEXVCell@@@Z",
+   "address": "006b3f90"
+  },
+  {
+   "symbol": "?Set_Focus@GadgetClass@@UAEXXZ",
+   "address": "004cf5e0"
+  },
+  {
+   "symbol": "?Set_Local_Dimensions@MapClass@@UAEXABVRect@@@Z",
+   "address": "00549ae0"
+  },
+  {
+   "symbol": "?Set_Map_Dimensions@MapClass@@UAEXPBVRect@@_NH1@Z",
+   "address": "005484e0"
+  },
+  {
+   "symbol": "?Set_Position@GadgetClass@@UAEXHH@Z",
+   "address": "004cf660"
+  },
+  {
+   "symbol": "?Set_Size@GadgetClass@@UAEXHH@Z",
+   "address": "004cf680"
+  },
+  {
+   "symbol": "?Set_Tactical_Position_006a66b0@Tactical@@QAEXABUCoordStruct@@@Z",
+   "address": "006a66b0"
+  },
+  {
+   "symbol": "?Set_View_Dimensions_006a65a0@Tactical@@QAEXABVRect@@@Z",
+   "address": "006a65a0"
+  },
+  {
+   "symbol": "?Set_Waypoint_Location@ScenarioClass@@QAEXHVCell@@@Z",
+   "address": "00663400"
+  },
+  {
+   "symbol": "?ShadowShapes@DisplayClass@@2PBXB",
+   "address": "00852934"
+  },
+  {
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "address": "00715b40"
+  },
+  {
+   "symbol": "?Start_Rubber_Band@Tactical@@QAEXABUPoint2D@@@Z",
+   "address": "006aa5a0"
+  },
+  {
+   "symbol": "?Sticky_Process@GadgetClass@@MAEXI@Z",
+   "address": "004cf5b0"
+  },
+  {
+   "symbol": "?Submit@LayerClass@@UAE_NPAVObjectClass@@_N@Z",
+   "address": "005348a0"
+  },
+  {
+   "symbol": "?Tail_Of_List@LinkClass@@UAEAAV1@XZ",
+   "address": "00539070"
+  },
+  {
+   "symbol": "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A",
+   "address": "00a40c20"
+  },
+  {
+   "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+   "address": "008399b0"
+  },
+  {
+   "symbol": "?TransIconset@DisplayClass@@2PBXB",
+   "address": "00852614"
+  },
+  {
+   "symbol": "?Unknown_0042E370@BeaconManagerClass@@QAEXHUCoordStruct@@H@Z",
+   "address": "0042e370"
+  },
+  {
+   "symbol": "?Unknown_0042E700@BeaconManagerClass@@QAE_NH@Z",
+   "address": "0042e700"
+  },
+  {
+   "symbol": "?Unknown_0042E740@BeaconManagerClass@@QAE_NUCoordStruct@@@Z",
+   "address": "0042e740"
+  },
+  {
+   "symbol": "?Unknown_00471660@CellClass@@QBEPAVObjectClass@@ABUPoint2D@@_NPAV2@@Z",
+   "address": "00471660"
+  },
+  {
+   "symbol": "?Unknown_004763D0@@YIHABUCoordStruct@@@Z",
+   "address": "004763d0"
+  },
+  {
+   "symbol": "?Unknown_00478760@CellClass@@QAE_NH_N0HHH0@Z",
+   "address": "00478760"
+  },
+  {
+   "symbol": "?Unknown_00482BC0@@YAXXZ",
+   "address": "00482bc0"
+  },
+  {
+   "symbol": "?Unknown_004994D0@DisplayClass@@QAE?AVCell@@ABV2@@Z",
+   "address": "004994d0"
+  },
+  {
+   "symbol": "?Unknown_004F30D0@HouseClass@@QAEHXZ",
+   "address": "004f30d0"
+  },
+  {
+   "symbol": "?Unknown_00529870@@YIXH_N@Z",
+   "address": "00529870"
+  },
+  {
+   "symbol": "?Unknown_0052B2E0@@YIX_N0@Z",
+   "address": "0052b2e0"
+  },
+  {
+   "symbol": "?Unknown_0052B650@@YAXXZ",
+   "address": "0052b650"
+  },
+  {
+   "symbol": "?Unknown_00547D70@MapClass@@QAE?AUPoint2D@@ABU2@@Z",
+   "address": "00547d70"
+  },
+  {
+   "symbol": "?Unknown_00547DF0@MapClass@@QAE?AUPoint2D@@ABU2@@Z",
+   "address": "00547df0"
+  },
+  {
+   "symbol": "?Unknown_0054A550@MapClass@@QAEXABUCoordStruct@@HHH@Z",
+   "address": "0054a550"
+  },
+  {
+   "symbol": "?Unknown_0054DB10@MapClass@@QAEHAAVPipe@@@Z",
+   "address": "0054db10"
+  },
+  {
+   "symbol": "?Unknown_0054DCC0@MapClass@@QAE_NAAVStraw@@@Z",
+   "address": "0054dcc0"
+  },
+  {
+   "symbol": "?Unknown_0054DEA0@MapClass@@QAE_NAAVStraw@@@Z",
+   "address": "0054dea0"
+  },
+  {
+   "symbol": "?Unknown_0054DFC0@MapClass@@QAE_NAAVStraw@@@Z",
+   "address": "0054dfc0"
+  },
+  {
+   "symbol": "?Unknown_0054E0C0@MapClass@@QAE_NAAVStraw@@@Z",
+   "address": "0054e0c0"
+  },
+  {
+   "symbol": "?Unknown_0054E1E0@MapClass@@QAE_NAAVStraw@@@Z",
+   "address": "0054e1e0"
+  },
+  {
+   "symbol": "?Unknown_0055A660@MapClass@@QAE_NABVCell@@_N@Z",
+   "address": "0055a660"
+  },
+  {
+   "symbol": "?Unknown_00568520@MapClass@@QAEXPAVCellClass@@PAVHouseClass@@_N@Z",
+   "address": "00568520"
+  },
+  {
+   "symbol": "?Unknown_0056A8A0@MapClass@@QAEHXZ",
+   "address": "0056a8a0"
+  },
+  {
+   "symbol": "?Unknown_005B4C60@UnknownObjectA3DC70@@QAEXHHHHHHHHHHH@Z",
+   "address": "005b4c60"
+  },
+  {
+   "symbol": "?Unknown_005B5C60@UnknownObjectA3DC70@@QAEXH@Z",
+   "address": "005b5c60"
+  },
+  {
+   "symbol": "?Unknown_00630840@RadarClass@@QAEXABVRect@@@Z",
+   "address": "00630840"
+  },
+  {
+   "symbol": "?Unknown_00663240@ScenarioClass@@QBE_NH@Z",
+   "address": "00663240"
+  },
+  {
+   "symbol": "?Unknown_006AA610@Tactical@@QAEXP6IXPAVObjectClass@@@Z@Z",
+   "address": "006aa610"
+  },
+  {
+   "symbol": "?Unknown_006AA6A0@Tactical@@QAEHXZ",
+   "address": "006aa6a0"
+  },
+  {
+   "symbol": "?Unknown_006AA770@Tactical@@QAEXXZ",
+   "address": "006aa770"
+  },
+  {
+   "symbol": "?Unknown_006F7020@@YIXPBD@Z",
+   "address": "006f7020"
+  },
+  {
+   "symbol": "?Unknown_006F71E0@@YIXPBD@Z",
+   "address": "006f71e0"
+  },
+  {
+   "symbol": "?Unknown_006F76B0@@YA_NXZ",
+   "address": "006f76b0"
+  },
+  {
+   "symbol": "?Unknown_006F8A20@@YIXPAVBuildingClass@@@Z",
+   "address": "006f8a20"
+  },
+  {
+   "symbol": "?Unknown_Click_End_006F6770@@YAXXZ",
+   "address": "006f6770"
+  },
+  {
+   "symbol": "?Unknown_Planning_00615DE0@@YI_NXZ",
+   "address": "00615de0"
+  },
+  {
+   "symbol": "?Unknown_Slot16@XSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@MHH@Z",
+   "address": "00773ef0"
+  },
+  {
+   "symbol": "?UnusedWindow@@3PAUHWND__@@A",
+   "address": "00b263dc"
+  },
+  {
+   "symbol": "?WWKeyboard@@3PAVWWKeyboardClass@@A",
+   "address": "00832468"
+  },
+  {
+   "symbol": "?WWMouse@@3PAVMouse@@A",
+   "address": "00839c68"
+  },
+  {
+   "symbol": "?Waypoint_At@HouseClass@@QAEPAVWaypointClass@@ABVCell@@@Z",
+   "address": "004ed200"
+  },
+  {
+   "symbol": "?Width@BuildingTypeClass@@QBEHXZ",
+   "address": "00458930"
+  },
+  {
+   "symbol": "?Write_Waypoints@ScenarioClass@@QAEXAAVCCINIClass@@@Z",
+   "address": "00663350"
+  },
+  {
+   "symbol": "?Zap@LinkClass@@UAEXXZ",
+   "address": "00538ff0"
+  },
+  {
+   "symbol": "?Zone@MapClass@@QAEHABVCell@@H_N@Z",
+   "address": "0054f8f0"
+  },
+  {
+   "symbol": "?target@Call_49a5b0_0@@QAEIIII@Z",
+   "address": "00548070"
+  },
+  {
+   "symbol": "?target@Call_49a5b0_1@@QAEIXZ",
+   "address": "00471830"
+  },
+  {
+   "symbol": "?target@Target_499a20@@QAEIII@Z",
+   "address": "004e10c0"
+  },
+  {
+   "symbol": "?unknown_44d900@BuildingClass@@QAE_NPBVBuildingTypeClass@@PAVHouseClass@@@Z",
+   "address": "0044d900"
+  },
+  {
+   "symbol": "?unknown_47a200@CellClass@@QBEPBGXZ",
+   "address": "0047a200"
+  },
+  {
+   "symbol": "?unknown_47be00@CellClass@@QAEXXZ",
+   "address": "0047be00"
+  },
+  {
+   "symbol": "?unknown_47c840@CellClass@@QAEXXZ",
+   "address": "0047c840"
+  },
+  {
+   "symbol": "?unknown_47c8a0@CellClass@@QAEXXZ",
+   "address": "0047c8a0"
+  },
+  {
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "address": "00481fb0"
+  },
+  {
+   "symbol": "?unknown_6d7990@TechnoClass@@SAXXZ",
+   "address": "006d7990"
+  },
+  {
+   "symbol": "?unknown_852630@DisplayClass@@2HA",
+   "address": "00852630"
+  },
+  {
+   "symbol": "?unknown_b263d8@@3HA",
+   "address": "00b263d8"
+  },
+  {
+   "symbol": "?unknown_drawer_8323c8@@3PAVConvertClass@@A",
+   "address": "008323c8"
+  },
+  {
+   "symbol": "?unknown_flag_83740c@@3_NA",
+   "address": "0083740c"
+  },
+  {
+   "symbol": "?unknown_flag_a40958@@3_NA",
+   "address": "00a40958"
+  },
+  {
+   "symbol": "?unknown_flag_a40d04@@3_NA",
+   "address": "00a40d04"
+  },
+  {
+   "symbol": "?unknown_flag_a40d05@@3_NA",
+   "address": "00a40d05"
+  },
+  {
+   "symbol": "?unknown_flag_a40d45@@3_NA",
+   "address": "00a40d45"
+  },
+  {
+   "symbol": "?unknown_height_step_852948@@3HA",
+   "address": "00852948"
+  },
+  {
+   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
+   "symbol": "?unknown_ini_format_a40d24@@3HA",
+   "address": "00a40d24"
+  },
+  {
+   "symbol": "?unknown_int_a3d548@@3HA",
+   "address": "00a3d548"
+  },
+  {
+   "symbol": "?unknown_int_a6fa2c@@3HA",
+   "address": "00a6fa2c"
+  },
+  {
+   "symbol": "?unknown_layers_7d5cdc@@3PAHA",
+   "address": "007d5cdc"
+  },
+  {
+   "symbol": "?unknown_layers_7d5ce8@@3PAHA",
+   "address": "007d5ce8"
+  },
+  {
+   "symbol": "?unknown_loaded_theater_7d88dc@@3HA",
+   "address": "007d88dc"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_object_84e8d0@@3VBeaconManagerClass@@A",
+   "address": "0084e8d0"
+  },
+  {
+   "symbol": "?unknown_object_a3dc70@@3VUnknownObjectA3DC70@@A",
+   "address": "00a3dc70"
+  },
+  {
+   "symbol": "?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A",
+   "address": "00a40c60"
+  },
+  {
+   "symbol": "?unknown_palette_837810@@3VPaletteClass@@A",
+   "address": "00837810"
+  },
+  {
+   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
+   "address": "00a35db4"
+  },
+  {
+   "symbol": "?unknown_rect_839630@@3VRect@@A",
+   "address": "00839630"
+  },
+  {
+   "symbol": "?unknown_session_a3d298@@3USessionClass@@A",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_shift_852fb8@@3HA",
+   "address": "00852fb8"
+  },
+  {
+   "symbol": "?unknown_shift_852fbc@@3HA",
+   "address": "00852fbc"
+  },
+  {
+   "symbol": "?unknown_shift_852fc0@@3HA",
+   "address": "00852fc0"
+  },
+  {
+   "symbol": "?unknown_shift_852fc4@@3HA",
+   "address": "00852fc4"
+  },
+  {
+   "symbol": "?unknown_shift_852fc8@@3HA",
+   "address": "00852fc8"
+  },
+  {
+   "symbol": "?unknown_shift_852fcc@@3HA",
+   "address": "00852fcc"
+  },
+  {
+   "symbol": "?unknown_show_cursor_position_a416bc@@3_NA",
+   "address": "00a416bc"
+  },
+  {
+   "symbol": "?unknown_slot22@MapClass@@UAEXXZ",
+   "address": "00548370"
+  },
+  {
+   "symbol": "?unknown_slot23@MapClass@@UAEXXZ",
+   "address": "005483d0"
+  },
+  {
+   "symbol": "?unknown_slot24@MapClass@@UAEXXZ",
+   "address": "00548490"
+  },
+  {
+   "symbol": "?unknown_slot27@MapClass@@UAEXXZ",
+   "address": "0054e300"
+  },
+  {
+   "symbol": "?unknown_slot32@DisplayClass@@UAEXXZ",
+   "address": "0049cfd0"
+  },
+  {
+   "symbol": "?unknown_slot43@DisplayClass@@UAEXXZ",
+   "address": "0040d120"
+  },
+  {
+   "symbol": "?unknown_slot46@DisplayClass@@UAEXABVCell@@_NPAVObjectClass@@H1@Z",
+   "address": "0049b0f0"
+  },
+  {
+   "symbol": "?unknown_slot8@LayerClass@@UAEXXZ",
+   "address": "0040caf0"
+  },
+  {
+   "symbol": "?unknown_slot9@LayerClass@@UAEXXZ",
+   "address": "0040cb00"
+  },
+  {
+   "symbol": "?unknown_sound_enabled_7d88d6@@3_NA",
+   "address": "007d88d6"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_surface_839958@@3PAVSurface@@A",
+   "address": "00839958"
+  },
+  {
+   "symbol": "?unknown_tactical_83996c@@3PAVTactical@@A",
+   "address": "0083996c"
+  },
+  {
+   "symbol": "?unknown_tileset_a52580@@3HA",
+   "address": "00a52580"
+  },
+  {
+   "symbol": "?unknown_tileset_a52f00@@3HA",
+   "address": "00a52f00"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "___RTDynamicCast",
+   "address": "00783ce4"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__CloseWindow@4",
+   "address": "0079a45c"
+  },
+  {
+   "symbol": "__imp__timeGetTime@0",
+   "address": "0079a524"
+  },
+  {
+   "symbol": "__imp__wsprintfA",
+   "address": "0079a4a4"
+  },
+  {
+   "symbol": "__purecall",
+   "address": "004b8960"
+  },
+  {
+   "symbol": "_atexit",
+   "address": "0078298a"
+  },
+  {
+   "symbol": "_atoi",
+   "address": "00782dfd"
+  },
+  {
+   "symbol": "_swprintf",
+   "address": "00783764"
+  }
+ ],
+ "route": "A",
+ "unit": "display.cpp",
+ "form": "one include block",
+ "switches": [
+  "RA2_POINT_LENGTH",
+  "RA2_CELL_AS_COORD",
+  "RA2_DISPLAY_START_POS",
+  "RA2_DISPLAY_READ_INI",
+  "VECTOR_IMPLEMENT_VECTOR_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS"
+ ],
+ "include_blocks": [
+  {
+   "before": "00498760",
+   "lines": 59
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "00499a20",
+   "bytes": 18,
+   "population": "population-18",
+   "bound": "own frozen bound (population-18)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0049a5b0",
+   "bytes": 27,
+   "population": "population-02",
+   "bound": "own frozen bound (population-02)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0049af80",
+   "bytes": 3,
+   "population": "population-4352",
+   "bound": "own frozen bound (population-4352)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0049ec40",
+   "bytes": 23,
+   "population": "population-42",
+   "bound": "own frozen bound (population-42)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0049ec60",
+   "bytes": 24,
+   "population": "population-42",
+   "bound": "own frozen bound (population-42)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0049ed00",
+   "bytes": 3,
+   "population": "population-09",
+   "bound": "own frozen bound (population-09)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "0049e7f0",
+   "bytes": 29,
+   "population": "population-3817",
+   "source": "src/recovered/display/Windows_Message_Proc.cpp",
+   "cause": "frozen in another population's inventory pass (population-3817)"
+  },
+  {
+   "kind": "split",
+   "entry": "0049ed40",
+   "bytes": 30,
+   "population": "population-68",
+   "source": "src/recovered/classes/Straw/Scalar_Deleting_Destructor.cpp",
+   "cause": "frozen in another population's inventory pass (population-68)"
+  },
+  {
+   "kind": "split",
+   "entry": "0049ed60",
+   "bytes": 40,
+   "population": "population-3950",
+   "source": "src/recovered/classes/BufferStraw/Scalar_Deleting_Destructor.cpp",
+   "cause": "frozen in another population's inventory pass (population-3950)"
+  },
+  {
+   "kind": "split",
+   "entry": "0049ed90",
+   "bytes": 25,
+   "population": "population-4436",
+   "source": "src/recovered/classes/Surface/Constructor.cpp",
+   "cause": "frozen in another population's inventory pass (population-4436)"
+  }
+ ],
+ "unit_functions": 102,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  },
+  {
+   "symbol": "??_7BSurface@@6B@",
+   "reason": "relocation target unbound: ?Draw_Ellipse@XSurface@@UAE_NUPoint2D@@HHVRect@@H@Z"
+  },
+  {
+   "symbol": "??_7XSurface@@6B@",
+   "reason": "relocation target unbound: ?Draw_Ellipse@XSurface@@UAE_NUPoint2D@@HHVRect@@H@Z"
+  },
+  {
+   "symbol": "??_7BufferPipe@@6B@",
+   "reason": "relocation target unbound: ?End@Pipe@@UAEHXZ"
+  },
+  {
+   "symbol": "??_7Pipe@@6B@",
+   "reason": "relocation target unbound: ?End@Pipe@@UAEHXZ"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "006f64b0",
+   "target": "0049cac0",
+   "symbol": "?FUN_0049cac0@Callee_0049cac0@seed_006f64b0@@QAEXH@Z",
+   "module_symbol": "?Unknown_0049CAC0@DisplayClass@@QAEXH@Z"
+  },
+  {
+   "site": "005d2df0",
+   "target": "0049ec40",
+   "symbol": "?Unknown_0049EC40@DisplayClass@@QAEPAVObjectClass@@XZ",
+   "module_symbol": "?FUN_0049ec40@seed_0049ec40@@YIHH@Z"
+  },
+  {
+   "site": "0066abe0",
+   "target": "0049af80",
+   "symbol": "?Mouse_Right_Press@DisplayClass@@UAEXABUPoint2D@@@Z",
+   "module_symbol": "?get@Leaf_49af80@@QAEXI@Z"
+  },
+  {
+   "site": "005d3c10",
+   "target": "0049ec40",
+   "symbol": "?Unknown_0049EC40@DisplayClass@@QAEPAVObjectClass@@XZ",
+   "module_symbol": "?FUN_0049ec40@seed_0049ec40@@YIHH@Z"
+  },
+  {
+   "site": "0062fcc0",
+   "target": "00499a20",
+   "symbol": "?AI@DisplayClass@@UAEXAAHABUPoint2D@@@Z",
+   "module_symbol": "?get@Leaf_499a20@@QAEIII@Z"
+  },
+  {
+   "site": "0051d4c0",
+   "target": "0049ec40",
+   "symbol": "?Unknown_0049EC40@DisplayClass@@QAEPAVObjectClass@@XZ",
+   "module_symbol": "?FUN_0049ec40@seed_0049ec40@@YIHH@Z"
+  },
+  {
+   "site": "0066a400",
+   "target": "0049af80",
+   "symbol": "?Mouse_Right_Press@DisplayClass@@UAEXABUPoint2D@@@Z",
+   "module_symbol": "?get@Leaf_49af80@@QAEXI@Z"
+  },
+  {
+   "site": "00549c50",
+   "target": "0049a0f0",
+   "symbol": "?unknown_slot38@DisplayClass@@QAE_NABVCell@@PAVHouseClass@@@Z",
+   "module_symbol": "?unknown_slot38@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z"
+  },
+  {
+   "site": "0053fbd0",
+   "target": "00499b60",
+   "symbol": "?Scroll_Map@DisplayClass@@QAE_NHPAH_N@Z",
+   "module_symbol": "?Scroll_Map@DisplayClass@@UAE_NHPAH_N@Z"
+  },
+  {
+   "site": "0053fbd0",
+   "target": "00499b60",
+   "symbol": "?Scroll_Map@DisplayClass@@QAE_NHPAH_N@Z",
+   "module_symbol": "?Scroll_Map@DisplayClass@@UAE_NHPAH_N@Z"
+  },
+  {
+   "site": "0053fbd0",
+   "target": "00499b60",
+   "symbol": "?Scroll_Map@DisplayClass@@QAE_NHPAH_N@Z",
+   "module_symbol": "?Scroll_Map@DisplayClass@@UAE_NHPAH_N@Z"
+  },
+  {
+   "site": "0053fbd0",
+   "target": "00499b60",
+   "symbol": "?Scroll_Map@DisplayClass@@QAE_NHPAH_N@Z",
+   "module_symbol": "?Scroll_Map@DisplayClass@@UAE_NHPAH_N@Z"
+  },
+  {
+   "site": "00656b80",
+   "target": "00498c80",
+   "symbol": "?unknown_slot42@MouseClass@@QAEXABVRect@@@Z",
+   "module_symbol": "?unknown_slot42@DisplayClass@@UAEXABVRect@@@Z"
+  },
+  {
+   "site": "0053d890",
+   "target": "0049ec40",
+   "symbol": "?Unknown_0049EC40@DisplayClass@@QAEPAVObjectClass@@XZ",
+   "module_symbol": "?FUN_0049ec40@seed_0049ec40@@YIHH@Z"
+  },
+  {
+   "site": "0053d890",
+   "target": "0049ec40",
+   "symbol": "?Unknown_0049EC40@DisplayClass@@QAEPAVObjectClass@@XZ",
+   "module_symbol": "?FUN_0049ec40@seed_0049ec40@@YIHH@Z"
+  },
+  {
+   "site": "0054a110",
+   "target": "0049a0f0",
+   "symbol": "?unknown_slot38@DisplayClass@@QAE_NABVCell@@PAVHouseClass@@@Z",
+   "module_symbol": "?unknown_slot38@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z"
+  },
+  {
+   "site": "0043d3a0",
+   "target": "0049a5b0",
+   "symbol": "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z",
+   "module_symbol": "?get@Leaf_49a5b0@@QAEIII@Z"
+  }
+ ],
+ "stand_in_reference_count": 17,
+ "residual_split": {
+  "rows": 4,
+  "bytes": 124
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

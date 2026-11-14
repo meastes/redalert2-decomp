@@ -7,9 +7,10 @@
   "/O2",
   "/Ob2",
   "/G5",
-  "/Gy"
+  "/Gy",
+  "/GR"
  ],
- "compile_group": 41,
+ "compile_group": 36,
  "code": [
   {
    "symbol": "??1Pipe@@UAE@XZ",
@@ -37,14 +38,81 @@
   }
  ],
  "code_bytes": 192,
- "data": [],
+ "data": [
+  {
+   "symbol": "??_R1A@?0A@A@Pipe@@8",
+   "address": "007b4ae8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 3
+  },
+  {
+   "symbol": "??_R2Pipe@@8",
+   "address": "007b79dc",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 4
+  },
+  {
+   "symbol": "??_R3Pipe@@8",
+   "address": "007b79e8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 5
+  },
+  {
+   "symbol": "??_R4Pipe@@6B@",
+   "address": "007b79f8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 7
+  },
+  {
+   "symbol": "??_R0?AVPipe@@@8",
+   "address": "007d1e90",
+   "bytes": 19,
+   "kind": "rtti",
+   "section": 6
+  }
+ ],
  "data_ranges": [],
  "data_bytes_proven": 0,
  "data_complete": true,
- "kept_elsewhere": [],
+ "kept_elsewhere": [
+  {
+   "symbol": "??_R1A@?0A@A@Pipe@@8",
+   "address": "007b4ae8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2Pipe@@8",
+   "address": "007b79dc",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3Pipe@@8",
+   "address": "007b79e8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4Pipe@@6B@",
+   "address": "007b79f8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVPipe@@@8",
+   "address": "007d1e90",
+   "bytes": 19,
+   "kind": "rtti"
+  }
+ ],
  "failures": [
   {
-   "section": 3,
+   "section": 8,
    "symbol": "??_7Pipe@@6B@",
    "reason": "relocation target unbound: ?End@Pipe@@UAEHXZ"
   }
@@ -505,6 +573,10 @@
   {
    "symbol": "??3@YAXPAX@Z",
    "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
   },
   {
    "symbol": "??_GPipe@@UAEPAXI@Z",

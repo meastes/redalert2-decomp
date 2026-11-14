@@ -79,6 +79,22 @@ bool toolbar_create(void *native_window, ToolbarItem const *items, int count, vo
 void toolbar_set(int index, bool on, const char *title);
 // The usable area moved (window points): the toolbar keeps to its top left.
 void toolbar_place(Rect usable);
+// The Skip button over a cutscene (lane I): a glass "Skip" capsule at the usable area's
+// top right, shown and hidden by the host while ra2port::movie_playing(); `tapped` runs on
+// the main thread (the host presses Escape). Made with the toolbar; toolbar_place keeps it
+// in its corner. Nothing where there is no system toolbar (macOS has the Escape key).
+// A Windows touch host would supply both from its own host_windows file (a toolbar and a
+// button over the game window); the movie test and the Escape press are shared host code.
+void skip_button_create(void *native_window, void (*tapped)());
+void skip_button_show(bool show);
+// A short note under the toolbar for a few seconds (the interface scale takes effect at
+// the next start: lane I). Logged only where there is no system toolbar.
+void toolbar_notice(const char *text);
+// Tests (iOS): RA2_NATIVE_TOOLBAR_TAPS="<ms>:<item>[;<ms>:<item>...]" sends the toolbar's
+// own button actions that many milliseconds after the toolbar is made (item -1 is the
+// "..." button, -2 the Skip button, 0.. the items), the path a tap's touch-up takes, for Simulator runs
+// without the Simulator's pointer. Started by toolbar_create.
+
 // iOS: the app is active (UIApplication applicationState, read on the main thread),
 // so the host can tell a lifecycle pause whose end SDL never reported (Scout1274).
 // macOS: false (the window focus events are the only report there).

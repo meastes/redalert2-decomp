@@ -1,0 +1,449 @@
+{
+ "module": "dib",
+ "source": "src/recovered/dib.cpp",
+ "header": null,
+ "population": "population-1925",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 405,
+ "code": [
+  {
+   "symbol": "??0DIB8Class@@QAE@PAUHWND__@@HHABVPaletteClass@@@Z",
+   "entry": "004981c0",
+   "body_bytes": 430,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "??1DIB8Class@@QAE@XZ",
+   "entry": "00498370",
+   "body_bytes": 48,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Clear@DIB8Class@@QAEXE@Z",
+   "entry": "004983a0",
+   "body_bytes": 58,
+   "padding_bytes": 6
+  }
+ ],
+ "code_bytes": 544,
+ "data": [
+  {
+   "symbol": "??_7Surface@@6B@",
+   "address": "0079b01c",
+   "bytes": 140,
+   "kind": "vtable",
+   "section": 40
+  },
+  {
+   "symbol": "??_R2XSurface@@8",
+   "address": "007b3278",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 3
+  },
+  {
+   "symbol": "??_R3XSurface@@8",
+   "address": "007b3288",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 4
+  },
+  {
+   "symbol": "??_R4XSurface@@6B@",
+   "address": "007b3298",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 5
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Surface@@8",
+   "address": "007b32b0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 7
+  },
+  {
+   "symbol": "??_R1A@?0A@A@XSurface@@8",
+   "address": "007b32c8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 9
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BSurface@@8",
+   "address": "007b32e0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 10
+  },
+  {
+   "symbol": "??_R2BSurface@@8",
+   "address": "007b32f8",
+   "bytes": 13,
+   "kind": "rtti",
+   "section": 11
+  },
+  {
+   "symbol": "??_R3BSurface@@8",
+   "address": "007b3308",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 12
+  },
+  {
+   "symbol": "??_R4BSurface@@6B@",
+   "address": "007b3318",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 14
+  },
+  {
+   "symbol": "??_R2Surface@@8",
+   "address": "007b332c",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 37
+  },
+  {
+   "symbol": "??_R3Surface@@8",
+   "address": "007b3338",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 38
+  },
+  {
+   "symbol": "??_R4Surface@@6B@",
+   "address": "007b3348",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 39
+  },
+  {
+   "symbol": "??_R0?AVSurface@@@8",
+   "address": "007ce2b0",
+   "bytes": 22,
+   "kind": "rtti",
+   "section": 6
+  },
+  {
+   "symbol": "??_R0?AVXSurface@@@8",
+   "address": "007ce2c8",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 8
+  },
+  {
+   "symbol": "??_R0?AVBSurface@@@8",
+   "address": "007ce2e0",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 13
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7Surface@@6B@",
+   "address": "0079b01c",
+   "bytes": 140,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R2XSurface@@8",
+   "address": "007b3278",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3XSurface@@8",
+   "address": "007b3288",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4XSurface@@6B@",
+   "address": "007b3298",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Surface@@8",
+   "address": "007b32b0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@XSurface@@8",
+   "address": "007b32c8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BSurface@@8",
+   "address": "007b32e0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2BSurface@@8",
+   "address": "007b32f8",
+   "bytes": 13,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3BSurface@@8",
+   "address": "007b3308",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4BSurface@@6B@",
+   "address": "007b3318",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2Surface@@8",
+   "address": "007b332c",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3Surface@@8",
+   "address": "007b3338",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4Surface@@6B@",
+   "address": "007b3348",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVSurface@@@8",
+   "address": "007ce2b0",
+   "bytes": 22,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVXSurface@@@8",
+   "address": "007ce2c8",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVBSurface@@@8",
+   "address": "007ce2e0",
+   "bytes": 23,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [],
+ "references_out": [
+  {
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "address": "004382c0"
+  },
+  {
+   "symbol": "??1Buffer@@QAE@XZ",
+   "address": "00438410"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_GBSurface@@UAEPAXI@Z",
+   "address": "004113d0"
+  },
+  {
+   "symbol": "??_GSurface@@UAEPAXI@Z",
+   "address": "00411350"
+  },
+  {
+   "symbol": "??_GXSurface@@UAEPAXI@Z",
+   "address": "00411320"
+  },
+  {
+   "symbol": "?Copy_From@XSurface@@UAE_NAAVSurface@@_N1@Z",
+   "address": "00774e60"
+  },
+  {
+   "symbol": "?Copy_From@XSurface@@UAE_NABVRect@@0AAVSurface@@00_N2@Z",
+   "address": "00775060"
+  },
+  {
+   "symbol": "?Copy_From@XSurface@@UAE_NABVRect@@AAVSurface@@0_N2@Z",
+   "address": "00774f00"
+  },
+  {
+   "symbol": "?Draw_Dashed_Line@XSurface@@UAEHABUPoint2D@@0HPB_NH@Z",
+   "address": "00773c30"
+  },
+  {
+   "symbol": "?Draw_Dashed_Line_Depth_Masked@XSurface@@UAEHABUPoint2D@@0HPB_NH_N@Z",
+   "address": "00773ea0"
+  },
+  {
+   "symbol": "?Draw_Depth_Antialiased_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@HH_N333M@Z",
+   "address": "00773ee0"
+  },
+  {
+   "symbol": "?Draw_Depth_Glow_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1HHH_N@Z",
+   "address": "00773ed0"
+  },
+  {
+   "symbol": "?Draw_Depth_Shaded_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1IHH_N@Z",
+   "address": "00773ec0"
+  },
+  {
+   "symbol": "?Draw_Ellipse@XSurface@@UAE_NUPoint2D@@HHVRect@@H@Z",
+   "address": null
+  },
+  {
+   "symbol": "?Draw_Line@XSurface@@UAE_NABUPoint2D@@0H@Z",
+   "address": "00773950"
+  },
+  {
+   "symbol": "?Draw_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1H@Z",
+   "address": "00773980"
+  },
+  {
+   "symbol": "?Draw_Line_Depth_Masked@XSurface@@UAE_NABUPoint2D@@0H_N@Z",
+   "address": "00773eb0"
+  },
+  {
+   "symbol": "?Draw_Rect@XSurface@@UAE_NABVRect@@0H@Z",
+   "address": "00774130"
+  },
+  {
+   "symbol": "?Draw_Rect@XSurface@@UAE_NABVRect@@H@Z",
+   "address": "00774100"
+  },
+  {
+   "symbol": "?Fill@XSurface@@UAE_NH@Z",
+   "address": "00774e20"
+  },
+  {
+   "symbol": "?Fill_Rect@XSurface@@UAE_NABVRect@@0H@Z",
+   "address": "007743c0"
+  },
+  {
+   "symbol": "?Fill_Rect@XSurface@@UAE_NABVRect@@H@Z",
+   "address": "00774390"
+  },
+  {
+   "symbol": "?Fill_Rect_Trans@XSurface@@UAE_NABVRect@@ABVRGBClass@@I@Z",
+   "address": "007746b0"
+  },
+  {
+   "symbol": "?Get_Pixel@XSurface@@UAEHABUPoint2D@@@Z",
+   "address": "007741d0"
+  },
+  {
+   "symbol": "?Get_Pixel@XSurface@@UAEHABUPoint2D@@ABVRect@@@Z",
+   "address": "00774280"
+  },
+  {
+   "symbol": "?Plot_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1P6IX1@Z@Z",
+   "address": null
+  },
+  {
+   "symbol": "?Put_Pixel@XSurface@@UAE_NABUPoint2D@@H@Z",
+   "address": "00774220"
+  },
+  {
+   "symbol": "?Put_Pixel@XSurface@@UAE_NABUPoint2D@@HABVRect@@@Z",
+   "address": "00774300"
+  },
+  {
+   "symbol": "?Unknown_Slot16@XSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@MHH@Z",
+   "address": "00773ef0"
+  },
+  {
+   "symbol": "__imp__CreateDIBSection@24",
+   "address": "0079a0a8"
+  },
+  {
+   "symbol": "__imp__DeleteObject@4",
+   "address": "0079a058"
+  },
+  {
+   "symbol": "__imp__GetDC@4",
+   "address": "0079a458"
+  },
+  {
+   "symbol": "__imp__ReleaseDC@8",
+   "address": "0079a478"
+  },
+  {
+   "symbol": "__purecall",
+   "address": "004b8960"
+  }
+ ],
+ "route": "A",
+ "unit": "dib.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "004981c0",
+   "lines": 4
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "004981a0",
+   "bytes": 23,
+   "population": "population-09",
+   "source": "src/recovered/004981a0.cpp",
+   "cause": "held by population-09; not joined: differs under the unit's state (9 bytes differ)"
+  }
+ ],
+ "unit_functions": 5,
+ "data_unproven": [
+  {
+   "symbol": "??_7BSurface@@6B@",
+   "reason": "relocation target unbound: ?Draw_Ellipse@XSurface@@UAE_NUPoint2D@@HHVRect@@H@Z"
+  },
+  {
+   "symbol": "??_7XSurface@@6B@",
+   "reason": "relocation target unbound: ?Draw_Ellipse@XSurface@@UAE_NUPoint2D@@HHVRect@@H@Z"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 1,
+  "bytes": 23
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

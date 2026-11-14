@@ -1,4 +1,4 @@
-// NON-EXACT DRAFT 0x673090 FUN_00673090 (UnknownSessionState::Allocate_Ports)
+// NON-EXACT DRAFT 0x673090 FUN_00673090 (SessionClass::Allocate_Ports)
 // entry 0x673090; exact-match score 94.42 (misses_index best); this text 82.90 (codex4 r506); plan "draft, verify"
 // origin lane: Scout775 (build/class-work/Scout775/keep/ap_z1_8290_loose9238.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
@@ -14,7 +14,7 @@
 #include "shared/wol_sink.hpp"
 #include "shared/wstring.hpp"
 #include "shared/udp_interface.hpp"
-void UnknownSessionState::Allocate_Ports_00673090()
+void SessionClass::Allocate_Ports_00673090()
 {
     int bump = 1;
     int index;
@@ -35,7 +35,7 @@ void UnknownSessionState::Allocate_Ports_00673090()
         slot = Unknown_00672F90(index);
         if (slot >= 0 && slot < 8) {
             Players[index]->Address.Set_Port(unknown_2fa0.unknown[slot]);
-            char *name = Unknown_006FA120(Players[index]->Name);
+            char *name = Wide_To_Narrow_006fa120(Players[index]->Name);
             Debug_Printf("Allocated port for player %s - %s\n", name, Players[index]->Address.As_String());
         }
     }
@@ -68,23 +68,23 @@ void UnknownSessionState::Allocate_Ports_00673090()
         IPXAddressClass address = order[index]->Address;
         for (other = 0; other < order.Count(); other++) {
             if (other != index && !used[other] && address.Is_Same_Node(order[other]->Address)) {
-                int first = Unknown_00672FF0(Unknown_006FA120(order[other]->Name));
-                int second = Unknown_00672FF0(Unknown_006FA120(order[index]->Name));
+                int first = Unknown_00672FF0(Wide_To_Narrow_006fa120(order[other]->Name));
+                int second = Unknown_00672FF0(Wide_To_Narrow_006fa120(order[index]->Name));
                 if (unknown_2fa0.unknown[first] == unknown_2fa0.unknown[second]) {
                     order[other]->Address.Set_Port(unknown_2fa0.unknown[first] + bump++);
                     used[other] = true;
                     Debug_Printf("Adjusted port number to %d for player %s\n", (unsigned short)bump - 1,
-                        Unknown_006FA120(order[other]->Name));
+                        Wide_To_Narrow_006fa120(order[other]->Name));
                 } else {
                     Debug_Printf("Two player behand the same NAT but they are using different port bases anyway\n");
                 }
-                char *name = Unknown_006FA120(order[index]->Name);
+                char *name = Wide_To_Narrow_006fa120(order[index]->Name);
                 if (_stricmp(name, unknown_wstring_b26cb8.Get()) == 0) {
-                    strcpy(unknown_2dd0 + 0x24 * names++, Unknown_006FA120(order[other]->Name));   // NATIVE: char[8][0x24] rows (codex4 r506)
+                    strcpy(unknown_2dd0 + 0x24 * names++, Wide_To_Narrow_006fa120(order[other]->Name));   // NATIVE: char[8][0x24] rows (codex4 r506)
                 }
-                name = Unknown_006FA120(order[other]->Name);
+                name = Wide_To_Narrow_006fa120(order[other]->Name);
                 if (_stricmp(name, unknown_wstring_b26cb8.Get()) == 0) {
-                    strcpy(unknown_2dd0 + 0x24 * names++, Unknown_006FA120(order[index]->Name));   // NATIVE: char[8][0x24] rows
+                    strcpy(unknown_2dd0 + 0x24 * names++, Wide_To_Narrow_006fa120(order[index]->Name));   // NATIVE: char[8][0x24] rows
                 }
             }
         }
@@ -107,15 +107,15 @@ void UnknownSessionState::Allocate_Ports_00673090()
     local.Get_Node(node);
     for (index = 1; index < Players.Count(); index++) {
         if (local.Is_Same_Node(Players[index]->Address)) {
-            Debug_Printf("%s has the same IP address as me\n", Unknown_006FA120(Players[index]->Name));
+            Debug_Printf("%s has the same IP address as me\n", Wide_To_Narrow_006fa120(Players[index]->Name));
             for (slot = 0; slot < 8; slot++) {
                 NodeNameType *entry = PlayerSlots[slot];
-                char *name = Unknown_006FA120(Players[index]->Name);
-                if (_stricmp(name, Unknown_006FA120(entry->Name)) == 0) {
+                char *name = Wide_To_Narrow_006fa120(Players[index]->Name);
+                if (_stricmp(name, Wide_To_Narrow_006fa120(entry->Name)) == 0) {
                     NetNodeType nat;
                     unknown_293c.Addresses[slot].Get_Node(nat);
                     Players[index]->Address.Set_Address(0, nat, *(unsigned short *)Players[index]->Address.NetworkNumber);   // NATIVE: the UDP port word
-                    name = Unknown_006FA120(Players[index]->Name);
+                    name = Wide_To_Narrow_006fa120(Players[index]->Name);
                     Debug_Printf("Talking to NAT player %s on IP address %s\n", name, Players[index]->Address.As_String());
                 }
             }

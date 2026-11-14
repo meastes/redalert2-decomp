@@ -1,0 +1,1965 @@
+{
+ "module": "modemgst",
+ "source": "src/recovered/modemgst.cpp",
+ "header": null,
+ "population": "population-3871",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 857,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00595e20",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "00595e40",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "00595e70",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "00595e90",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "00595eb0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "00595ed0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "00595ef0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "00595f10",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "00595f50",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "00595f80",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "00595fb0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "00595fe0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "00595ff0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Dialog_00596010@ModemGuest@@QAE_NXZ",
+   "entry": "00596010",
+   "body_bytes": 351,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Dialog_Proc_00596170@ModemGuest@@SGHPAUHWND__@@IIJ@Z",
+   "entry": "00596170",
+   "body_bytes": 976,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Init_Dialog_00596540@ModemGuest@@QAEXXZ",
+   "entry": "00596540",
+   "body_bytes": 2058,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Read_Dialog_00596d50@ModemGuest@@QAEXXZ",
+   "entry": "00596d50",
+   "body_bytes": 210,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Send_Chat_00596e30@ModemGuest@@QAEXXZ",
+   "entry": "00596e30",
+   "body_bytes": 390,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Read_Color_Entry_00596fc0@ModemGuest@@QAEXXZ",
+   "entry": "00596fc0",
+   "body_bytes": 76,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Read_Color_00597010@ModemGuest@@QAEXXZ",
+   "entry": "00597010",
+   "body_bytes": 147,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Read_Name_005970b0@ModemGuest@@QAEX_N@Z",
+   "entry": "005970b0",
+   "body_bytes": 114,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Set_Host_00597130@ModemGuest@@QAEXPBGHH@Z",
+   "entry": "00597130",
+   "body_bytes": 229,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Show_Options_00597220@ModemGuest@@QAEXXZ",
+   "entry": "00597220",
+   "body_bytes": 705,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Send_Ready_005974f0@ModemGuest@@QAEXXZ",
+   "entry": "005974f0",
+   "body_bytes": 84,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Service_00597550@ModemGuest@@QAEX_N@Z",
+   "entry": "00597550",
+   "body_bytes": 289,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Process_Messages_00597680@ModemGuest@@QAE_NXZ",
+   "entry": "00597680",
+   "body_bytes": 1997,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Receive_Options_00597e50@ModemGuest@@QAE_NPBUUnknownSerialPacket@@@Z",
+   "entry": "00597e50",
+   "body_bytes": 1238,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Send_Options_00598330@ModemGuest@@QAEXXZ",
+   "entry": "00598330",
+   "body_bytes": 201,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Send_Chat_00598400@ModemGuest@@QAEXPBG@Z",
+   "entry": "00598400",
+   "body_bytes": 264,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Show_Chat_00598510@ModemGuest@@QAEXPBGH0@Z",
+   "entry": "00598510",
+   "body_bytes": 122,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Sign_Off_00598590@ModemGuest@@QAEXXZ",
+   "entry": "00598590",
+   "body_bytes": 338,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Start_Game_005986f0@ModemGuest@@QAE_N_N@Z",
+   "entry": "005986f0",
+   "body_bytes": 699,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Receive_Preview_005989b0@ModemGuest@@QAEXXZ",
+   "entry": "005989b0",
+   "body_bytes": 623,
+   "padding_bytes": 1
+  }
+ ],
+ "code_bytes": 11776,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "??_7BufferStraw@@6B@",
+   "address": "0079e9e4",
+   "bytes": 16,
+   "kind": "vtable",
+   "section": 154
+  },
+  {
+   "symbol": "??_7Straw@@6B@",
+   "address": "0079e9f4",
+   "bytes": 16,
+   "kind": "vtable",
+   "section": 155
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a6488",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Straw@@8",
+   "address": "007b4b50",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 147
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BufferStraw@@8",
+   "address": "007b7960",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 142
+  },
+  {
+   "symbol": "??_R2BufferStraw@@8",
+   "address": "007b7978",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 143
+  },
+  {
+   "symbol": "??_R3BufferStraw@@8",
+   "address": "007b7988",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 144
+  },
+  {
+   "symbol": "??_R4BufferStraw@@6B@",
+   "address": "007b7998",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 146
+  },
+  {
+   "symbol": "??_R2Straw@@8",
+   "address": "007b79ac",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 148
+  },
+  {
+   "symbol": "??_R3Straw@@8",
+   "address": "007b79b8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 149
+  },
+  {
+   "symbol": "??_R4Straw@@6B@",
+   "address": "007b79c8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 151
+  },
+  {
+   "symbol": "??_R0?AVStraw@@@8",
+   "address": "007d1ec0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 150
+  },
+  {
+   "symbol": "??_C@_05NAGO@false?$AA@",
+   "address": "007d24d0",
+   "bytes": 6,
+   "kind": "string",
+   "section": 41
+  },
+  {
+   "symbol": "??_C@_04NCCD@true?$AA@",
+   "address": "007d24d8",
+   "bytes": 5,
+   "kind": "string",
+   "section": 42
+  },
+  {
+   "symbol": "??_R0?AVBufferStraw@@@8",
+   "address": "007d5df8",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 145
+  },
+  {
+   "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+   "address": "007d64f4",
+   "bytes": 4,
+   "kind": "string",
+   "section": 121
+  },
+  {
+   "symbol": "??_C@_06DN@TXT_OK?$AA@",
+   "address": "007db8f4",
+   "bytes": 7,
+   "kind": "string",
+   "section": 122
+  },
+  {
+   "symbol": "??_C@_0M@FDHG@RandMap?4Sed?$AA@",
+   "address": "007e16e8",
+   "bytes": 12,
+   "kind": "string",
+   "section": 112
+  },
+  {
+   "symbol": "??_C@_0BM@EBMH@ModemGuest?4Dialog?$CIexit?5?$CFs?$CJ?6?$AA@",
+   "address": "007e1e20",
+   "bytes": 28,
+   "kind": "string",
+   "section": 40
+  },
+  {
+   "symbol": "??_C@_0BK@KDAM@ModemGuest?4Dialog?$CIenter?$CJ?6?$AA@",
+   "address": "007e1e3c",
+   "bytes": 26,
+   "kind": "string",
+   "section": 43
+  },
+  {
+   "symbol": "??_C@_0BN@KNCA@ModemGuest?4InitDialog?$CIexit?$CJ?6?$AA@",
+   "address": "007e1e58",
+   "bytes": 29,
+   "kind": "string",
+   "section": 48
+  },
+  {
+   "symbol": "??_C@_1BA@FNA@?$AA?$FL?$AA?$CF?$AAs?$AA?$FN?$AA?5?$AA?$CF?$AAs?$AA?$AA@",
+   "address": "007e1e78",
+   "bytes": 16,
+   "kind": "string",
+   "section": 49
+  },
+  {
+   "symbol": "??_C@_0BF@CBAA@Harvester?5Truce?3?5?$CFs?6?$AA@",
+   "address": "007e1e88",
+   "bytes": 21,
+   "kind": "string",
+   "section": 50
+  },
+  {
+   "symbol": "??_C@_0BD@ODLN@BridgeDestroy?3?5?$CFs?6?$AA@",
+   "address": "007e1ea0",
+   "bytes": 19,
+   "kind": "string",
+   "section": 51
+  },
+  {
+   "symbol": "??_C@_0O@BKAD@FogOfWar?3?5?$CFs?6?$AA@",
+   "address": "007e1eb4",
+   "bytes": 14,
+   "kind": "string",
+   "section": 52
+  },
+  {
+   "symbol": "??_C@_0M@IDPK@Crates?3?5?$CFs?6?$AA@",
+   "address": "007e1ec4",
+   "bytes": 12,
+   "kind": "string",
+   "section": 53
+  },
+  {
+   "symbol": "??_C@_0BE@KMDF@Crap?5Engineers?3?5?$CFs?6?$AA@",
+   "address": "007e1ed0",
+   "bytes": 20,
+   "kind": "string",
+   "section": 54
+  },
+  {
+   "symbol": "??_C@_0BC@IEEF@BuildOffAlly?3?5?$CFs?6?$AA@",
+   "address": "007e1ee4",
+   "bytes": 18,
+   "kind": "string",
+   "section": 55
+  },
+  {
+   "symbol": "??_C@_0BC@BBEC@SuperWeapons?3?5?$CFs?6?$AA@",
+   "address": "007e1ef8",
+   "bytes": 18,
+   "kind": "string",
+   "section": 56
+  },
+  {
+   "symbol": "??_C@_0BA@NBOO@Short?5Game?3?5?$CFs?6?$AA@",
+   "address": "007e1f0c",
+   "bytes": 16,
+   "kind": "string",
+   "section": 57
+  },
+  {
+   "symbol": "??_C@_0L@ODDO@Bases?3?5?$CFs?6?$AA@",
+   "address": "007e1f1c",
+   "bytes": 11,
+   "kind": "string",
+   "section": 58
+  },
+  {
+   "symbol": "??_C@_0BB@ILLA@MCVRedeploy?3?5?$CFs?6?$AA@",
+   "address": "007e1f28",
+   "bytes": 17,
+   "kind": "string",
+   "section": 59
+  },
+  {
+   "symbol": "??_C@_03CMJG@OFF?$AA@",
+   "address": "007e1f3c",
+   "bytes": 4,
+   "kind": "string",
+   "section": 60
+  },
+  {
+   "symbol": "??_C@_02HAKO@ON?$AA@",
+   "address": "007e1f40",
+   "bytes": 3,
+   "kind": "string",
+   "section": 61
+  },
+  {
+   "symbol": "??_C@_0BC@DPJ@AIDifficulty?3?5?$CFd?6?$AA@",
+   "address": "007e1f44",
+   "bytes": 18,
+   "kind": "string",
+   "section": 62
+  },
+  {
+   "symbol": "??_C@_0BA@DOI@Game?5Speed?3?5?$CFd?6?$AA@",
+   "address": "007e1f58",
+   "bytes": 16,
+   "kind": "string",
+   "section": 63
+  },
+  {
+   "symbol": "??_C@_0P@DJIC@AIPlayers?3?5?$CFd?6?$AA@",
+   "address": "007e1f68",
+   "bytes": 15,
+   "kind": "string",
+   "section": 64
+  },
+  {
+   "symbol": "??_C@_0N@KDNE@Credits?3?5?$CFd?6?$AA@",
+   "address": "007e1f78",
+   "bytes": 13,
+   "kind": "string",
+   "section": 65
+  },
+  {
+   "symbol": "??_C@_0P@ONCE@TechLevel?3?5?$CFd?6?$AA@",
+   "address": "007e1f88",
+   "bytes": 15,
+   "kind": "string",
+   "section": 66
+  },
+  {
+   "symbol": "??_C@_0P@LIHP@UnitCount?3?5?$CFd?6?$AA@",
+   "address": "007e1f98",
+   "bytes": 15,
+   "kind": "string",
+   "section": 67
+  },
+  {
+   "symbol": "??_C@_0L@HPID@Color?3?5?$CFd?6?$AA@",
+   "address": "007e1fa8",
+   "bytes": 11,
+   "kind": "string",
+   "section": 68
+  },
+  {
+   "symbol": "??_C@_08LPFB@TXT_PINK?$AA@",
+   "address": "007e1fb4",
+   "bytes": 9,
+   "kind": "string",
+   "section": 69
+  },
+  {
+   "symbol": "??_C@_0L@NJNM@TXT_PURPLE?$AA@",
+   "address": "007e1fc0",
+   "bytes": 11,
+   "kind": "string",
+   "section": 70
+  },
+  {
+   "symbol": "??_C@_0N@GNAA@TXT_SKY_BLUE?$AA@",
+   "address": "007e1fcc",
+   "bytes": 13,
+   "kind": "string",
+   "section": 71
+  },
+  {
+   "symbol": "??_C@_0L@EPJB@TXT_ORANGE?$AA@",
+   "address": "007e1fdc",
+   "bytes": 11,
+   "kind": "string",
+   "section": 72
+  },
+  {
+   "symbol": "??_C@_09KDHI@TXT_GREEN?$AA@",
+   "address": "007e1fe8",
+   "bytes": 10,
+   "kind": "string",
+   "section": 73
+  },
+  {
+   "symbol": "??_C@_08PFFA@TXT_BLUE?$AA@",
+   "address": "007e1ff4",
+   "bytes": 9,
+   "kind": "string",
+   "section": 74
+  },
+  {
+   "symbol": "??_C@_07NKKE@TXT_RED?$AA@",
+   "address": "007e2000",
+   "bytes": 8,
+   "kind": "string",
+   "section": 75
+  },
+  {
+   "symbol": "??_C@_08NALB@TXT_GOLD?$AA@",
+   "address": "007e2008",
+   "bytes": 9,
+   "kind": "string",
+   "section": 76
+  },
+  {
+   "symbol": "??_C@_0BE@PMHE@D?3?2Ra2?2ModemGst?4cpp?$AA@",
+   "address": "007e2014",
+   "bytes": 20,
+   "kind": "string",
+   "section": 77
+  },
+  {
+   "symbol": "??_C@_0L@DFNB@Name?3?5?$CFls?6?$AA@",
+   "address": "007e2028",
+   "bytes": 11,
+   "kind": "string",
+   "section": 78
+  },
+  {
+   "symbol": "??_C@_0BO@HGKG@ModemGuest?4InitDialog?$CIenter?$CJ?6?$AA@",
+   "address": "007e2034",
+   "bytes": 30,
+   "kind": "string",
+   "section": 79
+  },
+  {
+   "symbol": "??_C@_0BN@COBG@ModemGuest?4ReadDialog?$CIexit?$CJ?6?$AA@",
+   "address": "007e2054",
+   "bytes": 29,
+   "kind": "string",
+   "section": 82
+  },
+  {
+   "symbol": "??_C@_09FJEP@Name?3?5?$CFs?6?$AA@",
+   "address": "007e2074",
+   "bytes": 10,
+   "kind": "string",
+   "section": 83
+  },
+  {
+   "symbol": "??_C@_0BO@CBCF@ModemGuest?4ReadDialog?$CIenter?$CJ?6?$AA@",
+   "address": "007e2080",
+   "bytes": 30,
+   "kind": "string",
+   "section": 84
+  },
+  {
+   "symbol": "??_C@_1BA@DLOG@?$AA?$CF?$AAs?$AA?5?$AA?$FL?$AA?$CF?$AAs?$AA?$FN?$AA?$AA@",
+   "address": "007e20a0",
+   "bytes": 16,
+   "kind": "string",
+   "section": 95
+  },
+  {
+   "symbol": "??_C@_0BB@BKAI@Settings?5change?6?$AA@",
+   "address": "007e20b0",
+   "bytes": 17,
+   "kind": "string",
+   "section": 98
+  },
+  {
+   "symbol": "??_C@_0BB@BKJO@Received?5packet?6?$AA@",
+   "address": "007e20c4",
+   "bytes": 17,
+   "kind": "string",
+   "section": 105
+  },
+  {
+   "symbol": "??_C@_0CF@FCBJ@Received?5SERIAL_PREVIEW_MODE?5pac@",
+   "address": "007e20d8",
+   "bytes": 37,
+   "kind": "string",
+   "section": 106
+  },
+  {
+   "symbol": "??_C@_0BO@MNHL@Received?5score?5screen?5packet?6?$AA@",
+   "address": "007e2100",
+   "bytes": 30,
+   "kind": "string",
+   "section": 107
+  },
+  {
+   "symbol": "??_C@_0BI@GJDM@Received?5timing?5packet?6?$AA@",
+   "address": "007e2120",
+   "bytes": 24,
+   "kind": "string",
+   "section": 108
+  },
+  {
+   "symbol": "??_C@_0BJ@KLKI@Received?5serial?5message?6?$AA@",
+   "address": "007e2138",
+   "bytes": 25,
+   "kind": "string",
+   "section": 109
+  },
+  {
+   "symbol": "??_C@_0CP@GEMF@Timeout?$CB?5?$CFd?5ticks?5since?5last?5inc@",
+   "address": "007e2154",
+   "bytes": 47,
+   "kind": "string",
+   "section": 110
+  },
+  {
+   "symbol": "??_C@_0BH@NCIJ@TXT_UNABLE_PLAY_WAAUGH?$AA@",
+   "address": "007e2184",
+   "bytes": 23,
+   "kind": "string",
+   "section": 111
+  },
+  {
+   "symbol": "??_C@_0N@NADB@Received?5go?6?$AA@",
+   "address": "007e219c",
+   "bytes": 13,
+   "kind": "string",
+   "section": 113
+  },
+  {
+   "symbol": "??_C@_0N@BAAD@TXT_MISMATCH?$AA@",
+   "address": "007e21ac",
+   "bytes": 13,
+   "kind": "string",
+   "section": 114
+  },
+  {
+   "symbol": "??_C@_0BG@HINH@TXT_YOURGAME_OUTDATED?$AA@",
+   "address": "007e21bc",
+   "bytes": 22,
+   "kind": "string",
+   "section": 115
+  },
+  {
+   "symbol": "??_C@_0BG@LMNF@TXT_DESTGAME_OUTDATED?$AA@",
+   "address": "007e21d4",
+   "bytes": 22,
+   "kind": "string",
+   "section": 116
+  },
+  {
+   "symbol": "??_C@_0BH@HLKP@Received?5game?5options?6?$AA@",
+   "address": "007e21ec",
+   "bytes": 23,
+   "kind": "string",
+   "section": 117
+  },
+  {
+   "symbol": "??_C@_0BE@IJFA@TXT_USER_SIGNED_OFF?$AA@",
+   "address": "007e2204",
+   "bytes": 20,
+   "kind": "string",
+   "section": 118
+  },
+  {
+   "symbol": "??_C@_0BC@PPII@Received?5SignOff?6?$AA@",
+   "address": "007e2218",
+   "bytes": 18,
+   "kind": "string",
+   "section": 119
+  },
+  {
+   "symbol": "??_C@_0BK@GPBE@TXT_SYSTEM_NOT_RESPONDING?$AA@",
+   "address": "007e222c",
+   "bytes": 26,
+   "kind": "string",
+   "section": 120
+  },
+  {
+   "symbol": "??_C@_0BK@DBKP@Received?5own?5packet?5back?6?$AA@",
+   "address": "007e2248",
+   "bytes": 26,
+   "kind": "string",
+   "section": 123
+  },
+  {
+   "symbol": "??_C@_0BG@JFGK@Scenario?5has?5changed?6?$AA@",
+   "address": "007e2264",
+   "bytes": 22,
+   "kind": "string",
+   "section": 126
+  },
+  {
+   "symbol": "??_C@_0BH@OIIO@Decoding?5game?5options?6?$AA@",
+   "address": "007e227c",
+   "bytes": 23,
+   "kind": "string",
+   "section": 127
+  },
+  {
+   "symbol": "??_C@_0BA@JILO@TXT_SIGNING_OFF?$AA@",
+   "address": "007e2294",
+   "bytes": 16,
+   "kind": "string",
+   "section": 136
+  },
+  {
+   "symbol": "??_C@_0BD@BOLI@TXT_SENDING_GO_ACK?$AA@",
+   "address": "007e22a4",
+   "bytes": 19,
+   "kind": "string",
+   "section": 139
+  },
+  {
+   "symbol": "??_C@_0DB@NCGA@Cleaning?5up?5the?5temporary?5decomp@",
+   "address": "007e22b8",
+   "bytes": 49,
+   "kind": "string",
+   "section": 152
+  },
+  {
+   "symbol": "??_C@_0CC@KPDG@Creating?5the?5new?5preview?5surface@",
+   "address": "007e22ec",
+   "bytes": 34,
+   "kind": "string",
+   "section": 153
+  },
+  {
+   "symbol": "??_C@_0CB@DBLD@Decompressing?5the?5preview?5image?6@",
+   "address": "007e2310",
+   "bytes": 33,
+   "kind": "string",
+   "section": 156
+  },
+  {
+   "symbol": "??_C@_0CG@MHNB@Loading?5the?5compressed?5preview?5i@",
+   "address": "007e2334",
+   "bytes": 38,
+   "kind": "string",
+   "section": 157
+  },
+  {
+   "symbol": "??_C@_0CE@EHOD@got_file?5is?5false?4?5Download?5fail@",
+   "address": "007e235c",
+   "bytes": 36,
+   "kind": "string",
+   "section": 158
+  },
+  {
+   "symbol": "??_C@_0DJ@PFBB@Calling?5Get_File_From_Host?5to?5re@",
+   "address": "007e2380",
+   "bytes": 57,
+   "kind": "string",
+   "section": 159
+  },
+  {
+   "symbol": "??_C@_0BH@HIIN@Preview?5mode?5ack?5sent?6?$AA@",
+   "address": "007e23bc",
+   "bytes": 23,
+   "kind": "string",
+   "section": 160
+  },
+  {
+   "symbol": "??_C@_0BK@CAE@Sending?5preview?5mode?5ack?6?$AA@",
+   "address": "007e23d4",
+   "bytes": 26,
+   "kind": "string",
+   "section": 161
+  },
+  {
+   "symbol": "??_C@_0BP@HJOD@Starting?5map?5preview?5download?6?$AA@",
+   "address": "007e23f0",
+   "bytes": 31,
+   "kind": "string",
+   "section": 162
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7BufferStraw@@6B@",
+   "address": "0079e9e4",
+   "bytes": 16,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7Straw@@6B@",
+   "address": "0079e9f4",
+   "bytes": 16,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a6488",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Straw@@8",
+   "address": "007b4b50",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BufferStraw@@8",
+   "address": "007b7960",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2BufferStraw@@8",
+   "address": "007b7978",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3BufferStraw@@8",
+   "address": "007b7988",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4BufferStraw@@6B@",
+   "address": "007b7998",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2Straw@@8",
+   "address": "007b79ac",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3Straw@@8",
+   "address": "007b79b8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4Straw@@6B@",
+   "address": "007b79c8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVStraw@@@8",
+   "address": "007d1ec0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_05NAGO@false?$AA@",
+   "address": "007d24d0",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04NCCD@true?$AA@",
+   "address": "007d24d8",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AVBufferStraw@@@8",
+   "address": "007d5df8",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+   "address": "007d64f4",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06DN@TXT_OK?$AA@",
+   "address": "007db8f4",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@FDHG@RandMap?4Sed?$AA@",
+   "address": "007e16e8",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BM@EBMH@ModemGuest?4Dialog?$CIexit?5?$CFs?$CJ?6?$AA@",
+   "address": "007e1e20",
+   "bytes": 28,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BK@KDAM@ModemGuest?4Dialog?$CIenter?$CJ?6?$AA@",
+   "address": "007e1e3c",
+   "bytes": 26,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BN@KNCA@ModemGuest?4InitDialog?$CIexit?$CJ?6?$AA@",
+   "address": "007e1e58",
+   "bytes": 29,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_1BA@FNA@?$AA?$FL?$AA?$CF?$AAs?$AA?$FN?$AA?5?$AA?$CF?$AAs?$AA?$AA@",
+   "address": "007e1e78",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BF@CBAA@Harvester?5Truce?3?5?$CFs?6?$AA@",
+   "address": "007e1e88",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@ODLN@BridgeDestroy?3?5?$CFs?6?$AA@",
+   "address": "007e1ea0",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@BKAD@FogOfWar?3?5?$CFs?6?$AA@",
+   "address": "007e1eb4",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@IDPK@Crates?3?5?$CFs?6?$AA@",
+   "address": "007e1ec4",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@KMDF@Crap?5Engineers?3?5?$CFs?6?$AA@",
+   "address": "007e1ed0",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@IEEF@BuildOffAlly?3?5?$CFs?6?$AA@",
+   "address": "007e1ee4",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@BBEC@SuperWeapons?3?5?$CFs?6?$AA@",
+   "address": "007e1ef8",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@NBOO@Short?5Game?3?5?$CFs?6?$AA@",
+   "address": "007e1f0c",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@ODDO@Bases?3?5?$CFs?6?$AA@",
+   "address": "007e1f1c",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@ILLA@MCVRedeploy?3?5?$CFs?6?$AA@",
+   "address": "007e1f28",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_03CMJG@OFF?$AA@",
+   "address": "007e1f3c",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_02HAKO@ON?$AA@",
+   "address": "007e1f40",
+   "bytes": 3,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@DPJ@AIDifficulty?3?5?$CFd?6?$AA@",
+   "address": "007e1f44",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@DOI@Game?5Speed?3?5?$CFd?6?$AA@",
+   "address": "007e1f58",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@DJIC@AIPlayers?3?5?$CFd?6?$AA@",
+   "address": "007e1f68",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@KDNE@Credits?3?5?$CFd?6?$AA@",
+   "address": "007e1f78",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@ONCE@TechLevel?3?5?$CFd?6?$AA@",
+   "address": "007e1f88",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@LIHP@UnitCount?3?5?$CFd?6?$AA@",
+   "address": "007e1f98",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@HPID@Color?3?5?$CFd?6?$AA@",
+   "address": "007e1fa8",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08LPFB@TXT_PINK?$AA@",
+   "address": "007e1fb4",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@NJNM@TXT_PURPLE?$AA@",
+   "address": "007e1fc0",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@GNAA@TXT_SKY_BLUE?$AA@",
+   "address": "007e1fcc",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@EPJB@TXT_ORANGE?$AA@",
+   "address": "007e1fdc",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09KDHI@TXT_GREEN?$AA@",
+   "address": "007e1fe8",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08PFFA@TXT_BLUE?$AA@",
+   "address": "007e1ff4",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07NKKE@TXT_RED?$AA@",
+   "address": "007e2000",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08NALB@TXT_GOLD?$AA@",
+   "address": "007e2008",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@PMHE@D?3?2Ra2?2ModemGst?4cpp?$AA@",
+   "address": "007e2014",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@DFNB@Name?3?5?$CFls?6?$AA@",
+   "address": "007e2028",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BO@HGKG@ModemGuest?4InitDialog?$CIenter?$CJ?6?$AA@",
+   "address": "007e2034",
+   "bytes": 30,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BN@COBG@ModemGuest?4ReadDialog?$CIexit?$CJ?6?$AA@",
+   "address": "007e2054",
+   "bytes": 29,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09FJEP@Name?3?5?$CFs?6?$AA@",
+   "address": "007e2074",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BO@CBCF@ModemGuest?4ReadDialog?$CIenter?$CJ?6?$AA@",
+   "address": "007e2080",
+   "bytes": 30,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_1BA@DLOG@?$AA?$CF?$AAs?$AA?5?$AA?$FL?$AA?$CF?$AAs?$AA?$FN?$AA?$AA@",
+   "address": "007e20a0",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@BKAI@Settings?5change?6?$AA@",
+   "address": "007e20b0",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@BKJO@Received?5packet?6?$AA@",
+   "address": "007e20c4",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CF@FCBJ@Received?5SERIAL_PREVIEW_MODE?5pac@",
+   "address": "007e20d8",
+   "bytes": 37,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BO@MNHL@Received?5score?5screen?5packet?6?$AA@",
+   "address": "007e2100",
+   "bytes": 30,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BI@GJDM@Received?5timing?5packet?6?$AA@",
+   "address": "007e2120",
+   "bytes": 24,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BJ@KLKI@Received?5serial?5message?6?$AA@",
+   "address": "007e2138",
+   "bytes": 25,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CP@GEMF@Timeout?$CB?5?$CFd?5ticks?5since?5last?5inc@",
+   "address": "007e2154",
+   "bytes": 47,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BH@NCIJ@TXT_UNABLE_PLAY_WAAUGH?$AA@",
+   "address": "007e2184",
+   "bytes": 23,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@NADB@Received?5go?6?$AA@",
+   "address": "007e219c",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@BAAD@TXT_MISMATCH?$AA@",
+   "address": "007e21ac",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BG@HINH@TXT_YOURGAME_OUTDATED?$AA@",
+   "address": "007e21bc",
+   "bytes": 22,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BG@LMNF@TXT_DESTGAME_OUTDATED?$AA@",
+   "address": "007e21d4",
+   "bytes": 22,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BH@HLKP@Received?5game?5options?6?$AA@",
+   "address": "007e21ec",
+   "bytes": 23,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@IJFA@TXT_USER_SIGNED_OFF?$AA@",
+   "address": "007e2204",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@PPII@Received?5SignOff?6?$AA@",
+   "address": "007e2218",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BK@GPBE@TXT_SYSTEM_NOT_RESPONDING?$AA@",
+   "address": "007e222c",
+   "bytes": 26,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BK@DBKP@Received?5own?5packet?5back?6?$AA@",
+   "address": "007e2248",
+   "bytes": 26,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BG@JFGK@Scenario?5has?5changed?6?$AA@",
+   "address": "007e2264",
+   "bytes": 22,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BH@OIIO@Decoding?5game?5options?6?$AA@",
+   "address": "007e227c",
+   "bytes": 23,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@JILO@TXT_SIGNING_OFF?$AA@",
+   "address": "007e2294",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@BOLI@TXT_SENDING_GO_ACK?$AA@",
+   "address": "007e22a4",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DB@NCGA@Cleaning?5up?5the?5temporary?5decomp@",
+   "address": "007e22b8",
+   "bytes": 49,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CC@KPDG@Creating?5the?5new?5preview?5surface@",
+   "address": "007e22ec",
+   "bytes": 34,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CB@DBLD@Decompressing?5the?5preview?5image?6@",
+   "address": "007e2310",
+   "bytes": 33,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CG@MHNB@Loading?5the?5compressed?5preview?5i@",
+   "address": "007e2334",
+   "bytes": 38,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CE@EHOD@got_file?5is?5false?4?5Download?5fail@",
+   "address": "007e235c",
+   "bytes": 36,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DJ@PFBB@Calling?5Get_File_From_Host?5to?5re@",
+   "address": "007e2380",
+   "bytes": 57,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BH@HIIN@Preview?5mode?5ack?5sent?6?$AA@",
+   "address": "007e23bc",
+   "bytes": 23,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BK@CAE@Sending?5preview?5mode?5ack?6?$AA@",
+   "address": "007e23d4",
+   "bytes": 26,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BP@HJOD@Starting?5map?5preview?5download?6?$AA@",
+   "address": "007e23f0",
+   "bytes": 31,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "005135f0",
+   "symbol": "?Dialog_00596010@ModemGuest@@QAE_NXZ",
+   "target": "00596010",
+   "function_entry": true
+  },
+  {
+   "site": "005cdf00",
+   "symbol": "?Dialog_00596010@ModemGuest@@QAE_NXZ",
+   "target": "00596010",
+   "function_entry": true
+  },
+  {
+   "site": "005cdf00",
+   "symbol": "?Dialog_00596010@ModemGuest@@QAE_NXZ",
+   "target": "00596010",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "address": "004382c0"
+  },
+  {
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "address": "00523410"
+  },
+  {
+   "symbol": "??0LZOStraw@@QAE@W4CompControl@0@H@Z",
+   "address": "0053efb0"
+  },
+  {
+   "symbol": "??0MapPreviewClass@@QAE@XZ",
+   "address": "0061d430"
+  },
+  {
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "address": "00638b40"
+  },
+  {
+   "symbol": "??1Buffer@@QAE@XZ",
+   "address": "00438410"
+  },
+  {
+   "symbol": "??1LZOStraw@@UAE@XZ",
+   "address": "0053f010"
+  },
+  {
+   "symbol": "??1MapPreviewClass@@QAE@XZ",
+   "address": "0061d440"
+  },
+  {
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "address": "00638ac0"
+  },
+  {
+   "symbol": "??1Straw@@UAE@XZ",
+   "address": "0069b010"
+  },
+  {
+   "symbol": "??1Wstring@@QAE@XZ",
+   "address": "0076d9e0"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??BSystemTimerClass@@QBEJXZ",
+   "address": "0069a430"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_GBufferStraw@@UAEPAXI@Z",
+   "address": "0049ed60"
+  },
+  {
+   "symbol": "??_GStraw@@UAEPAXI@Z",
+   "address": "0049ed40"
+  },
+  {
+   "symbol": "?Blit_Preview@MapPreviewClass@@QAEXPAUHWND__@@@Z",
+   "address": "0061d460"
+  },
+  {
+   "symbol": "?Char_To_Wide_006fa0c0@@YIXPAGPBDH@Z",
+   "address": "006fa0c0"
+  },
+  {
+   "symbol": "?Clip_Version@VersionClass@@QAEIII@Z",
+   "address": "00713170"
+  },
+  {
+   "symbol": "?Compare_Narrow_00781f20@@YAHPBD0@Z",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "?Create_Preview_Surface@MapPreviewClass@@QAEXPBG@Z",
+   "address": "0061e930"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Equals_Options@SpecialClass@@QBE_NABV1@@Z",
+   "address": "0068b3f0"
+  },
+  {
+   "symbol": "?Find_Combo_Item_Data_00736e10@@YIHPAUHWND__@@HH@Z",
+   "address": "00736e10"
+  },
+  {
+   "symbol": "?Find_Local_Scenario_0066c5b0@@YI_NPADH0_N1@Z",
+   "address": "0066c5b0"
+  },
+  {
+   "symbol": "?Frame@@3HA",
+   "address": "00a40d2c"
+  },
+  {
+   "symbol": "?Free_Pointers_005a7480@@YIXPAV?$DynamicVectorClass@PAUNodeNameType@@@@@Z",
+   "address": "005a7480"
+  },
+  {
+   "symbol": "?Get@BufferStraw@@UAEHPAXH@Z",
+   "address": "00773840"
+  },
+  {
+   "symbol": "?Get@LZOStraw@@UAEHPAXH@Z",
+   "address": "0053f050"
+  },
+  {
+   "symbol": "?Get@Straw@@UAEHPAXH@Z",
+   "address": "0069b0a0"
+  },
+  {
+   "symbol": "?Get_File_From_Host_0066aef0@@YI_NPADH_N@Z",
+   "address": "0066aef0"
+  },
+  {
+   "symbol": "?Get_From@Straw@@UAEXPAV1@@Z",
+   "address": "0069b050"
+  },
+  {
+   "symbol": "?Get_Message@NullModemClass@@QAEHPAXPAH@Z",
+   "address": "005d0630"
+  },
+  {
+   "symbol": "?HouseTypes@@3V?$DynamicVectorClass@PAVHouseTypeClass@@@@A",
+   "address": "00a35d08"
+  },
+  {
+   "symbol": "?Init_Clipping@VersionClass@@QAEXXZ",
+   "address": "00713160"
+  },
+  {
+   "symbol": "?Init_Send_Queue@NullModemClass@@QAEHXZ",
+   "address": "005d03c0"
+  },
+  {
+   "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
+   "address": "006f9ec0"
+  },
+  {
+   "symbol": "?Max_Version@VersionClass@@QAEIXZ",
+   "address": "007131c0"
+  },
+  {
+   "symbol": "?Min_Version@VersionClass@@QAEIXZ",
+   "address": "007131b0"
+  },
+  {
+   "symbol": "?ModemRXString@@3PADA",
+   "address": "00a72e10"
+  },
+  {
+   "symbol": "?Narrow_To_Wide_006fa180@@YIPAGPBD@Z",
+   "address": "006fa180"
+  },
+  {
+   "symbol": "?Num_Send@NullModemClass@@QAEHXZ",
+   "address": "005d08a0"
+  },
+  {
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "address": "005b46b0"
+  },
+  {
+   "symbol": "?Read@RawFileClass@@UAEJPAXJ@Z",
+   "address": "00638d90"
+  },
+  {
+   "symbol": "?Read_Art_INI@@YIXXZ",
+   "address": "00652730"
+  },
+  {
+   "symbol": "?Reset_Response_Time@NullModemClass@@UAEX_N@Z",
+   "address": "005d0900"
+  },
+  {
+   "symbol": "?Response_Time@NullModemClass@@UAEKXZ",
+   "address": "005d08e0"
+  },
+  {
+   "symbol": "?Rules@@3PAVRulesClass@@A",
+   "address": "00839848"
+  },
+  {
+   "symbol": "?Seed@@3IA",
+   "address": "00a40d3c"
+  },
+  {
+   "symbol": "?Send_Message@NullModemClass@@QAEHPAXHH@Z",
+   "address": "005d05f0"
+  },
+  {
+   "symbol": "?Service@NullModemClass@@UAEHXZ",
+   "address": "005d0660"
+  },
+  {
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "address": "00481fb0"
+  },
+  {
+   "symbol": "?Shutdown_Modem@@YAXXZ",
+   "address": "005cea60"
+  },
+  {
+   "symbol": "?Size@RawFileClass@@UAEJXZ",
+   "address": "00639180"
+  },
+  {
+   "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+   "address": "00839980"
+  },
+  {
+   "symbol": "?Unknown_005B5EE0@@YAXXZ",
+   "address": "005b5ee0"
+  },
+  {
+   "symbol": "?Unknown_005c7570@@YIXPAUHWND__@@@Z",
+   "address": "005c7570"
+  },
+  {
+   "symbol": "?Unknown_006525F0@@YIHXZ",
+   "address": "006525f0"
+  },
+  {
+   "symbol": "?Unknown_0068B410@SpecialClass@@QAEXXZ",
+   "address": "0068b410"
+  },
+  {
+   "symbol": "?Unknown_00737af0@@YAHXZ",
+   "address": "00737af0"
+  },
+  {
+   "symbol": "?VerNum@@3VVersionClass@@A",
+   "address": "00a40c88"
+  },
+  {
+   "symbol": "?Version_Protocol@VersionClass@@QAEHH@Z",
+   "address": "00713130"
+  },
+  {
+   "symbol": "?Voc_Play@@YIPAUAudioEvent@@HMHPAUAudioEventHandle@@@Z",
+   "address": "00713db0"
+  },
+  {
+   "symbol": "?WideToCharString_006fa0f0@@YIXPADPBGH@Z",
+   "address": "006fa0f0"
+  },
+  {
+   "symbol": "?Write_MultiPlayer_Settings@SessionClass@@QAEXXZ",
+   "address": "00670380"
+  },
+  {
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "address": "005c2da0"
+  },
+  {
+   "symbol": "?serial_local_player_00a3fb38@@3HA",
+   "address": "00a3fb38"
+  },
+  {
+   "symbol": "?serial_manager_00a40a28@@3VNullModemClass@@A",
+   "address": "00a40a28"
+  },
+  {
+   "symbol": "?unknown_517370@@YIX_N@Z",
+   "address": "00517370"
+  },
+  {
+   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "address": "006000d0"
+  },
+  {
+   "symbol": "?unknown_a3d3b4@@3HA",
+   "address": "00a3d3b4"
+  },
+  {
+   "symbol": "?unknown_a3d3bc@@3HA",
+   "address": "00a3d3bc"
+  },
+  {
+   "symbol": "?unknown_a3f616@@3DA",
+   "address": "00a3f616"
+  },
+  {
+   "symbol": "?unknown_a3fba4@@3HA",
+   "address": "00a3fba4"
+  },
+  {
+   "symbol": "?unknown_a40b18@@3HA",
+   "address": "00a40b18"
+  },
+  {
+   "symbol": "?unknown_art_ini_unique_id@@YAHXZ",
+   "address": "00652710"
+  },
+  {
+   "symbol": "?unknown_cancel_dialog_6001e0@@YIPAUHWND__@@PBG0PA_N@Z",
+   "address": "006001e0"
+  },
+  {
+   "symbol": "?unknown_color_7a737c@@3HA",
+   "address": "007a737c"
+  },
+  {
+   "symbol": "?unknown_color_values_7e6d94@@3QBHB",
+   "address": "007e6d94"
+  },
+  {
+   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "address": "005ff610"
+  },
+  {
+   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "address": "005ff6e0"
+  },
+  {
+   "symbol": "?unknown_dialog_5ff7c0@@YIXPAUHWND__@@@Z",
+   "address": "005ff7c0"
+  },
+  {
+   "symbol": "?unknown_dialog_preview_a72ce8@@3PAVMapPreviewClass@@A",
+   "address": "00a72ce8"
+  },
+  {
+   "symbol": "?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z",
+   "address": "005ffb00"
+  },
+  {
+   "symbol": "?unknown_empty_wide_839d4c@@3QBGB",
+   "address": "00839d4c"
+  },
+  {
+   "symbol": "?unknown_house_setting_7d88d8@@3HA",
+   "address": "007d88d8"
+  },
+  {
+   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
+   "symbol": "?unknown_ini_8397a0_unique_id@@YIHXZ",
+   "address": "00652720"
+  },
+  {
+   "symbol": "?unknown_map_name_a3d342@@3PAGA",
+   "address": "00a3d342"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_multi_missions_a3d8d8@@3V?$DynamicVectorClass@PAVMultiMission@@@@A",
+   "address": "00a3d8d8"
+  },
+  {
+   "symbol": "?unknown_name_a3d3a0@@3PADA",
+   "address": "00a3d3a0"
+  },
+  {
+   "symbol": "?unknown_players_a3fa7c@@3V?$DynamicVectorClass@PAUNodeNameType@@@@A",
+   "address": "00a3fa7c"
+  },
+  {
+   "symbol": "?unknown_session_a3d298@@3USessionClass@@A",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_session_a3d2ac@@3HA",
+   "address": "00a3d2ac"
+  },
+  {
+   "symbol": "?unknown_session_a3d55c@@3HA",
+   "address": "00a3d55c"
+  },
+  {
+   "symbol": "?unknown_session_a3f616@@3_NA",
+   "address": "00a3f616"
+  },
+  {
+   "symbol": "?unknown_special_a40920@@3VSpecialClass@@A",
+   "address": "00a40920"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?wcstrim@@YIPAGPAG@Z",
+   "address": "006eef80"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__EnableWindow@8",
+   "address": "0079a490"
+  },
+  {
+   "symbol": "__imp__GetDlgItem@8",
+   "address": "0079a49c"
+  },
+  {
+   "symbol": "__imp__GetWindowLongA@8",
+   "address": "0079a48c"
+  },
+  {
+   "symbol": "__imp__InvalidateRect@12",
+   "address": "0079a494"
+  },
+  {
+   "symbol": "__imp__SendMessageA@16",
+   "address": "0079a4a0"
+  },
+  {
+   "symbol": "__imp__SetWindowLongA@12",
+   "address": "0079a488"
+  },
+  {
+   "symbol": "__imp__ValidateRect@8",
+   "address": "0079a3f8"
+  },
+  {
+   "symbol": "_swprintf",
+   "address": "00783764"
+  },
+  {
+   "symbol": "_wcscpy",
+   "address": "00783689"
+  },
+  {
+   "symbol": "_wcslen",
+   "address": "00783605"
+  }
+ ],
+ "route": "A",
+ "unit": "modemgst.cpp",
+ "form": "one include block",
+ "switches": [
+  "VECTOR_IMPLEMENT_VECTOR_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ADD"
+ ],
+ "include_blocks": [
+  {
+   "before": "00595e20",
+   "lines": 32
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 36,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

@@ -1,0 +1,181 @@
+{
+ "module": "jshell",
+ "source": "src/recovered/jshell.cpp",
+ "header": null,
+ "population": "population-3709",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 783,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "0052ede0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Fatal@@YAXPBDZZ",
+   "entry": "0052ee00",
+   "body_bytes": 62,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Set_Bit@@YIXPAXHH@Z",
+   "entry": "0052ee40",
+   "body_bytes": 78,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Get_Bit@@YIHPBXH@Z",
+   "entry": "0052ee90",
+   "body_bytes": 50,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?First_True_Bit@@YIHPBX@Z",
+   "entry": "0052eed0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?First_False_Bit@@YIHPBX@Z",
+   "entry": "0052ef20",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  }
+ ],
+ "code_bytes": 400,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0070f0c0",
+   "symbol": "?Set_Bit@@YIXPAXHH@Z",
+   "target": "0052ee40",
+   "function_entry": true
+  },
+  {
+   "site": "0070f170",
+   "symbol": "?Set_Bit@@YIXPAXHH@Z",
+   "target": "0052ee40",
+   "function_entry": true
+  },
+  {
+   "site": "0070f170",
+   "symbol": "?Get_Bit@@YIHPBXH@Z",
+   "target": "0052ee90",
+   "function_entry": true
+  },
+  {
+   "site": "0070f1e0",
+   "symbol": "?Set_Bit@@YIXPAXHH@Z",
+   "target": "0052ee40",
+   "function_entry": true
+  },
+  {
+   "site": "0070f1e0",
+   "symbol": "?Set_Bit@@YIXPAXHH@Z",
+   "target": "0052ee40",
+   "function_entry": true
+  },
+  {
+   "site": "0070f1e0",
+   "symbol": "?Get_Bit@@YIHPBXH@Z",
+   "target": "0052ee90",
+   "function_entry": true
+  },
+  {
+   "site": "0070f1e0",
+   "symbol": "?Set_Bit@@YIXPAXHH@Z",
+   "target": "0052ee40",
+   "function_entry": true
+  },
+  {
+   "site": "0070f2c0",
+   "symbol": "?Set_Bit@@YIXPAXHH@Z",
+   "target": "0052ee40",
+   "function_entry": true
+  },
+  {
+   "site": "0070f360",
+   "symbol": "?Set_Bit@@YIXPAXHH@Z",
+   "target": "0052ee40",
+   "function_entry": true
+  },
+  {
+   "site": "0070f360",
+   "symbol": "?Get_Bit@@YIHPBXH@Z",
+   "target": "0052ee90",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "?Emergency_Exit@@YIXH@Z",
+   "address": "00691310"
+  },
+  {
+   "symbol": "?Printf@MonoClass@@QAAXPBDZZ",
+   "address": "0059e7f0"
+  },
+  {
+   "symbol": "?Unknown_0059DA50@@YIPAVMonoClass@@H@Z",
+   "address": "0059da50"
+  },
+  {
+   "symbol": "?Unknown_00691320@@YAXXZ",
+   "address": "00691320"
+  },
+  {
+   "symbol": "__iob",
+   "address": "0082ec90"
+  },
+  {
+   "symbol": "_vfprintf",
+   "address": "00784502"
+  }
+ ],
+ "route": "A",
+ "unit": "jshell.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "0052ede0",
+   "lines": 5
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 6,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

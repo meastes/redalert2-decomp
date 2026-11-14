@@ -19,7 +19,8 @@ re-verifies exactly the affected translation units:
    "moves": {"src/recovered/.../Old_0076e730.cpp": "src/recovered/.../New_0076e730.cpp"},
    "modules": {"src/recovered/version.cpp": {"draft": "build/class-work/W/version.cpp",
                                               "regions": ["00712b20", "00712b50", ...]}},
-   "options": {"population-3705": ["/O2", "/Ob2", "/G5", "/Gy", "/GR"]}}
+   "options": {"population-3705": ["/O2", "/Ob2", "/G5", "/Gy", "/GR"]},
+   "flags": {"src/recovered/ownrdraw.cpp": {"declarations_only": true, "declarations_only_note": "..."}}}
 
 `modules` gathers accepted regions of one population into one source file
 (the original translation unit's form): the draft becomes the module source,
@@ -28,6 +29,27 @@ semantic name dropped), and the population recompiles as one unit like any
 other. `options` sets a population's recorded option set (one of
 canonical.RECORDED_OPTIONS), e.g. /GR for a unit whose emitted RTTI and
 vtable are then compared with the original's.
+A module item may list `joins`: accepted regions of the same original unit that live
+in other populations (acceptance history split the unit). A joining row moves into the
+module's population only as it is: same option set, the same frozen bound and padding
+provenance in the module population's inventory pass (so no private input changes), and
+no name its accepted relocations bind at another address than the module population's
+table does (the unit's own table has precedence; a joining row adds only names the table
+lacks, never a compiler-numbered one). Both populations recompile and every region of
+both must still reproduce its complete extent (refile_unit.py drives this).
+With `"joins_bound": "own"` (docs/DECISIONS.md "Route A split rows", option (ii)) a
+joining row whose bound the module population's pass does not hold, or holds differently,
+still joins the module's translation unit: it keeps the population that froze it as
+`bound_population`, and the audit reads its bound, gap padding and provenance from that
+population's pass (canonical.bound_population). Nothing else is relaxed: same option
+set, the unit's table has precedence, neither population has a closed compiler-output
+policy, and the row must reproduce its complete extent in the module's unit.
+`"joins_options": "unit_gr"` lets a row frozen without /GR take the unit's /GR;
+`"joins_options": "unit"` lets a row frozen under any other recorded option set take the
+unit's (docs/DECISIONS.md "Stand-ins frozen under another optimisation option than their
+unit"; refile_unit.py join-own --adopt-options checks that the unit's set is evidenced).
+`flags` sets row fields on every row of a source (a judgment-call flag such as
+`declarations_only` that the changed text requires; canonical.validate_catalog checks it).
 A module item may also give `inline_asm_citation`: {entry: [citation, ...]} for its
 evidenced inline-assembly rows, restated for the per-function attribution (an asm-only
 archive macro counts once per invocation: docs/DECISIONS.md).
@@ -169,17 +191,144 @@ def planned_files(spec):
     return files, removed
 
 
-def apply_modules(catalog, spec, files, removed):
+COMPILER_NUMBERED = re.compile(r'^(?:_?\$[ES]\d+|\$T\d+)$')
+
+
+def frozen_bounds(config):
+    """bound(population, row): what the population's frozen inventory pass says about
+    the row's extent (its inventory row and the gap row behind its body), or None when
+    the pass has no row at that entry. Equal values mean the audit reads the same
+    independent bound for the row under either population."""
+    parsed = {}
+
+    def table(path, key):
+        if (path, key) not in parsed:
+            rows = {}
+            for line in (REPOSITORY / path).read_text().splitlines():
+                if line.strip():
+                    row = json.loads(line)
+                    rows[int(row[key], 16)] = json.dumps(row, sort_keys=True)
+            parsed[path, key] = rows
+        return parsed[path, key]
+
+    def bound(pid, row):
+        inputs = config['populations'][pid]
+        inventory = table(inputs['inventory'], 'entry')
+        if row['entry'] not in inventory:
+            return None
+        return inventory[row['entry']], table(inputs['gaps'], 'start').get(row['entry'] + row['body_bytes'])
+    return bound
+
+
+def gr_only_difference(row_options, unit_options):
+    """True when the unit's option set is the row's plus /GR (lane F measurement: a row
+    frozen before its unit gained /GR joins under the unit's options)."""
+    return '/GR' in unit_options and [o for o in unit_options if o != '/GR'] == list(row_options)
+
+
+def join_rows(catalog, module, rows, joins, config, own_bound=False, adopt_gr=False, adopt_options=False, renumber=None):
+    """Move the `joins` rows into the module's population (see the module docstring);
+    return the populations they leave. `own_bound`: a row the module population's pass
+    does not freeze equally keeps its own frozen population as `bound_population`.
+    `adopt_gr` (`"joins_options": "unit_gr"`): a row whose option set is the unit's without
+    /GR joins and takes the unit's options (it must still reproduce its complete extent).
+    `adopt_options` (`"joins_options": "unit"`): a row under any other recorded option set
+    takes the unit's options (the same condition).
+    `renumber` ({entry: {old: new}}, `"joins_renumber"`): a joining row's unit-counter names
+    (`_$E<n>`, `_$S<n>`) take the numbers refile_unit.py gave them past the unit's, so the
+    re-binding after the compile (rebind_initializers) never meets two rows with one name."""
+    home = {r['population'] for r in rows if r['entry'] not in joins}
+    if len(home) != 1:
+        raise SystemExit('%s: regions of several populations' % module)
+    pid = home.pop()
+    members = [r for r in catalog['regions'] if r['population'] == pid]
+    table = dict(members[0].get('references') or {})
+    options = members[0]['options']
+    bound = frozen_bounds(config)
+    policies = {p['id'] for p in catalog.get('populations', []) if p.get('compiler_output_policy')}
+    left = set()
+    for row in rows:
+        if row['entry'] not in joins or row['population'] == pid:
+            continue
+        name = '%s: join %08x' % (module, row['entry'])
+        mapping = (renumber or {}).get(row['entry'])
+        if mapping:
+            if any(not COMPILER_NUMBERED.match(n) or not COMPILER_NUMBERED.match(v) for n, v in mapping.items()):
+                raise SystemExit('%s: joins_renumber names only compiler-numbered names' % name)
+            for key in ('symbol', 'symbol_prefix'):
+                row[key] = mapping.get(row.get(key), row.get(key))
+            for relocation in row.get('relocations') or []:
+                relocation['symbol'] = mapping.get(relocation['symbol'], relocation['symbol'])
+            if row.get('references'):
+                row['references'] = {mapping.get(n, n): v for n, v in row['references'].items()}
+        if row['options'] != options:
+            if not (adopt_options or (adopt_gr and gr_only_difference(row['options'], options))):
+                raise SystemExit('%s: recorded under another option set' % name)
+            row['options'] = list(options)
+        frozen = row.get('bound_population', row['population'])
+        own = bound(frozen, row)
+        here = bound(pid, row)
+        if frozen == pid:
+            row.pop('bound_population', None)       # back in the population that froze it
+        elif here is None or here != own:
+            if not own_bound:
+                raise SystemExit('%s: %s holds no equal frozen bound for it' % (name, pid))
+            if own is None:
+                raise SystemExit('%s: %s holds no frozen bound for it' % (name, frozen))
+            if {pid, frozen} & policies:
+                raise SystemExit('%s: a closed compiler-output population' % name)
+            row['bound_population'] = frozen
+        else:
+            row.pop('bound_population', None)       # the unit's pass freezes it equally
+        own = {}
+        for relocation in row.get('relocations') or []:
+            own.setdefault(relocation['symbol'], relocation['target'])
+        for symbol, target in sorted(own.items()):
+            if not COMPILER_NUMBERED.match(symbol) and table.get(symbol, target) != target:
+                raise SystemExit('%s: %s is %08x in %s and %08x in the row' % (name, symbol, table[symbol], pid, target))
+        # An own-bound join brings only the names its accepted relocations bind, never its
+        # donor population's whole table (another unit's COMDAT copies of the unit's own
+        # names would re-bind the unit's vtables and stand-ins).
+        brought = own if 'bound_population' in row else {**(row.get('references') or {}), **own}
+        # A renumbered row's unit-counter names are its own placeholders (no unit name has their
+        # numbers): it brings them, so the re-binding after the compile finds their addresses.
+        placeholders = set((mapping or {}).values())
+        for symbol, target in sorted(brought.items()):
+            if not COMPILER_NUMBERED.match(symbol) or symbol in placeholders:
+                table.setdefault(symbol, target)
+        left.add(row['population'])
+        row['population'] = pid
+        # The build joins a group's sources in the order of their first rows: a joining row
+        # must not move the module ahead of the sources (switch files) its population
+        # already compiles before it. It takes a fresh order behind every row.
+        if row['source_order'] < min(r['source_order'] for r in rows if r['entry'] not in joins):
+            row['source_order'] = max(r['source_order'] for r in catalog['regions']) + 1
+    for row in catalog['regions']:
+        if row['population'] == pid:
+            row['references'] = table
+    return left
+
+
+def apply_modules(catalog, spec, files, removed, config=None):
     """Point the listed regions at their module source (see the module docstring);
     return the affected population ids."""
     from canonical import RECORDED_OPTIONS
     affected = set()
     for module, item in spec.get('modules', {}).items():
         source_path(REPOSITORY, module)
-        entries = {int(e, 16) for e in item['regions']}
+        joins = {int(e, 16) for e in item.get('joins', [])}
+        entries = {int(e, 16) for e in item['regions']} | joins
         rows = [r for r in catalog['regions'] if r['entry'] in entries]
         if len(rows) != len(entries):
             raise SystemExit('%s: %d of %d regions are accepted' % (module, len(rows), len(entries)))
+        if joins:
+            if item.get('joins_bound', 'equal') not in ('equal', 'own'):
+                raise SystemExit('%s: joins_bound is "equal" or "own"' % module)
+            if item.get('joins_options', 'same') not in ('same', 'unit_gr', 'unit'):
+                raise SystemExit('%s: joins_options is "same", "unit_gr" or "unit"' % module)
+            affected |= join_rows(catalog, module, rows, joins, config, item.get('joins_bound') == 'own',
+                                  item.get('joins_options') == 'unit_gr', item.get('joins_options') == 'unit',
+                                  {int(e, 16): m for e, m in item.get('joins_renumber', {}).items()})
         if len({r['population'] for r in rows}) != 1:
             raise SystemExit('%s: regions of several populations' % module)
         files[module] = (REPOSITORY / item['draft']).read_bytes()
@@ -274,6 +423,8 @@ def bind_changed(catalog, populations, files, config):
     audit = None
     for pid in sorted(populations):
         rows = [r for r in catalog['regions'] if r['population'] == pid]
+        if not rows:
+            continue        # every row of the population left through `joins`
         table = rows[0]['references']
         for row in rows:
             if row['source'] not in files:
@@ -446,7 +597,7 @@ def main():
     phase('load')
     files, removed = planned_files(spec)
     moves = spec.get('moves', {})
-    modules = apply_modules(catalog, spec, files, removed)
+    modules = apply_modules(catalog, spec, files, removed, config)
     sources = {p: d for p, d in files.items() if p.startswith('src/recovered/')}
     headers = sorted(p for p in files if p.startswith('src/shared/'))
     populations = rename_catalog(catalog, spec['renames'], sources, moves) | modules
@@ -488,6 +639,12 @@ def main():
                 if region.get('source_quality_family') == 'ghidra-seed-sweep':
                     region['source_quality_family'] = 'hand-written'    # as accept_sources records it
         sync_headers(catalog)
+        for source, fields in spec.get('flags', {}).items():
+            rows = [r for r in catalog['regions'] if r['source'] == source]
+            if not rows:
+                raise SystemExit('flags: %s is not an accepted source' % source)
+            for row in rows:
+                row.update(fields)
         bind_changed(catalog, populations, sources, config)
         left = leftover(catalog_io.dumps(catalog), spec['renames'])
         if left:    # checked again on the final text; this refuses before compiling
@@ -527,8 +684,8 @@ def main():
             accepted.setdefault(row['population'], []).append(row)
         for population in catalog['populations']:
             pid = population['id']
-            if pid not in populations:
-                continue
+            if pid not in populations or pid not in accepted:
+                continue        # (a population every row left through `joins` keeps its record, without rows)
             folder = output / pid; folder.mkdir()
             rows = [{k: v for k, v in r.items() if k != 'references'}
                     for r in catalog['regions'] if r['population'] == pid]

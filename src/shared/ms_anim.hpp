@@ -118,7 +118,7 @@ public:
     virtual void Restore(int unknown1);                         // 0x005AD840
 
     // Restart the fade at a new frame / at the current one (TibSun names;
-    // both clear unknown_40; accepted as seeds Leaf_5ad820/Leaf_5ad810).
+    // both clear unknown_40).
     void Set_Frame(unsigned frame);                             // 0x005AD820
     void Restart();                                             // 0x005AD810
 
@@ -185,6 +185,7 @@ public:
     // next line with a "bleep1" (0x005AF210; no caller, not in the vtable;
     // name hypothesis).
     bool Unknown_5af210(Surface *surface, Rect *dirty);
+    void Set_Transient(bool transient);                         // 0x005AF430
     // The width of a line up to its end or newline (inline: slot 4 and Draw
     // expand it; name hypothesis).
     int Line_Width(WideString const &line);

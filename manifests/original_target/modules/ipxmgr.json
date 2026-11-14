@@ -1,0 +1,3105 @@
+{
+ "module": "ipxmgr",
+ "source": "src/recovered/ipxmgr.cpp",
+ "header": null,
+ "population": "population-3820",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 850,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00524e40",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "00524e70",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "00524e90",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "00524eb0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "00524ed0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "00524ef0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "00524f10",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "00524f50",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "00524f80",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "00524fb0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "00524fe0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "00524ff0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "00525010",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??0IPXManagerClass@@QAE@HHHHGG@Z",
+   "entry": "00525030",
+   "body_bytes": 247,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??1IPXManagerClass@@UAE@XZ",
+   "entry": "00525130",
+   "body_bytes": 141,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Init@IPXManagerClass@@QAEHXZ",
+   "entry": "005251c0",
+   "body_bytes": 454,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Is_IPX@IPXManagerClass@@QAEHXZ",
+   "entry": "00525390",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "entry": "005253a0",
+   "body_bytes": 167,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?unknown_slot14@IPXManagerClass@@UAEXKKK@Z",
+   "entry": "00525450",
+   "body_bytes": 37,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?unknown_slot16@IPXManagerClass@@UAEXXZ",
+   "entry": "00525480",
+   "body_bytes": 26,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?unknown_slot17@IPXManagerClass@@UAEXXZ",
+   "entry": "005254a0",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?unknown_slot18@IPXManagerClass@@UAEXKKK@Z",
+   "entry": "005254c0",
+   "body_bytes": 63,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Create_Connection@IPXManagerClass@@QAEHHPBGPAVIPXAddressClass@@@Z",
+   "entry": "00525500",
+   "body_bytes": 171,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?unknown_5255b0@IPXManagerClass@@QAEHXZ",
+   "entry": "005255b0",
+   "body_bytes": 141,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Delete_Connection@IPXManagerClass@@QAEHH@Z",
+   "entry": "00525640",
+   "body_bytes": 136,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Num_Connections@IPXManagerClass@@UAEHXZ",
+   "entry": "005256d0",
+   "body_bytes": 4,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Connection_ID@IPXManagerClass@@UAEHH@Z",
+   "entry": "005256e0",
+   "body_bytes": 29,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Connection_Name@IPXManagerClass@@QAEPAGH@Z",
+   "entry": "00525700",
+   "body_bytes": 55,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Connection_Address@IPXManagerClass@@QAEPAVIPXAddressClass@@H@Z",
+   "entry": "00525740",
+   "body_bytes": 55,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Connection_Index@IPXManagerClass@@UAEHH@Z",
+   "entry": "00525780",
+   "body_bytes": 41,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?unknown_slot19@IPXManagerClass@@UAEHPAVConnectionClass@@@Z",
+   "entry": "005257b0",
+   "body_bytes": 78,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?unknown_525800@IPXManagerClass@@QAEXHHPBG@Z",
+   "entry": "00525800",
+   "body_bytes": 48,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "entry": "00525830",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?unknown_5258b0@IPXManagerClass@@QAEHPAXHHH@Z",
+   "entry": "005258b0",
+   "body_bytes": 228,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "entry": "005259a0",
+   "body_bytes": 258,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Get_Global_Message@IPXManagerClass@@QAEHPAXPAHPAVIPXAddressClass@@PAG@Z",
+   "entry": "00525ab0",
+   "body_bytes": 50,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?unknown_525af0@IPXManagerClass@@QAEHHPAXPAHPAVIPXAddressClass@@PAGPAK@Z",
+   "entry": "00525af0",
+   "body_bytes": 60,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?unknown_525b30@IPXManagerClass@@QAEXH@Z",
+   "entry": "00525b30",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?unknown_525b50@IPXManagerClass@@QAEHPAXH_N@Z",
+   "entry": "00525b50",
+   "body_bytes": 107,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?unknown_525bc0@IPXManagerClass@@QAEHPAXPAHPAVIPXAddressClass@@PAG@Z",
+   "entry": "00525bc0",
+   "body_bytes": 50,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Send_Private_Message@IPXManagerClass@@UAEHPAXHHH@Z",
+   "entry": "00525c00",
+   "body_bytes": 293,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Get_Private_Message@IPXManagerClass@@UAEHPAXPAH1@Z",
+   "entry": "00525d30",
+   "body_bytes": 142,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?unknown_525dc0@IPXManagerClass@@QAE_NPAUCommHeaderType@@PADHPAVIPXAddressClass@@G@Z",
+   "entry": "00525dc0",
+   "body_bytes": 409,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Set_Connection_Address@IPXManagerClass@@QAEXHPAVIPXAddressClass@@@Z",
+   "entry": "005269f0",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?unknown_526a30@IPXManagerClass@@QAEHXZ",
+   "entry": "00526a30",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "entry": "00526a40",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Global_Num_Receive@IPXManagerClass@@UAEHXZ",
+   "entry": "00526a60",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?unknown_slot20@IPXManagerClass@@UAEHXZ",
+   "entry": "00526a80",
+   "body_bytes": 31,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?unknown_slot21@IPXManagerClass@@UAEHXZ",
+   "entry": "00526aa0",
+   "body_bytes": 31,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Private_Num_Send@IPXManagerClass@@UAEHH@Z",
+   "entry": "00526ac0",
+   "body_bytes": 101,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Private_Num_Receive@IPXManagerClass@@UAEHH@Z",
+   "entry": "00526b30",
+   "body_bytes": 101,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Set_Socket@IPXManagerClass@@QAEXG@Z",
+   "entry": "00526ba0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Response_Time@IPXManagerClass@@UAEKXZ",
+   "entry": "00526bc0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?unknown_slot22@IPXManagerClass@@UAEKH@Z",
+   "entry": "00526c10",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "entry": "00526c30",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?unknown_526c50@IPXManagerClass@@QAEKXZ",
+   "entry": "00526c50",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?unknown_526c70@IPXManagerClass@@QAEKXZ",
+   "entry": "00526c70",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Store_Stats@IPXManagerClass@@UAEXXZ",
+   "entry": "00526c90",
+   "body_bytes": 247,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Multiplayer_Debug_Print_00526d90@IPXManagerClass@@QAEXXZ",
+   "entry": "00526d90",
+   "body_bytes": 2208,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Reset_Response_Time@IPXManagerClass@@UAEX_N@Z",
+   "entry": "00527630",
+   "body_bytes": 102,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?unknown_5276a0@IPXManagerClass@@QAEPADXZ",
+   "entry": "005276a0",
+   "body_bytes": 129,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Set_Bridge@IPXManagerClass@@QAEXQAE@Z",
+   "entry": "00527730",
+   "body_bytes": 20,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Configure_Debug@IPXManagerClass@@UAEXHHHHHH@Z",
+   "entry": "00527750",
+   "body_bytes": 92,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Mono_Debug_Print@IPXManagerClass@@UAEXHH@Z",
+   "entry": "005277b0",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?unknown_5277c0@IPXManagerClass@@QAEXPAVIPXAddressClass@@@Z",
+   "entry": "005277c0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?unknown_5277f0@IPXManagerClass@@QAEXXZ",
+   "entry": "005277f0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?unknown_527800@IPXManagerClass@@QAEXXZ",
+   "entry": "00527800",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?unknown_527810@IPXManagerClass@@QAEXPAVIPXAddressClass@@G@Z",
+   "entry": "00527810",
+   "body_bytes": 25,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?unknown_527830@IPXManagerClass@@QAEXH@Z",
+   "entry": "00527830",
+   "body_bytes": 20,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "??_GIPXManagerClass@@UAEPAXI@Z",
+   "entry": "00527850",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "??_GConnManClass@@UAEPAXI@Z",
+   "entry": "00527870",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  }
+ ],
+ "code_bytes": 8128,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a46d0",
+   "bytes": 16,
+   "kind": "table",
+   "section": 4
+  },
+  {
+   "symbol": "??_7IPXManagerClass@@6B@",
+   "address": "007a46e0",
+   "bytes": 104,
+   "kind": "vtable",
+   "section": 47
+  },
+  {
+   "symbol": "??_7ConnManClass@@6B@",
+   "address": "007a4748",
+   "bytes": 68,
+   "kind": "vtable",
+   "section": 57
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ConnManClass@@8",
+   "address": "007bc850",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 41
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPXManagerClass@@8",
+   "address": "007bc868",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 42
+  },
+  {
+   "symbol": "??_R2IPXManagerClass@@8",
+   "address": "007bc880",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 43
+  },
+  {
+   "symbol": "??_R3IPXManagerClass@@8",
+   "address": "007bc890",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R4IPXManagerClass@@6B@",
+   "address": "007bc8a0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 46
+  },
+  {
+   "symbol": "??_R2ConnManClass@@8",
+   "address": "007bc8b4",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 54
+  },
+  {
+   "symbol": "??_R3ConnManClass@@8",
+   "address": "007bc8c0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 55
+  },
+  {
+   "symbol": "??_R4ConnManClass@@6B@",
+   "address": "007bc8d0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 56
+  },
+  {
+   "symbol": "??_C@_04HPIL@Grey?$AA@",
+   "address": "007d83b8",
+   "bytes": 5,
+   "kind": "string",
+   "section": 171
+  },
+  {
+   "symbol": "??_C@_15DEDE@?$AA?$CF?$AAs?$AA?$AA@",
+   "address": "007d9c94",
+   "bytes": 6,
+   "kind": "string",
+   "section": 166
+  },
+  {
+   "symbol": "??_R0?AVConnManClass@@@8",
+   "address": "007ddf10",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 40
+  },
+  {
+   "symbol": "??_R0?AVIPXManagerClass@@@8",
+   "address": "007ddf30",
+   "bytes": 30,
+   "kind": "rtti",
+   "section": 45
+  },
+  {
+   "symbol": "??_C@_0CA@GGJA@?$CK?$CK?$CK?$CK?5IPXManagerClass?3?3Init?5?$CK?$CK?$CK?6?$AA@",
+   "address": "007ddf50",
+   "bytes": 32,
+   "kind": "string",
+   "section": 62
+  },
+  {
+   "symbol": "??_C@_0BA@BBAO@MaxAhead?5is?5?$CFd?6?$AA@",
+   "address": "007ddf70",
+   "bytes": 16,
+   "kind": "string",
+   "section": 67
+  },
+  {
+   "symbol": "??_C@_0BO@DNBK@IPX?5Manager?3?5RetryDelta?5?$DN?5?$CFd?6?$AA@",
+   "address": "007ddf80",
+   "bytes": 30,
+   "kind": "string",
+   "section": 68
+  },
+  {
+   "symbol": "??_C@_09LEIE@Multicast?$AA@",
+   "address": "007ddfa0",
+   "bytes": 10,
+   "kind": "string",
+   "section": 81
+  },
+  {
+   "symbol": "??_C@_0BC@EBI@Send?5overflow?5?$CFd?6?$AA@",
+   "address": "007ddfac",
+   "bytes": 18,
+   "kind": "string",
+   "section": 100
+  },
+  {
+   "symbol": "??_C@_0CF@DLAK@Forwarding?5packet?5from?5router?5to@",
+   "address": "007ddfc0",
+   "bytes": 37,
+   "kind": "string",
+   "section": 121
+  },
+  {
+   "symbol": "??_C@_0EI@ODOI@Packet?5is?5supposed?5to?5be?5forward@",
+   "address": "007ddfe8",
+   "bytes": 72,
+   "kind": "string",
+   "section": 122
+  },
+  {
+   "symbol": "??_C@_0CN@EOBI@Forwarding?5packet?5from?5?$CFs?5?$DL?5?$CFd?5t@",
+   "address": "007de030",
+   "bytes": 45,
+   "kind": "string",
+   "section": 123
+  },
+  {
+   "symbol": "??_C@_1BM@IADI@?$AAR?$AAo?$AAu?$AAt?$AA?5?$AAr?$AAe?$AAs?$AAp?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de30c",
+   "bytes": 28,
+   "kind": "string",
+   "section": 156
+  },
+  {
+   "symbol": "??_C@_1CE@IEFB@?$AAM?$AAi?$AAs?$AAs?$AAe?$AAd?$AA?5?$AAo?$AA?1?$AAm?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?1?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de328",
+   "bytes": 36,
+   "kind": "string",
+   "section": 157
+  },
+  {
+   "symbol": "??_C@_1CC@BJLO@?$AAQ?$AAu?$AAe?$AAu?$AAe?$AA?5?$AAs?$AA?1?$AAr?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?1?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de34c",
+   "bytes": 34,
+   "kind": "string",
+   "section": 158
+  },
+  {
+   "symbol": "??_C@_1BK@CPKN@?$AAF?$AAr?$AAa?$AAm?$AAe?$AA?5?$AA?5?$AA?5?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de370",
+   "bytes": 26,
+   "kind": "string",
+   "section": 159
+  },
+  {
+   "symbol": "??_C@_1BK@GNEK@?$AAP?$AAr?$AAo?$AAc?$AAe?$AAs?$AAs?$AA?5?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de38c",
+   "bytes": 26,
+   "kind": "string",
+   "section": 160
+  },
+  {
+   "symbol": "??_C@_1BM@ONCH@?$AAP?$AAc?$AAn?$AAt?$AA?5?$AAl?$AAo?$AAs?$AAt?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de3a8",
+   "bytes": 28,
+   "kind": "string",
+   "section": 161
+  },
+  {
+   "symbol": "??_C@_1BM@DACE@?$AAN?$AAu?$AAm?$AA?5?$AAl?$AAo?$AAs?$AAt?$AA?5?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de3c4",
+   "bytes": 28,
+   "kind": "string",
+   "section": 162
+  },
+  {
+   "symbol": "??_C@_1BM@OIF@?$AAR?$AAe?$AAs?$AAe?$AAn?$AAd?$AAs?$AA?5?$AA?5?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de3e0",
+   "bytes": 28,
+   "kind": "string",
+   "section": 163
+  },
+  {
+   "symbol": "??_C@_1BM@NAGD@?$AAM?$AAa?$AAx?$AA?5?$AA?5?$AA?5?$AA?5?$AA?5?$AA?5?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de3fc",
+   "bytes": 28,
+   "kind": "string",
+   "section": 164
+  },
+  {
+   "symbol": "??_C@_1BM@BLOM@?$AAA?$AAv?$AAe?$AAr?$AAa?$AAg?$AAe?$AA?5?$AA?5?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de418",
+   "bytes": 28,
+   "kind": "string",
+   "section": 165
+  },
+  {
+   "symbol": "??_C@_1BI@LPOL@?$AAM?$AAC?$AA?5?$AAr?$AAe?$AAs?$AAp?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de434",
+   "bytes": 24,
+   "kind": "string",
+   "section": 167
+  },
+  {
+   "symbol": "??_C@_1BE@DICJ@?$AAF?$AAS?$AAP?$AAS?$AA?5?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de44c",
+   "bytes": 20,
+   "kind": "string",
+   "section": 168
+  },
+  {
+   "symbol": "??_C@_1BO@HEMD@?$AAL?$AAa?$AAt?$AA?5?$AAF?$AAu?$AAd?$AAg?$AAe?$AA?5?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de460",
+   "bytes": 30,
+   "kind": "string",
+   "section": 169
+  },
+  {
+   "symbol": "??_C@_1CC@MIAJ@?$AAR?$AAt?$AAr?$AAy?$AA?5?$AAt?$AAi?$AAm?$AAe?$AAo?$AAu?$AAt?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de480",
+   "bytes": 34,
+   "kind": "string",
+   "section": 170
+  },
+  {
+   "symbol": "??_C@_1BO@JIKG@?$AAR?$AAt?$AAr?$AAy?$AA?5?$AAd?$AAe?$AAl?$AAt?$AAa?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de4a4",
+   "bytes": 30,
+   "kind": "string",
+   "section": 172
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a46d0",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7IPXManagerClass@@6B@",
+   "address": "007a46e0",
+   "bytes": 104,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7ConnManClass@@6B@",
+   "address": "007a4748",
+   "bytes": 68,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ConnManClass@@8",
+   "address": "007bc850",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPXManagerClass@@8",
+   "address": "007bc868",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2IPXManagerClass@@8",
+   "address": "007bc880",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3IPXManagerClass@@8",
+   "address": "007bc890",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4IPXManagerClass@@6B@",
+   "address": "007bc8a0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2ConnManClass@@8",
+   "address": "007bc8b4",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3ConnManClass@@8",
+   "address": "007bc8c0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4ConnManClass@@6B@",
+   "address": "007bc8d0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_04HPIL@Grey?$AA@",
+   "address": "007d83b8",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_15DEDE@?$AA?$CF?$AAs?$AA?$AA@",
+   "address": "007d9c94",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AVConnManClass@@@8",
+   "address": "007ddf10",
+   "bytes": 27,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVIPXManagerClass@@@8",
+   "address": "007ddf30",
+   "bytes": 30,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0CA@GGJA@?$CK?$CK?$CK?$CK?5IPXManagerClass?3?3Init?5?$CK?$CK?$CK?6?$AA@",
+   "address": "007ddf50",
+   "bytes": 32,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@BBAO@MaxAhead?5is?5?$CFd?6?$AA@",
+   "address": "007ddf70",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BO@DNBK@IPX?5Manager?3?5RetryDelta?5?$DN?5?$CFd?6?$AA@",
+   "address": "007ddf80",
+   "bytes": 30,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09LEIE@Multicast?$AA@",
+   "address": "007ddfa0",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@EBI@Send?5overflow?5?$CFd?6?$AA@",
+   "address": "007ddfac",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CF@DLAK@Forwarding?5packet?5from?5router?5to@",
+   "address": "007ddfc0",
+   "bytes": 37,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0EI@ODOI@Packet?5is?5supposed?5to?5be?5forward@",
+   "address": "007ddfe8",
+   "bytes": 72,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CN@EOBI@Forwarding?5packet?5from?5?$CFs?5?$DL?5?$CFd?5t@",
+   "address": "007de030",
+   "bytes": 45,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_1BM@IADI@?$AAR?$AAo?$AAu?$AAt?$AA?5?$AAr?$AAe?$AAs?$AAp?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de30c",
+   "bytes": 28,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_1CE@IEFB@?$AAM?$AAi?$AAs?$AAs?$AAe?$AAd?$AA?5?$AAo?$AA?1?$AAm?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?1?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de328",
+   "bytes": 36,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_1CC@BJLO@?$AAQ?$AAu?$AAe?$AAu?$AAe?$AA?5?$AAs?$AA?1?$AAr?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?1?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de34c",
+   "bytes": 34,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_1BK@CPKN@?$AAF?$AAr?$AAa?$AAm?$AAe?$AA?5?$AA?5?$AA?5?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de370",
+   "bytes": 26,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_1BK@GNEK@?$AAP?$AAr?$AAo?$AAc?$AAe?$AAs?$AAs?$AA?5?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de38c",
+   "bytes": 26,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_1BM@ONCH@?$AAP?$AAc?$AAn?$AAt?$AA?5?$AAl?$AAo?$AAs?$AAt?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de3a8",
+   "bytes": 28,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_1BM@DACE@?$AAN?$AAu?$AAm?$AA?5?$AAl?$AAo?$AAs?$AAt?$AA?5?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de3c4",
+   "bytes": 28,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_1BM@OIF@?$AAR?$AAe?$AAs?$AAe?$AAn?$AAd?$AAs?$AA?5?$AA?5?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de3e0",
+   "bytes": 28,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_1BM@NAGD@?$AAM?$AAa?$AAx?$AA?5?$AA?5?$AA?5?$AA?5?$AA?5?$AA?5?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de3fc",
+   "bytes": 28,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_1BM@BLOM@?$AAA?$AAv?$AAe?$AAr?$AAa?$AAg?$AAe?$AA?5?$AA?5?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de418",
+   "bytes": 28,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_1BI@LPOL@?$AAM?$AAC?$AA?5?$AAr?$AAe?$AAs?$AAp?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de434",
+   "bytes": 24,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_1BE@DICJ@?$AAF?$AAS?$AAP?$AAS?$AA?5?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de44c",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_1BO@HEMD@?$AAL?$AAa?$AAt?$AA?5?$AAF?$AAu?$AAd?$AAg?$AAe?$AA?5?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de460",
+   "bytes": 30,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_1CC@MIAJ@?$AAR?$AAt?$AAr?$AAy?$AA?5?$AAt?$AAi?$AAm?$AAe?$AAo?$AAu?$AAt?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de480",
+   "bytes": 34,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_1BO@JIKG@?$AAR?$AAt?$AAr?$AAy?$AA?5?$AAd?$AAe?$AAl?$AAt?$AAa?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007de4a4",
+   "bytes": 30,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "004d48d0",
+   "symbol": "??0IPXManagerClass@@QAE@HHHHGG@Z",
+   "target": "00525030",
+   "function_entry": true
+  },
+  {
+   "site": "004d4910",
+   "symbol": "??1IPXManagerClass@@UAE@XZ",
+   "target": "00525130",
+   "function_entry": true
+  },
+  {
+   "site": "005d94d0",
+   "symbol": "?Set_Socket@IPXManagerClass@@QAEXG@Z",
+   "target": "00526ba0",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "target": "005253a0",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?unknown_slot14@IPXManagerClass@@UAEXKKK@Z",
+   "target": "00525450",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "target": "005253a0",
+   "function_entry": true
+  },
+  {
+   "site": "0065dec0",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "0065dec0",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "0065dec0",
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "target": "005253a0",
+   "function_entry": true
+  },
+  {
+   "site": "0065dec0",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "0065dec0",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "0065dec0",
+   "symbol": "?unknown_slot14@IPXManagerClass@@UAEXKKK@Z",
+   "target": "00525450",
+   "function_entry": true
+  },
+  {
+   "site": "0065dec0",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "0065dec0",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "0065dec0",
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "target": "005253a0",
+   "function_entry": true
+  },
+  {
+   "site": "0051b5f0",
+   "symbol": "?Num_Connections@IPXManagerClass@@UAEHXZ",
+   "target": "005256d0",
+   "function_entry": true
+  },
+  {
+   "site": "0051b5f0",
+   "symbol": "?Connection_ID@IPXManagerClass@@UAEHH@Z",
+   "target": "005256e0",
+   "function_entry": true
+  },
+  {
+   "site": "0051b5f0",
+   "symbol": "?Connection_Name@IPXManagerClass@@QAEPAGH@Z",
+   "target": "00525700",
+   "function_entry": true
+  },
+  {
+   "site": "0051b5f0",
+   "symbol": "?Connection_Address@IPXManagerClass@@QAEPAVIPXAddressClass@@H@Z",
+   "target": "00525740",
+   "function_entry": true
+  },
+  {
+   "site": "0051b5f0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "0051b5f0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005a5720",
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "target": "005253a0",
+   "function_entry": true
+  },
+  {
+   "site": "005a5720",
+   "symbol": "?unknown_slot18@IPXManagerClass@@UAEXKKK@Z",
+   "target": "005254c0",
+   "function_entry": true
+  },
+  {
+   "site": "005a5720",
+   "symbol": "?Num_Connections@IPXManagerClass@@UAEHXZ",
+   "target": "005256d0",
+   "function_entry": true
+  },
+  {
+   "site": "005a5720",
+   "symbol": "?Connection_ID@IPXManagerClass@@UAEHH@Z",
+   "target": "005256e0",
+   "function_entry": true
+  },
+  {
+   "site": "005a5720",
+   "symbol": "?Delete_Connection@IPXManagerClass@@QAEHH@Z",
+   "target": "00525640",
+   "function_entry": true
+  },
+  {
+   "site": "005a5720",
+   "symbol": "?Num_Connections@IPXManagerClass@@UAEHXZ",
+   "target": "005256d0",
+   "function_entry": true
+  },
+  {
+   "site": "00623260",
+   "symbol": "?unknown_527800@IPXManagerClass@@QAEXXZ",
+   "target": "00527800",
+   "function_entry": true
+  },
+  {
+   "site": "00623280",
+   "symbol": "?unknown_5277f0@IPXManagerClass@@QAEXXZ",
+   "target": "005277f0",
+   "function_entry": true
+  },
+  {
+   "site": "00627210",
+   "symbol": "?Connection_Name@IPXManagerClass@@QAEPAGH@Z",
+   "target": "00525700",
+   "function_entry": true
+  },
+  {
+   "site": "00627210",
+   "symbol": "?Connection_Name@IPXManagerClass@@QAEPAGH@Z",
+   "target": "00525700",
+   "function_entry": true
+  },
+  {
+   "site": "00627210",
+   "symbol": "?Connection_Name@IPXManagerClass@@QAEPAGH@Z",
+   "target": "00525700",
+   "function_entry": true
+  },
+  {
+   "site": "0062e5c0",
+   "symbol": "?unknown_slot22@IPXManagerClass@@UAEKH@Z",
+   "target": "00526c10",
+   "function_entry": true
+  },
+  {
+   "site": "0062e840",
+   "symbol": "?unknown_5277f0@IPXManagerClass@@QAEXXZ",
+   "target": "005277f0",
+   "function_entry": true
+  },
+  {
+   "site": "0062e840",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "0062e840",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "0062e840",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "0062e840",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "0062e840",
+   "symbol": "?unknown_527800@IPXManagerClass@@QAEXXZ",
+   "target": "00527800",
+   "function_entry": true
+  },
+  {
+   "site": "00626fe0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "00465fc0",
+   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "target": "005259a0",
+   "function_entry": true
+  },
+  {
+   "site": "00465fc0",
+   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "target": "005259a0",
+   "function_entry": true
+  },
+  {
+   "site": "00465fc0",
+   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "target": "005259a0",
+   "function_entry": true
+  },
+  {
+   "site": "005c3ae0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c3b70",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005bbd20",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005bc3e0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005bc500",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005be3b0",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "005be3b0",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "005be3b0",
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "target": "005253a0",
+   "function_entry": true
+  },
+  {
+   "site": "005be3b0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005be3b0",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "005be3b0",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "005be3b0",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "005be3b0",
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "target": "005253a0",
+   "function_entry": true
+  },
+  {
+   "site": "005be3b0",
+   "symbol": "?unknown_slot14@IPXManagerClass@@UAEXKKK@Z",
+   "target": "00525450",
+   "function_entry": true
+  },
+  {
+   "site": "005be3b0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005be3b0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005be3b0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005be3b0",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "005be3b0",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "005bee20",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005bee20",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005bfc40",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c00b0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c00b0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c00b0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c05f0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c05f0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c7970",
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "target": "005253a0",
+   "function_entry": true
+  },
+  {
+   "site": "005c7970",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c7970",
+   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "target": "005259a0",
+   "function_entry": true
+  },
+  {
+   "site": "005c7970",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "005c7970",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "005c7970",
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "target": "005253a0",
+   "function_entry": true
+  },
+  {
+   "site": "005c7970",
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "target": "005253a0",
+   "function_entry": true
+  },
+  {
+   "site": "005bc460",
+   "symbol": "?Init@IPXManagerClass@@QAEHXZ",
+   "target": "005251c0",
+   "function_entry": true
+  },
+  {
+   "site": "005bc460",
+   "symbol": "?Set_Bridge@IPXManagerClass@@QAEXQAE@Z",
+   "target": "00527730",
+   "function_entry": true
+  },
+  {
+   "site": "00672160",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "00672160",
+   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "target": "005259a0",
+   "function_entry": true
+  },
+  {
+   "site": "00672160",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "00672160",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "0066aef0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "0066aef0",
+   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "target": "005259a0",
+   "function_entry": true
+  },
+  {
+   "site": "0066aef0",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "0066aef0",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "0066aef0",
+   "symbol": "?Get_Global_Message@IPXManagerClass@@QAEHPAXPAHPAVIPXAddressClass@@PAG@Z",
+   "target": "00525ab0",
+   "function_entry": true
+  },
+  {
+   "site": "0066aef0",
+   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "target": "005259a0",
+   "function_entry": true
+  },
+  {
+   "site": "0066aef0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "0066aef0",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "0066aef0",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "?unknown_slot16@IPXManagerClass@@UAEXXZ",
+   "target": "00525480",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "?unknown_slot14@IPXManagerClass@@UAEXKKK@Z",
+   "target": "00525450",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "?Get_Global_Message@IPXManagerClass@@QAEHPAXPAHPAVIPXAddressClass@@PAG@Z",
+   "target": "00525ab0",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "?unknown_slot17@IPXManagerClass@@UAEXXZ",
+   "target": "005254a0",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "target": "005259a0",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "target": "005259a0",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?Get_Global_Message@IPXManagerClass@@QAEHPAXPAHPAVIPXAddressClass@@PAG@Z",
+   "target": "00525ab0",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?unknown_slot16@IPXManagerClass@@UAEXXZ",
+   "target": "00525480",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?unknown_slot14@IPXManagerClass@@UAEXKKK@Z",
+   "target": "00525450",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "target": "005259a0",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "target": "005259a0",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?unknown_slot17@IPXManagerClass@@UAEXXZ",
+   "target": "005254a0",
+   "function_entry": true
+  },
+  {
+   "site": "00514ee0",
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "target": "005253a0",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?Set_Connection_Address@IPXManagerClass@@QAEXHPAVIPXAddressClass@@@Z",
+   "target": "005269f0",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?unknown_5277c0@IPXManagerClass@@QAEXPAVIPXAddressClass@@@Z",
+   "target": "005277c0",
+   "function_entry": true
+  },
+  {
+   "site": "0066ee50",
+   "symbol": "?unknown_5277c0@IPXManagerClass@@QAEXPAVIPXAddressClass@@@Z",
+   "target": "005277c0",
+   "function_entry": true
+  },
+  {
+   "site": "0066ee50",
+   "symbol": "?Create_Connection@IPXManagerClass@@QAEHHPBGPAVIPXAddressClass@@@Z",
+   "target": "00525500",
+   "function_entry": true
+  },
+  {
+   "site": "0066ee50",
+   "symbol": "?unknown_5255b0@IPXManagerClass@@QAEHXZ",
+   "target": "005255b0",
+   "function_entry": true
+  },
+  {
+   "site": "00750f60",
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "target": "005253a0",
+   "function_entry": true
+  },
+  {
+   "site": "00750f60",
+   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "target": "005259a0",
+   "function_entry": true
+  },
+  {
+   "site": "007516c0",
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "target": "005253a0",
+   "function_entry": true
+  },
+  {
+   "site": "007516c0",
+   "symbol": "?unknown_slot18@IPXManagerClass@@UAEXKKK@Z",
+   "target": "005254c0",
+   "function_entry": true
+  },
+  {
+   "site": "00750d10",
+   "symbol": "?Global_Num_Receive@IPXManagerClass@@UAEHXZ",
+   "target": "00526a60",
+   "function_entry": true
+  },
+  {
+   "site": "00750d10",
+   "symbol": "?unknown_525af0@IPXManagerClass@@QAEHHPAXPAHPAVIPXAddressClass@@PAGPAK@Z",
+   "target": "00525af0",
+   "function_entry": true
+  },
+  {
+   "site": "00750d10",
+   "symbol": "?Get_Global_Message@IPXManagerClass@@QAEHPAXPAHPAVIPXAddressClass@@PAG@Z",
+   "target": "00525ab0",
+   "function_entry": true
+  },
+  {
+   "site": "00750d10",
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "target": "005253a0",
+   "function_entry": true
+  },
+  {
+   "site": "00750d10",
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "target": "005253a0",
+   "function_entry": true
+  },
+  {
+   "site": "00515110",
+   "symbol": "?Set_Socket@IPXManagerClass@@QAEXG@Z",
+   "target": "00526ba0",
+   "function_entry": true
+  },
+  {
+   "site": "00523d90",
+   "symbol": "?unknown_slot19@IPXManagerClass@@UAEHPAVConnectionClass@@@Z",
+   "target": "005257b0",
+   "function_entry": true
+  },
+  {
+   "site": "00523d90",
+   "symbol": "?Num_Connections@IPXManagerClass@@UAEHXZ",
+   "target": "005256d0",
+   "function_entry": true
+  },
+  {
+   "site": "00523d90",
+   "symbol": "?Connection_ID@IPXManagerClass@@UAEHH@Z",
+   "target": "005256e0",
+   "function_entry": true
+  },
+  {
+   "site": "005c3c60",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c3d90",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c7570",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c7570",
+   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "target": "005259a0",
+   "function_entry": true
+  },
+  {
+   "site": "005c7570",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "005c7570",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "005bb540",
+   "symbol": "?Init@IPXManagerClass@@QAEHXZ",
+   "target": "005251c0",
+   "function_entry": true
+  },
+  {
+   "site": "005bb540",
+   "symbol": "?Set_Bridge@IPXManagerClass@@QAEXQAE@Z",
+   "target": "00527730",
+   "function_entry": true
+  },
+  {
+   "site": "0053fbd0",
+   "symbol": "?Num_Connections@IPXManagerClass@@UAEHXZ",
+   "target": "005256d0",
+   "function_entry": true
+  },
+  {
+   "site": "0053fbd0",
+   "symbol": "?Num_Connections@IPXManagerClass@@UAEHXZ",
+   "target": "005256d0",
+   "function_entry": true
+  },
+  {
+   "site": "0053fbd0",
+   "symbol": "?Store_Stats@IPXManagerClass@@UAEXXZ",
+   "target": "00526c90",
+   "function_entry": true
+  },
+  {
+   "site": "005419e0",
+   "symbol": "?Response_Time@IPXManagerClass@@UAEKXZ",
+   "target": "00526bc0",
+   "function_entry": true
+  },
+  {
+   "site": "005419e0",
+   "symbol": "?Multiplayer_Debug_Print_00526d90@IPXManagerClass@@QAEXXZ",
+   "target": "00526d90",
+   "function_entry": true
+  },
+  {
+   "site": "00540c20",
+   "symbol": "?Num_Connections@IPXManagerClass@@UAEHXZ",
+   "target": "005256d0",
+   "function_entry": true
+  },
+  {
+   "site": "00540c20",
+   "symbol": "?Connection_ID@IPXManagerClass@@UAEHH@Z",
+   "target": "005256e0",
+   "function_entry": true
+  },
+  {
+   "site": "00540c20",
+   "symbol": "?Connection_Name@IPXManagerClass@@QAEPAGH@Z",
+   "target": "00525700",
+   "function_entry": true
+  },
+  {
+   "site": "00540c20",
+   "symbol": "?Connection_Address@IPXManagerClass@@QAEPAVIPXAddressClass@@H@Z",
+   "target": "00525740",
+   "function_entry": true
+  },
+  {
+   "site": "00540c20",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "00540c20",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "0042e990",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "0042ec20",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "0063f130",
+   "symbol": "?Connection_Index@IPXManagerClass@@UAEHH@Z",
+   "target": "00525780",
+   "function_entry": true
+  },
+  {
+   "site": "0063f130",
+   "symbol": "?unknown_525b50@IPXManagerClass@@QAEHPAXH_N@Z",
+   "target": "00525b50",
+   "function_entry": true
+  },
+  {
+   "site": "0063f130",
+   "symbol": "?unknown_slot20@IPXManagerClass@@UAEHXZ",
+   "target": "00526a80",
+   "function_entry": true
+  },
+  {
+   "site": "0063f130",
+   "symbol": "?unknown_slot20@IPXManagerClass@@UAEHXZ",
+   "target": "00526a80",
+   "function_entry": true
+  },
+  {
+   "site": "0063f510",
+   "symbol": "?unknown_525bc0@IPXManagerClass@@QAEHPAXPAHPAVIPXAddressClass@@PAG@Z",
+   "target": "00525bc0",
+   "function_entry": true
+  },
+  {
+   "site": "0063f840",
+   "symbol": "?unknown_525bc0@IPXManagerClass@@QAEHPAXPAHPAVIPXAddressClass@@PAG@Z",
+   "target": "00525bc0",
+   "function_entry": true
+  },
+  {
+   "site": "0063f840",
+   "symbol": "?unknown_525bc0@IPXManagerClass@@QAEHPAXPAHPAVIPXAddressClass@@PAG@Z",
+   "target": "00525bc0",
+   "function_entry": true
+  },
+  {
+   "site": "0063fc90",
+   "symbol": "?unknown_525b50@IPXManagerClass@@QAEHPAXH_N@Z",
+   "target": "00525b50",
+   "function_entry": true
+  },
+  {
+   "site": "0063fc90",
+   "symbol": "?unknown_slot20@IPXManagerClass@@UAEHXZ",
+   "target": "00526a80",
+   "function_entry": true
+  },
+  {
+   "site": "0063fc90",
+   "symbol": "?unknown_slot20@IPXManagerClass@@UAEHXZ",
+   "target": "00526a80",
+   "function_entry": true
+  },
+  {
+   "site": "0063fe20",
+   "symbol": "?unknown_525b50@IPXManagerClass@@QAEHPAXH_N@Z",
+   "target": "00525b50",
+   "function_entry": true
+  },
+  {
+   "site": "0063feb0",
+   "symbol": "?unknown_525b50@IPXManagerClass@@QAEHPAXH_N@Z",
+   "target": "00525b50",
+   "function_entry": true
+  },
+  {
+   "site": "005bb5d0",
+   "symbol": "?Delete_Connection@IPXManagerClass@@QAEHH@Z",
+   "target": "00525640",
+   "function_entry": true
+  },
+  {
+   "site": "005bb5d0",
+   "symbol": "?unknown_5277c0@IPXManagerClass@@QAEXPAVIPXAddressClass@@@Z",
+   "target": "005277c0",
+   "function_entry": true
+  },
+  {
+   "site": "005b9f90",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "005b9f90",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005b9f90",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "005ba0d0",
+   "symbol": "?Global_Num_Receive@IPXManagerClass@@UAEHXZ",
+   "target": "00526a60",
+   "function_entry": true
+  },
+  {
+   "site": "005ba0d0",
+   "symbol": "?unknown_525af0@IPXManagerClass@@QAEHHPAXPAHPAVIPXAddressClass@@PAGPAK@Z",
+   "target": "00525af0",
+   "function_entry": true
+  },
+  {
+   "site": "005ba0d0",
+   "symbol": "?unknown_525b30@IPXManagerClass@@QAEXH@Z",
+   "target": "00525b30",
+   "function_entry": true
+  },
+  {
+   "site": "00466a50",
+   "symbol": "?unknown_5277f0@IPXManagerClass@@QAEXXZ",
+   "target": "005277f0",
+   "function_entry": true
+  },
+  {
+   "site": "00466a50",
+   "symbol": "?Get_Global_Message@IPXManagerClass@@QAEHPAXPAHPAVIPXAddressClass@@PAG@Z",
+   "target": "00525ab0",
+   "function_entry": true
+  },
+  {
+   "site": "00466a50",
+   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "target": "005259a0",
+   "function_entry": true
+  },
+  {
+   "site": "00466a50",
+   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "target": "005259a0",
+   "function_entry": true
+  },
+  {
+   "site": "00466a50",
+   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "target": "005259a0",
+   "function_entry": true
+  },
+  {
+   "site": "00466a50",
+   "symbol": "?unknown_527800@IPXManagerClass@@QAEXXZ",
+   "target": "00527800",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "target": "005253a0",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "target": "005253a0",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Get_Global_Message@IPXManagerClass@@QAEHPAXPAHPAVIPXAddressClass@@PAG@Z",
+   "target": "00525ab0",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "target": "005253a0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Get_Global_Message@IPXManagerClass@@QAEHPAXPAHPAVIPXAddressClass@@PAG@Z",
+   "target": "00525ab0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c01d0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c01d0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c01d0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c01d0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c01d0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "005c01d0",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?unknown_5277f0@IPXManagerClass@@QAEXXZ",
+   "target": "005277f0",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "target": "005253a0",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?Get_Global_Message@IPXManagerClass@@QAEHPAXPAHPAVIPXAddressClass@@PAG@Z",
+   "target": "00525ab0",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "target": "005259a0",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "target": "005259a0",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "target": "005259a0",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?Get_Global_Message@IPXManagerClass@@QAEHPAXPAHPAVIPXAddressClass@@PAG@Z",
+   "target": "00525ab0",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "target": "005253a0",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?unknown_527800@IPXManagerClass@@QAEXXZ",
+   "target": "00527800",
+   "function_entry": true
+  },
+  {
+   "site": "0074f300",
+   "symbol": "?unknown_527830@IPXManagerClass@@QAEXH@Z",
+   "target": "00527830",
+   "function_entry": true
+  },
+  {
+   "site": "0074f300",
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "target": "005253a0",
+   "function_entry": true
+  },
+  {
+   "site": "00623b00",
+   "symbol": "?unknown_526c70@IPXManagerClass@@QAEKXZ",
+   "target": "00526c70",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?unknown_5277f0@IPXManagerClass@@QAEXXZ",
+   "target": "005277f0",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?unknown_5277f0@IPXManagerClass@@QAEXXZ",
+   "target": "005277f0",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?unknown_5277f0@IPXManagerClass@@QAEXXZ",
+   "target": "005277f0",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?Connection_ID@IPXManagerClass@@UAEHH@Z",
+   "target": "005256e0",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?Connection_Name@IPXManagerClass@@QAEPAGH@Z",
+   "target": "00525700",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?unknown_527800@IPXManagerClass@@QAEXXZ",
+   "target": "00527800",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?unknown_527800@IPXManagerClass@@QAEXXZ",
+   "target": "00527800",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?unknown_527800@IPXManagerClass@@QAEXXZ",
+   "target": "00527800",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?unknown_527800@IPXManagerClass@@QAEXXZ",
+   "target": "00527800",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?unknown_527800@IPXManagerClass@@QAEXXZ",
+   "target": "00527800",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?unknown_527800@IPXManagerClass@@QAEXXZ",
+   "target": "00527800",
+   "function_entry": true
+  },
+  {
+   "site": "0074e470",
+   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "target": "005259a0",
+   "function_entry": true
+  },
+  {
+   "site": "006265c0",
+   "symbol": "?Connection_Name@IPXManagerClass@@QAEPAGH@Z",
+   "target": "00525700",
+   "function_entry": true
+  },
+  {
+   "site": "006265c0",
+   "symbol": "?Connection_Name@IPXManagerClass@@QAEPAGH@Z",
+   "target": "00525700",
+   "function_entry": true
+  },
+  {
+   "site": "006265c0",
+   "symbol": "?Connection_Name@IPXManagerClass@@QAEPAGH@Z",
+   "target": "00525700",
+   "function_entry": true
+  },
+  {
+   "site": "006265c0",
+   "symbol": "?Connection_Name@IPXManagerClass@@QAEPAGH@Z",
+   "target": "00525700",
+   "function_entry": true
+  },
+  {
+   "site": "006265c0",
+   "symbol": "?Connection_Name@IPXManagerClass@@QAEPAGH@Z",
+   "target": "00525700",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "target": "00526a40",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "?unknown_527800@IPXManagerClass@@QAEXXZ",
+   "target": "00527800",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "?Get_Global_Message@IPXManagerClass@@QAEHPAXPAHPAVIPXAddressClass@@PAG@Z",
+   "target": "00525ab0",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "?Num_Connections@IPXManagerClass@@UAEHXZ",
+   "target": "005256d0",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "?Connection_ID@IPXManagerClass@@UAEHH@Z",
+   "target": "005256e0",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "?Num_Connections@IPXManagerClass@@UAEHXZ",
+   "target": "005256d0",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "?Connection_Name@IPXManagerClass@@QAEPAGH@Z",
+   "target": "00525700",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "?Num_Connections@IPXManagerClass@@UAEHXZ",
+   "target": "005256d0",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "?Connection_ID@IPXManagerClass@@UAEHH@Z",
+   "target": "005256e0",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "?Connection_Address@IPXManagerClass@@QAEPAVIPXAddressClass@@H@Z",
+   "target": "00525740",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "?Num_Connections@IPXManagerClass@@UAEHXZ",
+   "target": "005256d0",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "?Get_Global_Message@IPXManagerClass@@QAEHPAXPAHPAVIPXAddressClass@@PAG@Z",
+   "target": "00525ab0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "target": "005253a0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?unknown_slot14@IPXManagerClass@@UAEXKKK@Z",
+   "target": "00525450",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
+   "target": "00526c30",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "target": "005253a0",
+   "function_entry": true
+  },
+  {
+   "site": "0042e370",
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "target": "00525830",
+   "function_entry": true
+  },
+  {
+   "site": "0068e280",
+   "symbol": "?Set_Socket@IPXManagerClass@@QAEXG@Z",
+   "target": "00526ba0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "address": "00523410"
+  },
+  {
+   "symbol": "??0IPXConnClass@@QAE@HHHGPAVIPXAddressClass@@HPBGH@Z",
+   "address": "00523b70"
+  },
+  {
+   "symbol": "??0IPXGlobalConnClass@@QAE@HHHGG@Z",
+   "address": "005241b0"
+  },
+  {
+   "symbol": "??0IPXInterfaceClass@@QAE@XZ",
+   "address": "0076a070"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??BSystemTimerClass@@QBEJXZ",
+   "address": "0069a430"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
+   "address": "00523840"
+  },
+  {
+   "symbol": "?Avg_Delay@CommBufferClass@@QAEKXZ",
+   "address": "00480a60"
+  },
+  {
+   "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+   "address": "00ab6ef8"
+  },
+  {
+   "symbol": "?Configure@IPXConnClass@@SIXGHHHHHH@Z",
+   "address": "00523c30"
+  },
+  {
+   "symbol": "?Configure_Debug@CommBufferClass@@QAEXHHHHH@Z",
+   "address": "00480ab0"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "address": "00497b40"
+  },
+  {
+   "symbol": "?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z",
+   "address": "00663d30"
+  },
+  {
+   "symbol": "?Frame@@3HA",
+   "address": "00a40d2c"
+  },
+  {
+   "symbol": "?Get_Node@IPXAddressClass@@QAEXQAE@Z",
+   "address": "00523520"
+  },
+  {
+   "symbol": "?Get_Send@CommBufferClass@@QAEPAUSendQueueType@@H@Z",
+   "address": "00480700"
+  },
+  {
+   "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+   "address": "00a32298"
+  },
+  {
+   "symbol": "?Init@WinsockInterfaceClass@@QAE_NXZ",
+   "address": "0076b0a0"
+  },
+  {
+   "symbol": "?Is_Broadcast@IPXAddressClass@@QAEHXZ",
+   "address": "00523560"
+  },
+  {
+   "symbol": "?Max_Delay@CommBufferClass@@QAEKXZ",
+   "address": "00480a70"
+  },
+  {
+   "symbol": "?Narrow_To_Wide_006fa180@@YIPAGPBD@Z",
+   "address": "006fa180"
+  },
+  {
+   "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
+   "address": "00839c50"
+  },
+  {
+   "symbol": "?Reset_Delay@CommBufferClass@@QAEX_N@Z",
+   "address": "00480a80"
+  },
+  {
+   "symbol": "?Service@IPXManagerClass@@UAEHXZ",
+   "address": "00525f60"
+  },
+  {
+   "symbol": "?Set_Bridge@IPXGlobalConnClass@@QAEXQAE@Z",
+   "address": "00524a10"
+  },
+  {
+   "symbol": "?Set_Node@IPXAddressClass@@QAEXQAE@Z",
+   "address": "00523540"
+  },
+  {
+   "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
+   "address": "00523960"
+  },
+  {
+   "symbol": "?Start_Listening@IPXConnClass@@SAHXZ",
+   "address": "00523c80"
+  },
+  {
+   "symbol": "?Stop_Listening@IPXConnClass@@SAHXZ",
+   "address": "00523cf0"
+  },
+  {
+   "symbol": "?WideToCharString_006fa0f0@@YIXPADPBGH@Z",
+   "address": "006fa0f0"
+  },
+  {
+   "symbol": "?player_statistics_00a3d584@@3PAUUnknownNetworkPlayerStatistics@@A",
+   "address": "00a3d584"
+  },
+  {
+   "symbol": "?unknown_OwnerTalkClass_00ab6d18@@3VOwnerTalkClass@@A",
+   "address": "00ab6d18"
+  },
+  {
+   "symbol": "?unknown_a3fba4@@3HA",
+   "address": "00a3fba4"
+  },
+  {
+   "symbol": "?unknown_flag_a3fba8@@3_NA",
+   "address": "00a3fba8"
+  },
+  {
+   "symbol": "?unknown_frame_sync_timer_a780c0@@3V?$BasicTimerClass@VSystemTimerClass@@@@A",
+   "address": "00a780c0"
+  },
+  {
+   "symbol": "?unknown_frame_syncs_ab62e4@@3HA",
+   "address": "00ab62e4"
+  },
+  {
+   "symbol": "?unknown_game_mode_a3d298@@3HA",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_ipx_manager_a40978@@3VIPXManagerClass@@A",
+   "address": "00a40978"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_max_ahead_a3d560@@3HA",
+   "address": "00a3d560"
+  },
+  {
+   "symbol": "?unknown_node_ids_a402ba@@3PAGA",
+   "address": "00a402ba"
+  },
+  {
+   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
+   "address": "00a35db4"
+  },
+  {
+   "symbol": "?unknown_players_a3fa7c@@3V?$DynamicVectorClass@PAUNodeNameType@@@@A",
+   "address": "00a3fa7c"
+  },
+  {
+   "symbol": "?unknown_port_7f60dc@@3HA",
+   "address": "007f60dc"
+  },
+  {
+   "symbol": "?unknown_response_times_a76c88@@3PAKA",
+   "address": "00a76c88"
+  },
+  {
+   "symbol": "?unknown_session_a3d298@@3USessionClass@@A",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_surface_839964@@3PAVSurface@@A",
+   "address": "00839964"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__purecall",
+   "address": "004b8960"
+  },
+  {
+   "symbol": "__wcsicmp",
+   "address": "00796318"
+  },
+  {
+   "symbol": "_htonl@4",
+   "address": "00781b66"
+  },
+  {
+   "symbol": "_swprintf",
+   "address": "00783764"
+  },
+  {
+   "symbol": "_wcscpy",
+   "address": "00783689"
+  }
+ ],
+ "route": "A",
+ "unit": "ipxmgr.cpp",
+ "form": "one include block",
+ "switches": [
+  "RA2_IPX_MANAGER_CUR_DATA_BUF"
+ ],
+ "include_blocks": [
+  {
+   "before": "00524e40",
+   "lines": 18
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 74,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

@@ -144,7 +144,7 @@ unsigned int __fastcall unknown_hash_key_5de970(unsigned int const &key)
 
 // --- Menu path (Scout1083) ----------------------------------------------------
 
-// 0x0068CA20 UnknownBitmapWriter::Load_Image_0068ca20 (pcx_cache.hpp; the row's
+// 0x0068CA20 SurfaceCacheClass::Load_Image_0068ca20 (pcx_cache.hpp; the row's
 // leaf src/recovered/0068ca20.cpp forwards (name, 1, 1) to 0x0068C600).
 #define PCX_CACHE_DECLARE_LOADS 1
 #include "shared/pcx_cache.hpp"
@@ -191,7 +191,7 @@ void const *__fastcall unknown_5e1a80(unsigned int key, HWND window, bool &alloc
 // 89.55): the record's image state (+0xB0) from the control's tests.
 BOOL __stdcall unknown_5e7eb0(HWND window, LPARAM)
 {
-    UnknownControlRecord *record = unknown_registry_a73640.Find((unsigned int)(uintptr_t)window);
+    WinData *record = unknown_registry_a73640.Find((unsigned int)(uintptr_t)window);
     if (record != 0) {
         unsigned int parent = (unsigned int)(uintptr_t)GetParent(window);
         if (!unknown_session_a3d298.Unknown_00672F10()) {
@@ -220,7 +220,7 @@ BOOL __stdcall unknown_5e7eb0(HWND window, LPARAM)
 BOOL __stdcall unknown_5e8130(HWND window, LPARAM)
 {
     unsigned int parent = (unsigned int)(uintptr_t)GetParent(window);
-    UnknownControlRecord *record = unknown_registry_a73640.Find((unsigned int)(uintptr_t)window);
+    WinData *record = unknown_registry_a73640.Find((unsigned int)(uintptr_t)window);
     if (record == 0) {
         return TRUE;
     }

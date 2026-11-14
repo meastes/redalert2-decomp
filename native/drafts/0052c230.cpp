@@ -32,7 +32,7 @@
 // @ref ?IsoHalfbrightMask@@3GA=00a52f70
 // @ref ?IsoSpanTablesBuilt@@3DA=00a6e395
 // @ref ?IsoTileUseAsmDrawFunc@@3DA=00a6e394
-// @ref ?Release@UnknownAlphaTableCache_008315B8@@QAEXPAY0BAA@$$CBG@Z=0041e510
+// @ref ?Release@AlphaLightingRemapInitClass@@QAEXPAY0BAA@$$CBG@Z=0041e510
 // @ref ?_iso_row_offsets@@3PAGA=00a6cf68
 // @ref ?_iso_run_lengths@@3PAY0GMM@EA=00a53398
 // @ref ?_iso_start_cols@@3PAEA=00a52594

@@ -1,0 +1,615 @@
+{
+ "module": "mpsiege",
+ "source": "src/recovered/mpsiege.cpp",
+ "header": null,
+ "population": "population-2866",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 579,
+ "code": [
+  {
+   "symbol": "?FUN_005ab5a0@Owner_005ab5a0@seed_005ab5a0@@QAEPAIIIIIII@Z",
+   "entry": "005ab5a0",
+   "body_bytes": 52,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?FUN_005ab5e0@seed_005ab5e0@@YIXPAI@Z",
+   "entry": "005ab5e0",
+   "body_bytes": 11,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?AssignTeams@MultiplayerSiege@@UAE_NXZ",
+   "entry": "005ab5f0",
+   "body_bytes": 79,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?CheckStartConditions@MultiplayerSiege@@UAE_NPAVWideString@@@Z",
+   "entry": "005ab640",
+   "body_bytes": 242,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?AssignTeamsAtStart@MultiplayerSiege@@UAE_NXZ",
+   "entry": "005ab740",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?get@Leaf_5ab750@@QAE_NXZ",
+   "entry": "005ab750",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?UnfixAlliances@MultiplayerSiege@@UAE_NXZ",
+   "entry": "005ab760",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?StartingPositionsToHouseBaseCells@MultiplayerSiege@@UAE_N_N@Z",
+   "entry": "005ab770",
+   "body_bytes": 499,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?CreateMPTeams@MultiplayerSiege@@UAEXPAV?$DynamicVectorClass@PAVMultiplayerTeam@@@@@Z",
+   "entry": "005ab970",
+   "body_bytes": 269,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?SpawnBaseUnits@MultiplayerSiege@@UAE_NPAVHouseClass@@PAH@Z",
+   "entry": "005aba80",
+   "body_bytes": 278,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?FUN_005abba0@Owner_005abba0@seed_005abba0@@QAEPAIE@Z",
+   "entry": "005abba0",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  }
+ ],
+ "code_bytes": 1584,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "??_7?$VectorClass@VCell@@@@6B@",
+   "address": "0079c5dc",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 66
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a6b78",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@VCell@@@@8",
+   "address": "007b3d18",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 59
+  },
+  {
+   "symbol": "??_R2?$VectorClass@VCell@@@@8",
+   "address": "007b3d7c",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 60
+  },
+  {
+   "symbol": "??_R3?$VectorClass@VCell@@@@8",
+   "address": "007b3d88",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 61
+  },
+  {
+   "symbol": "??_R4?$VectorClass@VCell@@@@6B@",
+   "address": "007b3d98",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 63
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@VCell@@@@@8",
+   "address": "007cf2e8",
+   "bytes": 36,
+   "kind": "rtti",
+   "section": 62
+  },
+  {
+   "symbol": "??_C@_0P@HPML@MP?3NoAttackers?$AA@",
+   "address": "007e5670",
+   "bytes": 15,
+   "kind": "string",
+   "section": 46
+  },
+  {
+   "symbol": "??_C@_0BD@JCEM@MP?3OnlyOneBeseiged?$AA@",
+   "address": "007e5680",
+   "bytes": 19,
+   "kind": "string",
+   "section": 47
+  },
+  {
+   "symbol": "??_C@_0P@KHFM@MP?3IllegalTeam?$AA@",
+   "address": "007e5694",
+   "bytes": 15,
+   "kind": "string",
+   "section": 48
+  },
+  {
+   "symbol": "??_C@_0O@MIIP@MP?3NoDefender?$AA@",
+   "address": "007e56a4",
+   "bytes": 14,
+   "kind": "string",
+   "section": 49
+  },
+  {
+   "symbol": "??_C@_0BD@IPKL@D?3?2Ra2?2MPSiege?4cpp?$AA@",
+   "address": "007e56b4",
+   "bytes": 19,
+   "kind": "string",
+   "section": 50
+  },
+  {
+   "symbol": "??_C@_0DH@JIL@Assigning?5Starting?5Points?5for?5At@",
+   "address": "007e56c8",
+   "bytes": 55,
+   "kind": "string",
+   "section": 64
+  },
+  {
+   "symbol": "??_C@_0DH@KIP@Assigning?5Starting?5Points?5for?5De@",
+   "address": "007e5700",
+   "bytes": 55,
+   "kind": "string",
+   "section": 65
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$VectorClass@VCell@@@@6B@",
+   "address": "0079c5dc",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a6b78",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@VCell@@@@8",
+   "address": "007b3d18",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@VCell@@@@8",
+   "address": "007b3d7c",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@VCell@@@@8",
+   "address": "007b3d88",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@VCell@@@@6B@",
+   "address": "007b3d98",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@VCell@@@@@8",
+   "address": "007cf2e8",
+   "bytes": 36,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0P@HPML@MP?3NoAttackers?$AA@",
+   "address": "007e5670",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@JCEM@MP?3OnlyOneBeseiged?$AA@",
+   "address": "007e5680",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@KHFM@MP?3IllegalTeam?$AA@",
+   "address": "007e5694",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@MIIP@MP?3NoDefender?$AA@",
+   "address": "007e56a4",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@IPKL@D?3?2Ra2?2MPSiege?4cpp?$AA@",
+   "address": "007e56b4",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DH@JIL@Assigning?5Starting?5Points?5for?5At@",
+   "address": "007e56c8",
+   "bytes": 55,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DH@KIP@Assigning?5Starting?5Points?5for?5De@",
+   "address": "007e5700",
+   "bytes": 55,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "005b90e0",
+   "symbol": "??0MultiplayerSiege@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z",
+   "target": "005ab5a0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0BuildingClass@@QAE@PAVBuildingTypeClass@@PAVHouseClass@@@Z",
+   "address": "00438ce0"
+  },
+  {
+   "symbol": "??0MultiplayerObserverTeam@@QAE@XZ",
+   "address": "005aa7b0"
+  },
+  {
+   "symbol": "??0MultiplayerSiegeAttackerTeam@@QAE@XZ",
+   "address": "005abe60"
+  },
+  {
+   "symbol": "??0MultiplayerSiegeDefenderTeam@@QAE@XZ",
+   "address": "005abdc0"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??4WideString@@QAEAAV0@PBG@Z",
+   "address": "0076fb70"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_G?$VectorClass@VCell@@@@UAEPAXI@Z",
+   "address": "0042d390"
+  },
+  {
+   "symbol": "?AssignTeams@MultiplayerGameMode@@UAE_NXZ",
+   "address": "005b7350"
+  },
+  {
+   "symbol": "?AssignTeamsAtStart@MultiplayerGameMode@@UAE_NXZ",
+   "address": "005b73d0"
+  },
+  {
+   "symbol": "?CheckStartConditions@MultiplayerGameMode@@UAE_NPAVWideString@@@Z",
+   "address": "005b73a0"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?FUN_005b6cd0@Callee_005b6cd0@seed_005ab5a0@@QAEXIIIIEI@Z",
+   "address": "005b6cd0"
+  },
+  {
+   "symbol": "?FUN_005b6e20@seed_005ab5e0@@YIXXZ",
+   "address": "005b6e20"
+  },
+  {
+   "symbol": "?FUN_005b6e20@seed_005abba0@@YIXXZ",
+   "address": "005b6e20"
+  },
+  {
+   "symbol": "?FUN_00781d3b@seed_005abba0@@YAXI@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+   "address": "00a32298"
+  },
+  {
+   "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
+   "address": "006f9ec0"
+  },
+  {
+   "symbol": "?Multiplayer_Start_Waypoints_0065fff0@@YI?AV?$DynamicVectorClass@VCell@@@@_N@Z",
+   "address": "0065fff0"
+  },
+  {
+   "symbol": "?Rules@@3PAVRulesClass@@A",
+   "address": "00839848"
+  },
+  {
+   "symbol": "?SpawnBaseUnits@MultiplayerGameMode@@UAE_NPAVHouseClass@@PAH@Z",
+   "address": "005b7f90"
+  },
+  {
+   "symbol": "?UnfixAlliances@MultiplayerGameMode@@UAE_NXZ",
+   "address": "005b7820"
+  },
+  {
+   "symbol": "?Unknown_00660b60@@YIHPAVObjectClass@@AAVCell@@H@Z",
+   "address": "00660b60"
+  },
+  {
+   "symbol": "?unknown_func_4ef600@HouseClass@@QAEPAVBuildingTypeClass@@ABV?$DynamicVectorClass@PAVBuildingTypeClass@@@@@Z",
+   "address": "004ef600"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_players_a3fa7c@@3V?$DynamicVectorClass@PAUNodeNameType@@@@A",
+   "address": "00a3fa7c"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "_PTR_FUN_007a6b8c",
+   "address": "007a6b8c"
+  },
+  {
+   "symbol": "_PTR_FUN_007a6b8c",
+   "address": "007a6b8c"
+  },
+  {
+   "symbol": "_PTR_FUN_007a6b8c",
+   "address": "007a6b8c"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  }
+ ],
+ "route": "A",
+ "unit": "mpsiege.cpp",
+ "form": "include blocks held",
+ "switches": [
+  "VECTOR_IMPLEMENT_ALL"
+ ],
+ "include_blocks": [],
+ "held_rows": [
+  {
+   "entry": "005ab5f0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "005ab640",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "005ab770",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "005ab970",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "005aba80",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  }
+ ],
+ "joined": [
+  {
+   "entry": "005ab5a0",
+   "bytes": 52,
+   "population": "population-124",
+   "bound": "own frozen bound (population-124)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "005ab5e0",
+   "bytes": 11,
+   "population": "population-2913",
+   "bound": "own frozen bound (population-2913)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "005ab750",
+   "bytes": 3,
+   "population": "population-09",
+   "bound": "own frozen bound (population-09)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "005abba0",
+   "bytes": 36,
+   "population": "population-66",
+   "bound": "own frozen bound (population-66)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [],
+ "unit_functions": 11,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "005b90e0",
+   "target": "005ab5a0",
+   "symbol": "??0MultiplayerSiege@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z",
+   "module_symbol": "?FUN_005ab5a0@Owner_005ab5a0@seed_005ab5a0@@QAEPAIIIIIII@Z"
+  }
+ ],
+ "stand_in_reference_count": 1,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

@@ -1,0 +1,2560 @@
+{
+ "module": "options",
+ "source": "src/recovered/options.cpp",
+ "header": null,
+ "population": "population-3557",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 724,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "005d85e0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "005d8610",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "005d8630",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "005d8650",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "005d8670",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "005d8690",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "005d86b0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "005d86f0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "005d8720",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "005d8750",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "005d8780",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "005d8790",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "005d87b0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Hotkey_To_Key@@YIHH@Z",
+   "entry": "005d87d0",
+   "body_bytes": 43,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Key_To_Hotkey@@YIGG@Z",
+   "entry": "005d8800",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "??0OptionsClass@@QAE@XZ",
+   "entry": "005d8840",
+   "body_bytes": 196,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?One_Time@OptionsClass@@QAEXXZ",
+   "entry": "005d8910",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Set_Shuffle@OptionsClass@@QAEX_N@Z",
+   "entry": "005d8920",
+   "body_bytes": 46,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Set_Repeat@OptionsClass@@QAEX_N@Z",
+   "entry": "005d8950",
+   "body_bytes": 46,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Set_Score_Volume@OptionsClass@@QAEXM_N@Z",
+   "entry": "005d8980",
+   "body_bytes": 110,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Set_Sound_Volume@OptionsClass@@QAEXM_N@Z",
+   "entry": "005d89f0",
+   "body_bytes": 121,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Set_Voice_Volume@OptionsClass@@QAEXM_N@Z",
+   "entry": "005d8a70",
+   "body_bytes": 142,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Load_Settings@OptionsClass@@QAEXXZ",
+   "entry": "005d8b00",
+   "body_bytes": 1709,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Save_Settings@OptionsClass@@QAEXXZ",
+   "entry": "005d91b0",
+   "body_bytes": 795,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Setup_Network@OptionsClass@@QAEXXZ",
+   "entry": "005d94d0",
+   "body_bytes": 271,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Set@OptionsClass@@QAEXXZ",
+   "entry": "005d95e0",
+   "body_bytes": 369,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Normalize_Delay@OptionsClass@@QBEHH@Z",
+   "entry": "005d9760",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Normalize_Volume@OptionsClass@@QAEHH@Z",
+   "entry": "005d9790",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Unknown_Options_Dialog_Proc_005d97a0@@YGHPAUHWND__@@IIJ@Z",
+   "entry": "005d97a0",
+   "body_bytes": 3006,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Unknown_005DA360@OptionsClass@@QAE_NXZ",
+   "entry": "005da360",
+   "body_bytes": 115,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Get_Scroll_Method@OptionsClass@@QBEHXZ",
+   "entry": "005da3e0",
+   "body_bytes": 4,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Unlock_Movie@OptionsClass@@QAEXPBD@Z",
+   "entry": "005da3f0",
+   "body_bytes": 125,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Fill_Movie_List@OptionsClass@@QAEXPAUHWND__@@@Z",
+   "entry": "005da470",
+   "body_bytes": 287,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Binary_Search@@YIPAUNodeElement@?$IndexClass@HPAVCommandClass@@@@PAU12@HABU12@@Z",
+   "entry": "005da590",
+   "body_bytes": 68,
+   "padding_bytes": 12
+  }
+ ],
+ "code_bytes": 8192,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 13
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 16
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 19
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 22
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 25
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 28
+  },
+  {
+   "symbol": "??_7CCINIClass@@6B@",
+   "address": "0079aae0",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 180
+  },
+  {
+   "symbol": "??_7?$List@PAUINISection@INIClass@@@@6B@",
+   "address": "0079aae8",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 181
+  },
+  {
+   "symbol": "??_7GenericList@@6B@",
+   "address": "0079aaf0",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 193
+  },
+  {
+   "symbol": "??_7GenericNode@@6B@",
+   "address": "0079aaf8",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 194
+  },
+  {
+   "symbol": "__real@8@4006ff00000000000000",
+   "address": "007a2f50",
+   "bytes": 8,
+   "kind": "table",
+   "section": 58
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a7798",
+   "bytes": 16,
+   "kind": "table",
+   "section": 4
+  },
+  {
+   "symbol": "__real@4@400d8000000000000000",
+   "address": "007a77ac",
+   "bytes": 4,
+   "kind": "table",
+   "section": 59
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CCFileClass@@8",
+   "address": "007b2500",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 120
+  },
+  {
+   "symbol": "??_R2CCFileClass@@8",
+   "address": "007b2518",
+   "bytes": 21,
+   "kind": "rtti",
+   "section": 121
+  },
+  {
+   "symbol": "??_R3CCFileClass@@8",
+   "address": "007b2530",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 122
+  },
+  {
+   "symbol": "??_R4CCFileClass@@6B@",
+   "address": "007b2540",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 124
+  },
+  {
+   "symbol": "??_R1A@?0A@A@FileClass@@8",
+   "address": "007b2558",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 126
+  },
+  {
+   "symbol": "??_R1A@?0A@A@RawFileClass@@8",
+   "address": "007b2570",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 128
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BufferIOFileClass@@8",
+   "address": "007b2588",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 130
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CDFileClass@@8",
+   "address": "007b25a0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 131
+  },
+  {
+   "symbol": "??_R2CDFileClass@@8",
+   "address": "007b25b8",
+   "bytes": 17,
+   "kind": "rtti",
+   "section": 132
+  },
+  {
+   "symbol": "??_R3CDFileClass@@8",
+   "address": "007b25d0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 133
+  },
+  {
+   "symbol": "??_R4CDFileClass@@6B@",
+   "address": "007b25e0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 135
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$List@PAUINISection@INIClass@@@@8",
+   "address": "007b2c38",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 168
+  },
+  {
+   "symbol": "??_R2?$List@PAUINISection@INIClass@@@@8",
+   "address": "007b2c50",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 169
+  },
+  {
+   "symbol": "??_R3?$List@PAUINISection@INIClass@@@@8",
+   "address": "007b2c60",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 170
+  },
+  {
+   "symbol": "??_R4?$List@PAUINISection@INIClass@@@@6B@",
+   "address": "007b2c70",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 172
+  },
+  {
+   "symbol": "??_R1A@?0A@A@INIClass@@8",
+   "address": "007b2c88",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 160
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CCINIClass@@8",
+   "address": "007b2ca0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 161
+  },
+  {
+   "symbol": "??_R2CCINIClass@@8",
+   "address": "007b2cb8",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 162
+  },
+  {
+   "symbol": "??_R3CCINIClass@@8",
+   "address": "007b2cc8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 163
+  },
+  {
+   "symbol": "??_R4CCINIClass@@6B@",
+   "address": "007b2cd8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 165
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GenericNode@@8",
+   "address": "007b2cf0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 188
+  },
+  {
+   "symbol": "??_R2GenericNode@@8",
+   "address": "007b2d08",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 189
+  },
+  {
+   "symbol": "??_R3GenericNode@@8",
+   "address": "007b2d10",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 190
+  },
+  {
+   "symbol": "??_R4GenericNode@@6B@",
+   "address": "007b2d20",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 192
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GenericList@@8",
+   "address": "007b2d38",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 167
+  },
+  {
+   "symbol": "??_R2GenericList@@8",
+   "address": "007b2d50",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 185
+  },
+  {
+   "symbol": "??_R3GenericList@@8",
+   "address": "007b2d58",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 186
+  },
+  {
+   "symbol": "??_R4GenericList@@6B@",
+   "address": "007b2d68",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 187
+  },
+  {
+   "symbol": "??_R0?AVCCFileClass@@@8",
+   "address": "007cc8b0",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 123
+  },
+  {
+   "symbol": "??_R0?AVFileClass@@@8",
+   "address": "007cc8d0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 125
+  },
+  {
+   "symbol": "??_R0?AVRawFileClass@@@8",
+   "address": "007cc8e8",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 127
+  },
+  {
+   "symbol": "??_R0?AVBufferIOFileClass@@@8",
+   "address": "007cc908",
+   "bytes": 32,
+   "kind": "rtti",
+   "section": 129
+  },
+  {
+   "symbol": "??_R0?AVCDFileClass@@@8",
+   "address": "007cc928",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 134
+  },
+  {
+   "symbol": "??_R0?AV?$List@PAUINISection@INIClass@@@@@8",
+   "address": "007cded8",
+   "bytes": 46,
+   "kind": "rtti",
+   "section": 171
+  },
+  {
+   "symbol": "??_R0?AVINIClass@@@8",
+   "address": "007cdf08",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 159
+  },
+  {
+   "symbol": "??_R0?AVCCINIClass@@@8",
+   "address": "007cdf20",
+   "bytes": 25,
+   "kind": "rtti",
+   "section": 164
+  },
+  {
+   "symbol": "??_R0?AVGenericNode@@@8",
+   "address": "007cdf40",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 191
+  },
+  {
+   "symbol": "??_R0?AVGenericList@@@8",
+   "address": "007cdf60",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 166
+  },
+  {
+   "symbol": "??_C@_0M@PNCF@DetailLevel?$AA@",
+   "address": "007cef14",
+   "bytes": 12,
+   "kind": "string",
+   "section": 106
+  },
+  {
+   "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+   "address": "007d64f4",
+   "bytes": 4,
+   "kind": "string",
+   "section": 75
+  },
+  {
+   "symbol": "??_C@_07BFAH@Options?$AA@",
+   "address": "007dae94",
+   "bytes": 8,
+   "kind": "string",
+   "section": 116
+  },
+  {
+   "symbol": "??_C@_02JDLK@?$CFx?$AA@",
+   "address": "007db4b4",
+   "bytes": 3,
+   "kind": "string",
+   "section": 149
+  },
+  {
+   "symbol": "??_C@_07IBND@RA2?4INI?$AA@",
+   "address": "007db8b8",
+   "bytes": 8,
+   "kind": "string",
+   "section": 140
+  },
+  {
+   "symbol": "??_C@_01PJCK@?4?$AA@",
+   "address": "007dbe44",
+   "bytes": 2,
+   "kind": "string",
+   "section": 150
+  },
+  {
+   "symbol": "??_C@_06KFPB@Hotkey?$AA@",
+   "address": "007dd710",
+   "bytes": 7,
+   "kind": "string",
+   "section": 179
+  },
+  {
+   "symbol": "??_C@_0N@CJMM@KEYBOARD?4INI?$AA@",
+   "address": "007dd718",
+   "bytes": 13,
+   "kind": "string",
+   "section": 176
+  },
+  {
+   "symbol": "??_C@_03CMJG@OFF?$AA@",
+   "address": "007e1f3c",
+   "bytes": 4,
+   "kind": "string",
+   "section": 50
+  },
+  {
+   "symbol": "??_C@_02HAKO@ON?$AA@",
+   "address": "007e1f40",
+   "bytes": 3,
+   "kind": "string",
+   "section": 51
+  },
+  {
+   "symbol": "_?current_selection@?1??Unknown_Options_Dialog_Proc_005d97a0@@YGHPAUHWND__@@IIJ@Z@4HA",
+   "address": "007e8414",
+   "bytes": 4,
+   "kind": "static",
+   "section": 2
+  },
+  {
+   "symbol": "??_C@_0BE@JBIN@ScoreShuffle?5is?5?$CFs?6?$AA@",
+   "address": "007e8674",
+   "bytes": 20,
+   "kind": "string",
+   "section": 49
+  },
+  {
+   "symbol": "??_C@_0BD@OCJK@ScoreRepeat?5is?5?$CFs?6?$AA@",
+   "address": "007e8688",
+   "bytes": 19,
+   "kind": "string",
+   "section": 54
+  },
+  {
+   "symbol": "??_C@_0BC@MLDC@ScoreVolume?5?$DN?5?$CFf?6?$AA@",
+   "address": "007e869c",
+   "bytes": 18,
+   "kind": "string",
+   "section": 57
+  },
+  {
+   "symbol": "??_C@_0BC@CPNP@SoundVolume?5?$DN?5?$CFf?6?$AA@",
+   "address": "007e86b0",
+   "bytes": 18,
+   "kind": "string",
+   "section": 62
+  },
+  {
+   "symbol": "??_C@_0BC@EMAN@VoiceVolume?5?$DN?5?$CFf?6?$AA@",
+   "address": "007e86c4",
+   "bytes": 18,
+   "kind": "string",
+   "section": 65
+  },
+  {
+   "symbol": "??_C@_0DE@DFEE@?9?9?9?9?9?9?9?9?9?5Complete?5?9?9?9?9?9?9?9?9?9?9?9?9?9@",
+   "address": "007e86d8",
+   "bytes": 52,
+   "kind": "string",
+   "section": 68
+  },
+  {
+   "symbol": "??_C@_07OPOK@DestNet?$AA@",
+   "address": "007e870c",
+   "bytes": 8,
+   "kind": "string",
+   "section": 69
+  },
+  {
+   "symbol": "??_C@_07GNMG@NetCard?$AA@",
+   "address": "007e8714",
+   "bytes": 8,
+   "kind": "string",
+   "section": 71
+  },
+  {
+   "symbol": "??_C@_06BHPO@Socket?$AA@",
+   "address": "007e871c",
+   "bytes": 7,
+   "kind": "string",
+   "section": 72
+  },
+  {
+   "symbol": "??_C@_0CK@NH@Emulated?5sound?5card?5latency?5defa@",
+   "address": "007e8724",
+   "bytes": 42,
+   "kind": "string",
+   "section": 73
+  },
+  {
+   "symbol": "??_C@_0N@LDPM@SoundLatency?$AA@",
+   "address": "007e8750",
+   "bytes": 13,
+   "kind": "string",
+   "section": 74
+  },
+  {
+   "symbol": "??_C@_07HKHC@Network?$AA@",
+   "address": "007e8760",
+   "bytes": 8,
+   "kind": "string",
+   "section": 76
+  },
+  {
+   "symbol": "??_C@_05COPE@NetID?$AA@",
+   "address": "007e8768",
+   "bytes": 6,
+   "kind": "string",
+   "section": 77
+  },
+  {
+   "symbol": "??_C@_0M@KPPM@InGameMusic?$AA@",
+   "address": "007e8770",
+   "bytes": 12,
+   "kind": "string",
+   "section": 78
+  },
+  {
+   "symbol": "??_C@_0P@DCKB@IsScoreShuffle?$AA@",
+   "address": "007e877c",
+   "bytes": 15,
+   "kind": "string",
+   "section": 79
+  },
+  {
+   "symbol": "??_C@_0O@CEPG@IsScoreRepeat?$AA@",
+   "address": "007e878c",
+   "bytes": 14,
+   "kind": "string",
+   "section": 80
+  },
+  {
+   "symbol": "??_C@_0M@DKIB@ScoreVolume?$AA@",
+   "address": "007e879c",
+   "bytes": 12,
+   "kind": "string",
+   "section": 81
+  },
+  {
+   "symbol": "??_C@_0M@HMFN@VoiceVolume?$AA@",
+   "address": "007e87a8",
+   "bytes": 12,
+   "kind": "string",
+   "section": 82
+  },
+  {
+   "symbol": "??_C@_05BHNM@Audio?$AA@",
+   "address": "007e87b4",
+   "bytes": 6,
+   "kind": "string",
+   "section": 83
+  },
+  {
+   "symbol": "??_C@_0M@EHL@SoundVolume?$AA@",
+   "address": "007e87bc",
+   "bytes": 12,
+   "kind": "string",
+   "section": 84
+  },
+  {
+   "symbol": "??_C@_0BB@HANG@AllowVRAMSidebar?$AA@",
+   "address": "007e87c8",
+   "bytes": 17,
+   "kind": "string",
+   "section": 85
+  },
+  {
+   "symbol": "??_C@_0BA@EOHF@AllowModeToggle?$AA@",
+   "address": "007e87dc",
+   "bytes": 16,
+   "kind": "string",
+   "section": 86
+  },
+  {
+   "symbol": "??_C@_0BC@HPPL@AllowHiRes?5is?5?$CFs?6?$AA@",
+   "address": "007e87ec",
+   "bytes": 18,
+   "kind": "string",
+   "section": 87
+  },
+  {
+   "symbol": "??_C@_0BA@HFAB@AllowHiResModes?$AA@",
+   "address": "007e8800",
+   "bytes": 16,
+   "kind": "string",
+   "section": 88
+  },
+  {
+   "symbol": "??_C@_0BF@MACC@StretchMovies?5is?5?$CFs?6?$AA@",
+   "address": "007e8810",
+   "bytes": 21,
+   "kind": "string",
+   "section": 89
+  },
+  {
+   "symbol": "??_C@_0O@INAO@StretchMovies?$AA@",
+   "address": "007e8828",
+   "bytes": 14,
+   "kind": "string",
+   "section": 90
+  },
+  {
+   "symbol": "??_C@_0BG@KDGG@Resolution?5?$DN?5?$CFd?5X?5?$CFd?6?$AA@",
+   "address": "007e8838",
+   "bytes": 22,
+   "kind": "string",
+   "section": 91
+  },
+  {
+   "symbol": "??_C@_0N@PIKM@ScreenHeight?$AA@",
+   "address": "007e8850",
+   "bytes": 13,
+   "kind": "string",
+   "section": 92
+  },
+  {
+   "symbol": "??_C@_05HAHE@Video?$AA@",
+   "address": "007e8860",
+   "bytes": 6,
+   "kind": "string",
+   "section": 93
+  },
+  {
+   "symbol": "??_C@_0M@KHJK@ScreenWidth?$AA@",
+   "address": "007e8868",
+   "bytes": 12,
+   "kind": "string",
+   "section": 94
+  },
+  {
+   "symbol": "??_C@_0BB@JJCE@ToolTips?5are?5?$CFs?6?$AA@",
+   "address": "007e8874",
+   "bytes": 17,
+   "kind": "string",
+   "section": 95
+  },
+  {
+   "symbol": "??_C@_08FDMF@ToolTips?$AA@",
+   "address": "007e8888",
+   "bytes": 9,
+   "kind": "string",
+   "section": 96
+  },
+  {
+   "symbol": "??_C@_0BC@FPEC@ShowHidden?5is?5?$CFs?6?$AA@",
+   "address": "007e8894",
+   "bytes": 18,
+   "kind": "string",
+   "section": 97
+  },
+  {
+   "symbol": "??_C@_0L@FHFF@ShowHidden?$AA@",
+   "address": "007e88a8",
+   "bytes": 11,
+   "kind": "string",
+   "section": 98
+  },
+  {
+   "symbol": "??_C@_0BE@PON@ActionLines?5are?5?$CFs?6?$AA@",
+   "address": "007e88b4",
+   "bytes": 20,
+   "kind": "string",
+   "section": 99
+  },
+  {
+   "symbol": "??_C@_0BA@CDGE@UnitActionLines?$AA@",
+   "address": "007e88c8",
+   "bytes": 16,
+   "kind": "string",
+   "section": 100
+  },
+  {
+   "symbol": "??_C@_0BE@EJCO@Sidebar?5Text?5is?5?$CFs?6?$AA@",
+   "address": "007e88d8",
+   "bytes": 20,
+   "kind": "string",
+   "section": 101
+  },
+  {
+   "symbol": "??_C@_0BB@FMGO@SidebarCameoText?$AA@",
+   "address": "007e88ec",
+   "bytes": 17,
+   "kind": "string",
+   "section": 102
+  },
+  {
+   "symbol": "??_C@_0P@CPDH@SideBar?5on?5?$CFs?6?$AA@",
+   "address": "007e8900",
+   "bytes": 15,
+   "kind": "string",
+   "section": 103
+  },
+  {
+   "symbol": "??_C@_05JCNK@RIGHT?$AA@",
+   "address": "007e8910",
+   "bytes": 6,
+   "kind": "string",
+   "section": 104
+  },
+  {
+   "symbol": "??_C@_0BC@OKJP@DetailLevel?5?$DN?5?$CFd?6?$AA@",
+   "address": "007e8918",
+   "bytes": 18,
+   "kind": "string",
+   "section": 105
+  },
+  {
+   "symbol": "??_C@_0BC@JNMK@AutoScroll?5is?5?$CFs?6?$AA@",
+   "address": "007e892c",
+   "bytes": 18,
+   "kind": "string",
+   "section": 107
+  },
+  {
+   "symbol": "??_C@_0L@NNFH@AutoScroll?$AA@",
+   "address": "007e8940",
+   "bytes": 11,
+   "kind": "string",
+   "section": 108
+  },
+  {
+   "symbol": "??_C@_0BB@LGCL@ScrollRate?5?$DN?5?$CFd?6?$AA@",
+   "address": "007e894c",
+   "bytes": 17,
+   "kind": "string",
+   "section": 109
+  },
+  {
+   "symbol": "??_C@_0L@BKMH@ScrollRate?$AA@",
+   "address": "007e8960",
+   "bytes": 11,
+   "kind": "string",
+   "section": 110
+  },
+  {
+   "symbol": "??_C@_0BD@FKHC@ScrollMethod?5?$DN?5?$CFd?6?$AA@",
+   "address": "007e896c",
+   "bytes": 19,
+   "kind": "string",
+   "section": 111
+  },
+  {
+   "symbol": "??_C@_0N@NAHG@ScrollMethod?$AA@",
+   "address": "007e8980",
+   "bytes": 13,
+   "kind": "string",
+   "section": 112
+  },
+  {
+   "symbol": "??_C@_0BB@DDEA@Difficulty?5?$DN?5?$CFd?6?$AA@",
+   "address": "007e8990",
+   "bytes": 17,
+   "kind": "string",
+   "section": 113
+  },
+  {
+   "symbol": "??_C@_0L@IHH@Difficulty?$AA@",
+   "address": "007e89a4",
+   "bytes": 11,
+   "kind": "string",
+   "section": 114
+  },
+  {
+   "symbol": "??_C@_0BA@JBIP@GameSpeed?5?$DN?5?$CFd?6?$AA@",
+   "address": "007e89b0",
+   "bytes": 16,
+   "kind": "string",
+   "section": 115
+  },
+  {
+   "symbol": "??_C@_09OAAF@GameSpeed?$AA@",
+   "address": "007e89c0",
+   "bytes": 10,
+   "kind": "string",
+   "section": 117
+  },
+  {
+   "symbol": "??_C@_0DE@FEPI@?9?9?9?9?9?9?9?9?9?5Loading?5SUN?4INI?5settin@",
+   "address": "007e89cc",
+   "bytes": 52,
+   "kind": "string",
+   "section": 118
+  },
+  {
+   "symbol": "??_C@_1M@LKON@?$AA?$CF?$AAd?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007e8a00",
+   "bytes": 12,
+   "kind": "string",
+   "section": 138
+  },
+  {
+   "symbol": "??_C@_0BG@OKEL@Saving?5game?5settings?6?$AA@",
+   "address": "007e8a0c",
+   "bytes": 22,
+   "kind": "string",
+   "section": 139
+  },
+  {
+   "symbol": "??_C@_0BC@MFEG@Error?3CannotRemap?$AA@",
+   "address": "007e8a24",
+   "bytes": 18,
+   "kind": "string",
+   "section": 173
+  },
+  {
+   "symbol": "??_C@_0BA@KKIC@Error?3CannotMap?$AA@",
+   "address": "007e8a38",
+   "bytes": 16,
+   "kind": "string",
+   "section": 174
+  },
+  {
+   "symbol": "??_C@_0BD@LCMK@D?3?2Ra2?2Options?4CPP?$AA@",
+   "address": "007e8a48",
+   "bytes": 19,
+   "kind": "string",
+   "section": 175
+  },
+  {
+   "symbol": "??_C@_0BN@DILJ@Deleting?5users?5KEYBOARD?4INI?6?$AA@",
+   "address": "007e8a5c",
+   "bytes": 29,
+   "kind": "string",
+   "section": 177
+  },
+  {
+   "symbol": "??_C@_0N@GLNH@Keyboard?4ini?$AA@",
+   "address": "007e8a7c",
+   "bytes": 13,
+   "kind": "string",
+   "section": 178
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7CCINIClass@@6B@",
+   "address": "0079aae0",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$List@PAUINISection@INIClass@@@@6B@",
+   "address": "0079aae8",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7GenericList@@6B@",
+   "address": "0079aaf0",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7GenericNode@@6B@",
+   "address": "0079aaf8",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "__real@8@4006ff00000000000000",
+   "address": "007a2f50",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a7798",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@400d8000000000000000",
+   "address": "007a77ac",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CCFileClass@@8",
+   "address": "007b2500",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2CCFileClass@@8",
+   "address": "007b2518",
+   "bytes": 21,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3CCFileClass@@8",
+   "address": "007b2530",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4CCFileClass@@6B@",
+   "address": "007b2540",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@FileClass@@8",
+   "address": "007b2558",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@RawFileClass@@8",
+   "address": "007b2570",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BufferIOFileClass@@8",
+   "address": "007b2588",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CDFileClass@@8",
+   "address": "007b25a0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2CDFileClass@@8",
+   "address": "007b25b8",
+   "bytes": 17,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3CDFileClass@@8",
+   "address": "007b25d0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4CDFileClass@@6B@",
+   "address": "007b25e0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$List@PAUINISection@INIClass@@@@8",
+   "address": "007b2c38",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$List@PAUINISection@INIClass@@@@8",
+   "address": "007b2c50",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$List@PAUINISection@INIClass@@@@8",
+   "address": "007b2c60",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$List@PAUINISection@INIClass@@@@6B@",
+   "address": "007b2c70",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@INIClass@@8",
+   "address": "007b2c88",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CCINIClass@@8",
+   "address": "007b2ca0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2CCINIClass@@8",
+   "address": "007b2cb8",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3CCINIClass@@8",
+   "address": "007b2cc8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4CCINIClass@@6B@",
+   "address": "007b2cd8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GenericNode@@8",
+   "address": "007b2cf0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2GenericNode@@8",
+   "address": "007b2d08",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3GenericNode@@8",
+   "address": "007b2d10",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4GenericNode@@6B@",
+   "address": "007b2d20",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GenericList@@8",
+   "address": "007b2d38",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2GenericList@@8",
+   "address": "007b2d50",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3GenericList@@8",
+   "address": "007b2d58",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4GenericList@@6B@",
+   "address": "007b2d68",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVCCFileClass@@@8",
+   "address": "007cc8b0",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVFileClass@@@8",
+   "address": "007cc8d0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVRawFileClass@@@8",
+   "address": "007cc8e8",
+   "bytes": 27,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVBufferIOFileClass@@@8",
+   "address": "007cc908",
+   "bytes": 32,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVCDFileClass@@@8",
+   "address": "007cc928",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$List@PAUINISection@INIClass@@@@@8",
+   "address": "007cded8",
+   "bytes": 46,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVINIClass@@@8",
+   "address": "007cdf08",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVCCINIClass@@@8",
+   "address": "007cdf20",
+   "bytes": 25,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVGenericNode@@@8",
+   "address": "007cdf40",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVGenericList@@@8",
+   "address": "007cdf60",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0M@PNCF@DetailLevel?$AA@",
+   "address": "007cef14",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+   "address": "007d64f4",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07BFAH@Options?$AA@",
+   "address": "007dae94",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_02JDLK@?$CFx?$AA@",
+   "address": "007db4b4",
+   "bytes": 3,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07IBND@RA2?4INI?$AA@",
+   "address": "007db8b8",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_01PJCK@?4?$AA@",
+   "address": "007dbe44",
+   "bytes": 2,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06KFPB@Hotkey?$AA@",
+   "address": "007dd710",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@CJMM@KEYBOARD?4INI?$AA@",
+   "address": "007dd718",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_03CMJG@OFF?$AA@",
+   "address": "007e1f3c",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_02HAKO@ON?$AA@",
+   "address": "007e1f40",
+   "bytes": 3,
+   "kind": "string"
+  },
+  {
+   "symbol": "_?current_selection@?1??Unknown_Options_Dialog_Proc_005d97a0@@YGHPAUHWND__@@IIJ@Z@4HA",
+   "address": "007e8414",
+   "bytes": 4,
+   "kind": "static"
+  },
+  {
+   "symbol": "??_C@_0BE@JBIN@ScoreShuffle?5is?5?$CFs?6?$AA@",
+   "address": "007e8674",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@OCJK@ScoreRepeat?5is?5?$CFs?6?$AA@",
+   "address": "007e8688",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@MLDC@ScoreVolume?5?$DN?5?$CFf?6?$AA@",
+   "address": "007e869c",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@CPNP@SoundVolume?5?$DN?5?$CFf?6?$AA@",
+   "address": "007e86b0",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@EMAN@VoiceVolume?5?$DN?5?$CFf?6?$AA@",
+   "address": "007e86c4",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DE@DFEE@?9?9?9?9?9?9?9?9?9?5Complete?5?9?9?9?9?9?9?9?9?9?9?9?9?9@",
+   "address": "007e86d8",
+   "bytes": 52,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07OPOK@DestNet?$AA@",
+   "address": "007e870c",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07GNMG@NetCard?$AA@",
+   "address": "007e8714",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06BHPO@Socket?$AA@",
+   "address": "007e871c",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CK@NH@Emulated?5sound?5card?5latency?5defa@",
+   "address": "007e8724",
+   "bytes": 42,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@LDPM@SoundLatency?$AA@",
+   "address": "007e8750",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07HKHC@Network?$AA@",
+   "address": "007e8760",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_05COPE@NetID?$AA@",
+   "address": "007e8768",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@KPPM@InGameMusic?$AA@",
+   "address": "007e8770",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@DCKB@IsScoreShuffle?$AA@",
+   "address": "007e877c",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@CEPG@IsScoreRepeat?$AA@",
+   "address": "007e878c",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@DKIB@ScoreVolume?$AA@",
+   "address": "007e879c",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@HMFN@VoiceVolume?$AA@",
+   "address": "007e87a8",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_05BHNM@Audio?$AA@",
+   "address": "007e87b4",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@EHL@SoundVolume?$AA@",
+   "address": "007e87bc",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@HANG@AllowVRAMSidebar?$AA@",
+   "address": "007e87c8",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@EOHF@AllowModeToggle?$AA@",
+   "address": "007e87dc",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@HPPL@AllowHiRes?5is?5?$CFs?6?$AA@",
+   "address": "007e87ec",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@HFAB@AllowHiResModes?$AA@",
+   "address": "007e8800",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BF@MACC@StretchMovies?5is?5?$CFs?6?$AA@",
+   "address": "007e8810",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@INAO@StretchMovies?$AA@",
+   "address": "007e8828",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BG@KDGG@Resolution?5?$DN?5?$CFd?5X?5?$CFd?6?$AA@",
+   "address": "007e8838",
+   "bytes": 22,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@PIKM@ScreenHeight?$AA@",
+   "address": "007e8850",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_05HAHE@Video?$AA@",
+   "address": "007e8860",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@KHJK@ScreenWidth?$AA@",
+   "address": "007e8868",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@JJCE@ToolTips?5are?5?$CFs?6?$AA@",
+   "address": "007e8874",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08FDMF@ToolTips?$AA@",
+   "address": "007e8888",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@FPEC@ShowHidden?5is?5?$CFs?6?$AA@",
+   "address": "007e8894",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@FHFF@ShowHidden?$AA@",
+   "address": "007e88a8",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@PON@ActionLines?5are?5?$CFs?6?$AA@",
+   "address": "007e88b4",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@CDGE@UnitActionLines?$AA@",
+   "address": "007e88c8",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@EJCO@Sidebar?5Text?5is?5?$CFs?6?$AA@",
+   "address": "007e88d8",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@FMGO@SidebarCameoText?$AA@",
+   "address": "007e88ec",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@CPDH@SideBar?5on?5?$CFs?6?$AA@",
+   "address": "007e8900",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_05JCNK@RIGHT?$AA@",
+   "address": "007e8910",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@OKJP@DetailLevel?5?$DN?5?$CFd?6?$AA@",
+   "address": "007e8918",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@JNMK@AutoScroll?5is?5?$CFs?6?$AA@",
+   "address": "007e892c",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@NNFH@AutoScroll?$AA@",
+   "address": "007e8940",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@LGCL@ScrollRate?5?$DN?5?$CFd?6?$AA@",
+   "address": "007e894c",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@BKMH@ScrollRate?$AA@",
+   "address": "007e8960",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@FKHC@ScrollMethod?5?$DN?5?$CFd?6?$AA@",
+   "address": "007e896c",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@NAHG@ScrollMethod?$AA@",
+   "address": "007e8980",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@DDEA@Difficulty?5?$DN?5?$CFd?6?$AA@",
+   "address": "007e8990",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@IHH@Difficulty?$AA@",
+   "address": "007e89a4",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@JBIP@GameSpeed?5?$DN?5?$CFd?6?$AA@",
+   "address": "007e89b0",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09OAAF@GameSpeed?$AA@",
+   "address": "007e89c0",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DE@FEPI@?9?9?9?9?9?9?9?9?9?5Loading?5SUN?4INI?5settin@",
+   "address": "007e89cc",
+   "bytes": 52,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_1M@LKON@?$AA?$CF?$AAd?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007e8a00",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BG@OKEL@Saving?5game?5settings?6?$AA@",
+   "address": "007e8a0c",
+   "bytes": 22,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@MFEG@Error?3CannotRemap?$AA@",
+   "address": "007e8a24",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@KKIC@Error?3CannotMap?$AA@",
+   "address": "007e8a38",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@LCMK@D?3?2Ra2?2Options?4CPP?$AA@",
+   "address": "007e8a48",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BN@DILJ@Deleting?5users?5KEYBOARD?4INI?6?$AA@",
+   "address": "007e8a5c",
+   "bytes": 29,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@GLNH@Keyboard?4ini?$AA@",
+   "address": "007e8a7c",
+   "bytes": 13,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00504740",
+   "symbol": "?Normalize_Delay@OptionsClass@@QBEHH@Z",
+   "target": "005d9760",
+   "function_entry": true
+  },
+  {
+   "site": "00443d60",
+   "symbol": "?Normalize_Delay@OptionsClass@@QBEHH@Z",
+   "target": "005d9760",
+   "function_entry": true
+  },
+  {
+   "site": "0044bd40",
+   "symbol": "?Normalize_Delay@OptionsClass@@QBEHH@Z",
+   "target": "005d9760",
+   "function_entry": true
+  },
+  {
+   "site": "0065bc70",
+   "symbol": "?Set@OptionsClass@@QAEXXZ",
+   "target": "005d95e0",
+   "function_entry": true
+  },
+  {
+   "site": "004cf920",
+   "symbol": "?Save_Settings@OptionsClass@@QAEXXZ",
+   "target": "005d91b0",
+   "function_entry": true
+  },
+  {
+   "site": "00481850",
+   "symbol": "?Unknown_005DA360@OptionsClass@@QAE_NXZ",
+   "target": "005da360",
+   "function_entry": true
+  },
+  {
+   "site": "005134c0",
+   "symbol": "?Fill_Movie_List@OptionsClass@@QAEXPAUHWND__@@@Z",
+   "target": "005da470",
+   "function_entry": true
+  },
+  {
+   "site": "00542150",
+   "symbol": "??0OptionsClass@@QAE@XZ",
+   "target": "005d8840",
+   "function_entry": true
+  },
+  {
+   "site": "00542280",
+   "symbol": "?Set_Score_Volume@OptionsClass@@QAEXM_N@Z",
+   "target": "005d8980",
+   "function_entry": true
+  },
+  {
+   "site": "00542280",
+   "symbol": "?Set_Sound_Volume@OptionsClass@@QAEXM_N@Z",
+   "target": "005d89f0",
+   "function_entry": true
+  },
+  {
+   "site": "00542280",
+   "symbol": "?Set_Voice_Volume@OptionsClass@@QAEXM_N@Z",
+   "target": "005d8a70",
+   "function_entry": true
+  },
+  {
+   "site": "0066a7a0",
+   "symbol": "?Get_Scroll_Method@OptionsClass@@QBEHXZ",
+   "target": "005da3e0",
+   "function_entry": true
+  },
+  {
+   "site": "00516900",
+   "symbol": "?One_Time@OptionsClass@@QAEXXZ",
+   "target": "005d8910",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?Load_Settings@OptionsClass@@QAEXXZ",
+   "target": "005d8b00",
+   "function_entry": true
+  },
+  {
+   "site": "00745780",
+   "symbol": "?Save_Settings@OptionsClass@@QAEXXZ",
+   "target": "005d91b0",
+   "function_entry": true
+  },
+  {
+   "site": "004e4110",
+   "symbol": "?Normalize_Delay@OptionsClass@@QBEHH@Z",
+   "target": "005d9760",
+   "function_entry": true
+  },
+  {
+   "site": "004e4110",
+   "symbol": "?Normalize_Delay@OptionsClass@@QBEHH@Z",
+   "target": "005d9760",
+   "function_entry": true
+  },
+  {
+   "site": "004e4110",
+   "symbol": "?Normalize_Delay@OptionsClass@@QBEHH@Z",
+   "target": "005d9760",
+   "function_entry": true
+  },
+  {
+   "site": "00542460",
+   "symbol": "?Unknown_005DA360@OptionsClass@@QAE_NXZ",
+   "target": "005da360",
+   "function_entry": true
+  },
+  {
+   "site": "00542460",
+   "symbol": "?Save_Settings@OptionsClass@@QAEXXZ",
+   "target": "005d91b0",
+   "function_entry": true
+  },
+  {
+   "site": "005a1bb0",
+   "symbol": "?Unlock_Movie@OptionsClass@@QAEXPBD@Z",
+   "target": "005da3f0",
+   "function_entry": true
+  },
+  {
+   "site": "00688da0",
+   "symbol": "?Set_Score_Volume@OptionsClass@@QAEXM_N@Z",
+   "target": "005d8980",
+   "function_entry": true
+  },
+  {
+   "site": "00688da0",
+   "symbol": "?Set_Sound_Volume@OptionsClass@@QAEXM_N@Z",
+   "target": "005d89f0",
+   "function_entry": true
+  },
+  {
+   "site": "00688da0",
+   "symbol": "?Set_Voice_Volume@OptionsClass@@QAEXM_N@Z",
+   "target": "005d8a70",
+   "function_entry": true
+  },
+  {
+   "site": "00688da0",
+   "symbol": "?Set_Shuffle@OptionsClass@@QAEX_N@Z",
+   "target": "005d8920",
+   "function_entry": true
+  },
+  {
+   "site": "00688da0",
+   "symbol": "?Set_Repeat@OptionsClass@@QAEX_N@Z",
+   "target": "005d8950",
+   "function_entry": true
+  },
+  {
+   "site": "00688da0",
+   "symbol": "?Set_Repeat@OptionsClass@@QAEX_N@Z",
+   "target": "005d8950",
+   "function_entry": true
+  },
+  {
+   "site": "00688da0",
+   "symbol": "?Set_Shuffle@OptionsClass@@QAEX_N@Z",
+   "target": "005d8920",
+   "function_entry": true
+  },
+  {
+   "site": "00688da0",
+   "symbol": "?Set_Score_Volume@OptionsClass@@QAEXM_N@Z",
+   "target": "005d8980",
+   "function_entry": true
+  },
+  {
+   "site": "00688da0",
+   "symbol": "?Set_Sound_Volume@OptionsClass@@QAEXM_N@Z",
+   "target": "005d89f0",
+   "function_entry": true
+  },
+  {
+   "site": "00688da0",
+   "symbol": "?Set_Voice_Volume@OptionsClass@@QAEXM_N@Z",
+   "target": "005d8a70",
+   "function_entry": true
+  },
+  {
+   "site": "00768e90",
+   "symbol": "?Save_Settings@OptionsClass@@QAEXXZ",
+   "target": "005d91b0",
+   "function_entry": true
+  },
+  {
+   "site": "00420110",
+   "symbol": "?Normalize_Delay@OptionsClass@@QBEHH@Z",
+   "target": "005d9760",
+   "function_entry": true
+  },
+  {
+   "site": "004d4650",
+   "symbol": "??0OptionsClass@@QAE@XZ",
+   "target": "005d8840",
+   "function_entry": true
+  },
+  {
+   "site": "006c2c40",
+   "symbol": "?Normalize_Delay@OptionsClass@@QBEHH@Z",
+   "target": "005d9760",
+   "function_entry": true
+  },
+  {
+   "site": "0043c930",
+   "symbol": "?Normalize_Delay@OptionsClass@@QBEHH@Z",
+   "target": "005d9760",
+   "function_entry": true
+  },
+  {
+   "site": "00759e20",
+   "symbol": "?Save_Settings@OptionsClass@@QAEXXZ",
+   "target": "005d91b0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Save_Settings@OptionsClass@@QAEXXZ",
+   "target": "005d91b0",
+   "function_entry": true
+  },
+  {
+   "site": "00421710",
+   "symbol": "?Normalize_Delay@OptionsClass@@QBEHH@Z",
+   "target": "005d9760",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0CCFileClass@@QAE@PBD@Z",
+   "address": "00468f50"
+  },
+  {
+   "symbol": "??0IPXAddressClass@@QAE@QAE0G@Z",
+   "address": "00523440"
+  },
+  {
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "address": "00638b40"
+  },
+  {
+   "symbol": "??1Buffer@@QAE@XZ",
+   "address": "00438410"
+  },
+  {
+   "symbol": "??1BufferIOFileClass@@UAE@XZ",
+   "address": "0042f350"
+  },
+  {
+   "symbol": "??1INIClass@@UAE@XZ",
+   "address": "0050b8d0"
+  },
+  {
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "address": "00638ac0"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_G?$List@PAUINISection@INIClass@@@@UAEPAXI@Z",
+   "address": "0040e300"
+  },
+  {
+   "symbol": "??_GCCFileClass@@UAEPAXI@Z",
+   "address": "004019a0"
+  },
+  {
+   "symbol": "??_GCCINIClass@@UAEPAXI@Z",
+   "address": "0040e2e0"
+  },
+  {
+   "symbol": "??_GCDFileClass@@UAEPAXI@Z",
+   "address": "00401950"
+  },
+  {
+   "symbol": "??_GGenericList@@UAEPAXI@Z",
+   "address": "0040e220"
+  },
+  {
+   "symbol": "??_GGenericNode@@UAEPAXI@Z",
+   "address": "0040e1d0"
+  },
+  {
+   "symbol": "?AlliedMovies@@3PAUMovieEntryStruct@@A",
+   "address": "007e8258"
+  },
+  {
+   "symbol": "?AllowStretchBlits_852fd6@@3_NA",
+   "address": "00852fd6"
+  },
+  {
+   "symbol": "?Audio_Global_Levels@@3PAPAUAudioLevelSet@@A",
+   "address": "0083144c"
+  },
+  {
+   "symbol": "?Clear@INIClass@@QAE_NPBD0@Z",
+   "address": "0050b9a0"
+  },
+  {
+   "symbol": "?Close@BufferIOFileClass@@UAEXXZ",
+   "address": "0042fda0"
+  },
+  {
+   "symbol": "?Close@CCFileClass@@UAEXXZ",
+   "address": "004691f0"
+  },
+  {
+   "symbol": "?Command_Allows_Key_00480b40@@YI_NI@Z",
+   "address": "00480b40"
+  },
+  {
+   "symbol": "?Command_Allows_Modified_Key_00480b20@@YI_NABVCommandClass@@I@Z",
+   "address": "00480b20"
+  },
+  {
+   "symbol": "?Create@RawFileClass@@UAEHXZ",
+   "address": "00639200"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Delay_Adjust@@3QAY07$$CBHA",
+   "address": "007e8394"
+  },
+  {
+   "symbol": "?Delete@RawFileClass@@UAEHXZ",
+   "address": "00639240"
+  },
+  {
+   "symbol": "?Error@CCFileClass@@UAEXHHPBD@Z",
+   "address": "00469000"
+  },
+  {
+   "symbol": "?Error@RawFileClass@@UAEXHHPBD@Z",
+   "address": "00638b30"
+  },
+  {
+   "symbol": "?Get_Bool@INIClass@@QBE_NPBD0_N@Z",
+   "address": "0050f410"
+  },
+  {
+   "symbol": "?Get_Date_Time@CCFileClass@@UAEKXZ",
+   "address": "00469350"
+  },
+  {
+   "symbol": "?Get_Date_Time@RawFileClass@@UAEKXZ",
+   "address": "006392a0"
+  },
+  {
+   "symbol": "?Get_Double@INIClass@@QBENPBD0N@Z",
+   "address": "0050e3a0"
+  },
+  {
+   "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+   "address": "0050d7f0"
+  },
+  {
+   "symbol": "?Get_String@INIClass@@QBEHPBD00PADH@Z",
+   "address": "0050e9a0"
+  },
+  {
+   "symbol": "?Get_Unicode@INIClass@@QBEHPBD0PBGPAGH@Z",
+   "address": "0050edf0"
+  },
+  {
+   "symbol": "?IntroMovie@@3UMovieEntryStruct@@A",
+   "address": "007e8248"
+  },
+  {
+   "symbol": "?Is_Available@BufferIOFileClass@@UAE_NH@Z",
+   "address": "0042f6e0"
+  },
+  {
+   "symbol": "?Is_Available@CCFileClass@@UAE_NH@Z",
+   "address": "004691a0"
+  },
+  {
+   "symbol": "?Is_Open@BufferIOFileClass@@UBE_NXZ",
+   "address": "0042f700"
+  },
+  {
+   "symbol": "?Is_Open@CCFileClass@@UBE_NXZ",
+   "address": "004691e0"
+  },
+  {
+   "symbol": "?Load_Keyboard_Hotkeys@@YI_NXZ",
+   "address": "00519240"
+  },
+  {
+   "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
+   "address": "006f9ec0"
+  },
+  {
+   "symbol": "?Map@@3VMouseClass@@A",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "?Open@CCFileClass@@UAEHH@Z",
+   "address": "00469220"
+  },
+  {
+   "symbol": "?Open@CCFileClass@@UAEHPBDH@Z",
+   "address": "00401980"
+  },
+  {
+   "symbol": "?Open@CDFileClass@@UAEHH@Z",
+   "address": "0046fe10"
+  },
+  {
+   "symbol": "?Open@CDFileClass@@UAEHPBDH@Z",
+   "address": "00470250"
+  },
+  {
+   "symbol": "?Put_Bool@INIClass@@QAE_NPBD0_N@Z",
+   "address": "0050f380"
+  },
+  {
+   "symbol": "?Put_Double@INIClass@@QAE_NPBD0N@Z",
+   "address": "0050e540"
+  },
+  {
+   "symbol": "?Put_Int@INIClass@@QAE_NPBD0HH@Z",
+   "address": "0050d6e0"
+  },
+  {
+   "symbol": "?Put_String@INIClass@@QAE_NPBD00@Z",
+   "address": "0050e5f0"
+  },
+  {
+   "symbol": "?Put_Unicode@INIClass@@QAE_NPBD0PBG@Z",
+   "address": "0050ecf0"
+  },
+  {
+   "symbol": "?Read@BufferIOFileClass@@UAEJPAXJ@Z",
+   "address": "0042fa80"
+  },
+  {
+   "symbol": "?Read@CCFileClass@@UAEJPAXJ@Z",
+   "address": "00469060"
+  },
+  {
+   "symbol": "?Rules@@3PAVRulesClass@@A",
+   "address": "00839848"
+  },
+  {
+   "symbol": "?Save@CCINIClass@@QAEHAAVFileClass@@_N@Z",
+   "address": "004698f0"
+  },
+  {
+   "symbol": "?Seek@BufferIOFileClass@@UAEJJH@Z",
+   "address": "0042fc90"
+  },
+  {
+   "symbol": "?Seek@CCFileClass@@UAEJJH@Z",
+   "address": "004690f0"
+  },
+  {
+   "symbol": "?Set@AudioLevel@@QAIXH@Z",
+   "address": "00407080"
+  },
+  {
+   "symbol": "?Set_Date_Time@CCFileClass@@UAE_NK@Z",
+   "address": "00469400"
+  },
+  {
+   "symbol": "?Set_Date_Time@RawFileClass@@UAE_NK@Z",
+   "address": "006392f0"
+  },
+  {
+   "symbol": "?Set_Name@CDFileClass@@UAEPBDPBD@Z",
+   "address": "00470150"
+  },
+  {
+   "symbol": "?Set_Socket@IPXManagerClass@@QAEXG@Z",
+   "address": "00526ba0"
+  },
+  {
+   "symbol": "?Set_Volume@ThemeClass@@QAEXH@Z",
+   "address": "006e8590"
+  },
+  {
+   "symbol": "?Set_Volume@VoxClass@@SIXH@Z",
+   "address": "00715ef0"
+  },
+  {
+   "symbol": "?Size@BufferIOFileClass@@UAEJXZ",
+   "address": "0042fd80"
+  },
+  {
+   "symbol": "?Size@CCFileClass@@UAEJXZ",
+   "address": "00469150"
+  },
+  {
+   "symbol": "?SovietMovies@@3PAUMovieEntryStruct@@A",
+   "address": "007e82f8"
+  },
+  {
+   "symbol": "?Theme@@3VThemeClass@@A",
+   "address": "00a35d78"
+  },
+  {
+   "symbol": "?Unknown_0067B880@SidebarClass@@QAEX_N@Z",
+   "address": "0067b880"
+  },
+  {
+   "symbol": "?Voc_Play@@YIPAUAudioEvent@@HMHPAUAudioEventHandle@@@Z",
+   "address": "00713db0"
+  },
+  {
+   "symbol": "?Write@BufferIOFileClass@@UAEJPBXJ@Z",
+   "address": "0042f830"
+  },
+  {
+   "symbol": "?Write@CCFileClass@@UAEJPBXJ@Z",
+   "address": "00469030"
+  },
+  {
+   "symbol": "?unknown_517370@@YIX_N@Z",
+   "address": "00517370"
+  },
+  {
+   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "address": "006000d0"
+  },
+  {
+   "symbol": "?unknown_6d79c0@TechnoClass@@SIX_N@Z",
+   "address": "006d79c0"
+  },
+  {
+   "symbol": "?unknown_allow_mode_toggle_a40d0b@@3_NA",
+   "address": "00a40d0b"
+  },
+  {
+   "symbol": "?unknown_commands_832358@@3V?$DynamicVectorClass@PBVCommandClass@@@@A",
+   "address": "00832358"
+  },
+  {
+   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "address": "005ff610"
+  },
+  {
+   "symbol": "?unknown_dest_net_a3f608@@3VIPXAddressClass@@A",
+   "address": "00a3f608"
+  },
+  {
+   "symbol": "?unknown_dest_net_set_a3f604@@3HA",
+   "address": "00a3f604"
+  },
+  {
+   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "address": "005ff6e0"
+  },
+  {
+   "symbol": "?unknown_dialog_5ff7c0@@YIXPAUHWND__@@@Z",
+   "address": "005ff7c0"
+  },
+  {
+   "symbol": "?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z",
+   "address": "005ffb00"
+  },
+  {
+   "symbol": "?unknown_empty_wide_839d4c@@3QBGB",
+   "address": "00839d4c"
+  },
+  {
+   "symbol": "?unknown_flag_a40958@@3_NA",
+   "address": "00a40958"
+  },
+  {
+   "symbol": "?unknown_hotkey_text_5fc600@OwnerDraw@@YIXGPAG@Z",
+   "address": "005fc600"
+  },
+  {
+   "symbol": "?unknown_hotkeys_832380@@3V?$IndexClass@HPAVCommandClass@@@@A",
+   "address": "00832380"
+  },
+  {
+   "symbol": "?unknown_ini_839740@@3VCCINIClass@@A",
+   "address": "00839740"
+  },
+  {
+   "symbol": "?unknown_ipx_manager_a40978@@3VIPXManagerClass@@A",
+   "address": "00a40978"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?x@?1???A?$IndexClass@HPAVCommandClass@@@@QBEABQAVCommandClass@@ABH@Z@4PAV2@A",
+   "address": "00b2b63c"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__GetDlgItem@8",
+   "address": "0079a49c"
+  },
+  {
+   "symbol": "__imp__GetWindowLongA@8",
+   "address": "0079a48c"
+  },
+  {
+   "symbol": "__imp__SendMessageA@16",
+   "address": "0079a4a0"
+  },
+  {
+   "symbol": "__imp__SetFocus@4",
+   "address": "0079a38c"
+  },
+  {
+   "symbol": "__imp__SetWindowLongA@12",
+   "address": "0079a488"
+  },
+  {
+   "symbol": "__stricmp",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "__wcsicmp",
+   "address": "00796318"
+  },
+  {
+   "symbol": "_qsort",
+   "address": "00781d46"
+  },
+  {
+   "symbol": "_sscanf",
+   "address": "00783730"
+  },
+  {
+   "symbol": "_strtok",
+   "address": "00782ec2"
+  },
+  {
+   "symbol": "_swprintf",
+   "address": "00783764"
+  },
+  {
+   "symbol": "_wcstok",
+   "address": "00784b11"
+  },
+  {
+   "symbol": "_wcstol",
+   "address": "00784bb8"
+  }
+ ],
+ "route": "A",
+ "unit": "options.cpp",
+ "form": "one include block",
+ "switches": [
+  "INDEX_DECLARE_FETCH_ID_BY_POSITION",
+  "VECTOR_IMPLEMENT_VECTOR_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS"
+ ],
+ "include_blocks": [
+  {
+   "before": "005d85e0",
+   "lines": 28
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 37,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  },
+  {
+   "symbol": "??_7CDFileClass@@6B@",
+   "reason": "relocation target unbound: ?File_Name@RawFileClass@@UBEPBDXZ"
+  },
+  {
+   "symbol": "??_7CCFileClass@@6B@",
+   "reason": "relocation target unbound: ?File_Name@RawFileClass@@UBEPBDXZ"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

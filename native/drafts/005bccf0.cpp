@@ -12,7 +12,7 @@ int __fastcall Set_Slot_Country_Color_005bccf0(char const *name, int country, in
 {
     int slot = -1;
     for (int i = 0; i < 8; i++) {
-        char *slot_name = Unknown_006FA120(unknown_player_slots_a3fa98[i]->Name);
+        char *slot_name = Wide_To_Narrow_006fa120(unknown_player_slots_a3fa98[i]->Name);
         if (Compare_Narrow_00781f20(slot_name, name) == 0) {
             slot = i;
             break;
@@ -22,9 +22,9 @@ int __fastcall Set_Slot_Country_Color_005bccf0(char const *name, int country, in
     if (slot == -1) {
         return 0;
     }
-    HWND dialog = Find_Dialog_00735940(0xBC);
+    HWND dialog = WS_Find_Dialog_00735940(0xBC);
     if (dialog == 0) {
-        dialog = Find_Dialog_00735940(0xBD);
+        dialog = WS_Find_Dialog_00735940(0xBD);
     }
     NodeNameType *entry = unknown_player_slots_a3fa98[slot];
     if (entry->unknown_66e290() != country) {

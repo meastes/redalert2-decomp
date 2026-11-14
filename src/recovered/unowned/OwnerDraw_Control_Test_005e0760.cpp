@@ -5,25 +5,25 @@
 // a 0x005DF660 kind with ID 0x695 while the session byte +0x3080 is clear. Seed 0x005E0DA0
 // returns 0 or 1 in eax and the original tests only al (the char conversion).
 // @ref __imp__GetDlgCtrlID@4=0079a3f4
-// @ref ?Unknown_00672F10@UnknownSessionState@@QAEEXZ=00672f10
+// @ref ?Unknown_00672F10@SessionClass@@QAEEXZ=00672f10
 #include "shared/win32_api.hpp"
 #include "shared/owner_draw_dialog_control.hpp"
 
 #include "shared/session_state.hpp"
 namespace seed_005df660 {
-unsigned char __fastcall FUN_005df660(int param_1);   // 0x005DF660
+unsigned char __fastcall unknown_kind_test_005df660(int);   // 0x005DF660
 }
 namespace seed_005e0da0 {
-unsigned int __fastcall FUN_005e0da0(int param_1);    // 0x005E0DA0 (returns 0 or 1 in eax; callers test only al)
+unsigned int __fastcall Is_Listed_Kind_005e0da0(int);    // 0x005E0DA0 (returns 0 or 1 in eax; callers test only al)
 }
 
 bool __fastcall OwnerDraw_Control_Test_005e0760(unsigned int key, HWND window)
 {
 
-    OwnerDraw::UnknownControlRecord *record = OwnerDraw::unknown_registry_a73640.Find(key);
+    OwnerDraw::WinData *record = OwnerDraw::unknown_registry_a73640.Find(key);
     int kind = record != 0 ? record->unknown_6c : 0;
     int id = GetDlgCtrlID(window);
-    // FUN_005e0da0 is defined returning int 0/1, but this caller saw a char/bool return (it tests only al).
+    // Is_Listed_Kind_005e0da0 is defined returning int 0/1, but this caller saw a char/bool return (it tests only al).
     bool general = ((((((((kind == 0x10c) || (kind == 0x94)) || (kind == 0xa3)) ||
                     ((kind == 0x73 || (kind == 0xd8)))) || (kind == 0xbbb)) ||
                 (((kind == 0xf5 || (kind == 0x105)) ||
@@ -37,7 +37,7 @@ bool __fastcall OwnerDraw_Control_Test_005e0760(unsigned int key, HWND window)
               (((kind == 0xff || (kind == 0x6b)) ||
                 ((kind == 0x100 ||
                   ((((kind == 0x102 || (kind == 0xb8)) || (kind == 0xd6)) ||
-                    ((kind == 0x103 || (char)seed_005e0da0::FUN_005e0da0(kind) != 0))))))))))) && (id == 0x694)
+                    ((kind == 0x103 || (char)seed_005e0da0::Is_Listed_Kind_005e0da0(kind) != 0))))))))))) && (id == 0x694)
           ;
     if (general) {
         return true;
@@ -92,7 +92,7 @@ bool __fastcall OwnerDraw_Control_Test_005e0760(unsigned int key, HWND window)
     if (special_108) {
         return true;
     }
-    char special = seed_005df660::FUN_005df660(kind);
+    char special = seed_005df660::unknown_kind_test_005df660(kind);
     if (((special != 0) && (id == 0x695)) && unknown_session_a3d298.Unknown_00672F10() == 0) {
         return true;
     }

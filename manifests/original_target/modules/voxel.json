@@ -1,0 +1,762 @@
+{
+ "module": "voxel",
+ "source": "src/recovered/voxel.cpp",
+ "header": null,
+ "population": "population-3512",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 709,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00717ce0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "00717d10",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "00717d30",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "00717d50",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "00717d70",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "00717d90",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "00717db0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "00717df0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "00717e20",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "00717e50",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "00717e80",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "00717e90",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "00717eb0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E43",
+   "entry": "00717ed0",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E46",
+   "entry": "00717ee0",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E49",
+   "entry": "00717ef0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E52",
+   "entry": "00717f20",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E55",
+   "entry": "00717f50",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E58",
+   "entry": "00717f60",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E61",
+   "entry": "00717f70",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E64",
+   "entry": "00717f80",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Unknown_00717F90@@YI?AVMatrix3D@@XZ",
+   "entry": "00717f90",
+   "body_bytes": 21,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Unknown_00717FB0@@YGXM@Z",
+   "entry": "00717fb0",
+   "body_bytes": 167,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Unknown_00718060@@YIXXZ",
+   "entry": "00718060",
+   "body_bytes": 3290,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Unknown_00718D40@@YIXHPAVMatrix3D@@@Z",
+   "entry": "00718d40",
+   "body_bytes": 26,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Unknown_00718D60@@YIPAVMatrix3D@@PAV1@H@Z",
+   "entry": "00718d60",
+   "body_bytes": 28,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Unknown_00718D80@@YIXHHPAVMatrix3D@@N@Z",
+   "entry": "00718d80",
+   "body_bytes": 111,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Unknown_00718DF0@@YIPAVMatrix3D@@PAV1@HHN@Z",
+   "entry": "00718df0",
+   "body_bytes": 116,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?unknown_table_entry_7f9d9c@@YIHH@Z",
+   "entry": "00718e70",
+   "body_bytes": 8,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Unknown_00718E80@@YIDABUCoordStruct@@0@Z",
+   "entry": "00718e80",
+   "body_bytes": 87,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Unknown_00718EE0@@YIXPAVMatrix3D@@HH@Z",
+   "entry": "00718ee0",
+   "body_bytes": 180,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?unknown_scaled_vector@@YI?AUVector3@@HH@Z",
+   "entry": "00718fa0",
+   "body_bytes": 86,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Unknown_00719000@@YAXXZ",
+   "entry": "00719000",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Unknown_00719010@@YIPAVMatrix3D@@PAV1@H@Z",
+   "entry": "00719010",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  }
+ ],
+ "code_bytes": 4960,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "__real@4@00000000000000000000",
+   "address": "0079a738",
+   "bytes": 4,
+   "kind": "table",
+   "section": 63
+  },
+  {
+   "symbol": "__real@4@3fffc000000000000000",
+   "address": "0079d0e8",
+   "bytes": 4,
+   "kind": "table",
+   "section": 82
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007aea20",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "__real@4@c001c000000000000000",
+   "address": "007aea30",
+   "bytes": 4,
+   "kind": "table",
+   "section": 60
+  },
+  {
+   "symbol": "__real@4@3ff9c90e560000000000",
+   "address": "007aea34",
+   "bytes": 4,
+   "kind": "table",
+   "section": 64
+  },
+  {
+   "symbol": "__real@4@c000c000000000000000",
+   "address": "007aea38",
+   "bytes": 4,
+   "kind": "table",
+   "section": 79
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@00000000000000000000",
+   "address": "0079a738",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@3fffc000000000000000",
+   "address": "0079d0e8",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007aea20",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@c001c000000000000000",
+   "address": "007aea30",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@3ff9c90e560000000000",
+   "address": "007aea34",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@c000c000000000000000",
+   "address": "007aea38",
+   "bytes": 4,
+   "kind": "table"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0053d0d0",
+   "symbol": "?Unknown_00718D60@@YIPAVMatrix3D@@PAV1@H@Z",
+   "target": "00718d60",
+   "function_entry": true
+  },
+  {
+   "site": "004bf280",
+   "symbol": "?Unknown_00718D60@@YIPAVMatrix3D@@PAV1@H@Z",
+   "target": "00718d60",
+   "function_entry": true
+  },
+  {
+   "site": "006f0ce0",
+   "symbol": "?Unknown_00718D60@@YIPAVMatrix3D@@PAV1@H@Z",
+   "target": "00718d60",
+   "function_entry": true
+  },
+  {
+   "site": "00675a60",
+   "symbol": "?Unknown_00718DF0@@YIPAVMatrix3D@@PAV1@HHN@Z",
+   "target": "00718df0",
+   "function_entry": true
+  },
+  {
+   "site": "00675a60",
+   "symbol": "?Unknown_00718D60@@YIPAVMatrix3D@@PAV1@H@Z",
+   "target": "00718d60",
+   "function_entry": true
+  },
+  {
+   "site": "0049faa0",
+   "symbol": "?Unknown_00718DF0@@YIPAVMatrix3D@@PAV1@HHN@Z",
+   "target": "00718df0",
+   "function_entry": true
+  },
+  {
+   "site": "0049faa0",
+   "symbol": "?Unknown_00718D60@@YIPAVMatrix3D@@PAV1@H@Z",
+   "target": "00718d60",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?Unknown_00717FB0@@YGXM@Z",
+   "target": "00717fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?Unknown_00718060@@YIXXZ",
+   "target": "00718060",
+   "function_entry": true
+  },
+  {
+   "site": "004fbbf0",
+   "symbol": "?Unknown_00718D60@@YIPAVMatrix3D@@PAV1@H@Z",
+   "target": "00718d60",
+   "function_entry": true
+  },
+  {
+   "site": "004141c0",
+   "symbol": "?Aircraft_Isometric_View_Matrix_00717f90@@YI?AVMatrix3D@@XZ",
+   "target": "00717f90",
+   "function_entry": true
+  },
+  {
+   "site": "004141c0",
+   "symbol": "?Aircraft_Isometric_View_Matrix_00717f90@@YI?AVMatrix3D@@XZ",
+   "target": "00717f90",
+   "function_entry": true
+  },
+  {
+   "site": "007005b0",
+   "symbol": "?Unit_Isometric_View_00717f90@@YI?AVMatrix3D@@XZ",
+   "target": "00717f90",
+   "function_entry": true
+  },
+  {
+   "site": "007005b0",
+   "symbol": "?Unit_Isometric_View_00717f90@@YI?AVMatrix3D@@XZ",
+   "target": "00717f90",
+   "function_entry": true
+  },
+  {
+   "site": "0043abd0",
+   "symbol": "?Aircraft_Isometric_View_Matrix_00717f90@@YI?AVMatrix3D@@XZ",
+   "target": "00717f90",
+   "function_entry": true
+  },
+  {
+   "site": "0043abd0",
+   "symbol": "?Aircraft_Isometric_View_Matrix_00717f90@@YI?AVMatrix3D@@XZ",
+   "target": "00717f90",
+   "function_entry": true
+  },
+  {
+   "site": "0043abd0",
+   "symbol": "?Aircraft_Isometric_View_Matrix_00717f90@@YI?AVMatrix3D@@XZ",
+   "target": "00717f90",
+   "function_entry": true
+  },
+  {
+   "site": "0043abd0",
+   "symbol": "?Aircraft_Isometric_View_Matrix_00717f90@@YI?AVMatrix3D@@XZ",
+   "target": "00717f90",
+   "function_entry": true
+  },
+  {
+   "site": "0043abd0",
+   "symbol": "?Aircraft_Isometric_View_Matrix_00717f90@@YI?AVMatrix3D@@XZ",
+   "target": "00717f90",
+   "function_entry": true
+  },
+  {
+   "site": "00608bb0",
+   "symbol": "?Unknown_00718D60@@YIPAVMatrix3D@@PAV1@H@Z",
+   "target": "00718d60",
+   "function_entry": true
+  },
+  {
+   "site": "004610d0",
+   "symbol": "?Bullet_Isometric_View@@YI?AVMatrix3D@@XZ",
+   "target": "00717f90",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0Matrix3D@@QAE@ABUVector3@@M@Z",
+   "address": "0058ff50"
+  },
+  {
+   "symbol": "??0Matrix3D@@QAE@MM@Z",
+   "address": "0058fef0"
+  },
+  {
+   "symbol": "??0Quaternion@@QAE@MMMM@Z",
+   "address": "00622160"
+  },
+  {
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "address": "00622250"
+  },
+  {
+   "symbol": "??D@YI?AUVector3@@ABVMatrix3D@@ABU0@@Z",
+   "address": "00591380"
+  },
+  {
+   "symbol": "??D@YI?AVMatrix3D@@ABV0@0@Z",
+   "address": "00591180"
+  },
+  {
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "address": "006229b0"
+  },
+  {
+   "symbol": "?Build_Matrix3D@@YI?AVMatrix3D@@ABVQuaternion@@@Z",
+   "address": "00622eb0"
+  },
+  {
+   "symbol": "?Clear_Voxel_Indexes@ObjectTypeClass@@SAXXZ",
+   "address": "005d7ef0"
+  },
+  {
+   "symbol": "?Fast_Atan2@@YAMNN@Z",
+   "address": "004ba600"
+  },
+  {
+   "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+   "address": "00590060"
+  },
+  {
+   "symbol": "?Rotate_X@Matrix3D@@QAEXM@Z",
+   "address": "00590760"
+  },
+  {
+   "symbol": "?Rotate_Y@Matrix3D@@QAEXM@Z",
+   "address": "00590880"
+  },
+  {
+   "symbol": "?Rotate_Z@Matrix3D@@QAEXM@Z",
+   "address": "005909a0"
+  },
+  {
+   "symbol": "?Set@Quaternion@@QAEXMMMM@Z",
+   "address": "00622180"
+  },
+  {
+   "symbol": "?Slerp@@YI?AVQuaternion@@ABV1@0M@Z",
+   "address": "00622ac0"
+  },
+  {
+   "symbol": "?Translate@Matrix3D@@QAEXABUVector3@@@Z",
+   "address": "005900f0"
+  },
+  {
+   "symbol": "?Translate@Matrix3D@@QAEXMMM@Z",
+   "address": "00590090"
+  },
+  {
+   "symbol": "?unknown_839a60@@3UVector3@@A",
+   "address": "00839a60"
+  },
+  {
+   "symbol": "?unknown_839aac@@3MA",
+   "address": "00839aac"
+  },
+  {
+   "symbol": "?unknown_839ab0@@3UVector3@@A",
+   "address": "00839ab0"
+  },
+  {
+   "symbol": "?unknown_angles_7f9d84@@3PAMA",
+   "address": "007f9d84"
+  },
+  {
+   "symbol": "?unknown_facing_origin_79b630@@3NB",
+   "address": "0079b630"
+  },
+  {
+   "symbol": "?unknown_facing_scale_79b628@@3NB",
+   "address": "0079b628"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_table_7f9d9c@@3PAHA",
+   "address": "007f9d9c"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  }
+ ],
+ "route": "A",
+ "unit": "voxel.cpp",
+ "form": "one include block",
+ "switches": [
+  "RA2_MATRIX3D_INLINE_COPY"
+ ],
+ "include_blocks": [
+  {
+   "before": "00717ce0",
+   "lines": 7
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 37,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "004141c0",
+   "target": "00717f90",
+   "symbol": "?Aircraft_Isometric_View_Matrix_00717f90@@YI?AVMatrix3D@@XZ",
+   "module_symbol": "?Unknown_00717F90@@YI?AVMatrix3D@@XZ"
+  },
+  {
+   "site": "004141c0",
+   "target": "00717f90",
+   "symbol": "?Aircraft_Isometric_View_Matrix_00717f90@@YI?AVMatrix3D@@XZ",
+   "module_symbol": "?Unknown_00717F90@@YI?AVMatrix3D@@XZ"
+  },
+  {
+   "site": "007005b0",
+   "target": "00717f90",
+   "symbol": "?Unit_Isometric_View_00717f90@@YI?AVMatrix3D@@XZ",
+   "module_symbol": "?Unknown_00717F90@@YI?AVMatrix3D@@XZ"
+  },
+  {
+   "site": "007005b0",
+   "target": "00717f90",
+   "symbol": "?Unit_Isometric_View_00717f90@@YI?AVMatrix3D@@XZ",
+   "module_symbol": "?Unknown_00717F90@@YI?AVMatrix3D@@XZ"
+  },
+  {
+   "site": "0043abd0",
+   "target": "00717f90",
+   "symbol": "?Aircraft_Isometric_View_Matrix_00717f90@@YI?AVMatrix3D@@XZ",
+   "module_symbol": "?Unknown_00717F90@@YI?AVMatrix3D@@XZ"
+  },
+  {
+   "site": "0043abd0",
+   "target": "00717f90",
+   "symbol": "?Aircraft_Isometric_View_Matrix_00717f90@@YI?AVMatrix3D@@XZ",
+   "module_symbol": "?Unknown_00717F90@@YI?AVMatrix3D@@XZ"
+  },
+  {
+   "site": "0043abd0",
+   "target": "00717f90",
+   "symbol": "?Aircraft_Isometric_View_Matrix_00717f90@@YI?AVMatrix3D@@XZ",
+   "module_symbol": "?Unknown_00717F90@@YI?AVMatrix3D@@XZ"
+  },
+  {
+   "site": "0043abd0",
+   "target": "00717f90",
+   "symbol": "?Aircraft_Isometric_View_Matrix_00717f90@@YI?AVMatrix3D@@XZ",
+   "module_symbol": "?Unknown_00717F90@@YI?AVMatrix3D@@XZ"
+  },
+  {
+   "site": "0043abd0",
+   "target": "00717f90",
+   "symbol": "?Aircraft_Isometric_View_Matrix_00717f90@@YI?AVMatrix3D@@XZ",
+   "module_symbol": "?Unknown_00717F90@@YI?AVMatrix3D@@XZ"
+  },
+  {
+   "site": "004610d0",
+   "target": "00717f90",
+   "symbol": "?Bullet_Isometric_View@@YI?AVMatrix3D@@XZ",
+   "module_symbol": "?Unknown_00717F90@@YI?AVMatrix3D@@XZ"
+  }
+ ],
+ "stand_in_reference_count": 10,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

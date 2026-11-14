@@ -1,0 +1,2016 @@
+{
+ "module": "mission",
+ "source": "src/recovered/mission.cpp",
+ "header": null,
+ "population": "population-2519",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 503,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00594310",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "00594340",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "00594360",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "00594380",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "005943a0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "005943c0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "005943e0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "00594420",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "00594450",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "00594480",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "005944b0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "005944c0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "005944e0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??0MissionClass@@QAE@XZ",
+   "entry": "00594500",
+   "body_bytes": 98,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Do_MISSION_SLEEP@MissionClass@@UAEHXZ",
+   "entry": "00594570",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_HARMLESS@MissionClass@@UAEHXZ",
+   "entry": "00594580",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_AMBUSH@MissionClass@@UAEHXZ",
+   "entry": "00594590",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_ATTACK@MissionClass@@UAEHXZ",
+   "entry": "005945a0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_CAPTURE@MissionClass@@UAEHXZ",
+   "entry": "005945b0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_EATEN@MissionClass@@UAEHXZ",
+   "entry": "005945c0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_GUARD@MissionClass@@UAEHXZ",
+   "entry": "005945d0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_GUARD_AREA@MissionClass@@UAEHXZ",
+   "entry": "005945e0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_HARVEST@MissionClass@@UAEHXZ",
+   "entry": "005945f0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_HUNT@MissionClass@@UAEHXZ",
+   "entry": "00594600",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_MOVE@MissionClass@@UAEHXZ",
+   "entry": "00594610",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_RETREAT@MissionClass@@UAEHXZ",
+   "entry": "00594620",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_RETURN@MissionClass@@UAEHXZ",
+   "entry": "00594630",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_STOP@MissionClass@@UAEHXZ",
+   "entry": "00594640",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_UNLOAD@MissionClass@@UAEHXZ",
+   "entry": "00594650",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_ENTER@MissionClass@@UAEHXZ",
+   "entry": "00594660",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_CONSTRUCTION@MissionClass@@UAEHXZ",
+   "entry": "00594670",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_DECONSTRUCTION@MissionClass@@UAEHXZ",
+   "entry": "00594680",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_REPAIR@MissionClass@@UAEHXZ",
+   "entry": "00594690",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_MISSILE@MissionClass@@UAEHXZ",
+   "entry": "005946a0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_OPEN@MissionClass@@UAEHXZ",
+   "entry": "005946b0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_RESCUE@MissionClass@@UAEHXZ",
+   "entry": "005946c0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_PATROL@MissionClass@@UAEHXZ",
+   "entry": "005946d0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_PARADROP_APPROACH@MissionClass@@UAEHXZ",
+   "entry": "005946e0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_PARADROP_OVERFLY@MissionClass@@UAEHXZ",
+   "entry": "005946f0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_WAIT@MissionClass@@UAEHXZ",
+   "entry": "00594700",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Set_Mission@MissionClass@@UAEXH@Z",
+   "entry": "00594710",
+   "body_bytes": 93,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Get_Mission@MissionClass@@UAEHXZ",
+   "entry": "00594770",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?AI@MissionClass@@UAEXXZ",
+   "entry": "00594790",
+   "body_bytes": 1204,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Commence@MissionClass@@UAE_NXZ",
+   "entry": "00594c50",
+   "body_bytes": 92,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?QueueMission@MissionClass@@UAEXH_N@Z",
+   "entry": "00594cb0",
+   "body_bytes": 101,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Override_Mission@MissionClass@@UAEXHPAVAbstractClass@@0@Z",
+   "entry": "00594d20",
+   "body_bytes": 83,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Restore_Mission@MissionClass@@UAE_NXZ",
+   "entry": "00594d80",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Is_Recruitable_Mission@MissionClass@@SI_NH@Z",
+   "entry": "00594db0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "??0MissionControlClass@@QAE@XZ",
+   "entry": "00594dd0",
+   "body_bytes": 53,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Name@MissionControlClass@@QBEPBDXZ",
+   "entry": "00594e10",
+   "body_bytes": 21,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Read_INI@MissionControlClass@@QAE_NAAVCCINIClass@@@Z",
+   "entry": "00594e30",
+   "body_bytes": 421,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Mission_From_Name@MissionClass@@SIHPBD@Z",
+   "entry": "00594fe0",
+   "body_bytes": 57,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Name_From_Mission@MissionClass@@SIPBDH@Z",
+   "entry": "00595020",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Compute_CRC@MissionClass@@UBEXAAVWWCRCEngine@@@Z",
+   "entry": "00595040",
+   "body_bytes": 132,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "entry": "005950d0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Has_Suspended_Mission@MissionClass@@UBE_NXZ",
+   "entry": "005950e0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Timer_Value@MissionClass@@QBEHXZ",
+   "entry": "005950f0",
+   "body_bytes": 35,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?unknown_slot67@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z",
+   "entry": "00595120",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "??_GMissionClass@@UAEPAXI@Z",
+   "entry": "00595130",
+   "body_bytes": 57,
+   "padding_bytes": 7
+  }
+ ],
+ "code_bytes": 3680,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "__real@8@00000000000000000000",
+   "address": "0079b610",
+   "bytes": 8,
+   "kind": "table",
+   "section": 150
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a61c0",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7MissionClass@@6BINoticeSource@@@",
+   "address": "007a61d0",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 65
+  },
+  {
+   "symbol": "??_7MissionClass@@6BINoticeSink@@@",
+   "address": "007a61d8",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 66
+  },
+  {
+   "symbol": "??_7MissionClass@@6BIRTTITypeInfo@@@",
+   "address": "007a61e0",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 67
+  },
+  {
+   "symbol": "??_R1M@?0A@A@INoticeSource@@8",
+   "address": "007b30b8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R17?0A@A@INoticeSink@@8",
+   "address": "007b30d0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 46
+  },
+  {
+   "symbol": "??_R13?0A@1IUnknown@@8",
+   "address": "007b30e8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 47
+  },
+  {
+   "symbol": "??_R13?0A@A@IRTTITypeInfo@@8",
+   "address": "007b3100",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 49
+  },
+  {
+   "symbol": "??_R1A@?0A@1IUnknown@@8",
+   "address": "007b3118",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 51
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersist@@8",
+   "address": "007b3130",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 53
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersistStream@@8",
+   "address": "007b3148",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 55
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractClass@@8",
+   "address": "007b3160",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 57
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ObjectClass@@8",
+   "address": "007b3420",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 59
+  },
+  {
+   "symbol": "??_R1A@?0A@A@MissionClass@@8",
+   "address": "007b3438",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 60
+  },
+  {
+   "symbol": "??_R4MissionClass@@6BINoticeSource@@@",
+   "address": "007bdb98",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 40
+  },
+  {
+   "symbol": "??_R4MissionClass@@6BINoticeSink@@@",
+   "address": "007bdbb0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 41
+  },
+  {
+   "symbol": "??_R4MissionClass@@6BIRTTITypeInfo@@@",
+   "address": "007bdbc8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 42
+  },
+  {
+   "symbol": "??_R2MissionClass@@8",
+   "address": "007bdbe0",
+   "bytes": 41,
+   "kind": "rtti",
+   "section": 61
+  },
+  {
+   "symbol": "??_R3MissionClass@@8",
+   "address": "007bdc10",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 62,
+   "known_difference": "hierarchy ambiguous bit"
+  },
+  {
+   "symbol": "??_R4MissionClass@@6BIPersistStream@@@",
+   "address": "007bdc20",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 64
+  },
+  {
+   "symbol": "??_R0?AVINoticeSink@@@8",
+   "address": "007cd618",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 45
+  },
+  {
+   "symbol": "??_R0?AUIUnknown@@@8",
+   "address": "007cd638",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 50
+  },
+  {
+   "symbol": "??_C@_06CPHF@?$DMnone?$DO?$AA@",
+   "address": "007cdecc",
+   "bytes": 7,
+   "kind": "string",
+   "section": 147
+  },
+  {
+   "symbol": "??_R0?AVINoticeSource@@@8",
+   "address": "007ce1c8",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 43
+  },
+  {
+   "symbol": "??_R0?AUIRTTITypeInfo@@@8",
+   "address": "007ce1e8",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 48
+  },
+  {
+   "symbol": "??_R0?AUIPersist@@@8",
+   "address": "007ce208",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 52
+  },
+  {
+   "symbol": "??_R0?AUIPersistStream@@@8",
+   "address": "007ce220",
+   "bytes": 29,
+   "kind": "rtti",
+   "section": 54
+  },
+  {
+   "symbol": "??_R0?AVAbstractClass@@@8",
+   "address": "007ce240",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 56
+  },
+  {
+   "symbol": "??_R0?AVObjectClass@@@8",
+   "address": "007ce548",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 58
+  },
+  {
+   "symbol": "??_R0?AVMissionClass@@@8",
+   "address": "007ce568",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 63
+  },
+  {
+   "symbol": "??_C@_04GGHG@Rate?$AA@",
+   "address": "007cef5c",
+   "bytes": 5,
+   "kind": "string",
+   "section": 152
+  },
+  {
+   "symbol": "??_C@_06DCKO@AARate?$AA@",
+   "address": "007e1d34",
+   "bytes": 7,
+   "kind": "string",
+   "section": 151
+  },
+  {
+   "symbol": "??_C@_07FINC@Scatter?$AA@",
+   "address": "007e1d3c",
+   "bytes": 8,
+   "kind": "string",
+   "section": 153
+  },
+  {
+   "symbol": "??_C@_09GJLF@Retaliate?$AA@",
+   "address": "007e1d44",
+   "bytes": 10,
+   "kind": "string",
+   "section": 154
+  },
+  {
+   "symbol": "??_C@_09OOLD@Paralyzed?$AA@",
+   "address": "007e1d50",
+   "bytes": 10,
+   "kind": "string",
+   "section": 155
+  },
+  {
+   "symbol": "??_C@_0M@FJOE@Recruitable?$AA@",
+   "address": "007e1d5c",
+   "bytes": 12,
+   "kind": "string",
+   "section": 156
+  },
+  {
+   "symbol": "??_C@_06PEJJ@Zombie?$AA@",
+   "address": "007e1d68",
+   "bytes": 7,
+   "kind": "string",
+   "section": 157
+  },
+  {
+   "symbol": "??_C@_08PJNA@NoThreat?$AA@",
+   "address": "007e1d70",
+   "bytes": 9,
+   "kind": "string",
+   "section": 158
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@00000000000000000000",
+   "address": "0079b610",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a61c0",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7MissionClass@@6BINoticeSource@@@",
+   "address": "007a61d0",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7MissionClass@@6BINoticeSink@@@",
+   "address": "007a61d8",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7MissionClass@@6BIRTTITypeInfo@@@",
+   "address": "007a61e0",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1M@?0A@A@INoticeSource@@8",
+   "address": "007b30b8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R17?0A@A@INoticeSink@@8",
+   "address": "007b30d0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R13?0A@1IUnknown@@8",
+   "address": "007b30e8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R13?0A@A@IRTTITypeInfo@@8",
+   "address": "007b3100",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@1IUnknown@@8",
+   "address": "007b3118",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersist@@8",
+   "address": "007b3130",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersistStream@@8",
+   "address": "007b3148",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractClass@@8",
+   "address": "007b3160",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ObjectClass@@8",
+   "address": "007b3420",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@MissionClass@@8",
+   "address": "007b3438",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4MissionClass@@6BINoticeSource@@@",
+   "address": "007bdb98",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4MissionClass@@6BINoticeSink@@@",
+   "address": "007bdbb0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4MissionClass@@6BIRTTITypeInfo@@@",
+   "address": "007bdbc8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2MissionClass@@8",
+   "address": "007bdbe0",
+   "bytes": 41,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3MissionClass@@8",
+   "address": "007bdc10",
+   "bytes": 16,
+   "kind": "rtti",
+   "known_difference": "hierarchy ambiguous bit"
+  },
+  {
+   "symbol": "??_R4MissionClass@@6BIPersistStream@@@",
+   "address": "007bdc20",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVINoticeSink@@@8",
+   "address": "007cd618",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIUnknown@@@8",
+   "address": "007cd638",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_06CPHF@?$DMnone?$DO?$AA@",
+   "address": "007cdecc",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AVINoticeSource@@@8",
+   "address": "007ce1c8",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIRTTITypeInfo@@@8",
+   "address": "007ce1e8",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIPersist@@@8",
+   "address": "007ce208",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIPersistStream@@@8",
+   "address": "007ce220",
+   "bytes": 29,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVAbstractClass@@@8",
+   "address": "007ce240",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVObjectClass@@@8",
+   "address": "007ce548",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVMissionClass@@@8",
+   "address": "007ce568",
+   "bytes": 27,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_04GGHG@Rate?$AA@",
+   "address": "007cef5c",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06DCKO@AARate?$AA@",
+   "address": "007e1d34",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07FINC@Scatter?$AA@",
+   "address": "007e1d3c",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09GJLF@Retaliate?$AA@",
+   "address": "007e1d44",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09OOLD@Paralyzed?$AA@",
+   "address": "007e1d50",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@FJOE@Recruitable?$AA@",
+   "address": "007e1d5c",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06PEJJ@Zombie?$AA@",
+   "address": "007e1d68",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08PJNA@NoThreat?$AA@",
+   "address": "007e1d70",
+   "bytes": 9,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "006cd840",
+   "symbol": "?Override_Mission@MissionClass@@UAEXHPAVAbstractClass@@0@Z",
+   "target": "00594d20",
+   "function_entry": true
+  },
+  {
+   "site": "0041afc0",
+   "symbol": "?Commence@MissionClass@@UAE_NXZ",
+   "target": "00594c50",
+   "function_entry": true
+  },
+  {
+   "site": "006cd880",
+   "symbol": "?Restore_Mission@MissionClass@@UAE_NXZ",
+   "target": "00594d80",
+   "function_entry": true
+  },
+  {
+   "site": "004146c0",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "00419cd0",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "0041b120",
+   "symbol": "?Set_Mission@MissionClass@@UAEXH@Z",
+   "target": "00594710",
+   "function_entry": true
+  },
+  {
+   "site": "0041b160",
+   "symbol": "?QueueMission@MissionClass@@UAEXH_N@Z",
+   "target": "00594cb0",
+   "function_entry": true
+  },
+  {
+   "site": "004c38d0",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "004c8d70",
+   "symbol": "?Do_MISSION_UNLOAD@MissionClass@@UAEHXZ",
+   "target": "00594650",
+   "function_entry": true
+  },
+  {
+   "site": "00702f60",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "00704440",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "00704b10",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "004c41e0",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "004c4370",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "004c44c0",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "004c6000",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "004c6000",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "004c8d80",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "004c4660",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "004c7e10",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "004c8d00",
+   "symbol": "?Is_Recruitable_Mission@MissionClass@@SI_NH@Z",
+   "target": "00594db0",
+   "function_entry": true
+  },
+  {
+   "site": "004cc800",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "00445620",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "00445620",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "00445620",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "00419d00",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "00419d00",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "00503c00",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "00503c00",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "00506280",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "00508f30",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "00509110",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "006fd630",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "006fd630",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "00706f60",
+   "symbol": "?Name_From_Mission@MissionClass@@SIPBDH@Z",
+   "target": "00595020",
+   "function_entry": true
+  },
+  {
+   "site": "00506d70",
+   "symbol": "?Name_From_Mission@MissionClass@@SIPBDH@Z",
+   "target": "00595020",
+   "function_entry": true
+  },
+  {
+   "site": "006b8dc0",
+   "symbol": "?Is_Recruitable_Mission@MissionClass@@SI_NH@Z",
+   "target": "00594db0",
+   "function_entry": true
+  },
+  {
+   "site": "00506960",
+   "symbol": "?Mission_From_Name@MissionClass@@SIHPBD@Z",
+   "target": "00594fe0",
+   "function_entry": true
+  },
+  {
+   "site": "00507f70",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "00507f70",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "00507f70",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "0041a6c0",
+   "symbol": "?Name_From_Mission@MissionClass@@SIPBDH@Z",
+   "target": "00595020",
+   "function_entry": true
+  },
+  {
+   "site": "0041a840",
+   "symbol": "?Mission_From_Name@MissionClass@@SIHPBD@Z",
+   "target": "00594fe0",
+   "function_entry": true
+  },
+  {
+   "site": "00447240",
+   "symbol": "?Do_MISSION_CAPTURE@MissionClass@@UAEHXZ",
+   "target": "005945b0",
+   "function_entry": true
+  },
+  {
+   "site": "00447250",
+   "symbol": "?Do_MISSION_HARVEST@MissionClass@@UAEHXZ",
+   "target": "005945f0",
+   "function_entry": true
+  },
+  {
+   "site": "00414d90",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "00636bf0",
+   "symbol": "?Compute_CRC@MissionClass@@UBEXAAVWWCRCEngine@@@Z",
+   "target": "00595040",
+   "function_entry": true
+  },
+  {
+   "site": "00652270",
+   "symbol": "?Read_INI@MissionControlClass@@QAE_NAAVCCINIClass@@@Z",
+   "target": "00594e30",
+   "function_entry": true
+  },
+  {
+   "site": "00416670",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "006d3b60",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "006c0010",
+   "symbol": "?Is_Recruitable_Mission@MissionClass@@SI_NH@Z",
+   "target": "00594db0",
+   "function_entry": true
+  },
+  {
+   "site": "007072d0",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "007072d0",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "004499d0",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "004c3950",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "00416010",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "00416c20",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "004178a0",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "00636830",
+   "symbol": "??0MissionClass@@QAE@XZ",
+   "target": "00594500",
+   "function_entry": true
+  },
+  {
+   "site": "006d3400",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "006d3400",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "004c48e0",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "004c5900",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "004d4520",
+   "symbol": "??0MissionControlClass@@QAE@XZ",
+   "target": "00594dd0",
+   "function_entry": true
+  },
+  {
+   "site": "00627b60",
+   "symbol": "?Name_From_Mission@MissionClass@@SIPBDH@Z",
+   "target": "00595020",
+   "function_entry": true
+  },
+  {
+   "site": "006c74c0",
+   "symbol": "?AI@MissionClass@@UAEXXZ",
+   "target": "00594790",
+   "function_entry": true
+  },
+  {
+   "site": "00449290",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "00706ae0",
+   "symbol": "?Mission_From_Name@MissionClass@@SIHPBD@Z",
+   "target": "00594fe0",
+   "function_entry": true
+  },
+  {
+   "site": "00701580",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "00701580",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "00701580",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "007025a0",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "00504120",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  },
+  {
+   "site": "006cdc40",
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "target": "005950d0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0ObjectClass@@QAE@XZ",
+   "address": "005d22e0"
+  },
+  {
+   "symbol": "??1ObjectClass@@UAE@XZ",
+   "address": "005d2530"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??RWWCRCEngine@@QAEXJ@Z",
+   "address": "00493f30"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "?AI@ObjectClass@@UAEXXZ",
+   "address": "005d27f0"
+  },
+  {
+   "symbol": "?AddRef@AbstractClass@@UAGKXZ",
+   "address": "004100a0"
+  },
+  {
+   "symbol": "?CanBeSelected@ObjectClass@@UAE_NXZ",
+   "address": "005d54b0"
+  },
+  {
+   "symbol": "?Can_Demolish@ObjectClass@@UAE_NXZ",
+   "address": "005d2c20"
+  },
+  {
+   "symbol": "?Can_Enter_Cell@ObjectClass@@UAEHPAVCellClass@@HH0_N@Z",
+   "address": null
+  },
+  {
+   "symbol": "?Can_Player_Fire@ObjectClass@@UAE_NXZ",
+   "address": "005d2c30"
+  },
+  {
+   "symbol": "?Can_Player_Move@ObjectClass@@UAE_NXZ",
+   "address": "005d2c40"
+  },
+  {
+   "symbol": "?Can_Repair@ObjectClass@@UAE_NXZ",
+   "address": "005d2c10"
+  },
+  {
+   "symbol": "?Catch_Fire@ObjectClass@@UAE_NXZ",
+   "address": "005d2d00"
+  },
+  {
+   "symbol": "?Center_Coord@ObjectClass@@UBE?AUCoordStruct@@XZ",
+   "address": "005d4e40"
+  },
+  {
+   "symbol": "?Class_Of@ObjectClass@@UBEPAVObjectTypeClass@@XZ",
+   "address": null
+  },
+  {
+   "symbol": "?Clear_Occupy_Bit@ObjectClass@@UAEXABUCoordStruct@@@Z",
+   "address": "005d49e0"
+  },
+  {
+   "symbol": "?Clicked_As_Target@ObjectClass@@UAEXH@Z",
+   "address": "005d2cc0"
+  },
+  {
+   "symbol": "?Compute_CRC@ObjectClass@@UBEXAAVWWCRCEngine@@@Z",
+   "address": "005d4b10"
+  },
+  {
+   "symbol": "?Create_ID@AbstractClass@@UAGXXZ",
+   "address": "0040ffd0"
+  },
+  {
+   "symbol": "?Delete_Me@ObjectClass@@UAEXXZ",
+   "address": "005d4e90"
+  },
+  {
+   "symbol": "?Detach@ObjectClass@@UAEXPAVAbstractClass@@_N@Z",
+   "address": "005d3bd0"
+  },
+  {
+   "symbol": "?Do_Shimmer@ObjectClass@@UAEXXZ",
+   "address": "005d2c60"
+  },
+  {
+   "symbol": "?Editor_Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z",
+   "address": "005d4e70"
+  },
+  {
+   "symbol": "?Exit_Object@ObjectClass@@UAEHPAVTechnoClass@@@Z",
+   "address": "005d2c70"
+  },
+  {
+   "symbol": "?Fall_From_Height@ObjectClass@@UAEXXZ",
+   "address": "005d2ac0"
+  },
+  {
+   "symbol": "?Fetch_Heap_ID@AbstractClass@@UBEHXZ",
+   "address": "00410250"
+  },
+  {
+   "symbol": "?Fetch_ID@AbstractClass@@UAGJXZ",
+   "address": "0040ffc0"
+  },
+  {
+   "symbol": "?Find_Section@INIClass@@QBEPAUINISection@1@PBD@Z",
+   "address": "0050c9b0"
+  },
+  {
+   "symbol": "?Fire_Out@ObjectClass@@UAEXXZ",
+   "address": "005d2d10"
+  },
+  {
+   "symbol": "?Frame@@3HA",
+   "address": "00a40d2c"
+  },
+  {
+   "symbol": "?GetSizeMax@AbstractClass@@UAGJPATULARGE_INTEGER@@@Z",
+   "address": "00410180"
+  },
+  {
+   "symbol": "?Get_Bool@INIClass@@QBE_NPBD0_N@Z",
+   "address": "0050f410"
+  },
+  {
+   "symbol": "?Get_Cell_Ptr@ObjectClass@@UAEPAVAbstractClass@@XZ",
+   "address": "005d51e0"
+  },
+  {
+   "symbol": "?Get_Double@INIClass@@QBENPBD0N@Z",
+   "address": "0050e3a0"
+  },
+  {
+   "symbol": "?Get_Height@ObjectClass@@UBEHXZ",
+   "address": "005d4800"
+  },
+  {
+   "symbol": "?Get_Height_AGL@ObjectClass@@UBEHXZ",
+   "address": "005d4810"
+  },
+  {
+   "symbol": "?Get_Image_Data@ObjectClass@@UAEPAXXZ",
+   "address": "005d27b0"
+  },
+  {
+   "symbol": "?Get_Ownable@ObjectClass@@UAEHXZ",
+   "address": "005d2c00"
+  },
+  {
+   "symbol": "?Get_Render_Rect@ObjectClass@@UAE?AVRect@@XZ",
+   "address": "005d31c0"
+  },
+  {
+   "symbol": "?Get_Target_Cell@ObjectClass@@UBE?AVCell@@XZ",
+   "address": "005d5240"
+  },
+  {
+   "symbol": "?Get_Target_Cell_Ptr@ObjectClass@@UBEPAVCellClass@@XZ",
+   "address": "005d5290"
+  },
+  {
+   "symbol": "?Get_Visual_Rect@ObjectClass@@UAE?AVRect@@XZ",
+   "address": "005d3060"
+  },
+  {
+   "symbol": "?Hidden@ObjectClass@@UAEXXZ",
+   "address": "005d2c80"
+  },
+  {
+   "symbol": "?INoticeSink_Unknown@AbstractClass@@UAE_NHH@Z",
+   "address": "00410320"
+  },
+  {
+   "symbol": "?INoticeSource_Unknown@AbstractClass@@UAGXXZ",
+   "address": "00410330"
+  },
+  {
+   "symbol": "?In_Air@ObjectClass@@UBE_NXZ",
+   "address": "005d5410"
+  },
+  {
+   "symbol": "?In_Range@ObjectClass@@UAE_NABUCoordStruct@@H@Z",
+   "address": "005d2cd0"
+  },
+  {
+   "symbol": "?In_Which_Layer@ObjectClass@@UBEHXZ",
+   "address": "005d2bc0"
+  },
+  {
+   "symbol": "?Init@AbstractClass@@UAEXXZ",
+   "address": "00410210"
+  },
+  {
+   "symbol": "?IsDirty@AbstractClass@@UAGJXZ",
+   "address": "004101f0"
+  },
+  {
+   "symbol": "?Is_Inactive@ObjectClass@@UBE_NXZ",
+   "address": "005d4f10"
+  },
+  {
+   "symbol": "?Is_Moving_Onto_Bridge@ObjectClass@@UAE_NPAVTechnoClass@@@Z",
+   "address": "005d52f0"
+  },
+  {
+   "symbol": "?Limbo@ObjectClass@@UAE_NXZ",
+   "address": "005d3700"
+  },
+  {
+   "symbol": "?Load@ObjectClass@@UAGJPAUIStream@@@Z",
+   "address": "005d4760"
+  },
+  {
+   "symbol": "?Look@ObjectClass@@UAEX_N0@Z",
+   "address": "005d2c90"
+  },
+  {
+   "symbol": "?Mark@ObjectClass@@UAE_NH@Z",
+   "address": "005d4160"
+  },
+  {
+   "symbol": "?Mark_For_Redraw@ObjectClass@@UAEXXZ",
+   "address": "005d36e0"
+  },
+  {
+   "symbol": "?MissionControl@@3PAVMissionControlClass@@A",
+   "address": "00a403b0"
+  },
+  {
+   "symbol": "?MissionNames@@3PAPBDA",
+   "address": "007cd774"
+  },
+  {
+   "symbol": "?Move@ObjectClass@@UAEXH@Z",
+   "address": "005d2d60"
+  },
+  {
+   "symbol": "?Not_Underground@ObjectClass@@UBE_NXZ",
+   "address": "005d5490"
+  },
+  {
+   "symbol": "?Occupy_List@ObjectClass@@UAEPBVCell@@H@Z",
+   "address": "005d4470"
+  },
+  {
+   "symbol": "?On_Ground@ObjectClass@@UBE_NXZ",
+   "address": "005d53e0"
+  },
+  {
+   "symbol": "?Owner@AbstractClass@@UBEHXZ",
+   "address": "00410230"
+  },
+  {
+   "symbol": "?Owning_House@AbstractClass@@UBEPAVHouseClass@@XZ",
+   "address": "00410240"
+  },
+  {
+   "symbol": "?QueryInterface@AbstractClass@@UAGJABUGUID@@PAPAX@Z",
+   "address": "00410000"
+  },
+  {
+   "symbol": "?Receive_Message@ObjectClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z",
+   "address": "005d3cb0"
+  },
+  {
+   "symbol": "?Record_The_Kill@ObjectClass@@UAEXPAVTechnoClass@@@Z",
+   "address": "005d2c50"
+  },
+  {
+   "symbol": "?Release@AbstractClass@@UAGKXZ",
+   "address": "004100b0"
+  },
+  {
+   "symbol": "?Render@ObjectClass@@UAE_NPAVRect@@_N1@Z",
+   "address": "005d34e0"
+  },
+  {
+   "symbol": "?Repair@ObjectClass@@UAEXH@Z",
+   "address": "005d2d40"
+  },
+  {
+   "symbol": "?Revealed@ObjectClass@@UAE_NPAVHouseClass@@@Z",
+   "address": "005d4230"
+  },
+  {
+   "symbol": "?Scatter@ObjectClass@@UAEXABUCoordStruct@@_N1@Z",
+   "address": "005d2cf0"
+  },
+  {
+   "symbol": "?Sell_Back@ObjectClass@@UAEXH@Z",
+   "address": "005d2d50"
+  },
+  {
+   "symbol": "?Set_Coord@ObjectClass@@UAEXABUCoordStruct@@@Z",
+   "address": "005d51c0"
+  },
+  {
+   "symbol": "?Set_Height_AGL@ObjectClass@@UAEXH@Z",
+   "address": "005d4860"
+  },
+  {
+   "symbol": "?Set_Occupy_Bit@ObjectClass@@UAEXABUCoordStruct@@@Z",
+   "address": "005d4960"
+  },
+  {
+   "symbol": "?Set_Waypoint_Path@ObjectClass@@UAEXHD@Z",
+   "address": "005d53d0"
+  },
+  {
+   "symbol": "?Sort_Y@ObjectClass@@UBEHXZ",
+   "address": "005d5450"
+  },
+  {
+   "symbol": "?Take_Damage@ObjectClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z",
+   "address": "005d3d20"
+  },
+  {
+   "symbol": "?Techno_Type_Class@ObjectClass@@UAEPAVTechnoTypeClass@@XZ",
+   "address": "005d5440"
+  },
+  {
+   "symbol": "?Unlimbo@ObjectClass@@UAE_NPBUCoordStruct@@H@Z",
+   "address": "005d3890"
+  },
+  {
+   "symbol": "?Unselect@ObjectClass@@UAEXXZ",
+   "address": "005d2df0"
+  },
+  {
+   "symbol": "?Value@ObjectClass@@UAEHXZ",
+   "address": "005d2d20"
+  },
+  {
+   "symbol": "?Weapon_Range@ObjectClass@@UAEHH@Z",
+   "address": "005d2ce0"
+  },
+  {
+   "symbol": "?What_Am_I@AbstractClass@@UAGHXZ",
+   "address": "0040ffb0"
+  },
+  {
+   "symbol": "?Who_Can_Build_Me@ObjectClass@@UAEPAVBuildingClass@@_N0@Z",
+   "address": "005d4500"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_slot102@ObjectClass@@UAEHPAVUnknownCellClass@@HPAHPA_N0@Z",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot104@ObjectClass@@UBE?AVCell@@XZ",
+   "address": "0041b320"
+  },
+  {
+   "symbol": "?unknown_slot111@ObjectClass@@UAE_NXZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot112@ObjectClass@@UAE_NXZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot113@ObjectClass@@UAE_NXZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot114@ObjectClass@@UAE_NXZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot115@ObjectClass@@UAEPAVConvertClass@@XZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z",
+   "address": "00410290"
+  },
+  {
+   "symbol": "?unknown_slot22@AbstractClass@@UBE?AUCoordStruct@@XZ",
+   "address": "004102e0"
+  },
+  {
+   "symbol": "?unknown_slot24@ObjectClass@@UAE_NXZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot25@ObjectClass@@UAEH_NH@Z",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot27@ObjectClass@@UAEHPBVCell@@_N1@Z",
+   "address": "005d2bb0"
+  },
+  {
+   "symbol": "?unknown_slot28@ObjectClass@@UAEHPAV1@_N@Z",
+   "address": "005d2ba0"
+  },
+  {
+   "symbol": "?unknown_slot31@ObjectClass@@UAE_NXZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot35@ObjectClass@@UAEPBGXZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot40@ObjectClass@@UAE?AUCoordStruct@@XZ",
+   "address": "0041b240"
+  },
+  {
+   "symbol": "?unknown_slot41@ObjectClass@@UBE?AUCoordStruct@@H@Z",
+   "address": "005d54f0"
+  },
+  {
+   "symbol": "?unknown_slot42@ObjectClass@@UBE?AUCoordStruct@@XZ",
+   "address": "0041b270"
+  },
+  {
+   "symbol": "?unknown_slot43@ObjectClass@@UAE?AUCoordStruct@@H@Z",
+   "address": "00423d50"
+  },
+  {
+   "symbol": "?unknown_slot44@ObjectClass@@UAE?AUCoordStruct@@H@Z",
+   "address": "0041b2a0"
+  },
+  {
+   "symbol": "?unknown_slot47@ObjectClass@@UAE_NXZ",
+   "address": "00423d90"
+  },
+  {
+   "symbol": "?unknown_slot48@ObjectClass@@UAE_NXZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot49@ObjectClass@@UAE_NPAVHouseClass@@@Z",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot50@ObjectClass@@UAEPAVObjectTypeClass@@_N@Z",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot51@ObjectClass@@UAEPAVHouseClass@@_N@Z",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot54@ObjectClass@@UAEX_N@Z",
+   "address": "005d3c10"
+  },
+  {
+   "symbol": "?unknown_slot56@ObjectClass@@UAE_NABUCoordStruct@@@Z",
+   "address": "005d4240"
+  },
+  {
+   "symbol": "?unknown_slot65@ObjectClass@@UAEXHH@Z",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot66@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot74@ObjectClass@@UAEXH@Z",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot77@ObjectClass@@UAE_NHPBVCell@@0_N@Z",
+   "address": "005d2cb0"
+  },
+  {
+   "symbol": "?unknown_slot78@ObjectClass@@UAE_NHPAV1@_N@Z",
+   "address": "005d2ca0"
+  },
+  {
+   "symbol": "?unknown_slot80@ObjectClass@@UAE_NXZ",
+   "address": "005d2e70"
+  },
+  {
+   "symbol": "?unknown_slot82@ObjectClass@@UAEXH@Z",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot83@ObjectClass@@UAE_NXZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot92@ObjectClass@@UAEXH@Z",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot93@ObjectClass@@UAEXH@Z",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__purecall",
+   "address": "004b8960"
+  },
+  {
+   "symbol": "__stricmp",
+   "address": "00781f20"
+  }
+ ],
+ "route": "A",
+ "unit": "mission.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00594310",
+   "lines": 4
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 61,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  },
+  {
+   "symbol": "??_7MissionClass@@6BIPersistStream@@@",
+   "reason": "relocation target unbound: ?unknown_slot24@ObjectClass@@UAE_NXZ"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

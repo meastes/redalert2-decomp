@@ -48,8 +48,8 @@ public:
     unsigned char Unknown_0063F4C0(int id);
     unsigned char Unknown_0063F430(IPXAddressClass *address); // 0x0063F430 (the mask of the connection at an address)
     void Unknown_0063FC90();
-    void Unknown_0063F070();                                // 0x0063F070 (empties the list; also UnknownOwnedList_0063f070::unknown_clear)
-    char *Unknown_0063FB40(int index);                      // 0x0063FB40 (a connection's name)
+    void Reset_0063f070();                                // 0x0063F070 (empties the list)
+    char *Name_From_Index(int index);                       // 0x0063FB40 (a connection's name; ra2-decomp YR twin)
     IPXAddressClass *Unknown_0063FA00(char *name);          // 0x0063FA00 (the address of a named connection)
     int Unknown_0063FBA0();                                 // 0x0063FBA0 (the next game host, -1: none; ABOUTTOEXIT)
     bool Unknown_0063F130();                                // 0x0063F130 (the new host takes over the router; ABOUTTOEXIT; Create_Connections tests the result)

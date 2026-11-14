@@ -4,8 +4,8 @@
     "id": "population-3582",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "251ca9523ae44018c9f75ea76c7e1c44ecce831333dfb3b59326c9ce435f105b",
-    "historical_acceptance_sha256": "89d3127caf0c36926ec60c19ad9b326a1cf901b1695107193e893abbf32bd88f"
+    "historical_population_sha256": "1c231151d1fedb52ee07d6a270aa787d4f648dcd2bb63dead7ad181deb29f2e0",
+    "historical_acceptance_sha256": "613684fccc344a0bf01a4172b38d4bb7b81c64e80b5862955a9871e79edadbd5"
   },
   "references": {
     "??_7PixelFXClass@@6B@": 8028540,
@@ -159,14 +159,14 @@
     "?target@Call_783e34_0@@QAEII@Z": 7909736,
     "?target@Target_795940@@QAEIII@Z": 7954364,
     "?Init@AudioSourceInfo@@QAIXPAXH@Z": 4228352,
-    "__DAT_00ab6e88": 11234952,
+    "__waypoint_none_00ab6e88": 11234952,
     "__strncpy": 7873488,
     "?Init@WinsockInterfaceClass@@QAE_NXZ": 7778464,
     "__strcmp": 7888160,
     "__strlen": 7903280,
     "__malloc": 7874096,
     "___amsg_exit": 7887784,
-    "__DAT_0084ed10": 8711440,
+    "__cell_none_0084ed10": 8711440,
     "__strdup": 7919638,
     "??_GPixelFXClass@@UAEPAXI@Z": 6352160,
     "?x@?1???A?$IndexClass@HPAUINISection@INIClass@@@@QBEABQAUINISection@INIClass@@ABH@Z@4PAU23@A": 11712044,
@@ -186,8 +186,8 @@
     "__chkstk": 7878736,
     "_rand": 7882410,
     "__strnicmp": 7878672,
-    "__DAT_00ab6ea8": 11234984,
-    "__DAT_00ab6eb0": 11234992,
+    "__unknown_timer_start_00ab6ea8": 11234984,
+    "__unknown_timer_accum_00ab6eb0": 11234992,
     "__DAT_00ac0168": 11272552,
     "__DAT_00ac0170": 11272560,
     "?Update@PixelFXClass@@QAEXH@Z": 6351920,
@@ -687,7 +687,79 @@
     "_memmove": 7877264,
     "_free": 7874024,
     "_malloc": 7874096,
-    "_?as@?1??Faction_Code@@YIABVWstring@@H@Z@4V2@A": 11709748
+    "_?as@?1??Faction_Code@@YIABVWstring@@H@Z@4V2@A": 11709748,
+    "?Init@AudioEventHandle@@QAEXXZ": 4217840,
+    "?Init@VeinholeMonsterClass@@SIXH@Z": 7407680,
+    "?Update@ZBuffer@@QAEXVRect@@@Z": 7823808,
+    "?Update@ABuffer@@QAEXVRect@@@Z": 4264112,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "_?address@?1??Unknown_0063FA00@OwnerTalkClass@@QAEPAVIPXAddressClass@@PAD@Z@4V3@A": 11234568,
+    "__strrev": 7958640,
+    "__real@8@3ffec90fdaa22168c000": 7981696,
+    "__real@8@3ffea2f9836e4e441800": 7983256,
+    "__real@4@3ffdaaaaab0000000000": 8019624,
+    "___RTtypeid": 7879685,
+    "__iob": 8580240,
+    "__real@8@bff8a3d70a3d70a3d800": 8055152,
+    "__real@8@c0058000000000000000": 8027384,
+    "__real@8@3ffca2f9836e4e441800": 7983464,
+    "__real@8@400196cbe3f9990e9000": 7983456,
+    "__real@8@3ff2d1b71758e2196800": 8013344,
+    "__real@8@40049800000000000000": 8013336,
+    "__real@8@4000e000000000000000": 8013328,
+    "__real@8@40039000000000000000": 7979656,
+    "__real@8@3ffe9999999999999800": 7979632,
+    "__real@8@40028000000000000000": 7984472,
+    "__real@8@3fe2f0000000f0000000": 8020056,
+    "__real@8@40059600000000000000": 8019760,
+    "__real@4@400c9c3c000000000000": 8027432,
+    "__real@8@3fe2b0000000b0000000": 8020072,
+    "__real@8@3fe3a8000000a8000000": 8019984,
+    "__real@8@4005a000000000000000": 8019976,
+    "__real@8@3ff1d1b71758e2196800": 8019944,
+    "__real@8@3ff6a3d70a3d70a3d800": 8019936,
+    "__real@8@c0008000000000000000": 8019928,
+    "__real@8@bffe8000000000000000": 7981488,
+    "__real@8@4001afeddf4ddd3ba800": 8019824,
+    "__real@8@3ffe860a91c16b9b2800": 8019816,
+    "__real@8@3ffb8f5c28f5c28f6000": 8019808,
+    "__real@8@3fe5b6000000b6000000": 8019800,
+    "__real@8@4000a78d3631c681f800": 8019784,
+    "__real@8@bffda0d97bb4e7870000": 8019776,
+    "__real@4@3ff9a72f050000000000": 8048688,
+    "__deaccel": 8033976,
+    "__sinking_scale": 8033992,
+    "__sinking": 8033984,
+    "__real@8@3ffbba2e8ba2e8ba3000": 7996880,
+    "__real@8@4001e000000000000000": 7996872,
+    "__real@8@3ffc9249249249249000": 7996864,
+    "__real@8@40039800000000000000": 8051880,
+    "__real@4@3ffeb504f30000000000": 8029784,
+    "__real@4@3ffeb504f367f3bcd800": 8029780,
+    "__real@4@bfff8000000000000000": 8029776,
+    "?Init@BounceClass@@QAEXABUCoordStruct@@NNNN@Z": 4418672,
+    "__real@4@40069600000000000000": 7981736,
+    "__real@8@400f8000000000000000": 8017344,
+    "__real@8@4003f000000000000000": 8053472,
+    "__real@4@4003f000000000000000": 8030272,
+    "__real@4@40068c00000000000000": 8030200,
+    "__real@4@4005d800000000000000": 8030196,
+    "__real@4@40018000000000000000": 7980236,
+    "__real@4@4002a000000000000000": 7980232,
+    "__real@4@40008000000000000000": 7980228,
+    "__real@8@400d8000000000000000": 7983264,
+    "__real@8@3fffccccccccccccd000": 8020032,
+    "__real@8@3ffaa3d70a3d70a3d800": 7998288,
+    "__real@8@3ffe947ae147ae147800": 8049000,
+    "__real@8@3fe3c8000000c8000000": 8019992,
+    "__except_handler3": 7885524,
+    "__except_list": 0,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVPixelFXClass@@@8": 8305040
   },
   "regions": [
     {
@@ -699,7 +771,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 20,
       "body_sha256": "05696f0b7752d02d4667f8f650fb40094ac83de1994c98637430c490bd155ab3",
@@ -724,13 +797,12 @@
           "resolved": 4294967072
         }
       ],
-      "source_sha256": "26018114f3ff1b75ca6ff0f69d8892934514c94ca2452ddf38c51d6f5bbfc5be",
-      "source": "src/recovered/classes/PixelFXClass/PixelFXClass_PixelFXClass_0060ebf0.cpp",
+      "source_sha256": "0f511539079041046b7320a406603f03bfec8d5bc37122a46f26583439868437",
+      "source": "src/recovered/pixelfx.cpp",
       "population": "population-3582",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "PixelFXClass_PixelFXClass_0060ebf0",
       "source_order": 157943
     },
     {
@@ -742,7 +814,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 25,
       "body_sha256": "fc13d47a6e193a19dc116f6a796f9eced04ead40716b0f7045a0a3d58bec9b1e",
@@ -767,13 +840,12 @@
           "resolved": 4294967037
         }
       ],
-      "source_sha256": "03160db731e076394797e198ceb8d333cb922ca377e21a167a61241ead293930",
-      "source": "src/recovered/classes/PixelFXClass/PixelFXClass_PixelFXClass_Type_0060ec10.cpp",
+      "source_sha256": "0f511539079041046b7320a406603f03bfec8d5bc37122a46f26583439868437",
+      "source": "src/recovered/pixelfx.cpp",
       "population": "population-3582",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "PixelFXClass_PixelFXClass_Type_0060ec10",
       "source_order": 157944
     },
     {
@@ -785,7 +857,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 32,
       "body_sha256": "8a11e2d32e96977582d3fbd5cdf5ed730c3842bba34559e6722a9abd91f325d2",
@@ -810,13 +883,12 @@
           "resolved": 1519620
         }
       ],
-      "source_sha256": "f79e5a6384f274b2d722028f11f3b840b51e858a7dc205a3cc2f0a8fd1522ca3",
-      "source": "src/recovered/classes/PixelFXClass/PixelFXClass_scalar_deleting_destructor_0060ed20.cpp",
+      "source_sha256": "0f511539079041046b7320a406603f03bfec8d5bc37122a46f26583439868437",
+      "source": "src/recovered/pixelfx.cpp",
       "population": "population-3582",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "PixelFXClass_scalar_deleting_destructor_0060ed20",
       "source_order": 157949
     },
     {
@@ -828,7 +900,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 17,
       "body_sha256": "7d9190204aa8cf7b6ac9844cd86d302181930bdc3da581fa8797824e1fde3674",
@@ -836,13 +909,12 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "49e92e81d270e757c066cd9919ed5fd40b8b186bb414fa419e80f2d3cc62fdfd",
       "relocations": [],
-      "source_sha256": "a62e45e7d47840a6469f10900b13663771f6bf56d6ee54b5ebfd35472c716312",
-      "source": "src/recovered/classes/PixelFXClass/PixelFXClass_Set_Offset_0060ecf0.cpp",
+      "source_sha256": "0f511539079041046b7320a406603f03bfec8d5bc37122a46f26583439868437",
+      "source": "src/recovered/pixelfx.cpp",
       "population": "population-3582",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "PixelFXClass_Set_Offset_0060ecf0",
       "source_order": 157947
     },
     {
@@ -854,7 +926,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 7,
       "body_sha256": "25785f4931df9542146f9f286319971e0a235cf4627f93e4ef822774985227e2",
@@ -871,13 +944,12 @@
           "resolved": 8028540
         }
       ],
-      "source_sha256": "2e2c35a2fee65d8708cbdec0bc31ed2dd75f5f0569a2ea92ec7a590ed18c2e28",
-      "source": "src/recovered/classes/PixelFXClass/PixelFXClass_destructor_0060ed10.cpp",
+      "source_sha256": "0f511539079041046b7320a406603f03bfec8d5bc37122a46f26583439868437",
+      "source": "src/recovered/pixelfx.cpp",
       "population": "population-3582",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "PixelFXClass_destructor_0060ed10",
       "source_order": 157948
     },
     {
@@ -889,7 +961,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 130,
       "body_sha256": "3baa1b522eedacd5c4f37aeaaf7405dcd3e7684edef31d22d903a8447422a316",
@@ -897,13 +970,12 @@
       "full_extent_bytes": 144,
       "full_extent_sha256": "4cce6e6b6030137716a8c305d50792b95eaddd2646a573254f93a58c0e1da2fc",
       "relocations": [],
-      "source_sha256": "92713109b7d4b576a73d4b7ac246b74d9ed2e2e5f25e4154fa9033451b147458",
-      "source": "src/recovered/classes/PixelFXClass/PixelFXClass_Update_0060ec30.cpp",
+      "source_sha256": "0f511539079041046b7320a406603f03bfec8d5bc37122a46f26583439868437",
+      "source": "src/recovered/pixelfx.cpp",
       "population": "population-3582",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "PixelFXClass_Update_0060ec30",
       "source_order": 157945
     },
     {
@@ -915,7 +987,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 35,
       "body_sha256": "357eba2d5b1ea9bbe1908f4621cfb02beaf131665cf2b00a5d8d87ac34f2cac9",
@@ -923,13 +996,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "cc318fd12e73c05d47db3a6ab1776501a28f2f0fe47689ab301676d41242daae",
       "relocations": [],
-      "source_sha256": "90688d231dbe4006462c43e64b4afe9f7227d321ae6be30b4030ef085db4d56d",
-      "source": "src/recovered/classes/PixelFXClass/PixelFXClass_Reduce_Life_0060ecc0.cpp",
+      "source_sha256": "0f511539079041046b7320a406603f03bfec8d5bc37122a46f26583439868437",
+      "source": "src/recovered/pixelfx.cpp",
       "population": "population-3582",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "PixelFXClass_Reduce_Life_0060ecc0",
       "source_order": 157946
     },
     {
@@ -941,7 +1013,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 205,
       "body_sha256": "585094d9363eb3a2f85ad212ebc46fd4fe8c6cc788a9ec7345a010fdad6560cb",
@@ -990,13 +1063,12 @@
           "resolved": 1530571
         }
       ],
-      "source_sha256": "790efd6047358a7cfec0145fa40891b22b387f74a435fb737ebe6054d6376a73",
-      "source": "src/recovered/classes/PixelFXClass/PixelFXClass_Init_0060eb20.cpp",
+      "source_sha256": "0f511539079041046b7320a406603f03bfec8d5bc37122a46f26583439868437",
+      "source": "src/recovered/pixelfx.cpp",
       "population": "population-3582",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "PixelFXClass_Init_0060eb20",
       "source_order": 157942
     }
   ]

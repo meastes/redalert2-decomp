@@ -1,0 +1,354 @@
+{
+ "module": "pkstraw",
+ "source": "src/recovered/pkstraw.cpp",
+ "header": null,
+ "population": "population-101",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 48,
+ "code": [
+  {
+   "symbol": "??0PKStraw@@QAE@W4CryptControl@0@AAVRandomStraw@@@Z",
+   "entry": "0060fe30",
+   "body_bytes": 98,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Get_From@PKStraw@@UAEXPAVStraw@@@Z",
+   "entry": "0060fea0",
+   "body_bytes": 76,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Key@PKStraw@@QAEXPBVPKey@@@Z",
+   "entry": "0060fef0",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Get@PKStraw@@UAEHPAXH@Z",
+   "entry": "0060ff10",
+   "body_bytes": 455,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Encrypted_Key_Length@PKStraw@@ABEHXZ",
+   "entry": "006100e0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Plain_Key_Length@PKStraw@@ABEHXZ",
+   "entry": "00610110",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Get_From@PKStraw@@UAEXAAVStraw@@@Z",
+   "entry": "00610140",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??_GPKStraw@@UAEPAXI@Z",
+   "entry": "00610150",
+   "body_bytes": 82,
+   "padding_bytes": 14
+  }
+ ],
+ "code_bytes": 896,
+ "data": [
+  {
+   "symbol": "??_7BlowStraw@@6B@",
+   "address": "007a645c",
+   "bytes": 16,
+   "kind": "vtable",
+   "section": 16
+  },
+  {
+   "symbol": "??_7PKStraw@@6B@",
+   "address": "007a81b4",
+   "bytes": 20,
+   "kind": "vtable",
+   "section": 15
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Straw@@8",
+   "address": "007b4b50",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 9
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BlowStraw@@8",
+   "address": "007bdc88",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 3
+  },
+  {
+   "symbol": "??_R2BlowStraw@@8",
+   "address": "007bdca0",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 4
+  },
+  {
+   "symbol": "??_R3BlowStraw@@8",
+   "address": "007bdcb0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 5
+  },
+  {
+   "symbol": "??_R4BlowStraw@@6B@",
+   "address": "007bdcc0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 7
+  },
+  {
+   "symbol": "??_R1A@?0A@A@PKStraw@@8",
+   "address": "007bfce8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 10
+  },
+  {
+   "symbol": "??_R2PKStraw@@8",
+   "address": "007bfd00",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 11
+  },
+  {
+   "symbol": "??_R3PKStraw@@8",
+   "address": "007bfd10",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 12
+  },
+  {
+   "symbol": "??_R4PKStraw@@6B@",
+   "address": "007bfd20",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 14
+  },
+  {
+   "symbol": "??_R0?AVStraw@@@8",
+   "address": "007d1ec0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 8
+  },
+  {
+   "symbol": "??_R0?AVBlowStraw@@@8",
+   "address": "007e1da8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 6
+  },
+  {
+   "symbol": "??_R0?AVPKStraw@@@8",
+   "address": "007eb9e0",
+   "bytes": 22,
+   "kind": "rtti",
+   "section": 13
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7BlowStraw@@6B@",
+   "address": "007a645c",
+   "bytes": 16,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7PKStraw@@6B@",
+   "address": "007a81b4",
+   "bytes": 20,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Straw@@8",
+   "address": "007b4b50",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BlowStraw@@8",
+   "address": "007bdc88",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2BlowStraw@@8",
+   "address": "007bdca0",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3BlowStraw@@8",
+   "address": "007bdcb0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4BlowStraw@@6B@",
+   "address": "007bdcc0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@PKStraw@@8",
+   "address": "007bfce8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2PKStraw@@8",
+   "address": "007bfd00",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3PKStraw@@8",
+   "address": "007bfd10",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4PKStraw@@6B@",
+   "address": "007bfd20",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVStraw@@@8",
+   "address": "007d1ec0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVBlowStraw@@@8",
+   "address": "007e1da8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVPKStraw@@@8",
+   "address": "007eb9e0",
+   "bytes": 22,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "005952f0",
+   "symbol": "??0PKStraw@@QAE@W4CryptControl@0@AAVRandomStraw@@@Z",
+   "target": "0060fe30",
+   "function_entry": true
+  },
+  {
+   "site": "005952f0",
+   "symbol": "?Key@PKStraw@@QAEXPBVPKey@@@Z",
+   "target": "0060fef0",
+   "function_entry": true
+  },
+  {
+   "site": "005952f0",
+   "symbol": "?Get_From@PKStraw@@UAEXPAVStraw@@@Z",
+   "target": "0060fea0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??1BlowfishEngine@@QAE@XZ",
+   "address": "004355f0"
+  },
+  {
+   "symbol": "??1Straw@@UAE@XZ",
+   "address": "0069b010"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_GBlowStraw@@UAEPAXI@Z",
+   "address": "00595bf0"
+  },
+  {
+   "symbol": "?Decrypt@PKey@@QBEHPBXHPAX@Z",
+   "address": "0060f650"
+  },
+  {
+   "symbol": "?Encrypt@PKey@@QBEHPBXHPAX@Z",
+   "address": "0060f520"
+  },
+  {
+   "symbol": "?Get@BlowStraw@@UAEHPAXH@Z",
+   "address": "00435840"
+  },
+  {
+   "symbol": "?Get@Straw@@UAEHPAXH@Z",
+   "address": "0069b0a0"
+  },
+  {
+   "symbol": "?Get_From@Straw@@UAEXPAV1@@Z",
+   "address": "0069b050"
+  },
+  {
+   "symbol": "?Key@BlowStraw@@QAEXPBXH@Z",
+   "address": "00435930"
+  },
+  {
+   "symbol": "_memmove",
+   "address": "00783290"
+  }
+ ],
+ "route": "A",
+ "unit": "pkstraw.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "0060fe30",
+   "lines": 2
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 8,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

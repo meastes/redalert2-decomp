@@ -100,6 +100,13 @@ int BuildingClass::Do_MISSION_MISSILE()
             }
             // fall through
         case 2: {
+            if (unknown_4cc < 0 || unknown_4cc >= SuperWeaponTypes.Count()) {
+                // Native guard (NativeFix2): no super weapon recorded (SuperClass::Place
+                // stores it before the mission starts); end the launch instead of reading
+                // SuperWeaponTypes[-1]. Same test as the unknown_4cc != -1 check below.
+                unknown_a8 = 3;
+                return 1;
+            }
             AbstractClass *target = &Map[House->NukeDest];
             WeaponTypeClass *weapon = SuperWeaponTypes[unknown_4cc]->WeaponType;
             BulletClass *bullet = Create_Bullet(weapon->Projectile, target, this, weapon->unknown_a4,

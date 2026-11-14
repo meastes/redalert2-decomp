@@ -74,7 +74,7 @@ int IPXManagerClass::Service()
                                     char player_name[22]={0};
                                     strncpy(player_name,CurDataBuf+0x14,20);
                                     for (player=0;player<unknown_players_a3fa7c.Count();++player) {
-                                        if (_stricmp(Unknown_006FA120(unknown_players_a3fa7c[player]->Name),player_name)==0) {
+                                        if (_stricmp(Wide_To_Narrow_006fa120(unknown_players_a3fa7c[player]->Name),player_name)==0) {
                                             if (!unknown_players_a3fa7c[player]->Address.Is_Same_Node(address) ||
                                                 *(unsigned short *)unknown_players_a3fa7c[player]->Address.NetworkNumber!=port) {
                                                 Debug_Printf(s_Player__s_is_having_his_port_tra_007de284,player_name,(unsigned int)port);
@@ -91,7 +91,7 @@ int IPXManagerClass::Service()
                                                 slot=unknown_session_a3d298.Unknown_00672F90(player);
                                                 unknown_player_slots_a3fa98[slot]->Address.Set_Port(port);
                                                 for (int connection=0;connection<NumConnections;++connection) {
-                                                    if (_stricmp(Unknown_006FA120(Connection[connection]->Name),player_name)==0) {
+                                                    if (_stricmp(Wide_To_Narrow_006fa120(Connection[connection]->Name),player_name)==0) {
                                                         Connection[connection]->Address=address;
                                                         Connection[connection]->Address.Set_Port(port);
                                                         Debug_Printf(s_Set_address_for_connection__d_to_007de25c,connection,Connection[connection]->Address.As_String());

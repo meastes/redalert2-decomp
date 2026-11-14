@@ -4,8 +4,8 @@
     "id": "population-4246",
     "inventory_sha256": "441cd6db1f41e1f3e713004178a44fa5ec1fe18c6682406a01f78f96cf0a002a",
     "gaps_sha256": "e4ab690d86eac831d12a7bdad6eb7ec1892935e83f8916ed7b7efa3dae596c7f",
-    "historical_population_sha256": "c27e477ee56b1dd10dab1292a8cc39eb9e91d1b4d3ba093c0ebd2aca61b151e3",
-    "historical_acceptance_sha256": "6fa1ce9c7e36be7728b9622f8cf4fc18a6e56c06edf3c92dd0beb6a9d89cccf2"
+    "historical_population_sha256": "a5ee052d19918a0836307ff410465bf77b116a1a7068f9177e81dbe1427969ff",
+    "historical_acceptance_sha256": "d0c418b5f479857b19eafce8925216d8a5d6c14d1aa272ff1079372725694ca7"
   },
   "references": {
     "?get@Leaf_401170@@QAEXXZ": 4198768,
@@ -44,7 +44,7 @@
     "__real@8@3fff8000000000000000": 7972616,
     "__real@8@4004b400000000000000": 7972624,
     "?get@Leaf_406f40@@QAEIXZ": 4222784,
-    "?get@Leaf_4071e0@@QAEIXZ": 4223456,
+    "?AudioLevelGetVal_004071e0@Leaf_4071e0@@QAEIXZ": 4223456,
     "?get@Leaf_408450@@QAEXXZ": 4228176,
     "?get@Leaf_40a690@@QAEIXZ": 4236944,
     "?get@Leaf_40a6c0@@QAEIXZ": 4236992,
@@ -86,7 +86,7 @@
     "?AI@AbstractClass@@UAEXXZ": 4260624,
     "?get@Leaf_411400@@QAEXXZ": 4264960,
     "?get@Leaf_4131d0@@QAEXI@Z": 4272592,
-    "?get@Append_4137b0@@QAEEPBI@Z": 4274096,
+    "?Add@?$DynamicVectorClass@PAVTechnoClass@@@@QAE_NABQAVTechnoClass@@@Z": 4274096,
     "?get@Leaf_41b2d0@@QAEII@Z": 4305616,
     "?get@Leaf_41b2e0@@QAEII@Z": 4305632,
     "?get@Leaf_41b2f0@@QAEXI@Z": 4305648,
@@ -139,7 +139,7 @@
     "?get@Leaf_426e50@@QAEIII@Z": 4353616,
     "?target@Target_426e50@@QAEIIII@Z": 6946064,
     "?get@Cleanup_42ae60@@QAEXXZ": 4370016,
-    "?get@Append_42b0f0@@QAEEPBI@Z": 4370672,
+    "?Add@?$DynamicVectorClass@I@@QAE_NABI@Z": 4370672,
     "?get@Leaf_42b3d0@@QAEPAXI@Z": 4371408,
     "?get@Leaf_42b420@@QAEPAXI@Z": 4371488,
     "?get@Leaf_42b470@@QAEPAXI@Z": 4371568,
@@ -202,7 +202,7 @@
     "?get@Leaf_46ceb0@@QAEPAXI@Z": 4640432,
     "?get@Leaf_46cf00@@QAEPAXI@Z": 4640512,
     "?get@Leaf_46cf50@@QAEPAXI@Z": 4640592,
-    "?get@Append_46d300@@QAEEPBI@Z": 4641536,
+    "?Add@?$DynamicVectorClass@H@@QAE_NABH@Z": 4641536,
     "?get@Leaf_46da70@@QAEPAXI@Z": 4643440,
     "?get@Leaf_46dac0@@QAEPAXI@Z": 4643520,
     "?get@Leaf_46db10@@QAEPAXI@Z": 4643600,
@@ -228,58 +228,58 @@
     "?get@Storage_480050@@QAEPAXIPAI@Z": 4718672,
     "?get@Leaf_480b00@@QAEXXZ": 4721408,
     "?get@Leaf_482e00@@QAEXXZ": 4730368,
-    "?get@Leaf_486210@@QAEIIIIIIII@Z": 4743696,
-    "?get@Leaf_4862e0@@QAEIIIIIIII@Z": 4743904,
-    "?get@Leaf_486350@@QAEIIIIIIII@Z": 4744016,
-    "?get@Leaf_4863d0@@QAEIIIIIIII@Z": 4744144,
-    "?get@Leaf_486440@@QAEIIIIIIII@Z": 4744256,
-    "?get@Leaf_4864c0@@QAEIIIIIIII@Z": 4744384,
-    "?get@Leaf_486ed0@@QAEIIIIIIII@Z": 4746960,
-    "?get@Leaf_486f50@@QAEIIIIIIII@Z": 4747088,
-    "?get@Leaf_486fc0@@QAEIIIIIIII@Z": 4747200,
-    "?get@Leaf_487050@@QAEIIIIIIII@Z": 4747344,
-    "?get@Leaf_4870e0@@QAEIIIIIIII@Z": 4747488,
-    "?get@Leaf_487170@@QAEIIIIIIII@Z": 4747632,
-    "?get@Leaf_487200@@QAEIIIIIIII@Z": 4747776,
-    "?get@Leaf_4872a0@@QAEIIIIIIII@Z": 4747936,
-    "?get@Leaf_487360@@QAEIIIIIIII@Z": 4748128,
-    "?get@Leaf_4873f0@@QAEIIIIIIII@Z": 4748272,
-    "?get@Leaf_4874b0@@QAEIIIIIIII@Z": 4748464,
-    "?get@Leaf_487630@@QAEIIIIIIII@Z": 4748848,
-    "?get@Leaf_487700@@QAEIIIIIIII@Z": 4749056,
-    "?get@Leaf_4877d0@@QAEIIIIIIII@Z": 4749264,
-    "?get@Leaf_4878a0@@QAEIIIIIIII@Z": 4749472,
-    "?get@Leaf_487940@@QAEIIIIIIII@Z": 4749632,
-    "?get@Leaf_4879f0@@QAEIIIIIIII@Z": 4749808,
-    "?get@Leaf_487ab0@@QAEIIIIIIII@Z": 4750000,
-    "?get@Leaf_487b50@@QAEIIIIIIII@Z": 4750160,
-    "?get@Leaf_487c20@@QAEIIIIIIII@Z": 4750368,
-    "?get@Leaf_487cf0@@QAEIIIIIIII@Z": 4750576,
-    "?get@Leaf_487dc0@@QAEIIIIIIII@Z": 4750784,
-    "?get@Leaf_487e90@@QAEIIIIIIII@Z": 4750992,
-    "?get@Leaf_487f70@@QAEIIIIIIII@Z": 4751216,
-    "?get@Leaf_488060@@QAEIIIIIIII@Z": 4751456,
-    "?get@Leaf_488160@@QAEIIIIIIII@Z": 4751712,
-    "?get@Leaf_488250@@QAEIIIIIIII@Z": 4751952,
-    "?get@Leaf_488350@@QAEIIIIIIII@Z": 4752208,
-    "?get@Leaf_4883f0@@QAEIIIIIIII@Z": 4752368,
-    "?get@Leaf_488490@@QAEIIIIIIII@Z": 4752528,
-    "?get@Leaf_4886c0@@QAEIIIIIIII@Z": 4753088,
-    "?get@Leaf_488780@@QAEIIIIIIII@Z": 4753280,
-    "?get@Leaf_488840@@QAEIIIIIIII@Z": 4753472,
-    "?get@Leaf_488950@@QAEIIIIIIII@Z": 4753744,
-    "?get@Leaf_488a80@@QAEIIIIIIII@Z": 4754048,
-    "?get@Leaf_488bc0@@QAEIIIIIIII@Z": 4754368,
-    "?get@Leaf_488cf0@@QAEIIIIIIII@Z": 4754672,
-    "?get@Leaf_488e30@@QAEIIIIIIII@Z": 4754992,
-    "?get@Leaf_488f70@@QAEIIIIIIII@Z": 4755312,
-    "?get@Leaf_4890b0@@QAEIIIIIIII@Z": 4755632,
-    "?get@Leaf_4891f0@@QAEIIIIIIII@Z": 4755952,
-    "?get@Leaf_489310@@QAEIIIIIIII@Z": 4756240,
-    "?get@Leaf_489420@@QAEIIIIIIII@Z": 4756512,
-    "?get@Leaf_489560@@QAEIIIIIIII@Z": 4756832,
-    "?get@Leaf_4896a0@@QAEIIIIIIII@Z": 4757152,
-    "?get@Leaf_4897e0@@QAEIIIIIIII@Z": 4757472,
+    "?BlitBackward@?$BlitTransXlat@G@@UBEXPAXPBXHH00H@Z": 4743696,
+    "?BlitBackward@?$BlitPlainXlat@E@@UBEXPAXPBXHH00H@Z": 4743904,
+    "?BlitBackward@?$BlitTransXlat@E@@UBEXPAXPBXHH00H@Z": 4744016,
+    "?BlitBackward@?$BlitTransZRemapXlat@E@@UBEXPAXPBXHH00H@Z": 4744144,
+    "?BlitBackward@?$BlitTransRemapDest@E@@UBEXPAXPBXHH00H@Z": 4744256,
+    "?BlitBackward@?$BlitTransRemapXlat@E@@UBEXPAXPBXHH00H@Z": 4744384,
+    "?BlitBackward@?$BlitPlainXlat@G@@UBEXPAXPBXHH00H@Z": 4746960,
+    "?BlitBackward@?$BlitTransZRemapXlat@G@@UBEXPAXPBXHH00H@Z": 4747088,
+    "?BlitBackward@?$BlitTransDarken@G@@UBEXPAXPBXHH00H@Z": 4747200,
+    "?BlitBackward@?$BlitTransLucent75@G@@UBEXPAXPBXHH00H@Z": 4747344,
+    "?BlitBackward@?$BlitTransLucent50@G@@UBEXPAXPBXHH00H@Z": 4747488,
+    "?BlitBackward@?$BlitTransLucent25@G@@UBEXPAXPBXHH00H@Z": 4747632,
+    "?BlitBackward@?$BlitPlainXlatZRead@G@@UBEXPAXPBXHH00H@Z": 4747776,
+    "?BlitBackward@?$BlitTransXlatZRead@G@@UBEXPAXPBXHH00H@Z": 4747936,
+    "?BlitBackward@?$BlitTransZRemapXlatZRead@G@@UBEXPAXPBXHH00H@Z": 4748128,
+    "?BlitBackward@?$BlitTransDarkenZRead@G@@UBEXPAXPBXHH00H@Z": 4748272,
+    "?BlitBackward@?$BlitTransLucent75ZRead@G@@UBEXPAXPBXHH00H@Z": 4748464,
+    "?BlitBackward@?$BlitTransLucent25ZRead@G@@UBEXPAXPBXHH00H@Z": 4748848,
+    "?BlitBackward@?$BlitTransLucent75ZReadWarp@G@@UBEXPAXPBXHH00H@Z": 4749056,
+    "?BlitBackward@?$BlitTransLucent50ZReadWarp@G@@UBEXPAXPBXHH00H@Z": 4749264,
+    "?BlitBackward@?$BlitTransLucent25ZReadWarp@G@@UBEXPAXPBXHH00H@Z": 4749472,
+    "?BlitBackward@?$BlitPlainXlatZReadWrite@G@@UBEXPAXPBXHH00H@Z": 4749632,
+    "?BlitBackward@?$BlitTransXlatZReadWrite@G@@UBEXPAXPBXHH00H@Z": 4749808,
+    "?BlitBackward@?$BlitTransZRemapXlatZReadWrite@G@@UBEXPAXPBXHH00H@Z": 4750000,
+    "?BlitBackward@?$BlitTransDarkenZReadWrite@G@@UBEXPAXPBXHH00H@Z": 4750160,
+    "?BlitBackward@?$BlitTransLucent75ZReadWrite@G@@UBEXPAXPBXHH00H@Z": 4750368,
+    "?BlitBackward@?$BlitTransLucent50ZReadWrite@G@@UBEXPAXPBXHH00H@Z": 4750576,
+    "?BlitBackward@?$BlitTransLucent25ZReadWrite@G@@UBEXPAXPBXHH00H@Z": 4750784,
+    "?BlitBackward@?$BlitPlainXlatAlpha@G@@UBEXPAXPBXHH00H@Z": 4750992,
+    "?BlitBackward@?$BlitTransXlatAlpha@G@@UBEXPAXPBXHH00H@Z": 4751216,
+    "?BlitBackward@?$BlitTransZRemapXlatAlpha@G@@UBEXPAXPBXHH00H@Z": 4751456,
+    "?BlitBackward@?$BlitTransLucent75Alpha@G@@UBEXPAXPBXHH00H@Z": 4751712,
+    "?BlitBackward@?$BlitTransLucent50Alpha@G@@UBEXPAXPBXHH00H@Z": 4751952,
+    "?BlitBackward@?$BlitTransLucent25Alpha@G@@UBEXPAXPBXHH00H@Z": 4752208,
+    "?BlitBackward@?$BlitTransXlatWriteAlpha@G@@UBEXPAXPBXHH00H@Z": 4752368,
+    "?BlitBackward@?$BlitTransXlatMultWriteAlpha@G@@UBEXPAXPBXHH00H@Z": 4752528,
+    "?BlitBackward@?$BlitTranslucentWriteAlpha@G@@UBEXPAXPBXHH00H@Z": 4753088,
+    "?BlitBackward@?$BlitTranslucent50NonzeroAlpha@G@@UBEXPAXPBXHH00H@Z": 4753280,
+    "?BlitBackward@?$BlitTranslucent50ZeroAlpha@G@@UBEXPAXPBXHH00H@Z": 4753472,
+    "?BlitBackward@?$BlitTransXlatAlphaZRead@G@@UBEXPAXPBXHH00H@Z": 4753744,
+    "?BlitBackward@?$BlitTransZRemapXlatAlphaZRead@G@@UBEXPAXPBXHH00H@Z": 4754048,
+    "?BlitBackward@?$BlitTransLucent75AlphaZRead@G@@UBEXPAXPBXHH00H@Z": 4754368,
+    "?BlitBackward@?$BlitTransLucent50AlphaZRead@G@@UBEXPAXPBXHH00H@Z": 4754672,
+    "?BlitBackward@?$BlitTransLucent25AlphaZRead@G@@UBEXPAXPBXHH00H@Z": 4754992,
+    "?BlitBackward@?$BlitTransLucent75AlphaZReadWarp@G@@UBEXPAXPBXHH00H@Z": 4755312,
+    "?BlitBackward@?$BlitTransLucent50AlphaZReadWarp@G@@UBEXPAXPBXHH00H@Z": 4755632,
+    "?BlitBackward@?$BlitTransLucent25AlphaZReadWarp@G@@UBEXPAXPBXHH00H@Z": 4755952,
+    "?BlitBackward@?$BlitTransXlatAlphaZReadWrite@G@@UBEXPAXPBXHH00H@Z": 4756240,
+    "?BlitBackward@?$BlitTransZRemapXlatAlphaZReadWrite@G@@UBEXPAXPBXHH00H@Z": 4756512,
+    "?BlitBackward@?$BlitTransLucent75AlphaZReadWrite@G@@UBEXPAXPBXHH00H@Z": 4756832,
+    "?BlitBackward@?$BlitTransLucent50AlphaZReadWrite@G@@UBEXPAXPBXHH00H@Z": 4757152,
+    "?BlitBackward@?$BlitTransLucent25AlphaZReadWrite@G@@UBEXPAXPBXHH00H@Z": 4757472,
     "?get@Leaf_48dbd0@@QAEPAXI@Z": 4774864,
     "?get@Leaf_48dc20@@QAEPAXI@Z": 4774944,
     "?get@Leaf_491340@@QAEPAXI@Z": 4789056,
@@ -354,7 +354,7 @@
     "?get@Leaf_4c2080@@QAEPAXI@Z": 4989056,
     "?get@Leaf_4c2480@@QAEPAXI@Z": 4990080,
     "?get@Leaf_4c24d0@@QAEPAXI@Z": 4990160,
-    "?get@Leaf_4c7ac0@@QAEIIII@Z": 5012160,
+    "?Override_Mission@FootClass@@UAEXHPAVAbstractClass@@0@Z": 5012160,
     "?target@Call_4c7ac0_0@@QAEIIII@Z": 7133248,
     "?get@Leaf_4c9bc0@@QAEXII@Z": 5020608,
     "?get@Leaf_4cd060@@QAEXI@Z": 5034080,
@@ -367,7 +367,7 @@
     "?get@Leaf_4cde10@@QAEPAXI@Z": 5037584,
     "?get@Leaf_4cdf30@@QAEPAXI@Z": 5037872,
     "?get@Leaf_4cdf90@@QAEPAXI@Z": 5037968,
-    "?get@Append_4ce210@@QAEEPBI@Z": 5038608,
+    "?Add@?$DynamicVectorClass@PAVAbstractClass@@@@QAE_NABQAVAbstractClass@@@Z": 5038608,
     "?get@Leaf_4ce9f0@@QAEPAXI@Z": 5040624,
     "?get@Leaf_4cea40@@QAEPAXI@Z": 5040704,
     "?get@Storage_4ceb90@@QAEPAXIPAI@Z": 5041040,
@@ -488,9 +488,9 @@
     "?get@Storage_4f89f0@@QAEPAXIPAI@Z": 5212656,
     "?get@Storage_4f8a40@@QAEPAXIPAI@Z": 5212736,
     "?get@Storage_4f8a90@@QAEPAXIPAI@Z": 5212816,
-    "?get@Append_4fabf0@@QAEEPBI@Z": 5221360,
-    "?get@Append_4fafc0@@QAEEPBI@Z": 5222336,
-    "?get@Append_4fb390@@QAEEPBI@Z": 5223312,
+    "?Add@?$DynamicVectorClass@PAVInfantryTypeClass@@@@QAE_NABQAVInfantryTypeClass@@@Z": 5221360,
+    "?Add@?$DynamicVectorClass@PAVUnitTypeClass@@@@QAE_NABQAVUnitTypeClass@@@Z": 5222336,
+    "?Add@?$DynamicVectorClass@PAVAircraftTypeClass@@@@QAE_NABQAVAircraftTypeClass@@@Z": 5223312,
     "?get@Storage_4fb5c0@@QAEPAXIPAI@Z": 5223872,
     "?get@Storage_4fb610@@QAEPAXIPAI@Z": 5223952,
     "?get@Storage_4fb660@@QAEPAXIPAI@Z": 5224032,
@@ -499,7 +499,7 @@
     "?get@Leaf_50b250@@QAEII@Z": 5288528,
     "?get@Leaf_50b260@@QAEPAXI@Z": 5288544,
     "?get@Leaf_50b2b0@@QAEPAXI@Z": 5288624,
-    "?get@Append_50b590@@QAEEPBI@Z": 5289360,
+    "?Add@?$DynamicVectorClass@PAVAnimTypeClass@@@@QAE_NABQAVAnimTypeClass@@@Z": 5289360,
     "?get@Storage_50b860@@QAEPAXIPAI@Z": 5290080,
     "?get@Leaf_50b8b0@@QAEXXZ": 5290160,
     "?get@Leaf_5173a0@@QAEXXZ": 5338016,
@@ -621,7 +621,7 @@
     "?get@Leaf_51da30@@QAEII@Z": 5364272,
     "?target@Target_51da30@@QAEIXZ": 7300240,
     "?get@Cleanup_51e0a0@@QAEXXZ": 5365920,
-    "?get@Append_51e360@@QAEEPBI@Z": 5366624,
+    "?Add@?$DynamicVectorClass@PBVCommandClass@@@@QAE_NABQBVCommandClass@@@Z": 5366624,
     "?get@Leaf_51e670@@QAEPAXI@Z": 5367408,
     "?get@Leaf_51e6c0@@QAEPAXI@Z": 5367488,
     "?get@Storage_51e710@@QAEPAXIPAI@Z": 5367568,
@@ -644,7 +644,7 @@
     "?get@Storage_531ee0@@QAEPAXIPAI@Z": 5447392,
     "?get@Leaf_534610@@QAEPAXI@Z": 5457424,
     "?get@Leaf_534660@@QAEPAXI@Z": 5457504,
-    "?get@Leaf_537b50@@QAEII@Z": 5471056,
+    "?Compute_CRC@LightSourceClass@@UBEXAAVWWCRCEngine@@@Z": 5471056,
     "?target@Target_537b50@@QAEII@Z": 4260272,
     "?get@Leaf_537c10@@QAEIXZ": 5471248,
     "?get@Leaf_537c20@@QAEIXZ": 5471264,
@@ -665,7 +665,7 @@
     "?get@Leaf_56ad30@@QAEII@Z": 5680432,
     "?get@Leaf_56ae40@@QAEPAXI@Z": 5680704,
     "?get@Leaf_56ae90@@QAEPAXI@Z": 5680784,
-    "?get@Append_56ba30@@QAEEPBI@Z": 5683760,
+    "?Add@?$DynamicVectorClass@VCell@@@@QAE_NABVCell@@@Z": 5683760,
     "?get@Leaf_56c1b0@@QAEPAXI@Z": 5685680,
     "?get@Leaf_56c200@@QAEPAXI@Z": 5685760,
     "?get@Leaf_56c870@@QAEPAXI@Z": 5687408,
@@ -715,9 +715,9 @@
     "?get@Leaf_5aa800@@QAEII@Z": 5941248,
     "?target@Target_5aa800@@QAEII@Z": 6003552,
     "?get@Leaf_5ab750@@QAE_NXZ": 5945168,
-    "?get@Leaf_5ad810@@QAEXXZ": 5953552,
-    "?get@Leaf_5ad820@@QAEXI@Z": 5953568,
-    "?get@Leaf_5b55e0@@QAEIXZ": 5985760,
+    "?Restart@MSOverlayAnim@@QAEXXZ": 5953552,
+    "?Set_Frame@MSOverlayAnim@@QAEXI@Z": 5953568,
+    "?Get_Edit_Buf_005b55e0@Leaf_5b55e0@@QAEIXZ": 5985760,
     "?get@Leaf_5b5dc0@@QAEXXZ": 5987776,
     "?get@Leaf_5b6870@@QAEPAXI@Z": 5990512,
     "?get@Leaf_5b68c0@@QAEPAXI@Z": 5990592,
@@ -758,15 +758,15 @@
     "?target@Call_605d80_0@@QAEII@Z": 5116288,
     "?get@Leaf_6081b0@@QAEPAXI@Z": 6324656,
     "?get@Leaf_608200@@QAEPAXI@Z": 6324736,
-    "?get@Append_60d050@@QAEEPBI@Z": 6344784,
+    "?Add@?$DynamicVectorClass@PAVParticleClass@@@@QAE_NABQAVParticleClass@@@Z": 6344784,
     "?get@Storage_60d0a0@@QAEPAXIPAI@Z": 6344864,
     "?get@Leaf_60d0f0@@QAEXXZ": 6344944,
     "?get@Leaf_610760@@QAEXXZ": 6358880,
     "?get@Leaf_613b60@@QAEIXZ": 6372192,
     "?get@Leaf_613e00@@QAEXXZ": 6372864,
     "?get@Leaf_617a00@@QAEIXZ": 6388224,
-    "?get@Append_61b300@@QAEEPBI@Z": 6402816,
-    "?get@Append_61b940@@QAEEPBI@Z": 6404416,
+    "?Add@?$DynamicVectorClass@PAVPlanningNodeClass@@@@QAE_NABQAVPlanningNodeClass@@@Z": 6402816,
+    "?Add@?$DynamicVectorClass@PAVPlanningTokenClass@@@@QAE_NABQAVPlanningTokenClass@@@Z": 6404416,
     "?get@Leaf_61ba10@@QAEPAXI@Z": 6404624,
     "?get@Leaf_61ba60@@QAEPAXI@Z": 6404704,
     "?get@Leaf_61bab0@@QAEPAXI@Z": 6404784,
@@ -792,9 +792,9 @@
     "?get@Leaf_63cb10@@QAEPAXI@Z": 6540048,
     "?get@Leaf_6401d0@@QAEPAXI@Z": 6554064,
     "?get@Leaf_640220@@QAEPAXI@Z": 6554144,
-    "?get@Append_653450@@QAEEPBI@Z": 6632528,
-    "?get@Append_653840@@QAEEPBI@Z": 6633536,
-    "?get@Append_653b50@@QAEEPBI@Z": 6634320,
+    "?Add@?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@QAE_NABQAVVoxelAnimTypeClass@@@Z": 6632528,
+    "?Add@?$DynamicVectorClass@PAVSmudgeTypeClass@@@@QAE_NABQAVSmudgeTypeClass@@@Z": 6633536,
+    "?Add@?$DynamicVectorClass@PAVTerrainTypeClass@@@@QAE_NABQAVTerrainTypeClass@@@Z": 6634320,
     "?get@Leaf_654390@@QAEPAXI@Z": 6636432,
     "?get@Leaf_6543e0@@QAEPAXI@Z": 6636512,
     "?get@Leaf_654430@@QAEPAXI@Z": 6636592,
@@ -804,10 +804,10 @@
     "?get@Storage_654960@@QAEPAXIPAI@Z": 6637920,
     "?get@Storage_6549b0@@QAEPAXIPAI@Z": 6638000,
     "?get@Storage_654a00@@QAEPAXIPAI@Z": 6638080,
-    "?get@Leaf_6631a0@@QAEII@Z": 6697376,
+    "?unknown_6631a0@ScenarioClass@@QAEPAVCellClass@@H@Z": 6697376,
     "?target@Target_6631a0@@QAEII@Z": 5537904,
-    "?get@Leaf_663400@@QAEXII@Z": 6697984,
-    "?get@Append_663540@@QAEEPBI@Z": 6698304,
+    "?Set_Waypoint_Location@ScenarioClass@@QAEXHVCell@@@Z": 6697984,
+    "?Add@?$DynamicVectorClass@PAVTechnoTypeClass@@@@QAE_NABQAVTechnoTypeClass@@@Z": 6698304,
     "?get@Leaf_668ea0@@QAEXXZ": 6721184,
     "?AI@ScrollClass@@UAEXAAHABUPoint2D@@@Z": 6723120,
     "?AI@TabClass@@UAEXAAHABUPoint2D@@@Z": 6950704,
@@ -855,16 +855,16 @@
     "?get@Leaf_6986f0@@QAEPAXI@Z": 6915824,
     "?get@Leaf_698740@@QAEXXZ": 6915904,
     "?get@Leaf_69a640@@QAEPAXXZ": 6923840,
-    "?get@Leaf_69b0c0@@QAEIXZ": 6926528,
+    "??0SubTitle@@QAE@XZ": 6926528,
     "?get@Leaf_69c180@@QAEPAXI@Z": 6930816,
     "?get@Leaf_69c310@@QAEPAXI@Z": 6931216,
     "?get@Leaf_69d680@@QAEXXZ": 6936192,
     "?get@Leaf_6a17b0@@QAEIXZ": 6952880,
     "?get@Leaf_6a20b0@@QAEII@Z": 6955184,
     "?target@Target_6a20b0@@QAEII@Z": 6823632,
-    "?get@Leaf_6a67b0@@QAEXI@Z": 6973360,
-    "?get@Leaf_6aa5a0@@QAEII@Z": 6989216,
-    "?get@Leaf_6aa5e0@@QAEII@Z": 6989280,
+    "?Get_Tactical_Position@Tactical@@QAE?AUPoint2D@@XZ": 6973360,
+    "?Start_Rubber_Band@Tactical@@QAEXABUPoint2D@@@Z": 6989216,
+    "?Modify_Rubber_Band@Tactical@@QAEXABUPoint2D@@@Z": 6989280,
     "?get@Leaf_6ac7b0@@QAEIXZ": 6997936,
     "?get@Leaf_6ac7e0@@QAEIXZ": 6997984,
     "?get@Leaf_6ac7f0@@QAEIXZ": 6998000,
@@ -878,13 +878,13 @@
     "?get@Leaf_6b5200@@QAEPAXI@Z": 7033344,
     "?get@Leaf_6bc210@@QAEIII@Z": 7062032,
     "?target@Call_6bc210_0@@QAEII@Z": 5144288,
-    "?get@Leaf_6bc230@@QAEIII@Z": 7062064,
+    "?TMission_LOSE_006bc230@Leaf_6bc230@@QAEIII@Z": 7062064,
     "?target@Call_6bc230_0@@QAEII@Z": 5144784,
     "?get@Leaf_6bc570@@QAEIII@Z": 7062896,
     "?target@Call_6bc570_0@@QAEIXZ": 5611472,
     "?get@Leaf_6bc590@@QAEIII@Z": 7062928,
     "?target@Call_6bc590_0@@QAEIXZ": 5612016,
-    "?get@Leaf_6cd6e0@@QAE_NXZ": 7132896,
+    "?IsPowerOnline_006cd6e0@Leaf_6cd6e0@@QAE_NXZ": 7132896,
     "?get@Leaf_6d4880@@QAEII@Z": 7161984,
     "?get@Leaf_6d8eb0@@QAEII@Z": 7179952,
     "?get@Leaf_6d8ec0@@QAEXXZ": 7179968,
@@ -941,7 +941,7 @@
     "?get@Leaf_716940@@QAEXXZ": 7432512,
     "?get@Leaf_716ce0@@QAEPAXI@Z": 7433440,
     "?get@Leaf_716d30@@QAEPAXI@Z": 7433520,
-    "?get@Append_724730@@QAEEPBI@Z": 7489328,
+    "?Add@?$DynamicVectorClass@PAVCellClass@@@@QAE_NABQAVCellClass@@@Z": 7489328,
     "?get@Leaf_726ef0@@QAEIXZ": 7499504,
     "?get@Leaf_726f00@@QAEIXZ": 7499520,
     "?get@Leaf_727020@@QAEIXZ": 7499808,
@@ -977,10 +977,10 @@
     "?get@Storage_730470@@QAEPAXIPAI@Z": 7537776,
     "?get@Storage_7304c0@@QAEPAXIPAI@Z": 7537856,
     "?get@Leaf_734100@@QAEXXZ": 7553280,
-    "?get@Leaf_7348a0@@QAEXI@Z": 7555232,
-    "?get@Leaf_7354a0@@QAEXI@Z": 7558304,
-    "?get@Leaf_7354b0@@QAEXI@Z": 7558320,
-    "?get@Leaf_7354c0@@QAEIXZ": 7558336,
+    "?Set_Modem_Dial_Type@WinModemClass@@UAEXH@Z": 7555232,
+    "?Set_Echo_Function@WinModemClass@@UAEXP6IXD@Z@Z": 7558304,
+    "?Set_Abort_Function@WinModemClass@@UAEXP6AHXZ@Z": 7558320,
+    "?Get_Port_Handle@WinModemClass@@QAEPAXXZ": 7558336,
     "?get@Leaf_735670@@QAEXXZ": 7558768,
     "?get@Leaf_735b10@@QAEIXZ": 7559952,
     "?get@Leaf_735b20@@QAEIXZ": 7559968,
@@ -1040,7 +1040,7 @@
     "?Scale_Y@Matrix3D@@QAEXM@Z": 5833456,
     "?Scale_Z@Matrix3D@@QAEXM@Z": 5833504,
     "?Scale@Quaternion@@QAEXM@Z": 6431232,
-    "__DAT_00ab6e88": 11234952,
+    "__waypoint_none_00ab6e88": 11234952,
     "__strncpy": 7873488,
     "__strcmp": 7888160,
     "__strlen": 7903280,
@@ -1048,7 +1048,7 @@
     "___amsg_exit": 7887784,
     "?Scale@Matrix3D@@QAEXM@Z": 5833232,
     "?Set@Quaternion@@QAEXMMMM@Z": 6431104,
-    "__DAT_0084ed10": 8711440,
+    "__cell_none_0084ed10": 8711440,
     "_memmove": 7877264,
     "_free": 7874024,
     "__strdup": 7919638,
@@ -1066,8 +1066,8 @@
     "__chkstk": 7878736,
     "_rand": 7882410,
     "__strnicmp": 7878672,
-    "__DAT_00ab6ea8": 11234984,
-    "__DAT_00ab6eb0": 11234992,
+    "__unknown_timer_start_00ab6ea8": 11234984,
+    "__unknown_timer_accum_00ab6eb0": 11234992,
     "?Length@WideString@@QBEIXZ": 7799968,
     "__real@8@4006ff00000000000000": 8007504,
     "_?empty@?1??Get_Rect@MSVQAnim@@UAE?AVRect@@XZ@4V3@A": 10950680,
@@ -1315,7 +1315,7 @@
     "__real@4@400e8000000000000000": 7980928,
     "?Set@RGBClass@@QAEAAV1@ABV1@M@Z": 6540784,
     "__real@8@3ffbaaaaaaaaaaaaa800": 8016520,
-    "_?entry@?1??Get_Image_0068ca40@UnknownBitmapWriter@@QAEPAVSurface@@PBDH@Z@4UUnknownBitmapEntry@@A": 11260136,
+    "_?entry@?1??Get_Image_0068ca40@SurfaceCacheClass@@QAEPAVSurface@@PBDH@Z@4UUnknownBitmapEntry@@A": 11260136,
     "__real@8@3fe2c0000000c0000000": 8019920,
     "_?name@?1??Theme_File_Name@ThemeClass@@QAEPBDH@Z@4PADA": 11274328,
     "?x@?1???AToolTipIndex@@QBEABQAVToolTip@@ABI@Z@4PAV2@A": 11712032,
@@ -1607,7 +1607,7 @@
     "?get@Leaf_5dd260@@QAEIXZ": 6148704,
     "?get@Leaf_5dd270@@QAEIXZ": 6148720,
     "?get@Leaf_5dd280@@QAEIXZ": 6148736,
-    "?Add_Field@PacketClass@@QAEXPAVPacketField_004BAD50@@@Z": 6302352,
+    "?Add_Field@PacketClass@@QAEXPAVFieldClass@@@Z": 6302352,
     "?get@Leaf_605710@@QAEPAXI@Z": 6313744,
     "?get@Leaf_605760@@QAEPAXI@Z": 6313824,
     "?get@Leaf_605e30@@QAEPAXI@Z": 6315568,
@@ -1643,7 +1643,7 @@
     "?get@Leaf_66e290@@QAEIXZ": 6742672,
     "?get@Leaf_66e2a0@@QAEIXZ": 6742688,
     "?get@Leaf_66e2b0@@QAEIXZ": 6742704,
-    "?Unknown_00672F10@UnknownSessionState@@QAEEXZ": 6762256,
+    "?Unknown_00672F10@SessionClass@@QAEEXZ": 6762256,
     "?get@Leaf_675380@@QAEIII@Z": 6771584,
     "?target@Call_675380_0@@QAEIII@Z": 6769808,
     "?target@Call_675380_1@@QAEIII@Z": 6351600,
@@ -2284,7 +2284,35 @@
     "_?all@?1??Faction_Name@@YIABVWstring@@H@Z@4V2@A": 11709728,
     "_?dir@?4??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4UUnknownFacingDir@@A": 11235488,
     "_?direction@?4??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4HA": 11235436,
-    "?Contains@GraphicMenuItem@@UAE_NABUPoint2D@@@Z": 5112256
+    "?Contains@GraphicMenuItem@@UAE_NABUPoint2D@@@Z": 5112256,
+    "??1Tactical@@UAE@XZ": 6956816,
+    "?Normalize@Quaternion@@QAEXXZ": 6431136,
+    "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
+    "?Set@ZBuffer@@QAEXPAGHG@Z": 7822592,
+    "?Set@ABuffer@@QAEXPAGHG@Z": 4262896,
+    "?AI@ShapeButtonClass@@QAE_NXZ": 6771488,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "_?address@?1??Unknown_0063FA00@OwnerTalkClass@@QAEPAVIPXAddressClass@@PAD@Z@4V3@A": 11234568,
+    "__real@4@40018000000000000000": 7980236,
+    "__real@4@4002a000000000000000": 7980232,
+    "__real@4@40008000000000000000": 7980228,
+    "__real@8@400d8000000000000000": 7983264,
+    "__real@8@3fffccccccccccccd000": 8020032,
+    "__real@8@3ffaa3d70a3d70a3d800": 7998288,
+    "?AI@BuildingLightClass@@UAEXXZ": 4405616,
+    "__real@8@3ffe947ae147ae147800": 8049000,
+    "__real@8@3fe3c8000000c8000000": 8019992,
+    "__except_handler3": 7885524,
+    "__except_list": 0,
+    "?AI@AnimClass@@UAEXXZ": 4331280,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVBulletClass@@@8": 8196624,
+    "??_R0?AVTactical@@@8": 8350296,
+    "??_R0?AVBounceClass@@@8": 8360944
   },
   "regions": [
     {
@@ -2296,7 +2324,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 43,
       "body_sha256": "3b01710cbee6ee909868e1afb76e1d0c9fda3a7fe74b90eaf4a39f40db3783c1",
@@ -2304,13 +2333,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "1397b00520403687bcb1a5c71abcac16f6b57d8597c981bb3016b428a93a1a64",
       "relocations": [],
-      "source_sha256": "5b1f1b1f05cc0ef4e11c56855d217b08e405e0b1da1331d4ac2ea3277e6165c1",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Make_Identity_00590060.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Make_Identity_00590060",
       "source_order": 218639
     },
     {
@@ -2322,7 +2350,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 95,
       "body_sha256": "b211a0cd43d53ca2d762f4a3372236b26d88323e2dbd7275bb8d37cd033e863f",
@@ -2330,13 +2359,12 @@
       "full_extent_bytes": 96,
       "full_extent_sha256": "adeb9371b6d64ec18d6339755aa006ec3d73ccd5d12c7f6fff6708b3fb923e92",
       "relocations": [],
-      "source_sha256": "f287385a88b59ed8077b7404f73684071865ecbfa890917077fe09884feb5ed0",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Translate_00590090.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Translate_00590090",
       "source_order": 218640
     },
     {
@@ -2348,7 +2376,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 129,
       "body_sha256": "286ad0f65a955586792458270a161fdc90d5c9a7c55d6145e409891e7db0ceed",
@@ -2356,13 +2385,12 @@
       "full_extent_bytes": 144,
       "full_extent_sha256": "8e848728ed789fd705f9636ec127a8f5a775f10d793540f169bef71f76cf0cb7",
       "relocations": [],
-      "source_sha256": "ec29a5d961222df1409658942b5f93b3d8a83326acc686260de0041442b722c3",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Translate_005900f0.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Translate_005900f0",
       "source_order": 218641
     },
     {
@@ -2374,7 +2402,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 41,
       "body_sha256": "525a929e177f80deb1c4a1a8be580a874296579c049f2d8255976a408d722191",
@@ -2382,13 +2411,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "7f488db7dc7f8f7d3157e62bb6042d708ac479a91cf76dfba363e48d88f8dd24",
       "relocations": [],
-      "source_sha256": "54b3f847efa8773dc0cd3786764978daf3375470650a0086fff3df777ce5b15d",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Translate_X_00590180.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Translate_X_00590180",
       "source_order": 218642
     },
     {
@@ -2400,7 +2428,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 42,
       "body_sha256": "2d9f4824b716011e1bce238f0df48227af3c8e38eca585f6ec680515bf7708e8",
@@ -2408,13 +2437,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "67bb260ec23bb0fbfb24de4705329951b47eb1c97ea22b54da19befa455f1762",
       "relocations": [],
-      "source_sha256": "eaca5e49e2a2dbaa5da6f0471fad5af3b070735021346066b975f27ce09962f6",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Translate_Y_005901b0.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Translate_Y_005901b0",
       "source_order": 218643
     },
     {
@@ -2426,7 +2454,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 42,
       "body_sha256": "842383f5239746e2713919ced5f4efdb4c70380816dc91b6a60928084f22a87b",
@@ -2434,13 +2463,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "ec8ee7b7ed6c7cd25931fcfebd98ffa4c048c2c4c167e913ac355b4df352a998",
       "relocations": [],
-      "source_sha256": "8b933bf6f00e16c13eb4e8635fcdec5099bb271aaeb5040cd1c15a098758c261",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Translate_Z_005901e0.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Translate_Z_005901e0",
       "source_order": 218644
     },
     {
@@ -2452,7 +2480,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 31,
       "body_sha256": "0c64049d97ed4886576152d418eaec7a5cd854e9fc90337268b075bb71679d54",
@@ -2460,13 +2489,12 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "887919e6a887c3f1c16400233d5480068d946cc8a3fc0a272b63b9699425520b",
       "relocations": [],
-      "source_sha256": "81962562529d7b5895453de0f42cc6805da3ddc401158399fe291649dede99f2",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Scale_X_005902d0.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Scale_X_005902d0",
       "source_order": 218647
     },
     {
@@ -2478,7 +2506,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 33,
       "body_sha256": "8efb6d8a140ec03b4d6246a1e52fbfd56646cae7b2ec91f9862880745156e0cf",
@@ -2486,13 +2515,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "6b7ecd77b315102920172b08f380dde608ae095bf1f85c4524b16a15133eb74f",
       "relocations": [],
-      "source_sha256": "07e9d5b5f1d52f036df9a5a5eb50d0286e978b2b62a871e3d323d83fa3147531",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Scale_Y_005902f0.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Scale_Y_005902f0",
       "source_order": 218648
     },
     {
@@ -2504,7 +2532,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 33,
       "body_sha256": "605658f4ea08621e9e5e3c546fe4fc50c215c0cc5ae8f7165c61a1d13efdcc60",
@@ -2512,13 +2541,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "b1278b5850e5b1865ac7336a05a37ae0042e6681616fa649a1f075cd26db9c97",
       "relocations": [],
-      "source_sha256": "64a51383f8321f6c8d1a1d88a5654dea8f483bff13a2860f5e033da2f7b9006d",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Scale_Z_00590320.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Scale_Z_00590320",
       "source_order": 218649
     },
     {
@@ -2530,7 +2558,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 91,
       "body_sha256": "fa0a6d8a4b0bac07e0f022a929dbe3a9266191c165310bb02235687692c7825a",
@@ -2538,13 +2567,12 @@
       "full_extent_bytes": 96,
       "full_extent_sha256": "c59b1f8204e457f37259cf902976a585aae47e3bfb06997056d5c1ea5f4a2925",
       "relocations": [],
-      "source_sha256": "5ad10d5af0ff37da79c5422bc97bc5c06d78632c5b62665206a1bee0d1aaaa0f",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Scale_00590210.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Scale_00590210",
       "source_order": 218645
     },
     {
@@ -2556,7 +2584,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 91,
       "body_sha256": "ab63cea2f8f0244e59bee8b336f74957cf2959dbd494428190b4c372c230bed3",
@@ -2564,13 +2593,12 @@
       "full_extent_bytes": 96,
       "full_extent_sha256": "2151ef26c07e1d4eab30ab0f6c57af3414cb238ceb3cefdfb4d3cce60a3ae524",
       "relocations": [],
-      "source_sha256": "058f1b27feeaee1501565ab15b42ad8fe3ebf789b6e193e215a214150e642dcc",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Scale_00590270.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Scale_00590270",
       "source_order": 218646
     },
     {
@@ -2582,7 +2610,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 67,
       "body_sha256": "25ebbd42a841b9e0a7e9514a0482e58fdfa1fd6633de2a8c67735f8abaa1fe53",
@@ -2590,13 +2619,12 @@
       "full_extent_bytes": 80,
       "full_extent_sha256": "60cbf45b7ca1f140e5ed21c8ce20f1e6fac3e99e514e9fce6181919cba2b11e8",
       "relocations": [],
-      "source_sha256": "d2127e6f80e937b7fd5303512bb57c75302d666dc306658c2e73db01f83dc114",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Shear_X_00590350.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Shear_X_00590350",
       "source_order": 218650
     },
     {
@@ -2608,7 +2636,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 68,
       "body_sha256": "919dba7f49925b15aa7c78fe80adbc44d8bdadec8cc6fbdd2e52432637329eb4",
@@ -2616,13 +2645,12 @@
       "full_extent_bytes": 80,
       "full_extent_sha256": "9398dba149c45ff6386548b61dee7a2ab3cde0b41eb651e9fff7e7749bb89090",
       "relocations": [],
-      "source_sha256": "566717437cca703bfc4cc3661fcd119f3b51f44d7710823759fe27172b3b6501",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Shear_Z_005903a0.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Shear_Z_005903a0",
       "source_order": 218651
     },
     {
@@ -2634,7 +2662,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 33,
       "body_sha256": "3565089194bae11930aabc609986ce9376265921ac204da2c747bfb607e2cb73",
@@ -2642,13 +2671,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "986c7ce6bc46f28ac42c453cc8a609d58fbab96398c10532a83caa7dc54095e2",
       "relocations": [],
-      "source_sha256": "94744fc9b77c66bd0225a8df845e8e2ecb71f1d01e2a0becbb02b61b3de58634",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_constructor_0058fde0.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_constructor_0058fde0",
       "source_order": 218633
     },
     {
@@ -2660,7 +2688,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 22,
       "body_sha256": "993ffbe27fdc833603b2f0ec449bfdaea67ca05852d48731a5de59dde0c99590",
@@ -2668,13 +2697,12 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "44fe476e0bf7b19aba907043d1e140fa44ad916a7b2b236ad7fa5dd46f13a3cd",
       "relocations": [],
-      "source_sha256": "61fdecc5e87d10d263602ca13307f8b5b5e46f998edd851bfa30e3e266cf4e95",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_copy_constructor_0058fe10.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_copy_constructor_0058fe10",
       "source_order": 218634
     },
     {
@@ -2686,7 +2714,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 88,
       "body_sha256": "5cf2dcdce1cacb92bec419c2f5e9cc0a6596449450049112048ad3d44bd841e3",
@@ -2694,13 +2723,12 @@
       "full_extent_bytes": 96,
       "full_extent_sha256": "5fa3f922130a71baad30a257bc576e0bf23082c17f9e883d9ce98ad7b64293c1",
       "relocations": [],
-      "source_sha256": "d9c746babb54d27204fec45160c8db5059f5d790415a2d089d499c54371834db",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_constructor_0058fe30.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_constructor_0058fe30",
       "source_order": 218635
     },
     {
@@ -2712,7 +2740,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 90,
       "body_sha256": "fb76cb5213eb4d918563bea658333742354065e7a3b57c8aa787b07d4ffd96c1",
@@ -2720,13 +2749,12 @@
       "full_extent_bytes": 96,
       "full_extent_sha256": "79155568c2ebcd2b2146ffb9d5e6164f786eba08ba6e82a05d2ff48c1d320f6a",
       "relocations": [],
-      "source_sha256": "a8ba44ceaaf8d91f9bc95d9666a734609135e311e9654479eff197c9e6549cc4",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_constructor_0058fe90.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_constructor_0058fe90",
       "source_order": 218636
     },
     {
@@ -2738,7 +2766,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 92,
       "body_sha256": "df52c5c9ef5e7c671868656ae9838e9b0bfdefb40bf58fe8b1a57d121528f547",
@@ -2771,13 +2800,12 @@
           "resolved": 2650
         }
       ],
-      "source_sha256": "bbaa38e405a2b660abc9758255ddf8154f1541610da6b716e4226774b6eefc89",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_constructor_0058fef0.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_constructor_0058fef0",
       "source_order": 218637
     },
     {
@@ -2789,7 +2817,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 68,
       "body_sha256": "5de64870c31bc0482d69d35f22dd918728480f29c83ecdd2c8db0963ebecb903",
@@ -2797,13 +2826,12 @@
       "full_extent_bytes": 80,
       "full_extent_sha256": "52cfe41cdc71261b33df1e2233cd57e2d6d3c9d6acd1dba75ffc42bb986eed20",
       "relocations": [],
-      "source_sha256": "2391f0676e89f85b9cc5e0533123e4dc86782f0fe6b6cc6951537046f4332ca0",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Shear_Y_005903f0.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Shear_Y_005903f0",
       "source_order": 218652
     },
     {
@@ -2815,7 +2843,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 158,
       "body_sha256": "6101657acb085726a3c937ad721ad376d8339a66d6802da6395fabcd8a3711d6",
@@ -2840,13 +2869,12 @@
           "resolved": 4294090054
         }
       ],
-      "source_sha256": "2e9daab8720c0bbed45c64cac342150f9c777ebe01cd83916de2992547d5e61e",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Rotate_X_00590760.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Rotate_X_00590760",
       "source_order": 218656
     },
     {
@@ -2858,7 +2886,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 117,
       "body_sha256": "cb1883f0eccaa4156e294dc02be27e401e717bec4a1e3cab96d0964e0dc8c5ae",
@@ -2866,13 +2895,12 @@
       "full_extent_bytes": 128,
       "full_extent_sha256": "dc9f6a781d4992653359d62b3f7d487e964648c5c806611bdd79078bb0c00119",
       "relocations": [],
-      "source_sha256": "2017e0e1141202b71d1018fc4c004e98e7d842639ae168f7d3f7dc90c214609b",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Rotate_X_00590800.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Rotate_X_00590800",
       "source_order": 218657
     },
     {
@@ -2884,7 +2912,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 156,
       "body_sha256": "d75d9a55dac300971ea688dbc5c42e203756b882bdb3a48f4038b2b63926cb88",
@@ -2909,13 +2938,12 @@
           "resolved": 4294089766
         }
       ],
-      "source_sha256": "84751f1a469dd48722fd8090cbc1ba8b92a816ad30169818e103d97ca8b6546a",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Rotate_Y_00590880.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Rotate_Y_00590880",
       "source_order": 218658
     },
     {
@@ -2927,7 +2955,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 121,
       "body_sha256": "070515e6492a43f6dba1a270705252c2840251d7f90b126d609a814f6945b056",
@@ -2935,13 +2964,12 @@
       "full_extent_bytes": 128,
       "full_extent_sha256": "6a359dcb6441b5694da5f7d684c761109e1de6490ea19cd6236e44d08503fc6a",
       "relocations": [],
-      "source_sha256": "37fa435eb7457fcf0d1b3b2e784d1829ab5a49d2beb14ac62f5891b6f08d7ef1",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Rotate_Y_00590920.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Rotate_Y_00590920",
       "source_order": 218659
     },
     {
@@ -2953,7 +2981,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 156,
       "body_sha256": "9e9379458dab6b52fce4ddc0a863512fb6b67638d291851af6e196974baecf4b",
@@ -2978,13 +3007,12 @@
           "resolved": 4294089398
         }
       ],
-      "source_sha256": "3d51f097341b98b815340d6c0b9539d88fa2b192634ae1eb34bd35ba3d0d5d31",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Rotate_Z_005909a0.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Rotate_Z_005909a0",
       "source_order": 218660
     },
     {
@@ -2996,7 +3024,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 115,
       "body_sha256": "b18486b1e87e28c5d3c0c42588cc7c0a384a8d80cd803b2c85bccf94847e0692",
@@ -3004,13 +3033,12 @@
       "full_extent_bytes": 128,
       "full_extent_sha256": "658e1eb909c73cef584730d26ff80a9de448f4241ee78179ab0df4a111e4f366",
       "relocations": [],
-      "source_sha256": "a9df04d49fcba970eb5fe4a225b1bc639bbe33567fe0114c38879725734a6bba",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Rotate_Z_00590a40.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Rotate_Z_00590a40",
       "source_order": 218661
     },
     {
@@ -3022,7 +3050,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 71,
       "body_sha256": "9051ef47aea252296238fe7cf662d7768c6074085671b96ad47b373e904d6247",
@@ -3039,13 +3068,12 @@
           "resolved": 2197
         }
       ],
-      "source_sha256": "967b33d700cf17172ce29cfd798a7686f7b579e0e6bb50be96d238d07e82e134",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Get_X_Translation_00590ac0.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Get_X_Translation_00590ac0",
       "source_order": 218662
     },
     {
@@ -3057,7 +3085,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 71,
       "body_sha256": "4ce66c12b4da83abca18eef0522a559d9d409209266d19af1df0362fcb912a66",
@@ -3074,13 +3103,12 @@
           "resolved": 2117
         }
       ],
-      "source_sha256": "799e2e606d98cd555c1f366cf1cb71397b8538328b4ada7b43d380dea5feeff1",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Get_Y_Translation_00590b10.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Get_Y_Translation_00590b10",
       "source_order": 218663
     },
     {
@@ -3092,7 +3120,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 71,
       "body_sha256": "630e12215a88a0b2c4fac484131e7e50c90b5893d62cc4618bdf3b505bd291e2",
@@ -3109,13 +3138,12 @@
           "resolved": 2037
         }
       ],
-      "source_sha256": "f06134aa37f22a2ee4804224e1b78f08ef1724c05aa7f28156847296fdd14692",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Get_Z_Translation_00590b60.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Get_Z_Translation_00590b60",
       "source_order": 218664
     },
     {
@@ -3127,7 +3155,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 93,
       "body_sha256": "25c58b944f7e5a5b8f1adbad67b2abb1a2f32b89b3780e8c8793b3a480f656ba",
@@ -3152,13 +3181,12 @@
           "resolved": 4294089207
         }
       ],
-      "source_sha256": "20323699353721594a65b6b5242df3f2a212a435af8d268b3f553973b5e9a3a7",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Get_X_Rotation_00590bb0.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Get_X_Rotation_00590bb0",
       "source_order": 218665
     },
     {
@@ -3170,7 +3198,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 93,
       "body_sha256": "f6f03e3ff0be1b081d6fde415ba2c78caf77dc88154ca90cdb7e0154b528dd75",
@@ -3195,13 +3224,12 @@
           "resolved": 4294089111
         }
       ],
-      "source_sha256": "a580846298d786a4feffe9873840649096ef13f9ee3b833d6dc3683209110d4e",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Get_Y_Rotation_00590c10.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Get_Y_Rotation_00590c10",
       "source_order": 218666
     },
     {
@@ -3213,7 +3241,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 93,
       "body_sha256": "39e505342681b4515a5f05d03f95151024ace392ac4cd689f7cea3cd1e9c2d77",
@@ -3238,13 +3267,12 @@
           "resolved": 4294089015
         }
       ],
-      "source_sha256": "8cf72a132ed4f90ff88267ed035eb137f42a3f18d7a511f775560c0b7fd1d1f4",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Get_Z_Rotation_00590c70.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Get_Z_Rotation_00590c70",
       "source_order": 218667
     },
     {
@@ -3256,7 +3284,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 113,
       "body_sha256": "1dc684b963988ca7a84355af1ac1093eebca88ae09a1219449ed15c6d0a43615",
@@ -3264,13 +3293,12 @@
       "full_extent_bytes": 128,
       "full_extent_sha256": "a2ee2fe739c74df61a2745d60bfb42538350db2defd4f6443a5d6965c86abc68",
       "relocations": [],
-      "source_sha256": "2de17c6e31a620afd0dfdf116320d0476188718f76397acbfb4648e0c5261e9a",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Rotate_Vector_00590cd0.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Rotate_Vector_00590cd0",
       "source_order": 218668
     },
     {
@@ -3282,7 +3310,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 446,
       "body_sha256": "b679aa0741b035a322831cb01ea328f41c7b28dfe22659a0e4c10e3b5d41022f",
@@ -3355,13 +3384,12 @@
           "resolved": 4294965914
         }
       ],
-      "source_sha256": "2604c45328ca97029c741b0520ec7322fbc970c35ace30f5f31e9483b1d306ad",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Look_At_00590d50.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Look_At_00590d50",
       "source_order": 218669
     },
     {
@@ -3373,7 +3401,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 181,
       "body_sha256": "1f4b90c2da75bf662c638fa7e9f37bf400bb3e769e6844c6df0994ee8df18a88",
@@ -3381,13 +3410,12 @@
       "full_extent_bytes": 192,
       "full_extent_sha256": "ac9da3d917c007553da50f60761f5eb192960574b72c26a7a22972bc5a0c62f1",
       "relocations": [],
-      "source_sha256": "e8e0b9302ccb9ecf2d11986c19d5afdb78293dbc6245b813fcc578e76bded149",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Rigid_Inverse_00591420.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Rigid_Inverse_00591420",
       "source_order": 218674
     },
     {
@@ -3399,7 +3427,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 264,
       "body_sha256": "86f7d7bdfcd6411fb4af0f8affc856e7e937f4552458e5f5101c060baf536c5c",
@@ -3424,13 +3453,12 @@
           "resolved": 4294090854
         }
       ],
-      "source_sha256": "43a47e976780d4d45de5aeccde49a295f8fd456f7d37457ea244748150cdeb09",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Pre_Rotate_X_00590440.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Pre_Rotate_X_00590440",
       "source_order": 218653
     },
     {
@@ -3442,7 +3470,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 262,
       "body_sha256": "dcdceacf46bc7e72dac73235691cf5965294a5bbad6cd619570a77dd9d1ded98",
@@ -3467,13 +3496,12 @@
           "resolved": 4294090326
         }
       ],
-      "source_sha256": "8d37d3813ac475bebf4b9083f24f6efe0f643b5d1f1f94f35ecb7057d03a9fb4",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Pre_Rotate_Z_00590650.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Pre_Rotate_Z_00590650",
       "source_order": 218655
     },
     {
@@ -3485,7 +3513,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 621,
       "body_sha256": "155b79c4655b73726f5b6cac1c37eb6475c09834d3b492f7b9f55e9665ca227e",
@@ -3598,13 +3627,12 @@
           "resolved": 7976464
         }
       ],
-      "source_sha256": "46da4a2b35b29e38a0c235ccbab22cd8c2b7de70fd8da6b1e32aba9fbac95a0a",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Obj_Look_At_00590f10.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Obj_Look_At_00590f10",
       "source_order": 218670
     },
     {
@@ -3616,7 +3644,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 508,
       "body_sha256": "b23930c7dbe814e1b79c18df7a92f32167363823bca80eb0320905aff1a7b57d",
@@ -3624,13 +3653,12 @@
       "full_extent_bytes": 512,
       "full_extent_sha256": "86eef10b9fb298e7f1fc59819641c0314167f1086c3ccf8d213989ebe6357364",
       "relocations": [],
-      "source_sha256": "53c3d211705c6fec1fe524d98857f6179bd6dc1eb267b04b618a505e469d2355",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_operator_multiply_00591180.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_operator_multiply_00591180",
       "source_order": 218671
     },
     {
@@ -3642,7 +3670,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 18,
       "body_sha256": "ded88cbd2bad8d818148bcccd02473ea5d57848030e5940d3fc831d8b9ba80cc",
@@ -3650,13 +3679,12 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "a4a9d06f19585331879f4f0622efd630ca10c28a988828464f44a6e334d91b5d",
       "relocations": [],
-      "source_sha256": "24892c7280e90cf258b61e0e3fb5af8742a02a940dd70570e98f2785c07a1aec",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Copy_00591400.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Copy_00591400",
       "source_order": 218673
     },
     {
@@ -3668,7 +3696,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 120,
       "body_sha256": "946b741cb49132bd594029e4e233e5281e69ad226844740a858afe61dffb08e9",
@@ -3676,13 +3705,12 @@
       "full_extent_bytes": 128,
       "full_extent_sha256": "c303d508f3bddae0c09c69d0f376944d5f98feaa5714789bbe5ff78258700bea",
       "relocations": [],
-      "source_sha256": "966be437bdbadf6edb43cf342b7a61185d17b9a725fb2bd14748e5b35c969dac",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_operator_multiply_00591380.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_operator_multiply_00591380",
       "source_order": 218672
     },
     {
@@ -3694,7 +3722,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 246,
       "body_sha256": "320d6ac57577b7f111ce1068da0bde093a2e4d2b47088b691d1b23e10164a908",
@@ -3719,13 +3748,12 @@
           "resolved": 4294090582
         }
       ],
-      "source_sha256": "24af1fe48c621cefda2b3c71b920e4be151f56ecb0c8a5bcd8b1b47c94a53f6c",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_Pre_Rotate_Y_00590550.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_Pre_Rotate_Y_00590550",
       "source_order": 218654
     },
     {
@@ -3737,7 +3765,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 263,
       "body_sha256": "a7e8201840de83defaedd00d9f40e1f1c26068da4399dad81109f565ce172274",
@@ -3794,13 +3823,12 @@
           "resolved": 7976952
         }
       ],
-      "source_sha256": "1699254b69d4bd7f75a24883ea14e342d3525976eab145309cc8f60c0be47634",
-      "source": "src/recovered/classes/Matrix3D/Matrix3D_axis_angle_constructor_0058ff50.cpp",
+      "source_sha256": "a48cd82dc57ca5cb54d76f90541d1cb14968574957db13948f369915c3b1699b",
+      "source": "src/recovered/matrix3d.cpp",
       "population": "population-4246",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Matrix3D_axis_angle_constructor_0058ff50",
       "source_order": 218638
     }
   ]

@@ -241,6 +241,6 @@ public:
 };
 
 // The tactical view rectangle (0x006F1F30, returned through ECX).
-Rect __fastcall Unknown_006F1F30();
+Rect __fastcall Get_Title_Screen_Area_006f1f30();
 
 #endif

@@ -122,7 +122,7 @@ def check_population(audit, population, accepted_ends=()):
         require(body == bytes.fromhex(span['bytes_hex']) and sha(body) == row['body_sha256'], 'Original body drift')
         pad = bytes.fromhex(row['padding_hex'])
         require(not pad or (len(pad) <= 15 and pad == b'\x90' * len(pad) and
-                row['padding_provenance'] == gaps.get(va + len(body)) and
+                va + len(body) in gaps and row['padding_provenance'] == gaps.get(va + len(body)) and
                 gaps[va + len(body)]['length'] == len(pad)), 'Unsupported independent padding')
         require(va >= cursor and row['region_bytes'] == len(body) + len(pad) and
                 audit.original(va, row['region_bytes']) == body + pad and

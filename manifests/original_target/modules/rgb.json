@@ -1,0 +1,412 @@
+{
+ "module": "rgb",
+ "source": "src/recovered/rgb.cpp",
+ "header": null,
+ "population": "population-3447",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 693,
+ "code": [
+  {
+   "symbol": "??0RGBClass@@QAE@ABV0@0M@Z",
+   "entry": "0063cc80",
+   "body_bytes": 355,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Set@RGBClass@@QAEAAV1@ABV1@M@Z",
+   "entry": "0063cdf0",
+   "body_bytes": 290,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "entry": "0063cf20",
+   "body_bytes": 134,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Difference@RGBClass@@QBEHABV1@@Z",
+   "entry": "0063cfb0",
+   "body_bytes": 70,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "??BRGBClass@@QBE?AVHSVClass@@XZ",
+   "entry": "0063d000",
+   "body_bytes": 321,
+   "padding_bytes": 15
+  }
+ ],
+ "code_bytes": 1232,
+ "data": [
+  {
+   "symbol": "__real@4@00000000000000000000",
+   "address": "0079a738",
+   "bytes": 4,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "__real@4@4006ff00000000000000",
+   "address": "0079b0a8",
+   "bytes": 4,
+   "kind": "table",
+   "section": 4
+  },
+  {
+   "symbol": "__real@4@3fff8000000000000000",
+   "address": "0079b7f8",
+   "bytes": 4,
+   "kind": "table",
+   "section": 5
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@4@00000000000000000000",
+   "address": "0079a738",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@4006ff00000000000000",
+   "address": "0079b0a8",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@3fff8000000000000000",
+   "address": "0079b7f8",
+   "bytes": 4,
+   "kind": "table"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00603160",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "006125d0",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "006125d0",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "00619ca0",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "00619d50",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "00619e00",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "004b3160",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "004b3160",
+   "symbol": "?Difference@RGBClass@@QBEHABV1@@Z",
+   "target": "0063cfb0",
+   "function_entry": true
+  },
+  {
+   "site": "004b3270",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "004b3460",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "004b34f0",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "004519d0",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "004af650",
+   "symbol": "??0RGBClass@@QAE@ABV0@0M@Z",
+   "target": "0063cc80",
+   "function_entry": true
+  },
+  {
+   "site": "004af650",
+   "symbol": "??0RGBClass@@QAE@ABV0@0M@Z",
+   "target": "0063cc80",
+   "function_entry": true
+  },
+  {
+   "site": "004af650",
+   "symbol": "??0RGBClass@@QAE@ABV0@0M@Z",
+   "target": "0063cc80",
+   "function_entry": true
+  },
+  {
+   "site": "004af650",
+   "symbol": "??0RGBClass@@QAE@ABV0@0M@Z",
+   "target": "0063cc80",
+   "function_entry": true
+  },
+  {
+   "site": "00431cc0",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "0052e3d0",
+   "symbol": "?Set@RGBClass@@QAEAAV1@ABV1@M@Z",
+   "target": "0063cdf0",
+   "function_entry": true
+  },
+  {
+   "site": "0052e3d0",
+   "symbol": "?Set@RGBClass@@QAEAAV1@ABV1@M@Z",
+   "target": "0063cdf0",
+   "function_entry": true
+  },
+  {
+   "site": "0052e3d0",
+   "symbol": "??0RGBClass@@QAE@ABV0@0M@Z",
+   "target": "0063cc80",
+   "function_entry": true
+  },
+  {
+   "site": "0052e3d0",
+   "symbol": "??0RGBClass@@QAE@ABV0@0M@Z",
+   "target": "0063cc80",
+   "function_entry": true
+  },
+  {
+   "site": "00483650",
+   "symbol": "??BRGBClass@@QBE?AVHSVClass@@XZ",
+   "target": "0063d000",
+   "function_entry": true
+  },
+  {
+   "site": "00483650",
+   "symbol": "??BRGBClass@@QBE?AVHSVClass@@XZ",
+   "target": "0063d000",
+   "function_entry": true
+  },
+  {
+   "site": "0051ea50",
+   "symbol": "??BRGBClass@@QBE?AVHSVClass@@XZ",
+   "target": "0063d000",
+   "function_entry": true
+  },
+  {
+   "site": "006030a0",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "006030d0",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "00603120",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "006031b0",
+   "symbol": "?Difference@RGBClass@@QBEHABV1@@Z",
+   "target": "0063cfb0",
+   "function_entry": true
+  },
+  {
+   "site": "00451bf0",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "00608440",
+   "symbol": "??0RGBClass@@QAE@ABV0@0M@Z",
+   "target": "0063cc80",
+   "function_entry": true
+  },
+  {
+   "site": "004712c0",
+   "symbol": "?Set@RGBClass@@QAEAAV1@ABV1@M@Z",
+   "target": "0063cdf0",
+   "function_entry": true
+  },
+  {
+   "site": "004cab90",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "00432490",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "00432490",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "00432490",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "006127e0",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "006127e0",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "006129b0",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "006129b0",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "00533c80",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "00533c80",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  },
+  {
+   "site": "006d0dc0",
+   "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+   "target": "0063cf20",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  }
+ ],
+ "route": "A",
+ "unit": "rgb.cpp",
+ "form": "one include block",
+ "switches": [
+  "RGB_DECLARE_BRIGHTEN",
+  "RGB_DECLARE_TO_HSV"
+ ],
+ "include_blocks": [
+  {
+   "before": "0063cdf0",
+   "lines": 6
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "0063cc80",
+   "bytes": 355,
+   "population": "population-4380",
+   "bound": "own frozen bound (population-4380)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0063cf20",
+   "bytes": 134,
+   "population": "population-4380",
+   "bound": "own frozen bound (population-4380)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0063cfb0",
+   "bytes": 70,
+   "population": "population-4380",
+   "bound": "own frozen bound (population-4380)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [],
+ "unit_functions": 5,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

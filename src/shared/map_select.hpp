@@ -6,12 +6,12 @@
 #include "shared/ms_choice.hpp"
 #include "shared/msfont.hpp"
 #include "shared/cd_timer.hpp"
-class UnknownIDSource;
+class ScenarioClass;
 class MapSelect : public MSEngine {
 public:
-    bool Advance_Progression_0058f720(UnknownIDSource *scenario,Wstring const &name);
-    bool Presentation_0058f900(UnknownIDSource *scenario);
-    bool Init_0058fa20(UnknownIDSource *scenario);
+    bool Advance_Progression_0058f720(ScenarioClass *scenario,Wstring const &name);
+    bool Presentation_0058f900(ScenarioClass *scenario);
+    bool Init_0058fa20(ScenarioClass *scenario);
     void Deinit_0058fc60();
     void Play_Sound_0058fd00(Wstring const &name);
     void Queue_Voice_0058fd30(Wstring const &name,int delay);

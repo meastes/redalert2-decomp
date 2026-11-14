@@ -1,0 +1,128 @@
+{
+ "module": "vqalib_buffer_",
+ "source": "src/recovered/vqalib_buffer_.cpp",
+ "header": null,
+ "population": "population-3119",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 632,
+ "code": [
+  {
+   "symbol": "?AllocBuffers@@YIJPAUVQAHandleP@@@Z",
+   "entry": "007768a0",
+   "body_bytes": 2274,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?FreeBuffers@@YIXPAUVQAHandleP@@@Z",
+   "entry": "00777190",
+   "body_bytes": 1309,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?VQA_Configure_Buffer@@YIJPAUVQAHandleP@@@Z",
+   "entry": "007776b0",
+   "body_bytes": 300,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?VQA_Memory_Handler@@YAHPAUVQAHandle@@HHH@Z",
+   "entry": "007777e0",
+   "body_bytes": 100,
+   "padding_bytes": 12
+  }
+ ],
+ "code_bytes": 4016,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0077be70",
+   "symbol": "?FreeBuffers@@YIXPAUVQAHandleP@@@Z",
+   "target": "00777190",
+   "function_entry": true
+  },
+  {
+   "site": "0077b7a0",
+   "symbol": "?VQA_Memory_Handler@@YAHPAUVQAHandle@@HHH@Z",
+   "target": "007777e0",
+   "function_entry": true
+  },
+  {
+   "site": "0077b7a0",
+   "symbol": "?VQA_Memory_Handler@@YAHPAUVQAHandle@@HHH@Z",
+   "target": "007777e0",
+   "function_entry": true
+  },
+  {
+   "site": "0077b7a0",
+   "symbol": "?VQA_Memory_Handler@@YAHPAUVQAHandle@@HHH@Z",
+   "target": "007777e0",
+   "function_entry": true
+  },
+  {
+   "site": "0077b7a0",
+   "symbol": "?AllocBuffers@@YIJPAUVQAHandleP@@@Z",
+   "target": "007768a0",
+   "function_entry": true
+  },
+  {
+   "site": "0077bf10",
+   "symbol": "?VQA_Configure_Buffer@@YIJPAUVQAHandleP@@@Z",
+   "target": "007776b0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "?VQA_Unknown_0077C480@@YIHPAUVQAHandle@@HHHHH@Z",
+   "address": "0077c480"
+  },
+  {
+   "symbol": "_free",
+   "address": "007825e8"
+  },
+  {
+   "symbol": "_malloc",
+   "address": "00782630"
+  }
+ ],
+ "route": "A",
+ "unit": "vqalib_buffer_.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "007768a0",
+   "lines": 2
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 4,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

@@ -57,14 +57,8 @@ bool ra2native_is_gas_system_5484e0(ObjectClass const *object)
     return static_cast<ParticleSystemClass const *>(object)->Class->BehavesLike == 1;
 }
 
-// 0x0047C2E0 CellClass::Is_Sensed (seed src/recovered/0047c2e0.cpp; TibSun
-// Is_Sensed): whether the house's sensor count (+0x7C, a short per house) is
-// positive. techno.hpp's cell view UnknownCellClass names the same function.
-bool CellClass::Is_Sensed(int house) const
-{
-    return unknown_7c[house] > 0;
-}
-
+// 0x0047C2E0: techno.hpp's cell view UnknownCellClass names CellClass::Is_Sensed (recovered in
+// src/recovered/cell.cpp); the view's callers reach it through this forwarder.
 class UnknownCellClass {
 public:
     bool Is_Sensed(int house);     // 0x0047C2E0 (as shared/techno.hpp's view)
@@ -77,8 +71,8 @@ bool UnknownCellClass::Is_Sensed(int house)
 
 // 0x004718B0 under object.hpp's placement view (TechnoTypeClass slot 42 and
 // BuildingClass/TerrainClass slot 101 call it on Map[cell]): the cell's
-// Is_Clear_To_Build, carried as the adapted draft native/drafts/004718b0.cpp
-// (CellClass::Is_Clear_To_Build; the type is a BuildingTypeClass there).
+// Is_Clear_To_Build (accepted in src/recovered/cell.cpp; the type is a
+// BuildingTypeClass there).
 bool UnknownPlacementCellView::Unknown_004718B0(int speed, TechnoTypeClass const *type, HouseClass *house)
 {
     return ((CellClass *)this)->Is_Clear_To_Build(speed, (BuildingTypeClass const *)type, house);

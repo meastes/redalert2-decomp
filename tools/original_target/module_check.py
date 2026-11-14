@@ -21,6 +21,10 @@ honest; either failing refuses the catalog:
    `unsigned int` on a data member, four bit-fields against one flags word)
    are reported as known differences, not hidden.
 
+A module with `"route": "A"` (a unit re-filed by refile_unit.py: one source per original
+translation unit under its own header state, names unchanged) is exempt from check 1's
+refusal: its stand-in references are counted as a known difference.
+
 The parser covers the declarations these classes use (fundamental types,
 arrays, bit-fields, pointers, virtual and non-virtual member functions,
 access labels, nested enums); anything else refuses with the line.
@@ -229,7 +233,15 @@ def check(catalog, modules=None, read=None):
     for name, item in (modules if modules is not None else load_modules()).items():
         map_path = MAPS / (name + '.json')
         module_map = json.loads(map_path.read_text()) if map_path.exists() else None
-        problems += ['%s: %s' % (name, p) for p in check_symbols(catalog, item, module_map)]
+        symbols = ['%s: %s' % (name, p) for p in check_symbols(catalog, item, module_map)]
+        if item.get('route') == 'A':
+            # A unit re-filed under Route A keeps its names (docs/DECISIONS.md): another unit's
+            # stand-in spelling of one of its functions is counted, not refused.
+            if symbols:
+                known.append('%s: %d reference(s) from other units under another spelling (Route A keeps names), '
+                             'e.g. %s' % (name, len(symbols), symbols[0].split(': ', 1)[1]))
+        else:
+            problems += symbols
         if item.get('class') and item.get('declarations'):
             try:
                 p, k = compare_declarations(item['class'], item['declarations'], read)

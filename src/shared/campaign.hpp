@@ -19,7 +19,7 @@ extern "C" wchar_t *__cdecl wcscpy(wchar_t *dest, wchar_t const *source);   // 0
 
 void __fastcall Detach_This_From_All(AbstractClass *object, bool all);     // 0x006ECB90
 // Converts a narrow string into wide characters (0x006FA0C0; -1: to its end).
-void __fastcall Unknown_006FA0C0(wchar_t *buffer, char const *text, int length);
+void __fastcall Char_To_Wide_006fa0c0(wchar_t *buffer, char const *text, int length);
 extern "C" char *__cdecl _strupr(char *string);                             // 0x007961E4
 extern "C" char *__cdecl strcat(char *dest, char const *source);
 

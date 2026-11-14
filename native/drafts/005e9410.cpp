@@ -3,8 +3,8 @@
 // origin lane: Scout888 (build/class-work/Scout888/w/keep/e9_k111A_9979.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
 // Scout1061 (native/drafts.json). Not original bytes.
-// @ref ?unknown_session_a3d298@@3VUnknownSessionState@@A=00a3d298
-// @ref ?Unknown_00672F10@UnknownSessionState@@QAEEXZ=00672f10
+// @ref ?unknown_session_a3d298@@3VSessionClass@@A=00a3d298
+// @ref ?Unknown_00672F10@SessionClass@@QAEEXZ=00672f10
 // @ref ?unknown_7add6c@OwnerDraw@@3HA=007add6c
 // @ref ?unknown_7add78@OwnerDraw@@3HA=007add78
 // @ref ?unknown_8523e0@@3HA=008523e0
@@ -17,7 +17,7 @@
 // @ref ?unknown_registry_a73640@OwnerDraw@@3VUnknownControlIndex@1@A=00a73640
 #include "shared/owner_draw_sidebar.hpp"
 namespace seed_005e0da0 {
-unsigned int __fastcall FUN_005e0da0(int param_1);
+unsigned int __fastcall Is_Listed_Kind_005e0da0(int param_1);
 }
 namespace OwnerDraw {
 

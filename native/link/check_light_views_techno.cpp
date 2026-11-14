@@ -15,3 +15,4 @@ static_assert(offsetof(UnknownCellEntry28, unknown_24) == 0x34, "techno.hpp Unkn
 static_assert(offsetof(UnknownCellEntry28, unknown_28) == 0x38, "techno.hpp UnknownCellEntry28 owner");
 static_assert(offsetof(UnknownCellEntry28, unknown_30) == 0x44, "techno.hpp UnknownCellEntry28 kind");
 static_assert(offsetof(UnknownCellEntry28, unknown_74) == 0x90, "techno.hpp UnknownCellEntry28 active");
+static_assert(offsetof(UnknownTechno230, unknown_24) == 0x38, "techno.hpp UnknownTechno230 +0x24 (CaptureManagerClass; NativeFix2)");

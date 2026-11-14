@@ -87,7 +87,7 @@ int To_Int(char const *text)
 // other name is passed to Start_Scenario as is.
 void Choose_Map(char const *map)
 {
-    UnknownSessionState &session = unknown_session_a3d298;
+    SessionClass &session = unknown_session_a3d298;
     int count = session.Scenarios.Count();
     int index = -1;
     if (map[0] == '#') {
@@ -119,7 +119,7 @@ void Choose_Map(char const *map)
 // one human player and one computer opponent (Russians), the session's saved options.
 void Set_Up_Skirmish(char const *map)
 {
-    UnknownSessionState &session = unknown_session_a3d298;
+    SessionClass &session = unknown_session_a3d298;
     session.Type = 5;
     Unknown_0066F3A0(&session);                     // Read_MultiPlayer_Settings (Select_Game, cases 11/16/17)
     for (int house = 0; house < HouseTypes.Count(); house++) {
@@ -373,7 +373,7 @@ static void Native_Net_Timing_Log(uint64_t work_ns)
     uint64_t now = ra2port_monotonic_ns();
     if (last == 0) last = now;
     if (now - last < 5000000000ull) return;
-    UnknownSessionState &session = unknown_session_a3d298;
+    SessionClass &session = unknown_session_a3d298;
     int frames = unknown_process_frames_a3d574;
     fprintf(stderr, "net-timing: desired fps %d, max ahead %u, send rate %u, process ticks %d ms/frame (%d frames), work %.1f ms/frame\n",
             session.unknown_2d0, session.MaxAhead_2c8, session.unknown_2cc,
@@ -384,6 +384,7 @@ static void Native_Net_Timing_Log(uint64_t work_ns)
 }
 
 void Native_Alliance_Log(int frame);   // harness_orders.cpp (RA2_NATIVE_ALLY_LOG)
+void Native_Map_Zoom_Frame();          // native_map_zoom.cpp (Map zoom: the game is in play)
 bool Native_Main_Loop_Seam()
 {
     uint64_t work_start = ra2port_monotonic_ns(), slept_start = ra2port_slept_ns;
@@ -394,6 +395,7 @@ bool Native_Main_Loop_Seam()
         Native_Net_Timing_Log(spent);
     }
     Native_Frame_Floor();
+    Native_Map_Zoom_Frame();
     Native_Note_Frame();   // native_event_data.cpp: Sync_Delay's in-wait pass waits for a stalled frame
     // Every game counts its frames (a game started from the menus too:
     // --frames=N, scripted input by frame; Scout1119, M14).

@@ -399,6 +399,36 @@ void hold_if_paused()
 // The game side's end of a Main_Loop pass takes a checkpoint request (Scout1248).
 extern "C" int ra2port_take_checkpoint(void) { return ra2port::checkpoint_wanted.exchange(false) ? 1 : 0; }
 
+// Checkpoints saved, and resuming one at start (lane I; win32_port.hpp).
+namespace ra2port {
+namespace {
+std::atomic<uint64_t> checkpoint_saved_at{0};
+std::string resume_file;
+}
+uint64_t last_checkpoint_saved_ns() { return checkpoint_saved_at; }
+void request_resume(const char *file) { resume_file = file ? file : ""; }
+bool resume_pending() { return !resume_file.empty(); }
+// Single Player (0x683) in the main menu 0xE2 (procedure 0x005171D0: choice 1), then
+// Load Saved Game (0x689) in the single-player menu 0x100 (procedure 0x00513290:
+// choice 9, Select_Game's Load_Dialog case).
+int resume_dialog_command(unsigned dialog)
+{
+    if (resume_file.empty()) return 0;
+    return dialog == 0xE2 ? 0x683 : dialog == 0x100 ? 0x689 : 0;
+}
+}  // namespace ra2port
+extern "C" void ra2port_checkpoint_saved(void) { ra2port::checkpoint_saved_at = ra2port::os::monotonic_ns(); }
+// The Load dialog's entry (link/behaviour_m15.cpp) takes the resume request once:
+// the file to load, or null.
+extern "C" const char *ra2port_take_resume(void)
+{
+    static std::string taken;
+    if (ra2port::resume_file.empty()) return nullptr;
+    taken = ra2port::resume_file;
+    ra2port::resume_file.clear();
+    return taken.c_str();
+}
+
 extern "C" {
 DWORD GetLastError(void) { return ra2port::last_error; }
 void SetLastError(DWORD code) { ra2port::last_error = code; }

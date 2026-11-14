@@ -220,7 +220,7 @@ void __fastcall Unknown_0047F600(CoordStruct coord, int damage, WarheadTypeClass
 AnimTypeClass *__fastcall Select_Damage_Anim(int damage, WarheadTypeClass *warhead, int land, CoordStruct *coords);
 // Returns -15 for any coordinate (0x0047FCC0; a height adjustment for new
 // animations, hypothesis).
-int __stdcall Unknown_0047FCC0(CoordStruct position);
+int __stdcall Get_Explosion_Z_0047fcc0(CoordStruct position);
 
 // The overlay types (AnimClass 0x00423B90): shared/overlay_view.hpp.
 #include "shared/overlay_view.hpp"

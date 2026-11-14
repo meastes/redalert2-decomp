@@ -1,0 +1,302 @@
+{
+ "module": "sounddlg",
+ "source": "src/recovered/sounddlg.cpp",
+ "header": null,
+ "population": "population-3539",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 719,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00688cb0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Run_00688CD0@SoundControlsDialog@@QAEXXZ",
+   "entry": "00688cd0",
+   "body_bytes": 197,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Sound_Option_Dialog_Func@SoundControlsDialog@@SGHPAUHWND__@@IIJ@Z",
+   "entry": "00688da0",
+   "body_bytes": 1787,
+   "padding_bytes": 5
+  }
+ ],
+ "code_bytes": 2032,
+ "data": [
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 13
+  },
+  {
+   "symbol": "__real@4@00000000000000000000",
+   "address": "0079a738",
+   "bytes": 4,
+   "kind": "table",
+   "section": 10
+  },
+  {
+   "symbol": "__real@8@3ffbccccccccccccd000",
+   "address": "0079c570",
+   "bytes": 8,
+   "kind": "table",
+   "section": 11
+  },
+  {
+   "symbol": "__real@8@4002a000000000000000",
+   "address": "0079d130",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "??_C@_0DN@NFFC@SoundControls?3?5GameSpeed?5?$DN?5?$CFd?0?5S@",
+   "address": "007f4288",
+   "bytes": 61,
+   "kind": "string",
+   "section": 7
+  },
+  {
+   "symbol": "??_C@_1CI@CPJJ@?$AA?$CF?$AA0?$AA2?$AAd?$AA?5?$AA?9?$AA?5?$AA?$CF?$AAs?$AA?5?$AA?$FL?$AA?$CF?$AAd?$AA?3?$AA?$CF?$AA0?$AA2?$AAd?$AA?$FN?$AA?$AA@",
+   "address": "007f42c8",
+   "bytes": 40,
+   "kind": "string",
+   "section": 12
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@00000000000000000000",
+   "address": "0079a738",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffbccccccccccccd000",
+   "address": "0079c570",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4002a000000000000000",
+   "address": "0079d130",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_C@_0DN@NFFC@SoundControls?3?5GameSpeed?5?$DN?5?$CFd?0?5S@",
+   "address": "007f4288",
+   "bytes": 61,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_1CI@CPJJ@?$AA?$CF?$AA0?$AA2?$AAd?$AA?5?$AA?9?$AA?5?$AA?$CF?$AAs?$AA?5?$AA?$FL?$AA?$CF?$AAd?$AA?3?$AA?$CF?$AA0?$AA2?$AAd?$AA?$FN?$AA?$AA@",
+   "address": "007f42c8",
+   "bytes": 40,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00481850",
+   "symbol": "?Run_00688CD0@SoundControlsDialog@@QAEXXZ",
+   "target": "00688cd0",
+   "function_entry": true
+  },
+  {
+   "site": "00749b50",
+   "symbol": "?Run_00688CD0@SoundControlsDialog@@QAEXXZ",
+   "target": "00688cd0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?DialogInitialized@SoundControlsDialog@@2_NA",
+   "address": "00abcfb0"
+  },
+  {
+   "symbol": "?Full_Name@ThemeClass@@QBEPBGI@Z",
+   "address": "006e7cb0"
+  },
+  {
+   "symbol": "?Options@@3VOptionsClass@@A",
+   "address": "00a40b18"
+  },
+  {
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "address": "006e7e20"
+  },
+  {
+   "symbol": "?Set_Repeat@OptionsClass@@QAEX_N@Z",
+   "address": "005d8950"
+  },
+  {
+   "symbol": "?Set_Score_Volume@OptionsClass@@QAEXM_N@Z",
+   "address": "005d8980"
+  },
+  {
+   "symbol": "?Set_Shuffle@OptionsClass@@QAEX_N@Z",
+   "address": "005d8920"
+  },
+  {
+   "symbol": "?Set_Sound_Volume@OptionsClass@@QAEXM_N@Z",
+   "address": "005d89f0"
+  },
+  {
+   "symbol": "?Set_Voice_Volume@OptionsClass@@QAEXM_N@Z",
+   "address": "005d8a70"
+  },
+  {
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "address": "006e81a0"
+  },
+  {
+   "symbol": "?Theme@@3VThemeClass@@A",
+   "address": "00a35d78"
+  },
+  {
+   "symbol": "?unknown_517370@@YIX_N@Z",
+   "address": "00517370"
+  },
+  {
+   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "address": "006000d0"
+  },
+  {
+   "symbol": "?unknown_6e8440@ThemeClass@@QAE_NI@Z",
+   "address": "006e8440"
+  },
+  {
+   "symbol": "?unknown_check_406f30@@YAHXZ",
+   "address": "00406f30"
+  },
+  {
+   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "address": "005ff610"
+  },
+  {
+   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "address": "005ff6e0"
+  },
+  {
+   "symbol": "?unknown_dialog_5ff7c0@@YIXPAUHWND__@@@Z",
+   "address": "005ff7c0"
+  },
+  {
+   "symbol": "?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z",
+   "address": "005ffb00"
+  },
+  {
+   "symbol": "?unknown_flag_a40958@@3_NA",
+   "address": "00a40958"
+  },
+  {
+   "symbol": "?unknown_flag_a40b51@@3_NA",
+   "address": "00a40b51"
+  },
+  {
+   "symbol": "?unknown_theme_length@ThemeClass@@QBEHI@Z",
+   "address": "006e8150"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__EnableWindow@8",
+   "address": "0079a490"
+  },
+  {
+   "symbol": "__imp__GetDlgItem@8",
+   "address": "0079a49c"
+  },
+  {
+   "symbol": "__imp__GetWindowLongA@8",
+   "address": "0079a48c"
+  },
+  {
+   "symbol": "__imp__SendDlgItemMessageA@20",
+   "address": "0079a484"
+  },
+  {
+   "symbol": "__imp__SendMessageA@16",
+   "address": "0079a4a0"
+  },
+  {
+   "symbol": "__imp__SetWindowLongA@12",
+   "address": "0079a488"
+  },
+  {
+   "symbol": "_swprintf",
+   "address": "00783764"
+  }
+ ],
+ "route": "A",
+ "unit": "sounddlg.cpp",
+ "form": "include blocks held",
+ "switches": [
+  "THEME_SOUND_CONTROLS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS"
+ ],
+ "include_blocks": [],
+ "held_rows": [
+  {
+   "entry": "00688da0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  }
+ ],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 3,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

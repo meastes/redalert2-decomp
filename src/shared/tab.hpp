@@ -20,11 +20,11 @@
 #include "shared/mouse.hpp"
 
 // A 16-byte member at TabClass +0x4EEC (constructor 0x00494510 clears it).
-struct UnknownTab4EEC {
-    UnknownTab4EEC();
+struct CreditClass {
+    CreditClass();
     void Unknown_00494650(bool forced);    // 0x00494650 (TabClass::AI, every frame; TibSun CreditClass::AI)
     void Unknown_00494530(bool arg);   // 0x00494530 (TabClass::Draw_It, after the background)
-    UnknownTab4EEC(NoInitClass const &noinit) {}
+    CreditClass(NoInitClass const &noinit) {}
     int unknown_00;
     int unknown_04;     // +0x04 (TabClass +0x4EF0, cleared by slot 53)
     bool unknown_08;
@@ -110,7 +110,7 @@ public:
     static int SlotButton[25];                          // 0x00ABE2C8
 
     // +0x4EE8 INoticeSink vptr
-    UnknownTab4EEC unknown_4eec;                        // +0x4EEC
+    CreditClass unknown_4eec;                        // +0x4EEC
     CDTimerClass<FrameTimerClass> unknown_4efc;         // +0x4EFC
     CDTimerClass<FrameTimerClass> unknown_4f08;         // +0x4F08
     bool unknown_4f14;                                  // +0x4F14

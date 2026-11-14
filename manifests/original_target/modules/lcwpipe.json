@@ -1,0 +1,338 @@
+{
+ "module": "lcwpipe",
+ "source": "src/recovered/lcwpipe.cpp",
+ "header": null,
+ "population": "population-91",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 39,
+ "code": [
+  {
+   "symbol": "??0LCWPipe@@QAE@W4CompControl@0@H@Z",
+   "entry": "00534ee0",
+   "body_bytes": 110,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "??1LCWPipe@@UAE@XZ",
+   "entry": "00534f50",
+   "body_bytes": 53,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Put@LCWPipe@@UAEHPBXH@Z",
+   "entry": "00534f90",
+   "body_bytes": 551,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Flush@LCWPipe@@UAEHXZ",
+   "entry": "005351c0",
+   "body_bytes": 191,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "??_GLCWPipe@@UAEPAXI@Z",
+   "entry": "00535280",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  }
+ ],
+ "code_bytes": 1008,
+ "data": [
+  {
+   "symbol": "??_R1A@?0A@A@Pipe@@8",
+   "address": "007b4ae8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 4
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LCWPipe@@8",
+   "address": "007bcd30",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 5
+  },
+  {
+   "symbol": "??_R2LCWPipe@@8",
+   "address": "007bcd48",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 6
+  },
+  {
+   "symbol": "??_R3LCWPipe@@8",
+   "address": "007bcd58",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 7
+  },
+  {
+   "symbol": "??_R4LCWPipe@@6B@",
+   "address": "007bcd68",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 9
+  },
+  {
+   "symbol": "??_R0?AVPipe@@@8",
+   "address": "007d1e90",
+   "bytes": 19,
+   "kind": "rtti",
+   "section": 3
+  },
+  {
+   "symbol": "??_R0?AVLCWPipe@@@8",
+   "address": "007df340",
+   "bytes": 22,
+   "kind": "rtti",
+   "section": 8
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_R1A@?0A@A@Pipe@@8",
+   "address": "007b4ae8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LCWPipe@@8",
+   "address": "007bcd30",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2LCWPipe@@8",
+   "address": "007bcd48",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3LCWPipe@@8",
+   "address": "007bcd58",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4LCWPipe@@6B@",
+   "address": "007bcd68",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVPipe@@@8",
+   "address": "007d1e90",
+   "bytes": 19,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVLCWPipe@@@8",
+   "address": "007df340",
+   "bytes": 22,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0054d560",
+   "symbol": "??0LCWPipe@@QAE@W4CompControl@0@H@Z",
+   "target": "00534ee0",
+   "function_entry": true
+  },
+  {
+   "site": "0054d560",
+   "symbol": "?Put@LCWPipe@@UAEHPBXH@Z",
+   "target": "00534f90",
+   "function_entry": true
+  },
+  {
+   "site": "0054d560",
+   "symbol": "?Put@LCWPipe@@UAEHPBXH@Z",
+   "target": "00534f90",
+   "function_entry": true
+  },
+  {
+   "site": "0054d560",
+   "symbol": "?Put@LCWPipe@@UAEHPBXH@Z",
+   "target": "00534f90",
+   "function_entry": true
+  },
+  {
+   "site": "0054d560",
+   "symbol": "??1LCWPipe@@UAE@XZ",
+   "target": "00534f50",
+   "function_entry": true
+  },
+  {
+   "site": "0054d660",
+   "symbol": "??0LCWPipe@@QAE@W4CompControl@0@H@Z",
+   "target": "00534ee0",
+   "function_entry": true
+  },
+  {
+   "site": "0054d660",
+   "symbol": "?Put@LCWPipe@@UAEHPBXH@Z",
+   "target": "00534f90",
+   "function_entry": true
+  },
+  {
+   "site": "0054d660",
+   "symbol": "?Put@LCWPipe@@UAEHPBXH@Z",
+   "target": "00534f90",
+   "function_entry": true
+  },
+  {
+   "site": "0054d660",
+   "symbol": "?Put@LCWPipe@@UAEHPBXH@Z",
+   "target": "00534f90",
+   "function_entry": true
+  },
+  {
+   "site": "0054d660",
+   "symbol": "?Put@LCWPipe@@UAEHPBXH@Z",
+   "target": "00534f90",
+   "function_entry": true
+  },
+  {
+   "site": "0054d660",
+   "symbol": "?Put@LCWPipe@@UAEHPBXH@Z",
+   "target": "00534f90",
+   "function_entry": true
+  },
+  {
+   "site": "0054d660",
+   "symbol": "?Put@LCWPipe@@UAEHPBXH@Z",
+   "target": "00534f90",
+   "function_entry": true
+  },
+  {
+   "site": "0054d660",
+   "symbol": "??1LCWPipe@@UAE@XZ",
+   "target": "00534f50",
+   "function_entry": true
+  },
+  {
+   "site": "005dba30",
+   "symbol": "??0LCWPipe@@QAE@W4CompControl@0@H@Z",
+   "target": "00534ee0",
+   "function_entry": true
+  },
+  {
+   "site": "005dba30",
+   "symbol": "?Put@LCWPipe@@UAEHPBXH@Z",
+   "target": "00534f90",
+   "function_entry": true
+  },
+  {
+   "site": "005dba30",
+   "symbol": "??0LCWPipe@@QAE@W4CompControl@0@H@Z",
+   "target": "00534ee0",
+   "function_entry": true
+  },
+  {
+   "site": "005dba30",
+   "symbol": "?Put@LCWPipe@@UAEHPBXH@Z",
+   "target": "00534f90",
+   "function_entry": true
+  },
+  {
+   "site": "005dba30",
+   "symbol": "??1LCWPipe@@UAE@XZ",
+   "target": "00534f50",
+   "function_entry": true
+  },
+  {
+   "site": "005dba30",
+   "symbol": "??1LCWPipe@@UAE@XZ",
+   "target": "00534f50",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??1Pipe@@UAE@XZ",
+   "address": "0060ea60"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "?Flush@Pipe@@UAEHXZ",
+   "address": "0060eb10"
+  },
+  {
+   "symbol": "?LCW_Comp@@YIHPBXPAXH@Z",
+   "address": "00534d40"
+  },
+  {
+   "symbol": "?LCW_Uncomp@@YIHPBXPAXK@Z",
+   "address": "00534b50"
+  },
+  {
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "address": "0060eaf0"
+  },
+  {
+   "symbol": "?Put_To@Pipe@@UAEXPAV1@@Z",
+   "address": "0060eaa0"
+  },
+  {
+   "symbol": "_memmove",
+   "address": "00783290"
+  }
+ ],
+ "route": "A",
+ "unit": "lcwpipe.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00534ee0",
+   "lines": 2
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 5,
+ "data_unproven": [
+  {
+   "symbol": "??_7LCWPipe@@6B@",
+   "reason": "relocation target unbound: ?End@Pipe@@UAEHXZ"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

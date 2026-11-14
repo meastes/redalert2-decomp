@@ -1,0 +1,315 @@
+{
+ "module": "vector",
+ "source": "src/recovered/vector.cpp",
+ "header": null,
+ "population": "population-3306",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 647,
+ "code": [
+  {
+   "symbol": "??0BooleanVectorClass@@QAE@IPAE@Z",
+   "entry": "0070efc0",
+   "body_bytes": 68,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "??0BooleanVectorClass@@QAE@ABV0@@Z",
+   "entry": "0070f010",
+   "body_bytes": 166,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "??4BooleanVectorClass@@QAEAAV0@ABV0@@Z",
+   "entry": "0070f0c0",
+   "body_bytes": 164,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "??8BooleanVectorClass@@QBEHABV0@@Z",
+   "entry": "0070f170",
+   "body_bytes": 106,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Resize@BooleanVectorClass@@QAEHI@Z",
+   "entry": "0070f1e0",
+   "body_bytes": 210,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Clear@BooleanVectorClass@@QAEXXZ",
+   "entry": "0070f2c0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Reset@BooleanVectorClass@@QAEXXZ",
+   "entry": "0070f300",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Set@BooleanVectorClass@@QAEXXZ",
+   "entry": "0070f330",
+   "body_bytes": 35,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Fixup@BooleanVectorClass@@IBEXH@Z",
+   "entry": "0070f360",
+   "body_bytes": 67,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@E@@UBEEH@Z",
+   "entry": "0070f3b0",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?get@Leaf_70f3c0@@QAEPAXI@Z",
+   "entry": "0070f3c0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??8?$VectorClass@E@@UBE_NABV0@@Z",
+   "entry": "0070f410",
+   "body_bytes": 60,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@E@@UAE_NHPBE@Z",
+   "entry": "0070f450",
+   "body_bytes": 167,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Clear@?$VectorClass@E@@UAEXXZ",
+   "entry": "0070f500",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?ID@?$VectorClass@E@@UAEHABE@Z",
+   "entry": "0070f530",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?ID@?$VectorClass@E@@UAEHPBE@Z",
+   "entry": "0070f570",
+   "body_bytes": 24,
+   "padding_bytes": 8
+  }
+ ],
+ "code_bytes": 1488,
+ "data": [
+  {
+   "symbol": "??_7?$VectorClass@E@@6B@",
+   "address": "007ae6e8",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 8
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@E@@8",
+   "address": "007c4af0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 3
+  },
+  {
+   "symbol": "??_R2?$VectorClass@E@@8",
+   "address": "007c4b08",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 4
+  },
+  {
+   "symbol": "??_R3?$VectorClass@E@@8",
+   "address": "007c4b10",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 5
+  },
+  {
+   "symbol": "??_R4?$VectorClass@E@@6B@",
+   "address": "007c4b20",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 7
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@E@@@8",
+   "address": "007f94e8",
+   "bytes": 30,
+   "kind": "rtti",
+   "section": 6
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7?$VectorClass@E@@6B@",
+   "address": "007ae6e8",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@E@@8",
+   "address": "007c4af0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@E@@8",
+   "address": "007c4b08",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@E@@8",
+   "address": "007c4b10",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@E@@6B@",
+   "address": "007c4b20",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@E@@@8",
+   "address": "007f94e8",
+   "bytes": 30,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [],
+ "references_out": [
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_G?$VectorClass@E@@UAEPAXI@Z",
+   "address": "0070f3c0"
+  },
+  {
+   "symbol": "?Get_Bit@@YIHPBXH@Z",
+   "address": "0052ee90"
+  },
+  {
+   "symbol": "?Set_Bit@@YIXPAXHH@Z",
+   "address": "0052ee40"
+  },
+  {
+   "symbol": "_release_buffer_70f3c0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_70f3c0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_vtable_70f3c0",
+   "address": "007ae6ec"
+  }
+ ],
+ "route": "A",
+ "unit": "vector.cpp",
+ "form": "one include block",
+ "switches": [
+  "VECTOR_IMPLEMENT_VECTOR_ACCESSORS",
+  "VECTOR_IMPLEMENT_VECTOR_CONSTRUCTOR",
+  "VECTOR_IMPLEMENT_VECTOR_ASSIGN"
+ ],
+ "include_blocks": [
+  {
+   "before": "0070efc0",
+   "lines": 5
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "0070f3b0",
+   "bytes": 13,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "0070f410",
+   "bytes": 60,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "0070f450",
+   "bytes": 167,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "0070f500",
+   "bytes": 39,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "0070f530",
+   "bytes": 49,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "0070f570",
+   "bytes": 24,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "0070f3c0",
+   "bytes": 73,
+   "population": "population-12",
+   "bound": "own frozen bound (population-12)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [],
+ "unit_functions": 18,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

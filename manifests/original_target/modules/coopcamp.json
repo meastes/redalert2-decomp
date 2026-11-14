@@ -1,0 +1,1754 @@
+{
+ "module": "coopcamp",
+ "source": "src/recovered/coopcamp.cpp",
+ "header": null,
+ "population": "population-2854",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 574,
+ "code": [
+  {
+   "symbol": "?Hex_Digit_0048de60@@YIDH@Z",
+   "entry": "0048de60",
+   "body_bytes": 25,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Hex_Value_0048de80@@YIHD@Z",
+   "entry": "0048de80",
+   "body_bytes": 54,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Quoted_Printable_Encode_0048dec0@@YIPADPBD@Z",
+   "entry": "0048dec0",
+   "body_bytes": 165,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Quoted_Printable_Decode_0048df70@@YIPADPBD@Z",
+   "entry": "0048df70",
+   "body_bytes": 206,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "??0CoopCampaignClass@@QAE@XZ",
+   "entry": "0048e040",
+   "body_bytes": 72,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "??0CoopCampaignClass@@QAE@PBG0@Z",
+   "entry": "0048e090",
+   "body_bytes": 180,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "??1CoopCampaignClass@@QAE@XZ",
+   "entry": "0048e150",
+   "body_bytes": 62,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Set_Names@CoopCampaignClass@@QAEXPBG0@Z",
+   "entry": "0048e190",
+   "body_bytes": 117,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Next_Map_0048e360@CoopCampaignClass@@QAE_NXZ",
+   "entry": "0048e360",
+   "body_bytes": 835,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Get_Campaign_Type_0048e6b0@CoopCampaignClass@@QAE_NPAH@Z",
+   "entry": "0048e6b0",
+   "body_bytes": 26,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Get_Map_Count_0048e6d0@CoopCampaignClass@@QAE_NPAH@Z",
+   "entry": "0048e6d0",
+   "body_bytes": 26,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Get_Current_Map_0048e6f0@CoopCampaignClass@@QAE_NPAH@Z",
+   "entry": "0048e6f0",
+   "body_bytes": 26,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Get_Player_Scores_0048e710@CoopCampaignClass@@QAE_NAAV?$DynamicVectorClass@PAVMPlayerScoreType@@@@PAH@Z",
+   "entry": "0048e710",
+   "body_bytes": 338,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Clear_Saved_Campaign_0048e870@CoopCampaignClass@@QAE_NXZ",
+   "entry": "0048e870",
+   "body_bytes": 693,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Load_Saved_Campaign_0048eb30@CoopCampaignClass@@QAE_NXZ",
+   "entry": "0048eb30",
+   "body_bytes": 1291,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Save_Campaign_0048f040@CoopCampaignClass@@QAE_NXZ",
+   "entry": "0048f040",
+   "body_bytes": 1355,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Load_Campaign_0048f590@CoopCampaignClass@@QAE_NH@Z",
+   "entry": "0048f590",
+   "body_bytes": 408,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Add_Score_0048f730@CoopCampaignClass@@QAE_NHHVMPlayerScoreType@@0@Z",
+   "entry": "0048f730",
+   "body_bytes": 147,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Set_Campaign_Info_0048f7d0@CoopCampaignClass@@QAE_NABVUnknownDescriptionList_00490E00@@HV?$DynamicVectorClass@H@@PBD2@Z",
+   "entry": "0048f7d0",
+   "body_bytes": 873,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Get_Map_Name_0048fb40@CoopCampaignClass@@QAE_NPAPADH@Z",
+   "entry": "0048fb40",
+   "body_bytes": 74,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Get_First_Player_Settings_0048fb90@CoopCampaignClass@@QAE_NPAH0@Z",
+   "entry": "0048fb90",
+   "body_bytes": 35,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Get_Second_Player_Settings_0048fbc0@CoopCampaignClass@@QAE_NPAH0@Z",
+   "entry": "0048fbc0",
+   "body_bytes": 35,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Has_Saved_Campaign_0048fbf0@CoopCampaignClass@@QAE_NXZ",
+   "entry": "0048fbf0",
+   "body_bytes": 640,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Saved_Map_Is_Undefined_0048fe70@CoopCampaignClass@@QAE_NPAD@Z",
+   "entry": "0048fe70",
+   "body_bytes": 729,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Send_Campaign_Options_00490150@CoopCampaignClass@@QAE_NAAVUnknownDescriptionList_00490E00@@@Z",
+   "entry": "00490150",
+   "body_bytes": 848,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?get@Leaf_491340@@QAEPAXI@Z",
+   "entry": "00491340",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?get@Leaf_491390@@QAEPAXI@Z",
+   "entry": "00491390",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?get@Storage_4913e0@@QAEPAXIPAI@Z",
+   "entry": "004913e0",
+   "body_bytes": 74,
+   "padding_bytes": 6
+  }
+ ],
+ "code_bytes": 9696,
+ "data": [
+  {
+   "symbol": "??_7CCINIClass@@6B@",
+   "address": "0079aae0",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 54
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CCFileClass@@8",
+   "address": "007b2500",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 29
+  },
+  {
+   "symbol": "??_R2CCFileClass@@8",
+   "address": "007b2518",
+   "bytes": 21,
+   "kind": "rtti",
+   "section": 30
+  },
+  {
+   "symbol": "??_R3CCFileClass@@8",
+   "address": "007b2530",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 31
+  },
+  {
+   "symbol": "??_R4CCFileClass@@6B@",
+   "address": "007b2540",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 33
+  },
+  {
+   "symbol": "??_R1A@?0A@A@FileClass@@8",
+   "address": "007b2558",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 42
+  },
+  {
+   "symbol": "??_R1A@?0A@A@RawFileClass@@8",
+   "address": "007b2570",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BufferIOFileClass@@8",
+   "address": "007b2588",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 46
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CDFileClass@@8",
+   "address": "007b25a0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 47
+  },
+  {
+   "symbol": "??_R2CDFileClass@@8",
+   "address": "007b25b8",
+   "bytes": 17,
+   "kind": "rtti",
+   "section": 48
+  },
+  {
+   "symbol": "??_R3CDFileClass@@8",
+   "address": "007b25d0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 49
+  },
+  {
+   "symbol": "??_R4CDFileClass@@6B@",
+   "address": "007b25e0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 51
+  },
+  {
+   "symbol": "??_R1A@?0A@A@INIClass@@8",
+   "address": "007b2c88",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 35
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CCINIClass@@8",
+   "address": "007b2ca0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 36
+  },
+  {
+   "symbol": "??_R2CCINIClass@@8",
+   "address": "007b2cb8",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 37
+  },
+  {
+   "symbol": "??_R3CCINIClass@@8",
+   "address": "007b2cc8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 38
+  },
+  {
+   "symbol": "??_R4CCINIClass@@6B@",
+   "address": "007b2cd8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 40
+  },
+  {
+   "symbol": "??_R0?AVCCFileClass@@@8",
+   "address": "007cc8b0",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 32
+  },
+  {
+   "symbol": "??_R0?AVFileClass@@@8",
+   "address": "007cc8d0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 41
+  },
+  {
+   "symbol": "??_R0?AVRawFileClass@@@8",
+   "address": "007cc8e8",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 43
+  },
+  {
+   "symbol": "??_R0?AVBufferIOFileClass@@@8",
+   "address": "007cc908",
+   "bytes": 32,
+   "kind": "rtti",
+   "section": 45
+  },
+  {
+   "symbol": "??_R0?AVCDFileClass@@@8",
+   "address": "007cc928",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 50
+  },
+  {
+   "symbol": "??_R0?AVINIClass@@@8",
+   "address": "007cdf08",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 34
+  },
+  {
+   "symbol": "??_R0?AVCCINIClass@@@8",
+   "address": "007cdf20",
+   "bytes": 25,
+   "kind": "rtti",
+   "section": 39
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7CCINIClass@@6B@",
+   "address": "0079aae0",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CCFileClass@@8",
+   "address": "007b2500",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2CCFileClass@@8",
+   "address": "007b2518",
+   "bytes": 21,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3CCFileClass@@8",
+   "address": "007b2530",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4CCFileClass@@6B@",
+   "address": "007b2540",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@FileClass@@8",
+   "address": "007b2558",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@RawFileClass@@8",
+   "address": "007b2570",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BufferIOFileClass@@8",
+   "address": "007b2588",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CDFileClass@@8",
+   "address": "007b25a0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2CDFileClass@@8",
+   "address": "007b25b8",
+   "bytes": 17,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3CDFileClass@@8",
+   "address": "007b25d0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4CDFileClass@@6B@",
+   "address": "007b25e0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@INIClass@@8",
+   "address": "007b2c88",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CCINIClass@@8",
+   "address": "007b2ca0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2CCINIClass@@8",
+   "address": "007b2cb8",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3CCINIClass@@8",
+   "address": "007b2cc8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4CCINIClass@@6B@",
+   "address": "007b2cd8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVCCFileClass@@@8",
+   "address": "007cc8b0",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVFileClass@@@8",
+   "address": "007cc8d0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVRawFileClass@@@8",
+   "address": "007cc8e8",
+   "bytes": 27,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVBufferIOFileClass@@@8",
+   "address": "007cc908",
+   "bytes": 32,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVCDFileClass@@@8",
+   "address": "007cc928",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVINIClass@@@8",
+   "address": "007cdf08",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVCCINIClass@@@8",
+   "address": "007cdf20",
+   "bytes": 25,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00490510",
+   "symbol": "??0?$VectorClass@PAD@@QAE@IPBQAD@Z",
+   "target": "004913e0",
+   "function_entry": true
+  },
+  {
+   "site": "00490510",
+   "symbol": "??0?$VectorClass@PAD@@QAE@IPBQAD@Z",
+   "target": "004913e0",
+   "function_entry": true
+  },
+  {
+   "site": "005a4540",
+   "symbol": "?Get_Campaign_Type_0048e6b0@CoopCampaignClass@@QAE_NPAH@Z",
+   "target": "0048e6b0",
+   "function_entry": true
+  },
+  {
+   "site": "005a45f0",
+   "symbol": "?Get_Campaign_Type_0048e6b0@CoopCampaignClass@@QAE_NPAH@Z",
+   "target": "0048e6b0",
+   "function_entry": true
+  },
+  {
+   "site": "005a2d70",
+   "symbol": "??1CoopCampaignClass@@QAE@XZ",
+   "target": "0048e150",
+   "function_entry": true
+  },
+  {
+   "site": "005a2d70",
+   "symbol": "??0CoopCampaignClass@@QAE@XZ",
+   "target": "0048e040",
+   "function_entry": true
+  },
+  {
+   "site": "005a2d70",
+   "symbol": "?Load_Campaign_0048f590@CoopCampaignClass@@QAE_NH@Z",
+   "target": "0048f590",
+   "function_entry": true
+  },
+  {
+   "site": "005a4f20",
+   "symbol": "??1CoopCampaignClass@@QAE@XZ",
+   "target": "0048e150",
+   "function_entry": true
+  },
+  {
+   "site": "005a4f20",
+   "symbol": "??0CoopCampaignClass@@QAE@XZ",
+   "target": "0048e040",
+   "function_entry": true
+  },
+  {
+   "site": "005a4f20",
+   "symbol": "?Load_Campaign_0048f590@CoopCampaignClass@@QAE_NH@Z",
+   "target": "0048f590",
+   "function_entry": true
+  },
+  {
+   "site": "005a4f20",
+   "symbol": "?Set_Names@CoopCampaignClass@@QAEXPBG0@Z",
+   "target": "0048e190",
+   "function_entry": true
+  },
+  {
+   "site": "005a3ee0",
+   "symbol": "?Get_Campaign_Type_0048e6b0@CoopCampaignClass@@QAE_NPAH@Z",
+   "target": "0048e6b0",
+   "function_entry": true
+  },
+  {
+   "site": "005a3320",
+   "symbol": "?Set_Names@CoopCampaignClass@@QAEXPBG0@Z",
+   "target": "0048e190",
+   "function_entry": true
+  },
+  {
+   "site": "005a3320",
+   "symbol": "?Load_Saved_Campaign_0048eb30@CoopCampaignClass@@QAE_NXZ",
+   "target": "0048eb30",
+   "function_entry": true
+  },
+  {
+   "site": "005a3320",
+   "symbol": "??1CoopCampaignClass@@QAE@XZ",
+   "target": "0048e150",
+   "function_entry": true
+  },
+  {
+   "site": "005a3320",
+   "symbol": "??0CoopCampaignClass@@QAE@XZ",
+   "target": "0048e040",
+   "function_entry": true
+  },
+  {
+   "site": "005a3320",
+   "symbol": "?Load_Campaign_0048f590@CoopCampaignClass@@QAE_NH@Z",
+   "target": "0048f590",
+   "function_entry": true
+  },
+  {
+   "site": "005a3320",
+   "symbol": "?Set_Names@CoopCampaignClass@@QAEXPBG0@Z",
+   "target": "0048e190",
+   "function_entry": true
+  },
+  {
+   "site": "005a3760",
+   "symbol": "?Get_Campaign_Type_0048e6b0@CoopCampaignClass@@QAE_NPAH@Z",
+   "target": "0048e6b0",
+   "function_entry": true
+  },
+  {
+   "site": "005a38d0",
+   "symbol": "?Get_Campaign_Type_0048e6b0@CoopCampaignClass@@QAE_NPAH@Z",
+   "target": "0048e6b0",
+   "function_entry": true
+  },
+  {
+   "site": "005a38d0",
+   "symbol": "?Send_Campaign_Options_00490150@CoopCampaignClass@@QAE_NAAVUnknownDescriptionList_00490E00@@@Z",
+   "target": "00490150",
+   "function_entry": true
+  },
+  {
+   "site": "005a3500",
+   "symbol": "?Get_Campaign_Type_0048e6b0@CoopCampaignClass@@QAE_NPAH@Z",
+   "target": "0048e6b0",
+   "function_entry": true
+  },
+  {
+   "site": "005a3500",
+   "symbol": "?Set_Campaign_Info_0048f7d0@CoopCampaignClass@@QAE_NABVUnknownDescriptionList_00490E00@@HV?$DynamicVectorClass@H@@PBD2@Z",
+   "target": "0048f7d0",
+   "function_entry": true
+  },
+  {
+   "site": "005a35d0",
+   "symbol": "?Add_Score_0048f730@CoopCampaignClass@@QAE_NHHVMPlayerScoreType@@0@Z",
+   "target": "0048f730",
+   "function_entry": true
+  },
+  {
+   "site": "005a5350",
+   "symbol": "?Get_Player_Scores_0048e710@CoopCampaignClass@@QAE_NAAV?$DynamicVectorClass@PAVMPlayerScoreType@@@@PAH@Z",
+   "target": "0048e710",
+   "function_entry": true
+  },
+  {
+   "site": "005a5350",
+   "symbol": "?Get_Campaign_Type_0048e6b0@CoopCampaignClass@@QAE_NPAH@Z",
+   "target": "0048e6b0",
+   "function_entry": true
+  },
+  {
+   "site": "005a5350",
+   "symbol": "?Get_Map_Count_0048e6d0@CoopCampaignClass@@QAE_NPAH@Z",
+   "target": "0048e6d0",
+   "function_entry": true
+  },
+  {
+   "site": "005a5350",
+   "symbol": "?Get_Current_Map_0048e6f0@CoopCampaignClass@@QAE_NPAH@Z",
+   "target": "0048e6f0",
+   "function_entry": true
+  },
+  {
+   "site": "005a5570",
+   "symbol": "?Get_Map_Count_0048e6d0@CoopCampaignClass@@QAE_NPAH@Z",
+   "target": "0048e6d0",
+   "function_entry": true
+  },
+  {
+   "site": "005a5570",
+   "symbol": "?Get_Current_Map_0048e6f0@CoopCampaignClass@@QAE_NPAH@Z",
+   "target": "0048e6f0",
+   "function_entry": true
+  },
+  {
+   "site": "005a5570",
+   "symbol": "?Get_Player_Scores_0048e710@CoopCampaignClass@@QAE_NAAV?$DynamicVectorClass@PAVMPlayerScoreType@@@@PAH@Z",
+   "target": "0048e710",
+   "function_entry": true
+  },
+  {
+   "site": "005a5570",
+   "symbol": "?Get_Campaign_Type_0048e6b0@CoopCampaignClass@@QAE_NPAH@Z",
+   "target": "0048e6b0",
+   "function_entry": true
+  },
+  {
+   "site": "005a2ef0",
+   "symbol": "?Get_Campaign_Type_0048e6b0@CoopCampaignClass@@QAE_NPAH@Z",
+   "target": "0048e6b0",
+   "function_entry": true
+  },
+  {
+   "site": "005a2ef0",
+   "symbol": "??1CoopCampaignClass@@QAE@XZ",
+   "target": "0048e150",
+   "function_entry": true
+  },
+  {
+   "site": "005a2ef0",
+   "symbol": "?Set_Names@CoopCampaignClass@@QAEXPBG0@Z",
+   "target": "0048e190",
+   "function_entry": true
+  },
+  {
+   "site": "005a2ef0",
+   "symbol": "??0CoopCampaignClass@@QAE@XZ",
+   "target": "0048e040",
+   "function_entry": true
+  },
+  {
+   "site": "005a2ef0",
+   "symbol": "?Load_Campaign_0048f590@CoopCampaignClass@@QAE_NH@Z",
+   "target": "0048f590",
+   "function_entry": true
+  },
+  {
+   "site": "005a2ef0",
+   "symbol": "?Get_Map_Name_0048fb40@CoopCampaignClass@@QAE_NPAPADH@Z",
+   "target": "0048fb40",
+   "function_entry": true
+  },
+  {
+   "site": "005a2ef0",
+   "symbol": "?Get_Map_Name_0048fb40@CoopCampaignClass@@QAE_NPAPADH@Z",
+   "target": "0048fb40",
+   "function_entry": true
+  },
+  {
+   "site": "005a2ef0",
+   "symbol": "?Load_Campaign_0048f590@CoopCampaignClass@@QAE_NH@Z",
+   "target": "0048f590",
+   "function_entry": true
+  },
+  {
+   "site": "005a2ef0",
+   "symbol": "?Load_Campaign_0048f590@CoopCampaignClass@@QAE_NH@Z",
+   "target": "0048f590",
+   "function_entry": true
+  },
+  {
+   "site": "005a2ef0",
+   "symbol": "?Get_Map_Name_0048fb40@CoopCampaignClass@@QAE_NPAPADH@Z",
+   "target": "0048fb40",
+   "function_entry": true
+  },
+  {
+   "site": "005a2ef0",
+   "symbol": "?Get_Campaign_Type_0048e6b0@CoopCampaignClass@@QAE_NPAH@Z",
+   "target": "0048e6b0",
+   "function_entry": true
+  },
+  {
+   "site": "005a2b50",
+   "symbol": "??1CoopCampaignClass@@QAE@XZ",
+   "target": "0048e150",
+   "function_entry": true
+  },
+  {
+   "site": "005a2b50",
+   "symbol": "??1CoopCampaignClass@@QAE@XZ",
+   "target": "0048e150",
+   "function_entry": true
+  },
+  {
+   "site": "005a46c0",
+   "symbol": "?Next_Map_0048e360@CoopCampaignClass@@QAE_NXZ",
+   "target": "0048e360",
+   "function_entry": true
+  },
+  {
+   "site": "005a46c0",
+   "symbol": "?Save_Campaign_0048f040@CoopCampaignClass@@QAE_NXZ",
+   "target": "0048f040",
+   "function_entry": true
+  },
+  {
+   "site": "005a5720",
+   "symbol": "?Get_Map_Name_0048fb40@CoopCampaignClass@@QAE_NPAPADH@Z",
+   "target": "0048fb40",
+   "function_entry": true
+  },
+  {
+   "site": "005a5720",
+   "symbol": "?Get_Current_Map_0048e6f0@CoopCampaignClass@@QAE_NPAH@Z",
+   "target": "0048e6f0",
+   "function_entry": true
+  },
+  {
+   "site": "005a3200",
+   "symbol": "??0CoopCampaignClass@@QAE@XZ",
+   "target": "0048e040",
+   "function_entry": true
+  },
+  {
+   "site": "005a3200",
+   "symbol": "?Load_Campaign_0048f590@CoopCampaignClass@@QAE_NH@Z",
+   "target": "0048f590",
+   "function_entry": true
+  },
+  {
+   "site": "005a3200",
+   "symbol": "?Get_Map_Name_0048fb40@CoopCampaignClass@@QAE_NPAPADH@Z",
+   "target": "0048fb40",
+   "function_entry": true
+  },
+  {
+   "site": "005a5000",
+   "symbol": "?Load_Campaign_0048f590@CoopCampaignClass@@QAE_NH@Z",
+   "target": "0048f590",
+   "function_entry": true
+  },
+  {
+   "site": "005a5000",
+   "symbol": "?Load_Campaign_0048f590@CoopCampaignClass@@QAE_NH@Z",
+   "target": "0048f590",
+   "function_entry": true
+  },
+  {
+   "site": "005a5000",
+   "symbol": "?Load_Campaign_0048f590@CoopCampaignClass@@QAE_NH@Z",
+   "target": "0048f590",
+   "function_entry": true
+  },
+  {
+   "site": "005a5000",
+   "symbol": "?Get_Map_Name_0048fb40@CoopCampaignClass@@QAE_NPAPADH@Z",
+   "target": "0048fb40",
+   "function_entry": true
+  },
+  {
+   "site": "005a5000",
+   "symbol": "?Set_Names@CoopCampaignClass@@QAEXPBG0@Z",
+   "target": "0048e190",
+   "function_entry": true
+  },
+  {
+   "site": "005a5190",
+   "symbol": "??0CoopCampaignClass@@QAE@XZ",
+   "target": "0048e040",
+   "function_entry": true
+  },
+  {
+   "site": "005a5190",
+   "symbol": "?Load_Campaign_0048f590@CoopCampaignClass@@QAE_NH@Z",
+   "target": "0048f590",
+   "function_entry": true
+  },
+  {
+   "site": "005a5190",
+   "symbol": "?Set_Names@CoopCampaignClass@@QAEXPBG0@Z",
+   "target": "0048e190",
+   "function_entry": true
+  },
+  {
+   "site": "005a5190",
+   "symbol": "?Has_Saved_Campaign_0048fbf0@CoopCampaignClass@@QAE_NXZ",
+   "target": "0048fbf0",
+   "function_entry": true
+  },
+  {
+   "site": "005a5190",
+   "symbol": "?Saved_Map_Is_Undefined_0048fe70@CoopCampaignClass@@QAE_NPAD@Z",
+   "target": "0048fe70",
+   "function_entry": true
+  },
+  {
+   "site": "005a32e0",
+   "symbol": "?Set_Names@CoopCampaignClass@@QAEXPBG0@Z",
+   "target": "0048e190",
+   "function_entry": true
+  },
+  {
+   "site": "005a4b70",
+   "symbol": "??0CoopCampaignClass@@QAE@PBG0@Z",
+   "target": "0048e090",
+   "function_entry": true
+  },
+  {
+   "site": "005a4b70",
+   "symbol": "?Set_Names@CoopCampaignClass@@QAEXPBG0@Z",
+   "target": "0048e190",
+   "function_entry": true
+  },
+  {
+   "site": "005a4b70",
+   "symbol": "??0CoopCampaignClass@@QAE@XZ",
+   "target": "0048e040",
+   "function_entry": true
+  },
+  {
+   "site": "005a4b70",
+   "symbol": "?Load_Campaign_0048f590@CoopCampaignClass@@QAE_NH@Z",
+   "target": "0048f590",
+   "function_entry": true
+  },
+  {
+   "site": "005a4b70",
+   "symbol": "?Get_Map_Name_0048fb40@CoopCampaignClass@@QAE_NPAPADH@Z",
+   "target": "0048fb40",
+   "function_entry": true
+  },
+  {
+   "site": "005a4b70",
+   "symbol": "?Has_Saved_Campaign_0048fbf0@CoopCampaignClass@@QAE_NXZ",
+   "target": "0048fbf0",
+   "function_entry": true
+  },
+  {
+   "site": "005a4b70",
+   "symbol": "?Saved_Map_Is_Undefined_0048fe70@CoopCampaignClass@@QAE_NPAD@Z",
+   "target": "0048fe70",
+   "function_entry": true
+  },
+  {
+   "site": "005a2960",
+   "symbol": "??1CoopCampaignClass@@QAE@XZ",
+   "target": "0048e150",
+   "function_entry": true
+  },
+  {
+   "site": "005a2960",
+   "symbol": "??0CoopCampaignClass@@QAE@XZ",
+   "target": "0048e040",
+   "function_entry": true
+  },
+  {
+   "site": "005a2960",
+   "symbol": "?Load_Campaign_0048f590@CoopCampaignClass@@QAE_NH@Z",
+   "target": "0048f590",
+   "function_entry": true
+  },
+  {
+   "site": "00603950",
+   "symbol": "??0?$VectorClass@PAD@@QAE@IPBQAD@Z",
+   "target": "004913e0",
+   "function_entry": true
+  },
+  {
+   "site": "00603a60",
+   "symbol": "??0?$VectorClass@PAD@@QAE@IPBQAD@Z",
+   "target": "004913e0",
+   "function_entry": true
+  },
+  {
+   "site": "00603c10",
+   "symbol": "??0?$VectorClass@PAD@@QAE@IPBQAD@Z",
+   "target": "004913e0",
+   "function_entry": true
+  },
+  {
+   "site": "00589ac0",
+   "symbol": "??0?$VectorClass@PAD@@QAE@IPBQAD@Z",
+   "target": "004913e0",
+   "function_entry": true
+  },
+  {
+   "site": "00603380",
+   "symbol": "??0?$VectorClass@PAD@@QAE@IPBQAD@Z",
+   "target": "004913e0",
+   "function_entry": true
+  },
+  {
+   "site": "00587cf0",
+   "symbol": "??0?$VectorClass@PAD@@QAE@IPBQAD@Z",
+   "target": "004913e0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0?$IndexClass@HPAUINISection@INIClass@@@@QAE@XZ",
+   "address": "004910c0"
+  },
+  {
+   "symbol": "??0?$List@PAUINISection@INIClass@@@@QAE@XZ",
+   "address": "00490ff0"
+  },
+  {
+   "symbol": "??0CCFileClass@@QAE@PBD@Z",
+   "address": "00468f50"
+  },
+  {
+   "symbol": "??0CCFileClass@@QAE@XZ",
+   "address": "00468fd0"
+  },
+  {
+   "symbol": "??0UnknownDescriptionList_00490E00@@QAE@XZ",
+   "address": "00490510"
+  },
+  {
+   "symbol": "??1Buffer@@QAE@XZ",
+   "address": "00438410"
+  },
+  {
+   "symbol": "??1BufferIOFileClass@@UAE@XZ",
+   "address": "0042f350"
+  },
+  {
+   "symbol": "??1INIClass@@UAE@XZ",
+   "address": "0050b8d0"
+  },
+  {
+   "symbol": "??1UnknownDescriptionList_00490E00@@QAE@XZ",
+   "address": "00490ca0"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??BSystemTimerClass@@QBEJXZ",
+   "address": "0069a430"
+  },
+  {
+   "symbol": "??RRandom2Class@@QAEHHH@Z",
+   "address": "006388a0"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_GCCFileClass@@UAEPAXI@Z",
+   "address": "004019a0"
+  },
+  {
+   "symbol": "??_GCCINIClass@@UAEPAXI@Z",
+   "address": "0040e2e0"
+  },
+  {
+   "symbol": "??_GCDFileClass@@UAEPAXI@Z",
+   "address": "00401950"
+  },
+  {
+   "symbol": "??_V@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?Clear@INIClass@@QAE_NPBD0@Z",
+   "address": "0050b9a0"
+  },
+  {
+   "symbol": "?Close@BufferIOFileClass@@UAEXXZ",
+   "address": "0042fda0"
+  },
+  {
+   "symbol": "?Close@CCFileClass@@UAEXXZ",
+   "address": "004691f0"
+  },
+  {
+   "symbol": "?Collect_Coop_Player_Score_0048e210@@YIXAAVMPlayerScoreType@@_N@Z",
+   "address": "0048e210"
+  },
+  {
+   "symbol": "?Create@RawFileClass@@UAEHXZ",
+   "address": "00639200"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Delete@RawFileClass@@UAEHXZ",
+   "address": "00639240"
+  },
+  {
+   "symbol": "?Error@CCFileClass@@UAEXHHPBD@Z",
+   "address": "00469000"
+  },
+  {
+   "symbol": "?Error@RawFileClass@@UAEXHHPBD@Z",
+   "address": "00638b30"
+  },
+  {
+   "symbol": "?Find_Section@INIClass@@QBEPAUINISection@1@PBD@Z",
+   "address": "0050c9b0"
+  },
+  {
+   "symbol": "?Get_Color_0066e2a0@NodeNameType@@QAEHXZ",
+   "address": "0066e2a0"
+  },
+  {
+   "symbol": "?Get_Date_Time@CCFileClass@@UAEKXZ",
+   "address": "00469350"
+  },
+  {
+   "symbol": "?Get_Date_Time@RawFileClass@@UAEKXZ",
+   "address": "006392a0"
+  },
+  {
+   "symbol": "?Get_HousesType@CCINIClass@@QBEHPBD0H@Z",
+   "address": "0046aa00"
+  },
+  {
+   "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+   "address": "0050d7f0"
+  },
+  {
+   "symbol": "?Get_String@INIClass@@QBEHPBD00PADH@Z",
+   "address": "0050e9a0"
+  },
+  {
+   "symbol": "?Is_Available@BufferIOFileClass@@UAE_NH@Z",
+   "address": "0042f6e0"
+  },
+  {
+   "symbol": "?Is_Available@CCFileClass@@UAE_NH@Z",
+   "address": "004691a0"
+  },
+  {
+   "symbol": "?Is_Open@BufferIOFileClass@@UBE_NXZ",
+   "address": "0042f700"
+  },
+  {
+   "symbol": "?Is_Open@CCFileClass@@UBE_NXZ",
+   "address": "004691e0"
+  },
+  {
+   "symbol": "?Load@CCINIClass@@QAEHAAVFileClass@@_N1@Z",
+   "address": "004696b0"
+  },
+  {
+   "symbol": "?Open@CCFileClass@@UAEHH@Z",
+   "address": "00469220"
+  },
+  {
+   "symbol": "?Open@CCFileClass@@UAEHPBDH@Z",
+   "address": "00401980"
+  },
+  {
+   "symbol": "?Open@CDFileClass@@UAEHH@Z",
+   "address": "0046fe10"
+  },
+  {
+   "symbol": "?Open@CDFileClass@@UAEHPBDH@Z",
+   "address": "00470250"
+  },
+  {
+   "symbol": "?Put_HousesType@CCINIClass@@QAE_NPBD0H@Z",
+   "address": "0046aab0"
+  },
+  {
+   "symbol": "?Put_Int@INIClass@@QAE_NPBD0HH@Z",
+   "address": "0050d6e0"
+  },
+  {
+   "symbol": "?Put_String@INIClass@@QAE_NPBD00@Z",
+   "address": "0050e5f0"
+  },
+  {
+   "symbol": "?Read@BufferIOFileClass@@UAEJPAXJ@Z",
+   "address": "0042fa80"
+  },
+  {
+   "symbol": "?Read@CCFileClass@@UAEJPAXJ@Z",
+   "address": "00469060"
+  },
+  {
+   "symbol": "?Save@CCINIClass@@QAEHAAVFileClass@@_N@Z",
+   "address": "004698f0"
+  },
+  {
+   "symbol": "?Seek@BufferIOFileClass@@UAEJJH@Z",
+   "address": "0042fc90"
+  },
+  {
+   "symbol": "?Seek@CCFileClass@@UAEJJH@Z",
+   "address": "004690f0"
+  },
+  {
+   "symbol": "?Send_Game_Options_005c3c60@@YIXPBD@Z",
+   "address": "005c3c60"
+  },
+  {
+   "symbol": "?Set_Date_Time@CCFileClass@@UAE_NK@Z",
+   "address": "00469400"
+  },
+  {
+   "symbol": "?Set_Date_Time@RawFileClass@@UAE_NK@Z",
+   "address": "006392f0"
+  },
+  {
+   "symbol": "?Set_Name@CDFileClass@@UAEPBDPBD@Z",
+   "address": "00470150"
+  },
+  {
+   "symbol": "?Size@BufferIOFileClass@@UAEJXZ",
+   "address": "0042fd80"
+  },
+  {
+   "symbol": "?Size@CCFileClass@@UAEJXZ",
+   "address": "00469150"
+  },
+  {
+   "symbol": "?Wide_To_Narrow_006fa120@@YIPADPBG@Z",
+   "address": "006fa120"
+  },
+  {
+   "symbol": "?Write@BufferIOFileClass@@UAEJPBXJ@Z",
+   "address": "0042f830"
+  },
+  {
+   "symbol": "?Write@CCFileClass@@UAEJPBXJ@Z",
+   "address": "00469030"
+  },
+  {
+   "symbol": "?assume_local_player_log_007d4f08@@3QBDB",
+   "address": "007d4f08"
+  },
+  {
+   "symbol": "?campaign_key_Built1_007d4f9c@@3QBDB",
+   "address": "007d4f9c"
+  },
+  {
+   "symbol": "?campaign_key_Built2_007d4f94@@3QBDB",
+   "address": "007d4f94"
+  },
+  {
+   "symbol": "?campaign_key_CampaignType_007d4fd4@@3QBDB",
+   "address": "007d4fd4"
+  },
+  {
+   "symbol": "?campaign_key_Color1_007d4fc4@@3QBDB",
+   "address": "007d4fc4"
+  },
+  {
+   "symbol": "?campaign_key_Color2_007d4fb4@@3QBDB",
+   "address": "007d4fb4"
+  },
+  {
+   "symbol": "?campaign_key_CurrentMap_007d4fec@@3QBDB",
+   "address": "007d4fec"
+  },
+  {
+   "symbol": "?campaign_key_House1_007d4fcc@@3QBDB",
+   "address": "007d4fcc"
+  },
+  {
+   "symbol": "?campaign_key_House2_007d4fbc@@3QBDB",
+   "address": "007d4fbc"
+  },
+  {
+   "symbol": "?campaign_key_Kills1_007d4fac@@3QBDB",
+   "address": "007d4fac"
+  },
+  {
+   "symbol": "?campaign_key_Kills2_007d4fa4@@3QBDB",
+   "address": "007d4fa4"
+  },
+  {
+   "symbol": "?campaign_key_Lost1_007d4f8c@@3QBDB",
+   "address": "007d4f8c"
+  },
+  {
+   "symbol": "?campaign_key_Lost2_007d4f84@@3QBDB",
+   "address": "007d4f84"
+  },
+  {
+   "symbol": "?campaign_key_Map_default_007d4f58@@3QBDB",
+   "address": "007d4f58"
+  },
+  {
+   "symbol": "?campaign_key_Map_format_007d4f64@@3QBDB",
+   "address": "007d4f64"
+  },
+  {
+   "symbol": "?campaign_key_Score1_007d4f7c@@3QBDB",
+   "address": "007d4f7c"
+  },
+  {
+   "symbol": "?campaign_key_Score2_007d4f74@@3QBDB",
+   "address": "007d4f74"
+  },
+  {
+   "symbol": "?campaign_key_Score_007d4fe4@@3QBDB",
+   "address": "007d4fe4"
+  },
+  {
+   "symbol": "?campaign_key_Time_007d4f6c@@3QBDB",
+   "address": "007d4f6c"
+  },
+  {
+   "symbol": "?campaign_map_choice_format_007cfa6c@@3QBDB",
+   "address": "007cfa6c"
+  },
+  {
+   "symbol": "?campaign_options_comma_007ce9c0@@3QBDB",
+   "address": "007ce9c0"
+  },
+  {
+   "symbol": "?campaign_options_format_007d5068@@3QBDB",
+   "address": "007d5068"
+  },
+  {
+   "symbol": "?campaign_options_separator_007d5060@@3QBDB",
+   "address": "007d5060"
+  },
+  {
+   "symbol": "?campaign_save_filename_007d4f48@@3QBDB",
+   "address": "007d4f48"
+  },
+  {
+   "symbol": "?campaign_sending_log_007d5030@@3QBDB",
+   "address": "007d5030"
+  },
+  {
+   "symbol": "?campaign_sent_log_007d5024@@3QBDB",
+   "address": "007d5024"
+  },
+  {
+   "symbol": "?game_time_log_007d4ed4@@3QBDB",
+   "address": "007d4ed4"
+  },
+  {
+   "symbol": "?local_player_log_007d4f24@@3QBDB",
+   "address": "007d4f24"
+  },
+  {
+   "symbol": "?next_map_log_007d4f38@@3QBDB",
+   "address": "007d4f38"
+  },
+  {
+   "symbol": "?time_format_007d4ef8@@3QBDB",
+   "address": "007d4ef8"
+  },
+  {
+   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
+   "address": "0066e290"
+  },
+  {
+   "symbol": "?unknown_decoded_buffer_00851570@@3PADA",
+   "address": "00851570"
+  },
+  {
+   "symbol": "?unknown_encoded_buffer_00851170@@3PADA",
+   "address": "00851170"
+  },
+  {
+   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
+   "symbol": "?unknown_player_slot_types_00a3d300@@3PAHA",
+   "address": "00a3d300"
+  },
+  {
+   "symbol": "?unknown_players_a3fa7c@@3V?$DynamicVectorClass@PAUNodeNameType@@@@A",
+   "address": "00a3fa7c"
+  },
+  {
+   "symbol": "?unknown_set_campaign_log_007d4ff8@@3QBDB",
+   "address": "007d4ff8"
+  },
+  {
+   "symbol": "__stricmp",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "_isalnum",
+   "address": "00782c31"
+  },
+  {
+   "symbol": "_release_buffer_491340",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_491390",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_491340",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_491390",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_sprintf",
+   "address": "007820f4"
+  },
+  {
+   "symbol": "_storage_4913e0",
+   "address": "00782017"
+  },
+  {
+   "symbol": "_strncpy",
+   "address": "007823d0"
+  },
+  {
+   "symbol": "_table_4913e0",
+   "address": "0079e57c"
+  },
+  {
+   "symbol": "_vtable_491340",
+   "address": "0079e57c"
+  },
+  {
+   "symbol": "_vtable_491390",
+   "address": "0079e57c"
+  }
+ ],
+ "route": "A",
+ "unit": "coopcamp.cpp",
+ "form": "one include block",
+ "switches": [
+  "DESCRIPTION_LIST_INLINE_GET_RECORD",
+  "VECTOR_IMPLEMENT_VECTOR_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS",
+  "VECTOR_IMPLEMENT_VECTOR_DESTRUCTOR",
+  "VECTOR_IMPLEMENT_DYNAMIC_ADD",
+  "VECTOR_IMPLEMENT_DYNAMIC_DELETE_INDEX",
+  "INDEX_DECLARE_CONSTRUCTOR",
+  "LIST_DECLARE_CONSTRUCTOR"
+ ],
+ "include_blocks": [
+  {
+   "before": "0048de60",
+   "lines": 23
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "00491340",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00491390",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "004913e0",
+   "bytes": 74,
+   "population": "population-16",
+   "bound": "own frozen bound (population-16)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "0048dc70",
+   "bytes": 40,
+   "population": "population-3596",
+   "source": "src/recovered/header_statics/0048dc70/HeaderStatics_diagonal_init_0048dc70.cpp",
+   "cause": "frozen in another population's inventory pass (population-3596)"
+  },
+  {
+   "kind": "split",
+   "entry": "0048dca0",
+   "bytes": 19,
+   "population": "population-3596",
+   "source": "src/recovered/header_statics/0048dc70/HeaderStatics_b_init_0048dca0.cpp",
+   "cause": "held by population-3596; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E2)"
+  },
+  {
+   "kind": "split",
+   "entry": "0048dcc0",
+   "bytes": 19,
+   "population": "population-3596",
+   "source": "src/recovered/header_statics/0048dc70/HeaderStatics_c_init_0048dcc0.cpp",
+   "cause": "held by population-3596; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E3)"
+  },
+  {
+   "kind": "split",
+   "entry": "0048dce0",
+   "bytes": 19,
+   "population": "population-3596",
+   "source": "src/recovered/header_statics/0048dc70/HeaderStatics_angle45_init_0048dce0.cpp",
+   "cause": "held by population-3596; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E4)"
+  },
+  {
+   "kind": "split",
+   "entry": "0048dd00",
+   "bytes": 19,
+   "population": "population-3596",
+   "source": "src/recovered/header_statics/0048dc70/HeaderStatics_angle60_init_0048dd00.cpp",
+   "cause": "held by population-3596; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E5)"
+  },
+  {
+   "kind": "split",
+   "entry": "0048dd20",
+   "bytes": 19,
+   "population": "population-3596",
+   "source": "src/recovered/header_statics/0048dc70/HeaderStatics_angle90_init_0048dd20.cpp",
+   "cause": "held by population-3596; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E6)"
+  },
+  {
+   "kind": "split",
+   "entry": "0048dd40",
+   "bytes": 49,
+   "population": "population-3596",
+   "source": "src/recovered/header_statics/0048dc70/HeaderStatics_g_init_0048dd40.cpp",
+   "cause": "held by population-3596; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E7)"
+  },
+  {
+   "kind": "split",
+   "entry": "0048dd80",
+   "bytes": 33,
+   "population": "population-3596",
+   "source": "src/recovered/header_statics/0048dc70/HeaderStatics_h_init_0048dd80.cpp",
+   "cause": "held by population-3596; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E8)"
+  },
+  {
+   "kind": "split",
+   "entry": "0048ddb0",
+   "bytes": 44,
+   "population": "population-3596",
+   "source": "src/recovered/header_statics/0048dc70/HeaderStatics_i_init_0048ddb0.cpp",
+   "cause": "held by population-3596; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E9)"
+  },
+  {
+   "kind": "split",
+   "entry": "0048dde0",
+   "bytes": 39,
+   "population": "population-3596",
+   "source": "src/recovered/header_statics/0048dc70/HeaderStatics_j_init_0048dde0.cpp",
+   "cause": "held by population-3596; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E10)"
+  },
+  {
+   "kind": "split",
+   "entry": "0048de10",
+   "bytes": 15,
+   "population": "population-3596",
+   "source": "src/recovered/header_statics/0048dc70/HeaderStatics_k_init_0048de10.cpp",
+   "cause": "held by population-3596; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E11)"
+  },
+  {
+   "kind": "split",
+   "entry": "0048de20",
+   "bytes": 18,
+   "population": "population-3596",
+   "source": "src/recovered/header_statics/0048dc70/HeaderStatics_l_init_0048de20.cpp",
+   "cause": "held by population-3596; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E12)"
+  },
+  {
+   "kind": "split",
+   "entry": "0048de40",
+   "bytes": 23,
+   "population": "population-3596",
+   "source": "src/recovered/header_statics/0048dc70/HeaderStatics_static_rect_init_0048de40.cpp",
+   "cause": "held by population-3596; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E13)"
+  },
+  {
+   "kind": "split",
+   "entry": "0048e210",
+   "bytes": 335,
+   "population": "population-3596",
+   "source": "src/recovered/classes/CoopCampaignClass/Collect_Coop_Player_Score.cpp",
+   "cause": "frozen in another population's inventory pass (population-3596)"
+  },
+  {
+   "kind": "split",
+   "entry": "004904a0",
+   "bytes": 112,
+   "population": "population-3596",
+   "source": "src/recovered/coopcamp/Find_Country_Index.cpp",
+   "cause": "frozen in another population's inventory pass (population-3596)"
+  },
+  {
+   "kind": "split",
+   "entry": "00490ff0",
+   "bytes": 111,
+   "population": "population-1888",
+   "source": "src/recovered/classes/GenericList/List_INISection_Pointer_Constructor_00490ff0.cpp",
+   "cause": "frozen in another population's inventory pass (population-1888)"
+  },
+  {
+   "kind": "split",
+   "entry": "00491060",
+   "bytes": 42,
+   "population": "population-4442",
+   "source": "src/recovered/classes/DynamicVectorClass_char_ptr/Clear.cpp",
+   "cause": "frozen in another population's inventory pass (population-4442)"
+  },
+  {
+   "kind": "split",
+   "entry": "00491090",
+   "bytes": 27,
+   "population": "population-4442",
+   "source": "src/recovered/classes/DynamicVectorClass_char_ptr/DynamicVectorClass_char_ptr_ID_pointer_00491090.cpp",
+   "cause": "frozen in another population's inventory pass (population-4442)"
+  },
+  {
+   "kind": "split",
+   "entry": "004910b0",
+   "bytes": 13,
+   "population": "population-4442",
+   "source": "src/recovered/classes/VectorClass_char_ptr/Fetch.cpp",
+   "cause": "frozen in another population's inventory pass (population-4442)"
+  },
+  {
+   "kind": "split",
+   "entry": "004910c0",
+   "bytes": 19,
+   "population": "population-1888",
+   "source": "src/recovered/classes/IndexClass_int_INISection_ptr/Constructor.cpp",
+   "cause": "frozen in another population's inventory pass (population-1888)"
+  },
+  {
+   "kind": "split",
+   "entry": "004910e0",
+   "bytes": 62,
+   "population": "population-4442",
+   "source": "src/recovered/classes/VectorClass_char_ptr/operator_equal.cpp",
+   "cause": "frozen in another population's inventory pass (population-4442)"
+  },
+  {
+   "kind": "split",
+   "entry": "00491120",
+   "bytes": 174,
+   "population": "population-4442",
+   "source": "src/recovered/classes/VectorClass_char_ptr/Resize.cpp",
+   "cause": "frozen in another population's inventory pass (population-4442)"
+  },
+  {
+   "kind": "split",
+   "entry": "004911d0",
+   "bytes": 39,
+   "population": "population-4442",
+   "source": "src/recovered/classes/VectorClass_char_ptr/Clear.cpp",
+   "cause": "frozen in another population's inventory pass (population-4442)"
+  },
+  {
+   "kind": "split",
+   "entry": "00491200",
+   "bytes": 51,
+   "population": "population-4442",
+   "source": "src/recovered/classes/VectorClass_char_ptr/VectorClass_char_ptr_ID_object_00491200.cpp",
+   "cause": "frozen in another population's inventory pass (population-4442)"
+  },
+  {
+   "kind": "split",
+   "entry": "00491240",
+   "bytes": 27,
+   "population": "population-4442",
+   "source": "src/recovered/classes/VectorClass_char_ptr/VectorClass_char_ptr_ID_pointer_00491240.cpp",
+   "cause": "frozen in another population's inventory pass (population-4442)"
+  },
+  {
+   "kind": "split",
+   "entry": "00491260",
+   "bytes": 176,
+   "population": "population-4442",
+   "source": "src/recovered/classes/DynamicVectorClass_char_ptr/Resize.cpp",
+   "cause": "frozen in another population's inventory pass (population-4442)"
+  },
+  {
+   "kind": "split",
+   "entry": "00491310",
+   "bytes": 38,
+   "population": "population-4442",
+   "source": "src/recovered/classes/DynamicVectorClass_char_ptr/DynamicVectorClass_char_ptr_ID_object_00491310.cpp",
+   "cause": "frozen in another population's inventory pass (population-4442)"
+  }
+ ],
+ "unit_functions": 58,
+ "data_unproven": [
+  {
+   "symbol": "??_7CDFileClass@@6B@",
+   "reason": "relocation target unbound: ?File_Name@RawFileClass@@UBEPBDXZ"
+  },
+  {
+   "symbol": "??_7CCFileClass@@6B@",
+   "reason": "relocation target unbound: ?File_Name@RawFileClass@@UBEPBDXZ"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "00490510",
+   "target": "004913e0",
+   "symbol": "??0?$VectorClass@PAD@@QAE@IPBQAD@Z",
+   "module_symbol": "?get@Storage_4913e0@@QAEPAXIPAI@Z"
+  },
+  {
+   "site": "00490510",
+   "target": "004913e0",
+   "symbol": "??0?$VectorClass@PAD@@QAE@IPBQAD@Z",
+   "module_symbol": "?get@Storage_4913e0@@QAEPAXIPAI@Z"
+  },
+  {
+   "site": "00603950",
+   "target": "004913e0",
+   "symbol": "??0?$VectorClass@PAD@@QAE@IPBQAD@Z",
+   "module_symbol": "?get@Storage_4913e0@@QAEPAXIPAI@Z"
+  },
+  {
+   "site": "00603a60",
+   "target": "004913e0",
+   "symbol": "??0?$VectorClass@PAD@@QAE@IPBQAD@Z",
+   "module_symbol": "?get@Storage_4913e0@@QAEPAXIPAI@Z"
+  },
+  {
+   "site": "00603c10",
+   "target": "004913e0",
+   "symbol": "??0?$VectorClass@PAD@@QAE@IPBQAD@Z",
+   "module_symbol": "?get@Storage_4913e0@@QAEPAXIPAI@Z"
+  },
+  {
+   "site": "00589ac0",
+   "target": "004913e0",
+   "symbol": "??0?$VectorClass@PAD@@QAE@IPBQAD@Z",
+   "module_symbol": "?get@Storage_4913e0@@QAEPAXIPAI@Z"
+  },
+  {
+   "site": "00603380",
+   "target": "004913e0",
+   "symbol": "??0?$VectorClass@PAD@@QAE@IPBQAD@Z",
+   "module_symbol": "?get@Storage_4913e0@@QAEPAXIPAI@Z"
+  },
+  {
+   "site": "00587cf0",
+   "target": "004913e0",
+   "symbol": "??0?$VectorClass@PAD@@QAE@IPBQAD@Z",
+   "module_symbol": "?get@Storage_4913e0@@QAEPAXIPAI@Z"
+  }
+ ],
+ "stand_in_reference_count": 8,
+ "residual_split": {
+  "rows": 27,
+  "bytes": 1582
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

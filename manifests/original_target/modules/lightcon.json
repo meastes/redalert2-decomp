@@ -1,0 +1,438 @@
+{
+ "module": "lightcon",
+ "source": "src/recovered/lightcon.cpp",
+ "header": null,
+ "population": "population-2907",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 585,
+ "code": [
+  {
+   "symbol": "??0LightConvertClass@@QAE@ABVPaletteClass@@0PAVSurface@@HHH_NPBEH@Z",
+   "entry": "00538860",
+   "body_bytes": 573,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Set_Tint@LightConvertClass@@UAEXHHH_N@Z",
+   "entry": "00538aa0",
+   "body_bytes": 1152,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "??1LightConvertClass@@UAE@XZ",
+   "entry": "00538f20",
+   "body_bytes": 11,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?FUN_00538f30@Owner_00538f30@seed_00538f30@@QAEPAIE@Z",
+   "entry": "00538f30",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  }
+ ],
+ "code_bytes": 1792,
+ "data": [
+  {
+   "symbol": "??_7LightConvertClass@@6B@",
+   "address": "007a55d8",
+   "bytes": 12,
+   "kind": "vtable",
+   "section": 10
+  },
+  {
+   "symbol": "__real@8@3ffb8637bd05af6c6800",
+   "address": "007a55e8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ConvertClass@@8",
+   "address": "007b5228",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 4
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LightConvertClass@@8",
+   "address": "007bd000",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 5
+  },
+  {
+   "symbol": "??_R2LightConvertClass@@8",
+   "address": "007bd018",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 6
+  },
+  {
+   "symbol": "??_R3LightConvertClass@@8",
+   "address": "007bd028",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 7
+  },
+  {
+   "symbol": "??_R4LightConvertClass@@6B@",
+   "address": "007bd038",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 9
+  },
+  {
+   "symbol": "??_R0?AVConvertClass@@@8",
+   "address": "007d3ae8",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 3
+  },
+  {
+   "symbol": "??_R0?AVLightConvertClass@@@8",
+   "address": "007df870",
+   "bytes": 32,
+   "kind": "rtti",
+   "section": 8
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7LightConvertClass@@6B@",
+   "address": "007a55d8",
+   "bytes": 12,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "__real@8@3ffb8637bd05af6c6800",
+   "address": "007a55e8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ConvertClass@@8",
+   "address": "007b5228",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LightConvertClass@@8",
+   "address": "007bd000",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2LightConvertClass@@8",
+   "address": "007bd018",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3LightConvertClass@@8",
+   "address": "007bd028",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4LightConvertClass@@6B@",
+   "address": "007bd038",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVConvertClass@@@8",
+   "address": "007d3ae8",
+   "bytes": 27,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVLightConvertClass@@@8",
+   "address": "007df870",
+   "bytes": 32,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00529590",
+   "symbol": "??0LightConvertClass@@QAE@ABVPaletteClass@@0PAVSurface@@HHH_NPBEH@Z",
+   "target": "00538860",
+   "function_entry": true
+  },
+  {
+   "site": "00529720",
+   "symbol": "??0LightConvertClass@@QAE@ABVPaletteClass@@0PAVSurface@@HHH_NPBEH@Z",
+   "target": "00538860",
+   "function_entry": true
+  },
+  {
+   "site": "00663690",
+   "symbol": "??0LightConvertClass@@QAE@ABVPaletteClass@@0PAVSurface@@HHH_NPBEH@Z",
+   "target": "00538860",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0ConvertClass@@QAE@ABVPaletteClass@@0PAVSurface@@H_N@Z",
+   "address": "00483650"
+  },
+  {
+   "symbol": "??1ConvertClass@@UAE@XZ",
+   "address": "00485310"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_GLightConvertClass@@UAEPAXI@Z",
+   "address": "00538f30"
+  },
+  {
+   "symbol": "?FUN_00485310@seed_00538f30@@YIXXZ",
+   "address": "00485310"
+  },
+  {
+   "symbol": "?FUN_00781d3b@seed_00538f30@@YAXI@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?FUN_00797440@@YAXPBVPaletteClass@@PAGHHHHPBE@Z",
+   "address": "00797440"
+  },
+  {
+   "symbol": "?FUN_0079777a@@YAXPBVPaletteClass@@PAGHHHHPBE@Z",
+   "address": "0079777a"
+  },
+  {
+   "symbol": "?FUN_00797aba@@YAXPBVPaletteClass@@PAGHHHHPBE@Z",
+   "address": "00797aba"
+  },
+  {
+   "symbol": "?FUN_00797dfa@@YAXPBVPaletteClass@@PAGHHHHPBE@Z",
+   "address": "00797dfa"
+  },
+  {
+   "symbol": "?Get_Unknown_7d6290@@YIHXZ",
+   "address": "004abb90"
+  },
+  {
+   "symbol": "?Initialize_Blitters_00483B00@ConvertClass@@QAEXXZ",
+   "address": "00483b00"
+  },
+  {
+   "symbol": "?Unknown_0051FC50@@YA_NXZ",
+   "address": "0051fc50"
+  },
+  {
+   "symbol": "?Unknown_0051FC60@@YA_NXZ",
+   "address": "0051fc60"
+  },
+  {
+   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
+   "symbol": "?unknown_shift_852fb8@@3HA",
+   "address": "00852fb8"
+  },
+  {
+   "symbol": "?unknown_shift_852fbc@@3HA",
+   "address": "00852fbc"
+  },
+  {
+   "symbol": "?unknown_shift_852fc0@@3HA",
+   "address": "00852fc0"
+  },
+  {
+   "symbol": "?unknown_shift_852fc4@@3HA",
+   "address": "00852fc4"
+  },
+  {
+   "symbol": "?unknown_shift_852fc8@@3HA",
+   "address": "00852fc8"
+  },
+  {
+   "symbol": "?unknown_shift_852fcc@@3HA",
+   "address": "00852fcc"
+  },
+  {
+   "symbol": "_DAT_007df768",
+   "address": "007df768"
+  },
+  {
+   "symbol": "_DAT_007df868",
+   "address": "007df868"
+  },
+  {
+   "symbol": "_PTR_FUN_007a55dc",
+   "address": "007a55dc"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  }
+ ],
+ "route": "A",
+ "unit": "lightcon.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00538860",
+   "lines": 3
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "00538f30",
+   "bytes": 36,
+   "population": "population-66",
+   "bound": "own frozen bound (population-66)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "00538670",
+   "bytes": 23,
+   "population": "population-256",
+   "source": "src/recovered/header_statics/00538670/HeaderStatics_empty_rect_init_00538670.cpp",
+   "cause": "frozen in another population's inventory pass (population-256)"
+  },
+  {
+   "kind": "split",
+   "entry": "00538690",
+   "bytes": 40,
+   "population": "population-256",
+   "source": "src/recovered/header_statics/00538670/HeaderStatics_diagonal_init_00538690.cpp",
+   "cause": "held by population-256; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E2)"
+  },
+  {
+   "kind": "split",
+   "entry": "005386c0",
+   "bytes": 19,
+   "population": "population-256",
+   "source": "src/recovered/header_statics/00538670/HeaderStatics_b_init_005386c0.cpp",
+   "cause": "held by population-256; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E3)"
+  },
+  {
+   "kind": "split",
+   "entry": "005386e0",
+   "bytes": 19,
+   "population": "population-256",
+   "source": "src/recovered/header_statics/00538670/HeaderStatics_c_init_005386e0.cpp",
+   "cause": "held by population-256; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E4)"
+  },
+  {
+   "kind": "split",
+   "entry": "00538700",
+   "bytes": 19,
+   "population": "population-256",
+   "source": "src/recovered/header_statics/00538670/HeaderStatics_angle45_init_00538700.cpp",
+   "cause": "held by population-256; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E5)"
+  },
+  {
+   "kind": "split",
+   "entry": "00538720",
+   "bytes": 19,
+   "population": "population-256",
+   "source": "src/recovered/header_statics/00538670/HeaderStatics_angle60_init_00538720.cpp",
+   "cause": "held by population-256; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E6)"
+  },
+  {
+   "kind": "split",
+   "entry": "00538740",
+   "bytes": 19,
+   "population": "population-256",
+   "source": "src/recovered/header_statics/00538670/HeaderStatics_angle90_init_00538740.cpp",
+   "cause": "held by population-256; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E7)"
+  },
+  {
+   "kind": "split",
+   "entry": "00538760",
+   "bytes": 49,
+   "population": "population-256",
+   "source": "src/recovered/header_statics/00538670/HeaderStatics_g_init_00538760.cpp",
+   "cause": "held by population-256; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E8)"
+  },
+  {
+   "kind": "split",
+   "entry": "005387a0",
+   "bytes": 33,
+   "population": "population-256",
+   "source": "src/recovered/header_statics/00538670/HeaderStatics_h_init_005387a0.cpp",
+   "cause": "held by population-256; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E9)"
+  },
+  {
+   "kind": "split",
+   "entry": "005387d0",
+   "bytes": 44,
+   "population": "population-256",
+   "source": "src/recovered/header_statics/00538670/HeaderStatics_i_init_005387d0.cpp",
+   "cause": "held by population-256; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E10)"
+  },
+  {
+   "kind": "split",
+   "entry": "00538800",
+   "bytes": 39,
+   "population": "population-256",
+   "source": "src/recovered/header_statics/00538670/HeaderStatics_j_init_00538800.cpp",
+   "cause": "held by population-256; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E11)"
+  },
+  {
+   "kind": "split",
+   "entry": "00538830",
+   "bytes": 15,
+   "population": "population-256",
+   "source": "src/recovered/header_statics/00538670/HeaderStatics_k_init_00538830.cpp",
+   "cause": "held by population-256; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E12)"
+  },
+  {
+   "kind": "split",
+   "entry": "00538840",
+   "bytes": 18,
+   "population": "population-256",
+   "source": "src/recovered/header_statics/00538670/HeaderStatics_l_init_00538840.cpp",
+   "cause": "held by population-256; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E13)"
+  }
+ ],
+ "unit_functions": 18,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 13,
+  "bytes": 356
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

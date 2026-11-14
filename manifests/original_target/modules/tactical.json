@@ -1,0 +1,5565 @@
+{
+ "module": "tactical",
+ "source": "src/recovered/tactical.cpp",
+ "header": null,
+ "population": "population-4383",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 1003,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "006a20e0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "006a2110",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "006a2130",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "006a2150",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "006a2170",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "006a2190",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "006a21b0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "006a21f0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "006a2220",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "006a2250",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "006a2280",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "006a2290",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "006a22b0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E43",
+   "entry": "006a22d0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E49",
+   "entry": "006a22f0",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E46",
+   "entry": "006a2330",
+   "body_bytes": 88,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E52",
+   "entry": "006a2390",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E58",
+   "entry": "006a23a0",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E55",
+   "entry": "006a23e0",
+   "body_bytes": 88,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E61",
+   "entry": "006a2440",
+   "body_bytes": 52,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "_$E64",
+   "entry": "006a2480",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "??0Tactical@@QAE@XZ",
+   "entry": "006a24b0",
+   "body_bytes": 522,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "??0Tactical@@QAE@ABVNoInitClass@@@Z",
+   "entry": "006a26c0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??1Tactical@@UAE@XZ",
+   "entry": "006a2710",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Rectangular_To_Isometric@@YI?AUPoint2D@@U1@@Z",
+   "entry": "006a2740",
+   "body_bytes": 89,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Coord_To_Pixel_Absolute@Tactical@@QAE?AUPoint2D@@ABUCoordStruct@@@Z",
+   "entry": "006a27a0",
+   "body_bytes": 200,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Coord_To_Pixel_Absolute@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "entry": "006a2870",
+   "body_bytes": 132,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "entry": "006a2900",
+   "body_bytes": 107,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "entry": "006a2970",
+   "body_bytes": 60,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Unknown_006A29B0@@YIHH@Z",
+   "entry": "006a29b0",
+   "body_bytes": 28,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "entry": "006a29d0",
+   "body_bytes": 306,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Pixel_To_Coord@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
+   "entry": "006a2b10",
+   "body_bytes": 223,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Unknown_006A2BF0@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
+   "entry": "006a2bf0",
+   "body_bytes": 190,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Setup_Trigger_Scroll@Tactical@@QAEXABUCoordStruct@@H@Z",
+   "entry": "006a2cb0",
+   "body_bytes": 283,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "entry": "006a3020",
+   "body_bytes": 946,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?unknown_empty_006a33e0@seed_006a33e0@@YGXHH@Z",
+   "entry": "006a33e0",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Wipe_Depth@Tactical@@QAEX_NHHABVRect@@@Z",
+   "entry": "006a33f0",
+   "body_bytes": 626,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Render_Tiles@Tactical@@QAEXABVRect@@0_N@Z",
+   "entry": "006a3670",
+   "body_bytes": 605,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Render_Tile_Shadows@Tactical@@QAEXABVRect@@0_N@Z",
+   "entry": "006a38d0",
+   "body_bytes": 588,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Render_Overlays@Tactical@@QAEXABVRect@@0_N@Z",
+   "entry": "006a3b20",
+   "body_bytes": 472,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Render_Fogged_Objects@Tactical@@QAEXABVRect@@0_N@Z",
+   "entry": "006a3d00",
+   "body_bytes": 483,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Render_Shroud@Tactical@@QAEXABVRect@@00_N@Z",
+   "entry": "006a3ef0",
+   "body_bytes": 528,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Render_Buildings@Tactical@@QAEXABVRect@@0_N@Z",
+   "entry": "006a4100",
+   "body_bytes": 582,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Render_Terrain@Tactical@@QAEXABVRect@@0_N@Z",
+   "entry": "006a4350",
+   "body_bytes": 582,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Draw_Timer@@YIXHPAVColorScheme@@HPBGPA_KPA_N@Z",
+   "entry": "006a5280",
+   "body_bytes": 358,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Clear_Caption_Text_006a5440@seed_006a5440@@YIXH@Z",
+   "entry": "006a5440",
+   "body_bytes": 17,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Draw_Screen_Text@Tactical@@QAEXPBG@Z",
+   "entry": "006a5460",
+   "body_bytes": 513,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Draw_Placement@Tactical@@QAEX_N@Z",
+   "entry": "006a5670",
+   "body_bytes": 1781,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Draw_Fence_Placement@Tactical@@QAEX_NVCell@@@Z",
+   "entry": "006a5d70",
+   "body_bytes": 659,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Draw_Firestorm_Wall_Placement@Tactical@@QAEX_NVCell@@@Z",
+   "entry": "006a6010",
+   "body_bytes": 636,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Draw_Wall_Placement@Tactical@@QAEX_NVCell@@@Z",
+   "entry": "006a6290",
+   "body_bytes": 732,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Blit_Tiles@Tactical@@QAE_NXZ",
+   "entry": "006a6570",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Get_Tactical_Position@Tactical@@QAE?AUPoint2D@@XZ",
+   "entry": "006a67b0",
+   "body_bytes": 24,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Unknown_006A67D0@Tactical@@QAE?AUPoint2D@@XZ",
+   "entry": "006a67d0",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Unknown_006A6800@@YIXHHPAH0@Z",
+   "entry": "006a6800",
+   "body_bytes": 90,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Isometric_To_Rectangular_006a6860@seed_006a6860@@YIXHHPAH0@Z",
+   "entry": "006a6860",
+   "body_bytes": 81,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Unknown_006A69B0@@YGXHHPAH0@Z",
+   "entry": "006a69b0",
+   "body_bytes": 147,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Coord_To_Cell@Tactical@@QAE?AVCell@@ABUCoordStruct@@@Z",
+   "entry": "006a6a50",
+   "body_bytes": 379,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z",
+   "entry": "006a6bd0",
+   "body_bytes": 1265,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Get_Cell_Height@Tactical@@QAEHABUCoordStruct@@@Z",
+   "entry": "006a70d0",
+   "body_bytes": 51,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Add_Shadow_Control@Tactical@@QAEXVShadowControlClass@@@Z",
+   "entry": "006a7130",
+   "body_bytes": 181,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Find_Bridge_Owner_Cell@Tactical@@QAEPAVCellClass@@ABVCell@@@Z",
+   "entry": "006a71f0",
+   "body_bytes": 337,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Draw_Overlays@Tactical@@QAEXABVRect@@@Z",
+   "entry": "006a7350",
+   "body_bytes": 1232,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Draw_Shroud@Tactical@@QAEXABVRect@@@Z",
+   "entry": "006a7820",
+   "body_bytes": 894,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Draw_Tiles@Tactical@@QAEXABVRect@@0@Z",
+   "entry": "006a7ba0",
+   "body_bytes": 730,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Draw_Tile_Shadows@Tactical@@QAEXABVRect@@0@Z",
+   "entry": "006a8240",
+   "body_bytes": 785,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Draw_Tile_Shadows@Tactical@@QAEXHABVRect@@@Z",
+   "entry": "006a88a0",
+   "body_bytes": 619,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Clamp_Pixel_To_Tactical@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "entry": "006a8b10",
+   "body_bytes": 89,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Unknown_006A8C80@Tactical@@QAE_NPAUPoint2D@@@Z",
+   "entry": "006a8c80",
+   "body_bytes": 190,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z",
+   "entry": "006a8d40",
+   "body_bytes": 989,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Is_Cell_Visible@Tactical@@QAE_NABVCell@@@Z",
+   "entry": "006a9120",
+   "body_bytes": 70,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Unknown_006A9170@Tactical@@QAEXXZ",
+   "entry": "006a9170",
+   "body_bytes": 289,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Draw_Render_Hooks@Tactical@@SIXPAVObjectClass@@ABVRect@@@Z",
+   "entry": "006a92a0",
+   "body_bytes": 329,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Draw_Objects@Tactical@@QAEX_N@Z",
+   "entry": "006a93f0",
+   "body_bytes": 2584,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Unknown_006A9E10@Tactical@@QAEX_NABVRect@@1@Z",
+   "entry": "006a9e10",
+   "body_bytes": 316,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Draw_Fogged_Objects@Tactical@@QAEXABVRect@@@Z",
+   "entry": "006a9f50",
+   "body_bytes": 12,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Unknown_006A9F60@Tactical@@QAEX_NABVRect@@1@Z",
+   "entry": "006a9f60",
+   "body_bytes": 300,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Register_Dirty_Buildings@Tactical@@QAEXVRect@@@Z",
+   "entry": "006aa090",
+   "body_bytes": 236,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Contains_Selectable_Buildings@Tactical@@QAE_NVRect@@@Z",
+   "entry": "006aa180",
+   "body_bytes": 383,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Add_Buildings_To_Selectable@Tactical@@QAEXVRect@@@Z",
+   "entry": "006aa300",
+   "body_bytes": 520,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Add_To_Selectables@Tactical@@QAE_NPAVObjectClass@@UPoint2D@@@Z",
+   "entry": "006aa510",
+   "body_bytes": 139,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Start_Rubber_Band@Tactical@@QAEXABUPoint2D@@@Z",
+   "entry": "006aa5a0",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Modify_Rubber_Band@Tactical@@QAEXABUPoint2D@@@Z",
+   "entry": "006aa5e0",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Unknown_006AA610@Tactical@@QAEXP6IXPAVObjectClass@@@Z@Z",
+   "entry": "006aa610",
+   "body_bytes": 136,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Unknown_006AA6A0@Tactical@@QAEHXZ",
+   "entry": "006aa6a0",
+   "body_bytes": 206,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Unknown_006AA770@Tactical@@QAEXXZ",
+   "entry": "006aa770",
+   "body_bytes": 29,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Unknown_006AA790@Tactical@@QAEXXZ",
+   "entry": "006aa790",
+   "body_bytes": 168,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Clamp_Cursor_To_Tactical@Tactical@@QAE?AVCell@@ABV2@PBV2@@Z",
+   "entry": "006aa970",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?unknown_empty_006aa980@seed_006aa980@@YGXH@Z",
+   "entry": "006aa980",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Get_Selectable_Object_006aa990@Tactical@@QAEPAVObjectClass@@ABUPoint2D@@@Z",
+   "entry": "006aa990",
+   "body_bytes": 461,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Detach@Tactical@@UAEXPAVAbstractClass@@_N@Z",
+   "entry": "006aab60",
+   "body_bytes": 82,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Unknown_006AABC0@Tactical@@QAEXPBVRect@@P6IXPAVObjectClass@@@Z@Z",
+   "entry": "006aabc0",
+   "body_bytes": 378,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Unknown_006AAD40@Tactical@@QAEXXZ",
+   "entry": "006aad40",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Unknown_006AAD70@Tactical@@QAE_NXZ",
+   "entry": "006aad70",
+   "body_bytes": 87,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "entry": "006aadd0",
+   "body_bytes": 424,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Reset_Dirty_Rectangles@Tactical@@QAEXXZ",
+   "entry": "006aaf80",
+   "body_bytes": 70,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Draw_Rally_Points@Tactical@@QAEX_N@Z",
+   "entry": "006aafd0",
+   "body_bytes": 904,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Draw_Waypoints@Tactical@@QAEX_N@Z",
+   "entry": "006ab360",
+   "body_bytes": 1196,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Debug_Draw_Occupier_Links@Tactical@@QAEXXZ",
+   "entry": "006ab810",
+   "body_bytes": 1036,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Debug_Draw_Occupation_Flags@Tactical@@QAEXXZ",
+   "entry": "006abc20",
+   "body_bytes": 1332,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?unknown_slot24@Tactical@@UAE_NABUCoordStruct@@0H_N@Z",
+   "entry": "006ac160",
+   "body_bytes": 374,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?GetClassID@Tactical@@UAGJPAUGUID@@@Z",
+   "entry": "006ac2e0",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Load@Tactical@@UAGJPAUIStream@@@Z",
+   "entry": "006ac320",
+   "body_bytes": 214,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Save_006ac400@seed_006ac400@@YGHIII@Z",
+   "entry": "006ac400",
+   "body_bytes": 29,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?unknown_empty_006ac7a0@seed_006ac7a0@@YAXXZ",
+   "entry": "006ac7a0",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?get@Leaf_6ac7b0@@QAEIXZ",
+   "entry": "006ac7b0",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?unknown_get_006ac7c0@seed_006ac7c0@@YGIH@Z",
+   "entry": "006ac7c0",
+   "body_bytes": 17,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Kind_Of@Tactical@@UBEHXZ",
+   "entry": "006ac7e0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Size_Of@Tactical@@UBEHXZ",
+   "entry": "006ac7f0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?scalar_deleting_destructor_006ac800@Owner_006ac800@seed_006ac800@@QAEPAIE@Z",
+   "entry": "006ac800",
+   "body_bytes": 67,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "??ZPoint2D@@QAEAAU0@ABU0@@Z",
+   "entry": "006ac850",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Clear@?$DynamicVectorClass@UDirtyAreaStruct@@@@UAEXXZ",
+   "entry": "006ac870",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@UDirtyAreaStruct@@@@UAEHPBUDirtyAreaStruct@@@Z",
+   "entry": "006ac8a0",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@UDirtyAreaStruct@@@@UBE?AUDirtyAreaStruct@@H@Z",
+   "entry": "006ac8d0",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Clear@?$DynamicVectorClass@PAVShadowControlClass@@@@UAEXXZ",
+   "entry": "006ac910",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAVShadowControlClass@@@@UAEHPBQAVShadowControlClass@@@Z",
+   "entry": "006ac940",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@PAVShadowControlClass@@@@UBEPAVShadowControlClass@@H@Z",
+   "entry": "006ac960",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??8?$VectorClass@UDirtyAreaStruct@@@@UBE_NABV0@@Z",
+   "entry": "006ac970",
+   "body_bytes": 114,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@UDirtyAreaStruct@@@@UAE_NHPBUDirtyAreaStruct@@@Z",
+   "entry": "006ac9f0",
+   "body_bytes": 274,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Clear@?$VectorClass@UDirtyAreaStruct@@@@UAEXXZ",
+   "entry": "006acb10",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?ID@?$VectorClass@UDirtyAreaStruct@@@@UAEHABUDirtyAreaStruct@@@Z",
+   "entry": "006acb40",
+   "body_bytes": 111,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?ID@?$VectorClass@UDirtyAreaStruct@@@@UAEHPBUDirtyAreaStruct@@@Z",
+   "entry": "006acbb0",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Resize@?$DynamicVectorClass@UDirtyAreaStruct@@@@UAE_NHPBUDirtyAreaStruct@@@Z",
+   "entry": "006acbe0",
+   "body_bytes": 286,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@UDirtyAreaStruct@@@@UAEHABUDirtyAreaStruct@@@Z",
+   "entry": "006acd00",
+   "body_bytes": 95,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "??8?$VectorClass@PAVShadowControlClass@@@@UBE_NABV0@@Z",
+   "entry": "006acd60",
+   "body_bytes": 62,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@PAVShadowControlClass@@@@UAE_NHPBQAVShadowControlClass@@@Z",
+   "entry": "006acda0",
+   "body_bytes": 174,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Clear@?$VectorClass@PAVShadowControlClass@@@@UAEXXZ",
+   "entry": "006ace50",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVShadowControlClass@@@@UAEHABQAVShadowControlClass@@@Z",
+   "entry": "006ace80",
+   "body_bytes": 51,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVShadowControlClass@@@@UAEHPBQAVShadowControlClass@@@Z",
+   "entry": "006acec0",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Resize@?$DynamicVectorClass@PAVShadowControlClass@@@@UAE_NHPBQAVShadowControlClass@@@Z",
+   "entry": "006acee0",
+   "body_bytes": 176,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAVShadowControlClass@@@@UAEHABQAVShadowControlClass@@@Z",
+   "entry": "006acf90",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?get@Leaf_6acfc0@@QAEPAXI@Z",
+   "entry": "006acfc0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?get@Leaf_6ad010@@QAEPAXI@Z",
+   "entry": "006ad010",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?get@Leaf_6ad060@@QAEPAXI@Z",
+   "entry": "006ad060",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?get@Leaf_6ad0b0@@QAEPAXI@Z",
+   "entry": "006ad0b0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  }
+ ],
+ "code_bytes": 37056,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@",
+   "address": "0079a768",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 377
+  },
+  {
+   "symbol": "__real@4@4004f000000000000000",
+   "address": "007a8844",
+   "bytes": 4,
+   "kind": "table",
+   "section": 105
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007ac3a8",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@UDirtyAreaStruct@@@@6B@",
+   "address": "007ac4c0",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 49
+  },
+  {
+   "symbol": "??_7?$VectorClass@UDirtyAreaStruct@@@@6B@",
+   "address": "007ac4e0",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 55
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVShadowControlClass@@@@6B@",
+   "address": "007ac500",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 69
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVShadowControlClass@@@@6B@",
+   "address": "007ac520",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 75
+  },
+  {
+   "symbol": "??_7Tactical@@6BINoticeSource@@@",
+   "address": "007ac540",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 106
+  },
+  {
+   "symbol": "??_7Tactical@@6BINoticeSink@@@",
+   "address": "007ac548",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 107
+  },
+  {
+   "symbol": "??_7Tactical@@6BIRTTITypeInfo@@@",
+   "address": "007ac550",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 108
+  },
+  {
+   "symbol": "??_7Tactical@@6BIPersistStream@@@",
+   "address": "007ac56c",
+   "bytes": 104,
+   "kind": "vtable",
+   "section": 109
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@USubzoneConnectionStruct@@@@8",
+   "address": "007b25f8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 372
+  },
+  {
+   "symbol": "??_R2?$VectorClass@USubzoneConnectionStruct@@@@8",
+   "address": "007b2610",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 373
+  },
+  {
+   "symbol": "??_R3?$VectorClass@USubzoneConnectionStruct@@@@8",
+   "address": "007b2618",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 374
+  },
+  {
+   "symbol": "??_R4?$VectorClass@USubzoneConnectionStruct@@@@6B@",
+   "address": "007b2628",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 376
+  },
+  {
+   "symbol": "??_R1M@?0A@A@INoticeSource@@8",
+   "address": "007b30b8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 86
+  },
+  {
+   "symbol": "??_R17?0A@A@INoticeSink@@8",
+   "address": "007b30d0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 88
+  },
+  {
+   "symbol": "??_R13?0A@1IUnknown@@8",
+   "address": "007b30e8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 89
+  },
+  {
+   "symbol": "??_R13?0A@A@IRTTITypeInfo@@8",
+   "address": "007b3100",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 91
+  },
+  {
+   "symbol": "??_R1A@?0A@1IUnknown@@8",
+   "address": "007b3118",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 93
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersist@@8",
+   "address": "007b3130",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 95
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersistStream@@8",
+   "address": "007b3148",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 97
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractClass@@8",
+   "address": "007b3160",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 99
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@UDirtyAreaStruct@@@@8",
+   "address": "007c3408",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 43
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@UDirtyAreaStruct@@@@8",
+   "address": "007c3420",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@UDirtyAreaStruct@@@@8",
+   "address": "007c3438",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 45
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@UDirtyAreaStruct@@@@8",
+   "address": "007c3448",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 46
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@UDirtyAreaStruct@@@@6B@",
+   "address": "007c3458",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 48
+  },
+  {
+   "symbol": "??_R2?$VectorClass@UDirtyAreaStruct@@@@8",
+   "address": "007c346c",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 52
+  },
+  {
+   "symbol": "??_R3?$VectorClass@UDirtyAreaStruct@@@@8",
+   "address": "007c3478",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 53
+  },
+  {
+   "symbol": "??_R4?$VectorClass@UDirtyAreaStruct@@@@6B@",
+   "address": "007c3488",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 54
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAVShadowControlClass@@@@8",
+   "address": "007c34a0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 63
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAVShadowControlClass@@@@8",
+   "address": "007c34b8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 64
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAVShadowControlClass@@@@8",
+   "address": "007c34d0",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 65
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAVShadowControlClass@@@@8",
+   "address": "007c34e0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 66
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAVShadowControlClass@@@@6B@",
+   "address": "007c34f0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 68
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAVShadowControlClass@@@@8",
+   "address": "007c3504",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 72
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAVShadowControlClass@@@@8",
+   "address": "007c3510",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 73
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAVShadowControlClass@@@@6B@",
+   "address": "007c3520",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 74
+  },
+  {
+   "symbol": "??_R4Tactical@@6BINoticeSource@@@",
+   "address": "007c3538",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 82
+  },
+  {
+   "symbol": "??_R4Tactical@@6BINoticeSink@@@",
+   "address": "007c3550",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 83
+  },
+  {
+   "symbol": "??_R4Tactical@@6BIRTTITypeInfo@@@",
+   "address": "007c3568",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 84
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Tactical@@8",
+   "address": "007c3580",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 100
+  },
+  {
+   "symbol": "??_R2Tactical@@8",
+   "address": "007c3598",
+   "bytes": 37,
+   "kind": "rtti",
+   "section": 101
+  },
+  {
+   "symbol": "??_R3Tactical@@8",
+   "address": "007c35c0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 102
+  },
+  {
+   "symbol": "??_R4Tactical@@6BIPersistStream@@@",
+   "address": "007c35d0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 104
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@USubzoneConnectionStruct@@@@@8",
+   "address": "007cd310",
+   "bytes": 55,
+   "kind": "rtti",
+   "section": 375
+  },
+  {
+   "symbol": "??_R0?AVINoticeSink@@@8",
+   "address": "007cd618",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 87
+  },
+  {
+   "symbol": "??_R0?AUIUnknown@@@8",
+   "address": "007cd638",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 92
+  },
+  {
+   "symbol": "??_R0?AVINoticeSource@@@8",
+   "address": "007ce1c8",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 85
+  },
+  {
+   "symbol": "??_R0?AUIRTTITypeInfo@@@8",
+   "address": "007ce1e8",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 90
+  },
+  {
+   "symbol": "??_R0?AUIPersist@@@8",
+   "address": "007ce208",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 94
+  },
+  {
+   "symbol": "??_R0?AUIPersistStream@@@8",
+   "address": "007ce220",
+   "bytes": 29,
+   "kind": "rtti",
+   "section": 96
+  },
+  {
+   "symbol": "??_R0?AVAbstractClass@@@8",
+   "address": "007ce240",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 98
+  },
+  {
+   "symbol": "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007d1598",
+   "bytes": 6,
+   "kind": "string",
+   "section": 278
+  },
+  {
+   "symbol": "??_C@_09JKEA@MOUSE?4SHP?$AA@",
+   "address": "007db964",
+   "bytes": 10,
+   "kind": "string",
+   "section": 279
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@UDirtyAreaStruct@@@@@8",
+   "address": "007f6978",
+   "bytes": 47,
+   "kind": "rtti",
+   "section": 42
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@UDirtyAreaStruct@@@@@8",
+   "address": "007f69a8",
+   "bytes": 54,
+   "kind": "rtti",
+   "section": 47
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAVShadowControlClass@@@@@8",
+   "address": "007f69e0",
+   "bytes": 52,
+   "kind": "rtti",
+   "section": 62
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAVShadowControlClass@@@@@8",
+   "address": "007f6a18",
+   "bytes": 59,
+   "kind": "rtti",
+   "section": 67
+  },
+  {
+   "symbol": "??_R0?AVTactical@@@8",
+   "address": "007f6a58",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 103
+  },
+  {
+   "symbol": "??_C@_1BM@JCCC@?$AA?$CF?$AAs?$AA?5?$AA?5?$AA?$CF?$AA0?$AA2?$AAd?$AA?3?$AA?$CF?$AA0?$AA2?$AAd?$AA?$AA@",
+   "address": "007f6a98",
+   "bytes": 28,
+   "kind": "string",
+   "section": 162
+  },
+  {
+   "symbol": "??_C@_1CC@MCKI@?$AA?$CF?$AAs?$AA?5?$AA?5?$AA?$CF?$AAd?$AA?3?$AA?$CF?$AA0?$AA2?$AAd?$AA?3?$AA?$CF?$AA0?$AA2?$AAd?$AA?$AA@",
+   "address": "007f6ab4",
+   "bytes": 34,
+   "kind": "string",
+   "section": 163
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@",
+   "address": "0079a768",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "__real@4@4004f000000000000000",
+   "address": "007a8844",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007ac3a8",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@UDirtyAreaStruct@@@@6B@",
+   "address": "007ac4c0",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@UDirtyAreaStruct@@@@6B@",
+   "address": "007ac4e0",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVShadowControlClass@@@@6B@",
+   "address": "007ac500",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVShadowControlClass@@@@6B@",
+   "address": "007ac520",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7Tactical@@6BINoticeSource@@@",
+   "address": "007ac540",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7Tactical@@6BINoticeSink@@@",
+   "address": "007ac548",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7Tactical@@6BIRTTITypeInfo@@@",
+   "address": "007ac550",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7Tactical@@6BIPersistStream@@@",
+   "address": "007ac56c",
+   "bytes": 104,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@USubzoneConnectionStruct@@@@8",
+   "address": "007b25f8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@USubzoneConnectionStruct@@@@8",
+   "address": "007b2610",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@USubzoneConnectionStruct@@@@8",
+   "address": "007b2618",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@USubzoneConnectionStruct@@@@6B@",
+   "address": "007b2628",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1M@?0A@A@INoticeSource@@8",
+   "address": "007b30b8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R17?0A@A@INoticeSink@@8",
+   "address": "007b30d0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R13?0A@1IUnknown@@8",
+   "address": "007b30e8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R13?0A@A@IRTTITypeInfo@@8",
+   "address": "007b3100",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@1IUnknown@@8",
+   "address": "007b3118",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersist@@8",
+   "address": "007b3130",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersistStream@@8",
+   "address": "007b3148",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractClass@@8",
+   "address": "007b3160",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@UDirtyAreaStruct@@@@8",
+   "address": "007c3408",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@UDirtyAreaStruct@@@@8",
+   "address": "007c3420",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@UDirtyAreaStruct@@@@8",
+   "address": "007c3438",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@UDirtyAreaStruct@@@@8",
+   "address": "007c3448",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@UDirtyAreaStruct@@@@6B@",
+   "address": "007c3458",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@UDirtyAreaStruct@@@@8",
+   "address": "007c346c",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@UDirtyAreaStruct@@@@8",
+   "address": "007c3478",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@UDirtyAreaStruct@@@@6B@",
+   "address": "007c3488",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAVShadowControlClass@@@@8",
+   "address": "007c34a0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAVShadowControlClass@@@@8",
+   "address": "007c34b8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAVShadowControlClass@@@@8",
+   "address": "007c34d0",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAVShadowControlClass@@@@8",
+   "address": "007c34e0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAVShadowControlClass@@@@6B@",
+   "address": "007c34f0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAVShadowControlClass@@@@8",
+   "address": "007c3504",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAVShadowControlClass@@@@8",
+   "address": "007c3510",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAVShadowControlClass@@@@6B@",
+   "address": "007c3520",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4Tactical@@6BINoticeSource@@@",
+   "address": "007c3538",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4Tactical@@6BINoticeSink@@@",
+   "address": "007c3550",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4Tactical@@6BIRTTITypeInfo@@@",
+   "address": "007c3568",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Tactical@@8",
+   "address": "007c3580",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2Tactical@@8",
+   "address": "007c3598",
+   "bytes": 37,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3Tactical@@8",
+   "address": "007c35c0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4Tactical@@6BIPersistStream@@@",
+   "address": "007c35d0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@USubzoneConnectionStruct@@@@@8",
+   "address": "007cd310",
+   "bytes": 55,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVINoticeSink@@@8",
+   "address": "007cd618",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIUnknown@@@8",
+   "address": "007cd638",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVINoticeSource@@@8",
+   "address": "007ce1c8",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIRTTITypeInfo@@@8",
+   "address": "007ce1e8",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIPersist@@@8",
+   "address": "007ce208",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIPersistStream@@@8",
+   "address": "007ce220",
+   "bytes": 29,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVAbstractClass@@@8",
+   "address": "007ce240",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007d1598",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09JKEA@MOUSE?4SHP?$AA@",
+   "address": "007db964",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@UDirtyAreaStruct@@@@@8",
+   "address": "007f6978",
+   "bytes": 47,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@UDirtyAreaStruct@@@@@8",
+   "address": "007f69a8",
+   "bytes": 54,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAVShadowControlClass@@@@@8",
+   "address": "007f69e0",
+   "bytes": 52,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAVShadowControlClass@@@@@8",
+   "address": "007f6a18",
+   "bytes": 59,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVTactical@@@8",
+   "address": "007f6a58",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_1BM@JCCC@?$AA?$CF?$AAs?$AA?5?$AA?5?$AA?$CF?$AA0?$AA2?$AAd?$AA?3?$AA?$CF?$AA0?$AA2?$AAd?$AA?$AA@",
+   "address": "007f6a98",
+   "bytes": 28,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_1CC@MCKI@?$AA?$CF?$AAs?$AA?5?$AA?5?$AA?$CF?$AAd?$AA?3?$AA?$CF?$AA0?$AA2?$AAd?$AA?3?$AA?$CF?$AA0?$AA2?$AAd?$AA?$AA@",
+   "address": "007f6ab4",
+   "bytes": 34,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00691eb0",
+   "symbol": "??0Tactical@@QAE@XZ",
+   "target": "006a24b0",
+   "function_entry": true
+  },
+  {
+   "site": "0062fbd0",
+   "symbol": "?Pixel_To_Coord@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
+   "target": "006a2b10",
+   "function_entry": true
+  },
+  {
+   "site": "0062fbd0",
+   "symbol": "?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z",
+   "target": "006a6bd0",
+   "function_entry": true
+  },
+  {
+   "site": "0062fbd0",
+   "symbol": "?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z",
+   "target": "006a6bd0",
+   "function_entry": true
+  },
+  {
+   "site": "00591860",
+   "symbol": "?Unknown_006A29B0@@YIHH@Z",
+   "target": "006a29b0",
+   "function_entry": true
+  },
+  {
+   "site": "0071e020",
+   "symbol": "?Unknown_006A29B0@@YIHH@Z",
+   "target": "006a29b0",
+   "function_entry": true
+  },
+  {
+   "site": "006d6e60",
+   "symbol": "?Unknown_006A6A50@UnknownTacticalView@@QAE?AVCell@@ABUCoordStruct@@@Z",
+   "target": "006a6a50",
+   "function_entry": true
+  },
+  {
+   "site": "00442060",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "006107a0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "006111c0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00611360",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00612230",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00612b90",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "006f0ff0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "006f0ff0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00617250",
+   "symbol": "?Unknown_006AAD40@Tactical@@QAEXXZ",
+   "target": "006aad40",
+   "function_entry": true
+  },
+  {
+   "site": "00619fa0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00421580",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "0060a670",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "0060a670",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00499fc0",
+   "symbol": "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z",
+   "target": "006a8d40",
+   "function_entry": true
+  },
+  {
+   "site": "00499fc0",
+   "symbol": "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z",
+   "target": "006a8d40",
+   "function_entry": true
+  },
+  {
+   "site": "00499fc0",
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "target": "006aadd0",
+   "function_entry": true
+  },
+  {
+   "site": "0049a0f0",
+   "symbol": "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z",
+   "target": "006a8d40",
+   "function_entry": true
+  },
+  {
+   "site": "0049a0f0",
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "target": "006aadd0",
+   "function_entry": true
+  },
+  {
+   "site": "0049a0f0",
+   "symbol": "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z",
+   "target": "006a8d40",
+   "function_entry": true
+  },
+  {
+   "site": "0049a0f0",
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "target": "006aadd0",
+   "function_entry": true
+  },
+  {
+   "site": "0049a0f0",
+   "symbol": "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z",
+   "target": "006a8d40",
+   "function_entry": true
+  },
+  {
+   "site": "0049a0f0",
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "target": "006aadd0",
+   "function_entry": true
+  },
+  {
+   "site": "0049a0f0",
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "target": "006aadd0",
+   "function_entry": true
+  },
+  {
+   "site": "0049c500",
+   "symbol": "?Modify_Rubber_Band@Tactical@@QAEXABUPoint2D@@@Z",
+   "target": "006aa5e0",
+   "function_entry": true
+  },
+  {
+   "site": "0049c500",
+   "symbol": "?Start_Rubber_Band@Tactical@@QAEXABUPoint2D@@@Z",
+   "target": "006aa5a0",
+   "function_entry": true
+  },
+  {
+   "site": "0049ebf0",
+   "symbol": "?Unknown_006AA770@Tactical@@QAEXXZ",
+   "target": "006aa770",
+   "function_entry": true
+  },
+  {
+   "site": "0049cdb0",
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "target": "006aadd0",
+   "function_entry": true
+  },
+  {
+   "site": "0049cdb0",
+   "symbol": "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z",
+   "target": "006a8d40",
+   "function_entry": true
+  },
+  {
+   "site": "0049cdb0",
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "target": "006aadd0",
+   "function_entry": true
+  },
+  {
+   "site": "0049cf00",
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "target": "006aadd0",
+   "function_entry": true
+  },
+  {
+   "site": "0049cf00",
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "target": "006aadd0",
+   "function_entry": true
+  },
+  {
+   "site": "006e47d0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "0043b7a0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "006bc4c0",
+   "symbol": "?Setup_Trigger_Scroll@Tactical@@QAEXABUCoordStruct@@H@Z",
+   "target": "006a2cb0",
+   "function_entry": true
+  },
+  {
+   "site": "004b2170",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "004b2170",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "004b1850",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "004b1850",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "004b1850",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "004b1850",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "004b2210",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "004b2210",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "0043a200",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00450dd0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "004536d0",
+   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "target": "006a2900",
+   "function_entry": true
+  },
+  {
+   "site": "0043bbd0",
+   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "target": "006a2900",
+   "function_entry": true
+  },
+  {
+   "site": "0044ed60",
+   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "target": "006a2900",
+   "function_entry": true
+  },
+  {
+   "site": "005dbd00",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "005dbd00",
+   "symbol": "?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z",
+   "target": "006a6bd0",
+   "function_entry": true
+  },
+  {
+   "site": "005dbd00",
+   "symbol": "?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z",
+   "target": "006a6bd0",
+   "function_entry": true
+  },
+  {
+   "site": "005d34e0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "005d3700",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "005d3700",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "005d3890",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "005d3890",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "0044c9a0",
+   "symbol": "?Unknown_006A2BF0@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
+   "target": "006a2bf0",
+   "function_entry": true
+  },
+  {
+   "site": "0044ea30",
+   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "target": "006a2900",
+   "function_entry": true
+  },
+  {
+   "site": "0044ea30",
+   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "target": "006a2900",
+   "function_entry": true
+  },
+  {
+   "site": "0044ea30",
+   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "target": "006a2900",
+   "function_entry": true
+  },
+  {
+   "site": "0044ea30",
+   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "target": "006a2900",
+   "function_entry": true
+  },
+  {
+   "site": "0044ebf0",
+   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "target": "006a2900",
+   "function_entry": true
+  },
+  {
+   "site": "0044ebf0",
+   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "target": "006a2900",
+   "function_entry": true
+  },
+  {
+   "site": "0044ebf0",
+   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "target": "006a2900",
+   "function_entry": true
+  },
+  {
+   "site": "00499bb0",
+   "symbol": "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z",
+   "target": "006a8d40",
+   "function_entry": true
+  },
+  {
+   "site": "00499bb0",
+   "symbol": "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z",
+   "target": "006a8d40",
+   "function_entry": true
+  },
+  {
+   "site": "00499bb0",
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "target": "006aadd0",
+   "function_entry": true
+  },
+  {
+   "site": "00499bb0",
+   "symbol": "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z",
+   "target": "006a8d40",
+   "function_entry": true
+  },
+  {
+   "site": "00499bb0",
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "target": "006aadd0",
+   "function_entry": true
+  },
+  {
+   "site": "00499bb0",
+   "symbol": "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z",
+   "target": "006a8d40",
+   "function_entry": true
+  },
+  {
+   "site": "00499bb0",
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "target": "006aadd0",
+   "function_entry": true
+  },
+  {
+   "site": "00499bb0",
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "target": "006aadd0",
+   "function_entry": true
+  },
+  {
+   "site": "00499bb0",
+   "symbol": "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z",
+   "target": "006a8d40",
+   "function_entry": true
+  },
+  {
+   "site": "00499bb0",
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "target": "006aadd0",
+   "function_entry": true
+  },
+  {
+   "site": "00499bb0",
+   "symbol": "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z",
+   "target": "006a8d40",
+   "function_entry": true
+  },
+  {
+   "site": "00499bb0",
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "target": "006aadd0",
+   "function_entry": true
+  },
+  {
+   "site": "00499bb0",
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "target": "006aadd0",
+   "function_entry": true
+  },
+  {
+   "site": "006ca020",
+   "symbol": "?Coord_To_Pixel_Absolute@Tactical@@QAE?AUPoint2D@@ABUCoordStruct@@@Z",
+   "target": "006a27a0",
+   "function_entry": true
+  },
+  {
+   "site": "006ca020",
+   "symbol": "?Coord_To_Pixel_Absolute@Tactical@@QAE?AUPoint2D@@ABUCoordStruct@@@Z",
+   "target": "006a27a0",
+   "function_entry": true
+  },
+  {
+   "site": "006ca1d0",
+   "symbol": "?Coord_To_Pixel_Absolute@Tactical@@QAE?AUPoint2D@@ABUCoordStruct@@@Z",
+   "target": "006a27a0",
+   "function_entry": true
+  },
+  {
+   "site": "006ca1d0",
+   "symbol": "?Coord_To_Pixel_Absolute@Tactical@@QAE?AUPoint2D@@ABUCoordStruct@@@Z",
+   "target": "006a27a0",
+   "function_entry": true
+  },
+  {
+   "site": "0049ae70",
+   "symbol": "?Pixel_To_Coord@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
+   "target": "006a2b10",
+   "function_entry": true
+  },
+  {
+   "site": "0047a4e0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "0047a4e0",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "??0Tactical@@QAE@XZ",
+   "target": "006a24b0",
+   "function_entry": true
+  },
+  {
+   "site": "006880d0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "0053d1c0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "006e3b40",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "00635810",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00635810",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00635810",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "00635810",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "00635e00",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00635e00",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00635e00",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "00635e00",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "00475520",
+   "symbol": "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z",
+   "target": "006a8d40",
+   "function_entry": true
+  },
+  {
+   "site": "00475520",
+   "symbol": "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z",
+   "target": "006a8d40",
+   "function_entry": true
+  },
+  {
+   "site": "006b1b00",
+   "symbol": "?Setup_Trigger_Scroll@Tactical@@QAEXABUCoordStruct@@H@Z",
+   "target": "006a2cb0",
+   "function_entry": true
+  },
+  {
+   "site": "006b14d0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "006b14d0",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "00493c80",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "0042da20",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "006a2dd0",
+   "symbol": "?Unknown_006A8C80@Tactical@@QAE_NPAUPoint2D@@@Z",
+   "target": "006a8c80",
+   "function_entry": true
+  },
+  {
+   "site": "006a2dd0",
+   "symbol": "?Unknown_006A9170@Tactical@@QAEXXZ",
+   "target": "006a9170",
+   "function_entry": true
+  },
+  {
+   "site": "006a2dd0",
+   "symbol": "?Unknown_006A8C80@Tactical@@QAE_NPAUPoint2D@@@Z",
+   "target": "006a8c80",
+   "function_entry": true
+  },
+  {
+   "site": "006a2dd0",
+   "symbol": "?Unknown_006A9170@Tactical@@QAEXXZ",
+   "target": "006a9170",
+   "function_entry": true
+  },
+  {
+   "site": "006a65a0",
+   "symbol": "?Unknown_006A8C80@Tactical@@QAE_NPAUPoint2D@@@Z",
+   "target": "006a8c80",
+   "function_entry": true
+  },
+  {
+   "site": "006a65a0",
+   "symbol": "?Unknown_006A9170@Tactical@@QAEXXZ",
+   "target": "006a9170",
+   "function_entry": true
+  },
+  {
+   "site": "006a6640",
+   "symbol": "?Unknown_006A8C80@Tactical@@QAE_NPAUPoint2D@@@Z",
+   "target": "006a8c80",
+   "function_entry": true
+  },
+  {
+   "site": "006a6640",
+   "symbol": "?Unknown_006A9170@Tactical@@QAEXXZ",
+   "target": "006a9170",
+   "function_entry": true
+  },
+  {
+   "site": "004c0dd0",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "004c03b0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "006aa840",
+   "symbol": "?Unknown_006A8C80@Tactical@@QAE_NPAUPoint2D@@@Z",
+   "target": "006a8c80",
+   "function_entry": true
+  },
+  {
+   "site": "00713f30",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "0070d380",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "0070d380",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "007072d0",
+   "symbol": "?Unknown_006A6A50@UnknownTacticalView@@QAE?AVCell@@ABUCoordStruct@@@Z",
+   "target": "006a6a50",
+   "function_entry": true
+  },
+  {
+   "site": "006e3170",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "006e3990",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "0051d1c0",
+   "symbol": "?Unknown_006A67D0@Tactical@@QAE?AUPoint2D@@XZ",
+   "target": "006a67d0",
+   "function_entry": true
+  },
+  {
+   "site": "0051d1c0",
+   "symbol": "?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z",
+   "target": "006a6bd0",
+   "function_entry": true
+  },
+  {
+   "site": "0051d280",
+   "symbol": "?Unknown_006A67D0@Tactical@@QAE?AUPoint2D@@XZ",
+   "target": "006a67d0",
+   "function_entry": true
+  },
+  {
+   "site": "0051d280",
+   "symbol": "?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z",
+   "target": "006a6bd0",
+   "function_entry": true
+  },
+  {
+   "site": "0051d340",
+   "symbol": "?Unknown_006A67D0@Tactical@@QAE?AUPoint2D@@XZ",
+   "target": "006a67d0",
+   "function_entry": true
+  },
+  {
+   "site": "0051d340",
+   "symbol": "?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z",
+   "target": "006a6bd0",
+   "function_entry": true
+  },
+  {
+   "site": "0051d400",
+   "symbol": "?Unknown_006A67D0@Tactical@@QAE?AUPoint2D@@XZ",
+   "target": "006a67d0",
+   "function_entry": true
+  },
+  {
+   "site": "0051d400",
+   "symbol": "?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z",
+   "target": "006a6bd0",
+   "function_entry": true
+  },
+  {
+   "site": "0051fc90",
+   "symbol": "?Unknown_006A29B0@@YIHH@Z",
+   "target": "006a29b0",
+   "function_entry": true
+  },
+  {
+   "site": "006f69f0",
+   "symbol": "?Count@UnknownSelection@@QAEHXZ",
+   "target": "006ac7b0",
+   "function_entry": true
+  },
+  {
+   "site": "006f69f0",
+   "symbol": "?Get@UnknownSelection@@QAEPAVObjectClass@@H@Z",
+   "target": "006ac7c0",
+   "function_entry": true
+  },
+  {
+   "site": "006f7800",
+   "symbol": "?Count@UnknownSelection@@QAEHXZ",
+   "target": "006ac7b0",
+   "function_entry": true
+  },
+  {
+   "site": "006f7800",
+   "symbol": "?Get@UnknownSelection@@QAEPAVObjectClass@@H@Z",
+   "target": "006ac7c0",
+   "function_entry": true
+  },
+  {
+   "site": "006f6d00",
+   "symbol": "?Unknown_006AAD70@UnknownSelection@@QAEXXZ",
+   "target": "006aad70",
+   "function_entry": true
+  },
+  {
+   "site": "006f6d00",
+   "symbol": "?Count@UnknownSelection@@QAEHXZ",
+   "target": "006ac7b0",
+   "function_entry": true
+  },
+  {
+   "site": "006f6d00",
+   "symbol": "?Get@UnknownSelection@@QAEPAVObjectClass@@H@Z",
+   "target": "006ac7c0",
+   "function_entry": true
+  },
+  {
+   "site": "006f6d00",
+   "symbol": "?Unknown_006AAD40@UnknownSelection@@QAEXXZ",
+   "target": "006aad40",
+   "function_entry": true
+  },
+  {
+   "site": "006f7b80",
+   "symbol": "?Unknown_006AAD40@UnknownSelection@@QAEXXZ",
+   "target": "006aad40",
+   "function_entry": true
+  },
+  {
+   "site": "006f7b80",
+   "symbol": "?Unknown_006AAD40@UnknownSelection@@QAEXXZ",
+   "target": "006aad40",
+   "function_entry": true
+  },
+  {
+   "site": "006f7ec0",
+   "symbol": "?Unknown_006AAD40@UnknownSelection@@QAEXXZ",
+   "target": "006aad40",
+   "function_entry": true
+  },
+  {
+   "site": "006f7ec0",
+   "symbol": "?Unknown_006AAD40@UnknownSelection@@QAEXXZ",
+   "target": "006aad40",
+   "function_entry": true
+  },
+  {
+   "site": "006f79c0",
+   "symbol": "?Count@UnknownSelection@@QAEHXZ",
+   "target": "006ac7b0",
+   "function_entry": true
+  },
+  {
+   "site": "006f79c0",
+   "symbol": "?Get@UnknownSelection@@QAEPAVObjectClass@@H@Z",
+   "target": "006ac7c0",
+   "function_entry": true
+  },
+  {
+   "site": "0049a370",
+   "symbol": "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z",
+   "target": "006a8d40",
+   "function_entry": true
+  },
+  {
+   "site": "0049a370",
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "target": "006aadd0",
+   "function_entry": true
+  },
+  {
+   "site": "0049a370",
+   "symbol": "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z",
+   "target": "006a8d40",
+   "function_entry": true
+  },
+  {
+   "site": "0049a370",
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "target": "006aadd0",
+   "function_entry": true
+  },
+  {
+   "site": "0049a370",
+   "symbol": "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z",
+   "target": "006a8d40",
+   "function_entry": true
+  },
+  {
+   "site": "0049a370",
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "target": "006aadd0",
+   "function_entry": true
+  },
+  {
+   "site": "0049a370",
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "target": "006aadd0",
+   "function_entry": true
+  },
+  {
+   "site": "0043eba0",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "0043eba0",
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "target": "006aadd0",
+   "function_entry": true
+  },
+  {
+   "site": "004499d0",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "??0Tactical@@QAE@XZ",
+   "target": "006a24b0",
+   "function_entry": true
+  },
+  {
+   "site": "00474eb0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00475100",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00550eb0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00550eb0",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "005510a0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "005510a0",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "0055a300",
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "target": "006aadd0",
+   "function_entry": true
+  },
+  {
+   "site": "0055a300",
+   "symbol": "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z",
+   "target": "006a8d40",
+   "function_entry": true
+  },
+  {
+   "site": "0055a300",
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "target": "006aadd0",
+   "function_entry": true
+  },
+  {
+   "site": "0054a8f0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "0054a8f0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "004395f0",
+   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "target": "006a2900",
+   "function_entry": true
+  },
+  {
+   "site": "00549c50",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "00549c50",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "0044ca60",
+   "symbol": "?Unknown_006A2BF0@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
+   "target": "006a2bf0",
+   "function_entry": true
+  },
+  {
+   "site": "004e6950",
+   "symbol": "?Pixel_To_Coord@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
+   "target": "006a2b10",
+   "function_entry": true
+  },
+  {
+   "site": "00500550",
+   "symbol": "?Add_To_Selectables@Tactical@@QAE_NPAVObjectClass@@UPoint2D@@@Z",
+   "target": "006aa510",
+   "function_entry": true
+  },
+  {
+   "site": "00500550",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "00500550",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "00500550",
+   "symbol": "?Add_To_Selectables@Tactical@@QAE_NPAVObjectClass@@UPoint2D@@@Z",
+   "target": "006aa510",
+   "function_entry": true
+  },
+  {
+   "site": "006b7ad0",
+   "symbol": "?Setup_Trigger_Scroll@Tactical@@QAEXABUCoordStruct@@H@Z",
+   "target": "006a2cb0",
+   "function_entry": true
+  },
+  {
+   "site": "006cc020",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "006cc020",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "0047c080",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "0054a550",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "0054a550",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "0054a550",
+   "symbol": "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z",
+   "target": "006a8d40",
+   "function_entry": true
+  },
+  {
+   "site": "0054a550",
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "target": "006aadd0",
+   "function_entry": true
+  },
+  {
+   "site": "0054a720",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "0054a720",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "0054e6e0",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "006d1510",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "006d1510",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "006d1510",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "006d1510",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "006d1510",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "0053fbd0",
+   "symbol": "?Get_Tactical_Position@Tactical@@QAE?AUPoint2D@@XZ",
+   "target": "006a67b0",
+   "function_entry": true
+  },
+  {
+   "site": "006c83f0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "006c83f0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "006c86f0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "006c86f0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "005d3060",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "004939a0",
+   "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+   "target": "006aadd0",
+   "function_entry": true
+  },
+  {
+   "site": "00493ad0",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "004c0670",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "00475fe0",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "005334f0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "005334f0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "005334f0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "005334f0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "00669650",
+   "symbol": "?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z",
+   "target": "006a6bd0",
+   "function_entry": true
+  },
+  {
+   "site": "00669650",
+   "symbol": "?Pixel_To_Coord@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
+   "target": "006a2b10",
+   "function_entry": true
+  },
+  {
+   "site": "00669650",
+   "symbol": "?Get_Selectable_Object_006aa990@Tactical@@QAEPAVObjectClass@@ABUPoint2D@@@Z",
+   "target": "006aa990",
+   "function_entry": true
+  },
+  {
+   "site": "0054a110",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "0054a110",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "00610a20",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00611640",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "006116b0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "006e4430",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "0055fcc0",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "005606d0",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "005601f0",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "00560c10",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "006f5f00",
+   "symbol": "?Unknown_006AAD40@UnknownSelection@@QAEXXZ",
+   "target": "006aad40",
+   "function_entry": true
+  },
+  {
+   "site": "006f60d0",
+   "symbol": "?Unknown_006AAD40@UnknownSelection@@QAEXXZ",
+   "target": "006aad40",
+   "function_entry": true
+  },
+  {
+   "site": "00562f50",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00562f50",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00562f50",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "00562f50",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00562f50",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00562f50",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "006afd80",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "006afd80",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "005615a0",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "00561a80",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "00561f60",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "00562450",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "004141c0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "004141c0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "004141c0",
+   "symbol": "?Add_To_Selectables@Tactical@@QAE_NPAVObjectClass@@UPoint2D@@@Z",
+   "target": "006aa510",
+   "function_entry": true
+  },
+  {
+   "site": "00451bf0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00475960",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "00521340",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00521340",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00609d10",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "00609d10",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00609d10",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "00420e50",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "00420e50",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "00420e50",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "00420e50",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "00420e50",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "00420e50",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "006c74c0",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "005d31c0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "0057ae00",
+   "symbol": "??0Tactical@@QAE@XZ",
+   "target": "006a24b0",
+   "function_entry": true
+  },
+  {
+   "site": "0057ae00",
+   "symbol": "?Reset_Dirty_Rectangles@Tactical@@QAEXXZ",
+   "target": "006aaf80",
+   "function_entry": true
+  },
+  {
+   "site": "0054b560",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "0054b560",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00552570",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "00552570",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "00552570",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "0054be80",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "0054be80",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "0049bb20",
+   "symbol": "?Unknown_006AA6A0@Tactical@@QAEHXZ",
+   "target": "006aa6a0",
+   "function_entry": true
+  },
+  {
+   "site": "0049bb20",
+   "symbol": "?Unknown_006AA610@Tactical@@QAEXP6IXPAVObjectClass@@@Z@Z",
+   "target": "006aa610",
+   "function_entry": true
+  },
+  {
+   "site": "00553570",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "00558bd0",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "0070cfc0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "0070cfc0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "0070cfc0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "0065d370",
+   "symbol": "??0Tactical@@QAE@XZ",
+   "target": "006a24b0",
+   "function_entry": true
+  },
+  {
+   "site": "0065d370",
+   "symbol": "?Reset_Dirty_Rectangles@Tactical@@QAEXXZ",
+   "target": "006aaf80",
+   "function_entry": true
+  },
+  {
+   "site": "006358d0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "006358d0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "006358d0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "006358d0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "006c2c40",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "006c2c40",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "0043c930",
+   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "target": "006a2900",
+   "function_entry": true
+  },
+  {
+   "site": "0043a5e0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "0043a5e0",
+   "symbol": "?Coord_To_Pixel_Absolute@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "target": "006a2870",
+   "function_entry": true
+  },
+  {
+   "site": "0043a5e0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "0043a5e0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "0043a5e0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "0043a5e0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "0043abd0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "0043abd0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "00521ce0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00521ce0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "004752b0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00608bb0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "006d0510",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "006d0510",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "006182f0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "006182f0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "006182f0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "006182f0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00618c00",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00618c00",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00618c00",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00618c00",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00619420",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00619420",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00619870",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00619870",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "0070fdf0",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "00619bd0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00685ac0",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "00685ac0",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "004cab90",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "004cab90",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "006a66b0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "006a66b0",
+   "symbol": "?Unknown_006A8C80@Tactical@@QAE_NPAUPoint2D@@@Z",
+   "target": "006a8c80",
+   "function_entry": true
+  },
+  {
+   "site": "006a66b0",
+   "symbol": "?Unknown_006A9170@Tactical@@QAEXXZ",
+   "target": "006a9170",
+   "function_entry": true
+  },
+  {
+   "site": "0043a380",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "0043a380",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "00700e70",
+   "symbol": "?Add_To_Selectables@Tactical@@QAE_NPAVObjectClass@@UPoint2D@@@Z",
+   "target": "006aa510",
+   "function_entry": true
+  },
+  {
+   "site": "00700e70",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "0047a7a0",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "0047a7a0",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "006adae0",
+   "symbol": "?Setup_Trigger_Scroll@Tactical@@QAEXABUCoordStruct@@H@Z",
+   "target": "006a2cb0",
+   "function_entry": true
+  },
+  {
+   "site": "00614010",
+   "symbol": "?Unknown_006AAD40@Tactical@@QAEXXZ",
+   "target": "006aad40",
+   "function_entry": true
+  },
+  {
+   "site": "00633210",
+   "symbol": "?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z",
+   "target": "006a6bd0",
+   "function_entry": true
+  },
+  {
+   "site": "004b1900",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "004b1900",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "004b1900",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "004b1900",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "004b1900",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "004b1900",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "004b1900",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "004b1900",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "004b1900",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "004b1900",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "004b1900",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "004b1900",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "005ddb90",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00472540",
+   "symbol": "?Unknown_006A2BF0@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
+   "target": "006a2bf0",
+   "function_entry": true
+  },
+  {
+   "site": "0043bfc0",
+   "symbol": "?Unknown_006A2BF0@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
+   "target": "006a2bf0",
+   "function_entry": true
+  },
+  {
+   "site": "007238b0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "007238b0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "007238b0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "007238b0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "007238b0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "007238b0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "005395c0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "005395c0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "005395c0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "005395c0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "0043b7e0",
+   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "target": "006a2900",
+   "function_entry": true
+  },
+  {
+   "site": "00504120",
+   "symbol": "?Coord_To_Cell@Tactical@@QAE?AVCell@@ABUCoordStruct@@@Z",
+   "target": "006a6a50",
+   "function_entry": true
+  },
+  {
+   "site": "00533c80",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00533c80",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00533c80",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "00533c80",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "004610d0",
+   "symbol": "?Bullet_Height_Pixel@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "004610d0",
+   "symbol": "?Bullet_Height_Pixel@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "004610d0",
+   "symbol": "?Bullet_Height_Pixel@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "00553000",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00553000",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00710880",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00710880",
+   "symbol": "?Add_To_Selectables@Tactical@@QAE_NPAVObjectClass@@UPoint2D@@@Z",
+   "target": "006aa510",
+   "function_entry": true
+  },
+  {
+   "site": "004c1010",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "004c1010",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "004c1010",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "004c1010",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "004c1010",
+   "symbol": "?Coord_To_Pixel_Absolute@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "target": "006a2870",
+   "function_entry": true
+  },
+  {
+   "site": "004c1010",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "004c1010",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "004c1010",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "004c1010",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "00558660",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00558660",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "006d0dc0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "006d0dc0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "006d0dc0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "006d0dc0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "005502e0",
+   "symbol": "?Coord_To_Cell@Tactical@@QAE?AVCell@@ABUCoordStruct@@@Z",
+   "target": "006a6a50",
+   "function_entry": true
+  },
+  {
+   "site": "005502e0",
+   "symbol": "?Coord_To_Cell@Tactical@@QAE?AVCell@@ABUCoordStruct@@@Z",
+   "target": "006a6a50",
+   "function_entry": true
+  },
+  {
+   "site": "005502e0",
+   "symbol": "?Coord_To_Cell@Tactical@@QAE?AVCell@@ABUCoordStruct@@@Z",
+   "target": "006a6a50",
+   "function_entry": true
+  },
+  {
+   "site": "005502e0",
+   "symbol": "?Coord_To_Cell@Tactical@@QAE?AVCell@@ABUCoordStruct@@@Z",
+   "target": "006a6a50",
+   "function_entry": true
+  },
+  {
+   "site": "005502e0",
+   "symbol": "?Coord_To_Cell@Tactical@@QAE?AVCell@@ABUCoordStruct@@@Z",
+   "target": "006a6a50",
+   "function_entry": true
+  },
+  {
+   "site": "006df6c0",
+   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "target": "006a2900",
+   "function_entry": true
+  },
+  {
+   "site": "00433380",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00433380",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00433380",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "00433380",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "00433380",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "00555a60",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "00555a60",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "00555a60",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "006cfea0",
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "target": "006a2970",
+   "function_entry": true
+  },
+  {
+   "site": "00421710",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "0047c3a0",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "0047c3a0",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "0047e2c0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "0047e2c0",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  },
+  {
+   "site": "0047e2c0",
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "target": "006a29d0",
+   "function_entry": true
+  },
+  {
+   "site": "0047e2c0",
+   "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
+   "target": "006a3020",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0AbstractClass@@QAE@ABVNoInitClass@@@Z",
+   "address": "0040ff60"
+  },
+  {
+   "symbol": "??0AbstractClass@@QAE@XZ",
+   "address": "0040ff10"
+  },
+  {
+   "symbol": "??0UnknownCoord434820@@QAE@HHH@Z",
+   "address": "00434820"
+  },
+  {
+   "symbol": "??1AbstractClass@@UAE@XZ",
+   "address": "0040ff90"
+  },
+  {
+   "symbol": "??1WaypointClass@@QAE@XZ",
+   "address": "00724b00"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??AMapClass@@QAEAAVCellClass@@ABUCoordStruct@@@Z",
+   "address": "00548000"
+  },
+  {
+   "symbol": "??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z",
+   "address": "00548070"
+  },
+  {
+   "symbol": "??BSystemTimerClass@@QBEJXZ",
+   "address": "0069a430"
+  },
+  {
+   "symbol": "??D@YI?AUVector3@@ABVMatrix3D@@ABU0@@Z",
+   "address": "00591380"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVShadowControlClass@@@@UAEPAXI@Z",
+   "address": "006ad0b0"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@UDirtyAreaStruct@@@@UAEPAXI@Z",
+   "address": "006ad010"
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVShadowControlClass@@@@UAEPAXI@Z",
+   "address": "006ad060"
+  },
+  {
+   "symbol": "??_G?$VectorClass@UDirtyAreaStruct@@@@UAEPAXI@Z",
+   "address": "006acfc0"
+  },
+  {
+   "symbol": "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z",
+   "address": "0040b230"
+  },
+  {
+   "symbol": "??_GTactical@@UAEPAXI@Z",
+   "address": "006ac800"
+  },
+  {
+   "symbol": "?AI@Tactical@@UAEXXZ",
+   "address": "006a2dd0"
+  },
+  {
+   "symbol": "?AbstractClass_Save_004100c0@seed_006ac400@@YGIHHH@Z",
+   "address": "004100c0"
+  },
+  {
+   "symbol": "?AbstractClass_dtor_0040ff90@seed_006ac800@@YIXXZ",
+   "address": "0040ff90"
+  },
+  {
+   "symbol": "?AddRef@AbstractClass@@UAGKXZ",
+   "address": "004100a0"
+  },
+  {
+   "symbol": "?AdjacentCell@@3QBVCell@@B",
+   "address": "00851a70"
+  },
+  {
+   "symbol": "?Adjacent_Cell@CellClass@@QAEAAV1@I@Z",
+   "address": "00476ac0"
+  },
+  {
+   "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
+   "address": "008315b4"
+  },
+  {
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "address": "004092d0"
+  },
+  {
+   "symbol": "?BitFont@@3PAVBitFontClass@@A",
+   "address": "0084e9e8"
+  },
+  {
+   "symbol": "?BitText@@3PAVBitTextClass@@A",
+   "address": "0084e9d0"
+  },
+  {
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "address": "0049eea0"
+  },
+  {
+   "symbol": "?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ",
+   "address": "004717b0"
+  },
+  {
+   "symbol": "?Cell_Render_Rect@CellClass@@QBE?AVRect@@XZ",
+   "address": "004752b0"
+  },
+  {
+   "symbol": "?Cell_Terrain@CellClass@@QBEPAVObjectClass@@_N@Z",
+   "address": "004717e0"
+  },
+  {
+   "symbol": "?Center_Coord@AbstractClass@@UBE?AUCoordStruct@@XZ",
+   "address": "00410260"
+  },
+  {
+   "symbol": "?Clip_Line@@YI_NAAUPoint2D@@0ABVRect@@@Z",
+   "address": "00775620"
+  },
+  {
+   "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+   "address": "00ab6ef8"
+  },
+  {
+   "symbol": "?Compute_CRC@AbstractClass@@UBEXAAVWWCRCEngine@@@Z",
+   "address": "004101b0"
+  },
+  {
+   "symbol": "?Create_ID@AbstractClass@@UAGXXZ",
+   "address": "0040ffd0"
+  },
+  {
+   "symbol": "?Debug_Map@@3_NA",
+   "address": "00a40d13"
+  },
+  {
+   "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
+   "address": "00839c6c"
+  },
+  {
+   "symbol": "?Draw_Fogged_Objects@@YIXABVRect@@@Z",
+   "address": "004c1010"
+  },
+  {
+   "symbol": "?Draw_In_Area@AlphaShapeClass@@SIXABUPoint2D@@ABVRect@@@Z",
+   "address": "0041f1c0"
+  },
+  {
+   "symbol": "?Draw_It@CellClass@@QAEXABUPoint2D@@ABVRect@@_N@Z",
+   "address": "00475680"
+  },
+  {
+   "symbol": "?Draw_Overlay@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z",
+   "address": "004749c0"
+  },
+  {
+   "symbol": "?Draw_Overlay_Shadow@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z",
+   "address": "00474830"
+  },
+  {
+   "symbol": "?Draw_Placement_Cursor@CellClass@@QAE_NABUPoint2D@@ABVRect@@_N@Z",
+   "address": "00473f20"
+  },
+  {
+   "symbol": "?Draw_Rally_Pattern@@3PA_NA",
+   "address": "007f6954"
+  },
+  {
+   "symbol": "?Draw_Selection_Overlay_0043b660@BuildingClass@@QAEXABUPoint2D@@ABVRect@@@Z",
+   "address": "0043b660"
+  },
+  {
+   "symbol": "?Draw_Shadow_Cast@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z",
+   "address": "004755d0"
+  },
+  {
+   "symbol": "?Draw_Shroud_And_Fog@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z",
+   "address": "00475520"
+  },
+  {
+   "symbol": "?Draw_Tiles@Tactical@@QAEXABVCell@@ABVRect@@@Z",
+   "address": "006a8560"
+  },
+  {
+   "symbol": "?Fancy_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIH@Z",
+   "address": "00497990"
+  },
+  {
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "address": "00497b40"
+  },
+  {
+   "symbol": "?Fast_Sin@@YANN@Z",
+   "address": "004ba480"
+  },
+  {
+   "symbol": "?Fetch_Heap_ID@AbstractClass@@UBEHXZ",
+   "address": "00410250"
+  },
+  {
+   "symbol": "?Fetch_ID@AbstractClass@@UAGJXZ",
+   "address": "0040ffc0"
+  },
+  {
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "address": "00497a50"
+  },
+  {
+   "symbol": "?Frame@@3HA",
+   "address": "00a40d2c"
+  },
+  {
+   "symbol": "?GetSizeMax@AbstractClass@@UAGJPATULARGE_INTEGER@@@Z",
+   "address": "00410180"
+  },
+  {
+   "symbol": "?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z",
+   "address": "0055a280"
+  },
+  {
+   "symbol": "?Get_Mouse_Count@MouseClass@@QBEHH@Z",
+   "address": "0059ff40"
+  },
+  {
+   "symbol": "?Get_Mouse_Start@MouseClass@@QBEHH@Z",
+   "address": "0059ff20"
+  },
+  {
+   "symbol": "?Get_Text_Area@BitFontClass@@QAE_NPBGPAH1H@Z",
+   "address": "004314b0"
+  },
+  {
+   "symbol": "?Get_Waypoint@WaypointPathClass@@QAEPAUWaypointClass@@H@Z",
+   "address": "00724d60"
+  },
+  {
+   "symbol": "?INoticeSink_Unknown@AbstractClass@@UAE_NHH@Z",
+   "address": "00410320"
+  },
+  {
+   "symbol": "?INoticeSource_Unknown@AbstractClass@@UAGXXZ",
+   "address": "00410330"
+  },
+  {
+   "symbol": "?In_Air@AbstractClass@@UBE_NXZ",
+   "address": "004102d0"
+  },
+  {
+   "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
+   "address": "0054aab0"
+  },
+  {
+   "symbol": "?Infantry_As_Techno_0040dbd0@@YIPAVTechnoClass@@PAVObjectClass@@@Z",
+   "address": "0040dbd0"
+  },
+  {
+   "symbol": "?Init@AbstractClass@@UAEXXZ",
+   "address": "00410210"
+  },
+  {
+   "symbol": "?Intersect@@YI?AVRect@@ABV1@0PAH1@Z",
+   "address": "0041fdf0"
+  },
+  {
+   "symbol": "?IsDirty@AbstractClass@@UAGJXZ",
+   "address": "004101f0"
+  },
+  {
+   "symbol": "?Is_Clear_To_Build@CellClass@@QAE_NHPBVBuildingTypeClass@@PAVHouseClass@@@Z",
+   "address": "004718b0"
+  },
+  {
+   "symbol": "?Is_Fogged@MapClass@@QAE_NABUCoordStruct@@@Z",
+   "address": "005683c0"
+  },
+  {
+   "symbol": "?Is_Inactive@AbstractClass@@UBE_NXZ",
+   "address": "004101e0"
+  },
+  {
+   "symbol": "?Is_Player_Control@HouseClass@@QAE_NXZ",
+   "address": "004f52b0"
+  },
+  {
+   "symbol": "?Is_Sensed@UnknownCellClass@@QAE_NH@Z",
+   "address": "0047c2e0"
+  },
+  {
+   "symbol": "?Is_Shrouded@MapClass@@QAE_NABUCoordStruct@@@Z",
+   "address": "00568140"
+  },
+  {
+   "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
+   "address": "0055a490"
+  },
+  {
+   "symbol": "?Layer@DisplayClass@@2PAVLayerClass@@A",
+   "address": "00852578"
+  },
+  {
+   "symbol": "?Load@AbstractClass@@UAGJPAUIStream@@@Z",
+   "address": "00410120"
+  },
+  {
+   "symbol": "?MainWindow@@3PAUHWND__@@A",
+   "address": "00b263d8"
+  },
+  {
+   "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+   "address": "00590060"
+  },
+  {
+   "symbol": "?Make_Waypoint_Path@HouseClass@@QAEXH@Z",
+   "address": "004ee8a0"
+  },
+  {
+   "symbol": "?Map@@3VMouseClass@@A",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "?Next_Waypoint@WaypointPathClass@@QAEPAUWaypointClass@@PBU2@@Z",
+   "address": "00724f80"
+  },
+  {
+   "symbol": "?On_Ground@AbstractClass@@UBE_NXZ",
+   "address": "004102c0"
+  },
+  {
+   "symbol": "?Overlay_Render_Rect@CellClass@@QBE?AVRect@@XZ",
+   "address": "00474eb0"
+  },
+  {
+   "symbol": "?Overlay_Shadow_Render_Rect@CellClass@@QBE?AVRect@@XZ",
+   "address": "00475100"
+  },
+  {
+   "symbol": "?Owner@AbstractClass@@UBEHXZ",
+   "address": "00410230"
+  },
+  {
+   "symbol": "?Owning_House@AbstractClass@@UBEPAVHouseClass@@XZ",
+   "address": "00410240"
+  },
+  {
+   "symbol": "?Print@BitTextClass@@QAEHPAVBitFontClass@@PAVSurface@@PBGHHHH@Z",
+   "address": "00432350"
+  },
+  {
+   "symbol": "?QueryInterface@AbstractClass@@UAGJABUGUID@@PAPAX@Z",
+   "address": "00410000"
+  },
+  {
+   "symbol": "?Release@AbstractClass@@UAGKXZ",
+   "address": "004100b0"
+  },
+  {
+   "symbol": "?Reset_Iterator@MapClass@@QAEXXZ",
+   "address": "0055a550"
+  },
+  {
+   "symbol": "?Retrieve@MixFileClass@@SIPBXPBD@Z",
+   "address": "005956c0"
+  },
+  {
+   "symbol": "?Rotate_X@Matrix3D@@QAEXM@Z",
+   "address": "00590760"
+  },
+  {
+   "symbol": "?Rotate_Z@Matrix3D@@QAEXM@Z",
+   "address": "005909a0"
+  },
+  {
+   "symbol": "?Save@Tactical@@UAGJPAUIStream@@H@Z",
+   "address": "006ac400"
+  },
+  {
+   "symbol": "?Scale@Matrix3D@@QAEXM@Z",
+   "address": "00590210"
+  },
+  {
+   "symbol": "?Set_Clip_Box@BitFontClass@@QAEXPBUtagRECT@@@Z",
+   "address": "00431460"
+  },
+  {
+   "symbol": "?Set_Clipping@BitFontClass@@QAEEE@Z",
+   "address": "00431450"
+  },
+  {
+   "symbol": "?Set_Color@BitFontClass@@QAEGG@Z",
+   "address": "00431430"
+  },
+  {
+   "symbol": "?Set_Cursor_Shape@DisplayClass@@QAEXPBVCell@@@Z",
+   "address": "00499070"
+  },
+  {
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "address": "0069fb20"
+  },
+  {
+   "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+   "address": "00abd868"
+  },
+  {
+   "symbol": "?TransIconset@DisplayClass@@2PBXB",
+   "address": "00852614"
+  },
+  {
+   "symbol": "?Unknown_0041F5E0@@YIXABVRect@@@Z",
+   "address": "0041f5e0"
+  },
+  {
+   "symbol": "?Unknown_00499810@DisplayClass@@QAE?AVCell@@PBV2@@Z",
+   "address": "00499810"
+  },
+  {
+   "symbol": "?Unknown_006F71E0@@YIXPBD@Z",
+   "address": "006f71e0"
+  },
+  {
+   "symbol": "?Unknown_006F76B0@@YA_NXZ",
+   "address": "006f76b0"
+  },
+  {
+   "symbol": "?Unknown_006f6780@@YIXI@Z",
+   "address": "006f6780"
+  },
+  {
+   "symbol": "?Update@ABuffer@@QAEXVRect@@@Z",
+   "address": "004110b0"
+  },
+  {
+   "symbol": "?Update@ZBuffer@@QAEXVRect@@@Z",
+   "address": "007761c0"
+  },
+  {
+   "symbol": "?Update_Waypoint_Color@DisplayClass@@QAEXH@Z",
+   "address": "0049eb40"
+  },
+  {
+   "symbol": "?WWMouse@@3PAVMouse@@A",
+   "address": "00839c68"
+  },
+  {
+   "symbol": "?Waypoint_Line_Style@@3PA_NA",
+   "address": "007f6964"
+  },
+  {
+   "symbol": "?Waypoint_Mouse_Shapes@@3PAXA",
+   "address": "00abfd74"
+  },
+  {
+   "symbol": "?Waypoint_Text@@3PAGA",
+   "address": "00abe4c8"
+  },
+  {
+   "symbol": "?What_Am_I@AbstractClass@@UAGHXZ",
+   "address": "0040ffb0"
+  },
+  {
+   "symbol": "?operator_delete_00781d3b@seed_006ac800@@YAXI@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?unknown_4706c0@CellClass@@QBEHABUPoint2D@@@Z",
+   "address": "004706c0"
+  },
+  {
+   "symbol": "?unknown_4754b0@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z",
+   "address": "004754b0"
+  },
+  {
+   "symbol": "?unknown_475d60@CellClass@@QBE?AUCoordStruct@@XZ",
+   "address": "00475d60"
+  },
+  {
+   "symbol": "?unknown_BuildingClass_list_00a40af8@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A",
+   "address": "00a40af8"
+  },
+  {
+   "symbol": "?unknown_abe540@@3UPoint2D@@A",
+   "address": "00abe540"
+  },
+  {
+   "symbol": "?unknown_b263d8@@3HA",
+   "address": "00b263d8"
+  },
+  {
+   "symbol": "?unknown_drawer_8323c4@@3PAVConvertClass@@A",
+   "address": "008323c4"
+  },
+  {
+   "symbol": "?unknown_drawer_8323c8@@3PAVConvertClass@@A",
+   "address": "008323c8"
+  },
+  {
+   "symbol": "?unknown_game_mode_a3d298@@3HA",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_grfxtxt_drawer_a41678@@3PAVConvertClass@@A",
+   "address": "00a41678"
+  },
+  {
+   "symbol": "?unknown_grfxtxt_shape_a41674@@3PAXA",
+   "address": "00a41674"
+  },
+  {
+   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
+   "symbol": "?unknown_int_8325d0@@3HA",
+   "address": "008325d0"
+  },
+  {
+   "symbol": "?unknown_int_8325d8@@3HA",
+   "address": "008325d8"
+  },
+  {
+   "symbol": "?unknown_int_8325dc@@3HA",
+   "address": "008325dc"
+  },
+  {
+   "symbol": "?unknown_int_8325e0@@3HA",
+   "address": "008325e0"
+  },
+  {
+   "symbol": "?unknown_int_8325e4@@3HA",
+   "address": "008325e4"
+  },
+  {
+   "symbol": "?unknown_int_839638@@3HA",
+   "address": "00839638"
+  },
+  {
+   "symbol": "?unknown_int_83963c@@3HA",
+   "address": "0083963c"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_objects_a40368@@3V?$DynamicVectorClass@PAVObjectClass@@@@A",
+   "address": "00a40368"
+  },
+  {
+   "symbol": "?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A",
+   "address": "00a40c60"
+  },
+  {
+   "symbol": "?unknown_origin_x_7f6928@@3HA",
+   "address": "007f6928"
+  },
+  {
+   "symbol": "?unknown_origin_y_7f692c@@3HA",
+   "address": "007f692c"
+  },
+  {
+   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
+   "address": "00a35db4"
+  },
+  {
+   "symbol": "?unknown_rect_839630@@3VRect@@A",
+   "address": "00839630"
+  },
+  {
+   "symbol": "?unknown_rgb_ab6841@@3VRGBClass@@A",
+   "address": "00ab6841"
+  },
+  {
+   "symbol": "?unknown_scroll_speeds_7f6914@@3PAMA",
+   "address": "007f6914"
+  },
+  {
+   "symbol": "?unknown_shadow_7ac3bc@@3QBDB",
+   "address": "007ac3bc"
+  },
+  {
+   "symbol": "?unknown_shift_852fb8@@3HA",
+   "address": "00852fb8"
+  },
+  {
+   "symbol": "?unknown_shift_852fbc@@3HA",
+   "address": "00852fbc"
+  },
+  {
+   "symbol": "?unknown_shift_852fc0@@3HA",
+   "address": "00852fc0"
+  },
+  {
+   "symbol": "?unknown_shift_852fc4@@3HA",
+   "address": "00852fc4"
+  },
+  {
+   "symbol": "?unknown_shift_852fc8@@3HA",
+   "address": "00852fc8"
+  },
+  {
+   "symbol": "?unknown_shift_852fcc@@3HA",
+   "address": "00852fcc"
+  },
+  {
+   "symbol": "?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z",
+   "address": "00410290"
+  },
+  {
+   "symbol": "?unknown_slot22@AbstractClass@@UBE?AUCoordStruct@@XZ",
+   "address": "004102e0"
+  },
+  {
+   "symbol": "?unknown_sound_enabled_7d88d6@@3_NA",
+   "address": "007d88d6"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_surface_839944@@3PAVSurface@@A",
+   "address": "00839944"
+  },
+  {
+   "symbol": "?unknown_surface_83995c@@3PAVSurface@@A",
+   "address": "0083995c"
+  },
+  {
+   "symbol": "?unknown_surface_839964@@3PAVSurface@@A",
+   "address": "00839964"
+  },
+  {
+   "symbol": "?unknown_tactical_83996c@@3PAVTactical@@A",
+   "address": "0083996c"
+  },
+  {
+   "symbol": "_CLSID_Tactical",
+   "address": "007a1e90"
+  },
+  {
+   "symbol": "_SelectableObjects_00abe5f8",
+   "address": "00abe5f8"
+  },
+  {
+   "symbol": "_TacticalMap_0083996c",
+   "address": "0083996c"
+  },
+  {
+   "symbol": "_Tactical_INoticeSink_vtable_007ac54c",
+   "address": "007ac54c"
+  },
+  {
+   "symbol": "_Tactical_INoticeSource_vtable_007ac544",
+   "address": "007ac544"
+  },
+  {
+   "symbol": "_Tactical_IRTTITypeInfo_vtable_007ac554",
+   "address": "007ac554"
+  },
+  {
+   "symbol": "_Tactical_vtable_007ac570",
+   "address": "007ac570"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "_atexit",
+   "address": "0078298a"
+  },
+  {
+   "symbol": "_release_buffer_6acfc0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_6ad010",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_6ad060",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_6ad0b0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_6acfc0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_6ad010",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_6ad060",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_6ad0b0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_swprintf",
+   "address": "00783764"
+  },
+  {
+   "symbol": "_vtable_6acfc0",
+   "address": "007ac4e4"
+  },
+  {
+   "symbol": "_vtable_6ad010",
+   "address": "007ac4e4"
+  },
+  {
+   "symbol": "_vtable_6ad060",
+   "address": "007ac524"
+  },
+  {
+   "symbol": "_vtable_6ad0b0",
+   "address": "007ac524"
+  },
+  {
+   "symbol": "_wcslen",
+   "address": "00783605"
+  }
+ ],
+ "route": "A",
+ "unit": "tactical.cpp",
+ "form": "include blocks held",
+ "switches": [
+  "RA2_TACTICAL_TILE_SHADOWS_AREA",
+  "RA2_TACTICAL_SHADOW_COORD_CTOR_DECL",
+  "CELL_DECLARE_DRAW_IT",
+  "RA2_COORD_AS_CELL",
+  "RA2_TACTICAL_CELL_PROJECT_GEOMETRY",
+  "RA2_COORD_POINT_Z",
+  "RA2_COORD_TPOINT3D",
+  "RA2_RECT_CORNER_INLINE",
+  "RA2_RECT_POINT_INLINE",
+  "RA2_POINT_ADD_IN_PLACE",
+  "RA2_MOUSE_FRAME_QUERIES",
+  "RA2_TACTICAL_PLACEMENT",
+  "RA2_TACTICAL_PICK_OBJECT",
+  "RA2_TACTICAL_DRAW_OBJECTS",
+  "RA2_TACTICAL_OCCUPATION_FLAGS",
+  "VECTOR_IMPLEMENT_ALL",
+  "SHAPE_FILE_EMPTY_RECT"
+ ],
+ "include_blocks": [
+  {
+   "before": "006abc20",
+   "lines": 1
+  }
+ ],
+ "held_rows": [
+  {
+   "entry": "006a22f0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006a2330",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006a23a0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006a23e0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006a3020",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006a33f0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006a3670",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006a38d0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006a3b20",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006a3d00",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006a3ef0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006a4100",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006a4350",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006a5280",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006a7130",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006a93f0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006a9e10",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006a9f60",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006aa090",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006aa180",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006aa300",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006aad40",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006aad70",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006aaf80",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006aafd0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006ab360",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006ab810",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  }
+ ],
+ "joined": [
+  {
+   "entry": "006ac870",
+   "bytes": 42,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "006ac8a0",
+   "bytes": 36,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "006ac8d0",
+   "bytes": 56,
+   "population": "population-2187",
+   "bound": "own frozen bound (population-2187)"
+  },
+  {
+   "entry": "006ac910",
+   "bytes": 42,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "006ac940",
+   "bytes": 27,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "006ac960",
+   "bytes": 13,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "006ac970",
+   "bytes": 114,
+   "population": "population-2187",
+   "bound": "own frozen bound (population-2187)"
+  },
+  {
+   "entry": "006ac9f0",
+   "bytes": 274,
+   "population": "population-2187",
+   "bound": "own frozen bound (population-2187)"
+  },
+  {
+   "entry": "006acb10",
+   "bytes": 39,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "006acb40",
+   "bytes": 111,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "006acbb0",
+   "bytes": 36,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "006acbe0",
+   "bytes": 286,
+   "population": "population-2187",
+   "bound": "own frozen bound (population-2187)"
+  },
+  {
+   "entry": "006acd00",
+   "bytes": 95,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "006acd60",
+   "bytes": 62,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "006acda0",
+   "bytes": 174,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "006ace50",
+   "bytes": 39,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "006ace80",
+   "bytes": 51,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "006acec0",
+   "bytes": 27,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "006acee0",
+   "bytes": 176,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "006acf90",
+   "bytes": 38,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "006a26c0",
+   "bytes": 73,
+   "population": "population-3552",
+   "bound": "own frozen bound (population-3552)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006a33e0",
+   "bytes": 3,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006a5440",
+   "bytes": 17,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006a67b0",
+   "bytes": 24,
+   "population": "population-4352",
+   "bound": "own frozen bound (population-4352)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006a6860",
+   "bytes": 81,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006a69b0",
+   "bytes": 147,
+   "population": "population-2844",
+   "bound": "own frozen bound (population-2844)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006a8c80",
+   "bytes": 190,
+   "population": "population-2829",
+   "bound": "own frozen bound (population-2829)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006aa5a0",
+   "bytes": 61,
+   "population": "population-4352",
+   "bound": "own frozen bound (population-4352)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006aa5e0",
+   "bytes": 44,
+   "population": "population-4352",
+   "bound": "own frozen bound (population-4352)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006aa610",
+   "bytes": 136,
+   "population": "population-3552",
+   "bound": "own frozen bound (population-3552)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006aa790",
+   "bytes": 168,
+   "population": "population-3552",
+   "bound": "own frozen bound (population-3552)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006aa980",
+   "bytes": 3,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006ac400",
+   "bytes": 29,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006ac7a0",
+   "bytes": 1,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006ac7b0",
+   "bytes": 7,
+   "population": "population-4352",
+   "bound": "own frozen bound (population-4352)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006ac7c0",
+   "bytes": 17,
+   "population": "population-45",
+   "bound": "own frozen bound (population-45)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006ac800",
+   "bytes": 67,
+   "population": "population-66",
+   "bound": "own frozen bound (population-66)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006acfc0",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006ad010",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006ad060",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006ad0b0",
+   "bytes": 73,
+   "population": "population-12",
+   "bound": "own frozen bound (population-12)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "006a2dd0",
+   "bytes": 586,
+   "population": "population-2804",
+   "source": "src/recovered/classes/Tactical/AI.cpp",
+   "cause": "frozen in another population's inventory pass (population-2804)"
+  },
+  {
+   "kind": "split",
+   "entry": "006a53f0",
+   "bytes": 66,
+   "population": "population-3745",
+   "source": "src/recovered/classes/Tactical/Set_Caption_Text.cpp",
+   "cause": "held by population-3745; not joined: does not compile in the unit: accepted.cpp(905) : error C2011: 'Tactical' : 'class' type redefinition"
+  },
+  {
+   "kind": "split",
+   "entry": "006a65a0",
+   "bytes": 157,
+   "population": "population-4156",
+   "source": "src/recovered/classes/Tactical/Set_View_Dimensions.cpp",
+   "cause": "held by population-4156; not joined: its population changes when it leaves (006a66b0, 00765e90)"
+  },
+  {
+   "kind": "split",
+   "entry": "006a6640",
+   "bytes": 110,
+   "population": "population-4156",
+   "source": "src/recovered/classes/Tactical/Tactical_Set_View_Point_006a6640.cpp",
+   "cause": "held by population-4156; not joined: its population changes when it leaves (006a66b0, 00765e90)"
+  },
+  {
+   "kind": "split",
+   "entry": "006a66b0",
+   "bytes": 255,
+   "population": "population-4156",
+   "source": "src/recovered/classes/Tactical/Tactical_Set_View_Coord_006a66b0.cpp",
+   "cause": "held by population-4156; not joined: does not compile in the unit: accepted.cpp(1334) : error C2084: function 'struct Point2D __fastcall __fastcall Rectangular_To_Isometric(struct Point2D)' already has a body"
+  },
+  {
+   "kind": "split",
+   "entry": "006a68c0",
+   "bytes": 95,
+   "population": "population-1642",
+   "source": "src/recovered/tactical/unknown_cell_to_screen.cpp",
+   "cause": "frozen in another population's inventory pass (population-1642)"
+  },
+  {
+   "kind": "split",
+   "entry": "006a6920",
+   "bytes": 137,
+   "population": "population-3353",
+   "source": "src/recovered/tactical/Tactical_Lepton_To_Map_Pixel.cpp",
+   "cause": "frozen in another population's inventory pass (population-3353)"
+  },
+  {
+   "kind": "split",
+   "entry": "006a7110",
+   "bytes": 28,
+   "population": "population-2332",
+   "source": "src/recovered/classes/Tactical/Get_Cell_Ramp.cpp",
+   "cause": "frozen in another population's inventory pass (population-2332)"
+  },
+  {
+   "kind": "split",
+   "entry": "006a8b70",
+   "bytes": 254,
+   "population": "population-2829",
+   "source": "src/recovered/classes/Tactical/Scroll_Map.cpp",
+   "cause": "held by population-2829; not joined: differs in the batch apply (1)"
+  },
+  {
+   "kind": "split",
+   "entry": "006a8c70",
+   "bytes": 1,
+   "population": "population-2829",
+   "source": "src/recovered/classes/Tactical/Tactical_Move_View_atexit_006a8c70.cpp",
+   "cause": "held by population-2829; not joined: differs in the batch apply (4)"
+  },
+  {
+   "kind": "split",
+   "entry": "006aa840",
+   "bytes": 284,
+   "population": "population-2841",
+   "source": "src/recovered/classes/Tactical/Scroll_Dir.cpp",
+   "cause": "held by population-2841; not joined: differs in the batch apply (1)"
+  },
+  {
+   "kind": "split",
+   "entry": "006aa960",
+   "bytes": 1,
+   "population": "population-2841",
+   "source": "src/recovered/classes/Tactical/Tactical_unknown_6aa840_atexit_006aa960.cpp",
+   "cause": "held by population-2841; not joined: differs in the batch apply (2)"
+  }
+ ],
+ "unit_functions": 160,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "006d6e60",
+   "target": "006a6a50",
+   "symbol": "?Unknown_006A6A50@UnknownTacticalView@@QAE?AVCell@@ABUCoordStruct@@@Z",
+   "module_symbol": "?Coord_To_Cell@Tactical@@QAE?AVCell@@ABUCoordStruct@@@Z"
+  },
+  {
+   "site": "007072d0",
+   "target": "006a6a50",
+   "symbol": "?Unknown_006A6A50@UnknownTacticalView@@QAE?AVCell@@ABUCoordStruct@@@Z",
+   "module_symbol": "?Coord_To_Cell@Tactical@@QAE?AVCell@@ABUCoordStruct@@@Z"
+  },
+  {
+   "site": "006f69f0",
+   "target": "006ac7b0",
+   "symbol": "?Count@UnknownSelection@@QAEHXZ",
+   "module_symbol": "?get@Leaf_6ac7b0@@QAEIXZ"
+  },
+  {
+   "site": "006f69f0",
+   "target": "006ac7c0",
+   "symbol": "?Get@UnknownSelection@@QAEPAVObjectClass@@H@Z",
+   "module_symbol": "?unknown_get_006ac7c0@seed_006ac7c0@@YGIH@Z"
+  },
+  {
+   "site": "006f7800",
+   "target": "006ac7b0",
+   "symbol": "?Count@UnknownSelection@@QAEHXZ",
+   "module_symbol": "?get@Leaf_6ac7b0@@QAEIXZ"
+  },
+  {
+   "site": "006f7800",
+   "target": "006ac7c0",
+   "symbol": "?Get@UnknownSelection@@QAEPAVObjectClass@@H@Z",
+   "module_symbol": "?unknown_get_006ac7c0@seed_006ac7c0@@YGIH@Z"
+  },
+  {
+   "site": "006f6d00",
+   "target": "006aad70",
+   "symbol": "?Unknown_006AAD70@UnknownSelection@@QAEXXZ",
+   "module_symbol": "?Unknown_006AAD70@Tactical@@QAE_NXZ"
+  },
+  {
+   "site": "006f6d00",
+   "target": "006ac7b0",
+   "symbol": "?Count@UnknownSelection@@QAEHXZ",
+   "module_symbol": "?get@Leaf_6ac7b0@@QAEIXZ"
+  },
+  {
+   "site": "006f6d00",
+   "target": "006ac7c0",
+   "symbol": "?Get@UnknownSelection@@QAEPAVObjectClass@@H@Z",
+   "module_symbol": "?unknown_get_006ac7c0@seed_006ac7c0@@YGIH@Z"
+  },
+  {
+   "site": "006f6d00",
+   "target": "006aad40",
+   "symbol": "?Unknown_006AAD40@UnknownSelection@@QAEXXZ",
+   "module_symbol": "?Unknown_006AAD40@Tactical@@QAEXXZ"
+  },
+  {
+   "site": "006f7b80",
+   "target": "006aad40",
+   "symbol": "?Unknown_006AAD40@UnknownSelection@@QAEXXZ",
+   "module_symbol": "?Unknown_006AAD40@Tactical@@QAEXXZ"
+  },
+  {
+   "site": "006f7b80",
+   "target": "006aad40",
+   "symbol": "?Unknown_006AAD40@UnknownSelection@@QAEXXZ",
+   "module_symbol": "?Unknown_006AAD40@Tactical@@QAEXXZ"
+  },
+  {
+   "site": "006f7ec0",
+   "target": "006aad40",
+   "symbol": "?Unknown_006AAD40@UnknownSelection@@QAEXXZ",
+   "module_symbol": "?Unknown_006AAD40@Tactical@@QAEXXZ"
+  },
+  {
+   "site": "006f7ec0",
+   "target": "006aad40",
+   "symbol": "?Unknown_006AAD40@UnknownSelection@@QAEXXZ",
+   "module_symbol": "?Unknown_006AAD40@Tactical@@QAEXXZ"
+  },
+  {
+   "site": "006f79c0",
+   "target": "006ac7b0",
+   "symbol": "?Count@UnknownSelection@@QAEHXZ",
+   "module_symbol": "?get@Leaf_6ac7b0@@QAEIXZ"
+  },
+  {
+   "site": "006f79c0",
+   "target": "006ac7c0",
+   "symbol": "?Get@UnknownSelection@@QAEPAVObjectClass@@H@Z",
+   "module_symbol": "?unknown_get_006ac7c0@seed_006ac7c0@@YGIH@Z"
+  },
+  {
+   "site": "006f5f00",
+   "target": "006aad40",
+   "symbol": "?Unknown_006AAD40@UnknownSelection@@QAEXXZ",
+   "module_symbol": "?Unknown_006AAD40@Tactical@@QAEXXZ"
+  },
+  {
+   "site": "006f60d0",
+   "target": "006aad40",
+   "symbol": "?Unknown_006AAD40@UnknownSelection@@QAEXXZ",
+   "module_symbol": "?Unknown_006AAD40@Tactical@@QAEXXZ"
+  },
+  {
+   "site": "004610d0",
+   "target": "006a2970",
+   "symbol": "?Bullet_Height_Pixel@@YIHH@Z",
+   "module_symbol": "?Unknown_006A2970@@YIHH@Z"
+  },
+  {
+   "site": "004610d0",
+   "target": "006a2970",
+   "symbol": "?Bullet_Height_Pixel@@YIHH@Z",
+   "module_symbol": "?Unknown_006A2970@@YIHH@Z"
+  },
+  {
+   "site": "004610d0",
+   "target": "006a2970",
+   "symbol": "?Bullet_Height_Pixel@@YIHH@Z",
+   "module_symbol": "?Unknown_006A2970@@YIHH@Z"
+  }
+ ],
+ "stand_in_reference_count": 21,
+ "residual_split": {
+  "rows": 12,
+  "bytes": 1974
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

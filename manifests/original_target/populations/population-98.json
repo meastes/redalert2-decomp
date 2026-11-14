@@ -4,8 +4,8 @@
     "id": "population-98",
     "inventory_sha256": "4232d2dda98e295f61803dbc4fcbb292ea3d9f7538d3e795187a5a6002131795",
     "gaps_sha256": "822c18f53e7523905e56188baff31fb4ad04d8e9d13148cc461972c1cdae9d60",
-    "historical_population_sha256": "c647cc05cd7e83348b89283cc5c84e78b1a7cf1b68cba87c14df10c23e0db020",
-    "historical_acceptance_sha256": "9927511921a7a680b829a09a98cd83e424f5e76a0ac8a144314e5926328c96b2"
+    "historical_population_sha256": "30d769081d594f571a52384ce0dc85e308c92b7145419ac80b0f4ebf53ea370d",
+    "historical_acceptance_sha256": "5ffe3054e0d5d092c0606054665ae8bdddeb0d55b390039248dad1436ef20a9e"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -163,10 +163,10 @@
     "?Release@WalkLocomotionClass@@UAGKXZ": 7470576,
     "?Create@RAMFileClass@@UAEHXZ": 6521760,
     "_strncpy": 7873488,
-    "__DAT_00ab6e88": 11234952,
+    "__waypoint_none_00ab6e88": 11234952,
     "__strncpy": 7873488,
     "___amsg_exit": 7887784,
-    "__DAT_0084ed10": 8711440,
+    "__cell_none_0084ed10": 8711440,
     "?unknown_application_84c7dc@@3PAUIUnknown@@A": 8701916,
     "?Create@RawFileClass@@UAEHXZ": 6525440,
     "__strdup": 7919638,
@@ -330,8 +330,8 @@
     "?Name@ThemeClass@@QBEPBDH@Z": 7243120,
     "__chkstk": 7878736,
     "__strnicmp": 7878672,
-    "__DAT_00ab6ea8": 11234984,
-    "__DAT_00ab6eb0": 11234992,
+    "__unknown_timer_start_00ab6ea8": 11234984,
+    "__unknown_timer_accum_00ab6eb0": 11234992,
     "?Counter@ScrollClass@@2V?$CDTimerClass@VSystemTimerClass@@@@A": 11235400,
     "?AddRef@CStreamClass@@UAGKXZ": 4802832,
     "?Release@?$TClassFactory@VCampaignClass@@@@UAGKXZ": 6891776,
@@ -747,7 +747,7 @@
     "__real@8@3ffdb2b8c2573a243800": 8032832,
     "__real@8@3ffabea2f16e1be26000": 8032824,
     "__real@8@3ffedf66f2ed08ad4800": 8032816,
-    "?Release@UnknownAlphaTableCache_008315B8@@QAEXPAY0BAA@$$CBG@Z": 4318480,
+    "?Release@AlphaLightingRemapInitClass@@QAEXPAY0BAA@$$CBG@Z": 4318480,
     "?Create@Map@WorldDominationTour@@SI?AV?$rc_ptr@VMap@WorldDominationTour@@@@HHH@Z": 7508704,
     "?Create@WDTTerritory@@SI?AV?$rc_ptr@VWDTTerritory@@@@XZ": 7519680,
     "__strrev": 7958640,
@@ -833,7 +833,12 @@
     "__encoder": 7980576,
     "__pad": 7980572,
     "__decoder": 7980580,
-    "__real@8@bff6b6db6db6db6db800": 8026880
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AUIUnknown@@@8": 8181304,
+    "??_R0?AVPipe@@@8": 8199824,
+    "??_R0?AVPKPipe@@@8": 8305072,
+    "??_R0?AVBlowPipe@@@8": 8305096
   },
   "regions": [
     {
@@ -845,7 +850,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 53,
       "body_sha256": "a207b6e70cf728e31f34d120803161455624d1df972bcbc41c56bdf6af2098de",
@@ -887,7 +893,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 291,
       "body_sha256": "0872bb401adfea6a40eabfafd4771ef60f2fee74580ac1055554b91651a45f4e",
@@ -985,7 +992,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 64,
       "body_sha256": "fa7713ddea8ffd52fbfad6b9eca27dac9ee1dde4e3df373bf496c2af10fbe8ff",

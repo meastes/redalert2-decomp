@@ -1,0 +1,218 @@
+{
+ "module": "vqalib_drawer",
+ "source": "src/recovered/vqalib_drawer.cpp",
+ "header": null,
+ "population": "population-3128",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 636,
+ "code": [
+  {
+   "symbol": "?VQA_ResetLastFrameNum@@YIJPAUVQAHandle@@@Z",
+   "entry": "00777870",
+   "body_bytes": 10,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?VQA_Configure_Drawer@@YIJPAUVQAHandleP@@@Z",
+   "entry": "00777880",
+   "body_bytes": 447,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?VQA_DispatchFrameChunks@@YIXPAUVQAHandleP@@J@Z",
+   "entry": "00777a40",
+   "body_bytes": 269,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?VQA_UnVQFrame@@YIXPAUVQAHandleP@@PAUVQAFrameNode@@@Z",
+   "entry": "00777b50",
+   "body_bytes": 243,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?DrawFrame_MCGA@@YIJPAUVQAHandle@@@Z",
+   "entry": "00777c50",
+   "body_bytes": 57,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Select_Frame@@YIJPAUVQAHandleP@@@Z",
+   "entry": "00777c90",
+   "body_bytes": 921,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?VQA_ComputeDesiredFrame@@YIJPAUVQAHandleP@@PAUVQAConfig@@PAUVQADrawer@@PAUVQAFrameNode@@K@Z",
+   "entry": "00778030",
+   "body_bytes": 436,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Prepare_Frame@@YIXPAUVQAHandleP@@@Z",
+   "entry": "007781f0",
+   "body_bytes": 203,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?PageFlip_MCGA@@YIJPAUVQAHandle@@@Z",
+   "entry": "007782c0",
+   "body_bytes": 138,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?DrawFrame_MCGABuf@@YIJPAUVQAHandle@@@Z",
+   "entry": "00778350",
+   "body_bytes": 67,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?PageFlip_MCGABuf@@YIJPAUVQAHandle@@@Z",
+   "entry": "007783a0",
+   "body_bytes": 129,
+   "padding_bytes": 15
+  }
+ ],
+ "code_bytes": 3008,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0077b7a0",
+   "symbol": "?VQA_Configure_Drawer@@YIJPAUVQAHandleP@@@Z",
+   "target": "00777880",
+   "function_entry": true
+  },
+  {
+   "site": "0077bf10",
+   "symbol": "?VQA_ResetLastFrameNum@@YIJPAUVQAHandle@@@Z",
+   "target": "00777870",
+   "function_entry": true
+  },
+  {
+   "site": "0077c2e0",
+   "symbol": "?VQA_ResetLastFrameNum@@YIJPAUVQAHandle@@@Z",
+   "target": "00777870",
+   "function_entry": true
+  },
+  {
+   "site": "0077c960",
+   "symbol": "?VQA_DispatchFrameChunks@@YIXPAUVQAHandleP@@J@Z",
+   "target": "00777a40",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "?UnVQ1_C4_4x2@@YAXPAE00KKK@Z",
+   "address": "0077d470"
+  },
+  {
+   "symbol": "?UnVQ1_C4_4x4@@YAXPAE00KKK@Z",
+   "address": "0077cf70"
+  },
+  {
+   "symbol": "?UnVQ2_C0_4x2_KEY@@YAXPAE00KKK@Z",
+   "address": "0077e9e0"
+  },
+  {
+   "symbol": "?UnVQ2_C0_4x2_TRANS@@YAXPAE00KKK@Z",
+   "address": "0077e5b0"
+  },
+  {
+   "symbol": "?UnVQ2_C0_4x4_KEY@@YAXPAE00KKK@Z",
+   "address": "0077dd90"
+  },
+  {
+   "symbol": "?UnVQ2_C0_4x4_TRANS@@YAXPAE00KKK@Z",
+   "address": "0077d940"
+  },
+  {
+   "symbol": "?UnVQ2_C0_4x4_TRANS_HALF@@YAXPAE00KKK@Z",
+   "address": "0077e1a0"
+  },
+  {
+   "symbol": "?UnVQ2_C1_4x4@@YAXPAE00KKK@Z",
+   "address": "0077cbd0"
+  },
+  {
+   "symbol": "?UnVQ2_C4_4x2@@YAXPAE00KKK@Z",
+   "address": "0077d5b0"
+  },
+  {
+   "symbol": "?UnVQ2_C4_4x4@@YAXPAE00KKK@Z",
+   "address": "0077d0c0"
+  },
+  {
+   "symbol": "?VQA_GetTime@@YIKPAUVQAHandleP@@@Z",
+   "address": "0077cb70"
+  },
+  {
+   "symbol": "?VQA_SetTimer@@YIXPAUVQAHandleP@@J@Z",
+   "address": "0077cb20"
+  },
+  {
+   "symbol": "?VQA_StepTimer@@YIXPAUVQAHandleP@@J@Z",
+   "address": "0077cb60"
+  },
+  {
+   "symbol": "_ASM_UnVQ1_C1_4x4",
+   "address": "007801d8"
+  },
+  {
+   "symbol": "_ASM_UnVQ_4x2",
+   "address": "0077ff50"
+  },
+  {
+   "symbol": "_ASM_UnVQ_4x4",
+   "address": "0077ffe6"
+  },
+  {
+   "symbol": "_ASM_UnVQ_4x4_HALF",
+   "address": "007800a4"
+  },
+  {
+   "symbol": "_VQA_LCW_Uncompress",
+   "address": "007813eb"
+  }
+ ],
+ "route": "A",
+ "unit": "vqalib_drawer.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00777870",
+   "lines": 2
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 11,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

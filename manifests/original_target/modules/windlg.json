@@ -1,0 +1,3776 @@
+{
+ "module": "windlg",
+ "source": "src/recovered/windlg.cpp",
+ "header": null,
+ "population": "population-4391",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 1006,
+ "code": [
+  {
+   "symbol": "?get@Leaf_735670@@QAEXXZ",
+   "entry": "00735670",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?unknown_create_dialog_735700@@YIPAXPAXHPAUHWND__@@P6GJ1IIJ@ZJ@Z",
+   "entry": "00735700",
+   "body_bytes": 212,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "entry": "007357e0",
+   "body_bytes": 293,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?unknown_is_listed_b25bb8@@YIHH@Z",
+   "entry": "00735910",
+   "body_bytes": 41,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Dialog_Loop_007359e0@@YIHPAUHWND__@@P6A_NXZH_N2@Z",
+   "entry": "007359e0",
+   "body_bytes": 300,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?get@Leaf_735b10@@QAEIXZ",
+   "entry": "00735b10",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?get@Leaf_735b20@@QAEIXZ",
+   "entry": "00735b20",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?FUN_00735b30@seed_00735b30@@YAIXZ",
+   "entry": "00735b30",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?unknown_null_dialog_proc_735b40@@YGHPAUHWND__@@IIJ@Z",
+   "entry": "00735b40",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Dialog_Template_Size@@YIHHP6GHPAUHWND__@@IIJ@ZHPAJ@Z",
+   "entry": "00735b50",
+   "body_bytes": 78,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?unknown_735ba0@@YIXPAUHWND__@@@Z",
+   "entry": "00735ba0",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?unknown_prepare_control_735bc0@@YGHPAUHWND__@@J@Z",
+   "entry": "00735bc0",
+   "body_bytes": 420,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?unknown_clear_font_cache_735d90@@YAXXZ",
+   "entry": "00735d90",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?unknown_find_font_735db0@@YIPAUHFONT__@@PAUHDC__@@PBDHHI@Z",
+   "entry": "00735db0",
+   "body_bytes": 767,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?unknown_create_font_7360b0@@YIPAUHFONT__@@PAUHDC__@@PBDHHI@Z",
+   "entry": "007360b0",
+   "body_bytes": 350,
+   "padding_bytes": 2
+  }
+ ],
+ "code_bytes": 2672,
+ "data": [
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 50
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VWDTTerritory@@@@6B@",
+   "address": "007a4528",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 117
+  },
+  {
+   "symbol": "??_R1A@?0A@A@rc_ptr_base@@8",
+   "address": "007bc618",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 111
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc630",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 112
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc648",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 113
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc658",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 114
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VWDTTerritory@@@@6B@",
+   "address": "007bc668",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 116
+  },
+  {
+   "symbol": "??_R0?AVrc_ptr_base@@@8",
+   "address": "007ddac8",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 110
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VWDTTerritory@@@@@8",
+   "address": "007ddae8",
+   "bytes": 39,
+   "kind": "rtti",
+   "section": 115
+  },
+  {
+   "symbol": "??_C@_08EIKH@ComboBox?$AA@",
+   "address": "007e8dd4",
+   "bytes": 9,
+   "kind": "string",
+   "section": 43
+  },
+  {
+   "symbol": "??_C@_0M@OMON@Windows?595?5?$AA@",
+   "address": "007fd050",
+   "bytes": 12,
+   "kind": "string",
+   "section": 93
+  },
+  {
+   "symbol": "??_C@_0M@BFLJ@Windows?598?5?$AA@",
+   "address": "007fd05c",
+   "bytes": 12,
+   "kind": "string",
+   "section": 92
+  },
+  {
+   "symbol": "??_C@_0O@NCJI@Windows?5NT?54?5?$AA@",
+   "address": "007fd068",
+   "bytes": 14,
+   "kind": "string",
+   "section": 90
+  },
+  {
+   "symbol": "??_C@_0O@MEDC@Windows?5NT?55?5?$AA@",
+   "address": "007fd078",
+   "bytes": 14,
+   "kind": "string",
+   "section": 91
+  },
+  {
+   "symbol": "??_C@_07FMM@SUN?4HLP?$AA@",
+   "address": "007fd094",
+   "bytes": 8,
+   "kind": "string",
+   "section": 69
+  },
+  {
+   "symbol": "??_C@_04GHME@LV?$CFd?$AA@",
+   "address": "007fd09c",
+   "bytes": 5,
+   "kind": "string",
+   "section": 72
+  },
+  {
+   "symbol": "??_C@_0O@NFAI@SysListView32?$AA@",
+   "address": "007fd0a4",
+   "bytes": 14,
+   "kind": "string",
+   "section": 73
+  },
+  {
+   "symbol": "??_C@_04BIHF@TV?$CFd?$AA@",
+   "address": "007fd0b4",
+   "bytes": 5,
+   "kind": "string",
+   "section": 74
+  },
+  {
+   "symbol": "??_C@_0O@NCOE@SysTreeView32?$AA@",
+   "address": "007fd0bc",
+   "bytes": 14,
+   "kind": "string",
+   "section": 75
+  },
+  {
+   "symbol": "??_C@_01PCJP@Y?$AA@",
+   "address": "007fd0cc",
+   "bytes": 2,
+   "kind": "string",
+   "section": 78
+  },
+  {
+   "symbol": "??_C@_01FIAI@X?$AA@",
+   "address": "007fd0d0",
+   "bytes": 2,
+   "kind": "string",
+   "section": 79
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VWDTTerritory@@@@6B@",
+   "address": "007a4528",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@rc_ptr_base@@8",
+   "address": "007bc618",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc630",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc648",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc658",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VWDTTerritory@@@@6B@",
+   "address": "007bc668",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVrc_ptr_base@@@8",
+   "address": "007ddac8",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VWDTTerritory@@@@@8",
+   "address": "007ddae8",
+   "bytes": 39,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_08EIKH@ComboBox?$AA@",
+   "address": "007e8dd4",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@OMON@Windows?595?5?$AA@",
+   "address": "007fd050",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@BFLJ@Windows?598?5?$AA@",
+   "address": "007fd05c",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@NCJI@Windows?5NT?54?5?$AA@",
+   "address": "007fd068",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@MEDC@Windows?5NT?55?5?$AA@",
+   "address": "007fd078",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07FMM@SUN?4HLP?$AA@",
+   "address": "007fd094",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04GHME@LV?$CFd?$AA@",
+   "address": "007fd09c",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@NFAI@SysListView32?$AA@",
+   "address": "007fd0a4",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04BIHF@TV?$CFd?$AA@",
+   "address": "007fd0b4",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@NCOE@SysTreeView32?$AA@",
+   "address": "007fd0bc",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_01PCJP@Y?$AA@",
+   "address": "007fd0cc",
+   "bytes": 2,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_01FIAI@X?$AA@",
+   "address": "007fd0d0",
+   "bytes": 2,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00735d70",
+   "symbol": "_opaque_code_address_735d70_735d90",
+   "target": "00735d90",
+   "function_entry": true
+  },
+  {
+   "site": "005c2940",
+   "symbol": "?FUN_00735b10@seed_005c2940@@YAIXZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "0075ca00",
+   "symbol": "?WS_Top_Window_00735b10@seed_0075ca00@@YAIXZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "0075deb0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "0075deb0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "007668d0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "007668f0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00766910",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00766910",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "0074db10",
+   "symbol": "?unknown_create_dialog_735700@@YIPAXPAXHPAUHWND__@@P6GJ1IIJ@ZJ@Z",
+   "target": "00735700",
+   "function_entry": true
+  },
+  {
+   "site": "0074d780",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "0074d780",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00753f50",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00753f50",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00753f50",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "0075f330",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "0075f330",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "0075f330",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "0075f330",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "0075dbd0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "0075dbd0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005c9700",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "target": "00735b20",
+   "function_entry": true
+  },
+  {
+   "site": "00737400",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00737400",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00737400",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005a3320",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "target": "00735b20",
+   "function_entry": true
+  },
+  {
+   "site": "005a2ef0",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "target": "00735b20",
+   "function_entry": true
+  },
+  {
+   "site": "005a2ef0",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "target": "00735b20",
+   "function_entry": true
+  },
+  {
+   "site": "005a5000",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "target": "00735b20",
+   "function_entry": true
+  },
+  {
+   "site": "005a5000",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005a5190",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "target": "00735b20",
+   "function_entry": true
+  },
+  {
+   "site": "005a5190",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00627210",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005c6960",
+   "symbol": "?unknown_create_dialog_735700@@YIPAXPAXHPAUHWND__@@P6GJ1IIJ@ZJ@Z",
+   "target": "00735700",
+   "function_entry": true
+  },
+  {
+   "site": "005c6960",
+   "symbol": "?Unknown_007359e0@@YIHPAUHWND__@@P6A_NXZHHH@Z",
+   "target": "007359e0",
+   "function_entry": true
+  },
+  {
+   "site": "005c2c80",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005c2c80",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005c2d10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005c2d10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005c3040",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005c3040",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005c3230",
+   "symbol": "?unknown_create_dialog_735700@@YIPAXPAXHPAUHWND__@@P6GJ1IIJ@ZJ@Z",
+   "target": "00735700",
+   "function_entry": true
+  },
+  {
+   "site": "005c3230",
+   "symbol": "?Unknown_007359e0@@YIHPAUHWND__@@P6A_NXZHHH@Z",
+   "target": "007359e0",
+   "function_entry": true
+  },
+  {
+   "site": "005c33a0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "005bc790",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "target": "00735b20",
+   "function_entry": true
+  },
+  {
+   "site": "005bc790",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005c28e0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005c7970",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005434e0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00762e00",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00761570",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "007629b0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00762c20",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "007656b0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "007656b0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "0073c230",
+   "symbol": "?Unknown_007359e0@@YIHPAUHWND__@@P6A_NXZHHH@Z",
+   "target": "007359e0",
+   "function_entry": true
+  },
+  {
+   "site": "0074dd00",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "0075ea50",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "0075ea50",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "0075ea50",
+   "symbol": "?Unknown_007359e0@@YIHPAUHWND__@@P6A_NXZHHH@Z",
+   "target": "007359e0",
+   "function_entry": true
+  },
+  {
+   "site": "0073ca50",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "0073cb80",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "0074d4d0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "0074d4d0",
+   "symbol": "?unknown_create_dialog_735700@@YIPAXPAXHPAUHWND__@@P6GJ1IIJ@ZJ@Z",
+   "target": "00735700",
+   "function_entry": true
+  },
+  {
+   "site": "0074d4d0",
+   "symbol": "?Unknown_007359e0@@YIHPAUHWND__@@P6A_NXZHHH@Z",
+   "target": "007359e0",
+   "function_entry": true
+  },
+  {
+   "site": "0074d5e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00748cd0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00748cd0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "0075c980",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00762f70",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00744700",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00744700",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "007560e0",
+   "symbol": "?unknown_create_dialog_735700@@YIPAXPAXHPAUHWND__@@P6GJ1IIJ@ZJ@Z",
+   "target": "00735700",
+   "function_entry": true
+  },
+  {
+   "site": "007560e0",
+   "symbol": "?Unknown_007359e0@@YIHPAUHWND__@@P6A_NXZHHH@Z",
+   "target": "007359e0",
+   "function_entry": true
+  },
+  {
+   "site": "0074c5f0",
+   "symbol": "?Close_Online_Dialog_007357e0@@YIXPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00744610",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00744610",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "0073f8f0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00741ea0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00741ea0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00741ea0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00742080",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "0073d8f0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "0073d8f0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "0073d8f0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "0073d8f0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "0073d8f0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "0073d8f0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "0073d8f0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "0073d8f0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "0075c350",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00746240",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "0075a920",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "004e77f0",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "target": "00735b20",
+   "function_entry": true
+  },
+  {
+   "site": "004e77f0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "007498e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "007498e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "007498e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "007466c0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "007485d0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00744a00",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00744a00",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00744a00",
+   "symbol": "?unknown_create_dialog_735700@@YIPAXPAXHPAUHWND__@@P6GJ1IIJ@ZJ@Z",
+   "target": "00735700",
+   "function_entry": true
+  },
+  {
+   "site": "00744a00",
+   "symbol": "?Unknown_007359e0@@YIHPAUHWND__@@P6A_NXZHHH@Z",
+   "target": "007359e0",
+   "function_entry": true
+  },
+  {
+   "site": "00744a00",
+   "symbol": "?unknown_create_dialog_735700@@YIPAXPAXHPAUHWND__@@P6GJ1IIJ@ZJ@Z",
+   "target": "00735700",
+   "function_entry": true
+  },
+  {
+   "site": "00744a00",
+   "symbol": "?Unknown_007359e0@@YIHPAUHWND__@@P6A_NXZHHH@Z",
+   "target": "007359e0",
+   "function_entry": true
+  },
+  {
+   "site": "007494d0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "007494d0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "005c34f0",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "target": "00735b20",
+   "function_entry": true
+  },
+  {
+   "site": "005c34f0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005c71f0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "005c7570",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "target": "00735b20",
+   "function_entry": true
+  },
+  {
+   "site": "005ff7e0",
+   "symbol": "?unknown_735ba0@@YIXPAUHWND__@@@Z",
+   "target": "00735ba0",
+   "function_entry": true
+  },
+  {
+   "site": "00766a10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00757950",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00757950",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00757d80",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00751df0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00751df0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00751df0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00751df0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00751df0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00751df0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00751df0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00751df0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00751df0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00751df0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00751df0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00751df0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00751df0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00751df0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "0075c830",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?unknown_create_dialog_735700@@YIPAXPAXHPAUHWND__@@P6GJ1IIJ@ZJ@Z",
+   "target": "00735700",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "target": "00735b20",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "target": "00735b20",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "target": "00735b20",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?unknown_create_dialog_735700@@YIPAXPAXHPAUHWND__@@P6GJ1IIJ@ZJ@Z",
+   "target": "00735700",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "target": "00735b20",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?unknown_create_dialog_735700@@YIPAXPAXHPAUHWND__@@P6GJ1IIJ@ZJ@Z",
+   "target": "00735700",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "target": "00735b20",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?unknown_create_dialog_735700@@YIPAXPAXHPAUHWND__@@P6GJ1IIJ@ZJ@Z",
+   "target": "00735700",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "target": "00735b20",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "target": "00735b20",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?unknown_create_dialog_735700@@YIPAXPAXHPAUHWND__@@P6GJ1IIJ@ZJ@Z",
+   "target": "00735700",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "target": "00735b20",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "target": "00735b20",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "target": "00735b20",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "target": "00735b20",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00741750",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00741750",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00741750",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00741750",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00741750",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "target": "00735b20",
+   "function_entry": true
+  },
+  {
+   "site": "00741750",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005c01d0",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "target": "00735b20",
+   "function_entry": true
+  },
+  {
+   "site": "007424c0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "007424c0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "007424c0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "007424c0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "007424c0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "007424c0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "007424c0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "007424c0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "007424c0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "007424c0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "007424c0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "007424c0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "007424c0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "007424c0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "007424c0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "007424c0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "0074f300",
+   "symbol": "?unknown_create_dialog_735700@@YIPAXPAXHPAUHWND__@@P6GJ1IIJ@ZJ@Z",
+   "target": "00735700",
+   "function_entry": true
+  },
+  {
+   "site": "0074f300",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "0074f300",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00751c30",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00751c30",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?unknown_create_dialog_735700@@YIPAXPAXHPAUHWND__@@P6GJ1IIJ@ZJ@Z",
+   "target": "00735700",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00742fd0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00742fd0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00743720",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00743720",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00743720",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00743720",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00743720",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00743720",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00743720",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00743720",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Dialog_Loop_007359e0@@YIHPAUHWND__@@P6A_NXZH_N2@Z",
+   "target": "007359e0",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "007459a0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "007459a0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "007459a0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "007459a0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "007459a0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "007459a0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "007459a0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00749b50",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00749b50",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00758750",
+   "symbol": "?unknown_create_dialog_735700@@YIPAXPAXHPAUHWND__@@P6GJ1IIJ@ZJ@Z",
+   "target": "00735700",
+   "function_entry": true
+  },
+  {
+   "site": "00758750",
+   "symbol": "?Dialog_Loop_007359e0@@YIHPAUHWND__@@P6A_NXZH_N2@Z",
+   "target": "007359e0",
+   "function_entry": true
+  },
+  {
+   "site": "00759e20",
+   "symbol": "?unknown_create_dialog_735700@@YIPAXPAXHPAUHWND__@@P6GJ1IIJ@ZJ@Z",
+   "target": "00735700",
+   "function_entry": true
+  },
+  {
+   "site": "00759e20",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00759e20",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00759e20",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00759e20",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00759e20",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00759e20",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00759370",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00759370",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00759370",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00759370",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00759370",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00759370",
+   "symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00759370",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00759370",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00759370",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "target": "007357e0",
+   "function_entry": true
+  },
+  {
+   "site": "00759370",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005bbdd0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "005bbdd0",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "target": "00735b20",
+   "function_entry": true
+  },
+  {
+   "site": "005bbdd0",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00760c00",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00761890",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  },
+  {
+   "site": "00761890",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "target": "00735b20",
+   "function_entry": true
+  },
+  {
+   "site": "00761890",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "target": "00735b10",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??1rc_ptr_base@@UAE@XZ",
+   "address": "00639510"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+   "address": "0076dc30"
+  },
+  {
+   "symbol": "??8Wstring@@QBE_NABV0@@Z",
+   "address": "0076da70"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "?CurrentDialog@@3PAUHWND__@@A",
+   "address": "00b25dd4"
+  },
+  {
+   "symbol": "?CurrentDialogResource@@3HA",
+   "address": "00b25dd8"
+  },
+  {
+   "symbol": "?DialogStack@@3PAUDialogStackEntry@@A",
+   "address": "00b25bb8"
+  },
+  {
+   "symbol": "?DialogStackCount@@3HA",
+   "address": "00b25de0"
+  },
+  {
+   "symbol": "?Get_Bool@INIClass@@QBE_NPBD0_N@Z",
+   "address": "0050f410"
+  },
+  {
+   "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+   "address": "0050d7f0"
+  },
+  {
+   "symbol": "?Handle_Exception_004b87f0@@YIHIPAU_EXCEPTION_POINTERS@@@Z",
+   "address": "004b87f0"
+  },
+  {
+   "symbol": "?Load_Resource_004954e0@@YIPAXIPBD@Z",
+   "address": "004954e0"
+  },
+  {
+   "symbol": "?MainWindow@@3PAUHWND__@@A",
+   "address": "00b263d8"
+  },
+  {
+   "symbol": "?ProgramInstance@@3PAXA",
+   "address": "00b26180"
+  },
+  {
+   "symbol": "?Put_Bool@INIClass@@QAE_NPBD0_N@Z",
+   "address": "0050f380"
+  },
+  {
+   "symbol": "?Put_Int@INIClass@@QAE_NPBD0HH@Z",
+   "address": "0050d6e0"
+  },
+  {
+   "symbol": "?Unknown_005B6000@@YIXPAUHWND__@@@Z",
+   "address": "005b6000"
+  },
+  {
+   "symbol": "?Unknown_005B6060@@YIXPAUHWND__@@@Z",
+   "address": "005b6060"
+  },
+  {
+   "symbol": "?Unknown_005cbdb0@@YI_NPAUHWND__@@H_N1@Z",
+   "address": "005cbdb0"
+  },
+  {
+   "symbol": "?WS_Find_Dialog_00735940@@YIPAUHWND__@@H@Z",
+   "address": "00735940"
+  },
+  {
+   "symbol": "?WWMouse@@3PAVMouse@@A",
+   "address": "00839c68"
+  },
+  {
+   "symbol": "?strtrim@@YIPADPAD@Z",
+   "address": "006eef10"
+  },
+  {
+   "symbol": "?unknown_517370@@YIX_N@Z",
+   "address": "00517370"
+  },
+  {
+   "symbol": "?unknown_5e5fc0@OwnerDraw@@YI_NPAUHWND__@@@Z",
+   "address": "005e5fc0"
+  },
+  {
+   "symbol": "?unknown_8523e0@@3HA",
+   "address": "008523e0"
+  },
+  {
+   "symbol": "?unknown_8523e4@@3HA",
+   "address": "008523e4"
+  },
+  {
+   "symbol": "?unknown_ability_names_7f9978@@3PAPBDA",
+   "address": "007f9978"
+  },
+  {
+   "symbol": "?unknown_active_ad0968@@3HA",
+   "address": "00ad0968"
+  },
+  {
+   "symbol": "?unknown_b2abd9@@3_NA",
+   "address": "00b2abd9"
+  },
+  {
+   "symbol": "?unknown_color_ac0fe8@@3UUnknownColor_006f45a0@@A",
+   "address": "00ac0fe8"
+  },
+  {
+   "symbol": "?unknown_color_ac1028@@3UUnknownColor_006f45a0@@A",
+   "address": "00ac1028"
+  },
+  {
+   "symbol": "?unknown_color_ac10f4@@3UUnknownColor_006f45a0@@A",
+   "address": "00ac10f4"
+  },
+  {
+   "symbol": "?unknown_count_ad0910@@3HC",
+   "address": "00ad0910"
+  },
+  {
+   "symbol": "?unknown_dialog_proc_74db40@@YGJPAUHWND__@@IIJ@Z",
+   "address": "0074db40"
+  },
+  {
+   "symbol": "?unknown_dialog_result_b25ddc@@3HA",
+   "address": "00b25ddc"
+  },
+  {
+   "symbol": "?unknown_drag_image_b25f38@@3PAXA",
+   "address": "00b25f38"
+  },
+  {
+   "symbol": "?unknown_drag_item_b25f34@@3PAXA",
+   "address": "00b25f34"
+  },
+  {
+   "symbol": "?unknown_dragging_b25f2c@@3_NA",
+   "address": "00b25f2c"
+  },
+  {
+   "symbol": "?unknown_font_cache_b25dc8@@3UUnknownFontCache@@A",
+   "address": "00b25dc8"
+  },
+  {
+   "symbol": "?unknown_instance_b26180@@3PAXA",
+   "address": "00b26180"
+  },
+  {
+   "symbol": "?unknown_int_a40d34@@3HA",
+   "address": "00a40d34"
+  },
+  {
+   "symbol": "?unknown_label_buffer_b25f10@@3PADA",
+   "address": "00b25f10"
+  },
+  {
+   "symbol": "?unknown_layout_height_7fd04c@@3HA",
+   "address": "007fd04c"
+  },
+  {
+   "symbol": "?unknown_layout_width_7fd048@@3HA",
+   "address": "007fd048"
+  },
+  {
+   "symbol": "?unknown_message_count_a52298@@3HA",
+   "address": "00a52298"
+  },
+  {
+   "symbol": "?unknown_peek_message_522ed0@@YIHPAUtagMSG@@PAUHWND__@@III@Z",
+   "address": "00522ed0"
+  },
+  {
+   "symbol": "?unknown_quarry_names_7a8620@@3PAPBDA",
+   "address": "007a8620"
+  },
+  {
+   "symbol": "?unknown_radar_events_ab67e8@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+   "address": "00ab67e8"
+  },
+  {
+   "symbol": "?unknown_show_dialog_5ff7e0@@YIXPAXH@Z",
+   "address": "005ff7e0"
+  },
+  {
+   "symbol": "?unknown_template_size_b25de4@@3PAJA",
+   "address": "00b25de4"
+  },
+  {
+   "symbol": "?unknown_tree_b25f30@@3PAUHWND__@@A",
+   "address": "00b25f30"
+  },
+  {
+   "symbol": "?unknown_version_name_b25df0@@3PADA",
+   "address": "00b25df0"
+  },
+  {
+   "symbol": "?unknown_window_section_b25f28@@3PBDB",
+   "address": "00b25f28"
+  },
+  {
+   "symbol": "_DAT_00b25ddc",
+   "address": "00b25ddc"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__ChildWindowFromPoint@12",
+   "address": "0079a430"
+  },
+  {
+   "symbol": "__imp__ClientToScreen@8",
+   "address": "0079a4ac"
+  },
+  {
+   "symbol": "__imp__CreateDialogIndirectParamA@20",
+   "address": "0079a448"
+  },
+  {
+   "symbol": "__imp__CreateDialogParamA@20",
+   "address": "0079a404"
+  },
+  {
+   "symbol": "__imp__CreateFontIndirectA@4",
+   "address": "0079a05c"
+  },
+  {
+   "symbol": "__imp__DPtoLP@12",
+   "address": "0079a08c"
+  },
+  {
+   "symbol": "__imp__DeleteObject@4",
+   "address": "0079a058"
+  },
+  {
+   "symbol": "__imp__DestroyWindow@4",
+   "address": "0079a3d4"
+  },
+  {
+   "symbol": "__imp__DispatchMessageA@4",
+   "address": "0079a4b4"
+  },
+  {
+   "symbol": "__imp__EnumChildWindows@12",
+   "address": "0079a4dc"
+  },
+  {
+   "symbol": "__imp__GetClassNameA@12",
+   "address": "0079a4e0"
+  },
+  {
+   "symbol": "__imp__GetClientRect@8",
+   "address": "0079a4b8"
+  },
+  {
+   "symbol": "__imp__GetCursorPos@4",
+   "address": "0079a3a8"
+  },
+  {
+   "symbol": "__imp__GetSystemMetrics@4",
+   "address": "0079a3dc"
+  },
+  {
+   "symbol": "__imp__GetTextMetricsA@8",
+   "address": "0079a0ac"
+  },
+  {
+   "symbol": "__imp__GetWindowContextHelpId@4",
+   "address": "0079a428"
+  },
+  {
+   "symbol": "__imp__GetWindowLongA@8",
+   "address": "0079a48c"
+  },
+  {
+   "symbol": "__imp__GetWindowRect@8",
+   "address": "0079a398"
+  },
+  {
+   "symbol": "__imp__ImageList_BeginDrag@16",
+   "address": "0079a038"
+  },
+  {
+   "symbol": "__imp__ImageList_Destroy@4",
+   "address": "0079a03c"
+  },
+  {
+   "symbol": "__imp__ImageList_DragEnter@12",
+   "address": "0079a034"
+  },
+  {
+   "symbol": "__imp__ImageList_DragMove@8",
+   "address": "0079a030"
+  },
+  {
+   "symbol": "__imp__ImageList_DragShowNolock@4",
+   "address": "0079a028"
+  },
+  {
+   "symbol": "__imp__ImageList_EndDrag@0",
+   "address": "0079a040"
+  },
+  {
+   "symbol": "__imp__InvalidateRect@12",
+   "address": "0079a494"
+  },
+  {
+   "symbol": "__imp__KillTimer@8",
+   "address": "0079a4c4"
+  },
+  {
+   "symbol": "__imp__LoadCursorA@8",
+   "address": "0079a434"
+  },
+  {
+   "symbol": "__imp__ModifyWorldTransform@12",
+   "address": "0079a098"
+  },
+  {
+   "symbol": "__imp__MoveWindow@24",
+   "address": "0079a3e0"
+  },
+  {
+   "symbol": "__imp__RedrawWindow@16",
+   "address": "0079a424"
+  },
+  {
+   "symbol": "__imp__ReleaseCapture@0",
+   "address": "0079a3e8"
+  },
+  {
+   "symbol": "__imp__RestoreDC@8",
+   "address": "0079a094"
+  },
+  {
+   "symbol": "__imp__SaveDC@4",
+   "address": "0079a0a4"
+  },
+  {
+   "symbol": "__imp__SelectObject@8",
+   "address": "0079a064"
+  },
+  {
+   "symbol": "__imp__SendMessageA@16",
+   "address": "0079a4a0"
+  },
+  {
+   "symbol": "__imp__SetCapture@4",
+   "address": "0079a3f0"
+  },
+  {
+   "symbol": "__imp__SetCursor@4",
+   "address": "0079a438"
+  },
+  {
+   "symbol": "__imp__SetFocus@4",
+   "address": "0079a38c"
+  },
+  {
+   "symbol": "__imp__SetForegroundWindow@4",
+   "address": "0079a4d0"
+  },
+  {
+   "symbol": "__imp__SetGraphicsMode@8",
+   "address": "0079a09c"
+  },
+  {
+   "symbol": "__imp__SetTimer@16",
+   "address": "0079a4d4"
+  },
+  {
+   "symbol": "__imp__SetViewportOrgEx@16",
+   "address": "0079a0a0"
+  },
+  {
+   "symbol": "__imp__SetWindowOrgEx@16",
+   "address": "0079a090"
+  },
+  {
+   "symbol": "__imp__SetWindowPos@28",
+   "address": "0079a3d0"
+  },
+  {
+   "symbol": "__imp__ShowWindow@8",
+   "address": "0079a498"
+  },
+  {
+   "symbol": "__imp__Sleep@4",
+   "address": "0079a1e4"
+  },
+  {
+   "symbol": "__imp__TranslateMessage@4",
+   "address": "0079a4b0"
+  },
+  {
+   "symbol": "__imp__UpdateWindow@4",
+   "address": "0079a46c"
+  },
+  {
+   "symbol": "__imp__WinHelpA@16",
+   "address": "0079a42c"
+  },
+  {
+   "symbol": "__imp__wsprintfA",
+   "address": "0079a4a4"
+  },
+  {
+   "symbol": "__stricmp",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "_memmove",
+   "address": "00783290"
+  }
+ ],
+ "route": "A",
+ "unit": "windlg.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00735700",
+   "lines": 4
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "00735670",
+   "bytes": 23,
+   "population": "population-09",
+   "bound": "own frozen bound (population-09)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00735b10",
+   "bytes": 6,
+   "population": "population-4352",
+   "bound": "own frozen bound (population-4352)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00735b20",
+   "bytes": 6,
+   "population": "population-4352",
+   "bound": "own frozen bound (population-4352)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00735b30",
+   "bytes": 6,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "00735690",
+   "bytes": 108,
+   "population": "population-3700",
+   "source": "src/recovered/windlg/Window_Rect_In_Main_Client.cpp",
+   "cause": "frozen in another population's inventory pass (population-3700)"
+  },
+  {
+   "kind": "split",
+   "entry": "00735940",
+   "bytes": 40,
+   "population": "population-3046",
+   "source": "src/recovered/windlg/WS_Find_Dialog.cpp",
+   "cause": "frozen in another population's inventory pass (population-3046)"
+  },
+  {
+   "kind": "split",
+   "entry": "00735970",
+   "bytes": 53,
+   "population": "population-3996",
+   "source": "src/recovered/windlg/unknown_next_key.cpp",
+   "cause": "frozen in another population's inventory pass (population-3996)"
+  },
+  {
+   "kind": "split",
+   "entry": "007359b0",
+   "bytes": 44,
+   "population": "population-3048",
+   "source": "src/recovered/windlg/unknown_previous_key.cpp",
+   "cause": "frozen in another population's inventory pass (population-3048)"
+  },
+  {
+   "kind": "split",
+   "entry": "00735d70",
+   "bytes": 29,
+   "population": "population-08",
+   "source": "src/recovered/00735d70.cpp",
+   "cause": "held by population-08 under another option set (/O1 /Ob2 /G5 /Gy)"
+  }
+ ],
+ "unit_functions": 22,
+ "data_unproven": [],
+ "stand_in_references": [
+  {
+   "site": "00735d70",
+   "target": "00735d90",
+   "symbol": "_opaque_code_address_735d70_735d90",
+   "module_symbol": "?unknown_clear_font_cache_735d90@@YAXXZ"
+  },
+  {
+   "site": "005c2940",
+   "target": "00735b10",
+   "symbol": "?FUN_00735b10@seed_005c2940@@YAIXZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "0075ca00",
+   "target": "00735b10",
+   "symbol": "?WS_Top_Window_00735b10@seed_0075ca00@@YAIXZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "0075deb0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "0075deb0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "007668d0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "007668f0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00766910",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00766910",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "0074d780",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "0074d780",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00753f50",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00753f50",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00753f50",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "0075f330",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "0075f330",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "0075f330",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "0075f330",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "0075dbd0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "0075dbd0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005c9700",
+   "target": "00735b20",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "module_symbol": "?get@Leaf_735b20@@QAEIXZ"
+  },
+  {
+   "site": "00737400",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00737400",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00737400",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005a3320",
+   "target": "00735b20",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "module_symbol": "?get@Leaf_735b20@@QAEIXZ"
+  },
+  {
+   "site": "005a2ef0",
+   "target": "00735b20",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "module_symbol": "?get@Leaf_735b20@@QAEIXZ"
+  },
+  {
+   "site": "005a2ef0",
+   "target": "00735b20",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "module_symbol": "?get@Leaf_735b20@@QAEIXZ"
+  },
+  {
+   "site": "005a5000",
+   "target": "00735b20",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "module_symbol": "?get@Leaf_735b20@@QAEIXZ"
+  },
+  {
+   "site": "005a5000",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005a5190",
+   "target": "00735b20",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "module_symbol": "?get@Leaf_735b20@@QAEIXZ"
+  },
+  {
+   "site": "005a5190",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00627210",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005c6960",
+   "target": "007359e0",
+   "symbol": "?Unknown_007359e0@@YIHPAUHWND__@@P6A_NXZHHH@Z",
+   "module_symbol": "?Dialog_Loop_007359e0@@YIHPAUHWND__@@P6A_NXZH_N2@Z"
+  },
+  {
+   "site": "005c2c80",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005c2c80",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005c2d10",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005c2d10",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005c3040",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005c3040",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005c3230",
+   "target": "007359e0",
+   "symbol": "?Unknown_007359e0@@YIHPAUHWND__@@P6A_NXZHHH@Z",
+   "module_symbol": "?Dialog_Loop_007359e0@@YIHPAUHWND__@@P6A_NXZH_N2@Z"
+  },
+  {
+   "site": "005c33a0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "005bc790",
+   "target": "00735b20",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "module_symbol": "?get@Leaf_735b20@@QAEIXZ"
+  },
+  {
+   "site": "005bc790",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005c28e0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005c7970",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005434e0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00762e00",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00761570",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "007629b0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00762c20",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "007656b0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "007656b0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "0073c230",
+   "target": "007359e0",
+   "symbol": "?Unknown_007359e0@@YIHPAUHWND__@@P6A_NXZHHH@Z",
+   "module_symbol": "?Dialog_Loop_007359e0@@YIHPAUHWND__@@P6A_NXZH_N2@Z"
+  },
+  {
+   "site": "0074dd00",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "0075ea50",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "0075ea50",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "0075ea50",
+   "target": "007359e0",
+   "symbol": "?Unknown_007359e0@@YIHPAUHWND__@@P6A_NXZHHH@Z",
+   "module_symbol": "?Dialog_Loop_007359e0@@YIHPAUHWND__@@P6A_NXZH_N2@Z"
+  },
+  {
+   "site": "0073ca50",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "0073cb80",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "0074d4d0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "0074d4d0",
+   "target": "007359e0",
+   "symbol": "?Unknown_007359e0@@YIHPAUHWND__@@P6A_NXZHHH@Z",
+   "module_symbol": "?Dialog_Loop_007359e0@@YIHPAUHWND__@@P6A_NXZH_N2@Z"
+  },
+  {
+   "site": "0074d5e0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00748cd0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00748cd0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "0075c980",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00762f70",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00744700",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00744700",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "007560e0",
+   "target": "007359e0",
+   "symbol": "?Unknown_007359e0@@YIHPAUHWND__@@P6A_NXZHHH@Z",
+   "module_symbol": "?Dialog_Loop_007359e0@@YIHPAUHWND__@@P6A_NXZH_N2@Z"
+  },
+  {
+   "site": "0074c5f0",
+   "target": "007357e0",
+   "symbol": "?Close_Online_Dialog_007357e0@@YIXPAUHWND__@@H@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00744610",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00744610",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "0073f8f0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00741ea0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00741ea0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00741ea0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00742080",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "0073d8f0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "0073d8f0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "0073d8f0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "0073d8f0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "0073d8f0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "0073d8f0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "0073d8f0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "0073d8f0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "0075c350",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00746240",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "0075a920",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "004e77f0",
+   "target": "00735b20",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "module_symbol": "?get@Leaf_735b20@@QAEIXZ"
+  },
+  {
+   "site": "004e77f0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "007498e0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "007498e0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "007498e0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "007466c0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "007485d0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "0074c660",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00744a00",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00744a00",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00744a00",
+   "target": "007359e0",
+   "symbol": "?Unknown_007359e0@@YIHPAUHWND__@@P6A_NXZHHH@Z",
+   "module_symbol": "?Dialog_Loop_007359e0@@YIHPAUHWND__@@P6A_NXZH_N2@Z"
+  },
+  {
+   "site": "00744a00",
+   "target": "007359e0",
+   "symbol": "?Unknown_007359e0@@YIHPAUHWND__@@P6A_NXZHHH@Z",
+   "module_symbol": "?Dialog_Loop_007359e0@@YIHPAUHWND__@@P6A_NXZH_N2@Z"
+  },
+  {
+   "site": "007494d0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "007494d0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "005c34f0",
+   "target": "00735b20",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "module_symbol": "?get@Leaf_735b20@@QAEIXZ"
+  },
+  {
+   "site": "005c34f0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005c71f0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "005c7570",
+   "target": "00735b20",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "module_symbol": "?get@Leaf_735b20@@QAEIXZ"
+  },
+  {
+   "site": "00766a10",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00757950",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00757950",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00757d80",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00751df0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00751df0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00751df0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00751df0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00751df0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00751df0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00751df0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00751df0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00751df0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00751df0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00751df0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00751df0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00751df0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00751df0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "0075c830",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "005bd070",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005bd070",
+   "target": "00735b20",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "module_symbol": "?get@Leaf_735b20@@QAEIXZ"
+  },
+  {
+   "site": "005bd070",
+   "target": "00735b20",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "module_symbol": "?get@Leaf_735b20@@QAEIXZ"
+  },
+  {
+   "site": "005bd070",
+   "target": "00735b20",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "module_symbol": "?get@Leaf_735b20@@QAEIXZ"
+  },
+  {
+   "site": "005bd070",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005bd070",
+   "target": "00735b20",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "module_symbol": "?get@Leaf_735b20@@QAEIXZ"
+  },
+  {
+   "site": "005bd070",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005bd070",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005bd070",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005bd070",
+   "target": "00735b20",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "module_symbol": "?get@Leaf_735b20@@QAEIXZ"
+  },
+  {
+   "site": "005bd070",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005bd070",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005bd070",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005bd070",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005bd070",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005c08a0",
+   "target": "00735b20",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "module_symbol": "?get@Leaf_735b20@@QAEIXZ"
+  },
+  {
+   "site": "005c08a0",
+   "target": "00735b20",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "module_symbol": "?get@Leaf_735b20@@QAEIXZ"
+  },
+  {
+   "site": "005c08a0",
+   "target": "00735b20",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "module_symbol": "?get@Leaf_735b20@@QAEIXZ"
+  },
+  {
+   "site": "005c08a0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005c08a0",
+   "target": "00735b20",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "module_symbol": "?get@Leaf_735b20@@QAEIXZ"
+  },
+  {
+   "site": "005c08a0",
+   "target": "00735b20",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "module_symbol": "?get@Leaf_735b20@@QAEIXZ"
+  },
+  {
+   "site": "005c08a0",
+   "target": "00735b20",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "module_symbol": "?get@Leaf_735b20@@QAEIXZ"
+  },
+  {
+   "site": "005c08a0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00741750",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00741750",
+   "target": "00735b20",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "module_symbol": "?get@Leaf_735b20@@QAEIXZ"
+  },
+  {
+   "site": "00741750",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005c01d0",
+   "target": "00735b20",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "module_symbol": "?get@Leaf_735b20@@QAEIXZ"
+  },
+  {
+   "site": "007424c0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "007424c0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "007424c0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "007424c0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "007424c0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "007424c0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "007424c0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "007424c0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "007424c0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "007424c0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "007424c0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "007424c0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "007424c0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "007424c0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "007424c0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "007424c0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "0074a710",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "0074a710",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00751c30",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00751c30",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00624c10",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00624c10",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00624c10",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00624c10",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00624c10",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00624c10",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00624c10",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00624c10",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00742fd0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00742fd0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00743720",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00743720",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00743720",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00743720",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "007469c0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "007469c0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "007459a0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "007459a0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "007459a0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "007459a0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "007459a0",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "007459a0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "007459a0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00759e20",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00759e20",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00759e20",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00759e20",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00759370",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00759370",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00759370",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00759370",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00759370",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00759370",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00759370",
+   "target": "007357e0",
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "module_symbol": "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z"
+  },
+  {
+   "site": "00759370",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005bbdd0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "005bbdd0",
+   "target": "00735b20",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "module_symbol": "?get@Leaf_735b20@@QAEIXZ"
+  },
+  {
+   "site": "005bbdd0",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00760c00",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00761890",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  },
+  {
+   "site": "00761890",
+   "target": "00735b20",
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "module_symbol": "?get@Leaf_735b20@@QAEIXZ"
+  },
+  {
+   "site": "00761890",
+   "target": "00735b10",
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "module_symbol": "?get@Leaf_735b10@@QAEIXZ"
+  }
+ ],
+ "stand_in_reference_count": 214,
+ "residual_split": {
+  "rows": 5,
+  "bytes": 274
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

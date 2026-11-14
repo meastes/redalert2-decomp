@@ -297,84 +297,84 @@ alignas(16) unsigned char ra2_orig_0072[160] __asm__("_CrateNames");
 // row	_vtable_48dc20	0x0079DF50	32	bytes	vtable_48dc20	src/recovered/classes/VectorClass_SubzoneConnectionStruct/0040b230.cpp
 alignas(16) unsigned char ra2_orig_0073[32] __asm__("_vtable_48dbd0");
 __asm__(".globl _vtable_48dc20\n.set _vtable_48dc20, _vtable_48dbd0\n");
-// row	_PTR_FUN_0079df78	0x0079DF78	12	ptr	PTR_FUN_0079df78	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0074[32] __asm__("_PTR_FUN_0079df78");
-// row	_PTR_FUN_0079df84	0x0079DF84	12	ptr	PTR_FUN_0079df84	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0075[32] __asm__("_PTR_FUN_0079df84");
-// row	_PTR_FUN_0079df90	0x0079DF90	12	ptr	PTR_FUN_0079df90	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0076[32] __asm__("_PTR_FUN_0079df90");
-// row	_PTR_FUN_0079df9c	0x0079DF9C	12	ptr	PTR_FUN_0079df9c	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0077[32] __asm__("_PTR_FUN_0079df9c");
-// row	_PTR_FUN_0079dfa8	0x0079DFA8	12	ptr	PTR_FUN_0079dfa8	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0078[32] __asm__("_PTR_FUN_0079dfa8");
-// row	_PTR_FUN_0079dfb4	0x0079DFB4	12	ptr	PTR_FUN_0079dfb4	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0079[32] __asm__("_PTR_FUN_0079dfb4");
-// row	_PTR_FUN_0079dfc0	0x0079DFC0	12	ptr	PTR_FUN_0079dfc0	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0080[32] __asm__("_PTR_FUN_0079dfc0");
-// row	_PTR_FUN_0079dfcc	0x0079DFCC	12	ptr	PTR_FUN_0079dfcc	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0081[32] __asm__("_PTR_FUN_0079dfcc");
-// row	_PTR_FUN_0079dfd8	0x0079DFD8	12	ptr	PTR_FUN_0079dfd8	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0082[32] __asm__("_PTR_FUN_0079dfd8");
-// row	_PTR_FUN_0079dfe4	0x0079DFE4	12	ptr	PTR_FUN_0079dfe4	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0083[32] __asm__("_PTR_FUN_0079dfe4");
-// row	_PTR_FUN_0079dff0	0x0079DFF0	12	ptr	PTR_FUN_0079dff0	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0084[32] __asm__("_PTR_FUN_0079dff0");
-// row	_PTR_FUN_0079dffc	0x0079DFFC	12	ptr	PTR_FUN_0079dffc	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0085[32] __asm__("_PTR_FUN_0079dffc");
-// row	_PTR_FUN_0079e008	0x0079E008	12	ptr	PTR_FUN_0079e008	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0086[32] __asm__("_PTR_FUN_0079e008");
-// row	_PTR_FUN_0079e014	0x0079E014	12	ptr	PTR_FUN_0079e014	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0087[32] __asm__("_PTR_FUN_0079e014");
-// row	_PTR_FUN_0079e020	0x0079E020	12	ptr	PTR_FUN_0079e020	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0088[32] __asm__("_PTR_FUN_0079e020");
-// row	_PTR_FUN_0079e02c	0x0079E02C	12	ptr	PTR_FUN_0079e02c	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0089[32] __asm__("_PTR_FUN_0079e02c");
-// row	_PTR_FUN_0079e038	0x0079E038	12	ptr	PTR_FUN_0079e038	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0090[32] __asm__("_PTR_FUN_0079e038");
-// row	_PTR_FUN_0079e044	0x0079E044	12	ptr	PTR_FUN_0079e044	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0091[32] __asm__("_PTR_FUN_0079e044");
-// row	_PTR_FUN_0079e14c	0x0079E14C	16	ptr	PTR_FUN_0079e14c	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0092[32] __asm__("_PTR_FUN_0079e14c");
-// row	_PTR_FUN_0079e15c	0x0079E15C	16	ptr	PTR_FUN_0079e15c	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0093[32] __asm__("_PTR_FUN_0079e15c");
-// row	_PTR_FUN_0079e16c	0x0079E16C	16	ptr	PTR_FUN_0079e16c	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0094[32] __asm__("_PTR_FUN_0079e16c");
-// row	_PTR_FUN_0079e17c	0x0079E17C	16	ptr	PTR_FUN_0079e17c	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0095[32] __asm__("_PTR_FUN_0079e17c");
-// row	_PTR_FUN_0079e18c	0x0079E18C	16	ptr	PTR_FUN_0079e18c	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0096[32] __asm__("_PTR_FUN_0079e18c");
-// row	_PTR_FUN_0079e19c	0x0079E19C	16	ptr	PTR_FUN_0079e19c	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0097[32] __asm__("_PTR_FUN_0079e19c");
-// row	_PTR_FUN_0079e1ac	0x0079E1AC	16	ptr	PTR_FUN_0079e1ac	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0098[32] __asm__("_PTR_FUN_0079e1ac");
-// row	_PTR_FUN_0079e1bc	0x0079E1BC	16	ptr	PTR_FUN_0079e1bc	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0099[32] __asm__("_PTR_FUN_0079e1bc");
-// row	_PTR_FUN_0079e1cc	0x0079E1CC	16	ptr	PTR_FUN_0079e1cc	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0100[32] __asm__("_PTR_FUN_0079e1cc");
-// row	_PTR_FUN_0079e1dc	0x0079E1DC	16	ptr	PTR_FUN_0079e1dc	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0101[32] __asm__("_PTR_FUN_0079e1dc");
-// row	_PTR_FUN_0079e1ec	0x0079E1EC	16	ptr	PTR_FUN_0079e1ec	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0102[32] __asm__("_PTR_FUN_0079e1ec");
-// row	_PTR_FUN_0079e1fc	0x0079E1FC	16	ptr	PTR_FUN_0079e1fc	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0103[32] __asm__("_PTR_FUN_0079e1fc");
-// row	_PTR_FUN_0079e20c	0x0079E20C	16	ptr	PTR_FUN_0079e20c	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0104[32] __asm__("_PTR_FUN_0079e20c");
-// row	_PTR_FUN_0079e26c	0x0079E26C	16	ptr	PTR_FUN_0079e26c	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0105[32] __asm__("_PTR_FUN_0079e26c");
-// row	_PTR_FUN_0079e27c	0x0079E27C	16	ptr	PTR_FUN_0079e27c	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0106[32] __asm__("_PTR_FUN_0079e27c");
-// row	_PTR_FUN_0079e28c	0x0079E28C	16	ptr	PTR_FUN_0079e28c	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0107[32] __asm__("_PTR_FUN_0079e28c");
-// row	_PTR_FUN_0079e29c	0x0079E29C	16	ptr	PTR_FUN_0079e29c	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0108[32] __asm__("_PTR_FUN_0079e29c");
-// row	_PTR_FUN_0079e2ac	0x0079E2AC	16	ptr	PTR_FUN_0079e2ac	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0109[32] __asm__("_PTR_FUN_0079e2ac");
-// row	_PTR_FUN_0079e2bc	0x0079E2BC	16	ptr	PTR_FUN_0079e2bc	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0110[32] __asm__("_PTR_FUN_0079e2bc");
-// row	_PTR_FUN_0079e52c	0x0079E52C	16	ptr	PTR_FUN_0079e52c	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0111[32] __asm__("_PTR_FUN_0079e52c");
-// row	_PTR_FUN_0079e53c	0x0079E53C	32	ptr	PTR_FUN_0079e53c	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0112[64] __asm__("_PTR_FUN_0079e53c");
+// row	_RLEBlitTransLucent25AlphaZReadWrite_unsigned_short_vtable_0079df78	0x0079DF78	12	ptr	RLEBlitTransLucent25AlphaZReadWrite_unsigned_short_vtable_0079df78	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0074[32] __asm__("_RLEBlitTransLucent25AlphaZReadWrite_unsigned_short_vtable_0079df78");
+// row	_RLEBlitTransLucent50AlphaZReadWrite_unsigned_short_vtable_0079df84	0x0079DF84	12	ptr	RLEBlitTransLucent50AlphaZReadWrite_unsigned_short_vtable_0079df84	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0075[32] __asm__("_RLEBlitTransLucent50AlphaZReadWrite_unsigned_short_vtable_0079df84");
+// row	_RLEBlitTransLucent75AlphaZReadWrite_unsigned_short_vtable_0079df90	0x0079DF90	12	ptr	RLEBlitTransLucent75AlphaZReadWrite_unsigned_short_vtable_0079df90	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0076[32] __asm__("_RLEBlitTransLucent75AlphaZReadWrite_unsigned_short_vtable_0079df90");
+// row	_RLEBlitTransZRemapXlatAlphaZReadWrite_unsigned_short_vtable_0079df9c	0x0079DF9C	12	ptr	RLEBlitTransZRemapXlatAlphaZReadWrite_unsigned_short_vtable_0079df9c	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0077[32] __asm__("_RLEBlitTransZRemapXlatAlphaZReadWrite_unsigned_short_vtable_0079df9c");
+// row	_RLEBlitTransXlatAlphaZReadWrite_unsigned_short_vtable_0079dfa8	0x0079DFA8	12	ptr	RLEBlitTransXlatAlphaZReadWrite_unsigned_short_vtable_0079dfa8	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0078[32] __asm__("_RLEBlitTransXlatAlphaZReadWrite_unsigned_short_vtable_0079dfa8");
+// row	_RLEBlitTransLucent25AlphaZReadWarp_unsigned_short_vtable_0079dfb4	0x0079DFB4	12	ptr	RLEBlitTransLucent25AlphaZReadWarp_unsigned_short_vtable_0079dfb4	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0079[32] __asm__("_RLEBlitTransLucent25AlphaZReadWarp_unsigned_short_vtable_0079dfb4");
+// row	_RLEBlitTransLucent50AlphaZReadWarp_unsigned_short_vtable_0079dfc0	0x0079DFC0	12	ptr	RLEBlitTransLucent50AlphaZReadWarp_unsigned_short_vtable_0079dfc0	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0080[32] __asm__("_RLEBlitTransLucent50AlphaZReadWarp_unsigned_short_vtable_0079dfc0");
+// row	_RLEBlitTransLucent75AlphaZReadWarp_unsigned_short_vtable_0079dfcc	0x0079DFCC	12	ptr	RLEBlitTransLucent75AlphaZReadWarp_unsigned_short_vtable_0079dfcc	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0081[32] __asm__("_RLEBlitTransLucent75AlphaZReadWarp_unsigned_short_vtable_0079dfcc");
+// row	_RLEBlitTransLucent25AlphaZRead_unsigned_short_vtable_0079dfd8	0x0079DFD8	12	ptr	RLEBlitTransLucent25AlphaZRead_unsigned_short_vtable_0079dfd8	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0082[32] __asm__("_RLEBlitTransLucent25AlphaZRead_unsigned_short_vtable_0079dfd8");
+// row	_RLEBlitTransLucent50AlphaZRead_unsigned_short_vtable_0079dfe4	0x0079DFE4	12	ptr	RLEBlitTransLucent50AlphaZRead_unsigned_short_vtable_0079dfe4	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0083[32] __asm__("_RLEBlitTransLucent50AlphaZRead_unsigned_short_vtable_0079dfe4");
+// row	_RLEBlitTransLucent75AlphaZRead_unsigned_short_vtable_0079dff0	0x0079DFF0	12	ptr	RLEBlitTransLucent75AlphaZRead_unsigned_short_vtable_0079dff0	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0084[32] __asm__("_RLEBlitTransLucent75AlphaZRead_unsigned_short_vtable_0079dff0");
+// row	_RLEBlitTransZRemapXlatAlphaZRead_unsigned_short_vtable_0079dffc	0x0079DFFC	12	ptr	RLEBlitTransZRemapXlatAlphaZRead_unsigned_short_vtable_0079dffc	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0085[32] __asm__("_RLEBlitTransZRemapXlatAlphaZRead_unsigned_short_vtable_0079dffc");
+// row	_RLEBlitTransXlatAlphaZRead_unsigned_short_vtable_0079e008	0x0079E008	12	ptr	RLEBlitTransXlatAlphaZRead_unsigned_short_vtable_0079e008	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0086[32] __asm__("_RLEBlitTransXlatAlphaZRead_unsigned_short_vtable_0079e008");
+// row	_RLEBlitTransLucent25Alpha_unsigned_short_vtable_0079e014	0x0079E014	12	ptr	RLEBlitTransLucent25Alpha_unsigned_short_vtable_0079e014	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0087[32] __asm__("_RLEBlitTransLucent25Alpha_unsigned_short_vtable_0079e014");
+// row	_RLEBlitTransLucent50Alpha_unsigned_short_vtable_0079e020	0x0079E020	12	ptr	RLEBlitTransLucent50Alpha_unsigned_short_vtable_0079e020	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0088[32] __asm__("_RLEBlitTransLucent50Alpha_unsigned_short_vtable_0079e020");
+// row	_RLEBlitTransLucent75Alpha_unsigned_short_vtable_0079e02c	0x0079E02C	12	ptr	RLEBlitTransLucent75Alpha_unsigned_short_vtable_0079e02c	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0089[32] __asm__("_RLEBlitTransLucent75Alpha_unsigned_short_vtable_0079e02c");
+// row	_RLEBlitTransZRemapXlatAlpha_unsigned_short_vtable_0079e038	0x0079E038	12	ptr	RLEBlitTransZRemapXlatAlpha_unsigned_short_vtable_0079e038	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0090[32] __asm__("_RLEBlitTransZRemapXlatAlpha_unsigned_short_vtable_0079e038");
+// row	_RLEBlitTransXlatAlpha_unsigned_short_vtable_0079e044	0x0079E044	12	ptr	RLEBlitTransXlatAlpha_unsigned_short_vtable_0079e044	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0091[32] __asm__("_RLEBlitTransXlatAlpha_unsigned_short_vtable_0079e044");
+// row	_BlitTransLucent25AlphaZReadWrite_unsigned_short_vtable_0079e14c	0x0079E14C	16	ptr	BlitTransLucent25AlphaZReadWrite_unsigned_short_vtable_0079e14c	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0092[32] __asm__("_BlitTransLucent25AlphaZReadWrite_unsigned_short_vtable_0079e14c");
+// row	_BlitTransLucent50AlphaZReadWrite_unsigned_short_vtable_0079e15c	0x0079E15C	16	ptr	BlitTransLucent50AlphaZReadWrite_unsigned_short_vtable_0079e15c	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0093[32] __asm__("_BlitTransLucent50AlphaZReadWrite_unsigned_short_vtable_0079e15c");
+// row	_BlitTransLucent75AlphaZReadWrite_unsigned_short_vtable_0079e16c	0x0079E16C	16	ptr	BlitTransLucent75AlphaZReadWrite_unsigned_short_vtable_0079e16c	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0094[32] __asm__("_BlitTransLucent75AlphaZReadWrite_unsigned_short_vtable_0079e16c");
+// row	_BlitTransZRemapXlatAlphaZReadWrite_unsigned_short_vtable_0079e17c	0x0079E17C	16	ptr	BlitTransZRemapXlatAlphaZReadWrite_unsigned_short_vtable_0079e17c	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0095[32] __asm__("_BlitTransZRemapXlatAlphaZReadWrite_unsigned_short_vtable_0079e17c");
+// row	_BlitTransXlatAlphaZReadWrite_unsigned_short_vtable_0079e18c	0x0079E18C	16	ptr	BlitTransXlatAlphaZReadWrite_unsigned_short_vtable_0079e18c	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0096[32] __asm__("_BlitTransXlatAlphaZReadWrite_unsigned_short_vtable_0079e18c");
+// row	_BlitTransLucent25AlphaZReadWarp_unsigned_short_vtable_0079e19c	0x0079E19C	16	ptr	BlitTransLucent25AlphaZReadWarp_unsigned_short_vtable_0079e19c	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0097[32] __asm__("_BlitTransLucent25AlphaZReadWarp_unsigned_short_vtable_0079e19c");
+// row	_BlitTransLucent50AlphaZReadWarp_unsigned_short_vtable_0079e1ac	0x0079E1AC	16	ptr	BlitTransLucent50AlphaZReadWarp_unsigned_short_vtable_0079e1ac	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0098[32] __asm__("_BlitTransLucent50AlphaZReadWarp_unsigned_short_vtable_0079e1ac");
+// row	_BlitTransLucent75AlphaZReadWarp_unsigned_short_vtable_0079e1bc	0x0079E1BC	16	ptr	BlitTransLucent75AlphaZReadWarp_unsigned_short_vtable_0079e1bc	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0099[32] __asm__("_BlitTransLucent75AlphaZReadWarp_unsigned_short_vtable_0079e1bc");
+// row	_BlitTransLucent25AlphaZRead_unsigned_short_vtable_0079e1cc	0x0079E1CC	16	ptr	BlitTransLucent25AlphaZRead_unsigned_short_vtable_0079e1cc	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0100[32] __asm__("_BlitTransLucent25AlphaZRead_unsigned_short_vtable_0079e1cc");
+// row	_BlitTransLucent50AlphaZRead_unsigned_short_vtable_0079e1dc	0x0079E1DC	16	ptr	BlitTransLucent50AlphaZRead_unsigned_short_vtable_0079e1dc	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0101[32] __asm__("_BlitTransLucent50AlphaZRead_unsigned_short_vtable_0079e1dc");
+// row	_BlitTransLucent75AlphaZRead_unsigned_short_vtable_0079e1ec	0x0079E1EC	16	ptr	BlitTransLucent75AlphaZRead_unsigned_short_vtable_0079e1ec	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0102[32] __asm__("_BlitTransLucent75AlphaZRead_unsigned_short_vtable_0079e1ec");
+// row	_BlitTransZRemapXlatAlphaZRead_unsigned_short_vtable_0079e1fc	0x0079E1FC	16	ptr	BlitTransZRemapXlatAlphaZRead_unsigned_short_vtable_0079e1fc	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0103[32] __asm__("_BlitTransZRemapXlatAlphaZRead_unsigned_short_vtable_0079e1fc");
+// row	_BlitTransXlatAlphaZRead_unsigned_short_vtable_0079e20c	0x0079E20C	16	ptr	BlitTransXlatAlphaZRead_unsigned_short_vtable_0079e20c	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0104[32] __asm__("_BlitTransXlatAlphaZRead_unsigned_short_vtable_0079e20c");
+// row	_BlitTransLucent25Alpha_unsigned_short_vtable_0079e26c	0x0079E26C	16	ptr	BlitTransLucent25Alpha_unsigned_short_vtable_0079e26c	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0105[32] __asm__("_BlitTransLucent25Alpha_unsigned_short_vtable_0079e26c");
+// row	_BlitTransLucent50Alpha_unsigned_short_vtable_0079e27c	0x0079E27C	16	ptr	BlitTransLucent50Alpha_unsigned_short_vtable_0079e27c	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0106[32] __asm__("_BlitTransLucent50Alpha_unsigned_short_vtable_0079e27c");
+// row	_BlitTransLucent75Alpha_unsigned_short_vtable_0079e28c	0x0079E28C	16	ptr	BlitTransLucent75Alpha_unsigned_short_vtable_0079e28c	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0107[32] __asm__("_BlitTransLucent75Alpha_unsigned_short_vtable_0079e28c");
+// row	_BlitTransZRemapXlatAlpha_unsigned_short_vtable_0079e29c	0x0079E29C	16	ptr	BlitTransZRemapXlatAlpha_unsigned_short_vtable_0079e29c	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0108[32] __asm__("_BlitTransZRemapXlatAlpha_unsigned_short_vtable_0079e29c");
+// row	_BlitTransXlatAlpha_unsigned_short_vtable_0079e2ac	0x0079E2AC	16	ptr	BlitTransXlatAlpha_unsigned_short_vtable_0079e2ac	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0109[32] __asm__("_BlitTransXlatAlpha_unsigned_short_vtable_0079e2ac");
+// row	_BlitPlainXlatAlpha_unsigned_short_vtable_0079e2bc	0x0079E2BC	16	ptr	BlitPlainXlatAlpha_unsigned_short_vtable_0079e2bc	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0110[32] __asm__("_BlitPlainXlatAlpha_unsigned_short_vtable_0079e2bc");
+// row	_Blitter_vtable_0079e52c	0x0079E52C	16	ptr	Blitter_vtable_0079e52c	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0111[32] __asm__("_Blitter_vtable_0079e52c");
+// row	_RLEBlitter_vtable_0079e53c	0x0079E53C	32	ptr	RLEBlitter_vtable_0079e53c	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0112[64] __asm__("_RLEBlitter_vtable_0079e53c");
 // row	_table_4913e0	0x0079E57C	48	bytes	table_4913e0	src/recovered/classes/VectorClass_TechnoClass_ptr/0040bc10.cpp
 // row	_vtable_491340	0x0079E57C	48	bytes	vtable_491340	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
 // row	_vtable_491390	0x0079E57C	48	bytes	vtable_491390	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
@@ -716,16 +716,16 @@ __asm__(".globl _vtable_4f8580\n.set _vtable_4f8580, _array_extension_dispatch_0
 alignas(16) unsigned char ra2_orig_0198[32] __asm__("_array_storage_dispatch_004f8b80");
 __asm__(".globl _vtable_4f85d0\n.set _vtable_4f85d0, _array_storage_dispatch_004f8b80\n");
 __asm__(".globl _vtable_4f8620\n.set _vtable_4f8620, _array_storage_dispatch_004f8b80\n");
-// row	_PTR_FUN_007a2ee4	0x007A2EE4	12	ptr	PTR_FUN_007a2ee4	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
+// row	_VectorClass_TeamTypeClass_vtable_007a2ee4	0x007A2EE4	12	ptr	VectorClass_TeamTypeClass_vtable_007a2ee4	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 // row	_base_dispatch_004f6f30	0x007A2EE4	12	bytes	base_dispatch_004f6f30	src/recovered/word_storage/CopyWordStorage_0046ce20.cpp
 // row	_base_dispatch_006c03e0	0x007A2EE4	12	bytes	base_dispatch_006c03e0	src/recovered/word_storage/InitializeWordStorage_0046d1f0.cpp
 // row	_vtable_4f6ee0	0x007A2EE4	12	bytes	vtable_4f6ee0	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
 // row	_vtable_4f8710	0x007A2EE4	12	bytes	vtable_4f8710	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
-alignas(16) unsigned char ra2_orig_0199[32] __asm__("_PTR_FUN_007a2ee4");
-__asm__(".globl _base_dispatch_004f6f30\n.set _base_dispatch_004f6f30, _PTR_FUN_007a2ee4\n");
-__asm__(".globl _base_dispatch_006c03e0\n.set _base_dispatch_006c03e0, _PTR_FUN_007a2ee4\n");
-__asm__(".globl _vtable_4f6ee0\n.set _vtable_4f6ee0, _PTR_FUN_007a2ee4\n");
-__asm__(".globl _vtable_4f8710\n.set _vtable_4f8710, _PTR_FUN_007a2ee4\n");
+alignas(16) unsigned char ra2_orig_0199[32] __asm__("_VectorClass_TeamTypeClass_vtable_007a2ee4");
+__asm__(".globl _base_dispatch_004f6f30\n.set _base_dispatch_004f6f30, _VectorClass_TeamTypeClass_vtable_007a2ee4\n");
+__asm__(".globl _base_dispatch_006c03e0\n.set _base_dispatch_006c03e0, _VectorClass_TeamTypeClass_vtable_007a2ee4\n");
+__asm__(".globl _vtable_4f6ee0\n.set _vtable_4f6ee0, _VectorClass_TeamTypeClass_vtable_007a2ee4\n");
+__asm__(".globl _vtable_4f8710\n.set _vtable_4f8710, _VectorClass_TeamTypeClass_vtable_007a2ee4\n");
 // row	_base_dispatch_0058e170	0x007A2F08	12	bytes	base_dispatch_0058e170	src/recovered/word_storage/InitializeWordStorage_0046d1f0.cpp
 // row	_base_dispatch_006547b0	0x007A2F08	12	bytes	base_dispatch_006547b0	src/recovered/word_storage/CopyWordStorage_0046ce20.cpp
 // row	_vtable_4f8490	0x007A2F08	12	bytes	vtable_4f8490	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
@@ -848,10 +848,10 @@ alignas(16) unsigned char ra2_orig_0226[32] __asm__("_PTR_FUN_007a55dc");
 // row	_vtable_539b80	0x007A5624	32	bytes	vtable_539b80	src/recovered/classes/VectorClass_SubzoneConnectionStruct/0040b230.cpp
 alignas(16) unsigned char ra2_orig_0227[32] __asm__("_vtable_539b30");
 __asm__(".globl _vtable_539b80\n.set _vtable_539b80, _vtable_539b30\n");
-// row	_PTR_FUN_007a5734	0x007A5734	32	ptr	PTR_FUN_007a5734	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
+// row	_VectorClass_unsigned_short_vtable_007a5734	0x007A5734	32	ptr	VectorClass_unsigned_short_vtable_007a5734	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
 // row	_vtable_53aaf0	0x007A5734	32	bytes	vtable_53aaf0	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
-alignas(16) unsigned char ra2_orig_0228[64] __asm__("_PTR_FUN_007a5734");
-__asm__(".globl _vtable_53aaf0\n.set _vtable_53aaf0, _PTR_FUN_007a5734\n");
+alignas(16) unsigned char ra2_orig_0228[64] __asm__("_VectorClass_unsigned_short_vtable_007a5734");
+__asm__(".globl _vtable_53aaf0\n.set _vtable_53aaf0, _VectorClass_unsigned_short_vtable_007a5734\n");
 // row	_vtable_53cd30	0x007A5864	44	bytes	vtable_53cd30	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
 // row	_vtable_53cd80	0x007A5864	44	bytes	vtable_53cd80	src/recovered/classes/VectorClass_SubzoneConnectionStruct/0040b230.cpp
 alignas(16) unsigned char ra2_orig_0229[48] __asm__("_vtable_53cd30");
@@ -1032,8 +1032,8 @@ __asm__(".globl _vtable_5a6bf0\n.set _vtable_5a6bf0, _base_dispatch_005a62d0\n")
 alignas(16) unsigned char ra2_orig_0292[48] __asm__("_derived_dispatch_005a62d0");
 // row	_PTR_FUN_007a69dc	0x007A69DC	200	ptr	PTR_FUN_007a69dc	src/recovered/0042ebe0.cpp
 alignas(16) unsigned char ra2_orig_0293[400] __asm__("_PTR_FUN_007a69dc");
-// row	_PTR_FUN_007a6aa4	0x007A6AA4	184	ptr	PTR_FUN_007a6aa4	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0294[368] __asm__("_PTR_FUN_007a6aa4");
+// row	_Megawealth_vtable_007a6aa4	0x007A6AA4	184	ptr	Megawealth_vtable_007a6aa4	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0294[368] __asm__("_Megawealth_vtable_007a6aa4");
 // row	_PTR_FUN_007a6b8c	0x007A6B8C	200	ptr	PTR_FUN_007a6b8c	src/recovered/0042ebe0.cpp
 alignas(16) unsigned char ra2_orig_0295[400] __asm__("_PTR_FUN_007a6b8c");
 // row	_PTR_FUN_007a6c54	0x007A6C54	16	ptr	PTR_FUN_007a6c54	src/recovered/004919b0.cpp
@@ -1078,10 +1078,10 @@ alignas(16) unsigned char ra2_orig_0308[32] __asm__("_vtable_5b9700");
 __asm__(".globl _vtable_5b9750\n.set _vtable_5b9750, _vtable_5b9700\n");
 // row	_PTR_FUN_007a72b0	0x007A72B0	12	ptr	PTR_FUN_007a72b0	src/recovered/004919b0.cpp
 alignas(16) unsigned char ra2_orig_0309[32] __asm__("_PTR_FUN_007a72b0");
-// row	_DAT_007a7360	0x007A7360	4	bytes	DAT_007a7360	src/recovered/00479ca0.cpp
+// row	_unknown_color_007a7360	0x007A7360	4	bytes	unknown_color_007a7360	src/recovered/00479ca0.cpp
 // row	_unknown_color_7a7360	0x007A7360	4	bytes	unknown_color_7a7360	src/recovered/004b3580.cpp
-alignas(16) unsigned char ra2_orig_0310[16] __asm__("_DAT_007a7360");
-__asm__(".globl _unknown_color_7a7360\n.set _unknown_color_7a7360, _DAT_007a7360\n");
+alignas(16) unsigned char ra2_orig_0310[16] __asm__("_unknown_color_007a7360");
+__asm__(".globl _unknown_color_7a7360\n.set _unknown_color_7a7360, _unknown_color_007a7360\n");
 // row	_unknown_color_7a7364	0x007A7364	4	bytes	unknown_color_7a7364	src/recovered/classes/CChatEventSink/CChatEventSink_OnChannelTopic_007646a0.cpp
 alignas(16) unsigned char ra2_orig_0311[16] __asm__("_unknown_color_7a7364");
 // row	_unknown_color_7a7368	0x007A7368	4	bytes	unknown_color_7a7368	src/recovered/classes/CChatEventSink/CChatEventSink_OnChannelTopic_007646a0.cpp
@@ -1122,8 +1122,8 @@ alignas(16) unsigned char ra2_orig_0324[16] __asm__("_unknown_overlay_section_7a
 // row	_vtable_5de610	0x007A7AE4	52	bytes	vtable_5de610	src/recovered/classes/VectorClass_SubzoneConnectionStruct/0040b230.cpp
 alignas(16) unsigned char ra2_orig_0325[64] __asm__("_vtable_5de5c0");
 __asm__(".globl _vtable_5de610\n.set _vtable_5de610, _vtable_5de5c0\n");
-// row	_PTR_FUN_007a7b28	0x007A7B28	24	ptr	PTR_FUN_007a7b28	src/recovered/004919b0.cpp
-alignas(16) unsigned char ra2_orig_0326[48] __asm__("_PTR_FUN_007a7b28");
+// row	_DialogControl_vtable_007a7b28	0x007A7B28	24	ptr	DialogControl_vtable_007a7b28	src/recovered/004919b0.cpp
+alignas(16) unsigned char ra2_orig_0326[48] __asm__("_DialogControl_vtable_007a7b28");
 // row	_array_extension_dispatch_006051f0	0x007A7B58	32	bytes	array_extension_dispatch_006051f0	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 alignas(16) unsigned char ra2_orig_0327[32] __asm__("_array_extension_dispatch_006051f0");
 // row	_vtable_6055a0	0x007A7BB8	32	bytes	vtable_6055a0	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
@@ -1172,7 +1172,7 @@ __asm__(".globl _vtable_61bab0\n.set _vtable_61bab0, _base_dispatch_0061af90\n")
 __asm__(".globl _vtable_61bb00\n.set _vtable_61bb00, _base_dispatch_0061af90\n");
 // row	_array_extension_dispatch_00621fa0	0x007A8604	28	bytes	array_extension_dispatch_00621fa0	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 alignas(16) unsigned char ra2_orig_0339[32] __asm__("_array_extension_dispatch_00621fa0");
-// row	_unknown_quarry_names_7a8620	0x007A8620	48	ptrs	unknown_quarry_names_7a8620	src/recovered/VQA32/drawer_UnVQ_Nop_00778430.cpp
+// row	_unknown_quarry_names_7a8620	0x007A8620	48	ptrs	unknown_quarry_names_7a8620	src/recovered/vqalib/drawer/UnVQ_Nop.cpp
 // row	_PTR_DAT_007a8620	0x007A8620	48	ptr	PTR_DAT_007a8620	src/recovered/004919b0.cpp
 alignas(16) unsigned char ra2_orig_0340[96] __asm__("_unknown_quarry_names_7a8620");
 __asm__(".globl _PTR_DAT_007a8620\n.set _PTR_DAT_007a8620, _unknown_quarry_names_7a8620\n");
@@ -1186,7 +1186,7 @@ __asm__(".globl _vtable_6365f0\n.set _vtable_6365f0, _vtable_6365a0\n");
 // row	_vtable_6382c0	0x007A8B84	32	bytes	vtable_6382c0	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
 alignas(16) unsigned char ra2_orig_0343[32] __asm__("_vtable_638270");
 __asm__(".globl _vtable_6382c0\n.set _vtable_6382c0, _vtable_638270\n");
-// row	_unknown_radar_event_types_7a8d58	0x007A8D58	276	bytes	unknown_radar_event_types_7a8d58	src/recovered/classes/ScoreFontClass/ScoreFontClass_String_Pixel_Width_00667a60.cpp
+// row	_unknown_radar_event_types_7a8d58	0x007A8D58	276	bytes	unknown_radar_event_types_7a8d58	src/recovered/classes/ScoreFontClass/String_Pixel_Width.cpp
 alignas(16) unsigned char ra2_orig_0344[288] __asm__("_unknown_radar_event_types_7a8d58");
 // row	_vtable_63cac0	0x007A8E8C	36	bytes	vtable_63cac0	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
 // row	_vtable_63cb10	0x007A8E8C	36	bytes	vtable_63cb10	src/recovered/classes/VectorClass_SubzoneConnectionStruct/0040b230.cpp
@@ -1302,14 +1302,14 @@ __asm__(".globl _vtable_6ad010\n.set _vtable_6ad010, _vtable_6acfc0\n");
 // row	_vtable_6ad0b0	0x007AC524	32	bytes	vtable_6ad0b0	src/recovered/classes/VectorClass_SubzoneConnectionStruct/0040b230.cpp
 alignas(16) unsigned char ra2_orig_0374[32] __asm__("_vtable_6ad060");
 __asm__(".globl _vtable_6ad0b0\n.set _vtable_6ad0b0, _vtable_6ad060\n");
-// row	_PTR_FUN_007ac544	0x007AC544	8	ptr	PTR_FUN_007ac544	src/recovered/004919b0.cpp
-alignas(16) unsigned char ra2_orig_0375[16] __asm__("_PTR_FUN_007ac544");
-// row	_PTR_FUN_007ac54c	0x007AC54C	8	ptr	PTR_FUN_007ac54c	src/recovered/004919b0.cpp
-alignas(16) unsigned char ra2_orig_0376[16] __asm__("_PTR_FUN_007ac54c");
-// row	_PTR_FUN_007ac554	0x007AC554	28	ptr	PTR_FUN_007ac554	src/recovered/004919b0.cpp
-alignas(16) unsigned char ra2_orig_0377[64] __asm__("_PTR_FUN_007ac554");
-// row	_PTR_FUN_007ac570	0x007AC570	128	ptr	PTR_FUN_007ac570	src/recovered/004919b0.cpp
-alignas(16) unsigned char ra2_orig_0378[256] __asm__("_PTR_FUN_007ac570");
+// row	_Tactical_INoticeSource_vtable_007ac544	0x007AC544	8	ptr	Tactical_INoticeSource_vtable_007ac544	src/recovered/004919b0.cpp
+alignas(16) unsigned char ra2_orig_0375[16] __asm__("_Tactical_INoticeSource_vtable_007ac544");
+// row	_Tactical_INoticeSink_vtable_007ac54c	0x007AC54C	8	ptr	Tactical_INoticeSink_vtable_007ac54c	src/recovered/004919b0.cpp
+alignas(16) unsigned char ra2_orig_0376[16] __asm__("_Tactical_INoticeSink_vtable_007ac54c");
+// row	_Tactical_IRTTITypeInfo_vtable_007ac554	0x007AC554	28	ptr	Tactical_IRTTITypeInfo_vtable_007ac554	src/recovered/004919b0.cpp
+alignas(16) unsigned char ra2_orig_0377[64] __asm__("_Tactical_IRTTITypeInfo_vtable_007ac554");
+// row	_Tactical_vtable_007ac570	0x007AC570	128	ptr	Tactical_vtable_007ac570	src/recovered/004919b0.cpp
+alignas(16) unsigned char ra2_orig_0378[256] __asm__("_Tactical_vtable_007ac570");
 // row	_vtable_6b3560	0x007AC610	32	bytes	vtable_6b3560	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
 // row	_vtable_6b35b0	0x007AC610	32	bytes	vtable_6b35b0	src/recovered/classes/VectorClass_SubzoneConnectionStruct/0040b230.cpp
 alignas(16) unsigned char ra2_orig_0379[32] __asm__("_vtable_6b3560");
@@ -1352,13 +1352,13 @@ alignas(16) unsigned char ra2_orig_0389[16] __asm__("_unknown_actions_section_7a
 alignas(16) unsigned char ra2_orig_0390[16] __asm__("_unknown_events_section_7ada58");
 // row	_unknown_screen_widths_7add68	0x007ADD68	12	bytes	unknown_screen_widths_7add68	src/recovered/004b3580.cpp
 alignas(16) unsigned char ra2_orig_0391[16] __asm__("_unknown_screen_widths_7add68");
-// row	__ZN9OwnerDraw14unknown_7add6cE	0x007ADD6C	4	bytes	OwnerDraw::unknown_7add6c	src/recovered/classes/CNetUtilEventSink/0075d1f0.cpp
+// row	__ZN9OwnerDraw14unknown_7add6cE	0x007ADD6C	4	bytes	OwnerDraw::unknown_7add6c	src/recovered/classes/CNetUtilEventSink/Constructor.cpp
 alignas(16) unsigned char ra2_orig_0392[16] __asm__("__ZN9OwnerDraw14unknown_7add6cE");
 // row	_title_width_threshold_007add70	0x007ADD70	4	bytes	title_width_threshold_007add70	src/recovered/header_statics/007371b0/HeaderStatics_empty_rect_init_007371b0.cpp
 alignas(16) unsigned char ra2_orig_0393[16] __asm__("_title_width_threshold_007add70");
 // row	_unknown_screen_heights_7add74	0x007ADD74	12	bytes	unknown_screen_heights_7add74	src/recovered/004b3580.cpp
 alignas(16) unsigned char ra2_orig_0394[16] __asm__("_unknown_screen_heights_7add74");
-// row	__ZN9OwnerDraw14unknown_7add78E	0x007ADD78	4	bytes	OwnerDraw::unknown_7add78	src/recovered/classes/CNetUtilEventSink/0075d1f0.cpp
+// row	__ZN9OwnerDraw14unknown_7add78E	0x007ADD78	4	bytes	OwnerDraw::unknown_7add78	src/recovered/classes/CNetUtilEventSink/Constructor.cpp
 alignas(16) unsigned char ra2_orig_0395[16] __asm__("__ZN9OwnerDraw14unknown_7add78E");
 // row	_unknown_int_7add84	0x007ADD84	60	bytes	unknown_int_7add84	src/recovered/header_statics/0059ede0/HeaderStatics_diagonal_init_0059ede0.cpp
 alignas(16) unsigned char ra2_orig_0396[64] __asm__("_unknown_int_7add84");
@@ -1386,46 +1386,46 @@ __asm__(".globl _vtable_716d30\n.set _vtable_716d30, _vtable_716ce0\n");
 alignas(16) unsigned char ra2_orig_0404[16] __asm__("_Wave_Advance_Step_007aec88");
 // row	_Wave_Length_Factors_007aec8c	0x007AEC8C	12	bytes	Wave_Length_Factors_007aec8c	src/recovered/header_statics/007211b0/HeaderStatics_diagonal_init_007211b0.cpp
 alignas(16) unsigned char ra2_orig_0405[16] __asm__("_Wave_Length_Factors_007aec8c");
-// row	_PTR_FUN_007aefdc	0x007AEFDC	8	ptr	PTR_FUN_007aefdc	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
-alignas(16) unsigned char ra2_orig_0406[16] __asm__("_PTR_FUN_007aefdc");
-// row	_PTR_FUN_007aefe4	0x007AEFE4	8	ptr	PTR_FUN_007aefe4	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
-alignas(16) unsigned char ra2_orig_0407[16] __asm__("_PTR_FUN_007aefe4");
+// row	_rc_ptr_vtable_007aefdc	0x007AEFDC	8	ptr	rc_ptr_vtable_007aefdc	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
+alignas(16) unsigned char ra2_orig_0406[16] __asm__("_rc_ptr_vtable_007aefdc");
+// row	_rc_ptr_vtable_007aefe4	0x007AEFE4	8	ptr	rc_ptr_vtable_007aefe4	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
+alignas(16) unsigned char ra2_orig_0407[16] __asm__("_rc_ptr_vtable_007aefe4");
 // row	_data_727020_7aefec	0x007AEFEC	8	bytes	data_727020_7aefec	src/recovered/00402190.cpp
 alignas(16) unsigned char ra2_orig_0408[16] __asm__("_data_727020_7aefec");
-// row	_PTR_FUN_007af024	0x007AF024	8	ptr	PTR_FUN_007af024	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
-alignas(16) unsigned char ra2_orig_0409[16] __asm__("_PTR_FUN_007af024");
-// row	_PTR_FUN_007af02c	0x007AF02C	8	ptr	PTR_FUN_007af02c	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
-alignas(16) unsigned char ra2_orig_0410[16] __asm__("_PTR_FUN_007af02c");
-// row	_PTR_FUN_007af054	0x007AF054	40	ptr	PTR_FUN_007af054	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
-alignas(16) unsigned char ra2_orig_0411[80] __asm__("_PTR_FUN_007af054");
-// row	_PTR_FUN_007af118	0x007AF118	40	ptr	PTR_FUN_007af118	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
-alignas(16) unsigned char ra2_orig_0412[80] __asm__("_PTR_FUN_007af118");
+// row	_rc_ptr_vtable_007af024	0x007AF024	8	ptr	rc_ptr_vtable_007af024	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
+alignas(16) unsigned char ra2_orig_0409[16] __asm__("_rc_ptr_vtable_007af024");
+// row	_rc_ptr_vtable_007af02c	0x007AF02C	8	ptr	rc_ptr_vtable_007af02c	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
+alignas(16) unsigned char ra2_orig_0410[16] __asm__("_rc_ptr_vtable_007af02c");
+// row	_VectorCursor_vtable_007af054	0x007AF054	40	ptr	VectorCursor_vtable_007af054	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
+alignas(16) unsigned char ra2_orig_0411[80] __asm__("_VectorCursor_vtable_007af054");
+// row	_MapSizeGameOption_vtable_007af118	0x007AF118	40	ptr	MapSizeGameOption_vtable_007af118	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
+alignas(16) unsigned char ra2_orig_0412[80] __asm__("_MapSizeGameOption_vtable_007af118");
 // row	__ZN19WorldDominationTour14MapSize_LabelsE	0x007AF140	20	ptrs	WorldDominationTour::MapSize_Labels	src/recovered/header_statics/007312d0/HeaderStatics_empty_rect_init_007312d0.cpp
 alignas(16) unsigned char ra2_orig_0413[48] __asm__("__ZN19WorldDominationTour14MapSize_LabelsE");
-// row	_PTR_FUN_007af1bc	0x007AF1BC	40	ptr	PTR_FUN_007af1bc	src/recovered/004919b0.cpp
-alignas(16) unsigned char ra2_orig_0414[80] __asm__("_PTR_FUN_007af1bc");
-// row	_PTR_FUN_007af1e4	0x007AF1E4	8	ptr	PTR_FUN_007af1e4	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
-alignas(16) unsigned char ra2_orig_0415[16] __asm__("_PTR_FUN_007af1e4");
+// row	_MSFrameAnim_vtable_007af1bc	0x007AF1BC	40	ptr	MSFrameAnim_vtable_007af1bc	src/recovered/004919b0.cpp
+alignas(16) unsigned char ra2_orig_0414[80] __asm__("_MSFrameAnim_vtable_007af1bc");
+// row	_rc_ptr_vtable_007af1e4	0x007AF1E4	8	ptr	rc_ptr_vtable_007af1e4	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
+alignas(16) unsigned char ra2_orig_0415[16] __asm__("_rc_ptr_vtable_007af1e4");
 // row	_vtable_72ba00	0x007AF25C	32	bytes	vtable_72ba00	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
 // row	_vtable_72ba50	0x007AF25C	32	bytes	vtable_72ba50	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
 alignas(16) unsigned char ra2_orig_0416[32] __asm__("_vtable_72ba00");
 __asm__(".globl _vtable_72ba50\n.set _vtable_72ba50, _vtable_72ba00\n");
-// row	_PTR_FUN_007af27c	0x007AF27C	8	ptr	PTR_FUN_007af27c	src/recovered/004919b0.cpp
+// row	_rc_ptr_vtable_007af27c	0x007AF27C	8	ptr	rc_ptr_vtable_007af27c	src/recovered/004919b0.cpp
 // row	_data_72baf0_7af27c	0x007AF27C	8	bytes	data_72baf0_7af27c	src/recovered/00402190.cpp
 // row	_data_7302e0_7af27c	0x007AF27C	8	bytes	data_7302e0_7af27c	src/recovered/00402190.cpp
-alignas(16) unsigned char ra2_orig_0417[16] __asm__("_PTR_FUN_007af27c");
-__asm__(".globl _data_72baf0_7af27c\n.set _data_72baf0_7af27c, _PTR_FUN_007af27c\n");
-__asm__(".globl _data_7302e0_7af27c\n.set _data_7302e0_7af27c, _PTR_FUN_007af27c\n");
-// row	_PTR_FUN_007af284	0x007AF284	20	ptr	PTR_FUN_007af284	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
-alignas(16) unsigned char ra2_orig_0418[48] __asm__("_PTR_FUN_007af284");
+alignas(16) unsigned char ra2_orig_0417[16] __asm__("_rc_ptr_vtable_007af27c");
+__asm__(".globl _data_72baf0_7af27c\n.set _data_72baf0_7af27c, _rc_ptr_vtable_007af27c\n");
+__asm__(".globl _data_7302e0_7af27c\n.set _data_7302e0_7af27c, _rc_ptr_vtable_007af27c\n");
+// row	_VectorCursor_vtable_007af284	0x007AF284	20	ptr	VectorCursor_vtable_007af284	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
+alignas(16) unsigned char ra2_orig_0418[48] __asm__("_VectorCursor_vtable_007af284");
 // row	_vtable_72baa0	0x007AF298	64	bytes	vtable_72baa0	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
 alignas(16) unsigned char ra2_orig_0419[64] __asm__("_vtable_72baa0");
 // row	_PTR_FUN_007af2d8	0x007AF2D8	16	ptr	PTR_FUN_007af2d8	src/recovered/004919b0.cpp
 alignas(16) unsigned char ra2_orig_0420[32] __asm__("_PTR_FUN_007af2d8");
-// row	_PTR_FUN_007af390	0x007AF390	20	ptr	PTR_FUN_007af390	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
-alignas(16) unsigned char ra2_orig_0421[48] __asm__("_PTR_FUN_007af390");
-// row	_PTR_FUN_007af3a4	0x007AF3A4	40	ptr	PTR_FUN_007af3a4	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
-alignas(16) unsigned char ra2_orig_0422[80] __asm__("_PTR_FUN_007af3a4");
+// row	_VectorCursor_vtable_007af390	0x007AF390	20	ptr	VectorCursor_vtable_007af390	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
+alignas(16) unsigned char ra2_orig_0421[48] __asm__("_VectorCursor_vtable_007af390");
+// row	_VectorCursor_vtable_007af3a4	0x007AF3A4	40	ptr	VectorCursor_vtable_007af3a4	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
+alignas(16) unsigned char ra2_orig_0422[80] __asm__("_VectorCursor_vtable_007af3a4");
 // row	_PTR_FUN_007af40c	0x007AF40C	56	ptr	PTR_FUN_007af40c	src/recovered/004919b0.cpp
 alignas(16) unsigned char ra2_orig_0423[112] __asm__("_PTR_FUN_007af40c");
 // row	_PTR_FUN_007af4e0	0x007AF4E0	60	ptr	PTR_FUN_007af4e0	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
@@ -1489,9 +1489,9 @@ alignas(16) unsigned char ra2_orig_0446[240] __asm__("_Audio_Event_Keywords");
 // row	_PTR_DAT_007ccb90	0x007CCB90	72	ptr	PTR_DAT_007ccb90	src/recovered/header_statics/00437740/HeaderStatics_diagonal_init_00437740.cpp
 alignas(16) unsigned char ra2_orig_0447[144] __asm__("_PTR_DAT_007ccb90");
 // row	_Audio_Enabled	0x007CCBD8	4	bytes	Audio_Enabled	src/recovered/unowned/AudioSourceInfo_Detach_00408520.cpp
-// row	_DAT_007ccbd8	0x007CCBD8	4	bytes	DAT_007ccbd8	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_AddRef_00691560.cpp
+// row	_Audio_Enabled_007ccbd8	0x007CCBD8	4	bytes	Audio_Enabled_007ccbd8	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_AddRef_00691560.cpp
 alignas(16) unsigned char ra2_orig_0448[16] __asm__("_Audio_Enabled");
-__asm__(".globl _DAT_007ccbd8\n.set _DAT_007ccbd8, _Audio_Enabled\n");
+__asm__(".globl _Audio_Enabled_007ccbd8\n.set _Audio_Enabled_007ccbd8, _Audio_Enabled\n");
 // row	_Audio_Event_Serial	0x007CCBDC	20	bytes	Audio_Event_Serial	src/recovered/header_statics/0069c3b0/HeaderStatics_empty_rect_init_0069c3b0.cpp
 alignas(16) unsigned char ra2_orig_0449[32] __asm__("_Audio_Event_Serial");
 // row	_s_no_events_007cccd4	0x007CCCD4	12	bytes	s_no_events_007cccd4	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_AddRef_00691560.cpp
@@ -1688,7 +1688,7 @@ __asm__(".globl _unknown_foundation_height_7cfcc8\n.set _unknown_foundation_heig
 alignas(16) unsigned char ra2_orig_0532[16] __asm__("_unknown_building_depth_filename_007cfdb0");
 // row	_unknown_flat_voxel_7d11a4	0x007D11A4	108	bytes	unknown_flat_voxel_7d11a4	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 alignas(16) unsigned char ra2_orig_0533[112] __asm__("_unknown_flat_voxel_7d11a4");
-// row	_unknown_score_difficulty_7d1480	0x007D1480	4	bytes	unknown_score_difficulty_7d1480	src/recovered/004015c0.cpp
+// row	_unknown_score_difficulty_7d1480	0x007D1480	4	bytes	unknown_score_difficulty_7d1480	src/recovered/audbag/FindSampleIndex.cpp
 alignas(16) unsigned char ra2_orig_0534[16] __asm__("_unknown_score_difficulty_7d1480");
 // row	_unknown_score_controls_7d1484	0x007D1484	32	bytes	unknown_score_controls_7d1484	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 alignas(16) unsigned char ra2_orig_0535[32] __asm__("_unknown_score_controls_7d1484");
@@ -1734,7 +1734,7 @@ alignas(16) unsigned char ra2_orig_0553[16] __asm__("_unknown_spot_alternate_7d2
 alignas(16) unsigned char ra2_orig_0554[64] __asm__("_Clear_Icon_Small");
 // row	_Clear_Icon_Adjacent	0x007D2BD0	64	bytes	Clear_Icon_Adjacent	src/recovered/header_statics/00470490/HeaderStatics_diagonal_init_00470490.cpp
 alignas(16) unsigned char ra2_orig_0555[64] __asm__("_Clear_Icon_Adjacent");
-// row	_unknown_tiberium_stage_7d2c10	0x007D2C10	52	bytes	unknown_tiberium_stage_7d2c10	src/recovered/unowned/unknown_reset_globals_ab62e0_00627330.cpp
+// row	_unknown_tiberium_stage_7d2c10	0x007D2C10	52	bytes	unknown_tiberium_stage_7d2c10	src/recovered/queue/unknown_reset_globals.cpp
 alignas(16) unsigned char ra2_orig_0556[64] __asm__("_unknown_tiberium_stage_7d2c10");
 // row	_unknown_facing_lookup_7d2c44	0x007D2C44	20	bytes	unknown_facing_lookup_7d2c44	src/recovered/header_statics/00470490/HeaderStatics_diagonal_init_00470490.cpp
 alignas(16) unsigned char ra2_orig_0557[32] __asm__("_unknown_facing_lookup_7d2c44");
@@ -1992,7 +1992,7 @@ alignas(16) unsigned char ra2_orig_0673[32] __asm__("_type_cost_format_007d6268"
 alignas(16) unsigned char ra2_orig_0674[32] __asm__("_type_name_format_007d627c");
 // row	_unknown_7d6290	0x007D6290	4	bytes	unknown_7d6290	src/recovered/header_statics/00497340/HeaderStatics_empty_rect_init_00497340.cpp
 alignas(16) unsigned char ra2_orig_0675[16] __asm__("_unknown_7d6290");
-// row	_unknown_flag_7d6294	0x007D6294	1	bytes	unknown_flag_7d6294	src/recovered/unowned/Unknown_Free_Screen_Surfaces_0068e1c0.cpp
+// row	_unknown_flag_7d6294	0x007D6294	1	bytes	unknown_flag_7d6294	src/recovered/startup/Unknown_Free_Screen_Surfaces.cpp
 alignas(16) unsigned char ra2_orig_0676[16] __asm__("_unknown_flag_7d6294");
 // row	_direct_draw_overlap_enabled_007d6295	0x007D6295	27	bytes	direct_draw_overlap_enabled_007d6295	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 alignas(16) unsigned char ra2_orig_0677[32] __asm__("_direct_draw_overlap_enabled_007d6295");
@@ -2144,7 +2144,7 @@ __asm__(".globl _unknown_build_number_7d8900\n.set _unknown_build_number_7d8900,
 alignas(16) unsigned char ra2_orig_0737[64] __asm__("_s_gsmallwoo_007d8904");
 // row	_Latency_Labels	0x007D9BB4	100	ptrs	Latency_Labels	src/recovered/header_statics/004dd5e0/HeaderStatics_empty_rect_init_004dd5e0.cpp
 alignas(16) unsigned char ra2_orig_0738[208] __asm__("_Latency_Labels");
-// row	_lobby_name_format_7d9c94	0x007D9C94	8	bytes	lobby_name_format_7d9c94	src/recovered/unowned/Handle_User_Leave_00741750.cpp
+// row	_lobby_name_format_7d9c94	0x007D9C94	8	bytes	lobby_name_format_7d9c94	src/recovered/wonline/Handle_User_Leave.cpp
 alignas(16) unsigned char ra2_orig_0739[16] __asm__("_lobby_name_format_7d9c94");
 // row	_KeyNames_7d9ef8	0x007D9EF8	16	rec:p4	KeyNames_7d9ef8	src/recovered/header_statics/004e0230/HeaderStatics_empty_rect_init_004e0230.cpp
 alignas(16) unsigned char ra2_orig_0740[32] __asm__("_KeyNames_7d9ef8");
@@ -2180,7 +2180,7 @@ alignas(16) unsigned char ra2_orig_0754[16] __asm__("_unknown_bootcamp_voc_7db55
 alignas(16) unsigned char ra2_orig_0755[16] __asm__("_unknown_movie_choice_7db558");
 // row	_unknown_7db55c	0x007DB55C	4	bytes	unknown_7db55c	src/recovered/header_statics/00511400/HeaderStatics_empty_rect_init_00511400.cpp
 alignas(16) unsigned char ra2_orig_0756[16] __asm__("_unknown_7db55c");
-// row	_unknown_taunt_time_7db560	0x007DB560	4	bytes	unknown_taunt_time_7db560	src/recovered/classes/TauntCommandClass/TauntCommandClass_Execute_0051b5f0.cpp
+// row	_unknown_taunt_time_7db560	0x007DB560	4	bytes	unknown_taunt_time_7db560	src/recovered/classes/TauntCommandClass/Execute.cpp
 alignas(16) unsigned char ra2_orig_0757[16] __asm__("_unknown_taunt_time_7db560");
 // row	_unknown_performance_profile_7db564	0x007DB564	68	bytes	unknown_performance_profile_7db564	src/recovered/004b3580.cpp
 alignas(16) unsigned char ra2_orig_0758[80] __asm__("_unknown_performance_profile_7db564");
@@ -2822,10 +2822,10 @@ alignas(16) unsigned char ra2_orig_0875[16] __asm__("_StormDuration");
 alignas(16) unsigned char ra2_orig_0876[16] __asm__("_unknown_dominator_start_7ddb18");
 // row	_unknown_dominator_delay_7ddb1c	0x007DDB1C	104	bytes	unknown_dominator_delay_7ddb1c	src/recovered/header_statics/0053cdd0/HeaderStatics_empty_rect_init_0053cdd0.cpp
 alignas(16) unsigned char ra2_orig_0877[112] __asm__("_unknown_dominator_delay_7ddb1c");
-// row	_DAT_007ddc68	0x007DDC68	4	bytes	DAT_007ddc68	src/recovered/00479ca0.cpp
-alignas(16) unsigned char ra2_orig_0878[16] __asm__("_DAT_007ddc68");
-// row	_DAT_007ddc6c	0x007DDC6C	4	bytes	DAT_007ddc6c	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
-alignas(16) unsigned char ra2_orig_0879[16] __asm__("_DAT_007ddc6c");
+// row	_audio_file_open_mode_007ddc68	0x007DDC68	4	bytes	audio_file_open_mode_007ddc68	src/recovered/00479ca0.cpp
+alignas(16) unsigned char ra2_orig_0878[16] __asm__("_audio_file_open_mode_007ddc68");
+// row	_audio_file_open_mode_007ddc6c	0x007DDC6C	4	bytes	audio_file_open_mode_007ddc6c	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
+alignas(16) unsigned char ra2_orig_0879[16] __asm__("_audio_file_open_mode_007ddc6c");
 // row	_s_Error___Connection__d_has_gone_b_007de060	0x007DE060	36	bytes	s_Error___Connection__d_has_gone_b_007de060	native/drafts/00525f60.cpp
 alignas(16) unsigned char ra2_orig_0880[48] __asm__("_s_Error___Connection__d_has_gone_b_007de060");
 // row	_s_Multicast_channel_has_gone_bad_007de084	0x007DE084	32	bytes	s_Multicast_channel_has_gone_bad_007de084	native/drafts/00525f60.cpp
@@ -2998,21 +2998,21 @@ alignas(16) unsigned char ra2_orig_0953[48] __asm__("_unknown_resource_labels_7e
 alignas(16) unsigned char ra2_orig_0954[32] __asm__("_unknown_time_labels_7e0b10");
 // row	_unknown_size_labels_7e0b20	0x007E0B20	16	ptrs	unknown_size_labels_7e0b20	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 alignas(16) unsigned char ra2_orig_0955[32] __asm__("_unknown_size_labels_7e0b20");
-// row	_unknown_region_min_7e0b30	0x007E0B30	20	bytes	unknown_region_min_7e0b30	src/recovered/classes/MapSeedClass/MapSeedClass_constructor_00576f50.cpp
+// row	_unknown_region_min_7e0b30	0x007E0B30	20	bytes	unknown_region_min_7e0b30	src/recovered/classes/MapSeedClass/Constructor.cpp
 alignas(16) unsigned char ra2_orig_0956[32] __asm__("_unknown_region_min_7e0b30");
-// row	_unknown_region_max_7e0b44	0x007E0B44	20	bytes	unknown_region_max_7e0b44	src/recovered/classes/MapSeedClass/MapSeedClass_constructor_00576f50.cpp
+// row	_unknown_region_max_7e0b44	0x007E0B44	20	bytes	unknown_region_max_7e0b44	src/recovered/classes/MapSeedClass/Constructor.cpp
 alignas(16) unsigned char ra2_orig_0957[32] __asm__("_unknown_region_max_7e0b44");
-// row	_unknown_water_min_7e0b58	0x007E0B58	20	bytes	unknown_water_min_7e0b58	src/recovered/classes/MapSeedClass/MapSeedClass_constructor_00576f50.cpp
+// row	_unknown_water_min_7e0b58	0x007E0B58	20	bytes	unknown_water_min_7e0b58	src/recovered/classes/MapSeedClass/Constructor.cpp
 alignas(16) unsigned char ra2_orig_0958[32] __asm__("_unknown_water_min_7e0b58");
-// row	_unknown_water_max_7e0b6c	0x007E0B6C	20	bytes	unknown_water_max_7e0b6c	src/recovered/classes/MapSeedClass/MapSeedClass_constructor_00576f50.cpp
+// row	_unknown_water_max_7e0b6c	0x007E0B6C	20	bytes	unknown_water_max_7e0b6c	src/recovered/classes/MapSeedClass/Constructor.cpp
 alignas(16) unsigned char ra2_orig_0959[32] __asm__("_unknown_water_max_7e0b6c");
-// row	_unknown_access_max_7e0b80	0x007E0B80	40	bytes	unknown_access_max_7e0b80	src/recovered/classes/MapSeedClass/MapSeedClass_constructor_00576f50.cpp
+// row	_unknown_access_max_7e0b80	0x007E0B80	40	bytes	unknown_access_max_7e0b80	src/recovered/classes/MapSeedClass/Constructor.cpp
 alignas(16) unsigned char ra2_orig_0960[48] __asm__("_unknown_access_max_7e0b80");
-// row	_unknown_urban_max_7e0ba8	0x007E0BA8	20	bytes	unknown_urban_max_7e0ba8	src/recovered/classes/MapSeedClass/MapSeedClass_constructor_00576f50.cpp
+// row	_unknown_urban_max_7e0ba8	0x007E0BA8	20	bytes	unknown_urban_max_7e0ba8	src/recovered/classes/MapSeedClass/Constructor.cpp
 alignas(16) unsigned char ra2_orig_0961[32] __asm__("_unknown_urban_max_7e0ba8");
-// row	_unknown_rugged_min_7e0bbc	0x007E0BBC	20	bytes	unknown_rugged_min_7e0bbc	src/recovered/classes/MapSeedClass/MapSeedClass_constructor_00576f50.cpp
+// row	_unknown_rugged_min_7e0bbc	0x007E0BBC	20	bytes	unknown_rugged_min_7e0bbc	src/recovered/classes/MapSeedClass/Constructor.cpp
 alignas(16) unsigned char ra2_orig_0962[32] __asm__("_unknown_rugged_min_7e0bbc");
-// row	_unknown_rugged_max_7e0bd0	0x007E0BD0	24	bytes	unknown_rugged_max_7e0bd0	src/recovered/classes/MapSeedClass/MapSeedClass_constructor_00576f50.cpp
+// row	_unknown_rugged_max_7e0bd0	0x007E0BD0	24	bytes	unknown_rugged_max_7e0bd0	src/recovered/classes/MapSeedClass/Constructor.cpp
 alignas(16) unsigned char ra2_orig_0963[32] __asm__("_unknown_rugged_max_7e0bd0");
 // row	_unknown_urban_building_names_7e0be8	0x007E0BE8	72	ptrs	unknown_urban_building_names_7e0be8	src/recovered/header_statics/0056d2d0/HeaderStatics_diagonal_init_0056d2d0.cpp
 alignas(16) unsigned char ra2_orig_0964[144] __asm__("_unknown_urban_building_names_7e0be8");
@@ -3136,8 +3136,8 @@ alignas(16) unsigned char ra2_orig_1016[16] __asm__("_wol_wrong_version_label_7e
 alignas(16) unsigned char ra2_orig_1017[16] __asm__("_unknown_modem_host_first_7e2410");
 // row	_host_label_7e24cc	0x007E24CC	24	bytes	host_label_7e24cc	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 alignas(16) unsigned char ra2_orig_1018[32] __asm__("_host_label_7e24cc");
-// row	_DAT_007e2af0	0x007E2AF0	8	bytes	DAT_007e2af0	src/recovered/00479ca0.cpp
-alignas(16) unsigned char ra2_orig_1019[16] __asm__("_DAT_007e2af0");
+// row	_text_print_format_007e2af0	0x007E2AF0	8	bytes	text_print_format_007e2af0	src/recovered/00479ca0.cpp
+alignas(16) unsigned char ra2_orig_1019[16] __asm__("_text_print_format_007e2af0");
 // row	_unknown_mouse_control_7e2af8	0x007E2AF8	1896	bytes	unknown_mouse_control_7e2af8	src/recovered/header_statics/0059ede0/HeaderStatics_diagonal_init_0059ede0.cpp
 alignas(16) unsigned char ra2_orig_1020[1904] __asm__("_unknown_mouse_control_7e2af8");
 // row	_test_no_ping_debug_007e38a0	0x007E38A0	28	bytes	test_no_ping_debug_007e38a0	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
@@ -3188,7 +3188,7 @@ alignas(16) unsigned char ra2_orig_1042[16] __asm__("_wol_name_error_007e6c90");
 alignas(16) unsigned char ra2_orig_1043[32] __asm__("_wol_observers_label_7e6cdc");
 // row	_guest_label_7e6d74	0x007E6D74	4	bytes	guest_label_7e6d74	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 alignas(16) unsigned char ra2_orig_1044[16] __asm__("_guest_label_7e6d74");
-// row	_unknown_lobby_flag_7e6d90	0x007E6D90	4	bytes	unknown_lobby_flag_7e6d90	src/recovered/classes/TauntCommandClass/TauntCommandClass_Execute_0051b5f0.cpp
+// row	_unknown_lobby_flag_7e6d90	0x007E6D90	4	bytes	unknown_lobby_flag_7e6d90	src/recovered/classes/TauntCommandClass/Execute.cpp
 alignas(16) unsigned char ra2_orig_1045[16] __asm__("_unknown_lobby_flag_7e6d90");
 // row	_player_list_colors_007e6d94	0x007E6D94	36	bytes	player_list_colors_007e6d94	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 // row	_unknown_color_values_7e6d94	0x007E6D94	36	bytes	unknown_color_values_7e6d94	src/recovered/header_statics/0066acb0/HeaderStatics_empty_rect_init_0066acb0.cpp
@@ -3222,7 +3222,7 @@ alignas(16) unsigned char ra2_orig_1056[16] __asm__("_unknown_old_money_7e6ddc")
 alignas(16) unsigned char ra2_orig_1057[16] __asm__("_unknown_old_units_7e6de0");
 // row	_unknown_slot_count_7e6de4	0x007E6DE4	4	bytes	unknown_slot_count_7e6de4	src/recovered/header_statics/0068d950/HeaderStatics_empty_rect_init_0068d950.cpp
 alignas(16) unsigned char ra2_orig_1058[16] __asm__("_unknown_slot_count_7e6de4");
-// row	_unknown_lobby_names_7e6de8	0x007E6DE8	112	ptrs	unknown_lobby_names_7e6de8	src/recovered/classes/TauntCommandClass/TauntCommandClass_Execute_0051b5f0.cpp
+// row	_unknown_lobby_names_7e6de8	0x007E6DE8	112	ptrs	unknown_lobby_names_7e6de8	src/recovered/classes/TauntCommandClass/Execute.cpp
 alignas(16) unsigned char ra2_orig_1059[224] __asm__("_unknown_lobby_names_7e6de8");
 // row	_session_one	0x007E6F6C	4	bytes	session_one	src/recovered/header_statics/0066e0a0/HeaderStatics_empty_rect_init_0066e0a0.cpp
 alignas(16) unsigned char ra2_orig_1060[16] __asm__("_session_one");
@@ -3254,7 +3254,7 @@ alignas(16) unsigned char ra2_orig_1070[16] __asm__("_unknown_placing_house_7e8a
 alignas(16) unsigned char ra2_orig_1071[16] __asm__("_SpotLight_Color_Mode");
 // row	_SpotLight_Index_Table	0x007E8C50	204	bytes	SpotLight_Index_Table	src/recovered/header_statics/005dd320/HeaderStatics_diagonal_init_005dd320.cpp
 alignas(16) unsigned char ra2_orig_1072[208] __asm__("_SpotLight_Index_Table");
-// row	_unknown_dialog_background_7e8d1c	0x007E8D1C	32	ptr	unknown_dialog_background_7e8d1c	src/recovered/unowned/unknown_get_window_item_text_00600eb0.cpp
+// row	_unknown_dialog_background_7e8d1c	0x007E8D1C	32	ptr	unknown_dialog_background_7e8d1c	src/recovered/ownrdraw/unknown_get_window_item_text.cpp
 alignas(16) unsigned char ra2_orig_1073[64] __asm__("_unknown_dialog_background_7e8d1c");
 // row	_unknown_name_7e8d3c	0x007E8D3C	152	ptr	unknown_name_7e8d3c	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 alignas(16) unsigned char ra2_orig_1074[304] __asm__("_unknown_name_7e8d3c");
@@ -3710,7 +3710,7 @@ alignas(16) unsigned char ra2_orig_1285[16] __asm__("_unknown_state_7f8bd8");
 alignas(16) unsigned char ra2_orig_1286[16] __asm__("_unknown_state_7f8bdc");
 // row	_DAT_007f8ce8	0x007F8CE8	8	bytes	DAT_007f8ce8	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_AddRef_00691560.cpp
 // row	_unknown_allow_text_7f8ce8	0x007F8CE8	8	bytes	unknown_allow_text_7f8ce8	src/recovered/header_statics/006f8be0/HeaderStatics_diagonal_init_006f8be0.cpp
-// row	_unknown_text_option_7f8ce8	0x007F8CE8	8	bytes	unknown_text_option_7f8ce8	src/recovered/unowned/unknown_reset_globals_ab62e0_00627330.cpp
+// row	_unknown_text_option_7f8ce8	0x007F8CE8	8	bytes	unknown_text_option_7f8ce8	src/recovered/queue/unknown_reset_globals.cpp
 alignas(16) unsigned char ra2_orig_1287[16] __asm__("_DAT_007f8ce8");
 __asm__(".globl _unknown_allow_text_7f8ce8\n.set _unknown_allow_text_7f8ce8, _DAT_007f8ce8\n");
 __asm__(".globl _unknown_text_option_7f8ce8\n.set _unknown_text_option_7f8ce8, _DAT_007f8ce8\n");
@@ -3740,25 +3740,25 @@ alignas(16) unsigned char ra2_orig_1297[16] __asm__("_vein_step_7f9604");
 alignas(16) unsigned char ra2_orig_1298[160] __asm__("_vein_stage_7f9614");
 // row	_vein_gas_7f96cc	0x007F96CC	12	bytes	vein_gas_7f96cc	src/recovered/header_statics/0070f590/HeaderStatics_empty_rect_init_0070f590.cpp
 alignas(16) unsigned char ra2_orig_1299[16] __asm__("_vein_gas_7f96cc");
-// row	_unknown_ability_names_7f9978	0x007F9978	244	ptrs	unknown_ability_names_7f9978	src/recovered/VQA32/drawer_UnVQ_Nop_00778430.cpp
+// row	_unknown_ability_names_7f9978	0x007F9978	244	ptrs	unknown_ability_names_7f9978	src/recovered/vqalib/drawer/UnVQ_Nop.cpp
 alignas(16) unsigned char ra2_orig_1300[496] __asm__("_unknown_ability_names_7f9978");
-// row	_unknown_voc_priority_7f9a6c	0x007F9A6C	4	bytes	unknown_voc_priority_7f9a6c	src/recovered/unowned/unknown_art_ini_unique_id_00652710.cpp
+// row	_unknown_voc_priority_7f9a6c	0x007F9A6C	4	bytes	unknown_voc_priority_7f9a6c	src/recovered/rules/unknown_art_ini_unique_id.cpp
 alignas(16) unsigned char ra2_orig_1301[16] __asm__("_unknown_voc_priority_7f9a6c");
-// row	_unknown_voc_volume_7f9a70	0x007F9A70	4	bytes	unknown_voc_volume_7f9a70	src/recovered/unowned/unknown_art_ini_unique_id_00652710.cpp
+// row	_unknown_voc_volume_7f9a70	0x007F9A70	4	bytes	unknown_voc_volume_7f9a70	src/recovered/rules/unknown_art_ini_unique_id.cpp
 alignas(16) unsigned char ra2_orig_1302[16] __asm__("_unknown_voc_volume_7f9a70");
-// row	_unknown_voc_min_volume_7f9a74	0x007F9A74	4	bytes	unknown_voc_min_volume_7f9a74	src/recovered/unowned/unknown_art_ini_unique_id_00652710.cpp
+// row	_unknown_voc_min_volume_7f9a74	0x007F9A74	4	bytes	unknown_voc_min_volume_7f9a74	src/recovered/rules/unknown_art_ini_unique_id.cpp
 alignas(16) unsigned char ra2_orig_1303[16] __asm__("_unknown_voc_min_volume_7f9a74");
-// row	_unknown_voc_type_7f9a78	0x007F9A78	4	bytes	unknown_voc_type_7f9a78	src/recovered/unowned/unknown_art_ini_unique_id_00652710.cpp
+// row	_unknown_voc_type_7f9a78	0x007F9A78	4	bytes	unknown_voc_type_7f9a78	src/recovered/rules/unknown_art_ini_unique_id.cpp
 alignas(16) unsigned char ra2_orig_1304[16] __asm__("_unknown_voc_type_7f9a78");
-// row	_unknown_voc_range_7f9a7c	0x007F9A7C	4	bytes	unknown_voc_range_7f9a7c	src/recovered/unowned/unknown_art_ini_unique_id_00652710.cpp
+// row	_unknown_voc_range_7f9a7c	0x007F9A7C	4	bytes	unknown_voc_range_7f9a7c	src/recovered/rules/unknown_art_ini_unique_id.cpp
 alignas(16) unsigned char ra2_orig_1305[16] __asm__("_unknown_voc_range_7f9a7c");
-// row	_unknown_voc_limit_7f9a80	0x007F9A80	108	bytes	unknown_voc_limit_7f9a80	src/recovered/unowned/unknown_art_ini_unique_id_00652710.cpp
+// row	_unknown_voc_limit_7f9a80	0x007F9A80	108	bytes	unknown_voc_limit_7f9a80	src/recovered/rules/unknown_art_ini_unique_id.cpp
 alignas(16) unsigned char ra2_orig_1306[112] __asm__("_unknown_voc_limit_7f9a80");
 // row	_unknown_vox_volume_7f9bd4	0x007F9BD4	104	bytes	unknown_vox_volume_7f9bd4	src/recovered/header_statics/00715480/HeaderStatics_diagonal_init_00715480.cpp
 alignas(16) unsigned char ra2_orig_1307[112] __asm__("_unknown_vox_volume_7f9bd4");
 // row	_unknown_angles_7f9d84	0x007F9D84	24	bytes	unknown_angles_7f9d84	src/recovered/header_statics/00717ce0/HeaderStatics_diagonal_init_00717ce0.cpp
 alignas(16) unsigned char ra2_orig_1308[32] __asm__("_unknown_angles_7f9d84");
-// row	_unknown_table_7f9d9c	0x007F9D9C	68	bytes	unknown_table_7f9d9c	src/recovered/VQA32/drawer_UnVQ_Nop_00778430.cpp
+// row	_unknown_table_7f9d9c	0x007F9D9C	68	bytes	unknown_table_7f9d9c	src/recovered/vqalib/drawer/UnVQ_Nop.cpp
 alignas(16) unsigned char ra2_orig_1309[80] __asm__("_unknown_table_7f9d9c");
 // row	_unknown_views_7f9e60	0x007F9E60	288	bytes	unknown_views_7f9e60	src/recovered/header_statics/0041baa0/HeaderStatics_diagonal_init_0041baa0.cpp
 alignas(16) unsigned char ra2_orig_1310[288] __asm__("_unknown_views_7f9e60");
@@ -3766,9 +3766,9 @@ alignas(16) unsigned char ra2_orig_1310[288] __asm__("_unknown_views_7f9e60");
 alignas(16) unsigned char ra2_orig_1311[48] __asm__("_unknown_normal_tables_7f9f80");
 // row	_unknown_normal_counts_7f9f94	0x007F9F94	4456	bytes	unknown_normal_counts_7f9f94	src/recovered/header_statics/00719040/HeaderStatics_static_rect_init_00719040.cpp
 alignas(16) unsigned char ra2_orig_1312[4464] __asm__("_unknown_normal_counts_7f9f94");
-// row	_unknown_table_7fbb78	0x007FBB78	132	bytes	unknown_table_7fbb78	src/recovered/classes/ThemeClass/ThemeClass_Suspend_006e8270.cpp
+// row	_unknown_table_7fbb78	0x007FBB78	132	bytes	unknown_table_7fbb78	src/recovered/classes/ThemeClass/Suspend.cpp
 alignas(16) unsigned char ra2_orig_1313[144] __asm__("_unknown_table_7fbb78");
-// row	_unknown_flag_7fbd04	0x007FBD04	1	bytes	unknown_flag_7fbd04	src/recovered/unowned/unknown_reset_globals_ab62e0_00627330.cpp
+// row	_unknown_flag_7fbd04	0x007FBD04	1	bytes	unknown_flag_7fbd04	src/recovered/queue/unknown_reset_globals.cpp
 alignas(16) unsigned char ra2_orig_1314[16] __asm__("_unknown_flag_7fbd04");
 // row	_unknown_flag_7fbd05	0x007FBD05	515	bytes	unknown_flag_7fbd05	src/recovered/header_statics/007683b0/HeaderStatics_empty_rect_init_007683b0.cpp
 alignas(16) unsigned char ra2_orig_1315[528] __asm__("_unknown_flag_7fbd05");
@@ -3804,9 +3804,9 @@ alignas(16) unsigned char ra2_orig_1329[48] __asm__("_s_Communications__IO__erro
 alignas(16) unsigned char ra2_orig_1330[48] __asm__("_s_Communications__Break__detected__007fcff8");
 // row	_s_Communications__Framing__error_d_007fd01c	0x007FD01C	44	bytes	s_Communications__Framing__error_d_007fd01c	src/recovered/004951d0.cpp
 alignas(16) unsigned char ra2_orig_1331[48] __asm__("_s_Communications__Framing__error_d_007fd01c");
-// row	_unknown_layout_width_7fd048	0x007FD048	4	bytes	unknown_layout_width_7fd048	src/recovered/classes/BombClass/00436100.cpp
+// row	_unknown_layout_width_7fd048	0x007FD048	4	bytes	unknown_layout_width_7fd048	src/recovered/classes/BombClass/recover.cpp
 alignas(16) unsigned char ra2_orig_1332[16] __asm__("_unknown_layout_width_7fd048");
-// row	_unknown_layout_height_7fd04c	0x007FD04C	4	bytes	unknown_layout_height_7fd04c	src/recovered/classes/BombClass/00436100.cpp
+// row	_unknown_layout_height_7fd04c	0x007FD04C	4	bytes	unknown_layout_height_7fd04c	src/recovered/classes/BombClass/recover.cpp
 alignas(16) unsigned char ra2_orig_1333[16] __asm__("_unknown_layout_height_7fd04c");
 // row	_s_SUN_HLP_007fd094	0x007FD094	8	bytes	s_SUN_HLP_007fd094	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_AddRef_00691560.cpp
 alignas(16) unsigned char ra2_orig_1334[16] __asm__("_s_SUN_HLP_007fd094");
@@ -3842,17 +3842,17 @@ alignas(16) unsigned char ra2_orig_1347[16] __asm__("_buddy_column_007fd314");
 alignas(16) unsigned char ra2_orig_1348[16] __asm__("_buddy_column_007fd318");
 // row	_buddy_column_007fd31c	0x007FD31C	8	bytes	buddy_column_007fd31c	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 alignas(16) unsigned char ra2_orig_1349[16] __asm__("_buddy_column_007fd31c");
-// row	_DAT_007fd324	0x007FD324	16	bytes	DAT_007fd324	src/recovered/00428a90.cpp
+// row	_wol_connection_limit_007fd324	0x007FD324	16	bytes	wol_connection_limit_007fd324	src/recovered/00428a90.cpp
 // row	_wol_connection_limit_7fd324	0x007FD324	16	bytes	wol_connection_limit_7fd324	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
-alignas(16) unsigned char ra2_orig_1350[16] __asm__("_DAT_007fd324");
-__asm__(".globl _wol_connection_limit_7fd324\n.set _wol_connection_limit_7fd324, _DAT_007fd324\n");
+alignas(16) unsigned char ra2_orig_1350[16] __asm__("_wol_connection_limit_007fd324");
+__asm__(".globl _wol_connection_limit_7fd324\n.set _wol_connection_limit_7fd324, _wol_connection_limit_007fd324\n");
 // row	_unknown_player_controls_7fd334	0x007FD334	32	bytes	unknown_player_controls_7fd334	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 alignas(16) unsigned char ra2_orig_1351[32] __asm__("_unknown_player_controls_7fd334");
 // row	_unknown_7fd354	0x007FD354	4	bytes	unknown_7fd354	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 alignas(16) unsigned char ra2_orig_1352[16] __asm__("_unknown_7fd354");
 // row	_buddy_007fd358	0x007FD358	8	bytes	buddy_007fd358	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 // row	_lobby_prefix_007fd358	0x007FD358	8	bytes	lobby_prefix_007fd358	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
-// row	_lobby_prefix_7fd358	0x007FD358	8	bytes	lobby_prefix_7fd358	src/recovered/unowned/Handle_User_Leave_00741750.cpp
+// row	_lobby_prefix_7fd358	0x007FD358	8	bytes	lobby_prefix_7fd358	src/recovered/wonline/Handle_User_Leave.cpp
 // row	_wol_label_7fd358	0x007FD358	8	bytes	wol_label_7fd358	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 // row	_wol_lobby_prefix_7fd358	0x007FD358	8	bytes	wol_lobby_prefix_7fd358	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 alignas(16) unsigned char ra2_orig_1353[16] __asm__("_buddy_007fd358");
@@ -3899,7 +3899,7 @@ alignas(16) unsigned char ra2_orig_1366[32] __asm__("_html_launch_label_007fd618
 // row	_server_source_7fd62c	0x007FD62C	20	bytes	server_source_7fd62c	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 // row	_start_text_007fd62c	0x007FD62C	20	bytes	start_text_007fd62c	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 // row	_wol_source_file_007fd62c	0x007FD62C	20	bytes	wol_source_file_007fd62c	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
-// row	_wol_source_path_7fd62c	0x007FD62C	20	bytes	wol_source_path_7fd62c	src/recovered/unowned/Handle_User_Leave_00741750.cpp
+// row	_wol_source_path_7fd62c	0x007FD62C	20	bytes	wol_source_path_7fd62c	src/recovered/wonline/Handle_User_Leave.cpp
 alignas(16) unsigned char ra2_orig_1367[32] __asm__("_buddy_007fd62c");
 __asm__(".globl _ladder_source_file_007fd62c\n.set _ladder_source_file_007fd62c, _buddy_007fd62c\n");
 __asm__(".globl _server_source_7fd62c\n.set _server_source_7fd62c, _buddy_007fd62c\n");
@@ -3972,7 +3972,7 @@ alignas(16) unsigned char ra2_orig_1396[32] __asm__("_buddy_007fd890");
 alignas(16) unsigned char ra2_orig_1397[32] __asm__("_buddy_007fd8a4");
 // row	_buddy_007fd8b8	0x007FD8B8	20	bytes	buddy_007fd8b8	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 alignas(16) unsigned char ra2_orig_1398[32] __asm__("_buddy_007fd8b8");
-// row	_lobby_number_format_7fd91c	0x007FD91C	12	bytes	lobby_number_format_7fd91c	src/recovered/unowned/Handle_User_Leave_00741750.cpp
+// row	_lobby_number_format_7fd91c	0x007FD91C	12	bytes	lobby_number_format_7fd91c	src/recovered/wonline/Handle_User_Leave.cpp
 alignas(16) unsigned char ra2_orig_1399[16] __asm__("_lobby_number_format_7fd91c");
 // row	_wol_sku_name_007fdad8	0x007FDAD8	4	bytes	wol_sku_name_007fdad8	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 alignas(16) unsigned char ra2_orig_1400[16] __asm__("_wol_sku_name_007fdad8");
@@ -4018,19 +4018,19 @@ alignas(16) unsigned char ra2_orig_1419[16] __asm__("_wol_find_numbered_format_7
 alignas(16) unsigned char ra2_orig_1420[32] __asm__("_wol_youre_discon_label_7fe1fc");
 // row	_guest_label_7fe2c4	0x007FE2C4	16	bytes	guest_label_7fe2c4	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 alignas(16) unsigned char ra2_orig_1421[16] __asm__("_guest_label_7fe2c4");
-// row	_leave_debug_running_7fe39c	0x007FE39C	52	bytes	leave_debug_running_7fe39c	src/recovered/unowned/Handle_User_Leave_00741750.cpp
+// row	_leave_debug_running_7fe39c	0x007FE39C	52	bytes	leave_debug_running_7fe39c	src/recovered/wonline/Handle_User_Leave.cpp
 alignas(16) unsigned char ra2_orig_1422[64] __asm__("_leave_debug_running_7fe39c");
-// row	_leave_debug_lan_game_7fe3d0	0x007FE3D0	32	bytes	leave_debug_lan_game_7fe3d0	src/recovered/unowned/Handle_User_Leave_00741750.cpp
+// row	_leave_debug_lan_game_7fe3d0	0x007FE3D0	32	bytes	leave_debug_lan_game_7fe3d0	src/recovered/wonline/Handle_User_Leave.cpp
 alignas(16) unsigned char ra2_orig_1423[32] __asm__("_leave_debug_lan_game_7fe3d0");
-// row	_leave_debug_lan_guest_7fe3f0	0x007FE3F0	32	bytes	leave_debug_lan_guest_7fe3f0	src/recovered/unowned/Handle_User_Leave_00741750.cpp
+// row	_leave_debug_lan_guest_7fe3f0	0x007FE3F0	32	bytes	leave_debug_lan_guest_7fe3f0	src/recovered/wonline/Handle_User_Leave.cpp
 alignas(16) unsigned char ra2_orig_1424[32] __asm__("_leave_debug_lan_guest_7fe3f0");
-// row	_leave_debug_clear_7fe410	0x007FE410	16	bytes	leave_debug_clear_7fe410	src/recovered/unowned/Handle_User_Leave_00741750.cpp
+// row	_leave_debug_clear_7fe410	0x007FE410	16	bytes	leave_debug_clear_7fe410	src/recovered/wonline/Handle_User_Leave.cpp
 alignas(16) unsigned char ra2_orig_1425[16] __asm__("_leave_debug_clear_7fe410");
-// row	_leave_text_label_7fe420	0x007FE420	12	bytes	leave_text_label_7fe420	src/recovered/unowned/Handle_User_Leave_00741750.cpp
+// row	_leave_text_label_7fe420	0x007FE420	12	bytes	leave_text_label_7fe420	src/recovered/wonline/Handle_User_Leave.cpp
 alignas(16) unsigned char ra2_orig_1426[16] __asm__("_leave_text_label_7fe420");
-// row	_leave_debug_started_7fe42c	0x007FE42C	48	bytes	leave_debug_started_7fe42c	src/recovered/unowned/Handle_User_Leave_00741750.cpp
+// row	_leave_debug_started_7fe42c	0x007FE42C	48	bytes	leave_debug_started_7fe42c	src/recovered/wonline/Handle_User_Leave.cpp
 alignas(16) unsigned char ra2_orig_1427[48] __asm__("_leave_debug_started_7fe42c");
-// row	_leave_debug_local_7fe45c	0x007FE45C	28	bytes	leave_debug_local_7fe45c	src/recovered/unowned/Handle_User_Leave_00741750.cpp
+// row	_leave_debug_local_7fe45c	0x007FE45C	28	bytes	leave_debug_local_7fe45c	src/recovered/wonline/Handle_User_Leave.cpp
 alignas(16) unsigned char ra2_orig_1428[32] __asm__("_leave_debug_local_7fe45c");
 // row	_wol_logout_label_007fe478	0x007FE478	20	bytes	wol_logout_label_007fe478	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 alignas(16) unsigned char ra2_orig_1429[32] __asm__("_wol_logout_label_007fe478");
@@ -4597,17 +4597,17 @@ alignas(16) unsigned char ra2_orig_1699[16] __asm__("_Audio_Event_Count");
 // row	_Audio_Event_Maximum	0x00830FA8	4	bytes	Audio_Event_Maximum	src/recovered/unowned/AudioSourceInfo_Detach_00408520.cpp
 alignas(16) unsigned char ra2_orig_1700[16] __asm__("_Audio_Event_Maximum");
 // row	_Audio_Event_Bag	0x00830FAC	4	ptr	Audio_Event_Bag	src/recovered/unowned/AudioSourceInfo_Detach_00408520.cpp
-// row	_DAT_00830fac	0x00830FAC	4	bytes	DAT_00830fac	src/recovered/header_statics/005cfdd0/HeaderStatics_empty_rect_init_005cfdd0.cpp
+// row	_Audio_Event_Bag_00830fac	0x00830FAC	4	bytes	Audio_Event_Bag_00830fac	src/recovered/header_statics/005cfdd0/HeaderStatics_empty_rect_init_005cfdd0.cpp
 alignas(16) unsigned char ra2_orig_1701[16] __asm__("_Audio_Event_Bag");
-__asm__(".globl _DAT_00830fac\n.set _DAT_00830fac, _Audio_Event_Bag\n");
+__asm__(".globl _Audio_Event_Bag_00830fac\n.set _Audio_Event_Bag_00830fac, _Audio_Event_Bag\n");
 // row	_Audio_Event_Bank	0x00830FB0	4	ptr	Audio_Event_Bank	src/recovered/unowned/AudioSourceInfo_Detach_00408520.cpp
 alignas(16) unsigned char ra2_orig_1702[16] __asm__("_Audio_Event_Bank");
 // row	_Audio_Event_Device	0x00830FB4	4	ptr	Audio_Event_Device	src/recovered/unowned/AudioSourceInfo_Detach_00408520.cpp
 alignas(16) unsigned char ra2_orig_1703[16] __asm__("_Audio_Event_Device");
 // row	_Audio_Events_Ready	0x00830FB8	4	bytes	Audio_Events_Ready	src/recovered/unowned/AudioSourceInfo_Detach_00408520.cpp
-// row	_DAT_00830fb8	0x00830FB8	4	bytes	DAT_00830fb8	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_AddRef_00691560.cpp
+// row	_Audio_Events_Ready_00830fb8	0x00830FB8	4	bytes	Audio_Events_Ready_00830fb8	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_AddRef_00691560.cpp
 alignas(16) unsigned char ra2_orig_1704[16] __asm__("_Audio_Events_Ready");
-__asm__(".globl _DAT_00830fb8\n.set _DAT_00830fb8, _Audio_Events_Ready\n");
+__asm__(".globl _Audio_Events_Ready_00830fb8\n.set _Audio_Events_Ready_00830fb8, _Audio_Events_Ready\n");
 // row	_Audio_Events_Open	0x00830FBC	4	bytes	Audio_Events_Open	src/recovered/unowned/AudioSourceInfo_Detach_00408520.cpp
 alignas(16) unsigned char ra2_orig_1705[16] __asm__("_Audio_Events_Open");
 // row	_Audio_Event_Pool	0x00830FC0	4	ptr	Audio_Event_Pool	src/recovered/unowned/AudioSourceInfo_Detach_00408520.cpp
@@ -4691,7 +4691,7 @@ extern "C" unsigned char ra2_place_1782[] __asm__("_unknown_surface_839958");
 extern "C" unsigned char ra2_place_1783[] __asm__("_unknown_surface_83995c");
 extern "C" unsigned char ra2_place_1784[] __asm__("_unknown_surface_839964");
 extern "C" unsigned char ra2_place_1785[] __asm__("_unknown_surface_839968");
-extern "C" unsigned char ra2_place_1786[] __asm__("_DAT_0083996c");
+extern "C" unsigned char ra2_place_1786[] __asm__("_TacticalMap_0083996c");
 extern "C" unsigned char ra2_place_1787[] __asm__("_ToolTips");
 extern "C" unsigned char ra2_place_1788[] __asm__("_unknown_use_voxel_cache_839a58");
 extern "C" unsigned char ra2_place_1789[] __asm__("_unknown_camera_angle_839a5c");
@@ -4719,7 +4719,7 @@ extern "C" unsigned char ra2_place_1810[] __asm__("_unknown_application_84c7dc")
 extern "C" unsigned char ra2_place_1811[] __asm__("_unknown_path_facing_offsets_84c838");
 extern "C" unsigned char ra2_place_1812[] __asm__("_unknown_path_levels_84c858");
 extern "C" unsigned char ra2_place_1813[] __asm__("_unknown_path_level_scale_84e800");
-extern "C" unsigned char ra2_place_1814[] __asm__("_DAT_0084e804");
+extern "C" unsigned char ra2_place_1814[] __asm__("_MapCellStride_0084e804");
 extern "C" unsigned char ra2_place_1815[] __asm__("_unknown_house_84e894");
 extern "C" unsigned char ra2_place_1816[] __asm__("_unknown_beacon_shape_84e98c");
 extern "C" unsigned char ra2_place_1817[] __asm__("_unknown_radar_beacon_shape_84e990");
@@ -4815,10 +4815,10 @@ extern "C" unsigned char ra2_place_1906[] __asm__("_unknown_approach_none_865f00
 extern "C" unsigned char ra2_place_1907[] __asm__("_unknown_approach_bridge_height_865f60");
 extern "C" unsigned char ra2_place_1908[] __asm__("_unknown_color_entries_8660d8");
 extern "C" unsigned char ra2_place_1909[] __asm__("_player_restarts_866250");
-extern "C" unsigned char ra2_place_1910[] __asm__("_DAT_00a35cdc");
-extern "C" unsigned char ra2_place_1911[] __asm__("_DAT_00a35d0c");
+extern "C" unsigned char ra2_place_1910[] __asm__("_unknown_list_00a35cdc");
+extern "C" unsigned char ra2_place_1911[] __asm__("_unknown_list_00a35d0c");
 extern "C" unsigned char ra2_place_1912[] __asm__("_LogicTriggerID");
-extern "C" unsigned char ra2_place_1913[] __asm__("_DAT_00a35d64");
+extern "C" unsigned char ra2_place_1913[] __asm__("_unknown_list_00a35d64");
 extern "C" unsigned char ra2_place_1914[] __asm__("_player_aborts_a35db0");
 extern "C" unsigned char ra2_place_1915[] __asm__("_player_wins_a35db1");
 extern "C" unsigned char ra2_place_1916[] __asm__("_global_6bc210_a35db4");
@@ -4828,15 +4828,15 @@ extern "C" unsigned char ra2_place_1919[] __asm__("_unknown_scenario_name_a35ea8
 extern "C" unsigned char ra2_place_1920[] __asm__("_unknown_CellCount_a35f28");
 extern "C" unsigned char ra2_place_1921[] __asm__("_unknown_a3d23c");
 extern "C" unsigned char ra2_place_1922[] __asm__("_unknown_a3d258");
-extern "C" unsigned char ra2_place_1923[] __asm__("_DAT_00a3d290");
+extern "C" unsigned char ra2_place_1923[] __asm__("_Scen_00a3d290");
 extern "C" unsigned char ra2_place_1924[] __asm__("_unknown_lobby_state_a3d2b0");
 extern "C" unsigned char ra2_place_1925[] __asm__("_player_statistics_00a3d584");
-extern "C" unsigned char ra2_place_1926[] __asm__("_DAT_00a3d8dc");
+extern "C" unsigned char ra2_place_1926[] __asm__("_unknown_item_data_00a3d8dc");
 extern "C" unsigned char ra2_place_1927[] __asm__("_unknown_address_a3db2c");
 extern "C" unsigned char ra2_place_1928[] __asm__("_unknown_flags_a3f600");
 extern "C" unsigned char ra2_place_1929[] __asm__("_unknown_dest_net_a3f608");
 extern "C" unsigned char ra2_place_1930[] __asm__("_unknown_address_a3f80c");
-extern "C" unsigned char ra2_place_1931[] __asm__("_DAT_00a3fa80");
+extern "C" unsigned char ra2_place_1931[] __asm__("_unknown_lobby_players_00a3fa80");
 extern "C" unsigned char ra2_place_1932[] __asm__("_unknown_forward_address_a3fbac");
 extern "C" unsigned char ra2_place_1933[] __asm__("_unknown_forward_address_a3fbb8");
 extern "C" unsigned char ra2_place_1934[] __asm__("_unknown_address_a3fbc8");
@@ -4845,7 +4845,7 @@ extern "C" unsigned char ra2_place_1936[] __asm__("_unknown_flag_a40380");
 extern "C" unsigned char ra2_place_1937[] __asm__("_unknown_a40770");
 extern "C" unsigned char ra2_place_1938[] __asm__("_unknown_a40774");
 extern "C" unsigned char ra2_place_1939[] __asm__("_unknown_special_a40920");
-extern "C" unsigned char ra2_place_1940[] __asm__("_DAT_00a40958");
+extern "C" unsigned char ra2_place_1940[] __asm__("_GameActive_00a40958");
 extern "C" unsigned char ra2_place_1941[] __asm__("_unknown_placing_a40b32");
 extern "C" unsigned char ra2_place_1942[] __asm__("_unknown_radio_param_a40be0");
 extern "C" unsigned char ra2_place_1943[] __asm__("_unknown_target_scan_a40be4");
@@ -4905,41 +4905,41 @@ extern "C" unsigned char ra2_place_1996[] __asm__("_unknown_show_cursor_position
 extern "C" unsigned char ra2_place_1997[] __asm__("_unknown_flag_a417c8");
 extern "C" unsigned char ra2_place_1998[] __asm__("_StormActive");
 extern "C" unsigned char ra2_place_1999[] __asm__("_StormDeferment");
-extern "C" unsigned char ra2_place_2000[] __asm__("_DAT_00a5193c");
+extern "C" unsigned char ra2_place_2000[] __asm__("_nuke_flash_state_00a5193c");
 extern "C" unsigned char ra2_place_2001[] __asm__("_StormOwner");
 extern "C" unsigned char ra2_place_2002[] __asm__("_StormTimeToEnd");
-extern "C" unsigned char ra2_place_2003[] __asm__("_DAT_00a51fd0");
-extern "C" unsigned char ra2_place_2004[] __asm__("_DAT_00a521d0");
-extern "C" unsigned char ra2_place_2005[] __asm__("_DAT_00a521dc");
-extern "C" unsigned char ra2_place_2006[] __asm__("_DAT_00a521e0");
-extern "C" unsigned char ra2_place_2007[] __asm__("_DAT_00a521e4");
-extern "C" unsigned char ra2_place_2008[] __asm__("_DAT_00a521e8");
-extern "C" unsigned char ra2_place_2009[] __asm__("_DAT_00a521f0");
-extern "C" unsigned char ra2_place_2010[] __asm__("_DAT_00a521f8");
-extern "C" unsigned char ra2_place_2011[] __asm__("_DAT_00a52200");
-extern "C" unsigned char ra2_place_2012[] __asm__("_DAT_00a52260");
-extern "C" unsigned char ra2_place_2013[] __asm__("_DAT_00a52264");
-extern "C" unsigned char ra2_place_2014[] __asm__("_DAT_00a52268");
-extern "C" unsigned char ra2_place_2015[] __asm__("_DAT_00a52280");
+extern "C" unsigned char ra2_place_2003[] __asm__("_unknown_audio_file_table_00a51fd0");
+extern "C" unsigned char ra2_place_2004[] __asm__("_audio_file_next_header_00a521d0");
+extern "C" unsigned char ra2_place_2005[] __asm__("_audio_file_window_slots_00a521dc");
+extern "C" unsigned char ra2_place_2006[] __asm__("_audio_file_thread_stop_00a521e0");
+extern "C" unsigned char ra2_place_2007[] __asm__("_unknown_audio_file_00a521e4");
+extern "C" unsigned char ra2_place_2008[] __asm__("_audio_file_thread_stopped_00a521e8");
+extern "C" unsigned char ra2_place_2009[] __asm__("_unknown_audio_file_period_00a521f0");
+extern "C" unsigned char ra2_place_2010[] __asm__("_unknown_audio_file_00a521f8");
+extern "C" unsigned char ra2_place_2011[] __asm__("_unknown_audio_file_timer_00a52200");
+extern "C" unsigned char ra2_place_2012[] __asm__("_audio_file_thread_00a52260");
+extern "C" unsigned char ra2_place_2013[] __asm__("_audio_file_thread_id_00a52264");
+extern "C" unsigned char ra2_place_2014[] __asm__("_audio_file_lock_00a52268");
+extern "C" unsigned char ra2_place_2015[] __asm__("_audio_file_lock_00a52280");
 extern "C" unsigned char ra2_place_2016[] __asm__("_unknown_message_count_a52298");
-extern "C" unsigned char ra2_place_2017[] __asm__("_DAT_00a5229c");
-extern "C" unsigned char ra2_place_2018[] __asm__("_DAT_00a522a0");
-extern "C" unsigned char ra2_place_2019[] __asm__("_DAT_00a522a4");
-extern "C" unsigned char ra2_place_2020[] __asm__("_DAT_00a522a8");
-extern "C" unsigned char ra2_place_2021[] __asm__("_DAT_00a522ac");
-extern "C" unsigned char ra2_place_2022[] __asm__("_DAT_00a522b0");
-extern "C" unsigned char ra2_place_2023[] __asm__("_DAT_00a522b4");
-extern "C" unsigned char ra2_place_2024[] __asm__("_DAT_00a522b8");
-extern "C" unsigned char ra2_place_2025[] __asm__("_DAT_00a522bc");
-extern "C" unsigned char ra2_place_2026[] __asm__("_DAT_00a522c0");
-extern "C" unsigned char ra2_place_2027[] __asm__("_DAT_00a522c4");
-extern "C" unsigned char ra2_place_2028[] __asm__("_DAT_00a522c8");
-extern "C" unsigned char ra2_place_2029[] __asm__("_DAT_00a522cc");
-extern "C" unsigned char ra2_place_2030[] __asm__("_DAT_00a522d0");
-extern "C" unsigned char ra2_place_2031[] __asm__("_DAT_00a522d4");
-extern "C" unsigned char ra2_place_2032[] __asm__("_DAT_00a522d8");
-extern "C" unsigned char ra2_place_2033[] __asm__("_DAT_00a522dc");
-extern "C" unsigned char ra2_place_2034[] __asm__("_DAT_00a522e0");
+extern "C" unsigned char ra2_place_2017[] __asm__("_audio_file_cursor_x_00a5229c");
+extern "C" unsigned char ra2_place_2018[] __asm__("_audio_file_cursor_y_00a522a0");
+extern "C" unsigned char ra2_place_2019[] __asm__("_audio_file_last_cursor_x_00a522a4");
+extern "C" unsigned char ra2_place_2020[] __asm__("_audio_file_last_cursor_y_00a522a8");
+extern "C" unsigned char ra2_place_2021[] __asm__("_audio_file_mode_00a522ac");
+extern "C" unsigned char ra2_place_2022[] __asm__("_audio_file_ready_00a522b0");
+extern "C" unsigned char ra2_place_2023[] __asm__("_audio_file_windows_00a522b4");
+extern "C" unsigned char ra2_place_2024[] __asm__("_audio_file_window_count_00a522b8");
+extern "C" unsigned char ra2_place_2025[] __asm__("_audio_file_locks_ready_00a522bc");
+extern "C" unsigned char ra2_place_2026[] __asm__("_audio_file_thread_running_00a522c0");
+extern "C" unsigned char ra2_place_2027[] __asm__("_audio_file_ring_00a522c4");
+extern "C" unsigned char ra2_place_2028[] __asm__("_audio_file_read_queue_00a522c8");
+extern "C" unsigned char ra2_place_2029[] __asm__("_audio_file_flush_queue_00a522cc");
+extern "C" unsigned char ra2_place_2030[] __asm__("_audio_file_stream_00a522d0");
+extern "C" unsigned char ra2_place_2031[] __asm__("_audio_file_fill_failed_00a522d4");
+extern "C" unsigned char ra2_place_2032[] __asm__("_audio_file_found_id_00a522d8");
+extern "C" unsigned char ra2_place_2033[] __asm__("_audio_file_found_index_00a522dc");
+extern "C" unsigned char ra2_place_2034[] __asm__("_audio_file_header_read_00a522e0");
 extern "C" unsigned char ra2_place_2035[] __asm__("__ZN12IPXConnClass14unknown_a52370E");
 extern "C" unsigned char ra2_place_2036[] __asm__("__ZN12IPXConnClass14unknown_a52398E");
 extern "C" unsigned char ra2_place_2037[] __asm__("__ZN12IPXConnClass13ConnectionNumE");
@@ -5037,7 +5037,7 @@ extern "C" unsigned char ra2_place_2128[] __asm__("_unknown_generate_flag_a70068
 extern "C" unsigned char ra2_place_2129[] __asm__("_unknown_seed_text_a709c8");
 extern "C" unsigned char ra2_place_2130[] __asm__("_unknown_map_min_a70a1c");
 extern "C" unsigned char ra2_place_2131[] __asm__("_unknown_map_max_a70a20");
-extern "C" unsigned char ra2_place_2132[] __asm__("_DAT_00a70a24");
+extern "C" unsigned char ra2_place_2132[] __asm__("_map_generation_cells_00a70a24");
 extern "C" unsigned char ra2_place_2133[] __asm__("_unknown_map_region_next_index_a70a28");
 extern "C" unsigned char ra2_place_2134[] __asm__("_unknown_access_min_a70a2c");
 extern "C" unsigned char ra2_place_2135[] __asm__("_unknown_urban_min_a70a54");
@@ -5056,9 +5056,9 @@ extern "C" unsigned char ra2_place_2147[] __asm__("_mono_voice_priority_a70efc")
 extern "C" unsigned char ra2_place_2148[] __asm__("_unknown_mono_instance_a70f00");
 extern "C" unsigned char ra2_place_2149[] __asm__("_unknown_mono_parent_a70f04");
 extern "C" unsigned char ra2_place_2150[] __asm__("_unknown_mono_allowed_a70f08");
-extern "C" unsigned char ra2_place_2151[] __asm__("_DAT_00a70f09");
-extern "C" unsigned char ra2_place_2152[] __asm__("_DAT_00a70f0a");
-extern "C" unsigned char ra2_place_2153[] __asm__("_DAT_00a70f0c");
+extern "C" unsigned char ra2_place_2151[] __asm__("_mono_requested_00a70f09");
+extern "C" unsigned char ra2_place_2152[] __asm__("_mono_enabled_00a70f0a");
+extern "C" unsigned char ra2_place_2153[] __asm__("_mono_viewed_00a70f0c");
 extern "C" unsigned char ra2_place_2154[] __asm__("_unknown_mono_window_a70f10");
 extern "C" unsigned char ra2_place_2155[] __asm__("_unknown_mono_font_a70f14");
 extern "C" unsigned char ra2_place_2156[] __asm__("__ZN10MouseClass11MouseShapesE");
@@ -5107,13 +5107,13 @@ extern "C" unsigned char ra2_place_2198[] __asm__("_unknown_download_a72d04");
 extern "C" unsigned char ra2_place_2199[] __asm__("_unknown_a72d08");
 extern "C" unsigned char ra2_place_2200[] __asm__("_unknown_lobby_texts_a72d0c");
 extern "C" unsigned char ra2_place_2201[] __asm__("_unknown_house_a72d28");
-extern "C" unsigned char ra2_place_2202[] __asm__("_DAT_00a72d2c");
-extern "C" unsigned char ra2_place_2203[] __asm__("_DAT_00a72d30");
-extern "C" unsigned char ra2_place_2204[] __asm__("_DAT_00a72d34");
-extern "C" unsigned char ra2_place_2205[] __asm__("_DAT_00a72d38");
-extern "C" unsigned char ra2_place_2206[] __asm__("_DAT_00a72d3c");
-extern "C" unsigned char ra2_place_2207[] __asm__("_DAT_00a72d40");
-extern "C" unsigned char ra2_place_2208[] __asm__("_DAT_00a72d44");
+extern "C" unsigned char ra2_place_2202[] __asm__("_open_entry_00a72d2c");
+extern "C" unsigned char ra2_place_2203[] __asm__("_closed_entry_00a72d30");
+extern "C" unsigned char ra2_place_2204[] __asm__("_easy_ai_entry_00a72d34");
+extern "C" unsigned char ra2_place_2205[] __asm__("_medium_ai_entry_00a72d38");
+extern "C" unsigned char ra2_place_2206[] __asm__("_hard_ai_entry_00a72d3c");
+extern "C" unsigned char ra2_place_2207[] __asm__("_waiting_entry_00a72d40");
+extern "C" unsigned char ra2_place_2208[] __asm__("_player_entry_00a72d44");
 extern "C" unsigned char ra2_place_2209[] __asm__("_unknown_sent_time_a72d48");
 extern "C" unsigned char ra2_place_2210[] __asm__("_unknown_send_pending_a72d4c");
 extern "C" unsigned char ra2_place_2211[] __asm__("_unknown_sent_2a_a72d4d");
@@ -5181,19 +5181,19 @@ extern "C" unsigned char ra2_place_2272[] __asm__("__ZN9OwnerDraw27unknown_toolt
 extern "C" unsigned char ra2_place_2273[] __asm__("__ZN9OwnerDraw34unknown_mouse_release_depth_a76410E");
 extern "C" unsigned char ra2_place_2274[] __asm__("_unknown_scheme_table_a76414");
 extern "C" unsigned char ra2_place_2275[] __asm__("_unknown_sink_a76680");
-extern "C" unsigned char ra2_place_2276[] __asm__("_DAT_00a76684");
-extern "C" unsigned char ra2_place_2277[] __asm__("_DAT_00a766b0");
+extern "C" unsigned char ra2_place_2276[] __asm__("_unknown_planning_counts_00a76684");
+extern "C" unsigned char ra2_place_2277[] __asm__("_unknown_planning_00a766b0");
 extern "C" unsigned char ra2_place_2278[] __asm__("_unknown_counts_a766b4");
 extern "C" unsigned char ra2_place_2279[] __asm__("_unknown_flag_a766c8");
-extern "C" unsigned char ra2_place_2280[] __asm__("_DAT_00a766f8");
+extern "C" unsigned char ra2_place_2280[] __asm__("_unknown_planning_00a766f8");
 extern "C" unsigned char ra2_place_2281[] __asm__("_unknown_a766fc");
 extern "C" unsigned char ra2_place_2282[] __asm__("_unknown_point_a76728");
-extern "C" unsigned char ra2_place_2283[] __asm__("_DAT_00a76750");
+extern "C" unsigned char ra2_place_2283[] __asm__("_unknown_planning_00a76750");
 extern "C" unsigned char ra2_place_2284[] __asm__("_unknown_flag_a76770");
 extern "C" unsigned char ra2_place_2285[] __asm__("_unknown_flag_a76788");
 extern "C" unsigned char ra2_place_2286[] __asm__("_unknown_node_a7678c");
 extern "C" unsigned char ra2_place_2287[] __asm__("_unknown_flag_a76790");
-extern "C" unsigned char ra2_place_2288[] __asm__("_DAT_00a767a4");
+extern "C" unsigned char ra2_place_2288[] __asm__("_planning_active_00a767a4");
 extern "C" unsigned char ra2_place_2289[] __asm__("_unknown_flag_a767a5");
 extern "C" unsigned char ra2_place_2290[] __asm__("_unknown_flag_a767a6");
 extern "C" unsigned char ra2_place_2291[] __asm__("_unknown_text_a767e0");
@@ -5255,10 +5255,10 @@ extern "C" unsigned char ra2_place_2346[] __asm__("_unknown_rgb_ab6849");
 extern "C" unsigned char ra2_place_2347[] __asm__("_unknown_rgb_ab684c");
 extern "C" unsigned char ra2_place_2348[] __asm__("_CoopCampUniqueID");
 extern "C" unsigned char ra2_place_2349[] __asm__("_CoopCampLoaded");
-extern "C" unsigned char ra2_place_2350[] __asm__("_DAT_00ab6e88");
-extern "C" unsigned char ra2_place_2351[] __asm__("__DAT_00ab6ea8");
-extern "C" unsigned char ra2_place_2352[] __asm__("_DAT_00ab6eac");
-extern "C" unsigned char ra2_place_2353[] __asm__("__DAT_00ab6eb0");
+extern "C" unsigned char ra2_place_2350[] __asm__("_waypoint_none_00ab6e88");
+extern "C" unsigned char ra2_place_2351[] __asm__("__unknown_timer_start_00ab6ea8");
+extern "C" unsigned char ra2_place_2352[] __asm__("_unknown_system_timer_00ab6eac");
+extern "C" unsigned char ra2_place_2353[] __asm__("__unknown_timer_accum_00ab6eb0");
 extern "C" unsigned char ra2_place_2354[] __asm__("_unknown_was_paused_ab6ef4");
 extern "C" unsigned char ra2_place_2355[] __asm__("_unknown_score_empty_rect_ab6f20");
 extern "C" unsigned char ra2_place_2356[] __asm__("_unknown_score_print_ab6f9c");
@@ -5351,7 +5351,7 @@ extern "C" unsigned char ra2_place_2442[] __asm__("_unknown_talk_techno_ac01c4")
 extern "C" unsigned char ra2_place_2443[] __asm__("_unknown_talk_value_ac01c8");
 extern "C" unsigned char ra2_place_2444[] __asm__("_unknown_ac01cc");
 extern "C" unsigned char ra2_place_2445[] __asm__("_unknown_cell_ac01e8");
-extern "C" unsigned char ra2_place_2446[] __asm__("_DAT_00ac0b34");
+extern "C" unsigned char ra2_place_2446[] __asm__("_Tiberiums_Vector_00ac0b34");
 extern "C" unsigned char ra2_place_2447[] __asm__("_unknown_color_ac0fe8");
 extern "C" unsigned char ra2_place_2448[] __asm__("_unknown_art_ac0fec");
 extern "C" unsigned char ra2_place_2449[] __asm__("_unknown_art_ac0ff0");
@@ -5675,8 +5675,8 @@ extern "C" unsigned char ra2_place_2766[] __asm__("_unknown_irc_index_b292d8");
 extern "C" unsigned char ra2_place_2767[] __asm__("_unknown_b292dc");
 extern "C" unsigned char ra2_place_2768[] __asm__("_player_list_column_00b292e0");
 extern "C" unsigned char ra2_place_2769[] __asm__("_wol_pending_allow_page_b292e4");
-extern "C" unsigned char ra2_place_2770[] __asm__("_DAT_00b292e8");
-extern "C" unsigned char ra2_place_2771[] __asm__("_DAT_00b292ec");
+extern "C" unsigned char ra2_place_2770[] __asm__("_unknown_timer_start_00b292e8");
+extern "C" unsigned char ra2_place_2771[] __asm__("_unknown_system_timer_00b292ec");
 extern "C" unsigned char ra2_place_2772[] __asm__("__Module");
 extern "C" unsigned char ra2_place_2773[] __asm__("_unknown_squad_2_b293d8");
 extern "C" unsigned char ra2_place_2774[] __asm__("_buddy_column_b29460");
@@ -5749,7 +5749,7 @@ extern "C" unsigned char ra2_place_2840[] __asm__("_unknown_b2ab88");
 extern "C" unsigned char ra2_place_2841[] __asm__("_unknown_time_b2abd0");
 extern "C" unsigned char ra2_place_2842[] __asm__("_unknown_time_b2abd4");
 extern "C" unsigned char ra2_place_2843[] __asm__("_unknown_b2abd8");
-extern "C" unsigned char ra2_place_2844[] __asm__("_DAT_00b2abd9");
+extern "C" unsigned char ra2_place_2844[] __asm__("_g_PlayingNetGame_00b2abd9");
 extern "C" unsigned char ra2_place_2845[] __asm__("_unknown_b2abda");
 extern "C" unsigned char ra2_place_2846[] __asm__("_wol_max_players_b2abdc");
 extern "C" unsigned char ra2_place_2847[] __asm__("_unknown_b2abe0");
@@ -5796,15 +5796,15 @@ extern "C" unsigned char ra2_place_2887[] __asm__("_account_dialog_updating_b2ac
 extern "C" unsigned char ra2_place_2888[] __asm__("__pModule");
 extern "C" unsigned char ra2_place_2889[] __asm__("_unknown_icons_b2acc4");
 extern "C" unsigned char ra2_place_2890[] __asm__("_unknown_b2acc8");
-extern "C" unsigned char ra2_place_2891[] __asm__("_DAT_00b2ad60");
-extern "C" unsigned char ra2_place_2892[] __asm__("_DAT_00b2ad70");
+extern "C" unsigned char ra2_place_2891[] __asm__("_unknown_wdt_block_00b2ad60");
+extern "C" unsigned char ra2_place_2892[] __asm__("_unknown_wdt_block_00b2ad70");
 extern "C" unsigned char ra2_place_2893[] __asm__("_WDT_Chosen_Side_b2ada4");
 extern "C" unsigned char ra2_place_2894[] __asm__("_WDT_Chosen_Theater_b2ada8");
 extern "C" unsigned char ra2_place_2895[] __asm__("_unknown_malformed_seen_b2ae24");
 extern "C" unsigned char ra2_place_2896[] __asm__("__ZN21WinsockInterfaceClass14unknown_b2ae9cE");
 extern "C" unsigned char ra2_place_2897[] __asm__("__ZN21WinsockInterfaceClass14unknown_b2aea0E");
 extern "C" unsigned char ra2_place_2898[] __asm__("_unknown_b2af1c");
-extern "C" unsigned char ra2_place_2899[] __asm__("_DAT_00b2b33c");
+extern "C" unsigned char ra2_place_2899[] __asm__("_unknown_previous_filter_00b2b33c");
 extern "C" unsigned char ra2_place_2900[] __asm__("_unknown_kick_channel_b2b3c0");
 extern "C" unsigned char ra2_place_2901[] __asm__("_unknown_query_b2b420");
 extern "C" unsigned char ra2_place_2902[] __asm__("_unknown_cache_empty_b2b624");

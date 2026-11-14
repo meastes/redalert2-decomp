@@ -4,8 +4,8 @@
     "id": "population-4230",
     "inventory_sha256": "e99af4d42c514a7a15e6e9545cf12b46e0095ddd98ad38e37907f19c55b05b9c",
     "gaps_sha256": "b4eef7c9f7a16158903d01f36107437281bebad8b612acddc1bddf4df2677063",
-    "historical_population_sha256": "4b35735b79b564c6509f69fc03920a6ee11304646c185cc8b908ada81e42d31f",
-    "historical_acceptance_sha256": "ce8ad271b60b256af3c95a341b30dba4689b4607c0419f9c31f4c8f791a048bc"
+    "historical_population_sha256": "f13f6c2e58de03a1cb2add394739b622bcfc1baaa288b64f7ac6d9cf2bda66aa",
+    "historical_acceptance_sha256": "a11668d1b497bace0449adccc57bcd65699a0ceaa152fa59c6b1f3adb9a4c53a"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -610,7 +610,7 @@
     "?Next@?$QueueClass@VEventClass@@$0IA@@@QAEHXZ": 6482400,
     "?ID@?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@UAEHABU?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@Z": 6507984,
     "?ID@?$DynamicVectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@UAEHABU?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@Z": 6508368,
-    "__DAT_00ab6e88": 11234952,
+    "__waypoint_none_00ab6e88": 11234952,
     "?ID@?$DynamicVectorClass@UUndoInfoStruct@@@@UAEHPBUUndoInfoStruct@@@Z": 6844272,
     "?ID@?$VectorClass@UUndoInfoStruct@@@@UAEHPBUUndoInfoStruct@@@Z": 6844848,
     "?ID@?$DynamicVectorClass@UDirtyAreaStruct@@@@UAEHPBUDirtyAreaStruct@@@Z": 6998176,
@@ -650,7 +650,7 @@
     "?ID@?$VectorClass@PAVSpawnControl@@@@UAEHPBQAVSpawnControl@@@Z": 6859840,
     "?ID@?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UAEHPBV?$rc_ptr@VConflict@WorldDominationTour@@@@@Z": 7499136,
     "?VQA_Unknown_0077C920@@YIHPAUVQAHandle@@PAH11@Z": 7850272,
-    "__DAT_0084ed10": 8711440,
+    "__cell_none_0084ed10": 8711440,
     "__strdup": 7919638,
     "??4Buffer@@QAEAAV0@ABV0@@Z": 4424656,
     "??0Buffer@@QAE@PADJ@Z": 4424448,
@@ -683,8 +683,8 @@
     "__chkstk": 7878736,
     "__strnicmp": 7878672,
     "?VQA_Unknown_0077C8A0@@YIHPAUVQAHandle@@H@Z": 7850144,
-    "__DAT_00ab6ea8": 11234984,
-    "__DAT_00ab6eb0": 11234992,
+    "__unknown_timer_start_00ab6ea8": 11234984,
+    "__unknown_timer_accum_00ab6eb0": 11234992,
     "??1VQAClass@@QAE@XZ": 7456928,
     "?Size@FlyLocomotionClass@@UAEHXZ": 4979440,
     "_time": 7878783,
@@ -966,7 +966,7 @@
     "__real@8@4004d800000000000000": 8045168,
     "__real@4@400e8000000000000000": 7980928,
     "__real@8@3ffbaaaaaaaaaaaaa800": 8016520,
-    "_?entry@?1??Get_Image_0068ca40@UnknownBitmapWriter@@QAEPAVSurface@@PBDH@Z@4UUnknownBitmapEntry@@A": 11260136,
+    "_?entry@?1??Get_Image_0068ca40@SurfaceCacheClass@@QAEPAVSurface@@PBDH@Z@4UUnknownBitmapEntry@@A": 11260136,
     "__real@8@3fe2c0000000c0000000": 8019920,
     "_?name@?1??Theme_File_Name@ThemeClass@@QAEPBDH@Z@4PADA": 11274328,
     "?x@?1???AToolTipIndex@@QBEABQAVToolTip@@ABI@Z@4PAV2@A": 11712032,
@@ -1300,7 +1300,7 @@
     "__imp__SetTimer@16": 7972052,
     "__imp__SetTimer": 7972052,
     "__imp__timeGetTime": 7972132,
-    "??1PacketField_004BAD50@@QAE@XZ": 4960352,
+    "??1FieldClass@@QAE@XZ": 4960352,
     "?Unknown_004F52B0@UnknownHouse_00610770@@QAE_NXZ": 5198512,
     "?unknown_player_a35db4@@3PAUUnknownHouse_00610770@@A": 10706356,
     "?unknown_list_a76648@@3V?$DynamicVectorClass@PAUUnknownItem_006142f0@@@@A": 10970696,
@@ -1356,7 +1356,7 @@
     "?unknown_table_7fbb78@@3PAY03HA": 8371064,
     "?unknown_call_732870@UnknownPart_00732bc0@@QAEXXZ": 7546992,
     "?unknown_a3d2a4@@3HA": 10736292,
-    "?Unknown_00735940@@YIPAXH@Z": 7559488,
+    "?WS_Find_Dialog_00735940@@YIPAUHWND__@@H@Z": 7559488,
     "__imp__SendDlgItemMessageA@20": 7971972,
     "_wcslen": 7878149,
     "_wcscat": 7878239,
@@ -1371,16 +1371,16 @@
     "?RadarEventClass_unknown_delete_all_63b890@@YAXXZ": 6535312,
     "?RadarEventClass_unknown_delete_all_63c640@@YAXXZ": 6538816,
     "?unknown_reset_flags_ab6831@@YAXXZ": 6540224,
-    "?unknown_clear@UnknownOwnedList_0063f070@@QAEXXZ": 6549616,
+    "?Reset_0063f070@OwnerTalkClass@@QAEXXZ": 6549616,
     "?unknown_release@UnknownComHolder_00658050@@QAEXXZ": 6651984,
     "?unknown_release@UnknownComHolder_0065b2a0@@QAEXXZ": 6664864,
     "?unknown_find_or_make_palette@@YIHPBDABVHSVClass@@PAX2H@Z": 6700192,
     "?Resume@ScoreAnimClass@@UAEXXZ": 6718288,
     "?unknown_save_chat_options@UnknownOptions_00670730@@QAEXXZ": 6752048,
-    "?unknown_set_description@UnknownDescribed_00671fa0@@QAEXPBG@Z": 6758304,
+    "?Set_Description@MultiMission@@QAEXPBG@Z": 6758304,
     "??1IUnknownPtr@@QAE@XZ": 6915040,
     "?unknown_restart_timer@@YAXXZ": 6922592,
-    "?unknown_add@UnknownFloats_0069ae50@@QAEMMH@Z": 6925904,
+    "?Add_Amount@StorageClass@@QAEMMH@Z": 6925904,
     "?unknown_set_timecode@@YIXPBGPAUUnknownTimed_0069be40@@@Z": 6929984,
     "?unknown_add_ref@UnknownComHolder_0069ed20@@QAEXXZ": 6941984,
     "?Lepton_To_Map_Pixel@Tactical@@QAEXHHAAH0@Z": 6973728,
@@ -1399,7 +1399,7 @@
     "?unknown_set_dialog_item_text@@YIXJ@Z": 7657296,
     "?unknown_release@UnknownComHolder_00765b00@@QAEXXZ": 7756544,
     "?unknown_release@UnknownComHolder_00765b10@@QAEXXZ": 7756560,
-    "?unknown_clear@UnknownStringList_007661c0@@QAEXXZ": 7758272,
+    "?Reset_0063f070@UnknownStringList_007661c0@@QAEXXZ": 7758272,
     "??YUnknownWideString_0076fdd0@@QAEAAV0@PBG@Z": 7798224,
     "??YUnknownWideString_0076fdd0@@QAEAAV0@ABV0@@Z": 7798352,
     "?unknown_decoder_read_header@@YIHPAUUnknownDecoderState_77a340@@H@Z": 7840576,
@@ -3333,7 +3333,7 @@
     "?Clone@CStreamClass@@UAGJPAPAUIStream@@@Z": 4804560,
     "?Clone@EnumConnectionsClass@@UAGJPAPAUIEnumConnections@@@Z": 4793232,
     "?Clone@EnumConnectionPointsClass@@UAGJPAPAUIEnumConnectionPoints@@@Z": 4795680,
-    "?unknown_object_84e8d0@@3VUnknown84E8D0@@A": 8710352,
+    "?unknown_object_84e8d0@@3VBeaconManagerClass@@A": 8710352,
     "?unknown_10@CampaignProperties@WorldDominationTour@@QBE?AVWstring@@XZ": 7525088,
     "?Set_Server_00739920@PlayerProfile@@QAEXABVWstring@@@Z": 7575840,
     "?Top_Level_Exception_Filter_0068e270@@YIHPAU_EXCEPTION_POINTERS@@@Z": 6873712,
@@ -3655,7 +3655,7 @@
     "?Put@UnknownCRCPipe@@UAEHPBXH@Z": 4801040,
     "?Get@UnknownCRCStraw@@UAEHPAXH@Z": 4801168,
     "??0RGBClass@@QAE@XZ": 4889328,
-    "?Get@UnknownAlphaTableCache_008315B8@@QAEPAY0BAA@$$CBGH@Z": 4318176,
+    "?Get@AlphaLightingRemapInitClass@@QAEPAY0BAA@$$CBGH@Z": 4318176,
     "?Blit@?$RLEBlitTransXlatZRead@E@@UBEXPAXPBXHHH00HH0@Z": 4744976,
     "?Blit@?$RLEBlitTransZRemapXlatZRead@E@@UBEXPAXPBXHHH00HH0@Z": 4745184,
     "?Blit@?$RLEBlitTransRemapDestZRead@E@@UBEXPAXPBXHHH00HH0@Z": 4745440,
@@ -3696,7 +3696,7 @@
     "??0RGBClass@@QAE@ABV0@0M@Z": 6540416,
     "?Read_INI@InfantryClass@@SIXAAVCCINIClass@@@Z": 5269856,
     "?search_compfunc@?$IndexClass@HPAVCommandClass@@@@CAHPBX0@Z": 4721664,
-    "?Clear@GdiBitmapSurface_004981C0@@QAEXE@Z": 4817824,
+    "?Clear@DIB8Class@@QAEXE@Z": 4817824,
     "?Fill@ZBuffer@@QAEXG@Z": 7823712,
     "?Difference@RGBClass@@QBEHABV1@@Z": 6541232,
     "?Set_00434820@CoordStruct@@QAEAAU1@HHH@Z": 4409376,
@@ -4056,7 +4056,7 @@
     "?unknown_lookup_pair@@YIHH@Z": 6664784,
     "?Get_Cell_Ramp_006a7110@Tactical@@QAEHABUCoordStruct@@@Z": 6975760,
     "?unknown_forward_4c1010@@YGXPAUUnknownTarget_006a9f50@@@Z": 6987600,
-    "?unknown_6e8180@ThemeClass@@QAEXXZ": 7242112,
+    "?Fade_Stream_006e8180@ThemeClass@@QAEXXZ": 7242112,
     "?unknown_clear_flag_ac1330@@YAXXZ": 7300704,
     "?unknown_state_index_6f7ea0@@YIHH@Z": 7306912,
     "?unknown_state_index_6f8190@@YIHH@Z": 7307664,
@@ -4091,7 +4091,7 @@
     "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275440,
     "?unknown_abstracts_ac0bf8@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275256,
     "?unknown_abstracts_ac0d08@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275528,
-    "?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A": 10736272,
+    "?unknown_id_source_a3d290@@3PAVScenarioClass@@A": 10736272,
     "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A": 10691224,
     "?SuperWeaponTypes@@3V?$DynamicVectorClass@PAVSuperWeaponTypeClass@@@@A": 10748728,
     "?unknown_rules_839848@@3PAUUnknownRules839848@@A": 8624200,
@@ -4237,9 +4237,9 @@
     "?Unknown_0063C630@RadarEventClass@@QBEHXZ": 6538800,
     "?unknown_color_ac10f4@@3UUnknownColor_6f1aa0@@A": 11276532,
     "?unknown_color_ac1100@@3UUnknownColor_6f1a60@@A": 11276544,
-    "?Set_Color@SubTitle@@QAEXEEE@Z": 6926592,
+    "?Set_RGB_Color@SubTitle@@QAEXEEE@Z": 6926592,
     "_wcstoul": 7884150,
-    "?Set_Text@SubTitle@@QAEXPBG@Z": 6926624,
+    "?Set_Caption@SubTitle@@QAEXPBG@Z": 6926624,
     "?Unknown_0063C610@RadarEventClass@@QBEHXZ": 6538768,
     "?Unknown_0063C620@RadarEventClass@@QBEHXZ": 6538784,
     "?String_Pixel_Width@ScoreFontClass@@UAEHPBG@Z": 6716000,
@@ -4370,8 +4370,8 @@
     "?QueryInterface@LocomotionClass@@W3AGJABUGUID@@PAPAX@Z": 4979872,
     "?AddRef@LocomotionClass@@W3AGKXZ": 4979888,
     "?Release@LocomotionClass@@W3AGKXZ": 4979904,
-    "?Save@UnknownIDSource@@QAEXPAUIStream@@@Z": 6688608,
-    "?Load@UnknownIDSource@@QAEXPAUIStream@@@Z": 6688960,
+    "?Save@ScenarioClass@@QAEXPAUIStream@@@Z": 6688608,
+    "?Load@ScenarioClass@@QAEXPAUIStream@@@Z": 6688960,
     "__imp__RegQueryInfoKeyA@48": 7970816,
     "__imp__RegEnumKeyExA@32": 7970844,
     "__imp__SetupComm@12": 7971176,
@@ -4475,7 +4475,57 @@
     "?Set_Color@RadBeam@@QAEXABVRGBClass@@@Z": 6510352,
     "_?startup@?1??Override_Mouse_Shape@MouseClass@@UAE_NH_N@Z@4_NA": 10948517,
     "_rand": 7882410,
-    "?Load_VQF@@YIJPAUVQAHandleP@@KD@Z": 7839376
+    "?Load_VQF@@YIJPAUVQAHandleP@@KD@Z": 7839376,
+    "?Draw_Frame@BinkClass@@QAE_NPAVSurface@@HH@Z": 4392448,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4717856,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718192,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4718256,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718464,
+    "?ID@?$DynamicVectorClass@VBaseNodeClass@@@@UAEHABVBaseNodeClass@@@Z": 4378064,
+    "?ID@?$VectorClass@VCell@@@@UAEHABVCell@@@Z": 4378592,
+    "?ID@?$DynamicVectorClass@VCell@@@@UAEHABVCell@@@Z": 4378912,
+    "?ID@?$VectorClass@VBaseNodeClass@@@@UAEHABVBaseNodeClass@@@Z": 4379344,
+    "?ID@?$VectorClass@VRGBClass@@@@UAEHABVRGBClass@@@Z": 4642992,
+    "?ID@?$DynamicVectorClass@VRGBClass@@@@UAEHABVRGBClass@@@Z": 4643376,
+    "?ID@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHABUDrawRecord@FoggedObjectClass@@@Z": 4989632,
+    "?ID@?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHABUDrawRecord@FoggedObjectClass@@@Z": 4990016,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEHABV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z": 5039776,
+    "?ID@?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEHABV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z": 5040560,
+    "?ID@?$VectorClass@UAngerStruct@@@@UAEHABUAngerStruct@@@Z": 5207200,
+    "?ID@?$DynamicVectorClass@UAngerStruct@@@@UAEHABUAngerStruct@@@Z": 5207568,
+    "?ID@?$VectorClass@UScoutStruct@@@@UAEHABUScoutStruct@@@Z": 5208016,
+    "?ID@?$DynamicVectorClass@UScoutStruct@@@@UAEHABUScoutStruct@@@Z": 5208384,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHABV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z": 5210704,
+    "?ID@?$VectorClass@UZoneConnectionClass@@@@UAEHABUZoneConnectionClass@@@Z": 5681840,
+    "?ID@?$DynamicVectorClass@UZoneConnectionClass@@@@UAEHABUZoneConnectionClass@@@Z": 5682304,
+    "?ID@?$VectorClass@USubzoneTrackingStruct@@@@UAEHABUSubzoneTrackingStruct@@@Z": 5683136,
+    "?ID@?$DynamicVectorClass@USubzoneTrackingStruct@@@@UAEHABUSubzoneTrackingStruct@@@Z": 5683696,
+    "?ID@?$VectorClass@U?$TRect@H@@@@UAEHABU?$TRect@H@@@Z": 5826240,
+    "?ID@?$VectorClass@UAcceleratorTracker@@@@UAEHABUAcceleratorTracker@@@Z": 5990080,
+    "?ID@?$DynamicVectorClass@UAcceleratorTracker@@@@UAEHABUAcceleratorTracker@@@Z": 5990448,
+    "?ID@?$VectorClass@UUndoInfoStruct@@@@UAEHABUUndoInfoStruct@@@Z": 6844768,
+    "?ID@?$DynamicVectorClass@UUndoInfoStruct@@@@UAEHABUUndoInfoStruct@@@Z": 6845168,
+    "?ID@?$VectorClass@UDirtyAreaStruct@@@@UAEHABUDirtyAreaStruct@@@Z": 6998848,
+    "?ID@?$DynamicVectorClass@UDirtyAreaStruct@@@@UAEHABUDirtyAreaStruct@@@Z": 6999296,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHABV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7079408,
+    "?ID@?$VectorClass@UCentroid@WorldDominationTour@@@@UAEHABUCentroid@WorldDominationTour@@@Z": 7518288,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "_?address@?1??Unknown_0063FA00@OwnerTalkClass@@QAEPAVIPXAddressClass@@PAD@Z@4V3@A": 11234568,
+    "__real@4@40018000000000000000": 7980236,
+    "__real@4@4002a000000000000000": 7980232,
+    "__real@4@40008000000000000000": 7980228,
+    "__real@8@400d8000000000000000": 7983264,
+    "__real@8@3fffccccccccccccd000": 8020032,
+    "__real@8@3ffaa3d70a3d70a3d800": 7998288,
+    "__real@8@3ffe947ae147ae147800": 8049000,
+    "__real@8@3fe3c8000000c8000000": 8019992,
+    "__except_handler3": 7885524,
+    "__except_list": 0,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "??_7type_info@@6B@": 8066532
   },
   "regions": [
     {
@@ -4487,7 +4537,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 29,
       "body_sha256": "022c4c17556256eee10ce3f48cdf6a2bd6e663ebf4fc6fd7c751bd24b17f50a8",
@@ -4495,13 +4546,12 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "1d27033f1e5b7d167db5cc01904ea4bd4c298aa14d881e285b4dd4bd1001cc85",
       "relocations": [],
-      "source_sha256": "7a0b4731c323f143647e4e2113938d57a597fa581dd61f360e45e980a89d3cd0",
-      "source": "src/recovered/VQA32/loader_Load_CLIP_0077a340.cpp",
+      "source_sha256": "5b50268d5df16b44bd1dccf0a3c4a53f30c029368501d9eeff72ce585146ac41",
+      "source": "src/recovered/vqalib_loader.cpp",
       "population": "population-4230",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "loader_Load_CLIP_0077a340",
       "source_order": 217373
     },
     {
@@ -4513,7 +4563,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 124,
       "body_sha256": "c7c9d861c36c8f625fdeef41f62a5ccb0059fdc43c78a1c1b9d8f1ff01cd182e",
@@ -4521,13 +4572,12 @@
       "full_extent_bytes": 128,
       "full_extent_sha256": "967b7486a28a4d48b6399ff4c8618866793afde7804e65a891b21a1af8c4114f",
       "relocations": [],
-      "source_sha256": "5ec517215c0edca4e7c947166756df707a06fd1c1d3780e089a94f6147109987",
-      "source": "src/recovered/VQA32/loader_Load_CBFZ_0077afa0.cpp",
+      "source_sha256": "5b50268d5df16b44bd1dccf0a3c4a53f30c029368501d9eeff72ce585146ac41",
+      "source": "src/recovered/vqalib_loader.cpp",
       "population": "population-4230",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "loader_Load_CBFZ_0077afa0",
       "source_order": 217381
     },
     {
@@ -4539,7 +4589,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 205,
       "body_sha256": "a689dd67d5a53d996432a283d1c12d16ecf579bb2468f7836389bc6b6e105c3e",
@@ -4547,13 +4598,12 @@
       "full_extent_bytes": 208,
       "full_extent_sha256": "2dcfab9fba353480aa45f1d9ab5b252a153144eb0b089b5e7b30b10f3db32b4f",
       "relocations": [],
-      "source_sha256": "b05ad2ec299687936456d4928bc6ebe418f961d398d3ad16c3bb6abc848e919d",
-      "source": "src/recovered/VQA32/loader_Load_SND0_0077b390.cpp",
+      "source_sha256": "5b50268d5df16b44bd1dccf0a3c4a53f30c029368501d9eeff72ce585146ac41",
+      "source": "src/recovered/vqalib_loader.cpp",
       "population": "population-4230",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "loader_Load_SND0_0077b390",
       "source_order": 217385
     },
     {
@@ -4565,7 +4615,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 706,
       "body_sha256": "6b0df4a6e00e9de1d523986e480174247bdb07ed9a11c41cd79faf8b6d54a468",
@@ -4598,13 +4649,12 @@
           "resolved": 37
         }
       ],
-      "source_sha256": "497161946c9faa0c32d203a7b69558860d0f70203677ad1012925817f3ba6914",
-      "source": "src/recovered/VQA32/loader_VQA_LoadFrame_00778680.cpp",
+      "source_sha256": "5b50268d5df16b44bd1dccf0a3c4a53f30c029368501d9eeff72ce585146ac41",
+      "source": "src/recovered/vqalib_loader.cpp",
       "population": "population-4230",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "loader_VQA_LoadFrame_00778680",
       "source_order": 217365
     },
     {
@@ -4616,7 +4666,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 65,
       "body_sha256": "c5b3addb6980faa2830ae8e27bfaad9e6cbba33673a5ba8c043907065083bc99",
@@ -4633,13 +4684,12 @@
           "resolved": 4294963140
         }
       ],
-      "source_sha256": "c7527d3d6ab57112b90dd651711c1764bb10776e340018fbf9bd2e89292788f4",
-      "source": "src/recovered/VQA32/loader_PrimeBuffers_007796a0.cpp",
+      "source_sha256": "5b50268d5df16b44bd1dccf0a3c4a53f30c029368501d9eeff72ce585146ac41",
+      "source": "src/recovered/vqalib_loader.cpp",
       "population": "population-4230",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "loader_PrimeBuffers_007796a0",
       "source_order": 217367
     },
     {
@@ -4651,7 +4701,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 71,
       "body_sha256": "70cb067efb0823cde62bd9d2f009b1db5db5402d53d95e6eb1e57620d95b19b1",
@@ -4659,13 +4710,12 @@
       "full_extent_bytes": 80,
       "full_extent_sha256": "d015aee0fc34e0728209bb9eb3244a1e54fdb9d1f3ee534f03b1e37bef72964c",
       "relocations": [],
-      "source_sha256": "228782e027b839deaf4af78d10ec54795f3401a8c820376d350798a2bf3e6c27",
-      "source": "src/recovered/VQA32/loader_VQA_IsFrameStartOfLoop_007796f0.cpp",
+      "source_sha256": "5b50268d5df16b44bd1dccf0a3c4a53f30c029368501d9eeff72ce585146ac41",
+      "source": "src/recovered/vqalib_loader.cpp",
       "population": "population-4230",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "loader_VQA_IsFrameStartOfLoop_007796f0",
       "source_order": 217368
     },
     {
@@ -4677,7 +4727,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 377,
       "body_sha256": "ccc880b4222adb22a799c7f465da95c9463610f09633d08494bcac11d4b65e8c",
@@ -4710,13 +4761,12 @@
           "resolved": 4294962682
         }
       ],
-      "source_sha256": "b83fa92a10460602edaa9c66e8e81689be356922f92d79313eaeb5841f643a4a",
-      "source": "src/recovered/VQA32/loader_VQA_ReloadPalette_00779740.cpp",
+      "source_sha256": "5b50268d5df16b44bd1dccf0a3c4a53f30c029368501d9eeff72ce585146ac41",
+      "source": "src/recovered/vqalib_loader.cpp",
       "population": "population-4230",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "loader_VQA_ReloadPalette_00779740",
       "source_order": 217369
     },
     {
@@ -4728,7 +4778,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 139,
       "body_sha256": "7002175890860dfe6378687fd1019a44bcd34add3c92b1fee3cff3acc2616038",
@@ -4736,13 +4787,12 @@
       "full_extent_bytes": 144,
       "full_extent_sha256": "d5a4405c26e51ec3f0299e074bbea5ad538d711ae2d72bef6b23342f12eb8e05",
       "relocations": [],
-      "source_sha256": "76f35c3223d902f5090ca470b0d50b910e274c1116e22a436bc0f7f9bcc25cbf",
-      "source": "src/recovered/VQA32/loader_VQA_GetPaletteFrameRange_007798c0.cpp",
+      "source_sha256": "5b50268d5df16b44bd1dccf0a3c4a53f30c029368501d9eeff72ce585146ac41",
+      "source": "src/recovered/vqalib_loader.cpp",
       "population": "population-4230",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "loader_VQA_GetPaletteFrameRange_007798c0",
       "source_order": 217370
     },
     {
@@ -4754,7 +4804,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 1337,
       "body_sha256": "22e04b1d7caf2b8cad71de3fa49266f3f0bb287c218745d282d69e50f7e939d7",
@@ -4795,13 +4846,12 @@
           "resolved": 4294961212
         }
       ],
-      "source_sha256": "ed5fab1c82a5428cf68713bdeed966185b136726aaa1bda32476b92754373007",
-      "source": "src/recovered/VQA32/loader_VQA_SeekGroup_00779950.cpp",
+      "source_sha256": "5b50268d5df16b44bd1dccf0a3c4a53f30c029368501d9eeff72ce585146ac41",
+      "source": "src/recovered/vqalib_loader.cpp",
       "population": "population-4230",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "loader_VQA_SeekGroup_00779950",
       "source_order": 217371
     },
     {
@@ -4813,7 +4863,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 339,
       "body_sha256": "47d31dd6a9ad767d87bc1f6a783a5275a30454facf5f7a4d1f12c1a8cdc26d9e",
@@ -4821,13 +4872,12 @@
       "full_extent_bytes": 352,
       "full_extent_sha256": "a825bd6bcb0ee6702c57c3bf3f9679bcbfe6de67f3e28330d018b3bf35ebc4f8",
       "relocations": [],
-      "source_sha256": "ecd013f2e281c0631fea1818607758035230a6e4d30f034d83cc5c37104e0258",
-      "source": "src/recovered/VQA32/loader_Load_LINF_0077a360.cpp",
+      "source_sha256": "5b50268d5df16b44bd1dccf0a3c4a53f30c029368501d9eeff72ce585146ac41",
+      "source": "src/recovered/vqalib_loader.cpp",
       "population": "population-4230",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "loader_Load_LINF_0077a360",
       "source_order": 217374
     },
     {
@@ -4839,7 +4889,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 125,
       "body_sha256": "e1e939d2003c7a2bf8d91bcfe0810c3f59e31fb91d51ebb08d5b03ef0fdc2f65",
@@ -4847,13 +4898,12 @@
       "full_extent_bytes": 128,
       "full_extent_sha256": "e0ea6dcb5cef3b3dd77617b0319f669fa578048fdb1807c11d78fb0582401595",
       "relocations": [],
-      "source_sha256": "abc24e1c30532600e5aac9d2daecb15f88f0eff5246b37a407db58ed28ae3607",
-      "source": "src/recovered/VQA32/loader_VQA_GetCodebookFrameRange_0077ac00.cpp",
+      "source_sha256": "5b50268d5df16b44bd1dccf0a3c4a53f30c029368501d9eeff72ce585146ac41",
+      "source": "src/recovered/vqalib_loader.cpp",
       "population": "population-4230",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "loader_VQA_GetCodebookFrameRange_0077ac00",
       "source_order": 217377
     },
     {
@@ -4865,7 +4915,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 353,
       "body_sha256": "11ec340f585d449d349435a7c1ecfdf9f2f4851c84b04f55b21c69f77e178177",
@@ -4873,13 +4924,12 @@
       "full_extent_bytes": 368,
       "full_extent_sha256": "eb989f4eafff75df2901a91a3afee2934fc1340661e396303a2ab977b865ecae",
       "relocations": [],
-      "source_sha256": "8f272c41be8cc0c053852a1404f42d50d5d27ba4c4376ac81c1f542dfbe51a09",
-      "source": "src/recovered/VQA32/loader_Load_CINF_0077ac80.cpp",
+      "source_sha256": "5b50268d5df16b44bd1dccf0a3c4a53f30c029368501d9eeff72ce585146ac41",
+      "source": "src/recovered/vqalib_loader.cpp",
       "population": "population-4230",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "loader_Load_CINF_0077ac80",
       "source_order": 217378
     },
     {
@@ -4891,7 +4941,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 338,
       "body_sha256": "c6b1879e4e59e2fbc1df5abbcb6dd7fbce93b63509272f5d6792169cd3fad8f1",
@@ -4899,13 +4950,12 @@
       "full_extent_bytes": 352,
       "full_extent_sha256": "ff22a7acee64a152b8e324b6cbde93bf533563f764604800e40b145cace37b43",
       "relocations": [],
-      "source_sha256": "e5ab50eccff9df3524907f1bac45e0fb8fdaf3a110647459063c525b3d2dfa49",
-      "source": "src/recovered/VQA32/loader_Load_PINF_0077adf0.cpp",
+      "source_sha256": "5b50268d5df16b44bd1dccf0a3c4a53f30c029368501d9eeff72ce585146ac41",
+      "source": "src/recovered/vqalib_loader.cpp",
       "population": "population-4230",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "loader_Load_PINF_0077adf0",
       "source_order": 217379
     },
     {
@@ -4917,7 +4967,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 65,
       "body_sha256": "c1636f0d9a58fce9b3a3f100c7ee689d748bd2f01307fc64ea1869428df90f34",
@@ -4925,13 +4976,12 @@
       "full_extent_bytes": 80,
       "full_extent_sha256": "1bbac1c1eb022dbae5e747b31a9447a581e38ba020dd398490ecc703c1f20d54",
       "relocations": [],
-      "source_sha256": "41c6a02d480b51a845d47c30d61e49e2515a70151e46af1333400e08b3cd766f",
-      "source": "src/recovered/VQA32/loader_Load_FINF_0077af50.cpp",
+      "source_sha256": "5b50268d5df16b44bd1dccf0a3c4a53f30c029368501d9eeff72ce585146ac41",
+      "source": "src/recovered/vqalib_loader.cpp",
       "population": "population-4230",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "loader_Load_FINF_0077af50",
       "source_order": 217380
     },
     {
@@ -4943,7 +4993,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 279,
       "body_sha256": "deca0eeb493fcc6a7a19dfd9627b22b09bcad914cf3545a2061bfda0bfd126a0",
@@ -4951,13 +5002,12 @@
       "full_extent_bytes": 288,
       "full_extent_sha256": "7c2b432e8836a8b2c7f2f8a9cd967ff899f49f49de41ccaad47ce1f1e1929cf0",
       "relocations": [],
-      "source_sha256": "044b1e71ca1d96a29173ff760c75acb5b3cc911651a7df29351eb6b43afd1afc",
-      "source": "src/recovered/VQA32/loader_Load_CBP0_0077b020.cpp",
+      "source_sha256": "5b50268d5df16b44bd1dccf0a3c4a53f30c029368501d9eeff72ce585146ac41",
+      "source": "src/recovered/vqalib_loader.cpp",
       "population": "population-4230",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "loader_Load_CBP0_0077b020",
       "source_order": 217382
     },
     {
@@ -4969,7 +5019,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 197,
       "body_sha256": "6db8dcf9f6a54553c612c8d7813a0f97e7a038f2950ad641bbe9d30e58e4820c",
@@ -4986,13 +5037,12 @@
           "resolved": 24748
         }
       ],
-      "source_sha256": "642f89855beec4106423830cfb4b4d3782290852411723b3db5dc4633324f633",
-      "source": "src/recovered/VQA32/loader_Load_CPLZ_0077b2c0.cpp",
+      "source_sha256": "5b50268d5df16b44bd1dccf0a3c4a53f30c029368501d9eeff72ce585146ac41",
+      "source": "src/recovered/vqalib_loader.cpp",
       "population": "population-4230",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "loader_Load_CPLZ_0077b2c0",
       "source_order": 217384
     },
     {
@@ -5004,7 +5054,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 443,
       "body_sha256": "9cdeaab93cc5e3fddb7eb8db257e373acb804cfaa774cd62b53cc19d8d5c709e",
@@ -5029,13 +5080,12 @@
           "resolved": 23368
         }
       ],
-      "source_sha256": "03628132365bdefa24ae0954a74337bb5f9527b8926ec26aebeb05af8c60b15c",
-      "source": "src/recovered/VQA32/loader_Load_SND1_0077b460.cpp",
+      "source_sha256": "5b50268d5df16b44bd1dccf0a3c4a53f30c029368501d9eeff72ce585146ac41",
+      "source": "src/recovered/vqalib_loader.cpp",
       "population": "population-4230",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "loader_Load_SND1_0077b460",
       "source_order": 217386
     },
     {
@@ -5047,7 +5097,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 373,
       "body_sha256": "c3ac303fbb2a45b844b644f70133ae9c60277320e5b02663a601fc615ae7ebb9",
@@ -5072,13 +5123,12 @@
           "resolved": 19989
         }
       ],
-      "source_sha256": "c12efdf8116fca2e65e43d6ea4c24549ec48dd3b1c7f6cba8eaf4ba4fba8cee0",
-      "source": "src/recovered/VQA32/loader_Load_SND2_0077b620.cpp",
+      "source_sha256": "5b50268d5df16b44bd1dccf0a3c4a53f30c029368501d9eeff72ce585146ac41",
+      "source": "src/recovered/vqalib_loader.cpp",
       "population": "population-4230",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "loader_Load_SND2_0077b620",
       "source_order": 217387
     },
     {
@@ -5090,7 +5140,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 1196,
       "body_sha256": "bde1144361af34850eb8873cf79664ca8e5eb44330c126870b3e90d8edb5fe82",
@@ -5131,13 +5182,12 @@
           "resolved": 3887
         }
       ],
-      "source_sha256": "34ace4e464c8a608f96a0690469b84ac66d1e4969868ba3458c4b51519cb3810",
-      "source": "src/recovered/VQA32/loader_Load_VQF_00779e90.cpp",
+      "source_sha256": "5b50268d5df16b44bd1dccf0a3c4a53f30c029368501d9eeff72ce585146ac41",
+      "source": "src/recovered/vqalib_loader.cpp",
       "population": "population-4230",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "loader_Load_VQF_00779e90",
       "source_order": 217372
     },
     {
@@ -5149,7 +5199,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 3397,
       "body_sha256": "be003d55c0d67f3d0d1776349e9a0c4f457112a968dd535bfaefe9ea85da663b",
@@ -5494,13 +5545,12 @@
           "resolved": 11710352
         }
       ],
-      "source_sha256": "fc7c7f87ef1ff0d62be1751e2e28f4dd894a2f12a732493f8a1528c546cf4d01",
-      "source": "src/recovered/unowned/loader_VQA_LoadFrame_Internal_00778950.cpp",
+      "source_sha256": "5b50268d5df16b44bd1dccf0a3c4a53f30c029368501d9eeff72ce585146ac41",
+      "source": "src/recovered/vqalib_loader.cpp",
       "population": "population-4230",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "loader_VQA_LoadFrame_Internal_00778950",
       "source_order": 217366
     },
     {
@@ -5512,7 +5562,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 697,
       "body_sha256": "cd26cb01deee9a62f041b3b8c540be5dc00fdb86f3ec0888f71d24bff333dd7e",
@@ -5520,13 +5571,12 @@
       "full_extent_bytes": 704,
       "full_extent_sha256": "17a0106bef18833041599e030609d9d54a51e6eea96bc173d9a259800bc3600e",
       "relocations": [],
-      "source_sha256": "647c4749d9c4ea573d7aeb3290d96ee26063180fb14113bdf2d9c893091e3cc2",
-      "source": "src/recovered/unowned/Load_MSCI_0077a940.cpp",
+      "source_sha256": "5b50268d5df16b44bd1dccf0a3c4a53f30c029368501d9eeff72ce585146ac41",
+      "source": "src/recovered/vqalib_loader.cpp",
       "population": "population-4230",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Load_MSCI_0077a940",
       "source_order": 217376
     },
     {
@@ -5538,7 +5588,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 1152,
       "body_sha256": "fa591e629d5fecd8ef5a0928c271660da3f807cfa0de40395472f83d73d7eec0",
@@ -5546,13 +5597,12 @@
       "full_extent_bytes": 1152,
       "full_extent_sha256": "fa591e629d5fecd8ef5a0928c271660da3f807cfa0de40395472f83d73d7eec0",
       "relocations": [],
-      "source_sha256": "eb0e673154c4df9a0e5643c547137c16a363429f6e6dc20ceac0b5621dc21b33",
-      "source": "src/recovered/unowned/Load_MFCI_0077a4c0.cpp",
+      "source_sha256": "5b50268d5df16b44bd1dccf0a3c4a53f30c029368501d9eeff72ce585146ac41",
+      "source": "src/recovered/vqalib_loader.cpp",
       "population": "population-4230",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Load_MFCI_0077a4c0",
       "source_order": 217375
     },
     {
@@ -5564,7 +5614,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 384,
       "body_sha256": "a246f92e4f7707d94012aeea137fa414dc0f69e36f058ac80277e6a2475ab309",
@@ -5572,13 +5623,12 @@
       "full_extent_bytes": 384,
       "full_extent_sha256": "a246f92e4f7707d94012aeea137fa414dc0f69e36f058ac80277e6a2475ab309",
       "relocations": [],
-      "source_sha256": "f639ee10270f6165ed1b2140a61264dff1d962c8c759101d71a7906703d0445a",
-      "source": "src/recovered/VQA32/loader_Load_CBPZ_0077b140.cpp",
+      "source_sha256": "5b50268d5df16b44bd1dccf0a3c4a53f30c029368501d9eeff72ce585146ac41",
+      "source": "src/recovered/vqalib_loader.cpp",
       "population": "population-4230",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "loader_Load_CBPZ_0077b140",
       "source_order": 217383
     }
   ]

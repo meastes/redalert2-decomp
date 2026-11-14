@@ -1,0 +1,1091 @@
+{
+ "module": "mouse",
+ "source": "src/recovered/mouse.cpp",
+ "header": null,
+ "population": "population-2666",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 518,
+ "code": [
+  {
+   "symbol": "_$E87",
+   "entry": "0059efd0",
+   "body_bytes": 37,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "_$E84",
+   "entry": "0059f000",
+   "body_bytes": 21,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "??0MouseClass@@QAE@XZ",
+   "entry": "0059f020",
+   "body_bytes": 54,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Set_Default_Mouse@MouseClass@@UAEXH_N@Z",
+   "entry": "0059f060",
+   "body_bytes": 26,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Revert_Mouse_Shape@MouseClass@@UAEXXZ",
+   "entry": "0059f080",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Mouse_Small@MouseClass@@UAEX_N@Z",
+   "entry": "0059f090",
+   "body_bytes": 210,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Get_Mouse_Start_Frame@MouseClass@@QBEHH_N@Z",
+   "entry": "0059f170",
+   "body_bytes": 35,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Get_Mouse_Frame@MouseClass@@QBEHH_N@Z",
+   "entry": "0059f1a0",
+   "body_bytes": 43,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Get_Mouse_Hotspot@MouseClass@@QBE?AUPoint2D@@H@Z",
+   "entry": "0059f1d0",
+   "body_bytes": 116,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Override_Mouse_Shape@MouseClass@@UAE_NH_N@Z",
+   "entry": "0059f250",
+   "body_bytes": 320,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?AI@MouseClass@@UAEXAAHABUPoint2D@@@Z",
+   "entry": "0059f390",
+   "body_bytes": 348,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?One_Time@MouseClass@@UAEXXZ",
+   "entry": "0059f4f0",
+   "body_bytes": 26,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Init_Clear@MouseClass@@UAEXXZ",
+   "entry": "0059f510",
+   "body_bytes": 24,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Load@MouseClass@@UAEJPAUIStream@@@Z",
+   "entry": "0059f530",
+   "body_bytes": 1868,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Save@MouseClass@@UAEJPAUIStream@@@Z",
+   "entry": "0059fc80",
+   "body_bytes": 611,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Unknown_0059FEF0@MouseClass@@SAXXZ",
+   "entry": "0059fef0",
+   "body_bytes": 41,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Get_Mouse_Start@MouseClass@@QBEHH@Z",
+   "entry": "0059ff20",
+   "body_bytes": 17,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Get_Mouse_Count@MouseClass@@QBEHH@Z",
+   "entry": "0059ff40",
+   "body_bytes": 17,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "??0TabClass@@QAE@ABVNoInitClass@@@Z",
+   "entry": "0059ff60",
+   "body_bytes": 45,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??_GTabClass@@UAEPAXI@Z",
+   "entry": "0059ff90",
+   "body_bytes": 71,
+   "padding_bytes": 9
+  }
+ ],
+ "code_bytes": 4112,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@",
+   "address": "0079a76c",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 169
+  },
+  {
+   "symbol": "??_7MouseClass@@6BINoticeSink@@@",
+   "address": "0079a94c",
+   "bytes": 4,
+   "kind": "vtable",
+   "section": 48
+  },
+  {
+   "symbol": "??_7MouseClass@@6BSidebarClass@@@",
+   "address": "0079a954",
+   "bytes": 220,
+   "kind": "vtable",
+   "section": 49
+  },
+  {
+   "symbol": "??_7INoticeSink@@6B@",
+   "address": "0079ae44",
+   "bytes": 4,
+   "kind": "vtable",
+   "section": 90
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@6B@",
+   "address": "007a5a58",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 85
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@U?$HashObject@II@@@@6B@",
+   "address": "007a5a78",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 138
+  },
+  {
+   "symbol": "??_7?$VectorClass@U?$HashObject@II@@@@6B@",
+   "address": "007a5af8",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 108
+  },
+  {
+   "symbol": "??_7?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@6B@",
+   "address": "007a5b18",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 111
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a64c8",
+   "bytes": 16,
+   "kind": "table",
+   "section": 4
+  },
+  {
+   "symbol": "??_7TabClass@@6BINoticeSink@@@",
+   "address": "007a64dc",
+   "bytes": 4,
+   "kind": "vtable",
+   "section": 88
+  },
+  {
+   "symbol": "??_7TabClass@@6BSidebarClass@@@",
+   "address": "007a64e4",
+   "bytes": 220,
+   "kind": "vtable",
+   "section": 89
+  },
+  {
+   "symbol": "??_7?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@6B@",
+   "address": "007a8824",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 105
+  },
+  {
+   "symbol": "??_C@_09JKEA@MOUSE?4SHP?$AA@",
+   "address": "007db964",
+   "bytes": 10,
+   "kind": "string",
+   "section": 80
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@",
+   "address": "0079a76c",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7MouseClass@@6BINoticeSink@@@",
+   "address": "0079a94c",
+   "bytes": 4,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7MouseClass@@6BSidebarClass@@@",
+   "address": "0079a954",
+   "bytes": 220,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7INoticeSink@@6B@",
+   "address": "0079ae44",
+   "bytes": 4,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@6B@",
+   "address": "007a5a58",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@U?$HashObject@II@@@@6B@",
+   "address": "007a5a78",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@U?$HashObject@II@@@@6B@",
+   "address": "007a5af8",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@6B@",
+   "address": "007a5b18",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a64c8",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7TabClass@@6BINoticeSink@@@",
+   "address": "007a64dc",
+   "bytes": 4,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7TabClass@@6BSidebarClass@@@",
+   "address": "007a64e4",
+   "bytes": 220,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@6B@",
+   "address": "007a8824",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_C@_09JKEA@MOUSE?4SHP?$AA@",
+   "address": "007db964",
+   "bytes": 10,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "006f6750",
+   "symbol": "?target@Target_6f6750@@QAEIII@Z",
+   "target": "0059f170",
+   "function_entry": true
+  },
+  {
+   "site": "006f6760",
+   "symbol": "?target@Target_6f6760@@QAEIII@Z",
+   "target": "0059f170",
+   "function_entry": true
+  },
+  {
+   "site": "006816b0",
+   "symbol": "?Override_Mouse_Shape_0059f250@Callee_0059f250@seed_006816b0@@QAEIHD@Z",
+   "target": "0059f250",
+   "function_entry": true
+  },
+  {
+   "site": "0049c500",
+   "symbol": "?Override_Mouse_Shape@MouseClass@@UAE_NH_N@Z",
+   "target": "0059f250",
+   "function_entry": true
+  },
+  {
+   "site": "0062fcc0",
+   "symbol": "?Override_Mouse_Shape@MouseClass@@UAE_NH_N@Z",
+   "target": "0059f250",
+   "function_entry": true
+  },
+  {
+   "site": "0062fcc0",
+   "symbol": "?Override_Mouse_Shape@MouseClass@@UAE_NH_N@Z",
+   "target": "0059f250",
+   "function_entry": true
+  },
+  {
+   "site": "006a0f30",
+   "symbol": "?Override_Mouse_Shape@MouseClass@@UAE_NH_N@Z",
+   "target": "0059f250",
+   "function_entry": true
+  },
+  {
+   "site": "0065c040",
+   "symbol": "?Override_Mouse_Shape@MouseClass@@UAE_NH_N@Z",
+   "target": "0059f250",
+   "function_entry": true
+  },
+  {
+   "site": "0065c140",
+   "symbol": "?Revert_Mouse_Shape@MouseClass@@UAEXXZ",
+   "target": "0059f080",
+   "function_entry": true
+  },
+  {
+   "site": "0065e440",
+   "symbol": "?Set_Default_Mouse@MouseClass@@UAEXH_N@Z",
+   "target": "0059f060",
+   "function_entry": true
+  },
+  {
+   "site": "0065e590",
+   "symbol": "?Set_Default_Mouse@MouseClass@@UAEXH_N@Z",
+   "target": "0059f060",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?Set_Default_Mouse@MouseClass@@UAEXH_N@Z",
+   "target": "0059f060",
+   "function_entry": true
+  },
+  {
+   "site": "0065dec0",
+   "symbol": "?Set_Default_Mouse@MouseClass@@UAEXH_N@Z",
+   "target": "0059f060",
+   "function_entry": true
+  },
+  {
+   "site": "005434e0",
+   "symbol": "?Set_Default_Mouse@MouseClass@@UAEXH_N@Z",
+   "target": "0059f060",
+   "function_entry": true
+  },
+  {
+   "site": "005434e0",
+   "symbol": "?Override_Mouse_Shape@MouseClass@@UAE_NH_N@Z",
+   "target": "0059f250",
+   "function_entry": true
+  },
+  {
+   "site": "005434e0",
+   "symbol": "?Set_Default_Mouse@MouseClass@@UAEXH_N@Z",
+   "target": "0059f060",
+   "function_entry": true
+  },
+  {
+   "site": "005434e0",
+   "symbol": "?Override_Mouse_Shape@MouseClass@@UAE_NH_N@Z",
+   "target": "0059f250",
+   "function_entry": true
+  },
+  {
+   "site": "006909e0",
+   "symbol": "?Unknown_0059FEF0@MouseClass@@SAXXZ",
+   "target": "0059fef0",
+   "function_entry": true
+  },
+  {
+   "site": "00516900",
+   "symbol": "?One_Time@MouseClass@@UAEXXZ",
+   "target": "0059f4f0",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?Set_Default_Mouse@MouseClass@@UAEXH_N@Z",
+   "target": "0059f060",
+   "function_entry": true
+  },
+  {
+   "site": "006558b0",
+   "symbol": "?Save@MouseClass@@QAEJPAUIStream@@@Z",
+   "target": "0059fc80",
+   "function_entry": true
+  },
+  {
+   "site": "00656b80",
+   "symbol": "?Load@MouseClass@@QAEJPAUIStream@@@Z",
+   "target": "0059f530",
+   "function_entry": true
+  },
+  {
+   "site": "0057ae00",
+   "symbol": "?Init_Clear@MouseClass@@UAEXXZ",
+   "target": "0059f510",
+   "function_entry": true
+  },
+  {
+   "site": "0065d370",
+   "symbol": "?Init_Clear@MouseClass@@UAEXXZ",
+   "target": "0059f510",
+   "function_entry": true
+  },
+  {
+   "site": "006ab360",
+   "symbol": "?Get_Mouse_Start@MouseClass@@QBEHH@Z",
+   "target": "0059ff20",
+   "function_entry": true
+  },
+  {
+   "site": "006ab360",
+   "symbol": "?Get_Mouse_Count@MouseClass@@QBEHH@Z",
+   "target": "0059ff40",
+   "function_entry": true
+  },
+  {
+   "site": "006809f0",
+   "symbol": "?Override_Mouse_Shape@MouseClass@@UAE_NH_N@Z",
+   "target": "0059f250",
+   "function_entry": true
+  },
+  {
+   "site": "00617900",
+   "symbol": "?Set_Default_Mouse@MouseClass@@UAEXH_N@Z",
+   "target": "0059f060",
+   "function_entry": true
+  },
+  {
+   "site": "00617680",
+   "symbol": "?Set_Default_Mouse@MouseClass@@UAEXH_N@Z",
+   "target": "0059f060",
+   "function_entry": true
+  },
+  {
+   "site": "0040d060",
+   "symbol": "??0MouseClass@@QAE@XZ",
+   "target": "0059f020",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Set_Default_Mouse@MouseClass@@UAEXH_N@Z",
+   "target": "0059f060",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Override_Mouse_Shape@MouseClass@@UAE_NH_N@Z",
+   "target": "0059f250",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Revert_Mouse_Shape@MouseClass@@UAEXXZ",
+   "target": "0059f080",
+   "function_entry": true
+  },
+  {
+   "site": "0062fe30",
+   "symbol": "?Set_Default_Mouse@MouseClass@@UAEXH_N@Z",
+   "target": "0059f060",
+   "function_entry": true
+  },
+  {
+   "site": "0062fe30",
+   "symbol": "?Override_Mouse_Shape@MouseClass@@UAE_NH_N@Z",
+   "target": "0059f250",
+   "function_entry": true
+  },
+  {
+   "site": "0068e280",
+   "symbol": "?Unknown_0059FEF0@MouseClass@@SAXXZ",
+   "target": "0059fef0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0ScrollClass@@QAE@XZ",
+   "address": "006695e0"
+  },
+  {
+   "symbol": "??0SidebarClass@@QAE@ABVNoInitClass@@@Z",
+   "address": "0067b7b0"
+  },
+  {
+   "symbol": "??1RadarClass@@UAE@XZ",
+   "address": "0062f080"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??BSystemTimerClass@@QBEJXZ",
+   "address": "0069a430"
+  },
+  {
+   "symbol": "??_G?$VectorClass@U?$HashObject@II@@@@UAEPAXI@Z",
+   "address": "0056c910"
+  },
+  {
+   "symbol": "??_G?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEPAXI@Z",
+   "address": "0056c960"
+  },
+  {
+   "symbol": "??_G?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z",
+   "address": "0040b230"
+  },
+  {
+   "symbol": "??_GMouseClass@@UAEPAXI@Z",
+   "address": "0040d160"
+  },
+  {
+   "symbol": "?AI@ScrollClass@@UAEXAAHABUPoint2D@@@Z",
+   "address": "00669630"
+  },
+  {
+   "symbol": "?AI@TabClass@@UAEXAAHABUPoint2D@@@Z",
+   "address": "006a0f30"
+  },
+  {
+   "symbol": "?Abort_Drag_Select@DisplayClass@@UAEXXZ",
+   "address": "0049ebf0"
+  },
+  {
+   "symbol": "?Abort_Drag_Select@ScrollClass@@UAEXXZ",
+   "address": "0066ac20"
+  },
+  {
+   "symbol": "?Add_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z",
+   "address": "004e0ac0"
+  },
+  {
+   "symbol": "?Blit_Display@GScreenClass@@UAEXXZ",
+   "address": "004e0c50"
+  },
+  {
+   "symbol": "?Click_Cell_Calc@RadarClass@@UAE?AVCell@@ABUPoint2D@@@Z",
+   "address": "0062fbd0"
+  },
+  {
+   "symbol": "?Detach@MapClass@@UAEXPAVAbstractClass@@_N@Z",
+   "address": "00559d80"
+  },
+  {
+   "symbol": "?DisposeOfArt@TabClass@@UAEXXZ",
+   "address": "006a0b30"
+  },
+  {
+   "symbol": "?Draw_It@TabClass@@UAEX_N@Z",
+   "address": "006a12d0"
+  },
+  {
+   "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXH@Z",
+   "address": "004e09a0"
+  },
+  {
+   "symbol": "?Get_Input@GScreenClass@@UAEXAAH00@Z",
+   "address": "004e09d0"
+  },
+  {
+   "symbol": "?Has_Cell@MapClass@@QAE_NABVCell@@@Z",
+   "address": "005480b0"
+  },
+  {
+   "symbol": "?Help_Text@TabClass@@UAEPBGH@Z",
+   "address": "006a20b0"
+  },
+  {
+   "symbol": "?INoticeSink_Unknown@TabClass@@UAE_NHH@Z",
+   "address": "006a2020"
+  },
+  {
+   "symbol": "?Init@AnimTypeClass@@SIXH@Z",
+   "address": "00425230"
+  },
+  {
+   "symbol": "?Init@BuildingTypeClass@@SIXH@Z",
+   "address": "00458600"
+  },
+  {
+   "symbol": "?Init@GScreenClass@@UAEXH@Z",
+   "address": "004e0960"
+  },
+  {
+   "symbol": "?Init@OverlayTypeClass@@SIXH@Z",
+   "address": "005dc960"
+  },
+  {
+   "symbol": "?Init@SmudgeTypeClass@@SIXH@Z",
+   "address": "00687fb0"
+  },
+  {
+   "symbol": "?Init@TerrainTypeClass@@SIXH@Z",
+   "address": "006e5460"
+  },
+  {
+   "symbol": "?Init_Clear@SidebarClass@@UAEXXZ",
+   "address": "0067b8b0"
+  },
+  {
+   "symbol": "?Init_For_House@TabClass@@UAEXXZ",
+   "address": "006a0b70"
+  },
+  {
+   "symbol": "?Init_IO@TabClass@@UAEXXZ",
+   "address": "006a0c50"
+  },
+  {
+   "symbol": "?Is_Button_Listed@GScreenClass@@UAE_NAAVGadgetClass@@@Z",
+   "address": "004e0aa0"
+  },
+  {
+   "symbol": "?Is_Scrolling@ScrollClass@@UAE_NXZ",
+   "address": "0066a3c0"
+  },
+  {
+   "symbol": "?Is_Visible@MapClass@@UAGJVCell@@@Z",
+   "address": "00547fa0"
+  },
+  {
+   "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
+   "address": "0055a490"
+  },
+  {
+   "symbol": "?Load@SidebarClass@@UAEJPAUIStream@@@Z",
+   "address": "00682290"
+  },
+  {
+   "symbol": "?Map_Cell@RadarClass@@UAE_NABVCell@@PAVHouseClass@@@Z",
+   "address": "0062fc80"
+  },
+  {
+   "symbol": "?MouseShapes@MouseClass@@2PBUMouseShapeHeader@@B",
+   "address": "00a70f64"
+  },
+  {
+   "symbol": "?MouseShapesAllocated@MouseClass@@2_NA",
+   "address": "00a70fa4"
+  },
+  {
+   "symbol": "?Mouse_Left_Held@DisplayClass@@UAEXABUPoint2D@@@Z",
+   "address": "0049c500"
+  },
+  {
+   "symbol": "?Mouse_Left_Press@DisplayClass@@UAEXABUPoint2D@@@Z",
+   "address": "0049c490"
+  },
+  {
+   "symbol": "?Mouse_Left_Release@DisplayClass@@UAEXABUCoordStruct@@ABVCell@@PAVObjectClass@@H_N@Z",
+   "address": "0049bb20"
+  },
+  {
+   "symbol": "?Mouse_Right_Press@DisplayClass@@UAEXABUPoint2D@@@Z",
+   "address": "0049af80"
+  },
+  {
+   "symbol": "?Mouse_Right_Press@ScrollClass@@UAEXABUPoint2D@@@Z",
+   "address": "0066abe0"
+  },
+  {
+   "symbol": "?Mouse_Right_Release@DisplayClass@@UAEXABUPoint2D@@@Z",
+   "address": "0049af90"
+  },
+  {
+   "symbol": "?Mouse_Right_Release@ScrollClass@@UAEXABUPoint2D@@@Z",
+   "address": "0066aba0"
+  },
+  {
+   "symbol": "?One_Time@TabClass@@UAEXXZ",
+   "address": "006a0b20"
+  },
+  {
+   "symbol": "?QueryInterface@GScreenClass@@UAGJABUGUID@@PAPAX@Z",
+   "address": "004e08f0"
+  },
+  {
+   "symbol": "?Remove_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z",
+   "address": "004e0b00"
+  },
+  {
+   "symbol": "?Render@GScreenClass@@UAEXXZ",
+   "address": "004e0b30"
+  },
+  {
+   "symbol": "?Reposition_Sidebar@SidebarClass@@UAEXXZ",
+   "address": "006819a0"
+  },
+  {
+   "symbol": "?Reset_Iterator@MapClass@@QAEXXZ",
+   "address": "0055a550"
+  },
+  {
+   "symbol": "?RevealFogShroud@RadarClass@@UAE_NABVCell@@PAVHouseClass@@_N@Z",
+   "address": "0062fca0"
+  },
+  {
+   "symbol": "?Save@SidebarClass@@UAEJPAUIStream@@@Z",
+   "address": "006822a0"
+  },
+  {
+   "symbol": "?Scroll_Map@DisplayClass@@UAE_NHPAH_N@Z",
+   "address": "00499b60"
+  },
+  {
+   "symbol": "?Set_Local_Dimensions@RadarClass@@UAEXABVRect@@@Z",
+   "address": "00630840"
+  },
+  {
+   "symbol": "?Set_Map_Dimensions@RadarClass@@UAEXPBVRect@@_NH1@Z",
+   "address": "00630300"
+  },
+  {
+   "symbol": "?Set_Tactical_Position@RadarClass@@UAEXABUCoordStruct@@@Z",
+   "address": "00630320"
+  },
+  {
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "address": "0069fb20"
+  },
+  {
+   "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+   "address": "00abd868"
+  },
+  {
+   "symbol": "?Unknown_00529870@@YIXH_N@Z",
+   "address": "00529870"
+  },
+  {
+   "symbol": "?Unknown_0052B2E0@@YIX_N0@Z",
+   "address": "0052b2e0"
+  },
+  {
+   "symbol": "?Unknown_0052B650@@YAXXZ",
+   "address": "0052b650"
+  },
+  {
+   "symbol": "?Unknown_Hash_0054F240@@YIHABI@Z",
+   "address": "0054f240"
+  },
+  {
+   "symbol": "?Unknown_Load_Shape_00495270@@YIPBXPBDAA_N@Z",
+   "address": "00495270"
+  },
+  {
+   "symbol": "?WWMouse@@3PAVMouse@@A",
+   "address": "00839c68"
+  },
+  {
+   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
+   "symbol": "?unknown_loaded_theater_7d88dc@@3HA",
+   "address": "007d88dc"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_mouse_control_7e2af8@@3PAUMouseStruct@@A",
+   "address": "007e2af8"
+  },
+  {
+   "symbol": "?unknown_slot22@MapClass@@UAEXXZ",
+   "address": "00548370"
+  },
+  {
+   "symbol": "?unknown_slot23@MapClass@@UAEXXZ",
+   "address": "005483d0"
+  },
+  {
+   "symbol": "?unknown_slot24@MapClass@@UAEXXZ",
+   "address": "00548490"
+  },
+  {
+   "symbol": "?unknown_slot27@MapClass@@UAEXXZ",
+   "address": "0054e300"
+  },
+  {
+   "symbol": "?unknown_slot32@DisplayClass@@UAEXXZ",
+   "address": "0049cfd0"
+  },
+  {
+   "symbol": "?unknown_slot38@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z",
+   "address": "0049a0f0"
+  },
+  {
+   "symbol": "?unknown_slot39@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z",
+   "address": "0049a370"
+  },
+  {
+   "symbol": "?unknown_slot42@DisplayClass@@UAEXABVRect@@@Z",
+   "address": "00498c80"
+  },
+  {
+   "symbol": "?unknown_slot43@DisplayClass@@UAEXXZ",
+   "address": "0040d120"
+  },
+  {
+   "symbol": "?unknown_slot46@DisplayClass@@UAEXABVCell@@_NPAVObjectClass@@H1@Z",
+   "address": "0049b0f0"
+  },
+  {
+   "symbol": "?unknown_slot54@TabClass@@UAE_NH@Z",
+   "address": "006a0da0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "_IID_IUnknown_7afce0",
+   "address": "007afce0"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__OleLoadFromStream@12",
+   "address": "0079a5ec"
+  },
+  {
+   "symbol": "__imp__OleSaveToStream@8",
+   "address": "0079a5e8"
+  },
+  {
+   "symbol": "__purecall",
+   "address": "004b8960"
+  },
+  {
+   "symbol": "_atexit",
+   "address": "0078298a"
+  }
+ ],
+ "route": "A",
+ "unit": "mouse.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "0059efd0",
+   "lines": 10
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "0059ffe0",
+   "bytes": 117,
+   "population": "population-36",
+   "source": "src/recovered/containers/ConstructArrayStorageExtension_0059ffe0.cpp",
+   "cause": "frozen in another population's inventory pass (population-36)"
+  }
+ ],
+ "unit_functions": 22,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "006f6750",
+   "target": "0059f170",
+   "symbol": "?target@Target_6f6750@@QAEIII@Z",
+   "module_symbol": "?Get_Mouse_Start_Frame@MouseClass@@QBEHH_N@Z"
+  },
+  {
+   "site": "006f6760",
+   "target": "0059f170",
+   "symbol": "?target@Target_6f6760@@QAEIII@Z",
+   "module_symbol": "?Get_Mouse_Start_Frame@MouseClass@@QBEHH_N@Z"
+  },
+  {
+   "site": "006816b0",
+   "target": "0059f250",
+   "symbol": "?Override_Mouse_Shape_0059f250@Callee_0059f250@seed_006816b0@@QAEIHD@Z",
+   "module_symbol": "?Override_Mouse_Shape@MouseClass@@UAE_NH_N@Z"
+  },
+  {
+   "site": "006558b0",
+   "target": "0059fc80",
+   "symbol": "?Save@MouseClass@@QAEJPAUIStream@@@Z",
+   "module_symbol": "?Save@MouseClass@@UAEJPAUIStream@@@Z"
+  },
+  {
+   "site": "00656b80",
+   "target": "0059f530",
+   "symbol": "?Load@MouseClass@@QAEJPAUIStream@@@Z",
+   "module_symbol": "?Load@MouseClass@@UAEJPAUIStream@@@Z"
+  }
+ ],
+ "stand_in_reference_count": 5,
+ "residual_split": {
+  "rows": 1,
+  "bytes": 117
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

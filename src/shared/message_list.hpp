@@ -43,6 +43,9 @@ public:
     // Puts the messages one under the other from the top of the list, below the edit line when it is open
     // (an inline helper with no out-of-line copy; name hypothesis; Add_Edit, Remove_Edit).
     void Restack_Messages();
+    // Puts the messages one under the other, one row lower when the edit line takes the last row
+    // (0x005B5D80; names.csv Compute_Y).
+    void Compute_Y();
     // Edit-line keyboard and mouse input: input is the key number (cleared when used), key the character
     // when the caller has it (0: from the keyboard). 0: not used, 1: a character went in, 2: changed or closed,
     // 3: sent (Return), 4: a character went in and the start of the line went to OverflowBuf (0x005B56F0).

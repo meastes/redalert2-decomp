@@ -9,7 +9,7 @@
 // 0x0042EBE0 (seed src/recovered/0042ebe0.cpp; HouseClass::MPlayer_Defeated
 // 0x004E77F0 calls it): while beacons are enabled (+0x60), removes each of the
 // house's three beacon slots that holds one (0x0042E990).
-void Unknown84E8D0::Unknown_0042EBE0(int house)
+void BeaconManagerClass::Unknown_0042EBE0(int house)
 {
     if (unknown_60 != 0) {
         for (int slot = 0; slot < 3; slot++) {

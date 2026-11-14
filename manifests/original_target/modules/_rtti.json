@@ -1,0 +1,706 @@
+{
+ "module": "_rtti",
+ "source": "src/recovered/_rtti.cpp",
+ "header": null,
+ "population": "population-3664",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 761,
+ "code": [
+  {
+   "symbol": "_$E5",
+   "entry": "0040d970",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "0040d9a0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "0040d9c0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "0040d9e0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "0040da00",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "0040da20",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "0040da40",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "0040da80",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "0040dab0",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "0040dae0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "0040db10",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "0040db20",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E41",
+   "entry": "0040db40",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Name_From_RTTI@@YIPBDW4RTTIType@@@Z",
+   "entry": "0040db60",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?RTTI_From_Name@@YI?AW4RTTIType@@PBD@Z",
+   "entry": "0040db90",
+   "body_bytes": 57,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?As_Techno_0040dbd0@@YIPAVTechnoClass@@PAVAbstractClass@@@Z",
+   "entry": "0040dbd0",
+   "body_bytes": 67,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "entry": "0040dc20",
+   "body_bytes": 67,
+   "padding_bytes": 13
+  }
+ ],
+ "code_bytes": 768,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "0079aac0",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_C@_07PCHH@Unknown?$AA@",
+   "address": "007cdbb0",
+   "bytes": 8,
+   "kind": "string",
+   "section": 42
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "0079aac0",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_C@_07PCHH@Unknown?$AA@",
+   "address": "007cdbb0",
+   "bytes": 8,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0046a4f0",
+   "symbol": "?Name_From_RTTI@@YIPBDW4RTTIType@@@Z",
+   "target": "0040db60",
+   "function_entry": true
+  },
+  {
+   "site": "0046a4b0",
+   "symbol": "?Name_From_RTTI@@YIPBDW4RTTIType@@@Z",
+   "target": "0040db60",
+   "function_entry": true
+  },
+  {
+   "site": "0046a4b0",
+   "symbol": "?RTTI_From_Name@@YI?AW4RTTIType@@PBD@Z",
+   "target": "0040db90",
+   "function_entry": true
+  },
+  {
+   "site": "004c7e10",
+   "symbol": "?Unknown_0040DC20@@YIPAVTechnoClass@@PAVAbstractClass@@@Z",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "00422f50",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "0060aa70",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "006bbf20",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "00505390",
+   "symbol": "?As_Techno_0040dbd0@@YIPAVTechnoClass@@PAVAbstractClass@@@Z",
+   "target": "0040dbd0",
+   "function_entry": true
+  },
+  {
+   "site": "00505390",
+   "symbol": "?As_Techno_0040dbd0@@YIPAVTechnoClass@@PAVAbstractClass@@@Z",
+   "target": "0040dbd0",
+   "function_entry": true
+  },
+  {
+   "site": "0041a1c0",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "00636a50",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "00636a50",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "006b9aa0",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "005d4160",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "00416670",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "00660320",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "006b5910",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "006b5910",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "005d2e70",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "004e5660",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "0062cf40",
+   "symbol": "?Name_From_RTTI@@YIPBDW4RTTIType@@@Z",
+   "target": "0040db60",
+   "function_entry": true
+  },
+  {
+   "site": "0062cf40",
+   "symbol": "?Name_From_RTTI@@YIPBDW4RTTIType@@@Z",
+   "target": "0040db60",
+   "function_entry": true
+  },
+  {
+   "site": "0062cf40",
+   "symbol": "?Name_From_RTTI@@YIPBDW4RTTIType@@@Z",
+   "target": "0040db60",
+   "function_entry": true
+  },
+  {
+   "site": "0062cf40",
+   "symbol": "?Name_From_RTTI@@YIPBDW4RTTIType@@@Z",
+   "target": "0040db60",
+   "function_entry": true
+  },
+  {
+   "site": "0062cf40",
+   "symbol": "?Name_From_RTTI@@YIPBDW4RTTIType@@@Z",
+   "target": "0040db60",
+   "function_entry": true
+  },
+  {
+   "site": "0062cf40",
+   "symbol": "?Name_From_RTTI@@YIPBDW4RTTIType@@@Z",
+   "target": "0040db60",
+   "function_entry": true
+  },
+  {
+   "site": "0062cf40",
+   "symbol": "?Name_From_RTTI@@YIPBDW4RTTIType@@@Z",
+   "target": "0040db60",
+   "function_entry": true
+  },
+  {
+   "site": "0062dba0",
+   "symbol": "?Name_From_RTTI@@YIPBDW4RTTIType@@@Z",
+   "target": "0040db60",
+   "function_entry": true
+  },
+  {
+   "site": "0062dba0",
+   "symbol": "?Name_From_RTTI@@YIPBDW4RTTIType@@@Z",
+   "target": "0040db60",
+   "function_entry": true
+  },
+  {
+   "site": "0062dba0",
+   "symbol": "?Name_From_RTTI@@YIPBDW4RTTIType@@@Z",
+   "target": "0040db60",
+   "function_entry": true
+  },
+  {
+   "site": "0062dba0",
+   "symbol": "?Name_From_RTTI@@YIPBDW4RTTIType@@@Z",
+   "target": "0040db60",
+   "function_entry": true
+  },
+  {
+   "site": "00704c00",
+   "symbol": "?As_Techno_0040dbd0@@YIPAVTechnoClass@@PAVAbstractClass@@@Z",
+   "target": "0040dbd0",
+   "function_entry": true
+  },
+  {
+   "site": "004c61a0",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "004cb110",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "006fe610",
+   "symbol": "?Unknown_0040DC20@@YIPAVTechnoClass@@PAVAbstractClass@@@Z",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "006fe610",
+   "symbol": "?Unknown_0040DC20@@YIPAVTechnoClass@@PAVAbstractClass@@@Z",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "004198b0",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "00418840",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "00503190",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "00669960",
+   "symbol": "?As_Techno_0040dbd0@@YIPAVTechnoClass@@PAVAbstractClass@@@Z",
+   "target": "0040dbd0",
+   "function_entry": true
+  },
+  {
+   "site": "0049e1d0",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "00476920",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "00476920",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "0060c7c0",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "00669650",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "0062a360",
+   "symbol": "?Name_From_RTTI@@YIPBDW4RTTIType@@@Z",
+   "target": "0040db60",
+   "function_entry": true
+  },
+  {
+   "site": "0062a360",
+   "symbol": "?Name_From_RTTI@@YIPBDW4RTTIType@@@Z",
+   "target": "0040db60",
+   "function_entry": true
+  },
+  {
+   "site": "0062a360",
+   "symbol": "?Name_From_RTTI@@YIPBDW4RTTIType@@@Z",
+   "target": "0040db60",
+   "function_entry": true
+  },
+  {
+   "site": "0062a360",
+   "symbol": "?Name_From_RTTI@@YIPBDW4RTTIType@@@Z",
+   "target": "0040db60",
+   "function_entry": true
+  },
+  {
+   "site": "0062a360",
+   "symbol": "?Name_From_RTTI@@YIPBDW4RTTIType@@@Z",
+   "target": "0040db60",
+   "function_entry": true
+  },
+  {
+   "site": "0062a360",
+   "symbol": "?Name_From_RTTI@@YIPBDW4RTTIType@@@Z",
+   "target": "0040db60",
+   "function_entry": true
+  },
+  {
+   "site": "006aa990",
+   "symbol": "?Infantry_As_Techno_0040dbd0@@YIPAVTechnoClass@@PAVObjectClass@@@Z",
+   "target": "0040dbd0",
+   "function_entry": true
+  },
+  {
+   "site": "00703040",
+   "symbol": "?As_Techno_0040dbd0@@YIPAVTechnoClass@@PAVAbstractClass@@@Z",
+   "target": "0040dbd0",
+   "function_entry": true
+  },
+  {
+   "site": "00703bd0",
+   "symbol": "?As_Techno_0040dbd0@@YIPAVTechnoClass@@PAVAbstractClass@@@Z",
+   "target": "0040dbd0",
+   "function_entry": true
+  },
+  {
+   "site": "00703bd0",
+   "symbol": "?As_Techno_0040dbd0@@YIPAVTechnoClass@@PAVAbstractClass@@@Z",
+   "target": "0040dbd0",
+   "function_entry": true
+  },
+  {
+   "site": "00501ce0",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "006809f0",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "007053f0",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  },
+  {
+   "site": "0047e2c0",
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "target": "0040dc20",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "?RTTINames@@3PAURTTINameStruct@@A",
+   "address": "007cd978"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__stricmp",
+   "address": "00781f20"
+  }
+ ],
+ "route": "A",
+ "unit": "_rtti.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "0040d970",
+   "lines": 3
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 17,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "004c7e10",
+   "target": "0040dc20",
+   "symbol": "?Unknown_0040DC20@@YIPAVTechnoClass@@PAVAbstractClass@@@Z",
+   "module_symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ"
+  },
+  {
+   "site": "006fe610",
+   "target": "0040dc20",
+   "symbol": "?Unknown_0040DC20@@YIPAVTechnoClass@@PAVAbstractClass@@@Z",
+   "module_symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ"
+  },
+  {
+   "site": "006fe610",
+   "target": "0040dc20",
+   "symbol": "?Unknown_0040DC20@@YIPAVTechnoClass@@PAVAbstractClass@@@Z",
+   "module_symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ"
+  },
+  {
+   "site": "006aa990",
+   "target": "0040dbd0",
+   "symbol": "?Infantry_As_Techno_0040dbd0@@YIPAVTechnoClass@@PAVObjectClass@@@Z",
+   "module_symbol": "?As_Techno_0040dbd0@@YIPAVTechnoClass@@PAVAbstractClass@@@Z"
+  }
+ ],
+ "stand_in_reference_count": 4,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

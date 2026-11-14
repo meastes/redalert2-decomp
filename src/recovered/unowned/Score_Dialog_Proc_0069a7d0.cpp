@@ -24,7 +24,7 @@
 // @ref ?Play_Song@ThemeClass@@QAEHH@Z=006e7eb0
 // @ref ?Theme@@3VThemeClass@@A=00a35d78
 // @ref ?Load_String@StringTable@@SIPBGPBDPAD0H@Z=006f9ec0
-// @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
+// @ref ?unknown_id_source_a3d290@@3PAVScenarioClass@@A=00a3d290
 // @ref ?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A=00a32298
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
 // @ref _swprintf=00783764

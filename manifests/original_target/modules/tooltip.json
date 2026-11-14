@@ -1,0 +1,1019 @@
+{
+ "module": "tooltip",
+ "source": "src/recovered/tooltip.cpp",
+ "header": null,
+ "population": "population-3429",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 687,
+ "code": [
+  {
+   "symbol": "??0ToolTipManager@@QAE@PAUHWND__@@@Z",
+   "entry": "006eb2e0",
+   "body_bytes": 167,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??1ToolTipManager@@UAE@XZ",
+   "entry": "006eb390",
+   "body_bytes": 238,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Enable@ToolTipManager@@QAEX_N@Z",
+   "entry": "006eb480",
+   "body_bytes": 87,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Process_Message@ToolTipManager@@QAEXPAUtagMSG@@@Z",
+   "entry": "006eb4e0",
+   "body_bytes": 778,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Get_Delay@ToolTipManager@@QBEHXZ",
+   "entry": "006eb7f0",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Set_Delay@ToolTipManager@@QAEXH@Z",
+   "entry": "006eb800",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Save_Delay@ToolTipManager@@QAEXXZ",
+   "entry": "006eb810",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Restore_Delay@ToolTipManager@@QAEXXZ",
+   "entry": "006eb820",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Get_Duration@ToolTipManager@@QBEHXZ",
+   "entry": "006eb830",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Set_Duration@ToolTipManager@@QAEXH@Z",
+   "entry": "006eb840",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Count@ToolTipManager@@QBEHXZ",
+   "entry": "006eb850",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Add@ToolTipManager@@QAE_NABVToolTip@@@Z",
+   "entry": "006eb860",
+   "body_bytes": 430,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "entry": "006eba10",
+   "body_bytes": 385,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Find@ToolTipManager@@QAE_NIPAVToolTip@@@Z",
+   "entry": "006ebba0",
+   "body_bytes": 361,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Find@ToolTipManager@@QAEPAVToolTip@@PBUPOINT@@@Z",
+   "entry": "006ebd10",
+   "body_bytes": 111,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Show@ToolTipManager@@UAE_NPAUToolTipRecord@@@Z",
+   "entry": "006ebd80",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Hide@ToolTipManager@@UAEXPAUToolTipRecord@@@Z",
+   "entry": "006ebd90",
+   "body_bytes": 20,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Update@ToolTipManager@@QAE_NXZ",
+   "entry": "006ebdb0",
+   "body_bytes": 173,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Refresh@ToolTipManager@@UAEX_N@Z",
+   "entry": "006ebe60",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Debug_Print@ToolTipManager@@UAEXPAUToolTipRecord@@@Z",
+   "entry": "006ebe90",
+   "body_bytes": 24,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Get_Text@ToolTipManager@@UAEPBGH@Z",
+   "entry": "006ebeb0",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Hide_Current@ToolTipManager@@QAEXXZ",
+   "entry": "006ebec0",
+   "body_bytes": 17,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Is_Active@ToolTipManager@@QBE_NXZ",
+   "entry": "006ebee0",
+   "body_bytes": 11,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "??_GToolTipManager@@UAEPAXI@Z",
+   "entry": "006ebef0",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Clear@?$DynamicVectorClass@PAVToolTip@@@@UAEXXZ",
+   "entry": "006ebf10",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAVToolTip@@@@UAEHPBQAVToolTip@@@Z",
+   "entry": "006ebf40",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@PAVToolTip@@@@UBEPAVToolTip@@H@Z",
+   "entry": "006ebf60",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??8?$VectorClass@PAVToolTip@@@@UBE_NABV0@@Z",
+   "entry": "006ebf70",
+   "body_bytes": 62,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@PAVToolTip@@@@UAE_NHPBQAVToolTip@@@Z",
+   "entry": "006ebfb0",
+   "body_bytes": 174,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Clear@?$VectorClass@PAVToolTip@@@@UAEXXZ",
+   "entry": "006ec060",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVToolTip@@@@UAEHABQAVToolTip@@@Z",
+   "entry": "006ec090",
+   "body_bytes": 51,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVToolTip@@@@UAEHPBQAVToolTip@@@Z",
+   "entry": "006ec0d0",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Resize@?$DynamicVectorClass@PAVToolTip@@@@UAE_NHPBQAVToolTip@@@Z",
+   "entry": "006ec0f0",
+   "body_bytes": 176,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAVToolTip@@@@UAEHABQAVToolTip@@@Z",
+   "entry": "006ec1a0",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?get@Leaf_6ec1d0@@QAEPAXI@Z",
+   "entry": "006ec1d0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?FUN_006ec220@Owner_006ec220@seed_006ec220@@QAEPAIE@Z",
+   "entry": "006ec220",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??0ToolTipIndexNode@@QAE@XZ",
+   "entry": "006ec270",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Is_Archive_Same@ToolTipIndex@@QBE_NABI@Z",
+   "entry": "006ec280",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Search_For_Node@ToolTipIndex@@QBEPBUToolTipIndexNode@@ABI@Z",
+   "entry": "006ec2a0",
+   "body_bytes": 121,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?search_compfunc@ToolTipIndex@@SAHPBX0@Z",
+   "entry": "006ec320",
+   "body_bytes": 34,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Binary_Search@@YIPAUToolTipIndexNode@@PAU1@HABU1@@Z",
+   "entry": "006ec350",
+   "body_bytes": 68,
+   "padding_bytes": 12
+  }
+ ],
+ "code_bytes": 4288,
+ "data": [
+  {
+   "symbol": "??_7ToolTipManager@@6B@",
+   "address": "007ad934",
+   "bytes": 24,
+   "kind": "vtable",
+   "section": 5
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVToolTip@@@@6B@",
+   "address": "007ad950",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 6
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVToolTip@@@@6B@",
+   "address": "007ad970",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 11
+  },
+  {
+   "symbol": "??_C@_03OJPB@off?$AA@",
+   "address": "007ee34c",
+   "bytes": 4,
+   "kind": "string",
+   "section": 15
+  },
+  {
+   "symbol": "??_C@_02PHBM@on?$AA@",
+   "address": "007ee350",
+   "bytes": 3,
+   "kind": "string",
+   "section": 16
+  },
+  {
+   "symbol": "??_C@_0BC@BFEK@Tooltips?5are?5?$CFs?4?6?$AA@",
+   "address": "007f8588",
+   "bytes": 18,
+   "kind": "string",
+   "section": 14
+  },
+  {
+   "symbol": "??_C@_0BD@LFLL@D?3?2Ra2?2ToolTip?4cpp?$AA@",
+   "address": "007f859c",
+   "bytes": 19,
+   "kind": "string",
+   "section": 47
+  },
+  {
+   "symbol": "??_C@_0N@KBPP@ToolTip?3?5?$CFs?6?$AA@",
+   "address": "007f85b0",
+   "bytes": 13,
+   "kind": "string",
+   "section": 52
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7ToolTipManager@@6B@",
+   "address": "007ad934",
+   "bytes": 24,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVToolTip@@@@6B@",
+   "address": "007ad950",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVToolTip@@@@6B@",
+   "address": "007ad970",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_C@_03OJPB@off?$AA@",
+   "address": "007ee34c",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_02PHBM@on?$AA@",
+   "address": "007ee350",
+   "bytes": 3,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@BFEK@Tooltips?5are?5?$CFs?4?6?$AA@",
+   "address": "007f8588",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@LFLL@D?3?2Ra2?2ToolTip?4cpp?$AA@",
+   "address": "007f859c",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@KBPP@ToolTip?3?5?$CFs?6?$AA@",
+   "address": "007f85b0",
+   "bytes": 13,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00738420",
+   "symbol": "?FUN_006eb390@seed_00738420@@YIXXZ",
+   "target": "006eb390",
+   "function_entry": true
+  },
+  {
+   "site": "00681600",
+   "symbol": "?Save_Delay@ToolTipManager@@QAEXXZ",
+   "target": "006eb810",
+   "function_entry": true
+  },
+  {
+   "site": "00681600",
+   "symbol": "?Set_Delay@ToolTipManager@@QAEXH@Z",
+   "target": "006eb800",
+   "function_entry": true
+  },
+  {
+   "site": "00681650",
+   "symbol": "?Restore_Delay@ToolTipManager@@QAEXXZ",
+   "target": "006eb820",
+   "function_entry": true
+  },
+  {
+   "site": "006306d0",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006306d0",
+   "symbol": "?Add@ToolTipManager@@QAE_NABVToolTip@@@Z",
+   "target": "006eb860",
+   "function_entry": true
+  },
+  {
+   "site": "006306d0",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006306d0",
+   "symbol": "?Add@ToolTipManager@@QAE_NABVToolTip@@@Z",
+   "target": "006eb860",
+   "function_entry": true
+  },
+  {
+   "site": "006a0da0",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006a0da0",
+   "symbol": "?Add@ToolTipManager@@QAE_NABVToolTip@@@Z",
+   "target": "006eb860",
+   "function_entry": true
+  },
+  {
+   "site": "006a0da0",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006a0da0",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006a0da0",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006a1270",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006a1270",
+   "symbol": "?Add@ToolTipManager@@QAE_NABVToolTip@@@Z",
+   "target": "006eb860",
+   "function_entry": true
+  },
+  {
+   "site": "0061d130",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "0061d130",
+   "symbol": "?Add@ToolTipManager@@QAE_NABVToolTip@@@Z",
+   "target": "006eb860",
+   "function_entry": true
+  },
+  {
+   "site": "0046e1d0",
+   "symbol": "?Hide@ToolTipManager@@UAEXPAUToolTipRecord@@@Z",
+   "target": "006ebd90",
+   "function_entry": true
+  },
+  {
+   "site": "0046e230",
+   "symbol": "?Refresh@ToolTipManager@@UAEX_N@Z",
+   "target": "006ebe60",
+   "function_entry": true
+  },
+  {
+   "site": "006a1da0",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006a1da0",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006a1e20",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006a1e20",
+   "symbol": "?Add@ToolTipManager@@QAE_NABVToolTip@@@Z",
+   "target": "006eb860",
+   "function_entry": true
+  },
+  {
+   "site": "006a1ea0",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006a1ec0",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006a1f10",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006a1f10",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006a1f10",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006a1f10",
+   "symbol": "?Add@ToolTipManager@@QAE_NABVToolTip@@@Z",
+   "target": "006eb860",
+   "function_entry": true
+  },
+  {
+   "site": "00498c80",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "00498c80",
+   "symbol": "?Add@ToolTipManager@@QAE_NABVToolTip@@@Z",
+   "target": "006eb860",
+   "function_entry": true
+  },
+  {
+   "site": "006a0f30",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006a0f30",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006a0f30",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "0065c040",
+   "symbol": "?Enable@ToolTipManager@@QAEX_N@Z",
+   "target": "006eb480",
+   "function_entry": true
+  },
+  {
+   "site": "0065c140",
+   "symbol": "?Enable@ToolTipManager@@QAEX_N@Z",
+   "target": "006eb480",
+   "function_entry": true
+  },
+  {
+   "site": "0065e440",
+   "symbol": "?Enable@ToolTipManager@@QAEX_N@Z",
+   "target": "006eb480",
+   "function_entry": true
+  },
+  {
+   "site": "0065e440",
+   "symbol": "?Enable@ToolTipManager@@QAEX_N@Z",
+   "target": "006eb480",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?Enable@ToolTipManager@@QAEX_N@Z",
+   "target": "006eb480",
+   "function_entry": true
+  },
+  {
+   "site": "0065dec0",
+   "symbol": "?Enable@ToolTipManager@@QAEX_N@Z",
+   "target": "006eb480",
+   "function_entry": true
+  },
+  {
+   "site": "004cfa00",
+   "symbol": "?Enable@ToolTipManager@@QAEX_N@Z",
+   "target": "006eb480",
+   "function_entry": true
+  },
+  {
+   "site": "005a5720",
+   "symbol": "?Enable@ToolTipManager@@QAEX_N@Z",
+   "target": "006eb480",
+   "function_entry": true
+  },
+  {
+   "site": "00672e70",
+   "symbol": "?Enable@ToolTipManager@@QAEX_N@Z",
+   "target": "006eb480",
+   "function_entry": true
+  },
+  {
+   "site": "005b5ee0",
+   "symbol": "?Process_Message@ToolTipManager@@QAEXPAUtagMSG@@@Z",
+   "target": "006eb4e0",
+   "function_entry": true
+  },
+  {
+   "site": "0053f840",
+   "symbol": "?Enable@ToolTipManager@@QAEX_N@Z",
+   "target": "006eb480",
+   "function_entry": true
+  },
+  {
+   "site": "0053f840",
+   "symbol": "?Enable@ToolTipManager@@QAEX_N@Z",
+   "target": "006eb480",
+   "function_entry": true
+  },
+  {
+   "site": "0053f840",
+   "symbol": "?Enable@ToolTipManager@@QAEX_N@Z",
+   "target": "006eb480",
+   "function_entry": true
+  },
+  {
+   "site": "004e0c90",
+   "symbol": "?Is_Active@ToolTipManager@@QBE_NXZ",
+   "target": "006ebee0",
+   "function_entry": true
+  },
+  {
+   "site": "006a1ab0",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006a1ab0",
+   "symbol": "?Add@ToolTipManager@@QAE_NABVToolTip@@@Z",
+   "target": "006eb860",
+   "function_entry": true
+  },
+  {
+   "site": "006a1ab0",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006a1ab0",
+   "symbol": "?Add@ToolTipManager@@QAE_NABVToolTip@@@Z",
+   "target": "006eb860",
+   "function_entry": true
+  },
+  {
+   "site": "006a1ab0",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006a1ab0",
+   "symbol": "?Add@ToolTipManager@@QAE_NABVToolTip@@@Z",
+   "target": "006eb860",
+   "function_entry": true
+  },
+  {
+   "site": "006a1ab0",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006a1ab0",
+   "symbol": "?Add@ToolTipManager@@QAE_NABVToolTip@@@Z",
+   "target": "006eb860",
+   "function_entry": true
+  },
+  {
+   "site": "007375a0",
+   "symbol": "??0ToolTipManager@@QAE@PAUHWND__@@@Z",
+   "target": "006eb2e0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Enable@ToolTipManager@@QAEX_N@Z",
+   "target": "006eb480",
+   "function_entry": true
+  },
+  {
+   "site": "00481bf0",
+   "symbol": "?Enable@ToolTipManager@@QAEX_N@Z",
+   "target": "006eb480",
+   "function_entry": true
+  },
+  {
+   "site": "006819a0",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006819a0",
+   "symbol": "?Add@ToolTipManager@@QAE_NABVToolTip@@@Z",
+   "target": "006eb860",
+   "function_entry": true
+  },
+  {
+   "site": "006819a0",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006819a0",
+   "symbol": "?Add@ToolTipManager@@QAE_NABVToolTip@@@Z",
+   "target": "006eb860",
+   "function_entry": true
+  },
+  {
+   "site": "006819a0",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006819a0",
+   "symbol": "?Add@ToolTipManager@@QAE_NABVToolTip@@@Z",
+   "target": "006eb860",
+   "function_entry": true
+  },
+  {
+   "site": "006819a0",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006819a0",
+   "symbol": "?Add@ToolTipManager@@QAE_NABVToolTip@@@Z",
+   "target": "006eb860",
+   "function_entry": true
+  },
+  {
+   "site": "006819a0",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006819a0",
+   "symbol": "?Add@ToolTipManager@@QAE_NABVToolTip@@@Z",
+   "target": "006eb860",
+   "function_entry": true
+  },
+  {
+   "site": "006819a0",
+   "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+   "target": "006eba10",
+   "function_entry": true
+  },
+  {
+   "site": "006819a0",
+   "symbol": "?Add@ToolTipManager@@QAE_NABVToolTip@@@Z",
+   "target": "006eb860",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVToolTip@@@@UAEPAXI@Z",
+   "address": "006ec220"
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVToolTip@@@@UAEPAXI@Z",
+   "address": "006ec1d0"
+  },
+  {
+   "symbol": "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?FUN_00781d3b@seed_006ec220@@YAXI@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
+   "address": "006f9ec0"
+  },
+  {
+   "symbol": "?unknown_show_cursor_position_a416bc@@3_NA",
+   "address": "00a416bc"
+  },
+  {
+   "symbol": "?x@?1???AToolTipIndex@@QBEABQAVToolTip@@ABI@Z@4PAV2@A",
+   "address": "00b2b620"
+  },
+  {
+   "symbol": "_PTR_FUN_007ad970",
+   "address": "007ad970"
+  },
+  {
+   "symbol": "__imp__GetCursorPos@4",
+   "address": "0079a3a8"
+  },
+  {
+   "symbol": "__imp__KillTimer@8",
+   "address": "0079a4c4"
+  },
+  {
+   "symbol": "__imp__ScreenToClient@8",
+   "address": "0079a450"
+  },
+  {
+   "symbol": "__imp__SetTimer@16",
+   "address": "0079a4d4"
+  },
+  {
+   "symbol": "_qsort",
+   "address": "00781d46"
+  },
+  {
+   "symbol": "_release_buffer_6ec1d0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_6ec1d0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_vtable_6ec1d0",
+   "address": "007ad970"
+  },
+  {
+   "symbol": "_wcslen",
+   "address": "00783605"
+  },
+  {
+   "symbol": "_wcsncpy",
+   "address": "00783622"
+  }
+ ],
+ "route": "A",
+ "unit": "tooltip.cpp",
+ "form": "one include block",
+ "switches": [
+  "TOOL_TIP_UNIT",
+  "VECTOR_IMPLEMENT_DYNAMIC_CONSTRUCTOR",
+  "VECTOR_IMPLEMENT_VECTOR_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ADD",
+  "VECTOR_IMPLEMENT_DYNAMIC_DELETE_OBJECT",
+  "VECTOR_IMPLEMENT_DYNAMIC_DELETE_INDEX"
+ ],
+ "include_blocks": [
+  {
+   "before": "006eb2e0",
+   "lines": 10
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "006ebf10",
+   "bytes": 42,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "006ebf40",
+   "bytes": 27,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "006ebf60",
+   "bytes": 13,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "006ebf70",
+   "bytes": 62,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "006ebfb0",
+   "bytes": 174,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "006ec060",
+   "bytes": 39,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "006ec090",
+   "bytes": 51,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "006ec0d0",
+   "bytes": 27,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "006ec0f0",
+   "bytes": 176,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "006ec1a0",
+   "bytes": 38,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "006ec1d0",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)"
+  },
+  {
+   "entry": "006ec220",
+   "bytes": 73,
+   "population": "population-66",
+   "bound": "own frozen bound (population-66)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "006eb2c0",
+   "bytes": 23,
+   "population": "population-09",
+   "source": "src/recovered/006eb2c0.cpp",
+   "cause": "held by population-09; not joined: differs under the unit's state (9 bytes differ)"
+  }
+ ],
+ "unit_functions": 42,
+ "data_unproven": [
+  {
+   "symbol": "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@",
+   "reason": "relocation target unbound: ??_E?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "00738420",
+   "target": "006eb390",
+   "symbol": "?FUN_006eb390@seed_00738420@@YIXXZ",
+   "module_symbol": "??1ToolTipManager@@UAE@XZ"
+  }
+ ],
+ "stand_in_reference_count": 1,
+ "residual_split": {
+  "rows": 1,
+  "bytes": 23
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

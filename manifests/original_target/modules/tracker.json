@@ -1,0 +1,2179 @@
+{
+ "module": "tracker",
+ "source": "src/recovered/tracker.cpp",
+ "header": null,
+ "population": "population-3646",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 753,
+ "code": [
+  {
+   "symbol": "_$E43",
+   "entry": "006ec590",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E41",
+   "entry": "006ec5d0",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "_$E48",
+   "entry": "006ec610",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E46",
+   "entry": "006ec650",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "_$E53",
+   "entry": "006ec690",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E51",
+   "entry": "006ec6d0",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "_$E58",
+   "entry": "006ec710",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E56",
+   "entry": "006ec750",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "_$E63",
+   "entry": "006ec790",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E61",
+   "entry": "006ec7d0",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "_$E68",
+   "entry": "006ec810",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E66",
+   "entry": "006ec850",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "_$E73",
+   "entry": "006ec890",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E71",
+   "entry": "006ec8d0",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "_$E78",
+   "entry": "006ec910",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E76",
+   "entry": "006ec950",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "_$E83",
+   "entry": "006ec990",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E81",
+   "entry": "006ec9d0",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "_$E88",
+   "entry": "006eca10",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E86",
+   "entry": "006eca50",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "_$E93",
+   "entry": "006eca90",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E91",
+   "entry": "006ecad0",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "_$E98",
+   "entry": "006ecb10",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E96",
+   "entry": "006ecb50",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z",
+   "entry": "006ecb90",
+   "body_bytes": 885,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Process_Deferred_Deletion@@YAXXZ",
+   "entry": "006ecf10",
+   "body_bytes": 284,
+   "padding_bytes": 4
+  }
+ ],
+ "code_bytes": 2720,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVAbstractClass@@@@6B@",
+   "address": "007a1778",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 47
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVAbstractClass@@@@6B@",
+   "address": "007a1798",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 53
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007ad990",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAVAbstractClass@@@@8",
+   "address": "007b85f0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 41
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAVAbstractClass@@@@8",
+   "address": "007b8608",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 42
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAVAbstractClass@@@@8",
+   "address": "007b8620",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 43
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAVAbstractClass@@@@8",
+   "address": "007b8630",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAVAbstractClass@@@@6B@",
+   "address": "007b8640",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 46
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAVAbstractClass@@@@8",
+   "address": "007b8654",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 50
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAVAbstractClass@@@@8",
+   "address": "007b8660",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 51
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAVAbstractClass@@@@6B@",
+   "address": "007b8670",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 52
+  },
+  {
+   "symbol": "??_R0?AVAbstractClass@@@8",
+   "address": "007ce240",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 102
+  },
+  {
+   "symbol": "??_R0?AVAbstractTypeClass@@@8",
+   "address": "007ce260",
+   "bytes": 32,
+   "kind": "rtti",
+   "section": 103
+  },
+  {
+   "symbol": "??_R0?AVAircraftClass@@@8",
+   "address": "007ce5e0",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 106
+  },
+  {
+   "symbol": "??_R0?AVBuildingClass@@@8",
+   "address": "007cf6a8",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 109
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAVAbstractClass@@@@@8",
+   "address": "007d8258",
+   "bytes": 47,
+   "kind": "rtti",
+   "section": 40
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAVAbstractClass@@@@@8",
+   "address": "007d8288",
+   "bytes": 54,
+   "kind": "rtti",
+   "section": 45
+  },
+  {
+   "symbol": "??_R0?AVInfantryClass@@@8",
+   "address": "007daec0",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 107
+  },
+  {
+   "symbol": "??_R0?AVUnitClass@@@8",
+   "address": "007f6d68",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 108
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVAbstractClass@@@@6B@",
+   "address": "007a1778",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVAbstractClass@@@@6B@",
+   "address": "007a1798",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007ad990",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAVAbstractClass@@@@8",
+   "address": "007b85f0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAVAbstractClass@@@@8",
+   "address": "007b8608",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAVAbstractClass@@@@8",
+   "address": "007b8620",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAVAbstractClass@@@@8",
+   "address": "007b8630",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAVAbstractClass@@@@6B@",
+   "address": "007b8640",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAVAbstractClass@@@@8",
+   "address": "007b8654",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAVAbstractClass@@@@8",
+   "address": "007b8660",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAVAbstractClass@@@@6B@",
+   "address": "007b8670",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVAbstractClass@@@8",
+   "address": "007ce240",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVAbstractTypeClass@@@8",
+   "address": "007ce260",
+   "bytes": 32,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVAircraftClass@@@8",
+   "address": "007ce5e0",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVBuildingClass@@@8",
+   "address": "007cf6a8",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAVAbstractClass@@@@@8",
+   "address": "007d8258",
+   "bytes": 47,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAVAbstractClass@@@@@8",
+   "address": "007d8288",
+   "bytes": 54,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVInfantryClass@@@8",
+   "address": "007daec0",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVUnitClass@@@8",
+   "address": "007f6d68",
+   "bytes": 24,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "005d4e90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "0045f590",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "0067b1f0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00608b20",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "0060a7e0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "0070e390",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "0070ee50",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00721090",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00464730",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "004651a0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00733ff0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "0041bde0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "0041c340",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00509db0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "0050af90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "0070a810",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "0070b600",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00465500",
+   "symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00465970",
+   "symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "006373b0",
+   "symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "006b6950",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "006b71b0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "006687d0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00668ae0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00669250",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00669310",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "006b46b0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "006b39f0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "006b39f0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "006e5f40",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "006ad4f0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "006edba0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "004f93a0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "004fa430",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "006c0280",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "0060ae80",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00413da0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "004e30c0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00439240",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "004581c0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "006bebb0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "004cd4b0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "007203d0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "004ff980",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "0070ce40",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "007109c0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "005d3c10",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "006fa7c0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00420a90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "006876b0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00687b00",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "006e3000",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00527fd0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00528260",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00721900",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00724600",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "005da8d0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "005dc300",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "004b4d30",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "004b5410",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "004b91f0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "004b9f40",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "006207b0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00620ec0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00621380",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00621e80",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "005db670",
+   "symbol": "?Unknown_006ECF10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "006b7770",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "006e8b60",
+   "symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00733120",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00724ca0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00725200",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "006ee030",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "005373f0",
+   "symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00537c30",
+   "symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "006b30d0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "005dc730",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "005dd290",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00687ee0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00688c20",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "006e53e0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "006e5ae0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "006e6da0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "006ed3c0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "006b3df0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00519960",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "006ef2d0",
+   "symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "006ef910",
+   "symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00529190",
+   "symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "0053fbd0",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "target": "006ecf10",
+   "function_entry": true
+  },
+  {
+   "site": "00475fe0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "0067aed0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00475960",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00475960",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00475960",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00475960",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "00475960",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  },
+  {
+   "site": "0070fdf0",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "target": "006ecb90",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??8type_info@@QBEHABV0@@Z",
+   "address": "00781cd1"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVAbstractClass@@@@UAEPAXI@Z",
+   "address": "004cdf30"
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVAbstractClass@@@@UAEPAXI@Z",
+   "address": "004cdf90"
+  },
+  {
+   "symbol": "?BombList@@3VBombListClass@@A",
+   "address": "008322e0"
+  },
+  {
+   "symbol": "?Detach@BombListClass@@QAEXPAVAbstractClass@@@Z",
+   "address": "00436750"
+  },
+  {
+   "symbol": "?Detach@KamikazeTrackerClass@@QAEXPAVAbstractClass@@@Z",
+   "address": "00531880"
+  },
+  {
+   "symbol": "?Detach@LogicClass@@UAEXPBVAbstractClass@@_N@Z",
+   "address": "0053e110"
+  },
+  {
+   "symbol": "?Detach@MapClass@@QAEXPAVAbstractClass@@_N@Z",
+   "address": "00559d80"
+  },
+  {
+   "symbol": "?Detach@RulesClass@@QAEXPBVAbstractClass@@_N@Z",
+   "address": "00651290"
+  },
+  {
+   "symbol": "?Detach_004131d0@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z",
+   "address": "004131d0"
+  },
+  {
+   "symbol": "?KamikazeTracker@@3VKamikazeTrackerClass@@A",
+   "address": "00a6e428"
+  },
+  {
+   "symbol": "?Logic@@3VLogicClass@@A",
+   "address": "00832470"
+  },
+  {
+   "symbol": "?Map@@3VMouseClass@@A",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "?Rules@@3PAVRulesClass@@A",
+   "address": "00839848"
+  },
+  {
+   "symbol": "?Unknown_00498F10@DisplayClass@@QAEXPBVCell@@@Z",
+   "address": "00498f10"
+  },
+  {
+   "symbol": "?Unknown_006F7970@@YIXPAX@Z",
+   "address": "006f7970"
+  },
+  {
+   "symbol": "?unknown_gas_cloud_system_a40d20@@3PAVParticleSystemClass@@A",
+   "address": "00a40d20"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_tactical_83996c@@3PAVTactical@@A",
+   "address": "0083996c"
+  },
+  {
+   "symbol": "?unknown_tracker_839ea0@@3UAircraftTrackerClass@@A",
+   "address": "00839ea0"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "___RTDynamicCast",
+   "address": "00783ce4"
+  },
+  {
+   "symbol": "___RTtypeid",
+   "address": "00783c05"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "_atexit",
+   "address": "0078298a"
+  }
+ ],
+ "route": "A",
+ "unit": "tracker.cpp",
+ "form": "one include block",
+ "switches": [
+  "MAP_VIEW_DECLARE_DETACH"
+ ],
+ "include_blocks": [
+  {
+   "before": "006ec590",
+   "lines": 12
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 27,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "005d4e90",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "0045f590",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "0067b1f0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00608b20",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "0060a7e0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "0070e390",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "0070ee50",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00721090",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00464730",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "004651a0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00733ff0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "0041bde0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "0041c340",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00509db0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "0050af90",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "0070a810",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "0070b600",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "006b6950",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "006b71b0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "006687d0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00668ae0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00669250",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00669310",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "006b46b0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "006b39f0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "006b39f0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "006e5f40",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "006ad4f0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "006edba0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "004f93a0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "004fa430",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "006c0280",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "0060ae80",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00413da0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "004e30c0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00439240",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "004581c0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "006bebb0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "004cd4b0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "007203d0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "004ff980",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "0070ce40",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "007109c0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "005d3c10",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "006fa7c0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00420a90",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "006876b0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00687b00",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "006e3000",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00527fd0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00528260",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00721900",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00724600",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "005da8d0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "005dc300",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "004b4d30",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "004b5410",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "004b91f0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "004b9f40",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "006207b0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00620ec0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00621380",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00621e80",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "005db670",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ECF10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "006b7770",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00733120",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00724ca0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00725200",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "006ee030",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "006b30d0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "0065eb40",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "005dc730",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "005dd290",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00687ee0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00688c20",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "006e53e0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "006e5ae0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "006e6da0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "006ed3c0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "006b3df0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00519960",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "0053fbd0",
+   "target": "006ecf10",
+   "symbol": "?Unknown_006ecf10@@YAXXZ",
+   "module_symbol": "?Process_Deferred_Deletion@@YAXXZ"
+  },
+  {
+   "site": "00475fe0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "0067aed0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00475960",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00475960",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00475960",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00475960",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "00475960",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  },
+  {
+   "site": "0070fdf0",
+   "target": "006ecb90",
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "module_symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z"
+  }
+ ],
+ "stand_in_reference_count": 119,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

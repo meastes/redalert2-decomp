@@ -16,14 +16,14 @@ class Div256PairSource_00413770 {
 public:
     int x;
     int y;
-    SignedWordPair* CopyDiv256PairAsSignedWords_00413770(SignedWordPair* output) const;
+    SignedWordPair* As_Cell_00413770(SignedWordPair* output) const;
 };
 class Div256PairSource_004c2040 {
 public:
     unsigned char unknown_0x00[0x34];
     int x;
     int y;
-    SignedWordPair* CopyDiv256PairAsSignedWords_004c2040(SignedWordPair* output) const;
+    SignedWordPair* Get_Cell_004c2040(SignedWordPair* output) const;
 };
 // The first two methods explicitly project ECX-source/stack-output/RET4.
 // A hidden aggregate result in the developer API remains possible, not established.

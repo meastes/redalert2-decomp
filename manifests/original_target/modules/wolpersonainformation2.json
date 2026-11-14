@@ -1,0 +1,434 @@
+{
+ "module": "wolpersonainformation2",
+ "source": "src/recovered/wolpersonainformation2.cpp",
+ "header": null,
+ "population": "population-3565",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 727,
+ "code": [
+  {
+   "symbol": "_$E5",
+   "entry": "0073a110",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "0073a140",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "0073a160",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "0073a180",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "0073a1a0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "0073a1c0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "0073a1e0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "0073a220",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "0073a250",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "0073a280",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "0073a2b0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "0073a2c0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?unknown_session_kind@@YAHXZ",
+   "entry": "0073a2e0",
+   "body_bytes": 29,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Wonline_Main@@YIH_N@Z",
+   "entry": "0073a300",
+   "body_bytes": 884,
+   "padding_bytes": 12
+  }
+ ],
+ "code_bytes": 1392,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007af560",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_C@_05KMPM@INTRO?$AA@",
+   "address": "007dbc90",
+   "bytes": 6,
+   "kind": "string",
+   "section": 42
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007af560",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_C@_05KMPM@INTRO?$AA@",
+   "address": "007dbc90",
+   "bytes": 6,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "005135f0",
+   "symbol": "?Unknown_0073A300@@YIH_N@Z",
+   "target": "0073a300",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??1Wstring@@QAE@XZ",
+   "address": "0076d9e0"
+  },
+  {
+   "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+   "address": "0076dc30"
+  },
+  {
+   "symbol": "?From_Name@ThemeClass@@QBEHPBD@Z",
+   "address": "006e8510"
+  },
+  {
+   "symbol": "?Length@Wstring@@QBEIXZ",
+   "address": "0076e7a0"
+  },
+  {
+   "symbol": "?Login_Wonline_00742fd0@@YIHXZ",
+   "address": "00742fd0"
+  },
+  {
+   "symbol": "?Logout_Wonline_00741ea0@@YIXXZ",
+   "address": "00741ea0"
+  },
+  {
+   "symbol": "?Open_Buddy_Dialog_0075cba0@@YAXXZ",
+   "address": "0075cba0"
+  },
+  {
+   "symbol": "?Open_Wonline_Lobby_00753f70@@YIHXZ",
+   "address": "00753f70"
+  },
+  {
+   "symbol": "?Open_Wonline_Selection_00753110@@YAHXZ",
+   "address": "00753110"
+  },
+  {
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "address": "006e7e20"
+  },
+  {
+   "symbol": "?Read_004ff200@WolRegistryOptions@@QAE_NXZ",
+   "address": "004ff200"
+  },
+  {
+   "symbol": "?Shutdown_Wonline_00742080@@YAXXZ",
+   "address": "00742080"
+  },
+  {
+   "symbol": "?Theme@@3VThemeClass@@A",
+   "address": "00a35d78"
+  },
+  {
+   "symbol": "?Unknown_0073C990@@YAXXZ",
+   "address": "0073c990"
+  },
+  {
+   "symbol": "?Unknown_00743720@@YIHPAUHWND__@@_N@Z",
+   "address": "00743720"
+  },
+  {
+   "symbol": "?Unknown_00753F10@@YAXXZ",
+   "address": "00753f10"
+  },
+  {
+   "symbol": "?Unknown_00759370@@YIH_N@Z",
+   "address": "00759370"
+  },
+  {
+   "symbol": "?Unknown_00759E20@@YAHXZ",
+   "address": "00759e20"
+  },
+  {
+   "symbol": "?Unknown_WOL_Load_Settings_0073C7C0@@YIXXZ",
+   "address": "0073c7c0"
+  },
+  {
+   "symbol": "?WDT_Setup_Game_00768e90@@YIH_N@Z",
+   "address": "00768e90"
+  },
+  {
+   "symbol": "?WOL_Auto_Login_Persona@@YI?AVWstring@@XZ",
+   "address": "007390b0"
+  },
+  {
+   "symbol": "?WOL_Last_Valid_Persona@@YI?AVWstring@@XZ",
+   "address": "00739330"
+  },
+  {
+   "symbol": "?WWMouse@@3PAVMouse@@A",
+   "address": "00839c68"
+  },
+  {
+   "symbol": "?unknown_004ff2c0@WolRegistryOptions@@QBE_NXZ",
+   "address": "004ff2c0"
+  },
+  {
+   "symbol": "?unknown_a3d2a4@@3HA",
+   "address": "00a3d2a4"
+  },
+  {
+   "symbol": "?unknown_a3d2a8@@3HA",
+   "address": "00a3d2a8"
+  },
+  {
+   "symbol": "?unknown_b264f0@@3HA",
+   "address": "00b264f0"
+  },
+  {
+   "symbol": "?unknown_close_all_dialogs@@YIXXZ",
+   "address": "00753f50"
+  },
+  {
+   "symbol": "?unknown_game_mode_a3d298@@3HA",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_wstring_b26cb8@@3VWstring@@A",
+   "address": "00b26cb8"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  }
+ ],
+ "route": "A",
+ "unit": "wolpersonainformation2.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "0073a110",
+   "lines": 6
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 15,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "005135f0",
+   "target": "0073a300",
+   "symbol": "?Unknown_0073A300@@YIH_N@Z",
+   "module_symbol": "?Wonline_Main@@YIH_N@Z"
+  }
+ ],
+ "stand_in_reference_count": 1,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

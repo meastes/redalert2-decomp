@@ -2,23 +2,21 @@
 //
 // Body: 15 bytes (frozen inventory bound).
 // Referenced from 0 sites.
-// Ghidra prototype: void __fastcall FUN_005e86c0(HWND param_1)
+// Ghidra prototype: void __fastcall unknown_enum_children_005e86c0(HWND param_1)
 //
-// Types and names are Ghidra placeholders (see shared/ghidra_types.hpp);
+// Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
 //
-// seed-generated: tools/original_target/regenerate_seeds.py may rewrite this file;
-// delete this line when editing it by hand.
-#include "shared/ghidra_types.hpp"
+#include "shared/win32_types.hpp"
 
 namespace seed_005e86c0 {
 
-extern void __cdecl FUN_005e8130(void);
-extern "C" __declspec(dllimport) undefined4 __stdcall EnumChildWindows(int, int, int);  // @ref __imp__EnumChildWindows@12=0079a4dc
+extern void __cdecl unknown_enum_proc_005e8130(void);
+extern "C" __declspec(dllimport) unsigned int __stdcall EnumChildWindows(int, int, int);  // @ref __imp__EnumChildWindows@12=0079a4dc
 
-void __fastcall FUN_005e86c0(HWND param_1)
+void __fastcall unknown_enum_children_005e86c0(HWND window)
 {
-    EnumChildWindows((int)(param_1), (int)(FUN_005e8130), (int)(0));
+    EnumChildWindows((int)(window), (int)(unknown_enum_proc_005e8130), (int)(0));
     return;
 }
 

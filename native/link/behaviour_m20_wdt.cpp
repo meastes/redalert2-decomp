@@ -16,13 +16,3 @@ int __fastcall AudioLevel::Get_Target()
 {
     return (int)(Target >> 16);
 }
-
-// 0x0049EC60 DisplayClass (display.hpp; pass-6a decompile): stores the object
-// (+0x119C) and whether there is one (+0x1198). Reached by the sidebar's
-// repair/sell buttons and their cancelling right click (Scout1161 play sweep).
-#include "shared/display.hpp"
-void DisplayClass::Unknown_0049EC60(ObjectClass *object)
-{
-    unknown_119c = object;
-    unknown_1198 = object != 0;
-}

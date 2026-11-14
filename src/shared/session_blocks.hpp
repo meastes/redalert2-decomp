@@ -1,4 +1,4 @@
-// Blocks of the session (UnknownSessionState, shared/unknown_globals.hpp) that MPCooperative
+// Blocks of the session (SessionClass, shared/unknown_globals.hpp) that MPCooperative
 // slot 34 0x005A46C0 saves and slot 37 0x005A5720 restores whole (struct copies: rep movsd for
 // 0x60 and 0x20 bytes, four dword moves for the 16 bytes at the unaligned +0x3022; contents
 // not recovered).

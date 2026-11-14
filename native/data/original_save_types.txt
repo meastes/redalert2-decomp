@@ -1,0 +1,88 @@
+# Types read from the original game's saves as whole objects (lane C6; native/tools/original_layouts.py).
+# One per line: the type's name as the port spells it, optionally the generated unit (gen/units/<file>)
+# whose layout to take (default: the unit defining <Type>::Load, else Size_Of), and optionally
+# size=<n>: the original's object size, which the i686 layout must equal (the immediate its
+# Size_Of, vtable slot 12, returns; a locomotor's Size, slot 9; or a literal read size). Without
+# a size the layout is still used (all five of the user's saves load with it).
+# The other records the loads read (members, list elements, structs) are taken from the units
+# that read streams; see the tool.
+#
+# AbstractClass::Load 0x00410120 reads Size_Of() bytes (the most derived type):
+CellClass size=328
+AnimTypeClass size=816
+TerrainClass size=200
+BuildingTypeClass size=5144
+OverlayTypeClass size=648
+TActionClass size=120
+TeamTypeClass size=240
+WeaponTypeClass
+AITriggerTypeClass size=272
+TaskForceClass size=212
+SuperClass size=104
+TEventClass
+ScriptTypeClass size=564
+TriggerTypeClass size=180
+WarheadTypeClass size=376
+TriggerClass size=68
+TagTypeClass size=164
+TerrainTypeClass size=652
+TagClass
+BuildingClass size=1504
+UnitTypeClass size=3088
+SmudgeTypeClass size=628
+InfantryTypeClass size=3096
+BulletTypeClass size=712
+InfantryClass size=1496
+AnimClass size=424
+UnitClass size=2000
+ParticleTypeClass size=744
+HouseTypeClass size=432
+HouseClass size=90000
+ParticleSystemTypeClass size=736
+WaypointPathClass size=64
+VoxelAnimTypeClass size=728
+AircraftTypeClass size=2984
+SuperWeaponTypeClass size=236
+LightSourceClass size=76
+TiberiumClass
+SideClass size=180
+Tactical size=3608
+ParticleSystemClass size=232
+AircraftClass size=1472
+BombClass size=92
+BuildingLightClass size=208
+BulletClass size=328
+CampaignClass size=928
+EMPulseClass size=52
+FactoryClass size=112
+FoggedObjectClass size=120
+IsometricTileClass size=156
+IsometricTileTypeClass size=732
+OverlayClass size=156
+ParticleClass size=296
+ScriptClass size=48
+SmudgeClass size=156
+TeamClass size=156
+TubeClass
+VeinholeMonsterClass size=240
+VoxelAnimClass size=304
+WaveClass size=520
+AlphaShapeClass size=64
+# LocomotionClass::Load 0x0053D3C0 reads Size() bytes (slot 9):
+TeleportLocomotionClass size=76
+WalkLocomotionClass size=60
+DriveLocomotionClass size=112
+JumpjetLocomotionClass size=144
+FlyLocomotionClass size=96
+HoverLocomotionClass size=120
+DropPodLocomotionClass size=48
+MechLocomotionClass size=52
+ShipLocomotionClass size=112
+RocketLocomotionClass size=88
+TunnelLocomotionClass size=60
+# Read with sizeof(*this) (or a literal size) by their own loads:
+ScenarioClass
+EnvironmentClass g0752_p3643.cpp   # Read_004B5C50 0x004B5C50
+MouseClass size=20284              # MouseClass::Load reads 0x4F3C bytes
+RulesClass
+BaseClass

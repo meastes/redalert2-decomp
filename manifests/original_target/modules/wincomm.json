@@ -1,0 +1,1111 @@
+{
+ "module": "wincomm",
+ "source": "src/recovered/wincomm.cpp",
+ "header": null,
+ "population": "population-4409",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 1027,
+ "code": [
+  {
+   "symbol": "??0WinModemClass@@QAE@XZ",
+   "entry": "00734120",
+   "body_bytes": 74,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "??1WinModemClass@@UAE@XZ",
+   "entry": "00734170",
+   "body_bytes": 65,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Get_Registry_Sub_Key@@YIPAUHKEY__@@PAU1@PBD_N@Z",
+   "entry": "007341c0",
+   "body_bytes": 328,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Get_Modem_Name_From_Registry@@YI_NPADH@Z",
+   "entry": "00734310",
+   "body_bytes": 241,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Serial_Port_Open@WinModemClass@@UAEPAXPBDHHHH@Z",
+   "entry": "00734410",
+   "body_bytes": 603,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Enter_Failsafe_Mode@WinModemClass@@QAE_NXZ",
+   "entry": "00734670",
+   "body_bytes": 323,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Leave_Failsafe_Mode@WinModemClass@@QAEXXZ",
+   "entry": "007347c0",
+   "body_bytes": 218,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Set_Modem_Dial_Type@WinModemClass@@UAEXH@Z",
+   "entry": "007348a0",
+   "body_bytes": 10,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Set_Serial_DTR@WinModemClass@@UAEX_N@Z",
+   "entry": "00734900",
+   "body_bytes": 67,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Read_Serial_Chars@WinModemClass@@QAE_NXZ",
+   "entry": "00734980",
+   "body_bytes": 431,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Read_From_Serial_Port@WinModemClass@@QAEHPAEH@Z",
+   "entry": "00734b30",
+   "body_bytes": 129,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Wait_For_Serial_Write@WinModemClass@@QAEXXZ",
+   "entry": "00734bc0",
+   "body_bytes": 165,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Write_To_Serial_Port@WinModemClass@@QAEXPAEH@Z",
+   "entry": "00734c70",
+   "body_bytes": 84,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Get_Modem_Result@WinModemClass@@UAEHHPADHH@Z",
+   "entry": "00734cd0",
+   "body_bytes": 631,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Dial_Modem@WinModemClass@@UAEXPBD@Z",
+   "entry": "00734f50",
+   "body_bytes": 434,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Send_Command_To_Modem@WinModemClass@@UAEHPBDDPADHHHH@Z",
+   "entry": "00735110",
+   "body_bytes": 900,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Set_Echo_Function@WinModemClass@@UAEXP6IXD@Z@Z",
+   "entry": "007354a0",
+   "body_bytes": 10,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Set_Abort_Function@WinModemClass@@UAEXP6AHXZ@Z",
+   "entry": "007354b0",
+   "body_bytes": 10,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Get_Port_Handle@WinModemClass@@QAEPAXXZ",
+   "entry": "007354c0",
+   "body_bytes": 4,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Process_Errors_007354d0@Owner_007354d0@seed_007354d0@@QAEXIEHH@Z",
+   "entry": "007354d0",
+   "body_bytes": 317,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??_GWinModemClass@@UAEPAXI@Z",
+   "entry": "00735610",
+   "body_bytes": 85,
+   "padding_bytes": 11
+  }
+ ],
+ "code_bytes": 5328,
+ "data": [
+  {
+   "symbol": "??_R1A@?0A@A@WinModemClass@@8",
+   "address": "007c60a0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 11
+  },
+  {
+   "symbol": "??_R2WinModemClass@@8",
+   "address": "007c60b8",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 12
+  },
+  {
+   "symbol": "??_R3WinModemClass@@8",
+   "address": "007c60c0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 13
+  },
+  {
+   "symbol": "??_R4WinModemClass@@6B@",
+   "address": "007c60d0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 15
+  },
+  {
+   "symbol": "??_C@_02HAGF@OK?$AA@",
+   "address": "007d5a40",
+   "bytes": 3,
+   "kind": "string",
+   "section": 83
+  },
+  {
+   "symbol": "??_C@_01PLJA@0?$AA@",
+   "address": "007e1a60",
+   "bytes": 2,
+   "kind": "string",
+   "section": 84
+  },
+  {
+   "symbol": "??_C@_04KFCP@Enum?$AA@",
+   "address": "007e2808",
+   "bytes": 5,
+   "kind": "string",
+   "section": 30
+  },
+  {
+   "symbol": "??_C@_05BJKG@Modem?$AA@",
+   "address": "007e299c",
+   "bytes": 6,
+   "kind": "string",
+   "section": 28
+  },
+  {
+   "symbol": "??_C@_02BKOD@AT?$AA@",
+   "address": "007e7ca8",
+   "bytes": 3,
+   "kind": "string",
+   "section": 67
+  },
+  {
+   "symbol": "??_C@_01FEHD@?$AN?$AA@",
+   "address": "007e7dc8",
+   "bytes": 2,
+   "kind": "string",
+   "section": 71
+  },
+  {
+   "symbol": "??_C@_01MLA@P?$AA@",
+   "address": "007f3268",
+   "bytes": 2,
+   "kind": "string",
+   "section": 74
+  },
+  {
+   "symbol": "??_C@_01KGOM@T?$AA@",
+   "address": "007f326c",
+   "bytes": 2,
+   "kind": "string",
+   "section": 77
+  },
+  {
+   "symbol": "??_R0?AVWinModemClass@@@8",
+   "address": "007fc9f0",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 14
+  },
+  {
+   "symbol": "??_C@_0BF@GLCD@Closing?5serial?5port?6?$AA@",
+   "address": "007fca0c",
+   "bytes": 21,
+   "kind": "string",
+   "section": 19
+  },
+  {
+   "symbol": "??_C@_0N@IOME@FriendlyName?$AA@",
+   "address": "007fca24",
+   "bytes": 13,
+   "kind": "string",
+   "section": 26
+  },
+  {
+   "symbol": "??_C@_04NILH@0000?$AA@",
+   "address": "007fca34",
+   "bytes": 5,
+   "kind": "string",
+   "section": 27
+  },
+  {
+   "symbol": "??_C@_04PNFB@Root?$AA@",
+   "address": "007fca3c",
+   "bytes": 5,
+   "kind": "string",
+   "section": 29
+  },
+  {
+   "symbol": "??_C@_0CJ@IGCF@SetCommTimeouts?5returned?5error?5c@",
+   "address": "007fca44",
+   "bytes": 41,
+   "kind": "string",
+   "section": 33
+  },
+  {
+   "symbol": "??_C@_0CG@EMOK@GetCommState?5returned?5error?5code@",
+   "address": "007fca70",
+   "bytes": 38,
+   "kind": "string",
+   "section": 34
+  },
+  {
+   "symbol": "??_C@_0CB@JCGN@SetCommState?5returned?5error?5?$CFs?4?6@",
+   "address": "007fca98",
+   "bytes": 33,
+   "kind": "string",
+   "section": 35
+  },
+  {
+   "symbol": "??_C@_0BA@NAJH@Port?5opened?5OK?6?$AA@",
+   "address": "007fcabc",
+   "bytes": 16,
+   "kind": "string",
+   "section": 36
+  },
+  {
+   "symbol": "??_C@_0CM@KPPI@Failed?5to?5get?5valid?5port?5handle?4@",
+   "address": "007fcacc",
+   "bytes": 44,
+   "kind": "string",
+   "section": 37
+  },
+  {
+   "symbol": "??_C@_0BI@OLEM@Opening?5serial?5port?5?$CFs?6?$AA@",
+   "address": "007fcaf8",
+   "bytes": 24,
+   "kind": "string",
+   "section": 38
+  },
+  {
+   "symbol": "??_C@_04CHPO@?2?2?4?2?$AA@",
+   "address": "007fcb10",
+   "bytes": 5,
+   "kind": "string",
+   "section": 39
+  },
+  {
+   "symbol": "??_C@_0FN@CMFD@Enter_Failsafe_Mode?5?9?5EscapeComm@",
+   "address": "007fcb18",
+   "bytes": 93,
+   "kind": "string",
+   "section": 42
+  },
+  {
+   "symbol": "??_C@_0CB@BEPN@GetCommState?5returned?5error?5?$CFs?4?6@",
+   "address": "007fcb78",
+   "bytes": 33,
+   "kind": "string",
+   "section": 43
+  },
+  {
+   "symbol": "??_C@_0CI@HKEN@WinModemClass?5?9?5Entering?5failsaf@",
+   "address": "007fcb9c",
+   "bytes": 40,
+   "kind": "string",
+   "section": 44
+  },
+  {
+   "symbol": "??_C@_0FN@EINH@Leave_Failsafe_Mode?5?9?5EscapeComm@",
+   "address": "007fcbc4",
+   "bytes": 93,
+   "kind": "string",
+   "section": 47
+  },
+  {
+   "symbol": "??_C@_0CH@LKKO@WinModemClass?5?9?5Leaving?5failsafe@",
+   "address": "007fcc24",
+   "bytes": 39,
+   "kind": "string",
+   "section": 48
+  },
+  {
+   "symbol": "??_C@_0ED@NLL@Set_Serial_DTR?5?9?5EscapeCommFunct@",
+   "address": "007fcc4c",
+   "bytes": 67,
+   "kind": "string",
+   "section": 53
+  },
+  {
+   "symbol": "??_C@_0CP@PNAC@Reading?5from?5port?5handle?5failed?5@",
+   "address": "007fcc90",
+   "bytes": 47,
+   "kind": "string",
+   "section": 56
+  },
+  {
+   "symbol": "??_C@_0EL@LGAL@GetOverlappedResult?5in?5WinModemC@",
+   "address": "007fccc0",
+   "bytes": 75,
+   "kind": "string",
+   "section": 57
+  },
+  {
+   "symbol": "??_C@_0CN@JKPG@Writing?5to?5port?5handle?5failed?5wi@",
+   "address": "007fcd0c",
+   "bytes": 45,
+   "kind": "string",
+   "section": 64
+  },
+  {
+   "symbol": "??_C@_0BD@LCDB@Send?5to?5modem?3?5?$CFs?6?$AA@",
+   "address": "007fcd3c",
+   "bytes": 19,
+   "kind": "string",
+   "section": 70
+  },
+  {
+   "symbol": "??_C@_0BL@OPMN@Appending?5carriage?5return?6?$AA@",
+   "address": "007fcd50",
+   "bytes": 27,
+   "kind": "string",
+   "section": 72
+  },
+  {
+   "symbol": "??_C@_0BH@NKJG@Appending?5dial?5string?6?$AA@",
+   "address": "007fcd6c",
+   "bytes": 23,
+   "kind": "string",
+   "section": 73
+  },
+  {
+   "symbol": "??_C@_0BE@NNPM@Dial?5type?5is?5pulse?6?$AA@",
+   "address": "007fcd84",
+   "bytes": 20,
+   "kind": "string",
+   "section": 75
+  },
+  {
+   "symbol": "??_C@_0BD@JAIA@Dial?5type?5is?5tone?6?$AA@",
+   "address": "007fcd98",
+   "bytes": 19,
+   "kind": "string",
+   "section": 76
+  },
+  {
+   "symbol": "??_C@_03ECIG@ATD?$AA@",
+   "address": "007fcdac",
+   "bytes": 4,
+   "kind": "string",
+   "section": 78
+  },
+  {
+   "symbol": "??_C@_0BG@BLBP@Creating?5dial?5string?6?$AA@",
+   "address": "007fcdb0",
+   "bytes": 22,
+   "kind": "string",
+   "section": 79
+  },
+  {
+   "symbol": "??_C@_05EFDD@ERROR?$AA@",
+   "address": "007fcdc8",
+   "bytes": 6,
+   "kind": "string",
+   "section": 82
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_R1A@?0A@A@WinModemClass@@8",
+   "address": "007c60a0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2WinModemClass@@8",
+   "address": "007c60b8",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3WinModemClass@@8",
+   "address": "007c60c0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4WinModemClass@@6B@",
+   "address": "007c60d0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_02HAGF@OK?$AA@",
+   "address": "007d5a40",
+   "bytes": 3,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_01PLJA@0?$AA@",
+   "address": "007e1a60",
+   "bytes": 2,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04KFCP@Enum?$AA@",
+   "address": "007e2808",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_05BJKG@Modem?$AA@",
+   "address": "007e299c",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_02BKOD@AT?$AA@",
+   "address": "007e7ca8",
+   "bytes": 3,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_01FEHD@?$AN?$AA@",
+   "address": "007e7dc8",
+   "bytes": 2,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_01MLA@P?$AA@",
+   "address": "007f3268",
+   "bytes": 2,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_01KGOM@T?$AA@",
+   "address": "007f326c",
+   "bytes": 2,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AVWinModemClass@@@8",
+   "address": "007fc9f0",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0BF@GLCD@Closing?5serial?5port?6?$AA@",
+   "address": "007fca0c",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@IOME@FriendlyName?$AA@",
+   "address": "007fca24",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04NILH@0000?$AA@",
+   "address": "007fca34",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04PNFB@Root?$AA@",
+   "address": "007fca3c",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CJ@IGCF@SetCommTimeouts?5returned?5error?5c@",
+   "address": "007fca44",
+   "bytes": 41,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CG@EMOK@GetCommState?5returned?5error?5code@",
+   "address": "007fca70",
+   "bytes": 38,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CB@JCGN@SetCommState?5returned?5error?5?$CFs?4?6@",
+   "address": "007fca98",
+   "bytes": 33,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@NAJH@Port?5opened?5OK?6?$AA@",
+   "address": "007fcabc",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CM@KPPI@Failed?5to?5get?5valid?5port?5handle?4@",
+   "address": "007fcacc",
+   "bytes": 44,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BI@OLEM@Opening?5serial?5port?5?$CFs?6?$AA@",
+   "address": "007fcaf8",
+   "bytes": 24,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04CHPO@?2?2?4?2?$AA@",
+   "address": "007fcb10",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0FN@CMFD@Enter_Failsafe_Mode?5?9?5EscapeComm@",
+   "address": "007fcb18",
+   "bytes": 93,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CB@BEPN@GetCommState?5returned?5error?5?$CFs?4?6@",
+   "address": "007fcb78",
+   "bytes": 33,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CI@HKEN@WinModemClass?5?9?5Entering?5failsaf@",
+   "address": "007fcb9c",
+   "bytes": 40,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0FN@EINH@Leave_Failsafe_Mode?5?9?5EscapeComm@",
+   "address": "007fcbc4",
+   "bytes": 93,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CH@LKKO@WinModemClass?5?9?5Leaving?5failsafe@",
+   "address": "007fcc24",
+   "bytes": 39,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0ED@NLL@Set_Serial_DTR?5?9?5EscapeCommFunct@",
+   "address": "007fcc4c",
+   "bytes": 67,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CP@PNAC@Reading?5from?5port?5handle?5failed?5@",
+   "address": "007fcc90",
+   "bytes": 47,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0EL@LGAL@GetOverlappedResult?5in?5WinModemC@",
+   "address": "007fccc0",
+   "bytes": 75,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CN@JKPG@Writing?5to?5port?5handle?5failed?5wi@",
+   "address": "007fcd0c",
+   "bytes": 45,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@LCDB@Send?5to?5modem?3?5?$CFs?6?$AA@",
+   "address": "007fcd3c",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BL@OPMN@Appending?5carriage?5return?6?$AA@",
+   "address": "007fcd50",
+   "bytes": 27,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BH@NKJG@Appending?5dial?5string?6?$AA@",
+   "address": "007fcd6c",
+   "bytes": 23,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@NNPM@Dial?5type?5is?5pulse?6?$AA@",
+   "address": "007fcd84",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@JAIA@Dial?5type?5is?5tone?6?$AA@",
+   "address": "007fcd98",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_03ECIG@ATD?$AA@",
+   "address": "007fcdac",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BG@BLBP@Creating?5dial?5string?6?$AA@",
+   "address": "007fcdb0",
+   "bytes": 22,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_05EFDD@ERROR?$AA@",
+   "address": "007fcdc8",
+   "bytes": 6,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "005cdbd0",
+   "symbol": "?Write_To_Serial_Port@WinModemClass@@QAEXPAEH@Z",
+   "target": "00734c70",
+   "function_entry": true
+  },
+  {
+   "site": "005d03e0",
+   "symbol": "??0WinModemClass@@QAE@XZ",
+   "target": "00734120",
+   "function_entry": true
+  },
+  {
+   "site": "005d00e0",
+   "symbol": "?Get_Port_Handle@WinModemClass@@QAEPAXXZ",
+   "target": "007354c0",
+   "function_entry": true
+  },
+  {
+   "site": "005d00e0",
+   "symbol": "??0WinModemClass@@QAE@XZ",
+   "target": "00734120",
+   "function_entry": true
+  },
+  {
+   "site": "005d0660",
+   "symbol": "?Read_From_Serial_Port@WinModemClass@@QAEHPAEH@Z",
+   "target": "00734b30",
+   "function_entry": true
+  },
+  {
+   "site": "005d1b70",
+   "symbol": "?Write_To_Serial_Port@WinModemClass@@QAEXPAEH@Z",
+   "target": "00734c70",
+   "function_entry": true
+  },
+  {
+   "site": "005d09a0",
+   "symbol": "?Enter_Failsafe_Mode@WinModemClass@@QAE_NXZ",
+   "target": "00734670",
+   "function_entry": true
+  },
+  {
+   "site": "005d09a0",
+   "symbol": "?Leave_Failsafe_Mode@WinModemClass@@QAEXXZ",
+   "target": "007347c0",
+   "function_entry": true
+  },
+  {
+   "site": "005d09a0",
+   "symbol": "?Leave_Failsafe_Mode@WinModemClass@@QAEXXZ",
+   "target": "007347c0",
+   "function_entry": true
+  },
+  {
+   "site": "005d1350",
+   "symbol": "?Write_To_Serial_Port@WinModemClass@@QAEXPAEH@Z",
+   "target": "00734c70",
+   "function_entry": true
+  },
+  {
+   "site": "005d1350",
+   "symbol": "?Write_To_Serial_Port@WinModemClass@@QAEXPAEH@Z",
+   "target": "00734c70",
+   "function_entry": true
+  },
+  {
+   "site": "005d16e0",
+   "symbol": "?Write_To_Serial_Port@WinModemClass@@QAEXPAEH@Z",
+   "target": "00734c70",
+   "function_entry": true
+  },
+  {
+   "site": "005d16e0",
+   "symbol": "?Write_To_Serial_Port@WinModemClass@@QAEXPAEH@Z",
+   "target": "00734c70",
+   "function_entry": true
+  },
+  {
+   "site": "0059cba0",
+   "symbol": "?Get_Registry_Sub_Key@@YIPAUHKEY__@@PAU1@PBD_N@Z",
+   "target": "007341c0",
+   "function_entry": true
+  },
+  {
+   "site": "0059cd00",
+   "symbol": "?Get_Registry_Sub_Key@@YIPAUHKEY__@@PAU1@PBD_N@Z",
+   "target": "007341c0",
+   "function_entry": true
+  },
+  {
+   "site": "0059cd00",
+   "symbol": "?Get_Registry_Sub_Key@@YIPAUHKEY__@@PAU1@PBD_N@Z",
+   "target": "007341c0",
+   "function_entry": true
+  },
+  {
+   "site": "005cdf00",
+   "symbol": "??0WinModemClass@@QAE@XZ",
+   "target": "00734120",
+   "function_entry": true
+  },
+  {
+   "site": "005cdf00",
+   "symbol": "??0WinModemClass@@QAE@XZ",
+   "target": "00734120",
+   "function_entry": true
+  },
+  {
+   "site": "005cdf00",
+   "symbol": "?Get_Port_Handle@WinModemClass@@QAEPAXXZ",
+   "target": "007354c0",
+   "function_entry": true
+  },
+  {
+   "site": "005cdf00",
+   "symbol": "?Write_To_Serial_Port@WinModemClass@@QAEXPAEH@Z",
+   "target": "00734c70",
+   "function_entry": true
+  },
+  {
+   "site": "005cdf00",
+   "symbol": "?Get_Port_Handle@WinModemClass@@QAEPAXXZ",
+   "target": "007354c0",
+   "function_entry": true
+  },
+  {
+   "site": "005cdf00",
+   "symbol": "?Get_Port_Handle@WinModemClass@@QAEPAXXZ",
+   "target": "007354c0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??BSystemTimerClass@@QBEJXZ",
+   "address": "0069a430"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "?Debug_Log_004068f0@seed_007354d0@@YAXH@Z",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Get_Modem_Status@WinModemClass@@UAEIXZ",
+   "address": null
+  },
+  {
+   "symbol": "?Process_Errors@WinModemClass@@QAEXKUCOMSTAT@@@Z",
+   "address": "007354d0"
+  },
+  {
+   "symbol": "?unknown_flag_a40d28@@3_NA",
+   "address": "00a40d28"
+  },
+  {
+   "symbol": "__imp__ClearCommError@12",
+   "address": "0079a150"
+  },
+  {
+   "symbol": "__imp__CloseHandle@4",
+   "address": "0079a1d4"
+  },
+  {
+   "symbol": "__imp__CreateEventA@16",
+   "address": "0079a160"
+  },
+  {
+   "symbol": "__imp__CreateFileA@28",
+   "address": "0079a1b0"
+  },
+  {
+   "symbol": "__imp__EscapeCommFunction@8",
+   "address": "0079a104"
+  },
+  {
+   "symbol": "__imp__GetCommMask@8",
+   "address": "0079a16c"
+  },
+  {
+   "symbol": "__imp__GetCommState@8",
+   "address": "0079a15c"
+  },
+  {
+   "symbol": "__imp__GetLastError@0",
+   "address": "0079a1f4"
+  },
+  {
+   "symbol": "__imp__GetOverlappedResult@16",
+   "address": "0079a178"
+  },
+  {
+   "symbol": "__imp__PurgeComm@8",
+   "address": "0079a164"
+  },
+  {
+   "symbol": "__imp__ReadFile@20",
+   "address": "0079a110"
+  },
+  {
+   "symbol": "__imp__RegCloseKey@4",
+   "address": "0079a004"
+  },
+  {
+   "symbol": "__imp__RegEnumKeyExA@32",
+   "address": "0079a01c"
+  },
+  {
+   "symbol": "__imp__RegOpenKeyExA@20",
+   "address": "0079a00c"
+  },
+  {
+   "symbol": "__imp__RegQueryInfoKeyA@48",
+   "address": "0079a000"
+  },
+  {
+   "symbol": "__imp__RegQueryValueExA@24",
+   "address": "0079a008"
+  },
+  {
+   "symbol": "__imp__ResetEvent@4",
+   "address": "0079a170"
+  },
+  {
+   "symbol": "__imp__SetCommState@8",
+   "address": "0079a250"
+  },
+  {
+   "symbol": "__imp__SetCommTimeouts@8",
+   "address": "0079a248"
+  },
+  {
+   "symbol": "__imp__SetupComm@12",
+   "address": "0079a168"
+  },
+  {
+   "symbol": "__imp__Sleep@4",
+   "address": "0079a1e4"
+  },
+  {
+   "symbol": "__imp__WriteFile@20",
+   "address": "0079a12c"
+  },
+  {
+   "symbol": "__stricmp",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "_memmove",
+   "address": "00783290"
+  },
+  {
+   "symbol": "_s_Comm_status___Character_waiting_f_007fcdd0",
+   "address": "007fcdd0"
+  },
+  {
+   "symbol": "_s_Comm_status___EOF_character_sent_007fcdf8",
+   "address": "007fcdf8"
+  },
+  {
+   "symbol": "_s_Comm_status___Tx_waiting__XOFF_c_007fce1c",
+   "address": "007fce1c"
+  },
+  {
+   "symbol": "_s_Comm_status___Tx_waiting__XOFF_c_007fce48",
+   "address": "007fce48"
+  },
+  {
+   "symbol": "_s_Comm_status___Tx_waiting_for_CTS_007fced0",
+   "address": "007fced0"
+  },
+  {
+   "symbol": "_s_Comm_status___Tx_waiting_for_DSR_007fcea4",
+   "address": "007fcea4"
+  },
+  {
+   "symbol": "_s_Comm_status___Tx_waiting_for_RLS_007fce78",
+   "address": "007fce78"
+  },
+  {
+   "symbol": "_s_Communications__Break__detected__007fcff8",
+   "address": "007fcff8"
+  },
+  {
+   "symbol": "_s_Communications__Framing__error_d_007fd01c",
+   "address": "007fd01c"
+  },
+  {
+   "symbol": "_s_Communications__IO__error_detect_007fcfd0",
+   "address": "007fcfd0"
+  },
+  {
+   "symbol": "_s_Communications__Parity__error_de_007fcf34",
+   "address": "007fcf34"
+  },
+  {
+   "symbol": "_s_Communications__Receive_Overrun__007fcf9c",
+   "address": "007fcf9c"
+  },
+  {
+   "symbol": "_s_Communications__Receive_Queue_Ov_007fcf60",
+   "address": "007fcf60"
+  },
+  {
+   "symbol": "_s_Communications__Transmit_Queue_F_007fcefc",
+   "address": "007fcefc"
+  },
+  {
+   "symbol": "_strchr",
+   "address": "00784130"
+  },
+  {
+   "symbol": "_strncpy",
+   "address": "007823d0"
+  },
+  {
+   "symbol": "_strrchr",
+   "address": "00781ff0"
+  },
+  {
+   "symbol": "_strstr",
+   "address": "007836b0"
+  }
+ ],
+ "route": "A",
+ "unit": "wincomm.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00734120",
+   "lines": 8
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "007348a0",
+   "bytes": 10,
+   "population": "population-09",
+   "bound": "own frozen bound (population-09)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "007354a0",
+   "bytes": 10,
+   "population": "population-09",
+   "bound": "own frozen bound (population-09)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "007354b0",
+   "bytes": 10,
+   "population": "population-09",
+   "bound": "own frozen bound (population-09)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "007354c0",
+   "bytes": 4,
+   "population": "population-4352",
+   "bound": "own frozen bound (population-4352)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "007354d0",
+   "bytes": 317,
+   "population": "population-45",
+   "bound": "own frozen bound (population-45)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "007348b0",
+   "bytes": 65,
+   "population": "population-3817",
+   "source": "src/recovered/classes/WinModemClass/Get_Modem_Status.cpp",
+   "cause": "frozen in another population's inventory pass (population-3817)"
+  },
+  {
+   "kind": "split",
+   "entry": "00734950",
+   "bytes": 41,
+   "population": "population-3817",
+   "source": "src/recovered/wincomm/Serial_Port_Close.cpp",
+   "cause": "frozen in another population's inventory pass (population-3817)"
+  }
+ ],
+ "unit_functions": 23,
+ "data_unproven": [
+  {
+   "symbol": "??_7WinModemClass@@6B@",
+   "reason": "relocation target unbound: ?Get_Modem_Status@WinModemClass@@UAEIXZ"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 2,
+  "bytes": 106
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

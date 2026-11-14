@@ -19,9 +19,9 @@ bool MultiMission::Unknown_006720C0()
 // their countries and colours unset. Natively through the session's members
 // (AICount +0x3C, AICountry +0x64, AIColor +0x84); the object is only ever
 // unknown_lobby_state_a3d2b0.
-void UnknownLobbyState::Unknown_00672810()
+void GameOptionsType::Unknown_00672810()
 {
-    UnknownSessionState &session = unknown_session_a3d298;
+    SessionClass &session = unknown_session_a3d298;
     session.AICount = 0;
     for (int i = 0; i < 8; ++i) {
         session.AICountry[i] = -1;

@@ -368,6 +368,18 @@ BOOL DeleteFileA(const char *name)
 {
     char path[1024];
     host_path_write(name, path, sizeof path);
+    {
+        // An original save (a compound file; the port writes only its own format)
+        // is never deleted: the load dialog's Delete reaches here (lane C6).
+        static const unsigned char compound[8] = {0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1};
+        unsigned char head[8] = {0};
+        int fd = open(path, O_RDONLY);
+        if (fd >= 0) {
+            ssize_t got = read(fd, head, 8);
+            close(fd);
+            if (got == 8 && !memcmp(head, compound, 8)) { set_last_error(ERROR_ACCESS_DENIED); return 0; }
+        }
+    }
     if (unlink(path) != 0) { set_last_error(errno_to_win32(errno)); return 0; }
     return 1;
 }
@@ -584,7 +596,13 @@ BOOL FileTimeToLocalFileTime(const FILETIME *in, FILETIME *out)
     time_t now = time(nullptr);
     struct tm tm;
     localtime_r(&now, &tm);
-    int64_t v = (int64_t)ft64(in) + (int64_t)tm.tm_gmtoff * 10000000ll;
+#if defined(_WIN32)
+    // The Windows build (no tm_gmtoff): the local time read back as UTC, less now.
+    int64_t gmtoff = (int64_t)_mkgmtime(&tm) - (int64_t)now;
+#else
+    int64_t gmtoff = tm.tm_gmtoff;
+#endif
+    int64_t v = (int64_t)ft64(in) + gmtoff * 10000000ll;
     out->dwLowDateTime = (DWORD)v;
     out->dwHighDateTime = (DWORD)((uint64_t)v >> 32);
     return 1;

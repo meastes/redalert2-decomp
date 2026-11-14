@@ -1,0 +1,1225 @@
+{
+ "module": "alphashp",
+ "source": "src/recovered/alphashp.cpp",
+ "header": null,
+ "population": "population-3423",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 6,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "0041e970",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "0041e990",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "0041e9c0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "0041e9e0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "0041ea00",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "0041ea20",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "0041ea40",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "0041ea60",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "0041eaa0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "0041ead0",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "0041eb00",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "0041eb30",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "0041eb40",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E43",
+   "entry": "0041eb60",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E41",
+   "entry": "0041eba0",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "??0AlphaShapeClass@@QAE@PAVObjectClass@@HH@Z",
+   "entry": "0041ebe0",
+   "body_bytes": 399,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "??0AlphaShapeClass@@QAE@XZ",
+   "entry": "0041ed70",
+   "body_bytes": 351,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "??0AlphaShapeClass@@QAE@ABVNoInitClass@@@Z",
+   "entry": "0041eed0",
+   "body_bytes": 46,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "??1AlphaShapeClass@@UAE@XZ",
+   "entry": "0041ef00",
+   "body_bytes": 187,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?GetClassID@AlphaShapeClass@@UAGJPAUGUID@@@Z",
+   "entry": "0041efc0",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Kind_Of@AlphaShapeClass@@UBEHXZ",
+   "entry": "0041f000",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Size_Of@AlphaShapeClass@@UBEHXZ",
+   "entry": "0041f010",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Compute_CRC@AlphaShapeClass@@UBEXAAVWWCRCEngine@@@Z",
+   "entry": "0041f020",
+   "body_bytes": 63,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Load@AlphaShapeClass@@UAGJPAUIStream@@@Z",
+   "entry": "0041f060",
+   "body_bytes": 94,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Save@AlphaShapeClass@@UAGJPAUIStream@@H@Z",
+   "entry": "0041f0c0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Detach@AlphaShapeClass@@UAEXPAVAbstractClass@@_N@Z",
+   "entry": "0041f0f0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Update_All@AlphaShapeClass@@SAXXZ",
+   "entry": "0041f110",
+   "body_bytes": 170,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Init_Alpha_Table@AlphaShapeClass@@SAXXZ",
+   "entry": "0041f950",
+   "body_bytes": 112,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "??_GAlphaShapeClass@@UAEPAXI@Z",
+   "entry": "0041f9c0",
+   "body_bytes": 207,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?get@Leaf_41fd50@@QAEPAXI@Z",
+   "entry": "0041fd50",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?get@Leaf_41fda0@@QAEPAXI@Z",
+   "entry": "0041fda0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  }
+ ],
+ "code_bytes": 2608,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "0079b840",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVAlphaShapeClass@@@@6B@",
+   "address": "0079bf64",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 47
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVAlphaShapeClass@@@@6B@",
+   "address": "0079bf84",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 53
+  },
+  {
+   "symbol": "??_7AlphaShapeClass@@6BINoticeSource@@@",
+   "address": "0079bfa4",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 79
+  },
+  {
+   "symbol": "??_7AlphaShapeClass@@6BINoticeSink@@@",
+   "address": "0079bfac",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 80
+  },
+  {
+   "symbol": "??_7AlphaShapeClass@@6BIRTTITypeInfo@@@",
+   "address": "0079bfb4",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 81
+  },
+  {
+   "symbol": "??_7AlphaShapeClass@@6BIPersistStream@@@",
+   "address": "0079bfd0",
+   "bytes": 100,
+   "kind": "vtable",
+   "section": 82
+  },
+  {
+   "symbol": "??_R1M@?0A@A@INoticeSource@@8",
+   "address": "007b30b8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 60
+  },
+  {
+   "symbol": "??_R17?0A@A@INoticeSink@@8",
+   "address": "007b30d0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 62
+  },
+  {
+   "symbol": "??_R13?0A@1IUnknown@@8",
+   "address": "007b30e8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 63
+  },
+  {
+   "symbol": "??_R13?0A@A@IRTTITypeInfo@@8",
+   "address": "007b3100",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 65
+  },
+  {
+   "symbol": "??_R1A@?0A@1IUnknown@@8",
+   "address": "007b3118",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 67
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersist@@8",
+   "address": "007b3130",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 69
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersistStream@@8",
+   "address": "007b3148",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 71
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractClass@@8",
+   "address": "007b3160",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 73
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAVAlphaShapeClass@@@@8",
+   "address": "007b3768",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 41
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAVAlphaShapeClass@@@@8",
+   "address": "007b3780",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 42
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAVAlphaShapeClass@@@@8",
+   "address": "007b3798",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 43
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAVAlphaShapeClass@@@@8",
+   "address": "007b37a8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAVAlphaShapeClass@@@@6B@",
+   "address": "007b37b8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 46
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAVAlphaShapeClass@@@@8",
+   "address": "007b37cc",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 50
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAVAlphaShapeClass@@@@8",
+   "address": "007b37d8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 51
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAVAlphaShapeClass@@@@6B@",
+   "address": "007b37e8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 52
+  },
+  {
+   "symbol": "??_R4AlphaShapeClass@@6BINoticeSource@@@",
+   "address": "007b3800",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 56
+  },
+  {
+   "symbol": "??_R4AlphaShapeClass@@6BINoticeSink@@@",
+   "address": "007b3818",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 57
+  },
+  {
+   "symbol": "??_R4AlphaShapeClass@@6BIRTTITypeInfo@@@",
+   "address": "007b3830",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 58
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AlphaShapeClass@@8",
+   "address": "007b3848",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 74
+  },
+  {
+   "symbol": "??_R2AlphaShapeClass@@8",
+   "address": "007b3860",
+   "bytes": 37,
+   "kind": "rtti",
+   "section": 75
+  },
+  {
+   "symbol": "??_R3AlphaShapeClass@@8",
+   "address": "007b3888",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 76,
+   "known_difference": "hierarchy ambiguous bit"
+  },
+  {
+   "symbol": "??_R4AlphaShapeClass@@6BIPersistStream@@@",
+   "address": "007b3898",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 78
+  },
+  {
+   "symbol": "??_R0?AVINoticeSink@@@8",
+   "address": "007cd618",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 61
+  },
+  {
+   "symbol": "??_R0?AUIUnknown@@@8",
+   "address": "007cd638",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 66
+  },
+  {
+   "symbol": "??_R0?AVINoticeSource@@@8",
+   "address": "007ce1c8",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 59
+  },
+  {
+   "symbol": "??_R0?AUIRTTITypeInfo@@@8",
+   "address": "007ce1e8",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 64
+  },
+  {
+   "symbol": "??_R0?AUIPersist@@@8",
+   "address": "007ce208",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 68
+  },
+  {
+   "symbol": "??_R0?AUIPersistStream@@@8",
+   "address": "007ce220",
+   "bytes": 29,
+   "kind": "rtti",
+   "section": 70
+  },
+  {
+   "symbol": "??_R0?AVAbstractClass@@@8",
+   "address": "007ce240",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 72
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAVAlphaShapeClass@@@@@8",
+   "address": "007cec08",
+   "bytes": 49,
+   "kind": "rtti",
+   "section": 40
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAVAlphaShapeClass@@@@@8",
+   "address": "007cec40",
+   "bytes": 56,
+   "kind": "rtti",
+   "section": 45
+  },
+  {
+   "symbol": "??_R0?AVAlphaShapeClass@@@8",
+   "address": "007cec78",
+   "bytes": 30,
+   "kind": "rtti",
+   "section": 77
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "0079b840",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVAlphaShapeClass@@@@6B@",
+   "address": "0079bf64",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVAlphaShapeClass@@@@6B@",
+   "address": "0079bf84",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7AlphaShapeClass@@6BINoticeSource@@@",
+   "address": "0079bfa4",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7AlphaShapeClass@@6BINoticeSink@@@",
+   "address": "0079bfac",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7AlphaShapeClass@@6BIRTTITypeInfo@@@",
+   "address": "0079bfb4",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7AlphaShapeClass@@6BIPersistStream@@@",
+   "address": "0079bfd0",
+   "bytes": 100,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1M@?0A@A@INoticeSource@@8",
+   "address": "007b30b8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R17?0A@A@INoticeSink@@8",
+   "address": "007b30d0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R13?0A@1IUnknown@@8",
+   "address": "007b30e8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R13?0A@A@IRTTITypeInfo@@8",
+   "address": "007b3100",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@1IUnknown@@8",
+   "address": "007b3118",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersist@@8",
+   "address": "007b3130",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersistStream@@8",
+   "address": "007b3148",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractClass@@8",
+   "address": "007b3160",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAVAlphaShapeClass@@@@8",
+   "address": "007b3768",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAVAlphaShapeClass@@@@8",
+   "address": "007b3780",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAVAlphaShapeClass@@@@8",
+   "address": "007b3798",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAVAlphaShapeClass@@@@8",
+   "address": "007b37a8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAVAlphaShapeClass@@@@6B@",
+   "address": "007b37b8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAVAlphaShapeClass@@@@8",
+   "address": "007b37cc",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAVAlphaShapeClass@@@@8",
+   "address": "007b37d8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAVAlphaShapeClass@@@@6B@",
+   "address": "007b37e8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4AlphaShapeClass@@6BINoticeSource@@@",
+   "address": "007b3800",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4AlphaShapeClass@@6BINoticeSink@@@",
+   "address": "007b3818",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4AlphaShapeClass@@6BIRTTITypeInfo@@@",
+   "address": "007b3830",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AlphaShapeClass@@8",
+   "address": "007b3848",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2AlphaShapeClass@@8",
+   "address": "007b3860",
+   "bytes": 37,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3AlphaShapeClass@@8",
+   "address": "007b3888",
+   "bytes": 16,
+   "kind": "rtti",
+   "known_difference": "hierarchy ambiguous bit"
+  },
+  {
+   "symbol": "??_R4AlphaShapeClass@@6BIPersistStream@@@",
+   "address": "007b3898",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVINoticeSink@@@8",
+   "address": "007cd618",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIUnknown@@@8",
+   "address": "007cd638",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVINoticeSource@@@8",
+   "address": "007ce1c8",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIRTTITypeInfo@@@8",
+   "address": "007ce1e8",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIPersist@@@8",
+   "address": "007ce208",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIPersistStream@@@8",
+   "address": "007ce220",
+   "bytes": 29,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVAbstractClass@@@8",
+   "address": "007ce240",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAVAlphaShapeClass@@@@@8",
+   "address": "007cec08",
+   "bytes": 49,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAVAlphaShapeClass@@@@@8",
+   "address": "007cec40",
+   "bytes": 56,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVAlphaShapeClass@@@8",
+   "address": "007cec78",
+   "bytes": 30,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "005d3890",
+   "symbol": "??0AlphaShapeClass@@QAE@PAVObjectClass@@HH@Z",
+   "target": "0041ebe0",
+   "function_entry": true
+  },
+  {
+   "site": "0053d890",
+   "symbol": "?Update_All@AlphaShapeClass@@SAXXZ",
+   "target": "0041f110",
+   "function_entry": true
+  },
+  {
+   "site": "00698330",
+   "symbol": "??0AlphaShapeClass@@QAE@XZ",
+   "target": "0041ed70",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0AbstractClass@@QAE@ABVNoInitClass@@@Z",
+   "address": "0040ff60"
+  },
+  {
+   "symbol": "??0AbstractClass@@QAE@XZ",
+   "address": "0040ff10"
+  },
+  {
+   "symbol": "??1AbstractClass@@UAE@XZ",
+   "address": "0040ff90"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??RWWCRCEngine@@QAEXJ@Z",
+   "address": "00493f30"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVAlphaShapeClass@@@@UAEPAXI@Z",
+   "address": "0041fda0"
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVAlphaShapeClass@@@@UAEPAXI@Z",
+   "address": "0041fd50"
+  },
+  {
+   "symbol": "?AI@AbstractClass@@UAEXXZ",
+   "address": "00410310"
+  },
+  {
+   "symbol": "?AddRef@AbstractClass@@UAGKXZ",
+   "address": "004100a0"
+  },
+  {
+   "symbol": "?Center_Coord@AbstractClass@@UBE?AUCoordStruct@@XZ",
+   "address": "00410260"
+  },
+  {
+   "symbol": "?Compute_CRC@AbstractClass@@UBEXAAVWWCRCEngine@@@Z",
+   "address": "004101b0"
+  },
+  {
+   "symbol": "?Create_ID@AbstractClass@@UAGXXZ",
+   "address": "0040ffd0"
+  },
+  {
+   "symbol": "?Fetch_Heap_ID@AbstractClass@@UBEHXZ",
+   "address": "00410250"
+  },
+  {
+   "symbol": "?Fetch_ID@AbstractClass@@UAGJXZ",
+   "address": "0040ffc0"
+  },
+  {
+   "symbol": "?GetSizeMax@AbstractClass@@UAGJPATULARGE_INTEGER@@@Z",
+   "address": "00410180"
+  },
+  {
+   "symbol": "?INoticeSink_Unknown@AbstractClass@@UAE_NHH@Z",
+   "address": "00410320"
+  },
+  {
+   "symbol": "?INoticeSource_Unknown@AbstractClass@@UAGXXZ",
+   "address": "00410330"
+  },
+  {
+   "symbol": "?In_Air@AbstractClass@@UBE_NXZ",
+   "address": "004102d0"
+  },
+  {
+   "symbol": "?Init@AbstractClass@@UAEXXZ",
+   "address": "00410210"
+  },
+  {
+   "symbol": "?IsDirty@AbstractClass@@UAGJXZ",
+   "address": "004101f0"
+  },
+  {
+   "symbol": "?Is_Inactive@AbstractClass@@UBE_NXZ",
+   "address": "004101e0"
+  },
+  {
+   "symbol": "?Load@AbstractClass@@UAGJPAUIStream@@@Z",
+   "address": "00410120"
+  },
+  {
+   "symbol": "?On_Ground@AbstractClass@@UBE_NXZ",
+   "address": "004102c0"
+  },
+  {
+   "symbol": "?Owner@AbstractClass@@UBEHXZ",
+   "address": "00410230"
+  },
+  {
+   "symbol": "?Owning_House@AbstractClass@@UBEPAVHouseClass@@XZ",
+   "address": "00410240"
+  },
+  {
+   "symbol": "?QueryInterface@AbstractClass@@UAGJABUGUID@@PAPAX@Z",
+   "address": "00410000"
+  },
+  {
+   "symbol": "?Release@AbstractClass@@UAGKXZ",
+   "address": "004100b0"
+  },
+  {
+   "symbol": "?Save@AbstractClass@@UAGJPAUIStream@@H@Z",
+   "address": "004100c0"
+  },
+  {
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "address": "0069fb20"
+  },
+  {
+   "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+   "address": "00abd868"
+  },
+  {
+   "symbol": "?What_Am_I@AbstractClass@@UAGHXZ",
+   "address": "0040ffb0"
+  },
+  {
+   "symbol": "?unknown_AbstractClass_list_00ac0d60@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0d60"
+  },
+  {
+   "symbol": "?unknown_alpha_table_83c670@@3PAEA",
+   "address": "0083c670"
+  },
+  {
+   "symbol": "?unknown_alpha_table_ready_84c684@@3_NA",
+   "address": "0084c684"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z",
+   "address": "00410290"
+  },
+  {
+   "symbol": "?unknown_slot22@AbstractClass@@UBE?AUCoordStruct@@XZ",
+   "address": "004102e0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "_CLSID_AlphaShapeClass",
+   "address": "007a1ee0"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "_atexit",
+   "address": "0078298a"
+  },
+  {
+   "symbol": "_release_buffer_41fd50",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_41fda0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_41fd50",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_41fda0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_vtable_41fd50",
+   "address": "0079bf88"
+  },
+  {
+   "symbol": "_vtable_41fda0",
+   "address": "0079bf88"
+  }
+ ],
+ "route": "A",
+ "unit": "alphashp.cpp",
+ "form": "include blocks held",
+ "switches": [
+  "VECTOR_IMPLEMENT_ALL"
+ ],
+ "include_blocks": [],
+ "held_rows": [
+  {
+   "entry": "0041eb60",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "0041eba0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "0041ebe0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "0041ed70",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "0041ef00",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "0041f110",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "0041f9c0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  }
+ ],
+ "joined": [
+  {
+   "entry": "0041fd50",
+   "population": "population-15"
+  },
+  {
+   "entry": "0041fda0",
+   "population": "population-15"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "0041fa90",
+   "bytes": 42,
+   "population": "population-4442",
+   "source": "src/recovered/classes/DynamicVectorClass_AlphaShapeClass_ptr/Clear.cpp",
+   "cause": "held by population-4442; not joined: the unit without member switches fails the strict audit (Unsupported allocatable data section .rdata #49 in agent-ac27a113)"
+  },
+  {
+   "kind": "split",
+   "entry": "0041fac0",
+   "bytes": 27,
+   "population": "population-4442",
+   "source": "src/recovered/classes/DynamicVectorClass_AlphaShapeClass_ptr/DynamicVectorClass_AlphaShapeClass_ptr_ID_pointer_0041fac0.cpp",
+   "cause": "held by population-4442; not joined: the unit without member switches fails the strict audit (Unsupported allocatable data section .rdata #49 in agent-ac27a113)"
+  },
+  {
+   "kind": "split",
+   "entry": "0041fae0",
+   "bytes": 13,
+   "population": "population-4442",
+   "source": "src/recovered/classes/VectorClass_AlphaShapeClass_ptr/Fetch.cpp",
+   "cause": "held by population-4442; not joined: the unit without member switches fails the strict audit (Unsupported allocatable data section .rdata #49 in agent-ac27a113)"
+  },
+  {
+   "kind": "split",
+   "entry": "0041faf0",
+   "bytes": 62,
+   "population": "population-4442",
+   "source": "src/recovered/classes/VectorClass_AlphaShapeClass_ptr/operator_equal.cpp",
+   "cause": "held by population-4442; not joined: the unit without member switches fails the strict audit (Unsupported allocatable data section .rdata #49 in agent-ac27a113)"
+  },
+  {
+   "kind": "split",
+   "entry": "0041fb30",
+   "bytes": 174,
+   "population": "population-4442",
+   "source": "src/recovered/classes/VectorClass_AlphaShapeClass_ptr/Resize.cpp",
+   "cause": "held by population-4442; not joined: the unit without member switches fails the strict audit (Unsupported allocatable data section .rdata #49 in agent-ac27a113)"
+  },
+  {
+   "kind": "split",
+   "entry": "0041fbe0",
+   "bytes": 39,
+   "population": "population-4442",
+   "source": "src/recovered/classes/VectorClass_AlphaShapeClass_ptr/Clear.cpp",
+   "cause": "held by population-4442; not joined: the unit without member switches fails the strict audit (Unsupported allocatable data section .rdata #49 in agent-ac27a113)"
+  },
+  {
+   "kind": "split",
+   "entry": "0041fc10",
+   "bytes": 51,
+   "population": "population-4442",
+   "source": "src/recovered/classes/VectorClass_AlphaShapeClass_ptr/VectorClass_AlphaShapeClass_ptr_ID_object_0041fc10.cpp",
+   "cause": "held by population-4442; not joined: the unit without member switches fails the strict audit (Unsupported allocatable data section .rdata #49 in agent-ac27a113)"
+  },
+  {
+   "kind": "split",
+   "entry": "0041fc50",
+   "bytes": 27,
+   "population": "population-4442",
+   "source": "src/recovered/classes/VectorClass_AlphaShapeClass_ptr/VectorClass_AlphaShapeClass_ptr_ID_pointer_0041fc50.cpp",
+   "cause": "held by population-4442; not joined: the unit without member switches fails the strict audit (Unsupported allocatable data section .rdata #49 in agent-ac27a113)"
+  },
+  {
+   "kind": "split",
+   "entry": "0041fc70",
+   "bytes": 176,
+   "population": "population-4442",
+   "source": "src/recovered/classes/DynamicVectorClass_AlphaShapeClass_ptr/Resize.cpp",
+   "cause": "held by population-4442; not joined: the unit without member switches fails the strict audit (Unsupported allocatable data section .rdata #49 in agent-ac27a113)"
+  },
+  {
+   "kind": "split",
+   "entry": "0041fd20",
+   "bytes": 38,
+   "population": "population-4442",
+   "source": "src/recovered/classes/DynamicVectorClass_AlphaShapeClass_ptr/DynamicVectorClass_AlphaShapeClass_ptr_ID_object_0041fd20.cpp",
+   "cause": "held by population-4442; not joined: the unit without member switches fails the strict audit (Unsupported allocatable data section .rdata #49 in agent-ac27a113)"
+  },
+  {
+   "kind": "split",
+   "entry": "0041fdf0",
+   "bytes": 289,
+   "population": "population-3420",
+   "source": "src/recovered/alphashp/Intersect.cpp",
+   "cause": "frozen in another population's inventory pass (population-3420)"
+  }
+ ],
+ "unit_functions": 44,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 11,
+  "bytes": 938
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

@@ -5,9 +5,9 @@
 class TechnoTypeClass;
 // Existing canonical owner name retained. Original class name unresolved;
 // one five-entry type collection, count+10 and aggregate raw cost+28.
-class Unknown4A6AE0Owner {
+class DropshipLoadoutClass {
 public:
-    Unknown4A6AE0Owner();
+    DropshipLoadoutClass();
     bool Add_Type_004A6940(TechnoTypeClass *type);
     bool Remove_Index_004A6A10(int index);
     void Clear_004A6AE0();
@@ -23,5 +23,5 @@ public:
     TechnoTypeClass *Types[5];
     int Cost;
 };
-typedef char Unknown4A6AE0Owner_size_check[(sizeof(Unknown4A6AE0Owner)==44)?1:-1];
+typedef char Unknown4A6AE0Owner_size_check[(sizeof(DropshipLoadoutClass)==44)?1:-1];
 #endif

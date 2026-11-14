@@ -20,10 +20,10 @@ struct UnknownBitmapEntry {
 };
 #endif
 
-class UnknownBitmapWriter {
+class SurfaceCacheClass {
 public:
-    UnknownBitmapWriter();                  // 0x0068BD50
-    ~UnknownBitmapWriter();                 // 0x0068BE30
+    SurfaceCacheClass();                  // 0x0068BD50
+    ~SurfaceCacheClass();                 // 0x0068BE30
     bool CacheBMP_0068c040(char const *file, void *bitmap, int bitmap_bytes, int format);
 #ifdef PCX_CACHE_DECLARE_UNLOAD
     // Removes the image of name from the cache and deletes it (0x0068CB30; no caller found, name hypothesis).
@@ -58,7 +58,7 @@ public:
     WolDictionary<Wstring, UnknownBitmapEntry> Images;      // +0x00
 #endif
 };
-extern UnknownBitmapWriter unknown_bitmap_writer_a76378;
+extern SurfaceCacheClass unknown_bitmap_writer_a76378;
 // Brightens a 768-byte RGB palette: red and green by 1.5, clamped to 255 (0x0068BCE0; hypothesis).
 void __fastcall unknown_brighten_palette_68bce0(unsigned char *palette);
 

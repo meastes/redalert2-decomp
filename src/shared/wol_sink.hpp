@@ -224,13 +224,13 @@ extern int unknown_b26898;              // 0x00B26898
 extern int unknown_b299c0;              // 0x00B299C0
 
 void __fastcall Unknown_00698D00(bool arg);             // 0x00698D00 (stores cl: a byte)
-void *__fastcall Unknown_00735940(int id);              // 0x00735940 (a dialog by id)
+HWND __fastcall WS_Find_Dialog_00735940(int id);              // 0x00735940 (a dialog by id)
 void Unknown_0075B590();                                // 0x0075B590
 void Unknown_0075B2D0();                                // 0x0075B2D0
 void __fastcall Unknown_0073FEE0(int arg1, bool arg2);  // 0x0073FEE0
 void __fastcall Unknown_00741750(WOL::User *user);      // 0x00741750 (a user left the channel)
 // Converts a narrow string into wide characters (0x006FA0C0; -1: to its end).
-void __fastcall Unknown_006FA0C0(wchar_t *buffer, char const *text, int length);
+void __fastcall Char_To_Wide_006fa0c0(wchar_t *buffer, char const *text, int length);
 // unknown_color_7a7360: shared/unknown_globals.hpp.
 extern int unknown_color_7a736c;        // 0x007A736C (private action colour)
 extern int unknown_color_7a7370;        // 0x007A7370 (public action colour)
@@ -378,7 +378,7 @@ extern Wstring unknown_wstring_b26cb8;
 extern int unknown_b2ac58;
 extern int unknown_b2abe8;
 void __fastcall Format_User_Options_0073cff0(char *text);
-wchar_t *__fastcall Unknown_006FA180(char const *text);
+wchar_t *__fastcall Narrow_To_Wide_006fa180(char const *text);
 
 #include "shared/player_profile.hpp"
 #include "shared/wol_registry_options.hpp"
@@ -488,6 +488,9 @@ public:
     }
     bool Grow_When_Full(); // capacity operation expanded inside original Insert
     bool Shrink_00766dc0();
+#ifdef RA2_NON_MATCHING
+    bool Remove(int index);     // wlib ArrayList::remove (non-exact draft 0x0075F530 expands it)
+#endif
 };
 class WolIntArray {
 public:
@@ -1013,7 +1016,7 @@ bool __fastcall Unknown_0075a920();
 extern "C" wchar_t *__cdecl wcscpy(wchar_t *destination, wchar_t const *source);
 extern "C" unsigned long __stdcall ntohl(unsigned long value);
 
-// The PCX image cache (UnknownBitmapWriter, 0x00A76378): shared/pcx_cache.hpp.
+// The PCX image cache (SurfaceCacheClass, 0x00A76378): shared/pcx_cache.hpp.
 extern WOL::Channel unknown_pending_channel_b26a60;
 extern int unknown_connection_result_b2ac10;
 extern bool unknown_b2abd8;

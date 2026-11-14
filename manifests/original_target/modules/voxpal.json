@@ -1,0 +1,391 @@
+{
+ "module": "voxpal",
+ "source": "src/recovered/voxpal.cpp",
+ "header": null,
+ "population": "population-4226",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 913,
+ "code": [
+  {
+   "symbol": "??0VoxelPaletteLibrary@@QAE@PAE0@Z",
+   "entry": "0071bd00",
+   "body_bytes": 99,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "??1VoxelPaletteLibrary@@QAE@XZ",
+   "entry": "0071bd70",
+   "body_bytes": 43,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Read_Colors@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z",
+   "entry": "0071bda0",
+   "body_bytes": 63,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z",
+   "entry": "0071bde0",
+   "body_bytes": 147,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Write_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z",
+   "entry": "0071be80",
+   "body_bytes": 147,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Calculate_Lookup_Table@VoxelPaletteLibrary@@QAEXPAMH@Z",
+   "entry": "0071bf20",
+   "body_bytes": 665,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM@Z",
+   "entry": "0071c1c0",
+   "body_bytes": 133,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z",
+   "entry": "0071c250",
+   "body_bytes": 198,
+   "padding_bytes": 10
+  }
+ ],
+ "code_bytes": 1568,
+ "data": [
+  {
+   "symbol": "__real@4@00000000000000000000",
+   "address": "0079a738",
+   "bytes": 4,
+   "kind": "table",
+   "section": 67
+  },
+  {
+   "symbol": "__real@4@4006ff00000000000000",
+   "address": "0079b0a8",
+   "bytes": 4,
+   "kind": "table",
+   "section": 85
+  },
+  {
+   "symbol": "__real@4@40078000000000000000",
+   "address": "0079b0ac",
+   "bytes": 4,
+   "kind": "table",
+   "section": 31
+  },
+  {
+   "symbol": "__real@8@00000000000000000000",
+   "address": "0079b610",
+   "bytes": 8,
+   "kind": "table",
+   "section": 64
+  },
+  {
+   "symbol": "__real@4@3ffe8000000000000000",
+   "address": "0079dd80",
+   "bytes": 4,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@4@3ffdcccccd0000000000",
+   "address": "007a7b18",
+   "bytes": 4,
+   "kind": "table",
+   "section": 86
+  },
+  {
+   "symbol": "__real@4@3ffb8000000000000000",
+   "address": "007a7b20",
+   "bytes": 4,
+   "kind": "table",
+   "section": 88
+  },
+  {
+   "symbol": "__real@4@40068000000000000000",
+   "address": "007aea3c",
+   "bytes": 4,
+   "kind": "table",
+   "section": 32
+  },
+  {
+   "symbol": "__real@4@40038000000000000000",
+   "address": "007aea40",
+   "bytes": 4,
+   "kind": "table",
+   "section": 63
+  },
+  {
+   "symbol": "__real@4@3ffccccccd0000000000",
+   "address": "007aea44",
+   "bytes": 4,
+   "kind": "table",
+   "section": 70
+  },
+  {
+   "symbol": "_?_addend@?1??Calculate_Lookup_Table@VoxelPaletteLibrary@@QAEXPAMH@Z@4MB",
+   "address": "007aea48",
+   "bytes": 4,
+   "kind": "static",
+   "section": 2
+  },
+  {
+   "symbol": "__real@4@3ffecccccd0000000000",
+   "address": "007aea4c",
+   "bytes": 4,
+   "kind": "table",
+   "section": 87
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@4@00000000000000000000",
+   "address": "0079a738",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@4006ff00000000000000",
+   "address": "0079b0a8",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@40078000000000000000",
+   "address": "0079b0ac",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@00000000000000000000",
+   "address": "0079b610",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@3ffe8000000000000000",
+   "address": "0079dd80",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@3ffdcccccd0000000000",
+   "address": "007a7b18",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@3ffb8000000000000000",
+   "address": "007a7b20",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@40068000000000000000",
+   "address": "007aea3c",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@40038000000000000000",
+   "address": "007aea40",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@3ffccccccd0000000000",
+   "address": "007aea44",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "_?_addend@?1??Calculate_Lookup_Table@VoxelPaletteLibrary@@QAEXPAMH@Z@4MB",
+   "address": "007aea48",
+   "bytes": 4,
+   "kind": "static"
+  },
+  {
+   "symbol": "__real@4@3ffecccccd0000000000",
+   "address": "007aea4c",
+   "bytes": 4,
+   "kind": "table"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00716f40",
+   "symbol": "??0UnknownWorker_716f40@@QAE@PAX0@Z",
+   "target": "0071bd00",
+   "function_entry": true
+  },
+  {
+   "site": "00716f40",
+   "symbol": "?Run@UnknownWorker_716f40@@QAEHPAX@Z",
+   "target": "0071bde0",
+   "function_entry": true
+  },
+  {
+   "site": "00716f40",
+   "symbol": "??1UnknownWorker_716f40@@QAE@XZ",
+   "target": "0071bd70",
+   "function_entry": true
+  },
+  {
+   "site": "00719160",
+   "symbol": "??0VoxelPaletteLibrary@@QAE@PAE0@Z",
+   "target": "0071bd00",
+   "function_entry": true
+  },
+  {
+   "site": "00719160",
+   "symbol": "??1VoxelPaletteLibrary@@QAE@XZ",
+   "target": "0071bd70",
+   "function_entry": true
+  },
+  {
+   "site": "00719160",
+   "symbol": "?Calculate_Lookup_Table@VoxelPaletteLibrary@@QAEXPAMH@Z",
+   "target": "0071bf20",
+   "function_entry": true
+  },
+  {
+   "site": "00719160",
+   "symbol": "??1VoxelPaletteLibrary@@QAE@XZ",
+   "target": "0071bd70",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0Matrix3D@@QAE@PBM@Z",
+   "address": "0058fde0"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?Fast_Sqrt@@YAMN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?VoxelPaletteTranslateTable@@3PAEA",
+   "address": "00af4608"
+  },
+  {
+   "symbol": "?VoxelRGBColors@@3PAUVxlRGB@@A",
+   "address": "00ae3008"
+  },
+  {
+   "symbol": "?unknown_af6610@@3HA",
+   "address": "00af6610"
+  },
+  {
+   "symbol": "?unknown_af6614@@3HA",
+   "address": "00af6614"
+  },
+  {
+   "symbol": "?unknown_drawers_7f9de0@@3PAP6AXPAUVoxelFuncArgumentStruct@@@ZA",
+   "address": "007f9de0"
+  },
+  {
+   "symbol": "?unknown_grid_ae3408@@3PAEA",
+   "address": "00ae3408"
+  },
+  {
+   "symbol": "?unknown_lit_colors_af4608@@3PAY0BAA@EA",
+   "address": "00af4608"
+  },
+  {
+   "symbol": "?unknown_normal_counts_7f9f94@@3PAHA",
+   "address": "007f9f94"
+  },
+  {
+   "symbol": "?unknown_normal_tables_7f9f80@@3PAPBUVector3@@A",
+   "address": "007f9f80"
+  },
+  {
+   "symbol": "?unknown_views_7f9e60@@3PAUUnknownVoxelView@@A",
+   "address": "007f9e60"
+  },
+  {
+   "symbol": "?unknown_zbuffer_ad0a70@@3PAEA",
+   "address": "00ad0a70"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  }
+ ],
+ "route": "A",
+ "unit": "voxpal.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 8,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "00716f40",
+   "target": "0071bd00",
+   "symbol": "??0UnknownWorker_716f40@@QAE@PAX0@Z",
+   "module_symbol": "??0VoxelPaletteLibrary@@QAE@PAE0@Z"
+  },
+  {
+   "site": "00716f40",
+   "target": "0071bde0",
+   "symbol": "?Run@UnknownWorker_716f40@@QAEHPAX@Z",
+   "module_symbol": "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z"
+  },
+  {
+   "site": "00716f40",
+   "target": "0071bd70",
+   "symbol": "??1UnknownWorker_716f40@@QAE@XZ",
+   "module_symbol": "??1VoxelPaletteLibrary@@QAE@XZ"
+  }
+ ],
+ "stand_in_reference_count": 3,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

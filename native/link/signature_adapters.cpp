@@ -30,13 +30,13 @@ extern "C" int ra2_adapter_0003(void * a0) { ra2_adapter_target_0003(a0); return
 extern "C" void ra2_adapter_target_0004(void *, unsigned short) __asm__("__ZN7ZBuffer4FillEt");
 extern "C" void ra2_adapter_0004(void * a0, int a1) __asm__("__ZN13Unknown8315B416Unknown_00411050Ei");
 extern "C" void ra2_adapter_0004(void * a0, int a1) { ra2_adapter_target_0004(a0, (unsigned short)(unsigned int)(int)a1); }
-// 0x004314B0 seed_004316b0::Callee_004314b0::FUN_004314b0(unsigned short*, int*, int*, int) -> BitFontClass::Get_Text_Area(unsigned short const*, int*, int*, int) [return width]
+// 0x004314B0 seed_004316b0::Callee_004314b0::Get_Text_Area_004314b0(unsigned short*, int*, int*, int) -> BitFontClass::Get_Text_Area(unsigned short const*, int*, int*, int) [return width]
 extern "C" bool ra2_adapter_target_0005(void *, void *, void *, void *, int) __asm__("__ZN12BitFontClass13Get_Text_AreaEPKtPiS2_i");
-extern "C" int ra2_adapter_0005(void * a0, void * a1, void * a2, void * a3, int a4) __asm__("__ZN13seed_004316b015Callee_004314b012FUN_004314b0EPtPiS2_i");
+extern "C" int ra2_adapter_0005(void * a0, void * a1, void * a2, void * a3, int a4) __asm__("__ZN13seed_004316b015Callee_004314b022Get_Text_Area_004314b0EPtPiS2_i");
 extern "C" int ra2_adapter_0005(void * a0, void * a1, void * a2, void * a3, int a4) { return (int)(unsigned int)(int)ra2_adapter_target_0005(a0, a1, a2, a3, a4); }
-// 0x004314B0 seed_00431860::Callee_004314b0::FUN_004314b0(unsigned short*, int*, int*, int) -> BitFontClass::Get_Text_Area(unsigned short const*, int*, int*, int) [return width]
+// 0x004314B0 seed_00431860::Callee_004314b0::Get_Text_Area_004314b0(unsigned short*, int*, int*, int) -> BitFontClass::Get_Text_Area(unsigned short const*, int*, int*, int) [return width]
 extern "C" bool ra2_adapter_target_0006(void *, void *, void *, void *, int) __asm__("__ZN12BitFontClass13Get_Text_AreaEPKtPiS2_i");
-extern "C" int ra2_adapter_0006(void * a0, void * a1, void * a2, void * a3, int a4) __asm__("__ZN13seed_0043186015Callee_004314b012FUN_004314b0EPtPiS2_i");
+extern "C" int ra2_adapter_0006(void * a0, void * a1, void * a2, void * a3, int a4) __asm__("__ZN13seed_0043186015Callee_004314b022Get_Text_Area_004314b0EPtPiS2_i");
 extern "C" int ra2_adapter_0006(void * a0, void * a1, void * a2, void * a3, int a4) { return (int)(unsigned int)(int)ra2_adapter_target_0006(a0, a1, a2, a3, a4); }
 // 0x00475960 UnknownBuildingCell52::Unknown_00475960(int) -> CellClass::Wall_Update(bool) [width]
 extern "C" void ra2_adapter_target_0007(void *, bool) __asm__("__ZN9CellClass11Wall_UpdateEb");
@@ -114,9 +114,9 @@ extern "C" int ra2_adapter_0024(void * a0, int a1, int a2) { return ra2_adapter_
 extern "C" int ra2_adapter_target_0025(void *, int, bool) __asm__("__ZNK10MouseClass21Get_Mouse_Start_FrameEib");
 extern "C" int ra2_adapter_0025(void * a0, int a1, int a2) __asm__("__ZN13Target_6f67606targetEjj");
 extern "C" int ra2_adapter_0025(void * a0, int a1, int a2) { return ra2_adapter_target_0025(a0, a1, (((unsigned int)(int)a2 & 0xFFu) != 0)); }
-// 0x0059F250 seed_006816b0::Callee_0059f250::FUN_0059f250(int, char) -> MouseClass::Override_Mouse_Shape(int, bool) [return width, width]
+// 0x0059F250 seed_006816b0::Callee_0059f250::Override_Mouse_Shape_0059f250(int, char) -> MouseClass::Override_Mouse_Shape(int, bool) [return width, width]
 extern "C" bool ra2_adapter_target_0026(void *, int, bool) __asm__("__ZN10MouseClass20Override_Mouse_ShapeEib");
-extern "C" int ra2_adapter_0026(void * a0, int a1, signed char a2) __asm__("__ZN13seed_006816b015Callee_0059f25012FUN_0059f250Eic");
+extern "C" int ra2_adapter_0026(void * a0, int a1, signed char a2) __asm__("__ZN13seed_006816b015Callee_0059f25029Override_Mouse_Shape_0059f250Eic");
 extern "C" int ra2_adapter_0026(void * a0, int a1, signed char a2) { return (int)(unsigned int)(int)ra2_adapter_target_0026(a0, a1, (((unsigned int)(int)a2 & 0xFFu) != 0)); }
 // 0x005A02D0 Unknown_005A02D0(char const*, int, int, int, int, int) -> Play_Movie(char const*, int, bool, bool, bool, bool) [width]
 extern "C" void ra2_adapter_target_0027(void *, int, bool, bool, bool, bool) __asm__("__Z10Play_MoviePKcibbbb");

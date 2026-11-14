@@ -71,6 +71,10 @@ public:
         int Count;                                      // +0x0
         int Offset;                                     // +0x4
     };
+#ifdef RA2_NON_MATCHING
+    // TibSun isotype.cpp Draw_Tile (non-exact draft 0x0052C230).
+    void Draw_Tile(class LightConvertClass *drawer, int subtile, class Surface &surface, int x, int y, class Rect cliprect, int height, int brightness, bool use_z, int cell_variation, bool fill, bool depth_only, bool fog, signed int fog_color) const;
+#endif
 #ifdef ISOMETRIC_TILE_TYPE_DECLARE_STATICS
     // Static data members (declared only for the class's own unit: each one renumbers the
     // _$E initializers of every unit that sees it).
@@ -120,10 +124,10 @@ public:
     // The pixel size of sub tile `tile` (wrapping), taller by its extra image; false without an
     // image (0x0052B690; TibSun Get_Tile_Pixel_Dimensions).
     bool Get_Tile_Pixel_Dimensions(int tile, int &width, int &height);
-#ifdef RA2_CELL_RECALC_ATTRIBUTES
     // The land type of sub tile `tile` (0x00529300; TibSun Land_Type).
     int Land_Type(int tile);
-#endif
+    // How far the extra (cliff) image starts below the tile (0x0052DFA0; TibSun Get_Y_Offset).
+    int Get_Y_Offset(int tile);
     // Unpacks sub tile `tile` (wrapping) into a cleared width x height byte image through the
     // diamond mask, then its extra image; false when it does not fit (0x0052DD70; TibSun
     // Get_Tile_Image).

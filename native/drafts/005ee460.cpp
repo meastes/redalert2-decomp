@@ -89,7 +89,7 @@ extern "C" double __cdecl floor(double);
 
 
 LRESULT __fastcall IME_Get_Default_Result_007380b0();
-void __fastcall Unknown_006FA0F0(char *dst, unsigned short const *src, int limit);
+void __fastcall WideToCharString_006fa0f0(char *dst, unsigned short const *src, int limit);
 void __fastcall Unknown_Rect_Shrink_006F1B30(Rect *rect, int x, int y);
 WIN32_IMPORT BOOL WINAPI GetUpdateRect(HWND, RECT *, BOOL);
 WIN32_IMPORT BOOL WINAPI IntersectRect(RECT *, RECT const *, RECT const *);
@@ -98,7 +98,7 @@ WIN32_IMPORT HWND WINAPI WindowFromPoint(POINT);
 WIN32_IMPORT int WINAPI GetBkMode(HDC);
 WIN32_IMPORT COLORREF WINAPI GetBkColor(HDC);
 WIN32_IMPORT COLORREF WINAPI GetTextColor(HDC);
-namespace seed_005de980 { int __fastcall FUN_005de980(int *); }
+namespace seed_005de980 { int __fastcall unknown_product_005de980(int *); }
 namespace OwnerDraw {
 // unknown_window_table_a73400 is defined by this population's initializer005DEB90.
 extern HWND unknown_dropdown_window_a763e4;
@@ -140,7 +140,7 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
     BOOL allow_proc = 1;
 	int anim_state = 0;
 
-	static WolDictionary<UnknownPairKey, bool> ctrlmessages((unsigned int (__fastcall *)(UnknownPairKey const &))seed_005de980::FUN_005de980);
+	static WolDictionary<UnknownPairKey, bool> ctrlmessages((unsigned int (__fastcall *)(UnknownPairKey const &))seed_005de980::unknown_product_005de980);
 
 	UnknownPairKey key;
 	key.unknown_04 = (int)window;
@@ -157,7 +157,7 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
 	static WolArrayList<HWND> hwndarray;
 
 	HWND owner;
-	UnknownControlRecord *ownerdata;
+	WinData *ownerdata;
 	int state;
 
 	if (hwndarray.Length() != 0) {
@@ -244,7 +244,7 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
 		update_rect.right += disp_rect.left;
 	}
 
-	UnknownControlRecord *data = Get_Record(window);
+	WinData *data = Get_Record(window);
 
 	if (message == 0x4a0) {
 		result = (data && data->attached_0c != 0);
@@ -279,7 +279,7 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
 			result = data->unknown_20;
 			data->unknown_20 = lparam;
 			if (linked != 0) {
-				UnknownControlRecord *linkeddata = 0;
+				WinData *linkeddata = 0;
 				::unknown_control_table_a73640.Get_Pointer((unsigned int const &)data->attached_0c, &linkeddata);
 				if (linkeddata != 0) {
 					linkeddata->unknown_20 = lparam;
@@ -410,7 +410,7 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
             if (destination) {
                 *destination = 0;
                 if (data->text_28) {
-                    Unknown_006FA0F0(destination, data->text_28, wparam);
+                    WideToCharString_006fa0f0(destination, data->text_28, wparam);
                     if (wparam > 0) destination[wparam - 1] = 0;
                 }
             }
@@ -627,7 +627,7 @@ call_custom_proc:
 after_proc:
 	if (message == 0x82) {
 		HWND destroyed = window;
-		UnknownControlRecord * destroydata;
+		WinData * destroydata;
 		unsigned int destroyed_key=(unsigned int)destroyed;
 		if (::unknown_control_table_a73640.Get_Pointer(destroyed_key, &destroydata)) {
 			if (destroydata != 0 && destroydata->surface_10 != 0) {

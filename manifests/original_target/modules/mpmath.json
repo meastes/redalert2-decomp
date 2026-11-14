@@ -1,0 +1,831 @@
+{
+ "module": "mpmath",
+ "source": "src/recovered/mpmath.cpp",
+ "header": null,
+ "population": "population-4211",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 908,
+ "code": [
+  {
+   "symbol": "?XMP_Fetch_Prime_Table@@YIPBGXZ",
+   "entry": "005a7530",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?XMP_Fetch_Prime_Size@@YIHXZ",
+   "entry": "005a7540",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?XMP_Test_Eq_Int@@YIHPBKHH@Z",
+   "entry": "005a7550",
+   "body_bytes": 50,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?XMP_DER_Length_Encode@@YIHKPAE@Z",
+   "entry": "005a7590",
+   "body_bytes": 116,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?XMP_DER_Encode@@YIHPBKPAEH@Z",
+   "entry": "005a7610",
+   "body_bytes": 180,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?XMP_DER_Decode@@YIXPAKPBEH@Z",
+   "entry": "005a76d0",
+   "body_bytes": 126,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?XMP_Encode@@YIIPAEIPBKH@Z",
+   "entry": "005a7750",
+   "body_bytes": 147,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?XMP_Encode@@YIHPAEPBKH@Z",
+   "entry": "005a77f0",
+   "body_bytes": 107,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?XMP_Signed_Decode@@YIXPAKPBEHH@Z",
+   "entry": "005a7860",
+   "body_bytes": 68,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?XMP_Unsigned_Decode@@YIXPAKPBEHH@Z",
+   "entry": "005a78b0",
+   "body_bytes": 54,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?XMP_Significance@@YIHPBKH@Z",
+   "entry": "005a78f0",
+   "body_bytes": 28,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?XMP_Inc@@YIXPAKH@Z",
+   "entry": "005a7910",
+   "body_bytes": 21,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?XMP_Dec@@YIXPAKH@Z",
+   "entry": "005a7930",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?XMP_Neg@@YIXPAKH@Z",
+   "entry": "005a7950",
+   "body_bytes": 48,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?XMP_Abs@@YIXPAKH@Z",
+   "entry": "005a7980",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?XMP_Shift_Right_Bits@@YIXPAKHH@Z",
+   "entry": "005a79c0",
+   "body_bytes": 306,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?XMP_Shift_Left_Bits@@YIXPAKHH@Z",
+   "entry": "005a7b00",
+   "body_bytes": 306,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?XMP_Rotate_Left@@YI_NPAK_NH@Z",
+   "entry": "005a7c40",
+   "body_bytes": 50,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?XMP_Not@@YIXPAKH@Z",
+   "entry": "005a7c80",
+   "body_bytes": 20,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "entry": "005a7ca0",
+   "body_bytes": 21,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?XMP_Count_Bits@@YIHPBKH@Z",
+   "entry": "005a7cc0",
+   "body_bytes": 60,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?XMP_Count_Bytes@@YIHPBKH@Z",
+   "entry": "005a7d00",
+   "body_bytes": 26,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?XMP_Move@@YIXPAKPBKH@Z",
+   "entry": "005a7d20",
+   "body_bytes": 17,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?XMP_Compare@@YIHPBK0H@Z",
+   "entry": "005a7d40",
+   "body_bytes": 70,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?XMP_Add@@YI_NPAKPBK1_NH@Z",
+   "entry": "005a7d90",
+   "body_bytes": 106,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?XMP_Add_Int@@YI_NPAKPBKK_NH@Z",
+   "entry": "005a7e00",
+   "body_bytes": 92,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?XMP_Sub@@YI_NPAKPBK1_NH@Z",
+   "entry": "005a7e60",
+   "body_bytes": 86,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?XMP_Sub_Int@@YI_NPAKPBKG_NH@Z",
+   "entry": "005a7ec0",
+   "body_bytes": 84,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?XMP_Unsigned_Mult@@YIHPAKPBK1H@Z",
+   "entry": "005a7f20",
+   "body_bytes": 461,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?XMP_Unsigned_Mult_Int@@YIHPAKPBKFH@Z",
+   "entry": "005a80f0",
+   "body_bytes": 64,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?XMP_Signed_Mult_Int@@YIHPAKPBKFH@Z",
+   "entry": "005a8130",
+   "body_bytes": 519,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?XMP_Signed_Mult@@YIHPAKPBK1H@Z",
+   "entry": "005a8340",
+   "body_bytes": 507,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?XMP_Unsigned_Div_Int@@YIGPAKPBKGH@Z",
+   "entry": "005a8540",
+   "body_bytes": 293,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?XMP_Unsigned_Div@@YIHPAK0PBK1H@Z",
+   "entry": "005a8670",
+   "body_bytes": 528,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?XMP_Signed_Div@@YIXPAK0PBK1H@Z",
+   "entry": "005a8880",
+   "body_bytes": 539,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?XMP_Inverse_A_Mod_B@@YIXPAKPBK1H@Z",
+   "entry": "005a8aa0",
+   "body_bytes": 585,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?XMP_Reciprocal@@YIHPAKPBKH@Z",
+   "entry": "005a8cf0",
+   "body_bytes": 518,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?XMP_Decode_ASCII@@YIXPBDPAKH@Z",
+   "entry": "005a8f00",
+   "body_bytes": 518,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?XMP_Single_Mul@@YIXPAGPBGGH@Z",
+   "entry": "005a9110",
+   "body_bytes": 76,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?XMP_Double_Mul@@YIXPAKPBK1H@Z",
+   "entry": "005a9160",
+   "body_bytes": 177,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?XMP_Prepare_Modulus@@YIHPBKH@Z",
+   "entry": "005a9220",
+   "body_bytes": 475,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?XMP_Mod_Mult@@YIHPAKPBK1H@Z",
+   "entry": "005a9400",
+   "body_bytes": 785,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?XMP_Mod_Mult_Clear@@YIXH@Z",
+   "entry": "005a9720",
+   "body_bytes": 162,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?mp_quo_digit@@YIGPBG@Z",
+   "entry": "005a97d0",
+   "body_bytes": 143,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?XMP_Exponent_Mod@@YIHPAKPBK11H@Z",
+   "entry": "005a9860",
+   "body_bytes": 879,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?memrev@@YIXPADI@Z",
+   "entry": "005a9bd0",
+   "body_bytes": 25,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?pfunc@@YIHPBX0@Z",
+   "entry": "005a9bf0",
+   "body_bytes": 20,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?XMP_Is_Small_Prime@@YI_NPBKH@Z",
+   "entry": "005a9c10",
+   "body_bytes": 119,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?XMP_Small_Divisors_Test@@YI_NPBKH@Z",
+   "entry": "005a9c90",
+   "body_bytes": 74,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?XMP_Fermat_Test@@YI_NPBKIH@Z",
+   "entry": "005a9ce0",
+   "body_bytes": 304,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?XMP_Rabin_Miller_Test@@YI_NAAVStraw@@PBKHH@Z",
+   "entry": "005a9e10",
+   "body_bytes": 794,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?XMP_Randomize@@YIXPAKAAVStraw@@HH@Z",
+   "entry": "005aa130",
+   "body_bytes": 103,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?XMP_Randomize@@YIXPAKAAVStraw@@PBK2H@Z",
+   "entry": "005aa1a0",
+   "body_bytes": 471,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?XMP_Is_Prime@@YI_NPBKH@Z",
+   "entry": "005aa380",
+   "body_bytes": 427,
+   "padding_bytes": 5
+  }
+ ],
+ "code_bytes": 12288,
+ "data": [
+  {
+   "symbol": "?primeTable@@3QBGB",
+   "address": "007e3934",
+   "bytes": 7022,
+   "kind": "table",
+   "section": 3
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "?primeTable@@3QBGB",
+   "address": "007e3934",
+   "bytes": 7022,
+   "kind": "table"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0040d890",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0040d890",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ed40",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ed40",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ed40",
+   "symbol": "?XMP_DER_Decode@@YIXPAKPBEH@Z",
+   "target": "005a76d0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ed40",
+   "symbol": "?XMP_DER_Decode@@YIXPAKPBEH@Z",
+   "target": "005a76d0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ed40",
+   "symbol": "?XMP_Count_Bits@@YIHPBKH@Z",
+   "target": "005a7cc0",
+   "function_entry": true
+  },
+  {
+   "site": "0060eda0",
+   "symbol": "?XMP_DER_Encode@@YIHPBKPAEH@Z",
+   "target": "005a7610",
+   "function_entry": true
+  },
+  {
+   "site": "0060edc0",
+   "symbol": "?XMP_DER_Encode@@YIHPBKPAEH@Z",
+   "target": "005a7610",
+   "function_entry": true
+  },
+  {
+   "site": "0060ede0",
+   "symbol": "?XMP_DER_Decode@@YIXPAKPBEH@Z",
+   "target": "005a76d0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ede0",
+   "symbol": "?XMP_Count_Bits@@YIHPBKH@Z",
+   "target": "005a7cc0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee10",
+   "symbol": "?XMP_DER_Decode@@YIXPAKPBEH@Z",
+   "target": "005a76d0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Is_Prime@@YI_NPBKH@Z",
+   "target": "005aa380",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Is_Prime@@YI_NPBKH@Z",
+   "target": "005aa380",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Compare@@YIHPBK0H@Z",
+   "target": "005a7d40",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Is_Prime@@YI_NPBKH@Z",
+   "target": "005aa380",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Is_Prime@@YI_NPBKH@Z",
+   "target": "005aa380",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Unsigned_Mult@@YIHPAKPBK1H@Z",
+   "target": "005a8340",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Sub_Int@@YI_NPAKPBKG_NH@Z",
+   "target": "005a7ec0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Sub_Int@@YI_NPAKPBKG_NH@Z",
+   "target": "005a7ec0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Unsigned_Mult@@YIHPAKPBK1H@Z",
+   "target": "005a8340",
+   "function_entry": true
+  },
+  {
+   "site": "0060ee30",
+   "symbol": "?XMP_Count_Bits@@YIHPBKH@Z",
+   "target": "005a7cc0",
+   "function_entry": true
+  },
+  {
+   "site": "0060f520",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060f520",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060f520",
+   "symbol": "?XMP_Exponent_Mod@@YIHPAKPBK11H@Z",
+   "target": "005a9860",
+   "function_entry": true
+  },
+  {
+   "site": "0060f650",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060f650",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060f650",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060f650",
+   "symbol": "?XMP_Exponent_Mod@@YIHPAKPBK11H@Z",
+   "target": "005a9860",
+   "function_entry": true
+  },
+  {
+   "site": "0060f7a0",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060f7a0",
+   "symbol": "?XMP_Sub_Int@@YI_NPAKPBKG_NH@Z",
+   "target": "005a7ec0",
+   "function_entry": true
+  },
+  {
+   "site": "0060f800",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060f800",
+   "symbol": "?XMP_Inverse_A_Mod_B@@YIXPAKPBK1H@Z",
+   "target": "005a8aa0",
+   "function_entry": true
+  },
+  {
+   "site": "0060f850",
+   "symbol": "?XMP_Randomize@@YIXPAKAAVStraw@@PBK2H@Z",
+   "target": "005aa1a0",
+   "function_entry": true
+  },
+  {
+   "site": "0060f880",
+   "symbol": "?XMP_Add@@YI_NPAKPBK1_NH@Z",
+   "target": "005a7d90",
+   "function_entry": true
+  },
+  {
+   "site": "0060f8a0",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060f8a0",
+   "symbol": "?XMP_Add_Int@@YI_NPAKPBKK_NH@Z",
+   "target": "005a7e00",
+   "function_entry": true
+  },
+  {
+   "site": "0060f900",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0060f900",
+   "symbol": "?XMP_Unsigned_Mult_Int@@YIHPAKPBKFH@Z",
+   "target": "005a80f0",
+   "function_entry": true
+  },
+  {
+   "site": "0060f950",
+   "symbol": "?XMP_Shift_Left_Bits@@YIXPAKHH@Z",
+   "target": "005a7b00",
+   "function_entry": true
+  },
+  {
+   "site": "0060f9a0",
+   "symbol": "?XMP_Compare@@YIHPBK0H@Z",
+   "target": "005a7d40",
+   "function_entry": true
+  },
+  {
+   "site": "0060f9c0",
+   "symbol": "?XMP_Fetch_Prime_Size@@YIHXZ",
+   "target": "005a7540",
+   "function_entry": true
+  },
+  {
+   "site": "0060f9c0",
+   "symbol": "?XMP_Fetch_Prime_Table@@YIPBGXZ",
+   "target": "005a7530",
+   "function_entry": true
+  },
+  {
+   "site": "0060f9c0",
+   "symbol": "?XMP_Unsigned_Div_Int@@YIGPAKPBKGH@Z",
+   "target": "005a8540",
+   "function_entry": true
+  },
+  {
+   "site": "0060fa20",
+   "symbol": "?XMP_Fetch_Prime_Size@@YIHXZ",
+   "target": "005a7540",
+   "function_entry": true
+  },
+  {
+   "site": "0060fa20",
+   "symbol": "?XMP_Fetch_Prime_Table@@YIPBGXZ",
+   "target": "005a7530",
+   "function_entry": true
+  },
+  {
+   "site": "00510370",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "00510370",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "00510370",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  },
+  {
+   "site": "00510370",
+   "symbol": "?XMP_DER_Encode@@YIHPBKPAEH@Z",
+   "target": "005a7610",
+   "function_entry": true
+  },
+  {
+   "site": "0051e7f0",
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "target": "005a7ca0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "_isdigit",
+   "address": "00782b8c"
+  },
+  {
+   "symbol": "_isxdigit",
+   "address": "00782bb4"
+  },
+  {
+   "symbol": "_toupper",
+   "address": "007829d3"
+  }
+ ],
+ "route": "A",
+ "unit": "mpmath.cpp",
+ "form": "one include block",
+ "switches": [
+  "SEMI_UPPER_MOST_BIT",
+  "SEMI_MASK"
+ ],
+ "include_blocks": [
+  {
+   "before": "005a7530",
+   "lines": 4
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 69,
+ "data_unproven": [],
+ "stand_in_references": [
+  {
+   "site": "0060ee30",
+   "target": "005a8340",
+   "symbol": "?XMP_Unsigned_Mult@@YIHPAKPBK1H@Z",
+   "module_symbol": "?XMP_Signed_Mult@@YIHPAKPBK1H@Z"
+  },
+  {
+   "site": "0060ee30",
+   "target": "005a8340",
+   "symbol": "?XMP_Unsigned_Mult@@YIHPAKPBK1H@Z",
+   "module_symbol": "?XMP_Signed_Mult@@YIHPAKPBK1H@Z"
+  }
+ ],
+ "stand_in_reference_count": 2,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

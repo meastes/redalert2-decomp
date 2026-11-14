@@ -1,0 +1,80 @@
+{
+ "module": "sprite",
+ "source": "src/recovered/sprite.cpp",
+ "header": null,
+ "population": "population-3508",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 707,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "0068b7e0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Scale_Rotate@@YIXAAVSurface@@AAVBitmapClass@@ABUPoint2D@@HE@Z",
+   "entry": "0068b800",
+   "body_bytes": 1100,
+   "padding_bytes": 4
+  }
+ ],
+ "code_bytes": 1136,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [],
+ "references_out": [
+  {
+   "symbol": "?_CosineTab@@3PAHA",
+   "address": "007f48c4"
+  },
+  {
+   "symbol": "?_SineTab@@3PAHA",
+   "address": "007f44c4"
+  }
+ ],
+ "route": "A",
+ "unit": "sprite.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "0068b7e0",
+   "lines": 2
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 3,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

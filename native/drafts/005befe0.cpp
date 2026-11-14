@@ -25,7 +25,7 @@ void *Native_Entry_From_Handle(int handle);   // NATIVE: native/link/native_even
 // @ref ?Unknown_005cb560@@YIXPAUHWND__@@@Z=005cb560
 // @ref ?Unknown_005cbf20@@YIXPAUHWND__@@HHH@Z=005cbf20
 // @ref ?unknown_center_on_owner_737060@@YIXPAUHWND__@@@Z=00737060
-// @ref ?Load_Lobby_Options_005cca30@@YIXPAUHWND__@@PAUUnknownGameOptions@@@Z=005cca30
+// @ref ?Load_Lobby_Options_005cca30@@YIXPAUHWND__@@PAUSessionOptionsClass@@@Z=005cca30
 // @ref ?Init_Clipping@UnknownVersionObject@@QAEXXZ=00713160
 // @ref ?Select_Scenario_005c7c30@@YI_NH@Z=005c7c30
 // @ref ?Open_Lobby_Dialog_005c6960@@YIHPAUHWND__@@@Z=005c6960
@@ -44,14 +44,14 @@ void __fastcall Unknown_005e8710(HWND window);
 void __fastcall Unknown_005e5fc0(HWND window);
 void __fastcall unknown_center_on_owner_737060(HWND window);
 void __fastcall Change_Scenario_Slots_005cb8d0(HWND dialog, int previous, int scenario);
-void __fastcall Load_Lobby_Options_005cca30(HWND dialog, UnknownGameOptions *options);
-void __fastcall Save_Lobby_Options_005cc890(HWND dialog, UnknownGameOptions *options);
+void __fastcall Load_Lobby_Options_005cca30(HWND dialog, SessionOptionsClass *options);
+void __fastcall Save_Lobby_Options_005cc890(HWND dialog, SessionOptionsClass *options);
 bool __fastcall Unknown_Clear_Closed_Slots_005cacb0(HWND dialog);
 void __fastcall unknown_set_dialog_item_text_005c34b0(HWND dialog);
 struct UnknownTextOwner_005c3450;
 void __fastcall unknown_set_dialog_wide_text_005c3450(HWND dialog, UnknownTextOwner_005c3450 *owner);
 extern bool unknown_host_shown_7e6dc0;
-// @ref ?Save_Lobby_Options_005cc890@@YIXPAUHWND__@@PAUUnknownGameOptions@@@Z=005cc890
+// @ref ?Save_Lobby_Options_005cc890@@YIXPAUHWND__@@PAUSessionOptionsClass@@@Z=005cc890
 // @ref ?Unknown_Clear_Closed_Slots_005cacb0@@YI_NPAUHWND__@@@Z=005cacb0
 // @ref ?unknown_set_dialog_item_text_005c34b0@@YIXPAUHWND__@@@Z=005c34b0
 // @ref ?unknown_set_dialog_wide_text_005c3450@@YIXPAUHWND__@@PAUUnknownTextOwner_005c3450@@@Z=005c3450

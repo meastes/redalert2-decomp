@@ -1,0 +1,410 @@
+{
+ "module": "audtimer",
+ "source": "src/recovered/audtimer.cpp",
+ "header": null,
+ "population": "population-4364",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 993,
+ "code": [
+  {
+   "symbol": "?Audio_Timer_Init@@YAXXZ",
+   "entry": "00409280",
+   "body_bytes": 79,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "entry": "004092d0",
+   "body_bytes": 16,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Audio_Counter_Clock@@YA_JXZ",
+   "entry": "004092e0",
+   "body_bytes": 47,
+   "padding_bytes": 1
+  }
+ ],
+ "code_bytes": 144,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "004070a0",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "00407030",
+   "symbol": "?unknown_time_4092d0@@YA_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "004075b0",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "00407960",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "00407990",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "00408010",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "00408010",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "004097a0",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "00404fb0",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "00405020",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "004053f0",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "00405440",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "00406ad0",
+   "symbol": "?Audio_Timer_Init@@YAXXZ",
+   "target": "00409280",
+   "function_entry": true
+  },
+  {
+   "site": "00406ea0",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "00406fe0",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "00406fe0",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "00715ba0",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "005147a0",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "006a5280",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "006a5280",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "00407a90",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "004055d0",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "004055d0",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "00402f60",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "00516560",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "004094d0",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "004039c0",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "005227d0",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "004070f0",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "0040a260",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  },
+  {
+   "site": "00405a10",
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "target": "004092d0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?Audio_Channel_Detach@@YIXPAUAudioChannel@@@Z",
+   "address": "004028b0"
+  },
+  {
+   "symbol": "?Audio_Channel_Finished@@YIHPAUAudioChannel@@@Z",
+   "address": "004023f0"
+  },
+  {
+   "symbol": "?Audio_Channel_Next_Piece@@YIHPAUAudioChannel@@@Z",
+   "address": "004022c0"
+  },
+  {
+   "symbol": "?Audio_Channel_Source_Ended@@YIHPAUAudioChannel@@@Z",
+   "address": "00402330"
+  },
+  {
+   "symbol": "?Audio_Channel_Update_Settings@@YIXPAUAudioChannel@@@Z",
+   "address": "00402220"
+  },
+  {
+   "symbol": "?Audio_Clock@@3P6A_JXZA",
+   "address": "00831558"
+  },
+  {
+   "symbol": "?Audio_List_First@@YIPAUAudioListNode@@PAU1@@Z",
+   "address": "004072f0"
+  },
+  {
+   "symbol": "?Audio_List_Init_Node@@YIXPAUAudioListNode@@@Z",
+   "address": "00407200"
+  },
+  {
+   "symbol": "?Audio_List_Next@@YIPAUAudioListNode@@PAU1@@Z",
+   "address": "00407310"
+  },
+  {
+   "symbol": "?Audio_Master_Levels@@3PAUAudioLevelSet@@A",
+   "address": "00830b50"
+  },
+  {
+   "symbol": "?Audio_System_Clock@@YA_JXZ",
+   "address": "00409310"
+  },
+  {
+   "symbol": "?Audio_System_Instance@@3PAUAudioSystem@@A",
+   "address": "007cc968"
+  },
+  {
+   "symbol": "?Audio_Ticks_Per_Ms@@3_JA",
+   "address": "00831538"
+  },
+  {
+   "symbol": "?Info@AudioSource@@QAEPAUAudioSourceInfo@@XZ",
+   "address": "00408440"
+  },
+  {
+   "symbol": "?Init@AudioLevelSet@@QAIXXZ",
+   "address": "00401000"
+  },
+  {
+   "symbol": "?Update@AudioLevelSet@@QAEXXZ",
+   "address": "00401080"
+  },
+  {
+   "symbol": "?target@Call_402190_0@@QAEIXZ",
+   "address": "00401000"
+  },
+  {
+   "symbol": "__alldiv",
+   "address": "007824d0"
+  },
+  {
+   "symbol": "__imp__QueryPerformanceCounter@4",
+   "address": "0079a1c8"
+  },
+  {
+   "symbol": "__imp__QueryPerformanceFrequency@4",
+   "address": "0079a1cc"
+  },
+  {
+   "symbol": "_data_402190_4022c0",
+   "address": "004022c0"
+  },
+  {
+   "symbol": "_data_402190_402330",
+   "address": "00402330"
+  },
+  {
+   "symbol": "_data_402190_4023f0",
+   "address": "004023f0"
+  },
+  {
+   "symbol": "_global_402190_830b50",
+   "address": "00830b50"
+  }
+ ],
+ "route": "A",
+ "unit": "audtimer.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00409280",
+   "lines": 1
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "00409310",
+   "bytes": 123,
+   "population": "population-998",
+   "source": "src/recovered/audtimer/Audio_System_Clock.cpp",
+   "cause": "frozen in another population's inventory pass (population-998)"
+  }
+ ],
+ "unit_functions": 4,
+ "data_unproven": [],
+ "stand_in_references": [
+  {
+   "site": "00407030",
+   "target": "004092d0",
+   "symbol": "?unknown_time_4092d0@@YA_JXZ",
+   "module_symbol": "?Audio_Now@@YI_JXZ"
+  }
+ ],
+ "stand_in_reference_count": 1,
+ "residual_split": {
+  "rows": 1,
+  "bytes": 123
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

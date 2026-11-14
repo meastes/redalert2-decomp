@@ -1,0 +1,1422 @@
+{
+ "module": "wdtvoice",
+ "source": "src/recovered/wdtvoice.cpp",
+ "header": null,
+ "population": "population-3558",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 725,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "007312d0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "007312f0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "00731320",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "00731340",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "00731360",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "00731380",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "007313a0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "007313c0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "00731400",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "00731430",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "00731460",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "00731490",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "007314a0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "??0Voices@WorldDominationTour@@QAE@H@Z",
+   "entry": "007314c0",
+   "body_bytes": 434,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "??1Voices@WorldDominationTour@@QAE@XZ",
+   "entry": "00731680",
+   "body_bytes": 276,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Load@Voices@WorldDominationTour@@QAEXAAVINIClass@@ABVWstring@@@Z",
+   "entry": "007317a0",
+   "body_bytes": 757,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Load_List@Voices@WorldDominationTour@@QAEXAAVINIClass@@ABVWstring@@H1@Z",
+   "entry": "00731aa0",
+   "body_bytes": 286,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Pick@Voices@WorldDominationTour@@QBE_NHHAAVWstring@@@Z",
+   "entry": "00731bc0",
+   "body_bytes": 213,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Pick_Emphasis@Voices@WorldDominationTour@@QBE_NHHAAVWstring@@@Z",
+   "entry": "00731ca0",
+   "body_bytes": 213,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Pick_List@Voices@WorldDominationTour@@QBE_NHAAVWstring@@@Z",
+   "entry": "00731d80",
+   "body_bytes": 209,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Pick@Voices@WorldDominationTour@@SI_NHABV?$DynamicVectorClass@I@@AAVWstring@@@Z",
+   "entry": "00731e60",
+   "body_bytes": 197,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Make_Name@Voices@WorldDominationTour@@SI_NHHAAVWstring@@@Z",
+   "entry": "00731f30",
+   "body_bytes": 130,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Parse_List@Voices@WorldDominationTour@@SIXABVWstring@@AAV?$DynamicVectorClass@I@@@Z",
+   "entry": "00731fc0",
+   "body_bytes": 159,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "??0Group@Voices@WorldDominationTour@@QAE@XZ",
+   "entry": "00732060",
+   "body_bytes": 75,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Load@Group@Voices@WorldDominationTour@@QAEXAAVINIClass@@ABVWstring@@H@Z",
+   "entry": "007320c0",
+   "body_bytes": 147,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Pick@Group@Voices@WorldDominationTour@@QBE_NHHAAVWstring@@@Z",
+   "entry": "00732160",
+   "body_bytes": 199,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Pick_Emphasis@Group@Voices@WorldDominationTour@@QBE_NHHAAVWstring@@@Z",
+   "entry": "00732230",
+   "body_bytes": 199,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Load@Group@Voices@WorldDominationTour@@QAEXAAVINIClass@@ABVWstring@@HH1@Z",
+   "entry": "00732300",
+   "body_bytes": 524,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Say@Voices@WorldDominationTour@@QAEXHH_N0H@Z",
+   "entry": "00732510",
+   "body_bytes": 490,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Say_List@Voices@WorldDominationTour@@QAEXH_NH@Z",
+   "entry": "00732700",
+   "body_bytes": 361,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Update@Voices@WorldDominationTour@@QAEXXZ",
+   "entry": "00732870",
+   "body_bytes": 229,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Trim@Voices@WorldDominationTour@@QAEXXZ",
+   "entry": "00732960",
+   "body_bytes": 111,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?FUN_007329d0@seed_007329d0@@YAXXZ",
+   "entry": "007329d0",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?FUN_007329e0@seed_007329e0@@YAXXZ",
+   "entry": "007329e0",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Stop@Voices@WorldDominationTour@@QAEXXZ",
+   "entry": "007329f0",
+   "body_bytes": 72,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Is_Speaking@Voices@WorldDominationTour@@QAE_NXZ",
+   "entry": "00732a40",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Create_Anim@Voices@WorldDominationTour@@QAEPAVAnim@12@XZ",
+   "entry": "00732a50",
+   "body_bytes": 67,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "??0Anim@Voices@WorldDominationTour@@QAE@PAV12@@Z",
+   "entry": "00732aa0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "??1Anim@Voices@WorldDominationTour@@UAE@XZ",
+   "entry": "00732ae0",
+   "body_bytes": 11,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Set_Unknown_0C@Anim@Voices@WorldDominationTour@@UAEX_N@Z",
+   "entry": "00732af0",
+   "body_bytes": 86,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Pause@Anim@Voices@WorldDominationTour@@UAEXXZ",
+   "entry": "00732b50",
+   "body_bytes": 65,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Resume@Anim@Voices@WorldDominationTour@@UAEXXZ",
+   "entry": "00732ba0",
+   "body_bytes": 22,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Advance@Anim@Voices@WorldDominationTour@@UAE_NPAVSurface@@PAVRect@@@Z",
+   "entry": "00732bc0",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Draw@Anim@Voices@WorldDominationTour@@UAEXPAVSurface@@PBVRect@@@Z",
+   "entry": "00732bd0",
+   "body_bytes": 11,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Get_Rect@Anim@Voices@WorldDominationTour@@UAE?AVRect@@XZ",
+   "entry": "00732be0",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Has_Finished@Anim@Voices@WorldDominationTour@@UAE_NXZ",
+   "entry": "00732c10",
+   "body_bytes": 11,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Restore@Anim@Voices@WorldDominationTour@@UAEXH@Z",
+   "entry": "00732c20",
+   "body_bytes": 11,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?FUN_00732c30@seed_00732c30@@YIXPAI@Z",
+   "entry": "00732c30",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?FUN_00732c80@Owner_00732c80@seed_00732c80@@QAEPAIE@Z",
+   "entry": "00732c80",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  }
+ ],
+ "code_bytes": 6560,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@VWstring@@@@6B@",
+   "address": "007a9660",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 60
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007af3f8",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@I@@8",
+   "address": "007b3b38",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 48
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@I@@8",
+   "address": "007b3b50",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 49
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@I@@8",
+   "address": "007b3b68",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 50
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@I@@8",
+   "address": "007b3b78",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 51
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@I@@6B@",
+   "address": "007b3b88",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 53
+  },
+  {
+   "symbol": "??_R2?$VectorClass@I@@8",
+   "address": "007b3b9c",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 74
+  },
+  {
+   "symbol": "??_R3?$VectorClass@I@@8",
+   "address": "007b3ba8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 75
+  },
+  {
+   "symbol": "??_R4?$VectorClass@I@@6B@",
+   "address": "007b3bb8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 76
+  },
+  {
+   "symbol": "??_R1A@?0A@A@MSAnim@@8",
+   "address": "007be4e8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 135
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@VWstring@@@@8",
+   "address": "007c11d0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 41
+  },
+  {
+   "symbol": "??_R2?$VectorClass@VWstring@@@@8",
+   "address": "007c11e8",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 71
+  },
+  {
+   "symbol": "??_R3?$VectorClass@VWstring@@@@8",
+   "address": "007c11f0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 72
+  },
+  {
+   "symbol": "??_R4?$VectorClass@VWstring@@@@6B@",
+   "address": "007c1200",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 73
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@VWstring@@@@8",
+   "address": "007c1280",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 42
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@VWstring@@@@8",
+   "address": "007c1298",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 43
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@VWstring@@@@8",
+   "address": "007c12a8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@VWstring@@@@6B@",
+   "address": "007c12b8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 46
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Anim@Voices@WorldDominationTour@@8",
+   "address": "007c5f98",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 136
+  },
+  {
+   "symbol": "??_R2Anim@Voices@WorldDominationTour@@8",
+   "address": "007c5fb0",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 137
+  },
+  {
+   "symbol": "??_R3Anim@Voices@WorldDominationTour@@8",
+   "address": "007c5fc0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 138
+  },
+  {
+   "symbol": "??_R4Anim@Voices@WorldDominationTour@@6B@",
+   "address": "007c5fd0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 140
+  },
+  {
+   "symbol": "??_C@_01KMAE@?0?$AA@",
+   "address": "007ce9c0",
+   "bytes": 2,
+   "kind": "string",
+   "section": 84
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@I@@@8",
+   "address": "007cf128",
+   "bytes": 30,
+   "kind": "rtti",
+   "section": 47
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@I@@@8",
+   "address": "007cf148",
+   "bytes": 37,
+   "kind": "rtti",
+   "section": 52
+  },
+  {
+   "symbol": "??_R0?AVMSAnim@@@8",
+   "address": "007e5800",
+   "bytes": 21,
+   "kind": "rtti",
+   "section": 134
+  },
+  {
+   "symbol": "??_C@_04NLLM@Lose?$AA@",
+   "address": "007f2620",
+   "bytes": 5,
+   "kind": "string",
+   "section": 87
+  },
+  {
+   "symbol": "??_C@_03JKEC@Win?$AA@",
+   "address": "007f2628",
+   "bytes": 4,
+   "kind": "string",
+   "section": 88
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@VWstring@@@@@8",
+   "address": "007f3a60",
+   "bytes": 39,
+   "kind": "rtti",
+   "section": 40
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@VWstring@@@@@8",
+   "address": "007f3ae0",
+   "bytes": 46,
+   "kind": "rtti",
+   "section": 45
+  },
+  {
+   "symbol": "??_C@_09FECI@Territory?$AA@",
+   "address": "007fbf08",
+   "bytes": 10,
+   "kind": "string",
+   "section": 56
+  },
+  {
+   "symbol": "??_C@_08IIHM@Evacuate?$AA@",
+   "address": "007fc6c8",
+   "bytes": 9,
+   "kind": "string",
+   "section": 54
+  },
+  {
+   "symbol": "??_C@_04EKBK@Game?$AA@",
+   "address": "007fc6d4",
+   "bytes": 5,
+   "kind": "string",
+   "section": 55
+  },
+  {
+   "symbol": "??_C@_06IOLI@Status?$AA@",
+   "address": "007fc6dc",
+   "bytes": 7,
+   "kind": "string",
+   "section": 57
+  },
+  {
+   "symbol": "??_C@_07JFNM@History?$AA@",
+   "address": "007fc6e4",
+   "bytes": 8,
+   "kind": "string",
+   "section": 58
+  },
+  {
+   "symbol": "??_C@_08JKAL@OldCycle?$AA@",
+   "address": "007fc6ec",
+   "bytes": 9,
+   "kind": "string",
+   "section": 59
+  },
+  {
+   "symbol": "??_C@_0BA@ODPH@TerritorySelect?$AA@",
+   "address": "007fc6f8",
+   "bytes": 16,
+   "kind": "string",
+   "section": 83
+  },
+  {
+   "symbol": "??_C@_07KNL@Startup?$AA@",
+   "address": "007fc708",
+   "bytes": 8,
+   "kind": "string",
+   "section": 85
+  },
+  {
+   "symbol": "??_C@_04OBBN@Draw?$AA@",
+   "address": "007fc710",
+   "bytes": 5,
+   "kind": "string",
+   "section": 86
+  },
+  {
+   "symbol": "??_C@_0L@NLEA@WWD_Allied?$AA@",
+   "address": "007fc718",
+   "bytes": 11,
+   "kind": "string",
+   "section": 93
+  },
+  {
+   "symbol": "??_C@_0L@BFKF@WWD?9Soviet?$AA@",
+   "address": "007fc724",
+   "bytes": 11,
+   "kind": "string",
+   "section": 94
+  },
+  {
+   "symbol": "??_C@_08MIAD@Emphasis?$AA@",
+   "address": "007fc730",
+   "bytes": 9,
+   "kind": "string",
+   "section": 115
+  },
+  {
+   "symbol": "??_R0?AVAnim@Voices@WorldDominationTour@@@8",
+   "address": "007fc740",
+   "bytes": 46,
+   "kind": "rtti",
+   "section": 139
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@VWstring@@@@6B@",
+   "address": "007a9660",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007af3f8",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@I@@8",
+   "address": "007b3b38",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@I@@8",
+   "address": "007b3b50",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@I@@8",
+   "address": "007b3b68",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@I@@8",
+   "address": "007b3b78",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@I@@6B@",
+   "address": "007b3b88",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@I@@8",
+   "address": "007b3b9c",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@I@@8",
+   "address": "007b3ba8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@I@@6B@",
+   "address": "007b3bb8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@MSAnim@@8",
+   "address": "007be4e8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@VWstring@@@@8",
+   "address": "007c11d0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@VWstring@@@@8",
+   "address": "007c11e8",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@VWstring@@@@8",
+   "address": "007c11f0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@VWstring@@@@6B@",
+   "address": "007c1200",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@VWstring@@@@8",
+   "address": "007c1280",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@VWstring@@@@8",
+   "address": "007c1298",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@VWstring@@@@8",
+   "address": "007c12a8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@VWstring@@@@6B@",
+   "address": "007c12b8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Anim@Voices@WorldDominationTour@@8",
+   "address": "007c5f98",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2Anim@Voices@WorldDominationTour@@8",
+   "address": "007c5fb0",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3Anim@Voices@WorldDominationTour@@8",
+   "address": "007c5fc0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4Anim@Voices@WorldDominationTour@@6B@",
+   "address": "007c5fd0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_01KMAE@?0?$AA@",
+   "address": "007ce9c0",
+   "bytes": 2,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@I@@@8",
+   "address": "007cf128",
+   "bytes": 30,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@I@@@8",
+   "address": "007cf148",
+   "bytes": 37,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVMSAnim@@@8",
+   "address": "007e5800",
+   "bytes": 21,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_04NLLM@Lose?$AA@",
+   "address": "007f2620",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_03JKEC@Win?$AA@",
+   "address": "007f2628",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@VWstring@@@@@8",
+   "address": "007f3a60",
+   "bytes": 39,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@VWstring@@@@@8",
+   "address": "007f3ae0",
+   "bytes": 46,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_09FECI@Territory?$AA@",
+   "address": "007fbf08",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08IIHM@Evacuate?$AA@",
+   "address": "007fc6c8",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04EKBK@Game?$AA@",
+   "address": "007fc6d4",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06IOLI@Status?$AA@",
+   "address": "007fc6dc",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07JFNM@History?$AA@",
+   "address": "007fc6e4",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08JKAL@OldCycle?$AA@",
+   "address": "007fc6ec",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@ODPH@TerritorySelect?$AA@",
+   "address": "007fc6f8",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07KNL@Startup?$AA@",
+   "address": "007fc708",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04OBBN@Draw?$AA@",
+   "address": "007fc710",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@NLEA@WWD_Allied?$AA@",
+   "address": "007fc718",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@BFKF@WWD?9Soviet?$AA@",
+   "address": "007fc724",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08MIAD@Emphasis?$AA@",
+   "address": "007fc730",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AVAnim@Voices@WorldDominationTour@@@8",
+   "address": "007fc740",
+   "bytes": 46,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0072dc20",
+   "symbol": "?Load@Voices@WorldDominationTour@@QAEXAAVINIClass@@ABVWstring@@@Z",
+   "target": "007317a0",
+   "function_entry": true
+  },
+  {
+   "site": "0072f5a0",
+   "symbol": "?Say@Voices@WorldDominationTour@@QAEXHH_N0H@Z",
+   "target": "00732510",
+   "function_entry": true
+  },
+  {
+   "site": "0072fa00",
+   "symbol": "?Say@Voices@WorldDominationTour@@QAEXHH_N0H@Z",
+   "target": "00732510",
+   "function_entry": true
+  },
+  {
+   "site": "0072fa00",
+   "symbol": "?Is_Speaking@Voices@WorldDominationTour@@QAE_NXZ",
+   "target": "00732a40",
+   "function_entry": true
+  },
+  {
+   "site": "0072fa00",
+   "symbol": "?Is_Speaking@Voices@WorldDominationTour@@QAE_NXZ",
+   "target": "00732a40",
+   "function_entry": true
+  },
+  {
+   "site": "0072fb60",
+   "symbol": "?Say@Voices@WorldDominationTour@@QAEXHH_N0H@Z",
+   "target": "00732510",
+   "function_entry": true
+  },
+  {
+   "site": "0072d990",
+   "symbol": "??1Voices@WorldDominationTour@@QAE@XZ",
+   "target": "00731680",
+   "function_entry": true
+  },
+  {
+   "site": "0072a620",
+   "symbol": "?Say_List@Voices@WorldDominationTour@@QAEXH_NH@Z",
+   "target": "00732700",
+   "function_entry": true
+  },
+  {
+   "site": "0072ed80",
+   "symbol": "?Say_List@Voices@WorldDominationTour@@QAEXH_NH@Z",
+   "target": "00732700",
+   "function_entry": true
+  },
+  {
+   "site": "0072ed80",
+   "symbol": "?Say@Voices@WorldDominationTour@@QAEXHH_N0H@Z",
+   "target": "00732510",
+   "function_entry": true
+  },
+  {
+   "site": "0072d560",
+   "symbol": "??0Voices@WorldDominationTour@@QAE@H@Z",
+   "target": "007314c0",
+   "function_entry": true
+  },
+  {
+   "site": "0072d560",
+   "symbol": "?Create_Anim@Voices@WorldDominationTour@@QAEPAVAnim@12@XZ",
+   "target": "00732a50",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0Wstring@@QAE@PBD@Z",
+   "address": "0076d920"
+  },
+  {
+   "symbol": "??0Wstring@@QAE@XZ",
+   "address": "0076d910"
+  },
+  {
+   "symbol": "??1MSAnim@@UAE@XZ",
+   "address": "005ac690"
+  },
+  {
+   "symbol": "??1Wstring@@QAE@XZ",
+   "address": "0076d9e0"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+   "address": "0076dc30"
+  },
+  {
+   "symbol": "??4Wstring@@QAEAAV0@PBD@Z",
+   "address": "0076dbc0"
+  },
+  {
+   "symbol": "??8?$VectorClass@I@@UBE_NABV0@@Z",
+   "address": "0042aec0"
+  },
+  {
+   "symbol": "??8?$VectorClass@VWstring@@@@UBE_NABV0@@Z",
+   "address": "00673ca0"
+  },
+  {
+   "symbol": "??BSystemTimerClass@@QBEJXZ",
+   "address": "0069a430"
+  },
+  {
+   "symbol": "??H@YI?AVWstring@@PBDABV0@@Z",
+   "address": "0076f6b0"
+  },
+  {
+   "symbol": "??HWstring@@QBE?AV0@ABV0@@Z",
+   "address": "0076e1c0"
+  },
+  {
+   "symbol": "??RRandom2Class@@QAEHHH@Z",
+   "address": "006388a0"
+  },
+  {
+   "symbol": "??YWstring@@QAEAAV0@PBD@Z",
+   "address": "0076df10"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@I@@UAEPAXI@Z",
+   "address": "0042b420"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@VWstring@@@@UAEPAXI@Z",
+   "address": "00674850"
+  },
+  {
+   "symbol": "??_G?$VectorClass@I@@UAEPAXI@Z",
+   "address": "0042b3d0"
+  },
+  {
+   "symbol": "??_G?$VectorClass@VWstring@@@@UAEPAXI@Z",
+   "address": "006747e0"
+  },
+  {
+   "symbol": "??_GAnim@Voices@WorldDominationTour@@UAEPAXI@Z",
+   "address": "00732c80"
+  },
+  {
+   "symbol": "?As_Integer@Wstring@@QBEHXZ",
+   "address": "0076f570"
+  },
+  {
+   "symbol": "?Audio_Get_Device@@YAPAUAudioDevice@@XZ",
+   "address": "00406f40"
+  },
+  {
+   "symbol": "?Audio_Stream_Destroy@@YIXPAUAudioStreamPlayer@@@Z",
+   "address": "004079c0"
+  },
+  {
+   "symbol": "?Clear@?$DynamicVectorClass@I@@UAEXXZ",
+   "address": "0042ae00"
+  },
+  {
+   "symbol": "?Clear@?$DynamicVectorClass@VWstring@@@@UAEXXZ",
+   "address": "00673830"
+  },
+  {
+   "symbol": "?FUN_005ac690@seed_00732c80@@YIXXZ",
+   "address": "005ac690"
+  },
+  {
+   "symbol": "?FUN_00781d3b@seed_00732c80@@YAXI@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?Faction_Name@@YIABVWstring@@H@Z",
+   "address": "007685a0"
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@I@@UBEIH@Z",
+   "address": "0042ae50"
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@VWstring@@@@UBE?AVWstring@@H@Z",
+   "address": "006738b0"
+  },
+  {
+   "symbol": "?Get@Wstring@@QBEPBDXZ",
+   "address": "0076e6f0"
+  },
+  {
+   "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+   "address": "0050eb40"
+  },
+  {
+   "symbol": "?Get_Token@Wstring@@QBEHHPBDAAV1@@Z",
+   "address": "0076f200"
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@I@@UAEHABI@Z",
+   "address": "0042b140"
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@I@@UAEHPBI@Z",
+   "address": "0042ae30"
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@VWstring@@@@UAEHABVWstring@@@Z",
+   "address": "00674030"
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@VWstring@@@@UAEHPBVWstring@@@Z",
+   "address": "00673890"
+  },
+  {
+   "symbol": "?ID@?$VectorClass@I@@UAEHABI@Z",
+   "address": "0042afe0"
+  },
+  {
+   "symbol": "?ID@?$VectorClass@I@@UAEHPBI@Z",
+   "address": "0042b020"
+  },
+  {
+   "symbol": "?ID@?$VectorClass@VWstring@@@@UAEHABVWstring@@@Z",
+   "address": "00673e80"
+  },
+  {
+   "symbol": "?ID@?$VectorClass@VWstring@@@@UAEHPBVWstring@@@Z",
+   "address": "00673ed0"
+  },
+  {
+   "symbol": "?Release@Wstring@@QAEXXZ",
+   "address": "0076e630"
+  },
+  {
+   "symbol": "?Resize@?$DynamicVectorClass@I@@UAE_NHPBI@Z",
+   "address": "0042b040"
+  },
+  {
+   "symbol": "?Resize@?$DynamicVectorClass@VWstring@@@@UAE_NHPBVWstring@@@Z",
+   "address": "00673ef0"
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@I@@UAE_NHPBI@Z",
+   "address": "0042af00"
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@VWstring@@@@UAE_NHPBVWstring@@@Z",
+   "address": "00673cf0"
+  },
+  {
+   "symbol": "?Speech_Is_Playing@@YA_NXZ",
+   "address": "00715e20"
+  },
+  {
+   "symbol": "?Speech_Play@@YIXHHH@Z",
+   "address": "007158c0"
+  },
+  {
+   "symbol": "?Speech_Stop@@YIX_N@Z",
+   "address": "00715de0"
+  },
+  {
+   "symbol": "?Unknown_00716640@@YIHPBD@Z",
+   "address": "00716640"
+  },
+  {
+   "symbol": "?Wstring_From_Integer@@YI?AVWstring@@HH@Z",
+   "address": "0076f610"
+  },
+  {
+   "symbol": "?Wstring_Join@@YI?AVWstring@@ABV1@0@Z",
+   "address": "0076f7d0"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_random_839218@@3VRandom2Class@@A",
+   "address": "00839218"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "_PTR_FUN_0079c4dc",
+   "address": "0079c4dc"
+  },
+  {
+   "symbol": "_PTR_FUN_007af40c",
+   "address": "007af40c"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  }
+ ],
+ "route": "A",
+ "unit": "wdtvoice.cpp",
+ "form": "one include block",
+ "switches": [
+  "VECTOR_IMPLEMENT_DYNAMIC_CONSTRUCTOR",
+  "VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS",
+  "VECTOR_IMPLEMENT_VECTOR_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ADD",
+  "VECTOR_IMPLEMENT_DYNAMIC_DELETE_INDEX",
+  "WDT_VOICES_DECLARE_SET_NAME"
+ ],
+ "include_blocks": [
+  {
+   "before": "007312d0",
+   "lines": 10
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "007329d0",
+   "bytes": 1,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "007329e0",
+   "bytes": 1,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00732c30",
+   "bytes": 32,
+   "population": "population-2913",
+   "bound": "own frozen bound (population-2913)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00732c80",
+   "bytes": 36,
+   "population": "population-66",
+   "bound": "own frozen bound (population-66)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "007320b0",
+   "bytes": 13,
+   "population": "population-3353",
+   "source": "src/recovered/unowned/unknown_set_name_007320b0.cpp",
+   "cause": "frozen in another population's inventory pass (population-3353)"
+  },
+  {
+   "kind": "split",
+   "entry": "00732c50",
+   "bytes": 45,
+   "population": "population-4442",
+   "source": "src/recovered/classes/VectorClass_unsigned_int/Destructor.cpp",
+   "cause": "frozen in another population's inventory pass (population-4442)"
+  }
+ ],
+ "unit_functions": 56,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@I@@6B@",
+   "reason": "relocation target unbound: ??_E?$DynamicVectorClass@I@@UAEPAXI@Z"
+  },
+  {
+   "symbol": "??_7?$VectorClass@I@@6B@",
+   "reason": "relocation target unbound: ??_E?$VectorClass@I@@UAEPAXI@Z"
+  },
+  {
+   "symbol": "??_7?$VectorClass@VWstring@@@@6B@",
+   "reason": "relocation target unbound: ??_E?$VectorClass@VWstring@@@@UAEPAXI@Z"
+  },
+  {
+   "symbol": "??_7Anim@Voices@WorldDominationTour@@6B@",
+   "reason": "relocation target unbound: ??_EAnim@Voices@WorldDominationTour@@UAEPAXI@Z"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 2,
+  "bytes": 58
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

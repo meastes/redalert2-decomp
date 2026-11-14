@@ -1,0 +1,292 @@
+{
+ "module": "vqalib_loader",
+ "source": "src/recovered/vqalib_loader.cpp",
+ "header": null,
+ "population": "population-4230",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 915,
+ "code": [
+  {
+   "symbol": "?VQA_LoadFrame@@YIJPAUVQAHandleP@@J@Z",
+   "entry": "00778680",
+   "body_bytes": 706,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?VQA_LoadFrame_Internal@@YIJPAUVQAHandleP@@J@Z",
+   "entry": "00778950",
+   "body_bytes": 3397,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?PrimeBuffers@@YIJPAUVQAHandleP@@@Z",
+   "entry": "007796a0",
+   "body_bytes": 65,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?VQA_IsFrameStartOfLoop@@YI_NPAUVQAHandleP@@J@Z",
+   "entry": "007796f0",
+   "body_bytes": 71,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?VQA_ReloadPalette@@YIJPAUVQAHandleP@@JH@Z",
+   "entry": "00779740",
+   "body_bytes": 377,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?VQA_GetPaletteFrameRange@@YIJPAUVQAHandleP@@JPAJ1@Z",
+   "entry": "007798c0",
+   "body_bytes": 139,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?VQA_SeekGroup@@YIJPAUVQAHandleP@@JJ_N1AA_N@Z",
+   "entry": "00779950",
+   "body_bytes": 1337,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Load_VQF@@YIJPAUVQAHandleP@@KD@Z",
+   "entry": "00779e90",
+   "body_bytes": 1196,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Load_CLIP@@YIJPAUVQAHandleP@@K@Z",
+   "entry": "0077a340",
+   "body_bytes": 29,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Load_LINF@@YIJPAUVQAHandleP@@@Z",
+   "entry": "0077a360",
+   "body_bytes": 339,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Load_MFCI@@YIJPAUVQAHandleP@@@Z",
+   "entry": "0077a4c0",
+   "body_bytes": 1152,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Load_MSCI@@YIJPAUVQAHandleP@@@Z",
+   "entry": "0077a940",
+   "body_bytes": 697,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?VQA_GetCodebookFrameRange@@YIJPAUVQAHandleP@@JPAJ1@Z",
+   "entry": "0077ac00",
+   "body_bytes": 125,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Load_CINF@@YIJPAUVQAHandleP@@@Z",
+   "entry": "0077ac80",
+   "body_bytes": 353,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Load_PINF@@YIJPAUVQAHandleP@@@Z",
+   "entry": "0077adf0",
+   "body_bytes": 338,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Load_FINF@@YIJPAUVQAHandleP@@K@Z",
+   "entry": "0077af50",
+   "body_bytes": 65,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Load_CBFZ@@YIJPAUVQAHandleP@@K@Z",
+   "entry": "0077afa0",
+   "body_bytes": 124,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Load_CBP0@@YIJPAUVQAHandleP@@K@Z",
+   "entry": "0077b020",
+   "body_bytes": 279,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Load_CBPZ@@YIJPAUVQAHandleP@@K@Z",
+   "entry": "0077b140",
+   "body_bytes": 384,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Load_CPLZ@@YIJPAUVQAHandleP@@K@Z",
+   "entry": "0077b2c0",
+   "body_bytes": 197,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Load_SND0@@YIJPAUVQAHandleP@@K@Z",
+   "entry": "0077b390",
+   "body_bytes": 205,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Load_SND1@@YIJPAUVQAHandleP@@K@Z",
+   "entry": "0077b460",
+   "body_bytes": 443,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Load_SND2@@YIJPAUVQAHandleP@@K@Z",
+   "entry": "0077b620",
+   "body_bytes": 373,
+   "padding_bytes": 11
+  }
+ ],
+ "code_bytes": 12576,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0077b7a0",
+   "symbol": "?Load_CINF@@YIJPAUVQAHandleP@@@Z",
+   "target": "0077ac80",
+   "function_entry": true
+  },
+  {
+   "site": "0077b7a0",
+   "symbol": "?Load_LINF@@YIJPAUVQAHandleP@@@Z",
+   "target": "0077a360",
+   "function_entry": true
+  },
+  {
+   "site": "0077b7a0",
+   "symbol": "?Load_PINF@@YIJPAUVQAHandleP@@@Z",
+   "target": "0077adf0",
+   "function_entry": true
+  },
+  {
+   "site": "0077b7a0",
+   "symbol": "?Load_CLIP@@YIJPAUVQAHandleP@@K@Z",
+   "target": "0077a340",
+   "function_entry": true
+  },
+  {
+   "site": "0077b7a0",
+   "symbol": "?Load_MSCI@@YIJPAUVQAHandleP@@@Z",
+   "target": "0077a940",
+   "function_entry": true
+  },
+  {
+   "site": "0077b7a0",
+   "symbol": "?Load_MFCI@@YIJPAUVQAHandleP@@@Z",
+   "target": "0077a4c0",
+   "function_entry": true
+  },
+  {
+   "site": "0077b7a0",
+   "symbol": "?Load_FINF@@YIJPAUVQAHandleP@@K@Z",
+   "target": "0077af50",
+   "function_entry": true
+  },
+  {
+   "site": "0077b7a0",
+   "symbol": "?PrimeBuffers@@YIJPAUVQAHandleP@@@Z",
+   "target": "007796a0",
+   "function_entry": true
+  },
+  {
+   "site": "0077bf10",
+   "symbol": "?VQA_LoadFrame@@YIJPAUVQAHandleP@@J@Z",
+   "target": "00778680",
+   "function_entry": true
+  },
+  {
+   "site": "0077c2e0",
+   "symbol": "?VQA_IsFrameStartOfLoop@@YI_NPAUVQAHandleP@@J@Z",
+   "target": "007796f0",
+   "function_entry": true
+  },
+  {
+   "site": "0077c2e0",
+   "symbol": "?VQA_ReloadPalette@@YIJPAUVQAHandleP@@JH@Z",
+   "target": "00779740",
+   "function_entry": true
+  },
+  {
+   "site": "0077c2e0",
+   "symbol": "?VQA_SeekGroup@@YIJPAUVQAHandleP@@JJ_N1AA_N@Z",
+   "target": "00779950",
+   "function_entry": true
+  },
+  {
+   "site": "0077c2e0",
+   "symbol": "?PrimeBuffers@@YIJPAUVQAHandleP@@@Z",
+   "target": "007796a0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "?CopyAudio@@YIJPAUVQAHandleP@@@Z",
+   "address": "007764e0"
+  },
+  {
+   "symbol": "?Memory_VQA_Stream_Handler@@YAHPAUVQAHandle@@HHH@Z",
+   "address": "007785b0"
+  },
+  {
+   "symbol": "_AudioUnzap",
+   "address": "00781130"
+  },
+  {
+   "symbol": "_VQA_LCW_Uncompress",
+   "address": "007813eb"
+  },
+  {
+   "symbol": "_VQA_sosCODECDecompressData",
+   "address": "00780581"
+  }
+ ],
+ "route": "A",
+ "unit": "vqalib_loader.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00778680",
+   "lines": 3
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 24,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

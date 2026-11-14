@@ -94,9 +94,18 @@ def rtti_names():
 
 
 def emitted_vtables(build):
-    nm = subprocess.run(['nm', str(build / 'ra2-native')], capture_output=True, text=True).stdout
-    syms = [l.split()[-1] for l in nm.splitlines() if '__ZTV' in l]
-    dem = subprocess.run(['c++filt', '-_'], input='\n'.join(syms), capture_output=True, text=True).stdout
+    # The Mac link (Mach-O names carry a leading underscore) or the Windows cross build's
+    # ra2-native.exe (COFF names do not; the same Itanium mangling: llvm-mingw).
+    binary = build / 'ra2-native'
+    if not binary.exists() and (build / 'ra2-native.exe').exists():
+        binary = build / 'ra2-native.exe'
+    nm = subprocess.run(['nm', str(binary)], capture_output=True, text=True).stdout
+    syms = set()
+    for l in nm.splitlines():
+        sym = l.split()[-1] if l.split() else ''
+        if '_ZTV' in sym:
+            syms.add(sym[sym.index('_ZTV'):])   # '__ZTV..' (Mach-O), '_ZTV..', '.refptr._ZTV..' (COFF)
+    dem = subprocess.run(['c++filt'], input='\n'.join(sorted(syms)), capture_output=True, text=True).stdout
     names = set()
     for l in dem.splitlines():
         l = l.replace('vtable for ', '')
@@ -392,7 +401,7 @@ def check_dead(build, view, undefined):
 
 
 def undefined_symbols(build):
-    objs = [str(p) for p in build.rglob('*.o')]
+    objs = [str(p) for p in build.rglob('*.o')] + [str(p) for p in build.rglob('*.obj')]
     out = set()
     for i in range(0, len(objs), 400):
         p = subprocess.run(['nm', '-u'] + objs[i:i + 400], capture_output=True, text=True)

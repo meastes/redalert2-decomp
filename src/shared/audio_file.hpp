@@ -7,25 +7,25 @@
 #include "shared/win32_api.hpp"
 
 extern CRITICAL_SECTION unknown_audio_file_lock_a52280;     // 0x00A52280
-extern "C" int DAT_00a522ac;                    // 0x00A522AC the file's mode (1: read at close, 2: opened to read)
-extern "C" int DAT_00a522b0;                    // 0x00A522B0 the layer is set up
-extern "C" AudioStream *DAT_00a522c4;           // 0x00A522C4 the ring the file feeds (Audio_Ring_Create)
-extern "C" AudioQueue *DAT_00a522c8;            // 0x00A522C8 the queue the opened file feeds
-extern "C" AudioQueue *DAT_00a522cc;            // 0x00A522CC the queue the open file is flushed into
-extern "C" void *DAT_00a522d0;                  // 0x00A522D0 the open stdio file
-extern "C" int DAT_00a522d4;                    // 0x00A522D4 set when the first fill failed
+extern "C" int audio_file_mode_00a522ac;                    // 0x00A522AC the file's mode (1: read at close, 2: opened to read)
+extern "C" int audio_file_ready_00a522b0;                    // 0x00A522B0 the layer is set up
+extern "C" AudioStream *audio_file_ring_00a522c4;           // 0x00A522C4 the ring the file feeds (Audio_Ring_Create)
+extern "C" AudioQueue *audio_file_read_queue_00a522c8;            // 0x00A522C8 the queue the opened file feeds
+extern "C" AudioQueue *audio_file_flush_queue_00a522cc;            // 0x00A522CC the queue the open file is flushed into
+extern "C" void *audio_file_stream_00a522d0;                  // 0x00A522D0 the open stdio file
+extern "C" int audio_file_fill_failed_00a522d4;                    // 0x00A522D4 set when the first fill failed
 extern CRITICAL_SECTION unknown_audio_file_lock_a52268;     // 0x00A52268 (deleted with 0x00A52280)
-extern "C" HWND__ **DAT_00a522b4;               // 0x00A522B4 the window slots (0x00A521DC of them), freed at shutdown
-extern "C" int DAT_00a522b8;                    // 0x00A522B8 windows in the slots
-extern "C" int DAT_00a522bc;                    // 0x00A522BC the two critical sections exist
-extern "C" int DAT_00a522c0;                    // 0x00A522C0 the file thread runs
-extern "C" int volatile DAT_00a521e0;           // 0x00A521E0 set to ask the file thread to stop
-extern "C" int volatile DAT_00a521e8;           // 0x00A521E8 set by the file thread when it stops
-extern "C" HANDLE DAT_00a52260;                 // 0x00A52260 the file thread
-extern "C" int DAT_00a521dc;                    // 0x00A521DC entries of the block 0x00A522B4
-extern "C" int DAT_00a522d8;                    // 0x00A522D8 the id Audio_File_Find found last
-extern "C" int DAT_00a522dc;                    // 0x00A522DC its index
-extern "C" DWORD DAT_00a52264;                  // 0x00A52264 the file thread's id
+extern "C" HWND__ **audio_file_windows_00a522b4;               // 0x00A522B4 the window slots (0x00A521DC of them), freed at shutdown
+extern "C" int audio_file_window_count_00a522b8;                    // 0x00A522B8 windows in the slots
+extern "C" int audio_file_locks_ready_00a522bc;                    // 0x00A522BC the two critical sections exist
+extern "C" int audio_file_thread_running_00a522c0;                    // 0x00A522C0 the file thread runs
+extern "C" int volatile audio_file_thread_stop_00a521e0;           // 0x00A521E0 set to ask the file thread to stop
+extern "C" int volatile audio_file_thread_stopped_00a521e8;           // 0x00A521E8 set by the file thread when it stops
+extern "C" HANDLE audio_file_thread_00a52260;                 // 0x00A52260 the file thread
+extern "C" int audio_file_window_slots_00a521dc;                    // 0x00A521DC entries of the block 0x00A522B4
+extern "C" int audio_file_found_id_00a522d8;                    // 0x00A522D8 the id Audio_File_Find found last
+extern "C" int audio_file_found_index_00a522dc;                    // 0x00A522DC its index
+extern "C" DWORD audio_file_thread_id_00a52264;                  // 0x00A52264 the file thread's id
 // The file ("Streamer") thread's state (0x00A521E0, passed to Audio_File_Thread; Audio_File_Init and
 // Audio_File_Shutdown address its members as the globals above and below). Names are hypotheses.
 struct AudioFileThread {
@@ -38,10 +38,10 @@ struct AudioFileThread {
     int unknown_1c;                 // +0x1C
     AudioTimeSpan Timing;           // +0x20 0x00A52200
 };
-extern "C" int volatile DAT_00a521e4;           // 0x00A521E4
-extern "C" __int64 volatile DAT_00a521f0;       // 0x00A521F0
-extern "C" int volatile DAT_00a521f8;           // 0x00A521F8
-extern "C" AudioTimeSpan DAT_00a52200;          // 0x00A52200
+extern "C" int volatile unknown_audio_file_00a521e4;           // 0x00A521E4
+extern "C" __int64 volatile unknown_audio_file_period_00a521f0;       // 0x00A521F0
+extern "C" int volatile unknown_audio_file_00a521f8;           // 0x00A521F8
+extern "C" AudioTimeSpan unknown_audio_file_timer_00a52200;          // 0x00A52200
 // The recording's records (Westwood's message recorder): a header, then a cursor position (Type 1) or a
 // window message whose hwnd is an index into the id block (Type 0). Names are hypotheses.
 struct AudioFileRecordHeader {
@@ -58,12 +58,12 @@ struct AudioFileMessageRecord {
     AudioFileRecordHeader Header;
     MSG Message;                    // +0x0C
 };
-extern "C" AudioFileRecordHeader DAT_00a521d0;  // 0x00A521D0 the next played-back header
-extern "C" int DAT_00a522e0;                    // 0x00A522E0 that header has been read
-extern "C" int DAT_00a5229c;                    // 0x00A5229C cursor X
-extern "C" int DAT_00a522a0;                    // 0x00A522A0 cursor Y
-extern "C" int DAT_00a522a4;                    // 0x00A522A4 the last recorded cursor X
-extern "C" int DAT_00a522a8;                    // 0x00A522A8 the last recorded cursor Y
+extern "C" AudioFileRecordHeader audio_file_next_header_00a521d0;  // 0x00A521D0 the next played-back header
+extern "C" int audio_file_header_read_00a522e0;                    // 0x00A522E0 that header has been read
+extern "C" int audio_file_cursor_x_00a5229c;                    // 0x00A5229C cursor X
+extern "C" int audio_file_cursor_y_00a522a0;                    // 0x00A522A0 cursor Y
+extern "C" int audio_file_last_cursor_x_00a522a4;                    // 0x00A522A4 the last recorded cursor X
+extern "C" int audio_file_last_cursor_y_00a522a8;                    // 0x00A522A8 the last recorded cursor Y
 // Sets the layer up: the locks, the block of count ids (0x00A522B4, the main window entered), the file
 // thread, the ring and its two queues of at least 0x2800 bytes; on failure shuts it down (0x00522560).
 int __fastcall Audio_File_Init(int count, int size);

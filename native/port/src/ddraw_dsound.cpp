@@ -284,8 +284,33 @@ struct DirectDraw {
     virtual HRESULT DuplicateSurface(Surface *, Surface **) { return E_NOTIMPL; }
     virtual HRESULT EnumDisplayModes(DWORD, DDSURFACEDESC *, void *context, EnumModesCallback callback)
     {
-        static const int modes[][2] = {{640, 480}, {800, 600}, {1024, 768}, {1280, 1024}};
-        for (auto &m : modes) {
+        // The usual modes, and the current one in its place when it is none of them (the
+        // host picks the iOS app's mode from the screen, e.g. 824x600 on the iPhone Duo
+        // Simulator): Options' Set Game Resolution selects the current mode from this
+        // list and showed blank without it (lane I).
+        static const int usual[][2] = {{640, 480}, {800, 600}, {1024, 768}, {1280, 1024}};
+        int modes[5][2];
+        int count = 0;
+        bool listed = false;
+        for (auto &m : usual) {
+            bool before = !listed && (display_width < m[0] || (display_width == m[0] && display_height <= m[1]));
+            if (before && !(display_width == m[0] && display_height == m[1])) {
+                modes[count][0] = display_width;
+                modes[count][1] = display_height;
+                ++count;
+            }
+            if (before) listed = true;
+            modes[count][0] = m[0];
+            modes[count][1] = m[1];
+            ++count;
+        }
+        if (!listed) {
+            modes[count][0] = display_width;
+            modes[count][1] = display_height;
+            ++count;
+        }
+        for (int i = 0; i < count; ++i) {
+            auto &m = modes[i];
             DDSURFACEDESC d = {};
             d.dwSize = sizeof d;
             d.dwFlags = 0x1 | 0x2 | 0x4 | DDSD_PIXELFORMAT;

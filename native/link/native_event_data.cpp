@@ -7,30 +7,44 @@
 // senders copy the data after the event, not the field, so the wire format is the original's.
 namespace {
 const int kSlots = 4096;
-void *g_data[kSlots];
+void **g_data = 0;
+int g_capacity = 0;
 int g_next = 0;
 }
 
 int Native_Event_Data_Handle(void *data)
 {
     if (!data) return 0;
-    for (int i = 0; i < kSlots; ++i) {
-        int slot = (g_next + i) % kSlots;
+    for (int i = 0; i < g_capacity; ++i) {
+        int slot = (int)(((unsigned int)g_next + (unsigned int)i) % (unsigned int)g_capacity);
         if (!g_data[slot]) {
             g_data[slot] = data;
-            g_next = (slot + 1) % kSlots;
+            g_next = (slot + 1) % g_capacity;
             return slot + 1;
         }
     }
-    return 0;   // full: the event carries no data
+
+    // DoList alone can hold 16384 events. Keep handles stable when more than
+    // the first block of variable-data events is pending.
+    if (g_capacity > 0x7fffffff - kSlots) throw "Native event handle space exhausted";
+    int old_capacity = g_capacity;
+    int new_capacity = old_capacity + kSlots;
+    void **grown = new void *[new_capacity];
+    for (int old = 0; old < old_capacity; ++old) grown[old] = g_data[old];
+    for (int empty = old_capacity; empty < new_capacity; ++empty) grown[empty] = 0;
+    delete[] g_data;
+    g_data = grown;
+    g_capacity = new_capacity;
+    g_data[old_capacity] = data;
+    g_next = old_capacity + 1;
+    return old_capacity + 1;
 }
 
 void *Native_Event_Data(int handle)
 {
-    return handle > 0 && handle <= kSlots ? g_data[handle - 1] : 0;
+    return handle > 0 && handle <= g_capacity ? g_data[handle - 1] : 0;
 }
 
-// The data of handle, forgotten by the table (the caller deletes it).
 void *Native_Event_Data_Release(int handle)
 {
     void *data = Native_Event_Data(handle);

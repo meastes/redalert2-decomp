@@ -4,8 +4,8 @@
     "id": "population-2275",
     "inventory_sha256": "9eb73c1cd9e6b06a4bf65eb69f2d5feb7eae40f7af225729638ceea3b041cef6",
     "gaps_sha256": "4358ca14fae8e0f57b71d4143bd9587ad98f4ef5d8e217a83976f6e5a130f50f",
-    "historical_population_sha256": "774a3ca3b1bd466982d101c60c69c0b28112dac0c44af51196f7cd951f1199b9",
-    "historical_acceptance_sha256": "37e380303267dbca1739de05dd185369fa7709cce862a71095fe6b2558104c2c"
+    "historical_population_sha256": "eb3dae5beb43fbeb4706937bc4f4e521c62c35402a9cd46784c6989f5f91553c",
+    "historical_acceptance_sha256": "f6d206219e28776eda77f63bbde8904cb6e87c0fde46d2d1b553c68985f98075"
   },
   "references": {
     "_unknown_static_rect": 11710336,
@@ -25,12 +25,12 @@
     "??2@YAPAXI@Z": 7872535,
     "?Width@BuildingTypeClass@@QBEHXZ": 4557104,
     "__strncpy": 7873488,
-    "__DAT_00ab6e88": 11234952,
+    "__waypoint_none_00ab6e88": 11234952,
     "__strcmp": 7888160,
     "__strlen": 7903280,
     "__malloc": 7874096,
     "___amsg_exit": 7887784,
-    "__DAT_0084ed10": 8711440,
+    "__cell_none_0084ed10": 8711440,
     "_free": 7874024,
     "__strdup": 7919638,
     "??_GMSShapeAnim@@UAEPAXI@Z": 5962944,
@@ -56,8 +56,8 @@
     "?Intersect@@YI?AVRect@@ABV1@0PAH1@Z": 4324848,
     "??HRectPoint2D@@QBE?BU0@ABU0@@Z": 4412736,
     "?Top_Left@Rect@@QBE?AURectPoint2D@@XZ": 4412768,
-    "__DAT_00ab6ea8": 11234984,
-    "__DAT_00ab6eb0": 11234992,
+    "__unknown_timer_start_00ab6ea8": 11234984,
+    "__unknown_timer_accum_00ab6eb0": 11234992,
     "__DAT_00ac0168": 11272552,
     "__DAT_00ac0170": 11272560,
     "??0Rect@@QAE@HHHH@Z": 4373712,
@@ -841,7 +841,7 @@
     "?BlitForward@?$BlitTranslucent50ZeroAlpha@G@@UBEXPAXPBXHH00HH@Z": 4753328,
     "?BlitForward@?$BlitTranslucentWriteAlpha@G@@UBEXPAXPBXHH00HH@Z": 4752576,
     "??_7RLEBlitter@@6B@": 7988540,
-    "?Clear@GdiBitmapSurface_004981C0@@QAEXE@Z": 4817824,
+    "?Clear@DIB8Class@@QAEXE@Z": 4817824,
     "??_EBSurface@@UAEPAXI@Z": 4264912,
     "??_GBlitter@@UAEPAXI@Z": 4769712,
     "??_EBlitter@@UAEPAXI@Z": 4769712,
@@ -1130,7 +1130,7 @@
     "?Set@RGBClass@@QAEAAV1@ABV1@M@Z": 6540784,
     "__real@8@3ffbaaaaaaaaaaaaa800": 8016520,
     "??9Cell@@QBE_NABV0@@Z": 5823312,
-    "_?entry@?1??Get_Image_0068ca40@UnknownBitmapWriter@@QAEPAVSurface@@PBDH@Z@4UUnknownBitmapEntry@@A": 11260136,
+    "_?entry@?1??Get_Image_0068ca40@SurfaceCacheClass@@QAEPAVSurface@@PBDH@Z@4UUnknownBitmapEntry@@A": 11260136,
     "__real@8@3fe2c0000000c0000000": 8019920,
     "_?name@?1??Theme_File_Name@ThemeClass@@QAEPBDH@Z@4PADA": 11274328,
     "?x@?1???AToolTipIndex@@QBEABQAVToolTip@@ABI@Z@4PAV2@A": 11712032,
@@ -1272,7 +1272,52 @@
     "?Update@LaserDrawClass@@QAEXXZ": 5452592,
     "?Overlay_Shadow_Render_Rect@CellClass@@QBE?AVRect@@XZ": 4673792,
     "?Update@ScorePrintClass@@UAE_NPAVSurface@@@Z": 6717680,
-    "?Update@ProgressBarClass@@QAE_NN@Z": 4372944
+    "?Update@ProgressBarClass@@QAE_NN@Z": 4372944,
+    "?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ": 4717808,
+    "?Clear@?$VectorClass@PAUDamageGroup@@@@UAEXXZ": 4718144,
+    "?Get_Height@ObjectClass@@UBEHXZ": 6113280,
+    "?Clear@VoxelLibrary@@QAEXXZ": 7442704,
+    "?Advance@MSBinkAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5954080,
+    "?Advance@MSVQAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5955552,
+    "?Advance@MSPCXAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5962000,
+    "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
+    "?Advance@Anim@Voices@WorldDominationTour@@UAE_NPAVSurface@@PAVRect@@@Z": 7547840,
+    "?Draw_It@VeinholeMonsterClass@@QAEXXZ": 7407744,
+    "?Reset@VeinholeMonsterClass@@SAXXZ": 7408464,
+    "?Get_Height@AnimClass@@UBEHXZ": 4337888,
+    "?Reset@AStarClass@@QAEXXZ": 4364944,
+    "?Draw_It@OverlayTypeClass@@UAEXPBUPoint2D@@PBVRect@@H@Z": 6146272,
+    "?Draw_It@SmudgeTypeClass@@UAEXPBUPoint2D@@PBVRect@@HHPBVCell@@@Z": 6848720,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "?Advance@MSPrintAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5959072,
+    "?Advance@MSBitPrintAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5956960,
+    "?Advance@MSFadeAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5951024,
+    "?Advance@MSOverlayAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5952592,
+    "?Clear@AStarClass@@QAEXXZ": 4357776,
+    "?Draw_Overlay_Shadow@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z": 4671536,
+    "?Advance@MSShapeAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5949520,
+    "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A": 11505992,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVMapClass@@@8": 8181384,
+    "??_R0?AVDisplayClass@@@8": 8181408,
+    "??_R0?AVRadarClass@@@8": 8181440,
+    "??_R0?AVSurface@@@8": 8184496,
+    "??_R0?AVXSurface@@@8": 8184520,
+    "??_R0?AVBSurface@@@8": 8184544,
+    "??_R0?AVCellClass@@@8": 8203352,
+    "??_R0?AVRLEBlitter@@@8": 8211904,
+    "??_R0?AVBlitter@@@8": 8212040,
+    "??_R0?AVDSurface@@@8": 8217240,
+    "??_R0?AVFoggedObjectClass@@@8": 8225112,
+    "??_R0?AVMSShapeAnim@@@8": 8280088,
+    "??_R0?AVMSPrintAnim@@@8": 8280272,
+    "??_R0?AVTactical@@@8": 8350296,
+    "??_R0?AVVeinholeMonsterClass@@@8": 8361640,
+    "??_R0?AVWWMouseClass@@@8": 8393584
   },
   "regions": [
     {
@@ -1284,7 +1329,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 23,
       "body_sha256": "ff4d8f83fa7f90a7fb5c5c0a6fae43490751fb5792118fc26b375d8eb02212d1",
@@ -1325,13 +1371,12 @@
           "resolved": 11710348
         }
       ],
-      "source_sha256": "a01cd2eeac036a759fd972166246f531c5a8dccddf57fe37bd19e147cabc66d4",
-      "source": "src/recovered/header_statics/00775b60/HeaderStatics_static_rect_init_00775b60.cpp",
+      "source_sha256": "3bd036c1524239f5e8bf9c11a9efeefbd97fe7e2dffd6d52f143cf31027cbfaf",
+      "source": "src/recovered/zbuffer.cpp",
       "population": "population-2275",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_static_rect_init_00775b60",
       "source_order": 83842
     },
     {
@@ -1343,7 +1388,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 217,
       "body_sha256": "78960f219a1d5f03fd2cb2b802082bc2638a2fd48990a113ad0e541d0738e683",
@@ -1384,13 +1430,12 @@
           "resolved": 7974648
         }
       ],
-      "source_sha256": "c2d24a8c8d18e74d529018b4027e232c9dead5bb9825c002c6eab69ebf3ae1e9",
-      "source": "src/recovered/classes/ZBuffer/ZBuffer_Construct_00775b80.cpp",
+      "source_sha256": "3bd036c1524239f5e8bf9c11a9efeefbd97fe7e2dffd6d52f143cf31027cbfaf",
+      "source": "src/recovered/zbuffer.cpp",
       "population": "population-2275",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "ZBuffer_Construct_00775b80",
       "source_order": 83843
     },
     {
@@ -1402,7 +1447,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 14,
       "body_sha256": "0b2b50c75777eb89000fb03f98c5e6476f247f683a5070fded0db1e9f245d3d3",
@@ -1410,13 +1456,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "4541b0f18c632125c006aa83efda43e1a7bec3dfe36c7206b927f9950982ed56",
       "relocations": [],
-      "source_sha256": "c054e1734dc20f576e3ac57a6fabf81db132804dc04bda052133f01dea2a497d",
-      "source": "src/recovered/classes/ZBuffer/ZBuffer_Destruct_00775cf0.cpp",
+      "source_sha256": "3bd036c1524239f5e8bf9c11a9efeefbd97fe7e2dffd6d52f143cf31027cbfaf",
+      "source": "src/recovered/zbuffer.cpp",
       "population": "population-2275",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "ZBuffer_Destruct_00775cf0",
       "source_order": 83845
     },
     {
@@ -1428,7 +1473,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 57,
       "body_sha256": "33521f97b06dd3401a32b95ed8dd945a1dadf790dc970ad616f84559fdef8313",
@@ -1436,13 +1482,12 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "157f9d645510b207a34ffec0c6932dc953c75650319ac41518138aa403c7e0b6",
       "relocations": [],
-      "source_sha256": "f1d71df6e62f0767431667fc951d113c7328c350dd35dd18d19123dfee10ea88",
-      "source": "src/recovered/classes/ZBuffer/ZBuffer_Fill_00776160.cpp",
+      "source_sha256": "3bd036c1524239f5e8bf9c11a9efeefbd97fe7e2dffd6d52f143cf31027cbfaf",
+      "source": "src/recovered/zbuffer.cpp",
       "population": "population-2275",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "ZBuffer_Fill_00776160",
       "source_order": 83848
     },
     {
@@ -1454,7 +1499,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 371,
       "body_sha256": "b85f7075334ed2e5f6ead801066f31408c16e09ccb6746ed07ced3848cf83f1b",
@@ -1462,13 +1508,12 @@
       "full_extent_bytes": 384,
       "full_extent_sha256": "ef937c22ea65eff67ca51cecdf9a4a4d89dfdb4d6efe2450b189cd598258407b",
       "relocations": [],
-      "source_sha256": "a349cdf64eabdb0c25f1d76cdb864c43830d83790066f8294e1f08db1d4bc252",
-      "source": "src/recovered/classes/ZBuffer/ZBuffer_Update_007761c0.cpp",
+      "source_sha256": "3bd036c1524239f5e8bf9c11a9efeefbd97fe7e2dffd6d52f143cf31027cbfaf",
+      "source": "src/recovered/zbuffer.cpp",
       "population": "population-2275",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "ZBuffer_Update_007761c0",
       "source_order": 83850
     },
     {
@@ -1480,7 +1525,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 52,
       "body_sha256": "542085efe84602d3c1eedc76f4aa90adc97af0bd6234295873b5c36d9c85c412",
@@ -1488,13 +1534,12 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "8b8b45e448b91892d3efb579c4c6e4b075e79632693657369b99b9323ef3544d",
       "relocations": [],
-      "source_sha256": "2777ae22a4c3cad182520ae7dd943a3964a334a6ca0e72b620bb85c94993226e",
-      "source": "src/recovered/classes/ZBuffer/ZBuffer_Get_Buffer_Offset_00776340.cpp",
+      "source_sha256": "3bd036c1524239f5e8bf9c11a9efeefbd97fe7e2dffd6d52f143cf31027cbfaf",
+      "source": "src/recovered/zbuffer.cpp",
       "population": "population-2275",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "ZBuffer_Get_Buffer_Offset_00776340",
       "source_order": 83851
     },
     {
@@ -1506,7 +1551,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 137,
       "body_sha256": "ed6941f8d2a1c5783ecc7d3c91a9134e94bae294cb900a691b1fb0ca1a5a8183",
@@ -1514,13 +1560,12 @@
       "full_extent_bytes": 144,
       "full_extent_sha256": "16528d33b9e71957ecc449b919c032cdc924c2ddab4f00640670474f8444db71",
       "relocations": [],
-      "source_sha256": "62092fbf09341ca27e516263c6ceac76509b0a61b153d4c341c99a6d4e165c68",
-      "source": "src/recovered/classes/ZBuffer/ZBuffer_Copy_To_00775c60.cpp",
+      "source_sha256": "3bd036c1524239f5e8bf9c11a9efeefbd97fe7e2dffd6d52f143cf31027cbfaf",
+      "source": "src/recovered/zbuffer.cpp",
       "population": "population-2275",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "ZBuffer_Copy_To_00775c60",
       "source_order": 83844
     },
     {
@@ -1532,7 +1577,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 86,
       "body_sha256": "1b0e28a72c3aa54e61236db0997498723751d94d1ffabbcf8cbe0c59bf4fde39",
@@ -1540,13 +1586,12 @@
       "full_extent_bytes": 96,
       "full_extent_sha256": "be2ea72b85f987b744d4486857b19b194dc1a06933c19ffef0b256cf4034ea00",
       "relocations": [],
-      "source_sha256": "b45832ba304b9186cfe6cd3370faa11d7f2fe33e0f7d8461cf4a9d8aecc67b4b",
-      "source": "src/recovered/classes/ZBuffer/ZBuffer_Set_00775d00.cpp",
+      "source_sha256": "3bd036c1524239f5e8bf9c11a9efeefbd97fe7e2dffd6d52f143cf31027cbfaf",
+      "source": "src/recovered/zbuffer.cpp",
       "population": "population-2275",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "ZBuffer_Set_00775d00",
       "source_order": 83846
     },
     {
@@ -1558,7 +1603,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 1011,
       "body_sha256": "9940f26634f2bde23487625f1c13290b7175e42c4af20f37f22356e22194d708",
@@ -1566,13 +1612,12 @@
       "full_extent_bytes": 1024,
       "full_extent_sha256": "133348b9e0a7faff21a4ec2c713610f40cfd994ce80a8a524b4c4f9f2ad8c673",
       "relocations": [],
-      "source_sha256": "7dfa6a1a19fd8a11e537986d892e61e0e3b512be7d5fca5bb6ee6c2117432c08",
-      "source": "src/recovered/classes/ZBuffer/ZBuffer_Pan_00775d60.cpp",
+      "source_sha256": "3bd036c1524239f5e8bf9c11a9efeefbd97fe7e2dffd6d52f143cf31027cbfaf",
+      "source": "src/recovered/zbuffer.cpp",
       "population": "population-2275",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "ZBuffer_Pan_00775d60",
       "source_order": 83847
     },
     {
@@ -1584,7 +1629,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 27,
       "body_sha256": "c29997c47de560510f29d4bac190c0f5ecd6c8e3d5f9ee68ae22a2ef9beddc26",
@@ -1592,13 +1638,12 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "1a8bb7855257b1c09dcf8328ae61100a21422d66664eab639cceb4708bd14d67",
       "relocations": [],
-      "source_sha256": "fed972b24c5bcd13fa1e6f33edf199cf5b495d49b3b205216c7f8bfe5e0b1f15",
-      "source": "src/recovered/classes/ZBuffer/ZBuffer_Clear_Region_007761a0.cpp",
+      "source_sha256": "3bd036c1524239f5e8bf9c11a9efeefbd97fe7e2dffd6d52f143cf31027cbfaf",
+      "source": "src/recovered/zbuffer.cpp",
       "population": "population-2275",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "ZBuffer_Clear_Region_007761a0",
       "source_order": 83849
     }
   ]

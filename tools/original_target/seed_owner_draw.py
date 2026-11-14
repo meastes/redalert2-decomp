@@ -5,7 +5,7 @@ from seed_guarded_cfg import guarded_graph, require
 ENTRY=0x5ee460
 RAW_SHA256='e8e582a25861f7806892f3cdbfd30e6bde0f0244c5d0b0f8bbe19fc453d3706e'
 BODY_SHA256='d1b1900d473568c47f7075ba81e79cbabec75bdc8d3e2ac704efa1d7b45202ba'
-PROVIDERS={5385088: ('?Unknown_Remove_Modeless_Dialog_00522b80@@YIXPAUHWND__@@@Z', 0), 6154640: ('??8UnknownPairKey@OwnerDraw@@QBE_NABU01@@Z', 4), 6169264: ('?unknown_5e22b0@OwnerDraw@@YIPBDIPAUHWND__@@@Z', 0), 6185392: ('?unknown_show_dialog_5e61b0@OwnerDraw@@YI_NPAUHWND__@@@Z', 0), 6218000: ('?unknown_show_tooltip_5ee110@OwnerDraw@@YI_N_N@Z', 0), 6292304: ('?Release_00600350@UnknownListOwner_00600350@@QAEXXZ', 0), 6297936: ('?Remove_Entry@?$WolDictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@QAE_NABQAUHWND__@@PAP6GJPAU2@IIJ@Z@Z', 8), 6298672: ('?Key_Hash@?$WolDictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@QBEIABQAUHWND__@@@Z', 4), 6298704: ('?Remove_Entry@?$WolDictionary@IUUnknownControlRecord@OwnerDraw@@@@QAE_NABIPAUUnknownControlRecord@OwnerDraw@@@Z', 8), 6300320: ('?Grow_Table@?$WolDictionary@UUnknownPairKey@OwnerDraw@@H@@QAEXXZ', 0), 6300480: ('?Key_Hash@?$WolDictionary@UUnknownPairKey@OwnerDraw@@_N@@QBEIABUUnknownPairKey@OwnerDraw@@@Z', 4), 6301840: ('?Shrink_Table@?$WolDictionary@UUnknownPairKey@OwnerDraw@@H@@QAEXXZ', 0), 7281456: ('?Unknown_Rect_Shrink_006F1B30@@YIXPAVRect@@HH@Z', 4), 7315696: ('?Unknown_006FA0F0@@YIXPADPBGH@Z', 4), 7558800: ('?Window_Rect_In_Main_Client@@YIHPAUHWND__@@PAURECT@@@Z', 0), 7568784: ('?IME_Reset@@YAXXZ', 0), 7569344: ('?IME_Process_Message@@YIHPAUHWND__@@IIJ@Z', 8), 7569584: ('?IME_Get_Default_Result_007380b0@@YIJXZ', 0), 7797168: ('??0WideString@@QAE@XZ', 0), 7797264: ('??0WideString@@QAE@ABV0@@Z', 4), 7797328: ('??1WideString@@QAE@XZ', 0), 7797712: ('??4WideString@@QAEAAV0@ABV0@@Z', 4), 7799792: ('?Get@WideString@@QBEPBGXZ', 0), 7799856: ('?get@Leaf_770430@@QAEIXZ', 0), 7871803: ('?FUN_00781d3b@seed_00781d3b@@YAXI@Z', 0), 6299712: ('?Remove_Entry@?$WolDictionary@UUnknownPairKey@OwnerDraw@@_N@@QAE_NABUUnknownPairKey@OwnerDraw@@PA_N@Z', 8), 6302016: ('?Grow_Vector@?$WolArrayList@PAUHWND__@@@@QAE_NXZ', 0), 7315136: ('?Load_String@StringTable@@SIPBGPBDPAD0H@Z', 8), 7797184: ('??0WideString@@QAE@PBG@Z', 4), 6154624: ('?FUN_005de980@seed_005de980@@YIHPAH@Z', 0), 6168928: ('?unknown_5e2160@OwnerDraw@@YI?AVWideString@@PAUHWND__@@H@Z', 4), 6169024: ('?unknown_5e21c0@OwnerDraw@@YI?AVWideString@@PAUHWND__@@0HH@Z', 12)}
+PROVIDERS={5385088: ('?Unknown_Remove_Modeless_Dialog_00522b80@@YIXPAUHWND__@@@Z', 0), 6154640: ('??8UnknownPairKey@OwnerDraw@@QBE_NABU01@@Z', 4), 6169264: ('?unknown_5e22b0@OwnerDraw@@YIPBDIPAUHWND__@@@Z', 0), 6185392: ('?unknown_show_dialog_5e61b0@OwnerDraw@@YI_NPAUHWND__@@@Z', 0), 6218000: ('?unknown_show_tooltip_5ee110@OwnerDraw@@YI_N_N@Z', 0), 6292304: ('?Release_00600350@UnknownListOwner_00600350@@QAEXXZ', 0), 6297936: ('?Remove_Entry@?$WolDictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@QAE_NABQAUHWND__@@PAP6GJPAU2@IIJ@Z@Z', 8), 6298672: ('?Key_Hash@?$WolDictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@QBEIABQAUHWND__@@@Z', 4), 6298704: ('?Remove_Entry@?$WolDictionary@IUWinData@OwnerDraw@@@@QAE_NABIPAUWinData@OwnerDraw@@@Z', 8), 6300320: ('?Grow_Table@?$WolDictionary@UUnknownPairKey@OwnerDraw@@H@@QAEXXZ', 0), 6300480: ('?Key_Hash@?$WolDictionary@UUnknownPairKey@OwnerDraw@@_N@@QBEIABUUnknownPairKey@OwnerDraw@@@Z', 4), 6301840: ('?Shrink_Table@?$WolDictionary@UUnknownPairKey@OwnerDraw@@H@@QAEXXZ', 0), 7281456: ('?Unknown_Rect_Shrink_006F1B30@@YIXPAVRect@@HH@Z', 4), 7315696: ('?Unknown_006FA0F0@@YIXPADPBGH@Z', 4), 7558800: ('?Window_Rect_In_Main_Client@@YIHPAUHWND__@@PAURECT@@@Z', 0), 7568784: ('?IME_Reset@@YAXXZ', 0), 7569344: ('?IME_Process_Message@@YIHPAUHWND__@@IIJ@Z', 8), 7569584: ('?IME_Get_Default_Result_007380b0@@YIJXZ', 0), 7797168: ('??0WideString@@QAE@XZ', 0), 7797264: ('??0WideString@@QAE@ABV0@@Z', 4), 7797328: ('??1WideString@@QAE@XZ', 0), 7797712: ('??4WideString@@QAEAAV0@ABV0@@Z', 4), 7799792: ('?Get@WideString@@QBEPBGXZ', 0), 7799856: ('?get@Leaf_770430@@QAEIXZ', 0), 7871803: ('?FUN_00781d3b@seed_00781d3b@@YAXI@Z', 0), 6299712: ('?Remove_Entry@?$WolDictionary@UUnknownPairKey@OwnerDraw@@_N@@QAE_NABUUnknownPairKey@OwnerDraw@@PA_N@Z', 8), 6302016: ('?Grow_Vector@?$WolArrayList@PAUHWND__@@@@QAE_NXZ', 0), 7315136: ('?Load_String@StringTable@@SIPBGPBDPAD0H@Z', 8), 7797184: ('??0WideString@@QAE@PBG@Z', 4), 6154624: ('?FUN_005de980@seed_005de980@@YIHPAH@Z', 0), 6168928: ('?unknown_5e2160@OwnerDraw@@YI?AVWideString@@PAUHWND__@@H@Z', 4), 6169024: ('?unknown_5e21c0@OwnerDraw@@YI?AVWideString@@PAUHWND__@@0HH@Z', 12)}
 CANONICAL_EXTENTS={6299712: (607, 'dca9d035fcf231c45d8d24282f9fa37bc41a4fa8d4b86705f0df21f686121f15', 8), 6302016: (143, '778e96b8e7df949a85fc4d867c0022e6fb0bc6a973121778243cd9b7dae294fe', 0), 7315136: (180, 'f3f3cf5fb48d439d60e4815caee87c72cc81270d1ce2d76dec0cc0a49e53215f', 8), 7797184: (76, '2d7d6f38a477a4d3e156b6c0bbc03659bad26137b74990ad8382f6c2f6738980', 4), 6154624: (7, '57c8f1a24fda258e951a9c45872008c4d0b22bf6aacdc0d2b401ac70233a5582', 0), 6168928: (84, '067d4b1b0060ec859ae495a5798af6bad9da34075c0409655884ebbefab81683', 4), 6169024: (152, 'e24072de9644e9496524af8c5aba601bbb2982712ff836908cb3e36e96f10e10', 12)}
 STATIC_ADDRESSES=(0xa73398,0xa73918,0x7e8d40,0x7e8d44,0xa76404,0xa76400,0xa7640c)
 
@@ -165,7 +165,7 @@ extern WolDictionary<HWND, WNDPROC> unknown_window_proc_table_a73688;
 // Pinned VC98 SDK WINDEF.H: DECLARE_HANDLE(HFONT).
 typedef struct HFONT__ *HFONT;
 extern "C" int __cdecl wcscmp(wchar_t const *,wchar_t const *);
-namespace seed_005de980 { int __fastcall FUN_005de980(int *); }
+namespace seed_005de980 { int __fastcall unknown_product_005de980(int *); }
 namespace OwnerDraw {
 WideString __fastcall unknown_5e2160(HWND window,int a);
 WideString __fastcall unknown_5e21c0(HWND window,HWND item,int x,int y);
@@ -209,7 +209,7 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
     BOOL allow_proc = 1;
 	int anim_state = 0;
 
-	static WolDictionary<UnknownPairKey, bool> ctrlmessages((unsigned int (__fastcall *)(UnknownPairKey const &))seed_005de980::FUN_005de980);
+	static WolDictionary<UnknownPairKey, bool> ctrlmessages((unsigned int (__fastcall *)(UnknownPairKey const &))seed_005de980::unknown_product_005de980);
 
 	UnknownPairKey key;
 	key.unknown_04 = (int)window;
@@ -226,7 +226,7 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
 	static WolArrayList<HWND> hwndarray;
 
 	HWND owner;
-	UnknownControlRecord *ownerdata;
+	WinData *ownerdata;
 	int state;
 
 	if (hwndarray.Length() != 0) {
@@ -313,7 +313,7 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
 		update_rect.right += disp_rect.left;
 	}
 
-	UnknownControlRecord *data = Get_Record(window);
+	WinData *data = Get_Record(window);
 
 	if (message == 0x4a0) {
 		result = (data && data->attached_0c != 0);
@@ -348,7 +348,7 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
 			result = data->unknown_20;
 			data->unknown_20 = lparam;
 			if (linked != 0) {
-				UnknownControlRecord *linkeddata = 0;
+				WinData *linkeddata = 0;
 				::unknown_control_table_a73640.Get_Pointer((unsigned int const &)data->attached_0c, &linkeddata);
 				if (linkeddata != 0) {
 					linkeddata->unknown_20 = lparam;
@@ -696,7 +696,7 @@ call_custom_proc:
 after_proc:
 	if (message == 0x82) {
 		HWND destroyed = window;
-		UnknownControlRecord * destroydata;
+		WinData * destroydata;
 		unsigned int destroyed_key=(unsigned int)destroyed;
 		if (::unknown_control_table_a73640.Get_Pointer(destroyed_key, &destroydata)) {
 			if (destroydata != 0 && destroydata->surface_10 != 0) {

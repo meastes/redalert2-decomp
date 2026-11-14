@@ -191,3 +191,73 @@ the flags word where version.hpp has the four bit-fields; version.hpp alone decl
 - These were small leaf modules (730 B on average against about 7.8 KB for the average unit). Eleven took about 2 minutes each; medium ones (1-2.7 KB) took 0.4-1.1 h and left 1-6 header gaps each. The time goes into header attempts, each of which recompiles every unit that includes the header.
 - 36 template details are withheld (modules.json header_gaps) because they shift a small set of declaration-count-fragile functions elsewhere (Reposition_Sidebar, Print_CRCs, AI_Build_Defense, WinMain, an owner-draw trackbar, Dropship_Screen, and initializer renumbering). Gaps grow with how widely a module's header is included, not with its size. The template headers (ra2-decomp, mischa85) did not shift fewer functions than ours.
 - Whole tree (estimate): about 420 units, 500-1,300 lane-hours (central about 800), with the large class units (Techno, Building, Map, Unit, House) at 8-25 h each, plus 20-60 h at the end to re-roll the fragile functions under final headers (some as flagged calibrated forms). Parallel converters shorten the calendar time, not the total; four bring it to about 200-600 wall-clock hours, and the class hierarchy keeps the large units mostly serial.
+
+## Route A: re-filing by original unit (2026-11-12)
+
+The user's decision after the seeded-tree test (docs/DECISIONS.md "Route A"): one source per original
+translation unit, each unit under its own header state, our headers and names, whole-file exact throughout.
+`tools/original_target/refile_unit.py` does it per unit:
+
+- **Unit map.** `manifests/original_target/unit_map.json` (addresses only): the salvage assignment from the
+  ra2-decomp twin map and mischa85's unit ranges, written once by `refile_unit.py unit-map`.
+- **Pour.** `refile_unit.py run UNIT` takes the unit's rows of its largest population (its canonical compile
+  group, which the build already compiles as one translation unit) and writes `src/recovered/<unit>.cpp`:
+  functions in address order, the unit's `#define` switches and includes gathered in their original order
+  into one block with repeats dropped, `// @ref` lines and seed markers dropped. It lands through
+  `apply_rename.py` `modules`, so the population recompiles and every row passes the strict audit.
+- **Nothing blocks.** A row that differs under the gathered block gets the block held behind it (a second
+  include block mid-file, recorded with the row); then the files up to it keep their lines in place; the
+  last forms are every line in place and the canonical text itself (reached when holding stalls). A row
+  that differs even in the canonical text stays in its own file as a `flipped` residual with the
+  comparator's reason, and the remaining rows start again from the first form. No line is re-written to
+  make a row match. Rows that cannot join stay in their files and the map lists them with the cause: `__asm` rows,
+  rows in another population (see below), rows whose native fixup cannot be re-keyed.
+- **Rows in other populations.** `apply_rename.py` `joins` moves a row into the unit's population only as it
+  is: same option set, the same frozen bound in the unit's inventory pass, no name bound elsewhere by the
+  unit's own table (the unit's table has precedence; compiler-numbered `$S`/`_$E` names are re-bound by
+  content and position; there is no name-map binding). Hand-accepted populations are frozen against a
+  composite inventory pass holding only their own rows, so today such rows stay residuals: moving them needs
+  a new composite pass (a private input and a new population through `accept_sources.py`), or a build-model
+  change that lets rows of several populations compile as one unit.
+- **Module check and ledger.** A re-filed unit is declared in `modules.json` with `"route": "A"`: other
+  units' stand-in spellings of its functions are counted, not refused (names stay), and it claims no data
+  range (sections that prove are listed where the original keeps them; the rest are counted as unproven).
+  `refile_unit.py maps BUILD_DIR` writes the maps from a `--keep-intermediates` build; each map carries the
+  unit's switches, include blocks, held rows and residuals.
+- **Native.** `run` re-keys `native/port/fixups.json` (a fixup whose text recurs elsewhere in the module is
+  widened by whole lines until unique), draft host paths, view layouts and behaviour rewrites to the module
+  path; `refile_unit.py native` also regenerates `native/initterm.json`.
+
+Per unit: `refile_unit.py run UNIT`, `refile_unit.py native`, `./build.command --keep-intermediates --output
+build/gate-UNIT`, `refile_unit.py maps build/gate-UNIT`, the native configure, build and ctest.
+
+### Container member joins on their own frozen bound (lane C1, 2026-11-12; reviewed, docs/DECISIONS.md)
+
+- **Header.** `shared/vector_class.hpp`: a file that selects no member gets every member, as TibSun
+  `code/vector.h` defines every member in the header with no guard (VectorClass :144, :181, :203, :268, :301,
+  :325, :355, :386; DynamicVectorClass :599, :656, :702, :839, :867). Single-member files of residual rows keep
+  their `VECTOR_IMPLEMENT_*` switch. The fully unconditional form is not exact-preserving (96 groups stop compiling,
+  the strict audit refuses 2,243 rows: a whole-class explicit instantiation then emits members no row accounts for).
+  `VECTOR_DECLARATIONS_ONLY` keeps every member undefined in four sources whose text does not reproduce the
+  original unit's list uses (ownrdraw, gamedlg, the `VectorClass<DiskID>` constructor, `VectorClass<EMPulseClass *>`
+  Resize); the rows of such a source whose body references a container member the switch leaves undefined (an
+  accepted relocation naming a VectorClass/DynamicVectorClass symbol) carry `declarations_only` with a note
+  (canonical.validate_declarations_only; a judgment call in STATUS; owner ruling: one row, the `VectorClass<DiskID>`
+  constructor, 74 B). `apply_rename --header-users` re-verified 14,178 rows exact.
+- **Joins.** `refile_unit.py join-template UNIT [--into SOURCE] [--dry-run]` and `join-template-batch UNIT...`: a
+  split or flipped residual whose file is a `vector_class.hpp` member joins only when the unit's own use of its
+  lists emits it (the unit's member switches dropped, no explicit instantiation added); the row keeps its one-line
+  description in one run per place, in address order before the next unit row whose address the text names. It
+  keeps its population as `bound_population`: the strict audit reads its bound, gap padding and provenance from
+  that population's pass. A missing gap row is a listed refusal ("Padding with no gap row in the frozen pass"). An
+  own-bound join brings only its relocation names, never the donor population's whole table; a joined row below
+  the module's source order takes a fresh order behind every row; an emptied donor population keeps its record.
+  STATUS shows the rows bound this way (count, bytes, donor populations).
+- **First landing.** globals (`--into header_statics/004d2ba0`, the file that defines its lists: 338 rows,
+  24,669 B, 298 of the 302 flips), house (40 rows, 3,049 B), planmgr (55 rows, 3,624 B). The other 64 units follow
+  as their own landing.
+- **Second landing.** `join-template-batch` over the other units with container member residuals: 64 units, 707
+  rows, 49,104 B in one apply_rename batch (wdtnet, revent and alphashp leave: without their member switches they
+  emit a vtable that is not an original copy). With the first landing: 1,140 rows, 80,446 B. Three native fixups
+  of removed per-row files were obsolete and dropped. Residuals left, by cause: docs/ROUTE_A_CONTAINER_RESIDUALS.md
+  (280 rows, 20,863 B).

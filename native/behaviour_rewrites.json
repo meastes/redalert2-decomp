@@ -235,7 +235,7 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_asm_lib.cpp",
-   "source": "src/recovered/unowned/LCW_Comp_00534d40.cpp (evidenced __asm, TibSun lcw.cpp)",
+   "source": "src/recovered/lcw/LCW_Comp.cpp (evidenced __asm, TibSun lcw.cpp)",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "notes": "register-program transliteration; the out-of-range esi[64] read is skipped (cannot change the output)"
   },
@@ -247,7 +247,7 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_asm_lib.cpp",
-   "source": "src/recovered/classes/BlitTransXlat_unsigned_short/BlitTransXlat_BlitForward_004861c0.cpp (evidenced __asm, TibSun blitblit.h)",
+   "source": "src/recovered/classes/BlitTransXlat_unsigned_short/BlitForward.cpp (evidenced __asm, TibSun blitblit.h)",
    "test": "native/tests/asm_check.cpp (native-asm-check)"
   },
   {
@@ -282,7 +282,7 @@
    "plan": "fixup",
    "exact": false,
    "file": "native/port/fixups.json",
-   "source": "src/recovered/unowned/Main_Game_00481bf0.cpp (evidenced __asm, TibSun conquer.cpp)",
+   "source": "src/recovered/conquer/Main_Game.cpp (evidenced __asm, TibSun conquer.cpp)",
    "notes": "already compiled natively through the Scout1058 fixup: the esp/ebp/resume-address capture for the SEH handler is dropped (no SEH natively)",
    "test": null
   },
@@ -368,7 +368,7 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
-   "source": "seed src/recovered/005de970.cpp"
+   "source": "seed src/recovered/ownrdraw/unknown_hash_key.cpp"
   },
   {
    "entry": "0x005DE970",
@@ -378,7 +378,7 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
-   "source": "seed src/recovered/005de970.cpp (second declared name of the row)"
+   "source": "seed src/recovered/ownrdraw/unknown_hash_key.cpp (second declared name of the row)"
   },
   {
    "entry": "0x005E8720",
@@ -608,7 +608,7 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_frame.cpp",
-   "source": "seed src/recovered/00614840.cpp"
+   "source": "seed src/recovered/planmgr/Planning_Active.cpp"
   },
   {
    "entry": "0x00496CE0",
@@ -622,13 +622,13 @@
   },
   {
    "entry": "0x0047C2E0",
-   "name": "CellClass::Is_Sensed(int) const / UnknownCellClass::Is_Sensed(int)",
-   "symbol": "__ZNK9CellClass9Is_SensedEi",
+   "name": "UnknownCellClass::Is_Sensed(int)",
+   "symbol": "__ZN16UnknownCellClass9Is_SensedEi",
    "origin_class": "unmatched (skirmish path)",
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_map_dimensions.cpp",
-   "source": "seed src/recovered/0047c2e0.cpp; cell_class.hpp +0x7C; TibSun Is_Sensed"
+   "source": "forwarder: techno.hpp's cell view onto the recovered CellClass::Is_Sensed (cell.cpp)"
   },
   {
    "entry": "0x0041B440",
@@ -652,8 +652,8 @@
   },
   {
    "entry": "0x0042EBE0",
-   "name": "Unknown84E8D0::Unknown_0042EBE0(int)",
-   "symbol": "__ZN13Unknown84E8D016Unknown_0042EBE0Ei",
+   "name": "BeaconManagerClass::Unknown_0042EBE0(int)",
+   "symbol": "__ZN18BeaconManagerClass16Unknown_0042EBE0Ei",
    "origin_class": "unmatched (skirmish path)",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -698,7 +698,7 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_map_dimensions.cpp",
-   "source": "forwarder: object.hpp view name of the row whose body is the adapted draft native/drafts/004718b0.cpp (Scout998 71.99)"
+   "source": "forwarder: object.hpp view name of CellClass::Is_Clear_To_Build (accepted in src/recovered/cell.cpp; the adapted draft native/drafts/004718b0.cpp, Scout998 71.99, retired by C3 after codex4 r599)"
   },
   {
    "entry": "0x006328D0",
@@ -951,16 +951,6 @@
    "source": "seed decompile 0x0070A240"
   },
   {
-   "entry": "0x004C7AC0",
-   "name": "FootClass::Override_Mission(int, AbstractClass *, AbstractClass *)",
-   "symbol": "__ZN9FootClass16Override_MissionEiP13AbstractClassS1_",
-   "origin_class": "accepted as a seed leaf only (no callable body)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_m10.cpp",
-   "source": "seed leaf 0x004C7AC0 (Leaf_4c7ac0::get); TibSun FootClass::Override_Mission"
-  },
-  {
    "entry": "0x0041F1C0",
    "name": "AlphaShapeClass::Draw_In_Area(Point2D const &, Rect const &)",
    "symbol": "__ZN15AlphaShapeClass12Draw_In_AreaERK7Point2DRK4Rect",
@@ -982,8 +972,8 @@
   },
   {
    "entry": "0x004131D0",
-   "name": "UnknownTracker839EA0::Unknown_004131D0(AbstractClass *)",
-   "symbol": "__ZN20UnknownTracker839EA015Unknown_004131D0EP13AbstractClass",
+   "name": "AircraftTrackerClass::Detach_004131d0(AbstractClass *)",
+   "symbol": "__ZN20AircraftTrackerClass15Detach_004131d0EP13AbstractClass",
    "origin_class": "unmatched leaf",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -1257,16 +1247,6 @@
    "notes": "NewEdit (list box standing in for an edit): text in the record's WideString +0x3C, limit +0x48, keys/0x4B2-0x4B5 as the decompile; simplified painting; Scout1119 (M14)"
   },
   {
-   "entry": "0x005EAD00",
-   "name": "OwnerDraw::unknown_new_edit_proc_5ead00",
-   "origin_class": "unmatched (menus)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_m14_ownerdraw.cpp",
-   "source": "pass-6a decompile 005ead00",
-   "notes": "DefWindowProcA (the whole decompile); Scout1119 (M14)"
-  },
-  {
    "entry": "0x00770430",
    "name": "WideString::unknown_text_770430 (and the 0x005C3450 in-file view)",
    "origin_class": "unmatched (menus)",
@@ -1288,7 +1268,7 @@
   },
   {
    "entry": "0x00672810",
-   "name": "UnknownLobbyState::Unknown_00672810",
+   "name": "GameOptionsType::Unknown_00672810",
    "origin_class": "unmatched (menus)",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -1383,8 +1363,8 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_m14b_bullet.cpp",
-   "source": "native/drafts/004bbaf0.cpp",
-   "notes": "shared/bullet.hpp's int-returning name forwards to the tracked draft Get_Obstacle_004bbaf0 (same address), as a bool; Scout1121 (M14b)"
+   "source": "src/recovered/findpath2.cpp",
+   "notes": "shared/bullet.hpp's int-returning name forwards to Get_Obstacle_004bbaf0 (same address), as a bool; Scout1121 (M14b). The body was the tracked draft native/drafts/004bbaf0.cpp until accepted in findpath2.cpp (draft retired, C3 after codex4 r597)"
   },
   {
    "entry": "0x00601710",
@@ -1518,7 +1498,7 @@
   },
   {
    "entry": "0x0065B780",
-   "name": "UnknownIDSource::UnknownIDSource(NoInitClass const &)",
+   "name": "ScenarioClass::ScenarioClass(NoInitClass const &)",
    "origin_class": "unmatched",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -1595,16 +1575,6 @@
    "file": "native/link/behaviour_m16_fly.cpp",
    "source": "the recovered Release_Held copies (0x00509860, 0x004A4D10)",
    "notes": "reached by an aircraft taking off (the win loop, frame ~19k); Scout1133 (M16)"
-  },
-  {
-   "entry": "0x006631A0",
-   "name": "UnknownIDSource::unknown_6631a0 (the cell of a waypoint)",
-   "origin_class": "unmatched",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_m16.cpp",
-   "source": "pass-6a decompile 006631a0",
-   "notes": "Scout1133 (M16)"
   },
   {
    "entry": "0x0058FE10",
@@ -1874,16 +1844,6 @@
    "exact": false,
    "file": "native/link/behaviour_m20_wdt.cpp",
    "source": "pass-6a decompile 004071e0 (+0x08 >> 16)",
-   "notes": "Scout1161 M20 play-stability sweep trap"
-  },
-  {
-   "entry": "0x0049EC60",
-   "name": "DisplayClass::Unknown_0049EC60",
-   "origin_class": "unmatched",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_m20_wdt.cpp",
-   "source": "pass-6a decompile 0049ec60",
    "notes": "Scout1161 M20 play-stability sweep trap"
   },
   {
@@ -2338,7 +2298,7 @@
   },
   {
    "entry": "0x00672140",
-   "name": "UnknownSessionState::Unknown_00672140",
+   "name": "SessionClass::Unknown_00672140",
    "origin_class": "unmatched",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -2348,7 +2308,7 @@
   },
   {
    "entry": "0x006715C0",
-   "name": "UnknownSessionState::Trap_Object_006715c0",
+   "name": "SessionClass::Trap_Object_006715c0",
    "origin_class": "unmatched",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -2417,16 +2377,6 @@
    "notes": "Scout1177 M22 coverage ranking"
   },
   {
-   "entry": "0x006A67B0",
-   "name": "Tactical::Unknown_006A67B0",
-   "origin_class": "unmatched",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_m22_misc.cpp",
-   "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
-  },
-  {
    "entry": "0x0054F240",
    "name": "Unknown_Hash_0054F240",
    "origin_class": "unmatched",
@@ -2449,16 +2399,6 @@
   {
    "entry": "0x0040CB00",
    "name": "LayerClass::unknown_slot9",
-   "origin_class": "unmatched",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_m22_misc.cpp",
-   "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
-  },
-  {
-   "entry": "0x00663400",
-   "name": "UnknownIDSource::Set_Waypoint_Location",
    "origin_class": "unmatched",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -2499,16 +2439,6 @@
   {
    "entry": "0x005B69E0",
    "name": "MSSfx::~MSSfx",
-   "origin_class": "unmatched",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_m22_audio.cpp",
-   "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
-  },
-  {
-   "entry": "0x0069B0F0",
-   "name": "SubTitle::~SubTitle",
    "origin_class": "unmatched",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -2569,16 +2499,6 @@
   {
    "entry": "0x005DBCE0",
    "name": "OverlayClass::Save",
-   "origin_class": "unmatched",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_m22_modes.cpp",
-   "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
-  },
-  {
-   "entry": "0x00537B50",
-   "name": "LightSourceClass::Compute_CRC",
    "origin_class": "unmatched",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -2665,16 +2585,6 @@
    "file": "native/link/behaviour_m22_blit.cpp",
    "source": "blitter.hpp template semantics (handwritten assembly in the original)",
    "notes": "Scout1177 M22 8-bit transparent copy"
-  },
-  {
-   "entry": "(25 entries)",
-   "name": "Blit*<T>::BlitBackward (the link closure's 25)",
-   "origin_class": "unmatched",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_m22_blit.cpp",
-   "source": "0x00486210/0x00487570 pattern: forward slot with 0",
-   "notes": "Scout1177 M22 live blitter vtables"
   },
   {
    "entry": "(741 entries)",
@@ -2974,7 +2884,7 @@
   },
   {
    "entry": "0x006729F0",
-   "name": "UnknownSessionState::Value_0124_006729f0",
+   "name": "SessionClass::Value_0124_006729f0",
    "symbol": "",
    "origin_class": "unrecovered",
    "plan": "behaviour rewrite",
@@ -2985,7 +2895,7 @@
   },
   {
    "entry": "0x00672A10",
-   "name": "UnknownSessionState::Value_011c_00672a10",
+   "name": "SessionClass::Value_011c_00672a10",
    "symbol": "",
    "origin_class": "unrecovered",
    "plan": "behaviour rewrite",
@@ -2993,17 +2903,6 @@
    "file": "native/link/behaviour_r9_lan.cpp",
    "source": "inventory/decompiled/00672a10.c",
    "notes": "Scout1209 (r9): reached when the LAN host creates a game (Net_Join_Dialog 0x005BD070)"
-  },
-  {
-   "entry": "0x005C8CD0",
-   "name": "Seat_First_Player_005c8cd0",
-   "symbol": "",
-   "origin_class": "accepted seed under a scaffold name",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_r9_lan.cpp",
-   "source": "src/recovered/005c8cd0.cpp (accepted seed)",
-   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
   },
   {
    "entry": "0x005C8CC0",
@@ -3035,7 +2934,7 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_r9_lan.cpp",
-   "source": "src/recovered/005def80.cpp (accepted seed)",
+   "source": "src/recovered/ownrdraw/unknown_focus_next_tab_item.cpp (accepted seed)",
    "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
   },
   {
@@ -3084,7 +2983,7 @@
   },
   {
    "entry": "0x00672F20",
-   "name": "UnknownSessionState::Unknown_00672F20",
+   "name": "SessionClass::Unknown_00672F20",
    "symbol": "",
    "origin_class": "accepted seed under a scaffold name",
    "plan": "behaviour rewrite",
@@ -3094,25 +2993,14 @@
    "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
   },
   {
-   "entry": "0x0063FB40",
-   "name": "OwnerTalkClass::Unknown_0063FB40",
-   "symbol": "",
-   "origin_class": "accepted seed under a scaffold name",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_r9_lan.cpp",
-   "source": "src/recovered/0063fb40.cpp (accepted seed)",
-   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
-  },
-  {
    "entry": "0x00737B00",
-   "name": "Unknown_00737b00 (unknown_build_user_text_737b00)",
+   "name": "Build_By_String_00737b00",
    "symbol": "",
    "origin_class": "accepted seed under a scaffold name",
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_r9_lan.cpp",
-   "source": "src/recovered/00737b00.cpp (accepted seed); string from game.exe at run time",
+   "source": "src/recovered/winstub/Build_By_String.cpp (accepted seed); string from game.exe at run time",
    "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
   },
   {
@@ -3145,7 +3033,7 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_r9_lan.cpp",
-   "source": "src/recovered/0075ca00.cpp (accepted seed)",
+   "source": "src/recovered/wonline/unknown_send_4dc.cpp (accepted seed)",
    "notes": "Scout1209 (r9): the named declaration callers use (Decode_Pub_Gameopt 0x005C3FF0 draft); the seed's int-typed handles and namespace keep it from being a native alias target"
   },
   {
@@ -3268,6 +3156,61 @@
    "file": "native/link/behaviour_r32_mapseed.cpp",
    "source": "src/recovered/classes/MapSeedClass/00579750.cpp (seed scaffolding)",
    "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Save Map's message GUI:MapSaved; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)"
+  },
+  {
+   "entry": "0x004CDA80",
+   "name": "FootClass::unknown_slot269() (clears the pending order)",
+   "symbol": "__ZN9FootClass15unknown_slot269Ev",
+   "origin_class": "unmatched (player path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_c3_attack_move.cpp",
+   "source": "src/recovered/004cda80.cpp (seed scaffolding)",
+   "notes": "C3: attack-move (Ctrl+Shift, pending order 0x1D). Natively undefined and bound by data/address_aliases.tsv to TechnoClass's inline default of the same slot (different behaviour), so the attack-move never scanned for enemies (TechnoClass::AI slot 276 -> 278) and ended as a plain move; alias row removed."
+  },
+  {
+   "entry": "0x004CDAA0",
+   "name": "FootClass::unknown_slot270() (an order is pending)",
+   "symbol": "__ZN9FootClass15unknown_slot270Ev",
+   "origin_class": "unmatched (player path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_c3_attack_move.cpp",
+   "source": "src/recovered/004cdaa0.cpp (seed scaffolding)",
+   "notes": "C3: attack-move (Ctrl+Shift, pending order 0x1D). Natively undefined and bound by data/address_aliases.tsv to TechnoClass's inline default of the same slot (different behaviour), so the attack-move never scanned for enemies (TechnoClass::AI slot 276 -> 278) and ended as a plain move; alias row removed."
+  },
+  {
+   "entry": "0x004CDAB0",
+   "name": "FootClass::unknown_slot271() (the pending order was resumed, +0x4C1)",
+   "symbol": "__ZN9FootClass15unknown_slot271Ev",
+   "origin_class": "unmatched (player path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_c3_attack_move.cpp",
+   "source": "src/recovered/004cdab0.cpp (seed scaffolding)",
+   "notes": "C3: attack-move (Ctrl+Shift, pending order 0x1D). Natively undefined and bound by data/address_aliases.tsv to TechnoClass's inline default of the same slot (different behaviour), so the attack-move never scanned for enemies (TechnoClass::AI slot 276 -> 278) and ended as a plain move; alias row removed."
+  },
+  {
+   "entry": "0x004CDAC0",
+   "name": "FootClass::unknown_slot272() (the pending order kind)",
+   "symbol": "__ZN9FootClass15unknown_slot272Ev",
+   "origin_class": "unmatched (player path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_c3_attack_move.cpp",
+   "source": "src/recovered/004cdac0.cpp (seed scaffolding)",
+   "notes": "C3: attack-move (Ctrl+Shift, pending order 0x1D). Natively undefined and bound by data/address_aliases.tsv to TechnoClass's inline default of the same slot (different behaviour), so the attack-move never scanned for enemies (TechnoClass::AI slot 276 -> 278) and ended as a plain move; alias row removed."
+  },
+  {
+   "entry": "0x004CDBD0",
+   "name": "FootClass::unknown_slot276() (the pending order is an attack-move)",
+   "symbol": "__ZN9FootClass15unknown_slot276Ev",
+   "origin_class": "unmatched (player path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_c3_attack_move.cpp",
+   "source": "src/recovered/004cdbd0.cpp (seed scaffolding)",
+   "notes": "C3: attack-move (Ctrl+Shift, pending order 0x1D). Natively undefined and bound by data/address_aliases.tsv to TechnoClass's inline default of the same slot (different behaviour), so the attack-move never scanned for enemies (TechnoClass::AI slot 276 -> 278) and ended as a plain move; alias row removed."
   }
  ]
 }

@@ -1,0 +1,206 @@
+{
+ "module": "diskswap",
+ "source": "src/recovered/diskswap.cpp",
+ "header": null,
+ "population": "population-1902",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 399,
+ "code": [
+  {
+   "symbol": "?Get_CD_Index@@YIHHH@Z",
+   "entry": "004983e0",
+   "body_bytes": 473,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Unknown_004985C0@CD@@QAE_NH@Z",
+   "entry": "004985c0",
+   "body_bytes": 327,
+   "padding_bytes": 9
+  }
+ ],
+ "code_bytes": 816,
+ "data": [
+  {
+   "symbol": "??_C@_04POLC@?$CFc?3?2?$AA@",
+   "address": "007d239c",
+   "bytes": 5,
+   "kind": "string",
+   "section": 5
+  },
+  {
+   "symbol": "??_C@_0N@KIKC@?$CFc?3?2RA?$CFd?4dsk?$AA@",
+   "address": "007d5c58",
+   "bytes": 13,
+   "kind": "string",
+   "section": 3
+  },
+  {
+   "symbol": "??_C@_04FIJC@RA?$CFd?$AA@",
+   "address": "007d5c68",
+   "bytes": 5,
+   "kind": "string",
+   "section": 4
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_C@_04POLC@?$CFc?3?2?$AA@",
+   "address": "007d239c",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@KIKC@?$CFc?3?2RA?$CFd?4dsk?$AA@",
+   "address": "007d5c58",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04FIJC@RA?$CFd?$AA@",
+   "address": "007d5c68",
+   "bytes": 5,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0046fe70",
+   "symbol": "?Get_CD_Index@@YIHHH@Z",
+   "target": "004983e0",
+   "function_entry": true
+  },
+  {
+   "site": "0046e4c0",
+   "symbol": "?Get_CD_Index@@YIHHH@Z",
+   "target": "004983e0",
+   "function_entry": true
+  },
+  {
+   "site": "0046e4f0",
+   "symbol": "?Unknown_004985C0@CD@@QAE_NH@Z",
+   "target": "004985c0",
+   "function_entry": true
+  },
+  {
+   "site": "0051a330",
+   "symbol": "?Get_CD_Index@@YIHHH@Z",
+   "target": "004983e0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??BSystemTimerClass@@QBEJXZ",
+   "address": "0069a430"
+  },
+  {
+   "symbol": "?CurrentCDDrive@CDFileClass@@2HA",
+   "address": "0085089c"
+  },
+  {
+   "symbol": "?LastCDDrive@CDFileClass@@2HA",
+   "address": "008508a0"
+  },
+  {
+   "symbol": "?Refresh_Search_Drives@CDFileClass@@SIXXZ",
+   "address": "0046fe20"
+  },
+  {
+   "symbol": "?Set_CD_Drive@CDFileClass@@SIXH@Z",
+   "address": "004700e0"
+  },
+  {
+   "symbol": "?cd_drives_00a408a8@@3UCDDriveList_004985C0@@A",
+   "address": "00a408a8"
+  },
+  {
+   "symbol": "?loaded_cd_007d5c54@@3HA",
+   "address": "007d5c54"
+  },
+  {
+   "symbol": "__imp__CloseHandle@4",
+   "address": "0079a1d4"
+  },
+  {
+   "symbol": "__imp__CreateFileA@28",
+   "address": "0079a1b0"
+  },
+  {
+   "symbol": "__imp__GetLastError@0",
+   "address": "0079a1f4"
+  },
+  {
+   "symbol": "__imp__GetVolumeInformationA@32",
+   "address": "0079a20c"
+  },
+  {
+   "symbol": "__imp__wsprintfA",
+   "address": "0079a4a4"
+  },
+  {
+   "symbol": "__stricmp",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "_sprintf",
+   "address": "007820f4"
+  }
+ ],
+ "route": "A",
+ "unit": "diskswap.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "004983e0",
+   "lines": 5
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "00498710",
+   "bytes": 64,
+   "population": "population-3772",
+   "source": "src/recovered/diskswap/unknown_ask_insert_disk.cpp",
+   "cause": "frozen in another population's inventory pass (population-3772)"
+  },
+  {
+   "kind": "split",
+   "entry": "00498750",
+   "bytes": 5,
+   "population": "population-3772",
+   "source": "src/recovered/diskswap/unknown_disk_available.cpp",
+   "cause": "frozen in another population's inventory pass (population-3772)"
+  }
+ ],
+ "unit_functions": 4,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 2,
+  "bytes": 69
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

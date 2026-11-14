@@ -4,8 +4,8 @@
     "id": "population-99",
     "inventory_sha256": "86391290ff7ef8f2bc2e67fbf16771ef64a347dffc829d414f74a4c672c7c641",
     "gaps_sha256": "c0072eea1904f77b24439f4ddf9a2f114157635adf80c6ce94612be334897dbf",
-    "historical_population_sha256": "42be0306ac9ac9b58c6e85093a10f5a3b85e1ca536ab27ce4da1bba12d667120",
-    "historical_acceptance_sha256": "f980e1b0de466e4eac3a894eef8d1a53a34583da8316da07fe1e080004b8b964"
+    "historical_population_sha256": "44ef1fae0206a4301be1f69cec9145a8352ae9d7b4afba7b6a58ed1b84d4e391",
+    "historical_acceptance_sha256": "f38f706f809cbcd07bb64636edbec9de16cab77b92341ece288e74a3c3335c46"
   },
   "references": {
     "?Encrypt@BlowfishEngine@@QAEHPBXHPAX@Z": 4412976,
@@ -298,10 +298,10 @@
     "?Fetch@?$VectorClass@N@@UBENH@Z": 5824176,
     "?Create@RAMFileClass@@UAEHXZ": 6521760,
     "_strncpy": 7873488,
-    "__DAT_00ab6e88": 11234952,
+    "__waypoint_none_00ab6e88": 11234952,
     "__strncpy": 7873488,
     "___amsg_exit": 7887784,
-    "__DAT_0084ed10": 8711440,
+    "__cell_none_0084ed10": 8711440,
     "?unknown_application_84c7dc@@3PAUIUnknown@@A": 8701916,
     "?Create@RawFileClass@@UAEHXZ": 6525440,
     "__strdup": 7919638,
@@ -483,8 +483,8 @@
     "?Name@ThemeClass@@QBEPBDH@Z": 7243120,
     "__chkstk": 7878736,
     "__strnicmp": 7878672,
-    "__DAT_00ab6ea8": 11234984,
-    "__DAT_00ab6eb0": 11234992,
+    "__unknown_timer_start_00ab6ea8": 11234984,
+    "__unknown_timer_accum_00ab6eb0": 11234992,
     "?Counter@ScrollClass@@2V?$CDTimerClass@VSystemTimerClass@@@@A": 11235400,
     "?AddRef@CStreamClass@@UAGKXZ": 4802832,
     "?Release@?$TClassFactory@VCampaignClass@@@@UAGKXZ": 6891776,
@@ -649,7 +649,7 @@
     "__real@8@3ffeccccccccccccd000": 8010288,
     "___RTDynamicCast": 7879908,
     "?Get@UnknownCRCStraw@@UAEHPAXH@Z": 4801168,
-    "?Get@UnknownAlphaTableCache_008315B8@@QAEPAY0BAA@$$CBGH@Z": 4318176,
+    "?Get@AlphaLightingRemapInitClass@@QAEPAY0BAA@$$CBGH@Z": 4318176,
     "__real@8@3ff9a3d70a3d70a3d800": 8027952,
     "__real@8@4000a000000000000000": 8027960,
     "__real@4@4006ff00000000000000": 7975080,
@@ -932,7 +932,7 @@
     "__real@8@3ffdb2b8c2573a243800": 8032832,
     "__real@8@3ffabea2f16e1be26000": 8032824,
     "__real@8@3ffedf66f2ed08ad4800": 8032816,
-    "?Release@UnknownAlphaTableCache_008315B8@@QAEXPAY0BAA@$$CBG@Z": 4318480,
+    "?Release@AlphaLightingRemapInitClass@@QAEXPAY0BAA@$$CBG@Z": 4318480,
     "?Create@Map@WorldDominationTour@@SI?AV?$rc_ptr@VMap@WorldDominationTour@@@@HHH@Z": 7508704,
     "?Create@WDTTerritory@@SI?AV?$rc_ptr@VWDTTerritory@@@@XZ": 7519680,
     "__strrev": 7958640,
@@ -1020,7 +1020,13 @@
     "__encoder": 7980576,
     "__pad": 7980572,
     "__decoder": 7980580,
-    "__real@8@bff6b6db6db6db6db800": 8026880
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AUIUnknown@@@8": 8181304,
+    "??_R0?AVStraw@@@8": 8199872,
+    "??_R0?AVBlowStraw@@@8": 8265128,
+    "??_R0?AVMixFileClass@@@8": 8265192,
+    "??_R0?AVBlowPipe@@@8": 8305096
   },
   "regions": [
     {
@@ -1032,7 +1038,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 227,
       "body_sha256": "960b07332a3c820504f57ddc464ddf36325810daed5ed99a90290da9fd3005c0",
@@ -1106,7 +1113,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 64,
       "body_sha256": "69a558edfbf3af0e5e73927d9b8cd706603bc60ebbac4615d9a9b154dc5e10f3",

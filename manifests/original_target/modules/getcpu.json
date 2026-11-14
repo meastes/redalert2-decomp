@@ -1,0 +1,187 @@
+{
+ "module": "getcpu",
+ "source": "src/recovered/getcpu.cpp",
+ "header": null,
+ "population": "population-3640",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 750,
+ "code": [
+  {
+   "symbol": "?Get_CPU_Info@@YIXPAHPAEPADI@Z",
+   "entry": "004d2a20",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Get_CPU_Type@@YAHXZ",
+   "entry": "004d2a60",
+   "body_bytes": 276,
+   "padding_bytes": 12
+  }
+ ],
+ "code_bytes": 352,
+ "data": [
+  {
+   "symbol": "??_C@_0N@MOOL@CyrixInstead?$AA@",
+   "address": "007d88ac",
+   "bytes": 13,
+   "kind": "string",
+   "section": 5
+  },
+  {
+   "symbol": "??_C@_0N@OLMF@AuthenticAMD?$AA@",
+   "address": "007d88bc",
+   "bytes": 13,
+   "kind": "string",
+   "section": 6
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_C@_0N@MOOL@CyrixInstead?$AA@",
+   "address": "007d88ac",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@OLMF@AuthenticAMD?$AA@",
+   "address": "007d88bc",
+   "bytes": 13,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00662d60",
+   "symbol": "?Get_CPU_Info@@YIXPAHPAEPADI@Z",
+   "target": "004d2a20",
+   "function_entry": true
+  },
+  {
+   "site": "00516c40",
+   "symbol": "?Get_CPU_Info@@YIXPAHPAEPADI@Z",
+   "target": "004d2a20",
+   "function_entry": true
+  },
+  {
+   "site": "0051a880",
+   "symbol": "?Get_CPU_Type@@YAHXZ",
+   "target": "004d2a60",
+   "function_entry": true
+  },
+  {
+   "site": "0062dba0",
+   "symbol": "?Get_CPU_Info@@YIXPAHPAEPADI@Z",
+   "target": "004d2a20",
+   "function_entry": true
+  },
+  {
+   "site": "004b7df0",
+   "symbol": "?Get_CPU_Info@@YIXPAHPAEPADI@Z",
+   "target": "004d2a20",
+   "function_entry": true
+  },
+  {
+   "site": "004d2b80",
+   "symbol": "?Get_CPU_Type@@YAHXZ",
+   "target": "004d2a60",
+   "function_entry": true
+  },
+  {
+   "site": "005935e0",
+   "symbol": "?Get_CPU_Info@@YIXPAHPAEPADI@Z",
+   "target": "004d2a20",
+   "function_entry": true
+  },
+  {
+   "site": "0062a360",
+   "symbol": "?Get_CPU_Info@@YIXPAHPAEPADI@Z",
+   "target": "004d2a20",
+   "function_entry": true
+  },
+  {
+   "site": "005dd760",
+   "symbol": "?Get_CPU_Info@@YIXPAHPAEPADI@Z",
+   "target": "004d2a20",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "?unknown_cpu_family_8015a3@@3DA",
+   "address": "008015a3"
+  },
+  {
+   "symbol": "?unknown_cpu_family_probe_77f20f@@YAXXZ",
+   "address": "0077f20f"
+  },
+  {
+   "symbol": "?unknown_cpu_model_8015a4@@3DA",
+   "address": "008015a4"
+  },
+  {
+   "symbol": "?unknown_cpu_probe_77f14d@@YAEXZ",
+   "address": "0077f14d"
+  },
+  {
+   "symbol": "?unknown_cpu_text_8015a5@@3PADA",
+   "address": "008015a5"
+  },
+  {
+   "symbol": "__stricmp",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "_strncpy",
+   "address": "007823d0"
+  }
+ ],
+ "route": "A",
+ "unit": "getcpu.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "004d2a20",
+   "lines": 3
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "004d2b80",
+   "bytes": 29,
+   "population": "population-3733",
+   "source": "src/recovered/getcpu/Get_CPU_Type_Name.cpp",
+   "cause": "frozen in another population's inventory pass (population-3733)"
+  }
+ ],
+ "unit_functions": 3,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 1,
+  "bytes": 29
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

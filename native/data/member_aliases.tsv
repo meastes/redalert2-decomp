@@ -63,7 +63,7 @@ _unknown_flag_839c4c	_WinVersion	140	140	exact	unknown_flag_839c4c	WinVersion	Ma
 _unknown_text_buffer_a40a34	_serial_manager_00a40a28	24	12	exact	unknown_text_buffer_a40a34	serial_manager_00a40a28	base:class ConnManClass.ReceiveBuf	char*	char *	152
 _unknown_text_capacity_a40a38	_serial_manager_00a40a28	32	16	exact	unknown_text_capacity_a40a38	serial_manager_00a40a28	base:class ConnManClass.ReceiveLen	int	int	152
 _unknown_text_length_a40a3c	_serial_manager_00a40a28	36	20	exact	unknown_text_length_a40a3c	serial_manager_00a40a28	base:class ConnManClass.ReceiveIndex	int	int	152
-_DAT_00ac0b40	_unknown_TiberiumClass_list_00ac0b30	24	16	exact	DAT_00ac0b40	unknown_TiberiumClass_list_00ac0b30	base:class VectorClass<class TiberiumClass *>.ActiveCount	int	int	32
+_Tiberiums_ActiveCount_00ac0b40	_unknown_TiberiumClass_list_00ac0b30	24	16	exact	Tiberiums_ActiveCount_00ac0b40	unknown_TiberiumClass_list_00ac0b30	base:class VectorClass<class TiberiumClass *>.ActiveCount	int	int	32
 _DAT_00ad0940	_unknown_VoxClass_list_00ad0930	24	16	exact	DAT_00ad0940	unknown_VoxClass_list_00ad0930	base:class VectorClass<class VoxClass *>.ActiveCount	int	int	32
 _g4_735d70_b25dcc	_unknown_font_cache_b25dc8	4	4	compatible	g4_735d70_b25dcc	unknown_font_cache_b25dc8	Count.Max	unsigned int	int	16
 _unknown_mono_leading_a70eb0	_unknown_mono_metrics_a70ea0	16	16	exact	unknown_mono_leading_a70eb0	unknown_mono_metrics_a70ea0	tmHeight.tmExternalLeading	int	LONG	56
@@ -86,7 +86,7 @@ _unknown_int_ab646c	_unknown_rect_ab6468	4	4	exact	unknown_int_ab646c	unknown_re
 _unknown_int_ab6470	_unknown_rect_ab6468	8	8	exact	unknown_int_ab6470	unknown_rect_ab6468	X.Width	int	int	16
 _unknown_int_ab6474	_unknown_rect_ab6468	12	12	exact	unknown_int_ab6474	unknown_rect_ab6468	X.Height	int	int	16
 _unknown_session_a3d2a0	_unknown_session_a3d298	8	8	range	unknown_session_a3d2a0	unknown_session_a3d298	(anon).(anon).unknown_00+8	int	char[28]	12592
-_DAT_00a3d2a4	_unknown_session_a3d298	12	12	range	DAT_00a3d2a4	unknown_session_a3d298	(anon).(anon).unknown_00+12	unsigned int	char[28]	12592
+_unknown_mode_00a3d2a4	_unknown_session_a3d298	12	12	range	unknown_mode_00a3d2a4	unknown_session_a3d298	(anon).(anon).unknown_00+12	unsigned int	char[28]	12592
 _unknown_a3d2a4	_unknown_session_a3d298	12	12	range	unknown_a3d2a4	unknown_session_a3d298	(anon).(anon).unknown_00+12	int	char[28]	12592
 _unknown_a3d2a8	_unknown_session_a3d298	16	16	range	unknown_a3d2a8	unknown_session_a3d298	(anon).(anon).unknown_00+16	int	char[28]	12592
 _unknown_online_option_a3d2a8	_unknown_session_a3d298	16	16	range	unknown_online_option_a3d2a8	unknown_session_a3d298	(anon).(anon).unknown_00+16	int	char[28]	12592
@@ -166,7 +166,7 @@ _unknown_session_a3f614	_unknown_session_a3d298	9153	9084	compatible	unknown_ses
 _unknown_session_a3f615	_unknown_session_a3d298	9154	9085	compatible	unknown_session_a3f615	unknown_session_a3d298	(anon).unknown_236c+17	bool	char[20]	12592
 _unknown_a3f616	_unknown_session_a3d298	9155	9086	exact	unknown_a3f616	unknown_session_a3d298	(anon).unknown_236c[18]	char	char[20]	12592
 _unknown_session_a3f616	_unknown_session_a3d298	9155	9086	compatible	unknown_session_a3f616	unknown_session_a3d298	(anon).unknown_236c+18	bool	char[20]	12592
-_DAT_00a3f618	_unknown_session_a3d298	9158	9088	range	DAT_00a3f618	unknown_session_a3d298	(anon).HostName_2380	unsigned int	unsigned short[20]	12592
+_host_name_00a3f618	_unknown_session_a3d298	9158	9088	range	host_name_00a3f618	unknown_session_a3d298	(anon).HostName_2380	unsigned int	unsigned short[20]	12592
 _unknown_host_name_a3f618	_unknown_session_a3d298	9158	9088	exact	unknown_host_name_a3f618	unknown_session_a3d298	(anon).HostName_2380[0]	unsigned short[None]	unsigned short[20]	12592
 _unknown_global_packet_a3f640	_unknown_session_a3d298	9198	9128	object	unknown_global_packet_a3f640	unknown_session_a3d298	(anon).GPacket	UnknownScorePacket	struct UnknownGlobalPacket	12592
 _unknown_gpacket_a3f640	_unknown_session_a3d298	9198	9128	exact	unknown_gpacket_a3f640	unknown_session_a3d298	(anon).GPacket	UnknownGlobalPacket	struct UnknownGlobalPacket	12592
@@ -179,9 +179,9 @@ _unknown_meta_size_a3fa48	_unknown_session_a3d298	10230	10160	range	unknown_meta
 _unknown_chat_a3fa4c	_unknown_session_a3d298	10240	10164	exact	unknown_chat_a3fa4c	unknown_session_a3d298	(anon).NodeList_27b4	DynamicVectorClass<NodeNameType*>	class DynamicVectorClass<struct NodeNameType *>	12592
 _unknown_games_a3fa64	_unknown_session_a3d298	10272	10188	exact	unknown_games_a3fa64	unknown_session_a3d298	(anon).NodeList_27cc	DynamicVectorClass<NodeNameType*>	class DynamicVectorClass<struct NodeNameType *>	12592
 _unknown_players_a3fa7c	_unknown_session_a3d298	10304	10212	exact	unknown_players_a3fa7c	unknown_session_a3d298	(anon).Players	DynamicVectorClass<NodeNameType*>	class DynamicVectorClass<struct NodeNameType *>	12592
-_DAT_00a3fa8c	_unknown_session_a3d298	10328	10228	exact	DAT_00a3fa8c	unknown_session_a3d298	(anon).Players.ActiveCount	int	int	12592
+_player_count_00a3fa8c	_unknown_session_a3d298	10328	10228	exact	player_count_00a3fa8c	unknown_session_a3d298	(anon).Players.ActiveCount	int	int	12592
 _unknown_player_count_a3fa8c	_unknown_session_a3d298	10328	10228	exact	unknown_player_count_a3fa8c	unknown_session_a3d298	(anon).Players.ActiveCount	int	int	12592
-_DAT_00a3fa94	_unknown_session_a3d298	10336	10236	range	DAT_00a3fa94	unknown_session_a3d298	(anon).unknown_27fc	unsigned int	char[4]	12592
+_unknown_lobby_00a3fa94	_unknown_session_a3d298	10336	10236	range	unknown_lobby_00a3fa94	unknown_session_a3d298	(anon).unknown_27fc	unsigned int	char[4]	12592
 _unknown_lobby_a3fa94	_unknown_session_a3d298	10336	10236	range	unknown_lobby_a3fa94	unknown_session_a3d298	(anon).unknown_27fc	int	char[4]	12592
 _unknown_player_slots_a3fa98	_unknown_session_a3d298	10344	10240	exact	unknown_player_slots_a3fa98	unknown_session_a3d298	(anon).PlayerSlots[0]	NodeNameType*[8]	NodeNameType *[8]	12592
 _unknown_lobby_flag_a3fab8	_unknown_session_a3d298	10408	10272	compatible	unknown_lobby_flag_a3fab8	unknown_session_a3d298	(anon).unknown_2820	bool	char[12]	12592
@@ -218,7 +218,7 @@ _unknown_exit_frame1_a402e0	_unknown_session_a3d298	12524	12360	exact	unknown_ex
 _unknown_exit_frame2_a402e4	_unknown_session_a3d298	12528	12364	exact	unknown_exit_frame2_a402e4	unknown_session_a3d298	(anon).unknown_304c	int	int	12592
 _unknown_exit_house_a402e8	_unknown_session_a3d298	12532	12368	exact	unknown_exit_house_a402e8	unknown_session_a3d298	(anon).unknown_3050	int	int	12592
 _unknown_trap_print_crc_a40314	_unknown_session_a3d298	12580	12412	exact	unknown_trap_print_crc_a40314	unknown_session_a3d298	(anon).TrapPrintCRC	int	int	12592
-_DAT_00b292f0	_unknown_timer_b292e8	8	8	compatible	DAT_00b292f0	unknown_timer_b292e8	Started.DelayTime	unsigned int	RA2_LONG	12
+_unknown_timer_accum_00b292f0	_unknown_timer_b292e8	8	8	compatible	unknown_timer_accum_00b292f0	unknown_timer_b292e8	Started.DelayTime	unsigned int	RA2_LONG	12
 _unknown_int_839648	_unknown_window_839640	8	8	exact	unknown_int_839648	unknown_window_839640	X.Width	int	int	16
 _unknown_int_83964c	_unknown_window_839640	12	12	exact	unknown_int_83964c	unknown_window_839640	X.Height	int	int	16
 _unknown_module_locks_b2930c	_wol_module_b292f8	40	20	exact	unknown_module_locks_b2930c	wol_module_b292f8	cbSize.m_nLockCnt	int	RA2_LONG	240

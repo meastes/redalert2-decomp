@@ -1,0 +1,1285 @@
+{
+ "module": "airctype",
+ "source": "src/recovered/airctype.cpp",
+ "header": null,
+ "population": "population-2446",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 498,
+ "code": [
+  {
+   "symbol": "??0AircraftTypeClass@@QAE@PBD@Z",
+   "entry": "0041bc90",
+   "body_bytes": 282,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "??0AircraftTypeClass@@QAE@ABVNoInitClass@@@Z",
+   "entry": "0041bdb0",
+   "body_bytes": 46,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "??1AircraftTypeClass@@UAE@XZ",
+   "entry": "0041bde0",
+   "body_bytes": 121,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?From_Name@AircraftTypeClass@@SIHPBD@Z",
+   "entry": "0041be60",
+   "body_bytes": 65,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Init@AircraftTypeClass@@SAXXZ",
+   "entry": "0041beb0",
+   "body_bytes": 31,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Create_One_Of@AircraftTypeClass@@UBEPAVObjectClass@@PAVHouseClass@@@Z",
+   "entry": "0041bed0",
+   "body_bytes": 43,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?CanUseWaypoint@AircraftTypeClass@@UBE_NXZ",
+   "entry": "0041bf00",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?CanAttackMove@AircraftTypeClass@@UBE_NXZ",
+   "entry": "0041bf10",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Occupy_List@AircraftTypeClass@@UBEPBVCell@@H@Z",
+   "entry": "0041bf20",
+   "body_bytes": 91,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "_$E49",
+   "entry": "0041bf80",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Create_And_Place@AircraftTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z",
+   "entry": "0041bf90",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Lepton_Dimensions@AircraftTypeClass@@UBE?AUCoordStruct@@XZ",
+   "entry": "0041bfa0",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Read_INI@AircraftTypeClass@@UAE_NAAVCCINIClass@@@Z",
+   "entry": "0041bfd0",
+   "body_bytes": 319,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Compute_CRC@AircraftTypeClass@@UBEXAAVWWCRCEngine@@@Z",
+   "entry": "0041c110",
+   "body_bytes": 103,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Load@AircraftTypeClass@@UAGJPAUIStream@@@Z",
+   "entry": "0041c180",
+   "body_bytes": 100,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Save@AircraftTypeClass@@UAGJPAUIStream@@H@Z",
+   "entry": "0041c1f0",
+   "body_bytes": 29,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?GetClassID@AircraftTypeClass@@UAGJPAUGUID@@@Z",
+   "entry": "0041c210",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Find_Or_Make@AircraftTypeClass@@SIPAV1@PBD@Z",
+   "entry": "0041c250",
+   "body_bytes": 131,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Coord_Fixup@ObjectTypeClass@@UBE?AUCoordStruct@@ABU2@@Z",
+   "entry": "0041c2e0",
+   "body_bytes": 31,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Get_Image_Data@ObjectTypeClass@@UBEPAXXZ",
+   "entry": "0041c300",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Kind_Of@AircraftTypeClass@@UBEHXZ",
+   "entry": "0041c310",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Size_Of@AircraftTypeClass@@UBEHXZ",
+   "entry": "0041c320",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Fetch_Heap_ID@AircraftTypeClass@@UBEHXZ",
+   "entry": "0041c330",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??_GAircraftTypeClass@@UAEPAXI@Z",
+   "entry": "0041c340",
+   "body_bytes": 141,
+   "padding_bytes": 3
+  }
+ ],
+ "code_bytes": 1856,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "0079b638",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7AircraftTypeClass@@6BINoticeSource@@@",
+   "address": "0079b648",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 69
+  },
+  {
+   "symbol": "??_7AircraftTypeClass@@6BINoticeSink@@@",
+   "address": "0079b650",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 70
+  },
+  {
+   "symbol": "??_7AircraftTypeClass@@6BIRTTITypeInfo@@@",
+   "address": "0079b658",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 71
+  },
+  {
+   "symbol": "??_7AircraftTypeClass@@6BIPersistStream@@@",
+   "address": "0079b674",
+   "bytes": 196,
+   "kind": "vtable",
+   "section": 72
+  },
+  {
+   "symbol": "??_R1M@?0A@A@INoticeSource@@8",
+   "address": "007b30b8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R17?0A@A@INoticeSink@@8",
+   "address": "007b30d0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 46
+  },
+  {
+   "symbol": "??_R13?0A@1IUnknown@@8",
+   "address": "007b30e8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 47
+  },
+  {
+   "symbol": "??_R13?0A@A@IRTTITypeInfo@@8",
+   "address": "007b3100",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 49
+  },
+  {
+   "symbol": "??_R1A@?0A@1IUnknown@@8",
+   "address": "007b3118",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 51
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersist@@8",
+   "address": "007b3130",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 53
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersistStream@@8",
+   "address": "007b3148",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 55
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractClass@@8",
+   "address": "007b3160",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 57
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractTypeClass@@8",
+   "address": "007b3210",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 59
+  },
+  {
+   "symbol": "??_R4AircraftTypeClass@@6BINoticeSource@@@",
+   "address": "007b3528",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 40
+  },
+  {
+   "symbol": "??_R4AircraftTypeClass@@6BINoticeSink@@@",
+   "address": "007b3540",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 41
+  },
+  {
+   "symbol": "??_R4AircraftTypeClass@@6BIRTTITypeInfo@@@",
+   "address": "007b3558",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 42
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ObjectTypeClass@@8",
+   "address": "007b3570",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 61
+  },
+  {
+   "symbol": "??_R1A@?0A@A@TechnoTypeClass@@8",
+   "address": "007b3588",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 63
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AircraftTypeClass@@8",
+   "address": "007b35a0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 64
+  },
+  {
+   "symbol": "??_R2AircraftTypeClass@@8",
+   "address": "007b35b8",
+   "bytes": 49,
+   "kind": "rtti",
+   "section": 65
+  },
+  {
+   "symbol": "??_R3AircraftTypeClass@@8",
+   "address": "007b35f0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 66
+  },
+  {
+   "symbol": "??_R4AircraftTypeClass@@6BIPersistStream@@@",
+   "address": "007b3600",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 68
+  },
+  {
+   "symbol": "??_R0?AVINoticeSink@@@8",
+   "address": "007cd618",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 45
+  },
+  {
+   "symbol": "??_R0?AUIUnknown@@@8",
+   "address": "007cd638",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 50
+  },
+  {
+   "symbol": "??_C@_06CPHF@?$DMnone?$DO?$AA@",
+   "address": "007cdecc",
+   "bytes": 7,
+   "kind": "string",
+   "section": 126
+  },
+  {
+   "symbol": "??_C@_04KIKH@none?$AA@",
+   "address": "007ce0ec",
+   "bytes": 5,
+   "kind": "string",
+   "section": 125
+  },
+  {
+   "symbol": "??_R0?AVINoticeSource@@@8",
+   "address": "007ce1c8",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 43
+  },
+  {
+   "symbol": "??_R0?AUIRTTITypeInfo@@@8",
+   "address": "007ce1e8",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 48
+  },
+  {
+   "symbol": "??_R0?AUIPersist@@@8",
+   "address": "007ce208",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 52
+  },
+  {
+   "symbol": "??_R0?AUIPersistStream@@@8",
+   "address": "007ce220",
+   "bytes": 29,
+   "kind": "rtti",
+   "section": 54
+  },
+  {
+   "symbol": "??_R0?AVAbstractClass@@@8",
+   "address": "007ce240",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 56
+  },
+  {
+   "symbol": "??_R0?AVAbstractTypeClass@@@8",
+   "address": "007ce260",
+   "bytes": 32,
+   "kind": "rtti",
+   "section": 58
+  },
+  {
+   "symbol": "??_R0?AVObjectTypeClass@@@8",
+   "address": "007ce9c8",
+   "bytes": 30,
+   "kind": "rtti",
+   "section": 60
+  },
+  {
+   "symbol": "??_R0?AVTechnoTypeClass@@@8",
+   "address": "007ce9e8",
+   "bytes": 30,
+   "kind": "rtti",
+   "section": 62
+  },
+  {
+   "symbol": "??_R0?AVAircraftTypeClass@@@8",
+   "address": "007cea08",
+   "bytes": 32,
+   "kind": "rtti",
+   "section": 67
+  },
+  {
+   "symbol": "??_C@_0L@BNPA@RROTOR?4SHP?$AA@",
+   "address": "007cea28",
+   "bytes": 11,
+   "kind": "string",
+   "section": 87
+  },
+  {
+   "symbol": "??_C@_0L@LPEL@LROTOR?4SHP?$AA@",
+   "address": "007cea34",
+   "bytes": 11,
+   "kind": "string",
+   "section": 88
+  },
+  {
+   "symbol": "??_C@_0L@GPCJ@SpawnDelay?$AA@",
+   "address": "007cea40",
+   "bytes": 11,
+   "kind": "string",
+   "section": 107
+  },
+  {
+   "symbol": "??_C@_07CAOM@Trailer?$AA@",
+   "address": "007cea4c",
+   "bytes": 8,
+   "kind": "string",
+   "section": 108
+  },
+  {
+   "symbol": "??_C@_0M@NOPE@CustomRotor?$AA@",
+   "address": "007cea54",
+   "bytes": 12,
+   "kind": "string",
+   "section": 109
+  },
+  {
+   "symbol": "??_C@_06DLIC@Rotors?$AA@",
+   "address": "007cea60",
+   "bytes": 7,
+   "kind": "string",
+   "section": 110
+  },
+  {
+   "symbol": "??_C@_08MALB@Carryall?$AA@",
+   "address": "007cea68",
+   "bytes": 9,
+   "kind": "string",
+   "section": 111
+  },
+  {
+   "symbol": "??_C@_07IJCM@Fighter?$AA@",
+   "address": "007cea74",
+   "bytes": 8,
+   "kind": "string",
+   "section": 112
+  },
+  {
+   "symbol": "??_C@_0N@JACB@AirportBound?$AA@",
+   "address": "007cea7c",
+   "bytes": 13,
+   "kind": "string",
+   "section": 113
+  },
+  {
+   "symbol": "??_C@_08GNKA@Landable?$AA@",
+   "address": "007cea8c",
+   "bytes": 9,
+   "kind": "string",
+   "section": 114
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "0079b638",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7AircraftTypeClass@@6BINoticeSource@@@",
+   "address": "0079b648",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7AircraftTypeClass@@6BINoticeSink@@@",
+   "address": "0079b650",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7AircraftTypeClass@@6BIRTTITypeInfo@@@",
+   "address": "0079b658",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7AircraftTypeClass@@6BIPersistStream@@@",
+   "address": "0079b674",
+   "bytes": 196,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1M@?0A@A@INoticeSource@@8",
+   "address": "007b30b8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R17?0A@A@INoticeSink@@8",
+   "address": "007b30d0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R13?0A@1IUnknown@@8",
+   "address": "007b30e8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R13?0A@A@IRTTITypeInfo@@8",
+   "address": "007b3100",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@1IUnknown@@8",
+   "address": "007b3118",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersist@@8",
+   "address": "007b3130",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersistStream@@8",
+   "address": "007b3148",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractClass@@8",
+   "address": "007b3160",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractTypeClass@@8",
+   "address": "007b3210",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4AircraftTypeClass@@6BINoticeSource@@@",
+   "address": "007b3528",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4AircraftTypeClass@@6BINoticeSink@@@",
+   "address": "007b3540",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4AircraftTypeClass@@6BIRTTITypeInfo@@@",
+   "address": "007b3558",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ObjectTypeClass@@8",
+   "address": "007b3570",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@TechnoTypeClass@@8",
+   "address": "007b3588",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AircraftTypeClass@@8",
+   "address": "007b35a0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2AircraftTypeClass@@8",
+   "address": "007b35b8",
+   "bytes": 49,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3AircraftTypeClass@@8",
+   "address": "007b35f0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4AircraftTypeClass@@6BIPersistStream@@@",
+   "address": "007b3600",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVINoticeSink@@@8",
+   "address": "007cd618",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIUnknown@@@8",
+   "address": "007cd638",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_06CPHF@?$DMnone?$DO?$AA@",
+   "address": "007cdecc",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04KIKH@none?$AA@",
+   "address": "007ce0ec",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AVINoticeSource@@@8",
+   "address": "007ce1c8",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIRTTITypeInfo@@@8",
+   "address": "007ce1e8",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIPersist@@@8",
+   "address": "007ce208",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIPersistStream@@@8",
+   "address": "007ce220",
+   "bytes": 29,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVAbstractClass@@@8",
+   "address": "007ce240",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVAbstractTypeClass@@@8",
+   "address": "007ce260",
+   "bytes": 32,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVObjectTypeClass@@@8",
+   "address": "007ce9c8",
+   "bytes": 30,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVTechnoTypeClass@@@8",
+   "address": "007ce9e8",
+   "bytes": 30,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVAircraftTypeClass@@@8",
+   "address": "007cea08",
+   "bytes": 32,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0L@BNPA@RROTOR?4SHP?$AA@",
+   "address": "007cea28",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@LPEL@LROTOR?4SHP?$AA@",
+   "address": "007cea34",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@GPCJ@SpawnDelay?$AA@",
+   "address": "007cea40",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07CAOM@Trailer?$AA@",
+   "address": "007cea4c",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@NOPE@CustomRotor?$AA@",
+   "address": "007cea54",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06DLIC@Rotors?$AA@",
+   "address": "007cea60",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08MALB@Carryall?$AA@",
+   "address": "007cea68",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07IJCM@Fighter?$AA@",
+   "address": "007cea74",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@JACB@AirportBound?$AA@",
+   "address": "007cea7c",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08GNKA@Landable?$AA@",
+   "address": "007cea8c",
+   "bytes": 9,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00694d30",
+   "symbol": "??0AircraftTypeClass@@QAE@PBD@Z",
+   "target": "0041bc90",
+   "function_entry": true
+  },
+  {
+   "site": "0046c2f0",
+   "symbol": "?From_Name@AircraftTypeClass@@SIHPBD@Z",
+   "target": "0041be60",
+   "function_entry": true
+  },
+  {
+   "site": "0041d7e0",
+   "symbol": "?From_Name@AircraftTypeClass@@SIHPBD@Z",
+   "target": "0041be60",
+   "function_entry": true
+  },
+  {
+   "site": "006540b0",
+   "symbol": "?Find_Or_Make@AircraftTypeClass@@SIPAV1@PBD@Z",
+   "target": "0041c250",
+   "function_entry": true
+  },
+  {
+   "site": "004f9550",
+   "symbol": "?Find_Or_Make@AircraftTypeClass@@SIPAV1@PBD@Z",
+   "target": "0041c250",
+   "function_entry": true
+  },
+  {
+   "site": "004b4860",
+   "symbol": "?From_Name@AircraftTypeClass@@SIHPBD@Z",
+   "target": "0041be60",
+   "function_entry": true
+  },
+  {
+   "site": "0041a840",
+   "symbol": "?From_Name@AircraftTypeClass@@SIHPBD@Z",
+   "target": "0041be60",
+   "function_entry": true
+  },
+  {
+   "site": "006daf60",
+   "symbol": "?Find_Or_Make@AircraftTypeClass@@SIPAV1@PBD@Z",
+   "target": "0041c250",
+   "function_entry": true
+  },
+  {
+   "site": "0064bba0",
+   "symbol": "?Find_Or_Make@AircraftTypeClass@@SIPAV1@PBD@Z",
+   "target": "0041c250",
+   "function_entry": true
+  },
+  {
+   "site": "00647f40",
+   "symbol": "?Find_Or_Make@AircraftTypeClass@@SIPAV1@PBD@Z",
+   "target": "0041c250",
+   "function_entry": true
+  },
+  {
+   "site": "00516900",
+   "symbol": "?Init@AircraftTypeClass@@SAXXZ",
+   "target": "0041beb0",
+   "function_entry": true
+  },
+  {
+   "site": "00639970",
+   "symbol": "?From_Name@AircraftTypeClass@@SIHPBD@Z",
+   "target": "0041be60",
+   "function_entry": true
+  },
+  {
+   "site": "0069d850",
+   "symbol": "?From_Name@AircraftTypeClass@@SIHPBD@Z",
+   "target": "0041be60",
+   "function_entry": true
+  },
+  {
+   "site": "0069d850",
+   "symbol": "?From_Name@AircraftTypeClass@@SIHPBD@Z",
+   "target": "0041be60",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0AircraftClass@@QAE@PAVAircraftTypeClass@@PAVHouseClass@@@Z",
+   "address": "00413a40"
+  },
+  {
+   "symbol": "??0TechnoTypeClass@@QAE@ABVNoInitClass@@@Z",
+   "address": "006da6e0"
+  },
+  {
+   "symbol": "??0TechnoTypeClass@@QAE@PBDH@Z",
+   "address": "006d9b40"
+  },
+  {
+   "symbol": "??1TechnoTypeClass@@UAE@XZ",
+   "address": "006da950"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??RWWCRCEngine@@QAEXJ@Z",
+   "address": "00493f30"
+  },
+  {
+   "symbol": "??RWWCRCEngine@@QAEX_N@Z",
+   "address": "00493e80"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "?AI@AbstractClass@@UAEXXZ",
+   "address": "00410310"
+  },
+  {
+   "symbol": "?AddRef@AbstractClass@@UAGKXZ",
+   "address": "004100a0"
+  },
+  {
+   "symbol": "?AircraftTypes@@3V?$DynamicVectorClass@PAVAircraftTypeClass@@@@A",
+   "address": "00a3d278"
+  },
+  {
+   "symbol": "?ArtINI@@3VCCINIClass@@A",
+   "address": "008397f0"
+  },
+  {
+   "symbol": "?Center_Coord@AbstractClass@@UBE?AUCoordStruct@@XZ",
+   "address": "00410260"
+  },
+  {
+   "symbol": "?Compute_CRC@TechnoTypeClass@@UBEXAAVWWCRCEngine@@@Z",
+   "address": "006defd0"
+  },
+  {
+   "symbol": "?Cost_Of@TechnoTypeClass@@UBEHPAVHouseClass@@@Z",
+   "address": "006dad30"
+  },
+  {
+   "symbol": "?Create_ID@AbstractClass@@UAGXXZ",
+   "address": "0040ffd0"
+  },
+  {
+   "symbol": "?Detach@AbstractClass@@UAEXPAV1@_N@Z",
+   "address": "00410220"
+  },
+  {
+   "symbol": "?Fetch_ID@AbstractClass@@UAGJXZ",
+   "address": "0040ffc0"
+  },
+  {
+   "symbol": "?Fetch_Normal_Image@ObjectTypeClass@@QAEXXZ",
+   "address": "005d7630"
+  },
+  {
+   "symbol": "?Fetch_Voxel_Image@ObjectTypeClass@@QAEXXZ",
+   "address": "005d6730"
+  },
+  {
+   "symbol": "?Find_Or_Make@AnimTypeClass@@SIPAV1@PBD@Z",
+   "address": "004264a0"
+  },
+  {
+   "symbol": "?Flight_Level@TechnoTypeClass@@UBEHXZ",
+   "address": "006df600"
+  },
+  {
+   "symbol": "?GetSizeMax@TechnoTypeClass@@UAGJPATULARGE_INTEGER@@@Z",
+   "address": "006deee0"
+  },
+  {
+   "symbol": "?Get_Bool@INIClass@@QBE_NPBD0_N@Z",
+   "address": "0050f410"
+  },
+  {
+   "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+   "address": "0050d7f0"
+  },
+  {
+   "symbol": "?Get_String@INIClass@@QBEHPBD00PADH@Z",
+   "address": "0050e9a0"
+  },
+  {
+   "symbol": "?INoticeSink_Unknown@AbstractClass@@UAE_NHH@Z",
+   "address": "00410320"
+  },
+  {
+   "symbol": "?INoticeSource_Unknown@AbstractClass@@UAGXXZ",
+   "address": "00410330"
+  },
+  {
+   "symbol": "?In_Air@AbstractClass@@UBE_NXZ",
+   "address": "004102d0"
+  },
+  {
+   "symbol": "?Init@AbstractClass@@UAEXXZ",
+   "address": "00410210"
+  },
+  {
+   "symbol": "?IsDirty@AbstractClass@@UAGJXZ",
+   "address": "004101f0"
+  },
+  {
+   "symbol": "?Is_Inactive@AbstractClass@@UBE_NXZ",
+   "address": "004101e0"
+  },
+  {
+   "symbol": "?Legal_Placement@TechnoTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z",
+   "address": "006de0e0"
+  },
+  {
+   "symbol": "?Load@TechnoTypeClass@@UAGJPAUIStream@@@Z",
+   "address": "006de260"
+  },
+  {
+   "symbol": "?Max_Pips@TechnoTypeClass@@UBEHXZ",
+   "address": "006de220"
+  },
+  {
+   "symbol": "?On_Ground@AbstractClass@@UBE_NXZ",
+   "address": "004102c0"
+  },
+  {
+   "symbol": "?Owner@AbstractClass@@UBEHXZ",
+   "address": "00410230"
+  },
+  {
+   "symbol": "?Owning_House@AbstractClass@@UBEPAVHouseClass@@XZ",
+   "address": "00410240"
+  },
+  {
+   "symbol": "?Pixel_Dimensions@ObjectTypeClass@@UBE?AUCoordStruct@@XZ",
+   "address": "005d5d10"
+  },
+  {
+   "symbol": "?QueryInterface@AbstractClass@@UAGJABUGUID@@PAPAX@Z",
+   "address": "00410000"
+  },
+  {
+   "symbol": "?Raw_Cost@TechnoTypeClass@@UBEHXZ",
+   "address": "006dace0"
+  },
+  {
+   "symbol": "?Read_INI@TechnoTypeClass@@UAE_NAAVCCINIClass@@@Z",
+   "address": "006daf60"
+  },
+  {
+   "symbol": "?Release@AbstractClass@@UAGKXZ",
+   "address": "004100b0"
+  },
+  {
+   "symbol": "?Repair_Cost@TechnoTypeClass@@UBEHXZ",
+   "address": "006daec0"
+  },
+  {
+   "symbol": "?Repair_Step@TechnoTypeClass@@UBEHXZ",
+   "address": "006daf10"
+  },
+  {
+   "symbol": "?Retrieve@MixFileClass@@SIPBXPBD@Z",
+   "address": "005956c0"
+  },
+  {
+   "symbol": "?Save@TechnoTypeClass@@UAGJPAUIStream@@H@Z",
+   "address": "006dec10"
+  },
+  {
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "address": "0069fb20"
+  },
+  {
+   "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+   "address": "00abd868"
+  },
+  {
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "address": "006ecb90"
+  },
+  {
+   "symbol": "?What_Am_I@AbstractClass@@UAGHXZ",
+   "address": "0040ffb0"
+  },
+  {
+   "symbol": "?Who_Can_Build_Me@ObjectTypeClass@@UBEPAVBuildingClass@@_N00PAVHouseClass@@@Z",
+   "address": "005d5fc0"
+  },
+  {
+   "symbol": "?Write_INI@AbstractTypeClass@@UBE_NAAVCCINIClass@@@Z",
+   "address": "00410910"
+  },
+  {
+   "symbol": "?unknown_left_rotor_83c554@@3PBXB",
+   "address": "0083c554"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_right_rotor_83c558@@3PBXB",
+   "address": "0083c558"
+  },
+  {
+   "symbol": "?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z",
+   "address": "00410290"
+  },
+  {
+   "symbol": "?unknown_slot22@AbstractClass@@UBE?AUCoordStruct@@XZ",
+   "address": "004102e0"
+  },
+  {
+   "symbol": "?unknown_slot24@AbstractTypeClass@@UAEXH@Z",
+   "address": "004109a0"
+  },
+  {
+   "symbol": "?unknown_slot28@TechnoTypeClass@@UBEHXZ",
+   "address": "006dacf0"
+  },
+  {
+   "symbol": "?unknown_slot34@TechnoTypeClass@@UBEHXZ",
+   "address": "006dad10"
+  },
+  {
+   "symbol": "?unknown_slot38@TechnoTypeClass@@UBEPBXXZ",
+   "address": "006dae40"
+  },
+  {
+   "symbol": "?unknown_slot46@TechnoTypeClass@@UBEHPAVHouseClass@@_N@Z",
+   "address": "006dad80"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_string_83c55c@@3PADA",
+   "address": "0083c55c"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__stricmp",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "_atexit",
+   "address": "0078298a"
+  },
+  {
+   "symbol": "_unknown_clsid_aircraft_type_7a1b20",
+   "address": "007a1b20"
+  }
+ ],
+ "route": "A",
+ "unit": "airctype.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "0041bc90",
+   "lines": 3
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 25,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

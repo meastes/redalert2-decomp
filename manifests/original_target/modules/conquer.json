@@ -1,0 +1,3222 @@
+{
+ "module": "conquer",
+ "source": "src/recovered/conquer.cpp",
+ "header": null,
+ "population": "population-4456",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 1253,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00481650",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "00481670",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "004816a0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "004816c0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "004816e0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "00481700",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "00481720",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "00481740",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "00481780",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "004817b0",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "004817e0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "00481810",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "00481820",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?FUN_00481840@seed_00481840@@YAXXZ",
+   "entry": "00481840",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Special_Dialog_00481850@@YIXXZ",
+   "entry": "00481850",
+   "body_bytes": 920,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Process_Serial_Progress_Packets_00481f00@@YAXXZ",
+   "entry": "00481f00",
+   "body_bytes": 167,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "entry": "00481fb0",
+   "body_bytes": 323,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?FUN_00482100@seed_00482100@@YAEXZ",
+   "entry": "00482100",
+   "body_bytes": 8,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?IPX_Call_Back@@YIXXZ",
+   "entry": "00482110",
+   "body_bytes": 2438,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "_$E65",
+   "entry": "00482aa0",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Source_From_Name@@YI?AW4SourceType@@PBD@Z",
+   "entry": "00482ab0",
+   "body_bytes": 57,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?FUN_00482af0@seed_00482af0@@YIPAEI@Z",
+   "entry": "00482af0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Theater_From_Name@@YI?AW4TheaterType@@PBD@Z",
+   "entry": "00482b10",
+   "body_bytes": 51,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Facing_From_Key_00482b50@@YIHI@Z",
+   "entry": "00482b50",
+   "body_bytes": 100,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Clear_Selected_Objects_00482bc0@@YAXXZ",
+   "entry": "00482bc0",
+   "body_bytes": 50,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Unknown_00482C00@@YIPAVObjectTypeClass@@HH@Z",
+   "entry": "00482c00",
+   "body_bytes": 124,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Query_Free_Disk_Kilobytes_00482c80@@YAIXZ",
+   "entry": "00482c80",
+   "body_bytes": 284,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Crate_From_Name@@YI?AW4CrateType@@PBD@Z",
+   "entry": "00482da0",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Owner_From_Name@@YIHPBD@Z",
+   "entry": "00482de0",
+   "body_bytes": 28,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?get@Leaf_482e00@@QAEXXZ",
+   "entry": "00482e00",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Copy_Cell_List_00482e10@@YIXPBVCell@@HPAV1@@Z",
+   "entry": "00482e10",
+   "body_bytes": 71,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?unknown_name_index_482e60@@YIHPBD@Z",
+   "entry": "00482e60",
+   "body_bytes": 80,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Land_From_Name@@YI?AW4LandType@@PBD@Z",
+   "entry": "00482eb0",
+   "body_bytes": 75,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Name_From_Land@@YIPBDW4LandType@@@Z",
+   "entry": "00482f00",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Speed_From_Name@@YI?AW4SpeedType@@PBD@Z",
+   "entry": "00482f20",
+   "body_bytes": 57,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Name_From_Speed@@YIPBDW4SpeedType@@@Z",
+   "entry": "00482f60",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Layer_From_Name@@YI?AW4LayerType@@PBD@Z",
+   "entry": "00482f80",
+   "body_bytes": 57,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Name_From_Layer@@YIPBDW4LayerType@@@Z",
+   "entry": "00482fc0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Write_Multiplayer_Statistics_00482fe0@@YAXXZ",
+   "entry": "00482fe0",
+   "body_bytes": 447,
+   "padding_bytes": 1
+  }
+ ],
+ "code_bytes": 6208,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 10
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 30
+  },
+  {
+   "symbol": "__real@8@4008e100000000000000",
+   "address": "0079b608",
+   "bytes": 8,
+   "kind": "table",
+   "section": 52
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "0079ddf8",
+   "bytes": 16,
+   "kind": "table",
+   "section": 4
+  },
+  {
+   "symbol": "_?fade@?1??Main_Game@@YIXHQAPAD@Z@4_NA",
+   "address": "007d3338",
+   "bytes": 1,
+   "kind": "static",
+   "section": 2
+  },
+  {
+   "symbol": "??_C@_0O@FMJJ@TXT_SURRENDER?$AA@",
+   "address": "007d3340",
+   "bytes": 14,
+   "kind": "string",
+   "section": 43
+  },
+  {
+   "symbol": "??_C@_0BD@GDCE@D?3?2Ra2?2Conquer?4CPP?$AA@",
+   "address": "007d3350",
+   "bytes": 19,
+   "kind": "string",
+   "section": 44
+  },
+  {
+   "symbol": "??_C@_0CG@BCOF@Game?5loop?5finished?4?5Average?5FPS?5@",
+   "address": "007d3364",
+   "bytes": 38,
+   "kind": "string",
+   "section": 105
+  },
+  {
+   "symbol": "??_C@_0BP@GKNM@ExceptionReturnAddress?5?$DN?5?$CF08X?6?$AA@",
+   "address": "007d338c",
+   "bytes": 31,
+   "kind": "string",
+   "section": 106
+  },
+  {
+   "symbol": "??_C@_0BN@KIAN@ExceptionReturnStack?5?$DN?5?$CF08X?6?$AA@",
+   "address": "007d33ac",
+   "bytes": 29,
+   "kind": "string",
+   "section": 107
+  },
+  {
+   "symbol": "??_C@_0BA@GICH@TXT_SHORT_TITLE?$AA@",
+   "address": "007d33cc",
+   "bytes": 16,
+   "kind": "string",
+   "section": 108
+  },
+  {
+   "symbol": "??_C@_0BE@PFBP@TXT_INITGAME_FAILED?$AA@",
+   "address": "007d33dc",
+   "bytes": 20,
+   "kind": "string",
+   "section": 109
+  },
+  {
+   "symbol": "??_C@_0CA@JKCI@Processing?5NET_PROGRESS_REPORT?6?$AA@",
+   "address": "007d33f0",
+   "bytes": 32,
+   "kind": "string",
+   "section": 51
+  },
+  {
+   "symbol": "??_C@_0CK@BLDP@Got?5NET_PORT_UNREACHABLE?5message@",
+   "address": "007d3410",
+   "bytes": 42,
+   "kind": "string",
+   "section": 53
+  },
+  {
+   "symbol": "??_C@_0DD@OKDA@Adjusting?5port?5number?5for?5player@",
+   "address": "007d343c",
+   "bytes": 51,
+   "kind": "string",
+   "section": 54
+  },
+  {
+   "symbol": "??_C@_0CK@EONK@Strange?5port?5number?5in?5PORT_PROB@",
+   "address": "007d3470",
+   "bytes": 42,
+   "kind": "string",
+   "section": 55
+  },
+  {
+   "symbol": "??_C@_0CP@OFJP@Got?5NET_PORT_PROBE?5packet?5from?5?$CF@",
+   "address": "007d349c",
+   "bytes": 47,
+   "kind": "string",
+   "section": 56
+  },
+  {
+   "symbol": "??_C@_0CH@FHLG@Got?5NET_IM_STILL_HERE?5packet?5fro@",
+   "address": "007d34cc",
+   "bytes": 39,
+   "kind": "string",
+   "section": 57
+  },
+  {
+   "symbol": "??_C@_0CM@NEF@Sending?5to?5?$CFs?5on?5mangled?5port?5fr@",
+   "address": "007d34f4",
+   "bytes": 44,
+   "kind": "string",
+   "section": 58
+  },
+  {
+   "symbol": "??_C@_0CO@ILD@No?5PORT_PROBE?5from?5?$CFs?5in?5the?5las@",
+   "address": "007d3520",
+   "bytes": 46,
+   "kind": "string",
+   "section": 59
+  },
+  {
+   "symbol": "??_C@_0P@PHPO@Sending?5to?5?$CFs?6?$AA@",
+   "address": "007d3550",
+   "bytes": 15,
+   "kind": "string",
+   "section": 60
+  },
+  {
+   "symbol": "??_C@_0CN@LJHO@Sending?5NET_PORT_PROBE?5packets?5i@",
+   "address": "007d3560",
+   "bytes": 45,
+   "kind": "string",
+   "section": 61
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4008e100000000000000",
+   "address": "0079b608",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "0079ddf8",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "_?fade@?1??Main_Game@@YIXHQAPAD@Z@4_NA",
+   "address": "007d3338",
+   "bytes": 1,
+   "kind": "static"
+  },
+  {
+   "symbol": "??_C@_0O@FMJJ@TXT_SURRENDER?$AA@",
+   "address": "007d3340",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@GDCE@D?3?2Ra2?2Conquer?4CPP?$AA@",
+   "address": "007d3350",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CG@BCOF@Game?5loop?5finished?4?5Average?5FPS?5@",
+   "address": "007d3364",
+   "bytes": 38,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BP@GKNM@ExceptionReturnAddress?5?$DN?5?$CF08X?6?$AA@",
+   "address": "007d338c",
+   "bytes": 31,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BN@KIAN@ExceptionReturnStack?5?$DN?5?$CF08X?6?$AA@",
+   "address": "007d33ac",
+   "bytes": 29,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@GICH@TXT_SHORT_TITLE?$AA@",
+   "address": "007d33cc",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@PFBP@TXT_INITGAME_FAILED?$AA@",
+   "address": "007d33dc",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CA@JKCI@Processing?5NET_PROGRESS_REPORT?6?$AA@",
+   "address": "007d33f0",
+   "bytes": 32,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CK@BLDP@Got?5NET_PORT_UNREACHABLE?5message@",
+   "address": "007d3410",
+   "bytes": 42,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DD@OKDA@Adjusting?5port?5number?5for?5player@",
+   "address": "007d343c",
+   "bytes": 51,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CK@EONK@Strange?5port?5number?5in?5PORT_PROB@",
+   "address": "007d3470",
+   "bytes": 42,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CP@OFJP@Got?5NET_PORT_PROBE?5packet?5from?5?$CF@",
+   "address": "007d349c",
+   "bytes": 47,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CH@FHLG@Got?5NET_IM_STILL_HERE?5packet?5fro@",
+   "address": "007d34cc",
+   "bytes": 39,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CM@NEF@Sending?5to?5?$CFs?5on?5mangled?5port?5fr@",
+   "address": "007d34f4",
+   "bytes": 44,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CO@ILD@No?5PORT_PROBE?5from?5?$CFs?5in?5the?5las@",
+   "address": "007d3520",
+   "bytes": 46,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@PHPO@Sending?5to?5?$CFs?6?$AA@",
+   "address": "007d3550",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CN@LJHO@Sending?5NET_PORT_PROBE?5packets?5i@",
+   "address": "007d3560",
+   "bytes": 45,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0046a9d0",
+   "symbol": "?Name_From_Land@@YIPBDW4LandType@@@Z",
+   "target": "00482f00",
+   "function_entry": true
+  },
+  {
+   "site": "0046c460",
+   "symbol": "?target@Call_46c460_0@@QAEIXZ",
+   "target": "00482f60",
+   "function_entry": true
+  },
+  {
+   "site": "0046c4f0",
+   "symbol": "?target@Call_46c4f0_0@@QAEIXZ",
+   "target": "00482fc0",
+   "function_entry": true
+  },
+  {
+   "site": "005bbd10",
+   "symbol": "?Service_Game_IO_00481fb0@seed_005bbd10@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0046a590",
+   "symbol": "?Owner_From_Name@@YIHPBD@Z",
+   "target": "00482de0",
+   "function_entry": true
+  },
+  {
+   "site": "0046a970",
+   "symbol": "?Name_From_Land@@YIPBDW4LandType@@@Z",
+   "target": "00482f00",
+   "function_entry": true
+  },
+  {
+   "site": "0046a970",
+   "symbol": "?Land_From_Name@@YI?AW4LandType@@PBD@Z",
+   "target": "00482eb0",
+   "function_entry": true
+  },
+  {
+   "site": "0046ac10",
+   "symbol": "?unknown_name_index_482e60@@YIHPBD@Z",
+   "target": "00482e60",
+   "function_entry": true
+  },
+  {
+   "site": "0046acb0",
+   "symbol": "?Theater_From_Name@@YI?AW4TheaterType@@PBD@Z",
+   "target": "00482b10",
+   "function_entry": true
+  },
+  {
+   "site": "0046adc0",
+   "symbol": "?Source_From_Name@@YI?AW4SourceType@@PBD@Z",
+   "target": "00482ab0",
+   "function_entry": true
+  },
+  {
+   "site": "0046ae30",
+   "symbol": "?Crate_From_Name@@YI?AW4CrateType@@PBD@Z",
+   "target": "00482da0",
+   "function_entry": true
+  },
+  {
+   "site": "0046c400",
+   "symbol": "?Name_From_Speed@@YIPBDW4SpeedType@@@Z",
+   "target": "00482f60",
+   "function_entry": true
+  },
+  {
+   "site": "0046c400",
+   "symbol": "?Speed_From_Name@@YI?AW4SpeedType@@PBD@Z",
+   "target": "00482f20",
+   "function_entry": true
+  },
+  {
+   "site": "0046c490",
+   "symbol": "?Name_From_Layer@@YIPBDW4LayerType@@@Z",
+   "target": "00482fc0",
+   "function_entry": true
+  },
+  {
+   "site": "0046c490",
+   "symbol": "?Layer_From_Name@@YI?AW4LayerType@@PBD@Z",
+   "target": "00482f80",
+   "function_entry": true
+  },
+  {
+   "site": "0067ea20",
+   "symbol": "?Unknown_00482C00@@YIPAVObjectTypeClass@@HH@Z",
+   "target": "00482c00",
+   "function_entry": true
+  },
+  {
+   "site": "0067ea20",
+   "symbol": "?Unknown_00482C00@@YIPAVObjectTypeClass@@HH@Z",
+   "target": "00482c00",
+   "function_entry": true
+  },
+  {
+   "site": "0067f580",
+   "symbol": "?Unknown_00482C00@@YIPAVObjectTypeClass@@HH@Z",
+   "target": "00482c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e63f0",
+   "symbol": "?Unknown_00482C00@@YIPAVTechnoTypeClass@@HH@Z",
+   "target": "00482c00",
+   "function_entry": true
+  },
+  {
+   "site": "004eb550",
+   "symbol": "?Unknown_00482C00@@YIPAVTechnoTypeClass@@HH@Z",
+   "target": "00482c00",
+   "function_entry": true
+  },
+  {
+   "site": "0049c7c0",
+   "symbol": "?Unknown_00482BC0@@YAXXZ",
+   "target": "00482bc0",
+   "function_entry": true
+  },
+  {
+   "site": "0049c860",
+   "symbol": "?Unknown_00482BC0@@YAXXZ",
+   "target": "00482bc0",
+   "function_entry": true
+  },
+  {
+   "site": "0049c980",
+   "symbol": "?Unknown_00482BC0@@YAXXZ",
+   "target": "00482bc0",
+   "function_entry": true
+  },
+  {
+   "site": "0049ca20",
+   "symbol": "?Unknown_00482BC0@@YAXXZ",
+   "target": "00482bc0",
+   "function_entry": true
+  },
+  {
+   "site": "00408010",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00422ba0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00406fe0",
+   "symbol": "?unknown_00481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0049af90",
+   "symbol": "?Unknown_00482BC0@@YAXXZ",
+   "target": "00482bc0",
+   "function_entry": true
+  },
+  {
+   "site": "0049cac0",
+   "symbol": "?Unknown_00482BC0@@YAXXZ",
+   "target": "00482bc0",
+   "function_entry": true
+  },
+  {
+   "site": "0064dc90",
+   "symbol": "?unknown_name_index_482e60@@YIHPBD@Z",
+   "target": "00482e60",
+   "function_entry": true
+  },
+  {
+   "site": "00661980",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00661980",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00661980",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00661980",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065e440",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065e590",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065e8c0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065e8c0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065e8c0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065dec0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005d1db0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065c7d0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0065c7d0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005d2e70",
+   "symbol": "?Clear_Selected_Objects_00482bc0@@YAXXZ",
+   "target": "00482bc0",
+   "function_entry": true
+  },
+  {
+   "site": "0062e840",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00624850",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0051b8b0",
+   "symbol": "?Clear_Selected_Objects_00482bc0@@YAXXZ",
+   "target": "00482bc0",
+   "function_entry": true
+  },
+  {
+   "site": "0051bd20",
+   "symbol": "?Clear_Selected_Objects_00482bc0@@YAXXZ",
+   "target": "00482bc0",
+   "function_entry": true
+  },
+  {
+   "site": "0066edb0",
+   "symbol": "?Query_Free_Disk_Kilobytes_00482c80@@YAIXZ",
+   "target": "00482c80",
+   "function_entry": true
+  },
+  {
+   "site": "00671600",
+   "symbol": "?Query_Free_Disk_Kilobytes_00482c80@@YAIXZ",
+   "target": "00482c80",
+   "function_entry": true
+  },
+  {
+   "site": "004e7070",
+   "symbol": "?Clear_Selected_Objects_00482bc0@@YAXXZ",
+   "target": "00482bc0",
+   "function_entry": true
+  },
+  {
+   "site": "0059c130",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0059c880",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005c3ae0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005c3b70",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005bbd20",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005bc500",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005be3b0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005be3b0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005be3b0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005bee20",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005bee20",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005c00b0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00597680",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00597680",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00598590",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005989b0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0059b690",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0059c8b0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0059c8b0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005c7970",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005c7970",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0059c290",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0059c290",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "004e64f0",
+   "symbol": "?Unknown_00482C00@@YIPAVTechnoTypeClass@@HH@Z",
+   "target": "00482c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e64f0",
+   "symbol": "?Unknown_00482C00@@YIPAVTechnoTypeClass@@HH@Z",
+   "target": "00482c00",
+   "function_entry": true
+  },
+  {
+   "site": "00672160",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00672160",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00672160",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00672160",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005986f0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0066aef0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0066aef0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0066aef0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0066aef0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0066aef0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0066aef0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005eab60",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "006000d0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005e5fc0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005482c0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005482c0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005482c0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00666e70",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00516900",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00516900",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00750f60",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00750f60",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00750f60",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00577490",
+   "symbol": "?Default_Map_Generation_Callback_00482100@@YA_NXZ",
+   "target": "00482100",
+   "function_entry": true
+  },
+  {
+   "site": "006fd3a0",
+   "symbol": "?Unit_Unknown_Shake_00482e00@@YIXH@Z",
+   "target": "00482e00",
+   "function_entry": true
+  },
+  {
+   "site": "004e6950",
+   "symbol": "?Unknown_00482C00@@YIPAVTechnoTypeClass@@HH@Z",
+   "target": "00482c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e5e30",
+   "symbol": "?Unknown_00482C00@@YIPAVTechnoTypeClass@@HH@Z",
+   "target": "00482c00",
+   "function_entry": true
+  },
+  {
+   "site": "004e5e30",
+   "symbol": "?Unknown_00482C00@@YIPAVTechnoTypeClass@@HH@Z",
+   "target": "00482c00",
+   "function_entry": true
+  },
+  {
+   "site": "00750d10",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "004e4110",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "004e4110",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005c3c60",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005c3d90",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005c67c0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005c7570",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005c7570",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005c7570",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00519e70",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00519e70",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005c84e0",
+   "symbol": "?Default_Map_Generation_Callback_00482100@@YA_NXZ",
+   "target": "00482100",
+   "function_entry": true
+  },
+  {
+   "site": "0043e270",
+   "symbol": "?get@Leaf_482e00@@QAEXXZ",
+   "target": "00482e00",
+   "function_entry": true
+  },
+  {
+   "site": "0053f780",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0053f840",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0053fbd0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0053fbd0",
+   "symbol": "?Unknown_00482BC0@@YAXXZ",
+   "target": "00482bc0",
+   "function_entry": true
+  },
+  {
+   "site": "0053fbd0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00540960",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0042e740",
+   "symbol": "?Unknown_00482BC0@@YAXXZ",
+   "target": "00482bc0",
+   "function_entry": true
+  },
+  {
+   "site": "0052b2e0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0063f130",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0063f510",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0063fc90",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005b3550",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00667420",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0053b770",
+   "symbol": "?Query_Free_Disk_Kilobytes_00482c80@@YAIXZ",
+   "target": "00482c80",
+   "function_entry": true
+  },
+  {
+   "site": "0051eee0",
+   "symbol": "?unknown_name_index_482e60@@YIHPBD@Z",
+   "target": "00482e60",
+   "function_entry": true
+  },
+  {
+   "site": "00466a20",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005b9f90",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005ba0d0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00595810",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0049cfd0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0049cfd0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0049cfd0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0049cfd0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0049cfd0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "006011a0",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0054ab70",
+   "symbol": "?Copy_Cell_List_00482e10@@YIXPBVCell@@HPAV1@@Z",
+   "target": "00482e10",
+   "function_entry": true
+  },
+  {
+   "site": "0054af70",
+   "symbol": "?Copy_Cell_List_00482e10@@YIXPBVCell@@HPAV1@@Z",
+   "target": "00482e10",
+   "function_entry": true
+  },
+  {
+   "site": "0049bb20",
+   "symbol": "?Clear_Selected_Objects_00482bc0@@YAXXZ",
+   "target": "00482bc0",
+   "function_entry": true
+  },
+  {
+   "site": "0049bb20",
+   "symbol": "?Clear_Selected_Objects_00482bc0@@YAXXZ",
+   "target": "00482bc0",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0074f300",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00529870",
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "006809f0",
+   "symbol": "?Unknown_00482C00@@YIPAVObjectTypeClass@@HH@Z",
+   "target": "00482c00",
+   "function_entry": true
+  },
+  {
+   "site": "006809f0",
+   "symbol": "?Unselect_All@@YAXXZ",
+   "target": "00482bc0",
+   "function_entry": true
+  },
+  {
+   "site": "006809f0",
+   "symbol": "?Unknown_00482C00@@YIPAVObjectTypeClass@@HH@Z",
+   "target": "00482c00",
+   "function_entry": true
+  },
+  {
+   "site": "006809f0",
+   "symbol": "?Unknown_00482C00@@YIPAVObjectTypeClass@@HH@Z",
+   "target": "00482c00",
+   "function_entry": true
+  },
+  {
+   "site": "006809f0",
+   "symbol": "?Unknown_00482C00@@YIPAVObjectTypeClass@@HH@Z",
+   "target": "00482c00",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "target": "00481fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00481bf0",
+   "symbol": "?Special_Dialog_00481850@@YIXXZ",
+   "target": "00481850",
+   "function_entry": true
+  },
+  {
+   "site": "00481bf0",
+   "symbol": "?Write_Multiplayer_Statistics_00482fe0@@YAXXZ",
+   "target": "00482fe0",
+   "function_entry": true
+  },
+  {
+   "site": "0067f800",
+   "symbol": "?Unknown_00482C00@@YIPAVObjectTypeClass@@HH@Z",
+   "target": "00482c00",
+   "function_entry": true
+  },
+  {
+   "site": "0067f800",
+   "symbol": "?Unknown_00482C00@@YIPAVObjectTypeClass@@HH@Z",
+   "target": "00482c00",
+   "function_entry": true
+  },
+  {
+   "site": "0068e280",
+   "symbol": "?Query_Free_Disk_Kilobytes_00482c80@@YAIXZ",
+   "target": "00482c80",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0EventClass@@QAE@HE@Z",
+   "address": "004b5fd0"
+  },
+  {
+   "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+   "address": "005235d0"
+  },
+  {
+   "symbol": "??BSystemTimerClass@@QBEJXZ",
+   "address": "0069a430"
+  },
+  {
+   "symbol": "?Add_Message@MessageListClass@@QAEPAVTextLabelClass@@PBGH0HIH_N@Z",
+   "address": "005b4da0"
+  },
+  {
+   "symbol": "?AircraftTypes@@3V?$DynamicVectorClass@PAVAircraftTypeClass@@@@A",
+   "address": "00a3d278"
+  },
+  {
+   "symbol": "?Answer_Query_005c05f0@@YI_NPAUUnknownGlobalPacket@@PAVIPXAddressClass@@@Z",
+   "address": "005c05f0"
+  },
+  {
+   "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
+   "address": "00523840"
+  },
+  {
+   "symbol": "?Audio_Update@@YAXXZ",
+   "address": "00406ea0"
+  },
+  {
+   "symbol": "?BuildingTypes@@3V?$DynamicVectorClass@PAVBuildingTypeClass@@@@A",
+   "address": "00a35cd8"
+  },
+  {
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "address": "005329f0"
+  },
+  {
+   "symbol": "?Close@CCFileClass@@UAEXXZ",
+   "address": "004691f0"
+  },
+  {
+   "symbol": "?Connection_Address@IPXManagerClass@@QAEPAVIPXAddressClass@@H@Z",
+   "address": "00525740"
+  },
+  {
+   "symbol": "?Connection_ID@IPXManagerClass@@UAEHH@Z",
+   "address": "005256e0"
+  },
+  {
+   "symbol": "?Connection_Name@IPXManagerClass@@QAEPAGH@Z",
+   "address": "00525700"
+  },
+  {
+   "symbol": "?CrateNames@@3PAPBDA",
+   "address": "0079de54"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Destroy_Connection_005bb5d0@@YIXHH@Z",
+   "address": "005bb5d0"
+  },
+  {
+   "symbol": "?EditBeaconMessage_0042ec20@BeaconManagerClass@@QAEXPBGHH_N@Z",
+   "address": "0042ec20"
+  },
+  {
+   "symbol": "?Enable@ToolTipManager@@QAEX_N@Z",
+   "address": "006eb480"
+  },
+  {
+   "symbol": "?ExceptionReturnAddress@@3KA",
+   "address": "00865c18"
+  },
+  {
+   "symbol": "?ExceptionReturnFrame@@3KA",
+   "address": "00865c1c"
+  },
+  {
+   "symbol": "?ExceptionReturnStack@@3KA",
+   "address": "00865c14"
+  },
+  {
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "address": "004f94d0"
+  },
+  {
+   "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXH@Z",
+   "address": "004e09a0"
+  },
+  {
+   "symbol": "?Focus_Loss_0065c040@@YIXXZ",
+   "address": "0065c040"
+  },
+  {
+   "symbol": "?Focus_Restore_0065c140@@YAXXZ",
+   "address": "0065c140"
+  },
+  {
+   "symbol": "?Frame@@3HA",
+   "address": "00a40d2c"
+  },
+  {
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0PAG@Z",
+   "address": "005234c0"
+  },
+  {
+   "symbol": "?Get_Global_Message@IPXManagerClass@@QAEHPAXPAHPAVIPXAddressClass@@PAG@Z",
+   "address": "00525ab0"
+  },
+  {
+   "symbol": "?Get_Message@NullModemClass@@QAEHPAXPAH@Z",
+   "address": "005d0630"
+  },
+  {
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "address": "00526a40"
+  },
+  {
+   "symbol": "?InfantryTypes@@3V?$DynamicVectorClass@PAVInfantryTypeClass@@@@A",
+   "address": "00a40350"
+  },
+  {
+   "symbol": "?Init_Game@@YIHHQAPAD@Z",
+   "address": "005116a0"
+  },
+  {
+   "symbol": "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z",
+   "address": "00523690"
+  },
+  {
+   "symbol": "?LandNames@@3PAPBDA",
+   "address": "007d3878"
+  },
+  {
+   "symbol": "?LayerNames@@3PAPBDA",
+   "address": "007d38c8"
+  },
+  {
+   "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
+   "address": "006f9ec0"
+  },
+  {
+   "symbol": "?MainWindow@@3PAUHWND__@@A",
+   "address": "00b263d8"
+  },
+  {
+   "symbol": "?Main_Loop_End_0053f840@@YI_NXZ",
+   "address": "0053f840"
+  },
+  {
+   "symbol": "?Map@@3VMouseClass@@A",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "?Modem_Signoff@@YIXXZ",
+   "address": "005cea90"
+  },
+  {
+   "symbol": "?Narrow_To_Wide_006fa180@@YIPAGPBD@Z",
+   "address": "006fa180"
+  },
+  {
+   "symbol": "?Num_Connections@IPXManagerClass@@UAEHXZ",
+   "address": "005256d0"
+  },
+  {
+   "symbol": "?OK_Cancel_Message_005A7430@@YIHPBG@Z",
+   "address": "005a7430"
+  },
+  {
+   "symbol": "?Options@@3VOptionsClass@@A",
+   "address": "00a40b18"
+  },
+  {
+   "symbol": "?OutList@@3V?$QueueClass@VEventClass@@$0IA@@@A",
+   "address": "00a32338"
+  },
+  {
+   "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
+   "address": "00839c50"
+  },
+  {
+   "symbol": "?ProgramInstance@@3PAXA",
+   "address": "00b26180"
+  },
+  {
+   "symbol": "?ProgressScreen@@3VProgressScreenClass@@A",
+   "address": "00a769e8"
+  },
+  {
+   "symbol": "?Queue_Exit@@YI_NXZ",
+   "address": "006236b0"
+  },
+  {
+   "symbol": "?Register_Game_Start_Time@@YIXXZ",
+   "address": "0069a130"
+  },
+  {
+   "symbol": "?Rules@@3PAVRulesClass@@A",
+   "address": "00839848"
+  },
+  {
+   "symbol": "?Run@GameControlsDialog@@QAEXXZ",
+   "address": "004cf920"
+  },
+  {
+   "symbol": "?Run_00688CD0@SoundControlsDialog@@QAEXXZ",
+   "address": "00688cd0"
+  },
+  {
+   "symbol": "?Run_Game_Options_Dialog@@YAHXZ",
+   "address": "004ddf20"
+  },
+  {
+   "symbol": "?Select_Game@@YI_N_N@Z",
+   "address": "005135f0"
+  },
+  {
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "address": "00525830"
+  },
+  {
+   "symbol": "?Service@IPXManagerClass@@UAEHXZ",
+   "address": "00525f60"
+  },
+  {
+   "symbol": "?Service@NullModemClass@@UAEHXZ",
+   "address": "005d0660"
+  },
+  {
+   "symbol": "?Service_Game_IO_00481fb0@seed_00482100@@YAXXZ",
+   "address": "00481fb0"
+  },
+  {
+   "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
+   "address": "00523960"
+  },
+  {
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "address": "006201c0"
+  },
+  {
+   "symbol": "?SourceNames@@3PAPBDA",
+   "address": "0079ab50"
+  },
+  {
+   "symbol": "?SpeedNames@@3PAPBDA",
+   "address": "007d38a8"
+  },
+  {
+   "symbol": "?Theaters@@3PAUTheaterTypeStruct@@A",
+   "address": "0079ab68"
+  },
+  {
+   "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+   "address": "00839980"
+  },
+  {
+   "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+   "address": "008399b0"
+  },
+  {
+   "symbol": "?UnitTypes@@3V?$DynamicVectorClass@PAVUnitTypeClass@@@@A",
+   "address": "00a35d48"
+  },
+  {
+   "symbol": "?Unknown_0042E370@BeaconManagerClass@@QAEXHUCoordStruct@@H@Z",
+   "address": "0042e370"
+  },
+  {
+   "symbol": "?Unknown_0042E990@BeaconManagerClass@@QAEXHH@Z",
+   "address": "0042e990"
+  },
+  {
+   "symbol": "?Unknown_0042e830@@YIXPAVBeaconManagerClass@@@Z",
+   "address": "0042e830"
+  },
+  {
+   "symbol": "?Unknown_004955D0@@YIXPAXHP6AXXZ@Z",
+   "address": "004955d0"
+  },
+  {
+   "symbol": "?Unknown_004DD7D0@@YAXXZ",
+   "address": "004dd7d0"
+  },
+  {
+   "symbol": "?Unknown_005BB5A0@@YAXXZ",
+   "address": "005bb5a0"
+  },
+  {
+   "symbol": "?Unknown_005DA360@OptionsClass@@QAE_NXZ",
+   "address": "005da360"
+  },
+  {
+   "symbol": "?Unknown_005bba50@@YIHPAG@Z",
+   "address": "005bba50"
+  },
+  {
+   "symbol": "?Unknown_00623280@@YIXXZ",
+   "address": "00623280"
+  },
+  {
+   "symbol": "?Unknown_00627190@@YIXPAUUnknownGlobalPacket@@PAVIPXAddressClass@@@Z",
+   "address": "00627190"
+  },
+  {
+   "symbol": "?Unknown_00634A00@@YIXPAVMouseClass@@@Z",
+   "address": "00634a00"
+  },
+  {
+   "symbol": "?Unknown_0063B090@@YIXPAVScenarioClass@@@Z",
+   "address": "0063b090"
+  },
+  {
+   "symbol": "?Unknown_0063F4C0@OwnerTalkClass@@QAEEH@Z",
+   "address": "0063f4c0"
+  },
+  {
+   "symbol": "?Unknown_0063FA00@OwnerTalkClass@@QAEPAVIPXAddressClass@@PAD@Z",
+   "address": "0063fa00"
+  },
+  {
+   "symbol": "?Unknown_006715D0@SessionClass@@QAEHH@Z",
+   "address": "006715d0"
+  },
+  {
+   "symbol": "?Unknown_00672DE0@@YIXPAUSessionClass@@@Z",
+   "address": "00672de0"
+  },
+  {
+   "symbol": "?Unknown_00672DE0@SessionClass@@QAEXXZ",
+   "address": "00672de0"
+  },
+  {
+   "symbol": "?Unknown_00672E70@SessionClass@@QAEXXZ",
+   "address": "00672e70"
+  },
+  {
+   "symbol": "?Unknown_006f6780@@YIXI@Z",
+   "address": "006f6780"
+  },
+  {
+   "symbol": "?Unknown_0073C230@@YAXXZ",
+   "address": "0073c230"
+  },
+  {
+   "symbol": "?Unknown_Play_Taunt_00715fb0@@YIXD@Z",
+   "address": "00715fb0"
+  },
+  {
+   "symbol": "?Unknown_Reload_Art_Set_006F31B0@@YIXXZ",
+   "address": "006f31b0"
+  },
+  {
+   "symbol": "?Voc_Play@@YIPAUAudioEvent@@HMHPAUAudioEventHandle@@@Z",
+   "address": "00713db0"
+  },
+  {
+   "symbol": "?WWKeyboard@@3PAVWWKeyboardClass@@A",
+   "address": "00832468"
+  },
+  {
+   "symbol": "?WWMouse@@3PAVMouse@@A",
+   "address": "00839c68"
+  },
+  {
+   "symbol": "?WideToCharString_006fa0f0@@YIXPADPBGH@Z",
+   "address": "006fa0f0"
+  },
+  {
+   "symbol": "?Wide_To_Narrow_006fa120@@YIPADPBG@Z",
+   "address": "006fa120"
+  },
+  {
+   "symbol": "?Windows_Message_Handler@@YAXXZ",
+   "address": "005b5ee0"
+  },
+  {
+   "symbol": "?Write_Chat_Settings_00670730@@YIXPAUSessionClass@@@Z",
+   "address": "00670730"
+  },
+  {
+   "symbol": "?accumulated_fps_00a6eb20@@3IA",
+   "address": "00a6eb20"
+  },
+  {
+   "symbol": "?disk_bytes_to_kb_0079de08@@3NB",
+   "address": "0079de08"
+  },
+  {
+   "symbol": "?disk_check_log_007d3680@@3QBDB",
+   "address": "007d3680"
+  },
+  {
+   "symbol": "?disk_extended_log_007d3640@@3QBDB",
+   "address": "007d3640"
+  },
+  {
+   "symbol": "?disk_extended_name_007d365c@@3QBDB",
+   "address": "007d365c"
+  },
+  {
+   "symbol": "?disk_free_log_007d35f0@@3QBDB",
+   "address": "007d35f0"
+  },
+  {
+   "symbol": "?disk_high_word_scale_0079de10@@3NB",
+   "address": "0079de10"
+  },
+  {
+   "symbol": "?disk_kernel_module_007d3670@@3QBDB",
+   "address": "007d3670"
+  },
+  {
+   "symbol": "?disk_module_error_007d3590@@3QBDB",
+   "address": "007d3590"
+  },
+  {
+   "symbol": "?disk_proc_error_007d35c0@@3QBDB",
+   "address": "007d35c0"
+  },
+  {
+   "symbol": "?disk_query_error_007d360c@@3QBDB",
+   "address": "007d360c"
+  },
+  {
+   "symbol": "?fps_sample_count_00a6eb24@@3IA",
+   "address": "00a6eb24"
+  },
+  {
+   "symbol": "?last_online_poll_00850e10@@3JA",
+   "address": "00850e10"
+  },
+  {
+   "symbol": "?latency_setting_00a3fba4@@3HA",
+   "address": "00a3fba4"
+  },
+  {
+   "symbol": "?max_max_ahead_00a3d578@@3HA",
+   "address": "00a3d578"
+  },
+  {
+   "symbol": "?none_name_007cdecc@@3QBDB",
+   "address": "007cdecc"
+  },
+  {
+   "symbol": "?player_statistics_00a3d584@@3PAUUnknownNetworkPlayerStatistics@@A",
+   "address": "00a3d584"
+  },
+  {
+   "symbol": "?queued_movies_00af8fd8@@3V?$DynamicVectorClass@PAVMovieHandle@@@@A",
+   "address": "00af8fd8"
+  },
+  {
+   "symbol": "?serial_local_player_00a3fb38@@3HA",
+   "address": "00a3fb38"
+  },
+  {
+   "symbol": "?serial_manager_00a40a28@@3VNullModemClass@@A",
+   "address": "00a40a28"
+  },
+  {
+   "symbol": "?serial_session_flags_00a3fac0@@3IA",
+   "address": "00a3fac0"
+  },
+  {
+   "symbol": "?stats_address@@3QBDB",
+   "address": "007d3730"
+  },
+  {
+   "symbol": "?stats_average_fps@@3QBDB",
+   "address": "007d37ac"
+  },
+  {
+   "symbol": "?stats_command_count_stalls@@3QBDB",
+   "address": "007d36c0"
+  },
+  {
+   "symbol": "?stats_filename@@3QBDB",
+   "address": "007d37cc"
+  },
+  {
+   "symbol": "?stats_frame_sync_stalls@@3QBDB",
+   "address": "007d36dc"
+  },
+  {
+   "symbol": "?stats_frames@@3QBDB",
+   "address": "007d37c0"
+  },
+  {
+   "symbol": "?stats_latency@@3QBDB",
+   "address": "007d3780"
+  },
+  {
+   "symbol": "?stats_local_address@@3QBDB",
+   "address": "007d374c"
+  },
+  {
+   "symbol": "?stats_lost@@3QBDB",
+   "address": "007d36b4"
+  },
+  {
+   "symbol": "?stats_max_ahead@@3QBDB",
+   "address": "007d3798"
+  },
+  {
+   "symbol": "?stats_max_average_round_trip@@3QBDB",
+   "address": "007d3718"
+  },
+  {
+   "symbol": "?stats_max_round_trip@@3QBDB",
+   "address": "007d3704"
+  },
+  {
+   "symbol": "?stats_mode@@3QBDB",
+   "address": "007d37d8"
+  },
+  {
+   "symbol": "?stats_name@@3QBDB",
+   "address": "007d3740"
+  },
+  {
+   "symbol": "?stats_percent_lost@@3QBDB",
+   "address": "007d36a0"
+  },
+  {
+   "symbol": "?stats_resends@@3QBDB",
+   "address": "007d36f4"
+  },
+  {
+   "symbol": "?stats_speed@@3QBDB",
+   "address": "007d3768"
+  },
+  {
+   "symbol": "?unknown_517370@@YIX_N@Z",
+   "address": "00517370"
+  },
+  {
+   "symbol": "?unknown_527800@IPXManagerClass@@QAEXXZ",
+   "address": "00527800"
+  },
+  {
+   "symbol": "?unknown_53fbd0@@YI_NXZ",
+   "address": "0053fbd0"
+  },
+  {
+   "symbol": "?unknown_OwnerTalkClass_00ab6d18@@3VOwnerTalkClass@@A",
+   "address": "00ab6d18"
+  },
+  {
+   "symbol": "?unknown_a40774@@3HA",
+   "address": "00a40774"
+  },
+  {
+   "symbol": "?unknown_a72c68@@3HA",
+   "address": "00a72c68"
+  },
+  {
+   "symbol": "?unknown_abd530@@3HA",
+   "address": "00abd530"
+  },
+  {
+   "symbol": "?unknown_b2abda@@3_NA",
+   "address": "00b2abda"
+  },
+  {
+   "symbol": "?unknown_cell_offsets_00850e50@@3PAUCoordStruct@@A",
+   "address": "00850e50"
+  },
+  {
+   "symbol": "?unknown_chat_a72cfc@@3PAUIChat@WOL@@A",
+   "address": "00a72cfc"
+  },
+  {
+   "symbol": "?unknown_flag_007d88e0@@3_NA",
+   "address": "007d88e0"
+  },
+  {
+   "symbol": "?unknown_flag_00866250@@3_NA",
+   "address": "00866250"
+  },
+  {
+   "symbol": "?unknown_flag_7ce008@@3_NA",
+   "address": "007ce008"
+  },
+  {
+   "symbol": "?unknown_flag_a40380@@3_NA",
+   "address": "00a40380"
+  },
+  {
+   "symbol": "?unknown_flag_a40d04@@3_NA",
+   "address": "00a40d04"
+  },
+  {
+   "symbol": "?unknown_flag_a40d44@@3_NA",
+   "address": "00a40d44"
+  },
+  {
+   "symbol": "?unknown_flag_a417c8@@3_NA",
+   "address": "00a417c8"
+  },
+  {
+   "symbol": "?unknown_flag_abd500@@3_NA",
+   "address": "00abd500"
+  },
+  {
+   "symbol": "?unknown_game_mode_a3d298@@3HA",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
+   "symbol": "?unknown_int_a40d48@@3HA",
+   "address": "00a40d48"
+  },
+  {
+   "symbol": "?unknown_ipx_manager_a40978@@3VIPXManagerClass@@A",
+   "address": "00a40978"
+  },
+  {
+   "symbol": "?unknown_ladder_client_a72d00@@3PAUWolLadderClient@@A",
+   "address": "00a72d00"
+  },
+  {
+   "symbol": "?unknown_login_state_00b2abe4@@3HA",
+   "address": "00b2abe4"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_names_a71050@@3V?$DynamicVectorClass@PBD@@A",
+   "address": "00a71050"
+  },
+  {
+   "symbol": "?unknown_object_84e8d0@@3VBeaconManagerClass@@A",
+   "address": "0084e8d0"
+  },
+  {
+   "symbol": "?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A",
+   "address": "00a40c60"
+  },
+  {
+   "symbol": "?unknown_palette_837510@@3VPaletteClass@@A",
+   "address": "00837510"
+  },
+  {
+   "symbol": "?unknown_palette_837e10@@3VPaletteClass@@A",
+   "address": "00837e10"
+  },
+  {
+   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
+   "address": "00a35db4"
+  },
+  {
+   "symbol": "?unknown_probe_delay_7d333c@@3HA",
+   "address": "007d333c"
+  },
+  {
+   "symbol": "?unknown_session_a3d298@@3USessionClass@@A",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_stamp_timed_slot_00623300@@YIXH@Z",
+   "address": "00623300"
+  },
+  {
+   "symbol": "?unknown_team_event_a6ebc4@@3HA",
+   "address": "00a6ebc4"
+  },
+  {
+   "symbol": "?unknown_team_number_a6ebc8@@3HA",
+   "address": "00a6ebc8"
+  },
+  {
+   "symbol": "_DAT_007ce9b4",
+   "address": "007ce9b4"
+  },
+  {
+   "symbol": "_PTR_s_North_0079ab50",
+   "address": "0079ab50"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__chkstk",
+   "address": "00783850"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__GetDiskFreeSpaceA@20",
+   "address": "0079a244"
+  },
+  {
+   "symbol": "__imp__GetLastError@0",
+   "address": "0079a1f4"
+  },
+  {
+   "symbol": "__imp__GetModuleHandleA@4",
+   "address": "0079a230"
+  },
+  {
+   "symbol": "__imp__GetProcAddress@8",
+   "address": "0079a240"
+  },
+  {
+   "symbol": "__imp__MessageBoxIndirectA@4",
+   "address": "0079a468"
+  },
+  {
+   "symbol": "__imp__UpdateWindow@4",
+   "address": "0079a46c"
+  },
+  {
+   "symbol": "__imp__WideCharToMultiByte@32",
+   "address": "0079a23c"
+  },
+  {
+   "symbol": "__imp__timeGetTime@0",
+   "address": "0079a524"
+  },
+  {
+   "symbol": "__stricmp",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "_atexit",
+   "address": "0078298a"
+  },
+  {
+   "symbol": "_fclose",
+   "address": "0078395b"
+  },
+  {
+   "symbol": "_fopen",
+   "address": "00783a45"
+  },
+  {
+   "symbol": "_fprintf",
+   "address": "007839d8"
+  },
+  {
+   "symbol": "_time",
+   "address": "0078387f"
+  },
+  {
+   "symbol": "_wcscpy",
+   "address": "00783689"
+  }
+ ],
+ "route": "A",
+ "unit": "conquer.cpp",
+ "form": "one include block",
+ "switches": [
+  "RA2_CONQUER_IPX_CALL_BACK",
+  "UNKNOWN_BEACONS_DECLARE_TEXT",
+  "UNKNOWN_BEACONS_DECLARE_MEMBERS",
+  "VECTOR_IMPLEMENT_VECTOR_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS"
+ ],
+ "include_blocks": [
+  {
+   "before": "00481650",
+   "lines": 45
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "00481840",
+   "bytes": 1,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00482100",
+   "bytes": 8,
+   "population": "population-42",
+   "bound": "own frozen bound (population-42)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00482af0",
+   "bytes": 19,
+   "population": "population-2913",
+   "bound": "own frozen bound (population-2913)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00482e00",
+   "bytes": 1,
+   "population": "population-4352",
+   "bound": "own frozen bound (population-4352)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "kept",
+   "entry": "00481bf0",
+   "bytes": 780,
+   "population": "population-4456",
+   "source": "src/recovered/conquer/Main_Game.cpp",
+   "cause": "evidenced inline assembly: the row keeps its per-file attribution"
+  }
+ ],
+ "unit_functions": 41,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "0046c460",
+   "target": "00482f60",
+   "symbol": "?target@Call_46c460_0@@QAEIXZ",
+   "module_symbol": "?Name_From_Speed@@YIPBDW4SpeedType@@@Z"
+  },
+  {
+   "site": "0046c4f0",
+   "target": "00482fc0",
+   "symbol": "?target@Call_46c4f0_0@@QAEIXZ",
+   "module_symbol": "?Name_From_Layer@@YIPBDW4LayerType@@@Z"
+  },
+  {
+   "site": "005bbd10",
+   "target": "00481fb0",
+   "symbol": "?Service_Game_IO_00481fb0@seed_005bbd10@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "004e63f0",
+   "target": "00482c00",
+   "symbol": "?Unknown_00482C00@@YIPAVTechnoTypeClass@@HH@Z",
+   "module_symbol": "?Unknown_00482C00@@YIPAVObjectTypeClass@@HH@Z"
+  },
+  {
+   "site": "004eb550",
+   "target": "00482c00",
+   "symbol": "?Unknown_00482C00@@YIPAVTechnoTypeClass@@HH@Z",
+   "module_symbol": "?Unknown_00482C00@@YIPAVObjectTypeClass@@HH@Z"
+  },
+  {
+   "site": "0049c7c0",
+   "target": "00482bc0",
+   "symbol": "?Unknown_00482BC0@@YAXXZ",
+   "module_symbol": "?Clear_Selected_Objects_00482bc0@@YAXXZ"
+  },
+  {
+   "site": "0049c860",
+   "target": "00482bc0",
+   "symbol": "?Unknown_00482BC0@@YAXXZ",
+   "module_symbol": "?Clear_Selected_Objects_00482bc0@@YAXXZ"
+  },
+  {
+   "site": "0049c980",
+   "target": "00482bc0",
+   "symbol": "?Unknown_00482BC0@@YAXXZ",
+   "module_symbol": "?Clear_Selected_Objects_00482bc0@@YAXXZ"
+  },
+  {
+   "site": "0049ca20",
+   "target": "00482bc0",
+   "symbol": "?Unknown_00482BC0@@YAXXZ",
+   "module_symbol": "?Clear_Selected_Objects_00482bc0@@YAXXZ"
+  },
+  {
+   "site": "00408010",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "00422ba0",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "00406fe0",
+   "target": "00481fb0",
+   "symbol": "?unknown_00481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "0049af90",
+   "target": "00482bc0",
+   "symbol": "?Unknown_00482BC0@@YAXXZ",
+   "module_symbol": "?Clear_Selected_Objects_00482bc0@@YAXXZ"
+  },
+  {
+   "site": "0049cac0",
+   "target": "00482bc0",
+   "symbol": "?Unknown_00482BC0@@YAXXZ",
+   "module_symbol": "?Clear_Selected_Objects_00482bc0@@YAXXZ"
+  },
+  {
+   "site": "0065d7f0",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "0065c7d0",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "0062e840",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "00624850",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "004e64f0",
+   "target": "00482c00",
+   "symbol": "?Unknown_00482C00@@YIPAVTechnoTypeClass@@HH@Z",
+   "module_symbol": "?Unknown_00482C00@@YIPAVObjectTypeClass@@HH@Z"
+  },
+  {
+   "site": "004e64f0",
+   "target": "00482c00",
+   "symbol": "?Unknown_00482C00@@YIPAVTechnoTypeClass@@HH@Z",
+   "module_symbol": "?Unknown_00482C00@@YIPAVObjectTypeClass@@HH@Z"
+  },
+  {
+   "site": "00672160",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "00672160",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "00672160",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "00672160",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "005482c0",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "005482c0",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "005482c0",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "00666e70",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "00516900",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "00516900",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "005116a0",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "005116a0",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "00577490",
+   "target": "00482100",
+   "symbol": "?Default_Map_Generation_Callback_00482100@@YA_NXZ",
+   "module_symbol": "?FUN_00482100@seed_00482100@@YAEXZ"
+  },
+  {
+   "site": "006fd3a0",
+   "target": "00482e00",
+   "symbol": "?Unit_Unknown_Shake_00482e00@@YIXH@Z",
+   "module_symbol": "?get@Leaf_482e00@@QAEXXZ"
+  },
+  {
+   "site": "004e6950",
+   "target": "00482c00",
+   "symbol": "?Unknown_00482C00@@YIPAVTechnoTypeClass@@HH@Z",
+   "module_symbol": "?Unknown_00482C00@@YIPAVObjectTypeClass@@HH@Z"
+  },
+  {
+   "site": "004e5e30",
+   "target": "00482c00",
+   "symbol": "?Unknown_00482C00@@YIPAVTechnoTypeClass@@HH@Z",
+   "module_symbol": "?Unknown_00482C00@@YIPAVObjectTypeClass@@HH@Z"
+  },
+  {
+   "site": "004e5e30",
+   "target": "00482c00",
+   "symbol": "?Unknown_00482C00@@YIPAVTechnoTypeClass@@HH@Z",
+   "module_symbol": "?Unknown_00482C00@@YIPAVObjectTypeClass@@HH@Z"
+  },
+  {
+   "site": "00519e70",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "00519e70",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "005c84e0",
+   "target": "00482100",
+   "symbol": "?Default_Map_Generation_Callback_00482100@@YA_NXZ",
+   "module_symbol": "?FUN_00482100@seed_00482100@@YAEXZ"
+  },
+  {
+   "site": "0053fbd0",
+   "target": "00482bc0",
+   "symbol": "?Unknown_00482BC0@@YAXXZ",
+   "module_symbol": "?Clear_Selected_Objects_00482bc0@@YAXXZ"
+  },
+  {
+   "site": "0042e740",
+   "target": "00482bc0",
+   "symbol": "?Unknown_00482BC0@@YAXXZ",
+   "module_symbol": "?Clear_Selected_Objects_00482bc0@@YAXXZ"
+  },
+  {
+   "site": "005b3550",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "005b9f90",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "005ba0d0",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "0049cfd0",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "0049cfd0",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "0049cfd0",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "0049cfd0",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "0049cfd0",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "00663fe0",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "00663fe0",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "00663fe0",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "00624c10",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "00624c10",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "006809f0",
+   "target": "00482bc0",
+   "symbol": "?Unselect_All@@YAXXZ",
+   "module_symbol": "?Clear_Selected_Objects_00482bc0@@YAXXZ"
+  },
+  {
+   "site": "005135f0",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "005135f0",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "005135f0",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "005135f0",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "005135f0",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "005135f0",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "005135f0",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  },
+  {
+   "site": "004a6b90",
+   "target": "00481fb0",
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "module_symbol": "?Service_Game_IO_00481fb0@@YIXXZ"
+  }
+ ],
+ "stand_in_reference_count": 64,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 1,
+  "bytes": 780
+ }
+}

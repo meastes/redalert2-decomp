@@ -1,0 +1,902 @@
+{
+ "module": "quat",
+ "source": "src/recovered/quat.cpp",
+ "header": null,
+ "population": "population-4254",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 924,
+ "code": [
+  {
+   "symbol": "??0Quaternion@@QAE@MMMM@Z",
+   "entry": "00622160",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Set@Quaternion@@QAEXMMMM@Z",
+   "entry": "00622180",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Normalize@Quaternion@@QAEXXZ",
+   "entry": "006221a0",
+   "body_bytes": 89,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Scale@Quaternion@@QAEXM@Z",
+   "entry": "00622200",
+   "body_bytes": 41,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??AQuaternion@@QAEAAMH@Z",
+   "entry": "00622230",
+   "body_bytes": 10,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "??AQuaternion@@QBEMH@Z",
+   "entry": "00622240",
+   "body_bytes": 10,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "entry": "00622250",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "??D@YI?AVQuaternion@@ABV0@0@Z",
+   "entry": "00622400",
+   "body_bytes": 367,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "??K@YI?AVQuaternion@@ABV0@0@Z",
+   "entry": "00622570",
+   "body_bytes": 122,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Conjugate@@YI?AVQuaternion@@ABV1@@Z",
+   "entry": "006225f0",
+   "body_bytes": 69,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Inverse@@YI?AVQuaternion@@ABV1@@Z",
+   "entry": "00622640",
+   "body_bytes": 69,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Trackball@@YI?AVQuaternion@@MMMMM@Z",
+   "entry": "00622690",
+   "body_bytes": 785,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "entry": "006229b0",
+   "body_bytes": 266,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Slerp@@YI?AVQuaternion@@ABV1@0M@Z",
+   "entry": "00622ac0",
+   "body_bytes": 409,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Build_Quaternion@@YI?AVQuaternion@@ABVMatrix3D@@@Z",
+   "entry": "00622c60",
+   "body_bytes": 581,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Build_Matrix3D@@YI?AVMatrix3D@@ABVQuaternion@@@Z",
+   "entry": "00622eb0",
+   "body_bytes": 245,
+   "padding_bytes": 11
+  }
+ ],
+ "code_bytes": 3296,
+ "data": [
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 39
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 41
+  },
+  {
+   "symbol": "__real@4@00000000000000000000",
+   "address": "0079a738",
+   "bytes": 4,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@00000000000000000000",
+   "address": "0079b610",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "__real@4@3fff8000000000000000",
+   "address": "0079b7f8",
+   "bytes": 4,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "__real@8@3feea7c5ac471b478800",
+   "address": "0079c520",
+   "bytes": 8,
+   "kind": "table",
+   "section": 38
+  },
+  {
+   "symbol": "__real@4@3ffe8000000000000000",
+   "address": "0079dd80",
+   "bytes": 4,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@4@bfff8000000000000000",
+   "address": "007a8650",
+   "bytes": 4,
+   "kind": "table",
+   "section": 28
+  },
+  {
+   "symbol": "__real@4@3ffeb504f367f3bcd800",
+   "address": "007a8654",
+   "bytes": 4,
+   "kind": "table",
+   "section": 30
+  },
+  {
+   "symbol": "__real@4@3ffeb504f30000000000",
+   "address": "007a8658",
+   "bytes": 4,
+   "kind": "table",
+   "section": 31
+  },
+  {
+   "symbol": "__real@8@3fffc90fdaa221688800",
+   "address": "007a8660",
+   "bytes": 8,
+   "kind": "table",
+   "section": 37
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@00000000000000000000",
+   "address": "0079a738",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@00000000000000000000",
+   "address": "0079b610",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@3fff8000000000000000",
+   "address": "0079b7f8",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3feea7c5ac471b478800",
+   "address": "0079c520",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@3ffe8000000000000000",
+   "address": "0079dd80",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@bfff8000000000000000",
+   "address": "007a8650",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@3ffeb504f367f3bcd800",
+   "address": "007a8654",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@3ffeb504f30000000000",
+   "address": "007a8658",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fffc90fdaa221688800",
+   "address": "007a8660",
+   "bytes": 8,
+   "kind": "table"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0070cd20",
+   "symbol": "??0UnknownQuaternion@@QAE@MMMM@Z",
+   "target": "00622160",
+   "function_entry": true
+  },
+  {
+   "site": "0070cd20",
+   "symbol": "??0UnknownQuaternion@@QAE@MMMM@Z",
+   "target": "00622160",
+   "function_entry": true
+  },
+  {
+   "site": "004208e0",
+   "symbol": "??0UnknownQuaternion@@QAE@MMMM@Z",
+   "target": "00622160",
+   "function_entry": true
+  },
+  {
+   "site": "004208e0",
+   "symbol": "??0UnknownQuaternion@@QAE@MMMM@Z",
+   "target": "00622160",
+   "function_entry": true
+  },
+  {
+   "site": "00717ef0",
+   "symbol": "??0Quaternion@@QAE@MMMM@Z",
+   "target": "00622160",
+   "function_entry": true
+  },
+  {
+   "site": "00717f20",
+   "symbol": "??0Quaternion@@QAE@MMMM@Z",
+   "target": "00622160",
+   "function_entry": true
+  },
+  {
+   "site": "00718d80",
+   "symbol": "?Slerp@@YI?AVQuaternion@@ABV1@0M@Z",
+   "target": "00622ac0",
+   "function_entry": true
+  },
+  {
+   "site": "00718d80",
+   "symbol": "?Build_Matrix3D@@YI?AVMatrix3D@@ABVQuaternion@@@Z",
+   "target": "00622eb0",
+   "function_entry": true
+  },
+  {
+   "site": "00718df0",
+   "symbol": "?Slerp@@YI?AVQuaternion@@ABV1@0M@Z",
+   "target": "00622ac0",
+   "function_entry": true
+  },
+  {
+   "site": "00718df0",
+   "symbol": "?Build_Matrix3D@@YI?AVMatrix3D@@ABVQuaternion@@@Z",
+   "target": "00622eb0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Set@Quaternion@@QAEXMMMM@Z",
+   "target": "00622180",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Set@Quaternion@@QAEXMMMM@Z",
+   "target": "00622180",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Set@Quaternion@@QAEXMMMM@Z",
+   "target": "00622180",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Set@Quaternion@@QAEXMMMM@Z",
+   "target": "00622180",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Set@Quaternion@@QAEXMMMM@Z",
+   "target": "00622180",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Set@Quaternion@@QAEXMMMM@Z",
+   "target": "00622180",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Set@Quaternion@@QAEXMMMM@Z",
+   "target": "00622180",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Set@Quaternion@@QAEXMMMM@Z",
+   "target": "00622180",
+   "function_entry": true
+  },
+  {
+   "site": "00718060",
+   "symbol": "?Set@Quaternion@@QAEXMMMM@Z",
+   "target": "00622180",
+   "function_entry": true
+  },
+  {
+   "site": "00436dc0",
+   "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z",
+   "target": "006229b0",
+   "function_entry": true
+  },
+  {
+   "site": "00436dc0",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00436dc0",
+   "symbol": "?Build_Quaternion@@YI?AVQuaternion@@ABVMatrix3D@@@Z",
+   "target": "00622c60",
+   "function_entry": true
+  },
+  {
+   "site": "00436dc0",
+   "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+   "target": "00622250",
+   "function_entry": true
+  },
+  {
+   "site": "00436fc0",
+   "symbol": "?Build_Matrix3D@@YI?AVMatrix3D@@ABVQuaternion@@@Z",
+   "target": "00622eb0",
+   "function_entry": true
+  },
+  {
+   "site": "00420110",
+   "symbol": "??0UnknownQuaternion@@QAE@MMMM@Z",
+   "target": "00622160",
+   "function_entry": true
+  },
+  {
+   "site": "00420110",
+   "symbol": "??0UnknownQuaternion@@QAE@MMMM@Z",
+   "target": "00622160",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "?Fast_Acos_004ba580@@YAMN@Z",
+   "address": "004ba580"
+  },
+  {
+   "symbol": "?Fast_Asin_004ba550@@YAMN@Z",
+   "address": "004ba550"
+  },
+  {
+   "symbol": "?Fast_Cos@@YANN@Z",
+   "address": "004ba4d0"
+  },
+  {
+   "symbol": "?Fast_Sin@@YANN@Z",
+   "address": "004ba480"
+  },
+  {
+   "symbol": "?Fast_Sqrt@@YAMN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  }
+ ],
+ "route": "A",
+ "unit": "quat.cpp",
+ "form": "one include block",
+ "switches": [
+  "RA2_MATRIX3D_INLINE_COPY",
+  "VECTOR3_DECLARE_WWMATH",
+  "SLERP_EPSILON"
+ ],
+ "include_blocks": [
+  {
+   "before": "00622160",
+   "lines": 4
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 19,
+ "data_unproven": [],
+ "stand_in_references": [
+  {
+   "site": "0070cd20",
+   "target": "00622160",
+   "symbol": "??0UnknownQuaternion@@QAE@MMMM@Z",
+   "module_symbol": "??0Quaternion@@QAE@MMMM@Z"
+  },
+  {
+   "site": "0070cd20",
+   "target": "00622160",
+   "symbol": "??0UnknownQuaternion@@QAE@MMMM@Z",
+   "module_symbol": "??0Quaternion@@QAE@MMMM@Z"
+  },
+  {
+   "site": "004208e0",
+   "target": "00622160",
+   "symbol": "??0UnknownQuaternion@@QAE@MMMM@Z",
+   "module_symbol": "??0Quaternion@@QAE@MMMM@Z"
+  },
+  {
+   "site": "004208e0",
+   "target": "00622160",
+   "symbol": "??0UnknownQuaternion@@QAE@MMMM@Z",
+   "module_symbol": "??0Quaternion@@QAE@MMMM@Z"
+  },
+  {
+   "site": "00420110",
+   "target": "00622160",
+   "symbol": "??0UnknownQuaternion@@QAE@MMMM@Z",
+   "module_symbol": "??0Quaternion@@QAE@MMMM@Z"
+  },
+  {
+   "site": "00420110",
+   "target": "00622160",
+   "symbol": "??0UnknownQuaternion@@QAE@MMMM@Z",
+   "module_symbol": "??0Quaternion@@QAE@MMMM@Z"
+  }
+ ],
+ "stand_in_reference_count": 6,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

@@ -44,7 +44,7 @@ extern "C" int __cdecl _wcsicmp(wchar_t const *string1, wchar_t const *string2);
 extern int unknown_max_ahead_a3d560;
 
 // An ASCII string widened into a rotating static buffer (0x006FA180).
-wchar_t *__fastcall Unknown_006FA180(char const *text);
+wchar_t *__fastcall Narrow_To_Wide_006fa180(char const *text);
 
 
 class IPXManagerClass : public ConnManClass {

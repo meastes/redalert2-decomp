@@ -19,7 +19,7 @@
 // @ref ?Behavior_AI@ParticleClass@@QAEXXZ=00609c90
 // @ref ?Motion_AI@ParticleClass@@QAEXXZ=0060a420
 // @ref ??RRandom2Class@@QAEHXZ=00638840
-// @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
+// @ref ?unknown_id_source_a3d290@@3PAVScenarioClass@@A=00a3d290
 
 // @ref __real@4@3ffdb333330000000000=007a7f40
 static inline bool Object_Flag_Set(ObjectClass const *object)

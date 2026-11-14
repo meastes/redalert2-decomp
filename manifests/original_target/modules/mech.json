@@ -1,0 +1,817 @@
+{
+ "module": "mech",
+ "source": "src/recovered/mech.cpp",
+ "header": null,
+ "population": "population-3123",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 635,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "005914e0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "00591510",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "00591530",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "00591550",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "00591570",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "00591590",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "005915b0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "005915f0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "00591620",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "00591650",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "00591680",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "00591690",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "005916b0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??0MechLocomotionClass@@QAE@XZ",
+   "entry": "005916d0",
+   "body_bytes": 86,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "??1MechLocomotionClass@@UAE@XZ",
+   "entry": "00591730",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Is_Moving@MechLocomotionClass@@UAG_NXZ",
+   "entry": "00591750",
+   "body_bytes": 10,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Destination@MechLocomotionClass@@UAG?AUCoordStruct@@XZ",
+   "entry": "00591760",
+   "body_bytes": 81,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Head_To_Coord@MechLocomotionClass@@UAG?AUCoordStruct@@XZ",
+   "entry": "005917c0",
+   "body_bytes": 113,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Process@MechLocomotionClass@@UAG_NXZ",
+   "entry": "00591840",
+   "body_bytes": 25,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Move_To@MechLocomotionClass@@UAGXUCoordStruct@@@Z",
+   "entry": "00591860",
+   "body_bytes": 149,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Stop_Moving@MechLocomotionClass@@UAGXXZ",
+   "entry": "00591900",
+   "body_bytes": 78,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Do_Turn@MechLocomotionClass@@UAGXUUnknownFacingDir@@@Z",
+   "entry": "00591950",
+   "body_bytes": 34,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Force_Immediate_Destination@MechLocomotionClass@@UAGXUCoordStruct@@@Z",
+   "entry": "00591980",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Mark_Head_To@MechLocomotionClass@@QAE_NABUCoordStruct@@@Z",
+   "entry": "00592f70",
+   "body_bytes": 419,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?GetClassID@MechLocomotionClass@@UAGJPAUGUID@@@Z",
+   "entry": "00593120",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Load@MechLocomotionClass@@UAGJPAUIStream@@@Z",
+   "entry": "00593160",
+   "body_bytes": 41,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Layer@MechLocomotionClass@@UAGHXZ",
+   "entry": "00593190",
+   "body_bytes": 8,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Is_Moving_Now@MechLocomotionClass@@UAG_NXZ",
+   "entry": "005931a0",
+   "body_bytes": 103,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Mark_All_Occupation_Bits@MechLocomotionClass@@UAGXH@Z",
+   "entry": "00593210",
+   "body_bytes": 70,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Is_Moving_Here@MechLocomotionClass@@UAG_NUCoordStruct@@@Z",
+   "entry": "00593260",
+   "body_bytes": 153,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Size@MechLocomotionClass@@UAEHXZ",
+   "entry": "00593300",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "??_GMechLocomotionClass@@UAEPAXI@Z",
+   "entry": "00593310",
+   "body_bytes": 43,
+   "padding_bytes": 5
+  }
+ ],
+ "code_bytes": 2192,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a6098",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7MechLocomotionClass@@6BILocomotion@@@",
+   "address": "007a60a8",
+   "bytes": 200,
+   "kind": "vtable",
+   "section": 59
+  },
+  {
+   "symbol": "??_7MechLocomotionClass@@6BIPersistStream@@@",
+   "address": "007a6170",
+   "bytes": 44,
+   "kind": "vtable",
+   "section": 60
+  },
+  {
+   "symbol": "??_R13?0A@1IUnknown@@8",
+   "address": "007b30e8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 43
+  },
+  {
+   "symbol": "??_R1A@?0A@1IUnknown@@8",
+   "address": "007b3118",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 47
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersist@@8",
+   "address": "007b3130",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 49
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersistStream@@8",
+   "address": "007b3148",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 51
+  },
+  {
+   "symbol": "??_R13?0A@A@ILocomotion@@8",
+   "address": "007b7ac0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 45
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LocomotionClass@@8",
+   "address": "007b7ad8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 53
+  },
+  {
+   "symbol": "??_R4MechLocomotionClass@@6BILocomotion@@@",
+   "address": "007bdb20",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 42
+  },
+  {
+   "symbol": "??_R1A@?0A@A@MechLocomotionClass@@8",
+   "address": "007bdb38",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 54
+  },
+  {
+   "symbol": "??_R2MechLocomotionClass@@8",
+   "address": "007bdb50",
+   "bytes": 29,
+   "kind": "rtti",
+   "section": 55
+  },
+  {
+   "symbol": "??_R3MechLocomotionClass@@8",
+   "address": "007bdb70",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 56
+  },
+  {
+   "symbol": "??_R4MechLocomotionClass@@6BIPersistStream@@@",
+   "address": "007bdb80",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 58
+  },
+  {
+   "symbol": "??_R0?AUIUnknown@@@8",
+   "address": "007cd638",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 46
+  },
+  {
+   "symbol": "??_R0?AUIPersist@@@8",
+   "address": "007ce208",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 48
+  },
+  {
+   "symbol": "??_R0?AUIPersistStream@@@8",
+   "address": "007ce220",
+   "bytes": 29,
+   "kind": "rtti",
+   "section": 50
+  },
+  {
+   "symbol": "??_R0?AUILocomotion@@@8",
+   "address": "007d5ed0",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R0?AVLocomotionClass@@@8",
+   "address": "007d5ef0",
+   "bytes": 30,
+   "kind": "rtti",
+   "section": 52
+  },
+  {
+   "symbol": "??_R0?AVMechLocomotionClass@@@8",
+   "address": "007e1ce0",
+   "bytes": 34,
+   "kind": "rtti",
+   "section": 57
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a6098",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7MechLocomotionClass@@6BILocomotion@@@",
+   "address": "007a60a8",
+   "bytes": 200,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7MechLocomotionClass@@6BIPersistStream@@@",
+   "address": "007a6170",
+   "bytes": 44,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R13?0A@1IUnknown@@8",
+   "address": "007b30e8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@1IUnknown@@8",
+   "address": "007b3118",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersist@@8",
+   "address": "007b3130",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersistStream@@8",
+   "address": "007b3148",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R13?0A@A@ILocomotion@@8",
+   "address": "007b7ac0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LocomotionClass@@8",
+   "address": "007b7ad8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4MechLocomotionClass@@6BILocomotion@@@",
+   "address": "007bdb20",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@MechLocomotionClass@@8",
+   "address": "007bdb38",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2MechLocomotionClass@@8",
+   "address": "007bdb50",
+   "bytes": 29,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3MechLocomotionClass@@8",
+   "address": "007bdb70",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4MechLocomotionClass@@6BIPersistStream@@@",
+   "address": "007bdb80",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIUnknown@@@8",
+   "address": "007cd638",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIPersist@@@8",
+   "address": "007ce208",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIPersistStream@@@8",
+   "address": "007ce220",
+   "bytes": 29,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUILocomotion@@@8",
+   "address": "007d5ed0",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVLocomotionClass@@@8",
+   "address": "007d5ef0",
+   "bytes": 30,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVMechLocomotionClass@@@8",
+   "address": "007e1ce0",
+   "bytes": 34,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00696fb0",
+   "symbol": "??0MechLocomotionClass@@QAE@XZ",
+   "target": "005916d0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0LocomotionClass@@QAE@XZ",
+   "address": "0053cfc0"
+  },
+  {
+   "symbol": "??1LocomotionClass@@UAE@XZ",
+   "address": "0053cff0"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??AMapClass@@QAEAAVCellClass@@ABUCoordStruct@@@Z",
+   "address": "00548000"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "?AddRef@LocomotionClass@@UAGKXZ",
+   "address": "0053d250"
+  },
+  {
+   "symbol": "?Apparent_Speed@LocomotionClass@@UAGHXZ",
+   "address": "0053d610"
+  },
+  {
+   "symbol": "?Can_Enter_Cell@LocomotionClass@@UAGHVCell@@@Z",
+   "address": "0053d4f0"
+  },
+  {
+   "symbol": "?Draw_Matrix@LocomotionClass@@UAGPAVMatrix3D@@PAV2@PAH@Z",
+   "address": "0053d030"
+  },
+  {
+   "symbol": "?Draw_Point@LocomotionClass@@UAG?AUPoint2D@@XZ",
+   "address": "0053d4d0"
+  },
+  {
+   "symbol": "?Drawing_Code@LocomotionClass@@UAGHXZ",
+   "address": "0053d5f0"
+  },
+  {
+   "symbol": "?Force_New_Slope@LocomotionClass@@UAGXH@Z",
+   "address": "0053d5e0"
+  },
+  {
+   "symbol": "?Force_Track@LocomotionClass@@UAGXHUCoordStruct@@@Z",
+   "address": "0053d510"
+  },
+  {
+   "symbol": "?GetSizeMax@LocomotionClass@@UAGJPATULARGE_INTEGER@@@Z",
+   "address": "0053d440"
+  },
+  {
+   "symbol": "?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z",
+   "address": "0055a280"
+  },
+  {
+   "symbol": "?Goodie_Check@CellClass@@QAE_NPAVObjectClass@@@Z",
+   "address": "00476cc0"
+  },
+  {
+   "symbol": "?Is_Ion_Sensitive@LocomotionClass@@UAG_NXZ",
+   "address": "0053d240"
+  },
+  {
+   "symbol": "?Is_Powered@LocomotionClass@@UAG_NXZ",
+   "address": "0053d230"
+  },
+  {
+   "symbol": "?Is_Rotating@FacingClass@@QBE_NXZ",
+   "address": "004b8c90"
+  },
+  {
+   "symbol": "?Is_To_Have_Shadow@LocomotionClass@@UAG_NXZ",
+   "address": "0053d4e0"
+  },
+  {
+   "symbol": "?Link_To_Object@LocomotionClass@@UAGJPAX@Z",
+   "address": "0053d010"
+  },
+  {
+   "symbol": "?Load@LocomotionClass@@UAGJPAUIStream@@@Z",
+   "address": "0053d3c0"
+  },
+  {
+   "symbol": "?Map@@3VMouseClass@@A",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "?Movement_AI@MechLocomotionClass@@QAEX_N@Z",
+   "address": "005919a0"
+  },
+  {
+   "symbol": "?Power_Off@LocomotionClass@@UAG_NXZ",
+   "address": "0053d210"
+  },
+  {
+   "symbol": "?Power_On@LocomotionClass@@UAG_NXZ",
+   "address": "0053d1f0"
+  },
+  {
+   "symbol": "?Push@LocomotionClass@@UAG_NUUnknownFacingDir@@@Z",
+   "address": "0053d470"
+  },
+  {
+   "symbol": "?QueryInterface@LocomotionClass@@UAGJABUGUID@@PAPAX@Z",
+   "address": "0053d2b0"
+  },
+  {
+   "symbol": "?Release@LocomotionClass@@UAGKXZ",
+   "address": "0053d270"
+  },
+  {
+   "symbol": "?Save@LocomotionClass@@UAGJPAUIStream@@H@Z",
+   "address": "0053d360"
+  },
+  {
+   "symbol": "?Set_Desired@FacingClass@@QAE_NABUUnknownFacingDir@@@Z",
+   "address": "004b8a30"
+  },
+  {
+   "symbol": "?Shadow_Matrix@LocomotionClass@@UAGPAVMatrix3D@@PAV2@PAH@Z",
+   "address": "0053d0d0"
+  },
+  {
+   "symbol": "?Shadow_Point@LocomotionClass@@UAG?AUPoint2D@@XZ",
+   "address": "0053d1c0"
+  },
+  {
+   "symbol": "?Shove@LocomotionClass@@UAG_NUUnknownFacingDir@@@Z",
+   "address": "0053d480"
+  },
+  {
+   "symbol": "?State@LocomotionClass@@UAGHXZ",
+   "address": "0053d600"
+  },
+  {
+   "symbol": "?Tilt_Pitch_AI@LocomotionClass@@UAGXXZ",
+   "address": "0053d490"
+  },
+  {
+   "symbol": "?Unknown_006A29B0@@YIHH@Z",
+   "address": "006a29b0"
+  },
+  {
+   "symbol": "?Unlimbo@LocomotionClass@@UAGXXZ",
+   "address": "0053d520"
+  },
+  {
+   "symbol": "?Visual_Character@LocomotionClass@@UAGH_N@Z",
+   "address": "0053d4c0"
+  },
+  {
+   "symbol": "?Z_Adjust@LocomotionClass@@UAGHXZ",
+   "address": "0053d4a0"
+  },
+  {
+   "symbol": "?Z_Gradient@LocomotionClass@@UAGHXZ",
+   "address": "0053d4b0"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "_CLSID_MechLocomotionClass",
+   "address": "007a1fe0"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  }
+ ],
+ "route": "A",
+ "unit": "mech.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "005914e0",
+   "lines": 5
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 33,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

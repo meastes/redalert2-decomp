@@ -183,8 +183,15 @@ transparent) or to the capture. The owner-draw procedures with no recovered body
 are behaviour rows (`link/behaviour_m14_ownerdraw.cpp`; input exact to the
 decompiles, painting simplified). Scripted input reaches the menus: a script
 line's first field `t<ms>` (milliseconds after the window opened) or
-`d<k>+<ms>` (after the k-th dialog was shown) instead of a frame number; timed
-lines play in the order written. `RA2_NATIVE_MSG_LOG=1` logs messages to dialogs
+`d<k>+<ms>` (after the k-th dialog was shown) or `s<k>+<ms>` (after the menu had
+settled once the k-th was shown: USER32 saw it read its queue for 250 ms with no work,
+input or pending repaint, its slide-in done; milestone `menu-settled`, C5) instead of a
+frame number; timed lines play in the order written. `RA2_NATIVE_IGNORE_FOCUS=1` (test
+runs, C5) keeps the system's focus reports from the game (scripted `blur`/`focus` still
+apply): on a busy machine another game window taking the focus made the menu redraw and
+slide its buttons in again, held presents, and stopped a skirmish (an inactive game
+waits in MSEngine::Check_Focus 0x005B3670); native-census and native-enhancements-frames
+set it. `RA2_NATIVE_MSG_LOG=1` logs messages to dialogs
 and controls, each shown dialog's controls (id, class, screen rectangle, text)
 and every routed click (`=2` adds paint, timer and motion). `--frames=N` reports
 `frames` after N Main_Loop frames of a game started from the menus; the
@@ -193,7 +200,7 @@ dialogs draw (their background art, the sidebar buttons with their labels, the
 skirmish dialog's controls) and their controls sit where the original's
 placement puts them (main menu buttons on the sidebar slots at x 756). Four
 native causes: GetWindowLongA(GWL_HWNDPARENT) answered 0 (the layout pass
-0x00735BC0 then used an unset RECT); UnknownControlRecord's first 16 bytes are
+0x00735BC0 then used an unset RECT); WinData's first 16 bytes are
 an int and two HWNDs in the combo drop-list unit only (24 bytes on arm64), so
 the dialog kind 0x005EAAA0 stored read back wrong elsewhere (fixup pads the
 other variants); a PeekMessage without PM_REMOVE cleared a dialog's pending
@@ -637,6 +644,109 @@ same address (`unknown_bridge_height_ad057c`) right after the header-statics
 row's own initialisers (native_units.py `header_static_copies`, Scout1103).
 Other class-typed globals and pointers to pointers are not loaded (`--report`).
 
+### Enhancements menu (C3)
+
+Native additions, not in the original (docs/HANDOFF.md "ENHANCEMENTS MENU MODEL";
+the Outpost 2 port's model). The shell Options dialog gains an ENHANCEMENTS button
+in its button column (`port/src/native_dialogs.cpp` appends it to template 0xD5;
+`port/fixups.json` lists id 0x7F80 as a column button of 0xD5); it opens the
+Enhancements page (`link/native_enhancements.cpp`), built in the Options dialog's
+size and styles and created under its id so the game's own dialog code draws it:
+one row per setting with its value and CHANGE, ORIGINAL and ENHANCED presets
+(`Preset: Custom` when mixed), a line saying what the last changed row does,
+ACCEPT and CANCEL. Rows: Fullscreen (Automatic on touch hosts), Vertical sync,
+Game interface size (1x, 1.25x, 1.5x, 2x), Map zoom (1x, 1.25x, 1.5x, 2x), Picture
+scaling (Sharp, the original look; Nearest; Smooth).
+
+Game interface size (enhancements v2 part 1): in play, the sidebar column is shown
+larger than the map. The game's sidebar surface is made shorter than the screen
+(screen height / size, at least 360 rows: native fixups at the three sidebar surface
+allocations and the two sidebar layout calls ask `Native_Sidebar_Height`,
+`link/native_enhancements.cpp`), and the host draws the picture split: the map at its
+scale, the sidebar column's rows that many times larger, filling the height
+(`host.cpp`, `split_on`; the mouse maps per region; the Mac window is widened by the
+sidebar's extra width; on iOS the game's width gives it back). While a dialog is up in
+play the whole picture is shown as before. Applies when a game starts: a new game in the
+same process makes its sidebar surface again when the size changed since the surface was
+made (`Native_Sidebar_New_Game`, at the top of Start_Scenario 0x0065BC70, as a load's
+Get_All does; C7, codex4 R700); ctest `native-enhancements-newgame` changes the size on the
+page and starts a skirmish through the menus.
+
+Map zoom (enhancements v2 part 2, C4; the Outpost 2 port's independent map and interface
+scales): in play the map is shown that many times larger, the sidebar and the command bar
+keep their own scales. The game's screen keeps its size, so the menus and every in-play
+dialog (Options, Diplomacy, save and load, the score screen) lay out and draw as in the
+original; only the tactical view is made smaller. Set_View_Dimensions 0x00498C80 keeps the
+rectangle `Native_Map_View` answers (`link/native_map_zoom.cpp`: the tactical rectangle
+divided by the zoom, even sizes, same top-left corner); the original places the sidebar at
+the view's right edge, so the sites that take the view's width as the sidebar's x (the
+sidebar's placement and its copies to the screen, the radar, the mouse on the sidebar
+surface, the command bar's area, the tooltips' boundary) ask `Native_Sidebar_X`, which
+answers the tactical rectangle's right edge while zoomed (native fixups). Tooltips placed
+for the command bar or the sidebar on the map side are moved into the view
+(`Native_Tooltip_Zoom`). The host (`host.cpp`, regions) shows the view over the whole
+tactical area, the command bar below it at the picture's scale and the sidebar column at
+the interface size, and maps the mouse per region; with a dialog up, a movie playing or a
+scenario loading the whole picture is shown. The zoom is taken at the end of Start_Scenario
+0x0065BC70 (a new game, the next mission) and in Get_All 0x00656B80 (a load); the view is
+set again when it changed. The window keeps its size (play screen = window / zoom); on iOS
+the game's width only gives back the sidebar's extra width as before (the zoom does not
+change the screen). Every setting is off by default;
+the ORIGINAL preset sets them back (fullscreen is a choice the presets leave alone).
+The settings (`platform/sdl/enhancements.cpp`) are kept in the app's own settings
+file (`enh_vsync`, `enh_scaling`, `enh_uisize`, `enh_mapzoom`), never in RA2.INI; `RA2_NATIVE_ENHANCEMENTS=
+"preset=enhanced"` or `"vsync=on,scaling=smooth"` sets them for one run (tests).
+ctest `native-enhancements-frames` (`tests/enhancements_frames.py`) runs the main
+menu with the window at 0.75x the picture (`RA2_NATIVE_WINDOW_ZOOM`) and proves the
+ORIGINAL preset's frames byte-identical to the defaults outside the menu's animated
+pixels, and the ENHANCED preset's different.
+
+### Original saves (C6, roadmap (d))
+
+The user's saves from the original game (base RA2, internal version 0x288CC) are
+read in place, never copied or written. `port/src/storage.cpp` reads a compound
+file (the format ole32's StgCreateDocfile wrote) read only: the root storage's
+streams, so SaveVersionInfo::Load takes its stream branch; the summary property
+set is not read. Load Saved Game lists them beside the port's saves with
+"(Original) " before the description (in memory only). Saving after loading one
+writes the port's own format into the write folder; StgCreateDocfile refuses to
+replace a compound file and DeleteFileA to delete one (also without a write folder).
+
+While an original is open `ra2port_original_save_mode` is set, and the typed
+`ISequentialStream::Read` overload (port/fixups.json, com_persist.hpp; prelude
+`original_read_kind`) sends each read to `ra2port_original_read`
+(`port/src/original_save.cpp`). A pointer or a pointer-width integer (intptr_t,
+uintptr_t, size_t) is read as 4 bytes and widened, so swizzle ids are the
+original's 32-bit addresses. An object (a class or union destination: the eight
+`Read(this, ...)` loads, AbstractClass::Load's Size_Of() among them, and every
+struct or list a load reads) is read as its i686 image and spread over the arm64
+object by a field map: the destination's own type when the read is one of it,
+else the most derived type (from the vtable's RTTI, checked to be the game's;
+VeinholeMonsterClass is read over raw memory), else an array of the destination's
+type. Other reads, and reads into a void * buffer, are unchanged. The port's own
+saves read exactly as before (mode 0).
+
+The field maps (`gen/original_layouts.cpp`, a build step) come from
+`tools/original_layouts.py`: for each type in `data/original_save_types.txt` the
+clang record layouts (canonical types) of the unit that defines its Load, for
+i686-pc-windows-msvc (VC6's layout: the overlay's i686 branches) and for the arm64
+dialect, paired member by member by path (bases, members, array elements;
+anonymous members by order): COPY same-size scalars, WIDEN pointers (zero-extended)
+and intptr_t (sign-extended), BITS for bit-fields; vtable pointers and members only
+the port has keep their values. Every record of the units that read streams is
+added when all those units lay it out alike (light views such as MapClass are left
+out). `size=` gives the original's object size (Size_Of slot 12, a locomotor's Size
+slot 9), and ctest `native-original-layouts` checks each type's i686 layout against
+it and that every member pairs (66 sizes; the five classes C5's probe found
+different match when taken from their Load units). `RA2_NATIVE_ORIGINAL_LOG=1`
+logs each conversion; a type read without a map is reported once on stderr
+(`original-save: no layout for ...`). `RA2_NATIVE_STG_LOG=1` logs the open of each
+original. All five of the user's saves (Allied 1, 2 twice, 3 twice) load from the
+menu and play on; saving then writes a port save that loads in a fresh process.
+Not supported: writing original-format saves, Yuri's Revenge, multiplayer saves,
+other internal versions; the x86_64 Windows build has no field maps (LLP64: its
+typed overload is not compiled).
+
 ## Layers
 
 1. **Native view** (`tools/native_units.py`, run at configure time). Reads the
@@ -847,6 +957,16 @@ repeat the last three until `bss_globals.cpp` no longer changes.
    as on the chopping x87 (FSIN/FPTAN reduced by the FPU's 66-bit pi and rounded to
    64 bits, every float store truncated, arctangent limit tan(M_FPI/2 - 0.01)).
    Checked privately against the pinned target: all 38,927 words identical.
+   **Float-to-int conversion** (C5): VC6's `(int)` of a float is `_ftol` (0x0077F110,
+   fistp qword under the game's chop rounding, low 32 bits); arm64's `fcvtzs` saturates.
+   They differ only outside the int range, where a table index then went negative:
+   Fast_Atan2 0x004BA600 under a projectile falling almost straight down (Get_Pitch:
+   Z over a horizontal speed near 0) read 8 GB before its table (C4 sweep, ALL11T load,
+   SIGSEGV at 0xffffffff00ff3080). The four arctangent readers convert with
+   `ra2port::x87_ftol` (prelude.hpp), divide at the x87's 53-bit precision and wrap the
+   table address at 32 bits as the original's `[eax*4 + table]` does (port/fixups.json;
+   native-core-check checks both). Other `(int)` casts are unchanged: a site whose value
+   can leave the int range and then indexes memory needs the same treatment.
 5. **Platform seams** (`port/src`, `ra2_port`): the imported Win32 API (366 imports:
    KERNEL32, USER32, GDI32, WSOCK32, ole32, binkw32, ...) implemented on POSIX and
    SDL3 under the same C names; DirectDraw/DirectSound as C++ classes with the COM
@@ -899,9 +1019,11 @@ the Mac app, SDL 3.4.2 built statically from `RA2_SDL_SOURCE` (default
 nothing is downloaded). The Simulator build is signed ad hoc; a device build needs
 the team id on the command line (`RA2_IOS_TEAM`, never in Git) and is a later
 step. `packaging/audit_ios_bundle.py` checks the bundle: an allowlist (the
-executable, Info.plist, SDL's licence, the signature), no game files, no
+executable, Info.plist, SDL's licence, the home-screen icon, the signature), no game files, no
 libraries outside the system, and with `RA2_GAME_EXE` that no sampled piece of
 game.exe's code or resources is in the executable.
+The home-screen icon is `packaging/make_icon.py --full-bleed` (plain shapes, iOS masks
+the corners) at 120/180/152/167 pixels, named by Info.plist's `CFBundleIcons` (lane I).
 First start: the app asks for the game folder once (Files' folder picker), copies
 the files the game reads (base MIX files, map packs and maps, INI/CSF/PKT files,
 game.exe and BINKW32.DLL; Yuri's Revenge files stay behind) into
@@ -924,9 +1046,17 @@ pointer within 10 pixels of the picture's edge (no edge scrolling from touches).
 look of the user's duo-vnc toolbar: dark interactive UIGlassEffect, capsule corners, SF
 Symbols) sit under a "…" button at the usable area's top left that slides them in and out,
 so nothing stays over the map: Fire holds Ctrl (force fire), Move holds Alt (force move)
-and Add holds Shift (add to the selection) while on (accent tint), Keys shows the keyboard
+and Add holds Shift (add to the selection) while on (accent tint); A-Move arms the original's
+attack-move for the next tap (Ctrl and Shift held together, the keyboard form the game checks in
+Unknown_Can_Force_Order 0x006F6670: 0x00A40BAC and 0x00A40BB4 are Options +0x94 KeyForceAttack
+and +0x9C KeySelect; tinted while armed, cleared a quarter second after the next left click's
+release); Deploy and Guard press D and G (the DeployObject and GuardObject commands' default
+keys; a player who rebinds them in Options > Keyboard would need the toolbar to follow); Esc presses Escape (lane I);
+Keys shows the keyboard
 (it also appears while an edit control has the focus, `ra2port_text_input_wanted`) and
-the last item picks the interface scale (1x, 1.25x, 1.5x; next start). On the Mac
+the last item picks the interface scale (1x, 1.25x, 1.5x; next start, which a note under the
+toolbar says for 3 s: `hostos::toolbar_notice`). `RA2_NATIVE_TOOLBAR_TAPS="<ms>:<item>;..."`
+(tests; item -1 is "…") sends the toolbar buttons' own actions for Simulator runs. On the Mac
 (`RA2_NATIVE_TOUCH_UI=1`, tests) the host draws a plain column of the same toggles. The
 touch app hides the game's own cursor (`link/native_touch_cursor.cpp`: one extra
 WWMouseClass::Hide_Mouse whenever it is shown; `RA2_NATIVE_TOUCH_CURSOR=1` keeps it). Input scripts take `tdown|tmove|tup X Y
@@ -942,6 +1072,11 @@ centre above 800x600, so between them the art and the buttons landed apart over 
 noise; three fixups (Unknown_Layout_Interface 0x006F3E70 and the border blackout 0x006F34D0)
 centre and black out the bands above 800x600 natively (Scout1274; r27 had held iOS to 4:3).
 `RA2_NATIVE_USABLE_POINTS=<w>x<h>` (tests) picks the resolution as if that much of the screen were clear.
+Options' Set Game Resolution shows the current mode: the DirectDraw shim lists the
+current mode among the usual ones, and a size the dialog lists only with
+AllowHiResModes (a width other than 640/800/1024, or above 768 high) gets
+`AllowHiResModes=yes` in RA2.INI [Video] with the size (lane I; before, the box was
+blank at 824x600). Each start sets the screen's size again, whatever was picked there.
 The host pause's reasons are combined (`update_pause`): the background (an SDL event
 watch, so it takes effect before the game reads its queue again), the focus lost, a
 folded or upright device (usable area under 480x320 points or portrait; a note is drawn
@@ -950,7 +1085,26 @@ Checkpoints (`ra2port::request_checkpoint`; link/harness_save.cpp `Native_Checkp
 the app goes to the background, and every 3 minutes of play, the end of the Main_Loop pass
 saves CHECKPT.SAV ("Checkpoint", listed by Load Saved Game, read by the Mac app too) unless
 a network game runs; a pause asked for with a checkpoint waits for it up to a second.
-`RA2_NATIVE_CHECKPOINT_SECONDS=N` sets the period (tests: also on the Mac). Every 30 s of
+`RA2_NATIVE_CHECKPOINT_SECONDS=N` sets the period (tests: also on the Mac).
+**Skipping cutscenes (lane I).** While a cutscene plays (`ra2port::movie_playing`,
+port/src/bink.cpp: a Bink movie with sound at least 400 pixels wide is open; the menus'
+silent animations and the radar's small movies do not count) a glass "Skip" button sits at
+the usable area's top right (`hostos::skip_button_create/_show`); tapping it, like the
+toolbar's Esc, pushes an Escape press and release through SDL's key events, the keyboard's
+own path (BinkClass::Play 0x00430430 stops on Escape unless the movie is marked
+unskippable). A Windows touch host would supply the button and toolbar in its own host
+file; the movie test and the key press are shared. Test taps: `RA2_NATIVE_TOOLBAR_TAPS`
+item -2 is the Skip button (ignored while hidden).
+**Resume at start (lane I).** When going to the background saved a checkpoint, the host
+writes `resume.pending` in the settings folder and removes it when the app comes back; a
+start that finds it (the system ended the app in the background) asks "Resume your
+game?" (Main Menu / Resume; `RA2_NATIVE_RESUME_ANSWER=resume|menu` for tests). Resume
+goes through the game's own menus: the port presses Single Player in the main menu (0xE2)
+and Load Saved Game in the single-player menu (0x100), and the Load dialog's entry
+(link/behaviour_m15.cpp, Load_Dialog 0x0053B190) takes Dialog 0x0053B770's steps for
+CHECKPT.SAV instead of waiting for a row. The touch app also starts with the pointer in
+the middle of the picture (the game's cursor began at the top left corner, which
+edge-scrolled a resumed map out of view). Every 30 s of
 play the log gets the frame rate and, on iOS, memory footprint and thermal state.
 The iOS build is optimised at -O2 (`RA2_IOS_OPT`); the Mac tree at -O2 passes the census.
 Two template members that only -O0 builds emitted out of line are instantiated in
@@ -968,3 +1122,67 @@ dialog) and /usr/bin/open (Show Log) are macOS-only in host_apple.mm.
 
 `historical/native-reconstruction/` stays preserved as reference (SDL3 choice,
 MIX/SHP readers usable as test oracles); its own simulation is not reused.
+
+## Windows build (W1, first build)
+
+The same tree cross-compiled on the Mac for x86_64 Windows with llvm-mingw (clang,
+lld, libc++, the UCRT), on the same SDL3 host; no original code, no emulation:
+
+```
+cmake -S native -B build/native-win -G Ninja \
+  -DCMAKE_TOOLCHAIN_FILE=$PWD/native/cmake/llvm-mingw-x86_64.cmake \
+  -DRA2_NATIVE_SDL_SOURCE=<SDL 3.4.2 source> -DRA2_NATIVE_SUBSYSTEM=all -DRA2_NATIVE_LINK_CLOSURE=ON
+cmake --build build/native-win          # build/native-win/ra2-native.exe, self-contained (no toolchain DLLs)
+```
+
+The toolchain is the extracted llvm-mingw release (20261020, macOS universal), found by
+`RA2_LLVM_MINGW` or under the main checkout's `private/toolchains/llvm-mingw-20261020/`;
+nothing is installed. SDL3 is built statically from source, as for iOS. `RA2_WINDOWS_GUI=ON`
+links for the GUI subsystem (no console; the test runs' logs need the console, the default).
+
+Checks (C7): `ctest --test-dir build/native-win` runs on the Mac. `native-census`,
+`native-enhancements-frames` and `native-enhancements-settings` run the .exe under Wine, each
+in a fresh prefix of its own under `build/native-win/wine/` (`tests/wine.py`), and are skipped
+when no Wine is found (`RA2_NATIVE_WINE`, cache or environment, else `wine` on PATH, else the
+Wine bundle under the main checkout's `private/tools/wine-11.18`; a local test host, never
+shipped). `native-link-closure` compares the Windows closure with the Mac baseline
+(`--target=windows`: Win64's `long long` is the Mac's 64-bit `long`), `native-vtable-views`
+reads the .exe's COFF names. The unit checks (core, asm, view audit) are the Mac build's. What
+Wine cannot check (a real window, audio, fullscreen, DPI scaling) is listed with commands in
+`platform/win/REAL_WINDOWS_CHECKS.md`.
+
+What the Windows build adds (`cmake/windows.cmake`, `platform/win/`):
+- **Dialect** (`dialect_win.hpp`, forced before the prelude): `__GNUC__` for the mingw-w64
+  headers (-fms-compatibility hides it), wchar_t before any system header, `__LP64__` for
+  the layout fixups' 64-bit-pointer branch (Win64 is LLP64; VC6 `long` stays RA2_LONG),
+  dllimport empty (the port defines the original's imports under their own names, as on
+  macOS), and other names for clang's `_exception_code`/`_exception_info` built-ins.
+- **Port layer** (`port_compat.h`, `posix/`, `posix_win.cpp`, `os_win.cpp`): the POSIX
+  pieces mingw-w64 lacks, on Win32: BSD sockets on Winsock 2 (wsock32.cpp unchanged, IPX
+  over UDP included), fnmatch, backtrace, dladdr, sigaction through the unhandled-exception
+  filter, futimes, mkdtemp, setenv, realpath, rename over an existing file. The UCRT's POSIX
+  names (open, close, read, unlink, strcasecmp, strdup) are weak aliases of the underscore
+  names the port defines for the recovered code (crt.cpp): strong definitions send the port's
+  own calls to the UCRT, and files open in binary mode. `host_win.cpp`: the host's services
+  (settings in %APPDATA%\RA2Native, logs in %LOCALAPPDATA%\RA2Native\Logs, crash report
+  process, TMPDIR from the temp folder, 1 ms timer resolution). `host_compat.h` reads SDL's
+  Windows `MSG` under another name (the port defines the game's own).
+- **Symbols**: the native sources and generated units name symbols in the Mach-O spelling
+  (`__asm__("_name")`, `.set _a, _b`); `tools/coff_asm_labels.py` compiles COFF copies
+  (`gen/coff`). `link_closure.py --target windows` reads COFF names in the Mach-O spelling,
+  never takes an original Win32 import from the Windows import libraries (unported ones are
+  traps, as on macOS), binds names written in the LP64 mangling (long/unsigned long for
+  intptr_t/uintptr_t) to their Win64 spelling, and applies aliases as `-alternatename`
+  directives. Repeated definitions keep the first in link order (`--allow-multiple-definition`,
+  weaken_duplicates.py's rule). The main thread's stack is 8 MiB, as on macOS.
+- **Initialiser order** (`ctors_win.c`, C7): the units' static initialisers run in link order,
+  the original's `_initterm` order, as dyld runs them on macOS. The mingw-w64 runtime runs the
+  `.ctors` list backwards (the trace went #3609 down to #0); ctors_win.c replaces its
+  `__main`/`__do_global_ctors` and runs the prioritised entries (libc++'s) first, as the runtime
+  does, then the plain ones forwards. `RA2_NATIVE_INIT_TRACE=1` under Wine prints the Mac's trace.
+
+Known differences: SDL's IME and keyboard-layout version checks call ImmGetContext,
+ImmNotifyIME and GetFileVersionInfo*/VerQueryValueA by their plain names and get the port's
+stand-ins (IME composition off); the run-to stall backtrace (SIGUSR2) does not exist.
+Smoke test (Wine 11.18, local only, never shipped): `--run-to=menu` reaches the main menu and
+`--skirmish='#5' --run-to=frames --skirmish-frames=60` runs 60 frames, as on the Mac.

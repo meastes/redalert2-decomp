@@ -175,7 +175,7 @@ uint32_t resource_entry(const Image &img, uint32_t dir, uintptr_t key)
 }
 }  // namespace
 
-const void *original_resource(uintptr_t type, uintptr_t name, size_t *size)
+const void *original_resource_image(uintptr_t type, uintptr_t name, size_t *size)
 {
     Image &img = image();
     if (!img.loaded || !img.resource_rva || img.resource_rva >= img.size) return nullptr;
@@ -193,6 +193,17 @@ const void *original_resource(uintptr_t type, uintptr_t name, size_t *size)
     if ((uint64_t)rva + length > img.size) return nullptr;
     if (size) *size = length;
     return img.mem.data() + rva;
+}
+
+namespace native_dialogs { const void *resource(uintptr_t type, uintptr_t name, size_t *size); }
+// The port's native dialog templates first (native_dialogs.cpp: the Options dialog with
+// its ENHANCEMENTS button, the Enhancements page), then the original's resource directory.
+const void *original_resource(uintptr_t type, uintptr_t name, size_t *size)
+{
+    uintptr_t id = name;
+    if (name > 0xFFFF && ((const char *)name)[0] == '#') id = (uintptr_t)strtoul((const char *)name + 1, nullptr, 10);
+    if (const void *native = native_dialogs::resource(type, id, size)) return native;
+    return original_resource_image(type, name, size);
 }
 
 // Copies n bytes the original stores at va; false when unavailable.

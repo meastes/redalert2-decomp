@@ -1,0 +1,1250 @@
+{
+ "module": "target",
+ "source": "src/recovered/target.cpp",
+ "header": null,
+ "population": "population-2755",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 557,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "006b5250",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "006b5280",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "006b52a0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "006b52c0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "006b52e0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "006b5300",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "006b5320",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "006b5360",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "006b5390",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "006b53c0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "006b53f0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "006b5400",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "006b5420",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E52",
+   "entry": "006b5440",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E50",
+   "entry": "006b5470",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "entry": "006b54a0",
+   "body_bytes": 102,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "??0TargetClass@@QAE@ABVCell@@@Z",
+   "entry": "006b5510",
+   "body_bytes": 66,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "??0TargetClass@@QAE@ABUCoordStruct@@@Z",
+   "entry": "006b5560",
+   "body_bytes": 60,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?As_AbstractType@TargetClass@@QBEPAVAbstractTypeClass@@XZ",
+   "entry": "006b55a0",
+   "body_bytes": 204,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?As_Tag@TargetClass@@QBEPAVTagClass@@XZ",
+   "entry": "006b5670",
+   "body_bytes": 204,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?As_TagType@TargetClass@@QBEPAVTagTypeClass@@XZ",
+   "entry": "006b5740",
+   "body_bytes": 204,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?As_Abstract@TargetClass@@QBEPAVAbstractClass@@XZ",
+   "entry": "006b5810",
+   "body_bytes": 246,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?As_Techno@TargetClass@@QBEPAVTechnoClass@@XZ",
+   "entry": "006b5910",
+   "body_bytes": 196,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?As_Object@TargetClass@@QBEPAVObjectClass@@XZ",
+   "entry": "006b59e0",
+   "body_bytes": 204,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?As_Foot@TargetClass@@QBEPAVFootClass@@XZ",
+   "entry": "006b5ab0",
+   "body_bytes": 204,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?As_Trigger@TargetClass@@QBEPAVTriggerClass@@XZ",
+   "entry": "006b5b80",
+   "body_bytes": 204,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?As_House@TargetClass@@QBEPAVHouseClass@@XZ",
+   "entry": "006b5c50",
+   "body_bytes": 204,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?As_TechnoType@TargetClass@@QBEPAVTechnoTypeClass@@XZ",
+   "entry": "006b5d20",
+   "body_bytes": 204,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?As_TriggerType@TargetClass@@QBEPAVTriggerTypeClass@@XZ",
+   "entry": "006b5df0",
+   "body_bytes": 204,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?As_TeamType@TargetClass@@QBEPAVTeamTypeClass@@XZ",
+   "entry": "006b5ec0",
+   "body_bytes": 204,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?As_Terrain@TargetClass@@QBEPAVTerrainClass@@XZ",
+   "entry": "006b5f90",
+   "body_bytes": 204,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?As_Bullet@TargetClass@@QBEPAVBulletClass@@XZ",
+   "entry": "006b6060",
+   "body_bytes": 204,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?As_Anim@TargetClass@@QBEPAVAnimClass@@XZ",
+   "entry": "006b6130",
+   "body_bytes": 204,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?As_Team@TargetClass@@QBEPAVTeamClass@@XZ",
+   "entry": "006b6200",
+   "body_bytes": 204,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?As_Infantry@TargetClass@@QBEPAVInfantryClass@@XZ",
+   "entry": "006b62d0",
+   "body_bytes": 204,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?As_Unit@TargetClass@@QBEPAVUnitClass@@XZ",
+   "entry": "006b63a0",
+   "body_bytes": 204,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?As_Building@TargetClass@@QBEPAVBuildingClass@@XZ",
+   "entry": "006b6470",
+   "body_bytes": 204,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?As_Aircraft@TargetClass@@QBEPAVAircraftClass@@XZ",
+   "entry": "006b6540",
+   "body_bytes": 204,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?As_Cell@TargetClass@@QBEPAVCellClass@@XZ",
+   "entry": "006b6610",
+   "body_bytes": 69,
+   "padding_bytes": 11
+  }
+ ],
+ "code_bytes": 5136,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007ac850",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_R0?AVAbstractClass@@@8",
+   "address": "007ce240",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 52
+  },
+  {
+   "symbol": "??_R0?AVAbstractTypeClass@@@8",
+   "address": "007ce260",
+   "bytes": 32,
+   "kind": "rtti",
+   "section": 53
+  },
+  {
+   "symbol": "??_R0?AVObjectClass@@@8",
+   "address": "007ce548",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 66
+  },
+  {
+   "symbol": "??_R0?AVFootClass@@@8",
+   "address": "007ce5c8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 69
+  },
+  {
+   "symbol": "??_R0?AVAircraftClass@@@8",
+   "address": "007ce5e0",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 108
+  },
+  {
+   "symbol": "??_R0?AVTechnoTypeClass@@@8",
+   "address": "007ce9e8",
+   "bytes": 30,
+   "kind": "rtti",
+   "section": 78
+  },
+  {
+   "symbol": "??_R0?AVAnimClass@@@8",
+   "address": "007cec98",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 93
+  },
+  {
+   "symbol": "??_R0?AVBuildingClass@@@8",
+   "address": "007cf6a8",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 105
+  },
+  {
+   "symbol": "??_R0?AVBulletClass@@@8",
+   "address": "007d1210",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 90
+  },
+  {
+   "symbol": "??_R0?AVHouseClass@@@8",
+   "address": "007da1a8",
+   "bytes": 25,
+   "kind": "rtti",
+   "section": 75
+  },
+  {
+   "symbol": "??_R0?AVTagClass@@@8",
+   "address": "007da518",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 56
+  },
+  {
+   "symbol": "??_R0?AVInfantryClass@@@8",
+   "address": "007daec0",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 99
+  },
+  {
+   "symbol": "??_R0?AVTagTypeClass@@@8",
+   "address": "007f6c98",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 59
+  },
+  {
+   "symbol": "??_R0?AVTriggerClass@@@8",
+   "address": "007f6cd0",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 72
+  },
+  {
+   "symbol": "??_R0?AVTriggerTypeClass@@@8",
+   "address": "007f6cf0",
+   "bytes": 31,
+   "kind": "rtti",
+   "section": 81
+  },
+  {
+   "symbol": "??_R0?AVTeamTypeClass@@@8",
+   "address": "007f6d10",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 84
+  },
+  {
+   "symbol": "??_R0?AVTerrainClass@@@8",
+   "address": "007f6d30",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 87
+  },
+  {
+   "symbol": "??_R0?AVTeamClass@@@8",
+   "address": "007f6d50",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 96
+  },
+  {
+   "symbol": "??_R0?AVUnitClass@@@8",
+   "address": "007f6d68",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 102
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007ac850",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_R0?AVAbstractClass@@@8",
+   "address": "007ce240",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVAbstractTypeClass@@@8",
+   "address": "007ce260",
+   "bytes": 32,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVObjectClass@@@8",
+   "address": "007ce548",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVFootClass@@@8",
+   "address": "007ce5c8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVAircraftClass@@@8",
+   "address": "007ce5e0",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVTechnoTypeClass@@@8",
+   "address": "007ce9e8",
+   "bytes": 30,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVAnimClass@@@8",
+   "address": "007cec98",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVBuildingClass@@@8",
+   "address": "007cf6a8",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVBulletClass@@@8",
+   "address": "007d1210",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVHouseClass@@@8",
+   "address": "007da1a8",
+   "bytes": 25,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVTagClass@@@8",
+   "address": "007da518",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVInfantryClass@@@8",
+   "address": "007daec0",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVTagTypeClass@@@8",
+   "address": "007f6c98",
+   "bytes": 27,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVTriggerClass@@@8",
+   "address": "007f6cd0",
+   "bytes": 27,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVTriggerTypeClass@@@8",
+   "address": "007f6cf0",
+   "bytes": 31,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVTeamTypeClass@@@8",
+   "address": "007f6d10",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVTerrainClass@@@8",
+   "address": "007f6d30",
+   "bytes": 27,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVTeamClass@@@8",
+   "address": "007f6d50",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVUnitClass@@@8",
+   "address": "007f6d68",
+   "bytes": 24,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0046b460",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "0046b680",
+   "symbol": "?As_TechnoType@TargetClass@@QBEPAVTechnoTypeClass@@XZ",
+   "target": "006b5d20",
+   "function_entry": true
+  },
+  {
+   "site": "0046c3b0",
+   "symbol": "?As_TechnoType@TargetClass@@QBEPAVTechnoTypeClass@@XZ",
+   "target": "006b5d20",
+   "function_entry": true
+  },
+  {
+   "site": "004cd9c0",
+   "symbol": "?Unknown_006B5810@UnknownTarget@@QBEPAVAbstractClass@@XZ",
+   "target": "006b5810",
+   "function_entry": true
+  },
+  {
+   "site": "004cd9c0",
+   "symbol": "?Unknown_006B5810@UnknownTarget@@QBEPAVAbstractClass@@XZ",
+   "target": "006b5810",
+   "function_entry": true
+  },
+  {
+   "site": "0043ffe0",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "00610980",
+   "symbol": "?As_Abstract@TargetClass@@QBEPAVAbstractClass@@XZ",
+   "target": "006b5810",
+   "function_entry": true
+  },
+  {
+   "site": "00610980",
+   "symbol": "?As_Abstract@TargetClass@@QBEPAVAbstractClass@@XZ",
+   "target": "006b5810",
+   "function_entry": true
+  },
+  {
+   "site": "00610980",
+   "symbol": "?As_Abstract@TargetClass@@QBEPAVAbstractClass@@XZ",
+   "target": "006b5810",
+   "function_entry": true
+  },
+  {
+   "site": "00614aa0",
+   "symbol": "?As_Abstract@TargetClass@@QBEPAVAbstractClass@@XZ",
+   "target": "006b5810",
+   "function_entry": true
+  },
+  {
+   "site": "00614aa0",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "00615a10",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "00616280",
+   "symbol": "?As_Abstract@TargetClass@@QBEPAVAbstractClass@@XZ",
+   "target": "006b5810",
+   "function_entry": true
+  },
+  {
+   "site": "00616280",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "00616280",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "0043fd30",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "0043fd30",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "0043fd30",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "0043fd30",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "006cc510",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "00615910",
+   "symbol": "?As_Cell@TargetClass@@QBEPAVCellClass@@XZ",
+   "target": "006b6610",
+   "function_entry": true
+  },
+  {
+   "site": "00615910",
+   "symbol": "?As_Techno@TargetClass@@QBEPAVTechnoClass@@XZ",
+   "target": "006b5910",
+   "function_entry": true
+  },
+  {
+   "site": "00617df0",
+   "symbol": "?As_Abstract@TargetClass@@QBEPAVAbstractClass@@XZ",
+   "target": "006b5810",
+   "function_entry": true
+  },
+  {
+   "site": "00617df0",
+   "symbol": "?As_Abstract@TargetClass@@QBEPAVAbstractClass@@XZ",
+   "target": "006b5810",
+   "function_entry": true
+  },
+  {
+   "site": "00617df0",
+   "symbol": "?As_Abstract@TargetClass@@QBEPAVAbstractClass@@XZ",
+   "target": "006b5810",
+   "function_entry": true
+  },
+  {
+   "site": "006167f0",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "004e5660",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "004e5660",
+   "symbol": "?As_Techno@TargetClass@@QBEPAVTechnoClass@@XZ",
+   "target": "006b5910",
+   "function_entry": true
+  },
+  {
+   "site": "004e5660",
+   "symbol": "?As_Techno@TargetClass@@QBEPAVTechnoClass@@XZ",
+   "target": "006b5910",
+   "function_entry": true
+  },
+  {
+   "site": "006cc2a0",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "006cc2a0",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "006cc2a0",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "006cc2a0",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "006cc2a0",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "006cc2a0",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "006cc2a0",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "00440140",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "00440140",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "00440140",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "00440140",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?As_Building@TargetClass@@QBEPAVBuildingClass@@XZ",
+   "target": "006b6470",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?As_Building@TargetClass@@QBEPAVBuildingClass@@XZ",
+   "target": "006b6470",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?As_Techno@TargetClass@@QBEPAVTechnoClass@@XZ",
+   "target": "006b5910",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?As_Abstract@TargetClass@@QBEPAVAbstractClass@@XZ",
+   "target": "006b5810",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?As_Techno@TargetClass@@QBEPAVTechnoClass@@XZ",
+   "target": "006b5910",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?As_Techno@TargetClass@@QBEPAVTechnoClass@@XZ",
+   "target": "006b5910",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?As_Building@TargetClass@@QBEPAVBuildingClass@@XZ",
+   "target": "006b6470",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?As_Techno@TargetClass@@QBEPAVTechnoClass@@XZ",
+   "target": "006b5910",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?As_Object@TargetClass@@QBEPAVObjectClass@@XZ",
+   "target": "006b59e0",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?As_Object@TargetClass@@QBEPAVObjectClass@@XZ",
+   "target": "006b59e0",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?As_Abstract@TargetClass@@QBEPAVAbstractClass@@XZ",
+   "target": "006b5810",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?As_Abstract@TargetClass@@QBEPAVAbstractClass@@XZ",
+   "target": "006b5810",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?As_Abstract@TargetClass@@QBEPAVAbstractClass@@XZ",
+   "target": "006b5810",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?As_Abstract@TargetClass@@QBEPAVAbstractClass@@XZ",
+   "target": "006b5810",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?As_Abstract@TargetClass@@QBEPAVAbstractClass@@XZ",
+   "target": "006b5810",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?As_Abstract@TargetClass@@QBEPAVAbstractClass@@XZ",
+   "target": "006b5810",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?As_Techno@TargetClass@@QBEPAVTechnoClass@@XZ",
+   "target": "006b5910",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?As_Techno@TargetClass@@QBEPAVTechnoClass@@XZ",
+   "target": "006b5910",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?As_Techno@TargetClass@@QBEPAVTechnoClass@@XZ",
+   "target": "006b5910",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?As_Techno@TargetClass@@QBEPAVTechnoClass@@XZ",
+   "target": "006b5910",
+   "function_entry": true
+  },
+  {
+   "site": "004c61a0",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "0053fbd0",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "0053fbd0",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "0053fbd0",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "0053fbd0",
+   "symbol": "?As_Object@TargetClass@@QBEPAVObjectClass@@XZ",
+   "target": "006b59e0",
+   "function_entry": true
+  },
+  {
+   "site": "00613720",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "00613550",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "0062a360",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "0062a360",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "0049bb20",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "0049bb20",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "0049bb20",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "0049bb20",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "0049bb20",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "00629290",
+   "symbol": "?As_Cell@TargetClass@@QBEPAVCellClass@@XZ",
+   "target": "006b6610",
+   "function_entry": true
+  },
+  {
+   "site": "00629290",
+   "symbol": "?As_Techno@TargetClass@@QBEPAVTechnoClass@@XZ",
+   "target": "006b5910",
+   "function_entry": true
+  },
+  {
+   "site": "00629290",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "00629290",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "00629290",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "00629290",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "00614010",
+   "symbol": "?As_Abstract@TargetClass@@QBEPAVAbstractClass@@XZ",
+   "target": "006b5810",
+   "function_entry": true
+  },
+  {
+   "site": "00614850",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "00617af0",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "00617af0",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "006165a0",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  },
+  {
+   "site": "00444660",
+   "symbol": "??0TargetClass@@QAE@PAVAbstractClass@@@Z",
+   "target": "006b54a0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z",
+   "address": "00548070"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "address": "0040dc20"
+  },
+  {
+   "symbol": "?Map@@3VMouseClass@@A",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?x@?1???A?$IndexClass@JPAVAbstractClass@@@@QBEABQAVAbstractClass@@ABJ@Z@4PAV2@A",
+   "address": "00b2b628"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "___RTDynamicCast",
+   "address": "00783ce4"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "_atexit",
+   "address": "0078298a"
+  },
+  {
+   "symbol": "_qsort",
+   "address": "00781d46"
+  }
+ ],
+ "route": "A",
+ "unit": "target.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "006b5250",
+   "lines": 20
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 39,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "004cd9c0",
+   "target": "006b5810",
+   "symbol": "?Unknown_006B5810@UnknownTarget@@QBEPAVAbstractClass@@XZ",
+   "module_symbol": "?As_Abstract@TargetClass@@QBEPAVAbstractClass@@XZ"
+  },
+  {
+   "site": "004cd9c0",
+   "target": "006b5810",
+   "symbol": "?Unknown_006B5810@UnknownTarget@@QBEPAVAbstractClass@@XZ",
+   "module_symbol": "?As_Abstract@TargetClass@@QBEPAVAbstractClass@@XZ"
+  }
+ ],
+ "stand_in_reference_count": 2,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

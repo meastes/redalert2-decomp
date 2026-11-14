@@ -17,6 +17,15 @@ functions and globals), cxx-function, cxx-data, c-function, c-data, vtable,
 typeinfo, win32 (imports the port does not provide yet), crt.
 
     python3 native/tools/link_closure.py --inputs gen/link_inputs.txt --host a.o;b.o --out gen/link_closure.c
+
+The x86_64 Windows build (README "Windows build") passes --target windows, the
+toolchain's llvm-nm and the mingw-w64 sysroot. COFF names have no leading
+underscore: they are read with one added, so every list, class and alias TSV
+keeps the Mach-O spelling, and the C file names the COFF symbols. Win32 entry
+points of the original's import table are never taken from the Windows import
+libraries: unless the port defines one, it is a trap as on macOS (the port's
+handles and structures are not the system's). Aliases become linker
+-alternatename directives in the C file (no ld64 -alias_list).
 """
 import argparse
 import glob
@@ -31,17 +40,21 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tools/original_target'))
 
 
+NM = 'nm'
+PREFIX = ''          # '_' on Windows: COFF names are read in the Mach-O spelling
+
+
 def nm_symbols(paths):
     """(defined, undefined) external symbol sets of objects/archives."""
     defined, undefined = set(), set()
     for i in range(0, len(paths), 400):
-        out = subprocess.run(['nm', '-g'] + paths[i:i + 400], capture_output=True, text=True).stdout
+        out = subprocess.run([NM, '-g'] + paths[i:i + 400], capture_output=True, text=True).stdout
         for line in out.splitlines():
             parts = line.split()
             if len(parts) == 2 and parts[0] == 'U':
-                undefined.add(parts[1])
+                undefined.add(PREFIX + parts[1])
             elif len(parts) == 3 and parts[1] not in ('U',):
-                defined.add(parts[2])
+                defined.add(PREFIX + parts[2])
     return defined, undefined
 
 
@@ -86,6 +99,31 @@ def system_exports(sdk='', frameworks=('Foundation', 'AppKit'), libs=()):
     for lib in glob.glob(clang_rt + '/lib/darwin/libclang_rt.*san_osx_dynamic.dylib') + [l for l in rt_libs if os.path.exists(l)]:
         out = subprocess.run(['nm', '-gU', lib], capture_output=True, text=True).stdout
         names.update(l.split()[-1] for l in out.splitlines() if l.strip())
+    return names
+
+
+# The libraries the Windows game links (the driver's defaults with -static, the
+# SDL3 static library's system libraries and the port's), in the mingw-w64 sysroot.
+WINDOWS_LIBS = ['c++', 'unwind', 'mingw32', 'mingwex', 'moldname', 'ucrt', 'ucrtbase', 'winpthread', 'pthread',
+                'kernel32', 'user32', 'gdi32', 'winmm', 'imm32', 'ole32', 'oleaut32', 'version', 'uuid', 'advapi32',
+                'setupapi', 'shell32', 'ws2_32', 'iphlpapi', 'dinput8', 'winspool', 'comdlg32', 'm']
+# Names lld and the mingw-w64 startup objects provide.
+WINDOWS_LINKER_NAMES = {'__ImageBase', '__CTOR_LIST__', '__DTOR_LIST__', '__RUNTIME_PSEUDO_RELOC_LIST__',
+                        '__RUNTIME_PSEUDO_RELOC_LIST_END__', '_tls_used', '_tls_index', '__dso_handle'}
+
+
+def windows_system_exports(sysroot, libs=()):
+    """Names the Windows link's libraries define (llvm-nm of the sysroot's archives,
+    the startup objects, the compiler's builtins and the libraries given)."""
+    paths = [p for p in ('%s/lib/lib%s.a' % (sysroot, l) for l in WINDOWS_LIBS) if os.path.exists(p)]
+    paths += glob.glob(sysroot + '/lib/*.o')
+    paths += glob.glob(os.path.dirname(sysroot) + '/lib/clang/*/lib/windows/libclang_rt.builtins-x86_64.a')
+    paths += [l for l in libs if l]
+    names = set()
+    for i in range(0, len(paths), 50):
+        out = subprocess.run([NM, '-g', '--defined-only'] + paths[i:i + 50], capture_output=True, text=True).stdout
+        names.update(PREFIX + l.split()[-1] for l in out.splitlines() if l.strip() and not l.endswith(':'))
+    names.update(PREFIX + n for n in WINDOWS_LINKER_NAMES)
     return names
 
 
@@ -147,6 +185,12 @@ def missing_symbols(paths, aliases=(), system=None):
     """Undefined symbols of a link over paths (after the system libraries), less
     those an alias TSV binds to a defined name; (missing, alias pairs)."""
     defined, undefined = nm_symbols(paths)
+    if PREFIX:
+        # Windows: the original's Win32 imports come from the port or are traps;
+        # COMDAT .refptr.X stubs are the compiler's.
+        imports = {'_' + i['name'] for i in json.loads((ROOT / 'manifests/imports.json').read_text())['imports']}
+        system = (system or set()) - imports
+        undefined = {s for s in undefined if not s.startswith(('_.refptr.', '_.weak.'))}
     # ___dso_handle, the Mach-O header and section boundary symbols
     # (section$start$SEG$SECT, e.g. a coverage build's guards) and Objective-C selector
     # stubs (_objc_msgSend$sel, the host's .mm) are synthesized by the linker.
@@ -165,7 +209,60 @@ def missing_symbols(paths, aliases=(), system=None):
             if alias in missing and target in defined and alias not in defined:
                 alias_list.append((target, alias))
     taken = {a for _, a in alias_list}
+    if PREFIX:
+        # Windows: names written in the LP64 (macOS) mangling in the native sources
+        # (signature_adapters.cpp's labels, the alias TSVs) spell intptr_t/uintptr_t
+        # (and size_t) as long/unsigned long (l, m); Win64 mangles them as long long /
+        # unsigned long long (x, y). A missing name whose LP64 spelling is defined, or
+        # is an alias TSV entry whose target is defined (in either spelling), binds to it;
+        # a missing LP64 spelling (a label) binds to its defined Win64 spelling.
+        tsv = {}
+        for path in aliases:
+            if path.exists():
+                for line in path.read_text().split('\n'):
+                    if line and not line.startswith('#') and not line.startswith('alias\t'):
+                        alias, target = line.split('\t')[:2]
+                        tsv.setdefault(alias, target)
+        for m in missing:
+            if m in taken or not m.startswith('__Z'):
+                continue
+            win64 = next((w for w in spellings(m, {'l': 'x', 'm': 'y'}) if w in defined), None)
+            if win64:
+                alias_list.append((win64, m))
+                taken.add(m)
+                continue
+            for lp64 in spellings(m, {'x': 'l', 'y': 'm'}):
+                target = lp64 if lp64 in defined else tsv.get(lp64)
+                if target and target not in defined:
+                    target = next((w for w in spellings(target, {'l': 'x', 'm': 'y'}) if w in defined), None)
+                if target and target != m:
+                    alias_list.append((target, m))
+                    taken.add(m)
+                    break
     return [m for m in missing if m not in taken], alias_list
+
+
+def spellings(name, swap):
+    """The mangled name with any subset of the characters in swap replaced, outside
+    its length-prefixed identifiers (at most 2^10 spellings)."""
+    at, i = [], 0
+    while i < len(name):
+        if name[i].isdigit():
+            j = i
+            while j < len(name) and name[j].isdigit():
+                j += 1
+            i = j + int(name[i:j])
+            continue
+        if name[i] in swap:
+            at.append(i)
+        i += 1
+    at = at[-10:]
+    for mask in range(1, 1 << len(at)):
+        chars = list(name)
+        for bit, i in enumerate(at):
+            if mask >> bit & 1:
+                chars[i] = swap[chars[i]]
+        yield ''.join(chars)
 
 
 def main():
@@ -179,13 +276,23 @@ def main():
     ap.add_argument('--sdk', default='', help='SDK path or name for the system exports (default: the host macOS SDK)')
     ap.add_argument('--frameworks', nargs='*', default=[], help='SDK frameworks the host links (their exports are system)')
     ap.add_argument('--system-libs', nargs='*', default=[], help='libraries whose exports are system (default: Homebrew SDL3)')
+    ap.add_argument('--target', choices=('apple', 'windows'), default='apple', help='object format and system libraries')
+    ap.add_argument('--nm', default='nm', help="nm for the objects (Windows: the toolchain's llvm-nm)")
+    ap.add_argument('--sysroot', default='', help='Windows: the mingw-w64 sysroot (<llvm-mingw>/x86_64-w64-mingw32)')
     args = ap.parse_args()
-    paths = [p for p in args.inputs.read_text().split('\n') if p.strip()]
+    global NM, PREFIX
+    NM = args.nm
+    if args.target == 'windows':
+        PREFIX = '_'
+    paths =[p for p in args.inputs.read_text().split('\n') if p.strip()]
     paths += [p for p in args.host if p.strip()]
     # Names of one original address (address_aliases.py, data_globals.py): bound
     # to the defined name through ld64 -alias_list instead of a trap.
-    missing, alias_list = missing_symbols(paths, args.aliases,
-                                          system_exports(args.sdk, args.frameworks, [l for l in args.system_libs if l]))
+    if args.target == 'windows':
+        system = windows_system_exports(args.sysroot, args.system_libs)
+    else:
+        system = system_exports(args.sdk, args.frameworks, [l for l in args.system_libs if l])
+    missing, alias_list = missing_symbols(paths, args.aliases, system)
     taken = {a for _, a in alias_list}
     if args.alias_list:
         args.alias_list.write_text(''.join('%s %s\n' % pair for pair in sorted(set(alias_list))))
@@ -202,7 +309,7 @@ def main():
            '       at the first (diagnostics only: the caller then reads an undefined result). */',
            '    if (!getenv("RA2_NATIVE_TRAP_CONTINUE")) abort();', '}']
     for k, r in enumerate(rows):
-        label = r['symbol'].replace('\\', '\\\\').replace('"', '\\"')
+        label = r['symbol'][len(PREFIX):].replace('\\', '\\\\').replace('"', '\\"')
         if r['kind'] == 'function':
             text = r['name'].replace('\\', '\\\\').replace('"', '\\"').replace('*/', '* /')
             out.append('void ra2_trap_%05d(void) __asm__("%s");' % (k, label))
@@ -210,6 +317,12 @@ def main():
         else:
             size = 4096 if r['cls'] in ('vtable', 'typeinfo') else 65536
             out.append('unsigned char ra2_hole_%05d[%d] __asm__("%s") __attribute__((aligned(16)));' % (k, size, label))
+    if PREFIX and alias_list:
+        # COFF: each alias resolves to its target through a linker directive.
+        out.append('__asm__(".section .drectve,\\"yni\\"\\n"')
+        for target, alias in sorted(set(alias_list)):
+            out.append('        ".ascii \\" -alternatename:%s=%s\\"\\n"' % (alias[1:], target[1:]))
+        out.append('        ".text\\n");')
     args.out.write_text('\n'.join(out) + '\n')
     counts = {}
     for r in rows:

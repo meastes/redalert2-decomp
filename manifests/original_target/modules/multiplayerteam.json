@@ -1,0 +1,573 @@
+{
+ "module": "multiplayerteam",
+ "source": "src/recovered/multiplayerteam.cpp",
+ "header": null,
+ "population": "population-2398",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 487,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "005b9930",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "005b9950",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "005b9980",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "005b99a0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "005b99c0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "005b99e0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "005b9a00",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "005b9a20",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "005b9a60",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "005b9a90",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "005b9ac0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "005b9af0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "005b9b00",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "??0MultiplayerTeam@@QAE@ABVWideString@@H@Z",
+   "entry": "005b9b20",
+   "body_bytes": 35,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "??1MultiplayerTeam@@UAE@XZ",
+   "entry": "005b9b50",
+   "body_bytes": 14,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?IsTeamIncluded@MultiplayerTeam@@UAE_NH@Z",
+   "entry": "005b9b60",
+   "body_bytes": 26,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?SetPlayerTeam@MultiplayerTeam@@UAE_NH@Z",
+   "entry": "005b9b80",
+   "body_bytes": 45,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?CountMembers@MultiplayerTeam@@QBEHXZ",
+   "entry": "005b9bb0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?AddToList@MultiplayerTeam@@QAEHPAUHWND__@@@Z",
+   "entry": "005b9be0",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "??_GMultiplayerTeam@@UAEPAXI@Z",
+   "entry": "005b9c20",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  }
+ ],
+ "code_bytes": 800,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a7300",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7MultiplayerTeam@@6B@",
+   "address": "007a7310",
+   "bytes": 16,
+   "kind": "vtable",
+   "section": 45
+  },
+  {
+   "symbol": "??_R1A@?0A@A@MultiplayerTeam@@8",
+   "address": "007bdfe8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 40
+  },
+  {
+   "symbol": "??_R2MultiplayerTeam@@8",
+   "address": "007bf1a4",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 41
+  },
+  {
+   "symbol": "??_R3MultiplayerTeam@@8",
+   "address": "007bf1b0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 42
+  },
+  {
+   "symbol": "??_R4MultiplayerTeam@@6B@",
+   "address": "007bf1c0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R0?AVMultiplayerTeam@@@8",
+   "address": "007e3398",
+   "bytes": 30,
+   "kind": "rtti",
+   "section": 43
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a7300",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7MultiplayerTeam@@6B@",
+   "address": "007a7310",
+   "bytes": 16,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@MultiplayerTeam@@8",
+   "address": "007bdfe8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2MultiplayerTeam@@8",
+   "address": "007bf1a4",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3MultiplayerTeam@@8",
+   "address": "007bf1b0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4MultiplayerTeam@@6B@",
+   "address": "007bf1c0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVMultiplayerTeam@@@8",
+   "address": "007e3398",
+   "bytes": 30,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "005aa800",
+   "symbol": "?target@Target_5aa800@@QAEII@Z",
+   "target": "005b9b60",
+   "function_entry": true
+  },
+  {
+   "site": "005a25f0",
+   "symbol": "??1MultiplayerTeam@@UAE@XZ",
+   "target": "005b9b50",
+   "function_entry": true
+  },
+  {
+   "site": "005aa810",
+   "symbol": "?MultiplayerTeam_dtor_005b9b50@seed_005aa810@@YIXXZ",
+   "target": "005b9b50",
+   "function_entry": true
+  },
+  {
+   "site": "005abec0",
+   "symbol": "?FUN_005b9b50@seed_005abec0@@YIXXZ",
+   "target": "005b9b50",
+   "function_entry": true
+  },
+  {
+   "site": "005abef0",
+   "symbol": "?FUN_005b9b50@seed_005abef0@@YIXXZ",
+   "target": "005b9b50",
+   "function_entry": true
+  },
+  {
+   "site": "005abe10",
+   "symbol": "?FUN_005b9b50@seed_005abe10@@YIXXZ",
+   "target": "005b9b50",
+   "function_entry": true
+  },
+  {
+   "site": "005abeb0",
+   "symbol": "?FUN_005b9b50@seed_005abeb0@@YIXXZ",
+   "target": "005b9b50",
+   "function_entry": true
+  },
+  {
+   "site": "005a2530",
+   "symbol": "??0MultiplayerTeam@@QAE@ABVWideString@@H@Z",
+   "target": "005b9b20",
+   "function_entry": true
+  },
+  {
+   "site": "005a2550",
+   "symbol": "??0MultiplayerTeam@@QAE@ABVWideString@@H@Z",
+   "target": "005b9b20",
+   "function_entry": true
+  },
+  {
+   "site": "005a25b0",
+   "symbol": "?IsTeamIncluded@MultiplayerTeam@@UAE_NH@Z",
+   "target": "005b9b60",
+   "function_entry": true
+  },
+  {
+   "site": "005a25d0",
+   "symbol": "?SetPlayerTeam@MultiplayerTeam@@UAE_NH@Z",
+   "target": "005b9b80",
+   "function_entry": true
+  },
+  {
+   "site": "005a7150",
+   "symbol": "?AddToList@MultiplayerTeam@@QAEHPAUHWND__@@@Z",
+   "target": "005b9be0",
+   "function_entry": true
+  },
+  {
+   "site": "005a7150",
+   "symbol": "?AddToList@MultiplayerTeam@@QAEHPAUHWND__@@@Z",
+   "target": "005b9be0",
+   "function_entry": true
+  },
+  {
+   "site": "005aa7b0",
+   "symbol": "??0MultiplayerTeam@@QAE@ABVWideString@@H@Z",
+   "target": "005b9b20",
+   "function_entry": true
+  },
+  {
+   "site": "005abdc0",
+   "symbol": "??0MultiplayerTeam@@QAE@ABVWideString@@H@Z",
+   "target": "005b9b20",
+   "function_entry": true
+  },
+  {
+   "site": "005abe60",
+   "symbol": "??0MultiplayerTeam@@QAE@ABVWideString@@H@Z",
+   "target": "005b9b20",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0WideString@@QAE@ABV0@@Z",
+   "address": "0076fa10"
+  },
+  {
+   "symbol": "??1WideString@@QAE@XZ",
+   "address": "0076fa50"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_players_a3fa7c@@3V?$DynamicVectorClass@PAUNodeNameType@@@@A",
+   "address": "00a3fa7c"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_text_770430@WideString@@QBEPBGXZ",
+   "address": "00770430"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__SendMessageA@16",
+   "address": "0079a4a0"
+  }
+ ],
+ "route": "A",
+ "unit": "multiplayerteam.cpp",
+ "form": "include blocks held",
+ "switches": [
+  "VECTOR_IMPLEMENT_ALL"
+ ],
+ "include_blocks": [],
+ "held_rows": [
+  {
+   "entry": "005b9b60",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "005b9b80",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "005b9bb0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  }
+ ],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 21,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "005aa800",
+   "target": "005b9b60",
+   "symbol": "?target@Target_5aa800@@QAEII@Z",
+   "module_symbol": "?IsTeamIncluded@MultiplayerTeam@@UAE_NH@Z"
+  },
+  {
+   "site": "005aa810",
+   "target": "005b9b50",
+   "symbol": "?MultiplayerTeam_dtor_005b9b50@seed_005aa810@@YIXXZ",
+   "module_symbol": "??1MultiplayerTeam@@UAE@XZ"
+  },
+  {
+   "site": "005abec0",
+   "target": "005b9b50",
+   "symbol": "?FUN_005b9b50@seed_005abec0@@YIXXZ",
+   "module_symbol": "??1MultiplayerTeam@@UAE@XZ"
+  },
+  {
+   "site": "005abef0",
+   "target": "005b9b50",
+   "symbol": "?FUN_005b9b50@seed_005abef0@@YIXXZ",
+   "module_symbol": "??1MultiplayerTeam@@UAE@XZ"
+  },
+  {
+   "site": "005abe10",
+   "target": "005b9b50",
+   "symbol": "?FUN_005b9b50@seed_005abe10@@YIXXZ",
+   "module_symbol": "??1MultiplayerTeam@@UAE@XZ"
+  },
+  {
+   "site": "005abeb0",
+   "target": "005b9b50",
+   "symbol": "?FUN_005b9b50@seed_005abeb0@@YIXXZ",
+   "module_symbol": "??1MultiplayerTeam@@UAE@XZ"
+  }
+ ],
+ "stand_in_reference_count": 6,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

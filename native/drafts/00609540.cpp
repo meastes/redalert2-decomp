@@ -23,7 +23,7 @@
 // @ref _unknown_geometry_j=00a76510
 // @ref __real@4@40069600000000000000=0079caa8
 // @ref _Particle_Color_Step_007a10f8=007a10f8
-// @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
+// @ref ?unknown_id_source_a3d290@@3PAVScenarioClass@@A=00a3d290
 // Original immutable double at 0x007A10F8 (0.05).
 extern "C" double const Particle_Color_Step_007a10f8;
 

@@ -2,7 +2,7 @@
 // Observed ABI projection; original game class and developer prototype unknown.
 #include "shared/integer_coordinate_views.hpp"
 
-SignedWordPair* Div256PairSource_00413770::CopyDiv256PairAsSignedWords_00413770(SignedWordPair* output) const
+SignedWordPair* Div256PairSource_00413770::As_Cell_00413770(SignedWordPair* output) const
 {
     SignedWordPair result;
     result.x = (short)(x / 256);

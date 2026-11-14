@@ -1,0 +1,350 @@
+{
+ "module": "lzopipe",
+ "source": "src/recovered/lzopipe.cpp",
+ "header": null,
+ "population": "population-95",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 42,
+ "code": [
+  {
+   "symbol": "??0LZOPipe@@QAE@W4CompControl@0@H@Z",
+   "entry": "0053eb40",
+   "body_bytes": 87,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??1LZOPipe@@UAE@XZ",
+   "entry": "0053eba0",
+   "body_bytes": 53,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Put@LZOPipe@@UAEHPBXH@Z",
+   "entry": "0053ebe0",
+   "body_bytes": 651,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Flush@LZOPipe@@UAEHXZ",
+   "entry": "0053ee70",
+   "body_bytes": 233,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??_GLZOPipe@@UAEPAXI@Z",
+   "entry": "0053ef60",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  }
+ ],
+ "code_bytes": 1136,
+ "data": [
+  {
+   "symbol": "??_R1A@?0A@A@Pipe@@8",
+   "address": "007b4ae8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 4
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LZOPipe@@8",
+   "address": "007bd2f8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 5
+  },
+  {
+   "symbol": "??_R2LZOPipe@@8",
+   "address": "007bd310",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 6
+  },
+  {
+   "symbol": "??_R3LZOPipe@@8",
+   "address": "007bd320",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 7
+  },
+  {
+   "symbol": "??_R4LZOPipe@@6B@",
+   "address": "007bd330",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 9
+  },
+  {
+   "symbol": "??_R0?AVPipe@@@8",
+   "address": "007d1e90",
+   "bytes": 19,
+   "kind": "rtti",
+   "section": 3
+  },
+  {
+   "symbol": "??_R0?AVLZOPipe@@@8",
+   "address": "007dfb40",
+   "bytes": 22,
+   "kind": "rtti",
+   "section": 8
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_R1A@?0A@A@Pipe@@8",
+   "address": "007b4ae8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LZOPipe@@8",
+   "address": "007bd2f8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2LZOPipe@@8",
+   "address": "007bd310",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3LZOPipe@@8",
+   "address": "007bd320",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4LZOPipe@@6B@",
+   "address": "007bd330",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVPipe@@@8",
+   "address": "007d1e90",
+   "bytes": 19,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVLZOPipe@@@8",
+   "address": "007dfb40",
+   "bytes": 22,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0059c8b0",
+   "symbol": "??0LZOPipe@@QAE@W4CompControl@0@H@Z",
+   "target": "0053eb40",
+   "function_entry": true
+  },
+  {
+   "site": "0059c8b0",
+   "symbol": "?Put@LZOPipe@@UAEHPBXH@Z",
+   "target": "0053ebe0",
+   "function_entry": true
+  },
+  {
+   "site": "0059c8b0",
+   "symbol": "??1LZOPipe@@UAE@XZ",
+   "target": "0053eba0",
+   "function_entry": true
+  },
+  {
+   "site": "0054d970",
+   "symbol": "??0LZOPipe@@QAE@W4CompControl@0@H@Z",
+   "target": "0053eb40",
+   "function_entry": true
+  },
+  {
+   "site": "0054d970",
+   "symbol": "?Put@LZOPipe@@UAEHPBXH@Z",
+   "target": "0053ebe0",
+   "function_entry": true
+  },
+  {
+   "site": "0054d970",
+   "symbol": "?Put@LZOPipe@@UAEHPBXH@Z",
+   "target": "0053ebe0",
+   "function_entry": true
+  },
+  {
+   "site": "0054d970",
+   "symbol": "?Put@LZOPipe@@UAEHPBXH@Z",
+   "target": "0053ebe0",
+   "function_entry": true
+  },
+  {
+   "site": "0054d970",
+   "symbol": "?Put@LZOPipe@@UAEHPBXH@Z",
+   "target": "0053ebe0",
+   "function_entry": true
+  },
+  {
+   "site": "0054d970",
+   "symbol": "?Put@LZOPipe@@UAEHPBXH@Z",
+   "target": "0053ebe0",
+   "function_entry": true
+  },
+  {
+   "site": "0054d970",
+   "symbol": "??1LZOPipe@@UAE@XZ",
+   "target": "0053eba0",
+   "function_entry": true
+  },
+  {
+   "site": "0054db10",
+   "symbol": "??0LZOPipe@@QAE@W4CompControl@0@H@Z",
+   "target": "0053eb40",
+   "function_entry": true
+  },
+  {
+   "site": "0054db10",
+   "symbol": "?Put@LZOPipe@@UAEHPBXH@Z",
+   "target": "0053ebe0",
+   "function_entry": true
+  },
+  {
+   "site": "0054db10",
+   "symbol": "?Put@LZOPipe@@UAEHPBXH@Z",
+   "target": "0053ebe0",
+   "function_entry": true
+  },
+  {
+   "site": "0054db10",
+   "symbol": "?Put@LZOPipe@@UAEHPBXH@Z",
+   "target": "0053ebe0",
+   "function_entry": true
+  },
+  {
+   "site": "0054db10",
+   "symbol": "?Put@LZOPipe@@UAEHPBXH@Z",
+   "target": "0053ebe0",
+   "function_entry": true
+  },
+  {
+   "site": "0054db10",
+   "symbol": "?Put@LZOPipe@@UAEHPBXH@Z",
+   "target": "0053ebe0",
+   "function_entry": true
+  },
+  {
+   "site": "0054db10",
+   "symbol": "?Put@LZOPipe@@UAEHPBXH@Z",
+   "target": "0053ebe0",
+   "function_entry": true
+  },
+  {
+   "site": "0054db10",
+   "symbol": "??1LZOPipe@@UAE@XZ",
+   "target": "0053eba0",
+   "function_entry": true
+  },
+  {
+   "site": "0061dc80",
+   "symbol": "??0LZOPipe@@QAE@W4CompControl@0@H@Z",
+   "target": "0053eb40",
+   "function_entry": true
+  },
+  {
+   "site": "0061dc80",
+   "symbol": "?Put@LZOPipe@@UAEHPBXH@Z",
+   "target": "0053ebe0",
+   "function_entry": true
+  },
+  {
+   "site": "0061dc80",
+   "symbol": "??1LZOPipe@@UAE@XZ",
+   "target": "0053eba0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??1Pipe@@UAE@XZ",
+   "address": "0060ea60"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "?Flush@Pipe@@UAEHXZ",
+   "address": "0060eb10"
+  },
+  {
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "address": "0060eaf0"
+  },
+  {
+   "symbol": "?Put_To@Pipe@@UAEXPAV1@@Z",
+   "address": "0060eaa0"
+  },
+  {
+   "symbol": "?lzo1x_1_compress@@YIHPBEIPAEPAIPAX@Z",
+   "address": "0053e420"
+  },
+  {
+   "symbol": "?lzo1x_decompress@@YIHPBEIPAEPAIPAX@Z",
+   "address": "0053e970"
+  },
+  {
+   "symbol": "_memmove",
+   "address": "00783290"
+  }
+ ],
+ "route": "A",
+ "unit": "lzopipe.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "0053eb40",
+   "lines": 2
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 5,
+ "data_unproven": [
+  {
+   "symbol": "??_7LZOPipe@@6B@",
+   "reason": "relocation target unbound: ?End@Pipe@@UAEHXZ"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

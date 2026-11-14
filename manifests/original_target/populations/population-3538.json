@@ -4,8 +4,8 @@
     "id": "population-3538",
     "inventory_sha256": "a5fff427e7446d4382bd25d8b91dc8b79d6eeb65b9dea1d79f99591c066802c1",
     "gaps_sha256": "ecc0258d84ab21086fbafb0c74327bf36c01903cfe49977ae93d89b84ee9a80f",
-    "historical_population_sha256": "1275baa01173fadb38ea743d3371997bc7563fee8d814ca47b75152290702b8f",
-    "historical_acceptance_sha256": "2db8260fb8e80f6469fd607e1687a7c033ed2347444e734d1593820f3b8cda8b"
+    "historical_population_sha256": "2664abf02c03daa76e2457ed48481b3b8192a87af2ec703391345f31ebe2ec49",
+    "historical_acceptance_sha256": "9597b68f6fd66736545521fa3d5dad02c3ff0f6cd413c74ceabde80ac72cffe4"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -50,7 +50,7 @@
     "?As_Integer@WideString@@QBEHXZ": 7802992,
     "?Set@RGBClass@@QAEXEEE@Z": 5204928,
     "_strncpy": 7873488,
-    "__DAT_00ab6e88": 11234952,
+    "__waypoint_none_00ab6e88": 11234952,
     "__strncpy": 7873488,
     "__strcmp": 7888160,
     "__strlen": 7903280,
@@ -58,7 +58,7 @@
     "___amsg_exit": 7887784,
     "?Set@Quaternion@@QAEXMMMM@Z": 6431104,
     "_toupper": 7875027,
-    "__DAT_0084ed10": 8711440,
+    "__cell_none_0084ed10": 8711440,
     "_memmove": 7877264,
     "__strdup": 7919638,
     "??4Buffer@@QAEAAV0@ABV0@@Z": 4424656,
@@ -190,8 +190,8 @@
     "__chkstk": 7878736,
     "__strnicmp": 7878672,
     "?Remove@UnknownList832470@@QAEXPAVObjectClass@@@Z": 5497712,
-    "__DAT_00ab6ea8": 11234984,
-    "__DAT_00ab6eb0": 11234992,
+    "__unknown_timer_start_00ab6ea8": 11234984,
+    "__unknown_timer_accum_00ab6eb0": 11234992,
     "__DAT_00ac0168": 11272552,
     "__DAT_00ac0170": 11272560,
     "?Release@?$TClassFactory@VCampaignClass@@@@UAGKXZ": 6891776,
@@ -321,7 +321,7 @@
     "__real@8@3ffeccccccccccccd000": 8010288,
     "___RTDynamicCast": 7879908,
     "?Get@UnknownCRCStraw@@UAEHPAXH@Z": 4801168,
-    "?Get@UnknownAlphaTableCache_008315B8@@QAEPAY0BAA@$$CBGH@Z": 4318176,
+    "?Get@AlphaLightingRemapInitClass@@QAEPAY0BAA@$$CBGH@Z": 4318176,
     "?Length@Point2D@@QBEHXZ": 4706400,
     "__real@8@3ff9a3d70a3d70a3d800": 8027952,
     "__real@8@4000a000000000000000": 8027960,
@@ -400,7 +400,7 @@
     "__real@4@3ffe99999a0000000000": 8026908,
     "__real@4@3ffdcccccd0000000000": 8026904,
     "?Insert@?$WolArrayList@VWstring@@@@QAE_NABVWstring@@H@Z": 7764416,
-    "?Get@UnknownControlIndex@OwnerDraw@@QBE_NABIAAPAUUnknownControlRecord@2@@Z": 6297360,
+    "?Get@UnknownControlIndex@OwnerDraw@@QBE_NABIAAPAUWinData@2@@Z": 6297360,
     "__real@8@3fefa7c5ac471b478800": 8013352,
     "__real@8@bfefa7c5ac471b478800": 8048672,
     "__real@4@3ffec90fdb0000000000": 8027392,
@@ -496,8 +496,8 @@
     "_swprintf": 7878500,
     "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@": 8197528,
     "??_C@_1O@BJB@?$AA?$CF?$AA?$CF?$AA0?$AA?$CF?$AAd?$AAd?$AA?$AA@": 8393424,
-    "?Unknown_006FA0C0@@YIXPAGPBDH@Z": 7315648,
-    "?Unknown_006FA0F0@@YIXPADPBGH@Z": 7315696,
+    "?Char_To_Wide_006fa0c0@@YIXPAGPBDH@Z": 7315648,
+    "?WideToCharString_006fa0f0@@YIXPADPBGH@Z": 7315696,
     "_wcscspn": 7887455,
     "?Bit_Expand_7@@YIHPBEPAEI@Z": 4394400,
     "?Bit_Compress_7_String@@YIIPBEPAGI@Z": 4394800,
@@ -570,7 +570,873 @@
     "?Bit_Read_Next@@YI_NPAUBitStreamType@@@Z": 4394288,
     "?Bit_Write_Start@@YIXPAUBitStreamType@@PAE_N@Z": 4394336,
     "?Bit_Write_Next@@YIXPAUBitStreamType@@E@Z": 4394352,
-    "?Bit_Compress_7@@YIIPBEPAEI@Z": 4394624
+    "?Bit_Compress_7@@YIIPBEPAEI@Z": 4394624,
+    "?Release@TiberianSunClassFactory@@UAGKXZ": 5065056,
+    "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
+    "?Get@WolServerArray@@QAE_NAAPAUServer@WOL@@H@Z": 7757408,
+    "?Get@?$WolArrayList@VWstring@@@@QAE_NAAVWstring@@H@Z": 7758528,
+    "?Set@ZBuffer@@QAEXPAGHG@Z": 7822592,
+    "?Set@ABuffer@@QAEXPAGHG@Z": 4262896,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "?Remove@?$WolArrayList@VWstring@@@@QAE_NH@Z": 7758320,
+    "__real@8@3fff8cccccccccccd000": 8008416,
+    "?Length@CoordStruct@@QBEHXZ": 4306816,
+    "__real@4@4004f000000000000000": 8030276,
+    "__real@8@3ffba6ce934058661000": 8032840,
+    "__real@8@3ffdb2b8c2573a243800": 8032832,
+    "__real@8@3ffabea2f16e1be26000": 8032824,
+    "__real@8@3ffedf66f2ed08ad4800": 8032816,
+    "?Release@AlphaLightingRemapInitClass@@QAEXPAY0BAA@$$CBG@Z": 4318480,
+    "__strrev": 7958640,
+    "__real@8@3ffec90fdaa22168c000": 7981696,
+    "__real@8@3ffea2f9836e4e441800": 7983256,
+    "__real@4@3ffdaaaaab0000000000": 8019624,
+    "___RTtypeid": 7879685,
+    "?Get@SHAStraw@@UAEHPAXH@Z": 6771648,
+    "_?empty@?1??Version_Name@@YIPBDXZ@4_NA": 8362264,
+    "_?buffer@?1??Version_Name@@YIPBDXZ@4PADA": 8361752,
+    "__iob": 8580240,
+    "__real@8@bff8a3d70a3d70a3d800": 8055152,
+    "__real@8@c0058000000000000000": 8027384,
+    "__real@8@3ffca2f9836e4e441800": 7983464,
+    "__real@8@400196cbe3f9990e9000": 7983456,
+    "??_GWideString@@QAEPAXI@Z": 6296624,
+    "__real@8@3ff2d1b71758e2196800": 8013344,
+    "__real@8@40049800000000000000": 8013336,
+    "__real@8@4000e000000000000000": 8013328,
+    "__real@8@40039000000000000000": 7979656,
+    "__real@8@3ffe9999999999999800": 7979632,
+    "__real@8@40028000000000000000": 7984472,
+    "__real@8@3fe2f0000000f0000000": 8020056,
+    "__real@8@40059600000000000000": 8019760,
+    "__real@4@400c9c3c000000000000": 8027432,
+    "?Length@?$TPoint3D@H@@QBEHXZ": 4306816,
+    "__real@8@3fe2b0000000b0000000": 8020072,
+    "__real@8@3fe3a8000000a8000000": 8019984,
+    "__real@8@4005a000000000000000": 8019976,
+    "__real@8@3ff1d1b71758e2196800": 8019944,
+    "__real@8@3ff6a3d70a3d70a3d800": 8019936,
+    "__real@8@c0008000000000000000": 8019928,
+    "__real@8@bffe8000000000000000": 7981488,
+    "__real@8@4001afeddf4ddd3ba800": 8019824,
+    "__real@8@3ffe860a91c16b9b2800": 8019816,
+    "__real@8@3ffb8f5c28f5c28f6000": 8019808,
+    "__real@8@3fe5b6000000b6000000": 8019800,
+    "__real@8@4000a78d3631c681f800": 8019784,
+    "__real@8@bffda0d97bb4e7870000": 8019776,
+    "__real@4@3ff9a72f050000000000": 8048688,
+    "__deaccel": 8033976,
+    "__sinking_scale": 8033992,
+    "__sinking": 8033984,
+    "__real@8@3ffbba2e8ba2e8ba3000": 7996880,
+    "__real@8@4001e000000000000000": 7996872,
+    "__real@8@3ffc9249249249249000": 7996864,
+    "__real@8@40039800000000000000": 8051880,
+    "__real@4@3ffeb504f30000000000": 8029784,
+    "__real@4@3ffeb504f367f3bcd800": 8029780,
+    "__real@4@bfff8000000000000000": 8029776,
+    "__real@4@40069600000000000000": 7981736,
+    "__real@8@400f8000000000000000": 8017344,
+    "__real@8@4003f000000000000000": 8053472,
+    "__real@4@4003f000000000000000": 8030272,
+    "__real@4@40068c00000000000000": 8030200,
+    "__real@4@4005d800000000000000": 8030196,
+    "_?dir@?4??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4UUnknownFacingDir@@A": 11235488,
+    "__real@4@40018000000000000000": 7980236,
+    "__real@4@4002a000000000000000": 7980232,
+    "__real@4@40008000000000000000": 7980228,
+    "__real@8@400d8000000000000000": 7983264,
+    "__real@8@3fffccccccccccccd000": 8020032,
+    "__real@8@3ffaa3d70a3d70a3d800": 7998288,
+    "__real@8@3ffe947ae147ae147800": 8049000,
+    "__real@8@3fe3c8000000c8000000": 8019992,
+    "__except_handler3": 7885524,
+    "__except_list": 0,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "??_EWideString@@QAEPAXI@Z": 6296624,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVINIClass@@@8": 8183560,
+    "??_R0?AVMultiplayerTeam@@@8": 8270744,
+    "??_R0?AVMSPrintAnim@@@8": 8280272,
+    "?FUN_00783605@seed_00770400@@YAIPAF@Z": 7878149,
+    "?FUN_00781d3b@seed_00770330@@YAXI@Z": 7871803,
+    "?FUN_00783605@seed_00770440@@YAIPAF@Z": 7878149,
+    "?get@Leaf_401170@@QAEXXZ": 4198768,
+    "?get@Leaf_401940@@QAEIXZ": 4200768,
+    "?get@Leaf_402190@@QAEIXZ": 4202896,
+    "?get@Leaf_402940@@QAEIXZ": 4204864,
+    "?get@Leaf_402c00@@QAEIXZ": 4205568,
+    "?get@Leaf_406320@@QAEIXZ": 4219680,
+    "?get@Leaf_4068f0@@QAEXXZ": 4221168,
+    "?AudioLevelGetVal_004071e0@Leaf_4071e0@@QAEIXZ": 4223456,
+    "?get@Leaf_408450@@QAEXXZ": 4228176,
+    "?get@Leaf_40a690@@QAEIXZ": 4236944,
+    "?get@Leaf_40a6c0@@QAEIXZ": 4236992,
+    "?get@Leaf_40b230@@QAEPAXI@Z": 4239920,
+    "?get@Leaf_40bad0@@QAEPAXI@Z": 4242128,
+    "?get@Leaf_40bb20@@QAEPAXI@Z": 4242208,
+    "?get@Leaf_40bb70@@QAEPAXI@Z": 4242288,
+    "?get@Leaf_40bbc0@@QAEPAXI@Z": 4242368,
+    "?get@Storage_40bc10@@QAEPAXIPAI@Z": 4242448,
+    "?get@Leaf_40bc60@@QAEXXZ": 4242528,
+    "?get@Leaf_40c9d0@@QAEPAXI@Z": 4245968,
+    "?get@Leaf_40ca20@@QAEPAXI@Z": 4246048,
+    "?get@Leaf_40cb00@@QAEXXZ": 4246272,
+    "?get@Leaf_40ce20@@QAEPAXI@Z": 4247072,
+    "?get@Leaf_40d100@@QAEII@Z": 4247808,
+    "?get@Leaf_40d110@@QAEII@Z": 4247824,
+    "?get@Leaf_40d120@@QAEXI@Z": 4247840,
+    "?get@Leaf_40d150@@QAEIXZ": 4247888,
+    "?get@Leaf_40d1d0@@QAEXXZ": 4248016,
+    "?get@Leaf_40d6d0@@QAEPAXI@Z": 4249296,
+    "?get@Leaf_40d720@@QAEPAXI@Z": 4249376,
+    "?get@Leaf_40e160@@QAEIXZ": 4252000,
+    "?get@Leaf_40e2e0@@QAEPAXI@Z": 4252384,
+    "?get@Leaf_40e8d0@@QAEPAXI@Z": 4253904,
+    "?get@Leaf_40e920@@QAEPAXI@Z": 4253984,
+    "?get@Leaf_40ef80@@QAEPAXI@Z": 4255616,
+    "?get@Leaf_40efd0@@QAEPAXI@Z": 4255696,
+    "?get@Leaf_40f020@@QAEXXZ": 4255776,
+    "?get@Leaf_40f040@@QAEXXZ": 4255808,
+    "?get@Leaf_40f050@@QAEXXZ": 4255824,
+    "?get@Leaf_40f060@@QAEXXZ": 4255840,
+    "?get@Leaf_40f680@@QAEPAXI@Z": 4257408,
+    "?get@Leaf_40f6d0@@QAEPAXI@Z": 4257488,
+    "?get@Leaf_40fc30@@QAEPAXI@Z": 4258864,
+    "?get@Leaf_40fc80@@QAEPAXI@Z": 4258944,
+    "?get@Leaf_40fef0@@QAEXXZ": 4259568,
+    "?get@Leaf_411400@@QAEXXZ": 4264960,
+    "?get@Leaf_4131d0@@QAEXI@Z": 4272592,
+    "?Add@?$DynamicVectorClass@PAVTechnoClass@@@@QAE_NABQAVTechnoClass@@@Z": 4274096,
+    "?get@Leaf_41b2d0@@QAEII@Z": 4305616,
+    "?get@Leaf_41b2e0@@QAEII@Z": 4305632,
+    "?get@Leaf_41b2f0@@QAEXI@Z": 4305648,
+    "?get@Leaf_41b300@@QAE_NXZ": 4305664,
+    "?get@Leaf_41b310@@QAEXI@Z": 4305680,
+    "?get@Leaf_41b380@@QAE_NXZ": 4305792,
+    "?get@Leaf_41b3d0@@QAE_NXZ": 4305872,
+    "?get@Leaf_41b3e0@@QAEXXZ": 4305888,
+    "?get@Leaf_41b400@@QAEXXZ": 4305920,
+    "?get@Leaf_41b410@@QAEEXZ": 4305936,
+    "?get@Leaf_41b430@@QAEXXZ": 4305968,
+    "?get@Leaf_41b440@@QAE_NXZ": 4305984,
+    "?get@Leaf_41b460@@QAE_NXZ": 4306016,
+    "?get@Leaf_41b470@@QAEEXZ": 4306032,
+    "?get@Leaf_41b480@@QAE_NXZ": 4306048,
+    "?get@Leaf_41b4f0@@QAEXXZ": 4306160,
+    "?get@Leaf_41b500@@QAEXXZ": 4306176,
+    "?get@Leaf_41b510@@QAEXXZ": 4306192,
+    "?get@Leaf_41b520@@QAEXI@Z": 4306208,
+    "?get@Leaf_41b530@@QAEXII@Z": 4306224,
+    "?get@Leaf_41b540@@QAEXI@Z": 4306240,
+    "?get@Leaf_41b560@@QAEXI@Z": 4306272,
+    "?get@Leaf_41e8d0@@QAEPAXI@Z": 4319440,
+    "?get@Leaf_41e920@@QAEPAXI@Z": 4319520,
+    "?get@Leaf_41fd50@@QAEPAXI@Z": 4324688,
+    "?get@Leaf_41fda0@@QAEPAXI@Z": 4324768,
+    "?get@Leaf_422690@@QAEXI@Z": 4335248,
+    "?get@Leaf_423d10@@QAE_NXZ": 4341008,
+    "?get@Leaf_423d20@@QAEIII@Z": 4341024,
+    "?get@Leaf_423d30@@QAE_NXZ": 4341040,
+    "?get@Leaf_423d40@@QAEIXZ": 4341056,
+    "?get@Leaf_423da0@@QAE_NXZ": 4341152,
+    "?get@Leaf_423dc0@@QAEXII@Z": 4341184,
+    "?get@Leaf_423dd0@@QAEXII@Z": 4341200,
+    "?get@Leaf_423de0@@QAEXI@Z": 4341216,
+    "?get@Leaf_423df0@@QAEXI@Z": 4341232,
+    "?get@Leaf_423e00@@QAEIIIIII@Z": 4341248,
+    "?get@Leaf_423e10@@QAEIIIIII@Z": 4341264,
+    "?get@Leaf_423e20@@QAE_NXZ": 4341280,
+    "?get@Leaf_423e30@@QAE_NXZ": 4341296,
+    "?get@Leaf_423e40@@QAE_NXZ": 4341312,
+    "?get@Leaf_423e50@@QAEEXZ": 4341328,
+    "?get@Leaf_423e60@@QAEHXZ": 4341344,
+    "?get@Leaf_423f60@@QAEII@Z": 4341600,
+    "?get@Leaf_423f70@@QAEXXZ": 4341616,
+    "?get@Leaf_426b00@@QAEXXZ": 4352768,
+    "?get@Cleanup_42ae60@@QAEXXZ": 4370016,
+    "?Add@?$DynamicVectorClass@I@@QAE_NABI@Z": 4370672,
+    "?get@Leaf_42b3d0@@QAEPAXI@Z": 4371408,
+    "?get@Leaf_42b420@@QAEPAXI@Z": 4371488,
+    "?get@Leaf_42b470@@QAEPAXI@Z": 4371568,
+    "?get@Leaf_42b4c0@@QAEPAXI@Z": 4371648,
+    "?get@Storage_42b510@@QAEPAXIPAI@Z": 4371728,
+    "?get@Leaf_42d160@@QAEPAXI@Z": 4378976,
+    "?get@Leaf_42d340@@QAEPAXI@Z": 4379456,
+    "?get@Leaf_42d390@@QAEPAXI@Z": 4379536,
+    "?get@Leaf_42d3e0@@QAEPAXI@Z": 4379616,
+    "?get@Leaf_431020@@QAEXXZ": 4395040,
+    "?get@Leaf_432270@@QAEXXZ": 4399728,
+    "?get@Leaf_434920@@QAEXXZ": 4409632,
+    "?get@Leaf_435ff0@@QAEIXZ": 4415472,
+    "?get@Leaf_4361d0@@QAEIIII@Z": 4415952,
+    "?get@Leaf_4369d0@@QAEIXZ": 4418000,
+    "?get@Leaf_4369e0@@QAEIXZ": 4418016,
+    "?get@Leaf_438270@@QAEPAXI@Z": 4424304,
+    "?get@Leaf_453b50@@QAE_NXZ": 4537168,
+    "?get@Leaf_453b70@@QAEIXZ": 4537200,
+    "?get@Leaf_453b90@@QAEXI@Z": 4537232,
+    "?get@Leaf_453ba0@@QAE_NXZ": 4537248,
+    "?get@Leaf_453bb0@@QAEXXZ": 4537264,
+    "?get@Leaf_453bc0@@QAE_NXZ": 4537280,
+    "?get@Leaf_453be0@@QAEXII@Z": 4537312,
+    "?get@Cleanup_453de0@@QAEXXZ": 4537824,
+    "?get@Leaf_453e40@@QAEIIII@Z": 4537920,
+    "?get@Leaf_454710@@QAEPAXI@Z": 4540176,
+    "?get@Leaf_454760@@QAEPAXI@Z": 4540256,
+    "?get@Leaf_4547b0@@QAEPAXI@Z": 4540336,
+    "?get@Leaf_454800@@QAEPAXI@Z": 4540416,
+    "?get@Leaf_454850@@QAEPAXI@Z": 4540496,
+    "?get@Leaf_4549e0@@QAEPAXI@Z": 4540896,
+    "?get@Leaf_454a30@@QAEPAXI@Z": 4540976,
+    "?get@Leaf_454a80@@QAEPAXI@Z": 4541056,
+    "?get@Storage_454ad0@@QAEPAXIPAI@Z": 4541136,
+    "?get@Storage_454ba0@@QAEPAXIPAI@Z": 4541344,
+    "?get@Leaf_464200@@QAEPAXI@Z": 4604416,
+    "?get@Leaf_464250@@QAEPAXI@Z": 4604496,
+    "?get@Leaf_4686d0@@QAEPAXI@Z": 4622032,
+    "?get@Leaf_468720@@QAEPAXI@Z": 4622112,
+    "?get@Leaf_468f30@@QAEXXZ": 4624176,
+    "?get@Leaf_46c460@@QAEIIII@Z": 4637792,
+    "?get@Leaf_46c4f0@@QAEIIII@Z": 4637936,
+    "?get@Leaf_46ceb0@@QAEPAXI@Z": 4640432,
+    "?get@Leaf_46cf00@@QAEPAXI@Z": 4640512,
+    "?get@Leaf_46cf50@@QAEPAXI@Z": 4640592,
+    "?Add@?$DynamicVectorClass@H@@QAE_NABH@Z": 4641536,
+    "?get@Leaf_46da70@@QAEPAXI@Z": 4643440,
+    "?get@Leaf_46dac0@@QAEPAXI@Z": 4643520,
+    "?get@Leaf_46db10@@QAEPAXI@Z": 4643600,
+    "?get@Storage_46dbd0@@QAEPAXIPAI@Z": 4643792,
+    "?get@Leaf_47c360@@QAEXI@Z": 4703072,
+    "?get@Leaf_47c370@@QAEXI@Z": 4703088,
+    "?get@Leaf_47c380@@QAEXI@Z": 4703104,
+    "?get@Leaf_47c390@@QAEXI@Z": 4703120,
+    "?get@Leaf_47ce30@@QAEXI@Z": 4705840,
+    "?get@Leaf_47ce40@@QAEIXZ": 4705856,
+    "?get@Leaf_47cf70@@QAEII@Z": 4706160,
+    "?get@Leaf_47cf80@@QAEIXZ": 4706176,
+    "?get@Leaf_47cf90@@QAEIXZ": 4706192,
+    "?get@Leaf_47cfa0@@QAEPAXI@Z": 4706208,
+    "?get@Leaf_47d090@@QAEPAXI@Z": 4706448,
+    "?get@Storage_47d0e0@@QAEPAXIPAI@Z": 4706528,
+    "?get@Leaf_47d130@@QAEXXZ": 4706608,
+    "?get@Leaf_47e2b0@@QAEXXZ": 4711088,
+    "?get@Leaf_480b00@@QAEXXZ": 4721408,
+    "?get@Leaf_482e00@@QAEXXZ": 4730368,
+    "?BlitBackward@?$BlitTransXlat@G@@UBEXPAXPBXHH00H@Z": 4743696,
+    "?BlitBackward@?$BlitPlainXlat@E@@UBEXPAXPBXHH00H@Z": 4743904,
+    "?BlitBackward@?$BlitTransXlat@E@@UBEXPAXPBXHH00H@Z": 4744016,
+    "?BlitBackward@?$BlitTransZRemapXlat@E@@UBEXPAXPBXHH00H@Z": 4744144,
+    "?BlitBackward@?$BlitTransRemapDest@E@@UBEXPAXPBXHH00H@Z": 4744256,
+    "?BlitBackward@?$BlitTransRemapXlat@E@@UBEXPAXPBXHH00H@Z": 4744384,
+    "?BlitBackward@?$BlitPlainXlat@G@@UBEXPAXPBXHH00H@Z": 4746960,
+    "?BlitBackward@?$BlitTransZRemapXlat@G@@UBEXPAXPBXHH00H@Z": 4747088,
+    "?BlitBackward@?$BlitTransDarken@G@@UBEXPAXPBXHH00H@Z": 4747200,
+    "?BlitBackward@?$BlitTransLucent75@G@@UBEXPAXPBXHH00H@Z": 4747344,
+    "?BlitBackward@?$BlitTransLucent50@G@@UBEXPAXPBXHH00H@Z": 4747488,
+    "?BlitBackward@?$BlitTransLucent25@G@@UBEXPAXPBXHH00H@Z": 4747632,
+    "?BlitBackward@?$BlitPlainXlatZRead@G@@UBEXPAXPBXHH00H@Z": 4747776,
+    "?BlitBackward@?$BlitTransXlatZRead@G@@UBEXPAXPBXHH00H@Z": 4747936,
+    "?BlitBackward@?$BlitTransZRemapXlatZRead@G@@UBEXPAXPBXHH00H@Z": 4748128,
+    "?BlitBackward@?$BlitTransDarkenZRead@G@@UBEXPAXPBXHH00H@Z": 4748272,
+    "?BlitBackward@?$BlitTransLucent75ZRead@G@@UBEXPAXPBXHH00H@Z": 4748464,
+    "?BlitBackward@?$BlitTransLucent25ZRead@G@@UBEXPAXPBXHH00H@Z": 4748848,
+    "?BlitBackward@?$BlitTransLucent75ZReadWarp@G@@UBEXPAXPBXHH00H@Z": 4749056,
+    "?BlitBackward@?$BlitTransLucent50ZReadWarp@G@@UBEXPAXPBXHH00H@Z": 4749264,
+    "?BlitBackward@?$BlitTransLucent25ZReadWarp@G@@UBEXPAXPBXHH00H@Z": 4749472,
+    "?BlitBackward@?$BlitPlainXlatZReadWrite@G@@UBEXPAXPBXHH00H@Z": 4749632,
+    "?BlitBackward@?$BlitTransXlatZReadWrite@G@@UBEXPAXPBXHH00H@Z": 4749808,
+    "?BlitBackward@?$BlitTransZRemapXlatZReadWrite@G@@UBEXPAXPBXHH00H@Z": 4750000,
+    "?BlitBackward@?$BlitTransDarkenZReadWrite@G@@UBEXPAXPBXHH00H@Z": 4750160,
+    "?BlitBackward@?$BlitTransLucent75ZReadWrite@G@@UBEXPAXPBXHH00H@Z": 4750368,
+    "?BlitBackward@?$BlitTransLucent50ZReadWrite@G@@UBEXPAXPBXHH00H@Z": 4750576,
+    "?BlitBackward@?$BlitTransLucent25ZReadWrite@G@@UBEXPAXPBXHH00H@Z": 4750784,
+    "?BlitBackward@?$BlitPlainXlatAlpha@G@@UBEXPAXPBXHH00H@Z": 4750992,
+    "?BlitBackward@?$BlitTransXlatAlpha@G@@UBEXPAXPBXHH00H@Z": 4751216,
+    "?BlitBackward@?$BlitTransZRemapXlatAlpha@G@@UBEXPAXPBXHH00H@Z": 4751456,
+    "?BlitBackward@?$BlitTransLucent75Alpha@G@@UBEXPAXPBXHH00H@Z": 4751712,
+    "?BlitBackward@?$BlitTransLucent50Alpha@G@@UBEXPAXPBXHH00H@Z": 4751952,
+    "?BlitBackward@?$BlitTransLucent25Alpha@G@@UBEXPAXPBXHH00H@Z": 4752208,
+    "?BlitBackward@?$BlitTransXlatWriteAlpha@G@@UBEXPAXPBXHH00H@Z": 4752368,
+    "?BlitBackward@?$BlitTransXlatMultWriteAlpha@G@@UBEXPAXPBXHH00H@Z": 4752528,
+    "?BlitBackward@?$BlitTranslucentWriteAlpha@G@@UBEXPAXPBXHH00H@Z": 4753088,
+    "?BlitBackward@?$BlitTranslucent50NonzeroAlpha@G@@UBEXPAXPBXHH00H@Z": 4753280,
+    "?BlitBackward@?$BlitTranslucent50ZeroAlpha@G@@UBEXPAXPBXHH00H@Z": 4753472,
+    "?BlitBackward@?$BlitTransXlatAlphaZRead@G@@UBEXPAXPBXHH00H@Z": 4753744,
+    "?BlitBackward@?$BlitTransZRemapXlatAlphaZRead@G@@UBEXPAXPBXHH00H@Z": 4754048,
+    "?BlitBackward@?$BlitTransLucent75AlphaZRead@G@@UBEXPAXPBXHH00H@Z": 4754368,
+    "?BlitBackward@?$BlitTransLucent50AlphaZRead@G@@UBEXPAXPBXHH00H@Z": 4754672,
+    "?BlitBackward@?$BlitTransLucent25AlphaZRead@G@@UBEXPAXPBXHH00H@Z": 4754992,
+    "?BlitBackward@?$BlitTransLucent75AlphaZReadWarp@G@@UBEXPAXPBXHH00H@Z": 4755312,
+    "?BlitBackward@?$BlitTransLucent50AlphaZReadWarp@G@@UBEXPAXPBXHH00H@Z": 4755632,
+    "?BlitBackward@?$BlitTransLucent25AlphaZReadWarp@G@@UBEXPAXPBXHH00H@Z": 4755952,
+    "?BlitBackward@?$BlitTransXlatAlphaZReadWrite@G@@UBEXPAXPBXHH00H@Z": 4756240,
+    "?BlitBackward@?$BlitTransZRemapXlatAlphaZReadWrite@G@@UBEXPAXPBXHH00H@Z": 4756512,
+    "?BlitBackward@?$BlitTransLucent75AlphaZReadWrite@G@@UBEXPAXPBXHH00H@Z": 4756832,
+    "?BlitBackward@?$BlitTransLucent50AlphaZReadWrite@G@@UBEXPAXPBXHH00H@Z": 4757152,
+    "?BlitBackward@?$BlitTransLucent25AlphaZReadWrite@G@@UBEXPAXPBXHH00H@Z": 4757472,
+    "?get@Leaf_48dbd0@@QAEPAXI@Z": 4774864,
+    "?get@Leaf_48dc20@@QAEPAXI@Z": 4774944,
+    "?get@Leaf_491340@@QAEPAXI@Z": 4789056,
+    "?get@Leaf_491390@@QAEPAXI@Z": 4789136,
+    "?get@Storage_4913e0@@QAEPAXIPAI@Z": 4789216,
+    "?get@Leaf_4955a0@@QAEXXZ": 4806048,
+    "?get@Leaf_4955b0@@QAEXXZ": 4806064,
+    "?get@Leaf_496460@@QAEXXZ": 4809824,
+    "?get@Cleanup_496470@@QAEXXZ": 4809840,
+    "?get@Leaf_496730@@QAEPAXI@Z": 4810544,
+    "?get@Leaf_496780@@QAEPAXI@Z": 4810624,
+    "?get@Storage_4967d0@@QAEPAXIPAI@Z": 4810704,
+    "?get@Leaf_496d10@@QAEXXZ": 4812048,
+    "?get@Leaf_4981a0@@QAEXXZ": 4817312,
+    "?get@Leaf_499a20@@QAEIII@Z": 4823584,
+    "?get@Leaf_49a5b0@@QAEIII@Z": 4826544,
+    "?get@Leaf_49af80@@QAEXI@Z": 4829056,
+    "?get@Leaf_49ed00@@QAEXI@Z": 4844800,
+    "?get@Leaf_4a5550@@QAEIXZ": 4871504,
+    "?get@Leaf_4a5780@@QAEPAXI@Z": 4872064,
+    "?get@Leaf_4a57a0@@QAEPAXI@Z": 4872096,
+    "?get@Leaf_4a6930@@QAEXXZ": 4876592,
+    "?get@Cleanup_4a9b00@@QAEXXZ": 4889344,
+    "?get@Cleanup_4a9b60@@QAEXXZ": 4889440,
+    "?get@Leaf_4aa080@@QAEPAXI@Z": 4890752,
+    "?get@Leaf_4aa0d0@@QAEPAXI@Z": 4890832,
+    "?get@Leaf_4aa120@@QAEPAXI@Z": 4890912,
+    "?get@Leaf_4aa170@@QAEPAXI@Z": 4890992,
+    "?get@Leaf_4aa1c0@@QAEPAXI@Z": 4891072,
+    "?get@Storage_4aa210@@QAEPAXIPAI@Z": 4891152,
+    "?get@Storage_4aa260@@QAEPAXIPAI@Z": 4891232,
+    "?get@Leaf_4b28b0@@QAEPAXI@Z": 4925616,
+    "?get@Leaf_4b2900@@QAEPAXI@Z": 4925696,
+    "?get@Leaf_4b45f0@@QAEPAXI@Z": 4933104,
+    "?get@Leaf_4b4640@@QAEPAXI@Z": 4933184,
+    "?get@Leaf_4b53f0@@QAEIXZ": 4936688,
+    "?get@Leaf_4b5400@@QAEIXZ": 4936704,
+    "?get@Cleanup_4b54b0@@QAEXXZ": 4936880,
+    "?get@Leaf_4b5500@@QAEII@Z": 4936960,
+    "?get@Cleanup_4b5600@@QAEXXZ": 4937216,
+    "?get@Leaf_4b5770@@QAEPAXI@Z": 4937584,
+    "?get@Leaf_4b8960@@QAEHXZ": 4950368,
+    "?get@Leaf_4b9420@@QAEEXZ": 4953120,
+    "?get@Leaf_4b98f0@@QAEIXZ": 4954352,
+    "?get@Leaf_4b9940@@QAEIXZ": 4954432,
+    "?get@Leaf_4ba320@@QAEPAXI@Z": 4956960,
+    "?get@Leaf_4ba370@@QAEPAXI@Z": 4957040,
+    "?get@Storage_4ba3c0@@QAEPAXIPAI@Z": 4957120,
+    "?get@Leaf_4bbee0@@QAEXXZ": 4964064,
+    "?get@Storage_4bfbd0@@QAEPAXIPAI@Z": 4979664,
+    "?get@Leaf_4c1f80@@QAEII@Z": 4988800,
+    "?get@Leaf_4c2080@@QAEPAXI@Z": 4989056,
+    "?get@Leaf_4c2480@@QAEPAXI@Z": 4990080,
+    "?get@Leaf_4c24d0@@QAEPAXI@Z": 4990160,
+    "?Override_Mission@FootClass@@UAEXHPAVAbstractClass@@0@Z": 5012160,
+    "?get@Leaf_4c9bc0@@QAEXII@Z": 5020608,
+    "?get@Leaf_4cd060@@QAEXI@Z": 5034080,
+    "?get@Leaf_4cd070@@QAEXI@Z": 5034096,
+    "?get@Leaf_4cd9b0@@QAEXXZ": 5036464,
+    "?get@Leaf_4cdab0@@QAEEXZ": 5036720,
+    "?get@Leaf_4cdac0@@QAEIXZ": 5036736,
+    "?get@Leaf_4cddd0@@QAEHXZ": 5037520,
+    "?get@Leaf_4cdde0@@QAEEXZ": 5037536,
+    "?get@Leaf_4cde10@@QAEPAXI@Z": 5037584,
+    "?get@Leaf_4cdf30@@QAEPAXI@Z": 5037872,
+    "?get@Leaf_4cdf90@@QAEPAXI@Z": 5037968,
+    "?Add@?$DynamicVectorClass@PAVAbstractClass@@@@QAE_NABQAVAbstractClass@@@Z": 5038608,
+    "?get@Leaf_4ce9f0@@QAEPAXI@Z": 5040624,
+    "?get@Leaf_4cea40@@QAEPAXI@Z": 5040704,
+    "?get@Storage_4ceb90@@QAEPAXIPAI@Z": 5041040,
+    "?get@Leaf_4cedf0@@QAEIXZ": 5041648,
+    "?get@Leaf_4d51e0@@QAEII@Z": 5067232,
+    "?get@Leaf_4dbbf0@@QAEPAXI@Z": 5094384,
+    "?get@Leaf_4dbc40@@QAEPAXI@Z": 5094464,
+    "?get@Leaf_4dbc90@@QAEPAXI@Z": 5094544,
+    "?get@Leaf_4dbce0@@QAEPAXI@Z": 5094624,
+    "?get@Leaf_4dbd30@@QAEPAXI@Z": 5094704,
+    "?get@Leaf_4dbd80@@QAEPAXI@Z": 5094784,
+    "?get@Leaf_4dbdd0@@QAEPAXI@Z": 5094864,
+    "?get@Leaf_4dbe20@@QAEPAXI@Z": 5094944,
+    "?get@Leaf_4dbe70@@QAEPAXI@Z": 5095024,
+    "?get@Leaf_4dbec0@@QAEPAXI@Z": 5095104,
+    "?get@Leaf_4dbf10@@QAEPAXI@Z": 5095184,
+    "?get@Leaf_4dbf60@@QAEPAXI@Z": 5095264,
+    "?get@Leaf_4dbfb0@@QAEPAXI@Z": 5095344,
+    "?get@Leaf_4dc000@@QAEPAXI@Z": 5095424,
+    "?get@Leaf_4dc050@@QAEPAXI@Z": 5095504,
+    "?get@Leaf_4dc0a0@@QAEPAXI@Z": 5095584,
+    "?get@Leaf_4dc0f0@@QAEPAXI@Z": 5095664,
+    "?get@Leaf_4dc140@@QAEPAXI@Z": 5095744,
+    "?get@Leaf_4dc190@@QAEPAXI@Z": 5095824,
+    "?get@Leaf_4dc1e0@@QAEPAXI@Z": 5095904,
+    "?get@Leaf_4dc230@@QAEPAXI@Z": 5095984,
+    "?get@Leaf_4dc280@@QAEPAXI@Z": 5096064,
+    "?get@Leaf_4dc2d0@@QAEPAXI@Z": 5096144,
+    "?get@Leaf_4dc320@@QAEPAXI@Z": 5096224,
+    "?get@Leaf_4dc370@@QAEPAXI@Z": 5096304,
+    "?get@Leaf_4dc3c0@@QAEPAXI@Z": 5096384,
+    "?get@Leaf_4dc410@@QAEPAXI@Z": 5096464,
+    "?get@Leaf_4dc460@@QAEPAXI@Z": 5096544,
+    "?get@Leaf_4dc4b0@@QAEPAXI@Z": 5096624,
+    "?get@Leaf_4dc500@@QAEPAXI@Z": 5096704,
+    "?get@Leaf_4dc550@@QAEPAXI@Z": 5096784,
+    "?get@Leaf_4dc5a0@@QAEPAXI@Z": 5096864,
+    "?get@Leaf_4dc5f0@@QAEPAXI@Z": 5096944,
+    "?get@Leaf_4dc640@@QAEPAXI@Z": 5097024,
+    "?get@Leaf_4dc690@@QAEPAXI@Z": 5097104,
+    "?get@Leaf_4dc6e0@@QAEPAXI@Z": 5097184,
+    "?get@Leaf_4dc730@@QAEPAXI@Z": 5097264,
+    "?get@Leaf_4dc780@@QAEPAXI@Z": 5097344,
+    "?get@Leaf_4dc7d0@@QAEPAXI@Z": 5097424,
+    "?get@Leaf_4dc820@@QAEPAXI@Z": 5097504,
+    "?get@Leaf_4dc870@@QAEPAXI@Z": 5097584,
+    "?get@Leaf_4dc8c0@@QAEPAXI@Z": 5097664,
+    "?get@Leaf_4dc910@@QAEPAXI@Z": 5097744,
+    "?get@Leaf_4dc960@@QAEPAXI@Z": 5097824,
+    "?get@Leaf_4dc9b0@@QAEPAXI@Z": 5097904,
+    "?get@Leaf_4dca00@@QAEPAXI@Z": 5097984,
+    "?get@Leaf_4dca50@@QAEPAXI@Z": 5098064,
+    "?get@Leaf_4dcaa0@@QAEPAXI@Z": 5098144,
+    "?get@Leaf_4dcaf0@@QAEPAXI@Z": 5098224,
+    "?get@Leaf_4dcb40@@QAEPAXI@Z": 5098304,
+    "?get@Leaf_4dcb90@@QAEPAXI@Z": 5098384,
+    "?get@Leaf_4dcbe0@@QAEPAXI@Z": 5098464,
+    "?get@Leaf_4dcc30@@QAEPAXI@Z": 5098544,
+    "?get@Leaf_4dcc80@@QAEPAXI@Z": 5098624,
+    "?get@Leaf_4dccd0@@QAEPAXI@Z": 5098704,
+    "?get@Leaf_4dcd20@@QAEPAXI@Z": 5098784,
+    "?get@Leaf_4dcd70@@QAEPAXI@Z": 5098864,
+    "?get@Leaf_4dcdc0@@QAEPAXI@Z": 5098944,
+    "?get@Leaf_4dce10@@QAEPAXI@Z": 5099024,
+    "?get@Leaf_4dce60@@QAEPAXI@Z": 5099104,
+    "?get@Leaf_4dceb0@@QAEPAXI@Z": 5099184,
+    "?get@Leaf_4dcf00@@QAEPAXI@Z": 5099264,
+    "?get@Leaf_4dcf50@@QAEPAXI@Z": 5099344,
+    "?get@Leaf_4dcfa0@@QAEPAXI@Z": 5099424,
+    "?get@Leaf_4dcff0@@QAEPAXI@Z": 5099504,
+    "?get@Leaf_4dd040@@QAEPAXI@Z": 5099584,
+    "?get@Leaf_4dd090@@QAEPAXI@Z": 5099664,
+    "?get@Leaf_4dd0e0@@QAEPAXI@Z": 5099744,
+    "?get@Leaf_4dd130@@QAEPAXI@Z": 5099824,
+    "?get@Leaf_4dd180@@QAEPAXI@Z": 5099904,
+    "?get@Leaf_4dd1d0@@QAEPAXI@Z": 5099984,
+    "?get@Leaf_4dd220@@QAEPAXI@Z": 5100064,
+    "?get@Leaf_4dd270@@QAEPAXI@Z": 5100144,
+    "?get@Leaf_4dd2c0@@QAEPAXI@Z": 5100224,
+    "?get@Leaf_4dd310@@QAEPAXI@Z": 5100304,
+    "?get@Leaf_4dd360@@QAEPAXI@Z": 5100384,
+    "?get@Leaf_4dd3b0@@QAEPAXI@Z": 5100464,
+    "?get@Leaf_4dd400@@QAEPAXI@Z": 5100544,
+    "?get@Leaf_4dd450@@QAEPAXI@Z": 5100624,
+    "?get@Leaf_4dd4a0@@QAEPAXI@Z": 5100704,
+    "?get@Leaf_4dd4f0@@QAEPAXI@Z": 5100784,
+    "?get@Leaf_4dd540@@QAEPAXI@Z": 5100864,
+    "?get@Leaf_4dd590@@QAEPAXI@Z": 5100944,
+    "?get@Leaf_4de1e0@@QAEII@Z": 5104096,
+    "?get@Leaf_4deef0@@QAEPAXI@Z": 5107440,
+    "?get@Leaf_4def10@@QAEPAXI@Z": 5107472,
+    "?get@Leaf_4df220@@QAEIXZ": 5108256,
+    "?get@Leaf_4df230@@QAEIXZ": 5108272,
+    "?get@Leaf_4df240@@QAEPAXI@Z": 5108288,
+    "?get@Leaf_4df290@@QAEPAXI@Z": 5108368,
+    "?get@Storage_4df2e0@@QAEPAXIPAI@Z": 5108448,
+    "?get@Leaf_4e06c0@@QAEIXZ": 5113536,
+    "?get@Leaf_4e06d0@@QAEIXZ": 5113552,
+    "?get@Leaf_4eeb90@@QAEXXZ": 5172112,
+    "?get@Leaf_4f3160@@QAEXXZ": 5189984,
+    "?get@Cleanup_4f6e00@@QAEXXZ": 5205504,
+    "?get@Leaf_4f6ee0@@QAEPAXI@Z": 5205728,
+    "?get@Leaf_4f8490@@QAEPAXI@Z": 5211280,
+    "?get@Leaf_4f84e0@@QAEPAXI@Z": 5211360,
+    "?get@Leaf_4f8530@@QAEPAXI@Z": 5211440,
+    "?get@Leaf_4f8580@@QAEPAXI@Z": 5211520,
+    "?get@Leaf_4f85d0@@QAEPAXI@Z": 5211600,
+    "?get@Leaf_4f8620@@QAEPAXI@Z": 5211680,
+    "?get@Leaf_4f8670@@QAEPAXI@Z": 5211760,
+    "?get@Leaf_4f86c0@@QAEPAXI@Z": 5211840,
+    "?get@Leaf_4f8710@@QAEPAXI@Z": 5211920,
+    "?get@Leaf_4f8760@@QAEPAXI@Z": 5212000,
+    "?get@Leaf_4f87b0@@QAEPAXI@Z": 5212080,
+    "?get@Storage_4f8900@@QAEPAXIPAI@Z": 5212416,
+    "?get@Storage_4f8950@@QAEPAXIPAI@Z": 5212496,
+    "?get@Storage_4f89f0@@QAEPAXIPAI@Z": 5212656,
+    "?get@Storage_4f8a40@@QAEPAXIPAI@Z": 5212736,
+    "?get@Storage_4f8a90@@QAEPAXIPAI@Z": 5212816,
+    "?Add@?$DynamicVectorClass@PAVInfantryTypeClass@@@@QAE_NABQAVInfantryTypeClass@@@Z": 5221360,
+    "?Add@?$DynamicVectorClass@PAVUnitTypeClass@@@@QAE_NABQAVUnitTypeClass@@@Z": 5222336,
+    "?Add@?$DynamicVectorClass@PAVAircraftTypeClass@@@@QAE_NABQAVAircraftTypeClass@@@Z": 5223312,
+    "?get@Storage_4fb5c0@@QAEPAXIPAI@Z": 5223872,
+    "?get@Storage_4fb610@@QAEPAXIPAI@Z": 5223952,
+    "?get@Storage_4fb660@@QAEPAXIPAI@Z": 5224032,
+    "?get@Leaf_4fef00@@QAEPAXI@Z": 5238528,
+    "?get@Leaf_50b0e0@@QAEPAXXZ": 5288160,
+    "?get@Leaf_50b250@@QAEII@Z": 5288528,
+    "?get@Leaf_50b260@@QAEPAXI@Z": 5288544,
+    "?get@Leaf_50b2b0@@QAEPAXI@Z": 5288624,
+    "?Add@?$DynamicVectorClass@PAVAnimTypeClass@@@@QAE_NABQAVAnimTypeClass@@@Z": 5289360,
+    "?get@Storage_50b860@@QAEPAXIPAI@Z": 5290080,
+    "?get@Leaf_50b8b0@@QAEXXZ": 5290160,
+    "?get@Leaf_5173a0@@QAEXXZ": 5338016,
+    "?get@Cleanup_51e0a0@@QAEXXZ": 5365920,
+    "?Add@?$DynamicVectorClass@PBVCommandClass@@@@QAE_NABQBVCommandClass@@@Z": 5366624,
+    "?get@Leaf_51e670@@QAEPAXI@Z": 5367408,
+    "?get@Leaf_51e6c0@@QAEPAXI@Z": 5367488,
+    "?get@Storage_51e710@@QAEPAXIPAI@Z": 5367568,
+    "?get@Leaf_51fc80@@QAE_NXZ": 5373056,
+    "?get@Leaf_520f00@@QAEPAXI@Z": 5377792,
+    "?get@Leaf_520f50@@QAEPAXI@Z": 5377872,
+    "?get@Leaf_522460@@QAEPAXI@Z": 5383264,
+    "?get@Leaf_5224b0@@QAEPAXI@Z": 5383344,
+    "?get@Leaf_522540@@QAEXXZ": 5383488,
+    "?get@Leaf_522e80@@QAEIXZ": 5385856,
+    "?get@Leaf_52e6b0@@QAEPAXI@Z": 5433008,
+    "?get@Leaf_52ec50@@QAEPAXI@Z": 5434448,
+    "?get@Leaf_52eca0@@QAEPAXI@Z": 5434528,
+    "?get@Leaf_52ecf0@@QAEPAXI@Z": 5434608,
+    "?get@Leaf_52ed40@@QAEPAXI@Z": 5434688,
+    "?get@Leaf_531e40@@QAEPAXI@Z": 5447232,
+    "?get@Leaf_531e90@@QAEPAXI@Z": 5447312,
+    "?get@Storage_531ee0@@QAEPAXIPAI@Z": 5447392,
+    "?get@Leaf_534610@@QAEPAXI@Z": 5457424,
+    "?get@Leaf_534660@@QAEPAXI@Z": 5457504,
+    "?Compute_CRC@LightSourceClass@@UBEXAAVWWCRCEngine@@@Z": 5471056,
+    "?get@Leaf_537c10@@QAEIXZ": 5471248,
+    "?get@Leaf_537c20@@QAEIXZ": 5471264,
+    "?get@Leaf_538260@@QAEPAXI@Z": 5472864,
+    "?get@Leaf_5382b0@@QAEPAXI@Z": 5472944,
+    "?get@Leaf_538300@@QAEPAXI@Z": 5473024,
+    "?get@Leaf_538350@@QAEPAXI@Z": 5473104,
+    "?get@Leaf_5383a0@@QAEXXZ": 5473184,
+    "?get@Leaf_539b30@@QAEPAXI@Z": 5479216,
+    "?get@Leaf_539b80@@QAEPAXI@Z": 5479296,
+    "?get@Leaf_53aaf0@@QAEPAXI@Z": 5483248,
+    "?get@Leaf_53cd30@@QAEPAXI@Z": 5492016,
+    "?get@Leaf_53cd80@@QAEPAXI@Z": 5492096,
+    "?get@Leaf_53d820@@QAEXXZ": 5494816,
+    "?get@Leaf_53d830@@QAEXXZ": 5494832,
+    "?get@Leaf_55acc0@@QAEXXZ": 5614784,
+    "?get@Cleanup_56ace0@@QAEXXZ": 5680352,
+    "?get@Leaf_56ad30@@QAEII@Z": 5680432,
+    "?get@Leaf_56ae40@@QAEPAXI@Z": 5680704,
+    "?get@Leaf_56ae90@@QAEPAXI@Z": 5680784,
+    "?Add@?$DynamicVectorClass@VCell@@@@QAE_NABVCell@@@Z": 5683760,
+    "?get@Leaf_56c1b0@@QAEPAXI@Z": 5685680,
+    "?get@Leaf_56c200@@QAEPAXI@Z": 5685760,
+    "?get@Leaf_56c870@@QAEPAXI@Z": 5687408,
+    "?get@Leaf_56c8c0@@QAEPAXI@Z": 5687488,
+    "?get@Leaf_56c910@@QAEPAXI@Z": 5687568,
+    "?get@Leaf_56c960@@QAEPAXI@Z": 5687648,
+    "?get@Leaf_5794d0@@QAEII@Z": 5739728,
+    "?get@Leaf_58da50@@QAEPAXI@Z": 5823056,
+    "?get@Cleanup_58dd30@@QAEXXZ": 5823792,
+    "?get@Cleanup_58dd90@@QAEXXZ": 5823888,
+    "?get@Cleanup_58de60@@QAEXXZ": 5824096,
+    "?get@Leaf_58ec00@@QAEPAXI@Z": 5827584,
+    "?get@Leaf_58ec50@@QAEPAXI@Z": 5827664,
+    "?get@Leaf_58eca0@@QAEPAXI@Z": 5827744,
+    "?get@Leaf_58ecf0@@QAEPAXI@Z": 5827824,
+    "?get@Leaf_58ed40@@QAEPAXI@Z": 5827904,
+    "?get@Leaf_58ed90@@QAEPAXI@Z": 5827984,
+    "?get@Leaf_58ede0@@QAEPAXI@Z": 5828064,
+    "?get@Leaf_58ee30@@QAEPAXI@Z": 5828144,
+    "?get@Leaf_58ee80@@QAEPAXI@Z": 5828224,
+    "?get@Storage_58ef60@@QAEPAXIPAI@Z": 5828448,
+    "?get@Append_58eff0@@QAEEPBI@Z": 5828592,
+    "?get@Storage_58f040@@QAEPAXIPAI@Z": 5828672,
+    "?get@Storage_58f210@@QAEPAXIPAI@Z": 5829136,
+    "?get@Storage_58f2d0@@QAEPAXIPAI@Z": 5829328,
+    "?get@Leaf_58fd90@@QAEXI@Z": 5832080,
+    "?get@Leaf_595170@@QAEXXZ": 5853552,
+    "?get@Leaf_595c40@@QAEPAXI@Z": 5856320,
+    "?get@Leaf_59cb80@@QAEPAXI@Z": 5884800,
+    "?get@Leaf_5a2280@@QAEPAXI@Z": 5907072,
+    "?get@Leaf_5a31f0@@QAEXXZ": 5911024,
+    "?get@Leaf_5a3f70@@QAEIII@Z": 5914480,
+    "?get@Leaf_5a46b0@@QAE_NXZ": 5916336,
+    "?get@Leaf_5a5340@@QAEIXZ": 5919552,
+    "?get@Leaf_5a62a0@@QAE_NXZ": 5923488,
+    "?get@Leaf_5a62b0@@QAEPAXI@Z": 5923504,
+    "?get@Leaf_5a6360@@QAEPAXI@Z": 5923680,
+    "?get@Leaf_5a6bf0@@QAEPAXI@Z": 5925872,
+    "?get@Leaf_5a6c40@@QAEPAXI@Z": 5925952,
+    "?get@Leaf_5a6c90@@QAEPAXI@Z": 5926032,
+    "?get@Leaf_5a6ce0@@QAEPAXI@Z": 5926112,
+    "?get@Leaf_5a6d30@@QAEPAXI@Z": 5926192,
+    "?get@Storage_5a6d80@@QAEPAXIPAI@Z": 5926272,
+    "?get@Leaf_5aa800@@QAEII@Z": 5941248,
+    "?get@Leaf_5ab750@@QAE_NXZ": 5945168,
+    "?Restart@MSOverlayAnim@@QAEXXZ": 5953552,
+    "?Set_Frame@MSOverlayAnim@@QAEXI@Z": 5953568,
+    "?get@Leaf_5b5dc0@@QAEXXZ": 5987776,
+    "?get@Leaf_5b6870@@QAEPAXI@Z": 5990512,
+    "?get@Leaf_5b68c0@@QAEPAXI@Z": 5990592,
+    "?get@Leaf_5b6910@@QAEPAXI@Z": 5990672,
+    "?get@Leaf_5b6960@@QAEPAXI@Z": 5990752,
+    "?get@Leaf_5b9700@@QAEPAXI@Z": 6002432,
+    "?get@Leaf_5b9750@@QAEPAXI@Z": 6002512,
+    "?get@Leaf_5b97a0@@QAEPAXI@Z": 6002592,
+    "?get@Leaf_5b97f0@@QAEPAXI@Z": 6002672,
+    "?get@Storage_5b9840@@QAEPAXIPAI@Z": 6002752,
+    "?get@Storage_5b9890@@QAEPAXIPAI@Z": 6002832,
+    "?get@Storage_5b98e0@@QAEPAXIPAI@Z": 6002912,
+    "?get@Leaf_5c8cc0@@QAIXI@Z": 6065344,
+    "?get@Leaf_5cd380@@QAEIXZ": 6083456,
+    "?get@Append_5cd880@@QAEEPBI@Z": 6084736,
+    "?get@Leaf_5cd900@@QAEPAXI@Z": 6084864,
+    "?get@Leaf_5cd950@@QAEPAXI@Z": 6084944,
+    "?get@Storage_5cdaf0@@QAEPAXIPAI@Z": 6085360,
+    "?get@Leaf_5d82f0@@QAEPAXI@Z": 6128368,
+    "?get@Leaf_5d8340@@QAEPAXI@Z": 6128448,
+    "?get@Leaf_5dbce0@@QAEIIII@Z": 6143200,
+    "?get@Leaf_5de5c0@@QAEPAXI@Z": 6153664,
+    "?get@Leaf_5de610@@QAEPAXI@Z": 6153744,
+    "?get@Leaf_5eac10@@QAEXXZ": 6204432,
+    "?get@Leaf_5eac20@@QAEXXZ": 6204448,
+    "?get@Leaf_601410@@QAEIXZ": 6296592,
+    "?get@Leaf_6055a0@@QAEPAXI@Z": 6313376,
+    "?get@Leaf_6055f0@@QAEPAXI@Z": 6313456,
+    "?get@Leaf_605d80@@QAEIII@Z": 6315392,
+    "?get@Leaf_6081b0@@QAEPAXI@Z": 6324656,
+    "?get@Leaf_608200@@QAEPAXI@Z": 6324736,
+    "?Add@?$DynamicVectorClass@PAVParticleClass@@@@QAE_NABQAVParticleClass@@@Z": 6344784,
+    "?get@Storage_60d0a0@@QAEPAXIPAI@Z": 6344864,
+    "?get@Leaf_60d0f0@@QAEXXZ": 6344944,
+    "?get@Leaf_610760@@QAEXXZ": 6358880,
+    "?get@Leaf_613b60@@QAEIXZ": 6372192,
+    "?get@Leaf_613e00@@QAEXXZ": 6372864,
+    "?get@Leaf_617a00@@QAEIXZ": 6388224,
+    "?Add@?$DynamicVectorClass@PAVPlanningNodeClass@@@@QAE_NABQAVPlanningNodeClass@@@Z": 6402816,
+    "?Add@?$DynamicVectorClass@PAVPlanningTokenClass@@@@QAE_NABQAVPlanningTokenClass@@@Z": 6404416,
+    "?get@Leaf_61ba10@@QAEPAXI@Z": 6404624,
+    "?get@Leaf_61ba60@@QAEPAXI@Z": 6404704,
+    "?get@Leaf_61bab0@@QAEPAXI@Z": 6404784,
+    "?get@Leaf_61bb00@@QAEPAXI@Z": 6404864,
+    "?get@Leaf_61bb50@@QAEPAXI@Z": 6404944,
+    "?get@Leaf_61bba0@@QAEPAXI@Z": 6405024,
+    "?get@Leaf_61bbf0@@QAEPAXI@Z": 6405104,
+    "?get@Leaf_61bc40@@QAEPAXI@Z": 6405184,
+    "?get@Leaf_61bc90@@QAEPAXI@Z": 6405264,
+    "?get@Leaf_61bce0@@QAEPAXI@Z": 6405344,
+    "?get@Leaf_622040@@QAEPAXI@Z": 6430784,
+    "?get@Leaf_6328d0@@QAEII@Z": 6498512,
+    "?get@Leaf_635040@@QAEPAXI@Z": 6508608,
+    "?get@Leaf_6365a0@@QAEPAXI@Z": 6514080,
+    "?get@Leaf_6365f0@@QAEPAXI@Z": 6514160,
+    "?get@Leaf_638270@@QAEPAXI@Z": 6521456,
+    "?get@Leaf_6382c0@@QAEPAXI@Z": 6521536,
+    "?get@Leaf_63b5a0@@QAEXXZ": 6534560,
+    "?get@Leaf_63cac0@@QAEPAXI@Z": 6539968,
+    "?get@Leaf_63cb10@@QAEPAXI@Z": 6540048,
+    "?get@Leaf_6401d0@@QAEPAXI@Z": 6554064,
+    "?get@Leaf_640220@@QAEPAXI@Z": 6554144,
+    "?Add@?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@QAE_NABQAVVoxelAnimTypeClass@@@Z": 6632528,
+    "?Add@?$DynamicVectorClass@PAVSmudgeTypeClass@@@@QAE_NABQAVSmudgeTypeClass@@@Z": 6633536,
+    "?Add@?$DynamicVectorClass@PAVTerrainTypeClass@@@@QAE_NABQAVTerrainTypeClass@@@Z": 6634320,
+    "?get@Leaf_654390@@QAEPAXI@Z": 6636432,
+    "?get@Leaf_6543e0@@QAEPAXI@Z": 6636512,
+    "?get@Leaf_654430@@QAEPAXI@Z": 6636592,
+    "?get@Leaf_654480@@QAEPAXI@Z": 6636672,
+    "?get@Leaf_6544d0@@QAEPAXI@Z": 6636752,
+    "?get@Leaf_654520@@QAEPAXI@Z": 6636832,
+    "?get@Storage_654960@@QAEPAXIPAI@Z": 6637920,
+    "?get@Storage_6549b0@@QAEPAXIPAI@Z": 6638000,
+    "?get@Storage_654a00@@QAEPAXIPAI@Z": 6638080,
+    "?unknown_6631a0@ScenarioClass@@QAEPAVCellClass@@H@Z": 6697376,
+    "?Set_Waypoint_Location@ScenarioClass@@QAEXHVCell@@@Z": 6697984,
+    "?Add@?$DynamicVectorClass@PAVTechnoTypeClass@@@@QAE_NABQAVTechnoTypeClass@@@Z": 6698304,
+    "?get@Leaf_668ea0@@QAEXXZ": 6721184,
+    "?get@Leaf_6715c0@@QAEXXZ": 6755776,
+    "?get@Leaf_6729f0@@QAEIXZ": 6760944,
+    "?get@Leaf_672a10@@QAEIXZ": 6760976,
+    "?get@Leaf_673820@@QAEII@Z": 6764576,
+    "?get@Cleanup_6738d0@@QAEXXZ": 6764752,
+    "?get@Cleanup_673930@@QAEXXZ": 6764848,
+    "?get@Cleanup_673990@@QAEXXZ": 6764944,
+    "?get@Leaf_6739f0@@QAEPAXI@Z": 6765040,
+    "?get@Leaf_674790@@QAEPAXI@Z": 6768528,
+    "?get@Leaf_6748c0@@QAEPAXI@Z": 6768832,
+    "?get@Leaf_674910@@QAEPAXI@Z": 6768912,
+    "?get@Leaf_674960@@QAEPAXI@Z": 6768992,
+    "?get@Leaf_6749b0@@QAEPAXI@Z": 6769072,
+    "?get@Leaf_674a00@@QAEPAXI@Z": 6769152,
+    "?get@Leaf_674a50@@QAEPAXI@Z": 6769232,
+    "?get@Storage_674ba0@@QAEPAXIPAI@Z": 6769568,
+    "?get@Leaf_6818b0@@QAEIXZ": 6822064,
+    "?get@Leaf_682290@@QAEII@Z": 6824592,
+    "?get@Leaf_6822a0@@QAEII@Z": 6824608,
+    "?get@Leaf_6824f0@@QAEII@Z": 6825200,
+    "?get@Leaf_682520@@QAEIXZ": 6825248,
+    "?get@Leaf_687330@@QAEPAXI@Z": 6845232,
+    "?get@Leaf_687380@@QAEPAXI@Z": 6845312,
+    "?get@Leaf_68afa0@@QAEPAXI@Z": 6860704,
+    "?get@Leaf_68aff0@@QAEPAXI@Z": 6860784,
+    "?get@Leaf_68b040@@QAEPAXI@Z": 6860864,
+    "?get@Leaf_68b090@@QAEPAXI@Z": 6860944,
+    "?get@Storage_68b0e0@@QAEPAXIPAI@Z": 6861024,
+    "?get@Leaf_68b420@@QAEXXZ": 6861856,
+    "?get@Leaf_6986a0@@QAEPAXI@Z": 6915744,
+    "?get@Leaf_6986f0@@QAEPAXI@Z": 6915824,
+    "?get@Leaf_698740@@QAEXXZ": 6915904,
+    "?get@Leaf_69a640@@QAEPAXXZ": 6923840,
+    "??0SubTitle@@QAE@XZ": 6926528,
+    "?get@Leaf_69c180@@QAEPAXI@Z": 6930816,
+    "?get@Leaf_69c310@@QAEPAXI@Z": 6931216,
+    "?get@Leaf_69d680@@QAEXXZ": 6936192,
+    "?get@Leaf_6a17b0@@QAEIXZ": 6952880,
+    "?Get_Tactical_Position@Tactical@@QAE?AUPoint2D@@XZ": 6973360,
+    "?Start_Rubber_Band@Tactical@@QAEXABUPoint2D@@@Z": 6989216,
+    "?Modify_Rubber_Band@Tactical@@QAEXABUPoint2D@@@Z": 6989280,
+    "?get@Leaf_6ac7b0@@QAEIXZ": 6997936,
+    "?get@Leaf_6acfc0@@QAEPAXI@Z": 7000000,
+    "?get@Leaf_6ad010@@QAEPAXI@Z": 7000080,
+    "?get@Leaf_6ad060@@QAEPAXI@Z": 7000160,
+    "?get@Leaf_6ad0b0@@QAEPAXI@Z": 7000240,
+    "?get@Leaf_6b3560@@QAEPAXI@Z": 7026016,
+    "?get@Leaf_6b35b0@@QAEPAXI@Z": 7026096,
+    "?get@Leaf_6b51b0@@QAEPAXI@Z": 7033264,
+    "?get@Leaf_6b5200@@QAEPAXI@Z": 7033344,
+    "?get@Leaf_6bc210@@QAEIII@Z": 7062032,
+    "?TMission_LOSE_006bc230@Leaf_6bc230@@QAEIII@Z": 7062064,
+    "?get@Leaf_6bc570@@QAEIII@Z": 7062896,
+    "?get@Leaf_6bc590@@QAEIII@Z": 7062928,
+    "?IsPowerOnline_006cd6e0@Leaf_6cd6e0@@QAE_NXZ": 7132896,
+    "?get@Leaf_6d4880@@QAEII@Z": 7161984,
+    "?get@Leaf_6d8eb0@@QAEII@Z": 7179952,
+    "?get@Leaf_6d8ec0@@QAEXXZ": 7179968,
+    "?get@Leaf_6d8ed0@@QAE_NXZ": 7179984,
+    "?get@Leaf_6d8ee0@@QAE_NXZ": 7180000,
+    "?get@Leaf_6d8f90@@QAE_NXZ": 7180176,
+    "?get@Leaf_6d8fa0@@QAE_NXZ": 7180192,
+    "?get@Leaf_6d8fb0@@QAEXXZ": 7180208,
+    "?get@Leaf_6d8fc0@@QAE_NXZ": 7180224,
+    "?get@Leaf_6d9750@@QAEPAXI@Z": 7182160,
+    "?get@Leaf_6e2d70@@QAEPAXI@Z": 7220592,
+    "?get@Leaf_6e2dc0@@QAEPAXI@Z": 7220672,
+    "?get@Leaf_6e7180@@QAEPAXI@Z": 7238016,
+    "?get@Leaf_6e71d0@@QAEPAXI@Z": 7238096,
+    "?get@Leaf_6e86e0@@QAEPAXI@Z": 7243488,
+    "?get@Leaf_6ea9b0@@QAEXXZ": 7252400,
+    "?get@Leaf_6ea9d0@@QAEIXZ": 7252432,
+    "?get@Leaf_6ea9e0@@QAEIXZ": 7252448,
+    "?get@Leaf_6ea9f0@@QAEPAXI@Z": 7252464,
+    "?get@Leaf_6eacd0@@QAEPAXI@Z": 7253200,
+    "?get@Leaf_6ead20@@QAEPAXI@Z": 7253280,
+    "?get@Leaf_6eb2c0@@QAEXXZ": 7254720,
+    "?get@Leaf_6ec1d0@@QAEPAXI@Z": 7258576,
+    "?get@Leaf_6f6730@@QAEIXZ": 7300912,
+    "?get@Leaf_6f6740@@QAEIXZ": 7300928,
+    "?get@Leaf_6f6750@@QAEIXZ": 7300944,
+    "?get@Leaf_6f6760@@QAEIXZ": 7300960,
+    "?get@Leaf_6f8a50@@QAEIXZ": 7309904,
+    "?get@Leaf_6f8a60@@QAEIXZ": 7309920,
+    "?get@Append_6f8b40@@QAEEPBI@Z": 7310144,
+    "?get@Storage_6f8b90@@QAEPAXIPAI@Z": 7310224,
+    "?get@Leaf_6fa030@@QAEIXZ": 7315504,
+    "?get@Leaf_70f3c0@@QAEPAXI@Z": 7402432,
+    "?get@Leaf_712a40@@QAEPAXI@Z": 7416384,
+    "?get@Leaf_712a90@@QAEPAXI@Z": 7416464,
+    "?get@Leaf_714ff0@@QAEPAXI@Z": 7426032,
+    "?get@Leaf_715040@@QAEPAXI@Z": 7426112,
+    "?get@Leaf_716940@@QAEXXZ": 7432512,
+    "?get@Leaf_716ce0@@QAEPAXI@Z": 7433440,
+    "?get@Leaf_716d30@@QAEPAXI@Z": 7433520,
+    "?Add@?$DynamicVectorClass@PAVCellClass@@@@QAE_NABQAVCellClass@@@Z": 7489328,
+    "?get@Leaf_726ef0@@QAEIXZ": 7499504,
+    "?get@Leaf_726f00@@QAEIXZ": 7499520,
+    "?get@Leaf_727020@@QAEIXZ": 7499808,
+    "?get@Leaf_72b8d0@@QAEIXZ": 7518416,
+    "?get@Leaf_72b8e0@@QAEIXZ": 7518432,
+    "?get@Leaf_72ba00@@QAEPAXI@Z": 7518720,
+    "?get@Leaf_72ba50@@QAEPAXI@Z": 7518800,
+    "?get@Leaf_72baa0@@QAEPAXI@Z": 7518880,
+    "?get@Leaf_72baf0@@QAEIXZ": 7518960,
+    "?get@Leaf_72c3a0@@QAEEXZ": 7521184,
+    "?get@Leaf_72ca00@@QAEPAXI@Z": 7522816,
+    "?get@Leaf_72caa0@@QAEII@Z": 7522976,
+    "?get@Leaf_72cf70@@QAEIXZ": 7524208,
+    "?get@Leaf_730290@@QAEPAXI@Z": 7537296,
+    "?get@Leaf_7302d0@@QAEIXZ": 7537360,
+    "?get@Leaf_7302e0@@QAEII@Z": 7537376,
+    "?get@Leaf_730320@@QAEIXZ": 7537440,
+    "?get@Leaf_730330@@QAEIXZ": 7537456,
+    "?get@Leaf_730410@@QAEIXZ": 7537680,
+    "?get@Leaf_730420@@QAEIXZ": 7537696,
+    "?get@Leaf_730430@@QAEIXZ": 7537712,
+    "?get@Leaf_730440@@QAEIXZ": 7537728,
+    "?get@Leaf_730450@@QAEIXZ": 7537744,
+    "?get@Leaf_730460@@QAEIXZ": 7537760,
+    "?get@Storage_730470@@QAEPAXIPAI@Z": 7537776,
+    "?get@Storage_7304c0@@QAEPAXIPAI@Z": 7537856,
+    "?get@Leaf_734100@@QAEXXZ": 7553280,
+    "?Set_Modem_Dial_Type@WinModemClass@@UAEXH@Z": 7555232,
+    "?Set_Echo_Function@WinModemClass@@UAEXP6IXD@Z@Z": 7558304,
+    "?Set_Abort_Function@WinModemClass@@UAEXP6AHXZ@Z": 7558320,
+    "?Get_Port_Handle@WinModemClass@@QAEPAXXZ": 7558336,
+    "?get@Leaf_735670@@QAEXXZ": 7558768,
+    "?get@Leaf_735b10@@QAEIXZ": 7559952,
+    "?get@Leaf_735b20@@QAEIXZ": 7559968,
+    "?get@Leaf_736210@@QAEXXZ": 7561744,
+    "?get@Leaf_738100@@QAEXXZ": 7569664,
+    "?get@Leaf_7395b0@@QAEIXZ": 7574960,
+    "?get@Leaf_73bc80@@QAEXXZ": 7584896,
+    "?get@Leaf_73bca0@@QAEXXZ": 7584928,
+    "?get@Leaf_765930@@QAEIIII@Z": 7756080,
+    "?get@Leaf_765940@@QAEIIII@Z": 7756096,
+    "?get@Cleanup_765e00@@QAEXXZ": 7757312,
+    "?get@Leaf_7667a0@@QAEPAXI@Z": 7759776,
+    "?get@Leaf_7667c0@@QAEPAXI@Z": 7759808,
+    "?get@Leaf_766800@@QAEPAXI@Z": 7759872,
+    "?get@Leaf_766850@@QAEPAXI@Z": 7759952,
+    "?get@Storage_7680c0@@QAEPAXIPAI@Z": 7766208,
+    "?get@Leaf_769510@@QAEIXZ": 7771408,
+    "?get@Cleanup_76bb00@@QAEXXZ": 7781120,
+    "?get@Leaf_76bdc0@@QAEPAXI@Z": 7781824,
+    "?get@Leaf_76be10@@QAEPAXI@Z": 7781904,
+    "?get@Cleanup_76d5b0@@QAEXXZ": 7787952,
+    "?get@Leaf_76d870@@QAEPAXI@Z": 7788656,
+    "?get@Leaf_76d8c0@@QAEPAXI@Z": 7788736,
+    "?get@Leaf_7701b0@@QAEIXZ": 7799216,
+    "?get@Leaf_770430@@QAEIXZ": 7799856,
+    "?get@Leaf_78215d@@QAEXXZ": 7872861,
+    "?get@Leaf_78b1e7@@QAEIXZ": 7909863,
+    "?get@Leaf_78f3f5@@QAEHXZ": 7926773,
+    "?get@Leaf_793976@@QAEHXZ": 7944566,
+    "?FUN_00770400@Owner_00770400@seed_00770400@@QAEGI@Z": 7799808,
+    "?operator_delete_00781d3b@seed_00781d3b@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_0040e1d0@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_004b57c0@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_004defa0@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_004e06a0@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_00538f30@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_005a22d0@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_005a7500@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_005abba0@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_005abec0@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_005abef0@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_005b8ec0@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_00652810@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_00668390@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_0069b0f0@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_0069b120@@YAXI@Z": 7871803,
+    "?FUN_00783605@seed_0069b120@@YAIPAF@Z": 7878149,
+    "?FUN_00781d3b@seed_006ec220@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@seed_00728c30@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_0072c9d0@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_00732c80@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_00738420@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_0073a0c0@@YAXI@Z": 7871803,
+    "?FUN_00770330@seed_00770330@@YIXPAH@Z": 7799600,
+    "?FUN_00770440@Owner_00770440@seed_00770440@@QAEGI@Z": 7799872,
+    "?FUN_00781d3b@seed_005ad410@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_006231f0@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_004ba060@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_00537d40@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_005b9000@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_00637fb0@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_006532b0@@YAXI@Z": 7871803,
+    "?FUN_00781d3b@seed_005d5f40@@YAXI@Z": 7871803,
+    "__ramp_corners": 8339828
   },
   "regions": [
     {
@@ -582,7 +1448,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 9,
       "body_sha256": "cda72abcdbb1efdc80edc8549a889c40e93418986336d31914aa9a2d9e967cc7",
@@ -590,13 +1457,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "43fc65369139d8eb646fbcbdf66d36653445f13c21ee9d5e0c5abcfbfa004602",
       "relocations": [],
-      "source_sha256": "cd71ebfa1bc4a353880d1862b34290ba220660c5492c10ab2d07d36e87dadcfa",
-      "source": "src/recovered/classes/Wstring/Wstring_Wstring_0076d910.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Wstring_0076d910",
       "source_order": 155787
     },
     {
@@ -608,7 +1474,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 21,
       "body_sha256": "cacf1b49d774b5d4d32d5e647b2c2b271d0e30959e1cb0f6323817c403aa80dc",
@@ -633,13 +1500,12 @@
           "resolved": 4294967085
         }
       ],
-      "source_sha256": "c26d895e6bab3f1b1b0d77781824b7509bc5a1a7d34c2fdf92fc44d6eafb7e23",
-      "source": "src/recovered/classes/Wstring/Wstring_Remove_Spaces_0076e4a0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Remove_Spaces_0076e4a0",
       "source_order": 155806
     },
     {
@@ -651,7 +1517,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 12,
       "body_sha256": "44a1d21eadbf94c1a625c952573bae1b0a8f7f8391d71a692daad8e12af87e44",
@@ -668,13 +1535,12 @@
           "resolved": 8635740
         }
       ],
-      "source_sha256": "11ec9063ee86823e8193d3ba58829f5d571e89b1957e9033b72a9ca7e5085b9d",
-      "source": "src/recovered/classes/Wstring/Wstring_Get_0076e6f0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Get_0076e6f0",
       "source_order": 155812
     },
     {
@@ -686,7 +1552,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 12,
       "body_sha256": "44a1d21eadbf94c1a625c952573bae1b0a8f7f8391d71a692daad8e12af87e44",
@@ -703,13 +1570,12 @@
           "resolved": 8635740
         }
       ],
-      "source_sha256": "4c1cc13d5c9cb5d4461bfe4f3b424538dd704e5ec05080311c95fa70ab429d8b",
-      "source": "src/recovered/classes/Wstring/Wstring_Peek_Buffer_0076e730.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Peek_Buffer_0076e730",
       "source_order": 155814
     },
     {
@@ -721,7 +1587,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 9,
       "body_sha256": "cda72abcdbb1efdc80edc8549a889c40e93418986336d31914aa9a2d9e967cc7",
@@ -729,13 +1596,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "43fc65369139d8eb646fbcbdf66d36653445f13c21ee9d5e0c5abcfbfa004602",
       "relocations": [],
-      "source_sha256": "0f447603a901cd5cf27c914e842a545e7be855836be60c3ec182a866f2b61010",
-      "source": "src/recovered/classes/WideString/WideString_WideString_0076f9b0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_WideString_0076f9b0",
       "source_order": 155839
     },
     {
@@ -747,7 +1613,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 12,
       "body_sha256": "adec544ca0a93ebba742f4d6fb52b67a7b5060a7b1812d5c99dccc1228d32a29",
@@ -764,14 +1631,40 @@
           "resolved": 8625484
         }
       ],
-      "source_sha256": "22393be05cd2000dc63ade2b97fb41a5992fec8de6767becf159c2a1a10eabae",
-      "source": "src/recovered/classes/WideString/WideString_Get_007703f0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_Get_007703f0",
       "source_order": 155862
+    },
+    {
+      "entry": 7799856,
+      "method": "00770430",
+      "symbol": "?get@Leaf_770430@@QAEIXZ",
+      "symbol_prefix": "?get@Leaf_770430@@",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "body_bytes": 12,
+      "body_sha256": "adec544ca0a93ebba742f4d6fb52b67a7b5060a7b1812d5c99dccc1228d32a29",
+      "padding_bytes": 4,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "e122e551bf37ef7da62282f9936e39d0ad2a73553e9420fca9e9fdd8283fe61c",
+      "relocations": [],
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
+      "population": "population-3538",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "source_quality_family": "hand-written",
+      "source_order": 230785,
+      "bound_population": "population-4352"
     },
     {
       "entry": 7802992,
@@ -782,7 +1675,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 16,
       "body_sha256": "71b6e9a58e43e64739dcb8488bb1fe5832f1a463c6e1be8067d296ffbab1fa9b",
@@ -799,14 +1693,49 @@
           "resolved": 80700
         }
       ],
-      "source_sha256": "4c88f114cabb52e16042ff476bce762ca5fd3dcc044f07d78914a4b585e883eb",
-      "source": "src/recovered/classes/WideString/WideString_As_Integer_00771070.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_As_Integer_00771070",
       "source_order": 155879
+    },
+    {
+      "entry": 7799808,
+      "method": "00770400",
+      "symbol": "?FUN_00770400@Owner_00770400@seed_00770400@@QAEGI@Z",
+      "symbol_prefix": "?FUN_00770400@",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "body_bytes": 39,
+      "body_sha256": "12401a34cfb4ce63b4954781fc0bce895685b67f60d2801b16c3912aa2209c73",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "de20def7d159a15b27da4b6a427c8d2e253ea1cc1a224362d51ac62cd13a0946",
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 20,
+          "symbol": "?FUN_00783605@seed_00770400@@YAIPAF@Z",
+          "target": 7878149,
+          "addend": 0,
+          "resolved": 78330
+        }
+      ],
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
+      "source_order": 243301,
+      "population": "population-3538",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "source_quality_family": "hand-written",
+      "bound_population": "population-42"
     },
     {
       "entry": 7789024,
@@ -817,7 +1746,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 26,
       "body_sha256": "53e0194c49d8f3525d9be3c79cc926e24562db0b87fc23fd9ac413ad24000d86",
@@ -834,13 +1764,12 @@
           "resolved": 82764
         }
       ],
-      "source_sha256": "f5e9fff91e6aacc5515ffdefdf7dcd8e88d4305bd0189fd6de0def2d88ccb592",
-      "source": "src/recovered/classes/Wstring/Wstring_destructor_0076d9e0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_destructor_0076d9e0",
       "source_order": 155790
     },
     {
@@ -852,7 +1781,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 26,
       "body_sha256": "b63663ec70c3b2322a68689298d7cb98bc4701254d640fa582f7a1cff34aca64",
@@ -869,13 +1799,12 @@
           "resolved": 79612
         }
       ],
-      "source_sha256": "e7a247e18774148d2dca1ce2b23674283c28c8b2af4f4082a12debf277440626",
-      "source": "src/recovered/classes/Wstring/Wstring_Release_0076e630.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Release_0076e630",
       "source_order": 155809
     },
     {
@@ -887,7 +1816,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 26,
       "body_sha256": "b1ecd3f29e3689661b36ff9cceaf14a40ca4503526426c10a7e8cf9a6d5b4a00",
@@ -904,14 +1834,49 @@
           "resolved": 74460
         }
       ],
-      "source_sha256": "5e2847e6d74a15cd67a06515e00889fbcf427d73bd913e9e969d30bf122f255f",
-      "source": "src/recovered/classes/WideString/WideString_destructor_0076fa50.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_destructor_0076fa50",
       "source_order": 155842
+    },
+    {
+      "entry": 7799600,
+      "method": "00770330",
+      "symbol": "?FUN_00770330@seed_00770330@@YIXPAH@Z",
+      "symbol_prefix": "?FUN_00770330@",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "body_bytes": 26,
+      "body_sha256": "0d47e80d75baf6f29633f7c1e6764bc691a95609f856dfe5207ccad0d3378723",
+      "padding_bytes": 6,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a788baa391eeefc189a32bf5e8b4981d4439e2e8fc3dff17195e2ff09e7de402",
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 20,
+          "symbol": "?FUN_00781d3b@seed_00770330@@YAXI@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 72188
+        }
+      ],
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
+      "source_order": 243302,
+      "population": "population-3538",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "source_quality_family": "hand-written",
+      "bound_population": "population-66"
     },
     {
       "entry": 7788832,
@@ -922,7 +1887,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 94,
       "body_sha256": "df818e766f8643be5de45238b13f8684f8ac23f5b3e27456717a7d364d9b668c",
@@ -939,13 +1905,12 @@
           "resolved": 83660
         }
       ],
-      "source_sha256": "a416c30241291ccc2d85c316a12968d437fb6abeb5923d17ff25e10c63720596",
-      "source": "src/recovered/classes/Wstring/Wstring_Wstring_0076d920.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Wstring_0076d920",
       "source_order": 155788
     },
     {
@@ -957,7 +1922,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 82,
       "body_sha256": "1af35e4f066a0f1a8e978e50203bcf4620855bc90e294cbb564858aceb510dc5",
@@ -974,13 +1940,12 @@
           "resolved": 83571
         }
       ],
-      "source_sha256": "f49010072a51110cd02c918fc69ec20c44728983d1bb1182b1bd1a5feee36fb2",
-      "source": "src/recovered/classes/Wstring/Wstring_Wstring_0076d980.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Wstring_0076d980",
       "source_order": 155789
     },
     {
@@ -992,7 +1957,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 99,
       "body_sha256": "0ca9f43bb1816e89eaa641adca94bbee0398a6a0ede73786b4f0a46f747924ca",
@@ -1000,13 +1966,12 @@
       "full_extent_bytes": 112,
       "full_extent_sha256": "5b6eb504fdcc2f0e0461afccae8221c5a839d43fba5934e01a06ef7f33026a15",
       "relocations": [],
-      "source_sha256": "705ed99771901d2265013d19c3f55bacac686ed2612547e8af4e16778dcf682b",
-      "source": "src/recovered/classes/Wstring/Wstring_operator_equal_0076da00.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_operator_equal_0076da00",
       "source_order": 155791
     },
     {
@@ -1018,7 +1983,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 102,
       "body_sha256": "248d3153178bd0b13c89962393fb0d86ef14c58a2dbf6a2f1804aeb039290a5c",
@@ -1026,13 +1992,12 @@
       "full_extent_bytes": 112,
       "full_extent_sha256": "997a5307d3457e9db08a394846c4d34d80945c77aacb9dd92369dcfc256005e7",
       "relocations": [],
-      "source_sha256": "c0088a9fb53c5f9649a2bc4424fe3368b95fb32c8e9f537839b911a975d82e7d",
-      "source": "src/recovered/classes/Wstring/Wstring_operator_equal_0076da70.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_operator_equal_0076da70",
       "source_order": 155792
     },
     {
@@ -1044,7 +2009,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 99,
       "body_sha256": "826413b755041f0bb15e6ae6339d727898130691f3680ac7f357fe19c002b6df",
@@ -1052,13 +2018,12 @@
       "full_extent_bytes": 112,
       "full_extent_sha256": "16e967c7aefbab8cba4c31393894add8cf46c67270377746ec01ee9acd841fbc",
       "relocations": [],
-      "source_sha256": "e339498519c8e1feb6e89b286935f121ffcaf43b1765f78ed1ed7e815d5096f9",
-      "source": "src/recovered/classes/Wstring/Wstring_operator_not_equal_0076dae0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_operator_not_equal_0076dae0",
       "source_order": 155793
     },
     {
@@ -1070,7 +2035,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 102,
       "body_sha256": "4ab894a77babdf0e8ed0c41e8775baaca542e900d0993346004e7524b132b480",
@@ -1078,13 +2044,12 @@
       "full_extent_bytes": 112,
       "full_extent_sha256": "a311a1f97fa91ed95aa87efb523c33c64fa52511e6be47ee0009b80d9698391e",
       "relocations": [],
-      "source_sha256": "76c4df757ad8f824fbf008e52c71a47245b113b01a84b8ac64fbf61010d2d370",
-      "source": "src/recovered/classes/Wstring/Wstring_operator_not_equal_0076db50.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_operator_not_equal_0076db50",
       "source_order": 155794
     },
     {
@@ -1096,7 +2061,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 109,
       "body_sha256": "ea5c0083c258a8f61bc36f760c95b792a6d26af802b72355a83fb7c9ee9e45ba",
@@ -1121,13 +2087,12 @@
           "resolved": 82973
         }
       ],
-      "source_sha256": "4829b07b8ad66d456e6b270972798f9148fd75926cb49a9fb60810bd03e59889",
-      "source": "src/recovered/classes/Wstring/Wstring_operator_assign_0076dbc0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_operator_assign_0076dbc0",
       "source_order": 155795
     },
     {
@@ -1139,7 +2104,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 196,
       "body_sha256": "f1bf6cee204a21d20e4898fb81c172af58c145e0addd37c888ee51518ae16fad",
@@ -1172,13 +2138,12 @@
           "resolved": 82776
         }
       ],
-      "source_sha256": "3b2d3dd59c5148a81146d30f5ef8d4b4231412a551f67e132ac30abdb52b0705",
-      "source": "src/recovered/classes/Wstring/Wstring_operator_assign_0076dc30.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_operator_assign_0076dc30",
       "source_order": 155796
     },
     {
@@ -1190,7 +2155,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 175,
       "body_sha256": "12d62b73406283df40a216d79a14f0691121405ad4207dd906977316b6994e02",
@@ -1215,13 +2181,12 @@
           "resolved": 81816
         }
       ],
-      "source_sha256": "4afdd2c824004335e3dc5e6c8e86d8cf12122bfc3fffb9cb7af02bd598d6edc1",
-      "source": "src/recovered/classes/Wstring/Wstring_Concatenate_0076dd00.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Concatenate_0076dd00",
       "source_order": 155797
     },
     {
@@ -1233,7 +2198,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 136,
       "body_sha256": "c8e532cc60da2d4ecb4f5ac0d39e2a0ebab1279651c54757d4b0e002a23df105",
@@ -1266,13 +2232,12 @@
           "resolved": 81678
         }
       ],
-      "source_sha256": "6538ecf0ac4d5cfd06d61871ab15495604c898d8bac8d83c0cfa6e12c3c7892e",
-      "source": "src/recovered/classes/Wstring/Wstring_Concatenate_0076ddb0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Concatenate_0076ddb0",
       "source_order": 155798
     },
     {
@@ -1284,7 +2249,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 195,
       "body_sha256": "9ca19fde6bf8fd9dc2f3bfb541522da5bed67806a866d47b41015bb6647149aa",
@@ -1317,13 +2283,12 @@
           "resolved": 81475
         }
       ],
-      "source_sha256": "a83fd398becb4ddbf19b321c24364d821e59f189f6e614334b6e238a3b83667e",
-      "source": "src/recovered/classes/Wstring/Wstring_Concatenate_0076de40.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Concatenate_0076de40",
       "source_order": 155799
     },
     {
@@ -1335,7 +2300,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 172,
       "body_sha256": "e6855b06e0d5fa19b30e0a24ef6c7ccd3070bbd7c53443f09de60e19878b4f65",
@@ -1360,13 +2326,12 @@
           "resolved": 81290
         }
       ],
-      "source_sha256": "768e6f967264bd5a5dc00a6190de8253679c308e7d009b8569f15b5fb938c8a3",
-      "source": "src/recovered/classes/Wstring/Wstring_operator_add_assign_0076df10.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_operator_add_assign_0076df10",
       "source_order": 155800
     },
     {
@@ -1378,7 +2343,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 195,
       "body_sha256": "82dd6aace4f5207fb554f39b0f298bcf4547807b685bc8c9eda6c5b9de0299b4",
@@ -1411,13 +2377,12 @@
           "resolved": 81091
         }
       ],
-      "source_sha256": "0191d49da79c75ea249af12db1cd4b00a51cd09ee55a5cc886d3078628e2a4ff",
-      "source": "src/recovered/classes/Wstring/Wstring_operator_add_assign_0076dfc0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_operator_add_assign_0076dfc0",
       "source_order": 155801
     },
     {
@@ -1429,7 +2394,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 303,
       "body_sha256": "953bdeb3e655cef48d3cd1be6dd697043bc20d9e00fa76390c900e1d4e666f38",
@@ -1478,13 +2444,12 @@
           "resolved": 80776
         }
       ],
-      "source_sha256": "a6229f204ddd825b6c8167b395b4370336e17d34dc73aee5a570acd9e8cd745d",
-      "source": "src/recovered/classes/Wstring/Wstring_operator_add_0076e090.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_operator_add_0076e090",
       "source_order": 155802
     },
     {
@@ -1496,7 +2461,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 326,
       "body_sha256": "b1e3ff8f7b093c26b30803788ab745b15b56ac1cfb6135a196033cde1ca5ef66",
@@ -1553,13 +2519,12 @@
           "resolved": 80449
         }
       ],
-      "source_sha256": "baa1f331d147116e2d268133fdd2bed9b3161564b0a7cf6e7aef5e08387b847d",
-      "source": "src/recovered/classes/Wstring/Wstring_operator_add_0076e1c0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_operator_add_0076e1c0",
       "source_order": 155803
     },
     {
@@ -1571,7 +2536,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 196,
       "body_sha256": "79866982a19edd8888cb25d8d299b5cf0fb811c6d46a7b86914a8d89c96bd822",
@@ -1596,13 +2562,12 @@
           "resolved": 80249
         }
       ],
-      "source_sha256": "80ee1cf1b7a66510a8227282e8c6415054a1b6a8524418c3c5f74b5cc38d2cfc",
-      "source": "src/recovered/classes/Wstring/Wstring_Remove_0076e310.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Remove_0076e310",
       "source_order": 155804
     },
     {
@@ -1614,7 +2579,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 183,
       "body_sha256": "5a004651574868054ea8e14feb190edf47f06c893faf2172c261c50069e4f80c",
@@ -1663,13 +2629,12 @@
           "resolved": 80055
         }
       ],
-      "source_sha256": "3c7ad9f0daaf30e0c043f87a5fc8d6eef7b4667a4d8b8c22fc5020c7f2415cc6",
-      "source": "src/recovered/classes/Wstring/Wstring_Remove_Character_0076e3e0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Remove_Character_0076e3e0",
       "source_order": 155805
     },
     {
@@ -1681,7 +2646,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 257,
       "body_sha256": "c348e1a07759766b2a80ac51ed71dca7ec916b5685372ad8e3b985f95c590171",
@@ -1762,13 +2728,12 @@
           "resolved": 79652
         }
       ],
-      "source_sha256": "e97243e01740851e2f04233467cefdbc06c791eba18a6e57082d7bf536e094a1",
-      "source": "src/recovered/classes/Wstring/Wstring_Trim_Trailing_0076e520.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Trim_Trailing_0076e520",
       "source_order": 155808
     },
     {
@@ -1780,7 +2745,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 71,
       "body_sha256": "278bbd135737bcd2dbc63e3131eeb845dc6a5174a73c7aff3ff0417cc45e5c44",
@@ -1805,13 +2771,12 @@
           "resolved": 80287
         }
       ],
-      "source_sha256": "9a853536ae3f8cfaaa711d20ceedf12c3f02bbdd127afeaaa84fd39a1b880696",
-      "source": "src/recovered/classes/Wstring/Wstring_Set_Size_0076e650.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Set_Size_0076e650",
       "source_order": 155810
     },
     {
@@ -1823,7 +2788,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 80,
       "body_sha256": "25f246a1c13f5c7771e8619d3d82f6a1fc55bf99f2e57f9cc32c5b837f3d82d3",
@@ -1840,13 +2806,12 @@
           "resolved": 81177
         }
       ],
-      "source_sha256": "0f4cd350108417a285736adb423aeb7eb69208e5959f99d774399c3f67a9f647",
-      "source": "src/recovered/classes/Wstring/Wstring_Copy_Padded_0076e6a0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Copy_Padded_0076e6a0",
       "source_order": 155811
     },
     {
@@ -1858,7 +2823,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 35,
       "body_sha256": "783b057231d619872955dcd5d9f26f5e3d97cc20469362565e0014b9e624c75c",
@@ -1866,13 +2832,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "eb22ba29ca7149edf99b6468676a5ffad06d37db1733201c9b2b324b03b768cd",
       "relocations": [],
-      "source_sha256": "81c9f7873d0ce1efc394d424660e30bdc1ae30e28c2290735992e8482b6a2ba7",
-      "source": "src/recovered/classes/Wstring/Wstring_Get_Char_0076e700.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Get_Char_0076e700",
       "source_order": 155813
     },
     {
@@ -1884,7 +2849,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 35,
       "body_sha256": "783b057231d619872955dcd5d9f26f5e3d97cc20469362565e0014b9e624c75c",
@@ -1892,13 +2858,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "eb22ba29ca7149edf99b6468676a5ffad06d37db1733201c9b2b324b03b768cd",
       "relocations": [],
-      "source_sha256": "b022f7366194d42153e59ec2ee3adb1aa1e68eaf6c5de4b3cdd737de4921915a",
-      "source": "src/recovered/classes/Wstring/Wstring_operator_index_0076e740.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_operator_index_0076e740",
       "source_order": 155815
     },
     {
@@ -1910,7 +2875,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 35,
       "body_sha256": "783b057231d619872955dcd5d9f26f5e3d97cc20469362565e0014b9e624c75c",
@@ -1918,13 +2884,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "eb22ba29ca7149edf99b6468676a5ffad06d37db1733201c9b2b324b03b768cd",
       "relocations": [],
-      "source_sha256": "6df2ab274df979ae6aceadeca36d22c16b61a01b452539662c52d2d5183f6056",
-      "source": "src/recovered/classes/Wstring/Wstring_operator_call_0076e770.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_operator_call_0076e770",
       "source_order": 155816
     },
     {
@@ -1936,7 +2901,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 25,
       "body_sha256": "c55f2cbadf6b612b55d9bcc65281934801b77794ae6761ec4613b229e1705213",
@@ -1944,13 +2910,12 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "81ab8479eda3ad4b4f875cc930b664275291ce1aa9536c706f22db3b42d2236a",
       "relocations": [],
-      "source_sha256": "33db4af4dbd7f302acab021efdaebd290acd589efc93ff7fd13af1b622dd1d6b",
-      "source": "src/recovered/classes/Wstring/Wstring_Length_0076e7a0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Length_0076e7a0",
       "source_order": 155817
     },
     {
@@ -1962,7 +2927,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 92,
       "body_sha256": "21d6d78e010050946cf4d6d5b4998f6585a0e9b097436f5bc20afd4ee1d03e0d",
@@ -1995,14 +2961,49 @@
           "resolved": 4294966779
         }
       ],
-      "source_sha256": "f331762f8d7d0e36f27b34df883cccb5f009557735d0bc3eb13cc73d5432af8b",
-      "source": "src/recovered/classes/Wstring/Wstring_Trim_Leading_0076e4c0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Trim_Leading_0076e4c0",
       "source_order": 155807
+    },
+    {
+      "entry": 7799872,
+      "method": "00770440",
+      "symbol": "?FUN_00770440@Owner_00770440@seed_00770440@@QAEGI@Z",
+      "symbol_prefix": "?FUN_00770440@",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "body_bytes": 39,
+      "body_sha256": "978dad69b503bcd753a27f8631f6894b17a44735bf0bd319fe752b07ee940670",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "5c46fa22d330e4bed5692646629b0e0dc4185d501588b8265939787455aecaa1",
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 20,
+          "symbol": "?FUN_00783605@seed_00770440@@YAIPAF@Z",
+          "target": 7878149,
+          "addend": 0,
+          "resolved": 78266
+        }
+      ],
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
+      "population": "population-3538",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "source_quality_family": "hand-written",
+      "source_order": 170190,
+      "bound_population": "population-3817"
     },
     {
       "entry": 7797264,
@@ -2013,7 +3014,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 57,
       "body_sha256": "304918fbfb90fd8f2a1580ac3e7326e867c079802e25cbc8f3b310df8b8d4857",
@@ -2046,13 +3048,12 @@
           "resolved": 80970
         }
       ],
-      "source_sha256": "14c8b1f922209f4050de92b15e70e6f5251679d4d3144adb1dbf78846a689544",
-      "source": "src/recovered/classes/WideString/WideString_WideString_copy_0076fa10.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_WideString_copy_0076fa10",
       "source_order": 155841
     },
     {
@@ -2064,7 +3065,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 116,
       "body_sha256": "d902cce27ca2c568ec3d1a296143b3a2ddd3cc5ed02f0890ade12bd5cc9b1605",
@@ -2121,13 +3123,12 @@
           "resolved": 73474
         }
       ],
-      "source_sha256": "a729ea1081012f38e4435efeb646fbfe2b81dcf649495fc7f3bc88e74dc62534",
-      "source": "src/recovered/classes/WideString/WideString_operator_add_assign_string_0076fdd0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_operator_add_assign_string_0076fdd0",
       "source_order": 155852
     },
     {
@@ -2139,7 +3140,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 127,
       "body_sha256": "f5f2a37646bf83c333e0590eb9ff6921de39c419aef11554b845feda2d33b850",
@@ -2204,13 +3206,12 @@
           "resolved": 73335
         }
       ],
-      "source_sha256": "47d263d47fb14e3056349f82dbb76ef14e8cc25b814f1e08903531f64468f883",
-      "source": "src/recovered/classes/WideString/WideString_operator_add_assign_0076fe50.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_operator_add_assign_0076fe50",
       "source_order": 155853
     },
     {
@@ -2222,7 +3223,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 69,
       "body_sha256": "6d730fbfac051ba42ca097f6dd373f5d1afc08219c51c0f762d633f76b3bbaec",
@@ -2247,13 +3249,12 @@
           "resolved": 79838
         }
       ],
-      "source_sha256": "6696bb21cddf61ecb1df04795a6684db86e2e3f10d44fffe9e6a960ec1964784",
-      "source": "src/recovered/classes/WideString/WideString_To_Lower_007709e0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_To_Lower_007709e0",
       "source_order": 155871
     },
     {
@@ -2265,7 +3266,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 69,
       "body_sha256": "4a718250ef9e2bcd823f95623abe06204008513f606afbb598e672c679258028",
@@ -2290,13 +3292,12 @@
           "resolved": 73421
         }
       ],
-      "source_sha256": "8f9aa71d31fadd9220915c976cc065f08383dbcd31502ad923bc1bb8cb15d182",
-      "source": "src/recovered/classes/WideString/WideString_To_Upper_00770ad0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_To_Upper_00770ad0",
       "source_order": 155873
     },
     {
@@ -2308,7 +3309,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 45,
       "body_sha256": "9ebb100e14ed51d9aa82df402da5e2d660a0b14eba8a1a1c16ddda3ab68ab1ba",
@@ -2325,13 +3327,12 @@
           "resolved": 76970
         }
       ],
-      "source_sha256": "6448508eb3bf272d347de379bd577b67cc03e0bbd389e5a11cf8143675c2f128",
-      "source": "src/recovered/classes/WideString/WideString_Set_Char_00770950.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_Set_Char_00770950",
       "source_order": 155869
     },
     {
@@ -2343,7 +3344,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 49,
       "body_sha256": "5daff6a686b5770fa3b794568bc6277d650011072a4be4e45518478cac8bdba8",
@@ -2360,13 +3362,12 @@
           "resolved": 75126
         }
       ],
-      "source_sha256": "3238fbc11896112f15202cdf7b0e7f593f7538cb77cedb9ae89a0a91d3e02f89",
-      "source": "src/recovered/classes/WideString/WideString_Is_Narrow_00771080.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_Is_Narrow_00771080",
       "source_order": 155880
     },
     {
@@ -2378,7 +3379,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 58,
       "body_sha256": "08117aea31b781fbf862ad84594ec51ecef8a09bfd4159c5f74695442563a688",
@@ -2403,13 +3405,12 @@
           "resolved": 83195
         }
       ],
-      "source_sha256": "2998403cdeb2e09cc95f5001e2a9aff6360bac00fbdd4c47b0816d5568121ffb",
-      "source": "src/recovered/classes/WideString/WideString_Contains_Any_00771540.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_Contains_Any_00771540",
       "source_order": 155887
     },
     {
@@ -2421,7 +3422,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 17,
       "body_sha256": "fc8d8d76983461a11c6fef12d2513265b535fd02e50c79d0d95adcbddb186088",
@@ -2438,13 +3440,12 @@
           "resolved": 78168
         }
       ],
-      "source_sha256": "928b49b8ccf2afae12e71a45ac7461ec2b00bec0ca654f2f74bc13b85388f0f7",
-      "source": "src/recovered/classes/WideString/WideString_Length_007704a0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_Length_007704a0",
       "source_order": 155864
     },
     {
@@ -2456,7 +3457,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 93,
       "body_sha256": "688a7a575ce1b3e0f1a569bc0d68d4e2776c5ecd6e50d0250c0ac92773e1f112",
@@ -2497,13 +3499,12 @@
           "resolved": 77128
         }
       ],
-      "source_sha256": "3f708642c47acdea699e4f12fe1a54cd4dfb3a4ca9b4e3c20e5c3d2a001452da",
-      "source": "src/recovered/classes/WideString/WideString_Set_007708f0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_Set_007708f0",
       "source_order": 155868
     },
     {
@@ -2515,7 +3516,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 91,
       "body_sha256": "a020a2d26611b4d9dd8d03397afd4511ce1446fbb1b7e223d97982c190e27a15",
@@ -2556,13 +3558,12 @@
           "resolved": 80584
         }
       ],
-      "source_sha256": "c75ad0326781c11c32c818763348c69052dfa67fae8960c89cd67ef76ae3b946",
-      "source": "src/recovered/classes/WideString/WideString_operator_assign_string_0076fb70.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_operator_assign_string_0076fb70",
       "source_order": 155847
     },
     {
@@ -2574,7 +3575,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 53,
       "body_sha256": "67e2fff91dce86da648e0882722ded86b9533baa53885858f327e423633b1de7",
@@ -2591,13 +3593,12 @@
           "resolved": 81150
         }
       ],
-      "source_sha256": "ed7ed17427da194cd61f4c7595e5248427ef06a7bd0152bbf291a8d9d1b17393",
-      "source": "src/recovered/classes/WideString/WideString_operator_equal_0076fab0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_operator_equal_0076fab0",
       "source_order": 155844
     },
     {
@@ -2609,7 +3610,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 50,
       "body_sha256": "c1af1b55f461fb4ed7d70e7ae33e504747441d9b69cf82899c0eb99a8bd8c4d2",
@@ -2626,13 +3628,12 @@
           "resolved": 81217
         }
       ],
-      "source_sha256": "5820b39335af47ef64da9d93481f7fe3a2da83cabb10fc544d631dfec0d99840",
-      "source": "src/recovered/classes/WideString/WideString_operator_equal_string_0076fa70.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_operator_equal_string_0076fa70",
       "source_order": 155843
     },
     {
@@ -2644,7 +3645,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 354,
       "body_sha256": "93369cccb6ffe083ab6f72736e91446930aa630ce8c28aedaa52320dec1f538d",
@@ -2693,13 +3695,12 @@
           "resolved": 78887
         }
       ],
-      "source_sha256": "63cb86a3ed35a354799a284cddc1ab048ed29aa18d8014aaf8885f8b52f946c2",
-      "source": "src/recovered/classes/Wstring/Wstring_Insert_0076e7c0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Insert_0076e7c0",
       "source_order": 155818
     },
     {
@@ -2711,7 +3712,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 339,
       "body_sha256": "6bfb4fc351e61801bcaaf21f67096015fdd06ca97cf8a7f8d8108dec4b074376",
@@ -2744,13 +3746,12 @@
           "resolved": 78536
         }
       ],
-      "source_sha256": "3e40c4452f675577ff21c366392a976e1b5410d0fb62a0df82358bf379131725",
-      "source": "src/recovered/classes/Wstring/Wstring_Insert_char_0076e930.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Insert_char_0076e930",
       "source_order": 155819
     },
     {
@@ -2762,7 +3763,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 109,
       "body_sha256": "b5b378974278cd57cef8cdd47fdf7752969c767a2eb92c648d5b4607b56c21d4",
@@ -2787,13 +3789,12 @@
           "resolved": 78509
         }
       ],
-      "source_sha256": "fb69177f58b498a7a28886e5abe58d166d67c28882f1611fd40701f4c89bab83",
-      "source": "src/recovered/classes/Wstring/Wstring_Set_0076ed30.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Set_0076ed30",
       "source_order": 155821
     },
     {
@@ -2805,7 +3806,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 41,
       "body_sha256": "a8f4e19a50ea339c53a0837762ff2f6b0f14f0ade657d0457913db56e210b216",
@@ -2813,13 +3815,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "9b0d8aa0564411766670bc673ccafe51d1bedaaa528543afb0b7d7b7f9f5b201",
       "relocations": [],
-      "source_sha256": "7f14a1e0af605fc1cd190912d83e8fa0401b1980eaf7c5c1bb96cf2c106671a8",
-      "source": "src/recovered/classes/Wstring/Wstring_Set_Char_0076eda0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Set_Char_0076eda0",
       "source_order": 155822
     },
     {
@@ -2831,7 +3832,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 80,
       "body_sha256": "9cffb01ec4f172b883c61d5beeba0d348e9139e418fd42f0682798e58e9af612",
@@ -2864,13 +3866,12 @@
           "resolved": 79296
         }
       ],
-      "source_sha256": "3066cbb4a902fef72153fe639ebaba76b35ff045d0e67b9a5421e92db78587ae",
-      "source": "src/recovered/classes/Wstring/Wstring_Set_length_0076edd0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Set_length_0076edd0",
       "source_order": 155823
     },
     {
@@ -2882,7 +3883,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 66,
       "body_sha256": "c9b032397016f2c3828efeeac860fa2cb5162d53d4e67406b55470fda38da237",
@@ -2899,13 +3901,12 @@
           "resolved": 86945
         }
       ],
-      "source_sha256": "ff29d2b6a3f2068ffaa0e7d9e46d54aeca5958efe91efc28c1396b345c8688df",
-      "source": "src/recovered/classes/Wstring/Wstring_To_Lower_0076ee20.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_To_Lower_0076ee20",
       "source_order": 155824
     },
     {
@@ -2917,7 +3918,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 202,
       "body_sha256": "7728753893928fa76dcaf96e9689c947b3af1bfeb7b26c9645796705d5cdaa70",
@@ -2958,13 +3960,12 @@
           "resolved": 77325
         }
       ],
-      "source_sha256": "b7c5945fd9f67eb2c5866e649638ad98fb6f0efa206f9cf16e290abdbd8cf8f3",
-      "source": "src/recovered/classes/Wstring/Wstring_As_Lower_0076ee70.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_As_Lower_0076ee70",
       "source_order": 155825
     },
     {
@@ -2976,7 +3977,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 66,
       "body_sha256": "0806ebc0d93807bf04576bcdb8da2c941edde03f8ee1204f7edfb2f0c6d2ffc7",
@@ -2993,13 +3995,12 @@
           "resolved": 80480
         }
       ],
-      "source_sha256": "a1be549b0941f1dad4f1a56231c08fd2af8bd308fee6b6599cc7ab65aed5fb10",
-      "source": "src/recovered/classes/Wstring/Wstring_To_Upper_0076ef40.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_To_Upper_0076ef40",
       "source_order": 155826
     },
     {
@@ -3011,7 +4012,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 202,
       "body_sha256": "59e156ace8ffa5288534eeda561c05672e3bf1a751de05bf7bf48331f5fc6a32",
@@ -3052,13 +4054,12 @@
           "resolved": 77037
         }
       ],
-      "source_sha256": "77818a93170ea573cb8bfb0417d939014906b08ee4b066bbd55aa9025d4faeb0",
-      "source": "src/recovered/classes/Wstring/Wstring_As_Upper_0076ef90.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_As_Upper_0076ef90",
       "source_order": 155827
     },
     {
@@ -3070,7 +4071,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 183,
       "body_sha256": "6da541c34eb9f22ea54d9ddf31fa58be316b74919638006d61ca352f6724a27c",
@@ -3135,13 +4137,12 @@
           "resolved": 76848
         }
       ],
-      "source_sha256": "1b4f5b07dd4c290230de28b217a588771f4b9e1f565187c2e798f58d1d3b3847",
-      "source": "src/recovered/classes/Wstring/Wstring_Truncate_0076f060.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Truncate_0076f060",
       "source_order": 155828
     },
     {
@@ -3153,7 +4154,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 222,
       "body_sha256": "4ca2aafab7241f7d3e4b7f350530cd99af6b1ac75834de3ad49b54c5b6d58393",
@@ -3226,13 +4228,12 @@
           "resolved": 76617
         }
       ],
-      "source_sha256": "a1bfa468f86f912771ea37545c5373a62d03e5efbf869af234b4ccffabcb1f66",
-      "source": "src/recovered/classes/Wstring/Wstring_Truncate_At_0076f120.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Truncate_At_0076f120",
       "source_order": 155829
     },
     {
@@ -3244,7 +4245,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 458,
       "body_sha256": "4770afb99a3dba9a1a81c70283939a3e7ef352d7ff60dbc8a63ec5978ce31175",
@@ -3341,13 +4343,12 @@
           "resolved": 76160
         }
       ],
-      "source_sha256": "6f70533ff0238900a94679c30e806823b7fb954d1d0555ba4ebd8302eee57d1c",
-      "source": "src/recovered/classes/Wstring/Wstring_Get_Token_0076f200.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Get_Token_0076f200",
       "source_order": 155830
     },
     {
@@ -3359,7 +4360,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 405,
       "body_sha256": "02b2cd50055d35eeaf413db0126fe6ee297539d0a8972cb7ff55fb23de1ab99f",
@@ -3456,13 +4458,12 @@
           "resolved": 75749
         }
       ],
-      "source_sha256": "6cb1d8d73e432041177dbe10d165ab01845251c09bb90ea8aec8074a09a7b273",
-      "source": "src/recovered/classes/Wstring/Wstring_Get_Line_0076f3d0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Get_Line_0076f3d0",
       "source_order": 155831
     },
     {
@@ -3474,7 +4475,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 12,
       "body_sha256": "5404ed5a65ed282cc39ba912d3fc1d0dd77ec388f97b91bb24dc2fda27bafb23",
@@ -3491,13 +4493,12 @@
           "resolved": 80005
         }
       ],
-      "source_sha256": "6ee499e858133f17b902e10adef1bf1b685fa68af8b612dfc48455c6b3002fb5",
-      "source": "src/recovered/classes/Wstring/Wstring_As_Integer_0076f570.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_As_Integer_0076f570",
       "source_order": 155832
     },
     {
@@ -3509,7 +4510,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 133,
       "body_sha256": "c041c46032148b8bd269c3c654e87b5d861f7d07e0fe10022f98d94b89223725",
@@ -3542,13 +4544,12 @@
           "resolved": 76373
         }
       ],
-      "source_sha256": "be87fbe6f1400657407620a61e73b245b0dcb36ba57638a269949d8dcb53897d",
-      "source": "src/recovered/classes/Wstring/Wstring_From_Integer_0076f580.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_From_Integer_0076f580",
       "source_order": 155833
     },
     {
@@ -3560,7 +4561,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 149,
       "body_sha256": "488561ded30baa73e3ed0f490d660793d858815f1401e481a5d0538b58941ca9",
@@ -3601,13 +4603,12 @@
           "resolved": 76206
         }
       ],
-      "source_sha256": "429e5a40b63fb8cca0e918c46b0996298f9c6166e5d3c4bb984533fb68c4f1bd",
-      "source": "src/recovered/classes/Wstring/Wstring_From_Integer_width_0076f610.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_From_Integer_width_0076f610",
       "source_order": 155834
     },
     {
@@ -3619,7 +4620,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 285,
       "body_sha256": "aaf7a4640320744f67622a51792785d35edc14d959d09d031e5c5f7770222036",
@@ -3684,13 +4686,12 @@
           "resolved": 75131
         }
       ],
-      "source_sha256": "bb9f2cd97fc8bc46c73cf5180f49f0d137dfb56e28f488bab0c93159035ceb6b",
-      "source": "src/recovered/classes/Wstring/Wstring_operator_add_string_0076f6b0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_operator_add_string_0076f6b0",
       "source_order": 155835
     },
     {
@@ -3702,7 +4703,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 334,
       "body_sha256": "df631e21505f39a6e8ab14464480df072fe1ef25050bffcf41f1bf4e69847d2c",
@@ -3759,13 +4761,12 @@
           "resolved": 74794
         }
       ],
-      "source_sha256": "8c16f411a748d2dcdb470479c0ed6aafbbc56c2864d9d3f994b7a3e888c0918c",
-      "source": "src/recovered/classes/Wstring/Wstring_Join_0076f7d0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Join_0076f7d0",
       "source_order": 155836
     },
     {
@@ -3777,7 +4778,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 59,
       "body_sha256": "1610cc7a2fee853c738406944f24cd821a4a2f1192f93c1b506cd2eb35e5ae99",
@@ -3794,13 +4796,12 @@
           "resolved": 90266
         }
       ],
-      "source_sha256": "71746a50173a91d3be9387f7fd551d58210ffe4a6541d0fbd33aac3124494bb4",
-      "source": "src/recovered/classes/Wstring/Wstring_Contains_Any_0076f920.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Contains_Any_0076f920",
       "source_order": 155837
     },
     {
@@ -3812,7 +4813,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 71,
       "body_sha256": "7f85621b37f2100140464c9cbee942757ef56e68562898c39517b009eebfc126",
@@ -3837,13 +4839,12 @@
           "resolved": 90189
         }
       ],
-      "source_sha256": "1d6c79b59351891b68c670a157c57dcc8f9eb42ddbd4b5e5617f010b2fc84603",
-      "source": "src/recovered/classes/Wstring/Wstring_Contains_Any_wstring_0076f960.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Contains_Any_wstring_0076f960",
       "source_order": 155838
     },
     {
@@ -3855,7 +4856,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 76,
       "body_sha256": "2d7d6f38a477a4d3e156b6c0bbc03659bad26137b74990ad8382f6c2f6738980",
@@ -3888,13 +4890,12 @@
           "resolved": 81031
         }
       ],
-      "source_sha256": "621693786c99d74038bee84279d49e2db1e6dc433f0e63bee3875912a291510d",
-      "source": "src/recovered/classes/WideString/WideString_constructor_string_0076f9c0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_constructor_string_0076f9c0",
       "source_order": 155840
     },
     {
@@ -3906,7 +4907,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 50,
       "body_sha256": "1c269ddb4dc57394fe5baa867cdaa2ff329981b2b36bab82f2d3c01dbb2aa685",
@@ -3923,13 +4925,12 @@
           "resolved": 81089
         }
       ],
-      "source_sha256": "1cd2520e419c8cc08171c9ab7938c768a4adba3f9f0879355c6b6b3f7590cb36",
-      "source": "src/recovered/classes/WideString/WideString_operator_not_equal_string_0076faf0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_operator_not_equal_string_0076faf0",
       "source_order": 155845
     },
     {
@@ -3941,7 +4942,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 53,
       "body_sha256": "c1440b4657d12be1e281bc08b8ad1f91f19828ec653a3c84a32c57236a6cad13",
@@ -3958,13 +4960,12 @@
           "resolved": 81022
         }
       ],
-      "source_sha256": "0c6fed2dc713fe784d8da32162623875e10312fbf35891b291b38e8574e456e9",
-      "source": "src/recovered/classes/WideString/WideString_operator_not_equal_0076fb30.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_operator_not_equal_0076fb30",
       "source_order": 155846
     },
     {
@@ -3976,7 +4977,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 137,
       "body_sha256": "bb7350aae163d59b946ba58c60bf0f26fde4b7a622ed8c8f2972b6989772571f",
@@ -4033,13 +5035,12 @@
           "resolved": 80442
         }
       ],
-      "source_sha256": "effc12d2a14bd12645a2f130f0396751b7c07b5afa5ac00d3c23e3056b564765",
-      "source": "src/recovered/classes/WideString/WideString_operator_assign_0076fbd0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_operator_assign_0076fbd0",
       "source_order": 155848
     },
     {
@@ -4051,7 +5052,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 123,
       "body_sha256": "270991987487212a775762632635df7308f02fb2e9ee7ed034011a0d77da238c",
@@ -4108,13 +5110,12 @@
           "resolved": 73836
         }
       ],
-      "source_sha256": "873fcc536c1a5eba5bc2fc25c3502e74740396550a602cbaa75b39229c3ea612",
-      "source": "src/recovered/classes/WideString/WideString_Concatenate_string_0076fc60.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_Concatenate_string_0076fc60",
       "source_order": 155849
     },
     {
@@ -4126,7 +5127,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 112,
       "body_sha256": "39edf849a57ff4487caefc9fd283f283d8a49bc36f42691e1efb6e024bce539c",
@@ -4175,13 +5177,12 @@
           "resolved": 73719
         }
       ],
-      "source_sha256": "5eb6b9ed3b4bd132cda5bd968326bb41b0cd91c1778c5888bee333582e88389e",
-      "source": "src/recovered/classes/WideString/WideString_Concatenate_length_0076fce0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_Concatenate_length_0076fce0",
       "source_order": 155850
     },
     {
@@ -4193,7 +5194,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 127,
       "body_sha256": "bb81d7dbf6f7136d78881b88bca0cea7138a9e01042af81d4b1e32d50351403a",
@@ -4258,13 +5260,12 @@
           "resolved": 73591
         }
       ],
-      "source_sha256": "c2175af54f61f9ffbf7804bf62e72d002a1d452bb0393682d9fed824a5f0d998",
-      "source": "src/recovered/classes/WideString/WideString_Concatenate_0076fd50.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_Concatenate_0076fd50",
       "source_order": 155851
     },
     {
@@ -4276,7 +5277,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 200,
       "body_sha256": "55d23e7f862fcd6427b7f5784e90446be6000a1cf6723c5ca48d915123c59a83",
@@ -4389,13 +5391,12 @@
           "resolved": 73133
         }
       ],
-      "source_sha256": "68383cd7e70e695252971495d9ccdbbc2f1bf8c06ad12856d63e54420a7051ee",
-      "source": "src/recovered/classes/WideString/WideString_operator_add_string_0076fed0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_operator_add_string_0076fed0",
       "source_order": 155854
     },
     {
@@ -4407,7 +5408,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 211,
       "body_sha256": "6b4ca9f6903ab726104a41afd652f858da723f5e5d48c9144ecfb0fd615d657b",
@@ -4528,13 +5530,12 @@
           "resolved": 72914
         }
       ],
-      "source_sha256": "13f466cfb926bc0dc98fbc6cd52fea3c8cb2f6b9157138e6610b40218b3dfb82",
-      "source": "src/recovered/classes/WideString/WideString_operator_add_0076ffa0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_operator_add_0076ffa0",
       "source_order": 155855
     },
     {
@@ -4546,7 +5547,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 143,
       "body_sha256": "076b11a19869645a1c37bc29f33041e1b37df302a656fa9e8bedbce1f9055bd8",
@@ -4595,13 +5597,12 @@
           "resolved": 72764
         }
       ],
-      "source_sha256": "89ee8274bd6eeba6aeac1deee2952840cbabb5b63d0bd6cda93e757e61cbfcc7",
-      "source": "src/recovered/classes/WideString/WideString_Remove_00770080.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_Remove_00770080",
       "source_order": 155856
     },
     {
@@ -4613,7 +5614,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 157,
       "body_sha256": "830e3dd37e3174bde7f3600d319f63e890f90ca1bca2fa2cf310c5447b927804",
@@ -4686,13 +5688,12 @@
           "resolved": 72604
         }
       ],
-      "source_sha256": "8ac592120d393f862364f00a0a5bcdfb1b7636a52677e71cf9b47d80e32299fc",
-      "source": "src/recovered/classes/WideString/WideString_Remove_Character_00770110.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_Remove_Character_00770110",
       "source_order": 155857
     },
     {
@@ -4704,7 +5705,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 84,
       "body_sha256": "a6f153d3a9112dc09fd5dd32aee896054c3b119e1c18632cd52769236c434500",
@@ -4745,13 +5747,12 @@
           "resolved": 4294966882
         }
       ],
-      "source_sha256": "ae53db81e476bbec211012ecf2f588c7a69c3bdde3ba27976f58145a3f602522",
-      "source": "src/recovered/classes/WideString/WideString_Trim_Leading_007701d0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_Trim_Leading_007701d0",
       "source_order": 155858
     },
     {
@@ -4763,7 +5764,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 74,
       "body_sha256": "c7ab7498680cf8a7cbe68ffe04ed8464844565e24d623eeb297b66233a5a53f2",
@@ -4788,13 +5790,12 @@
           "resolved": 72860
         }
       ],
-      "source_sha256": "5fc045d26398ba26607f500e73fe5d1590e904286871eade800dad7272e2da43",
-      "source": "src/recovered/classes/WideString/WideString_Set_Size_00770350.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_Set_Size_00770350",
       "source_order": 155860
     },
     {
@@ -4806,7 +5807,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 71,
       "body_sha256": "ba833ac4cee6440ec19fadb88538ba06f0cb37bdba1fa2654e6fd26f63920285",
@@ -4831,13 +5833,12 @@
           "resolved": 78406
         }
       ],
-      "source_sha256": "2b0160d1e0e6f55e9284fc594a23b082172497627497791797d97c967d4a4712",
-      "source": "src/recovered/classes/WideString/WideString_Copy_Padded_007703a0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_Copy_Padded_007703a0",
       "source_order": 155861
     },
     {
@@ -4849,7 +5850,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 520,
       "body_sha256": "d49c323570483d39c7342fef5483a5d77a07858a01c148e85f5df101d1915b68",
@@ -5066,13 +6068,12 @@
           "resolved": 70753
         }
       ],
-      "source_sha256": "deb55fee4abcba199843c5a543d08d4a10e1bbf644387e10675a9704f7ee463f",
-      "source": "src/recovered/classes/WideString/WideString_Replace_007706e0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_Replace_007706e0",
       "source_order": 155867
     },
     {
@@ -5084,7 +6085,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 87,
       "body_sha256": "7d822f8ff09347618d9080c360e9cd7622b559e74fb50ccb5a9fff3401ebd4c6",
@@ -5117,13 +6119,12 @@
           "resolved": 76895
         }
       ],
-      "source_sha256": "767df59ba6f7cc3c02c18f8cbcd0229d131f98a5ee869f450959250b4961c9ac",
-      "source": "src/recovered/classes/WideString/WideString_Set_length_00770980.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_Set_length_00770980",
       "source_order": 155870
     },
     {
@@ -5135,7 +6136,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 158,
       "body_sha256": "a07af0c0f770f97b70fc011767f91927dd7fe794f53cbb68582b64014b9c7354",
@@ -5216,13 +6218,12 @@
           "resolved": 70263
         }
       ],
-      "source_sha256": "0255410c3c8bce805dbca9e5fd955e17cd8c6e1dd66937a43eb6b4055f1a6c2b",
-      "source": "src/recovered/classes/WideString/WideString_As_Lower_00770a30.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_As_Lower_00770a30",
       "source_order": 155872
     },
     {
@@ -5234,7 +6235,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 158,
       "body_sha256": "4846942b0c4a4eba9695004bb8c7f15472d3ddbc1b724f99e209501dad079fa3",
@@ -5315,13 +6317,12 @@
           "resolved": 70023
         }
       ],
-      "source_sha256": "a5b1b8407031e16ad1fd577d1bdd7518c9c2a9531e069b5ff96a26733c1ea383",
-      "source": "src/recovered/classes/WideString/WideString_As_Upper_00770b20.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_As_Upper_00770b20",
       "source_order": 155874
     },
     {
@@ -5333,7 +6334,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 172,
       "body_sha256": "fc4769823d12e12b35e283df991848c11d75d48409262da317fc9c74e3854b02",
@@ -5414,13 +6416,12 @@
           "resolved": 69850
         }
       ],
-      "source_sha256": "67dc64014c53c3b35c6c757149b23e5908ac60cb035711c6cd4c4993643223da",
-      "source": "src/recovered/classes/WideString/WideString_Truncate_00770bc0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_Truncate_00770bc0",
       "source_order": 155875
     },
     {
@@ -5432,7 +6433,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 211,
       "body_sha256": "be2294ddfb9c143009ec27d72eb1daf7fe91c839a359880703a4f8d7c61a6dde",
@@ -5521,13 +6523,12 @@
           "resolved": 69636
         }
       ],
-      "source_sha256": "a53cda1aa650cb83834f3c71f47207011774b3e22808b22b71df6eded8d19cf2",
-      "source": "src/recovered/classes/WideString/WideString_Truncate_At_00770c70.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_Truncate_At_00770c70",
       "source_order": 155876
     },
     {
@@ -5539,7 +6540,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 408,
       "body_sha256": "341190c1f417cc49a48cae799b39ef5788efe65ac043c3f30f7e655c3f847e31",
@@ -5692,13 +6694,12 @@
           "resolved": 69219
         }
       ],
-      "source_sha256": "fa6eb57ad04142fba85183aaf86cddb6c1ba575b7d8e71c664aec34604cd0aad",
-      "source": "src/recovered/classes/WideString/WideString_Get_Token_00770d50.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_Get_Token_00770d50",
       "source_order": 155877
     },
     {
@@ -5710,7 +6711,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 373,
       "body_sha256": "ae73e3d0bf2dd1f0419361fb8a9796f1cdac83a2929712f12beb430c763ec548",
@@ -5855,13 +6857,12 @@
           "resolved": 68838
         }
       ],
-      "source_sha256": "d4237990a8d9757b74ae2816fbdf84cbd4bc11ebc8baa598f1f697cfdfb7b20c",
-      "source": "src/recovered/classes/WideString/WideString_Get_Line_00770ef0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_Get_Line_00770ef0",
       "source_order": 155878
     },
     {
@@ -5873,7 +6874,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 109,
       "body_sha256": "4462bb84e1315f95a94a7851d579f95a586b2d570cb9c0a99bc205aff5d9bb1a",
@@ -5922,13 +6924,12 @@
           "resolved": 75110
         }
       ],
-      "source_sha256": "c226756fae30cef02f7bf49a653c2a2f438b467a81aa17fe065da051c0ec808d",
-      "source": "src/recovered/unowned/unknown_number_text_007710c0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "unknown_number_text_007710c0",
       "source_order": 155881
     },
     {
@@ -5940,7 +6941,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 135,
       "body_sha256": "a320a4e77937d291ed4528f5d193f52ebd16b94216c100583616f21b1eef199b",
@@ -5997,13 +6999,12 @@
           "resolved": 74975
         }
       ],
-      "source_sha256": "2d320eb9020aa1771ab8290c48ea4cce213a3756b54f9ab15de7e59a9098aed3",
-      "source": "src/recovered/unowned/unknown_number_text_width_00771130.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "unknown_number_text_width_00771130",
       "source_order": 155882
     },
     {
@@ -6015,7 +7016,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 213,
       "body_sha256": "73c9a2dc7864c52729bd180a76e5c922d857f1aa6744ed1f578223d51f897cbd",
@@ -6128,13 +7130,12 @@
           "resolved": 67826
         }
       ],
-      "source_sha256": "f7fcd50c12d00e5579529875c1888a552e866aa593cbc21091603fae229c5249",
-      "source": "src/recovered/unowned/operator_add_string_00771380.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "operator_add_string_00771380",
       "source_order": 155885
     },
     {
@@ -6146,7 +7147,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 219,
       "body_sha256": "c26fb40911472a8dd77ebe5028289e0ec1174d8c5f73869343fe08d10de7fc01",
@@ -6267,13 +7269,12 @@
           "resolved": 67596
         }
       ],
-      "source_sha256": "69803eb4946cdf55ad73031ffe666d2a4947035c4314f62cb9113166ae79295c",
-      "source": "src/recovered/unowned/operator_add_wide_00771460.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "operator_add_wide_00771460",
       "source_order": 155886
     },
     {
@@ -6285,7 +7286,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 68,
       "body_sha256": "a8ecb40b05692acac763ac4ba740a3cad76f5731174fd669e533db2632f0e81e",
@@ -6318,13 +7320,12 @@
           "resolved": 83120
         }
       ],
-      "source_sha256": "e9e9e1b07a90497bf1595977040d95242264c5db945b881a988e36a7079db423",
-      "source": "src/recovered/classes/WideString/WideString_Contains_Any_wide_00771580.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_Contains_Any_wide_00771580",
       "source_order": 155888
     },
     {
@@ -6336,7 +7337,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 38,
       "body_sha256": "e208257df21ce978c7a09df26e6f90037018c11bb6fcc3398db41bb564e1ef04",
@@ -6353,13 +7355,12 @@
           "resolved": 78218
         }
       ],
-      "source_sha256": "bbd3b7ed6ad57bf516baccd9a619ddcfaa6ad96897a35eca06977d9162c0a6de",
-      "source": "src/recovered/classes/WideString/WideString_Get_Char_00770470.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_Get_Char_00770470",
       "source_order": 155863
     },
     {
@@ -6371,7 +7372,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 244,
       "body_sha256": "2d2e9da5c9ac3ec7899ca696bc333d67bb62c3c6bccadcaea0556e9c534ed49b",
@@ -6452,13 +7454,12 @@
           "resolved": 71285
         }
       ],
-      "source_sha256": "081f48e3c767dc016e7a2840a57f20d9924f6af8f158652512daaa1708cd09bb",
-      "source": "src/recovered/classes/WideString/WideString_Insert_character_007705e0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_Insert_character_007705e0",
       "source_order": 155866
     },
     {
@@ -6470,7 +7471,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 246,
       "body_sha256": "1891f784b5cb8c1de8e22dc846edd30e15b582461a95d3491ace8bcfba5a3915",
@@ -6575,13 +7577,12 @@
           "resolved": 72222
         }
       ],
-      "source_sha256": "1086331e03f6827965145396047eb8ab394164347d5d01c35f1954d077bbce81",
-      "source": "src/recovered/classes/WideString/WideString_Trim_Trailing_00770230.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_Trim_Trailing_00770230",
       "source_order": 155859
     },
     {
@@ -6593,7 +7594,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 288,
       "body_sha256": "a9c8127cb8eaf0e5abc5fa977512faf2e7f8265ae7c978b218b78319a8ea29e8",
@@ -6738,13 +7740,12 @@
           "resolved": 71529
         }
       ],
-      "source_sha256": "cfcb4ada7268b40077eaa5e9198985a0de63fad228c8eefc79351fd797aee196",
-      "source": "src/recovered/classes/WideString/WideString_Insert_string_007704c0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "WideString_Insert_string_007704c0",
       "source_order": 155865
     },
     {
@@ -6756,7 +7757,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 182,
       "body_sha256": "8645e4b2042909a49ffdda4a3c6766dae3eb5d4a674c753c8774fe189d8e405a",
@@ -6783,7 +7785,7 @@
         {
           "offset": 62,
           "kind": 20,
-          "symbol": "?Unknown_006FA0C0@@YIXPAGPBDH@Z",
+          "symbol": "?Char_To_Wide_006fa0c0@@YIXPAGPBDH@Z",
           "target": 7315648,
           "addend": 0,
           "resolved": 4294479550
@@ -6853,13 +7855,12 @@
           "resolved": 68303
         }
       ],
-      "source_sha256": "4689c0f4cb2ddb2822588f3e5bab5014bb5271ccd5936770c05200e5529f9daa",
-      "source": "src/recovered/classes/WideString/Wstring_To_Wide_007711c0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_To_Wide_007711c0",
       "source_order": 155883
     },
     {
@@ -6871,7 +7872,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 671,
       "body_sha256": "060ec6dd64fb4f44fa6893d9adb4e585ec12ea59d2605499746196ab3011b221",
@@ -6984,13 +7986,12 @@
           "resolved": 77850
         }
       ],
-      "source_sha256": "cb5f7834536b21278e0982646ec0a3b1d3448a3431394489ccc1798049519007",
-      "source": "src/recovered/classes/Wstring/Wstring_Replace_0076ea90.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wstring_Replace_0076ea90",
       "source_order": 155820
     },
     {
@@ -7002,7 +8003,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 241,
       "body_sha256": "12ab62695372ecd42b011e7a1de13c5478a97db1e7954bd9ad9f0765a0ae53cf",
@@ -7037,7 +8039,7 @@
         {
           "offset": 65,
           "kind": 20,
-          "symbol": "?Unknown_006FA0F0@@YIXPADPBGH@Z",
+          "symbol": "?WideToCharString_006fa0f0@@YIXPADPBGH@Z",
           "target": 7315696,
           "addend": 0,
           "resolved": 4294479403
@@ -7075,13 +8077,12 @@
           "resolved": 68061
         }
       ],
-      "source_sha256": "add833cf44cb435aa6467d89cc60807221e3bc9a135983f30473d5b3976770a8",
-      "source": "src/recovered/classes/WideString/Narrow_Copy_00771280.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Narrow_Copy_00771280",
       "source_order": 155884
     },
     {
@@ -7093,7 +8094,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 251,
       "body_sha256": "034a1731aacdc0f72d68f1a4e993731b7a7da0493af39569d665136719a99aa1",
@@ -7166,13 +8168,12 @@
           "resolved": 67195
         }
       ],
-      "source_sha256": "8f8e9639466f259bdbc8a879be96cbf35f42459187a521d12b20aee5962bd74f",
-      "source": "src/recovered/classes/WideString/Wide_To_7_Bit_007715d0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wide_To_7_Bit_007715d0",
       "source_order": 155889
     },
     {
@@ -7184,7 +8185,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 201,
       "body_sha256": "94d489917e760559706571c0480706f858cbbf9b033331ddd3fc481410cd5dae",
@@ -7281,13 +8283,12 @@
           "resolved": 66988
         }
       ],
-      "source_sha256": "b9c279c409633899595dce3873c9b251b8326a631a3f943d678fe598749adbc3",
-      "source": "src/recovered/classes/WideString/Wide_From_7_Bit_007716d0.cpp",
+      "source_sha256": "65b3b939161f67db626a651fa18feb7706118117f2d8c654c1065cf55732d3cd",
+      "source": "src/recovered/wstring.cpp",
       "population": "population-3538",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Wide_From_7_Bit_007716d0",
       "source_order": 155890
     }
   ]

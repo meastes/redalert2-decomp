@@ -6,10 +6,10 @@
 #include "shared/win32_gdi.hpp"
 class BSurface;
 class PaletteClass;
-class GdiBitmapSurface_004981C0 {
+class DIB8Class {
 public:
-    GdiBitmapSurface_004981C0(HWND window, int width, int height, PaletteClass const &palette);
-    ~GdiBitmapSurface_004981C0();
+    DIB8Class(HWND window, int width, int height, PaletteClass const &palette);
+    ~DIB8Class();
     void Clear(unsigned char color);
     bool Error;                  // +00
     BITMAPINFO *Info;             // +04 allocation sizeofBITMAPINFO+256RGBQUADs

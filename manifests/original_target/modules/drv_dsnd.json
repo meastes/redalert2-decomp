@@ -1,0 +1,718 @@
+{
+ "module": "drv_dsnd",
+ "source": "src/recovered/drv_dsnd.cpp",
+ "header": null,
+ "population": "population-4274",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 931,
+ "code": [
+  {
+   "symbol": "?Audio_DS_Init@@YIJPAUAudioDriver@@@Z",
+   "entry": "00409390",
+   "body_bytes": 310,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Audio_Thread_Proc@@YGKPAX@Z",
+   "entry": "004094d0",
+   "body_bytes": 709,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Audio_DS_Fill@@YIHPAUAudioChannelBuffer@@H@Z",
+   "entry": "004097a0",
+   "body_bytes": 954,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Audio_DS_Setup_Decoder@@YIXPAUAudioChannelBuffer@@@Z",
+   "entry": "00409b60",
+   "body_bytes": 330,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Audio_Copy_Block@@YIHPAUAudioChannelBuffer@@PAXPAHPBX2@Z",
+   "entry": "00409cb0",
+   "body_bytes": 76,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Audio_DS_Release@@YAXXZ",
+   "entry": "00409f10",
+   "body_bytes": 148,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Audio_DS_Open@@YIJPAUAudioDevice@@@Z",
+   "entry": "00409fb0",
+   "body_bytes": 372,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Audio_DS_Close@@YIXXZ",
+   "entry": "0040a130",
+   "body_bytes": 69,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Audio_DS_Channel_Open@@YIHPAUAudioChannel@@@Z",
+   "entry": "0040a180",
+   "body_bytes": 112,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Audio_DS_Channel_Close@@YIHPAUAudioChannel@@@Z",
+   "entry": "0040a1f0",
+   "body_bytes": 110,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Audio_DS_Channel_Start@@YIJPAUAudioChannel@@@Z",
+   "entry": "0040a260",
+   "body_bytes": 714,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Audio_DS_Channel_Stop@@YIHPAUAudioChannel@@@Z",
+   "entry": "0040a530",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Audio_DS_Channel_Pause@@YIHPAUAudioChannel@@@Z",
+   "entry": "0040a570",
+   "body_bytes": 22,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Audio_DS_Channel_Resume@@YIJPAUAudioChannel@@@Z",
+   "entry": "0040a590",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Audio_DS_Channel_Is_Playing@@YIHPAUAudioChannel@@@Z",
+   "entry": "0040a5c0",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Audio_DS_Channel_Apply_Settings@@YIHPAUAudioChannel@@@Z",
+   "entry": "0040a5f0",
+   "body_bytes": 153,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?get@Leaf_40a690@@QAEIXZ",
+   "entry": "0040a690",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?get@Leaf_40a6c0@@QAEIXZ",
+   "entry": "0040a6c0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?FUN_0040a6d0@seed_0040a6d0@@YAIXZ",
+   "entry": "0040a6d0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Audio_DS_Set_Primary_Format@@YIXHHH@Z",
+   "entry": "0040a6e0",
+   "body_bytes": 133,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Audio_DS_Apply_Primary_Format@@YIXXZ",
+   "entry": "0040a770",
+   "body_bytes": 171,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Audio_DS_Volume_Attenuation@@YIJH@Z",
+   "entry": "0040a820",
+   "body_bytes": 53,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Audio_DS_Stop_Primary@@YAXXZ",
+   "entry": "0040a860",
+   "body_bytes": 16,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Audio_DS_Restart_Primary@@YAXXZ",
+   "entry": "0040a870",
+   "body_bytes": 65,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Audio_Run_With_Levels_Updated@@YIXPAUAudioDevice@@@Z",
+   "entry": "0040a8c0",
+   "body_bytes": 196,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Audio_Adpcm_Decode@@YIFEPAUAudioAdpcmState@@@Z",
+   "entry": "0040abf0",
+   "body_bytes": 142,
+   "padding_bytes": 2
+  }
+ ],
+ "code_bytes": 5216,
+ "data": [
+  {
+   "symbol": "??_C@_0DI@PNME@Unable?5to?5change?5the?5priority?5of@",
+   "address": "007cd1a0",
+   "bytes": 56,
+   "kind": "string",
+   "section": 3
+  },
+  {
+   "symbol": "??_C@_0CD@CFEI@Buffer?5management?5out?5by?5?$CFd?5byte@",
+   "address": "007cd1d8",
+   "bytes": 35,
+   "kind": "string",
+   "section": 8
+  },
+  {
+   "symbol": "??_C@_0BH@FAOO@Failed?5to?5lock?5buffer?6?$AA@",
+   "address": "007cd1fc",
+   "bytes": 23,
+   "kind": "string",
+   "section": 9
+  },
+  {
+   "symbol": "??_C@_0BK@EALD@Failed?5to?5restore?5buffer?6?$AA@",
+   "address": "007cd214",
+   "bytes": 26,
+   "kind": "string",
+   "section": 10
+  },
+  {
+   "symbol": "??_C@_0BB@OLEN@Restored?5buffer?6?$AA@",
+   "address": "007cd230",
+   "bytes": 17,
+   "kind": "string",
+   "section": 11
+  },
+  {
+   "symbol": "??_C@_0CK@KNMJ@Unable?5to?5set?5the?5desired?5primar@",
+   "address": "007cd244",
+   "bytes": 42,
+   "kind": "string",
+   "section": 20
+  },
+  {
+   "symbol": "??_C@_0BK@HNLL@Failed?5to?5start?5playback?6?$AA@",
+   "address": "007cd270",
+   "bytes": 26,
+   "kind": "string",
+   "section": 29
+  },
+  {
+   "symbol": "??_C@_0BO@KHOK@Sound?5buffer?5size?5?$DN?5?$CFd?5bytes?6?$AA@",
+   "address": "007cd28c",
+   "bytes": 30,
+   "kind": "string",
+   "section": 30
+  },
+  {
+   "symbol": "??_C@_0CC@HKBA@Failed?5to?5create?5playback?5buffer@",
+   "address": "007cd2ac",
+   "bytes": 34,
+   "kind": "string",
+   "section": 31
+  },
+  {
+   "symbol": "??_C@_0BN@ELOL@Sound?5frame?5size?5?$DN?5?$CFd?5bytes?6?$AA@",
+   "address": "007cd2d0",
+   "bytes": 29,
+   "kind": "string",
+   "section": 32
+  },
+  {
+   "symbol": "??_C@_0BK@FIAO@Failed?5to?5prefill?5buffer?6?$AA@",
+   "address": "007cd2f0",
+   "bytes": 26,
+   "kind": "string",
+   "section": 33
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_C@_0DI@PNME@Unable?5to?5change?5the?5priority?5of@",
+   "address": "007cd1a0",
+   "bytes": 56,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CD@CFEI@Buffer?5management?5out?5by?5?$CFd?5byte@",
+   "address": "007cd1d8",
+   "bytes": 35,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BH@FAOO@Failed?5to?5lock?5buffer?6?$AA@",
+   "address": "007cd1fc",
+   "bytes": 23,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BK@EALD@Failed?5to?5restore?5buffer?6?$AA@",
+   "address": "007cd214",
+   "bytes": 26,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@OLEN@Restored?5buffer?6?$AA@",
+   "address": "007cd230",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CK@KNMJ@Unable?5to?5set?5the?5desired?5primar@",
+   "address": "007cd244",
+   "bytes": 42,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BK@HNLL@Failed?5to?5start?5playback?6?$AA@",
+   "address": "007cd270",
+   "bytes": 26,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BO@KHOK@Sound?5buffer?5size?5?$DN?5?$CFd?5bytes?6?$AA@",
+   "address": "007cd28c",
+   "bytes": 30,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CC@HKBA@Failed?5to?5create?5playback?5buffer@",
+   "address": "007cd2ac",
+   "bytes": 34,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BN@ELOL@Sound?5frame?5size?5?$DN?5?$CFd?5bytes?6?$AA@",
+   "address": "007cd2d0",
+   "bytes": 29,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BK@FIAO@Failed?5to?5prefill?5buffer?6?$AA@",
+   "address": "007cd2f0",
+   "bytes": 26,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00406f50",
+   "symbol": "?Audio_DS_Stop_Primary_0040a860@seed_00406f50@@YAXXZ",
+   "target": "0040a860",
+   "function_entry": true
+  },
+  {
+   "site": "00406f70",
+   "symbol": "?Audio_DS_Restart_Primary_0040a870@seed_00406f70@@YAXXZ",
+   "target": "0040a870",
+   "function_entry": true
+  },
+  {
+   "site": "0040a990",
+   "symbol": "?Audio_Adpcm_Decode@@YIFEPAUAudioAdpcmState@@@Z",
+   "target": "0040abf0",
+   "function_entry": true
+  },
+  {
+   "site": "0040a990",
+   "symbol": "?Audio_Adpcm_Decode@@YIFEPAUAudioAdpcmState@@@Z",
+   "target": "0040abf0",
+   "function_entry": true
+  },
+  {
+   "site": "0040a990",
+   "symbol": "?Audio_Adpcm_Decode@@YIFEPAUAudioAdpcmState@@@Z",
+   "target": "0040abf0",
+   "function_entry": true
+  },
+  {
+   "site": "0040a990",
+   "symbol": "?Audio_Adpcm_Decode@@YIFEPAUAudioAdpcmState@@@Z",
+   "target": "0040abf0",
+   "function_entry": true
+  },
+  {
+   "site": "0042ff30",
+   "symbol": "?unknown_directsound_40a6c0@@YAPAXXZ",
+   "target": "0040a6c0",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?Audio_DS_Set_Primary_Format@@YIXHHH@Z",
+   "target": "0040a6e0",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?Audio_DS_Apply_Primary_Format@@YIXXZ",
+   "target": "0040a770",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?Audio_DS_Set_Primary_Format@@YIXHHH@Z",
+   "target": "0040a6e0",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?Audio_DS_Apply_Primary_Format@@YIXXZ",
+   "target": "0040a770",
+   "function_entry": true
+  },
+  {
+   "site": "004118a0",
+   "symbol": "?unknown_directsound_40a6c0@@YAPAXXZ",
+   "target": "0040a6c0",
+   "function_entry": true
+  },
+  {
+   "site": "00411b70",
+   "symbol": "?unknown_directsound_40a6c0@@YAPAXXZ",
+   "target": "0040a6c0",
+   "function_entry": true
+  },
+  {
+   "site": "00411b70",
+   "symbol": "?Audio_DS_Volume_Attenuation@@YIJH@Z",
+   "target": "0040a820",
+   "function_entry": true
+  },
+  {
+   "site": "00411d80",
+   "symbol": "?Audio_DS_Volume_Attenuation@@YIJH@Z",
+   "target": "0040a820",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?Audio_Adpcm_Index@@3QBHB",
+   "address": "007ccfe0"
+  },
+  {
+   "symbol": "?Audio_Adpcm_Steps@@3QBHB",
+   "address": "007cd020"
+  },
+  {
+   "symbol": "?Audio_Attenuation@@3QBJB",
+   "address": "007cce48"
+  },
+  {
+   "symbol": "?Audio_Channel_Set_Format@@YIHPAUAudioChannel@@PBUAudioFormat@@@Z",
+   "address": "00402800"
+  },
+  {
+   "symbol": "?Audio_DS_Decode_Adpcm_Block@@YIHPAUAudioChannelBuffer@@@Z",
+   "address": "0040a990"
+  },
+  {
+   "symbol": "?Audio_DS_Decode_Blocks@@YIHPAUAudioChannelBuffer@@PAXPAHPBX2@Z",
+   "address": "00409d00"
+  },
+  {
+   "symbol": "?Audio_Device_First_Channel@@YIPAUAudioListNode@@PAUAudioDevice@@PAUAudioListIterator@@@Z",
+   "address": "004035b0"
+  },
+  {
+   "symbol": "?Audio_DirectSound@@3PAUIDirectSound@@A",
+   "address": "008315ac"
+  },
+  {
+   "symbol": "?Audio_Get_Device@@YAPAUAudioDevice@@XZ",
+   "address": "00406f40"
+  },
+  {
+   "symbol": "?Audio_Global_Levels@@3PAPAUAudioLevelSet@@A",
+   "address": "0083144c"
+  },
+  {
+   "symbol": "?Audio_Lock@@3UCRITICAL_SECTION@@A",
+   "address": "00831590"
+  },
+  {
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "address": "004092d0"
+  },
+  {
+   "symbol": "?Audio_Primary_Buffer@@3PAUIDirectSoundBuffer@@A",
+   "address": "008315b0"
+  },
+  {
+   "symbol": "?Audio_Thread@@3UAudioThreadBlock@@A",
+   "address": "00831560"
+  },
+  {
+   "symbol": "?Audio_Thread_Running@@3HA",
+   "address": "008315a8"
+  },
+  {
+   "symbol": "?Audio_Thread_Users@@3HC",
+   "address": "00831588"
+  },
+  {
+   "symbol": "?Clear_Changed@AudioLevelSet@@QAEXXZ",
+   "address": "00401170"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?MainWindow@@3PAUHWND__@@A",
+   "address": "00b263d8"
+  },
+  {
+   "symbol": "?Next@AudioListIterator@@QAEPAUAudioListNode@@XZ",
+   "address": "004035d0"
+  },
+  {
+   "symbol": "?Run_Update@AudioDevice@@QAEXXZ",
+   "address": "00403810"
+  },
+  {
+   "symbol": "?Scale_Frequency@AudioLevelSet@@QAIHH@Z",
+   "address": "00401190"
+  },
+  {
+   "symbol": "?Set@AudioTimeSpan@@QAEX_J@Z",
+   "address": "00403870"
+  },
+  {
+   "symbol": "?Set_08@AudioTimeSpan@@QAEX_J@Z",
+   "address": "004038a0"
+  },
+  {
+   "symbol": "?Set_20@AudioTimeSpan@@QAEX_J@Z",
+   "address": "004038c0"
+  },
+  {
+   "symbol": "?Tick@AudioTimeSpan@@QAEX_J@Z",
+   "address": "00403920"
+  },
+  {
+   "symbol": "?Update@AudioLevelSet@@QAEXXZ",
+   "address": "00401080"
+  },
+  {
+   "symbol": "_DAT_008315b0",
+   "address": "008315b0"
+  },
+  {
+   "symbol": "_DirectSoundCreate@12",
+   "address": "00781bde"
+  },
+  {
+   "symbol": "__imp__CloseHandle@4",
+   "address": "0079a1d4"
+  },
+  {
+   "symbol": "__imp__CreateThread@24",
+   "address": "0079a1ec"
+  },
+  {
+   "symbol": "__imp__DeleteCriticalSection@4",
+   "address": "0079a1d8"
+  },
+  {
+   "symbol": "__imp__EnterCriticalSection@4",
+   "address": "0079a1dc"
+  },
+  {
+   "symbol": "__imp__FormatMessageA@28",
+   "address": "0079a1f8"
+  },
+  {
+   "symbol": "__imp__GetLastError@0",
+   "address": "0079a1f4"
+  },
+  {
+   "symbol": "__imp__InitializeCriticalSection@4",
+   "address": "0079a1e8"
+  },
+  {
+   "symbol": "__imp__LeaveCriticalSection@4",
+   "address": "0079a1e0"
+  },
+  {
+   "symbol": "__imp__SetThreadPriority@8",
+   "address": "0079a1f0"
+  },
+  {
+   "symbol": "__imp__Sleep@4",
+   "address": "0079a1e4"
+  },
+  {
+   "symbol": "__imp__WaitForSingleObject@8",
+   "address": "0079a1d0"
+  },
+  {
+   "symbol": "_free",
+   "address": "007825e8"
+  },
+  {
+   "symbol": "_malloc",
+   "address": "00782630"
+  }
+ ],
+ "route": "A",
+ "unit": "drv_dsnd.cpp",
+ "form": "one include block",
+ "switches": [
+  "RA2_AUDIO_DS_START"
+ ],
+ "include_blocks": [
+  {
+   "before": "00409390",
+   "lines": 5
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "004097a0",
+   "bytes": 954,
+   "population": "population-2212",
+   "bound": "own frozen bound (population-2212)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0040a690",
+   "bytes": 6,
+   "population": "population-09",
+   "bound": "own frozen bound (population-09)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0040a6c0",
+   "bytes": 6,
+   "population": "population-4352",
+   "bound": "own frozen bound (population-4352)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0040a6d0",
+   "bytes": 6,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "00409d00",
+   "bytes": 524,
+   "population": "population-997",
+   "source": "src/recovered/drv_dsnd/Audio_DS_Decode_Blocks.cpp",
+   "cause": "frozen in another population's inventory pass (population-997)"
+  },
+  {
+   "kind": "split",
+   "entry": "0040a6a0",
+   "bytes": 14,
+   "population": "population-2913",
+   "source": "src/recovered/drv_dsnd/audioLock.cpp",
+   "cause": "frozen in another population's inventory pass (population-2913)"
+  },
+  {
+   "kind": "split",
+   "entry": "0040a6b0",
+   "bytes": 14,
+   "population": "population-2913",
+   "source": "src/recovered/drv_dsnd/audioUnlock.cpp",
+   "cause": "frozen in another population's inventory pass (population-2913)"
+  },
+  {
+   "kind": "split",
+   "entry": "0040a990",
+   "bytes": 606,
+   "population": "population-995",
+   "source": "src/recovered/drv_dsnd/Audio_DS_Decode_Adpcm_Block.cpp",
+   "cause": "frozen in another population's inventory pass (population-995)"
+  }
+ ],
+ "unit_functions": 30,
+ "data_unproven": [],
+ "stand_in_references": [
+  {
+   "site": "00406f50",
+   "target": "0040a860",
+   "symbol": "?Audio_DS_Stop_Primary_0040a860@seed_00406f50@@YAXXZ",
+   "module_symbol": "?Audio_DS_Stop_Primary@@YAXXZ"
+  },
+  {
+   "site": "00406f70",
+   "target": "0040a870",
+   "symbol": "?Audio_DS_Restart_Primary_0040a870@seed_00406f70@@YAXXZ",
+   "module_symbol": "?Audio_DS_Restart_Primary@@YAXXZ"
+  },
+  {
+   "site": "0042ff30",
+   "target": "0040a6c0",
+   "symbol": "?unknown_directsound_40a6c0@@YAPAXXZ",
+   "module_symbol": "?get@Leaf_40a6c0@@QAEIXZ"
+  },
+  {
+   "site": "004118a0",
+   "target": "0040a6c0",
+   "symbol": "?unknown_directsound_40a6c0@@YAPAXXZ",
+   "module_symbol": "?get@Leaf_40a6c0@@QAEIXZ"
+  },
+  {
+   "site": "00411b70",
+   "target": "0040a6c0",
+   "symbol": "?unknown_directsound_40a6c0@@YAPAXXZ",
+   "module_symbol": "?get@Leaf_40a6c0@@QAEIXZ"
+  }
+ ],
+ "stand_in_reference_count": 5,
+ "residual_split": {
+  "rows": 4,
+  "bytes": 1158
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

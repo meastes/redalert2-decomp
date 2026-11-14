@@ -1,0 +1,207 @@
+{
+ "module": "unvqtblc",
+ "source": "src/recovered/unvqtblc.cpp",
+ "header": null,
+ "population": "population-4277",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 934,
+ "code": [
+  {
+   "symbol": "?Hicolor_Init_Table@@YI_NH@Z",
+   "entry": "0070b690",
+   "body_bytes": 320,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Hicolor_Clear_Table@@YAXXZ",
+   "entry": "0070b7d0",
+   "body_bytes": 29,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Hicolor_Translate@@YIXPAXH@Z",
+   "entry": "0070b7f0",
+   "body_bytes": 34,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?UnVQ2_4x4_Table@@YAXPAE00KKK@Z",
+   "entry": "0070b820",
+   "body_bytes": 916,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?UnVQ1_4x4_Table@@YAXPAE00KKK@Z",
+   "entry": "0070bf60",
+   "body_bytes": 312,
+   "padding_bytes": 8
+  }
+ ],
+ "code_bytes": 1648,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0071c8a0",
+   "symbol": "?Unknown_0070B7D0@VQAClass@@QAEXXZ",
+   "target": "0070b7d0",
+   "function_entry": true
+  },
+  {
+   "site": "0071d2c0",
+   "symbol": "?VQA_Unknown_0070B7F0@@YIXPAXH@Z",
+   "target": "0070b7f0",
+   "function_entry": true
+  },
+  {
+   "site": "0071d6e0",
+   "symbol": "?VQA_Unknown_0070B7F0@@YIXPAXH@Z",
+   "target": "0070b7f0",
+   "function_entry": true
+  },
+  {
+   "site": "0071ccd0",
+   "symbol": "?VQA_Unknown_0070B690@@YIXH@Z",
+   "target": "0070b690",
+   "function_entry": true
+  },
+  {
+   "site": "0071ccd0",
+   "symbol": "?VQA_Unknown_0070B820@@YAXPAE00KKK@Z",
+   "target": "0070b820",
+   "function_entry": true
+  },
+  {
+   "site": "0071ccd0",
+   "symbol": "?VQA_Unknown_0070B690@@YIXH@Z",
+   "target": "0070b690",
+   "function_entry": true
+  },
+  {
+   "site": "0071ccd0",
+   "symbol": "?VQA_Unknown_0070BF60@@YAXPAE00KKK@Z",
+   "target": "0070bf60",
+   "function_entry": true
+  },
+  {
+   "site": "0071cfc0",
+   "symbol": "?VQA_Unknown_0070B690@@YIXH@Z",
+   "target": "0070b690",
+   "function_entry": true
+  },
+  {
+   "site": "0071cfc0",
+   "symbol": "?VQA_Unknown_0070B820@@YAXPAE00KKK@Z",
+   "target": "0070b820",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?HicolorTable@@3PAGA",
+   "address": "00ad0614"
+  }
+ ],
+ "route": "A",
+ "unit": "unvqtblc.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "0070b690",
+   "lines": 1
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 8,
+ "data_unproven": [],
+ "stand_in_references": [
+  {
+   "site": "0071c8a0",
+   "target": "0070b7d0",
+   "symbol": "?Unknown_0070B7D0@VQAClass@@QAEXXZ",
+   "module_symbol": "?Hicolor_Clear_Table@@YAXXZ"
+  },
+  {
+   "site": "0071d2c0",
+   "target": "0070b7f0",
+   "symbol": "?VQA_Unknown_0070B7F0@@YIXPAXH@Z",
+   "module_symbol": "?Hicolor_Translate@@YIXPAXH@Z"
+  },
+  {
+   "site": "0071d6e0",
+   "target": "0070b7f0",
+   "symbol": "?VQA_Unknown_0070B7F0@@YIXPAXH@Z",
+   "module_symbol": "?Hicolor_Translate@@YIXPAXH@Z"
+  },
+  {
+   "site": "0071ccd0",
+   "target": "0070b690",
+   "symbol": "?VQA_Unknown_0070B690@@YIXH@Z",
+   "module_symbol": "?Hicolor_Init_Table@@YI_NH@Z"
+  },
+  {
+   "site": "0071ccd0",
+   "target": "0070b820",
+   "symbol": "?VQA_Unknown_0070B820@@YAXPAE00KKK@Z",
+   "module_symbol": "?UnVQ2_4x4_Table@@YAXPAE00KKK@Z"
+  },
+  {
+   "site": "0071ccd0",
+   "target": "0070b690",
+   "symbol": "?VQA_Unknown_0070B690@@YIXH@Z",
+   "module_symbol": "?Hicolor_Init_Table@@YI_NH@Z"
+  },
+  {
+   "site": "0071ccd0",
+   "target": "0070bf60",
+   "symbol": "?VQA_Unknown_0070BF60@@YAXPAE00KKK@Z",
+   "module_symbol": "?UnVQ1_4x4_Table@@YAXPAE00KKK@Z"
+  },
+  {
+   "site": "0071cfc0",
+   "target": "0070b690",
+   "symbol": "?VQA_Unknown_0070B690@@YIXH@Z",
+   "module_symbol": "?Hicolor_Init_Table@@YI_NH@Z"
+  },
+  {
+   "site": "0071cfc0",
+   "target": "0070b820",
+   "symbol": "?VQA_Unknown_0070B820@@YAXPAE00KKK@Z",
+   "module_symbol": "?UnVQ2_4x4_Table@@YAXPAE00KKK@Z"
+  }
+ ],
+ "stand_in_reference_count": 9,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

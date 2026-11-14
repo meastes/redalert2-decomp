@@ -14,6 +14,7 @@ import capstone
 import pefile
 from coff import Coff
 from compiler_output import classify
+import data_bindings
 
 COMPILER_STATIC_NAME = re.compile(r'_\$E\d+')
 
@@ -38,6 +39,16 @@ def extent_difference(actual, expected, va):
         return ' (bytes equal; recorded extent fingerprint differs)'
     return ' at %08x+%x (fresh %d bytes, original %d; fresh %s, original %s)' % (
         va, first, len(actual), len(expected), actual[first:first + 8].hex(), expected[first:first + 8].hex())
+
+
+def hierarchy_bit_only(name, emitted, original):
+    """True when a class hierarchy descriptor (??_R3) differs from the original only in bit 4
+    (0x4, "ambiguous") of its attributes word at offset 4."""
+    if not name.startswith('??_R3') or len(emitted) != len(original) or len(emitted) < 8:
+        return False
+    if emitted[:4] != original[:4] or emitted[8:] != original[8:]:
+        return False
+    return (struct.unpack_from('<I', emitted, 4)[0] ^ struct.unpack_from('<I', original, 4)[0]) == 4
 
 
 def longest_prefix_binding(references, name):
@@ -568,6 +579,12 @@ class Audit:
             same = bytes(data) == self.original(address, len(data))
         except ValueError:
             return False
+        if not same and hierarchy_bit_only(names[0], bytes(data), self.original(address, len(data))):
+            # docs/DECISIONS.md "Class hierarchy descriptor ambiguous bit": VC6 SP3 writes bit 4 of
+            # a ??_R3 attributes word from uninitialised memory; that one bit keeps the
+            # original's value, recorded per structure (rtti_known_differences), never credited.
+            self.__dict__.setdefault('rtti_known_differences', {})[names[0]] = '%08x' % (address + start)
+            same = True
         if not same and names[0].startswith('??_7'):
             self.record_vtable_mismatch(names[0], address, start, bytes(data), section, coff)
         if same and (names[0] in rtti or vtable is not None):
@@ -611,6 +628,39 @@ class Audit:
                         fixes.append('%s=%08x' % (slots[offset], kept))
                 hint = ['try plan bindings: ' + ' '.join('// @ref ' + f for f in fixes)]
         self.__dict__.setdefault('vtable_mismatches', {})[name] = '; '.join(notes[:8] + hint)
+
+    def bind_data_only(self, coff, candidates):
+        """Data-only symbols a source declares `data_bound_by` (data_bindings.py; docs/DECISIONS.md
+        "Data-only symbols bound by section layout / bss by elimination"): bound by the
+        enclosed section layout or by bss elimination, added to the population's references
+        for this object's data checks, which still compare every byte. Any failed condition
+        refuses. Recorded in the audit result under data_bound_by."""
+        declared = data_bindings.declared(candidates.values())
+        defined = {s['name'] for s in coff.symbols.values() if s['section'] > 0}
+        declared = {n: k for n, k in declared.items() if n in defined}
+        if not declared:
+            return
+        references = self.merged_references(candidates)
+        rtti = self.rtti_layout(coff, candidates)
+        sources = {c['source'] for c in candidates.values() if c.get('data_bound_by')}
+        maps = Path(self.repository) / 'manifests/original_target/modules'
+        others = [c for c in data_bindings.other_proven_copies(maps, None)
+                  if c[2] not in sources]
+        extents = {}
+        for index, section in enumerate(coff.sections, 1):
+            symbols = data_bindings.section_symbols(coff, index)
+            for i, (value, name) in enumerate(symbols):
+                extents[name] = (symbols[i + 1][0] if i + 1 < len(symbols) else section['size']) - value
+        table = dict(references); table.update(rtti)
+        ends, starts = data_bindings.independent_items(table, rtti, others, extents.get)
+
+        def original(va, count):
+            return self.original(va, count)
+        bound = data_bindings.bind(coff, declared, table, original, ends, starts)
+        for name, (address, kind, detail) in bound.items():
+            references[name] = address
+            self.__dict__.setdefault('data_bound_by', {})[name] = dict(address='%08x' % address, kind=kind,
+                                                                         bytes=extents.get(name, 0))
 
     def defined_data_duplicate(self, coff, index, section, candidates):
         """Initialized data a unit defines (a table written out in source).
@@ -939,6 +989,9 @@ class Audit:
         require(padding == bytes.fromhex(candidate['padding_hex']) and len(padding) == row['padding_bytes'], 'Padding accounting differs')
         if padding:
             require(len(padding) <= 15 and padding == b'\x90' * len(padding), 'Unsupported frozen padding')
+            # A row with padding whose frozen pass has no gap row behind its body refuses
+            # (a joined row's own pass included), never a KeyError.
+            require(va + body_size in gaps, 'Padding with no gap row in the frozen pass: %08x' % va)
             require(candidate['padding_provenance'] == gaps.get(va + body_size), 'Padding not from independent gap inventory')
             require(gaps[va + body_size]['length'] == len(padding), 'Partial inferred gap padding')
         expected = self.original(va, body_size + len(padding))
@@ -960,6 +1013,7 @@ class Audit:
                 except ValueError:
                     continue    # compiled in another unit of this population
                 mapped.setdefault(symbol['section'], []).append((first, last))
+            self.bind_data_only(coff, candidates)
             discarded = self.compiler_output(owner, candidates, case, coff, inventory, gaps)
             if not hasattr(self, 'discarded_outputs'): self.discarded_outputs = {}
             self.discarded_outputs[str(obj_path)] = discarded
@@ -1083,8 +1137,12 @@ class Audit:
                     compiler_generated_kept_elsewhere=sorted(set(getattr(self, 'kept_elsewhere_omitted', []))),
                     **({'rtti_original_copies': {n: '%08x' % a for n, a in sorted(self.rtti_original_copies.items())}}
                        if getattr(self, 'rtti_original_copies', None) else {}),
+                    **({'rtti_known_differences': dict(sorted(self.rtti_known_differences.items()))}
+                       if getattr(self, 'rtti_known_differences', None) else {}),
                     **({'data_original_copies': {n: '%08x' % a for n, a in sorted(self.data_original_copies.items())}}
-                       if getattr(self, 'data_original_copies', None) else {}))
+                       if getattr(self, 'data_original_copies', None) else {}),
+                    **({'data_bound_by': dict(sorted(self.data_bound_by.items()))}
+                       if getattr(self, 'data_bound_by', None) else {}))
 
 
 def main():

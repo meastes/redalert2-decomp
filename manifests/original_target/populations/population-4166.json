@@ -4,8 +4,8 @@
     "id": "population-4166",
     "inventory_sha256": "dfcbaa7cd2a23d9715b4c5f67c132a0881924f9e8ba74e97a74fbc8b711ecc79",
     "gaps_sha256": "4b9dd7d97a121e1783d13a25ddba17449988926439eeae7259f11c429ebdc80c",
-    "historical_population_sha256": "078a115f4f350c6a85ded60fc63f942bf6fc5c9d0ad2939a61b7c4bde9a17c85",
-    "historical_acceptance_sha256": "822bab0e21ff8888d8bde7383c8e9c736efd32c89819b664f57c05837e1e884d"
+    "historical_population_sha256": "25492484e465a03f897f7205c3a43b5364e31f22f358c665ac2430544a0b3245",
+    "historical_acceptance_sha256": "c9f1a294e39cb7b8e55be7037e3e6709962ff74485d79e2e94f146e1d6eb1fff"
   },
   "references": {
     "?target@Call_402190_0@@QAEIXZ": 4198400,
@@ -493,7 +493,7 @@
     "?Size@BufferIOFileClass@@UAEJXZ": 4390272,
     "?Size@RawFileClass@@UAEJXZ": 6525312,
     "?Set@RGBClass@@QAEXEEE@Z": 5204928,
-    "__DAT_00ab6e88": 11234952,
+    "__waypoint_none_00ab6e88": 11234952,
     "?Reset@ScriptClass@@QAE_NXZ": 6719744,
     "__strncpy": 7873488,
     "?Reset_All_Timed_Events@TriggerClass@@QAEXXZ": 7263872,
@@ -502,7 +502,7 @@
     "__malloc": 7874096,
     "___amsg_exit": 7887784,
     "?Set@Quaternion@@QAEXMMMM@Z": 6431104,
-    "__DAT_0084ed10": 8711440,
+    "__cell_none_0084ed10": 8711440,
     "?BlitBackward@?$BlitPlain@E@@UBEXPAXPBXHH00H@Z": 7821968,
     "_memmove": 7877264,
     "?BlitBackward@?$BlitPlain@G@@UBEXPAXPBXHH00H@Z": 7822048,
@@ -600,8 +600,8 @@
     "?Unlock@DSurface@@UAE_NXZ": 4894272,
     "??HRectPoint2D@@QBE?BU0@ABU0@@Z": 4412736,
     "?Top_Left@Rect@@QBE?AURectPoint2D@@XZ": 4412768,
-    "__DAT_00ab6ea8": 11234984,
-    "__DAT_00ab6eb0": 11234992,
+    "__unknown_timer_start_00ab6ea8": 11234984,
+    "__unknown_timer_accum_00ab6eb0": 11234992,
     "?Process_Mouse@WWMouseClass@@QAEXXZ": 7812096,
     "??0WWMouseClass@@QAE@PAVSurface@@PAUHWND__@@@Z": 7805472,
     "??_7WWMouseClass@@6B@": 8059884,
@@ -830,7 +830,7 @@
     "__real@8@4009e100000000000000": 7983424,
     "__real@8@4007e100000000000000": 7988944,
     "?x@?1???A?$IndexClass@HPAVCommandClass@@@@QBEABQAVCommandClass@@ABH@Z@4PAV2@A": 11712060,
-    "?Clear@GdiBitmapSurface_004981C0@@QAEXE@Z": 4817824,
+    "?Clear@DIB8Class@@QAEXE@Z": 4817824,
     "??0ZBuffer@@QAE@VRect@@@Z": 7822208,
     "??1ZBuffer@@QAE@XZ": 7822576,
     "?Fill@ZBuffer@@QAEXG@Z": 7823712,
@@ -1050,7 +1050,7 @@
     "?Set@RGBClass@@QAEAAV1@ABV1@M@Z": 6540784,
     "__real@8@3ffbaaaaaaaaaaaaa800": 8016520,
     "??9Cell@@QBE_NABV0@@Z": 5823312,
-    "_?entry@?1??Get_Image_0068ca40@UnknownBitmapWriter@@QAEPAVSurface@@PBDH@Z@4UUnknownBitmapEntry@@A": 11260136,
+    "_?entry@?1??Get_Image_0068ca40@SurfaceCacheClass@@QAEPAVSurface@@PBDH@Z@4UUnknownBitmapEntry@@A": 11260136,
     "__real@8@3fe2c0000000c0000000": 8019920,
     "_?name@?1??Theme_File_Name@ThemeClass@@QAEPBDH@Z@4PADA": 11274328,
     "?x@?1???AToolTipIndex@@QBEABQAVToolTip@@ABI@Z@4PAV2@A": 11712032,
@@ -1303,7 +1303,7 @@
     "?unknown_abstracts_ac0bf8@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275256,
     "?unknown_abstracts_ac0d08@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275528,
     "?unknown_player_a35db4@@3PAVHouseClass@@A": 10706356,
-    "?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A": 10736272,
+    "?unknown_id_source_a3d290@@3PAVScenarioClass@@A": 10736272,
     "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A": 10691224,
     "?SuperWeaponTypes@@3V?$DynamicVectorClass@PAVSuperWeaponTypeClass@@@@A": 10748728,
     "?unknown_rules_839848@@3PAUUnknownRules839848@@A": 8624200,
@@ -1313,7 +1313,7 @@
     "?Set@UnknownRefHolder_00639530@@QAEXPAUUnknownRefCounted_00639530@@@Z": 6526256,
     "?Release@AbstractClass@@UAGKXZ": 4260016,
     "?Release@AircraftClass@@UAGKXZ": 4276240,
-    "??0UnknownAlphaTableCache_008315B8@@QAE@XZ": 4318144,
+    "??0AlphaLightingRemapInitClass@@QAE@XZ": 4318144,
     "?Release@ApplicationClass@@UAGKXZ": 4353264,
     "?Release@DriveLocomotionClass@@UAGKXZ": 4869232,
     "?Release@LocomotionClass@@UAGKXZ": 5493360,
@@ -1441,8 +1441,8 @@
     "?Release@CStreamClass@@W3AGKXZ": 4805152,
     "?Get@WolUserArray@@QBE_NAAUUser@WOL@@H@Z": 7757856,
     "?Get@UnknownCRCStraw@@UAEHPAXH@Z": 4801168,
-    "?AlphaTableCache_008315B8@@3VUnknownAlphaTableCache_008315B8@@A": 8590776,
-    "?Get@UnknownAlphaTableCache_008315B8@@QAEPAY0BAA@$$CBGH@Z": 4318176,
+    "?AlphaTableCache_008315B8@@3VAlphaLightingRemapInitClass@@A": 8590776,
+    "?Get@AlphaLightingRemapInitClass@@QAEPAY0BAA@$$CBGH@Z": 4318176,
     "?Get@BufferStraw@@UAEHPAXH@Z": 7813184,
     "?Get@?$TypeListReader@VBuildingTypeClass@@@@SI?AV?$TypeList@PAVBuildingTypeClass@@@@AAVCCINIClass@@PBD1ABV2@@Z": 6634448,
     "?Get@?$TypeListReader@VInfantryTypeClass@@@@SI?AV?$TypeList@PAVInfantryTypeClass@@@@AAVCCINIClass@@PBD1ABV2@@Z": 6635152,
@@ -1453,14 +1453,14 @@
     "?Release@HouseClass@@WCE@AGKXZ": 5213808,
     "?Release@HouseClass@@WCI@AGKXZ": 5213856,
     "?Release@HouseClass@@WCM@AGKXZ": 5213936,
-    "??1UnknownAlphaTableCache_008315B8@@QAE@XZ": 4318160,
+    "??1AlphaLightingRemapInitClass@@QAE@XZ": 4318160,
     "??0AlphaLightingRemapClass@@QAE@H@Z": 4318608,
     "?Release@ReferenceCounted@@UAEXXZ": 6526752,
     "?Get@UnknownSelection@@QAEPAVObjectClass@@H@Z": 6997952,
-    "?Get@UnknownControlIndex@OwnerDraw@@QBE_NABIAAPAUUnknownControlRecord@2@@Z": 6297360,
+    "?Get@UnknownControlIndex@OwnerDraw@@QBE_NABIAAPAUWinData@2@@Z": 6297360,
     "?Get@Base64Straw@@UAEHPAXH@Z": 4372560,
     "?Get@UnknownWindowProcIndex@OwnerDraw@@QBE_NABQAUHWND__@@AAPAP6GJPAU3@IIJ@Z@Z": 6297824,
-    "?Release@UnknownAlphaTableCache_008315B8@@QAEXPAY0BAA@$$CBG@Z": 4318480,
+    "?Release@AlphaLightingRemapInitClass@@QAEXPAY0BAA@$$CBG@Z": 4318480,
     "?Get@SHAStraw@@UAEHPAXH@Z": 6771648,
     "__real@8@4003f000000000000000": 8053472,
     "?Action@SelectClass@StripClass@SidebarClass@@UAEHIAAI@Z": 6818288,
@@ -1495,7 +1495,50 @@
     "?Update@LaserDrawClass@@QAEXXZ": 5452592,
     "?Overlay_Shadow_Render_Rect@CellClass@@QBE?AVRect@@XZ": 4673792,
     "?Update@ScorePrintClass@@UAE_NPAVSurface@@@Z": 6717680,
-    "?Update@ProgressBarClass@@QAE_NN@Z": 4372944
+    "?Update@ProgressBarClass@@QAE_NN@Z": 4372944,
+    "?Get_Height@ObjectClass@@UBEHXZ": 6113280,
+    "?Advance@MSBinkAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5954080,
+    "?Advance@MSVQAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5955552,
+    "?Advance@MSPCXAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5962000,
+    "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
+    "?Advance@Anim@Voices@WorldDominationTour@@UAE_NPAVSurface@@PAVRect@@@Z": 7547840,
+    "?Draw_It@VeinholeMonsterClass@@QAEXXZ": 7407744,
+    "?Reset@VeinholeMonsterClass@@SAXXZ": 7408464,
+    "?Get_Height@AnimClass@@UBEHXZ": 4337888,
+    "?Reset@AStarClass@@QAEXXZ": 4364944,
+    "?Draw_It@OverlayTypeClass@@UAEXPBUPoint2D@@PBVRect@@H@Z": 6146272,
+    "?Draw_It@SmudgeTypeClass@@UAEXPBUPoint2D@@PBVRect@@HHPBVCell@@@Z": 6848720,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "?Advance@MSPrintAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5959072,
+    "?Advance@MSBitPrintAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5956960,
+    "?Advance@MSFadeAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5951024,
+    "?Advance@MSOverlayAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5952592,
+    "?Draw_Overlay_Shadow@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z": 4671536,
+    "_?address@?1??Unknown_0063FA00@OwnerTalkClass@@QAEPAVIPXAddressClass@@PAD@Z@4V3@A": 11234568,
+    "?Advance@MSShapeAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5949520,
+    "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A": 11505992,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVMapClass@@@8": 8181384,
+    "??_R0?AVDisplayClass@@@8": 8181408,
+    "??_R0?AVRadarClass@@@8": 8181440,
+    "??_R0?AVSurface@@@8": 8184496,
+    "??_R0?AVXSurface@@@8": 8184520,
+    "??_R0?AVBSurface@@@8": 8184544,
+    "??_R0?AVCellClass@@@8": 8203352,
+    "??_R0?AVRLEBlitter@@@8": 8211904,
+    "??_R0?AVBlitter@@@8": 8212040,
+    "??_R0?AVDSurface@@@8": 8217240,
+    "??_R0?AVFoggedObjectClass@@@8": 8225112,
+    "??_R0?AVMSShapeAnim@@@8": 8280088,
+    "??_R0?AVMSPrintAnim@@@8": 8280272,
+    "??_R0?AVTactical@@@8": 8350296,
+    "??_R0?AVVeinholeMonsterClass@@@8": 8361640,
+    "??_R0?AVWWMouseClass@@@8": 8393584,
+    "__ramp_corners": 8339828
   },
   "regions": [
     {
@@ -1507,7 +1550,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 20,
       "body_sha256": "c93b3dc18a7034ad9a7d9246481dc973853633baf8ed78816816b5631c1635a9",
@@ -1515,13 +1559,12 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "c5b57edffc2c7c421c167ee0b4842d21378387570e1f80224f212003013d6336",
       "relocations": [],
-      "source_sha256": "55837028bc03694b1482caa9021ab7ccfb016dcc675940ad6e0c5379bb68057d",
-      "source": "src/recovered/classes/Blit/Blit_Buffer_Size_00434940.cpp",
+      "source_sha256": "4e6a3e80448cc20136a22750ad6136d708f8b480f8e6fe5a651f7998901b3ef5",
+      "source": "src/recovered/blit.cpp",
       "population": "population-4166",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Blit_Buffer_Size_00434940",
       "source_order": 210366
     },
     {
@@ -1533,7 +1576,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 178,
       "body_sha256": "0ea46fe9c20de474b40d2d6ea587c5785112f9494b04ddfb9185ce9023b7329f",
@@ -1582,13 +1626,12 @@
           "resolved": 14857
         }
       ],
-      "source_sha256": "17988220497286a07f580708c579403c32ffeb22fa16f474259efd3648a42dc7",
-      "source": "src/recovered/classes/Blit/Blit_To_Buffer_00434960.cpp",
+      "source_sha256": "4e6a3e80448cc20136a22750ad6136d708f8b480f8e6fe5a651f7998901b3ef5",
+      "source": "src/recovered/blit.cpp",
       "population": "population-4166",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Blit_To_Buffer_00434960",
       "source_order": 210367
     },
     {
@@ -1600,7 +1643,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 180,
       "body_sha256": "9e127ec1b2cce1d6af4575a8b9770792959a4579831f0a4f8530cfc840d9ae78",
@@ -1641,13 +1685,12 @@
           "resolved": 14663
         }
       ],
-      "source_sha256": "520cbffab6e12d9fa07ea9cc9923017bea2bf8a4ce166e15bc4e8e6b8f497c72",
-      "source": "src/recovered/classes/Blit/Blit_From_Buffer_00434a20.cpp",
+      "source_sha256": "4e6a3e80448cc20136a22750ad6136d708f8b480f8e6fe5a651f7998901b3ef5",
+      "source": "src/recovered/blit.cpp",
       "population": "population-4166",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Blit_From_Buffer_00434a20",
       "source_order": 210368
     },
     {
@@ -1659,7 +1702,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 89,
       "body_sha256": "01f4520d0377f0174fd4af2edf8f482348369f7aebf1245f337c930288eed455",
@@ -1676,13 +1720,12 @@
           "resolved": 16
         }
       ],
-      "source_sha256": "17891958c8d1cb07b83171e85155037d6aac7c7f21f514367d21fb39498fbbe8",
-      "source": "src/recovered/classes/Blit/Blit_Bit_Blit_00434ae0.cpp",
+      "source_sha256": "4e6a3e80448cc20136a22750ad6136d708f8b480f8e6fe5a651f7998901b3ef5",
+      "source": "src/recovered/blit.cpp",
       "population": "population-4166",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Blit_Bit_Blit_00434ae0",
       "source_order": 210369
     },
     {
@@ -1694,7 +1737,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 96,
       "body_sha256": "a2d785bf4fc369a67f6db55c3f03e04c8bd7d64064c5d0dac187ff48365b7472",
@@ -1711,13 +1755,12 @@
           "resolved": 9
         }
       ],
-      "source_sha256": "5910e68aee122fa959e38f9f0019c28b5d9fd9654a6ef59012186f40a8d7368d",
-      "source": "src/recovered/classes/Blit/Blit_RLE_Blit_00435060.cpp",
+      "source_sha256": "4e6a3e80448cc20136a22750ad6136d708f8b480f8e6fe5a651f7998901b3ef5",
+      "source": "src/recovered/blit.cpp",
       "population": "population-4166",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Blit_RLE_Blit_00435060",
       "source_order": 210371
     },
     {
@@ -1729,7 +1772,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 32,
       "body_sha256": "9793d0b2d631283f5bb1839fc73da1deeb3ede4db11a513954bdc696e1cdd184",
@@ -1738,12 +1782,12 @@
       "full_extent_sha256": "9793d0b2d631283f5bb1839fc73da1deeb3ede4db11a513954bdc696e1cdd184",
       "relocations": [],
       "source_sha256": "9b7b729f3c9e17d8248e7785e5d821494a9bfc690ee711087592b82a62c46d93",
-      "source": "src/recovered/classes/Blit/Blit_Point2D_operator_plus_00435540.cpp",
+      "source": "src/recovered/classes/Blit/operator_plus.cpp",
       "population": "population-4166",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Blit_Point2D_operator_plus_00435540",
+      "semantic_name": "operator_plus",
       "source_order": 210373
     },
     {
@@ -1755,7 +1799,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 17,
       "body_sha256": "b4326166af5f8f0cc4145b106630a42d8214a2c69a47689bfba660a943fb294a",
@@ -1764,12 +1809,12 @@
       "full_extent_sha256": "8e1077b933fede0b7ddb15675ceabd62f8781398de7b3a8ff7d3ece34cf50742",
       "relocations": [],
       "source_sha256": "5e629769bd58ba0cb9311986ae422645487339a95941b5f0eca525c49b6a473d",
-      "source": "src/recovered/classes/Blit/Blit_Rect_Top_Left_00435560.cpp",
+      "source": "src/recovered/classes/Blit/Top_Left.cpp",
       "population": "population-4166",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Blit_Rect_Top_Left_00435560",
+      "semantic_name": "Top_Left",
       "source_order": 210374
     },
     {
@@ -1781,7 +1826,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 1303,
       "body_sha256": "fac7f2274ac68b537b0ccee019f0d8bb7fdea5f3cc2316c61b92180af24d0b48",
@@ -1942,13 +1988,12 @@
           "resolved": 8590772
         }
       ],
-      "source_sha256": "e1b773533e0140f0297a4907b70098f10151db3cb845042582d21a15e6768ea2",
-      "source": "src/recovered/unowned/Bit_Blit_00434b40.cpp",
+      "source_sha256": "4e6a3e80448cc20136a22750ad6136d708f8b480f8e6fe5a651f7998901b3ef5",
+      "source": "src/recovered/blit.cpp",
       "population": "population-4166",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Bit_Blit_00434b40",
       "source_order": 210370
     },
     {
@@ -1960,7 +2005,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 1137,
       "body_sha256": "80c7cce9f88c6d8a668a59932ff9546ab5d8c79e13046aca9ca743c7ea63f104",
@@ -2081,13 +2127,12 @@
           "resolved": 8590772
         }
       ],
-      "source_sha256": "5220dfb503d4d5c95948ae533e95780a4dd216e31aee36ece40996d8bf724d37",
-      "source": "src/recovered/unowned/RLE_Blit_004350c0.cpp",
+      "source_sha256": "4e6a3e80448cc20136a22750ad6136d708f8b480f8e6fe5a651f7998901b3ef5",
+      "source": "src/recovered/blit.cpp",
       "population": "population-4166",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "RLE_Blit_004350c0",
       "source_order": 210372
     }
   ]

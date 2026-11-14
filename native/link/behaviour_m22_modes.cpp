@@ -40,12 +40,6 @@ HRESULT __stdcall OverlayClass::Save(IStream *stream, BOOL clear_dirty)
 int EMPulseClass::Kind_Of() const { return 0x37; }
 int EMPulseClass::Size_Of() const { return sizeof(EMPulseClass); }
 
-// 0x00537B50: a light source adds only the AbstractClass fields to the CRC.
-void LightSourceClass::Compute_CRC(WWCRCEngine &crc) const
-{
-    AbstractClass::Compute_CRC(crc);
-}
-
 // MPCooperative (multiplayer_game_mode.hpp), pass-6a decompiles.
 bool MPCooperative::unknown_slot1() { return true; }                       // 0x005A6280
 void MPCooperative::unknown_slot9() { unknown_344 = true; }                // 0x005A31F0

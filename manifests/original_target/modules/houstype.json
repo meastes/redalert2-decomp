@@ -1,0 +1,2290 @@
+{
+ "module": "houstype",
+ "source": "src/recovered/houstype.cpp",
+ "header": null,
+ "population": "population-3625",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 745,
+ "code": [
+  {
+   "symbol": "??0HouseTypeClass@@QAE@PBD@Z",
+   "entry": "004f90f0",
+   "body_bytes": 600,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "??0HouseTypeClass@@QAE@ABVNoInitClass@@@Z",
+   "entry": "004f9350",
+   "body_bytes": 76,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "??1HouseTypeClass@@UAE@XZ",
+   "entry": "004f93a0",
+   "body_bytes": 290,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "entry": "004f94d0",
+   "body_bytes": 116,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Read_INI@HouseTypeClass@@UAE_NAAVCCINIClass@@@Z",
+   "entry": "004f9550",
+   "body_bytes": 2275,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Compute_CRC@HouseTypeClass@@UBEXAAVWWCRCEngine@@@Z",
+   "entry": "004f9e40",
+   "body_bytes": 265,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?IsDirty@HouseTypeClass@@UAGJXZ",
+   "entry": "004f9f50",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Load@HouseTypeClass@@UAGJPAUIStream@@@Z",
+   "entry": "004f9f60",
+   "body_bytes": 485,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Save@HouseTypeClass@@UAGJPAUIStream@@H@Z",
+   "entry": "004fa150",
+   "body_bytes": 225,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?GetSizeMax@HouseTypeClass@@UAGJPATULARGE_INTEGER@@@Z",
+   "entry": "004fa240",
+   "body_bytes": 34,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?QueryInterface@HouseTypeClass@@UAGJABUGUID@@PAPAX@Z",
+   "entry": "004fa270",
+   "body_bytes": 155,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?GetClassID@HouseTypeClass@@UAGJPAUGUID@@@Z",
+   "entry": "004fa310",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Find_Or_Make@HouseTypeClass@@SIPAV1@PBD@Z",
+   "entry": "004fa350",
+   "body_bytes": 131,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Kind_Of@HouseTypeClass@@UBEHXZ",
+   "entry": "004fa3e0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Size_Of@HouseTypeClass@@UBEHXZ",
+   "entry": "004fa3f0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Fetch_Heap_ID@HouseTypeClass@@UBEHXZ",
+   "entry": "004fa400",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?AddRef@HouseTypeClass@@UAGKXZ",
+   "entry": "004fa410",
+   "body_bytes": 8,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Release@HouseTypeClass@@UAGKXZ",
+   "entry": "004fa420",
+   "body_bytes": 8,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "??_GHouseTypeClass@@UAEPAXI@Z",
+   "entry": "004fa430",
+   "body_bytes": 311,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Clear@?$DynamicVectorClass@PAVInfantryTypeClass@@@@UAEXXZ",
+   "entry": "004fa570",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAVInfantryTypeClass@@@@UAEHPBQAVInfantryTypeClass@@@Z",
+   "entry": "004fa5a0",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@PAVInfantryTypeClass@@@@UBEPAVInfantryTypeClass@@H@Z",
+   "entry": "004fa5c0",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Clear@?$DynamicVectorClass@PAVUnitTypeClass@@@@UAEXXZ",
+   "entry": "004fa5d0",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAVUnitTypeClass@@@@UAEHPBQAVUnitTypeClass@@@Z",
+   "entry": "004fa600",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@PAVUnitTypeClass@@@@UBEPAVUnitTypeClass@@H@Z",
+   "entry": "004fa620",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??0?$TypeList@PAVAircraftTypeClass@@@@QAE@XZ",
+   "entry": "004fa630",
+   "body_bytes": 34,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Clear@?$DynamicVectorClass@PAVAircraftTypeClass@@@@UAEXXZ",
+   "entry": "004fa660",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAVAircraftTypeClass@@@@UAEHPBQAVAircraftTypeClass@@@Z",
+   "entry": "004fa690",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@PAVAircraftTypeClass@@@@UBEPAVAircraftTypeClass@@H@Z",
+   "entry": "004fa6b0",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??_G?$TypeList@PAVInfantryTypeClass@@@@UAEPAXI@Z",
+   "entry": "004fa6c0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??_G?$TypeList@PAVUnitTypeClass@@@@UAEPAXI@Z",
+   "entry": "004fa710",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??_G?$TypeList@PAVAircraftTypeClass@@@@UAEPAXI@Z",
+   "entry": "004fa760",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVInfantryTypeClass@@@@UAEPAXI@Z",
+   "entry": "004fa7b0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVUnitTypeClass@@@@UAEPAXI@Z",
+   "entry": "004fa800",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVAircraftTypeClass@@@@UAEPAXI@Z",
+   "entry": "004fa850",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??4?$VectorClass@PAVInfantryTypeClass@@@@QAEAAV0@ABV0@@Z",
+   "entry": "004fa8a0",
+   "body_bytes": 108,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "??8?$VectorClass@PAVInfantryTypeClass@@@@UBE_NABV0@@Z",
+   "entry": "004fa910",
+   "body_bytes": 62,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@PAVInfantryTypeClass@@@@UAE_NHPBQAVInfantryTypeClass@@@Z",
+   "entry": "004fa950",
+   "body_bytes": 174,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Clear@?$VectorClass@PAVInfantryTypeClass@@@@UAEXXZ",
+   "entry": "004faa00",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVInfantryTypeClass@@@@UAEHABQAVInfantryTypeClass@@@Z",
+   "entry": "004faa30",
+   "body_bytes": 51,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVInfantryTypeClass@@@@UAEHPBQAVInfantryTypeClass@@@Z",
+   "entry": "004faa70",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVInfantryTypeClass@@@@UAEPAXI@Z",
+   "entry": "004faaf0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Resize@?$DynamicVectorClass@PAVInfantryTypeClass@@@@UAE_NHPBQAVInfantryTypeClass@@@Z",
+   "entry": "004fab40",
+   "body_bytes": 176,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Add@?$DynamicVectorClass@PAVInfantryTypeClass@@@@QAE_NABQAVInfantryTypeClass@@@Z",
+   "entry": "004fabf0",
+   "body_bytes": 80,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAVInfantryTypeClass@@@@UAEHABQAVInfantryTypeClass@@@Z",
+   "entry": "004fac40",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "??4?$VectorClass@PAVUnitTypeClass@@@@QAEAAV0@ABV0@@Z",
+   "entry": "004fac70",
+   "body_bytes": 108,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "??8?$VectorClass@PAVUnitTypeClass@@@@UBE_NABV0@@Z",
+   "entry": "004face0",
+   "body_bytes": 62,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@PAVUnitTypeClass@@@@UAE_NHPBQAVUnitTypeClass@@@Z",
+   "entry": "004fad20",
+   "body_bytes": 174,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Clear@?$VectorClass@PAVUnitTypeClass@@@@UAEXXZ",
+   "entry": "004fadd0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVUnitTypeClass@@@@UAEHABQAVUnitTypeClass@@@Z",
+   "entry": "004fae00",
+   "body_bytes": 51,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVUnitTypeClass@@@@UAEHPBQAVUnitTypeClass@@@Z",
+   "entry": "004fae40",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVUnitTypeClass@@@@UAEPAXI@Z",
+   "entry": "004faec0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Resize@?$DynamicVectorClass@PAVUnitTypeClass@@@@UAE_NHPBQAVUnitTypeClass@@@Z",
+   "entry": "004faf10",
+   "body_bytes": 176,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Add@?$DynamicVectorClass@PAVUnitTypeClass@@@@QAE_NABQAVUnitTypeClass@@@Z",
+   "entry": "004fafc0",
+   "body_bytes": 80,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAVUnitTypeClass@@@@UAEHABQAVUnitTypeClass@@@Z",
+   "entry": "004fb010",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "??4?$VectorClass@PAVAircraftTypeClass@@@@QAEAAV0@ABV0@@Z",
+   "entry": "004fb040",
+   "body_bytes": 108,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "??8?$VectorClass@PAVAircraftTypeClass@@@@UBE_NABV0@@Z",
+   "entry": "004fb0b0",
+   "body_bytes": 62,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@PAVAircraftTypeClass@@@@UAE_NHPBQAVAircraftTypeClass@@@Z",
+   "entry": "004fb0f0",
+   "body_bytes": 174,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Clear@?$VectorClass@PAVAircraftTypeClass@@@@UAEXXZ",
+   "entry": "004fb1a0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVAircraftTypeClass@@@@UAEHABQAVAircraftTypeClass@@@Z",
+   "entry": "004fb1d0",
+   "body_bytes": 51,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVAircraftTypeClass@@@@UAEHPBQAVAircraftTypeClass@@@Z",
+   "entry": "004fb210",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVAircraftTypeClass@@@@UAEPAXI@Z",
+   "entry": "004fb290",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Resize@?$DynamicVectorClass@PAVAircraftTypeClass@@@@UAE_NHPBQAVAircraftTypeClass@@@Z",
+   "entry": "004fb2e0",
+   "body_bytes": 176,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Add@?$DynamicVectorClass@PAVAircraftTypeClass@@@@QAE_NABQAVAircraftTypeClass@@@Z",
+   "entry": "004fb390",
+   "body_bytes": 80,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAVAircraftTypeClass@@@@UAEHABQAVAircraftTypeClass@@@Z",
+   "entry": "004fb3e0",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "??0?$TypeList@PAVAircraftTypeClass@@@@QAE@ABV0@@Z",
+   "entry": "004fb410",
+   "body_bytes": 136,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?get@Storage_4fb5c0@@QAEPAXIPAI@Z",
+   "entry": "004fb5c0",
+   "body_bytes": 74,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?get@Storage_4fb660@@QAEPAXIPAI@Z",
+   "entry": "004fb660",
+   "body_bytes": 74,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?QueryInterface@HouseTypeClass@@W3AGJABUGUID@@PAPAX@Z",
+   "entry": "004fb6b0",
+   "body_bytes": 10,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?AddRef@HouseTypeClass@@W3AGKXZ",
+   "entry": "004fb6c0",
+   "body_bytes": 10,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Release@HouseTypeClass@@W3AGKXZ",
+   "entry": "004fb6d0",
+   "body_bytes": 10,
+   "padding_bytes": 0
+  }
+ ],
+ "code_bytes": 9038,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a3008",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7HouseTypeClass@@6BINoticeSource@@@",
+   "address": "007a301c",
+   "bytes": 4,
+   "kind": "vtable",
+   "section": 40
+  },
+  {
+   "symbol": "??_7HouseTypeClass@@6BINoticeSink@@@",
+   "address": "007a3024",
+   "bytes": 4,
+   "kind": "vtable",
+   "section": 41
+  },
+  {
+   "symbol": "??_7HouseTypeClass@@6BIRTTITypeInfo@@@",
+   "address": "007a302c",
+   "bytes": 24,
+   "kind": "vtable",
+   "section": 42
+  },
+  {
+   "symbol": "??_7HouseTypeClass@@6BIPersistStream@@@",
+   "address": "007a3048",
+   "bytes": 108,
+   "kind": "vtable",
+   "section": 43
+  },
+  {
+   "symbol": "??_7?$TypeList@PAVAircraftTypeClass@@@@6B@",
+   "address": "007a30b8",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 44
+  },
+  {
+   "symbol": "??_7?$TypeList@PAVUnitTypeClass@@@@6B@",
+   "address": "007a30d8",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 45
+  },
+  {
+   "symbol": "??_7?$TypeList@PAVInfantryTypeClass@@@@6B@",
+   "address": "007a30f8",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 46
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVInfantryTypeClass@@@@6B@",
+   "address": "007a3118",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 49
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVUnitTypeClass@@@@6B@",
+   "address": "007a3138",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 50
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVAircraftTypeClass@@@@6B@",
+   "address": "007a3158",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 51
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVInfantryTypeClass@@@@6B@",
+   "address": "007a3178",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 209
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVUnitTypeClass@@@@6B@",
+   "address": "007a3198",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 216
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVAircraftTypeClass@@@@6B@",
+   "address": "007a31b8",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 231
+  },
+  {
+   "symbol": "??_C@_04LJDI@Side?$AA@",
+   "address": "007cdd8c",
+   "bytes": 5,
+   "kind": "string",
+   "section": 61
+  },
+  {
+   "symbol": "??_C@_06CPHF@?$DMnone?$DO?$AA@",
+   "address": "007cdecc",
+   "bytes": 7,
+   "kind": "string",
+   "section": 116
+  },
+  {
+   "symbol": "??_C@_04KIKH@none?$AA@",
+   "address": "007ce0ec",
+   "bytes": 5,
+   "kind": "string",
+   "section": 115
+  },
+  {
+   "symbol": "??_C@_01KMAE@?0?$AA@",
+   "address": "007ce9c0",
+   "bytes": 2,
+   "kind": "string",
+   "section": 64
+  },
+  {
+   "symbol": "??_C@_05HIMK@Color?$AA@",
+   "address": "007d13d8",
+   "bytes": 6,
+   "kind": "string",
+   "section": 97
+  },
+  {
+   "symbol": "??_C@_08PECD@?$DMrandom?$DO?$AA@",
+   "address": "007d1f18",
+   "bytes": 9,
+   "kind": "string",
+   "section": 58
+  },
+  {
+   "symbol": "??_C@_09IFKJ@Firepower?$AA@",
+   "address": "007d3810",
+   "bytes": 10,
+   "kind": "string",
+   "section": 95
+  },
+  {
+   "symbol": "??_C@_05KFDN@Armor?$AA@",
+   "address": "007d3824",
+   "bytes": 6,
+   "kind": "string",
+   "section": 92
+  },
+  {
+   "symbol": "??_C@_0BA@OADN@VeteranAircraft?$AA@",
+   "address": "007dac40",
+   "bytes": 16,
+   "kind": "string",
+   "section": 62
+  },
+  {
+   "symbol": "??_C@_0N@CDNB@VeteranUnits?$AA@",
+   "address": "007dac50",
+   "bytes": 13,
+   "kind": "string",
+   "section": 63
+  },
+  {
+   "symbol": "??_C@_0BA@JBMG@VeteranInfantry?$AA@",
+   "address": "007dac60",
+   "bytes": 16,
+   "kind": "string",
+   "section": 65
+  },
+  {
+   "symbol": "??_C@_0L@JABB@IncomeMult?$AA@",
+   "address": "007dac70",
+   "bytes": 11,
+   "kind": "string",
+   "section": 66
+  },
+  {
+   "symbol": "??_C@_0BG@IBLE@BuildTimeDefensesMult?$AA@",
+   "address": "007dac7c",
+   "bytes": 22,
+   "kind": "string",
+   "section": 67
+  },
+  {
+   "symbol": "??_C@_0BH@LLAF@BuildTimeBuildingsMult?$AA@",
+   "address": "007dac94",
+   "bytes": 23,
+   "kind": "string",
+   "section": 68
+  },
+  {
+   "symbol": "??_C@_0BG@GCGE@BuildTimeAircraftMult?$AA@",
+   "address": "007dacac",
+   "bytes": 22,
+   "kind": "string",
+   "section": 69
+  },
+  {
+   "symbol": "??_C@_0BD@PCOH@BuildTimeUnitsMult?$AA@",
+   "address": "007dacc4",
+   "bytes": 19,
+   "kind": "string",
+   "section": 70
+  },
+  {
+   "symbol": "??_C@_0BG@GMIE@BuildTimeInfantryMult?$AA@",
+   "address": "007dacd8",
+   "bytes": 22,
+   "kind": "string",
+   "section": 71
+  },
+  {
+   "symbol": "??_C@_0BC@CKMC@SpeedAircraftMult?$AA@",
+   "address": "007dacf0",
+   "bytes": 18,
+   "kind": "string",
+   "section": 72
+  },
+  {
+   "symbol": "??_C@_0P@MPIG@SpeedUnitsMult?$AA@",
+   "address": "007dad04",
+   "bytes": 15,
+   "kind": "string",
+   "section": 73
+  },
+  {
+   "symbol": "??_C@_0BC@CECC@SpeedInfantryMult?$AA@",
+   "address": "007dad14",
+   "bytes": 18,
+   "kind": "string",
+   "section": 74
+  },
+  {
+   "symbol": "??_C@_0BB@JLEI@CostDefensesMult?$AA@",
+   "address": "007dad28",
+   "bytes": 17,
+   "kind": "string",
+   "section": 75
+  },
+  {
+   "symbol": "??_C@_0BC@DPBP@CostBuildingsMult?$AA@",
+   "address": "007dad3c",
+   "bytes": 18,
+   "kind": "string",
+   "section": 76
+  },
+  {
+   "symbol": "??_C@_0BB@HIJI@CostAircraftMult?$AA@",
+   "address": "007dad50",
+   "bytes": 17,
+   "kind": "string",
+   "section": 77
+  },
+  {
+   "symbol": "??_C@_0O@GJJE@CostUnitsMult?$AA@",
+   "address": "007dad64",
+   "bytes": 14,
+   "kind": "string",
+   "section": 78
+  },
+  {
+   "symbol": "??_C@_0BB@HGHI@CostInfantryMult?$AA@",
+   "address": "007dad74",
+   "bytes": 17,
+   "kind": "string",
+   "section": 79
+  },
+  {
+   "symbol": "??_C@_0BC@IGFB@ArmorDefensesMult?$AA@",
+   "address": "007dad88",
+   "bytes": 18,
+   "kind": "string",
+   "section": 80
+  },
+  {
+   "symbol": "??_C@_0BD@NCAC@ArmorBuildingsMult?$AA@",
+   "address": "007dad9c",
+   "bytes": 19,
+   "kind": "string",
+   "section": 81
+  },
+  {
+   "symbol": "??_C@_0BC@GFIB@ArmorAircraftMult?$AA@",
+   "address": "007dadb0",
+   "bytes": 18,
+   "kind": "string",
+   "section": 82
+  },
+  {
+   "symbol": "??_C@_0P@BKHF@ArmorUnitsMult?$AA@",
+   "address": "007dadc4",
+   "bytes": 15,
+   "kind": "string",
+   "section": 83
+  },
+  {
+   "symbol": "??_C@_0BC@GLGB@ArmorInfantryMult?$AA@",
+   "address": "007dadd4",
+   "bytes": 18,
+   "kind": "string",
+   "section": 84
+  },
+  {
+   "symbol": "??_C@_07IIJG@SmartAI?$AA@",
+   "address": "007dade8",
+   "bytes": 8,
+   "kind": "string",
+   "section": 85
+  },
+  {
+   "symbol": "??_C@_09JLGL@WallOwner?$AA@",
+   "address": "007dadf0",
+   "bytes": 10,
+   "kind": "string",
+   "section": 86
+  },
+  {
+   "symbol": "??_C@_0BB@IKHO@MultiplayPassive?$AA@",
+   "address": "007dadfc",
+   "bytes": 17,
+   "kind": "string",
+   "section": 87
+  },
+  {
+   "symbol": "??_C@_09BHCF@Multiplay?$AA@",
+   "address": "007dae10",
+   "bytes": 10,
+   "kind": "string",
+   "section": 88
+  },
+  {
+   "symbol": "??_C@_09JFOK@BuildTime?$AA@",
+   "address": "007dae1c",
+   "bytes": 10,
+   "kind": "string",
+   "section": 89
+  },
+  {
+   "symbol": "??_C@_04IHF@Cost?$AA@",
+   "address": "007dae28",
+   "bytes": 5,
+   "kind": "string",
+   "section": 90
+  },
+  {
+   "symbol": "??_C@_03CEPL@ROF?$AA@",
+   "address": "007dae30",
+   "bytes": 4,
+   "kind": "string",
+   "section": 91
+  },
+  {
+   "symbol": "??_C@_08DELK@Airspeed?$AA@",
+   "address": "007dae34",
+   "bytes": 9,
+   "kind": "string",
+   "section": 93
+  },
+  {
+   "symbol": "??_C@_0M@CGIC@Groundspeed?$AA@",
+   "address": "007dae40",
+   "bytes": 12,
+   "kind": "string",
+   "section": 94
+  },
+  {
+   "symbol": "??_C@_06MONO@Prefix?$AA@",
+   "address": "007dae4c",
+   "bytes": 7,
+   "kind": "string",
+   "section": 96
+  },
+  {
+   "symbol": "??_C@_0O@GFLN@ParentCountry?$AA@",
+   "address": "007dae54",
+   "bytes": 14,
+   "kind": "string",
+   "section": 98
+  },
+  {
+   "symbol": "??_C@_06HPDC@Suffix?$AA@",
+   "address": "007dae64",
+   "bytes": 7,
+   "kind": "string",
+   "section": 99
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a3008",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7HouseTypeClass@@6BINoticeSource@@@",
+   "address": "007a301c",
+   "bytes": 4,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7HouseTypeClass@@6BINoticeSink@@@",
+   "address": "007a3024",
+   "bytes": 4,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7HouseTypeClass@@6BIRTTITypeInfo@@@",
+   "address": "007a302c",
+   "bytes": 24,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7HouseTypeClass@@6BIPersistStream@@@",
+   "address": "007a3048",
+   "bytes": 108,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$TypeList@PAVAircraftTypeClass@@@@6B@",
+   "address": "007a30b8",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$TypeList@PAVUnitTypeClass@@@@6B@",
+   "address": "007a30d8",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$TypeList@PAVInfantryTypeClass@@@@6B@",
+   "address": "007a30f8",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVInfantryTypeClass@@@@6B@",
+   "address": "007a3118",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVUnitTypeClass@@@@6B@",
+   "address": "007a3138",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVAircraftTypeClass@@@@6B@",
+   "address": "007a3158",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVInfantryTypeClass@@@@6B@",
+   "address": "007a3178",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVUnitTypeClass@@@@6B@",
+   "address": "007a3198",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVAircraftTypeClass@@@@6B@",
+   "address": "007a31b8",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_C@_04LJDI@Side?$AA@",
+   "address": "007cdd8c",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06CPHF@?$DMnone?$DO?$AA@",
+   "address": "007cdecc",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04KIKH@none?$AA@",
+   "address": "007ce0ec",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_01KMAE@?0?$AA@",
+   "address": "007ce9c0",
+   "bytes": 2,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_05HIMK@Color?$AA@",
+   "address": "007d13d8",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08PECD@?$DMrandom?$DO?$AA@",
+   "address": "007d1f18",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09IFKJ@Firepower?$AA@",
+   "address": "007d3810",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_05KFDN@Armor?$AA@",
+   "address": "007d3824",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@OADN@VeteranAircraft?$AA@",
+   "address": "007dac40",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@CDNB@VeteranUnits?$AA@",
+   "address": "007dac50",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@JBMG@VeteranInfantry?$AA@",
+   "address": "007dac60",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@JABB@IncomeMult?$AA@",
+   "address": "007dac70",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BG@IBLE@BuildTimeDefensesMult?$AA@",
+   "address": "007dac7c",
+   "bytes": 22,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BH@LLAF@BuildTimeBuildingsMult?$AA@",
+   "address": "007dac94",
+   "bytes": 23,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BG@GCGE@BuildTimeAircraftMult?$AA@",
+   "address": "007dacac",
+   "bytes": 22,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@PCOH@BuildTimeUnitsMult?$AA@",
+   "address": "007dacc4",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BG@GMIE@BuildTimeInfantryMult?$AA@",
+   "address": "007dacd8",
+   "bytes": 22,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@CKMC@SpeedAircraftMult?$AA@",
+   "address": "007dacf0",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@MPIG@SpeedUnitsMult?$AA@",
+   "address": "007dad04",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@CECC@SpeedInfantryMult?$AA@",
+   "address": "007dad14",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@JLEI@CostDefensesMult?$AA@",
+   "address": "007dad28",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@DPBP@CostBuildingsMult?$AA@",
+   "address": "007dad3c",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@HIJI@CostAircraftMult?$AA@",
+   "address": "007dad50",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@GJJE@CostUnitsMult?$AA@",
+   "address": "007dad64",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@HGHI@CostInfantryMult?$AA@",
+   "address": "007dad74",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@IGFB@ArmorDefensesMult?$AA@",
+   "address": "007dad88",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@NCAC@ArmorBuildingsMult?$AA@",
+   "address": "007dad9c",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@GFIB@ArmorAircraftMult?$AA@",
+   "address": "007dadb0",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@BKHF@ArmorUnitsMult?$AA@",
+   "address": "007dadc4",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@GLGB@ArmorInfantryMult?$AA@",
+   "address": "007dadd4",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07IIJG@SmartAI?$AA@",
+   "address": "007dade8",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09JLGL@WallOwner?$AA@",
+   "address": "007dadf0",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@IKHO@MultiplayPassive?$AA@",
+   "address": "007dadfc",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09BHCF@Multiplay?$AA@",
+   "address": "007dae10",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09JFOK@BuildTime?$AA@",
+   "address": "007dae1c",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04IHF@Cost?$AA@",
+   "address": "007dae28",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_03CEPL@ROF?$AA@",
+   "address": "007dae30",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08DELK@Airspeed?$AA@",
+   "address": "007dae34",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@CGIC@Groundspeed?$AA@",
+   "address": "007dae40",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06MONO@Prefix?$AA@",
+   "address": "007dae4c",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@GFLN@ParentCountry?$AA@",
+   "address": "007dae54",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06HPDC@Suffix?$AA@",
+   "address": "007dae64",
+   "bytes": 7,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00695f30",
+   "symbol": "??0HouseTypeClass@@QAE@PBD@Z",
+   "target": "004f90f0",
+   "function_entry": true
+  },
+  {
+   "site": "0046bc00",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "0046aa00",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "0046aa00",
+   "symbol": "??0HouseTypeClass@@QAE@PBD@Z",
+   "target": "004f90f0",
+   "function_entry": true
+  },
+  {
+   "site": "0041d7e0",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "00482de0",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "00653e90",
+   "symbol": "??0?$VectorClass@PAVInfantryTypeClass@@@@QAE@IPBQAVInfantryTypeClass@@@Z",
+   "target": "004fb5c0",
+   "function_entry": true
+  },
+  {
+   "site": "00653e90",
+   "symbol": "??4?$VectorClass@PAVInfantryTypeClass@@@@QAEAAV0@ABV0@@Z",
+   "target": "004fa8a0",
+   "function_entry": true
+  },
+  {
+   "site": "00640b80",
+   "symbol": "??0?$VectorClass@PAVAircraftTypeClass@@@@QAE@IPBQAVAircraftTypeClass@@@Z",
+   "target": "004fb660",
+   "function_entry": true
+  },
+  {
+   "site": "00640b80",
+   "symbol": "??0?$VectorClass@PAVInfantryTypeClass@@@@QAE@IPBQAVInfantryTypeClass@@@Z",
+   "target": "004fb5c0",
+   "function_entry": true
+  },
+  {
+   "site": "00640b80",
+   "symbol": "??0?$VectorClass@PAVInfantryTypeClass@@@@QAE@IPBQAVInfantryTypeClass@@@Z",
+   "target": "004fb5c0",
+   "function_entry": true
+  },
+  {
+   "site": "00640b80",
+   "symbol": "??0?$VectorClass@PAVInfantryTypeClass@@@@QAE@IPBQAVInfantryTypeClass@@@Z",
+   "target": "004fb5c0",
+   "function_entry": true
+  },
+  {
+   "site": "0064bac0",
+   "symbol": "?Find_Or_Make@HouseTypeClass@@SIPAV1@PBD@Z",
+   "target": "004fa350",
+   "function_entry": true
+  },
+  {
+   "site": "006429e0",
+   "symbol": "?Clear@?$VectorClass@PAVInfantryTypeClass@@@@UAEXXZ",
+   "target": "004faa00",
+   "function_entry": true
+  },
+  {
+   "site": "006429e0",
+   "symbol": "?Clear@?$VectorClass@PAVInfantryTypeClass@@@@UAEXXZ",
+   "target": "004faa00",
+   "function_entry": true
+  },
+  {
+   "site": "006429e0",
+   "symbol": "?Clear@?$VectorClass@PAVInfantryTypeClass@@@@UAEXXZ",
+   "target": "004faa00",
+   "function_entry": true
+  },
+  {
+   "site": "006429e0",
+   "symbol": "?Clear@?$VectorClass@PAVAircraftTypeClass@@@@UAEXXZ",
+   "target": "004fb1a0",
+   "function_entry": true
+  },
+  {
+   "site": "006429e0",
+   "symbol": "?Clear@?$VectorClass@PAVUnitTypeClass@@@@UAEXXZ",
+   "target": "004fadd0",
+   "function_entry": true
+  },
+  {
+   "site": "006429e0",
+   "symbol": "?Clear@?$VectorClass@PAVUnitTypeClass@@@@UAEXXZ",
+   "target": "004fadd0",
+   "function_entry": true
+  },
+  {
+   "site": "006437f0",
+   "symbol": "?Find_Or_Make@HouseTypeClass@@SIPAV1@PBD@Z",
+   "target": "004fa350",
+   "function_entry": true
+  },
+  {
+   "site": "00647f40",
+   "symbol": "?Add@?$DynamicVectorClass@PAVUnitTypeClass@@@@QAE_NABQAVUnitTypeClass@@@Z",
+   "target": "004fafc0",
+   "function_entry": true
+  },
+  {
+   "site": "00647f40",
+   "symbol": "?Clear@?$VectorClass@PAVUnitTypeClass@@@@UAEXXZ",
+   "target": "004fadd0",
+   "function_entry": true
+  },
+  {
+   "site": "00647f40",
+   "symbol": "??4?$VectorClass@PAVUnitTypeClass@@@@QAEAAV0@ABV0@@Z",
+   "target": "004fac70",
+   "function_entry": true
+  },
+  {
+   "site": "00647f40",
+   "symbol": "?Add@?$DynamicVectorClass@PAVUnitTypeClass@@@@QAE_NABQAVUnitTypeClass@@@Z",
+   "target": "004fafc0",
+   "function_entry": true
+  },
+  {
+   "site": "00647f40",
+   "symbol": "?Clear@?$VectorClass@PAVUnitTypeClass@@@@UAEXXZ",
+   "target": "004fadd0",
+   "function_entry": true
+  },
+  {
+   "site": "00647f40",
+   "symbol": "??4?$VectorClass@PAVUnitTypeClass@@@@QAEAAV0@ABV0@@Z",
+   "target": "004fac70",
+   "function_entry": true
+  },
+  {
+   "site": "00647f40",
+   "symbol": "?Add@?$DynamicVectorClass@PAVAircraftTypeClass@@@@QAE_NABQAVAircraftTypeClass@@@Z",
+   "target": "004fb390",
+   "function_entry": true
+  },
+  {
+   "site": "00647f40",
+   "symbol": "?Clear@?$VectorClass@PAVAircraftTypeClass@@@@UAEXXZ",
+   "target": "004fb1a0",
+   "function_entry": true
+  },
+  {
+   "site": "00647f40",
+   "symbol": "??0?$TypeList@PAVAircraftTypeClass@@@@QAE@ABV0@@Z",
+   "target": "004fb410",
+   "function_entry": true
+  },
+  {
+   "site": "00647f40",
+   "symbol": "??4?$VectorClass@PAVAircraftTypeClass@@@@QAEAAV0@ABV0@@Z",
+   "target": "004fb040",
+   "function_entry": true
+  },
+  {
+   "site": "00647f40",
+   "symbol": "?Add@?$DynamicVectorClass@PAVInfantryTypeClass@@@@QAE_NABQAVInfantryTypeClass@@@Z",
+   "target": "004fabf0",
+   "function_entry": true
+  },
+  {
+   "site": "00647f40",
+   "symbol": "?Clear@?$VectorClass@PAVInfantryTypeClass@@@@UAEXXZ",
+   "target": "004faa00",
+   "function_entry": true
+  },
+  {
+   "site": "00647f40",
+   "symbol": "??4?$VectorClass@PAVInfantryTypeClass@@@@QAEAAV0@ABV0@@Z",
+   "target": "004fa8a0",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "??0?$TypeList@PAVAircraftTypeClass@@@@QAE@XZ",
+   "target": "004fa630",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Add@?$DynamicVectorClass@PAVAircraftTypeClass@@@@QAE_NABQAVAircraftTypeClass@@@Z",
+   "target": "004fb390",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Add@?$DynamicVectorClass@PAVUnitTypeClass@@@@QAE_NABQAVUnitTypeClass@@@Z",
+   "target": "004fafc0",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Add@?$DynamicVectorClass@PAVUnitTypeClass@@@@QAE_NABQAVUnitTypeClass@@@Z",
+   "target": "004fafc0",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Add@?$DynamicVectorClass@PAVInfantryTypeClass@@@@QAE_NABQAVInfantryTypeClass@@@Z",
+   "target": "004fabf0",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Add@?$DynamicVectorClass@PAVInfantryTypeClass@@@@QAE_NABQAVInfantryTypeClass@@@Z",
+   "target": "004fabf0",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Add@?$DynamicVectorClass@PAVInfantryTypeClass@@@@QAE_NABQAVInfantryTypeClass@@@Z",
+   "target": "004fabf0",
+   "function_entry": true
+  },
+  {
+   "site": "006ee470",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "0065fbb0",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "0065fbb0",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "0065e8c0",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "00571db0",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "004ef600",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "004ef6f0",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "004e9c90",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "004e9c90",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "004e9c90",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "004e27e0",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "004e90f0",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "004e90f0",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "0058a9c0",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "00589f00",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "00576cd0",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "00588100",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "004e4110",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "004f1e50",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "004f1ff0",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "004f2190",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "004ef890",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "00589ac0",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "0058ad90",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  },
+  {
+   "site": "00587cf0",
+   "symbol": "?Find_Index@HouseTypeClass@@SIHPBD@Z",
+   "target": "004f94d0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0AbstractTypeClass@@QAE@ABVNoInitClass@@@Z",
+   "address": "004106e0"
+  },
+  {
+   "symbol": "??0AbstractTypeClass@@QAE@PBD@Z",
+   "address": "00410580"
+  },
+  {
+   "symbol": "??1AbstractTypeClass@@UAE@XZ",
+   "address": "00410740"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??RWWCRCEngine@@QAEJPBXH@Z",
+   "address": "00493fc0"
+  },
+  {
+   "symbol": "??RWWCRCEngine@@QAEXD@Z",
+   "address": "00493df0"
+  },
+  {
+   "symbol": "??RWWCRCEngine@@QAEXJ@Z",
+   "address": "00493f30"
+  },
+  {
+   "symbol": "??RWWCRCEngine@@QAEXN@Z",
+   "address": "00493f70"
+  },
+  {
+   "symbol": "??RWWCRCEngine@@QAEX_N@Z",
+   "address": "00493e80"
+  },
+  {
+   "symbol": "?AI@AbstractClass@@UAEXXZ",
+   "address": "00410310"
+  },
+  {
+   "symbol": "?Center_Coord@AbstractClass@@UBE?AUCoordStruct@@XZ",
+   "address": "00410260"
+  },
+  {
+   "symbol": "?Compute_CRC@AbstractTypeClass@@UBEXAAVWWCRCEngine@@@Z",
+   "address": "00410960"
+  },
+  {
+   "symbol": "?Create_ID@AbstractClass@@UAGXXZ",
+   "address": "0040ffd0"
+  },
+  {
+   "symbol": "?Detach@AbstractClass@@UAEXPAV1@_N@Z",
+   "address": "00410220"
+  },
+  {
+   "symbol": "?Fetch_ID@AbstractClass@@UAGJXZ",
+   "address": "0040ffc0"
+  },
+  {
+   "symbol": "?Find_Or_Make@AircraftTypeClass@@SIPAV1@PBD@Z",
+   "address": "0041c250"
+  },
+  {
+   "symbol": "?Find_Or_Make@InfantryTypeClass@@SIPAV1@PBD@Z",
+   "address": "0050aed0"
+  },
+  {
+   "symbol": "?Find_Or_Make@UnitTypeClass@@SIPAV1@PBD@Z",
+   "address": "0070b540"
+  },
+  {
+   "symbol": "?Get_Bool@INIClass@@QBE_NPBD0_N@Z",
+   "address": "0050f410"
+  },
+  {
+   "symbol": "?Get_ColorScheme@CCINIClass@@QBEHPBD0H@Z",
+   "address": "00469f50"
+  },
+  {
+   "symbol": "?Get_Double@INIClass@@QBENPBD0N@Z",
+   "address": "0050e3a0"
+  },
+  {
+   "symbol": "?Get_Side@CCINIClass@@QBEHPBD0H@Z",
+   "address": "0046ab30"
+  },
+  {
+   "symbol": "?Get_String@INIClass@@QBEHPBD00PADH@Z",
+   "address": "0050e9a0"
+  },
+  {
+   "symbol": "?HouseTypes@@3V?$DynamicVectorClass@PAVHouseTypeClass@@@@A",
+   "address": "00a35d08"
+  },
+  {
+   "symbol": "?INoticeSink_Unknown@AbstractClass@@UAE_NHH@Z",
+   "address": "00410320"
+  },
+  {
+   "symbol": "?INoticeSource_Unknown@AbstractClass@@UAGXXZ",
+   "address": "00410330"
+  },
+  {
+   "symbol": "?In_Air@AbstractClass@@UBE_NXZ",
+   "address": "004102d0"
+  },
+  {
+   "symbol": "?Init@AbstractClass@@UAEXXZ",
+   "address": "00410210"
+  },
+  {
+   "symbol": "?Is_Inactive@AbstractClass@@UBE_NXZ",
+   "address": "004101e0"
+  },
+  {
+   "symbol": "?Load@AbstractClass@@UAGJPAUIStream@@@Z",
+   "address": "00410120"
+  },
+  {
+   "symbol": "?On_Ground@AbstractClass@@UBE_NXZ",
+   "address": "004102c0"
+  },
+  {
+   "symbol": "?Owner@AbstractClass@@UBEHXZ",
+   "address": "00410230"
+  },
+  {
+   "symbol": "?Owning_House@AbstractClass@@UBEPAVHouseClass@@XZ",
+   "address": "00410240"
+  },
+  {
+   "symbol": "?Read_INI@AbstractTypeClass@@UAE_NAAVCCINIClass@@@Z",
+   "address": "004107e0"
+  },
+  {
+   "symbol": "?Save@AbstractClass@@UAGJPAUIStream@@H@Z",
+   "address": "004100c0"
+  },
+  {
+   "symbol": "?Sides@@3V?$DynamicVectorClass@PAVSideClass@@@@A",
+   "address": "008661b0"
+  },
+  {
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "address": "0069fb20"
+  },
+  {
+   "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+   "address": "00abd868"
+  },
+  {
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "address": "006ecb90"
+  },
+  {
+   "symbol": "?What_Am_I@AbstractClass@@UAGHXZ",
+   "address": "0040ffb0"
+  },
+  {
+   "symbol": "?Write_INI@AbstractTypeClass@@UBE_NAAVCCINIClass@@@Z",
+   "address": "00410910"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z",
+   "address": "00410290"
+  },
+  {
+   "symbol": "?unknown_slot22@AbstractClass@@UBE?AUCoordStruct@@XZ",
+   "address": "004102e0"
+  },
+  {
+   "symbol": "?unknown_slot24@AbstractTypeClass@@UAEXH@Z",
+   "address": "004109a0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_string_83c55c@@3PADA",
+   "address": "0083c55c"
+  },
+  {
+   "symbol": "_CLSID_HouseTypeClass",
+   "address": "007a1ba0"
+  },
+  {
+   "symbol": "_IID_IPersist",
+   "address": "007afcc0"
+  },
+  {
+   "symbol": "_IID_IPersistStream",
+   "address": "007afcd0"
+  },
+  {
+   "symbol": "_IID_IRTTITypeInfo",
+   "address": "007a2020"
+  },
+  {
+   "symbol": "_IID_IUnknown_7afce0",
+   "address": "007afce0"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__stricmp",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "_storage_4fb5c0",
+   "address": "00782017"
+  },
+  {
+   "symbol": "_storage_4fb660",
+   "address": "00782017"
+  },
+  {
+   "symbol": "_strncpy",
+   "address": "007823d0"
+  },
+  {
+   "symbol": "_strtok",
+   "address": "00782ec2"
+  },
+  {
+   "symbol": "_table_4fb5c0",
+   "address": "007a3118"
+  },
+  {
+   "symbol": "_table_4fb660",
+   "address": "007a3158"
+  }
+ ],
+ "route": "A",
+ "unit": "houstype.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "004f90f0",
+   "lines": 8
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "004fa570",
+   "bytes": 42,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004fa5a0",
+   "bytes": 27,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004fa5c0",
+   "bytes": 13,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004fa5d0",
+   "bytes": 42,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004fa600",
+   "bytes": 27,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004fa620",
+   "bytes": 13,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004fa660",
+   "bytes": 42,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004fa690",
+   "bytes": 27,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004fa6b0",
+   "bytes": 13,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004fa910",
+   "bytes": 62,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004fa950",
+   "bytes": 174,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004faa00",
+   "bytes": 39,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004faa30",
+   "bytes": 51,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004faa70",
+   "bytes": 27,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004fab40",
+   "bytes": 176,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004fac40",
+   "bytes": 38,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004face0",
+   "bytes": 62,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004fad20",
+   "bytes": 174,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004fadd0",
+   "bytes": 39,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004fae00",
+   "bytes": 51,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004fae40",
+   "bytes": 27,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004faf10",
+   "bytes": 176,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004fb010",
+   "bytes": 38,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004fb0b0",
+   "bytes": 62,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004fb0f0",
+   "bytes": 174,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004fb1a0",
+   "bytes": 39,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004fb1d0",
+   "bytes": 51,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004fb210",
+   "bytes": 27,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004fb2e0",
+   "bytes": 176,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004fb3e0",
+   "bytes": 38,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "004fa630",
+   "bytes": 34,
+   "population": "population-1621",
+   "bound": "own frozen bound (population-1621)"
+  },
+  {
+   "entry": "004fa6c0",
+   "bytes": 73,
+   "population": "population-1621",
+   "bound": "own frozen bound (population-1621)"
+  },
+  {
+   "entry": "004fa710",
+   "bytes": 73,
+   "population": "population-1621",
+   "bound": "own frozen bound (population-1621)"
+  },
+  {
+   "entry": "004fa760",
+   "bytes": 73,
+   "population": "population-1621",
+   "bound": "own frozen bound (population-1621)"
+  },
+  {
+   "entry": "004fb410",
+   "bytes": 136,
+   "population": "population-1621",
+   "bound": "own frozen bound (population-1621)"
+  },
+  {
+   "entry": "004fb5c0",
+   "bytes": 74,
+   "population": "population-22",
+   "bound": "own frozen bound (population-22)"
+  },
+  {
+   "entry": "004fb660",
+   "bytes": 74,
+   "population": "population-16",
+   "bound": "own frozen bound (population-16)"
+  },
+  {
+   "entry": "004fabf0",
+   "bytes": 80,
+   "population": "population-19",
+   "bound": "own frozen bound (population-19)",
+   "emitted": "container member DynamicVectorClass<InfantryTypeClass *>::Add (shared/vector_class.hpp)"
+  },
+  {
+   "entry": "004fafc0",
+   "bytes": 80,
+   "population": "population-19",
+   "bound": "own frozen bound (population-19)",
+   "emitted": "container member DynamicVectorClass<UnitTypeClass *>::Add (shared/vector_class.hpp)"
+  },
+  {
+   "entry": "004fb390",
+   "bytes": 80,
+   "population": "population-19",
+   "bound": "own frozen bound (population-19)",
+   "emitted": "container member DynamicVectorClass<AircraftTypeClass *>::Add (shared/vector_class.hpp)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "004faa90",
+   "bytes": 93,
+   "population": "population-28",
+   "source": "src/recovered/word_storage/InitializeWordStorage_004faa90.cpp",
+   "cause": "held by population-28; needs header state the unit does not have: #include \"shared/word_storage_layout.hpp\""
+  },
+  {
+   "kind": "split",
+   "entry": "004fae60",
+   "bytes": 93,
+   "population": "population-28",
+   "source": "src/recovered/word_storage/InitializeWordStorage_004fae60.cpp",
+   "cause": "held by population-28; needs header state the unit does not have: #include \"shared/word_storage_layout.hpp\""
+  },
+  {
+   "kind": "split",
+   "entry": "004fb230",
+   "bytes": 93,
+   "population": "population-28",
+   "source": "src/recovered/word_storage/InitializeWordStorage_004fb230.cpp",
+   "cause": "held by population-28; needs header state the unit does not have: #include \"shared/word_storage_layout.hpp\""
+  },
+  {
+   "kind": "split",
+   "entry": "004fb4a0",
+   "bytes": 136,
+   "population": "population-29",
+   "source": "src/recovered/word_storage/CopyWordStorage_004fb4a0.cpp",
+   "cause": "held by population-29; needs header state the unit does not have: #include \"shared/word_storage_layout.hpp\""
+  },
+  {
+   "kind": "split",
+   "entry": "004fb530",
+   "bytes": 136,
+   "population": "population-29",
+   "source": "src/recovered/word_storage/CopyWordStorage_004fb530.cpp",
+   "cause": "held by population-29; needs header state the unit does not have: #include \"shared/word_storage_layout.hpp\""
+  },
+  {
+   "kind": "flipped",
+   "entry": "004fb610",
+   "bytes": 74,
+   "population": "population-22",
+   "source": "src/recovered/classes/VectorClass_UnitTypeClass_ptr/004fb610.cpp",
+   "cause": "tried alone, the unit does not compile or verify with it: Unsupported allocatable data section .CRT$XCU #2 in accepted.obj (['.CRT$XCU', '_$S41', '_$S36', '_$S33']) [row 004FB6D0 004fb6d0, source src/recovered/houstype.cpp, object accepted.obj]"
+  }
+ ],
+ "unit_functions": 77,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "00653e90",
+   "target": "004fb5c0",
+   "symbol": "??0?$VectorClass@PAVInfantryTypeClass@@@@QAE@IPBQAVInfantryTypeClass@@@Z",
+   "module_symbol": "?get@Storage_4fb5c0@@QAEPAXIPAI@Z"
+  },
+  {
+   "site": "00640b80",
+   "target": "004fb660",
+   "symbol": "??0?$VectorClass@PAVAircraftTypeClass@@@@QAE@IPBQAVAircraftTypeClass@@@Z",
+   "module_symbol": "?get@Storage_4fb660@@QAEPAXIPAI@Z"
+  },
+  {
+   "site": "00640b80",
+   "target": "004fb5c0",
+   "symbol": "??0?$VectorClass@PAVInfantryTypeClass@@@@QAE@IPBQAVInfantryTypeClass@@@Z",
+   "module_symbol": "?get@Storage_4fb5c0@@QAEPAXIPAI@Z"
+  },
+  {
+   "site": "00640b80",
+   "target": "004fb5c0",
+   "symbol": "??0?$VectorClass@PAVInfantryTypeClass@@@@QAE@IPBQAVInfantryTypeClass@@@Z",
+   "module_symbol": "?get@Storage_4fb5c0@@QAEPAXIPAI@Z"
+  },
+  {
+   "site": "00640b80",
+   "target": "004fb5c0",
+   "symbol": "??0?$VectorClass@PAVInfantryTypeClass@@@@QAE@IPBQAVInfantryTypeClass@@@Z",
+   "module_symbol": "?get@Storage_4fb5c0@@QAEPAXIPAI@Z"
+  }
+ ],
+ "stand_in_reference_count": 5,
+ "residual_split": {
+  "rows": 5,
+  "bytes": 551
+ },
+ "residual_flipped": {
+  "rows": 1,
+  "bytes": 74
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

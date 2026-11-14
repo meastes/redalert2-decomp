@@ -1,0 +1,83 @@
+{
+ "module": "crcpipe",
+ "source": "src/recovered/crcpipe.cpp",
+ "header": null,
+ "population": "population-1897",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 397,
+ "code": [
+  {
+   "symbol": "?Put@UnknownCRCPipe@@UAEHPBXH@Z",
+   "entry": "00494210",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Value_00494240@UnknownCRCPipe@@QAEKXZ",
+   "entry": "00494240",
+   "body_bytes": 68,
+   "padding_bytes": 12
+  }
+ ],
+ "code_bytes": 128,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [],
+ "references_out": [
+  {
+   "symbol": "??RCRCEngine@@QAEJPBXH@Z",
+   "address": "00493fc0"
+  },
+  {
+   "symbol": "?CRC_Memory_00494190@@YIKPBXIK@Z",
+   "address": "00494190"
+  },
+  {
+   "symbol": "?Get@Straw@@UAEHPAXH@Z",
+   "address": "0069b0a0"
+  },
+  {
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "address": "0060eaf0"
+  }
+ ],
+ "route": "A",
+ "unit": "crcpipe.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00494210",
+   "lines": 1
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 2,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

@@ -22,11 +22,14 @@
 
 using namespace ra2port;
 
+extern "C" int ra2port_original_save_mode;   // port/src/original_save.cpp
+
 namespace {
 const HRESULT S_OK = 0, S_FALSE = 1, E_NOTIMPL = (HRESULT)0x80004001u, E_NOINTERFACE = (HRESULT)0x80004002u,
               E_POINTER = (HRESULT)0x80004003u, E_FAIL = (HRESULT)0x80004005u,
               STG_E_FILENOTFOUND = (HRESULT)0x80030002u, STG_E_INVALIDFUNCTION = (HRESULT)0x80030001u,
-              STG_E_READFAULT = (HRESULT)0x8003001Eu, STG_E_FILEALREADYEXISTS = (HRESULT)0x80030050u;
+              STG_E_READFAULT = (HRESULT)0x8003001Eu, STG_E_FILEALREADYEXISTS = (HRESULT)0x80030050u,
+              STG_E_ACCESSDENIED = (HRESULT)0x80030005u;
 
 struct GUID { uint32_t d1; uint16_t d2, d3; uint8_t d4[8]; };
 bool operator<(const GUID &a, const GUID &b) { return memcmp(&a, &b, sizeof a) < 0; }
@@ -41,6 +44,12 @@ const GUID IID_IPersistStream = {0x00000109, 0, 0, {0xC0, 0, 0, 0, 0, 0, 0, 0x46
 
 typedef std::basic_string<WCHAR> wstr;
 wstr to_w(const WCHAR *s) { return s ? wstr(s, wlen(s)) : wstr(); }
+wstr ascii_w(const char *s)
+{
+    wstr w;
+    for (; *s; ++s) w.push_back((WCHAR)(unsigned char)*s);
+    return w;
+}
 
 // RA2_NATIVE_STG_LOG=1: one stderr line per storage call (diagnostics).
 void stg_log(const char *fmt, ...) __attribute__((format(printf, 1, 2)));
@@ -274,15 +283,140 @@ struct Reader {
     }
 };
 
+// ---- The original game's saves: compound files, read only (lane C6) ----
+// ole32 wrote them (StgCreateDocfile): a 512-byte header, the FAT and its
+// DIFAT chain, a directory of 128-byte entries, the mini stream for streams
+// under the cutoff (4,096 bytes). Only the root storage's streams are read (the
+// summary streams Save_Game writes and CONTENTS); the summary property set
+// ("\005SummaryInformation") is not, so SaveVersionInfo::Load 0x00659A90 reads
+// the summary from the streams, as it does for a file without property sets.
+const uint8_t compound_magic[8] = {0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1};
+
+uint32_t le32(const uint8_t *p) { return p[0] | p[1] << 8 | p[2] << 16 | (uint32_t)p[3] << 24; }
+uint16_t le16(const uint8_t *p) { return (uint16_t)(p[0] | p[1] << 8); }
+
+bool compound_streams(std::vector<uint8_t> in, Data &data)
+{
+    const uint32_t END = 0xFFFFFFFAu;   // MAXREGSECT + 1: chain ends, free and FAT/DIFAT sectors
+    if (in.size() < 512 || memcmp(in.data(), compound_magic, 8)) return false;
+    const uint8_t *h = in.data();
+    unsigned shift = le16(h + 30), mini_shift = le16(h + 32);
+    if (shift != 9 && shift != 12) return false;
+    if (mini_shift != 6) return false;
+    const size_t sector = (size_t)1 << shift, mini = (size_t)1 << mini_shift;
+    in.resize((in.size() + sector - 1) / sector * sector);   // ole32 ends the file inside the last sector
+    h = in.data();
+    const uint32_t fat_sectors = le32(h + 44), dir_start = le32(h + 48), cutoff = le32(h + 56);
+    const uint32_t minifat_start = le32(h + 60), difat_start = le32(h + 68);
+    const size_t sectors = (in.size() + sector - 1) / sector;   // an upper bound on sector numbers
+    auto at = [&](uint32_t s) -> const uint8_t * {
+        size_t off = ((size_t)s + 1) * sector;
+        return off + sector <= in.size() ? in.data() + off : nullptr;
+    };
+    // FAT sector numbers: 109 in the header, then the DIFAT chain.
+    std::vector<uint32_t> difat;
+    for (int i = 0; i < 109; ++i) difat.push_back(le32(h + 76 + 4 * i));
+    for (uint32_t s = difat_start, guard = 0; s < END && guard < sectors; ++guard) {
+        const uint8_t *p = at(s);
+        if (!p) return false;
+        for (size_t i = 0; i + 1 < sector / 4; ++i) difat.push_back(le32(p + 4 * i));
+        s = le32(p + sector - 4);
+    }
+    std::vector<uint32_t> fat;
+    for (uint32_t i = 0; i < fat_sectors && i < difat.size(); ++i) {
+        const uint8_t *p = at(difat[i]);
+        if (!p) return false;
+        for (size_t k = 0; k < sector / 4; ++k) fat.push_back(le32(p + 4 * k));
+    }
+    auto chain = [&](uint32_t s, std::vector<uint8_t> &out) -> bool {
+        for (size_t guard = 0; s < END; ++guard) {
+            const uint8_t *p = at(s);
+            if (!p || s >= fat.size() || guard > fat.size()) return false;
+            out.insert(out.end(), p, p + sector);
+            s = fat[s];
+        }
+        return true;
+    };
+    std::vector<uint8_t> dir;
+    if (!chain(dir_start, dir) || dir.size() < 128) return false;
+    struct Entry { wstr name; uint8_t type; uint32_t left, right, child, start; uint64_t size; };
+    std::vector<Entry> entries;
+    for (size_t off = 0; off + 128 <= dir.size(); off += 128) {
+        const uint8_t *e = dir.data() + off;
+        Entry x;
+        unsigned bytes = le16(e + 64);
+        for (unsigned i = 0; i + 2 < bytes && i < 64; i += 2) x.name.push_back((WCHAR)le16(e + i));
+        x.type = e[66];
+        x.left = le32(e + 68);
+        x.right = le32(e + 72);
+        x.child = le32(e + 76);
+        x.start = le32(e + 116);
+        x.size = le32(e + 120);   // version 3 files: the high half is not used
+        entries.push_back(x);
+    }
+    if (entries.empty() || entries[0].type != 5) return false;
+    std::vector<uint8_t> ministream, minifat_bytes;
+    if (!chain(entries[0].start, ministream)) return false;
+    if (minifat_start < END && !chain(minifat_start, minifat_bytes)) return false;
+    std::vector<uint32_t> minifat;
+    for (size_t i = 0; i + 4 <= minifat_bytes.size(); i += 4) minifat.push_back(le32(minifat_bytes.data() + i));
+    // The root's children: the red-black tree under its child entry.
+    std::vector<uint32_t> todo{entries[0].child};
+    std::vector<bool> seen(entries.size());
+    while (!todo.empty()) {
+        uint32_t i = todo.back();
+        todo.pop_back();
+        if (i >= entries.size() || seen[i]) continue;
+        seen[i] = true;
+        Entry const &e = entries[i];
+        todo.push_back(e.left);
+        todo.push_back(e.right);
+        if (e.type != 2) continue;   // streams only (no sub-storages in a saved game)
+        auto bytes = std::make_shared<std::vector<uint8_t>>();
+        if (e.size < cutoff) {
+            uint32_t s = e.start;
+            for (size_t guard = 0; s < END && bytes->size() < e.size; ++guard) {
+                if (s >= minifat.size() || (size_t)(s + 1) * mini > ministream.size() || guard > minifat.size()) return false;
+                bytes->insert(bytes->end(), ministream.begin() + (size_t)s * mini, ministream.begin() + (size_t)(s + 1) * mini);
+                s = minifat[s];
+            }
+        } else if (!chain(e.start, *bytes)) {
+            return false;
+        }
+        if (bytes->size() < e.size) return false;
+        bytes->resize(e.size);
+        data.streams[e.name] = bytes;
+    }
+    return data.streams.count(ascii_w("CONTENTS")) != 0;
+}
+
+// The load dialog lists an original save by its description; the port marks it
+// (only in the copy in memory: the file is never written).
+void mark_original(Data &data)
+{
+    auto it = data.streams.find(ascii_w("Scenario Description"));
+    if (it == data.streams.end()) return;
+    static const char16_t mark[] = u"(Original) ";
+    std::vector<uint8_t> &b = *it->second;
+    std::vector<uint8_t> prefix;
+    for (size_t i = 0; mark[i]; ++i) { prefix.push_back((uint8_t)mark[i]); prefix.push_back((uint8_t)(mark[i] >> 8)); }
+    b.insert(b.begin(), prefix.begin(), prefix.end());
+}
+
 struct Storage : IUnknownPort {
     ULONG refs = 1;
     std::string path;        // host path
     bool writable;
     bool dirty = false;
+    bool original = false;   // an original save (compound file): read only, original_save_mode while open
     Data data;
     PropertySetStorage props{this};
     Storage(std::string const &host, bool write) : path(host), writable(write) {}
-    ~Storage() { if (writable && dirty) Save(); }
+    ~Storage()
+    {
+        if (original) --ra2port_original_save_mode;
+        if (writable && dirty && !original) Save();
+    }
     bool Save()
     {
         std::vector<uint8_t> o;
@@ -326,6 +460,19 @@ struct Storage : IUnknownPort {
         size_t n;
         while ((n = fread(block, 1, sizeof block, f)) > 0) in.insert(in.end(), block, block + n);
         fclose(f);
+        if (in.size() >= 8 && !memcmp(in.data(), compound_magic, 8)) {
+            if (!compound_streams(in, data)) {
+                stg_log("open %s: compound file without a readable CONTENTS stream", path.c_str());
+                data = Data();
+                return false;
+            }
+            original = true;
+            writable = false;
+            ++ra2port_original_save_mode;
+            mark_original(data);
+            stg_log("open %s: original save (compound file), %zu streams, read only", path.c_str(), data.streams.size());
+            return true;
+        }
         Reader r{in.data(), in.data() + in.size()};
         char magic[8];
         if (!r.bytes(magic, 8) || memcmp(magic, "RA2NSTG1", 8)) return false;
@@ -451,6 +598,21 @@ HRESULT StgCreateDocfile(const WCHAR *name, DWORD mode, DWORD reserved, void **o
     if (!(mode & 0x1000)) {
         FILE *f = fopen(path, "rb");
         if (f) { fclose(f); *out = nullptr; return STG_E_FILEALREADYEXISTS; }
+    }
+    {
+        // Never over an original save (a compound file: the port writes only its own
+        // format). With a write folder the path is already there, not the installation.
+        FILE *f = fopen(path, "rb");
+        uint8_t head[8] = {0};
+        if (f) {
+            size_t got = fread(head, 1, 8, f);
+            fclose(f);
+            if (got == 8 && !memcmp(head, compound_magic, 8)) {
+                stg_log("create %s -> %s: an original save, not replaced", game.c_str(), path);
+                *out = nullptr;
+                return STG_E_ACCESSDENIED;
+            }
+        }
     }
     Storage *s = new Storage(path, true);
     s->dirty = true;

@@ -349,6 +349,9 @@ void finger_up(uint64_t id, float x, float y, uint64_t ms, Output const &out)
             up_ms = ms;
         }
         break;
+    case State::tap_wait:
+        // Its first finger already lifted: an ignored finger must not cancel the waiting click.
+        break;
     case State::two:
         if (fingers == 0) {
             bool ok = !moved_two && ms - down_ms < kTwoLiftMs;

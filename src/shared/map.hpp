@@ -371,6 +371,10 @@ public:
     void Reset_All_Subzones();
     void Unknown_00567380();                            // 0x00567380 (TibSun Initialize_Wall_Ownership)
     void Reset_Subzone(int index);                   // 0x00563D80
+#ifdef RA2_NON_MATCHING
+    // TibSun Subzone_Span (non-exact draft 0x00564290; callers 0x00563D80, 0x00566340).
+    int Unknown_00564290(struct CellSubzoneStruct *seed, int level, unsigned int id, Rect const &bounds, Cell const &cell);
+#endif
     // Runs 0x00564B60 with arg on every zone connection whose +0x08 is set
     // (0x00564B20).
     void Unknown_00564B20(int arg);

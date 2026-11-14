@@ -1,1 +1,0 @@
-EnumConnectionPointsClass::EnumConnectionPointsClass(DynamicVectorClass<IConnectionPoint *> const &data):Position(0),RefCount(0),Points(data) { for(int i=0;i<Points.Count();++i) Points[i]->AddRef(); }

@@ -1,0 +1,319 @@
+{
+ "module": "_mixfile",
+ "source": "src/recovered/_mixfile.cpp",
+ "header": null,
+ "population": "population-3748",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 797,
+ "code": [
+  {
+   "symbol": "_$E16",
+   "entry": "0040d210",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "0040d250",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "_$E21",
+   "entry": "0040d290",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E19",
+   "entry": "0040d2d0",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "0040d310",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E24",
+   "entry": "0040d350",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "_$E31",
+   "entry": "0040d390",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  }
+ ],
+ "code_bytes": 448,
+ "data": [
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVMixFileClass@@@@6B@",
+   "address": "0079aa30",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 20
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVMixFileClass@@@@6B@",
+   "address": "0079aa50",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 26
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAVMixFileClass@@@@8",
+   "address": "007b2ba0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 14
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAVMixFileClass@@@@8",
+   "address": "007b2bb8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 15
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAVMixFileClass@@@@8",
+   "address": "007b2bd0",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 16
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAVMixFileClass@@@@8",
+   "address": "007b2be0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 17
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAVMixFileClass@@@@6B@",
+   "address": "007b2bf0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 19
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAVMixFileClass@@@@8",
+   "address": "007b2c04",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 23
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAVMixFileClass@@@@8",
+   "address": "007b2c10",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 24
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAVMixFileClass@@@@6B@",
+   "address": "007b2c20",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 25
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAVMixFileClass@@@@@8",
+   "address": "007cd910",
+   "bytes": 46,
+   "kind": "rtti",
+   "section": 13
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAVMixFileClass@@@@@8",
+   "address": "007cd940",
+   "bytes": 53,
+   "kind": "rtti",
+   "section": 18
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVMixFileClass@@@@6B@",
+   "address": "0079aa30",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVMixFileClass@@@@6B@",
+   "address": "0079aa50",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAVMixFileClass@@@@8",
+   "address": "007b2ba0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAVMixFileClass@@@@8",
+   "address": "007b2bb8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAVMixFileClass@@@@8",
+   "address": "007b2bd0",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAVMixFileClass@@@@8",
+   "address": "007b2be0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAVMixFileClass@@@@6B@",
+   "address": "007b2bf0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAVMixFileClass@@@@8",
+   "address": "007b2c04",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAVMixFileClass@@@@8",
+   "address": "007b2c10",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAVMixFileClass@@@@6B@",
+   "address": "007b2c20",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAVMixFileClass@@@@@8",
+   "address": "007cd910",
+   "bytes": 46,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAVMixFileClass@@@@@8",
+   "address": "007cd940",
+   "bytes": 53,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [],
+ "references_out": [
+  {
+   "symbol": "??0MillisecondTimerClass@@QAE@XZ",
+   "address": "00593530"
+  },
+  {
+   "symbol": "??1MillisecondTimerClass@@QAE@XZ",
+   "address": "005935c0"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??8?$VectorClass@PAVMixFileClass@@@@UBE_NABV0@@Z",
+   "address": "0040d470"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVMixFileClass@@@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVMixFileClass@@@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "?Clear@?$DynamicVectorClass@PAVMixFileClass@@@@UAEXXZ",
+   "address": "0040d410"
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@PAVMixFileClass@@@@UBEPAVMixFileClass@@H@Z",
+   "address": "0040d460"
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAVMixFileClass@@@@UAEHABQAVMixFileClass@@@Z",
+   "address": "0040d6a0"
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAVMixFileClass@@@@UAEHPBQAVMixFileClass@@@Z",
+   "address": "0040d440"
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVMixFileClass@@@@UAEHABQAVMixFileClass@@@Z",
+   "address": "0040d590"
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVMixFileClass@@@@UAEHPBQAVMixFileClass@@@Z",
+   "address": "0040d5d0"
+  },
+  {
+   "symbol": "?Resize@?$DynamicVectorClass@PAVMixFileClass@@@@UAE_NHPBQAVMixFileClass@@@Z",
+   "address": "0040d5f0"
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@PAVMixFileClass@@@@UAE_NHPBQAVMixFileClass@@@Z",
+   "address": "0040d4b0"
+  },
+  {
+   "symbol": "_atexit",
+   "address": "0078298a"
+  }
+ ],
+ "route": "A",
+ "unit": "_mixfile.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 7,
+ "data_unproven": [
+  {
+   "symbol": "_$S7",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

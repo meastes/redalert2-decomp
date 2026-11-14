@@ -1,0 +1,2454 @@
+{
+ "module": "teamtype",
+ "source": "src/recovered/teamtype.cpp",
+ "header": null,
+ "population": "population-3586",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 734,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "006be760",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "006be790",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "006be7b0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "006be7d0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "006be7f0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "006be810",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "006be830",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "006be870",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "006be8a0",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "006be8d0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "006be900",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "006be910",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "006be930",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?TeamTypeClass_unknown_hex_6be950@@YIHPBD@Z",
+   "entry": "006be950",
+   "body_bytes": 89,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??0TeamTypeClass@@QAE@PBD@Z",
+   "entry": "006be9b0",
+   "body_bytes": 512,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "??1TeamTypeClass@@UAE@XZ",
+   "entry": "006bebb0",
+   "body_bytes": 194,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Create_One_Of@TeamTypeClass@@QAEPAVTeamClass@@PAVHouseClass@@@Z",
+   "entry": "006bec80",
+   "body_bytes": 138,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Destroy_All_Of@TeamTypeClass@@QBEXXZ",
+   "entry": "006bed10",
+   "body_bytes": 53,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Suggested_New_Teams@TeamTypeClass@@SI?AV?$TypeList@PBVTeamTypeClass@@@@PAVHouseClass@@_N@Z",
+   "entry": "006bed50",
+   "body_bytes": 1282,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Find_By_ID_Or_Name@TeamTypeClass@@SIPAV1@PBD@Z",
+   "entry": "006bf260",
+   "body_bytes": 97,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Detach@TeamTypeClass@@UAEXPAVAbstractClass@@_N@Z",
+   "entry": "006bf2d0",
+   "body_bytes": 90,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Read_INI@TeamTypeClass@@UAE_NAAVCCINIClass@@@Z",
+   "entry": "006bf330",
+   "body_bytes": 1086,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Write_INI@TeamTypeClass@@UBE_NAAVCCINIClass@@@Z",
+   "entry": "006bf770",
+   "body_bytes": 740,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Get_Group@TeamTypeClass@@QBEHXZ",
+   "entry": "006bfa60",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Waypoint_Location@TeamTypeClass@@QBE?AVCell@@XZ",
+   "entry": "006bfa90",
+   "body_bytes": 57,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Transport_Waypoint_Location@TeamTypeClass@@QBE?AVCell@@XZ",
+   "entry": "006bfad0",
+   "body_bytes": 57,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Find_Or_Make@TeamTypeClass@@SIPAV1@PBD@Z",
+   "entry": "006bfb10",
+   "body_bytes": 131,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Read_Scenario_INI@TeamTypeClass@@SIXAAVCCINIClass@@H@Z",
+   "entry": "006bfba0",
+   "body_bytes": 249,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Write_Scenario_INI@TeamTypeClass@@SIXAAVCCINIClass@@H@Z",
+   "entry": "006bfca0",
+   "body_bytes": 212,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Save@TeamTypeClass@@UAGJPAUIStream@@H@Z",
+   "entry": "006bfd80",
+   "body_bytes": 29,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Load@TeamTypeClass@@UAGJPAUIStream@@@Z",
+   "entry": "006bfda0",
+   "body_bytes": 137,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?GetClassID@TeamTypeClass@@UAGJPAUGUID@@@Z",
+   "entry": "006bfe30",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Compute_CRC@TeamTypeClass@@UBEXAAVWWCRCEngine@@@Z",
+   "entry": "006bfe70",
+   "body_bytes": 406,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?unknown_func_6c0010@TeamTypeClass@@QAE_NPAVFootClass@@PAVHouseClass@@@Z",
+   "entry": "006c0010",
+   "body_bytes": 251,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?unknown_func_6c0110@TeamTypeClass@@QBEXH@Z",
+   "entry": "006c0110",
+   "body_bytes": 55,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Find_Team@TeamTypeClass@@QBEPAVTeamClass@@XZ",
+   "entry": "006c0150",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?unknown_func_6c0180@TeamTypeClass@@QAEXXZ",
+   "entry": "006c0180",
+   "body_bytes": 146,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Unknown_006c0220@@YIXXZ",
+   "entry": "006c0220",
+   "body_bytes": 37,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Kind_Of@TeamTypeClass@@UBEHXZ",
+   "entry": "006c0250",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Fetch_Heap_ID@TeamTypeClass@@UBEHXZ",
+   "entry": "006c0270",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??_GTeamTypeClass@@UAEPAXI@Z",
+   "entry": "006c0280",
+   "body_bytes": 214,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UBE?AV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@H@Z",
+   "entry": "006c03c0",
+   "body_bytes": 28,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "??8?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UBE_NABV0@@Z",
+   "entry": "006c0440",
+   "body_bytes": 82,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAE_NHPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z",
+   "entry": "006c04a0",
+   "body_bytes": 257,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Clear@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEXXZ",
+   "entry": "006c05b0",
+   "body_bytes": 50,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?FUN_006c0780@seed_006c0780@@YAXXZ",
+   "entry": "006c0780",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?ID_006c07f0@Owner_006c07f0@seed_006c07f0@@QAEHPAH@Z",
+   "entry": "006c07f0",
+   "body_bytes": 54,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEPAXI@Z",
+   "entry": "006c08d0",
+   "body_bytes": 84,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "??4?$VectorClass@PBVTeamTypeClass@@@@QAEAAV0@ABV0@@Z",
+   "entry": "006c0930",
+   "body_bytes": 108,
+   "padding_bytes": 4
+  }
+ ],
+ "code_bytes": 7904,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "??_7?$TypeList@PBVTeamTypeClass@@@@6B@",
+   "address": "007a2ec0",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 117
+  },
+  {
+   "symbol": "??_7?$VectorClass@PBVTeamTypeClass@@@@6B@",
+   "address": "007a2ee0",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 113
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PBVTeamTypeClass@@@@6B@",
+   "address": "007a2fe8",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 258
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007ac9b0",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7TeamTypeClass@@6BINoticeSource@@@",
+   "address": "007ac9c0",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 69
+  },
+  {
+   "symbol": "??_7TeamTypeClass@@6BINoticeSink@@@",
+   "address": "007ac9c8",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 70
+  },
+  {
+   "symbol": "??_7TeamTypeClass@@6BIRTTITypeInfo@@@",
+   "address": "007ac9d0",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 71
+  },
+  {
+   "symbol": "??_7TeamTypeClass@@6BIPersistStream@@@",
+   "address": "007ac9ec",
+   "bytes": 112,
+   "kind": "vtable",
+   "section": 72
+  },
+  {
+   "symbol": "??_7?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@6B@",
+   "address": "007aca5c",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 114
+  },
+  {
+   "symbol": "??_R1M@?0A@A@INoticeSource@@8",
+   "address": "007b30b8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 48
+  },
+  {
+   "symbol": "??_R17?0A@A@INoticeSink@@8",
+   "address": "007b30d0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 50
+  },
+  {
+   "symbol": "??_R13?0A@1IUnknown@@8",
+   "address": "007b30e8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 51
+  },
+  {
+   "symbol": "??_R13?0A@A@IRTTITypeInfo@@8",
+   "address": "007b3100",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 53
+  },
+  {
+   "symbol": "??_R1A@?0A@1IUnknown@@8",
+   "address": "007b3118",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 55
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersist@@8",
+   "address": "007b3130",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 57
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersistStream@@8",
+   "address": "007b3148",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 59
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractClass@@8",
+   "address": "007b3160",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 61
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractTypeClass@@8",
+   "address": "007b3210",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 63
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PBVTeamTypeClass@@@@8",
+   "address": "007ba800",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 102
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$TypeList@PBVTeamTypeClass@@@@8",
+   "address": "007ba818",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 103
+  },
+  {
+   "symbol": "??_R2?$TypeList@PBVTeamTypeClass@@@@8",
+   "address": "007ba830",
+   "bytes": 13,
+   "kind": "rtti",
+   "section": 104
+  },
+  {
+   "symbol": "??_R3?$TypeList@PBVTeamTypeClass@@@@8",
+   "address": "007ba840",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 105
+  },
+  {
+   "symbol": "??_R4?$TypeList@PBVTeamTypeClass@@@@6B@",
+   "address": "007ba850",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 107
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PBVTeamTypeClass@@@@8",
+   "address": "007ba868",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 100
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PBVTeamTypeClass@@@@8",
+   "address": "007ba880",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 96
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PBVTeamTypeClass@@@@8",
+   "address": "007ba888",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 97
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PBVTeamTypeClass@@@@6B@",
+   "address": "007ba898",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 98
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PBVTeamTypeClass@@@@8",
+   "address": "007baa78",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 255
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PBVTeamTypeClass@@@@8",
+   "address": "007baa88",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 256
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PBVTeamTypeClass@@@@6B@",
+   "address": "007baa98",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 257
+  },
+  {
+   "symbol": "??_R4TeamTypeClass@@6BINoticeSource@@@",
+   "address": "007c3a98",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R4TeamTypeClass@@6BINoticeSink@@@",
+   "address": "007c3ab0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 45
+  },
+  {
+   "symbol": "??_R4TeamTypeClass@@6BIRTTITypeInfo@@@",
+   "address": "007c3ac8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 46
+  },
+  {
+   "symbol": "??_R1A@?0A@A@TeamTypeClass@@8",
+   "address": "007c3ae0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 64
+  },
+  {
+   "symbol": "??_R2TeamTypeClass@@8",
+   "address": "007c3af8",
+   "bytes": 41,
+   "kind": "rtti",
+   "section": 65
+  },
+  {
+   "symbol": "??_R3TeamTypeClass@@8",
+   "address": "007c3b28",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 66
+  },
+  {
+   "symbol": "??_R4TeamTypeClass@@6BIPersistStream@@@",
+   "address": "007c3b38",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 68
+  },
+  {
+   "symbol": "??_R2?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@8",
+   "address": "007c3b4c",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 109
+  },
+  {
+   "symbol": "??_R3?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@8",
+   "address": "007c3b58",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 110
+  },
+  {
+   "symbol": "??_R4?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@6B@",
+   "address": "007c3b68",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 112
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@8",
+   "address": "007c3b80",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 108
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@8",
+   "address": "007c3b98",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 91
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@8",
+   "address": "007c3bb0",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 92
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@8",
+   "address": "007c3bc0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 93
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@6B@",
+   "address": "007c3bd0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 95
+  },
+  {
+   "symbol": "??_R0?AVINoticeSink@@@8",
+   "address": "007cd618",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 49
+  },
+  {
+   "symbol": "??_R0?AUIUnknown@@@8",
+   "address": "007cd638",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 54
+  },
+  {
+   "symbol": "??_C@_08PLKM@Waypoint?$AA@",
+   "address": "007cdc9c",
+   "bytes": 9,
+   "kind": "string",
+   "section": 127
+  },
+  {
+   "symbol": "??_C@_03CHAC@Tag?$AA@",
+   "address": "007cdce4",
+   "bytes": 4,
+   "kind": "string",
+   "section": 135
+  },
+  {
+   "symbol": "??_C@_09MNJN@TaskForce?$AA@",
+   "address": "007cdd54",
+   "bytes": 10,
+   "kind": "string",
+   "section": 124
+  },
+  {
+   "symbol": "??_C@_06GELG@Script?$AA@",
+   "address": "007cdda0",
+   "bytes": 7,
+   "kind": "string",
+   "section": 125
+  },
+  {
+   "symbol": "??_C@_05DIE@House?$AA@",
+   "address": "007cde40",
+   "bytes": 6,
+   "kind": "string",
+   "section": 155
+  },
+  {
+   "symbol": "??_C@_06CPHF@?$DMnone?$DO?$AA@",
+   "address": "007cdecc",
+   "bytes": 7,
+   "kind": "string",
+   "section": 167
+  },
+  {
+   "symbol": "??_C@_04KIKH@none?$AA@",
+   "address": "007ce0ec",
+   "bytes": 5,
+   "kind": "string",
+   "section": 166
+  },
+  {
+   "symbol": "??_R0?AVINoticeSource@@@8",
+   "address": "007ce1c8",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 47
+  },
+  {
+   "symbol": "??_R0?AUIRTTITypeInfo@@@8",
+   "address": "007ce1e8",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 52
+  },
+  {
+   "symbol": "??_R0?AUIPersist@@@8",
+   "address": "007ce208",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 56
+  },
+  {
+   "symbol": "??_R0?AUIPersistStream@@@8",
+   "address": "007ce220",
+   "bytes": 29,
+   "kind": "rtti",
+   "section": 58
+  },
+  {
+   "symbol": "??_R0?AVAbstractClass@@@8",
+   "address": "007ce240",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 60
+  },
+  {
+   "symbol": "??_R0?AVAbstractTypeClass@@@8",
+   "address": "007ce260",
+   "bytes": 32,
+   "kind": "rtti",
+   "section": 62
+  },
+  {
+   "symbol": "??_C@_02MECO@?$CFd?$AA@",
+   "address": "007ce9bc",
+   "bytes": 3,
+   "kind": "string",
+   "section": 174
+  },
+  {
+   "symbol": "??_C@_0O@OBEE@IsBaseDefense?$AA@",
+   "address": "007d0c34",
+   "bytes": 14,
+   "kind": "string",
+   "section": 131
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PBVTeamTypeClass@@@@@8",
+   "address": "007da1c8",
+   "bytes": 54,
+   "kind": "rtti",
+   "section": 101
+  },
+  {
+   "symbol": "??_R0?AV?$TypeList@PBVTeamTypeClass@@@@@8",
+   "address": "007da200",
+   "bytes": 44,
+   "kind": "rtti",
+   "section": 106
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PBVTeamTypeClass@@@@@8",
+   "address": "007da230",
+   "bytes": 47,
+   "kind": "rtti",
+   "section": 99
+  },
+  {
+   "symbol": "??_C@_09FKED@TechLevel?$AA@",
+   "address": "007da8bc",
+   "bytes": 10,
+   "kind": "string",
+   "section": 136
+  },
+  {
+   "symbol": "??_R0?AVTeamTypeClass@@@8",
+   "address": "007f6d10",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 67
+  },
+  {
+   "symbol": "??_C@_05GGEJ@Group?$AA@",
+   "address": "007f6dac",
+   "bytes": 6,
+   "kind": "string",
+   "section": 134
+  },
+  {
+   "symbol": "??_C@_0CB@KPCI@Creating?5a?5new?5team?5named?5?8?$CFs?8?4?6@",
+   "address": "007f6e40",
+   "bytes": 33,
+   "kind": "string",
+   "section": 85
+  },
+  {
+   "symbol": "??_C@_0BC@BODD@Create_One_Of?4?4?4?6?$AA@",
+   "address": "007f6e64",
+   "bytes": 18,
+   "kind": "string",
+   "section": 86
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@@8",
+   "address": "007f6e78",
+   "bytes": 126,
+   "kind": "rtti",
+   "section": 111
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@@8",
+   "address": "007f6ef8",
+   "bytes": 133,
+   "kind": "rtti",
+   "section": 94
+  },
+  {
+   "symbol": "??_C@_0DB@IAHD@Infinite?5weight?5AIT?5hit?$DL?5clearin@",
+   "address": "007f6f80",
+   "bytes": 49,
+   "kind": "string",
+   "section": 115
+  },
+  {
+   "symbol": "??_C@_0BC@DBEL@TransportWaypoint?$AA@",
+   "address": "007f6fb4",
+   "bytes": 18,
+   "kind": "string",
+   "section": 126
+  },
+  {
+   "symbol": "??_C@_0BK@ICCI@AreTeamMembersRecruitable?$AA@",
+   "address": "007f6fc8",
+   "bytes": 26,
+   "kind": "string",
+   "section": 128
+  },
+  {
+   "symbol": "??_C@_0BJ@BOLL@TransportsReturnOnUnload?$AA@",
+   "address": "007f6fe4",
+   "bytes": 25,
+   "kind": "string",
+   "section": 129
+  },
+  {
+   "symbol": "??_C@_0BF@FMMK@OnlyTargetHouseEnemy?$AA@",
+   "address": "007f7000",
+   "bytes": 21,
+   "kind": "string",
+   "section": 130
+  },
+  {
+   "symbol": "??_C@_09LPKL@IonImmune?$AA@",
+   "address": "007f7018",
+   "bytes": 10,
+   "kind": "string",
+   "section": 132
+  },
+  {
+   "symbol": "??_C@_0N@DDPB@AvoidThreats?$AA@",
+   "address": "007f7024",
+   "bytes": 13,
+   "kind": "string",
+   "section": 133
+  },
+  {
+   "symbol": "??_C@_03GMOG@Max?$AA@",
+   "address": "007f7034",
+   "bytes": 4,
+   "kind": "string",
+   "section": 137
+  },
+  {
+   "symbol": "??_C@_08MJHG@Priority?$AA@",
+   "address": "007f7038",
+   "bytes": 9,
+   "kind": "string",
+   "section": 138
+  },
+  {
+   "symbol": "??_C@_0M@CCCO@OnTransOnly?$AA@",
+   "address": "007f7044",
+   "bytes": 12,
+   "kind": "string",
+   "section": 139
+  },
+  {
+   "symbol": "??_C@_0L@HKNK@Aggressive?$AA@",
+   "address": "007f7050",
+   "bytes": 11,
+   "kind": "string",
+   "section": 140
+  },
+  {
+   "symbol": "??_C@_0N@EBAO@LooseRecruit?$AA@",
+   "address": "007f705c",
+   "bytes": 13,
+   "kind": "string",
+   "section": 141
+  },
+  {
+   "symbol": "??_C@_07JAAJ@Suicide?$AA@",
+   "address": "007f706c",
+   "bytes": 8,
+   "kind": "string",
+   "section": 142
+  },
+  {
+   "symbol": "??_C@_06KEIO@Whiner?$AA@",
+   "address": "007f7074",
+   "bytes": 7,
+   "kind": "string",
+   "section": 143
+  },
+  {
+   "symbol": "??_C@_09LFAP@Recruiter?$AA@",
+   "address": "007f707c",
+   "bytes": 10,
+   "kind": "string",
+   "section": 144
+  },
+  {
+   "symbol": "??_C@_0BD@CJAD@UseTransportOrigin?$AA@",
+   "address": "007f7088",
+   "bytes": 19,
+   "kind": "string",
+   "section": 145
+  },
+  {
+   "symbol": "??_C@_07GFCG@Droppod?$AA@",
+   "address": "007f709c",
+   "bytes": 8,
+   "kind": "string",
+   "section": 146
+  },
+  {
+   "symbol": "??_C@_09GHMB@Reinforce?$AA@",
+   "address": "007f70a4",
+   "bytes": 10,
+   "kind": "string",
+   "section": 147
+  },
+  {
+   "symbol": "??_C@_08MLCN@Prebuild?$AA@",
+   "address": "007f70b0",
+   "bytes": 9,
+   "kind": "string",
+   "section": 148
+  },
+  {
+   "symbol": "??_C@_0L@GDKO@Autocreate?$AA@",
+   "address": "007f70bc",
+   "bytes": 11,
+   "kind": "string",
+   "section": 149
+  },
+  {
+   "symbol": "??_C@_0M@PENK@GuardSlower?$AA@",
+   "address": "007f70c8",
+   "bytes": 12,
+   "kind": "string",
+   "section": 150
+  },
+  {
+   "symbol": "??_C@_09KPKI@Annoyance?$AA@",
+   "address": "007f70d4",
+   "bytes": 10,
+   "kind": "string",
+   "section": 151
+  },
+  {
+   "symbol": "??_C@_04OOPN@Full?$AA@",
+   "address": "007f70e0",
+   "bytes": 5,
+   "kind": "string",
+   "section": 152
+  },
+  {
+   "symbol": "??_C@_08LLBB@Loadable?$AA@",
+   "address": "007f70e8",
+   "bytes": 9,
+   "kind": "string",
+   "section": 153
+  },
+  {
+   "symbol": "??_C@_0N@BOHN@VeteranLevel?$AA@",
+   "address": "007f70f4",
+   "bytes": 13,
+   "kind": "string",
+   "section": 154
+  },
+  {
+   "symbol": "??_C@_09GJJE@TeamTypes?$AA@",
+   "address": "007f7104",
+   "bytes": 10,
+   "kind": "string",
+   "section": 171
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$TypeList@PBVTeamTypeClass@@@@6B@",
+   "address": "007a2ec0",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PBVTeamTypeClass@@@@6B@",
+   "address": "007a2ee0",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PBVTeamTypeClass@@@@6B@",
+   "address": "007a2fe8",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007ac9b0",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7TeamTypeClass@@6BINoticeSource@@@",
+   "address": "007ac9c0",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7TeamTypeClass@@6BINoticeSink@@@",
+   "address": "007ac9c8",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7TeamTypeClass@@6BIRTTITypeInfo@@@",
+   "address": "007ac9d0",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7TeamTypeClass@@6BIPersistStream@@@",
+   "address": "007ac9ec",
+   "bytes": 112,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@6B@",
+   "address": "007aca5c",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1M@?0A@A@INoticeSource@@8",
+   "address": "007b30b8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R17?0A@A@INoticeSink@@8",
+   "address": "007b30d0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R13?0A@1IUnknown@@8",
+   "address": "007b30e8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R13?0A@A@IRTTITypeInfo@@8",
+   "address": "007b3100",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@1IUnknown@@8",
+   "address": "007b3118",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersist@@8",
+   "address": "007b3130",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersistStream@@8",
+   "address": "007b3148",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractClass@@8",
+   "address": "007b3160",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractTypeClass@@8",
+   "address": "007b3210",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PBVTeamTypeClass@@@@8",
+   "address": "007ba800",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$TypeList@PBVTeamTypeClass@@@@8",
+   "address": "007ba818",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$TypeList@PBVTeamTypeClass@@@@8",
+   "address": "007ba830",
+   "bytes": 13,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$TypeList@PBVTeamTypeClass@@@@8",
+   "address": "007ba840",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$TypeList@PBVTeamTypeClass@@@@6B@",
+   "address": "007ba850",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PBVTeamTypeClass@@@@8",
+   "address": "007ba868",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PBVTeamTypeClass@@@@8",
+   "address": "007ba880",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PBVTeamTypeClass@@@@8",
+   "address": "007ba888",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PBVTeamTypeClass@@@@6B@",
+   "address": "007ba898",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PBVTeamTypeClass@@@@8",
+   "address": "007baa78",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PBVTeamTypeClass@@@@8",
+   "address": "007baa88",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PBVTeamTypeClass@@@@6B@",
+   "address": "007baa98",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4TeamTypeClass@@6BINoticeSource@@@",
+   "address": "007c3a98",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4TeamTypeClass@@6BINoticeSink@@@",
+   "address": "007c3ab0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4TeamTypeClass@@6BIRTTITypeInfo@@@",
+   "address": "007c3ac8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@TeamTypeClass@@8",
+   "address": "007c3ae0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2TeamTypeClass@@8",
+   "address": "007c3af8",
+   "bytes": 41,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3TeamTypeClass@@8",
+   "address": "007c3b28",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4TeamTypeClass@@6BIPersistStream@@@",
+   "address": "007c3b38",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@8",
+   "address": "007c3b4c",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@8",
+   "address": "007c3b58",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@6B@",
+   "address": "007c3b68",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@8",
+   "address": "007c3b80",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@8",
+   "address": "007c3b98",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@8",
+   "address": "007c3bb0",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@8",
+   "address": "007c3bc0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@6B@",
+   "address": "007c3bd0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVINoticeSink@@@8",
+   "address": "007cd618",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIUnknown@@@8",
+   "address": "007cd638",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_08PLKM@Waypoint?$AA@",
+   "address": "007cdc9c",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_03CHAC@Tag?$AA@",
+   "address": "007cdce4",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09MNJN@TaskForce?$AA@",
+   "address": "007cdd54",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06GELG@Script?$AA@",
+   "address": "007cdda0",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_05DIE@House?$AA@",
+   "address": "007cde40",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06CPHF@?$DMnone?$DO?$AA@",
+   "address": "007cdecc",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04KIKH@none?$AA@",
+   "address": "007ce0ec",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AVINoticeSource@@@8",
+   "address": "007ce1c8",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIRTTITypeInfo@@@8",
+   "address": "007ce1e8",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIPersist@@@8",
+   "address": "007ce208",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIPersistStream@@@8",
+   "address": "007ce220",
+   "bytes": 29,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVAbstractClass@@@8",
+   "address": "007ce240",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVAbstractTypeClass@@@8",
+   "address": "007ce260",
+   "bytes": 32,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_02MECO@?$CFd?$AA@",
+   "address": "007ce9bc",
+   "bytes": 3,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@OBEE@IsBaseDefense?$AA@",
+   "address": "007d0c34",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PBVTeamTypeClass@@@@@8",
+   "address": "007da1c8",
+   "bytes": 54,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$TypeList@PBVTeamTypeClass@@@@@8",
+   "address": "007da200",
+   "bytes": 44,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PBVTeamTypeClass@@@@@8",
+   "address": "007da230",
+   "bytes": 47,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_09FKED@TechLevel?$AA@",
+   "address": "007da8bc",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AVTeamTypeClass@@@8",
+   "address": "007f6d10",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_05GGEJ@Group?$AA@",
+   "address": "007f6dac",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CB@KPCI@Creating?5a?5new?5team?5named?5?8?$CFs?8?4?6@",
+   "address": "007f6e40",
+   "bytes": 33,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@BODD@Create_One_Of?4?4?4?6?$AA@",
+   "address": "007f6e64",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@@8",
+   "address": "007f6e78",
+   "bytes": 126,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@@8",
+   "address": "007f6ef8",
+   "bytes": 133,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0DB@IAHD@Infinite?5weight?5AIT?5hit?$DL?5clearin@",
+   "address": "007f6f80",
+   "bytes": 49,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@DBEL@TransportWaypoint?$AA@",
+   "address": "007f6fb4",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BK@ICCI@AreTeamMembersRecruitable?$AA@",
+   "address": "007f6fc8",
+   "bytes": 26,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BJ@BOLL@TransportsReturnOnUnload?$AA@",
+   "address": "007f6fe4",
+   "bytes": 25,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BF@FMMK@OnlyTargetHouseEnemy?$AA@",
+   "address": "007f7000",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09LPKL@IonImmune?$AA@",
+   "address": "007f7018",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@DDPB@AvoidThreats?$AA@",
+   "address": "007f7024",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_03GMOG@Max?$AA@",
+   "address": "007f7034",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08MJHG@Priority?$AA@",
+   "address": "007f7038",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@CCCO@OnTransOnly?$AA@",
+   "address": "007f7044",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@HKNK@Aggressive?$AA@",
+   "address": "007f7050",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@EBAO@LooseRecruit?$AA@",
+   "address": "007f705c",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07JAAJ@Suicide?$AA@",
+   "address": "007f706c",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06KEIO@Whiner?$AA@",
+   "address": "007f7074",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09LFAP@Recruiter?$AA@",
+   "address": "007f707c",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@CJAD@UseTransportOrigin?$AA@",
+   "address": "007f7088",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07GFCG@Droppod?$AA@",
+   "address": "007f709c",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09GHMB@Reinforce?$AA@",
+   "address": "007f70a4",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08MLCN@Prebuild?$AA@",
+   "address": "007f70b0",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@GDKO@Autocreate?$AA@",
+   "address": "007f70bc",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@PENK@GuardSlower?$AA@",
+   "address": "007f70c8",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09KPKI@Annoyance?$AA@",
+   "address": "007f70d4",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04OOPN@Full?$AA@",
+   "address": "007f70e0",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08LLBB@Loadable?$AA@",
+   "address": "007f70e8",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@BOHN@VeteranLevel?$AA@",
+   "address": "007f70f4",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09GJJE@TeamTypes?$AA@",
+   "address": "007f7104",
+   "bytes": 10,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00694730",
+   "symbol": "??0TeamTypeClass@@QAE@PBD@Z",
+   "target": "006be9b0",
+   "function_entry": true
+  },
+  {
+   "site": "0041d7e0",
+   "symbol": "?Find_By_ID_Or_Name@TeamTypeClass@@SIPAV1@PBD@Z",
+   "target": "006bf260",
+   "function_entry": true
+  },
+  {
+   "site": "0041d7e0",
+   "symbol": "?Find_By_ID_Or_Name@TeamTypeClass@@SIPAV1@PBD@Z",
+   "target": "006bf260",
+   "function_entry": true
+  },
+  {
+   "site": "006e6900",
+   "symbol": "?Unknown_006BF260@@YIPAVAbstractTypeClass@@PBD@Z",
+   "target": "006bf260",
+   "function_entry": true
+  },
+  {
+   "site": "004c8d80",
+   "symbol": "?Unknown_006BFA90@TeamTypeClass@@QBE?AVCell@@XZ",
+   "target": "006bfa90",
+   "function_entry": true
+  },
+  {
+   "site": "004c8d80",
+   "symbol": "?Unknown_006BFA90@TeamTypeClass@@QBE?AVCell@@XZ",
+   "target": "006bfa90",
+   "function_entry": true
+  },
+  {
+   "site": "006b8cc0",
+   "symbol": "?Get_Group@TeamTypeClass@@QBEHXZ",
+   "target": "006bfa60",
+   "function_entry": true
+  },
+  {
+   "site": "00414d90",
+   "symbol": "?Waypoint_Location@TeamTypeClass@@QBE?AVCell@@XZ",
+   "target": "006bfa90",
+   "function_entry": true
+  },
+  {
+   "site": "00414d90",
+   "symbol": "?Waypoint_Location@TeamTypeClass@@QBE?AVCell@@XZ",
+   "target": "006bfa90",
+   "function_entry": true
+  },
+  {
+   "site": "006b7430",
+   "symbol": "?Waypoint_Location@TeamTypeClass@@QBE?AVCell@@XZ",
+   "target": "006bfa90",
+   "function_entry": true
+  },
+  {
+   "site": "006b7430",
+   "symbol": "?Waypoint_Location@TeamTypeClass@@QBE?AVCell@@XZ",
+   "target": "006bfa90",
+   "function_entry": true
+  },
+  {
+   "site": "006b1420",
+   "symbol": "?Create_One_Of@TeamTypeClass@@QAEPAVTeamClass@@PAVHouseClass@@@Z",
+   "target": "006bec80",
+   "function_entry": true
+  },
+  {
+   "site": "006b1450",
+   "symbol": "?Destroy_All_Of@TeamTypeClass@@QBEXXZ",
+   "target": "006bed10",
+   "function_entry": true
+  },
+  {
+   "site": "0064bf10",
+   "symbol": "?Find_Or_Make@TeamTypeClass@@SIPAV1@PBD@Z",
+   "target": "006bfb10",
+   "function_entry": true
+  },
+  {
+   "site": "006ad860",
+   "symbol": "?Find_Or_Make@TeamTypeClass@@SIPAV1@PBD@Z",
+   "target": "006bfb10",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Read_Scenario_INI@TeamTypeClass@@SIXAAVCCINIClass@@H@Z",
+   "target": "006bfba0",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Read_Scenario_INI@TeamTypeClass@@SIXAAVCCINIClass@@H@Z",
+   "target": "006bfba0",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Unknown_006c0220@@YIXXZ",
+   "target": "006c0220",
+   "function_entry": true
+  },
+  {
+   "site": "006b2f30",
+   "symbol": "?unknown_func_6c0110@TeamTypeClass@@QBEXH@Z",
+   "target": "006c0110",
+   "function_entry": true
+  },
+  {
+   "site": "006b2f50",
+   "symbol": "?Find_Team@TeamTypeClass@@QBEPAVTeamClass@@XZ",
+   "target": "006c0150",
+   "function_entry": true
+  },
+  {
+   "site": "0065f980",
+   "symbol": "?Write_Scenario_INI@TeamTypeClass@@SIXAAVCCINIClass@@H@Z",
+   "target": "006bfca0",
+   "function_entry": true
+  },
+  {
+   "site": "006c0660",
+   "symbol": "??1?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@QAE@XZ",
+   "target": "006c0780",
+   "function_entry": true
+  },
+  {
+   "site": "004f3630",
+   "symbol": "?unknown_func_6c0010@TeamTypeClass@@QAE_NPAVFootClass@@PAVHouseClass@@@Z",
+   "target": "006c0010",
+   "function_entry": true
+  },
+  {
+   "site": "006b91c0",
+   "symbol": "?Waypoint_Location@TeamTypeClass@@QBE?AVCell@@XZ",
+   "target": "006bfa90",
+   "function_entry": true
+  },
+  {
+   "site": "006b91c0",
+   "symbol": "?Waypoint_Location@TeamTypeClass@@QBE?AVCell@@XZ",
+   "target": "006bfa90",
+   "function_entry": true
+  },
+  {
+   "site": "006b91c0",
+   "symbol": "?Get_Group@TeamTypeClass@@QBEHXZ",
+   "target": "006bfa60",
+   "function_entry": true
+  },
+  {
+   "site": "004e5cf0",
+   "symbol": "?Suggested_New_Teams@TeamTypeClass@@SI?AV?$TypeList@PBVTeamTypeClass@@@@PAVHouseClass@@_N@Z",
+   "target": "006bed50",
+   "function_entry": true
+  },
+  {
+   "site": "004e4110",
+   "symbol": "?Suggested_New_Teams@TeamTypeClass@@SI?AV?$TypeList@PBVTeamTypeClass@@@@PAVHouseClass@@_N@Z",
+   "target": "006bed50",
+   "function_entry": true
+  },
+  {
+   "site": "004e4110",
+   "symbol": "?Create_One_Of@TeamTypeClass@@QAEPAVTeamClass@@PAVHouseClass@@@Z",
+   "target": "006bec80",
+   "function_entry": true
+  },
+  {
+   "site": "00639970",
+   "symbol": "?Waypoint_Location@TeamTypeClass@@QBE?AVCell@@XZ",
+   "target": "006bfa90",
+   "function_entry": true
+  },
+  {
+   "site": "00639970",
+   "symbol": "?Transport_Waypoint_Location@TeamTypeClass@@QBE?AVCell@@XZ",
+   "target": "006bfad0",
+   "function_entry": true
+  },
+  {
+   "site": "006adae0",
+   "symbol": "?Create_One_Of@TeamTypeClass@@QAEPAVTeamClass@@PAVHouseClass@@@Z",
+   "target": "006bec80",
+   "function_entry": true
+  },
+  {
+   "site": "006adae0",
+   "symbol": "?Destroy_All_Of@TeamTypeClass@@QBEXXZ",
+   "target": "006bed10",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0AbstractTypeClass@@QAE@ABVNoInitClass@@@Z",
+   "address": "004106e0"
+  },
+  {
+   "symbol": "??0AbstractTypeClass@@QAE@PBD@Z",
+   "address": "00410580"
+  },
+  {
+   "symbol": "??0TeamClass@@QAE@PAVTeamTypeClass@@PAVHouseClass@@H@Z",
+   "address": "006b7430"
+  },
+  {
+   "symbol": "??1AbstractTypeClass@@UAE@XZ",
+   "address": "00410740"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??RRandom2Class@@QAEHHH@Z",
+   "address": "006388a0"
+  },
+  {
+   "symbol": "??RWWCRCEngine@@QAEXJ@Z",
+   "address": "00493f30"
+  },
+  {
+   "symbol": "??RWWCRCEngine@@QAEX_N@Z",
+   "address": "00493e80"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PBVTeamTypeClass@@@@UAEPAXI@Z",
+   "address": "004f6fc0"
+  },
+  {
+   "symbol": "??_G?$TypeList@PBVTeamTypeClass@@@@UAEPAXI@Z",
+   "address": "004f6ee0"
+  },
+  {
+   "symbol": "??_G?$VectorClass@PBVTeamTypeClass@@@@UAEPAXI@Z",
+   "address": "004f8710"
+  },
+  {
+   "symbol": "??_G?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEPAXI@Z",
+   "address": "006c0830"
+  },
+  {
+   "symbol": "?AI@AbstractClass@@UAEXXZ",
+   "address": "00410310"
+  },
+  {
+   "symbol": "?AITriggerTypes@@3V?$DynamicVectorClass@PAVAITriggerTypeClass@@@@A",
+   "address": "00a3d260"
+  },
+  {
+   "symbol": "?AddRef@AbstractClass@@UAGKXZ",
+   "address": "004100a0"
+  },
+  {
+   "symbol": "?As_Pointer@HouseClass@@SIPAV1@H@Z",
+   "address": "004ed760"
+  },
+  {
+   "symbol": "?Center_Coord@AbstractClass@@UBE?AUCoordStruct@@XZ",
+   "address": "00410260"
+  },
+  {
+   "symbol": "?Clear@INIClass@@QAE_NPBD0@Z",
+   "address": "0050b9a0"
+  },
+  {
+   "symbol": "?Compute_CRC@AbstractTypeClass@@UBEXAAVWWCRCEngine@@@Z",
+   "address": "00410960"
+  },
+  {
+   "symbol": "?Create_ID@AbstractClass@@UAGXXZ",
+   "address": "0040ffd0"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Entry_Count@INIClass@@QBEHPBD@Z",
+   "address": "0050cb00"
+  },
+  {
+   "symbol": "?Fetch_ID@AbstractClass@@UAGJXZ",
+   "address": "0040ffc0"
+  },
+  {
+   "symbol": "?Find_Or_Make@ScriptTypeClass@@SIPAV1@PBD@Z",
+   "address": "00668f70"
+  },
+  {
+   "symbol": "?Find_Or_Make@TagTypeClass@@SIPAV1@PBD@Z",
+   "address": "006b4d20"
+  },
+  {
+   "symbol": "?Find_Or_Make@TaskForceClass@@SIPAV1@PBD@Z",
+   "address": "006b6fb0"
+  },
+  {
+   "symbol": "?GetSizeMax@AbstractClass@@UAGJPATULARGE_INTEGER@@@Z",
+   "address": "00410180"
+  },
+  {
+   "symbol": "?Get_Bool@INIClass@@QBE_NPBD0_N@Z",
+   "address": "0050f410"
+  },
+  {
+   "symbol": "?Get_Entry@INIClass@@QBEPBDPBDH@Z",
+   "address": "0050ce00"
+  },
+  {
+   "symbol": "?Get_HousesType@CCINIClass@@QBEHPBD0H@Z",
+   "address": "0046aa00"
+  },
+  {
+   "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+   "address": "0050d7f0"
+  },
+  {
+   "symbol": "?Get_String@INIClass@@QBEHPBD00PADH@Z",
+   "address": "0050e9a0"
+  },
+  {
+   "symbol": "?Get_Waypoint_Location@ScenarioClass@@QBE?AVCell@@H@Z",
+   "address": "00663180"
+  },
+  {
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "address": "00636f10"
+  },
+  {
+   "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+   "address": "00a32298"
+  },
+  {
+   "symbol": "?INoticeSink_Unknown@AbstractClass@@UAE_NHH@Z",
+   "address": "00410320"
+  },
+  {
+   "symbol": "?INoticeSource_Unknown@AbstractClass@@UAGXXZ",
+   "address": "00410330"
+  },
+  {
+   "symbol": "?In_Air@AbstractClass@@UBE_NXZ",
+   "address": "004102d0"
+  },
+  {
+   "symbol": "?Init@AbstractClass@@UAEXXZ",
+   "address": "00410210"
+  },
+  {
+   "symbol": "?IsDirty@AbstractClass@@UAGJXZ",
+   "address": "004101f0"
+  },
+  {
+   "symbol": "?Is_Inactive@AbstractClass@@UBE_NXZ",
+   "address": "004101e0"
+  },
+  {
+   "symbol": "?Is_Ready@AITriggerTypeClass@@QBE_NPAVHouseClass@@0_N@Z",
+   "address": "0041c990"
+  },
+  {
+   "symbol": "?Is_Recruitable_Mission@MissionClass@@SI_NH@Z",
+   "address": "00594db0"
+  },
+  {
+   "symbol": "?Load@AbstractClass@@UAGJPAUIStream@@@Z",
+   "address": "00410120"
+  },
+  {
+   "symbol": "?On_Ground@AbstractClass@@UBE_NXZ",
+   "address": "004102c0"
+  },
+  {
+   "symbol": "?Owner@AbstractClass@@UBEHXZ",
+   "address": "00410230"
+  },
+  {
+   "symbol": "?Owning_House@AbstractClass@@UBEPAVHouseClass@@XZ",
+   "address": "00410240"
+  },
+  {
+   "symbol": "?Put_Bool@INIClass@@QAE_NPBD0_N@Z",
+   "address": "0050f380"
+  },
+  {
+   "symbol": "?Put_HousesType@CCINIClass@@QAE_NPBD0H@Z",
+   "address": "0046aab0"
+  },
+  {
+   "symbol": "?Put_Int@INIClass@@QAE_NPBD0HH@Z",
+   "address": "0050d6e0"
+  },
+  {
+   "symbol": "?Put_String@INIClass@@QAE_NPBD00@Z",
+   "address": "0050e5f0"
+  },
+  {
+   "symbol": "?QueryInterface@AbstractClass@@UAGJABUGUID@@PAPAX@Z",
+   "address": "00410000"
+  },
+  {
+   "symbol": "?Read_INI@AbstractTypeClass@@UAE_NAAVCCINIClass@@@Z",
+   "address": "004107e0"
+  },
+  {
+   "symbol": "?Release@AbstractClass@@UAGKXZ",
+   "address": "004100b0"
+  },
+  {
+   "symbol": "?Rules@@3PAVRulesClass@@A",
+   "address": "00839848"
+  },
+  {
+   "symbol": "?Save@AbstractClass@@UAGJPAUIStream@@H@Z",
+   "address": "004100c0"
+  },
+  {
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "address": "0069fb20"
+  },
+  {
+   "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+   "address": "00abd868"
+  },
+  {
+   "symbol": "?TeamTypes@@3V?$DynamicVectorClass@PAVTeamTypeClass@@@@A",
+   "address": "00a40c48"
+  },
+  {
+   "symbol": "?Team_Count@HouseClass@@QAEHPAVTeamTypeClass@@@Z",
+   "address": "004f35f0"
+  },
+  {
+   "symbol": "?Teams@@3V?$DynamicVectorClass@PAVTeamClass@@@@A",
+   "address": "00866178"
+  },
+  {
+   "symbol": "?Unknown_0056A900@@YIHHH@Z",
+   "address": "0056a900"
+  },
+  {
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "address": "006ecb90"
+  },
+  {
+   "symbol": "?Waypoint_From_Name_724a70@@YIHPAD@Z",
+   "address": "00724a70"
+  },
+  {
+   "symbol": "?Waypoint_Name_7249f0@@YIPADH@Z",
+   "address": "007249f0"
+  },
+  {
+   "symbol": "?What_Am_I@AbstractClass@@UAGHXZ",
+   "address": "0040ffb0"
+  },
+  {
+   "symbol": "?Write_INI@AbstractTypeClass@@UBE_NAAVCCINIClass@@@Z",
+   "address": "00410910"
+  },
+  {
+   "symbol": "?unknown_a40774@@3HA",
+   "address": "00a40774"
+  },
+  {
+   "symbol": "?unknown_func_6bd990@TeamClass@@QAEXH@Z",
+   "address": "006bd990"
+  },
+  {
+   "symbol": "?unknown_game_mode_a3d298@@3HA",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0cb0"
+  },
+  {
+   "symbol": "?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z",
+   "address": "00410290"
+  },
+  {
+   "symbol": "?unknown_slot22@AbstractClass@@UBE?AUCoordStruct@@XZ",
+   "address": "004102e0"
+  },
+  {
+   "symbol": "?unknown_slot24@AbstractTypeClass@@UAEXH@Z",
+   "address": "004109a0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_string_83c55c@@3PADA",
+   "address": "0083c55c"
+  },
+  {
+   "symbol": "_CLSID_TeamTypeClass",
+   "address": "007a1cf0"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__stricmp",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "_isdigit",
+   "address": "00782b8c"
+  },
+  {
+   "symbol": "_isxdigit",
+   "address": "00782bb4"
+  },
+  {
+   "symbol": "_sprintf",
+   "address": "007820f4"
+  },
+  {
+   "symbol": "_toupper",
+   "address": "007829d3"
+  }
+ ],
+ "route": "A",
+ "unit": "teamtype.cpp",
+ "form": "one include block",
+ "switches": [
+  "TYPELIST_IMPLEMENT_DEFAULT_CONSTRUCTOR",
+  "TYPELIST_IMPLEMENT_COPY_CONSTRUCTOR",
+  "VECTOR_IMPLEMENT_DYNAMIC_ADD",
+  "VECTOR_IMPLEMENT_DYNAMIC_CLEAR",
+  "VECTOR_IMPLEMENT_VECTOR_CLEAR"
+ ],
+ "include_blocks": [
+  {
+   "before": "006be760",
+   "lines": 28
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "006c03c0",
+   "bytes": 28,
+   "population": "population-2187",
+   "bound": "own frozen bound (population-2187)"
+  },
+  {
+   "entry": "006c0440",
+   "bytes": 82,
+   "population": "population-2187",
+   "bound": "own frozen bound (population-2187)"
+  },
+  {
+   "entry": "006c04a0",
+   "bytes": 257,
+   "population": "population-2187",
+   "bound": "own frozen bound (population-2187)"
+  },
+  {
+   "entry": "006c05b0",
+   "bytes": 50,
+   "population": "population-2187",
+   "bound": "own frozen bound (population-2187)"
+  },
+  {
+   "entry": "006c0930",
+   "bytes": 108,
+   "population": "population-2697",
+   "bound": "own frozen bound (population-2697)"
+  },
+  {
+   "entry": "006c0780",
+   "bytes": 1,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006c07f0",
+   "bytes": 54,
+   "population": "population-42",
+   "bound": "own frozen bound (population-42)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "006c0360",
+   "bytes": 53,
+   "population": "population-2685",
+   "source": "src/recovered/classes/DynamicVectorClass_AITriggerTypeDistribution/Clear.cpp",
+   "cause": "frozen in another population's inventory pass (population-2685)"
+  },
+  {
+   "kind": "split",
+   "entry": "006c03a0",
+   "bytes": 27,
+   "population": "population-11",
+   "source": "src/recovered/address_offsets/GetGuardedScaledOffset_006c03a0.cpp",
+   "cause": "frozen in another population's inventory pass (population-11)"
+  },
+  {
+   "kind": "split",
+   "entry": "006c03e0",
+   "bytes": 93,
+   "population": "population-28",
+   "source": "src/recovered/word_storage/InitializeWordStorage_006c03e0.cpp",
+   "cause": "frozen in another population's inventory pass (population-28)"
+  },
+  {
+   "kind": "split",
+   "entry": "006c05f0",
+   "bytes": 70,
+   "population": "population-4442",
+   "source": "src/recovered/classes/VectorClass_AITriggerTypeDistribution/ID.cpp",
+   "cause": "frozen in another population's inventory pass (population-4442)"
+  },
+  {
+   "kind": "split",
+   "entry": "006c0640",
+   "bytes": 27,
+   "population": "population-11",
+   "source": "src/recovered/address_offsets/GetGuardedScaledOffset_006c0640.cpp",
+   "cause": "frozen in another population's inventory pass (population-11)"
+  },
+  {
+   "kind": "split",
+   "entry": "006c0660",
+   "bytes": 285,
+   "population": "population-2685",
+   "source": "src/recovered/classes/DynamicVectorClass_AITriggerTypeDistribution/Resize.cpp",
+   "cause": "frozen in another population's inventory pass (population-2685)"
+  },
+  {
+   "kind": "split",
+   "entry": "006c0790",
+   "bytes": 87,
+   "population": "population-2685",
+   "source": "src/recovered/classes/DynamicVectorClass_AITriggerTypeDistribution/Add.cpp",
+   "cause": "frozen in another population's inventory pass (population-2685)"
+  },
+  {
+   "kind": "split",
+   "entry": "006c0830",
+   "bytes": 84,
+   "population": "population-3308",
+   "source": "src/recovered/classes/VectorClass_DiscreteDistributionClass_AITriggerTypeClass___DistributionObject_AITriggerTypeClass_ptr/Scalar_Deleting_Destructor.cpp",
+   "cause": "frozen in another population's inventory pass (population-3308)"
+  },
+  {
+   "kind": "split",
+   "entry": "006c0890",
+   "bytes": 59,
+   "population": "population-3308",
+   "source": "src/recovered/classes/AITriggerTypeDistribution/Vector_Deleting_Destructor.cpp",
+   "cause": "frozen in another population's inventory pass (population-3308)"
+  },
+  {
+   "kind": "split",
+   "entry": "006c09a0",
+   "bytes": 162,
+   "population": "population-3308",
+   "source": "src/recovered/classes/VectorClass_DiscreteDistributionClass_AITriggerTypeClass___DistributionObject_AITriggerTypeClass_ptr/Constructor.cpp",
+   "cause": "held by population-3308; not joined: its population changes when it leaves"
+  }
+ ],
+ "unit_functions": 60,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@6B@",
+   "reason": "relocation target unbound: ??_E?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEPAXI@Z"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "006e6900",
+   "target": "006bf260",
+   "symbol": "?Unknown_006BF260@@YIPAVAbstractTypeClass@@PBD@Z",
+   "module_symbol": "?Find_By_ID_Or_Name@TeamTypeClass@@SIPAV1@PBD@Z"
+  },
+  {
+   "site": "004c8d80",
+   "target": "006bfa90",
+   "symbol": "?Unknown_006BFA90@TeamTypeClass@@QBE?AVCell@@XZ",
+   "module_symbol": "?Waypoint_Location@TeamTypeClass@@QBE?AVCell@@XZ"
+  },
+  {
+   "site": "004c8d80",
+   "target": "006bfa90",
+   "symbol": "?Unknown_006BFA90@TeamTypeClass@@QBE?AVCell@@XZ",
+   "module_symbol": "?Waypoint_Location@TeamTypeClass@@QBE?AVCell@@XZ"
+  },
+  {
+   "site": "006c0660",
+   "target": "006c0780",
+   "symbol": "??1?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@QAE@XZ",
+   "module_symbol": "?FUN_006c0780@seed_006c0780@@YAXXZ"
+  }
+ ],
+ "stand_in_reference_count": 4,
+ "residual_split": {
+  "rows": 10,
+  "bytes": 947
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

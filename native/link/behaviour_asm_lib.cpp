@@ -16,7 +16,7 @@
 #include <time.h>
 
 // ---------------------------------------------------------------------------
-// LCW_Comp 0x00534D40 (src/recovered/unowned/LCW_Comp_00534d40.cpp: TibSun
+// LCW_Comp 0x00534D40 (src/recovered/lcw/LCW_Comp.cpp: TibSun
 // lcw.cpp's inline assembly, Westwood's LCWCOMP.ASM). A transliteration of
 // the register program: the same greedy search, so the output bytes equal the
 // original's for any input.

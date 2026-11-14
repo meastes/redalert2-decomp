@@ -15,7 +15,7 @@
 // tanks hunt the enemy; the start units wait and join the attack).
 // RA2_NATIVE_ORDERS="<frame> goto <ID|*> <x> <y>; <frame> attack <ID|*> <x> <y>;
 // <frame> hunt; <frame> capture <ID> <x> <y>; <frame> sabotage <ID> <x> <y>; <frame> train <ID>; <frame> super <index> <x> <y>;
-// <frame> grant <index>; <frame> super <index> enemy [<house>] [units]; <frame> board <ID> <TRANSPORT>; <frame> unload <TRANSPORT>" (board/unload, train of a vehicle: Scout1295) (Scout1153, M19; super/grant Scout1170, M21: the human house's Supers[index];
+// <frame> amove <ID|*> <x> <y> (attack-move, C3); <frame> grant <index>; <frame> super <index> enemy [<house>] [units]; <frame> board <ID> <TRANSPORT>; <frame> unload <TRANSPORT>" (board/unload, train of a vehicle: Scout1295) (Scout1153, M19; super/grant Scout1170, M21: the human house's Supers[index];
 // attack/capture: the building in cell x,y, mission 1 / 8 (`attack <ID> <TYPE>`: the first enemy
 // object of that type; Tanya only when named); train: the barracks' cameo click;
 // units -1 when the cell holds none) (Scout1153,
@@ -127,7 +127,10 @@ int Scripted_Order(char const *command)
         }
         return listed;
     }
-    bool go =Same(word[1], "goto", 5) && words >= 5;
+    // `amove <ID|*> <x> <y>` (C3): an attack-move, the MEGAMISSION 0x1D a Ctrl+Shift ground
+    // click queues (TechnoClass slot 200 0x006CC2A0 turns a move into 0x1D while the keys are down).
+    bool amove = Same(word[1], "amove", 6) && words >= 5;
+    bool go = (Same(word[1], "goto", 5) || amove) && words >= 5;
     bool hunt = Same(word[1], "hunt", 5);
     bool attack = (Same(word[1], "attack", 7) || Same(word[1], "capture", 8) || Same(word[1], "sabotage", 9)) && words >= 5;
     // `attack <ID> <TYPE>` (Scout1209 r6): the first enemy object of that type, wherever it is
@@ -328,7 +331,7 @@ int Scripted_Order(char const *command)
             Cell cell;
             cell.X = (short)atoi(word[3]);
             cell.Y = (short)atoi(word[4]);
-            Queue_Mission(TargetClass(techno), 2, TargetClass(), TargetClass(cell));
+            Queue_Mission(TargetClass(techno), amove ? 0x1D : 2, TargetClass(), TargetClass(cell));
             ++count;
         } else if (hunt && !Same_Type(id, "TANY") && !Same_Type(id, "ENGINEER") && (type == 0 || type->DeploysInto == 0)) {
             Queue_Mission(TargetClass(techno), 15, TargetClass(), TargetClass());

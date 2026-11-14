@@ -1,0 +1,560 @@
+{
+ "module": "phoneed",
+ "source": "src/recovered/phoneed.cpp",
+ "header": null,
+ "population": "population-3624",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 744,
+ "code": [
+  {
+   "symbol": "?Dialog@PhoneEdit@@QAE_NXZ",
+   "entry": "0060d970",
+   "body_bytes": 125,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Phone_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+   "entry": "0060d9f0",
+   "body_bytes": 647,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Dial@PhoneEdit@@QAE_NXZ",
+   "entry": "0060dc80",
+   "body_bytes": 444,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Build_Phone_Listbox@PhoneEdit@@QAEXXZ",
+   "entry": "0060de40",
+   "body_bytes": 667,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Select@PhoneEdit@@QAEXXZ",
+   "entry": "0060e0e0",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Add@PhoneEdit@@QAEXXZ",
+   "entry": "0060e160",
+   "body_bytes": 381,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Edit@PhoneEdit@@QAEXXZ",
+   "entry": "0060e2e0",
+   "body_bytes": 314,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Delete@PhoneEdit@@QAEXXZ",
+   "entry": "0060e420",
+   "body_bytes": 151,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Dialog@PhoneEntryEdit@@QAE_NPAVPhoneEntryClass@@@Z",
+   "entry": "0060e4c0",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Edit_Phone_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+   "entry": "0060e540",
+   "body_bytes": 607,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save@PhoneEntryEdit@@QAEXXZ",
+   "entry": "0060e7a0",
+   "body_bytes": 338,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Init@PhoneEntryEdit@@QAEXXZ",
+   "entry": "0060e900",
+   "body_bytes": 225,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Phone_Compare@@YAHPBX0@Z",
+   "entry": "0060e9f0",
+   "body_bytes": 98,
+   "padding_bytes": 14
+  }
+ ],
+ "code_bytes": 4336,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a8168",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007d1598",
+   "bytes": 6,
+   "kind": "string",
+   "section": 51
+  },
+  {
+   "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+   "address": "007d64f4",
+   "bytes": 4,
+   "kind": "string",
+   "section": 53
+  },
+  {
+   "symbol": "??_C@_19GFJK@?$AA?$FL?$AA?$CF?$AAs?$AA?$FN?$AA?$AA@",
+   "address": "007dfb9c",
+   "bytes": 10,
+   "kind": "string",
+   "section": 49
+  },
+  {
+   "symbol": "??_C@_0L@DFNB@Name?3?5?$CFls?6?$AA@",
+   "address": "007e2028",
+   "bytes": 11,
+   "kind": "string",
+   "section": 70
+  },
+  {
+   "symbol": "??_C@_17FKIN@?$AA?$CF?$AAh?$AAs?$AA?$AA@",
+   "address": "007eadcc",
+   "bytes": 8,
+   "kind": "string",
+   "section": 52
+  },
+  {
+   "symbol": "??_C@_0L@JPAF@TXT_NONAME?$AA@",
+   "address": "007eb8ec",
+   "bytes": 11,
+   "kind": "string",
+   "section": 45
+  },
+  {
+   "symbol": "??_C@_0BD@PIKI@D?3?2Ra2?2PhoneEd?4cpp?$AA@",
+   "address": "007eb8f8",
+   "bytes": 19,
+   "kind": "string",
+   "section": 46
+  },
+  {
+   "symbol": "??_C@_0M@NLP@TXT_DEFAULT?$AA@",
+   "address": "007eb90c",
+   "bytes": 12,
+   "kind": "string",
+   "section": 50
+  },
+  {
+   "symbol": "??_C@_0BM@MDDL@Settings?3?5Port?5?$CFd?0?5Baud?5?$CFd?6?$AA@",
+   "address": "007eb918",
+   "bytes": 28,
+   "kind": "string",
+   "section": 68
+  },
+  {
+   "symbol": "??_C@_0M@IELE@Number?3?5?$CFs?6?$AA@",
+   "address": "007eb934",
+   "bytes": 12,
+   "kind": "string",
+   "section": 69
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a8168",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007d1598",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+   "address": "007d64f4",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_19GFJK@?$AA?$FL?$AA?$CF?$AAs?$AA?$FN?$AA?$AA@",
+   "address": "007dfb9c",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@DFNB@Name?3?5?$CFls?6?$AA@",
+   "address": "007e2028",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_17FKIN@?$AA?$CF?$AAh?$AAs?$AA?$AA@",
+   "address": "007eadcc",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@JPAF@TXT_NONAME?$AA@",
+   "address": "007eb8ec",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@PIKI@D?3?2Ra2?2PhoneEd?4cpp?$AA@",
+   "address": "007eb8f8",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@NLP@TXT_DEFAULT?$AA@",
+   "address": "007eb90c",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BM@MDDL@Settings?3?5Port?5?$CFd?0?5Baud?5?$CFd?6?$AA@",
+   "address": "007eb918",
+   "bytes": 28,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@IELE@Number?3?5?$CFs?6?$AA@",
+   "address": "007eb934",
+   "bytes": 12,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "005cdf00",
+   "symbol": "?Dialog@PhoneEdit@@QAE_NXZ",
+   "target": "0060d970",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0WolLadderListCell@@QAE@XZ",
+   "address": "005de940"
+  },
+  {
+   "symbol": "??1WideString@@QAE@XZ",
+   "address": "0076fa50"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Dialog_0066ca70@SerialEdDialog@@QAE_NPAUSerialSettingsType@@@Z",
+   "address": "0066ca70"
+  },
+  {
+   "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
+   "address": "006f9ec0"
+  },
+  {
+   "symbol": "?MainWindow@@3PAUHWND__@@A",
+   "address": "00b263d8"
+  },
+  {
+   "symbol": "?Set@WideString@@QAEFPBG@Z",
+   "address": "007708f0"
+  },
+  {
+   "symbol": "?Write_MultiPlayer_Settings@SessionClass@@QAEXXZ",
+   "address": "00670380"
+  },
+  {
+   "symbol": "?strtrim@@YIPADPAD@Z",
+   "address": "006eef10"
+  },
+  {
+   "symbol": "?unknown_517370@@YIX_N@Z",
+   "address": "00517370"
+  },
+  {
+   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "address": "006000d0"
+  },
+  {
+   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "address": "005ff610"
+  },
+  {
+   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "address": "005ff6e0"
+  },
+  {
+   "symbol": "?unknown_dialog_5ff7c0@@YIXPAUHWND__@@@Z",
+   "address": "005ff7c0"
+  },
+  {
+   "symbol": "?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z",
+   "address": "005ffb00"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_session_a3d298@@3USessionClass@@A",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?wcstrim@@YIPAGPAG@Z",
+   "address": "006eef80"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__GetDlgItem@8",
+   "address": "0079a49c"
+  },
+  {
+   "symbol": "__imp__GetWindowLongA@8",
+   "address": "0079a48c"
+  },
+  {
+   "symbol": "__imp__SendDlgItemMessageA@20",
+   "address": "0079a484"
+  },
+  {
+   "symbol": "__imp__SendMessageA@16",
+   "address": "0079a4a0"
+  },
+  {
+   "symbol": "__imp__SetFocus@4",
+   "address": "0079a38c"
+  },
+  {
+   "symbol": "__imp__SetWindowLongA@12",
+   "address": "0079a488"
+  },
+  {
+   "symbol": "__imp__ShowWindow@8",
+   "address": "0079a498"
+  },
+  {
+   "symbol": "__imp__UpdateWindow@4",
+   "address": "0079a46c"
+  },
+  {
+   "symbol": "__wcsupr",
+   "address": "00796ef6"
+  },
+  {
+   "symbol": "_qsort",
+   "address": "00781d46"
+  },
+  {
+   "symbol": "_strncpy",
+   "address": "007823d0"
+  },
+  {
+   "symbol": "_swprintf",
+   "address": "00783764"
+  },
+  {
+   "symbol": "_wcscmp",
+   "address": "007837d3"
+  },
+  {
+   "symbol": "_wcscpy",
+   "address": "00783689"
+  },
+  {
+   "symbol": "_wcslen",
+   "address": "00783605"
+  },
+  {
+   "symbol": "_wcsncpy",
+   "address": "00783622"
+  }
+ ],
+ "route": "A",
+ "unit": "phoneed.cpp",
+ "form": "one include block",
+ "switches": [
+  "VECTOR_IMPLEMENT_ALL"
+ ],
+ "include_blocks": [
+  {
+   "before": "0060d970",
+   "lines": 15
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 14,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

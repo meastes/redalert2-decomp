@@ -37,6 +37,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from coff import Coff
 import catalog_io
+import data_bindings
+from verify_manifest import hierarchy_bit_only
 
 MODULES = REPOSITORY / 'manifests/original_target/modules.json'
 MAPS = REPOSITORY / 'manifests/original_target/modules'
@@ -115,19 +117,37 @@ def prove_data(coff, bindings, original, module_code):
         if unbound is not None:
             failures.append(dict(section=index, symbol=first, reason='relocation target unbound: ' + unbound))
             continue
+        known = False
         try:
             same = bytes(data) == original(base, len(data))
+            if not same and hierarchy_bit_only(first, bytes(data), original(base, len(data))):
+                same = known = True     # DECISIONS "Class hierarchy descriptor ambiguous bit"
         except ValueError:
             same = False
         record = dict(address=base, bytes=len(data), names=[n for _, n in names], kind=section_kind([first]),
-                      section=index, locator=bool(locator))
+                      section=index, locator=bool(locator), align=section_alignment(section['flags']))
+        if known:
+            record['known_difference'] = 'hierarchy ambiguous bit'
         (copies if same else failures).append(record if same else dict(record, reason='bytes differ from the original'))
     return copies, failures
 
 
+def section_alignment(flags):
+    """A COFF section's alignment (IMAGE_SCN_ALIGN_*), 1 when unstated."""
+    code = (flags >> 20) & 0xF
+    return 1 << (code - 1) if code else 1
+
+
+def fill_limit(copy):
+    """Zero bytes the linker may put in front of a copy: fewer than four, or fewer than the
+    copy's section alignment (an 8-aligned RTTI type descriptor after an odd-length one)."""
+    return max(4, copy.get('align', 1))
+
+
 def coverage(copies, ranges, original):
     """Tile each declared range with the proven copies: only zero fill of fewer than four
-    bytes may separate them. Returns (per-range results, copies outside every range)."""
+    bytes (or than the next copy's section alignment) may separate them. Returns (per-range
+    results, copies outside every range)."""
     inside = []
     results = []
     used = set()
@@ -138,7 +158,7 @@ def coverage(copies, ranges, original):
             used.add(id(c))
             if c['address'] < cursor:
                 gaps.append(dict(at='%08x' % c['address'], reason='overlaps the previous copy'))
-            elif c['address'] - cursor >= 4 or any(original(cursor, c['address'] - cursor)):
+            elif c['address'] - cursor >= fill_limit(c) or any(original(cursor, c['address'] - cursor)):
                 gaps.append(dict(at='%08x' % cursor, bytes=c['address'] - cursor, reason='not compiler-emitted'))
             proven += c['bytes']
             cursor = c['address'] + c['bytes']
@@ -151,6 +171,28 @@ def coverage(copies, ranges, original):
         inside.extend(rows)
     outside = [c for c in copies if id(c) not in used]
     return results, outside
+
+
+def known_field(copy):
+    out = {'known_difference': copy['known_difference']} if copy.get('known_difference') else {}
+    if copy.get('bound_by'):
+        out['bound_by'] = copy['bound_by']
+    return out
+
+
+def data_only_bindings(coff, rows, bindings, rtti, original, source):
+    """The source's declared data-only bindings (data_bindings.py), {} when it declares none."""
+    declared = data_bindings.declared(rows)
+    if not declared:
+        return {}
+    extents = {}
+    for index, section in enumerate(coff.sections, 1):
+        symbols = data_bindings.section_symbols(coff, index)
+        for i, (value, name) in enumerate(symbols):
+            extents[name] = (symbols[i + 1][0] if i + 1 < len(symbols) else section['size']) - value
+    others = data_bindings.other_proven_copies(MAPS, source)
+    ends, starts = data_bindings.independent_items(bindings, rtti, others, extents.get)
+    return data_bindings.bind(coff, declared, bindings, original, ends, starts)
 
 
 def module_rows(catalog, source):
@@ -194,7 +236,13 @@ def ledger(build_dir, catalog, original, modules):
         bindings = dict(rows[0]['references'])
         bindings.update(rtti)
         module_code = {r['symbol']: r['entry'] for r in rows}
+        derived = data_only_bindings(coff, rows, bindings, rtti, original, item['source'])
+        bindings.update({n: a for n, (a, _, _) in derived.items()})
         copies, failures = prove_data(coff, bindings, original, module_code)
+        for c in copies:
+            kinds = sorted({derived[n][1] for n in c['names'] if n in derived})
+            if kinds:
+                c['bound_by'] = kinds
         ranges, outside = coverage(copies, item['ranges'], original)
         undefined = sorted(s['name'] for s in coff.symbols.values() if s['section'] == 0 and s['storage'] == 2
                            and s['name'] not in module_code)
@@ -205,14 +253,37 @@ def ledger(build_dir, catalog, original, modules):
                        padding_bytes=r['padding_bytes']) for r in rows],
             code_bytes=sum(r['full_extent_bytes'] for r in rows),
             data=[dict(symbol=c['names'][0], address='%08x' % c['address'], bytes=c['bytes'],
-                       kind=c['kind'], section=c['section']) for c in sorted(copies, key=lambda c: c['address'])],
+                       kind=c['kind'], section=c['section'], **known_field(c))
+                  for c in sorted(copies, key=lambda c: c['address'])],
             data_ranges=ranges, data_bytes_proven=sum(r['proven_bytes'] for r in ranges),
             data_complete=all(r['complete'] for r in ranges),
-            kept_elsewhere=[dict(symbol=c['names'][0], address='%08x' % c['address'], bytes=c['bytes'], kind=c['kind'])
+            kept_elsewhere=[dict(symbol=c['names'][0], address='%08x' % c['address'], bytes=c['bytes'], kind=c['kind'],
+                                 **known_field(c))
                             for c in sorted(outside, key=lambda c: c['address'])],
             failures=failures,
             references_in=references_into(catalog, rows, item['ranges']),
             references_out=[dict(symbol=n, address='%08x' % bindings[n] if n in bindings else None) for n in undefined])
+        if item.get('route') == 'A':
+            # A re-filed unit (refile_unit.py) claims no data range: sections that prove are
+            # listed where the original keeps them, the rest are counted, never a blocker.
+            entry = out[name]
+            entry.update(route='A', unit=item.get('unit'), form=item.get('form'), switches=item.get('switches', []),
+                         include_blocks=item.get('include_blocks', []), held_rows=item.get('held_rows', []),
+                         joined=item.get('joined', []), residuals=item.get('residuals', []),
+                         unit_functions=item.get('unit_functions'),
+                         data_unproven=[dict(symbol=f.get('symbol'), reason=f['reason']) for f in entry['failures']],
+                         failures=[])
+            # Other units' spellings of the unit's functions that are not its own symbols
+            # (module_check counts them for a Route A module instead of refusing): the work
+            # list for a later declaration cleanup, with the count.
+            own = {r['entry']: r['symbol'] for r in rows}
+            entry['stand_in_references'] = [
+                dict(site=hit['site'], target=hit['target'], symbol=hit['symbol'], module_symbol=own[int(hit['target'], 16)])
+                for hit in entry['references_in'] if hit['function_entry'] and hit['symbol'] != own[int(hit['target'], 16)]]
+            entry['stand_in_reference_count'] = len(entry['stand_in_references'])
+            for kind in ('split', 'flipped', 'kept'):
+                kept = [r for r in entry['residuals'] if r.get('kind') == kind]
+                entry['residual_' + kind] = dict(rows=len(kept), bytes=sum(r['bytes'] for r in kept))
     return out
 
 
@@ -226,14 +297,16 @@ def summary_line(entry):
                 'complete' if entry['data_complete'] else 'INCOMPLETE',
                 len(kept), sum(c['bytes'] for c in kept), ', '.join(sorted({c['kind'] for c in kept})) or '-',
                 len(entry['references_in']), len(entry['references_out']),
-                '' if not entry['failures'] else '; %d sections REFUSED' % len(entry['failures'])))
+                ('' if not entry['failures'] else '; %d sections REFUSED' % len(entry['failures'])) +
+                ('' if entry.get('route') != 'A' else '; Route A: %d residual rows, %d switches, %d sections unproven' % (
+                    len(entry['residuals']), len(entry['switches']), len(entry['data_unproven'])))))
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('build_dir', type=Path)
     parser.add_argument('--write', action='store_true', help='write manifests/original_target/modules/<name>.json')
-    parser.add_argument('--config', type=Path, default=REPOSITORY / 'private/original-target.local.json')
+    parser.add_argument('--config', type=Path, default=catalog_io.config_path(REPOSITORY))
     args = parser.parse_args()
     import pefile
     config = json.loads(args.config.read_text())
@@ -256,7 +329,7 @@ def main():
         failed |= bool(entry['failures']) or not entry['data_complete']
         if args.write:
             MAPS.mkdir(parents=True, exist_ok=True)
-            (MAPS / (name + '.json')).write_text(json.dumps(entry, indent=1) + '\n')
+            catalog_io.write_text_lf(MAPS / (name + '.json'), json.dumps(entry, indent=1) + '\n')
     if failed:
         raise SystemExit(1)
 

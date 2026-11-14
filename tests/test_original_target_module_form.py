@@ -103,6 +103,12 @@ class ModuleLedgerTests(unittest.TestCase):
         original = self.original_image([(0x7f0000, b'\x01' * 5 + b'\0' * 7 + b'\x02' * 5)])
         ranges, _ = module_ledger.coverage(copies, [(0x7f0000, 0x7f0011)], original)
         self.assertFalse(ranges[0]['complete'])
+        # Unless the next copy's section is 8-aligned (a type descriptor after an odd-length one).
+        copies[1]['align'] = 8
+        ranges, _ = module_ledger.coverage(copies, [(0x7f0000, 0x7f0011)], original)
+        self.assertTrue(ranges[0]['complete'])
+        self.assertEqual(module_ledger.section_alignment(0x00400040), 8)
+        self.assertEqual(module_ledger.section_alignment(0x40), 1)
 
 
 class ShiftBuildTests(unittest.TestCase):

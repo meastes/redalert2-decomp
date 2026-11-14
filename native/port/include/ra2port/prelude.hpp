@@ -108,7 +108,56 @@ static_assert(sizeof(IsoTileRef) == 4, "IsoTileRef keeps the file's 4-byte slot"
 struct factory_tag {};
 constexpr factory_tag factory_alloc = {};
 
+// VC6's (int) of a floating value: _ftol (0x0077F110) stores the x87 value with
+// fistp qword under the game's round-toward-zero control word and returns the low
+// 32 bits. A value outside the 64-bit range (or a NaN) stores the integer
+// indefinite 0x8000000000000000, low half 0; a value between 2^31 and 2^63 wraps.
+// arm64's fcvtzs saturates to INT_MIN/INT_MAX instead (and NaN gives 0), so a
+// table index the original wraps or zeroes comes out INT_MIN natively, which abs()
+// keeps negative (C5: Fast_Atan2 0x004BA600 reading 8 GB before its table).
+inline int x87_ftol(double value)
+{
+    if (!(value >= -9223372036854775808.0 && value < 9223372036854775808.0)) {
+        return 0;
+    }
+    return (int)(unsigned int)(unsigned long long)(long long)value;
+}
+
+// Original saves (lane C6, roadmap (d); port/src/original_save.cpp). The user's
+// saves from the original game are compound files whose CONTENTS stream holds
+// i686 object images: pointers and pointer-sized integers are 4 bytes there, 8
+// here. While one is being read (original_save_mode, set by StgOpenStorage for a
+// compound file), the typed IStream::Read of com_persist.hpp's overlay sorts each
+// read by its destination type: pointer-wide values are read as 4 bytes and
+// widened (the swizzle ids and pointer fields: original addresses, below 2 GB),
+// objects are converted from their i686 layout to the arm64 one, the rest is read
+// as is.
+enum OriginalReadKind { ORIGINAL_READ_RAW, ORIGINAL_READ_UNSIGNED, ORIGINAL_READ_SIGNED, ORIGINAL_READ_OBJECT };
+template <class T> struct original_read_kind {
+    enum { value = (__is_class(T) || __is_union(T)) ? ORIGINAL_READ_OBJECT : ORIGINAL_READ_RAW };
+};
+template <class T> struct original_read_kind<T *> { enum { value = ORIGINAL_READ_UNSIGNED }; };
+// VC6's long is RA2_LONG natively; long and unsigned long here are only the
+// pointer-width rewrites (intptr_t, uintptr_t, size_t: LONG_PTR, WPARAM, ...).
+template <> struct original_read_kind<long> { enum { value = ORIGINAL_READ_SIGNED }; };
+template <> struct original_read_kind<unsigned long> { enum { value = ORIGINAL_READ_UNSIGNED }; };
+template <class T> inline char const *original_type_name() { return __PRETTY_FUNCTION__; }
+template <class T, bool polymorphic = __is_polymorphic(T)> struct original_vptr {
+    static void const *get(T const *) { return 0; }
+};
+template <class T> struct original_vptr<T, true> {
+    static void const *get(T const *object) { return *(void const *const *)object; }
+};
 }  // namespace ra2port
+
+extern "C" int ra2port_original_save_mode;
+// stream_read: the stream's own (virtual) Read, through a thunk; vptr: the object's
+// primary vtable pointer when its type is polymorphic (its most derived type gives
+// the layout), else type_name (original_type_name's text) names the static type.
+typedef int32_t (*ra2port_stream_read_fn)(void *stream, void *buffer, uint32_t size, uint32_t *read);
+extern "C" int32_t ra2port_original_read(ra2port_stream_read_fn stream_read, void *stream, void *buffer,
+                                         uint32_t size, uint32_t *read, int kind, void const *vptr,
+                                         char const *type_name);
 
 inline void *operator new(size_t size, ra2port::factory_tag) { return ::operator new(2 * size); }
 inline void operator delete(void *p, ra2port::factory_tag) { ::operator delete(p); }

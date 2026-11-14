@@ -40,7 +40,7 @@ bool __fastcall RadarEventClass_unknown_load_all(IStream *stream);
 HRESULT __fastcall Skip_Objects(IStream *stream);
 
 // The tactical view rectangle (0x006F1F30; shared/display.hpp, shared/planning.hpp).
-Rect __fastcall Unknown_006F1F30();
+Rect __fastcall Get_Title_Screen_Area_006f1f30();
 
 // Writes every radar event (RadarEventClass_unknown_save_all 0x0063C310).
 bool __fastcall RadarEventClass_unknown_save_all(IStream *stream);

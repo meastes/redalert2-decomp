@@ -1,0 +1,181 @@
+{
+ "module": "vqalib_audio",
+ "source": "src/recovered/vqalib_audio.cpp",
+ "header": null,
+ "population": "population-3118",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 631,
+ "code": [
+  {
+   "symbol": "?VQA_OpenAudio@@YIJPAUVQAHandleP@@@Z",
+   "entry": "00776380",
+   "body_bytes": 159,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?VQA_CloseAudio@@YIXPAUVQAHandleP@@@Z",
+   "entry": "00776420",
+   "body_bytes": 84,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?VQA_StartAudio@@YIXPAUVQAHandleP@@@Z",
+   "entry": "00776480",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?VQA_PauseAudio@@YIXPAUVQAHandleP@@@Z",
+   "entry": "007764a0",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?VQA_StopAudio@@YIXPAUVQAHandleP@@@Z",
+   "entry": "007764c0",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?CopyAudio@@YIJPAUVQAHandleP@@@Z",
+   "entry": "007764e0",
+   "body_bytes": 406,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?VQA_AudioFillCallback@@YAHPAUVQAHandleP@@@Z",
+   "entry": "00776680",
+   "body_bytes": 330,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?VQA_AudioDoneCallback@@YAHPAUVQAHandleP@@H@Z",
+   "entry": "007767d0",
+   "body_bytes": 197,
+   "padding_bytes": 11
+  }
+ ],
+ "code_bytes": 1312,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0077be70",
+   "symbol": "?VQA_CloseAudio@@YIXPAUVQAHandleP@@@Z",
+   "target": "00776420",
+   "function_entry": true
+  },
+  {
+   "site": "0077b7a0",
+   "symbol": "?VQA_OpenAudio@@YIJPAUVQAHandleP@@@Z",
+   "target": "00776380",
+   "function_entry": true
+  },
+  {
+   "site": "0077bf10",
+   "symbol": "?VQA_StartAudio@@YIXPAUVQAHandleP@@@Z",
+   "target": "00776480",
+   "function_entry": true
+  },
+  {
+   "site": "0077bf10",
+   "symbol": "?VQA_StartAudio@@YIXPAUVQAHandleP@@@Z",
+   "target": "00776480",
+   "function_entry": true
+  },
+  {
+   "site": "0077bf10",
+   "symbol": "?VQA_PauseAudio@@YIXPAUVQAHandleP@@@Z",
+   "target": "007764a0",
+   "function_entry": true
+  },
+  {
+   "site": "0077bf10",
+   "symbol": "?VQA_StartAudio@@YIXPAUVQAHandleP@@@Z",
+   "target": "00776480",
+   "function_entry": true
+  },
+  {
+   "site": "0077bf10",
+   "symbol": "?VQA_PauseAudio@@YIXPAUVQAHandleP@@@Z",
+   "target": "007764a0",
+   "function_entry": true
+  },
+  {
+   "site": "0077bf10",
+   "symbol": "?VQA_StopAudio@@YIXPAUVQAHandleP@@@Z",
+   "target": "007764c0",
+   "function_entry": true
+  },
+  {
+   "site": "0077c2e0",
+   "symbol": "?VQA_StopAudio@@YIXPAUVQAHandleP@@@Z",
+   "target": "007764c0",
+   "function_entry": true
+  },
+  {
+   "site": "00778950",
+   "symbol": "?CopyAudio@@YIJPAUVQAHandleP@@@Z",
+   "target": "007764e0",
+   "function_entry": true
+  },
+  {
+   "site": "00778950",
+   "symbol": "?CopyAudio@@YIJPAUVQAHandleP@@@Z",
+   "target": "007764e0",
+   "function_entry": true
+  },
+  {
+   "site": "00778950",
+   "symbol": "?CopyAudio@@YIJPAUVQAHandleP@@@Z",
+   "target": "007764e0",
+   "function_entry": true
+  },
+  {
+   "site": "00778950",
+   "symbol": "?CopyAudio@@YIJPAUVQAHandleP@@@Z",
+   "target": "007764e0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [],
+ "route": "A",
+ "unit": "vqalib_audio.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00776380",
+   "lines": 2
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 8,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

@@ -52,13 +52,13 @@ int __cdecl Unknown_isspace_00784aa8(short character)
 // 0x00672140 (pass-6a decompile): whether the scenario file is "RandMap_Sed"
 // (_stricmp 0x00781F20; the string at 0x007E16E8). Reached by 0x005C7570.
 extern "C" int __cdecl _stricmp(char const *left, char const *right);
-bool UnknownSessionState::Unknown_00672140()
+bool SessionClass::Unknown_00672140()
 {
     return _stricmp(ScenarioFileName_658, "RandMap_Sed") == 0;
 }
 
 // 0x006715C0: does nothing (unknown_53fbd0 calls it each frame).
-void UnknownSessionState::Trap_Object_006715c0()
+void SessionClass::Trap_Object_006715c0()
 {
 }
 
@@ -131,12 +131,6 @@ void Cell::unknown_47e2b0()
 {
 }
 
-// 0x006A67B0: the view position (+0xD64). Recorded by unknown_53fbd0 each frame.
-Point2D Tactical::Unknown_006A67B0()
-{
-    return unknown_d64;
-}
-
 // 0x0054F240: the hash of a key (bits 12-15 or'ed into bits 0-3). MapClass::One_Time.
 int __fastcall Unknown_Hash_0054F240(unsigned const &key)
 {
@@ -153,15 +147,9 @@ void LayerClass::unknown_slot9()
 {
 }
 
-// 0x00663400: stores a waypoint's cell (+0x632).
-void UnknownIDSource::Set_Waypoint_Location(int waypoint, Cell cell)
-{
-    Waypoints[waypoint] = cell;
-}
 
 // 0x004C2040: the cell the fogged object stands on (its coordinate / 256, signed).
 Cell FoggedObjectClass::Get_Cell() const
 {
     return unknown_coord_cell(Coord);
 }
-

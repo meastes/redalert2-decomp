@@ -21,7 +21,7 @@
 //   +0x294  StorageClass, +0x2A8 DelayTimerClass (out-of-line constructors)
 //   +0x2C8, +0x2E0, +0x2F8  FacingClass (the first with rate 3)
 //   +0x320  short: a random value from the scenario when constructed
-//   +0x330, +0x350  UnknownTechnoBlock (constructed by both constructors)
+//   +0x330, +0x350  RecoilData (constructed by both constructors)
 //   +0x390  DynamicVectorClass<int>, +0x3A8/+0x3C0 DynamicVectorClass<
 //           AbstractClass *> (constructed by both constructors)
 //   +0x3D8  UnknownAudioController
@@ -121,8 +121,8 @@ public:
 // 0x20 bytes constructed by both constructors (2, 1, 1, 1, -, 0, 0).
 // 0x006D8BC0 steps it: a value that rises over +0x0C frames (state 1),
 // holds, then falls over +0x08 frames (state 2 -> 3) back to 0.
-struct UnknownTechnoBlock {
-    UnknownTechnoBlock() :
+struct RecoilData {
+    RecoilData() :
         unknown_00(2), unknown_04(1), unknown_08(1), unknown_0c(1),
         unknown_14(0), unknown_18(0) {}
     void unknown_6d8b90();              // 0x006D8B90
@@ -618,6 +618,9 @@ public:
     int unknown_6cfb60();                                       // 0x006CFB60 (times ZFudgeTunnel)
     int unknown_6cfda0();                                       // 0x006CFDA0 (times ZFudgeCliff)
     int unknown_6c4a70(ObjectClass *other);                     // 0x006C4A70
+#ifdef RA2_NON_MATCHING
+    double unknown_6c5270(Cell const &cell);                    // 0x006C5270 (non-exact draft; caller 0x006C5570)
+#endif
     int unknown_6c48f0(ObjectClass *other);                     // 0x006C48F0
     void unknown_6d9080(Point2D const &center, void const *unused); // 0x006D9080, RET8; unused pointee type unknown
     bool unknown_6cf670();                                      // 0x006CF670 (ZFudgeBridge applies)
@@ -721,8 +724,8 @@ public:
     bool unknown_32b;                       // +0x32B
     bool unknown_32c;                       // +0x32C
     bool unknown_32d;                       // +0x32D
-    UnknownTechnoBlock unknown_330;         // +0x330
-    UnknownTechnoBlock unknown_350;         // +0x350
+    RecoilData unknown_330;         // +0x330
+    RecoilData unknown_350;         // +0x350
     bool unknown_370;                       // +0x370
     bool unknown_371;                       // +0x371
     bool unknown_372;                       // +0x372

@@ -1,0 +1,571 @@
+{
+ "module": "cheklist",
+ "source": "src/recovered/cheklist.cpp",
+ "header": null,
+ "population": "population-1637",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 348,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "0047d2c0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??0CheckListClass@@QAE@HHHHHIPBX0@Z",
+   "entry": "0047d2e0",
+   "body_bytes": 69,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "??1CheckListClass@@UAE@XZ",
+   "entry": "0047d330",
+   "body_bytes": 63,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Add_Item@CheckListClass@@UAEHPAG@Z",
+   "entry": "0047d370",
+   "body_bytes": 53,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Current_Item@CheckListClass@@UBEPAGXZ",
+   "entry": "0047d3b0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Get_Item@CheckListClass@@UBEPAGH@Z",
+   "entry": "0047d3c0",
+   "body_bytes": 24,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Remove_Item@CheckListClass@@UAEXPAG@Z",
+   "entry": "0047d3e0",
+   "body_bytes": 100,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Set_Selected_Index@CheckListClass@@UAEXPAG@Z",
+   "entry": "0047d450",
+   "body_bytes": 89,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Check_Item@CheckListClass@@QAEXH_N@Z",
+   "entry": "0047d4b0",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Is_Checked@CheckListClass@@QBE_NH@Z",
+   "entry": "0047d4e0",
+   "body_bytes": 25,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Action@CheckListClass@@UAEHIAAI@Z",
+   "entry": "0047d500",
+   "body_bytes": 116,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Draw_Entry@CheckListClass@@UAEXHHHHH@Z",
+   "entry": "0047d580",
+   "body_bytes": 359,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Flag_List_To_Redraw@GadgetClass@@UAEXXZ",
+   "entry": "0047d6f0",
+   "body_bytes": 11,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Is_To_Redraw@GadgetClass@@UAE_NXZ",
+   "entry": "0047d700",
+   "body_bytes": 4,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Count@ListClass@@UBEHXZ",
+   "entry": "0047d710",
+   "body_bytes": 4,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Remove_Item@CheckListClass@@UAEXH@Z",
+   "entry": "0047d720",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Set_Selected_Index@CheckListClass@@UAEXH@Z",
+   "entry": "0047d730",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??_GCheckListClass@@UAEPAXI@Z",
+   "entry": "0047d740",
+   "body_bytes": 83,
+   "padding_bytes": 13
+  }
+ ],
+ "code_bytes": 1248,
+ "data": [
+  {
+   "symbol": "??_R1A@?0A@A@LinkClass@@8",
+   "address": "007b4a18",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 8
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GadgetClass@@8",
+   "address": "007b4f38",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 10
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ControlClass@@8",
+   "address": "007b4f50",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 12
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ListClass@@8",
+   "address": "007b4f68",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 14
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CheckListClass@@8",
+   "address": "007b4f80",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 15
+  },
+  {
+   "symbol": "??_R2CheckListClass@@8",
+   "address": "007b4f98",
+   "bytes": 21,
+   "kind": "rtti",
+   "section": 16
+  },
+  {
+   "symbol": "??_R3CheckListClass@@8",
+   "address": "007b4fb0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 17
+  },
+  {
+   "symbol": "??_R4CheckListClass@@6B@",
+   "address": "007b4fc0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 19
+  },
+  {
+   "symbol": "??_R0?AVLinkClass@@@8",
+   "address": "007d17a8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 7
+  },
+  {
+   "symbol": "??_R0?AVGadgetClass@@@8",
+   "address": "007d2f30",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 9
+  },
+  {
+   "symbol": "??_R0?AVControlClass@@@8",
+   "address": "007d2f50",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 11
+  },
+  {
+   "symbol": "??_R0?AVListClass@@@8",
+   "address": "007d2f70",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 13
+  },
+  {
+   "symbol": "??_R0?AVCheckListClass@@@8",
+   "address": "007d2f88",
+   "bytes": 29,
+   "kind": "rtti",
+   "section": 18
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_R1A@?0A@A@LinkClass@@8",
+   "address": "007b4a18",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GadgetClass@@8",
+   "address": "007b4f38",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ControlClass@@8",
+   "address": "007b4f50",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ListClass@@8",
+   "address": "007b4f68",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CheckListClass@@8",
+   "address": "007b4f80",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2CheckListClass@@8",
+   "address": "007b4f98",
+   "bytes": 21,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3CheckListClass@@8",
+   "address": "007b4fb0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4CheckListClass@@6B@",
+   "address": "007b4fc0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVLinkClass@@@8",
+   "address": "007d17a8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVGadgetClass@@@8",
+   "address": "007d2f30",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVControlClass@@@8",
+   "address": "007d2f50",
+   "bytes": 27,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVListClass@@@8",
+   "address": "007d2f70",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVCheckListClass@@@8",
+   "address": "007d2f88",
+   "bytes": 29,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [],
+ "references_out": [
+  {
+   "symbol": "??0ListClass@@QAE@HHHHHIPBX0@Z",
+   "address": "00539bf0"
+  },
+  {
+   "symbol": "??1ListClass@@UAE@XZ",
+   "address": "00539fc0"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "?Action@ListClass@@UAEHIAAI@Z",
+   "address": "0053a1f0"
+  },
+  {
+   "symbol": "?Add@ListClass@@UAEAAVLinkClass@@AAV2@@Z",
+   "address": "0053a7d0"
+  },
+  {
+   "symbol": "?Add_Head@ListClass@@UAEAAVLinkClass@@AAV2@@Z",
+   "address": "0053a820"
+  },
+  {
+   "symbol": "?Add_Item@ListClass@@UAEHPAG@Z",
+   "address": "0053a060"
+  },
+  {
+   "symbol": "?Add_Scroll_Bar@ListClass@@UAEHXZ",
+   "address": "0053a5a0"
+  },
+  {
+   "symbol": "?Add_Tail@ListClass@@UAEAAVLinkClass@@AAV2@@Z",
+   "address": "0053a870"
+  },
+  {
+   "symbol": "?Bump@ListClass@@UAEXH@Z",
+   "address": "0053a3e0"
+  },
+  {
+   "symbol": "?Clear_Focus@GadgetClass@@UAEXXZ",
+   "address": "004cf610"
+  },
+  {
+   "symbol": "?Clicked_On@GadgetClass@@EAEHAAIIHH@Z",
+   "address": "004cf0e0"
+  },
+  {
+   "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+   "address": "00ab6ef8"
+  },
+  {
+   "symbol": "?Current_Index@ListClass@@UBEHXZ",
+   "address": "0053a4c0"
+  },
+  {
+   "symbol": "?Current_Item@ListClass@@UBEPAGXZ",
+   "address": "0053a4a0"
+  },
+  {
+   "symbol": "?Delete_List@GadgetClass@@UAEXXZ",
+   "address": "004cf1b0"
+  },
+  {
+   "symbol": "?Disable@GadgetClass@@UAEXXZ",
+   "address": "004cf150"
+  },
+  {
+   "symbol": "?Draw_All@GadgetClass@@UAEX_N@Z",
+   "address": "004cf260"
+  },
+  {
+   "symbol": "?Draw_Me@ListClass@@UAEHH@Z",
+   "address": "0053a2e0"
+  },
+  {
+   "symbol": "?Enable@GadgetClass@@UAEXXZ",
+   "address": "004cf140"
+  },
+  {
+   "symbol": "?Extract_Gadget@GadgetClass@@UAEPAVControlClass@@I@Z",
+   "address": "004cf560"
+  },
+  {
+   "symbol": "?Fancy_Clip_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIIPBH@Z",
+   "address": "00497e80"
+  },
+  {
+   "symbol": "?Flag_To_Redraw@ListClass@@UAEXXZ",
+   "address": "0053a990"
+  },
+  {
+   "symbol": "?Gadget_Color_Scheme@@YAHXZ",
+   "address": "004cefc0"
+  },
+  {
+   "symbol": "?Get_ID@ControlClass@@UBEIXZ",
+   "address": "00483520"
+  },
+  {
+   "symbol": "?Get_Item@ListClass@@UBEPAGH@Z",
+   "address": "0053a480"
+  },
+  {
+   "symbol": "?Get_Next@GadgetClass@@UBEPAVLinkClass@@XZ",
+   "address": "004cf190"
+  },
+  {
+   "symbol": "?Get_Prev@GadgetClass@@UBEPAVLinkClass@@XZ",
+   "address": "004cf1a0"
+  },
+  {
+   "symbol": "?Has_Focus@GadgetClass@@UAE_NXZ",
+   "address": "004cf630"
+  },
+  {
+   "symbol": "?Head_Of_List@LinkClass@@UAEAAV1@XZ",
+   "address": "00539040"
+  },
+  {
+   "symbol": "?Input@GadgetClass@@UAEHXZ",
+   "address": "004cf330"
+  },
+  {
+   "symbol": "?Is_List_To_Redraw@GadgetClass@@UAEHXZ",
+   "address": "004cf640"
+  },
+  {
+   "symbol": "?LastList@GadgetClass@@1PAV1@A",
+   "address": "00865ff4"
+  },
+  {
+   "symbol": "?Make_Peer@ControlClass@@UAEXAAVGadgetClass@@@Z",
+   "address": "00483510"
+  },
+  {
+   "symbol": "?Mouse_Enter@GadgetClass@@UAEXXZ",
+   "address": "004cf200"
+  },
+  {
+   "symbol": "?Mouse_Leave@GadgetClass@@UAEXXZ",
+   "address": "004cf210"
+  },
+  {
+   "symbol": "?Peer_To_Peer@ListClass@@UAEXIAAIAAVControlClass@@@Z",
+   "address": "0053a4d0"
+  },
+  {
+   "symbol": "?Remove@ListClass@@UAEPAVLinkClass@@XZ",
+   "address": "0053a8c0"
+  },
+  {
+   "symbol": "?Remove_Item@ListClass@@UAEXH@Z",
+   "address": "0053a0f0"
+  },
+  {
+   "symbol": "?Remove_Scroll_Bar@ListClass@@UAEHXZ",
+   "address": "0053a670"
+  },
+  {
+   "symbol": "?Set_Focus@GadgetClass@@UAEXXZ",
+   "address": "004cf5e0"
+  },
+  {
+   "symbol": "?Set_Position@ListClass@@UAEXHH@Z",
+   "address": null
+  },
+  {
+   "symbol": "?Set_Selected_Index@ListClass@@UAEXH@Z",
+   "address": "0053a900"
+  },
+  {
+   "symbol": "?Set_Size@GadgetClass@@UAEXHH@Z",
+   "address": "004cf680"
+  },
+  {
+   "symbol": "?Set_Tabs@ListClass@@UAEXPBH@Z",
+   "address": "0053a6d0"
+  },
+  {
+   "symbol": "?Set_View_Index@ListClass@@UAEHH@Z",
+   "address": "0053a530"
+  },
+  {
+   "symbol": "?Step@ListClass@@UAEXH@Z",
+   "address": "0053a430"
+  },
+  {
+   "symbol": "?Step_Selected_Index@ListClass@@UAEHH@Z",
+   "address": "0053a970"
+  },
+  {
+   "symbol": "?Sticky_Process@GadgetClass@@MAEXI@Z",
+   "address": "004cf5b0"
+  },
+  {
+   "symbol": "?Tail_Of_List@LinkClass@@UAEAAV1@XZ",
+   "address": "00539070"
+  },
+  {
+   "symbol": "?Zap@LinkClass@@UAEXXZ",
+   "address": "00538ff0"
+  },
+  {
+   "symbol": "?unknown_drawer_8323c4@@3PAVConvertClass@@A",
+   "address": "008323c4"
+  },
+  {
+   "symbol": "?unknown_surface_83995c@@3PAVSurface@@A",
+   "address": "0083995c"
+  },
+  {
+   "symbol": "__wcsicmp",
+   "address": "00796318"
+  },
+  {
+   "symbol": "_swprintf",
+   "address": "00783764"
+  }
+ ],
+ "route": "A",
+ "unit": "cheklist.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "0047d2c0",
+   "lines": 2
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 19,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  },
+  {
+   "symbol": "??_7CheckListClass@@6B@",
+   "reason": "relocation target unbound: ?Set_Position@ListClass@@UAEXHH@Z"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

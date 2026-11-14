@@ -1,0 +1,312 @@
+{
+ "module": "pk",
+ "source": "src/recovered/pk.cpp",
+ "header": null,
+ "population": "population-121",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 52,
+ "code": [
+  {
+   "symbol": "??0PKey@@QAE@PBX0@Z",
+   "entry": "0060ed40",
+   "body_bytes": 82,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Encode_Modulus@PKey@@QBEHPAX@Z",
+   "entry": "0060eda0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Encode_Exponent@PKey@@QBEHPAX@Z",
+   "entry": "0060edc0",
+   "body_bytes": 29,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Decode_Modulus@PKey@@QAEXPAX@Z",
+   "entry": "0060ede0",
+   "body_bytes": 37,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Decode_Exponent@PKey@@QAEXPAX@Z",
+   "entry": "0060ee10",
+   "body_bytes": 20,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Generate@PKey@@SIXAAVStraw@@HAAV1@1@Z",
+   "entry": "0060ee30",
+   "body_bytes": 1771,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Encrypt@PKey@@QBEHPBXHPAX@Z",
+   "entry": "0060f520",
+   "body_bytes": 303,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Decrypt@PKey@@QBEHPBXHPAX@Z",
+   "entry": "0060f650",
+   "body_bytes": 336,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "??G?$Int@$0EA@@@QBE?AV0@G@Z",
+   "entry": "0060f7a0",
+   "body_bytes": 82,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Inverse@?$Int@$0EA@@@QBE?AV1@ABV1@@Z",
+   "entry": "0060f800",
+   "body_bytes": 75,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Randomize@?$Int@$0EA@@@QAEXAAVStraw@@ABV1@1@Z",
+   "entry": "0060f850",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "??Y?$Int@$0EA@@@QAEAAV0@ABV0@@Z",
+   "entry": "0060f880",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "??H?$Int@$0EA@@@QBE?AV0@G@Z",
+   "entry": "0060f8a0",
+   "body_bytes": 87,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??D?$Int@$0EA@@@QBE?AV0@G@Z",
+   "entry": "0060f900",
+   "body_bytes": 80,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "??6?$Int@$0EA@@@QBE?AV0@H@Z",
+   "entry": "0060f950",
+   "body_bytes": 70,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "??O?$Int@$0EA@@@QBE_NABV0@@Z",
+   "entry": "0060f9a0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??0?$RemainderTable@V?$Int@$0EA@@@@@QAE@ABV?$Int@$0EA@@@@Z",
+   "entry": "0060f9c0",
+   "body_bytes": 89,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Increment@?$RemainderTable@V?$Int@$0EA@@@@@QAEXG@Z",
+   "entry": "0060fa20",
+   "body_bytes": 108,
+   "padding_bytes": 4
+  }
+ ],
+ "code_bytes": 3408,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0060fba0",
+   "symbol": "?Encrypt@PKey@@QBEHPBXHPAX@Z",
+   "target": "0060f520",
+   "function_entry": true
+  },
+  {
+   "site": "0060fba0",
+   "symbol": "?Decrypt@PKey@@QBEHPBXHPAX@Z",
+   "target": "0060f650",
+   "function_entry": true
+  },
+  {
+   "site": "0060ff10",
+   "symbol": "?Decrypt@PKey@@QBEHPBXHPAX@Z",
+   "target": "0060f650",
+   "function_entry": true
+  },
+  {
+   "site": "0060ff10",
+   "symbol": "?Encrypt@PKey@@QBEHPBXHPAX@Z",
+   "target": "0060f520",
+   "function_entry": true
+  },
+  {
+   "site": "00510310",
+   "symbol": "?Encode_Modulus@PKey@@QBEHPAX@Z",
+   "target": "0060eda0",
+   "function_entry": true
+  },
+  {
+   "site": "00510310",
+   "symbol": "?Encode_Exponent@PKey@@QBEHPAX@Z",
+   "target": "0060edc0",
+   "function_entry": true
+  },
+  {
+   "site": "00510370",
+   "symbol": "?Decode_Exponent@PKey@@QAEXPAX@Z",
+   "target": "0060ee10",
+   "function_entry": true
+  },
+  {
+   "site": "00510370",
+   "symbol": "?Decode_Modulus@PKey@@QAEXPAX@Z",
+   "target": "0060ede0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "?Borrow@?$Int@$0EA@@@2_NA",
+   "address": "00a417c5"
+  },
+  {
+   "symbol": "?Carry@?$Int@$0EA@@@2_NA",
+   "address": "00a417c4"
+  },
+  {
+   "symbol": "?Error@?$Int@$0EA@@@2HA",
+   "address": "00a417c0"
+  },
+  {
+   "symbol": "?Remainder@?$Int@$0EA@@@2V1@A",
+   "address": "00a416c0"
+  },
+  {
+   "symbol": "?XMP_Add@@YI_NPAKPBK1_NH@Z",
+   "address": "005a7d90"
+  },
+  {
+   "symbol": "?XMP_Add_Int@@YI_NPAKPBKK_NH@Z",
+   "address": "005a7e00"
+  },
+  {
+   "symbol": "?XMP_Compare@@YIHPBK0H@Z",
+   "address": "005a7d40"
+  },
+  {
+   "symbol": "?XMP_Count_Bits@@YIHPBKH@Z",
+   "address": "005a7cc0"
+  },
+  {
+   "symbol": "?XMP_DER_Decode@@YIXPAKPBEH@Z",
+   "address": "005a76d0"
+  },
+  {
+   "symbol": "?XMP_DER_Encode@@YIHPBKPAEH@Z",
+   "address": "005a7610"
+  },
+  {
+   "symbol": "?XMP_Exponent_Mod@@YIHPAKPBK11H@Z",
+   "address": "005a9860"
+  },
+  {
+   "symbol": "?XMP_Fetch_Prime_Size@@YIHXZ",
+   "address": "005a7540"
+  },
+  {
+   "symbol": "?XMP_Fetch_Prime_Table@@YIPBGXZ",
+   "address": "005a7530"
+  },
+  {
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "address": "005a7ca0"
+  },
+  {
+   "symbol": "?XMP_Inverse_A_Mod_B@@YIXPAKPBK1H@Z",
+   "address": "005a8aa0"
+  },
+  {
+   "symbol": "?XMP_Is_Prime@@YI_NPBKH@Z",
+   "address": "005aa380"
+  },
+  {
+   "symbol": "?XMP_Randomize@@YIXPAKAAVStraw@@PBK2H@Z",
+   "address": "005aa1a0"
+  },
+  {
+   "symbol": "?XMP_Shift_Left_Bits@@YIXPAKHH@Z",
+   "address": "005a7b00"
+  },
+  {
+   "symbol": "?XMP_Sub_Int@@YI_NPAKPBKG_NH@Z",
+   "address": "005a7ec0"
+  },
+  {
+   "symbol": "?XMP_Unsigned_Div_Int@@YIGPAKPBKGH@Z",
+   "address": "005a8540"
+  },
+  {
+   "symbol": "?XMP_Unsigned_Mult@@YIHPAKPBK1H@Z",
+   "address": "005a8340"
+  },
+  {
+   "symbol": "?XMP_Unsigned_Mult_Int@@YIHPAKPBKFH@Z",
+   "address": "005a80f0"
+  },
+  {
+   "symbol": "__chkstk",
+   "address": "00783850"
+  },
+  {
+   "symbol": "_memmove",
+   "address": "00783290"
+  },
+  {
+   "symbol": "_rand",
+   "address": "007846aa"
+  }
+ ],
+ "route": "A",
+ "unit": "pk.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "0060ed40",
+   "lines": 3
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 20,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

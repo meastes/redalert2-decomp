@@ -1,0 +1,1164 @@
+{
+ "module": "delay",
+ "source": "src/recovered/delay.cpp",
+ "header": null,
+ "population": "population-4445",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 1244,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00496820",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "00496840",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "00496870",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "00496890",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "004968b0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "004968d0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "004968f0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "00496910",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "00496950",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "00496980",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "004969b0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "004969e0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "004969f0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?FUN_00496a10@seed_00496a10@@YAXXZ",
+   "entry": "00496a10",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Wait_Timer_00496A20@@YIXJ@Z",
+   "entry": "00496a20",
+   "body_bytes": 70,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "??0DelayTimerClass@@QAE@XZ",
+   "entry": "00496a70",
+   "body_bytes": 26,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Is_Count_Up_Active@DelayTimerClass@@QBE_NXZ",
+   "entry": "00496a90",
+   "body_bytes": 20,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
+   "entry": "00496ab0",
+   "body_bytes": 20,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Has_Ended@DelayTimerClass@@QBE_NXZ",
+   "entry": "00496ad0",
+   "body_bytes": 92,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
+   "entry": "00496b30",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
+   "entry": "00496b50",
+   "body_bytes": 20,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Count_Up@DelayTimerClass@@QAEXN@Z",
+   "entry": "00496b70",
+   "body_bytes": 75,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Count_Down@DelayTimerClass@@QAEXN@Z",
+   "entry": "00496bc0",
+   "body_bytes": 76,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Reverse@DelayTimerClass@@QAEXXZ",
+   "entry": "00496c10",
+   "body_bytes": 58,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?FUN_00496c50@seed_00496c50@@YIXH@Z",
+   "entry": "00496c50",
+   "body_bytes": 9,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?FUN_00496c60@seed_00496c60@@YIXH@Z",
+   "entry": "00496c60",
+   "body_bytes": 9,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Percent_Complete@DelayTimerClass@@QBENXZ",
+   "entry": "00496c70",
+   "body_bytes": 108,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?End_Count_00496ce0@seed_00496ce0@@YIXH@Z",
+   "entry": "00496ce0",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  }
+ ],
+ "code_bytes": 1264,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "__real@8@4008e100000000000000",
+   "address": "0079b608",
+   "bytes": 8,
+   "kind": "table",
+   "section": 56
+  },
+  {
+   "symbol": "__real@8@c00ca2f83d7b47677800",
+   "address": "0079b628",
+   "bytes": 8,
+   "kind": "table",
+   "section": 95
+  },
+  {
+   "symbol": "__real@8@3fffc90fdaa22168c000",
+   "address": "0079b630",
+   "bytes": 8,
+   "kind": "table",
+   "section": 96
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "0079e780",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7Dial8Class@@6B@",
+   "address": "0079e790",
+   "bytes": 140,
+   "kind": "vtable",
+   "section": 82
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LinkClass@@8",
+   "address": "007b4a18",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 72
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GadgetClass@@8",
+   "address": "007b4f38",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 74
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ControlClass@@8",
+   "address": "007b4f50",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 76
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Dial8Class@@8",
+   "address": "007b7840",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 77
+  },
+  {
+   "symbol": "??_R2Dial8Class@@8",
+   "address": "007b7858",
+   "bytes": 17,
+   "kind": "rtti",
+   "section": 78
+  },
+  {
+   "symbol": "??_R3Dial8Class@@8",
+   "address": "007b7870",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 79
+  },
+  {
+   "symbol": "??_R4Dial8Class@@6B@",
+   "address": "007b7880",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 81
+  },
+  {
+   "symbol": "??_R0?AVLinkClass@@@8",
+   "address": "007d17a8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 71
+  },
+  {
+   "symbol": "??_R0?AVGadgetClass@@@8",
+   "address": "007d2f30",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 73
+  },
+  {
+   "symbol": "??_R0?AVControlClass@@@8",
+   "address": "007d2f50",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 75
+  },
+  {
+   "symbol": "??_R0?AVDial8Class@@@8",
+   "address": "007d5c38",
+   "bytes": 25,
+   "kind": "rtti",
+   "section": 80
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4008e100000000000000",
+   "address": "0079b608",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@c00ca2f83d7b47677800",
+   "address": "0079b628",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fffc90fdaa22168c000",
+   "address": "0079b630",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "0079e780",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7Dial8Class@@6B@",
+   "address": "0079e790",
+   "bytes": 140,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LinkClass@@8",
+   "address": "007b4a18",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GadgetClass@@8",
+   "address": "007b4f38",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ControlClass@@8",
+   "address": "007b4f50",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Dial8Class@@8",
+   "address": "007b7840",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2Dial8Class@@8",
+   "address": "007b7858",
+   "bytes": 17,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3Dial8Class@@8",
+   "address": "007b7870",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4Dial8Class@@6B@",
+   "address": "007b7880",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVLinkClass@@@8",
+   "address": "007d17a8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVGadgetClass@@@8",
+   "address": "007d2f30",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVControlClass@@@8",
+   "address": "007d2f50",
+   "bytes": 27,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVDial8Class@@@8",
+   "address": "007d5c38",
+   "bytes": 25,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0044d880",
+   "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
+   "target": "00496b30",
+   "function_entry": true
+  },
+  {
+   "site": "006ff350",
+   "symbol": "?Is_Count_Up_Active@DelayTimerClass@@QBE_NXZ",
+   "target": "00496a90",
+   "function_entry": true
+  },
+  {
+   "site": "006ff350",
+   "symbol": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
+   "target": "00496ab0",
+   "function_entry": true
+  },
+  {
+   "site": "006ff350",
+   "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
+   "target": "00496b30",
+   "function_entry": true
+  },
+  {
+   "site": "006ff350",
+   "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
+   "target": "00496b50",
+   "function_entry": true
+  },
+  {
+   "site": "00704680",
+   "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
+   "target": "00496b50",
+   "function_entry": true
+  },
+  {
+   "site": "00704680",
+   "symbol": "?Count_Down@DelayTimerClass@@QAEXN@Z",
+   "target": "00496bc0",
+   "function_entry": true
+  },
+  {
+   "site": "007046e0",
+   "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
+   "target": "00496b50",
+   "function_entry": true
+  },
+  {
+   "site": "007046e0",
+   "symbol": "?Count_Down@DelayTimerClass@@QAEXN@Z",
+   "target": "00496bc0",
+   "function_entry": true
+  },
+  {
+   "site": "00707950",
+   "symbol": "?Is_Count_Up_Active@DelayTimerClass@@QBE_NXZ",
+   "target": "00496a90",
+   "function_entry": true
+  },
+  {
+   "site": "00707950",
+   "symbol": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
+   "target": "00496ab0",
+   "function_entry": true
+  },
+  {
+   "site": "00707950",
+   "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
+   "target": "00496b30",
+   "function_entry": true
+  },
+  {
+   "site": "00704aa0",
+   "symbol": "?Count_Up@DelayTimerClass@@QAEXN@Z",
+   "target": "00496b70",
+   "function_entry": true
+  },
+  {
+   "site": "00707a40",
+   "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
+   "target": "00496b50",
+   "function_entry": true
+  },
+  {
+   "site": "0044d7d0",
+   "symbol": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
+   "target": "00496ab0",
+   "function_entry": true
+  },
+  {
+   "site": "0044d7d0",
+   "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
+   "target": "00496b50",
+   "function_entry": true
+  },
+  {
+   "site": "0044d7d0",
+   "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
+   "target": "00496b30",
+   "function_entry": true
+  },
+  {
+   "site": "006fb100",
+   "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
+   "target": "00496b50",
+   "function_entry": true
+  },
+  {
+   "site": "006fb100",
+   "symbol": "?Count_Down@DelayTimerClass@@QAEXN@Z",
+   "target": "00496bc0",
+   "function_entry": true
+  },
+  {
+   "site": "006fc1f0",
+   "symbol": "?Count_Down@DelayTimerClass@@QAEXN@Z",
+   "target": "00496bc0",
+   "function_entry": true
+  },
+  {
+   "site": "005d1b70",
+   "symbol": "?Wait_Timer_00496A20@@YIXJ@Z",
+   "target": "00496a20",
+   "function_entry": true
+  },
+  {
+   "site": "004499d0",
+   "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
+   "target": "00496b30",
+   "function_entry": true
+  },
+  {
+   "site": "004499d0",
+   "symbol": "?Is_Count_Up_Active@DelayTimerClass@@QBE_NXZ",
+   "target": "00496a90",
+   "function_entry": true
+  },
+  {
+   "site": "004499d0",
+   "symbol": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
+   "target": "00496ab0",
+   "function_entry": true
+  },
+  {
+   "site": "004499d0",
+   "symbol": "?Reverse@DelayTimerClass@@QAEXXZ",
+   "target": "00496c10",
+   "function_entry": true
+  },
+  {
+   "site": "004499d0",
+   "symbol": "?Count_Up@DelayTimerClass@@QAEXN@Z",
+   "target": "00496b70",
+   "function_entry": true
+  },
+  {
+   "site": "004499d0",
+   "symbol": "?Count_Down@DelayTimerClass@@QAEXN@Z",
+   "target": "00496bc0",
+   "function_entry": true
+  },
+  {
+   "site": "004499d0",
+   "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
+   "target": "00496b30",
+   "function_entry": true
+  },
+  {
+   "site": "004499d0",
+   "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
+   "target": "00496b50",
+   "function_entry": true
+  },
+  {
+   "site": "004499d0",
+   "symbol": "?Is_Count_Up_Active@DelayTimerClass@@QBE_NXZ",
+   "target": "00496a90",
+   "function_entry": true
+  },
+  {
+   "site": "004499d0",
+   "symbol": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
+   "target": "00496ab0",
+   "function_entry": true
+  },
+  {
+   "site": "004499d0",
+   "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
+   "target": "00496b30",
+   "function_entry": true
+  },
+  {
+   "site": "004499d0",
+   "symbol": "?Percent_Complete@DelayTimerClass@@QBENXZ",
+   "target": "00496c70",
+   "function_entry": true
+  },
+  {
+   "site": "00704a80",
+   "symbol": "?Count_Down@DelayTimerClass@@QAEXN@Z",
+   "target": "00496bc0",
+   "function_entry": true
+  },
+  {
+   "site": "00418840",
+   "symbol": "?Count_Down@DelayTimerClass@@QAEXN@Z",
+   "target": "00496bc0",
+   "function_entry": true
+  },
+  {
+   "site": "00418840",
+   "symbol": "?Count_Up@DelayTimerClass@@QAEXN@Z",
+   "target": "00496b70",
+   "function_entry": true
+  },
+  {
+   "site": "006c0cd0",
+   "symbol": "??0DelayTimerClass@@QAE@XZ",
+   "target": "00496a70",
+   "function_entry": true
+  },
+  {
+   "site": "006c74c0",
+   "symbol": "?Has_Ended@DelayTimerClass@@QBE_NXZ",
+   "target": "00496ad0",
+   "function_entry": true
+  },
+  {
+   "site": "006c74c0",
+   "symbol": "?End_Count_00496ce0@seed_00496ce0@@YIXH@Z",
+   "target": "00496ce0",
+   "function_entry": true
+  },
+  {
+   "site": "00449290",
+   "symbol": "?Count_Up@DelayTimerClass@@QAEXN@Z",
+   "target": "00496b70",
+   "function_entry": true
+  },
+  {
+   "site": "00449290",
+   "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
+   "target": "00496b30",
+   "function_entry": true
+  },
+  {
+   "site": "00449290",
+   "symbol": "?Count_Down@DelayTimerClass@@QAEXN@Z",
+   "target": "00496bc0",
+   "function_entry": true
+  },
+  {
+   "site": "00449290",
+   "symbol": "?Count_Down@DelayTimerClass@@QAEXN@Z",
+   "target": "00496bc0",
+   "function_entry": true
+  },
+  {
+   "site": "00449290",
+   "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
+   "target": "00496b50",
+   "function_entry": true
+  },
+  {
+   "site": "0043a5e0",
+   "symbol": "?Is_Count_Up_Active@DelayTimerClass@@QBE_NXZ",
+   "target": "00496a90",
+   "function_entry": true
+  },
+  {
+   "site": "0043a5e0",
+   "symbol": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
+   "target": "00496ab0",
+   "function_entry": true
+  },
+  {
+   "site": "0043a5e0",
+   "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
+   "target": "00496b30",
+   "function_entry": true
+  },
+  {
+   "site": "0043a5e0",
+   "symbol": "?Percent_Complete@DelayTimerClass@@QBENXZ",
+   "target": "00496c70",
+   "function_entry": true
+  },
+  {
+   "site": "0043a5e0",
+   "symbol": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
+   "target": "00496ab0",
+   "function_entry": true
+  },
+  {
+   "site": "0043a5e0",
+   "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
+   "target": "00496b50",
+   "function_entry": true
+  },
+  {
+   "site": "0043a5e0",
+   "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
+   "target": "00496b30",
+   "function_entry": true
+  },
+  {
+   "site": "0043abd0",
+   "symbol": "?Is_Count_Up_Active@DelayTimerClass@@QBE_NXZ",
+   "target": "00496a90",
+   "function_entry": true
+  },
+  {
+   "site": "0043abd0",
+   "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
+   "target": "00496b30",
+   "function_entry": true
+  },
+  {
+   "site": "0043abd0",
+   "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
+   "target": "00496b50",
+   "function_entry": true
+  },
+  {
+   "site": "0043abd0",
+   "symbol": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
+   "target": "00496ab0",
+   "function_entry": true
+  },
+  {
+   "site": "0043abd0",
+   "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
+   "target": "00496b50",
+   "function_entry": true
+  },
+  {
+   "site": "0043abd0",
+   "symbol": "?Is_Count_Up_Active@DelayTimerClass@@QBE_NXZ",
+   "target": "00496a90",
+   "function_entry": true
+  },
+  {
+   "site": "0043abd0",
+   "symbol": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
+   "target": "00496ab0",
+   "function_entry": true
+  },
+  {
+   "site": "0043abd0",
+   "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
+   "target": "00496b30",
+   "function_entry": true
+  },
+  {
+   "site": "0043abd0",
+   "symbol": "?Percent_Complete@DelayTimerClass@@QBENXZ",
+   "target": "00496c70",
+   "function_entry": true
+  },
+  {
+   "site": "0043abd0",
+   "symbol": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
+   "target": "00496ab0",
+   "function_entry": true
+  },
+  {
+   "site": "0043abd0",
+   "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
+   "target": "00496b50",
+   "function_entry": true
+  },
+  {
+   "site": "0043abd0",
+   "symbol": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
+   "target": "00496ab0",
+   "function_entry": true
+  },
+  {
+   "site": "0043a380",
+   "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
+   "target": "00496b50",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0ControlClass@@QAE@IHHHHI_N@Z",
+   "address": "00483430"
+  },
+  {
+   "symbol": "??1GadgetClass@@UAE@XZ",
+   "address": "004cf080"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??BSystemTimerClass@@QBEJXZ",
+   "address": "0069a430"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_GDial8Class@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "?Action@ControlClass@@UAEHIAAI@Z",
+   "address": "004834b0"
+  },
+  {
+   "symbol": "?Add@LinkClass@@UAEAAV1@AAV1@@Z",
+   "address": "005390a0"
+  },
+  {
+   "symbol": "?Add_Head@LinkClass@@UAEAAV1@AAV1@@Z",
+   "address": "005390c0"
+  },
+  {
+   "symbol": "?Add_Tail@LinkClass@@UAEAAV1@AAV1@@Z",
+   "address": "005390e0"
+  },
+  {
+   "symbol": "?Clear_Focus@GadgetClass@@UAEXXZ",
+   "address": "004cf610"
+  },
+  {
+   "symbol": "?Clicked_On@GadgetClass@@EAEHAAIIHH@Z",
+   "address": "004cf0e0"
+  },
+  {
+   "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+   "address": "00ab6ef8"
+  },
+  {
+   "symbol": "?Delete_List@GadgetClass@@UAEXXZ",
+   "address": "004cf1b0"
+  },
+  {
+   "symbol": "?Disable@GadgetClass@@UAEXXZ",
+   "address": "004cf150"
+  },
+  {
+   "symbol": "?Draw_All@GadgetClass@@UAEX_N@Z",
+   "address": "004cf260"
+  },
+  {
+   "symbol": "?Draw_Box@@YIXABVRect@@H_N@Z",
+   "address": "004973d0"
+  },
+  {
+   "symbol": "?Draw_Me@ControlClass@@UAEHH@Z",
+   "address": "00483530"
+  },
+  {
+   "symbol": "?Enable@GadgetClass@@UAEXXZ",
+   "address": "004cf140"
+  },
+  {
+   "symbol": "?Extract_Gadget@GadgetClass@@UAEPAVControlClass@@I@Z",
+   "address": "004cf560"
+  },
+  {
+   "symbol": "?Fast_Atan2@@YAMNN@Z",
+   "address": "004ba600"
+  },
+  {
+   "symbol": "?Flag_To_Redraw@GadgetClass@@UAEXXZ",
+   "address": "004cf5a0"
+  },
+  {
+   "symbol": "?Frame@@3HA",
+   "address": "00a40d2c"
+  },
+  {
+   "symbol": "?Gadget_Color_Scheme@@YAHXZ",
+   "address": "004cefc0"
+  },
+  {
+   "symbol": "?Get_ID@ControlClass@@UBEIXZ",
+   "address": "00483520"
+  },
+  {
+   "symbol": "?Get_Next@GadgetClass@@UBEPAVLinkClass@@XZ",
+   "address": "004cf190"
+  },
+  {
+   "symbol": "?Get_Prev@GadgetClass@@UBEPAVLinkClass@@XZ",
+   "address": "004cf1a0"
+  },
+  {
+   "symbol": "?Has_Focus@GadgetClass@@UAE_NXZ",
+   "address": "004cf630"
+  },
+  {
+   "symbol": "?Head_Of_List@LinkClass@@UAEAAV1@XZ",
+   "address": "00539040"
+  },
+  {
+   "symbol": "?Input@GadgetClass@@UAEHXZ",
+   "address": "004cf330"
+  },
+  {
+   "symbol": "?Is_List_To_Redraw@GadgetClass@@UAEHXZ",
+   "address": "004cf640"
+  },
+  {
+   "symbol": "?LastList@GadgetClass@@1PAV1@A",
+   "address": "00865ff4"
+  },
+  {
+   "symbol": "?Make_Peer@ControlClass@@UAEXAAVGadgetClass@@@Z",
+   "address": "00483510"
+  },
+  {
+   "symbol": "?Mouse_Enter@GadgetClass@@UAEXXZ",
+   "address": "004cf200"
+  },
+  {
+   "symbol": "?Mouse_Leave@GadgetClass@@UAEXXZ",
+   "address": "004cf210"
+  },
+  {
+   "symbol": "?Remove@GadgetClass@@UAEPAVLinkClass@@XZ",
+   "address": "004cf170"
+  },
+  {
+   "symbol": "?Set_Focus@GadgetClass@@UAEXXZ",
+   "address": "004cf5e0"
+  },
+  {
+   "symbol": "?Set_Position@GadgetClass@@UAEXHH@Z",
+   "address": "004cf660"
+  },
+  {
+   "symbol": "?Set_Size@GadgetClass@@UAEXHH@Z",
+   "address": "004cf680"
+  },
+  {
+   "symbol": "?Sticky_Process@GadgetClass@@MAEXI@Z",
+   "address": "004cf5b0"
+  },
+  {
+   "symbol": "?Tail_Of_List@LinkClass@@UAEAAV1@XZ",
+   "address": "00539070"
+  },
+  {
+   "symbol": "?WWMouse@@3PAVMouse@@A",
+   "address": "00839c68"
+  },
+  {
+   "symbol": "?Zap@LinkClass@@UAEXXZ",
+   "address": "00538ff0"
+  },
+  {
+   "symbol": "?unknown_dial_drag_00852478@@3HA",
+   "address": "00852478"
+  },
+  {
+   "symbol": "?unknown_drawer_8323c4@@3PAVConvertClass@@A",
+   "address": "008323c4"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_surface_83995c@@3PAVSurface@@A",
+   "address": "0083995c"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  }
+ ],
+ "route": "A",
+ "unit": "delay.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00496820",
+   "lines": 5
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "00496a10",
+   "bytes": 1,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00496c50",
+   "bytes": 9,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00496c60",
+   "bytes": 9,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00496ce0",
+   "bytes": 38,
+   "population": "population-42",
+   "bound": "own frozen bound (population-42)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [],
+ "unit_functions": 28,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

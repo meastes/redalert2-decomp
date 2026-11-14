@@ -1,0 +1,891 @@
+{
+ "module": "dialog",
+ "source": "src/recovered/dialog.cpp",
+ "header": null,
+ "population": "population-1623",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 342,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00497340",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Text_Rect@@YI?AVRect@@PBGHHIHH@Z",
+   "entry": "00497360",
+   "body_bytes": 106,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Draw_Box@@YIXABVRect@@H_N@Z",
+   "entry": "004973d0",
+   "body_bytes": 1011,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Text_Lines@@YIHPBGHHPAH1@Z",
+   "entry": "004977d0",
+   "body_bytes": 88,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Simple_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@IIIH@Z",
+   "entry": "00497830",
+   "body_bytes": 341,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Fancy_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIH@Z",
+   "entry": "00497990",
+   "body_bytes": 187,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "entry": "00497a50",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Plain_Text_Print@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@IIIZZ",
+   "entry": "00497a60",
+   "body_bytes": 212,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "entry": "00497b40",
+   "body_bytes": 416,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Conquer_Clip_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@IIIIPBH@Z",
+   "entry": "00497ce0",
+   "body_bytes": 404,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Fancy_Clip_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIIPBH@Z",
+   "entry": "00497e80",
+   "body_bytes": 192,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?unknown_scheme_text_print_497f40@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@IIIHH@Z",
+   "entry": "00497f40",
+   "body_bytes": 267,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?unknown_scheme_text_print_498050@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@IIIHH@Z",
+   "entry": "00498050",
+   "body_bytes": 267,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?unknown_fill_buffer_498160@@YIPAEH@Z",
+   "entry": "00498160",
+   "body_bytes": 52,
+   "padding_bytes": 12
+  }
+ ],
+ "code_bytes": 3680,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "006e7240",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "006e7340",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "006e7390",
+   "symbol": "?Draw_Box@@YIXABVRect@@H_N@Z",
+   "target": "004973d0",
+   "function_entry": true
+  },
+  {
+   "site": "006e7460",
+   "symbol": "?Fancy_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIH@Z",
+   "target": "00497990",
+   "function_entry": true
+  },
+  {
+   "site": "004b2970",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "004b2c50",
+   "symbol": "?Draw_Box@@YIXABVRect@@H_N@Z",
+   "target": "004973d0",
+   "function_entry": true
+  },
+  {
+   "site": "004b2c90",
+   "symbol": "?Fancy_Clip_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIIPBH@Z",
+   "target": "00497e80",
+   "function_entry": true
+  },
+  {
+   "site": "004b2c90",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "004b2c90",
+   "symbol": "?Fancy_Clip_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIIPBH@Z",
+   "target": "00497e80",
+   "function_entry": true
+  },
+  {
+   "site": "004b2dd0",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "00684c20",
+   "symbol": "?Draw_Box@@YIXABVRect@@H_N@Z",
+   "target": "004973d0",
+   "function_entry": true
+  },
+  {
+   "site": "00684c20",
+   "symbol": "?Draw_Box@@YIXABVRect@@H_N@Z",
+   "target": "004973d0",
+   "function_entry": true
+  },
+  {
+   "site": "00539bf0",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "0053a2e0",
+   "symbol": "?Draw_Box@@YIXABVRect@@H_N@Z",
+   "target": "004973d0",
+   "function_entry": true
+  },
+  {
+   "site": "0053a6e0",
+   "symbol": "?Fancy_Clip_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIIPBH@Z",
+   "target": "00497e80",
+   "function_entry": true
+  },
+  {
+   "site": "004a4dc0",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "0047d580",
+   "symbol": "?Fancy_Clip_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIIPBH@Z",
+   "target": "00497e80",
+   "function_entry": true
+  },
+  {
+   "site": "00698760",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "006988a0",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "00698a10",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "00497130",
+   "symbol": "?Draw_Box@@YIXABVRect@@H_N@Z",
+   "target": "004973d0",
+   "function_entry": true
+  },
+  {
+   "site": "00497130",
+   "symbol": "?Draw_Box@@YIXABVRect@@H_N@Z",
+   "target": "004973d0",
+   "function_entry": true
+  },
+  {
+   "site": "004a95c0",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "004a95c0",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "004b3760",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "004a97b0",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "004a97b0",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "004a97b0",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "004a97b0",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "00630350",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "00630350",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "00630350",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "00630350",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "0061f210",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "0061f280",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "0061f3b0",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "0061fb70",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "0061fb70",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "004d0280",
+   "symbol": "?Draw_Box@@YIXABVRect@@H_N@Z",
+   "target": "004973d0",
+   "function_entry": true
+  },
+  {
+   "site": "004d0580",
+   "symbol": "?Draw_Box@@YIXABVRect@@H_N@Z",
+   "target": "004973d0",
+   "function_entry": true
+  },
+  {
+   "site": "004d0580",
+   "symbol": "?Draw_Box@@YIXABVRect@@H_N@Z",
+   "target": "004973d0",
+   "function_entry": true
+  },
+  {
+   "site": "004d0730",
+   "symbol": "?Draw_Box@@YIXABVRect@@H_N@Z",
+   "target": "004973d0",
+   "function_entry": true
+  },
+  {
+   "site": "00684ca0",
+   "symbol": "?Draw_Box@@YIXABVRect@@H_N@Z",
+   "target": "004973d0",
+   "function_entry": true
+  },
+  {
+   "site": "005b5b30",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "005b5b30",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "005b56f0",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "006a5280",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "006a5280",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "006d5510",
+   "symbol": "?Text_Rect@@YI?AVRect@@PBGHHIHH@Z",
+   "target": "00497360",
+   "function_entry": true
+  },
+  {
+   "site": "006d5510",
+   "symbol": "?Simple_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@IIIH@Z",
+   "target": "00497830",
+   "function_entry": true
+  },
+  {
+   "site": "006d5510",
+   "symbol": "?Text_Rect@@YI?AVRect@@PBGHHIHH@Z",
+   "target": "00497360",
+   "function_entry": true
+  },
+  {
+   "site": "006d5510",
+   "symbol": "?Simple_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@IIIH@Z",
+   "target": "00497830",
+   "function_entry": true
+  },
+  {
+   "site": "005419e0",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "005419e0",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "005419e0",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "005419e0",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "005419e0",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "005419e0",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "005419e0",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "005419e0",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "005419e0",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "005419e0",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "00494530",
+   "symbol": "?Plain_Text_Print@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@IIIZZ",
+   "target": "00497a60",
+   "function_entry": true
+  },
+  {
+   "site": "0047d9e0",
+   "symbol": "?Fancy_Clip_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIIPBH@Z",
+   "target": "00497e80",
+   "function_entry": true
+  },
+  {
+   "site": "0047d9e0",
+   "symbol": "?Fancy_Clip_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIIPBH@Z",
+   "target": "00497e80",
+   "function_entry": true
+  },
+  {
+   "site": "0047d9e0",
+   "symbol": "?Fancy_Clip_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIIPBH@Z",
+   "target": "00497e80",
+   "function_entry": true
+  },
+  {
+   "site": "0047d9e0",
+   "symbol": "?Fancy_Clip_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIIPBH@Z",
+   "target": "00497e80",
+   "function_entry": true
+  },
+  {
+   "site": "0047d9e0",
+   "symbol": "?Fancy_Clip_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIIPBH@Z",
+   "target": "00497e80",
+   "function_entry": true
+  },
+  {
+   "site": "0047d9e0",
+   "symbol": "?Fancy_Clip_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIIPBH@Z",
+   "target": "00497e80",
+   "function_entry": true
+  },
+  {
+   "site": "0047d9e0",
+   "symbol": "?Fancy_Clip_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIIPBH@Z",
+   "target": "00497e80",
+   "function_entry": true
+  },
+  {
+   "site": "0047d150",
+   "symbol": "?Draw_Box@@YIXABVRect@@H_N@Z",
+   "target": "004973d0",
+   "function_entry": true
+  },
+  {
+   "site": "005b51c0",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "00516560",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "00516560",
+   "symbol": "?Plain_Text_Print@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@IIIZZ",
+   "target": "00497a60",
+   "function_entry": true
+  },
+  {
+   "site": "00516560",
+   "symbol": "?Plain_Text_Print@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@IIIZZ",
+   "target": "00497a60",
+   "function_entry": true
+  },
+  {
+   "site": "00516560",
+   "symbol": "?Plain_Text_Print@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@IIIZZ",
+   "target": "00497a60",
+   "function_entry": true
+  },
+  {
+   "site": "006f1620",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "00526d90",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "00526d90",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "00526d90",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "00526d90",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "00526d90",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "00526d90",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "00526d90",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "00526d90",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "00526d90",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "00526d90",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "00526d90",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "00526d90",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "00526d90",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "00526d90",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "00526d90",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "00526d90",
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "target": "00497b40",
+   "function_entry": true
+  },
+  {
+   "site": "0061f4b0",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "0061f630",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "0061f770",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "0061f770",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "0061efa0",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "005b4da0",
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "target": "00497a50",
+   "function_entry": true
+  },
+  {
+   "site": "006d4920",
+   "symbol": "?Text_Rect@@YI?AVRect@@PBGHHIHH@Z",
+   "target": "00497360",
+   "function_entry": true
+  },
+  {
+   "site": "006d4920",
+   "symbol": "?unknown_scheme_text_print_498050@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@IIIHH@Z",
+   "target": "00498050",
+   "function_entry": true
+  },
+  {
+   "site": "006ab360",
+   "symbol": "?Fancy_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIH@Z",
+   "target": "00497990",
+   "function_entry": true
+  },
+  {
+   "site": "0067f800",
+   "symbol": "?Text_Rect@@YI?AVRect@@PBGHHIHH@Z",
+   "target": "00497360",
+   "function_entry": true
+  },
+  {
+   "site": "0067f800",
+   "symbol": "?Plain_Text_Print@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@IIIZZ",
+   "target": "00497a60",
+   "function_entry": true
+  },
+  {
+   "site": "0067f800",
+   "symbol": "?Text_Rect@@YI?AVRect@@PBGHHIHH@Z",
+   "target": "00497360",
+   "function_entry": true
+  },
+  {
+   "site": "0067f800",
+   "symbol": "?Plain_Text_Print@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@IIIZZ",
+   "target": "00497a60",
+   "function_entry": true
+  },
+  {
+   "site": "0067f800",
+   "symbol": "?Text_Rect@@YI?AVRect@@PBGHHIHH@Z",
+   "target": "00497360",
+   "function_entry": true
+  },
+  {
+   "site": "0067f800",
+   "symbol": "?Text_Rect@@YI?AVRect@@PBGHHIHH@Z",
+   "target": "00497360",
+   "function_entry": true
+  },
+  {
+   "site": "0067f800",
+   "symbol": "?Plain_Text_Print@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@IIIZZ",
+   "target": "00497a60",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "?BitFont@@3PAVBitFontClass@@A",
+   "address": "0084e9e8"
+  },
+  {
+   "symbol": "?BitText@@3PAVBitTextClass@@A",
+   "address": "0084e9d0"
+  },
+  {
+   "symbol": "?Char_Pixel_Width@BitFontClass@@QBEHG@Z",
+   "address": "00432170"
+  },
+  {
+   "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+   "address": "00ab6ef8"
+  },
+  {
+   "symbol": "?Gadget_Color_Scheme@@YAHXZ",
+   "address": "004cefc0"
+  },
+  {
+   "symbol": "?Get_Text_Area@BitFontClass@@QAE_NPBGPAH1H@Z",
+   "address": "004314b0"
+  },
+  {
+   "symbol": "?Print@BitTextClass@@QAEHPAVBitFontClass@@PAVSurface@@PBGHHHH@Z",
+   "address": "00432350"
+  },
+  {
+   "symbol": "?Set_Clip_Box@BitFontClass@@QAEXPBUtagRECT@@@Z",
+   "address": "00431460"
+  },
+  {
+   "symbol": "?Set_Clipping@BitFontClass@@QAEEE@Z",
+   "address": "00431450"
+  },
+  {
+   "symbol": "?Set_Color@BitFontClass@@QAEGG@Z",
+   "address": "00431430"
+  },
+  {
+   "symbol": "?String_Pixel_Width@BitFontClass@@QBEHPBGH@Z",
+   "address": "00431690"
+  },
+  {
+   "symbol": "?To_RGB@HSVClass@@QBE?AVRGBClass@@XZ",
+   "address": "004ff050"
+  },
+  {
+   "symbol": "?unknown_buffer_852480@@3PAEA",
+   "address": "00852480"
+  },
+  {
+   "symbol": "?unknown_shift_852fb8@@3HA",
+   "address": "00852fb8"
+  },
+  {
+   "symbol": "?unknown_shift_852fbc@@3HA",
+   "address": "00852fbc"
+  },
+  {
+   "symbol": "?unknown_shift_852fc0@@3HA",
+   "address": "00852fc0"
+  },
+  {
+   "symbol": "?unknown_shift_852fc4@@3HA",
+   "address": "00852fc4"
+  },
+  {
+   "symbol": "?unknown_shift_852fc8@@3HA",
+   "address": "00852fc8"
+  },
+  {
+   "symbol": "?unknown_shift_852fcc@@3HA",
+   "address": "00852fcc"
+  },
+  {
+   "symbol": "?unknown_surface_83995c@@3PAVSurface@@A",
+   "address": "0083995c"
+  },
+  {
+   "symbol": "_vswprintf",
+   "address": "00783a58"
+  },
+  {
+   "symbol": "_wcschr",
+   "address": "00783ac6"
+  },
+  {
+   "symbol": "_wcscpy",
+   "address": "00783689"
+  }
+ ],
+ "route": "A",
+ "unit": "dialog.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00497340",
+   "lines": 2
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 14,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

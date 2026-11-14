@@ -1,0 +1,386 @@
+{
+ "module": "grphmenu2",
+ "source": "src/recovered/grphmenu2.cpp",
+ "header": null,
+ "population": "population-2327",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 472,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "004df330",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Create_Anim_Item@@YIPAVGraphicMenuItem@@ABVWstring@@AAVINIClass@@PAXPBUPoint2D@@@Z",
+   "entry": "004df350",
+   "body_bytes": 669,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??1GraphicMenuAnimItem@@UAE@XZ",
+   "entry": "004df740",
+   "body_bytes": 31,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?FUN_004df760@Owner_004df760@seed_004df760@@QAEIPAH@Z",
+   "entry": "004df760",
+   "body_bytes": 66,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "??_GGraphicMenuAnimItem@@UAEPAXI@Z",
+   "entry": "004df7b0",
+   "body_bytes": 51,
+   "padding_bytes": 13
+  }
+ ],
+ "code_bytes": 880,
+ "data": [
+  {
+   "symbol": "??_R1A@?0A@A@GraphicMenuItem@@8",
+   "address": "007ba2e0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 17
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GraphicMenuAnimItem@@8",
+   "address": "007ba2f8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 18
+  },
+  {
+   "symbol": "??_R2GraphicMenuAnimItem@@8",
+   "address": "007ba310",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 19
+  },
+  {
+   "symbol": "??_R3GraphicMenuAnimItem@@8",
+   "address": "007ba320",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 20
+  },
+  {
+   "symbol": "??_R4GraphicMenuAnimItem@@6B@",
+   "address": "007ba330",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 22
+  },
+  {
+   "symbol": "??_C@_04GGHG@Rate?$AA@",
+   "address": "007cef5c",
+   "bytes": 5,
+   "kind": "string",
+   "section": 7
+  },
+  {
+   "symbol": "??_C@_05LADG@Image?$AA@",
+   "address": "007cfddc",
+   "bytes": 6,
+   "kind": "string",
+   "section": 12
+  },
+  {
+   "symbol": "??_C@_02GMH@ID?$AA@",
+   "address": "007d52a8",
+   "bytes": 3,
+   "kind": "string",
+   "section": 13
+  },
+  {
+   "symbol": "??_C@_04PHFA@Loop?$AA@",
+   "address": "007d9e10",
+   "bytes": 5,
+   "kind": "string",
+   "section": 8
+  },
+  {
+   "symbol": "??_C@_0L@JDPA@ActiveRect?$AA@",
+   "address": "007d9e18",
+   "bytes": 11,
+   "kind": "string",
+   "section": 9
+  },
+  {
+   "symbol": "??_C@_06GKHB@Origin?$AA@",
+   "address": "007d9e24",
+   "bytes": 7,
+   "kind": "string",
+   "section": 10
+  },
+  {
+   "symbol": "??_C@_07NBFD@Palette?$AA@",
+   "address": "007d9e2c",
+   "bytes": 8,
+   "kind": "string",
+   "section": 11
+  },
+  {
+   "symbol": "??_R0?AVGraphicMenuItem@@@8",
+   "address": "007d9e38",
+   "bytes": 30,
+   "kind": "rtti",
+   "section": 16
+  },
+  {
+   "symbol": "??_R0?AVGraphicMenuAnimItem@@@8",
+   "address": "007d9e58",
+   "bytes": 34,
+   "kind": "rtti",
+   "section": 21
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_R1A@?0A@A@GraphicMenuItem@@8",
+   "address": "007ba2e0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GraphicMenuAnimItem@@8",
+   "address": "007ba2f8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2GraphicMenuAnimItem@@8",
+   "address": "007ba310",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3GraphicMenuAnimItem@@8",
+   "address": "007ba320",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4GraphicMenuAnimItem@@6B@",
+   "address": "007ba330",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_04GGHG@Rate?$AA@",
+   "address": "007cef5c",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_05LADG@Image?$AA@",
+   "address": "007cfddc",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_02GMH@ID?$AA@",
+   "address": "007d52a8",
+   "bytes": 3,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04PHFA@Loop?$AA@",
+   "address": "007d9e10",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@JDPA@ActiveRect?$AA@",
+   "address": "007d9e18",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06GKHB@Origin?$AA@",
+   "address": "007d9e24",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07NBFD@Palette?$AA@",
+   "address": "007d9e2c",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AVGraphicMenuItem@@@8",
+   "address": "007d9e38",
+   "bytes": 30,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVGraphicMenuAnimItem@@@8",
+   "address": "007d9e58",
+   "bytes": 34,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "004dff80",
+   "symbol": "?Create_Anim_Item@@YIPAVGraphicMenuItem@@ABVWstring@@AAVINIClass@@PAXPBUPoint2D@@@Z",
+   "target": "004df350",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0GraphicMenuAnimItem@@QAE@HPAXABUPoint2D@@ABUINIRect@@ABVWstring@@3H_N@Z",
+   "address": "004df5f0"
+  },
+  {
+   "symbol": "??0Wstring@@QAE@PBD@Z",
+   "address": "0076d920"
+  },
+  {
+   "symbol": "??0Wstring@@QAE@XZ",
+   "address": "0076d910"
+  },
+  {
+   "symbol": "??1GraphicMenuItem@@UAE@XZ",
+   "address": "004e0140"
+  },
+  {
+   "symbol": "??1Wstring@@QAE@XZ",
+   "address": "0076d9e0"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "?Contains@GraphicMenuAnimItem@@UAE_NABUPoint2D@@@Z",
+   "address": null
+  },
+  {
+   "symbol": "?Enabled_Changed@GraphicMenuItem@@UAEX_N@Z",
+   "address": "004e01a0"
+  },
+  {
+   "symbol": "?Get_Bool@INIClass@@QBE_NPBD0_N@Z",
+   "address": "0050f410"
+  },
+  {
+   "symbol": "?Get_Int@INIClass@@QBEHABVWstring@@0H@Z",
+   "address": "0050d9d0"
+  },
+  {
+   "symbol": "?Get_Point@INIClass@@QBE?AUINIPoint2D@@ABVWstring@@0ABUPoint2D@@@Z",
+   "address": "0050f800"
+  },
+  {
+   "symbol": "?Get_Rect@INIClass@@QBE?AUINIRect@@ABVWstring@@0ABU2@@Z",
+   "address": "0050df70"
+  },
+  {
+   "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+   "address": "0050eb40"
+  },
+  {
+   "symbol": "?Is_Input_Key@GraphicMenuItem@@UAE_NH@Z",
+   "address": "004e01d0"
+  },
+  {
+   "symbol": "?Length@Wstring@@QBEIXZ",
+   "address": "0076e7a0"
+  },
+  {
+   "symbol": "?Peek_Buffer@Wstring@@QBEPBDXZ",
+   "address": "0076e730"
+  },
+  {
+   "symbol": "?Play_Sound@GraphicMenuItem@@UAEXH@Z",
+   "address": "004e01e0"
+  },
+  {
+   "symbol": "?Visible_Changed@GraphicMenuItem@@UAEX_N@Z",
+   "address": "004e01b0"
+  },
+  {
+   "symbol": "?unknown_string_83c55c@@3PADA",
+   "address": "0083c55c"
+  }
+ ],
+ "route": "A",
+ "unit": "grphmenu2.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "004df330",
+   "lines": 2
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "004df760",
+   "bytes": 66,
+   "population": "population-123",
+   "bound": "own frozen bound (population-123)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "004df5f0",
+   "bytes": 333,
+   "population": "population-3595",
+   "source": "src/recovered/classes/GraphicMenuAnimItem/Constructor.cpp",
+   "cause": "frozen in another population's inventory pass (population-3595)"
+  }
+ ],
+ "unit_functions": 6,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  },
+  {
+   "symbol": "??_7GraphicMenuAnimItem@@6B@",
+   "reason": "relocation target unbound: ?Contains@GraphicMenuAnimItem@@UAE_NABUPoint2D@@@Z"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 1,
+  "bytes": 333
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

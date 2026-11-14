@@ -17,6 +17,9 @@
 #include "touch.hpp"
 
 namespace ra2port { void set_key_state(int vk, bool down); }
+void ra2_enhancements_start();   // platform/sdl/enhancements.cpp
+bool ra2_enh_sidebar_split(int picture_height, double *ratio);   // platform/sdl/enhancements.cpp
+bool ra2_enh_map_zoomed(int picture_width, int picture_height, int view[4], int full[4]);   // platform/sdl/enhancements.cpp
 // A scripted point "@ID..." as game pixels (port/src/run_progress.cpp asks the
 // skirmish harness); 0 when it has no answer.
 extern "C" int ra2port_resolve_point(const char *spec, int *x, int *y);
@@ -57,6 +60,11 @@ constexpr Uint64 kFocusSettleMs = 150;
 SDL_Renderer *renderer = nullptr;
 SDL_Texture *texture = nullptr;
 int tex_w = 0, tex_h = 0;
+// Enhancements (platform/sdl/enhancements.cpp; native additions, off by default): how the
+// game picture is scaled to the window (the original look: SDL_SCALEMODE_PIXELART, sharp
+// pixels at any scale) and whether presents wait for the display (off: the game paces itself).
+SDL_ScaleMode picture_scale_mode = SDL_SCALEMODE_PIXELART;
+bool picture_vsync = false;
 
 // Mac app options (main.cpp, ra2_sdl_host_options): start in fullscreen; ask
 // before quitting a game; what to save before a quit ends the process.
@@ -65,6 +73,14 @@ bool app_mode = false;
 // The host pause (ra2port::request_pause, Scout1247) when the window loses the focus:
 // on in the app, off in test runs; RA2_NATIVE_FOCUS_PAUSE=1 or 0 overrides either.
 bool pause_on_focus_loss = false;
+// RA2_NATIVE_IGNORE_FOCUS=1 (test runs, C5): the system's focus reports are not passed on, so
+// the game stays active whatever window is in front. Another game window starting on a busy
+// machine (a second test, another lane's run) took the focus: the menu then redrew without its
+// buttons and slid them in again, presents were held while it was inactive (no window dumps),
+// and an inactive game stops (MSEngine::Check_Focus 0x005B3670), so a skirmish run waited for
+// the focus until its time limit. The scripted blur/focus lines still apply.
+bool ignore_system_focus = false;
+constexpr Sint32 kScriptedFocus = 0x52413246;   // window.data1 of a scripted blur/focus ('RA2F')
 // iOS: the app is in the background (nothing may be drawn there).
 bool in_background = false;
 // Why the host pause is wanted (Scout1248; update_pause): the window lost the focus
@@ -83,18 +99,47 @@ Uint64 checkpoint_period_ms = 0, last_checkpoint_ms = 0;
 hostos::Rect usable = {0, 0, 800, 600};
 hostos::Rect picture = {0, 0, 800, 600};
 int pic_w = 800, pic_h = 600;     // the game picture's size in game pixels
+// The split layout (Game interface size above 1x, platform/sdl/enhancements.cpp): in play the
+// game's sidebar surface is shorter than the screen, and the sidebar column (the picture's right
+// kSidebarWidth pixels, its top pic_h / split_ratio rows) is shown split_ratio times larger than
+// the map. picture is then the whole window area used; split_scale is the map's scale.
+constexpr int kSidebarWidth = 168;
+bool split_on = false;            // drawn and mapped split now (in play, no dialog up)
+bool split_fitted = false;        // the window was sized for the split picture
+double split_ratio = 1.0, split_scale = 1.0;
+// The zoom layout (Map zoom above 1x, platform/sdl/enhancements.cpp; C4): in play the game's view
+// rectangle (zoom_view, game pixels) is smaller than the tactical area it stands for (zoom_full),
+// and is shown over that whole area, map_zoom times larger; the command bar below it and the
+// sidebar column keep their own scales. Off with a dialog up, a movie playing or a scenario starting.
+bool zoom_on = false;
+int zoom_view[4] = {0, 0, 0, 0}, zoom_full[4] = {0, 0, 0, 0};
+double map_zoom = 1.0;
+// The picture's regions while split or zoomed (each a rectangle of game pixels shown at a
+// rectangle of window points); none: the whole picture at one scale.
+struct Region { double sx, sy, sw, sh; double dx, dy, dw, dh; };
+std::vector<Region> regions;
 bool layout_dirty = true;
 
 // The touch controls (Scout1248): on where the screen is touched (iOS), or with
 // RA2_NATIVE_TOUCH_UI=1 (tests). A column of toggles at the usable part's left edge:
 // force fire (Ctrl), force move (Alt), add to the selection (Shift) stay held while
-// on; the keyboard; the interface scale (takes effect at the next start).
+// on; attack-move for the next tap (Ctrl and Shift held together, the original's
+// keyboard form: Unknown_Can_Force_Order 0x006F6670 reads 0x00A40BAC and 0x00A40BB4,
+// Options +0x94 KeyForceAttack (Ctrl) and +0x9C KeySelect (Shift); cleared by the next
+// left click); Deploy (the D key, DeployObject's default); Guard (the G key, GuardObject's
+// default); the keyboard; Escape (a key press); the interface scale (takes effect at the
+// next start). (Lane I: attack-move, Deploy, Guard, Escape.)
 bool touch_ui = false;
 bool system_toolbar = false;   // the iOS glass toolbar holds the toggles (hostos::toolbar_create; Scout1249)
 struct Toggle { const char *label; int vk; bool on; };
-Toggle toggles[] = {{"FIRE", 0x11, false}, {"MOVE", 0x12, false}, {"ADD", 0x10, false}, {"KEYS", 0, false}, {"SCALE", 0, false}};
-constexpr int kToggleCount = 5, kKeysToggle = 3, kScaleToggle = 4;
+Toggle toggles[] = {{"FIRE", 0x11, false}, {"MOVE", 0x12, false}, {"ADD", 0x10, false}, {"A-MOVE", 0, false},
+                    {"DEPLOY", 0, false}, {"GUARD", 0, false}, {"KEYS", 0, false}, {"ESC", 0, false}, {"SCALE", 0, false}};
+constexpr int kToggleCount = 9, kFireToggle = 0, kAddToggle = 2, kAttackMove = 3, kDeployItem = 4, kGuardItem = 5,
+              kKeysToggle = 6, kEscItem = 7, kScaleToggle = 8;
+bool skip_shown = false;   // the Skip button over a cutscene (lane I)
+Uint64 attack_move_clear_at = 0;   // when the order's release has been read (0: armed or off)
 double ui_scale = 1.0;
+double started_scale = 1.0;   // the scale this run's resolution was picked with
 void (*scale_changed)(double) = nullptr;
 bool text_input_on = false;
 SDL_TouchID const script_touch = 0x5C5D;   // scripted fingers: coordinates in game pixels
@@ -184,6 +229,17 @@ void fit_window(int width, int height)
 {
     if (!window || is_fullscreen()) return;
     int w = width, h = height;
+    // The split layout's window: the map at one point per pixel, the sidebar column larger.
+    double ratio = 1.0;
+    split_fitted = ra2_enh_sidebar_split(height, &ratio);
+    if (split_fitted) w = (int)(width - kSidebarWidth + kSidebarWidth * ratio + 0.5);
+    // RA2_NATIVE_WINDOW_ZOOM=<factor> (tests): the window that many times the picture, so
+    // the picture is scaled (tests/enhancements_frames.py compares the scaling modes).
+    static const double zoom = getenv("RA2_NATIVE_WINDOW_ZOOM") ? atof(getenv("RA2_NATIVE_WINDOW_ZOOM")) : 0.0;
+    if (zoom > 0) {
+        w = (int)(w * zoom);
+        h = (int)(h * zoom);
+    }
     SDL_Rect usable;
     SDL_DisplayID display = SDL_GetDisplayForWindow(window);
     if (display && SDL_GetDisplayUsableBounds(display, &usable) && usable.w > 0 && usable.h > 0) {
@@ -205,6 +261,10 @@ SDL_Mutex *deferred_lock = nullptr;
 
 void sync_toolbar();
 void toolbar_tapped(int i);
+void press_escape();
+void set_attack_move(bool on);
+void sync_toolbar();
+void redraw();
 float pixel_density()
 {
     int ww = 0, wh = 0, pw = 0, ph = 0;
@@ -230,21 +290,85 @@ void update_layout()
     if (touch_ui && !system_toolbar && native) {
         static const hostos::ToolbarItem items[kToggleCount] = {
             {"scope", "Fire"}, {"arrow.up.and.down.and.arrow.left.and.right", "Move"},
-            {"plus.square.on.square", "Add"}, {"keyboard", "Keys"}, {"textformat.size", "1x"}};
+            {"plus.square.on.square", "Add"}, {"target", "A-Move"}, {"arrow.down.to.line", "Deploy"},
+            {"shield", "Guard"},
+            {"keyboard", "Keys"}, {"escape", "Esc"}, {"textformat.size", "1x"}};
         system_toolbar = hostos::toolbar_create(native, items, kToggleCount, toolbar_tapped);
+        if (system_toolbar) hostos::skip_button_create(native, press_escape);
         if (system_toolbar) sync_toolbar();
     }
     if (system_toolbar) hostos::toolbar_place(usable);
-    double scale = SDL_min(usable.w / pic_w, usable.h / pic_h);
-    picture = hostos::Rect{usable.x + (usable.w - pic_w * scale) / 2, usable.y + (usable.h - pic_h * scale) / 2, pic_w * scale, pic_h * scale};
+    // Split (Game interface size): in play with no dialog up and a sidebar surface shorter
+    // than the screen. Dialogs in play draw over the whole picture, which is then shown whole.
+    split_ratio = 1.0;
+    split_on = !ra2port_menu_shown() && ra2_enh_sidebar_split(pic_h, &split_ratio);
+    // Zoom (Map zoom): in play, no dialog up, no movie playing, the view smaller than the
+    // tactical area. The picture keeps its size and base scale; only the view is shown larger.
+    zoom_on = !ra2port_menu_shown() && !ra2port::movie_playing() && ra2_enh_map_zoomed(pic_w, pic_h, zoom_view, zoom_full);
+    map_zoom = zoom_on ? (double)zoom_full[2] / zoom_view[2] : 1.0;
+    double pw = split_on ? pic_w - kSidebarWidth + kSidebarWidth * split_ratio : pic_w;
+    double scale = SDL_min(usable.w / pw, usable.h / pic_h);
+    split_scale = scale;
+    picture = hostos::Rect{usable.x + (usable.w - pw * scale) / 2, usable.y + (usable.h - pic_h * scale) / 2, pw * scale, pic_h * scale};
+    regions.clear();
+    if (split_on || zoom_on) {
+        double map_w = pic_w - kSidebarWidth;
+        auto add = [](double sx, double sy, double sw, double sh, double dx, double dy, double dw, double dh) {
+            if (sw > 0 && sh > 0 && dw > 0 && dh > 0) regions.push_back(Region{sx, sy, sw, sh, dx, dy, dw, dh});
+        };
+        double px = picture.x, py = picture.y;
+        if (zoom_on) {
+            // The view over the tactical area; the rest of the map side (the command bar
+            // below the tactical area, any part right of it) at the base scale.
+            double fx = zoom_full[0], fy = zoom_full[1], fw = zoom_full[2], fh = zoom_full[3];
+            add(zoom_view[0], zoom_view[1], zoom_view[2], zoom_view[3], px + fx * scale, py + fy * scale, fw * scale, fh * scale);
+            add(0, fy + fh, map_w, pic_h - fy - fh, px, py + (fy + fh) * scale, map_w * scale, (pic_h - fy - fh) * scale);
+            add(fx + fw, fy, map_w - fx - fw, fh, px + (fx + fw) * scale, py + fy * scale, (map_w - fx - fw) * scale, fh * scale);
+            add(0, 0, map_w, fy, px, py, map_w * scale, fy * scale);
+        } else {
+            add(0, 0, map_w, pic_h, px, py, map_w * scale, pic_h * scale);
+        }
+        add(map_w, 0, kSidebarWidth, pic_h / split_ratio, px + map_w * scale, py, kSidebarWidth * split_ratio * scale, pic_h * scale);
+    }
+}
+// Window points to game pixels and back through the regions (split or zoom layout); a point
+// outside every region (a letterbox bar) is taken at the nearest region's edge.
+bool region_to_game(float wx, float wy, float *gx, float *gy)
+{
+    if (regions.empty()) return false;
+    const Region *best = nullptr;
+    double best_d = 0;
+    for (const Region &r : regions) {
+        double cx = SDL_clamp((double)wx, r.dx, r.dx + r.dw), cy = SDL_clamp((double)wy, r.dy, r.dy + r.dh);
+        double d = (cx - wx) * (cx - wx) + (cy - wy) * (cy - wy);
+        bool inside = wx >= r.dx && wx < r.dx + r.dw && wy >= r.dy && wy < r.dy + r.dh;
+        if (inside) { best = &r; break; }
+        if (!best || d < best_d) { best = &r; best_d = d; }
+    }
+    *gx = (float)(best->sx + (wx - best->dx) * best->sw / best->dw);
+    *gy = (float)(best->sy + (wy - best->dy) * best->sh / best->dh);
+    return true;
+}
+bool region_to_window(float gx, float gy, float *wx, float *wy)
+{
+    if (regions.empty()) return false;
+    const Region *best = nullptr;
+    for (const Region &r : regions)
+        if (gx >= r.sx && gx < r.sx + r.sw && gy >= r.sy && gy < r.sy + r.sh) { best = &r; break; }
+    if (!best) return false;
+    *wx = (float)(best->dx + (gx - best->sx) * best->dw / best->sw);
+    *wy = (float)(best->dy + (gy - best->sy) * best->dh / best->sh);
+    return true;
 }
 void window_to_game(float wx, float wy, float *gx, float *gy)
 {
+    if (region_to_game(wx, wy, gx, gy)) return;
     *gx = picture.w > 0 ? (float)((wx - picture.x) * pic_w / picture.w) : wx;
     *gy = picture.h > 0 ? (float)((wy - picture.y) * pic_h / picture.h) : wy;
 }
 void game_to_window(float gx, float gy, float *wx, float *wy)
 {
+    if (region_to_window(gx, gy, wx, wy)) return;
     *wx = (float)(picture.x + gx * picture.w / pic_w);
     *wy = (float)(picture.y + gy * picture.h / pic_h);
 }
@@ -293,6 +417,7 @@ void *create_window(const char *title, int width, int height)
         if (window) SDL_SetWindowTitle(window, title);
         else window = SDL_CreateWindow(title, width, height, SDL_WINDOW_HIGH_PIXEL_DENSITY | SDL_WINDOW_RESIZABLE);
         renderer = window ? SDL_CreateRenderer(window, nullptr) : nullptr;
+        if (renderer) ra2_enhancements_start();     // the saved enhancement settings (off by default)
         if (window) {
             SDL_SetWindowMinimumSize(window, 320, 240);
             fit_window(width, height);
@@ -395,6 +520,9 @@ void release_button(int b)
     button_down[b] = false;
     ra2port::set_key_state(b ? 0x02 : 0x01, false);
     ra2port::post_message(ra2port::main_window(), b ? 0x0205 : 0x0202, 0, mouse_lparam(held[b].x, held[b].y));   // WM_RBUTTONUP / WM_LBUTTONUP
+    // Start the one-shot expiry after the actual release is queued. A quick tap's
+    // release may wait for game frames in release_held_buttons.
+    if (b == 0 && toggles[kAttackMove].on) attack_move_clear_at = SDL_GetTicks() + 250;
 }
 // The game has seen the button held: two game frames ran since the press, or
 // none ran for 50 ms (the menus read the queue only).
@@ -582,17 +710,73 @@ void sync_toolbar()
 }
 void press_toggle(int i);
 void toolbar_tapped(int i) { press_toggle(i); }
+// Escape as the keyboard sends it (lane I: the toolbar's Esc and the Skip button over a
+// cutscene, which BinkClass::Play 0x00430430 ends on key 0x81B): a key press and release
+// through SDL's own key events, read at the next event pump like a real key.
+void press_key(SDL_Keycode key, SDL_Scancode code, const char *name)
+{
+    fprintf(stderr, "host: %s pressed (touch control)\n", name);
+    SDL_Event e;
+    SDL_zero(e);
+    e.type = SDL_EVENT_KEY_DOWN;
+    e.key.key = key;
+    e.key.scancode = code;
+    e.key.down = true;
+    SDL_PushEvent(&e);
+    e.type = SDL_EVENT_KEY_UP;
+    e.key.down = false;
+    SDL_PushEvent(&e);
+}
+void press_escape() { press_key(SDLK_ESCAPE, SDL_SCANCODE_ESCAPE, "Escape"); }
+// A modifier held for a toggle: down while any toggle that holds it is on.
+void hold_modifier(int vk, bool on)
+{
+    HWND w = ra2port::main_window();
+    ra2port::set_key_state(vk, on);
+    ra2port::post_message(w, on ? 0x0100 : 0x0101, (WPARAM)vk, (LPARAM)(on ? 1 : (1 | (3u << 30))));
+}
+// Attack-move armed or cleared: Ctrl and Shift held together (each also stays held while
+// its own Fire or Add toggle is on).
+void set_attack_move(bool on)
+{
+    attack_move_clear_at = 0;
+    if (toggles[kAttackMove].on == on) return;
+    toggles[kAttackMove].on = on;
+    if (!toggles[kFireToggle].on) hold_modifier(0x11, on);
+    if (!toggles[kAddToggle].on) hold_modifier(0x10, on);
+    fprintf(stderr, "host: attack-move %s\n", on ? "armed for the next tap" : "cleared");
+    sync_toolbar();
+    redraw();
+}
 void press_toggle(int i)
 {
     Toggle &t = toggles[i];
     HWND w = ra2port::main_window();
-    if (i == kScaleToggle) {
+    if (i == kEscItem) {
+        press_escape();
+    } else if (i == kDeployItem) {
+        press_key(SDLK_D, SDL_SCANCODE_D, "D (Deploy)");
+    } else if (i == kGuardItem) {
+        press_key(SDLK_G, SDL_SCANCODE_G, "G (Guard)");
+    } else if (i == kAttackMove) {
+        set_attack_move(!t.on);
+        return;
+    } else if (i == kScaleToggle) {
         ui_scale = ui_scale < 1.1 ? 1.25 : ui_scale < 1.4 ? 1.5 : 1.0;
         fprintf(stderr, "host: interface scale %.2f (at the next start)\n", ui_scale);
         if (scale_changed) scale_changed(ui_scale);
+        // The size is the game's resolution, picked before the game starts: say so on
+        // screen, since nothing else changes when the item is tapped (lane I).
+        char notice[96];
+        if (ui_scale == started_scale)
+            snprintf(notice, sizeof notice, "Interface size %gx (as now)", ui_scale);
+        else
+            snprintf(notice, sizeof notice, "Interface size %gx from the next start of the app", ui_scale);
+        hostos::toolbar_notice(notice);
     } else {
         t.on = !t.on;
-        if (t.vk) {
+        // A modifier attack-move holds stays down for it.
+        if (t.vk && !(toggles[kAttackMove].on && (t.vk == 0x11 || t.vk == 0x10))) {
             ra2port::set_key_state(t.vk, t.on);
             ra2port::post_message(w, t.on ? 0x0100 : 0x0101, (WPARAM)t.vk, (LPARAM)(t.on ? 1 : (1 | (3u << 30))));
         }
@@ -738,6 +922,27 @@ void pump_events()
     play_timed();
     if (SDL_IsMainThread()) present_deferred();
     HWND w = ra2port::main_window();
+    // A touch screen has no pointer until the first touch, and the game's cursor starts
+    // at the screen's top left corner, where a game edge-scrolls the map away (lane I:
+    // a checkpoint resumed without a touch showed a black map). The touch app starts
+    // with the pointer in the middle of the picture.
+    if (attack_move_clear_at && SDL_GetTicks() >= attack_move_clear_at) {
+        attack_move_clear_at = 0;
+        set_attack_move(false);
+    }
+    // The Skip button follows the cutscene (lane I: ra2port::movie_playing).
+    if (system_toolbar && ra2port::movie_playing() != skip_shown) {
+        skip_shown = !skip_shown;
+        hostos::skip_button_show(skip_shown);
+        fprintf(stderr, "host: skip button %s\n", skip_shown ? "shown (movie playing)" : "hidden");
+    }
+    static bool pointer_placed = false;
+    if (touch_ui && w && !pointer_placed) {
+        pointer_placed = true;
+        pointer_x = pic_w / 2.0f;
+        pointer_y = pic_h / 2.0f;
+        ra2port::post_message(w, 0x0200, 0, mouse_lparam(pointer_x, pointer_y));   // WM_MOUSEMOVE
+    }
     SDL_Event e;
     while (SDL_PollEvent(&e)) {
         // Window coordinates to the game's: the presented surface letterboxed
@@ -822,8 +1027,9 @@ void pump_events()
                 if (pan_last_ms && SDL_GetTicks() - pan_last_ms > 250) pan_dx = pan_dy = pan_wheel = 0;
                 pointer_x = wx;
                 pointer_y = wy;
-                pan_dx += e.wheel.x * 10.0f;
-                pan_dy -= e.wheel.y * 10.0f;
+                // The map follows the fingers: zoomed, each game pixel is map_zoom times larger.
+                pan_dx += e.wheel.x * 10.0f / (float)map_zoom;
+                pan_dy -= e.wheel.y * 10.0f / (float)map_zoom;
                 pan_last_ms = SDL_GetTicks();
                 break;
             }
@@ -849,6 +1055,7 @@ void pump_events()
         // Scout1223). The game hears of a focus change once it has held for 150 ms.
         case SDL_EVENT_WINDOW_FOCUS_GAINED:
         case SDL_EVENT_WINDOW_FOCUS_LOST:
+            if (ignore_system_focus && e.window.data1 != kScriptedFocus) break;
             window_focused = e.type == SDL_EVENT_WINDOW_FOCUS_GAINED;
             window_focus_ms = SDL_GetTicks();
             break;
@@ -964,10 +1171,28 @@ void present_now(const void *pixels, int width, int height, int pitch)
         fit_window(width, height);
         update_layout();
         texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGB565, SDL_TEXTUREACCESS_STREAMING, width, height);
-        // Sharp pixels at any scale (Retina 2x, fullscreen's fractional fit).
-        if (texture) SDL_SetTextureScaleMode(texture, SDL_SCALEMODE_PIXELART);
+        // Sharp pixels at any scale (Retina 2x, fullscreen's fractional fit), unless the
+        // Picture scaling enhancement chose another mode.
+        if (texture) SDL_SetTextureScaleMode(texture, picture_scale_mode);
         tex_w = width;
         tex_h = height;
+    }
+    // The split layout follows the game: the window is refitted when the sidebar surface's
+    // height changes for this picture (a game starting), the layout when a dialog in play
+    // opens or closes.
+    {
+        double ratio = 1.0;
+        bool possible = ra2_enh_sidebar_split(pic_h, &ratio);
+        if (possible != split_fitted) {
+            fit_window(pic_w, pic_h);
+            layout_dirty = true;
+        }
+        if ((possible && !ra2port_menu_shown()) != split_on) layout_dirty = true;
+        // The zoom layout follows the game too: a game starting or loading, a dialog, a movie.
+        int view[4], full[4];
+        bool zoom = !ra2port_menu_shown() && !ra2port::movie_playing() && ra2_enh_map_zoomed(pic_w, pic_h, view, full);
+        if (zoom != zoom_on || (zoom && (memcmp(view, zoom_view, sizeof view) || memcmp(full, zoom_full, sizeof full))))
+            layout_dirty = true;
     }
     if (layout_dirty) update_layout();
     if (pixels) SDL_UpdateTexture(texture, nullptr, pixels, pitch);
@@ -975,7 +1200,17 @@ void present_now(const void *pixels, int width, int height, int pitch)
     SDL_RenderClear(renderer);
     float density = pixel_density();
     SDL_FRect dst = {(float)(picture.x * density), (float)(picture.y * density), (float)(picture.w * density), (float)(picture.h * density)};
-    if (texture) SDL_RenderTexture(renderer, texture, nullptr, &dst);
+    if (texture && !regions.empty()) {
+        // Split or zoomed: each region of the picture at its own scale (the map view larger
+        // with the zoom, the sidebar column's rows that its surface holds filling the height).
+        for (const Region &r : regions) {
+            SDL_FRect src = {(float)r.sx, (float)r.sy, (float)r.sw, (float)r.sh};
+            SDL_FRect to = {(float)(r.dx * density), (float)(r.dy * density), (float)(r.dw * density), (float)(r.dh * density)};
+            SDL_RenderTexture(renderer, texture, &src, &to);
+        }
+    } else if (texture) {
+        SDL_RenderTexture(renderer, texture, nullptr, &dst);
+    }
     draw_overlay(density);
     // RA2_NATIVE_WINDOW_DUMP=<file> (test runs): every 2 s, the whole window
     // as drawn (device pixels: the scaling, letterbox and fullscreen) to
@@ -1062,16 +1297,19 @@ bool open_audio(int rate, void (*mix)(short *out, int frames))
 // event that many milliseconds after the window opened (menus and dialogs,
 // where no Main_Loop frame runs; Scout1119, M14); the order of the lines is
 // kept within each kind. "d<k>+<ms>" plays it that many milliseconds after
-// the k-th dialog was shown (counting every dialog the game shows). Timed
-// lines play in the order written.
-struct Scripted { int frame; SDL_Event event; std::string spec; int ms = -1; int dialog = 0; };
+// the k-th dialog was shown (counting every dialog the game shows); "s<k>+<ms>"
+// that many milliseconds after the menu had settled once the k-th was shown (no
+// work, input or repaint for 250 ms: its slide-in done; USER32 exposure_check, C5).
+// Timed lines play in the order written.
+struct Scripted { int frame; SDL_Event event; std::string spec; int ms = -1; int dialog = 0; };   // dialog < 0: "s<k>"
 extern "C" long long ra2port_dialog_shown_ms(int k);
+extern "C" long long ra2port_dialog_settled_ms(int k);
 extern "C" long long ra2port_now_ms(void);
 std::vector<Scripted> script;
 size_t script_next = 0;
 
 int script_ms = -1;     // the line being read is timed ("t<ms>"): its events' offset
-int script_dialog = 0;  // ... after the k-th dialog was shown ("d<k>+<ms>")
+int script_dialog = 0;  // ... after the k-th dialog was shown ("d<k>+<ms>"), or settled (-k, "s<k>+<ms>")
 Uint64 script_start = 0;
 void script_mouse_event(int frame, Uint32 type, float x, float y, std::string const &spec, Uint8 button)
 {
@@ -1160,8 +1398,8 @@ void load_script()
         // Timed lines keep the frame arithmetic below (click: +1, +2) as 60 ms steps.
         script_ms = tokens[0][0] == 't' ? atoi(tokens[0].c_str() + 1) : -1;
         script_dialog = 0;
-        if (tokens[0][0] == 'd') {      // d<k>+<ms>: ms after the k-th dialog was shown
-            script_dialog = atoi(tokens[0].c_str() + 1);
+        if (tokens[0][0] == 'd' || tokens[0][0] == 's') {   // d<k>+<ms> / s<k>+<ms>: shown / settled
+            script_dialog = atoi(tokens[0].c_str() + 1) * (tokens[0][0] == 's' ? -1 : 1);
             const char *plus = strchr(tokens[0].c_str(), '+');
             script_ms = plus ? atoi(plus + 1) : 0;
         }
@@ -1322,7 +1560,7 @@ void play_timed()
     while (timed_next < timed.size()) {
         Scripted &s = script[timed[timed_next]];
         if (s.dialog) {
-            long long shown = ra2port_dialog_shown_ms(s.dialog);
+            long long shown = s.dialog > 0 ? ra2port_dialog_shown_ms(s.dialog) : ra2port_dialog_settled_ms(-s.dialog);
             if (shown < 0 || ra2port_now_ms() - shown < s.ms) break;
         } else if ((Uint64)s.ms > now) {
             break;
@@ -1340,6 +1578,7 @@ void play(Scripted &s, int number)
             e.key.windowID = id;
         } else if (e.type == SDL_EVENT_WINDOW_FOCUS_LOST || e.type == SDL_EVENT_WINDOW_FOCUS_GAINED) {
             e.window.windowID = id;
+            e.window.data1 = kScriptedFocus;
         } else if (e.type == SDL_EVENT_QUIT) {
         } else if (e.type == SDL_EVENT_FINGER_DOWN || e.type == SDL_EVENT_FINGER_MOTION || e.type == SDL_EVENT_FINGER_UP) {
             e.tfinger.windowID = id;
@@ -1422,6 +1661,12 @@ void keep_alive()
 
 // Host::held: the port's pause hold began or ended (Scout1247). The audio device stops
 // with it (the mixer's play cursors stand still, as the game's clocks do) and starts again.
+// Resume at start (lane I): the system may end the app while it is in the background.
+// When going to the background saved a checkpoint (a game was running), a marker file
+// says so; coming back removes it. The next start finds it only when the app was ended
+// in the background (main.cpp offers the checkpoint then).
+uint64_t checkpoint_before_background = 0;
+std::string resume_marker() { return hostos::settings_dir() + "/resume.pending"; }
 void game_held(bool on)
 {
     if (audio_stream) {
@@ -1429,6 +1674,13 @@ void game_held(bool on)
         else SDL_ResumeAudioStreamDevice(audio_stream);
     }
     fprintf(stderr, "host: game %s\n", on ? "held (paused)" : "running again");
+    if (on && in_background && checkpoints && ra2port::last_checkpoint_saved_ns() != checkpoint_before_background) {
+        if (FILE *f = fopen(resume_marker().c_str(), "w")) {
+            fputs("CHECKPT.SAV\n", f);
+            fclose(f);
+            fprintf(stderr, "host: resume marker written (checkpoint saved on the way to the background)\n");
+        }
+    }
 }
 
 const ra2port::Host sdl_host = {create_window, pump_events, present, set_relative_cursor, open_audio, frame, wait_begins, keep_alive, game_held};
@@ -1443,6 +1695,7 @@ bool SDLCALL lifecycle_watch(void *, SDL_Event *e)
         if (!in_background) {
             fprintf(stderr, "host: background\n");
             in_background = true;
+            checkpoint_before_background = ra2port::last_checkpoint_saved_ns();
             if (checkpoints) ra2port::request_checkpoint();
             update_pause();
         }
@@ -1451,6 +1704,7 @@ bool SDLCALL lifecycle_watch(void *, SDL_Event *e)
         if (in_background) {
             fprintf(stderr, "host: foreground\n");
             in_background = false;
+            if (checkpoints && remove(resume_marker().c_str()) == 0) fprintf(stderr, "host: resume marker removed (back in the foreground)\n");
             layout_dirty = true;
             update_pause();
         }
@@ -1468,10 +1722,30 @@ void audio_interruption(bool on)
 }
 }  // namespace
 
+// The enhancements' display settings (platform/sdl/enhancements.cpp applies them).
+// Picture scaling: 0 sharp (SDL_SCALEMODE_PIXELART, the original look), 1 nearest, 2 smooth.
+void ra2_host_set_picture_scaling(int mode)
+{
+    picture_scale_mode = mode == 1 ? SDL_SCALEMODE_NEAREST : mode == 2 ? SDL_SCALEMODE_LINEAR : SDL_SCALEMODE_PIXELART;
+    if (texture) SDL_SetTextureScaleMode(texture, picture_scale_mode);
+    redraw();
+}
+void ra2_host_set_vsync(bool on)
+{
+    if (picture_vsync == on) return;
+    picture_vsync = on;
+    if (renderer) SDL_SetRenderVSync(renderer, on ? 1 : 0);
+}
+void ra2_host_set_fullscreen(bool on) { set_fullscreen(on); }
+bool ra2_host_is_fullscreen() { return is_fullscreen(); }
+// A touch host (iOS): fullscreen is decided by the display (the Fullscreen row shows Automatic).
+bool ra2_host_touch() { return touch_ui || SDL_HasScreenKeyboardSupport(); }
+
 void ra2_install_sdl_host()
 {
     ra2port::set_host(&sdl_host);
     if (const char *v = getenv("RA2_NATIVE_FOCUS_PAUSE")) pause_on_focus_loss = *v == '1';
+    if (const char *v = getenv("RA2_NATIVE_IGNORE_FOCUS")) ignore_system_focus = *v == '1';
     // Touches make their own gestures (touch.cpp), never SDL's mouse.
     SDL_SetHint(SDL_HINT_TOUCH_MOUSE_EVENTS, "0");
     touch_ui = SDL_HasScreenKeyboardSupport();
@@ -1497,7 +1771,7 @@ void ra2_sdl_host_options(bool app, bool fullscreen, void (*on_quit)())
 // `checkpoint_seconds` of play.
 void ra2_sdl_host_touch_options(double scale, void (*on_scale)(double), int checkpoint_seconds)
 {
-    ui_scale = scale;
+    ui_scale = started_scale = scale;
     scale_changed = on_scale;
     checkpoints = true;
     if (!getenv("RA2_NATIVE_CHECKPOINT_SECONDS")) checkpoint_period_ms = (Uint64)checkpoint_seconds * 1000u;

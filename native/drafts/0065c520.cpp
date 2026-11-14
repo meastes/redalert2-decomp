@@ -6,7 +6,7 @@
 // bool __fastcall Wait_For_Players_0065c520() (0x0065C520)
 // @ref ??_C@_0CN@LDAF@Carrier?5Detect?5is?5false?4?5Abortin@=007f1f3c
 // @ref ??_C@_0DI@OCKB@Player?5?$CFs?5failed?5to?5make?5it?5into@=007f1f04
-// @ref ?Am_I_Master@UnknownSessionState@@QAE_NPAVHouseClass@@@Z=0066f150
+// @ref ?Am_I_Master@SessionClass@@QAE_NPAVHouseClass@@@Z=0066f150
 // @ref ?Average_Progress@ProgressScreenClass@@QAENXZ=0061f8c0
 // @ref ?Destroy_Connection_005bb5d0@@YIXHH@Z=005bb5d0
 // @ref __real@8@3ffeffbe76c8b4395800=007a9220
@@ -30,7 +30,7 @@
 #include "shared/house.hpp"
 #include "shared/crt_memory.hpp"
 
-char *__fastcall Unknown_006FA120(unsigned short const *string);
+char *__fastcall Wide_To_Narrow_006fa120(unsigned short const *string);
 
 bool __fastcall Wait_For_Players_0065c520()
 {
@@ -53,8 +53,8 @@ bool __fastcall Wait_For_Players_0065c520()
             for (int i = 1, player = 1; i < unknown_players_a3fa7c.Count(); player++, i++) {
                 if (ProgressScreen.Get_Progress(player) < 0.999) {
                     NodeNameType *entry = unknown_players_a3fa7c[i];
-                    char *name = Unknown_006FA120(entry->Name);
-                    Debug_Printf("Player %s failed to make it into the game. Dropping %s\n", name, Unknown_006FA120(entry->Name));
+                    char *name = Wide_To_Narrow_006fa120(entry->Name);
+                    Debug_Printf("Player %s failed to make it into the game. Dropping %s\n", name, Wide_To_Narrow_006fa120(entry->Name));
                     int house = unknown_players_a3fa7c[i]->ID;
                     Destroy_Connection_005bb5d0(house, 1);
                     HouseClass *hp = Houses[house];

@@ -1,0 +1,943 @@
+{
+ "module": "ipxgconn",
+ "source": "src/recovered/ipxgconn.cpp",
+ "header": null,
+ "population": "population-4061",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 882,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00523fc0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "00523fe0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "00524010",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "00524030",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "00524050",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "00524070",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "00524090",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "005240b0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "005240f0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "00524120",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "00524150",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "00524180",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "00524190",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "??0IPXGlobalConnClass@@QAE@HHHGG@Z",
+   "entry": "005241b0",
+   "body_bytes": 219,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "??1IPXGlobalConnClass@@UAE@XZ",
+   "entry": "00524290",
+   "body_bytes": 82,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Send_Packet@IPXGlobalConnClass@@UAEHPAXHPAVIPXAddressClass@@HGK@Z",
+   "entry": "005242f0",
+   "body_bytes": 210,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Receive_Packet@IPXGlobalConnClass@@UAEHPAXHPAVIPXAddressClass@@G@Z",
+   "entry": "005243d0",
+   "body_bytes": 665,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Get_Packet@IPXGlobalConnClass@@UAEHPAXPAHPAVIPXAddressClass@@PAG@Z",
+   "entry": "00524670",
+   "body_bytes": 130,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Peek_Packet@IPXGlobalConnClass@@UAEHHPAXPAHPAVIPXAddressClass@@PAGPAK@Z",
+   "entry": "00524700",
+   "body_bytes": 137,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Mark_Packet_Read@IPXGlobalConnClass@@UAEXH@Z",
+   "entry": "00524790",
+   "body_bytes": 24,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Send@IPXGlobalConnClass@@UAEHPADHPAXH_NG@Z",
+   "entry": "005247b0",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Service_Receive_Queue@IPXGlobalConnClass@@UAEHXZ",
+   "entry": "00524830",
+   "body_bytes": 62,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Discard_Old_Packets@IPXGlobalConnClass@@UAEXK@Z",
+   "entry": "00524870",
+   "body_bytes": 404,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Set_Bridge@IPXGlobalConnClass@@QAEXQAE@Z",
+   "entry": "00524a10",
+   "body_bytes": 22,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Discard_Undeliverable_Packets@IPXGlobalConnClass@@UAEHXZ",
+   "entry": "00524a30",
+   "body_bytes": 112,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Discard_Packets_To@IPXGlobalConnClass@@UAEHPAVIPXAddressClass@@G@Z",
+   "entry": "00524aa0",
+   "body_bytes": 172,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Send_To@IPXGlobalConnClass@@UAEHPADHPAVIPXAddressClass@@PAE_NG@Z",
+   "entry": "00524b50",
+   "body_bytes": 531,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Send_Packet@IPXGlobalConnClass@@UAEHPAXHHE@Z",
+   "entry": "00524d70",
+   "body_bytes": 28,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Receive_Packet@IPXGlobalConnClass@@UAEHPAXH@Z",
+   "entry": "00524d90",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Get_Packet@IPXGlobalConnClass@@UAEHPAXPAH@Z",
+   "entry": "00524db0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "??_GIPXGlobalConnClass@@UAEPAXI@Z",
+   "entry": "00524dd0",
+   "body_bytes": 102,
+   "padding_bytes": 10
+  }
+ ],
+ "code_bytes": 3712,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "??_7IPXConnClass@@6B@",
+   "address": "007a4640",
+   "bytes": 48,
+   "kind": "vtable",
+   "section": 61
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a4670",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7IPXGlobalConnClass@@6B@",
+   "address": "007a4680",
+   "bytes": 76,
+   "kind": "vtable",
+   "section": 49
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ConnectionClass@@8",
+   "address": "007b5110",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 41
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPXConnClass@@8",
+   "address": "007bc7b0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 43
+  },
+  {
+   "symbol": "??_R2IPXConnClass@@8",
+   "address": "007bc7c8",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 58
+  },
+  {
+   "symbol": "??_R3IPXConnClass@@8",
+   "address": "007bc7d8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 59
+  },
+  {
+   "symbol": "??_R4IPXConnClass@@6B@",
+   "address": "007bc7e8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 60
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPXGlobalConnClass@@8",
+   "address": "007bc800",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R2IPXGlobalConnClass@@8",
+   "address": "007bc818",
+   "bytes": 13,
+   "kind": "rtti",
+   "section": 45
+  },
+  {
+   "symbol": "??_R3IPXGlobalConnClass@@8",
+   "address": "007bc828",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 46
+  },
+  {
+   "symbol": "??_R4IPXGlobalConnClass@@6B@",
+   "address": "007bc838",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 48
+  },
+  {
+   "symbol": "??_R0?AVConnectionClass@@@8",
+   "address": "007d3100",
+   "bytes": 30,
+   "kind": "rtti",
+   "section": 40
+  },
+  {
+   "symbol": "??_R0?AVIPXConnClass@@@8",
+   "address": "007ddcc0",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 42
+  },
+  {
+   "symbol": "??_R0?AVIPXGlobalConnClass@@@8",
+   "address": "007ddce0",
+   "bytes": 33,
+   "kind": "rtti",
+   "section": 47
+  },
+  {
+   "symbol": "??_C@_0CP@EHAN@Failed?5to?5queue?5incoming?5packet?4@",
+   "address": "007ddd04",
+   "bytes": 47,
+   "kind": "string",
+   "section": 72
+  },
+  {
+   "symbol": "??_C@_0BN@BINA@Failed?5to?5ack?5global?5packet?6?$AA@",
+   "address": "007ddd34",
+   "bytes": 29,
+   "kind": "string",
+   "section": 73
+  },
+  {
+   "symbol": "??_C@_0CG@PEFH@Sending?5global?5ack?5packet?5to?5por@",
+   "address": "007ddd54",
+   "bytes": 38,
+   "kind": "string",
+   "section": 74
+  },
+  {
+   "symbol": "??_C@_0CM@PKLM@Queueing?5new?5global?5PACKET_DATA_@",
+   "address": "007ddd7c",
+   "bytes": 44,
+   "kind": "string",
+   "section": 75
+  },
+  {
+   "symbol": "??_C@_0CO@GPJM@Queueing?5new?5global?5PACKET_DATA_@",
+   "address": "007ddda8",
+   "bytes": 46,
+   "kind": "string",
+   "section": 76
+  },
+  {
+   "symbol": "??_C@_0CD@JPDG@Received?5global?5ack?5for?5packet?5?$CF@",
+   "address": "007dddd8",
+   "bytes": 35,
+   "kind": "string",
+   "section": 77
+  },
+  {
+   "symbol": "??_C@_0CH@ONKI@Queueing?5new?5global?5PACKET_ACK?5p@",
+   "address": "007dddfc",
+   "bytes": 39,
+   "kind": "string",
+   "section": 78
+  },
+  {
+   "symbol": "??_C@_0CC@HHEB@Done?5stripping?4?5Num?5receive?5?$DN?5?$CFd@",
+   "address": "007dde24",
+   "bytes": 34,
+   "kind": "string",
+   "section": 91
+  },
+  {
+   "symbol": "??_C@_0DA@NBJF@Leaving?5global?5packet?5due?5to?5age@",
+   "address": "007dde48",
+   "bytes": 48,
+   "kind": "string",
+   "section": 92
+  },
+  {
+   "symbol": "??_C@_0DC@DNOD@Stripping?5global?5packet?5due?5to?5a@",
+   "address": "007dde78",
+   "bytes": 50,
+   "kind": "string",
+   "section": 93
+  },
+  {
+   "symbol": "??_C@_0BE@PLEB@Checking?5packet?5?$CFd?6?$AA@",
+   "address": "007ddeac",
+   "bytes": 20,
+   "kind": "string",
+   "section": 94
+  },
+  {
+   "symbol": "??_C@_07GIJF@i?5?$DN?5?$CFd?6?$AA@",
+   "address": "007ddec0",
+   "bytes": 8,
+   "kind": "string",
+   "section": 95
+  },
+  {
+   "symbol": "??_C@_0EB@BOPL@Stripping?5queue?5entries?5older?5th@",
+   "address": "007ddec8",
+   "bytes": 65,
+   "kind": "string",
+   "section": 96
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7IPXConnClass@@6B@",
+   "address": "007a4640",
+   "bytes": 48,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a4670",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7IPXGlobalConnClass@@6B@",
+   "address": "007a4680",
+   "bytes": 76,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ConnectionClass@@8",
+   "address": "007b5110",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPXConnClass@@8",
+   "address": "007bc7b0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2IPXConnClass@@8",
+   "address": "007bc7c8",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3IPXConnClass@@8",
+   "address": "007bc7d8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4IPXConnClass@@6B@",
+   "address": "007bc7e8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPXGlobalConnClass@@8",
+   "address": "007bc800",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2IPXGlobalConnClass@@8",
+   "address": "007bc818",
+   "bytes": 13,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3IPXGlobalConnClass@@8",
+   "address": "007bc828",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4IPXGlobalConnClass@@6B@",
+   "address": "007bc838",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVConnectionClass@@@8",
+   "address": "007d3100",
+   "bytes": 30,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVIPXConnClass@@@8",
+   "address": "007ddcc0",
+   "bytes": 27,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVIPXGlobalConnClass@@@8",
+   "address": "007ddce0",
+   "bytes": 33,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0CP@EHAN@Failed?5to?5queue?5incoming?5packet?4@",
+   "address": "007ddd04",
+   "bytes": 47,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BN@BINA@Failed?5to?5ack?5global?5packet?6?$AA@",
+   "address": "007ddd34",
+   "bytes": 29,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CG@PEFH@Sending?5global?5ack?5packet?5to?5por@",
+   "address": "007ddd54",
+   "bytes": 38,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CM@PKLM@Queueing?5new?5global?5PACKET_DATA_@",
+   "address": "007ddd7c",
+   "bytes": 44,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CO@GPJM@Queueing?5new?5global?5PACKET_DATA_@",
+   "address": "007ddda8",
+   "bytes": 46,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CD@JPDG@Received?5global?5ack?5for?5packet?5?$CF@",
+   "address": "007dddd8",
+   "bytes": 35,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CH@ONKI@Queueing?5new?5global?5PACKET_ACK?5p@",
+   "address": "007dddfc",
+   "bytes": 39,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CC@HHEB@Done?5stripping?4?5Num?5receive?5?$DN?5?$CFd@",
+   "address": "007dde24",
+   "bytes": 34,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DA@NBJF@Leaving?5global?5packet?5due?5to?5age@",
+   "address": "007dde48",
+   "bytes": 48,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DC@DNOD@Stripping?5global?5packet?5due?5to?5a@",
+   "address": "007dde78",
+   "bytes": 50,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@PLEB@Checking?5packet?5?$CFd?6?$AA@",
+   "address": "007ddeac",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07GIJF@i?5?$DN?5?$CFd?6?$AA@",
+   "address": "007ddec0",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0EB@BOPL@Stripping?5queue?5entries?5older?5th@",
+   "address": "007ddec8",
+   "bytes": 65,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "005251c0",
+   "symbol": "??0IPXGlobalConnClass@@QAE@HHHGG@Z",
+   "target": "005241b0",
+   "function_entry": true
+  },
+  {
+   "site": "005251c0",
+   "symbol": "??0IPXGlobalConnClass@@QAE@HHHGG@Z",
+   "target": "005241b0",
+   "function_entry": true
+  },
+  {
+   "site": "00527730",
+   "symbol": "?Set_Bridge@IPXGlobalConnClass@@QAEXQAE@Z",
+   "target": "00524a10",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "address": "00523410"
+  },
+  {
+   "symbol": "??0IPXConnClass@@QAE@HHHGPAVIPXAddressClass@@HPBGH@Z",
+   "address": "00523b70"
+  },
+  {
+   "symbol": "??1ConnectionClass@@UAE@XZ",
+   "address": "00480ea0"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+   "address": "005235d0"
+  },
+  {
+   "symbol": "??BSystemTimerClass@@QBEJXZ",
+   "address": "0069a430"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_GIPXConnClass@@UAEPAXI@Z",
+   "address": "00523f90"
+  },
+  {
+   "symbol": "?Broadcast@IPXConnClass@@SIHPADH@Z",
+   "address": "00523f70"
+  },
+  {
+   "symbol": "?Configured@IPXConnClass@@2HA",
+   "address": "00a52404"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Discard_Undeliverable_Packets@ConnectionClass@@UAEHXZ",
+   "address": "00481550"
+  },
+  {
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "address": "00523500"
+  },
+  {
+   "symbol": "?Get_Packet@ConnectionClass@@UAEHPAXPAH@Z",
+   "address": "004812e0"
+  },
+  {
+   "symbol": "?Get_Receive@CommBufferClass@@QAEPAUReceiveQueueType@@H@Z",
+   "address": "004809c0"
+  },
+  {
+   "symbol": "?Get_Send@CommBufferClass@@QAEPAUSendQueueType@@H@Z",
+   "address": "00480700"
+  },
+  {
+   "symbol": "?Init@IPXConnClass@@UAEXXZ",
+   "address": "00523c20"
+  },
+  {
+   "symbol": "?Is_Broadcast@IPXAddressClass@@QAEHXZ",
+   "address": "00523560"
+  },
+  {
+   "symbol": "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z",
+   "address": "00523690"
+  },
+  {
+   "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
+   "address": "00839c50"
+  },
+  {
+   "symbol": "?Queue_Receive@CommBufferClass@@QAEHPAXH0H@Z",
+   "address": "00480730"
+  },
+  {
+   "symbol": "?Queue_Send@CommBufferClass@@QAEHPAXH0HG@Z",
+   "address": "004803f0"
+  },
+  {
+   "symbol": "?Receive_Packet@ConnectionClass@@UAEHPAXH@Z",
+   "address": "00481000"
+  },
+  {
+   "symbol": "?Send@IPXConnClass@@UAEHPADHPAXH_NG@Z",
+   "address": "00523d10"
+  },
+  {
+   "symbol": "?Send_Packet@ConnectionClass@@UAEHPAXHHE@Z",
+   "address": "00480f00"
+  },
+  {
+   "symbol": "?Send_To@IPXConnClass@@UAEHPADHPAVIPXAddressClass@@PAE_NG@Z",
+   "address": "00523d90"
+  },
+  {
+   "symbol": "?Service@ConnectionClass@@UAEHXZ",
+   "address": "00481370"
+  },
+  {
+   "symbol": "?Service_Receive_Queue@ConnectionClass@@UAEHXZ",
+   "address": "00481560"
+  },
+  {
+   "symbol": "?Service_Send_Queue@ConnectionClass@@UAEHXZ",
+   "address": "004813a0"
+  },
+  {
+   "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+   "address": "00523480"
+  },
+  {
+   "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
+   "address": "00523960"
+  },
+  {
+   "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+   "address": "00839980"
+  },
+  {
+   "symbol": "?UnQueue_Receive@CommBufferClass@@QAEHPAXPAHH01@Z",
+   "address": "00480870"
+  },
+  {
+   "symbol": "?UnQueue_Send@CommBufferClass@@QAEHPAXPAHH01PAG@Z",
+   "address": "00480550"
+  },
+  {
+   "symbol": "?Unknown_0063F4C0@OwnerTalkClass@@QAEEH@Z",
+   "address": "0063f4c0"
+  },
+  {
+   "symbol": "?unknown_OwnerTalkClass_00ab6d18@@3VOwnerTalkClass@@A",
+   "address": "00ab6d18"
+  },
+  {
+   "symbol": "?unknown_connection_a409c4@@3PAVConnectionClass@@A",
+   "address": "00a409c4"
+  },
+  {
+   "symbol": "?unknown_empty_wide_839d4c@@3QBGB",
+   "address": "00839d4c"
+  },
+  {
+   "symbol": "?unknown_flag_a3fba8@@3_NA",
+   "address": "00a3fba8"
+  },
+  {
+   "symbol": "?unknown_forward_address_a3fbac@@3VIPXAddressClass@@A",
+   "address": "00a3fbac"
+  },
+  {
+   "symbol": "?unknown_forward_address_a3fbb8@@3VIPXAddressClass@@A",
+   "address": "00a3fbb8"
+  },
+  {
+   "symbol": "?unknown_forward_port_a3fbc4@@3HA",
+   "address": "00a3fbc4"
+  },
+  {
+   "symbol": "?unknown_game_mode_a3d298@@3HA",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_players_a3fa7c@@3V?$DynamicVectorClass@PAUNodeNameType@@@@A",
+   "address": "00a3fa7c"
+  },
+  {
+   "symbol": "?unknown_port_7f60dc@@3HA",
+   "address": "007f60dc"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  }
+ ],
+ "route": "A",
+ "unit": "ipxgconn.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00523fc0",
+   "lines": 5
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 32,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

@@ -318,7 +318,12 @@ struct NativeBink {
     BinkVideo *video;                // the video decoder, or null (no tables)
     unsigned video_decoded;          // the last frame whose video was decoded (0 none)
     int movie_number;                // RA2_NATIVE_BINK_DUMP file names
+    bool full_movie;                 // counted in full_movies (movie_playing)
 };
+// Movies open that look like a cutscene (lane I, ra2port::movie_playing): with sound and
+// at least 400 pixels wide. The menus' Bink animations are silent (the main menu's
+// 632x570 background) and the radar's in-game movies are small.
+int full_movies = 0;
 const char *last_error = "";
 bool sound_system = false;           // BinkSetSoundSystem was given a DirectSound
 int volume = 32768;
@@ -471,6 +476,10 @@ void decode_sound(NativeBink *bink, unsigned n)
 }
 }  // namespace
 
+namespace ra2port {
+bool movie_playing() { return full_movies > 0; }
+}
+
 extern "C" {
 
 void *BinkOpen(const char *name, DWORD flags)
@@ -546,6 +555,10 @@ void *BinkOpen(const char *name, DWORD flags)
     static int movies = 0;
     bink->movie_number = ++movies;
     if (bink->Frames && (!skip_movies() || getenv("RA2_NATIVE_BINK_DUMP"))) bink->video = bink_video_open(bink->Width, bink->Height);
+    if (bink->tracks > 0 && bink->Width >= 400) {
+        bink->full_movie = true;
+        ++full_movies;
+    }
     trace("BinkOpen: '%c' %dx%d, %u frames at %u/%u fps, %u audio tracks (%u Hz, flags 0x%X)%s", header[3],
           bink->Width, bink->Height, bink->Frames, bink->FrameRate, bink->FrameRateDiv, bink->tracks, rate, aflags,
           bink->stream ? ", sound" : "");
@@ -555,6 +568,7 @@ void BinkClose(void *handle)
 {
     NativeBink *bink = (NativeBink *)handle;
     if (!bink) return;
+    if (bink->full_movie) --full_movies;
     if (bink->stream) audio_stream_close(bink->stream);
     if (bink->wav) {
         if (!bink->wav->empty()) write_wav(getenv("RA2_NATIVE_BINK_WAV"), *bink->wav, bink->audio->rate, bink->audio->out_channels);

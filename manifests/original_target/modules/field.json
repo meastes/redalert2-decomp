@@ -1,0 +1,498 @@
+{
+ "module": "field",
+ "source": "src/recovered/field.cpp",
+ "header": null,
+ "population": "population-1567",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 142,
+ "code": [
+  {
+   "symbol": "??0FieldClass@@QAE@PBDD@Z",
+   "entry": "004bad50",
+   "body_bytes": 84,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "??0FieldClass@@QAE@PBDE@Z",
+   "entry": "004badb0",
+   "body_bytes": 84,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "??0FieldClass@@QAE@PBDF@Z",
+   "entry": "004bae10",
+   "body_bytes": 84,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "??0FieldClass@@QAE@PBDG@Z",
+   "entry": "004bae70",
+   "body_bytes": 84,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "??0FieldClass@@QAE@PBDH@Z",
+   "entry": "004baed0",
+   "body_bytes": 84,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "??0FieldClass@@QAE@PBDI@Z",
+   "entry": "004baf30",
+   "body_bytes": 84,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "??0FieldClass@@QAE@PBD0@Z",
+   "entry": "004baf90",
+   "body_bytes": 99,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "??0FieldClass@@QAE@PBDPBXG@Z",
+   "entry": "004bb000",
+   "body_bytes": 90,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "??1FieldClass@@QAE@XZ",
+   "entry": "004bb060",
+   "body_bytes": 24,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Host_To_Network_004BB080@FieldClass@@QAEXXZ",
+   "entry": "004bb080",
+   "body_bytes": 108,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Network_To_Host_004BB0F0@FieldClass@@QAEXXZ",
+   "entry": "004bb0f0",
+   "body_bytes": 108,
+   "padding_bytes": 4
+  }
+ ],
+ "code_bytes": 1040,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00602a60",
+   "symbol": "??1FieldClass@@QAE@XZ",
+   "target": "004bb060",
+   "function_entry": true
+  },
+  {
+   "site": "00602aa0",
+   "symbol": "?Network_To_Host_004BB0F0@FieldClass@@QAEXXZ",
+   "target": "004bb0f0",
+   "function_entry": true
+  },
+  {
+   "site": "00602bb0",
+   "symbol": "?Host_To_Network_004BB080@FieldClass@@QAEXXZ",
+   "target": "004bb080",
+   "function_entry": true
+  },
+  {
+   "site": "00602bb0",
+   "symbol": "?Network_To_Host_004BB0F0@FieldClass@@QAEXXZ",
+   "target": "004bb0f0",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDI@Z",
+   "target": "004baf30",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDH@Z",
+   "target": "004baed0",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDI@Z",
+   "target": "004baf30",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDI@Z",
+   "target": "004baf30",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDE@Z",
+   "target": "004badb0",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDE@Z",
+   "target": "004badb0",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDI@Z",
+   "target": "004baf30",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDI@Z",
+   "target": "004baf30",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDE@Z",
+   "target": "004badb0",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDE@Z",
+   "target": "004badb0",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDI@Z",
+   "target": "004baf30",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDI@Z",
+   "target": "004baf30",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDE@Z",
+   "target": "004badb0",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDI@Z",
+   "target": "004baf30",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDI@Z",
+   "target": "004baf30",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBD0@Z",
+   "target": "004baf90",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDI@Z",
+   "target": "004baf30",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDI@Z",
+   "target": "004baf30",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDI@Z",
+   "target": "004baf30",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDI@Z",
+   "target": "004baf30",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDH@Z",
+   "target": "004baed0",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDI@Z",
+   "target": "004baf30",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDH@Z",
+   "target": "004baed0",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDD@Z",
+   "target": "004bad50",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDH@Z",
+   "target": "004baed0",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDH@Z",
+   "target": "004baed0",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDD@Z",
+   "target": "004bad50",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBD0@Z",
+   "target": "004baf90",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDPBXG@Z",
+   "target": "004bb000",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBD0@Z",
+   "target": "004baf90",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDI@Z",
+   "target": "004baf30",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDI@Z",
+   "target": "004baf30",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDI@Z",
+   "target": "004baf30",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDI@Z",
+   "target": "004baf30",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDI@Z",
+   "target": "004baf30",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDE@Z",
+   "target": "004badb0",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDI@Z",
+   "target": "004baf30",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDI@Z",
+   "target": "004baf30",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDH@Z",
+   "target": "004baed0",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDPBXG@Z",
+   "target": "004bb000",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDPBXG@Z",
+   "target": "004bb000",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDPBXG@Z",
+   "target": "004bb000",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDPBXG@Z",
+   "target": "004bb000",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDPBXG@Z",
+   "target": "004bb000",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDPBXG@Z",
+   "target": "004bb000",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDPBXG@Z",
+   "target": "004bb000",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDPBXG@Z",
+   "target": "004bb000",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDPBXG@Z",
+   "target": "004bb000",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDPBXG@Z",
+   "target": "004bb000",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDPBXG@Z",
+   "target": "004bb000",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDPBXG@Z",
+   "target": "004bb000",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDPBXG@Z",
+   "target": "004bb000",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDPBXG@Z",
+   "target": "004bb000",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??0FieldClass@@QAE@PBDI@Z",
+   "target": "004baf30",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_htonl@4",
+   "address": "00781b66"
+  },
+  {
+   "symbol": "_htons@4",
+   "address": "00781b6c"
+  },
+  {
+   "symbol": "_ntohl@4",
+   "address": "00781b72"
+  },
+  {
+   "symbol": "_ntohs@4",
+   "address": "00781b78"
+  },
+  {
+   "symbol": "_strncpy",
+   "address": "007823d0"
+  }
+ ],
+ "route": "A",
+ "unit": "field.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "004bad50",
+   "lines": 2
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 11,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

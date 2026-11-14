@@ -1,0 +1,958 @@
+{
+ "module": "skirmish",
+ "source": "src/recovered/skirmish.cpp",
+ "header": null,
+ "population": "population-3880",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 860,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00682600",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "00682620",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "00682650",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "00682670",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "00682690",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "006826b0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "006826d0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "006826f0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "00682730",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "00682760",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "00682790",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "006827c0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "006827d0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Skirmish_Player_Combo_ID@@YIHH@Z",
+   "entry": "006827f0",
+   "body_bytes": 85,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Skirmish_Player_Index@@YIHH@Z",
+   "entry": "00682850",
+   "body_bytes": 92,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Skirmish_Player_Type_Name@@YIPBGH@Z",
+   "entry": "006828b0",
+   "body_bytes": 114,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Skirmish_Has_Computer_After@@YI_NH@Z",
+   "entry": "00682930",
+   "body_bytes": 187,
+   "padding_bytes": 5
+  }
+ ],
+ "code_bytes": 1008,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VWDTTerritory@@@@6B@",
+   "address": "007a4528",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 87
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007ab4e8",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_R1A@?0A@A@rc_ptr_base@@8",
+   "address": "007bc618",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 81
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc630",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 82
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc648",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 83
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc658",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 84
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VWDTTerritory@@@@6B@",
+   "address": "007bc668",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 86
+  },
+  {
+   "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+   "address": "007d64f4",
+   "bytes": 4,
+   "kind": "string",
+   "section": 54
+  },
+  {
+   "symbol": "??_C@_06DN@TXT_OK?$AA@",
+   "address": "007db8f4",
+   "bytes": 7,
+   "kind": "string",
+   "section": 55
+  },
+  {
+   "symbol": "??_R0?AVrc_ptr_base@@@8",
+   "address": "007ddac8",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 80
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VWDTTerritory@@@@@8",
+   "address": "007ddae8",
+   "bytes": 39,
+   "kind": "rtti",
+   "section": 85
+  },
+  {
+   "symbol": "??_C@_0M@EOLM@RandMap?4img?$AA@",
+   "address": "007e1540",
+   "bytes": 12,
+   "kind": "string",
+   "section": 57
+  },
+  {
+   "symbol": "??_C@_0BH@KOPH@TXT_SCENARIO_TOO_SMALL?$AA@",
+   "address": "007e24cc",
+   "bytes": 23,
+   "kind": "string",
+   "section": 56
+  },
+  {
+   "symbol": "??_C@_0L@OJFC@GUI?3AIHard?$AA@",
+   "address": "007e72b8",
+   "bytes": 11,
+   "kind": "string",
+   "section": 70
+  },
+  {
+   "symbol": "??_C@_0N@GOPO@GUI?3AINormal?$AA@",
+   "address": "007e72c4",
+   "bytes": 13,
+   "kind": "string",
+   "section": 71
+  },
+  {
+   "symbol": "??_C@_0L@JIHB@GUI?3AIEasy?$AA@",
+   "address": "007e72d4",
+   "bytes": 11,
+   "kind": "string",
+   "section": 72
+  },
+  {
+   "symbol": "??_C@_0BD@PLEH@STT?3PlayerGeniusAI?$AA@",
+   "address": "007e7350",
+   "bytes": 19,
+   "kind": "string",
+   "section": 44
+  },
+  {
+   "symbol": "??_C@_0BC@LDDH@STT?3PlayerSmartAI?$AA@",
+   "address": "007e7364",
+   "bytes": 18,
+   "kind": "string",
+   "section": 45
+  },
+  {
+   "symbol": "??_C@_0BB@FAHH@STT?3PlayerDumbAI?$AA@",
+   "address": "007e7378",
+   "bytes": 17,
+   "kind": "string",
+   "section": 46
+  },
+  {
+   "symbol": "??_C@_0P@IOHO@STT?3PlayerNone?$AA@",
+   "address": "007f3fc4",
+   "bytes": 15,
+   "kind": "string",
+   "section": 47
+  },
+  {
+   "symbol": "??_C@_0BE@OMOF@D?3?2Ra2?2Skirmish?4cpp?$AA@",
+   "address": "007f3fd4",
+   "bytes": 20,
+   "kind": "string",
+   "section": 48
+  },
+  {
+   "symbol": "??_C@_0BO@JKCN@TXT_NEED_AT_LEAST_TWO_PLAYERS?$AA@",
+   "address": "007f3fe8",
+   "bytes": 30,
+   "kind": "string",
+   "section": 53
+  },
+  {
+   "symbol": "??_C@_08DOEP@GUI?3None?$AA@",
+   "address": "007f4008",
+   "bytes": 9,
+   "kind": "string",
+   "section": 73
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VWDTTerritory@@@@6B@",
+   "address": "007a4528",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007ab4e8",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@rc_ptr_base@@8",
+   "address": "007bc618",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc630",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc648",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc658",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VWDTTerritory@@@@6B@",
+   "address": "007bc668",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+   "address": "007d64f4",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06DN@TXT_OK?$AA@",
+   "address": "007db8f4",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AVrc_ptr_base@@@8",
+   "address": "007ddac8",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VWDTTerritory@@@@@8",
+   "address": "007ddae8",
+   "bytes": 39,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0M@EOLM@RandMap?4img?$AA@",
+   "address": "007e1540",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BH@KOPH@TXT_SCENARIO_TOO_SMALL?$AA@",
+   "address": "007e24cc",
+   "bytes": 23,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@OJFC@GUI?3AIHard?$AA@",
+   "address": "007e72b8",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@GOPO@GUI?3AINormal?$AA@",
+   "address": "007e72c4",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@JIHB@GUI?3AIEasy?$AA@",
+   "address": "007e72d4",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@PLEH@STT?3PlayerGeniusAI?$AA@",
+   "address": "007e7350",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@LDDH@STT?3PlayerSmartAI?$AA@",
+   "address": "007e7364",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@FAHH@STT?3PlayerDumbAI?$AA@",
+   "address": "007e7378",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@IOHO@STT?3PlayerNone?$AA@",
+   "address": "007f3fc4",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@OMOF@D?3?2Ra2?2Skirmish?4cpp?$AA@",
+   "address": "007f3fd4",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BO@JKCN@TXT_NEED_AT_LEAST_TWO_PLAYERS?$AA@",
+   "address": "007f3fe8",
+   "bytes": 30,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08DOEP@GUI?3None?$AA@",
+   "address": "007f4008",
+   "bytes": 9,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "005c71f0",
+   "symbol": "?Skirmish_Has_Computer_After@@YI_NH@Z",
+   "target": "00682930",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "address": "00523410"
+  },
+  {
+   "symbol": "??0MapPreviewClass@@QAE@XZ",
+   "address": "0061d430"
+  },
+  {
+   "symbol": "??0WideString@@QAE@XZ",
+   "address": "0076f9b0"
+  },
+  {
+   "symbol": "??1MapPreviewClass@@QAE@XZ",
+   "address": "0061d440"
+  },
+  {
+   "symbol": "??1WideString@@QAE@XZ",
+   "address": "0076fa50"
+  },
+  {
+   "symbol": "??1Wstring@@QAE@XZ",
+   "address": "0076d9e0"
+  },
+  {
+   "symbol": "??1rc_ptr_base@@UAE@XZ",
+   "address": "00639510"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??4WideString@@QAEAAV0@PBG@Z",
+   "address": "0076fb70"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "?Blit_Preview@MapPreviewClass@@QAEXPAUHWND__@@@Z",
+   "address": "0061d460"
+  },
+  {
+   "symbol": "?Color_Combo_Changed_4d2700@@YIXPAUHWND__@@H@Z",
+   "address": "004d2700"
+  },
+  {
+   "symbol": "?Color_Combo_Data_4d2900@@YIHPAUHWND__@@HH@Z",
+   "address": "004d2900"
+  },
+  {
+   "symbol": "?Color_Combo_Player_4d1d10@@YIHH@Z",
+   "address": "004d1d10"
+  },
+  {
+   "symbol": "?Color_Name_4d1d80@@YIPBGH@Z",
+   "address": "004d1d80"
+  },
+  {
+   "symbol": "?Countries@RulesClass@@QAE_NAAVCCINIClass@@@Z",
+   "address": "0064bac0"
+  },
+  {
+   "symbol": "?Current_Game_Mode_005c34d0@@YAPAVMultiplayerGameMode@@XZ",
+   "address": "005c34d0"
+  },
+  {
+   "symbol": "?Fill_Color_Combos_4d2300@@YIXPAUHWND__@@@Z",
+   "address": "004d2300"
+  },
+  {
+   "symbol": "?Fill_Side_Combos_4d16d0@@YIXPAUHWND__@@@Z",
+   "address": "004d16d0"
+  },
+  {
+   "symbol": "?Free_Pointers_005a7480@@YIXPAV?$DynamicVectorClass@PAUNodeNameType@@@@@Z",
+   "address": "005a7480"
+  },
+  {
+   "symbol": "?Get@WideString@@QBEPBGXZ",
+   "address": "007703f0"
+  },
+  {
+   "symbol": "?HouseTypes@@3V?$DynamicVectorClass@PAVHouseTypeClass@@@@A",
+   "address": "00a35d08"
+  },
+  {
+   "symbol": "?Init_Color_Entries_4d1ea0@@YIXXZ",
+   "address": "004d1ea0"
+  },
+  {
+   "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
+   "address": "006f9ec0"
+  },
+  {
+   "symbol": "?Narrow_To_Wide_006fa180@@YIPAGPBD@Z",
+   "address": "006fa180"
+  },
+  {
+   "symbol": "?Open_Lobby_Dialog_005c6960@@YIHPAUHWND__@@@Z",
+   "address": "005c6960"
+  },
+  {
+   "symbol": "?Player_Color_Combo_ID_4d1cb0@@YIHH@Z",
+   "address": "004d1cb0"
+  },
+  {
+   "symbol": "?Player_Side_Combo_ID_4d1350@@YIHH@Z",
+   "address": "004d1350"
+  },
+  {
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "address": "005b46b0"
+  },
+  {
+   "symbol": "?Read_PCX_Preview@MapPreviewClass@@QAE_NPBD@Z",
+   "address": "0061e170"
+  },
+  {
+   "symbol": "?Rules@@3PAVRulesClass@@A",
+   "address": "00839848"
+  },
+  {
+   "symbol": "?Select_Color_Combo_4d2480@@YIXPAUHWND__@@HH@Z",
+   "address": "004d2480"
+  },
+  {
+   "symbol": "?Select_Player_Color_4d23c0@@YIXPAUHWND__@@H@Z",
+   "address": "004d23c0"
+  },
+  {
+   "symbol": "?Select_Player_Side_4d1820@@YIXPAUHWND__@@H@Z",
+   "address": "004d1820"
+  },
+  {
+   "symbol": "?Select_Scenario_005c7c30@@YI_NH@Z",
+   "address": "005c7c30"
+  },
+  {
+   "symbol": "?Select_Side_Combo_4d1a90@@YIXPAUHWND__@@HH@Z",
+   "address": "004d1a90"
+  },
+  {
+   "symbol": "?Set_Value_00672a30@SessionClass@@QAEXH_N@Z",
+   "address": "00672a30"
+  },
+  {
+   "symbol": "?Set_Value_00672ae0@SessionClass@@QAEXH_N@Z",
+   "address": "00672ae0"
+  },
+  {
+   "symbol": "?Show_Player_Flag_4d1230@@YIXPAUHWND__@@H@Z",
+   "address": "004d1230"
+  },
+  {
+   "symbol": "?Side_Combo_Data_4d1c70@@YIHPAUHWND__@@HH@Z",
+   "address": "004d1c70"
+  },
+  {
+   "symbol": "?Side_Combo_Player_4d13b0@@YIHH@Z",
+   "address": "004d13b0"
+  },
+  {
+   "symbol": "?Side_Name_4d1420@@YIPBGH@Z",
+   "address": "004d1420"
+  },
+  {
+   "symbol": "?Sides@RulesClass@@QAE_NAAVCCINIClass@@@Z",
+   "address": "0064bc10"
+  },
+  {
+   "symbol": "?SkirmishDialog@@3PAUHWND__@@A",
+   "address": "00abcdfc"
+  },
+  {
+   "symbol": "?Unknown_005c3450@@YIXPAUHWND__@@PAVMultiplayerGameMode@@@Z",
+   "address": "005c3450"
+  },
+  {
+   "symbol": "?Unknown_005c34b0@@YIXPAUHWND__@@@Z",
+   "address": "005c34b0"
+  },
+  {
+   "symbol": "?Unknown_005c6600@@YIHH@Z",
+   "address": "005c6600"
+  },
+  {
+   "symbol": "?Unknown_005c7570@@YIXPAUHWND__@@@Z",
+   "address": "005c7570"
+  },
+  {
+   "symbol": "?Unknown_005e5fc0@@YIXPAUHWND__@@@Z",
+   "address": "005e5fc0"
+  },
+  {
+   "symbol": "?Unknown_006720C0@MultiMission@@QAE_NXZ",
+   "address": "006720c0"
+  },
+  {
+   "symbol": "?Unknown_00672810@GameOptionsType@@QAEXXZ",
+   "address": "00672810"
+  },
+  {
+   "symbol": "?Unknown_00672BB0@SessionClass@@QAEXXZ",
+   "address": "00672bb0"
+  },
+  {
+   "symbol": "?WideToCharString_006fa0f0@@YIXPADPBGH@Z",
+   "address": "006fa0f0"
+  },
+  {
+   "symbol": "?Write_MultiPlayer_Settings@SessionClass@@QAEXXZ",
+   "address": "00670380"
+  },
+  {
+   "symbol": "?unknown_5159b0@@YIXH_N@Z",
+   "address": "005159b0"
+  },
+  {
+   "symbol": "?unknown_517370@@YIX_N@Z",
+   "address": "00517370"
+  },
+  {
+   "symbol": "?unknown_5b7470@MultiplayerGameMode@@QAE_NPAVMultiMission@@@Z",
+   "address": "005b7470"
+  },
+  {
+   "symbol": "?unknown_5e4720@OwnerDraw@@YI_NPAUHWND__@@@Z",
+   "address": "005e4720"
+  },
+  {
+   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "address": "006000d0"
+  },
+  {
+   "symbol": "?unknown_a40b18@@3HA",
+   "address": "00a40b18"
+  },
+  {
+   "symbol": "?unknown_b263d8@@3HA",
+   "address": "00b263d8"
+  },
+  {
+   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "address": "005ff610"
+  },
+  {
+   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "address": "005ff6e0"
+  },
+  {
+   "symbol": "?unknown_dialog_5ff7c0@@YIXPAUHWND__@@@Z",
+   "address": "005ff7c0"
+  },
+  {
+   "symbol": "?unknown_dialog_preview_a72ce8@@3PAVMapPreviewClass@@A",
+   "address": "00a72ce8"
+  },
+  {
+   "symbol": "?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z",
+   "address": "005ffb00"
+  },
+  {
+   "symbol": "?unknown_find_mode_5b6fe0@MultiplayerGameMode@@SIPAV1@H@Z",
+   "address": "005b6fe0"
+  },
+  {
+   "symbol": "?unknown_first_mode_5b6ec0@MultiplayerGameMode@@SAPAV1@XZ",
+   "address": "005b6ec0"
+  },
+  {
+   "symbol": "?unknown_ini_8396d0@@3PAVCCINIClass@@A",
+   "address": "008396d0"
+  },
+  {
+   "symbol": "?unknown_lobby_state_a3d2b0@@3VGameOptionsType@@A",
+   "address": "00a3d2b0"
+  },
+  {
+   "symbol": "?unknown_map_name_a3d342@@3PAGA",
+   "address": "00a3d342"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_mode_count_5b6f80@MultiplayerGameMode@@SAHXZ",
+   "address": "005b6f80"
+  },
+  {
+   "symbol": "?unknown_multi_missions_a3d8d8@@3V?$DynamicVectorClass@PAVMultiMission@@@@A",
+   "address": "00a3d8d8"
+  },
+  {
+   "symbol": "?unknown_name_a3d3a0@@3PADA",
+   "address": "00a3d3a0"
+  },
+  {
+   "symbol": "?unknown_player_control_4d0ee0@@YIHH@Z",
+   "address": "004d0ee0"
+  },
+  {
+   "symbol": "?unknown_players_a3fa7c@@3V?$DynamicVectorClass@PAUNodeNameType@@@@A",
+   "address": "00a3fa7c"
+  },
+  {
+   "symbol": "?unknown_session_a3d298@@3USessionClass@@A",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__EnableWindow@8",
+   "address": "0079a490"
+  },
+  {
+   "symbol": "__imp__GetDlgCtrlID@4",
+   "address": "0079a3f4"
+  },
+  {
+   "symbol": "__imp__GetDlgItem@8",
+   "address": "0079a49c"
+  },
+  {
+   "symbol": "__imp__GetWindowLongA@8",
+   "address": "0079a48c"
+  },
+  {
+   "symbol": "__imp__InvalidateRect@12",
+   "address": "0079a494"
+  },
+  {
+   "symbol": "__imp__SendDlgItemMessageA@20",
+   "address": "0079a484"
+  },
+  {
+   "symbol": "__imp__SendMessageA@16",
+   "address": "0079a4a0"
+  },
+  {
+   "symbol": "__imp__SetWindowLongA@12",
+   "address": "0079a488"
+  },
+  {
+   "symbol": "__imp__ShowWindow@8",
+   "address": "0079a498"
+  },
+  {
+   "symbol": "__imp__ValidateRect@8",
+   "address": "0079a3f8"
+  },
+  {
+   "symbol": "_swprintf",
+   "address": "00783764"
+  },
+  {
+   "symbol": "_wcscpy",
+   "address": "00783689"
+  }
+ ],
+ "route": "A",
+ "unit": "skirmish.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00682600",
+   "lines": 4
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 17,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

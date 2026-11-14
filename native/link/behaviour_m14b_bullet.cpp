@@ -11,8 +11,8 @@ UnknownBulletData::UnknownBulletData()
     unknown_24 = 0;
 }
 
-// shared/bullet.hpp's Unknown_004BBAF0 is the tracked draft's Get_Obstacle_004bbaf0
-// (native/drafts/004bbaf0.cpp, 0x004BBAF0): two names of one address; BulletClass
+// shared/bullet.hpp's Unknown_004BBAF0 is Get_Obstacle_004bbaf0 (0x004BBAF0, accepted in
+// src/recovered/findpath2.cpp): two names of one address; BulletClass
 // 0x00461C10 tests the obstacle cell as a bool.
 CellClass *__fastcall Get_Obstacle_004bbaf0(CellClass *source, CellClass *target, CellClass *last,
     CoordStruct coord, BulletTypeClass const *type, HouseClass const *house);

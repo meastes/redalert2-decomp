@@ -1,0 +1,125 @@
+{
+ "module": "gametime",
+ "source": "src/recovered/gametime.cpp",
+ "header": null,
+ "population": "population-3766",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 806,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "004d0030",
+   "body_bytes": 12,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "??0GameTimeClass@@QAE@XZ",
+   "entry": "004d0040",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?unknown_elapsed_004d0050@GameTimeClass@@QBEHXZ",
+   "entry": "004d0050",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?unknown_milliseconds_004d0070@@YAHXZ",
+   "entry": "004d0070",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?unknown_ticks_004d0090@@YAKXZ",
+   "entry": "004d0090",
+   "body_bytes": 53,
+   "padding_bytes": 11
+  }
+ ],
+ "code_bytes": 160,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00411420",
+   "symbol": "?unknown_ticks_004d0090@@YAKXZ",
+   "target": "004d0090",
+   "function_entry": true
+  },
+  {
+   "site": "004115a0",
+   "symbol": "?unknown_ticks_004d0090@@YAKXZ",
+   "target": "004d0090",
+   "function_entry": true
+  },
+  {
+   "site": "00411b70",
+   "symbol": "?unknown_ticks_004d0090@@YAKXZ",
+   "target": "004d0090",
+   "function_entry": true
+  },
+  {
+   "site": "00412000",
+   "symbol": "?unknown_ticks_004d0090@@YAKXZ",
+   "target": "004d0090",
+   "function_entry": true
+  },
+  {
+   "site": "004122c0",
+   "symbol": "?unknown_ticks_004d0090@@YAKXZ",
+   "target": "004d0090",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "__imp__timeGetTime@0",
+   "address": "0079a524"
+  }
+ ],
+ "route": "A",
+ "unit": "gametime.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "004d0030",
+   "lines": 2
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 6,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

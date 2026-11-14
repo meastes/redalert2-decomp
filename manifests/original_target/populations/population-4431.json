@@ -4,8 +4,8 @@
     "id": "population-4431",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "7d97b7de55a34dbbde0a6865e811da564a951c8c0a153df0092ac597a675998a",
-    "historical_acceptance_sha256": "71b95eaa705b070a829a52557ad1d7668ce24b7a3baf49df30dcdbd8cf7b126a"
+    "historical_population_sha256": "7844a6b0230af104512e8bc0b6b2d010c73f15d871128a159450ec4a9e6ba4af",
+    "historical_acceptance_sha256": "2209f7b75172f0c5eb94eaff86a2ceafae5b7fae7a3a3ab4366238ad850bac7e"
   },
   "references": {
     "_unknown_static_rect": 11710320,
@@ -56,12 +56,12 @@
     "?Size@BufferIOFileClass@@UAEJXZ": 4390272,
     "?Size@RawFileClass@@UAEJXZ": 6525312,
     "?Set@RGBClass@@QAEXEEE@Z": 5204928,
-    "__DAT_00ab6e88": 11234952,
+    "__waypoint_none_00ab6e88": 11234952,
     "__strncpy": 7873488,
     "___amsg_exit": 7887784,
     "?Set@AudioLevel@@QAIXH@Z": 4223104,
     "?Set@Quaternion@@QAEXMMMM@Z": 6431104,
-    "__DAT_0084ed10": 8711440,
+    "__cell_none_0084ed10": 8711440,
     "_free": 7874024,
     "__strdup": 7919638,
     "??_GXSurface@@UAEPAXI@Z": 4264736,
@@ -102,8 +102,8 @@
     "?Lock@DSurface@@UAEPAXUPoint2D@@@Z": 4893824,
     "??HRectPoint2D@@QBE?BU0@ABU0@@Z": 4412736,
     "?Top_Left@Rect@@QBE?AURectPoint2D@@XZ": 4412768,
-    "__DAT_00ab6ea8": 11234984,
-    "__DAT_00ab6eb0": 11234992,
+    "__unknown_timer_start_00ab6ea8": 11234984,
+    "__unknown_timer_accum_00ab6eb0": 11234992,
     "??0Rect@@QAE@HHHH@Z": 4373712,
     "?Blit@VQMovieHandle@@UAEXXZ": 5904704,
     "?Blit@BinkMovieHandle@@UAEXXZ": 5905248,
@@ -587,7 +587,7 @@
     "?unknown_abstracts_ac0bf8@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275256,
     "?unknown_abstracts_ac0d08@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275528,
     "?unknown_player_a35db4@@3PAVHouseClass@@A": 10706356,
-    "?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A": 10736272,
+    "?unknown_id_source_a3d290@@3PAVScenarioClass@@A": 10736272,
     "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A": 10691224,
     "?SuperWeaponTypes@@3V?$DynamicVectorClass@PAVSuperWeaponTypeClass@@@@A": 10748728,
     "?unknown_rules_839848@@3PAUUnknownRules839848@@A": 8624200,
@@ -947,7 +947,7 @@
     "_?list@?1??Occupy_List@IsometricTileTypeClass@@UBEPBVCell@@H@Z@4PAUUnknownStaticCell@@A": 10824836,
     "?Name@HouseClass@@W3AGPAGXZ": 5213888,
     "??1LaserDrawClass@@QAE@XZ": 5452384,
-    "_?entry@?1??Get_Image_0068ca40@UnknownBitmapWriter@@QAEPAVSurface@@PBDH@Z@4UUnknownBitmapEntry@@A": 11260136,
+    "_?entry@?1??Get_Image_0068ca40@SurfaceCacheClass@@QAEPAVSurface@@PBDH@Z@4UUnknownBitmapEntry@@A": 11260136,
     "?Reset@AudioTimeSpan@@QAEXXZ": 4208672,
     "??BRGBClass@@QBE?AVHSVClass@@XZ": 6541312,
     "??_GWWMouseClass@@UAEPAXI@Z": 7812880,
@@ -972,7 +972,46 @@
     "_qsort": 7871814,
     "_sprintf": 7872756,
     "_strncmp": 7878672,
-    "_?dir@?4??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4UUnknownFacingDir@@A": 11235488
+    "_?dir@?4??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4UUnknownFacingDir@@A": 11235488,
+    "_unknown_empty_rect": 8594576,
+    "?Get_Height@ObjectClass@@UBEHXZ": 6113280,
+    "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
+    "?Draw_It@VeinholeMonsterClass@@QAEXXZ": 7407744,
+    "?Reset@VeinholeMonsterClass@@SAXXZ": 7408464,
+    "?Get_Height@AnimClass@@UBEHXZ": 4337888,
+    "?Fill@ZBuffer@@QAEXG@Z": 7823712,
+    "?Set@ZBuffer@@QAEXPAGHG@Z": 7822592,
+    "?Set@ABuffer@@QAEXPAGHG@Z": 4262896,
+    "?Fill@ABuffer@@QAEXG@Z": 4264016,
+    "?Reset@AStarClass@@QAEXXZ": 4364944,
+    "?Draw_It@OverlayTypeClass@@UAEXPBUPoint2D@@PBVRect@@H@Z": 6146272,
+    "?Draw_It@SmudgeTypeClass@@UAEXPBUPoint2D@@PBVRect@@HHPBVCell@@@Z": 6848720,
+    "?Overlay_Shadow_Render_Rect@CellClass@@QBE?AVRect@@XZ": 4673792,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "?Draw_Overlay_Shadow@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z": 4671536,
+    "_?address@?1??Unknown_0063FA00@OwnerTalkClass@@QAEPAVIPXAddressClass@@PAD@Z@4V3@A": 11234568,
+    "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A": 11505992,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVMapClass@@@8": 8181384,
+    "??_R0?AVDisplayClass@@@8": 8181408,
+    "??_R0?AVRadarClass@@@8": 8181440,
+    "??_R0?AVSurface@@@8": 8184496,
+    "??_R0?AVXSurface@@@8": 8184520,
+    "??_R0?AVBSurface@@@8": 8184544,
+    "??_R0?AVCellClass@@@8": 8203352,
+    "??_R0?AVBlitter@@@8": 8212040,
+    "??_R0?AVDSurface@@@8": 8217240,
+    "??_R0?AVFoggedObjectClass@@@8": 8225112,
+    "??_R0?AVMSShapeAnim@@@8": 8280088,
+    "??_R0?AVMSPrintAnim@@@8": 8280272,
+    "??_R0?AVTactical@@@8": 8350296,
+    "??_R0?AVVeinholeMonsterClass@@@8": 8361640,
+    "??_R0?AVWWMouseClass@@@8": 8393584,
+    "__ramp_corners": 8339828
   },
   "regions": [
     {
@@ -984,7 +1023,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 23,
       "body_sha256": "1f425e7e064fe8f066a7f6d9d1f021f58be0fedf2821568b1f7874104094e40b",
@@ -1025,13 +1065,12 @@
           "resolved": 11710332
         }
       ],
-      "source_sha256": "4a90db4d094db1677a4ebaf93a65768d5cd431fc46a5114487d1fc46d276df50",
-      "source": "src/recovered/header_statics/00773930/HeaderStatics_static_rect_init_00773930.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_static_rect_init_00773930",
       "source_order": 237330
     },
     {
@@ -1043,7 +1082,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 5,
       "body_sha256": "6fe8ecb84220ebaa231802dfcd815b40c70f020bf4a33ae758816b6b6b7156dd",
@@ -1051,13 +1091,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "23cadd56e213749e42cb99685d42468cbf2186b3a43e6a10170a7e0c2bc0442a",
       "relocations": [],
-      "source_sha256": "3da197457e890ff55a6293b9986909e958dd8220c217a3054922e0ddad167da9",
-      "source": "src/recovered/classes/XSurface/XSurface_Draw_Dashed_Line_Depth_Masked_00773ea0.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "XSurface_Draw_Dashed_Line_Depth_Masked_00773ea0",
       "source_order": 237334
     },
     {
@@ -1069,7 +1108,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 45,
       "body_sha256": "8235f84ad823e62db67f7f845199b00bc7e8b9932dd86bf7834ab83cc43e43ca",
@@ -1077,13 +1117,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "04556311b284a1d5525201ad20e04da4e611db373fa2e70a9ceac0389ba79041",
       "relocations": [],
-      "source_sha256": "1dfc307f37436803d6a28844938430c3353e0ba643b7bbd67d03593b5fdb7fb2",
-      "source": "src/recovered/classes/Blitter/BlitTrans_uchar_BlitBackward_00775a30.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "BlitTrans_uchar_BlitBackward_00775a30",
       "source_order": 237366
     },
     {
@@ -1095,7 +1134,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 45,
       "body_sha256": "8235f84ad823e62db67f7f845199b00bc7e8b9932dd86bf7834ab83cc43e43ca",
@@ -1103,13 +1143,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "04556311b284a1d5525201ad20e04da4e611db373fa2e70a9ceac0389ba79041",
       "relocations": [],
-      "source_sha256": "702a705b207fc13086fdce0bb5015191c8b373d9325eda1c6984a1f7a77ebd57",
-      "source": "src/recovered/classes/Blitter/BlitTrans_ushort_BlitBackward_00775b30.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "BlitTrans_ushort_BlitBackward_00775b30",
       "source_order": 237372
     },
     {
@@ -1121,7 +1160,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 26,
       "body_sha256": "ac5ae082f90d35ff003996345a9f60d57fae86b3d2ce3d84ed521e3e7dff225f",
@@ -1138,13 +1178,12 @@
           "resolved": 55276
         }
       ],
-      "source_sha256": "1288ebdbfd525a556d3bc4bfce850da5ca8b0342c72ea7b8cecf6b8e8a47eb1d",
-      "source": "src/recovered/classes/Blitter/BlitPlain_uchar_BlitBackward_00775a90.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "BlitPlain_uchar_BlitBackward_00775a90",
       "source_order": 237368
     },
     {
@@ -1156,7 +1195,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 29,
       "body_sha256": "5f2865800b4dabab38f966bd3fd1883c289842b5467f7cb6123b62f911530487",
@@ -1173,13 +1213,12 @@
           "resolved": 55193
         }
       ],
-      "source_sha256": "1a3b19af23a313b4db8a64570d9896f2f10f0071f77d40913a0dc1ac7af0460f",
-      "source": "src/recovered/classes/Blitter/BlitPlain_ushort_BlitBackward_00775ae0.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "BlitPlain_ushort_BlitBackward_00775ae0",
       "source_order": 237370
     },
     {
@@ -1191,7 +1230,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 32,
       "body_sha256": "f05cee67b159b71b521146ffd750d0f56504a3f8ea1c6f11f5af98afede4a809",
@@ -1216,13 +1256,12 @@
           "resolved": 50036
         }
       ],
-      "source_sha256": "58996d44702a66c020f2cdc30a64672b9cf42db2fade1700d2a15e151e54facb",
-      "source": "src/recovered/classes/Blitter/BlitPlain_uchar_scalar_deleting_destructor_007759b0.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "BlitPlain_uchar_scalar_deleting_destructor_007759b0",
       "source_order": 237362
     },
     {
@@ -1234,7 +1273,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 32,
       "body_sha256": "a875006c1cb7de5597b632e341d70046f35889848bfabaae4bf88a1fdd55da34",
@@ -1259,13 +1299,12 @@
           "resolved": 50004
         }
       ],
-      "source_sha256": "fc81ae1bba0752cd45fe9a1511e81b3145720c04cd88ee1fa2404db94f78aeee",
-      "source": "src/recovered/classes/Blitter/BlitPlain_ushort_scalar_deleting_destructor_007759d0.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "BlitPlain_ushort_scalar_deleting_destructor_007759d0",
       "source_order": 237363
     },
     {
@@ -1277,7 +1316,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 32,
       "body_sha256": "14e5d566d278fba762bf73240f3021ca50605fb796c036a65d2021ef1544de28",
@@ -1302,13 +1342,12 @@
           "resolved": 49972
         }
       ],
-      "source_sha256": "21f6b5328dcfd57438902ae72388c73159b1c8fab7d0d0a49aff268f6a8702ef",
-      "source": "src/recovered/classes/Blitter/BlitTrans_uchar_scalar_deleting_destructor_007759f0.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "BlitTrans_uchar_scalar_deleting_destructor_007759f0",
       "source_order": 237364
     },
     {
@@ -1320,7 +1359,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 32,
       "body_sha256": "acda1566ff8f00b7938fe09398f9ce6376cec29b3219bbce600782beaf459557",
@@ -1345,13 +1385,12 @@
           "resolved": 49940
         }
       ],
-      "source_sha256": "aaab6f181572179b867031c18739a8ffe994d34e0ddecbe0d8578ac007976779",
-      "source": "src/recovered/classes/Blitter/BlitTrans_ushort_scalar_deleting_destructor_00775a10.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "BlitTrans_ushort_scalar_deleting_destructor_00775a10",
       "source_order": 237365
     },
     {
@@ -1363,7 +1402,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 5,
       "body_sha256": "6497f6ef3c5212d03a0d37de5a4cff8b12711fe6dc5d836fb5deb981a9f5b2d9",
@@ -1371,13 +1411,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "08eb5255954df8c2a8c88083c82c2be9b0c2db12e59a45b8f3008f90c5abe197",
       "relocations": [],
-      "source_sha256": "0cf88510798c62f6d4e6d46ded07c849731036545614a6683b9b32289a525375",
-      "source": "src/recovered/classes/XSurface/XSurface_Draw_Line_Depth_Masked_00773eb0.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "XSurface_Draw_Line_Depth_Masked_00773eb0",
       "source_order": 237335
     },
     {
@@ -1389,7 +1428,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 5,
       "body_sha256": "173fde34282f7249a1b2c07f559f5e4e1cd127a54336653ab21390c293cbe9f2",
@@ -1397,13 +1437,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "8fd6620a8e10c8abab9e47663a9b1bdb550351d09dc45eed7b1430c8e7c71be1",
       "relocations": [],
-      "source_sha256": "499e9f689a8cd2b725f71c39f966bcbb80280f7a4ef43e3d3c90fe16afafd96d",
-      "source": "src/recovered/classes/XSurface/XSurface_Draw_Depth_Shaded_Line_00773ec0.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "XSurface_Draw_Depth_Shaded_Line_00773ec0",
       "source_order": 237336
     },
     {
@@ -1415,7 +1454,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 5,
       "body_sha256": "173fde34282f7249a1b2c07f559f5e4e1cd127a54336653ab21390c293cbe9f2",
@@ -1423,13 +1463,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "8fd6620a8e10c8abab9e47663a9b1bdb550351d09dc45eed7b1430c8e7c71be1",
       "relocations": [],
-      "source_sha256": "38d6062fd46762d1a0528e48dd7ab7457445939acf5e869a25cf8e3ab97fbf66",
-      "source": "src/recovered/classes/XSurface/XSurface_Draw_Depth_Glow_Line_00773ed0.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "XSurface_Draw_Depth_Glow_Line_00773ed0",
       "source_order": 237337
     },
     {
@@ -1441,7 +1480,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 5,
       "body_sha256": "c17bcef51e3f382028c97c47e0f02cd48011b90b704179d080f68a49b2867804",
@@ -1449,13 +1489,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "8198548390c670c856fe8fbba136a64758d81bed9bc15b4f3184c16434c11fab",
       "relocations": [],
-      "source_sha256": "64255a3232c3a74456b2fbf665bbc227ba06ed30d4bbfbcc95d90784a743b972",
-      "source": "src/recovered/classes/XSurface/XSurface_Draw_Depth_Antialiased_Line_00773ee0.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "XSurface_Draw_Depth_Antialiased_Line_00773ee0",
       "source_order": 237338
     },
     {
@@ -1467,7 +1506,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 5,
       "body_sha256": "173fde34282f7249a1b2c07f559f5e4e1cd127a54336653ab21390c293cbe9f2",
@@ -1475,13 +1515,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "8fd6620a8e10c8abab9e47663a9b1bdb550351d09dc45eed7b1430c8e7c71be1",
       "relocations": [],
-      "source_sha256": "d9fcf8600707255fb6567bec115d1fb7f8b3685b78ff36181f83f178b803774d",
-      "source": "src/recovered/classes/XSurface/XSurface_Unknown_Slot16_00773ef0.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "XSurface_Unknown_Slot16_00773ef0",
       "source_order": 237339
     },
     {
@@ -1493,7 +1532,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 5,
       "body_sha256": "0c2c7a212db68f7b6d7634358b03dd94e2358f33eb8fae1ce475dab43e990c0f",
@@ -1501,13 +1541,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "aaed9d2b17a94a68dba40da558687d8aa9b60d311549f974d96c61c9b1ec9397",
       "relocations": [],
-      "source_sha256": "99cbbb66e56d1f017f6f22e22705c651798b110f3066c299d0f059ce1b9360c4",
-      "source": "src/recovered/classes/XSurface/XSurface_Fill_Rect_Trans_007746b0.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "XSurface_Fill_Rect_Trans_007746b0",
       "source_order": 237348
     },
     {
@@ -1519,7 +1558,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 48,
       "body_sha256": "2230d30206dc6ba3c217f14a237e1187267d17dc837fee564b42599752d03968",
@@ -1536,13 +1576,12 @@
           "resolved": 7
         }
       ],
-      "source_sha256": "b61147712e9a273e9cc0d67c582cc016610ad2d5e6faaca06fdd9fc950bb624d",
-      "source": "src/recovered/classes/XSurface/XSurface_Draw_Line_00773950.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "XSurface_Draw_Line_00773950",
       "source_order": 237331
     },
     {
@@ -1554,7 +1593,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 43,
       "body_sha256": "0c17f209f3589a0155ccaf04dafcde057b86db3ec94dcd8022ac1f2fc879543c",
@@ -1571,13 +1611,12 @@
           "resolved": 12
         }
       ],
-      "source_sha256": "5b7515c87c5bccd156f6ff35b5e8a9d6670b6a65f6975fe92b6529b15c10df02",
-      "source": "src/recovered/classes/XSurface/XSurface_Draw_Rect_00774100.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "XSurface_Draw_Rect_00774100",
       "source_order": 237340
     },
     {
@@ -1589,7 +1628,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 158,
       "body_sha256": "6b8b2c8f71ab2ebfb712d54c4c9946bed383a71fa88b60948b4eb5a998fca374",
@@ -1597,13 +1637,12 @@
       "full_extent_bytes": 160,
       "full_extent_sha256": "ba9e6f53ffe87bb28ea1e5a802fcce966a9c2e7705abcabce8e06efe90c4b4f0",
       "relocations": [],
-      "source_sha256": "ac16aeda118aa890446d8649d96916a93beabc5a1570a2c76c4759c9665d728f",
-      "source": "src/recovered/classes/XSurface/XSurface_Draw_Rect_00774130.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "XSurface_Draw_Rect_00774130",
       "source_order": 237341
     },
     {
@@ -1615,7 +1654,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 80,
       "body_sha256": "60c25325a4ae7d55c8d6fcb9c1cbf916f098884af9425f5d79b4033ed67a5e33",
@@ -1623,13 +1663,12 @@
       "full_extent_bytes": 80,
       "full_extent_sha256": "60c25325a4ae7d55c8d6fcb9c1cbf916f098884af9425f5d79b4033ed67a5e33",
       "relocations": [],
-      "source_sha256": "b0c268ba807026ae48f730fcd18d6f2c14b6bab2a64eade4650dd25af9fc0835",
-      "source": "src/recovered/classes/XSurface/XSurface_Get_Pixel_007741d0.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "XSurface_Get_Pixel_007741d0",
       "source_order": 237342
     },
     {
@@ -1641,7 +1680,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 89,
       "body_sha256": "ab54fa73e35925bc0e508f3efbadde8c6774b2d90f552b63d595ca57520c8f45",
@@ -1649,13 +1689,12 @@
       "full_extent_bytes": 96,
       "full_extent_sha256": "ea2b8dd6dfd6e3f83a59a89710dd7fef23c17c75d531b678153d181b546554de",
       "relocations": [],
-      "source_sha256": "dd17951e395ff5b240e4966164684ce51cf9b05eb9ff4683ee74b313b7e2bd98",
-      "source": "src/recovered/classes/XSurface/XSurface_Put_Pixel_00774220.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "XSurface_Put_Pixel_00774220",
       "source_order": 237343
     },
     {
@@ -1667,7 +1706,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 41,
       "body_sha256": "7e89e36bc6123e32478c7720eee4d5b47a5c182b69500f5f6882f052b5c46584",
@@ -1684,13 +1724,12 @@
           "resolved": 14
         }
       ],
-      "source_sha256": "14449e7e68cb4c8b402d4c93274e6641f66eaac51780777b3ee1818c9b225ab8",
-      "source": "src/recovered/classes/XSurface/XSurface_Fill_Rect_00774390.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "XSurface_Fill_Rect_00774390",
       "source_order": 237346
     },
     {
@@ -1702,7 +1741,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 51,
       "body_sha256": "471c24f3bf42deca8e5297d789234a8692ea4d0b0760491af169549614c3196a",
@@ -1710,13 +1750,12 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "e7204b7af508fbffa25045eebf0609c78ec5a4b86294dbb1edba4c78f6a5f392",
       "relocations": [],
-      "source_sha256": "12666d444d74e3909bf3c10457c10076d9e787968a96b06b643ffe2408ad70a5",
-      "source": "src/recovered/classes/XSurface/XSurface_Fill_00774e20.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "XSurface_Fill_00774e20",
       "source_order": 237350
     },
     {
@@ -1728,7 +1767,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 145,
       "body_sha256": "aa45999dc37155bfaba4ab4025fa2721de9f857efad9a90ac812fe420abeb1dd",
@@ -1736,13 +1776,12 @@
       "full_extent_bytes": 160,
       "full_extent_sha256": "dc4f17e6c7193b7a8b1adc810b26c6335eef944645f57f6efca5dc87ad47f64d",
       "relocations": [],
-      "source_sha256": "4f073318dc8823a5741e8cfe64cef873bd436f3693567fc67f3b6fcb93793fe3",
-      "source": "src/recovered/classes/XSurface/XSurface_Copy_From_00774e60.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "XSurface_Copy_From_00774e60",
       "source_order": 237351
     },
     {
@@ -1754,7 +1793,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 339,
       "body_sha256": "390b015acff4c92f91caa42e2d14346afa550b49ddd8676ebd20921e2cd66beb",
@@ -1827,13 +1867,12 @@
           "resolved": 4291558049
         }
       ],
-      "source_sha256": "9be796d32bb4bd6008e658c5db6f71465d37cb0c94547951d0793bfbaf79e292",
-      "source": "src/recovered/classes/XSurface/XSurface_Copy_From_00774f00.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "XSurface_Copy_From_00774f00",
       "source_order": 237352
     },
     {
@@ -1845,7 +1884,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 33,
       "body_sha256": "2fbe19469d394565a00fb3836c04842ec0f820bdc24dca20910dafc625be0f13",
@@ -1853,13 +1893,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "f735c31c75231b648a382338b98880cb49a382dc1a5e7224d03328bd7cff673e",
       "relocations": [],
-      "source_sha256": "03f6605e613989599830fe5f3fd3c5a0d88f167f641e951e9ff075ac7f7a8ef8",
-      "source": "src/recovered/classes/Blitter/BlitPlain_uchar_BlitForward_00775a60.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "BlitPlain_uchar_BlitForward_00775a60",
       "source_order": 237367
     },
     {
@@ -1871,7 +1910,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 36,
       "body_sha256": "dbf79d6be917734b947b4165edb5e4c0a69e3b3c7ff04f36e0704f2cf5b19add",
@@ -1879,13 +1919,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "ed622ebcce51abb8b8cc9609c7c80f5def4c75e35ff266608f03aed519eb86d1",
       "relocations": [],
-      "source_sha256": "a8b84e70197d2a95febf5ff6a36f44eb0e2d9eee4200c12b4996231f9b31fdde",
-      "source": "src/recovered/classes/Blitter/BlitPlain_ushort_BlitForward_00775ab0.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "BlitPlain_ushort_BlitForward_00775ab0",
       "source_order": 237369
     },
     {
@@ -1897,7 +1936,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 43,
       "body_sha256": "53f2b38da97596335c5fedfe579fae2ca0c9be98c3c24b4d11bf9cf625bfb0fe",
@@ -1905,13 +1945,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "4f14fc94df0aeecd73dd8cf897a04c07df3b41bef1af86144dc9d2759d9b7a2f",
       "relocations": [],
-      "source_sha256": "3af80a687465e2728ccd0422548f0a6edeff6998ae185c64b8012974eb4b00ff",
-      "source": "src/recovered/classes/Blitter/BlitTrans_ushort_BlitForward_00775b00.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "BlitTrans_ushort_BlitForward_00775b00",
       "source_order": 237371
     },
     {
@@ -1923,7 +1962,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 119,
       "body_sha256": "1bda5499684fa95ea707dc5f1f46f5e60d99f974cf33fee0a74e164231f2d02d",
@@ -1931,13 +1971,12 @@
       "full_extent_bytes": 128,
       "full_extent_sha256": "c94cc16f9bf85f05bfe7c505c5eed8ce9397a16ea223e20390f376b5ece53b62",
       "relocations": [],
-      "source_sha256": "a78aaa4cb6ff1650be63f8d0437fa4adc83c8f0774af4a7231c23d72552a1c34",
-      "source": "src/recovered/classes/XSurface/XSurface_Get_Pixel_00774280.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "XSurface_Get_Pixel_00774280",
       "source_order": 237344
     },
     {
@@ -1949,7 +1988,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 130,
       "body_sha256": "690ba43236cc663d9d19ae7b73be80b3ab8a32bd9993815e20be75d1885e9e1e",
@@ -1957,13 +1997,12 @@
       "full_extent_bytes": 144,
       "full_extent_sha256": "862ea34f8d53e83ca9a741c2c2175f25f88137e1f676198d3ff6fc15c8abe8c1",
       "relocations": [],
-      "source_sha256": "21d05cfa6defc426e8040c7e602ad9e2bf4d817a8f05cb193bbf617f1943d90c",
-      "source": "src/recovered/classes/XSurface/XSurface_Put_Pixel_00774300.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "XSurface_Put_Pixel_00774300",
       "source_order": 237345
     },
     {
@@ -1975,7 +2014,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 463,
       "body_sha256": "044d7f3e94c483e62101ebddb5f551117e2b381c8612d6be86f6a7951e4ea3ba",
@@ -2000,13 +2040,12 @@
           "resolved": 4291472094
         }
       ],
-      "source_sha256": "07405686f059531a5d3c5888931b3ee6c9493381599e34eaf766ddd80040c80d",
-      "source": "src/recovered/classes/XSurface/Clip_Blit_Rects_00775190.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Clip_Blit_Rects_00775190",
       "source_order": 237354
     },
     {
@@ -2018,7 +2057,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 79,
       "body_sha256": "6ceddc5882c307878ef891936d0acded086ed61cf0de6025b465cb85865c5fba",
@@ -2035,13 +2075,12 @@
           "resolved": 10
         }
       ],
-      "source_sha256": "02d4e2d38d824e23f0d0b1bbdd4977ccb42b8d611b8e5d7dbc937c36bc05c86c",
-      "source": "src/recovered/classes/XSurface/Prep_For_Blit_00775360.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Prep_For_Blit_00775360",
       "source_order": 237355
     },
     {
@@ -2053,7 +2092,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 294,
       "body_sha256": "da35da50c61810806b26dafa50eda3be2f2def6db779cde9f82a47b35d8c43e6",
@@ -2118,13 +2158,12 @@
           "resolved": 4291557738
         }
       ],
-      "source_sha256": "4a6b571f8d9bdaa3a06d956275439198c7427e27e4dbeaa5f240b40b9d3ac945",
-      "source": "src/recovered/classes/XSurface/XSurface_Copy_From_00775060.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "XSurface_Copy_From_00775060",
       "source_order": 237353
     },
     {
@@ -2136,7 +2175,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 91,
       "body_sha256": "61cec1b7588931924a64c857978f7428becb8b6e3a76c55d7d402d0bc7c31bc5",
@@ -2169,13 +2209,12 @@
           "resolved": 4291556651
         }
       ],
-      "source_sha256": "23f2d400de44882860ab5531a2160b6f7045079ccab5b189a95e8aaa75a54427",
-      "source": "src/recovered/classes/XSurface/Bit_Blit_Plain_00775560.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Bit_Blit_Plain_00775560",
       "source_order": 237357
     },
     {
@@ -2187,7 +2226,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 91,
       "body_sha256": "9f750d097cdb7d5cc7dd8b0f4b9d486a6b8dbc04103590a0f878b8c5cf222fcb",
@@ -2220,13 +2260,12 @@
           "resolved": 4291556555
         }
       ],
-      "source_sha256": "5216f1c7280ef30e34dbfde722d3493455a4b8cc20a0bdd4dc775fcd5d63ba7b",
-      "source": "src/recovered/classes/XSurface/Bit_Blit_Trans_007755c0.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Bit_Blit_Trans_007755c0",
       "source_order": 237358
     },
     {
@@ -2238,7 +2277,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 132,
       "body_sha256": "6089238069e8c58c6902d8b5a7ce8f7118b5e7fbc37cb9b42c10eaaba727f3ce",
@@ -2246,13 +2286,12 @@
       "full_extent_bytes": 144,
       "full_extent_sha256": "b46cc4ba05fd27f0dc453acd5ca44b8ae34445d5619ef7a35285cf6704ff730b",
       "relocations": [],
-      "source_sha256": "b44f9f5602f058db9763bba3aea6b95d076070f5009db3ca772c48b63aad4d8c",
-      "source": "src/recovered/classes/XSurface/Clip_Line_Outcode_007758f0.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Clip_Line_Outcode_007758f0",
       "source_order": 237360
     },
     {
@@ -2264,7 +2303,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 685,
       "body_sha256": "1410847d6d047c585f52e081e82b736a7878a97419446b6d1ddd2f90178eefd7",
@@ -2289,13 +2329,12 @@
           "resolved": 7202
         }
       ],
-      "source_sha256": "8cb362b44c32048f73a2a8127eb016c6ed83a79dfe0bc71fb1f287518626eba0",
-      "source": "src/recovered/classes/XSurface/XSurface_Draw_Line_00773980.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "XSurface_Draw_Line_00773980",
       "source_order": 237332
     },
     {
@@ -2307,7 +2346,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 621,
       "body_sha256": "c4f9dceccffd9246e0ee774d3d6325a2b88779295a4dc351f29a91169029a1b3",
@@ -2315,13 +2355,12 @@
       "full_extent_bytes": 624,
       "full_extent_sha256": "c260c7b7c912a19b0a22257be09f3d1df443801da2b2a5208bfdfbc19e76e99d",
       "relocations": [],
-      "source_sha256": "92dbd184c24874403f86712e29201f2c9d067948fb73e9a5ab0dc25c70a3e8e6",
-      "source": "src/recovered/classes/XSurface/XSurface_Draw_Dashed_Line_00773c30.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "XSurface_Draw_Dashed_Line_00773c30",
       "source_order": 237333
     },
     {
@@ -2333,7 +2372,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 424,
       "body_sha256": "0a394b9b91067bb3c8c8d2bb0fb37b24addd9382c51398fd31a696331f260387",
@@ -2398,13 +2438,12 @@
           "resolved": 4291559465
         }
       ],
-      "source_sha256": "3f793d0a34bd9bb1562ab323bc26b6ea91c403b9934f36cfadf34551777e93db",
-      "source": "src/recovered/classes/XSurface/Prep_For_Blit_007753b0.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Prep_For_Blit_007753b0",
       "source_order": 237356
     },
     {
@@ -2416,7 +2455,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 717,
       "body_sha256": "e6c12ac30ee9e6ac99db062c61a87beb29c11afbd5223d7f5a7a4882aa6997b6",
@@ -2457,13 +2497,12 @@
           "resolved": 38978
         }
       ],
-      "source_sha256": "e5a94111d81abac4e3ebe3c0eb4b611045884fff017097383d0db55656108c10",
-      "source": "src/recovered/classes/XSurface/Clip_Line_00775620.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Clip_Line_00775620",
       "source_order": 237359
     },
     {
@@ -2475,7 +2514,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 393,
       "body_sha256": "dd4ba87a7ec3b7e04d40e4c4ebe564ce14e41b97ec75d02668f481e15fe68bc7",
@@ -2483,13 +2523,12 @@
       "full_extent_bytes": 400,
       "full_extent_sha256": "4b6178a41ffb8de2c65f1e2ea12cda5a908fa87cbedd77fb734014d1c24b6805",
       "relocations": [],
-      "source_sha256": "b02548252a85a3f1f4cb9905409a0b0ccb8dcd7f79ab1cec9fbb29db9a0e5c9a",
-      "source": "src/recovered/classes/XSurface/XSurface_Fill_Circle_00774c90.cpp",
+      "source_sha256": "af7e9871703cdce5f835363a3de349f5ade52c82eb2b2eefcf7dd9e6e8c2ec7b",
+      "source": "src/recovered/xsurface.cpp",
       "population": "population-4431",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "XSurface_Fill_Circle_00774c90",
       "source_order": 237349
     },
     {
@@ -2501,7 +2540,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 748,
       "body_sha256": "c33910973f655e532dd8e16c846b6fda636d8eb2c9e92735c7cdaf19f35a29b0",
@@ -2543,12 +2583,12 @@
         }
       ],
       "source_sha256": "6eb410f414d19d50bd60829c402f7b0b37db7d55af6c7d71a8f222adc3f0a578",
-      "source": "src/recovered/classes/XSurface/XSurface_Fill_Rect_007743c0.cpp",
+      "source": "src/recovered/classes/XSurface/Fill_Rect.cpp",
       "population": "population-4431",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "XSurface_Fill_Rect_007743c0",
+      "semantic_name": "Fill_Rect",
       "inline_asm": "evidenced",
       "inline_asm_citation": [
         "TibSun xsurface.cpp:806"
@@ -2564,7 +2604,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 45,
       "body_sha256": "02fa311c56f4efad252791cc5cbb64eb68663c5da6602bfbbff45c1543062fd2",
@@ -2573,12 +2614,12 @@
       "full_extent_sha256": "02fa311c56f4efad252791cc5cbb64eb68663c5da6602bfbbff45c1543062fd2",
       "relocations": [],
       "source_sha256": "3522123b716074b840cb038b66ab978e8b3a825d27ffa19f4483374cc7f41465",
-      "source": "src/recovered/classes/Blitter/BlitTrans_uchar_BlitForward_00775980.cpp",
+      "source": "src/recovered/classes/Blitter/BlitForward.cpp",
       "population": "population-4431",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "BlitTrans_uchar_BlitForward_00775980",
+      "semantic_name": "BlitForward",
       "inline_asm": "evidenced",
       "inline_asm_citation": [
         "TibSun blitblit.h:2324",

@@ -1,0 +1,1181 @@
+{
+ "module": "wsproto",
+ "source": "src/recovered/wsproto.cpp",
+ "header": null,
+ "population": "population-3655",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 756,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "0076aa90",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "0076aab0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "0076aae0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "0076ab00",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "0076ab20",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "0076ab40",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "0076ab60",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "0076ab80",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "0076abc0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "0076abf0",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "0076ac20",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "0076ac50",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "0076ac60",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "??0WinsockInterfaceClass@@QAE@XZ",
+   "entry": "0076ac80",
+   "body_bytes": 232,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "??1WinsockInterfaceClass@@UAE@XZ",
+   "entry": "0076ad70",
+   "body_bytes": 160,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Close@WinsockInterfaceClass@@QAEXXZ",
+   "entry": "0076ae10",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Close_Socket@WinsockInterfaceClass@@UAEXXZ",
+   "entry": "0076ae40",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Start_Listening@WinsockInterfaceClass@@UAE_NXZ",
+   "entry": "0076ae80",
+   "body_bytes": 132,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Stop_Listening@WinsockInterfaceClass@@UAEXXZ",
+   "entry": "0076af10",
+   "body_bytes": 69,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Discard_In_Buffers@WinsockInterfaceClass@@UAEXXZ",
+   "entry": "0076af60",
+   "body_bytes": 105,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Discard_Out_Buffers@WinsockInterfaceClass@@UAEXXZ",
+   "entry": "0076afd0",
+   "body_bytes": 201,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Init@WinsockInterfaceClass@@QAE_NXZ",
+   "entry": "0076b0a0",
+   "body_bytes": 486,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Build_Packet_CRC@WinsockInterfaceClass@@UAEXPAVWinsockBufferType@1@@Z",
+   "entry": "0076b290",
+   "body_bytes": 113,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Passes_CRC_Check@WinsockInterfaceClass@@UAE_NPAVWinsockBufferType@1@@Z",
+   "entry": "0076b310",
+   "body_bytes": 144,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Get_New_Out_Buffer@WinsockInterfaceClass@@QAEPAVWinsockBufferType@1@_N@Z",
+   "entry": "0076b3a0",
+   "body_bytes": 338,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Get_New_In_Buffer@WinsockInterfaceClass@@QAEPAVWinsockBufferType@1@XZ",
+   "entry": "0076b500",
+   "body_bytes": 156,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Read@WinsockInterfaceClass@@UAEHPAXPAH01PAG@Z",
+   "entry": "0076b5a0",
+   "body_bytes": 202,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?WriteTo@WinsockInterfaceClass@@UAEXPAXH0H_NEG@Z",
+   "entry": "0076b670",
+   "body_bytes": 289,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Broadcast@WinsockInterfaceClass@@UAEXPAXH_N@Z",
+   "entry": "0076b7a0",
+   "body_bytes": 251,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Clear_Socket_Error@WinsockInterfaceClass@@UAEXI@Z",
+   "entry": "0076b8a0",
+   "body_bytes": 79,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Set_Socket_Options@WinsockInterfaceClass@@UAE_NI@Z",
+   "entry": "0076b8f0",
+   "body_bytes": 149,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Get_Host_Name@WinsockInterfaceClass@@UAE_NPADH@Z",
+   "entry": "0076b990",
+   "body_bytes": 66,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?unknown_76b9e0@WinsockInterfaceClass@@SIXH@Z",
+   "entry": "0076b9e0",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?unknown_76b9f0@WinsockInterfaceClass@@SAHXZ",
+   "entry": "0076b9f0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Get_Protocol@WinsockInterfaceClass@@UAEHXZ",
+   "entry": "0076ba00",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Protocol_Event_Message@WinsockInterfaceClass@@UAEIH@Z",
+   "entry": "0076ba10",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Open_Socket@WinsockInterfaceClass@@UAE_NH@Z",
+   "entry": "0076ba20",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Message_Handler@WinsockInterfaceClass@@UAEHHHHH@Z",
+   "entry": "0076ba30",
+   "body_bytes": 8,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "??_GWinsockInterfaceClass@@UAEPAXI@Z",
+   "entry": "0076ba40",
+   "body_bytes": 181,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?get@Cleanup_76bb00@@QAEXXZ",
+   "entry": "0076bb00",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UBEPAVWinsockBufferType@WinsockInterfaceClass@@H@Z",
+   "entry": "0076bb50",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??8?$VectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UBE_NABV0@@Z",
+   "entry": "0076bb60",
+   "body_bytes": 62,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAE_NHPBQAVWinsockBufferType@WinsockInterfaceClass@@@Z",
+   "entry": "0076bba0",
+   "body_bytes": 174,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Clear@?$VectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAEXXZ",
+   "entry": "0076bc50",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAEHABQAVWinsockBufferType@WinsockInterfaceClass@@@Z",
+   "entry": "0076bc80",
+   "body_bytes": 51,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAEHPBQAVWinsockBufferType@WinsockInterfaceClass@@@Z",
+   "entry": "0076bcc0",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Resize@?$DynamicVectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAE_NHPBQAVWinsockBufferType@WinsockInterfaceClass@@@Z",
+   "entry": "0076bce0",
+   "body_bytes": 176,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?get@Leaf_76bdc0@@QAEPAXI@Z",
+   "entry": "0076bdc0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?get@Leaf_76be10@@QAEPAXI@Z",
+   "entry": "0076be10",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  }
+ ],
+ "code_bytes": 4992,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007afa68",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7WinsockInterfaceClass@@6B@",
+   "address": "007afa7c",
+   "bytes": 92,
+   "kind": "vtable",
+   "section": 41
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@6B@",
+   "address": "007afadc",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 42
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@6B@",
+   "address": "007afafc",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 63
+  },
+  {
+   "symbol": "??_C@_04PAEN@Note?$AA@",
+   "address": "007d59f4",
+   "bytes": 5,
+   "kind": "string",
+   "section": 90
+  },
+  {
+   "symbol": "??_C@_0BO@KMPH@WinsockInterface?5constructed?6?$AA@",
+   "address": "00800b68",
+   "bytes": 30,
+   "kind": "string",
+   "section": 40
+  },
+  {
+   "symbol": "??_C@_0DK@HMNL@Async?5select?5failed?5on?5alternate@",
+   "address": "00800b88",
+   "bytes": 58,
+   "kind": "string",
+   "section": 72
+  },
+  {
+   "symbol": "??_C@_0DI@PEAJ@Async?5select?5failed?5on?5primary?5s@",
+   "address": "00800bc4",
+   "bytes": 56,
+   "kind": "string",
+   "section": 73
+  },
+  {
+   "symbol": "??_C@_0CC@JADJ@Winsock?5version?5is?5less?5than?51?41@",
+   "address": "00800bfc",
+   "bytes": 34,
+   "kind": "string",
+   "section": 82
+  },
+  {
+   "symbol": "??_C@_0CE@NLAI@Failed?5to?5get?5protocol?5enumerati@",
+   "address": "00800c20",
+   "bytes": 36,
+   "kind": "string",
+   "section": 83
+  },
+  {
+   "symbol": "??_C@_0CJ@HBNO@Found?5protocol?5?$CFs?0?5max?5frame?5siz@",
+   "address": "00800c44",
+   "bytes": 41,
+   "kind": "string",
+   "section": 84
+  },
+  {
+   "symbol": "??_C@_0BK@DKHE@Winsock?5version?5is?5?$CFd?4?$CFd?6?$AA@",
+   "address": "00800c70",
+   "bytes": 26,
+   "kind": "string",
+   "section": 85
+  },
+  {
+   "symbol": "??_C@_0BI@CLP@Winsock?5initialised?5OK?6?$AA@",
+   "address": "00800c8c",
+   "bytes": 24,
+   "kind": "string",
+   "section": 86
+  },
+  {
+   "symbol": "??_C@_0CP@NEHJ@Winsock?5failed?5to?5initialise?5?9?5e@",
+   "address": "00800ca4",
+   "bytes": 47,
+   "kind": "string",
+   "section": 87
+  },
+  {
+   "symbol": "??_C@_0BK@GKJF@About?5to?5call?5WSAStartup?6?$AA@",
+   "address": "00800cd4",
+   "bytes": 26,
+   "kind": "string",
+   "section": 88
+  },
+  {
+   "symbol": "??_C@_0CO@MEGD@Warning?5?9?5Packet?5Loss?5Simulation@",
+   "address": "00800cf0",
+   "bytes": 46,
+   "kind": "string",
+   "section": 89
+  },
+  {
+   "symbol": "??_C@_0CG@BCAM@WinsockInterface?5already?5initial@",
+   "address": "00800d20",
+   "bytes": 38,
+   "kind": "string",
+   "section": 91
+  },
+  {
+   "symbol": "??_C@_0BI@NICH@WinsockInterface?5init?4?6?$AA@",
+   "address": "00800d48",
+   "bytes": 24,
+   "kind": "string",
+   "section": 92
+  },
+  {
+   "symbol": "??_C@_0BN@DELG@Error?5in?5Winsock?5packet?5CRC?6?$AA@",
+   "address": "00800d60",
+   "bytes": 29,
+   "kind": "string",
+   "section": 97
+  },
+  {
+   "symbol": "??_C@_0CA@BIBE@Socket?5option?5SO_SNDBUF?5set?5OK?6?$AA@",
+   "address": "00800d80",
+   "bytes": 32,
+   "kind": "string",
+   "section": 112
+  },
+  {
+   "symbol": "??_C@_0DI@KKO@Failed?5to?5set?5socket?5option?5SO_S@",
+   "address": "00800da0",
+   "bytes": 56,
+   "kind": "string",
+   "section": 113
+  },
+  {
+   "symbol": "??_C@_0CA@CCIN@Socket?5option?5SO_RCVBUF?5set?5OK?6?$AA@",
+   "address": "00800dd8",
+   "bytes": 32,
+   "kind": "string",
+   "section": 114
+  },
+  {
+   "symbol": "??_C@_0DI@PGAN@Failed?5to?5set?5socket?5option?5SO_R@",
+   "address": "00800df8",
+   "bytes": 56,
+   "kind": "string",
+   "section": 115
+  },
+  {
+   "symbol": "??_C@_0CC@CKAA@WinsockInterface?5Host?5name?5is?5?$CFs@",
+   "address": "00800e30",
+   "bytes": 34,
+   "kind": "string",
+   "section": 118
+  },
+  {
+   "symbol": "??_C@_0EB@GDGN@Error?5?9?5WinsockInterface?5Unable?5@",
+   "address": "00800e54",
+   "bytes": 65,
+   "kind": "string",
+   "section": 119
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007afa68",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7WinsockInterfaceClass@@6B@",
+   "address": "007afa7c",
+   "bytes": 92,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@6B@",
+   "address": "007afadc",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@6B@",
+   "address": "007afafc",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_C@_04PAEN@Note?$AA@",
+   "address": "007d59f4",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BO@KMPH@WinsockInterface?5constructed?6?$AA@",
+   "address": "00800b68",
+   "bytes": 30,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DK@HMNL@Async?5select?5failed?5on?5alternate@",
+   "address": "00800b88",
+   "bytes": 58,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DI@PEAJ@Async?5select?5failed?5on?5primary?5s@",
+   "address": "00800bc4",
+   "bytes": 56,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CC@JADJ@Winsock?5version?5is?5less?5than?51?41@",
+   "address": "00800bfc",
+   "bytes": 34,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CE@NLAI@Failed?5to?5get?5protocol?5enumerati@",
+   "address": "00800c20",
+   "bytes": 36,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CJ@HBNO@Found?5protocol?5?$CFs?0?5max?5frame?5siz@",
+   "address": "00800c44",
+   "bytes": 41,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BK@DKHE@Winsock?5version?5is?5?$CFd?4?$CFd?6?$AA@",
+   "address": "00800c70",
+   "bytes": 26,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BI@CLP@Winsock?5initialised?5OK?6?$AA@",
+   "address": "00800c8c",
+   "bytes": 24,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CP@NEHJ@Winsock?5failed?5to?5initialise?5?9?5e@",
+   "address": "00800ca4",
+   "bytes": 47,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BK@GKJF@About?5to?5call?5WSAStartup?6?$AA@",
+   "address": "00800cd4",
+   "bytes": 26,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CO@MEGD@Warning?5?9?5Packet?5Loss?5Simulation@",
+   "address": "00800cf0",
+   "bytes": 46,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CG@BCAM@WinsockInterface?5already?5initial@",
+   "address": "00800d20",
+   "bytes": 38,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BI@NICH@WinsockInterface?5init?4?6?$AA@",
+   "address": "00800d48",
+   "bytes": 24,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BN@DELG@Error?5in?5Winsock?5packet?5CRC?6?$AA@",
+   "address": "00800d60",
+   "bytes": 29,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CA@BIBE@Socket?5option?5SO_SNDBUF?5set?5OK?6?$AA@",
+   "address": "00800d80",
+   "bytes": 32,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DI@KKO@Failed?5to?5set?5socket?5option?5SO_S@",
+   "address": "00800da0",
+   "bytes": 56,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CA@CCIN@Socket?5option?5SO_RCVBUF?5set?5OK?6?$AA@",
+   "address": "00800dd8",
+   "bytes": 32,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DI@PGAN@Failed?5to?5set?5socket?5option?5SO_R@",
+   "address": "00800df8",
+   "bytes": 56,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CC@CKAA@WinsockInterface?5Host?5name?5is?5?$CFs@",
+   "address": "00800e30",
+   "bytes": 34,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0EB@GDGN@Error?5?9?5WinsockInterface?5Unable?5@",
+   "address": "00800e54",
+   "bytes": 65,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0076cba0",
+   "symbol": "?Stop_Listening@WinsockInterfaceClass@@UAEXXZ",
+   "target": "0076af10",
+   "function_entry": true
+  },
+  {
+   "site": "0076c6d0",
+   "symbol": "?Init@WinsockInterfaceClass@@QAE_NXZ",
+   "target": "0076b0a0",
+   "function_entry": true
+  },
+  {
+   "site": "0076aa70",
+   "symbol": "??1WinsockInterfaceClass@@UAE@XZ",
+   "target": "0076ad70",
+   "function_entry": true
+  },
+  {
+   "site": "00525030",
+   "symbol": "?Init@WinsockInterfaceClass@@QAE_NXZ",
+   "target": "0076b0a0",
+   "function_entry": true
+  },
+  {
+   "site": "0076a070",
+   "symbol": "??0WinsockInterfaceClass@@QAE@XZ",
+   "target": "0076ac80",
+   "function_entry": true
+  },
+  {
+   "site": "0076c050",
+   "symbol": "??0WinsockInterfaceClass@@QAE@XZ",
+   "target": "0076ac80",
+   "function_entry": true
+  },
+  {
+   "site": "0076c0f0",
+   "symbol": "?Close@WinsockInterfaceClass@@QAEXXZ",
+   "target": "0076ae10",
+   "function_entry": true
+  },
+  {
+   "site": "0076c0f0",
+   "symbol": "??1WinsockInterfaceClass@@UAE@XZ",
+   "target": "0076ad70",
+   "function_entry": true
+  },
+  {
+   "site": "0076c960",
+   "symbol": "?WriteTo@WinsockInterfaceClass@@UAEXPAXH0H_NEG@Z",
+   "target": "0076b670",
+   "function_entry": true
+  },
+  {
+   "site": "0076cb30",
+   "symbol": "?Start_Listening@WinsockInterfaceClass@@UAE_NXZ",
+   "target": "0076ae80",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?Init@WinsockInterfaceClass@@QAE_NXZ",
+   "target": "0076b0a0",
+   "function_entry": true
+  },
+  {
+   "site": "0065dec0",
+   "symbol": "?Init@WinsockInterfaceClass@@QAE_NXZ",
+   "target": "0076b0a0",
+   "function_entry": true
+  },
+  {
+   "site": "0076c350",
+   "symbol": "?Set_Socket_Options@WinsockInterfaceClass@@UAE_NI@Z",
+   "target": "0076b8f0",
+   "function_entry": true
+  },
+  {
+   "site": "0076c480",
+   "symbol": "?Set_Socket_Options@WinsockInterfaceClass@@UAE_NI@Z",
+   "target": "0076b8f0",
+   "function_entry": true
+  },
+  {
+   "site": "0076c6f0",
+   "symbol": "?Set_Socket_Options@WinsockInterfaceClass@@UAE_NI@Z",
+   "target": "0076b8f0",
+   "function_entry": true
+  },
+  {
+   "site": "0076c9c0",
+   "symbol": "?Get_New_Out_Buffer@WinsockInterfaceClass@@QAEPAVWinsockBufferType@1@_N@Z",
+   "target": "0076b3a0",
+   "function_entry": true
+  },
+  {
+   "site": "0076d460",
+   "symbol": "?Close@WinsockInterfaceClass@@QAEXXZ",
+   "target": "0076ae10",
+   "function_entry": true
+  },
+  {
+   "site": "0076d460",
+   "symbol": "??1WinsockInterfaceClass@@UAE@XZ",
+   "target": "0076ad70",
+   "function_entry": true
+  },
+  {
+   "site": "0076a3a0",
+   "symbol": "?Init@WinsockInterfaceClass@@QAE_NXZ",
+   "target": "0076b0a0",
+   "function_entry": true
+  },
+  {
+   "site": "0076a3a0",
+   "symbol": "?Set_Socket_Options@WinsockInterfaceClass@@UAE_NI@Z",
+   "target": "0076b8f0",
+   "function_entry": true
+  },
+  {
+   "site": "0076a6b0",
+   "symbol": "?unknown_76b9f0@WinsockInterfaceClass@@SAHXZ",
+   "target": "0076b9f0",
+   "function_entry": true
+  },
+  {
+   "site": "0076a6b0",
+   "symbol": "?Get_New_In_Buffer@WinsockInterfaceClass@@QAEPAVWinsockBufferType@1@XZ",
+   "target": "0076b500",
+   "function_entry": true
+  },
+  {
+   "site": "00515110",
+   "symbol": "?unknown_76b9e0@WinsockInterfaceClass@@SIXH@Z",
+   "target": "0076b9e0",
+   "function_entry": true
+  },
+  {
+   "site": "00515110",
+   "symbol": "?unknown_76b9e0@WinsockInterfaceClass@@SIXH@Z",
+   "target": "0076b9e0",
+   "function_entry": true
+  },
+  {
+   "site": "0076cd40",
+   "symbol": "?unknown_76b9f0@WinsockInterfaceClass@@SAHXZ",
+   "target": "0076b9f0",
+   "function_entry": true
+  },
+  {
+   "site": "0076cd40",
+   "symbol": "?Get_New_In_Buffer@WinsockInterfaceClass@@QAEPAVWinsockBufferType@1@XZ",
+   "target": "0076b500",
+   "function_entry": true
+  },
+  {
+   "site": "00542d60",
+   "symbol": "?Init@WinsockInterfaceClass@@QAE_NXZ",
+   "target": "0076b0a0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Init@WinsockInterfaceClass@@QAE_NXZ",
+   "target": "0076b0a0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAEPAXI@Z",
+   "address": "0076be10"
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAEPAXI@Z",
+   "address": "0076bdc0"
+  },
+  {
+   "symbol": "?Add_CRC@@YIXPAKK@Z",
+   "address": "0062a340"
+  },
+  {
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "address": "005322d0"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Protocols@WinsockInterfaceClass@@2PAHA",
+   "address": "00800ab0"
+  },
+  {
+   "symbol": "?SocketReceiveBuffer@WinsockInterfaceClass@@2HA",
+   "address": "00800ac0"
+  },
+  {
+   "symbol": "?SocketSendBuffer@WinsockInterfaceClass@@2HA",
+   "address": "00800abc"
+  },
+  {
+   "symbol": "?WWKeyboard@@3PAVWWKeyboardClass@@A",
+   "address": "00832468"
+  },
+  {
+   "symbol": "?unknown_b2ae9c@WinsockInterfaceClass@@2_NA",
+   "address": "00b2ae9c"
+  },
+  {
+   "symbol": "?unknown_b2aea0@WinsockInterfaceClass@@2HA",
+   "address": "00b2aea0"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_window_b263d8@@3PAXA",
+   "address": "00b263d8"
+  },
+  {
+   "symbol": "_EnumProtocolsA@12",
+   "address": "00781bc6"
+  },
+  {
+   "symbol": "_WSAAsyncSelect@16",
+   "address": "00781bc0"
+  },
+  {
+   "symbol": "_WSACleanup@0",
+   "address": "00781bba"
+  },
+  {
+   "symbol": "_WSAGetLastError@0",
+   "address": "00781b7e"
+  },
+  {
+   "symbol": "_WSAStartup@8",
+   "address": "00781bcc"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__chkstk",
+   "address": "00783850"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__MessageBoxA@16",
+   "address": "0079a47c"
+  },
+  {
+   "symbol": "__imp__SendMessageA@16",
+   "address": "0079a4a0"
+  },
+  {
+   "symbol": "_closesocket@4",
+   "address": "00781b96"
+  },
+  {
+   "symbol": "_gethostname@8",
+   "address": "00781bd2"
+  },
+  {
+   "symbol": "_getsockopt@20",
+   "address": "00781b90"
+  },
+  {
+   "symbol": "_release_76bb00",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_76bdc0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_76be10",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_76bdc0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_76be10",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_setsockopt@20",
+   "address": "00781ba8"
+  },
+  {
+   "symbol": "_vtable_76bdc0",
+   "address": "007afafc"
+  },
+  {
+   "symbol": "_vtable_76be10",
+   "address": "007afafc"
+  }
+ ],
+ "route": "A",
+ "unit": "wsproto.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "0076aa90",
+   "lines": 3
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "0076bb50",
+   "bytes": 13,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "0076bb60",
+   "bytes": 62,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "0076bba0",
+   "bytes": 174,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "0076bc50",
+   "bytes": 39,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "0076bc80",
+   "bytes": 51,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "0076bcc0",
+   "bytes": 27,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "0076bb00",
+   "bytes": 42,
+   "population": "population-10",
+   "bound": "own frozen bound (population-10)"
+  },
+  {
+   "entry": "0076bdc0",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)"
+  },
+  {
+   "entry": "0076be10",
+   "bytes": 73,
+   "population": "population-12",
+   "bound": "own frozen bound (population-12)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "0076bb30",
+   "bytes": 27,
+   "population": "population-11",
+   "source": "src/recovered/address_offsets/GetGuardedScaledOffset_0076bb30.cpp",
+   "cause": "frozen in another population's inventory pass (population-11)"
+  },
+  {
+   "kind": "split",
+   "entry": "0076bd90",
+   "bytes": 38,
+   "population": "population-14",
+   "source": "src/recovered/word_sequences/FindFirstWordIndex_0076bd90.cpp",
+   "cause": "frozen in another population's inventory pass (population-14)"
+  }
+ ],
+ "unit_functions": 51,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 2,
+  "bytes": 65
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

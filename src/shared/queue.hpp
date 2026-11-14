@@ -45,8 +45,8 @@ void __fastcall Queue_Record();
 // A player's frame-sync record (24 bytes; the arrays at 0x00AABCF0 and 0x00AABDD0
 // hold 7, built by the out-of-line constructor 0x00623210). Red Alert keeps
 // their_frame/their_sent/their_recv arrays; the fields are hypotheses.
-struct UnknownFrameTiming {
-    UnknownFrameTiming();               // 0x00623210 (Frame -1, the rest 0)
+struct FrameSyncStruct {
+    FrameSyncStruct();               // 0x00623210 (Frame -1, the rest 0)
     long Frame;                         // +0x00 their frame
     int unknown_04;
     int unknown_08;
@@ -59,11 +59,11 @@ struct UnknownFrameTiming {
 void __fastcall Send_FrameSync(ConnManClass *net, int cmd_count);
 // Reconnects a modem game or drops the oldest network player; 0 ends the game
 // (0x00627910; Red Alert's Handle_Timeout).
-int __fastcall Handle_Timeout(ConnManClass *net, UnknownFrameTiming *their);
+int __fastcall Handle_Timeout(ConnManClass *net, FrameSyncStruct *their);
 // Kicks the player at a connection index: marks the house, shifts the
 // frame-sync records and calls Destroy_Connection (0x00627740; named by its
 // trace "Kick_Player_Now bailing").
-void __fastcall Kick_Player_Now(ConnManClass *net, int index, UnknownFrameTiming *their, unsigned char error);
+void __fastcall Kick_Player_Now(ConnManClass *net, int index, FrameSyncStruct *their, unsigned char error);
 // A count over the other houses (0x005C3150; ECX is the house; hypothesis: a free function).
 int __fastcall Unknown_005C3150(HouseClass *house);
 // 0x0069A160 (restarts a timer at 0x00ABD4C4).
@@ -85,7 +85,7 @@ void __fastcall Unknown_00623280();
 void __fastcall Send_Port_Unreachable();
 // Stores a player's frames behind at session +0x28EC (unknown_a3fb84; 0 outside IPX)
 // (0x0062E5C0).
-void __fastcall Unknown_0062E5C0(UnknownFrameTiming *their, int index);
+void __fastcall Unknown_0062E5C0(FrameSyncStruct *their, int index);
 // Puts a local event at the head of DoList for the next send frame; TXT_QUEUE_FULL
 // ends a multiplayer game when it is full (0x0062E6E0).
 void __fastcall Unknown_0062E6E0(EventClass *event);
@@ -216,9 +216,9 @@ struct UnknownElapsedTimer {
     SystemTimerClass Timer;             // +0x04
 };
 // Frame-sync records (0x00AABCF0; 7, built by 0x00623230).
-extern UnknownFrameTiming unknown_timing_aabcf0[7];
+extern FrameSyncStruct unknown_timing_aabcf0[7];
 // The other players' frame-sync records (0x00AABDD0; 7, built by 0x006232D0).
-extern UnknownFrameTiming unknown_their_timing_aabdd0[7];
+extern FrameSyncStruct unknown_their_timing_aabdd0[7];
 // A count-up timer started at startup (0x00A780C0, built by 0x006232A0).
 extern UnknownElapsedTimer unknown_timer_a780c0;
 // The commands sent so far (0x00AABE78; Red Alert's Queue_AI_Multiplayer static my_sent).
@@ -255,7 +255,7 @@ extern unsigned long unknown_response_times_a76c88[];
 // Handles a received FRAMEINFO / FRAMESYNC packet (0x006265C0; Red Alert's
 // Process_Receive_Packet, with the RA2 timing records and an elapsed timer).
 RetcodeType __fastcall Process_Receive_Packet(ConnManClass *net, char *multi_packet_buf, int id, int packetlen,
-    UnknownFrameTiming *their, UnknownElapsedTimer *timer);
+    FrameSyncStruct *their, UnknownElapsedTimer *timer);
 // Sends the last commands and waits up to 600 ticks for every player to pass this frame
 // before the score screen, resending the frame sync every 15 ticks (0x00624850; called by
 // 0x0065D80A and 0x0065DEDA; name hypothesis).
@@ -299,7 +299,7 @@ void __fastcall Queue_AI_Multiplayer();
 // the connection manager, the CRC skip timer and the peers' frame timing;
 // Queue_AI_Multiplayer passes 0x00AABEB8 and 0x00AABDD0).
 int __fastcall Execute_DoList(int max_houses, int base_house, ConnManClass *net,
-    CDTimerClass<FrameTimerClass> *skip_crc, UnknownFrameTiming *their);
+    CDTimerClass<FrameTimerClass> *skip_crc, FrameSyncStruct *their);
 // Adds the game state to GameCRC (0x00629FA0; Red Alert's Compute_Game_CRC).
 void __fastcall Compute_Game_CRC();
 // Saves the frame's game state into sync state slot index (the frame mod 256), after the game CRC; without

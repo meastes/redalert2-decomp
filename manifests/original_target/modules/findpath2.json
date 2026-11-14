@@ -1,0 +1,480 @@
+{
+ "module": "findpath2",
+ "source": "src/recovered/findpath2.cpp",
+ "header": null,
+ "population": "population-4434",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 1040,
+ "code": [
+  {
+   "symbol": "?Find_First_Obstacle_004bb890@@YIPAVCellClass@@ABUCoordStruct@@0PBVBulletTypeClass@@PBVHouseClass@@@Z",
+   "entry": "004bb890",
+   "body_bytes": 526,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Find_First_Impenetrable_Obstacle_004bbaa0@@YIPAVCellClass@@ABUCoordStruct@@0PBVWeaponTypeClass@@PBVHouseClass@@@Z",
+   "entry": "004bbaa0",
+   "body_bytes": 74,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Get_Obstacle_004bbaf0@@YIPAVCellClass@@PAV1@00UCoordStruct@@PBVBulletTypeClass@@PBVHouseClass@@@Z",
+   "entry": "004bbaf0",
+   "body_bytes": 788,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Cell_Height_Transition_004bbe10@@YIHPBVCellClass@@00@Z",
+   "entry": "004bbe10",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Cell_Wall_Transition_004bbe60@@YI_NPBVCellClass@@00PBVHouseClass@@@Z",
+   "entry": "004bbe60",
+   "body_bytes": 121,
+   "padding_bytes": 7
+  }
+ ],
+ "code_bytes": 1616,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 13
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 30
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 33
+  },
+  {
+   "symbol": "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@",
+   "address": "0079a768",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 79
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a0fc8",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@6B@",
+   "address": "007a8820",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 59
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@USubzoneConnectionStruct@@@@8",
+   "address": "007b25f8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 74
+  },
+  {
+   "symbol": "??_R2?$VectorClass@USubzoneConnectionStruct@@@@8",
+   "address": "007b2610",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 75
+  },
+  {
+   "symbol": "??_R3?$VectorClass@USubzoneConnectionStruct@@@@8",
+   "address": "007b2618",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 76
+  },
+  {
+   "symbol": "??_R4?$VectorClass@USubzoneConnectionStruct@@@@6B@",
+   "address": "007b2628",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 78
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@8",
+   "address": "007c0370",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 54
+  },
+  {
+   "symbol": "??_R2?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@8",
+   "address": "007c0388",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 55
+  },
+  {
+   "symbol": "??_R3?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@8",
+   "address": "007c0390",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 56
+  },
+  {
+   "symbol": "??_R4?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@6B@",
+   "address": "007c03a0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 58
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@USubzoneConnectionStruct@@@@@8",
+   "address": "007cd310",
+   "bytes": 55,
+   "kind": "rtti",
+   "section": 77
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@@8",
+   "address": "007ee2a8",
+   "bytes": 83,
+   "kind": "rtti",
+   "section": 57
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@",
+   "address": "0079a768",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a0fc8",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@6B@",
+   "address": "007a8820",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@USubzoneConnectionStruct@@@@8",
+   "address": "007b25f8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@USubzoneConnectionStruct@@@@8",
+   "address": "007b2610",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@USubzoneConnectionStruct@@@@8",
+   "address": "007b2618",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@USubzoneConnectionStruct@@@@6B@",
+   "address": "007b2628",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@8",
+   "address": "007c0370",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@8",
+   "address": "007c0388",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@8",
+   "address": "007c0390",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@6B@",
+   "address": "007c03a0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@USubzoneConnectionStruct@@@@@8",
+   "address": "007cd310",
+   "bytes": 55,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@@8",
+   "address": "007ee2a8",
+   "bytes": 83,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00461c10",
+   "symbol": "?Unknown_004BBAF0@@YIHPAVCellClass@@00UCoordStruct@@PAVBulletTypeClass@@PAVHouseClass@@@Z",
+   "target": "004bbaf0",
+   "function_entry": true
+  },
+  {
+   "site": "004616b0",
+   "symbol": "?Trace_Projectile_Line_004bb890@@YIPAVCellClass@@ABUCoordStruct@@0PBVBulletTypeClass@@PBVHouseClass@@@Z",
+   "target": "004bb890",
+   "function_entry": true
+  },
+  {
+   "site": "006c4bb0",
+   "symbol": "?Find_First_Impenetrable_Obstacle_004bbaa0@@YIPAVCellClass@@ABUCoordStruct@@0PBVWeaponTypeClass@@PBVHouseClass@@@Z",
+   "target": "004bbaa0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z",
+   "address": "00548070"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_G?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@UAEPAXI@Z",
+   "address": "00635040"
+  },
+  {
+   "symbol": "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z",
+   "address": "0040b230"
+  },
+  {
+   "symbol": "?Bridge_Adjusted_Height_0047CF10@CellClass@@QBEHXZ",
+   "address": "0047cf10"
+  },
+  {
+   "symbol": "?Fast_Sqrt@@YAMN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?Has_Wall_Or_Gate@CellClass@@QBE_NHH@Z",
+   "address": "00475840"
+  },
+  {
+   "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+   "address": "00a32298"
+  },
+  {
+   "symbol": "?Is_Ally@HouseClass@@QBE_NPBV1@@Z",
+   "address": "004e5540"
+  },
+  {
+   "symbol": "?Map@@3VMouseClass@@A",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+   "address": "00a35de8"
+  },
+  {
+   "symbol": "?Rules@@3PAVRulesClass@@A",
+   "address": "00839848"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  }
+ ],
+ "route": "A",
+ "unit": "findpath2.cpp",
+ "form": "one include block",
+ "switches": [
+  "VECTOR_IMPLEMENT_VECTOR_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS"
+ ],
+ "include_blocks": [
+  {
+   "before": "004bb890",
+   "lines": 10
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 6,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "00461c10",
+   "target": "004bbaf0",
+   "symbol": "?Unknown_004BBAF0@@YIHPAVCellClass@@00UCoordStruct@@PAVBulletTypeClass@@PAVHouseClass@@@Z",
+   "module_symbol": "?Get_Obstacle_004bbaf0@@YIPAVCellClass@@PAV1@00UCoordStruct@@PBVBulletTypeClass@@PBVHouseClass@@@Z"
+  },
+  {
+   "site": "004616b0",
+   "target": "004bb890",
+   "symbol": "?Trace_Projectile_Line_004bb890@@YIPAVCellClass@@ABUCoordStruct@@0PBVBulletTypeClass@@PBVHouseClass@@@Z",
+   "module_symbol": "?Find_First_Obstacle_004bb890@@YIPAVCellClass@@ABUCoordStruct@@0PBVBulletTypeClass@@PBVHouseClass@@@Z"
+  }
+ ],
+ "stand_in_reference_count": 2,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

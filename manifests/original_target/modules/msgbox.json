@@ -1,0 +1,549 @@
+{
+ "module": "msgbox",
+ "source": "src/recovered/msgbox.cpp",
+ "header": null,
+ "population": "population-3591",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 737,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "005b4690",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "entry": "005b46b0",
+   "body_bytes": 524,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Message_Box_Proc@@YGHPAUHWND__@@IIJ@Z",
+   "entry": "005b48c0",
+   "body_bytes": 179,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Message_Box_Command@@YIXPAUHWND__@@H0I@Z",
+   "entry": "005b4980",
+   "body_bytes": 93,
+   "padding_bytes": 3
+  }
+ ],
+ "code_bytes": 848,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0065dec0",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "0065c7d0",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "0062e6e0",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "005d09a0",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "005d09a0",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "005d09a0",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "005d09a0",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "005d09a0",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "005d09a0",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "005d09a0",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "005d16e0",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "005d16e0",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "005cedd0",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "005cf0b0",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "005cf0b0",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "005cf780",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "005cf780",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "0059a310",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "005be3b0",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "00597680",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "00597680",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "00597680",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "00597680",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "0059b690",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "0059b690",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "0059b690",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "0059b690",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "005c7c30",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "0059c290",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "0066cf60",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "0066cf60",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "0058f510",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "0058f620",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "005c71f0",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "005a7430",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "0053b770",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "0053b770",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "0053b770",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "0053b770",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "0053b770",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "0053b770",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "0053b770",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "00542d60",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "00542d60",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "00542d60",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "00542d60",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "00542d60",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "0066db50",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "00628880",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "006829f0",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "006829f0",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "006829f0",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "00623b00",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "00623b00",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "00623b00",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "00623b00",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "00623b00",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "00623b00",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "00623b00",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "00623b00",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "005cdf00",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "005cdf00",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "005cdf00",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  },
+  {
+   "site": "005cdf00",
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "target": "005b46b0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "?WWMouse@@3PAVMouse@@A",
+   "address": "00839c68"
+  },
+  {
+   "symbol": "?unknown_5159b0@@YIXH_N@Z",
+   "address": "005159b0"
+  },
+  {
+   "symbol": "?unknown_517370@@YIX_N@Z",
+   "address": "00517370"
+  },
+  {
+   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "address": "006000d0"
+  },
+  {
+   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "address": "005ff610"
+  },
+  {
+   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "address": "005ff6e0"
+  },
+  {
+   "symbol": "?unknown_dialog_5ff7c0@@YIXPAUHWND__@@@Z",
+   "address": "005ff7c0"
+  },
+  {
+   "symbol": "?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z",
+   "address": "005ffb00"
+  },
+  {
+   "symbol": "?unknown_flag_a40958@@3_NA",
+   "address": "00a40958"
+  },
+  {
+   "symbol": "?unknown_moving_736d80@@YI_NPAUHWND__@@IPAVRect@@@Z",
+   "address": "00736d80"
+  },
+  {
+   "symbol": "__imp__GetDlgItem@8",
+   "address": "0079a49c"
+  },
+  {
+   "symbol": "__imp__GetWindowLongA@8",
+   "address": "0079a48c"
+  },
+  {
+   "symbol": "__imp__SendMessageA@16",
+   "address": "0079a4a0"
+  },
+  {
+   "symbol": "__imp__SetWindowLongA@12",
+   "address": "0079a488"
+  }
+ ],
+ "route": "A",
+ "unit": "msgbox.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "005b4690",
+   "lines": 1
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 4,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

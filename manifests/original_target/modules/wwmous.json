@@ -1,0 +1,834 @@
+{
+ "module": "wwmous",
+ "source": "src/recovered/wwmous.cpp",
+ "header": null,
+ "population": "population-3693",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 778,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "007717a0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Process_Mouse_Unthreaded@@YAXXZ",
+   "entry": "007717c0",
+   "body_bytes": 25,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Start_Mouse_Thread@@YAXXZ",
+   "entry": "007717e0",
+   "body_bytes": 278,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Mouse_Thread@@YGKPAX@Z",
+   "entry": "00771900",
+   "body_bytes": 160,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Kill_Mouse_Thread@@YIXXZ",
+   "entry": "007719a0",
+   "body_bytes": 116,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "??0WWMouseClass@@QAE@PAVSurface@@PAUHWND__@@@Z",
+   "entry": "00771a20",
+   "body_bytes": 408,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "??1WWMouseClass@@UAE@XZ",
+   "entry": "00771bc0",
+   "body_bytes": 144,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "??_GMouse@@UAEPAXI@Z",
+   "entry": "00773670",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  }
+ ],
+ "code_bytes": 1232,
+ "data": [
+  {
+   "symbol": "??_7Surface@@6B@",
+   "address": "0079b01c",
+   "bytes": 140,
+   "kind": "vtable",
+   "section": 96
+  },
+  {
+   "symbol": "??_7WWMouseClass@@6B@",
+   "address": "007afbe8",
+   "bytes": 76,
+   "kind": "vtable",
+   "section": 28
+  },
+  {
+   "symbol": "??_7Mouse@@6B@",
+   "address": "007afc34",
+   "bytes": 76,
+   "kind": "vtable",
+   "section": 29
+  },
+  {
+   "symbol": "??_R2XSurface@@8",
+   "address": "007b3278",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 67
+  },
+  {
+   "symbol": "??_R3XSurface@@8",
+   "address": "007b3288",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 68
+  },
+  {
+   "symbol": "??_R4XSurface@@6B@",
+   "address": "007b3298",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 70
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Surface@@8",
+   "address": "007b32b0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 65
+  },
+  {
+   "symbol": "??_R1A@?0A@A@XSurface@@8",
+   "address": "007b32c8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 66
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BSurface@@8",
+   "address": "007b32e0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 59
+  },
+  {
+   "symbol": "??_R2BSurface@@8",
+   "address": "007b32f8",
+   "bytes": 13,
+   "kind": "rtti",
+   "section": 60
+  },
+  {
+   "symbol": "??_R3BSurface@@8",
+   "address": "007b3308",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 61
+  },
+  {
+   "symbol": "??_R4BSurface@@6B@",
+   "address": "007b3318",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 63
+  },
+  {
+   "symbol": "??_R2Surface@@8",
+   "address": "007b332c",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 93
+  },
+  {
+   "symbol": "??_R3Surface@@8",
+   "address": "007b3338",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 94
+  },
+  {
+   "symbol": "??_R4Surface@@6B@",
+   "address": "007b3348",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 95
+  },
+  {
+   "symbol": "??_R1A@?0A@A@WWMouseClass@@8",
+   "address": "007c6838",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 18
+  },
+  {
+   "symbol": "??_R2WWMouseClass@@8",
+   "address": "007c6850",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 19
+  },
+  {
+   "symbol": "??_R3WWMouseClass@@8",
+   "address": "007c6860",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 20
+  },
+  {
+   "symbol": "??_R4WWMouseClass@@6B@",
+   "address": "007c6870",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 22
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Mouse@@8",
+   "address": "007c6888",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 23
+  },
+  {
+   "symbol": "??_R2Mouse@@8",
+   "address": "007c68a0",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 24
+  },
+  {
+   "symbol": "??_R3Mouse@@8",
+   "address": "007c68a8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 25
+  },
+  {
+   "symbol": "??_R4Mouse@@6B@",
+   "address": "007c68b8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 27
+  },
+  {
+   "symbol": "??_R0?AVSurface@@@8",
+   "address": "007ce2b0",
+   "bytes": 22,
+   "kind": "rtti",
+   "section": 64
+  },
+  {
+   "symbol": "??_R0?AVXSurface@@@8",
+   "address": "007ce2c8",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 69
+  },
+  {
+   "symbol": "??_R0?AVBSurface@@@8",
+   "address": "007ce2e0",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 62
+  },
+  {
+   "symbol": "??_C@_0DI@MILH@Unable?5to?5change?5the?5priority?5of@",
+   "address": "008012e0",
+   "bytes": 56,
+   "kind": "string",
+   "section": 9
+  },
+  {
+   "symbol": "??_C@_0EA@PAMP@Warning?3?5Probable?5deadlock?5occur@",
+   "address": "00801318",
+   "bytes": 64,
+   "kind": "string",
+   "section": 12
+  },
+  {
+   "symbol": "??_C@_0BC@JOPK@D?3?2Ra2?2wwmous?4cpp?$AA@",
+   "address": "00801358",
+   "bytes": 18,
+   "kind": "string",
+   "section": 13
+  },
+  {
+   "symbol": "??_R0?AVWWMouseClass@@@8",
+   "address": "00801370",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 21
+  },
+  {
+   "symbol": "??_R0?AVMouse@@@8",
+   "address": "00801390",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 26
+  },
+  {
+   "symbol": "??_C@_0CC@EGPP@Calc_Confining_Rect?$CI?$CFd?0?$CFd?0?$CFd?0?$CFd?$CJ@",
+   "address": "008013a4",
+   "bytes": 34,
+   "kind": "string",
+   "section": 50
+  },
+  {
+   "symbol": "??_C@_0BB@KEPO@Capture_Mouse?$CI?$CJ?6?$AA@",
+   "address": "008013c8",
+   "bytes": 17,
+   "kind": "string",
+   "section": 135
+  },
+  {
+   "symbol": "??_C@_0BB@NBHB@Release_Mouse?$CI?$CJ?6?$AA@",
+   "address": "008013dc",
+   "bytes": 17,
+   "kind": "string",
+   "section": 138
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7Surface@@6B@",
+   "address": "0079b01c",
+   "bytes": 140,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7WWMouseClass@@6B@",
+   "address": "007afbe8",
+   "bytes": 76,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7Mouse@@6B@",
+   "address": "007afc34",
+   "bytes": 76,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R2XSurface@@8",
+   "address": "007b3278",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3XSurface@@8",
+   "address": "007b3288",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4XSurface@@6B@",
+   "address": "007b3298",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Surface@@8",
+   "address": "007b32b0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@XSurface@@8",
+   "address": "007b32c8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BSurface@@8",
+   "address": "007b32e0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2BSurface@@8",
+   "address": "007b32f8",
+   "bytes": 13,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3BSurface@@8",
+   "address": "007b3308",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4BSurface@@6B@",
+   "address": "007b3318",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2Surface@@8",
+   "address": "007b332c",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3Surface@@8",
+   "address": "007b3338",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4Surface@@6B@",
+   "address": "007b3348",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@WWMouseClass@@8",
+   "address": "007c6838",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2WWMouseClass@@8",
+   "address": "007c6850",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3WWMouseClass@@8",
+   "address": "007c6860",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4WWMouseClass@@6B@",
+   "address": "007c6870",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Mouse@@8",
+   "address": "007c6888",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2Mouse@@8",
+   "address": "007c68a0",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3Mouse@@8",
+   "address": "007c68a8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4Mouse@@6B@",
+   "address": "007c68b8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVSurface@@@8",
+   "address": "007ce2b0",
+   "bytes": 22,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVXSurface@@@8",
+   "address": "007ce2c8",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVBSurface@@@8",
+   "address": "007ce2e0",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0DI@MILH@Unable?5to?5change?5the?5priority?5of@",
+   "address": "008012e0",
+   "bytes": 56,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0EA@PAMP@Warning?3?5Probable?5deadlock?5occur@",
+   "address": "00801318",
+   "bytes": 64,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@JOPK@D?3?2Ra2?2wwmous?4cpp?$AA@",
+   "address": "00801358",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AVWWMouseClass@@@8",
+   "address": "00801370",
+   "bytes": 27,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVMouse@@@8",
+   "address": "00801390",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0CC@EGPP@Calc_Confining_Rect?$CI?$CFd?0?$CFd?0?$CFd?0?$CFd?$CJ@",
+   "address": "008013a4",
+   "bytes": 34,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@KEPO@Capture_Mouse?$CI?$CJ?6?$AA@",
+   "address": "008013c8",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@NBHB@Release_Mouse?$CI?$CJ?6?$AA@",
+   "address": "008013dc",
+   "bytes": 17,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00773710",
+   "symbol": "??1WWMouseClass@@UAE@XZ",
+   "target": "00771bc0",
+   "function_entry": true
+  },
+  {
+   "site": "00406ea0",
+   "symbol": "?unknown_007717c0@@YAXXZ",
+   "target": "007717c0",
+   "function_entry": true
+  },
+  {
+   "site": "005434e0",
+   "symbol": "??0WWMouseClass@@QAE@PAVSurface@@PAUHWND__@@@Z",
+   "target": "00771a20",
+   "function_entry": true
+  },
+  {
+   "site": "005434e0",
+   "symbol": "??0WWMouseClass@@QAE@PAVSurface@@PAUHWND__@@@Z",
+   "target": "00771a20",
+   "function_entry": true
+  },
+  {
+   "site": "006909e0",
+   "symbol": "?Kill_Mouse_Thread@@YIXXZ",
+   "target": "007719a0",
+   "function_entry": true
+  },
+  {
+   "site": "0068e280",
+   "symbol": "?Start_Mouse_Thread@@YAXXZ",
+   "target": "007717e0",
+   "function_entry": true
+  },
+  {
+   "site": "0068e280",
+   "symbol": "??0WWMouseClass@@QAE@PAVSurface@@PAUHWND__@@@Z",
+   "target": "00771a20",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "address": "004382c0"
+  },
+  {
+   "symbol": "??1Buffer@@QAE@XZ",
+   "address": "00438410"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_GBSurface@@UAEPAXI@Z",
+   "address": "004113d0"
+  },
+  {
+   "symbol": "??_GSurface@@UAEPAXI@Z",
+   "address": "00411350"
+  },
+  {
+   "symbol": "??_GWWMouseClass@@UAEPAXI@Z",
+   "address": "00773710"
+  },
+  {
+   "symbol": "??_GXSurface@@UAEPAXI@Z",
+   "address": "00411320"
+  },
+  {
+   "symbol": "?Copy_From@XSurface@@UAE_NAAVSurface@@_N1@Z",
+   "address": "00774e60"
+  },
+  {
+   "symbol": "?Copy_From@XSurface@@UAE_NABVRect@@0AAVSurface@@00_N2@Z",
+   "address": "00775060"
+  },
+  {
+   "symbol": "?Copy_From@XSurface@@UAE_NABVRect@@AAVSurface@@0_N2@Z",
+   "address": "00774f00"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Draw_Dashed_Line@XSurface@@UAEHABUPoint2D@@0HPB_NH@Z",
+   "address": "00773c30"
+  },
+  {
+   "symbol": "?Draw_Dashed_Line_Depth_Masked@XSurface@@UAEHABUPoint2D@@0HPB_NH_N@Z",
+   "address": "00773ea0"
+  },
+  {
+   "symbol": "?Draw_Depth_Antialiased_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@HH_N333M@Z",
+   "address": "00773ee0"
+  },
+  {
+   "symbol": "?Draw_Depth_Glow_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1HHH_N@Z",
+   "address": "00773ed0"
+  },
+  {
+   "symbol": "?Draw_Depth_Shaded_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1IHH_N@Z",
+   "address": "00773ec0"
+  },
+  {
+   "symbol": "?Draw_Ellipse@XSurface@@UAE_NUPoint2D@@HHVRect@@H@Z",
+   "address": null
+  },
+  {
+   "symbol": "?Draw_Line@XSurface@@UAE_NABUPoint2D@@0H@Z",
+   "address": "00773950"
+  },
+  {
+   "symbol": "?Draw_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1H@Z",
+   "address": "00773980"
+  },
+  {
+   "symbol": "?Draw_Line_Depth_Masked@XSurface@@UAE_NABUPoint2D@@0H_N@Z",
+   "address": "00773eb0"
+  },
+  {
+   "symbol": "?Draw_Rect@XSurface@@UAE_NABVRect@@0H@Z",
+   "address": "00774130"
+  },
+  {
+   "symbol": "?Draw_Rect@XSurface@@UAE_NABVRect@@H@Z",
+   "address": "00774100"
+  },
+  {
+   "symbol": "?Fill@XSurface@@UAE_NH@Z",
+   "address": "00774e20"
+  },
+  {
+   "symbol": "?Fill_Rect@XSurface@@UAE_NABVRect@@0H@Z",
+   "address": "007743c0"
+  },
+  {
+   "symbol": "?Fill_Rect@XSurface@@UAE_NABVRect@@H@Z",
+   "address": "00774390"
+  },
+  {
+   "symbol": "?Fill_Rect_Trans@XSurface@@UAE_NABVRect@@ABVRGBClass@@I@Z",
+   "address": "007746b0"
+  },
+  {
+   "symbol": "?Get_Pixel@XSurface@@UAEHABUPoint2D@@@Z",
+   "address": "007741d0"
+  },
+  {
+   "symbol": "?Get_Pixel@XSurface@@UAEHABUPoint2D@@ABVRect@@@Z",
+   "address": "00774280"
+  },
+  {
+   "symbol": "?Plot_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1P6IX1@Z@Z",
+   "address": null
+  },
+  {
+   "symbol": "?Put_Pixel@XSurface@@UAE_NABUPoint2D@@H@Z",
+   "address": "00774220"
+  },
+  {
+   "symbol": "?Put_Pixel@XSurface@@UAE_NABUPoint2D@@HABVRect@@@Z",
+   "address": "00774300"
+  },
+  {
+   "symbol": "?Unknown_Slot16@XSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@MHH@Z",
+   "address": "00773ef0"
+  },
+  {
+   "symbol": "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z",
+   "address": "0049f3a0"
+  },
+  {
+   "symbol": "?unknown_convert_8323c8@@3PAXA",
+   "address": "008323c8"
+  },
+  {
+   "symbol": "?unknown_flag_a40b30@@3_NA",
+   "address": "00a40b30"
+  },
+  {
+   "symbol": "?unknown_flag_a40d28@@3_NA",
+   "address": "00a40d28"
+  },
+  {
+   "symbol": "?unknown_function_522e80@@YAHXZ",
+   "address": "00522e80"
+  },
+  {
+   "symbol": "?unknown_int_839638@@3HA",
+   "address": "00839638"
+  },
+  {
+   "symbol": "?unknown_int_839648@@3HA",
+   "address": "00839648"
+  },
+  {
+   "symbol": "?unknown_surface_839948@@3PAVSurface@@A",
+   "address": "00839948"
+  },
+  {
+   "symbol": "__imp__ClientToScreen@8",
+   "address": "0079a4ac"
+  },
+  {
+   "symbol": "__imp__CloseHandle@4",
+   "address": "0079a1d4"
+  },
+  {
+   "symbol": "__imp__CreateMutexA@12",
+   "address": "0079a238"
+  },
+  {
+   "symbol": "__imp__CreateThread@24",
+   "address": "0079a1ec"
+  },
+  {
+   "symbol": "__imp__FormatMessageA@28",
+   "address": "0079a1f8"
+  },
+  {
+   "symbol": "__imp__GetClientRect@8",
+   "address": "0079a4b8"
+  },
+  {
+   "symbol": "__imp__GetCursorPos@4",
+   "address": "0079a3a8"
+  },
+  {
+   "symbol": "__imp__GetLastError@0",
+   "address": "0079a1f4"
+  },
+  {
+   "symbol": "__imp__ReleaseMutex@4",
+   "address": "0079a190"
+  },
+  {
+   "symbol": "__imp__SetThreadPriority@8",
+   "address": "0079a1f0"
+  },
+  {
+   "symbol": "__imp__ShowCursor@4",
+   "address": "0079a3cc"
+  },
+  {
+   "symbol": "__imp__Sleep@4",
+   "address": "0079a1e4"
+  },
+  {
+   "symbol": "__imp__WaitForSingleObject@8",
+   "address": "0079a1d0"
+  },
+  {
+   "symbol": "__purecall",
+   "address": "004b8960"
+  }
+ ],
+ "route": "A",
+ "unit": "wwmous.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "007717a0",
+   "lines": 1
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 8,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  },
+  {
+   "symbol": "??_7BSurface@@6B@",
+   "reason": "relocation target unbound: ?Draw_Ellipse@XSurface@@UAE_NUPoint2D@@HHVRect@@H@Z"
+  },
+  {
+   "symbol": "??_7XSurface@@6B@",
+   "reason": "relocation target unbound: ?Draw_Ellipse@XSurface@@UAE_NUPoint2D@@HHVRect@@H@Z"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "00406ea0",
+   "target": "007717c0",
+   "symbol": "?unknown_007717c0@@YAXXZ",
+   "module_symbol": "?Process_Mouse_Unthreaded@@YAXXZ"
+  }
+ ],
+ "stand_in_reference_count": 1,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

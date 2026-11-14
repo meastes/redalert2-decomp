@@ -104,7 +104,7 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
         switch (copy[1]) {
         case '1': {
             for (int i = 0; i < 8; i++) {
-                if (_stricmp(sender, Unknown_006FA120(unknown_player_slots_a3fa98[i]->Name)) == 0) {
+                if (_stricmp(sender, Wide_To_Narrow_006fa120(unknown_player_slots_a3fa98[i]->Name)) == 0) {
                     char receiver[64];
                     strcpy(receiver, copy + 3);
                     Register_Connection_State_0074e1f0(sender, receiver, copy[2] - '0');
@@ -118,7 +118,7 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
             return false;
         case '3':
             if (!Local_User_Is_Channel_Owner_0074d960()) {
-                HWND dialog = Find_Dialog_00735940(0xC9);
+                HWND dialog = WS_Find_Dialog_00735940(0xC9);
                 HWND preview = GetDlgItem(dialog, 0x3F2);
                 if (preview != 0) {
                     ShowWindow(preview, SW_SHOWNORMAL);
@@ -136,14 +136,14 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
         return false;
     }
     if (copy[0] == 'O') {
-        HWND dialog = Find_Dialog_00735940(0xC9);
-        if (dialog != 0 || (dialog = Find_Dialog_00735940(0xBD)) != 0) {
+        HWND dialog = WS_Find_Dialog_00735940(0xC9);
+        if (dialog != 0 || (dialog = WS_Find_Dialog_00735940(0xBD)) != 0) {
             int old = unknown_lobby_flag_7e6d90;
             unknown_lobby_flag_7e6d90 = copy[1] == '8' ? -1 : copy[1] - '0';
             if (unknown_lobby_flag_7e6d90 != old) {
                 Unknown_005cafd0(dialog);
                 wchar_t name[256];
-                wcscpy(name, Unknown_006FA180(copy + 2));
+                wcscpy(name, Narrow_To_Wide_006fa180(copy + 2));
                 if (name[0] != 0) {
                     NodeNameType *entry;
                     {
@@ -264,7 +264,7 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
             for (int mode = 0; mode <= MultiplayerGameMode::unknown_mode_count_5b6f80(); mode++) {
                 if (MultiplayerGameMode::unknown_find_mode_5b6fe0(mode) != 0) {
                     Debug_Printf("Setting Campaign info for Mode %d: %s\n", mode,
-                        Unknown_006FA120(MultiplayerGameMode::unknown_find_mode_5b6fe0(mode)->unknown_name_20.unknown_text_770430()));
+                        Wide_To_Narrow_006fa120(MultiplayerGameMode::unknown_find_mode_5b6fe0(mode)->unknown_name_20.unknown_text_770430()));
                     if (MultiplayerGameMode::unknown_find_mode_5b6fe0(mode)->unknown_slot18(index, list, first, second)) {
                         MultiplayerGameMode::unknown_find_mode_5b6fe0(mode)->unknown_slot19(time, unknown, scores);
                     }
@@ -275,7 +275,7 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
             for (int mode = 0; mode <= MultiplayerGameMode::unknown_mode_count_5b6f80(); mode++) {
                 if (MultiplayerGameMode::unknown_find_mode_5b6fe0(mode) != 0) {
                     Debug_Printf("Handling Campaign info for Mode %d: %s\n", mode,
-                        Unknown_006FA120(MultiplayerGameMode::unknown_find_mode_5b6fe0(mode)->unknown_name_20.unknown_text_770430()));
+                        Wide_To_Narrow_006fa120(MultiplayerGameMode::unknown_find_mode_5b6fe0(mode)->unknown_name_20.unknown_text_770430()));
                     MultiplayerGameMode::unknown_find_mode_5b6fe0(mode)->unknown_slot25(copy[1] - '0', copy + 2);
                 }
             }
@@ -286,7 +286,7 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
     if (copy[0] == 'L') {
         WideString names = Wstring_To_Wide(Wstring(text + 1));
         Set_Slot_Names_005c8dd0(names.Get());
-        HWND dialog = Find_Dialog_00735940(0xC9);
+        HWND dialog = WS_Find_Dialog_00735940(0xC9);
         if (dialog != 0) {
             int slot = Find_First_Player_Slot_005c8c70();
             if (slot == -1) {
@@ -326,7 +326,7 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
         return false;
     }
     if (copy[0] == 'G') {
-        if (Find_Dialog_00735940(0xC9) != 0) {
+        if (WS_Find_Dialog_00735940(0xC9) != 0) {
             unknown_lobby_flag_a3fab8 = true;
             if (unknown_chat_a72cfc != 0) {
                 Unknown_0075c980();
@@ -339,7 +339,7 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
         return false;
     }
     if (copy[0] == 'K') {
-        if (Find_Dialog_00735940(0xC2) != 0 || Find_Dialog_00735940(0xBC) != 0) {
+        if (WS_Find_Dialog_00735940(0xC2) != 0 || WS_Find_Dialog_00735940(0xBC) != 0) {
             int state;
             switch (copy[1]) {
             case '1':
@@ -583,7 +583,7 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
             int i = 8;
             if (address != 0 && unknown_game_mode_a3d298 == 4) {
                 for (i = 0; i < 8; i++) {
-                    if (_stricmp(name, Unknown_006FA120(unknown_player_slots_a3fa98[i]->Name)) == 0) {
+                    if (_stricmp(name, Wide_To_Narrow_006fa120(unknown_player_slots_a3fa98[i]->Name)) == 0) {
                         NetNumType net;
                         NetNodeType node;
                         memset(node, 0, sizeof(node));

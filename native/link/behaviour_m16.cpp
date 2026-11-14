@@ -46,15 +46,3 @@ int TechnoClass::unknown_slot177()
 {
     return 2;
 }
-
-
-// 0x006631A0 (pass-6a decompile): the map cell of a waypoint, Map[Waypoints[waypoint]]
-// (TeamClass script missions; Allied 1's first team).
-#include "shared/id_source.hpp"
-#include "shared/map.hpp"
-#include "shared/map_view.hpp"
-CellClass *UnknownIDSource::unknown_6631a0(int waypoint)
-{
-    return &Map[Waypoints[waypoint]];
-}
-

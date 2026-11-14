@@ -137,7 +137,7 @@ void Native_Harness_Input(int frame)
     if ((!last && (every <= 0 || frame % every != 0)) || unknown_player_a35db4 == 0) return;
     {
         // The view position too (Scout1231: scroll-rate measurements; stderr, so RA2.app runs log it).
-        Point2D view = unknown_tactical_83996c ? unknown_tactical_83996c->Unknown_006A67B0() : Point2D(0, 0);
+        Point2D view = unknown_tactical_83996c ? unknown_tactical_83996c->Get_Tactical_Position() : Point2D(0, 0);
         fprintf(stderr, "harness-view %d @%d,%d msgs %d\n", frame, view.X, view.Y, Native_Session_Message_Count());
     }
     static char names[64][24];

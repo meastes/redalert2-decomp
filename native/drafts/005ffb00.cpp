@@ -85,7 +85,7 @@ int __fastcall unknown_dialog_proc_5ffb00(HWND window, UINT message, WPARAM wpar
         Unknown_005FE380(lparam);
         return 1;
     case 0xf: {
-        OwnerDraw::UnknownControlRecord *record = OwnerDraw::unknown_registry_a73640.Find((unsigned int)window);
+        OwnerDraw::WinData *record = OwnerDraw::unknown_registry_a73640.Find((unsigned int)window);
         if (record) {
             if (record->unknown_bc) {
                 ValidateRect(window, 0);

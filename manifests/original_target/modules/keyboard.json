@@ -1,0 +1,1310 @@
+{
+ "module": "keyboard",
+ "source": "src/recovered/keyboard.cpp",
+ "header": null,
+ "population": "population-4012",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 873,
+ "code": [
+  {
+   "symbol": "?unknown_empty_00532120@seed_00532120@@YAXXZ",
+   "entry": "00532120",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "??0WWKeyboardClass@@QAE@XZ",
+   "entry": "00532130",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Buff_Get@WWKeyboardClass@@AAEGXZ",
+   "entry": "00532160",
+   "body_bytes": 303,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Is_Mouse_Key@WWKeyboardClass@@CIHG@Z",
+   "entry": "00532290",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Is_Char_Key@WWKeyboardClass@@CIHG@Z",
+   "entry": "005322c0",
+   "body_bytes": 9,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "entry": "005322d0",
+   "body_bytes": 68,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Get@WWKeyboardClass@@QAEGXZ",
+   "entry": "00532320",
+   "body_bytes": 354,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Put@WWKeyboardClass@@QAE_NG@Z",
+   "entry": "00532490",
+   "body_bytes": 63,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Put_Key_Message@WWKeyboardClass@@QAE_NG_N@Z",
+   "entry": "005324d0",
+   "body_bytes": 230,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Put_Mouse_Message@WWKeyboardClass@@QAE_NGHH_N@Z",
+   "entry": "005325c0",
+   "body_bytes": 210,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Put_Char@WWKeyboardClass@@QAE_NG@Z",
+   "entry": "005326a0",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?To_ASCII@WWKeyboardClass@@QAEDG@Z",
+   "entry": "00532720",
+   "body_bytes": 210,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?To_Char@WWKeyboardClass@@QAEDG@Z",
+   "entry": "00532800",
+   "body_bytes": 137,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "entry": "00532890",
+   "body_bytes": 70,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Fetch_Element@WWKeyboardClass@@AAEGXZ",
+   "entry": "005328e0",
+   "body_bytes": 52,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Peek_Element@WWKeyboardClass@@AAEGXZ",
+   "entry": "00532920",
+   "body_bytes": 29,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Put_Element@WWKeyboardClass@@AAE_NG@Z",
+   "entry": "00532940",
+   "body_bytes": 63,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Is_Buffer_Full@WWKeyboardClass@@AAE_NXZ",
+   "entry": "00532980",
+   "body_bytes": 31,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Is_Buffer_Empty@WWKeyboardClass@@AAE_NXZ",
+   "entry": "005329a0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Fill_Buffer_From_System@WWKeyboardClass@@AAEXXZ",
+   "entry": "005329c0",
+   "body_bytes": 35,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "entry": "005329f0",
+   "body_bytes": 105,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Message_Handler@WWKeyboardClass@@QAEHPAUHWND__@@IIJ@Z",
+   "entry": "00532a60",
+   "body_bytes": 1012,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Available@WWKeyboardClass@@QAEHXZ",
+   "entry": "00532e60",
+   "body_bytes": 29,
+   "padding_bytes": 3
+  }
+ ],
+ "code_bytes": 3424,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0076b5a0",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "0076b670",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "0076b7a0",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "004cf330",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "004cf330",
+   "symbol": "?Get@WWKeyboardClass@@QAEGXZ",
+   "target": "00532320",
+   "function_entry": true
+  },
+  {
+   "site": "004cf330",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "004cf330",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "004b2b40",
+   "symbol": "?To_ASCII@WWKeyboardClass@@QAEDG@Z",
+   "target": "00532720",
+   "function_entry": true
+  },
+  {
+   "site": "004b2b40",
+   "symbol": "?To_ASCII@WWKeyboardClass@@QAEDG@Z",
+   "target": "00532720",
+   "function_entry": true
+  },
+  {
+   "site": "00505390",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "00505390",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "00505390",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "00505390",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "00443ba0",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "00443ba0",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "006ccce0",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "006ccce0",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "006ccce0",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "006ccce0",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "006ccce0",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "006ccce0",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "0065c1f0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "0065c310",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "0065c3d0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "0065c420",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "0065e440",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "0065e440",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "0065e590",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "0065dec0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "005d1db0",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "005d1db0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "006b1c80",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "006f6670",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "006f6670",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "006f6670",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "006f6670",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "005b56f0",
+   "symbol": "?To_Char@WWKeyboardClass@@QAEDG@Z",
+   "target": "00532800",
+   "function_entry": true
+  },
+  {
+   "site": "006cc5d0",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "006cc5d0",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "006cc5d0",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "006cc5d0",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "006cc5d0",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "006cc5d0",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "00624850",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "00624850",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "0072fc80",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "0072fc80",
+   "symbol": "?Get@WWKeyboardClass@@QAEGXZ",
+   "target": "00532320",
+   "function_entry": true
+  },
+  {
+   "site": "0072fc80",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "0072ff80",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "00730160",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "0072f5a0",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "0072f5a0",
+   "symbol": "?Get@WWKeyboardClass@@QAEGXZ",
+   "target": "00532320",
+   "function_entry": true
+  },
+  {
+   "site": "0072f5a0",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "0072f7a0",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "0072f7a0",
+   "symbol": "?Get@WWKeyboardClass@@QAEGXZ",
+   "target": "00532320",
+   "function_entry": true
+  },
+  {
+   "site": "0072f7a0",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "0072f7a0",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "0072f7a0",
+   "symbol": "?Get@WWKeyboardClass@@QAEGXZ",
+   "target": "00532320",
+   "function_entry": true
+  },
+  {
+   "site": "0072f7a0",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "0072fa00",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "0072fa00",
+   "symbol": "?Get@WWKeyboardClass@@QAEGXZ",
+   "target": "00532320",
+   "function_entry": true
+  },
+  {
+   "site": "0072fa00",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "0072e050",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "0072e050",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "0072e050",
+   "symbol": "?Get@WWKeyboardClass@@QAEGXZ",
+   "target": "00532320",
+   "function_entry": true
+  },
+  {
+   "site": "00672160",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "006b1d00",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "005eab60",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "005ff7c0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "005ff6e0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "00600c80",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "0073c230",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "0073c230",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "0066a290",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "0066a290",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "0071ccd0",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "0071ccd0",
+   "symbol": "?Get@WWKeyboardClass@@QAEGXZ",
+   "target": "00532320",
+   "function_entry": true
+  },
+  {
+   "site": "00665ee0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "00665ee0",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "00665ee0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "00666e70",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "00666e70",
+   "symbol": "?Get@WWKeyboardClass@@QAEGXZ",
+   "target": "00532320",
+   "function_entry": true
+  },
+  {
+   "site": "00666e70",
+   "symbol": "?To_Char@WWKeyboardClass@@QAEDG@Z",
+   "target": "00532800",
+   "function_entry": true
+  },
+  {
+   "site": "00666e70",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "00666e70",
+   "symbol": "?Get@WWKeyboardClass@@QAEGXZ",
+   "target": "00532320",
+   "function_entry": true
+  },
+  {
+   "site": "00666e70",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "004c61a0",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "004c61a0",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "00577bd0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "00634a00",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "00634a00",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "00669960",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "00669960",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "004438a0",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "004438a0",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "0053fbd0",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "0053fbd0",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "0053fbd0",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "0053fbd0",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "005406e0",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "005406e0",
+   "symbol": "?Get@WWKeyboardClass@@QAEGXZ",
+   "target": "00532320",
+   "function_entry": true
+  },
+  {
+   "site": "005406e0",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "00540c20",
+   "symbol": "?To_ASCII@WWKeyboardClass@@QAEDG@Z",
+   "target": "00532720",
+   "function_entry": true
+  },
+  {
+   "site": "004de9e0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "004de9e0",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "004de9e0",
+   "symbol": "?Get@WWKeyboardClass@@QAEGXZ",
+   "target": "00532320",
+   "function_entry": true
+  },
+  {
+   "site": "00430430",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "00430430",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "00430430",
+   "symbol": "?Get@WWKeyboardClass@@QAEGXZ",
+   "target": "00532320",
+   "function_entry": true
+  },
+  {
+   "site": "00430430",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "0063b090",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "0063b090",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "005a0710",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "005a0710",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "00516f00",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "00516f00",
+   "symbol": "?Get@WWKeyboardClass@@QAEGXZ",
+   "target": "00532320",
+   "function_entry": true
+  },
+  {
+   "site": "00600260",
+   "symbol": "?Put@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532490",
+   "function_entry": true
+  },
+  {
+   "site": "0046e520",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "0046e520",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "007375a0",
+   "symbol": "?Message_Handler@WWKeyboardClass@@QAEHPAUHWND__@@IIJ@Z",
+   "target": "00532a60",
+   "function_entry": true
+  },
+  {
+   "site": "006011a0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "0049bb20",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "00623770",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "00623770",
+   "symbol": "?Get@WWKeyboardClass@@QAEGXZ",
+   "target": "00532320",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "0072e780",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "0072e780",
+   "symbol": "?Get@WWKeyboardClass@@QAEGXZ",
+   "target": "00532320",
+   "function_entry": true
+  },
+  {
+   "site": "0072e780",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "0072e780",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "0072e780",
+   "symbol": "?Get@WWKeyboardClass@@QAEGXZ",
+   "target": "00532320",
+   "function_entry": true
+  },
+  {
+   "site": "0072e780",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "006adae0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "006adae0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "00669ec0",
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "target": "00532890",
+   "function_entry": true
+  },
+  {
+   "site": "004e09d0",
+   "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
+   "target": "005322d0",
+   "function_entry": true
+  },
+  {
+   "site": "004e09d0",
+   "symbol": "?Get@WWKeyboardClass@@QAEGXZ",
+   "target": "00532320",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "00481bf0",
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "target": "005329f0",
+   "function_entry": true
+  },
+  {
+   "site": "0068e280",
+   "symbol": "??0WWKeyboardClass@@QAE@XZ",
+   "target": "00532130",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "?Unknown_005233A0@@YIXH_N@Z",
+   "address": "005233a0"
+  },
+  {
+   "symbol": "?Unknown_005233D0@@YIFH@Z",
+   "address": "005233d0"
+  },
+  {
+   "symbol": "?Unknown_005233F0@@YIFH@Z",
+   "address": "005233f0"
+  },
+  {
+   "symbol": "?Unknown_005B5EE0@@YAXXZ",
+   "address": "005b5ee0"
+  },
+  {
+   "symbol": "?WWMouse@@3PAVMouse@@A",
+   "address": "00839c68"
+  },
+  {
+   "symbol": "?unknown_flag_a3dc89@@3_NA",
+   "address": "00a3dc89"
+  },
+  {
+   "symbol": "?unknown_flag_a40d44@@3_NA",
+   "address": "00a40d44"
+  },
+  {
+   "symbol": "__imp__ClientToScreen@8",
+   "address": "0079a4ac"
+  },
+  {
+   "symbol": "__imp__DefWindowProcA@16",
+   "address": "0079a388"
+  },
+  {
+   "symbol": "__imp__GetSystemMetrics@4",
+   "address": "0079a3dc"
+  },
+  {
+   "symbol": "__imp__MapVirtualKeyA@8",
+   "address": "0079a3d8"
+  },
+  {
+   "symbol": "__imp__ToAscii@20",
+   "address": "0079a3a0"
+  }
+ ],
+ "route": "A",
+ "unit": "keyboard.cpp",
+ "form": "one include block",
+ "switches": [
+  "WM_KEYDOWN",
+  "WM_KEYUP",
+  "WM_CHAR",
+  "WM_SYSKEYDOWN",
+  "WM_SYSKEYUP",
+  "WM_LBUTTONDOWN",
+  "WM_LBUTTONUP",
+  "WM_LBUTTONDBLCLK",
+  "WM_RBUTTONDOWN",
+  "WM_RBUTTONUP",
+  "WM_RBUTTONDBLCLK",
+  "WM_MBUTTONDOWN",
+  "WM_MBUTTONUP",
+  "WM_MBUTTONDBLCLK",
+  "VK_LBUTTON",
+  "VK_RBUTTON",
+  "VK_MBUTTON",
+  "VK_SCROLL"
+ ],
+ "include_blocks": [
+  {
+   "before": "00532130",
+   "lines": 23
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "00532120",
+   "bytes": 1,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "00531f30",
+   "bytes": 23,
+   "population": "population-251",
+   "source": "src/recovered/header_statics/00531f30/HeaderStatics_empty_rect_init_00531f30.cpp",
+   "cause": "frozen in another population's inventory pass (population-251)"
+  },
+  {
+   "kind": "split",
+   "entry": "00531f50",
+   "bytes": 40,
+   "population": "population-251",
+   "source": "src/recovered/header_statics/00531f30/HeaderStatics_diagonal_init_00531f50.cpp",
+   "cause": "held by population-251; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E2)"
+  },
+  {
+   "kind": "split",
+   "entry": "00531f80",
+   "bytes": 19,
+   "population": "population-251",
+   "source": "src/recovered/header_statics/00531f30/HeaderStatics_b_init_00531f80.cpp",
+   "cause": "held by population-251; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E3)"
+  },
+  {
+   "kind": "split",
+   "entry": "00531fa0",
+   "bytes": 19,
+   "population": "population-251",
+   "source": "src/recovered/header_statics/00531f30/HeaderStatics_c_init_00531fa0.cpp",
+   "cause": "held by population-251; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E4)"
+  },
+  {
+   "kind": "split",
+   "entry": "00531fc0",
+   "bytes": 19,
+   "population": "population-251",
+   "source": "src/recovered/header_statics/00531f30/HeaderStatics_angle45_init_00531fc0.cpp",
+   "cause": "held by population-251; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E5)"
+  },
+  {
+   "kind": "split",
+   "entry": "00531fe0",
+   "bytes": 19,
+   "population": "population-251",
+   "source": "src/recovered/header_statics/00531f30/HeaderStatics_angle60_init_00531fe0.cpp",
+   "cause": "held by population-251; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E6)"
+  },
+  {
+   "kind": "split",
+   "entry": "00532000",
+   "bytes": 19,
+   "population": "population-251",
+   "source": "src/recovered/header_statics/00531f30/HeaderStatics_angle90_init_00532000.cpp",
+   "cause": "held by population-251; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E7)"
+  },
+  {
+   "kind": "split",
+   "entry": "00532020",
+   "bytes": 49,
+   "population": "population-251",
+   "source": "src/recovered/header_statics/00531f30/HeaderStatics_g_init_00532020.cpp",
+   "cause": "held by population-251; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E8)"
+  },
+  {
+   "kind": "split",
+   "entry": "00532060",
+   "bytes": 33,
+   "population": "population-251",
+   "source": "src/recovered/header_statics/00531f30/HeaderStatics_h_init_00532060.cpp",
+   "cause": "held by population-251; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E9)"
+  },
+  {
+   "kind": "split",
+   "entry": "00532090",
+   "bytes": 44,
+   "population": "population-251",
+   "source": "src/recovered/header_statics/00531f30/HeaderStatics_i_init_00532090.cpp",
+   "cause": "held by population-251; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E10)"
+  },
+  {
+   "kind": "split",
+   "entry": "005320c0",
+   "bytes": 39,
+   "population": "population-251",
+   "source": "src/recovered/header_statics/00531f30/HeaderStatics_j_init_005320c0.cpp",
+   "cause": "held by population-251; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E11)"
+  },
+  {
+   "kind": "split",
+   "entry": "005320f0",
+   "bytes": 15,
+   "population": "population-251",
+   "source": "src/recovered/header_statics/00531f30/HeaderStatics_k_init_005320f0.cpp",
+   "cause": "held by population-251; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E12)"
+  },
+  {
+   "kind": "split",
+   "entry": "00532100",
+   "bytes": 18,
+   "population": "population-251",
+   "source": "src/recovered/header_statics/00531f30/HeaderStatics_l_init_00532100.cpp",
+   "cause": "held by population-251; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E13)"
+  }
+ ],
+ "unit_functions": 37,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 13,
+  "bytes": 356
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

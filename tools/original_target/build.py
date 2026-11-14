@@ -105,8 +105,8 @@ def wine_invocation(config, directory, lines, name, temporary_name='tmp'):
     return command, env
 
 
-def wine_command(config, directory, lines, name, timeout=180):
-    command, env = wine_invocation(config, directory, lines, name)
+def wine_command(config, directory, lines, name, timeout=180, temporary_name='tmp'):
+    command, env = wine_invocation(config, directory, lines, name, temporary_name)
     before = time.monotonic()
     with exclusive_lock(config['lock']):
         waited = time.monotonic()-before
@@ -138,7 +138,7 @@ def kill_hung_compilers(marker, limit, done, killed):
                 killed.append(parts[2][:300])
 
 
-def wine_parallel(config, directory, units, name, timeout=3600, hang_seconds=600):
+def wine_parallel(config, directory, units, name, timeout=3600, hang_seconds=600, marker=None):
     """Run independent command units in concurrent Wine sessions.
 
     Each unit is a list of script lines (one compile and its exit-code
@@ -160,7 +160,7 @@ def wine_parallel(config, directory, units, name, timeout=3600, hang_seconds=600
         started = time.monotonic()
         done = threading.Event(); killed = []
         # Hung compilers are a Wine artefact; native runs need no watchdog.
-        watchdog = threading.Thread(target=kill_hung_compilers, args=(win(directory), hang_seconds, done, killed))
+        watchdog = threading.Thread(target=kill_hung_compilers, args=(marker or win(directory), hang_seconds, done, killed))
         if not NATIVE:
             watchdog.start()
         try:
@@ -199,6 +199,82 @@ def sdk_directory(config):
     return directory
 
 
+# Fixed compile folder (docs/ORIGINAL_TARGET_BUILD.md "Fixed compile folder"; DECISIONS
+# "Fixed compile folder"). Under /GR, VC6 SP3 sets the class hierarchy descriptor's
+# ambiguous bit (??_R3 attributes 1 or 5) from memory whose contents follow the length of
+# the compile folder and of the include directory, so every compile runs at one layout:
+#   <drive>:\private\tmp\ra2c\<8 hex>\g<4 digits>\accepted.cpp   (cwd, source, /Fo)
+#   <drive>:\private\tmp\ra2c\<8 hex>\src                       (/I, a link to src/)
+# The 8 hex digits name one compile_units call (repository, process, call), so concurrent
+# builds never share a folder while every path keeps its length; the 4 digits number the
+# call's units; the Wine sessions run in the root, so TMP is <root>\tmp-N (its length
+# changes the order of sections in some objects, not their bytes or the RTTI bit).
+FIXED_ROOT = Path((os.environ.get('SystemDrive', 'C:') + '\\private\\tmp\\ra2c') if NATIVE else '/private/tmp/ra2c')
+FIXED_LAYOUT = r"<drive>:\private\tmp\ra2c\XXXXXXXX\gNNNN\accepted.cpp; /I <drive>:\private\tmp\ra2c\XXXXXXXX\src; TMP <drive>:\private\tmp\ra2c\XXXXXXXX\tmp-N"
+FIXED_UNITS = 10000
+_FIXED_CALLS = [0]
+
+
+def fixed_path_text(path):
+    """The compiler-visible spelling of a path under FIXED_ROOT (never resolved: the
+    include directory is a link whose own path is what VC6 sees)."""
+    value = str(path)
+    return value if NATIVE else 'Z:' + value.replace('/', '\\')
+
+
+def fixed_layout_ok(text_cwd, text_obj, text_include):
+    """Whether a compile's folder, object and include spellings follow the fixed layout."""
+    import re
+    root = re.escape(fixed_path_text(FIXED_ROOT))
+    folder = re.fullmatch(root + r'\\[0-9a-f]{8}\\g[0-9]{4}', text_cwd)
+    return bool(folder and text_obj == text_cwd + '\\accepted.obj' and
+                re.fullmatch(root + r'\\[0-9a-f]{8}\\src', text_include) and
+                text_include[:-len('src')] == text_cwd[:-len('g0000')])
+
+
+def link_directory(link, target):
+    if NATIVE:
+        subprocess.run(['cmd', '/c', 'mklink', '/J', str(link), str(target)], check=True, capture_output=True)
+    else:
+        os.symlink(target, link)
+
+
+def stage_fixed(units, sdk=None):
+    """Stage each unit's source under one fixed-layout root; returns (root, [staged unit])."""
+    import hashlib
+    require(len(units) <= FIXED_UNITS, 'Too many units for one fixed compile root')
+    _FIXED_CALLS[0] += 1
+    tag = hashlib.sha256(('%s:%d:%d:%f' % (REPOSITORY, os.getpid(), _FIXED_CALLS[0], time.time())).encode()).hexdigest()[:8]
+    root = FIXED_ROOT / tag
+    if root.exists():
+        shutil.rmtree(root)
+    root.mkdir(parents=True)
+    link_directory(root / 'src', REPOSITORY / 'src')
+    if sdk is not None:
+        link_directory(root / 'sdk', Path(sdk))
+    staged = []
+    for index, unit in enumerate(units):
+        folder = root / ('g%04d' % index)
+        folder.mkdir()
+        shutil.copyfile(unit['source'], folder / 'accepted.cpp')
+        staged.append(dict(unit, cwd=folder, source=folder / 'accepted.cpp', obj=folder / 'accepted.obj', fixed=True))
+    return root, staged
+
+
+def unstage_fixed(root, units, staged):
+    """Copy each staged object back to its unit's object path, then remove the root."""
+    for unit, stage in zip(units, staged):
+        if Path(unit['obj']).exists():
+            Path(unit['obj']).unlink()
+        if stage['obj'].exists():
+            shutil.copyfile(stage['obj'], unit['obj'])
+    for link in ('src', 'sdk'):
+        target = root / link
+        if target.is_symlink() or (NATIVE and target.exists()):
+            os.rmdir(target) if NATIVE else target.unlink()
+    shutil.rmtree(root, ignore_errors=True)
+
+
 def unit_lines(unit, path, include, compiler, sdk=None):
     """Cmd lines for one compile unit (dict: cwd, source, obj, log, returncode,
     args, optional sdk). The compiler runs from the unit's directory with a relative source
@@ -209,9 +285,19 @@ def unit_lines(unit, path, include, compiler, sdk=None):
     source = os.path.relpath(os.path.abspath(unit['source']), os.path.abspath(unit['cwd'])).replace('/', '\\')
     require(not any(c in source for c in '\r\n"%!'), 'Unsupported source path')
     require(not unit.get('sdk') or sdk, 'Converted unit without an SDK header directory')
+    if unit.get('fixed'):
+        cwd, obj = fixed_path_text(unit['cwd']), fixed_path_text(unit['obj'])
+        include = fixed_path_text(Path(unit['cwd']).parent / 'src')
+        sdk = fixed_path_text(Path(unit['cwd']).parent / 'sdk') if unit.get('sdk') else sdk
+    else:
+        cwd, obj = path(unit['cwd']), path(unit['obj'])
+    # A /GR compile outside the fixed layout would make its RTTI depend on where it ran.
+    require('/GR' not in unit['args'] or (unit.get('fixed') and source == 'accepted.cpp' and
+                                          fixed_layout_ok(cwd, obj, include)),
+            '/GR compile outside the fixed compile folder: %s' % cwd)
     extra = ['/I'+sdk] if unit.get('sdk') else []
-    args = [*unit['args'], '/I'+include, *extra, '/Fo'+path(unit['obj']), source]
-    return ['cd /d "%s"' % path(unit['cwd']),
+    args = [*unit['args'], '/I'+include, *extra, '/Fo'+obj, source]
+    return ['cd /d "%s"' % cwd,
             '"'+compiler+'" '+' '.join('"'+a+'"' for a in args)+' >"'+path(unit['log'])+'" 2>&1',
             '>"'+path(unit['returncode'])+'" echo %errorlevel%']
 
@@ -225,6 +311,8 @@ def compile_units(config, directory, units, name, parallel=True, timeout=3600, h
         unit['sdk'] = defines_sdk_switch(Path(unit['source']).read_bytes())
     sdk = sdk_directory(config) if any(u['sdk'] for u in units) else None
     spec, fallback = remote_compile.settings(config), None
+    if spec and units and any('/GR' in u['args'] for u in units):
+        spec, fallback = None, 'a /GR unit compiles only at the fixed local folder'
     if spec and units:
         try:
             pinned = json.loads((REPOSITORY/'manifests/toolchain.json').read_text())['compiler']
@@ -235,14 +323,23 @@ def compile_units(config, directory, units, name, parallel=True, timeout=3600, h
         except remote_compile.Unavailable as error:
             fallback = str(error)
             print('remote compile unavailable (%s); compiling locally' % fallback, file=sys.stderr, flush=True)
-    rendered = [unit_lines(u, win, win(REPOSITORY/'src'), win(Path(config['compiler_directory'])/'CL.EXE'),
-                           win(sdk) if sdk else None)
-                for u in units]
-    if parallel:
-        receipt = wine_parallel(config, directory, rendered, name, timeout, hang_seconds)
-    else:
-        receipt = wine_command(config, directory, [l for u in rendered for l in u] + ['exit /b 0'], name, timeout)
-        receipt['killed_hung_compilers'] = []
+    root, staged = stage_fixed(units, sdk)
+    try:
+        rendered = [unit_lines(u, win, win(REPOSITORY/'src'), win(Path(config['compiler_directory'])/'CL.EXE'),
+                               win(sdk) if sdk else None)
+                    for u in staged]
+        if parallel:
+            # Sessions run in the root, so their TMP folders (root\\tmp-N) keep one length too:
+            # TMP's length changes the order of sections in some objects (not their bytes).
+            receipt = wine_parallel(config, root, rendered, name, timeout, hang_seconds,
+                                    marker=fixed_path_text(root))
+        else:
+            receipt = wine_command(config, root, [l for u in rendered for l in u] + ['exit /b 0'], name, timeout,
+                                   temporary_name='tmp-0')
+            receipt['killed_hung_compilers'] = []
+    finally:
+        unstage_fixed(root, units, staged)
+    receipt['fixed_layout'] = FIXED_LAYOUT
     receipt['backend'] = 'local'
     if fallback:
         receipt['remote_fallback'] = fallback
@@ -296,7 +393,7 @@ def group_cache_key(source, args, closure, headers, pinned):
     """Identity of one group's compile: the pinned compiler files, the
     argument list, the unit text and every header in its include closure
     (plus the pinned SDK tree digest for a converted unit)."""
-    key = dict(compiler=pinned, arguments=list(args), source=sha(source),
+    key = dict(compiler=pinned, arguments=list(args), source=sha(source), compile_path=FIXED_LAYOUT,
                headers=[(name, sha(headers[name])) for name in closure])
     if defines_sdk_switch(source):
         from canonical import sdk_pin, sdk_tree_digest
@@ -491,7 +588,7 @@ def shift_plan(audit, manifest, destination, name):
                 data_copies=copies, pad_bytes=512)
 
 
-def integrate(config, audit, manifest, destination, library=None, assembly=None, shift=None):
+def integrate(config, audit, manifest, destination, library=None, assembly=None, shift=None, generated=None):
     pe = audit.pe; base=pe.OPTIONAL_HEADER.ImageBase; text=pe.sections[0]
     require(text.Name.rstrip(b'\0') == b'.text' and text.VirtualAddress == 0x1000, 'Unexpected text layout')
     scaffold = destination/'scaffold'; scaffold.mkdir()
@@ -506,6 +603,8 @@ def integrate(config, audit, manifest, destination, library=None, assembly=None,
                 if lo<=start and end<=lo+len(data):
                     data[start-lo:end-lo]=b'\xcc'*(end-start)
         (scaffold/(name+'.bin')).write_bytes(bytes(data))
+    import generated_data
+    generated_receipts = generated_data.place(config, generated, manifest['accepted'], audit.original, destination, scaffold, pe)
     if plan:
         parts, receipts, symbolic = transferred_parts(audit,manifest,(plan['symbols'],plan['source']))
     else:
@@ -576,6 +675,7 @@ def integrate(config, audit, manifest, destination, library=None, assembly=None,
     write_json(destination/'integration-receipt.json',dict(regions=receipts, library_regions=library_receipts, library_notes=library_notes,
                library_bytes=sum(r['bytes'] for r in library_receipts),
                assembly_regions=assembly_receipts, assembly_bytes=sum(r['bytes'] for r in assembly_receipts),
+               generated_data_modules=generated_receipts, generated_data_bytes=sum(r['bytes'] for r in generated_receipts),
                remaining_text_scaffold_bytes=limit-base-text.VirtualAddress-sum(r['bytes'] for r in receipts)-sum(r['bytes'] for r in library_receipts)-sum(r['bytes'] for r in assembly_receipts),
                assembler=assembler,assembler_sha256=sha(Path(assembler).read_bytes()),
                **({'shift': dict(module=plan['name'], source=plan['source'], pad_bytes=plan['pad_bytes'],
@@ -702,9 +802,10 @@ def main():
     audit=CanonicalAudit(REPOSITORY,catalog,config)
     toolchain_pins=json.loads((REPOSITORY/'manifests/toolchain.json').read_text())
     tools=check_toolchain(config,toolchain_pins)
-    import library_build, assembly_build
+    import library_build, assembly_build, generated_data
     library=library_build.load(config, toolchain_pins.get('libraries'))
     assembly=assembly_build.load(config, toolchain_pins.get('assembler'))
+    generated=generated_data.load()
     phase('load and audit setup')
     if args.verify_inputs:
         print(json.dumps(dict(status='input-hashes-and-source-catalog-verified',sources=len(catalog['regions']))));return
@@ -717,7 +818,8 @@ def main():
     inputs=[REPOSITORY/'manifests/toolchain.json',
             *[Path(__file__).with_name(name) for name in ['build.py','remote_compile.py','canonical.py','catalog_io.py','source_paths.py','verify_manifest.py','coff.py','compiler_output.py',
                                                            'library_build.py','library_identity.py','library_link.py',
-                                                           'assembly_tools.py','assembly_build.py','assembly_link.py']],
+                                                           'assembly_tools.py','assembly_build.py','assembly_link.py','generated_data.py']],
+            *generated_data.inputs(generated),
             *([library_build.MANIFEST] if library else []),
             *([assembly_build.MANIFEST, *[REPOSITORY/s for s in assembly['sources']], *[REPOSITORY/s for s in assembly.get('includes', {})]] if assembly else [])]
     for population in catalog['populations']:
@@ -732,7 +834,7 @@ def main():
     fingerprints[catalog_key]=catalog_io.digest(args.manifest,catalog_blobs)
     compiled=compile_sources(config,catalog,destination); phase('compile')
     manifest=audit.verify_fresh(destination,compiled,jobs=args.verify_jobs); phase('verify fresh objects')
-    integrate(config,audit,manifest,destination,library,assembly,args.shift_module); phase('integrate and link')
+    integrate(config,audit,manifest,destination,library,assembly,args.shift_module,generated); phase('integrate and link')
     original=audit.read(config['executable'])
     if args.shift_module:
         report=shift_package(original,(destination/'linked.exe').read_bytes(),destination,args.shift_module)
@@ -765,6 +867,7 @@ def main():
                   library_regions=0 if not library else len(library['regions']),
                   assembly_bytes=0 if not assembly else sum(r['bytes'] for r in assembly['regions']),
                   assembly_regions=0 if not assembly else len(assembly['regions']),
+                  generated_data_bytes=json.loads((destination/'integration-receipt.json').read_text()).get('generated_data_bytes', 0),
                   toolchain=tools,authored_dependencies=fingerprints,seconds=time.monotonic()-started,
                   compile_policy='Fresh accepted-only sources; historical population/option groups, no candidate-search matrices')
     if not args.keep_intermediates:

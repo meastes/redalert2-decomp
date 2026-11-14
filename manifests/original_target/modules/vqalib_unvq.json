@@ -1,0 +1,115 @@
+{
+ "module": "vqalib_unvq",
+ "source": "src/recovered/vqalib_unvq.cpp",
+ "header": null,
+ "population": "population-4229",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 914,
+ "code": [
+  {
+   "symbol": "?UnVQ2_C1_4x4@@YAXPAE00KKK@Z",
+   "entry": "0077cbd0",
+   "body_bytes": 918,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?UnVQ1_C4_4x4@@YAXPAE00KKK@Z",
+   "entry": "0077cf70",
+   "body_bytes": 326,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?UnVQ2_C4_4x4@@YAXPAE00KKK@Z",
+   "entry": "0077d0c0",
+   "body_bytes": 929,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?UnVQ1_C4_4x2@@YAXPAE00KKK@Z",
+   "entry": "0077d470",
+   "body_bytes": 317,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?UnVQ2_C4_4x2@@YAXPAE00KKK@Z",
+   "entry": "0077d5b0",
+   "body_bytes": 901,
+   "padding_bytes": 11
+  }
+ ],
+ "code_bytes": 3440,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00777880",
+   "symbol": "?UnVQ1_C4_4x4@@YAXPAE00KKK@Z",
+   "target": "0077cf70",
+   "function_entry": true
+  },
+  {
+   "site": "00777880",
+   "symbol": "?UnVQ2_C4_4x4@@YAXPAE00KKK@Z",
+   "target": "0077d0c0",
+   "function_entry": true
+  },
+  {
+   "site": "00777880",
+   "symbol": "?UnVQ2_C1_4x4@@YAXPAE00KKK@Z",
+   "target": "0077cbd0",
+   "function_entry": true
+  },
+  {
+   "site": "00777880",
+   "symbol": "?UnVQ1_C4_4x2@@YAXPAE00KKK@Z",
+   "target": "0077d470",
+   "function_entry": true
+  },
+  {
+   "site": "00777880",
+   "symbol": "?UnVQ2_C4_4x2@@YAXPAE00KKK@Z",
+   "target": "0077d5b0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [],
+ "route": "A",
+ "unit": "vqalib_unvq.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "0077cbd0",
+   "lines": 1
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 7,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

@@ -4,8 +4,8 @@
     "id": "population-4223",
     "inventory_sha256": "30952e864846da74c93998490bfdf040e6c6898075c7ea550110681fb24aa1bd",
     "gaps_sha256": "63f361024dec5e325f8acb1fa4de455e14c194d8942e8a8563450a5d60303cbd",
-    "historical_population_sha256": "c98173d151192fa9bdea61c47cf5e499033e8c1d1158b1e97cb63ab2842ccab4",
-    "historical_acceptance_sha256": "b95cc76445170d6e4b857e65a60a2146589a3a007f7f35f7a5ccb72640b5c0a6"
+    "historical_population_sha256": "bf6a9e286f6cdebda4be2a60e58375751148ae61e024c27a278004d76ae97ef6",
+    "historical_acceptance_sha256": "25b75878f36656ce0b2c48580134d969c216c7c9d6980f8666cf393997e4f51f"
   },
   "references": {
     "_unknown_empty_rect": 10950712,
@@ -871,7 +871,7 @@
     "?Is_Finished@VQMovieHandle@@UAE_NXZ": 5904464,
     "?Waiting@VQMovieHandle@@UAEXXZ": 5904544,
     "?InitSubtitles@VQMovieHandle@@UAEXH@Z": 5904624,
-    "?Unknown_0069B4F0@VQAMovieCompanion@@QAEXH@Z": 6927600,
+    "?SetCallback_0069b4f0@VQAMovieCompanion@@QAEXH@Z": 6927600,
     "?SeekToFrame@VQMovieHandle@@UAEXH@Z": 5904656,
     "?Reset_VQA@VQAClass@@QAEXXZ": 7459344,
     "?Seek_To_Frame@VQAClass@@QAEXH@Z": 7457888,
@@ -1228,7 +1228,7 @@
     "?ID@?$VectorClass@K@@UAEHABK@Z": 6915344,
     "?ID@?$VectorClass@K@@UAEHPBK@Z": 6915408,
     "?ID@?$DynamicVectorClass@K@@UAEHABK@Z": 6915696,
-    "?Unknown_0069B4E0@VQAMovieCompanion@@QAEXXZ": 6927584,
+    "?Reset_0069b4e0@VQAMovieCompanion@@QAEXXZ": 6927584,
     "?Clear@?$DynamicVectorClass@PAVSubTitle@@@@UAEXXZ": 6930304,
     "?ID@?$DynamicVectorClass@PAVSubTitle@@@@UAEHPBQAVSubTitle@@@Z": 6930352,
     "?Fetch@?$VectorClass@PAVSubTitle@@@@UBEPAVSubTitle@@H@Z": 6930384,
@@ -1518,7 +1518,7 @@
     "?Delete@RAMFileClass@@UAEHXZ": 6521792,
     "?Is_Open@RawFileClass@@UBE_NXZ": 6526160,
     "_strncpy": 7873488,
-    "__DAT_00ab6e88": 11234952,
+    "__waypoint_none_00ab6e88": 11234952,
     "?Reset@ScriptClass@@QAE_NXZ": 6719744,
     "?ID@?$DynamicVectorClass@UUndoInfoStruct@@@@UAEHPBUUndoInfoStruct@@@Z": 6844272,
     "?ID@?$VectorClass@UUndoInfoStruct@@@@UAEHPBUUndoInfoStruct@@@Z": 6844848,
@@ -1575,7 +1575,7 @@
     "?ID@?$VectorClass@PAVSpawnControl@@@@UAEHPBQAVSpawnControl@@@Z": 6859840,
     "?ID@?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UAEHPBV?$rc_ptr@VConflict@WorldDominationTour@@@@@Z": 7499136,
     "?VQA_Unknown_0077C920@@YIHPAUVQAHandle@@PAH11@Z": 7850272,
-    "__DAT_0084ed10": 8711440,
+    "__cell_none_0084ed10": 8711440,
     "?Detach@IsometricTileTypeClass@@UAEXPAVAbstractClass@@_N@Z": 5432080,
     "?Detach@SuperClass@@UAEXPAVAbstractClass@@_N@Z": 6941424,
     "?Detach@TActionClass@@UAEXPAVAbstractClass@@_N@Z": 7001600,
@@ -1628,7 +1628,7 @@
     "??0BufferIOFileClass@@QAE@PBD@Z": 4387328,
     "??_7BufferIOFileClass@@6B@": 7980860,
     "??_GBufferIOFileClass@@UAEPAXI@Z": 4390384,
-    "?unknown_object_84e8d0@@3VUnknown84E8D0@@A": 8710352,
+    "?unknown_object_84e8d0@@3VBeaconManagerClass@@A": 8710352,
     "??4Buffer@@QAEAAV0@ABV0@@Z": 4424656,
     "??_GCDFileClass@@UAEPAXI@Z": 4200784,
     "?First@CDFileClass@@2PAUCDSearchDrive@@A": 8718488,
@@ -2044,7 +2044,7 @@
     "?Trim_Leading@Wstring@@QAEXABV1@@Z": 7791808,
     "??8BaseNodeClass@@QAE_NABV0@@Z": 4374240,
     "??OBaseNodeClass@@QAE_NABV0@@Z": 4374368,
-    "??0Unknown84E8D0@@QAE@XZ": 4382944,
+    "??0BeaconManagerClass@@QAE@XZ": 4382944,
     "?Reset@Benchmark@@QAEXXZ": 4387056,
     "?Value@Benchmark@@QBEKXZ": 4387296,
     "?unknown_a40774@@3HA": 10749812,
@@ -2180,10 +2180,10 @@
     "?Remove@UnknownList832470@@QAEXPAVObjectClass@@@Z": 5497712,
     "?Time@ConnectionClass@@SAKXZ": 4724160,
     "?Timer@MouseClass@@2V?$CDTimerClass@VSystemTimerClass@@@@A": 10948464,
-    "?unknown_session_a3d298@@3UUnknownSessionState@@A": 10736280,
+    "?unknown_session_a3d298@@3USessionClass@@A": 10736280,
     "??0MultiplayerGameMode@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z": 5991632,
-    "__DAT_00ab6ea8": 11234984,
-    "__DAT_00ab6eb0": 11234992,
+    "__unknown_timer_start_00ab6ea8": 11234984,
+    "__unknown_timer_accum_00ab6eb0": 11234992,
     "?One_Time@SidebarClass@@UAEXXZ": 6797456,
     "?One_Time@PowerClass@@UAEXXZ": 6407504,
     "?One_Time@StripClass@SidebarClass@@QAEXH@Z": 6809376,
@@ -3066,7 +3066,7 @@
     "?Reposition_Sidebar@PowerClass@@UAEXXZ": 6410544,
     "?Hide@CCToolTip@@UAEXPAUToolTipRecord@@@Z": 4645328,
     "?Help_Text@TabClass@@UAEPBGH@Z": 6955184,
-    "?Unknown_0042E700@Unknown84E8D0@@QAE_NH@Z": 4384512,
+    "?Unknown_0042E700@BeaconManagerClass@@QAE_NH@Z": 4384512,
     "?unknown_slot40@ObjectClass@@UAE?AUCoordStruct@@XZ": 4305472,
     "?Get@CounterClass@@QAEHH@Z": 4791568,
     "?Clear@CounterClass@@UAEXXZ": 4791664,
@@ -3153,7 +3153,7 @@
     "?Get@UnknownCRCStraw@@UAEHPAXH@Z": 4801168,
     "??0RGBClass@@QAE@XZ": 4889328,
     "?Initialize_Blitters_00483B00@ConvertClass@@QAEXXZ": 4733696,
-    "?Get@UnknownAlphaTableCache_008315B8@@QAEPAY0BAA@$$CBGH@Z": 4318176,
+    "?Get@AlphaLightingRemapInitClass@@QAEPAY0BAA@$$CBGH@Z": 4318176,
     "??_7RLEBlitter@@6B@": 7988540,
     "?Blit@?$RLEBlitTransXlatZRead@E@@UBEXPAXPBXHHH00HH0@Z": 4744976,
     "?Blit@?$RLEBlitTransZRemapXlatZRead@E@@UBEXPAXPBXHHH00HH0@Z": 4745184,
@@ -3207,7 +3207,7 @@
     "?ID@?$DynamicVectorClass@PBVTechnoTypeClass@@@@UAEHPBQBVTechnoTypeClass@@@Z": 4956304,
     "?Service_Game_IO_00481fb0@@YIXXZ": 4726704,
     "?x@?1???A?$IndexClass@HPAVCommandClass@@@@QBEABQAVCommandClass@@ABH@Z@4PAV2@A": 11712060,
-    "?Clear@GdiBitmapSurface_004981C0@@QAEXE@Z": 4817824,
+    "?Clear@DIB8Class@@QAEXE@Z": 4817824,
     "__imp__EndDialog@8": 7971772,
     "__imp__DialogBoxParamA@20": 7971780,
     "__imp__lstrlenA@4": 7971228,
@@ -3472,7 +3472,7 @@
     "?Load@BombClass@@UAGJPAUIStream@@@Z": 4415808,
     "?Clear@BombListClass@@QAEXXZ": 4417296,
     "?Detach@BombListClass@@QAEXPAVAbstractClass@@@Z": 4417360,
-    "?Read_Basic@UnknownIDSource@@QAE_NAAVCCINIClass@@@Z": 6691200,
+    "?Read_Basic@ScenarioClass@@QAE_NAAVCCINIClass@@@Z": 6691200,
     "?Load@LightSourceClass@@UAGJPAUIStream@@@Z": 5471136,
     "??_GTActionClass@@UAEPAXI@Z": 7024848,
     "__real@8@3feea7c5ac471b478800": 7980320,
@@ -3497,7 +3497,7 @@
     "?unknown_7df630@@3_NA": 8255024,
     "?Read_INI@BuildingClass@@SIXAAVCCINIClass@@@Z": 4500352,
     "?unknown_a40d39@@3_NA": 10751289,
-    "?Unknown_0042E1A0@Unknown84E8D0@@QAEXXZ": 4383136,
+    "?Unknown_0042E1A0@BeaconManagerClass@@QAEXXZ": 4383136,
     "?Unknown_006ecf10@@YAXXZ": 7261968,
     "?unknown_house_a72d28@@3PAVHouseClass@@A": 10956072,
     "?Narrow_Copy_00771280@@YI?AVWstring@@ABVWideString@@@Z": 7803520,
@@ -3540,7 +3540,7 @@
     "?unknown_tooltips_enabled_a40b34@@3_NA": 10750772,
     "?unknown_ab9174@@3HA": 11243892,
     "__real@8@3ff7a3d70a3d70a3d800": 7983472,
-    "??0UnknownIDSource@@QAE@XZ": 6665456,
+    "??0ScenarioClass@@QAE@XZ": 6665456,
     "?unknown_int_83964c@@3HA": 8623692,
     "?Set_Video_Mode_005434e0@@YI_NHH@Z": 5518560,
     "?Unknown_006EA9B0@@YAXXZ": 7252400,
@@ -3580,12 +3580,12 @@
     "?Presentation_0069A650@UnknownScore_0069A640@@QAEXXZ": 6923856,
     "?Unknown_00491A10@@YI_NXZ": 4790800,
     "?Unknown_004B37C0@@YIXXZ": 4929472,
-    "?Unknown_0058F620@@YIXPAVUnknownIDSource@@PBD@Z": 5830176,
-    "?Unknown_0058F510@@YIXPAVUnknownIDSource@@@Z": 5829904,
+    "?Unknown_0058F620@@YIXPAVScenarioClass@@PBD@Z": 5830176,
+    "?Unknown_0058F510@@YIXPAVScenarioClass@@@Z": 5829904,
     "?Unknown_005BC460@@YI_NXZ": 6014048,
     "?unknown_a3d580@@3HA": 10737024,
-    "?Load@UnknownIDSource@@QAEXPAUIStream@@@Z": 6688960,
-    "??0UnknownIDSource@@QAE@ABVNoInitClass@@@Z": 6666112,
+    "?Load@ScenarioClass@@QAEXPAUIStream@@@Z": 6688960,
+    "??0ScenarioClass@@QAE@ABVNoInitClass@@@Z": 6666112,
     "?Add@?$DynamicVectorClass@PAVTechnoTypeClass@@@@QAE_NABQAVTechnoTypeClass@@@Z": 6698304,
     "?Draw_It@ProgressScreenClass@@QAEXUPoint2D@@@Z": 6422608,
     "__imp__RegQueryInfoKeyA@48": 7970816,
@@ -3722,7 +3722,7 @@
     "?Delete_Blitters_004853A0@ConvertClass@@QAEXXZ": 4740000,
     "?unknown_475440@CellClass@@QBE?AUPoint2D@@XZ": 4674624,
     "??_GMultiplayerGameMode@@UAEPAXI@Z": 6000144,
-    "?Unknown_0042E150@Unknown84E8D0@@QAEXXZ": 4383056,
+    "?Unknown_0042E150@BeaconManagerClass@@QAEXXZ": 4383056,
     "?x@?1???A?$IndexClass@JPAVAbstractClass@@@@QBEABQAVAbstractClass@@ABJ@Z@4PAV2@A": 11712040,
     "?As_Cell@TargetClass@@QBEPAVCellClass@@XZ": 7038480,
     "?unknown_session_a3d2b4@@3HA": 10736308,
@@ -3744,9 +3744,9 @@
     "?unknown_session_a3d2c3@@3EA": 10736323,
     "?Adjust@HSVClass@@QAEXHABV1@@Z": 5238640,
     "?Print_Box@BitTextClass@@QAE_NPAVBitFontClass@@PAVSurface@@PBGHHHHHHH@Z": 4400272,
-    "?Unknown_0042E290@Unknown84E8D0@@QAEXPAVSurface@@VRect@@@Z": 4383376,
-    "?Unknown_0042EED0@Unknown84E8D0@@QAEXPAVSurface@@VRect@@@Z": 4386512,
-    "?Unknown_0042EFD0@Unknown84E8D0@@QAE_NXZ": 4386768,
+    "?Unknown_0042E290@BeaconManagerClass@@QAEXPAVSurface@@VRect@@@Z": 4383376,
+    "?Draw_On_Radar_0042eed0@BeaconManagerClass@@QAEXPAVSurface@@VRect@@@Z": 4386512,
+    "?Is_Flashing_0042efd0@BeaconManagerClass@@QAE_NXZ": 4386768,
     "?Insert_After@?$DynamicVectorClass@VBaseNodeClass@@@@QAE_NABVBaseNodeClass@@H@Z": 5206640,
     "__real@8@3ffda0d97bb4e7870000": 7999744,
     "?AI@Tactical@@UAEXXZ": 6958544,
@@ -3872,7 +3872,7 @@
     "?unknown_a3d8c8@@3HA": 10737864,
     "?Send_Port_Unreachable@@YIXXZ": 6481984,
     "?unknown_a72c68@@3HA": 10955880,
-    "?Unknown_00672DE0@@YIXPAUUnknownSessionState@@@Z": 6761952,
+    "?Unknown_00672DE0@@YIXPAUSessionClass@@@Z": 6761952,
     "?Get_Input@GScreenClass@@UAEXAAH00@Z": 5114320,
     "?unknown_last_message_a3f122@@3PAGA": 10744098,
     "?Propose_Kick_Player@@YIXPAUHWND__@@H@Z": 6451168,
@@ -3889,9 +3889,9 @@
     "?Unknown_0051A2B0@@YA_NXZ": 5350064,
     "?Unknown_00496460@@YAXPBDZZ": 4809824,
     "__wcsdup": 7958579,
-    "?One_Time@UnknownSessionState@@QAEXXZ": 6745520,
-    "?Read@UnknownGameOptions@@QAEXAAVCCINIClass@@PBDHH@Z": 6746608,
-    "?Write@UnknownGameOptions@@QAEXAAVCCINIClass@@PBD@Z": 6750832,
+    "?One_Time@SessionClass@@QAEXXZ": 6745520,
+    "?Read@SessionOptionsClass@@QAEXAAVCCINIClass@@PBDHH@Z": 6746608,
+    "?Write@SessionOptionsClass@@QAEXAAVCCINIClass@@PBD@Z": 6750832,
     "?Init_Random@@YIXXZ": 5330704,
     "?unknown_function_522e80@@YAHXZ": 5385856,
     "__imp__GetSystemTime@4": 7971024,
@@ -3938,7 +3938,7 @@
     "??_7Selection@WorldDominationTour@@6B@": 8057708,
     "?Next@UnknownSchemeListIterator@@QAEPAV?$DynamicVectorClass@PAVColorScheme@@@@XZ": 6305344,
     "__real@8@4005c7e6666666666800": 8033952,
-    "?Unknown_00672DE0@UnknownSessionState@@QAEXXZ": 6761952,
+    "?Unknown_00672DE0@SessionClass@@QAEXXZ": 6761952,
     "?unknown_game_speed_7f3230@@3HA": 8335920,
     "?Unknown_005173A0@@YAXXZ": 5338016,
     "?Count@UnknownSelection@@QAEHXZ": 6997936,
@@ -3946,7 +3946,7 @@
     "?Add@?$DynamicVectorClass@PAVTechnoClass@@@@QAE_NABQAVTechnoClass@@@Z": 4274096,
     "__imp__SetWindowPos@28": 7971792,
     "__real@8@c005c800000000000000": 8019912,
-    "??1UnknownSessionState@@QAE@XZ": 6744864,
+    "??1SessionClass@@QAE@XZ": 6744864,
     "?unknown_load_progress_a6e7c4@@3PAUUnknown535910@@A": 10938308,
     "??_7Unknown535910@@6B@": 8017052,
     "?Unknown_00535970@@YAXXZ": 5462384,
@@ -4015,7 +4015,7 @@
     "?CurrentDialogResource@@3HA": 11689432,
     "?Create@CarryoverClass@@QBE_NXZ": 4623696,
     "__imp__CallWindowProcA@20": 7972032,
-    "?Get@UnknownControlIndex@OwnerDraw@@QBE_NABIAAPAUUnknownControlRecord@2@@Z": 6297360,
+    "?Get@UnknownControlIndex@OwnerDraw@@QBE_NABIAAPAUWinData@2@@Z": 6297360,
     "__imp__GetKeyNameTextA@12": 7971916,
     "?unknown_slot4@SimpleWonlineDialogControl@@UAE_NXZ": 7585840,
     "__imp__GetCurrentDirectoryA@8": 7971204,
@@ -4046,7 +4046,7 @@
     "?VQA_Unknown_0070BF60@@YAXPAE00KKK@Z": 7389024,
     "?VQA_Unknown_0077C440@@YIHPAUVQAHandle@@P6AXPAE11KKK@Z2@Z": 7849024,
     "?VQA_Unknown_0077CBA0@@YIHPAUVQAHandle@@@Z": 7850912,
-    "?Unknown_0069B420@VQAMovieCompanion@@QAE_NH@Z": 6927392,
+    "?Process_0069b420@VQAMovieCompanion@@QAE_NH@Z": 6927392,
     "?Play_VQA_Frame@VQAClass@@QAEXH@Z": 7458640,
     "?unknown_vqa_paused_af901c@@3_NA": 11505692,
     "??0Cell@@QAE@XZ": 4582640,
@@ -4153,7 +4153,7 @@
     "__real@8@3ffcccccccccccccd000": 7979616,
     "__real@8@4003c800000000000000": 8019960,
     "__real@8@40048c00000000000000": 8019792,
-    "?Unknown_0042EBE0@Unknown84E8D0@@QAEXH@Z": 4385760,
+    "?Unknown_0042EBE0@BeaconManagerClass@@QAEXH@Z": 4385760,
     "__real@8@3fe1c90fdaa2ea789800": 8019424,
     "__real@8@400a8000000000000000": 8020080,
     "__real@8@3fe18000000080000000": 8019832,
@@ -4167,7 +4167,7 @@
     "__wcsnicmp": 7958688,
     "?AI@TeamClass@@UAEXXZ": 7043792,
     "__putws": 7881518,
-    "?Unknown_0042E860@Unknown84E8D0@@QAEPAVUnknownBeacon@@UCoordStruct@@@Z": 4384864,
+    "?FindBeaconAt_0042e860@BeaconManagerClass@@QAEPAVUnknownBeacon@@UCoordStruct@@@Z": 4384864,
     "?Fetch@?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@UBE?AU?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@H@Z": 6507536,
     "_?pattern@?1??unknown_6cc020@TechnoClass@@QAEXXZ@4PA_NA": 8352020,
     "?Clear@?$VectorClass@PBVBuildingTypeClass@@@@UAEXXZ": 5206272,
@@ -4205,15 +4205,15 @@
     "??0Surface@@QAE@HH@Z": 4844944,
     "?RLEBlitter_From_Flags_00485d60@ConvertClass@@QBEPBVRLEBlitter@@I@Z": 4742496,
     "?Destroy_Low_Bridge_Span@MapClass@@QAEXABVCell@@@Z": 5598192,
-    "?Unknown_0042E940@Unknown84E8D0@@QAEPAVUnknownBeacon@@H@Z": 4385088,
-    "?Unknown_0042EC20@Unknown84E8D0@@QAEXPBGHH_N@Z": 4385824,
+    "?Unknown_0042E940@BeaconManagerClass@@QAEPAVUnknownBeacon@@H@Z": 4385088,
+    "?EditBeaconMessage_0042ec20@BeaconManagerClass@@QAEXPBGHH_N@Z": 4385824,
     "??_GWstring@@QAEPAXI@Z": 7759808,
     "?Remove@SuperClass@@QAE_NXZ": 6934336,
     "__real@8@4004d800000000000000": 8045168,
     "??0UnknownBeacon@@QAE@XZ": 4381152,
-    "??1Unknown84E8D0@@QAE@XZ": 4382976,
-    "?Unknown_0042E740@Unknown84E8D0@@QAE_NUCoordStruct@@@Z": 4384576,
-    "?Unknown_0042E990@Unknown84E8D0@@QAEXHH@Z": 4385168,
+    "??1BeaconManagerClass@@QAE@XZ": 4382976,
+    "?Unknown_0042E740@BeaconManagerClass@@QAE_NUCoordStruct@@@Z": 4384576,
+    "?Unknown_0042E990@BeaconManagerClass@@QAEXHH@Z": 4385168,
     "?Load@GraphicMenu@@SIPAV1@AAVINIClass@@ABVWstring@@@Z": 5104512,
     "__imp__BinkGetError@0": 7972236,
     "?unknown_volume_84e9a8@@3MA": 8710568,
@@ -4236,7 +4236,7 @@
     "?Add@?$DynamicVectorClass@PAVCellClass@@@@QAE_NABQAVCellClass@@@Z": 7489328,
     "??9Cell@@QBE_NABV0@@Z": 5823312,
     "?As_Cell@CoordStruct@@QBE?AVCell@@XZ": 4274032,
-    "_?entry@?1??Get_Image_0068ca40@UnknownBitmapWriter@@QAEPAVSurface@@PBDH@Z@4UUnknownBitmapEntry@@A": 11260136,
+    "_?entry@?1??Get_Image_0068ca40@SurfaceCacheClass@@QAEPAVSurface@@PBDH@Z@4UUnknownBitmapEntry@@A": 11260136,
     "__real@8@3fe2c0000000c0000000": 8019920,
     "_?name@?1??Theme_File_Name@ThemeClass@@QAEPBDH@Z@4PADA": 11274328,
     "?Load@ThemeClass@@QAEJPAUIStream@@@Z": 7242560,
@@ -4264,7 +4264,7 @@
     "?Save@MouseClass@@QAEJPAUIStream@@@Z": 5897344,
     "?Load@MouseClass@@QAEJPAUIStream@@@Z": 5895472,
     "?Load@BombListClass@@QAEJPAUIStream@@@Z": 4417632,
-    "?Load@UnknownLobbyState@@QAE_NPAUIStream@@@Z": 6760576,
+    "?Load@GameOptionsType@@QAE_NPAUIStream@@@Z": 6760576,
     "??_7ConvertClass@@6B@": 7987056,
     "??_GConvertClass@@UAEPAXI@Z": 4743456,
     "?Load@TiberiumClass@@UAGJPAUIStream@@@Z": 7246176,
@@ -4326,7 +4326,7 @@
     "?Adjacent_Coord_With_Height@@YI?AUCoordStruct@@ABU1@H@Z": 4790400,
     "?Get@SHAStraw@@UAEHPAXH@Z": 6771648,
     "??9BaseNodeClass@@QAE_NABV0@@Z": 4374288,
-    "??0UnknownSessionState@@QAE@XZ": 6742912,
+    "??0SessionClass@@QAE@XZ": 6742912,
     "?unknown_flag_b2af68@@3_NA": 11710312,
     "?AI@IonBlastClass@@QAEXXZ": 5378880,
     "?Draw_It@IonBlastClass@@QAEXXZ": 5381344,
@@ -4349,7 +4349,7 @@
     "?Add@StaticBufferClass@@QAEPAUEntry@1@AAVSurface@@ABVRect@@HH@Z": 6923008,
     "__real@8@c0058000000000000000": 8027384,
     "?Render@VoxelDrawSystem@@YIXAAVRect@@AAH1@Z": 7435968,
-    "?Remove@UnknownControlIndex@OwnerDraw@@QAE_NABIAAUUnknownControlRecord@2@@Z": 6298704,
+    "?Remove@UnknownControlIndex@OwnerDraw@@QAE_NABIAAUWinData@2@@Z": 6298704,
     "?Load@CellClass@@UAGJPAUIStream@@@Z": 4689072,
     "__real@8@3ffca2f9836e4e441800": 7983464,
     "__real@8@400196cbe3f9990e9000": 7983456,
@@ -4374,7 +4374,7 @@
     "__real@8@3fe2f0000000f0000000": 8020056,
     "__real@8@40059600000000000000": 8019760,
     "?Next@?$HashTableClass@VHashString@@PAVSchemeNode@@@@QAEPAVHashString@@AAUUnknownSchemeListIterator@@@Z": 6312224,
-    "?Unknown_0042E370@Unknown84E8D0@@QAEXHUCoordStruct@@H@Z": 4383600,
+    "?Unknown_0042E370@BeaconManagerClass@@QAEXHUCoordStruct@@H@Z": 4383600,
     "?Load@Map@WorldDominationTour@@QAEXAAVINIClass@@PAVMSEngine@@H@Z": 7509264,
     "?Stop@HoverLocomotionClass@@QAEXXZ": 5233232,
     "??8Cell@@QBE_NABV0@@Z": 5238560,
@@ -4417,7 +4417,7 @@
     "?unknown_slot28@UnitClass@@UAEHPAVObjectClass@@_N@Z": 7355344,
     "__real@4@40069600000000000000": 7981736,
     "?Start@?$CDTimerClass@VFrameTimerClass@@@@QAEXXZ": 6942000,
-    "?Add@?$WolDictionary@IUUnknownControlRecord@OwnerDraw@@@@QAE_NABIABUUnknownControlRecord@OwnerDraw@@@Z": 6296800,
+    "?Add@?$WolDictionary@IUWinData@OwnerDraw@@@@QAE_NABIABUWinData@OwnerDraw@@@Z": 6296800,
     "__real@8@400f8000000000000000": 8017344,
     "?Delete@?$DynamicVectorClass@PAUUnknownGlobalPacket@@@@QAE_NH@Z": 6482432,
     "?Clear@?$VectorClass@V?$TRect@H@@@@UAEXXZ": 5826192,
@@ -4841,7 +4841,7 @@
     "?Unknown_Slot1@MSEngine@@UAEXPAVSurface@@@Z": 5832080,
     "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275440,
     "?unknown_abstracts_ac0bf8@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275256,
-    "?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A": 10736272,
+    "?unknown_id_source_a3d290@@3PAVScenarioClass@@A": 10736272,
     "??1UnknownBuildable30@@QAE@XZ": 4247856,
     "?unknown_abstracts_ac0d08@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275528,
     "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A": 10691224,
@@ -5675,13 +5675,13 @@
     "?AddRef@?$TClassFactory@VTEventClass@@@@UAGKXZ": 6895200,
     "?Release@?$TClassFactory@VParasiteClass@@@@UAGKXZ": 6894080,
     "?Draw_Gradient_Line@DSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@2AAM3@Z": 4912720,
-    "?Loading_Progress_00672160@UnknownSessionState@@QAEXH@Z": 6758752,
-    "?Unknown_006715D0@UnknownSessionState@@QAEHH@Z": 6755792,
+    "?Loading_Progress_00672160@SessionClass@@QAEXH@Z": 6758752,
+    "?Unknown_006715D0@SessionClass@@QAEHH@Z": 6755792,
     "?QueryInterface@LocomotionClass@@W3AGJABUGUID@@PAPAX@Z": 4979872,
     "?AddRef@LocomotionClass@@W3AGKXZ": 4979888,
     "?Release@LocomotionClass@@W3AGKXZ": 4979904,
     "?unknown_multi_missions_a3d8d8@@3V?$DynamicVectorClass@PAVMultiMission@@@@A": 10737880,
-    "?Create_Connections@UnknownSessionState@@QAEHXZ": 6745680,
+    "?Create_Connections@SessionClass@@QAEHXZ": 6745680,
     "__imp__GetDC": 7971928,
     "__imp__ReleaseDC": 7971960,
     "?Unknown_Slot20@XSurface@@UAE_NHHHH@Z": 7814832,
@@ -5946,7 +5946,7 @@
     "??_E?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEPAXI@Z": 7524128,
     "?AddRef@TiberianSunClassFactory@@UAGKXZ": 5065040,
     "?Release@TiberianSunClassFactory@@UAGKXZ": 5065056,
-    "?Release@UnknownAlphaTableCache_008315B8@@QAEXPAY0BAA@$$CBG@Z": 4318480,
+    "?Release@AlphaLightingRemapInitClass@@QAEXPAY0BAA@$$CBG@Z": 4318480,
     "?QueryInterface@TiberianSunClassFactory@@UAGJABUGUID@@PAPAX@Z": 4352784,
     "??_7?$DynamicVectorClass@PAVMixFileClass@@@@6B@": 7973428,
     "??_7?$DynamicVectorClass@PAVMapRegionClass@@@@6B@": 8019344,
@@ -6134,7 +6134,24 @@
     "??_EWDTState@@": 7522816,
     "??_GWDTState@@": 7522816,
     "??_EWinModemClass@@UAEPAXI@Z": 7558672,
-    "??_EWaveClass@@UAEPAXI@Z": 7489024
+    "??_EWaveClass@@UAEPAXI@Z": 7489024,
+    "?Value@ObjectClass@@UAEHXZ": 6106400,
+    "?Get_Height@ObjectClass@@UBEHXZ": 6113280,
+    "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
+    "?Render@UnitClass@@UAE_NPAVRect@@_N1@Z": 7336784,
+    "?Render@ObjectClass@@UAE_NPAVRect@@_N1@Z": 6108384,
+    "?Render@VoxelAnimClass@@UAE_NPAVRect@@_N1@Z": 7393136,
+    "?Value@TechnoClass@@UAEHXZ": 7156048,
+    "?Render@AnimClass@@UAE_NPAVRect@@_N1@Z": 4328992,
+    "?Get_Height@AnimClass@@UBEHXZ": 4337888,
+    "?Difference@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951360,
+    "?Render@BuildingClass@@UAE_NPAVRect@@_N1@Z": 4432384,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "?Render@TerrainClass@@UAE_NPAVRect@@_N1@Z": 7226416,
+    "?Draw_Trail_Line_4AE9C0@DSurface@@QAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@HHH@Z": 4909504,
+    "__real@8@bff6b6db6db6db6db800": 8026880
   },
   "regions": [
     {
@@ -6187,13 +6204,12 @@
           "resolved": 10950724
         }
       ],
-      "source_sha256": "74b0d9a508315509f8740030d8a79a45cbca6b7ac315fa809afb6668fe921feb",
-      "source": "src/recovered/classes/MSEngine/MSEngine_globals_init_005b2bc0.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSEngine_globals_init_005b2bc0",
       "source_order": 216630
     },
     {
@@ -6213,13 +6229,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "relocations": [],
-      "source_sha256": "a30424a44f0aba0183469374eaca97c0914e7b1441076ea208f892e4ee7c5372",
-      "source": "src/recovered/classes/MSEngine/MSEngine_Unknown_Slot2_005b3830.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSEngine_Unknown_Slot2_005b3830",
       "source_order": 216647
     },
     {
@@ -6256,13 +6271,12 @@
           "resolved": 1893606
         }
       ],
-      "source_sha256": "9c297ab7ecb90056107b09efdbff693e2d5d20d06183c6fe582af5f83c5da77c",
-      "source": "src/recovered/classes/MSEngine/MSEngine_scalar_deleting_destructor_005b3840.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSEngine_scalar_deleting_destructor_005b3840",
       "source_order": 216648
     },
     {
@@ -6291,13 +6305,12 @@
           "resolved": 1893568
         }
       ],
-      "source_sha256": "662e038292dafbbadfecbdf8abb0f448c0b50287ef638b5ac4690108c3d74762",
-      "source": "src/recovered/classes/MSEngine/DynamicVectorClass_MSAnim_ptr_Clear_005b3860.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "DynamicVectorClass_MSAnim_ptr_Clear_005b3860",
       "source_order": 216649
     },
     {
@@ -6317,13 +6330,12 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "relocations": [],
-      "source_sha256": "e547f1770745e00d37329e4fc5f178d678b13f696c46a2a8c02917d3d5e2531a",
-      "source": "src/recovered/classes/MSEngine/DynamicVectorClass_MSAnim_ptr_ID_pointer_005b3890.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "DynamicVectorClass_MSAnim_ptr_ID_pointer_005b3890",
       "source_order": 216650
     },
     {
@@ -6343,13 +6355,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
       "relocations": [],
-      "source_sha256": "b7a1f955baeaf806d7e7864f94fa4869fa3b2708655416fe9dbf09f64e90a933",
-      "source": "src/recovered/classes/MSEngine/VectorClass_MSAnim_ptr_Fetch_005b38b0.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VectorClass_MSAnim_ptr_Fetch_005b38b0",
       "source_order": 216651
     },
     {
@@ -6378,13 +6389,12 @@
           "resolved": 1893472
         }
       ],
-      "source_sha256": "bf79a1962a30ae4737359beff633438b6647dca42e0fce8093dacf6f887908d1",
-      "source": "src/recovered/classes/MSEngine/DynamicVectorClass_MSSfx_ptr_Clear_005b38c0.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "DynamicVectorClass_MSSfx_ptr_Clear_005b38c0",
       "source_order": 216652
     },
     {
@@ -6404,13 +6414,12 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "relocations": [],
-      "source_sha256": "b945dba342ee04d1b577a3502d0320ebd9d3735cc35e13d6237ee09352ad0970",
-      "source": "src/recovered/classes/MSEngine/DynamicVectorClass_MSSfx_ptr_ID_pointer_005b38f0.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "DynamicVectorClass_MSSfx_ptr_ID_pointer_005b38f0",
       "source_order": 216653
     },
     {
@@ -6430,13 +6439,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
       "relocations": [],
-      "source_sha256": "ad8c043a3cbfddb0f87db595f7bf274eab445a66ebe8d8012fbfe11e18238c77",
-      "source": "src/recovered/classes/MSEngine/VectorClass_MSSfx_ptr_Fetch_005b3910.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VectorClass_MSSfx_ptr_Fetch_005b3910",
       "source_order": 216654
     },
     {
@@ -6456,13 +6464,12 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
       "relocations": [],
-      "source_sha256": "4a773ed33bf166592ecb7605f63e41d30483b15bed609685d2668f65c27cdc08",
-      "source": "src/recovered/classes/MSEngine/VectorClass_MSAnim_ptr_operator_equal_005b3920.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VectorClass_MSAnim_ptr_operator_equal_005b3920",
       "source_order": 216655
     },
     {
@@ -6491,13 +6498,12 @@
           "resolved": 1893139
         }
       ],
-      "source_sha256": "c22843786322c583839ffebb9810a48c66eea9cf08cdff2e34e91f19fd7ae20a",
-      "source": "src/recovered/classes/MSEngine/VectorClass_MSAnim_ptr_Clear_005b3a10.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VectorClass_MSAnim_ptr_Clear_005b3a10",
       "source_order": 216657
     },
     {
@@ -6517,13 +6523,12 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
       "relocations": [],
-      "source_sha256": "81ea61b2bf0a5c61ab22aa62707eca3a9b309e3660663fc11a2871b9fafea6fd",
-      "source": "src/recovered/classes/MSEngine/VectorClass_MSAnim_ptr_ID_object_005b3a40.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VectorClass_MSAnim_ptr_ID_object_005b3a40",
       "source_order": 216658
     },
     {
@@ -6543,13 +6548,12 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "relocations": [],
-      "source_sha256": "8719280bf342079ce5c97fae18738d4c84850f7415d5c964586e9d81daf72e75",
-      "source": "src/recovered/classes/MSEngine/VectorClass_MSAnim_ptr_ID_pointer_005b3a80.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VectorClass_MSAnim_ptr_ID_pointer_005b3a80",
       "source_order": 216659
     },
     {
@@ -6569,13 +6573,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
       "relocations": [],
-      "source_sha256": "ea2fad182a5db93dbbbefd7fe96e9909eac9b5e608fc0623ed916a5523c3a02e",
-      "source": "src/recovered/classes/MSEngine/DynamicVectorClass_MSAnim_ptr_ID_object_005b3b50.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "DynamicVectorClass_MSAnim_ptr_ID_object_005b3b50",
       "source_order": 216661
     },
     {
@@ -6595,13 +6598,12 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
       "relocations": [],
-      "source_sha256": "7181db02f27cbc384fcb856fcf631763e2eabc6e902db74708c3167e6c62c0a7",
-      "source": "src/recovered/classes/MSEngine/VectorClass_MSSfx_ptr_operator_equal_005b3b80.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VectorClass_MSSfx_ptr_operator_equal_005b3b80",
       "source_order": 216662
     },
     {
@@ -6630,13 +6632,12 @@
           "resolved": 1892531
         }
       ],
-      "source_sha256": "2a4bb4d8ee20a7875b12e6e080ff5be25510046c4d91f267935e01608ff63253",
-      "source": "src/recovered/classes/MSEngine/VectorClass_MSSfx_ptr_Clear_005b3c70.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VectorClass_MSSfx_ptr_Clear_005b3c70",
       "source_order": 216664
     },
     {
@@ -6656,13 +6657,12 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
       "relocations": [],
-      "source_sha256": "5798d6a16cf2d69272fde0c1fb7b72c87fc00157a84ededc0b20a5e91582e04f",
-      "source": "src/recovered/classes/MSEngine/VectorClass_MSSfx_ptr_ID_object_005b3ca0.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VectorClass_MSSfx_ptr_ID_object_005b3ca0",
       "source_order": 216665
     },
     {
@@ -6682,13 +6682,12 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "relocations": [],
-      "source_sha256": "7f6bc2bb0127b302350013c19642f807f9d2db080999390fa6f03e2750fcd338",
-      "source": "src/recovered/classes/MSEngine/VectorClass_MSSfx_ptr_ID_pointer_005b3ce0.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VectorClass_MSSfx_ptr_ID_pointer_005b3ce0",
       "source_order": 216666
     },
     {
@@ -6708,13 +6707,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
       "relocations": [],
-      "source_sha256": "3b52b6b9afccb099b702a68ba7606929a53c476cda04143206c712803db65854",
-      "source": "src/recovered/classes/MSEngine/DynamicVectorClass_MSSfx_ptr_ID_object_005b3db0.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "DynamicVectorClass_MSSfx_ptr_ID_object_005b3db0",
       "source_order": 216668
     },
     {
@@ -6759,13 +6757,12 @@
           "resolved": 1892123
         }
       ],
-      "source_sha256": "507106b7fb148f3dd0e1d6787833356cd4652a3a4ff7ab8dab99ee5d0bb7b038",
-      "source": "src/recovered/classes/MSEngine/VectorClass_MSAnim_ptr_scalar_deleting_destructor_005b3de0.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VectorClass_MSAnim_ptr_scalar_deleting_destructor_005b3de0",
       "source_order": 216669
     },
     {
@@ -6810,13 +6807,12 @@
           "resolved": 1892043
         }
       ],
-      "source_sha256": "a686d5cdcf952c0bae28cba919a762289421c703f00ad0f9d68efd8218b5c1c8",
-      "source": "src/recovered/classes/MSEngine/DynamicVectorClass_MSAnim_ptr_scalar_deleting_destructor_005b3e30.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "DynamicVectorClass_MSAnim_ptr_scalar_deleting_destructor_005b3e30",
       "source_order": 216670
     },
     {
@@ -6861,13 +6857,12 @@
           "resolved": 1891963
         }
       ],
-      "source_sha256": "d3d44347c6b25dafafdaa7e652b2381c190bb196d5344a999dd87017581ae54e",
-      "source": "src/recovered/classes/MSEngine/VectorClass_MSSfx_ptr_scalar_deleting_destructor_005b3e80.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VectorClass_MSSfx_ptr_scalar_deleting_destructor_005b3e80",
       "source_order": 216671
     },
     {
@@ -6912,13 +6907,12 @@
           "resolved": 1891883
         }
       ],
-      "source_sha256": "7a0c2ec41025c047f8f5574c237ebc867ec5400a735b71221b3302192050a3c9",
-      "source": "src/recovered/classes/MSEngine/DynamicVectorClass_MSSfx_ptr_scalar_deleting_destructor_005b3ed0.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "DynamicVectorClass_MSSfx_ptr_scalar_deleting_destructor_005b3ed0",
       "source_order": 216672
     },
     {
@@ -6955,13 +6949,12 @@
           "resolved": 1893216
         }
       ],
-      "source_sha256": "462ee1b74e6790c93b122fe450673c730e91c8a19586ae4b8704f7df8a91807b",
-      "source": "src/recovered/classes/MSEngine/VectorClass_MSAnim_ptr_Resize_005b3960.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VectorClass_MSAnim_ptr_Resize_005b3960",
       "source_order": 216656
     },
     {
@@ -6998,13 +6991,12 @@
           "resolved": 1892909
         }
       ],
-      "source_sha256": "6e4201285cf02f7e1cc6c5646d356851084a2c75665731ed250fa5c179394b3b",
-      "source": "src/recovered/classes/MSEngine/DynamicVectorClass_MSAnim_ptr_Resize_005b3aa0.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "DynamicVectorClass_MSAnim_ptr_Resize_005b3aa0",
       "source_order": 216660
     },
     {
@@ -7041,13 +7033,12 @@
           "resolved": 1892608
         }
       ],
-      "source_sha256": "6b14c8e637eb841e2961f61b6437b578c65e9a7fdbe702aa963431bf069d3caf",
-      "source": "src/recovered/classes/MSEngine/VectorClass_MSSfx_ptr_Resize_005b3bc0.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VectorClass_MSSfx_ptr_Resize_005b3bc0",
       "source_order": 216663
     },
     {
@@ -7084,13 +7075,12 @@
           "resolved": 1892301
         }
       ],
-      "source_sha256": "1e1dd9581c9d81bd2119788edb2f5242b0f33b51ef196ce7da88af99742c04be",
-      "source": "src/recovered/classes/MSEngine/DynamicVectorClass_MSSfx_ptr_Resize_005b3d00.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "DynamicVectorClass_MSSfx_ptr_Resize_005b3d00",
       "source_order": 216667
     },
     {
@@ -7143,13 +7133,12 @@
           "resolved": 8024104
         }
       ],
-      "source_sha256": "2d2220d47d44e2043ab0eebba2e29522e4cb67c0ec56554494ea276155fea337",
-      "source": "src/recovered/classes/MSEngine/MSEngine_MSEngine_005b2be0.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSEngine_MSEngine_005b2be0",
       "source_order": 216631
     },
     {
@@ -7242,13 +7231,12 @@
           "resolved": 1896431
         }
       ],
-      "source_sha256": "b318e6ed9914170c12428f6f29faff8f3bcf58b9da43338ffacdb7d435566d50",
-      "source": "src/recovered/classes/MSEngine/MSEngine_destructor_005b2c70.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSEngine_destructor_005b2c70",
       "source_order": 216632
     },
     {
@@ -7268,13 +7256,12 @@
       "full_extent_bytes": 112,
       "full_extent_sha256": "8c66e4fea7ac437e4c32c64479bd601d15e4a305176084d81208f195fedfd787",
       "relocations": [],
-      "source_sha256": "12a222f8723cd136546725d014e965e26b5f7277b44e48f1da9ff69903f7e1c5",
-      "source": "src/recovered/classes/MSEngine/MSEngine_Add_Anim_005b2d60.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSEngine_Add_Anim_005b2d60",
       "source_order": 216633
     },
     {
@@ -7303,13 +7290,12 @@
           "resolved": 1901652
         }
       ],
-      "source_sha256": "9dea94dd55f1208a4c5db938eabc87d80f0a2e569b052162873ba33897936d3c",
-      "source": "src/recovered/classes/MSEngine/MSEngine_Replace_Anim_005b2dd0.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSEngine_Replace_Anim_005b2dd0",
       "source_order": 216634
     },
     {
@@ -7329,13 +7315,12 @@
       "full_extent_bytes": 112,
       "full_extent_sha256": "b781cf3d9f71b4928ba27fa36f8654bf2bbf7e198342c10e7683983bade1df91",
       "relocations": [],
-      "source_sha256": "6b0cb055b2e7a8692419cfe8373e68e201f53920b4150f218ac6cf8f3a43667e",
-      "source": "src/recovered/classes/MSEngine/MSEngine_Remove_Anim_005b2ec0.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSEngine_Remove_Anim_005b2ec0",
       "source_order": 216635
     },
     {
@@ -7380,13 +7365,12 @@
           "resolved": 14
         }
       ],
-      "source_sha256": "95b2afa47da8b6d0f95714961b403339c861822ed036d84352f176396d1ec5a6",
-      "source": "src/recovered/classes/MSEngine/MSEngine_Redraw_005b2f90.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSEngine_Redraw_005b2f90",
       "source_order": 216637
     },
     {
@@ -7455,13 +7439,12 @@
           "resolved": 26
         }
       ],
-      "source_sha256": "50cd668e189bdb9d98d0743f41a4b212a667eb6112824763eb26a2d26be5b9fe",
-      "source": "src/recovered/classes/MSEngine/MSEngine_Draw_005b2fb0.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSEngine_Draw_005b2fb0",
       "source_order": 216638
     },
     {
@@ -7538,13 +7521,12 @@
           "resolved": 8625256
         }
       ],
-      "source_sha256": "6466649e384f2c489d19dc46329852cfc09c8b0e02512207ae72de200336f9f4",
-      "source": "src/recovered/classes/MSEngine/MSEngine_Blit_Rects_005b33a0.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSEngine_Blit_Rects_005b33a0",
       "source_order": 216640
     },
     {
@@ -7621,13 +7603,12 @@
           "resolved": 8625256
         }
       ],
-      "source_sha256": "baa399740c3d4c761c4aacf07294b55ed0809d25ea96b884e49d60491f2d7854",
-      "source": "src/recovered/classes/MSEngine/MSEngine_Blit_Rect_005b3490.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSEngine_Blit_Rect_005b3490",
       "source_order": 216641
     },
     {
@@ -7736,13 +7717,12 @@
           "resolved": 4293210635
         }
       ],
-      "source_sha256": "3df04a038767786dabcdb34ef4aa89a1c2f7010dc8872b1433680f0eddfee67c",
-      "source": "src/recovered/classes/MSEngine/MSEngine_Check_Focus_005b3670.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSEngine_Check_Focus_005b3670",
       "source_order": 216643
     },
     {
@@ -7779,13 +7759,12 @@
           "resolved": 12916
         }
       ],
-      "source_sha256": "34a361a84940b6111f540e38570c585df072d323a7dac869451b1ab963f8e80f",
-      "source": "src/recovered/classes/MSEngine/MSEngine_Add_Sfx_005b3710.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSEngine_Add_Sfx_005b3710",
       "source_order": 216644
     },
     {
@@ -7805,13 +7784,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "dbb12737b5e63bac357a0fa7dbf36a136dbf754e5a837c8b40ae3ea7ebe76648",
       "relocations": [],
-      "source_sha256": "bc9dac2f0ba052c1f91a817bd8af6c6890c0e1840721c4dfbd4bb7fba2163278",
-      "source": "src/recovered/classes/MSEngine/MSEngine_Broadcast_005b3800.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSEngine_Broadcast_005b3800",
       "source_order": 216646
     },
     {
@@ -7848,8 +7826,8 @@
           "resolved": 1491
         }
       ],
-      "source_sha256": "4124833d6c2cf6f9770b5c21a8be155df89db3949ea1775a8788d1052f480333",
-      "source": "src/recovered/classes/MSEngine/MSEngine_Wait_For_005b2f30.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -7994,8 +7972,8 @@
           "resolved": 945669
         }
       ],
-      "source_sha256": "4af449c3165f141d06385d3afc8afd1bf2588b3fc201a8d4d14ed61969b90951",
-      "source": "src/recovered/classes/MSEngine/MSEngine_Run_005b3550.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -8060,13 +8038,12 @@
           "resolved": 12804
         }
       ],
-      "source_sha256": "d2f49df1db51f7e666a1ee207c63a23ebce783486c3451f4d225ac91e9a9ee86",
-      "source": "src/recovered/classes/MSEngine/MSEngine_Play_Sfx_005b3790.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSEngine_Play_Sfx_005b3790",
       "source_order": 216645
     },
     {
@@ -8095,13 +8072,12 @@
           "resolved": 4294966901
         }
       ],
-      "source_sha256": "7edb151253844ee1f1bd81a62028f3c22ff9482ce53359a9610ebf3bf2a9fee0",
-      "source": "src/recovered/classes/MSEngine/MSEngine_Add_Rect_005b3110.cpp",
+      "source_sha256": "c1a906a5a70d11d0be4c5cf635830d7256a7ed18a2784a54ee10fc1864735204",
+      "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSEngine_Add_Rect_005b3110",
       "source_order": 216639
     }
   ]

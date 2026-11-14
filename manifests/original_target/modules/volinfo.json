@@ -1,0 +1,244 @@
+{
+ "module": "volinfo",
+ "source": "src/recovered/volinfo.cpp",
+ "header": null,
+ "population": "population-3962",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 871,
+ "code": [
+  {
+   "symbol": "?VolumeCheck@@YI_NXZ",
+   "entry": "00715090",
+   "body_bytes": 407,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Drive_Info_00715230@@YI_NPBDPAUDriveInfo@@@Z",
+   "entry": "00715230",
+   "body_bytes": 201,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Directory_Totals_00715300@@YIXPBDPAH11@Z",
+   "entry": "00715300",
+   "body_bytes": 369,
+   "padding_bytes": 15
+  }
+ ],
+ "code_bytes": 1008,
+ "data": [
+  {
+   "symbol": "??_7CD@@6B@",
+   "address": "0079d868",
+   "bytes": 12,
+   "kind": "vtable",
+   "section": 3
+  },
+  {
+   "symbol": "??_C@_01PJCK@?4?$AA@",
+   "address": "007dbe44",
+   "bytes": 2,
+   "kind": "string",
+   "section": 13
+  },
+  {
+   "symbol": "??_C@_0CD@KBGG@VolumeCheck?$CI?$CJ?5?9?5GetVolInfo?5faile@",
+   "address": "007f9b60",
+   "bytes": 35,
+   "kind": "string",
+   "section": 4
+  },
+  {
+   "symbol": "??_C@_0CF@MONL@GetVolumeInformation?$CI?$CJ?5?9?5failed?3@",
+   "address": "007f9b84",
+   "bytes": 37,
+   "kind": "string",
+   "section": 5
+  },
+  {
+   "symbol": "??_C@_0BP@MGCA@GetDiskFreeSpace?$CI?$CJ?5failed?3?5?$CFs?6?$AA@",
+   "address": "007f9bac",
+   "bytes": 31,
+   "kind": "string",
+   "section": 6
+  },
+  {
+   "symbol": "??_C@_02HMIE@?2?$CK?$AA@",
+   "address": "007f9bcc",
+   "bytes": 3,
+   "kind": "string",
+   "section": 11
+  },
+  {
+   "symbol": "??_C@_02OOND@?4?4?$AA@",
+   "address": "007f9bd0",
+   "bytes": 3,
+   "kind": "string",
+   "section": 12
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7CD@@6B@",
+   "address": "0079d868",
+   "bytes": 12,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_C@_01PJCK@?4?$AA@",
+   "address": "007dbe44",
+   "bytes": 2,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CD@KBGG@VolumeCheck?$CI?$CJ?5?9?5GetVolInfo?5faile@",
+   "address": "007f9b60",
+   "bytes": 35,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CF@MONL@GetVolumeInformation?$CI?$CJ?5?9?5failed?3@",
+   "address": "007f9b84",
+   "bytes": 37,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BP@MGCA@GetDiskFreeSpace?$CI?$CJ?5failed?3?5?$CFs?6?$AA@",
+   "address": "007f9bac",
+   "bytes": 31,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_02HMIE@?2?$CK?$AA@",
+   "address": "007f9bcc",
+   "bytes": 3,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_02OOND@?4?4?$AA@",
+   "address": "007f9bd0",
+   "bytes": 3,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0046e750",
+   "symbol": "?VolumeCheck@@YI_NXZ",
+   "target": "00715090",
+   "function_entry": true
+  },
+  {
+   "site": "0046e750",
+   "symbol": "?VolumeCheck@@YI_NXZ",
+   "target": "00715090",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?VolumeCheck@@YI_NXZ",
+   "target": "00715090",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Force_Available@CD@@UAE_NH@Z",
+   "address": "0046e4f0"
+  },
+  {
+   "symbol": "?Insert_Disk@CD@@UAE_NH@Z",
+   "address": "0046e520"
+  },
+  {
+   "symbol": "?RequiredCD@CD@@2HA",
+   "address": "007d20e0"
+  },
+  {
+   "symbol": "?Swap_Disk@CD@@UAE_NH@Z",
+   "address": "0046e750"
+  },
+  {
+   "symbol": "?volume_label_format_007d5c68@@3PADA",
+   "address": "007d5c68"
+  },
+  {
+   "symbol": "__imp__FindClose@4",
+   "address": "0079a2f8"
+  },
+  {
+   "symbol": "__imp__FindFirstFileA@8",
+   "address": "0079a1fc"
+  },
+  {
+   "symbol": "__imp__FindNextFileA@8",
+   "address": "0079a200"
+  },
+  {
+   "symbol": "__imp__GetDiskFreeSpaceA@20",
+   "address": "0079a244"
+  },
+  {
+   "symbol": "__imp__GetDriveTypeA@4",
+   "address": "0079a24c"
+  },
+  {
+   "symbol": "__imp__GetLogicalDriveStringsA@8",
+   "address": "0079a14c"
+  },
+  {
+   "symbol": "__imp__GetVolumeInformationA@32",
+   "address": "0079a20c"
+  },
+  {
+   "symbol": "__stricmp",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "_sprintf",
+   "address": "007820f4"
+  }
+ ],
+ "route": "A",
+ "unit": "volinfo.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00715090",
+   "lines": 6
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 4,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

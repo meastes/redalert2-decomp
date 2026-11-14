@@ -1,0 +1,112 @@
+{
+ "module": "vqalib_unvqtran",
+ "source": "src/recovered/vqalib_unvqtran.cpp",
+ "header": null,
+ "population": "population-4229",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 914,
+ "code": [
+  {
+   "symbol": "?UnVQ2_C0_4x4_KEY@@YAXPAE00KKK@Z",
+   "entry": "0077dd90",
+   "body_bytes": 1034,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?UnVQ2_C0_4x4_TRANS_HALF@@YAXPAE00KKK@Z",
+   "entry": "0077e1a0",
+   "body_bytes": 1026,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?UnVQ2_C0_4x2_TRANS@@YAXPAE00KKK@Z",
+   "entry": "0077e5b0",
+   "body_bytes": 1057,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?UnVQ2_C0_4x2_KEY@@YAXPAE00KKK@Z",
+   "entry": "0077e9e0",
+   "body_bytes": 1003,
+   "padding_bytes": 5
+  }
+ ],
+ "code_bytes": 4160,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00777880",
+   "symbol": "?UnVQ2_C0_4x4_KEY@@YAXPAE00KKK@Z",
+   "target": "0077dd90",
+   "function_entry": true
+  },
+  {
+   "site": "00777880",
+   "symbol": "?UnVQ2_C0_4x4_TRANS_HALF@@YAXPAE00KKK@Z",
+   "target": "0077e1a0",
+   "function_entry": true
+  },
+  {
+   "site": "00777880",
+   "symbol": "?UnVQ2_C0_4x2_KEY@@YAXPAE00KKK@Z",
+   "target": "0077e9e0",
+   "function_entry": true
+  },
+  {
+   "site": "00777880",
+   "symbol": "?UnVQ2_C0_4x2_TRANS@@YAXPAE00KKK@Z",
+   "target": "0077e5b0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [],
+ "route": "A",
+ "unit": "vqalib_unvqtran.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "0077dd90",
+   "lines": 1
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "0077d940",
+   "bytes": 1101,
+   "population": "population-4047",
+   "source": "src/recovered/vqalib_unvqtran/UnVQ2_C0_4x4_TRANS.cpp",
+   "cause": "held by population-4047; not joined: differs under the unit's state (689 bytes differ)"
+  }
+ ],
+ "unit_functions": 6,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 1,
+  "bytes": 1101
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

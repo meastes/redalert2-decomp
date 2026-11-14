@@ -1,0 +1,6645 @@
+{
+ "module": "netshare",
+ "source": "src/recovered/netshare.cpp",
+ "header": null,
+ "population": "population-4258",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 925,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "005c29b0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "005c29d0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "005c2a00",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "005c2a20",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "005c2a40",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "005c2a60",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "005c2a80",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "005c2aa0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "005c2ae0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "005c2b10",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "005c2b40",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "005c2b70",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "005c2b80",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Hash_Name_005c2ba0@@YIIABVWstring@@@Z",
+   "entry": "005c2ba0",
+   "body_bytes": 68,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Hash_Wide_Name_005c2bf0@@YIIABVWideString@@@Z",
+   "entry": "005c2bf0",
+   "body_bytes": 70,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Find_Lobby_Window_005c2c40@@YAPAUHWND__@@XZ",
+   "entry": "005c2c40",
+   "body_bytes": 53,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "entry": "005c2c80",
+   "body_bytes": 135,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Unknown_005c2d10@@YAXHPBGZZ",
+   "entry": "005c2d10",
+   "body_bytes": 135,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "entry": "005c2da0",
+   "body_bytes": 384,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Add_List_Text_005c2f20@@YIXPAUHWND__@@PBGHH@Z",
+   "entry": "005c2f20",
+   "body_bytes": 278,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Add_Chat_Dot_005c3040@@YIXXZ",
+   "entry": "005c3040",
+   "body_bytes": 265,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Count_Teams_005c3150@@YIHPAVHouseClass@@@Z",
+   "entry": "005c3150",
+   "body_bytes": 224,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "entry": "005c3230",
+   "body_bytes": 364,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Unknown_Dialog_Proc_005c33a0@@YGJPAUHWND__@@IIJ@Z",
+   "entry": "005c33a0",
+   "body_bytes": 163,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?unknown_set_dialog_wide_text_005c3450@@YIXPAUHWND__@@PAUUnknownTextOwner_005c3450@@@Z",
+   "entry": "005c3450",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Current_Game_Mode_005c34d0@@YAPAVMultiplayerGameMode@@XZ",
+   "entry": "005c34d0",
+   "body_bytes": 21,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Unknown_005c34f0@@YIXXZ",
+   "entry": "005c34f0",
+   "body_bytes": 95,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Unknown_005c3810@@YIX_N0@Z",
+   "entry": "005c3810",
+   "body_bytes": 715,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Unknown_005c3ae0@@YAXXZ",
+   "entry": "005c3ae0",
+   "body_bytes": 143,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Unknown_005c3b70@@YIXXZ",
+   "entry": "005c3b70",
+   "body_bytes": 174,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Unknown_005c3c20@@YAXXZ",
+   "entry": "005c3c20",
+   "body_bytes": 26,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Unknown_005c3c40@@YAXXZ",
+   "entry": "005c3c40",
+   "body_bytes": 26,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Send_Game_Options_005c3c60@@YIXPBD@Z",
+   "entry": "005c3c60",
+   "body_bytes": 295,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Unknown_005c3d90@@YIXPBD0@Z",
+   "entry": "005c3d90",
+   "body_bytes": 367,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Set_Player_Map_State_005c3f00@@YIXPBDH@Z",
+   "entry": "005c3f00",
+   "body_bytes": 231,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Save_List_Selection_005c5ff0@@YIXPAUHWND__@@PAV?$WolDictionary@VWideString@@_N@@@Z",
+   "entry": "005c5ff0",
+   "body_bytes": 793,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Restore_List_Selection_005c6310@@YIXPAUHWND__@@PAV?$WolDictionary@VWideString@@_N@@@Z",
+   "entry": "005c6310",
+   "body_bytes": 516,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Lobby_Slot_Limit_005c6520@@YAHXZ",
+   "entry": "005c6520",
+   "body_bytes": 45,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Lobby_Slot_Limit_Plus_One_005c6550@@YAHXZ",
+   "entry": "005c6550",
+   "body_bytes": 68,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Scenario_Slot_Limit_005c65a0@@YIHH@Z",
+   "entry": "005c65a0",
+   "body_bytes": 91,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Unknown_005c6600@@YIHH@Z",
+   "entry": "005c6600",
+   "body_bytes": 412,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Selected_Campaign_005c67a0@@YAHXZ",
+   "entry": "005c67a0",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Lobby_Dialog_Update_005c67c0@@YA_NXZ",
+   "entry": "005c67c0",
+   "body_bytes": 414,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Open_Lobby_Dialog_005c6960@@YIHPAUHWND__@@@Z",
+   "entry": "005c6960",
+   "body_bytes": 113,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Accept_Map_Selection_005c71f0@@YI_NPAUHWND__@@@Z",
+   "entry": "005c71f0",
+   "body_bytes": 753,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Unknown_Pregame_Setup_005c74f0@@YAXXZ",
+   "entry": "005c74f0",
+   "body_bytes": 126,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Unknown_005c7570@@YIXPAUHWND__@@@Z",
+   "entry": "005c7570",
+   "body_bytes": 1024,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Download_Map_Preview_005c7970@@YIXXZ",
+   "entry": "005c7970",
+   "body_bytes": 704,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Select_Scenario_005c7c30@@YI_NH@Z",
+   "entry": "005c7c30",
+   "body_bytes": 699,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Random_Map_CRC_005c8420@@YIPADXZ",
+   "entry": "005c8420",
+   "body_bytes": 177,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Make_Random_Map_005c84e0@@YIHXZ",
+   "entry": "005c84e0",
+   "body_bytes": 379,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Is_Host_Name_005c8660@seed_005c8660@@YI_NI@Z",
+   "entry": "005c8660",
+   "body_bytes": 20,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?unknown_is_host_player_005c8680@seed_005c8680@@YI_NH@Z",
+   "entry": "005c8680",
+   "body_bytes": 28,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Is_Host_005c86a0@@YA_NXZ",
+   "entry": "005c86a0",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Is_Local_Name_005c86c0@@YIHPBG@Z",
+   "entry": "005c86c0",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Init_Lobby_Entries_005c86e0@@YIXXZ",
+   "entry": "005c86e0",
+   "body_bytes": 615,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Unknown_Free_Lobby_Entries_005c8950@@YAXXZ",
+   "entry": "005c8950",
+   "body_bytes": 182,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Fill_Slots_005c8a10@@YAXXZ",
+   "entry": "005c8a10",
+   "body_bytes": 93,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Clear_Slot_Lists_005c8a70@@YAXXZ",
+   "entry": "005c8a70",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Unknown_Reset_Slots_005c8a90@@YAXXZ",
+   "entry": "005c8a90",
+   "body_bytes": 131,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Unknown_Find_Lobby_Name_005c8b20@@YIPAUNodeNameType@@PBG@Z",
+   "entry": "005c8b20",
+   "body_bytes": 267,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Find_Slot_By_Name_005c8c30@@YIHPBG@Z",
+   "entry": "005c8c30",
+   "body_bytes": 57,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Find_First_Player_Slot_005c8c70@@YAHXZ",
+   "entry": "005c8c70",
+   "body_bytes": 75,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?get@Leaf_5c8cc0@@QAIXI@Z",
+   "entry": "005c8cc0",
+   "body_bytes": 8,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Seat_First_Player_005c8cd0@@YIXH@Z",
+   "entry": "005c8cd0",
+   "body_bytes": 21,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Unknown_Slot_Names_005c8cf0@@YIXPAG@Z",
+   "entry": "005c8cf0",
+   "body_bytes": 214,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Set_Slot_Names_005c8dd0@@YIXPBG@Z",
+   "entry": "005c8dd0",
+   "body_bytes": 920,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Assign_Slot_005c9170@@YIHPAUNodeNameType@@@Z",
+   "entry": "005c9170",
+   "body_bytes": 77,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Unknown_Release_Slot_005c91c0@@YIXAAVIPXAddressClass@@@Z",
+   "entry": "005c91c0",
+   "body_bytes": 161,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Unknown_Release_Slot_by_Name_005c9270@@YIXPBD@Z",
+   "entry": "005c9270",
+   "body_bytes": 171,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Is_Real_Player_Entry_005c9320@seed_005c9320@@YIIH@Z",
+   "entry": "005c9320",
+   "body_bytes": 69,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Is_AI_Entry_005c9370@seed_005c9370@@YIIH@Z",
+   "entry": "005c9370",
+   "body_bytes": 37,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Is_Occupant_Entry_005c93a0@seed_005c93a0@@YIIH@Z",
+   "entry": "005c93a0",
+   "body_bytes": 45,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?AI_Difficulty_005c93d0@seed_005c93d0@@YIIH@Z",
+   "entry": "005c93d0",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Count_AI_Slots_005c9400@seed_005c9400@@YAHXZ",
+   "entry": "005c9400",
+   "body_bytes": 62,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Slots_Filled_005c9440@@YA_NXZ",
+   "entry": "005c9440",
+   "body_bytes": 78,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?No_Observer_Slot_005c9490@@YA_NXZ",
+   "entry": "005c9490",
+   "body_bytes": 31,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Unknown_005c94b0@@YA_NXZ",
+   "entry": "005c94b0",
+   "body_bytes": 92,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Channel_Full_005c9510@@YA_NXZ",
+   "entry": "005c9510",
+   "body_bytes": 186,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Unknown_Is_Color_Taken_005c95d0@@YI_NH@Z",
+   "entry": "005c95d0",
+   "body_bytes": 125,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Entry_Kind_005c9650@@YIHPAUNodeNameType@@@Z",
+   "entry": "005c9650",
+   "body_bytes": 88,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Entry_For_Kind_005c96b0@seed_005c96b0@@YIIH@Z",
+   "entry": "005c96b0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Unknown_Enable_Start_005c9700@@YAXXZ",
+   "entry": "005c9700",
+   "body_bytes": 156,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Slot_Control_Id_005c97a0@@YIHH@Z",
+   "entry": "005c97a0",
+   "body_bytes": 96,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Control_Slot_005c9800@@YIHH@Z",
+   "entry": "005c9800",
+   "body_bytes": 105,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Entry_Type_Name_005c9870@@YIPBGPAUNodeNameType@@@Z",
+   "entry": "005c9870",
+   "body_bytes": 209,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?unknown_combo_select_by_data_005c9950@@YIXPAUHWND__@@HH@Z",
+   "entry": "005c9950",
+   "body_bytes": 125,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Set_Slot_Country_005c9a10@@YIXPAUHWND__@@H@Z",
+   "entry": "005c9a10",
+   "body_bytes": 147,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Set_Slot_Color_005c9ab0@@YIXPAUHWND__@@H@Z",
+   "entry": "005c9ab0",
+   "body_bytes": 212,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Unknown_005c9b90@@YIXPAUHWND__@@H_N@Z",
+   "entry": "005c9b90",
+   "body_bytes": 350,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Refresh_Slots_005c9cf0@@YIXPAUHWND__@@H@Z",
+   "entry": "005c9cf0",
+   "body_bytes": 172,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Lock_Slots_005c9da0@@YIXPAUHWND__@@H@Z",
+   "entry": "005c9da0",
+   "body_bytes": 285,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Refresh_Slot_Images_005c9ec0@@YIXPAUHWND__@@@Z",
+   "entry": "005c9ec0",
+   "body_bytes": 313,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Refresh_Slot_Settings_005ca000@@YIXPAUHWND__@@_N@Z",
+   "entry": "005ca000",
+   "body_bytes": 933,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Is_Accepted_Slot_005ca3b0@@YIHH@Z",
+   "entry": "005ca3b0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Slot_Country_005ca3f0@@YIHH@Z",
+   "entry": "005ca3f0",
+   "body_bytes": 135,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Slot_Color_005ca480@@YIHH@Z",
+   "entry": "005ca480",
+   "body_bytes": 88,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Slot_Color_Control_Id_005ca4e0@@YIHH@Z",
+   "entry": "005ca4e0",
+   "body_bytes": 96,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Refresh_Slot_Colors_005ca540@@YIXPAUHWND__@@@Z",
+   "entry": "005ca540",
+   "body_bytes": 375,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Unknown_005ca6c0@@YIXPAUHWND__@@@Z",
+   "entry": "005ca6c0",
+   "body_bytes": 1516,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Unknown_Clear_Closed_Slots_005cacb0@@YI_NPAUHWND__@@@Z",
+   "entry": "005cacb0",
+   "body_bytes": 330,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Unknown_005cae00@@YIXPAUHWND__@@HH@Z",
+   "entry": "005cae00",
+   "body_bytes": 450,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Unknown_005cafd0@@YIXPAUHWND__@@@Z",
+   "entry": "005cafd0",
+   "body_bytes": 402,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Unknown_005cb170@@YIXPAUHWND__@@H@Z",
+   "entry": "005cb170",
+   "body_bytes": 400,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Change_Slot_Count_005cb300@@YIXPAUHWND__@@HHPAVUnknownSessionA3D29C@@@Z",
+   "entry": "005cb300",
+   "body_bytes": 225,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Unknown_005cb3f0@@YIXPAUHWND__@@HH@Z",
+   "entry": "005cb3f0",
+   "body_bytes": 361,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Clear_Observer_Slots_005cb560@@YIXPAUHWND__@@@Z",
+   "entry": "005cb560",
+   "body_bytes": 605,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Reset_Slots_From_005cb7c0@@YIXPAUHWND__@@H@Z",
+   "entry": "005cb7c0",
+   "body_bytes": 263,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Change_Scenario_Slots_005cb8d0@@YIXPAUHWND__@@HH@Z",
+   "entry": "005cb8d0",
+   "body_bytes": 1243,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Unknown_005cbdb0@@YI_NPAUHWND__@@H_N1@Z",
+   "entry": "005cbdb0",
+   "body_bytes": 357,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Select_Entry_Kind_005cc700@@YIXPAUHWND__@@HH@Z",
+   "entry": "005cc700",
+   "body_bytes": 244,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Load_Random_Map_Preview_005cc800@@YIXPAUHWND__@@@Z",
+   "entry": "005cc800",
+   "body_bytes": 136,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Save_Lobby_Options_005cc890@@YIXPAUHWND__@@PAUSessionOptionsClass@@@Z",
+   "entry": "005cc890",
+   "body_bytes": 409,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Load_Lobby_Options_005cca30@@YIXPAUHWND__@@PAUSessionOptionsClass@@@Z",
+   "entry": "005cca30",
+   "body_bytes": 1297,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Limit_Name_Text_005ccf50@@YI?AVWideString@@PAUHWND__@@@Z",
+   "entry": "005ccf50",
+   "body_bytes": 218,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Unknown_005cd030@@YIXPAUHWND__@@_N@Z",
+   "entry": "005cd030",
+   "body_bytes": 165,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Unknown_Lobby_Entry_Name_005cd0e0@@YI?AVWstring@@PAUNodeNameType@@@Z",
+   "entry": "005cd0e0",
+   "body_bytes": 199,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Unknown_Find_Lobby_Entry_005cd1b0@@YIPAUNodeNameType@@ABVWideString@@@Z",
+   "entry": "005cd1b0",
+   "body_bytes": 319,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Unknown_Is_Lobby_Name_005cd2f0@@YI_NABVWstring@@@Z",
+   "entry": "005cd2f0",
+   "body_bytes": 135,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?get@Leaf_5cd380@@QAEIXZ",
+   "entry": "005cd380",
+   "body_bytes": 28,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Unknown_005CD3A0@@YIXXZ",
+   "entry": "005cd3a0",
+   "body_bytes": 75,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Unknown_005cd3f0@@YIXPAUHWND__@@@Z",
+   "entry": "005cd3f0",
+   "body_bytes": 328,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Unknown_005cd540@@YIXPAUHWND__@@@Z",
+   "entry": "005cd540",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?initialize@WordStorage_005cd770@@QAEPAV1@IPAI@Z",
+   "entry": "005cd770",
+   "body_bytes": 93,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?get@Leaf_5cd900@@QAEPAXI@Z",
+   "entry": "005cd900",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?get@Leaf_5cd950@@QAEPAXI@Z",
+   "entry": "005cd950",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Shrink_Table@?$WolDictionary@VWideString@@_N@@QAEXXZ",
+   "entry": "005cd9a0",
+   "body_bytes": 168,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Grow_Table@?$WolDictionary@VWideString@@_N@@QAEXXZ",
+   "entry": "005cda50",
+   "body_bytes": 156,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?get@Storage_5cdaf0@@QAEPAXIPAI@Z",
+   "entry": "005cdaf0",
+   "body_bytes": 74,
+   "padding_bytes": 6
+  }
+ ],
+ "code_bytes": 30224,
+ "data": [
+  {
+   "symbol": "??_7CDFileClass@@6B@",
+   "address": "0079a658",
+   "bytes": 68,
+   "kind": "vtable",
+   "section": 104
+  },
+  {
+   "symbol": "??_7CCFileClass@@6B@",
+   "address": "0079a6a0",
+   "bytes": 68,
+   "kind": "vtable",
+   "section": 105
+  },
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "??_7?$List@PAUINISection@INIClass@@@@6B@",
+   "address": "0079aaec",
+   "bytes": 4,
+   "kind": "vtable",
+   "section": 107
+  },
+  {
+   "symbol": "??_7GenericList@@6B@",
+   "address": "0079aaf4",
+   "bytes": 4,
+   "kind": "vtable",
+   "section": 108
+  },
+  {
+   "symbol": "??_7GenericNode@@6B@",
+   "address": "0079aafc",
+   "bytes": 4,
+   "kind": "vtable",
+   "section": 111
+  },
+  {
+   "symbol": "??_7CD@@6B@",
+   "address": "0079d868",
+   "bytes": 12,
+   "kind": "vtable",
+   "section": 168
+  },
+  {
+   "symbol": "??_7BufferStraw@@6B@",
+   "address": "0079e9e8",
+   "bytes": 12,
+   "kind": "vtable",
+   "section": 151
+  },
+  {
+   "symbol": "??_7Straw@@6B@",
+   "address": "0079e9f8",
+   "bytes": 12,
+   "kind": "vtable",
+   "section": 152
+  },
+  {
+   "symbol": "??_7INIClass@@6B@",
+   "address": "007a2b34",
+   "bytes": 4,
+   "kind": "vtable",
+   "section": 106
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a7350",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_C@_04CLEA@?$CF08X?$AA@",
+   "address": "007ce280",
+   "bytes": 5,
+   "kind": "string",
+   "section": 171
+  },
+  {
+   "symbol": "??_C@_02MECO@?$CFd?$AA@",
+   "address": "007ce9bc",
+   "bytes": 3,
+   "kind": "string",
+   "section": 103
+  },
+  {
+   "symbol": "??_C@_0L@EJFF@GUI?3Cancel?$AA@",
+   "address": "007d1604",
+   "bytes": 11,
+   "kind": "string",
+   "section": 136
+  },
+  {
+   "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+   "address": "007d64f4",
+   "bytes": 4,
+   "kind": "string",
+   "section": 135
+  },
+  {
+   "symbol": "??_C@_0M@HDJ@GUI?3Observe?$AA@",
+   "address": "007d9cb0",
+   "bytes": 12,
+   "kind": "string",
+   "section": 342
+  },
+  {
+   "symbol": "??_C@_07IBND@RA2?4INI?$AA@",
+   "address": "007db8b8",
+   "bytes": 8,
+   "kind": "string",
+   "section": 337
+  },
+  {
+   "symbol": "??_C@_06DN@TXT_OK?$AA@",
+   "address": "007db8f4",
+   "bytes": 7,
+   "kind": "string",
+   "section": 167
+  },
+  {
+   "symbol": "??_C@_06IFDN@GUI?3Ok?$AA@",
+   "address": "007dbc48",
+   "bytes": 7,
+   "kind": "string",
+   "section": 137
+  },
+  {
+   "symbol": "??_C@_0M@MLEF@MultiPlayer?$AA@",
+   "address": "007dbce4",
+   "bytes": 12,
+   "kind": "string",
+   "section": 335
+  },
+  {
+   "symbol": "??_C@_0M@EOLM@RandMap?4img?$AA@",
+   "address": "007e1540",
+   "bytes": 12,
+   "kind": "string",
+   "section": 130
+  },
+  {
+   "symbol": "??_C@_09CKPM@RandomMap?$AA@",
+   "address": "007e15dc",
+   "bytes": 10,
+   "kind": "string",
+   "section": 100
+  },
+  {
+   "symbol": "??_C@_0L@JLOO@NumPlayers?$AA@",
+   "address": "007e1690",
+   "bytes": 11,
+   "kind": "string",
+   "section": 101
+  },
+  {
+   "symbol": "??_C@_0M@FDHG@RandMap?4Sed?$AA@",
+   "address": "007e16e8",
+   "bytes": 12,
+   "kind": "string",
+   "section": 174
+  },
+  {
+   "symbol": "??_C@_0DB@NCGA@Cleaning?5up?5the?5temporary?5decomp@",
+   "address": "007e22b8",
+   "bytes": 49,
+   "kind": "string",
+   "section": 149
+  },
+  {
+   "symbol": "??_C@_0CC@KPDG@Creating?5the?5new?5preview?5surface@",
+   "address": "007e22ec",
+   "bytes": 34,
+   "kind": "string",
+   "section": 150
+  },
+  {
+   "symbol": "??_C@_0CB@DBLD@Decompressing?5the?5preview?5image?6@",
+   "address": "007e2310",
+   "bytes": 33,
+   "kind": "string",
+   "section": 153
+  },
+  {
+   "symbol": "??_C@_0CG@MHNB@Loading?5the?5compressed?5preview?5i@",
+   "address": "007e2334",
+   "bytes": 38,
+   "kind": "string",
+   "section": 154
+  },
+  {
+   "symbol": "??_C@_0CE@EHOD@got_file?5is?5false?4?5Download?5fail@",
+   "address": "007e235c",
+   "bytes": 36,
+   "kind": "string",
+   "section": 155
+  },
+  {
+   "symbol": "??_C@_0DJ@PFBB@Calling?5Get_File_From_Host?5to?5re@",
+   "address": "007e2380",
+   "bytes": 57,
+   "kind": "string",
+   "section": 156
+  },
+  {
+   "symbol": "??_C@_0BP@HJOD@Starting?5map?5preview?5download?6?$AA@",
+   "address": "007e23f0",
+   "bytes": 31,
+   "kind": "string",
+   "section": 159
+  },
+  {
+   "symbol": "??_C@_09DFBC@Waypoints?$AA@",
+   "address": "007e33dc",
+   "bytes": 10,
+   "kind": "string",
+   "section": 102
+  },
+  {
+   "symbol": "??_C@_13JKDK@?$AA?0?$AA?$AA@",
+   "address": "007e5c64",
+   "bytes": 4,
+   "kind": "string",
+   "section": 212
+  },
+  {
+   "symbol": "??_C@_0O@DPOL@GUI?3HostNoMap?$AA@",
+   "address": "007e6b74",
+   "bytes": 14,
+   "kind": "string",
+   "section": 86
+  },
+  {
+   "symbol": "??_C@_13DOBH@?$AA?4?$AA?$AA@",
+   "address": "007e6e58",
+   "bytes": 4,
+   "kind": "string",
+   "section": 54
+  },
+  {
+   "symbol": "??_C@_0CD@PNIB@Sending?5public?5game?5options?5to?5?$CF@",
+   "address": "007e6e5c",
+   "bytes": 35,
+   "kind": "string",
+   "section": 79
+  },
+  {
+   "symbol": "??_C@_0CF@ELF@Sending?5private?5game?5options?5to?5@",
+   "address": "007e6e80",
+   "bytes": 37,
+   "kind": "string",
+   "section": 82
+  },
+  {
+   "symbol": "??_C@_0BE@CBAO@GUI?3HostMapTransfer?$AA@",
+   "address": "007e6ea8",
+   "bytes": 20,
+   "kind": "string",
+   "section": 85
+  },
+  {
+   "symbol": "??_C@_0BE@EJOA@D?3?2Ra2?2netshare?4cpp?$AA@",
+   "address": "007e6ebc",
+   "bytes": 20,
+   "kind": "string",
+   "section": 87
+  },
+  {
+   "symbol": "??_C@_03NBMA@?$CFd?0?$AA@",
+   "address": "007e6ed4",
+   "bytes": 4,
+   "kind": "string",
+   "section": 277
+  },
+  {
+   "symbol": "??_C@_0BD@MOPA@GUI?3EjectAIPlayers?$AA@",
+   "address": "007e70d0",
+   "bytes": 19,
+   "kind": "string",
+   "section": 138
+  },
+  {
+   "symbol": "??_C@_0BB@HHL@GUI?3EjectPlayers?$AA@",
+   "address": "007e70e4",
+   "bytes": 17,
+   "kind": "string",
+   "section": 139
+  },
+  {
+   "symbol": "??_C@_0BP@KEDC@Pregame?5setup?5for?5?$CFd?5players?4?6?$AA@",
+   "address": "007e70f8",
+   "bytes": 31,
+   "kind": "string",
+   "section": 142
+  },
+  {
+   "symbol": "??_C@_04MJPP@?4MPR?$AA@",
+   "address": "007e7118",
+   "bytes": 5,
+   "kind": "string",
+   "section": 145
+  },
+  {
+   "symbol": "??_C@_0CJ@BALP@Checking?5for?5file?5?$CFs?5in?5local?5di@",
+   "address": "007e7120",
+   "bytes": 41,
+   "kind": "string",
+   "section": 146
+  },
+  {
+   "symbol": "??_C@_0BI@IOGC@Preview?5mode?5acks?5sent?6?$AA@",
+   "address": "007e714c",
+   "bytes": 24,
+   "kind": "string",
+   "section": 157
+  },
+  {
+   "symbol": "??_C@_0BL@JDDE@Sending?5preview?5mode?5acks?6?$AA@",
+   "address": "007e7164",
+   "bytes": 27,
+   "kind": "string",
+   "section": 158
+  },
+  {
+   "symbol": "??_C@_0BJ@IMPI@TXT_UNABLE_READ_SCENARIO?$AA@",
+   "address": "007e7180",
+   "bytes": 25,
+   "kind": "string",
+   "section": 166
+  },
+  {
+   "symbol": "??_C@_0BB@JHBN@GUI?3OpenObserver?$AA@",
+   "address": "007e7298",
+   "bytes": 17,
+   "kind": "string",
+   "section": 185
+  },
+  {
+   "symbol": "??_C@_0M@NKFP@GUI?3Waiting?$AA@",
+   "address": "007e72ac",
+   "bytes": 12,
+   "kind": "string",
+   "section": 186
+  },
+  {
+   "symbol": "??_C@_0L@OJFC@GUI?3AIHard?$AA@",
+   "address": "007e72b8",
+   "bytes": 11,
+   "kind": "string",
+   "section": 187
+  },
+  {
+   "symbol": "??_C@_0N@GOPO@GUI?3AINormal?$AA@",
+   "address": "007e72c4",
+   "bytes": 13,
+   "kind": "string",
+   "section": 188
+  },
+  {
+   "symbol": "??_C@_0L@JIHB@GUI?3AIEasy?$AA@",
+   "address": "007e72d4",
+   "bytes": 11,
+   "kind": "string",
+   "section": 189
+  },
+  {
+   "symbol": "??_C@_0L@DIEP@GUI?3Closed?$AA@",
+   "address": "007e72e0",
+   "bytes": 11,
+   "kind": "string",
+   "section": 190
+  },
+  {
+   "symbol": "??_C@_08DBAJ@GUI?3Open?$AA@",
+   "address": "007e72ec",
+   "bytes": 9,
+   "kind": "string",
+   "section": 191
+  },
+  {
+   "symbol": "??_C@_0DA@HLLH@Channel?5full?5?9?5Session?4ScenarioM@",
+   "address": "007e72f8",
+   "bytes": 48,
+   "kind": "string",
+   "section": 239
+  },
+  {
+   "symbol": "??_C@_0BA@HBDP@STT?3PlayerHuman?$AA@",
+   "address": "007e7328",
+   "bytes": 16,
+   "kind": "string",
+   "section": 254
+  },
+  {
+   "symbol": "??_C@_0BH@HBKA@STT?3PlayerOpenObserver?$AA@",
+   "address": "007e7338",
+   "bytes": 23,
+   "kind": "string",
+   "section": 255
+  },
+  {
+   "symbol": "??_C@_0BD@PLEH@STT?3PlayerGeniusAI?$AA@",
+   "address": "007e7350",
+   "bytes": 19,
+   "kind": "string",
+   "section": 256
+  },
+  {
+   "symbol": "??_C@_0BC@LDDH@STT?3PlayerSmartAI?$AA@",
+   "address": "007e7364",
+   "bytes": 18,
+   "kind": "string",
+   "section": 257
+  },
+  {
+   "symbol": "??_C@_0BB@FAHH@STT?3PlayerDumbAI?$AA@",
+   "address": "007e7378",
+   "bytes": 17,
+   "kind": "string",
+   "section": 258
+  },
+  {
+   "symbol": "??_C@_0BB@KLPO@STT?3PlayerClosed?$AA@",
+   "address": "007e738c",
+   "bytes": 17,
+   "kind": "string",
+   "section": 259
+  },
+  {
+   "symbol": "??_C@_0P@IBDI@STT?3PlayerOpen?$AA@",
+   "address": "007e73a0",
+   "bytes": 15,
+   "kind": "string",
+   "section": 260
+  },
+  {
+   "symbol": "??_C@_05MFEC@O?$CFd?$CFs?$AA@",
+   "address": "007e73b0",
+   "bytes": 6,
+   "kind": "string",
+   "section": 308
+  },
+  {
+   "symbol": "??_C@_0BM@HEHH@Sending?5observer?5slot?5of?57?6?$AA@",
+   "address": "007e73b8",
+   "bytes": 28,
+   "kind": "string",
+   "section": 309
+  },
+  {
+   "symbol": "??_C@_15MLJJ@?$AA?6?$AA?$AN?$AA?$AA@",
+   "address": "007e7404",
+   "bytes": 6,
+   "kind": "string",
+   "section": 322
+  },
+  {
+   "symbol": "??_C@_0N@IHEM@ObserverMode?$AA@",
+   "address": "007e740c",
+   "bytes": 13,
+   "kind": "string",
+   "section": 336
+  },
+  {
+   "symbol": "??_C@_0N@LIDG@GUI?3JoinGame?$AA@",
+   "address": "007e741c",
+   "bytes": 13,
+   "kind": "string",
+   "section": 340
+  },
+  {
+   "symbol": "??_C@_08GBFD@GUI?3Join?$AA@",
+   "address": "007e742c",
+   "bytes": 9,
+   "kind": "string",
+   "section": 341
+  },
+  {
+   "symbol": "??_C@_0L@HFKB@wolnob?4pcx?$AA@",
+   "address": "007e7438",
+   "bytes": 11,
+   "kind": "string",
+   "section": 343
+  },
+  {
+   "symbol": "??_C@_09JNIK@wolob?4pcx?$AA@",
+   "address": "007e7444",
+   "bytes": 10,
+   "kind": "string",
+   "section": 344
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7CDFileClass@@6B@",
+   "address": "0079a658",
+   "bytes": 68,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7CCFileClass@@6B@",
+   "address": "0079a6a0",
+   "bytes": 68,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$List@PAUINISection@INIClass@@@@6B@",
+   "address": "0079aaec",
+   "bytes": 4,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7GenericList@@6B@",
+   "address": "0079aaf4",
+   "bytes": 4,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7GenericNode@@6B@",
+   "address": "0079aafc",
+   "bytes": 4,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7CD@@6B@",
+   "address": "0079d868",
+   "bytes": 12,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7BufferStraw@@6B@",
+   "address": "0079e9e8",
+   "bytes": 12,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7Straw@@6B@",
+   "address": "0079e9f8",
+   "bytes": 12,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7INIClass@@6B@",
+   "address": "007a2b34",
+   "bytes": 4,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a7350",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_C@_04CLEA@?$CF08X?$AA@",
+   "address": "007ce280",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_02MECO@?$CFd?$AA@",
+   "address": "007ce9bc",
+   "bytes": 3,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@EJFF@GUI?3Cancel?$AA@",
+   "address": "007d1604",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+   "address": "007d64f4",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@HDJ@GUI?3Observe?$AA@",
+   "address": "007d9cb0",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07IBND@RA2?4INI?$AA@",
+   "address": "007db8b8",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06DN@TXT_OK?$AA@",
+   "address": "007db8f4",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06IFDN@GUI?3Ok?$AA@",
+   "address": "007dbc48",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@MLEF@MultiPlayer?$AA@",
+   "address": "007dbce4",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@EOLM@RandMap?4img?$AA@",
+   "address": "007e1540",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09CKPM@RandomMap?$AA@",
+   "address": "007e15dc",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@JLOO@NumPlayers?$AA@",
+   "address": "007e1690",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@FDHG@RandMap?4Sed?$AA@",
+   "address": "007e16e8",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DB@NCGA@Cleaning?5up?5the?5temporary?5decomp@",
+   "address": "007e22b8",
+   "bytes": 49,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CC@KPDG@Creating?5the?5new?5preview?5surface@",
+   "address": "007e22ec",
+   "bytes": 34,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CB@DBLD@Decompressing?5the?5preview?5image?6@",
+   "address": "007e2310",
+   "bytes": 33,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CG@MHNB@Loading?5the?5compressed?5preview?5i@",
+   "address": "007e2334",
+   "bytes": 38,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CE@EHOD@got_file?5is?5false?4?5Download?5fail@",
+   "address": "007e235c",
+   "bytes": 36,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DJ@PFBB@Calling?5Get_File_From_Host?5to?5re@",
+   "address": "007e2380",
+   "bytes": 57,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BP@HJOD@Starting?5map?5preview?5download?6?$AA@",
+   "address": "007e23f0",
+   "bytes": 31,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09DFBC@Waypoints?$AA@",
+   "address": "007e33dc",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_13JKDK@?$AA?0?$AA?$AA@",
+   "address": "007e5c64",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@DPOL@GUI?3HostNoMap?$AA@",
+   "address": "007e6b74",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_13DOBH@?$AA?4?$AA?$AA@",
+   "address": "007e6e58",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CD@PNIB@Sending?5public?5game?5options?5to?5?$CF@",
+   "address": "007e6e5c",
+   "bytes": 35,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CF@ELF@Sending?5private?5game?5options?5to?5@",
+   "address": "007e6e80",
+   "bytes": 37,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@CBAO@GUI?3HostMapTransfer?$AA@",
+   "address": "007e6ea8",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@EJOA@D?3?2Ra2?2netshare?4cpp?$AA@",
+   "address": "007e6ebc",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_03NBMA@?$CFd?0?$AA@",
+   "address": "007e6ed4",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@MOPA@GUI?3EjectAIPlayers?$AA@",
+   "address": "007e70d0",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@HHL@GUI?3EjectPlayers?$AA@",
+   "address": "007e70e4",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BP@KEDC@Pregame?5setup?5for?5?$CFd?5players?4?6?$AA@",
+   "address": "007e70f8",
+   "bytes": 31,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04MJPP@?4MPR?$AA@",
+   "address": "007e7118",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CJ@BALP@Checking?5for?5file?5?$CFs?5in?5local?5di@",
+   "address": "007e7120",
+   "bytes": 41,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BI@IOGC@Preview?5mode?5acks?5sent?6?$AA@",
+   "address": "007e714c",
+   "bytes": 24,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BL@JDDE@Sending?5preview?5mode?5acks?6?$AA@",
+   "address": "007e7164",
+   "bytes": 27,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BJ@IMPI@TXT_UNABLE_READ_SCENARIO?$AA@",
+   "address": "007e7180",
+   "bytes": 25,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@JHBN@GUI?3OpenObserver?$AA@",
+   "address": "007e7298",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@NKFP@GUI?3Waiting?$AA@",
+   "address": "007e72ac",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@OJFC@GUI?3AIHard?$AA@",
+   "address": "007e72b8",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@GOPO@GUI?3AINormal?$AA@",
+   "address": "007e72c4",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@JIHB@GUI?3AIEasy?$AA@",
+   "address": "007e72d4",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@DIEP@GUI?3Closed?$AA@",
+   "address": "007e72e0",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08DBAJ@GUI?3Open?$AA@",
+   "address": "007e72ec",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DA@HLLH@Channel?5full?5?9?5Session?4ScenarioM@",
+   "address": "007e72f8",
+   "bytes": 48,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@HBDP@STT?3PlayerHuman?$AA@",
+   "address": "007e7328",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BH@HBKA@STT?3PlayerOpenObserver?$AA@",
+   "address": "007e7338",
+   "bytes": 23,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@PLEH@STT?3PlayerGeniusAI?$AA@",
+   "address": "007e7350",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@LDDH@STT?3PlayerSmartAI?$AA@",
+   "address": "007e7364",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@FAHH@STT?3PlayerDumbAI?$AA@",
+   "address": "007e7378",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@KLPO@STT?3PlayerClosed?$AA@",
+   "address": "007e738c",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@IBDI@STT?3PlayerOpen?$AA@",
+   "address": "007e73a0",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_05MFEC@O?$CFd?$CFs?$AA@",
+   "address": "007e73b0",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BM@HEHH@Sending?5observer?5slot?5of?57?6?$AA@",
+   "address": "007e73b8",
+   "bytes": 28,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_15MLJJ@?$AA?6?$AA?$AN?$AA?$AA@",
+   "address": "007e7404",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@IHEM@ObserverMode?$AA@",
+   "address": "007e740c",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@LIDG@GUI?3JoinGame?$AA@",
+   "address": "007e741c",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08GBFD@GUI?3Join?$AA@",
+   "address": "007e742c",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@HFKB@wolnob?4pcx?$AA@",
+   "address": "007e7438",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09JNIK@wolob?4pcx?$AA@",
+   "address": "007e7444",
+   "bytes": 10,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00763ab0",
+   "symbol": "?Print_Chat_Line_005c2c80@seed_00763ab0@@YAXHHH@Z",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0075eed0",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0075f290",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0075f290",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "00764360",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "00764500",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0075ca30",
+   "symbol": "?Unknown_005cbdb0@@YI_NPAUHWND__@@H_N1@Z",
+   "target": "005cbdb0",
+   "function_entry": true
+  },
+  {
+   "site": "00762590",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0075f330",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0075f330",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0075dbd0",
+   "symbol": "?Popup_005c3230@@YIHPBGHP6A_NXZH@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "00490150",
+   "symbol": "?Send_Game_Options_005c3c60@@YIXPBD@Z",
+   "target": "005c3c60",
+   "function_entry": true
+  },
+  {
+   "site": "0073c7c0",
+   "symbol": "?Unknown_005CD380@@YIXXZ",
+   "target": "005cd380",
+   "function_entry": true
+  },
+  {
+   "site": "0073c890",
+   "symbol": "?Unknown_005CD3A0@@YIXXZ",
+   "target": "005cd3a0",
+   "function_entry": true
+  },
+  {
+   "site": "005a4250",
+   "symbol": "?Unknown_005c6600@@YIHH@Z",
+   "target": "005c6600",
+   "function_entry": true
+  },
+  {
+   "site": "005a3ee0",
+   "symbol": "?Get_Lobby_Dialog_005c2c40@@YAPAUHWND__@@XZ",
+   "target": "005c2c40",
+   "function_entry": true
+  },
+  {
+   "site": "005a4f90",
+   "symbol": "?Get_Lobby_Dialog_005c2c40@@YAPAUHWND__@@XZ",
+   "target": "005c2c40",
+   "function_entry": true
+  },
+  {
+   "site": "005a3320",
+   "symbol": "?Selected_Campaign_005c67a0@@YAHXZ",
+   "target": "005c67a0",
+   "function_entry": true
+  },
+  {
+   "site": "005a3320",
+   "symbol": "?Get_Lobby_Dialog_005c2c40@@YAPAUHWND__@@XZ",
+   "target": "005c2c40",
+   "function_entry": true
+  },
+  {
+   "site": "005a3760",
+   "symbol": "?Unknown_005cb170@@YIXPAUHWND__@@H@Z",
+   "target": "005cb170",
+   "function_entry": true
+  },
+  {
+   "site": "005a3760",
+   "symbol": "?Get_Lobby_Dialog_005c2c40@@YAPAUHWND__@@XZ",
+   "target": "005c2c40",
+   "function_entry": true
+  },
+  {
+   "site": "005a38d0",
+   "symbol": "?Get_Lobby_Dialog_005c2c40@@YAPAUHWND__@@XZ",
+   "target": "005c2c40",
+   "function_entry": true
+  },
+  {
+   "site": "005a35d0",
+   "symbol": "?Get_Lobby_Dialog_005c2c40@@YAPAUHWND__@@XZ",
+   "target": "005c2c40",
+   "function_entry": true
+  },
+  {
+   "site": "005a2ef0",
+   "symbol": "?Send_Game_Options_005c3c60@@YIXPBD@Z",
+   "target": "005c3c60",
+   "function_entry": true
+  },
+  {
+   "site": "005a2ef0",
+   "symbol": "?Select_Scenario_005c7c30@@YI_NH@Z",
+   "target": "005c7c30",
+   "function_entry": true
+  },
+  {
+   "site": "005a2ef0",
+   "symbol": "?Select_Scenario_005c7c30@@YI_NH@Z",
+   "target": "005c7c30",
+   "function_entry": true
+  },
+  {
+   "site": "005a2ef0",
+   "symbol": "?Get_Lobby_Dialog_005c2c40@@YAPAUHWND__@@XZ",
+   "target": "005c2c40",
+   "function_entry": true
+  },
+  {
+   "site": "005a5720",
+   "symbol": "?Select_Scenario_005c7c30@@YI_NH@Z",
+   "target": "005c7c30",
+   "function_entry": true
+  },
+  {
+   "site": "005a5720",
+   "symbol": "?Unknown_Pregame_Setup_005c74f0@@YAXXZ",
+   "target": "005c74f0",
+   "function_entry": true
+  },
+  {
+   "site": "005a5000",
+   "symbol": "?Select_Scenario_005c7c30@@YI_NH@Z",
+   "target": "005c7c30",
+   "function_entry": true
+  },
+  {
+   "site": "005a5000",
+   "symbol": "?Get_Lobby_Dialog_005c2c40@@YAPAUHWND__@@XZ",
+   "target": "005c2c40",
+   "function_entry": true
+  },
+  {
+   "site": "005a5000",
+   "symbol": "?Unknown_005c3450@@YIXPAUHWND__@@PAVMultiplayerGameMode@@@Z",
+   "target": "005c3450",
+   "function_entry": true
+  },
+  {
+   "site": "005a5000",
+   "symbol": "?Unknown_005c7570@@YIXPAUHWND__@@@Z",
+   "target": "005c7570",
+   "function_entry": true
+  },
+  {
+   "site": "005a5000",
+   "symbol": "?Unknown_005c3810@@YIX_N0@Z",
+   "target": "005c3810",
+   "function_entry": true
+  },
+  {
+   "site": "005a5190",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "005a3960",
+   "symbol": "?Send_Game_Options_005c3c60@@YIXPBD@Z",
+   "target": "005c3c60",
+   "function_entry": true
+  },
+  {
+   "site": "00627210",
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "target": "005c2da0",
+   "function_entry": true
+  },
+  {
+   "site": "00627740",
+   "symbol": "?Unknown_005C3150@@YIHPAVHouseClass@@@Z",
+   "target": "005c3150",
+   "function_entry": true
+  },
+  {
+   "site": "00627740",
+   "symbol": "?Unknown_005C3150@@YIHPAVHouseClass@@@Z",
+   "target": "005c3150",
+   "function_entry": true
+  },
+  {
+   "site": "00626fe0",
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "target": "005c2da0",
+   "function_entry": true
+  },
+  {
+   "site": "00626fe0",
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "target": "005c2da0",
+   "function_entry": true
+  },
+  {
+   "site": "0059a310",
+   "symbol": "?Unknown_005c6600@@YIHH@Z",
+   "target": "005c6600",
+   "function_entry": true
+  },
+  {
+   "site": "0059a880",
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "target": "005c2da0",
+   "function_entry": true
+  },
+  {
+   "site": "0059bfa0",
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "target": "005c2da0",
+   "function_entry": true
+  },
+  {
+   "site": "0059c0b0",
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "target": "005c2da0",
+   "function_entry": true
+  },
+  {
+   "site": "005bbd20",
+   "symbol": "?Unknown_Slot_Names_005c8cf0@@YIXPAG@Z",
+   "target": "005c8cf0",
+   "function_entry": true
+  },
+  {
+   "site": "005bc430",
+   "symbol": "?Unknown_005cbdb0@@YI_NPAUHWND__@@H_N1@Z",
+   "target": "005cbdb0",
+   "function_entry": true
+  },
+  {
+   "site": "005bc4d0",
+   "symbol": "?Unknown_Free_Lobby_Entries_005c8950@@YAXXZ",
+   "target": "005c8950",
+   "function_entry": true
+  },
+  {
+   "site": "005bcbc0",
+   "symbol": "?Unknown_005cd030@@YIXPAUHWND__@@_N@Z",
+   "target": "005cd030",
+   "function_entry": true
+  },
+  {
+   "site": "005bee20",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "005bfc40",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "005bfc40",
+   "symbol": "?Unknown_Is_Lobby_Name_005cd2f0@@YI_NABVWstring@@@Z",
+   "target": "005cd2f0",
+   "function_entry": true
+  },
+  {
+   "site": "005bfc40",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "005c00b0",
+   "symbol": "?Clear_Slot_Lists_005c8a70@@YAXXZ",
+   "target": "005c8a70",
+   "function_entry": true
+  },
+  {
+   "site": "005c00b0",
+   "symbol": "?Fill_Slots_005c8a10@@YAXXZ",
+   "target": "005c8a10",
+   "function_entry": true
+  },
+  {
+   "site": "005c05f0",
+   "symbol": "?Unknown_005c3810@@YIX_N0@Z",
+   "target": "005c3810",
+   "function_entry": true
+  },
+  {
+   "site": "005c28e0",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "00596e30",
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "target": "005c2da0",
+   "function_entry": true
+  },
+  {
+   "site": "00597220",
+   "symbol": "?Unknown_005c7570@@YIXPAUHWND__@@@Z",
+   "target": "005c7570",
+   "function_entry": true
+  },
+  {
+   "site": "00597680",
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "target": "005c2da0",
+   "function_entry": true
+  },
+  {
+   "site": "00598400",
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "target": "005c2da0",
+   "function_entry": true
+  },
+  {
+   "site": "00598510",
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "target": "005c2da0",
+   "function_entry": true
+  },
+  {
+   "site": "0059b690",
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "target": "005c2da0",
+   "function_entry": true
+  },
+  {
+   "site": "005bc460",
+   "symbol": "?Init_Lobby_Entries_005c86e0@@YIXXZ",
+   "target": "005c86e0",
+   "function_entry": true
+  },
+  {
+   "site": "005bc460",
+   "symbol": "?Clear_Slot_Lists_005c8a70@@YAXXZ",
+   "target": "005c8a70",
+   "function_entry": true
+  },
+  {
+   "site": "005bc460",
+   "symbol": "?Unknown_Reset_Slots_005c8a90@@YAXXZ",
+   "target": "005c8a90",
+   "function_entry": true
+  },
+  {
+   "site": "005be6b0",
+   "symbol": "?Limit_Name_Text_005ccf50@@YI?AVWideString@@PAUHWND__@@@Z",
+   "target": "005ccf50",
+   "function_entry": true
+  },
+  {
+   "site": "005be6b0",
+   "symbol": "?Unknown_005CD3A0@@YIXXZ",
+   "target": "005cd3a0",
+   "function_entry": true
+  },
+  {
+   "site": "005be6b0",
+   "symbol": "?Unknown_005cd540@@YIXPAUHWND__@@@Z",
+   "target": "005cd540",
+   "function_entry": true
+  },
+  {
+   "site": "005be6b0",
+   "symbol": "?Unknown_005cd540@@YIXPAUHWND__@@@Z",
+   "target": "005cd540",
+   "function_entry": true
+  },
+  {
+   "site": "005c2330",
+   "symbol": "?Lock_Slots_005c9da0@@YIXPAUHWND__@@H@Z",
+   "target": "005c9da0",
+   "function_entry": true
+  },
+  {
+   "site": "005c2330",
+   "symbol": "?Select_Scenario_005c7c30@@YI_NH@Z",
+   "target": "005c7c30",
+   "function_entry": true
+  },
+  {
+   "site": "005c2330",
+   "symbol": "?Limit_Name_Text_005ccf50@@YI?AVWideString@@PAUHWND__@@@Z",
+   "target": "005ccf50",
+   "function_entry": true
+  },
+  {
+   "site": "005c2330",
+   "symbol": "?Send_Game_Options_005c3c60@@YIXPBD@Z",
+   "target": "005c3c60",
+   "function_entry": true
+  },
+  {
+   "site": "005c2330",
+   "symbol": "?Unknown_005cd030@@YIXPAUHWND__@@_N@Z",
+   "target": "005cd030",
+   "function_entry": true
+  },
+  {
+   "site": "005c2330",
+   "symbol": "?Set_Slot_Country_005c9a10@@YIXPAUHWND__@@H@Z",
+   "target": "005c9a10",
+   "function_entry": true
+  },
+  {
+   "site": "005c2330",
+   "symbol": "?Set_Slot_Color_005c9ab0@@YIXPAUHWND__@@H@Z",
+   "target": "005c9ab0",
+   "function_entry": true
+  },
+  {
+   "site": "005c2330",
+   "symbol": "?Unknown_005c3d90@@YIXPBD0@Z",
+   "target": "005c3d90",
+   "function_entry": true
+  },
+  {
+   "site": "005c2330",
+   "symbol": "?Control_Slot_005c9800@@YIHH@Z",
+   "target": "005c9800",
+   "function_entry": true
+  },
+  {
+   "site": "005c2330",
+   "symbol": "?Entry_Type_Name_005c9870@@YIPBGPAUNodeNameType@@@Z",
+   "target": "005c9870",
+   "function_entry": true
+  },
+  {
+   "site": "00599920",
+   "symbol": "?Select_Scenario_005c7c30@@YI_NH@Z",
+   "target": "005c7c30",
+   "function_entry": true
+  },
+  {
+   "site": "00599920",
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "target": "005c2da0",
+   "function_entry": true
+  },
+  {
+   "site": "007626b0",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "00762790",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "007628d0",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "00762e00",
+   "symbol": "?Unknown_005c2d10@@YAXHPBGZZ",
+   "target": "005c2d10",
+   "function_entry": true
+  },
+  {
+   "site": "00762e00",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "00762e00",
+   "symbol": "?Unknown_005c2d10@@YAXHPBGZZ",
+   "target": "005c2d10",
+   "function_entry": true
+  },
+  {
+   "site": "00763ae0",
+   "symbol": "?Popup_005c3230@@YIHPBGHP6A_NXZH@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "00764440",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "007645e0",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "007646c0",
+   "symbol": "?Popup_005c3230@@YIHPBGHP6A_NXZH@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "00764730",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "00764730",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "007629b0",
+   "symbol": "?Unknown_005c2d10@@YAXHPBGZZ",
+   "target": "005c2d10",
+   "function_entry": true
+  },
+  {
+   "site": "007629b0",
+   "symbol": "?Unknown_005c2d10@@YAXHPBGZZ",
+   "target": "005c2d10",
+   "function_entry": true
+  },
+  {
+   "site": "007629b0",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "007629b0",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "00762c20",
+   "symbol": "?Unknown_005c2d10@@YAXHPBGZZ",
+   "target": "005c2d10",
+   "function_entry": true
+  },
+  {
+   "site": "00762c20",
+   "symbol": "?Unknown_005c2d10@@YAXHPBGZZ",
+   "target": "005c2d10",
+   "function_entry": true
+  },
+  {
+   "site": "00762c20",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "00762c20",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "00764b00",
+   "symbol": "?Channel_Full_005c9510@@YA_NXZ",
+   "target": "005c9510",
+   "function_entry": true
+  },
+  {
+   "site": "00764b00",
+   "symbol": "?Popup_005c3230@@YIHPBGHP6A_NXZH@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "00764b00",
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "target": "005c2da0",
+   "function_entry": true
+  },
+  {
+   "site": "00764b00",
+   "symbol": "?Slots_Filled_005c9440@@YA_NXZ",
+   "target": "005c9440",
+   "function_entry": true
+  },
+  {
+   "site": "00764b00",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0075ea50",
+   "symbol": "?Popup_005c3230@@YIHPBGHP6A_NXZH@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "0075ea50",
+   "symbol": "?Popup_005c3230@@YIHPBGHP6A_NXZH@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "0073c480",
+   "symbol": "?Unknown_005c9320@@YI_NPAUNodeNameType@@@Z",
+   "target": "005c9320",
+   "function_entry": true
+  },
+  {
+   "site": "0073c480",
+   "symbol": "?Unknown_Lobby_Entry_Name_005cd0e0@@YI?AVWstring@@PAUNodeNameType@@@Z",
+   "target": "005cd0e0",
+   "function_entry": true
+  },
+  {
+   "site": "00742390",
+   "symbol": "?Init_Lobby_Entries_005c86e0@@YIXXZ",
+   "target": "005c86e0",
+   "function_entry": true
+  },
+  {
+   "site": "00742390",
+   "symbol": "?Clear_Slot_Lists_005c8a70@@YAXXZ",
+   "target": "005c8a70",
+   "function_entry": true
+  },
+  {
+   "site": "00742390",
+   "symbol": "?Unknown_Reset_Slots_005c8a90@@YAXXZ",
+   "target": "005c8a90",
+   "function_entry": true
+  },
+  {
+   "site": "00742eb0",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "00742eb0",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "0074a4e0",
+   "symbol": "?Find_Slot_By_Name_005c8c30@@YIHPBG@Z",
+   "target": "005c8c30",
+   "function_entry": true
+  },
+  {
+   "site": "0075b110",
+   "symbol": "?Find_Lobby_Window_005c2c40@@YAPAUHWND__@@XZ",
+   "target": "005c2c40",
+   "function_entry": true
+  },
+  {
+   "site": "0075b1b0",
+   "symbol": "?Send_Game_Options_005c3c60@@YIXPBD@Z",
+   "target": "005c3c60",
+   "function_entry": true
+  },
+  {
+   "site": "00748cd0",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "0074d7d0",
+   "symbol": "?Unknown_Find_Lobby_Name_005c8b20@@YIPAUNodeNameType@@PBG@Z",
+   "target": "005c8b20",
+   "function_entry": true
+  },
+  {
+   "site": "0074d7d0",
+   "symbol": "?Unknown_005c9320@@YI_NPAUNodeNameType@@@Z",
+   "target": "005c9320",
+   "function_entry": true
+  },
+  {
+   "site": "0074d7d0",
+   "symbol": "?Unknown_Find_Lobby_Name_005c8b20@@YIPAUNodeNameType@@PBG@Z",
+   "target": "005c8b20",
+   "function_entry": true
+  },
+  {
+   "site": "0075c980",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "00762f70",
+   "symbol": "?Unknown_005c2d10@@YAXHPBGZZ",
+   "target": "005c2d10",
+   "function_entry": true
+  },
+  {
+   "site": "00762f70",
+   "symbol": "?Unknown_005c2d10@@YAXHPBGZZ",
+   "target": "005c2d10",
+   "function_entry": true
+  },
+  {
+   "site": "00762f70",
+   "symbol": "?Unknown_005c2d10@@YAXHPBGZZ",
+   "target": "005c2d10",
+   "function_entry": true
+  },
+  {
+   "site": "00762f70",
+   "symbol": "?Unknown_005c2d10@@YAXHPBGZZ",
+   "target": "005c2d10",
+   "function_entry": true
+  },
+  {
+   "site": "00762f70",
+   "symbol": "?Unknown_005c2d10@@YAXHPBGZZ",
+   "target": "005c2d10",
+   "function_entry": true
+  },
+  {
+   "site": "00762f70",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "00762f70",
+   "symbol": "?Unknown_005c2d10@@YAXHPBGZZ",
+   "target": "005c2d10",
+   "function_entry": true
+  },
+  {
+   "site": "0075b040",
+   "symbol": "?Find_Lobby_Window_005c2c40@@YAPAUHWND__@@XZ",
+   "target": "005c2c40",
+   "function_entry": true
+  },
+  {
+   "site": "0075b0c0",
+   "symbol": "?Unknown_005c9320@@YI_NPAUNodeNameType@@@Z",
+   "target": "005c9320",
+   "function_entry": true
+  },
+  {
+   "site": "00745780",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "0074c5f0",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "00749f20",
+   "symbol": "?Scenario_Slot_Limit_005c65a0@@YIHH@Z",
+   "target": "005c65a0",
+   "function_entry": true
+  },
+  {
+   "site": "00749f20",
+   "symbol": "?Unknown_005c9320@@YI_NPAUNodeNameType@@@Z",
+   "target": "005c9320",
+   "function_entry": true
+  },
+  {
+   "site": "00749f20",
+   "symbol": "?Unknown_005c9370@@YI_NPBUNodeNameType@@@Z",
+   "target": "005c9370",
+   "function_entry": true
+  },
+  {
+   "site": "00749f20",
+   "symbol": "?Unknown_005c9320@@YI_NPAUNodeNameType@@@Z",
+   "target": "005c9320",
+   "function_entry": true
+  },
+  {
+   "site": "00742080",
+   "symbol": "?Unknown_Free_Lobby_Entries_005c8950@@YAXXZ",
+   "target": "005c8950",
+   "function_entry": true
+  },
+  {
+   "site": "0073c580",
+   "symbol": "?Popup_005c3230@@YIHPBGHP6A_NXZH@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "0073c580",
+   "symbol": "?Popup_005c3230@@YIHPBGHP6A_NXZH@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "0074dd50",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074dd50",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074dd50",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074dd50",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0075c350",
+   "symbol": "?Add_Chat_Dot_005c3040@@YIXXZ",
+   "target": "005c3040",
+   "function_entry": true
+  },
+  {
+   "site": "007516c0",
+   "symbol": "?Select_Scenario_005c7c30@@YI_NH@Z",
+   "target": "005c7c30",
+   "function_entry": true
+  },
+  {
+   "site": "007516c0",
+   "symbol": "?Unknown_Pregame_Setup_005c74f0@@YAXXZ",
+   "target": "005c74f0",
+   "function_entry": true
+  },
+  {
+   "site": "00746240",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "00746240",
+   "symbol": "?Unknown_005c2d10@@YAXHPBGZZ",
+   "target": "005c2d10",
+   "function_entry": true
+  },
+  {
+   "site": "0075b910",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0075b910",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0075b910",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0075b910",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0075b910",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "0075b910",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0075b910",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0075b910",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0075b910",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0073d550",
+   "symbol": "?Slot_Control_Id_005c97a0@@YIHH@Z",
+   "target": "005c97a0",
+   "function_entry": true
+  },
+  {
+   "site": "0073d550",
+   "symbol": "?Slot_Control_Id_005c97a0@@YIHH@Z",
+   "target": "005c97a0",
+   "function_entry": true
+  },
+  {
+   "site": "00750d10",
+   "symbol": "?Download_Map_Preview_005c7970@@YIXXZ",
+   "target": "005c7970",
+   "function_entry": true
+  },
+  {
+   "site": "0075a920",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "00577880",
+   "symbol": "?Random_Map_CRC_005c8420@@YIPADXZ",
+   "target": "005c8420",
+   "function_entry": true
+  },
+  {
+   "site": "0075bc40",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0075bc40",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0075bc40",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "007466c0",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "007466c0",
+   "symbol": "?Unknown_005c2d10@@YAXHPBGZZ",
+   "target": "005c2d10",
+   "function_entry": true
+  },
+  {
+   "site": "007485d0",
+   "symbol": "?Limit_Name_Text_005ccf50@@YI?AVWideString@@PAUHWND__@@@Z",
+   "target": "005ccf50",
+   "function_entry": true
+  },
+  {
+   "site": "007485d0",
+   "symbol": "?Unknown_005c2d10@@YAXHPBGZZ",
+   "target": "005c2d10",
+   "function_entry": true
+  },
+  {
+   "site": "007485d0",
+   "symbol": "?Unknown_005c2d10@@YAXHPBGZZ",
+   "target": "005c2d10",
+   "function_entry": true
+  },
+  {
+   "site": "007485d0",
+   "symbol": "?Unknown_005c2d10@@YAXHPBGZZ",
+   "target": "005c2d10",
+   "function_entry": true
+  },
+  {
+   "site": "007485d0",
+   "symbol": "?Unknown_005c2d10@@YAXHPBGZZ",
+   "target": "005c2d10",
+   "function_entry": true
+  },
+  {
+   "site": "007485d0",
+   "symbol": "?Limit_Name_Text_005ccf50@@YI?AVWideString@@PAUHWND__@@@Z",
+   "target": "005ccf50",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Limit_Name_Text_005ccf50@@YI?AVWideString@@PAUHWND__@@@Z",
+   "target": "005ccf50",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Send_Game_Options_005c3c60@@YIXPBD@Z",
+   "target": "005c3c60",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Unknown_005cd030@@YIXPAUHWND__@@_N@Z",
+   "target": "005cd030",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Limit_Name_Text_005ccf50@@YI?AVWideString@@PAUHWND__@@@Z",
+   "target": "005ccf50",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Set_Slot_Country_005c9a10@@YIXPAUHWND__@@H@Z",
+   "target": "005c9a10",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Set_Slot_Color_005c9ab0@@YIXPAUHWND__@@H@Z",
+   "target": "005c9ab0",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Unknown_005c3d90@@YIXPBD0@Z",
+   "target": "005c3d90",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Control_Slot_005c9800@@YIHH@Z",
+   "target": "005c9800",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Entry_Type_Name_005c9870@@YIPBGPAUNodeNameType@@@Z",
+   "target": "005c9870",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Control_Slot_005c9800@@YIHH@Z",
+   "target": "005c9800",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Unknown_005c9320@@YI_NPAUNodeNameType@@@Z",
+   "target": "005c9320",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Slot_Control_Id_005c97a0@@YIHH@Z",
+   "target": "005c97a0",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Unknown_005c9320@@YI_NPAUNodeNameType@@@Z",
+   "target": "005c9320",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Unknown_005c3450@@YIXPAUHWND__@@PAVMultiplayerGameMode@@@Z",
+   "target": "005c3450",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Select_Scenario_005c7c30@@YI_NH@Z",
+   "target": "005c7c30",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Select_Scenario_005c7c30@@YI_NH@Z",
+   "target": "005c7c30",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Unknown_005c7570@@YIXPAUHWND__@@@Z",
+   "target": "005c7570",
+   "function_entry": true
+  },
+  {
+   "site": "00744a00",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "00744a00",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "00744a00",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "00744a00",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "00744a00",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "0073aa80",
+   "symbol": "?Hash_Name_005c2ba0@@YIIABVWstring@@@Z",
+   "target": "005c2ba0",
+   "function_entry": true
+  },
+  {
+   "site": "0073ac50",
+   "symbol": "?Hash_Name_005c2ba0@@YIIABVWstring@@@Z",
+   "target": "005c2ba0",
+   "function_entry": true
+  },
+  {
+   "site": "0073ae20",
+   "symbol": "?Hash_Name_005c2ba0@@YIIABVWstring@@@Z",
+   "target": "005c2ba0",
+   "function_entry": true
+  },
+  {
+   "site": "0073aff0",
+   "symbol": "?Hash_Name_005c2ba0@@YIIABVWstring@@@Z",
+   "target": "005c2ba0",
+   "function_entry": true
+  },
+  {
+   "site": "0073b220",
+   "symbol": "?Hash_Name_005c2ba0@@YIIABVWstring@@@Z",
+   "target": "005c2ba0",
+   "function_entry": true
+  },
+  {
+   "site": "0073b8d0",
+   "symbol": "?Hash_Name_005c2ba0@@YIIABVWstring@@@Z",
+   "target": "005c2ba0",
+   "function_entry": true
+  },
+  {
+   "site": "0073baa0",
+   "symbol": "?Hash_Name_005c2ba0@@YIIABVWstring@@@Z",
+   "target": "005c2ba0",
+   "function_entry": true
+  },
+  {
+   "site": "0073fee0",
+   "symbol": "?Find_Lobby_Window_005c2c40@@YAPAUHWND__@@XZ",
+   "target": "005c2c40",
+   "function_entry": true
+  },
+  {
+   "site": "0073fee0",
+   "symbol": "?Refresh_Slot_Settings_005ca000@@YIXPAUHWND__@@_N@Z",
+   "target": "005ca000",
+   "function_entry": true
+  },
+  {
+   "site": "0073fee0",
+   "symbol": "?Hash_Wide_Name_005c2bf0@@YIIABVWideString@@@Z",
+   "target": "005c2bf0",
+   "function_entry": true
+  },
+  {
+   "site": "0073fee0",
+   "symbol": "?Unknown_005c5ff0@@YIXPAUHWND__@@PAV?$WolDictionary@VWideString@@_N@@@Z",
+   "target": "005c5ff0",
+   "function_entry": true
+  },
+  {
+   "site": "0073fee0",
+   "symbol": "?Restore_List_Selection_005c6310@@YIXPAUHWND__@@PAV?$WolDictionary@VWideString@@_N@@@Z",
+   "target": "005c6310",
+   "function_entry": true
+  },
+  {
+   "site": "00757d80",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "00755cd0",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "00755cd0",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "00751df0",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "00751df0",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "00751df0",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "00751df0",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "00768e90",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "0059b090",
+   "symbol": "?Open_Lobby_Dialog_005c6960@@YIHPAUHWND__@@@Z",
+   "target": "005c6960",
+   "function_entry": true
+  },
+  {
+   "site": "0059b090",
+   "symbol": "?Select_Scenario_005c7c30@@YI_NH@Z",
+   "target": "005c7c30",
+   "function_entry": true
+  },
+  {
+   "site": "0059b090",
+   "symbol": "?Unknown_005c7570@@YIXPAUHWND__@@@Z",
+   "target": "005c7570",
+   "function_entry": true
+  },
+  {
+   "site": "0059b090",
+   "symbol": "?Unknown_005c7570@@YIXPAUHWND__@@@Z",
+   "target": "005c7570",
+   "function_entry": true
+  },
+  {
+   "site": "0059b090",
+   "symbol": "?Unknown_005c7570@@YIXPAUHWND__@@@Z",
+   "target": "005c7570",
+   "function_entry": true
+  },
+  {
+   "site": "0059b090",
+   "symbol": "?Select_Scenario_005c7c30@@YI_NH@Z",
+   "target": "005c7c30",
+   "function_entry": true
+  },
+  {
+   "site": "0059b090",
+   "symbol": "?Unknown_005c7570@@YIXPAUHWND__@@@Z",
+   "target": "005c7570",
+   "function_entry": true
+  },
+  {
+   "site": "0059b090",
+   "symbol": "?Unknown_005c7570@@YIXPAUHWND__@@@Z",
+   "target": "005c7570",
+   "function_entry": true
+  },
+  {
+   "site": "0059b2c0",
+   "symbol": "?Random_Map_CRC_005c8420@@YIPADXZ",
+   "target": "005c8420",
+   "function_entry": true
+  },
+  {
+   "site": "0059b2c0",
+   "symbol": "?Select_Scenario_005c7c30@@YI_NH@Z",
+   "target": "005c7c30",
+   "function_entry": true
+  },
+  {
+   "site": "0075c570",
+   "symbol": "?Random_Map_CRC_005c8420@@YIPADXZ",
+   "target": "005c8420",
+   "function_entry": true
+  },
+  {
+   "site": "0075c570",
+   "symbol": "?Select_Scenario_005c7c30@@YI_NH@Z",
+   "target": "005c7c30",
+   "function_entry": true
+  },
+  {
+   "site": "00628880",
+   "symbol": "?Unknown_005C3150@@YIHPAVHouseClass@@@Z",
+   "target": "005c3150",
+   "function_entry": true
+  },
+  {
+   "site": "00596540",
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "target": "005c2da0",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Unknown_005c3810@@YIX_N0@Z",
+   "target": "005c3810",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Unknown_Reset_Slots_005c8a90@@YAXXZ",
+   "target": "005c8a90",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Clear_Slot_Lists_005c8a70@@YAXXZ",
+   "target": "005c8a70",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Unknown_Reset_Slots_005c8a90@@YAXXZ",
+   "target": "005c8a90",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Select_Scenario_005c7c30@@YI_NH@Z",
+   "target": "005c7c30",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Clear_Slot_Lists_005c8a70@@YAXXZ",
+   "target": "005c8a70",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Unknown_Reset_Slots_005c8a90@@YAXXZ",
+   "target": "005c8a90",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Seat_First_Player_005c8cd0@@YIXH@Z",
+   "target": "005c8cd0",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Unknown_005c6600@@YIHH@Z",
+   "target": "005c6600",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Unknown_005c3b70@@YIXXZ",
+   "target": "005c3b70",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Clear_Slot_Lists_005c8a70@@YAXXZ",
+   "target": "005c8a70",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Fill_Slots_005c8a10@@YAXXZ",
+   "target": "005c8a10",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Unknown_Pregame_Setup_005c74f0@@YAXXZ",
+   "target": "005c74f0",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Unknown_005c3810@@YIX_N0@Z",
+   "target": "005c3810",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Unknown_Slot_Names_005c8cf0@@YIXPAG@Z",
+   "target": "005c8cf0",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Unknown_Pregame_Setup_005c74f0@@YAXXZ",
+   "target": "005c74f0",
+   "function_entry": true
+  },
+  {
+   "site": "00683fc0",
+   "symbol": "?Current_Game_Mode_005c34d0@@YAPAVMultiplayerGameMode@@XZ",
+   "target": "005c34d0",
+   "function_entry": true
+  },
+  {
+   "site": "00683fc0",
+   "symbol": "?Select_Scenario_005c7c30@@YI_NH@Z",
+   "target": "005c7c30",
+   "function_entry": true
+  },
+  {
+   "site": "00683fc0",
+   "symbol": "?Unknown_005c6600@@YIHH@Z",
+   "target": "005c6600",
+   "function_entry": true
+  },
+  {
+   "site": "00683fc0",
+   "symbol": "?Unknown_005c3450@@YIXPAUHWND__@@PAVMultiplayerGameMode@@@Z",
+   "target": "005c3450",
+   "function_entry": true
+  },
+  {
+   "site": "00683fc0",
+   "symbol": "?Unknown_005c7570@@YIXPAUHWND__@@@Z",
+   "target": "005c7570",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Download_Map_Preview_005c7970@@YIXXZ",
+   "target": "005c7970",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Unknown_Enable_Start_005c9700@@YAXXZ",
+   "target": "005c9700",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Set_Player_Slot_005c8cc0@@YIXHPAUNodeNameType@@@Z",
+   "target": "005c8cc0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Unknown_Enable_Start_005c9700@@YAXXZ",
+   "target": "005c9700",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Unknown_005cd030@@YIXPAUHWND__@@_N@Z",
+   "target": "005cd030",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Is_Host_005c86a0@@YA_NXZ",
+   "target": "005c86a0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Set_Slot_Names_005c8dd0@@YIXPBG@Z",
+   "target": "005c8dd0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Is_Host_005c86a0@@YA_NXZ",
+   "target": "005c86a0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Unknown_005c3c20@@YAXXZ",
+   "target": "005c3c20",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Clear_Slot_Lists_005c8a70@@YAXXZ",
+   "target": "005c8a70",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Unknown_Reset_Slots_005c8a90@@YAXXZ",
+   "target": "005c8a90",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Seat_First_Player_005c8cd0@@YIXH@Z",
+   "target": "005c8cd0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Clear_Slot_Lists_005c8a70@@YAXXZ",
+   "target": "005c8a70",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Fill_Slots_005c8a10@@YAXXZ",
+   "target": "005c8a10",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Unknown_005c3810@@YIX_N0@Z",
+   "target": "005c3810",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Clear_Slot_Lists_005c8a70@@YAXXZ",
+   "target": "005c8a70",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Fill_Slots_005c8a10@@YAXXZ",
+   "target": "005c8a10",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Unknown_Release_Slot_005c91c0@@YIXAAVIPXAddressClass@@@Z",
+   "target": "005c91c0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Unknown_Enable_Start_005c9700@@YAXXZ",
+   "target": "005c9700",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Unknown_005cd030@@YIXPAUHWND__@@_N@Z",
+   "target": "005cd030",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Slots_Filled_005c9440@@YA_NXZ",
+   "target": "005c9440",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?No_Observer_Slot_005c9490@@YA_NXZ",
+   "target": "005c9490",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Unknown_Is_Color_Taken_005c95d0@@YI_NH@Z",
+   "target": "005c95d0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Assign_Slot_005c9170@@YIHPAUNodeNameType@@@Z",
+   "target": "005c9170",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Unknown_Enable_Start_005c9700@@YAXXZ",
+   "target": "005c9700",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Unknown_005c3810@@YIX_N0@Z",
+   "target": "005c3810",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Unknown_Slot_Names_005c8cf0@@YIXPAG@Z",
+   "target": "005c8cf0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Unknown_005c34f0@@YIXXZ",
+   "target": "005c34f0",
+   "function_entry": true
+  },
+  {
+   "site": "00741750",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "00741750",
+   "symbol": "?Find_Lobby_Window_005c2c40@@YAPAUHWND__@@XZ",
+   "target": "005c2c40",
+   "function_entry": true
+  },
+  {
+   "site": "00741750",
+   "symbol": "?Find_Lobby_Window_005c2c40@@YAPAUHWND__@@XZ",
+   "target": "005c2c40",
+   "function_entry": true
+  },
+  {
+   "site": "00741750",
+   "symbol": "?Unknown_005cd030@@YIXPAUHWND__@@_N@Z",
+   "target": "005cd030",
+   "function_entry": true
+  },
+  {
+   "site": "00741750",
+   "symbol": "?Unknown_005c9700@@YAXXZ",
+   "target": "005c9700",
+   "function_entry": true
+  },
+  {
+   "site": "00741750",
+   "symbol": "?Unknown_Release_Slot_by_Name_005c9270@@YIXPBD@Z",
+   "target": "005c9270",
+   "function_entry": true
+  },
+  {
+   "site": "00741750",
+   "symbol": "?Unknown_005c9320@@YI_NPAUNodeNameType@@@Z",
+   "target": "005c9320",
+   "function_entry": true
+  },
+  {
+   "site": "00741750",
+   "symbol": "?Unknown_005c9700@@YAXXZ",
+   "target": "005c9700",
+   "function_entry": true
+  },
+  {
+   "site": "00741750",
+   "symbol": "?Unknown_005c3810@@YIX_N0@Z",
+   "target": "005c3810",
+   "function_entry": true
+  },
+  {
+   "site": "006829f0",
+   "symbol": "?Open_Lobby_Dialog_005c6960@@YIHPAUHWND__@@@Z",
+   "target": "005c6960",
+   "function_entry": true
+  },
+  {
+   "site": "006829f0",
+   "symbol": "?Select_Scenario_005c7c30@@YI_NH@Z",
+   "target": "005c7c30",
+   "function_entry": true
+  },
+  {
+   "site": "006829f0",
+   "symbol": "?Unknown_005c7570@@YIXPAUHWND__@@@Z",
+   "target": "005c7570",
+   "function_entry": true
+  },
+  {
+   "site": "006829f0",
+   "symbol": "?Unknown_005c7570@@YIXPAUHWND__@@@Z",
+   "target": "005c7570",
+   "function_entry": true
+  },
+  {
+   "site": "006829f0",
+   "symbol": "?Unknown_005c7570@@YIXPAUHWND__@@@Z",
+   "target": "005c7570",
+   "function_entry": true
+  },
+  {
+   "site": "006829f0",
+   "symbol": "?Unknown_005c6600@@YIHH@Z",
+   "target": "005c6600",
+   "function_entry": true
+  },
+  {
+   "site": "006829f0",
+   "symbol": "?Unknown_005c6600@@YIHH@Z",
+   "target": "005c6600",
+   "function_entry": true
+  },
+  {
+   "site": "006829f0",
+   "symbol": "?Select_Scenario_005c7c30@@YI_NH@Z",
+   "target": "005c7c30",
+   "function_entry": true
+  },
+  {
+   "site": "006829f0",
+   "symbol": "?Unknown_005c3450@@YIXPAUHWND__@@PAVMultiplayerGameMode@@@Z",
+   "target": "005c3450",
+   "function_entry": true
+  },
+  {
+   "site": "006829f0",
+   "symbol": "?Unknown_005c7570@@YIXPAUHWND__@@@Z",
+   "target": "005c7570",
+   "function_entry": true
+  },
+  {
+   "site": "006829f0",
+   "symbol": "?Unknown_005c7570@@YIXPAUHWND__@@@Z",
+   "target": "005c7570",
+   "function_entry": true
+  },
+  {
+   "site": "006829f0",
+   "symbol": "?Unknown_005c6600@@YIHH@Z",
+   "target": "005c6600",
+   "function_entry": true
+  },
+  {
+   "site": "0073d150",
+   "symbol": "?Unknown_005cd030@@YIXPAUHWND__@@_N@Z",
+   "target": "005cd030",
+   "function_entry": true
+  },
+  {
+   "site": "007424c0",
+   "symbol": "?Popup_005c3230@@YIHPBGHP6A_NXZH@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "007424c0",
+   "symbol": "?Popup_005c3230@@YIHPBGHP6A_NXZH@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "007424c0",
+   "symbol": "?Popup_005c3230@@YIHPBGHP6A_NXZH@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_Enable_Start_005c9700@@YAXXZ",
+   "target": "005c9700",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_Enable_Start_005c9700@@YAXXZ",
+   "target": "005c9700",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Save_Lobby_Options_005cc890@@YIXPAUHWND__@@PAUSessionOptionsClass@@@Z",
+   "target": "005cc890",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Limit_Name_Text_005ccf50@@YI?AVWideString@@PAUHWND__@@@Z",
+   "target": "005ccf50",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Is_Host_005c86a0@@YA_NXZ",
+   "target": "005c86a0",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Save_Lobby_Options_005cc890@@YIXPAUHWND__@@PAUSessionOptionsClass@@@Z",
+   "target": "005cc890",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Refresh_Slot_Settings_005ca000@@YIXPAUHWND__@@_N@Z",
+   "target": "005ca000",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005c3b70@@YIXXZ",
+   "target": "005c3b70",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Scenario_Slot_Limit_005c65a0@@YIHH@Z",
+   "target": "005c65a0",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005c93a0@@YI_NPAUNodeNameType@@@Z",
+   "target": "005c93a0",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005c3810@@YIX_N0@Z",
+   "target": "005c3810",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Limit_Name_Text_005ccf50@@YI?AVWideString@@PAUHWND__@@@Z",
+   "target": "005ccf50",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Open_Lobby_Dialog_005c6960@@YIHPAUHWND__@@@Z",
+   "target": "005c6960",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Select_Scenario_005c7c30@@YI_NH@Z",
+   "target": "005c7c30",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005c7570@@YIXPAUHWND__@@@Z",
+   "target": "005c7570",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Load_Random_Map_Preview_005cc800@@YIXPAUHWND__@@@Z",
+   "target": "005cc800",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005c3810@@YIX_N0@Z",
+   "target": "005c3810",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Select_Scenario_005c7c30@@YI_NH@Z",
+   "target": "005c7c30",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005cb560@@YIXPAUHWND__@@@Z",
+   "target": "005cb560",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_Clear_Closed_Slots_005cacb0@@YI_NPAUHWND__@@@Z",
+   "target": "005cacb0",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005c3810@@YIX_N0@Z",
+   "target": "005c3810",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Change_Scenario_Slots_005cb8d0@@YIXPAUHWND__@@HH@Z",
+   "target": "005cb8d0",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_Enable_Start_005c9700@@YAXXZ",
+   "target": "005c9700",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Load_Random_Map_Preview_005cc800@@YIXPAUHWND__@@@Z",
+   "target": "005cc800",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Refresh_Slot_Settings_005ca000@@YIXPAUHWND__@@_N@Z",
+   "target": "005ca000",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005c3810@@YIX_N0@Z",
+   "target": "005c3810",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Set_Slot_Color_005c9ab0@@YIXPAUHWND__@@H@Z",
+   "target": "005c9ab0",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005c3810@@YIX_N0@Z",
+   "target": "005c3810",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Refresh_Slot_Settings_005ca000@@YIXPAUHWND__@@_N@Z",
+   "target": "005ca000",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Set_Slot_Country_005c9a10@@YIXPAUHWND__@@H@Z",
+   "target": "005c9a10",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Is_Host_005c86a0@@YA_NXZ",
+   "target": "005c86a0",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005c3450@@YIXPAUHWND__@@PAVMultiplayerGameMode@@@Z",
+   "target": "005c3450",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Select_Scenario_005c7c30@@YI_NH@Z",
+   "target": "005c7c30",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005cca30@@YIXPAUHWND__@@PAUSessionOptionsClass@@@Z",
+   "target": "005cca30",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005cd540@@YIXPAUHWND__@@@Z",
+   "target": "005cd540",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005c9b90@@YIXPAUHWND__@@H_N@Z",
+   "target": "005c9b90",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Change_Scenario_Slots_005cb8d0@@YIXPAUHWND__@@HH@Z",
+   "target": "005cb8d0",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Refresh_Slot_Images_005c9ec0@@YIXPAUHWND__@@@Z",
+   "target": "005c9ec0",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005c3450@@YIXPAUHWND__@@PAVMultiplayerGameMode@@@Z",
+   "target": "005c3450",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Load_Random_Map_Preview_005cc800@@YIXPAUHWND__@@@Z",
+   "target": "005cc800",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Refresh_Slot_Settings_005ca000@@YIXPAUHWND__@@_N@Z",
+   "target": "005ca000",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Control_Slot_005c9800@@YIHH@Z",
+   "target": "005c9800",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Entry_Type_Name_005c9870@@YIPBGPAUNodeNameType@@@Z",
+   "target": "005c9870",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Control_Slot_005c9800@@YIHH@Z",
+   "target": "005c9800",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005c9320@@YI_NPAUNodeNameType@@@Z",
+   "target": "005c9320",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Slot_Control_Id_005c97a0@@YIHH@Z",
+   "target": "005c97a0",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Unknown_005c9320@@YI_NPAUNodeNameType@@@Z",
+   "target": "005c9320",
+   "function_entry": true
+  },
+  {
+   "site": "0073cff0",
+   "symbol": "?No_Observer_Slot_005c9490@@YA_NXZ",
+   "target": "005c9490",
+   "function_entry": true
+  },
+  {
+   "site": "0073cff0",
+   "symbol": "?Unknown_005c94b0@@YA_NXZ",
+   "target": "005c94b0",
+   "function_entry": true
+  },
+  {
+   "site": "0073cff0",
+   "symbol": "?Count_AI_Slots_005c9400@seed_005c9400@@YAHXZ",
+   "target": "005c9400",
+   "function_entry": true
+  },
+  {
+   "site": "0074f300",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "0074f300",
+   "symbol": "?Unknown_Pregame_Setup_005c74f0@@YAXXZ",
+   "target": "005c74f0",
+   "function_entry": true
+  },
+  {
+   "site": "00751c30",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "target": "005c2da0",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "target": "005c2da0",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "target": "005c2da0",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "target": "005c2da0",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "target": "005c2da0",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "target": "005c2da0",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "target": "005c2da0",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "target": "005c2da0",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "target": "005c2da0",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
+   "target": "005c2da0",
+   "function_entry": true
+  },
+  {
+   "site": "0073c990",
+   "symbol": "?Unknown_005cd540@@YIXPAUHWND__@@@Z",
+   "target": "005cd540",
+   "function_entry": true
+  },
+  {
+   "site": "00743720",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "00743720",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "00743720",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Unknown_005CD3A0@@YIXXZ",
+   "target": "005cd3a0",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Limit_Name_Text_005ccf50@@YI?AVWideString@@PAUHWND__@@@Z",
+   "target": "005ccf50",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Limit_Name_Text_005ccf50@@YI?AVWideString@@PAUHWND__@@@Z",
+   "target": "005ccf50",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Unknown_005cd540@@YIXPAUHWND__@@@Z",
+   "target": "005cd540",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Unknown_005cd540@@YIXPAUHWND__@@@Z",
+   "target": "005cd540",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Unknown_005cd540@@YIXPAUHWND__@@@Z",
+   "target": "005cd540",
+   "function_entry": true
+  },
+  {
+   "site": "007469c0",
+   "symbol": "?Unknown_005cd540@@YIXPAUHWND__@@@Z",
+   "target": "005cd540",
+   "function_entry": true
+  },
+  {
+   "site": "007459a0",
+   "symbol": "?Select_Scenario_005c7c30@@YI_NH@Z",
+   "target": "005c7c30",
+   "function_entry": true
+  },
+  {
+   "site": "007459a0",
+   "symbol": "?Clear_Slot_Lists_005c8a70@@YAXXZ",
+   "target": "005c8a70",
+   "function_entry": true
+  },
+  {
+   "site": "007459a0",
+   "symbol": "?Unknown_Reset_Slots_005c8a90@@YAXXZ",
+   "target": "005c8a90",
+   "function_entry": true
+  },
+  {
+   "site": "007459a0",
+   "symbol": "?Unknown_005cd540@@YIXPAUHWND__@@@Z",
+   "target": "005cd540",
+   "function_entry": true
+  },
+  {
+   "site": "007459a0",
+   "symbol": "?Seat_First_Player_005c8cd0@@YIXH@Z",
+   "target": "005c8cd0",
+   "function_entry": true
+  },
+  {
+   "site": "007459a0",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "007459a0",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "00758750",
+   "symbol": "?Unknown_005CD3A0@@YIXXZ",
+   "target": "005cd3a0",
+   "function_entry": true
+  },
+  {
+   "site": "00758750",
+   "symbol": "?Unknown_005cd540@@YIXPAUHWND__@@@Z",
+   "target": "005cd540",
+   "function_entry": true
+  },
+  {
+   "site": "00758750",
+   "symbol": "?Unknown_005cd540@@YIXPAUHWND__@@@Z",
+   "target": "005cd540",
+   "function_entry": true
+  },
+  {
+   "site": "00759e20",
+   "symbol": "?Unknown_005cd540@@YIXPAUHWND__@@@Z",
+   "target": "005cd540",
+   "function_entry": true
+  },
+  {
+   "site": "00759e20",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "00759e20",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "00759e20",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "00759e20",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "00759e20",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "00759e20",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "00759e20",
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "target": "005c2c80",
+   "function_entry": true
+  },
+  {
+   "site": "00759370",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "00759370",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "00741300",
+   "symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z",
+   "target": "005c3230",
+   "function_entry": true
+  },
+  {
+   "site": "005bbdd0",
+   "symbol": "?Hash_Wide_Name_005c2bf0@@YIIABVWideString@@@Z",
+   "target": "005c2bf0",
+   "function_entry": true
+  },
+  {
+   "site": "005bbdd0",
+   "symbol": "?Save_List_Selection_005c5ff0@@YIXPAUHWND__@@PAV?$WolDictionary@VWideString@@_N@@@Z",
+   "target": "005c5ff0",
+   "function_entry": true
+  },
+  {
+   "site": "005bbdd0",
+   "symbol": "?Refresh_Slot_Settings_005ca000@@YIXPAUHWND__@@_N@Z",
+   "target": "005ca000",
+   "function_entry": true
+  },
+  {
+   "site": "005bbdd0",
+   "symbol": "?unknown_is_host_player_005c8680@seed_005c8680@@YI_NH@Z",
+   "target": "005c8680",
+   "function_entry": true
+  },
+  {
+   "site": "005bbdd0",
+   "symbol": "?Restore_List_Selection_005c6310@@YIXPAUHWND__@@PAV?$WolDictionary@VWideString@@_N@@@Z",
+   "target": "005c6310",
+   "function_entry": true
+  },
+  {
+   "site": "0074e070",
+   "symbol": "?Is_Real_Player_Entry_005c9320@seed_005c9320@@YIIH@Z",
+   "target": "005c9320",
+   "function_entry": true
+  },
+  {
+   "site": "00760c00",
+   "symbol": "?Unknown_005cd030@@YIXPAUHWND__@@_N@Z",
+   "target": "005cd030",
+   "function_entry": true
+  },
+  {
+   "site": "00760c00",
+   "symbol": "?Unknown_005c9700@@YAXXZ",
+   "target": "005c9700",
+   "function_entry": true
+  },
+  {
+   "site": "00761c50",
+   "symbol": "?Slots_Filled_005c9440@@YA_NXZ",
+   "target": "005c9440",
+   "function_entry": true
+  },
+  {
+   "site": "00761c50",
+   "symbol": "?Slot_Control_Id_005c97a0@@YIHH@Z",
+   "target": "005c97a0",
+   "function_entry": true
+  },
+  {
+   "site": "00761c50",
+   "symbol": "?Unknown_005c3810@@YIX_N0@Z",
+   "target": "005c3810",
+   "function_entry": true
+  },
+  {
+   "site": "00761c50",
+   "symbol": "?Slot_Control_Id_005c97a0@@YIHH@Z",
+   "target": "005c97a0",
+   "function_entry": true
+  },
+  {
+   "site": "00761c50",
+   "symbol": "?Assign_Slot_005c9170@@YIHPAUNodeNameType@@@Z",
+   "target": "005c9170",
+   "function_entry": true
+  },
+  {
+   "site": "00761c50",
+   "symbol": "?Slot_Control_Id_005c97a0@@YIHH@Z",
+   "target": "005c97a0",
+   "function_entry": true
+  },
+  {
+   "site": "00761c50",
+   "symbol": "?No_Observer_Slot_005c9490@@YA_NXZ",
+   "target": "005c9490",
+   "function_entry": true
+  },
+  {
+   "site": "00761c50",
+   "symbol": "?Slot_Control_Id_005c97a0@@YIHH@Z",
+   "target": "005c97a0",
+   "function_entry": true
+  },
+  {
+   "site": "00761c50",
+   "symbol": "?Slot_Control_Id_005c97a0@@YIHH@Z",
+   "target": "005c97a0",
+   "function_entry": true
+  },
+  {
+   "site": "00761c50",
+   "symbol": "?Slot_Control_Id_005c97a0@@YIHH@Z",
+   "target": "005c97a0",
+   "function_entry": true
+  },
+  {
+   "site": "00761c50",
+   "symbol": "?Slot_Control_Id_005c97a0@@YIHH@Z",
+   "target": "005c97a0",
+   "function_entry": true
+  },
+  {
+   "site": "00761c50",
+   "symbol": "?Unknown_005c3810@@YIX_N0@Z",
+   "target": "005c3810",
+   "function_entry": true
+  },
+  {
+   "site": "00761890",
+   "symbol": "?Unknown_Find_Lobby_Name_005c8b20@@YIPAUNodeNameType@@PBG@Z",
+   "target": "005c8b20",
+   "function_entry": true
+  },
+  {
+   "site": "00761890",
+   "symbol": "?Send_Game_Options_005c3c60@@YIXPBD@Z",
+   "target": "005c3c60",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "address": "004382c0"
+  },
+  {
+   "symbol": "??0CCFileClass@@QAE@PBD@Z",
+   "address": "00468f50"
+  },
+  {
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "address": "00523410"
+  },
+  {
+   "symbol": "??0LZOStraw@@QAE@W4CompControl@0@H@Z",
+   "address": "0053efb0"
+  },
+  {
+   "symbol": "??0MapPreviewClass@@QAE@XZ",
+   "address": "0061d430"
+  },
+  {
+   "symbol": "??0MultiMission@@QAE@PBDPBG0_N0HH@Z",
+   "address": "00671c50"
+  },
+  {
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "address": "00638b40"
+  },
+  {
+   "symbol": "??0WideString@@QAE@ABV0@@Z",
+   "address": "0076fa10"
+  },
+  {
+   "symbol": "??0WideString@@QAE@PBG@Z",
+   "address": "0076f9c0"
+  },
+  {
+   "symbol": "??0WideString@@QAE@XZ",
+   "address": "0076f9b0"
+  },
+  {
+   "symbol": "??0Wstring@@QAE@PBD@Z",
+   "address": "0076d920"
+  },
+  {
+   "symbol": "??1Buffer@@QAE@XZ",
+   "address": "00438410"
+  },
+  {
+   "symbol": "??1BufferIOFileClass@@UAE@XZ",
+   "address": "0042f350"
+  },
+  {
+   "symbol": "??1INIClass@@UAE@XZ",
+   "address": "0050b8d0"
+  },
+  {
+   "symbol": "??1LZOStraw@@UAE@XZ",
+   "address": "0053f010"
+  },
+  {
+   "symbol": "??1MapPreviewClass@@QAE@XZ",
+   "address": "0061d440"
+  },
+  {
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "address": "00638ac0"
+  },
+  {
+   "symbol": "??1Straw@@UAE@XZ",
+   "address": "0069b010"
+  },
+  {
+   "symbol": "??1WideString@@QAE@XZ",
+   "address": "0076fa50"
+  },
+  {
+   "symbol": "??1Wstring@@QAE@XZ",
+   "address": "0076d9e0"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??4WideString@@QAEAAV0@ABV0@@Z",
+   "address": "0076fbd0"
+  },
+  {
+   "symbol": "??4WideString@@QAEAAV0@PBG@Z",
+   "address": "0076fb70"
+  },
+  {
+   "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+   "address": "005235d0"
+  },
+  {
+   "symbol": "??8WideString@@QBE_NABV0@@Z",
+   "address": "0076fab0"
+  },
+  {
+   "symbol": "??8Wstring@@QBE_NPBD@Z",
+   "address": "0076da00"
+  },
+  {
+   "symbol": "??BSystemTimerClass@@QBEJXZ",
+   "address": "0069a430"
+  },
+  {
+   "symbol": "??YWideString@@QAEAAV0@PBG@Z",
+   "address": "0076fdd0"
+  },
+  {
+   "symbol": "??_G?$List@PAUINISection@INIClass@@@@UAEPAXI@Z",
+   "address": "0040e300"
+  },
+  {
+   "symbol": "??_GBufferStraw@@UAEPAXI@Z",
+   "address": "0049ed60"
+  },
+  {
+   "symbol": "??_GCCFileClass@@UAEPAXI@Z",
+   "address": "004019a0"
+  },
+  {
+   "symbol": "??_GCDFileClass@@UAEPAXI@Z",
+   "address": "00401950"
+  },
+  {
+   "symbol": "??_GGenericList@@UAEPAXI@Z",
+   "address": "0040e220"
+  },
+  {
+   "symbol": "??_GGenericNode@@UAEPAXI@Z",
+   "address": "0040e1d0"
+  },
+  {
+   "symbol": "??_GINIClass@@UAEPAXI@Z",
+   "address": "004deef0"
+  },
+  {
+   "symbol": "??_GStraw@@UAEPAXI@Z",
+   "address": "0049ed40"
+  },
+  {
+   "symbol": "?BitFont@@3PAVBitFontClass@@A",
+   "address": "0084e9e8"
+  },
+  {
+   "symbol": "?Build_Game_Options_005bc940@@YIXPAD@Z",
+   "address": "005bc940"
+  },
+  {
+   "symbol": "?Char_To_Wide_006fa0c0@@YIXPAGPBDH@Z",
+   "address": "006fa0c0"
+  },
+  {
+   "symbol": "?Close@BufferIOFileClass@@UAEXXZ",
+   "address": "0042fda0"
+  },
+  {
+   "symbol": "?Close@CCFileClass@@UAEXXZ",
+   "address": "004691f0"
+  },
+  {
+   "symbol": "?Color_Combo_Changed_4d2700@@YIXPAUHWND__@@H@Z",
+   "address": "004d2700"
+  },
+  {
+   "symbol": "?Color_Combo_Data_4d2900@@YIHPAUHWND__@@HH@Z",
+   "address": "004d2900"
+  },
+  {
+   "symbol": "?Color_Combo_Player_4d1d10@@YIHH@Z",
+   "address": "004d1d10"
+  },
+  {
+   "symbol": "?Compare_Narrow_00781f20@@YAHPBD0@Z",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "?Compare_Wide_007837d3@@YAHPBG0@Z",
+   "address": "007837d3"
+  },
+  {
+   "symbol": "?Compare_Wide_007837d3@seed_005c8660@@YAIPAG0@Z",
+   "address": "007837d3"
+  },
+  {
+   "symbol": "?Compare_Wide_007837d3@seed_005c8680@@YAIPAG0@Z",
+   "address": "007837d3"
+  },
+  {
+   "symbol": "?Country_Flag_004d1120@@YIPAVSurface@@H@Z",
+   "address": "004d1120"
+  },
+  {
+   "symbol": "?Create@RawFileClass@@UAEHXZ",
+   "address": "00639200"
+  },
+  {
+   "symbol": "?Create_Preview_Surface@MapPreviewClass@@QAEXPBG@Z",
+   "address": "0061e930"
+  },
+  {
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "address": "00735b20"
+  },
+  {
+   "symbol": "?Debug_Log@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Default_Map_Generation_Callback_00482100@@YA_NXZ",
+   "address": "00482100"
+  },
+  {
+   "symbol": "?Delete@RawFileClass@@UAEHXZ",
+   "address": "00639240"
+  },
+  {
+   "symbol": "?Do_Random_Map_Dialog_00577490@@YIHP6A_NXZ@Z",
+   "address": "00577490"
+  },
+  {
+   "symbol": "?Error@CCFileClass@@UAEXHHPBD@Z",
+   "address": "00469000"
+  },
+  {
+   "symbol": "?Error@RawFileClass@@UAEXHHPBD@Z",
+   "address": "00638b30"
+  },
+  {
+   "symbol": "?Fill_Color_Combo_4d2080@@YIXPAUHWND__@@H@Z",
+   "address": "004d2080"
+  },
+  {
+   "symbol": "?Fill_Observer_Combo_4d1640@@YIXPAUHWND__@@H@Z",
+   "address": "004d1640"
+  },
+  {
+   "symbol": "?Fill_Random_Color_Combo_4d2250@@YIXPAUHWND__@@H@Z",
+   "address": "004d2250"
+  },
+  {
+   "symbol": "?Fill_Side_Combo_4d1560@@YIXPAUHWND__@@H@Z",
+   "address": "004d1560"
+  },
+  {
+   "symbol": "?Find_Local_Scenario_0066c5b0@@YI_NPADH0_N1@Z",
+   "address": "0066c5b0"
+  },
+  {
+   "symbol": "?Force_Available@CD@@UAE_NH@Z",
+   "address": "0046e4f0"
+  },
+  {
+   "symbol": "?Frame@@3HA",
+   "address": "00a40d2c"
+  },
+  {
+   "symbol": "?Free_Memory_00781d3b@@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?Free_Pointers_005a7480@@YIXPAV?$DynamicVectorClass@PAUNodeNameType@@@@@Z",
+   "address": "005a7480"
+  },
+  {
+   "symbol": "?Get@BufferStraw@@UAEHPAXH@Z",
+   "address": "00773840"
+  },
+  {
+   "symbol": "?Get@LZOStraw@@UAEHPAXH@Z",
+   "address": "0053f050"
+  },
+  {
+   "symbol": "?Get@Straw@@UAEHPAXH@Z",
+   "address": "0069b0a0"
+  },
+  {
+   "symbol": "?Get@WideString@@QBEPBGXZ",
+   "address": "007703f0"
+  },
+  {
+   "symbol": "?Get@Wstring@@QBEPBDXZ",
+   "address": "0076e6f0"
+  },
+  {
+   "symbol": "?Get_Char@WideString@@QBEGI@Z",
+   "address": "00770470"
+  },
+  {
+   "symbol": "?Get_Color_0066e2a0@NodeNameType@@QAEHXZ",
+   "address": "0066e2a0"
+  },
+  {
+   "symbol": "?Get_Date_Time@CCFileClass@@UAEKXZ",
+   "address": "00469350"
+  },
+  {
+   "symbol": "?Get_Date_Time@RawFileClass@@UAEKXZ",
+   "address": "006392a0"
+  },
+  {
+   "symbol": "?Get_File_From_Host_0066aef0@@YI_NPADH_N@Z",
+   "address": "0066aef0"
+  },
+  {
+   "symbol": "?Get_From@Straw@@UAEXPAV1@@Z",
+   "address": "0069b050"
+  },
+  {
+   "symbol": "?Get_Image_0068ca40@SurfaceCacheClass@@QAEPAVSurface@@PBDH@Z",
+   "address": "0068ca40"
+  },
+  {
+   "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+   "address": "0050d7f0"
+  },
+  {
+   "symbol": "?Get_Text_Area@BitFontClass@@QAE_NPBGPAH1H@Z",
+   "address": "004314b0"
+  },
+  {
+   "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
+   "address": "00526a40"
+  },
+  {
+   "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+   "address": "00a32298"
+  },
+  {
+   "symbol": "?Insert_Disk@CD@@UAE_NH@Z",
+   "address": "0046e520"
+  },
+  {
+   "symbol": "?Is_Ally@HouseClass@@QBE_NPBV1@@Z",
+   "address": "004e5540"
+  },
+  {
+   "symbol": "?Is_Available@BufferIOFileClass@@UAE_NH@Z",
+   "address": "0042f6e0"
+  },
+  {
+   "symbol": "?Is_Available@CCFileClass@@UAE_NH@Z",
+   "address": "004691a0"
+  },
+  {
+   "symbol": "?Is_Available@RawFileClass@@UAE_NH@Z",
+   "address": "00638ca0"
+  },
+  {
+   "symbol": "?Is_Narrow@WideString@@QBE_NXZ",
+   "address": "00771080"
+  },
+  {
+   "symbol": "?Is_Open@BufferIOFileClass@@UBE_NXZ",
+   "address": "0042f700"
+  },
+  {
+   "symbol": "?Is_Open@CCFileClass@@UBE_NXZ",
+   "address": "004691e0"
+  },
+  {
+   "symbol": "?Length@WideString@@QBEIXZ",
+   "address": "007704a0"
+  },
+  {
+   "symbol": "?Length@Wstring@@QBEIXZ",
+   "address": "0076e7a0"
+  },
+  {
+   "symbol": "?Load@INIClass@@QAEHAAVFileClass@@_N@Z",
+   "address": "0050bbe0"
+  },
+  {
+   "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
+   "address": "006f9ec0"
+  },
+  {
+   "symbol": "?Lobby_Dialog_Proc_005c69e0@@YGJPAUHWND__@@IIJ@Z",
+   "address": "005c69e0"
+  },
+  {
+   "symbol": "?Narrow_Copy_00771280@@YI?AVWstring@@ABVWideString@@@Z",
+   "address": "00771280"
+  },
+  {
+   "symbol": "?Narrow_To_Wide_006fa180@@YIPAGPBD@Z",
+   "address": "006fa180"
+  },
+  {
+   "symbol": "?Num_Send@NullModemClass@@QAEHXZ",
+   "address": "005d08a0"
+  },
+  {
+   "symbol": "?Open@CCFileClass@@UAEHH@Z",
+   "address": "00469220"
+  },
+  {
+   "symbol": "?Open@CCFileClass@@UAEHPBDH@Z",
+   "address": "00401980"
+  },
+  {
+   "symbol": "?Open@CDFileClass@@UAEHH@Z",
+   "address": "0046fe10"
+  },
+  {
+   "symbol": "?Open@CDFileClass@@UAEHPBDH@Z",
+   "address": "00470250"
+  },
+  {
+   "symbol": "?Player_Color_Combo_ID_4d1cb0@@YIHH@Z",
+   "address": "004d1cb0"
+  },
+  {
+   "symbol": "?Player_Side_Combo_ID_4d1350@@YIHH@Z",
+   "address": "004d1350"
+  },
+  {
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "address": "005b46b0"
+  },
+  {
+   "symbol": "?ProgramInstance@@3PAXA",
+   "address": "00b26180"
+  },
+  {
+   "symbol": "?Put_Int@INIClass@@QAE_NPBD0HH@Z",
+   "address": "0050d6e0"
+  },
+  {
+   "symbol": "?RandomMapGen@@3VMapGeneratorClass@@A",
+   "address": "00a6fd68"
+  },
+  {
+   "symbol": "?Read@BufferIOFileClass@@UAEJPAXJ@Z",
+   "address": "0042fa80"
+  },
+  {
+   "symbol": "?Read@CCFileClass@@UAEJPAXJ@Z",
+   "address": "00469060"
+  },
+  {
+   "symbol": "?Read@RawFileClass@@UAEJPAXJ@Z",
+   "address": "00638d90"
+  },
+  {
+   "symbol": "?Read_INI_Preview@MapPreviewClass@@QAE_NPBD@Z",
+   "address": "0061e2a0"
+  },
+  {
+   "symbol": "?Read_PCX_Preview@MapPreviewClass@@QAE_NPBD@Z",
+   "address": "0061e170"
+  },
+  {
+   "symbol": "?RequiredCD@CD@@2HA",
+   "address": "007d20e0"
+  },
+  {
+   "symbol": "?Save@CCINIClass@@QAEHAAVFileClass@@_N@Z",
+   "address": "004698f0"
+  },
+  {
+   "symbol": "?Save_Or_Prompt_00578ed0@MapSeedClass@@QAE_NPBD@Z",
+   "address": "00578ed0"
+  },
+  {
+   "symbol": "?Seek@BufferIOFileClass@@UAEJJH@Z",
+   "address": "0042fc90"
+  },
+  {
+   "symbol": "?Seek@CCFileClass@@UAEJJH@Z",
+   "address": "004690f0"
+  },
+  {
+   "symbol": "?Select_Color_Combo_4d2480@@YIXPAUHWND__@@HH@Z",
+   "address": "004d2480"
+  },
+  {
+   "symbol": "?Select_Side_Combo_4d1a90@@YIXPAUHWND__@@HH@Z",
+   "address": "004d1a90"
+  },
+  {
+   "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+   "address": "00525830"
+  },
+  {
+   "symbol": "?Send_Message@NullModemClass@@QAEHPAXHH@Z",
+   "address": "005d05f0"
+  },
+  {
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "address": "00481fb0"
+  },
+  {
+   "symbol": "?Set_Date_Time@CCFileClass@@UAE_NK@Z",
+   "address": "00469400"
+  },
+  {
+   "symbol": "?Set_Date_Time@RawFileClass@@UAE_NK@Z",
+   "address": "006392f0"
+  },
+  {
+   "symbol": "?Set_Description@MultiMission@@QAEXPBG@Z",
+   "address": "00671fa0"
+  },
+  {
+   "symbol": "?Set_Name@CDFileClass@@UAEPBDPBD@Z",
+   "address": "00470150"
+  },
+  {
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "address": "005253a0"
+  },
+  {
+   "symbol": "?Set_Value_00672a30@SessionClass@@QAEXH_N@Z",
+   "address": "00672a30"
+  },
+  {
+   "symbol": "?Set_Value_00672ae0@SessionClass@@QAEXH_N@Z",
+   "address": "00672ae0"
+  },
+  {
+   "symbol": "?Side_Combo_Data_4d1c70@@YIHPAUHWND__@@HH@Z",
+   "address": "004d1c70"
+  },
+  {
+   "symbol": "?Side_Combo_Player_4d13b0@@YIHH@Z",
+   "address": "004d13b0"
+  },
+  {
+   "symbol": "?Size@BufferIOFileClass@@UAEJXZ",
+   "address": "0042fd80"
+  },
+  {
+   "symbol": "?Size@CCFileClass@@UAEJXZ",
+   "address": "00469150"
+  },
+  {
+   "symbol": "?Size@RawFileClass@@UAEJXZ",
+   "address": "00639180"
+  },
+  {
+   "symbol": "?Skirmish_Has_Computer_After@@YI_NH@Z",
+   "address": "00682930"
+  },
+  {
+   "symbol": "?Swap_Disk@CD@@UAE_NH@Z",
+   "address": "0046e750"
+  },
+  {
+   "symbol": "?Trim_Trailing@WideString@@QAEXABV1@@Z",
+   "address": "00770230"
+  },
+  {
+   "symbol": "?Truncate@WideString@@QAE_NI@Z",
+   "address": "00770bc0"
+  },
+  {
+   "symbol": "?Unknown_0046E4C0@@YIHH@Z",
+   "address": "0046e4c0"
+  },
+  {
+   "symbol": "?Unknown_0059c880@@YA_NXZ",
+   "address": "0059c880"
+  },
+  {
+   "symbol": "?Unknown_005FE380@@YIXJ@Z",
+   "address": "005fe380"
+  },
+  {
+   "symbol": "?Unknown_005FEE70@@YIXPAUHWND__@@@Z",
+   "address": "005fee70"
+  },
+  {
+   "symbol": "?Unknown_005bba50@@YIHPAG@Z",
+   "address": "005bba50"
+  },
+  {
+   "symbol": "?Unknown_005bbd10@@YA_NXZ",
+   "address": "005bbd10"
+  },
+  {
+   "symbol": "?Unknown_005bbdc0@@YIXXZ",
+   "address": "005bbdc0"
+  },
+  {
+   "symbol": "?Unknown_005bc430@@YI_NH_N0@Z",
+   "address": "005bc430"
+  },
+  {
+   "symbol": "?Unknown_005c28e0@@YIXXZ",
+   "address": "005c28e0"
+  },
+  {
+   "symbol": "?Unknown_005c2940@@YAXXZ",
+   "address": "005c2940"
+  },
+  {
+   "symbol": "?Unknown_005cb560@@YIXPAUHWND__@@@Z",
+   "address": "005cb560"
+  },
+  {
+   "symbol": "?Unknown_005cbf20@@YIXPAUHWND__@@HPAUNodeNameType@@H@Z",
+   "address": "005cbf20"
+  },
+  {
+   "symbol": "?Unknown_005e8fa0@@YIXPAUHWND__@@@Z",
+   "address": "005e8fa0"
+  },
+  {
+   "symbol": "?Unknown_00671F00@MultiMission@@QAE_NH@Z",
+   "address": "00671f00"
+  },
+  {
+   "symbol": "?Unknown_00671F90@MultiMission@@QAEHXZ",
+   "address": "00671f90"
+  },
+  {
+   "symbol": "?Unknown_006720C0@MultiMission@@QAE_NXZ",
+   "address": "006720c0"
+  },
+  {
+   "symbol": "?Unknown_00672140@SessionClass@@QAE_NXZ",
+   "address": "00672140"
+  },
+  {
+   "symbol": "?Unknown_00672810@GameOptionsType@@QAEXXZ",
+   "address": "00672810"
+  },
+  {
+   "symbol": "?Unknown_0068B410@SpecialClass@@QAEXXZ",
+   "address": "0068b410"
+  },
+  {
+   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
+   "address": "007357e0"
+  },
+  {
+   "symbol": "?Unknown_007359e0@@YIHPAUHWND__@@P6A_NXZHHH@Z",
+   "address": "007359e0"
+  },
+  {
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "address": "00735b10"
+  },
+  {
+   "symbol": "?Unknown_0073ccb0@@YIXPAD@Z",
+   "address": "0073ccb0"
+  },
+  {
+   "symbol": "?Unknown_0073e100@@YA_NXZ",
+   "address": "0073e100"
+  },
+  {
+   "symbol": "?Unknown_0074DA60@@YAPAUUser@WOL@@XZ",
+   "address": "0074da60"
+  },
+  {
+   "symbol": "?Unknown_0075b0c0@@YAXXZ",
+   "address": "0075b0c0"
+  },
+  {
+   "symbol": "?Unknown_0075c960@@YAXXZ",
+   "address": "0075c960"
+  },
+  {
+   "symbol": "?Unknown_0075c980@@YIXXZ",
+   "address": "0075c980"
+  },
+  {
+   "symbol": "?Unknown_0075ca00@@YAXXZ",
+   "address": "0075ca00"
+  },
+  {
+   "symbol": "?Value_011c_00672a10@SessionClass@@QAEHXZ",
+   "address": "00672a10"
+  },
+  {
+   "symbol": "?WS_Find_Dialog_00735940@@YIPAUHWND__@@H@Z",
+   "address": "00735940"
+  },
+  {
+   "symbol": "?Wide_To_Narrow_006fa120@@YIPADPBG@Z",
+   "address": "006fa120"
+  },
+  {
+   "symbol": "?Window_Rect_In_Main_Client@@YIHPAUHWND__@@PAURECT@@@Z",
+   "address": "00735690"
+  },
+  {
+   "symbol": "?Write@BufferIOFileClass@@UAEJPBXJ@Z",
+   "address": "0042f830"
+  },
+  {
+   "symbol": "?Write@CCFileClass@@UAEJPBXJ@Z",
+   "address": "00469030"
+  },
+  {
+   "symbol": "?Wstring_To_Wide@@YI?AVWideString@@ABVWstring@@@Z",
+   "address": "007711c0"
+  },
+  {
+   "symbol": "?serial_manager_00a40a28@@3VNullModemClass@@A",
+   "address": "00a40a28"
+  },
+  {
+   "symbol": "?target@Call_5cd380_0@@QAEIIII@Z",
+   "address": "0050d7f0"
+  },
+  {
+   "symbol": "?unknown_5159b0@@YIXH_N@Z",
+   "address": "005159b0"
+  },
+  {
+   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "address": "005259a0"
+  },
+  {
+   "symbol": "?unknown_5b7470@MultiplayerGameMode@@QAE_NPAVMultiMission@@@Z",
+   "address": "005b7470"
+  },
+  {
+   "symbol": "?unknown_5e1f30@OwnerDraw@@YIXPAUHWND__@@PAVSurface@@@Z",
+   "address": "005e1f30"
+  },
+  {
+   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
+   "address": "0066e290"
+  },
+  {
+   "symbol": "?unknown_66e2a0@NodeNameType@@QAEHXZ",
+   "address": "0066e2a0"
+  },
+  {
+   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
+   "address": "0066e2d0"
+  },
+  {
+   "symbol": "?unknown_66e300@NodeNameType@@QAEXH@Z",
+   "address": "0066e300"
+  },
+  {
+   "symbol": "?unknown_73c370@@YA_NXZ",
+   "address": "0073c370"
+  },
+  {
+   "symbol": "?unknown_73c3a0@@YA_NXZ",
+   "address": "0073c3a0"
+  },
+  {
+   "symbol": "?unknown_a3d3b4@@3HA",
+   "address": "00a3d3b4"
+  },
+  {
+   "symbol": "?unknown_a40b18@@3HA",
+   "address": "00a40b18"
+  },
+  {
+   "symbol": "?unknown_a72c68@@3HA",
+   "address": "00a72c68"
+  },
+  {
+   "symbol": "?unknown_accept_image_7e6dbc@@3PBDB",
+   "address": "007e6dbc"
+  },
+  {
+   "symbol": "?unknown_address_a3db2c@@3VIPXAddressClass@@A",
+   "address": "00a3db2c"
+  },
+  {
+   "symbol": "?unknown_address_a3f80c@@3VIPXAddressClass@@A",
+   "address": "00a3f80c"
+  },
+  {
+   "symbol": "?unknown_b263d8@@3HA",
+   "address": "00b263d8"
+  },
+  {
+   "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+   "address": "00a76378"
+  },
+  {
+   "symbol": "?unknown_call_73fee0_default@@YAXXZ",
+   "address": "007412f0"
+  },
+  {
+   "symbol": "?unknown_chat_a72cfc@@3PAUIChat@WOL@@A",
+   "address": "00a72cfc"
+  },
+  {
+   "symbol": "?unknown_closed_entry_a72d30@@3PAUNodeNameType@@A",
+   "address": "00a72d30"
+  },
+  {
+   "symbol": "?unknown_color_list_a726d4@@3PADA",
+   "address": "00a726d4"
+  },
+  {
+   "symbol": "?unknown_color_list_old_a726b0@@3PADA",
+   "address": "00a726b0"
+  },
+  {
+   "symbol": "?unknown_country_list_a726f8@@3PADA",
+   "address": "00a726f8"
+  },
+  {
+   "symbol": "?unknown_country_list_old_a72a44@@3PADA",
+   "address": "00a72a44"
+  },
+  {
+   "symbol": "?unknown_create_dialog_735700@@YIPAXPAXHPAUHWND__@@P6GJ1IIJ@ZJ@Z",
+   "address": "00735700"
+  },
+  {
+   "symbol": "?unknown_dialog_5e5f20@@YIXPAUHWND__@@@Z",
+   "address": "005e5f20"
+  },
+  {
+   "symbol": "?unknown_dialog_c2_call@@YI_NH_N0@Z",
+   "address": "0075ca30"
+  },
+  {
+   "symbol": "?unknown_dialog_preview_a72ce8@@3PAVMapPreviewClass@@A",
+   "address": "00a72ce8"
+  },
+  {
+   "symbol": "?unknown_easy_ai_entry_a72d34@@3PAUNodeNameType@@A",
+   "address": "00a72d34"
+  },
+  {
+   "symbol": "?unknown_extra_slot_a72d5c@@3HA",
+   "address": "00a72d5c"
+  },
+  {
+   "symbol": "?unknown_find_mode_5b6fe0@MultiplayerGameMode@@SIPAV1@H@Z",
+   "address": "005b6fe0"
+  },
+  {
+   "symbol": "?unknown_first_mode_5b6ec0@MultiplayerGameMode@@SAPAV1@XZ",
+   "address": "005b6ec0"
+  },
+  {
+   "symbol": "?unknown_game_mode_a3d298@@3HA",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_get_list_item_wide_text@@YIJPAUHWND__@@IAAVWideString@@@Z",
+   "address": "00600f10"
+  },
+  {
+   "symbol": "?unknown_get_window_wide_text@@YIJPAUHWND__@@AAVWideString@@@Z",
+   "address": "00600e50"
+  },
+  {
+   "symbol": "?unknown_gpacket_a3f640@@3UUnknownGlobalPacket@@A",
+   "address": "00a3f640"
+  },
+  {
+   "symbol": "?unknown_hard_ai_entry_a72d3c@@3PAUNodeNameType@@A",
+   "address": "00a72d3c"
+  },
+  {
+   "symbol": "?unknown_host_image_7e6db8@@3PBDB",
+   "address": "007e6db8"
+  },
+  {
+   "symbol": "?unknown_host_name_a3f618@@3PAGA",
+   "address": "00a3f618"
+  },
+  {
+   "symbol": "?unknown_host_shown_7e6dc0@@3_NA",
+   "address": "007e6dc0"
+  },
+  {
+   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
+   "symbol": "?unknown_ini_839740@@3VCCINIClass@@A",
+   "address": "00839740"
+  },
+  {
+   "symbol": "?unknown_int_a3db1c@@3HA",
+   "address": "00a3db1c"
+  },
+  {
+   "symbol": "?unknown_ipx_manager_a40978@@3VIPXManagerClass@@A",
+   "address": "00a40978"
+  },
+  {
+   "symbol": "?unknown_list_text_a71ea8@@3PAGA",
+   "address": "00a71ea8"
+  },
+  {
+   "symbol": "?unknown_lobby_a3d2dc@@3PAHA",
+   "address": "00a3d2dc"
+  },
+  {
+   "symbol": "?unknown_lobby_a3d2fc@@3PAHA",
+   "address": "00a3d2fc"
+  },
+  {
+   "symbol": "?unknown_lobby_a3d31c@@3PAHA",
+   "address": "00a3d31c"
+  },
+  {
+   "symbol": "?unknown_lobby_a3fa94@@3HA",
+   "address": "00a3fa94"
+  },
+  {
+   "symbol": "?unknown_lobby_dialog_a728e0@@3PAUHWND__@@A",
+   "address": "00a728e0"
+  },
+  {
+   "symbol": "?unknown_lobby_flag_7e6d90@@3HA",
+   "address": "007e6d90"
+  },
+  {
+   "symbol": "?unknown_lobby_flag_a3fab8@@3_NA",
+   "address": "00a3fab8"
+  },
+  {
+   "symbol": "?unknown_lobby_map_a728d0@@3HA",
+   "address": "00a728d0"
+  },
+  {
+   "symbol": "?unknown_lobby_map_a72c80@@3HA",
+   "address": "00a72c80"
+  },
+  {
+   "symbol": "?unknown_lobby_map_name_a72a68@@3PAGA",
+   "address": "00a72a68"
+  },
+  {
+   "symbol": "?unknown_lobby_names_7e6de8@@3PAPBDA",
+   "address": "007e6de8"
+  },
+  {
+   "symbol": "?unknown_lobby_state_a3d2b0@@3VGameOptionsType@@A",
+   "address": "00a3d2b0"
+  },
+  {
+   "symbol": "?unknown_lobby_texts_a72d0c@@3PAPBGA",
+   "address": "00a72d0c"
+  },
+  {
+   "symbol": "?unknown_map_name_a3d342@@3PAGA",
+   "address": "00a3d342"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_max_players_a3d558@@3HA",
+   "address": "00a3d558"
+  },
+  {
+   "symbol": "?unknown_medium_ai_entry_a72d38@@3PAUNodeNameType@@A",
+   "address": "00a72d38"
+  },
+  {
+   "symbol": "?unknown_mode_count_5b6f80@MultiplayerGameMode@@SAHXZ",
+   "address": "005b6f80"
+  },
+  {
+   "symbol": "?unknown_multi_missions_a3d8d8@@3V?$DynamicVectorClass@PAVMultiMission@@@@A",
+   "address": "00a3d8d8"
+  },
+  {
+   "symbol": "?unknown_name_a3d3a0@@3PADA",
+   "address": "00a3d3a0"
+  },
+  {
+   "symbol": "?unknown_open_entry_a72d2c@@3PAUNodeNameType@@A",
+   "address": "00a72d2c"
+  },
+  {
+   "symbol": "?unknown_player_a72d44@@3PAUNodeNameType@@A",
+   "address": "00a72d44"
+  },
+  {
+   "symbol": "?unknown_player_control_4d0ee0@@YIHH@Z",
+   "address": "004d0ee0"
+  },
+  {
+   "symbol": "?unknown_player_slots_a3fa98@@3PAPAUNodeNameType@@A",
+   "address": "00a3fa98"
+  },
+  {
+   "symbol": "?unknown_players_a3fa7c@@3V?$DynamicVectorClass@PAUNodeNameType@@@@A",
+   "address": "00a3fa7c"
+  },
+  {
+   "symbol": "?unknown_previous_key@@YIHH@Z",
+   "address": "007359b0"
+  },
+  {
+   "symbol": "?unknown_send_pending_a72d4c@@3_NA",
+   "address": "00a72d4c"
+  },
+  {
+   "symbol": "?unknown_sent_24_7e6dc8@@3HA",
+   "address": "007e6dc8"
+  },
+  {
+   "symbol": "?unknown_sent_2a_a72d4d@@3_NA",
+   "address": "00a72d4d"
+  },
+  {
+   "symbol": "?unknown_sent_2b_a72d4e@@3_NA",
+   "address": "00a72d4e"
+  },
+  {
+   "symbol": "?unknown_sent_2c_a72d4f@@3_NA",
+   "address": "00a72d4f"
+  },
+  {
+   "symbol": "?unknown_sent_a8_a72d50@@3_NA",
+   "address": "00a72d50"
+  },
+  {
+   "symbol": "?unknown_sent_crates_a72d51@@3_NA",
+   "address": "00a72d51"
+  },
+  {
+   "symbol": "?unknown_sent_digest_a728a0@@3PADA",
+   "address": "00a728a0"
+  },
+  {
+   "symbol": "?unknown_sent_file_name_a72890@@3PADA",
+   "address": "00a72890"
+  },
+  {
+   "symbol": "?unknown_sent_length_7e6dd4@@3HA",
+   "address": "007e6dd4"
+  },
+  {
+   "symbol": "?unknown_sent_map_name_a72c90@@3PAGA",
+   "address": "00a72c90"
+  },
+  {
+   "symbol": "?unknown_sent_official_7e6dd0@@3_NA",
+   "address": "007e6dd0"
+  },
+  {
+   "symbol": "?unknown_sent_speed_7e6dc4@@3HA",
+   "address": "007e6dc4"
+  },
+  {
+   "symbol": "?unknown_sent_time_a72d48@@3JA",
+   "address": "00a72d48"
+  },
+  {
+   "symbol": "?unknown_sent_units_7e6dcc@@3HA",
+   "address": "007e6dcc"
+  },
+  {
+   "symbol": "?unknown_session_a3d298@@3USessionClass@@A",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_session_a3d29c@@3PAVUnknownSessionA3D29C@@A",
+   "address": "00a3d29c"
+  },
+  {
+   "symbol": "?unknown_session_a3d2ac@@3HA",
+   "address": "00a3d2ac"
+  },
+  {
+   "symbol": "?unknown_session_a3d2b4@@3HA",
+   "address": "00a3d2b4"
+  },
+  {
+   "symbol": "?unknown_session_a3d2c0@@3_NA",
+   "address": "00a3d2c0"
+  },
+  {
+   "symbol": "?unknown_session_a3d2c8@@3HA",
+   "address": "00a3d2c8"
+  },
+  {
+   "symbol": "?unknown_session_a3d33d@@3_NA",
+   "address": "00a3d33d"
+  },
+  {
+   "symbol": "?unknown_session_a3d55c@@3HA",
+   "address": "00a3d55c"
+  },
+  {
+   "symbol": "?unknown_show_dialog_5ff7e0@@YIXPAXH@Z",
+   "address": "005ff7e0"
+  },
+  {
+   "symbol": "?unknown_slot_count_7e6de4@@3HA",
+   "address": "007e6de4"
+  },
+  {
+   "symbol": "?unknown_slot_names_a72734@@3PAGA",
+   "address": "00a72734"
+  },
+  {
+   "symbol": "?unknown_slot_names_old_a728e4@@3PAGA",
+   "address": "00a728e4"
+  },
+  {
+   "symbol": "?unknown_special_a40920@@3VSpecialClass@@A",
+   "address": "00a40920"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_text_770430@UnknownWideText_005c3450@@QBEPBGXZ",
+   "address": "00770430"
+  },
+  {
+   "symbol": "?unknown_text_770430@WideString@@QBEPBGXZ",
+   "address": "00770430"
+  },
+  {
+   "symbol": "?unknown_waiting_entry_a72d40@@3PAUNodeNameType@@A",
+   "address": "00a72d40"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__EnableWindow@8",
+   "address": "0079a490"
+  },
+  {
+   "symbol": "__imp__GetDC@4",
+   "address": "0079a458"
+  },
+  {
+   "symbol": "__imp__GetDlgItem@8",
+   "address": "0079a49c"
+  },
+  {
+   "symbol": "__imp__GetWindowLongA@8",
+   "address": "0079a48c"
+  },
+  {
+   "symbol": "__imp__GetWindowRect@8",
+   "address": "0079a398"
+  },
+  {
+   "symbol": "__imp__InvalidateRect@12",
+   "address": "0079a494"
+  },
+  {
+   "symbol": "__imp__ReleaseDC@8",
+   "address": "0079a478"
+  },
+  {
+   "symbol": "__imp__SendDlgItemMessageA@20",
+   "address": "0079a484"
+  },
+  {
+   "symbol": "__imp__SendMessageA@16",
+   "address": "0079a4a0"
+  },
+  {
+   "symbol": "__imp__SetWindowLongA@12",
+   "address": "0079a488"
+  },
+  {
+   "symbol": "__imp__ShowWindow@8",
+   "address": "0079a498"
+  },
+  {
+   "symbol": "__imp__ValidateRect@8",
+   "address": "0079a3f8"
+  },
+  {
+   "symbol": "__stricmp",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "__strupr",
+   "address": "007961e4"
+  },
+  {
+   "symbol": "__wcsdup",
+   "address": "00797033"
+  },
+  {
+   "symbol": "__wcsicmp",
+   "address": "00796318"
+  },
+  {
+   "symbol": "_allocate_storage_005cd770",
+   "address": "00782017"
+  },
+  {
+   "symbol": "_base_dispatch_005cd770",
+   "address": "007a7388"
+  },
+  {
+   "symbol": "_closed_entry_00a72d30",
+   "address": "00a72d30"
+  },
+  {
+   "symbol": "_closed_entry_00a72d30",
+   "address": "00a72d30"
+  },
+  {
+   "symbol": "_closed_entry_00a72d30",
+   "address": "00a72d30"
+  },
+  {
+   "symbol": "_data_5cd380_7dbce4",
+   "address": "007dbce4"
+  },
+  {
+   "symbol": "_data_5cd380_7e740c",
+   "address": "007e740c"
+  },
+  {
+   "symbol": "_data_5cd380_839740",
+   "address": "00839740"
+  },
+  {
+   "symbol": "_derived_dispatch_005cd770",
+   "address": "007a73a8"
+  },
+  {
+   "symbol": "_easy_ai_entry_00a72d34",
+   "address": "00a72d34"
+  },
+  {
+   "symbol": "_easy_ai_entry_00a72d34",
+   "address": "00a72d34"
+  },
+  {
+   "symbol": "_easy_ai_entry_00a72d34",
+   "address": "00a72d34"
+  },
+  {
+   "symbol": "_easy_ai_entry_00a72d34",
+   "address": "00a72d34"
+  },
+  {
+   "symbol": "_easy_ai_entry_00a72d34",
+   "address": "00a72d34"
+  },
+  {
+   "symbol": "_free",
+   "address": "007825e8"
+  },
+  {
+   "symbol": "_global_5cd380_a72c68",
+   "address": "00a72c68"
+  },
+  {
+   "symbol": "_hard_ai_entry_00a72d3c",
+   "address": "00a72d3c"
+  },
+  {
+   "symbol": "_hard_ai_entry_00a72d3c",
+   "address": "00a72d3c"
+  },
+  {
+   "symbol": "_hard_ai_entry_00a72d3c",
+   "address": "00a72d3c"
+  },
+  {
+   "symbol": "_hard_ai_entry_00a72d3c",
+   "address": "00a72d3c"
+  },
+  {
+   "symbol": "_hard_ai_entry_00a72d3c",
+   "address": "00a72d3c"
+  },
+  {
+   "symbol": "_host_name_00a3f618",
+   "address": "00a3f618"
+  },
+  {
+   "symbol": "_host_name_00a3f618",
+   "address": "00a3f618"
+  },
+  {
+   "symbol": "_iswgraph",
+   "address": "00784ae6"
+  },
+  {
+   "symbol": "_medium_ai_entry_00a72d38",
+   "address": "00a72d38"
+  },
+  {
+   "symbol": "_medium_ai_entry_00a72d38",
+   "address": "00a72d38"
+  },
+  {
+   "symbol": "_medium_ai_entry_00a72d38",
+   "address": "00a72d38"
+  },
+  {
+   "symbol": "_medium_ai_entry_00a72d38",
+   "address": "00a72d38"
+  },
+  {
+   "symbol": "_medium_ai_entry_00a72d38",
+   "address": "00a72d38"
+  },
+  {
+   "symbol": "_open_entry_00a72d2c",
+   "address": "00a72d2c"
+  },
+  {
+   "symbol": "_open_entry_00a72d2c",
+   "address": "00a72d2c"
+  },
+  {
+   "symbol": "_open_entry_00a72d2c",
+   "address": "00a72d2c"
+  },
+  {
+   "symbol": "_player_entry_00a72d44",
+   "address": "00a72d44"
+  },
+  {
+   "symbol": "_player_entry_00a72d44",
+   "address": "00a72d44"
+  },
+  {
+   "symbol": "_player_entry_00a72d44",
+   "address": "00a72d44"
+  },
+  {
+   "symbol": "_player_slots_00a3fa98",
+   "address": "00a3fa98"
+  },
+  {
+   "symbol": "_release_buffer_5cd900",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_5cd950",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_5cd900",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_5cd950",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_sprintf",
+   "address": "007820f4"
+  },
+  {
+   "symbol": "_storage_5cdaf0",
+   "address": "00782017"
+  },
+  {
+   "symbol": "_strncpy",
+   "address": "007823d0"
+  },
+  {
+   "symbol": "_strstr",
+   "address": "007836b0"
+  },
+  {
+   "symbol": "_table_5cdaf0",
+   "address": "007a7388"
+  },
+  {
+   "symbol": "_time",
+   "address": "0078387f"
+  },
+  {
+   "symbol": "_unknown_lobby_players_00a3fa80",
+   "address": "00a3fa80"
+  },
+  {
+   "symbol": "_vswprintf",
+   "address": "00783a58"
+  },
+  {
+   "symbol": "_vtable_5cd900",
+   "address": "007a7388"
+  },
+  {
+   "symbol": "_vtable_5cd950",
+   "address": "007a7388"
+  },
+  {
+   "symbol": "_waiting_entry_00a72d40",
+   "address": "00a72d40"
+  },
+  {
+   "symbol": "_waiting_entry_00a72d40",
+   "address": "00a72d40"
+  },
+  {
+   "symbol": "_wcscat",
+   "address": "0078365f"
+  },
+  {
+   "symbol": "_wcschr",
+   "address": "00783ac6"
+  },
+  {
+   "symbol": "_wcscpy",
+   "address": "00783689"
+  },
+  {
+   "symbol": "_wcslen",
+   "address": "00783605"
+  },
+  {
+   "symbol": "_wcsncpy",
+   "address": "00783622"
+  },
+  {
+   "symbol": "_wcstok",
+   "address": "00784b11"
+  }
+ ],
+ "route": "A",
+ "unit": "netshare.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "005c29b0",
+   "lines": 48
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "005c8660",
+   "bytes": 20,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)"
+  },
+  {
+   "entry": "005c8680",
+   "bytes": 28,
+   "population": "population-41",
+   "bound": "own frozen bound (population-41)"
+  },
+  {
+   "entry": "005c8cc0",
+   "bytes": 8,
+   "population": "population-4352",
+   "bound": "own frozen bound (population-4352)"
+  },
+  {
+   "entry": "005c8cf0",
+   "bytes": 214,
+   "population": "population-2956",
+   "bound": "own frozen bound (population-2956)"
+  },
+  {
+   "entry": "005c9320",
+   "bytes": 69,
+   "population": "population-42",
+   "bound": "own frozen bound (population-42)"
+  },
+  {
+   "entry": "005c9370",
+   "bytes": 37,
+   "population": "population-42",
+   "bound": "own frozen bound (population-42)"
+  },
+  {
+   "entry": "005c93a0",
+   "bytes": 45,
+   "population": "population-43",
+   "bound": "own frozen bound (population-43)"
+  },
+  {
+   "entry": "005c93d0",
+   "bytes": 44,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)"
+  },
+  {
+   "entry": "005c9400",
+   "bytes": 62,
+   "population": "population-42",
+   "bound": "own frozen bound (population-42)"
+  },
+  {
+   "entry": "005c96b0",
+   "bytes": 73,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)"
+  },
+  {
+   "entry": "005cd0e0",
+   "bytes": 199,
+   "population": "population-2956",
+   "bound": "own frozen bound (population-2956)"
+  },
+  {
+   "entry": "005cd1b0",
+   "bytes": 319,
+   "population": "population-2956",
+   "bound": "own frozen bound (population-2956)"
+  },
+  {
+   "entry": "005cd380",
+   "bytes": 28,
+   "population": "population-02",
+   "bound": "own frozen bound (population-02)"
+  },
+  {
+   "entry": "005cd770",
+   "bytes": 93,
+   "population": "population-28",
+   "bound": "own frozen bound (population-28)"
+  },
+  {
+   "entry": "005cd900",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)"
+  },
+  {
+   "entry": "005cd950",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)"
+  },
+  {
+   "entry": "005cdaf0",
+   "bytes": 74,
+   "population": "population-22",
+   "bound": "own frozen bound (population-22)"
+  },
+  {
+   "entry": "005c8cd0",
+   "bytes": 21,
+   "population": "population-2913",
+   "bound": "own frozen bound (population-2913)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "005c3480",
+   "bytes": 38,
+   "population": "population-3817",
+   "source": "src/recovered/netshare/unknown_select_item.cpp",
+   "cause": "frozen in another population's inventory pass (population-3817)"
+  },
+  {
+   "kind": "split",
+   "entry": "005c34b0",
+   "bytes": 32,
+   "population": "population-4244",
+   "source": "src/recovered/netshare/unknown_set_dialog_item_text.cpp",
+   "cause": "frozen in another population's inventory pass (population-4244)"
+  },
+  {
+   "kind": "split",
+   "entry": "005c3550",
+   "bytes": 692,
+   "population": "population-2782",
+   "source": "src/recovered/netshare/Unknown_Fill_Options_Dialog.cpp",
+   "cause": "frozen in another population's inventory pass (population-2782)"
+  },
+  {
+   "kind": "split",
+   "entry": "005c7160",
+   "bytes": 133,
+   "population": "population-4244",
+   "source": "src/recovered/netshare/unknown_select_list_item_by_data.cpp",
+   "cause": "frozen in another population's inventory pass (population-4244)"
+  },
+  {
+   "kind": "split",
+   "entry": "005c99d0",
+   "bytes": 62,
+   "population": "population-3772",
+   "source": "src/recovered/netshare/unknown_combo_selected_data.cpp",
+   "cause": "held by population-3772; not joined: frozen in another population's inventory pass (population-3772)"
+  },
+  {
+   "kind": "split",
+   "entry": "005cd590",
+   "bytes": 42,
+   "population": "population-1597",
+   "source": "src/recovered/classes/DynamicVectorClass_MultiMission_ptr/Clear.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005cd5c0",
+   "bytes": 27,
+   "population": "population-1597",
+   "source": "src/recovered/classes/DynamicVectorClass_MultiMission_ptr/DynamicVectorClass_MultiMission_ptr_ID_pointer_005cd5c0.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005cd5e0",
+   "bytes": 13,
+   "population": "population-1597",
+   "source": "src/recovered/classes/VectorClass_MultiMission_ptr/VectorClass_MultiMission_ptr_Fetch_005cd5e0.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005cd5f0",
+   "bytes": 62,
+   "population": "population-1597",
+   "source": "src/recovered/classes/VectorClass_MultiMission_ptr/VectorClass_MultiMission_ptr_operator_equal_005cd5f0.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005cd630",
+   "bytes": 174,
+   "population": "population-1597",
+   "source": "src/recovered/classes/VectorClass_MultiMission_ptr/VectorClass_MultiMission_ptr_Resize_005cd630.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005cd6e0",
+   "bytes": 39,
+   "population": "population-1597",
+   "source": "src/recovered/classes/VectorClass_MultiMission_ptr/VectorClass_MultiMission_ptr_Clear_005cd6e0.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005cd710",
+   "bytes": 51,
+   "population": "population-1597",
+   "source": "src/recovered/classes/VectorClass_MultiMission_ptr/VectorClass_MultiMission_ptr_ID_object_005cd710.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005cd750",
+   "bytes": 27,
+   "population": "population-1597",
+   "source": "src/recovered/classes/VectorClass_MultiMission_ptr/VectorClass_MultiMission_ptr_ID_pointer_005cd750.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005cd7d0",
+   "bytes": 176,
+   "population": "population-1597",
+   "source": "src/recovered/classes/DynamicVectorClass_MultiMission_ptr/DynamicVectorClass_MultiMission_ptr_Resize_005cd7d0.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005cd880",
+   "bytes": 80,
+   "population": "population-19",
+   "source": "src/recovered/005cd880.cpp",
+   "cause": "held by population-19; not joined: its file holds a vtable view classed dead, which the native check (vtable_views.py) reads per object"
+  },
+  {
+   "kind": "split",
+   "entry": "005cd8d0",
+   "bytes": 38,
+   "population": "population-1597",
+   "source": "src/recovered/classes/DynamicVectorClass_MultiMission_ptr/DynamicVectorClass_MultiMission_ptr_ID_object_005cd8d0.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  }
+ ],
+ "unit_functions": 154,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "00763ab0",
+   "target": "005c2c80",
+   "symbol": "?Print_Chat_Line_005c2c80@seed_00763ab0@@YAXHHH@Z",
+   "module_symbol": "?Unknown_005C2C80@@YAXHPBGZZ"
+  },
+  {
+   "site": "0075dbd0",
+   "target": "005c3230",
+   "symbol": "?Popup_005c3230@@YIHPBGHP6A_NXZH@Z",
+   "module_symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z"
+  },
+  {
+   "site": "0073c7c0",
+   "target": "005cd380",
+   "symbol": "?Unknown_005CD380@@YIXXZ",
+   "module_symbol": "?get@Leaf_5cd380@@QAEIXZ"
+  },
+  {
+   "site": "005a3ee0",
+   "target": "005c2c40",
+   "symbol": "?Get_Lobby_Dialog_005c2c40@@YAPAUHWND__@@XZ",
+   "module_symbol": "?Find_Lobby_Window_005c2c40@@YAPAUHWND__@@XZ"
+  },
+  {
+   "site": "005a4f90",
+   "target": "005c2c40",
+   "symbol": "?Get_Lobby_Dialog_005c2c40@@YAPAUHWND__@@XZ",
+   "module_symbol": "?Find_Lobby_Window_005c2c40@@YAPAUHWND__@@XZ"
+  },
+  {
+   "site": "005a3320",
+   "target": "005c2c40",
+   "symbol": "?Get_Lobby_Dialog_005c2c40@@YAPAUHWND__@@XZ",
+   "module_symbol": "?Find_Lobby_Window_005c2c40@@YAPAUHWND__@@XZ"
+  },
+  {
+   "site": "005a3760",
+   "target": "005c2c40",
+   "symbol": "?Get_Lobby_Dialog_005c2c40@@YAPAUHWND__@@XZ",
+   "module_symbol": "?Find_Lobby_Window_005c2c40@@YAPAUHWND__@@XZ"
+  },
+  {
+   "site": "005a38d0",
+   "target": "005c2c40",
+   "symbol": "?Get_Lobby_Dialog_005c2c40@@YAPAUHWND__@@XZ",
+   "module_symbol": "?Find_Lobby_Window_005c2c40@@YAPAUHWND__@@XZ"
+  },
+  {
+   "site": "005a35d0",
+   "target": "005c2c40",
+   "symbol": "?Get_Lobby_Dialog_005c2c40@@YAPAUHWND__@@XZ",
+   "module_symbol": "?Find_Lobby_Window_005c2c40@@YAPAUHWND__@@XZ"
+  },
+  {
+   "site": "005a2ef0",
+   "target": "005c2c40",
+   "symbol": "?Get_Lobby_Dialog_005c2c40@@YAPAUHWND__@@XZ",
+   "module_symbol": "?Find_Lobby_Window_005c2c40@@YAPAUHWND__@@XZ"
+  },
+  {
+   "site": "005a5000",
+   "target": "005c2c40",
+   "symbol": "?Get_Lobby_Dialog_005c2c40@@YAPAUHWND__@@XZ",
+   "module_symbol": "?Find_Lobby_Window_005c2c40@@YAPAUHWND__@@XZ"
+  },
+  {
+   "site": "005a5000",
+   "target": "005c3450",
+   "symbol": "?Unknown_005c3450@@YIXPAUHWND__@@PAVMultiplayerGameMode@@@Z",
+   "module_symbol": "?unknown_set_dialog_wide_text_005c3450@@YIXPAUHWND__@@PAUUnknownTextOwner_005c3450@@@Z"
+  },
+  {
+   "site": "00627740",
+   "target": "005c3150",
+   "symbol": "?Unknown_005C3150@@YIHPAVHouseClass@@@Z",
+   "module_symbol": "?Count_Teams_005c3150@@YIHPAVHouseClass@@@Z"
+  },
+  {
+   "site": "00627740",
+   "target": "005c3150",
+   "symbol": "?Unknown_005C3150@@YIHPAVHouseClass@@@Z",
+   "module_symbol": "?Count_Teams_005c3150@@YIHPAVHouseClass@@@Z"
+  },
+  {
+   "site": "00763ae0",
+   "target": "005c3230",
+   "symbol": "?Popup_005c3230@@YIHPBGHP6A_NXZH@Z",
+   "module_symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z"
+  },
+  {
+   "site": "007646c0",
+   "target": "005c3230",
+   "symbol": "?Popup_005c3230@@YIHPBGHP6A_NXZH@Z",
+   "module_symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z"
+  },
+  {
+   "site": "00764b00",
+   "target": "005c3230",
+   "symbol": "?Popup_005c3230@@YIHPBGHP6A_NXZH@Z",
+   "module_symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z"
+  },
+  {
+   "site": "0075ea50",
+   "target": "005c3230",
+   "symbol": "?Popup_005c3230@@YIHPBGHP6A_NXZH@Z",
+   "module_symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z"
+  },
+  {
+   "site": "0075ea50",
+   "target": "005c3230",
+   "symbol": "?Popup_005c3230@@YIHPBGHP6A_NXZH@Z",
+   "module_symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z"
+  },
+  {
+   "site": "0073c480",
+   "target": "005c9320",
+   "symbol": "?Unknown_005c9320@@YI_NPAUNodeNameType@@@Z",
+   "module_symbol": "?Is_Real_Player_Entry_005c9320@seed_005c9320@@YIIH@Z"
+  },
+  {
+   "site": "0074d7d0",
+   "target": "005c9320",
+   "symbol": "?Unknown_005c9320@@YI_NPAUNodeNameType@@@Z",
+   "module_symbol": "?Is_Real_Player_Entry_005c9320@seed_005c9320@@YIIH@Z"
+  },
+  {
+   "site": "0075b0c0",
+   "target": "005c9320",
+   "symbol": "?Unknown_005c9320@@YI_NPAUNodeNameType@@@Z",
+   "module_symbol": "?Is_Real_Player_Entry_005c9320@seed_005c9320@@YIIH@Z"
+  },
+  {
+   "site": "00749f20",
+   "target": "005c9320",
+   "symbol": "?Unknown_005c9320@@YI_NPAUNodeNameType@@@Z",
+   "module_symbol": "?Is_Real_Player_Entry_005c9320@seed_005c9320@@YIIH@Z"
+  },
+  {
+   "site": "00749f20",
+   "target": "005c9370",
+   "symbol": "?Unknown_005c9370@@YI_NPBUNodeNameType@@@Z",
+   "module_symbol": "?Is_AI_Entry_005c9370@seed_005c9370@@YIIH@Z"
+  },
+  {
+   "site": "00749f20",
+   "target": "005c9320",
+   "symbol": "?Unknown_005c9320@@YI_NPAUNodeNameType@@@Z",
+   "module_symbol": "?Is_Real_Player_Entry_005c9320@seed_005c9320@@YIIH@Z"
+  },
+  {
+   "site": "0073c580",
+   "target": "005c3230",
+   "symbol": "?Popup_005c3230@@YIHPBGHP6A_NXZH@Z",
+   "module_symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z"
+  },
+  {
+   "site": "0073c580",
+   "target": "005c3230",
+   "symbol": "?Popup_005c3230@@YIHPBGHP6A_NXZH@Z",
+   "module_symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z"
+  },
+  {
+   "site": "0074c660",
+   "target": "005c9320",
+   "symbol": "?Unknown_005c9320@@YI_NPAUNodeNameType@@@Z",
+   "module_symbol": "?Is_Real_Player_Entry_005c9320@seed_005c9320@@YIIH@Z"
+  },
+  {
+   "site": "0074c660",
+   "target": "005c9320",
+   "symbol": "?Unknown_005c9320@@YI_NPAUNodeNameType@@@Z",
+   "module_symbol": "?Is_Real_Player_Entry_005c9320@seed_005c9320@@YIIH@Z"
+  },
+  {
+   "site": "0074c660",
+   "target": "005c3450",
+   "symbol": "?Unknown_005c3450@@YIXPAUHWND__@@PAVMultiplayerGameMode@@@Z",
+   "module_symbol": "?unknown_set_dialog_wide_text_005c3450@@YIXPAUHWND__@@PAUUnknownTextOwner_005c3450@@@Z"
+  },
+  {
+   "site": "0073fee0",
+   "target": "005c5ff0",
+   "symbol": "?Unknown_005c5ff0@@YIXPAUHWND__@@PAV?$WolDictionary@VWideString@@_N@@@Z",
+   "module_symbol": "?Save_List_Selection_005c5ff0@@YIXPAUHWND__@@PAV?$WolDictionary@VWideString@@_N@@@Z"
+  },
+  {
+   "site": "00628880",
+   "target": "005c3150",
+   "symbol": "?Unknown_005C3150@@YIHPAVHouseClass@@@Z",
+   "module_symbol": "?Count_Teams_005c3150@@YIHPAVHouseClass@@@Z"
+  },
+  {
+   "site": "00683fc0",
+   "target": "005c3450",
+   "symbol": "?Unknown_005c3450@@YIXPAUHWND__@@PAVMultiplayerGameMode@@@Z",
+   "module_symbol": "?unknown_set_dialog_wide_text_005c3450@@YIXPAUHWND__@@PAUUnknownTextOwner_005c3450@@@Z"
+  },
+  {
+   "site": "005c08a0",
+   "target": "005c8cc0",
+   "symbol": "?Set_Player_Slot_005c8cc0@@YIXHPAUNodeNameType@@@Z",
+   "module_symbol": "?get@Leaf_5c8cc0@@QAIXI@Z"
+  },
+  {
+   "site": "00741750",
+   "target": "005c9700",
+   "symbol": "?Unknown_005c9700@@YAXXZ",
+   "module_symbol": "?Unknown_Enable_Start_005c9700@@YAXXZ"
+  },
+  {
+   "site": "00741750",
+   "target": "005c9320",
+   "symbol": "?Unknown_005c9320@@YI_NPAUNodeNameType@@@Z",
+   "module_symbol": "?Is_Real_Player_Entry_005c9320@seed_005c9320@@YIIH@Z"
+  },
+  {
+   "site": "00741750",
+   "target": "005c9700",
+   "symbol": "?Unknown_005c9700@@YAXXZ",
+   "module_symbol": "?Unknown_Enable_Start_005c9700@@YAXXZ"
+  },
+  {
+   "site": "006829f0",
+   "target": "005c3450",
+   "symbol": "?Unknown_005c3450@@YIXPAUHWND__@@PAVMultiplayerGameMode@@@Z",
+   "module_symbol": "?unknown_set_dialog_wide_text_005c3450@@YIXPAUHWND__@@PAUUnknownTextOwner_005c3450@@@Z"
+  },
+  {
+   "site": "007424c0",
+   "target": "005c3230",
+   "symbol": "?Popup_005c3230@@YIHPBGHP6A_NXZH@Z",
+   "module_symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z"
+  },
+  {
+   "site": "007424c0",
+   "target": "005c3230",
+   "symbol": "?Popup_005c3230@@YIHPBGHP6A_NXZH@Z",
+   "module_symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z"
+  },
+  {
+   "site": "007424c0",
+   "target": "005c3230",
+   "symbol": "?Popup_005c3230@@YIHPBGHP6A_NXZH@Z",
+   "module_symbol": "?Message_Box_005c3230@@YIHPBGHP6A_NXZ_N@Z"
+  },
+  {
+   "site": "0074a710",
+   "target": "005c93a0",
+   "symbol": "?Unknown_005c93a0@@YI_NPAUNodeNameType@@@Z",
+   "module_symbol": "?Is_Occupant_Entry_005c93a0@seed_005c93a0@@YIIH@Z"
+  },
+  {
+   "site": "0074a710",
+   "target": "005cb560",
+   "symbol": "?Unknown_005cb560@@YIXPAUHWND__@@@Z",
+   "module_symbol": "?Clear_Observer_Slots_005cb560@@YIXPAUHWND__@@@Z"
+  },
+  {
+   "site": "0074a710",
+   "target": "005c3450",
+   "symbol": "?Unknown_005c3450@@YIXPAUHWND__@@PAVMultiplayerGameMode@@@Z",
+   "module_symbol": "?unknown_set_dialog_wide_text_005c3450@@YIXPAUHWND__@@PAUUnknownTextOwner_005c3450@@@Z"
+  },
+  {
+   "site": "0074a710",
+   "target": "005cca30",
+   "symbol": "?Unknown_005cca30@@YIXPAUHWND__@@PAUSessionOptionsClass@@@Z",
+   "module_symbol": "?Load_Lobby_Options_005cca30@@YIXPAUHWND__@@PAUSessionOptionsClass@@@Z"
+  },
+  {
+   "site": "0074a710",
+   "target": "005c3450",
+   "symbol": "?Unknown_005c3450@@YIXPAUHWND__@@PAVMultiplayerGameMode@@@Z",
+   "module_symbol": "?unknown_set_dialog_wide_text_005c3450@@YIXPAUHWND__@@PAUUnknownTextOwner_005c3450@@@Z"
+  },
+  {
+   "site": "0074a710",
+   "target": "005c9320",
+   "symbol": "?Unknown_005c9320@@YI_NPAUNodeNameType@@@Z",
+   "module_symbol": "?Is_Real_Player_Entry_005c9320@seed_005c9320@@YIIH@Z"
+  },
+  {
+   "site": "0074a710",
+   "target": "005c9320",
+   "symbol": "?Unknown_005c9320@@YI_NPAUNodeNameType@@@Z",
+   "module_symbol": "?Is_Real_Player_Entry_005c9320@seed_005c9320@@YIIH@Z"
+  },
+  {
+   "site": "00760c00",
+   "target": "005c9700",
+   "symbol": "?Unknown_005c9700@@YAXXZ",
+   "module_symbol": "?Unknown_Enable_Start_005c9700@@YAXXZ"
+  }
+ ],
+ "stand_in_reference_count": 49,
+ "residual_split": {
+  "rows": 16,
+  "bytes": 1686
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

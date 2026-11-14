@@ -25,7 +25,7 @@ import argparse
 import json
 import re
 import sys
-from collections import OrderedDict
+from collections import Counter, OrderedDict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -102,10 +102,15 @@ RULES = [
     # pointer-sized and goes to the port's seed free (link/behaviour_m23.cpp),
     # which frees a real heap block and reports a value that was already read
     # through a 32-bit field as a trap instead of freeing a cut address
-    # (Scout1187, M23). Same meaning: free(x).
-    (re.compile(r'\bextern\s+void\s+FUN_00781d3b\s*\(\s*undefined4\s+param_1\s*\)\s*;'),
-     r'static inline void FUN_00781d3b(intptr_t block) { ra2port_seed_free(block); }   /* NATIVE: pointer-sized free 0x00781D3B */'),
-    (re.compile(r'\bFUN_00781d3b\(\s*\(\s*undefined4\s*\)'), r'FUN_00781d3b((intptr_t)'),
+    # (Scout1187, M23). Same meaning: free(x). Since the ghidra_types.hpp
+    # replacement (8adb4c64c) the declaration and the casts may spell the builtin
+    # `unsigned int` instead of `undefined4`; both spellings are the same seed free
+    # (C3: 74 scalar deleting destructors had become link-closure traps).
+    # The parameter's name is optional and the seed may spell the free by its
+    # evidenced name operator_delete_00781d3b (lane N drops placeholder names).
+    (re.compile(r'\bextern\s+void\s+(FUN_00781d3b|operator_delete_00781d3b)\s*\(\s*(?:undefined4|unsigned\s+int)(?:\s+\w+)?\s*\)\s*;'),
+     r'static inline void \1(intptr_t block) { ra2port_seed_free(block); }   /* NATIVE: pointer-sized free 0x00781D3B */'),
+    (re.compile(r'\b(FUN_00781d3b|operator_delete_00781d3b)\(\s*\(\s*(?:undefined4|unsigned\s+int)\s*\)'), r'\1((intptr_t)'),
     # The dialog stack walk 0x007359B0/0x00735970 (pointer-sized natively:
     # port/fixups.json) is called as `(HWND)unknown_previous_key((int)dialog)`;
     # the HWND goes in at full width (Scout1187, M23).
@@ -381,6 +386,9 @@ def fix_crt_sizes(text):
                                                                  'RA2_SIZE_T', m.group(2)) + ')', text)
 
 
+SEED_FREE_LEFT = re.compile(r'\bextern\s+void\s+(?:FUN_00781d3b|operator_delete_00781d3b)\s*\([^)]*\)\s*;|\b(?:FUN_00781d3b|operator_delete_00781d3b)\(\s*\(\s*(?!intptr_t\b)[A-Za-z_][\w ]*\)')
+
+
 def port(text):
     text = fix_pointer_width_typedefs(text)
     text = fix_crt_sizes(text)
@@ -391,6 +399,12 @@ def port(text):
         text = rx.sub(ph, text)
     for rx, rep in RULES:
         text = rx.sub(rep, text)
+    # Configure guard (C3): a seed's free 0x00781D3B left in a spelling the rule above
+    # does not take would link as an undefined symbol (a link-closure trap) instead of
+    # the pointer-sized seed free; fail here so a source respelling is caught at once.
+    if SEED_FREE_LEFT.search(text):
+        raise SystemExit('native_units: FUN_00781d3b declared or cast in a spelling the seed-free rule '
+                         'does not rewrite: %s' % SEED_FREE_LEFT.search(text).group(0))
     return text.replace('RA2_LL_PLACEHOLDER', 'long long').replace('RA2_LD_PLACEHOLDER', 'long double')
 
 
@@ -457,6 +471,40 @@ def respell_views(path, text):
         if not found:
             raise SystemExit('view_layouts.json: %s defines no %s' % (path, view))
     return text
+
+
+def check_manifests(catalog, headers):
+    """Configure-time staleness checks (a module landing that moves or renames a
+    source must update the native manifests, never leave them silently stale):
+    every drafts.json host_source and tracked draft, every view_layouts.json
+    source and every initterm.json source must name a file this tree has."""
+    sources = {r['source'] for r in catalog['regions']}
+    accepted = {int(r['entry']) for r in catalog['regions']
+                if not re.search(r'@Leaf_[0-9a-f]+@@|@seed_[0-9a-f]+@@', r['symbol'])}
+    drafts = json.loads((ROOT / 'native/drafts.json').read_text())['drafts']
+    problems = []
+    for d in drafts:
+        if int(d['entry'], 16) in accepted:
+            continue   # superseded by an accepted source: never built
+        host = d.get('host_source')
+        if host is not None and host not in sources:
+            problems.append('native/drafts.json: draft %s host_source %s is not a catalog source '
+                            '(moved or renamed? update host_source)' % (d['entry'], host))
+        if d.get('native', 'compiles') == 'compiles' and d.get('draft') and not (ROOT / d['draft']).is_file():
+            problems.append('native/drafts.json: draft %s file %s is missing' % (d['entry'], d['draft']))
+    known = sources | {h.relative_to(ROOT).as_posix() for h in headers} | {d['draft'] for d in drafts if d.get('draft')}
+    path = ROOT / 'native/port/view_layouts.json'
+    if path.exists():
+        for v in json.loads(path.read_text())['views']:
+            if v['source'] not in known or not (ROOT / v['source']).is_file():
+                problems.append('native/port/view_layouts.json: view %s source %s is missing from this tree '
+                                '(moved or renamed? rerun native/tools/view_audit.py --write)' % (v['view'], v['source']))
+    for e in json.loads((ROOT / 'native/initterm.json').read_text())['entries']:
+        if e['source'] not in sources:
+            problems.append('native/initterm.json: entry %s %s source %s is not a catalog source '
+                            '(rerun native/tools/initterm_manifest.py)' % (e['index'], e['entry'], e['source']))
+    if problems:
+        raise SystemExit('stale native manifests (%d):\n  %s' % (len(problems), '\n  '.join(problems)))
 
 
 def apply_fixups(path, text, fixups, renames, used):
@@ -675,7 +723,29 @@ def bss_symbols():
 HEADER_STATIC_COPIES = [0]
 
 
-def header_static_copies(text, bss_by_address):
+HEADER_STATICS = ROOT / 'native/data/header_statics.tsv'
+
+
+def header_static_candidates(rows):
+    """(name, address) of the C-named data a compile group's accepted rows refer to, from the
+    catalog's relocation receipts (`_unknown_geometry_j` at 0x00AD057C). A unit's header and
+    file statics are among them whatever file its rows live in: a re-filed unit (one module
+    source for the whole translation unit, docs/SOURCE_FORM_TRIAL.md "Route A") carries no
+    `// @ref` lines, so the comment alone cannot key the copies."""
+    out = set()
+    for row in rows:
+        for relocation in row.get('relocations') or []:
+            match = re.fullmatch(r'_([A-Za-z]\w*)', relocation['symbol'])
+            if match:
+                out.add((match.group(1), relocation['target']))
+    return sorted(out)
+
+
+def header_static_defined(name, text):
+    return re.search(r'\bstatic\b[^;\n]*\b%s\b' % re.escape(name), text) is not None
+
+
+def header_static_copies(text, bss_by_address, candidates=(), done=None, record=None, unit=None):
     """Header and file statics (the per-unit copies of a shared header's file statics, e.g.
     unknown_geometry.hpp's unknown_geometry_j) live at one original address that
     other units also read through an extern name (unknown_bridge_height_ad057c,
@@ -683,20 +753,74 @@ def header_static_copies(text, bss_by_address):
     (data/bss_globals.cpp); after the header-statics row's own initialisers, copy
     each static's value there (Scout1103: UnitClass slot 59 cleared the bridge
     level's vehicle bit because the bridge height read 0, so a deploying MCV
-    still blocked its own cell). Same value at the same _initterm position."""
+    still blocked its own cell). Same value at the same _initterm position.
+
+    The statics are keyed two ways: the source's `// @ref _name=ADDRESS` lines (a
+    one-row file) and `candidates`, the catalog's (name, address) pairs of the unit
+    (header_static_candidates; passed for a module source, whose text has no such
+    lines). `done` holds the addresses the unit has already copied (one copy per
+    storage and unit); `record` collects what is emitted."""
+    done = set() if done is None else done
+    pairs = [(m.group(1), int(m.group(2), 16))
+             for m in re.finditer(r'^// @ref _([A-Za-z]\w*)=([0-9a-fA-F]{8})\s*$', text, re.M)]
+    pairs += [pair for pair in candidates if pair not in pairs]
+    defined = None
     lines = []
-    for m in re.finditer(r'^// @ref _([A-Za-z]\w*)=([0-9a-fA-F]{8})\s*$', text, re.M):
-        name, address = m.group(1), int(m.group(2), 16)
+    for name, address in pairs:
         symbol = bss_by_address.get(address)
-        if symbol is None or not re.search(r'\bstatic\b[^;\n]*\b%s\b' % re.escape(name), text + header_static_text(text)):
+        if symbol is None or address in done:
             continue
+        if defined is None:
+            defined = text + header_static_text(text)
+        if not header_static_defined(name, defined):
+            continue
+        done.add(address)
         HEADER_STATIC_COPIES[0] += 1
         lines.append('extern "C" unsigned char native_hs_%x[] __asm__("%s");\n'
                      'static int const native_hs_copy_%d = (__builtin_memcpy(native_hs_%x, &%s, sizeof %s), 0);\n'
                      % (address, symbol, HEADER_STATIC_COPIES[0], address, name, name))
+        if record is not None:
+            record.append(dict(address='0x%08X' % address, symbol=symbol, name=name, unit=unit))
     if not lines:
         return ''
     return '// NATIVE (native_units.py header_static_copies): header statics to their extern names\n' + ''.join(lines)
+
+
+def check_header_statics(copies, expected, write=False):
+    """Configure-time check of the header-static copies (a Route A landing lost 29 of 46
+    storages silently: the bridge heights and the height scales read 0 natively).
+
+    expected: [(unit, name, address, symbol)] every static the catalog says a unit refers to
+    and the unit's own text or headers define; each must have been copied in that unit.
+    native/data/header_statics.tsv lists the storages (symbol, address) the tree copies:
+    a listed storage without a copy fails, naming it, so the count cannot drop unseen; a
+    copied storage that is not listed fails too (rewrite the list with
+    --write-header-statics, which shows the change in review)."""
+    problems = []
+    copied = {(c['unit'], int(c['address'], 16)) for c in copies}
+    for unit, name, address, symbol in expected:
+        if (unit, address) not in copied:
+            problems.append('%s: static %s is not copied to %s (0x%08X)' % (unit, name, symbol, address))
+    storages = sorted({(c['symbol'], c['address']) for c in copies})
+    if write:
+        HEADER_STATICS.write_text(
+            '# native/tools/native_units.py --write-header-statics: the storages (data/bss_globals.cpp) that receive a\n'
+            '# unit\'s header or file static at start-up. The configure fails when one of them is no longer copied.\n'
+            'symbol\taddress\n' + ''.join('%s\t%s\n' % s for s in storages))
+    listed = []
+    if HEADER_STATICS.exists():
+        listed = [tuple(line.split('\t')) for line in HEADER_STATICS.read_text().splitlines()
+                  if line and not line.startswith('#') and not line.startswith('symbol\t')]
+    for symbol, address in sorted(set(listed) - set(storages)):
+        problems.append('%s (%s) is listed in native/data/header_statics.tsv but no unit copies its static any more'
+                        % (symbol, address))
+    for symbol, address in sorted(set(storages) - set(listed)):
+        problems.append('%s (%s) is copied but not listed in native/data/header_statics.tsv '
+                        '(rerun native_units.py with --write-header-statics)' % (symbol, address))
+    if problems:
+        raise SystemExit('header-static copies (%d copied, %d listed; %d problem(s)):\n  %s' % (
+            len(storages), len(listed), len(problems), '\n  '.join(problems)))
+    return len(storages)
 
 
 def header_static_text(text):
@@ -716,6 +840,8 @@ def main():
     ap.add_argument('--drafts', action='store_true', help='append the native/drafts.json drafts to their host groups')
     ap.add_argument('--win64-params', action='store_true',
                     help='pointer-sized WPARAM/LPARAM/LRESULT/*_PTR, as on Win64 (on in the CMake build)')
+    ap.add_argument('--write-header-statics', action='store_true',
+                    help='rewrite native/data/header_statics.tsv from this run (the storages that receive a header static)')
     args = ap.parse_args()
     out = args.out.resolve()
     global WIN64_PARAMS
@@ -726,6 +852,7 @@ def main():
     fixups, renames = load_fixups()
     used = []
     headers = {h: h.read_text(errors='replace') for h in sorted((ROOT / 'src/shared').glob('*.hpp'))}
+    check_manifests(catalog, headers)
     texts = {r['source']: source_path(ROOT, r['source']).read_text(errors='replace') for r in catalog['regions']}
     scan_opaque_enums(list(headers.values()) + list(texts.values()))
     for h, text in headers.items():
@@ -738,6 +865,8 @@ def main():
     manifest = []
     unit_texts = OrderedDict()
     bss_by_address = bss_symbols()
+    module_sources = {s for s, n in Counter(r['source'] for r in catalog['regions']).items() if n > 1}
+    hs_copies, hs_expected = [], []
     for index, (key, rows) in enumerate(groups(catalog).items()):
         # A module source (one original translation unit, several rows of the
         # group: docs/SOURCE_FORM_TRIAL.md) enters the unit once, in source order.
@@ -745,6 +874,9 @@ def main():
         if prefixes is not None and not any(s.startswith(p) for s in sources for p in prefixes):
             continue
         parts = []
+        name = 'g%04d_%s.cpp' % (index, key[0].replace('population-', 'p'))
+        candidates = header_static_candidates(rows)
+        hs_done, hs_texts = set(), []
         for source in sources:
             # Fixups first: a fixup may replace an evidenced __asm block with its
             # native meaning (Main_Game's exception-return capture).
@@ -757,10 +889,22 @@ def main():
             # (0x00ABE490, pixels per lepton of height) is read elsewhere through
             # the extern unknown_abe490; zero there, every object's Z adjust lost
             # its height and the depth test hid units and infantry.
-            parts.append(header_static_copies(text, bss_by_address))
+            # A module source (a re-filed unit) has no `// @ref` lines: its statics are
+            # keyed by the catalog (header_static_candidates), so re-filing changes no copy.
+            parts.append(header_static_copies(text, bss_by_address, candidates if source in module_sources else (),
+                                              hs_done, hs_copies, name))
+            hs_texts.append(text)
         if not parts:
             continue
-        name = 'g%04d_%s.cpp' % (index, key[0].replace('population-', 'p'))
+        # Every static the catalog says this unit refers to, defined by the unit's own text
+        # or headers, must have been copied (check_header_statics names the missing ones).
+        hs_text = None
+        for static, address in candidates:
+            if address in bss_by_address:
+                if hs_text is None:
+                    hs_text = ''.join(t + header_static_text(t) for t in hs_texts)
+                if header_static_defined(static, hs_text):
+                    hs_expected.append((name, static, address, bss_by_address[address]))
         for source in sources:
             for d in by_host.get(source, []):
                 parts.append(draft_part(d, fixups, renames, used, manifest, 'units/' + name))
@@ -786,6 +930,9 @@ def main():
     if unused and args.subsystem == 'all':
         raise SystemExit('fixups for sources not in the tree: %s' % ', '.join(unused))
     report['fixups'] = sorted(set(used))
+    report['header_static_copies'] = hs_copies
+    if args.subsystem == 'all':
+        report['header_static_storages'] = check_header_statics(hs_copies, hs_expected, args.write_header_statics)
     report['opaque_enums'] = sorted(OPAQUE_ENUMS)
     if args.subsystem == 'all':
         unit_of = {}
@@ -793,6 +940,14 @@ def main():
             for source in g['sources']:
                 unit_of[source] = 'units/' + g['unit']
         names, report['initterm'] = initterm_order(names, unit_of, texts, out, unit_texts)
+        # A skipped initialiser would run before every ordered unit (or never):
+        # fail the configure instead of reordering start-up silently.
+        skipped = report['initterm']['skipped']
+        if skipped:
+            raise SystemExit('native/initterm.json: %d initialiser(s) would be skipped (rerun '
+                             'native/tools/initterm_manifest.py, or add a native rewrite in '
+                             'native/link/initterm_rewrites.cpp):\n  %s' % (len(skipped), '\n  '.join(
+                                 '%s %s %s: %s' % (s['index'], s['entry'], s['source'], s['reason']) for s in skipped)))
     names += own_units
     report['member_aliases'] = place_member_aliases(unit_texts)
     for name, text in unit_texts.items():

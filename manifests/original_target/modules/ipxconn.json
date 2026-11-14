@@ -1,0 +1,588 @@
+{
+ "module": "ipxconn",
+ "source": "src/recovered/ipxconn.cpp",
+ "header": null,
+ "population": "population-4241",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/Gr"
+ ],
+ "compile_group": 920,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00523980",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "005239a0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "005239d0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "005239f0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "00523a10",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "00523a30",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "00523a50",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "00523a70",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "00523ab0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "00523ae0",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "00523b10",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "00523b40",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "00523b50",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "??0IPXConnClass@@QAE@HHHGPAVIPXAddressClass@@HPBGH@Z",
+   "entry": "00523b70",
+   "body_bytes": 163,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Init@IPXConnClass@@UAEXXZ",
+   "entry": "00523c20",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Configure@IPXConnClass@@SIXGHHHHHH@Z",
+   "entry": "00523c30",
+   "body_bytes": 74,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Start_Listening@IPXConnClass@@SIHXZ",
+   "entry": "00523c80",
+   "body_bytes": 106,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Stop_Listening@IPXConnClass@@SAHXZ",
+   "entry": "00523cf0",
+   "body_bytes": 31,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Send@IPXConnClass@@UAEHPADHPAXH_NG@Z",
+   "entry": "00523d10",
+   "body_bytes": 31,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Open_Socket@IPXConnClass@@SIXG@Z",
+   "entry": "00523d30",
+   "body_bytes": 51,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Close_Socket@IPXConnClass@@SAXXZ",
+   "entry": "00523d70",
+   "body_bytes": 22,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Send_To@IPXConnClass@@UAEHPADHPAVIPXAddressClass@@PAE_NG@Z",
+   "entry": "00523d90",
+   "body_bytes": 468,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Broadcast@IPXConnClass@@SIHPADH@Z",
+   "entry": "00523f70",
+   "body_bytes": 25,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??_GIPXConnClass@@UAEPAXI@Z",
+   "entry": "00523f90",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  }
+ ],
+ "code_bytes": 1600,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a4630",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7IPXConnClass@@6B@",
+   "address": "007a4644",
+   "bytes": 44,
+   "kind": "vtable",
+   "section": 40
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a4630",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7IPXConnClass@@6B@",
+   "address": "007a4644",
+   "bytes": 44,
+   "kind": "vtable"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "005241b0",
+   "symbol": "??0IPXConnClass@@QAE@HHHGPAVIPXAddressClass@@HPBGH@Z",
+   "target": "00523b70",
+   "function_entry": true
+  },
+  {
+   "site": "005247b0",
+   "symbol": "?Broadcast@IPXConnClass@@SIHPADH@Z",
+   "target": "00523f70",
+   "function_entry": true
+  },
+  {
+   "site": "00525130",
+   "symbol": "?Stop_Listening@IPXConnClass@@SAHXZ",
+   "target": "00523cf0",
+   "function_entry": true
+  },
+  {
+   "site": "005251c0",
+   "symbol": "?Stop_Listening@IPXConnClass@@SAHXZ",
+   "target": "00523cf0",
+   "function_entry": true
+  },
+  {
+   "site": "005251c0",
+   "symbol": "?Configure@IPXConnClass@@SIXGHHHHHH@Z",
+   "target": "00523c30",
+   "function_entry": true
+  },
+  {
+   "site": "005251c0",
+   "symbol": "?Start_Listening@IPXConnClass@@SAHXZ",
+   "target": "00523c80",
+   "function_entry": true
+  },
+  {
+   "site": "00525500",
+   "symbol": "??0IPXConnClass@@QAE@HHHGPAVIPXAddressClass@@HPBGH@Z",
+   "target": "00523b70",
+   "function_entry": true
+  },
+  {
+   "site": "005255b0",
+   "symbol": "??0IPXConnClass@@QAE@HHHGPAVIPXAddressClass@@HPBGH@Z",
+   "target": "00523b70",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0ConnectionClass@@QAE@HHHGKKKH@Z",
+   "address": "00480e20"
+  },
+  {
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "address": "00523410"
+  },
+  {
+   "symbol": "??1ConnectionClass@@UAE@XZ",
+   "address": "00480ea0"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+   "address": "005235d0"
+  },
+  {
+   "symbol": "?Configured@IPXConnClass@@2HA",
+   "address": "00a52404"
+  },
+  {
+   "symbol": "?ConnectionNum@IPXConnClass@@2HA",
+   "address": "00a523b0"
+  },
+  {
+   "symbol": "?Connection_ID@IPXManagerClass@@UAEHH@Z",
+   "address": "005256e0"
+  },
+  {
+   "symbol": "?Discard_Undeliverable_Packets@ConnectionClass@@UAEHXZ",
+   "address": "00481550"
+  },
+  {
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "address": "00523500"
+  },
+  {
+   "symbol": "?Get_Packet@ConnectionClass@@UAEHPAXPAH@Z",
+   "address": "004812e0"
+  },
+  {
+   "symbol": "?Init@ConnectionClass@@UAEXXZ",
+   "address": "00480ed0"
+  },
+  {
+   "symbol": "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z",
+   "address": "00523690"
+  },
+  {
+   "symbol": "?Listening@IPXConnClass@@2HA",
+   "address": "00a5240c"
+  },
+  {
+   "symbol": "?Num_Connections@IPXManagerClass@@UAEHXZ",
+   "address": "005256d0"
+  },
+  {
+   "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
+   "address": "00839c50"
+  },
+  {
+   "symbol": "?Receive_Packet@ConnectionClass@@UAEHPAXH@Z",
+   "address": "00481000"
+  },
+  {
+   "symbol": "?Send_Packet@ConnectionClass@@UAEHPAXHHE@Z",
+   "address": "00480f00"
+  },
+  {
+   "symbol": "?Service@ConnectionClass@@UAEHXZ",
+   "address": "00481370"
+  },
+  {
+   "symbol": "?Service_Receive_Queue@ConnectionClass@@UAEHXZ",
+   "address": "00481560"
+  },
+  {
+   "symbol": "?Service_Send_Queue@ConnectionClass@@UAEHXZ",
+   "address": "004813a0"
+  },
+  {
+   "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+   "address": "00523480"
+  },
+  {
+   "symbol": "?SocketOpen@IPXConnClass@@2HA",
+   "address": "00a52408"
+  },
+  {
+   "symbol": "?Unknown_0063F4C0@OwnerTalkClass@@QAEEH@Z",
+   "address": "0063f4c0"
+  },
+  {
+   "symbol": "?Unknown_00672F50@SessionClass@@QAEGH@Z",
+   "address": "00672f50"
+  },
+  {
+   "symbol": "?unknown_OwnerTalkClass_00ab6d18@@3VOwnerTalkClass@@A",
+   "address": "00ab6d18"
+  },
+  {
+   "symbol": "?unknown_a40b60@@3HA",
+   "address": "00a40b60"
+  },
+  {
+   "symbol": "?unknown_a52370@IPXConnClass@@2HA",
+   "address": "00a52370"
+  },
+  {
+   "symbol": "?unknown_a52398@IPXConnClass@@2HA",
+   "address": "00a52398"
+  },
+  {
+   "symbol": "?unknown_a523c4@IPXConnClass@@2HA",
+   "address": "00a523c4"
+  },
+  {
+   "symbol": "?unknown_a523d4@IPXConnClass@@2HA",
+   "address": "00a523d4"
+  },
+  {
+   "symbol": "?unknown_a523e0@IPXConnClass@@2HA",
+   "address": "00a523e0"
+  },
+  {
+   "symbol": "?unknown_flag_a3fba8@@3_NA",
+   "address": "00a3fba8"
+  },
+  {
+   "symbol": "?unknown_forward_address_a3fbac@@3VIPXAddressClass@@A",
+   "address": "00a3fbac"
+  },
+  {
+   "symbol": "?unknown_forward_address_a3fbb8@@3VIPXAddressClass@@A",
+   "address": "00a3fbb8"
+  },
+  {
+   "symbol": "?unknown_forward_port_a3fbc4@@3HA",
+   "address": "00a3fbc4"
+  },
+  {
+   "symbol": "?unknown_game_mode_a3d298@@3HA",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_ipx_manager_a40978@@3VIPXManagerClass@@A",
+   "address": "00a40978"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_players_a3fa7c@@3V?$DynamicVectorClass@PAUNodeNameType@@@@A",
+   "address": "00a3fa7c"
+  },
+  {
+   "symbol": "?unknown_port_7f60dc@@3HA",
+   "address": "007f60dc"
+  },
+  {
+   "symbol": "?unknown_session_a3d298@@3USessionClass@@A",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_slot19@IPXManagerClass@@UAEHPAVConnectionClass@@@Z",
+   "address": "005257b0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "_wcscpy",
+   "address": "00783689"
+  }
+ ],
+ "route": "A",
+ "unit": "ipxconn.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00523980",
+   "lines": 7
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 25,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "005251c0",
+   "target": "00523c80",
+   "symbol": "?Start_Listening@IPXConnClass@@SAHXZ",
+   "module_symbol": "?Start_Listening@IPXConnClass@@SIHXZ"
+  }
+ ],
+ "stand_in_reference_count": 1,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

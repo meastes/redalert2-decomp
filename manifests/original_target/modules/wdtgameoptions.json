@@ -1,0 +1,1200 @@
+{
+ "module": "wdtgameoptions",
+ "source": "src/recovered/wdtgameoptions.cpp",
+ "header": null,
+ "population": "population-4421",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 1032,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00728480",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "007284a0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "007284d0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "007284f0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "00728510",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "00728530",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "00728550",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "00728570",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "007285b0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "007285e0",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "00728610",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "00728640",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "00728650",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "??1GameOption@WorldDominationTour@@UAE@XZ",
+   "entry": "00728670",
+   "body_bytes": 11,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Is_Forced@GameOption@WorldDominationTour@@QBE_NABV?$rc_ptr@VWDTTerritory@@@@@Z",
+   "entry": "00728680",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Describe@RangedGameOption@WorldDominationTour@@UBE?AVWideString@@ABV?$rc_ptr@VWDTTerritory@@@@ABV3@@Z",
+   "entry": "00728690",
+   "body_bytes": 221,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?In_Range_Of@RangedGameOption@WorldDominationTour@@QBEHI@Z",
+   "entry": "00728770",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Get_Value@RangedGameOption@WorldDominationTour@@UBEHABV?$rc_ptr@VWDTTerritory@@@@@Z",
+   "entry": "007287b0",
+   "body_bytes": 25,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Create@FlagGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@HVWstring@@H0H@Z",
+   "entry": "007287d0",
+   "body_bytes": 120,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Get_Value@FlagGameOption@WorldDominationTour@@UBEHABV?$rc_ptr@VWDTTerritory@@@@@Z",
+   "entry": "00728850",
+   "body_bytes": 29,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Describe@FlagGameOption@WorldDominationTour@@UBE?AVWideString@@ABV?$rc_ptr@VWDTTerritory@@@@ABV3@@Z",
+   "entry": "00728870",
+   "body_bytes": 254,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?unknown_return_zero_00728970@seed_00728970@@YGIH@Z",
+   "entry": "00728970",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Describe@PlayerCountGameOption@WorldDominationTour@@UBE?AVWideString@@ABV?$rc_ptr@VWDTTerritory@@@@ABV3@@Z",
+   "entry": "00728980",
+   "body_bytes": 209,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Create@MapSizeGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@H@Z",
+   "entry": "00728a60",
+   "body_bytes": 68,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Describe@MapSizeGameOption@WorldDominationTour@@UBE?AVWideString@@ABV?$rc_ptr@VWDTTerritory@@@@ABV3@@Z",
+   "entry": "00728ab0",
+   "body_bytes": 179,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?unknown_table_lookup@@YGHPAUUnknownOuter_00728b70@@@Z",
+   "entry": "00728b70",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "??0FlagGameOption@WorldDominationTour@@QAE@HVWstring@@H0H@Z",
+   "entry": "00728b90",
+   "body_bytes": 93,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??_GFlagGameOption@WorldDominationTour@@UAEPAXI@Z",
+   "entry": "00728bf0",
+   "body_bytes": 54,
+   "padding_bytes": 10
+  }
+ ],
+ "code_bytes": 1968,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VWDTTerritory@@@@6B@",
+   "address": "007a4528",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 121
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@6B@",
+   "address": "007af0c8",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 69
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@",
+   "address": "007af0d8",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 131
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@6B@",
+   "address": "007af0f4",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 102
+  },
+  {
+   "symbol": "??_7GameOption@WorldDominationTour@@6B@",
+   "address": "007af114",
+   "bytes": 24,
+   "kind": "vtable",
+   "section": 47
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007af130",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7FlagGameOption@WorldDominationTour@@6B@",
+   "address": "007af150",
+   "bytes": 24,
+   "kind": "vtable",
+   "section": 77
+  },
+  {
+   "symbol": "??_R1A@?0A@A@rc_ptr_base@@8",
+   "address": "007bc618",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 63
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc630",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 116
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc648",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 117
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc658",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 118
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VWDTTerritory@@@@6B@",
+   "address": "007bc668",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 120
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ReferenceCounted@@8",
+   "address": "007c0720",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 41
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VGameOption@WorldDominationTour@@@@8",
+   "address": "007c55e0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 126
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VGameOption@WorldDominationTour@@@@8",
+   "address": "007c55f8",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 127
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VGameOption@WorldDominationTour@@@@8",
+   "address": "007c5608",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 128
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@",
+   "address": "007c5618",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 130
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@8",
+   "address": "007c5680",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 64
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@8",
+   "address": "007c5698",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 65
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@8",
+   "address": "007c56a8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 66
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@6B@",
+   "address": "007c56b8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 68
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@8",
+   "address": "007c5718",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 92
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@8",
+   "address": "007c5730",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 93
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@8",
+   "address": "007c5740",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 94
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@6B@",
+   "address": "007c5750",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 96
+  },
+  {
+   "symbol": "??_R2GameOption@WorldDominationTour@@8",
+   "address": "007c5768",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 43
+  },
+  {
+   "symbol": "??_R3GameOption@WorldDominationTour@@8",
+   "address": "007c5778",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R4GameOption@WorldDominationTour@@6B@",
+   "address": "007c5788",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 46
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GameOption@WorldDominationTour@@8",
+   "address": "007c57a0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 42
+  },
+  {
+   "symbol": "??_R1A@?0A@A@FlagGameOption@WorldDominationTour@@8",
+   "address": "007c5808",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 72
+  },
+  {
+   "symbol": "??_R2FlagGameOption@WorldDominationTour@@8",
+   "address": "007c5820",
+   "bytes": 13,
+   "kind": "rtti",
+   "section": 73
+  },
+  {
+   "symbol": "??_R3FlagGameOption@WorldDominationTour@@8",
+   "address": "007c5830",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 74
+  },
+  {
+   "symbol": "??_R4FlagGameOption@WorldDominationTour@@6B@",
+   "address": "007c5840",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 76
+  },
+  {
+   "symbol": "??_R1A@?0A@A@MapSizeGameOption@WorldDominationTour@@8",
+   "address": "007c5858",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 97
+  },
+  {
+   "symbol": "??_R2MapSizeGameOption@WorldDominationTour@@8",
+   "address": "007c5870",
+   "bytes": 13,
+   "kind": "rtti",
+   "section": 98
+  },
+  {
+   "symbol": "??_R3MapSizeGameOption@WorldDominationTour@@8",
+   "address": "007c5880",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 99
+  },
+  {
+   "symbol": "??_R4MapSizeGameOption@WorldDominationTour@@6B@",
+   "address": "007c5890",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 101
+  },
+  {
+   "symbol": "??_R0?AVrc_ptr_base@@@8",
+   "address": "007ddac8",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 62
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VWDTTerritory@@@@@8",
+   "address": "007ddae8",
+   "bytes": 39,
+   "kind": "rtti",
+   "section": 119
+  },
+  {
+   "symbol": "??_R0?AVReferenceCounted@@@8",
+   "address": "007ee550",
+   "bytes": 31,
+   "kind": "rtti",
+   "section": 40
+  },
+  {
+   "symbol": "??_C@_15MHMA@?$AA?0?$AA?5?$AA?$AA@",
+   "address": "007f6520",
+   "bytes": 6,
+   "kind": "string",
+   "section": 55
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VGameOption@WorldDominationTour@@@@@8",
+   "address": "007fb8c0",
+   "bytes": 57,
+   "kind": "rtti",
+   "section": 129
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@@8",
+   "address": "007fb948",
+   "bytes": 61,
+   "kind": "rtti",
+   "section": 67
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@@8",
+   "address": "007fbab8",
+   "bytes": 64,
+   "kind": "rtti",
+   "section": 95
+  },
+  {
+   "symbol": "??_R0?AVGameOption@WorldDominationTour@@@8",
+   "address": "007fbaf8",
+   "bytes": 45,
+   "kind": "rtti",
+   "section": 45
+  },
+  {
+   "symbol": "??_C@_0BK@GDPM@D?3?2Ra2?2WDTGameOptions?4cpp?$AA@",
+   "address": "007fbbfc",
+   "bytes": 26,
+   "kind": "string",
+   "section": 54
+  },
+  {
+   "symbol": "??_R0?AVFlagGameOption@WorldDominationTour@@@8",
+   "address": "007fbc18",
+   "bytes": 49,
+   "kind": "rtti",
+   "section": 75
+  },
+  {
+   "symbol": "??_C@_0BC@IGDO@WDT?3TwoPlayerOnly?$AA@",
+   "address": "007fbc4c",
+   "bytes": 18,
+   "kind": "string",
+   "section": 88
+  },
+  {
+   "symbol": "??_C@_0BD@FFMC@WDT?3FourPlayerOnly?$AA@",
+   "address": "007fbc60",
+   "bytes": 19,
+   "kind": "string",
+   "section": 89
+  },
+  {
+   "symbol": "??_R0?AVMapSizeGameOption@WorldDominationTour@@@8",
+   "address": "007fbc78",
+   "bytes": 52,
+   "kind": "rtti",
+   "section": 100
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VWDTTerritory@@@@6B@",
+   "address": "007a4528",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@6B@",
+   "address": "007af0c8",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@",
+   "address": "007af0d8",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@6B@",
+   "address": "007af0f4",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7GameOption@WorldDominationTour@@6B@",
+   "address": "007af114",
+   "bytes": 24,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007af130",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7FlagGameOption@WorldDominationTour@@6B@",
+   "address": "007af150",
+   "bytes": 24,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@rc_ptr_base@@8",
+   "address": "007bc618",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc630",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc648",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc658",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VWDTTerritory@@@@6B@",
+   "address": "007bc668",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ReferenceCounted@@8",
+   "address": "007c0720",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VGameOption@WorldDominationTour@@@@8",
+   "address": "007c55e0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VGameOption@WorldDominationTour@@@@8",
+   "address": "007c55f8",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VGameOption@WorldDominationTour@@@@8",
+   "address": "007c5608",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@",
+   "address": "007c5618",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@8",
+   "address": "007c5680",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@8",
+   "address": "007c5698",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@8",
+   "address": "007c56a8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@6B@",
+   "address": "007c56b8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@8",
+   "address": "007c5718",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@8",
+   "address": "007c5730",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@8",
+   "address": "007c5740",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@6B@",
+   "address": "007c5750",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2GameOption@WorldDominationTour@@8",
+   "address": "007c5768",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3GameOption@WorldDominationTour@@8",
+   "address": "007c5778",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4GameOption@WorldDominationTour@@6B@",
+   "address": "007c5788",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GameOption@WorldDominationTour@@8",
+   "address": "007c57a0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@FlagGameOption@WorldDominationTour@@8",
+   "address": "007c5808",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2FlagGameOption@WorldDominationTour@@8",
+   "address": "007c5820",
+   "bytes": 13,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3FlagGameOption@WorldDominationTour@@8",
+   "address": "007c5830",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4FlagGameOption@WorldDominationTour@@6B@",
+   "address": "007c5840",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@MapSizeGameOption@WorldDominationTour@@8",
+   "address": "007c5858",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2MapSizeGameOption@WorldDominationTour@@8",
+   "address": "007c5870",
+   "bytes": 13,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3MapSizeGameOption@WorldDominationTour@@8",
+   "address": "007c5880",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4MapSizeGameOption@WorldDominationTour@@6B@",
+   "address": "007c5890",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVrc_ptr_base@@@8",
+   "address": "007ddac8",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VWDTTerritory@@@@@8",
+   "address": "007ddae8",
+   "bytes": 39,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVReferenceCounted@@@8",
+   "address": "007ee550",
+   "bytes": 31,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_15MHMA@?$AA?0?$AA?5?$AA?$AA@",
+   "address": "007f6520",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VGameOption@WorldDominationTour@@@@@8",
+   "address": "007fb8c0",
+   "bytes": 57,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@@8",
+   "address": "007fb948",
+   "bytes": 61,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@@8",
+   "address": "007fbab8",
+   "bytes": 64,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVGameOption@WorldDominationTour@@@8",
+   "address": "007fbaf8",
+   "bytes": 45,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0BK@GDPM@D?3?2Ra2?2WDTGameOptions?4cpp?$AA@",
+   "address": "007fbbfc",
+   "bytes": 26,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AVFlagGameOption@WorldDominationTour@@@8",
+   "address": "007fbc18",
+   "bytes": 49,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0BC@IGDO@WDT?3TwoPlayerOnly?$AA@",
+   "address": "007fbc4c",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@FFMC@WDT?3FourPlayerOnly?$AA@",
+   "address": "007fbc60",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AVMapSizeGameOption@WorldDominationTour@@@8",
+   "address": "007fbc78",
+   "bytes": 52,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00727df0",
+   "symbol": "??1GameOption@WorldDominationTour@@UAE@XZ",
+   "target": "00728670",
+   "function_entry": true
+  },
+  {
+   "site": "00727480",
+   "symbol": "?Create@FlagGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@HVWstring@@H0H@Z",
+   "target": "007287d0",
+   "function_entry": true
+  },
+  {
+   "site": "00727480",
+   "symbol": "?Create@FlagGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@HVWstring@@H0H@Z",
+   "target": "007287d0",
+   "function_entry": true
+  },
+  {
+   "site": "00727480",
+   "symbol": "?Create@FlagGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@HVWstring@@H0H@Z",
+   "target": "007287d0",
+   "function_entry": true
+  },
+  {
+   "site": "00727480",
+   "symbol": "?Create@FlagGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@HVWstring@@H0H@Z",
+   "target": "007287d0",
+   "function_entry": true
+  },
+  {
+   "site": "00727480",
+   "symbol": "?Create@MapSizeGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@H@Z",
+   "target": "00728a60",
+   "function_entry": true
+  },
+  {
+   "site": "00727e10",
+   "symbol": "?Is_Forced@GameOption@WorldDominationTour@@QBE_NABV?$rc_ptr@VWDTTerritory@@@@@Z",
+   "target": "00728680",
+   "function_entry": true
+  },
+  {
+   "site": "00727f20",
+   "symbol": "??1GameOption@WorldDominationTour@@UAE@XZ",
+   "target": "00728670",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0WideString@@QAE@ABV0@@Z",
+   "address": "0076fa10"
+  },
+  {
+   "symbol": "??0WideString@@QAE@PBG@Z",
+   "address": "0076f9c0"
+  },
+  {
+   "symbol": "??0Wstring@@QAE@ABV0@@Z",
+   "address": "0076d980"
+  },
+  {
+   "symbol": "??0Wstring@@QAE@PBD@Z",
+   "address": "0076d920"
+  },
+  {
+   "symbol": "??0rc_ptr_base@@QAE@XZ",
+   "address": "006394e0"
+  },
+  {
+   "symbol": "??1ReferenceCounted@@UAE@XZ",
+   "address": "00639710"
+  },
+  {
+   "symbol": "??1WideString@@QAE@XZ",
+   "address": "0076fa50"
+  },
+  {
+   "symbol": "??1Wstring@@QAE@XZ",
+   "address": "0076d9e0"
+  },
+  {
+   "symbol": "??1rc_ptr_base@@UAE@XZ",
+   "address": "00639510"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??H@YI?AVWideString@@ABV0@0@Z",
+   "address": "00771460"
+  },
+  {
+   "symbol": "??HWideString@@QBE?AV0@PBG@Z",
+   "address": "0076fed0"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_G?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@UAEPAXI@Z",
+   "address": "00727d20"
+  },
+  {
+   "symbol": "??_G?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@UAEPAXI@Z",
+   "address": "00727d50"
+  },
+  {
+   "symbol": "??_GGameOption@WorldDominationTour@@UAEPAXI@Z",
+   "address": "00727df0"
+  },
+  {
+   "symbol": "??_GMapSizeGameOption@WorldDominationTour@@UAEPAXI@Z",
+   "address": "00728c30"
+  },
+  {
+   "symbol": "?Get@Wstring@@QBEPBDXZ",
+   "address": "0076e6f0"
+  },
+  {
+   "symbol": "?Get_Value@MapSizeGameOption@WorldDominationTour@@UBEHABV?$rc_ptr@VWDTTerritory@@@@@Z",
+   "address": "00728b70"
+  },
+  {
+   "symbol": "?Length@WideString@@QBEIXZ",
+   "address": "007704a0"
+  },
+  {
+   "symbol": "?Length@Wstring@@QBEIXZ",
+   "address": "0076e7a0"
+  },
+  {
+   "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
+   "address": "006f9ec0"
+  },
+  {
+   "symbol": "?MapSize_Labels@WorldDominationTour@@3QBQBDB",
+   "address": "007af140"
+  },
+  {
+   "symbol": "?Release@ReferenceCounted@@UAEXXZ",
+   "address": "00639720"
+  },
+  {
+   "symbol": "?Set@rc_ptr_base@@QAEXPAVReferenceCounted@@@Z",
+   "address": "00639530"
+  },
+  {
+   "symbol": "?Wstring_From_Integer@@YI?AVWstring@@H@Z",
+   "address": "0076f580"
+  },
+  {
+   "symbol": "?Wstring_Join@@YI?AVWstring@@ABV1@0@Z",
+   "address": "0076f7d0"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_slot1@ReferenceCounted@@UAE_NH@Z",
+   "address": "00639740"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_table_7fbb78@@3PAY03HA",
+   "address": "007fbb78"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__purecall",
+   "address": "004b8960"
+  }
+ ],
+ "route": "A",
+ "unit": "wdtgameoptions.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00728480",
+   "lines": 3
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "00728970",
+   "bytes": 5,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00728b70",
+   "bytes": 30,
+   "population": "population-3353",
+   "bound": "own frozen bound (population-3353)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [],
+ "unit_functions": 30,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  },
+  {
+   "symbol": "??_7MapSizeGameOption@WorldDominationTour@@6B@",
+   "reason": "relocation target unbound: ??_EMapSizeGameOption@WorldDominationTour@@UAEPAXI@Z"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

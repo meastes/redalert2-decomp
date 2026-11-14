@@ -1,0 +1,844 @@
+{
+ "module": "serialed",
+ "source": "src/recovered/serialed.cpp",
+ "header": null,
+ "population": "population-3836",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 853,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "0066c880",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "0066c8a0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "0066c8d0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "0066c8f0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "0066c910",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "0066c930",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "0066c950",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "0066c970",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "0066c9b0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "0066c9e0",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "0066ca10",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "0066ca40",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "0066ca50",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Dialog_0066ca70@SerialEdDialog@@QAE_NPAUSerialSettingsType@@@Z",
+   "entry": "0066ca70",
+   "body_bytes": 136,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Dialog_Proc_0066cb00@SerialEdDialog@@SGHPAUHWND__@@IIJ@Z",
+   "entry": "0066cb00",
+   "body_bytes": 1108,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Read_Settings_0066cf60@SerialEdDialog@@QAE_NXZ",
+   "entry": "0066cf60",
+   "body_bytes": 1032,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Init_0066d370@SerialEdDialog@@QAEXPBUSerialSettingsType@@@Z",
+   "entry": "0066d370",
+   "body_bytes": 556,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Fill_Port_0066d5a0@SerialEdDialog@@QAEXXZ",
+   "entry": "0066d5a0",
+   "body_bytes": 703,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Fill_Baud_0066d860@SerialEdDialog@@QAEXXZ",
+   "entry": "0066d860",
+   "body_bytes": 205,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Fill_Call_Wait_0066d930@SerialEdDialog@@QAEXXZ",
+   "entry": "0066d930",
+   "body_bytes": 116,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Fill_Init_Strings_0066d9b0@SerialEdDialog@@QAEXXZ",
+   "entry": "0066d9b0",
+   "body_bytes": 181,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Update_Radio_0066da70@SerialEdDialog@@QAEXXZ",
+   "entry": "0066da70",
+   "body_bytes": 99,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Show_Text_0066dae0@SerialEdDialog@@QAEXH@Z",
+   "entry": "0066dae0",
+   "body_bytes": 104,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Read_Custom_Port_0066db50@SerialEdDialog@@QAEXXZ",
+   "entry": "0066db50",
+   "body_bytes": 412,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Read_Custom_Call_Wait_0066dcf0@SerialEdDialog@@QAEXXZ",
+   "entry": "0066dcf0",
+   "body_bytes": 100,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Set_Custom_Entry_0066dd60@SerialEdDialog@@QAEXHHPBD@Z",
+   "entry": "0066dd60",
+   "body_bytes": 279,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Add_Init_String_0066de80@SerialEdDialog@@QAEXXZ",
+   "entry": "0066de80",
+   "body_bytes": 348,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Delete_Init_String_0066dfe0@SerialEdDialog@@QAEXXZ",
+   "entry": "0066dfe0",
+   "body_bytes": 180,
+   "padding_bytes": 12
+  }
+ ],
+ "code_bytes": 6176,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a9530",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007d1598",
+   "bytes": 6,
+   "kind": "string",
+   "section": 54
+  },
+  {
+   "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+   "address": "007d64f4",
+   "bytes": 4,
+   "kind": "string",
+   "section": 47
+  },
+  {
+   "symbol": "??_C@_06DN@TXT_OK?$AA@",
+   "address": "007db8f4",
+   "bytes": 7,
+   "kind": "string",
+   "section": 48
+  },
+  {
+   "symbol": "??_C@_03EADM@ATZ?$AA@",
+   "address": "007e8030",
+   "bytes": 4,
+   "kind": "string",
+   "section": 60
+  },
+  {
+   "symbol": "??_C@_0L@DPHB@TXT_CUSTOM?$AA@",
+   "address": "007f30d4",
+   "bytes": 11,
+   "kind": "string",
+   "section": 65
+  },
+  {
+   "symbol": "??_C@_0BI@MFIH@TXT_UNABLE_TO_OPEN_PORT?$AA@",
+   "address": "007f3110",
+   "bytes": 24,
+   "kind": "string",
+   "section": 45
+  },
+  {
+   "symbol": "??_C@_0BH@CDGJ@TXT_IRQ_ALREADY_IN_USE?$AA@",
+   "address": "007f3128",
+   "bytes": 23,
+   "kind": "string",
+   "section": 46
+  },
+  {
+   "symbol": "??_C@_0BE@ECKE@D?3?2Ra2?2SerialEd?4cpp?$AA@",
+   "address": "007f3140",
+   "bytes": 20,
+   "kind": "string",
+   "section": 49
+  },
+  {
+   "symbol": "??_C@_0BA@EKHJ@DialMethod?3?5?$CFs?6?$AA@",
+   "address": "007f3154",
+   "bytes": 16,
+   "kind": "string",
+   "section": 50
+  },
+  {
+   "symbol": "??_C@_05NGCH@Pulse?$AA@",
+   "address": "007f3164",
+   "bytes": 6,
+   "kind": "string",
+   "section": 51
+  },
+  {
+   "symbol": "??_C@_04DHPA@Tone?$AA@",
+   "address": "007f316c",
+   "bytes": 5,
+   "kind": "string",
+   "section": 52
+  },
+  {
+   "symbol": "??_C@_0L@JCDO@Baud?3?5?$CFld?6?$AA@",
+   "address": "007f3174",
+   "bytes": 11,
+   "kind": "string",
+   "section": 53
+  },
+  {
+   "symbol": "??_C@_0L@FNHB@Modem?3?5?$CFs?6?$AA@",
+   "address": "007f3180",
+   "bytes": 11,
+   "kind": "string",
+   "section": 55
+  },
+  {
+   "symbol": "??_C@_0L@HKKL@Port?3?5?$CFlx?6?$AA@",
+   "address": "007f318c",
+   "bytes": 11,
+   "kind": "string",
+   "section": 56
+  },
+  {
+   "symbol": "??_C@_0CA@HIAM@Reading?5serial?5settings?5dialog?6?$AA@",
+   "address": "007f3198",
+   "bytes": 32,
+   "kind": "string",
+   "section": 57
+  },
+  {
+   "symbol": "??_C@_1M@CIBC@?$AA?$CF?$AAs?$AA?5?$AA?$CF?$AAx?$AA?$AA@",
+   "address": "007f31b8",
+   "bytes": 12,
+   "kind": "string",
+   "section": 63
+  },
+  {
+   "symbol": "??_C@_1O@EPIL@?$AA?$CF?$AAs?$AA?5?$AA?$CF?$AAh?$AAs?$AA?$AA@",
+   "address": "007f31c4",
+   "bytes": 14,
+   "kind": "string",
+   "section": 64
+  },
+  {
+   "symbol": "??_C@_0BJ@KBOG@TXT_INVALID_PORT_ADDRESS?$AA@",
+   "address": "007f31d4",
+   "bytes": 25,
+   "kind": "string",
+   "section": 78
+  },
+  {
+   "symbol": "??_C@_03PMIG@COM?$AA@",
+   "address": "007f31f0",
+   "bytes": 4,
+   "kind": "string",
+   "section": 79
+  },
+  {
+   "symbol": "??_C@_03IOBP@2E8?$AA@",
+   "address": "007f31f4",
+   "bytes": 4,
+   "kind": "string",
+   "section": 80
+  },
+  {
+   "symbol": "??_C@_03NMAJ@3E8?$AA@",
+   "address": "007f31f8",
+   "bytes": 4,
+   "kind": "string",
+   "section": 81
+  },
+  {
+   "symbol": "??_C@_03LFOA@2F8?$AA@",
+   "address": "007f31fc",
+   "bytes": 4,
+   "kind": "string",
+   "section": 82
+  },
+  {
+   "symbol": "??_C@_03OHPG@3F8?$AA@",
+   "address": "007f3200",
+   "bytes": 4,
+   "kind": "string",
+   "section": 83
+  },
+  {
+   "symbol": "??_C@_04HJIJ@?$CFls?5?$AA@",
+   "address": "007f3204",
+   "bytes": 5,
+   "kind": "string",
+   "section": 88
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a9530",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007d1598",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+   "address": "007d64f4",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06DN@TXT_OK?$AA@",
+   "address": "007db8f4",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_03EADM@ATZ?$AA@",
+   "address": "007e8030",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@DPHB@TXT_CUSTOM?$AA@",
+   "address": "007f30d4",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BI@MFIH@TXT_UNABLE_TO_OPEN_PORT?$AA@",
+   "address": "007f3110",
+   "bytes": 24,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BH@CDGJ@TXT_IRQ_ALREADY_IN_USE?$AA@",
+   "address": "007f3128",
+   "bytes": 23,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@ECKE@D?3?2Ra2?2SerialEd?4cpp?$AA@",
+   "address": "007f3140",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@EKHJ@DialMethod?3?5?$CFs?6?$AA@",
+   "address": "007f3154",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_05NGCH@Pulse?$AA@",
+   "address": "007f3164",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04DHPA@Tone?$AA@",
+   "address": "007f316c",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@JCDO@Baud?3?5?$CFld?6?$AA@",
+   "address": "007f3174",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@FNHB@Modem?3?5?$CFs?6?$AA@",
+   "address": "007f3180",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@HKKL@Port?3?5?$CFlx?6?$AA@",
+   "address": "007f318c",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CA@HIAM@Reading?5serial?5settings?5dialog?6?$AA@",
+   "address": "007f3198",
+   "bytes": 32,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_1M@CIBC@?$AA?$CF?$AAs?$AA?5?$AA?$CF?$AAx?$AA?$AA@",
+   "address": "007f31b8",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_1O@EPIL@?$AA?$CF?$AAs?$AA?5?$AA?$CF?$AAh?$AAs?$AA?$AA@",
+   "address": "007f31c4",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BJ@KBOG@TXT_INVALID_PORT_ADDRESS?$AA@",
+   "address": "007f31d4",
+   "bytes": 25,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_03PMIG@COM?$AA@",
+   "address": "007f31f0",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_03IOBP@2E8?$AA@",
+   "address": "007f31f4",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_03NMAJ@3E8?$AA@",
+   "address": "007f31f8",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_03LFOA@2F8?$AA@",
+   "address": "007f31fc",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_03OHPG@3F8?$AA@",
+   "address": "007f3200",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04HJIJ@?$CFls?5?$AA@",
+   "address": "007f3204",
+   "bytes": 5,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0060e540",
+   "symbol": "?Dialog_0066ca70@SerialEdDialog@@QAE_NPAUSerialSettingsType@@@Z",
+   "target": "0066ca70",
+   "function_entry": true
+  },
+  {
+   "site": "005cdf00",
+   "symbol": "?Dialog_0066ca70@SerialEdDialog@@QAE_NPAUSerialSettingsType@@@Z",
+   "target": "0066ca70",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0ModemRegistryEntryClass@@QAE@H@Z",
+   "address": "0059cd00"
+  },
+  {
+   "symbol": "??1ModemRegistryEntryClass@@QAE@XZ",
+   "address": "0059d4f0"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Detect_Port@NullModemClass@@QAEHPAUSerialSettingsType@@@Z",
+   "address": "005d03e0"
+  },
+  {
+   "symbol": "?Find_Combo_Item_Data_00736e10@@YIHPAUHWND__@@HH@Z",
+   "address": "00736e10"
+  },
+  {
+   "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
+   "address": "006f9ec0"
+  },
+  {
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "address": "005b46b0"
+  },
+  {
+   "symbol": "?serial_manager_00a40a28@@3VNullModemClass@@A",
+   "address": "00a40a28"
+  },
+  {
+   "symbol": "?strtrim@@YIPADPAD@Z",
+   "address": "006eef10"
+  },
+  {
+   "symbol": "?unknown_517370@@YIX_N@Z",
+   "address": "00517370"
+  },
+  {
+   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "address": "006000d0"
+  },
+  {
+   "symbol": "?unknown_baud_names_7f3070@@3PAPAGA",
+   "address": "007f3070"
+  },
+  {
+   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "address": "005ff610"
+  },
+  {
+   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "address": "005ff6e0"
+  },
+  {
+   "symbol": "?unknown_dialog_5ff7c0@@YIXPAUHWND__@@@Z",
+   "address": "005ff7c0"
+  },
+  {
+   "symbol": "?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z",
+   "address": "005ffb00"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_port_names_7f305c@@3PAPBDA",
+   "address": "007f305c"
+  },
+  {
+   "symbol": "?unknown_session_a3d298@@3USessionClass@@A",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__EnableWindow@8",
+   "address": "0079a490"
+  },
+  {
+   "symbol": "__imp__GetDlgItem@8",
+   "address": "0079a49c"
+  },
+  {
+   "symbol": "__imp__GetWindowLongA@8",
+   "address": "0079a48c"
+  },
+  {
+   "symbol": "__imp__SendDlgItemMessageA@20",
+   "address": "0079a484"
+  },
+  {
+   "symbol": "__imp__SendMessageA@16",
+   "address": "0079a4a0"
+  },
+  {
+   "symbol": "__imp__SetFocus@4",
+   "address": "0079a38c"
+  },
+  {
+   "symbol": "__imp__SetWindowLongA@12",
+   "address": "0079a488"
+  },
+  {
+   "symbol": "__imp__ShowWindow@8",
+   "address": "0079a498"
+  },
+  {
+   "symbol": "__stricmp",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "__strupr",
+   "address": "007961e4"
+  },
+  {
+   "symbol": "_sprintf",
+   "address": "007820f4"
+  },
+  {
+   "symbol": "_strchr",
+   "address": "00784130"
+  },
+  {
+   "symbol": "_strncmp",
+   "address": "00783810"
+  },
+  {
+   "symbol": "_strncpy",
+   "address": "007823d0"
+  },
+  {
+   "symbol": "_swprintf",
+   "address": "00783764"
+  },
+  {
+   "symbol": "_swscanf",
+   "address": "00784ddb"
+  },
+  {
+   "symbol": "_wcscpy",
+   "address": "00783689"
+  }
+ ],
+ "route": "A",
+ "unit": "serialed.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "0066c880",
+   "lines": 13
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 30,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

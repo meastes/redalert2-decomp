@@ -245,12 +245,22 @@ std::string wait_pick(Pick &p)
     }
     return p.path;
 }
+// Where the folder picker first opens, and where the app keeps its own files (the setup
+// question's wording). Windows (lane C7): the system's default folder; SDL's Windows
+// dialog splits a Mac path into a folder and a file name.
+#if defined(_WIN32)
+const char *const kDefaultFolder = nullptr;
+const char kOwnFiles[] = "in your AppData folder";
+#else
+const char *const kDefaultFolder = "/Applications";
+const char kOwnFiles[] = "in your Library";
+#endif
 std::string pick_folder(std::string const &start)
 {
     Pick p;
     std::string answer;
     if (scripted_answer(answer)) p.path = answer, p.done = true;
-    else SDL_ShowOpenFolderDialog(picked, &p, nullptr, start.empty() ? "/Applications" : start.c_str(), false);
+    else SDL_ShowOpenFolderDialog(picked, &p, nullptr, start.empty() ? kDefaultFolder : start.c_str(), false);
     std::string path = wait_pick(p);
     fprintf(stderr, "app: folder chosen: %s\n", path.empty() ? "(cancelled)" : path.c_str());
     return path;
@@ -284,11 +294,13 @@ bool setup(Settings &settings, bool force, std::string &data_dir, std::string &g
         force = false;
         int b = ask(kTitle, note + "Choose the folder where Red Alert 2 is installed (it holds ra2.mix and game.exe).\n\n"
                     "The game reads its files from there and never changes them; settings and saved games are "
-                    "kept in your Library.", {"Choose Folder…", "Quit"});
+                    "kept " + std::string(kOwnFiles) + ".", {"Choose Folder…", "Quit"});
         if (b != 0) return false;
         std::string chosen = pick_folder(is_dir(dir) ? dir : "");
         if (chosen.empty()) return false;
-        while (chosen.size() > 1 && chosen.back() == '/') chosen.pop_back();
+        // A trailing separator goes (Windows: either kind, not a drive's root "D:\").
+        while (chosen.size() > 1 && (chosen.back() == '/' || chosen.back() == '\\') && chosen[chosen.size() - 2] != ':')
+            chosen.pop_back();
         dir = chosen;
         std::string missing = missing_mix(dir);
         note = missing.empty() ? "" : dir + "\ndoes not look like a Red Alert 2 installation: " + missing +
@@ -583,29 +595,42 @@ void game_resolution(double usable_w, double usable_h, double scale, int &w, int
     // Scout1274; before it only 800x600 and 1024x768 laid out whole, Scout1249/r27).
 }
 // Writes ScreenWidth/ScreenHeight into the game's RA2.INI in its write folder
-// (made from the imported ra2.ini the first time), keeping every other line.
+// (made from the imported ra2.ini the first time), keeping every other line. A size
+// the Options dialog lists only with AllowHiResModes (any width but 640, 800 or 1024,
+// or above 1024x768: behaviour_m22_options.cpp, the 0x497 case) also gets
+// AllowHiResModes=yes, so Set Game Resolution shows the current mode instead of a
+// blank (lane I; 824x600 on the iPhone Duo Simulator).
 void set_ini_resolution(std::string const &write_dir, std::string const &data_dir, int w, int h)
 {
+    bool hires = (w != 640 && w != 800 && w != 1024) || h > 768;
     std::string path = write_dir + "/RA2.INI";
     std::vector<std::string> lines;
     FILE *f = fopen(path.c_str(), "r");
     if (!f) f = fopen((data_dir + "/ra2.ini").c_str(), "r");
     if (f) {
-        char line[1024];
-        while (fgets(line, sizeof line, f)) {
-            size_t n = strlen(line);
-            while (n && (line[n - 1] == '\n' || line[n - 1] == '\r')) line[--n] = 0;
+        char chunk[1024];
+        std::string line;
+        auto finish_line = [&]() {
+            while (!line.empty() && (line.back() == '\n' || line.back() == '\r')) line.pop_back();
             lines.push_back(line);
+            line.clear();
+        };
+        while (fgets(chunk, sizeof chunk, f)) {
+            line += chunk;
+            if (!line.empty() && line.back() == '\n') finish_line();
         }
+        if (!line.empty()) finish_line();
         fclose(f);
     }
     std::string width = "ScreenWidth=" + std::to_string(w), height = "ScreenHeight=" + std::to_string(h);
-    bool in_video = false, have_video = false, wrote_w = false, wrote_h = false;
+    std::string const allow = "AllowHiResModes=yes";
+    bool in_video = false, have_video = false, wrote_w = false, wrote_h = false, wrote_allow = !hires;
     std::vector<std::string> out;
     auto finish_video = [&]() {
         if (!wrote_w) out.push_back(width);
         if (!wrote_h) out.push_back(height);
-        wrote_w = wrote_h = true;
+        if (!wrote_allow) out.push_back(allow);
+        wrote_w = wrote_h = wrote_allow = true;
     };
     for (std::string const &line : lines) {
         if (!line.empty() && line[0] == '[') {
@@ -614,6 +639,7 @@ void set_ini_resolution(std::string const &write_dir, std::string const &data_di
             have_video = have_video || in_video;
         } else if (in_video && !strncasecmp(line.c_str(), "ScreenWidth=", 12)) { out.push_back(width); wrote_w = true; continue; }
         else if (in_video && !strncasecmp(line.c_str(), "ScreenHeight=", 13)) { out.push_back(height); wrote_h = true; continue; }
+        else if (in_video && hires && !strncasecmp(line.c_str(), "AllowHiResModes=", 16)) { out.push_back(allow); wrote_allow = true; continue; }
         out.push_back(line);
     }
     if (in_video) finish_video();
@@ -622,8 +648,11 @@ void set_ini_resolution(std::string const &write_dir, std::string const &data_di
     if (FILE *o = fopen(tmp.c_str(), "w")) {
         for (std::string const &line : out) fprintf(o, "%s\r\n", line.c_str());
         fclose(o);
-        rename(tmp.c_str(), path.c_str());
-        fprintf(stderr, "app: in-game resolution %dx%d (RA2.INI [Video])\n", w, h);
+        if (rename(tmp.c_str(), path.c_str()) == 0) {
+            fprintf(stderr, "app: in-game resolution %dx%d (RA2.INI [Video])\n", w, h);
+        } else {
+            fprintf(stderr, "app: could not replace %s: %s\n", path.c_str(), strerror(errno));
+        }
     }
 }
 

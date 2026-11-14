@@ -25,12 +25,3 @@ MSSfx::~MSSfx()
         free(Name);
     }
 }
-
-// 0x0069B0F0: frees the owned text copy (+0x14; free 0x00781D3B).
-#include "shared/subtitle.hpp"
-SubTitle::~SubTitle()
-{
-    if (Text) {
-        free(Text);
-    }
-}

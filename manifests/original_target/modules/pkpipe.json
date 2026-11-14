@@ -1,0 +1,328 @@
+{
+ "module": "pkpipe",
+ "source": "src/recovered/pkpipe.cpp",
+ "header": null,
+ "population": "population-100",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 47,
+ "code": [
+  {
+   "symbol": "??0PKPipe@@QAE@W4CryptControl@0@AAVRandomStraw@@@Z",
+   "entry": "0060fa90",
+   "body_bytes": 83,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Put_To@PKPipe@@UAEXPAVPipe@@@Z",
+   "entry": "0060faf0",
+   "body_bytes": 79,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Key@PKPipe@@QAEXPBVPKey@@@Z",
+   "entry": "0060fb40",
+   "body_bytes": 91,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Put@PKPipe@@UAEHPBXH@Z",
+   "entry": "0060fba0",
+   "body_bytes": 360,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Encrypted_Key_Length@PKPipe@@ABEHXZ",
+   "entry": "0060fd10",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Plain_Key_Length@PKPipe@@ABEHXZ",
+   "entry": "0060fd40",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??_GBlowPipe@@UAEPAXI@Z",
+   "entry": "0060fd70",
+   "body_bytes": 70,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Put_To@PKPipe@@UAEXAAVPipe@@@Z",
+   "entry": "0060fdc0",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??_GPKPipe@@UAEPAXI@Z",
+   "entry": "0060fdd0",
+   "body_bytes": 82,
+   "padding_bytes": 14
+  }
+ ],
+ "code_bytes": 928,
+ "data": [
+  {
+   "symbol": "??_R1A@?0A@A@Pipe@@8",
+   "address": "007b4ae8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 9
+  },
+  {
+   "symbol": "??_R1A@?0A@A@PKPipe@@8",
+   "address": "007bfc48",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 3
+  },
+  {
+   "symbol": "??_R2PKPipe@@8",
+   "address": "007bfc60",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 4
+  },
+  {
+   "symbol": "??_R3PKPipe@@8",
+   "address": "007bfc70",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 5
+  },
+  {
+   "symbol": "??_R4PKPipe@@6B@",
+   "address": "007bfc80",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 7
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BlowPipe@@8",
+   "address": "007bfc98",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 10
+  },
+  {
+   "symbol": "??_R2BlowPipe@@8",
+   "address": "007bfcb0",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 11
+  },
+  {
+   "symbol": "??_R3BlowPipe@@8",
+   "address": "007bfcc0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 12
+  },
+  {
+   "symbol": "??_R4BlowPipe@@6B@",
+   "address": "007bfcd0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 14
+  },
+  {
+   "symbol": "??_R0?AVPipe@@@8",
+   "address": "007d1e90",
+   "bytes": 19,
+   "kind": "rtti",
+   "section": 8
+  },
+  {
+   "symbol": "??_R0?AVPKPipe@@@8",
+   "address": "007eb9b0",
+   "bytes": 21,
+   "kind": "rtti",
+   "section": 6
+  },
+  {
+   "symbol": "??_R0?AVBlowPipe@@@8",
+   "address": "007eb9c8",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 13
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_R1A@?0A@A@Pipe@@8",
+   "address": "007b4ae8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@PKPipe@@8",
+   "address": "007bfc48",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2PKPipe@@8",
+   "address": "007bfc60",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3PKPipe@@8",
+   "address": "007bfc70",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4PKPipe@@6B@",
+   "address": "007bfc80",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BlowPipe@@8",
+   "address": "007bfc98",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2BlowPipe@@8",
+   "address": "007bfcb0",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3BlowPipe@@8",
+   "address": "007bfcc0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4BlowPipe@@6B@",
+   "address": "007bfcd0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVPipe@@@8",
+   "address": "007d1e90",
+   "bytes": 19,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVPKPipe@@@8",
+   "address": "007eb9b0",
+   "bytes": 21,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVBlowPipe@@@8",
+   "address": "007eb9c8",
+   "bytes": 23,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [],
+ "references_out": [
+  {
+   "symbol": "??1BlowfishEngine@@QAE@XZ",
+   "address": "004355f0"
+  },
+  {
+   "symbol": "??1Pipe@@UAE@XZ",
+   "address": "0060ea60"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "?Decrypt@PKey@@QBEHPBXHPAX@Z",
+   "address": "0060f650"
+  },
+  {
+   "symbol": "?Encrypt@PKey@@QBEHPBXHPAX@Z",
+   "address": "0060f520"
+  },
+  {
+   "symbol": "?Flush@BlowPipe@@UAEHXZ",
+   "address": "00435690"
+  },
+  {
+   "symbol": "?Flush@Pipe@@UAEHXZ",
+   "address": "0060eb10"
+  },
+  {
+   "symbol": "?Key@BlowPipe@@QAEXPBXH@Z",
+   "address": "00435800"
+  },
+  {
+   "symbol": "?Put@BlowPipe@@UAEHPBXH@Z",
+   "address": "004356d0"
+  },
+  {
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "address": "0060eaf0"
+  },
+  {
+   "symbol": "?Put_To@Pipe@@UAEXPAV1@@Z",
+   "address": "0060eaa0"
+  },
+  {
+   "symbol": "_memmove",
+   "address": "00783290"
+  }
+ ],
+ "route": "A",
+ "unit": "pkpipe.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "0060fa90",
+   "lines": 2
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 11,
+ "data_unproven": [
+  {
+   "symbol": "??_7PKPipe@@6B@",
+   "reason": "relocation target unbound: ?End@Pipe@@UAEHXZ"
+  },
+  {
+   "symbol": "??_7BlowPipe@@6B@",
+   "reason": "relocation target unbound: ?End@Pipe@@UAEHXZ"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

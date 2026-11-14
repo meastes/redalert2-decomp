@@ -26,7 +26,19 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
   (user, 2026-11-07): "evidenced inline assembly" — an `__asm` block only where
   the TibSun archive shows the author's own `__asm` at that point (cited), with the
   archive's instructions only, flagged `inline_asm: evidenced` in the manifest,
-  enforced by the strict audit and reported as its own category.
+  enforced by the strict audit and reported as its own category. Exception
+  (user, 2026-11-13, "Let's go with option 2 then", confirmed in the owner
+  session): exact matching on the unmatched tail stops; the best drafts of
+  unmatched functions are tracked in their unit's source under a non-matching
+  guard (`RA2_NON_MATCHING`), each labelled not exact with its score; the exact
+  build never compiles them and keeps the original bytes; flagged `non_exact`
+  with score in the manifest, no .text credit, refused by the strict audit if they
+  claim acceptance or contain instruction arrays or inline asm, and reported as
+  their own category. Exception (user, 2026-11-13, confirmed in the owner
+  session): bit 4 of the attributes field of each class hierarchy descriptor
+  (`??_R3`) is accepted as a recorded known difference, because VC6 SP3 fills it
+  from uninitialised memory per compile; every other byte is still compared,
+  nothing is credited for it, and STATUS counts the affected descriptors.
 - **Fidelity:** preserve widths, wrapping, signed division, FP stores, layouts and
   ordered reads/writes/calls. Type/ABI/class hypotheses stay explicit until evidenced.
 - **Private material:** executables, assets, compiler/media, extracted data,

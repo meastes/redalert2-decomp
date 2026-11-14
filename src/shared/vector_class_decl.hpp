@@ -5,7 +5,7 @@
 // A class with a container member includes this header instead of
 // shared/vector_class.hpp, so that the member definitions a translation unit
 // gets stay selected by that unit's own VECTOR_IMPLEMENT_* guards at its
-// first inclusion of shared/vector_class.hpp (UnknownIDSource's TypeList
+// first inclusion of shared/vector_class.hpp (ScenarioClass's TypeList
 // members, shared/id_source.hpp, which shared/abstract.hpp includes early).
 
 #ifndef SHARED_VECTOR_CLASS_DECL_HPP

@@ -1,0 +1,977 @@
+{
+ "module": "utracker",
+ "source": "src/recovered/utracker.cpp",
+ "header": null,
+ "population": "population-3415",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 685,
+ "code": [
+  {
+   "symbol": "??0UnitTrackerClass@@QAE@XZ",
+   "entry": "0070c440",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "??1UnitTrackerClass@@QAE@XZ",
+   "entry": "0070c480",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Increment_Unit_Total@UnitTrackerClass@@QAEXH@Z",
+   "entry": "0070c490",
+   "body_bytes": 20,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Decrement_Unit_Total@UnitTrackerClass@@QAEXH@Z",
+   "entry": "0070c4b0",
+   "body_bytes": 20,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Set_Unit_Count@UnitTrackerClass@@QAEXH@Z",
+   "entry": "0070c4d0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Get_All_Totals_Sum@UnitTrackerClass@@QAEHXZ",
+   "entry": "0070c510",
+   "body_bytes": 25,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "entry": "0070c530",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Clear_Unit_Total@UnitTrackerClass@@QAEXXZ",
+   "entry": "0070c540",
+   "body_bytes": 37,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?To_Network_Format@UnitTrackerClass@@QAEXXZ",
+   "entry": "0070c570",
+   "body_bytes": 80,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?To_PC_Format@UnitTrackerClass@@QAEXXZ",
+   "entry": "0070c5c0",
+   "body_bytes": 75,
+   "padding_bytes": 5
+  }
+ ],
+ "code_bytes": 464,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "004e30c0",
+   "symbol": "??1UnknownHouseTracker@@QAE@XZ",
+   "target": "0070c480",
+   "function_entry": true
+  },
+  {
+   "site": "004e30c0",
+   "symbol": "??1UnknownHouseTracker@@QAE@XZ",
+   "target": "0070c480",
+   "function_entry": true
+  },
+  {
+   "site": "004e30c0",
+   "symbol": "??1UnknownHouseTracker@@QAE@XZ",
+   "target": "0070c480",
+   "function_entry": true
+  },
+  {
+   "site": "004e30c0",
+   "symbol": "??1UnknownHouseTracker@@QAE@XZ",
+   "target": "0070c480",
+   "function_entry": true
+  },
+  {
+   "site": "004e30c0",
+   "symbol": "??1UnknownHouseTracker@@QAE@XZ",
+   "target": "0070c480",
+   "function_entry": true
+  },
+  {
+   "site": "004e30c0",
+   "symbol": "??1UnknownHouseTracker@@QAE@XZ",
+   "target": "0070c480",
+   "function_entry": true
+  },
+  {
+   "site": "004e30c0",
+   "symbol": "??1UnknownHouseTracker@@QAE@XZ",
+   "target": "0070c480",
+   "function_entry": true
+  },
+  {
+   "site": "004e30c0",
+   "symbol": "??1UnknownHouseTracker@@QAE@XZ",
+   "target": "0070c480",
+   "function_entry": true
+  },
+  {
+   "site": "004e30c0",
+   "symbol": "??1UnknownHouseTracker@@QAE@XZ",
+   "target": "0070c480",
+   "function_entry": true
+  },
+  {
+   "site": "004e30c0",
+   "symbol": "??1UnknownHouseTracker@@QAE@XZ",
+   "target": "0070c480",
+   "function_entry": true
+  },
+  {
+   "site": "006ced90",
+   "symbol": "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z",
+   "target": "0070c490",
+   "function_entry": true
+  },
+  {
+   "site": "006ced90",
+   "symbol": "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z",
+   "target": "0070c490",
+   "function_entry": true
+  },
+  {
+   "site": "006ced90",
+   "symbol": "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z",
+   "target": "0070c490",
+   "function_entry": true
+  },
+  {
+   "site": "006ced90",
+   "symbol": "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z",
+   "target": "0070c490",
+   "function_entry": true
+  },
+  {
+   "site": "004ea970",
+   "symbol": "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z",
+   "target": "0070c490",
+   "function_entry": true
+  },
+  {
+   "site": "004ea970",
+   "symbol": "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z",
+   "target": "0070c490",
+   "function_entry": true
+  },
+  {
+   "site": "004ea970",
+   "symbol": "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z",
+   "target": "0070c490",
+   "function_entry": true
+  },
+  {
+   "site": "004ea970",
+   "symbol": "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z",
+   "target": "0070c490",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "??0UnknownHouseTracker@@QAE@XZ",
+   "target": "0070c440",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "??0UnknownHouseTracker@@QAE@XZ",
+   "target": "0070c440",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "??0UnknownHouseTracker@@QAE@XZ",
+   "target": "0070c440",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "??0UnknownHouseTracker@@QAE@XZ",
+   "target": "0070c440",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "??0UnknownHouseTracker@@QAE@XZ",
+   "target": "0070c440",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "??0UnknownHouseTracker@@QAE@XZ",
+   "target": "0070c440",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "??0UnknownHouseTracker@@QAE@XZ",
+   "target": "0070c440",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "??0UnknownHouseTracker@@QAE@XZ",
+   "target": "0070c440",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "??0UnknownHouseTracker@@QAE@XZ",
+   "target": "0070c440",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "??0UnknownHouseTracker@@QAE@XZ",
+   "target": "0070c440",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "?unknown_func_70c4d0@UnknownHouseTracker@@QAEXH@Z",
+   "target": "0070c4d0",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "?unknown_func_70c4d0@UnknownHouseTracker@@QAEXH@Z",
+   "target": "0070c4d0",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "?unknown_func_70c4d0@UnknownHouseTracker@@QAEXH@Z",
+   "target": "0070c4d0",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "?unknown_func_70c4d0@UnknownHouseTracker@@QAEXH@Z",
+   "target": "0070c4d0",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "?unknown_func_70c4d0@UnknownHouseTracker@@QAEXH@Z",
+   "target": "0070c4d0",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "?unknown_func_70c4d0@UnknownHouseTracker@@QAEXH@Z",
+   "target": "0070c4d0",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "?unknown_func_70c4d0@UnknownHouseTracker@@QAEXH@Z",
+   "target": "0070c4d0",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "?unknown_func_70c4d0@UnknownHouseTracker@@QAEXH@Z",
+   "target": "0070c4d0",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "?unknown_func_70c4d0@UnknownHouseTracker@@QAEXH@Z",
+   "target": "0070c4d0",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "?unknown_func_70c4d0@UnknownHouseTracker@@QAEXH@Z",
+   "target": "0070c4d0",
+   "function_entry": true
+  },
+  {
+   "site": "0069a7d0",
+   "symbol": "?Get_All_Totals_Sum@UnknownHouseTracker@@QAEHXZ",
+   "target": "0070c510",
+   "function_entry": true
+  },
+  {
+   "site": "0069a7d0",
+   "symbol": "?Get_All_Totals_Sum@UnknownHouseTracker@@QAEHXZ",
+   "target": "0070c510",
+   "function_entry": true
+  },
+  {
+   "site": "0069a7d0",
+   "symbol": "?Get_All_Totals_Sum@UnknownHouseTracker@@QAEHXZ",
+   "target": "0070c510",
+   "function_entry": true
+  },
+  {
+   "site": "0069a7d0",
+   "symbol": "?Get_All_Totals_Sum@UnknownHouseTracker@@QAEHXZ",
+   "target": "0070c510",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?To_Network_Format@UnitTrackerClass@@QAEXXZ",
+   "target": "0070c570",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?To_Network_Format@UnitTrackerClass@@QAEXXZ",
+   "target": "0070c570",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?To_Network_Format@UnitTrackerClass@@QAEXXZ",
+   "target": "0070c570",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?To_Network_Format@UnitTrackerClass@@QAEXXZ",
+   "target": "0070c570",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?To_PC_Format@UnitTrackerClass@@QAEXXZ",
+   "target": "0070c5c0",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?To_PC_Format@UnitTrackerClass@@QAEXXZ",
+   "target": "0070c5c0",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?To_PC_Format@UnitTrackerClass@@QAEXXZ",
+   "target": "0070c5c0",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?To_PC_Format@UnitTrackerClass@@QAEXXZ",
+   "target": "0070c5c0",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Clear_Unit_Total@UnitTrackerClass@@QAEXXZ",
+   "target": "0070c540",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Clear_Unit_Total@UnitTrackerClass@@QAEXXZ",
+   "target": "0070c540",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Clear_Unit_Total@UnitTrackerClass@@QAEXXZ",
+   "target": "0070c540",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Clear_Unit_Total@UnitTrackerClass@@QAEXXZ",
+   "target": "0070c540",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Increment_Unit_Total@UnitTrackerClass@@QAEXH@Z",
+   "target": "0070c490",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Increment_Unit_Total@UnitTrackerClass@@QAEXH@Z",
+   "target": "0070c490",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Increment_Unit_Total@UnitTrackerClass@@QAEXH@Z",
+   "target": "0070c490",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Increment_Unit_Total@UnitTrackerClass@@QAEXH@Z",
+   "target": "0070c490",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?To_Network_Format@UnitTrackerClass@@QAEXXZ",
+   "target": "0070c570",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?To_Network_Format@UnitTrackerClass@@QAEXXZ",
+   "target": "0070c570",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?To_Network_Format@UnitTrackerClass@@QAEXXZ",
+   "target": "0070c570",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?To_Network_Format@UnitTrackerClass@@QAEXXZ",
+   "target": "0070c570",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?To_Network_Format@UnitTrackerClass@@QAEXXZ",
+   "target": "0070c570",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?To_Network_Format@UnitTrackerClass@@QAEXXZ",
+   "target": "0070c570",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?To_Network_Format@UnitTrackerClass@@QAEXXZ",
+   "target": "0070c570",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?To_Network_Format@UnitTrackerClass@@QAEXXZ",
+   "target": "0070c570",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?To_Network_Format@UnitTrackerClass@@QAEXXZ",
+   "target": "0070c570",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?To_Network_Format@UnitTrackerClass@@QAEXXZ",
+   "target": "0070c570",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ",
+   "target": "0070c530",
+   "function_entry": true
+  },
+  {
+   "site": "00476cc0",
+   "symbol": "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z",
+   "target": "0070c490",
+   "function_entry": true
+  },
+  {
+   "site": "00444660",
+   "symbol": "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z",
+   "target": "0070c490",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "_htonl@4",
+   "address": "00781b66"
+  },
+  {
+   "symbol": "_ntohl@4",
+   "address": "00781b72"
+  }
+ ],
+ "route": "A",
+ "unit": "utracker.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "0070c440",
+   "lines": 1
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 10,
+ "data_unproven": [],
+ "stand_in_references": [
+  {
+   "site": "004e30c0",
+   "target": "0070c480",
+   "symbol": "??1UnknownHouseTracker@@QAE@XZ",
+   "module_symbol": "??1UnitTrackerClass@@QAE@XZ"
+  },
+  {
+   "site": "004e30c0",
+   "target": "0070c480",
+   "symbol": "??1UnknownHouseTracker@@QAE@XZ",
+   "module_symbol": "??1UnitTrackerClass@@QAE@XZ"
+  },
+  {
+   "site": "004e30c0",
+   "target": "0070c480",
+   "symbol": "??1UnknownHouseTracker@@QAE@XZ",
+   "module_symbol": "??1UnitTrackerClass@@QAE@XZ"
+  },
+  {
+   "site": "004e30c0",
+   "target": "0070c480",
+   "symbol": "??1UnknownHouseTracker@@QAE@XZ",
+   "module_symbol": "??1UnitTrackerClass@@QAE@XZ"
+  },
+  {
+   "site": "004e30c0",
+   "target": "0070c480",
+   "symbol": "??1UnknownHouseTracker@@QAE@XZ",
+   "module_symbol": "??1UnitTrackerClass@@QAE@XZ"
+  },
+  {
+   "site": "004e30c0",
+   "target": "0070c480",
+   "symbol": "??1UnknownHouseTracker@@QAE@XZ",
+   "module_symbol": "??1UnitTrackerClass@@QAE@XZ"
+  },
+  {
+   "site": "004e30c0",
+   "target": "0070c480",
+   "symbol": "??1UnknownHouseTracker@@QAE@XZ",
+   "module_symbol": "??1UnitTrackerClass@@QAE@XZ"
+  },
+  {
+   "site": "004e30c0",
+   "target": "0070c480",
+   "symbol": "??1UnknownHouseTracker@@QAE@XZ",
+   "module_symbol": "??1UnitTrackerClass@@QAE@XZ"
+  },
+  {
+   "site": "004e30c0",
+   "target": "0070c480",
+   "symbol": "??1UnknownHouseTracker@@QAE@XZ",
+   "module_symbol": "??1UnitTrackerClass@@QAE@XZ"
+  },
+  {
+   "site": "004e30c0",
+   "target": "0070c480",
+   "symbol": "??1UnknownHouseTracker@@QAE@XZ",
+   "module_symbol": "??1UnitTrackerClass@@QAE@XZ"
+  },
+  {
+   "site": "006ced90",
+   "target": "0070c490",
+   "symbol": "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z",
+   "module_symbol": "?Increment_Unit_Total@UnitTrackerClass@@QAEXH@Z"
+  },
+  {
+   "site": "006ced90",
+   "target": "0070c490",
+   "symbol": "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z",
+   "module_symbol": "?Increment_Unit_Total@UnitTrackerClass@@QAEXH@Z"
+  },
+  {
+   "site": "006ced90",
+   "target": "0070c490",
+   "symbol": "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z",
+   "module_symbol": "?Increment_Unit_Total@UnitTrackerClass@@QAEXH@Z"
+  },
+  {
+   "site": "006ced90",
+   "target": "0070c490",
+   "symbol": "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z",
+   "module_symbol": "?Increment_Unit_Total@UnitTrackerClass@@QAEXH@Z"
+  },
+  {
+   "site": "004ea970",
+   "target": "0070c490",
+   "symbol": "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z",
+   "module_symbol": "?Increment_Unit_Total@UnitTrackerClass@@QAEXH@Z"
+  },
+  {
+   "site": "004ea970",
+   "target": "0070c490",
+   "symbol": "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z",
+   "module_symbol": "?Increment_Unit_Total@UnitTrackerClass@@QAEXH@Z"
+  },
+  {
+   "site": "004ea970",
+   "target": "0070c490",
+   "symbol": "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z",
+   "module_symbol": "?Increment_Unit_Total@UnitTrackerClass@@QAEXH@Z"
+  },
+  {
+   "site": "004ea970",
+   "target": "0070c490",
+   "symbol": "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z",
+   "module_symbol": "?Increment_Unit_Total@UnitTrackerClass@@QAEXH@Z"
+  },
+  {
+   "site": "004e18c0",
+   "target": "0070c440",
+   "symbol": "??0UnknownHouseTracker@@QAE@XZ",
+   "module_symbol": "??0UnitTrackerClass@@QAE@XZ"
+  },
+  {
+   "site": "004e18c0",
+   "target": "0070c440",
+   "symbol": "??0UnknownHouseTracker@@QAE@XZ",
+   "module_symbol": "??0UnitTrackerClass@@QAE@XZ"
+  },
+  {
+   "site": "004e18c0",
+   "target": "0070c440",
+   "symbol": "??0UnknownHouseTracker@@QAE@XZ",
+   "module_symbol": "??0UnitTrackerClass@@QAE@XZ"
+  },
+  {
+   "site": "004e18c0",
+   "target": "0070c440",
+   "symbol": "??0UnknownHouseTracker@@QAE@XZ",
+   "module_symbol": "??0UnitTrackerClass@@QAE@XZ"
+  },
+  {
+   "site": "004e18c0",
+   "target": "0070c440",
+   "symbol": "??0UnknownHouseTracker@@QAE@XZ",
+   "module_symbol": "??0UnitTrackerClass@@QAE@XZ"
+  },
+  {
+   "site": "004e18c0",
+   "target": "0070c440",
+   "symbol": "??0UnknownHouseTracker@@QAE@XZ",
+   "module_symbol": "??0UnitTrackerClass@@QAE@XZ"
+  },
+  {
+   "site": "004e18c0",
+   "target": "0070c440",
+   "symbol": "??0UnknownHouseTracker@@QAE@XZ",
+   "module_symbol": "??0UnitTrackerClass@@QAE@XZ"
+  },
+  {
+   "site": "004e18c0",
+   "target": "0070c440",
+   "symbol": "??0UnknownHouseTracker@@QAE@XZ",
+   "module_symbol": "??0UnitTrackerClass@@QAE@XZ"
+  },
+  {
+   "site": "004e18c0",
+   "target": "0070c440",
+   "symbol": "??0UnknownHouseTracker@@QAE@XZ",
+   "module_symbol": "??0UnitTrackerClass@@QAE@XZ"
+  },
+  {
+   "site": "004e18c0",
+   "target": "0070c440",
+   "symbol": "??0UnknownHouseTracker@@QAE@XZ",
+   "module_symbol": "??0UnitTrackerClass@@QAE@XZ"
+  },
+  {
+   "site": "004e18c0",
+   "target": "0070c4d0",
+   "symbol": "?unknown_func_70c4d0@UnknownHouseTracker@@QAEXH@Z",
+   "module_symbol": "?Set_Unit_Count@UnitTrackerClass@@QAEXH@Z"
+  },
+  {
+   "site": "004e18c0",
+   "target": "0070c4d0",
+   "symbol": "?unknown_func_70c4d0@UnknownHouseTracker@@QAEXH@Z",
+   "module_symbol": "?Set_Unit_Count@UnitTrackerClass@@QAEXH@Z"
+  },
+  {
+   "site": "004e18c0",
+   "target": "0070c4d0",
+   "symbol": "?unknown_func_70c4d0@UnknownHouseTracker@@QAEXH@Z",
+   "module_symbol": "?Set_Unit_Count@UnitTrackerClass@@QAEXH@Z"
+  },
+  {
+   "site": "004e18c0",
+   "target": "0070c4d0",
+   "symbol": "?unknown_func_70c4d0@UnknownHouseTracker@@QAEXH@Z",
+   "module_symbol": "?Set_Unit_Count@UnitTrackerClass@@QAEXH@Z"
+  },
+  {
+   "site": "004e18c0",
+   "target": "0070c4d0",
+   "symbol": "?unknown_func_70c4d0@UnknownHouseTracker@@QAEXH@Z",
+   "module_symbol": "?Set_Unit_Count@UnitTrackerClass@@QAEXH@Z"
+  },
+  {
+   "site": "004e18c0",
+   "target": "0070c4d0",
+   "symbol": "?unknown_func_70c4d0@UnknownHouseTracker@@QAEXH@Z",
+   "module_symbol": "?Set_Unit_Count@UnitTrackerClass@@QAEXH@Z"
+  },
+  {
+   "site": "004e18c0",
+   "target": "0070c4d0",
+   "symbol": "?unknown_func_70c4d0@UnknownHouseTracker@@QAEXH@Z",
+   "module_symbol": "?Set_Unit_Count@UnitTrackerClass@@QAEXH@Z"
+  },
+  {
+   "site": "004e18c0",
+   "target": "0070c4d0",
+   "symbol": "?unknown_func_70c4d0@UnknownHouseTracker@@QAEXH@Z",
+   "module_symbol": "?Set_Unit_Count@UnitTrackerClass@@QAEXH@Z"
+  },
+  {
+   "site": "004e18c0",
+   "target": "0070c4d0",
+   "symbol": "?unknown_func_70c4d0@UnknownHouseTracker@@QAEXH@Z",
+   "module_symbol": "?Set_Unit_Count@UnitTrackerClass@@QAEXH@Z"
+  },
+  {
+   "site": "004e18c0",
+   "target": "0070c4d0",
+   "symbol": "?unknown_func_70c4d0@UnknownHouseTracker@@QAEXH@Z",
+   "module_symbol": "?Set_Unit_Count@UnitTrackerClass@@QAEXH@Z"
+  },
+  {
+   "site": "0069a7d0",
+   "target": "0070c510",
+   "symbol": "?Get_All_Totals_Sum@UnknownHouseTracker@@QAEHXZ",
+   "module_symbol": "?Get_All_Totals_Sum@UnitTrackerClass@@QAEHXZ"
+  },
+  {
+   "site": "0069a7d0",
+   "target": "0070c510",
+   "symbol": "?Get_All_Totals_Sum@UnknownHouseTracker@@QAEHXZ",
+   "module_symbol": "?Get_All_Totals_Sum@UnitTrackerClass@@QAEHXZ"
+  },
+  {
+   "site": "0069a7d0",
+   "target": "0070c510",
+   "symbol": "?Get_All_Totals_Sum@UnknownHouseTracker@@QAEHXZ",
+   "module_symbol": "?Get_All_Totals_Sum@UnitTrackerClass@@QAEHXZ"
+  },
+  {
+   "site": "0069a7d0",
+   "target": "0070c510",
+   "symbol": "?Get_All_Totals_Sum@UnknownHouseTracker@@QAEHXZ",
+   "module_symbol": "?Get_All_Totals_Sum@UnitTrackerClass@@QAEHXZ"
+  },
+  {
+   "site": "00476cc0",
+   "target": "0070c490",
+   "symbol": "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z",
+   "module_symbol": "?Increment_Unit_Total@UnitTrackerClass@@QAEXH@Z"
+  },
+  {
+   "site": "00444660",
+   "target": "0070c490",
+   "symbol": "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z",
+   "module_symbol": "?Increment_Unit_Total@UnitTrackerClass@@QAEXH@Z"
+  }
+ ],
+ "stand_in_reference_count": 44,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

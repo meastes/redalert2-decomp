@@ -86,6 +86,21 @@ class CanonicalBuildTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'descriptive filename'):
             validate_catalog(self.root,self.catalog([row]))
 
+    def test_address_free_descriptive_name(self):
+        # (docs/DECISIONS.md "Address-free file names"): the name equals the stem, in a purpose
+        # folder, and no longer has to end in the entry.
+        row=self.row();row['semantic_name']='Known_Operation'
+        row['source']='src/recovered/purpose/Known_Operation.cpp'
+        nested=self.root/row['source'];nested.parent.mkdir();self.source.rename(nested)
+        validate_catalog(self.root,self.catalog([row]))
+        row['semantic_name']='Other_Operation'
+        with self.assertRaisesRegex(ValueError,'descriptive filename'):
+            validate_catalog(self.root,self.catalog([row]))
+        row['semantic_name']='Known_Operation';row['source']='src/recovered/Known_Operation.cpp'
+        nested.rename(self.root/row['source'])
+        with self.assertRaisesRegex(ValueError,'descriptive filename'):     # no purpose folder
+            validate_catalog(self.root,self.catalog([row]))
+
     def test_source_symlink_escape_refuses(self):
         outside=self.root/'outside.cpp';outside.write_text('void outside() {}')
         alias=self.source.parent/'alias.cpp';alias.symlink_to(outside)

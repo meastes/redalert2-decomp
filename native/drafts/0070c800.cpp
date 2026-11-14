@@ -23,7 +23,7 @@
 // @ref ??_7VoxelAnimClass@@6BIRTTITypeInfo@@@=007ae40c
 // @ref ??_7VoxelAnimClass@@6BINoticeSink@@@=007ae404
 // @ref ??_7VoxelAnimClass@@6BINoticeSource@@@=007ae3fc
-// @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
+// @ref ?unknown_id_source_a3d290@@3PAVScenarioClass@@A=00a3d290
 // @ref ??RRandom2Class@@QAEHXZ=00638840
 // @ref ?Init@BounceClass@@QAEXABUCoordStruct@@NNNABUVector3@@N@Z=00436dc0
 

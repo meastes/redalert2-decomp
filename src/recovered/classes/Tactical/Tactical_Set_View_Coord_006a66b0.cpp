@@ -44,10 +44,10 @@ inline Point2D Tactical::Coord_To_Pixel_Absolute(CoordStruct const &coord)
 // @ref ?Unknown_006A2970@@YIHH@Z=006a2970
 #include "shared/tactical.hpp"
 
-void Tactical::Unknown_006A66B0(CoordStruct const &coord)
+void Tactical::Set_Tactical_Position_006a66b0(CoordStruct const &coord)
 {
     Point2D pixel = Coord_To_Pixel_Absolute(coord);
     pixel -= Point2D(TacPixelX,TacPixelY);
     pixel += Point2D(TacPixelX,TacPixelY);
-    Unknown_006A6640(pixel);
+    Set_Tactical_Position_006a6640(pixel);
 }

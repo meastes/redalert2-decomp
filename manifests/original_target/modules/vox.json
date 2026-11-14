@@ -1,0 +1,2608 @@
+{
+ "module": "vox",
+ "source": "src/recovered/vox.cpp",
+ "header": null,
+ "population": "population-4388",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 1004,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00715480",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "007154b0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "007154d0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "007154f0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "00715510",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "00715530",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "00715550",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "00715590",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "007155c0",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "007155f0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "00715620",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "00715630",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E40",
+   "entry": "00715650",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "00715690",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Speech_Init@@YAHXZ",
+   "entry": "007156d0",
+   "body_bytes": 174,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Speech_Shutdown@@YAXXZ",
+   "entry": "00715780",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Speech_Clear@@YIXXZ",
+   "entry": "007157b0",
+   "body_bytes": 237,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Name_From@VoxClass@@SIPBDH@Z",
+   "entry": "007158a0",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Speech_Play@@YIXHHH@Z",
+   "entry": "007158c0",
+   "body_bytes": 260,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Speech_Queue@@YIXPAVVoxClass@@HH@Z",
+   "entry": "007159d0",
+   "body_bytes": 227,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Speech_Find@@YIPAUVoxSpeech@@PAVVoxClass@@@Z",
+   "entry": "00715ac0",
+   "body_bytes": 126,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "entry": "00715b40",
+   "body_bytes": 95,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Speech_Update@@YAXXZ",
+   "entry": "00715ba0",
+   "body_bytes": 562,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Speech_Stop@@YIX_N@Z",
+   "entry": "00715de0",
+   "body_bytes": 55,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Speech_Is_Playing@@YA_NXZ",
+   "entry": "00715e20",
+   "body_bytes": 86,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Speech_Cancel@@YIXH@Z",
+   "entry": "00715e80",
+   "body_bytes": 107,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Set_Volume@VoxClass@@SIXH@Z",
+   "entry": "00715ef0",
+   "body_bytes": 25,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Taunt_Init@@YAHXZ",
+   "entry": "00715f10",
+   "body_bytes": 99,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Taunt_Shutdown@@YAXXZ",
+   "entry": "00715f80",
+   "body_bytes": 37,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Taunt_Play@@YIHH@Z",
+   "entry": "00715fb0",
+   "body_bytes": 276,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Unknown_007160D0@@YIXXZ",
+   "entry": "007160d0",
+   "body_bytes": 16,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "??0VoxClass@@QAE@PBD@Z",
+   "entry": "007160e0",
+   "body_bytes": 161,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "??1VoxClass@@QAE@XZ",
+   "entry": "00716190",
+   "body_bytes": 76,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Read_INI@VoxClass@@QAE_NAAVCCINIClass@@@Z",
+   "entry": "007161e0",
+   "body_bytes": 524,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Process@VoxClass@@SIXAAVCCINIClass@@@Z",
+   "entry": "007163f0",
+   "body_bytes": 411,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Speech_Free_All@@YAXXZ",
+   "entry": "00716590",
+   "body_bytes": 162,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Find_Index@VoxClass@@SIHPBD@Z",
+   "entry": "00716640",
+   "body_bytes": 67,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?FUN_00716690@seed_00716690@@YI_NH@Z",
+   "entry": "00716690",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Find@VoxClass@@SIPAV1@PBD@Z",
+   "entry": "007166c0",
+   "body_bytes": 86,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?FUN_00716720@seed_00716720@@YIPADH@Z",
+   "entry": "00716720",
+   "body_bytes": 28,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Index_Of@VoxClass@@SIHPAV1@@Z",
+   "entry": "00716740",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?unknown_select@UnknownOwner_00716770@@QAEPAXXZ",
+   "entry": "00716770",
+   "body_bytes": 16,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Speech_Load@@YIJPAUIStream@@@Z",
+   "entry": "007167d0",
+   "body_bytes": 229,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Unknown_007168C0@@YIXH@Z",
+   "entry": "007168c0",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Taunt_Pause@@YAXXZ",
+   "entry": "007168d0",
+   "body_bytes": 16,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Taunt_Resume@@YAXXZ",
+   "entry": "007168e0",
+   "body_bytes": 16,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Taunt_Unblock@@YAXXZ",
+   "entry": "00716910",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?get@Leaf_716940@@QAEXXZ",
+   "entry": "00716940",
+   "body_bytes": 12,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Unknown_00716950@@YAXXZ",
+   "entry": "00716950",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Speech_Hold@@YAXXZ",
+   "entry": "00716980",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Speech_Reset@@YAXXZ",
+   "entry": "007169a0",
+   "body_bytes": 67,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?unknown_tick_sound@@YAXXZ",
+   "entry": "007169f0",
+   "body_bytes": 48,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Clear@?$DynamicVectorClass@PAVVoxClass@@@@UAEXXZ",
+   "entry": "00716a20",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAVVoxClass@@@@UAEHPBQAVVoxClass@@@Z",
+   "entry": "00716a50",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@PAVVoxClass@@@@UBEPAVVoxClass@@H@Z",
+   "entry": "00716a70",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??8?$VectorClass@PAVVoxClass@@@@UBE_NABV0@@Z",
+   "entry": "00716a80",
+   "body_bytes": 62,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@PAVVoxClass@@@@UAE_NHPBQAVVoxClass@@@Z",
+   "entry": "00716ac0",
+   "body_bytes": 174,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Clear@?$VectorClass@PAVVoxClass@@@@UAEXXZ",
+   "entry": "00716b70",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVVoxClass@@@@UAEHABQAVVoxClass@@@Z",
+   "entry": "00716ba0",
+   "body_bytes": 51,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVVoxClass@@@@UAEHPBQAVVoxClass@@@Z",
+   "entry": "00716be0",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Resize@?$DynamicVectorClass@PAVVoxClass@@@@UAE_NHPBQAVVoxClass@@@Z",
+   "entry": "00716c00",
+   "body_bytes": 176,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAVVoxClass@@@@UAEHABQAVVoxClass@@@Z",
+   "entry": "00716cb0",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?get@Leaf_716ce0@@QAEPAXI@Z",
+   "entry": "00716ce0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?get@Leaf_716d30@@QAEPAXI@Z",
+   "entry": "00716d30",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  }
+ ],
+ "code_bytes": 6288,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007ae9d0",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVVoxClass@@@@6B@",
+   "address": "007ae9e0",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 45
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVVoxClass@@@@6B@",
+   "address": "007aea00",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 51
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAVVoxClass@@@@8",
+   "address": "007c4d20",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 39
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAVVoxClass@@@@8",
+   "address": "007c4d38",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 40
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAVVoxClass@@@@8",
+   "address": "007c4d50",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 41
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAVVoxClass@@@@8",
+   "address": "007c4d60",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 42
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAVVoxClass@@@@6B@",
+   "address": "007c4d70",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAVVoxClass@@@@8",
+   "address": "007c4d84",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 48
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAVVoxClass@@@@8",
+   "address": "007c4d90",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 49
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAVVoxClass@@@@6B@",
+   "address": "007c4da0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 50
+  },
+  {
+   "symbol": "??_C@_09DNFO@INTERRUPT?$AA@",
+   "address": "007ccbf0",
+   "bytes": 10,
+   "kind": "string",
+   "section": 113
+  },
+  {
+   "symbol": "??_C@_08NGAO@CRITICAL?$AA@",
+   "address": "007ccc90",
+   "bytes": 9,
+   "kind": "string",
+   "section": 107
+  },
+  {
+   "symbol": "??_C@_06HDDE@NORMAL?$AA@",
+   "address": "007ccca4",
+   "bytes": 7,
+   "kind": "string",
+   "section": 109
+  },
+  {
+   "symbol": "??_C@_03HKLE@LOW?$AA@",
+   "address": "007cccac",
+   "bytes": 4,
+   "kind": "string",
+   "section": 110
+  },
+  {
+   "symbol": "??_C@_06CPHF@?$DMnone?$DO?$AA@",
+   "address": "007cdecc",
+   "bytes": 7,
+   "kind": "string",
+   "section": 130
+  },
+  {
+   "symbol": "??_C@_04KIKH@none?$AA@",
+   "address": "007ce0ec",
+   "bytes": 5,
+   "kind": "string",
+   "section": 61
+  },
+  {
+   "symbol": "??_C@_04FCOP@Type?$AA@",
+   "address": "007d9eec",
+   "bytes": 5,
+   "kind": "string",
+   "section": 116
+  },
+  {
+   "symbol": "??_C@_08MJHG@Priority?$AA@",
+   "address": "007f7038",
+   "bytes": 9,
+   "kind": "string",
+   "section": 111
+  },
+  {
+   "symbol": "??_C@_04KFC@?4WAV?$AA@",
+   "address": "007f8338",
+   "bytes": 5,
+   "kind": "string",
+   "section": 72
+  },
+  {
+   "symbol": "??_C@_06OPOL@Volume?$AA@",
+   "address": "007f9b30",
+   "bytes": 7,
+   "kind": "string",
+   "section": 118
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAVVoxClass@@@@@8",
+   "address": "007f9bd8",
+   "bytes": 42,
+   "kind": "rtti",
+   "section": 38
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAVVoxClass@@@@@8",
+   "address": "007f9c08",
+   "bytes": 49,
+   "kind": "rtti",
+   "section": 43
+  },
+  {
+   "symbol": "??_C@_0L@BPPF@EVA?5Stream?$AA@",
+   "address": "007f9c3c",
+   "bytes": 11,
+   "kind": "string",
+   "section": 54
+  },
+  {
+   "symbol": "??_C@_0N@IANH@Taunt?5Stream?$AA@",
+   "address": "007f9c48",
+   "bytes": 13,
+   "kind": "string",
+   "section": 83
+  },
+  {
+   "symbol": "??_C@_0BF@KIAD@taunts?2tauru?$CF02i?4wav?$AA@",
+   "address": "007f9c58",
+   "bytes": 21,
+   "kind": "string",
+   "section": 88
+  },
+  {
+   "symbol": "??_C@_0BF@NLOF@taunts?2taucu?$CF02i?4wav?$AA@",
+   "address": "007f9c70",
+   "bytes": 21,
+   "kind": "string",
+   "section": 89
+  },
+  {
+   "symbol": "??_C@_0BF@PFIL@taunts?2tauir?$CF02i?4wav?$AA@",
+   "address": "007f9c88",
+   "bytes": 21,
+   "kind": "string",
+   "section": 90
+  },
+  {
+   "symbol": "??_C@_0BF@DFFL@taunts?2tauli?$CF02i?4wav?$AA@",
+   "address": "007f9ca0",
+   "bytes": 21,
+   "kind": "string",
+   "section": 91
+  },
+  {
+   "symbol": "??_C@_0BF@BLNP@taunts?2taubr?$CF02i?4wav?$AA@",
+   "address": "007f9cb8",
+   "bytes": 21,
+   "kind": "string",
+   "section": 92
+  },
+  {
+   "symbol": "??_C@_0BF@MAGO@taunts?2tauge?$CF02i?4wav?$AA@",
+   "address": "007f9cd0",
+   "bytes": 21,
+   "kind": "string",
+   "section": 93
+  },
+  {
+   "symbol": "??_C@_0BF@CENG@taunts?2taufr?$CF02i?4wav?$AA@",
+   "address": "007f9ce8",
+   "bytes": 21,
+   "kind": "string",
+   "section": 94
+  },
+  {
+   "symbol": "??_C@_0BF@BHKE@taunts?2tauko?$CF02i?4wav?$AA@",
+   "address": "007f9d00",
+   "bytes": 21,
+   "kind": "string",
+   "section": 95
+  },
+  {
+   "symbol": "??_C@_0BF@PCKC@taunts?2tauam?$CF02i?4wav?$AA@",
+   "address": "007f9d18",
+   "bytes": 21,
+   "kind": "string",
+   "section": 96
+  },
+  {
+   "symbol": "??_C@_06FLKA@Allied?$AA@",
+   "address": "007f9d30",
+   "bytes": 7,
+   "kind": "string",
+   "section": 105
+  },
+  {
+   "symbol": "??_C@_07EPIJ@Russian?$AA@",
+   "address": "007f9d38",
+   "bytes": 8,
+   "kind": "string",
+   "section": 106
+  },
+  {
+   "symbol": "??_C@_09MHOE@IMPORTANT?$AA@",
+   "address": "007f9d40",
+   "bytes": 10,
+   "kind": "string",
+   "section": 108
+  },
+  {
+   "symbol": "??_C@_0BB@CCNI@QUEUED_INTERRUPT?$AA@",
+   "address": "007f9d4c",
+   "bytes": 17,
+   "kind": "string",
+   "section": 112
+  },
+  {
+   "symbol": "??_C@_08GGOH@STANDARD?$AA@",
+   "address": "007f9d60",
+   "bytes": 9,
+   "kind": "string",
+   "section": 114
+  },
+  {
+   "symbol": "??_C@_05KMHL@QUEUE?$AA@",
+   "address": "007f9d6c",
+   "bytes": 6,
+   "kind": "string",
+   "section": 115
+  },
+  {
+   "symbol": "??_C@_0L@PLKG@DialogList?$AA@",
+   "address": "007f9d74",
+   "bytes": 11,
+   "kind": "string",
+   "section": 121
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007ae9d0",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVVoxClass@@@@6B@",
+   "address": "007ae9e0",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVVoxClass@@@@6B@",
+   "address": "007aea00",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAVVoxClass@@@@8",
+   "address": "007c4d20",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAVVoxClass@@@@8",
+   "address": "007c4d38",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAVVoxClass@@@@8",
+   "address": "007c4d50",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAVVoxClass@@@@8",
+   "address": "007c4d60",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAVVoxClass@@@@6B@",
+   "address": "007c4d70",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAVVoxClass@@@@8",
+   "address": "007c4d84",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAVVoxClass@@@@8",
+   "address": "007c4d90",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAVVoxClass@@@@6B@",
+   "address": "007c4da0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_09DNFO@INTERRUPT?$AA@",
+   "address": "007ccbf0",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08NGAO@CRITICAL?$AA@",
+   "address": "007ccc90",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06HDDE@NORMAL?$AA@",
+   "address": "007ccca4",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_03HKLE@LOW?$AA@",
+   "address": "007cccac",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06CPHF@?$DMnone?$DO?$AA@",
+   "address": "007cdecc",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04KIKH@none?$AA@",
+   "address": "007ce0ec",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04FCOP@Type?$AA@",
+   "address": "007d9eec",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08MJHG@Priority?$AA@",
+   "address": "007f7038",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04KFC@?4WAV?$AA@",
+   "address": "007f8338",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06OPOL@Volume?$AA@",
+   "address": "007f9b30",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAVVoxClass@@@@@8",
+   "address": "007f9bd8",
+   "bytes": 42,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAVVoxClass@@@@@8",
+   "address": "007f9c08",
+   "bytes": 49,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0L@BPPF@EVA?5Stream?$AA@",
+   "address": "007f9c3c",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@IANH@Taunt?5Stream?$AA@",
+   "address": "007f9c48",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BF@KIAD@taunts?2tauru?$CF02i?4wav?$AA@",
+   "address": "007f9c58",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BF@NLOF@taunts?2taucu?$CF02i?4wav?$AA@",
+   "address": "007f9c70",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BF@PFIL@taunts?2tauir?$CF02i?4wav?$AA@",
+   "address": "007f9c88",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BF@DFFL@taunts?2tauli?$CF02i?4wav?$AA@",
+   "address": "007f9ca0",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BF@BLNP@taunts?2taubr?$CF02i?4wav?$AA@",
+   "address": "007f9cb8",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BF@MAGO@taunts?2tauge?$CF02i?4wav?$AA@",
+   "address": "007f9cd0",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BF@CENG@taunts?2taufr?$CF02i?4wav?$AA@",
+   "address": "007f9ce8",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BF@BHKE@taunts?2tauko?$CF02i?4wav?$AA@",
+   "address": "007f9d00",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BF@PCKC@taunts?2tauam?$CF02i?4wav?$AA@",
+   "address": "007f9d18",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06FLKA@Allied?$AA@",
+   "address": "007f9d30",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07EPIJ@Russian?$AA@",
+   "address": "007f9d38",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09MHOE@IMPORTANT?$AA@",
+   "address": "007f9d40",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@CCNI@QUEUED_INTERRUPT?$AA@",
+   "address": "007f9d4c",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08GGOH@STANDARD?$AA@",
+   "address": "007f9d60",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_05KMHL@QUEUE?$AA@",
+   "address": "007f9d6c",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@PLKG@DialogList?$AA@",
+   "address": "007f9d74",
+   "bytes": 11,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00732c10",
+   "symbol": "?Speech_Is_Playing@@YA_NXZ",
+   "target": "00715e20",
+   "function_entry": true
+  },
+  {
+   "site": "0046a460",
+   "symbol": "?Find_Index@VoxClass@@SIHPBD@Z",
+   "target": "00716640",
+   "function_entry": true
+  },
+  {
+   "site": "0067edf0",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "0062f170",
+   "symbol": "?Unknown_00716640@@YIHPBD@Z",
+   "target": "00716640",
+   "function_entry": true
+  },
+  {
+   "site": "004c83c0",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "004c8a40",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00732870",
+   "symbol": "?Speech_Is_Playing@@YA_NXZ",
+   "target": "00715e20",
+   "function_entry": true
+  },
+  {
+   "site": "00732870",
+   "symbol": "?Unknown_00716640@@YIHPBD@Z",
+   "target": "00716640",
+   "function_entry": true
+  },
+  {
+   "site": "00732870",
+   "symbol": "?Speech_Play@@YIXHHH@Z",
+   "target": "007158c0",
+   "function_entry": true
+  },
+  {
+   "site": "007329f0",
+   "symbol": "?Speech_Stop@@YIX_N@Z",
+   "target": "00715de0",
+   "function_entry": true
+  },
+  {
+   "site": "00732a40",
+   "symbol": "?Speech_Is_Playing@@YA_NXZ",
+   "target": "00715e20",
+   "function_entry": true
+  },
+  {
+   "site": "00443680",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00406ad0",
+   "symbol": "?unknown_007156d0@@YAXXZ",
+   "target": "007156d0",
+   "function_entry": true
+  },
+  {
+   "site": "00406ad0",
+   "symbol": "?unknown_00715f10@@YAXXZ",
+   "target": "00715f10",
+   "function_entry": true
+  },
+  {
+   "site": "00406e40",
+   "symbol": "?unknown_00716980@@YAXXZ",
+   "target": "00716980",
+   "function_entry": true
+  },
+  {
+   "site": "00406e40",
+   "symbol": "?unknown_007168d0@@YAXXZ",
+   "target": "007168d0",
+   "function_entry": true
+  },
+  {
+   "site": "00406e70",
+   "symbol": "?unknown_007168e0@@YAXXZ",
+   "target": "007168e0",
+   "function_entry": true
+  },
+  {
+   "site": "00406e70",
+   "symbol": "?unknown_007169f0@@YAXXZ",
+   "target": "007169f0",
+   "function_entry": true
+  },
+  {
+   "site": "00406ea0",
+   "symbol": "?unknown_00715ba0@@YAXXZ",
+   "target": "00715ba0",
+   "function_entry": true
+  },
+  {
+   "site": "0044d530",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "0062fcc0",
+   "symbol": "?Unknown_00716950@@YAXXZ",
+   "target": "00716950",
+   "function_entry": true
+  },
+  {
+   "site": "00633c40",
+   "symbol": "?Unknown_00716950@@YAXXZ",
+   "target": "00716950",
+   "function_entry": true
+  },
+  {
+   "site": "00633c40",
+   "symbol": "?Unknown_00716690@@YI_NH@Z",
+   "target": "00716690",
+   "function_entry": true
+  },
+  {
+   "site": "00633c40",
+   "symbol": "?Speech_Clear@@YIXXZ",
+   "target": "007157b0",
+   "function_entry": true
+  },
+  {
+   "site": "00633c40",
+   "symbol": "?Speech_Play@@YIXHHH@Z",
+   "target": "007158c0",
+   "function_entry": true
+  },
+  {
+   "site": "00633c40",
+   "symbol": "?Unknown_00716940@@YAXXZ",
+   "target": "00716940",
+   "function_entry": true
+  },
+  {
+   "site": "00444580",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "0044d3e0",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "006b1180",
+   "symbol": "?Speech_Play@@YIXHHH@Z",
+   "target": "007158c0",
+   "function_entry": true
+  },
+  {
+   "site": "00453300",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00453300",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "006ad640",
+   "symbol": "?Name_From@VoxClass@@SIPBDH@Z",
+   "target": "007158a0",
+   "function_entry": true
+  },
+  {
+   "site": "006ad860",
+   "symbol": "?Find_Index@VoxClass@@SIHPBD@Z",
+   "target": "00716640",
+   "function_entry": true
+  },
+  {
+   "site": "005d8a70",
+   "symbol": "?Set_Volume@VoxClass@@SIXH@Z",
+   "target": "00715ef0",
+   "function_entry": true
+  },
+  {
+   "site": "005d8b00",
+   "symbol": "?Set_Volume@VoxClass@@SIXH@Z",
+   "target": "00715ef0",
+   "function_entry": true
+  },
+  {
+   "site": "005d95e0",
+   "symbol": "?Set_Volume@VoxClass@@SIXH@Z",
+   "target": "00715ef0",
+   "function_entry": true
+  },
+  {
+   "site": "00633d30",
+   "symbol": "?Speech_Is_Playing@@YA_NXZ",
+   "target": "00715e20",
+   "function_entry": true
+  },
+  {
+   "site": "0065e440",
+   "symbol": "?Speech_Stop@@YIX_N@Z",
+   "target": "00715de0",
+   "function_entry": true
+  },
+  {
+   "site": "0065e440",
+   "symbol": "?Unknown_007160D0@@YIXXZ",
+   "target": "007160d0",
+   "function_entry": true
+  },
+  {
+   "site": "0065e590",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "0065e590",
+   "symbol": "?Speech_Is_Playing@@YA_NXZ",
+   "target": "00715e20",
+   "function_entry": true
+  },
+  {
+   "site": "0065e590",
+   "symbol": "?Speech_Is_Playing@@YA_NXZ",
+   "target": "00715e20",
+   "function_entry": true
+  },
+  {
+   "site": "0065e590",
+   "symbol": "?Speech_Stop@@YIX_N@Z",
+   "target": "00715de0",
+   "function_entry": true
+  },
+  {
+   "site": "0065e590",
+   "symbol": "?Unknown_007160D0@@YIXXZ",
+   "target": "007160d0",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?Speech_Is_Playing@@YA_NXZ",
+   "target": "00715e20",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?Speech_Is_Playing@@YA_NXZ",
+   "target": "00715e20",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?Speech_Stop@@YIX_N@Z",
+   "target": "00715de0",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?Unknown_007160D0@@YIXXZ",
+   "target": "007160d0",
+   "function_entry": true
+  },
+  {
+   "site": "0065dec0",
+   "symbol": "?Speech_Is_Playing@@YA_NXZ",
+   "target": "00715e20",
+   "function_entry": true
+  },
+  {
+   "site": "0065dec0",
+   "symbol": "?Speech_Is_Playing@@YA_NXZ",
+   "target": "00715e20",
+   "function_entry": true
+  },
+  {
+   "site": "0065dec0",
+   "symbol": "?Speech_Stop@@YIX_N@Z",
+   "target": "00715de0",
+   "function_entry": true
+  },
+  {
+   "site": "0065dec0",
+   "symbol": "?Unknown_007160D0@@YIXXZ",
+   "target": "007160d0",
+   "function_entry": true
+  },
+  {
+   "site": "00452390",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00452390",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00452390",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00452390",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00452390",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00452390",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00452390",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "004e4f60",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "004e5a70",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "006b1650",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "0051b5f0",
+   "symbol": "?Unknown_Play_Taunt_00715fb0@@YIXD@Z",
+   "target": "00715fb0",
+   "function_entry": true
+  },
+  {
+   "site": "00406c80",
+   "symbol": "?Speech_Shutdown@@YAXXZ",
+   "target": "00715780",
+   "function_entry": true
+  },
+  {
+   "site": "00406c80",
+   "symbol": "?unknown_00715f80@@YAXXZ",
+   "target": "00715f80",
+   "function_entry": true
+  },
+  {
+   "site": "006fca30",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "006fdfc0",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00626b30",
+   "symbol": "?Unknown_Play_Taunt_00715fb0@@YIXD@Z",
+   "target": "00715fb0",
+   "function_entry": true
+  },
+  {
+   "site": "004e7ee0",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "004e80d0",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "0051a330",
+   "symbol": "?Unknown_007168C0@@YIXH@Z",
+   "target": "007168c0",
+   "function_entry": true
+  },
+  {
+   "site": "004e5660",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00520200",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00672e70",
+   "symbol": "?Speech_Reset@@YAXXZ",
+   "target": "007169a0",
+   "function_entry": true
+  },
+  {
+   "site": "00672e70",
+   "symbol": "?Unknown_007160D0@@YIXXZ",
+   "target": "007160d0",
+   "function_entry": true
+  },
+  {
+   "site": "006909e0",
+   "symbol": "?Speech_Free_All@@YAXXZ",
+   "target": "00716590",
+   "function_entry": true
+  },
+  {
+   "site": "00440140",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?Speech_Free_All@@YAXXZ",
+   "target": "00716590",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?Process@VoxClass@@SIXAAVCCINIClass@@@Z",
+   "target": "007163f0",
+   "function_entry": true
+  },
+  {
+   "site": "004e6950",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "004e6950",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "004e77f0",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "004e77f0",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "004e4110",
+   "symbol": "?Speech_Is_Playing@@YA_NXZ",
+   "target": "00715e20",
+   "function_entry": true
+  },
+  {
+   "site": "004e4110",
+   "symbol": "?Speech_Is_Playing@@YA_NXZ",
+   "target": "00715e20",
+   "function_entry": true
+  },
+  {
+   "site": "004e4110",
+   "symbol": "?Speech_Is_Playing@@YA_NXZ",
+   "target": "00715e20",
+   "function_entry": true
+  },
+  {
+   "site": "004e4110",
+   "symbol": "?Speech_Is_Playing@@YA_NXZ",
+   "target": "00715e20",
+   "function_entry": true
+  },
+  {
+   "site": "004e4110",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "004e4110",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "0067f050",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "005a09e0",
+   "symbol": "?unknown_tick_sound@@YAXXZ",
+   "target": "007169f0",
+   "function_entry": true
+  },
+  {
+   "site": "005a0ac0",
+   "symbol": "?unknown_tick_sound@@YAXXZ",
+   "target": "007169f0",
+   "function_entry": true
+  },
+  {
+   "site": "005a0b10",
+   "symbol": "?Speech_Hold@@YAXXZ",
+   "target": "00716980",
+   "function_entry": true
+  },
+  {
+   "site": "0069d390",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "0069d390",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "0069d390",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "0069d390",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "0069d390",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "0069d690",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00656b80",
+   "symbol": "?Speech_Load@@YIJPAUIStream@@@Z",
+   "target": "007167d0",
+   "function_entry": true
+  },
+  {
+   "site": "004426d0",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?Speech_Hold@@YAXXZ",
+   "target": "00716980",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?unknown_tick_sound@@YAXXZ",
+   "target": "007169f0",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?Speech_Hold@@YAXXZ",
+   "target": "00716980",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?unknown_tick_sound@@YAXXZ",
+   "target": "007169f0",
+   "function_entry": true
+  },
+  {
+   "site": "005a0710",
+   "symbol": "?Speech_Hold@@YAXXZ",
+   "target": "00716980",
+   "function_entry": true
+  },
+  {
+   "site": "005a0710",
+   "symbol": "?unknown_tick_sound@@YAXXZ",
+   "target": "007169f0",
+   "function_entry": true
+  },
+  {
+   "site": "006e27b0",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00731680",
+   "symbol": "?Speech_Stop@@YIX_N@Z",
+   "target": "00715de0",
+   "function_entry": true
+  },
+  {
+   "site": "00732510",
+   "symbol": "?Speech_Is_Playing@@YA_NXZ",
+   "target": "00715e20",
+   "function_entry": true
+  },
+  {
+   "site": "00732700",
+   "symbol": "?Speech_Is_Playing@@YA_NXZ",
+   "target": "00715e20",
+   "function_entry": true
+  },
+  {
+   "site": "00732af0",
+   "symbol": "?Speech_Stop@@YIX_N@Z",
+   "target": "00715de0",
+   "function_entry": true
+  },
+  {
+   "site": "0044ab80",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "006c74c0",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "006c74c0",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "0049bb20",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00445b30",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00445b30",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00445b30",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "006809f0",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "006809f0",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "006809f0",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "006809f0",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "006809f0",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "006809f0",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "006809f0",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "006809f0",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00476cc0",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00476cc0",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00476cc0",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "006adae0",
+   "symbol": "?Speech_Play@@YIXHHH@Z",
+   "target": "007158c0",
+   "function_entry": true
+  },
+  {
+   "site": "0059dce0",
+   "symbol": "?Speech_Play@@YIXHHH@Z",
+   "target": "007158c0",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "?Unknown_Play_Taunt_00715fb0@@YIXD@Z",
+   "target": "00715fb0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Speech_Is_Playing@@YA_NXZ",
+   "target": "00715e20",
+   "function_entry": true
+  },
+  {
+   "site": "0069d850",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "0069d850",
+   "symbol": "?Find_Index@VoxClass@@SIHPBD@Z",
+   "target": "00716640",
+   "function_entry": true
+  },
+  {
+   "site": "0069d850",
+   "symbol": "?Speech_Cancel@@YIXH@Z",
+   "target": "00715e80",
+   "function_entry": true
+  },
+  {
+   "site": "0069d850",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "0069d850",
+   "symbol": "?Find_Index@VoxClass@@SIHPBD@Z",
+   "target": "00716640",
+   "function_entry": true
+  },
+  {
+   "site": "0069d850",
+   "symbol": "?Speech_Cancel@@YIXH@Z",
+   "target": "00715e80",
+   "function_entry": true
+  },
+  {
+   "site": "0069d850",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "0069d850",
+   "symbol": "?Find_Index@VoxClass@@SIHPBD@Z",
+   "target": "00716640",
+   "function_entry": true
+  },
+  {
+   "site": "0069d850",
+   "symbol": "?Speech_Cancel@@YIXH@Z",
+   "target": "00715e80",
+   "function_entry": true
+  },
+  {
+   "site": "0069d850",
+   "symbol": "?Find_Index@VoxClass@@SIHPBD@Z",
+   "target": "00716640",
+   "function_entry": true
+  },
+  {
+   "site": "0069d850",
+   "symbol": "?Speech_Cancel@@YIXH@Z",
+   "target": "00715e80",
+   "function_entry": true
+  },
+  {
+   "site": "0069d850",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "0069d850",
+   "symbol": "?Find_Index@VoxClass@@SIHPBD@Z",
+   "target": "00716640",
+   "function_entry": true
+  },
+  {
+   "site": "0069d850",
+   "symbol": "?Speech_Cancel@@YIXH@Z",
+   "target": "00715e80",
+   "function_entry": true
+  },
+  {
+   "site": "0069d850",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "0069d850",
+   "symbol": "?Find_Index@VoxClass@@SIHPBD@Z",
+   "target": "00716640",
+   "function_entry": true
+  },
+  {
+   "site": "0069d850",
+   "symbol": "?Speech_Cancel@@YIXH@Z",
+   "target": "00715e80",
+   "function_entry": true
+  },
+  {
+   "site": "0042e370",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "0042e370",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "0067c530",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00444660",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  },
+  {
+   "site": "00444660",
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "target": "00715b40",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVVoxClass@@@@UAEPAXI@Z",
+   "address": "00716d30"
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVVoxClass@@@@UAEPAXI@Z",
+   "address": "00716ce0"
+  },
+  {
+   "symbol": "?Audio_Get_Device@@YAPAUAudioDevice@@XZ",
+   "address": "00406f40"
+  },
+  {
+   "symbol": "?Audio_Global_Levels@@3PAPAUAudioLevelSet@@A",
+   "address": "0083144c"
+  },
+  {
+   "symbol": "?Audio_List_Add_Tail@@YIXPAUAudioListNode@@0@Z",
+   "address": "00407350"
+  },
+  {
+   "symbol": "?Audio_List_First@@YIPAUAudioListNode@@PAU1@@Z",
+   "address": "004072f0"
+  },
+  {
+   "symbol": "?Audio_List_Init@@YIXPAUAudioListNode@@@Z",
+   "address": "004071f0"
+  },
+  {
+   "symbol": "?Audio_List_Init_Node@@YIXPAUAudioListNode@@@Z",
+   "address": "00407200"
+  },
+  {
+   "symbol": "?Audio_List_Next@@YIPAUAudioListNode@@PAU1@@Z",
+   "address": "00407310"
+  },
+  {
+   "symbol": "?Audio_List_Remove@@YIXPAUAudioListNode@@@Z",
+   "address": "00407380"
+  },
+  {
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "address": "004092d0"
+  },
+  {
+   "symbol": "?Audio_Stream_Create@@YIPAUAudioStreamPlayer@@PAUAudioDevice@@_J@Z",
+   "address": "00407790"
+  },
+  {
+   "symbol": "?Audio_Stream_Destroy@@YIXPAUAudioStreamPlayer@@@Z",
+   "address": "004079c0"
+  },
+  {
+   "symbol": "?Audio_Stream_Is_Playing@@YIHPAUAudioStreamPlayer@@@Z",
+   "address": "00407f90"
+  },
+  {
+   "symbol": "?Audio_Stream_Open@@YIHPAUAudioStreamPlayer@@PBDH@Z",
+   "address": "00407a90"
+  },
+  {
+   "symbol": "?Audio_Stream_Pause@@YIXPAUAudioStreamPlayer@@@Z",
+   "address": "00407ed0"
+  },
+  {
+   "symbol": "?Audio_Stream_Resume@@YIXPAUAudioStreamPlayer@@@Z",
+   "address": "00407f20"
+  },
+  {
+   "symbol": "?Audio_Stream_Set_Levels_94@@YIXPAUAudioStreamPlayer@@PAUAudioLevelSet@@@Z",
+   "address": "00407a70"
+  },
+  {
+   "symbol": "?Audio_Stream_Set_Levels_9c@@YIXPAUAudioStreamPlayer@@PAUAudioLevelSet@@@Z",
+   "address": "00407a80"
+  },
+  {
+   "symbol": "?Audio_Stream_Set_Name@@YIXPAUAudioStreamPlayer@@PBD@Z",
+   "address": "00407fa0"
+  },
+  {
+   "symbol": "?Audio_Stream_Stop@@YIXPAUAudioStreamPlayer@@@Z",
+   "address": "00407e60"
+  },
+  {
+   "symbol": "?Audio_Stream_Stop_Time@@YI_JPAUAudioStreamPlayer@@@Z",
+   "address": "00408060"
+  },
+  {
+   "symbol": "?Entry_Count@INIClass@@QBEHPBD@Z",
+   "address": "0050cb00"
+  },
+  {
+   "symbol": "?Find_Section@INIClass@@QBEPAUINISection@1@PBD@Z",
+   "address": "0050c9b0"
+  },
+  {
+   "symbol": "?Get_Double@INIClass@@QBENPBD0N@Z",
+   "address": "0050e3a0"
+  },
+  {
+   "symbol": "?Get_Entry@INIClass@@QBEPBDPBDH@Z",
+   "address": "0050ce00"
+  },
+  {
+   "symbol": "?Get_String@INIClass@@QBEHPBD00PADH@Z",
+   "address": "0050e9a0"
+  },
+  {
+   "symbol": "?unknown_call_407f20@UnknownSound_007169f0@@QAEXXZ",
+   "address": "00407f20"
+  },
+  {
+   "symbol": "?unknown_check_406f30@@YAHXZ",
+   "address": "00406f30"
+  },
+  {
+   "symbol": "?unknown_count_ad0910@@3HC",
+   "address": "00ad0910"
+  },
+  {
+   "symbol": "?unknown_countdown_ad08c8@@3HC",
+   "address": "00ad08c8"
+  },
+  {
+   "symbol": "?unknown_flag_a40d0c@@3DA",
+   "address": "00a40d0c"
+  },
+  {
+   "symbol": "?unknown_flag_ad0958@@3HA",
+   "address": "00ad0958"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_object_ad095c@@3PAUUnknownSound_007169f0@@A",
+   "address": "00ad095c"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_taunt_stream_ad0968@@3PAUAudioStreamPlayer@@A",
+   "address": "00ad0968"
+  },
+  {
+   "symbol": "?unknown_vox_ad0878@@3HC",
+   "address": "00ad0878"
+  },
+  {
+   "symbol": "?unknown_vox_delay_ad0960@@3_KA",
+   "address": "00ad0960"
+  },
+  {
+   "symbol": "?unknown_vox_enabled_ad094c@@3HA",
+   "address": "00ad094c"
+  },
+  {
+   "symbol": "?unknown_vox_list_ad0868@@3UAudioListNode@@A",
+   "address": "00ad0868"
+  },
+  {
+   "symbol": "?unknown_vox_list_ad0890@@3UAudioListNode@@A",
+   "address": "00ad0890"
+  },
+  {
+   "symbol": "?unknown_vox_lists_ad08e0@@3PAUAudioListNode@@A",
+   "address": "00ad08e0"
+  },
+  {
+   "symbol": "?unknown_vox_pending_ad0948@@3PAUVoxSpeech@@A",
+   "address": "00ad0948"
+  },
+  {
+   "symbol": "?unknown_vox_playing_ad0954@@3PAVVoxClass@@A",
+   "address": "00ad0954"
+  },
+  {
+   "symbol": "?unknown_vox_priority_ad0880@@3HA",
+   "address": "00ad0880"
+  },
+  {
+   "symbol": "?unknown_vox_serial_ad0950@@3HA",
+   "address": "00ad0950"
+  },
+  {
+   "symbol": "?unknown_vox_stream_ad095c@@3PAUAudioStreamPlayer@@A",
+   "address": "00ad095c"
+  },
+  {
+   "symbol": "?unknown_vox_type_ad0858@@3HA",
+   "address": "00ad0858"
+  },
+  {
+   "symbol": "?unknown_vox_volume_7f9bd4@@3HA",
+   "address": "007f9bd4"
+  },
+  {
+   "symbol": "_DAT_00ad0934",
+   "address": "00ad0934"
+  },
+  {
+   "symbol": "_DAT_00ad0934",
+   "address": "00ad0934"
+  },
+  {
+   "symbol": "_DAT_00ad0940",
+   "address": "00ad0940"
+  },
+  {
+   "symbol": "_DAT_00ad0940",
+   "address": "00ad0940"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__stricmp",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "_atexit",
+   "address": "0078298a"
+  },
+  {
+   "symbol": "_release_buffer_716ce0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_716d30",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_716ce0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_716d30",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_s__none__007cdecc",
+   "address": "007cdecc"
+  },
+  {
+   "symbol": "_sprintf",
+   "address": "007820f4"
+  },
+  {
+   "symbol": "_strncpy",
+   "address": "007823d0"
+  },
+  {
+   "symbol": "_vtable_716ce0",
+   "address": "007aea04"
+  },
+  {
+   "symbol": "_vtable_716d30",
+   "address": "007aea04"
+  }
+ ],
+ "route": "A",
+ "unit": "vox.cpp",
+ "form": "include blocks held",
+ "switches": [
+  "VECTOR_IMPLEMENT_ALL"
+ ],
+ "include_blocks": [
+  {
+   "before": "007168c0",
+   "lines": 1
+  }
+ ],
+ "held_rows": [
+  {
+   "entry": "00715650",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "00715690",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "007158a0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "007158c0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "00715b40",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "00715e80",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "007160e0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "00716190",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "007163f0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "00716590",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "00716640",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "007166c0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "00716740",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "007167d0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  }
+ ],
+ "joined": [
+  {
+   "entry": "00716a20",
+   "bytes": 42,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "00716a50",
+   "bytes": 27,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "00716a70",
+   "bytes": 13,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "00716a80",
+   "bytes": 62,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "00716ac0",
+   "bytes": 174,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "00716b70",
+   "bytes": 39,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "00716ba0",
+   "bytes": 51,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "00716be0",
+   "bytes": 27,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "00716c00",
+   "bytes": 176,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "00716cb0",
+   "bytes": 38,
+   "population": "population-1622",
+   "bound": "own frozen bound (population-1622)"
+  },
+  {
+   "entry": "00716690",
+   "bytes": 33,
+   "population": "population-123",
+   "bound": "own frozen bound (population-123)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00716720",
+   "bytes": 28,
+   "population": "population-148",
+   "bound": "own frozen bound (population-148)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00716770",
+   "bytes": 16,
+   "population": "population-2224",
+   "bound": "own frozen bound (population-2224)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00716940",
+   "bytes": 12,
+   "population": "population-4352",
+   "bound": "own frozen bound (population-4352)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "007169f0",
+   "bytes": 48,
+   "population": "population-4391",
+   "bound": "own frozen bound (population-4391)"
+  },
+  {
+   "entry": "00716ce0",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00716d30",
+   "bytes": 73,
+   "population": "population-12",
+   "bound": "own frozen bound (population-12)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "00716790",
+   "bytes": 57,
+   "population": "population-4391",
+   "source": "src/recovered/vox/Speech_Save.cpp",
+   "cause": "frozen in another population's inventory pass (population-4391)"
+  },
+  {
+   "kind": "split",
+   "entry": "007168f0",
+   "bytes": 21,
+   "population": "population-4391",
+   "source": "src/recovered/vox/unknown_count_if_active.cpp",
+   "cause": "frozen in another population's inventory pass (population-4391)"
+  }
+ ],
+ "unit_functions": 68,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "0062f170",
+   "target": "00716640",
+   "symbol": "?Unknown_00716640@@YIHPBD@Z",
+   "module_symbol": "?Find_Index@VoxClass@@SIHPBD@Z"
+  },
+  {
+   "site": "00732870",
+   "target": "00716640",
+   "symbol": "?Unknown_00716640@@YIHPBD@Z",
+   "module_symbol": "?Find_Index@VoxClass@@SIHPBD@Z"
+  },
+  {
+   "site": "00406ad0",
+   "target": "007156d0",
+   "symbol": "?unknown_007156d0@@YAXXZ",
+   "module_symbol": "?Speech_Init@@YAHXZ"
+  },
+  {
+   "site": "00406ad0",
+   "target": "00715f10",
+   "symbol": "?unknown_00715f10@@YAXXZ",
+   "module_symbol": "?Taunt_Init@@YAHXZ"
+  },
+  {
+   "site": "00406e40",
+   "target": "00716980",
+   "symbol": "?unknown_00716980@@YAXXZ",
+   "module_symbol": "?Speech_Hold@@YAXXZ"
+  },
+  {
+   "site": "00406e40",
+   "target": "007168d0",
+   "symbol": "?unknown_007168d0@@YAXXZ",
+   "module_symbol": "?Taunt_Pause@@YAXXZ"
+  },
+  {
+   "site": "00406e70",
+   "target": "007168e0",
+   "symbol": "?unknown_007168e0@@YAXXZ",
+   "module_symbol": "?Taunt_Resume@@YAXXZ"
+  },
+  {
+   "site": "00406e70",
+   "target": "007169f0",
+   "symbol": "?unknown_007169f0@@YAXXZ",
+   "module_symbol": "?unknown_tick_sound@@YAXXZ"
+  },
+  {
+   "site": "00406ea0",
+   "target": "00715ba0",
+   "symbol": "?unknown_00715ba0@@YAXXZ",
+   "module_symbol": "?Speech_Update@@YAXXZ"
+  },
+  {
+   "site": "00633c40",
+   "target": "00716690",
+   "symbol": "?Unknown_00716690@@YI_NH@Z",
+   "module_symbol": "?FUN_00716690@seed_00716690@@YI_NH@Z"
+  },
+  {
+   "site": "00633c40",
+   "target": "00716940",
+   "symbol": "?Unknown_00716940@@YAXXZ",
+   "module_symbol": "?get@Leaf_716940@@QAEXXZ"
+  },
+  {
+   "site": "0051b5f0",
+   "target": "00715fb0",
+   "symbol": "?Unknown_Play_Taunt_00715fb0@@YIXD@Z",
+   "module_symbol": "?Taunt_Play@@YIHH@Z"
+  },
+  {
+   "site": "00406c80",
+   "target": "00715f80",
+   "symbol": "?unknown_00715f80@@YAXXZ",
+   "module_symbol": "?Taunt_Shutdown@@YAXXZ"
+  },
+  {
+   "site": "00626b30",
+   "target": "00715fb0",
+   "symbol": "?Unknown_Play_Taunt_00715fb0@@YIXD@Z",
+   "module_symbol": "?Taunt_Play@@YIHH@Z"
+  },
+  {
+   "site": "00482110",
+   "target": "00715fb0",
+   "symbol": "?Unknown_Play_Taunt_00715fb0@@YIXD@Z",
+   "module_symbol": "?Taunt_Play@@YIHH@Z"
+  }
+ ],
+ "stand_in_reference_count": 15,
+ "residual_split": {
+  "rows": 2,
+  "bytes": 78
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

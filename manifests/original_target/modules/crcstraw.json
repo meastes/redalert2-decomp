@@ -1,0 +1,83 @@
+{
+ "module": "crcstraw",
+ "source": "src/recovered/crcstraw.cpp",
+ "header": null,
+ "population": "population-1897",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 397,
+ "code": [
+  {
+   "symbol": "?Get@UnknownCRCStraw@@UAEHPAXH@Z",
+   "entry": "00494290",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Value_004942d0@UnknownCRCStraw@@QAEKXZ",
+   "entry": "004942d0",
+   "body_bytes": 68,
+   "padding_bytes": 12
+  }
+ ],
+ "code_bytes": 144,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [],
+ "references_out": [
+  {
+   "symbol": "??RCRCEngine@@QAEJPBXH@Z",
+   "address": "00493fc0"
+  },
+  {
+   "symbol": "?CRC_Memory_00494190@@YIKPBXIK@Z",
+   "address": "00494190"
+  },
+  {
+   "symbol": "?Get@Straw@@UAEHPAXH@Z",
+   "address": "0069b0a0"
+  },
+  {
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "address": "0060eaf0"
+  }
+ ],
+ "route": "A",
+ "unit": "crcstraw.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00494290",
+   "lines": 1
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 2,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

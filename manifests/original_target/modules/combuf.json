@@ -1,0 +1,633 @@
+{
+ "module": "combuf",
+ "source": "src/recovered/combuf.cpp",
+ "header": null,
+ "population": "population-602",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 73,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "004800a0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??0CommBufferClass@@QAE@HHHH@Z",
+   "entry": "004800c0",
+   "body_bytes": 269,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??1CommBufferClass@@UAE@XZ",
+   "entry": "004801d0",
+   "body_bytes": 170,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Init@CommBufferClass@@QAEXXZ",
+   "entry": "00480280",
+   "body_bytes": 239,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Init_Send_Queue@CommBufferClass@@QAEXXZ",
+   "entry": "00480370",
+   "body_bytes": 120,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Queue_Send@CommBufferClass@@QAEHPAXH0HG@Z",
+   "entry": "004803f0",
+   "body_bytes": 339,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?UnQueue_Send@CommBufferClass@@QAEHPAXPAHH01PAG@Z",
+   "entry": "00480550",
+   "body_bytes": 424,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Get_Send@CommBufferClass@@QAEPAUSendQueueType@@H@Z",
+   "entry": "00480700",
+   "body_bytes": 34,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Queue_Receive@CommBufferClass@@QAEHPAXH0H@Z",
+   "entry": "00480730",
+   "body_bytes": 310,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?UnQueue_Receive@CommBufferClass@@QAEHPAXPAHH01@Z",
+   "entry": "00480870",
+   "body_bytes": 331,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Get_Receive@CommBufferClass@@QAEPAUReceiveQueueType@@H@Z",
+   "entry": "004809c0",
+   "body_bytes": 34,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Add_Delay@CommBufferClass@@QAEXK@Z",
+   "entry": "004809f0",
+   "body_bytes": 98,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Avg_Delay@CommBufferClass@@QAEKXZ",
+   "entry": "00480a60",
+   "body_bytes": 4,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Max_Delay@CommBufferClass@@QAEKXZ",
+   "entry": "00480a70",
+   "body_bytes": 4,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Reset_Delay@CommBufferClass@@QAEX_N@Z",
+   "entry": "00480a80",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Configure_Debug@CommBufferClass@@QAEXHHHHH@Z",
+   "entry": "00480ab0",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "??_GCommBufferClass@@UAEPAXI@Z",
+   "entry": "00480ae0",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  }
+ ],
+ "code_bytes": 2656,
+ "data": [
+  {
+   "symbol": "??_7CommBufferClass@@6B@",
+   "address": "0079ddb0",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 12
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CommBufferClass@@8",
+   "address": "007b50c8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 7
+  },
+  {
+   "symbol": "??_R2CommBufferClass@@8",
+   "address": "007b50e0",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 8
+  },
+  {
+   "symbol": "??_R3CommBufferClass@@8",
+   "address": "007b50e8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 9
+  },
+  {
+   "symbol": "??_R4CommBufferClass@@6B@",
+   "address": "007b50f8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 11
+  },
+  {
+   "symbol": "??_R0?AVCommBufferClass@@@8",
+   "address": "007d3030",
+   "bytes": 30,
+   "kind": "rtti",
+   "section": 10
+  },
+  {
+   "symbol": "??_C@_0CE@GELF@buflen?5?$DO?5MaxPacketSize?5by?5?$CFd?5byt@",
+   "address": "007d3050",
+   "bytes": 36,
+   "kind": "string",
+   "section": 23
+  },
+  {
+   "symbol": "??_C@_0CE@DDIM@Queue_Send?5?9?5No?5room?5in?5send?5que@",
+   "address": "007d3074",
+   "bytes": 36,
+   "kind": "string",
+   "section": 24
+  },
+  {
+   "symbol": "??_C@_0EC@DB@Can?8t?5queue?5incoming?5packet?5?9?5Un@",
+   "address": "007d3098",
+   "bytes": 66,
+   "kind": "string",
+   "section": 31
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7CommBufferClass@@6B@",
+   "address": "0079ddb0",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CommBufferClass@@8",
+   "address": "007b50c8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2CommBufferClass@@8",
+   "address": "007b50e0",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3CommBufferClass@@8",
+   "address": "007b50e8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4CommBufferClass@@6B@",
+   "address": "007b50f8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVCommBufferClass@@@8",
+   "address": "007d3030",
+   "bytes": 30,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0CE@GELF@buflen?5?$DO?5MaxPacketSize?5by?5?$CFd?5byt@",
+   "address": "007d3050",
+   "bytes": 36,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CE@DDIM@Queue_Send?5?9?5No?5room?5in?5send?5que@",
+   "address": "007d3074",
+   "bytes": 36,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0EC@DB@Can?8t?5queue?5incoming?5packet?5?9?5Un@",
+   "address": "007d3098",
+   "bytes": 66,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00526c10",
+   "symbol": "?Avg_Delay@CommBufferClass@@QAEKXZ",
+   "target": "00480a60",
+   "function_entry": true
+  },
+  {
+   "site": "00480e20",
+   "symbol": "??0CommBufferClass@@QAE@HHHH@Z",
+   "target": "004800c0",
+   "function_entry": true
+  },
+  {
+   "site": "00480ed0",
+   "symbol": "?Init@CommBufferClass@@QAEXXZ",
+   "target": "00480280",
+   "function_entry": true
+  },
+  {
+   "site": "00480f00",
+   "symbol": "?Queue_Send@CommBufferClass@@QAEHPAXH0HG@Z",
+   "target": "004803f0",
+   "function_entry": true
+  },
+  {
+   "site": "004812e0",
+   "symbol": "?Get_Receive@CommBufferClass@@QAEPAUReceiveQueueType@@H@Z",
+   "target": "004809c0",
+   "function_entry": true
+  },
+  {
+   "site": "004813a0",
+   "symbol": "?Get_Send@CommBufferClass@@QAEPAUSendQueueType@@H@Z",
+   "target": "00480700",
+   "function_entry": true
+  },
+  {
+   "site": "004813a0",
+   "symbol": "?Add_Delay@CommBufferClass@@QAEXK@Z",
+   "target": "004809f0",
+   "function_entry": true
+  },
+  {
+   "site": "004813a0",
+   "symbol": "?UnQueue_Send@CommBufferClass@@QAEHPAXPAHH01PAG@Z",
+   "target": "00480550",
+   "function_entry": true
+  },
+  {
+   "site": "004813a0",
+   "symbol": "?Get_Send@CommBufferClass@@QAEPAUSendQueueType@@H@Z",
+   "target": "00480700",
+   "function_entry": true
+  },
+  {
+   "site": "00481560",
+   "symbol": "?Get_Receive@CommBufferClass@@QAEPAUReceiveQueueType@@H@Z",
+   "target": "004809c0",
+   "function_entry": true
+  },
+  {
+   "site": "00481560",
+   "symbol": "?UnQueue_Receive@CommBufferClass@@QAEHPAXPAHH01@Z",
+   "target": "00480870",
+   "function_entry": true
+  },
+  {
+   "site": "005242f0",
+   "symbol": "?Queue_Send@CommBufferClass@@QAEHPAXH0HG@Z",
+   "target": "004803f0",
+   "function_entry": true
+  },
+  {
+   "site": "00524670",
+   "symbol": "?Get_Receive@CommBufferClass@@QAEPAUReceiveQueueType@@H@Z",
+   "target": "004809c0",
+   "function_entry": true
+  },
+  {
+   "site": "00524700",
+   "symbol": "?Get_Receive@CommBufferClass@@QAEPAUReceiveQueueType@@H@Z",
+   "target": "004809c0",
+   "function_entry": true
+  },
+  {
+   "site": "00524790",
+   "symbol": "?Get_Receive@CommBufferClass@@QAEPAUReceiveQueueType@@H@Z",
+   "target": "004809c0",
+   "function_entry": true
+  },
+  {
+   "site": "00524830",
+   "symbol": "?Get_Receive@CommBufferClass@@QAEPAUReceiveQueueType@@H@Z",
+   "target": "004809c0",
+   "function_entry": true
+  },
+  {
+   "site": "00524830",
+   "symbol": "?UnQueue_Receive@CommBufferClass@@QAEHPAXPAHH01@Z",
+   "target": "00480870",
+   "function_entry": true
+  },
+  {
+   "site": "00524a30",
+   "symbol": "?Get_Send@CommBufferClass@@QAEPAUSendQueueType@@H@Z",
+   "target": "00480700",
+   "function_entry": true
+  },
+  {
+   "site": "00524a30",
+   "symbol": "?UnQueue_Send@CommBufferClass@@QAEHPAXPAHH01PAG@Z",
+   "target": "00480550",
+   "function_entry": true
+  },
+  {
+   "site": "00524aa0",
+   "symbol": "?Get_Send@CommBufferClass@@QAEPAUSendQueueType@@H@Z",
+   "target": "00480700",
+   "function_entry": true
+  },
+  {
+   "site": "00524aa0",
+   "symbol": "?UnQueue_Send@CommBufferClass@@QAEHPAXPAHH01PAG@Z",
+   "target": "00480550",
+   "function_entry": true
+  },
+  {
+   "site": "00526bc0",
+   "symbol": "?Avg_Delay@CommBufferClass@@QAEKXZ",
+   "target": "00480a60",
+   "function_entry": true
+  },
+  {
+   "site": "00526bc0",
+   "symbol": "?Avg_Delay@CommBufferClass@@QAEKXZ",
+   "target": "00480a60",
+   "function_entry": true
+  },
+  {
+   "site": "00526c30",
+   "symbol": "?Avg_Delay@CommBufferClass@@QAEKXZ",
+   "target": "00480a60",
+   "function_entry": true
+  },
+  {
+   "site": "00526c50",
+   "symbol": "?Avg_Delay@CommBufferClass@@QAEKXZ",
+   "target": "00480a60",
+   "function_entry": true
+  },
+  {
+   "site": "00526c70",
+   "symbol": "?Avg_Delay@CommBufferClass@@QAEKXZ",
+   "target": "00480a60",
+   "function_entry": true
+  },
+  {
+   "site": "00527630",
+   "symbol": "?Reset_Delay@CommBufferClass@@QAEX_N@Z",
+   "target": "00480a80",
+   "function_entry": true
+  },
+  {
+   "site": "00527630",
+   "symbol": "?Reset_Delay@CommBufferClass@@QAEX_N@Z",
+   "target": "00480a80",
+   "function_entry": true
+  },
+  {
+   "site": "00527630",
+   "symbol": "?Reset_Delay@CommBufferClass@@QAEX_N@Z",
+   "target": "00480a80",
+   "function_entry": true
+  },
+  {
+   "site": "00527630",
+   "symbol": "?Reset_Delay@CommBufferClass@@QAEX_N@Z",
+   "target": "00480a80",
+   "function_entry": true
+  },
+  {
+   "site": "005276a0",
+   "symbol": "?Get_Send@CommBufferClass@@QAEPAUSendQueueType@@H@Z",
+   "target": "00480700",
+   "function_entry": true
+  },
+  {
+   "site": "00527750",
+   "symbol": "?Configure_Debug@CommBufferClass@@QAEXHHHHH@Z",
+   "target": "00480ab0",
+   "function_entry": true
+  },
+  {
+   "site": "00527750",
+   "symbol": "?Configure_Debug@CommBufferClass@@QAEXHHHHH@Z",
+   "target": "00480ab0",
+   "function_entry": true
+  },
+  {
+   "site": "00481000",
+   "symbol": "?Get_Send@CommBufferClass@@QAEPAUSendQueueType@@H@Z",
+   "target": "00480700",
+   "function_entry": true
+  },
+  {
+   "site": "00481000",
+   "symbol": "?Queue_Receive@CommBufferClass@@QAEHPAXH0H@Z",
+   "target": "00480730",
+   "function_entry": true
+  },
+  {
+   "site": "00481000",
+   "symbol": "?Get_Receive@CommBufferClass@@QAEPAUReceiveQueueType@@H@Z",
+   "target": "004809c0",
+   "function_entry": true
+  },
+  {
+   "site": "00481000",
+   "symbol": "?Queue_Receive@CommBufferClass@@QAEHPAXH0H@Z",
+   "target": "00480730",
+   "function_entry": true
+  },
+  {
+   "site": "00481000",
+   "symbol": "?Get_Receive@CommBufferClass@@QAEPAUReceiveQueueType@@H@Z",
+   "target": "004809c0",
+   "function_entry": true
+  },
+  {
+   "site": "005d03c0",
+   "symbol": "?Init_Send_Queue@CommBufferClass@@QAEXXZ",
+   "target": "00480370",
+   "function_entry": true
+  },
+  {
+   "site": "005d08e0",
+   "symbol": "?Avg_Delay@CommBufferClass@@QAEKXZ",
+   "target": "00480a60",
+   "function_entry": true
+  },
+  {
+   "site": "005d0900",
+   "symbol": "?Reset_Delay@CommBufferClass@@QAEX_N@Z",
+   "target": "00480a80",
+   "function_entry": true
+  },
+  {
+   "site": "005d0920",
+   "symbol": "?Get_Send@CommBufferClass@@QAEPAUSendQueueType@@H@Z",
+   "target": "00480700",
+   "function_entry": true
+  },
+  {
+   "site": "005d0970",
+   "symbol": "?Configure_Debug@CommBufferClass@@QAEXHHHHH@Z",
+   "target": "00480ab0",
+   "function_entry": true
+  },
+  {
+   "site": "00526c90",
+   "symbol": "?Max_Delay@CommBufferClass@@QAEKXZ",
+   "target": "00480a70",
+   "function_entry": true
+  },
+  {
+   "site": "00526c90",
+   "symbol": "?Avg_Delay@CommBufferClass@@QAEKXZ",
+   "target": "00480a60",
+   "function_entry": true
+  },
+  {
+   "site": "00526d90",
+   "symbol": "?Avg_Delay@CommBufferClass@@QAEKXZ",
+   "target": "00480a60",
+   "function_entry": true
+  },
+  {
+   "site": "00526d90",
+   "symbol": "?Avg_Delay@CommBufferClass@@QAEKXZ",
+   "target": "00480a60",
+   "function_entry": true
+  },
+  {
+   "site": "00526d90",
+   "symbol": "?Max_Delay@CommBufferClass@@QAEKXZ",
+   "target": "00480a70",
+   "function_entry": true
+  },
+  {
+   "site": "00524870",
+   "symbol": "?Get_Receive@CommBufferClass@@QAEPAUReceiveQueueType@@H@Z",
+   "target": "004809c0",
+   "function_entry": true
+  },
+  {
+   "site": "00524870",
+   "symbol": "?UnQueue_Receive@CommBufferClass@@QAEHPAXPAHH01@Z",
+   "target": "00480870",
+   "function_entry": true
+  },
+  {
+   "site": "005243d0",
+   "symbol": "?Get_Send@CommBufferClass@@QAEPAUSendQueueType@@H@Z",
+   "target": "00480700",
+   "function_entry": true
+  },
+  {
+   "site": "005243d0",
+   "symbol": "?Queue_Receive@CommBufferClass@@QAEHPAXH0H@Z",
+   "target": "00480730",
+   "function_entry": true
+  },
+  {
+   "site": "005243d0",
+   "symbol": "?Queue_Receive@CommBufferClass@@QAEHPAXH0H@Z",
+   "target": "00480730",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??BSystemTimerClass@@QBEJXZ",
+   "address": "0069a430"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+   "address": "00839980"
+  }
+ ],
+ "route": "A",
+ "unit": "combuf.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "004800a0",
+   "lines": 2
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "00480b00",
+   "bytes": 23,
+   "population": "population-09",
+   "source": "src/recovered/00480b00.cpp",
+   "cause": "held by population-09; not joined: differs under the unit's state (9 bytes differ)"
+  }
+ ],
+ "unit_functions": 18,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 1,
+  "bytes": 23
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

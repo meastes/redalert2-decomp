@@ -13,8 +13,8 @@ class SubTitle {
 public:
     SubTitle();                                                                    // 0x0069B0C0
     ~SubTitle();                                                                   // 0x0069B0F0
-    void Set_Color(unsigned char red, unsigned char green, unsigned char blue);    // 0x0069B100
-    void Set_Text(unsigned short const *text);                                     // 0x0069B120
+    void Set_RGB_Color(unsigned char red, unsigned char green, unsigned char blue);    // 0x0069B100
+    void Set_Caption(unsigned short const *text);                                  // 0x0069B120
 
     void Set_Display_Time(unsigned long time) { DisplayTime = time; }
     unsigned long Get_Display_Time() const { return DisplayTime; }

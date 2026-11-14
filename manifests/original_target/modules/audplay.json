@@ -1,0 +1,1361 @@
+{
+ "module": "audplay",
+ "source": "src/recovered/audplay.cpp",
+ "header": null,
+ "population": "population-3431",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 688,
+ "code": [
+  {
+   "symbol": "?Audio_Streamer_Init@@YIHXZ",
+   "entry": "00407480",
+   "body_bytes": 302,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Audio_Streamer_Proc@@YGKPAX@Z",
+   "entry": "004075b0",
+   "body_bytes": 254,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Audio_Streamer_Shutdown@@YAXXZ",
+   "entry": "004076b0",
+   "body_bytes": 218,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Audio_Stream_Create@@YIPAUAudioStreamPlayer@@PAUAudioDevice@@_J@Z",
+   "entry": "00407790",
+   "body_bytes": 347,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Audio_Stream_Next_Block@@YIHPAUAudioChannel@@@Z",
+   "entry": "004078f0",
+   "body_bytes": 97,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Audio_Stream_Channel_Done@@YIHPAUAudioChannel@@@Z",
+   "entry": "00407960",
+   "body_bytes": 46,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Audio_Stream_Channel_End@@YIHPAUAudioChannel@@@Z",
+   "entry": "00407990",
+   "body_bytes": 46,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Audio_Stream_Destroy@@YIXPAUAudioStreamPlayer@@@Z",
+   "entry": "004079c0",
+   "body_bytes": 170,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Audio_Stream_Set_Levels_94@@YIXPAUAudioStreamPlayer@@PAUAudioLevelSet@@@Z",
+   "entry": "00407a70",
+   "body_bytes": 10,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Audio_Stream_Set_Levels_9c@@YIXPAUAudioStreamPlayer@@PAUAudioLevelSet@@@Z",
+   "entry": "00407a80",
+   "body_bytes": 10,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Audio_Stream_Open@@YIHPAUAudioStreamPlayer@@PBDH@Z",
+   "entry": "00407a90",
+   "body_bytes": 975,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Audio_Stream_Stop@@YIXPAUAudioStreamPlayer@@@Z",
+   "entry": "00407e60",
+   "body_bytes": 52,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Audio_Stream_Hold@@YIXPAUAudioStreamPlayer@@@Z",
+   "entry": "00407ea0",
+   "body_bytes": 14,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Audio_Stream_Release@@YIXPAUAudioStreamPlayer@@@Z",
+   "entry": "00407eb0",
+   "body_bytes": 28,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Audio_Stream_Pause@@YIXPAUAudioStreamPlayer@@@Z",
+   "entry": "00407ed0",
+   "body_bytes": 79,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Audio_Stream_Resume@@YIXPAUAudioStreamPlayer@@@Z",
+   "entry": "00407f20",
+   "body_bytes": 103,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Audio_Stream_Is_Playing@@YIHPAUAudioStreamPlayer@@@Z",
+   "entry": "00407f90",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Audio_Stream_Set_Name@@YIXPAUAudioStreamPlayer@@PBD@Z",
+   "entry": "00407fa0",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Audio_Stream_Name@@YIPADPAUAudioStreamPlayer@@@Z",
+   "entry": "00407fc0",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Audio_Stream_Fade_In@@YIXPAUAudioStreamPlayer@@@Z",
+   "entry": "00407fd0",
+   "body_bytes": 16,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Audio_Stream_Fade_Out@@YIXPAUAudioStreamPlayer@@@Z",
+   "entry": "00407fe0",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Audio_Stream_Is_Fading@@YIHPAUAudioStreamPlayer@@@Z",
+   "entry": "00407ff0",
+   "body_bytes": 28,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Audio_Stream_Wait@@YIXPAUAudioStreamPlayer@@@Z",
+   "entry": "00408010",
+   "body_bytes": 68,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Audio_Stream_Stop_Time@@YI_JPAUAudioStreamPlayer@@@Z",
+   "entry": "00408060",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Audio_Streams_Stop_Filling@@YIXXZ",
+   "entry": "00408070",
+   "body_bytes": 72,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Audio_Streams_Stop@@YAXXZ",
+   "entry": "004080c0",
+   "body_bytes": 96,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Audio_Streams_Hold@@YAXXZ",
+   "entry": "00408120",
+   "body_bytes": 48,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Audio_Streams_Release@@YAXXZ",
+   "entry": "00408150",
+   "body_bytes": 62,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Audio_Streams_Pause@@YAXXZ",
+   "entry": "00408190",
+   "body_bytes": 123,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Audio_Streams_Resume@@YAXXZ",
+   "entry": "00408210",
+   "body_bytes": 151,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Audio_Streams_Fade_Out@@YAXXZ",
+   "entry": "004082b0",
+   "body_bytes": 54,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Audio_Streams_Fade_In@@YAXXZ",
+   "entry": "004082f0",
+   "body_bytes": 57,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Audio_Streams_Done_Fading@@YAHXZ",
+   "entry": "00408330",
+   "body_bytes": 67,
+   "padding_bytes": 13
+  }
+ ],
+ "code_bytes": 3840,
+ "data": [
+  {
+   "symbol": "??_C@_0DL@CKCP@Unable?5to?5change?5the?5priority?5of@",
+   "address": "007ccd50",
+   "bytes": 59,
+   "kind": "string",
+   "section": 11
+  },
+  {
+   "symbol": "??_C@_0N@KBAM@Audio?5Stream?$AA@",
+   "address": "007ccd8c",
+   "bytes": 13,
+   "kind": "string",
+   "section": 18
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_C@_0DL@CKCP@Unable?5to?5change?5the?5priority?5of@",
+   "address": "007ccd50",
+   "bytes": 59,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@KBAM@Audio?5Stream?$AA@",
+   "address": "007ccd8c",
+   "bytes": 13,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "006e8270",
+   "symbol": "?unknown_stop_sample_407e60@@YIXPAX@Z",
+   "target": "00407e60",
+   "function_entry": true
+  },
+  {
+   "site": "006e8180",
+   "symbol": "?unknown_sample_407fe0@@YIXPAX@Z",
+   "target": "00407fe0",
+   "function_entry": true
+  },
+  {
+   "site": "007169f0",
+   "symbol": "?unknown_call_407f20@UnknownSound_007169f0@@QAEXXZ",
+   "target": "00407f20",
+   "function_entry": true
+  },
+  {
+   "site": "00715de0",
+   "symbol": "?Audio_Stream_Stop@@YIXPAUAudioStreamPlayer@@@Z",
+   "target": "00407e60",
+   "function_entry": true
+  },
+  {
+   "site": "00406ad0",
+   "symbol": "?Audio_Streamer_Init@@YIHXZ",
+   "target": "00407480",
+   "function_entry": true
+  },
+  {
+   "site": "00406e20",
+   "symbol": "?Audio_Streams_Stop@@YAXXZ",
+   "target": "004080c0",
+   "function_entry": true
+  },
+  {
+   "site": "00633c40",
+   "symbol": "?Unknown_00408330@@YAHXZ",
+   "target": "00408330",
+   "function_entry": true
+  },
+  {
+   "site": "00633c40",
+   "symbol": "?Unknown_004082B0@@YAXXZ",
+   "target": "004082b0",
+   "function_entry": true
+  },
+  {
+   "site": "00406c80",
+   "symbol": "?Audio_Streams_Stop@@YAXXZ",
+   "target": "004080c0",
+   "function_entry": true
+  },
+  {
+   "site": "00406c80",
+   "symbol": "?Audio_Streamer_Shutdown@@YAXXZ",
+   "target": "004076b0",
+   "function_entry": true
+  },
+  {
+   "site": "006e7cd0",
+   "symbol": "?unknown_sample_407ff0@@YIHPAX@Z",
+   "target": "00407ff0",
+   "function_entry": true
+  },
+  {
+   "site": "006e7cd0",
+   "symbol": "?unknown_stop_sample_407e60@@YIXPAX@Z",
+   "target": "00407e60",
+   "function_entry": true
+  },
+  {
+   "site": "006e7cd0",
+   "symbol": "?unknown_sample_407f90@@YIHPAX@Z",
+   "target": "00407f90",
+   "function_entry": true
+  },
+  {
+   "site": "006e7e20",
+   "symbol": "?unknown_sample_407ff0@@YIHPAX@Z",
+   "target": "00407ff0",
+   "function_entry": true
+  },
+  {
+   "site": "006e7e20",
+   "symbol": "?unknown_stop_sample_407e60@@YIXPAX@Z",
+   "target": "00407e60",
+   "function_entry": true
+  },
+  {
+   "site": "006e7e20",
+   "symbol": "?unknown_sample_407f90@@YIHPAX@Z",
+   "target": "00407f90",
+   "function_entry": true
+  },
+  {
+   "site": "006e7e20",
+   "symbol": "?unknown_sample_407fe0@@YIXPAX@Z",
+   "target": "00407fe0",
+   "function_entry": true
+  },
+  {
+   "site": "006e81a0",
+   "symbol": "?unknown_sample_407ff0@@YIHPAX@Z",
+   "target": "00407ff0",
+   "function_entry": true
+  },
+  {
+   "site": "006e81a0",
+   "symbol": "?unknown_stop_sample_407e60@@YIXPAX@Z",
+   "target": "00407e60",
+   "function_entry": true
+  },
+  {
+   "site": "006e81a0",
+   "symbol": "?unknown_sample_407f90@@YIHPAX@Z",
+   "target": "00407f90",
+   "function_entry": true
+  },
+  {
+   "site": "006e81a0",
+   "symbol": "?unknown_sample_407fe0@@YIXPAX@Z",
+   "target": "00407fe0",
+   "function_entry": true
+  },
+  {
+   "site": "006e81a0",
+   "symbol": "?unknown_stop_sample_407e60@@YIXPAX@Z",
+   "target": "00407e60",
+   "function_entry": true
+  },
+  {
+   "site": "007156d0",
+   "symbol": "?Audio_Stream_Create@@YIPAUAudioStreamPlayer@@PAUAudioDevice@@_J@Z",
+   "target": "00407790",
+   "function_entry": true
+  },
+  {
+   "site": "007156d0",
+   "symbol": "?Audio_Stream_Set_Name@@YIXPAUAudioStreamPlayer@@PBD@Z",
+   "target": "00407fa0",
+   "function_entry": true
+  },
+  {
+   "site": "007156d0",
+   "symbol": "?Audio_Stream_Set_Levels_94@@YIXPAUAudioStreamPlayer@@PAUAudioLevelSet@@@Z",
+   "target": "00407a70",
+   "function_entry": true
+  },
+  {
+   "site": "007156d0",
+   "symbol": "?Audio_Stream_Set_Levels_9c@@YIXPAUAudioStreamPlayer@@PAUAudioLevelSet@@@Z",
+   "target": "00407a80",
+   "function_entry": true
+  },
+  {
+   "site": "00715780",
+   "symbol": "?Audio_Stream_Stop@@YIXPAUAudioStreamPlayer@@@Z",
+   "target": "00407e60",
+   "function_entry": true
+  },
+  {
+   "site": "00715780",
+   "symbol": "?Audio_Stream_Destroy@@YIXPAUAudioStreamPlayer@@@Z",
+   "target": "004079c0",
+   "function_entry": true
+  },
+  {
+   "site": "007158c0",
+   "symbol": "?Audio_Stream_Stop@@YIXPAUAudioStreamPlayer@@@Z",
+   "target": "00407e60",
+   "function_entry": true
+  },
+  {
+   "site": "00715e20",
+   "symbol": "?Audio_Stream_Is_Playing@@YIHPAUAudioStreamPlayer@@@Z",
+   "target": "00407f90",
+   "function_entry": true
+  },
+  {
+   "site": "00715f10",
+   "symbol": "?Audio_Stream_Create@@YIPAUAudioStreamPlayer@@PAUAudioDevice@@_J@Z",
+   "target": "00407790",
+   "function_entry": true
+  },
+  {
+   "site": "00715f10",
+   "symbol": "?Audio_Stream_Set_Name@@YIXPAUAudioStreamPlayer@@PBD@Z",
+   "target": "00407fa0",
+   "function_entry": true
+  },
+  {
+   "site": "00715f10",
+   "symbol": "?Audio_Stream_Set_Levels_94@@YIXPAUAudioStreamPlayer@@PAUAudioLevelSet@@@Z",
+   "target": "00407a70",
+   "function_entry": true
+  },
+  {
+   "site": "00715f10",
+   "symbol": "?Audio_Stream_Set_Levels_9c@@YIXPAUAudioStreamPlayer@@PAUAudioLevelSet@@@Z",
+   "target": "00407a80",
+   "function_entry": true
+  },
+  {
+   "site": "00715f80",
+   "symbol": "?Audio_Stream_Stop@@YIXPAUAudioStreamPlayer@@@Z",
+   "target": "00407e60",
+   "function_entry": true
+  },
+  {
+   "site": "00715f80",
+   "symbol": "?Audio_Stream_Destroy@@YIXPAUAudioStreamPlayer@@@Z",
+   "target": "004079c0",
+   "function_entry": true
+  },
+  {
+   "site": "00715fb0",
+   "symbol": "?Audio_Stream_Open@@YIHPAUAudioStreamPlayer@@PBDH@Z",
+   "target": "00407a90",
+   "function_entry": true
+  },
+  {
+   "site": "007160d0",
+   "symbol": "?Audio_Stream_Stop@@YIXPAUAudioStreamPlayer@@@Z",
+   "target": "00407e60",
+   "function_entry": true
+  },
+  {
+   "site": "00716590",
+   "symbol": "?Audio_Stream_Stop@@YIXPAUAudioStreamPlayer@@@Z",
+   "target": "00407e60",
+   "function_entry": true
+  },
+  {
+   "site": "007168d0",
+   "symbol": "?Audio_Stream_Pause@@YIXPAUAudioStreamPlayer@@@Z",
+   "target": "00407ed0",
+   "function_entry": true
+  },
+  {
+   "site": "007168e0",
+   "symbol": "?Audio_Stream_Resume@@YIXPAUAudioStreamPlayer@@@Z",
+   "target": "00407f20",
+   "function_entry": true
+  },
+  {
+   "site": "00716980",
+   "symbol": "?Audio_Stream_Pause@@YIXPAUAudioStreamPlayer@@@Z",
+   "target": "00407ed0",
+   "function_entry": true
+  },
+  {
+   "site": "007169a0",
+   "symbol": "?Audio_Stream_Stop@@YIXPAUAudioStreamPlayer@@@Z",
+   "target": "00407e60",
+   "function_entry": true
+  },
+  {
+   "site": "00715ba0",
+   "symbol": "?Audio_Stream_Is_Playing@@YIHPAUAudioStreamPlayer@@@Z",
+   "target": "00407f90",
+   "function_entry": true
+  },
+  {
+   "site": "00715ba0",
+   "symbol": "?Audio_Stream_Stop_Time@@YI_JPAUAudioStreamPlayer@@@Z",
+   "target": "00408060",
+   "function_entry": true
+  },
+  {
+   "site": "00715ba0",
+   "symbol": "?Audio_Stream_Open@@YIHPAUAudioStreamPlayer@@PBDH@Z",
+   "target": "00407a90",
+   "function_entry": true
+  },
+  {
+   "site": "007167d0",
+   "symbol": "?Audio_Stream_Stop@@YIXPAUAudioStreamPlayer@@@Z",
+   "target": "00407e60",
+   "function_entry": true
+  },
+  {
+   "site": "005a09e0",
+   "symbol": "?Audio_Streams_Release@@YAXXZ",
+   "target": "00408150",
+   "function_entry": true
+  },
+  {
+   "site": "005a09e0",
+   "symbol": "?Audio_Streams_Resume@@YAXXZ",
+   "target": "00408210",
+   "function_entry": true
+  },
+  {
+   "site": "005a09e0",
+   "symbol": "?Audio_Streams_Fade_In@@YAXXZ",
+   "target": "004082f0",
+   "function_entry": true
+  },
+  {
+   "site": "005a0ac0",
+   "symbol": "?Audio_Streams_Release@@YAXXZ",
+   "target": "00408150",
+   "function_entry": true
+  },
+  {
+   "site": "005a0ac0",
+   "symbol": "?Audio_Streams_Resume@@YAXXZ",
+   "target": "00408210",
+   "function_entry": true
+  },
+  {
+   "site": "005a0ac0",
+   "symbol": "?Audio_Streams_Fade_In@@YAXXZ",
+   "target": "004082f0",
+   "function_entry": true
+  },
+  {
+   "site": "005a0b10",
+   "symbol": "?Audio_Streams_Hold@@YAXXZ",
+   "target": "00408120",
+   "function_entry": true
+  },
+  {
+   "site": "005a0b10",
+   "symbol": "?Audio_Streams_Pause@@YAXXZ",
+   "target": "00408190",
+   "function_entry": true
+  },
+  {
+   "site": "006e7890",
+   "symbol": "?Audio_Stream_Create@@YIPAUAudioStreamPlayer@@PAUAudioDevice@@_J@Z",
+   "target": "00407790",
+   "function_entry": true
+  },
+  {
+   "site": "006e7890",
+   "symbol": "?Audio_Stream_Set_Name@@YIXPAUAudioStreamPlayer@@PBD@Z",
+   "target": "00407fa0",
+   "function_entry": true
+  },
+  {
+   "site": "006e7890",
+   "symbol": "?Audio_Stream_Set_Levels_94@@YIXPAUAudioStreamPlayer@@PAUAudioLevelSet@@@Z",
+   "target": "00407a70",
+   "function_entry": true
+  },
+  {
+   "site": "006e7890",
+   "symbol": "?Audio_Stream_Set_Levels_9c@@YIXPAUAudioStreamPlayer@@PAUAudioLevelSet@@@Z",
+   "target": "00407a80",
+   "function_entry": true
+  },
+  {
+   "site": "006e7a70",
+   "symbol": "?unknown_sample_407fe0@@YIXPAX@Z",
+   "target": "00407fe0",
+   "function_entry": true
+  },
+  {
+   "site": "006e7a70",
+   "symbol": "?unknown_sample_408010@@YIXPAX@Z",
+   "target": "00408010",
+   "function_entry": true
+  },
+  {
+   "site": "006e7a70",
+   "symbol": "?unknown_stop_sample_407e60@@YIXPAX@Z",
+   "target": "00407e60",
+   "function_entry": true
+  },
+  {
+   "site": "006e7a70",
+   "symbol": "?unknown_sample_4079c0@@YIXPAX@Z",
+   "target": "004079c0",
+   "function_entry": true
+  },
+  {
+   "site": "006e82d0",
+   "symbol": "?unknown_sample_407ff0@@YIHPAX@Z",
+   "target": "00407ff0",
+   "function_entry": true
+  },
+  {
+   "site": "006e82d0",
+   "symbol": "?unknown_stop_sample_407e60@@YIXPAX@Z",
+   "target": "00407e60",
+   "function_entry": true
+  },
+  {
+   "site": "006e82d0",
+   "symbol": "?unknown_sample_407f90@@YIHPAX@Z",
+   "target": "00407f90",
+   "function_entry": true
+  },
+  {
+   "site": "006e7eb0",
+   "symbol": "?unknown_sample_407ff0@@YIHPAX@Z",
+   "target": "00407ff0",
+   "function_entry": true
+  },
+  {
+   "site": "006e7eb0",
+   "symbol": "?unknown_stop_sample_407e60@@YIXPAX@Z",
+   "target": "00407e60",
+   "function_entry": true
+  },
+  {
+   "site": "006e7eb0",
+   "symbol": "?unknown_sample_407f90@@YIHPAX@Z",
+   "target": "00407f90",
+   "function_entry": true
+  },
+  {
+   "site": "006e7eb0",
+   "symbol": "?unknown_stop_sample_407e60@@YIXPAX@Z",
+   "target": "00407e60",
+   "function_entry": true
+  },
+  {
+   "site": "006e7eb0",
+   "symbol": "?Audio_Stream_Open@@YIHPAUAudioStreamPlayer@@PBDH@Z",
+   "target": "00407a90",
+   "function_entry": true
+  },
+  {
+   "site": "006e7eb0",
+   "symbol": "?Audio_Stream_Open@@YIHPAUAudioStreamPlayer@@PBDH@Z",
+   "target": "00407a90",
+   "function_entry": true
+  },
+  {
+   "site": "006e7eb0",
+   "symbol": "?unknown_sample_407ff0@@YIHPAX@Z",
+   "target": "00407ff0",
+   "function_entry": true
+  },
+  {
+   "site": "006e7eb0",
+   "symbol": "?unknown_stop_sample_407e60@@YIXPAX@Z",
+   "target": "00407e60",
+   "function_entry": true
+  },
+  {
+   "site": "006e7eb0",
+   "symbol": "?unknown_sample_407f90@@YIHPAX@Z",
+   "target": "00407f90",
+   "function_entry": true
+  },
+  {
+   "site": "006e7eb0",
+   "symbol": "?unknown_sample_407fe0@@YIXPAX@Z",
+   "target": "00407fe0",
+   "function_entry": true
+  },
+  {
+   "site": "006e8340",
+   "symbol": "?unknown_sample_407ff0@@YIHPAX@Z",
+   "target": "00407ff0",
+   "function_entry": true
+  },
+  {
+   "site": "006e8340",
+   "symbol": "?unknown_stop_sample_407e60@@YIXPAX@Z",
+   "target": "00407e60",
+   "function_entry": true
+  },
+  {
+   "site": "006e8340",
+   "symbol": "?unknown_sample_407f90@@YIHPAX@Z",
+   "target": "00407f90",
+   "function_entry": true
+  },
+  {
+   "site": "006e8340",
+   "symbol": "?unknown_sample_407fe0@@YIXPAX@Z",
+   "target": "00407fe0",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?Audio_Streams_Hold@@YAXXZ",
+   "target": "00408120",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?Audio_Streams_Pause@@YAXXZ",
+   "target": "00408190",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?Audio_Streams_Release@@YAXXZ",
+   "target": "00408150",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?Audio_Streams_Resume@@YAXXZ",
+   "target": "00408210",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?Audio_Streams_Fade_In@@YAXXZ",
+   "target": "004082f0",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?Audio_Streams_Hold@@YAXXZ",
+   "target": "00408120",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?Audio_Streams_Pause@@YAXXZ",
+   "target": "00408190",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?Audio_Streams_Release@@YAXXZ",
+   "target": "00408150",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?Audio_Streams_Resume@@YAXXZ",
+   "target": "00408210",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?Audio_Streams_Fade_In@@YAXXZ",
+   "target": "004082f0",
+   "function_entry": true
+  },
+  {
+   "site": "005a0710",
+   "symbol": "?Audio_Streams_Hold@@YAXXZ",
+   "target": "00408120",
+   "function_entry": true
+  },
+  {
+   "site": "005a0710",
+   "symbol": "?Audio_Streams_Pause@@YAXXZ",
+   "target": "00408190",
+   "function_entry": true
+  },
+  {
+   "site": "005a0710",
+   "symbol": "?Audio_Streams_Release@@YAXXZ",
+   "target": "00408150",
+   "function_entry": true
+  },
+  {
+   "site": "005a0710",
+   "symbol": "?Audio_Streams_Resume@@YAXXZ",
+   "target": "00408210",
+   "function_entry": true
+  },
+  {
+   "site": "005a0710",
+   "symbol": "?Audio_Streams_Fade_In@@YAXXZ",
+   "target": "004082f0",
+   "function_entry": true
+  },
+  {
+   "site": "00731680",
+   "symbol": "?Audio_Stream_Destroy@@YIXPAUAudioStreamPlayer@@@Z",
+   "target": "004079c0",
+   "function_entry": true
+  },
+  {
+   "site": "0059dce0",
+   "symbol": "?Audio_Stream_Create@@YIPAUAudioStreamPlayer@@PAUAudioDevice@@_J@Z",
+   "target": "00407790",
+   "function_entry": true
+  },
+  {
+   "site": "0059dce0",
+   "symbol": "?Audio_Stream_Open@@YIHPAUAudioStreamPlayer@@PBDH@Z",
+   "target": "00407a90",
+   "function_entry": true
+  },
+  {
+   "site": "0059dce0",
+   "symbol": "?Audio_Stream_Destroy@@YIXPAUAudioStreamPlayer@@@Z",
+   "target": "004079c0",
+   "function_entry": true
+  },
+  {
+   "site": "0059dce0",
+   "symbol": "?Audio_Stream_Stop@@YIXPAUAudioStreamPlayer@@@Z",
+   "target": "00407e60",
+   "function_entry": true
+  },
+  {
+   "site": "0059dce0",
+   "symbol": "?Audio_Stream_Destroy@@YIXPAUAudioStreamPlayer@@@Z",
+   "target": "004079c0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0CCFileClass@@QAE@PBD@Z",
+   "address": "00468f50"
+  },
+  {
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "address": "00638b40"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?Audio_Channel_Pause@@YIXPAUAudioChannel@@@Z",
+   "address": "00402600"
+  },
+  {
+   "symbol": "?Audio_Channel_Reset@@YIXPAUAudioChannel@@@Z",
+   "address": "004024a0"
+  },
+  {
+   "symbol": "?Audio_Channel_Resume@@YIXPAUAudioChannel@@@Z",
+   "address": "00402650"
+  },
+  {
+   "symbol": "?Audio_Channel_Set_Source@@YIXPAUAudioChannel@@PAUAudioSource@@@Z",
+   "address": "00402790"
+  },
+  {
+   "symbol": "?Audio_Channel_Start@@YIJPAUAudioChannel@@@Z",
+   "address": "00402720"
+  },
+  {
+   "symbol": "?Audio_Channel_Stop@@YIXPAUAudioChannel@@@Z",
+   "address": "004025b0"
+  },
+  {
+   "symbol": "?Audio_Device_Create_Channel@@YIPAUAudioChannel@@PAUAudioDevice@@H@Z",
+   "address": "004036c0"
+  },
+  {
+   "symbol": "?Audio_Format_Init@@YIXPAUAudioFormat@@@Z",
+   "address": "004084c0"
+  },
+  {
+   "symbol": "?Audio_Format_Read_Wave@@YIHPAVFileClass@@PAUAudioFormat@@PAH@Z",
+   "address": "00408530"
+  },
+  {
+   "symbol": "?Audio_List_Add_Head@@YIXPAUAudioListNode@@0@Z",
+   "address": "00407370"
+  },
+  {
+   "symbol": "?Audio_List_First@@YIPAUAudioListNode@@PAU1@@Z",
+   "address": "004072f0"
+  },
+  {
+   "symbol": "?Audio_List_Init@@YIXPAUAudioListNode@@@Z",
+   "address": "004071f0"
+  },
+  {
+   "symbol": "?Audio_List_Init_Node@@YIXPAUAudioListNode@@@Z",
+   "address": "00407200"
+  },
+  {
+   "symbol": "?Audio_List_Next@@YIPAUAudioListNode@@PAU1@@Z",
+   "address": "00407310"
+  },
+  {
+   "symbol": "?Audio_List_Remove@@YIXPAUAudioListNode@@@Z",
+   "address": "00407380"
+  },
+  {
+   "symbol": "?Audio_Now@@YI_JXZ",
+   "address": "004092d0"
+  },
+  {
+   "symbol": "?Audio_Queue_File@@YIHPAUAudioQueue@@PAVFileClass@@HPAH@Z",
+   "address": "00408ea0"
+  },
+  {
+   "symbol": "?Audio_Queue_Ready@@YIHPAUAudioQueue@@@Z",
+   "address": "00409230"
+  },
+  {
+   "symbol": "?Audio_Queue_Release@@YIXPAUAudioQueue@@@Z",
+   "address": "00408d90"
+  },
+  {
+   "symbol": "?Audio_Queue_Update@@YIHPAUAudioQueue@@H@Z",
+   "address": "004090e0"
+  },
+  {
+   "symbol": "?Audio_Ring_Acquire@@YIPAUAudioQueue@@PAUAudioStream@@H@Z",
+   "address": "00408b50"
+  },
+  {
+   "symbol": "?Audio_Ring_Add_Node@@YIXPAUAudioStream@@PAUAudioStreamNode@@@Z",
+   "address": "00408a30"
+  },
+  {
+   "symbol": "?Audio_Ring_Clear@@YIXPAUAudioStream@@@Z",
+   "address": "00408890"
+  },
+  {
+   "symbol": "?Audio_Ring_Create@@YAPAUAudioStream@@XZ",
+   "address": "00408710"
+  },
+  {
+   "symbol": "?Audio_Ring_Destroy@@YIXPAUAudioStream@@@Z",
+   "address": "00408760"
+  },
+  {
+   "symbol": "?Audio_Ring_Node_Create@@YIPAUAudioStreamNode@@HH@Z",
+   "address": "00408ca0"
+  },
+  {
+   "symbol": "?Audio_Ring_Reset@@YIXPAUAudioStream@@@Z",
+   "address": "00408990"
+  },
+  {
+   "symbol": "?Audio_Ring_Size@@YIHPAUAudioStream@@@Z",
+   "address": "00408c70"
+  },
+  {
+   "symbol": "?Audio_Source_Reset@@YIXPAUAudioSource@@@Z",
+   "address": "00408400"
+  },
+  {
+   "symbol": "?Audio_Stream_In_Read@@3_NA",
+   "address": "00ab663c"
+  },
+  {
+   "symbol": "?Audio_Stream_List@@3UAudioListNode@@A",
+   "address": "00831520"
+  },
+  {
+   "symbol": "?Audio_Stream_Lock@@3UCRITICAL_SECTION@@A",
+   "address": "00831508"
+  },
+  {
+   "symbol": "?Audio_Streamer@@3UAudioStreamerThread@@A",
+   "address": "00831480"
+  },
+  {
+   "symbol": "?Audio_Streamer_Handle@@3PAXA",
+   "address": "00831500"
+  },
+  {
+   "symbol": "?Audio_Streamer_Id@@3KA",
+   "address": "00831504"
+  },
+  {
+   "symbol": "?Audio_Streamer_Initialized@@3HA",
+   "address": "0083152c"
+  },
+  {
+   "symbol": "?Audio_Streamer_Running@@3HA",
+   "address": "00831530"
+  },
+  {
+   "symbol": "?Bytes_For_Time@AudioFormat@@QAEH_J@Z",
+   "address": "00408460"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Reset@AudioTimeSpan@@QAEXXZ",
+   "address": "00403820"
+  },
+  {
+   "symbol": "?Set@AudioLevel@@QAIXH@Z",
+   "address": "00407080"
+  },
+  {
+   "symbol": "?Set@AudioTimeSpan@@QAEX_J@Z",
+   "address": "00403870"
+  },
+  {
+   "symbol": "?Set_08@AudioTimeSpan@@QAEX_J@Z",
+   "address": "004038a0"
+  },
+  {
+   "symbol": "?Set_20@AudioTimeSpan@@QAEX_J@Z",
+   "address": "004038c0"
+  },
+  {
+   "symbol": "?Set_Target@AudioLevel@@QAIXH@Z",
+   "address": "004070a0"
+  },
+  {
+   "symbol": "?Tick@AudioTimeSpan@@QAEX_J@Z",
+   "address": "00403920"
+  },
+  {
+   "symbol": "?unknown_481fb0@@YAXXZ",
+   "address": "00481fb0"
+  },
+  {
+   "symbol": "__allmul",
+   "address": "007820c0"
+  },
+  {
+   "symbol": "__imp__CloseHandle@4",
+   "address": "0079a1d4"
+  },
+  {
+   "symbol": "__imp__CreateThread@24",
+   "address": "0079a1ec"
+  },
+  {
+   "symbol": "__imp__DeleteCriticalSection@4",
+   "address": "0079a1d8"
+  },
+  {
+   "symbol": "__imp__EnterCriticalSection@4",
+   "address": "0079a1dc"
+  },
+  {
+   "symbol": "__imp__FormatMessageA@28",
+   "address": "0079a1f8"
+  },
+  {
+   "symbol": "__imp__GetLastError@0",
+   "address": "0079a1f4"
+  },
+  {
+   "symbol": "__imp__InitializeCriticalSection@4",
+   "address": "0079a1e8"
+  },
+  {
+   "symbol": "__imp__LeaveCriticalSection@4",
+   "address": "0079a1e0"
+  },
+  {
+   "symbol": "__imp__SetThreadPriority@8",
+   "address": "0079a1f0"
+  },
+  {
+   "symbol": "__imp__Sleep@4",
+   "address": "0079a1e4"
+  },
+  {
+   "symbol": "__imp__WaitForSingleObject@8",
+   "address": "0079a1d0"
+  },
+  {
+   "symbol": "_strncpy",
+   "address": "007823d0"
+  }
+ ],
+ "route": "A",
+ "unit": "audplay.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00407480",
+   "lines": 5
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 34,
+ "data_unproven": [],
+ "stand_in_references": [
+  {
+   "site": "006e8270",
+   "target": "00407e60",
+   "symbol": "?unknown_stop_sample_407e60@@YIXPAX@Z",
+   "module_symbol": "?Audio_Stream_Stop@@YIXPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e8180",
+   "target": "00407fe0",
+   "symbol": "?unknown_sample_407fe0@@YIXPAX@Z",
+   "module_symbol": "?Audio_Stream_Fade_Out@@YIXPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "007169f0",
+   "target": "00407f20",
+   "symbol": "?unknown_call_407f20@UnknownSound_007169f0@@QAEXXZ",
+   "module_symbol": "?Audio_Stream_Resume@@YIXPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "00633c40",
+   "target": "00408330",
+   "symbol": "?Unknown_00408330@@YAHXZ",
+   "module_symbol": "?Audio_Streams_Done_Fading@@YAHXZ"
+  },
+  {
+   "site": "00633c40",
+   "target": "004082b0",
+   "symbol": "?Unknown_004082B0@@YAXXZ",
+   "module_symbol": "?Audio_Streams_Fade_Out@@YAXXZ"
+  },
+  {
+   "site": "006e7cd0",
+   "target": "00407ff0",
+   "symbol": "?unknown_sample_407ff0@@YIHPAX@Z",
+   "module_symbol": "?Audio_Stream_Is_Fading@@YIHPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e7cd0",
+   "target": "00407e60",
+   "symbol": "?unknown_stop_sample_407e60@@YIXPAX@Z",
+   "module_symbol": "?Audio_Stream_Stop@@YIXPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e7cd0",
+   "target": "00407f90",
+   "symbol": "?unknown_sample_407f90@@YIHPAX@Z",
+   "module_symbol": "?Audio_Stream_Is_Playing@@YIHPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e7e20",
+   "target": "00407ff0",
+   "symbol": "?unknown_sample_407ff0@@YIHPAX@Z",
+   "module_symbol": "?Audio_Stream_Is_Fading@@YIHPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e7e20",
+   "target": "00407e60",
+   "symbol": "?unknown_stop_sample_407e60@@YIXPAX@Z",
+   "module_symbol": "?Audio_Stream_Stop@@YIXPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e7e20",
+   "target": "00407f90",
+   "symbol": "?unknown_sample_407f90@@YIHPAX@Z",
+   "module_symbol": "?Audio_Stream_Is_Playing@@YIHPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e7e20",
+   "target": "00407fe0",
+   "symbol": "?unknown_sample_407fe0@@YIXPAX@Z",
+   "module_symbol": "?Audio_Stream_Fade_Out@@YIXPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e81a0",
+   "target": "00407ff0",
+   "symbol": "?unknown_sample_407ff0@@YIHPAX@Z",
+   "module_symbol": "?Audio_Stream_Is_Fading@@YIHPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e81a0",
+   "target": "00407e60",
+   "symbol": "?unknown_stop_sample_407e60@@YIXPAX@Z",
+   "module_symbol": "?Audio_Stream_Stop@@YIXPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e81a0",
+   "target": "00407f90",
+   "symbol": "?unknown_sample_407f90@@YIHPAX@Z",
+   "module_symbol": "?Audio_Stream_Is_Playing@@YIHPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e81a0",
+   "target": "00407fe0",
+   "symbol": "?unknown_sample_407fe0@@YIXPAX@Z",
+   "module_symbol": "?Audio_Stream_Fade_Out@@YIXPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e81a0",
+   "target": "00407e60",
+   "symbol": "?unknown_stop_sample_407e60@@YIXPAX@Z",
+   "module_symbol": "?Audio_Stream_Stop@@YIXPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e7a70",
+   "target": "00407fe0",
+   "symbol": "?unknown_sample_407fe0@@YIXPAX@Z",
+   "module_symbol": "?Audio_Stream_Fade_Out@@YIXPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e7a70",
+   "target": "00408010",
+   "symbol": "?unknown_sample_408010@@YIXPAX@Z",
+   "module_symbol": "?Audio_Stream_Wait@@YIXPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e7a70",
+   "target": "00407e60",
+   "symbol": "?unknown_stop_sample_407e60@@YIXPAX@Z",
+   "module_symbol": "?Audio_Stream_Stop@@YIXPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e7a70",
+   "target": "004079c0",
+   "symbol": "?unknown_sample_4079c0@@YIXPAX@Z",
+   "module_symbol": "?Audio_Stream_Destroy@@YIXPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e82d0",
+   "target": "00407ff0",
+   "symbol": "?unknown_sample_407ff0@@YIHPAX@Z",
+   "module_symbol": "?Audio_Stream_Is_Fading@@YIHPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e82d0",
+   "target": "00407e60",
+   "symbol": "?unknown_stop_sample_407e60@@YIXPAX@Z",
+   "module_symbol": "?Audio_Stream_Stop@@YIXPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e82d0",
+   "target": "00407f90",
+   "symbol": "?unknown_sample_407f90@@YIHPAX@Z",
+   "module_symbol": "?Audio_Stream_Is_Playing@@YIHPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e7eb0",
+   "target": "00407ff0",
+   "symbol": "?unknown_sample_407ff0@@YIHPAX@Z",
+   "module_symbol": "?Audio_Stream_Is_Fading@@YIHPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e7eb0",
+   "target": "00407e60",
+   "symbol": "?unknown_stop_sample_407e60@@YIXPAX@Z",
+   "module_symbol": "?Audio_Stream_Stop@@YIXPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e7eb0",
+   "target": "00407f90",
+   "symbol": "?unknown_sample_407f90@@YIHPAX@Z",
+   "module_symbol": "?Audio_Stream_Is_Playing@@YIHPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e7eb0",
+   "target": "00407e60",
+   "symbol": "?unknown_stop_sample_407e60@@YIXPAX@Z",
+   "module_symbol": "?Audio_Stream_Stop@@YIXPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e7eb0",
+   "target": "00407ff0",
+   "symbol": "?unknown_sample_407ff0@@YIHPAX@Z",
+   "module_symbol": "?Audio_Stream_Is_Fading@@YIHPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e7eb0",
+   "target": "00407e60",
+   "symbol": "?unknown_stop_sample_407e60@@YIXPAX@Z",
+   "module_symbol": "?Audio_Stream_Stop@@YIXPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e7eb0",
+   "target": "00407f90",
+   "symbol": "?unknown_sample_407f90@@YIHPAX@Z",
+   "module_symbol": "?Audio_Stream_Is_Playing@@YIHPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e7eb0",
+   "target": "00407fe0",
+   "symbol": "?unknown_sample_407fe0@@YIXPAX@Z",
+   "module_symbol": "?Audio_Stream_Fade_Out@@YIXPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e8340",
+   "target": "00407ff0",
+   "symbol": "?unknown_sample_407ff0@@YIHPAX@Z",
+   "module_symbol": "?Audio_Stream_Is_Fading@@YIHPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e8340",
+   "target": "00407e60",
+   "symbol": "?unknown_stop_sample_407e60@@YIXPAX@Z",
+   "module_symbol": "?Audio_Stream_Stop@@YIXPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e8340",
+   "target": "00407f90",
+   "symbol": "?unknown_sample_407f90@@YIHPAX@Z",
+   "module_symbol": "?Audio_Stream_Is_Playing@@YIHPAUAudioStreamPlayer@@@Z"
+  },
+  {
+   "site": "006e8340",
+   "target": "00407fe0",
+   "symbol": "?unknown_sample_407fe0@@YIXPAX@Z",
+   "module_symbol": "?Audio_Stream_Fade_Out@@YIXPAUAudioStreamPlayer@@@Z"
+  }
+ ],
+ "stand_in_reference_count": 36,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

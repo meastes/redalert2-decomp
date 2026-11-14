@@ -1,0 +1,434 @@
+{
+ "module": "grphmitm",
+ "source": "src/recovered/grphmitm.cpp",
+ "header": null,
+ "population": "population-2326",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 471,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "004dff60",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Create_Menu_Item@@YIPAVGraphicMenuItem@@ABVWstring@@AAVINIClass@@PAXPBUPoint2D@@@Z",
+   "entry": "004dff80",
+   "body_bytes": 412,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "??0GraphicMenuItem@@QAE@H@Z",
+   "entry": "004e0120",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "??1GraphicMenuItem@@UAE@XZ",
+   "entry": "004e0140",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Set_Enabled@GraphicMenuItem@@QAEX_N@Z",
+   "entry": "004e0160",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Set_Visible@GraphicMenuItem@@QAEX_N@Z",
+   "entry": "004e0180",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Enabled_Changed@GraphicMenuItem@@UAEX_N@Z",
+   "entry": "004e01a0",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Visible_Changed@GraphicMenuItem@@UAEX_N@Z",
+   "entry": "004e01b0",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Contains@GraphicMenuItem@@UAE_NABUPoint2D@@@Z",
+   "entry": "004e01c0",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Is_Input_Key@GraphicMenuItem@@UAE_NH@Z",
+   "entry": "004e01d0",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Play_Sound@GraphicMenuItem@@UAEXH@Z",
+   "entry": "004e01e0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "??_GGraphicMenuItem@@UAEPAXI@Z",
+   "entry": "004e01f0",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  }
+ ],
+ "code_bytes": 720,
+ "data": [
+  {
+   "symbol": "??_7GraphicMenuItem@@6B@",
+   "address": "007a2bcc",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 19
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GraphicMenuItem@@8",
+   "address": "007ba2e0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 14
+  },
+  {
+   "symbol": "??_R2GraphicMenuItem@@8",
+   "address": "007ba394",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 15
+  },
+  {
+   "symbol": "??_R3GraphicMenuItem@@8",
+   "address": "007ba3a0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 16
+  },
+  {
+   "symbol": "??_R4GraphicMenuItem@@6B@",
+   "address": "007ba3b0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 18
+  },
+  {
+   "symbol": "??_C@_04LFDA@Anim?$AA@",
+   "address": "007cdea0",
+   "bytes": 5,
+   "kind": "string",
+   "section": 8
+  },
+  {
+   "symbol": "??_C@_05LADG@Image?$AA@",
+   "address": "007cfddc",
+   "bytes": 6,
+   "kind": "string",
+   "section": 10
+  },
+  {
+   "symbol": "??_R0?AVGraphicMenuItem@@@8",
+   "address": "007d9e38",
+   "bytes": 30,
+   "kind": "rtti",
+   "section": 17
+  },
+  {
+   "symbol": "??_C@_0M@CHBD@SelectSound?$AA@",
+   "address": "007d9ed4",
+   "bytes": 12,
+   "kind": "string",
+   "section": 7
+  },
+  {
+   "symbol": "??_C@_08CGHL@Shortcut?$AA@",
+   "address": "007d9ee0",
+   "bytes": 9,
+   "kind": "string",
+   "section": 9
+  },
+  {
+   "symbol": "??_C@_04FCOP@Type?$AA@",
+   "address": "007d9eec",
+   "bytes": 5,
+   "kind": "string",
+   "section": 11
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7GraphicMenuItem@@6B@",
+   "address": "007a2bcc",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GraphicMenuItem@@8",
+   "address": "007ba2e0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2GraphicMenuItem@@8",
+   "address": "007ba394",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3GraphicMenuItem@@8",
+   "address": "007ba3a0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4GraphicMenuItem@@6B@",
+   "address": "007ba3b0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_04LFDA@Anim?$AA@",
+   "address": "007cdea0",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_05LADG@Image?$AA@",
+   "address": "007cfddc",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AVGraphicMenuItem@@@8",
+   "address": "007d9e38",
+   "bytes": 30,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0M@CHBD@SelectSound?$AA@",
+   "address": "007d9ed4",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08CGHL@Shortcut?$AA@",
+   "address": "007d9ee0",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04FCOP@Type?$AA@",
+   "address": "007d9eec",
+   "bytes": 5,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "004df740",
+   "symbol": "??1GraphicMenuItem@@UAE@XZ",
+   "target": "004e0140",
+   "function_entry": true
+  },
+  {
+   "site": "004df7b0",
+   "symbol": "??1GraphicMenuItem@@UAE@XZ",
+   "target": "004e0140",
+   "function_entry": true
+  },
+  {
+   "site": "004e0560",
+   "symbol": "??1GraphicMenuItem@@UAE@XZ",
+   "target": "004e0140",
+   "function_entry": true
+  },
+  {
+   "site": "004e0630",
+   "symbol": "??1GraphicMenuItem@@UAE@XZ",
+   "target": "004e0140",
+   "function_entry": true
+  },
+  {
+   "site": "004dfcd0",
+   "symbol": "??1GraphicMenuItem@@UAE@XZ",
+   "target": "004e0140",
+   "function_entry": true
+  },
+  {
+   "site": "004dff10",
+   "symbol": "??1GraphicMenuItem@@UAE@XZ",
+   "target": "004e0140",
+   "function_entry": true
+  },
+  {
+   "site": "004df5f0",
+   "symbol": "??0GraphicMenuItem@@QAE@H@Z",
+   "target": "004e0120",
+   "function_entry": true
+  },
+  {
+   "site": "004dfe70",
+   "symbol": "?Play_Sound@GraphicMenuItem@@UAEXH@Z",
+   "target": "004e01e0",
+   "function_entry": true
+  },
+  {
+   "site": "004e0310",
+   "symbol": "??0GraphicMenuItem@@QAE@H@Z",
+   "target": "004e0120",
+   "function_entry": true
+  },
+  {
+   "site": "004de380",
+   "symbol": "?Create_Menu_Item@@YIPAVGraphicMenuItem@@ABVWstring@@AAVINIClass@@PAXPBUPoint2D@@@Z",
+   "target": "004dff80",
+   "function_entry": true
+  },
+  {
+   "site": "004de9e0",
+   "symbol": "?Set_Enabled@GraphicMenuItem@@QAEX_N@Z",
+   "target": "004e0160",
+   "function_entry": true
+  },
+  {
+   "site": "004de9e0",
+   "symbol": "?Set_Enabled@GraphicMenuItem@@QAEX_N@Z",
+   "target": "004e0160",
+   "function_entry": true
+  },
+  {
+   "site": "004de9e0",
+   "symbol": "?Set_Enabled@GraphicMenuItem@@QAEX_N@Z",
+   "target": "004e0160",
+   "function_entry": true
+  },
+  {
+   "site": "004de9e0",
+   "symbol": "?Set_Enabled@GraphicMenuItem@@QAEX_N@Z",
+   "target": "004e0160",
+   "function_entry": true
+  },
+  {
+   "site": "004dfb30",
+   "symbol": "??0GraphicMenuItem@@QAE@H@Z",
+   "target": "004e0120",
+   "function_entry": true
+  },
+  {
+   "site": "004de960",
+   "symbol": "?Set_Visible@GraphicMenuItem@@QAEX_N@Z",
+   "target": "004e0180",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0MSSfxEntry@@QAE@ABVWstring@@0@Z",
+   "address": "005b15b0"
+  },
+  {
+   "symbol": "??0Wstring@@QAE@PBD@Z",
+   "address": "0076d920"
+  },
+  {
+   "symbol": "??0Wstring@@QAE@XZ",
+   "address": "0076d910"
+  },
+  {
+   "symbol": "??1MSSfxEntry@@QAE@XZ",
+   "address": "005b16c0"
+  },
+  {
+   "symbol": "??1Wstring@@QAE@XZ",
+   "address": "0076d9e0"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??8Wstring@@QBE_NPBD@Z",
+   "address": "0076da00"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "?Create_Anim_Item@@YIPAVGraphicMenuItem@@ABVWstring@@AAVINIClass@@PAXPBUPoint2D@@@Z",
+   "address": "004df350"
+  },
+  {
+   "symbol": "?Create_Image_Item@@YIPAVGraphicMenuItem@@ABVWstring@@AAVINIClass@@PAXPBUPoint2D@@@Z",
+   "address": "004df810"
+  },
+  {
+   "symbol": "?Create_Shortcut_Item@@YIPAVGraphicMenuItem@@ABVWstring@@AAVINIClass@@@Z",
+   "address": "004e0250"
+  },
+  {
+   "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+   "address": "0050eb40"
+  },
+  {
+   "symbol": "?Play@MSSfxEntry@@QAEXXZ",
+   "address": "005b16d0"
+  },
+  {
+   "symbol": "?unknown_string_83c55c@@3PADA",
+   "address": "0083c55c"
+  }
+ ],
+ "route": "A",
+ "unit": "grphmitm.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "004dff60",
+   "lines": 2
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 12,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

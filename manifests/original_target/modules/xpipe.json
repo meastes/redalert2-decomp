@@ -1,0 +1,231 @@
+{
+ "module": "xpipe",
+ "source": "src/recovered/xpipe.cpp",
+ "header": null,
+ "population": "population-71",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 38,
+ "code": [
+  {
+   "symbol": "??1FilePipe@@UAE@XZ",
+   "entry": "00773790",
+   "body_bytes": 48,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?End@FilePipe@@UAEHXZ",
+   "entry": "007737c0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Put@FilePipe@@UAEHPBXH@Z",
+   "entry": "007737f0",
+   "body_bytes": 75,
+   "padding_bytes": 5
+  }
+ ],
+ "code_bytes": 176,
+ "data": [
+  {
+   "symbol": "??_7FilePipe@@6B@",
+   "address": "0079d9b8",
+   "bytes": 24,
+   "kind": "vtable",
+   "section": 10
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Pipe@@8",
+   "address": "007b4ae8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 4
+  },
+  {
+   "symbol": "??_R1A@?0A@A@FilePipe@@8",
+   "address": "007b4bb8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 5
+  },
+  {
+   "symbol": "??_R2FilePipe@@8",
+   "address": "007b4bd0",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 6
+  },
+  {
+   "symbol": "??_R3FilePipe@@8",
+   "address": "007b4be0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 7
+  },
+  {
+   "symbol": "??_R4FilePipe@@6B@",
+   "address": "007b4bf0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 9
+  },
+  {
+   "symbol": "??_R0?AVPipe@@@8",
+   "address": "007d1e90",
+   "bytes": 19,
+   "kind": "rtti",
+   "section": 3
+  },
+  {
+   "symbol": "??_R0?AVFilePipe@@@8",
+   "address": "007d1ef8",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 8
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7FilePipe@@6B@",
+   "address": "0079d9b8",
+   "bytes": 24,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Pipe@@8",
+   "address": "007b4ae8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@FilePipe@@8",
+   "address": "007b4bb8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2FilePipe@@8",
+   "address": "007b4bd0",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3FilePipe@@8",
+   "address": "007b4be0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4FilePipe@@6B@",
+   "address": "007b4bf0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVPipe@@@8",
+   "address": "007d1e90",
+   "bytes": 19,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVFilePipe@@@8",
+   "address": "007d1ef8",
+   "bytes": 23,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0046cbd0",
+   "symbol": "??1FilePipe@@UAE@XZ",
+   "target": "00773790",
+   "function_entry": true
+  },
+  {
+   "site": "0050c5e0",
+   "symbol": "??1FilePipe@@UAE@XZ",
+   "target": "00773790",
+   "function_entry": true
+  },
+  {
+   "site": "004698f0",
+   "symbol": "??1FilePipe@@UAE@XZ",
+   "target": "00773790",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??1Pipe@@UAE@XZ",
+   "address": "0060ea60"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_GFilePipe@@UAEPAXI@Z",
+   "address": "0046cbd0"
+  },
+  {
+   "symbol": "?Flush@Pipe@@UAEHXZ",
+   "address": "0060eb10"
+  },
+  {
+   "symbol": "?Put_To@Pipe@@UAEXPAV1@@Z",
+   "address": "0060eaa0"
+  }
+ ],
+ "route": "A",
+ "unit": "xpipe.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00773790",
+   "lines": 1
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "00773730",
+   "bytes": 88,
+   "population": "population-1990",
+   "source": "src/recovered/classes/BufferPipe/Put.cpp",
+   "cause": "frozen in another population's inventory pass (population-1990)"
+  }
+ ],
+ "unit_functions": 4,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 1,
+  "bytes": 88
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

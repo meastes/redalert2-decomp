@@ -1,0 +1,2372 @@
+{
+ "module": "bullet",
+ "source": "src/recovered/bullet.cpp",
+ "header": null,
+ "population": "population-4423",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 1033,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "0045f120",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "0045f150",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "0045f170",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "0045f190",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "0045f1b0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "0045f1d0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "0045f1f0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "0045f230",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "0045f260",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "0045f290",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "0045f2c0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "0045f2d0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "0045f2f0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E53",
+   "entry": "0045f310",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E50",
+   "entry": "0045f350",
+   "body_bytes": 88,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "??0BulletClass@@QAE@XZ",
+   "entry": "0045f3b0",
+   "body_bytes": 319,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Construct@BulletClass@@QAEXPAVBulletTypeClass@@PAVAbstractClass@@PAVTechnoClass@@HPAVWarheadTypeClass@@H_N@Z",
+   "entry": "0045f4f0",
+   "body_bytes": 160,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "??1BulletClass@@UAE@XZ",
+   "entry": "0045f590",
+   "body_bytes": 250,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Occupy_List@BulletClass@@UAEPBVCell@@H@Z",
+   "entry": "0045f690",
+   "body_bytes": 69,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "_$E56",
+   "entry": "0045f6e0",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Mark@BulletClass@@UAE_NH@Z",
+   "entry": "0045f6f0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?unknown_slot116@BulletClass@@UAEHXZ",
+   "entry": "00461040",
+   "body_bytes": 137,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?unknown_slot67@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z",
+   "entry": "004610d0",
+   "body_bytes": 918,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?unknown_func_461470@BulletClass@@QAEXXZ",
+   "entry": "00461470",
+   "body_bytes": 164,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Detach@BulletClass@@UAEXPAVAbstractClass@@_N@Z",
+   "entry": "00461520",
+   "body_bytes": 392,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?unknown_slot118@BulletClass@@UAE_NABUCoordStruct@@ABU?$TVelocity3D@N@@@Z",
+   "entry": "004616b0",
+   "body_bytes": 1343,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?In_Which_Layer@BulletClass@@UBEHXZ",
+   "entry": "00461bf0",
+   "body_bytes": 22,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Is_Forced_To_Explode_00461c10@BulletClass@@QAE_NAAUCoordStruct@@@Z",
+   "entry": "00461c10",
+   "body_bytes": 463,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?unknown_func_461de0@BulletClass@@QAEX_N@Z",
+   "entry": "00461de0",
+   "body_bytes": 812,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?unknown_func_462110@BulletClass@@QAEXABUCoordStruct@@@Z",
+   "entry": "00462110",
+   "body_bytes": 2879,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?unknown_func_462c50@BulletClass@@QAEXXZ",
+   "entry": "00462c50",
+   "body_bytes": 2757,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?unknown_func_463720@BulletClass@@QAEXVCell@@HH@Z",
+   "entry": "00463720",
+   "body_bytes": 129,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Load@BulletClass@@UAGJPAUIStream@@@Z",
+   "entry": "004637b0",
+   "body_bytes": 309,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Save@BulletClass@@UAGJPAUIStream@@H@Z",
+   "entry": "004638f0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?AddRef@BulletClass@@UAGKXZ",
+   "entry": "00463910",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Release@BulletClass@@UAGKXZ",
+   "entry": "00463930",
+   "body_bytes": 55,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?unknown_func_463970@BulletClass@@QAE_NXZ",
+   "entry": "00463970",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Create_Bullet@@YIPAVBulletClass@@PAVBulletTypeClass@@PAVAbstractClass@@PAVTechnoClass@@HPAVWarheadTypeClass@@H_N@Z",
+   "entry": "00463990",
+   "body_bytes": 100,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Draw_Voxel_00463a00@BulletClass@@QAEXABVUnknownObjectPair@@ABVMatrix3D@@ABURectPoint2D@@ABVRect@@IIH@Z",
+   "entry": "00463a00",
+   "body_bytes": 408,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Set_Weapon_Type@BulletClass@@QAEXPAVWeaponTypeClass@@@Z",
+   "entry": "00463ba0",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Get_Weapon_Type@BulletClass@@QAEPAVWeaponTypeClass@@XZ",
+   "entry": "00463bb0",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?unknown_func_463bc0@BulletClass@@QAEXXZ",
+   "entry": "00463bc0",
+   "body_bytes": 137,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?unknown_func_463c50@BulletClass@@QAEXXZ",
+   "entry": "00463c50",
+   "body_bytes": 557,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Size_Of@BulletClass@@UBEHXZ",
+   "entry": "00463e80",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Kind_Of@BulletClass@@UBEHXZ",
+   "entry": "00463e90",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?GetClassID@BulletClass@@UAGJPAUGUID@@@Z",
+   "entry": "00463ea0",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Set_Target@BulletClass@@UAEXPAVAbstractClass@@@Z",
+   "entry": "00463ee0",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Class_Of@BulletClass@@UBEPAVObjectTypeClass@@XZ",
+   "entry": "00463ef0",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??_GBulletClass@@UAEPAXI@Z",
+   "entry": "00463f00",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Clear@?$DynamicVectorClass@PAVBulletClass@@@@UAEXXZ",
+   "entry": "00463f20",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAVBulletClass@@@@UAEHPBQAVBulletClass@@@Z",
+   "entry": "00463f50",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@PAVBulletClass@@@@UBEPAVBulletClass@@H@Z",
+   "entry": "00463f70",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@J@Z",
+   "entry": "00463f80",
+   "body_bytes": 20,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "??8?$VectorClass@PAVBulletClass@@@@UBE_NABV0@@Z",
+   "entry": "00463fa0",
+   "body_bytes": 62,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@PAVBulletClass@@@@UAE_NHPBQAVBulletClass@@@Z",
+   "entry": "00463fe0",
+   "body_bytes": 174,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Clear@?$VectorClass@PAVBulletClass@@@@UAEXXZ",
+   "entry": "00464090",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVBulletClass@@@@UAEHABQAVBulletClass@@@Z",
+   "entry": "004640c0",
+   "body_bytes": 51,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVBulletClass@@@@UAEHPBQAVBulletClass@@@Z",
+   "entry": "00464100",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Resize@?$DynamicVectorClass@PAVBulletClass@@@@UAE_NHPBQAVBulletClass@@@Z",
+   "entry": "00464120",
+   "body_bytes": 176,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAVBulletClass@@@@UAEHABQAVBulletClass@@@Z",
+   "entry": "004641d0",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?get@Leaf_464200@@QAEPAXI@Z",
+   "entry": "00464200",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?get@Leaf_464250@@QAEPAXI@Z",
+   "entry": "00464250",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??Y?$TVelocity3D@N@@QAEAAU0@ABU0@@Z",
+   "entry": "004642a0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?AddRef@BulletClass@@W3AGKXZ",
+   "entry": "004642d0",
+   "body_bytes": 10,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Release@BulletClass@@W3AGKXZ",
+   "entry": "004642e0",
+   "body_bytes": 10,
+   "padding_bytes": 0
+  }
+ ],
+ "code_bytes": 14484,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "__real@8@00000000000000000000",
+   "address": "0079b610",
+   "bytes": 8,
+   "kind": "table",
+   "section": 123
+  },
+  {
+   "symbol": "__real@8@bff1c9116cc4faf2b800",
+   "address": "0079b620",
+   "bytes": 8,
+   "kind": "table",
+   "section": 124
+  },
+  {
+   "symbol": "__real@8@c00ca2f83d7b47677800",
+   "address": "0079b628",
+   "bytes": 8,
+   "kind": "table",
+   "section": 111
+  },
+  {
+   "symbol": "__real@8@3fffc90fdaa22168c000",
+   "address": "0079b630",
+   "bytes": 8,
+   "kind": "table",
+   "section": 112
+  },
+  {
+   "symbol": "__real@8@3fe08000000200000000",
+   "address": "0079c280",
+   "bytes": 8,
+   "kind": "table",
+   "section": 126
+  },
+  {
+   "symbol": "__real@8@4001c90fdaa22168c000",
+   "address": "0079c9b8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 125
+  },
+  {
+   "symbol": "__real@8@bffcc90fdaa22168c000",
+   "address": "0079d090",
+   "bytes": 8,
+   "kind": "table",
+   "section": 115
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "0079d2f0",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7BulletClass@@6BINoticeSource@@@",
+   "address": "0079d344",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 83
+  },
+  {
+   "symbol": "??_7BulletClass@@6BINoticeSink@@@",
+   "address": "0079d34c",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 84
+  },
+  {
+   "symbol": "??_7BulletClass@@6BIRTTITypeInfo@@@",
+   "address": "0079d354",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 85
+  },
+  {
+   "symbol": "__real@8@bfff8000000000000000",
+   "address": "0079d578",
+   "bytes": 8,
+   "kind": "table",
+   "section": 166
+  },
+  {
+   "symbol": "??_R1M@?0A@A@INoticeSource@@8",
+   "address": "007b30b8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 62
+  },
+  {
+   "symbol": "??_R17?0A@A@INoticeSink@@8",
+   "address": "007b30d0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 64
+  },
+  {
+   "symbol": "??_R13?0A@1IUnknown@@8",
+   "address": "007b30e8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 65
+  },
+  {
+   "symbol": "??_R13?0A@A@IRTTITypeInfo@@8",
+   "address": "007b3100",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 67
+  },
+  {
+   "symbol": "??_R1A@?0A@1IUnknown@@8",
+   "address": "007b3118",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 69
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersist@@8",
+   "address": "007b3130",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 71
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersistStream@@8",
+   "address": "007b3148",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 73
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractClass@@8",
+   "address": "007b3160",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 75
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ObjectClass@@8",
+   "address": "007b3420",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 77
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAVBulletClass@@@@8",
+   "address": "007b4580",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 43
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAVBulletClass@@@@8",
+   "address": "007b4598",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAVBulletClass@@@@8",
+   "address": "007b45b0",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 45
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAVBulletClass@@@@8",
+   "address": "007b45c0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 46
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAVBulletClass@@@@6B@",
+   "address": "007b45d0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 48
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAVBulletClass@@@@8",
+   "address": "007b45e4",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 52
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAVBulletClass@@@@8",
+   "address": "007b45f0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 53
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAVBulletClass@@@@6B@",
+   "address": "007b4600",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 54
+  },
+  {
+   "symbol": "??_R4BulletClass@@6BINoticeSource@@@",
+   "address": "007b4618",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 58
+  },
+  {
+   "symbol": "??_R4BulletClass@@6BINoticeSink@@@",
+   "address": "007b4630",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 59
+  },
+  {
+   "symbol": "??_R4BulletClass@@6BIRTTITypeInfo@@@",
+   "address": "007b4648",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 60
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BulletClass@@8",
+   "address": "007b4660",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 78
+  },
+  {
+   "symbol": "??_R2BulletClass@@8",
+   "address": "007b4678",
+   "bytes": 41,
+   "kind": "rtti",
+   "section": 79
+  },
+  {
+   "symbol": "??_R3BulletClass@@8",
+   "address": "007b46a8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 80
+  },
+  {
+   "symbol": "??_R4BulletClass@@6BIPersistStream@@@",
+   "address": "007b46b8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 82
+  },
+  {
+   "symbol": "??_R0?AVINoticeSink@@@8",
+   "address": "007cd618",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 63
+  },
+  {
+   "symbol": "??_R0?AUIUnknown@@@8",
+   "address": "007cd638",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 68
+  },
+  {
+   "symbol": "??_R0?AVINoticeSource@@@8",
+   "address": "007ce1c8",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 61
+  },
+  {
+   "symbol": "??_R0?AUIRTTITypeInfo@@@8",
+   "address": "007ce1e8",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 66
+  },
+  {
+   "symbol": "??_R0?AUIPersist@@@8",
+   "address": "007ce208",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 70
+  },
+  {
+   "symbol": "??_R0?AUIPersistStream@@@8",
+   "address": "007ce220",
+   "bytes": 29,
+   "kind": "rtti",
+   "section": 72
+  },
+  {
+   "symbol": "??_R0?AVAbstractClass@@@8",
+   "address": "007ce240",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 74
+  },
+  {
+   "symbol": "??_R0?AVObjectClass@@@8",
+   "address": "007ce548",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 76
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAVBulletClass@@@@@8",
+   "address": "007d11a8",
+   "bytes": 45,
+   "kind": "rtti",
+   "section": 42
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAVBulletClass@@@@@8",
+   "address": "007d11d8",
+   "bytes": 52,
+   "kind": "rtti",
+   "section": 47
+  },
+  {
+   "symbol": "??_R0?AVBulletClass@@@8",
+   "address": "007d1210",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 81
+  },
+  {
+   "symbol": "??_C@_0M@BCEA@NukePayload?$AA@",
+   "address": "007d1240",
+   "bytes": 12,
+   "kind": "string",
+   "section": 167
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@00000000000000000000",
+   "address": "0079b610",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@bff1c9116cc4faf2b800",
+   "address": "0079b620",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@c00ca2f83d7b47677800",
+   "address": "0079b628",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fffc90fdaa22168c000",
+   "address": "0079b630",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fe08000000200000000",
+   "address": "0079c280",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4001c90fdaa22168c000",
+   "address": "0079c9b8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@bffcc90fdaa22168c000",
+   "address": "0079d090",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "0079d2f0",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7BulletClass@@6BINoticeSource@@@",
+   "address": "0079d344",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7BulletClass@@6BINoticeSink@@@",
+   "address": "0079d34c",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7BulletClass@@6BIRTTITypeInfo@@@",
+   "address": "0079d354",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "__real@8@bfff8000000000000000",
+   "address": "0079d578",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_R1M@?0A@A@INoticeSource@@8",
+   "address": "007b30b8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R17?0A@A@INoticeSink@@8",
+   "address": "007b30d0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R13?0A@1IUnknown@@8",
+   "address": "007b30e8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R13?0A@A@IRTTITypeInfo@@8",
+   "address": "007b3100",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@1IUnknown@@8",
+   "address": "007b3118",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersist@@8",
+   "address": "007b3130",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersistStream@@8",
+   "address": "007b3148",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractClass@@8",
+   "address": "007b3160",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ObjectClass@@8",
+   "address": "007b3420",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAVBulletClass@@@@8",
+   "address": "007b4580",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAVBulletClass@@@@8",
+   "address": "007b4598",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAVBulletClass@@@@8",
+   "address": "007b45b0",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAVBulletClass@@@@8",
+   "address": "007b45c0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAVBulletClass@@@@6B@",
+   "address": "007b45d0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAVBulletClass@@@@8",
+   "address": "007b45e4",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAVBulletClass@@@@8",
+   "address": "007b45f0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAVBulletClass@@@@6B@",
+   "address": "007b4600",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4BulletClass@@6BINoticeSource@@@",
+   "address": "007b4618",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4BulletClass@@6BINoticeSink@@@",
+   "address": "007b4630",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4BulletClass@@6BIRTTITypeInfo@@@",
+   "address": "007b4648",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BulletClass@@8",
+   "address": "007b4660",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2BulletClass@@8",
+   "address": "007b4678",
+   "bytes": 41,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3BulletClass@@8",
+   "address": "007b46a8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4BulletClass@@6BIPersistStream@@@",
+   "address": "007b46b8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVINoticeSink@@@8",
+   "address": "007cd618",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIUnknown@@@8",
+   "address": "007cd638",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVINoticeSource@@@8",
+   "address": "007ce1c8",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIRTTITypeInfo@@@8",
+   "address": "007ce1e8",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIPersist@@@8",
+   "address": "007ce208",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIPersistStream@@@8",
+   "address": "007ce220",
+   "bytes": 29,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVAbstractClass@@@8",
+   "address": "007ce240",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVObjectClass@@@8",
+   "address": "007ce548",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAVBulletClass@@@@@8",
+   "address": "007d11a8",
+   "bytes": 45,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAVBulletClass@@@@@8",
+   "address": "007d11d8",
+   "bytes": 52,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVBulletClass@@@8",
+   "address": "007d1210",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0M@BCEA@NukePayload?$AA@",
+   "address": "007d1240",
+   "bytes": 12,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "006972b0",
+   "symbol": "??0BulletClass@@QAE@XZ",
+   "target": "0045f3b0",
+   "function_entry": true
+  },
+  {
+   "site": "00704ed0",
+   "symbol": "?unknown_func_463bc0@BulletClass@@QAEXXZ",
+   "target": "00463bc0",
+   "function_entry": true
+  },
+  {
+   "site": "006d7e20",
+   "symbol": "?Create_Bullet@@YIPAVBulletClass@@PAVBulletTypeClass@@PAVAbstractClass@@PAVTechnoClass@@HPAVWarheadTypeClass@@H_N@Z",
+   "target": "00463990",
+   "function_entry": true
+  },
+  {
+   "site": "006d7e20",
+   "symbol": "?Set_Weapon_Type@BulletClass@@QAEXPAVWeaponTypeClass@@@Z",
+   "target": "00463ba0",
+   "function_entry": true
+  },
+  {
+   "site": "006d7e20",
+   "symbol": "?unknown_func_462110@BulletClass@@QAEXABUCoordStruct@@@Z",
+   "target": "00462110",
+   "function_entry": true
+  },
+  {
+   "site": "0068a7d0",
+   "symbol": "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@J@Z",
+   "target": "00463f80",
+   "function_entry": true
+  },
+  {
+   "site": "0068a7d0",
+   "symbol": "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@J@Z",
+   "target": "00463f80",
+   "function_entry": true
+  },
+  {
+   "site": "006b2400",
+   "symbol": "?Create_Bullet@@YIPAVBulletClass@@PAVBulletTypeClass@@PAVAbstractClass@@PAVTechnoClass@@HPAVWarheadTypeClass@@H_N@Z",
+   "target": "00463990",
+   "function_entry": true
+  },
+  {
+   "site": "006b2400",
+   "symbol": "?Set_Weapon_Type@BulletClass@@QAEXPAVWeaponTypeClass@@@Z",
+   "target": "00463ba0",
+   "function_entry": true
+  },
+  {
+   "site": "006b2860",
+   "symbol": "?Create_Bullet@@YIPAVBulletClass@@PAVBulletTypeClass@@PAVAbstractClass@@PAVTechnoClass@@HPAVWarheadTypeClass@@H_N@Z",
+   "target": "00463990",
+   "function_entry": true
+  },
+  {
+   "site": "006e9160",
+   "symbol": "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@J@Z",
+   "target": "00463f80",
+   "function_entry": true
+  },
+  {
+   "site": "006e9160",
+   "symbol": "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@J@Z",
+   "target": "00463f80",
+   "function_entry": true
+  },
+  {
+   "site": "006e0e10",
+   "symbol": "?unknown_func_461470@BulletClass@@QAEXXZ",
+   "target": "00461470",
+   "function_entry": true
+  },
+  {
+   "site": "006765b0",
+   "symbol": "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@J@Z",
+   "target": "00463f80",
+   "function_entry": true
+  },
+  {
+   "site": "004a05f0",
+   "symbol": "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@J@Z",
+   "target": "00463f80",
+   "function_entry": true
+  },
+  {
+   "site": "00710250",
+   "symbol": "??0StageTimerClass@@QAE@J@Z",
+   "target": "00463f80",
+   "function_entry": true
+  },
+  {
+   "site": "0069ccf0",
+   "symbol": "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@J@Z",
+   "target": "00463f80",
+   "function_entry": true
+  },
+  {
+   "site": "006adae0",
+   "symbol": "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@J@Z",
+   "target": "00463f80",
+   "function_entry": true
+  },
+  {
+   "site": "006adae0",
+   "symbol": "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@J@Z",
+   "target": "00463f80",
+   "function_entry": true
+  },
+  {
+   "site": "006adae0",
+   "symbol": "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@J@Z",
+   "target": "00463f80",
+   "function_entry": true
+  },
+  {
+   "site": "006adae0",
+   "symbol": "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@J@Z",
+   "target": "00463f80",
+   "function_entry": true
+  },
+  {
+   "site": "0069d850",
+   "symbol": "?Create_Bullet@@YIPAVBulletClass@@PAVBulletTypeClass@@PAVAbstractClass@@PAVTechnoClass@@HPAVWarheadTypeClass@@H_N@Z",
+   "target": "00463990",
+   "function_entry": true
+  },
+  {
+   "site": "0069d850",
+   "symbol": "?Set_Weapon_Type@BulletClass@@QAEXPAVWeaponTypeClass@@@Z",
+   "target": "00463ba0",
+   "function_entry": true
+  },
+  {
+   "site": "006ca890",
+   "symbol": "?Create_Bullet@@YIPAVBulletClass@@PAVBulletTypeClass@@PAVAbstractClass@@PAVTechnoClass@@HPAVWarheadTypeClass@@H_N@Z",
+   "target": "00463990",
+   "function_entry": true
+  },
+  {
+   "site": "006ca890",
+   "symbol": "?Set_Weapon_Type@BulletClass@@QAEXPAVWeaponTypeClass@@@Z",
+   "target": "00463ba0",
+   "function_entry": true
+  },
+  {
+   "site": "006ca890",
+   "symbol": "?Get_Weapon_Type@BulletClass@@QAEPAVWeaponTypeClass@@XZ",
+   "target": "00463bb0",
+   "function_entry": true
+  },
+  {
+   "site": "006ca890",
+   "symbol": "?Construct@BulletClass@@QAEXPAVBulletTypeClass@@PAVAbstractClass@@PAVTechnoClass@@HPAVWarheadTypeClass@@H_N@Z",
+   "target": "0045f4f0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABUCoordStruct@@HHHH@Z",
+   "address": "00420110"
+  },
+  {
+   "symbol": "??0ObjectClass@@QAE@ABVNoInitClass@@@Z",
+   "address": "005d2500"
+  },
+  {
+   "symbol": "??0ObjectClass@@QAE@XZ",
+   "address": "005d22e0"
+  },
+  {
+   "symbol": "??0RadSiteClass@@QAE@XZ",
+   "address": "006372a0"
+  },
+  {
+   "symbol": "??0UnknownBulletData@@QAE@XZ",
+   "address": "004cedf0"
+  },
+  {
+   "symbol": "??0UnknownVector3@@QAE@HHH@Z",
+   "address": "0041b630"
+  },
+  {
+   "symbol": "??1ObjectClass@@UAE@XZ",
+   "address": "005d2530"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??AMapClass@@QAEAAVCellClass@@ABUCoordStruct@@@Z",
+   "address": "00548000"
+  },
+  {
+   "symbol": "??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z",
+   "address": "00548070"
+  },
+  {
+   "symbol": "??D@YI?AVMatrix3D@@ABV0@0@Z",
+   "address": "00591180"
+  },
+  {
+   "symbol": "??RRandom2Class@@QAEHHH@Z",
+   "address": "006388a0"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVBulletClass@@@@UAEPAXI@Z",
+   "address": "00464250"
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVBulletClass@@@@UAEPAXI@Z",
+   "address": "00464200"
+  },
+  {
+   "symbol": "?AI@BulletClass@@UAEXXZ",
+   "address": "0045f710"
+  },
+  {
+   "symbol": "?Add_Bomb@UnknownList8322E0@@QAEXPAVTechnoClass@@PAVObjectClass@@@Z",
+   "address": "00436470"
+  },
+  {
+   "symbol": "?Add_Voxel_Section_007174c0@@YIXPAVVoxelLibrary@@IHABVMatrix3D@@@Z",
+   "address": "007174c0"
+  },
+  {
+   "symbol": "?Adjacent_Cell@CellClass@@QAEAAV1@I@Z",
+   "address": "00476ac0"
+  },
+  {
+   "symbol": "?Bullet_Height_Pixel@@YIHH@Z",
+   "address": "006a2970"
+  },
+  {
+   "symbol": "?Bullet_Isometric_View@@YI?AVMatrix3D@@XZ",
+   "address": "00717f90"
+  },
+  {
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "address": "0049eea0"
+  },
+  {
+   "symbol": "?CanBeSelected@ObjectClass@@UAE_NXZ",
+   "address": "005d54b0"
+  },
+  {
+   "symbol": "?Can_Demolish@ObjectClass@@UAE_NXZ",
+   "address": "005d2c20"
+  },
+  {
+   "symbol": "?Can_Enter_Cell@ObjectClass@@UAEHPAVCellClass@@HH0_N@Z",
+   "address": "00423e00"
+  },
+  {
+   "symbol": "?Can_Player_Fire@ObjectClass@@UAE_NXZ",
+   "address": "005d2c30"
+  },
+  {
+   "symbol": "?Can_Player_Move@ObjectClass@@UAE_NXZ",
+   "address": "005d2c40"
+  },
+  {
+   "symbol": "?Can_Repair@ObjectClass@@UAE_NXZ",
+   "address": "005d2c10"
+  },
+  {
+   "symbol": "?Capture@CaptureManagerClass@@QAE_NPAVTechnoClass@@@Z",
+   "address": "00467ff0"
+  },
+  {
+   "symbol": "?Catch_Fire@ObjectClass@@UAE_NXZ",
+   "address": "005d2d00"
+  },
+  {
+   "symbol": "?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ",
+   "address": "004717b0"
+  },
+  {
+   "symbol": "?Center_Coord@ObjectClass@@UBE?AUCoordStruct@@XZ",
+   "address": "005d4e40"
+  },
+  {
+   "symbol": "?Clear_Occupy_Bit@ObjectClass@@UAEXABUCoordStruct@@@Z",
+   "address": "005d49e0"
+  },
+  {
+   "symbol": "?Clicked_As_Target@ObjectClass@@UAEXH@Z",
+   "address": "005d2cc0"
+  },
+  {
+   "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+   "address": "00ab6ef8"
+  },
+  {
+   "symbol": "?Compute_CRC@ObjectClass@@UBEXAAVWWCRCEngine@@@Z",
+   "address": "005d4b10"
+  },
+  {
+   "symbol": "?Coord_Scatter@@YI?AUCoordStruct@@ABU1@H_N@Z",
+   "address": "00491750"
+  },
+  {
+   "symbol": "?Create_ID@AbstractClass@@UAGXXZ",
+   "address": "0040ffd0"
+  },
+  {
+   "symbol": "?Delete_Me@ObjectClass@@UAEXXZ",
+   "address": "005d4e90"
+  },
+  {
+   "symbol": "?Detach@ObjectClass@@UAEXPAVAbstractClass@@_N@Z",
+   "address": "005d3bd0"
+  },
+  {
+   "symbol": "?Do_Shimmer@ObjectClass@@UAEXXZ",
+   "address": "005d2c60"
+  },
+  {
+   "symbol": "?Editor_Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z",
+   "address": "005d4e70"
+  },
+  {
+   "symbol": "?Exit_Object@ObjectClass@@UAEHPAVTechnoClass@@@Z",
+   "address": "005d2c70"
+  },
+  {
+   "symbol": "?Fall_From_Height@ObjectClass@@UAEXXZ",
+   "address": "005d2ac0"
+  },
+  {
+   "symbol": "?Fast_Atan2@@YAMNN@Z",
+   "address": "004ba600"
+  },
+  {
+   "symbol": "?Fast_Cos@@YANN@Z",
+   "address": "004ba4d0"
+  },
+  {
+   "symbol": "?Fast_Sin@@YANN@Z",
+   "address": "004ba480"
+  },
+  {
+   "symbol": "?Fast_Sqrt@@YAMN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?Fetch_Heap_ID@AbstractClass@@UBEHXZ",
+   "address": "00410250"
+  },
+  {
+   "symbol": "?Fetch_ID@AbstractClass@@UAGJXZ",
+   "address": "0040ffc0"
+  },
+  {
+   "symbol": "?Fire_Out@ObjectClass@@UAEXXZ",
+   "address": "005d2d10"
+  },
+  {
+   "symbol": "?Frame@@3HA",
+   "address": "00a40d2c"
+  },
+  {
+   "symbol": "?GetSizeMax@AbstractClass@@UAGJPATULARGE_INTEGER@@@Z",
+   "address": "00410180"
+  },
+  {
+   "symbol": "?Get_Cell_Ptr@ObjectClass@@UAEPAVAbstractClass@@XZ",
+   "address": "005d51e0"
+  },
+  {
+   "symbol": "?Get_Explosion_Z_0047fcc0@@YGHUCoordStruct@@@Z",
+   "address": "0047fcc0"
+  },
+  {
+   "symbol": "?Get_Height@ObjectClass@@UBEHXZ",
+   "address": "005d4800"
+  },
+  {
+   "symbol": "?Get_Height_AGL@ObjectClass@@UBEHXZ",
+   "address": "005d4810"
+  },
+  {
+   "symbol": "?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z",
+   "address": "0055a280"
+  },
+  {
+   "symbol": "?Get_Image_Data@ObjectClass@@UAEPAXXZ",
+   "address": "005d27b0"
+  },
+  {
+   "symbol": "?Get_Mission@ObjectClass@@UAEHXZ",
+   "address": "005d2d30"
+  },
+  {
+   "symbol": "?Get_Ownable@ObjectClass@@UAEHXZ",
+   "address": "005d2c00"
+  },
+  {
+   "symbol": "?Get_Render_Rect@ObjectClass@@UAE?AVRect@@XZ",
+   "address": "005d31c0"
+  },
+  {
+   "symbol": "?Get_Target_Cell@ObjectClass@@UBE?AVCell@@XZ",
+   "address": "005d5240"
+  },
+  {
+   "symbol": "?Get_Target_Cell_Ptr@ObjectClass@@UBEPAVCellClass@@XZ",
+   "address": "005d5290"
+  },
+  {
+   "symbol": "?Get_Visual_Rect@ObjectClass@@UAE?AVRect@@XZ",
+   "address": "005d3060"
+  },
+  {
+   "symbol": "?Hidden@ObjectClass@@UAEXXZ",
+   "address": "005d2c80"
+  },
+  {
+   "symbol": "?INoticeSink_Unknown@AbstractClass@@UAE_NHH@Z",
+   "address": "00410320"
+  },
+  {
+   "symbol": "?INoticeSource_Unknown@AbstractClass@@UAGXXZ",
+   "address": "00410330"
+  },
+  {
+   "symbol": "?In_Air@ObjectClass@@UBE_NXZ",
+   "address": "005d5410"
+  },
+  {
+   "symbol": "?In_Range@ObjectClass@@UAE_NABUCoordStruct@@H@Z",
+   "address": "005d2cd0"
+  },
+  {
+   "symbol": "?Increase_Radiation@RadSiteClass@@QAEXH@Z",
+   "address": "006375f0"
+  },
+  {
+   "symbol": "?Index_From_Name@WeaponTypeClass@@SIHPBD@Z",
+   "address": "00733f30"
+  },
+  {
+   "symbol": "?Init@AbstractClass@@UAEXXZ",
+   "address": "00410210"
+  },
+  {
+   "symbol": "?Initialize_004cee20@UnknownBulletData@@QAEXABUCoordStruct@@0HH@Z",
+   "address": "004cee20"
+  },
+  {
+   "symbol": "?IsDirty@AbstractClass@@UAGJXZ",
+   "address": "004101f0"
+  },
+  {
+   "symbol": "?Is_Ally@HouseClass@@QBE_NPBVTechnoClass@@@Z",
+   "address": "004e5580"
+  },
+  {
+   "symbol": "?Is_Fogged@MapClass@@QAE_NABUCoordStruct@@@Z",
+   "address": "005683c0"
+  },
+  {
+   "symbol": "?Is_Inactive@ObjectClass@@UBE_NXZ",
+   "address": "005d4f10"
+  },
+  {
+   "symbol": "?Is_Moving_Onto_Bridge@ObjectClass@@UAE_NPAVTechnoClass@@@Z",
+   "address": "005d52f0"
+  },
+  {
+   "symbol": "?Is_Player_Control@HouseClass@@QAE_NXZ",
+   "address": "004f52b0"
+  },
+  {
+   "symbol": "?Length@UnknownVector3@@QBEHXZ",
+   "address": "0041b780"
+  },
+  {
+   "symbol": "?Limbo@ObjectClass@@UAE_NXZ",
+   "address": "005d3700"
+  },
+  {
+   "symbol": "?Load@ObjectClass@@UAGJPAUIStream@@@Z",
+   "address": "005d4760"
+  },
+  {
+   "symbol": "?Look@ObjectClass@@UAEX_N0@Z",
+   "address": "005d2c90"
+  },
+  {
+   "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+   "address": "00590060"
+  },
+  {
+   "symbol": "?Map@@3VMouseClass@@A",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "?Mark@ObjectClass@@UAE_NH@Z",
+   "address": "005d4160"
+  },
+  {
+   "symbol": "?Mark_For_Redraw@ObjectClass@@UAEXXZ",
+   "address": "005d36e0"
+  },
+  {
+   "symbol": "?Move@ObjectClass@@UAEXH@Z",
+   "address": "005d2d60"
+  },
+  {
+   "symbol": "?Not_Underground@ObjectClass@@UBE_NXZ",
+   "address": "005d5490"
+  },
+  {
+   "symbol": "?On_Ground@ObjectClass@@UBE_NXZ",
+   "address": "005d53e0"
+  },
+  {
+   "symbol": "?Owner@AbstractClass@@UBEHXZ",
+   "address": "00410230"
+  },
+  {
+   "symbol": "?Owning_House@AbstractClass@@UBEPAVHouseClass@@XZ",
+   "address": "00410240"
+  },
+  {
+   "symbol": "?Prepare_Voxel_Lighting_00717050@@YIXPAVVoxelLibrary@@HHABVMatrix3D@@ABUVector3@@@Z",
+   "address": "00717050"
+  },
+  {
+   "symbol": "?QueryInterface@AbstractClass@@UAGJABUGUID@@PAPAX@Z",
+   "address": "00410000"
+  },
+  {
+   "symbol": "?Receive_Message@ObjectClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z",
+   "address": "005d3cb0"
+  },
+  {
+   "symbol": "?Record_The_Kill@ObjectClass@@UAEXPAVTechnoClass@@@Z",
+   "address": "005d2c50"
+  },
+  {
+   "symbol": "?Remove@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "address": "00499a90"
+  },
+  {
+   "symbol": "?Render@ObjectClass@@UAE_NPAVRect@@_N1@Z",
+   "address": "005d34e0"
+  },
+  {
+   "symbol": "?Repair@ObjectClass@@UAEXH@Z",
+   "address": "005d2d40"
+  },
+  {
+   "symbol": "?Reset_Voxel_Renderer_007171d0@@YAXXZ",
+   "address": "007171d0"
+  },
+  {
+   "symbol": "?Revealed@ObjectClass@@UAE_NPAVHouseClass@@@Z",
+   "address": "005d4230"
+  },
+  {
+   "symbol": "?Rotate_Y@Matrix3D@@QAEXM@Z",
+   "address": "00590880"
+  },
+  {
+   "symbol": "?Rotate_Z@Matrix3D@@QAEXM@Z",
+   "address": "005909a0"
+  },
+  {
+   "symbol": "?Rules@@3PAVRulesClass@@A",
+   "address": "00839848"
+  },
+  {
+   "symbol": "?Save@AbstractClass@@UAGJPAUIStream@@H@Z",
+   "address": "004100c0"
+  },
+  {
+   "symbol": "?Scatter@ObjectClass@@UAEXABUCoordStruct@@_N1@Z",
+   "address": "005d2cf0"
+  },
+  {
+   "symbol": "?Select_Blitter_00485AA0@ConvertClass@@QAEPAVBlitter@@I@Z",
+   "address": "00485aa0"
+  },
+  {
+   "symbol": "?Sell_Back@ObjectClass@@UAEXH@Z",
+   "address": "005d2d50"
+  },
+  {
+   "symbol": "?Set_Base_Cell@RadSiteClass@@QAEXABVCell@@@Z",
+   "address": "00637580"
+  },
+  {
+   "symbol": "?Set_Coord@ObjectClass@@UAEXABUCoordStruct@@@Z",
+   "address": "005d51c0"
+  },
+  {
+   "symbol": "?Set_Height_AGL@ObjectClass@@UAEXH@Z",
+   "address": "005d4860"
+  },
+  {
+   "symbol": "?Set_Occupy_Bit@ObjectClass@@UAEXABUCoordStruct@@@Z",
+   "address": "005d4960"
+  },
+  {
+   "symbol": "?Set_Rad_Level@RadSiteClass@@QAEXH@Z",
+   "address": "006375b0"
+  },
+  {
+   "symbol": "?Set_Spread@RadSiteClass@@QAEXH@Z",
+   "address": "00637590"
+  },
+  {
+   "symbol": "?Set_Waypoint_Path@ObjectClass@@UAEXHD@Z",
+   "address": "005d53d0"
+  },
+  {
+   "symbol": "?Sort_Y@ObjectClass@@UBEHXZ",
+   "address": "005d5450"
+  },
+  {
+   "symbol": "?Spring@TagClass@@QAE_NHPAVObjectClass@@VCell@@_NH@Z",
+   "address": "006b3df0"
+  },
+  {
+   "symbol": "?Submit@DisplayClass@@QAEXPAVObjectClass@@@Z",
+   "address": "00499a40"
+  },
+  {
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "address": "0069fb20"
+  },
+  {
+   "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+   "address": "00abd868"
+  },
+  {
+   "symbol": "?Take_Damage@ObjectClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z",
+   "address": "005d3d20"
+  },
+  {
+   "symbol": "?Techno_Type_Class@ObjectClass@@UAEPAVTechnoTypeClass@@XZ",
+   "address": "005d5440"
+  },
+  {
+   "symbol": "?Trace_Projectile_Line_004bb890@@YIPAVCellClass@@ABUCoordStruct@@0PBVBulletTypeClass@@PBVHouseClass@@@Z",
+   "address": "004bb890"
+  },
+  {
+   "symbol": "?Unknown_00422BA0@@YIXHABVCell@@@Z",
+   "address": "00422ba0"
+  },
+  {
+   "symbol": "?Unknown_00435FB0@BombClass@@QAEXXZ",
+   "address": "00435fb0"
+  },
+  {
+   "symbol": "?Unknown_00450CB0@BuildingClass@@QAEXPAVBulletClass@@_N@Z",
+   "address": "00450cb0"
+  },
+  {
+   "symbol": "?Unknown_00465150@UnknownBulletTypeView@@QAEXH@Z",
+   "address": "00465150"
+  },
+  {
+   "symbol": "?Unknown_0047CE30@RadSiteCell@@QAEXPAVRadSiteClass@@@Z",
+   "address": "0047ce30"
+  },
+  {
+   "symbol": "?Unknown_0047CE40@RadSiteCell@@QAEPAVRadSiteClass@@XZ",
+   "address": "0047ce40"
+  },
+  {
+   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "address": "0047e2c0"
+  },
+  {
+   "symbol": "?Unknown_0047F4D0@@YIPAVAnimTypeClass@@HPAVWarheadTypeClass@@HABUCoordStruct@@@Z",
+   "address": "0047f4d0"
+  },
+  {
+   "symbol": "?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
+   "address": "0047f600"
+  },
+  {
+   "symbol": "?Unknown_004BBAF0@@YIHPAVCellClass@@00UCoordStruct@@PAVBulletTypeClass@@PAVHouseClass@@@Z",
+   "address": "004bbaf0"
+  },
+  {
+   "symbol": "?Unknown_00569FB0@MapClass@@QAE?AUCoordStruct@@ABU2@0PAVHouseClass@@@Z",
+   "address": "00569fb0"
+  },
+  {
+   "symbol": "?Unknown_00607980@ParasiteClass@@QAEXPAVFootClass@@@Z",
+   "address": "00607980"
+  },
+  {
+   "symbol": "?Unknown_00637640@RadSiteClass@@QAEXXZ",
+   "address": "00637640"
+  },
+  {
+   "symbol": "?Unknown_006E27B0@UnknownTechno208@@QAEXPAVTechnoClass@@@Z",
+   "address": "006e27b0"
+  },
+  {
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "address": "006ecb90"
+  },
+  {
+   "symbol": "?Unlimbo@ObjectClass@@UAE_NPBUCoordStruct@@H@Z",
+   "address": "005d3890"
+  },
+  {
+   "symbol": "?Unselect@ObjectClass@@UAEXXZ",
+   "address": "005d2df0"
+  },
+  {
+   "symbol": "?Value@ObjectClass@@UAEHXZ",
+   "address": "005d2d20"
+  },
+  {
+   "symbol": "?Voc_Play_At@@YIPAUAudioEvent@@HABUCoordStruct@@PAUAudioEventHandle@@@Z",
+   "address": "00713e60"
+  },
+  {
+   "symbol": "?Voxel_Render_Bounds_007178e0@@YI?AUBulletVoxelBounds@@XZ",
+   "address": "007178e0"
+  },
+  {
+   "symbol": "?Voxel_Render_Surface_00717040@@YAAAVSurface@@XZ",
+   "address": "00717040"
+  },
+  {
+   "symbol": "?Weapon_Range@ObjectClass@@UAEHH@Z",
+   "address": "005d2ce0"
+  },
+  {
+   "symbol": "?What_Am_I@AbstractClass@@UAGHXZ",
+   "address": "0040ffb0"
+  },
+  {
+   "symbol": "?Who_Can_Build_Me@ObjectClass@@UAEPAVBuildingClass@@_N0@Z",
+   "address": "005d4500"
+  },
+  {
+   "symbol": "?bullet_anim_drawer@@3PAVConvertClass@@A",
+   "address": "008323c0"
+  },
+  {
+   "symbol": "?bullet_normal_drawer@@3PAVConvertClass@@A",
+   "address": "008323c4"
+  },
+  {
+   "symbol": "?unknown_44da20@BuildingClass@@QAEXPAVInfantryClass@@@Z",
+   "address": "0044da20"
+  },
+  {
+   "symbol": "?unknown_5d4c00@ObjectClass@@QAEHPAVAbstractClass@@@Z",
+   "address": "005d4c00"
+  },
+  {
+   "symbol": "?unknown_6c9df0@TechnoClass@@QAEPAVLaserDrawClass@@PAVAbstractClass@@HPAVWeaponTypeClass@@ABUCoordStruct@@@Z",
+   "address": "006c9df0"
+  },
+  {
+   "symbol": "?unknown_6ca020@TechnoClass@@QAEPAVEBolt@@PAVAbstractClass@@PAVWeaponTypeClass@@ABUCoordStruct@@@Z",
+   "address": "006ca020"
+  },
+  {
+   "symbol": "?unknown_BulletClass_list_00a40ce8@@3V?$DynamicVectorClass@PAVBulletClass@@@@A",
+   "address": "00a40ce8"
+  },
+  {
+   "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+   "address": "00839b90"
+  },
+  {
+   "symbol": "?unknown_a40774@@3HA",
+   "address": "00a40774"
+  },
+  {
+   "symbol": "?unknown_abstracts_ac0bf8@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0bf8"
+  },
+  {
+   "symbol": "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z",
+   "address": "0049f3a0"
+  },
+  {
+   "symbol": "?unknown_cells_a6f248@@3PAVCell@@A",
+   "address": "00a6f248"
+  },
+  {
+   "symbol": "?unknown_com_objects_a6eb14@@3JA",
+   "address": "00a6eb14"
+  },
+  {
+   "symbol": "?unknown_cos_4ba4d0@@YANN@Z",
+   "address": "004ba4d0"
+  },
+  {
+   "symbol": "?unknown_double_79b610@@3NB",
+   "address": "0079b610"
+  },
+  {
+   "symbol": "?unknown_facing_frames_7acab0@@3PAHA",
+   "address": "007acab0"
+  },
+  {
+   "symbol": "?unknown_flag_a40958@@3_NA",
+   "address": "00a40958"
+  },
+  {
+   "symbol": "?unknown_flat_voxel_7d11a4@@3HA",
+   "address": "007d11a4"
+  },
+  {
+   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
+   "symbol": "?unknown_list_8322e0@@3VUnknownList8322E0@@A",
+   "address": "008322e0"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_math_4ba600@@YANNN@Z",
+   "address": "004ba600"
+  },
+  {
+   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
+   "address": "00a35db4"
+  },
+  {
+   "symbol": "?unknown_radius_starts_7a5908@@3QBHB",
+   "address": "007a5908"
+  },
+  {
+   "symbol": "?unknown_random_839218@@3VRandom2Class@@A",
+   "address": "00839218"
+  },
+  {
+   "symbol": "?unknown_sin_4ba480@@YANN@Z",
+   "address": "004ba480"
+  },
+  {
+   "symbol": "?unknown_slot102@ObjectClass@@UAEHPAVUnknownCellClass@@HPAHPA_N0@Z",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot104@ObjectClass@@UBE?AVCell@@XZ",
+   "address": "0041b320"
+  },
+  {
+   "symbol": "?unknown_slot111@ObjectClass@@UAE_NXZ",
+   "address": "00423e20"
+  },
+  {
+   "symbol": "?unknown_slot112@ObjectClass@@UAE_NXZ",
+   "address": "00423e30"
+  },
+  {
+   "symbol": "?unknown_slot113@ObjectClass@@UAE_NXZ",
+   "address": "00423e40"
+  },
+  {
+   "symbol": "?unknown_slot114@ObjectClass@@UAE_NXZ",
+   "address": "00423e50"
+  },
+  {
+   "symbol": "?unknown_slot115@ObjectClass@@UAEPAVConvertClass@@XZ",
+   "address": "00423e60"
+  },
+  {
+   "symbol": "?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z",
+   "address": "00410290"
+  },
+  {
+   "symbol": "?unknown_slot22@AbstractClass@@UBE?AUCoordStruct@@XZ",
+   "address": "004102e0"
+  },
+  {
+   "symbol": "?unknown_slot24@ObjectClass@@UAE_NXZ",
+   "address": "00423d10"
+  },
+  {
+   "symbol": "?unknown_slot25@ObjectClass@@UAEH_NH@Z",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot27@ObjectClass@@UAEHPBVCell@@_N1@Z",
+   "address": "005d2bb0"
+  },
+  {
+   "symbol": "?unknown_slot28@ObjectClass@@UAEHPAV1@_N@Z",
+   "address": "005d2ba0"
+  },
+  {
+   "symbol": "?unknown_slot31@ObjectClass@@UAE_NXZ",
+   "address": "00423d30"
+  },
+  {
+   "symbol": "?unknown_slot35@ObjectClass@@UAEPBGXZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot40@ObjectClass@@UAE?AUCoordStruct@@XZ",
+   "address": "0041b240"
+  },
+  {
+   "symbol": "?unknown_slot41@ObjectClass@@UBE?AUCoordStruct@@H@Z",
+   "address": "005d54f0"
+  },
+  {
+   "symbol": "?unknown_slot42@ObjectClass@@UBE?AUCoordStruct@@XZ",
+   "address": "0041b270"
+  },
+  {
+   "symbol": "?unknown_slot43@ObjectClass@@UAE?AUCoordStruct@@H@Z",
+   "address": "00423d50"
+  },
+  {
+   "symbol": "?unknown_slot44@ObjectClass@@UAE?AUCoordStruct@@H@Z",
+   "address": "0041b2a0"
+  },
+  {
+   "symbol": "?unknown_slot47@ObjectClass@@UAE_NXZ",
+   "address": "00423d90"
+  },
+  {
+   "symbol": "?unknown_slot48@ObjectClass@@UAE_NXZ",
+   "address": "00423da0"
+  },
+  {
+   "symbol": "?unknown_slot49@ObjectClass@@UAE_NPAVHouseClass@@@Z",
+   "address": "00423db0"
+  },
+  {
+   "symbol": "?unknown_slot50@ObjectClass@@UAEPAVObjectTypeClass@@_N@Z",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot51@ObjectClass@@UAEPAVHouseClass@@_N@Z",
+   "address": "0041b2e0"
+  },
+  {
+   "symbol": "?unknown_slot54@ObjectClass@@UAEX_N@Z",
+   "address": "005d3c10"
+  },
+  {
+   "symbol": "?unknown_slot56@ObjectClass@@UAE_NABUCoordStruct@@@Z",
+   "address": "005d4240"
+  },
+  {
+   "symbol": "?unknown_slot65@ObjectClass@@UAEXHH@Z",
+   "address": "00423dc0"
+  },
+  {
+   "symbol": "?unknown_slot66@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z",
+   "address": "00423dd0"
+  },
+  {
+   "symbol": "?unknown_slot74@ObjectClass@@UAEXH@Z",
+   "address": "0041b2f0"
+  },
+  {
+   "symbol": "?unknown_slot77@ObjectClass@@UAE_NHPBVCell@@0_N@Z",
+   "address": "005d2cb0"
+  },
+  {
+   "symbol": "?unknown_slot78@ObjectClass@@UAE_NHPAV1@_N@Z",
+   "address": "005d2ca0"
+  },
+  {
+   "symbol": "?unknown_slot80@ObjectClass@@UAE_NXZ",
+   "address": "005d2e70"
+  },
+  {
+   "symbol": "?unknown_slot82@ObjectClass@@UAEXH@Z",
+   "address": "00423de0"
+  },
+  {
+   "symbol": "?unknown_slot83@ObjectClass@@UAE_NXZ",
+   "address": "0041b300"
+  },
+  {
+   "symbol": "?unknown_slot92@ObjectClass@@UAEXH@Z",
+   "address": "0041b310"
+  },
+  {
+   "symbol": "?unknown_slot93@ObjectClass@@UAEXH@Z",
+   "address": "00423df0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_surface_83995c@@3PAVSurface@@A",
+   "address": "0083995c"
+  },
+  {
+   "symbol": "?unknown_voxel_light_839ab0@@3UVector3@@A",
+   "address": "00839ab0"
+  },
+  {
+   "symbol": "?unknown_voxel_transform_839a70@@3VMatrix3D@@A",
+   "address": "00839a70"
+  },
+  {
+   "symbol": "_CLSID_BulletClass",
+   "address": "007a1c50"
+  },
+  {
+   "symbol": "_IID_IUnknown_7afce0",
+   "address": "007afce0"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__CoCreateInstance@20",
+   "address": "0079a5f0"
+  },
+  {
+   "symbol": "__imp__InterlockedDecrement@4",
+   "address": "0079a1c0"
+  },
+  {
+   "symbol": "__imp__InterlockedIncrement@4",
+   "address": "0079a1bc"
+  },
+  {
+   "symbol": "_atexit",
+   "address": "0078298a"
+  },
+  {
+   "symbol": "_release_buffer_464200",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_464250",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_464200",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_464250",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_vtable_464200",
+   "address": "0079d328"
+  },
+  {
+   "symbol": "_vtable_464250",
+   "address": "0079d328"
+  }
+ ],
+ "route": "A",
+ "unit": "bullet.cpp",
+ "form": "one include block",
+ "switches": [
+  "RA2_DIR_MISSILE_ANGLES",
+  "RA2_DIR_RADIAN32",
+  "RA2_BULLET_VELOCITY_DIRS",
+  "SHAPE_FILE_EMPTY_RECT",
+  "RA2_BUILDING_FULL",
+  "VECTOR_IMPLEMENT_ALL"
+ ],
+ "include_blocks": [
+  {
+   "before": "0045f120",
+   "lines": 40
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "00463f20",
+   "bytes": 42,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "00463f50",
+   "bytes": 27,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "00463f70",
+   "bytes": 13,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "00463fa0",
+   "bytes": 62,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "00463fe0",
+   "bytes": 174,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "00464090",
+   "bytes": 39,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "004640c0",
+   "bytes": 51,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "00464100",
+   "bytes": 27,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "00464120",
+   "bytes": 176,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "004641d0",
+   "bytes": 38,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "00464200",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00464250",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [],
+ "unit_functions": 66,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVBulletClass@@@@6B@",
+   "reason": "relocation target unbound: ??_E?$DynamicVectorClass@PAVBulletClass@@@@UAEPAXI@Z"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVBulletClass@@@@6B@",
+   "reason": "relocation target unbound: ??_E?$VectorClass@PAVBulletClass@@@@UAEPAXI@Z"
+  },
+  {
+   "symbol": "??_7BulletClass@@6BIPersistStream@@@",
+   "reason": "relocation target unbound: ?unknown_slot25@ObjectClass@@UAEH_NH@Z"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "00710250",
+   "target": "00463f80",
+   "symbol": "??0StageTimerClass@@QAE@J@Z",
+   "module_symbol": "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@J@Z"
+  }
+ ],
+ "stand_in_reference_count": 1,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

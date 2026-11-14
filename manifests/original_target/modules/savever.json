@@ -1,0 +1,543 @@
+{
+ "module": "savever",
+ "source": "src/recovered/savever.cpp",
+ "header": null,
+ "population": "population-4432",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 1039,
+ "code": [
+  {
+   "symbol": "??0SaveVersionInfo@@QAE@XZ",
+   "entry": "00659240",
+   "body_bytes": 97,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Set_Version@SaveVersionInfo@@QAEXH@Z",
+   "entry": "006592b0",
+   "body_bytes": 10,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Get_Version@SaveVersionInfo@@QBEHXZ",
+   "entry": "006592c0",
+   "body_bytes": 4,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Set_Internal_Version@SaveVersionInfo@@QAEXH@Z",
+   "entry": "006592d0",
+   "body_bytes": 9,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Get_Internal_Version@SaveVersionInfo@@QBEHXZ",
+   "entry": "006592e0",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Set_Scenario_Description@SaveVersionInfo@@QAEXPBG@Z",
+   "entry": "006592f0",
+   "body_bytes": 31,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Get_Scenario_Description@SaveVersionInfo@@QBEPBGXZ",
+   "entry": "00659310",
+   "body_bytes": 4,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Set_Player_House@SaveVersionInfo@@QAEXPBG@Z",
+   "entry": "00659320",
+   "body_bytes": 34,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Get_Player_House@SaveVersionInfo@@QBEPBGXZ",
+   "entry": "00659350",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Set_Campaign_Number@SaveVersionInfo@@QAEXH@Z",
+   "entry": "00659360",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Get_Campaign_Number@SaveVersionInfo@@QBEHXZ",
+   "entry": "00659370",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Set_Scenario_Number@SaveVersionInfo@@QAEXH@Z",
+   "entry": "00659380",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Get_Scenario_Number@SaveVersionInfo@@QBEHXZ",
+   "entry": "00659390",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Set_Unknown_String@SaveVersionInfo@@QAEXPBD@Z",
+   "entry": "006593a0",
+   "body_bytes": 35,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Get_Unknown_String@SaveVersionInfo@@QBEPBDXZ",
+   "entry": "006593d0",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Set_Player_Name@SaveVersionInfo@@QAEXPBD@Z",
+   "entry": "006593e0",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Get_Player_Name@SaveVersionInfo@@QBEPBDXZ",
+   "entry": "00659400",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Set_Executable_Name@SaveVersionInfo@@QAEXPBD@Z",
+   "entry": "00659410",
+   "body_bytes": 35,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Get_Executable_Name@SaveVersionInfo@@QBEPBDXZ",
+   "entry": "00659440",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Set_Start_Time@SaveVersionInfo@@QAEXABUFILETIME@@@Z",
+   "entry": "00659450",
+   "body_bytes": 24,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Get_Start_Time@SaveVersionInfo@@QBEXAAUFILETIME@@@Z",
+   "entry": "00659470",
+   "body_bytes": 24,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Set_Play_Time@SaveVersionInfo@@QAEXABUFILETIME@@@Z",
+   "entry": "00659490",
+   "body_bytes": 24,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Get_Play_Time@SaveVersionInfo@@QBEXAAUFILETIME@@@Z",
+   "entry": "006594b0",
+   "body_bytes": 24,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Set_Last_Time@SaveVersionInfo@@QAEXABUFILETIME@@@Z",
+   "entry": "006594d0",
+   "body_bytes": 24,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Get_Last_Time@SaveVersionInfo@@QBEXAAUFILETIME@@@Z",
+   "entry": "006594f0",
+   "body_bytes": 24,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Set_Game_Type@SaveVersionInfo@@QAEXH@Z",
+   "entry": "00659510",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Get_Game_Type@SaveVersionInfo@@QBEHXZ",
+   "entry": "00659520",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Save@SaveVersionInfo@@QAEJPAUIStorage@@@Z",
+   "entry": "00659530",
+   "body_bytes": 1372,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Load@SaveVersionInfo@@QAEJPAUIStorage@@@Z",
+   "entry": "00659a90",
+   "body_bytes": 2319,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Read_Stream_String@SaveVersionInfo@@QAEJPAUIStorage@@HPAD@Z",
+   "entry": "0065a3a0",
+   "body_bytes": 232,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Read_Stream_Wide@SaveVersionInfo@@QAEJPAUIStorage@@HPAG@Z",
+   "entry": "0065a490",
+   "body_bytes": 176,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Read_Property_String@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPAD@Z",
+   "entry": "0065a540",
+   "body_bytes": 221,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Read_Property_Wide@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPAG@Z",
+   "entry": "0065a620",
+   "body_bytes": 215,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Read_Stream_Int@SaveVersionInfo@@QAEJPAUIStorage@@HPAH@Z",
+   "entry": "0065a700",
+   "body_bytes": 179,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Read_Property_Int@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPAH@Z",
+   "entry": "0065a7c0",
+   "body_bytes": 203,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Write_Stream_String@SaveVersionInfo@@QAEJPAUIStorage@@HPBD@Z",
+   "entry": "0065a890",
+   "body_bytes": 311,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Write_Stream_Wide@SaveVersionInfo@@QAEJPAUIStorage@@HPBG@Z",
+   "entry": "0065a9d0",
+   "body_bytes": 248,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Write_Property_String@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPBD@Z",
+   "entry": "0065aad0",
+   "body_bytes": 287,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Write_Property_Wide@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPBG@Z",
+   "entry": "0065abf0",
+   "body_bytes": 235,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Write_Stream_Int@SaveVersionInfo@@QAEJPAUIStorage@@HH@Z",
+   "entry": "0065ace0",
+   "body_bytes": 230,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Write_Property_Int@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HH@Z",
+   "entry": "0065add0",
+   "body_bytes": 235,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Read_Stream_Time@SaveVersionInfo@@QAEJPAUIStorage@@HPAUFILETIME@@@Z",
+   "entry": "0065aec0",
+   "body_bytes": 186,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Read_Property_Time@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPAUFILETIME@@@Z",
+   "entry": "0065af80",
+   "body_bytes": 217,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Write_Stream_Time@SaveVersionInfo@@QAEJPAUIStorage@@HPBUFILETIME@@@Z",
+   "entry": "0065b060",
+   "body_bytes": 230,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Write_Property_Time@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPBUFILETIME@@@Z",
+   "entry": "0065b150",
+   "body_bytes": 248,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Savegame_Stream_Name@@YIPBGH@Z",
+   "entry": "0065b250",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Checked@?$UnknownComPtr@UIStream@@$1?unknown_uuid_IStream@@3UGUID@@B@@QBEPAUIStream@@XZ",
+   "entry": "0065b280",
+   "body_bytes": 22,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Release_Held@?$UnknownComPtr@UIPropertySetStorage@@$1?unknown_uuid_IPropertySetStorage@@3UGUID@@B@@QAEXXZ",
+   "entry": "0065b2a0",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Release_Held@?$UnknownComPtr@UIStream@@$1?unknown_uuid_IStream@@3UGUID@@B@@QAEXXZ",
+   "entry": "0065b2b0",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  }
+ ],
+ "code_bytes": 8320,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00657fa0",
+   "symbol": "?Load@SaveVersionInfo@@QAEJPAUIStorage@@@Z",
+   "target": "00659a90",
+   "function_entry": true
+  },
+  {
+   "site": "0053c7f0",
+   "symbol": "??0SaveVersionInfo@@QAE@XZ",
+   "target": "00659240",
+   "function_entry": true
+  },
+  {
+   "site": "0053c7f0",
+   "symbol": "?Get_Internal_Version@SaveVersionInfo@@QBEHXZ",
+   "target": "006592e0",
+   "function_entry": true
+  },
+  {
+   "site": "0053c7f0",
+   "symbol": "?Get_Scenario_Description@SaveVersionInfo@@QBEPBGXZ",
+   "target": "00659310",
+   "function_entry": true
+  },
+  {
+   "site": "0053c7f0",
+   "symbol": "?Get_Scenario_Description@SaveVersionInfo@@QBEPBGXZ",
+   "target": "00659310",
+   "function_entry": true
+  },
+  {
+   "site": "0053c7f0",
+   "symbol": "?Get_Scenario_Number@SaveVersionInfo@@QBEHXZ",
+   "target": "00659390",
+   "function_entry": true
+  },
+  {
+   "site": "0053c7f0",
+   "symbol": "?Get_Campaign_Number@SaveVersionInfo@@QBEHXZ",
+   "target": "00659370",
+   "function_entry": true
+  },
+  {
+   "site": "0053c7f0",
+   "symbol": "?Get_Game_Type@SaveVersionInfo@@QBEHXZ",
+   "target": "00659520",
+   "function_entry": true
+  },
+  {
+   "site": "0053c7f0",
+   "symbol": "?Get_Player_House@SaveVersionInfo@@QBEPBGXZ",
+   "target": "00659350",
+   "function_entry": true
+  },
+  {
+   "site": "006554a0",
+   "symbol": "??0SaveVersionInfo@@QAE@XZ",
+   "target": "00659240",
+   "function_entry": true
+  },
+  {
+   "site": "006554a0",
+   "symbol": "?Set_Internal_Version@SaveVersionInfo@@QAEXH@Z",
+   "target": "006592d0",
+   "function_entry": true
+  },
+  {
+   "site": "006554a0",
+   "symbol": "?Set_Scenario_Description@SaveVersionInfo@@QAEXPBG@Z",
+   "target": "006592f0",
+   "function_entry": true
+  },
+  {
+   "site": "006554a0",
+   "symbol": "?Set_Version@SaveVersionInfo@@QAEXH@Z",
+   "target": "006592b0",
+   "function_entry": true
+  },
+  {
+   "site": "006554a0",
+   "symbol": "?Set_Player_House@SaveVersionInfo@@QAEXPBG@Z",
+   "target": "00659320",
+   "function_entry": true
+  },
+  {
+   "site": "006554a0",
+   "symbol": "?Set_Campaign_Number@SaveVersionInfo@@QAEXH@Z",
+   "target": "00659360",
+   "function_entry": true
+  },
+  {
+   "site": "006554a0",
+   "symbol": "?Set_Scenario_Number@SaveVersionInfo@@QAEXH@Z",
+   "target": "00659380",
+   "function_entry": true
+  },
+  {
+   "site": "006554a0",
+   "symbol": "?Set_Executable_Name@SaveVersionInfo@@QAEXPBD@Z",
+   "target": "00659410",
+   "function_entry": true
+  },
+  {
+   "site": "006554a0",
+   "symbol": "?Set_Game_Type@SaveVersionInfo@@QAEXH@Z",
+   "target": "00659510",
+   "function_entry": true
+  },
+  {
+   "site": "006554a0",
+   "symbol": "?Set_Last_Time@SaveVersionInfo@@QAEXABUFILETIME@@@Z",
+   "target": "006594d0",
+   "function_entry": true
+  },
+  {
+   "site": "006554a0",
+   "symbol": "?Set_Start_Time@SaveVersionInfo@@QAEXABUFILETIME@@@Z",
+   "target": "00659450",
+   "function_entry": true
+  },
+  {
+   "site": "006554a0",
+   "symbol": "?Set_Play_Time@SaveVersionInfo@@QAEXABUFILETIME@@@Z",
+   "target": "00659490",
+   "function_entry": true
+  },
+  {
+   "site": "006554a0",
+   "symbol": "?Save@SaveVersionInfo@@QAEJPAUIStorage@@@Z",
+   "target": "00659530",
+   "function_entry": true
+  },
+  {
+   "site": "00656890",
+   "symbol": "??0SaveVersionInfo@@QAE@XZ",
+   "target": "00659240",
+   "function_entry": true
+  },
+  {
+   "site": "00656890",
+   "symbol": "?Load@SaveVersionInfo@@QAEJPAUIStorage@@@Z",
+   "target": "00659a90",
+   "function_entry": true
+  },
+  {
+   "site": "00656890",
+   "symbol": "?Get_Game_Type@SaveVersionInfo@@QBEHXZ",
+   "target": "00659520",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "?_com_issue_error@@YGXJ@Z",
+   "address": "00795940"
+  },
+  {
+   "symbol": "?unknown_savegame_streams_7f1c10@@3QBUSavegameStreamName@@B",
+   "address": "007f1c10"
+  },
+  {
+   "symbol": "_IID_IPropertySetStorage",
+   "address": "007afd50"
+  },
+  {
+   "symbol": "__imp__MultiByteToWideChar@24",
+   "address": "0079a1b8"
+  },
+  {
+   "symbol": "__imp__WideCharToMultiByte@32",
+   "address": "0079a23c"
+  },
+  {
+   "symbol": "_strncpy",
+   "address": "007823d0"
+  },
+  {
+   "symbol": "_unknown_fmtid_7afd60",
+   "address": "007afd60"
+  },
+  {
+   "symbol": "_wcscpy",
+   "address": "00783689"
+  },
+  {
+   "symbol": "_wcslen",
+   "address": "00783605"
+  },
+  {
+   "symbol": "_wcsncpy",
+   "address": "00783622"
+  }
+ ],
+ "route": "A",
+ "unit": "savever.cpp",
+ "form": "one include block",
+ "switches": [
+  "COM_PTR_IMPLEMENT_RELEASE",
+  "COM_PTR_RELEASE_IN_DESTRUCTOR"
+ ],
+ "include_blocks": [
+  {
+   "before": "00659240",
+   "lines": 4
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 50,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

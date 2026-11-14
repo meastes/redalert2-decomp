@@ -3,7 +3,7 @@
 #ifndef RA2_SHARED_BEACON_HPP
 #define RA2_SHARED_BEACON_HPP
 
-// The Beacon unit's own Unknown84E8D0 members (shared/unknown_globals.hpp guards them: new declarations
+// The Beacon unit's own BeaconManagerClass members (shared/unknown_globals.hpp guards them: new declarations
 // there renumber Refresh_Wonline_Players 0x0073FEE0); the unit defines both guards in its first draft.
 
 #include "shared/unknown_globals.hpp"
@@ -64,7 +64,7 @@ public:
 };
 
 struct ShapeFileStruct;
-extern ShapeFileStruct const *unknown_beacon_shape_84e98c;          // 0x0084E98C PBEACON.SHP (Unknown84E8D0 0x0042E1A0)
+extern ShapeFileStruct const *unknown_beacon_shape_84e98c;          // 0x0084E98C PBEACON.SHP (BeaconManagerClass 0x0042E1A0)
 extern ShapeFileStruct const *unknown_radar_beacon_shape_84e990;    // 0x0084E990 RDRBEACN.SHP
 extern int unknown_beacon_phase_84e948;                             // 0x0084E948 (the blink phase length; hypothesis)
 extern int unknown_beacon_cycle_84e93c;                             // 0x0084E93C (twice the beacon's animation frame count; hypothesis)

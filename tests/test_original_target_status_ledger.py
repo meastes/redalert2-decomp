@@ -72,6 +72,27 @@ class HandwrittenListTests(unittest.TestCase):
         self.assertTrue(all(status.TEXT_START <= a for a, _ in spans))
 
 
+
+class OwnBoundTests(unittest.TestCase):
+    def test_rows_bound_by_their_own_population_are_counted_with_their_donors(self):
+        catalog = dict(regions=[region(0x401000, 16), region(0x401010, 8, bound_population='p2'),
+                                region(0x401020, 4, bound_population='p2'), region(0x401030, 2, bound_population='p3')])
+        self.assertEqual(status.own_bound_coverage(catalog), (3, 14, 2))
+        self.assertIn('| 3 rows, 14 bytes, 2 donor populations |', status.own_bound_line(catalog))
+
+    def test_files_defining_declarations_only_are_listed_per_file(self):
+        texts = {'src/recovered/a.cpp': b'#define VECTOR_DECLARATIONS_ONLY\nint F();\n', 'src/recovered/b.cpp': b'int G();\n'}
+        catalog = dict(regions=[dict(region(0x401000, 16), source='src/recovered/a.cpp'),
+                                dict(region(0x401010, 8), source='src/recovered/a.cpp'),
+                                dict(region(0x401020, 8), source='src/recovered/b.cpp')])
+        self.assertEqual(status.declarations_only_files(catalog, texts.__getitem__), ['src/recovered/a.cpp'])
+        self.assertIn('| 1 (a.cpp) |', status.declarations_only_line(catalog, texts.__getitem__))
+
+    def test_declarations_only_rows_are_judgment_calls(self):
+        catalog = dict(regions=[region(0x401000, 16, declarations_only=True), region(0x401010, 8)])
+        self.assertIn('declarations_only', status.JUDGMENT_FLAGS)
+        self.assertEqual(status.judgment_coverage(catalog), (1, 16))
+
 if __name__ == '__main__':
     unittest.main()
 

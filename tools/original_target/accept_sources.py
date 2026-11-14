@@ -473,9 +473,8 @@ def main():
         except ValueError as error:
             raise SystemExit('%s: %s' % (error, item['source']))
         # The canonical build requires a semantic name to be the file stem.
-        if item.get('semantic_name') and (Path(item['source']).stem != item['semantic_name'] or
-                                          not item['semantic_name'].endswith('_%08x' % int(item['entry'], 16))):
-            raise SystemExit('semantic_name must equal the source file stem and end with the entry: %s' % item['entry'])
+        if item.get('semantic_name') and Path(item['source']).stem != item['semantic_name']:
+            raise SystemExit('semantic_name must equal the source file stem: %s' % item['entry'])
     drafts = [item['draft'] for item in plan['sources']]
     if len(set(drafts)) != len(drafts):
         # Each draft is concatenated once per item into the unit; a second
@@ -556,7 +555,8 @@ def main():
             for candidate_pass in PASSES + sorted(INVENTORY.glob('composite-*')):
                 rows = inventory.rows(candidate_pass)
                 if entry in rows and sha((candidate_pass / 'functions.jsonl').read_bytes()) == next(
-                        p['inventory_sha256'] for p in catalog['populations'] if p['id'] == old['population']):
+                        p['inventory_sha256'] for p in catalog['populations']
+                        if p['id'] == old.get('bound_population', old['population'])):    # a joined row: its own frozen pass
                     directory, bound = candidate_pass, rows[entry]
         aligned = directory.with_name(directory.name + '-aligned')
         by_pass.setdefault(aligned if aligned.exists() else directory, []).append((entry, bound, item))

@@ -1,0 +1,1203 @@
+{
+ "about": "Undefined symbols of the Mac ra2-native link closure (RA2_NATIVE_SUBSYSTEM=all, drafts and link closure on, WIN64_PARAMS on) that tests/link_closure_baseline.py allows. Names only (no bytes). Regenerate with tests/link_closure_baseline.py --build <dir> --write when the set shrinks.",
+ "total": 238,
+ "by_class": {
+  "c-address": 25,
+  "c-data": 1,
+  "c-function": 4,
+  "cxx-data": 3,
+  "cxx-function": 205
+ },
+ "symbols": [
+  {
+   "symbol": "_Iso_Blit_Asm2",
+   "name": "Iso_Blit_Asm2",
+   "cls": "c-function"
+  },
+  {
+   "symbol": "__Z14fopen_00783a45PKcS0_",
+   "name": "fopen_00783a45(char const*, char const*)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__Z15fclose_0078395bPv",
+   "name": "fclose_0078395b(void*)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__Z15fflush_0078439cPv",
+   "name": "fflush_0078439c(void*)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__Z16Unknown_005CD380v",
+   "name": "Unknown_005CD380()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__Z16Unknown_005c3ff0PcPKc",
+   "name": "Unknown_005c3ff0(char*, char const*)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__Z16Unknown_0073e100v",
+   "name": "Unknown_0073e100()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__Z16Unknown_0074e5e0iii",
+   "name": "Unknown_0074e5e0(int, int, int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__Z19On_WM_HELP_00736880l",
+   "name": "On_WM_HELP_00736880(long)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__Z20Start_Match_0075be10v",
+   "name": "Start_Match_0075be10()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__Z20VQA_Unknown_0070BBC0PhS_S_jjj",
+   "name": "VQA_Unknown_0070BBC0(unsigned char*, unsigned char*, unsigned char*, unsigned int, unsigned int, unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__Z20VQA_Unknown_0070C0A0PhS_S_jjj",
+   "name": "VQA_Unknown_0070C0A0(unsigned char*, unsigned char*, unsigned char*, unsigned int, unsigned int, unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__Z20VQA_Unknown_0077C7D0P9VQAHandle",
+   "name": "VQA_Unknown_0077C7D0(VQAHandle*)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__Z20VQA_Unknown_0077FD80PhS_S_jjj",
+   "name": "VQA_Unknown_0077FD80(unsigned char*, unsigned char*, unsigned char*, unsigned int, unsigned int, unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__Z20VQA_Unknown_0077FE89PhS_S_jjj",
+   "name": "VQA_Unknown_0077FE89(unsigned char*, unsigned char*, unsigned char*, unsigned int, unsigned int, unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__Z21Unknown_getc_00784a3cPv",
+   "name": "Unknown_getc_00784a3c(void*)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__Z23Console_Printf_00796714PKcz",
+   "name": "Console_Printf_00796714(char const*, ...)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__Z25Console_Read_Key_007963f7v",
+   "name": "Console_Read_Key_007963f7()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__Z25unknown_clear_text_4955a0Pc",
+   "name": "unknown_clear_text_4955a0(char*)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__Z26Get_New_WDT_State_00769510v",
+   "name": "Get_New_WDT_State_00769510()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN11Leaf_40e2e07cleanupEv",
+   "name": "Leaf_40e2e0::cleanup()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN11Leaf_47cfa07cleanupEv",
+   "name": "Leaf_47cfa0::cleanup()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN11Leaf_4a57807cleanupEv",
+   "name": "Leaf_4a5780::cleanup()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN11Leaf_4c20807cleanupEv",
+   "name": "Leaf_4c2080::cleanup()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN11Leaf_4cde107cleanupEv",
+   "name": "Leaf_4cde10::cleanup()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN11Leaf_4deef07cleanupEv",
+   "name": "Leaf_4deef0::cleanup()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN11Leaf_4def107cleanupEv",
+   "name": "Leaf_4def10::cleanup()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN11Leaf_4fef007cleanupEv",
+   "name": "Leaf_4fef00::cleanup()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN11Leaf_52e6b07cleanupEv",
+   "name": "Leaf_52e6b0::cleanup()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN11Leaf_58da507cleanupEv",
+   "name": "Leaf_58da50::cleanup()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN11Leaf_595c407cleanupEv",
+   "name": "Leaf_595c40::cleanup()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN11Leaf_59cb807cleanupEv",
+   "name": "Leaf_59cb80::cleanup()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN11Leaf_5a62b07cleanupEv",
+   "name": "Leaf_5a62b0::cleanup()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN11Leaf_6d97507cleanupEv",
+   "name": "Leaf_6d9750::cleanup()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN11Leaf_6ea9f07cleanupEv",
+   "name": "Leaf_6ea9f0::cleanup()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN11Leaf_72ca007cleanupEv",
+   "name": "Leaf_72ca00::cleanup()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN11Leaf_7302907cleanupEv",
+   "name": "Leaf_730290::cleanup()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN11Leaf_7667a07cleanupEv",
+   "name": "Leaf_7667a0::cleanup()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN11Leaf_7667c07cleanupEv",
+   "name": "Leaf_7667c0::cleanup()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN12DisplayClass14unknown_slot32Ev",
+   "name": "DisplayClass::unknown_slot32()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN12WolArrayListI7WstringE12Get_007662c0ERS0_i",
+   "name": "WolArrayList<Wstring>::Get_007662c0(Wstring&, int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN12WolArrayListI7WstringE15Remove_007661f0Ei",
+   "name": "WolArrayList<Wstring>::Remove_007661f0(int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN12WolNameTable15Shrink_00767c20Ev",
+   "name": "WolNameTable::Shrink_00767c20()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_402c00_06targetEv",
+   "name": "Call_402c00_0::target()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_46c460_06targetEv",
+   "name": "Call_46c460_0::target()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_46c460_16targetEjjj",
+   "name": "Call_46c460_1::target(unsigned int, unsigned int, unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_46c4f0_06targetEv",
+   "name": "Call_46c4f0_0::target()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_46c4f0_16targetEjjj",
+   "name": "Call_46c4f0_1::target(unsigned int, unsigned int, unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_49a5b0_06targetEjjj",
+   "name": "Call_49a5b0_0::target(unsigned int, unsigned int, unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_49a5b0_16targetEv",
+   "name": "Call_49a5b0_1::target()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_4c1f80_06targetEj",
+   "name": "Call_4c1f80_0::target(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_4c1f80_16targetEj",
+   "name": "Call_4c1f80_1::target(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_4c1f80_26targetEj",
+   "name": "Call_4c1f80_2::target(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_4c1f80_36targetEj",
+   "name": "Call_4c1f80_3::target(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_4c1f80_46targetEj",
+   "name": "Call_4c1f80_4::target(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_4c1f80_56targetEj",
+   "name": "Call_4c1f80_5::target(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_4c1f80_66targetEj",
+   "name": "Call_4c1f80_6::target(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_4c1f80_76targetEj",
+   "name": "Call_4c1f80_7::target(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_4c1f80_86targetEj",
+   "name": "Call_4c1f80_8::target(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_4c1f80_96targetEj",
+   "name": "Call_4c1f80_9::target(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_4de1e0_06targetEv",
+   "name": "Call_4de1e0_0::target()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_5cd380_06targetEjjj",
+   "name": "Call_5cd380_0::target(unsigned int, unsigned int, unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_601410_06targetEv",
+   "name": "Call_601410_0::target()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_601410_16targetEv",
+   "name": "Call_601410_1::target()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_605d80_06targetEj",
+   "name": "Call_605d80_0::target(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_6824f0_06targetEj",
+   "name": "Call_6824f0_0::target(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_727020_06targetEv",
+   "name": "Call_727020_0::target()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_72baf0_06targetEv",
+   "name": "Call_72baf0_0::target()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_72caa0_06targetEv",
+   "name": "Call_72caa0_0::target()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_72caa0_16targetEj",
+   "name": "Call_72caa0_1::target(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_72cf70_06targetEv",
+   "name": "Call_72cf70_0::target()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_7302e0_06targetEv",
+   "name": "Call_7302e0_0::target()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_7302e0_16targetEj",
+   "name": "Call_7302e0_1::target(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_7395b0_06targetEv",
+   "name": "Call_7395b0_0::target()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Call_7395b0_16targetEv",
+   "name": "Call_7395b0_1::target()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13MSOverlayAnim12Has_FinishedEv",
+   "name": "MSOverlayAnim::Has_Finished()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13PlayerProfile24Populate_Dialog_00739b70EP6HWND__RK7Wstringb",
+   "name": "PlayerProfile::Populate_Dialog_00739b70(HWND__*, Wstring const&, bool)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Target_4361d06targetEjjj",
+   "name": "Target_4361d0::target(unsigned int, unsigned int, unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Target_499a206targetEjj",
+   "name": "Target_499a20::target(unsigned int, unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Target_5794d06targetEj",
+   "name": "Target_5794d0::target(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Target_5dbce06targetEjjj",
+   "name": "Target_5dbce0::target(unsigned int, unsigned int, unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Target_6822906targetEj",
+   "name": "Target_682290::target(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13Target_6822a06targetEj",
+   "name": "Target_6822a0::target(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13WinModemClass14Process_ErrorsEj7COMSTAT",
+   "name": "WinModemClass::Process_Errors(unsigned int, COMSTAT)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13WinModemClass16Get_Modem_StatusEv",
+   "name": "WinModemClass::Get_Modem_Status()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13WinModemClass17Serial_Port_CloseEv",
+   "name": "WinModemClass::Serial_Port_Close()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_004015c012FUN_00781f20Ev",
+   "name": "seed_004015c0::FUN_00781f20()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_004015c012FUN_00782025EjjjiPFizE",
+   "name": "seed_004015c0::FUN_00782025(unsigned int, unsigned int, unsigned int, int, int (*)(...))",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0041271012FUN_004068f0Ei",
+   "name": "seed_00412710::FUN_004068f0(int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0049577012FUN_007820f4Eiii",
+   "name": "seed_00495770::FUN_007820f4(int, int, int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_004b53d013Save_004100c0Eiii",
+   "name": "seed_004b53d0::Save_004100c0(int, int, int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_004cde9012FUN_00795940Ej",
+   "name": "seed_004cde90::FUN_00795940(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_004e12a012FUN_004e1290Ev",
+   "name": "seed_004e12a0::FUN_004e1290()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_004ff1f012FUN_004ff1e0Ev",
+   "name": "seed_004ff1f0::FUN_004ff1e0()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_00537bf013Save_004100c0Eiii",
+   "name": "seed_00537bf0::Save_004100c0(int, int, int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_00538f3012FUN_00485310Ev",
+   "name": "seed_00538f30::FUN_00485310()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0053b19015Dialog_0053b770Ev",
+   "name": "seed_0053b190::Dialog_0053b770()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0053b1b015Dialog_0053b770Ev",
+   "name": "seed_0053b1b0::Dialog_0053b770()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0053b1e015Dialog_0053b770Ev",
+   "name": "seed_0053b1e0::Dialog_0053b770()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0059e8e016sprintf_007820f4Eiii",
+   "name": "seed_0059e8e0::sprintf_007820f4(int, int, int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_005a74f012FUN_005b6e20Ev",
+   "name": "seed_005a74f0::FUN_005b6e20()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_005a750012FUN_005b6e20Ev",
+   "name": "seed_005a7500::FUN_005b6e20()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_005aa72015Callee_005b6cd033MultiplayerGameMode_ctor_005b6cd0Ejjjjhj",
+   "name": "seed_005aa720::Callee_005b6cd0::MultiplayerGameMode_ctor_005b6cd0(unsigned int, unsigned int, unsigned int, unsigned int, unsigned char, unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_005aa76033MultiplayerGameMode_dtor_005b6e20Ev",
+   "name": "seed_005aa760::MultiplayerGameMode_dtor_005b6e20()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_005aa78033MultiplayerGameMode_dtor_005b6e20Ev",
+   "name": "seed_005aa780::MultiplayerGameMode_dtor_005b6e20()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_005aa81029MultiplayerTeam_dtor_005b9b50Ev",
+   "name": "seed_005aa810::MultiplayerTeam_dtor_005b9b50()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_005ab5a015Callee_005b6cd012FUN_005b6cd0Ejjjjhj",
+   "name": "seed_005ab5a0::Callee_005b6cd0::FUN_005b6cd0(unsigned int, unsigned int, unsigned int, unsigned int, unsigned char, unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_005ab5e012FUN_005b6e20Ev",
+   "name": "seed_005ab5e0::FUN_005b6e20()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_005abba012FUN_005b6e20Ev",
+   "name": "seed_005abba0::FUN_005b6e20()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_005abe1012FUN_005b9b50Ev",
+   "name": "seed_005abe10::FUN_005b9b50()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_005abeb012FUN_005b9b50Ev",
+   "name": "seed_005abeb0::FUN_005b9b50()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_005abec012FUN_005b9b50Ev",
+   "name": "seed_005abec0::FUN_005b9b50()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_005abef012FUN_005b9b50Ev",
+   "name": "seed_005abef0::FUN_005b9b50()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_005ac39029CheckStartConditions_005b73a0Ei",
+   "name": "seed_005ac390::CheckStartConditions_005b73a0(int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_005b69b012FUN_0078d816EPc",
+   "name": "seed_005b69b0::FUN_0078d816(char*)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_005b69e012FUN_007825e8EPv",
+   "name": "seed_005b69e0::FUN_007825e8(void*)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_005c294012FUN_00735b10Ev",
+   "name": "seed_005c2940::FUN_00735b10()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_005e513026unknown_enum_proc_005e4780Ev",
+   "name": "seed_005e5130::unknown_enum_proc_005e4780()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_005e514026unknown_enum_proc_005e4780Ev",
+   "name": "seed_005e5140::unknown_enum_proc_005e4780()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_005e7db027unknown_count_proc_005e7d00Ev",
+   "name": "seed_005e7db0::unknown_count_proc_005e7d00()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_005e812026unknown_enum_proc_005e7eb0Ev",
+   "name": "seed_005e8120::unknown_enum_proc_005e7eb0()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_005e86c026unknown_enum_proc_005e8130Ev",
+   "name": "seed_005e86c0::unknown_enum_proc_005e8130()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_005e871026unknown_enum_proc_005e86d0Ev",
+   "name": "seed_005e8710::unknown_enum_proc_005e86d0()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0060051018Wide_Copy_00783689EPsS0_",
+   "name": "seed_00600510::Wide_Copy_00783689(short*, short*)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0060051020Wide_Length_00783605EPs",
+   "name": "seed_00600510::Wide_Length_00783605(short*)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0060143024WideString_dtor_0076fa50Ev",
+   "name": "seed_00601430::WideString_dtor_0076fa50()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0061a29016unknown_006f6760Ev",
+   "name": "seed_0061a290::unknown_006f6760()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0061a2b016unknown_006f6750Ev",
+   "name": "seed_0061a2b0::unknown_006f6750()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0062e52012FUN_004068f0Ei",
+   "name": "seed_0062e520::FUN_004068f0(int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0062e52012FUN_004068f0Eii",
+   "name": "seed_0062e520::FUN_004068f0(int, int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0065b4b015Callee_0069a43026SystemTimer_Value_0069a430Ev",
+   "name": "seed_0065b4b0::Callee_0069a430::SystemTimer_Value_0069a430()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0065b4b015atexit_0078298aEj",
+   "name": "seed_0065b4b0::atexit_0078298a(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0065b4b029unknown_timer_atexit_0065b4e0Ev",
+   "name": "seed_0065b4b0::unknown_timer_atexit_0065b4e0()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0066342015Callee_0054807016Cell_At_00548070EPs",
+   "name": "seed_00663420::Callee_00548070::Cell_At_00548070(short*)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_00698cd012FUN_00698cf0Ev",
+   "name": "seed_00698cd0::FUN_00698cf0()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_00698cd012FUN_0078298aEj",
+   "name": "seed_00698cd0::FUN_0078298a(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_00698cd015Callee_0069a43012FUN_0069a430Ev",
+   "name": "seed_00698cd0::Callee_0069a430::FUN_0069a430()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0069a78012FUN_00783764Eiii",
+   "name": "seed_0069a780::FUN_00783764(int, int, int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0069be3012FUN_0069bd60Ev",
+   "name": "seed_0069be30::FUN_0069bd60()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_006ac40027AbstractClass_Save_004100c0Eiii",
+   "name": "seed_006ac400::AbstractClass_Save_004100c0(int, int, int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_006ac80027AbstractClass_dtor_0040ff90Ev",
+   "name": "seed_006ac800::AbstractClass_dtor_0040ff90()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_006f58e015Callee_005b4da020Add_Message_005b4da0Eiiiiiii",
+   "name": "seed_006f58e0::Callee_005b4da0::Add_Message_005b4da0(int, int, int, int, int, int, int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0070a24023Is_Immobilized_006d8e80Ev",
+   "name": "seed_0070a240::Is_Immobilized_006d8e80()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_00726ac025rc_ptr_base_dtor_00639510Ev",
+   "name": "seed_00726ac0::rc_ptr_base_dtor_00639510()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_00726af025rc_ptr_base_dtor_00639510Ev",
+   "name": "seed_00726af0::rc_ptr_base_dtor_00639510()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_00726b4025rc_ptr_base_dtor_00639510Ev",
+   "name": "seed_00726b40::rc_ptr_base_dtor_00639510()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_00726b7025rc_ptr_base_dtor_00639510Ev",
+   "name": "seed_00726b70::rc_ptr_base_dtor_00639510()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_00728c3036ReferenceCounted_destructor_00639710Ev",
+   "name": "seed_00728c30::ReferenceCounted_destructor_00639710()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_007291f020MSAnim_dtor_005ac690Ev",
+   "name": "seed_007291f0::MSAnim_dtor_005ac690()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0072af0020MSAnim_dtor_005ac690Ev",
+   "name": "seed_0072af00::MSAnim_dtor_005ac690()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0072af3017Map_dtor_007293f0Ev",
+   "name": "seed_0072af30::Map_dtor_007293f0()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0072b0c025rc_ptr_base_dtor_00639510Ev",
+   "name": "seed_0072b0c0::rc_ptr_base_dtor_00639510()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0072bea012FUN_00639710Ev",
+   "name": "seed_0072bea0::FUN_00639710()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0072c9d012FUN_00639710Ev",
+   "name": "seed_0072c9d0::FUN_00639710()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0073031025rc_ptr_base_dtor_00639510Ev",
+   "name": "seed_00730310::rc_ptr_base_dtor_00639510()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_00732c8012FUN_005ac690Ev",
+   "name": "seed_00732c80::FUN_005ac690()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0073495018Debug_Log_004068f0Ei",
+   "name": "seed_00734950::Debug_Log_004068f0(int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_007354d018Debug_Log_004068f0Ei",
+   "name": "seed_007354d0::Debug_Log_004068f0(int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_00737b2012FUN_00784130EPjc",
+   "name": "seed_00737b20::FUN_00784130(unsigned int*, char)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0073842012FUN_006eb390Ev",
+   "name": "seed_00738420::FUN_006eb390()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0073a0c012FUN_00639510Ev",
+   "name": "seed_0073a0c0::FUN_00639510()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0073bfc015Callee_0069a43026SystemTimer_Value_0069a430Ev",
+   "name": "seed_0073bfc0::Callee_0069a430::SystemTimer_Value_0069a430()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0073bfc015atexit_0078298aEj",
+   "name": "seed_0073bfc0::atexit_0078298a(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0073bfc029unknown_timer_atexit_0073bff0Ev",
+   "name": "seed_0073bfc0::unknown_timer_atexit_0073bff0()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0073c04015strchr_00784130EPjc",
+   "name": "seed_0073c040::strchr_00784130(unsigned int*, char)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0075ca0022WS_Top_Window_00735b10Ev",
+   "name": "seed_0075ca00::WS_Top_Window_00735b10()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_00763ab024Print_Chat_Line_005c2c80Eiii",
+   "name": "seed_00763ab0::Print_Chat_Line_005c2c80(int, int, int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0076939015atexit_0078298aEj",
+   "name": "seed_00769390::atexit_0078298a(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0076939036unknown_free_block_00b2ad60_007693b0Ev",
+   "name": "seed_00769390::unknown_free_block_00b2ad60_007693b0()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_007693d015atexit_0078298aEj",
+   "name": "seed_007693d0::atexit_0078298a(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_007693d036unknown_free_block_00b2ad70_007693f0Ev",
+   "name": "seed_007693d0::unknown_free_block_00b2ad70_007693f0()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0077040012FUN_00783605EPs",
+   "name": "seed_00770400::FUN_00783605(short*)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0077044012FUN_00783605EPs",
+   "name": "seed_00770440::FUN_00783605(short*)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_00781d3b13free_007825e8EPv",
+   "name": "seed_00781d3b::free_007825e8(void*)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0078469d15getptd_0078969bEv",
+   "name": "seed_0078469d::getptd_0078969b()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_00784a3c14fgetc_00784a0bEPj",
+   "name": "seed_00784a3c::fgetc_00784a0b(unsigned int*)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_007856a216unknown_00785678EPKc",
+   "name": "seed_007856a2::unknown_00785678(char const*)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0078991e15getptd_0078969bEv",
+   "name": "seed_0078991e::getptd_0078969b()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_0078992715getptd_0078969bEv",
+   "name": "seed_00789927::getptd_0078969b()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN13seed_00792ad436CxxUnhandledExceptionFilter_00792a8eEv",
+   "name": "seed_00792ad4::CxxUnhandledExceptionFilter_00792a8e()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN14CChatEventSink10OnBuddyAddEiPN3WOL4UserE",
+   "name": "CChatEventSink::OnBuddyAdd(int, WOL::User*)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN14CChatEventSink13OnBuddyDeleteEiPN3WOL4UserE",
+   "name": "CChatEventSink::OnBuddyDelete(int, WOL::User*)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN14CChatEventSink13OnChannelJoinEiPN3WOL7ChannelEPNS0_4UserE",
+   "name": "CChatEventSink::OnChannelJoin(int, WOL::Channel*, WOL::User*)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN14CChatEventSink15OnSystemMessageEiPKc",
+   "name": "CChatEventSink::OnSystemMessage(int, char const*)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN14CChatEventSink8OnLogoutEiPN3WOL4UserE",
+   "name": "CChatEventSink::OnLogout(int, WOL::User*)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN14CChatEventSink8OnUserIPEiPN3WOL4UserE",
+   "name": "CChatEventSink::OnUserIP(int, WOL::User*)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN14Call_4c1f80_106targetEj",
+   "name": "Call_4c1f80_10::target(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN14Call_4c1f80_116targetEj",
+   "name": "Call_4c1f80_11::target(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN14Call_4c1f80_126targetEj",
+   "name": "Call_4c1f80_12::target(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN14Call_4c1f80_136targetEj",
+   "name": "Call_4c1f80_13::target(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN14Call_4c1f80_146targetEj",
+   "name": "Call_4c1f80_14::target(unsigned int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN16MultiplayerSiegeC1ERK10WideStringS2_RK7WstringS5_bi",
+   "name": "MultiplayerSiege::MultiplayerSiege(WideString const&, WideString const&, Wstring const&, Wstring const&, bool, int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN17SurfaceCacheClass13Draw_0068cf90ERK4RectP7SurfaceS4_S4_Phiii",
+   "name": "SurfaceCacheClass::Draw_0068cf90(Rect const&, Surface*, Surface*, Surface*, unsigned char*, int, int, int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN17SurfaceCacheClass17CacheBMP_0068c040EPKcPvii",
+   "name": "SurfaceCacheClass::CacheBMP_0068c040(char const*, void*, int, int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN19GraphicMenuAnimItem8ContainsERK7Point2D",
+   "name": "GraphicMenuAnimItem::Contains(Point2D const&)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN19UnknownShape_72a6d016Unknown_005AD820Ei",
+   "name": "UnknownShape_72a6d0::Unknown_005AD820(int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN20GraphicMenuImageItem8ContainsERK7Point2D",
+   "name": "GraphicMenuImageItem::Contains(Point2D const&)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN20WolChannelDictionary15Shrink_00768010Ev",
+   "name": "WolChannelDictionary::Shrink_00768010()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN3ATL10CComObjectI14CChatEventSinkE6AddRefEv",
+   "name": "ATL::CComObject<CChatEventSink>::AddRef()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN3ATL10CComObjectI17CNetUtilEventSinkE6AddRefEv",
+   "name": "ATL::CComObject<CNetUtilEventSink>::AddRef()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN3ATL10CComObjectI18CDownloadEventSinkE6AddRefEv",
+   "name": "ATL::CComObject<CDownloadEventSink>::AddRef()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN3ATL26CChatEventSinkInterfaceMapE",
+   "name": "ATL::CChatEventSinkInterfaceMap",
+   "cls": "cxx-data"
+  },
+  {
+   "symbol": "__ZN3ATL29CNetUtilEventSinkInterfaceMapE",
+   "name": "ATL::CNetUtilEventSinkInterfaceMap",
+   "cls": "cxx-data"
+  },
+  {
+   "symbol": "__ZN3ATL30CDownloadEventSinkInterfaceMapE",
+   "name": "ATL::CDownloadEventSinkInterfaceMap",
+   "cls": "cxx-data"
+  },
+  {
+   "symbol": "__ZN5MSSfx4PlayEi",
+   "name": "MSSfx::Play(int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN5MSSfxC1EPKci",
+   "name": "MSSfx::MSSfx(char const*, int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZNK19WorldDominationTour3Map9Is_InsideERK7Point2D",
+   "name": "WorldDominationTour::Map::Is_Inside(Point2D const&) const",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZNK8WDTState17Is_Previous_CycleEv",
+   "name": "WDTState::Is_Previous_Cycle() const",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZNK9MonoClass13Map_CharacterEc",
+   "name": "MonoClass::Map_Character(char) const",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__iob",
+   "name": "_iob",
+   "cls": "c-data"
+  },
+  {
+   "symbol": "_call_735d70_0",
+   "name": "call_735d70_0",
+   "cls": "c-function"
+  },
+  {
+   "symbol": "_call_73bd20_0",
+   "name": "call_73bd20_0",
+   "cls": "c-function"
+  },
+  {
+   "symbol": "_clear_storage_slot_0046ce20",
+   "name": "clear_storage_slot_0046ce20",
+   "cls": "c-address"
+  },
+  {
+   "symbol": "_clear_storage_slot_004f6f30",
+   "name": "clear_storage_slot_004f6f30",
+   "cls": "c-address"
+  },
+  {
+   "symbol": "_clear_storage_slot_004fb4a0",
+   "name": "clear_storage_slot_004fb4a0",
+   "cls": "c-address"
+  },
+  {
+   "symbol": "_clear_storage_slot_004fb530",
+   "name": "clear_storage_slot_004fb530",
+   "cls": "c-address"
+  },
+  {
+   "symbol": "_clear_storage_slot_005a62d0",
+   "name": "clear_storage_slot_005a62d0",
+   "cls": "c-address"
+  },
+  {
+   "symbol": "_clear_storage_slot_006547b0",
+   "name": "clear_storage_slot_006547b0",
+   "cls": "c-address"
+  },
+  {
+   "symbol": "_clear_storage_slot_00654840",
+   "name": "clear_storage_slot_00654840",
+   "cls": "c-address"
+  },
+  {
+   "symbol": "_clear_storage_slot_006548d0",
+   "name": "clear_storage_slot_006548d0",
+   "cls": "c-address"
+  },
+  {
+   "symbol": "_data_402190_4022c0",
+   "name": "data_402190_4022c0",
+   "cls": "c-address"
+  },
+  {
+   "symbol": "_data_402190_402330",
+   "name": "data_402190_402330",
+   "cls": "c-address"
+  },
+  {
+   "symbol": "_data_402190_4023f0",
+   "name": "data_402190_4023f0",
+   "cls": "c-address"
+  },
+  {
+   "symbol": "_opaque_code_address_735d70_735d90",
+   "name": "opaque_code_address_735d70_735d90",
+   "cls": "c-address"
+  },
+  {
+   "symbol": "_opaque_code_address_73bd20_73bd40",
+   "name": "opaque_code_address_73bd20_73bd40",
+   "cls": "c-address"
+  },
+  {
+   "symbol": "_operator_new",
+   "name": "operator_new",
+   "cls": "c-function"
+  },
+  {
+   "symbol": "_request_53c970",
+   "name": "request_53c970",
+   "cls": "c-address"
+  },
+  {
+   "symbol": "_request_53c990",
+   "name": "request_53c990",
+   "cls": "c-address"
+  },
+  {
+   "symbol": "_request_53c9b0",
+   "name": "request_53c9b0",
+   "cls": "c-address"
+  },
+  {
+   "symbol": "_request_53c9d0",
+   "name": "request_53c9d0",
+   "cls": "c-address"
+  },
+  {
+   "symbol": "_request_5796f0",
+   "name": "request_5796f0",
+   "cls": "c-address"
+  },
+  {
+   "symbol": "_request_579710",
+   "name": "request_579710",
+   "cls": "c-address"
+  },
+  {
+   "symbol": "_request_579730",
+   "name": "request_579730",
+   "cls": "c-address"
+  },
+  {
+   "symbol": "_request_579750",
+   "name": "request_579750",
+   "cls": "c-address"
+  },
+  {
+   "symbol": "_u______hs_007fe1c8",
+   "name": "u______hs_007fe1c8",
+   "cls": "c-address"
+  },
+  {
+   "symbol": "_unknown_subtitle_alignments_7f6320",
+   "name": "unknown_subtitle_alignments_7f6320",
+   "cls": "c-address"
+  },
+  {
+   "symbol": "_unknown_subtitle_hooks_7f62f0",
+   "name": "unknown_subtitle_hooks_7f62f0",
+   "cls": "c-address"
+  },
+  {
+   "symbol": "_unknown_vqa_default_config_801470",
+   "name": "unknown_vqa_default_config_801470",
+   "cls": "c-address"
+  }
+ ]
+}

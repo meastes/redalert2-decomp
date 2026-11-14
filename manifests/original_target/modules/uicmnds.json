@@ -1,0 +1,2807 @@
+{
+ "module": "uicmnds",
+ "source": "src/recovered/uicmnds.cpp",
+ "header": null,
+ "population": "population-4459",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 1256,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "006f55f0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "006f5610",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "006f5640",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "006f5660",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "006f5680",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "006f56a0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "006f56c0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "006f56e0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "006f5720",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "006f5750",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "006f5780",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "006f57b0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "006f57c0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Unknown_006F57E0@@YAXXZ",
+   "entry": "006f57e0",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Unknown_006F5800@@YI_NH@Z",
+   "entry": "006f5800",
+   "body_bytes": 108,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Unknown_006F5870@@YIHH@Z",
+   "entry": "006f5870",
+   "body_bytes": 110,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?FUN_006f58e0@seed_006f58e0@@YIXIH@Z",
+   "entry": "006f58e0",
+   "body_bytes": 58,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?FUN_006f5920@seed_006f5920@@YAIXZ",
+   "entry": "006f5920",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?FUN_006f5930@seed_006f5930@@YAIXZ",
+   "entry": "006f5930",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Unknown_006F5940@@YAXXZ",
+   "entry": "006f5940",
+   "body_bytes": 464,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Unknown_006F5B10@@YIXXZ",
+   "entry": "006f5b10",
+   "body_bytes": 176,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Unknown_006F5BC0@@YAXXZ",
+   "entry": "006f5bc0",
+   "body_bytes": 129,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Unknown_006F5C50@@YAXXZ",
+   "entry": "006f5c50",
+   "body_bytes": 177,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Unknown_006F5D10@@YAXXZ",
+   "entry": "006f5d10",
+   "body_bytes": 116,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Unknown_006F5D90@@YIXH@Z",
+   "entry": "006f5d90",
+   "body_bytes": 115,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Unknown_006F5E10@@YIXH@Z",
+   "entry": "006f5e10",
+   "body_bytes": 102,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Unknown_006F5E80@@YI_NH@Z",
+   "entry": "006f5e80",
+   "body_bytes": 121,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Unknown_006F5F00@@YIXH@Z",
+   "entry": "006f5f00",
+   "body_bytes": 453,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Unknown_006F60D0@@YIXH@Z",
+   "entry": "006f60d0",
+   "body_bytes": 276,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Unknown_006F61F0@@YIXH@Z",
+   "entry": "006f61f0",
+   "body_bytes": 210,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Unknown_006F62D0@@YIXK@Z",
+   "entry": "006f62d0",
+   "body_bytes": 166,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Unknown_006F6380@@YAXXZ",
+   "entry": "006f6380",
+   "body_bytes": 263,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?FUN_006f64b0@seed_006f64b0@@YAXXZ",
+   "entry": "006f64b0",
+   "body_bytes": 22,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Planning_Mode_Active_6f6510@@YA_NXZ",
+   "entry": "006f6510",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Unknown_006F6520@@YA_NXZ",
+   "entry": "006f6520",
+   "body_bytes": 68,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Unknown_006F6570@@YAXXZ",
+   "entry": "006f6570",
+   "body_bytes": 229,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Unknown_Can_Force_Order_006F6670@@YA_NXZ",
+   "entry": "006f6670",
+   "body_bytes": 185,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?get@Leaf_6f6730@@QAEIXZ",
+   "entry": "006f6730",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?get@Leaf_6f6740@@QAEIXZ",
+   "entry": "006f6740",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?get@Leaf_6f6750@@QAEIXZ",
+   "entry": "006f6750",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?get@Leaf_6f6760@@QAEIXZ",
+   "entry": "006f6760",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Unknown_Click_End_006F6770@@YAXXZ",
+   "entry": "006f6770",
+   "body_bytes": 8,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Unknown_006f6780@@YIXI@Z",
+   "entry": "006f6780",
+   "body_bytes": 14,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Unknown_006F6790@@YIXPAG@Z",
+   "entry": "006f6790",
+   "body_bytes": 123,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Unknown_006F6810@@YIXPAGPBG@Z",
+   "entry": "006f6810",
+   "body_bytes": 280,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Unknown_006F6930@@YIPAV?$DynamicVectorClass@PAVTechnoClass@@@@P6I_NPAXH@ZH@Z",
+   "entry": "006f6930",
+   "body_bytes": 187,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Unknown_006F69F0@@YIPAV?$DynamicVectorClass@PAVTechnoClass@@@@P6I_NPAXH@ZH@Z",
+   "entry": "006f69f0",
+   "body_bytes": 214,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Unknown_006F6AD0@@YAPAV?$DynamicVectorClass@PAVTechnoClass@@@@XZ",
+   "entry": "006f6ad0",
+   "body_bytes": 181,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Unknown_006F6B90@@YIXPAUUnknownPointerList@@P6IXPAXH@ZH@Z",
+   "entry": "006f6b90",
+   "body_bytes": 41,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Unknown_006F6BC0@@YIXPAUUnknownPointerList@@P6I_NPAXH@ZP6IX1H@ZHH@Z",
+   "entry": "006f6bc0",
+   "body_bytes": 67,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Unknown_006F6C10@@YI_NPAUUnknownPointerList@@P6I_NPAXH@ZH@Z",
+   "entry": "006f6c10",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Unknown_006F6C50@@YI_NPAUUnknownPointerList@@P6I_NPAXH@ZH@Z",
+   "entry": "006f6c50",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?unknown_find_name_index@@YIHABV?$DynamicVectorClass@PBD@@PBD@Z",
+   "entry": "006f6c90",
+   "body_bytes": 98,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Unknown_006F6D00@@YIX_N@Z",
+   "entry": "006f6d00",
+   "body_bytes": 725,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Unknown_006F6FE0@@YIHPAVTechnoClass@@H@Z",
+   "entry": "006f6fe0",
+   "body_bytes": 58,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Unknown_006F7190@@YIHPAVTechnoClass@@PBD@Z",
+   "entry": "006f7190",
+   "body_bytes": 80,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?unknown_matches_any_name@@YI_NPAUUnknownObject_006f7610@@ABUUnknownNameList_006f7610@@@Z",
+   "entry": "006f7610",
+   "body_bytes": 54,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Unknown_006F7670@@YIXXZ",
+   "entry": "006f7670",
+   "body_bytes": 58,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Unknown_006F76B0@@YA_NXZ",
+   "entry": "006f76b0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Unknown_006F76C0@@YAPAV?$DynamicVectorClass@PBD@@XZ",
+   "entry": "006f76c0",
+   "body_bytes": 307,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Unknown_006F7800@@YIXPBDP6IXPAXH@ZH@Z",
+   "entry": "006f7800",
+   "body_bytes": 365,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Unknown_006F7970@@YIXPAX@Z",
+   "entry": "006f7970",
+   "body_bytes": 74,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Unknown_006F79C0@@YAXXZ",
+   "entry": "006f79c0",
+   "body_bytes": 447,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Unknown_006F7B80@@YIX_N@Z",
+   "entry": "006f7b80",
+   "body_bytes": 614,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Unknown_006F7DF0@@YIHPAVTechnoClass@@H@Z",
+   "entry": "006f7df0",
+   "body_bytes": 75,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Unknown_006F7EC0@@YIX_N@Z",
+   "entry": "006f7ec0",
+   "body_bytes": 624,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Unknown_Type_Names_006F84A0@@YIPAV?$DynamicVectorClass@PBD@@ABV?$DynamicVectorClass@PAVObjectClass@@@@@Z",
+   "entry": "006f84a0",
+   "body_bytes": 307,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Unknown_006F85E0@@YIPADABV?$DynamicVectorClass@PAVTechnoClass@@@@PBDHPAH@Z",
+   "entry": "006f85e0",
+   "body_bytes": 776,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Unknown_006F88F0@@YAXXZ",
+   "entry": "006f88f0",
+   "body_bytes": 232,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Unknown_006F89E0@@YAXXZ",
+   "entry": "006f89e0",
+   "body_bytes": 26,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?FUN_006f8a00@seed_006f8a00@@YIXH@Z",
+   "entry": "006f8a00",
+   "body_bytes": 29,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Unknown_006F8A20@@YIXPAVBuildingClass@@@Z",
+   "entry": "006f8a20",
+   "body_bytes": 45,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?get@Leaf_6f8a50@@QAEIXZ",
+   "entry": "006f8a50",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?get@Leaf_6f8a60@@QAEIXZ",
+   "entry": "006f8a60",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Is_Techno@AbstractClass@@QBE_NXZ",
+   "entry": "006f8a70",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?get@Storage_6f8b90@@QAEPAXIPAI@Z",
+   "entry": "006f8b90",
+   "body_bytes": 74,
+   "padding_bytes": 6
+  }
+ ],
+ "code_bytes": 10944,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVTechnoClass@@@@6B@",
+   "address": "0079a798",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 121
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVTechnoClass@@@@6B@",
+   "address": "0079a7f8",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 127
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007add90",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAVTechnoClass@@@@8",
+   "address": "007b2640",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 115
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAVTechnoClass@@@@8",
+   "address": "007b2658",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 116
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAVTechnoClass@@@@8",
+   "address": "007b2670",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 117
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAVTechnoClass@@@@8",
+   "address": "007b2680",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 118
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAVTechnoClass@@@@6B@",
+   "address": "007b2690",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 120
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAVTechnoClass@@@@8",
+   "address": "007b270c",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 124
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAVTechnoClass@@@@8",
+   "address": "007b2718",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 125
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAVTechnoClass@@@@6B@",
+   "address": "007b2728",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 126
+  },
+  {
+   "symbol": "??_R2?$VectorClass@H@@8",
+   "address": "007b4c04",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 233
+  },
+  {
+   "symbol": "??_R3?$VectorClass@H@@8",
+   "address": "007b4c10",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 234
+  },
+  {
+   "symbol": "??_R4?$VectorClass@H@@6B@",
+   "address": "007b4c20",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 235
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@H@@8",
+   "address": "007b4c38",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 198
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@H@@8",
+   "address": "007b4c50",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 199
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@H@@8",
+   "address": "007b4e18",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 200
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@H@@8",
+   "address": "007b4e28",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 201
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@H@@6B@",
+   "address": "007b4e38",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 203
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PBD@@8",
+   "address": "007bde00",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 161
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PBD@@8",
+   "address": "007bde18",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 162
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PBD@@8",
+   "address": "007bde30",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 163
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PBD@@8",
+   "address": "007bde40",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 164
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PBD@@6B@",
+   "address": "007bde50",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 166
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PBD@@8",
+   "address": "007bde64",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 170
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PBD@@8",
+   "address": "007bde70",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 171
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PBD@@6B@",
+   "address": "007bde80",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 172
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAVTechnoClass@@@@@8",
+   "address": "007cd348",
+   "bytes": 45,
+   "kind": "rtti",
+   "section": 114
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAVTechnoClass@@@@@8",
+   "address": "007cd378",
+   "bytes": 52,
+   "kind": "rtti",
+   "section": 119
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@H@@@8",
+   "address": "007d1f48",
+   "bytes": 30,
+   "kind": "rtti",
+   "section": 197
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@H@@@8",
+   "address": "007d1f68",
+   "bytes": 37,
+   "kind": "rtti",
+   "section": 202
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PBD@@@8",
+   "address": "007e32a8",
+   "bytes": 32,
+   "kind": "rtti",
+   "section": 160
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PBD@@@8",
+   "address": "007e32c8",
+   "bytes": 39,
+   "kind": "rtti",
+   "section": 165
+  },
+  {
+   "symbol": "??_C@_0BK@BJPP@MSG?3AttackMoveUnsupported?$AA@",
+   "address": "007f8be0",
+   "bytes": 26,
+   "kind": "string",
+   "section": 86
+  },
+  {
+   "symbol": "??_C@_0BE@GHHF@MSG?3NothingSelected?$AA@",
+   "address": "007f8bfc",
+   "bytes": 20,
+   "kind": "string",
+   "section": 87
+  },
+  {
+   "symbol": "??_C@_0BD@BJM@D?3?2Ra2?2UICmnds?4cpp?$AA@",
+   "address": "007f8c10",
+   "bytes": 19,
+   "kind": "string",
+   "section": 88
+  },
+  {
+   "symbol": "??_C@_0BE@LMOP@MSG?3SelAcrossScreen?$AA@",
+   "address": "007f8c24",
+   "bytes": 20,
+   "kind": "string",
+   "section": 105
+  },
+  {
+   "symbol": "??_C@_0BB@FMPO@MSG?3SelAcrossMap?$AA@",
+   "address": "007f8c38",
+   "bytes": 17,
+   "kind": "string",
+   "section": 106
+  },
+  {
+   "symbol": "??_C@_0N@EDCH@MSG?3NavEmpty?$AA@",
+   "address": "007f8c4c",
+   "bytes": 13,
+   "kind": "string",
+   "section": 109
+  },
+  {
+   "symbol": "??_C@_0P@ICFD@MSG?3UnitsWorth?$AA@",
+   "address": "007f8c5c",
+   "bytes": 15,
+   "kind": "string",
+   "section": 110
+  },
+  {
+   "symbol": "??_C@_0P@GAKB@MSG?3NoUnitsSel?$AA@",
+   "address": "007f8c6c",
+   "bytes": 15,
+   "kind": "string",
+   "section": 111
+  },
+  {
+   "symbol": "??_C@_09NPDK@MSG?3Mixed?$AA@",
+   "address": "007f8c7c",
+   "bytes": 10,
+   "kind": "string",
+   "section": 182
+  },
+  {
+   "symbol": "??_C@_0M@EGJA@MSG?3Healthy?$AA@",
+   "address": "007f8c88",
+   "bytes": 12,
+   "kind": "string",
+   "section": 183
+  },
+  {
+   "symbol": "??_C@_0BD@EMHN@MSG?3HeavilyDamaged?$AA@",
+   "address": "007f8c94",
+   "bytes": 19,
+   "kind": "string",
+   "section": 184
+  },
+  {
+   "symbol": "??_C@_0N@IEJB@MSG?3Critical?$AA@",
+   "address": "007f8ca8",
+   "bytes": 13,
+   "kind": "string",
+   "section": 185
+  },
+  {
+   "symbol": "??_C@_0BF@BENO@MSG?3LittleExperience?$AA@",
+   "address": "007f8cb8",
+   "bytes": 21,
+   "kind": "string",
+   "section": 190
+  },
+  {
+   "symbol": "??_C@_0M@KCCB@MSG?3Veteran?$AA@",
+   "address": "007f8cd0",
+   "bytes": 12,
+   "kind": "string",
+   "section": 191
+  },
+  {
+   "symbol": "??_C@_09MLOC@MSG?3Elite?$AA@",
+   "address": "007f8cdc",
+   "bytes": 10,
+   "kind": "string",
+   "section": 192
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVTechnoClass@@@@6B@",
+   "address": "0079a798",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVTechnoClass@@@@6B@",
+   "address": "0079a7f8",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007add90",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAVTechnoClass@@@@8",
+   "address": "007b2640",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAVTechnoClass@@@@8",
+   "address": "007b2658",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAVTechnoClass@@@@8",
+   "address": "007b2670",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAVTechnoClass@@@@8",
+   "address": "007b2680",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAVTechnoClass@@@@6B@",
+   "address": "007b2690",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAVTechnoClass@@@@8",
+   "address": "007b270c",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAVTechnoClass@@@@8",
+   "address": "007b2718",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAVTechnoClass@@@@6B@",
+   "address": "007b2728",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@H@@8",
+   "address": "007b4c04",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@H@@8",
+   "address": "007b4c10",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@H@@6B@",
+   "address": "007b4c20",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@H@@8",
+   "address": "007b4c38",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@H@@8",
+   "address": "007b4c50",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@H@@8",
+   "address": "007b4e18",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@H@@8",
+   "address": "007b4e28",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@H@@6B@",
+   "address": "007b4e38",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PBD@@8",
+   "address": "007bde00",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PBD@@8",
+   "address": "007bde18",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PBD@@8",
+   "address": "007bde30",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PBD@@8",
+   "address": "007bde40",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PBD@@6B@",
+   "address": "007bde50",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PBD@@8",
+   "address": "007bde64",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PBD@@8",
+   "address": "007bde70",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PBD@@6B@",
+   "address": "007bde80",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAVTechnoClass@@@@@8",
+   "address": "007cd348",
+   "bytes": 45,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAVTechnoClass@@@@@8",
+   "address": "007cd378",
+   "bytes": 52,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@H@@@8",
+   "address": "007d1f48",
+   "bytes": 30,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@H@@@8",
+   "address": "007d1f68",
+   "bytes": 37,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PBD@@@8",
+   "address": "007e32a8",
+   "bytes": 32,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PBD@@@8",
+   "address": "007e32c8",
+   "bytes": 39,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0BK@BJPP@MSG?3AttackMoveUnsupported?$AA@",
+   "address": "007f8be0",
+   "bytes": 26,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@GHHF@MSG?3NothingSelected?$AA@",
+   "address": "007f8bfc",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@BJM@D?3?2Ra2?2UICmnds?4cpp?$AA@",
+   "address": "007f8c10",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@LMOP@MSG?3SelAcrossScreen?$AA@",
+   "address": "007f8c24",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@FMPO@MSG?3SelAcrossMap?$AA@",
+   "address": "007f8c38",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@EDCH@MSG?3NavEmpty?$AA@",
+   "address": "007f8c4c",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@ICFD@MSG?3UnitsWorth?$AA@",
+   "address": "007f8c5c",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@GAKB@MSG?3NoUnitsSel?$AA@",
+   "address": "007f8c6c",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09NPDK@MSG?3Mixed?$AA@",
+   "address": "007f8c7c",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@EGJA@MSG?3Healthy?$AA@",
+   "address": "007f8c88",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@EMHN@MSG?3HeavilyDamaged?$AA@",
+   "address": "007f8c94",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@IEJB@MSG?3Critical?$AA@",
+   "address": "007f8ca8",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BF@BENO@MSG?3LittleExperience?$AA@",
+   "address": "007f8cb8",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@KCCB@MSG?3Veteran?$AA@",
+   "address": "007f8cd0",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09MLOC@MSG?3Elite?$AA@",
+   "address": "007f8cdc",
+   "bytes": 10,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0051af60",
+   "symbol": "?Unknown_006F5D90@@YIXH@Z",
+   "target": "006f5d90",
+   "function_entry": true
+  },
+  {
+   "site": "0051b320",
+   "symbol": "?Unknown_006F5F00@@YIXH@Z",
+   "target": "006f5f00",
+   "function_entry": true
+  },
+  {
+   "site": "0051b410",
+   "symbol": "?Unknown_006F61F0@@YIXH@Z",
+   "target": "006f61f0",
+   "function_entry": true
+  },
+  {
+   "site": "0051b500",
+   "symbol": "?Unknown_006F60D0@@YIXH@Z",
+   "target": "006f60d0",
+   "function_entry": true
+  },
+  {
+   "site": "0051be20",
+   "symbol": "?Unknown_006F5BC0@@YAXXZ",
+   "target": "006f5bc0",
+   "function_entry": true
+  },
+  {
+   "site": "0051bea0",
+   "symbol": "?Unknown_006F5C50@@YAXXZ",
+   "target": "006f5c50",
+   "function_entry": true
+  },
+  {
+   "site": "0051bf20",
+   "symbol": "?Unknown_006F5940@@YAXXZ",
+   "target": "006f5940",
+   "function_entry": true
+  },
+  {
+   "site": "0051bfa0",
+   "symbol": "?Unknown_006F5B10@@YIXXZ",
+   "target": "006f5b10",
+   "function_entry": true
+  },
+  {
+   "site": "0051c020",
+   "symbol": "?Unknown_006F5D10@@YAXXZ",
+   "target": "006f5d10",
+   "function_entry": true
+  },
+  {
+   "site": "0051c430",
+   "symbol": "?Unknown_006F6380@@YAXXZ",
+   "target": "006f6380",
+   "function_entry": true
+  },
+  {
+   "site": "0051c640",
+   "symbol": "?Unknown_006F88F0@@YAXXZ",
+   "target": "006f88f0",
+   "function_entry": true
+  },
+  {
+   "site": "0051c5b0",
+   "symbol": "?Unknown_006F64B0@@YAXXZ",
+   "target": "006f64b0",
+   "function_entry": true
+  },
+  {
+   "site": "0051bb50",
+   "symbol": "?Unknown_006F7670@@YIXXZ",
+   "target": "006f7670",
+   "function_entry": true
+  },
+  {
+   "site": "0061a290",
+   "symbol": "?unknown_006f6760@seed_0061a290@@YAIXZ",
+   "target": "006f6760",
+   "function_entry": true
+  },
+  {
+   "site": "0061a2b0",
+   "symbol": "?unknown_006f6750@seed_0061a2b0@@YAIXZ",
+   "target": "006f6750",
+   "function_entry": true
+  },
+  {
+   "site": "006817d0",
+   "symbol": "?Unknown_006F8A20@@YIXPAVBuildingClass@@@Z",
+   "target": "006f8a20",
+   "function_entry": true
+  },
+  {
+   "site": "00616ec0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "target": "006f58e0",
+   "function_entry": true
+  },
+  {
+   "site": "00616f50",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "target": "006f58e0",
+   "function_entry": true
+  },
+  {
+   "site": "00616fb0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "target": "006f58e0",
+   "function_entry": true
+  },
+  {
+   "site": "00616fd0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "target": "006f58e0",
+   "function_entry": true
+  },
+  {
+   "site": "00617100",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "target": "006f58e0",
+   "function_entry": true
+  },
+  {
+   "site": "00617100",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "target": "006f58e0",
+   "function_entry": true
+  },
+  {
+   "site": "00617250",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "target": "006f58e0",
+   "function_entry": true
+  },
+  {
+   "site": "00617250",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "target": "006f58e0",
+   "function_entry": true
+  },
+  {
+   "site": "0061a2d0",
+   "symbol": "?Unknown_006F6760@PlanningEventTargets@@SAHXZ",
+   "target": "006f6760",
+   "function_entry": true
+  },
+  {
+   "site": "0061a2d0",
+   "symbol": "?Unknown_006F6750@PlanningEventTargets@@SAHXZ",
+   "target": "006f6750",
+   "function_entry": true
+  },
+  {
+   "site": "00482bc0",
+   "symbol": "?Unknown_006f6780@@YIXI@Z",
+   "target": "006f6780",
+   "function_entry": true
+  },
+  {
+   "site": "006d8f60",
+   "symbol": "?Unknown_006F6670@@YA_NXZ",
+   "target": "006f6670",
+   "function_entry": true
+  },
+  {
+   "site": "006a0f30",
+   "symbol": "?Unknown_006F6570@@YAXXZ",
+   "target": "006f6570",
+   "function_entry": true
+  },
+  {
+   "site": "006a0f30",
+   "symbol": "?Unknown_006F64B0@@YAXXZ",
+   "target": "006f64b0",
+   "function_entry": true
+  },
+  {
+   "site": "006a0f30",
+   "symbol": "?Unknown_006F5C50@@YAXXZ",
+   "target": "006f5c50",
+   "function_entry": true
+  },
+  {
+   "site": "006a0f30",
+   "symbol": "?Unknown_006F5940@@YAXXZ",
+   "target": "006f5940",
+   "function_entry": true
+  },
+  {
+   "site": "006a0f30",
+   "symbol": "?Unknown_006F5B10@@YIXXZ",
+   "target": "006f5b10",
+   "function_entry": true
+  },
+  {
+   "site": "006a0f30",
+   "symbol": "?Unknown_006F5BC0@@YAXXZ",
+   "target": "006f5bc0",
+   "function_entry": true
+  },
+  {
+   "site": "006a0f30",
+   "symbol": "?Unknown_006F5870@@YIHH@Z",
+   "target": "006f5870",
+   "function_entry": true
+  },
+  {
+   "site": "006a0f30",
+   "symbol": "?Unknown_006F5D90@@YIXH@Z",
+   "target": "006f5d90",
+   "function_entry": true
+  },
+  {
+   "site": "006a0f30",
+   "symbol": "?Unknown_006F5800@@YI_NH@Z",
+   "target": "006f5800",
+   "function_entry": true
+  },
+  {
+   "site": "006a0f30",
+   "symbol": "?Unknown_006F60D0@@YIXH@Z",
+   "target": "006f60d0",
+   "function_entry": true
+  },
+  {
+   "site": "006a0f30",
+   "symbol": "?Unknown_006F5F00@@YIXH@Z",
+   "target": "006f5f00",
+   "function_entry": true
+  },
+  {
+   "site": "006a0f30",
+   "symbol": "?Unknown_006F5E10@@YIXH@Z",
+   "target": "006f5e10",
+   "function_entry": true
+  },
+  {
+   "site": "0065d2c0",
+   "symbol": "?Unknown_006F89E0@@YAXXZ",
+   "target": "006f89e0",
+   "function_entry": true
+  },
+  {
+   "site": "0065d2c0",
+   "symbol": "?Unknown_006F8A20@@YIXPAVBuildingClass@@@Z",
+   "target": "006f8a20",
+   "function_entry": true
+  },
+  {
+   "site": "006aabc0",
+   "symbol": "?Unknown_006F76B0@@YA_NXZ",
+   "target": "006f76b0",
+   "function_entry": true
+  },
+  {
+   "site": "005d2e70",
+   "symbol": "?Unknown_006f6780@@YIXI@Z",
+   "target": "006f6780",
+   "function_entry": true
+  },
+  {
+   "site": "005d2e70",
+   "symbol": "?Unknown_006f6780@@YIXI@Z",
+   "target": "006f6780",
+   "function_entry": true
+  },
+  {
+   "site": "0051b030",
+   "symbol": "?Unknown_006F8A50@@YAPAVBuildingClass@@XZ",
+   "target": "006f8a50",
+   "function_entry": true
+  },
+  {
+   "site": "0051b0f0",
+   "symbol": "?Unknown_006F8A60@@YAPAVBuildingClass@@XZ",
+   "target": "006f8a60",
+   "function_entry": true
+  },
+  {
+   "site": "0051ba90",
+   "symbol": "?Unknown_006F6D00@@YIX_N@Z",
+   "target": "006f6d00",
+   "function_entry": true
+  },
+  {
+   "site": "0051bbf0",
+   "symbol": "?Unknown_006F7B80@@YIX_N@Z",
+   "target": "006f7b80",
+   "function_entry": true
+  },
+  {
+   "site": "0051bc90",
+   "symbol": "?Unknown_006F7EC0@@YIX_N@Z",
+   "target": "006f7ec0",
+   "function_entry": true
+  },
+  {
+   "site": "00616d70",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "target": "006f58e0",
+   "function_entry": true
+  },
+  {
+   "site": "00616d70",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "target": "006f58e0",
+   "function_entry": true
+  },
+  {
+   "site": "00616e70",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "target": "006f58e0",
+   "function_entry": true
+  },
+  {
+   "site": "00617020",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "target": "006f58e0",
+   "function_entry": true
+  },
+  {
+   "site": "00617020",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "target": "006f58e0",
+   "function_entry": true
+  },
+  {
+   "site": "006909e0",
+   "symbol": "?Unknown_006F57E0@@YAXXZ",
+   "target": "006f57e0",
+   "function_entry": true
+  },
+  {
+   "site": "006cc2a0",
+   "symbol": "?Unknown_006F6670@@YA_NXZ",
+   "target": "006f6670",
+   "function_entry": true
+  },
+  {
+   "site": "006aad40",
+   "symbol": "?Unknown_006f6780@@YIXI@Z",
+   "target": "006f6780",
+   "function_entry": true
+  },
+  {
+   "site": "0067f050",
+   "symbol": "?Unknown_006F8A00@@YIXPAVBuildingClass@@@Z",
+   "target": "006f8a00",
+   "function_entry": true
+  },
+  {
+   "site": "00615ed0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "target": "006f58e0",
+   "function_entry": true
+  },
+  {
+   "site": "006ecb90",
+   "symbol": "?Unknown_006F7970@@YIXPAX@Z",
+   "target": "006f7970",
+   "function_entry": true
+  },
+  {
+   "site": "0049bb20",
+   "symbol": "?Unknown_006F8A20@@YIXPAVBuildingClass@@@Z",
+   "target": "006f8a20",
+   "function_entry": true
+  },
+  {
+   "site": "0049bb20",
+   "symbol": "?Unknown_Click_End_006F6770@@YAXXZ",
+   "target": "006f6770",
+   "function_entry": true
+  },
+  {
+   "site": "0049bb20",
+   "symbol": "?Unknown_Click_End_006F6770@@YAXXZ",
+   "target": "006f6770",
+   "function_entry": true
+  },
+  {
+   "site": "0049bb20",
+   "symbol": "?Unknown_006F76B0@@YA_NXZ",
+   "target": "006f76b0",
+   "function_entry": true
+  },
+  {
+   "site": "0049bb20",
+   "symbol": "?Unknown_006F76B0@@YA_NXZ",
+   "target": "006f76b0",
+   "function_entry": true
+  },
+  {
+   "site": "0049bb20",
+   "symbol": "?Unknown_006F76B0@@YA_NXZ",
+   "target": "006f76b0",
+   "function_entry": true
+  },
+  {
+   "site": "0049bb20",
+   "symbol": "?Unknown_Click_End_006F6770@@YAXXZ",
+   "target": "006f6770",
+   "function_entry": true
+  },
+  {
+   "site": "0065d370",
+   "symbol": "?Unknown_006F89E0@@YAXXZ",
+   "target": "006f89e0",
+   "function_entry": true
+  },
+  {
+   "site": "0065d370",
+   "symbol": "?Unknown_006F8A20@@YIXPAVBuildingClass@@@Z",
+   "target": "006f8a20",
+   "function_entry": true
+  },
+  {
+   "site": "006182f0",
+   "symbol": "?Unknown_006F6760@PlanningEventTargets@@SAHXZ",
+   "target": "006f6760",
+   "function_entry": true
+  },
+  {
+   "site": "006182f0",
+   "symbol": "?Unknown_006F6750@PlanningEventTargets@@SAHXZ",
+   "target": "006f6750",
+   "function_entry": true
+  },
+  {
+   "site": "006182f0",
+   "symbol": "?Unknown_006F6750@PlanningEventTargets@@SAHXZ",
+   "target": "006f6750",
+   "function_entry": true
+  },
+  {
+   "site": "006182f0",
+   "symbol": "?Unknown_006F6760@PlanningEventTargets@@SAHXZ",
+   "target": "006f6760",
+   "function_entry": true
+  },
+  {
+   "site": "006182f0",
+   "symbol": "?Unknown_006F6750@PlanningEventTargets@@SAHXZ",
+   "target": "006f6750",
+   "function_entry": true
+  },
+  {
+   "site": "00618c00",
+   "symbol": "?Unknown_006F6760@PlanningEventTargets@@SAHXZ",
+   "target": "006f6760",
+   "function_entry": true
+  },
+  {
+   "site": "00618c00",
+   "symbol": "?Unknown_006F6750@PlanningEventTargets@@SAHXZ",
+   "target": "006f6750",
+   "function_entry": true
+  },
+  {
+   "site": "00618c00",
+   "symbol": "?Unknown_006F6750@PlanningEventTargets@@SAHXZ",
+   "target": "006f6750",
+   "function_entry": true
+  },
+  {
+   "site": "00618c00",
+   "symbol": "?Unknown_006F6760@PlanningEventTargets@@SAHXZ",
+   "target": "006f6760",
+   "function_entry": true
+  },
+  {
+   "site": "00618c00",
+   "symbol": "?Unknown_006F6750@PlanningEventTargets@@SAHXZ",
+   "target": "006f6750",
+   "function_entry": true
+  },
+  {
+   "site": "00619420",
+   "symbol": "?Unknown_006F6760@PlanningEventTargets@@SAHXZ",
+   "target": "006f6760",
+   "function_entry": true
+  },
+  {
+   "site": "00619420",
+   "symbol": "?Unknown_006F6750@PlanningEventTargets@@SAHXZ",
+   "target": "006f6750",
+   "function_entry": true
+  },
+  {
+   "site": "00619870",
+   "symbol": "?Unknown_006F6760@PlanningEventTargets@@SAHXZ",
+   "target": "006f6760",
+   "function_entry": true
+  },
+  {
+   "site": "00619870",
+   "symbol": "?Unknown_006F6750@PlanningEventTargets@@SAHXZ",
+   "target": "006f6750",
+   "function_entry": true
+  },
+  {
+   "site": "00614ec0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "target": "006f58e0",
+   "function_entry": true
+  },
+  {
+   "site": "00614ec0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "target": "006f58e0",
+   "function_entry": true
+  },
+  {
+   "site": "00614010",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "target": "006f58e0",
+   "function_entry": true
+  },
+  {
+   "site": "00614010",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "target": "006f58e0",
+   "function_entry": true
+  },
+  {
+   "site": "006340f0",
+   "symbol": "?Unknown_006F62D0@@YIXK@Z",
+   "target": "006f62d0",
+   "function_entry": true
+  },
+  {
+   "site": "00617af0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "target": "006f58e0",
+   "function_entry": true
+  },
+  {
+   "site": "00615de0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "target": "006f58e0",
+   "function_entry": true
+  },
+  {
+   "site": "0068e280",
+   "symbol": "?Unknown_006F57E0@@YAXXZ",
+   "target": "006f57e0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0EventClass@@QAE@HE@Z",
+   "address": "004b5fd0"
+  },
+  {
+   "symbol": "??0EventClass@@QAE@HHK@Z",
+   "address": "004b6030"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??8?$VectorClass@H@@UBE_NABV0@@Z",
+   "address": "0046d070"
+  },
+  {
+   "symbol": "??8?$VectorClass@PAVTechnoClass@@@@UBE_NABV0@@Z",
+   "address": "0040b870"
+  },
+  {
+   "symbol": "??8?$VectorClass@PBD@@UBE_NABV0@@Z",
+   "address": "005a2020"
+  },
+  {
+   "symbol": "??AMapClass@@QAEAAVCellClass@@ABUCoordStruct@@@Z",
+   "address": "00548000"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@H@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVTechnoClass@@@@UAEPAXI@Z",
+   "address": "0040bbc0"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PBD@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "??_G?$VectorClass@H@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVTechnoClass@@@@UAEPAXI@Z",
+   "address": "0040bb70"
+  },
+  {
+   "symbol": "??_G?$VectorClass@PBD@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "?Add_Message@UnknownMessageList@@QAEXPBGH0HIH_N@Z",
+   "address": "005b4da0"
+  },
+  {
+   "symbol": "?Add_Message_005b4da0@Callee_005b4da0@seed_006f58e0@@QAEIHHHHHHH@Z",
+   "address": "005b4da0"
+  },
+  {
+   "symbol": "?Clear@?$DynamicVectorClass@H@@UAEXXZ",
+   "address": "0046cc80"
+  },
+  {
+   "symbol": "?Clear@?$DynamicVectorClass@PAVTechnoClass@@@@UAEXXZ",
+   "address": "0040b5b0"
+  },
+  {
+   "symbol": "?Clear@?$DynamicVectorClass@PBD@@UAEXXZ",
+   "address": "005a1fc0"
+  },
+  {
+   "symbol": "?Count@UnknownSelection@@QAEHXZ",
+   "address": "006ac7b0"
+  },
+  {
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "address": "00532890"
+  },
+  {
+   "symbol": "?FUN_0049cac0@Callee_0049cac0@seed_006f64b0@@QAEXH@Z",
+   "address": "0049cac0"
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@H@@UBEHH@Z",
+   "address": "0046ccd0"
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@PAVTechnoClass@@@@UBEPAVTechnoClass@@H@Z",
+   "address": "0040b600"
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@PBD@@UBEPBDH@Z",
+   "address": "005a2010"
+  },
+  {
+   "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXH@Z",
+   "address": "004e09a0"
+  },
+  {
+   "symbol": "?Frame@@3HA",
+   "address": "00a40d2c"
+  },
+  {
+   "symbol": "?Get@UnknownSelection@@QAEPAVObjectClass@@H@Z",
+   "address": "006ac7c0"
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@H@@UAEHABH@Z",
+   "address": "0046d350"
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@H@@UAEHPBH@Z",
+   "address": "0046ccb0"
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAVTechnoClass@@@@UAEHABQAVTechnoClass@@@Z",
+   "address": "0040baa0"
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAVTechnoClass@@@@UAEHPBQAVTechnoClass@@@Z",
+   "address": "0040b5e0"
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PBD@@UAEHABQBD@Z",
+   "address": "005a2250"
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PBD@@UAEHPBQBD@Z",
+   "address": "005a1ff0"
+  },
+  {
+   "symbol": "?ID@?$VectorClass@H@@UAEHABH@Z",
+   "address": "0046d190"
+  },
+  {
+   "symbol": "?ID@?$VectorClass@H@@UAEHPBH@Z",
+   "address": "0046d1d0"
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVTechnoClass@@@@UAEHABQAVTechnoClass@@@Z",
+   "address": "0040b990"
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVTechnoClass@@@@UAEHPBQAVTechnoClass@@@Z",
+   "address": "0040b9d0"
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PBD@@UAEHABQBD@Z",
+   "address": "005a2140"
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PBD@@UAEHPBQBD@Z",
+   "address": "005a2180"
+  },
+  {
+   "symbol": "?Is_Player_Control@HouseClass@@QAE_NXZ",
+   "address": "004f52b0"
+  },
+  {
+   "symbol": "?KeyForceFire1@@3HA",
+   "address": "00a40bac"
+  },
+  {
+   "symbol": "?KeyForceFire2@@3HA",
+   "address": "00a40bb0"
+  },
+  {
+   "symbol": "?KeyForceMove1@@3HA",
+   "address": "00a40bb4"
+  },
+  {
+   "symbol": "?KeyForceMove2@@3HA",
+   "address": "00a40bb8"
+  },
+  {
+   "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
+   "address": "006f9ec0"
+  },
+  {
+   "symbol": "?Map@@3VMouseClass@@A",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "?OutList@@3V?$QueueClass@VEventClass@@$0IA@@@A",
+   "address": "00a32338"
+  },
+  {
+   "symbol": "?Planning_Mode_Active_614840@@YA_NXZ",
+   "address": "00614840"
+  },
+  {
+   "symbol": "?Planning_Refuse_No_Guard_Area@@YIXXZ",
+   "address": "00616e70"
+  },
+  {
+   "symbol": "?RadarEventClass_unknown_newest_cell@@YI?AVCell@@XZ",
+   "address": "0063c6f0"
+  },
+  {
+   "symbol": "?RadarEventClass_unknown_previous_cell@@YI?AVCell@@XZ",
+   "address": "0063c720"
+  },
+  {
+   "symbol": "?Remaining_Levels@VeterancyClass@@QBEHXZ",
+   "address": "00713440"
+  },
+  {
+   "symbol": "?Resize@?$DynamicVectorClass@H@@UAE_NHPBH@Z",
+   "address": "0046d250"
+  },
+  {
+   "symbol": "?Resize@?$DynamicVectorClass@PAVTechnoClass@@@@UAE_NHPBQAVTechnoClass@@@Z",
+   "address": "0040b9f0"
+  },
+  {
+   "symbol": "?Resize@?$DynamicVectorClass@PBD@@UAE_NHPBQBD@Z",
+   "address": "005a21a0"
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@H@@UAE_NHPBH@Z",
+   "address": "0046d0b0"
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@PAVTechnoClass@@@@UAE_NHPBQAVTechnoClass@@@Z",
+   "address": "0040b8b0"
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@PBD@@UAE_NHPBQBD@Z",
+   "address": "005a2060"
+  },
+  {
+   "symbol": "?Rules@@3PAVRulesClass@@A",
+   "address": "00839848"
+  },
+  {
+   "symbol": "?Set_Tactical_Position_006a66b0@Tactical@@QAEXABUCoordStruct@@@Z",
+   "address": "006a66b0"
+  },
+  {
+   "symbol": "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A",
+   "address": "00a40c20"
+  },
+  {
+   "symbol": "?Unknown_004994D0@DisplayClass@@QAE?AVCell@@ABV2@@Z",
+   "address": "004994d0"
+  },
+  {
+   "symbol": "?Unknown_0049C7C0@DisplayClass@@QAEXH@Z",
+   "address": "0049c7c0"
+  },
+  {
+   "symbol": "?Unknown_0049C860@DisplayClass@@QAEXH_N@Z",
+   "address": "0049c860"
+  },
+  {
+   "symbol": "?Unknown_0049C980@DisplayClass@@QAEXH@Z",
+   "address": "0049c980"
+  },
+  {
+   "symbol": "?Unknown_0049CA20@DisplayClass@@QAEXH@Z",
+   "address": "0049ca20"
+  },
+  {
+   "symbol": "?Unknown_0049CAC0@DisplayClass@@QAEXH@Z",
+   "address": "0049cac0"
+  },
+  {
+   "symbol": "?Unknown_0049E3B0@DisplayClass@@QAEXXZ",
+   "address": "0049e3b0"
+  },
+  {
+   "symbol": "?Unknown_006AAD40@UnknownSelection@@QAEXXZ",
+   "address": "006aad40"
+  },
+  {
+   "symbol": "?Unknown_006AAD70@UnknownSelection@@QAEXXZ",
+   "address": "006aad70"
+  },
+  {
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "address": "006f58e0"
+  },
+  {
+   "symbol": "?Unknown_006F7360@@YIXXZ",
+   "address": "006f7360"
+  },
+  {
+   "symbol": "?Voc_Play@@YIPAUAudioEvent@@HMHPAUAudioEventHandle@@@Z",
+   "address": "00713db0"
+  },
+  {
+   "symbol": "?WWKeyboard@@3PAVWWKeyboardClass@@A",
+   "address": "00832468"
+  },
+  {
+   "symbol": "?target@Target_6f6750@@QAEIII@Z",
+   "address": "0059f170"
+  },
+  {
+   "symbol": "?target@Target_6f6760@@QAEIII@Z",
+   "address": "0059f170"
+  },
+  {
+   "symbol": "?unknown_4532f0@BuildingClass@@QAEHXZ",
+   "address": "004532f0"
+  },
+  {
+   "symbol": "?unknown_5090a0@InfantryClass@@QBE_NXZ",
+   "address": "005090a0"
+  },
+  {
+   "symbol": "?unknown_5090d0@InfantryClass@@QBE_NXZ",
+   "address": "005090d0"
+  },
+  {
+   "symbol": "?unknown_6d7990@TechnoClass@@SAXXZ",
+   "address": "006d7990"
+  },
+  {
+   "symbol": "?unknown_833684@@3HA",
+   "address": "00833684"
+  },
+  {
+   "symbol": "?unknown_cheer_frame_ac134c@@3HA",
+   "address": "00ac134c"
+  },
+  {
+   "symbol": "?unknown_empty_wide_839d4c@@3QBGB",
+   "address": "00839d4c"
+  },
+  {
+   "symbol": "?unknown_flag_ac1330@@3_NA",
+   "address": "00ac1330"
+  },
+  {
+   "symbol": "?unknown_flag_ac133c@@3_NA",
+   "address": "00ac133c"
+  },
+  {
+   "symbol": "?unknown_flag_ac133d@@3_NA",
+   "address": "00ac133d"
+  },
+  {
+   "symbol": "?unknown_func_5d27d0@ObjectClass@@QBE_NPBD@Z",
+   "address": "005d27d0"
+  },
+  {
+   "symbol": "?unknown_func_5d27d0@UnknownObject_006f7610@@QBE_NPBD@Z",
+   "address": "005d27d0"
+  },
+  {
+   "symbol": "?unknown_func_5d46b0@ObjectClass@@QBEHXZ",
+   "address": "005d46b0"
+  },
+  {
+   "symbol": "?unknown_game_mode_a3d298@@3HA",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_group_7f8bd0@@3HA",
+   "address": "007f8bd0"
+  },
+  {
+   "symbol": "?unknown_group_frame_7f8bcc@@3HA",
+   "address": "007f8bcc"
+  },
+  {
+   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
+   "symbol": "?unknown_int_a3d548@@3HA",
+   "address": "00a3d548"
+  },
+  {
+   "symbol": "?unknown_list_ac1344@@3PAUUnknownPointerList@@A",
+   "address": "00ac1344"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_messages_a3dc70@@3UUnknownMessageList@@A",
+   "address": "00a3dc70"
+  },
+  {
+   "symbol": "?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A",
+   "address": "00a40c60"
+  },
+  {
+   "symbol": "?unknown_pending_building_ac1334@@3PAVBuildingClass@@A",
+   "address": "00ac1334"
+  },
+  {
+   "symbol": "?unknown_pending_building_ac1338@@3PAVBuildingClass@@A",
+   "address": "00ac1338"
+  },
+  {
+   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
+   "address": "00a35db4"
+  },
+  {
+   "symbol": "?unknown_radar_jump_frame_7f8bd4@@3HA",
+   "address": "007f8bd4"
+  },
+  {
+   "symbol": "?unknown_selected_83996c@@3PAUUnknownSelection@@A",
+   "address": "0083996c"
+  },
+  {
+   "symbol": "?unknown_sound_enabled_7d88d6@@3_NA",
+   "address": "007d88d6"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_state_7f8bd8@@3HA",
+   "address": "007f8bd8"
+  },
+  {
+   "symbol": "?unknown_state_7f8bdc@@3HA",
+   "address": "007f8bdc"
+  },
+  {
+   "symbol": "?unknown_state_ac132c@@3HA",
+   "address": "00ac132c"
+  },
+  {
+   "symbol": "?unknown_tactical_83996c@@3PAVTactical@@A",
+   "address": "0083996c"
+  },
+  {
+   "symbol": "?unknown_time_ac1340@@3KA",
+   "address": "00ac1340"
+  },
+  {
+   "symbol": "_DAT_00a35db4",
+   "address": "00a35db4"
+  },
+  {
+   "symbol": "_DAT_00a3d548",
+   "address": "00a3d548"
+  },
+  {
+   "symbol": "_DAT_00a3dc70",
+   "address": "00a3dc70"
+  },
+  {
+   "symbol": "_DAT_00ac1334",
+   "address": "00ac1334"
+  },
+  {
+   "symbol": "_DAT_00ac1338",
+   "address": "00ac1338"
+  },
+  {
+   "symbol": "_Map_008324e0",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__timeGetTime@0",
+   "address": "0079a524"
+  },
+  {
+   "symbol": "__wcsupr",
+   "address": "00796ef6"
+  },
+  {
+   "symbol": "_storage_6f8b90",
+   "address": "00782017"
+  },
+  {
+   "symbol": "_swprintf",
+   "address": "00783764"
+  },
+  {
+   "symbol": "_table_6f8b90",
+   "address": "007a6604"
+  },
+  {
+   "symbol": "_wcscpy",
+   "address": "00783689"
+  }
+ ],
+ "route": "A",
+ "unit": "uicmnds.cpp",
+ "form": "one include block",
+ "switches": [
+  "RA2_UICMNDS_GROUP_SELECT",
+  "VECTOR_IMPLEMENT_DYNAMIC_CONSTRUCTOR",
+  "VECTOR_IMPLEMENT_VECTOR_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS"
+ ],
+ "include_blocks": [
+  {
+   "before": "006f55f0",
+   "lines": 25
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "006f58e0",
+   "bytes": 58,
+   "population": "population-124",
+   "bound": "own frozen bound (population-124)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006f5920",
+   "bytes": 6,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006f5930",
+   "bytes": 6,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006f64b0",
+   "bytes": 22,
+   "population": "population-129",
+   "bound": "own frozen bound (population-129)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006f6730",
+   "bytes": 6,
+   "population": "population-4352",
+   "bound": "own frozen bound (population-4352)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006f6740",
+   "bytes": 6,
+   "population": "population-4352",
+   "bound": "own frozen bound (population-4352)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006f6750",
+   "bytes": 15,
+   "population": "population-18",
+   "bound": "own frozen bound (population-18)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006f6760",
+   "bytes": 15,
+   "population": "population-18",
+   "bound": "own frozen bound (population-18)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006f7610",
+   "bytes": 54,
+   "population": "population-4391",
+   "bound": "own frozen bound (population-4391)"
+  },
+  {
+   "entry": "006f8a00",
+   "bytes": 29,
+   "population": "population-42",
+   "bound": "own frozen bound (population-42)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006f8a50",
+   "bytes": 6,
+   "population": "population-4352",
+   "bound": "own frozen bound (population-4352)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006f8a60",
+   "bytes": 6,
+   "population": "population-4352",
+   "bound": "own frozen bound (population-4352)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006f8b90",
+   "bytes": 74,
+   "population": "population-16",
+   "bound": "own frozen bound (population-16)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "006c0260",
+   "bytes": 6,
+   "population": "population-3586",
+   "source": "src/recovered/classes/TeamTypeClass/Size_Of.cpp",
+   "cause": "frozen in another population's inventory pass (population-3586)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f6490",
+   "bytes": 31,
+   "population": "population-3353",
+   "source": "src/recovered/uicmnds/unknown_dispatch.cpp",
+   "cause": "held by population-3353; not joined: does not compile in the unit: accepted.cpp(581) : error C2371: 'unknown_object_84e8d0' : redefinition; different basic types"
+  },
+  {
+   "kind": "split",
+   "entry": "006f64d0",
+   "bytes": 28,
+   "population": "population-4394",
+   "source": "src/recovered/unowned/Unknown_Group_Order_006f64d0.cpp",
+   "cause": "frozen in another population's inventory pass (population-4394)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f64f0",
+   "bytes": 28,
+   "population": "population-4394",
+   "source": "src/recovered/unowned/Unknown_Group_Order_Off_006f64f0.cpp",
+   "cause": "frozen in another population's inventory pass (population-4394)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f6660",
+   "bytes": 8,
+   "population": "population-2332",
+   "source": "src/recovered/uicmnds/unknown_clear_flag.cpp",
+   "cause": "frozen in another population's inventory pass (population-2332)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f7650",
+   "bytes": 28,
+   "population": "population-4394",
+   "source": "src/recovered/unowned/Unknown_Stopwatch_Start_006f7650.cpp",
+   "cause": "frozen in another population's inventory pass (population-4394)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f7e40",
+   "bytes": 89,
+   "population": "population-1692",
+   "source": "src/recovered/uicmnds/Unknown_Health_Message.cpp",
+   "cause": "frozen in another population's inventory pass (population-1692)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f7ea0",
+   "bytes": 31,
+   "population": "population-2332",
+   "source": "src/recovered/unowned/unknown_state_index_006f7ea0.cpp",
+   "cause": "frozen in another population's inventory pass (population-2332)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f8130",
+   "bytes": 89,
+   "population": "population-1692",
+   "source": "src/recovered/uicmnds/Unknown_Veterancy_Message.cpp",
+   "cause": "frozen in another population's inventory pass (population-1692)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f8190",
+   "bytes": 31,
+   "population": "population-2332",
+   "source": "src/recovered/unowned/unknown_state_index_006f8190.cpp",
+   "cause": "frozen in another population's inventory pass (population-2332)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f8a80",
+   "bytes": 93,
+   "population": "population-2638",
+   "source": "src/recovered/classes/DynamicVectorClass_TechnoClass_ptr/Constructor.cpp",
+   "cause": "frozen in another population's inventory pass (population-2638)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f8ae0",
+   "bytes": 93,
+   "population": "population-2638",
+   "source": "src/recovered/classes/DynamicVectorClass_char_const_ptr/Constructor.cpp",
+   "cause": "frozen in another population's inventory pass (population-2638)"
+  },
+  {
+   "kind": "split",
+   "entry": "006f8b40",
+   "bytes": 80,
+   "population": "population-19",
+   "source": "src/recovered/006f8b40.cpp",
+   "cause": "held by population-19; not joined: its file holds a vtable view classed dead, which the native check (vtable_views.py) reads per object"
+  },
+  {
+   "kind": "split",
+   "entry": "00712710",
+   "bytes": 6,
+   "population": "population-4443",
+   "source": "src/recovered/classes/VeinholeMonsterClass/Size_Of.cpp",
+   "cause": "frozen in another population's inventory pass (population-4443)"
+  }
+ ],
+ "unit_functions": 98,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PBD@@6B@",
+   "reason": "relocation target unbound: ??_E?$DynamicVectorClass@PBD@@UAEPAXI@Z"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PBD@@6B@",
+   "reason": "relocation target unbound: ??_E?$VectorClass@PBD@@UAEPAXI@Z"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@H@@6B@",
+   "reason": "relocation target unbound: ??_E?$DynamicVectorClass@H@@UAEPAXI@Z"
+  },
+  {
+   "symbol": "??_7?$VectorClass@H@@6B@",
+   "reason": "relocation target unbound: ??_E?$VectorClass@H@@UAEPAXI@Z"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "0051c5b0",
+   "target": "006f64b0",
+   "symbol": "?Unknown_006F64B0@@YAXXZ",
+   "module_symbol": "?FUN_006f64b0@seed_006f64b0@@YAXXZ"
+  },
+  {
+   "site": "0061a290",
+   "target": "006f6760",
+   "symbol": "?unknown_006f6760@seed_0061a290@@YAIXZ",
+   "module_symbol": "?get@Leaf_6f6760@@QAEIXZ"
+  },
+  {
+   "site": "0061a2b0",
+   "target": "006f6750",
+   "symbol": "?unknown_006f6750@seed_0061a2b0@@YAIXZ",
+   "module_symbol": "?get@Leaf_6f6750@@QAEIXZ"
+  },
+  {
+   "site": "00616ec0",
+   "target": "006f58e0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "module_symbol": "?FUN_006f58e0@seed_006f58e0@@YIXIH@Z"
+  },
+  {
+   "site": "00616f50",
+   "target": "006f58e0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "module_symbol": "?FUN_006f58e0@seed_006f58e0@@YIXIH@Z"
+  },
+  {
+   "site": "00616fb0",
+   "target": "006f58e0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "module_symbol": "?FUN_006f58e0@seed_006f58e0@@YIXIH@Z"
+  },
+  {
+   "site": "00616fd0",
+   "target": "006f58e0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "module_symbol": "?FUN_006f58e0@seed_006f58e0@@YIXIH@Z"
+  },
+  {
+   "site": "00617100",
+   "target": "006f58e0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "module_symbol": "?FUN_006f58e0@seed_006f58e0@@YIXIH@Z"
+  },
+  {
+   "site": "00617100",
+   "target": "006f58e0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "module_symbol": "?FUN_006f58e0@seed_006f58e0@@YIXIH@Z"
+  },
+  {
+   "site": "00617250",
+   "target": "006f58e0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "module_symbol": "?FUN_006f58e0@seed_006f58e0@@YIXIH@Z"
+  },
+  {
+   "site": "00617250",
+   "target": "006f58e0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "module_symbol": "?FUN_006f58e0@seed_006f58e0@@YIXIH@Z"
+  },
+  {
+   "site": "0061a2d0",
+   "target": "006f6760",
+   "symbol": "?Unknown_006F6760@PlanningEventTargets@@SAHXZ",
+   "module_symbol": "?get@Leaf_6f6760@@QAEIXZ"
+  },
+  {
+   "site": "0061a2d0",
+   "target": "006f6750",
+   "symbol": "?Unknown_006F6750@PlanningEventTargets@@SAHXZ",
+   "module_symbol": "?get@Leaf_6f6750@@QAEIXZ"
+  },
+  {
+   "site": "006d8f60",
+   "target": "006f6670",
+   "symbol": "?Unknown_006F6670@@YA_NXZ",
+   "module_symbol": "?Unknown_Can_Force_Order_006F6670@@YA_NXZ"
+  },
+  {
+   "site": "006a0f30",
+   "target": "006f64b0",
+   "symbol": "?Unknown_006F64B0@@YAXXZ",
+   "module_symbol": "?FUN_006f64b0@seed_006f64b0@@YAXXZ"
+  },
+  {
+   "site": "0051b030",
+   "target": "006f8a50",
+   "symbol": "?Unknown_006F8A50@@YAPAVBuildingClass@@XZ",
+   "module_symbol": "?get@Leaf_6f8a50@@QAEIXZ"
+  },
+  {
+   "site": "0051b0f0",
+   "target": "006f8a60",
+   "symbol": "?Unknown_006F8A60@@YAPAVBuildingClass@@XZ",
+   "module_symbol": "?get@Leaf_6f8a60@@QAEIXZ"
+  },
+  {
+   "site": "00616d70",
+   "target": "006f58e0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "module_symbol": "?FUN_006f58e0@seed_006f58e0@@YIXIH@Z"
+  },
+  {
+   "site": "00616d70",
+   "target": "006f58e0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "module_symbol": "?FUN_006f58e0@seed_006f58e0@@YIXIH@Z"
+  },
+  {
+   "site": "00616e70",
+   "target": "006f58e0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "module_symbol": "?FUN_006f58e0@seed_006f58e0@@YIXIH@Z"
+  },
+  {
+   "site": "00617020",
+   "target": "006f58e0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "module_symbol": "?FUN_006f58e0@seed_006f58e0@@YIXIH@Z"
+  },
+  {
+   "site": "00617020",
+   "target": "006f58e0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "module_symbol": "?FUN_006f58e0@seed_006f58e0@@YIXIH@Z"
+  },
+  {
+   "site": "006cc2a0",
+   "target": "006f6670",
+   "symbol": "?Unknown_006F6670@@YA_NXZ",
+   "module_symbol": "?Unknown_Can_Force_Order_006F6670@@YA_NXZ"
+  },
+  {
+   "site": "0067f050",
+   "target": "006f8a00",
+   "symbol": "?Unknown_006F8A00@@YIXPAVBuildingClass@@@Z",
+   "module_symbol": "?FUN_006f8a00@seed_006f8a00@@YIXH@Z"
+  },
+  {
+   "site": "00615ed0",
+   "target": "006f58e0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "module_symbol": "?FUN_006f58e0@seed_006f58e0@@YIXIH@Z"
+  },
+  {
+   "site": "006182f0",
+   "target": "006f6760",
+   "symbol": "?Unknown_006F6760@PlanningEventTargets@@SAHXZ",
+   "module_symbol": "?get@Leaf_6f6760@@QAEIXZ"
+  },
+  {
+   "site": "006182f0",
+   "target": "006f6750",
+   "symbol": "?Unknown_006F6750@PlanningEventTargets@@SAHXZ",
+   "module_symbol": "?get@Leaf_6f6750@@QAEIXZ"
+  },
+  {
+   "site": "006182f0",
+   "target": "006f6750",
+   "symbol": "?Unknown_006F6750@PlanningEventTargets@@SAHXZ",
+   "module_symbol": "?get@Leaf_6f6750@@QAEIXZ"
+  },
+  {
+   "site": "006182f0",
+   "target": "006f6760",
+   "symbol": "?Unknown_006F6760@PlanningEventTargets@@SAHXZ",
+   "module_symbol": "?get@Leaf_6f6760@@QAEIXZ"
+  },
+  {
+   "site": "006182f0",
+   "target": "006f6750",
+   "symbol": "?Unknown_006F6750@PlanningEventTargets@@SAHXZ",
+   "module_symbol": "?get@Leaf_6f6750@@QAEIXZ"
+  },
+  {
+   "site": "00618c00",
+   "target": "006f6760",
+   "symbol": "?Unknown_006F6760@PlanningEventTargets@@SAHXZ",
+   "module_symbol": "?get@Leaf_6f6760@@QAEIXZ"
+  },
+  {
+   "site": "00618c00",
+   "target": "006f6750",
+   "symbol": "?Unknown_006F6750@PlanningEventTargets@@SAHXZ",
+   "module_symbol": "?get@Leaf_6f6750@@QAEIXZ"
+  },
+  {
+   "site": "00618c00",
+   "target": "006f6750",
+   "symbol": "?Unknown_006F6750@PlanningEventTargets@@SAHXZ",
+   "module_symbol": "?get@Leaf_6f6750@@QAEIXZ"
+  },
+  {
+   "site": "00618c00",
+   "target": "006f6760",
+   "symbol": "?Unknown_006F6760@PlanningEventTargets@@SAHXZ",
+   "module_symbol": "?get@Leaf_6f6760@@QAEIXZ"
+  },
+  {
+   "site": "00618c00",
+   "target": "006f6750",
+   "symbol": "?Unknown_006F6750@PlanningEventTargets@@SAHXZ",
+   "module_symbol": "?get@Leaf_6f6750@@QAEIXZ"
+  },
+  {
+   "site": "00619420",
+   "target": "006f6760",
+   "symbol": "?Unknown_006F6760@PlanningEventTargets@@SAHXZ",
+   "module_symbol": "?get@Leaf_6f6760@@QAEIXZ"
+  },
+  {
+   "site": "00619420",
+   "target": "006f6750",
+   "symbol": "?Unknown_006F6750@PlanningEventTargets@@SAHXZ",
+   "module_symbol": "?get@Leaf_6f6750@@QAEIXZ"
+  },
+  {
+   "site": "00619870",
+   "target": "006f6760",
+   "symbol": "?Unknown_006F6760@PlanningEventTargets@@SAHXZ",
+   "module_symbol": "?get@Leaf_6f6760@@QAEIXZ"
+  },
+  {
+   "site": "00619870",
+   "target": "006f6750",
+   "symbol": "?Unknown_006F6750@PlanningEventTargets@@SAHXZ",
+   "module_symbol": "?get@Leaf_6f6750@@QAEIXZ"
+  },
+  {
+   "site": "00614ec0",
+   "target": "006f58e0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "module_symbol": "?FUN_006f58e0@seed_006f58e0@@YIXIH@Z"
+  },
+  {
+   "site": "00614ec0",
+   "target": "006f58e0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "module_symbol": "?FUN_006f58e0@seed_006f58e0@@YIXIH@Z"
+  },
+  {
+   "site": "00614010",
+   "target": "006f58e0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "module_symbol": "?FUN_006f58e0@seed_006f58e0@@YIXIH@Z"
+  },
+  {
+   "site": "00614010",
+   "target": "006f58e0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "module_symbol": "?FUN_006f58e0@seed_006f58e0@@YIXIH@Z"
+  },
+  {
+   "site": "00617af0",
+   "target": "006f58e0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "module_symbol": "?FUN_006f58e0@seed_006f58e0@@YIXIH@Z"
+  },
+  {
+   "site": "00615de0",
+   "target": "006f58e0",
+   "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
+   "module_symbol": "?FUN_006f58e0@seed_006f58e0@@YIXIH@Z"
+  }
+ ],
+ "stand_in_reference_count": 45,
+ "residual_split": {
+  "rows": 14,
+  "bytes": 641
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

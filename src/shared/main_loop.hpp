@@ -57,7 +57,7 @@ extern char unknown_last_pager_b2ac48[];
 // the houses marked in unknown_flags_a3f118, 2 (Backspace) the player's allies, 3 ('\\') every player; 0: none.
 extern int unknown_chat_target_a6ebe0;
 // Narrows a wide string into dst (at most limit characters; 0x006FA0F0; also shared/modem_guest.hpp).
-void __fastcall Unknown_006FA0F0(char *dst, unsigned short const *src, int limit);
+void __fastcall WideToCharString_006fa0f0(char *dst, unsigned short const *src, int limit);
 
 // The sidebar tab key action on the screen object (0x006818B0; name hypothesis).
 class SidebarClass;

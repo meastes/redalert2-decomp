@@ -1,0 +1,4553 @@
+{
+ "module": "isotype",
+ "source": "src/recovered/isotype.cpp",
+ "header": null,
+ "population": "population-4398",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 1020,
+ "code": [
+  {
+   "symbol": "_$E45",
+   "entry": "00528570",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "_$E51",
+   "entry": "00528590",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E48",
+   "entry": "005285d0",
+   "body_bytes": 88,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E54",
+   "entry": "00528630",
+   "body_bytes": 1910,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "_$E57",
+   "entry": "00528db0",
+   "body_bytes": 297,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??0IsometricTileTypeClass@@QAE@HHEPBD_N@Z",
+   "entry": "00528ee0",
+   "body_bytes": 573,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??0IsometricTileTypeClass@@QAE@ABVNoInitClass@@@Z",
+   "entry": "00529120",
+   "body_bytes": 99,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "??1IsometricTileTypeClass@@UAE@XZ",
+   "entry": "00529190",
+   "body_bytes": 361,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Land_Type@IsometricTileTypeClass@@QAEHH@Z",
+   "entry": "00529300",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Is_Tile_Index_Valid@IsometricTileTypeClass@@QAE_NH_N@Z",
+   "entry": "00529340",
+   "body_bytes": 83,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Load_Tile_Image@IsometricTileTypeClass@@QAE_NXZ",
+   "entry": "005293a0",
+   "body_bytes": 43,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Get_Image_Data@IsometricTileTypeClass@@UBEPAXXZ",
+   "entry": "005293d0",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?From_Name@IsometricTileTypeClass@@SIHPBD@Z",
+   "entry": "00529400",
+   "body_bytes": 67,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Occupy_List@IsometricTileTypeClass@@UBEPBVCell@@H@Z",
+   "entry": "00529450",
+   "body_bytes": 177,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E60",
+   "entry": "00529510",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Next_Tile_From_Set@IsometricTileTypeClass@@QAEPAV1@H@Z",
+   "entry": "00529520",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Fixup_Tile_Type@IsometricTileTypeClass@@SIHH@Z",
+   "entry": "00529550",
+   "body_bytes": 57,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Find_Or_Make_Drawer@IsometricTileTypeClass@@SIPAVLightConvertClass@@HHH@Z",
+   "entry": "00529590",
+   "body_bytes": 369,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Unknown_00529710@@YI_NH_N@Z",
+   "entry": "00529710",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Init_Drawers@IsometricTileTypeClass@@SAXXZ",
+   "entry": "00529720",
+   "body_bytes": 330,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Unknown_00529870@@YIXH_N@Z",
+   "entry": "00529870",
+   "body_bytes": 6762,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Load_Tiles@IsometricTileTypeClass@@SIX_N0@Z",
+   "entry": "0052b2e0",
+   "body_bytes": 637,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Load_Tile_Data@IsometricTileTypeClass@@QAEHXZ",
+   "entry": "0052b560",
+   "body_bytes": 231,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Clear_Use_Counts@IsometricTileTypeClass@@SAXXZ",
+   "entry": "0052b650",
+   "body_bytes": 52,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Get_Tile_Pixel_Dimensions@IsometricTileTypeClass@@QAE_NHAAH0@Z",
+   "entry": "0052b690",
+   "body_bytes": 85,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Ramp_Type@IsometricTileTypeClass@@QAEHH@Z",
+   "entry": "0052b6f0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Is_Randomized@IsometricTileTypeClass@@QBE_NH@Z",
+   "entry": "0052b730",
+   "body_bytes": 54,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Draw_Shadow_Caster@IsometricTileTypeClass@@QAEXHPAVSurface@@UPoint2D@@VRect@@H@Z",
+   "entry": "0052b770",
+   "body_bytes": 314,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Shadow_Caster_List@IsometricTileTypeClass@@QBEPBVCell@@XZ",
+   "entry": "0052b8b0",
+   "body_bytes": 2403,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E73",
+   "entry": "0052c220",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Get_Tile_Image@IsometricTileTypeClass@@QAE_NHPAPAEHH@Z",
+   "entry": "0052dd70",
+   "body_bytes": 455,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?FUN_0052df40@seed_0052df40@@YIXHHPAH0@Z",
+   "entry": "0052df40",
+   "body_bytes": 90,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Get_Y_Offset@IsometricTileTypeClass@@QAEHH@Z",
+   "entry": "0052dfa0",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Create_And_Place@IsometricTileTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z",
+   "entry": "0052dfe0",
+   "body_bytes": 55,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Create_One_Of@IsometricTileTypeClass@@UBEPAVObjectClass@@PAVHouseClass@@@Z",
+   "entry": "0052e020",
+   "body_bytes": 74,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?FUN_0052e070@seed_0052e070@@YAXXZ",
+   "entry": "0052e070",
+   "body_bytes": 28,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Coord_Fixup@IsometricTileTypeClass@@UBE?AUCoordStruct@@ABU2@@Z",
+   "entry": "0052e090",
+   "body_bytes": 31,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Compute_CRC@IsometricTileTypeClass@@UBEXAAVWWCRCEngine@@@Z",
+   "entry": "0052e0b0",
+   "body_bytes": 271,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Load@IsometricTileTypeClass@@UAGJPAUIStream@@@Z",
+   "entry": "0052e1c0",
+   "body_bytes": 225,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Save@IsometricTileTypeClass@@UAGJPAUIStream@@H@Z",
+   "entry": "0052e2b0",
+   "body_bytes": 29,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?GetClassID@IsometricTileTypeClass@@UAGJPAUGUID@@@Z",
+   "entry": "0052e2d0",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Detach@IsometricTileTypeClass@@UAEXPAVAbstractClass@@_N@Z",
+   "entry": "0052e310",
+   "body_bytes": 65,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Preview_Tile_Color@IsometricTileTypeClass@@QBEGHH_N@Z",
+   "entry": "0052e360",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Build_Preview_Tiles@IsometricTileTypeClass@@QAEXXZ",
+   "entry": "0052e3d0",
+   "body_bytes": 644,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "??0ShadowCasterInfo@@QAE@HHHH@Z",
+   "entry": "0052e660",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Kind_Of@IsometricTileTypeClass@@UBEHXZ",
+   "entry": "0052e680",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Size_Of@IsometricTileTypeClass@@UBEHXZ",
+   "entry": "0052e690",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Fetch_Heap_ID@IsometricTileTypeClass@@UBEHXZ",
+   "entry": "0052e6a0",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?get@Leaf_52e6b0@@QAEPAXI@Z",
+   "entry": "0052e6b0",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Clear@?$DynamicVectorClass@PAG@@UAEXXZ",
+   "entry": "0052e6d0",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?FUN_0052e700@Owner_0052e700@seed_0052e700@@QAEIH@Z",
+   "entry": "0052e700",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@PAG@@UBEPAGH@Z",
+   "entry": "0052e720",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??8?$VectorClass@PAG@@UBE_NABV0@@Z",
+   "entry": "0052e790",
+   "body_bytes": 62,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@PAG@@UAE_NHPBQAG@Z",
+   "entry": "0052e7d0",
+   "body_bytes": 174,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Clear@?$VectorClass@PAG@@UAEXXZ",
+   "entry": "0052e880",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAG@@UAEHABQAG@Z",
+   "entry": "0052e8b0",
+   "body_bytes": 51,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAG@@UAEHPBQAG@Z",
+   "entry": "0052e8f0",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Resize@?$DynamicVectorClass@PAG@@UAE_NHPBQAG@Z",
+   "entry": "0052e910",
+   "body_bytes": 176,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAG@@UAEHABQAG@Z",
+   "entry": "0052e9c0",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?get@Leaf_52ec50@@QAEPAXI@Z",
+   "entry": "0052ec50",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?get@Leaf_52eca0@@QAEPAXI@Z",
+   "entry": "0052eca0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?get@Leaf_52ecf0@@QAEPAXI@Z",
+   "entry": "0052ecf0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?get@Leaf_52ed40@@QAEPAXI@Z",
+   "entry": "0052ed40",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??0?$VectorClass@PAG@@QAE@IPBQAG@Z",
+   "entry": "0052ed90",
+   "body_bytes": 74,
+   "padding_bytes": 6
+  }
+ ],
+ "code_bytes": 18992,
+ "data": [
+  {
+   "symbol": "??_7CDFileClass@@6B@",
+   "address": "0079a654",
+   "bytes": 72,
+   "kind": "vtable",
+   "section": 178
+  },
+  {
+   "symbol": "??_7CCFileClass@@6B@",
+   "address": "0079a69c",
+   "bytes": 72,
+   "kind": "vtable",
+   "section": 179
+  },
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 10
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 30
+  },
+  {
+   "symbol": "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@",
+   "address": "0079a768",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 415
+  },
+  {
+   "symbol": "??_7CCINIClass@@6B@",
+   "address": "0079aae0",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 267
+  },
+  {
+   "symbol": "??_7?$List@PAUINISection@INIClass@@@@6B@",
+   "address": "0079aae8",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 268
+  },
+  {
+   "symbol": "??_7GenericList@@6B@",
+   "address": "0079aaf0",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 269
+  },
+  {
+   "symbol": "??_7GenericNode@@6B@",
+   "address": "0079aaf8",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 277
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@6B@",
+   "address": "007a5138",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 52
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@6B@",
+   "address": "007a5158",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 58
+  },
+  {
+   "symbol": "??_7IsometricTileTypeClass@@6BINoticeSource@@@",
+   "address": "007a5178",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 101
+  },
+  {
+   "symbol": "??_7IsometricTileTypeClass@@6BINoticeSink@@@",
+   "address": "007a5180",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 102
+  },
+  {
+   "symbol": "??_7IsometricTileTypeClass@@6BIRTTITypeInfo@@@",
+   "address": "007a5188",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 103
+  },
+  {
+   "symbol": "??_7IsometricTileTypeClass@@6BIPersistStream@@@",
+   "address": "007a51a4",
+   "bytes": 164,
+   "kind": "vtable",
+   "section": 104
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAG@@6B@",
+   "address": "007a5248",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 105
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAG@@6B@",
+   "address": "007a5268",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 115
+  },
+  {
+   "symbol": "__real@8@3ffbaaaaaaaaaaaaa800",
+   "address": "007a5288",
+   "bytes": 8,
+   "kind": "table",
+   "section": 339
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CCFileClass@@8",
+   "address": "007b2500",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 165
+  },
+  {
+   "symbol": "??_R2CCFileClass@@8",
+   "address": "007b2518",
+   "bytes": 21,
+   "kind": "rtti",
+   "section": 166
+  },
+  {
+   "symbol": "??_R3CCFileClass@@8",
+   "address": "007b2530",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 167
+  },
+  {
+   "symbol": "??_R4CCFileClass@@6B@",
+   "address": "007b2540",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 169
+  },
+  {
+   "symbol": "??_R1A@?0A@A@FileClass@@8",
+   "address": "007b2558",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 158
+  },
+  {
+   "symbol": "??_R1A@?0A@A@RawFileClass@@8",
+   "address": "007b2570",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 160
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BufferIOFileClass@@8",
+   "address": "007b2588",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 162
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CDFileClass@@8",
+   "address": "007b25a0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 164
+  },
+  {
+   "symbol": "??_R2CDFileClass@@8",
+   "address": "007b25b8",
+   "bytes": 17,
+   "kind": "rtti",
+   "section": 144
+  },
+  {
+   "symbol": "??_R3CDFileClass@@8",
+   "address": "007b25d0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 145
+  },
+  {
+   "symbol": "??_R4CDFileClass@@6B@",
+   "address": "007b25e0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 146
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@USubzoneConnectionStruct@@@@8",
+   "address": "007b25f8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 410
+  },
+  {
+   "symbol": "??_R2?$VectorClass@USubzoneConnectionStruct@@@@8",
+   "address": "007b2610",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 411
+  },
+  {
+   "symbol": "??_R3?$VectorClass@USubzoneConnectionStruct@@@@8",
+   "address": "007b2618",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 412
+  },
+  {
+   "symbol": "??_R4?$VectorClass@USubzoneConnectionStruct@@@@6B@",
+   "address": "007b2628",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 414
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$List@PAUINISection@INIClass@@@@8",
+   "address": "007b2c38",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 152
+  },
+  {
+   "symbol": "??_R2?$List@PAUINISection@INIClass@@@@8",
+   "address": "007b2c50",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 153
+  },
+  {
+   "symbol": "??_R3?$List@PAUINISection@INIClass@@@@8",
+   "address": "007b2c60",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 154
+  },
+  {
+   "symbol": "??_R4?$List@PAUINISection@INIClass@@@@6B@",
+   "address": "007b2c70",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 156
+  },
+  {
+   "symbol": "??_R1A@?0A@A@INIClass@@8",
+   "address": "007b2c88",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 171
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CCINIClass@@8",
+   "address": "007b2ca0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 172
+  },
+  {
+   "symbol": "??_R2CCINIClass@@8",
+   "address": "007b2cb8",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 173
+  },
+  {
+   "symbol": "??_R3CCINIClass@@8",
+   "address": "007b2cc8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 174
+  },
+  {
+   "symbol": "??_R4CCINIClass@@6B@",
+   "address": "007b2cd8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 176
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GenericNode@@8",
+   "address": "007b2cf0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 272
+  },
+  {
+   "symbol": "??_R2GenericNode@@8",
+   "address": "007b2d08",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 273
+  },
+  {
+   "symbol": "??_R3GenericNode@@8",
+   "address": "007b2d10",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 274
+  },
+  {
+   "symbol": "??_R4GenericNode@@6B@",
+   "address": "007b2d20",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 276
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GenericList@@8",
+   "address": "007b2d38",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 151
+  },
+  {
+   "symbol": "??_R2GenericList@@8",
+   "address": "007b2d50",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 147
+  },
+  {
+   "symbol": "??_R3GenericList@@8",
+   "address": "007b2d58",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 148
+  },
+  {
+   "symbol": "??_R4GenericList@@6B@",
+   "address": "007b2d68",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 149
+  },
+  {
+   "symbol": "??_R1M@?0A@A@INoticeSource@@8",
+   "address": "007b30b8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 78
+  },
+  {
+   "symbol": "??_R17?0A@A@INoticeSink@@8",
+   "address": "007b30d0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 80
+  },
+  {
+   "symbol": "??_R13?0A@1IUnknown@@8",
+   "address": "007b30e8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 81
+  },
+  {
+   "symbol": "??_R13?0A@A@IRTTITypeInfo@@8",
+   "address": "007b3100",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 83
+  },
+  {
+   "symbol": "??_R1A@?0A@1IUnknown@@8",
+   "address": "007b3118",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 85
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersist@@8",
+   "address": "007b3130",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 87
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersistStream@@8",
+   "address": "007b3148",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 89
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractClass@@8",
+   "address": "007b3160",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 91
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractTypeClass@@8",
+   "address": "007b3210",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 93
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ObjectTypeClass@@8",
+   "address": "007b3570",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 95
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@8",
+   "address": "007bc9a0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 46
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@8",
+   "address": "007bc9b8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 47
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@8",
+   "address": "007bc9d0",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 48
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@8",
+   "address": "007bc9e0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 49
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@6B@",
+   "address": "007bc9f0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 51
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@8",
+   "address": "007bca04",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 55
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@8",
+   "address": "007bca10",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 56
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@6B@",
+   "address": "007bca20",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 57
+  },
+  {
+   "symbol": "??_R4IsometricTileTypeClass@@6BINoticeSource@@@",
+   "address": "007bca38",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 74
+  },
+  {
+   "symbol": "??_R4IsometricTileTypeClass@@6BINoticeSink@@@",
+   "address": "007bca50",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 75
+  },
+  {
+   "symbol": "??_R4IsometricTileTypeClass@@6BIRTTITypeInfo@@@",
+   "address": "007bca68",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 76
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IsometricTileTypeClass@@8",
+   "address": "007bca80",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 96
+  },
+  {
+   "symbol": "??_R2IsometricTileTypeClass@@8",
+   "address": "007bca98",
+   "bytes": 45,
+   "kind": "rtti",
+   "section": 97
+  },
+  {
+   "symbol": "??_R3IsometricTileTypeClass@@8",
+   "address": "007bcac8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 98
+  },
+  {
+   "symbol": "??_R4IsometricTileTypeClass@@6BIPersistStream@@@",
+   "address": "007bcad8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 100
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAG@@8",
+   "address": "007bcaf0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 68
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAG@@8",
+   "address": "007bcb08",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 69
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAG@@8",
+   "address": "007bcb20",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 70
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAG@@8",
+   "address": "007bcb30",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 71
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAG@@6B@",
+   "address": "007bcb40",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 73
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAG@@8",
+   "address": "007bcb54",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 112
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAG@@8",
+   "address": "007bcb60",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 113
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAG@@6B@",
+   "address": "007bcb70",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 114
+  },
+  {
+   "symbol": "??_R0?AVCCFileClass@@@8",
+   "address": "007cc8b0",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 168
+  },
+  {
+   "symbol": "??_R0?AVFileClass@@@8",
+   "address": "007cc8d0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 157
+  },
+  {
+   "symbol": "??_R0?AVRawFileClass@@@8",
+   "address": "007cc8e8",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 159
+  },
+  {
+   "symbol": "??_R0?AVBufferIOFileClass@@@8",
+   "address": "007cc908",
+   "bytes": 32,
+   "kind": "rtti",
+   "section": 161
+  },
+  {
+   "symbol": "??_R0?AVCDFileClass@@@8",
+   "address": "007cc928",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 163
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@USubzoneConnectionStruct@@@@@8",
+   "address": "007cd310",
+   "bytes": 55,
+   "kind": "rtti",
+   "section": 413
+  },
+  {
+   "symbol": "??_R0?AVINoticeSink@@@8",
+   "address": "007cd618",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 79
+  },
+  {
+   "symbol": "??_R0?AUIUnknown@@@8",
+   "address": "007cd638",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 84
+  },
+  {
+   "symbol": "??_R0?AV?$List@PAUINISection@INIClass@@@@@8",
+   "address": "007cded8",
+   "bytes": 46,
+   "kind": "rtti",
+   "section": 155
+  },
+  {
+   "symbol": "??_R0?AVINIClass@@@8",
+   "address": "007cdf08",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 170
+  },
+  {
+   "symbol": "??_R0?AVCCINIClass@@@8",
+   "address": "007cdf20",
+   "bytes": 25,
+   "kind": "rtti",
+   "section": 175
+  },
+  {
+   "symbol": "??_R0?AVGenericNode@@@8",
+   "address": "007cdf40",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 275
+  },
+  {
+   "symbol": "??_R0?AVGenericList@@@8",
+   "address": "007cdf60",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 150
+  },
+  {
+   "symbol": "??_R0?AVINoticeSource@@@8",
+   "address": "007ce1c8",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 77
+  },
+  {
+   "symbol": "??_R0?AUIRTTITypeInfo@@@8",
+   "address": "007ce1e8",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 82
+  },
+  {
+   "symbol": "??_R0?AUIPersist@@@8",
+   "address": "007ce208",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 86
+  },
+  {
+   "symbol": "??_R0?AUIPersistStream@@@8",
+   "address": "007ce220",
+   "bytes": 29,
+   "kind": "rtti",
+   "section": 88
+  },
+  {
+   "symbol": "??_R0?AVAbstractClass@@@8",
+   "address": "007ce240",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 90
+  },
+  {
+   "symbol": "??_R0?AVAbstractTypeClass@@@8",
+   "address": "007ce260",
+   "bytes": 32,
+   "kind": "rtti",
+   "section": 92
+  },
+  {
+   "symbol": "??_R0?AVObjectTypeClass@@@8",
+   "address": "007ce9c8",
+   "bytes": 30,
+   "kind": "rtti",
+   "section": 94
+  },
+  {
+   "symbol": "??_C@_07NDNK@General?$AA@",
+   "address": "007dbb78",
+   "bytes": 8,
+   "kind": "string",
+   "section": 261
+  },
+  {
+   "symbol": "_?_tilemask@?1??Get_Tile_Image@IsometricTileTypeClass@@QAE_NHPAPAEHH@Z@4PAEA",
+   "address": "007de52c",
+   "bytes": 1801,
+   "kind": "static",
+   "section": 3
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@@8",
+   "address": "007dec38",
+   "bytes": 71,
+   "kind": "rtti",
+   "section": 45
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@@8",
+   "address": "007dec80",
+   "bytes": 78,
+   "kind": "rtti",
+   "section": 50
+  },
+  {
+   "symbol": "??_R0?AVIsometricTileTypeClass@@@8",
+   "address": "007decd0",
+   "bytes": 37,
+   "kind": "rtti",
+   "section": 99
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAG@@@8",
+   "address": "007decf8",
+   "bytes": 32,
+   "kind": "rtti",
+   "section": 67
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAG@@@8",
+   "address": "007ded18",
+   "bytes": 39,
+   "kind": "rtti",
+   "section": 72
+  },
+  {
+   "symbol": "??_C@_04KFHA@?4MMT?$AA@",
+   "address": "007ded40",
+   "bytes": 5,
+   "kind": "string",
+   "section": 177
+  },
+  {
+   "symbol": "??_C@_0BA@OOBP@Tile?$CF02dZAdjust?$AA@",
+   "address": "007ded48",
+   "bytes": 16,
+   "kind": "string",
+   "section": 180
+  },
+  {
+   "symbol": "??_C@_0BD@IJOA@Tile?$CF02dAttachesTo?$AA@",
+   "address": "007ded58",
+   "bytes": 19,
+   "kind": "string",
+   "section": 181
+  },
+  {
+   "symbol": "??_C@_0BA@EDND@Tile?$CF02dYOffset?$AA@",
+   "address": "007ded6c",
+   "bytes": 16,
+   "kind": "string",
+   "section": 182
+  },
+  {
+   "symbol": "??_C@_0BA@GNEG@Tile?$CF02dXOffset?$AA@",
+   "address": "007ded7c",
+   "bytes": 16,
+   "kind": "string",
+   "section": 183
+  },
+  {
+   "symbol": "??_C@_0N@KNEL@Tile?$CF02dAnim?$AA@",
+   "address": "007ded8c",
+   "bytes": 13,
+   "kind": "string",
+   "section": 185
+  },
+  {
+   "symbol": "??_C@_0L@EMCD@?$CF?428s?5?$CF02d?$AA@",
+   "address": "007ded9c",
+   "bytes": 11,
+   "kind": "string",
+   "section": 186
+  },
+  {
+   "symbol": "??_C@_04LGDF@?$CF02d?$AA@",
+   "address": "007deda8",
+   "bytes": 5,
+   "kind": "string",
+   "section": 187
+  },
+  {
+   "symbol": "??_C@_0M@CGDH@ShadowTiles?$AA@",
+   "address": "007dedb0",
+   "bytes": 12,
+   "kind": "string",
+   "section": 188
+  },
+  {
+   "symbol": "??_C@_0N@CIDF@ShadowCaster?$AA@",
+   "address": "007dedbc",
+   "bytes": 13,
+   "kind": "string",
+   "section": 189
+  },
+  {
+   "symbol": "??_C@_0BD@HEAE@ToTemperateTheater?$AA@",
+   "address": "007dedcc",
+   "bytes": 19,
+   "kind": "string",
+   "section": 190
+  },
+  {
+   "symbol": "??_C@_0O@NGGN@ToSnowTheater?$AA@",
+   "address": "007dede0",
+   "bytes": 14,
+   "kind": "string",
+   "section": 191
+  },
+  {
+   "symbol": "??_C@_0P@EPOE@RequiredForRMG?$AA@",
+   "address": "007dedf0",
+   "bytes": 15,
+   "kind": "string",
+   "section": 192
+  },
+  {
+   "symbol": "??_C@_0O@DACC@AllowTiberium?$AA@",
+   "address": "007dee00",
+   "bytes": 14,
+   "kind": "string",
+   "section": 193
+  },
+  {
+   "symbol": "??_C@_0P@MADA@AllowBurrowing?$AA@",
+   "address": "007dee10",
+   "bytes": 15,
+   "kind": "string",
+   "section": 194
+  },
+  {
+   "symbol": "??_C@_0N@KDLM@AllowToPlace?$AA@",
+   "address": "007dee20",
+   "bytes": 13,
+   "kind": "string",
+   "section": 195
+  },
+  {
+   "symbol": "??_C@_09GKLL@Morphable?$AA@",
+   "address": "007dee30",
+   "bytes": 10,
+   "kind": "string",
+   "section": 196
+  },
+  {
+   "symbol": "??_C@_0BB@ELLK@NonMarbleMadness?$AA@",
+   "address": "007dee3c",
+   "bytes": 17,
+   "kind": "string",
+   "section": 197
+  },
+  {
+   "symbol": "??_C@_0O@IIOP@MarbleMadness?$AA@",
+   "address": "007dee50",
+   "bytes": 14,
+   "kind": "string",
+   "section": 198
+  },
+  {
+   "symbol": "??_C@_08NJLM@FileName?$AA@",
+   "address": "007dee60",
+   "bytes": 9,
+   "kind": "string",
+   "section": 199
+  },
+  {
+   "symbol": "??_C@_04DDLF@TILE?$AA@",
+   "address": "007dee6c",
+   "bytes": 5,
+   "kind": "string",
+   "section": 200
+  },
+  {
+   "symbol": "??_C@_07OKEH@SetName?$AA@",
+   "address": "007dee74",
+   "bytes": 8,
+   "kind": "string",
+   "section": 201
+  },
+  {
+   "symbol": "??_C@_07OOKG@No?5Name?$AA@",
+   "address": "007dee7c",
+   "bytes": 8,
+   "kind": "string",
+   "section": 202
+  },
+  {
+   "symbol": "??_C@_0P@FFIA@LastTilesInSet?$AA@",
+   "address": "007dee84",
+   "bytes": 15,
+   "kind": "string",
+   "section": 203
+  },
+  {
+   "symbol": "??_C@_0L@LKBB@TilesInSet?$AA@",
+   "address": "007dee94",
+   "bytes": 11,
+   "kind": "string",
+   "section": 204
+  },
+  {
+   "symbol": "??_C@_0M@JAOB@TileSet?$CF04d?$AA@",
+   "address": "007deea0",
+   "bytes": 12,
+   "kind": "string",
+   "section": 205
+  },
+  {
+   "symbol": "??_C@_0O@HHIH@BridgeMiddle2?$AA@",
+   "address": "007deeac",
+   "bytes": 14,
+   "kind": "string",
+   "section": 206
+  },
+  {
+   "symbol": "??_C@_0O@IIDO@BridgeMiddle1?$AA@",
+   "address": "007deebc",
+   "bytes": 14,
+   "kind": "string",
+   "section": 207
+  },
+  {
+   "symbol": "??_C@_0BC@BPLL@BridgeBottomLeft2?$AA@",
+   "address": "007deecc",
+   "bytes": 18,
+   "kind": "string",
+   "section": 208
+  },
+  {
+   "symbol": "??_C@_0BC@OAAC@BridgeBottomLeft1?$AA@",
+   "address": "007deee0",
+   "bytes": 18,
+   "kind": "string",
+   "section": 209
+  },
+  {
+   "symbol": "??_C@_0BA@OEBK@BridgeTopRight2?$AA@",
+   "address": "007deef4",
+   "bytes": 16,
+   "kind": "string",
+   "section": 210
+  },
+  {
+   "symbol": "??_C@_0BA@BLKD@BridgeTopRight1?$AA@",
+   "address": "007def04",
+   "bytes": 16,
+   "kind": "string",
+   "section": 211
+  },
+  {
+   "symbol": "??_C@_0BD@HEFA@BridgeBottomRight2?$AA@",
+   "address": "007def14",
+   "bytes": 19,
+   "kind": "string",
+   "section": 212
+  },
+  {
+   "symbol": "??_C@_0BD@ILOJ@BridgeBottomRight1?$AA@",
+   "address": "007def28",
+   "bytes": 19,
+   "kind": "string",
+   "section": 213
+  },
+  {
+   "symbol": "??_C@_0P@FFKG@BridgeTopLeft2?$AA@",
+   "address": "007def3c",
+   "bytes": 15,
+   "kind": "string",
+   "section": 214
+  },
+  {
+   "symbol": "??_C@_0P@KKBP@BridgeTopLeft1?$AA@",
+   "address": "007def4c",
+   "bytes": 15,
+   "kind": "string",
+   "section": 215
+  },
+  {
+   "symbol": "??_C@_0M@NBJJ@WaterBridge?$AA@",
+   "address": "007def5c",
+   "bytes": 12,
+   "kind": "string",
+   "section": 216
+  },
+  {
+   "symbol": "??_C@_05EFD@Rocks?$AA@",
+   "address": "007def68",
+   "bytes": 6,
+   "kind": "string",
+   "section": 217
+  },
+  {
+   "symbol": "??_C@_0P@EPIB@DirtRoadSlopes?$AA@",
+   "address": "007def70",
+   "bytes": 15,
+   "kind": "string",
+   "section": 218
+  },
+  {
+   "symbol": "??_C@_0BA@LKNI@PavedRoadSlopes?$AA@",
+   "address": "007def80",
+   "bytes": 16,
+   "kind": "string",
+   "section": 219
+  },
+  {
+   "symbol": "??_C@_0M@GDBM@WaterCliffs?$AA@",
+   "address": "007def90",
+   "bytes": 12,
+   "kind": "string",
+   "section": 220
+  },
+  {
+   "symbol": "??_C@_0L@PCBJ@WaterCaves?$AA@",
+   "address": "007def9c",
+   "bytes": 11,
+   "kind": "string",
+   "section": 221
+  },
+  {
+   "symbol": "??_C@_0BC@MPIM@DestroyableCliffs?$AA@",
+   "address": "007defa8",
+   "bytes": 18,
+   "kind": "string",
+   "section": 222
+  },
+  {
+   "symbol": "??_C@_0BB@HIIN@DirtRoadStraight?$AA@",
+   "address": "007defbc",
+   "bytes": 17,
+   "kind": "string",
+   "section": 223
+  },
+  {
+   "symbol": "??_C@_0O@OMDO@DirtRoadCurve?$AA@",
+   "address": "007defd0",
+   "bytes": 14,
+   "kind": "string",
+   "section": 224
+  },
+  {
+   "symbol": "??_C@_0BB@EGLI@DirtRoadJunction?$AA@",
+   "address": "007defe0",
+   "bytes": 17,
+   "kind": "string",
+   "section": 225
+  },
+  {
+   "symbol": "??_C@_0M@DLKG@RoughGround?$AA@",
+   "address": "007deff4",
+   "bytes": 12,
+   "kind": "string",
+   "section": 226
+  },
+  {
+   "symbol": "??_C@_07KPJJ@Medians?$AA@",
+   "address": "007df000",
+   "bytes": 8,
+   "kind": "string",
+   "section": 227
+  },
+  {
+   "symbol": "??_C@_0O@GEIO@PavedRoadEnds?$AA@",
+   "address": "007df008",
+   "bytes": 14,
+   "kind": "string",
+   "section": 228
+  },
+  {
+   "symbol": "??_C@_0L@DEGE@PavedRoads?$AA@",
+   "address": "007df018",
+   "bytes": 11,
+   "kind": "string",
+   "section": 229
+  },
+  {
+   "symbol": "??_C@_0L@PPBF@CliffRamps?$AA@",
+   "address": "007df024",
+   "bytes": 11,
+   "kind": "string",
+   "section": 230
+  },
+  {
+   "symbol": "??_C@_0P@PLJM@WaterfallSouth?$AA@",
+   "address": "007df030",
+   "bytes": 15,
+   "kind": "string",
+   "section": 231
+  },
+  {
+   "symbol": "??_C@_0P@GGDC@WaterfallNorth?$AA@",
+   "address": "007df040",
+   "bytes": 15,
+   "kind": "string",
+   "section": 232
+  },
+  {
+   "symbol": "??_C@_0O@NCOK@WaterfallWest?$AA@",
+   "address": "007df050",
+   "bytes": 14,
+   "kind": "string",
+   "section": 233
+  },
+  {
+   "symbol": "??_C@_0O@IFDF@WaterfallEast?$AA@",
+   "address": "007df060",
+   "bytes": 14,
+   "kind": "string",
+   "section": 234
+  },
+  {
+   "symbol": "??_C@_0BB@CLKP@DirtTrackTunnels?$AA@",
+   "address": "007df070",
+   "bytes": 17,
+   "kind": "string",
+   "section": 235
+  },
+  {
+   "symbol": "??_C@_0M@LPNE@DirtTunnels?$AA@",
+   "address": "007df084",
+   "bytes": 12,
+   "kind": "string",
+   "section": 236
+  },
+  {
+   "symbol": "??_C@_0N@IJNN@TrackTunnels?$AA@",
+   "address": "007df090",
+   "bytes": 13,
+   "kind": "string",
+   "section": 237
+  },
+  {
+   "symbol": "??_C@_07JICI@Tunnels?$AA@",
+   "address": "007df0a0",
+   "bytes": 8,
+   "kind": "string",
+   "section": 238
+  },
+  {
+   "symbol": "??_C@_0P@JNBC@MonorailSlopes?$AA@",
+   "address": "007df0a8",
+   "bytes": 15,
+   "kind": "string",
+   "section": 239
+  },
+  {
+   "symbol": "??_C@_0BA@NBHN@SlopeSetPieces2?$AA@",
+   "address": "007df0b8",
+   "bytes": 16,
+   "kind": "string",
+   "section": 240
+  },
+  {
+   "symbol": "??_C@_0P@MDGJ@SlopeSetPieces?$AA@",
+   "address": "007df0c8",
+   "bytes": 15,
+   "kind": "string",
+   "section": 241
+  },
+  {
+   "symbol": "??_C@_08KBEP@WaterSet?$AA@",
+   "address": "007df0d8",
+   "bytes": 9,
+   "kind": "string",
+   "section": 242
+  },
+  {
+   "symbol": "??_C@_0M@EIED@ShorePieces?$AA@",
+   "address": "007df0e4",
+   "bytes": 12,
+   "kind": "string",
+   "section": 243
+  },
+  {
+   "symbol": "??_C@_08PHFH@CliffSet?$AA@",
+   "address": "007df0f0",
+   "bytes": 9,
+   "kind": "string",
+   "section": 244
+  },
+  {
+   "symbol": "??_C@_0O@ENHF@WoodBridgeSet?$AA@",
+   "address": "007df0fc",
+   "bytes": 14,
+   "kind": "string",
+   "section": 245
+  },
+  {
+   "symbol": "??_C@_09BLOI@BridgeSet?$AA@",
+   "address": "007df10c",
+   "bytes": 10,
+   "kind": "string",
+   "section": 246
+  },
+  {
+   "symbol": "??_C@_09FIOP@BlackTile?$AA@",
+   "address": "007df118",
+   "bytes": 10,
+   "kind": "string",
+   "section": 247
+  },
+  {
+   "symbol": "??_C@_0L@ILMP@HeightBase?$AA@",
+   "address": "007df124",
+   "bytes": 11,
+   "kind": "string",
+   "section": 248
+  },
+  {
+   "symbol": "??_C@_0P@OOLI@ClearToPaveLat?$AA@",
+   "address": "007df130",
+   "bytes": 15,
+   "kind": "string",
+   "section": 249
+  },
+  {
+   "symbol": "??_C@_0BA@EJKH@ClearToGreenLat?$AA@",
+   "address": "007df140",
+   "bytes": 16,
+   "kind": "string",
+   "section": 250
+  },
+  {
+   "symbol": "??_C@_0P@LLCL@ClearToSandLat?$AA@",
+   "address": "007df150",
+   "bytes": 15,
+   "kind": "string",
+   "section": 251
+  },
+  {
+   "symbol": "??_C@_0BA@GPEK@ClearToRoughLat?$AA@",
+   "address": "007df160",
+   "bytes": 16,
+   "kind": "string",
+   "section": 252
+  },
+  {
+   "symbol": "??_C@_0N@IKHH@MiscPaveTile?$AA@",
+   "address": "007df170",
+   "bytes": 13,
+   "kind": "string",
+   "section": 253
+  },
+  {
+   "symbol": "??_C@_08PAFG@PaveTile?$AA@",
+   "address": "007df180",
+   "bytes": 9,
+   "kind": "string",
+   "section": 254
+  },
+  {
+   "symbol": "??_C@_09HNL@GreenTile?$AA@",
+   "address": "007df18c",
+   "bytes": 10,
+   "kind": "string",
+   "section": 255
+  },
+  {
+   "symbol": "??_C@_08HPAD@SandTile?$AA@",
+   "address": "007df198",
+   "bytes": 9,
+   "kind": "string",
+   "section": 256
+  },
+  {
+   "symbol": "??_C@_09EBPN@RoughTile?$AA@",
+   "address": "007df1a4",
+   "bytes": 10,
+   "kind": "string",
+   "section": 257
+  },
+  {
+   "symbol": "??_C@_09KIOL@ClearTile?$AA@",
+   "address": "007df1b0",
+   "bytes": 10,
+   "kind": "string",
+   "section": 258
+  },
+  {
+   "symbol": "??_C@_0L@NKLE@MMRampBase?$AA@",
+   "address": "007df1bc",
+   "bytes": 11,
+   "kind": "string",
+   "section": 259
+  },
+  {
+   "symbol": "??_C@_0L@DIME@RampSmooth?$AA@",
+   "address": "007df1c8",
+   "bytes": 11,
+   "kind": "string",
+   "section": 260
+  },
+  {
+   "symbol": "??_C@_08KPNN@RampBase?$AA@",
+   "address": "007df1d4",
+   "bytes": 9,
+   "kind": "string",
+   "section": 262
+  },
+  {
+   "symbol": "??_C@_06LDDG@?$CFs?4INI?$AA@",
+   "address": "007df1e0",
+   "bytes": 7,
+   "kind": "string",
+   "section": 263
+  },
+  {
+   "symbol": "??_C@_09IPCF@ISO?$CFs?4PAL?$AA@",
+   "address": "007df1e8",
+   "bytes": 10,
+   "kind": "string",
+   "section": 264
+  },
+  {
+   "symbol": "??_C@_0L@MEFA@SLOP01Z?4?$CFs?$AA@",
+   "address": "007df1f4",
+   "bytes": 11,
+   "kind": "string",
+   "section": 265
+  },
+  {
+   "symbol": "??_C@_0N@BOFJ@C_SHADOW?4SHP?$AA@",
+   "address": "007df200",
+   "bytes": 13,
+   "kind": "string",
+   "section": 266
+  },
+  {
+   "symbol": "??_C@_0CL@HLMC@Loaded?5?$CFd?5isometric?5tiles?5consum@",
+   "address": "007df210",
+   "bytes": 43,
+   "kind": "string",
+   "section": 294
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7CDFileClass@@6B@",
+   "address": "0079a654",
+   "bytes": 72,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7CCFileClass@@6B@",
+   "address": "0079a69c",
+   "bytes": 72,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@",
+   "address": "0079a768",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7CCINIClass@@6B@",
+   "address": "0079aae0",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$List@PAUINISection@INIClass@@@@6B@",
+   "address": "0079aae8",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7GenericList@@6B@",
+   "address": "0079aaf0",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7GenericNode@@6B@",
+   "address": "0079aaf8",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@6B@",
+   "address": "007a5138",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@6B@",
+   "address": "007a5158",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7IsometricTileTypeClass@@6BINoticeSource@@@",
+   "address": "007a5178",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7IsometricTileTypeClass@@6BINoticeSink@@@",
+   "address": "007a5180",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7IsometricTileTypeClass@@6BIRTTITypeInfo@@@",
+   "address": "007a5188",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7IsometricTileTypeClass@@6BIPersistStream@@@",
+   "address": "007a51a4",
+   "bytes": 164,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAG@@6B@",
+   "address": "007a5248",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAG@@6B@",
+   "address": "007a5268",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "__real@8@3ffbaaaaaaaaaaaaa800",
+   "address": "007a5288",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CCFileClass@@8",
+   "address": "007b2500",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2CCFileClass@@8",
+   "address": "007b2518",
+   "bytes": 21,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3CCFileClass@@8",
+   "address": "007b2530",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4CCFileClass@@6B@",
+   "address": "007b2540",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@FileClass@@8",
+   "address": "007b2558",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@RawFileClass@@8",
+   "address": "007b2570",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BufferIOFileClass@@8",
+   "address": "007b2588",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CDFileClass@@8",
+   "address": "007b25a0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2CDFileClass@@8",
+   "address": "007b25b8",
+   "bytes": 17,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3CDFileClass@@8",
+   "address": "007b25d0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4CDFileClass@@6B@",
+   "address": "007b25e0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@USubzoneConnectionStruct@@@@8",
+   "address": "007b25f8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@USubzoneConnectionStruct@@@@8",
+   "address": "007b2610",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@USubzoneConnectionStruct@@@@8",
+   "address": "007b2618",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@USubzoneConnectionStruct@@@@6B@",
+   "address": "007b2628",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$List@PAUINISection@INIClass@@@@8",
+   "address": "007b2c38",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$List@PAUINISection@INIClass@@@@8",
+   "address": "007b2c50",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$List@PAUINISection@INIClass@@@@8",
+   "address": "007b2c60",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$List@PAUINISection@INIClass@@@@6B@",
+   "address": "007b2c70",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@INIClass@@8",
+   "address": "007b2c88",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CCINIClass@@8",
+   "address": "007b2ca0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2CCINIClass@@8",
+   "address": "007b2cb8",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3CCINIClass@@8",
+   "address": "007b2cc8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4CCINIClass@@6B@",
+   "address": "007b2cd8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GenericNode@@8",
+   "address": "007b2cf0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2GenericNode@@8",
+   "address": "007b2d08",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3GenericNode@@8",
+   "address": "007b2d10",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4GenericNode@@6B@",
+   "address": "007b2d20",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GenericList@@8",
+   "address": "007b2d38",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2GenericList@@8",
+   "address": "007b2d50",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3GenericList@@8",
+   "address": "007b2d58",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4GenericList@@6B@",
+   "address": "007b2d68",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1M@?0A@A@INoticeSource@@8",
+   "address": "007b30b8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R17?0A@A@INoticeSink@@8",
+   "address": "007b30d0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R13?0A@1IUnknown@@8",
+   "address": "007b30e8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R13?0A@A@IRTTITypeInfo@@8",
+   "address": "007b3100",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@1IUnknown@@8",
+   "address": "007b3118",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersist@@8",
+   "address": "007b3130",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersistStream@@8",
+   "address": "007b3148",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractClass@@8",
+   "address": "007b3160",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractTypeClass@@8",
+   "address": "007b3210",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ObjectTypeClass@@8",
+   "address": "007b3570",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@8",
+   "address": "007bc9a0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@8",
+   "address": "007bc9b8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@8",
+   "address": "007bc9d0",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@8",
+   "address": "007bc9e0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@6B@",
+   "address": "007bc9f0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@8",
+   "address": "007bca04",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@8",
+   "address": "007bca10",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@6B@",
+   "address": "007bca20",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4IsometricTileTypeClass@@6BINoticeSource@@@",
+   "address": "007bca38",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4IsometricTileTypeClass@@6BINoticeSink@@@",
+   "address": "007bca50",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4IsometricTileTypeClass@@6BIRTTITypeInfo@@@",
+   "address": "007bca68",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IsometricTileTypeClass@@8",
+   "address": "007bca80",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2IsometricTileTypeClass@@8",
+   "address": "007bca98",
+   "bytes": 45,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3IsometricTileTypeClass@@8",
+   "address": "007bcac8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4IsometricTileTypeClass@@6BIPersistStream@@@",
+   "address": "007bcad8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAG@@8",
+   "address": "007bcaf0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAG@@8",
+   "address": "007bcb08",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAG@@8",
+   "address": "007bcb20",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAG@@8",
+   "address": "007bcb30",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAG@@6B@",
+   "address": "007bcb40",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAG@@8",
+   "address": "007bcb54",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAG@@8",
+   "address": "007bcb60",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAG@@6B@",
+   "address": "007bcb70",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVCCFileClass@@@8",
+   "address": "007cc8b0",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVFileClass@@@8",
+   "address": "007cc8d0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVRawFileClass@@@8",
+   "address": "007cc8e8",
+   "bytes": 27,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVBufferIOFileClass@@@8",
+   "address": "007cc908",
+   "bytes": 32,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVCDFileClass@@@8",
+   "address": "007cc928",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@USubzoneConnectionStruct@@@@@8",
+   "address": "007cd310",
+   "bytes": 55,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVINoticeSink@@@8",
+   "address": "007cd618",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIUnknown@@@8",
+   "address": "007cd638",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$List@PAUINISection@INIClass@@@@@8",
+   "address": "007cded8",
+   "bytes": 46,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVINIClass@@@8",
+   "address": "007cdf08",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVCCINIClass@@@8",
+   "address": "007cdf20",
+   "bytes": 25,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVGenericNode@@@8",
+   "address": "007cdf40",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVGenericList@@@8",
+   "address": "007cdf60",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVINoticeSource@@@8",
+   "address": "007ce1c8",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIRTTITypeInfo@@@8",
+   "address": "007ce1e8",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIPersist@@@8",
+   "address": "007ce208",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIPersistStream@@@8",
+   "address": "007ce220",
+   "bytes": 29,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVAbstractClass@@@8",
+   "address": "007ce240",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVAbstractTypeClass@@@8",
+   "address": "007ce260",
+   "bytes": 32,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVObjectTypeClass@@@8",
+   "address": "007ce9c8",
+   "bytes": 30,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_07NDNK@General?$AA@",
+   "address": "007dbb78",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "_?_tilemask@?1??Get_Tile_Image@IsometricTileTypeClass@@QAE_NHPAPAEHH@Z@4PAEA",
+   "address": "007de52c",
+   "bytes": 1801,
+   "kind": "static"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@@8",
+   "address": "007dec38",
+   "bytes": 71,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@@8",
+   "address": "007dec80",
+   "bytes": 78,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVIsometricTileTypeClass@@@8",
+   "address": "007decd0",
+   "bytes": 37,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAG@@@8",
+   "address": "007decf8",
+   "bytes": 32,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAG@@@8",
+   "address": "007ded18",
+   "bytes": 39,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_04KFHA@?4MMT?$AA@",
+   "address": "007ded40",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@OOBP@Tile?$CF02dZAdjust?$AA@",
+   "address": "007ded48",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@IJOA@Tile?$CF02dAttachesTo?$AA@",
+   "address": "007ded58",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@EDND@Tile?$CF02dYOffset?$AA@",
+   "address": "007ded6c",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@GNEG@Tile?$CF02dXOffset?$AA@",
+   "address": "007ded7c",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@KNEL@Tile?$CF02dAnim?$AA@",
+   "address": "007ded8c",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@EMCD@?$CF?428s?5?$CF02d?$AA@",
+   "address": "007ded9c",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04LGDF@?$CF02d?$AA@",
+   "address": "007deda8",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@CGDH@ShadowTiles?$AA@",
+   "address": "007dedb0",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@CIDF@ShadowCaster?$AA@",
+   "address": "007dedbc",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@HEAE@ToTemperateTheater?$AA@",
+   "address": "007dedcc",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@NGGN@ToSnowTheater?$AA@",
+   "address": "007dede0",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@EPOE@RequiredForRMG?$AA@",
+   "address": "007dedf0",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@DACC@AllowTiberium?$AA@",
+   "address": "007dee00",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@MADA@AllowBurrowing?$AA@",
+   "address": "007dee10",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@KDLM@AllowToPlace?$AA@",
+   "address": "007dee20",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09GKLL@Morphable?$AA@",
+   "address": "007dee30",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@ELLK@NonMarbleMadness?$AA@",
+   "address": "007dee3c",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@IIOP@MarbleMadness?$AA@",
+   "address": "007dee50",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08NJLM@FileName?$AA@",
+   "address": "007dee60",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04DDLF@TILE?$AA@",
+   "address": "007dee6c",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07OKEH@SetName?$AA@",
+   "address": "007dee74",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07OOKG@No?5Name?$AA@",
+   "address": "007dee7c",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@FFIA@LastTilesInSet?$AA@",
+   "address": "007dee84",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@LKBB@TilesInSet?$AA@",
+   "address": "007dee94",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@JAOB@TileSet?$CF04d?$AA@",
+   "address": "007deea0",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@HHIH@BridgeMiddle2?$AA@",
+   "address": "007deeac",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@IIDO@BridgeMiddle1?$AA@",
+   "address": "007deebc",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@BPLL@BridgeBottomLeft2?$AA@",
+   "address": "007deecc",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@OAAC@BridgeBottomLeft1?$AA@",
+   "address": "007deee0",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@OEBK@BridgeTopRight2?$AA@",
+   "address": "007deef4",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@BLKD@BridgeTopRight1?$AA@",
+   "address": "007def04",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@HEFA@BridgeBottomRight2?$AA@",
+   "address": "007def14",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@ILOJ@BridgeBottomRight1?$AA@",
+   "address": "007def28",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@FFKG@BridgeTopLeft2?$AA@",
+   "address": "007def3c",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@KKBP@BridgeTopLeft1?$AA@",
+   "address": "007def4c",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@NBJJ@WaterBridge?$AA@",
+   "address": "007def5c",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_05EFD@Rocks?$AA@",
+   "address": "007def68",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@EPIB@DirtRoadSlopes?$AA@",
+   "address": "007def70",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@LKNI@PavedRoadSlopes?$AA@",
+   "address": "007def80",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@GDBM@WaterCliffs?$AA@",
+   "address": "007def90",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@PCBJ@WaterCaves?$AA@",
+   "address": "007def9c",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@MPIM@DestroyableCliffs?$AA@",
+   "address": "007defa8",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@HIIN@DirtRoadStraight?$AA@",
+   "address": "007defbc",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@OMDO@DirtRoadCurve?$AA@",
+   "address": "007defd0",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@EGLI@DirtRoadJunction?$AA@",
+   "address": "007defe0",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@DLKG@RoughGround?$AA@",
+   "address": "007deff4",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07KPJJ@Medians?$AA@",
+   "address": "007df000",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@GEIO@PavedRoadEnds?$AA@",
+   "address": "007df008",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@DEGE@PavedRoads?$AA@",
+   "address": "007df018",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@PPBF@CliffRamps?$AA@",
+   "address": "007df024",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@PLJM@WaterfallSouth?$AA@",
+   "address": "007df030",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@GGDC@WaterfallNorth?$AA@",
+   "address": "007df040",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@NCOK@WaterfallWest?$AA@",
+   "address": "007df050",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@IFDF@WaterfallEast?$AA@",
+   "address": "007df060",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@CLKP@DirtTrackTunnels?$AA@",
+   "address": "007df070",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@LPNE@DirtTunnels?$AA@",
+   "address": "007df084",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@IJNN@TrackTunnels?$AA@",
+   "address": "007df090",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07JICI@Tunnels?$AA@",
+   "address": "007df0a0",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@JNBC@MonorailSlopes?$AA@",
+   "address": "007df0a8",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@NBHN@SlopeSetPieces2?$AA@",
+   "address": "007df0b8",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@MDGJ@SlopeSetPieces?$AA@",
+   "address": "007df0c8",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08KBEP@WaterSet?$AA@",
+   "address": "007df0d8",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@EIED@ShorePieces?$AA@",
+   "address": "007df0e4",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08PHFH@CliffSet?$AA@",
+   "address": "007df0f0",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@ENHF@WoodBridgeSet?$AA@",
+   "address": "007df0fc",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09BLOI@BridgeSet?$AA@",
+   "address": "007df10c",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09FIOP@BlackTile?$AA@",
+   "address": "007df118",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@ILMP@HeightBase?$AA@",
+   "address": "007df124",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@OOLI@ClearToPaveLat?$AA@",
+   "address": "007df130",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@EJKH@ClearToGreenLat?$AA@",
+   "address": "007df140",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@LLCL@ClearToSandLat?$AA@",
+   "address": "007df150",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@GPEK@ClearToRoughLat?$AA@",
+   "address": "007df160",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@IKHH@MiscPaveTile?$AA@",
+   "address": "007df170",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08PAFG@PaveTile?$AA@",
+   "address": "007df180",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09HNL@GreenTile?$AA@",
+   "address": "007df18c",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08HPAD@SandTile?$AA@",
+   "address": "007df198",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09EBPN@RoughTile?$AA@",
+   "address": "007df1a4",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09KIOL@ClearTile?$AA@",
+   "address": "007df1b0",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@NKLE@MMRampBase?$AA@",
+   "address": "007df1bc",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@DIME@RampSmooth?$AA@",
+   "address": "007df1c8",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08KPNN@RampBase?$AA@",
+   "address": "007df1d4",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06LDDG@?$CFs?4INI?$AA@",
+   "address": "007df1e0",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09IPCF@ISO?$CFs?4PAL?$AA@",
+   "address": "007df1e8",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@MEFA@SLOP01Z?4?$CFs?$AA@",
+   "address": "007df1f4",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@BOFJ@C_SHADOW?4SHP?$AA@",
+   "address": "007df200",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CL@HLMC@Loaded?5?$CFd?5isometric?5tiles?5consum@",
+   "address": "007df210",
+   "bytes": 43,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "006951b0",
+   "symbol": "??0IsometricTileTypeClass@@QAE@HHEPBD_N@Z",
+   "target": "00528ee0",
+   "function_entry": true
+  },
+  {
+   "site": "005483d0",
+   "symbol": "?Unknown_00529710@@YI_NH_N@Z",
+   "target": "00529710",
+   "function_entry": true
+  },
+  {
+   "site": "0049e570",
+   "symbol": "?Reset_Light_Converts_00529720@@YAXXZ",
+   "target": "00529720",
+   "function_entry": true
+  },
+  {
+   "site": "0045e170",
+   "symbol": "?Unknown_00529400@@YIHPBD@Z",
+   "target": "00529400",
+   "function_entry": true
+  },
+  {
+   "site": "0045ebd0",
+   "symbol": "?Unknown_00529400@@YIHPBD@Z",
+   "target": "00529400",
+   "function_entry": true
+  },
+  {
+   "site": "0059f530",
+   "symbol": "?Unknown_00529870@@YIXH_N@Z",
+   "target": "00529870",
+   "function_entry": true
+  },
+  {
+   "site": "0059f530",
+   "symbol": "?Unknown_0052B650@@YAXXZ",
+   "target": "0052b650",
+   "function_entry": true
+  },
+  {
+   "site": "0059f530",
+   "symbol": "?Unknown_0052B2E0@@YIX_N0@Z",
+   "target": "0052b2e0",
+   "function_entry": true
+  },
+  {
+   "site": "00661980",
+   "symbol": "?Reset_Light_Converts_00529720@@YAXXZ",
+   "target": "00529720",
+   "function_entry": true
+  },
+  {
+   "site": "005a4b70",
+   "symbol": "??0?$VectorClass@PAG@@QAE@IPBQAG@Z",
+   "target": "0052ed90",
+   "function_entry": true
+  },
+  {
+   "site": "00527a80",
+   "symbol": "?Ramp_Type@IsometricTileTypeClass@@QAEHH@Z",
+   "target": "0052b6f0",
+   "function_entry": true
+  },
+  {
+   "site": "004790f0",
+   "symbol": "?Find_Or_Make_Drawer@IsometricTileTypeClass@@SIPAVLightConvertClass@@HHH@Z",
+   "target": "00529590",
+   "function_entry": true
+  },
+  {
+   "site": "004790f0",
+   "symbol": "?Find_Or_Make_Drawer@IsometricTileTypeClass@@SIPAVLightConvertClass@@HHH@Z",
+   "target": "00529590",
+   "function_entry": true
+  },
+  {
+   "site": "00479310",
+   "symbol": "?Find_Or_Make_Drawer@IsometricTileTypeClass@@SIPAVLightConvertClass@@HHH@Z",
+   "target": "00529590",
+   "function_entry": true
+  },
+  {
+   "site": "00479310",
+   "symbol": "?Find_Or_Make_Drawer@IsometricTileTypeClass@@SIPAVLightConvertClass@@HHH@Z",
+   "target": "00529590",
+   "function_entry": true
+  },
+  {
+   "site": "0054dcc0",
+   "symbol": "?Unknown_00529550@IsometricTileTypeClass@@SIHH@Z",
+   "target": "00529550",
+   "function_entry": true
+  },
+  {
+   "site": "0054dea0",
+   "symbol": "?Unknown_00529550@IsometricTileTypeClass@@SIHH@Z",
+   "target": "00529550",
+   "function_entry": true
+  },
+  {
+   "site": "0054dfc0",
+   "symbol": "?Unknown_00529550@IsometricTileTypeClass@@SIHH@Z",
+   "target": "00529550",
+   "function_entry": true
+  },
+  {
+   "site": "0054e0c0",
+   "symbol": "?Unknown_00529550@IsometricTileTypeClass@@SIHH@Z",
+   "target": "00529550",
+   "function_entry": true
+  },
+  {
+   "site": "0054e1e0",
+   "symbol": "?Unknown_00529550@IsometricTileTypeClass@@SIHH@Z",
+   "target": "00529550",
+   "function_entry": true
+  },
+  {
+   "site": "00550eb0",
+   "symbol": "?unknown_func_52b730@IsometricTileTypeClass@@QAE_NH@Z",
+   "target": "0052b730",
+   "function_entry": true
+  },
+  {
+   "site": "00537830",
+   "symbol": "?Unknown_00529710@@YI_NH_N@Z",
+   "target": "00529710",
+   "function_entry": true
+  },
+  {
+   "site": "0049cfd0",
+   "symbol": "?Unknown_00529870@@YIXH_N@Z",
+   "target": "00529870",
+   "function_entry": true
+  },
+  {
+   "site": "0049cfd0",
+   "symbol": "?Unknown_0052B650@@YAXXZ",
+   "target": "0052b650",
+   "function_entry": true
+  },
+  {
+   "site": "0049cfd0",
+   "symbol": "?Unknown_0052B2E0@@YIX_N0@Z",
+   "target": "0052b2e0",
+   "function_entry": true
+  },
+  {
+   "site": "0057ae00",
+   "symbol": "?Read_Tile_Control_00529870@@YIXH_N@Z",
+   "target": "00529870",
+   "function_entry": true
+  },
+  {
+   "site": "0057ae00",
+   "symbol": "?Clear_Tile_Use_Counts_0052b650@@YAXXZ",
+   "target": "0052b650",
+   "function_entry": true
+  },
+  {
+   "site": "0057ae00",
+   "symbol": "?Load_Isometric_Tiles_0052b2e0@@YIX_N0@Z",
+   "target": "0052b2e0",
+   "function_entry": true
+  },
+  {
+   "site": "004710d0",
+   "symbol": "?Is_Randomized@IsometricTileTypeClass@@QBE_NH@Z",
+   "target": "0052b730",
+   "function_entry": true
+  },
+  {
+   "site": "004710d0",
+   "symbol": "?Next_Tile_From_Set@IsometricTileTypeClass@@QAEPAV1@H@Z",
+   "target": "00529520",
+   "function_entry": true
+  },
+  {
+   "site": "004712c0",
+   "symbol": "?Is_Randomized@IsometricTileTypeClass@@QBE_NH@Z",
+   "target": "0052b730",
+   "function_entry": true
+  },
+  {
+   "site": "004712c0",
+   "symbol": "?Next_Tile_From_Set@IsometricTileTypeClass@@QAEPAV1@H@Z",
+   "target": "00529520",
+   "function_entry": true
+  },
+  {
+   "site": "004712c0",
+   "symbol": "?Load_Tile_Image@IsometricTileTypeClass@@QAE_NXZ",
+   "target": "005293a0",
+   "function_entry": true
+  },
+  {
+   "site": "004755d0",
+   "symbol": "?Is_Randomized@IsometricTileTypeClass@@QBE_NH@Z",
+   "target": "0052b730",
+   "function_entry": true
+  },
+  {
+   "site": "004755d0",
+   "symbol": "?Draw_Shadow_Caster@IsometricTileTypeClass@@QAEXHPAVSurface@@UPoint2D@@VRect@@H@Z",
+   "target": "0052b770",
+   "function_entry": true
+  },
+  {
+   "site": "00475680",
+   "symbol": "?Is_Randomized@IsometricTileTypeClass@@QBE_NH@Z",
+   "target": "0052b730",
+   "function_entry": true
+  },
+  {
+   "site": "00471d10",
+   "symbol": "?Load_Tile_Image@IsometricTileTypeClass@@QAE_NXZ",
+   "target": "005293a0",
+   "function_entry": true
+  },
+  {
+   "site": "00472540",
+   "symbol": "?Ramp_Type@IsometricTileTypeClass@@QAEHH@Z",
+   "target": "0052b6f0",
+   "function_entry": true
+  },
+  {
+   "site": "00472540",
+   "symbol": "?Is_Tile_Index_Valid@IsometricTileTypeClass@@QAE_NH_N@Z",
+   "target": "00529340",
+   "function_entry": true
+  },
+  {
+   "site": "00472540",
+   "symbol": "?Is_Tile_Index_Valid@IsometricTileTypeClass@@QAE_NH_N@Z",
+   "target": "00529340",
+   "function_entry": true
+  },
+  {
+   "site": "00472540",
+   "symbol": "?Ramp_Type@IsometricTileTypeClass@@QAEHH@Z",
+   "target": "0052b6f0",
+   "function_entry": true
+  },
+  {
+   "site": "00472540",
+   "symbol": "?Land_Type@IsometricTileTypeClass@@QAEHH@Z",
+   "target": "00529300",
+   "function_entry": true
+  },
+  {
+   "site": "00472540",
+   "symbol": "?Land_Type@IsometricTileTypeClass@@QAEHH@Z",
+   "target": "00529300",
+   "function_entry": true
+  },
+  {
+   "site": "00472540",
+   "symbol": "?Get_Tile_Pixel_Dimensions@IsometricTileTypeClass@@QAE_NHAAH0@Z",
+   "target": "0052b690",
+   "function_entry": true
+  },
+  {
+   "site": "00472540",
+   "symbol": "?Shadow_Caster_List@IsometricTileTypeClass@@QBEPBVCell@@XZ",
+   "target": "0052b8b0",
+   "function_entry": true
+  },
+  {
+   "site": "006cfea0",
+   "symbol": "?Get_Tile_Pixel_Dimensions@IsometricTileTypeClass@@QAE_NHAAH0@Z",
+   "target": "0052b690",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0CCFileClass@@QAE@PBD@Z",
+   "address": "00468f50"
+  },
+  {
+   "symbol": "??0IsometricTileClass@@QAE@HABVCell@@@Z",
+   "address": "00527ed0"
+  },
+  {
+   "symbol": "??0LightConvertClass@@QAE@ABVPaletteClass@@0PAVSurface@@HHH_NPBEH@Z",
+   "address": "00538860"
+  },
+  {
+   "symbol": "??0ObjectTypeClass@@QAE@ABVNoInitClass@@@Z",
+   "address": "005d5a80"
+  },
+  {
+   "symbol": "??0ObjectTypeClass@@QAE@PBD@Z",
+   "address": "005d57f0"
+  },
+  {
+   "symbol": "??0RGBClass@@QAE@ABV0@0M@Z",
+   "address": "0063cc80"
+  },
+  {
+   "symbol": "??1Buffer@@QAE@XZ",
+   "address": "00438410"
+  },
+  {
+   "symbol": "??1BufferIOFileClass@@UAE@XZ",
+   "address": "0042f350"
+  },
+  {
+   "symbol": "??1INIClass@@UAE@XZ",
+   "address": "0050b8d0"
+  },
+  {
+   "symbol": "??1ObjectTypeClass@@UAE@XZ",
+   "address": "005d5b60"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??BSystemTimerClass@@QBEJXZ",
+   "address": "0069a430"
+  },
+  {
+   "symbol": "??RWWCRCEngine@@QAEXJ@Z",
+   "address": "00493f30"
+  },
+  {
+   "symbol": "??RWWCRCEngine@@QAEX_N@Z",
+   "address": "00493e80"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAG@@UAEPAXI@Z",
+   "address": "0052eca0"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@UAEPAXI@Z",
+   "address": "0052ed40"
+  },
+  {
+   "symbol": "??_G?$List@PAUINISection@INIClass@@@@UAEPAXI@Z",
+   "address": "0040e300"
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAG@@UAEPAXI@Z",
+   "address": "0052ec50"
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@UAEPAXI@Z",
+   "address": "0052ecf0"
+  },
+  {
+   "symbol": "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z",
+   "address": "0040b230"
+  },
+  {
+   "symbol": "??_GCCFileClass@@UAEPAXI@Z",
+   "address": "004019a0"
+  },
+  {
+   "symbol": "??_GCCINIClass@@UAEPAXI@Z",
+   "address": "0040e2e0"
+  },
+  {
+   "symbol": "??_GCDFileClass@@UAEPAXI@Z",
+   "address": "00401950"
+  },
+  {
+   "symbol": "??_GGenericList@@UAEPAXI@Z",
+   "address": "0040e220"
+  },
+  {
+   "symbol": "??_GGenericNode@@UAEPAXI@Z",
+   "address": "0040e1d0"
+  },
+  {
+   "symbol": "??_GIsometricTileTypeClass@@UAEPAXI@Z",
+   "address": "0052e6b0"
+  },
+  {
+   "symbol": "?AI@AbstractClass@@UAEXXZ",
+   "address": "00410310"
+  },
+  {
+   "symbol": "?AddRef@AbstractClass@@UAGKXZ",
+   "address": "004100a0"
+  },
+  {
+   "symbol": "?AnimTypes@@3V?$TypeList@PAVAnimTypeClass@@@@A",
+   "address": "008661e0"
+  },
+  {
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "address": "0049eea0"
+  },
+  {
+   "symbol": "?Center_Coord@AbstractClass@@UBE?AUCoordStruct@@XZ",
+   "address": "00410260"
+  },
+  {
+   "symbol": "?Clamp_Tile_RGB@@YIXAAH00@Z",
+   "address": "005385a0"
+  },
+  {
+   "symbol": "?Clear_Icon@CellClass@@QBEHHH@Z",
+   "address": "004767a0"
+  },
+  {
+   "symbol": "?Close@BufferIOFileClass@@UAEXXZ",
+   "address": "0042fda0"
+  },
+  {
+   "symbol": "?Close@CCFileClass@@UAEXXZ",
+   "address": "004691f0"
+  },
+  {
+   "symbol": "?Compute_CRC@AbstractTypeClass@@UBEXAAVWWCRCEngine@@@Z",
+   "address": "00410960"
+  },
+  {
+   "symbol": "?Cost_Of@ObjectTypeClass@@UBEHPAVHouseClass@@@Z",
+   "address": "005d5d60"
+  },
+  {
+   "symbol": "?Create@RawFileClass@@UAEHXZ",
+   "address": "00639200"
+  },
+  {
+   "symbol": "?Create_ID@AbstractClass@@UAGXXZ",
+   "address": "0040ffd0"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Delete@RawFileClass@@UAEHXZ",
+   "address": "00639240"
+  },
+  {
+   "symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z",
+   "address": "006ecb90"
+  },
+  {
+   "symbol": "?Error@CCFileClass@@UAEXHHPBD@Z",
+   "address": "00469000"
+  },
+  {
+   "symbol": "?Error@RawFileClass@@UAEXHHPBD@Z",
+   "address": "00638b30"
+  },
+  {
+   "symbol": "?Fetch_ID@AbstractClass@@UAGJXZ",
+   "address": "0040ffc0"
+  },
+  {
+   "symbol": "?Find_Or_Make@AnimTypeClass@@SIPAV1@PBD@Z",
+   "address": "004264a0"
+  },
+  {
+   "symbol": "?Find_Section@INIClass@@QBEPAUINISection@1@PBD@Z",
+   "address": "0050c9b0"
+  },
+  {
+   "symbol": "?GetSizeMax@ObjectTypeClass@@UAGJPATULARGE_INTEGER@@@Z",
+   "address": "005d7e80"
+  },
+  {
+   "symbol": "?Get_Bool@INIClass@@QBE_NPBD0_N@Z",
+   "address": "0050f410"
+  },
+  {
+   "symbol": "?Get_Date_Time@CCFileClass@@UAEKXZ",
+   "address": "00469350"
+  },
+  {
+   "symbol": "?Get_Date_Time@RawFileClass@@UAEKXZ",
+   "address": "006392a0"
+  },
+  {
+   "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+   "address": "0050d7f0"
+  },
+  {
+   "symbol": "?Get_String@INIClass@@QBEHPBD00PADH@Z",
+   "address": "0050e9a0"
+  },
+  {
+   "symbol": "?INoticeSink_Unknown@AbstractClass@@UAE_NHH@Z",
+   "address": "00410320"
+  },
+  {
+   "symbol": "?INoticeSource_Unknown@AbstractClass@@UAGXXZ",
+   "address": "00410330"
+  },
+  {
+   "symbol": "?In_Air@AbstractClass@@UBE_NXZ",
+   "address": "004102d0"
+  },
+  {
+   "symbol": "?Init@AbstractClass@@UAEXXZ",
+   "address": "00410210"
+  },
+  {
+   "symbol": "?Init_Drawer@CellClass@@QAEXPAVLightConvertClass@@HHHHH@Z",
+   "address": "004790f0"
+  },
+  {
+   "symbol": "?IsDirty@AbstractClass@@UAGJXZ",
+   "address": "004101f0"
+  },
+  {
+   "symbol": "?Is_Available@BufferIOFileClass@@UAE_NH@Z",
+   "address": "0042f6e0"
+  },
+  {
+   "symbol": "?Is_Available@CCFileClass@@UAE_NH@Z",
+   "address": "004691a0"
+  },
+  {
+   "symbol": "?Is_Inactive@AbstractClass@@UBE_NXZ",
+   "address": "004101e0"
+  },
+  {
+   "symbol": "?Is_Open@BufferIOFileClass@@UBE_NXZ",
+   "address": "0042f700"
+  },
+  {
+   "symbol": "?Is_Open@CCFileClass@@UBE_NXZ",
+   "address": "004691e0"
+  },
+  {
+   "symbol": "?IsoTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A",
+   "address": "00a40cd0"
+  },
+  {
+   "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
+   "address": "0055a490"
+  },
+  {
+   "symbol": "?Lepton_Dimensions@ObjectTypeClass@@UBE?AUCoordStruct@@XZ",
+   "address": "005d5d30"
+  },
+  {
+   "symbol": "?Load@CCINIClass@@QAEHAAVFileClass@@_N1@Z",
+   "address": "004696b0"
+  },
+  {
+   "symbol": "?Load@ObjectTypeClass@@UAGJPAUIStream@@@Z",
+   "address": "005d7c30"
+  },
+  {
+   "symbol": "?Map@@3VMouseClass@@A",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "?Max_Pips@ObjectTypeClass@@UBEHXZ",
+   "address": "005d5d00"
+  },
+  {
+   "symbol": "?On_Ground@AbstractClass@@UBE_NXZ",
+   "address": "004102c0"
+  },
+  {
+   "symbol": "?Open@CCFileClass@@UAEHH@Z",
+   "address": "00469220"
+  },
+  {
+   "symbol": "?Open@CCFileClass@@UAEHPBDH@Z",
+   "address": "00401980"
+  },
+  {
+   "symbol": "?Open@CDFileClass@@UAEHH@Z",
+   "address": "0046fe10"
+  },
+  {
+   "symbol": "?Open@CDFileClass@@UAEHPBDH@Z",
+   "address": "00470250"
+  },
+  {
+   "symbol": "?Owner@AbstractClass@@UBEHXZ",
+   "address": "00410230"
+  },
+  {
+   "symbol": "?Owning_House@AbstractClass@@UBEPAVHouseClass@@XZ",
+   "address": "00410240"
+  },
+  {
+   "symbol": "?Pixel_Dimensions@ObjectTypeClass@@UBE?AUCoordStruct@@XZ",
+   "address": "005d5d10"
+  },
+  {
+   "symbol": "?QueryInterface@AbstractClass@@UAGJABUGUID@@PAPAX@Z",
+   "address": "00410000"
+  },
+  {
+   "symbol": "?Read@BufferIOFileClass@@UAEJPAXJ@Z",
+   "address": "0042fa80"
+  },
+  {
+   "symbol": "?Read@CCFileClass@@UAEJPAXJ@Z",
+   "address": "00469060"
+  },
+  {
+   "symbol": "?Read_INI@ObjectTypeClass@@UAE_NAAVCCINIClass@@@Z",
+   "address": "005d7810"
+  },
+  {
+   "symbol": "?Release@AbstractClass@@UAGKXZ",
+   "address": "004100b0"
+  },
+  {
+   "symbol": "?Reset_Iterator@MapClass@@QAEXXZ",
+   "address": "0055a550"
+  },
+  {
+   "symbol": "?Retrieve@MixFileClass@@SIPBXPBD@Z",
+   "address": "005956c0"
+  },
+  {
+   "symbol": "?Save@ObjectTypeClass@@UAGJPAUIStream@@H@Z",
+   "address": "005d7e60"
+  },
+  {
+   "symbol": "?Seek@BufferIOFileClass@@UAEJJH@Z",
+   "address": "0042fc90"
+  },
+  {
+   "symbol": "?Seek@CCFileClass@@UAEJJH@Z",
+   "address": "004690f0"
+  },
+  {
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "address": "00481fb0"
+  },
+  {
+   "symbol": "?Set@RGBClass@@QAEAAV1@ABV1@M@Z",
+   "address": "0063cdf0"
+  },
+  {
+   "symbol": "?Set_Date_Time@CCFileClass@@UAE_NK@Z",
+   "address": "00469400"
+  },
+  {
+   "symbol": "?Set_Date_Time@RawFileClass@@UAE_NK@Z",
+   "address": "006392f0"
+  },
+  {
+   "symbol": "?Set_Name@CDFileClass@@UAEPBDPBD@Z",
+   "address": "00470150"
+  },
+  {
+   "symbol": "?ShadowCasterTiles@IsometricTileTypeClass@@2PAHA",
+   "address": "00a52e74"
+  },
+  {
+   "symbol": "?Size@BufferIOFileClass@@UAEJXZ",
+   "address": "0042fd80"
+  },
+  {
+   "symbol": "?Size@CCFileClass@@UAEJXZ",
+   "address": "00469150"
+  },
+  {
+   "symbol": "?SlopeZShapes@@3PAPAXA",
+   "address": "00a52eb0"
+  },
+  {
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "address": "0069fb20"
+  },
+  {
+   "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+   "address": "00abd868"
+  },
+  {
+   "symbol": "?Theaters@@3PAUTheaterTypeStruct@@A",
+   "address": "0079ab68"
+  },
+  {
+   "symbol": "?What_Am_I@AbstractClass@@UAGHXZ",
+   "address": "0040ffb0"
+  },
+  {
+   "symbol": "?Who_Can_Build_Me@ObjectTypeClass@@UBEPAVBuildingClass@@_N00PAVHouseClass@@@Z",
+   "address": "005d5fc0"
+  },
+  {
+   "symbol": "?Write@BufferIOFileClass@@UAEJPBXJ@Z",
+   "address": "0042f830"
+  },
+  {
+   "symbol": "?Write@CCFileClass@@UAEJPBXJ@Z",
+   "address": "00469030"
+  },
+  {
+   "symbol": "?Write_INI@AbstractTypeClass@@UBE_NAAVCCINIClass@@@Z",
+   "address": "00410910"
+  },
+  {
+   "symbol": "?cleanup@Leaf_52e6b0@@QAEXXZ",
+   "address": "00529190"
+  },
+  {
+   "symbol": "?unknown_LightConvertClass_list_00832398@@3V?$DynamicVectorClass@PAVLightConvertClass@@@@A",
+   "address": "00832398"
+  },
+  {
+   "symbol": "?unknown_block_a6e38c@@3PAXA",
+   "address": "00a6e38c"
+  },
+  {
+   "symbol": "?unknown_cell_a52eac@@3VCell@@B",
+   "address": "00a52eac"
+  },
+  {
+   "symbol": "?unknown_dummy_cell_a6f9f8@@3VCellClass@@A",
+   "address": "00a6f9f8"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0cb0"
+  },
+  {
+   "symbol": "?unknown_palette_837e10@@3VPaletteClass@@A",
+   "address": "00837e10"
+  },
+  {
+   "symbol": "?unknown_rect_839630@@3VRect@@A",
+   "address": "00839630"
+  },
+  {
+   "symbol": "?unknown_shift_852fb8@@3HA",
+   "address": "00852fb8"
+  },
+  {
+   "symbol": "?unknown_shift_852fbc@@3HA",
+   "address": "00852fbc"
+  },
+  {
+   "symbol": "?unknown_shift_852fc0@@3HA",
+   "address": "00852fc0"
+  },
+  {
+   "symbol": "?unknown_shift_852fc4@@3HA",
+   "address": "00852fc4"
+  },
+  {
+   "symbol": "?unknown_shift_852fc8@@3HA",
+   "address": "00852fc8"
+  },
+  {
+   "symbol": "?unknown_shift_852fcc@@3HA",
+   "address": "00852fcc"
+  },
+  {
+   "symbol": "?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z",
+   "address": "00410290"
+  },
+  {
+   "symbol": "?unknown_slot22@AbstractClass@@UBE?AUCoordStruct@@XZ",
+   "address": "004102e0"
+  },
+  {
+   "symbol": "?unknown_slot24@AbstractTypeClass@@UAEXH@Z",
+   "address": "004109a0"
+  },
+  {
+   "symbol": "?unknown_slot28@ObjectTypeClass@@UBEHXZ",
+   "address": "00426760"
+  },
+  {
+   "symbol": "?unknown_slot34@ObjectTypeClass@@UBEHXZ",
+   "address": "005d5d70"
+  },
+  {
+   "symbol": "?unknown_slot38@ObjectTypeClass@@UBEPBXXZ",
+   "address": "005d5d80"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_surface_839950@@3PAVSurface@@A",
+   "address": "00839950"
+  },
+  {
+   "symbol": "?unknown_table_7de4ec@@3PAHA",
+   "address": "007de4ec"
+  },
+  {
+   "symbol": "?unknown_tile_set_count_a6e390@@3HA",
+   "address": "00a6e390"
+  },
+  {
+   "symbol": "?unknown_tile_sets_a52f90@@3PAHA",
+   "address": "00a52f90"
+  },
+  {
+   "symbol": "?unknown_tileset_a52580@@3HA",
+   "address": "00a52580"
+  },
+  {
+   "symbol": "?unknown_tileset_a52584@@3HA",
+   "address": "00a52584"
+  },
+  {
+   "symbol": "?unknown_tileset_a52588@@3HA",
+   "address": "00a52588"
+  },
+  {
+   "symbol": "?unknown_tileset_a5258c@@3HA",
+   "address": "00a5258c"
+  },
+  {
+   "symbol": "?unknown_tileset_a52590@@3HA",
+   "address": "00a52590"
+  },
+  {
+   "symbol": "?unknown_tileset_a52c60@@3HA",
+   "address": "00a52c60"
+  },
+  {
+   "symbol": "?unknown_tileset_a52c64@@3HA",
+   "address": "00a52c64"
+  },
+  {
+   "symbol": "?unknown_tileset_a52c68@@3HA",
+   "address": "00a52c68"
+  },
+  {
+   "symbol": "?unknown_tileset_a52c70@@3HA",
+   "address": "00a52c70"
+  },
+  {
+   "symbol": "?unknown_tileset_a52c74@@3HA",
+   "address": "00a52c74"
+  },
+  {
+   "symbol": "?unknown_tileset_a52c80@@3HA",
+   "address": "00a52c80"
+  },
+  {
+   "symbol": "?unknown_tileset_a52e64@@3HA",
+   "address": "00a52e64"
+  },
+  {
+   "symbol": "?unknown_tileset_a52e68@@3HA",
+   "address": "00a52e68"
+  },
+  {
+   "symbol": "?unknown_tileset_a52e6c@@3HA",
+   "address": "00a52e6c"
+  },
+  {
+   "symbol": "?unknown_tileset_a52e70@@3HA",
+   "address": "00a52e70"
+  },
+  {
+   "symbol": "?unknown_tileset_a52ea0@@3HA",
+   "address": "00a52ea0"
+  },
+  {
+   "symbol": "?unknown_tileset_a52ea4@@3HA",
+   "address": "00a52ea4"
+  },
+  {
+   "symbol": "?unknown_tileset_a52ea8@@3HA",
+   "address": "00a52ea8"
+  },
+  {
+   "symbol": "?unknown_tileset_a52ee0@@3HA",
+   "address": "00a52ee0"
+  },
+  {
+   "symbol": "?unknown_tileset_a52ee4@@3HA",
+   "address": "00a52ee4"
+  },
+  {
+   "symbol": "?unknown_tileset_a52ee8@@3HA",
+   "address": "00a52ee8"
+  },
+  {
+   "symbol": "?unknown_tileset_a52eec@@3HA",
+   "address": "00a52eec"
+  },
+  {
+   "symbol": "?unknown_tileset_a52ef0@@3HA",
+   "address": "00a52ef0"
+  },
+  {
+   "symbol": "?unknown_tileset_a52ef4@@3HA",
+   "address": "00a52ef4"
+  },
+  {
+   "symbol": "?unknown_tileset_a52ef8@@3HA",
+   "address": "00a52ef8"
+  },
+  {
+   "symbol": "?unknown_tileset_a52efc@@3HA",
+   "address": "00a52efc"
+  },
+  {
+   "symbol": "?unknown_tileset_a52f00@@3HA",
+   "address": "00a52f00"
+  },
+  {
+   "symbol": "?unknown_tileset_a52f04@@3HA",
+   "address": "00a52f04"
+  },
+  {
+   "symbol": "?unknown_tileset_a52f80@@3HA",
+   "address": "00a52f80"
+  },
+  {
+   "symbol": "?unknown_tileset_a52f84@@3HA",
+   "address": "00a52f84"
+  },
+  {
+   "symbol": "?unknown_tileset_a53390@@3HA",
+   "address": "00a53390"
+  },
+  {
+   "symbol": "?unknown_tileset_a53394@@3HA",
+   "address": "00a53394"
+  },
+  {
+   "symbol": "?unknown_tileset_a6cb68@@3HA",
+   "address": "00a6cb68"
+  },
+  {
+   "symbol": "?unknown_tileset_a6cb6c@@3HA",
+   "address": "00a6cb6c"
+  },
+  {
+   "symbol": "?unknown_tileset_a6cb70@@3HA",
+   "address": "00a6cb70"
+  },
+  {
+   "symbol": "?unknown_tileset_a6cb74@@3HA",
+   "address": "00a6cb74"
+  },
+  {
+   "symbol": "?unknown_tileset_a6cb78@@3HA",
+   "address": "00a6cb78"
+  },
+  {
+   "symbol": "?unknown_tileset_a6cb7c@@3HA",
+   "address": "00a6cb7c"
+  },
+  {
+   "symbol": "?unknown_tileset_a6cf4c@@3HA",
+   "address": "00a6cf4c"
+  },
+  {
+   "symbol": "?unknown_tileset_a6cf50@@3HA",
+   "address": "00a6cf50"
+  },
+  {
+   "symbol": "?unknown_tileset_a6cf54@@3HA",
+   "address": "00a6cf54"
+  },
+  {
+   "symbol": "?unknown_tileset_a6cf58@@3HA",
+   "address": "00a6cf58"
+  },
+  {
+   "symbol": "?unknown_tileset_a6dd00@@3HA",
+   "address": "00a6dd00"
+  },
+  {
+   "symbol": "?unknown_tileset_a6dd04@@3HA",
+   "address": "00a6dd04"
+  },
+  {
+   "symbol": "?unknown_tileset_a6dd08@@3HA",
+   "address": "00a6dd08"
+  },
+  {
+   "symbol": "?unknown_tileset_a6dd0c@@3HA",
+   "address": "00a6dd0c"
+  },
+  {
+   "symbol": "?unknown_tileset_a6e010@@3HA",
+   "address": "00a6e010"
+  },
+  {
+   "symbol": "?unknown_tileset_a6e014@@3HA",
+   "address": "00a6e014"
+  },
+  {
+   "symbol": "?unknown_tileset_a6e018@@3HA",
+   "address": "00a6e018"
+  },
+  {
+   "symbol": "?unknown_tileset_a6e028@@3HA",
+   "address": "00a6e028"
+  },
+  {
+   "symbol": "?unknown_tileset_a6e038@@3HA",
+   "address": "00a6e038"
+  },
+  {
+   "symbol": "?unknown_tileset_a6e0e0@@3HA",
+   "address": "00a6e0e0"
+  },
+  {
+   "symbol": "?unknown_tileset_a6e0e4@@3HA",
+   "address": "00a6e0e4"
+  },
+  {
+   "symbol": "?unknown_tileset_a6e0e8@@3HA",
+   "address": "00a6e0e8"
+  },
+  {
+   "symbol": "?unknown_tileset_a6e0f8@@3HA",
+   "address": "00a6e0f8"
+  },
+  {
+   "symbol": "?unknown_tileset_a6e0fc@@3HA",
+   "address": "00a6e0fc"
+  },
+  {
+   "symbol": "_CLSID_IsometricTileTypeClass",
+   "address": "007a1b60"
+  },
+  {
+   "symbol": "_DAT_00a52eb0",
+   "address": "00a52eb0"
+  },
+  {
+   "symbol": "_DAT_00a52eb4",
+   "address": "00a52eb4"
+  },
+  {
+   "symbol": "_DAT_00a52eb8",
+   "address": "00a52eb8"
+  },
+  {
+   "symbol": "_DAT_00a52ebc",
+   "address": "00a52ebc"
+  },
+  {
+   "symbol": "_DAT_00a6e38c",
+   "address": "00a6e38c"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__makepath",
+   "address": "007831f0"
+  },
+  {
+   "symbol": "__stricmp",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "_atexit",
+   "address": "0078298a"
+  },
+  {
+   "symbol": "_release_52e6b0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_52ec50",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_52eca0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_52ecf0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_52ed40",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_52ec50",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_52eca0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_52ecf0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_52ed40",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_sprintf",
+   "address": "007820f4"
+  },
+  {
+   "symbol": "_strncpy",
+   "address": "007823d0"
+  },
+  {
+   "symbol": "_vtable_52ec50",
+   "address": "007a526c"
+  },
+  {
+   "symbol": "_vtable_52eca0",
+   "address": "007a526c"
+  },
+  {
+   "symbol": "_vtable_52ecf0",
+   "address": "007a515c"
+  },
+  {
+   "symbol": "_vtable_52ed40",
+   "address": "007a515c"
+  }
+ ],
+ "route": "A",
+ "unit": "isotype.cpp",
+ "form": "lines in place",
+ "switches": [
+  "ISOMETRIC_TILE_TYPE_DECLARE_STATICS",
+  "CELL_DECLARE_CLEAR_ICON",
+  "RGB_DECLARE_BRIGHTEN",
+  "VECTOR_IMPLEMENT_VECTOR_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS",
+  "VECTOR_IMPLEMENT_VECTOR_DESTRUCTOR",
+  "VECTOR_IMPLEMENT_DYNAMIC_DELETE_OBJECT",
+  "VECTOR_IMPLEMENT_DYNAMIC_DELETE_INDEX",
+  "__",
+  "XX"
+ ],
+ "include_blocks": [],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "0052e6d0",
+   "bytes": 42,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "0052e720",
+   "bytes": 13,
+   "population": "population-2685",
+   "bound": "own frozen bound (population-2685)"
+  },
+  {
+   "entry": "0052e790",
+   "bytes": 62,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "0052e7d0",
+   "bytes": 174,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "0052e880",
+   "bytes": 39,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "0052e8b0",
+   "bytes": 51,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "0052e8f0",
+   "bytes": 27,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "0052e910",
+   "bytes": 176,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "0052e9c0",
+   "bytes": 38,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "00529300",
+   "bytes": 56,
+   "population": "population-3772",
+   "bound": "own frozen bound (population-3772)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0052df40",
+   "bytes": 90,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0052dfa0",
+   "bytes": 56,
+   "population": "population-4244",
+   "bound": "own frozen bound (population-4244)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0052e070",
+   "bytes": 28,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0052e6b0",
+   "bytes": 30,
+   "population": "population-4352",
+   "bound": "own frozen bound (population-4352)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0052e700",
+   "bytes": 27,
+   "population": "population-130",
+   "bound": "own frozen bound (population-130)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0052ec50",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0052eca0",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0052ecf0",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0052ed40",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "0052e730",
+   "bytes": 42,
+   "population": "population-1597",
+   "source": "src/recovered/classes/DynamicVectorClass_IsometricTileTypeClass__TileInsertType_ptr/Clear.cpp",
+   "cause": "held by population-1597; not joined: not emitted by the unit's own use of its lists"
+  },
+  {
+   "kind": "split",
+   "entry": "0052e760",
+   "bytes": 27,
+   "population": "population-1597",
+   "source": "src/recovered/classes/DynamicVectorClass_IsometricTileTypeClass__TileInsertType_ptr/DynamicVectorClass_IsometricTileTypeClass__TileInsertType_ptr_ID_pointer_0052e760.cpp",
+   "cause": "held by population-1597; not joined: not emitted by the unit's own use of its lists"
+  },
+  {
+   "kind": "split",
+   "entry": "0052e780",
+   "bytes": 13,
+   "population": "population-1597",
+   "source": "src/recovered/classes/VectorClass_IsometricTileTypeClass__TileInsertType_ptr/Fetch.cpp",
+   "cause": "held by population-1597; not joined: not emitted by the unit's own use of its lists"
+  },
+  {
+   "kind": "split",
+   "entry": "0052e9f0",
+   "bytes": 62,
+   "population": "population-1597",
+   "source": "src/recovered/classes/VectorClass_IsometricTileTypeClass__TileInsertType_ptr/operator_equal.cpp",
+   "cause": "held by population-1597; not joined: not emitted by the unit's own use of its lists"
+  },
+  {
+   "kind": "split",
+   "entry": "0052ea30",
+   "bytes": 174,
+   "population": "population-1597",
+   "source": "src/recovered/classes/VectorClass_IsometricTileTypeClass__TileInsertType_ptr/Resize.cpp",
+   "cause": "held by population-1597; not joined: not emitted by the unit's own use of its lists"
+  },
+  {
+   "kind": "split",
+   "entry": "0052eae0",
+   "bytes": 39,
+   "population": "population-1597",
+   "source": "src/recovered/classes/VectorClass_IsometricTileTypeClass__TileInsertType_ptr/Clear.cpp",
+   "cause": "held by population-1597; not joined: not emitted by the unit's own use of its lists"
+  },
+  {
+   "kind": "split",
+   "entry": "0052eb10",
+   "bytes": 51,
+   "population": "population-1597",
+   "source": "src/recovered/classes/VectorClass_IsometricTileTypeClass__TileInsertType_ptr/VectorClass_IsometricTileTypeClass__TileInsertType_ptr_ID_object_0052eb10.cpp",
+   "cause": "held by population-1597; not joined: not emitted by the unit's own use of its lists"
+  },
+  {
+   "kind": "split",
+   "entry": "0052eb50",
+   "bytes": 27,
+   "population": "population-1597",
+   "source": "src/recovered/classes/VectorClass_IsometricTileTypeClass__TileInsertType_ptr/VectorClass_IsometricTileTypeClass__TileInsertType_ptr_ID_pointer_0052eb50.cpp",
+   "cause": "held by population-1597; not joined: not emitted by the unit's own use of its lists"
+  },
+  {
+   "kind": "split",
+   "entry": "0052eb70",
+   "bytes": 176,
+   "population": "population-1597",
+   "source": "src/recovered/classes/DynamicVectorClass_IsometricTileTypeClass__TileInsertType_ptr/Resize.cpp",
+   "cause": "held by population-1597; not joined: not emitted by the unit's own use of its lists"
+  },
+  {
+   "kind": "split",
+   "entry": "0052ec20",
+   "bytes": 38,
+   "population": "population-1597",
+   "source": "src/recovered/classes/DynamicVectorClass_IsometricTileTypeClass__TileInsertType_ptr/DynamicVectorClass_IsometricTileTypeClass__TileInsertType_ptr_ID_object_0052ec20.cpp",
+   "cause": "held by population-1597; not joined: not emitted by the unit's own use of its lists"
+  }
+ ],
+ "unit_functions": 80,
+ "data_unproven": [
+  {
+   "symbol": null,
+   "reason": "bytes differ from the original"
+  },
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "0049e570",
+   "target": "00529720",
+   "symbol": "?Reset_Light_Converts_00529720@@YAXXZ",
+   "module_symbol": "?Init_Drawers@IsometricTileTypeClass@@SAXXZ"
+  },
+  {
+   "site": "0045e170",
+   "target": "00529400",
+   "symbol": "?Unknown_00529400@@YIHPBD@Z",
+   "module_symbol": "?From_Name@IsometricTileTypeClass@@SIHPBD@Z"
+  },
+  {
+   "site": "0045ebd0",
+   "target": "00529400",
+   "symbol": "?Unknown_00529400@@YIHPBD@Z",
+   "module_symbol": "?From_Name@IsometricTileTypeClass@@SIHPBD@Z"
+  },
+  {
+   "site": "0059f530",
+   "target": "0052b650",
+   "symbol": "?Unknown_0052B650@@YAXXZ",
+   "module_symbol": "?Clear_Use_Counts@IsometricTileTypeClass@@SAXXZ"
+  },
+  {
+   "site": "0059f530",
+   "target": "0052b2e0",
+   "symbol": "?Unknown_0052B2E0@@YIX_N0@Z",
+   "module_symbol": "?Load_Tiles@IsometricTileTypeClass@@SIX_N0@Z"
+  },
+  {
+   "site": "00661980",
+   "target": "00529720",
+   "symbol": "?Reset_Light_Converts_00529720@@YAXXZ",
+   "module_symbol": "?Init_Drawers@IsometricTileTypeClass@@SAXXZ"
+  },
+  {
+   "site": "0054dcc0",
+   "target": "00529550",
+   "symbol": "?Unknown_00529550@IsometricTileTypeClass@@SIHH@Z",
+   "module_symbol": "?Fixup_Tile_Type@IsometricTileTypeClass@@SIHH@Z"
+  },
+  {
+   "site": "0054dea0",
+   "target": "00529550",
+   "symbol": "?Unknown_00529550@IsometricTileTypeClass@@SIHH@Z",
+   "module_symbol": "?Fixup_Tile_Type@IsometricTileTypeClass@@SIHH@Z"
+  },
+  {
+   "site": "0054dfc0",
+   "target": "00529550",
+   "symbol": "?Unknown_00529550@IsometricTileTypeClass@@SIHH@Z",
+   "module_symbol": "?Fixup_Tile_Type@IsometricTileTypeClass@@SIHH@Z"
+  },
+  {
+   "site": "0054e0c0",
+   "target": "00529550",
+   "symbol": "?Unknown_00529550@IsometricTileTypeClass@@SIHH@Z",
+   "module_symbol": "?Fixup_Tile_Type@IsometricTileTypeClass@@SIHH@Z"
+  },
+  {
+   "site": "0054e1e0",
+   "target": "00529550",
+   "symbol": "?Unknown_00529550@IsometricTileTypeClass@@SIHH@Z",
+   "module_symbol": "?Fixup_Tile_Type@IsometricTileTypeClass@@SIHH@Z"
+  },
+  {
+   "site": "00550eb0",
+   "target": "0052b730",
+   "symbol": "?unknown_func_52b730@IsometricTileTypeClass@@QAE_NH@Z",
+   "module_symbol": "?Is_Randomized@IsometricTileTypeClass@@QBE_NH@Z"
+  },
+  {
+   "site": "0049cfd0",
+   "target": "0052b650",
+   "symbol": "?Unknown_0052B650@@YAXXZ",
+   "module_symbol": "?Clear_Use_Counts@IsometricTileTypeClass@@SAXXZ"
+  },
+  {
+   "site": "0049cfd0",
+   "target": "0052b2e0",
+   "symbol": "?Unknown_0052B2E0@@YIX_N0@Z",
+   "module_symbol": "?Load_Tiles@IsometricTileTypeClass@@SIX_N0@Z"
+  },
+  {
+   "site": "0057ae00",
+   "target": "00529870",
+   "symbol": "?Read_Tile_Control_00529870@@YIXH_N@Z",
+   "module_symbol": "?Unknown_00529870@@YIXH_N@Z"
+  },
+  {
+   "site": "0057ae00",
+   "target": "0052b650",
+   "symbol": "?Clear_Tile_Use_Counts_0052b650@@YAXXZ",
+   "module_symbol": "?Clear_Use_Counts@IsometricTileTypeClass@@SAXXZ"
+  },
+  {
+   "site": "0057ae00",
+   "target": "0052b2e0",
+   "symbol": "?Load_Isometric_Tiles_0052b2e0@@YIX_N0@Z",
+   "module_symbol": "?Load_Tiles@IsometricTileTypeClass@@SIX_N0@Z"
+  }
+ ],
+ "stand_in_reference_count": 17,
+ "residual_split": {
+  "rows": 10,
+  "bytes": 649
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

@@ -1,0 +1,490 @@
+{
+ "module": "scheme",
+ "source": "src/recovered/scheme.cpp",
+ "header": null,
+ "population": "population-3560",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 726,
+ "code": [
+  {
+   "symbol": "_$E4",
+   "entry": "00663610",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E2",
+   "entry": "00663650",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Unknown_00663690@@YIPAVConvertClass@@PBVHSVClass@@PAXHPAVRGBClass@@PAVSurface@@HHHHPBX@Z",
+   "entry": "00663690",
+   "body_bytes": 331,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Build_Converter_006637e0@@YIPAVConvertClass@@ABVHSVClass@@ABVPaletteClass@@1PAVSurface@@PAV3@@Z",
+   "entry": "006637e0",
+   "body_bytes": 335,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "??0ColorScheme@@QAE@XZ",
+   "entry": "00663930",
+   "body_bytes": 177,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "??0ColorScheme@@QAE@PBDABVHSVClass@@PAXPAVPaletteClass@@H_N@Z",
+   "entry": "006639f0",
+   "body_bytes": 335,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Unknown_00663B40@ColorScheme@@QAEXPAVPaletteClass@@0HHH@Z",
+   "entry": "00663b40",
+   "body_bytes": 97,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?FUN_00663c40@Owner_00663c40@seed_00663c40@@QAE_NH@Z",
+   "entry": "00663c40",
+   "body_bytes": 34,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?FUN_00663c70@Owner_00663c70@seed_00663c70@@QAE_NH@Z",
+   "entry": "00663c70",
+   "body_bytes": 35,
+   "padding_bytes": 13
+  }
+ ],
+ "code_bytes": 1536,
+ "data": [
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVColorScheme@@@@6B@",
+   "address": "007a7b94",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 12
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVColorScheme@@@@6B@",
+   "address": "007a7bb4",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@3ffedf66f2ed08ad4800",
+   "address": "007a9230",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffabea2f16e1be26000",
+   "address": "007a9238",
+   "bytes": 8,
+   "kind": "table",
+   "section": 22
+  },
+  {
+   "symbol": "__real@8@3ffdb2b8c2573a243800",
+   "address": "007a9240",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffba6ce934058661000",
+   "address": "007a9248",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAVColorScheme@@@@8",
+   "address": "007bf84c",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 15
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAVColorScheme@@@@8",
+   "address": "007bf858",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 16
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAVColorScheme@@@@6B@",
+   "address": "007bf868",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 17
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAVColorScheme@@@@8",
+   "address": "007bf880",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 6
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAVColorScheme@@@@8",
+   "address": "007bf898",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 7
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAVColorScheme@@@@8",
+   "address": "007bf8b0",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 8
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAVColorScheme@@@@8",
+   "address": "007bf8c0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 9
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAVColorScheme@@@@6B@",
+   "address": "007bf8d0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 11
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAVColorScheme@@@@@8",
+   "address": "007eb6f0",
+   "bytes": 45,
+   "kind": "rtti",
+   "section": 5
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAVColorScheme@@@@@8",
+   "address": "007eb720",
+   "bytes": 52,
+   "kind": "rtti",
+   "section": 10
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVColorScheme@@@@6B@",
+   "address": "007a7b94",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVColorScheme@@@@6B@",
+   "address": "007a7bb4",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "__real@8@3ffedf66f2ed08ad4800",
+   "address": "007a9230",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffabea2f16e1be26000",
+   "address": "007a9238",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffdb2b8c2573a243800",
+   "address": "007a9240",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffba6ce934058661000",
+   "address": "007a9248",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAVColorScheme@@@@8",
+   "address": "007bf84c",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAVColorScheme@@@@8",
+   "address": "007bf858",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAVColorScheme@@@@6B@",
+   "address": "007bf868",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAVColorScheme@@@@8",
+   "address": "007bf880",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAVColorScheme@@@@8",
+   "address": "007bf898",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAVColorScheme@@@@8",
+   "address": "007bf8b0",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAVColorScheme@@@@8",
+   "address": "007bf8c0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAVColorScheme@@@@6B@",
+   "address": "007bf8d0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAVColorScheme@@@@@8",
+   "address": "007eb6f0",
+   "bytes": 45,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAVColorScheme@@@@@8",
+   "address": "007eb720",
+   "bytes": 52,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00663ca0",
+   "symbol": "??0ColorScheme@@QAE@PBDABVHSVClass@@PAXPAVPaletteClass@@H_N@Z",
+   "target": "006639f0",
+   "function_entry": true
+  },
+  {
+   "site": "00519e70",
+   "symbol": "?Unknown_00663B40@ColorScheme@@QAEXPAVPaletteClass@@0HHH@Z",
+   "target": "00663b40",
+   "function_entry": true
+  },
+  {
+   "site": "00604540",
+   "symbol": "??0ColorScheme@@QAE@PBDABVHSVClass@@PAXPAVPaletteClass@@H_N@Z",
+   "target": "006639f0",
+   "function_entry": true
+  },
+  {
+   "site": "00604540",
+   "symbol": "??0ColorScheme@@QAE@PBDABVHSVClass@@PAXPAVPaletteClass@@H_N@Z",
+   "target": "006639f0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0ConvertClass@@QAE@ABVPaletteClass@@0PAVSurface@@H_N@Z",
+   "address": "00483650"
+  },
+  {
+   "symbol": "??0LightConvertClass@@QAE@ABVPaletteClass@@0PAVSurface@@HHH_NPBEH@Z",
+   "address": "00538860"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??4PaletteClass@@QAEAAV0@ABV0@@Z",
+   "address": "00603080"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVColorScheme@@@@UAEPAXI@Z",
+   "address": "006055f0"
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVColorScheme@@@@UAEPAXI@Z",
+   "address": "006055a0"
+  },
+  {
+   "symbol": "?FUN_00781f20@seed_00663c40@@YAIPAE0@Z",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "?FUN_00781f20@seed_00663c70@@YAIPAE0@Z",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "?To_RGB@HSVClass@@QBE?AVRGBClass@@XZ",
+   "address": "004ff050"
+  },
+  {
+   "symbol": "?unknown_cos_4ba4d0@@YANN@Z",
+   "address": "004ba4d0"
+  },
+  {
+   "symbol": "?unknown_sin_4ba480@@YANN@Z",
+   "address": "004ba480"
+  },
+  {
+   "symbol": "?unknown_surface_839950@@3PAVSurface@@A",
+   "address": "00839950"
+  },
+  {
+   "symbol": "?unknown_table_7f264c@@3QBDB",
+   "address": "007f264c"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "_atexit",
+   "address": "0078298a"
+  },
+  {
+   "symbol": "_strdup",
+   "address": "0078d816"
+  }
+ ],
+ "route": "A",
+ "unit": "scheme.cpp",
+ "form": "include blocks held",
+ "switches": [
+  "VECTOR_IMPLEMENT_ALL",
+  "VECTOR_IMPLEMENT_VECTOR_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ADD"
+ ],
+ "include_blocks": [],
+ "held_rows": [
+  {
+   "entry": "00663610",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "00663650",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "00663930",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "006639f0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  }
+ ],
+ "joined": [
+  {
+   "entry": "00663c40",
+   "bytes": 34,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00663c70",
+   "bytes": 35,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "00663bb0",
+   "bytes": 135,
+   "population": "population-1647",
+   "source": "src/recovered/classes/ColorScheme/Destructor.cpp",
+   "cause": "frozen in another population's inventory pass (population-1647)"
+  },
+  {
+   "kind": "split",
+   "entry": "00663ca0",
+   "bytes": 136,
+   "population": "population-3353",
+   "source": "src/recovered/scheme/unknown_find_or_make_palette.cpp",
+   "cause": "frozen in another population's inventory pass (population-3353)"
+  },
+  {
+   "kind": "split",
+   "entry": "00663d30",
+   "bytes": 90,
+   "population": "population-3357",
+   "source": "src/recovered/scheme/Fetch_Scheme_By_Name.cpp",
+   "cause": "frozen in another population's inventory pass (population-3357)"
+  },
+  {
+   "kind": "split",
+   "entry": "00663d90",
+   "bytes": 86,
+   "population": "population-3357",
+   "source": "src/recovered/scheme/unknown_color_scheme_index.cpp",
+   "cause": "frozen in another population's inventory pass (population-3357)"
+  }
+ ],
+ "unit_functions": 13,
+ "data_unproven": [
+  {
+   "symbol": "_$S5",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 4,
+  "bytes": 447
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

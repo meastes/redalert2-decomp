@@ -8,7 +8,7 @@ namespace OwnerDraw {
 
 void __stdcall Unknown_00601050(unsigned int key, HWND window)
 {
-    UnknownControlRecord *record = unknown_registry_a73640.Find(key);
+    WinData *record = unknown_registry_a73640.Find(key);
     if (record) record->unknown_d4 = true;
 }
 

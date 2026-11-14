@@ -1,0 +1,1694 @@
+{
+ "module": "super",
+ "source": "src/recovered/super.cpp",
+ "header": null,
+ "population": "population-4320",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 946,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "0069c3b0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "0069c3d0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "0069c400",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "0069c420",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "0069c440",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "0069c460",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "0069c480",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "0069c4a0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "0069c4e0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "0069c510",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "0069c540",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "0069c570",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "0069c580",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E50",
+   "entry": "0069c5a0",
+   "body_bytes": 191,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "??0SuperClass@@QAE@XZ",
+   "entry": "0069c660",
+   "body_bytes": 194,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "??0SuperClass@@QAE@PAVSuperWeaponTypeClass@@PAVHouseClass@@@Z",
+   "entry": "0069c730",
+   "body_bytes": 376,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "??1SuperClass@@UAE@XZ",
+   "entry": "0069c8b0",
+   "body_bytes": 443,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?unknown_69ca70@SuperClass@@QAEXXZ",
+   "entry": "0069ca70",
+   "body_bytes": 185,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?unknown_place_anim_69cb30@SuperClass@@QAEXUCoordStruct@@@Z",
+   "entry": "0069cb30",
+   "body_bytes": 301,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Suspend@SuperClass@@QAE_N_N@Z",
+   "entry": "0069cc60",
+   "body_bytes": 136,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Grant@SuperClass@@QAE_N_N00@Z",
+   "entry": "0069ccf0",
+   "body_bytes": 590,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Remove@SuperClass@@QAE_NXZ",
+   "entry": "0069cf40",
+   "body_bytes": 97,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?FUN_0069cfb0@Owner_0069cfb0@seed_0069cfb0@@QAEXE@Z",
+   "entry": "0069cfb0",
+   "body_bytes": 10,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Recharge@SuperClass@@QAE_N_N@Z",
+   "entry": "0069cfc0",
+   "body_bytes": 208,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Discharged@SuperClass@@QAE_N_NABVCell@@@Z",
+   "entry": "0069d090",
+   "body_bytes": 765,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?unknown_69d390@SuperClass@@QAE_N_N@Z",
+   "entry": "0069d390",
+   "body_bytes": 464,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Anim_Stage@SuperClass@@QBEHXZ",
+   "entry": "0069d560",
+   "body_bytes": 279,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?get@Leaf_69d680@@QAEXXZ",
+   "entry": "0069d680",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Forced_Charge@SuperClass@@QAEX_N@Z",
+   "entry": "0069d690",
+   "body_bytes": 204,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Is_Powered@SuperClass@@QBE_NXZ",
+   "entry": "0069d760",
+   "body_bytes": 10,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?State_String@SuperClass@@QBEPBGXZ",
+   "entry": "0069d770",
+   "body_bytes": 163,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Unknown_0069D820@SuperClass@@QAE_NXZ",
+   "entry": "0069d820",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Place@SuperClass@@QAEXABVCell@@_N@Z",
+   "entry": "0069d850",
+   "body_bytes": 4388,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?FUN_0069e980@seed_0069e980@@YGXHH@Z",
+   "entry": "0069e980",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?unknown_69e990@SuperClass@@QBE_NXZ",
+   "entry": "0069e990",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?GetClassID@SuperClass@@UAGJPAUGUID@@@Z",
+   "entry": "0069e9b0",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Load@SuperClass@@UAGJPAUIStream@@@Z",
+   "entry": "0069e9f0",
+   "body_bytes": 219,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Save@SuperClass@@UAGJPAUIStream@@H@Z",
+   "entry": "0069ead0",
+   "body_bytes": 29,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Detach@SuperClass@@UAEXPAVAbstractClass@@_N@Z",
+   "entry": "0069eaf0",
+   "body_bytes": 43,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Compute_CRC@SuperClass@@UBEXAAVWWCRCEngine@@@Z",
+   "entry": "0069eb20",
+   "body_bytes": 140,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?unknown_69ebb0@SuperClass@@QAEXXZ",
+   "entry": "0069ebb0",
+   "body_bytes": 228,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?What_Am_I@SuperClass@@UAGHXZ",
+   "entry": "0069eca0",
+   "body_bytes": 8,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Kind_Of@SuperClass@@UBEHXZ",
+   "entry": "0069ecb0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Size_Of@SuperClass@@UBEHXZ",
+   "entry": "0069ecc0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "??_GSuperClass@@UAEPAXI@Z",
+   "entry": "0069ecd0",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?FUN_0069ed30@seed_0069ed30@@YIXPAH@Z",
+   "entry": "0069ed30",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Delete@?$DynamicVectorClass@PAVAbstractClass@@@@QAE_NABQAVAbstractClass@@@Z",
+   "entry": "0069ed40",
+   "body_bytes": 65,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Delete@?$DynamicVectorClass@PAVSuperClass@@@@QAE_NH@Z",
+   "entry": "0069ed90",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  }
+ ],
+ "code_bytes": 10720,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "__real@8@c005c800000000000000",
+   "address": "007a5fc8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 121
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007ac1d0",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7SuperClass@@6BINoticeSource@@@",
+   "address": "007ac1e0",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 67
+  },
+  {
+   "symbol": "??_7SuperClass@@6BINoticeSink@@@",
+   "address": "007ac1e8",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 68
+  },
+  {
+   "symbol": "??_7SuperClass@@6BIRTTITypeInfo@@@",
+   "address": "007ac1f0",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 69
+  },
+  {
+   "symbol": "??_7SuperClass@@6BIPersistStream@@@",
+   "address": "007ac20c",
+   "bytes": 100,
+   "kind": "vtable",
+   "section": 70
+  },
+  {
+   "symbol": "__real@8@4004d800000000000000",
+   "address": "007ac270",
+   "bytes": 8,
+   "kind": "table",
+   "section": 102
+  },
+  {
+   "symbol": "??_R1M@?0A@A@INoticeSource@@8",
+   "address": "007b30b8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 48
+  },
+  {
+   "symbol": "??_R17?0A@A@INoticeSink@@8",
+   "address": "007b30d0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 50
+  },
+  {
+   "symbol": "??_R13?0A@1IUnknown@@8",
+   "address": "007b30e8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 51
+  },
+  {
+   "symbol": "??_R13?0A@A@IRTTITypeInfo@@8",
+   "address": "007b3100",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 53
+  },
+  {
+   "symbol": "??_R1A@?0A@1IUnknown@@8",
+   "address": "007b3118",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 55
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersist@@8",
+   "address": "007b3130",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 57
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersistStream@@8",
+   "address": "007b3148",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 59
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractClass@@8",
+   "address": "007b3160",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 61
+  },
+  {
+   "symbol": "??_R4SuperClass@@6BINoticeSource@@@",
+   "address": "007c31a0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R4SuperClass@@6BINoticeSink@@@",
+   "address": "007c31b8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 45
+  },
+  {
+   "symbol": "??_R4SuperClass@@6BIRTTITypeInfo@@@",
+   "address": "007c31d0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 46
+  },
+  {
+   "symbol": "??_R1A@?0A@A@SuperClass@@8",
+   "address": "007c31e8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 62
+  },
+  {
+   "symbol": "??_R2SuperClass@@8",
+   "address": "007c3200",
+   "bytes": 37,
+   "kind": "rtti",
+   "section": 63
+  },
+  {
+   "symbol": "??_R3SuperClass@@8",
+   "address": "007c3228",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 64
+  },
+  {
+   "symbol": "??_R4SuperClass@@6BIPersistStream@@@",
+   "address": "007c3238",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 66
+  },
+  {
+   "symbol": "??_R0?AVINoticeSink@@@8",
+   "address": "007cd618",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 49
+  },
+  {
+   "symbol": "??_R0?AUIUnknown@@@8",
+   "address": "007cd638",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 54
+  },
+  {
+   "symbol": "??_R0?AVINoticeSource@@@8",
+   "address": "007ce1c8",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 47
+  },
+  {
+   "symbol": "??_R0?AUIRTTITypeInfo@@@8",
+   "address": "007ce1e8",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 52
+  },
+  {
+   "symbol": "??_R0?AUIPersist@@@8",
+   "address": "007ce208",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 56
+  },
+  {
+   "symbol": "??_R0?AUIPersistStream@@@8",
+   "address": "007ce220",
+   "bytes": 29,
+   "kind": "rtti",
+   "section": 58
+  },
+  {
+   "symbol": "??_R0?AVAbstractClass@@@8",
+   "address": "007ce240",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 60
+  },
+  {
+   "symbol": "??_C@_07KHHH@PSIWARN?$AA@",
+   "address": "007cfa20",
+   "bytes": 8,
+   "kind": "string",
+   "section": 122
+  },
+  {
+   "symbol": "??_C@_0M@BCEA@NukePayload?$AA@",
+   "address": "007d1240",
+   "bytes": 12,
+   "kind": "string",
+   "section": 123
+  },
+  {
+   "symbol": "??_C@_09IMGH@TXT_READY?$AA@",
+   "address": "007d1610",
+   "bytes": 10,
+   "kind": "string",
+   "section": 113
+  },
+  {
+   "symbol": "??_C@_0BK@OPHL@EVA_LightningStormCreated?$AA@",
+   "address": "007ddbc8",
+   "bytes": 26,
+   "kind": "string",
+   "section": 126
+  },
+  {
+   "symbol": "??_C@_07IIFO@PDPLANE?$AA@",
+   "address": "007ee570",
+   "bytes": 8,
+   "kind": "string",
+   "section": 124
+  },
+  {
+   "symbol": "??_C@_08JP@TXT_HOLD?$AA@",
+   "address": "007f3eb4",
+   "bytes": 9,
+   "kind": "string",
+   "section": 111
+  },
+  {
+   "symbol": "??_R0?AVSuperClass@@@8",
+   "address": "007f6528",
+   "bytes": 25,
+   "kind": "rtti",
+   "section": 65
+  },
+  {
+   "symbol": "??_C@_0BI@LBFC@EVA_ReinforcementsReady?$AA@",
+   "address": "007f6544",
+   "bytes": 24,
+   "kind": "string",
+   "section": 95
+  },
+  {
+   "symbol": "??_C@_0BG@COOK@EVA_ChronosphereReady?$AA@",
+   "address": "007f655c",
+   "bytes": 22,
+   "kind": "string",
+   "section": 96
+  },
+  {
+   "symbol": "??_C@_0BI@JJFK@EVA_LightningStormReady?$AA@",
+   "address": "007f6574",
+   "bytes": 24,
+   "kind": "string",
+   "section": 97
+  },
+  {
+   "symbol": "??_C@_0BF@EOKO@EVA_IronCurtainReady?$AA@",
+   "address": "007f658c",
+   "bytes": 21,
+   "kind": "string",
+   "section": 98
+  },
+  {
+   "symbol": "??_C@_0BI@IALN@EVA_NuclearMissileReady?$AA@",
+   "address": "007f65a4",
+   "bytes": 24,
+   "kind": "string",
+   "section": 99
+  },
+  {
+   "symbol": "??_C@_0N@FBLE@TXT_CHARGING?$AA@",
+   "address": "007f65bc",
+   "bytes": 13,
+   "kind": "string",
+   "section": 112
+  },
+  {
+   "symbol": "??_C@_0BB@CIBI@TXT_FIRESTORM_ON?$AA@",
+   "address": "007f65cc",
+   "bytes": 17,
+   "kind": "string",
+   "section": 114
+  },
+  {
+   "symbol": "??_C@_0BB@JFLP@D?3?2Ra2?2Super?4CPP?$AA@",
+   "address": "007f65e0",
+   "bytes": 17,
+   "kind": "string",
+   "section": 115
+  },
+  {
+   "symbol": "??_C@_0BL@LECF@EVA_NuclearMissileLaunched?$AA@",
+   "address": "007f65f4",
+   "bytes": 27,
+   "kind": "string",
+   "section": 120
+  },
+  {
+   "symbol": "??_C@_0BJ@ECIB@EVA_IronCurtainActivated?$AA@",
+   "address": "007f6610",
+   "bytes": 25,
+   "kind": "string",
+   "section": 125
+  },
+  {
+   "symbol": "??_C@_0BK@KIGD@EVA_ChronosphereActivated?$AA@",
+   "address": "007f662c",
+   "bytes": 26,
+   "kind": "string",
+   "section": 127
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@c005c800000000000000",
+   "address": "007a5fc8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007ac1d0",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7SuperClass@@6BINoticeSource@@@",
+   "address": "007ac1e0",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7SuperClass@@6BINoticeSink@@@",
+   "address": "007ac1e8",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7SuperClass@@6BIRTTITypeInfo@@@",
+   "address": "007ac1f0",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7SuperClass@@6BIPersistStream@@@",
+   "address": "007ac20c",
+   "bytes": 100,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "__real@8@4004d800000000000000",
+   "address": "007ac270",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_R1M@?0A@A@INoticeSource@@8",
+   "address": "007b30b8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R17?0A@A@INoticeSink@@8",
+   "address": "007b30d0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R13?0A@1IUnknown@@8",
+   "address": "007b30e8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R13?0A@A@IRTTITypeInfo@@8",
+   "address": "007b3100",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@1IUnknown@@8",
+   "address": "007b3118",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersist@@8",
+   "address": "007b3130",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersistStream@@8",
+   "address": "007b3148",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractClass@@8",
+   "address": "007b3160",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4SuperClass@@6BINoticeSource@@@",
+   "address": "007c31a0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4SuperClass@@6BINoticeSink@@@",
+   "address": "007c31b8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4SuperClass@@6BIRTTITypeInfo@@@",
+   "address": "007c31d0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@SuperClass@@8",
+   "address": "007c31e8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2SuperClass@@8",
+   "address": "007c3200",
+   "bytes": 37,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3SuperClass@@8",
+   "address": "007c3228",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4SuperClass@@6BIPersistStream@@@",
+   "address": "007c3238",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVINoticeSink@@@8",
+   "address": "007cd618",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIUnknown@@@8",
+   "address": "007cd638",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVINoticeSource@@@8",
+   "address": "007ce1c8",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIRTTITypeInfo@@@8",
+   "address": "007ce1e8",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIPersist@@@8",
+   "address": "007ce208",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIPersistStream@@@8",
+   "address": "007ce220",
+   "bytes": 29,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVAbstractClass@@@8",
+   "address": "007ce240",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_07KHHH@PSIWARN?$AA@",
+   "address": "007cfa20",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@BCEA@NukePayload?$AA@",
+   "address": "007d1240",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09IMGH@TXT_READY?$AA@",
+   "address": "007d1610",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BK@OPHL@EVA_LightningStormCreated?$AA@",
+   "address": "007ddbc8",
+   "bytes": 26,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07IIFO@PDPLANE?$AA@",
+   "address": "007ee570",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08JP@TXT_HOLD?$AA@",
+   "address": "007f3eb4",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AVSuperClass@@@8",
+   "address": "007f6528",
+   "bytes": 25,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0BI@LBFC@EVA_ReinforcementsReady?$AA@",
+   "address": "007f6544",
+   "bytes": 24,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BG@COOK@EVA_ChronosphereReady?$AA@",
+   "address": "007f655c",
+   "bytes": 22,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BI@JJFK@EVA_LightningStormReady?$AA@",
+   "address": "007f6574",
+   "bytes": 24,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BF@EOKO@EVA_IronCurtainReady?$AA@",
+   "address": "007f658c",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BI@IALN@EVA_NuclearMissileReady?$AA@",
+   "address": "007f65a4",
+   "bytes": 24,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@FBLE@TXT_CHARGING?$AA@",
+   "address": "007f65bc",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@CIBI@TXT_FIRESTORM_ON?$AA@",
+   "address": "007f65cc",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@JFLP@D?3?2Ra2?2Super?4CPP?$AA@",
+   "address": "007f65e0",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BL@LECF@EVA_NuclearMissileLaunched?$AA@",
+   "address": "007f65f4",
+   "bytes": 27,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BJ@ECIB@EVA_IronCurtainActivated?$AA@",
+   "address": "007f6610",
+   "bytes": 25,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BK@KIGD@EVA_ChronosphereActivated?$AA@",
+   "address": "007f662c",
+   "bytes": 26,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00691d30",
+   "symbol": "??0SuperClass@@QAE@XZ",
+   "target": "0069c660",
+   "function_entry": true
+  },
+  {
+   "site": "004e4ef0",
+   "symbol": "?unknown_func_69d390@UnknownSuperView@@QAE_N_N@Z",
+   "target": "0069d390",
+   "function_entry": true
+  },
+  {
+   "site": "004e68d0",
+   "symbol": "?unknown_func_69d090@UnknownSuperView@@QAEX_NPBVCell@@@Z",
+   "target": "0069d090",
+   "function_entry": true
+  },
+  {
+   "site": "004e68d0",
+   "symbol": "?unknown_func_69cfb0@UnknownSuperView@@QAEXH@Z",
+   "target": "0069cfb0",
+   "function_entry": true
+  },
+  {
+   "site": "004e68d0",
+   "symbol": "?unknown_func_69cfc0@UnknownSuperView@@QAEX_N@Z",
+   "target": "0069cfc0",
+   "function_entry": true
+  },
+  {
+   "site": "00452390",
+   "symbol": "?unknown_69ebb0@SuperClass@@QAEXXZ",
+   "target": "0069ebb0",
+   "function_entry": true
+  },
+  {
+   "site": "006b11a0",
+   "symbol": "?Grant@SuperClass@@QAE_N_N00@Z",
+   "target": "0069ccf0",
+   "function_entry": true
+  },
+  {
+   "site": "006b1200",
+   "symbol": "?Grant@SuperClass@@QAE_N_N00@Z",
+   "target": "0069ccf0",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "??0SuperClass@@QAE@PAVSuperWeaponTypeClass@@PAVHouseClass@@@Z",
+   "target": "0069c730",
+   "function_entry": true
+  },
+  {
+   "site": "004f4db0",
+   "symbol": "?Grant@SuperClass@@QAE_N_N00@Z",
+   "target": "0069ccf0",
+   "function_entry": true
+  },
+  {
+   "site": "004e4110",
+   "symbol": "?unknown_69d390@SuperClass@@QAE_N_N@Z",
+   "target": "0069d390",
+   "function_entry": true
+  },
+  {
+   "site": "0067f050",
+   "symbol": "?Unknown_0069D820@SuperClass@@QAE_NXZ",
+   "target": "0069d820",
+   "function_entry": true
+  },
+  {
+   "site": "006e2230",
+   "symbol": "?Suspend@SuperClass@@QAE_N_N@Z",
+   "target": "0069cc60",
+   "function_entry": true
+  },
+  {
+   "site": "004f4b20",
+   "symbol": "?Is_Powered@SuperClass@@QBE_NXZ",
+   "target": "0069d760",
+   "function_entry": true
+  },
+  {
+   "site": "004f4b20",
+   "symbol": "?Suspend@SuperClass@@QAE_N_N@Z",
+   "target": "0069cc60",
+   "function_entry": true
+  },
+  {
+   "site": "004f4b20",
+   "symbol": "?Suspend@SuperClass@@QAE_N_N@Z",
+   "target": "0069cc60",
+   "function_entry": true
+  },
+  {
+   "site": "004f4b20",
+   "symbol": "?Remove@SuperClass@@QAE_NXZ",
+   "target": "0069cf40",
+   "function_entry": true
+  },
+  {
+   "site": "006809f0",
+   "symbol": "?Unknown_0069D820@SuperClass@@QAE_NXZ",
+   "target": "0069d820",
+   "function_entry": true
+  },
+  {
+   "site": "006809f0",
+   "symbol": "?Unknown_0069D680@SuperClass@@QAEXXZ",
+   "target": "0069d680",
+   "function_entry": true
+  },
+  {
+   "site": "00476cc0",
+   "symbol": "?Grant@SuperClass@@QAE_N_N00@Z",
+   "target": "0069ccf0",
+   "function_entry": true
+  },
+  {
+   "site": "006adae0",
+   "symbol": "?Start@?$CDTimerClass@VFrameTimerClass@@@@QAEXXZ",
+   "target": "0069ed30",
+   "function_entry": true
+  },
+  {
+   "site": "006adae0",
+   "symbol": "?Grant@SuperClass@@QAE_N_N00@Z",
+   "target": "0069ccf0",
+   "function_entry": true
+  },
+  {
+   "site": "006adae0",
+   "symbol": "?Grant@SuperClass@@QAE_N_N00@Z",
+   "target": "0069ccf0",
+   "function_entry": true
+  },
+  {
+   "site": "0067f800",
+   "symbol": "?unknown_69e990@SuperClass@@QBE_NXZ",
+   "target": "0069e990",
+   "function_entry": true
+  },
+  {
+   "site": "0067f800",
+   "symbol": "?State_String@SuperClass@@QBEPBGXZ",
+   "target": "0069d770",
+   "function_entry": true
+  },
+  {
+   "site": "0067f800",
+   "symbol": "?Anim_Stage@SuperClass@@QBEHXZ",
+   "target": "0069d560",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0AbstractClass@@QAE@XZ",
+   "address": "0040ff10"
+  },
+  {
+   "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABUCoordStruct@@HHHH@Z",
+   "address": "00420110"
+  },
+  {
+   "symbol": "??1AbstractClass@@UAE@XZ",
+   "address": "0040ff90"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??AMapClass@@QAEAAVCellClass@@ABUCoordStruct@@@Z",
+   "address": "00548000"
+  },
+  {
+   "symbol": "??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z",
+   "address": "00548070"
+  },
+  {
+   "symbol": "??RWWCRCEngine@@QAEXJ@Z",
+   "address": "00493f30"
+  },
+  {
+   "symbol": "??RWWCRCEngine@@QAEX_N@Z",
+   "address": "00493e80"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "?AI@AbstractClass@@UAEXXZ",
+   "address": "00410310"
+  },
+  {
+   "symbol": "?AddRef@AbstractClass@@UAGKXZ",
+   "address": "004100a0"
+  },
+  {
+   "symbol": "?BuildingTypes@@3V?$DynamicVectorClass@PAVBuildingTypeClass@@@@A",
+   "address": "00a35cd8"
+  },
+  {
+   "symbol": "?Center_Coord@AbstractClass@@UBE?AUCoordStruct@@XZ",
+   "address": "00410260"
+  },
+  {
+   "symbol": "?Compute_CRC@AbstractClass@@UBEXAAVWWCRCEngine@@@Z",
+   "address": "004101b0"
+  },
+  {
+   "symbol": "?Create_Bullet@@YIPAVBulletClass@@PAVBulletTypeClass@@PAVAbstractClass@@PAVTechnoClass@@HPAVWarheadTypeClass@@H_N@Z",
+   "address": "00463990"
+  },
+  {
+   "symbol": "?Create_ID@AbstractClass@@UAGXXZ",
+   "address": "0040ffd0"
+  },
+  {
+   "symbol": "?Fetch_Heap_ID@AbstractClass@@UBEHXZ",
+   "address": "00410250"
+  },
+  {
+   "symbol": "?Fetch_ID@AbstractClass@@UAGJXZ",
+   "address": "0040ffc0"
+  },
+  {
+   "symbol": "?Find_Building@HouseClass@@QAEPAVBuildingClass@@HH@Z",
+   "address": "004e8560"
+  },
+  {
+   "symbol": "?Find_Index@VoxClass@@SIHPBD@Z",
+   "address": "00716640"
+  },
+  {
+   "symbol": "?Frame@@3HA",
+   "address": "00a40d2c"
+  },
+  {
+   "symbol": "?From_Name@AircraftTypeClass@@SIHPBD@Z",
+   "address": "0041be60"
+  },
+  {
+   "symbol": "?GetSizeMax@AbstractClass@@UAGJPATULARGE_INTEGER@@@Z",
+   "address": "00410180"
+  },
+  {
+   "symbol": "?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z",
+   "address": "0055a280"
+  },
+  {
+   "symbol": "?INoticeSink_Unknown@AbstractClass@@UAE_NHH@Z",
+   "address": "00410320"
+  },
+  {
+   "symbol": "?INoticeSource_Unknown@AbstractClass@@UAGXXZ",
+   "address": "00410330"
+  },
+  {
+   "symbol": "?In_Air@AbstractClass@@UBE_NXZ",
+   "address": "004102d0"
+  },
+  {
+   "symbol": "?Index_From_Name@WeaponTypeClass@@SIHPBD@Z",
+   "address": "00733f30"
+  },
+  {
+   "symbol": "?Init@AbstractClass@@UAEXXZ",
+   "address": "00410210"
+  },
+  {
+   "symbol": "?IsDirty@AbstractClass@@UAGJXZ",
+   "address": "004101f0"
+  },
+  {
+   "symbol": "?Is_Inactive@AbstractClass@@UBE_NXZ",
+   "address": "004101e0"
+  },
+  {
+   "symbol": "?Is_Storm_Pending_Bool_0051FC30@@YI_NXZ",
+   "address": "0051fc30"
+  },
+  {
+   "symbol": "?Is_Tile_Water@CellClass@@QBE_NXZ",
+   "address": "0047a270"
+  },
+  {
+   "symbol": "?Load@AbstractClass@@UAGJPAUIStream@@@Z",
+   "address": "00410120"
+  },
+  {
+   "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
+   "address": "006f9ec0"
+  },
+  {
+   "symbol": "?Map@@3VMouseClass@@A",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "?Nearby_Location@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z",
+   "address": "005502e0"
+  },
+  {
+   "symbol": "?On_Ground@AbstractClass@@UBE_NXZ",
+   "address": "004102c0"
+  },
+  {
+   "symbol": "?Owner@AbstractClass@@UBEHXZ",
+   "address": "00410230"
+  },
+  {
+   "symbol": "?Owning_House@AbstractClass@@UBEPAVHouseClass@@XZ",
+   "address": "00410240"
+  },
+  {
+   "symbol": "?Query@?$UnknownComPtr@UIPiggyback@@$1?unknown_uuid_IPiggyback_7cfc30@@3UGUID@@B@@QAEJABV?$UnknownComPtr@UILocomotion@@$1?unknown_uuid_ILocomotion_7ce600@@3UGUID@@B@@@Z",
+   "address": "00454c70"
+  },
+  {
+   "symbol": "?QueryInterface@AbstractClass@@UAGJABUGUID@@PAPAX@Z",
+   "address": "00410000"
+  },
+  {
+   "symbol": "?Release@AbstractClass@@UAGKXZ",
+   "address": "004100b0"
+  },
+  {
+   "symbol": "?Rules@@3PAVRulesClass@@A",
+   "address": "00839848"
+  },
+  {
+   "symbol": "?Save@AbstractClass@@UAGJPAUIStream@@H@Z",
+   "address": "004100c0"
+  },
+  {
+   "symbol": "?Set_Weapon_Type@BulletClass@@QAEXPAVWeaponTypeClass@@@Z",
+   "address": "00463ba0"
+  },
+  {
+   "symbol": "?Speech_Cancel@@YIXH@Z",
+   "address": "00715e80"
+  },
+  {
+   "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
+   "address": "00715b40"
+  },
+  {
+   "symbol": "?Storm_Active_Message_00520BF0@@YIXXZ",
+   "address": "00520bf0"
+  },
+  {
+   "symbol": "?Supers@@3V?$DynamicVectorClass@PAVSuperClass@@@@A",
+   "address": "00a35d28"
+  },
+  {
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "address": "0069fb20"
+  },
+  {
+   "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+   "address": "00abd868"
+  },
+  {
+   "symbol": "?Unknown_00405D50@UnknownAudioController@@QAEXXZ",
+   "address": "00405d50"
+  },
+  {
+   "symbol": "?Unknown_00405FE0@UnknownAudioController@@QAEXXZ",
+   "address": "00405fe0"
+  },
+  {
+   "symbol": "?Unknown_00438B80@@YIXPAVHouseClass@@PAVCellClass@@PAVBulletClass@@PBD@Z",
+   "address": "00438b80"
+  },
+  {
+   "symbol": "?Unknown_004F52F0@HouseClass@@QAE_NXZ",
+   "address": "004f52f0"
+  },
+  {
+   "symbol": "?Unknown_0051F930@@YIXHHVCell@@PAVHouseClass@@@Z",
+   "address": "0051f930"
+  },
+  {
+   "symbol": "?Unknown_0063A690@@YIHPAVHouseClass@@HHHPAVCellClass@@PAVAbstractClass@@HH@Z",
+   "address": "0063a690"
+  },
+  {
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "address": "0063b5b0"
+  },
+  {
+   "symbol": "?Voc_Static_Add@@YIPAUAudioEvent@@HABUCoordStruct@@I@Z",
+   "address": "00714290"
+  },
+  {
+   "symbol": "?_AddRef@?$UnknownComPtr@UILocomotion@@$1?unknown_uuid_ILocomotion_7ce600@@3UGUID@@B@@QBEXXZ",
+   "address": "00453ea0"
+  },
+  {
+   "symbol": "?_AddRef@?$UnknownComPtr@UIPiggyback@@$1?unknown_uuid_IPiggyback_7cfc30@@3UGUID@@B@@QBEXXZ",
+   "address": "0069ed20"
+  },
+  {
+   "symbol": "?_com_issue_error@@YGXJ@Z",
+   "address": "00795940"
+  },
+  {
+   "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+   "address": "00839b90"
+  },
+  {
+   "symbol": "?unknown_abstracts_ac0bf8@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0bf8"
+  },
+  {
+   "symbol": "?unknown_abstracts_ac0d08@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0d08"
+  },
+  {
+   "symbol": "?unknown_cell_abd768@@3VCell@@B",
+   "address": "00abd768"
+  },
+  {
+   "symbol": "?unknown_cos_4ba4d0@@YANN@Z",
+   "address": "004ba4d0"
+  },
+  {
+   "symbol": "?unknown_dummy_cell_a6f9f8@@3VCellClass@@A",
+   "address": "00a6f9f8"
+  },
+  {
+   "symbol": "?unknown_empty_wide_839d4c@@3QBGB",
+   "address": "00839d4c"
+  },
+  {
+   "symbol": "?unknown_int_a3d548@@3HA",
+   "address": "00a3d548"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0cb0"
+  },
+  {
+   "symbol": "?unknown_pending_super_833694@@3HA",
+   "address": "00833694"
+  },
+  {
+   "symbol": "?unknown_sin_4ba480@@YANN@Z",
+   "address": "004ba480"
+  },
+  {
+   "symbol": "?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z",
+   "address": "00410290"
+  },
+  {
+   "symbol": "?unknown_slot22@AbstractClass@@UBE?AUCoordStruct@@XZ",
+   "address": "004102e0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_supers_a35db8@@3V?$DynamicVectorClass@PAVSuperClass@@@@A",
+   "address": "00a35db8"
+  },
+  {
+   "symbol": "_CLSID_SuperClass",
+   "address": "007a1af0"
+  },
+  {
+   "symbol": "_CLSID_TeleportLocomotionClass",
+   "address": "007a1fd0"
+  },
+  {
+   "symbol": "_Frame_00a40d2c",
+   "address": "00a40d2c"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__CoCreateInstance@20",
+   "address": "0079a5f0"
+  },
+  {
+   "symbol": "__imp__OleRun@4",
+   "address": "0079a5f4"
+  },
+  {
+   "symbol": "_unknown_uuid_ILocomotion_7ce600",
+   "address": "007ce600"
+  },
+  {
+   "symbol": "_unknown_uuid_IUnknown_7ce610",
+   "address": "007ce610"
+  }
+ ],
+ "route": "A",
+ "unit": "super.cpp",
+ "form": "one include block",
+ "switches": [
+  "RA2_VECTOR_DELETE_DIRECT",
+  "RA2_BUILDING_LOCOMOTOR_ADDREF_DECL",
+  "RA2_COORD_TPOINT3D",
+  "RA2_OBJECT_IS_FOOT"
+ ],
+ "include_blocks": [
+  {
+   "before": "0069c3b0",
+   "lines": 28
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "0069ed40",
+   "bytes": 65,
+   "population": "population-2685",
+   "bound": "own frozen bound (population-2685)"
+  },
+  {
+   "entry": "0069ed90",
+   "bytes": 49,
+   "population": "population-2685",
+   "bound": "own frozen bound (population-2685)"
+  },
+  {
+   "entry": "0069cfb0",
+   "bytes": 10,
+   "population": "population-42",
+   "bound": "own frozen bound (population-42)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0069d680",
+   "bytes": 1,
+   "population": "population-4352",
+   "bound": "own frozen bound (population-4352)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0069e980",
+   "bytes": 3,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0069ed30",
+   "bytes": 13,
+   "population": "population-42",
+   "bound": "own frozen bound (population-42)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "0069ecf0",
+   "bytes": 47,
+   "population": "population-3406",
+   "source": "src/recovered/classes/CoordStruct/operator_plus.cpp",
+   "cause": "frozen in another population's inventory pass (population-3406)"
+  },
+  {
+   "kind": "split",
+   "entry": "0069ed20",
+   "bytes": 13,
+   "population": "population-3353",
+   "source": "src/recovered/unowned/unknown_add_ref_member_0069ed20.cpp",
+   "cause": "frozen in another population's inventory pass (population-3353)"
+  },
+  {
+   "kind": "split",
+   "entry": "006b32c0",
+   "bytes": 54,
+   "population": "population-4193",
+   "source": "src/recovered/classes/CDTimerClass_FrameTimerClass/Stop.cpp",
+   "cause": "frozen in another population's inventory pass (population-4193)"
+  }
+ ],
+ "unit_functions": 51,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "004e4ef0",
+   "target": "0069d390",
+   "symbol": "?unknown_func_69d390@UnknownSuperView@@QAE_N_N@Z",
+   "module_symbol": "?unknown_69d390@SuperClass@@QAE_N_N@Z"
+  },
+  {
+   "site": "004e68d0",
+   "target": "0069d090",
+   "symbol": "?unknown_func_69d090@UnknownSuperView@@QAEX_NPBVCell@@@Z",
+   "module_symbol": "?Discharged@SuperClass@@QAE_N_NABVCell@@@Z"
+  },
+  {
+   "site": "004e68d0",
+   "target": "0069cfb0",
+   "symbol": "?unknown_func_69cfb0@UnknownSuperView@@QAEXH@Z",
+   "module_symbol": "?FUN_0069cfb0@Owner_0069cfb0@seed_0069cfb0@@QAEXE@Z"
+  },
+  {
+   "site": "004e68d0",
+   "target": "0069cfc0",
+   "symbol": "?unknown_func_69cfc0@UnknownSuperView@@QAEX_N@Z",
+   "module_symbol": "?Recharge@SuperClass@@QAE_N_N@Z"
+  },
+  {
+   "site": "006809f0",
+   "target": "0069d680",
+   "symbol": "?Unknown_0069D680@SuperClass@@QAEXXZ",
+   "module_symbol": "?get@Leaf_69d680@@QAEXXZ"
+  },
+  {
+   "site": "006adae0",
+   "target": "0069ed30",
+   "symbol": "?Start@?$CDTimerClass@VFrameTimerClass@@@@QAEXXZ",
+   "module_symbol": "?FUN_0069ed30@seed_0069ed30@@YIXPAH@Z"
+  }
+ ],
+ "stand_in_reference_count": 6,
+ "residual_split": {
+  "rows": 3,
+  "bytes": 114
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

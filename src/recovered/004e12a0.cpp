@@ -6,23 +6,20 @@
 // Callees with accepted source:
 //   FUN_004e1290 -> src/recovered/004e1290.cpp
 //
-// Types and names are Ghidra placeholders (see shared/ghidra_types.hpp);
+// Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
 //
-// seed-generated: tools/original_target/regenerate_seeds.py may rewrite this file;
-// delete this line when editing it by hand.
-#include "shared/ghidra_types.hpp"
 
 namespace seed_004e12a0 {
 
-extern undefined4  FUN_004e1290(void);
+extern unsigned int  FUN_004e1290(void);
 
 bool  FUN_004e12a0(void)
 {
-    char cVar1;
+    char result_byte;
 
-    cVar1 = (char)(FUN_004e1290());
-    return cVar1 == '\0';
+    result_byte = (char)(FUN_004e1290());
+    return result_byte == '\0';
 }
 
 }  // namespace seed_004e12a0

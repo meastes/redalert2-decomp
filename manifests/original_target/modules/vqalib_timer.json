@@ -1,0 +1,157 @@
+{
+ "module": "vqalib_timer",
+ "source": "src/recovered/vqalib_timer.cpp",
+ "header": null,
+ "population": "population-3121",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 634,
+ "code": [
+  {
+   "symbol": "?VQA_SetTimer@@YIXPAUVQAHandleP@@J@Z",
+   "entry": "0077cb20",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?VQA_StepTimer@@YIXPAUVQAHandleP@@J@Z",
+   "entry": "0077cb60",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?VQA_GetTime@@YIKPAUVQAHandleP@@@Z",
+   "entry": "0077cb70",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?VQA_Unknown_0077CBA0@@YIHPAUVQAHandle@@@Z",
+   "entry": "0077cba0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  }
+ ],
+ "code_bytes": 176,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0071ccd0",
+   "symbol": "?VQA_Unknown_0077CBA0@@YIHPAUVQAHandle@@@Z",
+   "target": "0077cba0",
+   "function_entry": true
+  },
+  {
+   "site": "0071cfc0",
+   "symbol": "?VQA_Unknown_0077CBA0@@YIHPAUVQAHandle@@@Z",
+   "target": "0077cba0",
+   "function_entry": true
+  },
+  {
+   "site": "00777c90",
+   "symbol": "?VQA_SetTimer@@YIXPAUVQAHandleP@@J@Z",
+   "target": "0077cb20",
+   "function_entry": true
+  },
+  {
+   "site": "00777c90",
+   "symbol": "?VQA_GetTime@@YIKPAUVQAHandleP@@@Z",
+   "target": "0077cb70",
+   "function_entry": true
+  },
+  {
+   "site": "00778030",
+   "symbol": "?VQA_StepTimer@@YIXPAUVQAHandleP@@J@Z",
+   "target": "0077cb60",
+   "function_entry": true
+  },
+  {
+   "site": "00778030",
+   "symbol": "?VQA_GetTime@@YIKPAUVQAHandleP@@@Z",
+   "target": "0077cb70",
+   "function_entry": true
+  },
+  {
+   "site": "00778030",
+   "symbol": "?VQA_StepTimer@@YIXPAUVQAHandleP@@J@Z",
+   "target": "0077cb60",
+   "function_entry": true
+  },
+  {
+   "site": "0077bf10",
+   "symbol": "?VQA_SetTimer@@YIXPAUVQAHandleP@@J@Z",
+   "target": "0077cb20",
+   "function_entry": true
+  },
+  {
+   "site": "0077bf10",
+   "symbol": "?VQA_GetTime@@YIKPAUVQAHandleP@@@Z",
+   "target": "0077cb70",
+   "function_entry": true
+  },
+  {
+   "site": "0077bf10",
+   "symbol": "?VQA_SetTimer@@YIXPAUVQAHandleP@@J@Z",
+   "target": "0077cb20",
+   "function_entry": true
+  },
+  {
+   "site": "0077bf10",
+   "symbol": "?VQA_GetTime@@YIKPAUVQAHandleP@@@Z",
+   "target": "0077cb70",
+   "function_entry": true
+  },
+  {
+   "site": "0077bf10",
+   "symbol": "?VQA_GetTime@@YIKPAUVQAHandleP@@@Z",
+   "target": "0077cb70",
+   "function_entry": true
+  },
+  {
+   "site": "0077c2e0",
+   "symbol": "?VQA_SetTimer@@YIXPAUVQAHandleP@@J@Z",
+   "target": "0077cb20",
+   "function_entry": true
+  }
+ ],
+ "references_out": [],
+ "route": "A",
+ "unit": "vqalib_timer.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "0077cb20",
+   "lines": 1
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 4,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

@@ -1,0 +1,745 @@
+{
+ "module": "abuffer",
+ "source": "src/recovered/abuffer.cpp",
+ "header": null,
+ "population": "population-2277",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 469,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00410a40",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??0ABuffer@@QAE@VRect@@@Z",
+   "entry": "00410a60",
+   "body_bytes": 214,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Copy_To@ABuffer@@QAEXAAVSurface@@VRect@@@Z",
+   "entry": "00410b40",
+   "body_bytes": 137,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??1ABuffer@@QAE@XZ",
+   "entry": "00410bd0",
+   "body_bytes": 25,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Set@ABuffer@@QAEXPAGHG@Z",
+   "entry": "00410bf0",
+   "body_bytes": 86,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Pan@ABuffer@@QAEXHHG@Z",
+   "entry": "00410c50",
+   "body_bytes": 1011,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Fill@ABuffer@@QAEXG@Z",
+   "entry": "00411050",
+   "body_bytes": 57,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Clear_Region_00411090@ABuffer@@QAEXGVRect@@@Z",
+   "entry": "00411090",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Update@ABuffer@@QAEXVRect@@@Z",
+   "entry": "004110b0",
+   "body_bytes": 377,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Get_Buffer_Offset@ABuffer@@QAEPAGUPoint2D@@@Z",
+   "entry": "00411230",
+   "body_bytes": 52,
+   "padding_bytes": 12
+  }
+ ],
+ "code_bytes": 2096,
+ "data": [
+  {
+   "symbol": "??_7Surface@@6B@",
+   "address": "0079b01c",
+   "bytes": 140,
+   "kind": "vtable",
+   "section": 44
+  },
+  {
+   "symbol": "??_R2XSurface@@8",
+   "address": "007b3278",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 7
+  },
+  {
+   "symbol": "??_R3XSurface@@8",
+   "address": "007b3288",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 8
+  },
+  {
+   "symbol": "??_R4XSurface@@6B@",
+   "address": "007b3298",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 9
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Surface@@8",
+   "address": "007b32b0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 11
+  },
+  {
+   "symbol": "??_R1A@?0A@A@XSurface@@8",
+   "address": "007b32c8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 13
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BSurface@@8",
+   "address": "007b32e0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 14
+  },
+  {
+   "symbol": "??_R2BSurface@@8",
+   "address": "007b32f8",
+   "bytes": 13,
+   "kind": "rtti",
+   "section": 15
+  },
+  {
+   "symbol": "??_R3BSurface@@8",
+   "address": "007b3308",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 16
+  },
+  {
+   "symbol": "??_R4BSurface@@6B@",
+   "address": "007b3318",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 18
+  },
+  {
+   "symbol": "??_R2Surface@@8",
+   "address": "007b332c",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 41
+  },
+  {
+   "symbol": "??_R3Surface@@8",
+   "address": "007b3338",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 42
+  },
+  {
+   "symbol": "??_R4Surface@@6B@",
+   "address": "007b3348",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 43
+  },
+  {
+   "symbol": "??_R0?AVSurface@@@8",
+   "address": "007ce2b0",
+   "bytes": 22,
+   "kind": "rtti",
+   "section": 10
+  },
+  {
+   "symbol": "??_R0?AVXSurface@@@8",
+   "address": "007ce2c8",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 12
+  },
+  {
+   "symbol": "??_R0?AVBSurface@@@8",
+   "address": "007ce2e0",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 17
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7Surface@@6B@",
+   "address": "0079b01c",
+   "bytes": 140,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R2XSurface@@8",
+   "address": "007b3278",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3XSurface@@8",
+   "address": "007b3288",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4XSurface@@6B@",
+   "address": "007b3298",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Surface@@8",
+   "address": "007b32b0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@XSurface@@8",
+   "address": "007b32c8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BSurface@@8",
+   "address": "007b32e0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2BSurface@@8",
+   "address": "007b32f8",
+   "bytes": 13,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3BSurface@@8",
+   "address": "007b3308",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4BSurface@@6B@",
+   "address": "007b3318",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2Surface@@8",
+   "address": "007b332c",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3Surface@@8",
+   "address": "007b3338",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4Surface@@6B@",
+   "address": "007b3348",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVSurface@@@8",
+   "address": "007ce2b0",
+   "bytes": 22,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVXSurface@@@8",
+   "address": "007ce2c8",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVBSurface@@@8",
+   "address": "007ce2e0",
+   "bytes": 23,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "004b0d30",
+   "symbol": "?Get_Buffer_Offset@ABuffer@@QAEPAGUPoint2D@@@Z",
+   "target": "00411230",
+   "function_entry": true
+  },
+  {
+   "site": "00498c80",
+   "symbol": "??1ABuffer@@QAE@XZ",
+   "target": "00410bd0",
+   "function_entry": true
+  },
+  {
+   "site": "00498c80",
+   "symbol": "??0ABuffer@@QAE@VRect@@@Z",
+   "target": "00410a60",
+   "function_entry": true
+  },
+  {
+   "site": "006909e0",
+   "symbol": "??1ABuffer@@QAE@XZ",
+   "target": "00410bd0",
+   "function_entry": true
+  },
+  {
+   "site": "005482c0",
+   "symbol": "?Unknown_00411050@Unknown8315B4@@QAEXH@Z",
+   "target": "00411050",
+   "function_entry": true
+  },
+  {
+   "site": "00474510",
+   "symbol": "?Get_Buffer_Offset@ABuffer@@QAEPAGUPoint2D@@@Z",
+   "target": "00411230",
+   "function_entry": true
+  },
+  {
+   "site": "006a3ef0",
+   "symbol": "?Update@ABuffer@@QAEXVRect@@@Z",
+   "target": "004110b0",
+   "function_entry": true
+  },
+  {
+   "site": "00609d10",
+   "symbol": "?Get_Buffer_Offset@ABuffer@@QAEPAGUPoint2D@@@Z",
+   "target": "00411230",
+   "function_entry": true
+  },
+  {
+   "site": "004afc30",
+   "symbol": "?Get_Buffer_Offset@ABuffer@@QAEPAGUPoint2D@@@Z",
+   "target": "00411230",
+   "function_entry": true
+  },
+  {
+   "site": "004b0650",
+   "symbol": "?Get_Buffer_Offset@ABuffer@@QAEPAGUPoint2D@@@Z",
+   "target": "00411230",
+   "function_entry": true
+  },
+  {
+   "site": "004ade00",
+   "symbol": "?Get_Buffer_Offset@ABuffer@@QAEPAGUPoint2D@@@Z",
+   "target": "00411230",
+   "function_entry": true
+  },
+  {
+   "site": "00434b40",
+   "symbol": "?Get_Buffer_Offset@ABuffer@@QAEPAGUPoint2D@@@Z",
+   "target": "00411230",
+   "function_entry": true
+  },
+  {
+   "site": "004350c0",
+   "symbol": "?Get_Buffer_Offset@ABuffer@@QAEPAGUPoint2D@@@Z",
+   "target": "00411230",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "??1ABuffer@@QAE@XZ",
+   "target": "00410bd0",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "??0ABuffer@@QAE@VRect@@@Z",
+   "target": "00410a60",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "?Clear_Region_00411090@ABuffer@@QAEXGVRect@@@Z",
+   "target": "00411090",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "?Clear_Region_00411090@ABuffer@@QAEXGVRect@@@Z",
+   "target": "00411090",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "?Clear_Region_00411090@ABuffer@@QAEXGVRect@@@Z",
+   "target": "00411090",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "?Clear_Region_00411090@ABuffer@@QAEXGVRect@@@Z",
+   "target": "00411090",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "??1ABuffer@@QAE@XZ",
+   "target": "00410bd0",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "??0ABuffer@@QAE@VRect@@@Z",
+   "target": "00410a60",
+   "function_entry": true
+  },
+  {
+   "site": "0068e280",
+   "symbol": "??0ABuffer@@QAE@VRect@@@Z",
+   "target": "00410a60",
+   "function_entry": true
+  },
+  {
+   "site": "004ae9c0",
+   "symbol": "?Get_Buffer_Offset@ABuffer@@QAEPAGUPoint2D@@@Z",
+   "target": "00411230",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "address": "004382c0"
+  },
+  {
+   "symbol": "??1Buffer@@QAE@XZ",
+   "address": "00438410"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_GBSurface@@UAEPAXI@Z",
+   "address": "004113d0"
+  },
+  {
+   "symbol": "??_GSurface@@UAEPAXI@Z",
+   "address": "00411350"
+  },
+  {
+   "symbol": "??_GXSurface@@UAEPAXI@Z",
+   "address": "00411320"
+  },
+  {
+   "symbol": "?Copy_From@XSurface@@UAE_NAAVSurface@@_N1@Z",
+   "address": "00774e60"
+  },
+  {
+   "symbol": "?Copy_From@XSurface@@UAE_NABVRect@@0AAVSurface@@00_N2@Z",
+   "address": "00775060"
+  },
+  {
+   "symbol": "?Copy_From@XSurface@@UAE_NABVRect@@AAVSurface@@0_N2@Z",
+   "address": "00774f00"
+  },
+  {
+   "symbol": "?Draw_Dashed_Line@XSurface@@UAEHABUPoint2D@@0HPB_NH@Z",
+   "address": "00773c30"
+  },
+  {
+   "symbol": "?Draw_Dashed_Line_Depth_Masked@XSurface@@UAEHABUPoint2D@@0HPB_NH_N@Z",
+   "address": "00773ea0"
+  },
+  {
+   "symbol": "?Draw_Depth_Antialiased_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@HH_N333M@Z",
+   "address": "00773ee0"
+  },
+  {
+   "symbol": "?Draw_Depth_Glow_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1HHH_N@Z",
+   "address": "00773ed0"
+  },
+  {
+   "symbol": "?Draw_Depth_Shaded_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1IHH_N@Z",
+   "address": "00773ec0"
+  },
+  {
+   "symbol": "?Draw_Ellipse@XSurface@@UAE_NUPoint2D@@HHVRect@@H@Z",
+   "address": null
+  },
+  {
+   "symbol": "?Draw_Line@XSurface@@UAE_NABUPoint2D@@0H@Z",
+   "address": "00773950"
+  },
+  {
+   "symbol": "?Draw_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1H@Z",
+   "address": "00773980"
+  },
+  {
+   "symbol": "?Draw_Line_Depth_Masked@XSurface@@UAE_NABUPoint2D@@0H_N@Z",
+   "address": "00773eb0"
+  },
+  {
+   "symbol": "?Draw_Rect@XSurface@@UAE_NABVRect@@0H@Z",
+   "address": "00774130"
+  },
+  {
+   "symbol": "?Draw_Rect@XSurface@@UAE_NABVRect@@H@Z",
+   "address": "00774100"
+  },
+  {
+   "symbol": "?Fill@XSurface@@UAE_NH@Z",
+   "address": "00774e20"
+  },
+  {
+   "symbol": "?Fill_Rect@XSurface@@UAE_NABVRect@@0H@Z",
+   "address": "007743c0"
+  },
+  {
+   "symbol": "?Fill_Rect@XSurface@@UAE_NABVRect@@H@Z",
+   "address": "00774390"
+  },
+  {
+   "symbol": "?Fill_Rect_Trans@XSurface@@UAE_NABVRect@@ABVRGBClass@@I@Z",
+   "address": "007746b0"
+  },
+  {
+   "symbol": "?Get_Pixel@XSurface@@UAEHABUPoint2D@@@Z",
+   "address": "007741d0"
+  },
+  {
+   "symbol": "?Get_Pixel@XSurface@@UAEHABUPoint2D@@ABVRect@@@Z",
+   "address": "00774280"
+  },
+  {
+   "symbol": "?Plot_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1P6IX1@Z@Z",
+   "address": null
+  },
+  {
+   "symbol": "?Put_Pixel@XSurface@@UAE_NABUPoint2D@@H@Z",
+   "address": "00774220"
+  },
+  {
+   "symbol": "?Put_Pixel@XSurface@@UAE_NABUPoint2D@@HABVRect@@@Z",
+   "address": "00774300"
+  },
+  {
+   "symbol": "?Unknown_Slot16@XSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@MHH@Z",
+   "address": "00773ef0"
+  },
+  {
+   "symbol": "__purecall",
+   "address": "004b8960"
+  }
+ ],
+ "route": "A",
+ "unit": "abuffer.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00410a40",
+   "lines": 2
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "00411270",
+   "bytes": 5,
+   "population": "population-3516",
+   "source": "src/recovered/classes/Surface/Can_Lock.cpp",
+   "cause": "frozen in another population's inventory pass (population-3516)"
+  },
+  {
+   "kind": "split",
+   "entry": "00411280",
+   "bytes": 5,
+   "population": "population-3516",
+   "source": "src/recovered/classes/Surface/Unknown_Slot26.cpp",
+   "cause": "frozen in another population's inventory pass (population-3516)"
+  },
+  {
+   "kind": "split",
+   "entry": "00411290",
+   "bytes": 36,
+   "population": "population-3516",
+   "source": "src/recovered/classes/Surface/Get_Rect.cpp",
+   "cause": "frozen in another population's inventory pass (population-3516)"
+  },
+  {
+   "kind": "split",
+   "entry": "004112c0",
+   "bytes": 4,
+   "population": "population-3516",
+   "source": "src/recovered/classes/Surface/Get_Width.cpp",
+   "cause": "frozen in another population's inventory pass (population-3516)"
+  },
+  {
+   "kind": "split",
+   "entry": "004112d0",
+   "bytes": 4,
+   "population": "population-3516",
+   "source": "src/recovered/classes/Surface/Get_Height.cpp",
+   "cause": "frozen in another population's inventory pass (population-3516)"
+  },
+  {
+   "kind": "split",
+   "entry": "004112e0",
+   "bytes": 12,
+   "population": "population-3516",
+   "source": "src/recovered/classes/XSurface/Lock.cpp",
+   "cause": "frozen in another population's inventory pass (population-3516)"
+  },
+  {
+   "kind": "split",
+   "entry": "004112f0",
+   "bytes": 10,
+   "population": "population-3516",
+   "source": "src/recovered/classes/XSurface/Unlock.cpp",
+   "cause": "frozen in another population's inventory pass (population-3516)"
+  },
+  {
+   "kind": "split",
+   "entry": "00411300",
+   "bytes": 11,
+   "population": "population-3516",
+   "source": "src/recovered/classes/XSurface/Is_Locked.cpp",
+   "cause": "frozen in another population's inventory pass (population-3516)"
+  },
+  {
+   "kind": "split",
+   "entry": "00411310",
+   "bytes": 3,
+   "population": "population-3516",
+   "source": "src/recovered/classes/XSurface/Is_Direct_Draw.cpp",
+   "cause": "frozen in another population's inventory pass (population-3516)"
+  },
+  {
+   "kind": "split",
+   "entry": "00411320",
+   "bytes": 32,
+   "population": "population-3516",
+   "source": "src/recovered/classes/XSurface/Scalar_Deleting_Destructor.cpp",
+   "cause": "frozen in another population's inventory pass (population-3516)"
+  },
+  {
+   "kind": "split",
+   "entry": "00411340",
+   "bytes": 3,
+   "population": "population-3516",
+   "source": "src/recovered/classes/Surface/Is_Direct_Draw.cpp",
+   "cause": "frozen in another population's inventory pass (population-3516)"
+  },
+  {
+   "kind": "split",
+   "entry": "00411350",
+   "bytes": 32,
+   "population": "population-3516",
+   "source": "src/recovered/classes/Surface/Scalar_Deleting_Destructor.cpp",
+   "cause": "frozen in another population's inventory pass (population-3516)"
+  },
+  {
+   "kind": "split",
+   "entry": "00411370",
+   "bytes": 49,
+   "population": "population-3516",
+   "source": "src/recovered/classes/BSurface/Lock.cpp",
+   "cause": "frozen in another population's inventory pass (population-3516)"
+  },
+  {
+   "kind": "split",
+   "entry": "004113b0",
+   "bytes": 4,
+   "population": "population-3516",
+   "source": "src/recovered/classes/BSurface/Bytes_Per_Pixel.cpp",
+   "cause": "frozen in another population's inventory pass (population-3516)"
+  },
+  {
+   "kind": "split",
+   "entry": "004113c0",
+   "bytes": 14,
+   "population": "population-3516",
+   "source": "src/recovered/classes/BSurface/Stride.cpp",
+   "cause": "frozen in another population's inventory pass (population-3516)"
+  },
+  {
+   "kind": "split",
+   "entry": "004113d0",
+   "bytes": 40,
+   "population": "population-3516",
+   "source": "src/recovered/classes/BSurface/Scalar_Deleting_Destructor.cpp",
+   "cause": "frozen in another population's inventory pass (population-3516)"
+  }
+ ],
+ "unit_functions": 26,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  },
+  {
+   "symbol": "??_7BSurface@@6B@",
+   "reason": "relocation target unbound: ?Draw_Ellipse@XSurface@@UAE_NUPoint2D@@HHVRect@@H@Z"
+  },
+  {
+   "symbol": "??_7XSurface@@6B@",
+   "reason": "relocation target unbound: ?Draw_Ellipse@XSurface@@UAE_NUPoint2D@@HHVRect@@H@Z"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "005482c0",
+   "target": "00411050",
+   "symbol": "?Unknown_00411050@Unknown8315B4@@QAEXH@Z",
+   "module_symbol": "?Fill@ABuffer@@QAEXG@Z"
+  }
+ ],
+ "stand_in_reference_count": 1,
+ "residual_split": {
+  "rows": 16,
+  "bytes": 264
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

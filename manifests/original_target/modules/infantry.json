@@ -1,0 +1,3608 @@
+{
+ "module": "infantry",
+ "source": "src/recovered/infantry.cpp",
+ "header": null,
+ "population": "population-4301",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 939,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "004ff450",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "004ff480",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "004ff4a0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "004ff4c0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "004ff4e0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "004ff500",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "004ff520",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "004ff560",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "004ff590",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "004ff5c0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "004ff5f0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "004ff600",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "004ff620",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??0InfantryClass@@QAE@PAVInfantryTypeClass@@PAVHouseClass@@@Z",
+   "entry": "004ff640",
+   "body_bytes": 617,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Init@InfantryClass@@UAEXXZ",
+   "entry": "004ff8b0",
+   "body_bytes": 207,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "??1InfantryClass@@UAE@XZ",
+   "entry": "004ff980",
+   "body_bytes": 486,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Take_Damage@InfantryClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z",
+   "entry": "004ffb70",
+   "body_bytes": 2004,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?unknown_500350@InfantryClass@@QAEHXZ",
+   "entry": "00500350",
+   "body_bytes": 497,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?unknown_slot67@InfantryClass@@UAEXABUPoint2D@@ABVRect@@@Z",
+   "entry": "00500550",
+   "body_bytes": 1356,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Detach@InfantryClass@@UAEXPAVAbstractClass@@_N@Z",
+   "entry": "00501cb0",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Assign_Destination@InfantryClass@@UAEXPAVAbstractClass@@_N@Z",
+   "entry": "00501ce0",
+   "body_bytes": 1936,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?unknown_slot220@InfantryClass@@UAEXPAVAbstractClass@@@Z",
+   "entry": "00502470",
+   "body_bytes": 334,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?AI@InfantryClass@@UAEXXZ",
+   "entry": "00502d20",
+   "body_bytes": 1128,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Can_Enter_Cell@InfantryClass@@UAEHPAVCellClass@@HH0_N@Z",
+   "entry": "00503190",
+   "body_bytes": 2255,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?unknown_slot218@InfantryClass@@UAEHPAVAbstractClass@@H_N@Z",
+   "entry": "00503a60",
+   "body_bytes": 406,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?unknown_slot261@InfantryClass@@UAE_N_N0@Z",
+   "entry": "00503c00",
+   "body_bytes": 507,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?unknown_slot258@InfantryClass@@UAE_NXZ",
+   "entry": "00503e00",
+   "body_bytes": 800,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Scatter@InfantryClass@@UAEXABUCoordStruct@@_N1@Z",
+   "entry": "00504120",
+   "body_bytes": 1563,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?unknown_slot311@InfantryClass@@UAE_NH_N0@Z",
+   "entry": "00504740",
+   "body_bytes": 914,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?unknown_slot291@InfantryClass@@UAE_NXZ",
+   "entry": "00504ae0",
+   "body_bytes": 223,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?unknown_slot290@InfantryClass@@UAE_NAAUCoordStruct@@@Z",
+   "entry": "00504bc0",
+   "body_bytes": 817,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Limbo@InfantryClass@@UAE_NXZ",
+   "entry": "00504f00",
+   "body_bytes": 74,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?unknown_slot221@InfantryClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z",
+   "entry": "00504f50",
+   "body_bytes": 128,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Unlimbo@InfantryClass@@UAE_NPBUCoordStruct@@H@Z",
+   "entry": "00504fd0",
+   "body_bytes": 322,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?unknown_slot219@InfantryClass@@UAEPAVAbstractClass@@HPBUCoordStruct@@_N@Z",
+   "entry": "00505120",
+   "body_bytes": 617,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?unknown_slot28@InfantryClass@@UAEHPAVObjectClass@@_N@Z",
+   "entry": "00505390",
+   "body_bytes": 3252,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?unknown_slot78@InfantryClass@@UAE_NHPAVObjectClass@@_N@Z",
+   "entry": "00506050",
+   "body_bytes": 161,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?unknown_slot77@InfantryClass@@UAE_NHPBVCell@@0_N@Z",
+   "entry": "00506100",
+   "body_bytes": 88,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?unknown_slot35@InfantryClass@@UAEPBGXZ",
+   "entry": "00506160",
+   "body_bytes": 101,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?unknown_slot240@InfantryClass@@UAEXXZ",
+   "entry": "005061d0",
+   "body_bytes": 165,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Do_MISSION_ATTACK@InfantryClass@@UAEHXZ",
+   "entry": "00506280",
+   "body_bytes": 351,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Do_MISSION_HUNT@InfantryClass@@UAEHXZ",
+   "entry": "005063e0",
+   "body_bytes": 137,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Do_MISSION_GUARD@InfantryClass@@UAEHXZ",
+   "entry": "00506470",
+   "body_bytes": 22,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_GUARD_AREA@InfantryClass@@UAEHXZ",
+   "entry": "00506490",
+   "body_bytes": 22,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Do_MISSION_MOVE@InfantryClass@@UAEHXZ",
+   "entry": "005064b0",
+   "body_bytes": 128,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Do_MISSION_UNLOAD@InfantryClass@@UAEHXZ",
+   "entry": "00506530",
+   "body_bytes": 281,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?unknown_slot27@InfantryClass@@UAEHPBVCell@@_N1@Z",
+   "entry": "00506650",
+   "body_bytes": 763,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Class_Of@InfantryClass@@UBEPAVObjectTypeClass@@XZ",
+   "entry": "00506950",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Read_INI@InfantryClass@@SIXAAVCCINIClass@@@Z",
+   "entry": "00506960",
+   "body_bytes": 1030,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Write_INI@InfantryClass@@SIXAAVCCINIClass@@@Z",
+   "entry": "00506d70",
+   "body_bytes": 438,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?unknown_506f30@InfantryClass@@QAEXXZ",
+   "entry": "00506f30",
+   "body_bytes": 425,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?unknown_5070e0@InfantryClass@@QAE_NXZ",
+   "entry": "005070e0",
+   "body_bytes": 141,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?unknown_507170@InfantryClass@@QAE_NXZ",
+   "entry": "00507170",
+   "body_bytes": 955,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Update_Fire_00507530@InfantryClass@@QAEXXZ",
+   "entry": "00507530",
+   "body_bytes": 885,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Advance_Animation_005078b0@InfantryClass@@QAEXXZ",
+   "entry": "005078b0",
+   "body_bytes": 734,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Update_Movement_00507b90@InfantryClass@@QAEXXZ",
+   "entry": "00507b90",
+   "body_bytes": 979,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Update_Deployed_Attack_00507f70@InfantryClass@@QAEHXZ",
+   "entry": "00507f70",
+   "body_bytes": 928,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Get_Image_Data@InfantryClass@@UAEPAXXZ",
+   "entry": "00508310",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?unknown_slot257@InfantryClass@@UAE_NXZ",
+   "entry": "00508320",
+   "body_bytes": 134,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?unknown_slot56@InfantryClass@@UAE_NABUCoordStruct@@@Z",
+   "entry": "005083b0",
+   "body_bytes": 90,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Set_Occupy_Bit@InfantryClass@@UAEXABUCoordStruct@@@Z",
+   "entry": "00508410",
+   "body_bytes": 143,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Clear_Occupy_Bit@InfantryClass@@UAEXABUCoordStruct@@@Z",
+   "entry": "005084a0",
+   "body_bytes": 137,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?unknown_slot174@InfantryClass@@UAEHPAVAbstractClass@@@Z",
+   "entry": "00508530",
+   "body_bytes": 64,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Load@InfantryClass@@UAGJPAUIStream@@@Z",
+   "entry": "00508570",
+   "body_bytes": 402,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Save@InfantryClass@@UAGJPAUIStream@@H@Z",
+   "entry": "00508710",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?unknown_slot307@InfantryClass@@UAEXXZ",
+   "entry": "00508730",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?unknown_slot308@InfantryClass@@UAEXXZ",
+   "entry": "00508750",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?unknown_slot122@InfantryClass@@UAE_NXZ",
+   "entry": "00508770",
+   "body_bytes": 168,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?unknown_slot295@InfantryClass@@UAEXXZ",
+   "entry": "00508820",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?unknown_slot296@InfantryClass@@UAEXXZ",
+   "entry": "00508850",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?unknown_slot297@InfantryClass@@UAEXH@Z",
+   "entry": "00508870",
+   "body_bytes": 41,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Compute_CRC@InfantryClass@@UBEXAAVWWCRCEngine@@@Z",
+   "entry": "005088a0",
+   "body_bytes": 160,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?unknown_slot181@InfantryClass@@UAE?AUCoordStruct@@H@Z",
+   "entry": "00508940",
+   "body_bytes": 53,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?unknown_slot303@InfantryClass@@UAEHXZ",
+   "entry": "00508980",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?unknown_slot288@InfantryClass@@UAEXXZ",
+   "entry": "005089d0",
+   "body_bytes": 211,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?unknown_slot289@InfantryClass@@UAE_NXZ",
+   "entry": "00508ab0",
+   "body_bytes": 575,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?unknown_slot294@InfantryClass@@UAEXXZ",
+   "entry": "00508cf0",
+   "body_bytes": 8,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?unknown_508d00@InfantryClass@@QAE_NXZ",
+   "entry": "00508d00",
+   "body_bytes": 194,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?unknown_508dd0@InfantryClass@@QAE_NPBVCell@@0@Z",
+   "entry": "00508dd0",
+   "body_bytes": 349,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?unknown_slot304@InfantryClass@@UAEXXZ",
+   "entry": "00508f30",
+   "body_bytes": 350,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?unknown_slot193@InfantryClass@@UAE_NXZ",
+   "entry": "00509090",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?unknown_5090a0@InfantryClass@@QBE_NXZ",
+   "entry": "005090a0",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?unknown_5090b0@InfantryClass@@QBE_NXZ",
+   "entry": "005090b0",
+   "body_bytes": 21,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?unknown_5090d0@InfantryClass@@QBE_NXZ",
+   "entry": "005090d0",
+   "body_bytes": 35,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?unknown_509100@InfantryClass@@QBE_NXZ",
+   "entry": "00509100",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?unknown_509110@InfantryClass@@QAEHXZ",
+   "entry": "00509110",
+   "body_bytes": 161,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?unknown_slot82@InfantryClass@@UAEXH@Z",
+   "entry": "005091c0",
+   "body_bytes": 55,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?unknown_slot50@InfantryClass@@UAEPAVObjectTypeClass@@_N@Z",
+   "entry": "00509200",
+   "body_bytes": 103,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?unknown_slot51@InfantryClass@@UAEPAVHouseClass@@_N@Z",
+   "entry": "00509270",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?unknown_slot255@InfantryClass@@UAEXPAVTechnoClass@@@Z",
+   "entry": "005092b0",
+   "body_bytes": 119,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?unknown_slot256@InfantryClass@@UAEXXZ",
+   "entry": "00509330",
+   "body_bytes": 85,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?unknown_slot49@InfantryClass@@UAE_NPAVHouseClass@@@Z",
+   "entry": "00509390",
+   "body_bytes": 185,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?unknown_slot274@InfantryClass@@UAE_NXZ",
+   "entry": "00509450",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?unknown_slot275@InfantryClass@@UAE_NXZ",
+   "entry": "00509460",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?unknown_slot310@InfantryClass@@UAE_NXZ",
+   "entry": "00509470",
+   "body_bytes": 51,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?unknown_5094b0@InfantryClass@@QAEXPAVBuildingClass@@@Z",
+   "entry": "005094b0",
+   "body_bytes": 208,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?INoticeSink_Unknown@InfantryClass@@UAE_NHH@Z",
+   "entry": "00509590",
+   "body_bytes": 214,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?unknown_slot204@InfantryClass@@UAE_NXZ",
+   "entry": "00509670",
+   "body_bytes": 64,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?unknown_slot205@InfantryClass@@UAEXXZ",
+   "entry": "005096b0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Is_Prone_Sequence_005096e0@InfantryClass@@QBE_NH@Z",
+   "entry": "005096e0",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Is_Busy_Sequence_00509710@InfantryClass@@QBE_NH@Z",
+   "entry": "00509710",
+   "body_bytes": 67,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Is_Busy_00509760@InfantryClass@@QBE_NXZ",
+   "entry": "00509760",
+   "body_bytes": 65,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Size_Of@InfantryClass@@UBEHXZ",
+   "entry": "005097b0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?GetClassID@InfantryClass@@UAGJPAUGUID@@@Z",
+   "entry": "005097c0",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Kind_Of@InfantryClass@@UBEHXZ",
+   "entry": "00509800",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "??_GInfantryClass@@UAEPAXI@Z",
+   "entry": "00509810",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "??4?$UnknownComPtr@UILocomotion@@$1?unknown_uuid_ILocomotion_7ce600@@3UGUID@@B@@QAEAAV0@PAUILocomotion@@@Z",
+   "entry": "00509830",
+   "body_bytes": 43,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Release_Held@?$UnknownComPtr@UIPiggyback@@$1?unknown_uuid_IPiggyback_7cfc30@@3UGUID@@B@@QAEXXZ",
+   "entry": "00509860",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??0UnknownPersistPtr@@QAE@ABV?$UnknownComPtr@UILocomotion@@$1?unknown_uuid_ILocomotion_7ce600@@3UGUID@@B@@@Z",
+   "entry": "00509870",
+   "body_bytes": 106,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Binary_Search@@YIPAUNodeElement@?$IndexClass@JPAVAbstractClass@@@@PAU12@HABU12@@Z",
+   "entry": "005098e0",
+   "body_bytes": 68,
+   "padding_bytes": 12
+  }
+ ],
+ "code_bytes": 35680,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "__real@4@00000000000000000000",
+   "address": "0079a738",
+   "bytes": 4,
+   "kind": "table",
+   "section": 147
+  },
+  {
+   "symbol": "__real@8@4008e100000000000000",
+   "address": "0079b608",
+   "bytes": 8,
+   "kind": "table",
+   "section": 192
+  },
+  {
+   "symbol": "__real@8@40068000000000000000",
+   "address": "0079b618",
+   "bytes": 8,
+   "kind": "table",
+   "section": 161
+  },
+  {
+   "symbol": "__real@8@c00ca2f83d7b47677800",
+   "address": "0079b628",
+   "bytes": 8,
+   "kind": "table",
+   "section": 162
+  },
+  {
+   "symbol": "__real@8@3fffc90fdaa22168c000",
+   "address": "0079b630",
+   "bytes": 8,
+   "kind": "table",
+   "section": 163
+  },
+  {
+   "symbol": "__real@8@3fe08000000200000000",
+   "address": "0079c280",
+   "bytes": 8,
+   "kind": "table",
+   "section": 156
+  },
+  {
+   "symbol": "__real@8@3ffbccccccccccccd000",
+   "address": "0079c570",
+   "bytes": 8,
+   "kind": "table",
+   "section": 150
+  },
+  {
+   "symbol": "__real@8@4009e100000000000000",
+   "address": "0079d140",
+   "bytes": 8,
+   "kind": "table",
+   "section": 158
+  },
+  {
+   "symbol": "__real@8@4007e100000000000000",
+   "address": "0079e6d0",
+   "bytes": 8,
+   "kind": "table",
+   "section": 157
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a33e0",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7InfantryClass@@6BINoticeSource@@@",
+   "address": "007a3510",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 79
+  },
+  {
+   "symbol": "??_7InfantryClass@@6BINoticeSink@@@",
+   "address": "007a3518",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 80
+  },
+  {
+   "symbol": "??_7InfantryClass@@6BIRTTITypeInfo@@@",
+   "address": "007a3520",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 81
+  },
+  {
+   "symbol": "??_7InfantryClass@@6BIPersistStream@@@",
+   "address": "007a353c",
+   "bytes": 1252,
+   "kind": "vtable",
+   "section": 82
+  },
+  {
+   "symbol": "__real@8@4005f800000000000000",
+   "address": "007a3a28",
+   "bytes": 8,
+   "kind": "table",
+   "section": 170
+  },
+  {
+   "symbol": "__real@8@3ffeccccccccccccd000",
+   "address": "007a3a30",
+   "bytes": 8,
+   "kind": "table",
+   "section": 228
+  },
+  {
+   "symbol": "??_R1M@?0A@A@INoticeSource@@8",
+   "address": "007b30b8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 50
+  },
+  {
+   "symbol": "??_R17?0A@A@INoticeSink@@8",
+   "address": "007b30d0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 52
+  },
+  {
+   "symbol": "??_R13?0A@1IUnknown@@8",
+   "address": "007b30e8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 53
+  },
+  {
+   "symbol": "??_R13?0A@A@IRTTITypeInfo@@8",
+   "address": "007b3100",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 55
+  },
+  {
+   "symbol": "??_R1A@?0A@1IUnknown@@8",
+   "address": "007b3118",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 57
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersist@@8",
+   "address": "007b3130",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 59
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersistStream@@8",
+   "address": "007b3148",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 61
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractClass@@8",
+   "address": "007b3160",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 63
+  },
+  {
+   "symbol": "??_R1OA@?0A@A@StageClass@@8",
+   "address": "007b33f0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 46
+  },
+  {
+   "symbol": "??_R1NI@?0A@A@FlasherClass@@8",
+   "address": "007b3408",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 48
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ObjectClass@@8",
+   "address": "007b3420",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 65
+  },
+  {
+   "symbol": "??_R1A@?0A@A@MissionClass@@8",
+   "address": "007b3438",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 67
+  },
+  {
+   "symbol": "??_R1A@?0A@A@RadioClass@@8",
+   "address": "007b3450",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 69
+  },
+  {
+   "symbol": "??_R1A@?0A@A@TechnoClass@@8",
+   "address": "007b3468",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 71
+  },
+  {
+   "symbol": "??_R1A@?0A@A@FootClass@@8",
+   "address": "007b3480",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 73
+  },
+  {
+   "symbol": "??_R4InfantryClass@@6BINoticeSource@@@",
+   "address": "007baef8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 42
+  },
+  {
+   "symbol": "??_R4InfantryClass@@6BINoticeSink@@@",
+   "address": "007baf10",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 43
+  },
+  {
+   "symbol": "??_R4InfantryClass@@6BIRTTITypeInfo@@@",
+   "address": "007baf28",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R1A@?0A@A@InfantryClass@@8",
+   "address": "007baf40",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 74
+  },
+  {
+   "symbol": "??_R2InfantryClass@@8",
+   "address": "007baf58",
+   "bytes": 65,
+   "kind": "rtti",
+   "section": 75
+  },
+  {
+   "symbol": "??_R3InfantryClass@@8",
+   "address": "007bafa0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 76
+  },
+  {
+   "symbol": "??_R4InfantryClass@@6BIPersistStream@@@",
+   "address": "007bafb0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 78
+  },
+  {
+   "symbol": "??_R0?AVINoticeSink@@@8",
+   "address": "007cd618",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 51
+  },
+  {
+   "symbol": "??_R0?AUIUnknown@@@8",
+   "address": "007cd638",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 56
+  },
+  {
+   "symbol": "??_R0?AVINoticeSource@@@8",
+   "address": "007ce1c8",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 49
+  },
+  {
+   "symbol": "??_R0?AUIRTTITypeInfo@@@8",
+   "address": "007ce1e8",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 54
+  },
+  {
+   "symbol": "??_R0?AUIPersist@@@8",
+   "address": "007ce208",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 58
+  },
+  {
+   "symbol": "??_R0?AUIPersistStream@@@8",
+   "address": "007ce220",
+   "bytes": 29,
+   "kind": "rtti",
+   "section": 60
+  },
+  {
+   "symbol": "??_R0?AVAbstractClass@@@8",
+   "address": "007ce240",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 62
+  },
+  {
+   "symbol": "??_R0?AVStageClass@@@8",
+   "address": "007ce508",
+   "bytes": 25,
+   "kind": "rtti",
+   "section": 45
+  },
+  {
+   "symbol": "??_R0?AVFlasherClass@@@8",
+   "address": "007ce528",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 47
+  },
+  {
+   "symbol": "??_R0?AVObjectClass@@@8",
+   "address": "007ce548",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 64
+  },
+  {
+   "symbol": "??_R0?AVMissionClass@@@8",
+   "address": "007ce568",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 66
+  },
+  {
+   "symbol": "??_R0?AVRadioClass@@@8",
+   "address": "007ce588",
+   "bytes": 25,
+   "kind": "rtti",
+   "section": 68
+  },
+  {
+   "symbol": "??_R0?AVTechnoClass@@@8",
+   "address": "007ce5a8",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 70
+  },
+  {
+   "symbol": "??_R0?AVFootClass@@@8",
+   "address": "007ce5c8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 72
+  },
+  {
+   "symbol": "??_C@_04COF@None?$AA@",
+   "address": "007ce9b4",
+   "bytes": 5,
+   "kind": "string",
+   "section": 214
+  },
+  {
+   "symbol": "??_C@_02MECO@?$CFd?$AA@",
+   "address": "007ce9bc",
+   "bytes": 3,
+   "kind": "string",
+   "section": 215
+  },
+  {
+   "symbol": "??_C@_01KMAE@?0?$AA@",
+   "address": "007ce9c0",
+   "bytes": 2,
+   "kind": "string",
+   "section": 210
+  },
+  {
+   "symbol": "??_R0?AVInfantryClass@@@8",
+   "address": "007daec0",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 77
+  },
+  {
+   "symbol": "??_C@_0M@GHLL@INFSHDW?4SHP?$AA@",
+   "address": "007daedc",
+   "bytes": 12,
+   "kind": "string",
+   "section": 125
+  },
+  {
+   "symbol": "??_C@_07PGBP@POD?4SHP?$AA@",
+   "address": "007daee8",
+   "bytes": 8,
+   "kind": "string",
+   "section": 126
+  },
+  {
+   "symbol": "??_C@_03FEGA@COW?$AA@",
+   "address": "007daf04",
+   "bytes": 4,
+   "kind": "string",
+   "section": 155
+  },
+  {
+   "symbol": "??_C@_0P@DJJM@TXT_TECHNICIAN?$AA@",
+   "address": "007daf08",
+   "bytes": 15,
+   "kind": "string",
+   "section": 186
+  },
+  {
+   "symbol": "??_C@_0BE@FGIL@D?3?2Ra2?2Infantry?4CPP?$AA@",
+   "address": "007daf18",
+   "bytes": 20,
+   "kind": "string",
+   "section": 187
+  },
+  {
+   "symbol": "??_C@_04BEF@DESO?$AA@",
+   "address": "007daf2c",
+   "bytes": 5,
+   "kind": "string",
+   "section": 203
+  },
+  {
+   "symbol": "??_C@_0CK@MMDL@?$CFs?0?$CFs?0?$CFd?0?$CFd?0?$CFd?0?$CFd?0?$CFs?0?$CFd?0?$CFs?0?$CFd?0?$CFd@",
+   "address": "007daf34",
+   "bytes": 42,
+   "kind": "string",
+   "section": 213
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@00000000000000000000",
+   "address": "0079a738",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4008e100000000000000",
+   "address": "0079b608",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40068000000000000000",
+   "address": "0079b618",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@c00ca2f83d7b47677800",
+   "address": "0079b628",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fffc90fdaa22168c000",
+   "address": "0079b630",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fe08000000200000000",
+   "address": "0079c280",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffbccccccccccccd000",
+   "address": "0079c570",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4009e100000000000000",
+   "address": "0079d140",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4007e100000000000000",
+   "address": "0079e6d0",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a33e0",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7InfantryClass@@6BINoticeSource@@@",
+   "address": "007a3510",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7InfantryClass@@6BINoticeSink@@@",
+   "address": "007a3518",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7InfantryClass@@6BIRTTITypeInfo@@@",
+   "address": "007a3520",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7InfantryClass@@6BIPersistStream@@@",
+   "address": "007a353c",
+   "bytes": 1252,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "__real@8@4005f800000000000000",
+   "address": "007a3a28",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffeccccccccccccd000",
+   "address": "007a3a30",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_R1M@?0A@A@INoticeSource@@8",
+   "address": "007b30b8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R17?0A@A@INoticeSink@@8",
+   "address": "007b30d0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R13?0A@1IUnknown@@8",
+   "address": "007b30e8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R13?0A@A@IRTTITypeInfo@@8",
+   "address": "007b3100",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@1IUnknown@@8",
+   "address": "007b3118",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersist@@8",
+   "address": "007b3130",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersistStream@@8",
+   "address": "007b3148",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractClass@@8",
+   "address": "007b3160",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1OA@?0A@A@StageClass@@8",
+   "address": "007b33f0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1NI@?0A@A@FlasherClass@@8",
+   "address": "007b3408",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ObjectClass@@8",
+   "address": "007b3420",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@MissionClass@@8",
+   "address": "007b3438",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@RadioClass@@8",
+   "address": "007b3450",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@TechnoClass@@8",
+   "address": "007b3468",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@FootClass@@8",
+   "address": "007b3480",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4InfantryClass@@6BINoticeSource@@@",
+   "address": "007baef8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4InfantryClass@@6BINoticeSink@@@",
+   "address": "007baf10",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4InfantryClass@@6BIRTTITypeInfo@@@",
+   "address": "007baf28",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@InfantryClass@@8",
+   "address": "007baf40",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2InfantryClass@@8",
+   "address": "007baf58",
+   "bytes": 65,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3InfantryClass@@8",
+   "address": "007bafa0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4InfantryClass@@6BIPersistStream@@@",
+   "address": "007bafb0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVINoticeSink@@@8",
+   "address": "007cd618",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIUnknown@@@8",
+   "address": "007cd638",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVINoticeSource@@@8",
+   "address": "007ce1c8",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIRTTITypeInfo@@@8",
+   "address": "007ce1e8",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIPersist@@@8",
+   "address": "007ce208",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIPersistStream@@@8",
+   "address": "007ce220",
+   "bytes": 29,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVAbstractClass@@@8",
+   "address": "007ce240",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVStageClass@@@8",
+   "address": "007ce508",
+   "bytes": 25,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVFlasherClass@@@8",
+   "address": "007ce528",
+   "bytes": 27,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVObjectClass@@@8",
+   "address": "007ce548",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVMissionClass@@@8",
+   "address": "007ce568",
+   "bytes": 27,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVRadioClass@@@8",
+   "address": "007ce588",
+   "bytes": 25,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVTechnoClass@@@8",
+   "address": "007ce5a8",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVFootClass@@@8",
+   "address": "007ce5c8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_04COF@None?$AA@",
+   "address": "007ce9b4",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_02MECO@?$CFd?$AA@",
+   "address": "007ce9bc",
+   "bytes": 3,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_01KMAE@?0?$AA@",
+   "address": "007ce9c0",
+   "bytes": 2,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AVInfantryClass@@@8",
+   "address": "007daec0",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0M@GHLL@INFSHDW?4SHP?$AA@",
+   "address": "007daedc",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07PGBP@POD?4SHP?$AA@",
+   "address": "007daee8",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_03FEGA@COW?$AA@",
+   "address": "007daf04",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@DJJM@TXT_TECHNICIAN?$AA@",
+   "address": "007daf08",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@FGIL@D?3?2Ra2?2Infantry?4CPP?$AA@",
+   "address": "007daf18",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04BEF@DESO?$AA@",
+   "address": "007daf2c",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CK@MMDL@?$CFs?0?$CFs?0?$CFd?0?$CFd?0?$CFd?0?$CFd?0?$CFs?0?$CFd?0?$CFs?0?$CFd?0?$CFd@",
+   "address": "007daf34",
+   "bytes": 42,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00695ab0",
+   "symbol": "??0InfantryClass@@QAE@PAVInfantryTypeClass@@PAVHouseClass@@@Z",
+   "target": "004ff640",
+   "function_entry": true
+  },
+  {
+   "site": "00509ef0",
+   "symbol": "??0InfantryClass@@QAE@PAVInfantryTypeClass@@PAVHouseClass@@@Z",
+   "target": "004ff640",
+   "function_entry": true
+  },
+  {
+   "site": "00509f20",
+   "symbol": "??0InfantryClass@@QAE@PAVInfantryTypeClass@@PAVHouseClass@@@Z",
+   "target": "004ff640",
+   "function_entry": true
+  },
+  {
+   "site": "006e3000",
+   "symbol": "?Binary_Search@@YIPAUNodeElement@?$IndexClass@JPAVAbstractClass@@@@PAU12@HABU12@@Z",
+   "target": "005098e0",
+   "function_entry": true
+  },
+  {
+   "site": "0043f8e0",
+   "symbol": "??0InfantryClass@@QAE@PAVInfantryTypeClass@@PAVHouseClass@@@Z",
+   "target": "004ff640",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Read_INI@InfantryClass@@SIXAAVCCINIClass@@@Z",
+   "target": "00506960",
+   "function_entry": true
+  },
+  {
+   "site": "0065f980",
+   "symbol": "?Write_INI@InfantryClass@@SIXAAVCCINIClass@@@Z",
+   "target": "00506d70",
+   "function_entry": true
+  },
+  {
+   "site": "006e4570",
+   "symbol": "?Binary_Search@@YIPAUNodeElement@?$IndexClass@JPAVAbstractClass@@@@PAU12@HABU12@@Z",
+   "target": "005098e0",
+   "function_entry": true
+  },
+  {
+   "site": "006b5810",
+   "symbol": "?Binary_Search@@YIPAUNodeElement@?$IndexClass@JPAVAbstractClass@@@@PAU12@HABU12@@Z",
+   "target": "005098e0",
+   "function_entry": true
+  },
+  {
+   "site": "006fca30",
+   "symbol": "??0InfantryClass@@QAE@PAVInfantryTypeClass@@PAVHouseClass@@@Z",
+   "target": "004ff640",
+   "function_entry": true
+  },
+  {
+   "site": "006bb8b0",
+   "symbol": "?unknown_5090a0@InfantryClass@@QBE_NXZ",
+   "target": "005090a0",
+   "function_entry": true
+  },
+  {
+   "site": "00468d50",
+   "symbol": "??0InfantryClass@@QAE@PAVInfantryTypeClass@@PAVHouseClass@@@Z",
+   "target": "004ff640",
+   "function_entry": true
+  },
+  {
+   "site": "00589f00",
+   "symbol": "??0InfantryClass@@QAE@PAVInfantryTypeClass@@PAVHouseClass@@@Z",
+   "target": "004ff640",
+   "function_entry": true
+  },
+  {
+   "site": "00588100",
+   "symbol": "??0InfantryClass@@QAE@PAVInfantryTypeClass@@PAVHouseClass@@@Z",
+   "target": "004ff640",
+   "function_entry": true
+  },
+  {
+   "site": "006c9af0",
+   "symbol": "?Is_Busy_00509760@InfantryClass@@QBE_NXZ",
+   "target": "00509760",
+   "function_entry": true
+  },
+  {
+   "site": "006f5940",
+   "symbol": "?unknown_5090a0@InfantryClass@@QBE_NXZ",
+   "target": "005090a0",
+   "function_entry": true
+  },
+  {
+   "site": "006f5940",
+   "symbol": "?unknown_5090d0@InfantryClass@@QBE_NXZ",
+   "target": "005090d0",
+   "function_entry": true
+  },
+  {
+   "site": "006f5940",
+   "symbol": "?unknown_5090a0@InfantryClass@@QBE_NXZ",
+   "target": "005090a0",
+   "function_entry": true
+  },
+  {
+   "site": "006f5940",
+   "symbol": "?unknown_5090d0@InfantryClass@@QBE_NXZ",
+   "target": "005090d0",
+   "function_entry": true
+  },
+  {
+   "site": "00445b30",
+   "symbol": "??0InfantryClass@@QAE@PAVInfantryTypeClass@@PAVHouseClass@@@Z",
+   "target": "004ff640",
+   "function_entry": true
+  },
+  {
+   "site": "007053f0",
+   "symbol": "?Release_Held@?$UnknownComPtr@UIPiggyback@@$1?unknown_uuid_IPiggyback_7cfc30@@3UGUID@@B@@QAEXXZ",
+   "target": "00509860",
+   "function_entry": true
+  },
+  {
+   "site": "007053f0",
+   "symbol": "?Release_Held@?$UnknownComPtr@UIPiggyback@@$1?unknown_uuid_IPiggyback_7cfc30@@3UGUID@@B@@QAEXXZ",
+   "target": "00509860",
+   "function_entry": true
+  },
+  {
+   "site": "007053f0",
+   "symbol": "?Release_Held@?$UnknownComPtr@UIPiggyback@@$1?unknown_uuid_IPiggyback_7cfc30@@3UGUID@@B@@QAEXXZ",
+   "target": "00509860",
+   "function_entry": true
+  },
+  {
+   "site": "007053f0",
+   "symbol": "?Release_Held@?$UnknownComPtr@UIPiggyback@@$1?unknown_uuid_IPiggyback_7cfc30@@3UGUID@@B@@QAEXXZ",
+   "target": "00509860",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABUCoordStruct@@HHHH@Z",
+   "address": "00420110"
+  },
+  {
+   "symbol": "??0FootClass@@QAE@ABVNoInitClass@@@Z",
+   "address": "004c2c60"
+  },
+  {
+   "symbol": "??0FootClass@@QAE@PAVHouseClass@@@Z",
+   "address": "004c2930"
+  },
+  {
+   "symbol": "??0UnknownVector3@@QAE@HHH@Z",
+   "address": "0041b630"
+  },
+  {
+   "symbol": "??1FootClass@@UAE@XZ",
+   "address": "004c2cb0"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??AMapClass@@QAEAAVCellClass@@ABUCoordStruct@@@Z",
+   "address": "00548000"
+  },
+  {
+   "symbol": "??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z",
+   "address": "00548070"
+  },
+  {
+   "symbol": "??RRandom2Class@@QAEHHH@Z",
+   "address": "006388a0"
+  },
+  {
+   "symbol": "??RRandom2Class@@QAEHXZ",
+   "address": "00638840"
+  },
+  {
+   "symbol": "??RWWCRCEngine@@QAEXJ@Z",
+   "address": "00493f30"
+  },
+  {
+   "symbol": "??RWWCRCEngine@@QAEX_N@Z",
+   "address": "00493e80"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "?AI@FootClass@@UAEXXZ",
+   "address": "004c8ff0"
+  },
+  {
+   "symbol": "?AddRef@AbstractClass@@UAGKXZ",
+   "address": "004100a0"
+  },
+  {
+   "symbol": "?Add_To_Selectables@Tactical@@QAE_NPAVObjectClass@@UPoint2D@@@Z",
+   "address": "006aa510"
+  },
+  {
+   "symbol": "?AdjacentCell@@3QBVCell@@B",
+   "address": "00851a70"
+  },
+  {
+   "symbol": "?Adjacent_Cell@CellClass@@QAEAAV1@I@Z",
+   "address": "00476ac0"
+  },
+  {
+   "symbol": "?Allowed_Threats@WeaponTypeClass@@QBEHXZ",
+   "address": "00733a60"
+  },
+  {
+   "symbol": "?AnimTypes@@3V?$TypeList@PAVAnimTypeClass@@@@A",
+   "address": "008661e0"
+  },
+  {
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "address": "0040dc20"
+  },
+  {
+   "symbol": "?As_Techno_0040dbd0@@YIPAVTechnoClass@@PAVAbstractClass@@@Z",
+   "address": "0040dbd0"
+  },
+  {
+   "symbol": "?Assign_Destination@FootClass@@UAEXPAVAbstractClass@@_N@Z",
+   "address": "004c8030"
+  },
+  {
+   "symbol": "?Attach_Tag@ObjectClass@@QAE_NPAVTagClass@@@Z",
+   "address": "005d4430"
+  },
+  {
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "address": "0049eea0"
+  },
+  {
+   "symbol": "?CanBeSelected@ObjectClass@@UAE_NXZ",
+   "address": "005d54b0"
+  },
+  {
+   "symbol": "?Can_Build@HouseClass@@QAEHPBVTechnoTypeClass@@_N1@Z",
+   "address": "004e3660"
+  },
+  {
+   "symbol": "?Can_Demolish@FootClass@@UAE_NXZ",
+   "address": "004c8940"
+  },
+  {
+   "symbol": "?Can_Player_Fire@TechnoClass@@UAE_NXZ",
+   "address": "006cd630"
+  },
+  {
+   "symbol": "?Can_Player_Move@TechnoClass@@UAE_NXZ",
+   "address": "006cd290"
+  },
+  {
+   "symbol": "?Can_Repair@TechnoClass@@UAE_NXZ",
+   "address": "006cd690"
+  },
+  {
+   "symbol": "?Catch_Fire@ObjectClass@@UAE_NXZ",
+   "address": "005d2d00"
+  },
+  {
+   "symbol": "?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ",
+   "address": "004717b0"
+  },
+  {
+   "symbol": "?Cell_Tube_0047a130@@YIPAVTubeClass@@PBVCellClass@@@Z",
+   "address": "0047a130"
+  },
+  {
+   "symbol": "?Center_Coord@ObjectClass@@UBE?AUCoordStruct@@XZ",
+   "address": "005d4e40"
+  },
+  {
+   "symbol": "?Clear@INIClass@@QAE_NPBD0@Z",
+   "address": "0050b9a0"
+  },
+  {
+   "symbol": "?Clicked_As_Target@TechnoClass@@UAEXH@Z",
+   "address": "006c7440"
+  },
+  {
+   "symbol": "?Cloaking_AI@TechnoClass@@UAEXH@Z",
+   "address": "006c89c0"
+  },
+  {
+   "symbol": "?Commence@MissionClass@@UAE_NXZ",
+   "address": "00594c50"
+  },
+  {
+   "symbol": "?Compute_CRC@FootClass@@UBEXAAVWWCRCEngine@@@Z",
+   "address": "004ca3d0"
+  },
+  {
+   "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
+   "address": "005950d0"
+  },
+  {
+   "symbol": "?Coord_To_Cell@Tactical@@QAE?AVCell@@ABUCoordStruct@@@Z",
+   "address": "006a6a50"
+  },
+  {
+   "symbol": "?Create_ID@AbstractClass@@UAGXXZ",
+   "address": "0040ffd0"
+  },
+  {
+   "symbol": "?Current@FacingClass@@QBE?AUUnknownFacingDir@@XZ",
+   "address": "004b8be0"
+  },
+  {
+   "symbol": "?Delete_Me@FootClass@@UAEXXZ",
+   "address": "004cce40"
+  },
+  {
+   "symbol": "?Detach@FootClass@@UAEXPAVAbstractClass@@_N@Z",
+   "address": "004c8460"
+  },
+  {
+   "symbol": "?Direction_To@ObjectClass@@QBE?AUUnknownFacingDir@@PBVAbstractClass@@@Z",
+   "address": "005d2730"
+  },
+  {
+   "symbol": "?Do_MISSION_AMBUSH@MissionClass@@UAEHXZ",
+   "address": "00594590"
+  },
+  {
+   "symbol": "?Do_MISSION_ATTACK@FootClass@@UAEHXZ",
+   "address": "004c44c0"
+  },
+  {
+   "symbol": "?Do_MISSION_CAPTURE@FootClass@@UAEHXZ",
+   "address": "004c41e0"
+  },
+  {
+   "symbol": "?Do_MISSION_CONSTRUCTION@MissionClass@@UAEHXZ",
+   "address": "00594670"
+  },
+  {
+   "symbol": "?Do_MISSION_DECONSTRUCTION@MissionClass@@UAEHXZ",
+   "address": "00594680"
+  },
+  {
+   "symbol": "?Do_MISSION_EATEN@FootClass@@UAEHXZ",
+   "address": "004c4370"
+  },
+  {
+   "symbol": "?Do_MISSION_ENTER@FootClass@@UAEHXZ",
+   "address": "004c7e10"
+  },
+  {
+   "symbol": "?Do_MISSION_GUARD@FootClass@@UAEHXZ",
+   "address": "004c4660"
+  },
+  {
+   "symbol": "?Do_MISSION_GUARD_AREA@FootClass@@UAEHXZ",
+   "address": "004c5900"
+  },
+  {
+   "symbol": "?Do_MISSION_HARMLESS@MissionClass@@UAEHXZ",
+   "address": "00594580"
+  },
+  {
+   "symbol": "?Do_MISSION_HARVEST@MissionClass@@UAEHXZ",
+   "address": "005945f0"
+  },
+  {
+   "symbol": "?Do_MISSION_HUNT@FootClass@@UAEHXZ",
+   "address": "004c48e0"
+  },
+  {
+   "symbol": "?Do_MISSION_MISSILE@MissionClass@@UAEHXZ",
+   "address": "005946a0"
+  },
+  {
+   "symbol": "?Do_MISSION_MOVE@FootClass@@UAEHXZ",
+   "address": "004c38d0"
+  },
+  {
+   "symbol": "?Do_MISSION_OPEN@MissionClass@@UAEHXZ",
+   "address": "005946b0"
+  },
+  {
+   "symbol": "?Do_MISSION_PARADROP_APPROACH@MissionClass@@UAEHXZ",
+   "address": "005946e0"
+  },
+  {
+   "symbol": "?Do_MISSION_PARADROP_OVERFLY@MissionClass@@UAEHXZ",
+   "address": "005946f0"
+  },
+  {
+   "symbol": "?Do_MISSION_PATROL@FootClass@@UAEHXZ",
+   "address": "004c3950"
+  },
+  {
+   "symbol": "?Do_MISSION_REPAIR@MissionClass@@UAEHXZ",
+   "address": "00594690"
+  },
+  {
+   "symbol": "?Do_MISSION_RESCUE@FootClass@@UAEHXZ",
+   "address": "004cc800"
+  },
+  {
+   "symbol": "?Do_MISSION_RETREAT@FootClass@@UAEHXZ",
+   "address": "004c8d80"
+  },
+  {
+   "symbol": "?Do_MISSION_RETURN@MissionClass@@UAEHXZ",
+   "address": "00594630"
+  },
+  {
+   "symbol": "?Do_MISSION_SLEEP@MissionClass@@UAEHXZ",
+   "address": "00594570"
+  },
+  {
+   "symbol": "?Do_MISSION_STOP@MissionClass@@UAEHXZ",
+   "address": "00594640"
+  },
+  {
+   "symbol": "?Do_MISSION_UNLOAD@FootClass@@UAEHXZ",
+   "address": "004c8d70"
+  },
+  {
+   "symbol": "?Do_MISSION_WAIT@MissionClass@@UAEHXZ",
+   "address": "00594700"
+  },
+  {
+   "symbol": "?Do_Shimmer@TechnoClass@@UAEXXZ",
+   "address": "006cf3b0"
+  },
+  {
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "address": "00532890"
+  },
+  {
+   "symbol": "?Editor_Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z",
+   "address": "005d4e70"
+  },
+  {
+   "symbol": "?Entry_Count@INIClass@@QBEHPBD@Z",
+   "address": "0050cb00"
+  },
+  {
+   "symbol": "?Equal_XY_004bfb60@CoordStruct@@QBEHABU1@@Z",
+   "address": "004bfb60"
+  },
+  {
+   "symbol": "?Exit_Object@TechnoClass@@UAEHPAV1@@Z",
+   "address": "006d4880"
+  },
+  {
+   "symbol": "?Fall_From_Height@ObjectClass@@UAEXXZ",
+   "address": "005d2ac0"
+  },
+  {
+   "symbol": "?Fast_Atan2@@YAMNN@Z",
+   "address": "004ba600"
+  },
+  {
+   "symbol": "?Fast_Sqrt@@YAMN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?Fetch_Heap_ID@AbstractClass@@UBEHXZ",
+   "address": "00410250"
+  },
+  {
+   "symbol": "?Fetch_ID@AbstractClass@@UAGJXZ",
+   "address": "0040ffc0"
+  },
+  {
+   "symbol": "?Find_Index@HouseClass@@SIHPBD@Z",
+   "address": "004f5b40"
+  },
+  {
+   "symbol": "?Find_Or_Make@TagClass@@SIPAV1@PAVTagTypeClass@@@Z",
+   "address": "006b3d30"
+  },
+  {
+   "symbol": "?Fire_Out@ObjectClass@@UAEXXZ",
+   "address": "005d2d10"
+  },
+  {
+   "symbol": "?Frame@@3HA",
+   "address": "00a40d2c"
+  },
+  {
+   "symbol": "?From_Integer@VeterancyClass@@QAEXH@Z",
+   "address": "00713590"
+  },
+  {
+   "symbol": "?From_Name@InfantryTypeClass@@SIHPBD@Z",
+   "address": "0050a070"
+  },
+  {
+   "symbol": "?From_Name@TagTypeClass@@SIPAV1@PBD@Z",
+   "address": "006b4880"
+  },
+  {
+   "symbol": "?GetSizeMax@AbstractClass@@UAGJPATULARGE_INTEGER@@@Z",
+   "address": "00410180"
+  },
+  {
+   "symbol": "?Get_Cell_Ptr@ObjectClass@@UAEPAVAbstractClass@@XZ",
+   "address": "005d51e0"
+  },
+  {
+   "symbol": "?Get_Current_Level@RadSiteClass@@QBEHXZ",
+   "address": "006375d0"
+  },
+  {
+   "symbol": "?Get_Entry@INIClass@@QBEPBDPBDH@Z",
+   "address": "0050ce00"
+  },
+  {
+   "symbol": "?Get_Height@ObjectClass@@UBEHXZ",
+   "address": "005d4800"
+  },
+  {
+   "symbol": "?Get_Height_AGL@ObjectClass@@UBEHXZ",
+   "address": "005d4810"
+  },
+  {
+   "symbol": "?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z",
+   "address": "0055a280"
+  },
+  {
+   "symbol": "?Get_Image_Data@FootClass@@UAEPAXXZ",
+   "address": "004cd650"
+  },
+  {
+   "symbol": "?Get_Mission@MissionClass@@UAEHXZ",
+   "address": "00594770"
+  },
+  {
+   "symbol": "?Get_Ownable@TechnoClass@@UAEHXZ",
+   "address": "006d3e40"
+  },
+  {
+   "symbol": "?Get_Render_Rect@ObjectClass@@UAE?AVRect@@XZ",
+   "address": "005d31c0"
+  },
+  {
+   "symbol": "?Get_String@INIClass@@QBEHPBD00PADH@Z",
+   "address": "0050e9a0"
+  },
+  {
+   "symbol": "?Get_Target_Cell@ObjectClass@@UBE?AVCell@@XZ",
+   "address": "005d5240"
+  },
+  {
+   "symbol": "?Get_Target_Cell_Ptr@ObjectClass@@UBEPAVCellClass@@XZ",
+   "address": "005d5290"
+  },
+  {
+   "symbol": "?Get_Visual_Rect@ObjectClass@@UAE?AVRect@@XZ",
+   "address": "005d3060"
+  },
+  {
+   "symbol": "?Ground@@3PAUGroundType@@A",
+   "address": "00850ea0"
+  },
+  {
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "address": "00636f10"
+  },
+  {
+   "symbol": "?Has_Suspended_Mission@MissionClass@@UBE_NXZ",
+   "address": "005950e0"
+  },
+  {
+   "symbol": "?Has_Tunnel@CellClass@@QBE_NXZ",
+   "address": "00479cc0"
+  },
+  {
+   "symbol": "?Health_Ratio@ObjectClass@@QBENXZ",
+   "address": "005d4540"
+  },
+  {
+   "symbol": "?Hidden@TechnoClass@@UAEXXZ",
+   "address": "006c2520"
+  },
+  {
+   "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+   "address": "00a32298"
+  },
+  {
+   "symbol": "?INoticeSource_Unknown@AbstractClass@@UAGXXZ",
+   "address": "00410330"
+  },
+  {
+   "symbol": "?In_Air@FootClass@@UBE_NXZ",
+   "address": "004cce70"
+  },
+  {
+   "symbol": "?In_Range@TechnoClass@@UAE_NABUCoordStruct@@H@Z",
+   "address": "006c5240"
+  },
+  {
+   "symbol": "?In_Which_Layer@FootClass@@UBEHXZ",
+   "address": "004ca130"
+  },
+  {
+   "symbol": "?Infantry@@3V?$DynamicVectorClass@PAVInfantryClass@@@@A",
+   "address": "00a35e48"
+  },
+  {
+   "symbol": "?InfantryTypes@@3V?$DynamicVectorClass@PAVInfantryTypeClass@@@@A",
+   "address": "00a40350"
+  },
+  {
+   "symbol": "?Infantry_Action_Allowed_00614b50@@YIEH@Z",
+   "address": "00614b50"
+  },
+  {
+   "symbol": "?Init@TechnoClass@@UAEXXZ",
+   "address": "006c1c50"
+  },
+  {
+   "symbol": "?IsDirty@AbstractClass@@UAGJXZ",
+   "address": "004101f0"
+  },
+  {
+   "symbol": "?Is_Ally@HouseClass@@QBE_NH@Z",
+   "address": "004e5500"
+  },
+  {
+   "symbol": "?Is_Ally@HouseClass@@QBE_NPBV1@@Z",
+   "address": "004e5540"
+  },
+  {
+   "symbol": "?Is_Ally@HouseClass@@QBE_NPBVTechnoClass@@@Z",
+   "address": "004e5580"
+  },
+  {
+   "symbol": "?Is_Clear_To_Move@CellClass@@QAE_NH_N0HHH0@Z",
+   "address": "00478760"
+  },
+  {
+   "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
+   "address": "00713420"
+  },
+  {
+   "symbol": "?Is_Human_Player@HouseClass@@QAE_NXZ",
+   "address": "004f52f0"
+  },
+  {
+   "symbol": "?Is_Inactive@ObjectClass@@UBE_NXZ",
+   "address": "005d4f10"
+  },
+  {
+   "symbol": "?Is_Moving_Onto_Bridge@FootClass@@UAE_NPAVTechnoClass@@@Z",
+   "address": "004cc4b0"
+  },
+  {
+   "symbol": "?Is_Near_Tunnel_ES@CellClass@@QAE_NXZ",
+   "address": "00479f70"
+  },
+  {
+   "symbol": "?Is_Near_Tunnel_NW@CellClass@@QAE_NXZ",
+   "address": "00479cf0"
+  },
+  {
+   "symbol": "?Is_Player_Control@HouseClass@@QAE_NXZ",
+   "address": "004f52b0"
+  },
+  {
+   "symbol": "?Is_To_Inherit@TagClass@@QBE_NXZ",
+   "address": "006b41f0"
+  },
+  {
+   "symbol": "?Is_Wall_Destroyer@WeaponTypeClass@@QBE_NXZ",
+   "address": "00733a90"
+  },
+  {
+   "symbol": "?KeyForceFire1@@3HA",
+   "address": "00a40bac"
+  },
+  {
+   "symbol": "?KeyForceFire2@@3HA",
+   "address": "00a40bb0"
+  },
+  {
+   "symbol": "?KeyForceMove1@@3HA",
+   "address": "00a40bb4"
+  },
+  {
+   "symbol": "?KeyForceMove2@@3HA",
+   "address": "00a40bb8"
+  },
+  {
+   "symbol": "?Length@UnknownVector3@@QBEHXZ",
+   "address": "0041b780"
+  },
+  {
+   "symbol": "?Limbo@FootClass@@UAE_NXZ",
+   "address": "004c9bd0"
+  },
+  {
+   "symbol": "?Load@FootClass@@UAGJPAUIStream@@@Z",
+   "address": "004c9d10"
+  },
+  {
+   "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
+   "address": "006f9ec0"
+  },
+  {
+   "symbol": "?Look@TechnoClass@@UAEX_N0@Z",
+   "address": "006d5aa0"
+  },
+  {
+   "symbol": "?Map@@3VMouseClass@@A",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "?Mark@FootClass@@UAE_NH@Z",
+   "address": "004c2e60"
+  },
+  {
+   "symbol": "?Mark_For_Redraw@ObjectClass@@UAEXXZ",
+   "address": "005d36e0"
+  },
+  {
+   "symbol": "?Mission_From_Name@MissionClass@@SIHPBD@Z",
+   "address": "00594fe0"
+  },
+  {
+   "symbol": "?Move@ObjectClass@@UAEXH@Z",
+   "address": "005d2d60"
+  },
+  {
+   "symbol": "?Name_From_Mission@MissionClass@@SIPBDH@Z",
+   "address": "00595020"
+  },
+  {
+   "symbol": "?Nearby_Location@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z",
+   "address": "005502e0"
+  },
+  {
+   "symbol": "?Normalize_Delay@OptionsClass@@QBEHH@Z",
+   "address": "005d9760"
+  },
+  {
+   "symbol": "?Not_Underground@ObjectClass@@UBE_NXZ",
+   "address": "005d5490"
+  },
+  {
+   "symbol": "?Occupy_List@ObjectClass@@UAEPBVCell@@H@Z",
+   "address": "005d4470"
+  },
+  {
+   "symbol": "?On_Ground@ObjectClass@@UBE_NXZ",
+   "address": "005d53e0"
+  },
+  {
+   "symbol": "?Options@@3VOptionsClass@@A",
+   "address": "00a40b18"
+  },
+  {
+   "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+   "address": "00a35de8"
+  },
+  {
+   "symbol": "?Override_Mission@FootClass@@UAEXHPAVAbstractClass@@0@Z",
+   "address": "004c7ac0"
+  },
+  {
+   "symbol": "?Owner@TechnoClass@@UBEHXZ",
+   "address": "006c7420"
+  },
+  {
+   "symbol": "?Owning_House@TechnoClass@@UBEPAVHouseClass@@XZ",
+   "address": "006c7430"
+  },
+  {
+   "symbol": "?Put_String@INIClass@@QAE_NPBD00@Z",
+   "address": "0050e5f0"
+  },
+  {
+   "symbol": "?Query@?$UnknownComPtr@UIPersist@@$1?unknown_uuid_IPersist_7cf208@@3UGUID@@B@@QAEJABV?$UnknownComPtr@UILocomotion@@$1?unknown_uuid_ILocomotion_7ce600@@3UGUID@@B@@@Z",
+   "address": "00454bf0"
+  },
+  {
+   "symbol": "?Query@?$UnknownComPtr@UIPiggyback@@$1?unknown_uuid_IPiggyback_7cfc30@@3UGUID@@B@@QAEJABV?$UnknownComPtr@UILocomotion@@$1?unknown_uuid_ILocomotion_7ce600@@3UGUID@@B@@@Z",
+   "address": "00454c70"
+  },
+  {
+   "symbol": "?QueryInterface@AbstractClass@@UAGJABUGUID@@PAPAX@Z",
+   "address": "00410000"
+  },
+  {
+   "symbol": "?QueueMission@MissionClass@@UAEXH_N@Z",
+   "address": "00594cb0"
+  },
+  {
+   "symbol": "?Receive_Message@FootClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z",
+   "address": "004c7b30"
+  },
+  {
+   "symbol": "?Record_The_Kill@TechnoClass@@UAEXPAV1@@Z",
+   "address": "006ced90"
+  },
+  {
+   "symbol": "?Release@AbstractClass@@UAGKXZ",
+   "address": "004100b0"
+  },
+  {
+   "symbol": "?Render@ObjectClass@@UAE_NPAVRect@@_N1@Z",
+   "address": "005d34e0"
+  },
+  {
+   "symbol": "?Repair@ObjectClass@@UAEXH@Z",
+   "address": "005d2d40"
+  },
+  {
+   "symbol": "?Restore_Mission@FootClass@@UAE_NXZ",
+   "address": "004c7b00"
+  },
+  {
+   "symbol": "?Retrieve@MixFileClass@@SIPBXPBD@Z",
+   "address": "005956c0"
+  },
+  {
+   "symbol": "?Revealed@TechnoClass@@UAE_NPAVHouseClass@@@Z",
+   "address": "006c2440"
+  },
+  {
+   "symbol": "?Rules@@3PAVRulesClass@@A",
+   "address": "00839848"
+  },
+  {
+   "symbol": "?Save@FootClass@@UAGJPAUIStream@@H@Z",
+   "address": "004c9fe0"
+  },
+  {
+   "symbol": "?Search@@3UAStarClass@@A",
+   "address": "008315c8"
+  },
+  {
+   "symbol": "?Sell_Back@FootClass@@UAEXH@Z",
+   "address": "004c8a40"
+  },
+  {
+   "symbol": "?SendToEachLink@RadioClass@@UAEXH@Z",
+   "address": "00636dc0"
+  },
+  {
+   "symbol": "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z",
+   "address": "004b8b10"
+  },
+  {
+   "symbol": "?Set_Coord@FootClass@@UAEXABUCoordStruct@@@Z",
+   "address": "004ca160"
+  },
+  {
+   "symbol": "?Set_Height_AGL@ObjectClass@@UAEXH@Z",
+   "address": "005d4860"
+  },
+  {
+   "symbol": "?Set_Mission@MissionClass@@UAEXH@Z",
+   "address": "00594710"
+  },
+  {
+   "symbol": "?Set_ROT@FacingClass@@QAEXH@Z",
+   "address": "004b8e90"
+  },
+  {
+   "symbol": "?Set_Veteran@VeterancyClass@@QAEX_N@Z",
+   "address": "00713520"
+  },
+  {
+   "symbol": "?Set_Waypoint_Path@FootClass@@UAEXHD@Z",
+   "address": "004cb060"
+  },
+  {
+   "symbol": "?Sort_Y@ObjectClass@@UBEHXZ",
+   "address": "005d5450"
+  },
+  {
+   "symbol": "?Spring@TagClass@@QAE_NHPAVObjectClass@@VCell@@_NH@Z",
+   "address": "006b3df0"
+  },
+  {
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "address": "0069fb20"
+  },
+  {
+   "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+   "address": "00abd868"
+  },
+  {
+   "symbol": "?Take_Damage@FootClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z",
+   "address": "004c6000"
+  },
+  {
+   "symbol": "?Techno_Type_Class@TechnoClass@@UAEPAVTechnoTypeClass@@XZ",
+   "address": "006c12c0"
+  },
+  {
+   "symbol": "?Test_Cell_Walk@AStarClass@@QAEHABVCell@@0PAVFootClass@@_N2H@Z",
+   "address": "0042aa30"
+  },
+  {
+   "symbol": "?To_Integer@VeterancyClass@@QBEHXZ",
+   "address": "00713580"
+  },
+  {
+   "symbol": "?Unknown_00452EB0@BuildingClass@@QAE_NPAVTechnoClass@@@Z",
+   "address": "00452eb0"
+  },
+  {
+   "symbol": "?Unknown_004536D0@BuildingClass@@QAEXPAVInfantryClass@@@Z",
+   "address": "004536d0"
+  },
+  {
+   "symbol": "?Unknown_004717B0@UnknownCellClass@@QAEPAVBuildingClass@@XZ",
+   "address": "004717b0"
+  },
+  {
+   "symbol": "?Unknown_004763D0@@YIHABUCoordStruct@@@Z",
+   "address": "004763d0"
+  },
+  {
+   "symbol": "?Unknown_004764B0@UnknownCellClass@@QAE?AUCoordStruct@@ABU2@H_N@Z",
+   "address": "004764b0"
+  },
+  {
+   "symbol": "?Unknown_00476920@UnknownCellClass@@QAEXPBUCoordStruct@@_N11@Z",
+   "address": "00476920"
+  },
+  {
+   "symbol": "?Unknown_00479CF0@UnknownCellClass@@QAE_NXZ",
+   "address": "00479cf0"
+  },
+  {
+   "symbol": "?Unknown_0047CE40@RadSiteCell@@QAEPAVRadSiteClass@@XZ",
+   "address": "0047ce40"
+  },
+  {
+   "symbol": "?Unknown_004CD9B0@FootClass@@QAEXXZ",
+   "address": "004cd9b0"
+  },
+  {
+   "symbol": "?Unknown_004F52F0@HouseClass@@QAE_NXZ",
+   "address": "004f52f0"
+  },
+  {
+   "symbol": "?Unknown_0051FC50@@YA_NXZ",
+   "address": "0051fc50"
+  },
+  {
+   "symbol": "?Unknown_0051FC60@@YA_NXZ",
+   "address": "0051fc60"
+  },
+  {
+   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
+   "address": "0051fc80"
+  },
+  {
+   "symbol": "?Unknown_0054AB00@MapClass@@QAE_NABUCoordStruct@@@Z",
+   "address": "0054ab00"
+  },
+  {
+   "symbol": "?Unknown_0054F7C0@MapClass@@QAE_NABVCell@@0H_N11@Z",
+   "address": "0054f7c0"
+  },
+  {
+   "symbol": "?Unknown_0055A660@MapClass@@QAE_NABVCell@@_N@Z",
+   "address": "0055a660"
+  },
+  {
+   "symbol": "?Unknown_0055A740@MapClass@@QAE_NPAVCellClass@@_N@Z",
+   "address": "0055a740"
+  },
+  {
+   "symbol": "?Unknown_00569320@MapClass@@QAE_NABVCell@@@Z",
+   "address": "00569320"
+  },
+  {
+   "symbol": "?Unknown_005D47D0@ObjectClass@@QBEHXZ",
+   "address": "005d47d0"
+  },
+  {
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "address": "006a2970"
+  },
+  {
+   "symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
+   "address": "006b8fb0"
+  },
+  {
+   "symbol": "?Unknown_006D8640@TechnoClass@@QAE_NPAUWeaponStruct@@@Z",
+   "address": "006d8640"
+  },
+  {
+   "symbol": "?Unknown_006D9610@TechnoClass@@QAEXPAVAbstractClass@@@Z",
+   "address": "006d9610"
+  },
+  {
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "address": "006ecb90"
+  },
+  {
+   "symbol": "?Unlimbo@FootClass@@UAE_NPBUCoordStruct@@H@Z",
+   "address": "004c5e40"
+  },
+  {
+   "symbol": "?Unselect@ObjectClass@@UAEXXZ",
+   "address": "005d2df0"
+  },
+  {
+   "symbol": "?Value@TechnoClass@@UAEHXZ",
+   "address": "006d3150"
+  },
+  {
+   "symbol": "?Voc_Play_At@@YIPAUAudioEvent@@HABUCoordStruct@@PAUAudioEventHandle@@@Z",
+   "address": "00713e60"
+  },
+  {
+   "symbol": "?WWKeyboard@@3PAVWWKeyboardClass@@A",
+   "address": "00832468"
+  },
+  {
+   "symbol": "?Weapon_Range@TechnoClass@@UAEHH@Z",
+   "address": "006cd810"
+  },
+  {
+   "symbol": "?What_Am_I@AbstractClass@@UAGHXZ",
+   "address": "0040ffb0"
+  },
+  {
+   "symbol": "?Who_Can_Build_Me@ObjectClass@@UAEPAVBuildingClass@@_N0@Z",
+   "address": "005d4500"
+  },
+  {
+   "symbol": "?Zone@MapClass@@QAEHABVCell@@H_N@Z",
+   "address": "0054f8f0"
+  },
+  {
+   "symbol": "?_com_issue_error@@YGXJ@Z",
+   "address": "00795940"
+  },
+  {
+   "symbol": "?unknown_44d880@BuildingClass@@QAE_NXZ",
+   "address": "0044d880"
+  },
+  {
+   "symbol": "?unknown_47a120@CellClass@@QBE_NPAVTechnoClass@@@Z",
+   "address": "0047a120"
+  },
+  {
+   "symbol": "?unknown_47c300@UnknownCellClass@@QAE_NH@Z",
+   "address": "0047c300"
+  },
+  {
+   "symbol": "?unknown_4c4c30@FootClass@@QAEXXZ",
+   "address": "004c4c30"
+  },
+  {
+   "symbol": "?unknown_4c8b00@FootClass@@QAEXXZ",
+   "address": "004c8b00"
+  },
+  {
+   "symbol": "?unknown_4cd9b0@FootClass@@QAEXXZ",
+   "address": "004cd9b0"
+  },
+  {
+   "symbol": "?unknown_4ea800@HouseClass@@QAEXPAVTechnoClass@@@Z",
+   "address": "004ea800"
+  },
+  {
+   "symbol": "?unknown_4ea970@HouseClass@@QAEXPAVTechnoClass@@@Z",
+   "address": "004ea970"
+  },
+  {
+   "symbol": "?unknown_5025c0@InfantryClass@@QAEXXZ",
+   "address": "005025c0"
+  },
+  {
+   "symbol": "?unknown_5d4c00@ObjectClass@@QAEHPAVAbstractClass@@@Z",
+   "address": "005d4c00"
+  },
+  {
+   "symbol": "?unknown_6c16f0@TechnoClass@@QAEHH@Z",
+   "address": "006c16f0"
+  },
+  {
+   "symbol": "?unknown_6d1510@TechnoClass@@QAEXPBXHPBUPoint2D@@PBVRect@@HHHHHHPBUShapeFileStruct@@HU2@H@Z",
+   "address": "006d1510"
+  },
+  {
+   "symbol": "?unknown_6d3040@TechnoClass@@QAEXPAV1@@Z",
+   "address": "006d3040"
+  },
+  {
+   "symbol": "?unknown_6d6e50@TechnoClass@@QAEXPAVAbstractClass@@@Z",
+   "address": "006d6e50"
+  },
+  {
+   "symbol": "?unknown_6d7910@TechnoClass@@QAE_NH@Z",
+   "address": "006d7910"
+  },
+  {
+   "symbol": "?unknown_6d96a0@TechnoClass@@QAEXXZ",
+   "address": "006d96a0"
+  },
+  {
+   "symbol": "?unknown_a40774@@3HA",
+   "address": "00a40774"
+  },
+  {
+   "symbol": "?unknown_adjacent_851a70@@3QBVCell@@B",
+   "address": "00851a70"
+  },
+  {
+   "symbol": "?unknown_cos_4ba4d0@@YANN@Z",
+   "address": "004ba4d0"
+  },
+  {
+   "symbol": "?unknown_do_controls_7a3474@@3PAUDoStruct@@A",
+   "address": "007a3474"
+  },
+  {
+   "symbol": "?unknown_dummy_cell_a6f9f8@@3VCellClass@@A",
+   "address": "00a6f9f8"
+  },
+  {
+   "symbol": "?unknown_facing_origin_79b630@@3NB",
+   "address": "0079b630"
+  },
+  {
+   "symbol": "?unknown_facing_radians_79b620@@3NB",
+   "address": "0079b620"
+  },
+  {
+   "symbol": "?unknown_facing_scale_79b628@@3NB",
+   "address": "0079b628"
+  },
+  {
+   "symbol": "?unknown_flag_a40958@@3_NA",
+   "address": "00a40958"
+  },
+  {
+   "symbol": "?unknown_func_5d27d0@ObjectClass@@QBE_NPBD@Z",
+   "address": "005d27d0"
+  },
+  {
+   "symbol": "?unknown_game_mode_a3d298@@3HA",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
+   "symbol": "?unknown_infantry_section_7a33f0@@3PBDB",
+   "address": "007a33f0"
+  },
+  {
+   "symbol": "?unknown_infantry_spots_850e50@@3QBUCoordStruct@@B",
+   "address": "00850e50"
+  },
+  {
+   "symbol": "?unknown_ini_format_a40d24@@3HA",
+   "address": "00a40d24"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_object_index_abff58@@3V?$IndexClass@JPAVAbstractClass@@@@A",
+   "address": "00abff58"
+  },
+  {
+   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
+   "address": "00a35db4"
+  },
+  {
+   "symbol": "?unknown_random_839218@@3VRandom2Class@@A",
+   "address": "00839218"
+  },
+  {
+   "symbol": "?unknown_sequence_facings_7a33f4@@3QBHB",
+   "address": "007a33f4"
+  },
+  {
+   "symbol": "?unknown_sin_4ba480@@YANN@Z",
+   "address": "004ba480"
+  },
+  {
+   "symbol": "?unknown_slot102@FootClass@@UAEHPAVUnknownCellClass@@HPAHPA_N0@Z",
+   "address": "004c8730"
+  },
+  {
+   "symbol": "?unknown_slot104@ObjectClass@@UBE?AVCell@@XZ",
+   "address": "0041b320"
+  },
+  {
+   "symbol": "?unknown_slot111@TechnoClass@@UAE_NXZ",
+   "address": "006d6df0"
+  },
+  {
+   "symbol": "?unknown_slot112@TechnoClass@@UAE_NXZ",
+   "address": "006d6e00"
+  },
+  {
+   "symbol": "?unknown_slot113@TechnoClass@@UAE_NXZ",
+   "address": "006d6e10"
+  },
+  {
+   "symbol": "?unknown_slot114@TechnoClass@@UAE_NXZ",
+   "address": "006d6e30"
+  },
+  {
+   "symbol": "?unknown_slot115@TechnoClass@@UAEPAVConvertClass@@XZ",
+   "address": "006d1480"
+  },
+  {
+   "symbol": "?unknown_slot149@RadioClass@@UAEHH@Z",
+   "address": "00636d90"
+  },
+  {
+   "symbol": "?unknown_slot150@RadioClass@@UAEHHPAVTechnoClass@@@Z",
+   "address": "00636b80"
+  },
+  {
+   "symbol": "?unknown_slot151@RadioClass@@UAEHHPAPAVAbstractClass@@PAVTechnoClass@@@Z",
+   "address": "00636a50"
+  },
+  {
+   "symbol": "?unknown_slot153@TechnoClass@@UAE_NXZ",
+   "address": "0041b360"
+  },
+  {
+   "symbol": "?unknown_slot154@FootClass@@UAE_NXZ",
+   "address": "004ca6a0"
+  },
+  {
+   "symbol": "?unknown_slot155@TechnoClass@@UAE_NXZ",
+   "address": "006c12d0"
+  },
+  {
+   "symbol": "?unknown_slot156@TechnoClass@@UAE_NXZ",
+   "address": "0041b450"
+  },
+  {
+   "symbol": "?unknown_slot157@TechnoClass@@UAE_NXZ",
+   "address": "006d6780"
+  },
+  {
+   "symbol": "?unknown_slot158@TechnoClass@@UAE_NXZ",
+   "address": "006c7480"
+  },
+  {
+   "symbol": "?unknown_slot160@TechnoClass@@UAE_NXZ",
+   "address": "006c9020"
+  },
+  {
+   "symbol": "?unknown_slot161@TechnoClass@@UAE_NXZ",
+   "address": "006c8ef0"
+  },
+  {
+   "symbol": "?unknown_slot162@TechnoClass@@UAE?AUUnknownFacingDir@@XZ",
+   "address": "004cddf0"
+  },
+  {
+   "symbol": "?unknown_slot163@TechnoClass@@UAE_NXZ",
+   "address": "006cd670"
+  },
+  {
+   "symbol": "?unknown_slot164@TechnoClass@@UAEHXZ",
+   "address": "006d6e60"
+  },
+  {
+   "symbol": "?unknown_slot165@TechnoClass@@UAENXZ",
+   "address": "006d3ea0"
+  },
+  {
+   "symbol": "?unknown_slot166@TechnoClass@@UAEHXZ",
+   "address": "006d3ed0"
+  },
+  {
+   "symbol": "?unknown_slot167@TechnoClass@@UAEHXZ",
+   "address": "006d5850"
+  },
+  {
+   "symbol": "?unknown_slot168@TechnoClass@@UAEHXZ",
+   "address": "006d3e50"
+  },
+  {
+   "symbol": "?unknown_slot169@FootClass@@UAE_NPAVAbstractClass@@@Z",
+   "address": "004ca350"
+  },
+  {
+   "symbol": "?unknown_slot170@TechnoClass@@UAE?AUUnknownFacingDir@@PAVAbstractClass@@@Z",
+   "address": "006ca540"
+  },
+  {
+   "symbol": "?unknown_slot171@FootClass@@UAE_NABUCoordStruct@@@Z",
+   "address": "004c2ef0"
+  },
+  {
+   "symbol": "?unknown_slot172@TechnoClass@@UAEHXZ",
+   "address": "006c16d0"
+  },
+  {
+   "symbol": "?unknown_slot173@TechnoClass@@UAEXXZ",
+   "address": "006d8110"
+  },
+  {
+   "symbol": "?unknown_slot174@TechnoClass@@UAEHPAVAbstractClass@@@Z",
+   "address": "006c1380"
+  },
+  {
+   "symbol": "?unknown_slot175@TechnoClass@@UAEHPAVObjectClass@@@Z",
+   "address": "006c15d0"
+  },
+  {
+   "symbol": "?unknown_slot176@FootClass@@UAEHXZ",
+   "address": "004c9930"
+  },
+  {
+   "symbol": "?unknown_slot177@FootClass@@UAEHXZ",
+   "address": "004c9a10"
+  },
+  {
+   "symbol": "?unknown_slot180@TechnoClass@@UAE?AVCell@@H@Z",
+   "address": "006d5800"
+  },
+  {
+   "symbol": "?unknown_slot182@TechnoClass@@UAEHPAVAbstractClass@@PAVCell@@@Z",
+   "address": "006d3eb0"
+  },
+  {
+   "symbol": "?unknown_slot183@TechnoClass@@UAE?AUUnknownFacingDir@@XZ",
+   "address": "006d3f80"
+  },
+  {
+   "symbol": "?unknown_slot184@TechnoClass@@UAEPAVInfantryTypeClass@@XZ",
+   "address": "006d30b0"
+  },
+  {
+   "symbol": "?unknown_slot185@TechnoClass@@UAE_NXZ",
+   "address": "006cd300"
+  },
+  {
+   "symbol": "?unknown_slot186@TechnoClass@@UAE_NXZ",
+   "address": "006cd340"
+  },
+  {
+   "symbol": "?unknown_slot187@TechnoClass@@UAEHH@Z",
+   "address": "006c9c00"
+  },
+  {
+   "symbol": "?unknown_slot188@TechnoClass@@UAEHH@Z",
+   "address": "006d31e0"
+  },
+  {
+   "symbol": "?unknown_slot189@FootClass@@UAE_NXZ",
+   "address": "004c8ca0"
+  },
+  {
+   "symbol": "?unknown_slot190@TechnoClass@@UAE_NPAH@Z",
+   "address": "006d7a10"
+  },
+  {
+   "symbol": "?unknown_slot191@TechnoClass@@UAE_NXZ",
+   "address": "006d7c00"
+  },
+  {
+   "symbol": "?unknown_slot192@TechnoClass@@UAE_NPAVHouseClass@@@Z",
+   "address": "006d7c40"
+  },
+  {
+   "symbol": "?unknown_slot194@FootClass@@UAEXXZ",
+   "address": "004ccdf0"
+  },
+  {
+   "symbol": "?unknown_slot195@TechnoClass@@UAE_NXZ",
+   "address": "006cd6e0"
+  },
+  {
+   "symbol": "?unknown_slot196@TechnoClass@@UAEXXZ",
+   "address": "006d3fa0"
+  },
+  {
+   "symbol": "?unknown_slot197@TechnoClass@@UAEXXZ",
+   "address": "006d4000"
+  },
+  {
+   "symbol": "?unknown_slot198@TechnoClass@@UAEXXZ",
+   "address": "006d4060"
+  },
+  {
+   "symbol": "?unknown_slot199@TechnoClass@@UAE_NH@Z",
+   "address": "006cc510"
+  },
+  {
+   "symbol": "?unknown_slot19@FootClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z",
+   "address": "004ca6f0"
+  },
+  {
+   "symbol": "?unknown_slot200@TechnoClass@@UAE_NHPAVAbstractClass@@00@Z",
+   "address": "006cc2a0"
+  },
+  {
+   "symbol": "?unknown_slot202@FootClass@@UAE_NXZ",
+   "address": "004cd080"
+  },
+  {
+   "symbol": "?unknown_slot207@TechnoClass@@UAEXXZ",
+   "address": "006d7e00"
+  },
+  {
+   "symbol": "?unknown_slot208@TechnoClass@@UAE_NPAVObjectClass@@@Z",
+   "address": "006d8db0"
+  },
+  {
+   "symbol": "?unknown_slot209@TechnoClass@@UAE_NPBUCoordStruct@@H@Z",
+   "address": "006d46d0"
+  },
+  {
+   "symbol": "?unknown_slot210@FootClass@@UAEXXZ",
+   "address": "004c4c00"
+  },
+  {
+   "symbol": "?unknown_slot211@TechnoClass@@UAE_NPAVObjectClass@@@Z",
+   "address": "006c4f50"
+  },
+  {
+   "symbol": "?unknown_slot212@TechnoClass@@UAE_NPAVAbstractClass@@H@Z",
+   "address": "006c50a0"
+  },
+  {
+   "symbol": "?unknown_slot213@TechnoClass@@UAE_NPAVAbstractClass@@@Z",
+   "address": "006c5070"
+  },
+  {
+   "symbol": "?unknown_slot214@TechnoClass@@UAE_NABUCoordStruct@@@Z",
+   "address": "006c5200"
+  },
+  {
+   "symbol": "?unknown_slot215@TechnoClass@@UAE_NPAVAbstractClass@@@Z",
+   "address": "006c51a0"
+  },
+  {
+   "symbol": "?unknown_slot216@FootClass@@UAEXH@Z",
+   "address": "004c83c0"
+  },
+  {
+   "symbol": "?unknown_slot217@TechnoClass@@UAEHPAVAbstractClass@@H@Z",
+   "address": "006c9240"
+  },
+  {
+   "symbol": "?unknown_slot218@TechnoClass@@UAEHPAVAbstractClass@@H_N@Z",
+   "address": "006c9260"
+  },
+  {
+   "symbol": "?unknown_slot219@FootClass@@UAEPAVAbstractClass@@HPBUCoordStruct@@_N@Z",
+   "address": "004c8420"
+  },
+  {
+   "symbol": "?unknown_slot220@TechnoClass@@UAEXPAVAbstractClass@@@Z",
+   "address": "006c9af0"
+  },
+  {
+   "symbol": "?unknown_slot221@TechnoClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z",
+   "address": "006ca890"
+  },
+  {
+   "symbol": "?unknown_slot222@FootClass@@UAE_NPAVHouseClass@@H@Z",
+   "address": "004ca7d0"
+  },
+  {
+   "symbol": "?unknown_slot223@TechnoClass@@UAEXABUCoordStruct@@M@Z",
+   "address": "006d5f40"
+  },
+  {
+   "symbol": "?unknown_slot224@FootClass@@UAE_NH@Z",
+   "address": "004cd4b0"
+  },
+  {
+   "symbol": "?unknown_slot225@TechnoClass@@UAE_NXZ",
+   "address": "006d84d0"
+  },
+  {
+   "symbol": "?unknown_slot226@TechnoClass@@UAEHXZ",
+   "address": "006d84f0"
+  },
+  {
+   "symbol": "?unknown_slot227@TechnoClass@@UAEHXZ",
+   "address": "006d8500"
+  },
+  {
+   "symbol": "?unknown_slot228@TechnoClass@@UAEHXZ",
+   "address": "006d8510"
+  },
+  {
+   "symbol": "?unknown_slot229@TechnoClass@@UAEPAUWeaponStruct@@XZ",
+   "address": "006d8520"
+  },
+  {
+   "symbol": "?unknown_slot22@AbstractClass@@UBE?AUCoordStruct@@XZ",
+   "address": "004102e0"
+  },
+  {
+   "symbol": "?unknown_slot230@TechnoClass@@UAEPAUWeaponStruct@@XZ",
+   "address": "006d85a0"
+  },
+  {
+   "symbol": "?unknown_slot231@TechnoClass@@UAEPAUWeaponStruct@@H@Z",
+   "address": "006d8540"
+  },
+  {
+   "symbol": "?unknown_slot232@TechnoClass@@UAE_NXZ",
+   "address": "0041b3f0"
+  },
+  {
+   "symbol": "?unknown_slot233@TechnoClass@@UAEXXZ",
+   "address": "006cd8b0"
+  },
+  {
+   "symbol": "?unknown_slot235@TechnoClass@@UAEXXZ",
+   "address": "006c83f0"
+  },
+  {
+   "symbol": "?unknown_slot236@TechnoClass@@UAEXXZ",
+   "address": "006c86f0"
+  },
+  {
+   "symbol": "?unknown_slot237@TechnoClass@@UAEXXZ",
+   "address": "006d6230"
+  },
+  {
+   "symbol": "?unknown_slot238@TechnoClass@@UAEXXZ",
+   "address": "006c2990"
+  },
+  {
+   "symbol": "?unknown_slot239@TechnoClass@@UAEXXZ",
+   "address": "006c8290"
+  },
+  {
+   "symbol": "?unknown_slot241@FootClass@@UAE?AUCoordStruct@@XZ",
+   "address": "004c71b0"
+  },
+  {
+   "symbol": "?unknown_slot242@TechnoClass@@UAE_NXZ",
+   "address": "006d1460"
+  },
+  {
+   "symbol": "?unknown_slot243@FootClass@@UAEX_NH@Z",
+   "address": "004ca8b0"
+  },
+  {
+   "symbol": "?unknown_slot244@TechnoClass@@UAEHH@Z",
+   "address": "006d8c30"
+  },
+  {
+   "symbol": "?unknown_slot245@TechnoClass@@UAE_NPAVHouseClass@@@Z",
+   "address": "006d8ce0"
+  },
+  {
+   "symbol": "?unknown_slot246@FootClass@@UAEXABVUnknownObjectPair@@HHPAVUnknownBuffer@@ABVRect@@ABUPoint2D@@ABVMatrix3D@@HI@Z",
+   "address": "004c9880"
+  },
+  {
+   "symbol": "?unknown_slot247@TechnoClass@@UAEXHH@Z",
+   "address": "006c3b20"
+  },
+  {
+   "symbol": "?unknown_slot248@TechnoClass@@UAEXABUPoint2D@@ABVRect@@_N@Z",
+   "address": "006c3f00"
+  },
+  {
+   "symbol": "?unknown_slot249@TechnoClass@@UAEXABUPoint2D@@0ABVRect@@@Z",
+   "address": "006d4920"
+  },
+  {
+   "symbol": "?unknown_slot24@TechnoClass@@UAE_NXZ",
+   "address": "006c1320"
+  },
+  {
+   "symbol": "?unknown_slot250@TechnoClass@@UAEXABUPoint2D@@ABVRect@@@Z",
+   "address": "006d5440"
+  },
+  {
+   "symbol": "?unknown_slot251@TechnoClass@@UAEXABUPoint2D@@0ABVRect@@@Z",
+   "address": "006d5510"
+  },
+  {
+   "symbol": "?unknown_slot252@TechnoClass@@UAEX_N@Z",
+   "address": "006cf250"
+  },
+  {
+   "symbol": "?unknown_slot253@TechnoClass@@UAEX_N@Z",
+   "address": "006cf300"
+  },
+  {
+   "symbol": "?unknown_slot254@TechnoClass@@UAEHH@Z",
+   "address": "006d79d0"
+  },
+  {
+   "symbol": "?unknown_slot255@TechnoClass@@UAEXPAV1@@Z",
+   "address": "006d8680"
+  },
+  {
+   "symbol": "?unknown_slot257@TechnoClass@@UAE_NXZ",
+   "address": "006d4890"
+  },
+  {
+   "symbol": "?unknown_slot259@FootClass@@UAEXH@Z",
+   "address": "004c8020"
+  },
+  {
+   "symbol": "?unknown_slot25@FootClass@@UAEH_NH@Z",
+   "address": "004c8fa0"
+  },
+  {
+   "symbol": "?unknown_slot261@FootClass@@UAE_N_N0@Z",
+   "address": "004c6f10"
+  },
+  {
+   "symbol": "?unknown_slot262@TechnoClass@@UAEX_N00PAVHouseClass@@@Z",
+   "address": "006d5c30"
+  },
+  {
+   "symbol": "?unknown_slot263@TechnoClass@@UAEX_N00PAVHouseClass@@@Z",
+   "address": "006d5e90"
+  },
+  {
+   "symbol": "?unknown_slot264@TechnoClass@@UAEXXZ",
+   "address": "006d74d0"
+  },
+  {
+   "symbol": "?unknown_slot265@TechnoClass@@UAEXXZ",
+   "address": "006d7500"
+  },
+  {
+   "symbol": "?unknown_slot266@TechnoClass@@UAEXXZ",
+   "address": "006d7530"
+  },
+  {
+   "symbol": "?unknown_slot267@TechnoClass@@UAEX_N@Z",
+   "address": "006d8120"
+  },
+  {
+   "symbol": "?unknown_slot268@FootClass@@UAEHPBUUnknownSlot268Arg@@@Z",
+   "address": "004cd9c0"
+  },
+  {
+   "symbol": "?unknown_slot269@FootClass@@UAEXXZ",
+   "address": "004cda80"
+  },
+  {
+   "symbol": "?unknown_slot270@FootClass@@UAE_NXZ",
+   "address": "004cdaa0"
+  },
+  {
+   "symbol": "?unknown_slot271@FootClass@@UAE_NXZ",
+   "address": "004cdab0"
+  },
+  {
+   "symbol": "?unknown_slot272@FootClass@@UAEHXZ",
+   "address": "004cdac0"
+  },
+  {
+   "symbol": "?unknown_slot273@FootClass@@UAE?AUCoordStruct@@XZ",
+   "address": "004cdad0"
+  },
+  {
+   "symbol": "?unknown_slot274@TechnoClass@@UAE_NXZ",
+   "address": "006d8f20"
+  },
+  {
+   "symbol": "?unknown_slot275@TechnoClass@@UAE_NXZ",
+   "address": "006d8f40"
+  },
+  {
+   "symbol": "?unknown_slot276@FootClass@@UAE_NXZ",
+   "address": "004cdbd0"
+  },
+  {
+   "symbol": "?unknown_slot277@FootClass@@UAE_NXZ",
+   "address": "004cdbe0"
+  },
+  {
+   "symbol": "?unknown_slot278@FootClass@@UAEXXZ",
+   "address": "004cdc60"
+  },
+  {
+   "symbol": "?unknown_slot279@FootClass@@UAE_NXZ",
+   "address": "004cdd70"
+  },
+  {
+   "symbol": "?unknown_slot27@FootClass@@UAEHPBVCell@@_N1@Z",
+   "address": "004cc650"
+  },
+  {
+   "symbol": "?unknown_slot280@FootClass@@UAEXH@Z",
+   "address": "004cd060"
+  },
+  {
+   "symbol": "?unknown_slot281@FootClass@@UAEXH@Z",
+   "address": "004cd070"
+  },
+  {
+   "symbol": "?unknown_slot282@FootClass@@UAE_NXZ",
+   "address": "004cafe0"
+  },
+  {
+   "symbol": "?unknown_slot283@FootClass@@UAE_NXZ",
+   "address": "004ca820"
+  },
+  {
+   "symbol": "?unknown_slot285@FootClass@@UAEXVCell@@@Z",
+   "address": "004cd0c0"
+  },
+  {
+   "symbol": "?unknown_slot286@FootClass@@UAEXVCell@@@Z",
+   "address": "004cd250"
+  },
+  {
+   "symbol": "?unknown_slot287@FootClass@@UAE?AUCoordStruct@@XZ",
+   "address": "004c8ac0"
+  },
+  {
+   "symbol": "?unknown_slot288@FootClass@@UAEXXZ",
+   "address": "004ca880"
+  },
+  {
+   "symbol": "?unknown_slot28@FootClass@@UAEHPAVObjectClass@@_N@Z",
+   "address": "004cc740"
+  },
+  {
+   "symbol": "?unknown_slot290@FootClass@@UAE_NAAUCoordStruct@@@Z",
+   "address": "004c4b90"
+  },
+  {
+   "symbol": "?unknown_slot291@FootClass@@UAE_NXZ",
+   "address": "004c4b60"
+  },
+  {
+   "symbol": "?unknown_slot292@FootClass@@UAE_NXZ",
+   "address": "004ca2b0"
+  },
+  {
+   "symbol": "?unknown_slot298@FootClass@@UAEHXZ",
+   "address": "004c86d0"
+  },
+  {
+   "symbol": "?unknown_slot299@FootClass@@UAEPAVTechnoClass@@PBV?$DynamicVectorClass@PAVTechnoTypeClass@@@@HH@Z",
+   "address": "004cd920"
+  },
+  {
+   "symbol": "?unknown_slot300@FootClass@@UAEPAVTechnoClass@@PAVTechnoTypeClass@@HHPAH@Z",
+   "address": "004cd760"
+  },
+  {
+   "symbol": "?unknown_slot301@FootClass@@UAEPAVTechnoClass@@PAVTechnoTypeClass@@HH@Z",
+   "address": "004cd730"
+  },
+  {
+   "symbol": "?unknown_slot303@FootClass@@UAEHXZ",
+   "address": "004c9b10"
+  },
+  {
+   "symbol": "?unknown_slot306@FootClass@@UAEXN@Z",
+   "address": "004c2df0"
+  },
+  {
+   "symbol": "?unknown_slot309@FootClass@@UAE_NPAVAbstractClass@@@Z",
+   "address": "004cc4d0"
+  },
+  {
+   "symbol": "?unknown_slot31@ObjectClass@@UAE_NXZ",
+   "address": "00423d30"
+  },
+  {
+   "symbol": "?unknown_slot40@ObjectClass@@UAE?AUCoordStruct@@XZ",
+   "address": "0041b240"
+  },
+  {
+   "symbol": "?unknown_slot41@ObjectClass@@UBE?AUCoordStruct@@H@Z",
+   "address": "005d54f0"
+  },
+  {
+   "symbol": "?unknown_slot42@ObjectClass@@UBE?AUCoordStruct@@XZ",
+   "address": "0041b270"
+  },
+  {
+   "symbol": "?unknown_slot43@TechnoClass@@UAE?AUCoordStruct@@H@Z",
+   "address": "006c1830"
+  },
+  {
+   "symbol": "?unknown_slot44@ObjectClass@@UAE?AUCoordStruct@@H@Z",
+   "address": "0041b2a0"
+  },
+  {
+   "symbol": "?unknown_slot54@FootClass@@UAEX_N@Z",
+   "address": "004c8220"
+  },
+  {
+   "symbol": "?unknown_slot56@ObjectClass@@UAE_NABUCoordStruct@@@Z",
+   "address": "005d4240"
+  },
+  {
+   "symbol": "?unknown_slot65@TechnoClass@@UAEXHH@Z",
+   "address": "006c3b30"
+  },
+  {
+   "symbol": "?unknown_slot66@TechnoClass@@UAEXABUPoint2D@@ABVRect@@@Z",
+   "address": "006c2c40"
+  },
+  {
+   "symbol": "?unknown_slot67@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z",
+   "address": "004c9bc0"
+  },
+  {
+   "symbol": "?unknown_slot74@ObjectClass@@UAEXH@Z",
+   "address": "0041b2f0"
+  },
+  {
+   "symbol": "?unknown_slot77@FootClass@@UAE_NHPBVCell@@0_N@Z",
+   "address": "004c69f0"
+  },
+  {
+   "symbol": "?unknown_slot78@FootClass@@UAE_NHPAVObjectClass@@_N@Z",
+   "address": "004c61a0"
+  },
+  {
+   "symbol": "?unknown_slot80@TechnoClass@@UAE_NXZ",
+   "address": "006c91c0"
+  },
+  {
+   "symbol": "?unknown_slot83@ObjectClass@@UAE_NXZ",
+   "address": "0041b300"
+  },
+  {
+   "symbol": "?unknown_slot92@ObjectClass@@UAEXH@Z",
+   "address": "0041b310"
+  },
+  {
+   "symbol": "?unknown_slot93@InfantryClass@@UAEXH@Z",
+   "address": "00500aa0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_surface_83995c@@3PAVSurface@@A",
+   "address": "0083995c"
+  },
+  {
+   "symbol": "?unknown_tactical_83996c@@3PAVTactical@@A",
+   "address": "0083996c"
+  },
+  {
+   "symbol": "_CLSID_BallisticLocomotionClass",
+   "address": "007a1fb0"
+  },
+  {
+   "symbol": "_CLSID_InfantryClass",
+   "address": "007a1bf0"
+  },
+  {
+   "symbol": "_CLSID_JumpjetLocomotionClass",
+   "address": "007a2000"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__CoCreateInstance@20",
+   "address": "0079a5f0"
+  },
+  {
+   "symbol": "__imp__OleRun@4",
+   "address": "0079a5f4"
+  },
+  {
+   "symbol": "_atoi",
+   "address": "00782dfd"
+  },
+  {
+   "symbol": "_memmove",
+   "address": "00783290"
+  },
+  {
+   "symbol": "_qsort",
+   "address": "00781d46"
+  },
+  {
+   "symbol": "_sprintf",
+   "address": "007820f4"
+  },
+  {
+   "symbol": "_strtok",
+   "address": "00782ec2"
+  },
+  {
+   "symbol": "_unknown_Walk_clsid_007a1fa0",
+   "address": "007a1fa0"
+  },
+  {
+   "symbol": "_unknown_infantry_drawer_008323c4",
+   "address": "008323c4"
+  },
+  {
+   "symbol": "_unknown_infantry_shadow_00a41134",
+   "address": "00a41134"
+  },
+  {
+   "symbol": "_unknown_infantry_zadjust_007daeb8",
+   "address": "007daeb8"
+  },
+  {
+   "symbol": "_unknown_uuid_ILocomotion_7ce600",
+   "address": "007ce600"
+  },
+  {
+   "symbol": "_unknown_uuid_IPersist_7cf208",
+   "address": "007cf208"
+  },
+  {
+   "symbol": "_unknown_uuid_IUnknown_7ce610",
+   "address": "007ce610"
+  }
+ ],
+ "route": "A",
+ "unit": "infantry.cpp",
+ "form": "one include block",
+ "switches": [
+  "RA2_COORD_AS_CELL",
+  "RA2_SHIP_MOVE_TO_VALUE",
+  "RA2_INFANTRY_COMIP_PERSIST",
+  "RA2_CELL_FROM_COORD_AS_CELL",
+  "SHAPE_FILE_EMPTY_RECT"
+ ],
+ "include_blocks": [
+  {
+   "before": "004ff450",
+   "lines": 46
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 116,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

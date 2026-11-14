@@ -7,9 +7,10 @@
   "/O2",
   "/Ob2",
   "/G5",
-  "/Gy"
+  "/Gy",
+  "/GR"
  ],
- "compile_group": 36,
+ "compile_group": 31,
  "code": [
   {
    "symbol": "?Get_Date_Time@FileClass@@UAEKXZ",
@@ -154,10 +155,80 @@
  "data": [
   {
    "symbol": "??_7FileClass@@6B@",
-   "address": "007a8c7c",
-   "bytes": 68,
+   "address": "007a8c78",
+   "bytes": 72,
    "kind": "vtable",
+   "section": 17
+  },
+  {
+   "symbol": "??_R1A@?0A@A@FileClass@@8",
+   "address": "007b2558",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 12
+  },
+  {
+   "symbol": "??_R1A@?0A@A@RawFileClass@@8",
+   "address": "007b2570",
+   "bytes": 24,
+   "kind": "rtti",
    "section": 7
+  },
+  {
+   "symbol": "??_R2FileClass@@8",
+   "address": "007c0684",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 13
+  },
+  {
+   "symbol": "??_R3FileClass@@8",
+   "address": "007c0690",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 14
+  },
+  {
+   "symbol": "??_R4FileClass@@6B@",
+   "address": "007c06a0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 16
+  },
+  {
+   "symbol": "??_R2RawFileClass@@8",
+   "address": "007c06b8",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 8
+  },
+  {
+   "symbol": "??_R3RawFileClass@@8",
+   "address": "007c06c8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 9
+  },
+  {
+   "symbol": "??_R4RawFileClass@@6B@",
+   "address": "007c06d8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 11
+  },
+  {
+   "symbol": "??_R0?AVFileClass@@@8",
+   "address": "007cc8d0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 15
+  },
+  {
+   "symbol": "??_R0?AVRawFileClass@@@8",
+   "address": "007cc8e8",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 10
   }
  ],
  "data_ranges": [],
@@ -166,14 +237,74 @@
  "kept_elsewhere": [
   {
    "symbol": "??_7FileClass@@6B@",
-   "address": "007a8c7c",
-   "bytes": 68,
+   "address": "007a8c78",
+   "bytes": 72,
    "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@FileClass@@8",
+   "address": "007b2558",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@RawFileClass@@8",
+   "address": "007b2570",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2FileClass@@8",
+   "address": "007c0684",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3FileClass@@8",
+   "address": "007c0690",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4FileClass@@6B@",
+   "address": "007c06a0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2RawFileClass@@8",
+   "address": "007c06b8",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3RawFileClass@@8",
+   "address": "007c06c8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4RawFileClass@@6B@",
+   "address": "007c06d8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVFileClass@@@8",
+   "address": "007cc8d0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVRawFileClass@@@8",
+   "address": "007cc8e8",
+   "bytes": 27,
+   "kind": "rtti"
   }
  ],
  "failures": [
   {
-   "section": 8,
+   "section": 18,
    "symbol": "??_7RawFileClass@@6B@",
    "reason": "relocation target unbound: ?File_Name@RawFileClass@@UBEPBDXZ"
   }
@@ -1234,6 +1365,10 @@
   {
    "symbol": "??3@YAXPAX@Z",
    "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
   },
   {
    "symbol": "_RawFileReadStopOnError",

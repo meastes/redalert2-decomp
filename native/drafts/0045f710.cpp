@@ -457,7 +457,7 @@ flown:
             int index = AnimTypeClass::From_Name("NUKEBALL");
             AnimTypeClass *type;
             if (index != -1 && (type = AnimTypes[index]) != 0) {
-                NextAnim = new AnimClass(type, CoordStruct(Coord), 0, 1, 0x2600, Unknown_0047FCC0(Coord));
+                NextAnim = new AnimClass(type, CoordStruct(Coord), 0, 1, 0x2600, Get_Explosion_Z_0047fcc0(Coord));
                 SpawnNextAnim = true;
                 unknown_abstracts_ac0bf8.Add(this);
                 break;

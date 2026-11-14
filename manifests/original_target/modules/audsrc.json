@@ -1,0 +1,429 @@
+{
+ "module": "audsrc",
+ "source": "src/recovered/audsrc.cpp",
+ "header": null,
+ "population": "population-1329",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 139,
+ "code": [
+  {
+   "symbol": "?Audio_Source_Create@@YIPAUAudioSource@@H@Z",
+   "entry": "00408380",
+   "body_bytes": 92,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Audio_Source_Destroy@@YIXPAUAudioSource@@@Z",
+   "entry": "004083e0",
+   "body_bytes": 29,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Audio_Source_Reset@@YIXPAUAudioSource@@@Z",
+   "entry": "00408400",
+   "body_bytes": 21,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Audio_Source_Add_Piece@@YIXPAUAudioSource@@PAUAudioSourceInfo@@@Z",
+   "entry": "00408420",
+   "body_bytes": 31,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Info@AudioSource@@QAEPAUAudioSourceInfo@@XZ",
+   "entry": "00408440",
+   "body_bytes": 8,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?get@Leaf_408450@@QAEXXZ",
+   "entry": "00408450",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Bytes_For_Time@AudioFormat@@QAEH_J@Z",
+   "entry": "00408460",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Time_For_Bytes@AudioFormat@@QAI_KH@Z",
+   "entry": "00408480",
+   "body_bytes": 51,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Audio_Format_Init@@YIXPAUAudioFormat@@@Z",
+   "entry": "004084c0",
+   "body_bytes": 14,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Update_Rate@AudioFormat@@QAEXXZ",
+   "entry": "004084d0",
+   "body_bytes": 34,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Init@AudioSourceInfo@@QAIXPAXH@Z",
+   "entry": "00408500",
+   "body_bytes": 29,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Detach@AudioSourceInfo@@QAEXXZ",
+   "entry": "00408520",
+   "body_bytes": 8,
+   "padding_bytes": 8
+  }
+ ],
+ "code_bytes": 432,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00402790",
+   "symbol": "?Info@AudioSource@@QAEPAUAudioSourceInfo@@XZ",
+   "target": "00408440",
+   "function_entry": true
+  },
+  {
+   "site": "00402330",
+   "symbol": "?Info@AudioSource@@QAEPAUAudioSourceInfo@@XZ",
+   "target": "00408440",
+   "function_entry": true
+  },
+  {
+   "site": "00407790",
+   "symbol": "?Audio_Source_Reset@@YIXPAUAudioSource@@@Z",
+   "target": "00408400",
+   "function_entry": true
+  },
+  {
+   "site": "00407790",
+   "symbol": "?Audio_Format_Init@@YIXPAUAudioFormat@@@Z",
+   "target": "004084c0",
+   "function_entry": true
+  },
+  {
+   "site": "004019e0",
+   "symbol": "?Detach@AudioSourceInfo@@QAEXXZ",
+   "target": "00408520",
+   "function_entry": true
+  },
+  {
+   "site": "004019e0",
+   "symbol": "?Finish@AudioSource@@QAEXXZ",
+   "target": "00408450",
+   "function_entry": true
+  },
+  {
+   "site": "00401b00",
+   "symbol": "?Detach@AudioSourceInfo@@QAEXXZ",
+   "target": "00408520",
+   "function_entry": true
+  },
+  {
+   "site": "00401b00",
+   "symbol": "?Finish@AudioSource@@QAEXXZ",
+   "target": "00408450",
+   "function_entry": true
+  },
+  {
+   "site": "00401ef0",
+   "symbol": "?Detach@AudioSourceInfo@@QAEXXZ",
+   "target": "00408520",
+   "function_entry": true
+  },
+  {
+   "site": "00401ef0",
+   "symbol": "?Finish@AudioSource@@QAEXXZ",
+   "target": "00408450",
+   "function_entry": true
+  },
+  {
+   "site": "00401fc0",
+   "symbol": "?Detach@AudioSourceInfo@@QAEXXZ",
+   "target": "00408520",
+   "function_entry": true
+  },
+  {
+   "site": "00401fc0",
+   "symbol": "?Finish@AudioSource@@QAEXXZ",
+   "target": "00408450",
+   "function_entry": true
+  },
+  {
+   "site": "00406ad0",
+   "symbol": "?Audio_Format_Init@@YIXPAUAudioFormat@@@Z",
+   "target": "004084c0",
+   "function_entry": true
+  },
+  {
+   "site": "00406ad0",
+   "symbol": "?Update_Rate@AudioFormat@@QAEXXZ",
+   "target": "004084d0",
+   "function_entry": true
+  },
+  {
+   "site": "006e7af0",
+   "symbol": "?Audio_Format_Init@@YIXPAUAudioFormat@@@Z",
+   "target": "004084c0",
+   "function_entry": true
+  },
+  {
+   "site": "006e7af0",
+   "symbol": "?Time_For_Bytes@AudioFormat@@QAI_KH@Z",
+   "target": "00408480",
+   "function_entry": true
+  },
+  {
+   "site": "00407a90",
+   "symbol": "?Bytes_For_Time@AudioFormat@@QAEH_J@Z",
+   "target": "00408460",
+   "function_entry": true
+  },
+  {
+   "site": "00407a90",
+   "symbol": "?Bytes_For_Time@AudioFormat@@QAEH_J@Z",
+   "target": "00408460",
+   "function_entry": true
+  },
+  {
+   "site": "00407a90",
+   "symbol": "?Bytes_For_Time@AudioFormat@@QAEH_J@Z",
+   "target": "00408460",
+   "function_entry": true
+  },
+  {
+   "site": "00407a90",
+   "symbol": "?Bytes_For_Time@AudioFormat@@QAEH_J@Z",
+   "target": "00408460",
+   "function_entry": true
+  },
+  {
+   "site": "00406d20",
+   "symbol": "?Audio_Format_Init@@YIXPAUAudioFormat@@@Z",
+   "target": "004084c0",
+   "function_entry": true
+  },
+  {
+   "site": "00406d20",
+   "symbol": "?Update_Rate@AudioFormat@@QAEXXZ",
+   "target": "004084d0",
+   "function_entry": true
+  },
+  {
+   "site": "00401c00",
+   "symbol": "?Detach@AudioSourceInfo@@QAEXXZ",
+   "target": "00408520",
+   "function_entry": true
+  },
+  {
+   "site": "00401c00",
+   "symbol": "?Finish@AudioSource@@QAEXXZ",
+   "target": "00408450",
+   "function_entry": true
+  },
+  {
+   "site": "00401c00",
+   "symbol": "?Audio_Source_Reset@@YIXPAUAudioSource@@@Z",
+   "target": "00408400",
+   "function_entry": true
+  },
+  {
+   "site": "00401c00",
+   "symbol": "?Audio_Format_Init@@YIXPAUAudioFormat@@@Z",
+   "target": "004084c0",
+   "function_entry": true
+  },
+  {
+   "site": "00401c00",
+   "symbol": "?Detach@AudioSourceInfo@@QAEXXZ",
+   "target": "00408520",
+   "function_entry": true
+  },
+  {
+   "site": "00401c00",
+   "symbol": "?Finish@AudioSource@@QAEXXZ",
+   "target": "00408450",
+   "function_entry": true
+  },
+  {
+   "site": "00401c00",
+   "symbol": "?Init@AudioSourceInfo@@QAIXPAXH@Z",
+   "target": "00408500",
+   "function_entry": true
+  },
+  {
+   "site": "00401c00",
+   "symbol": "?Audio_Source_Add_Piece@@YIXPAUAudioSource@@PAUAudioSourceInfo@@@Z",
+   "target": "00408420",
+   "function_entry": true
+  },
+  {
+   "site": "00401c00",
+   "symbol": "?Detach@AudioSourceInfo@@QAEXXZ",
+   "target": "00408520",
+   "function_entry": true
+  },
+  {
+   "site": "00401c00",
+   "symbol": "?Finish@AudioSource@@QAEXXZ",
+   "target": "00408450",
+   "function_entry": true
+  },
+  {
+   "site": "004016f0",
+   "symbol": "?Audio_Format_Init@@YIXPAUAudioFormat@@@Z",
+   "target": "004084c0",
+   "function_entry": true
+  },
+  {
+   "site": "00402c70",
+   "symbol": "?Audio_Format_Init@@YIXPAUAudioFormat@@@Z",
+   "target": "004084c0",
+   "function_entry": true
+  },
+  {
+   "site": "00402c70",
+   "symbol": "?Audio_Format_Init@@YIXPAUAudioFormat@@@Z",
+   "target": "004084c0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?Audio_List_Add_Tail@@YIXPAUAudioListNode@@0@Z",
+   "address": "00407350"
+  },
+  {
+   "symbol": "?Audio_List_Init@@YIXPAUAudioListNode@@@Z",
+   "address": "004071f0"
+  },
+  {
+   "symbol": "?Audio_List_Init_Node@@YIXPAUAudioListNode@@@Z",
+   "address": "00407200"
+  },
+  {
+   "symbol": "?Audio_List_Next_Unchecked@@YIPAUAudioListNode@@PAU1@@Z",
+   "address": "004073a0"
+  },
+  {
+   "symbol": "__allmul",
+   "address": "007820c0"
+  },
+  {
+   "symbol": "__aulldiv",
+   "address": "00782580"
+  },
+  {
+   "symbol": "_free",
+   "address": "007825e8"
+  },
+  {
+   "symbol": "_malloc",
+   "address": "00782630"
+  }
+ ],
+ "route": "A",
+ "unit": "audsrc.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00408380",
+   "lines": 2
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "00408450",
+   "bytes": 1,
+   "population": "population-4352",
+   "bound": "own frozen bound (population-4352)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [],
+ "unit_functions": 12,
+ "data_unproven": [],
+ "stand_in_references": [
+  {
+   "site": "004019e0",
+   "target": "00408450",
+   "symbol": "?Finish@AudioSource@@QAEXXZ",
+   "module_symbol": "?get@Leaf_408450@@QAEXXZ"
+  },
+  {
+   "site": "00401b00",
+   "target": "00408450",
+   "symbol": "?Finish@AudioSource@@QAEXXZ",
+   "module_symbol": "?get@Leaf_408450@@QAEXXZ"
+  },
+  {
+   "site": "00401ef0",
+   "target": "00408450",
+   "symbol": "?Finish@AudioSource@@QAEXXZ",
+   "module_symbol": "?get@Leaf_408450@@QAEXXZ"
+  },
+  {
+   "site": "00401fc0",
+   "target": "00408450",
+   "symbol": "?Finish@AudioSource@@QAEXXZ",
+   "module_symbol": "?get@Leaf_408450@@QAEXXZ"
+  },
+  {
+   "site": "00401c00",
+   "target": "00408450",
+   "symbol": "?Finish@AudioSource@@QAEXXZ",
+   "module_symbol": "?get@Leaf_408450@@QAEXXZ"
+  },
+  {
+   "site": "00401c00",
+   "target": "00408450",
+   "symbol": "?Finish@AudioSource@@QAEXXZ",
+   "module_symbol": "?get@Leaf_408450@@QAEXXZ"
+  },
+  {
+   "site": "00401c00",
+   "target": "00408450",
+   "symbol": "?Finish@AudioSource@@QAEXXZ",
+   "module_symbol": "?get@Leaf_408450@@QAEXXZ"
+  }
+ ],
+ "stand_in_reference_count": 7,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

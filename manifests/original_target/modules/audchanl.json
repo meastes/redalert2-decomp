@@ -1,0 +1,689 @@
+{
+ "module": "audchanl",
+ "source": "src/recovered/audchanl.cpp",
+ "header": null,
+ "population": "population-4364",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 993,
+ "code": [
+  {
+   "symbol": "?Audio_Channel_Create@@YIPAUAudioChannel@@PAUAudioDevice@@@Z",
+   "entry": "00402040",
+   "body_bytes": 302,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?unknown_release_and_delete_00402170@@YIXPAUUnknownComHolder_00402170@@@Z",
+   "entry": "00402170",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?get@Leaf_402190@@QAEIXZ",
+   "entry": "00402190",
+   "body_bytes": 137,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?FUN_00402430@seed_00402430@@YIIH@Z",
+   "entry": "00402430",
+   "body_bytes": 10,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Audio_Channel_Reuse@@YIXPAUAudioChannel@@@Z",
+   "entry": "004024a0",
+   "body_bytes": 165,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Audio_Channel_Destroy@@YIXPAUAudioChannel@@@Z",
+   "entry": "00402550",
+   "body_bytes": 96,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Audio_Channel_Stop@@YIXPAUAudioChannel@@@Z",
+   "entry": "004025b0",
+   "body_bytes": 69,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Audio_Channel_Pause@@YIXPAUAudioChannel@@@Z",
+   "entry": "00402600",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Audio_Channel_Resume@@YIXPAUAudioChannel@@@Z",
+   "entry": "00402650",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Audio_Channel_Lock@@YIXPAUAudioChannel@@@Z",
+   "entry": "004026a0",
+   "body_bytes": 9,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Audio_Channel_Unlock@@YIXPAUAudioChannel@@@Z",
+   "entry": "004026b0",
+   "body_bytes": 9,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Audio_Channel_Set_Flag_10@@YIXPAUAudioChannel@@@Z",
+   "entry": "004026c0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Audio_Channel_Clear_Flag_10@@YIXPAUAudioChannel@@@Z",
+   "entry": "004026f0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Audio_Channel_Start@@YIJPAUAudioChannel@@@Z",
+   "entry": "00402720",
+   "body_bytes": 110,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Audio_Channel_Set_Source@@YIXPAUAudioChannel@@PAUAudioSource@@@Z",
+   "entry": "00402790",
+   "body_bytes": 98,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Audio_Channel_Set_Format@@YIHPAUAudioChannel@@PBUAudioFormat@@@Z",
+   "entry": "00402800",
+   "body_bytes": 72,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?FUN_00402850@seed_00402850@@YIXH@Z",
+   "entry": "00402850",
+   "body_bytes": 9,
+   "padding_bytes": 7
+  }
+ ],
+ "code_bytes": 1456,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "004076b0",
+   "symbol": "?Audio_Channel_Stop@@YIXPAUAudioChannel@@@Z",
+   "target": "004025b0",
+   "function_entry": true
+  },
+  {
+   "site": "004079c0",
+   "symbol": "?Audio_Channel_Stop@@YIXPAUAudioChannel@@@Z",
+   "target": "004025b0",
+   "function_entry": true
+  },
+  {
+   "site": "004079c0",
+   "symbol": "?Audio_Channel_Reset@@YIXPAUAudioChannel@@@Z",
+   "target": "004024a0",
+   "function_entry": true
+  },
+  {
+   "site": "00407e60",
+   "symbol": "?Audio_Channel_Stop@@YIXPAUAudioChannel@@@Z",
+   "target": "004025b0",
+   "function_entry": true
+  },
+  {
+   "site": "00407ed0",
+   "symbol": "?Audio_Channel_Pause@@YIXPAUAudioChannel@@@Z",
+   "target": "00402600",
+   "function_entry": true
+  },
+  {
+   "site": "00407f20",
+   "symbol": "?Audio_Channel_Resume@@YIXPAUAudioChannel@@@Z",
+   "target": "00402650",
+   "function_entry": true
+  },
+  {
+   "site": "004080c0",
+   "symbol": "?Audio_Channel_Stop@@YIXPAUAudioChannel@@@Z",
+   "target": "004025b0",
+   "function_entry": true
+  },
+  {
+   "site": "00408190",
+   "symbol": "?Audio_Channel_Pause@@YIXPAUAudioChannel@@@Z",
+   "target": "00402600",
+   "function_entry": true
+  },
+  {
+   "site": "00408210",
+   "symbol": "?Audio_Channel_Resume@@YIXPAUAudioChannel@@@Z",
+   "target": "00402650",
+   "function_entry": true
+  },
+  {
+   "site": "004034b0",
+   "symbol": "?Audio_Channel_Create@@YIPAUAudioChannel@@PAUAudioDevice@@@Z",
+   "target": "00402040",
+   "function_entry": true
+  },
+  {
+   "site": "00403530",
+   "symbol": "?Audio_Channel_Create@@YIPAUAudioChannel@@PAUAudioDevice@@@Z",
+   "target": "00402040",
+   "function_entry": true
+  },
+  {
+   "site": "004036f0",
+   "symbol": "?Audio_Channel_Destroy@@YIXPAUAudioChannel@@@Z",
+   "target": "00402550",
+   "function_entry": true
+  },
+  {
+   "site": "00403730",
+   "symbol": "?Audio_Channel_Stop@@YIXPAUAudioChannel@@@Z",
+   "target": "004025b0",
+   "function_entry": true
+  },
+  {
+   "site": "00403770",
+   "symbol": "?Audio_Channel_Pause@@YIXPAUAudioChannel@@@Z",
+   "target": "00402600",
+   "function_entry": true
+  },
+  {
+   "site": "004037c0",
+   "symbol": "?Audio_Channel_Resume@@YIXPAUAudioChannel@@@Z",
+   "target": "00402650",
+   "function_entry": true
+  },
+  {
+   "site": "00402ef0",
+   "symbol": "?Audio_Channel_Destroy@@YIXPAUAudioChannel@@@Z",
+   "target": "00402550",
+   "function_entry": true
+  },
+  {
+   "site": "004033c0",
+   "symbol": "?Audio_Channel_Destroy@@YIXPAUAudioChannel@@@Z",
+   "target": "00402550",
+   "function_entry": true
+  },
+  {
+   "site": "00404120",
+   "symbol": "?Audio_Channel_Stop@@YIXPAUAudioChannel@@@Z",
+   "target": "004025b0",
+   "function_entry": true
+  },
+  {
+   "site": "00404120",
+   "symbol": "?Audio_Channel_Clear_Flag_10@@YIXPAUAudioChannel@@@Z",
+   "target": "004026f0",
+   "function_entry": true
+  },
+  {
+   "site": "00404e50",
+   "symbol": "?Audio_Channel_Stop@@YIXPAUAudioChannel@@@Z",
+   "target": "004025b0",
+   "function_entry": true
+  },
+  {
+   "site": "00404e50",
+   "symbol": "?Audio_Channel_Clear_Flag_10@@YIXPAUAudioChannel@@@Z",
+   "target": "004026f0",
+   "function_entry": true
+  },
+  {
+   "site": "00405300",
+   "symbol": "?Audio_Channel_Stop@@YIXPAUAudioChannel@@@Z",
+   "target": "004025b0",
+   "function_entry": true
+  },
+  {
+   "site": "00405300",
+   "symbol": "?Audio_Channel_Clear_Flag_10@@YIXPAUAudioChannel@@@Z",
+   "target": "004026f0",
+   "function_entry": true
+  },
+  {
+   "site": "00405590",
+   "symbol": "?Audio_Channel_Lock@@YIXPAUAudioChannel@@@Z",
+   "target": "004026a0",
+   "function_entry": true
+  },
+  {
+   "site": "00405590",
+   "symbol": "?Audio_Channel_Unlock@@YIXPAUAudioChannel@@@Z",
+   "target": "004026b0",
+   "function_entry": true
+  },
+  {
+   "site": "00405ad0",
+   "symbol": "?Audio_Channel_Set_Source@@YIXPAUAudioChannel@@PAUAudioSource@@@Z",
+   "target": "00402790",
+   "function_entry": true
+  },
+  {
+   "site": "00405ad0",
+   "symbol": "?Audio_Channel_Set_Source@@YIXPAUAudioChannel@@PAUAudioSource@@@Z",
+   "target": "00402790",
+   "function_entry": true
+  },
+  {
+   "site": "00405ad0",
+   "symbol": "?Audio_Channel_Set_Source@@YIXPAUAudioChannel@@PAUAudioSource@@@Z",
+   "target": "00402790",
+   "function_entry": true
+  },
+  {
+   "site": "00405b60",
+   "symbol": "?Audio_Channel_Stop@@YIXPAUAudioChannel@@@Z",
+   "target": "004025b0",
+   "function_entry": true
+  },
+  {
+   "site": "004054b0",
+   "symbol": "?Audio_Channel_Lock@@YIXPAUAudioChannel@@@Z",
+   "target": "004026a0",
+   "function_entry": true
+  },
+  {
+   "site": "004054b0",
+   "symbol": "?Audio_Channel_Set_Source@@YIXPAUAudioChannel@@PAUAudioSource@@@Z",
+   "target": "00402790",
+   "function_entry": true
+  },
+  {
+   "site": "004054b0",
+   "symbol": "?Audio_Channel_Start@@YIJPAUAudioChannel@@@Z",
+   "target": "00402720",
+   "function_entry": true
+  },
+  {
+   "site": "004054b0",
+   "symbol": "?Audio_Channel_Unlock@@YIXPAUAudioChannel@@@Z",
+   "target": "004026b0",
+   "function_entry": true
+  },
+  {
+   "site": "004054b0",
+   "symbol": "?Audio_Channel_Unlock@@YIXPAUAudioChannel@@@Z",
+   "target": "004026b0",
+   "function_entry": true
+  },
+  {
+   "site": "00405c10",
+   "symbol": "?Audio_Channel_Stop@@YIXPAUAudioChannel@@@Z",
+   "target": "004025b0",
+   "function_entry": true
+  },
+  {
+   "site": "00405c10",
+   "symbol": "?Audio_Channel_Clear_Flag_10@@YIXPAUAudioChannel@@@Z",
+   "target": "004026f0",
+   "function_entry": true
+  },
+  {
+   "site": "00405d50",
+   "symbol": "?Audio_Channel_Stop@@YIXPAUAudioChannel@@@Z",
+   "target": "004025b0",
+   "function_entry": true
+  },
+  {
+   "site": "00405d50",
+   "symbol": "?Audio_Channel_Clear_Flag_10@@YIXPAUAudioChannel@@@Z",
+   "target": "004026f0",
+   "function_entry": true
+  },
+  {
+   "site": "00407a90",
+   "symbol": "?Audio_Channel_Stop@@YIXPAUAudioChannel@@@Z",
+   "target": "004025b0",
+   "function_entry": true
+  },
+  {
+   "site": "00407a90",
+   "symbol": "?Audio_Channel_Set_Source@@YIXPAUAudioChannel@@PAUAudioSource@@@Z",
+   "target": "00402790",
+   "function_entry": true
+  },
+  {
+   "site": "00407a90",
+   "symbol": "?Audio_Channel_Start@@YIJPAUAudioChannel@@@Z",
+   "target": "00402720",
+   "function_entry": true
+  },
+  {
+   "site": "00405e90",
+   "symbol": "?Audio_Channel_Stop@@YIXPAUAudioChannel@@@Z",
+   "target": "004025b0",
+   "function_entry": true
+  },
+  {
+   "site": "00405e90",
+   "symbol": "?Audio_Channel_Clear_Flag_10@@YIXPAUAudioChannel@@@Z",
+   "target": "004026f0",
+   "function_entry": true
+  },
+  {
+   "site": "00405fe0",
+   "symbol": "?Audio_Channel_Lock@@YIXPAUAudioChannel@@@Z",
+   "target": "004026a0",
+   "function_entry": true
+  },
+  {
+   "site": "00405fe0",
+   "symbol": "?Audio_Channel_Unlock@@YIXPAUAudioChannel@@@Z",
+   "target": "004026b0",
+   "function_entry": true
+  },
+  {
+   "site": "00406070",
+   "symbol": "?Audio_Channel_Lock@@YIXPAUAudioChannel@@@Z",
+   "target": "004026a0",
+   "function_entry": true
+  },
+  {
+   "site": "00406070",
+   "symbol": "?Audio_Channel_Unlock@@YIXPAUAudioChannel@@@Z",
+   "target": "004026b0",
+   "function_entry": true
+  },
+  {
+   "site": "004055d0",
+   "symbol": "?Audio_Channel_Set_Flag_10@@YIXPAUAudioChannel@@@Z",
+   "target": "004026c0",
+   "function_entry": true
+  },
+  {
+   "site": "004055d0",
+   "symbol": "?Audio_Channel_Lock@@YIXPAUAudioChannel@@@Z",
+   "target": "004026a0",
+   "function_entry": true
+  },
+  {
+   "site": "004055d0",
+   "symbol": "?Audio_Channel_Stop@@YIXPAUAudioChannel@@@Z",
+   "target": "004025b0",
+   "function_entry": true
+  },
+  {
+   "site": "004055d0",
+   "symbol": "?Audio_Channel_Unlock@@YIXPAUAudioChannel@@@Z",
+   "target": "004026b0",
+   "function_entry": true
+  },
+  {
+   "site": "00403310",
+   "symbol": "?Audio_Channel_Destroy@@YIXPAUAudioChannel@@@Z",
+   "target": "00402550",
+   "function_entry": true
+  },
+  {
+   "site": "00402990",
+   "symbol": "?Audio_Channel_Destroy@@YIXPAUAudioChannel@@@Z",
+   "target": "00402550",
+   "function_entry": true
+  },
+  {
+   "site": "0040a180",
+   "symbol": "?Audio_Channel_Set_Format@@YIHPAUAudioChannel@@PBUAudioFormat@@@Z",
+   "target": "00402800",
+   "function_entry": true
+  },
+  {
+   "site": "00403210",
+   "symbol": "?Audio_Channel_Destroy@@YIXPAUAudioChannel@@@Z",
+   "target": "00402550",
+   "function_entry": true
+  },
+  {
+   "site": "0040a260",
+   "symbol": "?Audio_Channel_Set_Format@@YIHPAUAudioChannel@@PBUAudioFormat@@@Z",
+   "target": "00402800",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?Audio_Channel_Detach@@YIXPAUAudioChannel@@@Z",
+   "address": "004028b0"
+  },
+  {
+   "symbol": "?Audio_Channel_Finished@@YIHPAUAudioChannel@@@Z",
+   "address": "004023f0"
+  },
+  {
+   "symbol": "?Audio_Channel_Next_Piece@@YIHPAUAudioChannel@@@Z",
+   "address": "004022c0"
+  },
+  {
+   "symbol": "?Audio_Channel_Source_Ended@@YIHPAUAudioChannel@@@Z",
+   "address": "00402330"
+  },
+  {
+   "symbol": "?Audio_Channel_Update_Settings@@YIXPAUAudioChannel@@@Z",
+   "address": "00402220"
+  },
+  {
+   "symbol": "?Audio_Clock@@3P6A_JXZA",
+   "address": "00831558"
+  },
+  {
+   "symbol": "?Audio_List_First@@YIPAUAudioListNode@@PAU1@@Z",
+   "address": "004072f0"
+  },
+  {
+   "symbol": "?Audio_List_Init_Node@@YIXPAUAudioListNode@@@Z",
+   "address": "00407200"
+  },
+  {
+   "symbol": "?Audio_List_Next@@YIPAUAudioListNode@@PAU1@@Z",
+   "address": "00407310"
+  },
+  {
+   "symbol": "?Audio_Master_Levels@@3PAUAudioLevelSet@@A",
+   "address": "00830b50"
+  },
+  {
+   "symbol": "?Audio_System_Clock@@YA_JXZ",
+   "address": "00409310"
+  },
+  {
+   "symbol": "?Audio_System_Instance@@3PAUAudioSystem@@A",
+   "address": "007cc968"
+  },
+  {
+   "symbol": "?Audio_Ticks_Per_Ms@@3_JA",
+   "address": "00831538"
+  },
+  {
+   "symbol": "?Info@AudioSource@@QAEPAUAudioSourceInfo@@XZ",
+   "address": "00408440"
+  },
+  {
+   "symbol": "?Init@AudioLevelSet@@QAIXXZ",
+   "address": "00401000"
+  },
+  {
+   "symbol": "?Update@AudioLevelSet@@QAEXXZ",
+   "address": "00401080"
+  },
+  {
+   "symbol": "?target@Call_402190_0@@QAEIXZ",
+   "address": "00401000"
+  },
+  {
+   "symbol": "__alldiv",
+   "address": "007824d0"
+  },
+  {
+   "symbol": "__imp__QueryPerformanceCounter@4",
+   "address": "0079a1c8"
+  },
+  {
+   "symbol": "__imp__QueryPerformanceFrequency@4",
+   "address": "0079a1cc"
+  },
+  {
+   "symbol": "_data_402190_4022c0",
+   "address": "004022c0"
+  },
+  {
+   "symbol": "_data_402190_402330",
+   "address": "00402330"
+  },
+  {
+   "symbol": "_data_402190_4023f0",
+   "address": "004023f0"
+  },
+  {
+   "symbol": "_global_402190_830b50",
+   "address": "00830b50"
+  }
+ ],
+ "route": "A",
+ "unit": "audchanl.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00402550",
+   "lines": 2
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "00402040",
+   "bytes": 302,
+   "population": "population-1332",
+   "bound": "own frozen bound (population-1332)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00402170",
+   "bytes": 23,
+   "population": "population-4244",
+   "bound": "own frozen bound (population-4244)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00402190",
+   "bytes": 137,
+   "population": "population-02",
+   "bound": "own frozen bound (population-02)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00402430",
+   "bytes": 10,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "004024a0",
+   "bytes": 165,
+   "population": "population-1332",
+   "bound": "own frozen bound (population-1332)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00402850",
+   "bytes": 9,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "00402220",
+   "bytes": 155,
+   "population": "population-995",
+   "source": "src/recovered/audchanl/Audio_Channel_Update_Settings.cpp",
+   "cause": "frozen in another population's inventory pass (population-995)"
+  },
+  {
+   "kind": "split",
+   "entry": "004022c0",
+   "bytes": 108,
+   "population": "population-995",
+   "source": "src/recovered/audchanl/Audio_Channel_Next_Piece.cpp",
+   "cause": "frozen in another population's inventory pass (population-995)"
+  },
+  {
+   "kind": "split",
+   "entry": "00402330",
+   "bytes": 178,
+   "population": "population-995",
+   "source": "src/recovered/audchanl/Audio_Channel_Source_Ended.cpp",
+   "cause": "frozen in another population's inventory pass (population-995)"
+  },
+  {
+   "kind": "split",
+   "entry": "004023f0",
+   "bytes": 64,
+   "population": "population-995",
+   "source": "src/recovered/audchanl/Audio_Channel_Finished.cpp",
+   "cause": "frozen in another population's inventory pass (population-995)"
+  },
+  {
+   "kind": "split",
+   "entry": "00402440",
+   "bytes": 87,
+   "population": "population-995",
+   "source": "src/recovered/audchanl/Audio_Channel_Release.cpp",
+   "cause": "frozen in another population's inventory pass (population-995)"
+  }
+ ],
+ "unit_functions": 23,
+ "data_unproven": [],
+ "stand_in_references": [
+  {
+   "site": "004079c0",
+   "target": "004024a0",
+   "symbol": "?Audio_Channel_Reset@@YIXPAUAudioChannel@@@Z",
+   "module_symbol": "?Audio_Channel_Reuse@@YIXPAUAudioChannel@@@Z"
+  }
+ ],
+ "stand_in_reference_count": 1,
+ "residual_split": {
+  "rows": 5,
+  "bytes": 592
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

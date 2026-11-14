@@ -1,0 +1,16 @@
+{
+ "schema": "original-target-generated-data-v1",
+ "modules": [
+  {
+   "name": "fastmath_tables",
+   "unit": "fastmath",
+   "generator": "tools/original_target/generate_fastmath.py",
+   "range": ["00801dc4", "00827e04"],
+   "citation": "TibSun fastmathtab.asm (five dword tables sin_tab, asin_tab, tan_tab, atan_tab, sqrt_tab; counts 10244, 4100, 4100, 4098, 16386) and fastmath.cpp init_sin_tab, init_asin_tab, init_tan_tab, init_atan_tab, init_sqrt_tab",
+   "flagged_constants": [
+    {"name": "ATAN_STEP_BITS", "value": "3cc7fe84",
+     "note": "atan_tab[4097], the arctangent input step (about 99.997/4096); derivation unknown: TibSun's pi/size/pi*tan_tab[1017] and RA2 Remap_Atan_Table's tan_tab[1017]/4096 give other values. Every atan_tab entry is generated from it."}
+   ]
+  }
+ ]
+}

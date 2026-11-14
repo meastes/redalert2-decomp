@@ -93,7 +93,8 @@ def main():
         entries=[]), indent=1)
     # one entry per line keeps the manifest small and diffable
     body = ',\n'.join('  ' + json.dumps(e) for e in entries)
-    args.out.write_text(head.replace('"entries": []', '"entries": [\n%s\n ]' % body) + '\n')
+    with open(args.out, 'w', newline='\n') as handle:      # LF on every platform (tracked file)
+        handle.write(head.replace('"entries": []', '"entries": [\n%s\n ]' % body) + '\n')
     print('%d initialisers (%d explicit), table 0x%08X-0x%08X' % (
         len(entries), sum(e['kind'] == 'explicit' for e in entries), data_start, addr))
 

@@ -14,10 +14,10 @@ extern "C" int ra2_native_scroll_map(int, int, int dx, int dy)
 {
     Tactical *tactical = unknown_tactical_83996c;
     if (!tactical) return 0;
-    Point2D view = tactical->Unknown_006A67B0();
+    Point2D view = tactical->Get_Tactical_Position();
     view.X += dx;
     view.Y += dy;
-    tactical->Unknown_006A6640(view);
+    tactical->Set_Tactical_Position_006a6640(view);
     return 1;
 }
 

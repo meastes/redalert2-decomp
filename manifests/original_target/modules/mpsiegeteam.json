@@ -1,0 +1,399 @@
+{
+ "module": "mpsiegeteam",
+ "source": "src/recovered/mpsiegeteam.cpp",
+ "header": null,
+ "population": "population-284",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 64,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "005abbd0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "005abbf0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "005abc20",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "005abc40",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "005abc60",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "005abc80",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "005abca0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "005abcc0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "005abd00",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "005abd30",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "005abd60",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "005abd90",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "005abda0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?FUN_005abe10@seed_005abe10@@YIXPAI@Z",
+   "entry": "005abe10",
+   "body_bytes": 11,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?FUN_005abeb0@seed_005abeb0@@YIXPAI@Z",
+   "entry": "005abeb0",
+   "body_bytes": 11,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?FUN_005abec0@Owner_005abec0@seed_005abec0@@QAEPAIE@Z",
+   "entry": "005abec0",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?FUN_005abef0@Owner_005abef0@seed_005abef0@@QAEPAIE@Z",
+   "entry": "005abef0",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  }
+ ],
+ "code_bytes": 624,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a6c40",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a6c40",
+   "bytes": 16,
+   "kind": "table"
+  }
+ ],
+ "failures": [],
+ "references_in": [],
+ "references_out": [
+  {
+   "symbol": "?FUN_005b9b50@seed_005abe10@@YIXXZ",
+   "address": "005b9b50"
+  },
+  {
+   "symbol": "?FUN_005b9b50@seed_005abeb0@@YIXXZ",
+   "address": "005b9b50"
+  },
+  {
+   "symbol": "?FUN_005b9b50@seed_005abec0@@YIXXZ",
+   "address": "005b9b50"
+  },
+  {
+   "symbol": "?FUN_005b9b50@seed_005abef0@@YIXXZ",
+   "address": "005b9b50"
+  },
+  {
+   "symbol": "?FUN_00781d3b@seed_005abec0@@YAXI@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?FUN_00781d3b@seed_005abef0@@YAXI@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "_PTR_FUN_007a6c54",
+   "address": "007a6c54"
+  },
+  {
+   "symbol": "_PTR_FUN_007a6c54",
+   "address": "007a6c54"
+  },
+  {
+   "symbol": "_PTR_FUN_007a6c64",
+   "address": "007a6c64"
+  },
+  {
+   "symbol": "_PTR_FUN_007a6c64",
+   "address": "007a6c64"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  }
+ ],
+ "route": "A",
+ "unit": "mpsiegeteam.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "005abbd0",
+   "lines": 2
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "005abe10",
+   "bytes": 11,
+   "population": "population-2913",
+   "bound": "own frozen bound (population-2913)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "005abeb0",
+   "bytes": 11,
+   "population": "population-2913",
+   "bound": "own frozen bound (population-2913)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "005abec0",
+   "bytes": 36,
+   "population": "population-66",
+   "bound": "own frozen bound (population-66)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "005abef0",
+   "bytes": 36,
+   "population": "population-66",
+   "bound": "own frozen bound (population-66)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "005abdc0",
+   "bytes": 67,
+   "population": "population-2396",
+   "source": "src/recovered/classes/MultiplayerSiegeDefenderTeam/Constructor.cpp",
+   "cause": "frozen in another population's inventory pass (population-2396)"
+  },
+  {
+   "kind": "split",
+   "entry": "005abe20",
+   "bytes": 63,
+   "population": "population-2396",
+   "source": "src/recovered/classes/MultiplayerSiegeDefenderTeam/IsTeamIncluded.cpp",
+   "cause": "held by population-2396; not joined: does not compile in the unit: accepted.cpp(95) : error C2653: 'MultiplayerSiegeDefenderTeam' : is not a class or namespace name"
+  },
+  {
+   "kind": "split",
+   "entry": "005abe60",
+   "bytes": 67,
+   "population": "population-2396",
+   "source": "src/recovered/classes/MultiplayerSiegeAttackerTeam/Constructor.cpp",
+   "cause": "held by population-2396; not joined: does not compile in the unit: accepted.cpp(110) : error C2653: 'MultiplayerSiegeAttackerTeam' : is not a class or namespace name"
+  }
+ ],
+ "unit_functions": 20,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 3,
+  "bytes": 197
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

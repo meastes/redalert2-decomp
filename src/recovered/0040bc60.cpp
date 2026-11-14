@@ -1,3 +1,3 @@
 
 class Leaf_40bc60 { public: void get(); };
-void Leaf_40bc60::get() { unsigned int ecx = (unsigned int)this; unsigned int eax; unsigned int edx; eax = 0; *(unsigned int*)(0x832370) = eax; *(unsigned int*)(0x832374) = eax; *(unsigned int*)(0x832378) = eax; *(unsigned int*)(0x83237c) = eax; }
+void Leaf_40bc60::get() { unsigned int self = (unsigned int)this; unsigned int zero; unsigned int spare; zero = 0; *(unsigned int*)(0x832370) = zero; *(unsigned int*)(0x832374) = zero; *(unsigned int*)(0x832378) = zero; *(unsigned int*)(0x83237c) = zero; }

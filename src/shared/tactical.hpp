@@ -69,7 +69,7 @@ public:
     virtual int Size_Of() const;
     virtual void AI();                              // 0x006A2DD0 (slot 23: the scroll animation and the view position)
     // Shows a caption with a value (+0x24 text, +0xA4; HouseClass::Flag_To_Win/Flag_To_Lose).
-    void Unknown_006A53F0(unsigned short const *text, int value);   // 0x006A53F0 (wchar_t text)
+    void Set_Caption_Text_006a53f0(unsigned short const *text, int value);   // 0x006A53F0 (wchar_t text)
 
     bool Unknown_006A8C80(Point2D *point);          // 0x006A8C80 (clamps a view position; false when unchanged)
     void Unknown_006A9170();                        // 0x006A9170 (after the view position changed)
@@ -102,8 +102,8 @@ public:
 #ifdef RA2_TACTICAL_PICK_OBJECT
     ObjectClass *Get_Selectable_Object_006aa990(Point2D const &point); // original thiscall/RET4, pointer result
 #endif
-    void Unknown_006A66B0(Point2D const &point);
-    void Unknown_006A66B0(CoordStruct const &coord);    // the same entry, given a coordinate
+    void Set_Tactical_Position_006a66b0(Point2D const &point);
+    void Set_Tactical_Position_006a66b0(CoordStruct const &coord);    // the same entry, given a coordinate
     // The coordinate under a screen point (0x006A2B10) and the cell under it
     // (0x006A6BD0; radar slot 51).
     CoordStruct Pixel_To_Coord(Point2D const &point);
@@ -116,8 +116,8 @@ public:
     // The cell drawn over a coordinate: scans back along the view diagonal for the cell whose raised ground covers it (0x006A6A50).
     Cell Coord_To_Cell(CoordStruct const &coord);
     void Setup_Trigger_Scroll(CoordStruct const &coord, int arg2);   // 0x006A2CB0 (TeamClass script handler 0x006BC4C0: looks at a coordinate; hypothesis)
-    int Unknown_006AA840(int arg1);                 // 0x006AA840 (display slot 41; -1 when none)
-    void Unknown_006A8B70(int arg1, int arg2);      // 0x006A8B70 (display slot 41)
+    int Scroll_Dir_006aa840(int arg1);                 // 0x006AA840 (display slot 41; -1 when none)
+    void Scroll_Map_006a8b70(int arg1, int arg2);      // 0x006A8B70 (display slot 41)
 
     // The screen pixel of a coordinate: the absolute pixel less the view position; false when it lies
     // more than six tiles outside the view (0x006A29D0; TibSun Tactical::Coord_To_Pixel).
@@ -148,17 +148,17 @@ public:
     void Draw_Objects(bool forced);
 #endif
 #endif
-    void Unknown_006AA5A0(Point2D const &point);   // 0x006AA5A0 starts a selection band at a point (DisplayClass slot 47; hypothesis)
-    void Unknown_006AA5E0(Point2D const &point);   // 0x006AA5E0 drags the band to a point (DisplayClass slot 47; hypothesis)
+    void Start_Rubber_Band(Point2D const &point);   // 0x006AA5A0 starts a selection band at a point (DisplayClass slot 47; hypothesis)
+    void Modify_Rubber_Band(Point2D const &point);   // 0x006AA5E0 drags the band to a point (DisplayClass slot 47; hypothesis)
     void Unknown_006AA770();                       // 0x006AA770 (DisplayClass slot 35: ends the band selection; hypothesis)
     void Unknown_006AAD40();                       // 0x006AAD40 (Planning.cpp; hypothesis: drops the pending command)
     // Registers a screen area for redraw, merging it with the dirty areas (0x006A3020;
     // TibSun Register_Dirty_Area; the flag also refreshes the shroud; BuildingClass slot 52).
     void Register_Dirty_Area(Rect area, bool refresh_shroud);
     // Sets the view rectangle (0x006A65A0; DisplayClass slot 42).
-    void Unknown_006A65A0(Rect const &rect);
-    Point2D Unknown_006A67B0();                     // 0x006A67B0 (the view position; recorded by Main_Loop)
-    void Unknown_006A6640(Point2D const &point);    // 0x006A6640 (sets the view position, clamped)
+    void Set_View_Dimensions_006a65a0(Rect const &rect);
+    Point2D Get_Tactical_Position();                     // 0x006A67B0 (the view position; recorded by Main_Loop)
+    void Set_Tactical_Position_006a6640(Point2D const &point);    // 0x006A6640 (sets the view position, clamped)
 
     bool Blit_Tiles();                              // 0x006A6570 (the tile surface's tactical area onto the drawing surface)
     int Get_Cell_Height(CoordStruct const &coord);  // 0x006A70D0
@@ -185,6 +185,9 @@ public:
     // Draws the iso tiles inside an area (0x006A7BA0), those of one cell (0x006A8560) and the tile shadows
     // inside an area (0x006A8240) (TibSun Tactical::Draw_Tiles / Draw_Tile_Shadows).
     void Draw_Tiles(Rect const &area, Rect const &cliprect);
+#ifdef RA2_NON_MATCHING
+    void Draw_Pixel_Effects(Rect const &area, Rect const &cliprect);   // 0x006A7E80 (non-exact draft; caller Render 0x006A45A0)
+#endif
     void Draw_Tiles(Cell const &cell, Rect const &cliprect);
     void Draw_Tile_Shadows(Rect const &area, Rect const &cliprect);
 #ifdef RA2_TACTICAL_OCCUPATION_FLAGS

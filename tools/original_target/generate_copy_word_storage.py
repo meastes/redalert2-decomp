@@ -67,8 +67,8 @@ def generate(repository, plan_path, template_path, executable, evidence_inputs, 
         # that have not been accepted yet; it never supplies an old flat fallback.
         path = current[entry]['source'] if entry in current else row['source']
         canonical = source_path(repository, path)
-        require(Path(path).stem == row['semantic_name'] and len(Path(path).parts) > 3 and
-                row['semantic_name'].endswith('_%08x' % entry), 'Unsupported descriptive source mapping')
+        require(Path(path).stem == row['semantic_name'] and len(Path(path).parts) > 3,
+                'Unsupported descriptive source mapping')
         if entry in current:
             observed[path] = digest(canonical.read_bytes())
         owner = row['owner_class']

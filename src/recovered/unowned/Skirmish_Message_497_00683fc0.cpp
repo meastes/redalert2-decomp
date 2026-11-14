@@ -14,7 +14,7 @@ int __fastcall Skirmish_Message_497(HWND dialog, WPARAM wparam, LPARAM lparam)
     HWND item = GetDlgItem(dialog, 0x6A0);
     if (item) {
         SendMessageA(item, 0xC5, 19, 0);
-        SendMessageA(item, 0x4B2, 0, (LPARAM)Unknown_006FA180(unknown_name_a3d3a0));
+        SendMessageA(item, 0x4B2, 0, (LPARAM)Narrow_To_Wide_006fa180(unknown_name_a3d3a0));
         SendMessageA(item, 0x4D1, 1, 0);
     }
     for (int i = 0; i < 7; ++i) {

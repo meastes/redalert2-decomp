@@ -122,7 +122,7 @@ struct PlanningEventTargets {
 // tactical area's origin (0x006107A0).
 Point2D __fastcall Planning_Coord_Pixel(CoordStruct const &coord);
 // The tactical view rectangle (0x006F1F30, shared/display.hpp).
-Rect __fastcall Unknown_006F1F30();
+Rect __fastcall Get_Title_Screen_Area_006f1f30();
 // Grows a rectangle by amount on every side (shrinks it for a negative one;
 // a rectangle that would vanish becomes empty) (0x00612570).
 void __fastcall Planning_Inflate(Rect &rect, int amount);

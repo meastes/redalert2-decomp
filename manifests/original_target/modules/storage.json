@@ -1,0 +1,749 @@
+{
+ "module": "storage",
+ "source": "src/recovered/storage.cpp",
+ "header": null,
+ "population": "population-4401",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 668,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "0069abd0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "0069ac00",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "0069ac20",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "0069ac40",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "0069ac60",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "0069ac80",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "0069aca0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "0069ace0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "0069ad10",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "0069ad40",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "0069ad70",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "0069ad80",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "??0StorageClass@@QAE@XZ",
+   "entry": "0069ada0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Get_Total_Value@StorageClass@@QBEHXZ",
+   "entry": "0069adc0",
+   "body_bytes": 79,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "entry": "0069ae10",
+   "body_bytes": 47,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Get_Amount@StorageClass@@QBEMH@Z",
+   "entry": "0069ae40",
+   "body_bytes": 10,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Add_Amount@StorageClass@@QAEMMH@Z",
+   "entry": "0069ae50",
+   "body_bytes": 17,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Remove_Amount@StorageClass@@QAEMMH@Z",
+   "entry": "0069ae70",
+   "body_bytes": 47,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "??HUnknownFloat4_0069aea0@@QBE?AU0@ABU0@@Z",
+   "entry": "0069aea0",
+   "body_bytes": 96,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "??YStorageClass@@QAE?AV0@ABV0@@Z",
+   "entry": "0069af00",
+   "body_bytes": 60,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "??GStorageClass@@QBE?AV0@ABV0@@Z",
+   "entry": "0069af40",
+   "body_bytes": 94,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "??ZStorageClass@@QAE?AV0@ABV0@@Z",
+   "entry": "0069afa0",
+   "body_bytes": 60,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?First_Used_Slot@StorageClass@@QBEHXZ",
+   "entry": "0069afe0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  }
+ ],
+ "code_bytes": 1088,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "__real@4@00000000000000000000",
+   "address": "0079a738",
+   "bytes": 4,
+   "kind": "table",
+   "section": 40
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007ac180",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@00000000000000000000",
+   "address": "0079a738",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007ac180",
+   "bytes": 16,
+   "kind": "table"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "004e2b30",
+   "symbol": "?Get_Total_Value@StorageClass@@QBEHXZ",
+   "target": "0069adc0",
+   "function_entry": true
+  },
+  {
+   "site": "004e2b70",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "004e2df0",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "004e2df0",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "004e5160",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "004e51f0",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "004e51f0",
+   "symbol": "?Add_Amount@StorageClass@@QAEMMH@Z",
+   "target": "0069ae50",
+   "function_entry": true
+  },
+  {
+   "site": "004e5240",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "004e5240",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "004e5460",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "00704a20",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "00705030",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "007013a0",
+   "symbol": "?Add_Amount@StorageClass@@QAEMMH@Z",
+   "target": "0069ae50",
+   "function_entry": true
+  },
+  {
+   "site": "007013a0",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "007013a0",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "007013a0",
+   "symbol": "?Add_Amount@StorageClass@@QAEMMH@Z",
+   "target": "0069ae50",
+   "function_entry": true
+  },
+  {
+   "site": "00453ab0",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "00453ab0",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "0044bd40",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "0044bd40",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "0044bd40",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "0044bd40",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "0044bd40",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "00707130",
+   "symbol": "?Get_Total_Value@StorageClass@@QBEHXZ",
+   "target": "0069adc0",
+   "function_entry": true
+  },
+  {
+   "site": "004ed440",
+   "symbol": "?First_Used_Slot@StorageClass@@QBEHXZ",
+   "target": "0069afe0",
+   "function_entry": true
+  },
+  {
+   "site": "004ed440",
+   "symbol": "?Remove_Amount@StorageClass@@QAEMMH@Z",
+   "target": "0069ae70",
+   "function_entry": true
+  },
+  {
+   "site": "004ed440",
+   "symbol": "?First_Used_Slot@StorageClass@@QBEHXZ",
+   "target": "0069afe0",
+   "function_entry": true
+  },
+  {
+   "site": "004ed440",
+   "symbol": "??ZStorageClass@@QAE?AV0@ABV0@@Z",
+   "target": "0069afa0",
+   "function_entry": true
+  },
+  {
+   "site": "004ed610",
+   "symbol": "??YStorageClass@@QAE?AV0@ABV0@@Z",
+   "target": "0069af00",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "??0StorageClass@@QAE@XZ",
+   "target": "0069ada0",
+   "function_entry": true
+  },
+  {
+   "site": "004e18c0",
+   "symbol": "??0StorageClass@@QAE@XZ",
+   "target": "0069ada0",
+   "function_entry": true
+  },
+  {
+   "site": "004e5280",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "004e5280",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "004e5280",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "004e5280",
+   "symbol": "?First_Used_Slot@StorageClass@@QBEHXZ",
+   "target": "0069afe0",
+   "function_entry": true
+  },
+  {
+   "site": "004e5280",
+   "symbol": "?Get_Amount@StorageClass@@QBEMH@Z",
+   "target": "0069ae40",
+   "function_entry": true
+  },
+  {
+   "site": "004e5280",
+   "symbol": "?Remove_Amount@StorageClass@@QAEMMH@Z",
+   "target": "0069ae70",
+   "function_entry": true
+  },
+  {
+   "site": "004e5280",
+   "symbol": "?Remove_Amount@StorageClass@@QAEMMH@Z",
+   "target": "0069ae70",
+   "function_entry": true
+  },
+  {
+   "site": "004e5280",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "006fd3a0",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "006fd3a0",
+   "symbol": "?Get_Amount@StorageClass@@QBEMH@Z",
+   "target": "0069ae40",
+   "function_entry": true
+  },
+  {
+   "site": "004e4110",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "006c0cd0",
+   "symbol": "??0StorageClass@@QAE@XZ",
+   "target": "0069ada0",
+   "function_entry": true
+  },
+  {
+   "site": "0043e270",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "0043e270",
+   "symbol": "?First_Used_Slot@StorageClass@@QBEHXZ",
+   "target": "0069afe0",
+   "function_entry": true
+  },
+  {
+   "site": "0043e270",
+   "symbol": "?Remove_Amount@StorageClass@@QAEMMH@Z",
+   "target": "0069ae70",
+   "function_entry": true
+  },
+  {
+   "site": "0043e270",
+   "symbol": "?Remove_Amount@StorageClass@@QAEMMH@Z",
+   "target": "0069ae70",
+   "function_entry": true
+  },
+  {
+   "site": "0043e270",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "00639da0",
+   "symbol": "?Add_Amount@StorageClass@@QAEMMH@Z",
+   "target": "0069ae50",
+   "function_entry": true
+  },
+  {
+   "site": "004426d0",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "004426d0",
+   "symbol": "?Get_Total_Amount@StorageClass@@QBEMXZ",
+   "target": "0069ae10",
+   "function_entry": true
+  },
+  {
+   "site": "00445b30",
+   "symbol": "?First_Used_Slot@StorageClass@@QBEHXZ",
+   "target": "0069afe0",
+   "function_entry": true
+  },
+  {
+   "site": "00445b30",
+   "symbol": "?Get_Amount@StorageClass@@QBEMH@Z",
+   "target": "0069ae40",
+   "function_entry": true
+  },
+  {
+   "site": "00445b30",
+   "symbol": "?Remove_Amount@StorageClass@@QAEMMH@Z",
+   "target": "0069ae70",
+   "function_entry": true
+  },
+  {
+   "site": "00445b30",
+   "symbol": "?First_Used_Slot@StorageClass@@QBEHXZ",
+   "target": "0069afe0",
+   "function_entry": true
+  },
+  {
+   "site": "006d4920",
+   "symbol": "?Get_Amount@StorageClass@@QBEMH@Z",
+   "target": "0069ae40",
+   "function_entry": true
+  },
+  {
+   "site": "006d4920",
+   "symbol": "?Get_Amount@StorageClass@@QBEMH@Z",
+   "target": "0069ae40",
+   "function_entry": true
+  },
+  {
+   "site": "006d4920",
+   "symbol": "?Get_Amount@StorageClass@@QBEMH@Z",
+   "target": "0069ae40",
+   "function_entry": true
+  },
+  {
+   "site": "006d4920",
+   "symbol": "?Get_Amount@StorageClass@@QBEMH@Z",
+   "target": "0069ae40",
+   "function_entry": true
+  },
+  {
+   "site": "00701580",
+   "symbol": "?First_Used_Slot@StorageClass@@QBEHXZ",
+   "target": "0069afe0",
+   "function_entry": true
+  },
+  {
+   "site": "00701580",
+   "symbol": "?Get_Amount@StorageClass@@QBEMH@Z",
+   "target": "0069ae40",
+   "function_entry": true
+  },
+  {
+   "site": "00701580",
+   "symbol": "?Remove_Amount@StorageClass@@QAEMMH@Z",
+   "target": "0069ae70",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "?unknown_TiberiumClass_list_00ac0b30@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+   "address": "00ac0b30"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  }
+ ],
+ "route": "A",
+ "unit": "storage.cpp",
+ "form": "one include block",
+ "switches": [
+  "STORAGE_CLASS_UNIT"
+ ],
+ "include_blocks": [
+  {
+   "before": "0069abd0",
+   "lines": 4
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "0069ae50",
+   "population": "population-3353"
+  },
+  {
+   "entry": "0069ae70",
+   "population": "population-4391"
+  },
+  {
+   "entry": "0069aea0",
+   "bytes": 96,
+   "population": "population-1642",
+   "bound": "own frozen bound (population-1642)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [],
+ "unit_functions": 24,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

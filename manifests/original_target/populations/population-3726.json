@@ -4,8 +4,8 @@
     "id": "population-3726",
     "inventory_sha256": "751c497de0ef17e5e1590fd80704fb429a6f817e69584071543f63ec68c00db7",
     "gaps_sha256": "3185926d88452f48a27c6d3efb1d0ddd212126edcddcfe54186f15d81033cb5f",
-    "historical_population_sha256": "6b70cfb715f41df379263448434c418b957c657738e2f3725a22756dcec505bb",
-    "historical_acceptance_sha256": "9d488ab0071072819f2188d93d297b68fb4d721d286fc604f02735c396acdd6f"
+    "historical_population_sha256": "04eec05e13ad7d675af27f2521fa4bca1b01690267320dddf1aa34f555415901",
+    "historical_acceptance_sha256": "4acfe777f412e4c533475ef02fcd63c1559187376915b844d6cbb8379518eb33"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -28,13 +28,13 @@
     "_atexit": 7874954,
     "__stricmp": 7872288,
     "??2@YAPAXI@Z": 7872535,
-    "__DAT_00ab6e88": 11234952,
+    "__waypoint_none_00ab6e88": 11234952,
     "__strncpy": 7873488,
     "__strcmp": 7888160,
     "__strlen": 7903280,
     "__malloc": 7874096,
     "___amsg_exit": 7887784,
-    "__DAT_0084ed10": 8711440,
+    "__cell_none_0084ed10": 8711440,
     "__strdup": 7919638,
     "__real@8@3ff8a3d70a3d70a3d800": 7980312,
     "__splitpath": 7882867,
@@ -45,8 +45,8 @@
     "__DAT_00a70cc0": 10947776,
     "__chkstk": 7878736,
     "__strnicmp": 7878672,
-    "__DAT_00ab6ea8": 11234984,
-    "__DAT_00ab6eb0": 11234992,
+    "__unknown_timer_start_00ab6ea8": 11234984,
+    "__unknown_timer_accum_00ab6eb0": 11234992,
     "__DAT_00ac0168": 11272552,
     "__DAT_00ac0170": 11272560,
     "__DAT_00a769e8": 10971624,
@@ -227,156 +227,67 @@
     "?Unknown_Free_Art_Buffers_006F2980@@YIXXZ": 7285120,
     "?Unknown_Free_Art_Pair_006F29F0@@YIXXZ": 7285232,
     "?Unknown_Free_Backdrop_006F2BD0@@YIXXZ": 7285712,
-    "?unknown_art_ac1164@@3PAXA": 11276644
+    "?unknown_art_ac1164@@3PAXA": 11276644,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "__real@8@c0058000000000000000": 8027384,
+    "__real@8@3ffca2f9836e4e441800": 7983464,
+    "__real@8@400196cbe3f9990e9000": 7983456,
+    "__real@8@3ff2d1b71758e2196800": 8013344,
+    "__real@8@40049800000000000000": 8013336,
+    "__real@8@4000e000000000000000": 8013328,
+    "__real@8@40039000000000000000": 7979656,
+    "__real@8@3ffe9999999999999800": 7979632,
+    "__real@8@40028000000000000000": 7984472,
+    "__real@8@3fe2f0000000f0000000": 8020056,
+    "__real@8@40059600000000000000": 8019760,
+    "__real@4@400c9c3c000000000000": 8027432,
+    "__real@8@3fe2b0000000b0000000": 8020072,
+    "__real@8@3fe3a8000000a8000000": 8019984,
+    "__real@8@4005a000000000000000": 8019976,
+    "__real@8@3ff1d1b71758e2196800": 8019944,
+    "__real@8@3ff6a3d70a3d70a3d800": 8019936,
+    "__real@8@c0008000000000000000": 8019928,
+    "__real@8@bffe8000000000000000": 7981488,
+    "__real@8@4001afeddf4ddd3ba800": 8019824,
+    "__real@8@3ffe860a91c16b9b2800": 8019816,
+    "__real@8@3ffb8f5c28f5c28f6000": 8019808,
+    "__real@8@3fe5b6000000b6000000": 8019800,
+    "__real@8@4000a78d3631c681f800": 8019784,
+    "__real@8@bffda0d97bb4e7870000": 8019776,
+    "__real@4@3ff9a72f050000000000": 8048688,
+    "__deaccel": 8033976,
+    "__sinking_scale": 8033992,
+    "__sinking": 8033984,
+    "__real@8@3ffbba2e8ba2e8ba3000": 7996880,
+    "__real@8@4001e000000000000000": 7996872,
+    "__real@8@3ffc9249249249249000": 7996864,
+    "__real@8@40039800000000000000": 8051880,
+    "__real@4@3ffeb504f30000000000": 8029784,
+    "__real@4@3ffeb504f367f3bcd800": 8029780,
+    "__real@4@bfff8000000000000000": 8029776,
+    "__real@4@40069600000000000000": 7981736,
+    "__real@8@400f8000000000000000": 8017344,
+    "__ramp_corners": 8339828,
+    "__real@8@4003f000000000000000": 8053472,
+    "__real@4@4003f000000000000000": 8030272,
+    "__real@4@40068c00000000000000": 8030200,
+    "__real@4@4005d800000000000000": 8030196,
+    "__real@4@40018000000000000000": 7980236,
+    "__real@4@4002a000000000000000": 7980232,
+    "__real@4@40008000000000000000": 7980228,
+    "__real@8@400d8000000000000000": 7983264,
+    "__real@8@3fffccccccccccccd000": 8020032,
+    "__real@8@3ffaa3d70a3d70a3d800": 7998288,
+    "__real@8@3ffe947ae147ae147800": 8049000,
+    "__real@8@3fe3c8000000c8000000": 8019992,
+    "__except_handler3": 7885524,
+    "__except_list": 0,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "__real@8@bff6b6db6db6db6db800": 8026880
   },
   "regions": [
-    {
-      "entry": 7285120,
-      "method": "006f2980",
-      "symbol": "?Unknown_Free_Art_Buffers_006F2980@@YIXXZ",
-      "symbol_prefix": "?Unknown_Free_Art_Buffers_006F2980@@YIXXZ",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy"
-      ],
-      "body_bytes": 112,
-      "body_sha256": "86447de395bf100206ae7e5c1c4036bb8e54fc2c33a348e1ab8826115d55583e",
-      "padding_bytes": 0,
-      "full_extent_bytes": 112,
-      "full_extent_sha256": "86447de395bf100206ae7e5c1c4036bb8e54fc2c33a348e1ab8826115d55583e",
-      "relocations": [
-        {
-          "offset": 1,
-          "kind": 6,
-          "symbol": "?unknown_flag_ac1214@@3_NA",
-          "target": 11276820,
-          "addend": 0,
-          "resolved": 11276820
-        },
-        {
-          "offset": 13,
-          "kind": 6,
-          "symbol": "?unknown_art_ac110c@@3PAXA",
-          "target": 11276556,
-          "addend": 0,
-          "resolved": 11276556
-        },
-        {
-          "offset": 19,
-          "kind": 20,
-          "symbol": "??3@YAXPAX@Z",
-          "target": 7871803,
-          "addend": 0,
-          "resolved": 586660
-        },
-        {
-          "offset": 28,
-          "kind": 6,
-          "symbol": "?unknown_flag_ac1214@@3_NA",
-          "target": 11276820,
-          "addend": 0,
-          "resolved": 11276820
-        },
-        {
-          "offset": 33,
-          "kind": 6,
-          "symbol": "?unknown_flag_ac1215@@3_NA",
-          "target": 11276821,
-          "addend": 0,
-          "resolved": 11276821
-        },
-        {
-          "offset": 39,
-          "kind": 6,
-          "symbol": "?unknown_art_ac110c@@3PAXA",
-          "target": 11276556,
-          "addend": 0,
-          "resolved": 11276556
-        },
-        {
-          "offset": 49,
-          "kind": 6,
-          "symbol": "?unknown_art_ac10f0@@3PAXA",
-          "target": 11276528,
-          "addend": 0,
-          "resolved": 11276528
-        },
-        {
-          "offset": 55,
-          "kind": 20,
-          "symbol": "??3@YAXPAX@Z",
-          "target": 7871803,
-          "addend": 0,
-          "resolved": 586624
-        },
-        {
-          "offset": 64,
-          "kind": 6,
-          "symbol": "?unknown_flag_ac1215@@3_NA",
-          "target": 11276821,
-          "addend": 0,
-          "resolved": 11276821
-        },
-        {
-          "offset": 69,
-          "kind": 6,
-          "symbol": "?unknown_flag_ac1216@@3_NA",
-          "target": 11276822,
-          "addend": 0,
-          "resolved": 11276822
-        },
-        {
-          "offset": 75,
-          "kind": 6,
-          "symbol": "?unknown_art_ac10f0@@3PAXA",
-          "target": 11276528,
-          "addend": 0,
-          "resolved": 11276528
-        },
-        {
-          "offset": 85,
-          "kind": 6,
-          "symbol": "?unknown_art_ac1108@@3PAXA",
-          "target": 11276552,
-          "addend": 0,
-          "resolved": 11276552
-        },
-        {
-          "offset": 91,
-          "kind": 20,
-          "symbol": "??3@YAXPAX@Z",
-          "target": 7871803,
-          "addend": 0,
-          "resolved": 586588
-        },
-        {
-          "offset": 100,
-          "kind": 6,
-          "symbol": "?unknown_flag_ac1216@@3_NA",
-          "target": 11276822,
-          "addend": 0,
-          "resolved": 11276822
-        },
-        {
-          "offset": 106,
-          "kind": 6,
-          "symbol": "?unknown_art_ac1108@@3PAXA",
-          "target": 11276552,
-          "addend": 0,
-          "resolved": 11276552
-        }
-      ],
-      "source_sha256": "0a075f3c429aefdc0060a36eab8d5323da19215ac98b7d61d5d1a0127e2bbcca",
-      "source": "src/recovered/unowned/Unknown_Free_Art_Buffers_006f2980.cpp",
-      "population": "population-3726",
-      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "source_quality_family": "hand-written",
-      "semantic_name": "Unknown_Free_Art_Buffers_006f2980",
-      "source_order": 165252
-    },
     {
       "entry": 7285232,
       "method": "006f29f0",
@@ -443,73 +354,6 @@
       "source_quality_family": "hand-written",
       "semantic_name": "Unknown_Free_Art_Pair_006f29f0",
       "source_order": 165253
-    },
-    {
-      "entry": 7285712,
-      "method": "006f2bd0",
-      "symbol": "?Unknown_Free_Backdrop_006F2BD0@@YIXXZ",
-      "symbol_prefix": "?Unknown_Free_Backdrop_006F2BD0@@YIXXZ",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy"
-      ],
-      "body_bytes": 41,
-      "body_sha256": "9dab94770872dc632173bab8bd801d1d24771301d5b4714284d319192ad4f023",
-      "padding_bytes": 7,
-      "full_extent_bytes": 48,
-      "full_extent_sha256": "50874ce11243da422e171e3832085d7cfc31d02a50a000353949d599934f1c90",
-      "relocations": [
-        {
-          "offset": 1,
-          "kind": 6,
-          "symbol": "?unknown_flag_ac1217@@3_NA",
-          "target": 11276823,
-          "addend": 0,
-          "resolved": 11276823
-        },
-        {
-          "offset": 10,
-          "kind": 6,
-          "symbol": "?unknown_art_ac1104@@3PAXA",
-          "target": 11276548,
-          "addend": 0,
-          "resolved": 11276548
-        },
-        {
-          "offset": 16,
-          "kind": 20,
-          "symbol": "??3@YAXPAX@Z",
-          "target": 7871803,
-          "addend": 0,
-          "resolved": 586071
-        },
-        {
-          "offset": 25,
-          "kind": 6,
-          "symbol": "?unknown_flag_ac1217@@3_NA",
-          "target": 11276823,
-          "addend": 0,
-          "resolved": 11276823
-        },
-        {
-          "offset": 32,
-          "kind": 6,
-          "symbol": "?unknown_art_ac1104@@3PAXA",
-          "target": 11276548,
-          "addend": 0,
-          "resolved": 11276548
-        }
-      ],
-      "source_sha256": "b40218f9b2518fdb448fba08d594fb1fdf30ca702704922763f07fc11050c0f1",
-      "source": "src/recovered/unowned/Unknown_Free_Backdrop_006f2bd0.cpp",
-      "population": "population-3726",
-      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "source_quality_family": "hand-written",
-      "semantic_name": "Unknown_Free_Backdrop_006f2bd0",
-      "source_order": 165254
     }
   ]
 }

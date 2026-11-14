@@ -38,21 +38,21 @@ public:
 };
 // Descriptive recovery names for the integer-keyed OwnerDraw registry.
 // Only the used prefix is declared; this is not a full global-size claim.
-struct UnknownControlRecord {
+struct WinData {
     // Zeroes the record: kind 0xB at +0x68, the game font at +0x64, a new WideString at +0x3C, -1 at +0x90 (0x006002F0).
-    UnknownControlRecord();
+    WinData();
 #ifdef RA2_OWNERDRAW_RECORD_DTOR
     // Frees the owned text, the node list and the WideString (inline, defined beside its first user in ownrdraw.cpp;
     // guarded: only the ownrdraw.cpp population, whose header-statics source defines the macro, declares it).
-    ~UnknownControlRecord();
+    ~WinData();
 #endif
     // Frees list_34 and replaces it with copies of source's nodes (0x00600460; inline below).
     void Copy_List_600460(UnknownNode_006003d0 const *source);
     // Copies other except the owned pointers: text_28 and list_34 are deep copies, unknown_3c stays (0x006005C0).
-    UnknownControlRecord &operator=(UnknownControlRecord const &other);
+    WinData &operator=(WinData const &other);
 #ifdef RA2_OWNERDRAW_CHECK_FIELDS
     // Copies without the assignment operator self-test (0x006006E0).
-    UnknownControlRecord &unknown_copy_6006e0(UnknownControlRecord const &other);
+    WinData &unknown_copy_6006e0(WinData const &other);
 #endif
     // Replaces text_28 with a wide copy of text (none for a null or empty string) (0x00600560).
     void Set_Text_600560(char const *text);
@@ -181,12 +181,12 @@ struct UnknownControlRecord {
 };
 #ifdef RA2_OWNERDRAW_CONTROL_DICTIONARY
 // The ownrdraw unit reaches the control registry at 0x00A73640 as wlib's Dictionary keyed by the window
-// handle's value (TibSun's ODWinData): WolDictionary<unsigned int, UnknownControlRecord>
+// handle's value (TibSun's ODWinData): WolDictionary<unsigned int, WinData>
 // unknown_control_table_a73640 (shared/wol_dictionary.hpp; defined by its initializer 0x005DED60).
 #else
 class UnknownControlIndex {
 public:
-    struct Node { unsigned int Key; UnknownControlRecord Value; Node *Next; };
+    struct Node { unsigned int Key; WinData Value; Node *Next; };
     Node **Buckets; // +0x00
     unsigned int Count; // +0x04
     unsigned int Size; // +0x08 bucket count
@@ -201,24 +201,24 @@ public:
         bucket &= hash;
         return bucket;
     }
-    UnknownControlRecord *Find(unsigned int key) const {
+    WinData *Find(unsigned int key) const {
         if (!Count) return 0;
         Node *node = Buckets[Bucket_Index(key)];
         while (node && node->Key != key) node = node->Next;
         return node ? &node->Value : 0;
     }
     // 0x00601710 (defined out of line in ownrdraw.cpp).
-    bool Get(unsigned int const &key, UnknownControlRecord *&value) const;
+    bool Get(unsigned int const &key, WinData *&value) const;
     // Doubles the bucket count and rehashes every node (0x00601F70).
     void Resize();
 #ifdef RA2_OWNERDRAW_RECORD_DTOR
     // Removes key, passing its record back in value; true when it was there (0x00601C50).
-    bool Remove(unsigned int const &key, UnknownControlRecord &value);
+    bool Remove(unsigned int const &key, WinData &value);
 #ifdef RA2_COMBO_DROP_UNIT
     // wlib Dictionary::remove(key).
     bool Remove(unsigned int const &key)
     {
-        UnknownControlRecord value;
+        WinData value;
         return Remove(key, value);
     }
 #endif
@@ -237,21 +237,21 @@ BOOL __fastcall Is_Listed_Kind_5e8590(int kind);
 #endif
 #ifdef RA2_OWNERDRAW_CONTROL_DICTIONARY
 } // namespace OwnerDraw
-extern WolDictionary<unsigned int, OwnerDraw::UnknownControlRecord> unknown_control_table_a73640;
+extern WolDictionary<unsigned int, OwnerDraw::WinData> unknown_control_table_a73640;
 namespace OwnerDraw {
 // A control's registry record, or null: getPointer one inline level down (0x005FC020 then calls
 // 0x00601710 out of line; 0x005E6450, 0x005F9FB0 and 0x005FB270 expand it).
-inline UnknownControlRecord *Get_Record(HWND window)
+inline WinData *Get_Record(HWND window)
 {
-    UnknownControlRecord *record = 0;
+    WinData *record = 0;
     unknown_control_table_a73640.Get_Pointer((unsigned int const &)window, &record);
     return record;
 }
 #else
 // A control's registry record through the out-of-line Get, or null (0x005FC020).
-inline UnknownControlRecord *Get_Record(HWND window)
+inline WinData *Get_Record(HWND window)
 {
-    UnknownControlRecord *record = 0;
+    WinData *record = 0;
 #ifdef RA2_COMBO_DROP_UNIT
     // wlib Dictionary<HWND, ...>::getPointer(window, ...): the key is the window parameter itself, so the
     // inline's copy of it is made before record is cleared (0x005F9FB0).
@@ -335,7 +335,7 @@ LRESULT __stdcall unknown_hotkey_proc_5fc330(HWND window, UINT message, WPARAM w
 LRESULT __stdcall unknown_progress_proc_5faff0(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
 // 0x00600460 when not inlined (0x006005C0 inlines it).
 #ifndef RA2_OWNERDRAW_COPY_LIST_SOURCE
-inline void UnknownControlRecord::Copy_List_600460(UnknownNode_006003d0 const *source)
+inline void WinData::Copy_List_600460(UnknownNode_006003d0 const *source)
 {
     while (list_34) {
         UnknownNode_006003d0 *node = list_34;

@@ -1,0 +1,1479 @@
+{
+ "module": "psystype",
+ "source": "src/recovered/psystype.cpp",
+ "header": null,
+ "population": "population-2426",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 495,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00620430",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "00620460",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "00620480",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "006204a0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "006204c0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "006204e0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "00620500",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "00620540",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "00620570",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "006205a0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "006205d0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "006205e0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "??0ParticleSystemTypeClass@@QAE@PBD@Z",
+   "entry": "00620600",
+   "body_bytes": 380,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "??0ParticleSystemTypeClass@@QAE@ABVNoInitClass@@@Z",
+   "entry": "00620780",
+   "body_bytes": 46,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "??1ParticleSystemTypeClass@@UAE@XZ",
+   "entry": "006207b0",
+   "body_bytes": 121,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Read_INI@ParticleSystemTypeClass@@UAE_NAAVCCINIClass@@@Z",
+   "entry": "00620830",
+   "body_bytes": 850,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Index_Or_Make@ParticleSystemTypeClass@@SIHPBD@Z",
+   "entry": "00620b90",
+   "body_bytes": 161,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Name_From@ParticleSystemTypeClass@@SIPBDI@Z",
+   "entry": "00620c40",
+   "body_bytes": 26,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Compute_CRC@ParticleSystemTypeClass@@UBEXAAVWWCRCEngine@@@Z",
+   "entry": "00620c60",
+   "body_bytes": 159,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?GetClassID@ParticleSystemTypeClass@@UAGJPAUGUID@@@Z",
+   "entry": "00620d00",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Load@ParticleSystemTypeClass@@UAGJPAUIStream@@@Z",
+   "entry": "00620d40",
+   "body_bytes": 69,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Save@ParticleSystemTypeClass@@UAGJPAUIStream@@H@Z",
+   "entry": "00620d90",
+   "body_bytes": 25,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Behaviour_From_Name@ParticleSystemTypeClass@@SIHPBD@Z",
+   "entry": "00620db0",
+   "body_bytes": 53,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Find_Or_Make@ParticleSystemTypeClass@@SIPAV1@PBD@Z",
+   "entry": "00620df0",
+   "body_bytes": 131,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Size_Of@ParticleSystemTypeClass@@UBEHXZ",
+   "entry": "00620e80",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Kind_Of@ParticleSystemTypeClass@@UBEHXZ",
+   "entry": "00620e90",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Create_And_Place@ParticleSystemTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z",
+   "entry": "00620ea0",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Create_One_Of@ParticleSystemTypeClass@@UBEPAVObjectClass@@PAVHouseClass@@@Z",
+   "entry": "00620eb0",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "??_GParticleSystemTypeClass@@UAEPAXI@Z",
+   "entry": "00620ec0",
+   "body_bytes": 141,
+   "padding_bytes": 3
+  }
+ ],
+ "code_bytes": 2848,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a8440",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7ParticleSystemTypeClass@@6BINoticeSource@@@",
+   "address": "007a8450",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 65
+  },
+  {
+   "symbol": "??_7ParticleSystemTypeClass@@6BINoticeSink@@@",
+   "address": "007a8458",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 66
+  },
+  {
+   "symbol": "??_7ParticleSystemTypeClass@@6BIRTTITypeInfo@@@",
+   "address": "007a8460",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 67
+  },
+  {
+   "symbol": "??_R1M@?0A@A@INoticeSource@@8",
+   "address": "007b30b8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 42
+  },
+  {
+   "symbol": "??_R17?0A@A@INoticeSink@@8",
+   "address": "007b30d0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R13?0A@1IUnknown@@8",
+   "address": "007b30e8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 45
+  },
+  {
+   "symbol": "??_R13?0A@A@IRTTITypeInfo@@8",
+   "address": "007b3100",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 47
+  },
+  {
+   "symbol": "??_R1A@?0A@1IUnknown@@8",
+   "address": "007b3118",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 49
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersist@@8",
+   "address": "007b3130",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 51
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersistStream@@8",
+   "address": "007b3148",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 53
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractClass@@8",
+   "address": "007b3160",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 55
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractTypeClass@@8",
+   "address": "007b3210",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 57
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ObjectTypeClass@@8",
+   "address": "007b3570",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 59
+  },
+  {
+   "symbol": "??_R4ParticleSystemTypeClass@@6BINoticeSource@@@",
+   "address": "007c00e0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 38
+  },
+  {
+   "symbol": "??_R4ParticleSystemTypeClass@@6BINoticeSink@@@",
+   "address": "007c00f8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 39
+  },
+  {
+   "symbol": "??_R4ParticleSystemTypeClass@@6BIRTTITypeInfo@@@",
+   "address": "007c0110",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 40
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ParticleSystemTypeClass@@8",
+   "address": "007c0128",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 60
+  },
+  {
+   "symbol": "??_R2ParticleSystemTypeClass@@8",
+   "address": "007c0140",
+   "bytes": 45,
+   "kind": "rtti",
+   "section": 61
+  },
+  {
+   "symbol": "??_R3ParticleSystemTypeClass@@8",
+   "address": "007c0170",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 62,
+   "known_difference": "hierarchy ambiguous bit"
+  },
+  {
+   "symbol": "??_R4ParticleSystemTypeClass@@6BIPersistStream@@@",
+   "address": "007c0180",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 64
+  },
+  {
+   "symbol": "??_R0?AVINoticeSink@@@8",
+   "address": "007cd618",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 43
+  },
+  {
+   "symbol": "??_R0?AUIUnknown@@@8",
+   "address": "007cd638",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 48
+  },
+  {
+   "symbol": "??_C@_06CPHF@?$DMnone?$DO?$AA@",
+   "address": "007cdecc",
+   "bytes": 7,
+   "kind": "string",
+   "section": 105
+  },
+  {
+   "symbol": "??_C@_04KIKH@none?$AA@",
+   "address": "007ce0ec",
+   "bytes": 5,
+   "kind": "string",
+   "section": 120
+  },
+  {
+   "symbol": "??_R0?AVINoticeSource@@@8",
+   "address": "007ce1c8",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 41
+  },
+  {
+   "symbol": "??_R0?AUIRTTITypeInfo@@@8",
+   "address": "007ce1e8",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 46
+  },
+  {
+   "symbol": "??_R0?AUIPersist@@@8",
+   "address": "007ce208",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 50
+  },
+  {
+   "symbol": "??_R0?AUIPersistStream@@@8",
+   "address": "007ce220",
+   "bytes": 29,
+   "kind": "rtti",
+   "section": 52
+  },
+  {
+   "symbol": "??_R0?AVAbstractClass@@@8",
+   "address": "007ce240",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 54
+  },
+  {
+   "symbol": "??_R0?AVAbstractTypeClass@@@8",
+   "address": "007ce260",
+   "bytes": 32,
+   "kind": "rtti",
+   "section": 56
+  },
+  {
+   "symbol": "??_R0?AVObjectTypeClass@@@8",
+   "address": "007ce9c8",
+   "bytes": 30,
+   "kind": "rtti",
+   "section": 58
+  },
+  {
+   "symbol": "??_C@_06BMBE@Spawns?$AA@",
+   "address": "007cee70",
+   "bytes": 7,
+   "kind": "string",
+   "section": 102
+  },
+  {
+   "symbol": "??_R0?AVParticleSystemTypeClass@@@8",
+   "address": "007ec010",
+   "bytes": 38,
+   "kind": "rtti",
+   "section": 63
+  },
+  {
+   "symbol": "??_C@_0BF@MDNO@SpawnSparkPercentage?$AA@",
+   "address": "007ec038",
+   "bytes": 21,
+   "kind": "string",
+   "section": 81
+  },
+  {
+   "symbol": "??_C@_0O@ELOP@OneFrameLight?$AA@",
+   "address": "007ec050",
+   "bytes": 14,
+   "kind": "string",
+   "section": 82
+  },
+  {
+   "symbol": "??_C@_09NPHL@LightSize?$AA@",
+   "address": "007ec060",
+   "bytes": 10,
+   "kind": "string",
+   "section": 83
+  },
+  {
+   "symbol": "??_C@_0BB@KNPJ@SparkSpawnFrames?$AA@",
+   "address": "007ec06c",
+   "bytes": 17,
+   "kind": "string",
+   "section": 84
+  },
+  {
+   "symbol": "??_C@_0L@MKLI@LaserColor?$AA@",
+   "address": "007ec080",
+   "bytes": 11,
+   "kind": "string",
+   "section": 85
+  },
+  {
+   "symbol": "??_C@_05HLNJ@Laser?$AA@",
+   "address": "007ec08c",
+   "bytes": 6,
+   "kind": "string",
+   "section": 86
+  },
+  {
+   "symbol": "??_C@_0CA@JJNP@VelocityPerturbationCoefficient?$AA@",
+   "address": "007ec094",
+   "bytes": 32,
+   "kind": "string",
+   "section": 87
+  },
+  {
+   "symbol": "??_C@_0CA@ELOF@MovementPerturbationCoefficient?$AA@",
+   "address": "007ec0b4",
+   "bytes": 32,
+   "kind": "string",
+   "section": 88
+  },
+  {
+   "symbol": "??_C@_0CA@LGMN@PositionPerturbationCoefficient?$AA@",
+   "address": "007ec0d4",
+   "bytes": 32,
+   "kind": "string",
+   "section": 89
+  },
+  {
+   "symbol": "??_C@_0N@BHNN@SpiralRadius?$AA@",
+   "address": "007ec0f4",
+   "bytes": 13,
+   "kind": "string",
+   "section": 90
+  },
+  {
+   "symbol": "??_C@_0BE@MGHE@SpiralDeltaPerCoord?$AA@",
+   "address": "007ec104",
+   "bytes": 20,
+   "kind": "string",
+   "section": 91
+  },
+  {
+   "symbol": "??_C@_0BC@LGDL@ParticlesPerCoord?$AA@",
+   "address": "007ec118",
+   "bytes": 18,
+   "kind": "string",
+   "section": 92
+  },
+  {
+   "symbol": "??_C@_0P@MDNJ@SpawnDirection?$AA@",
+   "address": "007ec12c",
+   "bytes": 15,
+   "kind": "string",
+   "section": 93
+  },
+  {
+   "symbol": "??_C@_0M@CAMN@BehavesLike?$AA@",
+   "address": "007ec13c",
+   "bytes": 12,
+   "kind": "string",
+   "section": 94
+  },
+  {
+   "symbol": "??_C@_08IBDG@Lifetime?$AA@",
+   "address": "007ec148",
+   "bytes": 9,
+   "kind": "string",
+   "section": 95
+  },
+  {
+   "symbol": "??_C@_0BI@COGJ@SpawnTranslucencyCutoff?$AA@",
+   "address": "007ec154",
+   "bytes": 24,
+   "kind": "string",
+   "section": 96
+  },
+  {
+   "symbol": "??_C@_0M@GHND@SpawnCutoff?$AA@",
+   "address": "007ec16c",
+   "bytes": 12,
+   "kind": "string",
+   "section": 97
+  },
+  {
+   "symbol": "??_C@_08LEOA@Slowdown?$AA@",
+   "address": "007ec178",
+   "bytes": 9,
+   "kind": "string",
+   "section": 98
+  },
+  {
+   "symbol": "??_C@_0M@GLAK@SpawnRadius?$AA@",
+   "address": "007ec184",
+   "bytes": 12,
+   "kind": "string",
+   "section": 99
+  },
+  {
+   "symbol": "??_C@_0M@JCCE@ParticleCap?$AA@",
+   "address": "007ec190",
+   "bytes": 12,
+   "kind": "string",
+   "section": 100
+  },
+  {
+   "symbol": "??_C@_0M@BHFL@SpawnFrames?$AA@",
+   "address": "007ec19c",
+   "bytes": 12,
+   "kind": "string",
+   "section": 101
+  },
+  {
+   "symbol": "??_C@_09NKGP@HoldsWhat?$AA@",
+   "address": "007ec1a8",
+   "bytes": 10,
+   "kind": "string",
+   "section": 103
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a8440",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7ParticleSystemTypeClass@@6BINoticeSource@@@",
+   "address": "007a8450",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7ParticleSystemTypeClass@@6BINoticeSink@@@",
+   "address": "007a8458",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7ParticleSystemTypeClass@@6BIRTTITypeInfo@@@",
+   "address": "007a8460",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1M@?0A@A@INoticeSource@@8",
+   "address": "007b30b8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R17?0A@A@INoticeSink@@8",
+   "address": "007b30d0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R13?0A@1IUnknown@@8",
+   "address": "007b30e8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R13?0A@A@IRTTITypeInfo@@8",
+   "address": "007b3100",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@1IUnknown@@8",
+   "address": "007b3118",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersist@@8",
+   "address": "007b3130",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@IPersistStream@@8",
+   "address": "007b3148",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractClass@@8",
+   "address": "007b3160",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@AbstractTypeClass@@8",
+   "address": "007b3210",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ObjectTypeClass@@8",
+   "address": "007b3570",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4ParticleSystemTypeClass@@6BINoticeSource@@@",
+   "address": "007c00e0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4ParticleSystemTypeClass@@6BINoticeSink@@@",
+   "address": "007c00f8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4ParticleSystemTypeClass@@6BIRTTITypeInfo@@@",
+   "address": "007c0110",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ParticleSystemTypeClass@@8",
+   "address": "007c0128",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2ParticleSystemTypeClass@@8",
+   "address": "007c0140",
+   "bytes": 45,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3ParticleSystemTypeClass@@8",
+   "address": "007c0170",
+   "bytes": 16,
+   "kind": "rtti",
+   "known_difference": "hierarchy ambiguous bit"
+  },
+  {
+   "symbol": "??_R4ParticleSystemTypeClass@@6BIPersistStream@@@",
+   "address": "007c0180",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVINoticeSink@@@8",
+   "address": "007cd618",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIUnknown@@@8",
+   "address": "007cd638",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_06CPHF@?$DMnone?$DO?$AA@",
+   "address": "007cdecc",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04KIKH@none?$AA@",
+   "address": "007ce0ec",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AVINoticeSource@@@8",
+   "address": "007ce1c8",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIRTTITypeInfo@@@8",
+   "address": "007ce1e8",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIPersist@@@8",
+   "address": "007ce208",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AUIPersistStream@@@8",
+   "address": "007ce220",
+   "bytes": 29,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVAbstractClass@@@8",
+   "address": "007ce240",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVAbstractTypeClass@@@8",
+   "address": "007ce260",
+   "bytes": 32,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVObjectTypeClass@@@8",
+   "address": "007ce9c8",
+   "bytes": 30,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_06BMBE@Spawns?$AA@",
+   "address": "007cee70",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AVParticleSystemTypeClass@@@8",
+   "address": "007ec010",
+   "bytes": 38,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0BF@MDNO@SpawnSparkPercentage?$AA@",
+   "address": "007ec038",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@ELOP@OneFrameLight?$AA@",
+   "address": "007ec050",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09NPHL@LightSize?$AA@",
+   "address": "007ec060",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@KNPJ@SparkSpawnFrames?$AA@",
+   "address": "007ec06c",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@MKLI@LaserColor?$AA@",
+   "address": "007ec080",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_05HLNJ@Laser?$AA@",
+   "address": "007ec08c",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CA@JJNP@VelocityPerturbationCoefficient?$AA@",
+   "address": "007ec094",
+   "bytes": 32,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CA@ELOF@MovementPerturbationCoefficient?$AA@",
+   "address": "007ec0b4",
+   "bytes": 32,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CA@LGMN@PositionPerturbationCoefficient?$AA@",
+   "address": "007ec0d4",
+   "bytes": 32,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@BHNN@SpiralRadius?$AA@",
+   "address": "007ec0f4",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@MGHE@SpiralDeltaPerCoord?$AA@",
+   "address": "007ec104",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@LGDL@ParticlesPerCoord?$AA@",
+   "address": "007ec118",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@MDNJ@SpawnDirection?$AA@",
+   "address": "007ec12c",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@CAMN@BehavesLike?$AA@",
+   "address": "007ec13c",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08IBDG@Lifetime?$AA@",
+   "address": "007ec148",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BI@COGJ@SpawnTranslucencyCutoff?$AA@",
+   "address": "007ec154",
+   "bytes": 24,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@GHND@SpawnCutoff?$AA@",
+   "address": "007ec16c",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08LEOA@Slowdown?$AA@",
+   "address": "007ec178",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@GLAK@SpawnRadius?$AA@",
+   "address": "007ec184",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@JCCE@ParticleCap?$AA@",
+   "address": "007ec190",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@BHFL@SpawnFrames?$AA@",
+   "address": "007ec19c",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09NKGP@HoldsWhat?$AA@",
+   "address": "007ec1a8",
+   "bytes": 10,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00697d30",
+   "symbol": "??0ParticleSystemTypeClass@@QAE@PBD@Z",
+   "target": "00620600",
+   "function_entry": true
+  },
+  {
+   "site": "0070e470",
+   "symbol": "?Find_Or_Make_ParticleSystemType_00620df0@@YIPAVParticleSystemTypeClass@@PBD@Z",
+   "target": "00620df0",
+   "function_entry": true
+  },
+  {
+   "site": "00733220",
+   "symbol": "?Index_Or_Make@ParticleSystemTypeClass@@SIHPBD@Z",
+   "target": "00620b90",
+   "function_entry": true
+  },
+  {
+   "site": "006daf60",
+   "symbol": "?Find_Or_Make@ParticleSystemTypeClass@@SIPAV1@PBD@Z",
+   "target": "00620df0",
+   "function_entry": true
+  },
+  {
+   "site": "006daf60",
+   "symbol": "?Find_Or_Make@ParticleSystemTypeClass@@SIPAV1@PBD@Z",
+   "target": "00620df0",
+   "function_entry": true
+  },
+  {
+   "site": "006daf60",
+   "symbol": "?Find_Or_Make@ParticleSystemTypeClass@@SIPAV1@PBD@Z",
+   "target": "00620df0",
+   "function_entry": true
+  },
+  {
+   "site": "0064c240",
+   "symbol": "?Find_Or_Make@ParticleSystemTypeClass@@SIPAV1@PBD@Z",
+   "target": "00620df0",
+   "function_entry": true
+  },
+  {
+   "site": "00646c60",
+   "symbol": "?Find_Or_Make@ParticleSystemTypeClass@@SIPAV1@PBD@Z",
+   "target": "00620df0",
+   "function_entry": true
+  },
+  {
+   "site": "00646c60",
+   "symbol": "?Find_Or_Make@ParticleSystemTypeClass@@SIPAV1@PBD@Z",
+   "target": "00620df0",
+   "function_entry": true
+  },
+  {
+   "site": "00646c60",
+   "symbol": "?Find_Or_Make@ParticleSystemTypeClass@@SIPAV1@PBD@Z",
+   "target": "00620df0",
+   "function_entry": true
+  },
+  {
+   "site": "00646c60",
+   "symbol": "?Find_Or_Make@ParticleSystemTypeClass@@SIPAV1@PBD@Z",
+   "target": "00620df0",
+   "function_entry": true
+  },
+  {
+   "site": "00646c60",
+   "symbol": "?Find_Or_Make@ParticleSystemTypeClass@@SIPAV1@PBD@Z",
+   "target": "00620df0",
+   "function_entry": true
+  },
+  {
+   "site": "00646c60",
+   "symbol": "?Find_Or_Make@ParticleSystemTypeClass@@SIPAV1@PBD@Z",
+   "target": "00620df0",
+   "function_entry": true
+  },
+  {
+   "site": "00646c60",
+   "symbol": "?Find_Or_Make@ParticleSystemTypeClass@@SIPAV1@PBD@Z",
+   "target": "00620df0",
+   "function_entry": true
+  },
+  {
+   "site": "00646c60",
+   "symbol": "?Find_Or_Make@ParticleSystemTypeClass@@SIPAV1@PBD@Z",
+   "target": "00620df0",
+   "function_entry": true
+  },
+  {
+   "site": "00646c60",
+   "symbol": "?Find_Or_Make@ParticleSystemTypeClass@@SIPAV1@PBD@Z",
+   "target": "00620df0",
+   "function_entry": true
+  },
+  {
+   "site": "00646c60",
+   "symbol": "?Find_Or_Make@ParticleSystemTypeClass@@SIPAV1@PBD@Z",
+   "target": "00620df0",
+   "function_entry": true
+  },
+  {
+   "site": "0065cdd0",
+   "symbol": "?Index_Or_Make@ParticleSystemTypeClass@@SIHPBD@Z",
+   "target": "00620b90",
+   "function_entry": true
+  },
+  {
+   "site": "007204e0",
+   "symbol": "?Find_Or_Make_ParticleSystemType_00620df0@@YIPAVParticleSystemTypeClass@@PBD@Z",
+   "target": "00620df0",
+   "function_entry": true
+  },
+  {
+   "site": "00643e10",
+   "symbol": "?Find_Or_Make@ParticleSystemTypeClass@@SIPAV1@PBD@Z",
+   "target": "00620df0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0ObjectTypeClass@@QAE@ABVNoInitClass@@@Z",
+   "address": "005d5a80"
+  },
+  {
+   "symbol": "??0ObjectTypeClass@@QAE@PBD@Z",
+   "address": "005d57f0"
+  },
+  {
+   "symbol": "??1ObjectTypeClass@@UAE@XZ",
+   "address": "005d5b60"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??RWWCRCEngine@@QAEXJ@Z",
+   "address": "00493f30"
+  },
+  {
+   "symbol": "??RWWCRCEngine@@QAEXM@Z",
+   "address": "00493f50"
+  },
+  {
+   "symbol": "??RWWCRCEngine@@QAEX_N@Z",
+   "address": "00493e80"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "?AI@AbstractClass@@UAEXXZ",
+   "address": "00410310"
+  },
+  {
+   "symbol": "?AddRef@AbstractClass@@UAGKXZ",
+   "address": "004100a0"
+  },
+  {
+   "symbol": "?Center_Coord@AbstractClass@@UBE?AUCoordStruct@@XZ",
+   "address": "00410260"
+  },
+  {
+   "symbol": "?Compute_CRC@AbstractTypeClass@@UBEXAAVWWCRCEngine@@@Z",
+   "address": "00410960"
+  },
+  {
+   "symbol": "?Cost_Of@ObjectTypeClass@@UBEHPAVHouseClass@@@Z",
+   "address": "005d5d60"
+  },
+  {
+   "symbol": "?Create_ID@AbstractClass@@UAGXXZ",
+   "address": "0040ffd0"
+  },
+  {
+   "symbol": "?Detach@AbstractClass@@UAEXPAV1@_N@Z",
+   "address": "00410220"
+  },
+  {
+   "symbol": "?Fetch_Heap_ID@AbstractClass@@UBEHXZ",
+   "address": "00410250"
+  },
+  {
+   "symbol": "?Fetch_ID@AbstractClass@@UAGJXZ",
+   "address": "0040ffc0"
+  },
+  {
+   "symbol": "?GetSizeMax@ObjectTypeClass@@UAGJPATULARGE_INTEGER@@@Z",
+   "address": "005d7e80"
+  },
+  {
+   "symbol": "?Get_Bool@INIClass@@QBE_NPBD0_N@Z",
+   "address": "0050f410"
+  },
+  {
+   "symbol": "?Get_Double@INIClass@@QBENPBD0N@Z",
+   "address": "0050e3a0"
+  },
+  {
+   "symbol": "?Get_Float_Triple@CCINIClass@@QAE?AUINIVector3@@PBD0ABU2@@Z",
+   "address": "0046b780"
+  },
+  {
+   "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+   "address": "0050d7f0"
+  },
+  {
+   "symbol": "?Get_RGB@CCINIClass@@QBE?AVRGBClass@@PBD0ABV2@@Z",
+   "address": "0046a010"
+  },
+  {
+   "symbol": "?Get_String@INIClass@@QBEHPBD00PADH@Z",
+   "address": "0050e9a0"
+  },
+  {
+   "symbol": "?INoticeSink_Unknown@AbstractClass@@UAE_NHH@Z",
+   "address": "00410320"
+  },
+  {
+   "symbol": "?INoticeSource_Unknown@AbstractClass@@UAGXXZ",
+   "address": "00410330"
+  },
+  {
+   "symbol": "?In_Air@AbstractClass@@UBE_NXZ",
+   "address": "004102d0"
+  },
+  {
+   "symbol": "?Init@AbstractClass@@UAEXXZ",
+   "address": "00410210"
+  },
+  {
+   "symbol": "?IsDirty@AbstractClass@@UAGJXZ",
+   "address": "004101f0"
+  },
+  {
+   "symbol": "?Is_Inactive@AbstractClass@@UBE_NXZ",
+   "address": "004101e0"
+  },
+  {
+   "symbol": "?Lepton_Dimensions@ObjectTypeClass@@UBE?AUCoordStruct@@XZ",
+   "address": "005d5d30"
+  },
+  {
+   "symbol": "?Load@ObjectTypeClass@@UAGJPAUIStream@@@Z",
+   "address": "005d7c30"
+  },
+  {
+   "symbol": "?Max_Pips@ObjectTypeClass@@UBEHXZ",
+   "address": "005d5d00"
+  },
+  {
+   "symbol": "?Occupy_List@ObjectTypeClass@@UBEPBVCell@@H@Z",
+   "address": "005d5d90"
+  },
+  {
+   "symbol": "?On_Ground@AbstractClass@@UBE_NXZ",
+   "address": "004102c0"
+  },
+  {
+   "symbol": "?Owner@AbstractClass@@UBEHXZ",
+   "address": "00410230"
+  },
+  {
+   "symbol": "?Owning_House@AbstractClass@@UBEPAVHouseClass@@XZ",
+   "address": "00410240"
+  },
+  {
+   "symbol": "?ParticleSystemTypes@@3V?$DynamicVectorClass@PAVParticleSystemTypeClass@@@@A",
+   "address": "00a35dd0"
+  },
+  {
+   "symbol": "?ParticleTypeClass_Index_Or_Make_621960@@YIHPBD@Z",
+   "address": "00621960"
+  },
+  {
+   "symbol": "?Pixel_Dimensions@ObjectTypeClass@@UBE?AUCoordStruct@@XZ",
+   "address": "005d5d10"
+  },
+  {
+   "symbol": "?QueryInterface@AbstractClass@@UAGJABUGUID@@PAPAX@Z",
+   "address": "00410000"
+  },
+  {
+   "symbol": "?Read_INI@ObjectTypeClass@@UAE_NAAVCCINIClass@@@Z",
+   "address": "005d7810"
+  },
+  {
+   "symbol": "?Release@AbstractClass@@UAGKXZ",
+   "address": "004100b0"
+  },
+  {
+   "symbol": "?Save@ObjectTypeClass@@UAGJPAUIStream@@H@Z",
+   "address": "005d7e60"
+  },
+  {
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "address": "006ecb90"
+  },
+  {
+   "symbol": "?What_Am_I@AbstractClass@@UAGHXZ",
+   "address": "0040ffb0"
+  },
+  {
+   "symbol": "?Who_Can_Build_Me@ObjectTypeClass@@UBEPAVBuildingClass@@_N00PAVHouseClass@@@Z",
+   "address": "005d5fc0"
+  },
+  {
+   "symbol": "?Write_INI@AbstractTypeClass@@UBE_NAAVCCINIClass@@@Z",
+   "address": "00410910"
+  },
+  {
+   "symbol": "?unknown_behaves_like_names_7ebfd8@@3PAPBDA",
+   "address": "007ebfd8"
+  },
+  {
+   "symbol": "?unknown_behaviour_names_7ebfd8@@3PAPBDA",
+   "address": "007ebfd8"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z",
+   "address": "00410290"
+  },
+  {
+   "symbol": "?unknown_slot22@AbstractClass@@UBE?AUCoordStruct@@XZ",
+   "address": "004102e0"
+  },
+  {
+   "symbol": "?unknown_slot24@AbstractTypeClass@@UAEXH@Z",
+   "address": "004109a0"
+  },
+  {
+   "symbol": "?unknown_slot28@ObjectTypeClass@@UBEHXZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot34@ObjectTypeClass@@UBEHXZ",
+   "address": "005d5d70"
+  },
+  {
+   "symbol": "?unknown_slot38@ObjectTypeClass@@UBEPBXXZ",
+   "address": "005d5d80"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_string_83c55c@@3PADA",
+   "address": "0083c55c"
+  },
+  {
+   "symbol": "_CLSID_ParticleSystemTypeClass",
+   "address": "007a1c40"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__stricmp",
+   "address": "00781f20"
+  }
+ ],
+ "route": "A",
+ "unit": "psystype.cpp",
+ "form": "one include block",
+ "switches": [
+  "VECTOR_IMPLEMENT_VECTOR_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ID_OBJECT",
+  "VECTOR_IMPLEMENT_DYNAMIC_ADD",
+  "VECTOR_IMPLEMENT_DYNAMIC_DELETE_OBJECT",
+  "VECTOR_IMPLEMENT_DYNAMIC_DELETE_INDEX"
+ ],
+ "include_blocks": [
+  {
+   "before": "00620430",
+   "lines": 9
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 29,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  },
+  {
+   "symbol": "??_7ParticleSystemTypeClass@@6BIPersistStream@@@",
+   "reason": "relocation target unbound: ?unknown_slot28@ObjectTypeClass@@UBEHXZ"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "0070e470",
+   "target": "00620df0",
+   "symbol": "?Find_Or_Make_ParticleSystemType_00620df0@@YIPAVParticleSystemTypeClass@@PBD@Z",
+   "module_symbol": "?Find_Or_Make@ParticleSystemTypeClass@@SIPAV1@PBD@Z"
+  },
+  {
+   "site": "007204e0",
+   "target": "00620df0",
+   "symbol": "?Find_Or_Make_ParticleSystemType_00620df0@@YIPAVParticleSystemTypeClass@@PBD@Z",
+   "module_symbol": "?Find_Or_Make@ParticleSystemTypeClass@@SIPAV1@PBD@Z"
+  }
+ ],
+ "stand_in_reference_count": 2,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

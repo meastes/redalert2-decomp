@@ -1,0 +1,330 @@
+{
+ "module": "lcwstraw",
+ "source": "src/recovered/lcwstraw.cpp",
+ "header": null,
+ "population": "population-92",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 40,
+ "code": [
+  {
+   "symbol": "??0LCWStraw@@QAE@W4CompControl@0@H@Z",
+   "entry": "005352d0",
+   "body_bytes": 103,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??1LCWStraw@@UAE@XZ",
+   "entry": "00535340",
+   "body_bytes": 53,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Get@LCWStraw@@UAEHPAXH@Z",
+   "entry": "00535380",
+   "body_bytes": 346,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "??_GLCWStraw@@UAEPAXI@Z",
+   "entry": "005354e0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  }
+ ],
+ "code_bytes": 608,
+ "data": [
+  {
+   "symbol": "??_7LCWStraw@@6B@",
+   "address": "007a5478",
+   "bytes": 16,
+   "kind": "vtable",
+   "section": 10
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Straw@@8",
+   "address": "007b4b50",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 4
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LCWStraw@@8",
+   "address": "007bcd80",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 5
+  },
+  {
+   "symbol": "??_R2LCWStraw@@8",
+   "address": "007bcd98",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 6
+  },
+  {
+   "symbol": "??_R3LCWStraw@@8",
+   "address": "007bcda8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 7
+  },
+  {
+   "symbol": "??_R4LCWStraw@@6B@",
+   "address": "007bcdb8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 9
+  },
+  {
+   "symbol": "??_R0?AVStraw@@@8",
+   "address": "007d1ec0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 3
+  },
+  {
+   "symbol": "??_R0?AVLCWStraw@@@8",
+   "address": "007df358",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 8
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7LCWStraw@@6B@",
+   "address": "007a5478",
+   "bytes": 16,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Straw@@8",
+   "address": "007b4b50",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LCWStraw@@8",
+   "address": "007bcd80",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2LCWStraw@@8",
+   "address": "007bcd98",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3LCWStraw@@8",
+   "address": "007bcda8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4LCWStraw@@6B@",
+   "address": "007bcdb8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVStraw@@@8",
+   "address": "007d1ec0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVLCWStraw@@@8",
+   "address": "007df358",
+   "bytes": 23,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "005db670",
+   "symbol": "??0LCWStraw@@QAE@W4CompControl@0@H@Z",
+   "target": "005352d0",
+   "function_entry": true
+  },
+  {
+   "site": "005db670",
+   "symbol": "?Get@LCWStraw@@UAEHPAXH@Z",
+   "target": "00535380",
+   "function_entry": true
+  },
+  {
+   "site": "005db670",
+   "symbol": "??1LCWStraw@@UAE@XZ",
+   "target": "00535340",
+   "function_entry": true
+  },
+  {
+   "site": "005db670",
+   "symbol": "??0LCWStraw@@QAE@W4CompControl@0@H@Z",
+   "target": "005352d0",
+   "function_entry": true
+  },
+  {
+   "site": "005db670",
+   "symbol": "?Get@LCWStraw@@UAEHPAXH@Z",
+   "target": "00535380",
+   "function_entry": true
+  },
+  {
+   "site": "005db670",
+   "symbol": "??1LCWStraw@@UAE@XZ",
+   "target": "00535340",
+   "function_entry": true
+  },
+  {
+   "site": "0054dcc0",
+   "symbol": "??0LCWStraw@@QAE@W4CompControl@0@H@Z",
+   "target": "005352d0",
+   "function_entry": true
+  },
+  {
+   "site": "0054dcc0",
+   "symbol": "?Get@LCWStraw@@UAEHPAXH@Z",
+   "target": "00535380",
+   "function_entry": true
+  },
+  {
+   "site": "0054dcc0",
+   "symbol": "?Get@LCWStraw@@UAEHPAXH@Z",
+   "target": "00535380",
+   "function_entry": true
+  },
+  {
+   "site": "0054dcc0",
+   "symbol": "?Get@LCWStraw@@UAEHPAXH@Z",
+   "target": "00535380",
+   "function_entry": true
+  },
+  {
+   "site": "0054dcc0",
+   "symbol": "?Get@LCWStraw@@UAEHPAXH@Z",
+   "target": "00535380",
+   "function_entry": true
+  },
+  {
+   "site": "0054dcc0",
+   "symbol": "??1LCWStraw@@UAE@XZ",
+   "target": "00535340",
+   "function_entry": true
+  },
+  {
+   "site": "0054dea0",
+   "symbol": "??0LCWStraw@@QAE@W4CompControl@0@H@Z",
+   "target": "005352d0",
+   "function_entry": true
+  },
+  {
+   "site": "0054dea0",
+   "symbol": "?Get@LCWStraw@@UAEHPAXH@Z",
+   "target": "00535380",
+   "function_entry": true
+  },
+  {
+   "site": "0054dea0",
+   "symbol": "?Get@LCWStraw@@UAEHPAXH@Z",
+   "target": "00535380",
+   "function_entry": true
+  },
+  {
+   "site": "0054dea0",
+   "symbol": "?Get@LCWStraw@@UAEHPAXH@Z",
+   "target": "00535380",
+   "function_entry": true
+  },
+  {
+   "site": "0054dea0",
+   "symbol": "?Get@LCWStraw@@UAEHPAXH@Z",
+   "target": "00535380",
+   "function_entry": true
+  },
+  {
+   "site": "0054dea0",
+   "symbol": "??1LCWStraw@@UAE@XZ",
+   "target": "00535340",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??1Straw@@UAE@XZ",
+   "address": "0069b010"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "?Get@Straw@@UAEHPAXH@Z",
+   "address": "0069b0a0"
+  },
+  {
+   "symbol": "?Get_From@Straw@@UAEXPAV1@@Z",
+   "address": "0069b050"
+  },
+  {
+   "symbol": "?LCW_Comp@@YIHPBXPAXH@Z",
+   "address": "00534d40"
+  },
+  {
+   "symbol": "?LCW_Uncomp@@YIHPBXPAXK@Z",
+   "address": "00534b50"
+  },
+  {
+   "symbol": "_memmove",
+   "address": "00783290"
+  }
+ ],
+ "route": "A",
+ "unit": "lcwstraw.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "005352d0",
+   "lines": 2
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 4,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

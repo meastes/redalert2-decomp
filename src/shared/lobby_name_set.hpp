@@ -19,7 +19,7 @@ inline void Get_List_Row_Text(HWND list, int index, wchar_t *text, char *narrow)
         SendMessageA(list, 0x4B6, index, (LPARAM)text);
     } else {
         SendMessageA(list, 0x4B7, index, (LPARAM)narrow);
-        Unknown_006FA0C0(text, narrow, -1);
+        Char_To_Wide_006fa0c0(text, narrow, -1);
     }
 }
 

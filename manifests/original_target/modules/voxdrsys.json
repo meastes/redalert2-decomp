@@ -1,0 +1,627 @@
+{
+ "module": "voxdrsys",
+ "source": "src/recovered/voxdrsys.cpp",
+ "header": null,
+ "population": "population-3808",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 821,
+ "code": [
+  {
+   "symbol": "?unknown_run_716f40@@YIHPAX@Z",
+   "entry": "00716f40",
+   "body_bytes": 91,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Convert_Voxel_Colors@VoxelDrawSystem@@YIXHHHHHH@Z",
+   "entry": "00716fc0",
+   "body_bytes": 99,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Get_Surface_Buffer@VoxelDrawSystem@@YAPAEXZ",
+   "entry": "00717030",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Precalculate_Light@VoxelDrawSystem@@YIXPAVVoxelLibrary@@HHABVMatrix3D@@ABUVector3@@@Z",
+   "entry": "00717050",
+   "body_bytes": 125,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Precalculate_Light@VoxelDrawSystem@@YIXPAVVoxelLibrary@@HHABVMatrix3D@@1ABUVector3@@M@Z",
+   "entry": "007170d0",
+   "body_bytes": 244,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Reset@VoxelDrawSystem@@YAXXZ",
+   "entry": "007171d0",
+   "body_bytes": 387,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Prep_For_Shadow@VoxelDrawSystem@@YIXPAVVoxelLibrary@@HHABVMatrix3D@@1ABUVector3@@PAVSurface@@HH@Z",
+   "entry": "00717360",
+   "body_bytes": 337,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Prep_For_Object@VoxelDrawSystem@@YIXPAVVoxelLibrary@@HHABVMatrix3D@@@Z",
+   "entry": "007174c0",
+   "body_bytes": 503,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Render@VoxelDrawSystem@@YIXAAVRect@@AAH1@Z",
+   "entry": "007176c0",
+   "body_bytes": 531,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Render@VoxelDrawSystem@@YI?AUSurfaceRegion@@XZ",
+   "entry": "007178e0",
+   "body_bytes": 521,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Clear_Buffer@VoxelDrawSystem@@YAXXZ",
+   "entry": "00717af0",
+   "body_bytes": 17,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Unknown_Clear_Table_Region_00717B10@@YIXHHIH@Z",
+   "entry": "00717b10",
+   "body_bytes": 115,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Clear_Buffer@VoxelDrawSystem@@YIXAAVRect@@@Z",
+   "entry": "00717b90",
+   "body_bytes": 123,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Clear_Z_Buffer@VoxelDrawSystem@@YAXXZ",
+   "entry": "00717c10",
+   "body_bytes": 17,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Clear_Z_Buffer@VoxelDrawSystem@@YIXHHHH@Z",
+   "entry": "00717c30",
+   "body_bytes": 71,
+   "padding_bytes": 9
+  }
+ ],
+ "code_bytes": 3344,
+ "data": [
+  {
+   "symbol": "__real@4@3ffe8000000000000000",
+   "address": "0079dd80",
+   "bytes": 4,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "_?_need_buffer_init@?1??Reset@VoxelDrawSystem@@YAXXZ@4HA",
+   "address": "007f9d80",
+   "bytes": 4,
+   "kind": "static",
+   "section": 2
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@4@3ffe8000000000000000",
+   "address": "0079dd80",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "_?_need_buffer_init@?1??Reset@VoxelDrawSystem@@YAXXZ@4HA",
+   "address": "007f9d80",
+   "bytes": 4,
+   "kind": "static"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00463a00",
+   "symbol": "?Prepare_Voxel_Lighting_00717050@@YIXPAVVoxelLibrary@@HHABVMatrix3D@@ABUVector3@@@Z",
+   "target": "00717050",
+   "function_entry": true
+  },
+  {
+   "site": "00463a00",
+   "symbol": "?Reset_Voxel_Renderer_007171d0@@YAXXZ",
+   "target": "007171d0",
+   "function_entry": true
+  },
+  {
+   "site": "00463a00",
+   "symbol": "?Add_Voxel_Section_007174c0@@YIXPAVVoxelLibrary@@IHABVMatrix3D@@@Z",
+   "target": "007174c0",
+   "function_entry": true
+  },
+  {
+   "site": "00463a00",
+   "symbol": "?Voxel_Render_Bounds_007178e0@@YI?AUBulletVoxelBounds@@XZ",
+   "target": "007178e0",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?unknown_run_716f40@@YIHPAX@Z",
+   "target": "00716f40",
+   "function_entry": true
+  },
+  {
+   "site": "006d24e0",
+   "symbol": "?Precalculate_Light@VoxelDrawSystem@@YIXPAVVoxelLibrary@@HHABVMatrix3D@@1ABUVector3@@M@Z",
+   "target": "007170d0",
+   "function_entry": true
+  },
+  {
+   "site": "006d24e0",
+   "symbol": "?Reset@VoxelDrawSystem@@YAXXZ",
+   "target": "007171d0",
+   "function_entry": true
+  },
+  {
+   "site": "006d24e0",
+   "symbol": "?Prep_For_Object@VoxelDrawSystem@@YIXPAVVoxelLibrary@@IHABVMatrix3D@@@Z",
+   "target": "007174c0",
+   "function_entry": true
+  },
+  {
+   "site": "006d24e0",
+   "symbol": "?Render@VoxelDrawSystem@@YI?AUSurfaceRegion@@XZ",
+   "target": "007178e0",
+   "function_entry": true
+  },
+  {
+   "site": "006d2810",
+   "symbol": "?Reset@VoxelDrawSystem@@YAXXZ",
+   "target": "007171d0",
+   "function_entry": true
+  },
+  {
+   "site": "006d2810",
+   "symbol": "?Prep_For_Shadow@VoxelDrawSystem@@YIXPAVVoxelLibrary@@HHABVMatrix3D@@1ABUVector3@@PAVSurface@@HH@Z",
+   "target": "00717360",
+   "function_entry": true
+  },
+  {
+   "site": "006d2810",
+   "symbol": "?Render@VoxelDrawSystem@@YI?AUSurfaceRegion@@XZ",
+   "target": "007178e0",
+   "function_entry": true
+  },
+  {
+   "site": "0070cfc0",
+   "symbol": "?Reset_Voxel_Renderer_007171d0@@YAXXZ",
+   "target": "007171d0",
+   "function_entry": true
+  },
+  {
+   "site": "0070cfc0",
+   "symbol": "?Voxel_Draw_Section_00717360@@YIXPAVVoxelLibrary@@HHABVMatrix3D@@1ABUVector3@@PAVSurface@@HH@Z",
+   "target": "00717360",
+   "function_entry": true
+  },
+  {
+   "site": "0070cfc0",
+   "symbol": "?Voxel_Render_Bounds_007176c0@@YIXPAVRect@@PAH1@Z",
+   "target": "007176c0",
+   "function_entry": true
+  },
+  {
+   "site": "0070cfc0",
+   "symbol": "?Prepare_Voxel_Lighting_00717050@@YIXPAVVoxelLibrary@@HHABVMatrix3D@@ABUVector3@@@Z",
+   "target": "00717050",
+   "function_entry": true
+  },
+  {
+   "site": "0070cfc0",
+   "symbol": "?Reset_Voxel_Renderer_007171d0@@YAXXZ",
+   "target": "007171d0",
+   "function_entry": true
+  },
+  {
+   "site": "0070cfc0",
+   "symbol": "?Add_Voxel_Section_007174c0@@YIXPAVVoxelLibrary@@IHABVMatrix3D@@@Z",
+   "target": "007174c0",
+   "function_entry": true
+  },
+  {
+   "site": "0070cfc0",
+   "symbol": "?Voxel_Render_Bounds_007176c0@@YIXPAVRect@@PAH1@Z",
+   "target": "007176c0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0UnknownWorker_716f40@@QAE@PAX0@Z",
+   "address": "0071bd00"
+  },
+  {
+   "symbol": "??1UnknownWorker_716f40@@QAE@XZ",
+   "address": "0071bd70"
+  },
+  {
+   "symbol": "??D@YI?AUVector3@@ABVMatrix3D@@ABU0@@Z",
+   "address": "00591380"
+  },
+  {
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "address": "00719860"
+  },
+  {
+   "symbol": "?Matrix3D_Rigid_Inverse_00591420@@YI?AVMatrix3D@@ABV1@@Z",
+   "address": "00591420"
+  },
+  {
+   "symbol": "?Render_Object@VoxelLibrary@@QAEXPAUUnknownVoxelDrawState@@PBUVector3@@@Z",
+   "address": "00719940"
+  },
+  {
+   "symbol": "?Render_Shadow@VoxelLibrary@@QAEXPAUUnknownVoxelRecord48@@PBUVector3@@@Z",
+   "address": "00719c10"
+  },
+  {
+   "symbol": "?Rotate_Vector@Matrix3D@@QBE?AUVector3@@ABU2@@Z",
+   "address": "00590cd0"
+  },
+  {
+   "symbol": "?Run@UnknownWorker_716f40@@QAEHPAX@Z",
+   "address": "0071bde0"
+  },
+  {
+   "symbol": "?unknown_ae2fe8@@3HA",
+   "address": "00ae2fe8"
+  },
+  {
+   "symbol": "?unknown_ae3004@@3HA",
+   "address": "00ae3004"
+  },
+  {
+   "symbol": "?unknown_af6608@@3HA",
+   "address": "00af6608"
+  },
+  {
+   "symbol": "?unknown_af660c@@3HA",
+   "address": "00af660c"
+  },
+  {
+   "symbol": "?unknown_af6610@@3HA",
+   "address": "00af6610"
+  },
+  {
+   "symbol": "?unknown_bounds_max_ae0dd8@@3UVector3@@A",
+   "address": "00ae0dd8"
+  },
+  {
+   "symbol": "?unknown_bounds_min_ae0a70@@3UVector3@@A",
+   "address": "00ae0a70"
+  },
+  {
+   "symbol": "?unknown_buffer_ae3008@@3PADA",
+   "address": "00ae3008"
+  },
+  {
+   "symbol": "?unknown_buffer_ae3408@@3PAEA",
+   "address": "00ae3408"
+  },
+  {
+   "symbol": "?unknown_buffer_af4608@@3PADA",
+   "address": "00af4608"
+  },
+  {
+   "symbol": "?unknown_normal_lookup_71ba20@@YIXABUVector3@@H@Z",
+   "address": "0071ba20"
+  },
+  {
+   "symbol": "?unknown_normal_lookup_71baa0@@YIXABUVector3@@0MH@Z",
+   "address": "0071baa0"
+  },
+  {
+   "symbol": "?unknown_records_ae0de8@@3PAUUnknownVoxelRecord88@@A",
+   "address": "00ae0de8"
+  },
+  {
+   "symbol": "?unknown_records_af3408@@3PAUUnknownVoxelRecord48@@A",
+   "address": "00af3408"
+  },
+  {
+   "symbol": "?unknown_rect_ae2ff0@@3VRect@@A",
+   "address": "00ae2ff0"
+  },
+  {
+   "symbol": "?unknown_table_ae3408@@3PAEA",
+   "address": "00ae3408"
+  },
+  {
+   "symbol": "?unknown_voxel16_colors_ae0a7c@@3PAGA",
+   "address": "00ae0a7c"
+  },
+  {
+   "symbol": "?unknown_voxel_colors_ae3008@@3PAVRGBClass@@A",
+   "address": "00ae3008"
+  },
+  {
+   "symbol": "?unknown_voxel_record_count_ae0cb0@@3HA",
+   "address": "00ae0cb0"
+  },
+  {
+   "symbol": "?unknown_voxel_shadow_count_ae3000@@3HA",
+   "address": "00ae3000"
+  },
+  {
+   "symbol": "?unknown_zbuffer_ad0a70@@3PAEA",
+   "address": "00ad0a70"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  }
+ ],
+ "route": "A",
+ "unit": "voxdrsys.cpp",
+ "form": "one include block",
+ "switches": [
+  "RA2_MATRIX3D_INLINE_COPY"
+ ],
+ "include_blocks": [
+  {
+   "before": "00716fc0",
+   "lines": 9
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "00716f40",
+   "bytes": 91,
+   "population": "population-1648",
+   "bound": "own frozen bound (population-1648)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00717b10",
+   "bytes": 115,
+   "population": "population-2823",
+   "bound": "own frozen bound (population-2823)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "flipped",
+   "entry": "0040aed0",
+   "bytes": 42,
+   "population": "population-4417",
+   "source": "src/recovered/unowned/vector_constructor_iterator_0040aed0.cpp",
+   "cause": "not exact in the unit's text in any form (one include block, blocks held, lines in place, canonical text): Function symbol ambiguous/missing: ??_H@YGXPAXIHP6EX0@Z@Z"
+  },
+  {
+   "kind": "split",
+   "entry": "00716d80",
+   "bytes": 23,
+   "population": "population-3516",
+   "source": "src/recovered/header_statics/00716d80/HeaderStatics_static_rect_init_00716d80.cpp",
+   "cause": "held by population-3516; needs header state the unit does not have: #include \"shared/unknown_static_rect.hpp\""
+  },
+  {
+   "kind": "split",
+   "entry": "00716da0",
+   "bytes": 87,
+   "population": "population-3516",
+   "source": "src/recovered/classes/BSurface/BSurface_global_ae0db8_init_00716da0.cpp",
+   "cause": "held by population-3516; needs header state the unit does not have: #include \"shared/surface.hpp\""
+  },
+  {
+   "kind": "split",
+   "entry": "00716e00",
+   "bytes": 21,
+   "population": "population-3516",
+   "source": "src/recovered/classes/BSurface/BSurface_global_ae0db8_destroy_00716e00.cpp",
+   "cause": "held by population-3516; needs header state the unit does not have: #include \"shared/surface.hpp\""
+  },
+  {
+   "kind": "split",
+   "entry": "00716e20",
+   "bytes": 87,
+   "population": "population-3516",
+   "source": "src/recovered/classes/BSurface/BSurface_global_ae0c80_init_00716e20.cpp",
+   "cause": "held by population-3516; needs header state the unit does not have: #include \"shared/surface.hpp\""
+  },
+  {
+   "kind": "split",
+   "entry": "00716e80",
+   "bytes": 21,
+   "population": "population-3516",
+   "source": "src/recovered/classes/BSurface/BSurface_global_ae0c80_destroy_00716e80.cpp",
+   "cause": "held by population-3516; needs header state the unit does not have: #include \"shared/surface.hpp\""
+  },
+  {
+   "kind": "flipped",
+   "entry": "00716ea0",
+   "bytes": 1,
+   "population": "population-3516",
+   "source": "src/recovered/globals/Vector3_global_ae0a70_init_00716ea0.cpp",
+   "cause": "not exact in the unit's text in any form (one include block, blocks held, lines in place, canonical text): Function symbol ambiguous/missing: _$E15"
+  },
+  {
+   "kind": "flipped",
+   "entry": "00716eb0",
+   "bytes": 1,
+   "population": "population-3516",
+   "source": "src/recovered/globals/Vector3_global_ae0dd8_init_00716eb0.cpp",
+   "cause": "not exact in the unit's text in any form (one include block, blocks held, lines in place, canonical text): Function symbol ambiguous/missing: _$E18"
+  },
+  {
+   "kind": "flipped",
+   "entry": "00716ec0",
+   "bytes": 28,
+   "population": "population-3516",
+   "source": "src/recovered/globals/Rect_global_ae2ff0_init_00716ec0.cpp",
+   "cause": "tried alone, the unit does not compile or verify with it: Unsupported allocatable data section .CRT$XCU #2 in accepted.obj (['.CRT$XCU', '_$S25', '_$S22', '_$S19']) [row 00717CD0 00717cd0, source src/recovered/classes/Vector3/Vector3_default_constructor_0071"
+  },
+  {
+   "kind": "flipped",
+   "entry": "00716ee0",
+   "bytes": 39,
+   "population": "population-3516",
+   "source": "src/recovered/globals/Voxel_records_ae0de8_init_00716ee0.cpp",
+   "cause": "tried alone, the unit does not compile or verify with it: Unsupported allocatable data section .CRT$XCU #2 in accepted.obj (['.CRT$XCU', '_$S25', '_$S22', '_$S19']) [row 00717CD0 00717cd0, source src/recovered/classes/Vector3/Vector3_default_constructor_0071"
+  },
+  {
+   "kind": "flipped",
+   "entry": "00716f10",
+   "bytes": 36,
+   "population": "population-3516",
+   "source": "src/recovered/globals/Voxel_records_af3408_init_00716f10.cpp",
+   "cause": "not exact in the unit's text in any form (one include block, blocks held, lines in place, canonical text): Function symbol ambiguous/missing: _$E27"
+  },
+  {
+   "kind": "split",
+   "entry": "00716fa0",
+   "bytes": 17,
+   "population": "population-2332",
+   "source": "src/recovered/voxdrsys/unknown_init_identity.cpp",
+   "cause": "frozen in another population's inventory pass (population-2332)"
+  },
+  {
+   "kind": "split",
+   "entry": "00717040",
+   "bytes": 6,
+   "population": "population-4352",
+   "source": "src/recovered/voxdrsys/VoxelDrawSystem_Get_Surface.cpp",
+   "cause": "held by population-4352; needs header state the unit does not have: #include \"shared/surface.hpp\""
+  },
+  {
+   "kind": "split",
+   "entry": "00717c80",
+   "bytes": 76,
+   "population": "population-1642",
+   "source": "src/recovered/voxdrsys/unknown_clear_rect.cpp",
+   "cause": "frozen in another population's inventory pass (population-1642)"
+  },
+  {
+   "kind": "flipped",
+   "entry": "00717cd0",
+   "bytes": 3,
+   "population": "population-3516",
+   "source": "src/recovered/classes/Vector3/Constructor.cpp",
+   "cause": "not exact in the unit's text in any form (one include block, blocks held, lines in place, canonical text): Function symbol ambiguous/missing: ??0Vector3@@QAE@XZ"
+  }
+ ],
+ "unit_functions": 31,
+ "data_unproven": [],
+ "stand_in_references": [
+  {
+   "site": "00463a00",
+   "target": "00717050",
+   "symbol": "?Prepare_Voxel_Lighting_00717050@@YIXPAVVoxelLibrary@@HHABVMatrix3D@@ABUVector3@@@Z",
+   "module_symbol": "?Precalculate_Light@VoxelDrawSystem@@YIXPAVVoxelLibrary@@HHABVMatrix3D@@ABUVector3@@@Z"
+  },
+  {
+   "site": "00463a00",
+   "target": "007171d0",
+   "symbol": "?Reset_Voxel_Renderer_007171d0@@YAXXZ",
+   "module_symbol": "?Reset@VoxelDrawSystem@@YAXXZ"
+  },
+  {
+   "site": "00463a00",
+   "target": "007174c0",
+   "symbol": "?Add_Voxel_Section_007174c0@@YIXPAVVoxelLibrary@@IHABVMatrix3D@@@Z",
+   "module_symbol": "?Prep_For_Object@VoxelDrawSystem@@YIXPAVVoxelLibrary@@HHABVMatrix3D@@@Z"
+  },
+  {
+   "site": "00463a00",
+   "target": "007178e0",
+   "symbol": "?Voxel_Render_Bounds_007178e0@@YI?AUBulletVoxelBounds@@XZ",
+   "module_symbol": "?Render@VoxelDrawSystem@@YI?AUSurfaceRegion@@XZ"
+  },
+  {
+   "site": "006d24e0",
+   "target": "007174c0",
+   "symbol": "?Prep_For_Object@VoxelDrawSystem@@YIXPAVVoxelLibrary@@IHABVMatrix3D@@@Z",
+   "module_symbol": "?Prep_For_Object@VoxelDrawSystem@@YIXPAVVoxelLibrary@@HHABVMatrix3D@@@Z"
+  },
+  {
+   "site": "0070cfc0",
+   "target": "007171d0",
+   "symbol": "?Reset_Voxel_Renderer_007171d0@@YAXXZ",
+   "module_symbol": "?Reset@VoxelDrawSystem@@YAXXZ"
+  },
+  {
+   "site": "0070cfc0",
+   "target": "00717360",
+   "symbol": "?Voxel_Draw_Section_00717360@@YIXPAVVoxelLibrary@@HHABVMatrix3D@@1ABUVector3@@PAVSurface@@HH@Z",
+   "module_symbol": "?Prep_For_Shadow@VoxelDrawSystem@@YIXPAVVoxelLibrary@@HHABVMatrix3D@@1ABUVector3@@PAVSurface@@HH@Z"
+  },
+  {
+   "site": "0070cfc0",
+   "target": "007176c0",
+   "symbol": "?Voxel_Render_Bounds_007176c0@@YIXPAVRect@@PAH1@Z",
+   "module_symbol": "?Render@VoxelDrawSystem@@YIXAAVRect@@AAH1@Z"
+  },
+  {
+   "site": "0070cfc0",
+   "target": "00717050",
+   "symbol": "?Prepare_Voxel_Lighting_00717050@@YIXPAVVoxelLibrary@@HHABVMatrix3D@@ABUVector3@@@Z",
+   "module_symbol": "?Precalculate_Light@VoxelDrawSystem@@YIXPAVVoxelLibrary@@HHABVMatrix3D@@ABUVector3@@@Z"
+  },
+  {
+   "site": "0070cfc0",
+   "target": "007171d0",
+   "symbol": "?Reset_Voxel_Renderer_007171d0@@YAXXZ",
+   "module_symbol": "?Reset@VoxelDrawSystem@@YAXXZ"
+  },
+  {
+   "site": "0070cfc0",
+   "target": "007174c0",
+   "symbol": "?Add_Voxel_Section_007174c0@@YIXPAVVoxelLibrary@@IHABVMatrix3D@@@Z",
+   "module_symbol": "?Prep_For_Object@VoxelDrawSystem@@YIXPAVVoxelLibrary@@HHABVMatrix3D@@@Z"
+  },
+  {
+   "site": "0070cfc0",
+   "target": "007176c0",
+   "symbol": "?Voxel_Render_Bounds_007176c0@@YIXPAVRect@@PAH1@Z",
+   "module_symbol": "?Render@VoxelDrawSystem@@YIXAAVRect@@AAH1@Z"
+  }
+ ],
+ "stand_in_reference_count": 12,
+ "residual_split": {
+  "rows": 8,
+  "bytes": 338
+ },
+ "residual_flipped": {
+  "rows": 7,
+  "bytes": 150
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

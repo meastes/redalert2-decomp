@@ -1,0 +1,87 @@
+{
+ "module": "hicolor",
+ "source": "src/recovered/hicolor.cpp",
+ "header": null,
+ "population": "population-4435",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 1041,
+ "code": [
+  {
+   "symbol": "?rgb32_to_rgb24_clamped_004e12d0@@YIXPAEH@Z",
+   "entry": "004e12d0",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?rgb24_to_rgb555_004e1300@@YIXPAEIII@Z",
+   "entry": "004e1300",
+   "body_bytes": 80,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?rgb24_to_rgb1555_004e1350@@YIXPAEHHHH@Z",
+   "entry": "004e1350",
+   "body_bytes": 108,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?rgb32_to_rgb24_004e13c0@@YIXPAEIII@Z",
+   "entry": "004e13c0",
+   "body_bytes": 46,
+   "padding_bytes": 2
+  }
+ ],
+ "code_bytes": 288,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [],
+ "references_out": [],
+ "route": "A",
+ "unit": "hicolor.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "004e12d0",
+   "lines": 1
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "004e12b0",
+   "bytes": 19,
+   "population": "population-953",
+   "source": "src/recovered/hicolor/unknown_clear_low_color_bits.cpp",
+   "cause": "frozen in another population's inventory pass (population-953)"
+  }
+ ],
+ "unit_functions": 6,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 1,
+  "bytes": 19
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

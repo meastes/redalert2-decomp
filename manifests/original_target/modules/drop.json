@@ -1,0 +1,891 @@
+{
+ "module": "drop",
+ "source": "src/recovered/drop.cpp",
+ "header": null,
+ "population": "population-1969",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 410,
+ "code": [
+  {
+   "symbol": "??0DropListClass@@QAE@HPAGHIHHHHPBX1@Z",
+   "entry": "004a4dc0",
+   "body_bytes": 206,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Zap@DropListClass@@UAEXXZ",
+   "entry": "004a4e90",
+   "body_bytes": 62,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Add@DropListClass@@UAEAAVLinkClass@@AAV2@@Z",
+   "entry": "004a4ed0",
+   "body_bytes": 31,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Add_Tail@DropListClass@@UAEAAVLinkClass@@AAV2@@Z",
+   "entry": "004a4ef0",
+   "body_bytes": 31,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Add_Head@DropListClass@@UAEAAVLinkClass@@AAV2@@Z",
+   "entry": "004a4f10",
+   "body_bytes": 31,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Remove@DropListClass@@UAEPAVLinkClass@@XZ",
+   "entry": "004a4f30",
+   "body_bytes": 47,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Add_Item@DropListClass@@UAEHPAG@Z",
+   "entry": "004a4f60",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Current_Item@DropListClass@@UAEPAGXZ",
+   "entry": "004a4fa0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Current_Index@DropListClass@@UAEHXZ",
+   "entry": "004a4fc0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Set_Selected_Index@DropListClass@@UAEXH@Z",
+   "entry": "004a4fe0",
+   "body_bytes": 97,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Clear_Focus@DropListClass@@UAEXXZ",
+   "entry": "004a5050",
+   "body_bytes": 31,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Peer_To_Peer@DropListClass@@UAEXIAAIAAVControlClass@@@Z",
+   "entry": "004a5070",
+   "body_bytes": 200,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Expand@DropListClass@@QAEXXZ",
+   "entry": "004a5140",
+   "body_bytes": 91,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Collapse@DropListClass@@QAEXXZ",
+   "entry": "004a51a0",
+   "body_bytes": 31,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "??4DropListClass@@QAEAAV0@AAV0@@Z",
+   "entry": "004a51c0",
+   "body_bytes": 449,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "??0DropListClass@@QAE@ABV0@@Z",
+   "entry": "004a5390",
+   "body_bytes": 249,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Set_Position@DropListClass@@UAEXHH@Z",
+   "entry": "004a5490",
+   "body_bytes": 71,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Set_Selected_Index@DropListClass@@UAEXPAG@Z",
+   "entry": "004a54e0",
+   "body_bytes": 99,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?get@Leaf_4a5550@@QAEIXZ",
+   "entry": "004a5550",
+   "body_bytes": 4,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Count@DropListClass@@UAEHXZ",
+   "entry": "004a5560",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Get_Item@DropListClass@@UAEPAGH@Z",
+   "entry": "004a5580",
+   "body_bytes": 26,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "??_GDropListClass@@UAEPAXI@Z",
+   "entry": "004a55a0",
+   "body_bytes": 57,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??4ShapeButtonClass@@QAEAAV0@ABV0@@Z",
+   "entry": "004a55e0",
+   "body_bytes": 171,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "??4SliderClass@@QAEAAV0@ABV0@@Z",
+   "entry": "004a5690",
+   "body_bytes": 153,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??4GadgetClass@@QAEAAV0@ABV0@@Z",
+   "entry": "004a5730",
+   "body_bytes": 69,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?get@Leaf_4a5780@@QAEPAXI@Z",
+   "entry": "004a5780",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?get@Leaf_4a57a0@@QAEPAXI@Z",
+   "entry": "004a57a0",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?scalar_deleting_destructor_004a57c0@Owner_004a57c0@seed_004a57c0@@QAEIE@Z",
+   "entry": "004a57c0",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "??4?$VectorClass@PAG@@QAEAAV0@ABV0@@Z",
+   "entry": "004a57e0",
+   "body_bytes": 108,
+   "padding_bytes": 4
+  }
+ ],
+ "code_bytes": 2704,
+ "data": [
+  {
+   "symbol": "??_7DropListClass@@6B@",
+   "address": "007a05e0",
+   "bytes": 188,
+   "kind": "vtable",
+   "section": 20
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LinkClass@@8",
+   "address": "007b4a18",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 8
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GadgetClass@@8",
+   "address": "007b4f38",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 10
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ControlClass@@8",
+   "address": "007b4f50",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 12
+  },
+  {
+   "symbol": "??_R1A@?0A@A@EditClass@@8",
+   "address": "007b7b58",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 14
+  },
+  {
+   "symbol": "??_R1A@?0A@A@DropListClass@@8",
+   "address": "007b7b70",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 15
+  },
+  {
+   "symbol": "??_R2DropListClass@@8",
+   "address": "007b7b88",
+   "bytes": 21,
+   "kind": "rtti",
+   "section": 16
+  },
+  {
+   "symbol": "??_R3DropListClass@@8",
+   "address": "007b7ba0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 17
+  },
+  {
+   "symbol": "??_R4DropListClass@@6B@",
+   "address": "007b7bb0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 19
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ShapeButtonClass@@8",
+   "address": "007b7bc8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 67
+  },
+  {
+   "symbol": "??_R2ShapeButtonClass@@8",
+   "address": "007b7be0",
+   "bytes": 21,
+   "kind": "rtti",
+   "section": 68
+  },
+  {
+   "symbol": "??_R3ShapeButtonClass@@8",
+   "address": "007b7bf8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 69
+  },
+  {
+   "symbol": "??_R4ShapeButtonClass@@6B@",
+   "address": "007b7c08",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 71
+  },
+  {
+   "symbol": "??_R2EditClass@@8",
+   "address": "007b7c20",
+   "bytes": 17,
+   "kind": "rtti",
+   "section": 77
+  },
+  {
+   "symbol": "??_R3EditClass@@8",
+   "address": "007b7c38",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 78
+  },
+  {
+   "symbol": "??_R4EditClass@@6B@",
+   "address": "007b7c48",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 79
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ToggleClass@@8",
+   "address": "007b7c60",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 72
+  },
+  {
+   "symbol": "??_R2ToggleClass@@8",
+   "address": "007b7c78",
+   "bytes": 17,
+   "kind": "rtti",
+   "section": 73
+  },
+  {
+   "symbol": "??_R3ToggleClass@@8",
+   "address": "007b7c90",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 74
+  },
+  {
+   "symbol": "??_R4ToggleClass@@6B@",
+   "address": "007b7ca0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 76
+  },
+  {
+   "symbol": "??_R0?AVLinkClass@@@8",
+   "address": "007d17a8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 7
+  },
+  {
+   "symbol": "??_R0?AVGadgetClass@@@8",
+   "address": "007d2f30",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 9
+  },
+  {
+   "symbol": "??_R0?AVControlClass@@@8",
+   "address": "007d2f50",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 11
+  },
+  {
+   "symbol": "??_R0?AVEditClass@@@8",
+   "address": "007d5f48",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 13
+  },
+  {
+   "symbol": "??_R0?AVDropListClass@@@8",
+   "address": "007d5f60",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 18
+  },
+  {
+   "symbol": "??_R0?AVShapeButtonClass@@@8",
+   "address": "007d5f80",
+   "bytes": 31,
+   "kind": "rtti",
+   "section": 70
+  },
+  {
+   "symbol": "??_R0?AVToggleClass@@@8",
+   "address": "007d5fa0",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 75
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7DropListClass@@6B@",
+   "address": "007a05e0",
+   "bytes": 188,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LinkClass@@8",
+   "address": "007b4a18",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GadgetClass@@8",
+   "address": "007b4f38",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ControlClass@@8",
+   "address": "007b4f50",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@EditClass@@8",
+   "address": "007b7b58",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@DropListClass@@8",
+   "address": "007b7b70",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2DropListClass@@8",
+   "address": "007b7b88",
+   "bytes": 21,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3DropListClass@@8",
+   "address": "007b7ba0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4DropListClass@@6B@",
+   "address": "007b7bb0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ShapeButtonClass@@8",
+   "address": "007b7bc8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2ShapeButtonClass@@8",
+   "address": "007b7be0",
+   "bytes": 21,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3ShapeButtonClass@@8",
+   "address": "007b7bf8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4ShapeButtonClass@@6B@",
+   "address": "007b7c08",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2EditClass@@8",
+   "address": "007b7c20",
+   "bytes": 17,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3EditClass@@8",
+   "address": "007b7c38",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4EditClass@@6B@",
+   "address": "007b7c48",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ToggleClass@@8",
+   "address": "007b7c60",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2ToggleClass@@8",
+   "address": "007b7c78",
+   "bytes": 17,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3ToggleClass@@8",
+   "address": "007b7c90",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4ToggleClass@@6B@",
+   "address": "007b7ca0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVLinkClass@@@8",
+   "address": "007d17a8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVGadgetClass@@@8",
+   "address": "007d2f30",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVControlClass@@@8",
+   "address": "007d2f50",
+   "bytes": 27,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVEditClass@@@8",
+   "address": "007d5f48",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVDropListClass@@@8",
+   "address": "007d5f60",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVShapeButtonClass@@@8",
+   "address": "007d5f80",
+   "bytes": 31,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVToggleClass@@@8",
+   "address": "007d5fa0",
+   "bytes": 26,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00539d40",
+   "symbol": "??4?$VectorClass@PAG@@QAEAAV0@ABV0@@Z",
+   "target": "004a57e0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0ControlClass@@QAE@ABV0@@Z",
+   "address": "00483480"
+  },
+  {
+   "symbol": "??0EditClass@@QAE@IPAGHIHHHHH@Z",
+   "address": "004b2970"
+  },
+  {
+   "symbol": "??0ListClass@@QAE@ABV0@@Z",
+   "address": "00539d40"
+  },
+  {
+   "symbol": "??0ListClass@@QAE@HHHHHIPBX0@Z",
+   "address": "00539bf0"
+  },
+  {
+   "symbol": "??0ShapeButtonClass@@QAE@IPBXHHHH_N@Z",
+   "address": "00675060"
+  },
+  {
+   "symbol": "??1EditClass@@UAE@XZ",
+   "address": "004b2a60"
+  },
+  {
+   "symbol": "??1GadgetClass@@UAE@XZ",
+   "address": "004cf080"
+  },
+  {
+   "symbol": "??1ListClass@@UAE@XZ",
+   "address": "00539fc0"
+  },
+  {
+   "symbol": "??1ShapeButtonClass@@UAE@XZ",
+   "address": "006750f0"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??4LinkClass@@QAEAAV0@AAV0@@Z",
+   "address": "00539000"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_GEditClass@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "??_GShapeButtonClass@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "??_GToggleClass@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "?Action@EditClass@@UAEHIAAI@Z",
+   "address": "004b2b40"
+  },
+  {
+   "symbol": "?Action@ToggleClass@@UAEHIAAI@Z",
+   "address": "006eb180"
+  },
+  {
+   "symbol": "?Add@LinkClass@@UAEAAV1@AAV1@@Z",
+   "address": "005390a0"
+  },
+  {
+   "symbol": "?Add_Head@LinkClass@@UAEAAV1@AAV1@@Z",
+   "address": "005390c0"
+  },
+  {
+   "symbol": "?Add_Tail@LinkClass@@UAEAAV1@AAV1@@Z",
+   "address": "005390e0"
+  },
+  {
+   "symbol": "?Clear_Focus@GadgetClass@@UAEXXZ",
+   "address": "004cf610"
+  },
+  {
+   "symbol": "?Clicked_On@GadgetClass@@EAEHAAIIHH@Z",
+   "address": "004cf0e0"
+  },
+  {
+   "symbol": "?Delete_List@GadgetClass@@UAEXXZ",
+   "address": "004cf1b0"
+  },
+  {
+   "symbol": "?Disable@GadgetClass@@UAEXXZ",
+   "address": "004cf150"
+  },
+  {
+   "symbol": "?Draw_All@GadgetClass@@UAEX_N@Z",
+   "address": "004cf260"
+  },
+  {
+   "symbol": "?Draw_Background@EditClass@@UAEXXZ",
+   "address": "004b2c50"
+  },
+  {
+   "symbol": "?Draw_Me@ControlClass@@UAEHH@Z",
+   "address": "00483530"
+  },
+  {
+   "symbol": "?Draw_Me@EditClass@@UAEHH@Z",
+   "address": "004b2ac0"
+  },
+  {
+   "symbol": "?Draw_Me@ShapeButtonClass@@UAEHH@Z",
+   "address": "006751e0"
+  },
+  {
+   "symbol": "?Draw_Text@EditClass@@UAEXPBG@Z",
+   "address": "004b2c90"
+  },
+  {
+   "symbol": "?Enable@GadgetClass@@UAEXXZ",
+   "address": "004cf140"
+  },
+  {
+   "symbol": "?Extract_Gadget@GadgetClass@@UAEPAVControlClass@@I@Z",
+   "address": "004cf560"
+  },
+  {
+   "symbol": "?Flag_To_Redraw@GadgetClass@@UAEXXZ",
+   "address": "004cf5a0"
+  },
+  {
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "address": "00497a50"
+  },
+  {
+   "symbol": "?Get_ID@ControlClass@@UBEIXZ",
+   "address": "00483520"
+  },
+  {
+   "symbol": "?Get_Next@GadgetClass@@UBEPAVLinkClass@@XZ",
+   "address": "004cf190"
+  },
+  {
+   "symbol": "?Get_Prev@GadgetClass@@UBEPAVLinkClass@@XZ",
+   "address": "004cf1a0"
+  },
+  {
+   "symbol": "?Handle_Key@EditClass@@UAE_NH@Z",
+   "address": "004b2dd0"
+  },
+  {
+   "symbol": "?Has_Focus@GadgetClass@@UAE_NXZ",
+   "address": "004cf630"
+  },
+  {
+   "symbol": "?Head_Of_List@LinkClass@@UAEAAV1@XZ",
+   "address": "00539040"
+  },
+  {
+   "symbol": "?Input@GadgetClass@@UAEHXZ",
+   "address": "004cf330"
+  },
+  {
+   "symbol": "?Is_List_To_Redraw@GadgetClass@@UAEHXZ",
+   "address": "004cf640"
+  },
+  {
+   "symbol": "?LastList@GadgetClass@@1PAV1@A",
+   "address": "00865ff4"
+  },
+  {
+   "symbol": "?Make_Peer@ControlClass@@UAEXAAVGadgetClass@@@Z",
+   "address": "00483510"
+  },
+  {
+   "symbol": "?Mouse_Enter@GadgetClass@@UAEXXZ",
+   "address": "004cf200"
+  },
+  {
+   "symbol": "?Mouse_Leave@GadgetClass@@UAEXXZ",
+   "address": "004cf210"
+  },
+  {
+   "symbol": "?Remove@GadgetClass@@UAEPAVLinkClass@@XZ",
+   "address": "004cf170"
+  },
+  {
+   "symbol": "?Set_Focus@EditClass@@UAEXXZ",
+   "address": "004b2f20"
+  },
+  {
+   "symbol": "?Set_Focus@GadgetClass@@UAEXXZ",
+   "address": "004cf5e0"
+  },
+  {
+   "symbol": "?Set_Position@GadgetClass@@UAEXHH@Z",
+   "address": "004cf660"
+  },
+  {
+   "symbol": "?Set_Shape@ShapeButtonClass@@UAEXPBXHH@Z",
+   "address": "00675130"
+  },
+  {
+   "symbol": "?Set_Size@GadgetClass@@UAEXHH@Z",
+   "address": "004cf680"
+  },
+  {
+   "symbol": "?Set_Text@EditClass@@UAEXPAGH@Z",
+   "address": "004b2a90"
+  },
+  {
+   "symbol": "?Sticky_Process@GadgetClass@@MAEXI@Z",
+   "address": "004cf5b0"
+  },
+  {
+   "symbol": "?Tail_Of_List@LinkClass@@UAEAAV1@XZ",
+   "address": "00539070"
+  },
+  {
+   "symbol": "?Zap@LinkClass@@UAEXXZ",
+   "address": "00538ff0"
+  },
+  {
+   "symbol": "?cleanup@Leaf_4a5780@@QAEXXZ",
+   "address": "004b2a60"
+  },
+  {
+   "symbol": "__wcsicmp",
+   "address": "00796318"
+  },
+  {
+   "symbol": "_release_4a5780",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_wcscpy",
+   "address": "00783689"
+  },
+  {
+   "symbol": "_wcsncpy",
+   "address": "00783622"
+  }
+ ],
+ "route": "A",
+ "unit": "drop.cpp",
+ "form": "one include block",
+ "switches": [
+  "VECTOR_IMPLEMENT_DYNAMIC_ASSIGN"
+ ],
+ "include_blocks": [
+  {
+   "before": "004a4dc0",
+   "lines": 2
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "004a57e0",
+   "bytes": 108,
+   "population": "population-1806",
+   "bound": "own frozen bound (population-1806)"
+  },
+  {
+   "entry": "004a5550",
+   "bytes": 4,
+   "population": "population-09",
+   "bound": "own frozen bound (population-09)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "004a5780",
+   "bytes": 30,
+   "population": "population-4352",
+   "bound": "own frozen bound (population-4352)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "004a57a0",
+   "bytes": 30,
+   "population": "population-4352",
+   "bound": "own frozen bound (population-4352)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "004a57c0",
+   "bytes": 30,
+   "population": "population-4471",
+   "bound": "own frozen bound (population-4471)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [],
+ "unit_functions": 32,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  },
+  {
+   "symbol": "??_7ShapeButtonClass@@6B@",
+   "reason": "relocation target unbound: ??_EShapeButtonClass@@UAEPAXI@Z"
+  },
+  {
+   "symbol": "??_7ToggleClass@@6B@",
+   "reason": "relocation target unbound: ??_EToggleClass@@UAEPAXI@Z"
+  },
+  {
+   "symbol": "??_7EditClass@@6B@",
+   "reason": "relocation target unbound: ??_EEditClass@@UAEPAXI@Z"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

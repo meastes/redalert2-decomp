@@ -3,6 +3,7 @@
 // Checks are behavioural invariants and independent reference formulas, not
 // values taken from the original executable.
 #include "shared/random.hpp"
+#include "shared/fast_math.hpp"
 #include <stdio.h>
 
 static int failures = 0;
@@ -68,6 +69,25 @@ int main()
         unsigned short const *empty = L"";
         clear_wide(empty);
         CHECK(empty[0] == 0);
+    }
+    {
+        // VC6's _ftol conversion (ra2port::x87_ftol, prelude.hpp): fistp qword, low 32 bits;
+        // the integer indefinite (low half 0) outside the 64-bit range and for a NaN.
+        volatile double big = 3000000000.0, huge = 1e30, nan = __builtin_nan("");
+        CHECK(ra2port::x87_ftol(big) == (int)(3000000000LL - 4294967296LL));
+        CHECK(ra2port::x87_ftol(-big) == (int)(4294967296LL - 3000000000LL));
+        CHECK(ra2port::x87_ftol(-2147483648.0) == (int)0x80000000u);
+        CHECK(ra2port::x87_ftol(huge) == 0 && ra2port::x87_ftol(-huge) == 0 && ra2port::x87_ftol(nan) == 0);
+        CHECK(ra2port::x87_ftol(-2.9) == -2 && ra2port::x87_ftol(2.9) == 2);
+        // Fast_Atan2 0x004BA600 (C5): a pitch with a horizontal speed near 0 (a projectile
+        // falling straight down) divides to beyond -2^31; the original reads entry 0 (the
+        // 32-bit address wraps) where arm64's saturating conversion read 8 GB before the table.
+        volatile double tiny = 1e-30;
+        CHECK(Fast_Atan2(-1.0, tiny) == -unknown_atan_table_813df4[0]);
+        CHECK(Fast_Atan2(1.0, tiny) == unknown_atan_table_813df4[0]);
+        CHECK(Fast_Atan(-1e30) == -unknown_atan_table_813df4[0]);
+        float diagonal = Fast_Atan2(1.0, 1.0);
+        CHECK(diagonal > 0.76f && diagonal < 0.79f);   // table entry 40: atan(40 x tan(pi/2 - 0.01) / 4096)
     }
     printf("RandomClass ok, first value %d\n", RandomClass(1)());
     printf("%s (%d failures)\n", failures ? "FAILED" : "PASSED", failures);

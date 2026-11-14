@@ -16,6 +16,9 @@ public:
     float operator[](int index) const;                      // 0x00622240
     Quaternion operator=(Quaternion const &quat);           // 0x00622250
     Quaternion &Make_Closest(Quaternion const &target);     // 0x00622290
+#ifdef RA2_NON_MATCHING
+    float Length2() const;                                  // wwmath inline (non-exact draft 0x00622290)
+#endif
 
     float X;    // +0x00
     float Y;    // +0x04

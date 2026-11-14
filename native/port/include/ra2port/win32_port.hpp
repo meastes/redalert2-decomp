@@ -140,6 +140,23 @@ uint64_t game_clock_ns();
 // a single-player or skirmish game. A pause requested with a checkpoint waits for it
 // up to one second before it holds the game.
 void request_checkpoint();
+// When the last checkpoint was saved (os monotonic ns; 0: none this run). The game side
+// reports each save (ra2port_checkpoint_saved); the iOS host compares it with the
+// time it went to the background (lane I).
+uint64_t last_checkpoint_saved_ns();
+// Resume at start (lane I): the host asks, before WinMain, for a saved game to be
+// loaded as the menus would load it. The port's dialogs then press Single Player in
+// the main menu and Load Saved Game in the single-player menu (resume_dialog_command:
+// the control to send a dialog as it opens, 0 for none), and the Load dialog's entry
+// loads the file instead of listing the saves (ra2port_take_resume, once).
+// A cutscene is playing (lane I; port/src/bink.cpp): a Bink movie with sound, at least
+// 400 pixels wide, is open (Play_Movie 0x005A02D0's BinkClass; the menus' silent
+// animations and the radar's small in-game movies do not count). The touch host shows
+// its Skip button meanwhile. RA2 plays no VQA movies on this path.
+bool movie_playing();
+void request_resume(const char *file);
+bool resume_pending();
+int resume_dialog_command(unsigned dialog);
 
 // File-system operations on the game's behalf (Scout1209 diagnostics): counted
 // per kind for RA2_NATIVE_PERF_LOG, and slowed by RA2_NATIVE_FS_LATENCY_US

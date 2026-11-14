@@ -7,9 +7,10 @@
   "/O2",
   "/Ob2",
   "/G5",
-  "/Gy"
+  "/Gy",
+  "/GR"
  ],
- "compile_group": 2777,
+ "compile_group": 999,
  "code": [
   {
    "symbol": "_$E2",
@@ -94,10 +95,101 @@
  "data": [
   {
    "symbol": "??_7ShapeButtonClass@@6B@",
-   "address": "007a06a0",
-   "bytes": 140,
+   "address": "007a069c",
+   "bytes": 144,
    "kind": "vtable",
+   "section": 20
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LinkClass@@8",
+   "address": "007b4a18",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 8
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GadgetClass@@8",
+   "address": "007b4f38",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 10
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ControlClass@@8",
+   "address": "007b4f50",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 12
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ShapeButtonClass@@8",
+   "address": "007b7bc8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 15
+  },
+  {
+   "symbol": "??_R2ShapeButtonClass@@8",
+   "address": "007b7be0",
+   "bytes": 21,
+   "kind": "rtti",
+   "section": 16
+  },
+  {
+   "symbol": "??_R3ShapeButtonClass@@8",
+   "address": "007b7bf8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 17
+  },
+  {
+   "symbol": "??_R4ShapeButtonClass@@6B@",
+   "address": "007b7c08",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 19
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ToggleClass@@8",
+   "address": "007b7c60",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 14
+  },
+  {
+   "symbol": "??_R0?AVLinkClass@@@8",
+   "address": "007d17a8",
+   "bytes": 24,
+   "kind": "rtti",
    "section": 7
+  },
+  {
+   "symbol": "??_R0?AVGadgetClass@@@8",
+   "address": "007d2f30",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 9
+  },
+  {
+   "symbol": "??_R0?AVControlClass@@@8",
+   "address": "007d2f50",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 11
+  },
+  {
+   "symbol": "??_R0?AVShapeButtonClass@@@8",
+   "address": "007d5f80",
+   "bytes": 31,
+   "kind": "rtti",
+   "section": 18
+  },
+  {
+   "symbol": "??_R0?AVToggleClass@@@8",
+   "address": "007d5fa0",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 13
   }
  ],
  "data_ranges": [],
@@ -106,9 +198,87 @@
  "kept_elsewhere": [
   {
    "symbol": "??_7ShapeButtonClass@@6B@",
-   "address": "007a06a0",
-   "bytes": 140,
+   "address": "007a069c",
+   "bytes": 144,
    "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LinkClass@@8",
+   "address": "007b4a18",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GadgetClass@@8",
+   "address": "007b4f38",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ControlClass@@8",
+   "address": "007b4f50",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ShapeButtonClass@@8",
+   "address": "007b7bc8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2ShapeButtonClass@@8",
+   "address": "007b7be0",
+   "bytes": 21,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3ShapeButtonClass@@8",
+   "address": "007b7bf8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4ShapeButtonClass@@6B@",
+   "address": "007b7c08",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ToggleClass@@8",
+   "address": "007b7c60",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVLinkClass@@@8",
+   "address": "007d17a8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVGadgetClass@@@8",
+   "address": "007d2f30",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVControlClass@@@8",
+   "address": "007d2f50",
+   "bytes": 27,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVShapeButtonClass@@@8",
+   "address": "007d5f80",
+   "bytes": 31,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVToggleClass@@@8",
+   "address": "007d5fa0",
+   "bytes": 26,
+   "kind": "rtti"
   }
  ],
  "failures": [
@@ -594,6 +764,10 @@
   {
    "symbol": "??3@YAXPAX@Z",
    "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
   },
   {
    "symbol": "??_GShapeButtonClass@@UAEPAXI@Z",

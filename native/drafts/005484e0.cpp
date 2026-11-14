@@ -29,7 +29,7 @@
 // @ref ?unknown_objects_a40368@@3V?$DynamicVectorClass@PAVObjectClass@@@@A=00a40368
 // @ref ?Anims@@3V?$DynamicVectorClass@PAVAnimClass@@@@A=00a40960
 // @ref ?unknown_TubeClass_list_008661c8@@3V?$DynamicVectorClass@PAVTubeClass@@@@A=008661c8
-// @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
+// @ref ?unknown_id_source_a3d290@@3PAVScenarioClass@@A=00a3d290
 // @ref ?unknown_a40774@@3HA=00a40774
 // @ref ?unknown_map_min_a70a1c@@3HA=00a70a1c
 // @ref ?unknown_map_max_a70a20@@3HA=00a70a20

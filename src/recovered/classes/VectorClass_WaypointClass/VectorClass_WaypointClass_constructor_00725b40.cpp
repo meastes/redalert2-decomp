@@ -1,1 +1,0 @@
-// VectorClass<WaypointClass>::VectorClass(unsigned size, WaypointClass const *array) (0x725B40): compiler generated; emitted out of line by WaypointPathClass::Load (0x00725050); no source of its own.

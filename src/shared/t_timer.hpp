@@ -11,6 +11,9 @@ template <class T>
 class TTimerClass {
 public:
     TTimerClass(long set = 0) : Started(Timer), Accumulated(set) {}
+#ifdef RA2_NON_MATCHING
+    TTimerClass(class NoInitClass const &noinit);       // TibSun timer.h (non-exact draft 0x0065B780)
+#endif
     // Empty but user-declared (TibSun timer.h ~TTimerClass): TickCount (0x00839980) registers an
     // atexit destructor that only returns (0x0040EA20).
     ~TTimerClass() {}

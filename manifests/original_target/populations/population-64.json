@@ -4,8 +4,8 @@
     "id": "population-64",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "61f0e467f6ffa8f7353dc4aa97fdf4bf2d376c835cfd3baea59d8fb06711d708",
-    "historical_acceptance_sha256": "d9591deb8ba59e512d24fbfe9b366ddcf23018d6ab074d900fc2040691ad061f"
+    "historical_population_sha256": "09fc59889a1914a2173b4bfdfa3fd3eac55c1f5db68161d4e22dcae378cb963b",
+    "historical_acceptance_sha256": "c1fa33baf4b5b3d82e8063347fd6a3f4e161e9a30ba61e2458297488f7c6d443"
   },
   "references": {
     "?Size@RawFileClass@@UAEJXZ": 6525312,
@@ -46,11 +46,11 @@
     "?Size@TeleportLocomotionClass@@UAEHXZ": 7216096,
     "?Size@TunnelLocomotionClass@@UAEHXZ": 7279520,
     "?Size@WalkLocomotionClass@@UAEHXZ": 7470640,
-    "__DAT_00ab6e88": 11234952,
+    "__waypoint_none_00ab6e88": 11234952,
     "?Reset@ScriptClass@@QAE_NXZ": 6719744,
     "__strncpy": 7873488,
     "___amsg_exit": 7887784,
-    "__DAT_0084ed10": 8711440,
+    "__cell_none_0084ed10": 8711440,
     "_free": 7874024,
     "__strdup": 7919638,
     "??4Buffer@@QAEAAV0@ABV0@@Z": 4424656,
@@ -68,8 +68,8 @@
     "?Name@ThemeClass@@QBEPBDH@Z": 7243120,
     "__chkstk": 7878736,
     "__strnicmp": 7878672,
-    "__DAT_00ab6ea8": 11234984,
-    "__DAT_00ab6eb0": 11234992,
+    "__unknown_timer_start_00ab6ea8": 11234984,
+    "__unknown_timer_accum_00ab6eb0": 11234992,
     "?Size@FlyLocomotionClass@@UAEHXZ": 4979440,
     "__real@8@4006ff00000000000000": 8007504,
     "_?empty@?1??Get_Rect@MSVQAnim@@UAE?AVRect@@XZ@4V3@A": 10950680,
@@ -309,7 +309,12 @@
     "__except_handler3": 7885524,
     "__except_list": 0,
     "__real@8@3ffefd70a3d70a3d7000": 7986552,
-    "__purecall": 4950368
+    "__purecall": 4950368,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "??_7type_info@@6B@": 8066532
   },
   "regions": [
     {
@@ -321,7 +326,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 49,
       "body_sha256": "97c0c8b309f2d84a87a988277c7c5404d65185f7d173daf3e6300660879fa85a",
@@ -355,7 +361,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 51,
       "body_sha256": "03de5db65158ea3868a306fdaba84eb6d55723d0571e06bb7dfe940b0c7fe36a",
@@ -389,7 +396,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 40,
       "body_sha256": "fbf51a46cc576656bced65be6528534cb8265cdfeca4349232c386577bc0bfd5",
@@ -423,7 +431,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 49,
       "body_sha256": "bd236489d13c3199fd89a762ad8afeaf2cc72c233f1e8db0a69568b93ed0c330",
@@ -457,7 +466,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 49,
       "body_sha256": "107341eef3d8ada9aa12bb209ee400abdc84cafdd629d1ffb77429a513a736cb",
@@ -491,7 +501,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 45,
       "body_sha256": "163f7403197996a680344cd0531c601f429114808a28a247b2d75b2e645c565b",
@@ -525,7 +536,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 23,
       "body_sha256": "1bfff54c00bf03375071c9fda96bcde7ff4fc51bf8d730f89aa79bb728abd4ac",
@@ -550,7 +562,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 40,
       "body_sha256": "18ea41d23361d33b22c43df1bcf571f0f9aedb7a13f4a10fc088fb49d56856cf",

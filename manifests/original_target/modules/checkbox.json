@@ -1,0 +1,108 @@
+{
+ "module": "checkbox",
+ "source": "src/recovered/checkbox.cpp",
+ "header": null,
+ "population": "population-3502",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 706,
+ "code": [
+  {
+   "symbol": "?Draw_Me@CheckBoxClass@@UAEHH@Z",
+   "entry": "0047d150",
+   "body_bytes": 285,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Action@CheckBoxClass@@UAEHIAAI@Z",
+   "entry": "0047d270",
+   "body_bytes": 66,
+   "padding_bytes": 14
+  }
+ ],
+ "code_bytes": 368,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [],
+ "references_out": [
+  {
+   "symbol": "?Action@ToggleClass@@UAEHIAAI@Z",
+   "address": "006eb180"
+  },
+  {
+   "symbol": "?Draw_Box@@YIXABVRect@@H_N@Z",
+   "address": "004973d0"
+  },
+  {
+   "symbol": "?Draw_Me@ControlClass@@UAEHH@Z",
+   "address": "00483530"
+  },
+  {
+   "symbol": "?Turn_Off@ToggleClass@@QAEXXZ",
+   "address": "006eb170"
+  },
+  {
+   "symbol": "?Turn_On@ToggleClass@@QAEXXZ",
+   "address": "006eb160"
+  },
+  {
+   "symbol": "?WWMouse@@3PAVMouse@@A",
+   "address": "00839c68"
+  },
+  {
+   "symbol": "?unknown_drawer_8323c4@@3PAVConvertClass@@A",
+   "address": "008323c4"
+  },
+  {
+   "symbol": "?unknown_surface_83995c@@3PAVSurface@@A",
+   "address": "0083995c"
+  }
+ ],
+ "route": "A",
+ "unit": "checkbox.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "0047d150",
+   "lines": 6
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "0047d130",
+   "bytes": 23,
+   "population": "population-09",
+   "source": "src/recovered/0047d130.cpp",
+   "cause": "held by population-09; not joined: differs under the unit's state (9 bytes differ)"
+  }
+ ],
+ "unit_functions": 4,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 1,
+  "bytes": 23
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

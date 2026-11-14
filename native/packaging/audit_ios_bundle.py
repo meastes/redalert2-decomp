@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Audit the iOS app bundle (build-ios.command; Scout1247): it holds only the
-rebuilt game, its Info.plist, the SDL3 licence and the signature; never game
+rebuilt game, its Info.plist, the SDL3 licence, the generated placeholder icon
+(packaging/make_icon.py: plain shapes) and the signature; never game
 data, a game executable or original code.
 
     python3 native/packaging/audit_ios_bundle.py build/ios-simulator/RA2.app [--game-exe <game.exe>]
@@ -23,7 +24,8 @@ import struct
 import subprocess
 import sys
 
-REQUIRED = {"Info.plist", "RA2", "licenses/LICENSE.txt"}
+REQUIRED = {"Info.plist", "RA2", "licenses/LICENSE.txt",
+            "AppIcon60x60@2x.png", "AppIcon60x60@3x.png", "AppIcon76x76@2x~ipad.png", "AppIcon83.5x83.5@2x~ipad.png"}
 OPTIONAL = {"PkgInfo", "_CodeSignature/CodeResources", "embedded.mobileprovision"}
 GAME_EXTENSIONS = {".mix", ".mmx", ".exe", ".dll", ".tlb", ".ini", ".map", ".mpr", ".csf", ".pkt", ".bik",
                    ".vqa", ".shp", ".pal", ".aud", ".wav", ".sav", ".str", ".yrm", ".vxl", ".hva", ".tem", ".sno",

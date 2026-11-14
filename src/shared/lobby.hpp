@@ -33,7 +33,7 @@ extern int unknown_lobby_a3fa94;
 extern wchar_t unknown_slot_names_old_a728e4[];
 extern wchar_t unknown_slot_names_a72734[];
 // The object at 0x00A3D2B0 (session +0x18) and its member 0x00672810 (hypothesis).
-class UnknownLobbyState {
+class GameOptionsType {
 public:
     void Unknown_00672810();                    // 0x00672810
 #ifdef LOBBY_STATE_SAVELOAD
@@ -43,7 +43,7 @@ public:
     bool Load(struct IStream *stream);
 #endif
 };
-extern UnknownLobbyState unknown_lobby_state_a3d2b0;
+extern GameOptionsType unknown_lobby_state_a3d2b0;
 // Three per-slot setting tables, -1 when a slot is cleared (0x00A3D2DC, 0x00A3D2FC,
 // 0x00A3D31C; session +0x44, +0x64, +0x84: AIDifficulty, AICountry, AIColor).
 extern int unknown_lobby_a3d2dc[8];
@@ -59,7 +59,7 @@ extern char const *unknown_lobby_names_7e6de8[7];
 int Current_Dialog_Id_00735b20();
 // The selected row of the lobby campaign list (0x553 in the dialog 0x00A728E0; LB_GETCURSEL) (0x005C67A0).
 int Selected_Campaign_005c67a0();
-HWND __fastcall Find_Dialog_00735940(int id);
+HWND __fastcall WS_Find_Dialog_00735940(int id);
 // 0 until the lobby is set up (0x007E6D90, initialised -1; hypothesis).
 extern int unknown_lobby_flag_7e6d90;
 // Sends a game options text to the other players (0x005C3C60; it passes the string to strncpy and the
@@ -83,10 +83,10 @@ void __fastcall Download_Map_Preview_005c7970();
 // Wide-string comparison, 0 when equal (0x007837D3; the CRT's _wcsicmp).
 int Compare_Wide_007837d3(wchar_t const *first, wchar_t const *second);
 // Widens a narrow string into a rotating buffer (0x006FA180).
-wchar_t *__fastcall Unknown_006FA180(char const *text);
+wchar_t *__fastcall Narrow_To_Wide_006fa180(char const *text);
 // Converts a narrow string into wide characters (0x006FA0C0; -1: to its end; also in shared/campaign.hpp
 // and shared/wol_sink.hpp).
-void __fastcall Unknown_006FA0C0(wchar_t *buffer, char const *text, int length);
+void __fastcall Char_To_Wide_006fa0c0(wchar_t *buffer, char const *text, int length);
 // Case-insensitive comparison, 0 when equal (0x00781F20; the CRT's _stricmp).
 int Compare_Narrow_00781f20(char const *first, char const *second);
 // Frees a block (0x00781D3B; the CRT's free).

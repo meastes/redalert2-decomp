@@ -8,6 +8,10 @@
 #include "shared/winsock_interface.hpp"
 #include <stdio.h>
 
+// The native Enhancements page (link/native_enhancements.cpp; C3).
+void Native_Run_Enhancements();
+void Native_Enhancements_Button_Text(HWND options);
+
 // The Options dialog's state (main_opt.hpp; BSS in the original, -1 for the
 // combo selection at the start). Native storage: nothing else defines them.
 VideoModeSize *unknown_modes_a6ed10;
@@ -37,6 +41,8 @@ int __stdcall Main_Options_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
                 unknown_modes_a6ed10 = 0;
                 *(int *)ra2port_get_dialog_user(window) = 0x5CB;
             }
+        } else if (id == 0x7F80) {                  // NATIVE (C3): ENHANCEMENTS (port/src/native_dialogs.cpp)
+            if ((wparam >> 16) == 0) Native_Run_Enhancements();
         } else if (id == 0x5CD || id == 0x5CE) {    // the second page, the keyboard dialog
             Free_Memory_00781d3b(unknown_modes_a6ed10);
             unknown_modes_a6ed10 = 0;
@@ -118,6 +124,7 @@ int __stdcall Main_Options_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
         return 0;
     }
     case 0x497: {                                   // the dialog's controls are set up
+        Native_Enhancements_Button_Text(window);    // NATIVE (C3): the ENHANCEMENTS button
         unknown_options_ready_a6ed0c = false;
         HWND slider = GetDlgItem(window, 0x52B);
         if (slider) {

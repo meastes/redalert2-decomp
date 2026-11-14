@@ -1,0 +1,2302 @@
+{
+ "about": "",
+ "rows": [
+  {
+   "entry": "0041F1C0",
+   "name": "AlphaShapeClass::Draw_In_Area",
+   "bytes": 1048,
+   "source": "src/recovered/alphashp.cpp",
+   "anchor": "0041E970",
+   "symbol": "?Draw_In_Area@AlphaShapeClass@@SIXABUPoint2D@@ABVRect@@@Z",
+   "references": {
+    "?unknown_AlphaShapeClass_list_0083c648@@3V?$DynamicVectorClass@PAVAlphaShapeClass@@@@A": "0083C648",
+    "?unknown_alpha_table_83c670@@3PAEA": "0083C670",
+    "?Intersect@@YI?AVRect@@ABV1@0PAH1@Z": "0041FDF0",
+    "?Get_Buffer_Ptr@ZBuffer@@QAEPAGUPoint2D@@@Z": "00411230",
+    "?AlphaBuffer@@3PAVZBuffer@@A": "008315B4",
+    "?unknown_rect_839630@@3VRect@@A": "00839630",
+    "?unknown_tactical_83996c@@3PAVTactical@@A": "0083996C",
+    "_unknown_empty_rect": "0083C600",
+    "_?_tilemask@?1??Draw_In_Area@AlphaShapeClass@@SIXABUPoint2D@@ABVRect@@@Z@4QBEB": "0079B850"
+   },
+   "non_exact": {
+    "score": 41.92,
+    "date": "2026-11-13",
+    "differs": "312 instructions in the original, 313 in the draft (shape 90.24)"
+   },
+   "draft_origin": "build/class-work/Scout1214/w/a_0.cpp"
+  },
+  {
+   "entry": "0041F5E0",
+   "name": "AlphaShapeClass::Draw_All",
+   "bytes": 866,
+   "source": "src/recovered/alphashp.cpp",
+   "anchor": "0041E970",
+   "symbol": "?Unknown_0041F5E0@@YIXABVRect@@@Z",
+   "references": {
+    "?unknown_AlphaShapeClass_list_0083c648@@3V?$DynamicVectorClass@PAVAlphaShapeClass@@@@A": "0083C648",
+    "?unknown_alpha_table_83c670@@3PAEA": "0083C670",
+    "?Intersect@@YI?AVRect@@ABV1@0PAH1@Z": "0041FDF0",
+    "?Get_Buffer_Offset@ABuffer@@QAEPAGUPoint2D@@@Z": "00411230",
+    "?AlphaBuffer@@3PAVABuffer@@A": "008315B4",
+    "?unknown_rect_839630@@3VRect@@A": "00839630",
+    "?unknown_tactical_83996c@@3PAVTactical@@A": "0083996C",
+    "_unknown_empty_rect": "0083C600"
+   },
+   "non_exact": {
+    "score": 27.34,
+    "date": "2026-11-13",
+    "differs": "274 instructions in the original, 282 in the draft (shape 82.37)"
+   },
+   "draft_origin": "native/drafts/0041f5e0.cpp (native tree copy; lane origin build/class-work/Scout1000/w/a2.cpp)"
+  },
+  {
+   "entry": "00427370",
+   "name": "AStarClass::Find_Path_Regular",
+   "bytes": 2506,
+   "source": "src/recovered/astar.cpp",
+   "anchor": "00426E70",
+   "symbol": "?Find_Path_Regular@AStarClass@@QAEPAUPathStruct@@ABVCell@@0PAVFootClass@@PAHH_N@Z",
+   "references": {
+    "_?NoneCell@?DI@??Find_Path_Regular@AStarClass@@QAEPAUUnknownPathType@@ABVCell@@0PAVFootClass@@PAHH_N@Z@4PAVCellClass@@A": "0084E808",
+    "_?_facing_costs@?1??Find_Path_Regular@AStarClass@@QAEPAUUnknownPathType@@ABVCell@@0PAVFootClass@@PAHH_N@Z@4PAMA": "007CF0DC",
+    "_?_offsets@?BJ@??Find_Path_Regular@AStarClass@@QAEPAUUnknownPathType@@ABVCell@@0PAVFootClass@@PAHH_N@Z@4QBHB": "0079C484",
+    "__real@8@3fff8126e978d4fdf000": "0079C4D0"
+   },
+   "non_exact": {
+    "score": 51.17,
+    "date": "2026-11-13",
+    "differs": "812 instructions in the original, 771 in the draft (shape 91.22)"
+   },
+   "draft_origin": "native/drafts/00427370.cpp (native tree copy; lane origin build/class-work/Scout965/keep/a0.cpp); pointer-width casts spelled int/unsigned int (32-bit original form)"
+  },
+  {
+   "entry": "004370E0",
+   "name": "BounceClass::AI",
+   "bytes": 1448,
+   "source": "src/recovered/bounce.cpp",
+   "anchor": "00436A80",
+   "symbol": "?AI@BounceClass@@QAE?AW4BounceResultType@@XZ",
+   "references": {
+    "__real@4@40069600000000000000": "0079CAA8",
+    "__real@8@bff2d1b71758e2196800": "0079CAA0",
+    "__real@8@bff39d495182a9930800": "0079CA98",
+    "__real@8@4000a000000000000000": "0079CA78"
+   },
+   "non_exact": {
+    "score": 84.57,
+    "date": "2026-11-13",
+    "differs": "the out-of-line Vector3::Length (0x00437710, joined into this unit by lane F on 2026-11-13) is inlined here; the original calls it (99.77 before the join)"
+   },
+   "draft_origin": "build/class-work/Scout1214/w3/ba_2.cpp"
+  },
+  {
+   "entry": "004386F0",
+   "name": "Building_Player_Detector_Covers_Target_004386f0",
+   "bytes": 865,
+   "source": "src/recovered/building.cpp",
+   "anchor": "00438500",
+   "symbol": "?Building_Player_Detector_Covers_Target_004386f0@@YI_NPAVFootClass@@@Z",
+   "references": {
+    "??0UnknownVector3@@QAE@HHH@Z": "0041B630",
+    "?Length@UnknownVector3@@QBEHXZ": "0041B780",
+    "?unknown_475d60@CellClass@@QBE?AUCoordStruct@@XZ": "00475D60"
+   },
+   "non_exact": {
+    "score": 82.58,
+    "date": "2026-11-13",
+    "differs": "265 instructions in the original, 263 in the draft (shape 97.35)"
+   },
+   "draft_origin": "build/class-work/Scout773/keep/dt_p4_8258.cpp"
+  },
+  {
+   "entry": "00440520",
+   "name": "BuildingClass::Exit_Object",
+   "bytes": 6505,
+   "source": "src/recovered/building.cpp",
+   "anchor": "00438500",
+   "symbol": "?Exit_Object@BuildingClass@@UAEHPAVTechnoClass@@@Z",
+   "references": {
+    "?Pose_Dir_00417890@AircraftClass@@QBEIXZ": "00417890",
+    "?Fast_Atan2@@": "004BA600",
+    "?unknown_a40774@@3HA": "00A40774",
+    "_unknown_a40774": "00A40774",
+    "?Base_Cell_Weight_By_Distance_004f0290@@YIHPAVHouseClass@@ABVCell@@HH@Z": "004F0290"
+   },
+   "non_exact": {
+    "score": 86.73,
+    "date": "2026-11-13",
+    "differs": "1873 instructions in the original, 1886 in the draft (shape 97.74)"
+   },
+   "draft_origin": "native/drafts/00440520.cpp (native tree copy; lane origin build/class-work/Scout761/keep/eo_F_9193.cpp); pointer-width casts spelled int/unsigned int (32-bit original form)"
+  },
+  {
+   "entry": "0045F710",
+   "name": "BulletClass::AI",
+   "bytes": 6438,
+   "source": "src/recovered/bullet.cpp",
+   "anchor": "0045F120",
+   "symbol": "?AI@BulletClass@@UAEXXZ",
+   "references": {
+    "_unknown_geometry_l": "00850310",
+    "_unknown_geometry_g": "00850348",
+    "?Projectile_Motion_00593870@@YIHAAUCoordStruct@@AAU?$TVelocity3D@N@@ABU1@ABUUnknownDirStruct@@_N444@Z": "00593870",
+    "?Unknown_00718D60@@YIPAVMatrix3D@@PAV1@H@Z": "00718D60",
+    "?Get_Cell_Ramp_006a7110@Tactical@@QAEHABUCoordStruct@@@Z": "006A7110",
+    "?Proximity_004ceee0@UnknownBulletData@@QAEHABUCoordStruct@@@Z": "004CEEE0",
+    "??_C@_04JOHA@NUKE?$AA@": "007D1238",
+    "??_C@_08KHCJ@NUKEBALL?$AA@": "007D122C",
+    "__real@8@3ffb8888888888888800": "0079D570",
+    "__real@8@3ffefbbbbbbbbbbbb800": "0079D560",
+    "__real@8@40069600000000000000": "0079D550"
+   },
+   "non_exact": {
+    "score": 60.04,
+    "date": "2026-11-13",
+    "differs": "1775 instructions in the original, 1766 in the draft (shape 94.89)"
+   },
+   "draft_origin": "build/class-work/Scout1218/keep/bullet_ai/z2h_HEAD_6111_ms8778.cpp with pre_ctor.h"
+  },
+  {
+   "entry": "00475DB0",
+   "name": "CellClass::unknown_475db0",
+   "bytes": 556,
+   "source": "src/recovered/cell.cpp",
+   "anchor": "00470490",
+   "symbol": "?unknown_475db0@CellClass@@QAEHH@Z",
+   "references": {},
+   "non_exact": {
+    "score": 76.24,
+    "date": "2026-11-13",
+    "differs": "180 instructions in the original, 182 in the draft (shape 98.34)"
+   },
+   "draft_origin": "build/class-work/Scout1228/rt/rt0.cpp"
+  },
+  {
+   "entry": "0047AD00",
+   "name": "CellClass::Place_Veins",
+   "bytes": 2191,
+   "source": "src/recovered/cell.cpp",
+   "anchor": "00470490",
+   "symbol": "?Place_Veins@CellClass@@QAEXXZ",
+   "references": {
+    "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A": "00A35DE8"
+   },
+   "non_exact": {
+    "score": 78.39,
+    "date": "2026-11-13",
+    "differs": "669 instructions in the original, 673 in the draft (shape 98.66)"
+   },
+   "draft_origin": "build/class-work/Scout1273/w/pv_p4.cpp"
+  },
+  {
+   "entry": "004994D0",
+   "name": "DisplayClass::Unknown_004994D0",
+   "bytes": 832,
+   "source": "src/recovered/display.cpp",
+   "anchor": "00498760",
+   "symbol": "?Unknown_004994D0@DisplayClass@@QAE?AVCell@@ABV2@@Z",
+   "references": {
+    "?Map@@3VMouseClass@@A": "008324E0",
+    "?WWMouse@@3PAVMouse@@A": "00839C68",
+    "?unknown_rect_839630@@3VRect@@A": "00839630",
+    "?unknown_tactical_83996c@@3PAVTactical@@A": "0083996C",
+    "?unknown_a40d13@@3_NA": "00A40D13",
+    "?Click_Cell_Calc@RadarClass@@QAE?AVCell@@ABUPoint2D@@@Z": "0062FBD0",
+    "?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z": "006A6BD0",
+    "?Clamp_Cursor_To_Tactical@Tactical@@QAE?AVCell@@ABV2@PBV2@@Z": "006AA970",
+    "?Unknown_004998C0@DisplayClass@@QAEXABVCell@@_N@Z": "004998C0",
+    "?Passes_Proximity_Check_004991D0@DisplayClass@@QBE_NPBVObjectTypeClass@@HPBVCell@@ABV3@@Z": "004991D0",
+    "?Unknown_00499390@DisplayClass@@QAE_NPAVBuildingTypeClass@@HHPBVCell@@@Z": "00499390"
+   },
+   "non_exact": {
+    "score": 69.2,
+    "date": "2026-11-13",
+    "differs": "223 instructions in the original, 225 in the draft (shape 96.88)"
+   },
+   "draft_origin": "native/drafts/004994d0.cpp (native tree copy; lane origin build/class-work/Scout1075/keep/scp_k6_natural_7848.cpp)"
+  },
+  {
+   "entry": "0049B0F0",
+   "name": "DisplayClass::unknown_slot46",
+   "bytes": 2145,
+   "source": "src/recovered/display.cpp",
+   "anchor": "00498760",
+   "symbol": "?unknown_slot46@DisplayClass@@UAEXABVCell@@_NPAVObjectClass@@H1@Z",
+   "references": {
+    "?Unknown_006F6740@@YAHXZ": "006F6740",
+    "?Unknown_006F6740b@@YAHXZ": "006F6740",
+    "?Unknown_006F6730@@YAHXZ": "006F6730"
+   },
+   "non_exact": {
+    "score": 60.15,
+    "date": "2026-11-13",
+    "differs": "751 instructions in the original, 928 in the draft (shape 85.77)"
+   },
+   "draft_origin": "native/drafts/0049b0f0.cpp (native tree copy; lane origin build/class-work/Scout926/w/mu2.cpp)"
+  },
+  {
+   "entry": "004A0050",
+   "name": "DriveLocomotionClass::Draw_Matrix",
+   "bytes": 1189,
+   "source": "src/recovered/drive.cpp",
+   "anchor": "0049F450",
+   "symbol": "?Draw_Matrix@DriveLocomotionClass@@",
+   "references": {
+    "?Make_Identity@Matrix3D@@QAEXXZ": "00590060",
+    "?Get_Slope_Matrix@@YI?AVMatrix3D@@H@Z": "00718D60",
+    "?Get_Slope_Transition_Matrix@@YI?AVMatrix3D@@HHN@Z": "00718DF0",
+    "??D@YI?AVMatrix3D@@ABV0@0@Z": "00591180",
+    "??0Matrix3D@@QAE@ABUMatrix3DStruct@@@Z": "0058FE10",
+    "?Draw_Matrix@LocomotionClass@@UAGPAVMatrix3D@@PAV2@PAH@Z": "0053D030",
+    "?Translate_X@Matrix3D@@QAEXM@Z": "00590180",
+    "?Translate_Y@Matrix3D@@QAEXM@Z": "005901B0",
+    "?Translate_Z@Matrix3D@@QAEXM@Z": "005901E0",
+    "?Rotate_X@Matrix3D@@QAEXM@Z": "00590760",
+    "?Rotate_Y@Matrix3D@@QAEXM@Z": "00590880",
+    "?Fast_Sin@@YAMN@Z": "004BA480",
+    "?Fast_Cos@@YAMN@Z": "004BA4D0",
+    "?Value@?$CDTimerClass@VFrameTimerClass@@@@QBEJXZ": "004A4D20",
+    "__real@8@3fff8000000000000000": "0079A708",
+    "__real@8@3ff7a3d70a3d70a3d800": "0079D170"
+   },
+   "non_exact": {
+    "score": 77.17,
+    "date": "2026-11-13",
+    "differs": "342 instructions in the original, 337 in the draft (shape 94.55)"
+   },
+   "draft_origin": "build/class-work/Scout1185/keep/4a0050_9591.cpp (Get_Slope_Matrix spelled over 0x0049FAA0)"
+  },
+  {
+   "entry": "004AC650",
+   "name": "DSurface::Draw_Depth_Antialiased_Line",
+   "bytes": 6064,
+   "source": "src/recovered/dsurface.cpp",
+   "anchor": "004AA2B0",
+   "symbol": "?Draw_Depth_Antialiased_Line@DSurface@@",
+   "references": {
+    "?Clip_Line@@YI_NAAUPoint2D@@0ABVRect@@@Z": "00775620",
+    "?Intersect@@YI?AVRect@@ABV1@0PAH1@Z": "0041FDF0",
+    "?Length@Point2D@@QBEHXZ": "0047D060",
+    "?Get_Buffer_Offset@ABuffer@@QAEPAGUPoint2D@@@Z": "00411230",
+    "?Get_Buffer_Offset@ZBuffer@@QAEPAGUPoint2D@@@Z": "00776340",
+    "?AlphaBuffer@@3PAVZBuffer@@A": "008315B4",
+    "?DepthBuffer@@3PAVZBuffer@@A": "00839C6C",
+    "?unknown_shift_852fb8@@3HA": "00852FB8",
+    "?unknown_shift_852fbc@@3HA": "00852FBC",
+    "?unknown_shift_852fc0@@3HA": "00852FC0",
+    "?unknown_shift_852fc4@@3HA": "00852FC4",
+    "?unknown_shift_852fc8@@3HA": "00852FC8",
+    "?unknown_shift_852fcc@@3HA": "00852FCC",
+    "__CIpow": "007821B0",
+    "__ftol": "0077F110",
+    "__real@8@3fff8000000000000000": "0079A708",
+    "__real@8@3ff88000000000000000": "007A0C80",
+    "_?GradientTable@?1??Draw_Depth_Antialiased_Line@DSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@HH_N333M@Z@4PAHA": "00852B70",
+    "_?onetime@?1??Draw_Depth_Antialiased_Line@DSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@HH_N333M@Z@4_NA": "00852FD8"
+   },
+   "non_exact": {
+    "score": 35.58,
+    "date": "2026-11-13",
+    "differs": "1619 instructions in the original, 1585 in the draft (shape 82.96)"
+   },
+   "draft_origin": "build/class-work/Scout1271/keep/aa_s4_named_frame0xc4_3558.cpp (TibSun dsurface.cpp)"
+  },
+  {
+   "entry": "004B37C0",
+   "name": "Show_Who_Was_Responsible_004b37c0",
+   "bytes": 2924,
+   "source": "src/recovered/classes/EgoClass/Show_Who_Was_Responsible_004b37c0.cpp",
+   "anchor": "004B3760",
+   "symbol": "?Show_Who_Was_Responsible_004b37c0@@YIXXZ",
+   "references": {
+    "?unknown_red_mask_a763dc@OwnerDraw@@3GA": "00A763DC",
+    "?unknown_green_mask_a763de@OwnerDraw@@3GA": "00A763DE",
+    "??_C@_04KPAE@Blue?$AA@": "007D649C",
+    "??_C@_07JBC@CREDITS?$AA@": "007D64A4",
+    "??_C@_0BA@PGBN@D?3?2Ra2?2Egos?4CPP?$AA@": "007D64AC",
+    "??_C@_1BI@NKIG@?$AA?$HL?$AAB?$AAa?$AAd?$AA?5?$AAL?$AAa?$AAb?$AAe?$AAl?$AA?$HN?$AA?$AA@": "007D64BC",
+    "??_C@_1CA@OMJE@?$AA?$HL?$AAM?$AAi?$AAs?$AAs?$AAi?$AAn?$AAg?$AA?5?$AAL?$AAa?$AAb?$AAe?$AAl?$AA?$HN?$AA?$AA@": "007D64D4",
+    "??_C@_13ECNF@?$AA?5?$AA?$AA@": "007D64F4",
+    "??_C@_05DKMC@Green?$AA@": "007D61FC",
+    "??_C@_09EEKE@LightGold?$AA@": "007D64F8",
+    "??_C@_0M@ONIL@CREDITS?4TXT?$AA@": "007D6504",
+    "?unknown_scheme_name_007d83b4@@3PBDB": "007D83B4",
+    "?unknown_surfaces_restored_008523dc@@3_NA": "008523DC",
+    "?labels_0085311c@@3PAGA": "0085311C",
+    "?credits_scroll_speed_007d6430@@3HA": "007D6430"
+   },
+   "non_exact": {
+    "score": 92.4,
+    "date": "2026-11-13",
+    "differs": "867 instructions in the original, 869 in the draft (shape 97.93)"
+   },
+   "draft_origin": "build/class-work/Scout1227/d/egos/egos_g0_9954.cpp"
+  },
+  {
+   "entry": "004D2080",
+   "name": "Fill_Color_Combo_4d2080",
+   "bytes": 53,
+   "source": "src/recovered/gdlgsupp.cpp",
+   "anchor": "004D0CF0",
+   "symbol": "?Fill_Color_Combo_4d2080@@YIXPAUHWND__@@H@Z",
+   "references": {
+    "__imp__GetDlgItem@8": "0079A49C",
+    "__imp__ShowWindow@8": "0079A498",
+    "__imp__SendMessageA@16": "0079A4A0",
+    "??_C@_0BE@MIDK@GUI?3RandomAsSymbols?$AA@": "007D87DC"
+   },
+   "non_exact": {
+    "score": 24.42,
+    "date": "2026-11-13",
+    "differs": "21 instructions in the original, 151 in the draft (shape 24.42)"
+   },
+   "draft_origin": "build/class-work/Scout1018/keep/fill_color_combo_4d2080_fc1_8609.cpp"
+  },
+  {
+   "entry": "004ECA50",
+   "name": "HouseClass::Random_Cell_In_Zone",
+   "bytes": 1253,
+   "source": "src/recovered/house.cpp",
+   "anchor": "004E13F0",
+   "symbol": "?Random_Cell_In_Zone@HouseClass@@",
+   "references": {
+    "?Fast_Sin@@YAMN@Z": "004BA480",
+    "?Fast_Cos@@YAMN@Z": "004BA4D0",
+    "?unknown_facing_radians_79b620@@3NB": "0079B620",
+    "?unknown_coord_a40f48@@3UCoordStruct@@A": "00A40F48",
+    "?Map@@3VMouseClass@@A": "008324E0",
+    "?Unknown_0055A660@MapClass@@QAE_NABVCell@@_N@Z": "0055A660",
+    "??0UnknownVector3@@QAE@HHH@Z": "0041B630",
+    "?Coord_Scatter@@YI?AUCoordStruct@@ABU1@H_N@Z": "00491750"
+   },
+   "non_exact": {
+    "score": 54.0,
+    "date": "2026-11-13",
+    "differs": "345 instructions in the original, 355 in the draft (shape 94.00)"
+   },
+   "draft_origin": "build/class-work/Scout1046/w/rz0.cpp"
+  },
+  {
+   "entry": "00500AA0",
+   "name": "InfantryClass::unknown_slot93",
+   "bytes": 4617,
+   "source": "src/recovered/infantry.cpp",
+   "anchor": "004FF450",
+   "symbol": "?unknown_slot93@InfantryClass@@UAEXH@Z",
+   "references": {
+    "?Unknown_00452390@BuildingClass@@": "00452390",
+    "?Unknown_00452EB0@BuildingClass@@": "00452EB0",
+    "?Unknown_004536D0@BuildingClass@@": "004536D0",
+    "?Is_Ally@HouseClass@@QBE_NPBVTechnoClass@@@Z": "004E5580",
+    "?Spring@TagClass@@": "006B3DF0",
+    "?Is_To_Inherit@TagClass@@": "006B41F0",
+    "?Unknown_006D9610@TechnoClass@@": "006D9610",
+    "?unknown_slot93@FootClass@@": "004C7220",
+    "??_C@_0BD@HGEC@EVA_BridgeRepaired?$AA@": "007DAEF0",
+    "?Unknown_00552570@MapClass@@QAEXABVCell@@@Z": "00552570",
+    "?Unknown_00555A60@MapClass@@QAEXABVCell@@@Z": "00555A60"
+   },
+   "non_exact": {
+    "score": 86.18,
+    "date": "2026-11-13",
+    "differs": "1441 instructions in the original, 1446 in the draft (shape 99.34)"
+   },
+   "draft_origin": "build/class-work/Scout1227/keep/pc4_head_8618.cpp"
+  },
+  {
+   "entry": "005025C0",
+   "name": "InfantryClass::unknown_5025c0",
+   "bytes": 1876,
+   "source": "src/recovered/infantry.cpp",
+   "anchor": "004FF450",
+   "symbol": "?unknown_5025c0@InfantryClass@@QAEXXZ",
+   "references": {
+    "??_G?$VectorClass@PAVObjectClass@@@@UAEPAXI@Z": "0040CE20",
+    "??_G?$DynamicVectorClass@PAVObjectClass@@@@UAEPAXI@Z": "0047D090",
+    "??0UnknownVector3@@QAE@HHH@Z": "0041B630",
+    "?Length@?$TPoint3D@H@@QBEHXZ": "0041B780",
+    "??0?$TPoint3D@H@@QAE@HHH@Z": "0041B630",
+    "??G?$TPoint3D@H@@QBE?BV0@ABV0@@Z": "004348F0",
+    "?Length@CoordStruct@@QBEHXZ": "0041B780",
+    "??0CoordStruct@@QAE@HHH@Z": "0041B630",
+    "?Length@UnknownVector3@@QBEHXZ": "0041B780",
+    "??0UnknownFacingDir@@QAE@ABUCoordStruct@@0@Z": "00423EF0",
+    "?unknown_475d60@CellClass@@QBE?AUCoordStruct@@XZ": "00475D60",
+    "?Unknown_004764B0@UnknownCellClass@@QAE?AUCoordStruct@@ABU2@H_N@Z": "004764B0",
+    "?unknown_sin_4ba480@@YANN@Z": "004BA480",
+    "?unknown_cos_4ba4d0@@YANN@Z": "004BA4D0",
+    "?unknown_TubeClass_list_008661c8@@3V?$DynamicVectorClass@PAVTubeClass@@@@A": "008661C8",
+    "?unknown_facing_offsets_851ac0@@3QBUUnknownFacingOffset@@B": "00851AC0",
+    "?unknown_coord_a410f8@@3UCoordStruct@@A": "00A410F8",
+    "?unknown_tube_angle_scale_79b620@@3NB": "0079B620",
+    "?unknown_tube_diagonal_7a3a20@@3NB": "007A3A20",
+    "?unknown_tube_width_79a700@@3NB": "0079A700",
+    "?_com_issue_error@@YGXJ@Z": "00795940",
+    "??0?$VectorClass@PAVObjectClass@@@@QAE@IPBQAVObjectClass@@@Z": "004BFBD0",
+    "??GCoordStruct@@QBE?AU0@ABU0@@Z": "004348F0"
+   },
+   "non_exact": {
+    "score": 45.42,
+    "date": "2026-11-13",
+    "differs": "560 instructions in the original, 554 in the draft (shape 87.07)"
+   },
+   "draft_origin": "build/class-work/Scout1220/tn/inf_c1.cpp with Scout1218/keep/tunnel/pre_inf.h (TibSun Tunnel_AI)"
+  },
+  {
+   "entry": "00521A90",
+   "name": "IonBlastClass::One_Time",
+   "bytes": 541,
+   "source": "src/recovered/ionblast.cpp",
+   "anchor": "00520FA0",
+   "symbol": "?One_Time@IonBlastClass@@SAXXZ",
+   "references": {},
+   "non_exact": {
+    "score": 88.31,
+    "date": "2026-11-13",
+    "differs": "same instruction count (154), shape 99.35: instruction choice and registers differ"
+   },
+   "draft_origin": "native/drafts/00521a90.cpp (native tree copy; lane origin build/class-work/Scout1076/wt/native/drafts/00521a90.cpp)"
+  },
+  {
+   "entry": "00525F60",
+   "name": "FUN_00525f60",
+   "bytes": 2691,
+   "source": "src/recovered/ipxmgr.cpp",
+   "anchor": "00524E40",
+   "symbol": "?Service@IPXManagerClass@@UAEHXZ",
+   "references": {
+    "?unknown_flag_a402d8@@3_NA": "00A402D8",
+    "?unknown_session_a3f616@@3_NA": "00A3F616",
+    "?Debug_Printf@@YAXPBDZZ": "004068F0",
+    "??_C@_0CE@KCEH@Error?5?9?5Connection?5?$CFd?5has?5gone?5b@": "007DE060",
+    "??_C@_0CA@FIDK@Multicast?5channel?5has?5gone?5bad?6?$AA@": "007DE084",
+    "??_C@_0BM@FHJ@Reecive?5buffer?5overflow?5?$CFd?6?$AA@": "007DE0FC",
+    "??_C@_0CJ@MGKD@RouterChannel?5recive?5buffer?5over@": "007DE0A4",
+    "??_C@_0CJ@GHHE@GlobalChannel?5recive?5buffer?5over@": "007DE0D0",
+    "??_C@_0BM@KMFP@Receive?5buffer?5overflow?5?$CFd?6?$AA@": "007DE118",
+    "??_C@_0DG@GNPP@Adding?5?$DP?$DP?$DP?5packet?5?$CFd?5from?5?$CFs?5?$DL?5?$CF@": "007DE1E8",
+    "??_C@_0DN@NBLK@Adding?5DATA_NOACK?5packet?5?$CFd?5from@": "007DE170",
+    "??_C@_0DL@BHNN@Adding?5DATA_ACK?5packet?5?$CFd?5from?5?$CF@": "007DE134",
+    "??_C@_0DL@CJLA@Frame?5?$CFd?0?5Router?5apparently?5chan@": "007DE220",
+    "??_C@_0CF@NJLG@Set?5address?5for?5connection?5?$CFd?5to@": "007DE25C",
+    "??_C@_0CP@PONL@Player?5?$CFs?5is?5having?5his?5port?5tra@": "007DE284",
+    "??_C@_0CM@PDEC@NAT?5Alert?5?9?5port?5number?5fiddling@": "007DE2B4",
+    "??_C@_0CM@DKLM@Adding?5packet?5from?5?$CFs?5?$DL?5?$CFd?5to?5gl@": "007DE2E0",
+    "??_C@_0DG@PFJH@Adding?5ACK?5packet?5?$CFd?5from?5?$CFs?5?$DL?5?$CF@": "007DE1B0"
+   },
+   "non_exact": {
+    "score": 97.99,
+    "date": "2026-11-13",
+    "differs": "770 instructions in the original, 771 in the draft (shape 99.94)"
+   },
+   "draft_origin": "build/class-work/Scout1251/ipx/l1.cpp"
+  },
+  {
+   "entry": "0052C230",
+   "name": "IsometricTileTypeClass::Draw_Tile",
+   "bytes": 6967,
+   "source": "src/recovered/isotype.cpp",
+   "anchor": "00528570",
+   "symbol": "?Draw_Tile@IsometricTileTypeClass@@",
+   "references": {
+    "?IsoDrawData@@3UIsoBlitState@@A": "00A52F08",
+    "?IsoSpanTablesBuilt@@3DA": "00A6E395",
+    "?IsoTileUseAsmDrawFunc@@3DA": "00A6E394",
+    "?Release@AlphaLightingRemapInitClass@@QAEXPAY0BAA@$$CBG@Z": "0041E510",
+    "?_iso_row_offsets@@3PAGA": "00A6CF68",
+    "?_iso_run_lengths@@3PAY0GMM@EA": "00A53398",
+    "?_iso_start_cols@@3PAEA": "00A52594",
+    "_?_iso_row_bases@?1??Draw_Tile@IsometricTileTypeClass@@QBEXPAVLightConvertClass@@HAAVSurface@@HHVRect@@HH_NH333H@Z@4QBHB": "007A49B0",
+    "_?_tilemask@?1??Draw_Tile@IsometricTileTypeClass@@QBEXPAVLightConvertClass@@HAAVSurface@@HHVRect@@HH_NH333H@Z@4QBEB": "007A4A28",
+    "_Iso_Blit_Asm2": "0077F3DF"
+   },
+   "non_exact": {
+    "score": 58.99,
+    "date": "2026-11-13",
+    "differs": "same instruction count (1807), shape 96.13: instruction choice and registers differ"
+   },
+   "draft_origin": "build/class-work/Scout1283/keep/draw_tile_T7_5899.cpp (TibSun isotype.cpp Draw_Tile)"
+  },
+  {
+   "entry": "0052E390",
+   "name": "IsometricTileTypeClass::Preview_Tile",
+   "bytes": 52,
+   "source": "src/recovered/isotype.cpp",
+   "anchor": "00528570",
+   "symbol": "?Preview_Tile@IsometricTileTypeClass@@QAEPAGHH@Z",
+   "references": {},
+   "non_exact": {
+    "score": 81.25,
+    "date": "2026-11-13",
+    "differs": "same instruction count (16), shape 93.75: instruction choice and registers differ"
+   },
+   "draft_origin": "build/class-work/Scout1250/d/r20/drafts/w1_0x52E390.cpp"
+  },
+  {
+   "entry": "00535BF0",
+   "name": "Unknown535910::Unknown_00535BF0",
+   "bytes": 3978,
+   "source": "src/recovered/ldprgmgr.cpp",
+   "anchor": "00535720",
+   "symbol": "?Unknown_00535BF0@Unknown535910@@QAEXXZ",
+   "references": {
+    "?Unknown_00536c70@@YIXPBGPAVSurface@@UPoint2D@@HH_N@Z": "00536C70",
+    "??_C@_09HFNC@Name?3Para?$AA@": "007DF574",
+    "??_C@_09IFOG@Name?3DESO?$AA@": "007DF52C",
+    "??_C@_09JKBK@Name?3TTNK?$AA@": "007DF514",
+    "??_C@_09MCLF@Name?3TNKD?$AA@": "007DF550",
+    "??_C@_0BA@FLJL@LoadBrief?3Lybia?$AA@": "007DF4A8",
+    "??_C@_0BA@HPDI@LoadBrief?3Korea?$AA@": "007DF4F4",
+    "??_C@_0BB@NIEF@LoadBrief?3Russia?$AA@": "007DF474",
+    "??_C@_0BB@PDEN@LoadBrief?3French?$AA@": "007DF4E0",
+    "??_C@_0BC@GFGG@LoadBrief?3Germans?$AA@": "007DF4CC",
+    "??_C@_0BC@PLAN@LoadBrief?3British?$AA@": "007DF4B8",
+    "??_C@_0BD@KOEF@Name?3Confederation?$AA@": "007DF590",
+    "??_C@_0BE@JOJM@D?3?2Ra2?2LdPrgMgr?4cpp?$AA@": "007DF61C",
+    "??_C@_0L@DFJF@Name?3Arabs?$AA@": "007DF5A4",
+    "??_C@_0L@HDBN@Name?3SNIPE?$AA@": "007DF544",
+    "??_C@_0M@BNEJ@Name?3GTGCAN?$AA@": "007DF55C",
+    "??_C@_0M@DBMD@Name?3French?$AA@": "007DF5E0",
+    "??_C@_0M@FIKD@Name?3TERROR?$AA@": "007DF520",
+    "??_C@_0M@KGBB@Name?3DTRUCK?$AA@": "007DF538",
+    "??_C@_0M@LJPK@Name?3BEAGLE?$AA@": "007DF568",
+    "??_C@_0N@DAKE@Name?3Germans?$AA@": "007DF5D0",
+    "??_C@_0N@KOMP@Name?3British?$AA@": "007DF5C0",
+    "??_C@_0O@DDAL@LoadBrief?3USA?$AA@": "007DF504",
+    "??_C@_0O@GGAG@Name?3Observer?$AA@": "007DF60C",
+    "??_C@_0O@IEEH@Name?3Russians?$AA@": "007DF580",
+    "??_C@_0O@JKPL@Name?3Alliance?$AA@": "007DF5EC",
+    "??_C@_0O@PCJI@Name?3Africans?$AA@": "007DF5B0",
+    "??_C@_0P@DMJM@LoadBrief?3Iraq?$AA@": "007DF498",
+    "??_C@_0P@HAEG@LoadBrief?3Cuba?$AA@": "007DF488",
+    "??_C@_0P@NIKA@Name?3Americans?$AA@": "007DF5FC",
+    "?unknown_name_7df370@@3PBDB": "007DF370",
+    "?unknown_name_7df374@@3PBDB": "007DF374",
+    "?unknown_name_7df378@@3PBDB": "007DF378",
+    "?unknown_name_7df37c@@3PBDB": "007DF37C",
+    "?unknown_name_7df380@@3PBDB": "007DF380",
+    "?unknown_name_7df384@@3PBDB": "007DF384",
+    "?unknown_name_7df388@@3PBDB": "007DF388",
+    "?unknown_name_7df38c@@3PBDB": "007DF38C",
+    "?unknown_name_7df390@@3PBDB": "007DF390",
+    "?unknown_name_7df394@@3PBDB": "007DF394",
+    "?unknown_suffix_7df398@@3PBDB": "007DF398",
+    "?unknown_suffix_7df39c@@3PBDB": "007DF39C"
+   },
+   "non_exact": {
+    "score": 56.0,
+    "date": "2026-11-13",
+    "differs": "1180 instructions in the original, 1195 in the draft (shape 89.09)"
+   },
+   "draft_origin": "build/class-work/Scout1252/keep/ld_a1_9186.cpp"
+  },
+  {
+   "entry": "005484E0",
+   "name": "MapClass::Set_Map_Dimensions",
+   "bytes": 5322,
+   "source": "src/recovered/map.cpp",
+   "anchor": "00543FE0",
+   "symbol": "?Set_Map_Dimensions@MapClass@@UAEXPBVRect@@_NH1@Z",
+   "references": {
+    "??4AbstractClass@@QAEAAV0@ABV0@@Z": "0056A9F0",
+    "?unknown_dummy_cell_a6f9f8@@3VCellClass@@A": "00A6F9F8",
+    "?unknown_cell_a6f238@@3VCell@@A": "00A6F238",
+    "?unknown_objects_a40368@@3V?$DynamicVectorClass@PAVObjectClass@@@@A": "00A40368",
+    "?Anims@@3V?$DynamicVectorClass@PAVAnimClass@@@@A": "00A40960",
+    "?unknown_TubeClass_list_008661c8@@3V?$DynamicVectorClass@PAVTubeClass@@@@A": "008661C8",
+    "?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A": "00A3D290",
+    "?unknown_a40774@@3HA": "00A40774",
+    "?unknown_map_min_a70a1c@@3HA": "00A70A1C",
+    "?unknown_map_max_a70a20@@3HA": "00A70A20",
+    "?unknown_int_8325d0@@3HA": "008325D0",
+    "?unknown_int_8325d4@@3HA": "008325D4",
+    "?Set_CellID@CellClass@@QAEXABVCell@@@Z": "0047A450",
+    "??Y?$TPoint2D@F@@QAEABV0@ABV0@@Z": "0056AA20",
+    "??H?$TPoint2D@F@@QBE?BV0@ABV0@@Z": "0042ADD0",
+    "?unknown_833968@@3HA": "00833968",
+    "??2@YAPAXI@Z": "00782017",
+    "??3@YAXPAX@Z": "00781D3B"
+   },
+   "non_exact": {
+    "score": 87.33,
+    "date": "2026-11-13",
+    "differs": "1404 instructions in the original, 1429 in the draft (shape 96.93)"
+   },
+   "draft_origin": "native/drafts/005484e0.cpp (native tree copy; lane origin build/class-work/Scout1013/keep/smd_9460.cpp)"
+  },
+  {
+   "entry": "0054EBD0",
+   "name": "MapClass::Unknown_0054EBD0",
+   "bytes": 1646,
+   "source": "src/recovered/map.cpp",
+   "anchor": "00543FE0",
+   "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
+   "references": {
+    "??2@YAPAXI@Z": "00782017",
+    "??3@YAXPAX@Z": "00781D3B",
+    "?LastAdjacentZone@@3HA": "00A6FC34",
+    "?unknown_table_7e00c4@@3PAY07HA": "007E00C4",
+    "?Zone_Span@MapClass@@QAEHPAUUnknownMapElem4@@HAAH@Z": "0054F250",
+    "??_7?$DynamicVectorClass@W4PassabilityType@@@@6B@": "007A5AB8",
+    "??_7?$VectorClass@W4PassabilityType@@@@6B@": "007A5A98"
+   },
+   "non_exact": {
+    "score": 83.05,
+    "date": "2026-11-13",
+    "differs": "547 instructions in the original, 556 in the draft (shape 97.55)"
+   },
+   "draft_origin": "native/drafts/0054ebd0.cpp (native tree copy; lane origin build/class-work/Scout641/w/keep/zone_reset_8441.cpp)"
+  },
+  {
+   "entry": "0054FDA0",
+   "name": "MapClass::Unknown_0054FDA0",
+   "bytes": 804,
+   "source": "src/recovered/map.cpp",
+   "anchor": "00543FE0",
+   "symbol": "?Compute_Zone_Connections@MapClass@@QAEXXZ",
+   "references": {
+    "_?_bridge_subtiles1@?1??Compute_Zone_Connections@MapClass@@QAEXXZ@4PAHA": "007E0244",
+    "_?_facings@?1??Compute_Zone_Connections@MapClass@@QAEXXZ@4PAHA": "007E0284",
+    "_?_bridge_subtiles2@?1??Compute_Zone_Connections@MapClass@@QAEXXZ@4PAHA": "007E02C4"
+   },
+   "non_exact": {
+    "score": 62.12,
+    "date": "2026-11-13",
+    "differs": "249 instructions in the original, 250 in the draft (shape 92.99)"
+   },
+   "draft_origin": "build/class-work/Scout1224/czc/czc1.cpp"
+  },
+  {
+   "entry": "0055DEF0",
+   "name": "MapClass::Unknown_0055DEF0",
+   "bytes": 1302,
+   "source": "src/recovered/map.cpp",
+   "anchor": "00543FE0",
+   "symbol": "?Unknown_0055DEF0@MapClass@@QAE_NABVCell@@@Z",
+   "references": {
+    "?Damage_Low_Bridge_Piece_EW_0055FCC0@MapClass@@QAEXABVCell@@@Z": "0055FCC0",
+    "?Spring_Low_Bridge_Destroyed_EW@MapClass@@QAEXVCell@@@Z": "0055EA50",
+    "?Overlay_Render_Rect@CellClass@@QBE?AVRect@@XZ": "00474EB0",
+    "?Overlay_Shadow_Render_Rect@CellClass@@QBE?AVRect@@XZ": "00475100",
+    "?Recalc_Attributes@CellClass@@QAEXH@Z": "00472540",
+    "?Kill_Illegal_Occupiers@CellClass@@QAEXXZ": "0047CC10",
+    "??$Union@VRect@@@@YI?BVRect@@ABV0@0@Z": "0045EFE0",
+    "??GRectPoint2D@@QBE?AU0@ABU0@@Z": "0047D040",
+    "??0Rect@@QAE@ABURectPoint2D@@HH@Z": "00453E40",
+    "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z": "006A3020",
+    "?unknown_tactical_83996c@@3PAVTactical@@A": "0083996C",
+    "?unknown_rect_839630@@3VRect@@A": "00839630",
+    "?Radar_Background@RadarClass@@QAEXABVCell@@@Z": "00631570",
+    "?Zone_Reset@MapClass@@QAEHXZ": "0054EBD0",
+    "?Unknown_005687B0@MapClass@@QAEXABVRect@@@Z": "005687B0"
+   },
+   "non_exact": {
+    "score": 44.98,
+    "date": "2026-11-13",
+    "differs": "395 instructions in the original, 441 in the draft (shape 90.43)"
+   },
+   "draft_origin": "build/class-work/Scout1217/dlb/e0.cpp"
+  },
+  {
+   "entry": "0055E410",
+   "name": "MapClass::Unknown_0055E410",
+   "bytes": 1302,
+   "source": "src/recovered/map.cpp",
+   "anchor": "00543FE0",
+   "symbol": "?Unknown_0055E410@MapClass@@QAE_NABVCell@@@Z",
+   "references": {},
+   "non_exact": {
+    "score": 52.93,
+    "date": "2026-11-13",
+    "differs": "395 instructions in the original, 440 in the draft (shape 90.78)"
+   },
+   "draft_origin": "build/class-work/Scout1217/dlb/n0.cpp"
+  },
+  {
+   "entry": "0055F020",
+   "name": "MapClass::Unknown_0055F020",
+   "bytes": 1308,
+   "source": "src/recovered/map.cpp",
+   "anchor": "00543FE0",
+   "symbol": "?Unknown_0055F020@MapClass@@QAE_NABVCell@@@Z",
+   "references": {},
+   "non_exact": {
+    "score": 44.98,
+    "date": "2026-11-13",
+    "differs": "395 instructions in the original, 441 in the draft (shape 90.43)"
+   },
+   "draft_origin": "build/class-work/Scout1217/dlb/e2.cpp"
+  },
+  {
+   "entry": "0055F540",
+   "name": "MapClass::Unknown_0055F540",
+   "bytes": 1308,
+   "source": "src/recovered/map.cpp",
+   "anchor": "00543FE0",
+   "symbol": "?Unknown_0055F540@MapClass@@QAE_NABVCell@@@Z",
+   "references": {},
+   "non_exact": {
+    "score": 52.93,
+    "date": "2026-11-13",
+    "differs": "395 instructions in the original, 440 in the draft (shape 90.78)"
+   },
+   "draft_origin": "build/class-work/Scout1217/dlb/n2.cpp"
+  },
+  {
+   "entry": "00563D80",
+   "name": "MapClass::Unknown_00563D80",
+   "bytes": 1287,
+   "source": "src/recovered/map.cpp",
+   "anchor": "00543FE0",
+   "symbol": "?Reset_Subzone@MapClass@@QAEXH@Z",
+   "references": {
+    "?unknown_last_adjacent_zone_a6fc34@@3IA": "00A6FC34",
+    "?Unknown_00564290@MapClass@@QAEHPAUCellSubzoneStruct@@HIABVRect@@ABVCell@@@Z": "00564290"
+   },
+   "non_exact": {
+    "score": 76.89,
+    "date": "2026-11-13",
+    "differs": "402 instructions in the original, 407 in the draft (shape 93.94)"
+   },
+   "draft_origin": "native/drafts/00563d80.cpp (native tree copy; lane origin build/class-work/Scout664/w/keep/a6_7689.cpp)"
+  },
+  {
+   "entry": "00564290",
+   "name": "FUN_00564290",
+   "bytes": 2181,
+   "source": "src/recovered/map.cpp",
+   "anchor": "00543FE0",
+   "symbol": "?Unknown_00564290@MapClass@@QAEHPAUCellSubzoneStruct@@HIABVRect@@ABVCell@@@Z",
+   "references": {
+    "?Unknown_00564290@MapClass@@QAEHPAUCellSubzoneStruct@@HIABVRect@@ABVCell@@@Z": "00564290"
+   },
+   "non_exact": {
+    "score": 42.47,
+    "date": "2026-11-13",
+    "differs": "688 instructions in the original, 687 in the draft (shape 92.36)"
+   },
+   "draft_origin": "native/drafts/00564290.cpp (native tree copy; lane origin build/class-work/Scout664/w/keep/b_4247.cpp)"
+  },
+  {
+   "entry": "00566340",
+   "name": "MapClass::Unknown_00566340",
+   "bytes": 2281,
+   "source": "src/recovered/map.cpp",
+   "anchor": "00543FE0",
+   "symbol": "?Unknown_00566340@MapClass@@QAEXABVCell@@@Z",
+   "references": {
+    "?Unknown_00564290@MapClass@@QAEHPAUCellSubzoneStruct@@HIABVRect@@ABVCell@@@Z": "00564290",
+    "?Reset@AStarClass@@QAEXXZ": "00429A90",
+    "?Search@@3UUnknownPathEstimator@@A": "008315C8",
+    "??_7?$VectorClass@G@@6B@": "0079C534",
+    "??_7?$DynamicVectorClass@G@@6B@": "0079C554"
+   },
+   "non_exact": {
+    "score": 64.37,
+    "date": "2026-11-13",
+    "differs": "709 instructions in the original, 711 in the draft (shape 98.45)"
+   },
+   "draft_origin": "native/drafts/00566340.cpp (native tree copy; lane origin build/class-work/Scout664/w/keep/c_6437.cpp)"
+  },
+  {
+   "entry": "005689D0",
+   "name": "MapClass::Closest_Edge_Cell",
+   "bytes": 292,
+   "source": "src/recovered/map.cpp",
+   "anchor": "00543FE0",
+   "symbol": "?Unknown_005689D0@MapClass@@QAE?AVCell@@ABV2@_N@Z",
+   "references": {},
+   "non_exact": {
+    "score": 58.18,
+    "date": "2026-11-13",
+    "differs": "109 instructions in the original, 111 in the draft (shape 97.27)"
+   },
+   "draft_origin": "build/class-work/Scout983/w/e5.cpp"
+  },
+  {
+   "entry": "00569320",
+   "name": "MapClass::Unknown_00569320",
+   "bytes": 2109,
+   "source": "src/recovered/map.cpp",
+   "anchor": "00543FE0",
+   "symbol": "?Unknown_00569320@MapClass@@QAE_NABVCell@@@Z",
+   "references": {
+    "?unknown_bridge_entry_x_7e0514@@3PAFA": "007E0514",
+    "?unknown_bridge_entry_y_7e0534@@3PAFA": "007E0534",
+    "?unknown_bridge_facings_7e0554@@3PAHA": "007E0554"
+   },
+   "non_exact": {
+    "score": 99.49,
+    "date": "2026-11-13",
+    "differs": "same instructions; registers, stack slots or operands differ"
+   },
+   "draft_origin": "build/class-work/Scout1214/w3/d_1.cpp"
+  },
+  {
+   "entry": "0056EF20",
+   "name": "MapRegionClass::Split_Region_0056ef20",
+   "bytes": 4012,
+   "source": "src/recovered/mapgen.cpp",
+   "anchor": "0056D4C0",
+   "symbol": "?Split_Region_0056ef20@MapRegionClass@@QAE_NXZ",
+   "references": {
+    "?Get_Angle_Score@MapRegionClass@@QAENABVCell@@0N@Z": "0056DFF0",
+    "?unknown_facing_offsets_84c838@@3QBHB": "0084C838",
+    "?unknown_map_random_a705c0@@3VRandom2Class@@A": "00A705C0",
+    "??RRandom2Class@@QAEHXZ": "00638840",
+    "__ftol": "0077F110",
+    "?Next@MapGaussianClass@@QAENXZ": "00579830",
+    "?unknown_map_gaussian_a6fd50@@3VMapGaussianClass@@A": "00A6FD50",
+    "?unknown_map_regions_a6fd28@@3V?$DynamicVectorClass@PAVMapRegionClass@@@@A": "00A6FD28",
+    "?Unknown_0055A550@MapClass@@QAEXXZ": "0055A550",
+    "?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ": "0055A490",
+    "?Get_Region@UnknownMapGenerationCell@@SAHABVCell@@@Z": "0056E9A0",
+    "??0?$VectorClass@PAVMapRegionClass@@@@QAE@IPBQAVMapRegionClass@@@Z": "0058EF60"
+   },
+   "non_exact": {
+    "score": 53.91,
+    "date": "2026-11-13",
+    "differs": "1250 instructions in the original, 1284 in the draft (shape 93.76)"
+   },
+   "draft_origin": "build/class-work/Scout1233/rb/56ef20.cpp"
+  },
+  {
+   "entry": "00576420",
+   "name": "FUN_00576420",
+   "bytes": 925,
+   "source": "src/recovered/mapgen.cpp",
+   "anchor": "0056D4C0",
+   "symbol": "?Generate_Starting_Points_00576420@@YA_NXZ",
+   "references": {
+    "?unknown_region_scale_7a5e10@@": "007A5E10",
+    "?unknown_region_minimum_7a5e08@@": "007A5E08",
+    "?Grow_Zone_Region_00575d20@@": "00575D20"
+   },
+   "non_exact": {
+    "score": 43.93,
+    "date": "2026-11-13",
+    "differs": "293 instructions in the original, 358 in the draft (shape 83.87)"
+   },
+   "draft_origin": "build/class-work/Scout1224/sp/sp1.cpp"
+  },
+  {
+   "entry": "00577010",
+   "name": "FUN_00577010",
+   "bytes": 404,
+   "source": "src/recovered/mapgen.cpp",
+   "anchor": "0056D4C0",
+   "symbol": "??0MapGeneratorClass@@QAE@XZ",
+   "references": {},
+   "non_exact": {
+    "score": 86.79,
+    "date": "2026-11-13",
+    "differs": "same instruction count (106), shape 92.45: instruction choice and registers differ"
+   },
+   "draft_origin": "lane M worktree build/laneM/w/mg/c1.cpp"
+  },
+  {
+   "entry": "00579960",
+   "name": "MapGeneratorClass::Read_Settings_00579960",
+   "bytes": 1897,
+   "source": "src/recovered/mapgen.cpp",
+   "anchor": "0056D4C0",
+   "symbol": "?Read_Settings_00579960@MapGeneratorClass@@QAEXXZ",
+   "references": {
+    "??_C@_07FFEJ@RMG?4INI?$AA@": "007E1884",
+    "??_C@_0BD@OHNL@RMGMinimumTiberium?$AA@": "007E1870",
+    "??_C@_0BD@BEOC@RMGMaximumTiberium?$AA@": "007E185C",
+    "??_C@_0BG@FMCH@RMGLevelLightSettings?$AA@": "007E1844",
+    "??_C@_0BG@FKAP@RMGVegetationMinimums?$AA@": "007E182C",
+    "??_C@_0BG@JGA@RMGVegetationMaximums?$AA@": "007E1814",
+    "??_C@_0BG@EMLN@TemperateAmbientLight?$AA@": "007E17FC",
+    "??_C@_0BB@ECKD@SnowAmbientLight?$AA@": "007E17E8",
+    "??_C@_0BE@FJKD@TemperateAmbientRed?$AA@": "007E17D4",
+    "??_C@_0BG@EICA@TemperateAmbientGreen?$AA@": "007E17BC",
+    "??_C@_0BF@ENDD@TemperateAmbientBlue?$AA@": "007E17A4",
+    "??_C@_0P@MAEF@SnowAmbientRed?$AA@": "007E1794",
+    "??_C@_0BB@EGDO@SnowAmbientGreen?$AA@": "007E1780",
+    "??_C@_0BA@FDKK@SnowAmbientBlue?$AA@": "007E1770",
+    "??_C@_08HFPJ@MaxTrees?$AA@": "007E1764",
+    "??_C@_0BH@IGBL@TemperateOrePatchLamps?$AA@": "007E174C",
+    "??_C@_0BC@HKBF@SnowOrePatchLamps?$AA@": "007E1738",
+    "??_C@_01KMAE@?0?$AA@": "007CE9C0",
+    "?unknown_general_section_7e0be4@@3PBDB": "007E0BE4",
+    "?Add@?$DynamicVectorClass@PBVBuildingTypeClass@@@@QAE_NABQBVBuildingTypeClass@@@Z": "0058EFF0",
+    "??0?$TypeList@PBVBuildingTypeClass@@@@QAE@XZ": "0058DC70",
+    "??0?$TypeList@PBVBuildingTypeClass@@@@QAE@ABV0@@Z": "0058EED0",
+    "??4?$TypeList@PBVBuildingTypeClass@@@@QAEAAV0@ABV0@@Z": "0058DCA0",
+    "??1?$TypeList@PBVBuildingTypeClass@@@@QAE@XZ": "004F7100"
+   },
+   "non_exact": {
+    "score": 61.57,
+    "date": "2026-11-13",
+    "differs": "539 instructions in the original, 546 in the draft (shape 58.62)"
+   },
+   "draft_origin": "drafted 2026-11-13 by lane G2 from the disassembly (Westwood Rules-reader idiom, TibSun findmake.h TGet_TypeList)"
+  },
+  {
+   "entry": "0057D3A0",
+   "name": "MapGeneratorClass::unknown_0057d3a0",
+   "bytes": 2415,
+   "source": "src/recovered/mapgen.cpp",
+   "anchor": "0056D4C0",
+   "symbol": "?unknown_0057d3a0@MapGeneratorClass@@",
+   "references": {},
+   "non_exact": {
+    "score": 51.42,
+    "date": "2026-11-13",
+    "differs": "696 instructions in the original, 821 in the draft (shape 87.94)"
+   },
+   "draft_origin": "drafted 2026-11-13 by lane G2 from the disassembly (TibSun Grow_Water_Region queue shape); codex1 r1378 reached 74.41 on Windows (draft not on the Mac)"
+  },
+  {
+   "entry": "005820B0",
+   "name": "MapGeneratorClass::Grow_Water_Region_005820b0",
+   "bytes": 2230,
+   "source": "src/recovered/mapgen.cpp",
+   "anchor": "0056D4C0",
+   "symbol": "?Grow_Water_Region@MapGeneratorClass@@QAE_NHMABVRect@@ABVCell@@_N@Z",
+   "references": {
+    "__real@8@3ffec90fdaa22168c000": "0079CA80",
+    "?angle_half_pi_79b630@@": "0079B630",
+    "?angle_pi_79d158@@": "0079D158",
+    "?angle_turn_79c9b8@@": "0079C9B8",
+    "?angle_weight_7a5cd0@@": "007A5CD0",
+    "?jitter_weight_7a5cc8@@": "007A5CC8",
+    "?random_unit_7a5dd0@@": "007A5DD0",
+    "?unknown_map_random_a705c0@@": "00A705C0",
+    "??RRandom2Class@@QAEHXZ": "00638840",
+    "?unknown_gaussian_value_005798d0@@": "005798D0"
+   },
+   "non_exact": {
+    "score": 58.71,
+    "date": "2026-11-13",
+    "differs": "669 instructions in the original, 646 in the draft (shape 89.58)"
+   },
+   "draft_origin": "build/class-work/Scout1233/rb/5820b0.cpp"
+  },
+  {
+   "entry": "005919A0",
+   "name": "FUN_005919a0",
+   "bytes": 5575,
+   "source": "src/recovered/mech.cpp",
+   "anchor": "005914E0",
+   "symbol": "?Movement_AI@MechLocomotionClass@@QAEX_N@Z",
+   "references": {
+    "_unknown_geometry_l": "00A70B18",
+    "?unknown_4c3000@FootClass@@QAE_NVCell@@HH@Z": "004C3000"
+   },
+   "non_exact": {
+    "score": 89.0,
+    "date": "2026-11-13",
+    "differs": "same instruction count (1664), shape 99.52: instruction choice and registers differ"
+   },
+   "draft_origin": "build/class-work/Scout1277/keep/mech_c2_8900.cpp"
+  },
+  {
+   "entry": "00593870",
+   "name": "Projectile_Motion",
+   "bytes": 2101,
+   "source": "src/recovered/missile.cpp",
+   "anchor": "00593680",
+   "symbol": "?Projectile_Motion@@",
+   "references": {
+    "?unknown_sqrt_4ba410@@YANN@Z": "004BA410",
+    "?unknown_math_4ba600@@YANNN@Z": "004BA600",
+    "?unknown_sin_4ba480@@YANN@Z": "004BA480",
+    "?unknown_cos_4ba4d0@@YANN@Z": "004BA4D0",
+    "_unknown_geometry_l": "00A70C08",
+    "_unknown_geometry_g": "00A70C40",
+    "_unknown_geometry_j": "00A70C30",
+    "??0?$TPoint3D@H@@QAE@HHH@Z": "0041B630",
+    "??G?$TPoint3D@H@@QBE?BV0@ABV0@@Z": "004348F0",
+    "?Length@?$TPoint3D@H@@QBEHXZ": "0041B780",
+    "??G?$TPoint2D@H@@QBE?BV0@ABV0@@Z": "0047D040",
+    "?Length@?$TPoint2D@H@@QBEHXZ": "0047D060",
+    "?Get_Pitch@?$TVelocity3D@N@@QBE?AVDirType@@XZ": "0041B6E0",
+    "?Horizontal_Speed@?$TVelocity3D@N@@QBENXZ": "0041B750",
+    "?Speed@?$TVelocity3D@N@@QBENXZ": "0041B7C0",
+    "?Speed@?$TVelocity2D@N@@QBENXZ": "0041B830",
+    "?Nonzero_Check@?$TVelocity2D@N@@QAEXXZ": "0041B860",
+    "??HDirType@@QBE?AV0@ABV0@@Z": "005940B0",
+    "??GDirType@@QBE?AV0@ABV0@@Z": "005940D0",
+    "??KDirType@@QBE?AV0@H@Z": "005940F0",
+    "?Is_Complete_Turn@DirType@@QAE_NABV1@0@Z": "00594110",
+    "?Turn@DirType@@QAE_NABV1@0@Z": "00594140",
+    "?Set_Pitch@?$TVelocity3D@N@@QAEXABVDirType@@@Z": "005941B0"
+   },
+   "non_exact": {
+    "score": 57.74,
+    "date": "2026-11-13",
+    "differs": "640 instructions in the original, 645 in the draft (shape 96.65)"
+   },
+   "draft_origin": "build/class-work/Scout1226/pm/pm_ov6.cpp"
+  },
+  {
+   "entry": "005BCCF0",
+   "name": "Set_Slot_Country_Color_005bccf0",
+   "bytes": 403,
+   "source": "src/recovered/netdlg2.cpp",
+   "anchor": "005BBD20",
+   "symbol": "?Set_Slot_Country_Color_005bccf0@@YIHPBDHH@Z",
+   "references": {
+    "?Unknown_005bbdd0@@YIX_N@Z": "005BBDD0"
+   },
+   "non_exact": {
+    "score": 86.25,
+    "date": "2026-11-13",
+    "differs": "134 instructions in the original, 135 in the draft (shape 98.88)"
+   },
+   "draft_origin": "build/class-work/Scout932/keep/n1.cpp"
+  },
+  {
+   "entry": "005BEFE0",
+   "name": "Host_Dialog_Proc_005befe0",
+   "bytes": 2507,
+   "source": "src/recovered/netdlg2.cpp",
+   "anchor": "005BBD20",
+   "symbol": "?Host_Dialog_Proc_005befe0@@YGJPAUHWND__@@IIJ@Z",
+   "references": {
+    "??_C@_0BD@ELLL@D?3?2Ra2?2netdlg2?4cpp?$AA@": "007E69C8",
+    "??_C@_11LOCGONAA@?$AA?$AA@": "00839D4C",
+    "?Unknown_005e22b0@@YIPBDPAUHWND__@@0@Z": "005E22B0",
+    "?Unknown_005e8710@@YIXPAUHWND__@@@Z": "005E8710",
+    "?Unknown_005e5fc0@@YIXPAUHWND__@@@Z": "005E5FC0",
+    "?Unknown_005c7570@@YIXPAUHWND__@@@Z": "005C7570",
+    "?Change_Scenario_Slots_005cb8d0@@YIXPAUHWND__@@HH@Z": "005CB8D0",
+    "?Unknown_005cb560@@YIXPAUHWND__@@@Z": "005CB560",
+    "?Unknown_005cbf20@@YIXPAUHWND__@@HHH@Z": "005CBF20",
+    "?unknown_center_on_owner_737060@@YIXPAUHWND__@@@Z": "00737060",
+    "?Load_Lobby_Options_005cca30@@YIXPAUHWND__@@PAUUnknownGameOptions@@@Z": "005CCA30",
+    "?Init_Clipping@UnknownVersionObject@@QAEXXZ": "00713160",
+    "?Select_Scenario_005c7c30@@YI_NH@Z": "005C7C30",
+    "?Open_Lobby_Dialog_005c6960@@YIHPAUHWND__@@@Z": "005C6960",
+    "?Is_Host_005c86a0@@YA_NXZ": "005C86A0",
+    "?unknown_host_shown_7e6dc0@@3_NA": "007E6DC0",
+    "?unknown_lobby_result_a71e8c@@3HA": "00A71E8C",
+    "?ProgressScreen@@3VProgressScreenClass@@A": "00A769E8",
+    "??3@YAXPAX@Z": "00781D3B",
+    "??1MapPreviewClass@@QAE@XZ": "0061D440",
+    "__imp__ChildWindowFromPointEx@16": "0079A3A4",
+    "_srand": "0078469D",
+    "_rand": "007846AA",
+    "?Save_Lobby_Options_005cc890@@YIXPAUHWND__@@PAUUnknownGameOptions@@@Z": "005CC890",
+    "?Unknown_Clear_Closed_Slots_005cacb0@@YI_NPAUHWND__@@@Z": "005CACB0",
+    "?unknown_set_dialog_item_text_005c34b0@@YIXPAUHWND__@@@Z": "005C34B0",
+    "?unknown_set_dialog_wide_text_005c3450@@YIXPAUHWND__@@PAUUnknownTextOwner_005c3450@@@Z": "005C3450"
+   },
+   "non_exact": {
+    "score": 85.37,
+    "date": "2026-11-13",
+    "differs": "756 instructions in the original, 755 in the draft (shape 96.23)"
+   },
+   "draft_origin": "native/drafts/005befe0.cpp (native tree copy; lane origin build/class-work/Scout595/w/best_5befe0_95.68.cpp)"
+  },
+  {
+   "entry": "005C3FF0",
+   "name": "Decode_Pub_Gameopt_005c3ff0 (Receive_Game_Options)",
+   "bytes": 8191,
+   "source": "src/recovered/netshare.cpp",
+   "anchor": "005C29B0",
+   "symbol": "?Decode_Pub_Gameopt_005c3ff0@@YI_NPBD0@Z",
+   "references": {
+    "__strdup": "0078D816",
+    "??_C@_01KFMA@?$EA?$AA@": "007E6EEC",
+    "??_C@_02EHJP@A0?$AA@": "007E6ED0",
+    "??_C@_02HFAJ@K1?$AA@": "007E6F20",
+    "??_C@_02IKLA@K2?$AA@": "007E6F24",
+    "??_C@_02MAKK@?0?3?$AA@": "007E6EF0",
+    "??_C@_02NPJO@K0?$AA@": "007E6F40",
+    "??_C@_0BA@BMJO@GUI?3JoinerNoMap?$AA@": "007E6F44",
+    "??_C@_0BB@NEO@TXT_COLOR_IN_USE?$AA@": "007E6ED8",
+    "??_C@_0BD@KADM@TXT_NAT_NO_PREVIEW?$AA@": "007E7054",
+    "??_C@_0BG@CLKC@Not?5same?5scenario?4?4?4?6?$AA@": "007E6F54",
+    "??_C@_0BG@MAHE@GUI?3JoinerMapTransfer?$AA@": "007E6F28",
+    "??_C@_0BK@MGDO@Decoding?5game?5options?5?$CFs?6?$AA@": "007E6F90",
+    "??_C@_0CC@IAJJ@Got?5Ping?5game?5options?5string?4?5?$CFs@": "007E6FAC",
+    "??_C@_0CH@LDN@Setting?5Campaign?5info?5for?5Mode?5?$CF@": "007E6FF8",
+    "??_C@_0CI@PIJC@Handling?5Campaign?5info?5for?5Mode?5@": "007E6FD0",
+    "??_C@_0DE@OIF@?$EA?$EA?$EA?$EA?5Decoding?5cooperative?5campai@": "007E7020",
+    "??_C@_1CK@DKKA@?$AAG?$AAa?$AAm?$AAe?$AAo?$AAp?$AAt?$AA?5?$AAp?$AAa?$AAr?$AAs?$AAe?$AA?5?$AAf?$AAa?$AAi?$AAl?$AAe?$AAd@": "007E6EF4",
+    "?Set_Slot_Country_Color_005bccf0@@YIHPBDHH@Z": "005BCCF0",
+    "?Unknown_0073bdb0@@YA_NXZ": "0073BDB0",
+    "?Unknown_0073d150@@YIXABVWstring@@H@Z": "0073D150",
+    "?Wide_From_7_Bit@@YI?AVWideString@@ABVWstring@@@Z": "007716D0",
+    "?unknown_a72d08@@3HA": "00A72D08",
+    "?unknown_old_2a_a72d53@@3_NA": "00A72D53",
+    "?unknown_old_2b_a72d54@@3_NA": "00A72D54",
+    "?unknown_old_2c_a72d55@@3_NA": "00A72D55",
+    "?unknown_old_a8_a72d56@@3_NA": "00A72D56",
+    "?unknown_old_crates_a72d57@@3_NA": "00A72D57",
+    "?unknown_old_money_7e6ddc@@3HA": "007E6DDC",
+    "?unknown_old_speed_7e6dd8@@3HA": "007E6DD8",
+    "?unknown_old_units_7e6de0@@3HA": "007E6DE0",
+    "?unknown_scenario_name_a3d342@@3PAGA": "00A3D342",
+    "?unknown_slot_a3fc34@@3PAHA": "00A3FC34",
+    "?unknown_slot_a40238@@3PAHA": "00A40238",
+    "?unknown_slot_addresses_a3fbd4@@3PAVIPXAddressClass@@A": "00A3FBD4",
+    "?unknown_b2abd9@@3_NA": "00B2ABD9",
+    "?unknown_b2ac40@@3HA": "00B2AC40",
+    "_atoi": "00782DFD",
+    "_atol": "00782D72"
+   },
+   "non_exact": {
+    "score": 64.58,
+    "date": "2026-11-13",
+    "differs": "2491 instructions in the original, 2495 in the draft (shape 94.67)"
+   },
+   "draft_origin": "native/drafts/005c3ff0.cpp (native tree copy; lane origin build/class-work/Netshare385/c/3ff0.cpp)"
+  },
+  {
+   "entry": "005C69E0",
+   "name": "Lobby_Dialog_Proc (Choose Map dialog)",
+   "bytes": 1920,
+   "source": "src/recovered/netshare.cpp",
+   "anchor": "005C29B0",
+   "symbol": "?Lobby_Dialog_Proc_005c69e0@@YGJPAUHWND__@@IIJ@Z",
+   "references": {
+    "??0?$DynamicVectorClass@PAVMultiMission@@@@QAE@IPBQAVMultiMission@@@Z": "005CD770",
+    "?Add@?$DynamicVectorClass@PAVMultiMission@@@@QAE_NABQAVMultiMission@@@Z": "005CD880",
+    "??0?$VectorClass@PAVMultiMission@@@@QAE@IPBQAVMultiMission@@@Z": "005CDAF0",
+    "??_7?$VectorClass@PAVMultiMission@@@@6B@": "007A7388",
+    "??_7?$DynamicVectorClass@PAVMultiMission@@@@6B@": "007A73A8",
+    "?unknown_map_list_busy_a72d58@@3_NA": "00A72D58",
+    "?unknown_map_mode_warning_a72d59@@3_NA": "00A72D59"
+   },
+   "non_exact": {
+    "score": 93.62,
+    "date": "2026-11-13",
+    "differs": "same instruction count (643), shape 97.82: instruction choice and registers differ"
+   },
+   "draft_origin": "native/drafts/005c69e0.cpp (native tree copy; lane origin build/class-work/Scout1005/keep/h5c69e0/best-9362-head.cpp); pointer-width casts spelled int/unsigned int (32-bit original form)"
+  },
+  {
+   "entry": "005C7EF0",
+   "name": "Upload_Map_Preview_005c7ef0",
+   "bytes": 1325,
+   "source": "src/recovered/netshare.cpp",
+   "anchor": "005C29B0",
+   "symbol": "?Upload_Map_Preview_005c7ef0@@YIXPAVMapPreviewClass@@@Z",
+   "references": {
+    "??_7BufferPipe@@6B@": "0079EA08",
+    "??_C@_0BK@LFJL@Preview?5size?5is?5?$CFd?5bytes?6?$AA@": "007E2754",
+    "??_C@_0BN@KJJF@Starting?5map?5preview?5upload?6?$AA@": "007E2794",
+    "??_C@_0CA@DIKN@Creating?5low?9res?5preview?5image?6?$AA@": "007E719C",
+    "??_C@_0CC@OLL@Sending?5public?5options?5string?5?$CFs@": "007E71F0",
+    "??_C@_0CG@PAND@Compressed?5preview?5image?5is?5?$CFd?5b@": "007E272C",
+    "??_C@_0CO@INCK@Calling?5Send_Remote_File?5to?5send@": "007E26F0",
+    "??_C@_0DD@FMAM@Waiting?5for?5?$CFd?5players?5to?5signal@": "007E71BC",
+    "??_C@_0DE@JGDI@Player?5?$CFs?5has?5a?5NAT?5?9?5no?5preview@": "007E7264",
+    "??_C@_0EP@CBDM@Player?5?$CFs?5has?5different?5local?5an@": "007E7214",
+    "??_C@_0M@CNHP@Preview?4bin?$AA@": "007E2720",
+    "?Create_Paletted_Preview@MapPreviewClass@@QAEPAGHPAH@Z": "0061E490",
+    "?Send_Remote_File_0066bb20@@YI_NPBDHHH@Z": "0066BB20",
+    "?Unknown_00672F90@UnknownSessionState@@QAEHH@Z": "00672F90"
+   },
+   "non_exact": {
+    "score": 87.21,
+    "date": "2026-11-13",
+    "differs": "369 instructions in the original, 374 in the draft (shape 96.37)"
+   },
+   "draft_origin": "build/class-work/Scout1222/w/up_a5.cpp"
+  },
+  {
+   "entry": "005CBF20",
+   "name": "Unknown_005cbf20",
+   "bytes": 2003,
+   "source": "src/recovered/netshare.cpp",
+   "anchor": "005C29B0",
+   "symbol": "?Unknown_005cbf20@@YIXPAUHWND__@@HPAUNodeNameType@@H@Z",
+   "references": {},
+   "non_exact": {
+    "score": 53.74,
+    "date": "2026-11-13",
+    "differs": "619 instructions in the original, 624 in the draft (shape 85.92)"
+   },
+   "draft_origin": "native/drafts/005cbf20.cpp (native tree copy; lane origin build/class-work/Netshare247/c/best_5cbf20.cpp)"
+  },
+  {
+   "entry": "005E8130",
+   "name": "OwnerDraw::unknown_5e8130",
+   "bytes": 1110,
+   "source": "src/recovered/ownrdraw.cpp",
+   "anchor": "005DE660",
+   "symbol": "?unknown_5e8130@OwnerDraw@@",
+   "references": {
+    "__imp__GetParent@4": "0079A500",
+    "__imp__GetDlgCtrlID@4": "0079A3F4",
+    "__imp__GetTickCount@0": "0079A0CC",
+    "__imp__SetTimer@16": "0079A4D4"
+   },
+   "non_exact": {
+    "score": 17.45,
+    "date": "2026-11-13",
+    "differs": "324 instructions in the original, 272 in the draft (shape 43.96)"
+   },
+   "draft_origin": "build/class-work/Scout1219/keep/e8130_4920.cpp (the lane overlay members +0x78..+0xA8 as a draft-local view)"
+  },
+  {
+   "entry": "005E9410",
+   "name": "OwnerDraw::unknown_5e9410",
+   "bytes": 1938,
+   "source": "src/recovered/ownrdraw.cpp",
+   "anchor": "005DE660",
+   "symbol": "?unknown_5e9410@OwnerDraw@@YIXPAUHWND__@@@Z",
+   "references": {
+    "?unknown_session_a3d298@@3VUnknownSessionState@@A": "00A3D298",
+    "?Unknown_00672F10@UnknownSessionState@@QAEEXZ": "00672F10",
+    "?unknown_7add6c@OwnerDraw@@3HA": "007ADD6C",
+    "?unknown_7add78@OwnerDraw@@3HA": "007ADD78",
+    "?unknown_8523e0@@3HA": "008523E0",
+    "?unknown_screen_heights_7add74@@3PAHA": "007ADD74",
+    "?Is_Listed_Kind_5e0da0@OwnerDraw@@YI_NH@Z": "005E0DA0",
+    "__imp__GetParent@4": "0079A500",
+    "__imp__GetWindowRect@8": "0079A398",
+    "__imp__GetDlgCtrlID@4": "0079A3F4",
+    "__imp__MoveWindow@24": "0079A3E0",
+    "?unknown_registry_a73640@OwnerDraw@@3VUnknownControlIndex@1@A": "00A73640"
+   },
+   "non_exact": {
+    "score": 99.79,
+    "date": "2026-11-13",
+    "differs": "same instructions; registers, stack slots or operands differ"
+   },
+   "draft_origin": "build/class-work/Scout1214/w3/e9_0.cpp"
+  },
+  {
+   "entry": "005EE460",
+   "name": "OwnerDraw::unknown_control_proc_5ee460",
+   "bytes": 7252,
+   "source": "src/recovered/ownrdraw.cpp",
+   "anchor": "005DE660",
+   "symbol": "?unknown_control_proc_5ee460@OwnerDraw@@",
+   "references": {
+    "?shrink@?$Dictionary@UUnknownPairKey@OwnerDraw@@_N@@AAEXXZ": "00602890",
+    "?remove@?$Dictionary@UUnknownPairKey@OwnerDraw@@_N@@QAEDAAUUnknownPairKey@OwnerDraw@@AA_N@Z": "00602040",
+    "_$E85": "005F00E0",
+    "_?hwndarray@?9??unknown_control_proc_5ee460@OwnerDraw@@YGJPAUHWND__@@IIJ@Z@4V?$WolArrayList@PAUHWND__@@@@A": "00A73918",
+    "_?$S84@?9??unknown_control_proc_5ee460@OwnerDraw@@YGJPAUHWND__@@IIJ@Z@4EA": "00A763C8",
+    "_$E86": "005F00C0",
+    "?expand@?$Dictionary@UUnknownPairKey@OwnerDraw@@_N@@AAEXXZ": "006022A0",
+    "?Grow@?$WolArrayList@PAUHWND__@@@@QAE_NXZ": "00602940",
+    "?IME_Get_Default_Result_007380b0@@YIJXZ": "007380B0",
+    "_?in_programmatic_reorder@?1??unknown_control_proc_5ee460@OwnerDraw@@YGJPAUHWND__@@IIJ@Z@4DA": "00A7640C",
+    "_?max_update_rect@?1??unknown_control_proc_5ee460@OwnerDraw@@YGJPAUHWND__@@IIJ@Z@4UPOINT@@A": "00A76404",
+    "_?min_update_rect@?1??unknown_control_proc_5ee460@OwnerDraw@@YGJPAUHWND__@@IIJ@Z@4UPOINT@@A": "007E8D44",
+    "_?num_rect_updates@?1??unknown_control_proc_5ee460@OwnerDraw@@YGJPAUHWND__@@IIJ@Z@4HA": "00A76400",
+    "_?was_in_focus@?1??unknown_control_proc_5ee460@OwnerDraw@@YGJPAUHWND__@@IIJ@Z@4_NA": "007E8D40",
+    "__imp__WindowFromPoint@8": "0079A394",
+    "_?ctrlmessages@?9??unknown_control_proc_5ee460@OwnerDraw@@YGJPAUHWND__@@IIJ@Z@4V?$WolDictionary@UUnknownPairKey@OwnerDraw@@_N@@A": "00A73398",
+    "?Remove_Entry@?$WolDictionary@UUnknownPairKey@OwnerDraw@@_N@@QAE_NABUUnknownPairKey@OwnerDraw@@PA_N@Z": "00602040",
+    "?Shrink_Table@?$WolDictionary@UUnknownPairKey@OwnerDraw@@_N@@QAEXXZ": "00602890",
+    "?Grow_Table@?$WolDictionary@UUnknownPairKey@OwnerDraw@@_N@@QAEXXZ": "006022A0"
+   },
+   "non_exact": {
+    "score": 64.93,
+    "date": "2026-11-13",
+    "differs": "2044 instructions in the original, 1976 in the draft (shape 97.11)"
+   },
+   "draft_origin": "build/class-work/Scout1225/w/s8.cpp (TibSun ownrdraw.cpp CtrlProc)"
+  },
+  {
+   "entry": "00603750",
+   "name": "Unknown_00603750",
+   "bytes": 504,
+   "source": "src/recovered/palette.cpp",
+   "anchor": "00603200",
+   "symbol": "?Unknown_00603750@@YIXH@Z",
+   "references": {},
+   "non_exact": {
+    "score": 70.35,
+    "date": "2026-11-13",
+    "differs": "same instruction count (172), shape 98.84: instruction choice and registers differ"
+   },
+   "draft_origin": "build/class-work/Scout1008/w/st0.cpp"
+  },
+  {
+   "entry": "00609540",
+   "name": "ParticleClass::unknown_func_609540",
+   "bytes": 1069,
+   "source": "src/recovered/particle.cpp",
+   "anchor": "00608440",
+   "symbol": "?unknown_func_609540@ParticleClass@@QAEXXZ",
+   "references": {
+    "?Has_Wall_Or_Gate@CellClass@@QBE_NHH@Z": "00475840",
+    "_unknown_geometry_j": "00A76510",
+    "__real@4@40069600000000000000": "0079CAA8",
+    "_Particle_Color_Step_007a10f8": "007A10F8",
+    "?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A": "00A3D290"
+   },
+   "non_exact": {
+    "score": 66.45,
+    "date": "2026-11-13",
+    "differs": "306 instructions in the original, 308 in the draft (shape 96.74)"
+   },
+   "draft_origin": "build/class-work/Scout1230/w/sp1.cpp"
+  },
+  {
+   "entry": "0060BB70",
+   "name": "ParticleSystemClass::unknown_func_60bb70",
+   "bytes": 1240,
+   "source": "src/recovered/partsys.cpp",
+   "anchor": "0060AA70",
+   "symbol": "?unknown_func_60bb70@ParticleSystemClass@@QAEXXZ",
+   "references": {
+    "??0ParticleClass@@QAE@PAVParticleTypeClass@@ABUCoordStruct@@1PAVParticleSystemClass@@@Z": "00608440",
+    "?ParticleTypes@@3V?$DynamicVectorClass@PAVParticleTypeClass@@@@A": "00A35E00",
+    "??2@YAPAXI@Z": "00782017",
+    "?Behavior_AI@ParticleClass@@QAEXXZ": "00609C90",
+    "?Motion_AI@ParticleClass@@QAEXXZ": "0060A420",
+    "??RRandom2Class@@QAEHXZ": "00638840",
+    "?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A": "00A3D290",
+    "__real@4@3ffdb333330000000000": "007A7F40"
+   },
+   "non_exact": {
+    "score": 54.23,
+    "date": "2026-11-13",
+    "differs": "346 instructions in the original, 351 in the draft (shape 93.54)"
+   },
+   "draft_origin": "build/class-work/Scout1214/w/s_m6.cpp"
+  },
+  {
+   "entry": "0060D110",
+   "name": "unknown_load_pcx_60d110",
+   "bytes": 360,
+   "source": "src/recovered/unknown_load_pcx_0060d110.cpp",
+   "anchor": "0060D0F0",
+   "symbol": "?unknown_load_pcx_60d110@@YIPAVSurface@@PAVFileClass@@PAVPaletteClass@@HH@Z",
+   "references": {
+    "??2@YAPAXI@Z": "00782017",
+    "??_V@YAXPAX@Z": "00781D3B",
+    "??0Buffer@@QAE@PAXJ@Z": "004382C0",
+    "??1Buffer@@QAE@XZ": "00438410",
+    "??_7XSurface@@6B@": "0079AF8C",
+    "??_7BSurface@@6B@": "0079AEF8",
+    "?unknown_shift_852fb8@@3HA": "00852FB8",
+    "?unknown_shift_852fbc@@3HA": "00852FBC",
+    "?unknown_shift_852fc0@@3HA": "00852FC0",
+    "?unknown_shift_852fc4@@3HA": "00852FC4",
+    "?unknown_shift_852fc8@@3HA": "00852FC8",
+    "?unknown_shift_852fcc@@3HA": "00852FCC"
+   },
+   "non_exact": {
+    "score": 36.88,
+    "date": "2026-11-13",
+    "differs": "116 instructions in the original, 513 in the draft (shape 36.88)"
+   },
+   "draft_origin": "build/class-work/Scout1016/w/p0.cpp"
+  },
+  {
+   "entry": "00614BA0",
+   "name": "Planning_Execute",
+   "bytes": 786,
+   "source": "src/recovered/planmgr.cpp",
+   "anchor": "006101B0",
+   "symbol": "?Planning_Execute@@YIXPAVEventClass@@@Z",
+   "references": {
+    "?Planning_Close_Loop@@YIXPAVTechnoClass@@PAVPlanningNodeClass@@@Z": "006164E0",
+    "?Planning_House@@YIHPAVTechnoClass@@@Z": "00610770",
+    "?unknown_613310@PlanningTokenClass@@QBE_NXZ": "00613310",
+    "?Planning_Path_Append@@YIXPAVTechnoClass@@PAVPlanningNodeClass@@@Z": "006165A0",
+    "?Add@?$DynamicVectorClass@PAVPlanningTokenClass@@@@QAE_NABQAVPlanningTokenClass@@@Z": "0061B940",
+    "?Is_At@PlanningNodeClass@@QBE_NUCoordStruct@@@Z": "00611310",
+    "?Planning_Add_Order@@YI_NPAVTechnoClass@@PAVEventClass@@@Z": "00614EC0"
+   },
+   "non_exact": {
+    "score": 78.17,
+    "date": "2026-11-13",
+    "differs": "275 instructions in the original, 316 in the draft (shape 90.36)"
+   },
+   "draft_origin": "build/class-work/Scout1222/keep/u5/planning_execute_pe1_7817_head.cpp"
+  },
+  {
+   "entry": "00616A50",
+   "name": "Planning_Unknown_616a50",
+   "bytes": 239,
+   "source": "src/recovered/planmgr.cpp",
+   "anchor": "006101B0",
+   "symbol": "?Planning_Unknown_616a50@@YIXPAVTechnoClass@@@Z",
+   "references": {},
+   "non_exact": {
+    "score": 77.83,
+    "date": "2026-11-13",
+    "differs": "101 instructions in the original, 102 in the draft (shape 97.54)"
+   },
+   "draft_origin": "build/class-work/Scout923/w/a_n2.cpp"
+  },
+  {
+   "entry": "00617340",
+   "name": "Planning_Left_Down",
+   "bytes": 818,
+   "source": "src/recovered/planmgr.cpp",
+   "anchor": "006101B0",
+   "symbol": "?Planning_Left_Down_00617340@@",
+   "references": {
+    "?Map@@3VMouseClass@@A": "008324E0",
+    "?Set_Default_Mouse@MouseClass@@UAEXH_N@Z": "0059F060",
+    "?Planning_Selection_Node_State@@YIHPAVPlanningNodeClass@@@Z": "00617A10",
+    "??_C@_0BN@ELEH@MSG?3PlanningModeInvalidNode?$AA@": "007EBEEC",
+    "??_C@_0BL@OMHN@MSG?3PlanningModeNoAircraft?$AA@": "007EBED0",
+    "??_C@_0BM@JDCL@MSG?3PlanningModeNoBuildings?$AA@": "007EBEB4",
+    "??_C@_0BL@CGPI@MSG?3PlanningModeNoUnknowns?$AA@": "007EBE98"
+   },
+   "non_exact": {
+    "score": 38.59,
+    "date": "2026-11-13",
+    "differs": "234 instructions in the original, 248 in the draft (shape 64.32)"
+   },
+   "draft_origin": "build/class-work/Scout1240/pl/ld0.cpp (its MouseClass view dropped: the unit has the real one)"
+  },
+  {
+   "entry": "00622290",
+   "name": "Quaternion::Make_Closest",
+   "bytes": 358,
+   "source": "src/recovered/quat.cpp",
+   "anchor": "00622160",
+   "symbol": "?Make_Closest@Quaternion@@",
+   "references": {},
+   "non_exact": {
+    "score": 53.96,
+    "date": "2026-11-13",
+    "differs": "125 instructions in the original, 153 in the draft (shape 77.70)"
+   },
+   "draft_origin": "lane M build/laneM/w/q/qa.cpp (TibSun quat.cpp)"
+  },
+  {
+   "entry": "00626CB0",
+   "name": "Unknown_00626CB0",
+   "bytes": 741,
+   "source": "src/recovered/queue.cpp",
+   "anchor": "00622FB0",
+   "symbol": "?Unknown_00626CB0@@YIXPAUHWND__@@@Z",
+   "references": {
+    "?unknown_ipx_manager_a40978@@3VIPXManagerClass@@A": "00A40978",
+    "?unknown_timing_bars_7ec418@@3PAHA": "007EC418",
+    "?unknown_aabe90@@3HA": "00AABE90",
+    "?unknown_bar_color_ab6831@@3VRGBClass@@A": "00AB6831"
+   },
+   "non_exact": {
+    "score": 75.78,
+    "date": "2026-11-13",
+    "differs": "220 instructions in the original, 226 in the draft (shape 93.72)"
+   },
+   "draft_origin": "build/class-work/Scout1181/keep/dsb_r2_7578.cpp"
+  },
+  {
+   "entry": "006282D0",
+   "name": "Extract_Compressed_Events",
+   "bytes": 1455,
+   "source": "src/recovered/queue.cpp",
+   "anchor": "00622FB0",
+   "symbol": "?Extract_Compressed_Events@@YIHPAXH@Z",
+   "references": {
+    "?Frame@@3HA": "00A40D2C",
+    "?DoList@@3V?$QueueClass@VEventClass@@$0EAAA@@@A": "00866270",
+    "?unknown_event_lengths_7d659c@@3PAEA": "007D659C",
+    "?unknown_unit_lists_aabed0@@3PAY0IA@VxTargetClass@@A": "00AABED0",
+    "?unknown_unit_counts_a76b74@@3PAHA": "00A76B74",
+    "??_C@_0BK@JECE@Decoding?5new?5MEGAMISSION?6?$AA@": "007ECEC0",
+    "??_C@_0CE@PFCF@Frame?5?$CFd?3Empty?5megamission?5decod@": "007ECE9C",
+    "??_C@_0CM@NLGB@Frame?5?$CFd?3?5Empty?5event?5being?5adde@": "007ECDC8",
+    "??_C@_0DA@CDMK@Used?5old?5unit?5list?5in?5slot?5?$CFd?5?9?5@": "007ECDF4",
+    "??_C@_0DK@MOHO@Got?5new?5unit?5list?5for?5player?5?$CFd?5@": "007ECE60",
+    "??_C@_0DM@COCM@Frame?5?$CFd?3Empty?5megamission?5decod@": "007ECE24"
+   },
+   "non_exact": {
+    "score": 32.83,
+    "date": "2026-11-13",
+    "differs": "414 instructions in the original, 506 in the draft (shape 74.78)"
+   },
+   "draft_origin": "native/drafts/006282d0.cpp (native tree copy; lane origin build/class-work/Scout1174/keep/extract_ex2_5762.cpp)"
+  },
+  {
+   "entry": "00635C30",
+   "name": "RadBeam::unknown_635c30",
+   "bytes": 456,
+   "source": "src/recovered/radbeam.cpp",
+   "anchor": "006357B0",
+   "symbol": "?unknown_635c30@RadBeam@@QAEXXZ",
+   "references": {
+    "?unknown_deg_to_rad_7ee398@@3NA": "007EE398",
+    "__real@8@4007b400000000000000": "007A8898"
+   },
+   "non_exact": {
+    "score": 96.92,
+    "date": "2026-11-13",
+    "differs": "same instruction count (130), shape 96.92: instruction choice and registers differ"
+   },
+   "draft_origin": "native/drafts/00635c30.cpp (native tree copy; lane origin build/class-work/Scout993/w/c0.cpp)"
+  },
+  {
+   "entry": "00636130",
+   "name": "RadBeam::unknown_636130",
+   "bytes": 429,
+   "source": "src/recovered/radbeam.cpp",
+   "anchor": "006357B0",
+   "symbol": "?unknown_636130@RadBeam@@QAEXXZ",
+   "references": {
+    "?unknown_deg_to_rad_7ee398@@3NA": "007EE398",
+    "__real@8@4006b400000000000000": "007A88A0"
+   },
+   "non_exact": {
+    "score": 71.9,
+    "date": "2026-11-13",
+    "differs": "120 instructions in the original, 122 in the draft (shape 94.21)"
+   },
+   "draft_origin": "native/drafts/00636130.cpp (native tree copy; lane origin build/class-work/Scout993/w/a3.cpp)"
+  },
+  {
+   "entry": "0063A880",
+   "name": "FUN_0063a880",
+   "bytes": 1567,
+   "source": "src/recovered/Reinf/Unknown_0063a880.cpp",
+   "anchor": "0063A690",
+   "symbol": "?Unknown_0063A880@@YI_NPAVTeamTypeClass@@H@Z",
+   "references": {
+    "?Checked@?$UnknownComPtr@UILocomotion@@$1?unknown_uuid_ILocomotion_7ce600@@3UGUID@@B@@QBEPAUILocomotion@@XZ": "004CDE90",
+    "?Release_Held@?$UnknownComPtr@UIPiggyback@@$1?unknown_uuid_IPiggyback_7cfc30@@3UGUID@@B@@QAEXXZ": "00509860",
+    "?CreateInstance@?$UnknownComPtr@UILocomotion@@$1?unknown_uuid_ILocomotion_7ce600@@3UGUID@@B@@QAEJABUGUID@@PAUIUnknown@@K@Z": "0041B650",
+    "_CLSID_TeleportLocomotionClass": "007A1FD0",
+    "_unknown_uuid_IPiggyback_7cfc30": "007CFC30",
+    "__com_issue_error@4": "00795940",
+    "?_com_issue_error@@YGXJ@Z": "00795940"
+   },
+   "non_exact": {
+    "score": 88.45,
+    "date": "2026-11-13",
+    "differs": "same instruction count (485), shape 98.97: instruction choice and registers differ"
+   },
+   "draft_origin": "build/class-work/Scout1226/chr/zm2.cpp"
+  },
+  {
+   "entry": "0065B780",
+   "name": "UnknownIDSource::UnknownIDSource(NoInitClass const &)",
+   "bytes": 171,
+   "source": "src/recovered/scenario.cpp",
+   "anchor": "0065B2C0",
+   "symbol": "??0UnknownIDSource@@QAE@ABVNoInitClass@@@Z",
+   "references": {
+    "??0?$DynamicVectorClass@PAVTechnoTypeClass@@@@QAE@IPBQAVTechnoTypeClass@@@Z": "006634E0",
+    "??0?$DynamicVectorClass@H@@QAE@IPBH@Z": "0046D1F0",
+    "?unknown_empty_wide_839d4c@@3QBGB": "00839D4C",
+    "??_C@_0BE@DADK@D?3?2Ra2?2Scenario?4CPP?$AA@": "007F1DF0"
+   },
+   "non_exact": {
+    "score": 64.0,
+    "date": "2026-11-13",
+    "differs": "45 instructions in the original, 55 in the draft (shape 90.00)"
+   },
+   "draft_origin": "build/class-work/Scout1233/rb/65b780.cpp"
+  },
+  {
+   "entry": "0065C520",
+   "name": "Wait_For_Players_0065c520",
+   "bytes": 676,
+   "source": "src/recovered/scenario.cpp",
+   "anchor": "0065B2C0",
+   "symbol": "?Wait_For_Players_0065c520@@YI_NXZ",
+   "references": {
+    "??_C@_0CN@LDAF@Carrier?5Detect?5is?5false?4?5Abortin@": "007F1F3C",
+    "??_C@_0DI@OCKB@Player?5?$CFs?5failed?5to?5make?5it?5into@": "007F1F04",
+    "?Am_I_Master@UnknownSessionState@@QAE_NPAVHouseClass@@@Z": "0066F150",
+    "?Average_Progress@ProgressScreenClass@@QAENXZ": "0061F8C0",
+    "?Destroy_Connection_005bb5d0@@YIXHH@Z": "005BB5D0",
+    "__real@8@3ffeffbe76c8b4395800": "007A9220",
+    "__real@8@3ffeffdf3b645a1cb000": "007A9228"
+   },
+   "non_exact": {
+    "score": 96.97,
+    "date": "2026-11-13",
+    "differs": "same instructions; registers, stack slots or operands differ"
+   },
+   "draft_origin": "build/class-work/Scout1218/wfp/w/w0.cpp"
+  },
+  {
+   "entry": "00673090",
+   "name": "FUN_00673090",
+   "bytes": 1845,
+   "source": "src/recovered/session.cpp",
+   "anchor": "0066E0A0",
+   "symbol": "?Allocate_Ports_00673090@UnknownSessionState@@QAEXXZ",
+   "references": {
+    "??_C@_0CN@NAB@Allocating?5port?5numbers?5and?5loca@": "007F3CDC",
+    "??_C@_0CD@LBNG@Allocated?5port?5for?5player?5?$CFs?5?9?5?$CF@": "007F3CB8",
+    "??_C@_0CK@HMFD@Adjusted?5port?5number?5to?5?$CFd?5for?5p@": "007F3C8C",
+    "??_C@_0EP@EAAE@Two?5player?5behand?5the?5same?5NAT?5b@": "007F3C3C",
+    "??_C@_0BJ@JGMO@Using?5?$CFd?5for?5local?5port?6?$AA@": "007F3C20",
+    "??_C@_0CC@MBMH@?$CFs?5has?5the?5same?5IP?5address?5as?5me@": "007F3BFC",
+    "??_C@_0CL@HGMK@Talking?5to?5NAT?5player?5?$CFs?5on?5IP?5a@": "007F3BD0"
+   },
+   "non_exact": {
+    "score": 83.07,
+    "date": "2026-11-13",
+    "differs": "538 instructions in the original, 543 in the draft (shape 97.87)"
+   },
+   "draft_origin": "native/drafts/00673090.cpp (native tree copy; lane origin build/class-work/Scout775/keep/ap_z1_8290_loose9238.cpp)"
+  },
+  {
+   "entry": "00676010",
+   "name": "ShipLocomotionClass::Draw_Matrix",
+   "bytes": 1189,
+   "source": "src/recovered/ship.cpp",
+   "anchor": "006755E0",
+   "symbol": "?Draw_Matrix@ShipLocomotionClass@@UAGPAVMatrix3D@@PAV2@PAH@Z",
+   "references": {
+    "?Make_Identity@Matrix3D@@QAEXXZ": "00590060",
+    "?Unknown_00718D60@@YIPAVMatrix3D@@PAV1@H@Z": "00718D60",
+    "?Unknown_00718DF0@@YIPAVMatrix3D@@PAV1@HHN@Z": "00718DF0",
+    "??D@YI?AVMatrix3D@@ABV0@0@Z": "00591180",
+    "??0Matrix3D@@QAE@ABV0@@Z": "0058FE10",
+    "?Draw_Matrix@LocomotionClass@@UAGPAVMatrix3D@@PAV2@PAH@Z": "0053D030",
+    "?Translate_X@Matrix3D@@QAEXM@Z": "00590180",
+    "?Translate_Y@Matrix3D@@QAEXM@Z": "005901B0",
+    "?Translate_Z@Matrix3D@@QAEXM@Z": "005901E0",
+    "?Rotate_X@Matrix3D@@QAEXM@Z": "00590760",
+    "?Rotate_Y@Matrix3D@@QAEXM@Z": "00590880",
+    "?Fast_Sin@@YAMN@Z": "004BA480",
+    "?Fast_Cos@@YAMN@Z": "004BA4D0",
+    "?Value@?$CDTimerClass@VFrameTimerClass@@@@QBEJXZ": "004A4D20",
+    "__real@8@3fff8000000000000000": "0079A708",
+    "__real@8@3ff7a3d70a3d70a3d800": "0079D170"
+   },
+   "non_exact": {
+    "score": 83.48,
+    "date": "2026-11-13",
+    "differs": "342 instructions in the original, 348 in the draft (shape 96.23)"
+   },
+   "draft_origin": "build/class-work/Scout1185/keep/676010_9708.cpp"
+  },
+  {
+   "entry": "0067E210",
+   "name": "SidebarClass::unknown_slot54",
+   "bytes": 1067,
+   "source": "src/recovered/sidebar.cpp",
+   "anchor": "0067B2C0",
+   "symbol": "?unknown_slot54@SidebarClass@@UAE_NH@Z",
+   "references": {
+    "?Map@@3VMouseClass@@A": "008324E0",
+    "?unknown_flags_a3f600@@3EA": "00A3F600",
+    "?unknown_game_mode_a3d298@@3HA": "00A3D298",
+    "?Set_Buttons@RadarClass@@QAEX_N@Z": "0062F2D0",
+    "?Zap@LinkClass@@UAEXXZ": "00538FF0",
+    "?Add_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z": "004E0AC0",
+    "?Remove_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z": "004E0B00",
+    "?Enable@GadgetClass@@UAEXXZ": "004CF140",
+    "?Disable@GadgetClass@@UAEXXZ": "004CF150",
+    "?Is_Enabled@GadgetClass@@QAE_NXZ": "004CF160",
+    "?Turn_On@ToggleClass@@QAEXXZ": "006EB160",
+    "?Unknown_005A09E0@@YAXXZ": "005A09E0",
+    "?RadarButton@RadarClass@@2VRTacticalClass@@A": "00AB6478",
+    "?SelectButton@SidebarClass@@2PAVSelectClass@StripClass@1@A": "00AB9740",
+    "?unknown_flag_8373c3@@3_NA": "008373C3",
+    "?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A": "00A3D290",
+    "?unknown_int_83962c@@3HA": "0083962C",
+    "?unknown_int_839624@@3HA": "00839624",
+    "?unknown_abcd64@@3HA": "00ABCD64",
+    "?Deactivate@StripClass@SidebarClass@@QAEXXZ": "0067E9A0",
+    "?Unknown_006820F0@SidebarClass@@QAEHXZ": "006820F0",
+    "?Unknown_006820A0@SidebarClass@@QAEHXZ": "006820A0"
+   },
+   "non_exact": {
+    "score": 99.04,
+    "date": "2026-11-13",
+    "differs": "same instruction count (314), shape 99.04: instruction choice and registers differ"
+   },
+   "draft_origin": "build/class-work/Scout1227/w/s54_head.cpp"
+  },
+  {
+   "entry": "006802D0",
+   "name": "SidebarClass::StripClass::Unknown_006802D0",
+   "bytes": 1732,
+   "source": "src/recovered/sidebar.cpp",
+   "anchor": "0067B2C0",
+   "symbol": "?Unknown_006802D0@StripClass@SidebarClass@@QAE_NXZ",
+   "references": {
+    "?Unknown_004E3660@UnknownSidebarHouse@@QAEHPAVTechnoTypeClass@@HH@Z": "004E3660",
+    "?Unknown_004EB580@UnknownSidebarHouse@@QAEPAVFactoryClass@@H_NH@Z": "004EB580",
+    "_memmove": "00783290"
+   },
+   "non_exact": {
+    "score": 39.6,
+    "date": "2026-11-13",
+    "differs": "531 instructions in the original, 469 in the draft (shape 76.20)"
+   },
+   "draft_origin": "native/drafts/006802d0.cpp (native tree copy; lane origin build/class-work/Sidebar361/w/rc_0.cpp)"
+  },
+  {
+   "entry": "0068C040",
+   "name": "UnknownBitmapWriter::CacheBMP_0068c040",
+   "bytes": 97,
+   "source": "src/recovered/srfcache.cpp",
+   "anchor": "0068BC50",
+   "symbol": "?CacheBMP_0068c040@UnknownBitmapWriter@@QAE_NPBDPAXHH@Z",
+   "references": {},
+   "non_exact": {
+    "score": 7.97,
+    "date": "2026-11-13",
+    "differs": "29 instructions in the original, 473 in the draft (shape 11.55)"
+   },
+   "draft_origin": "build/class-work/Scout1020/keep/cb_q4_diag.cpp"
+  },
+  {
+   "entry": "0068CCE0",
+   "name": "UnknownBitmapWriter::Draw_0068cce0",
+   "bytes": 408,
+   "source": "src/recovered/srfcache.cpp",
+   "anchor": "0068BC50",
+   "symbol": "?Draw_0068cce0@UnknownBitmapWriter@@QAE_NABVRect@@PAVSurface@@1HH@Z",
+   "references": {},
+   "non_exact": {
+    "score": 99.37,
+    "date": "2026-11-13",
+    "differs": "same instructions; registers, stack slots or operands differ"
+   },
+   "draft_origin": "build/class-work/Scout1227/w/bw0.cpp"
+  },
+  {
+   "entry": "006A45A0",
+   "name": "Tactical::Render",
+   "bytes": 3288,
+   "source": "src/recovered/tactical.cpp",
+   "anchor": "006A20E0",
+   "symbol": "?Render@Tactical@@QAEXPAVSurface@@_NH@Z",
+   "references": {
+    "?unknown_rect_839630@@3VRect@@A": "00839630",
+    "?DirtyAreas@TacticalLists@@2V?$DynamicVectorClass@UDirtyAreaStruct@@@@A": "00ABE5B0",
+    "??_C@_0BC@KAME@MSG?3BlackoutTimer?$AA@": "007F6A70",
+    "??_C@_0BE@LNLL@D?3?2Ra2?2Tactical?4CPP?$AA@": "007F6A84",
+    "?Unknown_004386F0@@YI_NPAVTechnoClass@@@Z": "004386F0",
+    "?Unknown_004CAB90@@YIXPAVTechnoClass@@@Z": "004CAB90",
+    "?Unknown_00521FB0@@YAXXZ": "00521FB0",
+    "?Unknown_005334D0@@YAXXZ": "005334D0",
+    "?Unknown_00617EF0@@YAXXZ": "00617EF0",
+    "?Unknown_00618090@@YAXXZ": "00618090",
+    "?Unknown_006354E0@@YAXXZ": "006354E0",
+    "?Draw_Pixel_Effects@Tactical@@QAEXABVRect@@0@Z": "006A7E80",
+    "?Draw_Timer@@YIXHPAVColorScheme@@HPB_WPA_KPA_N@Z": "006A5280",
+    "?Draw_Objects@Tactical@@QAEX_N@Z": "006A93F0",
+    "?Contains_Selectable_Buildings@Tactical@@QAE_NVRect@@@Z": "006AA180",
+    "?Add_Buildings_To_Selectable@Tactical@@QAEXVRect@@@Z": "006AA300",
+    "?Draw_Radial_Indicators@Tactical@@QAEXXZ": "006AC420",
+    "?unknown_scrolled_off_screen_abfd6c@@3_NA": "00ABFD6C",
+    "?Planning_Active@@YA_NXZ": "00614840",
+    "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A": "00AB6EF8"
+   },
+   "non_exact": {
+    "score": 54.57,
+    "date": "2026-11-13",
+    "differs": "904 instructions in the original, 903 in the draft (shape 94.30)"
+   },
+   "draft_origin": "native/drafts/006a45a0.cpp (native tree copy; lane origin build/class-work/Scout958/w/keep/render_b3_5645.cpp)"
+  },
+  {
+   "entry": "006A7E80",
+   "name": "Tactical::Draw_Pixel_Effects",
+   "bytes": 954,
+   "source": "src/recovered/tactical.cpp",
+   "anchor": "006A20E0",
+   "symbol": "?Draw_Pixel_Effects@Tactical@@",
+   "references": {
+    "?unknown_last_time_abfd70@@3KA": "00ABFD70",
+    "?Unknown_0053D840@@YAIXZ": "0053D840"
+   },
+   "non_exact": {
+    "score": 86.26,
+    "date": "2026-11-13",
+    "differs": "287 instructions in the original, 288 in the draft (shape 98.78)"
+   },
+   "draft_origin": "native/drafts/006a7e80.cpp (native tree copy; lane origin build/class-work/Scout778/keep/px_8626.cpp)"
+  },
+  {
+   "entry": "006A8560",
+   "name": "Tactical::Draw_Tiles(Cell const &, Rect const &)",
+   "bytes": 824,
+   "source": "src/recovered/tactical.cpp",
+   "anchor": "006A20E0",
+   "symbol": "?Draw_Tiles@Tactical@@QAEXABVCell@@ABVRect@@@Z",
+   "references": {
+    "?Draw_It@CellClass@@QAEXABUPoint2D@@ABVRect@@H@Z": "00475680"
+   },
+   "non_exact": {
+    "score": 61.48,
+    "date": "2026-11-13",
+    "differs": "255 instructions in the original, 259 in the draft (shape 93.39)"
+   },
+   "draft_origin": "native/drafts/006a8560.cpp (native tree copy; lane origin build/class-work/Scout876/w/z1.cpp)"
+  },
+  {
+   "entry": "006AC420",
+   "name": "Tactical::Draw_Radial_Indicators",
+   "bytes": 893,
+   "source": "src/recovered/tactical.cpp",
+   "anchor": "006A20E0",
+   "symbol": "?Draw_Radial_Indicators@Tactical@@QAEXXZ",
+   "references": {
+    "?unknown_a40b32@@3_NA": "00A40B32",
+    "?unknown_pulse_abfd78@@3HA": "00ABFD78",
+    "?unknown_pulse_7f6974@@3HA": "007F6974",
+    "?Draw_Radial_Indicator_00451BF0@@": "00451BF0",
+    "?unknown_451930@BuildingClass@@": "00451930",
+    "?Adjust@RGBClass@@": "0063CF20",
+    "?unknown_475d60@CellClass@@": "00475D60",
+    "_?black@?BA@??Draw_Radial_Indicators@Tactical@@QAEXXZ@4VRGBClass@@A": "00ABE54C",
+    "_?$S92@?BA@??Draw_Radial_Indicators@Tactical@@QAEXXZ@4EA": "00ABE488",
+    "_$E93": "006AC7A0"
+   },
+   "non_exact": {
+    "score": 77.41,
+    "date": "2026-11-13",
+    "differs": "269 instructions in the original, 271 in the draft (shape 94.44)"
+   },
+   "draft_origin": "build/class-work/Scout1248/w/ri_A.cpp"
+  },
+  {
+   "entry": "006C3F00",
+   "name": "TechnoClass::unknown_slot248",
+   "bytes": 1407,
+   "source": "src/recovered/techno.cpp",
+   "anchor": "006C0A50",
+   "symbol": "?unknown_slot248@TechnoClass@@UAEXABUPoint2D@@ABVRect@@_N@Z",
+   "references": {},
+   "non_exact": {
+    "score": 58.26,
+    "date": "2026-11-13",
+    "differs": "461 instructions in the original, 459 in the draft (shape 92.83)"
+   },
+   "draft_origin": "native/drafts/006c3f00.cpp (native tree copy; lane origin build/class-work/Scout1059/keep/hb2.cpp)"
+  },
+  {
+   "entry": "006C5270",
+   "name": "TechnoClass::unknown_6c5270",
+   "bytes": 761,
+   "source": "src/recovered/techno.cpp",
+   "anchor": "006C0A50",
+   "symbol": "?unknown_6c5270@TechnoClass@@QAENABVCell@@@Z",
+   "references": {
+    "?Unknown_004717B0@UnknownCellClass@@QAEPAVBuildingClass@@XZ": "004717B0",
+    "?Is_Ally@HouseClass@@QBE_NPBVTechnoClass@@@Z": "004E5580",
+    "__real@8@3fff8000000000000000": "0079A708",
+    "__real@8@3ffe8000000000000000": "0079A728"
+   },
+   "non_exact": {
+    "score": 96.38,
+    "date": "2026-11-13",
+    "differs": "same instruction count (221), shape 97.74: instruction choice and registers differ"
+   },
+   "draft_origin": "native/drafts/006c5270.cpp (native tree copy; lane origin build/class-work/Scout898/w/am0.cpp)"
+  },
+  {
+   "entry": "006C5570",
+   "name": "TechnoClass::unknown_6c5570",
+   "bytes": 2998,
+   "source": "src/recovered/techno.cpp",
+   "anchor": "006C0A50",
+   "symbol": "?unknown_6c5570@TechnoClass@@QAE_NHHHPAVObjectClass@@PAHHPBUCoordStruct@@@Z",
+   "references": {},
+   "non_exact": {
+    "score": 91.7,
+    "date": "2026-11-13",
+    "differs": "920 instructions in the original, 923 in the draft (shape 99.84)"
+   },
+   "draft_origin": "native/drafts/006c5570.cpp (native tree copy; lane origin build/class-work/Scout668/w/keep/eo_9170.cpp)"
+  },
+  {
+   "entry": "006C9DF0",
+   "name": "TechnoClass::unknown_6c9df0",
+   "bytes": 560,
+   "source": "src/recovered/techno.cpp",
+   "anchor": "006C0A50",
+   "symbol": "?unknown_6c9df0@TechnoClass@@QAEPAVLaserDrawClass@@PAVAbstractClass@@HPAVWeaponTypeClass@@ABUCoordStruct@@@Z",
+   "references": {
+    "_unknown_geometry_l": "00AC0188",
+    "?unknown_tactical_83996c@@3PAVTactical@@A": "0083996C",
+    "?Coord_To_Pixel_Absolute@Tactical@@QAE?AUPoint2D@@ABUCoordStruct@@@Z": "006A27A0",
+    "??0LaserDrawClass@@QAE@UCoordStruct@@0H_NVRGBClass@@22H11MM@Z": "00533110"
+   },
+   "non_exact": {
+    "score": 99.46,
+    "date": "2026-11-13",
+    "differs": "same instructions; registers, stack slots or operands differ"
+   },
+   "draft_origin": "build/class-work/Scout1185/keep/6c9df0_9946.cpp"
+  },
+  {
+   "entry": "006CD340",
+   "name": "TechnoClass::unknown_slot186",
+   "bytes": 747,
+   "source": "src/recovered/techno.cpp",
+   "anchor": "006C0A50",
+   "symbol": "?unknown_slot186@TechnoClass@@UAE_NXZ",
+   "references": {
+    "?unknown_45ec40@BuildingTypeClass@@QBE_NXZ": "0045EC40"
+   },
+   "non_exact": {
+    "score": 77.51,
+    "date": "2026-11-13",
+    "differs": "224 instructions in the original, 225 in the draft (shape 95.32)"
+   },
+   "draft_origin": "native/drafts/006cd340.cpp (native tree copy; lane origin build/class-work/Scout753/w/keep/s0_8196.cpp)"
+  },
+  {
+   "entry": "006D0990",
+   "name": "TechnoClass::unknown_6d0990",
+   "bytes": 1059,
+   "source": "src/recovered/techno.cpp",
+   "anchor": "006C0A50",
+   "symbol": "?unknown_6d0990@TechnoClass@@QAEXUCoordStruct@@0VRGBClass@@@Z",
+   "references": {
+    "?Adjust@RGBClass@@QAEXHABV1@@Z": "0063CF20",
+    "__real@8@40038000000000000000": "007ACFF8",
+    "__real@8@3ffb8000000000000000": "007ACFF0",
+    "__real@8@40088000000000000000": "007ACFE8",
+    "__real@8@3fff8000000000000000": "0079A708"
+   },
+   "non_exact": {
+    "score": 86.96,
+    "date": "2026-11-13",
+    "differs": "288 instructions in the original, 287 in the draft (shape 93.91)"
+   },
+   "draft_origin": "build/class-work/Scout1275/keep/link_c1_8696_callfirst.cpp"
+  },
+  {
+   "entry": "006D5F40",
+   "name": "TechnoClass::unknown_slot223",
+   "bytes": 745,
+   "source": "src/recovered/techno.cpp",
+   "anchor": "006C0A50",
+   "symbol": "?unknown_slot223@TechnoClass@@UAEXABUCoordStruct@@M@Z",
+   "references": {
+    "__real@4@3fefd1b7170000000000": "007AD008",
+    "__real@4@3ffaa3d70a0000000000": "007AD004",
+    "__real@4@3ffacccccd0000000000": "007AD000"
+   },
+   "non_exact": {
+    "score": 63.62,
+    "date": "2026-11-13",
+    "differs": "218 instructions in the original, 219 in the draft (shape 98.86)"
+   },
+   "draft_origin": "native/drafts/006d5f40.cpp (native tree copy; lane origin build/class-work/Scout767/w/keep/rk5.cpp)"
+  },
+  {
+   "entry": "006F7020",
+   "name": "FUN_006f7020",
+   "bytes": 179,
+   "source": "src/recovered/uicmnds.cpp",
+   "anchor": "006F55F0",
+   "symbol": "?Unknown_006F7020@@YIXPBD@Z",
+   "references": {
+    "?unknown_flag_ac133c@@3_NA": "00AC133C",
+    "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A": "00A40C20"
+   },
+   "non_exact": {
+    "score": 52.31,
+    "date": "2026-11-13",
+    "differs": "66 instructions in the original, 129 in the draft (shape 64.62)"
+   },
+   "draft_origin": "build/class-work/Scout1225/uic/w/7020a.cpp"
+  },
+  {
+   "entry": "006F71E0",
+   "name": "FUN_006f71e0",
+   "bytes": 196,
+   "source": "src/recovered/uicmnds.cpp",
+   "anchor": "006F55F0",
+   "symbol": "?Unknown_006F71E0@@YIXPBD@Z",
+   "references": {
+    "?unknown_flag_ac133c@@3_NA": "00AC133C",
+    "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A": "00A40C20"
+   },
+   "non_exact": {
+    "score": 48.78,
+    "date": "2026-11-13",
+    "differs": "69 instructions in the original, 136 in the draft (shape 65.37)"
+   },
+   "draft_origin": "build/class-work/Scout1225/uic/w/71e0a.cpp"
+  },
+  {
+   "entry": "006F7360",
+   "name": "FUN_006f7360",
+   "bytes": 682,
+   "source": "src/recovered/uicmnds.cpp",
+   "anchor": "006F55F0",
+   "symbol": "?Unknown_006F7360@@YIXXZ",
+   "references": {
+    "??0?$VectorClass@PBD@@QAE@IPBQBD@Z": "006F8B90",
+    "?unknown_find_name_index@@YIHABV?$DynamicVectorClass@PBD@@PBD@Z": "006F6C90",
+    "?Add@?$DynamicVectorClass@PBD@@QAE_NABQBD@Z": "006F8B40",
+    "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A": "00A40C20",
+    "?Is_Player_Control@HouseClass@@QAE_NXZ": "004F52B0",
+    "?unknown_flag_ac133c@@3_NA": "00AC133C",
+    "?unknown_game_mode_a3d298@@3HA": "00A3D298",
+    "?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A": "00A40C60",
+    "_wcscpy": "00783689",
+    "?unknown_int_a3d548@@3HA": "00A3D548",
+    "?unknown_state_ac132c@@3HA": "00AC132C",
+    "?unknown_selected_83996c@@3PAUUnknownSelection@@A": "0083996C",
+    "?Unknown_006AAD40@UnknownSelection@@QAEXXZ": "006AAD40",
+    "?Unknown_006AAD70@UnknownSelection@@QAEXXZ": "006AAD70",
+    "?Count@UnknownSelection@@QAEHXZ": "006AC7B0",
+    "?Get@UnknownSelection@@QAEPAVObjectClass@@H@Z": "006AC7C0",
+    "?Unknown_006F58E0@@YIXPBGH@Z": "006F58E0",
+    "?Add@?$DynamicVectorClass@PAVTechnoClass@@@@QAE_NABQAVTechnoClass@@@Z": "004137B0",
+    "??0?$DynamicVectorClass@PAVTechnoClass@@@@QAE@IPBQAVTechnoClass@@@Z": "006F8A80",
+    "??0?$VectorClass@PAVTechnoClass@@@@QAE@IPBQAVTechnoClass@@@Z": "0040BC10",
+    "??2@YAPAXI@Z": "00782017",
+    "??_7?$DynamicVectorClass@PAVTechnoClass@@@@6B@": "0079A79C",
+    "?unknown_flag_ac1330@@3_NA": "00AC1330",
+    "?unknown_matches_any_name@@YI_NPAVTechnoClass@@ABV?$DynamicVectorClass@PBD@@@Z": "006F7610",
+    "?Unknown_006F6790@@YIXPAG@Z": "006F6790"
+   },
+   "non_exact": {
+    "score": 37.13,
+    "date": "2026-11-13",
+    "differs": "234 instructions in the original, 240 in the draft (shape 92.41)"
+   },
+   "draft_origin": "build/class-work/Scout1250/d/r25/drafts/u_w3_5617_0x6F7360.cpp"
+  },
+  {
+   "entry": "006F9790",
+   "name": "Read_Text_File_006f9790",
+   "bytes": 1317,
+   "source": "src/recovered/uicmnds2.cpp",
+   "anchor": "006F8BE0",
+   "symbol": "?Read_Text_File_006f9790@@YIHXZ",
+   "references": {
+    "?unknown_text_file_ad0430@@3PAXA": "00AD0430",
+    "?unknown_text_option_ad0450@@3HA": "00AD0450",
+    "?unknown_text_ac3378@@3PADA": "00AC3378",
+    "?unknown_label_ac4380@@3PADA": "00AC4380",
+    "?unknown_reversed_text_acd410@@3PADA": "00ACD410",
+    "?Unknown_isspace_00784aa8@@YAHF@Z": "00784AA8",
+    "?Unknown_006F92A0@@YIXPAXPAD11H@Z": "006F92A0",
+    "?Reverse_String_006f9d50@@YIXPAD0@Z": "006F9D50",
+    "_fgets": "00785547",
+    "__stricmp": "00781F20",
+    "??_C@_03PIHE@END?$AA@": "007F8E64"
+   },
+   "non_exact": {
+    "score": 71.31,
+    "date": "2026-11-13",
+    "differs": "440 instructions in the original, 564 in the draft (shape 87.05)"
+   },
+   "draft_origin": "build/class-work/Scout1222/w/rt_n1.cpp"
+  },
+  {
+   "entry": "006FAA30",
+   "name": "UnitClass::Unknown_006FAA30",
+   "bytes": 1730,
+   "source": "src/recovered/unit.cpp",
+   "anchor": "006FA1E0",
+   "symbol": "?Unknown_006FAA30@UnitClass@@QAEXXZ",
+   "references": {
+    "?Cell_Tube_0047a130@@": "0047A130",
+    "?unknown_tube_speed_79d568@@": "0079D568",
+    "?unknown_diagonal_lepton_7a3a20@@": "007A3A20",
+    "?unknown_lepton_79a700@@": "0079A700",
+    "?unknown_facing_radians_79b620@@": "0079B620",
+    "?unknown_adjacent_offsets_00851ac0@@": "00851AC0",
+    "??GCoordStruct@@QBE?AU0@ABU0@@Z": "004348F0",
+    "??0CoordStruct@@QAE@HHH@Z": "0041B630",
+    "??0?$TPoint3D@H@@QAE@HHH@Z": "0041B630",
+    "?Length@CoordStruct@@QBEHXZ": "0041B780"
+   },
+   "non_exact": {
+    "score": 50.39,
+    "date": "2026-11-13",
+    "differs": "522 instructions in the original, 502 in the draft (shape 88.09)"
+   },
+   "draft_origin": "native/drafts/006faa30.cpp (native tree copy, constants back to their addresses; lane origin build/class-work/Scout1286/u/unit_d1.cpp, TibSun Tunnel_AI)"
+  },
+  {
+   "entry": "006FF690",
+   "name": "UnitClass::unknown_slot310",
+   "bytes": 3861,
+   "source": "src/recovered/unit.cpp",
+   "anchor": "006FA1E0",
+   "symbol": "?unknown_slot310@UnitClass@@UAEXUPoint2D@@VRect@@H@Z",
+   "references": {
+    "?Unit_Isometric_View_00717f90@@": "00717F90",
+    "?unknown_use_voxel_cache_839a58@@": "00839A58",
+    "?unknown_player_house_a35db4@@": "00A35DB4",
+    "?unknown_bridge_height_ad057c@@": "00AD057C",
+    "?unknown_cache_empty_b2b624@@": "00B2B624"
+   },
+   "non_exact": {
+    "score": 86.76,
+    "date": "2026-11-13",
+    "differs": "1076 instructions in the original, 1084 in the draft (shape 98.33)"
+   },
+   "draft_origin": "native/drafts/006ff690.cpp (native tree copy; lane origin build/class-work/Scout974/best_8676.cpp)"
+  },
+  {
+   "entry": "0070C0A0",
+   "name": "UnVQ1_4x2_Table",
+   "bytes": 923,
+   "source": "src/recovered/unvqtblc.cpp",
+   "anchor": "0070B690",
+   "symbol": "?UnVQ1_4x2_Table@@YAXPAE00KKK@Z",
+   "references": {},
+   "non_exact": {
+    "score": 75.55,
+    "date": "2026-11-13",
+    "differs": "294 instructions in the original, 299 in the draft (shape 95.45)"
+   },
+   "draft_origin": "build/class-work/Scout1222/keep/u5/unvq1_4x2_u22_shortsrc_7595.cpp"
+  },
+  {
+   "entry": "0070C800",
+   "name": "VoxelAnimClass::VoxelAnimClass",
+   "bytes": 1308,
+   "source": "src/recovered/classes/VoxelAnimClass/VoxelAnimClass_constructor_0070c800.cpp",
+   "anchor": "0070CD20",
+   "symbol": "??0VoxelAnimClass@@QAE@PAVVoxelAnimTypeClass@@ABUCoordStruct@@PAVHouseClass@@@Z",
+   "references": {},
+   "non_exact": {
+    "score": 99.19,
+    "date": "2026-11-13",
+    "differs": "same instruction count (371), shape 99.19: instruction choice and registers differ"
+   },
+   "draft_origin": "build/class-work/Scout1214/w3/va_0.cpp"
+  },
+  {
+   "entry": "0071E220",
+   "name": "FUN_0071e220",
+   "bytes": 4967,
+   "source": "src/recovered/walk.cpp",
+   "anchor": "0071DC10",
+   "symbol": "?unknown_71e220@WalkLocomotionClass@@QAEX_N@Z",
+   "references": {
+    "?unknown_coord_af9060@@3UCoordStruct@@A": "00AF9060",
+    "?Mark_Head_To@WalkLocomotionClass@@QAE_NABUCoordStruct@@@Z": "0071F590",
+    "??0?$TPoint3D@H@@QAE@HHH@Z": "0041B630"
+   },
+   "non_exact": {
+    "score": 89.83,
+    "date": "2026-11-13",
+    "differs": "1505 instructions in the original, 1483 in the draft (shape 97.46)"
+   },
+   "draft_origin": "build/class-work/Scout1220/rebased/walk_71e220.cpp"
+  },
+  {
+   "entry": "007225B0",
+   "name": "FUN_007225b0",
+   "bytes": 1777,
+   "source": "src/recovered/wave.cpp",
+   "anchor": "007211B0",
+   "symbol": "?Draw_Sonic_007225b0@WaveClass@@QAEXABUPoint2D@@ABVRect@@@Z",
+   "references": {
+    "?Rasterize_Polygon_0061be40@@YIXABUWavePolygonInput@@AAUWaveScanlineBuffer@@@Z": "0061BE40",
+    "??_V@YAXPAX@Z": "00781D3B",
+    "?Brighten_Pixel_007219c0@WaveClass@@QAEXHHHPAG@Z": "007219C0",
+    "?unknown_surface_83995c@@3PAVSurface@@A": "0083995C"
+   },
+   "non_exact": {
+    "score": 86.89,
+    "date": "2026-11-13",
+    "differs": "same instructions; registers, stack slots or operands differ"
+   },
+   "draft_origin": "build/class-work/Scout1218/keep/sonic_o2_8689.cpp"
+  },
+  {
+   "entry": "00722CB0",
+   "name": "FUN_00722cb0",
+   "bytes": 1382,
+   "source": "src/recovered/wave.cpp",
+   "anchor": "007211B0",
+   "symbol": "?Draw_Laser_00722cb0@WaveClass@@QAEXABUPoint2D@@ABVRect@@@Z",
+   "references": {
+    "?Rasterize_Polygon_0061be40@@YIXABUWavePolygonInput@@AAUWaveScanlineBuffer@@@Z": "0061BE40",
+    "??_V@YAXPAX@Z": "00781D3B",
+    "?unknown_surface_83995c@@3PAVSurface@@A": "0083995C"
+   },
+   "non_exact": {
+    "score": 61.27,
+    "date": "2026-11-13",
+    "differs": "394 instructions in the original, 396 in the draft (shape 92.41)"
+   },
+   "draft_origin": "build/class-work/Scout1214/keep/laser_v4_width_direct_6127.cpp"
+  },
+  {
+   "entry": "0075F530",
+   "name": "CChatEventSink::OnChannelJoin",
+   "bytes": 5780,
+   "source": "src/recovered/wonline.cpp",
+   "anchor": "0073A6F0",
+   "symbol": "?OnChannelJoin@CChatEventSink@@",
+   "references": {
+    "?unknown_b26508@@3PAXA": "00B26508",
+    "?unknown_b26520@@3PAXA": "00B26520",
+    "??_C@_0BA@KIIP@TXT_GAME_CLOSED?$AA@": "007FDE74",
+    "??_C@_0BA@PDHI@Joined?5Channel?6?$AA@": "007FDE30",
+    "??_C@_0BC@CLPJ@TXT_CANT_JOINCHAN?$AA@": "007FDE40",
+    "??_C@_0BN@CEKM@Sending?5observer?5slot?5of?5?$CFc?6?$AA@": "007FDE00",
+    "??_C@_0BO@MPBJ@Requesting?5ping?5for?5?$CFs?5at?5?$CFs?6?$AA@": "007FDDE0",
+    "??_C@_0M@GHGJ@TXT_JOINBAN?$AA@": "007FDE54",
+    "??_C@_0N@JP@TXT_JOINED_S?$AA@": "007FDE20",
+    "?Grow_00766e60@WolUserArray@@QAE_NXZ": "00766E60",
+    "?Broadcast_User_Pings_0075b1b0@@YIXXZ": "0075B1B0",
+    "?Wonline_Guest_Dialog_0074c660@@YGJPAUHWND__@@IIJ@Z": "0074C660",
+    "?lobby_name_format_7d9c94@@3QBGB": "007D9C94",
+    "?lobby_number_format_7fd91c@@3QBGB": "007FD91C",
+    "?unknown_7e6d90@@3HA": "007E6D90",
+    "?unknown_b2658c@@3PADA": "00B2658C",
+    "?unknown_b292ac@@3PAHA": "00B292AC",
+    "?unknown_b2abf0@@3HA": "00B2ABF0",
+    "?unknown_mode_a3d29c@@3PAVMultiplayerGameMode@@A": "00A3D29C",
+    "?Grow@WolUserArray@@QAE_NXZ": "00766E60"
+   },
+   "non_exact": {
+    "score": 75.54,
+    "date": "2026-11-13",
+    "differs": "1753 instructions in the original, 1832 in the draft (shape 96.29)"
+   },
+   "draft_origin": "build/class-work/Scout1233/keep/onchanneljoin_v5_9461.cpp (Remove from the lane's ov_ins overlay, declared under the guard)"
+  },
+  {
+   "entry": "00773F00",
+   "name": "XSurface::Plot_Line",
+   "bytes": 511,
+   "source": "src/recovered/xsurface.cpp",
+   "anchor": "00773930",
+   "symbol": "?Plot_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1P6IX1@Z@Z",
+   "references": {},
+   "non_exact": {
+    "score": 99.44,
+    "date": "2026-11-13",
+    "differs": "same instructions; registers, stack slots or operands differ"
+   },
+   "draft_origin": "build/class-work/Scout1227/w/pl0.cpp"
+  },
+  {
+   "entry": "007746C0",
+   "name": "XSurface::Draw_Ellipse",
+   "bytes": 1478,
+   "source": "src/recovered/xsurface.cpp",
+   "anchor": "00773930",
+   "symbol": "?Draw_Ellipse@XSurface@@UAE_NUPoint2D@@HHVRect@@H@Z",
+   "references": {},
+   "non_exact": {
+    "score": 22.29,
+    "date": "2026-11-13",
+    "differs": "483 instructions in the original, 477 in the draft (shape 79.79)"
+   },
+   "draft_origin": "build/class-work/Scout1255/keep/draw_ellipse_c1_2229.cpp"
+  },
+  {
+   "entry": "0077C7D0",
+   "name": "VQA_Reset",
+   "bytes": 167,
+   "source": "src/recovered/vqalib_task.cpp",
+   "anchor": "0077B7A0",
+   "symbol": "?VQA_Unknown_0077C7D0@@",
+   "references": {},
+   "non_exact": {
+    "score": 66.67,
+    "date": "2026-11-13",
+    "differs": "36 instructions in the original, 39 in the draft (shape 77.33)"
+   },
+   "draft_origin": "build/class-work/VQA285/r/task_VQA_Reset_0077c7d0.cpp (TibSun VQA32 task.cpp VQA_Reset)"
+  }
+ ]
+}

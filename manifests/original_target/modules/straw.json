@@ -7,9 +7,10 @@
   "/O2",
   "/Ob2",
   "/G5",
-  "/Gy"
+  "/Gy",
+  "/GR"
  ],
- "compile_group": 40,
+ "compile_group": 35,
  "code": [
   {
    "symbol": "??1Straw@@UAE@XZ",
@@ -34,10 +35,45 @@
  "data": [
   {
    "symbol": "??_7Straw@@6B@",
-   "address": "0079e9f8",
-   "bytes": 12,
+   "address": "0079e9f4",
+   "bytes": 16,
    "kind": "vtable",
+   "section": 8
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Straw@@8",
+   "address": "007b4b50",
+   "bytes": 24,
+   "kind": "rtti",
    "section": 3
+  },
+  {
+   "symbol": "??_R2Straw@@8",
+   "address": "007b79ac",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 4
+  },
+  {
+   "symbol": "??_R3Straw@@8",
+   "address": "007b79b8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 5
+  },
+  {
+   "symbol": "??_R4Straw@@6B@",
+   "address": "007b79c8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 7
+  },
+  {
+   "symbol": "??_R0?AVStraw@@@8",
+   "address": "007d1ec0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 6
   }
  ],
  "data_ranges": [],
@@ -46,9 +82,39 @@
  "kept_elsewhere": [
   {
    "symbol": "??_7Straw@@6B@",
-   "address": "0079e9f8",
-   "bytes": 12,
+   "address": "0079e9f4",
+   "bytes": 16,
    "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Straw@@8",
+   "address": "007b4b50",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2Straw@@8",
+   "address": "007b79ac",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3Straw@@8",
+   "address": "007b79b8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4Straw@@6B@",
+   "address": "007b79c8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVStraw@@@8",
+   "address": "007d1ec0",
+   "bytes": 20,
+   "kind": "rtti"
   }
  ],
  "failures": [],
@@ -436,6 +502,10 @@
   {
    "symbol": "??3@YAXPAX@Z",
    "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
   },
   {
    "symbol": "??_GStraw@@UAEPAXI@Z",

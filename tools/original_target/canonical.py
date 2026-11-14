@@ -355,6 +355,61 @@ def validate_split_declaration(row):
     return True
 
 
+# VECTOR_DECLARATIONS_ONLY (docs/DECISIONS.md "Container member joins on their own frozen
+# bound"): a source that keeps every shared/vector_class.hpp member undefined because its text
+# does not reproduce the original unit's list uses. A judgment call only for the rows whose body
+# references a container member the switch leaves undefined (an accepted relocation naming a
+# VectorClass/DynamicVectorClass symbol, the class's vtable included): exactly those rows carry
+# `declarations_only: true` and a non-empty `declarations_only_note`, and no other row may
+# (owner ruling 2026-11-12).
+DECLARATIONS_ONLY_SWITCH = re.compile(rb'^[ \t]*#[ \t]*define[ \t]+VECTOR_DECLARATIONS_ONLY\b', re.M)
+DECLARATIONS_ONLY_KEYS = ('declarations_only', 'declarations_only_note')
+CONTAINER_MEMBER_SYMBOL = re.compile(r'\?\$(?:Dynamic)?VectorClass@')
+
+
+def references_container_member(row):
+    """Whether the row's accepted relocations name a container member or vtable."""
+    return any(CONTAINER_MEMBER_SYMBOL.search(r['symbol']) for r in row.get('relocations') or [])
+
+
+# Data-only bindings (review 2026-11-13, docs/DECISIONS.md "Data-only symbols bound by section
+# layout / bss by elimination"): `data_bound_by` {symbol: "layout" | "elimination"} with a
+# non-empty `data_bound_by_note` (the split into declarations is a hypothesis), the same on
+# every row of the source; the strict audit (data_bindings.py) checks the conditions.
+DATA_BOUND_BY_KEYS = ('data_bound_by', 'data_bound_by_note')
+
+
+def validate_data_bound_by(row, source_rows):
+    import data_bindings
+    if not any(row.get(k) is not None for k in DATA_BOUND_BY_KEYS):
+        require(not any(r.get('data_bound_by') for r in source_rows),
+                'data_bound_by must be on every row of its source: %08x' % row['entry'])
+        return
+    try:
+        data_bindings.declared([row])
+    except data_bindings.BindingRefused as error:
+        raise ValueError('%s: %08x' % (error, row['entry']))
+    require(all(r.get('data_bound_by') == row['data_bound_by'] and
+                r.get('data_bound_by_note') == row['data_bound_by_note'] for r in source_rows),
+            'data_bound_by differs between rows of one source: %08x' % row['entry'])
+
+
+def validate_declarations_only(row, data):
+    """Refuse a declarations-only flag that disagrees with the row's source text and body;
+    return whether the row is flagged."""
+    expected = bool(DECLARATIONS_ONLY_SWITCH.search(data)) and references_container_member(row)
+    flag, note = row.get('declarations_only'), row.get('declarations_only_note')
+    if not expected:
+        require(flag is None and note is None,
+                'declarations_only flag on a row that does not reference a container member left undefined by '
+                'VECTOR_DECLARATIONS_ONLY: %08x' % row['entry'])
+        return False
+    require(flag is True and isinstance(note, str) and note.strip() != '',
+            'a row referencing a container member that VECTOR_DECLARATIONS_ONLY leaves undefined needs '
+            'declarations_only: true and a note: %08x' % row['entry'])
+    return True
+
+
 # RA2_SDK_HEADERS migration switch (docs/DECISIONS.md "SDK headers for a unit"):
 # the one pinned system header set (manifests/toolchain.json "sdk_headers") and
 # the only tracked headers that may name it with angle includes, each inside an
@@ -503,6 +558,18 @@ def compile_group_key(row, separate_populations):
     return key + (row['source'],) if row['population'] in separate_populations else key
 
 
+def bound_population(row):
+    """Population whose independently frozen inventory pass holds a row's bound.
+
+    Normally the row's own population. A row that joined another unit's translation unit
+    (docs/DECISIONS.md "Route A split rows", option (ii)) compiles in that unit's population
+    (`population`: compile group, option set, reference table) and keeps the population it
+    was frozen and accepted under as `bound_population`: its bound, gap padding and
+    provenance are still read from that population's inventory pass, never from the unit's
+    pass and never from the candidate."""
+    return row.get('bound_population', row['population'])
+
+
 def separate_unit_populations(catalog):
     return {p['id'] for p in catalog.get('populations', []) if p.get('separate_units')}
 
@@ -529,8 +596,12 @@ def validate_catalog(repository, catalog, modules=True):
     module_rows, module_blocks = {}, {}
     for row in catalog['regions']:
         module_rows.setdefault(row['source'], []).append(row)
+    policies = {p['id'] for p in catalog['populations'] if p.get('compiler_output_policy')}
     for row in sorted(catalog['regions'], key=lambda r: r['entry']):
         va = row['entry']
+        # One region, one unit: a second row at an accepted entry (a function claimed by the
+        # population that froze it and by a unit it joined, or by two units) refuses.
+        require(va not in entries, 'Region claimed by two units: %08x' % va)
         require(va >= cursor and row['body_bytes'] > 0 and 0 <= row['padding_bytes'] <= 15,
                 'Overlapping/invalid canonical extent')
         require(row['full_extent_bytes'] == row['body_bytes'] + row['padding_bytes'], 'Extent size differs')
@@ -541,11 +612,17 @@ def validate_catalog(repository, catalog, modules=True):
         require(paths.setdefault(row['source'], row['population']) == row['population'],
                 'Source shared across populations: ' + row['source'])
         if row.get('semantic_name'):
+            # (address-free file names, docs/DECISIONS.md: the name no longer carries the entry)
             require(Path(row['source']).stem == row['semantic_name'] and
-                    len(Path(row['source']).parts) > 3 and
-                    row['semantic_name'].endswith('_%08x' % va),
+                    len(Path(row['source']).parts) > 3,
                     'Understood operation requires descriptive filename and purpose directory')
         require(row['population'] in ids, 'Missing bound population')
+        if 'bound_population' in row:
+            # A row compiled in another unit's translation unit keeps its own frozen population.
+            require(row['bound_population'] in ids and row['bound_population'] != row['population'],
+                    'Joined row without its own frozen population: %08x' % va)
+            require(row['population'] not in policies and row['bound_population'] not in policies,
+                    'Joined row in a closed compiler-output population: %08x' % va)
         require(row['options'] in RECORDED_OPTIONS, 'Unsupported accepted options')
         resolved = source_path(repository, row['source'])
         data = read[resolved] = resolved.read_bytes()
@@ -561,11 +638,19 @@ def validate_catalog(repository, catalog, modules=True):
             validate_inline_asm(data, row, repository / TIBSUN_ARCHIVE)
         validate_count_calibrated(row)
         validate_split_declaration(row)
+        validate_declarations_only(row, data)
+        validate_data_bound_by(row, module_rows.get(row['source'], ()))
         entries.add(va); orders.add(row['source_order'])
         cursor = va + row['full_extent_bytes']
     require(bool(entries), 'Empty canonical source catalog')
-    require(set(paths) == {p.relative_to(repository).as_posix() for p in (repository/'src/recovered').rglob('*.cpp')},
+    # Draft-only files (non_exact.json: a non-exact draft of a unit without a module, guarded by
+    # RA2_NON_MATCHING) are the only uncatalogued sources; the exact build never compiles them.
+    import non_exact
+    drafts = non_exact.draft_only_sources(repository, catalog)
+    require(set(paths) | drafts == {p.relative_to(repository).as_posix() for p in (repository/'src/recovered').rglob('*.cpp')},
             'Uncatalogued/missing canonical sources')
+    problems = non_exact.validate(repository, catalog)
+    require(not problems, 'Non-exact drafts: ' + '; '.join(problems[:5]))
     if modules:
         validate_modules(repository, catalog)
     return read
@@ -620,6 +705,25 @@ class CanonicalAudit(Audit):
         rows = self.groups[key]
         pid = rows[0]['population']
         inventory, gaps = self.bounds[pid]
+        if any(bound_population(row) != pid for row in rows):
+            # Rows joined from other populations: each is checked against the bound and the
+            # gap row of its OWN frozen pass. The unit's pass says nothing about them (its
+            # rows at those addresses, if any, are replaced for this group's audit); a
+            # joined row whose own pass holds no bound refuses.
+            inventory, gaps = dict(inventory), dict(gaps)
+            for row in rows:
+                own = bound_population(row)
+                if own == pid:
+                    continue
+                require(own in self.bounds, 'Joined row names an unknown frozen population')
+                own_inventory, own_gaps = self.bounds[own]
+                require(row['entry'] in own_inventory,
+                        'Joined row has no frozen bound in its own population %s: %08x' % (own, row['entry']))
+                inventory[row['entry']] = own_inventory[row['entry']]
+                end = row['entry'] + row['body_bytes']
+                gaps.pop(end, None)
+                if end in own_gaps:
+                    gaps[end] = own_gaps[end]
         candidates, cases = {}, {}
         for row in rows:
             body = self.original(row['entry'], row['body_bytes'])
@@ -638,6 +742,8 @@ class CanonicalAudit(Audit):
         population = next((p for p in populations if p['id'] == pid), {})
         reference = population.get('compiler_output_policy')
         if reference is None: return []
+        require(all(bound_population(c) == pid for c in candidates.values()),
+                'Joined row in a closed compiler-output population')
         compiler = self.document('manifests/toolchain.json')['compiler']
         return classify(self, coff, reference, list(candidates.values()), case['options'], compiler,
                         population['inventory_sha256'], population['gaps_sha256'],
@@ -671,7 +777,12 @@ class CanonicalAudit(Audit):
             group = []
             for canonical in rows:
                 symbol, section, start, end = coff.function(canonical['symbol_prefix'])
-                bound, gaps = self.bounds[canonical['population']]
+                own = bound_population(canonical)
+                require(own in self.bounds, 'Row names an unknown frozen population: %s' % own)
+                bound, gaps = self.bounds[own]
+                require(canonical['entry'] in bound,
+                        ('Joined row has no frozen bound in its own population %s: %08x' if own != canonical['population']
+                         else 'Row has no frozen bound in %s: %08x') % (own, canonical['entry']))
                 pad = self.original(canonical['entry']+canonical['body_bytes'], canonical['padding_bytes']) if canonical['padding_bytes'] else b''
                 # Empty padding provenance has multiple historical representations;
                 # absence is canonical here, consistently passed to candidate and row.
@@ -761,7 +872,8 @@ class CanonicalAudit(Audit):
 
 
 # Audit state that rows add to and that the report or later steps read.
-RECORDED = ('discarded_outputs', 'rtti_original_copies', 'data_original_copies', 'kept_elsewhere_omitted')
+RECORDED = ('discarded_outputs', 'rtti_original_copies', 'data_original_copies', 'rtti_known_differences',
+            'kept_elsewhere_omitted')
 _WORKER = None
 
 
@@ -818,7 +930,7 @@ def _audit_group(task):
     audit, path = _WORKER
     index, start, length, rows = task
     log = []
-    for name in RECORDED[:3]:
+    for name in RECORDED[:4]:
         setattr(audit, name, _Recorder(name, log, audit))
     audit.kept_elsewhere_omitted = _RecordedList('kept_elsewhere_omitted', log, audit)
     if not isinstance(audit.blobs, _LoggedBlobs):

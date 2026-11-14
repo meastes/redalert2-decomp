@@ -30,7 +30,7 @@ LRESULT WINAPI Windows_Procedure(HWND window, UINT message, WPARAM wparam, LPARA
 void __fastcall Build_Time_Text(char *buffer, int size);                             // 0x00737A60
 // The build machine and builder names printed into buffer (size is not read); buffer (0x00737AD0, 0x00737B00).
 char *__fastcall Unknown_00737ad0(char *buffer, int size);
-char *__fastcall Unknown_00737b00(char *buffer, int size);
+char *__fastcall Build_By_String_00737b00(char *buffer, int size);
 void __fastcall Create_Main_Window(HINSTANCE instance, int command_show, int width, int height);   // 0x00737BD0
 void IME_Reset();                                                                    // 0x00737D90
 void IME_Update_Composition();                                                       // 0x00737E30

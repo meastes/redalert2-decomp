@@ -1,0 +1,1054 @@
+{
+ "module": "revent",
+ "source": "src/recovered/revent.cpp",
+ "header": null,
+ "population": "population-3996",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 872,
+ "code": [
+  {
+   "symbol": "?get@Leaf_63b5a0@@QAEXXZ",
+   "entry": "0063b5a0",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z",
+   "entry": "0063b5b0",
+   "body_bytes": 229,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Plot_Radar_Event_Point@@YIXABUPoint2D@@@Z",
+   "entry": "0063b6a0",
+   "body_bytes": 12,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Can_Suppress_Radar_Event@@YI_NW4RadarEventType@@@Z",
+   "entry": "0063b6b0",
+   "body_bytes": 10,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "??0RadarEventClass@@QAE@W4RadarEventType@@VCell@@@Z",
+   "entry": "0063b6c0",
+   "body_bytes": 379,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "??1RadarEventClass@@QAE@XZ",
+   "entry": "0063b840",
+   "body_bytes": 76,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?RadarEventClass_unknown_all_63b910@@YAXXZ",
+   "entry": "0063b910",
+   "body_bytes": 37,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Unknown_0063B940@RadarEventClass@@QAEXXZ",
+   "entry": "0063b940",
+   "body_bytes": 505,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Draw_Events@RadarEventClass@@SAXXZ",
+   "entry": "0063bb40",
+   "body_bytes": 75,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Draw@RadarEventClass@@QAEXXZ",
+   "entry": "0063bb90",
+   "body_bytes": 849,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Remove_Finished@RadarEventClass@@SAXXZ",
+   "entry": "0063bef0",
+   "body_bytes": 172,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Try_Suppress_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z",
+   "entry": "0063bfa0",
+   "body_bytes": 202,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Plot@RadarEventClass@@QAEXXZ",
+   "entry": "0063c080",
+   "body_bytes": 490,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Get_Event_Rect@RadarEventClass@@QBEXAAY03UPoint2D@@@Z",
+   "entry": "0063c270",
+   "body_bytes": 149,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?RadarEventClass_unknown_load_all@@YI_NPAUIStream@@@Z",
+   "entry": "0063c380",
+   "body_bytes": 271,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Get_Max_Color@RadarEventClass@@QBE?AVRGBClass@@XZ",
+   "entry": "0063c490",
+   "body_bytes": 185,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Get_Min_Color@RadarEventClass@@QBE?AVRGBClass@@XZ",
+   "entry": "0063c550",
+   "body_bytes": 185,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Unknown_0063C610@RadarEventClass@@QBEHXZ",
+   "entry": "0063c610",
+   "body_bytes": 12,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Unknown_0063C620@RadarEventClass@@QBEHXZ",
+   "entry": "0063c620",
+   "body_bytes": 12,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Unknown_0063C630@RadarEventClass@@QBEHXZ",
+   "entry": "0063c630",
+   "body_bytes": 12,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?RadarEventClass_unknown_remember_cell@@YIXABVCell@@@Z",
+   "entry": "0063c6c0",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?RadarEventClass_unknown_newest_cell@@YI?AVCell@@XZ",
+   "entry": "0063c6f0",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?RadarEventClass_unknown_previous_cell@@YI?AVCell@@XZ",
+   "entry": "0063c720",
+   "body_bytes": 106,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?get@Leaf_63cac0@@QAEPAXI@Z",
+   "entry": "0063cac0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?get@Leaf_63cb10@@QAEPAXI@Z",
+   "entry": "0063cb10",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  }
+ ],
+ "code_bytes": 4368,
+ "data": [
+  {
+   "symbol": "__real@4@00000000000000000000",
+   "address": "0079a738",
+   "bytes": 4,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3fffc90fdaa22168c000",
+   "address": "0079b630",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@4@3fff8000000000000000",
+   "address": "0079b7f8",
+   "bytes": 4,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@3ff8a3d70a3d70a3d800",
+   "address": "0079c518",
+   "bytes": 8,
+   "kind": "table",
+   "section": 25
+  },
+  {
+   "symbol": "__real@8@4001c90fdaa22168c000",
+   "address": "0079c9b8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 22
+  },
+  {
+   "symbol": "__real@8@3ffec90fdaa22168c000",
+   "address": "0079ca80",
+   "bytes": 8,
+   "kind": "table",
+   "section": 28
+  },
+  {
+   "symbol": "__real@8@3ffea2f9836e4e441800",
+   "address": "0079d098",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "__real@4@3ffdaaaaab0000000000",
+   "address": "007a5ea8",
+   "bytes": 4,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@4@3ff9a3d70a0000000000",
+   "address": "007a8ea8",
+   "bytes": 4,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffeb504f333f9de6000",
+   "address": "007a8eb0",
+   "bytes": 8,
+   "kind": "table",
+   "section": 33
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@4@00000000000000000000",
+   "address": "0079a738",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fffc90fdaa22168c000",
+   "address": "0079b630",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@3fff8000000000000000",
+   "address": "0079b7f8",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff8a3d70a3d70a3d800",
+   "address": "0079c518",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4001c90fdaa22168c000",
+   "address": "0079c9b8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffec90fdaa22168c000",
+   "address": "0079ca80",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffea2f9836e4e441800",
+   "address": "0079d098",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@3ffdaaaaab0000000000",
+   "address": "007a5ea8",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@3ff9a3d70a0000000000",
+   "address": "007a8ea8",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffeb504f333f9de6000",
+   "address": "007a8eb0",
+   "bytes": 8,
+   "kind": "table"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "004c83c0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "target": "0063b5b0",
+   "function_entry": true
+  },
+  {
+   "site": "00449170",
+   "symbol": "?Unknown_0063C6C0@@YIXABVCell@@@Z",
+   "target": "0063c6c0",
+   "function_entry": true
+  },
+  {
+   "site": "006b1fd0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "target": "0063b5b0",
+   "function_entry": true
+  },
+  {
+   "site": "00453300",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "target": "0063b5b0",
+   "function_entry": true
+  },
+  {
+   "site": "0062f580",
+   "symbol": "?RadarEventClass_unknown_all_63b910@@YAXXZ",
+   "target": "0063b910",
+   "function_entry": true
+  },
+  {
+   "site": "006d8120",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "target": "0063b5b0",
+   "function_entry": true
+  },
+  {
+   "site": "00452390",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "target": "0063b5b0",
+   "function_entry": true
+  },
+  {
+   "site": "004e4f60",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "target": "0063b5b0",
+   "function_entry": true
+  },
+  {
+   "site": "004e4f60",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "target": "0063b5b0",
+   "function_entry": true
+  },
+  {
+   "site": "006fca30",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "target": "0063b5b0",
+   "function_entry": true
+  },
+  {
+   "site": "0051f930",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "target": "0063b5b0",
+   "function_entry": true
+  },
+  {
+   "site": "004e6950",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "target": "0063b5b0",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "target": "0063b5b0",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "target": "0063b5b0",
+   "function_entry": true
+  },
+  {
+   "site": "0042ec20",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "target": "0063b5b0",
+   "function_entry": true
+  },
+  {
+   "site": "00639970",
+   "symbol": "?RadarEventClass_unknown_remember_cell@@YIXABVCell@@@Z",
+   "target": "0063c6c0",
+   "function_entry": true
+  },
+  {
+   "site": "00656b80",
+   "symbol": "?RadarEventClass_unknown_load_all@@YI_NPAUIStream@@@Z",
+   "target": "0063c380",
+   "function_entry": true
+  },
+  {
+   "site": "004426d0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "target": "0063b5b0",
+   "function_entry": true
+  },
+  {
+   "site": "006e27b0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "target": "0063b5b0",
+   "function_entry": true
+  },
+  {
+   "site": "006f88f0",
+   "symbol": "?RadarEventClass_unknown_previous_cell@@YI?AVCell@@XZ",
+   "target": "0063c720",
+   "function_entry": true
+  },
+  {
+   "site": "006f88f0",
+   "symbol": "?RadarEventClass_unknown_newest_cell@@YI?AVCell@@XZ",
+   "target": "0063c6f0",
+   "function_entry": true
+  },
+  {
+   "site": "006adae0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "target": "0063b5b0",
+   "function_entry": true
+  },
+  {
+   "site": "00633210",
+   "symbol": "?Draw_Events@RadarEventClass@@SAXXZ",
+   "target": "0063bb40",
+   "function_entry": true
+  },
+  {
+   "site": "00633210",
+   "symbol": "?Remove_Finished@RadarEventClass@@SAXXZ",
+   "target": "0063bef0",
+   "function_entry": true
+  },
+  {
+   "site": "0069d850",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "target": "0063b5b0",
+   "function_entry": true
+  },
+  {
+   "site": "0069d850",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "target": "0063b5b0",
+   "function_entry": true
+  },
+  {
+   "site": "0069d850",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "target": "0063b5b0",
+   "function_entry": true
+  },
+  {
+   "site": "0042e370",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "target": "0063b5b0",
+   "function_entry": true
+  },
+  {
+   "site": "00444660",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "target": "0063b5b0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??1?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@UAE@XZ",
+   "address": null
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??D@YI?AUVector3@@ABVMatrix3D@@ABU0@@Z",
+   "address": "00591380"
+  },
+  {
+   "symbol": "?Cell_To_Radar_Pixel@RadarClass@@QAE?AVRect@@ABVCell@@@Z",
+   "address": "00631470"
+  },
+  {
+   "symbol": "?Clip_Line@@YI_NAAUPoint2D@@0ABVRect@@@Z",
+   "address": "00775620"
+  },
+  {
+   "symbol": "?DialogStack@@3PAUDialogStackEntry@@A",
+   "address": "00b25bb8"
+  },
+  {
+   "symbol": "?DialogStackCount@@3HA",
+   "address": "00b25de0"
+  },
+  {
+   "symbol": "?Fast_Sqrt@@YAMN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?Frame@@3HA",
+   "address": "00a40d2c"
+  },
+  {
+   "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+   "address": "00590060"
+  },
+  {
+   "symbol": "?Map@@3VMouseClass@@A",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "?Radar_Pixel@RadarClass@@QAEXABUPoint2D@@@Z",
+   "address": "00632620"
+  },
+  {
+   "symbol": "?Rotate_Z@Matrix3D@@QAEXM@Z",
+   "address": "005909a0"
+  },
+  {
+   "symbol": "?Rules@@3PAVRulesClass@@A",
+   "address": "00839848"
+  },
+  {
+   "symbol": "?unknown_event_cells_ab6788@@3PAVCell@@A",
+   "address": "00ab6788"
+  },
+  {
+   "symbol": "?unknown_event_current_ab6818@@3HA",
+   "address": "00ab6818"
+  },
+  {
+   "symbol": "?unknown_event_empty_cell_ab67a8@@3VCell@@A",
+   "address": "00ab67a8"
+  },
+  {
+   "symbol": "?unknown_event_last_ab67c8@@3HA",
+   "address": "00ab67c8"
+  },
+  {
+   "symbol": "?unknown_radar_event_types_7a8d58@@3PAUUnknownRadarEventType_7a8d58@@A",
+   "address": "007a8d58"
+  },
+  {
+   "symbol": "?unknown_radar_event_word_ab67b8@@3HA",
+   "address": "00ab67b8"
+  },
+  {
+   "symbol": "?unknown_radar_events_ab67e8@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+   "address": "00ab67e8"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "_release_buffer_63cac0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_63cb10",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_63cac0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_63cb10",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_vtable_63cac0",
+   "address": "007a8e8c"
+  },
+  {
+   "symbol": "_vtable_63cb10",
+   "address": "007a8e8c"
+  }
+ ],
+ "route": "A",
+ "unit": "revent.cpp",
+ "form": "one include block",
+ "switches": [
+  "RA2_RADAR_ADD_THREADED",
+  "VECTOR_IMPLEMENT_VECTOR_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ADD",
+  "VECTOR_IMPLEMENT_DYNAMIC_DELETE_OBJECT",
+  "VECTOR_IMPLEMENT_DYNAMIC_DELETE_INDEX",
+  "RA2_RECT_POINT_INLINE",
+  "RA2_POINT_LENGTH",
+  "VECTOR_IMPLEMENT_ALL"
+ ],
+ "include_blocks": [
+  {
+   "before": "0063b5b0",
+   "lines": 19
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "0063b5a0",
+   "bytes": 1,
+   "population": "population-09",
+   "bound": "own frozen bound (population-09)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0063cac0",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0063cb10",
+   "bytes": 73,
+   "population": "population-12",
+   "bound": "own frozen bound (population-12)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "0063b300",
+   "bytes": 40,
+   "population": "population-1617",
+   "source": "src/recovered/header_statics/0063b300/HeaderStatics_diagonal_init_0063b300.cpp",
+   "cause": "frozen in another population's inventory pass (population-1617)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063b330",
+   "bytes": 19,
+   "population": "population-1617",
+   "source": "src/recovered/header_statics/0063b300/HeaderStatics_b_init_0063b330.cpp",
+   "cause": "held by population-1617; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E82)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063b350",
+   "bytes": 19,
+   "population": "population-1617",
+   "source": "src/recovered/header_statics/0063b300/HeaderStatics_c_init_0063b350.cpp",
+   "cause": "held by population-1617; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E83)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063b370",
+   "bytes": 19,
+   "population": "population-1617",
+   "source": "src/recovered/header_statics/0063b300/HeaderStatics_angle45_init_0063b370.cpp",
+   "cause": "held by population-1617; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E84)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063b390",
+   "bytes": 19,
+   "population": "population-1617",
+   "source": "src/recovered/header_statics/0063b300/HeaderStatics_angle60_init_0063b390.cpp",
+   "cause": "held by population-1617; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E85)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063b3b0",
+   "bytes": 19,
+   "population": "population-1617",
+   "source": "src/recovered/header_statics/0063b300/HeaderStatics_angle90_init_0063b3b0.cpp",
+   "cause": "held by population-1617; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E86)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063b3d0",
+   "bytes": 49,
+   "population": "population-1617",
+   "source": "src/recovered/header_statics/0063b300/HeaderStatics_g_init_0063b3d0.cpp",
+   "cause": "held by population-1617; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E87)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063b410",
+   "bytes": 33,
+   "population": "population-1617",
+   "source": "src/recovered/header_statics/0063b300/HeaderStatics_h_init_0063b410.cpp",
+   "cause": "held by population-1617; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E88)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063b440",
+   "bytes": 44,
+   "population": "population-1617",
+   "source": "src/recovered/header_statics/0063b300/HeaderStatics_i_init_0063b440.cpp",
+   "cause": "held by population-1617; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E89)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063b470",
+   "bytes": 39,
+   "population": "population-1617",
+   "source": "src/recovered/header_statics/0063b300/HeaderStatics_j_init_0063b470.cpp",
+   "cause": "held by population-1617; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E90)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063b4a0",
+   "bytes": 15,
+   "population": "population-1617",
+   "source": "src/recovered/header_statics/0063b300/HeaderStatics_k_init_0063b4a0.cpp",
+   "cause": "held by population-1617; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E91)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063b4b0",
+   "bytes": 18,
+   "population": "population-1617",
+   "source": "src/recovered/header_statics/0063b300/HeaderStatics_l_init_0063b4b0.cpp",
+   "cause": "held by population-1617; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E92)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063b4d0",
+   "bytes": 23,
+   "population": "population-1617",
+   "source": "src/recovered/header_statics/0063b300/HeaderStatics_static_rect_init_0063b4d0.cpp",
+   "cause": "held by population-1617; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E93)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063b4f0",
+   "bytes": 61,
+   "population": "population-1617",
+   "source": "src/recovered/classes/RadarEventClass/RadarEventClass_list_init_0063b4f0.cpp",
+   "cause": "held by population-1617; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E96)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063b530",
+   "bytes": 88,
+   "population": "population-1617",
+   "source": "src/recovered/classes/RadarEventClass/RadarEventClass_list_atexit_destructor_0063b530.cpp",
+   "cause": "held by population-1617; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E94)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063b590",
+   "bytes": 15,
+   "population": "population-08",
+   "source": "src/recovered/0063b590.cpp",
+   "cause": "frozen in another population's inventory pass (population-08)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063b890",
+   "bytes": 116,
+   "population": "population-3353",
+   "source": "src/recovered/classes/RadarEventClass/RadarEventClass_unknown_delete_all_0063b890.cpp",
+   "cause": "frozen in another population's inventory pass (population-3353)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063c070",
+   "bytes": 11,
+   "population": "population-4391",
+   "source": "src/recovered/classes/RadarEventClass/RadarEventClass_unknown_none.cpp",
+   "cause": "frozen in another population's inventory pass (population-4391)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063c310",
+   "bytes": 106,
+   "population": "population-1648",
+   "source": "src/recovered/classes/RadarEventClass/RadarEventClass_unknown_save_all.cpp",
+   "cause": "frozen in another population's inventory pass (population-1648)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063c640",
+   "bytes": 116,
+   "population": "population-3353",
+   "source": "src/recovered/classes/RadarEventClass/RadarEventClass_unknown_delete_all_0063c640.cpp",
+   "cause": "frozen in another population's inventory pass (population-3353)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063c790",
+   "bytes": 33,
+   "population": "population-3357",
+   "source": "src/recovered/classes/RadarEventClass/RadarEventClass_unknown_reset_cells.cpp",
+   "cause": "frozen in another population's inventory pass (population-3357)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063c7c0",
+   "bytes": 42,
+   "population": "population-1622",
+   "source": "src/recovered/classes/DynamicVectorClass_RadarEventClass_ptr/Clear.cpp",
+   "cause": "held by population-1622; not joined: not emitted by the unit's own use of its lists"
+  },
+  {
+   "kind": "split",
+   "entry": "0063c7f0",
+   "bytes": 27,
+   "population": "population-1622",
+   "source": "src/recovered/classes/DynamicVectorClass_RadarEventClass_ptr/DynamicVectorClass_RadarEventClass_ptr_ID_pointer_0063c7f0.cpp",
+   "cause": "held by population-1622; not joined: not emitted by the unit's own use of its lists"
+  },
+  {
+   "kind": "split",
+   "entry": "0063c810",
+   "bytes": 13,
+   "population": "population-1622",
+   "source": "src/recovered/classes/VectorClass_RadarEventClass_ptr/Fetch.cpp",
+   "cause": "held by population-1622; not joined: not emitted by the unit's own use of its lists"
+  },
+  {
+   "kind": "split",
+   "entry": "0063c820",
+   "bytes": 62,
+   "population": "population-1622",
+   "source": "src/recovered/classes/VectorClass_RadarEventClass_ptr/operator_equal.cpp",
+   "cause": "held by population-1622; not joined: not emitted by the unit's own use of its lists"
+  },
+  {
+   "kind": "split",
+   "entry": "0063c860",
+   "bytes": 174,
+   "population": "population-1622",
+   "source": "src/recovered/classes/VectorClass_RadarEventClass_ptr/Resize.cpp",
+   "cause": "held by population-1622; not joined: not emitted by the unit's own use of its lists"
+  },
+  {
+   "kind": "split",
+   "entry": "0063c910",
+   "bytes": 39,
+   "population": "population-1622",
+   "source": "src/recovered/classes/VectorClass_RadarEventClass_ptr/Clear.cpp",
+   "cause": "held by population-1622; not joined: not emitted by the unit's own use of its lists"
+  },
+  {
+   "kind": "split",
+   "entry": "0063c940",
+   "bytes": 51,
+   "population": "population-1622",
+   "source": "src/recovered/classes/VectorClass_RadarEventClass_ptr/VectorClass_RadarEventClass_ptr_ID_object_0063c940.cpp",
+   "cause": "held by population-1622; not joined: not emitted by the unit's own use of its lists"
+  },
+  {
+   "kind": "split",
+   "entry": "0063c980",
+   "bytes": 27,
+   "population": "population-1622",
+   "source": "src/recovered/classes/VectorClass_RadarEventClass_ptr/VectorClass_RadarEventClass_ptr_ID_pointer_0063c980.cpp",
+   "cause": "held by population-1622; not joined: not emitted by the unit's own use of its lists"
+  },
+  {
+   "kind": "split",
+   "entry": "0063c9a0",
+   "bytes": 176,
+   "population": "population-1622",
+   "source": "src/recovered/classes/DynamicVectorClass_RadarEventClass_ptr/Resize.cpp",
+   "cause": "held by population-1622; not joined: not emitted by the unit's own use of its lists"
+  },
+  {
+   "kind": "split",
+   "entry": "0063ca50",
+   "bytes": 49,
+   "population": "population-2685",
+   "source": "src/recovered/classes/DynamicVectorClass_RadarEventClass_ptr/Delete.cpp",
+   "cause": "held by population-2685; not joined: the unit without member switches fails the strict audit (Unsupported allocatable data section .rdata #49 in agent-ac27a113)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063ca90",
+   "bytes": 38,
+   "population": "population-1622",
+   "source": "src/recovered/classes/DynamicVectorClass_RadarEventClass_ptr/DynamicVectorClass_RadarEventClass_ptr_ID_object_0063ca90.cpp",
+   "cause": "held by population-1622; not joined: not emitted by the unit's own use of its lists"
+  }
+ ],
+ "unit_functions": 57,
+ "data_unproven": [],
+ "stand_in_references": [
+  {
+   "site": "004c83c0",
+   "target": "0063b5b0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "module_symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z"
+  },
+  {
+   "site": "00449170",
+   "target": "0063c6c0",
+   "symbol": "?Unknown_0063C6C0@@YIXABVCell@@@Z",
+   "module_symbol": "?RadarEventClass_unknown_remember_cell@@YIXABVCell@@@Z"
+  },
+  {
+   "site": "006b1fd0",
+   "target": "0063b5b0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "module_symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z"
+  },
+  {
+   "site": "00453300",
+   "target": "0063b5b0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "module_symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z"
+  },
+  {
+   "site": "006d8120",
+   "target": "0063b5b0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "module_symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z"
+  },
+  {
+   "site": "00452390",
+   "target": "0063b5b0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "module_symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z"
+  },
+  {
+   "site": "004e4f60",
+   "target": "0063b5b0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "module_symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z"
+  },
+  {
+   "site": "004e4f60",
+   "target": "0063b5b0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "module_symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z"
+  },
+  {
+   "site": "006fca30",
+   "target": "0063b5b0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "module_symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z"
+  },
+  {
+   "site": "0051f930",
+   "target": "0063b5b0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "module_symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z"
+  },
+  {
+   "site": "004e6950",
+   "target": "0063b5b0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "module_symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z"
+  },
+  {
+   "site": "00447260",
+   "target": "0063b5b0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "module_symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z"
+  },
+  {
+   "site": "00447260",
+   "target": "0063b5b0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "module_symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z"
+  },
+  {
+   "site": "0042ec20",
+   "target": "0063b5b0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "module_symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z"
+  },
+  {
+   "site": "004426d0",
+   "target": "0063b5b0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "module_symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z"
+  },
+  {
+   "site": "006e27b0",
+   "target": "0063b5b0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "module_symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z"
+  },
+  {
+   "site": "006adae0",
+   "target": "0063b5b0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "module_symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z"
+  },
+  {
+   "site": "0069d850",
+   "target": "0063b5b0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "module_symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z"
+  },
+  {
+   "site": "0069d850",
+   "target": "0063b5b0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "module_symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z"
+  },
+  {
+   "site": "0069d850",
+   "target": "0063b5b0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "module_symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z"
+  },
+  {
+   "site": "0042e370",
+   "target": "0063b5b0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "module_symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z"
+  },
+  {
+   "site": "00444660",
+   "target": "0063b5b0",
+   "symbol": "?Unknown_0063B5B0@@YI_NHVCell@@@Z",
+   "module_symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z"
+  }
+ ],
+ "stand_in_reference_count": 22,
+ "residual_split": {
+  "rows": 32,
+  "bytes": 1600
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

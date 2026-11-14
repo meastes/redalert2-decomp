@@ -1,0 +1,140 @@
+{
+ "module": "_palette",
+ "source": "src/recovered/_palette.cpp",
+ "header": null,
+ "population": "population-3715",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 786,
+ "code": [
+  {
+   "symbol": "_$E8",
+   "entry": "0040d770",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "0040d790",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "0040d7b0",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "0040d7d0",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "0040d7f0",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "0040d810",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "0040d830",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "0040d850",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "0040d870",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "0040d890",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "0040d8c0",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  }
+ ],
+ "code_bytes": 352,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [],
+ "references_out": [
+  {
+   "symbol": "??0PaletteClass@@QAE@ABVRGBClass@@@Z",
+   "address": "00602fd0"
+  },
+  {
+   "symbol": "??0Random2Class@@QAE@I@Z",
+   "address": "00638790"
+  },
+  {
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "address": "005a7ca0"
+  }
+ ],
+ "route": "A",
+ "unit": "_palette.cpp",
+ "form": "one include block",
+ "switches": [
+  "RA2_PALETTE_CONSTRUCTORS"
+ ],
+ "include_blocks": [
+  {
+   "before": "0040d770",
+   "lines": 5
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 11,
+ "data_unproven": [
+  {
+   "symbol": "_$S9",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

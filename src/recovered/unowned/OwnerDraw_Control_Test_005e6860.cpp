@@ -9,7 +9,7 @@
 
 bool __fastcall OwnerDraw_Control_Test_005e6860(unsigned int key, HWND window)
 {
-    OwnerDraw::UnknownControlRecord *record = OwnerDraw::unknown_registry_a73640.Find(key);
+    OwnerDraw::WinData *record = OwnerDraw::unknown_registry_a73640.Find(key);
     int kind = record != 0 ? record->unknown_6c : 0;
     int id = GetDlgCtrlID(window);
     if (((((((((kind == 0x10c) || (kind == 0x94)) || (kind == 0xa3)) ||

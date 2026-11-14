@@ -2,22 +2,20 @@
 //
 // Body: 11 bytes (frozen inventory bound).
 // Referenced from 1 site (unconditional call).
-// Ghidra prototype: void FUN_007856a2(undefined4 param_1)
+// Ghidra prototype: void unknown_007856a2(undefined4 string)
 //
-// Types and names are Ghidra placeholders (see shared/ghidra_types.hpp);
+// Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
 //
-// seed-generated: tools/original_target/regenerate_seeds.py may rewrite this file;
-// delete this line when editing it by hand.
-#include "shared/ghidra_types.hpp"
+#include "shared/win32_types.hpp"
 
 namespace seed_007856a2 {
 
-extern undefined4  FUN_00785678(LPCSTR param_1);
+extern unsigned int  unknown_00785678(LPCSTR string);
 
-void  FUN_007856a2(undefined4 param_1)
+void  unknown_007856a2(unsigned int string)
 {
-    FUN_00785678((LPCSTR)(param_1));
+    unknown_00785678((LPCSTR)(string));
     return;
 }
 

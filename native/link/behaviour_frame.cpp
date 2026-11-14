@@ -71,7 +71,7 @@ void ObjectClass::unknown_slot65(int arg1, int arg2)
 
 extern bool unknown_flag_a767a4;   // 0x00A767A4 (shared/planning.hpp)
 
-// 0x00614840 Planning_Active (seed src/recovered/00614840.cpp): the byte at
+// 0x00614840 Planning_Active (seed src/recovered/planmgr/Planning_Active.cpp): the byte at
 // 0x00A767A4 (the planning mode flag).
 bool Planning_Active()
 {

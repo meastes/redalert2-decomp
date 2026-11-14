@@ -1,0 +1,3718 @@
+{
+ "module": "multiplayer",
+ "source": "src/recovered/multiplayer.cpp",
+ "header": null,
+ "population": "population-4359",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 983,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "005b6a40",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "005b6a70",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "005b6a90",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "005b6ab0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "005b6ad0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "005b6af0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "005b6b10",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "005b6b50",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "005b6b80",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "005b6bb0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "005b6be0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "005b6bf0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "005b6c10",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?unknown_modes_5b6c30@MultiplayerGameMode@@SAAAV?$DynamicVectorClass@PAVMultiplayerGameMode@@@@XZ",
+   "entry": "005b6c30",
+   "body_bytes": 88,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E41",
+   "entry": "005b6c90",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "??0MultiplayerGameMode@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z",
+   "entry": "005b6cd0",
+   "body_bytes": 335,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "??1MultiplayerGameMode@@UAE@XZ",
+   "entry": "005b6e20",
+   "body_bytes": 142,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?unknown_slot10@MultiplayerGameMode@@UAEHXZ",
+   "entry": "005b6eb0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?unknown_first_mode_5b6ec0@MultiplayerGameMode@@SAPAV1@XZ",
+   "entry": "005b6ec0",
+   "body_bytes": 192,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?unknown_mode_count_5b6f80@MultiplayerGameMode@@SAHXZ",
+   "entry": "005b6f80",
+   "body_bytes": 88,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?unknown_find_mode_5b6fe0@MultiplayerGameMode@@SIPAV1@H@Z",
+   "entry": "005b6fe0",
+   "body_bytes": 201,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?unknown_fill_combo_5b70b0@MultiplayerGameMode@@SIXPAUHWND__@@H@Z",
+   "entry": "005b70b0",
+   "body_bytes": 304,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?unknown_fill_list_5b71e0@MultiplayerGameMode@@SIXPAUHWND__@@H@Z",
+   "entry": "005b71e0",
+   "body_bytes": 365,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?AssignTeams@MultiplayerGameMode@@UAE_NXZ",
+   "entry": "005b7350",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?CheckStartConditions@MultiplayerGameMode@@UAE_NPAVWideString@@@Z",
+   "entry": "005b73a0",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?unknown_slot20@MultiplayerGameMode@@UAE_NXZ",
+   "entry": "005b73b0",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?unknown_slot21@MultiplayerGameMode@@UAE_NXZ",
+   "entry": "005b73c0",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?AssignTeamsAtStart@MultiplayerGameMode@@UAE_NXZ",
+   "entry": "005b73d0",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?IsAIAllowed@MultiplayerGameMode@@UAE_NXZ",
+   "entry": "005b73e0",
+   "body_bytes": 4,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?unknown_slot12@MultiplayerGameMode@@UAE_NXZ",
+   "entry": "005b73f0",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?FirstValidMapIndex@MultiplayerGameMode@@UAEHXZ",
+   "entry": "005b7400",
+   "body_bytes": 100,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?unknown_5b7470@MultiplayerGameMode@@QAE_NPAVMultiMission@@@Z",
+   "entry": "005b7470",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?RandomHumanCountryIndex@MultiplayerGameMode@@UAEHXZ",
+   "entry": "005b74c0",
+   "body_bytes": 10,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?RandomAICountryIndex@MultiplayerGameMode@@UAEHXZ",
+   "entry": "005b74d0",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?PopulateTeamDropdown@MultiplayerGameMode@@UAEXPAUHWND__@@PBV?$DynamicVectorClass@H@@H@Z",
+   "entry": "005b74e0",
+   "body_bytes": 109,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?DrawTeamDropdown@MultiplayerGameMode@@UAEXPAUHWND__@@PBV?$DynamicVectorClass@PAVMultiMission@@@@PAVMultiMission@@@Z",
+   "entry": "005b7550",
+   "body_bytes": 115,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?PopulateTeamDropdownForPlayer@MultiplayerGameMode@@UAEXPAUHWND__@@H@Z",
+   "entry": "005b75d0",
+   "body_bytes": 209,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?GetTeam@MultiplayerGameMode@@QAEPAVMultiplayerTeam@@H@Z",
+   "entry": "005b76b0",
+   "body_bytes": 106,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?CreateMPTeams@MultiplayerGameMode@@UAEXPAV?$DynamicVectorClass@PAVMultiplayerTeam@@@@@Z",
+   "entry": "005b7720",
+   "body_bytes": 191,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?unknown_clear_teams_5b77e0@MultiplayerGameMode@@QAEXXZ",
+   "entry": "005b77e0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?UnfixAlliances@MultiplayerGameMode@@UAE_NXZ",
+   "entry": "005b7820",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?unknown_slot7@MultiplayerGameMode@@UAE_NH@Z",
+   "entry": "005b7830",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?unknown_ini_5b7840@MultiplayerGameMode@@QAEPAVCCINIClass@@XZ",
+   "entry": "005b7840",
+   "body_bytes": 216,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?AssignStartingPositionsToHouse@MultiplayerGameMode@@UAE?AVCell@@HAAV?$DynamicVectorClass@VCell@@@@PA_N@Z",
+   "entry": "005b7920",
+   "body_bytes": 733,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?StartingPositionsToHouseBaseCells@MultiplayerGameMode@@UAE_N_N@Z",
+   "entry": "005b7c00",
+   "body_bytes": 217,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Create_Starting_Objects_005b7ce0@MultiplayerGameMode@@QAE_NXZ",
+   "entry": "005b7ce0",
+   "body_bytes": 677,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?SpawnBaseUnits@MultiplayerGameMode@@UAE_NPAVHouseClass@@PAH@Z",
+   "entry": "005b7f90",
+   "body_bytes": 199,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?GenerateStartingUnits@MultiplayerGameMode@@UAE_NPAVHouseClass@@PAH@Z",
+   "entry": "005b8060",
+   "body_bytes": 954,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?unknown_slot28@MultiplayerGameMode@@UAE_NXZ",
+   "entry": "005b8420",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?unknown_team_of_5b8430@MultiplayerGameMode@@QAEHH@Z",
+   "entry": "005b8430",
+   "body_bytes": 63,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?unknown_slot29@MultiplayerGameMode@@UAE_NXZ",
+   "entry": "005b8470",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "??0InitializerBase@MultiplayerGameMode@@QAE@XZ",
+   "entry": "005b8480",
+   "body_bytes": 9,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Read_Game_Modes_5b8490@MultiplayerGameMode@@SIXABVWstring@@AAVInitializerBase@1@@Z",
+   "entry": "005b8490",
+   "body_bytes": 1838,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?FUN_005b8bc0@seed_005b8bc0@@YIXPAI@Z",
+   "entry": "005b8bc0",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?unknown_init_modes_5b8bd0@MultiplayerGameMode@@SIXXZ",
+   "entry": "005b8bd0",
+   "body_bytes": 362,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?unknown_delete_modes_5b8d40@MultiplayerGameMode@@SAXXZ",
+   "entry": "005b8d40",
+   "body_bytes": 207,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "??_GMultiplayerGameMode@@UAEPAXI@Z",
+   "entry": "005b8e10",
+   "body_bytes": 170,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?FUN_005b8ec0@Owner_005b8ec0@seed_005b8ec0@@QAEPAIE@Z",
+   "entry": "005b8ec0",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "??_G?$Initializer@VMultiplayerBattle@@@MultiplayerGameMode@@UAEPAXI@Z",
+   "entry": "005b8ee0",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "??_G?$Initializer@VMultiplayerManBattle@@@MultiplayerGameMode@@UAEPAXI@Z",
+   "entry": "005b8f00",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "??_G?$Initializer@VMultiplayerSiege@@@MultiplayerGameMode@@UAEPAXI@Z",
+   "entry": "005b8f20",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "??_G?$Initializer@VUnholyAlliance@@@MultiplayerGameMode@@UAEPAXI@Z",
+   "entry": "005b8f40",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "??_G?$Initializer@VFreeForAll@@@MultiplayerGameMode@@UAEPAXI@Z",
+   "entry": "005b8f60",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "??_G?$Initializer@VMPCooperative@@@MultiplayerGameMode@@UAEPAXI@Z",
+   "entry": "005b8f80",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Clear_005b9000@seed_005b9000@@YIXH@Z",
+   "entry": "005b9000",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAVMultiplayerGameMode@@@@UAEHPBQAVMultiplayerGameMode@@@Z",
+   "entry": "005b9030",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Create@?$Initializer@VMultiplayerBattle@@@MultiplayerGameMode@@UAEPAV2@ABVWideString@@0ABVWstring@@1_NH@Z",
+   "entry": "005b9060",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Create@?$Initializer@VMultiplayerManBattle@@@MultiplayerGameMode@@UAEPAV2@ABVWideString@@0ABVWstring@@1_NH@Z",
+   "entry": "005b90a0",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Create@?$Initializer@VMultiplayerSiege@@@MultiplayerGameMode@@UAEPAV2@ABVWideString@@0ABVWstring@@1_NH@Z",
+   "entry": "005b90e0",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Create@?$Initializer@VUnholyAlliance@@@MultiplayerGameMode@@UAEPAV2@ABVWideString@@0ABVWstring@@1_NH@Z",
+   "entry": "005b9120",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Create@?$Initializer@VFreeForAll@@@MultiplayerGameMode@@UAEPAV2@ABVWideString@@0ABVWstring@@1_NH@Z",
+   "entry": "005b9160",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Create@?$Initializer@VMPCooperative@@@MultiplayerGameMode@@UAEPAV2@ABVWideString@@0ABVWstring@@1_NH@Z",
+   "entry": "005b91a0",
+   "body_bytes": 62,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?initialize@WordStorage_005b95c0@@QAEPAV1@IPAI@Z",
+   "entry": "005b95c0",
+   "body_bytes": 93,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?get@Leaf_5b9700@@QAEPAXI@Z",
+   "entry": "005b9700",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?get@Leaf_5b9750@@QAEPAXI@Z",
+   "entry": "005b9750",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?get@Leaf_5b97a0@@QAEPAXI@Z",
+   "entry": "005b97a0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?get@Leaf_5b97f0@@QAEPAXI@Z",
+   "entry": "005b97f0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?get@Storage_5b9840@@QAEPAXIPAI@Z",
+   "entry": "005b9840",
+   "body_bytes": 74,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?get@Storage_5b9890@@QAEPAXIPAI@Z",
+   "entry": "005b9890",
+   "body_bytes": 74,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?get@Storage_5b98e0@@QAEPAXIPAI@Z",
+   "entry": "005b98e0",
+   "body_bytes": 74,
+   "padding_bytes": 6
+  }
+ ],
+ "code_bytes": 10688,
+ "data": [
+  {
+   "symbol": "??_7CDFileClass@@6B@",
+   "address": "0079a658",
+   "bytes": 68,
+   "kind": "vtable",
+   "section": 48
+  },
+  {
+   "symbol": "??_7CCFileClass@@6B@",
+   "address": "0079a6a0",
+   "bytes": 68,
+   "kind": "vtable",
+   "section": 49
+  },
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 13
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 16
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 19
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 22
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 25
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 28
+  },
+  {
+   "symbol": "??_7CCINIClass@@6B@",
+   "address": "0079aae4",
+   "bytes": 4,
+   "kind": "vtable",
+   "section": 50
+  },
+  {
+   "symbol": "??_7?$List@PAUINISection@INIClass@@@@6B@",
+   "address": "0079aaec",
+   "bytes": 4,
+   "kind": "vtable",
+   "section": 160
+  },
+  {
+   "symbol": "??_7GenericList@@6B@",
+   "address": "0079aaf4",
+   "bytes": 4,
+   "kind": "vtable",
+   "section": 161
+  },
+  {
+   "symbol": "??_7GenericNode@@6B@",
+   "address": "0079aafc",
+   "bytes": 4,
+   "kind": "vtable",
+   "section": 162
+  },
+  {
+   "symbol": "__real@8@4008e100000000000000",
+   "address": "0079b608",
+   "bytes": 8,
+   "kind": "table",
+   "section": 356
+  },
+  {
+   "symbol": "??_7?$VectorClass@VCell@@@@6B@",
+   "address": "0079c5e0",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 178
+  },
+  {
+   "symbol": "??_7?$VectorClass@H@@6B@",
+   "address": "0079d9d4",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 300
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVUnitTypeClass@@@@6B@",
+   "address": "007a27e4",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 191
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVUnitTypeClass@@@@6B@",
+   "address": "007a2804",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 188
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVInfantryTypeClass@@@@6B@",
+   "address": "007a2864",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 190
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVInfantryTypeClass@@@@6B@",
+   "address": "007a2884",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 189
+  },
+  {
+   "symbol": "??_7INIClass@@6B@",
+   "address": "007a2b34",
+   "bytes": 4,
+   "kind": "vtable",
+   "section": 209
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VWDTTerritory@@@@6B@",
+   "address": "007a452c",
+   "bytes": 4,
+   "kind": "vtable",
+   "section": 690
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVMPlayerScoreType@@@@6B@",
+   "address": "007a68c4",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 380
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVMPlayerScoreType@@@@6B@",
+   "address": "007a68e4",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 381
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a7160",
+   "bytes": 20,
+   "kind": "table",
+   "section": 2
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVMultiplayerGameMode@@@@6B@",
+   "address": "007a7178",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 41
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVMultiplayerGameMode@@@@6B@",
+   "address": "007a7198",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 44
+  },
+  {
+   "symbol": "??_7MultiplayerGameMode@@6B@",
+   "address": "007a71b8",
+   "bytes": 180,
+   "kind": "vtable",
+   "section": 51
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVMultiplayerTeam@@@@6B@",
+   "address": "007a7290",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 105
+  },
+  {
+   "symbol": "??_7InitializerBase@MultiplayerGameMode@@6B@",
+   "address": "007a72b0",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 200
+  },
+  {
+   "symbol": "??_7?$Initializer@VMPCooperative@@@MultiplayerGameMode@@6B@",
+   "address": "007a72bc",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 220
+  },
+  {
+   "symbol": "??_7?$Initializer@VFreeForAll@@@MultiplayerGameMode@@6B@",
+   "address": "007a72c8",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 222
+  },
+  {
+   "symbol": "??_7?$Initializer@VUnholyAlliance@@@MultiplayerGameMode@@6B@",
+   "address": "007a72d4",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 224
+  },
+  {
+   "symbol": "??_7?$Initializer@VMultiplayerSiege@@@MultiplayerGameMode@@6B@",
+   "address": "007a72e0",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 226
+  },
+  {
+   "symbol": "??_7?$Initializer@VMultiplayerManBattle@@@MultiplayerGameMode@@6B@",
+   "address": "007a72ec",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 228
+  },
+  {
+   "symbol": "??_7?$Initializer@VMultiplayerBattle@@@MultiplayerGameMode@@6B@",
+   "address": "007a72f8",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 229
+  },
+  {
+   "symbol": "??_R0?AVObjectClass@@@8",
+   "address": "007ce548",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 186
+  },
+  {
+   "symbol": "??_R0?AVTechnoClass@@@8",
+   "address": "007ce5a8",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 187
+  },
+  {
+   "symbol": "??_C@_01KMAE@?0?$AA@",
+   "address": "007ce9c0",
+   "bytes": 2,
+   "kind": "string",
+   "section": 208
+  },
+  {
+   "symbol": "??_C@_04IOAL@Hard?$AA@",
+   "address": "007ceadc",
+   "bytes": 5,
+   "kind": "string",
+   "section": 334
+  },
+  {
+   "symbol": "??_C@_06BILL@Normal?$AA@",
+   "address": "007d1b30",
+   "bytes": 7,
+   "kind": "string",
+   "section": 335
+  },
+  {
+   "symbol": "??_C@_05NAGO@false?$AA@",
+   "address": "007d24d0",
+   "bytes": 6,
+   "kind": "string",
+   "section": 205
+  },
+  {
+   "symbol": "??_C@_0L@CIDM@?$EA?$EA?$EA?$EA?5Sent?6?$AA@",
+   "address": "007d5024",
+   "bytes": 11,
+   "kind": "string",
+   "section": 318
+  },
+  {
+   "symbol": "??_C@_0BC@DFJB@D?3?2Ra2?2MPCoop?4cpp?$AA@",
+   "address": "007e34e4",
+   "bytes": 18,
+   "kind": "string",
+   "section": 285
+  },
+  {
+   "symbol": "??_C@_0BA@FFI@NAME?3COOPDESC?$CFd?$AA@",
+   "address": "007e34f8",
+   "bytes": 16,
+   "kind": "string",
+   "section": 286
+  },
+  {
+   "symbol": "??_C@_0BD@HCAC@?$EA?$EA?$EA?5Looking?5for?5?$CFs?$AA@",
+   "address": "007e3508",
+   "bytes": 19,
+   "kind": "string",
+   "section": 287
+  },
+  {
+   "symbol": "??_C@_02NBIM@O8?$AA@",
+   "address": "007e351c",
+   "bytes": 3,
+   "kind": "string",
+   "section": 288
+  },
+  {
+   "symbol": "??_C@_0BL@OAOD@Sending?5observer?5slot?5of?58?$AA@",
+   "address": "007e3520",
+   "bytes": 27,
+   "kind": "string",
+   "section": 289
+  },
+  {
+   "symbol": "??_C@_0L@KAA@GUI?3Random?$AA@",
+   "address": "007e353c",
+   "bytes": 11,
+   "kind": "string",
+   "section": 309
+  },
+  {
+   "symbol": "??_C@_0CM@BBG@?$EA?$EA?$EA?$EA?5Sending?5campaign?5game?5AI?5se@",
+   "address": "007e3548",
+   "bytes": 44,
+   "kind": "string",
+   "section": 319
+  },
+  {
+   "symbol": "??_C@_06FOAE@?0?$CFd?0?$CFd?$AA@",
+   "address": "007e3574",
+   "bytes": 7,
+   "kind": "string",
+   "section": 320
+  },
+  {
+   "symbol": "??_C@_05GNBO@C1?0?$CFd?$AA@",
+   "address": "007e357c",
+   "bytes": 6,
+   "kind": "string",
+   "section": 321
+  },
+  {
+   "symbol": "??_C@_0CN@PHGH@Assigning?5Starting?5Points?5for?5ho@",
+   "address": "007e3584",
+   "bytes": 45,
+   "kind": "string",
+   "section": 179
+  },
+  {
+   "symbol": "??_C@_0BM@IBMO@?$EA?$EA?$EA?$EA?5?5?5?5?5AI?5difficulty?3?5?$CFd?6?$AA@",
+   "address": "007e35b4",
+   "bytes": 28,
+   "kind": "string",
+   "section": 333
+  },
+  {
+   "symbol": "??_C@_0BN@HBMM@?$EA?$EA?$EA?$EA?5Setting?5slot?5?$CFd?5for?5AI?6?$AA@",
+   "address": "007e35d0",
+   "bytes": 29,
+   "kind": "string",
+   "section": 336
+  },
+  {
+   "symbol": "??_C@_0BL@JPHD@?$EA?$EA?$EA?$EA?5Adding?5?$CFd?5AI?5players?6?$AA@",
+   "address": "007e35f0",
+   "bytes": 27,
+   "kind": "string",
+   "section": 337
+  },
+  {
+   "symbol": "??_C@_0DF@ODDM@?$EA?$EA?$EA?$EA?5Making?5Allies?5of?5?$CFs?$CI?$CFd?1?$CFd?1?$CF@",
+   "address": "007e360c",
+   "bytes": 53,
+   "kind": "string",
+   "section": 340
+  },
+  {
+   "symbol": "??_C@_0BK@BPGO@?$EA?$EA?$EA?$EA?5?5?5?5?5?5?5?5?5House2?5?$DN?5?$CFs?6?$AA@",
+   "address": "007e3644",
+   "bytes": 26,
+   "kind": "string",
+   "section": 341
+  },
+  {
+   "symbol": "??_C@_0BG@DOKC@?$EA?$EA?$EA?$EA?5?5?5?5?5House1?5?$DN?5?$CFs?6?$AA@",
+   "address": "007e3660",
+   "bytes": 22,
+   "kind": "string",
+   "section": 342
+  },
+  {
+   "symbol": "??_C@_0BH@BAIP@?$EA?$EA?$EA?$EA?5Making?5Alliances?6?$AA@",
+   "address": "007e3678",
+   "bytes": 23,
+   "kind": "string",
+   "section": 343
+  },
+  {
+   "symbol": "??_C@_0CN@CPHF@?$EA?$EA?$EA?$EA?5Choosing?5a?5random?5player?5ho@",
+   "address": "007e3690",
+   "bytes": 45,
+   "kind": "string",
+   "section": 346
+  },
+  {
+   "symbol": "??_C@_0CJ@LBI@?$EA?$EA?$EA?$EA?5Choosing?5a?5random?5AI?5house?3@",
+   "address": "007e36c0",
+   "bytes": 41,
+   "kind": "string",
+   "section": 349
+  },
+  {
+   "symbol": "??_C@_0BF@KKKM@TXT_COOP_SAVE_FAILED?$AA@",
+   "address": "007e36ec",
+   "bytes": 21,
+   "kind": "string",
+   "section": 354
+  },
+  {
+   "symbol": "??_C@_0BG@HJAK@TXT_COOP_SAVE_SUCCESS?$AA@",
+   "address": "007e3704",
+   "bytes": 22,
+   "kind": "string",
+   "section": 355
+  },
+  {
+   "symbol": "??_C@_0CJ@IEBL@?$EA?$EA?$EA?$EA?5End?9of?9Game?3?5PlayerWins?3?$CFd?0@",
+   "address": "007e371c",
+   "bytes": 41,
+   "kind": "string",
+   "section": 357
+  },
+  {
+   "symbol": "??_C@_0BC@IPCP@TXT_COOP_USE_SAVE?$AA@",
+   "address": "007e3748",
+   "bytes": 18,
+   "kind": "string",
+   "section": 361
+  },
+  {
+   "symbol": "??_C@_04OANC@?4MAP?$AA@",
+   "address": "007e375c",
+   "bytes": 5,
+   "kind": "string",
+   "section": 362
+  },
+  {
+   "symbol": "??_C@_0BP@DFDM@?$EA?$EA?$EA?$EA?5Could?5not?5find?5?$CFs?5for?5?$CFs?6?$AA@",
+   "address": "007e3764",
+   "bytes": 31,
+   "kind": "string",
+   "section": 363
+  },
+  {
+   "symbol": "??_C@_1O@FBCE@?$AA?$CF?$AAd?$AA?4?$AA?5?$AA?$CF?$AAs?$AA?$AA@",
+   "address": "007e3784",
+   "bytes": 14,
+   "kind": "string",
+   "section": 364
+  },
+  {
+   "symbol": "??_C@_06HIDC@?$CFs?4MAP?$AA@",
+   "address": "007e3794",
+   "bytes": 7,
+   "kind": "string",
+   "section": 365
+  },
+  {
+   "symbol": "??_C@_0BI@MBLD@TXT_SAVE_CAMP_AVAILABLE?$AA@",
+   "address": "007e379c",
+   "bytes": 24,
+   "kind": "string",
+   "section": 375
+  },
+  {
+   "symbol": "??_C@_0DI@DFCB@?$EA?$EA?$EA?$EA?5After?5destroying?5connection@",
+   "address": "007e382c",
+   "bytes": 56,
+   "kind": "string",
+   "section": 390
+  },
+  {
+   "symbol": "??_C@_0DJ@PLDA@?$EA?$EA?$EA?$EA?5Before?5destroying?5connectio@",
+   "address": "007e3864",
+   "bytes": 57,
+   "kind": "string",
+   "section": 391
+  },
+  {
+   "symbol": "??_C@_0BK@HFDA@Ping?5times?5not?5available?6?$AA@",
+   "address": "007e38a0",
+   "bytes": 26,
+   "kind": "string",
+   "section": 392
+  },
+  {
+   "symbol": "??_C@_0BD@LFFN@Max?5ping?5is?5?$CFd?5ms?6?$AA@",
+   "address": "007e38bc",
+   "bytes": 19,
+   "kind": "string",
+   "section": 393
+  },
+  {
+   "symbol": "??_C@_0BA@FOMN@xxx?4xxx?4xxx?4xxx?$AA@",
+   "address": "007e38d0",
+   "bytes": 16,
+   "kind": "string",
+   "section": 394
+  },
+  {
+   "symbol": "??_C@_0BK@IOIK@MultiplayerDialogSettings?$AA@",
+   "address": "007e5f04",
+   "bytes": 26,
+   "kind": "string",
+   "section": 3
+  },
+  {
+   "symbol": "??_C@_0BJ@NIJN@WonlineTournamentAllowed?$AA@",
+   "address": "007e6008",
+   "bytes": 25,
+   "kind": "string",
+   "section": 47
+  },
+  {
+   "symbol": "??_C@_0CF@NCNJ@Observer?5Observing?5cell?3?5?$CFd?5?$CI?$CFd?0@",
+   "address": "007e6024",
+   "bytes": 37,
+   "kind": "string",
+   "section": 173
+  },
+  {
+   "symbol": "??_C@_0CB@EDCI@Starting?5cell?5taken?3?5?$CFd?5?$CI?$CFd?0?$CFd?$CJ?6@",
+   "address": "007e604c",
+   "bytes": 33,
+   "kind": "string",
+   "section": 174
+  },
+  {
+   "symbol": "??_C@_0CM@MPLO@Observer?5observing?5random?5cell?3?5@",
+   "address": "007e6070",
+   "bytes": 44,
+   "kind": "string",
+   "section": 175
+  },
+  {
+   "symbol": "??_C@_0BO@KPNI@First?5cell?5taken?3?5?$CFd?5?$CI?$CFd?0?$CFd?$CJ?6?$AA@",
+   "address": "007e609c",
+   "bytes": 30,
+   "kind": "string",
+   "section": 176
+  },
+  {
+   "symbol": "??_C@_0BH@ODPE@D?3?2Ra2?2Multiplayer?4cpp?$AA@",
+   "address": "007e6124",
+   "bytes": 23,
+   "kind": "string",
+   "section": 206
+  },
+  {
+   "symbol": "??_C@_01FCOA@?5?$AA@",
+   "address": "007e613c",
+   "bytes": 2,
+   "kind": "string",
+   "section": 207
+  },
+  {
+   "symbol": "??_C@_0M@JELC@MPModes?4ini?$AA@",
+   "address": "007e6140",
+   "bytes": 12,
+   "kind": "string",
+   "section": 210
+  },
+  {
+   "symbol": "??_C@_0M@CHM@Cooperative?$AA@",
+   "address": "007e62f8",
+   "bytes": 12,
+   "kind": "string",
+   "section": 219
+  },
+  {
+   "symbol": "??_C@_0L@PICL@FreeForAll?$AA@",
+   "address": "007e6304",
+   "bytes": 11,
+   "kind": "string",
+   "section": 221
+  },
+  {
+   "symbol": "??_C@_06DAKK@Unholy?$AA@",
+   "address": "007e6310",
+   "bytes": 7,
+   "kind": "string",
+   "section": 223
+  },
+  {
+   "symbol": "??_C@_05COBB@Siege?$AA@",
+   "address": "007e6318",
+   "bytes": 6,
+   "kind": "string",
+   "section": 225
+  },
+  {
+   "symbol": "??_C@_09PAOG@ManBattle?$AA@",
+   "address": "007e6320",
+   "bytes": 10,
+   "kind": "string",
+   "section": 227
+  },
+  {
+   "symbol": "??_C@_06BJJB@Battle?$AA@",
+   "address": "007e632c",
+   "bytes": 7,
+   "kind": "string",
+   "section": 230
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7CDFileClass@@6B@",
+   "address": "0079a658",
+   "bytes": 68,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7CCFileClass@@6B@",
+   "address": "0079a6a0",
+   "bytes": 68,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7CCINIClass@@6B@",
+   "address": "0079aae4",
+   "bytes": 4,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$List@PAUINISection@INIClass@@@@6B@",
+   "address": "0079aaec",
+   "bytes": 4,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7GenericList@@6B@",
+   "address": "0079aaf4",
+   "bytes": 4,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7GenericNode@@6B@",
+   "address": "0079aafc",
+   "bytes": 4,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "__real@8@4008e100000000000000",
+   "address": "0079b608",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$VectorClass@VCell@@@@6B@",
+   "address": "0079c5e0",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@H@@6B@",
+   "address": "0079d9d4",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVUnitTypeClass@@@@6B@",
+   "address": "007a27e4",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVUnitTypeClass@@@@6B@",
+   "address": "007a2804",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVInfantryTypeClass@@@@6B@",
+   "address": "007a2864",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVInfantryTypeClass@@@@6B@",
+   "address": "007a2884",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7INIClass@@6B@",
+   "address": "007a2b34",
+   "bytes": 4,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VWDTTerritory@@@@6B@",
+   "address": "007a452c",
+   "bytes": 4,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVMPlayerScoreType@@@@6B@",
+   "address": "007a68c4",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVMPlayerScoreType@@@@6B@",
+   "address": "007a68e4",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a7160",
+   "bytes": 20,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVMultiplayerGameMode@@@@6B@",
+   "address": "007a7178",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVMultiplayerGameMode@@@@6B@",
+   "address": "007a7198",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7MultiplayerGameMode@@6B@",
+   "address": "007a71b8",
+   "bytes": 180,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVMultiplayerTeam@@@@6B@",
+   "address": "007a7290",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7InitializerBase@MultiplayerGameMode@@6B@",
+   "address": "007a72b0",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$Initializer@VMPCooperative@@@MultiplayerGameMode@@6B@",
+   "address": "007a72bc",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$Initializer@VFreeForAll@@@MultiplayerGameMode@@6B@",
+   "address": "007a72c8",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$Initializer@VUnholyAlliance@@@MultiplayerGameMode@@6B@",
+   "address": "007a72d4",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$Initializer@VMultiplayerSiege@@@MultiplayerGameMode@@6B@",
+   "address": "007a72e0",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$Initializer@VMultiplayerManBattle@@@MultiplayerGameMode@@6B@",
+   "address": "007a72ec",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$Initializer@VMultiplayerBattle@@@MultiplayerGameMode@@6B@",
+   "address": "007a72f8",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R0?AVObjectClass@@@8",
+   "address": "007ce548",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVTechnoClass@@@8",
+   "address": "007ce5a8",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_01KMAE@?0?$AA@",
+   "address": "007ce9c0",
+   "bytes": 2,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04IOAL@Hard?$AA@",
+   "address": "007ceadc",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06BILL@Normal?$AA@",
+   "address": "007d1b30",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_05NAGO@false?$AA@",
+   "address": "007d24d0",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@CIDM@?$EA?$EA?$EA?$EA?5Sent?6?$AA@",
+   "address": "007d5024",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@DFJB@D?3?2Ra2?2MPCoop?4cpp?$AA@",
+   "address": "007e34e4",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@FFI@NAME?3COOPDESC?$CFd?$AA@",
+   "address": "007e34f8",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@HCAC@?$EA?$EA?$EA?5Looking?5for?5?$CFs?$AA@",
+   "address": "007e3508",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_02NBIM@O8?$AA@",
+   "address": "007e351c",
+   "bytes": 3,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BL@OAOD@Sending?5observer?5slot?5of?58?$AA@",
+   "address": "007e3520",
+   "bytes": 27,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@KAA@GUI?3Random?$AA@",
+   "address": "007e353c",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CM@BBG@?$EA?$EA?$EA?$EA?5Sending?5campaign?5game?5AI?5se@",
+   "address": "007e3548",
+   "bytes": 44,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06FOAE@?0?$CFd?0?$CFd?$AA@",
+   "address": "007e3574",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_05GNBO@C1?0?$CFd?$AA@",
+   "address": "007e357c",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CN@PHGH@Assigning?5Starting?5Points?5for?5ho@",
+   "address": "007e3584",
+   "bytes": 45,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BM@IBMO@?$EA?$EA?$EA?$EA?5?5?5?5?5AI?5difficulty?3?5?$CFd?6?$AA@",
+   "address": "007e35b4",
+   "bytes": 28,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BN@HBMM@?$EA?$EA?$EA?$EA?5Setting?5slot?5?$CFd?5for?5AI?6?$AA@",
+   "address": "007e35d0",
+   "bytes": 29,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BL@JPHD@?$EA?$EA?$EA?$EA?5Adding?5?$CFd?5AI?5players?6?$AA@",
+   "address": "007e35f0",
+   "bytes": 27,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DF@ODDM@?$EA?$EA?$EA?$EA?5Making?5Allies?5of?5?$CFs?$CI?$CFd?1?$CFd?1?$CF@",
+   "address": "007e360c",
+   "bytes": 53,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BK@BPGO@?$EA?$EA?$EA?$EA?5?5?5?5?5?5?5?5?5House2?5?$DN?5?$CFs?6?$AA@",
+   "address": "007e3644",
+   "bytes": 26,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BG@DOKC@?$EA?$EA?$EA?$EA?5?5?5?5?5House1?5?$DN?5?$CFs?6?$AA@",
+   "address": "007e3660",
+   "bytes": 22,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BH@BAIP@?$EA?$EA?$EA?$EA?5Making?5Alliances?6?$AA@",
+   "address": "007e3678",
+   "bytes": 23,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CN@CPHF@?$EA?$EA?$EA?$EA?5Choosing?5a?5random?5player?5ho@",
+   "address": "007e3690",
+   "bytes": 45,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CJ@LBI@?$EA?$EA?$EA?$EA?5Choosing?5a?5random?5AI?5house?3@",
+   "address": "007e36c0",
+   "bytes": 41,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BF@KKKM@TXT_COOP_SAVE_FAILED?$AA@",
+   "address": "007e36ec",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BG@HJAK@TXT_COOP_SAVE_SUCCESS?$AA@",
+   "address": "007e3704",
+   "bytes": 22,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CJ@IEBL@?$EA?$EA?$EA?$EA?5End?9of?9Game?3?5PlayerWins?3?$CFd?0@",
+   "address": "007e371c",
+   "bytes": 41,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@IPCP@TXT_COOP_USE_SAVE?$AA@",
+   "address": "007e3748",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04OANC@?4MAP?$AA@",
+   "address": "007e375c",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BP@DFDM@?$EA?$EA?$EA?$EA?5Could?5not?5find?5?$CFs?5for?5?$CFs?6?$AA@",
+   "address": "007e3764",
+   "bytes": 31,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_1O@FBCE@?$AA?$CF?$AAd?$AA?4?$AA?5?$AA?$CF?$AAs?$AA?$AA@",
+   "address": "007e3784",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06HIDC@?$CFs?4MAP?$AA@",
+   "address": "007e3794",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BI@MBLD@TXT_SAVE_CAMP_AVAILABLE?$AA@",
+   "address": "007e379c",
+   "bytes": 24,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DI@DFCB@?$EA?$EA?$EA?$EA?5After?5destroying?5connection@",
+   "address": "007e382c",
+   "bytes": 56,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0DJ@PLDA@?$EA?$EA?$EA?$EA?5Before?5destroying?5connectio@",
+   "address": "007e3864",
+   "bytes": 57,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BK@HFDA@Ping?5times?5not?5available?6?$AA@",
+   "address": "007e38a0",
+   "bytes": 26,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@LFFN@Max?5ping?5is?5?$CFd?5ms?6?$AA@",
+   "address": "007e38bc",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@FOMN@xxx?4xxx?4xxx?4xxx?$AA@",
+   "address": "007e38d0",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BK@IOIK@MultiplayerDialogSettings?$AA@",
+   "address": "007e5f04",
+   "bytes": 26,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BJ@NIJN@WonlineTournamentAllowed?$AA@",
+   "address": "007e6008",
+   "bytes": 25,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CF@NCNJ@Observer?5Observing?5cell?3?5?$CFd?5?$CI?$CFd?0@",
+   "address": "007e6024",
+   "bytes": 37,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CB@EDCI@Starting?5cell?5taken?3?5?$CFd?5?$CI?$CFd?0?$CFd?$CJ?6@",
+   "address": "007e604c",
+   "bytes": 33,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CM@MPLO@Observer?5observing?5random?5cell?3?5@",
+   "address": "007e6070",
+   "bytes": 44,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BO@KPNI@First?5cell?5taken?3?5?$CFd?5?$CI?$CFd?0?$CFd?$CJ?6?$AA@",
+   "address": "007e609c",
+   "bytes": 30,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BH@ODPE@D?3?2Ra2?2Multiplayer?4cpp?$AA@",
+   "address": "007e6124",
+   "bytes": 23,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_01FCOA@?5?$AA@",
+   "address": "007e613c",
+   "bytes": 2,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@JELC@MPModes?4ini?$AA@",
+   "address": "007e6140",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@CHM@Cooperative?$AA@",
+   "address": "007e62f8",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@PICL@FreeForAll?$AA@",
+   "address": "007e6304",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06DAKK@Unholy?$AA@",
+   "address": "007e6310",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_05COBB@Siege?$AA@",
+   "address": "007e6318",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09PAOG@ManBattle?$AA@",
+   "address": "007e6320",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06BJJB@Battle?$AA@",
+   "address": "007e632c",
+   "bytes": 7,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "005a3f70",
+   "symbol": "?target@Target_5a3f70@@QAEIII@Z",
+   "target": "005b75d0",
+   "function_entry": true
+  },
+  {
+   "site": "005a2500",
+   "symbol": "??1MultiplayerGameMode@@UAE@XZ",
+   "target": "005b6e20",
+   "function_entry": true
+  },
+  {
+   "site": "005a71c0",
+   "symbol": "??1MultiplayerGameMode@@UAE@XZ",
+   "target": "005b6e20",
+   "function_entry": true
+  },
+  {
+   "site": "005a7500",
+   "symbol": "?FUN_005b6e20@seed_005a7500@@YIXXZ",
+   "target": "005b6e20",
+   "function_entry": true
+  },
+  {
+   "site": "005aa780",
+   "symbol": "?MultiplayerGameMode_dtor_005b6e20@seed_005aa780@@YIXXZ",
+   "target": "005b6e20",
+   "function_entry": true
+  },
+  {
+   "site": "005abba0",
+   "symbol": "?FUN_005b6e20@seed_005abba0@@YIXXZ",
+   "target": "005b6e20",
+   "function_entry": true
+  },
+  {
+   "site": "005ac510",
+   "symbol": "??1MultiplayerGameMode@@UAE@XZ",
+   "target": "005b6e20",
+   "function_entry": true
+  },
+  {
+   "site": "005a2360",
+   "symbol": "??1MultiplayerGameMode@@UAE@XZ",
+   "target": "005b6e20",
+   "function_entry": true
+  },
+  {
+   "site": "005a74f0",
+   "symbol": "?FUN_005b6e20@seed_005a74f0@@YIXXZ",
+   "target": "005b6e20",
+   "function_entry": true
+  },
+  {
+   "site": "005aa760",
+   "symbol": "?MultiplayerGameMode_dtor_005b6e20@seed_005aa760@@YIXXZ",
+   "target": "005b6e20",
+   "function_entry": true
+  },
+  {
+   "site": "005ab5e0",
+   "symbol": "?FUN_005b6e20@seed_005ab5e0@@YIXXZ",
+   "target": "005b6e20",
+   "function_entry": true
+  },
+  {
+   "site": "005ac370",
+   "symbol": "??1MultiplayerGameMode@@UAE@XZ",
+   "target": "005b6e20",
+   "function_entry": true
+  },
+  {
+   "site": "005a74b0",
+   "symbol": "??0MultiplayerGameMode@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z",
+   "target": "005b6cd0",
+   "function_entry": true
+  },
+  {
+   "site": "005aa720",
+   "symbol": "?MultiplayerGameMode_ctor_005b6cd0@Callee_005b6cd0@seed_005aa720@@QAEXIIIIEI@Z",
+   "target": "005b6cd0",
+   "function_entry": true
+  },
+  {
+   "site": "005ab5a0",
+   "symbol": "?FUN_005b6cd0@Callee_005b6cd0@seed_005ab5a0@@QAEXIIIIEI@Z",
+   "target": "005b6cd0",
+   "function_entry": true
+  },
+  {
+   "site": "005ac330",
+   "symbol": "??0MultiplayerGameMode@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z",
+   "target": "005b6cd0",
+   "function_entry": true
+  },
+  {
+   "site": "005a7060",
+   "symbol": "??0MultiplayerGameMode@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z",
+   "target": "005b6cd0",
+   "function_entry": true
+  },
+  {
+   "site": "005ac390",
+   "symbol": "?CheckStartConditions_005b73a0@seed_005ac390@@YGIH@Z",
+   "target": "005b73a0",
+   "function_entry": true
+  },
+  {
+   "site": "005a2320",
+   "symbol": "??0MultiplayerGameMode@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z",
+   "target": "005b6cd0",
+   "function_entry": true
+  },
+  {
+   "site": "005a70a0",
+   "symbol": "??1MultiplayerGameMode@@UAE@XZ",
+   "target": "005b6e20",
+   "function_entry": true
+  },
+  {
+   "site": "005a70b0",
+   "symbol": "?AssignTeams@MultiplayerGameMode@@UAE_NXZ",
+   "target": "005b7350",
+   "function_entry": true
+  },
+  {
+   "site": "005a7110",
+   "symbol": "?AssignTeamsAtStart@MultiplayerGameMode@@UAE_NXZ",
+   "target": "005b73d0",
+   "function_entry": true
+  },
+  {
+   "site": "005a7150",
+   "symbol": "?GetTeam@MultiplayerGameMode@@QAEPAVMultiplayerTeam@@H@Z",
+   "target": "005b76b0",
+   "function_entry": true
+  },
+  {
+   "site": "005a7150",
+   "symbol": "?GetTeam@MultiplayerGameMode@@QAEPAVMultiplayerTeam@@H@Z",
+   "target": "005b76b0",
+   "function_entry": true
+  },
+  {
+   "site": "005ab5f0",
+   "symbol": "?AssignTeams@MultiplayerGameMode@@UAE_NXZ",
+   "target": "005b7350",
+   "function_entry": true
+  },
+  {
+   "site": "005ab640",
+   "symbol": "?CheckStartConditions@MultiplayerGameMode@@UAE_NPAVWideString@@@Z",
+   "target": "005b73a0",
+   "function_entry": true
+  },
+  {
+   "site": "005ab740",
+   "symbol": "?AssignTeamsAtStart@MultiplayerGameMode@@UAE_NXZ",
+   "target": "005b73d0",
+   "function_entry": true
+  },
+  {
+   "site": "005ab760",
+   "symbol": "?UnfixAlliances@MultiplayerGameMode@@UAE_NXZ",
+   "target": "005b7820",
+   "function_entry": true
+  },
+  {
+   "site": "006525f0",
+   "symbol": "?Unknown_005B6F80@@YAHXZ",
+   "target": "005b6f80",
+   "function_entry": true
+  },
+  {
+   "site": "006525f0",
+   "symbol": "?Unknown_005B6FE0@@YIPAVUnknownSessionA3D29C@@H@Z",
+   "target": "005b6fe0",
+   "function_entry": true
+  },
+  {
+   "site": "006525f0",
+   "symbol": "?unknown_ini_005b7840@UnknownSessionA3D29C@@QAEPAVCCINIClass@@XZ",
+   "target": "005b7840",
+   "function_entry": true
+  },
+  {
+   "site": "0065e8c0",
+   "symbol": "?Unknown_005B7CE0@UnknownSessionA3D29C@@QAEXXZ",
+   "target": "005b7ce0",
+   "function_entry": true
+  },
+  {
+   "site": "006433a0",
+   "symbol": "?unknown_ini_005b7840@UnknownSessionA3D29C@@QAEPAVCCINIClass@@XZ",
+   "target": "005b7840",
+   "function_entry": true
+  },
+  {
+   "site": "00660320",
+   "symbol": "??0?$VectorClass@PAVUnitTypeClass@@@@QAE@IPBQAVUnitTypeClass@@@Z",
+   "target": "005b9840",
+   "function_entry": true
+  },
+  {
+   "site": "00660320",
+   "symbol": "??0?$VectorClass@PAVInfantryTypeClass@@@@QAE@IPBQAVInfantryTypeClass@@@Z",
+   "target": "005b9890",
+   "function_entry": true
+  },
+  {
+   "site": "005a2b50",
+   "symbol": "??1MultiplayerGameMode@@UAE@XZ",
+   "target": "005b6e20",
+   "function_entry": true
+  },
+  {
+   "site": "005a32e0",
+   "symbol": "?CheckStartConditions@MultiplayerGameMode@@UAE_NPAVWideString@@@Z",
+   "target": "005b73a0",
+   "function_entry": true
+  },
+  {
+   "site": "005a46a0",
+   "symbol": "?unknown_slot29@MultiplayerGameMode@@UAE_NXZ",
+   "target": "005b8470",
+   "function_entry": true
+  },
+  {
+   "site": "005a2960",
+   "symbol": "??0MultiplayerGameMode@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z",
+   "target": "005b6cd0",
+   "function_entry": true
+  },
+  {
+   "site": "005a70c0",
+   "symbol": "?CheckStartConditions@MultiplayerGameMode@@UAE_NPAVWideString@@@Z",
+   "target": "005b73a0",
+   "function_entry": true
+  },
+  {
+   "site": "005aba80",
+   "symbol": "?SpawnBaseUnits@MultiplayerGameMode@@UAE_NPAVHouseClass@@PAH@Z",
+   "target": "005b7f90",
+   "function_entry": true
+  },
+  {
+   "site": "005aba80",
+   "symbol": "?SpawnBaseUnits@MultiplayerGameMode@@UAE_NPAVHouseClass@@PAH@Z",
+   "target": "005b7f90",
+   "function_entry": true
+  },
+  {
+   "site": "0066f1f0",
+   "symbol": "?unknown_first_mode_5b6ec0@MultiplayerGameMode@@SAPAV1@XZ",
+   "target": "005b6ec0",
+   "function_entry": true
+  },
+  {
+   "site": "005c34d0",
+   "symbol": "?unknown_find_mode_5b6fe0@MultiplayerGameMode@@SIPAV1@H@Z",
+   "target": "005b6fe0",
+   "function_entry": true
+  },
+  {
+   "site": "005c34d0",
+   "symbol": "?unknown_first_mode_5b6ec0@MultiplayerGameMode@@SAPAV1@XZ",
+   "target": "005b6ec0",
+   "function_entry": true
+  },
+  {
+   "site": "0066f3a0",
+   "symbol": "?unknown_find_mode_5b6fe0@MultiplayerGameMode@@SIPAV1@H@Z",
+   "target": "005b6fe0",
+   "function_entry": true
+  },
+  {
+   "site": "0066f3a0",
+   "symbol": "?unknown_first_mode_5b6ec0@MultiplayerGameMode@@SAPAV1@XZ",
+   "target": "005b6ec0",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?unknown_init_modes_5b8bd0@MultiplayerGameMode@@SIXXZ",
+   "target": "005b8bd0",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?unknown_first_mode_5b6ec0@MultiplayerGameMode@@SAPAV1@XZ",
+   "target": "005b6ec0",
+   "function_entry": true
+  },
+  {
+   "site": "00683fc0",
+   "symbol": "?unknown_mode_count_5b6f80@MultiplayerGameMode@@SAHXZ",
+   "target": "005b6f80",
+   "function_entry": true
+  },
+  {
+   "site": "00683fc0",
+   "symbol": "?unknown_first_mode_5b6ec0@MultiplayerGameMode@@SAPAV1@XZ",
+   "target": "005b6ec0",
+   "function_entry": true
+  },
+  {
+   "site": "00683fc0",
+   "symbol": "?unknown_5b7470@MultiplayerGameMode@@QAE_NPAVMultiMission@@@Z",
+   "target": "005b7470",
+   "function_entry": true
+  },
+  {
+   "site": "00683fc0",
+   "symbol": "?unknown_first_mode_5b6ec0@MultiplayerGameMode@@SAPAV1@XZ",
+   "target": "005b6ec0",
+   "function_entry": true
+  },
+  {
+   "site": "006829f0",
+   "symbol": "?unknown_find_mode_5b6fe0@MultiplayerGameMode@@SIPAV1@H@Z",
+   "target": "005b6fe0",
+   "function_entry": true
+  },
+  {
+   "site": "006829f0",
+   "symbol": "?unknown_first_mode_5b6ec0@MultiplayerGameMode@@SAPAV1@XZ",
+   "target": "005b6ec0",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?unknown_first_mode_5b6ec0@MultiplayerGameMode@@SAPAV1@XZ",
+   "target": "005b6ec0",
+   "function_entry": true
+  },
+  {
+   "site": "007459a0",
+   "symbol": "?unknown_first_mode_5b6ec0@MultiplayerGameMode@@SAPAV1@XZ",
+   "target": "005b6ec0",
+   "function_entry": true
+  },
+  {
+   "site": "005cca30",
+   "symbol": "?unknown_mode_count_5b6f80@MultiplayerGameMode@@SAHXZ",
+   "target": "005b6f80",
+   "function_entry": true
+  },
+  {
+   "site": "005cca30",
+   "symbol": "?unknown_first_mode_5b6ec0@MultiplayerGameMode@@SAPAV1@XZ",
+   "target": "005b6ec0",
+   "function_entry": true
+  },
+  {
+   "site": "005cca30",
+   "symbol": "?unknown_find_mode_5b6fe0@MultiplayerGameMode@@SIPAV1@H@Z",
+   "target": "005b6fe0",
+   "function_entry": true
+  },
+  {
+   "site": "005cca30",
+   "symbol": "?unknown_first_mode_5b6ec0@MultiplayerGameMode@@SAPAV1@XZ",
+   "target": "005b6ec0",
+   "function_entry": true
+  },
+  {
+   "site": "005cca30",
+   "symbol": "?unknown_first_mode_5b6ec0@MultiplayerGameMode@@SAPAV1@XZ",
+   "target": "005b6ec0",
+   "function_entry": true
+  },
+  {
+   "site": "005cca30",
+   "symbol": "?unknown_find_mode_5b6fe0@MultiplayerGameMode@@SIPAV1@H@Z",
+   "target": "005b6fe0",
+   "function_entry": true
+  },
+  {
+   "site": "005cca30",
+   "symbol": "?unknown_first_mode_5b6ec0@MultiplayerGameMode@@SAPAV1@XZ",
+   "target": "005b6ec0",
+   "function_entry": true
+  },
+  {
+   "site": "005cca30",
+   "symbol": "?unknown_5b7470@MultiplayerGameMode@@QAE_NPAVMultiMission@@@Z",
+   "target": "005b7470",
+   "function_entry": true
+  },
+  {
+   "site": "005cca30",
+   "symbol": "?unknown_first_mode_5b6ec0@MultiplayerGameMode@@SAPAV1@XZ",
+   "target": "005b6ec0",
+   "function_entry": true
+  },
+  {
+   "site": "0068e280",
+   "symbol": "?unknown_delete_modes_5b8d40@MultiplayerGameMode@@SAXXZ",
+   "target": "005b8d40",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0CCFileClass@@QAE@ABVWstring@@@Z",
+   "address": "00468f90"
+  },
+  {
+   "symbol": "??0CCFileClass@@QAE@PBD@Z",
+   "address": "00468f50"
+  },
+  {
+   "symbol": "??0CampaignEndScoreClass@@QAE@XZ",
+   "address": "00467200"
+  },
+  {
+   "symbol": "??0CampaignScoreClass@@QAE@XZ",
+   "address": "00465bf0"
+  },
+  {
+   "symbol": "??0CoopCampaignClass@@QAE@PBG0@Z",
+   "address": "0048e090"
+  },
+  {
+   "symbol": "??0CoopCampaignClass@@QAE@XZ",
+   "address": "0048e040"
+  },
+  {
+   "symbol": "??0FreeForAll@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z",
+   "address": "005a7060"
+  },
+  {
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "address": "00523410"
+  },
+  {
+   "symbol": "??0MultiplayerBattle@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z",
+   "address": "005a2320"
+  },
+  {
+   "symbol": "??0MultiplayerManBattle@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z",
+   "address": "005a74b0"
+  },
+  {
+   "symbol": "??0MultiplayerObserverTeam@@QAE@XZ",
+   "address": "005aa7b0"
+  },
+  {
+   "symbol": "??0MultiplayerSiege@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z",
+   "address": "005ab5a0"
+  },
+  {
+   "symbol": "??0UnholyAlliance@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z",
+   "address": "005ac330"
+  },
+  {
+   "symbol": "??0UnitClass@@QAE@PAVUnitTypeClass@@PAVHouseClass@@@Z",
+   "address": "006fa400"
+  },
+  {
+   "symbol": "??0UnknownDescriptionList_00490E00@@QAE@XZ",
+   "address": "00490510"
+  },
+  {
+   "symbol": "??0WideString@@QAE@ABV0@@Z",
+   "address": "0076fa10"
+  },
+  {
+   "symbol": "??0WideString@@QAE@PBG@Z",
+   "address": "0076f9c0"
+  },
+  {
+   "symbol": "??0Wstring@@QAE@ABV0@@Z",
+   "address": "0076d980"
+  },
+  {
+   "symbol": "??0Wstring@@QAE@PBD@Z",
+   "address": "0076d920"
+  },
+  {
+   "symbol": "??0Wstring@@QAE@XZ",
+   "address": "0076d910"
+  },
+  {
+   "symbol": "??1Buffer@@QAE@XZ",
+   "address": "00438410"
+  },
+  {
+   "symbol": "??1BufferIOFileClass@@UAE@XZ",
+   "address": "0042f350"
+  },
+  {
+   "symbol": "??1CoopCampaignClass@@QAE@XZ",
+   "address": "0048e150"
+  },
+  {
+   "symbol": "??1INIClass@@UAE@XZ",
+   "address": "0050b8d0"
+  },
+  {
+   "symbol": "??1MPCooperative@@UAE@XZ",
+   "address": "005a2b50"
+  },
+  {
+   "symbol": "??1WideString@@QAE@XZ",
+   "address": "0076fa50"
+  },
+  {
+   "symbol": "??1Wstring@@QAE@XZ",
+   "address": "0076d9e0"
+  },
+  {
+   "symbol": "??1rc_ptr_base@@UAE@XZ",
+   "address": "00639510"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+   "address": "005235d0"
+  },
+  {
+   "symbol": "??BSystemTimerClass@@QBEJXZ",
+   "address": "0069a430"
+  },
+  {
+   "symbol": "??RRandom2Class@@QAEHHH@Z",
+   "address": "006388a0"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@H@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAG@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAUNodeNameType@@@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVCoopCampaignClass@@@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVInfantryTypeClass@@@@UAEPAXI@Z",
+   "address": "004dd130"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVMPlayerScoreType@@@@UAEPAXI@Z",
+   "address": "005a6360"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVMultiplayerGameMode@@@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVMultiplayerTeam@@@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVUnitTypeClass@@@@UAEPAXI@Z",
+   "address": "004dcff0"
+  },
+  {
+   "symbol": "??_G?$List@PAUINISection@INIClass@@@@UAEPAXI@Z",
+   "address": "0040e300"
+  },
+  {
+   "symbol": "??_G?$VectorClass@H@@UAEPAXI@Z",
+   "address": "0046da70"
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAG@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAUNodeNameType@@@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVCoopCampaignClass@@@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVInfantryTypeClass@@@@UAEPAXI@Z",
+   "address": "004dd0e0"
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVMPlayerScoreType@@@@UAEPAXI@Z",
+   "address": "005a6bf0"
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVMultiplayerGameMode@@@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVMultiplayerTeam@@@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVUnitTypeClass@@@@UAEPAXI@Z",
+   "address": "004dcfa0"
+  },
+  {
+   "symbol": "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "??_G?$VectorClass@VCell@@@@UAEPAXI@Z",
+   "address": "0042d390"
+  },
+  {
+   "symbol": "??_GCCFileClass@@UAEPAXI@Z",
+   "address": "004019a0"
+  },
+  {
+   "symbol": "??_GCCINIClass@@UAEPAXI@Z",
+   "address": "0040e2e0"
+  },
+  {
+   "symbol": "??_GCDFileClass@@UAEPAXI@Z",
+   "address": "00401950"
+  },
+  {
+   "symbol": "??_GGenericList@@UAEPAXI@Z",
+   "address": "0040e220"
+  },
+  {
+   "symbol": "??_GGenericNode@@UAEPAXI@Z",
+   "address": "0040e1d0"
+  },
+  {
+   "symbol": "??_GINIClass@@UAEPAXI@Z",
+   "address": "004deef0"
+  },
+  {
+   "symbol": "??_GInitializerBase@MultiplayerGameMode@@UAEPAXI@Z",
+   "address": "005b8ec0"
+  },
+  {
+   "symbol": "??_GMPCooperative@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "?Add_Message@UnknownMessageList@@QAEXPBGH0HIH_N@Z",
+   "address": "005b4da0"
+  },
+  {
+   "symbol": "?Add_Score_0048f730@CoopCampaignClass@@QAE_NHHVMPlayerScoreType@@0@Z",
+   "address": "0048f730"
+  },
+  {
+   "symbol": "?As_Integer@Wstring@@QBEHXZ",
+   "address": "0076f570"
+  },
+  {
+   "symbol": "?CheckStartConditions@MPCooperative@@UAE_NPAVWideString@@@Z",
+   "address": "005a32e0"
+  },
+  {
+   "symbol": "?Close@BufferIOFileClass@@UAEXXZ",
+   "address": "0042fda0"
+  },
+  {
+   "symbol": "?Close@CCFileClass@@UAEXXZ",
+   "address": "004691f0"
+  },
+  {
+   "symbol": "?Compare_Narrow_00781f20@@YAHPBD0@Z",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "?Compare_Wide_007837d3@@YAHPBG0@Z",
+   "address": "007837d3"
+  },
+  {
+   "symbol": "?Connection_ID@IPXManagerClass@@UAEHH@Z",
+   "address": "005256e0"
+  },
+  {
+   "symbol": "?Copy_Names@UnknownDescriptionList_00490E00@@QAE_NAAV?$DynamicVectorClass@PAG@@@Z",
+   "address": "00490e00"
+  },
+  {
+   "symbol": "?Create@RawFileClass@@UAEHXZ",
+   "address": "00639200"
+  },
+  {
+   "symbol": "?Current_Dialog_Id_00735b20@@YAHXZ",
+   "address": "00735b20"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Delete@RawFileClass@@UAEHXZ",
+   "address": "00639240"
+  },
+  {
+   "symbol": "?Delete_Connection@IPXManagerClass@@QAEHH@Z",
+   "address": "00525640"
+  },
+  {
+   "symbol": "?DoList@@3V?$QueueClass@VEventClass@@$0EAAA@@@A",
+   "address": "00866270"
+  },
+  {
+   "symbol": "?Enable@ToolTipManager@@QAEX_N@Z",
+   "address": "006eb480"
+  },
+  {
+   "symbol": "?Entry_Count@INIClass@@QBEHABVWstring@@@Z",
+   "address": "0050cbd0"
+  },
+  {
+   "symbol": "?Error@CCFileClass@@UAEXHHPBD@Z",
+   "address": "00469000"
+  },
+  {
+   "symbol": "?Error@RawFileClass@@UAEXHHPBD@Z",
+   "address": "00638b30"
+  },
+  {
+   "symbol": "?FUN_00781d3b@seed_005b8ec0@@YAXI@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?FUN_00781d3b@seed_005b9000@@YAXI@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?Fill_Side_Combos_4d16d0@@YIXPAUHWND__@@@Z",
+   "address": "004d16d0"
+  },
+  {
+   "symbol": "?Find_Country_Index_004904A0@@YIHPBD@Z",
+   "address": "004904a0"
+  },
+  {
+   "symbol": "?Find_Section@INIClass@@QBEPAUINISection@1@PBD@Z",
+   "address": "0050c9b0"
+  },
+  {
+   "symbol": "?Free_Pointers_005a7480@@YIXPAV?$DynamicVectorClass@PAUNodeNameType@@@@@Z",
+   "address": "005a7480"
+  },
+  {
+   "symbol": "?Gadget_Color_Scheme@@YAHXZ",
+   "address": "004cefc0"
+  },
+  {
+   "symbol": "?Get@Wstring@@QBEPBDXZ",
+   "address": "0076e6f0"
+  },
+  {
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0PAG@Z",
+   "address": "005234c0"
+  },
+  {
+   "symbol": "?Get_Campaign_Type_0048e6b0@CoopCampaignClass@@QAE_NPAH@Z",
+   "address": "0048e6b0"
+  },
+  {
+   "symbol": "?Get_Color_0066e2b0@NodeNameType@@QAEHXZ",
+   "address": "0066e2b0"
+  },
+  {
+   "symbol": "?Get_Count_00490C90@UnknownDescriptionList_00490E00@@QBE_NPAH@Z",
+   "address": "00490c90"
+  },
+  {
+   "symbol": "?Get_Current_Map_0048e6f0@CoopCampaignClass@@QAE_NPAH@Z",
+   "address": "0048e6f0"
+  },
+  {
+   "symbol": "?Get_Date_Time@CCFileClass@@UAEKXZ",
+   "address": "00469350"
+  },
+  {
+   "symbol": "?Get_Date_Time@RawFileClass@@UAEKXZ",
+   "address": "006392a0"
+  },
+  {
+   "symbol": "?Get_Entry@INIClass@@QBE?AVWstring@@ABV2@H@Z",
+   "address": "0050ced0"
+  },
+  {
+   "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+   "address": "0050d7f0"
+  },
+  {
+   "symbol": "?Get_Lobby_Dialog_005c2c40@@YAPAUHWND__@@XZ",
+   "address": "005c2c40"
+  },
+  {
+   "symbol": "?Get_Map_Count_0048e6d0@CoopCampaignClass@@QAE_NPAH@Z",
+   "address": "0048e6d0"
+  },
+  {
+   "symbol": "?Get_Map_Name_0048fb40@CoopCampaignClass@@QAE_NPAPADH@Z",
+   "address": "0048fb40"
+  },
+  {
+   "symbol": "?Get_Player_Scores_0048e710@CoopCampaignClass@@QAE_NAAV?$DynamicVectorClass@PAVMPlayerScoreType@@@@PAH@Z",
+   "address": "0048e710"
+  },
+  {
+   "symbol": "?Get_Record_00490C50@UnknownDescriptionList_00490E00@@QAE_NHPAPAUUnknownDescriptionRecord_00490E00@@@Z",
+   "address": "00490c50"
+  },
+  {
+   "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+   "address": "0050eb40"
+  },
+  {
+   "symbol": "?Get_Token@Wstring@@QBEHHPBDAAV1@@Z",
+   "address": "0076f200"
+  },
+  {
+   "symbol": "?Has_Saved_Campaign_0048fbf0@CoopCampaignClass@@QAE_NXZ",
+   "address": "0048fbf0"
+  },
+  {
+   "symbol": "?HouseTypes@@3V?$DynamicVectorClass@PAVHouseTypeClass@@@@A",
+   "address": "00a35d08"
+  },
+  {
+   "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+   "address": "00a32298"
+  },
+  {
+   "symbol": "?InfantryTypes@@3V?$DynamicVectorClass@PAVInfantryTypeClass@@@@A",
+   "address": "00a40350"
+  },
+  {
+   "symbol": "?IsAIAllowed@MPCooperative@@UAE_NXZ",
+   "address": null
+  },
+  {
+   "symbol": "?Is_Available@BufferIOFileClass@@UAE_NH@Z",
+   "address": "0042f6e0"
+  },
+  {
+   "symbol": "?Is_Available@CCFileClass@@UAE_NH@Z",
+   "address": "004691a0"
+  },
+  {
+   "symbol": "?Is_Human_Player@HouseClass@@QAE_NXZ",
+   "address": "004f52f0"
+  },
+  {
+   "symbol": "?Is_Open@BufferIOFileClass@@UBE_NXZ",
+   "address": "0042f700"
+  },
+  {
+   "symbol": "?Is_Open@CCFileClass@@UBE_NXZ",
+   "address": "004691e0"
+  },
+  {
+   "symbol": "?Length@WideString@@QBEIXZ",
+   "address": "007704a0"
+  },
+  {
+   "symbol": "?Length@Wstring@@QBEIXZ",
+   "address": "0076e7a0"
+  },
+  {
+   "symbol": "?Load@CCINIClass@@QAEHAAVFileClass@@_N1@Z",
+   "address": "004696b0"
+  },
+  {
+   "symbol": "?Load@INIClass@@QAEHAAVFileClass@@_N@Z",
+   "address": "0050bbe0"
+  },
+  {
+   "symbol": "?Load_Campaign_0048f590@CoopCampaignClass@@QAE_NH@Z",
+   "address": "0048f590"
+  },
+  {
+   "symbol": "?Load_Saved_Campaign_0048eb30@CoopCampaignClass@@QAE_NXZ",
+   "address": "0048eb30"
+  },
+  {
+   "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
+   "address": "006f9ec0"
+  },
+  {
+   "symbol": "?Make_Ally@HouseClass@@QAEXPAV1@_N@Z",
+   "address": "004e5660"
+  },
+  {
+   "symbol": "?Map@@3VMouseClass@@A",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "?Multiplayer_Start_Waypoints_0065fff0@@YI?AV?$DynamicVectorClass@VCell@@@@_N@Z",
+   "address": "0065fff0"
+  },
+  {
+   "symbol": "?Next_Map_0048e360@CoopCampaignClass@@QAE_NXZ",
+   "address": "0048e360"
+  },
+  {
+   "symbol": "?Num_Connections@IPXManagerClass@@UAEHXZ",
+   "address": "005256d0"
+  },
+  {
+   "symbol": "?Open@CCFileClass@@UAEHH@Z",
+   "address": "00469220"
+  },
+  {
+   "symbol": "?Open@CCFileClass@@UAEHPBDH@Z",
+   "address": "00401980"
+  },
+  {
+   "symbol": "?Open@CDFileClass@@UAEHH@Z",
+   "address": "0046fe10"
+  },
+  {
+   "symbol": "?Open@CDFileClass@@UAEHPBDH@Z",
+   "address": "00470250"
+  },
+  {
+   "symbol": "?Options@@3VOptionsClass@@A",
+   "address": "00a40b18"
+  },
+  {
+   "symbol": "?OutList@@3V?$QueueClass@VEventClass@@$0IA@@@A",
+   "address": "00a32338"
+  },
+  {
+   "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
+   "address": "00839c50"
+  },
+  {
+   "symbol": "?Player_Side_Combo_ID_4d1350@@YIHH@Z",
+   "address": "004d1350"
+  },
+  {
+   "symbol": "?PopulateTeamDropdownForPlayer@MPCooperative@@UAEXPAUHWND__@@H@Z",
+   "address": null
+  },
+  {
+   "symbol": "?Read@BufferIOFileClass@@UAEJPAXJ@Z",
+   "address": "0042fa80"
+  },
+  {
+   "symbol": "?Read@CCFileClass@@UAEJPAXJ@Z",
+   "address": "00469060"
+  },
+  {
+   "symbol": "?Refund_Money@HouseClass@@QAEXH@Z",
+   "address": "004e5440"
+  },
+  {
+   "symbol": "?Rules@@3PAVRulesClass@@A",
+   "address": "00839848"
+  },
+  {
+   "symbol": "?Save_Campaign_0048f040@CoopCampaignClass@@QAE_NXZ",
+   "address": "0048f040"
+  },
+  {
+   "symbol": "?Saved_Map_Is_Undefined_0048fe70@CoopCampaignClass@@QAE_NPAD@Z",
+   "address": "0048fe70"
+  },
+  {
+   "symbol": "?Seed@@3IA",
+   "address": "00a40d3c"
+  },
+  {
+   "symbol": "?Seek@BufferIOFileClass@@UAEJJH@Z",
+   "address": "0042fc90"
+  },
+  {
+   "symbol": "?Seek@CCFileClass@@UAEJJH@Z",
+   "address": "004690f0"
+  },
+  {
+   "symbol": "?Select_Scenario_005c7c30@@YI_NH@Z",
+   "address": "005c7c30"
+  },
+  {
+   "symbol": "?Select_Side_Combo_4d1a90@@YIXPAUHWND__@@HH@Z",
+   "address": "004d1a90"
+  },
+  {
+   "symbol": "?Selected_Campaign_005c67a0@@YAHXZ",
+   "address": "005c67a0"
+  },
+  {
+   "symbol": "?Send_Campaign_Options_00490150@CoopCampaignClass@@QAE_NAAVUnknownDescriptionList_00490E00@@@Z",
+   "address": "00490150"
+  },
+  {
+   "symbol": "?Send_Game_Options_005c3c60@@YIXPBD@Z",
+   "address": "005c3c60"
+  },
+  {
+   "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+   "address": "00523480"
+  },
+  {
+   "symbol": "?Set_Campaign_Info_0048f7d0@CoopCampaignClass@@QAE_NABVUnknownDescriptionList_00490E00@@HV?$DynamicVectorClass@H@@PBD2@Z",
+   "address": "0048f7d0"
+  },
+  {
+   "symbol": "?Set_Date_Time@CCFileClass@@UAE_NK@Z",
+   "address": "00469400"
+  },
+  {
+   "symbol": "?Set_Date_Time@RawFileClass@@UAE_NK@Z",
+   "address": "006392f0"
+  },
+  {
+   "symbol": "?Set_Elite@VeterancyClass@@QAEX_N@Z",
+   "address": "00713550"
+  },
+  {
+   "symbol": "?Set_Name@CDFileClass@@UAEPBDPBD@Z",
+   "address": "00470150"
+  },
+  {
+   "symbol": "?Set_Names@CoopCampaignClass@@QAEXPBG0@Z",
+   "address": "0048e190"
+  },
+  {
+   "symbol": "?Set_Timing@IPXManagerClass@@UAEXKKK_N@Z",
+   "address": "005253a0"
+  },
+  {
+   "symbol": "?Size@BufferIOFileClass@@UAEJXZ",
+   "address": "0042fd80"
+  },
+  {
+   "symbol": "?Size@CCFileClass@@UAEJXZ",
+   "address": "00469150"
+  },
+  {
+   "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+   "address": "008399b0"
+  },
+  {
+   "symbol": "?Trim_Leading@Wstring@@QAEXABV1@@Z",
+   "address": "0076e4c0"
+  },
+  {
+   "symbol": "?Trim_Trailing@Wstring@@QAEXABV1@@Z",
+   "address": "0076e520"
+  },
+  {
+   "symbol": "?UnitTypes@@3V?$DynamicVectorClass@PAVUnitTypeClass@@@@A",
+   "address": "00a35d48"
+  },
+  {
+   "symbol": "?Unknown_00498F10@DisplayClass@@QAEXPBVCell@@@Z",
+   "address": "00498f10"
+  },
+  {
+   "symbol": "?Unknown_004EF6F0@HouseClass@@QAEPAVUnitTypeClass@@ABV?$TypeList@PAVUnitTypeClass@@@@@Z",
+   "address": "004ef6f0"
+  },
+  {
+   "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
+   "address": "005c2c80"
+  },
+  {
+   "symbol": "?Unknown_005c3450@@YIXPAUHWND__@@PAVMultiplayerGameMode@@@Z",
+   "address": "005c3450"
+  },
+  {
+   "symbol": "?Unknown_005c34b0@@YIXPAUHWND__@@@Z",
+   "address": "005c34b0"
+  },
+  {
+   "symbol": "?Unknown_005c3810@@YIX_N0@Z",
+   "address": "005c3810"
+  },
+  {
+   "symbol": "?Unknown_005c6600@@YIHH@Z",
+   "address": "005c6600"
+  },
+  {
+   "symbol": "?Unknown_005c7570@@YIXPAUHWND__@@@Z",
+   "address": "005c7570"
+  },
+  {
+   "symbol": "?Unknown_005cb170@@YIXPAUHWND__@@H@Z",
+   "address": "005cb170"
+  },
+  {
+   "symbol": "?Unknown_0063FC90@OwnerTalkClass@@QAEXXZ",
+   "address": "0063fc90"
+  },
+  {
+   "symbol": "?Unknown_00660b60@@YIHPAVObjectClass@@AAVCell@@H@Z",
+   "address": "00660b60"
+  },
+  {
+   "symbol": "?Unknown_006720C0@MultiMission@@QAE_NXZ",
+   "address": "006720c0"
+  },
+  {
+   "symbol": "?Unknown_006720E0@MultiMission@@QAE_NAAVWstring@@@Z",
+   "address": "006720e0"
+  },
+  {
+   "symbol": "?Unknown_00672940@SessionClass@@QAEHXZ",
+   "address": "00672940"
+  },
+  {
+   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
+   "address": "00735b10"
+  },
+  {
+   "symbol": "?Unknown_Pregame_Setup_005c74f0@@YAXXZ",
+   "address": "005c74f0"
+  },
+  {
+   "symbol": "?WS_Find_Dialog_00735940@@YIPAUHWND__@@H@Z",
+   "address": "00735940"
+  },
+  {
+   "symbol": "?Wide_To_Narrow_006fa120@@YIPADPBG@Z",
+   "address": "006fa120"
+  },
+  {
+   "symbol": "?Write@BufferIOFileClass@@UAEJPBXJ@Z",
+   "address": "0042f830"
+  },
+  {
+   "symbol": "?Write@CCFileClass@@UAEJPBXJ@Z",
+   "address": "00469030"
+  },
+  {
+   "symbol": "?cleanup@Leaf_5a62b0@@QAEXXZ",
+   "address": "005a2b50"
+  },
+  {
+   "symbol": "?player_statistics_00a3d584@@3PAUUnknownNetworkPlayerStatistics@@A",
+   "address": "00a3d584"
+  },
+  {
+   "symbol": "?target@Target_5a3f70@@QAEIII@Z",
+   "address": "005b75d0"
+  },
+  {
+   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
+   "address": "0066e290"
+  },
+  {
+   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
+   "address": "0066e2d0"
+  },
+  {
+   "symbol": "?unknown_73c370@@YA_NXZ",
+   "address": "0073c370"
+  },
+  {
+   "symbol": "?unknown_833680@@3HA",
+   "address": "00833680"
+  },
+  {
+   "symbol": "?unknown_833684@@3HA",
+   "address": "00833684"
+  },
+  {
+   "symbol": "?unknown_833688@@3HA",
+   "address": "00833688"
+  },
+  {
+   "symbol": "?unknown_OwnerTalkClass_00ab6d18@@3VOwnerTalkClass@@A",
+   "address": "00ab6d18"
+  },
+  {
+   "symbol": "?unknown_address_a3db2c@@3VIPXAddressClass@@A",
+   "address": "00a3db2c"
+  },
+  {
+   "symbol": "?unknown_b2a6d8@@3PADA",
+   "address": "00b2a6d8"
+  },
+  {
+   "symbol": "?unknown_b2a7ec@@3HA",
+   "address": "00b2a7ec"
+  },
+  {
+   "symbol": "?unknown_b2a7fc@@3HA",
+   "address": "00b2a7fc"
+  },
+  {
+   "symbol": "?unknown_b2ab84@@3IA",
+   "address": "00b2ab84"
+  },
+  {
+   "symbol": "?unknown_colors_a71118@@3PAHA",
+   "address": "00a71118"
+  },
+  {
+   "symbol": "?unknown_connection_a409c4@@3PAVConnectionClass@@A",
+   "address": "00a409c4"
+  },
+  {
+   "symbol": "?unknown_create_battle_team_005a2550@@YIPAVMultiplayerTeam@@H@Z",
+   "address": "005a2550"
+  },
+  {
+   "symbol": "?unknown_empty_wide_839d4c@@3QBGB",
+   "address": "00839d4c"
+  },
+  {
+   "symbol": "?unknown_flag_a3fba8@@3_NA",
+   "address": "00a3fba8"
+  },
+  {
+   "symbol": "?unknown_flag_a71a3c@@3_NA",
+   "address": "00a71a3c"
+  },
+  {
+   "symbol": "?unknown_flag_a71a3d@@3_NA",
+   "address": "00a71a3d"
+  },
+  {
+   "symbol": "?unknown_game_mode_a3d298@@3HA",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_house_setting_7d88d8@@3HA",
+   "address": "007d88d8"
+  },
+  {
+   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
+   "symbol": "?unknown_int_a3db1c@@3HA",
+   "address": "00a3db1c"
+  },
+  {
+   "symbol": "?unknown_ipx_manager_a40978@@3VIPXManagerClass@@A",
+   "address": "00a40978"
+  },
+  {
+   "symbol": "?unknown_lobby_flag_7e6d90@@3HA",
+   "address": "007e6d90"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_messages_a3dc70@@3UUnknownMessageList@@A",
+   "address": "00a3dc70"
+  },
+  {
+   "symbol": "?unknown_multi_missions_a3d8d8@@3V?$DynamicVectorClass@PAVMultiMission@@@@A",
+   "address": "00a3d8d8"
+  },
+  {
+   "symbol": "?unknown_pings_b2a734@@3PAHA",
+   "address": "00b2a734"
+  },
+  {
+   "symbol": "?unknown_player_slots_a3fa98@@3PAPAUNodeNameType@@A",
+   "address": "00a3fa98"
+  },
+  {
+   "symbol": "?unknown_players_a3fa7c@@3V?$DynamicVectorClass@PAUNodeNameType@@@@A",
+   "address": "00a3fa7c"
+  },
+  {
+   "symbol": "?unknown_protocol_7fd370@@3IA",
+   "address": "007fd370"
+  },
+  {
+   "symbol": "?unknown_reset_combo_6007f0@@YIXPAUHWND__@@@Z",
+   "address": "006007f0"
+  },
+  {
+   "symbol": "?unknown_score_850504@@3_NA",
+   "address": "00850504"
+  },
+  {
+   "symbol": "?unknown_session_a3d298@@3USessionClass@@A",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_session_a3d55c@@3HA",
+   "address": "00a3d55c"
+  },
+  {
+   "symbol": "?unknown_slot18@IPXManagerClass@@UAEXKKK@Z",
+   "address": "005254c0"
+  },
+  {
+   "symbol": "?unknown_slot1@MPCooperative@@UAE_NXZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot29@MPCooperative@@UAE_NXZ",
+   "address": "005a46a0"
+  },
+  {
+   "symbol": "?unknown_slot32@MPCooperative@@UAEHXZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot40@MPCooperative@@UAE_NXZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot9@MPCooperative@@UAEXXZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_squad_1_b2a820@@3PADA",
+   "address": "00b2a820"
+  },
+  {
+   "symbol": "?unknown_squad_2_b293d8@@3PADA",
+   "address": "00b293d8"
+  },
+  {
+   "symbol": "?unknown_string_83c55c@@3PADA",
+   "address": "0083c55c"
+  },
+  {
+   "symbol": "?unknown_team_count_a3d558@@3HA",
+   "address": "00a3d558"
+  },
+  {
+   "symbol": "?unknown_text_770430@WideString@@QBEPBGXZ",
+   "address": "00770430"
+  },
+  {
+   "symbol": "?unknown_text_839d4c@@3PADA",
+   "address": "00839d4c"
+  },
+  {
+   "symbol": "?unknown_wstring_b26cb8@@3VWstring@@A",
+   "address": "00b26cb8"
+  },
+  {
+   "symbol": "_PTR_FUN_007a72b0",
+   "address": "007a72b0"
+  },
+  {
+   "symbol": "_PTR_FUN_007a72b0",
+   "address": "007a72b0"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "___RTDynamicCast",
+   "address": "00783ce4"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__GetDlgItem@8",
+   "address": "0079a49c"
+  },
+  {
+   "symbol": "__imp__InvalidateRect@12",
+   "address": "0079a494"
+  },
+  {
+   "symbol": "__imp__SendMessageA@16",
+   "address": "0079a4a0"
+  },
+  {
+   "symbol": "__imp__ShowWindow@8",
+   "address": "0079a498"
+  },
+  {
+   "symbol": "__purecall",
+   "address": "004b8960"
+  },
+  {
+   "symbol": "__stricmp",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "__strnicmp",
+   "address": "007858d0"
+  },
+  {
+   "symbol": "__wcsicmp",
+   "address": "00796318"
+  },
+  {
+   "symbol": "_allocate_storage_005b95c0",
+   "address": "00782017"
+  },
+  {
+   "symbol": "_atexit",
+   "address": "0078298a"
+  },
+  {
+   "symbol": "_atoi",
+   "address": "00782d72"
+  },
+  {
+   "symbol": "_base_dispatch_005b95c0",
+   "address": "007a7198"
+  },
+  {
+   "symbol": "_derived_dispatch_005b95c0",
+   "address": "007a7178"
+  },
+  {
+   "symbol": "_memmove",
+   "address": "00783290"
+  },
+  {
+   "symbol": "_multiplayer_seed_log_7e60bc",
+   "address": "007e60bc"
+  },
+  {
+   "symbol": "_release_5a62b0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_5a6360",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_5a6bf0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_5a6c40",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_5a6c90",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_5a6ce0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_5a6d30",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_5b9700",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_5b9750",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_5b97a0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_5b97f0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_5a6360",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_5a6bf0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_5a6c40",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_5a6c90",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_5a6ce0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_5a6d30",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_5b9700",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_5b9750",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_5b97a0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_5b97f0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_sprintf",
+   "address": "007820f4"
+  },
+  {
+   "symbol": "_storage_5a6d80",
+   "address": "00782017"
+  },
+  {
+   "symbol": "_storage_5b9840",
+   "address": "00782017"
+  },
+  {
+   "symbol": "_storage_5b9890",
+   "address": "00782017"
+  },
+  {
+   "symbol": "_storage_5b98e0",
+   "address": "00782017"
+  },
+  {
+   "symbol": "_strncmp",
+   "address": "00783810"
+  },
+  {
+   "symbol": "_strtok",
+   "address": "00782ec2"
+  },
+  {
+   "symbol": "_swprintf",
+   "address": "00783764"
+  },
+  {
+   "symbol": "_table_5a6d80",
+   "address": "007a68c4"
+  },
+  {
+   "symbol": "_table_5b9840",
+   "address": "007a2804"
+  },
+  {
+   "symbol": "_table_5b9890",
+   "address": "007a2884"
+  },
+  {
+   "symbol": "_table_5b98e0",
+   "address": "007a7198"
+  },
+  {
+   "symbol": "_vtable_5a6360",
+   "address": "007a68c4"
+  },
+  {
+   "symbol": "_vtable_5a6bf0",
+   "address": "007a68c4"
+  },
+  {
+   "symbol": "_vtable_5a6c40",
+   "address": "007a6884"
+  },
+  {
+   "symbol": "_vtable_5a6c90",
+   "address": "007a6884"
+  },
+  {
+   "symbol": "_vtable_5a6ce0",
+   "address": "007a68a4"
+  },
+  {
+   "symbol": "_vtable_5a6d30",
+   "address": "007a68a4"
+  },
+  {
+   "symbol": "_vtable_5b9700",
+   "address": "007a7290"
+  },
+  {
+   "symbol": "_vtable_5b9750",
+   "address": "007a7290"
+  },
+  {
+   "symbol": "_vtable_5b97a0",
+   "address": "007a7198"
+  },
+  {
+   "symbol": "_vtable_5b97f0",
+   "address": "007a7198"
+  },
+  {
+   "symbol": "_wcscpy",
+   "address": "00783689"
+  }
+ ],
+ "route": "A",
+ "unit": "multiplayer.cpp",
+ "form": "lines in place",
+ "switches": [
+  "RA2_MPG_INITIALIZER_BASE_CONSTRUCTOR",
+  "RA2_MPGAME_START_OBJECTS",
+  "VECTOR_IMPLEMENT_ALL",
+  "VECTOR_IMPLEMENT_DYNAMIC_INSERT_AFTER",
+  "VECTOR_IMPLEMENT_VECTOR_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS",
+  "VECTOR_IMPLEMENT_VECTOR_DESTRUCTOR"
+ ],
+ "include_blocks": [],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "005b8bc0",
+   "bytes": 7,
+   "population": "population-2913",
+   "bound": "own frozen bound (population-2913)"
+  },
+  {
+   "entry": "005b8ec0",
+   "bytes": 32,
+   "population": "population-66",
+   "bound": "own frozen bound (population-66)"
+  },
+  {
+   "entry": "005b9000",
+   "bytes": 42,
+   "population": "population-130",
+   "bound": "own frozen bound (population-130)"
+  },
+  {
+   "entry": "005b95c0",
+   "bytes": 93,
+   "population": "population-28",
+   "bound": "own frozen bound (population-28)"
+  },
+  {
+   "entry": "005b9700",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)"
+  },
+  {
+   "entry": "005b9750",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)"
+  },
+  {
+   "entry": "005b97a0",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)"
+  },
+  {
+   "entry": "005b97f0",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)"
+  },
+  {
+   "entry": "005b9840",
+   "bytes": 74,
+   "population": "population-22",
+   "bound": "own frozen bound (population-22)"
+  },
+  {
+   "entry": "005b9890",
+   "bytes": 74,
+   "population": "population-22",
+   "bound": "own frozen bound (population-22)"
+  },
+  {
+   "entry": "005b98e0",
+   "bytes": 74,
+   "population": "population-16",
+   "bound": "own frozen bound (population-16)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "005b8fa0",
+   "bytes": 42,
+   "population": "population-1597",
+   "source": "src/recovered/classes/DynamicVectorClass_MultiplayerTeam_ptr/Clear.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005b8fd0",
+   "bytes": 27,
+   "population": "population-1597",
+   "source": "src/recovered/classes/DynamicVectorClass_MultiplayerTeam_ptr/DynamicVectorClass_MultiplayerTeam_ptr_ID_pointer_005b8fd0.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005b8ff0",
+   "bytes": 13,
+   "population": "population-1597",
+   "source": "src/recovered/classes/VectorClass_MultiplayerTeam_ptr/Fetch.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005b9050",
+   "bytes": 13,
+   "population": "population-1597",
+   "source": "src/recovered/classes/VectorClass_MultiplayerGameMode_ptr/Fetch.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005b91e0",
+   "bytes": 62,
+   "population": "population-1597",
+   "source": "src/recovered/classes/VectorClass_MultiplayerTeam_ptr/operator_equal.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005b9220",
+   "bytes": 174,
+   "population": "population-1597",
+   "source": "src/recovered/classes/VectorClass_MultiplayerTeam_ptr/Resize.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005b92d0",
+   "bytes": 39,
+   "population": "population-1597",
+   "source": "src/recovered/classes/VectorClass_MultiplayerTeam_ptr/Clear.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005b9300",
+   "bytes": 51,
+   "population": "population-1597",
+   "source": "src/recovered/classes/VectorClass_MultiplayerTeam_ptr/VectorClass_MultiplayerTeam_ptr_ID_object_005b9300.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005b9340",
+   "bytes": 27,
+   "population": "population-1597",
+   "source": "src/recovered/classes/VectorClass_MultiplayerTeam_ptr/VectorClass_MultiplayerTeam_ptr_ID_pointer_005b9340.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005b9360",
+   "bytes": 176,
+   "population": "population-1597",
+   "source": "src/recovered/classes/DynamicVectorClass_MultiplayerTeam_ptr/Resize.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005b9410",
+   "bytes": 38,
+   "population": "population-1597",
+   "source": "src/recovered/classes/DynamicVectorClass_MultiplayerTeam_ptr/DynamicVectorClass_MultiplayerTeam_ptr_ID_object_005b9410.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005b9440",
+   "bytes": 62,
+   "population": "population-1597",
+   "source": "src/recovered/classes/VectorClass_MultiplayerGameMode_ptr/operator_equal.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005b9480",
+   "bytes": 174,
+   "population": "population-1597",
+   "source": "src/recovered/classes/VectorClass_MultiplayerGameMode_ptr/Resize.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005b9530",
+   "bytes": 39,
+   "population": "population-1597",
+   "source": "src/recovered/classes/VectorClass_MultiplayerGameMode_ptr/Clear.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005b9560",
+   "bytes": 51,
+   "population": "population-1597",
+   "source": "src/recovered/classes/VectorClass_MultiplayerGameMode_ptr/VectorClass_MultiplayerGameMode_ptr_ID_object_005b9560.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005b95a0",
+   "bytes": 27,
+   "population": "population-1597",
+   "source": "src/recovered/classes/VectorClass_MultiplayerGameMode_ptr/VectorClass_MultiplayerGameMode_ptr_ID_pointer_005b95a0.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005b9620",
+   "bytes": 176,
+   "population": "population-1597",
+   "source": "src/recovered/classes/DynamicVectorClass_MultiplayerGameMode_ptr/Resize.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  },
+  {
+   "kind": "split",
+   "entry": "005b96d0",
+   "bytes": 38,
+   "population": "population-1597",
+   "source": "src/recovered/classes/DynamicVectorClass_MultiplayerGameMode_ptr/ID.cpp",
+   "cause": "frozen in another population's inventory pass (population-1597)"
+  }
+ ],
+ "unit_functions": 101,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVMultiplayerTeam@@@@6B@",
+   "reason": "relocation target unbound: ??_E?$DynamicVectorClass@PAVMultiplayerTeam@@@@UAEPAXI@Z"
+  },
+  {
+   "symbol": "??_7MPCooperative@@6B@",
+   "reason": "relocation target unbound: ??_EMPCooperative@@UAEPAXI@Z"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVCoopCampaignClass@@@@6B@",
+   "reason": "relocation target unbound: ??_E?$DynamicVectorClass@PAVCoopCampaignClass@@@@UAEPAXI@Z"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@H@@6B@",
+   "reason": "relocation target unbound: ??_E?$DynamicVectorClass@H@@UAEPAXI@Z"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAUNodeNameType@@@@6B@",
+   "reason": "relocation target unbound: ??_E?$DynamicVectorClass@PAUNodeNameType@@@@UAEPAXI@Z"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAG@@6B@",
+   "reason": "relocation target unbound: ??_E?$VectorClass@PAG@@UAEPAXI@Z"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAG@@6B@",
+   "reason": "relocation target unbound: ??_E?$DynamicVectorClass@PAG@@UAEPAXI@Z"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAUNodeNameType@@@@6B@",
+   "reason": "relocation target unbound: ??_E?$VectorClass@PAUNodeNameType@@@@UAEPAXI@Z"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVCoopCampaignClass@@@@6B@",
+   "reason": "relocation target unbound: ??_E?$VectorClass@PAVCoopCampaignClass@@@@UAEPAXI@Z"
+  },
+  {
+   "symbol": "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@",
+   "reason": "relocation target unbound: ??_E?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "005a3f70",
+   "target": "005b75d0",
+   "symbol": "?target@Target_5a3f70@@QAEIII@Z",
+   "module_symbol": "?PopulateTeamDropdownForPlayer@MultiplayerGameMode@@UAEXPAUHWND__@@H@Z"
+  },
+  {
+   "site": "005a7500",
+   "target": "005b6e20",
+   "symbol": "?FUN_005b6e20@seed_005a7500@@YIXXZ",
+   "module_symbol": "??1MultiplayerGameMode@@UAE@XZ"
+  },
+  {
+   "site": "005aa780",
+   "target": "005b6e20",
+   "symbol": "?MultiplayerGameMode_dtor_005b6e20@seed_005aa780@@YIXXZ",
+   "module_symbol": "??1MultiplayerGameMode@@UAE@XZ"
+  },
+  {
+   "site": "005abba0",
+   "target": "005b6e20",
+   "symbol": "?FUN_005b6e20@seed_005abba0@@YIXXZ",
+   "module_symbol": "??1MultiplayerGameMode@@UAE@XZ"
+  },
+  {
+   "site": "005a74f0",
+   "target": "005b6e20",
+   "symbol": "?FUN_005b6e20@seed_005a74f0@@YIXXZ",
+   "module_symbol": "??1MultiplayerGameMode@@UAE@XZ"
+  },
+  {
+   "site": "005aa760",
+   "target": "005b6e20",
+   "symbol": "?MultiplayerGameMode_dtor_005b6e20@seed_005aa760@@YIXXZ",
+   "module_symbol": "??1MultiplayerGameMode@@UAE@XZ"
+  },
+  {
+   "site": "005ab5e0",
+   "target": "005b6e20",
+   "symbol": "?FUN_005b6e20@seed_005ab5e0@@YIXXZ",
+   "module_symbol": "??1MultiplayerGameMode@@UAE@XZ"
+  },
+  {
+   "site": "005aa720",
+   "target": "005b6cd0",
+   "symbol": "?MultiplayerGameMode_ctor_005b6cd0@Callee_005b6cd0@seed_005aa720@@QAEXIIIIEI@Z",
+   "module_symbol": "??0MultiplayerGameMode@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z"
+  },
+  {
+   "site": "005ab5a0",
+   "target": "005b6cd0",
+   "symbol": "?FUN_005b6cd0@Callee_005b6cd0@seed_005ab5a0@@QAEXIIIIEI@Z",
+   "module_symbol": "??0MultiplayerGameMode@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z"
+  },
+  {
+   "site": "005ac390",
+   "target": "005b73a0",
+   "symbol": "?CheckStartConditions_005b73a0@seed_005ac390@@YGIH@Z",
+   "module_symbol": "?CheckStartConditions@MultiplayerGameMode@@UAE_NPAVWideString@@@Z"
+  },
+  {
+   "site": "006525f0",
+   "target": "005b6f80",
+   "symbol": "?Unknown_005B6F80@@YAHXZ",
+   "module_symbol": "?unknown_mode_count_5b6f80@MultiplayerGameMode@@SAHXZ"
+  },
+  {
+   "site": "006525f0",
+   "target": "005b6fe0",
+   "symbol": "?Unknown_005B6FE0@@YIPAVUnknownSessionA3D29C@@H@Z",
+   "module_symbol": "?unknown_find_mode_5b6fe0@MultiplayerGameMode@@SIPAV1@H@Z"
+  },
+  {
+   "site": "006525f0",
+   "target": "005b7840",
+   "symbol": "?unknown_ini_005b7840@UnknownSessionA3D29C@@QAEPAVCCINIClass@@XZ",
+   "module_symbol": "?unknown_ini_5b7840@MultiplayerGameMode@@QAEPAVCCINIClass@@XZ"
+  },
+  {
+   "site": "0065e8c0",
+   "target": "005b7ce0",
+   "symbol": "?Unknown_005B7CE0@UnknownSessionA3D29C@@QAEXXZ",
+   "module_symbol": "?Create_Starting_Objects_005b7ce0@MultiplayerGameMode@@QAE_NXZ"
+  },
+  {
+   "site": "006433a0",
+   "target": "005b7840",
+   "symbol": "?unknown_ini_005b7840@UnknownSessionA3D29C@@QAEPAVCCINIClass@@XZ",
+   "module_symbol": "?unknown_ini_5b7840@MultiplayerGameMode@@QAEPAVCCINIClass@@XZ"
+  },
+  {
+   "site": "00660320",
+   "target": "005b9840",
+   "symbol": "??0?$VectorClass@PAVUnitTypeClass@@@@QAE@IPBQAVUnitTypeClass@@@Z",
+   "module_symbol": "?get@Storage_5b9840@@QAEPAXIPAI@Z"
+  },
+  {
+   "site": "00660320",
+   "target": "005b9890",
+   "symbol": "??0?$VectorClass@PAVInfantryTypeClass@@@@QAE@IPBQAVInfantryTypeClass@@@Z",
+   "module_symbol": "?get@Storage_5b9890@@QAEPAXIPAI@Z"
+  }
+ ],
+ "stand_in_reference_count": 17,
+ "residual_split": {
+  "rows": 18,
+  "bytes": 1229
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

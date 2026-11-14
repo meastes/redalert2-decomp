@@ -80,7 +80,7 @@ public:
 };
 
 // Narrows a wide string into dst, stopping at the terminator or after limit characters (-1: none; 0x006FA0F0).
-void __fastcall Unknown_006FA0F0(char *dst, unsigned short const *src, int limit);
+void __fastcall WideToCharString_006fa0f0(char *dst, unsigned short const *src, int limit);
 
 // The row of a combo box whose item data is data, searching after the row start (0x00736E10).
 int __fastcall Find_Combo_Item_Data_00736e10(HWND combo, int start, int data);

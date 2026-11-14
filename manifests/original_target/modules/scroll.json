@@ -1,0 +1,989 @@
+{
+ "module": "scroll",
+ "source": "src/recovered/scroll.cpp",
+ "header": null,
+ "population": "population-4218",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 911,
+ "code": [
+  {
+   "symbol": "_$E92",
+   "entry": "00669590",
+   "body_bytes": 37,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "_$E89",
+   "entry": "006695c0",
+   "body_bytes": 21,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "??0ScrollClass@@QAE@XZ",
+   "entry": "006695e0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?AI@ScrollClass@@UAEXAAHABUPoint2D@@@Z",
+   "entry": "00669630",
+   "body_bytes": 29,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Resolve_Point@ScrollClass@@QAE_NABUPoint2D@@AAVCell@@AAUCoordStruct@@AAPAVObjectClass@@AA_N4@Z",
+   "entry": "00669650",
+   "body_bytes": 776,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?What_Action@ScrollClass@@QAEHABVCell@@PAVObjectClass@@_N@Z",
+   "entry": "00669960",
+   "body_bytes": 1362,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z",
+   "entry": "00669ec0",
+   "body_bytes": 950,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "_$E95",
+   "entry": "0066a280",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Scroll_AI@ScrollClass@@QAEXXZ",
+   "entry": "0066a290",
+   "body_bytes": 296,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Is_Scrolling@ScrollClass@@UAE_NXZ",
+   "entry": "0066a3c0",
+   "body_bytes": 53,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Message_Handler@ScrollClass@@QAEXPAUHWND__@@AAI1AAJ@Z",
+   "entry": "0066a400",
+   "body_bytes": 925,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Scroll_Coast@ScrollClass@@QAEXABUPoint2D@@@Z",
+   "entry": "0066a7a0",
+   "body_bytes": 1022,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Mouse_Right_Release@ScrollClass@@UAEXABUPoint2D@@@Z",
+   "entry": "0066aba0",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Mouse_Right_Press@ScrollClass@@UAEXABUPoint2D@@@Z",
+   "entry": "0066abe0",
+   "body_bytes": 63,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Abort_Drag_Select@ScrollClass@@UAEXXZ",
+   "entry": "0066ac20",
+   "body_bytes": 50,
+   "padding_bytes": 14
+  }
+ ],
+ "code_bytes": 5840,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 10
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 30
+  },
+  {
+   "symbol": "__real@4@00000000000000000000",
+   "address": "0079a738",
+   "bytes": 4,
+   "kind": "table",
+   "section": 77
+  },
+  {
+   "symbol": "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@",
+   "address": "0079a76c",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 107
+  },
+  {
+   "symbol": "__real@8@c00ca2f83d7b47677800",
+   "address": "0079b628",
+   "bytes": 8,
+   "kind": "table",
+   "section": 69
+  },
+  {
+   "symbol": "__real@8@3fffc90fdaa22168c000",
+   "address": "0079b630",
+   "bytes": 8,
+   "kind": "table",
+   "section": 70
+  },
+  {
+   "symbol": "__real@8@4002c000000000000000",
+   "address": "007a5e18",
+   "bytes": 8,
+   "kind": "table",
+   "section": 82
+  },
+  {
+   "symbol": "??_7?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@6B@",
+   "address": "007a8824",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 92
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a9428",
+   "bytes": 16,
+   "kind": "table",
+   "section": 4
+  },
+  {
+   "symbol": "??_7ScrollClass@@6BINoticeSink@@@",
+   "address": "007a943c",
+   "bytes": 4,
+   "kind": "vtable",
+   "section": 49
+  },
+  {
+   "symbol": "??_7ScrollClass@@6BSidebarClass@@@",
+   "address": "007a9444",
+   "bytes": 220,
+   "kind": "vtable",
+   "section": 50
+  },
+  {
+   "symbol": "_?edge_x@?L@??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4NA",
+   "address": "007f2bd8",
+   "bytes": 152,
+   "kind": "static",
+   "section": 2
+  },
+  {
+   "symbol": "??_C@_0BN@HBAO@Scroll?3?5Abort_Drag_Select?$CI?$CJ?6?$AA@",
+   "address": "007f2c70",
+   "bytes": 29,
+   "kind": "string",
+   "section": 89
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@4@00000000000000000000",
+   "address": "0079a738",
+   "bytes": 4,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@",
+   "address": "0079a76c",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "__real@8@c00ca2f83d7b47677800",
+   "address": "0079b628",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fffc90fdaa22168c000",
+   "address": "0079b630",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4002c000000000000000",
+   "address": "007a5e18",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@6B@",
+   "address": "007a8824",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a9428",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7ScrollClass@@6BINoticeSink@@@",
+   "address": "007a943c",
+   "bytes": 4,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7ScrollClass@@6BSidebarClass@@@",
+   "address": "007a9444",
+   "bytes": 220,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "_?edge_x@?L@??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4NA",
+   "address": "007f2bd8",
+   "bytes": 152,
+   "kind": "static"
+  },
+  {
+   "symbol": "??_C@_0BN@HBAO@Scroll?3?5Abort_Drag_Select?$CI?$CJ?6?$AA@",
+   "address": "007f2c70",
+   "bytes": 29,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0059f020",
+   "symbol": "??0ScrollClass@@QAE@XZ",
+   "target": "006695e0",
+   "function_entry": true
+  },
+  {
+   "site": "0059f390",
+   "symbol": "?AI@ScrollClass@@UAEXAAHABUPoint2D@@@Z",
+   "target": "00669630",
+   "function_entry": true
+  },
+  {
+   "site": "0049ae70",
+   "symbol": "?Resolve_Point@ScrollClass@@QAE_NABUPoint2D@@AAVCell@@AAUCoordStruct@@AAPAVObjectClass@@AA_N4@Z",
+   "target": "00669650",
+   "function_entry": true
+  },
+  {
+   "site": "0065c040",
+   "symbol": "?Abort_Drag_Select@ScrollClass@@UAEXXZ",
+   "target": "0066ac20",
+   "function_entry": true
+  },
+  {
+   "site": "0065c1f0",
+   "symbol": "?Abort_Drag_Select@ScrollClass@@UAEXXZ",
+   "target": "0066ac20",
+   "function_entry": true
+  },
+  {
+   "site": "0065c3d0",
+   "symbol": "?Abort_Drag_Select@ScrollClass@@UAEXXZ",
+   "target": "0066ac20",
+   "function_entry": true
+  },
+  {
+   "site": "006b1c80",
+   "symbol": "?Abort_Drag_Select@ScrollClass@@UAEXXZ",
+   "target": "0066ac20",
+   "function_entry": true
+  },
+  {
+   "site": "004e6950",
+   "symbol": "?Resolve_Point@ScrollClass@@QAE_NABUPoint2D@@AAVCell@@AAUCoordStruct@@AAPAVObjectClass@@AA_N4@Z",
+   "target": "00669650",
+   "function_entry": true
+  },
+  {
+   "site": "0049e610",
+   "symbol": "?Resolve_Point@ScrollClass@@QAE_NABUPoint2D@@AAVCell@@AAUCoordStruct@@AAPAVObjectClass@@AA_N4@Z",
+   "target": "00669650",
+   "function_entry": true
+  },
+  {
+   "site": "007375a0",
+   "symbol": "?Message_Handler@ScrollClass@@QAEXPAUHWND__@@AAI1AAJ@Z",
+   "target": "0066a400",
+   "function_entry": true
+  },
+  {
+   "site": "006adae0",
+   "symbol": "?Abort_Drag_Select@ScrollClass@@UAEXXZ",
+   "target": "0066ac20",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0TabClass@@QAE@XZ",
+   "address": "006a06e0"
+  },
+  {
+   "symbol": "??1RadarClass@@UAE@XZ",
+   "address": "0062f080"
+  },
+  {
+   "symbol": "??1WaypointClass@@QAE@XZ",
+   "address": "00724b00"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??AMapClass@@QAEAAVCellClass@@ABUCoordStruct@@@Z",
+   "address": "00548000"
+  },
+  {
+   "symbol": "??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z",
+   "address": "00548070"
+  },
+  {
+   "symbol": "??BSystemTimerClass@@QBEJXZ",
+   "address": "0069a430"
+  },
+  {
+   "symbol": "??_G?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z",
+   "address": "0040b230"
+  },
+  {
+   "symbol": "??_GScrollClass@@UAEPAXI@Z",
+   "address": "0066ac60"
+  },
+  {
+   "symbol": "?AI@TabClass@@UAEXAAHABUPoint2D@@@Z",
+   "address": "006a0f30"
+  },
+  {
+   "symbol": "?Abort_Drag_Select@DisplayClass@@UAEXXZ",
+   "address": "0049ebf0"
+  },
+  {
+   "symbol": "?Add_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z",
+   "address": "004e0ac0"
+  },
+  {
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "address": "0040dc20"
+  },
+  {
+   "symbol": "?As_Techno_0040dbd0@@YIPAVTechnoClass@@PAVAbstractClass@@@Z",
+   "address": "0040dbd0"
+  },
+  {
+   "symbol": "?Blit_Display@GScreenClass@@UAEXXZ",
+   "address": "004e0c50"
+  },
+  {
+   "symbol": "?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ",
+   "address": "004717b0"
+  },
+  {
+   "symbol": "?Click_Cell_Calc@RadarClass@@UAE?AVCell@@ABUPoint2D@@@Z",
+   "address": "0062fbd0"
+  },
+  {
+   "symbol": "?Debug_Map@@3_NA",
+   "address": "00a40d13"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Detach@MapClass@@UAEXPAVAbstractClass@@_N@Z",
+   "address": "00559d80"
+  },
+  {
+   "symbol": "?DisposeOfArt@TabClass@@UAEXXZ",
+   "address": "006a0b30"
+  },
+  {
+   "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+   "address": "00532890"
+  },
+  {
+   "symbol": "?Draw_It@TabClass@@UAEX_N@Z",
+   "address": "006a12d0"
+  },
+  {
+   "symbol": "?Fast_Atan2@@YAMNN@Z",
+   "address": "004ba600"
+  },
+  {
+   "symbol": "?Fetch_Waypoint_Data@HouseClass@@QAE_NPAVWaypointClass@@PAHPAD@Z",
+   "address": "004ed2b0"
+  },
+  {
+   "symbol": "?FindBeaconAt_0042e860@BeaconManagerClass@@QAEPAVUnknownBeacon@@UCoordStruct@@@Z",
+   "address": "0042e860"
+  },
+  {
+   "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXH@Z",
+   "address": "004e09a0"
+  },
+  {
+   "symbol": "?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z",
+   "address": "0055a280"
+  },
+  {
+   "symbol": "?Get_Input@GScreenClass@@UAEXAAH00@Z",
+   "address": "004e09d0"
+  },
+  {
+   "symbol": "?Get_Scroll_Method@OptionsClass@@QBEHXZ",
+   "address": "005da3e0"
+  },
+  {
+   "symbol": "?Get_Selectable_Object_006aa990@Tactical@@QAEPAVObjectClass@@ABUPoint2D@@@Z",
+   "address": "006aa990"
+  },
+  {
+   "symbol": "?Help_Text@TabClass@@UAEPBGH@Z",
+   "address": "006a20b0"
+  },
+  {
+   "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+   "address": "00a32298"
+  },
+  {
+   "symbol": "?INoticeSink_Unknown@TabClass@@UAE_NHH@Z",
+   "address": "006a2020"
+  },
+  {
+   "symbol": "?Init@GScreenClass@@UAEXH@Z",
+   "address": "004e0960"
+  },
+  {
+   "symbol": "?Init_Clear@SidebarClass@@UAEXXZ",
+   "address": "0067b8b0"
+  },
+  {
+   "symbol": "?Init_For_House@TabClass@@UAEXXZ",
+   "address": "006a0b70"
+  },
+  {
+   "symbol": "?Init_IO@TabClass@@UAEXXZ",
+   "address": "006a0c50"
+  },
+  {
+   "symbol": "?Is_Button_Listed@GScreenClass@@UAE_NAAVGadgetClass@@@Z",
+   "address": "004e0aa0"
+  },
+  {
+   "symbol": "?Is_Fogged@MapClass@@QAE_NABUCoordStruct@@@Z",
+   "address": "005683c0"
+  },
+  {
+   "symbol": "?Is_Player_Control@HouseClass@@QAE_NXZ",
+   "address": "004f52b0"
+  },
+  {
+   "symbol": "?Is_Sensed@CellClass@@QBE_NH@Z",
+   "address": "0047c2e0"
+  },
+  {
+   "symbol": "?Is_Shrouded@MapClass@@QAE_NABUCoordStruct@@@Z",
+   "address": "00568140"
+  },
+  {
+   "symbol": "?Is_Visible@MapClass@@UAGJVCell@@@Z",
+   "address": "00547fa0"
+  },
+  {
+   "symbol": "?KeyForceMove1@@3HA",
+   "address": "00a40bb4"
+  },
+  {
+   "symbol": "?KeyForceMove2@@3HA",
+   "address": "00a40bb8"
+  },
+  {
+   "symbol": "?Load@SidebarClass@@UAEJPAUIStream@@@Z",
+   "address": "00682290"
+  },
+  {
+   "symbol": "?MainWindow@@3PAUHWND__@@A",
+   "address": "00b263d8"
+  },
+  {
+   "symbol": "?Map@@3VMouseClass@@A",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "?Map_Cell@RadarClass@@UAE_NABVCell@@PAVHouseClass@@@Z",
+   "address": "0062fc80"
+  },
+  {
+   "symbol": "?Mouse_Left_Held@DisplayClass@@UAEXABUPoint2D@@@Z",
+   "address": "0049c500"
+  },
+  {
+   "symbol": "?Mouse_Left_Press@DisplayClass@@UAEXABUPoint2D@@@Z",
+   "address": "0049c490"
+  },
+  {
+   "symbol": "?Mouse_Left_Release@DisplayClass@@UAEXABUCoordStruct@@ABVCell@@PAVObjectClass@@H_N@Z",
+   "address": "0049bb20"
+  },
+  {
+   "symbol": "?Mouse_Right_Press@DisplayClass@@UAEXABUPoint2D@@@Z",
+   "address": "0049af80"
+  },
+  {
+   "symbol": "?Mouse_Right_Release@DisplayClass@@UAEXABUPoint2D@@@Z",
+   "address": "0049af90"
+  },
+  {
+   "symbol": "?Next_Waypoint@WaypointPathClass@@QAEPAVWaypointClass@@PBV2@@Z",
+   "address": "00724f80"
+  },
+  {
+   "symbol": "?One_Time@TabClass@@UAEXXZ",
+   "address": "006a0b20"
+  },
+  {
+   "symbol": "?Options@@3VOptionsClass@@A",
+   "address": "00a40b18"
+  },
+  {
+   "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+   "address": "00a35de8"
+  },
+  {
+   "symbol": "?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z",
+   "address": "006a6bd0"
+  },
+  {
+   "symbol": "?Pixel_To_Coord@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
+   "address": "006a2b10"
+  },
+  {
+   "symbol": "?Planning_Left_Down_00617340@@YG_NHH@Z",
+   "address": "00617340"
+  },
+  {
+   "symbol": "?Planning_Left_Up_00617680@@YG_NUPoint2D@@@Z",
+   "address": "00617680"
+  },
+  {
+   "symbol": "?Planning_Mouse_Down@@YGXHH@Z",
+   "address": "00617860"
+  },
+  {
+   "symbol": "?Planning_Mouse_Move_00617900@@YG_NHH@Z",
+   "address": "00617900"
+  },
+  {
+   "symbol": "?Planning_Mouse_Up@@YGXHH@Z",
+   "address": "006178a0"
+  },
+  {
+   "symbol": "?QueryInterface@GScreenClass@@UAGJABUGUID@@PAPAX@Z",
+   "address": "004e08f0"
+  },
+  {
+   "symbol": "?Remove_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z",
+   "address": "004e0b00"
+  },
+  {
+   "symbol": "?Render@GScreenClass@@UAEXXZ",
+   "address": "004e0b30"
+  },
+  {
+   "symbol": "?Reposition_Sidebar@SidebarClass@@UAEXXZ",
+   "address": "006819a0"
+  },
+  {
+   "symbol": "?RevealFogShroud@RadarClass@@UAE_NABVCell@@PAVHouseClass@@_N@Z",
+   "address": "0062fca0"
+  },
+  {
+   "symbol": "?Rules@@3PAVRulesClass@@A",
+   "address": "00839848"
+  },
+  {
+   "symbol": "?Save@SidebarClass@@UAEJPAUIStream@@@Z",
+   "address": "006822a0"
+  },
+  {
+   "symbol": "?Scroll_Map@DisplayClass@@UAE_NHPAH_N@Z",
+   "address": "00499b60"
+  },
+  {
+   "symbol": "?Set_Local_Dimensions@RadarClass@@UAEXABVRect@@@Z",
+   "address": "00630840"
+  },
+  {
+   "symbol": "?Set_Map_Dimensions@RadarClass@@UAEXPBVRect@@_NH1@Z",
+   "address": "00630300"
+  },
+  {
+   "symbol": "?Set_Tactical_Position@RadarClass@@UAEXABUCoordStruct@@@Z",
+   "address": "00630320"
+  },
+  {
+   "symbol": "?SuperWeaponTypes@@3V?$DynamicVectorClass@PAVSuperWeaponTypeClass@@@@A",
+   "address": "00a40338"
+  },
+  {
+   "symbol": "?Unknown_004F3120@HouseClass@@QBE_NXZ",
+   "address": "004f3120"
+  },
+  {
+   "symbol": "?Unknown_0051A690@@YIPAVObjectClass@@PBVCell@@PAV1@@Z",
+   "address": "0051a690"
+  },
+  {
+   "symbol": "?Unknown_0054AB00@MapClass@@QAE_NABUCoordStruct@@@Z",
+   "address": "0054ab00"
+  },
+  {
+   "symbol": "?Unknown_0055A660@MapClass@@QAE_NABVCell@@_N@Z",
+   "address": "0055a660"
+  },
+  {
+   "symbol": "?Unknown_00721DB0@@YIHABUPoint2D@@0@Z",
+   "address": "00721db0"
+  },
+  {
+   "symbol": "?WWKeyboard@@3PAVWWKeyboardClass@@A",
+   "address": "00832468"
+  },
+  {
+   "symbol": "?WWMouse@@3PAVMouse@@A",
+   "address": "00839c68"
+  },
+  {
+   "symbol": "?Waypoint_At@HouseClass@@QAEPAVWaypointClass@@ABVCell@@@Z",
+   "address": "004ed200"
+  },
+  {
+   "symbol": "?unknown_8523e0@@3HA",
+   "address": "008523e0"
+  },
+  {
+   "symbol": "?unknown_8523e4@@3HA",
+   "address": "008523e4"
+  },
+  {
+   "symbol": "?unknown_b263d8@@3HA",
+   "address": "00b263d8"
+  },
+  {
+   "symbol": "?unknown_flag_83740c@@3_NA",
+   "address": "0083740c"
+  },
+  {
+   "symbol": "?unknown_flag_a40380@@3_NA",
+   "address": "00a40380"
+  },
+  {
+   "symbol": "?unknown_flag_a40958@@3_NA",
+   "address": "00a40958"
+  },
+  {
+   "symbol": "?unknown_flag_a40d04@@3_NA",
+   "address": "00a40d04"
+  },
+  {
+   "symbol": "?unknown_flag_a40d44@@3_NA",
+   "address": "00a40d44"
+  },
+  {
+   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
+   "symbol": "?unknown_int_839648@@3HA",
+   "address": "00839648"
+  },
+  {
+   "symbol": "?unknown_int_83964c@@3HA",
+   "address": "0083964c"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_object_84e8d0@@3VBeaconManagerClass@@A",
+   "address": "0084e8d0"
+  },
+  {
+   "symbol": "?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A",
+   "address": "00a40c60"
+  },
+  {
+   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
+   "address": "00a35db4"
+  },
+  {
+   "symbol": "?unknown_rect_839630@@3VRect@@A",
+   "address": "00839630"
+  },
+  {
+   "symbol": "?unknown_slot22@MapClass@@UAEXXZ",
+   "address": "00548370"
+  },
+  {
+   "symbol": "?unknown_slot23@MapClass@@UAEXXZ",
+   "address": "005483d0"
+  },
+  {
+   "symbol": "?unknown_slot24@MapClass@@UAEXXZ",
+   "address": "00548490"
+  },
+  {
+   "symbol": "?unknown_slot27@MapClass@@UAEXXZ",
+   "address": "0054e300"
+  },
+  {
+   "symbol": "?unknown_slot32@DisplayClass@@UAEXXZ",
+   "address": "0049cfd0"
+  },
+  {
+   "symbol": "?unknown_slot38@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z",
+   "address": "0049a0f0"
+  },
+  {
+   "symbol": "?unknown_slot39@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z",
+   "address": "0049a370"
+  },
+  {
+   "symbol": "?unknown_slot42@DisplayClass@@UAEXABVRect@@@Z",
+   "address": "00498c80"
+  },
+  {
+   "symbol": "?unknown_slot43@DisplayClass@@UAEXXZ",
+   "address": "0040d120"
+  },
+  {
+   "symbol": "?unknown_slot46@DisplayClass@@UAEXABVCell@@_NPAVObjectClass@@H1@Z",
+   "address": "0049b0f0"
+  },
+  {
+   "symbol": "?unknown_slot54@TabClass@@UAE_NH@Z",
+   "address": "006a0da0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_surface_839948@@3PAVSurface@@A",
+   "address": "00839948"
+  },
+  {
+   "symbol": "?unknown_surface_839964@@3PAVSurface@@A",
+   "address": "00839964"
+  },
+  {
+   "symbol": "?unknown_tactical_83996c@@3PAVTactical@@A",
+   "address": "0083996c"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__ClientToScreen@8",
+   "address": "0079a4ac"
+  },
+  {
+   "symbol": "__imp__GetCapture@0",
+   "address": "0079a3ec"
+  },
+  {
+   "symbol": "__imp__GetSystemMetrics@4",
+   "address": "0079a3dc"
+  },
+  {
+   "symbol": "__imp__ReleaseCapture@0",
+   "address": "0079a3e8"
+  },
+  {
+   "symbol": "__imp__SetCapture@4",
+   "address": "0079a3f0"
+  },
+  {
+   "symbol": "__imp__SetCursorPos@8",
+   "address": "0079a444"
+  },
+  {
+   "symbol": "__purecall",
+   "address": "004b8960"
+  },
+  {
+   "symbol": "_atexit",
+   "address": "0078298a"
+  }
+ ],
+ "route": "A",
+ "unit": "scroll.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00669590",
+   "lines": 28
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 15,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

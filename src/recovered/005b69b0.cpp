@@ -2,40 +2,37 @@
 //
 // Body: 43 bytes (frozen inventory bound).
 // Referenced from 1 site (unconditional call).
-// Ghidra prototype: undefined4 * __thiscall FUN_005b69b0(undefined4 *param_1,undefined4 param_2)
+// Ghidra prototype: undefined4 * __thiscall MSSfx_Constructor_005b69b0(undefined4 *param_1,undefined4 param_2)
 // Callees with accepted source:
 //   FUN_00406f30 -> src/recovered/00406f30.cpp
 //   FUN_0078d816 -> src/recovered/0078d816.cpp
 //
-// Types and names are Ghidra placeholders (see shared/ghidra_types.hpp);
+// Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
 //
-// seed-generated: tools/original_target/regenerate_seeds.py may rewrite this file;
-// delete this line when editing it by hand.
-#include "shared/ghidra_types.hpp"
 
 namespace seed_005b69b0 {
 
-extern undefined4  FUN_00406f30(void);
-extern undefined4  FUN_0078d816(char *param_1);
+extern unsigned int  FUN_00406f30(void);
+extern unsigned int  FUN_0078d816(char *source_text);
 
-struct Owner_005b69b0 { undefined4 * FUN_005b69b0(undefined4 param_2, int unused_1); };
+struct Owner_005b69b0 { unsigned int * MSSfx_Constructor_005b69b0(unsigned int source_address, int unused_1); };
 
-undefined4 * Owner_005b69b0::FUN_005b69b0(undefined4 param_2, int unused_1)
+unsigned int * Owner_005b69b0::MSSfx_Constructor_005b69b0(unsigned int source_address, int unused_1)
 {
-    undefined4 * param_1 = (undefined4 *)this;
-    int iVar1;
-    undefined4 uVar2;
+    unsigned int * object_words = (unsigned int *)this;
+    int audio_status;
+    unsigned int sample_value;
 
-    *param_1 = 0;
-    param_1[1] = 0;
-    *(undefined1 *)(param_1 + 2) = 0;
-    iVar1 = (int)(FUN_00406f30());
-    if (iVar1 != 0) {
-        uVar2 = (undefined4)(FUN_0078d816((char *)(param_2)));
-        *param_1 = uVar2;
+    *object_words = 0;
+    object_words[1] = 0;
+    *(unsigned char *)(object_words + 2) = 0;
+    audio_status = (int)(FUN_00406f30());
+    if (audio_status != 0) {
+        sample_value = (unsigned int)(FUN_0078d816((char *)(source_address)));
+        *object_words = sample_value;
     }
-    return param_1;
+    return object_words;
 }
 
 }  // namespace seed_005b69b0

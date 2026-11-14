@@ -12,11 +12,13 @@ import argparse
 from collections import Counter
 from datetime import datetime
 import json
+import re
 from pathlib import Path
 import subprocess
 import sys
 
 import catalog_io
+from build import FIXED_LAYOUT
 
 REPOSITORY = Path(__file__).resolve().parents[2]
 BEGIN, END = '<!-- generated:status -->', '<!-- /generated:status -->'
@@ -38,13 +40,133 @@ def count_calibrated(region):
 # plausible but unprovable source forms. Twin-evidenced categories (evidenced inline asm) are not here.
 # split_declaration (review 2026-11-11, docs/DECISIONS.md): a row whose bytes depend on a header keeping a
 # second declaration of a module's class (canonical.validate_split_declaration).
-JUDGMENT_FLAGS = ('count_calibrated', 'split_declaration')
+# declarations_only (review 2026-11-12, docs/DECISIONS.md "Container member joins on their own frozen bound"):
+# a row of a source that keeps every shared/vector_class.hpp member undefined (canonical.validate_declarations_only).
+JUDGMENT_FLAGS = ('count_calibrated', 'split_declaration', 'declarations_only')
 
 
 def judgment_coverage(catalog):
     """(regions, body bytes) of accepted rows carrying any JUDGMENT_FLAGS flag."""
     rows = [r for r in catalog['regions'] if any(r.get(flag) is True for flag in JUDGMENT_FLAGS)]
     return len(rows), sum(r['body_bytes'] for r in rows)
+
+
+def own_bound_coverage(catalog):
+    """(rows, body bytes, donor populations) of rows that compile in a unit's population and
+    take their bound, gap padding and provenance from the frozen pass of `bound_population`
+    (container member joins, docs/DECISIONS.md)."""
+    rows = [r for r in catalog['regions'] if 'bound_population' in r]
+    return len(rows), sum(r['body_bytes'] for r in rows), len({r['bound_population'] for r in rows})
+
+
+def own_bound_line(catalog):
+    rows, body, donors = own_bound_coverage(catalog)
+    return ('| Rows bound by their own frozen population (joined into a unit\'s translation unit; bound, gap '
+            'padding and provenance from `bound_population`\'s pass) | {:,} rows, {:,} bytes, {:,} donor populations |'
+            .format(rows, body, donors))
+
+
+JOINED_UNDER_GR = "joined under the unit's /GR"
+JOINED_UNDER_OPTIONS = "joined under the unit's options"
+
+
+def joined_under(prefix, repository=None):
+    """(rows, bytes, units) of joined rows whose manifest note starts with `prefix`."""
+    path = (repository or Path(__file__).resolve().parents[2]) / 'manifests/original_target/modules.json'
+    modules = json.loads(path.read_text()) if path.exists() else {}
+    rows = [(u, j) for u, item in modules.items() for j in item.get('joined', [])
+            if str(j.get('options', '')).startswith(prefix)]
+    return len(rows), sum(j.get('bytes', 0) for _, j in rows), len({u for u, _ in rows})
+
+
+def joined_under_gr(repository=None):
+    """(rows, bytes, units) of rows that joined their unit only by taking the unit's /GR
+    (docs/DECISIONS.md "Own-bound joins widened"; the manifest note on each joined entry)."""
+    return joined_under(JOINED_UNDER_GR, repository)
+
+
+def joined_under_options(repository=None):
+    """(rows, bytes, units) of rows frozen under another option set than their unit's (more than
+    /GR) that joined under the unit's (docs/DECISIONS.md "Stand-ins frozen under another
+    optimisation option than their unit"; note "joined under the unit's options (frozen under X)")."""
+    return joined_under(JOINED_UNDER_OPTIONS, repository)
+
+
+def joined_under_gr_line():
+    rows, body, units = joined_under_gr()
+    other = joined_under_options()
+    return ('| Rows joined under the unit\'s /GR (frozen without /GR; every RTTI structure the unit emits still '
+            'proven at its original address; manifest note "joined under the unit\'s /GR") / under the unit\'s '
+            'options (frozen under another option set; the unit\'s set evidenced by its own rows; manifest note '
+            '"joined under the unit\'s options (frozen under X)") | /GR: {:,} rows, {:,} bytes, {:,} units; '
+            'options: {:,} rows, {:,} bytes, {:,} units |'.format(rows, body, units, *other))
+
+
+def address_named_line(catalog):
+    """Address-free source file names (rename_files.py): the per-function files that still
+    carry an address, by why they keep it."""
+    import rename_files
+    counts = rename_files.remaining_counts(catalog)
+    total = sum(n for k, n in counts.items())
+    other = total - counts['collision'] - counts['seed name'] - counts['renameable']
+    return ('| Address-named source files remaining (collision / seed name; rename_files.py) | {:,} files: '
+            'collision {:,}, seed name {:,}, not yet renamed {:,}, other {:,} (no unit or folder spelling, not one '
+            'accepted row) |'.format(total, counts['collision'], counts['seed name'], counts['renameable'], other))
+
+
+def generated_data_line():
+    """Generated data modules (docs/DECISIONS.md "fastmath tables as a generated data module"):
+    tracked generators whose assembled output build.py proves as one whole block."""
+    import json
+    path = REPOSITORY / 'manifests/original_target/generated_data.json'
+    modules = json.loads(path.read_text())['modules'] if path.exists() else []
+    size = sum(int(m['range'][1], 16) - int(m['range'][0], 16) for m in modules)
+    flagged = sum(len(m.get('flagged_constants', [])) for m in modules)
+    return ('| Generated data modules (tracked generator, no original bytes in the repository; each proven at '
+            'build time as one whole block at its original addresses; not C/C++ credit) | {:,} module(s), {:,} '
+            'bytes; {:,} flagged constant(s) ({}) |'.format(len(modules), size, flagged,
+                                                          ', '.join(m['name'] for m in modules) or 'none'))
+
+
+def data_bound_by_lines(catalog):
+    """Data-only bindings (docs/DECISIONS.md "Data-only symbols bound by section layout / bss by
+    elimination"): symbols each source declares (row field data_bound_by), and the bytes of the
+    proven module-map sections that hold a layout-bound symbol. Elimination earns nothing."""
+    import json
+    kinds = {'layout': set(), 'elimination': set()}
+    sources = set()
+    for row in catalog['regions']:
+        for name, kind in (row.get('data_bound_by') or {}).items():
+            kinds[kind].add((row['source'], name)); sources.add(row['source'])
+    layout_bytes = 0
+    for path in sorted((REPOSITORY / 'manifests/original_target/modules').glob('*.json')):
+        entry = json.loads(path.read_text())
+        layout_bytes += sum(c['bytes'] for c in entry.get('data', []) if 'layout' in (c.get('bound_by') or ()))
+    return ['| Data bound by enclosed section layout (flag data_bound_by: layout; the split into declarations '
+            'is a hypothesis) | {:,} symbols in {:,} source(s); {:,} bytes in the proven sections that hold them |'
+            .format(len(kinds['layout']), len({s for s, _ in kinds['layout']}), layout_bytes),
+            '| Data bound by bss elimination (flag data_bound_by: elimination; earns nothing by itself) '
+            '| {:,} symbols in {:,} source(s) |'.format(len(kinds['elimination']), len({s for s, _ in kinds['elimination']}))]
+
+
+DECLARATIONS_ONLY_DEFINE = re.compile(rb'^[ \t]*#[ \t]*define[ \t]+VECTOR_DECLARATIONS_ONLY\b', re.M)
+
+
+def declarations_only_files(catalog, read=None):
+    """Accepted sources that define VECTOR_DECLARATIONS_ONLY (they depend on the switch whether or
+    not a row of theirs carries the declarations_only flag; owner ruling 2026-11-12)."""
+    def disk(source):
+        path = REPOSITORY / source
+        return path.read_bytes() if path.is_file() else b''
+    read = read or disk
+    return sorted(s for s in {r['source'] for r in catalog['regions'] if r.get('source')}
+                  if DECLARATIONS_ONLY_DEFINE.search(read(s)))
+
+
+def declarations_only_line(catalog, read=None):
+    files = declarations_only_files(catalog, read)
+    return ('| Files depending on VECTOR_DECLARATIONS_ONLY (container members left undefined; per file, no bytes '
+            'counted) | {:,} ({}) |'.format(len(files), ', '.join(Path(f).name for f in files) or 'none'))
 
 
 def calibrated_coverage(catalog):
@@ -169,10 +291,12 @@ def best_scores(index_path, sweep_path):
     return best
 
 
-def functions(treemap, false_rows, best):
+def functions(treemap, false_rows, best, drafts=()):
     """In-scope function counts and the partial-match average. In scope: entry below CRT_START, outside
     the HANDWRITTEN ranges, not a known false row. Each unaccepted function counts at its best recorded
-    score (0 when none is recorded), weighted by bytes and per function."""
+    score (0 when none is recorded), weighted by bytes and per function. `drafts`: entries of non-exact
+    drafts placed in source (non_exact.json); `with_source` counts in-scope functions that are exact or
+    have such a draft."""
     asm = [(a, b) for a, b, _ in HANDWRITTEN]
     rows = [r for r in treemap if r['entry'] < CRT_START and not inside(r['entry'], asm)
             and r['entry'] not in false_rows]
@@ -182,7 +306,9 @@ def functions(treemap, false_rows, best):
     total = sum(r['bytes'] for r in rows)
     weighted = sum(r['bytes'] for r in done) + sum(r['bytes'] * best.get(r['entry'], 0.0) / 100 for r in open_rows)
     per_function = (len(done) * 100 + sum(best.get(r['entry'], 0.0) for r in open_rows)) / len(rows) if rows else 0.0
+    drafts = set(drafts)
     return dict(total=len(rows), done=len(done), scored=len(scored), open=len(open_rows),
+                with_source=len(done) + sum(1 for r in open_rows if r['entry'] in drafts),
                 fuzzy_bytes=100.0 * weighted / total if total else 0.0, fuzzy_functions=per_function)
 
 
@@ -215,7 +341,9 @@ def load_functions(repository=REPOSITORY):
     false_path = repository / 'manifests/original_target/false_rows.json'
     false_rows = {int(r['entry'], 16) for r in json.loads(false_path.read_text())['rows']} if false_path.exists() else set()
     best = best_scores(repository / 'docs/MISSES_INDEX.md', repository / 'build/sweep-6b/results.jsonl')
-    return functions(json.loads(path.read_text()), false_rows, best)
+    import non_exact
+    drafts = {int(r['entry'], 16) for r in non_exact.load_manifest(repository).get('rows', [])}
+    return functions(json.loads(path.read_text()), false_rows, best, drafts)
 
 
 def coverage(catalog):
@@ -258,7 +386,38 @@ def text_bytes(executable):
     return next(s.Misc_VirtualSize for s in pe.sections if s.Characteristics & 0x20)
 
 
-def module_form(repository=REPOSITORY):
+FILE_BACKED_NON_CODE = 711662   # headers + .rdata + raw .data + .rsrc of the target (docs/DATA_AS_SOURCE.md)
+
+
+def proven_data(entries):
+    """Bytes the module maps prove at their original addresses, deduplicated by address
+    (several units prove one COMDAT copy), by kind. A class hierarchy descriptor that differs
+    only in the ambiguous bit (DECISIONS, user-confirmed exception) counts without its
+    attributes word: no credit for the bit."""
+    copies, known = {}, set()
+    for e in entries:
+        for c in e['data'] + e['kept_elsewhere']:
+            a = int(c['address'], 16)
+            if c.get('known_difference'):
+                known.add(a)
+                if c['bytes'] > 8:
+                    copies.setdefault(a + 8, (c['bytes'] - 8, c['kind']))
+                copies.setdefault(a, (4, c['kind']))
+                continue
+            if copies.get(a, (0, ''))[0] < c['bytes']:
+                copies[a] = (c['bytes'], c['kind'])
+    covered, by_kind, end = 0, Counter(), 0
+    for a in sorted(copies):
+        n, kind = copies[a]
+        start = max(a, end)
+        if a + n > start:
+            covered += a + n - start
+            by_kind[kind] += a + n - start
+            end = a + n
+    return covered, by_kind, len(known)
+
+
+def module_form(repository=REPOSITORY, catalog=None):
     """Modules in original-translation-unit form (manifests/original_target/modules/*.json, written by
     module_ledger.py from a kept-intermediates build): functions, code bytes and compiler-emitted data
     bytes proven at their original addresses. The data line is its own ledger, not .text credit."""
@@ -274,12 +433,117 @@ def module_form(repository=REPOSITORY):
                 data_bytes=sum(e['data_bytes_proven'] for e in entries),
                 data_sections=sum(len(e['data']) - len(e['kept_elsewhere']) for e in entries),
                 kept_elsewhere_bytes=sum(c['bytes'] for e in entries for c in e['kept_elsewhere']),
-                names=[e['module'] for e in entries])
+                names=[e['module'] for e in entries], proven=proven_data(entries),
+                **route_a_form(entries, source_reader(repository), catalog))
 
 
-def render(catalog, text, rows, funcs=None, lib=None, asm=None):
+LOCAL_PATH_MARK = re.compile(r'(?<![\w.\-])(?:[A-Za-z]:)?[\\/]{1,2}(?:Users|home|private|var|tmp|Volumes)[\\/]'
+                             r'|\.claude[\\/]+worktrees')
+
+
+def manifest_local_paths(repository=REPOSITORY, folder='manifests'):
+    """Tracked manifest files that carry an absolute local path (a home directory, a worktree,
+    a temporary folder): there must be none; a recorded cause or note names files
+    repo-relative. Returns [(relative path, first offending text)]."""
+    found = []
+    for path in sorted((repository / folder).rglob('*.json')):
+        match = LOCAL_PATH_MARK.search(path.read_text(errors='replace'))
+        if match:
+            found.append((path.relative_to(repository).as_posix(), match.group(0)))
+    return found
+
+
+def local_path_lines(repository=REPOSITORY):
+    """A status row only when a tracked manifest carries an absolute local path (there must be none)."""
+    found = manifest_local_paths(repository)
+    if not found:
+        return []
+    return ['| **Tracked manifests with an absolute local path (must be 0)** | **{:,}**: {} |'.format(
+        len(found), ', '.join(name for name, _ in found[:8]))]
+
+
+def source_reader(repository):
+    def read(path):
+        try:
+            return (repository / path).read_text(errors='replace')
+        except OSError:
+            return None
+    return read
+
+
+def route_a_form(entries, read=None, catalog=None):
+    """Route A units among the module maps (refile_unit.py): rows of those units that stay in
+    their own files, by kind. 'split' rows are held by another frozen population (their bytes
+    are the known ceiling of what joining can still move into unit files); 'flipped' rows were
+    moved and were not exact; 'kept' rows stay by rule. Stand-in references are other units'
+    spellings of a unit's functions (the declaration-cleanup work list). With `read`
+    (path -> text or None) the split rows are also broken down by cause, read statically
+    from each row's file against its unit's header state (refile_unit.split_class); with `catalog`
+    too, the rows the text does not decide are classed by their holding population."""
+    units = [e for e in entries if e.get('route') == 'A']
+    out = dict(route_a_units=len(units), route_a_functions=sum(len(e['code']) for e in units),
+               route_a_code_bytes=sum(e['code_bytes'] for e in units),
+               route_a_switches=sum(len(e.get('switches', [])) for e in units),
+               route_a_stand_in_references=sum(len(e.get('stand_in_references', [])) for e in units))
+    for kind in ('split', 'flipped', 'kept'):
+        rows = [r for e in units for r in e.get('residuals', []) if r.get('kind') == kind]
+        out['route_a_%s_rows' % kind] = len(rows)
+        out['route_a_%s_bytes' % kind] = sum(r['bytes'] for r in rows)
+    if read is not None:
+        import refile_unit
+        classes = refile_unit.split_classes(units, read, catalog)
+        for key, _ in refile_unit.SPLIT_CLASSES:
+            out['route_a_split_%s_rows' % key], out['route_a_split_%s_bytes' % key] = classes[key]
+    return out
+
+
+def route_a_split_causes(modules):
+    """' Split rows by cause: ...' for the Route A line, or '' when the breakdown was not read."""
+    import refile_unit
+    if any('route_a_split_%s_rows' % key not in modules for key, _ in refile_unit.SPLIT_CLASSES):
+        return ''
+    notes = dict(template='the file sets a container implementation switch such as VECTOR_IMPLEMENT_* or '
+                          'instantiates a template',
+                 header_state='another switch, another include or ghidra_types.hpp',
+                 stand_in='placeholder-form rows',
+                 emitted='comment-only files: an inline constructor, dynamic initialiser or compiler-generated '
+                         'destructor another source emits; moves only with its emitter',
+                 separate_units='the holding population compiles each source alone',
+                 option_set='compiled under another option set than the unit\'s group',
+                 own_population='every row of the holding population is this unit\'s: a second compile group a '
+                                'join would empty',
+                 frozen_bound='a mixed population; the unit\'s frozen inventory pass gives no equal bound',
+                 unclassified='nothing in the text or the holding population decides')
+    return ' Split rows by cause (read from each row\'s file and its holding population, no compile): ' + '; '.join(
+        '{} {:,} rows, {:,} bytes ({})'.format(label, modules['route_a_split_%s_rows' % key],
+                                               modules['route_a_split_%s_bytes' % key], notes[key])
+        for key, label in refile_unit.SPLIT_CLASSES) + '.'
+
+
+def route_a_line(modules):
+    return ('| Route A units (one source per original translation unit under its own header state, refile_unit.py; '
+            'part of the Module form line) | {:,} unit(s): {:,} functions, {:,} code bytes; residual rows in their own '
+            'files: **split {:,} rows, {:,} bytes** (held by another frozen population; the known ceiling of what '
+            'joining can still move), **flipped {:,} rows, {:,} bytes** (not exact when moved), kept by rule {:,} rows, '
+            '{:,} bytes; {:,} per-unit switches kept; {:,} stand-in references from other units.{} |'.format(
+                modules['route_a_units'], modules['route_a_functions'], modules['route_a_code_bytes'],
+                modules['route_a_split_rows'], modules['route_a_split_bytes'],
+                modules['route_a_flipped_rows'], modules['route_a_flipped_bytes'],
+                modules['route_a_kept_rows'], modules['route_a_kept_bytes'],
+                modules['route_a_switches'], modules['route_a_stand_in_references'], route_a_split_causes(modules)))
+
+
+def non_exact_line(drafts):
+    """STATUS line for non-exact drafts in source: (functions, bytes, mean score); no .text credit."""
+    count, size, mean = drafts
+    return ('| Non-exact drafts in source (#ifdef RA2_NON_MATCHING, manifests/original_target/non_exact.json; '
+            'never compiled by the exact build; no .text credit) | {:,} functions, {:,} bytes, mean score {:.2f} |'
+            .format(count, size, mean))
+
+
+def render(catalog, text, rows, funcs=None, lib=None, asm=None, drafts=(0, 0, 0.0)):
     now = coverage(catalog)
-    modules = module_form()
+    modules = module_form(catalog=catalog)
     calibrated = calibrated_coverage(catalog)
     judgment = judgment_coverage(catalog)
     scaffold = text - now['body'] - now['padding'] - now['evidenced_inline_asm'] - (lib['bytes'] if lib else 0) - (asm['bytes'] if asm else 0)
@@ -312,6 +576,7 @@ def render(catalog, text, rows, funcs=None, lib=None, asm=None):
              'credit ({}) |'.format(modules['modules'], modules['functions'], modules['code_bytes'], modules['data_bytes'],
                                      modules['data_sections'], modules['kept_elsewhere_bytes'], modules['header_gaps'],
                                      modules['header_gap_modules'], ', '.join(modules['names']) or 'none'),
+             ] + ([route_a_line(modules)] if modules['route_a_units'] else []) + [own_bound_line(catalog), joined_under_gr_line(), address_named_line(catalog), declarations_only_line(catalog)] + data_bound_by_lines(catalog) + [generated_data_line()] + local_path_lines() + [
              '| C runtime / library bytes (.text >= 0x{:X}; library ledger, not source credit) '
              '| {:,} ({:.2f}% of .text; {:,} matched) |'.format(CRT_START, split['crt'], 100.0 * split['crt'] / text,
                                                               split['crt_matched']),
@@ -337,10 +602,24 @@ def render(catalog, text, rows, funcs=None, lib=None, asm=None):
              '| Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; {:,} of {:,} '
              'scored) | {:.2f}% by bytes, {:.2f}% per function |'.format(funcs['scored'], funcs['open'],
                                                                        funcs['fuzzy_bytes'], funcs['fuzzy_functions']),
-             ] if funcs else []) + [
+             '| In-scope functions with source (exact or draft: accepted rows plus non-exact drafts in source) '
+             '| {:,} of {:,} ({:.2f}%) |'.format(funcs.get('with_source', funcs['done']), funcs['total'],
+                                               100.0 * funcs.get('with_source', funcs['done']) / funcs['total']),
+             ] if funcs else []) + [non_exact_line(drafts)] + [
              '| Original .text scaffold bytes | {:,} |'.format(scaffold),
              '| Logical .text bytes | {:,} |'.format(text),
-             '| Compiler populations | {} |'.format(len(populations)), '']
+             '| Compiler populations | {} |'.format(len(populations)),
+             '| Compile path (build environment, with the pinned VC6 SP3 8447 compiler; docs/ORIGINAL_TARGET_BUILD.md '
+             '"Fixed compile folder") | `{}` |'.format(FIXED_LAYOUT),
+             '| Populations under /GR (docs/DECISIONS.md "/GR per population") | {} of {} |'.format(
+                 len({r['population'] for r in catalog['regions'] if '/GR' in r.get('options', ())}), len(populations)),
+             '| Non-code bytes proven at their original addresses (module maps, deduplicated by address; not .text '
+             'credit) | {:,} of {:,} file-backed ({:.1f}%); RTTI {:,}, vtables {:,}, strings {:,}; {} class hierarchy '
+             'descriptor(s) differ from the original only in the ambiguous bit (known difference; '
+             'the attributes word is not counted) |'.format(
+                 modules['proven'][0], FILE_BACKED_NON_CODE, 100.0 * modules['proven'][0] / FILE_BACKED_NON_CODE,
+                 modules['proven'][1]['rtti'], modules['proven'][1]['vtable'], modules['proven'][1]['string'],
+                 modules['proven'][2]), '']
     if rows:
         lines += ['Manifest history (body bytes added per commit, and per hour since the previous commit):', '',
                   '| Commit | Time | Regions | Body bytes | +Body | +Body/hour |',
@@ -367,7 +646,9 @@ def main():
     args = parser.parse_args()
     catalog = catalog_io.load(catalog_io.locate(REPOSITORY), references=False)
     text = args.text_bytes or text_bytes(json.loads(args.config.read_bytes())['executable'])
-    block = render(catalog, text, history(), load_functions(), load_library(), load_assembly())
+    import non_exact
+    block = render(catalog, text, history(), load_functions(), load_library(), load_assembly(),
+                   non_exact.summary(REPOSITORY))
     if not args.write:
         print(block); return
     path = REPOSITORY / 'docs/STATUS.md'

@@ -1,0 +1,430 @@
+{
+ "module": "reinf",
+ "source": "src/recovered/reinf.cpp",
+ "header": null,
+ "population": "population-4296",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 937,
+ "code": [
+  {
+   "symbol": "?unknown_return_false_00639960@seed_00639960@@YAEXZ",
+   "entry": "00639960",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Do_Reinforcements@@YI_NPAVTeamTypeClass@@H@Z",
+   "entry": "00639970",
+   "body_bytes": 1069,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?_Create_Group@@YIPAVFootClass@@PAVTeamTypeClass@@@Z",
+   "entry": "00639da0",
+   "body_bytes": 682,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Create_Reinforcement@@YI_NPAVTeamTypeClass@@PAVFootClass@@ABVCell@@_N@Z",
+   "entry": "0063a050",
+   "body_bytes": 1571,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?unknown_return_false_0063a680@seed_0063a680@@YGEHHH@Z",
+   "entry": "0063a680",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  }
+ ],
+ "code_bytes": 3376,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a8d20",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_C@_07IIFO@PDPLANE?$AA@",
+   "address": "007ee570",
+   "bytes": 8,
+   "kind": "string",
+   "section": 44
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a8d20",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_C@_07IIFO@PDPLANE?$AA@",
+   "address": "007ee570",
+   "bytes": 8,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "006b1470",
+   "symbol": "?Do_Reinforcements@@YI_NPAVTeamTypeClass@@H@Z",
+   "target": "00639970",
+   "function_entry": true
+  },
+  {
+   "site": "006b1490",
+   "symbol": "?Do_Reinforcements@@YI_NPAVTeamTypeClass@@H@Z",
+   "target": "00639970",
+   "function_entry": true
+  },
+  {
+   "site": "006adae0",
+   "symbol": "?Do_Reinforcements@@YI_NPAVTeamTypeClass@@H@Z",
+   "target": "00639970",
+   "function_entry": true
+  },
+  {
+   "site": "006adae0",
+   "symbol": "?Do_Reinforcements@@YI_NPAVTeamTypeClass@@H@Z",
+   "target": "00639970",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0ScriptTypeClass@@QAE@PBD@Z",
+   "address": "00668a20"
+  },
+  {
+   "symbol": "??0TeamClass@@QAE@PAVTeamTypeClass@@PAVHouseClass@@H@Z",
+   "address": "006b7430"
+  },
+  {
+   "symbol": "??0UnknownCoord434820@@QAE@ABVCell@@H@Z",
+   "address": "0061ea80"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z",
+   "address": "00548070"
+  },
+  {
+   "symbol": "?Add_Amount@StorageClass@@QAEMMH@Z",
+   "address": "0069ae50"
+  },
+  {
+   "symbol": "?AdjacentCell@@3QBVCell@@B",
+   "address": "00851a70"
+  },
+  {
+   "symbol": "?Adjacent_Cell@CellClass@@QAEAAV1@I@Z",
+   "address": "00476ac0"
+  },
+  {
+   "symbol": "?AircraftTypes@@3V?$DynamicVectorClass@PAVAircraftTypeClass@@@@A",
+   "address": "00a3d278"
+  },
+  {
+   "symbol": "?Attach@CargoClass@@QAEXPAVFootClass@@@Z",
+   "address": "00468960"
+  },
+  {
+   "symbol": "?Calculated_Cell@DisplayClass@@QAE?AVCell@@HABV2@0H_NH@Z",
+   "address": "0049a700"
+  },
+  {
+   "symbol": "?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ",
+   "address": "004717b0"
+  },
+  {
+   "symbol": "?Cell_Unit@CellClass@@QBEPAVObjectClass@@_N@Z",
+   "address": "00473e30"
+  },
+  {
+   "symbol": "?From_Name@AircraftTypeClass@@SIHPBD@Z",
+   "address": "0041be60"
+  },
+  {
+   "symbol": "?Get_Waypoint_Location@ScenarioClass@@QBE?AVCell@@H@Z",
+   "address": "00663180"
+  },
+  {
+   "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
+   "address": "0054aab0"
+  },
+  {
+   "symbol": "?InfantryTypes@@3V?$DynamicVectorClass@PAVInfantryTypeClass@@@@A",
+   "address": "00a40350"
+  },
+  {
+   "symbol": "?Is_Ally@HouseClass@@QBE_NPBV1@@Z",
+   "address": "004e5540"
+  },
+  {
+   "symbol": "?Map@@3VMouseClass@@A",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "?Nearby_Location@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z",
+   "address": "005502e0"
+  },
+  {
+   "symbol": "?RadarEventClass_unknown_remember_cell@@YIXABVCell@@@Z",
+   "address": "0063c6c0"
+  },
+  {
+   "symbol": "?Set_Dumbass@VeterancyClass@@QAEX_N@Z",
+   "address": "007134e0"
+  },
+  {
+   "symbol": "?Set_Elite@VeterancyClass@@QAEX_N@Z",
+   "address": "00713550"
+  },
+  {
+   "symbol": "?Set_Veteran@VeterancyClass@@QAEX_N@Z",
+   "address": "00713520"
+  },
+  {
+   "symbol": "?Transport_Waypoint_Location@TeamTypeClass@@QBE?AVCell@@XZ",
+   "address": "006bfad0"
+  },
+  {
+   "symbol": "?Unknown_0054A550@MapClass@@QAEXABUCoordStruct@@HHH@Z",
+   "address": "0054a550"
+  },
+  {
+   "symbol": "?Unknown_0055A660@MapClass@@QAE_NABVCell@@_N@Z",
+   "address": "0055a660"
+  },
+  {
+   "symbol": "?Waypoint_Location@TeamTypeClass@@QBE?AVCell@@XZ",
+   "address": "006bfa90"
+  },
+  {
+   "symbol": "?_com_issue_error@@YGXJ@Z",
+   "address": "00795940"
+  },
+  {
+   "symbol": "?unknown_475d60@CellClass@@QBE?AUCoordStruct@@XZ",
+   "address": "00475d60"
+  },
+  {
+   "symbol": "?unknown_a40774@@3HA",
+   "address": "00a40774"
+  },
+  {
+   "symbol": "?unknown_func_6b8cc0@TeamClass@@QAE_NPAVFootClass@@@Z",
+   "address": "006b8cc0"
+  },
+  {
+   "symbol": "?unknown_func_6bd810@TeamClass@@QAE_NXZ",
+   "address": "006bd810"
+  },
+  {
+   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
+   "address": "00a35db4"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "_CLSID_TunnelLocomotionClass",
+   "address": "007a1f90"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  }
+ ],
+ "route": "A",
+ "unit": "reinf.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00639970",
+   "lines": 18
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "00639960",
+   "bytes": 3,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0063a680",
+   "bytes": 5,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [],
+ "unit_functions": 5,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

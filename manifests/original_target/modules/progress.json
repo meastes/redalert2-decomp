@@ -1,0 +1,1282 @@
+{
+ "module": "progress",
+ "source": "src/recovered/progress.cpp",
+ "header": null,
+ "population": "population-3898",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 862,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "0061eab0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "0061ead0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "0061eb00",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "0061eb20",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "0061eb40",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "0061eb60",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "0061eb80",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "0061eba0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "0061ebe0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "0061ec10",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "0061ec40",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "0061ec70",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "0061ec80",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E43",
+   "entry": "0061eca0",
+   "body_bytes": 22,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "_$E41",
+   "entry": "0061ecc0",
+   "body_bytes": 51,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "??0ProgressScreenClass@@QAE@XZ",
+   "entry": "0061ed00",
+   "body_bytes": 79,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "??1ProgressScreenClass@@QAE@XZ",
+   "entry": "0061ed50",
+   "body_bytes": 41,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Init@ProgressScreenClass@@QAEXNDPAUHWND__@@@Z",
+   "entry": "0061ed80",
+   "body_bytes": 110,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Clear_unknown_60@ProgressScreenClass@@QAEXXZ",
+   "entry": "0061edf0",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Free_Shape@ProgressScreenClass@@QAEXXZ",
+   "entry": "0061ee00",
+   "body_bytes": 35,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Set_Side@ProgressScreenClass@@QAEXH@Z",
+   "entry": "0061ee30",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Get_Side@ProgressScreenClass@@QAEHXZ",
+   "entry": "0061ee40",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Side_Color_Scheme@ProgressScreenClass@@QAEPAVColorScheme@@XZ",
+   "entry": "0061ee50",
+   "body_bytes": 35,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Text_Color_Scheme@ProgressScreenClass@@QAEPAVColorScheme@@XZ",
+   "entry": "0061ee80",
+   "body_bytes": 78,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Player_Color_Scheme@ProgressScreenClass@@QAEPAVColorScheme@@H@Z",
+   "entry": "0061eed0",
+   "body_bytes": 108,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Load_Shape@ProgressScreenClass@@QAEXPBDPBXPAVConvertClass@@@Z",
+   "entry": "0061ef40",
+   "body_bytes": 93,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Unknown_0061EFA0@ProgressScreenClass@@QAEXUPoint2D@@PBG_N2@Z",
+   "entry": "0061efa0",
+   "body_bytes": 422,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Set_Name_Width@ProgressScreenClass@@QAEXH@Z",
+   "entry": "0061f150",
+   "body_bytes": 10,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Shape_Size@ProgressScreenClass@@QAEXPAH0@Z",
+   "entry": "0061f160",
+   "body_bytes": 101,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Flag_Size@ProgressScreenClass@@QAEXPAH0@Z",
+   "entry": "0061f1d0",
+   "body_bytes": 63,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Text_Size@ProgressScreenClass@@SIXPAH0@Z",
+   "entry": "0061f210",
+   "body_bytes": 97,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Box_Size@ProgressScreenClass@@QAEXPAH0H_N@Z",
+   "entry": "0061f280",
+   "body_bytes": 298,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Row_Y@ProgressScreenClass@@QAEHHH_N@Z",
+   "entry": "0061f3b0",
+   "body_bytes": 243,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Shape_Offset@ProgressScreenClass@@QAEH_N@Z",
+   "entry": "0061f4b0",
+   "body_bytes": 371,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Flag_Offset@ProgressScreenClass@@QAEH_N@Z",
+   "entry": "0061f630",
+   "body_bytes": 313,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Text_Offset@ProgressScreenClass@@QAEH_N@Z",
+   "entry": "0061f770",
+   "body_bytes": 329,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Average_Progress@ProgressScreenClass@@QAENXZ",
+   "entry": "0061f8c0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Draw_Bar@ProgressScreenClass@@QAEXUPoint2D@@NPAVSurface@@PAVColorScheme@@@Z",
+   "entry": "0061f8f0",
+   "body_bytes": 445,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Draw_Flag@ProgressScreenClass@@QAEXUPoint2D@@PAVSurface@@@Z",
+   "entry": "0061fab0",
+   "body_bytes": 184,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Draw_Name@ProgressScreenClass@@QAEXUPoint2D@@PBGPAVColorScheme@@H@Z",
+   "entry": "0061fb70",
+   "body_bytes": 163,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Draw_Player@ProgressScreenClass@@QAEXPAVColorScheme@@PBGAAUPoint2D@@H_N@Z",
+   "entry": "0061fc20",
+   "body_bytes": 1069,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Draw_It@ProgressScreenClass@@QAEXUPoint2D@@@Z",
+   "entry": "00620050",
+   "body_bytes": 367,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "entry": "006201c0",
+   "body_bytes": 256,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Add_Progress@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "entry": "006202c0",
+   "body_bytes": 253,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Has_Window@ProgressScreenClass@@QAE_NXZ",
+   "entry": "006203c0",
+   "body_bytes": 11,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Clear_Window@ProgressScreenClass@@QAEXXZ",
+   "entry": "006203d0",
+   "body_bytes": 8,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Set_Listener@ProgressScreenClass@@UAEXPAUUnknown535910@@@Z",
+   "entry": "006203e0",
+   "body_bytes": 10,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Get_Progress@ProgressScreenClass@@QAENH@Z",
+   "entry": "006203f0",
+   "body_bytes": 28,
+   "padding_bytes": 4
+  }
+ ],
+ "code_bytes": 6496,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "__real@8@00000000000000000000",
+   "address": "0079b610",
+   "bytes": 8,
+   "kind": "table",
+   "section": 95
+  },
+  {
+   "symbol": "__real@8@4005c800000000000000",
+   "address": "0079b7f0",
+   "bytes": 8,
+   "kind": "table",
+   "section": 114
+  },
+  {
+   "symbol": "__real@8@3ff8a3d70a3d70a3d800",
+   "address": "0079c518",
+   "bytes": 8,
+   "kind": "table",
+   "section": 113
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a8428",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7ProgressScreenClass@@6B@",
+   "address": "007a843c",
+   "bytes": 4,
+   "kind": "vtable",
+   "section": 42
+  },
+  {
+   "symbol": "??_C@_01FJFF@W?$AA@",
+   "address": "007db208",
+   "bytes": 2,
+   "kind": "string",
+   "section": 70
+  },
+  {
+   "symbol": "??_C@_0L@KNBO@SovietLoad?$AA@",
+   "address": "007ebfac",
+   "bytes": 11,
+   "kind": "string",
+   "section": 59
+  },
+  {
+   "symbol": "??_C@_0L@FJPD@AlliedLoad?$AA@",
+   "address": "007ebfb8",
+   "bytes": 11,
+   "kind": "string",
+   "section": 60
+  },
+  {
+   "symbol": "??_C@_09LBMK@LightGrey?$AA@",
+   "address": "007ebfc4",
+   "bytes": 10,
+   "kind": "string",
+   "section": 63
+  },
+  {
+   "symbol": "??_C@_07MMLF@DarkRed?$AA@",
+   "address": "007ebfd0",
+   "bytes": 8,
+   "kind": "string",
+   "section": 98
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@00000000000000000000",
+   "address": "0079b610",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005c800000000000000",
+   "address": "0079b7f0",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff8a3d70a3d70a3d800",
+   "address": "0079c518",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a8428",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7ProgressScreenClass@@6B@",
+   "address": "007a843c",
+   "bytes": 4,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_C@_01FJFF@W?$AA@",
+   "address": "007db208",
+   "bytes": 2,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@KNBO@SovietLoad?$AA@",
+   "address": "007ebfac",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@FJPD@AlliedLoad?$AA@",
+   "address": "007ebfb8",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09LBMK@LightGrey?$AA@",
+   "address": "007ebfc4",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07MMLF@DarkRed?$AA@",
+   "address": "007ebfd0",
+   "bytes": 8,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00481f00",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "00481fb0",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0065c7d0",
+   "symbol": "?Init@ProgressScreenClass@@QAEXNDPAUHWND__@@@Z",
+   "target": "0061ed80",
+   "function_entry": true
+  },
+  {
+   "site": "0065c7d0",
+   "symbol": "?Set_Listener@ProgressScreenClass@@UAEXPAUUnknown535910@@@Z",
+   "target": "006203e0",
+   "function_entry": true
+  },
+  {
+   "site": "0065c7d0",
+   "symbol": "?Set_Side@ProgressScreenClass@@QAEXH@Z",
+   "target": "0061ee30",
+   "function_entry": true
+  },
+  {
+   "site": "0065c7d0",
+   "symbol": "?Load_Shape@ProgressScreenClass@@QAEXPBDPBXPAVConvertClass@@@Z",
+   "target": "0061ef40",
+   "function_entry": true
+  },
+  {
+   "site": "0065c7d0",
+   "symbol": "?Unknown_0061EFA0@ProgressScreenClass@@QAEXUPoint2D@@PBG_N2@Z",
+   "target": "0061efa0",
+   "function_entry": true
+  },
+  {
+   "site": "0065c7d0",
+   "symbol": "?Set_Name_Width@ProgressScreenClass@@QAEXH@Z",
+   "target": "0061f150",
+   "function_entry": true
+  },
+  {
+   "site": "0065c7d0",
+   "symbol": "?Set_Listener@ProgressScreenClass@@UAEXPAUUnknown535910@@@Z",
+   "target": "006203e0",
+   "function_entry": true
+  },
+  {
+   "site": "0065c7d0",
+   "symbol": "?Average_Progress@ProgressScreenClass@@QAENXZ",
+   "target": "0061f8c0",
+   "function_entry": true
+  },
+  {
+   "site": "0065c7d0",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0065c7d0",
+   "symbol": "?Average_Progress@ProgressScreenClass@@QAENXZ",
+   "target": "0061f8c0",
+   "function_entry": true
+  },
+  {
+   "site": "0065c7d0",
+   "symbol": "?Clear_unknown_60@ProgressScreenClass@@QAEXXZ",
+   "target": "0061edf0",
+   "function_entry": true
+  },
+  {
+   "site": "0065c7d0",
+   "symbol": "?Set_Listener@ProgressScreenClass@@UAEXPAUUnknown535910@@@Z",
+   "target": "006203e0",
+   "function_entry": true
+  },
+  {
+   "site": "0057be50",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "005c2330",
+   "symbol": "?Has_Window@ProgressScreenClass@@QAE_NXZ",
+   "target": "006203c0",
+   "function_entry": true
+  },
+  {
+   "site": "005c2330",
+   "symbol": "?Clear_Window@ProgressScreenClass@@QAEXXZ",
+   "target": "006203d0",
+   "function_entry": true
+  },
+  {
+   "site": "005c2330",
+   "symbol": "?Has_Window@ProgressScreenClass@@QAE_NXZ",
+   "target": "006203c0",
+   "function_entry": true
+  },
+  {
+   "site": "005c2330",
+   "symbol": "?Draw_It@ProgressScreenClass@@QAEXUPoint2D@@@Z",
+   "target": "00620050",
+   "function_entry": true
+  },
+  {
+   "site": "00672160",
+   "symbol": "?Get_Progress@ProgressScreenClass@@QAENH@Z",
+   "target": "006203f0",
+   "function_entry": true
+  },
+  {
+   "site": "00672160",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "00672160",
+   "symbol": "?Get_Progress@ProgressScreenClass@@QAENH@Z",
+   "target": "006203f0",
+   "function_entry": true
+  },
+  {
+   "site": "00672160",
+   "symbol": "?Get_Progress@ProgressScreenClass@@QAENH@Z",
+   "target": "006203f0",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "?Init@ProgressScreenClass@@QAEXNDPAUHWND__@@@Z",
+   "target": "0061ed80",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "?Load_Shape@ProgressScreenClass@@QAEXPBDPBXPAVConvertClass@@@Z",
+   "target": "0061ef40",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "?Unknown_0061EFA0@ProgressScreenClass@@QAEXUPoint2D@@PBG_N2@Z",
+   "target": "0061efa0",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "?Draw_It@ProgressScreenClass@@QAEXUPoint2D@@@Z",
+   "target": "00620050",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?Init@ProgressScreenClass@@QAEXNDPAUHWND__@@@Z",
+   "target": "0061ed80",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?Load_Shape@ProgressScreenClass@@QAEXPBDPBXPAVConvertClass@@@Z",
+   "target": "0061ef40",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?Unknown_0061EFA0@ProgressScreenClass@@QAEXUPoint2D@@PBG_N2@Z",
+   "target": "0061efa0",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?Draw_It@ProgressScreenClass@@QAEXUPoint2D@@@Z",
+   "target": "00620050",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "00577bd0",
+   "symbol": "?Has_Window@ProgressScreenClass@@QAE_NXZ",
+   "target": "006203c0",
+   "function_entry": true
+  },
+  {
+   "site": "00577bd0",
+   "symbol": "?Draw_It@ProgressScreenClass@@QAEXUPoint2D@@@Z",
+   "target": "00620050",
+   "function_entry": true
+  },
+  {
+   "site": "0057a0d0",
+   "symbol": "?Init@ProgressScreenClass@@QAEXNDPAUHWND__@@@Z",
+   "target": "0061ed80",
+   "function_entry": true
+  },
+  {
+   "site": "0057a0d0",
+   "symbol": "?Load_Shape@ProgressScreenClass@@QAEXPBDPBXPAVConvertClass@@@Z",
+   "target": "0061ef40",
+   "function_entry": true
+  },
+  {
+   "site": "0057a0d0",
+   "symbol": "?Unknown_0061EFA0@ProgressScreenClass@@QAEXUPoint2D@@PBG_N2@Z",
+   "target": "0061efa0",
+   "function_entry": true
+  },
+  {
+   "site": "0057a0d0",
+   "symbol": "?Draw_It@ProgressScreenClass@@QAEXUPoint2D@@@Z",
+   "target": "00620050",
+   "function_entry": true
+  },
+  {
+   "site": "0057a0d0",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0057a0d0",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0057a0d0",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0057a0d0",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0057a0d0",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0057a0d0",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0057a0d0",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0057a0d0",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0057a0d0",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0057a0d0",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0057a0d0",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0057a0d0",
+   "symbol": "?Clear_Window@ProgressScreenClass@@QAEXXZ",
+   "target": "006203d0",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Has_Window@ProgressScreenClass@@QAE_NXZ",
+   "target": "006203c0",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Clear_Window@ProgressScreenClass@@QAEXXZ",
+   "target": "006203d0",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Has_Window@ProgressScreenClass@@QAE_NXZ",
+   "target": "006203c0",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Draw_It@ProgressScreenClass@@QAEXUPoint2D@@@Z",
+   "target": "00620050",
+   "function_entry": true
+  },
+  {
+   "site": "00656890",
+   "symbol": "?Init@ProgressScreenClass@@QAEXNDPAUHWND__@@@Z",
+   "target": "0061ed80",
+   "function_entry": true
+  },
+  {
+   "site": "0075c830",
+   "symbol": "?Has_Window@ProgressScreenClass@@QAE_NXZ",
+   "target": "006203c0",
+   "function_entry": true
+  },
+  {
+   "site": "0075c830",
+   "symbol": "?Draw_It@ProgressScreenClass@@QAEXUPoint2D@@@Z",
+   "target": "00620050",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Has_Window@ProgressScreenClass@@QAE_NXZ",
+   "target": "006203c0",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Clear_Window@ProgressScreenClass@@QAEXXZ",
+   "target": "006203d0",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Has_Window@ProgressScreenClass@@QAE_NXZ",
+   "target": "006203c0",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Draw_It@ProgressScreenClass@@QAEXUPoint2D@@@Z",
+   "target": "00620050",
+   "function_entry": true
+  },
+  {
+   "site": "0057ae00",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0057ae00",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0057ae00",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0057ae00",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0057ae00",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0057ae00",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0057ae00",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0057ae00",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0057ae00",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0057ae00",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0057ae00",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "0057ae00",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "target": "006201c0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?Blit@GScreenClass@@SIX_NPAVSurface@@PBVRect@@@Z",
+   "address": "004e0c90"
+  },
+  {
+   "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
+   "address": "0049eea0"
+  },
+  {
+   "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+   "address": "00ab6ef8"
+  },
+  {
+   "symbol": "?Country_Flag_004d1120@@YIPAVSurface@@H@Z",
+   "address": "004d1120"
+  },
+  {
+   "symbol": "?Draw_0068ce80@SurfaceCacheClass@@QAE_NABVRect@@PAVSurface@@1H@Z",
+   "address": "0068ce80"
+  },
+  {
+   "symbol": "?Fancy_Text_Printf@@YA?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIZZ",
+   "address": "00497b40"
+  },
+  {
+   "symbol": "?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z",
+   "address": "00663d30"
+  },
+  {
+   "symbol": "?Font_For_Style@@YIPAVBitFontClass@@H@Z",
+   "address": "00497a50"
+  },
+  {
+   "symbol": "?Get_Color_0066e2a0@NodeNameType@@QAEHXZ",
+   "address": "0066e2a0"
+  },
+  {
+   "symbol": "?Get_Title_Screen_Area_006f1f30@@YI?AVRect@@XZ",
+   "address": "006f1f30"
+  },
+  {
+   "symbol": "?Is_Surface_Lost@DSurface@@QAE_NXZ",
+   "address": "004aaee0"
+  },
+  {
+   "symbol": "?Narrow_To_Wide_006fa180@@YIPAGPBD@Z",
+   "address": "006fa180"
+  },
+  {
+   "symbol": "?String_Pixel_Width@BitFontClass@@QBEHPBGH@Z",
+   "address": "00431690"
+  },
+  {
+   "symbol": "?To_RGB@HSVClass@@QBE?AVRGBClass@@XZ",
+   "address": "004ff050"
+  },
+  {
+   "symbol": "?Unknown_00515A80@@YIXPBX_N@Z",
+   "address": "00515a80"
+  },
+  {
+   "symbol": "?Unknown_005feb60@@YIXPAVRect@@PAVSurface@@HH@Z",
+   "address": "005feb60"
+  },
+  {
+   "symbol": "?Unknown_006715D0@SessionClass@@QAEHH@Z",
+   "address": "006715d0"
+  },
+  {
+   "symbol": "?Unknown_Load_Shape_00495270@@YIPBXPBDAA_N@Z",
+   "address": "00495270"
+  },
+  {
+   "symbol": "?Unknown_Rect_Shrink_006F1B00@@YIXPAVRect@@H@Z",
+   "address": "006f1b00"
+  },
+  {
+   "symbol": "?Window_Rect_In_Main_Client@@YIHPAUHWND__@@PAURECT@@@Z",
+   "address": "00735690"
+  },
+  {
+   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
+   "address": "0066e290"
+  },
+  {
+   "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+   "address": "00a76378"
+  },
+  {
+   "symbol": "?unknown_drawer_8323c4@@3PAVConvertClass@@A",
+   "address": "008323c4"
+  },
+  {
+   "symbol": "?unknown_empty_wide_839d4c@@3QBGB",
+   "address": "00839d4c"
+  },
+  {
+   "symbol": "?unknown_game_mode_a3d298@@3HA",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_players_a3fa7c@@3V?$DynamicVectorClass@PAUNodeNameType@@@@A",
+   "address": "00a3fa7c"
+  },
+  {
+   "symbol": "?unknown_session_a3d298@@3USessionClass@@A",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_shift_852fb8@@3HA",
+   "address": "00852fb8"
+  },
+  {
+   "symbol": "?unknown_shift_852fbc@@3HA",
+   "address": "00852fbc"
+  },
+  {
+   "symbol": "?unknown_shift_852fc0@@3HA",
+   "address": "00852fc0"
+  },
+  {
+   "symbol": "?unknown_shift_852fc4@@3HA",
+   "address": "00852fc4"
+  },
+  {
+   "symbol": "?unknown_shift_852fc8@@3HA",
+   "address": "00852fc8"
+  },
+  {
+   "symbol": "?unknown_shift_852fcc@@3HA",
+   "address": "00852fcc"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_surface_839954@@3PAVSurface@@A",
+   "address": "00839954"
+  },
+  {
+   "symbol": "?unknown_surface_839958@@3PAVSurface@@A",
+   "address": "00839958"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__GetDlgItem@8",
+   "address": "0079a49c"
+  },
+  {
+   "symbol": "__imp__SendMessageA@16",
+   "address": "0079a4a0"
+  },
+  {
+   "symbol": "_atexit",
+   "address": "0078298a"
+  }
+ ],
+ "route": "A",
+ "unit": "progress.cpp",
+ "form": "include blocks held",
+ "switches": [
+  "RA2_SHAPE_FRAME_RESULT",
+  "VECTOR_IMPLEMENT_ALL"
+ ],
+ "include_blocks": [
+  {
+   "before": "006201c0",
+   "lines": 1
+  }
+ ],
+ "held_rows": [
+  {
+   "entry": "0061ee80",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "0061eed0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "0061fc20",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "00620050",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  }
+ ],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 51,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

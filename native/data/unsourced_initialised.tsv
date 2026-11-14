@@ -36,7 +36,7 @@ address	section	extent	symbol	name	msvc	user
 0x007D5F38	.data	176	_unknown_uuid_IPersistStream_7d5f38	unknown_uuid_IPersistStream_7d5f38	_unknown_uuid_IPersistStream_7d5f38	src/recovered/header_statics/0053cdd0/HeaderStatics_empty_rect_init_0053cdd0.cpp
 0x007D68F4	.data	20	_test_latency_debug_007d68f4	test_latency_debug_007d68f4	?test_latency_debug_007d68f4@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007D7CEC	.data	4	_channel_command_eol_007d7cec	channel_command_eol_007d7cec	?channel_command_eol_007d7cec@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
-0x007DB4B0	.data	4	_hex_format_7db4b0	hex_format_7db4b0	?hex_format_7db4b0@@3PADA	src/recovered/classes/CNetUtilEventSink/CNetUtilEventSink_OnPing_0075df30.cpp
+0x007DB4B0	.data	4	_hex_format_7db4b0	hex_format_7db4b0	?hex_format_7db4b0@@3PADA	src/recovered/classes/CNetUtilEventSink/OnPing.cpp
 0x007DFC48	.data	28	_wol_label_7dfc48	wol_label_7dfc48	?wol_label_7dfc48@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007DFC64	.data	24	_wol_label_7dfc64	wol_label_7dfc64	?wol_label_7dfc64@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007E09C4	.data	4	_unknown_map_generation_callback_7e09c4	unknown_map_generation_callback_7e09c4	?unknown_map_generation_callback_7e09c4@@3P6AXXZA	src/recovered/header_statics/0056d2d0/HeaderStatics_diagonal_init_0056d2d0.cpp
@@ -62,7 +62,7 @@ address	section	extent	symbol	name	msvc	user
 0x007FD8A4	.data	20	_game_clan_label_007fd8a4	game_clan_label_007fd8a4	?game_clan_label_007fd8a4@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007FD8B8	.data	20	_game_counts_format_007fd8b8	game_counts_format_007fd8b8	?game_counts_format_007fd8b8@@3PAGA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007FDEA0	.data	36	_user_reply_debug_7fdea0	user_reply_debug_7fdea0	?user_reply_debug_7fdea0@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
-0x007FE030	.data	52	_port_debug_7fe030	port_debug_7fe030	?port_debug_7fe030@@3PADA	src/recovered/classes/CNetUtilEventSink/CNetUtilEventSink_OnPing_0075df30.cpp
+0x007FE030	.data	52	_port_debug_7fe030	port_debug_7fe030	?port_debug_7fe030@@3PADA	src/recovered/classes/CNetUtilEventSink/OnPing.cpp
 0x007FE1C8	.data	16	_u______hs_007fe1c8	u______hs_007fe1c8	_u______hs_007fe1c8	src/recovered/00479ca0.cpp
 0x007FE2C4	.data	16	_wol_label_7fe2c4	wol_label_7fe2c4	?wol_label_7fe2c4@@3PAGA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007FE9B8	.data	28	_wol_label_7fe9b8	wol_label_7fe9b8	?wol_label_7fe9b8@@3PAGA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
@@ -75,5 +75,5 @@ address	section	extent	symbol	name	msvc	user
 0x007FF334	.data	24	_test_precalc_debug_007ff334	test_precalc_debug_007ff334	?test_precalc_debug_007ff334@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007FFD8C	.data	20	_wol_match_fail_7ffd8c	wol_match_fail_7ffd8c	?wol_match_fail_7ffd8c@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007FFEA0	.data	52	_wol_user_count_debug_007ffea0	wol_user_count_debug_007ffea0	?wol_user_count_debug_007ffea0@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
-0x00801470	.data	136	_unknown_vqa_default_config_801470	unknown_vqa_default_config_801470	?unknown_vqa_default_config_801470@@3UVQAConfig@@A	src/recovered/VQA32/config_VQA_DefaultConfig_00777850.cpp
+0x00801470	.data	136	_unknown_vqa_default_config_801470	unknown_vqa_default_config_801470	?unknown_vqa_default_config_801470@@3UVQAConfig@@A	src/recovered/vqalib_config/VQA_Unknown.cpp
 0x0082EC90	.data	676	__iob	_iob	__iob	src/recovered/00402190.cpp

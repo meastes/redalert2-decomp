@@ -16,7 +16,7 @@ struct UnknownNodeList_006003d0 {
     char unknown_00[0x34];
     UnknownNode_006003d0 *Head;             // +0x34
     UnknownNode_006003d0 *unknown_add_node(int length);                      // 0x006003D0
-    void unknown_remove_node(UnknownNode_006003d0 *node);   // 0x00600410
+    void Remove_Node_00600410(UnknownNode_006003d0 *node);   // 0x00600410
 };
 
 #endif

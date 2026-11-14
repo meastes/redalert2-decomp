@@ -11,15 +11,15 @@
 // control registry 0x00A73640's out-of-line lookup that Get_Record
 // (0x005FC020 inline) calls, e.g. Default_Dialog_Proc 0x005FFB00's WM_PAINT.
 // The accepted ownrdraw rows spell the same registry as wlib's
-// WolDictionary<unsigned int, UnknownControlRecord> (one storage natively), and
+// WolDictionary<unsigned int, WinData> (one storage natively), and
 // 0x00601710 is that template's getPointer: the UnknownControlIndex name
 // forwards to it (pass-6a decompile 00601710: false when empty or absent,
 // else the record's address stored and true).
-extern "C" bool ra2_owner_draw_index_get(void const *self, unsigned int const &key, OwnerDraw::UnknownControlRecord *&value)
-    __asm__("__ZNK9OwnerDraw19UnknownControlIndex3GetERKjRPNS_20UnknownControlRecordE");
-bool ra2_owner_draw_index_get(void const *, unsigned int const &key, OwnerDraw::UnknownControlRecord *&value)
+extern "C" bool ra2_owner_draw_index_get(void const *self, unsigned int const &key, OwnerDraw::WinData *&value)
+    __asm__("__ZNK9OwnerDraw19UnknownControlIndex3GetERKjRPNS_7WinDataE");
+bool ra2_owner_draw_index_get(void const *, unsigned int const &key, OwnerDraw::WinData *&value)
 {
-    OwnerDraw::UnknownControlRecord *record = 0;
+    OwnerDraw::WinData *record = 0;
     if (!unknown_control_table_a73640.Get_Pointer(key, &record) || record == 0) {
         return false;
     }
@@ -40,15 +40,60 @@ void __fastcall Unit_Unknown_Shake_00482e00(int)
 // names, the four name functions are unrecovered). From the pass-6a
 // decompiles: the style (+0x04: 1 load, 2 save, 3 delete) and the
 // description (+0x0C: the save's, by default the scenario's name
-// UnknownIDSource +0x940) are set, then Dialog 0x0053B770 runs; the names are
+// ScenarioClass +0x940) are set, then Dialog 0x0053B770 runs; the names are
 // the string table's labels (0x0053C970..0x0053C9D0).
 #include "shared/map_seed.hpp"
 #include "shared/id_source.hpp"
+
+#include "shared/load_dlg.hpp"   // WWMouse, the dialog helpers
+#include "shared/dialog_create.hpp"   // unknown_create_dialog_5ff610
+#include <stdio.h>
+#include "shared/cd.hpp"
+#include "shared/campaign.hpp"
+extern "C" const char *ra2port_take_resume(void);   // port/src/port_core.cpp
 
 char LoadOptionsClass::Load_Dialog_0053b190()
 {
     unknown_04 = 1;
     Description = 0;
+    // Resume at start (lane I, NATIVE, not original behaviour): the host asked for a
+    // checkpoint to be loaded (ra2port::request_resume). Dialog 0x0053B770's own steps
+    // for a load, with the row already chosen: the load dialog 0xB7 is made, filled and
+    // shown, then hidden; the disk the row's game needs; the mouse hidden; Load
+    // (0x0053C680); the list freed and the dialog closed (0x005FF6E0). True goes back to
+    // Select_Game as after a load from the list; a failed load shows the dialog as usual.
+    char const *file = ra2port_take_resume();
+    if (file) {
+        HWND dialog = unknown_create_dialog_5ff610(0xB7, (DialogProc)Load_Dialog_Proc, 0);
+        if (dialog) {
+            ra2port_set_dialog_user(dialog, this);   // DWL_USER, pointer-sized natively
+            if (HWND list = GetDlgItem(dialog, 0x525)) Fill_List_0053c040(list);
+            unknown_dialog_5ff7c0(dialog);
+            ShowWindow(dialog, 0);
+        }
+        // The disk the row's game needs, as Dialog does before its Load.
+        for (int i = 0; i < Files.Count(); ++i) {
+            if (_stricmp(Files[i]->Filename, file) == 0) {
+                Unknown_0046E4C0(0x3c);
+                CD::Set_Required_CD(Files[i]->unknown_1a8 == -1 ? -1 : Campaigns[Files[i]->unknown_1a8]->unknown_98);
+                CD().Force_Available(CD::RequiredCD);
+                break;
+            }
+        }
+        WWMouse->Hide_Mouse();
+        bool loaded = Load(file);
+        for (int i = 0; i < Files.Count(); ++i) {
+            delete Files[i];
+        }
+        Files.Clear();
+        if (dialog) unknown_dialog_5ff6e0(dialog);
+        if (loaded) {
+            fprintf(stderr, "resume: loaded %s\n", file);
+            return true;
+        }
+        WWMouse->Show_Mouse();
+        fprintf(stderr, "resume: could not load %s\n", file);
+    }
     return Dialog();
 }
 

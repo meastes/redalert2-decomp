@@ -4,8 +4,8 @@
     "id": "population-4334",
     "inventory_sha256": "e259c6efcb1c283123c1b5abe2ddfa1506bf0611001d6dd755f55a546426ab54",
     "gaps_sha256": "0ef4fe6edb6be0c0080217ab14b752a050e59931bf574329a8ed518c53333ffc",
-    "historical_population_sha256": "3dae38bdb58f7dadaf8d8654767a26ccd5030b5f5c1a19872cee266eef4c9262",
-    "historical_acceptance_sha256": "b643967593946611ad56ea4bfcfbf7e69d42e99e93627db2519cbf3c6b396043"
+    "historical_population_sha256": "2a3fdddca433e3ec75c7d6e0c7add3cace7c645ed850c8468a9d92545af86308",
+    "historical_acceptance_sha256": "3fd980635bb95e90b434ad9a64d092a6b19aede58e66373b9d1f6e7ea8c074cd"
   },
   "references": {
     "__imp__QueryPerformanceFrequency@4": 7971276,
@@ -26,13 +26,13 @@
     "?State@LocomotionClass@@UAGHXZ": 5494272,
     "??1State@WorldDominationTour@@UAE@XZ": 7538912,
     "??_7State@WorldDominationTour@@6B@": 8057804,
-    "__DAT_00ab6e88": 11234952,
+    "__waypoint_none_00ab6e88": 11234952,
     "__strncpy": 7873488,
     "__strcmp": 7888160,
     "__strlen": 7903280,
     "__malloc": 7874096,
     "___amsg_exit": 7887784,
-    "__DAT_0084ed10": 8711440,
+    "__cell_none_0084ed10": 8711440,
     "?State@TunnelLocomotionClass@@UAGHXZ": 7279456,
     "__strdup": 7919638,
     "?x@?1???A?$IndexClass@HPAUINISection@INIClass@@@@QBEABQAUINISection@INIClass@@ABH@Z@4PAU23@A": 11712044,
@@ -43,8 +43,8 @@
     "__strupr": 7954916,
     "__chkstk": 7878736,
     "__strnicmp": 7878672,
-    "__DAT_00ab6ea8": 11234984,
-    "__DAT_00ab6eb0": 11234992,
+    "__unknown_timer_start_00ab6ea8": 11234984,
+    "__unknown_timer_accum_00ab6eb0": 11234992,
     "_time": 7878783,
     "__real@8@4006ff00000000000000": 8007504,
     "__real@8@00000000000000000000": 7976464,
@@ -338,7 +338,7 @@
     "?Get@CacheStraw@@UAEHPAXH@Z": 4802400,
     "?Get@WolUserArray@@QBE_NAAUUser@WOL@@H@Z": 7757856,
     "?Get@UnknownCRCStraw@@UAEHPAXH@Z": 4801168,
-    "?Get@UnknownAlphaTableCache_008315B8@@QAEPAY0BAA@$$CBGH@Z": 4318176,
+    "?Get@AlphaLightingRemapInitClass@@QAEPAY0BAA@$$CBGH@Z": 4318176,
     "__imp__GetCurrentProcess@0": 7971220,
     "?Get@BufferStraw@@UAEHPAXH@Z": 7813184,
     "?Get@?$TypeListReader@VBuildingTypeClass@@@@SI?AV?$TypeList@PAVBuildingTypeClass@@@@AAVCCINIClass@@PBD1ABV2@@Z": 6634448,
@@ -835,7 +835,9 @@
     "?Get_CPU_Clock@@YAKAAK@Z": 7860852,
     "?RDTSC@@YAXXZ": 5947232,
     "__real@8@bff6b6db6db6db6db800": 8026880,
-    "__imp__bind": 7972212
+    "__imp__bind": 7972212,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVWinModemClass@@@8": 8374768
   },
   "regions": [
     {
@@ -847,7 +849,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 49,
       "body_sha256": "d25205deeaec4ca781f57133a15ef30ee7d7e32a08b2abb8cb0df8fc05c587cb",
@@ -881,7 +884,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 14,
       "body_sha256": "2b9670645c008d8b00676c2e3562331ad981a0489805efb6f4767d6afb990248",
@@ -930,7 +934,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 450,
       "body_sha256": "2f4b2533466ff8e547eaa17c641b81dfde94fb48f534b8f2fdf80acdc3aa3a29",

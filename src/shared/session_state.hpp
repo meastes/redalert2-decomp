@@ -28,13 +28,13 @@ class MultiplayerGameMode;
 class MultiMission;
 struct _iobuf;
 class CellClass;
-struct UnknownGameOptions {
+struct SessionOptionsClass {
     // Reads the block from a section; the computer slots default to
     // (first_slot for slot 1, else other_slots, -2, -2) (0x0066F1F0).
     void Read(CCINIClass &ini, char const *section, int other_slots, int first_slot);
     void Write(CCINIClass &ini, char const *section);   // 0x00670270
     // Credits 10000, ten units, the five flags set, the rest 0 (0x0066E330; expanded into the session constructor).
-    UnknownGameOptions();
+    SessionOptionsClass();
 
     int GameMode;                           // +0x00 (default: the first registered mode's id)
     int ScenIndex;                          // +0x04
@@ -48,12 +48,12 @@ struct UnknownGameOptions {
     bool CratesAppear;                      // +0x18
     int Slots[8][3];                        // +0x1C (Slot01..Slot07 entries; slot 0 is not saved)
 };
-struct UnknownSessionState {
+struct SessionClass {
 #ifdef RA2_SESSION_STATE_DEFINED
     // Only the defining unit constructs the object (unknown_session_a3d298's initializer 0x004D4860).
-    UnknownSessionState();                  // 0x0066E380
+    SessionClass();                  // 0x0066E380
 #endif
-    ~UnknownSessionState();                 // 0x0066EB20
+    ~SessionClass();                 // 0x0066EB20
     int Value_0124_006729f0();
     // netdlg2's scenario download test for an official map (0x00672140; meaning not recovered).
     bool Unknown_00672140();
@@ -100,9 +100,9 @@ struct UnknownSessionState {
 #else
     char unknown_08[0x18 - 0x08];
 #endif
-            // +0x18 the first word of the 0xEC-byte options block at 0x00A3D2B0 (UnknownLobbyState in
+            // +0x18 the first word of the 0xEC-byte options block at 0x00A3D2B0 (GameOptionsType in
             // shared/lobby.hpp; its 0x00672810 clears AICount and the AI tables): the game mode index that
-            // UnknownGameOptions::GameMode saves (0x005CC890).
+            // SessionOptionsClass::GameMode saves (0x005CC890).
             int GameModeIndex;
         };
         char unknown_00[0x1C];
@@ -140,9 +140,9 @@ struct UnknownSessionState {
     int unknown_130;                        // +0x130 (-2: the colour shows as random; 0x004D23C0)
     int unknown_134;                        // +0x134 the player's country (GDlgSupp 0x004D1820)
     int unknown_138;                        // +0x138 (-2 random, -3 observer: the country shows as that; 0x004D1820)
-    UnknownGameOptions SkirmishOptions;     // +0x13C
-    UnknownGameOptions LANOptions;          // +0x1B8
-    UnknownGameOptions WonlineOptions;      // +0x234
+    SessionOptionsClass SkirmishOptions;     // +0x13C
+    SessionOptionsClass LANOptions;          // +0x1B8
+    SessionOptionsClass WonlineOptions;      // +0x234
     int unknown_2b0;                        // +0x2B0 (also unknown_int_a3d548)
     
 #ifdef RA2_SESSION_CTOR_FIELDS

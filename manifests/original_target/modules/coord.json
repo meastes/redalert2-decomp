@@ -1,0 +1,431 @@
+{
+ "module": "coord",
+ "source": "src/recovered/coord.cpp",
+ "header": null,
+ "population": "population-3654",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 755,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00491430",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "00491460",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "00491480",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "004914a0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "004914c0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "004914e0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "00491500",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "00491540",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "00491570",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "004915a0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "004915d0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "004915e0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "00491600",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E44",
+   "entry": "00491620",
+   "body_bytes": 172,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E47",
+   "entry": "004916d0",
+   "body_bytes": 116,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Coord_Scatter@@YI?AUCoordStruct@@ABU1@H_N@Z",
+   "entry": "00491750",
+   "body_bytes": 289,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Adjacent_Coord_With_Height@@YI?AUCoordStruct@@ABU1@H@Z",
+   "entry": "00491880",
+   "body_bytes": 111,
+   "padding_bytes": 1
+  }
+ ],
+ "code_bytes": 1216,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "0079e598",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "0079e598",
+   "bytes": 16,
+   "kind": "table"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00461de0",
+   "symbol": "?Coord_Scatter@@YI?AUCoordStruct@@ABU1@H_N@Z",
+   "target": "00491750",
+   "function_entry": true
+  },
+  {
+   "site": "0043f8e0",
+   "symbol": "?Coord_Scatter@@YI?AUCoordStruct@@ABU1@H_N@Z",
+   "target": "00491750",
+   "function_entry": true
+  },
+  {
+   "site": "0043f8e0",
+   "symbol": "?Coord_Scatter@@YI?AUCoordStruct@@ABU1@H_N@Z",
+   "target": "00491750",
+   "function_entry": true
+  },
+  {
+   "site": "00462110",
+   "symbol": "?Coord_Scatter@@YI?AUCoordStruct@@ABU1@H_N@Z",
+   "target": "00491750",
+   "function_entry": true
+  },
+  {
+   "site": "004a5b00",
+   "symbol": "?Coord_Scatter@@YI?AUCoordStruct@@ABU1@H_N@Z",
+   "target": "00491750",
+   "function_entry": true
+  },
+  {
+   "site": "0043e270",
+   "symbol": "?Coord_Scatter@@YI?AUCoordStruct@@ABU1@H_N@Z",
+   "target": "00491750",
+   "function_entry": true
+  },
+  {
+   "site": "0043e270",
+   "symbol": "?Destruction_Adjacent_Coord_00491880@@YI?AUCoordStruct@@ABU1@H@Z",
+   "target": "00491880",
+   "function_entry": true
+  },
+  {
+   "site": "0043e270",
+   "symbol": "?Coord_Scatter@@YI?AUCoordStruct@@ABU1@H_N@Z",
+   "target": "00491750",
+   "function_entry": true
+  },
+  {
+   "site": "004bcd50",
+   "symbol": "?Coord_Scatter@@YI?AUCoordStruct@@ABU1@H_N@Z",
+   "target": "00491750",
+   "function_entry": true
+  },
+  {
+   "site": "00476cc0",
+   "symbol": "?Coord_Scatter@@YI?AUCoordStruct@@ABU1@H_N@Z",
+   "target": "00491750",
+   "function_entry": true
+  },
+  {
+   "site": "00476cc0",
+   "symbol": "?Coord_Scatter@@YI?AUCoordStruct@@ABU1@H_N@Z",
+   "target": "00491750",
+   "function_entry": true
+  },
+  {
+   "site": "0043ee70",
+   "symbol": "?Coord_Scatter@@YI?AUCoordStruct@@ABU1@H_N@Z",
+   "target": "00491750",
+   "function_entry": true
+  },
+  {
+   "site": "0043ee70",
+   "symbol": "?Coord_Scatter@@YI?AUCoordStruct@@ABU1@H_N@Z",
+   "target": "00491750",
+   "function_entry": true
+  },
+  {
+   "site": "0043ee70",
+   "symbol": "?Coord_Scatter@@YI?AUCoordStruct@@ABU1@H_N@Z",
+   "target": "00491750",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0UnknownVector3@@QAE@HHH@Z",
+   "address": "0041b630"
+  },
+  {
+   "symbol": "??RRandom2Class@@QAEHXZ",
+   "address": "00638840"
+  },
+  {
+   "symbol": "?Fast_Cos@@YANN@Z",
+   "address": "004ba4d0"
+  },
+  {
+   "symbol": "?Fast_Sin@@YANN@Z",
+   "address": "004ba480"
+  },
+  {
+   "symbol": "?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z",
+   "address": "0055a280"
+  },
+  {
+   "symbol": "?Map@@3VMouseClass@@A",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "?unknown_facing_radians_79b620@@3NB",
+   "address": "0079b620"
+  },
+  {
+   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  }
+ ],
+ "route": "A",
+ "unit": "coord.cpp",
+ "form": "one include block",
+ "switches": [
+  "RA2_COORD_PLUS_POINT2D"
+ ],
+ "include_blocks": [
+  {
+   "before": "00491430",
+   "lines": 11
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 17,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "0043e270",
+   "target": "00491880",
+   "symbol": "?Destruction_Adjacent_Coord_00491880@@YI?AUCoordStruct@@ABU1@H@Z",
+   "module_symbol": "?Adjacent_Coord_With_Height@@YI?AUCoordStruct@@ABU1@H@Z"
+  }
+ ],
+ "stand_in_reference_count": 1,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

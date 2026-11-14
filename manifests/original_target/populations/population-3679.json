@@ -4,8 +4,8 @@
     "id": "population-3679",
     "inventory_sha256": "a85a3f115958f021664dcc978987a840a8f27f50fb935840f6b213f86f44d0f0",
     "gaps_sha256": "7c769d8750ab39e03792a543e1dd53c77e512586b3f3bb958ca47b6c7069321e",
-    "historical_population_sha256": "d58c06920e555c5d0df5cebaf9ec97749be49498cfd676dd68f6f509c74b96cf",
-    "historical_acceptance_sha256": "6efb4bae117b417b0e65ce382efdf4499d3e09acc67e713f95e8b40724327f60"
+    "historical_population_sha256": "b8b16bc9e208760794b202094c4bc4c94741852049f2cd1488cc646a7fa43871",
+    "historical_acceptance_sha256": "11e7b1ee1bdc5c80f308d13ed2280ce1555650156c658a590776f73bbae5dd8c"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -37,13 +37,13 @@
     "?Size@WalkLocomotionClass@@UAEHXZ": 7470640,
     "?Size@BufferIOFileClass@@UAEJXZ": 4390272,
     "?Size@RawFileClass@@UAEJXZ": 6525312,
-    "__DAT_00ab6e88": 11234952,
+    "__waypoint_none_00ab6e88": 11234952,
     "__strncpy": 7873488,
     "__strcmp": 7888160,
     "__strlen": 7903280,
     "__malloc": 7874096,
     "___amsg_exit": 7887784,
-    "__DAT_0084ed10": 8711440,
+    "__cell_none_0084ed10": 8711440,
     "__strdup": 7919638,
     "??4Buffer@@QAEAAV0@ABV0@@Z": 4424656,
     "??0Buffer@@QAE@PADJ@Z": 4424448,
@@ -63,8 +63,8 @@
     "__DAT_00a70cc0": 10947776,
     "__chkstk": 7878736,
     "__strnicmp": 7878672,
-    "__DAT_00ab6ea8": 11234984,
-    "__DAT_00ab6eb0": 11234992,
+    "__unknown_timer_start_00ab6ea8": 11234984,
+    "__unknown_timer_accum_00ab6eb0": 11234992,
     "__DAT_00ac0168": 11272552,
     "__DAT_00ac0170": 11272560,
     "?Size@FlyLocomotionClass@@UAEHXZ": 4979440,
@@ -243,7 +243,7 @@
     "??1BufferClass@@QAE@XZ": 4424928,
     "?FUN_004384e0@": 4424928,
     "?FUN_00781d3b@": 7871803,
-    "_DAT_008324e0": 8594656,
+    "_Map_008324e0": 8594656,
     "_DAT_00a3d548": 10736968,
     "?FUN_0049cac0@": 4836032,
     "?FUN_006f64b0@": 7300272,
@@ -322,7 +322,12 @@
     "__real@8@3fe3c8000000c8000000": 8019992,
     "__except_handler3": 7885524,
     "__except_list": 0,
-    "__real@8@3ffefd70a3d70a3d7000": 7986552
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "??_7type_info@@6B@": 8066532
   },
   "regions": [
     {
@@ -334,7 +339,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 17,
       "body_sha256": "09b620679473a4f54cddd541936923035a36241f3330c239052cd75cfb20e732",
@@ -368,7 +374,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 51,
       "body_sha256": "f2fc8bfeab5286d903aa7a33bf4c6719a9402297e5eadfa1539b70af3fd0827f",
@@ -402,7 +409,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 31,
       "body_sha256": "c34f2dd9601ec1a58ed823f39adaf2e06d394e178bc30409de8c4302094fabb1",
@@ -436,7 +444,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 13,
       "body_sha256": "59fc594d3b97fa941a3ea953be833b7f7836432c60b32289c149a13365615da0",

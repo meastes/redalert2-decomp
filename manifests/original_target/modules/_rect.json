@@ -1,0 +1,79 @@
+{
+ "module": "_rect",
+ "source": "src/recovered/_rect.cpp",
+ "header": null,
+ "population": "population-3715",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 786,
+ "code": [
+  {
+   "symbol": "_$E44",
+   "entry": "0040d8f0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E47",
+   "entry": "0040d920",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  }
+ ],
+ "code_bytes": 96,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [],
+ "references_out": [
+  {
+   "symbol": "??0PaletteClass@@QAE@ABVRGBClass@@@Z",
+   "address": "00602fd0"
+  },
+  {
+   "symbol": "??0Random2Class@@QAE@I@Z",
+   "address": "00638790"
+  },
+  {
+   "symbol": "?XMP_Init@@YIXPAKKH@Z",
+   "address": "005a7ca0"
+  }
+ ],
+ "route": "A",
+ "unit": "_rect.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 2,
+ "data_unproven": [
+  {
+   "symbol": "_$S9",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

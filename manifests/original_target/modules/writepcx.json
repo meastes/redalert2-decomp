@@ -1,0 +1,191 @@
+{
+ "module": "writepcx",
+ "source": "src/recovered/writepcx.cpp",
+ "header": null,
+ "population": "population-3555",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 723,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "007698a0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Write_PCX_File@@YI_NAAVFileClass@@AAVSurface@@PAVPaletteClass@@@Z",
+   "entry": "007698c0",
+   "body_bytes": 1343,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Write_Pcx_ScanLine_Buf_00769e00@@YIHHPAD0@Z",
+   "entry": "00769e00",
+   "body_bytes": 149,
+   "padding_bytes": 11
+  }
+ ],
+ "code_bytes": 1536,
+ "data": [
+  {
+   "symbol": "_rle_full_run",
+   "address": "007af9f0",
+   "bytes": 1,
+   "kind": "table",
+   "section": 2
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "_rle_full_run",
+   "address": "007af9f0",
+   "bytes": 1,
+   "kind": "table"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0051d570",
+   "symbol": "?Write_PCX_File@@YIHAAVFileClass@@AAVSurface@@PAVPaletteClass@@@Z",
+   "target": "007698c0",
+   "function_entry": true
+  },
+  {
+   "site": "00577490",
+   "symbol": "?Write_PCX_File@@YIHAAVFileClass@@AAVSurface@@PAVPaletteClass@@@Z",
+   "target": "007698c0",
+   "function_entry": true
+  },
+  {
+   "site": "00577880",
+   "symbol": "?Write_PCX_File@@YIHAAVFileClass@@AAVSurface@@PAVPaletteClass@@@Z",
+   "target": "007698c0",
+   "function_entry": true
+  },
+  {
+   "site": "00577880",
+   "symbol": "?Write_PCX_File@@YIHAAVFileClass@@AAVSurface@@PAVPaletteClass@@@Z",
+   "target": "007698c0",
+   "function_entry": true
+  },
+  {
+   "site": "0053f490",
+   "symbol": "?Write_PCX_File@@YIHAAVFileClass@@AAVSurface@@PAVPaletteClass@@@Z",
+   "target": "007698c0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?unknown_shift_852fb8@@3HA",
+   "address": "00852fb8"
+  },
+  {
+   "symbol": "?unknown_shift_852fbc@@3HA",
+   "address": "00852fbc"
+  },
+  {
+   "symbol": "?unknown_shift_852fc0@@3HA",
+   "address": "00852fc0"
+  },
+  {
+   "symbol": "?unknown_shift_852fc4@@3HA",
+   "address": "00852fc4"
+  },
+  {
+   "symbol": "?unknown_shift_852fc8@@3HA",
+   "address": "00852fc8"
+  },
+  {
+   "symbol": "?unknown_shift_852fcc@@3HA",
+   "address": "00852fcc"
+  },
+  {
+   "symbol": "_memmove",
+   "address": "00783290"
+  }
+ ],
+ "route": "A",
+ "unit": "writepcx.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "007698a0",
+   "lines": 5
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 3,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "0051d570",
+   "target": "007698c0",
+   "symbol": "?Write_PCX_File@@YIHAAVFileClass@@AAVSurface@@PAVPaletteClass@@@Z",
+   "module_symbol": "?Write_PCX_File@@YI_NAAVFileClass@@AAVSurface@@PAVPaletteClass@@@Z"
+  },
+  {
+   "site": "00577490",
+   "target": "007698c0",
+   "symbol": "?Write_PCX_File@@YIHAAVFileClass@@AAVSurface@@PAVPaletteClass@@@Z",
+   "module_symbol": "?Write_PCX_File@@YI_NAAVFileClass@@AAVSurface@@PAVPaletteClass@@@Z"
+  },
+  {
+   "site": "00577880",
+   "target": "007698c0",
+   "symbol": "?Write_PCX_File@@YIHAAVFileClass@@AAVSurface@@PAVPaletteClass@@@Z",
+   "module_symbol": "?Write_PCX_File@@YI_NAAVFileClass@@AAVSurface@@PAVPaletteClass@@@Z"
+  },
+  {
+   "site": "00577880",
+   "target": "007698c0",
+   "symbol": "?Write_PCX_File@@YIHAAVFileClass@@AAVSurface@@PAVPaletteClass@@@Z",
+   "module_symbol": "?Write_PCX_File@@YI_NAAVFileClass@@AAVSurface@@PAVPaletteClass@@@Z"
+  },
+  {
+   "site": "0053f490",
+   "target": "007698c0",
+   "symbol": "?Write_PCX_File@@YIHAAVFileClass@@AAVSurface@@PAVPaletteClass@@@Z",
+   "module_symbol": "?Write_PCX_File@@YI_NAAVFileClass@@AAVSurface@@PAVPaletteClass@@@Z"
+  }
+ ],
+ "stand_in_reference_count": 5,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

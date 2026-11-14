@@ -4,8 +4,8 @@
     "id": "population-68",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "938d473b2aba706856b0afba523e41ac44fe824932050f40ec27eaa78145f86f",
-    "historical_acceptance_sha256": "4fbec8bf077d821ffd0faa82b938bf22072e5e8fc14ad68ab1e615350c6e5ae7"
+    "historical_population_sha256": "17d553f8859d49cf970afcf4fd74a1e0f2d06ce270da64ae41ff0cdcbce80537",
+    "historical_acceptance_sha256": "ba7d213064bf3f53975b406932ad331cf44e20c44783fe6e5550f1394704d5a6"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -172,10 +172,10 @@
     "?Get@Wstring@@QBEPBDXZ": 7792368,
     "?Get@WideString@@QBEPBGXZ": 7799792,
     "?Fetch@?$VectorClass@N@@UBENH@Z": 5824176,
-    "__DAT_00ab6e88": 11234952,
+    "__waypoint_none_00ab6e88": 11234952,
     "__strncpy": 7873488,
     "___amsg_exit": 7887784,
-    "__DAT_0084ed10": 8711440,
+    "__cell_none_0084ed10": 8711440,
     "__strdup": 7919638,
     "?Contains@GraphicMenuItem@@UAE_NABUPoint2D@@@Z": 5112256,
     "?Get_From@Straw@@UAEXPAV1@@Z": 6926416,
@@ -210,8 +210,8 @@
     "?Name@ThemeClass@@QBEPBDH@Z": 7243120,
     "__chkstk": 7878736,
     "__strnicmp": 7878672,
-    "__DAT_00ab6ea8": 11234984,
-    "__DAT_00ab6eb0": 11234992,
+    "__unknown_timer_start_00ab6ea8": 11234984,
+    "__unknown_timer_accum_00ab6eb0": 11234992,
     "?Get@WWKeyboardClass@@QAEGXZ": 5448480,
     "__real@8@4006ff00000000000000": 8007504,
     "__real@8@00000000000000000000": 7976464,
@@ -262,7 +262,7 @@
     "__real@8@3ffeccccccccccccd000": 8010288,
     "___RTDynamicCast": 7879908,
     "?Get@UnknownCRCStraw@@UAEHPAXH@Z": 4801168,
-    "?Get@UnknownAlphaTableCache_008315B8@@QAEPAY0BAA@$$CBGH@Z": 4318176,
+    "?Get@AlphaLightingRemapInitClass@@QAEPAY0BAA@$$CBGH@Z": 4318176,
     "__real@8@3ff9a3d70a3d70a3d800": 8027952,
     "__real@8@4000a000000000000000": 8027960,
     "__real@4@4006ff00000000000000": 7975080,
@@ -480,7 +480,11 @@
     "__except_list": 0,
     "__real@8@3ffefd70a3d70a3d7000": 7986552,
     "__purecall": 4950368,
-    "??_EStraw@@UAEPAXI@Z": 4844864
+    "??_EStraw@@UAEPAXI@Z": 4844864,
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVStraw@@@8": 8199872,
+    "__ramp_corners": 8339828
   },
   "regions": [
     {
@@ -492,7 +496,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 30,
       "body_sha256": "969b8ac4a0d9edb31c5e8220c595951a9398ccbf0a3af842715563659012625f",
@@ -518,12 +523,12 @@
         }
       ],
       "source_sha256": "519385a3c912413ec6b26d39e284051d41a9646e6a106be621b28eaddf1f43d3",
-      "source": "src/recovered/classes/Straw/Straw_scalar_deleting_destructor_0049ed40.cpp",
+      "source": "src/recovered/classes/Straw/Scalar_Deleting_Destructor.cpp",
       "population": "population-68",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Straw_scalar_deleting_destructor_0049ed40",
+      "semantic_name": "Scalar_Deleting_Destructor",
       "source_order": 8078
     },
     {
@@ -535,7 +540,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 50,
       "body_sha256": "62e2afcfd2a2a4235d93a959cdb3757007566a269356e2e4d2118db2229395de",
@@ -569,7 +575,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 67,
       "body_sha256": "20f9ca753ece2a2e94d4931d65f5b1aa6d4ca704a3866532b5abe737ac18c2a4",
@@ -594,7 +601,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 30,
       "body_sha256": "5bf143545676ce6bf0d3b4b77efbd2fc07b3f2e1d9ae045d47d8b53202b63b4e",

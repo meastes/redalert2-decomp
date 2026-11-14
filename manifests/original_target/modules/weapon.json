@@ -1,0 +1,1672 @@
+{
+ "module": "weapon",
+ "source": "src/recovered/weapon.cpp",
+ "header": null,
+ "population": "population-2437",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 496,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00732cb0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "00732ce0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "00732d00",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "00732d20",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "00732d40",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "00732d60",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "00732d80",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "00732dc0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "00732df0",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "00732e20",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "00732e50",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "00732e60",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "00732e80",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??0WeaponTypeClass@@QAE@PBD@Z",
+   "entry": "00732ea0",
+   "body_bytes": 548,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "??0WeaponTypeClass@@QAE@ABVNoInitClass@@@Z",
+   "entry": "007330d0",
+   "body_bytes": 66,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "??1WeaponTypeClass@@UAE@XZ",
+   "entry": "00733120",
+   "body_bytes": 247,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Read_INI@WeaponTypeClass@@UAE_NAAVCCINIClass@@@Z",
+   "entry": "00733220",
+   "body_bytes": 1942,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Init_Max_Speed@WeaponTypeClass@@QAEXXZ",
+   "entry": "007339c0",
+   "body_bytes": 93,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Armor_From_Name@@YI?AW4ArmorType@@PBD@Z",
+   "entry": "00733a20",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Allowed_Threats@WeaponTypeClass@@QBEHXZ",
+   "entry": "00733a60",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Is_Wall_Destroyer@WeaponTypeClass@@QBE_NXZ",
+   "entry": "00733a90",
+   "body_bytes": 26,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Compute_CRC@WeaponTypeClass@@UBEXAAVWWCRCEngine@@@Z",
+   "entry": "00733ab0",
+   "body_bytes": 411,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?GetClassID@WeaponTypeClass@@UAGJPAUGUID@@@Z",
+   "entry": "00733c50",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Load@WeaponTypeClass@@UAGJPAUIStream@@@Z",
+   "entry": "00733c90",
+   "body_bytes": 352,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Save@WeaponTypeClass@@UAGJPAUIStream@@H@Z",
+   "entry": "00733df0",
+   "body_bytes": 163,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Find_Or_Make@WeaponTypeClass@@SIPAV1@PBD@Z",
+   "entry": "00733ea0",
+   "body_bytes": 131,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Index_From_Name@WeaponTypeClass@@SIHPBD@Z",
+   "entry": "00733f30",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Get_Speed@WeaponTypeClass@@QBEHH@Z",
+   "entry": "00733f70",
+   "body_bytes": 92,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Size_Of@WeaponTypeClass@@UBEHXZ",
+   "entry": "00733fd0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Kind_Of@WeaponTypeClass@@UBEHXZ",
+   "entry": "00733fe0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  }
+ ],
+ "code_bytes": 4928,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "??_7?$VectorClass@H@@6B@",
+   "address": "0079d9d4",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 48
+  },
+  {
+   "symbol": "??_7?$TypeList@H@@6B@",
+   "address": "0079d9f4",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 45
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@H@@6B@",
+   "address": "0079da94",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 194
+  },
+  {
+   "symbol": "??_7?$TypeList@PAVAnimTypeClass@@@@6B@",
+   "address": "007a3b3c",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 44
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVAnimTypeClass@@@@6B@",
+   "address": "007a3b5c",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 49
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVAnimTypeClass@@@@6B@",
+   "address": "007a3b7c",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 201
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007af430",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7WeaponTypeClass@@6BIRTTITypeInfo@@@",
+   "address": "007af444",
+   "bytes": 24,
+   "kind": "vtable",
+   "section": 40
+  },
+  {
+   "symbol": "??_7WeaponTypeClass@@6BINoticeSource@@@",
+   "address": "007af460",
+   "bytes": 4,
+   "kind": "vtable",
+   "section": 41
+  },
+  {
+   "symbol": "??_7WeaponTypeClass@@6BINoticeSink@@@",
+   "address": "007af468",
+   "bytes": 4,
+   "kind": "vtable",
+   "section": 42
+  },
+  {
+   "symbol": "??_7WeaponTypeClass@@6BIPersistStream@@@",
+   "address": "007af470",
+   "bytes": 108,
+   "kind": "vtable",
+   "section": 43
+  },
+  {
+   "symbol": "??_C@_04LFDA@Anim?$AA@",
+   "address": "007cdea0",
+   "bytes": 5,
+   "kind": "string",
+   "section": 86
+  },
+  {
+   "symbol": "??_C@_06CPHF@?$DMnone?$DO?$AA@",
+   "address": "007cdecc",
+   "bytes": 7,
+   "kind": "string",
+   "section": 129
+  },
+  {
+   "symbol": "??_C@_04KIKH@none?$AA@",
+   "address": "007ce0ec",
+   "bytes": 5,
+   "kind": "string",
+   "section": 128
+  },
+  {
+   "symbol": "??_C@_01KMAE@?0?$AA@",
+   "address": "007ce9c0",
+   "bytes": 2,
+   "kind": "string",
+   "section": 85
+  },
+  {
+   "symbol": "??_C@_07LOND@Warhead?$AA@",
+   "address": "007ced5c",
+   "bytes": 8,
+   "kind": "string",
+   "section": 57
+  },
+  {
+   "symbol": "??_C@_06LKEP@Report?$AA@",
+   "address": "007cedb8",
+   "bytes": 7,
+   "kind": "string",
+   "section": 88
+  },
+  {
+   "symbol": "??_C@_06ILDP@Damage?$AA@",
+   "address": "007cef54",
+   "bytes": 7,
+   "kind": "string",
+   "section": 93
+  },
+  {
+   "symbol": "??_C@_05PDDA@Speed?$AA@",
+   "address": "007d381c",
+   "bytes": 6,
+   "kind": "string",
+   "section": 92
+  },
+  {
+   "symbol": "??_C@_03CEPL@ROF?$AA@",
+   "address": "007dae30",
+   "bytes": 4,
+   "kind": "string",
+   "section": 91
+  },
+  {
+   "symbol": "??_C@_0L@PMPC@TurboBoost?$AA@",
+   "address": "007efb78",
+   "bytes": 11,
+   "kind": "string",
+   "section": 79
+  },
+  {
+   "symbol": "??_C@_07JAAJ@Suicide?$AA@",
+   "address": "007f706c",
+   "bytes": 8,
+   "kind": "string",
+   "section": 96
+  },
+  {
+   "symbol": "??_C@_05MCCK@Range?$AA@",
+   "address": "007f9afc",
+   "bytes": 6,
+   "kind": "string",
+   "section": 90
+  },
+  {
+   "symbol": "??_C@_06LKBM@Bright?$AA@",
+   "address": "007fb34c",
+   "bytes": 7,
+   "kind": "string",
+   "section": 67
+  },
+  {
+   "symbol": "??_C@_0L@DABG@Projectile?$AA@",
+   "address": "007fc790",
+   "bytes": 11,
+   "kind": "string",
+   "section": 56
+  },
+  {
+   "symbol": "??_C@_0BH@NGKJ@AttachedParticleSystem?$AA@",
+   "address": "007fc79c",
+   "bytes": 23,
+   "kind": "string",
+   "section": 58
+  },
+  {
+   "symbol": "??_C@_08DMLC@RadLevel?$AA@",
+   "address": "007fc7b4",
+   "bytes": 9,
+   "kind": "string",
+   "section": 59
+  },
+  {
+   "symbol": "??_C@_0O@IDEP@IsRadEruption?$AA@",
+   "address": "007fc7c0",
+   "bytes": 14,
+   "kind": "string",
+   "section": 60
+  },
+  {
+   "symbol": "??_C@_09MKCM@IsRadBeam?$AA@",
+   "address": "007fc7d0",
+   "bytes": 10,
+   "kind": "string",
+   "section": 61
+  },
+  {
+   "symbol": "??_C@_0BB@HEDD@IsAlternateColor?$AA@",
+   "address": "007fc7dc",
+   "bytes": 17,
+   "kind": "string",
+   "section": 62
+  },
+  {
+   "symbol": "??_C@_0BA@MNNL@DrawBoltAsLaser?$AA@",
+   "address": "007fc7f0",
+   "bytes": 16,
+   "kind": "string",
+   "section": 63
+  },
+  {
+   "symbol": "??_C@_0P@FJHJ@IsElectricBolt?$AA@",
+   "address": "007fc800",
+   "bytes": 15,
+   "kind": "string",
+   "section": 64
+  },
+  {
+   "symbol": "??_C@_08HDIF@AreaFire?$AA@",
+   "address": "007fc810",
+   "bytes": 9,
+   "kind": "string",
+   "section": 65
+  },
+  {
+   "symbol": "??_C@_0N@FFBI@IonSensitive?$AA@",
+   "address": "007fc81c",
+   "bytes": 13,
+   "kind": "string",
+   "section": 66
+  },
+  {
+   "symbol": "??_C@_0L@EBLO@IsBigLaser?$AA@",
+   "address": "007fc82c",
+   "bytes": 11,
+   "kind": "string",
+   "section": 68
+  },
+  {
+   "symbol": "??_C@_0O@HEHC@LaserDuration?$AA@",
+   "address": "007fc838",
+   "bytes": 14,
+   "kind": "string",
+   "section": 69
+  },
+  {
+   "symbol": "??_C@_0BB@GCOP@LaserOuterSpread?$AA@",
+   "address": "007fc848",
+   "bytes": 17,
+   "kind": "string",
+   "section": 70
+  },
+  {
+   "symbol": "??_C@_0BA@IHND@LaserOuterColor?$AA@",
+   "address": "007fc85c",
+   "bytes": 16,
+   "kind": "string",
+   "section": 71
+  },
+  {
+   "symbol": "??_C@_0BA@IEIF@LaserInnerColor?$AA@",
+   "address": "007fc86c",
+   "bytes": 16,
+   "kind": "string",
+   "section": 72
+  },
+  {
+   "symbol": "??_C@_06BABO@Lobber?$AA@",
+   "address": "007fc87c",
+   "bytes": 7,
+   "kind": "string",
+   "section": 73
+  },
+  {
+   "symbol": "??_C@_09NPBP@IsRailgun?$AA@",
+   "address": "007fc884",
+   "bytes": 10,
+   "kind": "string",
+   "section": 74
+  },
+  {
+   "symbol": "??_C@_0BG@PPEK@DistributedWeaponFire?$AA@",
+   "address": "007fc890",
+   "bytes": 22,
+   "kind": "string",
+   "section": 75
+  },
+  {
+   "symbol": "??_C@_08MEMC@OmniFire?$AA@",
+   "address": "007fc8a8",
+   "bytes": 9,
+   "kind": "string",
+   "section": 76
+  },
+  {
+   "symbol": "??_C@_0BC@GNAD@UseSparkParticles?$AA@",
+   "address": "007fc8b4",
+   "bytes": 18,
+   "kind": "string",
+   "section": 77
+  },
+  {
+   "symbol": "??_C@_0BB@HJMO@UseFireParticles?$AA@",
+   "address": "007fc8c8",
+   "bytes": 17,
+   "kind": "string",
+   "section": 78
+  },
+  {
+   "symbol": "??_C@_07ED@Charges?$AA@",
+   "address": "007fc8dc",
+   "bytes": 8,
+   "kind": "string",
+   "section": 80
+  },
+  {
+   "symbol": "??_C@_0N@HLJL@IsHouseColor?$AA@",
+   "address": "007fc8e4",
+   "bytes": 13,
+   "kind": "string",
+   "section": 81
+  },
+  {
+   "symbol": "??_C@_07LMGG@IsLaser?$AA@",
+   "address": "007fc8f4",
+   "bytes": 8,
+   "kind": "string",
+   "section": 82
+  },
+  {
+   "symbol": "??_C@_06KHPA@Camera?$AA@",
+   "address": "007fc8fc",
+   "bytes": 7,
+   "kind": "string",
+   "section": 83
+  },
+  {
+   "symbol": "??_C@_0M@MFAM@AssaultAnim?$AA@",
+   "address": "007fc904",
+   "bytes": 12,
+   "kind": "string",
+   "section": 84
+  },
+  {
+   "symbol": "??_C@_0N@IDNJ@MinimumRange?$AA@",
+   "address": "007fc910",
+   "bytes": 13,
+   "kind": "string",
+   "section": 89
+  },
+  {
+   "symbol": "??_C@_05MKHH@Burst?$AA@",
+   "address": "007fc920",
+   "bytes": 6,
+   "kind": "string",
+   "section": 94
+  },
+  {
+   "symbol": "??_C@_07MGDB@Supress?$AA@",
+   "address": "007fc928",
+   "bytes": 8,
+   "kind": "string",
+   "section": 95
+  },
+  {
+   "symbol": "??_C@_0BG@MDCK@DisguiseFakeBlinkTime?$AA@",
+   "address": "007fc930",
+   "bytes": 22,
+   "kind": "string",
+   "section": 97
+  },
+  {
+   "symbol": "??_C@_0BB@FLA@DisguiseFireOnly?$AA@",
+   "address": "007fc948",
+   "bytes": 17,
+   "kind": "string",
+   "section": 98
+  },
+  {
+   "symbol": "??_C@_0P@JGON@SabotageCursor?$AA@",
+   "address": "007fc95c",
+   "bytes": 15,
+   "kind": "string",
+   "section": 99
+  },
+  {
+   "symbol": "??_C@_0M@EOEH@TerrainFire?$AA@",
+   "address": "007fc96c",
+   "bytes": 12,
+   "kind": "string",
+   "section": 100
+  },
+  {
+   "symbol": "??_C@_0N@FGDK@RevealOnFire?$AA@",
+   "address": "007fc978",
+   "bytes": 13,
+   "kind": "string",
+   "section": 101
+  },
+  {
+   "symbol": "??_C@_08EJCM@NeverUse?$AA@",
+   "address": "007fc988",
+   "bytes": 9,
+   "kind": "string",
+   "section": 102
+  },
+  {
+   "symbol": "??_C@_08JKFC@FireOnce?$AA@",
+   "address": "007fc994",
+   "bytes": 9,
+   "kind": "string",
+   "section": 103
+  },
+  {
+   "symbol": "??_C@_0BB@JLD@CellRangefinding?$AA@",
+   "address": "007fc9a0",
+   "bytes": 17,
+   "kind": "string",
+   "section": 104
+  },
+  {
+   "symbol": "??_C@_0O@HOPG@DecloakToFire?$AA@",
+   "address": "007fc9b4",
+   "bytes": 14,
+   "kind": "string",
+   "section": 105
+  },
+  {
+   "symbol": "??_C@_0M@ILKM@LimboLaunch?$AA@",
+   "address": "007fc9c4",
+   "bytes": 12,
+   "kind": "string",
+   "section": 106
+  },
+  {
+   "symbol": "??_C@_07MGDE@Spawner?$AA@",
+   "address": "007fc9d0",
+   "bytes": 8,
+   "kind": "string",
+   "section": 107
+  },
+  {
+   "symbol": "??_C@_07GNBF@IsSonic?$AA@",
+   "address": "007fc9d8",
+   "bytes": 8,
+   "kind": "string",
+   "section": 108
+  },
+  {
+   "symbol": "??_C@_0O@OGIA@AmbientDamage?$AA@",
+   "address": "007fc9e0",
+   "bytes": 14,
+   "kind": "string",
+   "section": 109
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$VectorClass@H@@6B@",
+   "address": "0079d9d4",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$TypeList@H@@6B@",
+   "address": "0079d9f4",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@H@@6B@",
+   "address": "0079da94",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$TypeList@PAVAnimTypeClass@@@@6B@",
+   "address": "007a3b3c",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVAnimTypeClass@@@@6B@",
+   "address": "007a3b5c",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVAnimTypeClass@@@@6B@",
+   "address": "007a3b7c",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007af430",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7WeaponTypeClass@@6BIRTTITypeInfo@@@",
+   "address": "007af444",
+   "bytes": 24,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7WeaponTypeClass@@6BINoticeSource@@@",
+   "address": "007af460",
+   "bytes": 4,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7WeaponTypeClass@@6BINoticeSink@@@",
+   "address": "007af468",
+   "bytes": 4,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7WeaponTypeClass@@6BIPersistStream@@@",
+   "address": "007af470",
+   "bytes": 108,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_C@_04LFDA@Anim?$AA@",
+   "address": "007cdea0",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06CPHF@?$DMnone?$DO?$AA@",
+   "address": "007cdecc",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04KIKH@none?$AA@",
+   "address": "007ce0ec",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_01KMAE@?0?$AA@",
+   "address": "007ce9c0",
+   "bytes": 2,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07LOND@Warhead?$AA@",
+   "address": "007ced5c",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06LKEP@Report?$AA@",
+   "address": "007cedb8",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06ILDP@Damage?$AA@",
+   "address": "007cef54",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_05PDDA@Speed?$AA@",
+   "address": "007d381c",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_03CEPL@ROF?$AA@",
+   "address": "007dae30",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@PMPC@TurboBoost?$AA@",
+   "address": "007efb78",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07JAAJ@Suicide?$AA@",
+   "address": "007f706c",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_05MCCK@Range?$AA@",
+   "address": "007f9afc",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06LKBM@Bright?$AA@",
+   "address": "007fb34c",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@DABG@Projectile?$AA@",
+   "address": "007fc790",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BH@NGKJ@AttachedParticleSystem?$AA@",
+   "address": "007fc79c",
+   "bytes": 23,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08DMLC@RadLevel?$AA@",
+   "address": "007fc7b4",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@IDEP@IsRadEruption?$AA@",
+   "address": "007fc7c0",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09MKCM@IsRadBeam?$AA@",
+   "address": "007fc7d0",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@HEDD@IsAlternateColor?$AA@",
+   "address": "007fc7dc",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@MNNL@DrawBoltAsLaser?$AA@",
+   "address": "007fc7f0",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@FJHJ@IsElectricBolt?$AA@",
+   "address": "007fc800",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08HDIF@AreaFire?$AA@",
+   "address": "007fc810",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@FFBI@IonSensitive?$AA@",
+   "address": "007fc81c",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@EBLO@IsBigLaser?$AA@",
+   "address": "007fc82c",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@HEHC@LaserDuration?$AA@",
+   "address": "007fc838",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@GCOP@LaserOuterSpread?$AA@",
+   "address": "007fc848",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@IHND@LaserOuterColor?$AA@",
+   "address": "007fc85c",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@IEIF@LaserInnerColor?$AA@",
+   "address": "007fc86c",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06BABO@Lobber?$AA@",
+   "address": "007fc87c",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09NPBP@IsRailgun?$AA@",
+   "address": "007fc884",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BG@PPEK@DistributedWeaponFire?$AA@",
+   "address": "007fc890",
+   "bytes": 22,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08MEMC@OmniFire?$AA@",
+   "address": "007fc8a8",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@GNAD@UseSparkParticles?$AA@",
+   "address": "007fc8b4",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@HJMO@UseFireParticles?$AA@",
+   "address": "007fc8c8",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07ED@Charges?$AA@",
+   "address": "007fc8dc",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@HLJL@IsHouseColor?$AA@",
+   "address": "007fc8e4",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07LMGG@IsLaser?$AA@",
+   "address": "007fc8f4",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06KHPA@Camera?$AA@",
+   "address": "007fc8fc",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@MFAM@AssaultAnim?$AA@",
+   "address": "007fc904",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@IDNJ@MinimumRange?$AA@",
+   "address": "007fc910",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_05MKHH@Burst?$AA@",
+   "address": "007fc920",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07MGDB@Supress?$AA@",
+   "address": "007fc928",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BG@MDCK@DisguiseFakeBlinkTime?$AA@",
+   "address": "007fc930",
+   "bytes": 22,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@FLA@DisguiseFireOnly?$AA@",
+   "address": "007fc948",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@JGON@SabotageCursor?$AA@",
+   "address": "007fc95c",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@EOEH@TerrainFire?$AA@",
+   "address": "007fc96c",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@FGDK@RevealOnFire?$AA@",
+   "address": "007fc978",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08EJCM@NeverUse?$AA@",
+   "address": "007fc988",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08JKFC@FireOnce?$AA@",
+   "address": "007fc994",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@JLD@CellRangefinding?$AA@",
+   "address": "007fc9a0",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@HOPG@DecloakToFire?$AA@",
+   "address": "007fc9b4",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@ILKM@LimboLaunch?$AA@",
+   "address": "007fc9c4",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07MGDE@Spawner?$AA@",
+   "address": "007fc9d0",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07GNBF@IsSonic?$AA@",
+   "address": "007fc9d8",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@OGIA@AmbientDamage?$AA@",
+   "address": "007fc9e0",
+   "bytes": 14,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00697730",
+   "symbol": "??0WeaponTypeClass@@QAE@PBD@Z",
+   "target": "00732ea0",
+   "function_entry": true
+  },
+  {
+   "site": "0046a8b0",
+   "symbol": "?Armor_From_Name@@YI?AW4ArmorType@@PBD@Z",
+   "target": "00733a20",
+   "function_entry": true
+  },
+  {
+   "site": "00464800",
+   "symbol": "?Find_Or_Make@WeaponTypeClass@@SIPAV1@PBD@Z",
+   "target": "00733ea0",
+   "function_entry": true
+  },
+  {
+   "site": "00464800",
+   "symbol": "?Find_Or_Make@WeaponTypeClass@@SIPAV1@PBD@Z",
+   "target": "00733ea0",
+   "function_entry": true
+  },
+  {
+   "site": "0069f450",
+   "symbol": "?Find_Or_Make@WeaponTypeClass@@SIPAV1@PBD@Z",
+   "target": "00733ea0",
+   "function_entry": true
+  },
+  {
+   "site": "00442650",
+   "symbol": "?Allowed_Threats@WeaponTypeClass@@QBEHXZ",
+   "target": "00733a60",
+   "function_entry": true
+  },
+  {
+   "site": "00442650",
+   "symbol": "?Allowed_Threats@WeaponTypeClass@@QBEHXZ",
+   "target": "00733a60",
+   "function_entry": true
+  },
+  {
+   "site": "00706a10",
+   "symbol": "?Allowed_Threats@WeaponTypeClass@@QBEHXZ",
+   "target": "00733a60",
+   "function_entry": true
+  },
+  {
+   "site": "00706a10",
+   "symbol": "?Allowed_Threats@WeaponTypeClass@@QBEHXZ",
+   "target": "00733a60",
+   "function_entry": true
+  },
+  {
+   "site": "00706a10",
+   "symbol": "?Allowed_Threats@WeaponTypeClass@@QBEHXZ",
+   "target": "00733a60",
+   "function_entry": true
+  },
+  {
+   "site": "00505120",
+   "symbol": "?Allowed_Threats@WeaponTypeClass@@QBEHXZ",
+   "target": "00733a60",
+   "function_entry": true
+  },
+  {
+   "site": "00505120",
+   "symbol": "?Allowed_Threats@WeaponTypeClass@@QBEHXZ",
+   "target": "00733a60",
+   "function_entry": true
+  },
+  {
+   "site": "006daf60",
+   "symbol": "?Find_Or_Make@WeaponTypeClass@@SIPAV1@PBD@Z",
+   "target": "00733ea0",
+   "function_entry": true
+  },
+  {
+   "site": "006daf60",
+   "symbol": "?Find_Or_Make@WeaponTypeClass@@SIPAV1@PBD@Z",
+   "target": "00733ea0",
+   "function_entry": true
+  },
+  {
+   "site": "006daf60",
+   "symbol": "?Find_Or_Make@WeaponTypeClass@@SIPAV1@PBD@Z",
+   "target": "00733ea0",
+   "function_entry": true
+  },
+  {
+   "site": "006daf60",
+   "symbol": "?Find_Or_Make@WeaponTypeClass@@SIPAV1@PBD@Z",
+   "target": "00733ea0",
+   "function_entry": true
+  },
+  {
+   "site": "006daf60",
+   "symbol": "?Find_Or_Make@WeaponTypeClass@@SIPAV1@PBD@Z",
+   "target": "00733ea0",
+   "function_entry": true
+  },
+  {
+   "site": "006daf60",
+   "symbol": "?Find_Or_Make@WeaponTypeClass@@SIPAV1@PBD@Z",
+   "target": "00733ea0",
+   "function_entry": true
+  },
+  {
+   "site": "006daf60",
+   "symbol": "?Find_Or_Make@WeaponTypeClass@@SIPAV1@PBD@Z",
+   "target": "00733ea0",
+   "function_entry": true
+  },
+  {
+   "site": "00647f40",
+   "symbol": "?Find_Or_Make@WeaponTypeClass@@SIPAV1@PBD@Z",
+   "target": "00733ea0",
+   "function_entry": true
+  },
+  {
+   "site": "00652270",
+   "symbol": "?Init_Max_Speed@WeaponTypeClass@@QAEXXZ",
+   "target": "007339c0",
+   "function_entry": true
+  },
+  {
+   "site": "006ca540",
+   "symbol": "?Get_Speed@WeaponTypeClass@@QBEHH@Z",
+   "target": "00733f70",
+   "function_entry": true
+  },
+  {
+   "site": "00646c60",
+   "symbol": "?Find_Or_Make@WeaponTypeClass@@SIPAV1@PBD@Z",
+   "target": "00733ea0",
+   "function_entry": true
+  },
+  {
+   "site": "00463c50",
+   "symbol": "?Index_From_Name@WeaponTypeClass@@SIHPBD@Z",
+   "target": "00733f30",
+   "function_entry": true
+  },
+  {
+   "site": "006b2400",
+   "symbol": "?Index_From_Name@WeaponTypeClass@@SIHPBD@Z",
+   "target": "00733f30",
+   "function_entry": true
+  },
+  {
+   "site": "006b2860",
+   "symbol": "?Index_From_Name@WeaponTypeClass@@SIHPBD@Z",
+   "target": "00733f30",
+   "function_entry": true
+  },
+  {
+   "site": "00503190",
+   "symbol": "?Is_Wall_Destroyer@WeaponTypeClass@@QBE_NXZ",
+   "target": "00733a90",
+   "function_entry": true
+  },
+  {
+   "site": "006d65b0",
+   "symbol": "?Get_Speed@WeaponTypeClass@@QBEHH@Z",
+   "target": "00733f70",
+   "function_entry": true
+  },
+  {
+   "site": "0069d850",
+   "symbol": "?Index_From_Name@WeaponTypeClass@@SIHPBD@Z",
+   "target": "00733f30",
+   "function_entry": true
+  },
+  {
+   "site": "006ca890",
+   "symbol": "?Get_Speed@WeaponTypeClass@@QBEHH@Z",
+   "target": "00733f70",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0AbstractTypeClass@@QAE@ABVNoInitClass@@@Z",
+   "address": "004106e0"
+  },
+  {
+   "symbol": "??0AbstractTypeClass@@QAE@PBD@Z",
+   "address": "00410580"
+  },
+  {
+   "symbol": "??1AbstractTypeClass@@UAE@XZ",
+   "address": "00410740"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??RWWCRCEngine@@QAEXD@Z",
+   "address": "00493df0"
+  },
+  {
+   "symbol": "??RWWCRCEngine@@QAEXJ@Z",
+   "address": "00493f30"
+  },
+  {
+   "symbol": "??RWWCRCEngine@@QAEX_N@Z",
+   "address": "00493e80"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@H@@UAEPAXI@Z",
+   "address": "0046cf50"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVAnimTypeClass@@@@UAEPAXI@Z",
+   "address": "0050b260"
+  },
+  {
+   "symbol": "??_G?$TypeList@H@@UAEPAXI@Z",
+   "address": "0046cdd0"
+  },
+  {
+   "symbol": "??_G?$TypeList@PAVAnimTypeClass@@@@UAEPAXI@Z",
+   "address": "0050b200"
+  },
+  {
+   "symbol": "??_G?$VectorClass@H@@UAEPAXI@Z",
+   "address": "0046da70"
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVAnimTypeClass@@@@UAEPAXI@Z",
+   "address": "0050b2b0"
+  },
+  {
+   "symbol": "??_GWeaponTypeClass@@UAEPAXI@Z",
+   "address": "00733ff0"
+  },
+  {
+   "symbol": "?AI@AbstractClass@@UAEXXZ",
+   "address": "00410310"
+  },
+  {
+   "symbol": "?AddRef@AbstractClass@@UAGKXZ",
+   "address": "004100a0"
+  },
+  {
+   "symbol": "?ArmorNames@@3PAPBDA",
+   "address": "0079de28"
+  },
+  {
+   "symbol": "?Center_Coord@AbstractClass@@UBE?AUCoordStruct@@XZ",
+   "address": "00410260"
+  },
+  {
+   "symbol": "?Compute_CRC@AbstractTypeClass@@UBEXAAVWWCRCEngine@@@Z",
+   "address": "00410960"
+  },
+  {
+   "symbol": "?Create_ID@AbstractClass@@UAGXXZ",
+   "address": "0040ffd0"
+  },
+  {
+   "symbol": "?Detach@AbstractClass@@UAEXPAV1@_N@Z",
+   "address": "00410220"
+  },
+  {
+   "symbol": "?Fetch_Heap_ID@AbstractClass@@UBEHXZ",
+   "address": "00410250"
+  },
+  {
+   "symbol": "?Fetch_ID@AbstractClass@@UAGJXZ",
+   "address": "0040ffc0"
+  },
+  {
+   "symbol": "?Find_Or_Make@AnimTypeClass@@SIPAV1@PBD@Z",
+   "address": "004264a0"
+  },
+  {
+   "symbol": "?Find_Or_Make@BulletTypeClass@@SIPAV1@PBD@Z",
+   "address": "004650a0"
+  },
+  {
+   "symbol": "?Find_Or_Make@WarheadTypeClass@@SIPAV1@PBD@Z",
+   "address": "00720f30"
+  },
+  {
+   "symbol": "?Find_Section@INIClass@@QBEPAUINISection@1@PBD@Z",
+   "address": "0050c9b0"
+  },
+  {
+   "symbol": "?GetSizeMax@AbstractClass@@UAGJPATULARGE_INTEGER@@@Z",
+   "address": "00410180"
+  },
+  {
+   "symbol": "?Get_Bool@INIClass@@QBE_NPBD0_N@Z",
+   "address": "0050f410"
+  },
+  {
+   "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+   "address": "0050d7f0"
+  },
+  {
+   "symbol": "?Get_Lepton@CCINIClass@@QBEHPBD0H@Z",
+   "address": "00469ae0"
+  },
+  {
+   "symbol": "?Get_Percent@CCINIClass@@QBEHPBD0H@Z",
+   "address": "00469cd0"
+  },
+  {
+   "symbol": "?Get_RGB@CCINIClass@@QBE?AVRGBClass@@PBD0ABV2@@Z",
+   "address": "0046a010"
+  },
+  {
+   "symbol": "?Get_String@INIClass@@QBEHPBD00PADH@Z",
+   "address": "0050e9a0"
+  },
+  {
+   "symbol": "?Get_Voc_List@@YI?AV?$TypeList@H@@AAVCCINIClass@@PBD1V1@@Z",
+   "address": "0050b610"
+  },
+  {
+   "symbol": "?INoticeSink_Unknown@AbstractClass@@UAE_NHH@Z",
+   "address": "00410320"
+  },
+  {
+   "symbol": "?INoticeSource_Unknown@AbstractClass@@UAGXXZ",
+   "address": "00410330"
+  },
+  {
+   "symbol": "?In_Air@AbstractClass@@UBE_NXZ",
+   "address": "004102d0"
+  },
+  {
+   "symbol": "?Index_Or_Make@ParticleSystemTypeClass@@SIHPBD@Z",
+   "address": "00620b90"
+  },
+  {
+   "symbol": "?Init@AbstractClass@@UAEXXZ",
+   "address": "00410210"
+  },
+  {
+   "symbol": "?IsDirty@AbstractClass@@UAGJXZ",
+   "address": "004101f0"
+  },
+  {
+   "symbol": "?Is_Inactive@AbstractClass@@UBE_NXZ",
+   "address": "004101e0"
+  },
+  {
+   "symbol": "?Load@AbstractClass@@UAGJPAUIStream@@@Z",
+   "address": "00410120"
+  },
+  {
+   "symbol": "?On_Ground@AbstractClass@@UBE_NXZ",
+   "address": "004102c0"
+  },
+  {
+   "symbol": "?Owner@AbstractClass@@UBEHXZ",
+   "address": "00410230"
+  },
+  {
+   "symbol": "?Owning_House@AbstractClass@@UBEPAVHouseClass@@XZ",
+   "address": "00410240"
+  },
+  {
+   "symbol": "?ParticleSystemTypes@@3V?$DynamicVectorClass@PAVParticleSystemTypeClass@@@@A",
+   "address": "00a35dd0"
+  },
+  {
+   "symbol": "?QueryInterface@AbstractClass@@UAGJABUGUID@@PAPAX@Z",
+   "address": "00410000"
+  },
+  {
+   "symbol": "?Release@AbstractClass@@UAGKXZ",
+   "address": "004100b0"
+  },
+  {
+   "symbol": "?Rules@@3PAVRulesClass@@A",
+   "address": "00839848"
+  },
+  {
+   "symbol": "?Save@AbstractClass@@UAGJPAUIStream@@H@Z",
+   "address": "004100c0"
+  },
+  {
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "address": "0069fb20"
+  },
+  {
+   "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+   "address": "00abd868"
+  },
+  {
+   "symbol": "?Unknown_0047FB70@@YIHHN@Z",
+   "address": "0047fb70"
+  },
+  {
+   "symbol": "?Unknown_0047FCD0@@YANXZ",
+   "address": "0047fcd0"
+  },
+  {
+   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
+   "address": "006ecb90"
+  },
+  {
+   "symbol": "?What_Am_I@AbstractClass@@UAGHXZ",
+   "address": "0040ffb0"
+  },
+  {
+   "symbol": "?Write_INI@AbstractTypeClass@@UBE_NAAVCCINIClass@@@Z",
+   "address": "00410910"
+  },
+  {
+   "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+   "address": "00839b90"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z",
+   "address": "00410290"
+  },
+  {
+   "symbol": "?unknown_slot22@AbstractClass@@UBE?AUCoordStruct@@XZ",
+   "address": "004102e0"
+  },
+  {
+   "symbol": "?unknown_slot24@AbstractTypeClass@@UAEXH@Z",
+   "address": "004109a0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "_CLSID_WeaponTypeClass",
+   "address": "007a1da0"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__stricmp",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "_strtok",
+   "address": "00782ec2"
+  }
+ ],
+ "route": "A",
+ "unit": "weapon.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00732cb0",
+   "lines": 5
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 32,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

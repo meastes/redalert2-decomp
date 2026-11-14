@@ -4,8 +4,8 @@
     "id": "population-3673",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "c049a5168caa965fa9d0cf21424b4515e81a94549dd1d37023ecbad99a61afff",
-    "historical_acceptance_sha256": "93bd883477d7042c0364ee03e071cf9ad7420acbc1ce3c1aede635397a2935fa"
+    "historical_population_sha256": "6628e43fdee9f5d1a402e5e037134bd3c18ff570566744592ae253a1314fbbbe",
+    "historical_acceptance_sha256": "c736bcccc9daed49c19247854ebbd03c797e93affd1d1bc6daf7225d9c76fca1"
   },
   "references": {
     "?Result@SHAEngine@@QBEHPAX@Z": 6769936,
@@ -30,13 +30,13 @@
     "?Result@SHAPipe@@QBEHPAX@Z": 6771632,
     "?Get@Wstring@@QBEPBDXZ": 7792368,
     "?Get@WideString@@QBEPBGXZ": 7799792,
-    "__DAT_00ab6e88": 11234952,
+    "__waypoint_none_00ab6e88": 11234952,
     "__strncpy": 7873488,
     "__strcmp": 7888160,
     "__strlen": 7903280,
     "__malloc": 7874096,
     "___amsg_exit": 7887784,
-    "__DAT_0084ed10": 8711440,
+    "__cell_none_0084ed10": 8711440,
     "__strdup": 7919638,
     "??_7Straw@@6B@": 7989752,
     "?Get_From@Straw@@UAEXPAV1@@Z": 6926416,
@@ -64,8 +64,8 @@
     "?Process_Block@SHAEngine@@ABEXPBXAATSHADigest@1@@Z": 6770272,
     "__chkstk": 7878736,
     "__strnicmp": 7878672,
-    "__DAT_00ab6ea8": 11234984,
-    "__DAT_00ab6eb0": 11234992,
+    "__unknown_timer_start_00ab6ea8": 11234984,
+    "__unknown_timer_accum_00ab6eb0": 11234992,
     "__DAT_00ac0168": 11272552,
     "__DAT_00ac0170": 11272560,
     "__DAT_00a769e8": 10971624,
@@ -118,7 +118,7 @@
     "__real@8@3ffeccccccccccccd000": 8010288,
     "___RTDynamicCast": 7879908,
     "?Get@UnknownCRCStraw@@UAEHPAXH@Z": 4801168,
-    "?Get@UnknownAlphaTableCache_008315B8@@QAEPAY0BAA@$$CBGH@Z": 4318176,
+    "?Get@AlphaLightingRemapInitClass@@QAEPAY0BAA@$$CBGH@Z": 4318176,
     "?Length@Point2D@@QBEHXZ": 4706400,
     "__real@8@3ff9a3d70a3d70a3d800": 8027952,
     "__real@8@4000a000000000000000": 8027960,
@@ -183,7 +183,7 @@
     "__real@4@3ffb8000000000000000": 8026912,
     "__real@4@3ffe99999a0000000000": 8026908,
     "__real@4@3ffdcccccd0000000000": 8026904,
-    "?Get@UnknownControlIndex@OwnerDraw@@QBE_NABIAAPAUUnknownControlRecord@2@@Z": 6297360,
+    "?Get@UnknownControlIndex@OwnerDraw@@QBE_NABIAAPAUWinData@2@@Z": 6297360,
     "__real@8@3fefa7c5ac471b478800": 8013352,
     "__real@8@bfefa7c5ac471b478800": 8048672,
     "__real@4@3ffec90fdb0000000000": 8027392,
@@ -559,7 +559,10 @@
     "__encoder": 7980576,
     "__pad": 7980572,
     "__decoder": 7980580,
-    "__real@8@bff6b6db6db6db6db800": 8026880
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVStraw@@@8": 8199872,
+    "??_R0?AVSHAStraw@@@8": 8265224
   },
   "regions": [
     {
@@ -571,7 +574,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 16,
       "body_sha256": "694c4a3c4f175ebd74c388f46a18ab94b10585a24abd6a57e05e0cedd01183d6",
@@ -605,7 +609,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 63,
       "body_sha256": "1d87fe0872cde3b1b03928c87a7856fdb89cf324910f34c1bddec3d414bfedf7",

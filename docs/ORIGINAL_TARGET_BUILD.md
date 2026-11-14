@@ -94,6 +94,25 @@ Procedures the original changed (`Iso_Blit_Asm1`: two `add` operands;
 `Detect_MMX_Availability`; the four `Draw_Voxel_*_Normals_ASM` RA2 dropped) and
 RA2-only code in the MMX block are listed under `misses` and stay scaffold.
 
+### Generated data modules and data-only bindings
+
+`manifests/original_target/generated_data.json` lists data modules a tracked generator
+writes at build time (no original bytes in the repository): `tools/original_target/
+generate_fastmath.py` computes the fastmath tables with integer and exact rational
+arithmetic (x87 semantics, round-toward-zero stores; one flagged constant). `generated_data.py`
+writes the MASM source under the build folder, assembles it with the pinned MASM, and
+requires one initialised data section whose public symbols the accepted references all bind
+to one base equal to the declared range start, the section length equal to the range and
+its bytes equal to the original; it then replaces the scaffold's copy of the range and the
+integration receipt lists it (`generated_data_modules`, `generated_data_bytes`).
+
+A source may declare `data_bound_by` (`{symbol: "layout" | "elimination"}` with
+`data_bound_by_note`, on every row; canonical validates) for data symbols no code names.
+`data_bindings.py` binds them only under docs/DECISIONS.md "Data-only symbols bound by
+section layout / bss by elimination" (enclosed section with a reference-bound symbol inside
+and independent items at both edges; or the single free hole of the unit's bss); the strict
+audit and module_ledger use the same function and the audit result lists `data_bound_by`.
+
 ## Commands and acceptance
 
 ```sh
@@ -175,6 +194,66 @@ No original game launch, full decompilation, native-port or playability claim.
 tracked-source reproduction. Native build entrypoints are preserved separately
 under `historical/native-reconstruction/`; old root native caches are stale after
 the move and were not tested during this migration.
+
+## Fixed compile folder (build environment, 2026-11-13)
+
+Every compile runs at one path layout (`build.compile_units`, all tools that compile):
+
+```
+<drive>:\private\tmp\ra2c\<8 hex>\g<4 digits>\accepted.cpp   cwd, source name, /Fo ...\accepted.obj
+<drive>:\private\tmp\ra2c\<8 hex>\src                        /I (a link to the tree's src/)
+<drive>:\private\tmp\ra2c\<8 hex>\tmp-N                      TMP of the N-th Wine session
+```
+
+On the Mac `<drive>` is Wine's `Z:` (`/private/tmp/ra2c`); natively it is `%SystemDrive%`
+(`C:`), a junction for `src`. The 8 hex digits name one compile call (repository, process,
+call), so concurrent builds never share a folder while every spelling keeps its length; the
+4 digits number the call's units. Objects are copied back to the usual build folders, and
+the object cache key names the layout (`compile_path`).
+
+What varies without it: under `/GR`, VC6 SP3 (C2.DLL 8447) writes the attributes word of a
+class hierarchy descriptor (`??_R3`, bit 4 "ambiguous") from memory whose contents follow the
+length of the compile folder and of the include directory. TMP's length does not change the
+bit, but it changes the order of sections in some objects (house: same sections, same bytes),
+so TMP is fixed too.
+Identical source and arguments give `1` or `5` depending on the folder alone (tagtype under
+`build/laneD/<name>`: path lengths 94, 97-107, 109 give `1`, 95, 96, 108 give `5`; terrtype
+flips at 97-98; campaign, house and version did not flip over 94-109). Without `/GR`, 1,531 of 1,617
+group objects are byte-identical between the old per-build folders and the fixed folder;
+83 differ only in the order of their sections (same sections, same bytes, same relocations by
+name), two had no old object to compare, and the whole-file build is exact either way. The owner
+ruled (2026-11-13) that the 83 meet the intent: acceptance and the linked image depend on content,
+not raw object order.
+
+How the layout was chosen: one grid over folder spelling length (31-36 characters) and
+include spelling length (32-33) for the five units then measured under `/GR` (tagtype,
+campaign, terrtype, house, version), comparing every emitted descriptor with the original's.
+Only some combinations reproduce the original for all five (folder 34 / include 32, 31/33,
+32/33, 34/33 partly measured); the chosen layout (34 / 32) is one of them, chosen once for
+every population. It is not unique and was picked by outcome over five units, not a property of the
+compiler: units under `/GR` later whose descriptors differ under it keep their RTTI from
+original bytes and are listed with the differing field. Same path, same bytes: 20 runs each
+(tagtype, terrtype), 3 each (campaign, house, version), and two other spellings of the same
+lengths (another folder name, another 8-hex root) all gave identical objects (COFF time
+stamp zeroed). `tools/original_target/compile_determinism.py UNIT --gr --runs N` repeats it.
+
+Widened sample (2026-11-13): 47 units, 147 classes, 51 with multiple inheritance, at the
+three layouts that matched the first five units (34/32, 31/33, 32/33). Each reproduces the
+original's bit for only 76-80% of the multiple-inheritance classes, a different set each, and
+AbstractClass matches in some units and not others under one layout. The bit is therefore not
+recoverable as an environment setting: no layout is chosen by outcome (its handling: docs/DECISIONS.md
+"Class hierarchy descriptor ambiguous bit"). The fixed folder stays: it makes every object
+deterministic per input (20 runs, cold, cache-off and warm builds of all 1,617 groups agree) and
+fixes TMP, whose length drives the section order of some objects (83 groups at the first
+measurement, 75 against the final layout with 10 groups lacking an old object to compare:
+docs/history/FIXED_FOLDER_REORDERED_20261113.tsv). Reboot or tmp cleanup: removing
+/private/tmp/ra2c and building again recreates it, and the cache key still matches (a warm build
+after the removal reused all 1,617 groups; cold, cache-off and warm objects agree).
+
+The build refuses a `/GR` compile outside the layout (`unit_lines`), and a `/GR` unit never
+goes to the remote backend. The root lives under /private/tmp: every compile call creates it
+(`stage_fixed`), so a reboot or tmp cleanup needs nothing, and the cache key names the layout,
+not the per-call root, so cached objects stay valid.
 
 ## Shared headers and candidate regeneration
 

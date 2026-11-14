@@ -1,0 +1,1420 @@
+{
+ "module": "nulldlg",
+ "source": "src/recovered/nulldlg.cpp",
+ "header": null,
+ "population": "population-4338",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 952,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "005cdd10",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "005cdd30",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "005cdd60",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "005cdd80",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "005cdda0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "005cddc0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "005cdde0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "005cde00",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "005cde40",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "005cde70",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "005cdea0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "005cded0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "005cdee0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Select_Serial_Dialog@@YIHXZ",
+   "entry": "005cdf00",
+   "body_bytes": 2580,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Select_Serial_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+   "entry": "005ce920",
+   "body_bytes": 105,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Select_Serial_Dialog_Init@@YIXPAUHWND__@@@Z",
+   "entry": "005ce990",
+   "body_bytes": 158,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Shutdown_Modem@@YAXXZ",
+   "entry": "005cea60",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Modem_Signoff@@YIXXZ",
+   "entry": "005cea90",
+   "body_bytes": 175,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Reconnect_Modem@@YA_NXZ",
+   "entry": "005ceb40",
+   "body_bytes": 96,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Destroy_Null_Connection@@YIXHH@Z",
+   "entry": "005ceba0",
+   "body_bytes": 554,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Reconnect_Null_Modem@@YI_NXZ",
+   "entry": "005cedd0",
+   "body_bytes": 727,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Dial_Modem@@YI_NPAUSerialSettingsType@@_N@Z",
+   "entry": "005cf0b0",
+   "body_bytes": 1736,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Answer_Modem@@YI_NPAUSerialSettingsType@@_N@Z",
+   "entry": "005cf780",
+   "body_bytes": 1508,
+   "padding_bytes": 12
+  }
+ ],
+ "code_bytes": 8240,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "__real@8@4008e100000000000000",
+   "address": "0079b608",
+   "bytes": 8,
+   "kind": "table",
+   "section": 62
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a73f0",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+   "address": "007d64f4",
+   "bytes": 4,
+   "kind": "string",
+   "section": 45
+  },
+  {
+   "symbol": "??_C@_15DEDE@?$AA?$CF?$AAs?$AA?$AA@",
+   "address": "007d9c94",
+   "bytes": 6,
+   "kind": "string",
+   "section": 60
+  },
+  {
+   "symbol": "??_C@_0L@NPIH@TXT_CANCEL?$AA@",
+   "address": "007db8c8",
+   "bytes": 11,
+   "kind": "string",
+   "section": 42
+  },
+  {
+   "symbol": "??_C@_06DN@TXT_OK?$AA@",
+   "address": "007db8f4",
+   "bytes": 7,
+   "kind": "string",
+   "section": 46
+  },
+  {
+   "symbol": "??_C@_0BK@GPBE@TXT_SYSTEM_NOT_RESPONDING?$AA@",
+   "address": "007e222c",
+   "bytes": 26,
+   "kind": "string",
+   "section": 67
+  },
+  {
+   "symbol": "??_C@_0O@JGPN@TXT_LEFT_GAME?$AA@",
+   "address": "007e6930",
+   "bytes": 14,
+   "kind": "string",
+   "section": 63
+  },
+  {
+   "symbol": "??_C@_0BE@DDAG@TXT_CONNECTION_LOST?$AA@",
+   "address": "007e6954",
+   "bytes": 20,
+   "kind": "string",
+   "section": 64
+  },
+  {
+   "symbol": "??_C@_0BG@OFPE@TXT_MODEM_OR_LOOPBACK?$AA@",
+   "address": "007e7474",
+   "bytes": 22,
+   "kind": "string",
+   "section": 40
+  },
+  {
+   "symbol": "??_C@_0BE@IBLE@TXT_WAITING_CONNECT?$AA@",
+   "address": "007e748c",
+   "bytes": 20,
+   "kind": "string",
+   "section": 41
+  },
+  {
+   "symbol": "??_C@_04NGMP@ATH?$AN?$AA@",
+   "address": "007e74a0",
+   "bytes": 5,
+   "kind": "string",
+   "section": 43
+  },
+  {
+   "symbol": "??_C@_0BE@JIOC@TXT_SELECT_SETTINGS?$AA@",
+   "address": "007e74a8",
+   "bytes": 20,
+   "kind": "string",
+   "section": 44
+  },
+  {
+   "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+   "address": "007e74bc",
+   "bytes": 19,
+   "kind": "string",
+   "section": 47
+  },
+  {
+   "symbol": "??_C@_0BE@MJJO@TXT_JUST_YOU_AND_ME?$AA@",
+   "address": "007e74d0",
+   "bytes": 20,
+   "kind": "string",
+   "section": 61
+  },
+  {
+   "symbol": "??_C@_0BO@DFHD@TXT_NULL_CONNERR_CHECK_CABLES?$AA@",
+   "address": "007e74e4",
+   "bytes": 30,
+   "kind": "string",
+   "section": 68
+  },
+  {
+   "symbol": "??_C@_0BF@LNNF@TXT_DIALING_CANCELED?$AA@",
+   "address": "007e7504",
+   "bytes": 21,
+   "kind": "string",
+   "section": 71
+  },
+  {
+   "symbol": "??_C@_0CG@JPJK@Dial_Modem?5returned?5?8DIAL_CANCEL@",
+   "address": "007e751c",
+   "bytes": 38,
+   "kind": "string",
+   "section": 72
+  },
+  {
+   "symbol": "??_C@_0BB@EDPM@TXT_NO_DIAL_TONE?$AA@",
+   "address": "007e7544",
+   "bytes": 17,
+   "kind": "string",
+   "section": 73
+  },
+  {
+   "symbol": "??_C@_0CJ@GCIB@Dial_Modem?5returned?5?8DIAL_NO_DIA@",
+   "address": "007e7558",
+   "bytes": 41,
+   "kind": "string",
+   "section": 74
+  },
+  {
+   "symbol": "??_C@_0BC@CENF@TXT_ERROR_TIMEOUT?$AA@",
+   "address": "007e7584",
+   "bytes": 18,
+   "kind": "string",
+   "section": 75
+  },
+  {
+   "symbol": "??_C@_0CE@HJFB@Dial_Modem?5returned?5?8DIAL_TIMEOU@",
+   "address": "007e7598",
+   "bytes": 36,
+   "kind": "string",
+   "section": 76
+  },
+  {
+   "symbol": "??_C@_0BD@HMLB@TXT_NUMBER_INVALID?$AA@",
+   "address": "007e75bc",
+   "bytes": 19,
+   "kind": "string",
+   "section": 77
+  },
+  {
+   "symbol": "??_C@_0CC@CME@Dial_Modem?5returned?5?8DIAL_ERROR?8@",
+   "address": "007e75d0",
+   "bytes": 34,
+   "kind": "string",
+   "section": 78
+  },
+  {
+   "symbol": "??_C@_0O@GKIA@TXT_LINE_BUSY?$AA@",
+   "address": "007e75f4",
+   "bytes": 14,
+   "kind": "string",
+   "section": 79
+  },
+  {
+   "symbol": "??_C@_0CB@GNGL@Dial_Modem?5returned?5?8DIAL_BUSY?8?6@",
+   "address": "007e7604",
+   "bytes": 33,
+   "kind": "string",
+   "section": 80
+  },
+  {
+   "symbol": "??_C@_0P@NPH@TXT_NO_CARRIER?$AA@",
+   "address": "007e7628",
+   "bytes": 15,
+   "kind": "string",
+   "section": 81
+  },
+  {
+   "symbol": "??_C@_0CH@IIOE@Dial_Modem?5returned?5?8DIAL_NO_CAR@",
+   "address": "007e7638",
+   "bytes": 39,
+   "kind": "string",
+   "section": 82
+  },
+  {
+   "symbol": "??_C@_0CG@KOPL@Dial_Modem?5returned?5?8DIAL_CONNEC@",
+   "address": "007e7660",
+   "bytes": 38,
+   "kind": "string",
+   "section": 83
+  },
+  {
+   "symbol": "??_C@_0P@CHNG@Ready?5to?5dial?6?$AA@",
+   "address": "007e7688",
+   "bytes": 15,
+   "kind": "string",
+   "section": 84
+  },
+  {
+   "symbol": "??_C@_0BI@EDGA@TXT_ERROR_IN_INITSTRING?$AA@",
+   "address": "007e7698",
+   "bytes": 24,
+   "kind": "string",
+   "section": 85
+  },
+  {
+   "symbol": "??_C@_0BO@JGCB@Detect_Modem?5failed?5at?519200?6?$AA@",
+   "address": "007e76b0",
+   "bytes": 30,
+   "kind": "string",
+   "section": 86
+  },
+  {
+   "symbol": "??_C@_0BF@PLNI@Upshifting?5to?519200?6?$AA@",
+   "address": "007e76d0",
+   "bytes": 21,
+   "kind": "string",
+   "section": 87
+  },
+  {
+   "symbol": "??_C@_0BO@MCKI@Detect_Modem?5failed?5at?538400?6?$AA@",
+   "address": "007e76e8",
+   "bytes": 30,
+   "kind": "string",
+   "section": 88
+  },
+  {
+   "symbol": "??_C@_0BF@KPFB@Upshifting?5to?538400?6?$AA@",
+   "address": "007e7708",
+   "bytes": 21,
+   "kind": "string",
+   "section": 89
+  },
+  {
+   "symbol": "??_C@_0BG@JBNM@TXT_UNABLE_FIND_MODEM?$AA@",
+   "address": "007e7720",
+   "bytes": 22,
+   "kind": "string",
+   "section": 90
+  },
+  {
+   "symbol": "??_C@_0BF@BBGJ@Detect_Modem?5failed?6?$AA@",
+   "address": "007e7738",
+   "bytes": 21,
+   "kind": "string",
+   "section": 91
+  },
+  {
+   "symbol": "??_C@_0CE@FCOP@Modem?5already?5on?9line?5?9?5hanging?5@",
+   "address": "007e7750",
+   "bytes": 36,
+   "kind": "string",
+   "section": 92
+  },
+  {
+   "symbol": "??_C@_08HHPO@?5CD?3?5?$CFs?6?$AA@",
+   "address": "007e7774",
+   "bytes": 9,
+   "kind": "string",
+   "section": 93
+  },
+  {
+   "symbol": "??_C@_08NOBA@?5RI?3?5?$CFs?6?$AA@",
+   "address": "007e7780",
+   "bytes": 9,
+   "kind": "string",
+   "section": 94
+  },
+  {
+   "symbol": "??_C@_08JHKL@DSR?3?5?$CFs?6?$AA@",
+   "address": "007e778c",
+   "bytes": 9,
+   "kind": "string",
+   "section": 95
+  },
+  {
+   "symbol": "??_C@_08DDCK@CTS?3?5?$CFs?6?$AA@",
+   "address": "007e7798",
+   "bytes": 9,
+   "kind": "string",
+   "section": 96
+  },
+  {
+   "symbol": "??_C@_05HIBB@CLEAR?$AA@",
+   "address": "007e77a4",
+   "bytes": 6,
+   "kind": "string",
+   "section": 97
+  },
+  {
+   "symbol": "??_C@_03BCLC@SET?$AA@",
+   "address": "007e77ac",
+   "bytes": 4,
+   "kind": "string",
+   "section": 98
+  },
+  {
+   "symbol": "??_C@_0CN@LPEB@Get_Modem_Status?5indicates?5the?5f@",
+   "address": "007e77b0",
+   "bytes": 45,
+   "kind": "string",
+   "section": 99
+  },
+  {
+   "symbol": "??_C@_0M@PAA@Dial?5Modem?6?$AA@",
+   "address": "007e77e0",
+   "bytes": 12,
+   "kind": "string",
+   "section": 100
+  },
+  {
+   "symbol": "??_C@_0BH@KPFE@TXT_ANSWERING_CANCELED?$AA@",
+   "address": "007e77ec",
+   "bytes": 23,
+   "kind": "string",
+   "section": 103
+  },
+  {
+   "symbol": "??_C@_0CI@GEI@Answer_Modem?5returned?5?8DIAL_CANC@",
+   "address": "007e7804",
+   "bytes": 40,
+   "kind": "string",
+   "section": 104
+  },
+  {
+   "symbol": "??_C@_0CG@LPOD@Answer_Modem?5returned?5?8DIAL_TIME@",
+   "address": "007e782c",
+   "bytes": 38,
+   "kind": "string",
+   "section": 105
+  },
+  {
+   "symbol": "??_C@_0CE@HAAD@Answer_Modem?5returned?5?8DIAL_ERRO@",
+   "address": "007e7854",
+   "bytes": 36,
+   "kind": "string",
+   "section": 106
+  },
+  {
+   "symbol": "??_C@_0CJ@MOHN@Answer_Modem?5returned?5?8DIAL_NO_C@",
+   "address": "007e7878",
+   "bytes": 41,
+   "kind": "string",
+   "section": 107
+  },
+  {
+   "symbol": "??_C@_0CI@DHCJ@Answer_Modem?5returned?5?8DIAL_CONN@",
+   "address": "007e78a4",
+   "bytes": 40,
+   "kind": "string",
+   "section": 108
+  },
+  {
+   "symbol": "??_C@_0BB@JLFH@Ready?5to?5answer?6?$AA@",
+   "address": "007e78cc",
+   "bytes": 17,
+   "kind": "string",
+   "section": 109
+  },
+  {
+   "symbol": "??_C@_0O@HFIE@Answer?5Modem?6?$AA@",
+   "address": "007e78e0",
+   "bytes": 14,
+   "kind": "string",
+   "section": 110
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4008e100000000000000",
+   "address": "0079b608",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a73f0",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+   "address": "007d64f4",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_15DEDE@?$AA?$CF?$AAs?$AA?$AA@",
+   "address": "007d9c94",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@NPIH@TXT_CANCEL?$AA@",
+   "address": "007db8c8",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06DN@TXT_OK?$AA@",
+   "address": "007db8f4",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BK@GPBE@TXT_SYSTEM_NOT_RESPONDING?$AA@",
+   "address": "007e222c",
+   "bytes": 26,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@JGPN@TXT_LEFT_GAME?$AA@",
+   "address": "007e6930",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@DDAG@TXT_CONNECTION_LOST?$AA@",
+   "address": "007e6954",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BG@OFPE@TXT_MODEM_OR_LOOPBACK?$AA@",
+   "address": "007e7474",
+   "bytes": 22,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@IBLE@TXT_WAITING_CONNECT?$AA@",
+   "address": "007e748c",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04NGMP@ATH?$AN?$AA@",
+   "address": "007e74a0",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@JIOC@TXT_SELECT_SETTINGS?$AA@",
+   "address": "007e74a8",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+   "address": "007e74bc",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@MJJO@TXT_JUST_YOU_AND_ME?$AA@",
+   "address": "007e74d0",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BO@DFHD@TXT_NULL_CONNERR_CHECK_CABLES?$AA@",
+   "address": "007e74e4",
+   "bytes": 30,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BF@LNNF@TXT_DIALING_CANCELED?$AA@",
+   "address": "007e7504",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CG@JPJK@Dial_Modem?5returned?5?8DIAL_CANCEL@",
+   "address": "007e751c",
+   "bytes": 38,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@EDPM@TXT_NO_DIAL_TONE?$AA@",
+   "address": "007e7544",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CJ@GCIB@Dial_Modem?5returned?5?8DIAL_NO_DIA@",
+   "address": "007e7558",
+   "bytes": 41,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@CENF@TXT_ERROR_TIMEOUT?$AA@",
+   "address": "007e7584",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CE@HJFB@Dial_Modem?5returned?5?8DIAL_TIMEOU@",
+   "address": "007e7598",
+   "bytes": 36,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@HMLB@TXT_NUMBER_INVALID?$AA@",
+   "address": "007e75bc",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CC@CME@Dial_Modem?5returned?5?8DIAL_ERROR?8@",
+   "address": "007e75d0",
+   "bytes": 34,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@GKIA@TXT_LINE_BUSY?$AA@",
+   "address": "007e75f4",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CB@GNGL@Dial_Modem?5returned?5?8DIAL_BUSY?8?6@",
+   "address": "007e7604",
+   "bytes": 33,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@NPH@TXT_NO_CARRIER?$AA@",
+   "address": "007e7628",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CH@IIOE@Dial_Modem?5returned?5?8DIAL_NO_CAR@",
+   "address": "007e7638",
+   "bytes": 39,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CG@KOPL@Dial_Modem?5returned?5?8DIAL_CONNEC@",
+   "address": "007e7660",
+   "bytes": 38,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@CHNG@Ready?5to?5dial?6?$AA@",
+   "address": "007e7688",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BI@EDGA@TXT_ERROR_IN_INITSTRING?$AA@",
+   "address": "007e7698",
+   "bytes": 24,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BO@JGCB@Detect_Modem?5failed?5at?519200?6?$AA@",
+   "address": "007e76b0",
+   "bytes": 30,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BF@PLNI@Upshifting?5to?519200?6?$AA@",
+   "address": "007e76d0",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BO@MCKI@Detect_Modem?5failed?5at?538400?6?$AA@",
+   "address": "007e76e8",
+   "bytes": 30,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BF@KPFB@Upshifting?5to?538400?6?$AA@",
+   "address": "007e7708",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BG@JBNM@TXT_UNABLE_FIND_MODEM?$AA@",
+   "address": "007e7720",
+   "bytes": 22,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BF@BBGJ@Detect_Modem?5failed?6?$AA@",
+   "address": "007e7738",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CE@FCOP@Modem?5already?5on?9line?5?9?5hanging?5@",
+   "address": "007e7750",
+   "bytes": 36,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08HHPO@?5CD?3?5?$CFs?6?$AA@",
+   "address": "007e7774",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08NOBA@?5RI?3?5?$CFs?6?$AA@",
+   "address": "007e7780",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08JHKL@DSR?3?5?$CFs?6?$AA@",
+   "address": "007e778c",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08DDCK@CTS?3?5?$CFs?6?$AA@",
+   "address": "007e7798",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_05HIBB@CLEAR?$AA@",
+   "address": "007e77a4",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_03BCLC@SET?$AA@",
+   "address": "007e77ac",
+   "bytes": 4,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CN@LPEB@Get_Modem_Status?5indicates?5the?5f@",
+   "address": "007e77b0",
+   "bytes": 45,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@PAA@Dial?5Modem?6?$AA@",
+   "address": "007e77e0",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BH@KPFE@TXT_ANSWERING_CANCELED?$AA@",
+   "address": "007e77ec",
+   "bytes": 23,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CI@GEI@Answer_Modem?5returned?5?8DIAL_CANC@",
+   "address": "007e7804",
+   "bytes": 40,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CG@LPOD@Answer_Modem?5returned?5?8DIAL_TIME@",
+   "address": "007e782c",
+   "bytes": 38,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CE@HAAD@Answer_Modem?5returned?5?8DIAL_ERRO@",
+   "address": "007e7854",
+   "bytes": 36,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CJ@MOHN@Answer_Modem?5returned?5?8DIAL_NO_C@",
+   "address": "007e7878",
+   "bytes": 41,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CI@DHCJ@Answer_Modem?5returned?5?8DIAL_CONN@",
+   "address": "007e78a4",
+   "bytes": 40,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@JLFH@Ready?5to?5answer?6?$AA@",
+   "address": "007e78cc",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@HFIE@Answer?5Modem?6?$AA@",
+   "address": "007e78e0",
+   "bytes": 14,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00627910",
+   "symbol": "?Reconnect_Modem@@YA_NXZ",
+   "target": "005ceb40",
+   "function_entry": true
+  },
+  {
+   "site": "00626b30",
+   "symbol": "?Destroy_Null_Connection@@YIXHH@Z",
+   "target": "005ceba0",
+   "function_entry": true
+  },
+  {
+   "site": "0059c130",
+   "symbol": "?Shutdown_Modem@@YAXXZ",
+   "target": "005cea60",
+   "function_entry": true
+  },
+  {
+   "site": "00597680",
+   "symbol": "?Shutdown_Modem@@YAXXZ",
+   "target": "005cea60",
+   "function_entry": true
+  },
+  {
+   "site": "00598590",
+   "symbol": "?Shutdown_Modem@@YAXXZ",
+   "target": "005cea60",
+   "function_entry": true
+  },
+  {
+   "site": "0059b690",
+   "symbol": "?Shutdown_Modem@@YAXXZ",
+   "target": "005cea60",
+   "function_entry": true
+  },
+  {
+   "site": "00628880",
+   "symbol": "?Destroy_Null_Connection@@YIXHH@Z",
+   "target": "005ceba0",
+   "function_entry": true
+  },
+  {
+   "site": "00481bf0",
+   "symbol": "?Modem_Signoff@@YIXXZ",
+   "target": "005cea90",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0WinModemClass@@QAE@XZ",
+   "address": "00734120"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??B?$TTimerClass@VSystemTimerClass@@@@QBEHXZ",
+   "address": "005cfdb0"
+  },
+  {
+   "symbol": "??BSystemTimerClass@@QBEJXZ",
+   "address": "0069a430"
+  },
+  {
+   "symbol": "?AI_Takeover@HouseClass@@QAEXXZ",
+   "address": "004f4070"
+  },
+  {
+   "symbol": "?Add_Message@MessageListClass@@QAEPAVTextLabelClass@@PBGH0HIH_N@Z",
+   "address": "005b4da0"
+  },
+  {
+   "symbol": "?Answer_Modem@NullModemClass@@QAE?AW4DialStatusType@@_N@Z",
+   "address": "005d16e0"
+  },
+  {
+   "symbol": "?Change_IRQ_Priority@NullModemClass@@QAEHH@Z",
+   "address": "005d1e40"
+  },
+  {
+   "symbol": "?Clear_Receive_Buffer@NullModemClass@@QAEXXZ",
+   "address": "005d1da0"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Delete_Connection@NullModemClass@@QAEHXZ",
+   "address": "005d0360"
+  },
+  {
+   "symbol": "?Detect_Modem@NullModemClass@@QAE_NPAUSerialSettingsType@@_N@Z",
+   "address": "005d09a0"
+  },
+  {
+   "symbol": "?Detect_Port@NullModemClass@@QAEHPAUSerialSettingsType@@@Z",
+   "address": "005d03e0"
+  },
+  {
+   "symbol": "?DialSettings@@3PAUSerialSettingsType@@A",
+   "address": "00a72dc4"
+  },
+  {
+   "symbol": "?DialString@@3PADA",
+   "address": "00a72d78"
+  },
+  {
+   "symbol": "?Dial_Modem@NullModemClass@@QAE?AW4DialStatusType@@PADH_N@Z",
+   "address": "005d1350"
+  },
+  {
+   "symbol": "?Dialog@PhoneEdit@@QAE_NXZ",
+   "address": "0060d970"
+  },
+  {
+   "symbol": "?Dialog_00596010@ModemGuest@@QAE_NXZ",
+   "address": "00596010"
+  },
+  {
+   "symbol": "?Dialog_00598e10@ModemHost@@QAE_NXZ",
+   "address": "00598e10"
+  },
+  {
+   "symbol": "?Dialog_0066ca70@SerialEdDialog@@QAE_NPAUSerialSettingsType@@@Z",
+   "address": "0066ca70"
+  },
+  {
+   "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXH@Z",
+   "address": "004e09a0"
+  },
+  {
+   "symbol": "?Get_Message@NullModemClass@@QAEHPAXPAH@Z",
+   "address": "005d0630"
+  },
+  {
+   "symbol": "?Get_Modem_Status@NullModemClass@@QAEHXZ",
+   "address": "005d1e50"
+  },
+  {
+   "symbol": "?Get_Port_Handle@WinModemClass@@QAEPAXXZ",
+   "address": "007354c0"
+  },
+  {
+   "symbol": "?Hangup_Modem@NullModemClass@@QAE_NXZ",
+   "address": "005d1b70"
+  },
+  {
+   "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+   "address": "00a32298"
+  },
+  {
+   "symbol": "?Init@NullModemClass@@QAEHHHPADHDHH@Z",
+   "address": "005d00e0"
+  },
+  {
+   "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
+   "address": "006f9ec0"
+  },
+  {
+   "symbol": "?MainWindow@@3PAUHWND__@@A",
+   "address": "00b263d8"
+  },
+  {
+   "symbol": "?Map@@3VMouseClass@@A",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "?Num_Send@NullModemClass@@QAEHXZ",
+   "address": "005d08a0"
+  },
+  {
+   "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+   "address": "005b46b0"
+  },
+  {
+   "symbol": "?Render@GScreenClass@@UAEXXZ",
+   "address": "004e0b30"
+  },
+  {
+   "symbol": "?Rules@@3PAVRulesClass@@A",
+   "address": "00839848"
+  },
+  {
+   "symbol": "?Send_Message@NullModemClass@@QAEHPAXHH@Z",
+   "address": "005d05f0"
+  },
+  {
+   "symbol": "?SerialPort@@3PAVWinModemClass@@A",
+   "address": "00b25bb0"
+  },
+  {
+   "symbol": "?Service@NullModemClass@@UAEHXZ",
+   "address": "005d0660"
+  },
+  {
+   "symbol": "?Setup_Modem_Echo@NullModemClass@@QAEXP6IXD@Z@Z",
+   "address": "005d1d20"
+  },
+  {
+   "symbol": "?Shutdown@NullModemClass@@QAEXXZ",
+   "address": "005d0570"
+  },
+  {
+   "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+   "address": "00839980"
+  },
+  {
+   "symbol": "?Translate_Line_Ends@NullModemClass@@QAEXXZ",
+   "address": "005d1d50"
+  },
+  {
+   "symbol": "?Unknown_00517370@@YIX_N@Z",
+   "address": "00517370"
+  },
+  {
+   "symbol": "?WideToCharString_006fa0f0@@YIXPADPBGH@Z",
+   "address": "006fa0f0"
+  },
+  {
+   "symbol": "?Write_MultiPlayer_Settings@SessionClass@@QAEXXZ",
+   "address": "00670380"
+  },
+  {
+   "symbol": "?Write_To_Serial_Port@WinModemClass@@QAEXPAEH@Z",
+   "address": "00734c70"
+  },
+  {
+   "symbol": "?serial_local_player_00a3fb38@@3HA",
+   "address": "00a3fb38"
+  },
+  {
+   "symbol": "?serial_manager_00a40a28@@3VNullModemClass@@A",
+   "address": "00a40a28"
+  },
+  {
+   "symbol": "?serial_session_flags_00a3fac0@@3IA",
+   "address": "00a3fac0"
+  },
+  {
+   "symbol": "?unknown_5d1d40@NullModemClass@@QAEXXZ",
+   "address": "005d1d40"
+  },
+  {
+   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "address": "006000d0"
+  },
+  {
+   "symbol": "?unknown_a3d3b4@@3HA",
+   "address": "00a3d3b4"
+  },
+  {
+   "symbol": "?unknown_cancel_dialog_6001e0@@YIPAUHWND__@@PBG0PA_N@Z",
+   "address": "006001e0"
+  },
+  {
+   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "address": "005ff610"
+  },
+  {
+   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "address": "005ff6e0"
+  },
+  {
+   "symbol": "?unknown_dialog_5ff7c0@@YIXPAUHWND__@@@Z",
+   "address": "005ff7c0"
+  },
+  {
+   "symbol": "?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z",
+   "address": "005ffb00"
+  },
+  {
+   "symbol": "?unknown_flags_a3f600@@3EA",
+   "address": "00a3f600"
+  },
+  {
+   "symbol": "?unknown_game_mode_a3d298@@3HA",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_modem_aborted_a72ec4@@3_NA",
+   "address": "00a72ec4"
+  },
+  {
+   "symbol": "?unknown_move_window_600120@@YIXPAUHWND__@@HH@Z",
+   "address": "00600120"
+  },
+  {
+   "symbol": "?unknown_session_a3d298@@3USessionClass@@A",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_session_a3d55c@@3HA",
+   "address": "00a3d55c"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_surface_839954@@3PAVSurface@@A",
+   "address": "00839954"
+  },
+  {
+   "symbol": "?unknown_text_buffer_append_005cfd70@@YIXD@Z",
+   "address": "005cfd70"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__ClearCommBreak@4",
+   "address": "0079a108"
+  },
+  {
+   "symbol": "__imp__EnableWindow@8",
+   "address": "0079a490"
+  },
+  {
+   "symbol": "__imp__EscapeCommFunction@8",
+   "address": "0079a104"
+  },
+  {
+   "symbol": "__imp__GetDlgItem@8",
+   "address": "0079a49c"
+  },
+  {
+   "symbol": "__imp__GetWindowLongA@8",
+   "address": "0079a48c"
+  },
+  {
+   "symbol": "__imp__SetCommBreak@4",
+   "address": "0079a10c"
+  },
+  {
+   "symbol": "__imp__SetWindowLongA@12",
+   "address": "0079a488"
+  },
+  {
+   "symbol": "__imp__ShowWindow@8",
+   "address": "0079a498"
+  },
+  {
+   "symbol": "__imp__UpdateWindow@4",
+   "address": "0079a46c"
+  },
+  {
+   "symbol": "__wcsicmp",
+   "address": "00796318"
+  },
+  {
+   "symbol": "_swprintf",
+   "address": "00783764"
+  },
+  {
+   "symbol": "_wcslen",
+   "address": "00783605"
+  }
+ ],
+ "route": "A",
+ "unit": "nulldlg.cpp",
+ "form": "one include block",
+ "switches": [
+  "RA2_TTIMER_CONVERSION_INT",
+  "RA2_CDTIMER_CONVERSION_BODY",
+  "VECTOR_IMPLEMENT_VECTOR_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_DELETE_OBJECT",
+  "VECTOR_IMPLEMENT_DYNAMIC_DELETE_INDEX",
+  "CLRDTR"
+ ],
+ "include_blocks": [
+  {
+   "before": "005cdd10",
+   "lines": 37
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "005cea30",
+   "bytes": 37,
+   "population": "population-3772",
+   "source": "src/recovered/nulldlg/Init_Null_Modem.cpp",
+   "cause": "frozen in another population's inventory pass (population-3772)"
+  },
+  {
+   "kind": "split",
+   "entry": "005cfd70",
+   "bytes": 54,
+   "population": "population-4244",
+   "source": "src/recovered/nulldlg/unknown_text_buffer_append.cpp",
+   "cause": "frozen in another population's inventory pass (population-4244)"
+  },
+  {
+   "kind": "split",
+   "entry": "005cfdb0",
+   "bytes": 31,
+   "population": "population-4244",
+   "source": "src/recovered/classes/TTimerClass/TTimerClass_conversion_to_int_005cfdb0.cpp",
+   "cause": "frozen in another population's inventory pass (population-4244)"
+  }
+ ],
+ "unit_functions": 27,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 3,
+  "bytes": 122
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

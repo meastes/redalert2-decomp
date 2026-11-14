@@ -7,30 +7,27 @@
 // Callees with accepted source:
 //   FUN_00781d3b -> src/recovered/00781d3b.cpp
 //
-// Types and names are Ghidra placeholders (see shared/ghidra_types.hpp);
+// Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
 //
-// seed-generated: tools/original_target/regenerate_seeds.py may rewrite this file;
-// delete this line when editing it by hand.
-#include "shared/ghidra_types.hpp"
 
 namespace seed_005a7500 {
 
 extern void __fastcall FUN_005b6e20(void);
-extern void  FUN_00781d3b(undefined4 param_1);
+extern void  FUN_00781d3b(unsigned int allocation_address);
 extern "C" void* PTR_FUN_007a69dc;
 
-struct Owner_005a7500 { undefined4 * FUN_005a7500(byte param_2); };
+struct Owner_005a7500 { unsigned int * FUN_005a7500(unsigned char deletion_flags); };
 
-undefined4 * Owner_005a7500::FUN_005a7500(byte param_2)
+unsigned int * Owner_005a7500::FUN_005a7500(unsigned char deletion_flags)
 {
-    undefined4 * param_1 = (undefined4 *)this;
-    *param_1 = (undefined4)(&PTR_FUN_007a69dc);
+    unsigned int * object_words = (unsigned int *)this;
+    *object_words = (unsigned int)(&PTR_FUN_007a69dc);
     FUN_005b6e20();
-    if ((param_2 & 1) != 0) {
-        FUN_00781d3b((undefined4)(param_1));
+    if ((deletion_flags & 1) != 0) {
+        FUN_00781d3b((unsigned int)(object_words));
     }
-    return param_1;
+    return object_words;
 }
 
 }  // namespace seed_005a7500

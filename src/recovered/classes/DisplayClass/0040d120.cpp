@@ -1,3 +1,3 @@
 
-class Leaf_40d120 { public: void get(unsigned int a1); };
-void Leaf_40d120::get(unsigned int a1) { unsigned int ecx = (unsigned int)this; unsigned int eax; unsigned int edx; }
+class Leaf_40d120 { public: void get(unsigned int unused_argument); };
+void Leaf_40d120::get(unsigned int unused_argument) { unsigned int unused_this_address = (unsigned int)this; unsigned int unused_result; unsigned int unused_value; }

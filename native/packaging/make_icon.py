@@ -3,6 +3,8 @@
 # A placeholder app icon for RA2.app, drawn here from plain shapes (no game or
 # third-party art): a red rounded square with a white five-pointed star and a
 # dark ring. Writes one 1024x1024 PNG; make_app.sh scales it into the iconset.
+# --full-bleed (the iOS app, native/CMakeLists.txt): the red square fills the
+# picture, opaque, since iOS draws its own rounded mask over an app icon.
 # Standard library only.
 import math
 import struct
@@ -42,10 +44,10 @@ def inside_rounded(x, y, x0, y0, x1, y1, r):
     return (x - cx) ** 2 + (y - cy) ** 2 <= r * r
 
 
-def shade(x, y, star):
-    # macOS icon grid: the body is about 824 of 1024, centred.
-    m = 100
-    if not inside_rounded(x, y, m, m, SIZE - m, SIZE - m, 185):
+def shade(x, y, star, full_bleed):
+    # macOS icon grid: the body is about 824 of 1024, centred; iOS: all of it.
+    m = 0 if full_bleed else 100
+    if not full_bleed and not inside_rounded(x, y, m, m, SIZE - m, SIZE - m, 185):
         return (0, 0, 0, 0)
     d = math.hypot(x - SIZE / 2, y - SIZE / 2)
     if inside_polygon(x, y, star):
@@ -57,7 +59,7 @@ def shade(x, y, star):
     return (int(200 - 70 * t), int(24 - 10 * t), int(20 - 8 * t), 255)
 
 
-def main(out):
+def main(out, full_bleed=False):
     star = star_points(SIZE / 2, SIZE / 2 + 18, 270, 108)
     rows = []
     for py in range(SIZE):
@@ -66,7 +68,7 @@ def main(out):
             acc = [0, 0, 0, 0]
             for sy in range(SS):
                 for sx in range(SS):
-                    c = shade(px + (sx + 0.5) / SS, py + (sy + 0.5) / SS, star)
+                    c = shade(px + (sx + 0.5) / SS, py + (sy + 0.5) / SS, star, full_bleed)
                     a = c[3]
                     acc[0] += c[0] * a
                     acc[1] += c[1] * a
@@ -90,6 +92,9 @@ def main(out):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        sys.exit("usage: make_icon.py <out.png>")
-    main(sys.argv[1])
+    args = sys.argv[1:]
+    full = "--full-bleed" in args
+    args = [a for a in args if a != "--full-bleed"]
+    if len(args) != 1:
+        sys.exit("usage: make_icon.py [--full-bleed] <out.png>")
+    main(args[0], full)

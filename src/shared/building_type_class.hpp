@@ -120,7 +120,7 @@ extern BSurface *unknown_cloak_surface_8502a0;
 extern void const *unknown_poweroff_shape_8502a4;
 extern void const *unknown_wrench_shape_8502a8;
 
-// The scenario (pointer at 0x00A3D290): UnknownIDSource in shared/abstract.hpp
+// The scenario (pointer at 0x00A3D290): ScenarioClass in shared/abstract.hpp
 // (its Theater at +0x838 is read here).
 
 // The class ID GetClassID reports (0x007A1B30).

@@ -1,0 +1,965 @@
+{
+ "module": "ionblast",
+ "source": "src/recovered/ionblast.cpp",
+ "header": null,
+ "population": "population-4039",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 878,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00520fa0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "00520fd0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "00520ff0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "00521010",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "00521030",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "00521050",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "00521070",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "005210b0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "005210e0",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "00521110",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "00521140",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "00521150",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "00521170",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E42",
+   "entry": "00521190",
+   "body_bytes": 31,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E45",
+   "entry": "005211b0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E51",
+   "entry": "005211d0",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E48",
+   "entry": "00521210",
+   "body_bytes": 88,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "??0IonBlastClass@@QAE@UCoordStruct@@@Z",
+   "entry": "00521270",
+   "body_bytes": 120,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "??1IonBlastClass@@QAE@XZ",
+   "entry": "005212f0",
+   "body_bytes": 76,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?AI@IonBlastClass@@QAEXXZ",
+   "entry": "00521340",
+   "body_bytes": 1827,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Update_All@IonBlastClass@@SAXXZ",
+   "entry": "00521a70",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Clear_All@IonBlastClass@@SAXXZ",
+   "entry": "00521cb0",
+   "body_bytes": 37,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Draw_It@IonBlastClass@@QAEXXZ",
+   "entry": "00521ce0",
+   "body_bytes": 711,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Draw_All@IonBlastClass@@SAXXZ",
+   "entry": "00521fb0",
+   "body_bytes": 136,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Spiral_Index_To_Point@@YI?AUPoint2D@@H@Z",
+   "entry": "00522040",
+   "body_bytes": 113,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Point_To_Spiral_Index@@YIHUPoint2D@@@Z",
+   "entry": "005220c0",
+   "body_bytes": 133,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Calculate_Index_To_Surface_LUT@@YIXH@Z",
+   "entry": "00522150",
+   "body_bytes": 77,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Clear@?$DynamicVectorClass@PAVIonBlastClass@@@@UAEXXZ",
+   "entry": "005221a0",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAVIonBlastClass@@@@UAEHPBQAVIonBlastClass@@@Z",
+   "entry": "005221d0",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@PAVIonBlastClass@@@@UBEPAVIonBlastClass@@H@Z",
+   "entry": "005221f0",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??8?$VectorClass@PAVIonBlastClass@@@@UBE_NABV0@@Z",
+   "entry": "00522200",
+   "body_bytes": 62,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@PAVIonBlastClass@@@@UAE_NHPBQAVIonBlastClass@@@Z",
+   "entry": "00522240",
+   "body_bytes": 174,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Clear@?$VectorClass@PAVIonBlastClass@@@@UAEXXZ",
+   "entry": "005222f0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVIonBlastClass@@@@UAEHABQAVIonBlastClass@@@Z",
+   "entry": "00522320",
+   "body_bytes": 51,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVIonBlastClass@@@@UAEHPBQAVIonBlastClass@@@Z",
+   "entry": "00522360",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Resize@?$DynamicVectorClass@PAVIonBlastClass@@@@UAE_NHPBQAVIonBlastClass@@@Z",
+   "entry": "00522380",
+   "body_bytes": 176,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAVIonBlastClass@@@@UAEHABQAVIonBlastClass@@@Z",
+   "entry": "00522430",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?get@Leaf_522460@@QAEPAXI@Z",
+   "entry": "00522460",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?get@Leaf_5224b0@@QAEPAXI@Z",
+   "entry": "005224b0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Delete@?$DynamicVectorClass@PAVIonBlastClass@@@@QAE_NH@Z",
+   "entry": "00522500",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  }
+ ],
+ "code_bytes": 4992,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "__real@8@00000000000000000000",
+   "address": "0079b610",
+   "bytes": 8,
+   "kind": "table",
+   "section": 70
+  },
+  {
+   "symbol": "__real@8@bff1c9116cc4faf2b800",
+   "address": "0079b620",
+   "bytes": 8,
+   "kind": "table",
+   "section": 72
+  },
+  {
+   "symbol": "__real@8@4000c000000000000000",
+   "address": "0079ca88",
+   "bytes": 8,
+   "kind": "table",
+   "section": 66
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a4590",
+   "bytes": 64,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVIonBlastClass@@@@6B@",
+   "address": "007a45d0",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 51
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVIonBlastClass@@@@6B@",
+   "address": "007a45f0",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 57
+  },
+  {
+   "symbol": "__real@8@4000e000000000000000",
+   "address": "007a4610",
+   "bytes": 8,
+   "kind": "table",
+   "section": 67
+  },
+  {
+   "symbol": "__real@8@40049800000000000000",
+   "address": "007a4618",
+   "bytes": 8,
+   "kind": "table",
+   "section": 68
+  },
+  {
+   "symbol": "__real@8@3ff2d1b71758e2196800",
+   "address": "007a4620",
+   "bytes": 8,
+   "kind": "table",
+   "section": 69
+  },
+  {
+   "symbol": "__real@8@3fefa7c5ac471b478800",
+   "address": "007a4628",
+   "bytes": 8,
+   "kind": "table",
+   "section": 71
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAVIonBlastClass@@@@8",
+   "address": "007bc718",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 45
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAVIonBlastClass@@@@8",
+   "address": "007bc730",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 46
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAVIonBlastClass@@@@8",
+   "address": "007bc748",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 47
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAVIonBlastClass@@@@8",
+   "address": "007bc758",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 48
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAVIonBlastClass@@@@6B@",
+   "address": "007bc768",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 50
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAVIonBlastClass@@@@8",
+   "address": "007bc77c",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 54
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAVIonBlastClass@@@@8",
+   "address": "007bc788",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 55
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAVIonBlastClass@@@@6B@",
+   "address": "007bc798",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 56
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAVIonBlastClass@@@@@8",
+   "address": "007ddc00",
+   "bytes": 47,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAVIonBlastClass@@@@@8",
+   "address": "007ddc30",
+   "bytes": 54,
+   "kind": "rtti",
+   "section": 49
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@00000000000000000000",
+   "address": "0079b610",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@bff1c9116cc4faf2b800",
+   "address": "0079b620",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4000c000000000000000",
+   "address": "0079ca88",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a4590",
+   "bytes": 64,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVIonBlastClass@@@@6B@",
+   "address": "007a45d0",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVIonBlastClass@@@@6B@",
+   "address": "007a45f0",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "__real@8@4000e000000000000000",
+   "address": "007a4610",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40049800000000000000",
+   "address": "007a4618",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff2d1b71758e2196800",
+   "address": "007a4620",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fefa7c5ac471b478800",
+   "address": "007a4628",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAVIonBlastClass@@@@8",
+   "address": "007bc718",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAVIonBlastClass@@@@8",
+   "address": "007bc730",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAVIonBlastClass@@@@8",
+   "address": "007bc748",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAVIonBlastClass@@@@8",
+   "address": "007bc758",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAVIonBlastClass@@@@6B@",
+   "address": "007bc768",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAVIonBlastClass@@@@8",
+   "address": "007bc77c",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAVIonBlastClass@@@@8",
+   "address": "007bc788",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAVIonBlastClass@@@@6B@",
+   "address": "007bc798",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAVIonBlastClass@@@@@8",
+   "address": "007ddc00",
+   "bytes": 47,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAVIonBlastClass@@@@@8",
+   "address": "007ddc30",
+   "bytes": 54,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "006b2370",
+   "symbol": "??0IonBlastClass@@QAE@UCoordStruct@@@Z",
+   "target": "00521270",
+   "function_entry": true
+  },
+  {
+   "site": "006909e0",
+   "symbol": "?Unknown_00521CB0@@YAXXZ",
+   "target": "00521cb0",
+   "function_entry": true
+  },
+  {
+   "site": "0053d890",
+   "symbol": "?Unknown_00521A70@@YAXXZ",
+   "target": "00521a70",
+   "function_entry": true
+  },
+  {
+   "site": "006adae0",
+   "symbol": "??0IonBlastClass@@QAE@UCoordStruct@@@Z",
+   "target": "00521270",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABUCoordStruct@@HHHH@Z",
+   "address": "00420110"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??AMapClass@@QAEAAVCellClass@@ABUCoordStruct@@@Z",
+   "address": "00548000"
+  },
+  {
+   "symbol": "??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z",
+   "address": "00548070"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVIonBlastClass@@@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVIonBlastClass@@@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
+   "address": "006a29d0"
+  },
+  {
+   "symbol": "?Current@FacingClass@@QBE?AUUnknownFacingDir@@XZ",
+   "address": "004b8be0"
+  },
+  {
+   "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
+   "address": "00839c6c"
+  },
+  {
+   "symbol": "?Fast_Sqrt@@YAMN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?Get_Buffer_Offset@ZBuffer@@QAEPAGUPoint2D@@@Z",
+   "address": "00776340"
+  },
+  {
+   "symbol": "?Map@@3VMouseClass@@A",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "?Prep_For_Blit@@YI_NAAVSurface@@ABVRect@@AAV2@012AA_NAAPAX4@Z",
+   "address": "007753b0"
+  },
+  {
+   "symbol": "?Rules@@3PAVRulesClass@@A",
+   "address": "00839848"
+  },
+  {
+   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "address": "0047e2c0"
+  },
+  {
+   "symbol": "?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
+   "address": "0047f600"
+  },
+  {
+   "symbol": "?Unknown_006A2970@@YIHH@Z",
+   "address": "006a2970"
+  },
+  {
+   "symbol": "?unknown_a40b2c@@3HA",
+   "address": "00a40b2c"
+  },
+  {
+   "symbol": "?unknown_cos_4ba4d0@@YANN@Z",
+   "address": "004ba4d0"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_rect_839630@@3VRect@@A",
+   "address": "00839630"
+  },
+  {
+   "symbol": "?unknown_sin_4ba480@@YANN@Z",
+   "address": "004ba480"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_surface_83995c@@3PAVSurface@@A",
+   "address": "0083995c"
+  },
+  {
+   "symbol": "?unknown_tactical_83996c@@3PAVTactical@@A",
+   "address": "0083996c"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "_atexit",
+   "address": "0078298a"
+  },
+  {
+   "symbol": "_release_buffer_522460",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_5224b0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_522460",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_5224b0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_vtable_522460",
+   "address": "007a45f4"
+  },
+  {
+   "symbol": "_vtable_5224b0",
+   "address": "007a45f4"
+  }
+ ],
+ "route": "A",
+ "unit": "ionblast.cpp",
+ "form": "include blocks held",
+ "switches": [
+  "VECTOR_IMPLEMENT_ALL",
+  "RA2_ION_BLAST_LIST",
+  "VECTOR3_DECLARE_WWMATH"
+ ],
+ "include_blocks": [],
+ "held_rows": [
+  {
+   "entry": "005211d0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "00521210",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "00521270",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "005212f0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "00521340",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "00521a70",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "00521fb0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  }
+ ],
+ "joined": [
+  {
+   "entry": "005221a0",
+   "bytes": 42,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "005221d0",
+   "bytes": 27,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "005221f0",
+   "bytes": 13,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "00522200",
+   "bytes": 62,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "00522240",
+   "bytes": 174,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "005222f0",
+   "bytes": 39,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "00522320",
+   "bytes": 51,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "00522360",
+   "bytes": 27,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "00522380",
+   "bytes": 176,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "00522430",
+   "bytes": 38,
+   "population": "population-1597",
+   "bound": "own frozen bound (population-1597)"
+  },
+  {
+   "entry": "00522500",
+   "bytes": 49,
+   "population": "population-2685",
+   "bound": "own frozen bound (population-2685)"
+  },
+  {
+   "entry": "00522460",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "005224b0",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [],
+ "unit_functions": 42,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "006909e0",
+   "target": "00521cb0",
+   "symbol": "?Unknown_00521CB0@@YAXXZ",
+   "module_symbol": "?Clear_All@IonBlastClass@@SAXXZ"
+  },
+  {
+   "site": "0053d890",
+   "target": "00521a70",
+   "symbol": "?Unknown_00521A70@@YAXXZ",
+   "module_symbol": "?Update_All@IonBlastClass@@SAXXZ"
+  }
+ ],
+ "stand_in_reference_count": 2,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

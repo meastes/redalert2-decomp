@@ -1,0 +1,1153 @@
+{
+ "module": "campscor",
+ "source": "src/recovered/campscor.cpp",
+ "header": null,
+ "population": "population-3873",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 858,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00465a00",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "00465a30",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "00465a50",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "00465a70",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "00465a90",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "00465ab0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "00465ad0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "00465b10",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "00465b40",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "00465b70",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "00465ba0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "00465bb0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "00465bd0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??0CampaignScoreClass@@QAE@XZ",
+   "entry": "00465bf0",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "??1CampaignScoreClass@@UAE@XZ",
+   "entry": "00465c10",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?unknown_format_time_465c20@@YIXPAGH@Z",
+   "entry": "00465c20",
+   "body_bytes": 149,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?unknown_set_dialog_item_number_00465cc0@@YIXPAUHWND__@@HH@Z",
+   "entry": "00465cc0",
+   "body_bytes": 67,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?unknown_465d10@CampaignScoreClass@@QAEXXZ",
+   "entry": "00465d10",
+   "body_bytes": 449,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?unknown_sort_session_scores_465ee0@@YAXXZ",
+   "entry": "00465ee0",
+   "body_bytes": 62,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?unknown_compare_descending_60_00465f20@@YAHPBX0@Z",
+   "entry": "00465f20",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?unknown_reset_ready_465f50@@YIXH@Z",
+   "entry": "00465f50",
+   "body_bytes": 43,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?unknown_all_ready_465f80@@YA_NXZ",
+   "entry": "00465f80",
+   "body_bytes": 29,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?unknown_set_ready_465fa0@@YIXH_N@Z",
+   "entry": "00465fa0",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?unknown_is_ready_465fb0@@YI_NH@Z",
+   "entry": "00465fb0",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?unknown_score_dialog_proc_465fc0@@YGHPAUHWND__@@IIJ@Z",
+   "entry": "00465fc0",
+   "body_bytes": 2656,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?unknown_score_service_466a20@@YA_NXZ",
+   "entry": "00466a20",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Presentation@CampaignScoreClass@@UAEXV?$DynamicVectorClass@PAVMPlayerScoreType@@@@H_NHPBG@Z",
+   "entry": "00466a50",
+   "body_bytes": 1956,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "??0CampaignEndScoreClass@@QAE@XZ",
+   "entry": "00467200",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "??1CampaignEndScoreClass@@UAE@XZ",
+   "entry": "00467230",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?unknown_set_dialog_item_number_467240@@YIXPAUHWND__@@HH@Z",
+   "entry": "00467240",
+   "body_bytes": 67,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?unknown_format_time_467290@@YIXPAGH@Z",
+   "entry": "00467290",
+   "body_bytes": 152,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?unknown_end_score_dialog_proc_467330@@YGHPAUHWND__@@IIJ@Z",
+   "entry": "00467330",
+   "body_bytes": 1731,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?unknown_sort_end_scores_467a00@@YAXXZ",
+   "entry": "00467a00",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Presentation@CampaignEndScoreClass@@UAEXV?$DynamicVectorClass@PAVMPlayerScoreType@@@@HHHPBG@Z",
+   "entry": "00467a20",
+   "body_bytes": 218,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "??_GCampaignScoreClass@@UAEPAXI@Z",
+   "entry": "00467b00",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "??_GCampaignEndScoreClass@@UAEPAXI@Z",
+   "entry": "00467b20",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  }
+ ],
+ "code_bytes": 8512,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "0079d710",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7CampaignScoreClass@@6B@",
+   "address": "0079d720",
+   "bytes": 12,
+   "kind": "vtable",
+   "section": 45
+  },
+  {
+   "symbol": "??_7CampaignEndScoreClass@@6B@",
+   "address": "0079d72c",
+   "bytes": 12,
+   "kind": "vtable",
+   "section": 99
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CampaignScoreClass@@8",
+   "address": "007b4840",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 40
+  },
+  {
+   "symbol": "??_R2CampaignScoreClass@@8",
+   "address": "007b4858",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 41
+  },
+  {
+   "symbol": "??_R3CampaignScoreClass@@8",
+   "address": "007b4860",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 42
+  },
+  {
+   "symbol": "??_R4CampaignScoreClass@@6B@",
+   "address": "007b4870",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CampaignEndScoreClass@@8",
+   "address": "007b4888",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 94
+  },
+  {
+   "symbol": "??_R2CampaignEndScoreClass@@8",
+   "address": "007b48a0",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 95
+  },
+  {
+   "symbol": "??_R3CampaignEndScoreClass@@8",
+   "address": "007b48a8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 96
+  },
+  {
+   "symbol": "??_R4CampaignEndScoreClass@@6B@",
+   "address": "007b48b8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 98
+  },
+  {
+   "symbol": "??_R0?AVCampaignScoreClass@@@8",
+   "address": "007d1548",
+   "bytes": 33,
+   "kind": "rtti",
+   "section": 43
+  },
+  {
+   "symbol": "??_C@_0BG@MFEO@TXT_TIME_FORMAT_HOURS?$AA@",
+   "address": "007d156c",
+   "bytes": 22,
+   "kind": "string",
+   "section": 52
+  },
+  {
+   "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+   "address": "007d1584",
+   "bytes": 20,
+   "kind": "string",
+   "section": 53
+  },
+  {
+   "symbol": "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007d1598",
+   "bytes": 6,
+   "kind": "string",
+   "section": 56
+  },
+  {
+   "symbol": "??_C@_0ED@CLLE@?$CFs?3?5?$CFs?6?5Scheme?3?5?$CFd?6?5Lost?5?$DN?5?$CFd?6?5K@",
+   "address": "007d15a0",
+   "bytes": 67,
+   "kind": "string",
+   "section": 59
+  },
+  {
+   "symbol": "??_C@_05IOKF@Loser?$AA@",
+   "address": "007d15e4",
+   "bytes": 6,
+   "kind": "string",
+   "section": 60
+  },
+  {
+   "symbol": "??_C@_06POBF@Winner?$AA@",
+   "address": "007d15ec",
+   "bytes": 7,
+   "kind": "string",
+   "section": 61
+  },
+  {
+   "symbol": "??_C@_0N@LECO@GUI?3Continue?$AA@",
+   "address": "007d15f4",
+   "bytes": 13,
+   "kind": "string",
+   "section": 76
+  },
+  {
+   "symbol": "??_C@_0L@EJFF@GUI?3Cancel?$AA@",
+   "address": "007d1604",
+   "bytes": 11,
+   "kind": "string",
+   "section": 77
+  },
+  {
+   "symbol": "??_C@_09IMGH@TXT_READY?$AA@",
+   "address": "007d1610",
+   "bytes": 10,
+   "kind": "string",
+   "section": 78
+  },
+  {
+   "symbol": "??_C@_0M@LCFM@TXT_ABORTED?$AA@",
+   "address": "007d161c",
+   "bytes": 12,
+   "kind": "string",
+   "section": 79
+  },
+  {
+   "symbol": "??_C@_0M@MHCJ@TXT_WAITING?$AA@",
+   "address": "007d1628",
+   "bytes": 12,
+   "kind": "string",
+   "section": 80
+  },
+  {
+   "symbol": "??_C@_0N@LAJB@TXT_COMPUTER?$AA@",
+   "address": "007d1634",
+   "bytes": 13,
+   "kind": "string",
+   "section": 81
+  },
+  {
+   "symbol": "??_C@_0BG@EMPM@TXT_DIFFICULTY_BRUTAL?$AA@",
+   "address": "007d1644",
+   "bytes": 22,
+   "kind": "string",
+   "section": 82
+  },
+  {
+   "symbol": "??_C@_0BG@CKEG@TXT_DIFFICULTY_MEDIUM?$AA@",
+   "address": "007d165c",
+   "bytes": 22,
+   "kind": "string",
+   "section": 83
+  },
+  {
+   "symbol": "??_C@_0BF@JAMI@GUI?3DifficultyString?$AA@",
+   "address": "007d1674",
+   "bytes": 21,
+   "kind": "string",
+   "section": 84
+  },
+  {
+   "symbol": "??_C@_0BE@HEHO@TXT_DIFFICULTY_EASY?$AA@",
+   "address": "007d168c",
+   "bytes": 20,
+   "kind": "string",
+   "section": 85
+  },
+  {
+   "symbol": "??_C@_19GKBP@?$AA?$CF?$AAs?$AA?3?$AA?5?$AA?$AA@",
+   "address": "007d16a0",
+   "bytes": 10,
+   "kind": "string",
+   "section": 86
+  },
+  {
+   "symbol": "??_C@_0P@CEJM@GUI?3Difficulty?$AA@",
+   "address": "007d16ac",
+   "bytes": 15,
+   "kind": "string",
+   "section": 87
+  },
+  {
+   "symbol": "??_R0?AVCampaignEndScoreClass@@@8",
+   "address": "007d16c0",
+   "bytes": 36,
+   "kind": "rtti",
+   "section": 97
+  },
+  {
+   "symbol": "??_C@_09NHCJ@GUI?3Blank?$AA@",
+   "address": "007d16e4",
+   "bytes": 10,
+   "kind": "string",
+   "section": 110
+  },
+  {
+   "symbol": "??_C@_0BC@IKBK@GUI?3CampaignLabel?$AA@",
+   "address": "007d16f0",
+   "bytes": 18,
+   "kind": "string",
+   "section": 111
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "0079d710",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7CampaignScoreClass@@6B@",
+   "address": "0079d720",
+   "bytes": 12,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7CampaignEndScoreClass@@6B@",
+   "address": "0079d72c",
+   "bytes": 12,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CampaignScoreClass@@8",
+   "address": "007b4840",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2CampaignScoreClass@@8",
+   "address": "007b4858",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3CampaignScoreClass@@8",
+   "address": "007b4860",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4CampaignScoreClass@@6B@",
+   "address": "007b4870",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CampaignEndScoreClass@@8",
+   "address": "007b4888",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2CampaignEndScoreClass@@8",
+   "address": "007b48a0",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3CampaignEndScoreClass@@8",
+   "address": "007b48a8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4CampaignEndScoreClass@@6B@",
+   "address": "007b48b8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVCampaignScoreClass@@@8",
+   "address": "007d1548",
+   "bytes": 33,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0BG@MFEO@TXT_TIME_FORMAT_HOURS?$AA@",
+   "address": "007d156c",
+   "bytes": 22,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+   "address": "007d1584",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@",
+   "address": "007d1598",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0ED@CLLE@?$CFs?3?5?$CFs?6?5Scheme?3?5?$CFd?6?5Lost?5?$DN?5?$CFd?6?5K@",
+   "address": "007d15a0",
+   "bytes": 67,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_05IOKF@Loser?$AA@",
+   "address": "007d15e4",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_06POBF@Winner?$AA@",
+   "address": "007d15ec",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@LECO@GUI?3Continue?$AA@",
+   "address": "007d15f4",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@EJFF@GUI?3Cancel?$AA@",
+   "address": "007d1604",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09IMGH@TXT_READY?$AA@",
+   "address": "007d1610",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@LCFM@TXT_ABORTED?$AA@",
+   "address": "007d161c",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@MHCJ@TXT_WAITING?$AA@",
+   "address": "007d1628",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@LAJB@TXT_COMPUTER?$AA@",
+   "address": "007d1634",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BG@EMPM@TXT_DIFFICULTY_BRUTAL?$AA@",
+   "address": "007d1644",
+   "bytes": 22,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BG@CKEG@TXT_DIFFICULTY_MEDIUM?$AA@",
+   "address": "007d165c",
+   "bytes": 22,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BF@JAMI@GUI?3DifficultyString?$AA@",
+   "address": "007d1674",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@HEHO@TXT_DIFFICULTY_EASY?$AA@",
+   "address": "007d168c",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_19GKBP@?$AA?$CF?$AAs?$AA?3?$AA?5?$AA?$AA@",
+   "address": "007d16a0",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@CEJM@GUI?3Difficulty?$AA@",
+   "address": "007d16ac",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AVCampaignEndScoreClass@@@8",
+   "address": "007d16c0",
+   "bytes": 36,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_09NHCJ@GUI?3Blank?$AA@",
+   "address": "007d16e4",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@IKBK@GUI?3CampaignLabel?$AA@",
+   "address": "007d16f0",
+   "bytes": 18,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "005a5350",
+   "symbol": "??0CampaignScoreClass@@QAE@XZ",
+   "target": "00465bf0",
+   "function_entry": true
+  },
+  {
+   "site": "005a5570",
+   "symbol": "??0CampaignEndScoreClass@@QAE@XZ",
+   "target": "00467200",
+   "function_entry": true
+  },
+  {
+   "site": "005a4b70",
+   "symbol": "??0CampaignScoreClass@@QAE@XZ",
+   "target": "00465bf0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+   "address": "00ab6ef8"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Get_Global_Message@IPXManagerClass@@QAEHPAXPAHPAVIPXAddressClass@@PAG@Z",
+   "address": "00525ab0"
+  },
+  {
+   "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+   "address": "00a32298"
+  },
+  {
+   "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
+   "address": "006f9ec0"
+  },
+  {
+   "symbol": "?Service@IPXManagerClass@@UAEHXZ",
+   "address": "00525f60"
+  },
+  {
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "address": "00481fb0"
+  },
+  {
+   "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
+   "address": "00491d90"
+  },
+  {
+   "symbol": "?To_RGB@HSVClass@@QBE?AVRGBClass@@XZ",
+   "address": "004ff050"
+  },
+  {
+   "symbol": "?Unknown_005B5EE0@@YAXXZ",
+   "address": "005b5ee0"
+  },
+  {
+   "symbol": "?Unknown_005FEE70@@YIXPAUHWND__@@@Z",
+   "address": "005fee70"
+  },
+  {
+   "symbol": "?Unknown_005bbd10@@YA_NXZ",
+   "address": "005bbd10"
+  },
+  {
+   "symbol": "?Unknown_006F2AB0@@YIXXZ",
+   "address": "006f2ab0"
+  },
+  {
+   "symbol": "?Unknown_0073e100@@YA_NXZ",
+   "address": "0073e100"
+  },
+  {
+   "symbol": "?Unknown_Free_Art_Flagged_006F2750@@YAXXZ",
+   "address": "006f2750"
+  },
+  {
+   "symbol": "?Unknown_Load_Art_Once_006F2710@@YIXH@Z",
+   "address": "006f2710"
+  },
+  {
+   "symbol": "?Unknown_Load_Art_Pair_006F2A30@@YIXH@Z",
+   "address": "006f2a30"
+  },
+  {
+   "symbol": "?Wide_To_Narrow_006fa120@@YIPADPBG@Z",
+   "address": "006fa120"
+  },
+  {
+   "symbol": "?unknown_5159b0@@YIXH_N@Z",
+   "address": "005159b0"
+  },
+  {
+   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "address": "005259a0"
+  },
+  {
+   "symbol": "?unknown_5277f0@IPXManagerClass@@QAEXXZ",
+   "address": "005277f0"
+  },
+  {
+   "symbol": "?unknown_527800@IPXManagerClass@@QAEXXZ",
+   "address": "00527800"
+  },
+  {
+   "symbol": "?unknown_5c05f0@@YI_NPAUUnknownScorePacket@@PAVIPXAddressClass@@@Z",
+   "address": "005c05f0"
+  },
+  {
+   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "address": "005ff610"
+  },
+  {
+   "symbol": "?unknown_dialog_5e5f20@@YIXPAUHWND__@@@Z",
+   "address": "005e5f20"
+  },
+  {
+   "symbol": "?unknown_dialog_5ecf40@@YGXPAUHWND__@@H@Z",
+   "address": "005ecf40"
+  },
+  {
+   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "address": "005ff6e0"
+  },
+  {
+   "symbol": "?unknown_dialog_5ff7c0@@YIXPAUHWND__@@@Z",
+   "address": "005ff7c0"
+  },
+  {
+   "symbol": "?unknown_dialog_box_5eab60@@YIHHP6GHPAUHWND__@@IIJ@Z_N@Z",
+   "address": "005eab60"
+  },
+  {
+   "symbol": "?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z",
+   "address": "005ffb00"
+  },
+  {
+   "symbol": "?unknown_end_score_campaign_850488@@3HA",
+   "address": "00850488"
+  },
+  {
+   "symbol": "?unknown_end_score_count_8504e8@@3HA",
+   "address": "008504e8"
+  },
+  {
+   "symbol": "?unknown_end_score_difficulty_8504d0@@3HA",
+   "address": "008504d0"
+  },
+  {
+   "symbol": "?unknown_end_score_list_8504a8@@3PAPAVMPlayerScoreType@@A",
+   "address": "008504a8"
+  },
+  {
+   "symbol": "?unknown_end_score_name_850554@@3PAGA",
+   "address": "00850554"
+  },
+  {
+   "symbol": "?unknown_end_score_time_85049c@@3HA",
+   "address": "0085049c"
+  },
+  {
+   "symbol": "?unknown_game_mode_a3d298@@3HA",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_global_address_a3f80c@@3VIPXAddressClass@@A",
+   "address": "00a3f80c"
+  },
+  {
+   "symbol": "?unknown_global_length_a3f808@@3HA",
+   "address": "00a3f808"
+  },
+  {
+   "symbol": "?unknown_global_packet_a3f640@@3UUnknownScorePacket@@A",
+   "address": "00a3f640"
+  },
+  {
+   "symbol": "?unknown_global_product_a3f818@@3GA",
+   "address": "00a3f818"
+  },
+  {
+   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
+   "symbol": "?unknown_ipx_manager_a40978@@3VIPXManagerClass@@A",
+   "address": "00a40978"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_players_a3fa7c@@3V?$DynamicVectorClass@PAUNodeNameType@@@@A",
+   "address": "00a3fa7c"
+  },
+  {
+   "symbol": "?unknown_score_850504@@3_NA",
+   "address": "00850504"
+  },
+  {
+   "symbol": "?unknown_score_controls_7d1484@@3PAY05HA",
+   "address": "007d1484"
+  },
+  {
+   "symbol": "?unknown_score_controls_7d1498@@3PAY05HA",
+   "address": "007d1498"
+  },
+  {
+   "symbol": "?unknown_score_count_85050c@@3HA",
+   "address": "0085050c"
+  },
+  {
+   "symbol": "?unknown_score_difficulty_7d1480@@3HA",
+   "address": "007d1480"
+  },
+  {
+   "symbol": "?unknown_score_flag_850510@@3_NA",
+   "address": "00850510"
+  },
+  {
+   "symbol": "?unknown_score_list_850448@@3PAPAVMPlayerScoreType@@A",
+   "address": "00850448"
+  },
+  {
+   "symbol": "?unknown_score_name_850514@@3PAGA",
+   "address": "00850514"
+  },
+  {
+   "symbol": "?unknown_score_ready_8504c8@@3PA_NA",
+   "address": "008504c8"
+  },
+  {
+   "symbol": "?unknown_score_time_850508@@3HA",
+   "address": "00850508"
+  },
+  {
+   "symbol": "?unknown_session_a3d298@@3USessionClass@@A",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_text_a3d342@@3PADA",
+   "address": "00a3d342"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__EnableWindow@8",
+   "address": "0079a490"
+  },
+  {
+   "symbol": "__imp__GetDlgItem@8",
+   "address": "0079a49c"
+  },
+  {
+   "symbol": "__imp__GetWindowLongA@8",
+   "address": "0079a48c"
+  },
+  {
+   "symbol": "__imp__InvalidateRect@12",
+   "address": "0079a494"
+  },
+  {
+   "symbol": "__imp__PostMessageA@16",
+   "address": "0079a470"
+  },
+  {
+   "symbol": "__imp__SendDlgItemMessageA@20",
+   "address": "0079a484"
+  },
+  {
+   "symbol": "__imp__SendMessageA@16",
+   "address": "0079a4a0"
+  },
+  {
+   "symbol": "__imp__SetWindowLongA@12",
+   "address": "0079a488"
+  },
+  {
+   "symbol": "__imp__ShowWindow@8",
+   "address": "0079a498"
+  },
+  {
+   "symbol": "_qsort",
+   "address": "00781d46"
+  },
+  {
+   "symbol": "_swprintf",
+   "address": "00783764"
+  },
+  {
+   "symbol": "_wcscmp",
+   "address": "007837d3"
+  },
+  {
+   "symbol": "_wcscpy",
+   "address": "00783689"
+  }
+ ],
+ "route": "A",
+ "unit": "campscor.cpp",
+ "form": "one include block",
+ "switches": [
+  "VECTOR_IMPLEMENT_DYNAMIC_DELETE_OBJECT",
+  "VECTOR_IMPLEMENT_DYNAMIC_DELETE_INDEX",
+  "VECTOR_IMPLEMENT_VECTOR_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS",
+  "VECTOR_IMPLEMENT_VECTOR_DESTRUCTOR",
+  "SHAPE_FILE_EMPTY_RECT"
+ ],
+ "include_blocks": [
+  {
+   "before": "00465a00",
+   "lines": 23
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "00465f20",
+   "bytes": 40,
+   "population": "population-4244",
+   "bound": "own frozen bound (population-4244)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [],
+ "unit_functions": 44,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

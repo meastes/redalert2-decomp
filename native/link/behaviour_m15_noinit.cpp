@@ -16,9 +16,9 @@ void *ra2_m15_noinit_timer2(void *self, void const *) { return self; }
 void *ra2_m15_noinit_timer3(void *self, void const *) { return self; }
 void *ra2_m15_noinit_timer4(void *self, void const *) { return self; }
 
-// UnknownIDSource::UnknownIDSource(NoInitClass const &) 0x0065B780 (the scenario,
+// ScenarioClass::ScenarioClass(NoInitClass const &) 0x0065B780 (the scenario,
 // Westwood's ScenarioClass; pass-6a decompile 0065b780; Scout1133, M16): run
-// after UnknownIDSource::Load 0x006610C0 read the object's bytes. As the
+// after ScenarioClass::Load 0x006610C0 read the object's bytes. As the
 // original: the generator is rebuilt (Random2Class(0)), the +0x620 countdown
 // restarts (Started = now, DelayTime 0), the three allowable-unit TypeLists are
 // rebuilt empty (their vtables are this process's; Load then refills them) and
@@ -29,9 +29,9 @@ void *ra2_m15_noinit_timer4(void *self, void const *) { return self; }
 #include "shared/type_list.hpp"
 #include "shared/abstract_type.hpp"
 #include "shared/string_table.hpp"
-extern "C" void *ra2_m16_noinit_scenario(UnknownIDSource *self, void const *) __asm__("__ZN15UnknownIDSourceC1ERK11NoInitClass");
-extern "C" void *ra2_m16_noinit_scenario2(UnknownIDSource *self, void const *) __asm__("__ZN15UnknownIDSourceC2ERK11NoInitClass");
-void *ra2_m16_noinit_scenario(UnknownIDSource *self, void const *)
+extern "C" void *ra2_m16_noinit_scenario(ScenarioClass *self, void const *) __asm__("__ZN13ScenarioClassC1ERK11NoInitClass");
+extern "C" void *ra2_m16_noinit_scenario2(ScenarioClass *self, void const *) __asm__("__ZN13ScenarioClassC2ERK11NoInitClass");
+void *ra2_m16_noinit_scenario(ScenarioClass *self, void const *)
 {
     new (&self->RandomNumber) Random2Class(0);
     new (&self->unknown_620) CDTimerClass<SystemTimerClass>();
@@ -45,4 +45,4 @@ void *ra2_m16_noinit_scenario(UnknownIDSource *self, void const *)
     }
     return self;
 }
-void *ra2_m16_noinit_scenario2(UnknownIDSource *self, void const *x) { return ra2_m16_noinit_scenario(self, x); }
+void *ra2_m16_noinit_scenario2(ScenarioClass *self, void const *x) { return ra2_m16_noinit_scenario(self, x); }

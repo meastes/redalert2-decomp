@@ -310,3 +310,20 @@ def load_git(repository, commit, references=True):
         offset = end + 1 + size + 1
     catalog = assemble(contents.__getitem__, [n[len(SHARDS) + 1:] for n in names if n.startswith(SHARDS + '/')])
     return attach(catalog) if references else catalog
+
+
+def write_text_lf(path, text):
+    """Write a generated text file with "\\n" line ends on every platform (Path.write_text
+    turns them into CRLF on Windows; tracked sources and manifests are LF)."""
+    with open(path, 'w', newline='\n') as handle:
+        handle.write(text)
+
+
+def config_path(repository, environ=None, default='private/original-target.local.json'):
+    """The compiler config a tool uses when no --config is given: RA2_CONFIG when set
+    (as check_plans.py and seed_integer_candidate.py read it), else the repository's
+    local config."""
+    import os
+    from pathlib import Path
+    value = (os.environ if environ is None else environ).get('RA2_CONFIG')
+    return Path(value) if value else Path(repository) / default

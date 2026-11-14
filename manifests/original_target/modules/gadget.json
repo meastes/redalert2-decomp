@@ -7,9 +7,10 @@
   "/O2",
   "/Ob2",
   "/G5",
-  "/Gy"
+  "/Gy",
+  "/GR"
  ],
- "compile_group": 3256,
+ "compile_group": 1261,
  "code": [
   {
    "symbol": "_$E2",
@@ -202,17 +203,87 @@
  "data": [
   {
    "symbol": "??_7GadgetClass@@6B@",
-   "address": "007a182c",
-   "bytes": 132,
+   "address": "007a1828",
+   "bytes": 136,
    "kind": "vtable",
-   "section": 11
+   "section": 18
   },
   {
    "symbol": "??_7LinkClass@@6B@",
-   "address": "007a18b4",
-   "bytes": 40,
+   "address": "007a18b0",
+   "bytes": 44,
    "kind": "vtable",
-   "section": 24
+   "section": 34
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LinkClass@@8",
+   "address": "007b4a18",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 12
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GadgetClass@@8",
+   "address": "007b4f38",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 13
+  },
+  {
+   "symbol": "??_R2GadgetClass@@8",
+   "address": "007b8720",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 14
+  },
+  {
+   "symbol": "??_R3GadgetClass@@8",
+   "address": "007b8730",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 15
+  },
+  {
+   "symbol": "??_R4GadgetClass@@6B@",
+   "address": "007b8740",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 17
+  },
+  {
+   "symbol": "??_R2LinkClass@@8",
+   "address": "007b8754",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 31
+  },
+  {
+   "symbol": "??_R3LinkClass@@8",
+   "address": "007b8760",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 32
+  },
+  {
+   "symbol": "??_R4LinkClass@@6B@",
+   "address": "007b8770",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 33
+  },
+  {
+   "symbol": "??_R0?AVLinkClass@@@8",
+   "address": "007d17a8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 11
+  },
+  {
+   "symbol": "??_R0?AVGadgetClass@@@8",
+   "address": "007d2f30",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 16
   },
   {
    "symbol": "?Gadget_Scheme_Name@@3PBDB",
@@ -246,15 +317,75 @@
  "kept_elsewhere": [
   {
    "symbol": "??_7GadgetClass@@6B@",
-   "address": "007a182c",
-   "bytes": 132,
+   "address": "007a1828",
+   "bytes": 136,
    "kind": "vtable"
   },
   {
    "symbol": "??_7LinkClass@@6B@",
-   "address": "007a18b4",
-   "bytes": 40,
+   "address": "007a18b0",
+   "bytes": 44,
    "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LinkClass@@8",
+   "address": "007b4a18",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GadgetClass@@8",
+   "address": "007b4f38",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2GadgetClass@@8",
+   "address": "007b8720",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3GadgetClass@@8",
+   "address": "007b8730",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4GadgetClass@@6B@",
+   "address": "007b8740",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2LinkClass@@8",
+   "address": "007b8754",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3LinkClass@@8",
+   "address": "007b8760",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4LinkClass@@6B@",
+   "address": "007b8770",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVLinkClass@@@8",
+   "address": "007d17a8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVGadgetClass@@@8",
+   "address": "007d2f30",
+   "bytes": 26,
+   "kind": "rtti"
   }
  ],
  "failures": [
@@ -1384,6 +1515,10 @@
   {
    "symbol": "??3@YAXPAX@Z",
    "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
   },
   {
    "symbol": "?Add@LinkClass@@UAEAAV1@AAV1@@Z",

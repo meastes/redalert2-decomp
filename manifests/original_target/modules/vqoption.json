@@ -1,0 +1,216 @@
+{
+ "module": "vqoption",
+ "source": "src/recovered/vqoption.cpp",
+ "header": null,
+ "population": "population-3076",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 625,
+ "code": [
+  {
+   "symbol": "?VQA_Unknown_0071DB20@@YIXXZ",
+   "entry": "0071db20",
+   "body_bytes": 53,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?VQA_Unknown_0071DB60@@YIXH@Z",
+   "entry": "0071db60",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?VQA_Unknown_0071DB80@@YIXH@Z",
+   "entry": "0071db80",
+   "body_bytes": 29,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?VQA_Unknown_0071DBA0@@YI_NH@Z",
+   "entry": "0071dba0",
+   "body_bytes": 24,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?VQA_Unknown_0071DBC0@@YIHH@Z",
+   "entry": "0071dbc0",
+   "body_bytes": 77,
+   "padding_bytes": 3
+  }
+ ],
+ "code_bytes": 240,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "005a14d0",
+   "symbol": "?VQA_Unknown_0071DBA0@@YI_NH@Z",
+   "target": "0071dba0",
+   "function_entry": true
+  },
+  {
+   "site": "005a1650",
+   "symbol": "?VQA_Unknown_0071DBA0@@YI_NH@Z",
+   "target": "0071dba0",
+   "function_entry": true
+  },
+  {
+   "site": "005a1940",
+   "symbol": "?VQA_Unknown_0071DBA0@@YI_NH@Z",
+   "target": "0071dba0",
+   "function_entry": true
+  },
+  {
+   "site": "00515100",
+   "symbol": "?VQA_Unknown_0071DB20@@YIXXZ",
+   "target": "0071db20",
+   "function_entry": true
+  },
+  {
+   "site": "00515100",
+   "symbol": "?VQA_Unknown_0071DB60@@YIXH@Z",
+   "target": "0071db60",
+   "function_entry": true
+  },
+  {
+   "site": "0071c5f0",
+   "symbol": "?VQA_Unknown_0071DBA0@@YI_NH@Z",
+   "target": "0071dba0",
+   "function_entry": true
+  },
+  {
+   "site": "0071c5f0",
+   "symbol": "?VQA_Unknown_0071DBA0@@YI_NH@Z",
+   "target": "0071dba0",
+   "function_entry": true
+  },
+  {
+   "site": "0071c5f0",
+   "symbol": "?VQA_Unknown_0071DBA0@@YI_NH@Z",
+   "target": "0071dba0",
+   "function_entry": true
+  },
+  {
+   "site": "0071c5f0",
+   "symbol": "?VQA_Unknown_0071DBA0@@YI_NH@Z",
+   "target": "0071dba0",
+   "function_entry": true
+  },
+  {
+   "site": "0071c5f0",
+   "symbol": "?VQA_Unknown_0071DBA0@@YI_NH@Z",
+   "target": "0071dba0",
+   "function_entry": true
+  },
+  {
+   "site": "0071c5f0",
+   "symbol": "?VQA_Unknown_0071DBA0@@YI_NH@Z",
+   "target": "0071dba0",
+   "function_entry": true
+  },
+  {
+   "site": "0071c5f0",
+   "symbol": "?VQA_Unknown_0071DBA0@@YI_NH@Z",
+   "target": "0071dba0",
+   "function_entry": true
+  },
+  {
+   "site": "0071c5f0",
+   "symbol": "?VQA_Unknown_0071DBA0@@YI_NH@Z",
+   "target": "0071dba0",
+   "function_entry": true
+  },
+  {
+   "site": "0071ccd0",
+   "symbol": "?VQA_Unknown_0071DBA0@@YI_NH@Z",
+   "target": "0071dba0",
+   "function_entry": true
+  },
+  {
+   "site": "0071ccd0",
+   "symbol": "?VQA_Unknown_0071DBA0@@YI_NH@Z",
+   "target": "0071dba0",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?VQA_Unknown_0071DB20@@YIXXZ",
+   "target": "0071db20",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?VQA_Unknown_0071DB60@@YIXH@Z",
+   "target": "0071db60",
+   "function_entry": true
+  },
+  {
+   "site": "005a0e30",
+   "symbol": "?VQA_Unknown_0071DBA0@@YI_NH@Z",
+   "target": "0071dba0",
+   "function_entry": true
+  },
+  {
+   "site": "005a0ec0",
+   "symbol": "?VQA_Unknown_0071DBA0@@YI_NH@Z",
+   "target": "0071dba0",
+   "function_entry": true
+  },
+  {
+   "site": "005a1010",
+   "symbol": "?VQA_Unknown_0071DB60@@YIXH@Z",
+   "target": "0071db60",
+   "function_entry": true
+  },
+  {
+   "site": "005a1010",
+   "symbol": "?VQA_Unknown_0071DBA0@@YI_NH@Z",
+   "target": "0071dba0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "?unknown_vqa_options_af9020@@3PAEA",
+   "address": "00af9020"
+  }
+ ],
+ "route": "A",
+ "unit": "vqoption.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "0071db20",
+   "lines": 1
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 6,
+ "data_unproven": [],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

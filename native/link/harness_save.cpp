@@ -18,6 +18,7 @@ extern "C" {
 void ra2port_progress(const char *milestone, const char *detail);
 int ra2port_take_checkpoint(void);          // port/src/port_core.cpp
 int ra2_native_network_game(void);          // harness_skirmish.cpp
+void ra2port_checkpoint_saved(void);        // port/src/port_core.cpp (lane I: resume at start)
 }
 
 namespace {
@@ -104,6 +105,7 @@ void Native_Checkpoint()
         return;
     }
     bool saved = Unknown_006554A0("CHECKPT.SAV", L"Checkpoint", 0);
+    if (saved) ra2port_checkpoint_saved();
     fprintf(stderr, "checkpoint: %s\n", saved ? "saved CHECKPT.SAV" : "save failed");
     ra2port_progress("checkpoint", saved ? "saved CHECKPT.SAV" : "save failed");
 }

@@ -1,0 +1,1450 @@
+{
+ "module": "saveload",
+ "source": "src/recovered/saveload.cpp",
+ "header": null,
+ "population": "population-3463",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 696,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00654a50",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "00654a70",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "00654aa0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "00654ac0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "00654ae0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "00654b00",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "00654b20",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "00654b40",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "00654b80",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "00654bb0",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "00654be0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "00654c10",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "00654c20",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Skip_Objects@@YIJPAUIStream@@@Z",
+   "entry": "00654c40",
+   "body_bytes": 78,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Game_CRC@@YI?AVWWCRCEngine@@XZ",
+   "entry": "00654c90",
+   "body_bytes": 2050,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Unknown_006554A0@@YI_NPBDPBGH@Z",
+   "entry": "006554a0",
+   "body_bytes": 1040,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Put_All@@YI_NPAUIStream@@H@Z",
+   "entry": "006558b0",
+   "body_bytes": 4055,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Unknown_00656890@@YI_NPBD@Z",
+   "entry": "00656890",
+   "body_bytes": 742,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Get_All@@YI_NPAUIStream@@_N@Z",
+   "entry": "00656b80",
+   "body_bytes": 3801,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Save_Misc_Values@@YIJPAUIStream@@@Z",
+   "entry": "00657a60",
+   "body_bytes": 476,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Load_Misc_Values@@YIJPAUIStream@@@Z",
+   "entry": "00657c40",
+   "body_bytes": 855,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Get_Savefile_Info@@YI_NPBDAAVSaveVersionInfo@@@Z",
+   "entry": "00657fa0",
+   "body_bytes": 153,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?unknown_empty_00658040@seed_00658040@@YAXXZ",
+   "entry": "00658040",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Release_Held@?$UnknownComPtr@UIStorage@@$1?unknown_uuid_IStorage@@3UGUID@@B@@QAEXXZ",
+   "entry": "00658050",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Release_Held@?$UnknownComPtr@UILinkStream@@$1?unknown_uuid_ILinkStream_7f1b50@@3UGUID@@B@@QAEXXZ",
+   "entry": "00658060",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Add@?$DynamicVectorClass@PAVSuperClass@@@@QAE_NABQAVSuperClass@@@Z",
+   "entry": "00658070",
+   "body_bytes": 80,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVTActionClass@@@@@Z",
+   "entry": "006580c0",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVTEventClass@@@@@Z",
+   "entry": "00658140",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVFactoryClass@@@@@Z",
+   "entry": "006581c0",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@@Z",
+   "entry": "00658240",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVVoxelAnimClass@@@@@Z",
+   "entry": "006582c0",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVWarheadTypeClass@@@@@Z",
+   "entry": "00658340",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVWeaponTypeClass@@@@@Z",
+   "entry": "006583c0",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVParticleTypeClass@@@@@Z",
+   "entry": "00658440",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVParticleClass@@@@@Z",
+   "entry": "006584c0",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVParticleSystemTypeClass@@@@@Z",
+   "entry": "00658540",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVParticleSystemClass@@@@@Z",
+   "entry": "006585c0",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVBulletTypeClass@@@@@Z",
+   "entry": "00658640",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVBulletClass@@@@@Z",
+   "entry": "006586c0",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVWaypointPathClass@@@@@Z",
+   "entry": "00658740",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVSmudgeTypeClass@@@@@Z",
+   "entry": "006587c0",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVOverlayTypeClass@@@@@Z",
+   "entry": "00658840",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVLightSourceClass@@@@@Z",
+   "entry": "006588c0",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVBuildingLightClass@@@@@Z",
+   "entry": "00658940",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVSideClass@@@@@Z",
+   "entry": "006589c0",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVTiberiumClass@@@@@Z",
+   "entry": "00658a40",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVEMPulseClass@@@@@Z",
+   "entry": "00658ac0",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVSuperWeaponTypeClass@@@@@Z",
+   "entry": "00658b40",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVSuperClass@@@@@Z",
+   "entry": "00658bc0",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVTerrainTypeClass@@@@@Z",
+   "entry": "00658c40",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVTerrainClass@@@@@Z",
+   "entry": "00658cc0",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVFoggedObjectClass@@@@@Z",
+   "entry": "00658d40",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVAlphaShapeClass@@@@@Z",
+   "entry": "00658dc0",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVWaveClass@@@@@Z",
+   "entry": "00658e40",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVCaptureManagerClass@@@@@Z",
+   "entry": "00658ec0",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVParasiteClass@@@@@Z",
+   "entry": "00658f40",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVTemporalClass@@@@@Z",
+   "entry": "00658fc0",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVSpawnManagerClass@@@@@Z",
+   "entry": "00659040",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVBombClass@@@@@Z",
+   "entry": "006590c0",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVRadSiteClass@@@@@Z",
+   "entry": "00659140",
+   "body_bytes": 127,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Query_From@?$UnknownComPtr@UIStream@@$1?unknown_uuid_IStream_7d5988@@3UGUID@@B@@QAEJABV?$UnknownComPtr@UILinkStream@@$1?unknown_uuid_ILinkStream_7f1b50@@3UGUID@@B@@@Z",
+   "entry": "006591c0",
+   "body_bytes": 117,
+   "padding_bytes": 11
+  }
+ ],
+ "code_bytes": 18416,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a91e0",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_C@_0BO@GMCG@SAVING?5GAME?5?$FL?$CFs?$FN?5?9?5Complete?6?6?$AA@",
+   "address": "007f1b1c",
+   "bytes": 30,
+   "kind": "string",
+   "section": 46
+  },
+  {
+   "symbol": "??_C@_0BA@JBMB@?7?$CK?$CK?$CK?$CK?$CK?5FAILED?$CB?6?$AA@",
+   "address": "007f1b3c",
+   "bytes": 16,
+   "kind": "string",
+   "section": 47
+  },
+  {
+   "symbol": "??_C@_1BC@MEJL@?$AAC?$AAO?$AAN?$AAT?$AAE?$AAN?$AAT?$AAS?$AA?$AA@",
+   "address": "007f1b60",
+   "bytes": 18,
+   "kind": "string",
+   "section": 48
+  },
+  {
+   "symbol": "??_C@_07BGIN@SUN?4EXE?$AA@",
+   "address": "007f1b74",
+   "bytes": 8,
+   "kind": "string",
+   "section": 49
+  },
+  {
+   "symbol": "??_C@_0BI@MEME@?6SAVING?5GAME?5?$FL?$CFs?5?9?5?$CFs?$FN?6?$AA@",
+   "address": "007f1b7c",
+   "bytes": 24,
+   "kind": "string",
+   "section": 50
+  },
+  {
+   "symbol": "??_C@_0CC@ODF@Writing?5Skirmish?5Session?4Options@",
+   "address": "007f1b94",
+   "bytes": 34,
+   "kind": "string",
+   "section": 53
+  },
+  {
+   "symbol": "??_C@_0BP@NMCE@LOADING?5GAME?5?$FL?$CFs?$FN?5?9?5Complete?6?6?$AA@",
+   "address": "007f1bb8",
+   "bytes": 31,
+   "kind": "string",
+   "section": 56
+  },
+  {
+   "symbol": "??_C@_0BE@MECH@?6LOADING?5GAME?5?$FL?$CFs?$FN?6?$AA@",
+   "address": "007f1bd8",
+   "bytes": 20,
+   "kind": "string",
+   "section": 57
+  },
+  {
+   "symbol": "??_C@_0CC@EKPA@Reading?5Skirmish?5Session?4Options@",
+   "address": "007f1bec",
+   "bytes": 34,
+   "kind": "string",
+   "section": 60
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a91e0",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_C@_0BO@GMCG@SAVING?5GAME?5?$FL?$CFs?$FN?5?9?5Complete?6?6?$AA@",
+   "address": "007f1b1c",
+   "bytes": 30,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@JBMB@?7?$CK?$CK?$CK?$CK?$CK?5FAILED?$CB?6?$AA@",
+   "address": "007f1b3c",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_1BC@MEJL@?$AAC?$AAO?$AAN?$AAT?$AAE?$AAN?$AAT?$AAS?$AA?$AA@",
+   "address": "007f1b60",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_07BGIN@SUN?4EXE?$AA@",
+   "address": "007f1b74",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BI@MEME@?6SAVING?5GAME?5?$FL?$CFs?5?9?5?$CFs?$FN?6?$AA@",
+   "address": "007f1b7c",
+   "bytes": 24,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CC@ODF@Writing?5Skirmish?5Session?4Options@",
+   "address": "007f1b94",
+   "bytes": 34,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BP@NMCE@LOADING?5GAME?5?$FL?$CFs?$FN?5?9?5Complete?6?6?$AA@",
+   "address": "007f1bb8",
+   "bytes": 31,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@MECH@?6LOADING?5GAME?5?$FL?$CFs?$FN?6?$AA@",
+   "address": "007f1bd8",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CC@EKPA@Reading?5Skirmish?5Session?4Options@",
+   "address": "007f1bec",
+   "bytes": 34,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0053c680",
+   "symbol": "?Unknown_00656890@@YI_NPBD@Z",
+   "target": "00656890",
+   "function_entry": true
+  },
+  {
+   "site": "0053c760",
+   "symbol": "?Unknown_006554A0@@YI_NPBDPBGH@Z",
+   "target": "006554a0",
+   "function_entry": true
+  },
+  {
+   "site": "0053c7f0",
+   "symbol": "?Get_Savefile_Info@@YI_NPBDAAVSaveVersionInfo@@@Z",
+   "target": "00657fa0",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?Unknown_006554A0@@YI_NPBDPBGH@Z",
+   "target": "006554a0",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?Unknown_006554A0@@YI_NPBDPBGH@Z",
+   "target": "006554a0",
+   "function_entry": true
+  },
+  {
+   "site": "0053fbd0",
+   "symbol": "?Unknown_006554A0@@YI_NPBDPBGH@Z",
+   "target": "006554a0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0SaveVersionInfo@@QAE@XZ",
+   "address": "00659240"
+  },
+  {
+   "symbol": "??1WaypointClass@@QAE@XZ",
+   "address": "00724b00"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??RWWCRCEngine@@QAEXJ@Z",
+   "address": "00493f30"
+  },
+  {
+   "symbol": "?AITriggerTypes@@3V?$DynamicVectorClass@PAVAITriggerTypeClass@@@@A",
+   "address": "00a3d260"
+  },
+  {
+   "symbol": "?Aircraft@@3V?$DynamicVectorClass@PAVAircraftClass@@@@A",
+   "address": "00a40398"
+  },
+  {
+   "symbol": "?AircraftTypes@@3V?$DynamicVectorClass@PAVAircraftTypeClass@@@@A",
+   "address": "00a3d278"
+  },
+  {
+   "symbol": "?Allocate_Surfaces@@YI_NPAVRect@@000_N@Z",
+   "address": "00519500"
+  },
+  {
+   "symbol": "?AnimTypes@@3V?$TypeList@PAVAnimTypeClass@@@@A",
+   "address": "008661e0"
+  },
+  {
+   "symbol": "?Anims@@3V?$DynamicVectorClass@PAVAnimClass@@@@A",
+   "address": "00a40960"
+  },
+  {
+   "symbol": "?Array@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+   "address": "00855a28"
+  },
+  {
+   "symbol": "?Array@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+   "address": "00865e90"
+  },
+  {
+   "symbol": "?BombList@@3VBombListClass@@A",
+   "address": "008322e0"
+  },
+  {
+   "symbol": "?BuildingLights@@3V?$DynamicVectorClass@PAVBuildingLightClass@@@@A",
+   "address": "00866220"
+  },
+  {
+   "symbol": "?BuildingTypes@@3V?$DynamicVectorClass@PAVBuildingTypeClass@@@@A",
+   "address": "00a35cd8"
+  },
+  {
+   "symbol": "?BulletTypes@@3V?$DynamicVectorClass@PAVBulletTypeClass@@@@A",
+   "address": "00a35cf0"
+  },
+  {
+   "symbol": "?Clear@BombListClass@@QAEXXZ",
+   "address": "00436710"
+  },
+  {
+   "symbol": "?Clear@KamikazeTrackerClass@@QAEXXZ",
+   "address": "005319e0"
+  },
+  {
+   "symbol": "?Clear_00413540@AircraftTrackerClass@@QAEXXZ",
+   "address": "00413540"
+  },
+  {
+   "symbol": "?Clear_Scenario_0065d370@@YAXXZ",
+   "address": "0065d370"
+  },
+  {
+   "symbol": "?Complete_Radar_Refresh@RadarClass@@QAEXXZ",
+   "address": "00634030"
+  },
+  {
+   "symbol": "?Compute_CRC@ScenarioClass@@QBEXAAVWWCRCEngine@@@Z",
+   "address": "00662e00"
+  },
+  {
+   "symbol": "?CrateAnims@@3PAHA",
+   "address": "007d3928"
+  },
+  {
+   "symbol": "?CrateData@@3PANA",
+   "address": "00851080"
+  },
+  {
+   "symbol": "?CrateShares@@3PAHA",
+   "address": "007d38dc"
+  },
+  {
+   "symbol": "?CrateWater@@3PA_NA",
+   "address": "00851118"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Factories@@3V?$DynamicVectorClass@PAVFactoryClass@@@@A",
+   "address": "00a35e90"
+  },
+  {
+   "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXH@Z",
+   "address": "004e09a0"
+  },
+  {
+   "symbol": "?Frame@@3HA",
+   "address": "00a40d2c"
+  },
+  {
+   "symbol": "?Get_Game_Type@SaveVersionInfo@@QBEHXZ",
+   "address": "00659520"
+  },
+  {
+   "symbol": "?Get_Title_Screen_Area_006f1f30@@YI?AVRect@@XZ",
+   "address": "006f1f30"
+  },
+  {
+   "symbol": "?Ground@@3PAUGroundType@@A",
+   "address": "00850ea0"
+  },
+  {
+   "symbol": "?HouseTypes@@3V?$DynamicVectorClass@PAVHouseTypeClass@@@@A",
+   "address": "00a35d08"
+  },
+  {
+   "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+   "address": "00a32298"
+  },
+  {
+   "symbol": "?Infantry@@3V?$DynamicVectorClass@PAVInfantryClass@@@@A",
+   "address": "00a35e48"
+  },
+  {
+   "symbol": "?InfantryTypes@@3V?$DynamicVectorClass@PAVInfantryTypeClass@@@@A",
+   "address": "00a40350"
+  },
+  {
+   "symbol": "?Init@ProgressScreenClass@@QAEXNDPAUHWND__@@@Z",
+   "address": "0061ed80"
+  },
+  {
+   "symbol": "?Init_Growth@TiberiumClass@@SAXXZ",
+   "address": "006e9fe0"
+  },
+  {
+   "symbol": "?Init_IO@TabClass@@UAEXXZ",
+   "address": "006a0c50"
+  },
+  {
+   "symbol": "?Init_Spread@TiberiumClass@@SAXXZ",
+   "address": "006e9520"
+  },
+  {
+   "symbol": "?Init_Theater_00519e70@@YIXH@Z",
+   "address": "00519e70"
+  },
+  {
+   "symbol": "?KamikazeTracker@@3VKamikazeTrackerClass@@A",
+   "address": "00a6e428"
+  },
+  {
+   "symbol": "?Load@BombListClass@@QAEJPAUIStream@@@Z",
+   "address": "00436860"
+  },
+  {
+   "symbol": "?Load@GameOptionsType@@QAE_NPAUIStream@@@Z",
+   "address": "00672880"
+  },
+  {
+   "symbol": "?Load@KamikazeTrackerClass@@QAEJPAUIStream@@@Z",
+   "address": "00531aa0"
+  },
+  {
+   "symbol": "?Load@LayerClass@@QAEJPAUIStream@@@Z",
+   "address": "00534a80"
+  },
+  {
+   "symbol": "?Load@MouseClass@@QAEJPAUIStream@@@Z",
+   "address": "0059f530"
+  },
+  {
+   "symbol": "?Load@RulesClass@@QAEXPAUIStream@@@Z",
+   "address": "0064e6b0"
+  },
+  {
+   "symbol": "?Load@SaveVersionInfo@@QAEJPAUIStorage@@@Z",
+   "address": "00659a90"
+  },
+  {
+   "symbol": "?Load@ScenarioClass@@QAEXPAUIStream@@@Z",
+   "address": "006610c0"
+  },
+  {
+   "symbol": "?Load@ThemeClass@@QAEJPAUIStream@@@Z",
+   "address": "006e8340"
+  },
+  {
+   "symbol": "?Load_00413400@AircraftTrackerClass@@QAEJPAUIStream@@@Z",
+   "address": "00413400"
+  },
+  {
+   "symbol": "?Load_All@VeinholeMonsterClass@@SI_NPAUIStream@@@Z",
+   "address": "00711e60"
+  },
+  {
+   "symbol": "?Load_Storm_0051F5E0@@YIJPAUIStream@@@Z",
+   "address": "0051f5e0"
+  },
+  {
+   "symbol": "?Logic@@3VLogicClass@@A",
+   "address": "00832470"
+  },
+  {
+   "symbol": "?Map@@3VMouseClass@@A",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "?MissionControl@@3PAVMissionControlClass@@A",
+   "address": "00a403b0"
+  },
+  {
+   "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+   "address": "00a35de8"
+  },
+  {
+   "symbol": "?ParticleSystemTypes@@3V?$DynamicVectorClass@PAVParticleSystemTypeClass@@@@A",
+   "address": "00a35dd0"
+  },
+  {
+   "symbol": "?ParticleSystems@@3V?$DynamicVectorClass@PAVParticleSystemClass@@@@A",
+   "address": "00a32280"
+  },
+  {
+   "symbol": "?ParticleTypes@@3V?$DynamicVectorClass@PAVParticleTypeClass@@@@A",
+   "address": "00a35e00"
+  },
+  {
+   "symbol": "?Post_Load_Game_0065d2c0@@YIXXZ",
+   "address": "0065d2c0"
+  },
+  {
+   "symbol": "?ProgressScreen@@3VProgressScreenClass@@A",
+   "address": "00a769e8"
+  },
+  {
+   "symbol": "?RadarEventClass_unknown_load_all@@YI_NPAUIStream@@@Z",
+   "address": "0063c380"
+  },
+  {
+   "symbol": "?RadarEventClass_unknown_save_all@@YI_NPAUIStream@@@Z",
+   "address": "0063c310"
+  },
+  {
+   "symbol": "?Read_004B5C50@EnvironmentClass@@QAEXPAUIStream@@@Z",
+   "address": "004b5c50"
+  },
+  {
+   "symbol": "?Reposition_Sidebar@SidebarClass@@UAEXXZ",
+   "address": "006819a0"
+  },
+  {
+   "symbol": "?Reset@SwizzleManagerClass@@UAGJXZ",
+   "address": "0069fb10"
+  },
+  {
+   "symbol": "?Reset_All_Subzones@MapClass@@QAEXXZ",
+   "address": "00563d40"
+  },
+  {
+   "symbol": "?Rules@@3PAVRulesClass@@A",
+   "address": "00839848"
+  },
+  {
+   "symbol": "?Save@BombListClass@@QAEJPAUIStream@@@Z",
+   "address": "004367c0"
+  },
+  {
+   "symbol": "?Save@GameOptionsType@@QAE_NPAUIStream@@@Z",
+   "address": "00672830"
+  },
+  {
+   "symbol": "?Save@KamikazeTrackerClass@@QAEJPAUIStream@@@Z",
+   "address": "00531a40"
+  },
+  {
+   "symbol": "?Save@LayerClass@@QAEJPAUIStream@@@Z",
+   "address": "00534a10"
+  },
+  {
+   "symbol": "?Save@MouseClass@@QAEJPAUIStream@@@Z",
+   "address": "0059fc80"
+  },
+  {
+   "symbol": "?Save@RulesClass@@QAEXPAUIStream@@@Z",
+   "address": "0064de70"
+  },
+  {
+   "symbol": "?Save@SaveVersionInfo@@QAEJPAUIStorage@@@Z",
+   "address": "00659530"
+  },
+  {
+   "symbol": "?Save@ScenarioClass@@QAEXPAUIStream@@@Z",
+   "address": "00660f60"
+  },
+  {
+   "symbol": "?Save@ThemeClass@@QAEJPAUIStream@@@Z",
+   "address": "006e8310"
+  },
+  {
+   "symbol": "?Save_00413590@AircraftTrackerClass@@QAEJPAUIStream@@@Z",
+   "address": "00413590"
+  },
+  {
+   "symbol": "?Save_All@VeinholeMonsterClass@@SI_NPAUIStream@@@Z",
+   "address": "00712150"
+  },
+  {
+   "symbol": "?Save_Storm_0051F3F0@@YIJPAUIStream@@@Z",
+   "address": "0051f3f0"
+  },
+  {
+   "symbol": "?ScriptTypes@@3V?$DynamicVectorClass@PAVScriptTypeClass@@@@A",
+   "address": "00866258"
+  },
+  {
+   "symbol": "?Scripts@@3V?$DynamicVectorClass@PAVScriptClass@@@@A",
+   "address": "00839900"
+  },
+  {
+   "symbol": "?Set_Campaign_Number@SaveVersionInfo@@QAEXH@Z",
+   "address": "00659360"
+  },
+  {
+   "symbol": "?Set_Executable_Name@SaveVersionInfo@@QAEXPBD@Z",
+   "address": "00659410"
+  },
+  {
+   "symbol": "?Set_Game_Type@SaveVersionInfo@@QAEXH@Z",
+   "address": "00659510"
+  },
+  {
+   "symbol": "?Set_Internal_Version@SaveVersionInfo@@QAEXH@Z",
+   "address": "006592d0"
+  },
+  {
+   "symbol": "?Set_Last_Time@SaveVersionInfo@@QAEXABUFILETIME@@@Z",
+   "address": "006594d0"
+  },
+  {
+   "symbol": "?Set_Play_Time@SaveVersionInfo@@QAEXABUFILETIME@@@Z",
+   "address": "00659490"
+  },
+  {
+   "symbol": "?Set_Player_House@SaveVersionInfo@@QAEXPBG@Z",
+   "address": "00659320"
+  },
+  {
+   "symbol": "?Set_Scenario_Description@SaveVersionInfo@@QAEXPBG@Z",
+   "address": "006592f0"
+  },
+  {
+   "symbol": "?Set_Scenario_Number@SaveVersionInfo@@QAEXH@Z",
+   "address": "00659380"
+  },
+  {
+   "symbol": "?Set_Start_Time@SaveVersionInfo@@QAEXABUFILETIME@@@Z",
+   "address": "00659450"
+  },
+  {
+   "symbol": "?Set_Version@SaveVersionInfo@@QAEXH@Z",
+   "address": "006592b0"
+  },
+  {
+   "symbol": "?Sides@@3V?$DynamicVectorClass@PAVSideClass@@@@A",
+   "address": "008661b0"
+  },
+  {
+   "symbol": "?SmudgeTypes@@3V?$DynamicVectorClass@PAVSmudgeTypeClass@@@@A",
+   "address": "00a40bc8"
+  },
+  {
+   "symbol": "?Speech_Load@@YIJPAUIStream@@@Z",
+   "address": "007167d0"
+  },
+  {
+   "symbol": "?Speech_Save@@YIJPAUIStream@@@Z",
+   "address": "00716790"
+  },
+  {
+   "symbol": "?SuperWeaponTypes@@3V?$DynamicVectorClass@PAVSuperWeaponTypeClass@@@@A",
+   "address": "00a40338"
+  },
+  {
+   "symbol": "?Supers@@3V?$DynamicVectorClass@PAVSuperClass@@@@A",
+   "address": "00a35d28"
+  },
+  {
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "address": "0069fb20"
+  },
+  {
+   "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+   "address": "00abd868"
+  },
+  {
+   "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+   "address": "00abfea0"
+  },
+  {
+   "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+   "address": "00abfe48"
+  },
+  {
+   "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+   "address": "00a40890"
+  },
+  {
+   "symbol": "?TeamTypes@@3V?$DynamicVectorClass@PAVTeamTypeClass@@@@A",
+   "address": "00a40c48"
+  },
+  {
+   "symbol": "?Teams@@3V?$DynamicVectorClass@PAVTeamClass@@@@A",
+   "address": "00866178"
+  },
+  {
+   "symbol": "?TerrainTypes@@3V?$DynamicVectorClass@PAVTerrainTypeClass@@@@A",
+   "address": "00a40320"
+  },
+  {
+   "symbol": "?Terrains@@3V?$DynamicVectorClass@PAVTerrainClass@@@@A",
+   "address": "00a40940"
+  },
+  {
+   "symbol": "?Theme@@3VThemeClass@@A",
+   "address": "00a35d78"
+  },
+  {
+   "symbol": "?TriggerTypes@@3V?$DynamicVectorClass@PAVTriggerTypeClass@@@@A",
+   "address": "00866208"
+  },
+  {
+   "symbol": "?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A",
+   "address": "00a40aa0"
+  },
+  {
+   "symbol": "?UnitTypes@@3V?$DynamicVectorClass@PAVUnitTypeClass@@@@A",
+   "address": "00a35d48"
+  },
+  {
+   "symbol": "?Units@@3V?$DynamicVectorClass@PAVUnitClass@@@@A",
+   "address": "00866198"
+  },
+  {
+   "symbol": "?Unknown_0051a330@@YI_NH@Z",
+   "address": "0051a330"
+  },
+  {
+   "symbol": "?Unknown_Free_Art_Set_006F30F0@@YIXXZ",
+   "address": "006f30f0"
+  },
+  {
+   "symbol": "?Voc_Static_Load@@YIJPAUIStream@@@Z",
+   "address": "00714b80"
+  },
+  {
+   "symbol": "?Voc_Static_Save@@YIJPAUIStream@@@Z",
+   "address": "00714a90"
+  },
+  {
+   "symbol": "?VoxelAnimTypes@@3V?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@A",
+   "address": "00a40ae0"
+  },
+  {
+   "symbol": "?Waves@@3V?$DynamicVectorClass@PAVWaveClass@@@@A",
+   "address": "00a40be8"
+  },
+  {
+   "symbol": "?Write_004B5C70@EnvironmentClass@@QAEXPAUIStream@@@Z",
+   "address": "004b5c70"
+  },
+  {
+   "symbol": "?_com_issue_error@@YGXJ@Z",
+   "address": "00795940"
+  },
+  {
+   "symbol": "?unknown_AlphaShapeClass_list_0083c648@@3V?$DynamicVectorClass@PAVAlphaShapeClass@@@@A",
+   "address": "0083c648"
+  },
+  {
+   "symbol": "?unknown_BombClass_list_0084eb78@@3V?$DynamicVectorClass@PAVBombClass@@@@A",
+   "address": "0084eb78"
+  },
+  {
+   "symbol": "?unknown_BuildingClass_list_00a40af8@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A",
+   "address": "00a40af8"
+  },
+  {
+   "symbol": "?unknown_BulletClass_list_00a40ce8@@3V?$DynamicVectorClass@PAVBulletClass@@@@A",
+   "address": "00a40ce8"
+  },
+  {
+   "symbol": "?unknown_CaptureManagerClass_list_008505a0@@3V?$DynamicVectorClass@PAVCaptureManagerClass@@@@A",
+   "address": "008505a0"
+  },
+  {
+   "symbol": "?unknown_LightSourceClass_list_00a6e818@@3V?$DynamicVectorClass@PAVLightSourceClass@@@@A",
+   "address": "00a6e818"
+  },
+  {
+   "symbol": "?unknown_ParasiteClass_list_00a76430@@3V?$DynamicVectorClass@PAVParasiteClass@@@@A",
+   "address": "00a76430"
+  },
+  {
+   "symbol": "?unknown_ParticleClass_list_00a35e28@@3V?$DynamicVectorClass@PAVParticleClass@@@@A",
+   "address": "00a35e28"
+  },
+  {
+   "symbol": "?unknown_RadSiteClass_list_00ab6620@@3V?$DynamicVectorClass@PAVRadSiteClass@@@@A",
+   "address": "00ab6620"
+  },
+  {
+   "symbol": "?unknown_SpawnManagerClass_list_00abd028@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+   "address": "00abd028"
+  },
+  {
+   "symbol": "?unknown_TActionClass_list_00abfd88@@3V?$DynamicVectorClass@PAVTActionClass@@@@A",
+   "address": "00abfd88"
+  },
+  {
+   "symbol": "?unknown_TEventClass_list_00ac0808@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+   "address": "00ac0808"
+  },
+  {
+   "symbol": "?unknown_TemporalClass_list_00ac02e0@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+   "address": "00ac02e0"
+  },
+  {
+   "symbol": "?unknown_TiberiumClass_list_00ac0b30@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+   "address": "00ac0b30"
+  },
+  {
+   "symbol": "?unknown_TubeClass_list_008661c8@@3V?$DynamicVectorClass@PAVTubeClass@@@@A",
+   "address": "008661c8"
+  },
+  {
+   "symbol": "?unknown_VoxelAnimClass_list_008399d0@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A",
+   "address": "008399d0"
+  },
+  {
+   "symbol": "?unknown_WarheadTypeClass_list_00839b00@@3V?$DynamicVectorClass@PAVWarheadTypeClass@@@@A",
+   "address": "00839b00"
+  },
+  {
+   "symbol": "?unknown_WaypointPathClass_list_00b25590@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+   "address": "00b25590"
+  },
+  {
+   "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+   "address": "00839b90"
+  },
+  {
+   "symbol": "?unknown_ab9174@@3HA",
+   "address": "00ab9174"
+  },
+  {
+   "symbol": "?unknown_flag_a40380@@3_NA",
+   "address": "00a40380"
+  },
+  {
+   "symbol": "?unknown_flag_a40d04@@3_NA",
+   "address": "00a40d04"
+  },
+  {
+   "symbol": "?unknown_flag_a6ebd0@@3_NA",
+   "address": "00a6ebd0"
+  },
+  {
+   "symbol": "?unknown_game_mode_a3d298@@3HA",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_gas_cloud_system_a40d20@@3PAVParticleSystemClass@@A",
+   "address": "00a40d20"
+  },
+  {
+   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
+   "symbol": "?unknown_int_7add80@@3HA",
+   "address": "007add80"
+  },
+  {
+   "symbol": "?unknown_lobby_state_a3d2b0@@3VGameOptionsType@@A",
+   "address": "00a3d2b0"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A",
+   "address": "00a40c60"
+  },
+  {
+   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
+   "address": "00a35db4"
+  },
+  {
+   "symbol": "?unknown_savegame_version_7f1b18@@3HA",
+   "address": "007f1b18"
+  },
+  {
+   "symbol": "?unknown_scenario_checkpoint_00855a90@@3VEnvironmentClass@@A",
+   "address": "00855a90"
+  },
+  {
+   "symbol": "?unknown_slot42@MouseClass@@QAEXABVRect@@@Z",
+   "address": "00498c80"
+  },
+  {
+   "symbol": "?unknown_slot54@TabClass@@UAE_NH@Z",
+   "address": "006a0da0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_supers_a35db8@@3V?$DynamicVectorClass@PAVSuperClass@@@@A",
+   "address": "00a35db8"
+  },
+  {
+   "symbol": "?unknown_tactical_83996c@@3PAVTactical@@A",
+   "address": "0083996c"
+  },
+  {
+   "symbol": "?unknown_tags_866160@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+   "address": "00866160"
+  },
+  {
+   "symbol": "?unknown_tags_866238@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+   "address": "00866238"
+  },
+  {
+   "symbol": "?unknown_tracker_839ea0@@3UAircraftTrackerClass@@A",
+   "address": "00839ea0"
+  },
+  {
+   "symbol": "?unknown_window_839640@@3VRect@@A",
+   "address": "00839640"
+  },
+  {
+   "symbol": "_CLSID_CStreamClass",
+   "address": "007a1ab0"
+  },
+  {
+   "symbol": "_IID_IPersistStream",
+   "address": "007afcd0"
+  },
+  {
+   "symbol": "_IID_IUnknown_7afce0",
+   "address": "007afce0"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__CoCreateInstance@20",
+   "address": "0079a5f0"
+  },
+  {
+   "symbol": "__imp__CoFileTimeNow@4",
+   "address": "0079a5dc"
+  },
+  {
+   "symbol": "__imp__MultiByteToWideChar@24",
+   "address": "0079a1b8"
+  },
+  {
+   "symbol": "__imp__OleLoadFromStream@12",
+   "address": "0079a5ec"
+  },
+  {
+   "symbol": "__imp__OleRun@4",
+   "address": "0079a5f4"
+  },
+  {
+   "symbol": "__imp__OleSaveToStream@8",
+   "address": "0079a5e8"
+  },
+  {
+   "symbol": "__imp__StgCreateDocfile@16",
+   "address": "0079a5bc"
+  },
+  {
+   "symbol": "__imp__StgOpenStorage@24",
+   "address": "0079a5d8"
+  },
+  {
+   "symbol": "_unknown_uuid_ILinkStream_7f1b50",
+   "address": "007f1b50"
+  },
+  {
+   "symbol": "_unknown_uuid_IStream_7d5988",
+   "address": "007d5988"
+  },
+  {
+   "symbol": "_unknown_uuid_IUnknown_7ce610",
+   "address": "007ce610"
+  }
+ ],
+ "route": "A",
+ "unit": "saveload.cpp",
+ "form": "one include block",
+ "switches": [
+  "MAP_VIEW_DECLARE_SAVELOAD",
+  "BOMB_LIST_DECLARE_LOAD",
+  "COM_PTR_IMPLEMENT_RELEASE",
+  "COM_PTR_RELEASE_IN_DESTRUCTOR",
+  "LOBBY_STATE_SAVELOAD",
+  "THEME_SAVELOAD"
+ ],
+ "include_blocks": [
+  {
+   "before": "00654a50",
+   "lines": 96
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "00658040",
+   "bytes": 1,
+   "population": "population-3817",
+   "bound": "own frozen bound (population-3817)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [],
+ "unit_functions": 64,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

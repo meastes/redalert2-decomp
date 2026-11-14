@@ -1,0 +1,586 @@
+{
+ "module": "cd",
+ "source": "src/recovered/cd.cpp",
+ "header": null,
+ "population": "population-3763",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 803,
+ "code": [
+  {
+   "symbol": "_$E10",
+   "entry": "0046e4a0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Unknown_0046E4C0@@YIHH@Z",
+   "entry": "0046e4c0",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Set_Required_CD@CD@@SIXH@Z",
+   "entry": "0046e4d0",
+   "body_bytes": 26,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Force_Available@CD@@UAE_NH@Z",
+   "entry": "0046e4f0",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Insert_Disk@CD@@UAE_NH@Z",
+   "entry": "0046e520",
+   "body_bytes": 549,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Swap_Disk@CD@@UAE_NH@Z",
+   "entry": "0046e750",
+   "body_bytes": 740,
+   "padding_bytes": 12
+  }
+ ],
+ "code_bytes": 1440,
+ "data": [
+  {
+   "symbol": "??_C@_0BA@EFJK@TXT_CD_DIALOG_2?$AA@",
+   "address": "007d20e4",
+   "bytes": 16,
+   "kind": "string",
+   "section": 13
+  },
+  {
+   "symbol": "??_C@_0O@IIEK@TXT_DISK_NAME?$AA@",
+   "address": "007d20f4",
+   "bytes": 14,
+   "kind": "string",
+   "section": 14
+  },
+  {
+   "symbol": "??_C@_0BA@BICN@TXT_CD_DIALOG_S?$AA@",
+   "address": "007d2104",
+   "bytes": 16,
+   "kind": "string",
+   "section": 15
+  },
+  {
+   "symbol": "??_C@_0BA@OEHD@TXT_CD_DIALOG_A?$AA@",
+   "address": "007d2114",
+   "bytes": 16,
+   "kind": "string",
+   "section": 16
+  },
+  {
+   "symbol": "??_C@_0BA@LKCD@TXT_CD_DIALOG_1?$AA@",
+   "address": "007d2124",
+   "bytes": 16,
+   "kind": "string",
+   "section": 17
+  },
+  {
+   "symbol": "??_C@_0O@BMBI@D?3?2Ra2?2CD?4CPP?$AA@",
+   "address": "007d2134",
+   "bytes": 14,
+   "kind": "string",
+   "section": 18
+  },
+  {
+   "symbol": "??_C@_0P@CLBG@MOVIES?$CF02d?4MIX?$AA@",
+   "address": "007d2144",
+   "bytes": 15,
+   "kind": "string",
+   "section": 21
+  },
+  {
+   "symbol": "??_C@_09OKCB@THEME?4MIX?$AA@",
+   "address": "007d2154",
+   "bytes": 10,
+   "kind": "string",
+   "section": 22
+  },
+  {
+   "symbol": "??_C@_0BO@IFKA@?5?5?5?5?5Initializing?5Themes?4MIX?6?$AA@",
+   "address": "007d2160",
+   "bytes": 30,
+   "kind": "string",
+   "section": 23
+  },
+  {
+   "symbol": "??_C@_09MIH@MULTI?4MIX?$AA@",
+   "address": "007d2180",
+   "bytes": 10,
+   "kind": "string",
+   "section": 24
+  },
+  {
+   "symbol": "??_C@_0BN@MGOF@?5?5?5?5?5Initializing?5Multi?4Mix?6?$AA@",
+   "address": "007d218c",
+   "bytes": 29,
+   "kind": "string",
+   "section": 25
+  },
+  {
+   "symbol": "??_C@_0O@HDKF@?5?5?5?5?5FAILED?$CB?6?$AA@",
+   "address": "007d21ac",
+   "bytes": 14,
+   "kind": "string",
+   "section": 26
+  },
+  {
+   "symbol": "??_C@_0BG@HMGE@?5?5?5?5?5Initializing?5?$CFs?6?$AA@",
+   "address": "007d21bc",
+   "bytes": 22,
+   "kind": "string",
+   "section": 27
+  },
+  {
+   "symbol": "??_C@_0N@GFJE@MAPS?$CF02d?4MIX?$AA@",
+   "address": "007d21d4",
+   "bytes": 13,
+   "kind": "string",
+   "section": 28
+  },
+  {
+   "symbol": "??_C@_0BF@OLAF@?5?5?5?5?5Initialized?5?$CFs?6?$AA@",
+   "address": "007d21e4",
+   "bytes": 21,
+   "kind": "string",
+   "section": 29
+  },
+  {
+   "symbol": "??_C@_08DAIP@MAIN?4MIX?$AA@",
+   "address": "007d21fc",
+   "bytes": 9,
+   "kind": "string",
+   "section": 30
+  },
+  {
+   "symbol": "??_C@_0BD@MGDA@?5?5?5?5?5Releasing?5?$CFs?6?$AA@",
+   "address": "007d2208",
+   "bytes": 19,
+   "kind": "string",
+   "section": 31
+  },
+  {
+   "symbol": "??_C@_0CB@GBBB@?$CK?$CK?$CK?$CK?$CK?5Swapping?5to?5disk?5?$CFd?5?$CK?$CK?$CK?$CK?$CK?6@",
+   "address": "007d221c",
+   "bytes": 33,
+   "kind": "string",
+   "section": 32
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_C@_0BA@EFJK@TXT_CD_DIALOG_2?$AA@",
+   "address": "007d20e4",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@IIEK@TXT_DISK_NAME?$AA@",
+   "address": "007d20f4",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@BICN@TXT_CD_DIALOG_S?$AA@",
+   "address": "007d2104",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@OEHD@TXT_CD_DIALOG_A?$AA@",
+   "address": "007d2114",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BA@LKCD@TXT_CD_DIALOG_1?$AA@",
+   "address": "007d2124",
+   "bytes": 16,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@BMBI@D?3?2Ra2?2CD?4CPP?$AA@",
+   "address": "007d2134",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0P@CLBG@MOVIES?$CF02d?4MIX?$AA@",
+   "address": "007d2144",
+   "bytes": 15,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09OKCB@THEME?4MIX?$AA@",
+   "address": "007d2154",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BO@IFKA@?5?5?5?5?5Initializing?5Themes?4MIX?6?$AA@",
+   "address": "007d2160",
+   "bytes": 30,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09MIH@MULTI?4MIX?$AA@",
+   "address": "007d2180",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BN@MGOF@?5?5?5?5?5Initializing?5Multi?4Mix?6?$AA@",
+   "address": "007d218c",
+   "bytes": 29,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@HDKF@?5?5?5?5?5FAILED?$CB?6?$AA@",
+   "address": "007d21ac",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BG@HMGE@?5?5?5?5?5Initializing?5?$CFs?6?$AA@",
+   "address": "007d21bc",
+   "bytes": 22,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0N@GFJE@MAPS?$CF02d?4MIX?$AA@",
+   "address": "007d21d4",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BF@OLAF@?5?5?5?5?5Initialized?5?$CFs?6?$AA@",
+   "address": "007d21e4",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08DAIP@MAIN?4MIX?$AA@",
+   "address": "007d21fc",
+   "bytes": 9,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BD@MGDA@?5?5?5?5?5Releasing?5?$CFs?6?$AA@",
+   "address": "007d2208",
+   "bytes": 19,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CB@GBBB@?$CK?$CK?$CK?$CK?$CK?5Swapping?5to?5disk?5?$CFd?5?$CK?$CK?$CK?$CK?$CK?6@",
+   "address": "007d221c",
+   "bytes": 33,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0065bc70",
+   "symbol": "?Set_Required_CD@CD@@SIXH@Z",
+   "target": "0046e4d0",
+   "function_entry": true
+  },
+  {
+   "site": "0065bc70",
+   "symbol": "?Unknown_0046E4C0@@YIHH@Z",
+   "target": "0046e4c0",
+   "function_entry": true
+  },
+  {
+   "site": "0065bc70",
+   "symbol": "?Set_Required_CD@CD@@SIXH@Z",
+   "target": "0046e4d0",
+   "function_entry": true
+  },
+  {
+   "site": "00515c90",
+   "symbol": "?Set_Required_CD@CD@@SIXH@Z",
+   "target": "0046e4d0",
+   "function_entry": true
+  },
+  {
+   "site": "00515c90",
+   "symbol": "?Set_Required_CD@CD@@SIXH@Z",
+   "target": "0046e4d0",
+   "function_entry": true
+  },
+  {
+   "site": "00515e70",
+   "symbol": "?Unknown_0046E4C0@@YIHH@Z",
+   "target": "0046e4c0",
+   "function_entry": true
+  },
+  {
+   "site": "005c7c30",
+   "symbol": "?Unknown_0046E4C0@@YIHH@Z",
+   "target": "0046e4c0",
+   "function_entry": true
+  },
+  {
+   "site": "0066c5b0",
+   "symbol": "?Unknown_0046E4C0@@YIHH@Z",
+   "target": "0046e4c0",
+   "function_entry": true
+  },
+  {
+   "site": "0066c5b0",
+   "symbol": "?Set_Required_CD@CD@@SIXH@Z",
+   "target": "0046e4d0",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?Set_Required_CD@CD@@SIXH@Z",
+   "target": "0046e4d0",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?Set_Required_CD@CD@@SIXH@Z",
+   "target": "0046e4d0",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?Unknown_0046E4C0@@YIHH@Z",
+   "target": "0046e4c0",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?Set_Required_CD@CD@@SIXH@Z",
+   "target": "0046e4d0",
+   "function_entry": true
+  },
+  {
+   "site": "006e7eb0",
+   "symbol": "?Unknown_0046E4C0@@YIHH@Z",
+   "target": "0046e4c0",
+   "function_entry": true
+  },
+  {
+   "site": "0053b770",
+   "symbol": "?Unknown_0046E4C0@@YIHH@Z",
+   "target": "0046e4c0",
+   "function_entry": true
+  },
+  {
+   "site": "0053b770",
+   "symbol": "?Set_Required_CD@CD@@SIXH@Z",
+   "target": "0046e4d0",
+   "function_entry": true
+  },
+  {
+   "site": "0053b770",
+   "symbol": "?Set_Required_CD@CD@@SIXH@Z",
+   "target": "0046e4d0",
+   "function_entry": true
+  },
+  {
+   "site": "00516f00",
+   "symbol": "?Set_Required_CD@CD@@SIXH@Z",
+   "target": "0046e4d0",
+   "function_entry": true
+  },
+  {
+   "site": "00670c50",
+   "symbol": "?Set_Required_CD@CD@@SIXH@Z",
+   "target": "0046e4d0",
+   "function_entry": true
+  },
+  {
+   "site": "00670c50",
+   "symbol": "?Set_Required_CD@CD@@SIXH@Z",
+   "target": "0046e4d0",
+   "function_entry": true
+  },
+  {
+   "site": "0068e280",
+   "symbol": "?Set_Required_CD@CD@@SIXH@Z",
+   "target": "0046e4d0",
+   "function_entry": true
+  },
+  {
+   "site": "0068e280",
+   "symbol": "?Set_Required_CD@CD@@SIXH@Z",
+   "target": "0046e4d0",
+   "function_entry": true
+  },
+  {
+   "site": "0068e280",
+   "symbol": "?Unknown_0046E4C0@@YIHH@Z",
+   "target": "0046e4c0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0MixFileClass@@QAE@PBDPBVPKey@@@Z",
+   "address": "005952f0"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "address": "005329f0"
+  },
+  {
+   "symbol": "?CurrentCDDrive@CDFileClass@@2HA",
+   "address": "0085089c"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?FastKey@@3VPKey@@A",
+   "address": "00839010"
+  },
+  {
+   "symbol": "?Get_CD_Index@@YIHHH@Z",
+   "address": "004983e0"
+  },
+  {
+   "symbol": "?IsLocal@CD@@2_NA",
+   "address": "00850828"
+  },
+  {
+   "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
+   "address": "006f9ec0"
+  },
+  {
+   "symbol": "?MainMix@@3PAVMixFileClass@@A",
+   "address": "008374dc"
+  },
+  {
+   "symbol": "?MapsMix@@3PAVMixFileClass@@A",
+   "address": "008374f4"
+  },
+  {
+   "symbol": "?MoviesMix@@3PAVMixFileClass@@A",
+   "address": "008374d4"
+  },
+  {
+   "symbol": "?MultiMix@@3PAVMixFileClass@@A",
+   "address": "00837498"
+  },
+  {
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "address": "006e7e20"
+  },
+  {
+   "symbol": "?RequiredCD@CD@@2HA",
+   "address": "007d20e0"
+  },
+  {
+   "symbol": "?Scan@ThemeClass@@QAEXXZ",
+   "address": "006e7af0"
+  },
+  {
+   "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+   "address": "006e81a0"
+  },
+  {
+   "symbol": "?Theme@@3VThemeClass@@A",
+   "address": "00a35d78"
+  },
+  {
+   "symbol": "?ThemeMix@@3PAVMixFileClass@@A",
+   "address": "00831448"
+  },
+  {
+   "symbol": "?Unknown_004985C0@CD@@QAE_NH@Z",
+   "address": "004985c0"
+  },
+  {
+   "symbol": "?Unknown_00600C80@@YI_NPBG@Z",
+   "address": "00600c80"
+  },
+  {
+   "symbol": "?VolumeCheck@@YI_NXZ",
+   "address": "00715090"
+  },
+  {
+   "symbol": "?WWKeyboard@@3PAVWWKeyboardClass@@A",
+   "address": "00832468"
+  },
+  {
+   "symbol": "?WWMouse@@3PAVMouse@@A",
+   "address": "00839c68"
+  },
+  {
+   "symbol": "_sprintf",
+   "address": "007820f4"
+  },
+  {
+   "symbol": "_swprintf",
+   "address": "00783764"
+  }
+ ],
+ "route": "A",
+ "unit": "cd.cpp",
+ "form": "one include block",
+ "switches": [
+  "THEME_SOUND_CONTROLS"
+ ],
+ "include_blocks": [
+  {
+   "before": "0046e4a0",
+   "lines": 6
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "0046ea40",
+   "bytes": 30,
+   "population": "population-4068",
+   "source": "src/recovered/classes/CDControlClass/CDControlClass_globals_init_0046ea40.cpp",
+   "cause": "frozen in another population's inventory pass (population-4068)"
+  }
+ ],
+ "unit_functions": 7,
+ "data_unproven": [
+  {
+   "symbol": "_$S11",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 1,
+  "bytes": 30
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

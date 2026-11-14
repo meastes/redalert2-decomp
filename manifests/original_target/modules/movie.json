@@ -1,0 +1,956 @@
+{
+ "module": "movie",
+ "source": "src/recovered/movie.cpp",
+ "header": null,
+ "population": "population-3492",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 703,
+ "code": [
+  {
+   "symbol": "?Rebuild_Interpolated_Palette@@YIXPAE@Z",
+   "entry": "005a0250",
+   "body_bytes": 84,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Play_Movie@@YIXPBDH_N11@Z",
+   "entry": "005a02b0",
+   "body_bytes": 25,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Play_Movie@@YIXPBDH_N111@Z",
+   "entry": "005a02d0",
+   "body_bytes": 1083,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Play_Movie_Handle@@YIXPBD@Z",
+   "entry": "005a0710",
+   "body_bytes": 222,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Play_Movie@@YIXHH_N00@Z",
+   "entry": "005a07f0",
+   "body_bytes": 69,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Unknown_Queue_Movie_005a0840@@YIXPBD_N@Z",
+   "entry": "005a0840",
+   "body_bytes": 163,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Unknown_Movie_Message_005a08f0@@YIXH@Z",
+   "entry": "005a08f0",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Play_Ingame_Movie@@YIXH_N@Z",
+   "entry": "005a0920",
+   "body_bytes": 189,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Unknown_Clear_Movies_005a09e0@@YAXXZ",
+   "entry": "005a09e0",
+   "body_bytes": 168,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Pause_Ingame_Movie@@YIX_N@Z",
+   "entry": "005a0a90",
+   "body_bytes": 25,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Unknown_Movies_Queued_005a0ab0@@YA_NXZ",
+   "entry": "005a0ab0",
+   "body_bytes": 14,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Unknown_Audio_Resume_005a0ac0@@YAXXZ",
+   "entry": "005a0ac0",
+   "body_bytes": 69,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Unknown_Audio_Pause_005a0b10@@YAXXZ",
+   "entry": "005a0b10",
+   "body_bytes": 64,
+   "padding_bytes": 0
+  }
+ ],
+ "code_bytes": 2304,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "__real@8@4006ff00000000000000",
+   "address": "007a2f50",
+   "bytes": 8,
+   "kind": "table",
+   "section": 45
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a65c0",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_C@_0CB@LNKL@Stretching?5movie?5?$CFdx?$CFd?5?9?$DO?5?$CFdx?$CFd?6@",
+   "address": "007e3260",
+   "bytes": 33,
+   "kind": "string",
+   "section": 44
+  },
+  {
+   "symbol": "??_C@_0BH@CNON@Play_Movie?$CI?$CJ?5as?5Bink?$CB?6?$AA@",
+   "address": "007e3284",
+   "bytes": 23,
+   "kind": "string",
+   "section": 46
+  },
+  {
+   "symbol": "??_C@_04LMEE@?4bik?$AA@",
+   "address": "007e329c",
+   "bytes": 5,
+   "kind": "string",
+   "section": 47
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4006ff00000000000000",
+   "address": "007a2f50",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a65c0",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_C@_0CB@LNKL@Stretching?5movie?5?$CFdx?$CFd?5?9?$DO?5?$CFdx?$CFd?6@",
+   "address": "007e3260",
+   "bytes": 33,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BH@CNON@Play_Movie?$CI?$CJ?5as?5Bink?$CB?6?$AA@",
+   "address": "007e3284",
+   "bytes": 23,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04LMEE@?4bik?$AA@",
+   "address": "007e329c",
+   "bytes": 5,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "006bc290",
+   "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
+   "target": "005a07f0",
+   "function_entry": true
+  },
+  {
+   "site": "00633c40",
+   "symbol": "?Unknown_005A0B10@@YAXXZ",
+   "target": "005a0b10",
+   "function_entry": true
+  },
+  {
+   "site": "00633d30",
+   "symbol": "?Unknown_005A0AC0@@YAXXZ",
+   "target": "005a0ac0",
+   "function_entry": true
+  },
+  {
+   "site": "006b0d30",
+   "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
+   "target": "005a07f0",
+   "function_entry": true
+  },
+  {
+   "site": "006b0d50",
+   "symbol": "?Unknown_005A0920@@YIXH_N@Z",
+   "target": "005a0920",
+   "function_entry": true
+  },
+  {
+   "site": "006b0d60",
+   "symbol": "?Unknown_005A0920@@YIXH_N@Z",
+   "target": "005a0920",
+   "function_entry": true
+  },
+  {
+   "site": "0065c040",
+   "symbol": "?Pause_Radar_Movie_005a0a90@@YIX_N@Z",
+   "target": "005a0a90",
+   "function_entry": true
+  },
+  {
+   "site": "0065c140",
+   "symbol": "?Pause_Radar_Movie_005a0a90@@YIX_N@Z",
+   "target": "005a0a90",
+   "function_entry": true
+  },
+  {
+   "site": "0065e440",
+   "symbol": "?Unknown_005A09E0@@YAXXZ",
+   "target": "005a09e0",
+   "function_entry": true
+  },
+  {
+   "site": "0065e590",
+   "symbol": "?Unknown_005A09E0@@YAXXZ",
+   "target": "005a09e0",
+   "function_entry": true
+  },
+  {
+   "site": "0065bc70",
+   "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
+   "target": "005a07f0",
+   "function_entry": true
+  },
+  {
+   "site": "0065bc70",
+   "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
+   "target": "005a07f0",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?Unknown_005A09E0@@YAXXZ",
+   "target": "005a09e0",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
+   "target": "005a07f0",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
+   "target": "005a07f0",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
+   "target": "005a07f0",
+   "function_entry": true
+  },
+  {
+   "site": "0065d7f0",
+   "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
+   "target": "005a07f0",
+   "function_entry": true
+  },
+  {
+   "site": "0065dec0",
+   "symbol": "?Unknown_005A09E0@@YAXXZ",
+   "target": "005a09e0",
+   "function_entry": true
+  },
+  {
+   "site": "0065dec0",
+   "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
+   "target": "005a07f0",
+   "function_entry": true
+  },
+  {
+   "site": "007373a0",
+   "symbol": "?Pause_Radar_Movie_005a0a90@@YIX_N@Z",
+   "target": "005a0a90",
+   "function_entry": true
+  },
+  {
+   "site": "00737400",
+   "symbol": "?Pause_Radar_Movie_005a0a90@@YIX_N@Z",
+   "target": "005a0a90",
+   "function_entry": true
+  },
+  {
+   "site": "00672e70",
+   "symbol": "?Unknown_005A09E0@@YAXXZ",
+   "target": "005a09e0",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?Play_Movie_005A02D0@@YIXPBDH_N111@Z",
+   "target": "005a02d0",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?Play_Movie_005A02B0@@YIXPBDH_N11@Z",
+   "target": "005a02b0",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?Play_Movie_005A02B0@@YIXPBDH_N11@Z",
+   "target": "005a02b0",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "?Play_Movie_005A02D0@@YIXPBDH_N111@Z",
+   "target": "005a02d0",
+   "function_entry": true
+  },
+  {
+   "site": "006b7ad0",
+   "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
+   "target": "005a07f0",
+   "function_entry": true
+  },
+  {
+   "site": "00768e90",
+   "symbol": "?Play_Movie@@YIXPBDH_N111@Z",
+   "target": "005a02d0",
+   "function_entry": true
+  },
+  {
+   "site": "0051eee0",
+   "symbol": "?Play_Movie@@YIXHH_N00@Z",
+   "target": "005a07f0",
+   "function_entry": true
+  },
+  {
+   "site": "007375a0",
+   "symbol": "?Pause_Radar_Movie_005a0a90@@YIX_N@Z",
+   "target": "005a0a90",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "?Play_Movie@@YIXPBDH_N111@Z",
+   "target": "005a02d0",
+   "function_entry": true
+  },
+  {
+   "site": "006adae0",
+   "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
+   "target": "005a07f0",
+   "function_entry": true
+  },
+  {
+   "site": "006adae0",
+   "symbol": "?Unknown_005A0920@@YIXH_N@Z",
+   "target": "005a0920",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
+   "target": "005a07f0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Unknown_005A02D0@@YIXPBDHHHHH@Z",
+   "target": "005a02d0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Unknown_005A02D0@@YIXPBDHHHHH@Z",
+   "target": "005a02d0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0BinkClass@@QAE@PBD@Z",
+   "address": "0042fe70"
+  },
+  {
+   "symbol": "??1BinkClass@@QAE@XZ",
+   "address": "0042fee0"
+  },
+  {
+   "symbol": "??1VQAMovie@@QAE@XZ",
+   "address": "005a1760"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?Add_Message@MessageListClass@@QAEPAVTextLabelClass@@PBGH0HIH_N@Z",
+   "address": "005b4da0"
+  },
+  {
+   "symbol": "?AllowStretchBlits_852fd6@@3_NA",
+   "address": "00852fd6"
+  },
+  {
+   "symbol": "?Audio_DS_Apply_Primary_Format@@YIXXZ",
+   "address": "0040a770"
+  },
+  {
+   "symbol": "?Audio_DS_Set_Primary_Format@@YIXHHH@Z",
+   "address": "0040a6e0"
+  },
+  {
+   "symbol": "?Audio_Global_Levels@@3PAPAUAudioLevelSet@@A",
+   "address": "0083144c"
+  },
+  {
+   "symbol": "?Audio_Pause@@YIXXZ",
+   "address": "00406de0"
+  },
+  {
+   "symbol": "?Audio_Resume@@YAXXZ",
+   "address": "00406e00"
+  },
+  {
+   "symbol": "?Audio_Streams_Fade_In@@YAXXZ",
+   "address": "004082f0"
+  },
+  {
+   "symbol": "?Audio_Streams_Hold@@YAXXZ",
+   "address": "00408120"
+  },
+  {
+   "symbol": "?Audio_Streams_Pause@@YAXXZ",
+   "address": "00408190"
+  },
+  {
+   "symbol": "?Audio_Streams_Release@@YAXXZ",
+   "address": "00408150"
+  },
+  {
+   "symbol": "?Audio_Streams_Resume@@YAXXZ",
+   "address": "00408210"
+  },
+  {
+   "symbol": "?Blit@GScreenClass@@SIX_NPAVSurface@@PBVRect@@@Z",
+   "address": "004e0c90"
+  },
+  {
+   "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+   "address": "005329f0"
+  },
+  {
+   "symbol": "?Create_Movie_Handle@@YIPAVMovieHandle@@PBDPAVSurface@@PBVRect@@@Z",
+   "address": "005a1d30"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Find_Movie_File@@YI_NPBDPADH@Z",
+   "address": "005a1bb0"
+  },
+  {
+   "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXH@Z",
+   "address": "004e09a0"
+  },
+  {
+   "symbol": "?Get_VQA_Height@VQAClass@@QAEHXZ",
+   "address": "0071d310"
+  },
+  {
+   "symbol": "?Get_VQA_Width@VQAClass@@QAEHXZ",
+   "address": "0071d300"
+  },
+  {
+   "symbol": "?Map@@3VMouseClass@@A",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "?Options@@3VOptionsClass@@A",
+   "address": "00a40b18"
+  },
+  {
+   "symbol": "?Play@BinkClass@@QAEXXZ",
+   "address": "00430430"
+  },
+  {
+   "symbol": "?Set_Target@AudioLevel@@QAIXH@Z",
+   "address": "004070a0"
+  },
+  {
+   "symbol": "?Speech_Hold@@YAXXZ",
+   "address": "00716980"
+  },
+  {
+   "symbol": "?VQA_Movie_Close@@YIXPAVVQAMovie@@@Z",
+   "address": "005a1470"
+  },
+  {
+   "symbol": "?VQA_Movie_Play@@YIXPAVVQAMovie@@_NH1@Z",
+   "address": "005a14d0"
+  },
+  {
+   "symbol": "?VQA_Unknown_005A1010@@YIPAVVQAMovie@@PBDPAVSurface@@VRect@@2H_N@Z",
+   "address": "005a1010"
+  },
+  {
+   "symbol": "?WWKeyboard@@3PAVWWKeyboardClass@@A",
+   "address": "00832468"
+  },
+  {
+   "symbol": "?WWMouse@@3PAVMouse@@A",
+   "address": "00839c68"
+  },
+  {
+   "symbol": "?queued_movies_00af8fd8@@3V?$DynamicVectorClass@PAVMovieHandle@@@@A",
+   "address": "00af8fd8"
+  },
+  {
+   "symbol": "?unknown_audio_paused_a7101c@@3_NA",
+   "address": "00a7101c"
+  },
+  {
+   "symbol": "?unknown_flag_a40380@@3_NA",
+   "address": "00a40380"
+  },
+  {
+   "symbol": "?unknown_game_mode_a3d298@@3HA",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_int_839648@@3HA",
+   "address": "00839648"
+  },
+  {
+   "symbol": "?unknown_int_83964c@@3HA",
+   "address": "0083964c"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_names_a71050@@3V?$DynamicVectorClass@PBD@@A",
+   "address": "00a71050"
+  },
+  {
+   "symbol": "?unknown_radar_x_8336cc@@3HA",
+   "address": "008336cc"
+  },
+  {
+   "symbol": "?unknown_radar_y_8336d0@@3HA",
+   "address": "008336d0"
+  },
+  {
+   "symbol": "?unknown_session_a3d298@@3USessionClass@@A",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_surface_839948@@3PAVSurface@@A",
+   "address": "00839948"
+  },
+  {
+   "symbol": "?unknown_surface_839954@@3PAVSurface@@A",
+   "address": "00839954"
+  },
+  {
+   "symbol": "?unknown_surface_839958@@3PAVSurface@@A",
+   "address": "00839958"
+  },
+  {
+   "symbol": "?unknown_tick_sound@@YAXXZ",
+   "address": "007169f0"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__stricmp",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "_strrchr",
+   "address": "00781ff0"
+  }
+ ],
+ "route": "A",
+ "unit": "movie.cpp",
+ "form": "one include block",
+ "switches": [
+  "VECTOR_IMPLEMENT_VECTOR_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS",
+  "VECTOR_IMPLEMENT_DYNAMIC_ADD",
+  "VECTOR_IMPLEMENT_DYNAMIC_DELETE_OBJECT",
+  "VECTOR_IMPLEMENT_DYNAMIC_DELETE_INDEX",
+  "VECTOR_IMPLEMENT_DYNAMIC_CLEAR"
+ ],
+ "include_blocks": [
+  {
+   "before": "005a0250",
+   "lines": 25
+  }
+ ],
+ "held_rows": [],
+ "joined": [],
+ "residuals": [],
+ "unit_functions": 15,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "006bc290",
+   "target": "005a07f0",
+   "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
+   "module_symbol": "?Play_Movie@@YIXHH_N00@Z"
+  },
+  {
+   "site": "00633c40",
+   "target": "005a0b10",
+   "symbol": "?Unknown_005A0B10@@YAXXZ",
+   "module_symbol": "?Unknown_Audio_Pause_005a0b10@@YAXXZ"
+  },
+  {
+   "site": "00633d30",
+   "target": "005a0ac0",
+   "symbol": "?Unknown_005A0AC0@@YAXXZ",
+   "module_symbol": "?Unknown_Audio_Resume_005a0ac0@@YAXXZ"
+  },
+  {
+   "site": "006b0d30",
+   "target": "005a07f0",
+   "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
+   "module_symbol": "?Play_Movie@@YIXHH_N00@Z"
+  },
+  {
+   "site": "006b0d50",
+   "target": "005a0920",
+   "symbol": "?Unknown_005A0920@@YIXH_N@Z",
+   "module_symbol": "?Play_Ingame_Movie@@YIXH_N@Z"
+  },
+  {
+   "site": "006b0d60",
+   "target": "005a0920",
+   "symbol": "?Unknown_005A0920@@YIXH_N@Z",
+   "module_symbol": "?Play_Ingame_Movie@@YIXH_N@Z"
+  },
+  {
+   "site": "0065c040",
+   "target": "005a0a90",
+   "symbol": "?Pause_Radar_Movie_005a0a90@@YIX_N@Z",
+   "module_symbol": "?Pause_Ingame_Movie@@YIX_N@Z"
+  },
+  {
+   "site": "0065c140",
+   "target": "005a0a90",
+   "symbol": "?Pause_Radar_Movie_005a0a90@@YIX_N@Z",
+   "module_symbol": "?Pause_Ingame_Movie@@YIX_N@Z"
+  },
+  {
+   "site": "0065e440",
+   "target": "005a09e0",
+   "symbol": "?Unknown_005A09E0@@YAXXZ",
+   "module_symbol": "?Unknown_Clear_Movies_005a09e0@@YAXXZ"
+  },
+  {
+   "site": "0065e590",
+   "target": "005a09e0",
+   "symbol": "?Unknown_005A09E0@@YAXXZ",
+   "module_symbol": "?Unknown_Clear_Movies_005a09e0@@YAXXZ"
+  },
+  {
+   "site": "0065bc70",
+   "target": "005a07f0",
+   "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
+   "module_symbol": "?Play_Movie@@YIXHH_N00@Z"
+  },
+  {
+   "site": "0065bc70",
+   "target": "005a07f0",
+   "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
+   "module_symbol": "?Play_Movie@@YIXHH_N00@Z"
+  },
+  {
+   "site": "0065d7f0",
+   "target": "005a09e0",
+   "symbol": "?Unknown_005A09E0@@YAXXZ",
+   "module_symbol": "?Unknown_Clear_Movies_005a09e0@@YAXXZ"
+  },
+  {
+   "site": "0065d7f0",
+   "target": "005a07f0",
+   "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
+   "module_symbol": "?Play_Movie@@YIXHH_N00@Z"
+  },
+  {
+   "site": "0065d7f0",
+   "target": "005a07f0",
+   "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
+   "module_symbol": "?Play_Movie@@YIXHH_N00@Z"
+  },
+  {
+   "site": "0065d7f0",
+   "target": "005a07f0",
+   "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
+   "module_symbol": "?Play_Movie@@YIXHH_N00@Z"
+  },
+  {
+   "site": "0065d7f0",
+   "target": "005a07f0",
+   "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
+   "module_symbol": "?Play_Movie@@YIXHH_N00@Z"
+  },
+  {
+   "site": "0065dec0",
+   "target": "005a09e0",
+   "symbol": "?Unknown_005A09E0@@YAXXZ",
+   "module_symbol": "?Unknown_Clear_Movies_005a09e0@@YAXXZ"
+  },
+  {
+   "site": "0065dec0",
+   "target": "005a07f0",
+   "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
+   "module_symbol": "?Play_Movie@@YIXHH_N00@Z"
+  },
+  {
+   "site": "007373a0",
+   "target": "005a0a90",
+   "symbol": "?Pause_Radar_Movie_005a0a90@@YIX_N@Z",
+   "module_symbol": "?Pause_Ingame_Movie@@YIX_N@Z"
+  },
+  {
+   "site": "00737400",
+   "target": "005a0a90",
+   "symbol": "?Pause_Radar_Movie_005a0a90@@YIX_N@Z",
+   "module_symbol": "?Pause_Ingame_Movie@@YIX_N@Z"
+  },
+  {
+   "site": "00672e70",
+   "target": "005a09e0",
+   "symbol": "?Unknown_005A09E0@@YAXXZ",
+   "module_symbol": "?Unknown_Clear_Movies_005a09e0@@YAXXZ"
+  },
+  {
+   "site": "005116a0",
+   "target": "005a02d0",
+   "symbol": "?Play_Movie_005A02D0@@YIXPBDH_N111@Z",
+   "module_symbol": "?Play_Movie@@YIXPBDH_N111@Z"
+  },
+  {
+   "site": "005116a0",
+   "target": "005a02b0",
+   "symbol": "?Play_Movie_005A02B0@@YIXPBDH_N11@Z",
+   "module_symbol": "?Play_Movie@@YIXPBDH_N11@Z"
+  },
+  {
+   "site": "005116a0",
+   "target": "005a02b0",
+   "symbol": "?Play_Movie_005A02B0@@YIXPBDH_N11@Z",
+   "module_symbol": "?Play_Movie@@YIXPBDH_N11@Z"
+  },
+  {
+   "site": "005116a0",
+   "target": "005a02d0",
+   "symbol": "?Play_Movie_005A02D0@@YIXPBDH_N111@Z",
+   "module_symbol": "?Play_Movie@@YIXPBDH_N111@Z"
+  },
+  {
+   "site": "006b7ad0",
+   "target": "005a07f0",
+   "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
+   "module_symbol": "?Play_Movie@@YIXHH_N00@Z"
+  },
+  {
+   "site": "007375a0",
+   "target": "005a0a90",
+   "symbol": "?Pause_Radar_Movie_005a0a90@@YIX_N@Z",
+   "module_symbol": "?Pause_Ingame_Movie@@YIX_N@Z"
+  },
+  {
+   "site": "006adae0",
+   "target": "005a07f0",
+   "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
+   "module_symbol": "?Play_Movie@@YIXHH_N00@Z"
+  },
+  {
+   "site": "006adae0",
+   "target": "005a0920",
+   "symbol": "?Unknown_005A0920@@YIXH_N@Z",
+   "module_symbol": "?Play_Ingame_Movie@@YIXH_N@Z"
+  },
+  {
+   "site": "005135f0",
+   "target": "005a07f0",
+   "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
+   "module_symbol": "?Play_Movie@@YIXHH_N00@Z"
+  },
+  {
+   "site": "005135f0",
+   "target": "005a02d0",
+   "symbol": "?Unknown_005A02D0@@YIXPBDHHHHH@Z",
+   "module_symbol": "?Play_Movie@@YIXPBDH_N111@Z"
+  },
+  {
+   "site": "005135f0",
+   "target": "005a02d0",
+   "symbol": "?Unknown_005A02D0@@YIXPBDHHHHH@Z",
+   "module_symbol": "?Play_Movie@@YIXPBDH_N111@Z"
+  }
+ ],
+ "stand_in_reference_count": 33,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

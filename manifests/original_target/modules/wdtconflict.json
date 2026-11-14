@@ -1,0 +1,1934 @@
+{
+ "module": "wdtconflict",
+ "source": "src/recovered/wdtconflict.cpp",
+ "header": null,
+ "population": "population-2538",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 505,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00727100",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "00727120",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "00727150",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "00727170",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "00727190",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "007271b0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "007271d0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "007271f0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "00727230",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "00727260",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "00727290",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "007272c0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "007272d0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Create@Conflict@WorldDominationTour@@SI?AV?$rc_ptr@VConflict@WorldDominationTour@@@@ABV?$rc_ptr@VWDTTerritory@@@@@Z",
+   "entry": "007272f0",
+   "body_bytes": 103,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??0Conflict@WorldDominationTour@@QAE@ABV?$rc_ptr@VWDTTerritory@@@@@Z",
+   "entry": "00727360",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??8Conflict@WorldDominationTour@@QBE_NABV01@@Z",
+   "entry": "007273a0",
+   "body_bytes": 24,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "??1Conflict@WorldDominationTour@@UAE@XZ",
+   "entry": "007273c0",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Is_Valid@Conflict@WorldDominationTour@@QBE_NXZ",
+   "entry": "007273e0",
+   "body_bytes": 11,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?unknown_7273f0@Conflict@WorldDominationTour@@QBEHXZ",
+   "entry": "007273f0",
+   "body_bytes": 14,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "_$E48",
+   "entry": "00727400",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E46",
+   "entry": "00727440",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Init_Options@Conflict@WorldDominationTour@@SIXXZ",
+   "entry": "00727480",
+   "body_bytes": 1172,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Clear_Options@Conflict@WorldDominationTour@@SAXXZ",
+   "entry": "00727920",
+   "body_bytes": 57,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Describe_Options@Conflict@WorldDominationTour@@QBE?AVWideString@@XZ",
+   "entry": "00727960",
+   "body_bytes": 456,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "??_GConflict@WorldDominationTour@@UAEPAXI@Z",
+   "entry": "00727b30",
+   "body_bytes": 52,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?WDTTerritory_Get_Unit_Count@@YIHPBVWDTTerritory@@@Z",
+   "entry": "00727b70",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?WDTTerritory_Get_Tech_Level@@YIHPBVWDTTerritory@@@Z",
+   "entry": "00727b80",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Clear@?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEXXZ",
+   "entry": "00727b90",
+   "body_bytes": 43,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UBE?AV?$rc_ptr@VGameOption@WorldDominationTour@@@@H@Z",
+   "entry": "00727be0",
+   "body_bytes": 47,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Create@?$ValueGameOption@E@WorldDominationTour@@SI?AV?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@HP6IHPBVWDTTerritory@@@ZVWstring@@H@Z",
+   "entry": "00727c10",
+   "body_bytes": 98,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "??1?$rc_ptr@VGameOption@WorldDominationTour@@@@UAE@XZ",
+   "entry": "00727c80",
+   "body_bytes": 11,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "??1?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@UAE@XZ",
+   "entry": "00727c90",
+   "body_bytes": 11,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "??1?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@UAE@XZ",
+   "entry": "00727ca0",
+   "body_bytes": 11,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Valid@?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@UBE_NXZ",
+   "entry": "00727cb0",
+   "body_bytes": 14,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "??_G?$rc_ptr@VConflict@WorldDominationTour@@@@UAEPAXI@Z",
+   "entry": "00727cc0",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "??_G?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@UAEPAXI@Z",
+   "entry": "00727cf0",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "??_G?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@UAEPAXI@Z",
+   "entry": "00727d20",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "??_G?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@UAEPAXI@Z",
+   "entry": "00727d50",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "??_G?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@UAEPAXI@Z",
+   "entry": "00727d80",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "??0?$ValueGameOption@E@WorldDominationTour@@QAE@HP6IHPBVWDTTerritory@@@ZVWstring@@H@Z",
+   "entry": "00727da0",
+   "body_bytes": 71,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??_GGameOption@WorldDominationTour@@UAEPAXI@Z",
+   "entry": "00727df0",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Get_Value@?$ValueGameOption@E@WorldDominationTour@@UBEHABV?$rc_ptr@VWDTTerritory@@@@@Z",
+   "entry": "00727e10",
+   "body_bytes": 29,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Describe@?$ValueGameOption@E@WorldDominationTour@@UBE?AVWideString@@ABV?$rc_ptr@VWDTTerritory@@@@ABV3@@Z",
+   "entry": "00727e30",
+   "body_bytes": 236,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "??_G?$ValueGameOption@E@WorldDominationTour@@UAEPAXI@Z",
+   "entry": "00727f20",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "??8?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UBE_NABV0@@Z",
+   "entry": "00727f50",
+   "body_bytes": 70,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAE_NHPBV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z",
+   "entry": "00727fa0",
+   "body_bytes": 282,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Clear@?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEXXZ",
+   "entry": "007280c0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?ID@?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEHABV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z",
+   "entry": "007280f0",
+   "body_bytes": 55,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?ID@?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEHPBV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z",
+   "entry": "00728130",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Resize@?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAE_NHPBV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z",
+   "entry": "00728150",
+   "body_bytes": 285,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Add@?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@QAE_NABV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z",
+   "entry": "00728270",
+   "body_bytes": 87,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEHABV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z",
+   "entry": "007282d0",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "??0?$rc_ptr@VGameOption@WorldDominationTour@@@@QAE@ABVrc_ptr_base@@@Z",
+   "entry": "00728300",
+   "body_bytes": 35,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Next@?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@UAEAAV1@XZ",
+   "entry": "00728330",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Prev@?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@UAEAAV1@XZ",
+   "entry": "00728340",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "??_G?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEPAXI@Z",
+   "entry": "00728350",
+   "body_bytes": 74,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "??_E?$rc_ptr@VGameOption@WorldDominationTour@@@@UAEPAXI@Z",
+   "entry": "007283a0",
+   "body_bytes": 106,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEPAXI@Z",
+   "entry": "00728410",
+   "body_bytes": 74,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "??0?$rc_ptr@VGameOption@WorldDominationTour@@@@QAE@XZ",
+   "entry": "00728460",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  }
+ ],
+ "code_bytes": 4960,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VWDTTerritory@@@@6B@",
+   "address": "007a4528",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 80
+  },
+  {
+   "symbol": "??_7ReferenceCounted@@6B@",
+   "address": "007a8d10",
+   "bytes": 16,
+   "kind": "vtable",
+   "section": 81
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VConflict@WorldDominationTour@@@@6B@",
+   "address": "007aefe8",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 78
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007af068",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7Conflict@WorldDominationTour@@6B@",
+   "address": "007af078",
+   "bytes": 16,
+   "kind": "vtable",
+   "section": 79
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@6B@",
+   "address": "007af0c8",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 120
+  },
+  {
+   "symbol": "??_7?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@6B@",
+   "address": "007af0d0",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 123
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@",
+   "address": "007af0d8",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 124
+  },
+  {
+   "symbol": "??_7?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@6B@",
+   "address": "007af0e0",
+   "bytes": 20,
+   "kind": "vtable",
+   "section": 135
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@6B@",
+   "address": "007af0f4",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 155
+  },
+  {
+   "symbol": "??_7GameOption@WorldDominationTour@@6B@",
+   "address": "007af114",
+   "bytes": 24,
+   "kind": "vtable",
+   "section": 185
+  },
+  {
+   "symbol": "??_R1A@?0A@A@rc_ptr_base@@8",
+   "address": "007bc618",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 62
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc630",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 56
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc648",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 57
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc658",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 58
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VWDTTerritory@@@@6B@",
+   "address": "007bc668",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 60
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ReferenceCounted@@8",
+   "address": "007c0720",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 73
+  },
+  {
+   "symbol": "??_R2ReferenceCounted@@8",
+   "address": "007c0738",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 74
+  },
+  {
+   "symbol": "??_R3ReferenceCounted@@8",
+   "address": "007c0740",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 75
+  },
+  {
+   "symbol": "??_R4ReferenceCounted@@6B@",
+   "address": "007c0750",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 77
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VConflict@WorldDominationTour@@@@8",
+   "address": "007c5390",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 63
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VConflict@WorldDominationTour@@@@8",
+   "address": "007c53a8",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 64
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VConflict@WorldDominationTour@@@@8",
+   "address": "007c53b8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 65
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VConflict@WorldDominationTour@@@@6B@",
+   "address": "007c53c8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 67
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Conflict@WorldDominationTour@@8",
+   "address": "007c54f8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 68
+  },
+  {
+   "symbol": "??_R2Conflict@WorldDominationTour@@8",
+   "address": "007c5510",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 69
+  },
+  {
+   "symbol": "??_R3Conflict@WorldDominationTour@@8",
+   "address": "007c5520",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 70
+  },
+  {
+   "symbol": "??_R4Conflict@WorldDominationTour@@6B@",
+   "address": "007c5530",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 72
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@8",
+   "address": "007c5548",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 41
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@8",
+   "address": "007c5560",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 42
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@8",
+   "address": "007c5578",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 43
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@8",
+   "address": "007c5588",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@6B@",
+   "address": "007c5598",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 46
+  },
+  {
+   "symbol": "??_R2?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@8",
+   "address": "007c55ac",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 50
+  },
+  {
+   "symbol": "??_R3?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@8",
+   "address": "007c55b8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 51
+  },
+  {
+   "symbol": "??_R4?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@6B@",
+   "address": "007c55c8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 52
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VGameOption@WorldDominationTour@@@@8",
+   "address": "007c55e0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 103
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VGameOption@WorldDominationTour@@@@8",
+   "address": "007c55f8",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 104
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VGameOption@WorldDominationTour@@@@8",
+   "address": "007c5608",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 105
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@",
+   "address": "007c5618",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 107
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@8",
+   "address": "007c5630",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 108
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@8",
+   "address": "007c5648",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 109
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@8",
+   "address": "007c5658",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 110
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@6B@",
+   "address": "007c5668",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 112
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@8",
+   "address": "007c5680",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 98
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@8",
+   "address": "007c5698",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 99
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@8",
+   "address": "007c56a8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 100
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@6B@",
+   "address": "007c56b8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 102
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@8",
+   "address": "007c56d0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 130
+  },
+  {
+   "symbol": "??_R2?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@8",
+   "address": "007c56e8",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 131
+  },
+  {
+   "symbol": "??_R3?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@8",
+   "address": "007c56f0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 132
+  },
+  {
+   "symbol": "??_R4?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@6B@",
+   "address": "007c5700",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 134
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@8",
+   "address": "007c5718",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 150
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@8",
+   "address": "007c5730",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 151
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@8",
+   "address": "007c5740",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 152
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@6B@",
+   "address": "007c5750",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 154
+  },
+  {
+   "symbol": "??_R2GameOption@WorldDominationTour@@8",
+   "address": "007c5768",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 174
+  },
+  {
+   "symbol": "??_R3GameOption@WorldDominationTour@@8",
+   "address": "007c5778",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 175
+  },
+  {
+   "symbol": "??_R4GameOption@WorldDominationTour@@6B@",
+   "address": "007c5788",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 176
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GameOption@WorldDominationTour@@8",
+   "address": "007c57a0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 178
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$ValueGameOption@E@WorldDominationTour@@8",
+   "address": "007c57b8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 179
+  },
+  {
+   "symbol": "??_R2?$ValueGameOption@E@WorldDominationTour@@8",
+   "address": "007c57d0",
+   "bytes": 13,
+   "kind": "rtti",
+   "section": 180
+  },
+  {
+   "symbol": "??_R3?$ValueGameOption@E@WorldDominationTour@@8",
+   "address": "007c57e0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 181
+  },
+  {
+   "symbol": "??_R4?$ValueGameOption@E@WorldDominationTour@@6B@",
+   "address": "007c57f0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 183
+  },
+  {
+   "symbol": "??_R0?AVrc_ptr_base@@@8",
+   "address": "007ddac8",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 61
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VWDTTerritory@@@@@8",
+   "address": "007ddae8",
+   "bytes": 39,
+   "kind": "rtti",
+   "section": 59
+  },
+  {
+   "symbol": "??_R0?AVReferenceCounted@@@8",
+   "address": "007ee550",
+   "bytes": 31,
+   "kind": "rtti",
+   "section": 76
+  },
+  {
+   "symbol": "??_C@_15MHMA@?$AA?0?$AA?5?$AA?$AA@",
+   "address": "007f6520",
+   "bytes": 6,
+   "kind": "string",
+   "section": 192
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VConflict@WorldDominationTour@@@@@8",
+   "address": "007fb678",
+   "bytes": 55,
+   "kind": "rtti",
+   "section": 66
+  },
+  {
+   "symbol": "??_R0?AVConflict@WorldDominationTour@@@8",
+   "address": "007fb7e8",
+   "bytes": 43,
+   "kind": "rtti",
+   "section": 71
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@8",
+   "address": "007fb818",
+   "bytes": 74,
+   "kind": "rtti",
+   "section": 40
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@8",
+   "address": "007fb868",
+   "bytes": 81,
+   "kind": "rtti",
+   "section": 45
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VGameOption@WorldDominationTour@@@@@8",
+   "address": "007fb8c0",
+   "bytes": 57,
+   "kind": "rtti",
+   "section": 106
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@@8",
+   "address": "007fb900",
+   "bytes": 66,
+   "kind": "rtti",
+   "section": 111
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@@8",
+   "address": "007fb948",
+   "bytes": 61,
+   "kind": "rtti",
+   "section": 101
+  },
+  {
+   "symbol": "??_C@_0N@CKNL@WDT?3NoCrates?$AA@",
+   "address": "007fb988",
+   "bytes": 13,
+   "kind": "string",
+   "section": 113
+  },
+  {
+   "symbol": "??_C@_0L@PNIA@WDT?3Crates?$AA@",
+   "address": "007fb998",
+   "bytes": 11,
+   "kind": "string",
+   "section": 114
+  },
+  {
+   "symbol": "??_C@_0BC@OEOG@WDT?3NoRedeployMCV?$AA@",
+   "address": "007fb9a4",
+   "bytes": 18,
+   "kind": "string",
+   "section": 115
+  },
+  {
+   "symbol": "??_C@_0BE@EAHD@WDT?3RedeployableMCV?$AA@",
+   "address": "007fb9b8",
+   "bytes": 20,
+   "kind": "string",
+   "section": 116
+  },
+  {
+   "symbol": "??_C@_0O@PPNB@WDT?3UnitCount?$AA@",
+   "address": "007fb9cc",
+   "bytes": 14,
+   "kind": "string",
+   "section": 117
+  },
+  {
+   "symbol": "??_C@_0BB@DFIC@WDT?3NotShortGame?$AA@",
+   "address": "007fb9dc",
+   "bytes": 17,
+   "kind": "string",
+   "section": 118
+  },
+  {
+   "symbol": "??_C@_0O@OPME@WDT?3ShortGame?$AA@",
+   "address": "007fb9f0",
+   "bytes": 14,
+   "kind": "string",
+   "section": 119
+  },
+  {
+   "symbol": "??_C@_0M@HOM@WDT?3NoBases?$AA@",
+   "address": "007fba00",
+   "bytes": 12,
+   "kind": "string",
+   "section": 121
+  },
+  {
+   "symbol": "??_C@_09FMPG@WDT?3Bases?$AA@",
+   "address": "007fba0c",
+   "bytes": 10,
+   "kind": "string",
+   "section": 122
+  },
+  {
+   "symbol": "??_C@_0O@KICH@WDT?3TechLevel?$AA@",
+   "address": "007fba18",
+   "bytes": 14,
+   "kind": "string",
+   "section": 125
+  },
+  {
+   "symbol": "??_R0?AV?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@@8",
+   "address": "007fba28",
+   "bytes": 144,
+   "kind": "rtti",
+   "section": 133
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@@8",
+   "address": "007fbab8",
+   "bytes": 64,
+   "kind": "rtti",
+   "section": 153
+  },
+  {
+   "symbol": "??_R0?AVGameOption@WorldDominationTour@@@8",
+   "address": "007fbaf8",
+   "bytes": 45,
+   "kind": "rtti",
+   "section": 177
+  },
+  {
+   "symbol": "??_R0?AV?$ValueGameOption@E@WorldDominationTour@@@8",
+   "address": "007fbb28",
+   "bytes": 54,
+   "kind": "rtti",
+   "section": 182
+  },
+  {
+   "symbol": "??_C@_0BI@NLJD@D?3?2Ra2?2wdtgameoptions?4h?$AA@",
+   "address": "007fbb60",
+   "bytes": 24,
+   "kind": "string",
+   "section": 193
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VWDTTerritory@@@@6B@",
+   "address": "007a4528",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7ReferenceCounted@@6B@",
+   "address": "007a8d10",
+   "bytes": 16,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VConflict@WorldDominationTour@@@@6B@",
+   "address": "007aefe8",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007af068",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7Conflict@WorldDominationTour@@6B@",
+   "address": "007af078",
+   "bytes": 16,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@6B@",
+   "address": "007af0c8",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@6B@",
+   "address": "007af0d0",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@",
+   "address": "007af0d8",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@6B@",
+   "address": "007af0e0",
+   "bytes": 20,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@6B@",
+   "address": "007af0f4",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7GameOption@WorldDominationTour@@6B@",
+   "address": "007af114",
+   "bytes": 24,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@rc_ptr_base@@8",
+   "address": "007bc618",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc630",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc648",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc658",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VWDTTerritory@@@@6B@",
+   "address": "007bc668",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ReferenceCounted@@8",
+   "address": "007c0720",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2ReferenceCounted@@8",
+   "address": "007c0738",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3ReferenceCounted@@8",
+   "address": "007c0740",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4ReferenceCounted@@6B@",
+   "address": "007c0750",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VConflict@WorldDominationTour@@@@8",
+   "address": "007c5390",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VConflict@WorldDominationTour@@@@8",
+   "address": "007c53a8",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VConflict@WorldDominationTour@@@@8",
+   "address": "007c53b8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VConflict@WorldDominationTour@@@@6B@",
+   "address": "007c53c8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@Conflict@WorldDominationTour@@8",
+   "address": "007c54f8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2Conflict@WorldDominationTour@@8",
+   "address": "007c5510",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3Conflict@WorldDominationTour@@8",
+   "address": "007c5520",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4Conflict@WorldDominationTour@@6B@",
+   "address": "007c5530",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@8",
+   "address": "007c5548",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@8",
+   "address": "007c5560",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@8",
+   "address": "007c5578",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@8",
+   "address": "007c5588",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@6B@",
+   "address": "007c5598",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@8",
+   "address": "007c55ac",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@8",
+   "address": "007c55b8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@6B@",
+   "address": "007c55c8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VGameOption@WorldDominationTour@@@@8",
+   "address": "007c55e0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VGameOption@WorldDominationTour@@@@8",
+   "address": "007c55f8",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VGameOption@WorldDominationTour@@@@8",
+   "address": "007c5608",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@",
+   "address": "007c5618",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@8",
+   "address": "007c5630",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@8",
+   "address": "007c5648",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@8",
+   "address": "007c5658",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@6B@",
+   "address": "007c5668",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@8",
+   "address": "007c5680",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@8",
+   "address": "007c5698",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@8",
+   "address": "007c56a8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@6B@",
+   "address": "007c56b8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@8",
+   "address": "007c56d0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@8",
+   "address": "007c56e8",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@8",
+   "address": "007c56f0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@6B@",
+   "address": "007c5700",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@8",
+   "address": "007c5718",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@8",
+   "address": "007c5730",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@8",
+   "address": "007c5740",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@6B@",
+   "address": "007c5750",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2GameOption@WorldDominationTour@@8",
+   "address": "007c5768",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3GameOption@WorldDominationTour@@8",
+   "address": "007c5778",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4GameOption@WorldDominationTour@@6B@",
+   "address": "007c5788",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@GameOption@WorldDominationTour@@8",
+   "address": "007c57a0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$ValueGameOption@E@WorldDominationTour@@8",
+   "address": "007c57b8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$ValueGameOption@E@WorldDominationTour@@8",
+   "address": "007c57d0",
+   "bytes": 13,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$ValueGameOption@E@WorldDominationTour@@8",
+   "address": "007c57e0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$ValueGameOption@E@WorldDominationTour@@6B@",
+   "address": "007c57f0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVrc_ptr_base@@@8",
+   "address": "007ddac8",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VWDTTerritory@@@@@8",
+   "address": "007ddae8",
+   "bytes": 39,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVReferenceCounted@@@8",
+   "address": "007ee550",
+   "bytes": 31,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_15MHMA@?$AA?0?$AA?5?$AA?$AA@",
+   "address": "007f6520",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VConflict@WorldDominationTour@@@@@8",
+   "address": "007fb678",
+   "bytes": 55,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVConflict@WorldDominationTour@@@8",
+   "address": "007fb7e8",
+   "bytes": 43,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@8",
+   "address": "007fb818",
+   "bytes": 74,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@8",
+   "address": "007fb868",
+   "bytes": 81,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VGameOption@WorldDominationTour@@@@@8",
+   "address": "007fb8c0",
+   "bytes": 57,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@@8",
+   "address": "007fb900",
+   "bytes": 66,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@@8",
+   "address": "007fb948",
+   "bytes": 61,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0N@CKNL@WDT?3NoCrates?$AA@",
+   "address": "007fb988",
+   "bytes": 13,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0L@PNIA@WDT?3Crates?$AA@",
+   "address": "007fb998",
+   "bytes": 11,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BC@OEOG@WDT?3NoRedeployMCV?$AA@",
+   "address": "007fb9a4",
+   "bytes": 18,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@EAHD@WDT?3RedeployableMCV?$AA@",
+   "address": "007fb9b8",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@PPNB@WDT?3UnitCount?$AA@",
+   "address": "007fb9cc",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BB@DFIC@WDT?3NotShortGame?$AA@",
+   "address": "007fb9dc",
+   "bytes": 17,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@OPME@WDT?3ShortGame?$AA@",
+   "address": "007fb9f0",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@HOM@WDT?3NoBases?$AA@",
+   "address": "007fba00",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09FMPG@WDT?3Bases?$AA@",
+   "address": "007fba0c",
+   "bytes": 10,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0O@KICH@WDT?3TechLevel?$AA@",
+   "address": "007fba18",
+   "bytes": 14,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@@8",
+   "address": "007fba28",
+   "bytes": 144,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@@8",
+   "address": "007fbab8",
+   "bytes": 64,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVGameOption@WorldDominationTour@@@8",
+   "address": "007fbaf8",
+   "bytes": 45,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$ValueGameOption@E@WorldDominationTour@@@8",
+   "address": "007fbb28",
+   "bytes": 54,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0BI@NLJD@D?3?2Ra2?2wdtgameoptions?4h?$AA@",
+   "address": "007fbb60",
+   "bytes": 24,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00726730",
+   "symbol": "?unknown_7273f0@Conflict@WorldDominationTour@@QBEHXZ",
+   "target": "007273f0",
+   "function_entry": true
+  },
+  {
+   "site": "0072ed80",
+   "symbol": "?unknown_7273f0@Conflict@WorldDominationTour@@QBEHXZ",
+   "target": "007273f0",
+   "function_entry": true
+  },
+  {
+   "site": "0072ed80",
+   "symbol": "?Describe_Options@Conflict@WorldDominationTour@@QBE?AVWideString@@XZ",
+   "target": "00727960",
+   "function_entry": true
+  },
+  {
+   "site": "00725f40",
+   "symbol": "?Create@Conflict@WorldDominationTour@@SI?AV?$rc_ptr@VConflict@WorldDominationTour@@@@ABV?$rc_ptr@VWDTTerritory@@@@@Z",
+   "target": "007272f0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0WideString@@QAE@ABV0@@Z",
+   "address": "0076fa10"
+  },
+  {
+   "symbol": "??0WideString@@QAE@PBG@Z",
+   "address": "0076f9c0"
+  },
+  {
+   "symbol": "??0WideString@@QAE@XZ",
+   "address": "0076f9b0"
+  },
+  {
+   "symbol": "??0Wstring@@QAE@ABV0@@Z",
+   "address": "0076d980"
+  },
+  {
+   "symbol": "??0Wstring@@QAE@PBD@Z",
+   "address": "0076d920"
+  },
+  {
+   "symbol": "??0rc_ptr_base@@QAE@XZ",
+   "address": "006394e0"
+  },
+  {
+   "symbol": "??1GameOption@WorldDominationTour@@UAE@XZ",
+   "address": "00728670"
+  },
+  {
+   "symbol": "??1ReferenceCounted@@UAE@XZ",
+   "address": "00639710"
+  },
+  {
+   "symbol": "??1WideString@@QAE@XZ",
+   "address": "0076fa50"
+  },
+  {
+   "symbol": "??1Wstring@@QAE@XZ",
+   "address": "0076d9e0"
+  },
+  {
+   "symbol": "??1rc_ptr_base@@UAE@XZ",
+   "address": "00639510"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??4WideString@@QAEAAV0@ABV0@@Z",
+   "address": "0076fbd0"
+  },
+  {
+   "symbol": "??H@YI?AVWideString@@ABV0@0@Z",
+   "address": "00771460"
+  },
+  {
+   "symbol": "??HWideString@@QBE?AV0@PBG@Z",
+   "address": "0076fed0"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_GReferenceCounted@@UAEPAXI@Z",
+   "address": "00639750"
+  },
+  {
+   "symbol": "?Create@FlagGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@HVWstring@@H0H@Z",
+   "address": "007287d0"
+  },
+  {
+   "symbol": "?Create@MapSizeGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@H@Z",
+   "address": "00728a60"
+  },
+  {
+   "symbol": "?Get@WideString@@QBEPBGXZ",
+   "address": "007703f0"
+  },
+  {
+   "symbol": "?Is_Forced@GameOption@WorldDominationTour@@QBE_NABV?$rc_ptr@VWDTTerritory@@@@@Z",
+   "address": "00728680"
+  },
+  {
+   "symbol": "?Length@WideString@@QBEIXZ",
+   "address": "007704a0"
+  },
+  {
+   "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
+   "address": "006f9ec0"
+  },
+  {
+   "symbol": "?Peek_Buffer@Wstring@@QBEPBDXZ",
+   "address": "0076e730"
+  },
+  {
+   "symbol": "?Release@ReferenceCounted@@UAEXXZ",
+   "address": "00639720"
+  },
+  {
+   "symbol": "?Set@rc_ptr_base@@QAEXPAVReferenceCounted@@@Z",
+   "address": "00639530"
+  },
+  {
+   "symbol": "?Wstring_From_Integer@@YI?AVWstring@@H@Z",
+   "address": "0076f580"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_slot1@ReferenceCounted@@UAE_NH@Z",
+   "address": "00639740"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__purecall",
+   "address": "004b8960"
+  },
+  {
+   "symbol": "_atexit",
+   "address": "0078298a"
+  },
+  {
+   "symbol": "_swprintf",
+   "address": "00783764"
+  }
+ ],
+ "route": "A",
+ "unit": "wdtconflict.cpp",
+ "form": "one include block",
+ "switches": [
+  "RA2_VECTOR_UNSIGNED_INDEX",
+  "VECTOR_IMPLEMENT_ALL"
+ ],
+ "include_blocks": [
+  {
+   "before": "00727100",
+   "lines": 6
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "00727b90",
+   "bytes": 43,
+   "population": "population-2187",
+   "bound": "own frozen bound (population-2187)"
+  },
+  {
+   "entry": "00727be0",
+   "bytes": 47,
+   "population": "population-2187",
+   "bound": "own frozen bound (population-2187)"
+  },
+  {
+   "entry": "00727f50",
+   "bytes": 70,
+   "population": "population-2187",
+   "bound": "own frozen bound (population-2187)"
+  },
+  {
+   "entry": "00727fa0",
+   "bytes": 282,
+   "population": "population-2187",
+   "bound": "own frozen bound (population-2187)"
+  },
+  {
+   "entry": "007280c0",
+   "bytes": 40,
+   "population": "population-2187",
+   "bound": "own frozen bound (population-2187)"
+  },
+  {
+   "entry": "00728150",
+   "bytes": 285,
+   "population": "population-2187",
+   "bound": "own frozen bound (population-2187)"
+  },
+  {
+   "entry": "007282d0",
+   "bytes": 42,
+   "population": "population-2187",
+   "bound": "own frozen bound (population-2187)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "00727bc0",
+   "bytes": 27,
+   "population": "population-1622",
+   "source": "src/recovered/classes/DynamicVectorClass_rc_ptr_WorldDominationTour__GameOption/ID.cpp",
+   "cause": "held by population-1622; not joined: not emitted by the unit's own use of its lists"
+  }
+ ],
+ "unit_functions": 62,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@6B@",
+   "reason": "relocation target unbound: ??_E?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEPAXI@Z"
+  },
+  {
+   "symbol": "??_7?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@6B@",
+   "reason": "relocation target unbound: ??_E?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEPAXI@Z"
+  },
+  {
+   "symbol": "??_7?$ValueGameOption@E@WorldDominationTour@@6B@",
+   "reason": "relocation target unbound: ??_E?$ValueGameOption@E@WorldDominationTour@@UAEPAXI@Z"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 1,
+  "bytes": 27
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

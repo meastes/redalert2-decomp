@@ -1,0 +1,1276 @@
+{
+ "module": "rocket2",
+ "source": "src/recovered/rocket2.cpp",
+ "header": null,
+ "population": "population-4237",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 918,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "0063ed70",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "0063eda0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "0063edc0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "0063ede0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "0063ee00",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "0063ee20",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "0063ee40",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "0063ee80",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "0063eeb0",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "0063eee0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "0063ef10",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "0063ef20",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "0063ef40",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E43",
+   "entry": "0063ef60",
+   "body_bytes": 71,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E41",
+   "entry": "0063efb0",
+   "body_bytes": 135,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??0OwnerTalkClass@@QAE@XZ",
+   "entry": "0063f040",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "??1OwnerTalkClass@@QAE@XZ",
+   "entry": "0063f0c0",
+   "body_bytes": 106,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Unknown_0063F130@OwnerTalkClass@@QAE_NXZ",
+   "entry": "0063f130",
+   "body_bytes": 362,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Unknown_0063F2A0@OwnerTalkClass@@QAEXXZ",
+   "entry": "0063f2a0",
+   "body_bytes": 392,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Unknown_0063F430@OwnerTalkClass@@QAEEPAVIPXAddressClass@@@Z",
+   "entry": "0063f430",
+   "body_bytes": 130,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Unknown_0063F4C0@OwnerTalkClass@@QAEEH@Z",
+   "entry": "0063f4c0",
+   "body_bytes": 75,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Unknown_0063F510@OwnerTalkClass@@QAE_NPAE@Z",
+   "entry": "0063f510",
+   "body_bytes": 816,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Unknown_0063F840@OwnerTalkClass@@QAEXXZ",
+   "entry": "0063f840",
+   "body_bytes": 337,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Unknown_0063F9A0@OwnerTalkClass@@QAEXHPAVIPXAddressClass@@@Z",
+   "entry": "0063f9a0",
+   "body_bytes": 90,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Unknown_0063FA00@OwnerTalkClass@@QAEPAVIPXAddressClass@@PAD@Z",
+   "entry": "0063fa00",
+   "body_bytes": 210,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E70",
+   "entry": "0063fae0",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Unknown_0063FAF0@OwnerTalkClass@@QAEGPAD@Z",
+   "entry": "0063faf0",
+   "body_bytes": 72,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Name_From_Index@OwnerTalkClass@@QAEPADH@Z",
+   "entry": "0063fb40",
+   "body_bytes": 26,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Unknown_0063FB60@OwnerTalkClass@@QAEXHG@Z",
+   "entry": "0063fb60",
+   "body_bytes": 62,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Unknown_0063FBA0@OwnerTalkClass@@QAEHXZ",
+   "entry": "0063fba0",
+   "body_bytes": 238,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Unknown_0063FC90@OwnerTalkClass@@QAEXXZ",
+   "entry": "0063fc90",
+   "body_bytes": 209,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Unknown_0063FE20@OwnerTalkClass@@QAEXH@Z",
+   "entry": "0063fe20",
+   "body_bytes": 135,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Unknown_0063FEB0@OwnerTalkClass@@QAEXE@Z",
+   "entry": "0063feb0",
+   "body_bytes": 96,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?get@Leaf_6401d0@@QAEPAXI@Z",
+   "entry": "006401d0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?get@Leaf_640220@@QAEPAXI@Z",
+   "entry": "00640220",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  }
+ ],
+ "code_bytes": 4416,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a8fd8",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@6B@",
+   "address": "007a8fe8",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 47
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@6B@",
+   "address": "007a9008",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 53
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@8",
+   "address": "007c08c8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 41
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@8",
+   "address": "007c08e0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 42
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@8",
+   "address": "007c08f8",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 43
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@8",
+   "address": "007c0908",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@6B@",
+   "address": "007c0918",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 46
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@8",
+   "address": "007c092c",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 50
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@8",
+   "address": "007c0938",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 51
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@6B@",
+   "address": "007c0948",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 52
+  },
+  {
+   "symbol": "??_C@_07MIIF@mph?4exe?$AA@",
+   "address": "007ee844",
+   "bytes": 8,
+   "kind": "string",
+   "section": 74
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@@8",
+   "address": "007ee850",
+   "bytes": 69,
+   "kind": "rtti",
+   "section": 40
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@@8",
+   "address": "007ee898",
+   "bytes": 76,
+   "kind": "rtti",
+   "section": 45
+  },
+  {
+   "symbol": "??_C@_0BM@HCDL@Player?5list?5sent?5to?5router?6?$AA@",
+   "address": "007ee8e4",
+   "bytes": 28,
+   "kind": "string",
+   "section": 60
+  },
+  {
+   "symbol": "??_C@_0BP@EEBL@Marking?5player?5?$CFs?5as?5inactive?6?$AA@",
+   "address": "007ee900",
+   "bytes": 31,
+   "kind": "string",
+   "section": 61
+  },
+  {
+   "symbol": "??_C@_0CM@JMGI@About?5to?5send?5master?5player?5list@",
+   "address": "007ee920",
+   "bytes": 44,
+   "kind": "string",
+   "section": 62
+  },
+  {
+   "symbol": "??_C@_0CB@DHAE@Received?5TALK_HELLO?5from?5router?6@",
+   "address": "007ee94c",
+   "bytes": 33,
+   "kind": "string",
+   "section": 71
+  },
+  {
+   "symbol": "??_C@_0BF@JMCB@hRouterProcess?5?$DN?5?$CFd?6?$AA@",
+   "address": "007ee970",
+   "bytes": 21,
+   "kind": "string",
+   "section": 72
+  },
+  {
+   "symbol": "??_C@_0CI@MNDF@CreateProcess?5failed?5with?5error?5@",
+   "address": "007ee988",
+   "bytes": 40,
+   "kind": "string",
+   "section": 73
+  },
+  {
+   "symbol": "??_C@_0CL@PLML@Session?4PacketRouterAddressTrans@",
+   "address": "007ee9b0",
+   "bytes": 43,
+   "kind": "string",
+   "section": 75
+  },
+  {
+   "symbol": "??_C@_0BE@IBDL@mph?4exe?5?$CFd?4?$CFd?4?$CFd?4?$CFd?$AA@",
+   "address": "007ee9dc",
+   "bytes": 20,
+   "kind": "string",
+   "section": 76
+  },
+  {
+   "symbol": "??_C@_0CA@NNHN@Starting?5packet?5router?5process?6?$AA@",
+   "address": "007ee9f0",
+   "bytes": 32,
+   "kind": "string",
+   "section": 77
+  },
+  {
+   "symbol": "??_C@_0CK@FLJL@Received?5change?5of?5address?5notif@",
+   "address": "007eea10",
+   "bytes": 42,
+   "kind": "string",
+   "section": 80
+  },
+  {
+   "symbol": "??_C@_0CJ@FEPD@Got?5spurious?5message?5?$CFd?5from?5the@",
+   "address": "007eea3c",
+   "bytes": 41,
+   "kind": "string",
+   "section": 81
+  },
+  {
+   "symbol": "??_C@_0CG@MPLL@Sending?5TALK_REMOVE_PLAYER?5to?5ro@",
+   "address": "007eeb18",
+   "bytes": 38,
+   "kind": "string",
+   "section": 100
+  },
+  {
+   "symbol": "??_C@_0CD@FAPD@Sending?5TALK_PORT_BLITZ?5to?5route@",
+   "address": "007eeb40",
+   "bytes": 35,
+   "kind": "string",
+   "section": 103
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a8fd8",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@6B@",
+   "address": "007a8fe8",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@6B@",
+   "address": "007a9008",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@8",
+   "address": "007c08c8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@8",
+   "address": "007c08e0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@8",
+   "address": "007c08f8",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@8",
+   "address": "007c0908",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@6B@",
+   "address": "007c0918",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@8",
+   "address": "007c092c",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@8",
+   "address": "007c0938",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@6B@",
+   "address": "007c0948",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_07MIIF@mph?4exe?$AA@",
+   "address": "007ee844",
+   "bytes": 8,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@@8",
+   "address": "007ee850",
+   "bytes": 69,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@@8",
+   "address": "007ee898",
+   "bytes": 76,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_0BM@HCDL@Player?5list?5sent?5to?5router?6?$AA@",
+   "address": "007ee8e4",
+   "bytes": 28,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BP@EEBL@Marking?5player?5?$CFs?5as?5inactive?6?$AA@",
+   "address": "007ee900",
+   "bytes": 31,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CM@JMGI@About?5to?5send?5master?5player?5list@",
+   "address": "007ee920",
+   "bytes": 44,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CB@DHAE@Received?5TALK_HELLO?5from?5router?6@",
+   "address": "007ee94c",
+   "bytes": 33,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BF@JMCB@hRouterProcess?5?$DN?5?$CFd?6?$AA@",
+   "address": "007ee970",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CI@MNDF@CreateProcess?5failed?5with?5error?5@",
+   "address": "007ee988",
+   "bytes": 40,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CL@PLML@Session?4PacketRouterAddressTrans@",
+   "address": "007ee9b0",
+   "bytes": 43,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@IBDL@mph?4exe?5?$CFd?4?$CFd?4?$CFd?4?$CFd?$AA@",
+   "address": "007ee9dc",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CA@NNHN@Starting?5packet?5router?5process?6?$AA@",
+   "address": "007ee9f0",
+   "bytes": 32,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CK@FLJL@Received?5change?5of?5address?5notif@",
+   "address": "007eea10",
+   "bytes": 42,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CJ@FEPD@Got?5spurious?5message?5?$CFd?5from?5the@",
+   "address": "007eea3c",
+   "bytes": 41,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CG@MPLL@Sending?5TALK_REMOVE_PLAYER?5to?5ro@",
+   "address": "007eeb18",
+   "bytes": 38,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CD@FAPD@Sending?5TALK_PORT_BLITZ?5to?5route@",
+   "address": "007eeb40",
+   "bytes": 35,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0051b5f0",
+   "symbol": "?Unknown_0063F4C0@OwnerTalkClass@@QAEEH@Z",
+   "target": "0063f4c0",
+   "function_entry": true
+  },
+  {
+   "site": "005a5720",
+   "symbol": "?Unknown_0063FC90@OwnerTalkClass@@QAEXXZ",
+   "target": "0063fc90",
+   "function_entry": true
+  },
+  {
+   "site": "00524b50",
+   "symbol": "?Unknown_0063F4C0@OwnerTalkClass@@QAEEH@Z",
+   "target": "0063f4c0",
+   "function_entry": true
+  },
+  {
+   "site": "0062e840",
+   "symbol": "?Name_From_Index@OwnerTalkClass@@QAEPADH@Z",
+   "target": "0063fb40",
+   "function_entry": true
+  },
+  {
+   "site": "0062e840",
+   "symbol": "?Unknown_0063FA00@OwnerTalkClass@@QAEPAVIPXAddressClass@@PAD@Z",
+   "target": "0063fa00",
+   "function_entry": true
+  },
+  {
+   "site": "0062e840",
+   "symbol": "?Unknown_0063FAF0@OwnerTalkClass@@QAEGPAD@Z",
+   "target": "0063faf0",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?Unknown_0063FE20@OwnerTalkClass@@QAEXH@Z",
+   "target": "0063fe20",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?Unknown_0063F9A0@OwnerTalkClass@@QAEXHPAVIPXAddressClass@@@Z",
+   "target": "0063f9a0",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?Unknown_0063FBA0@OwnerTalkClass@@QAEHXZ",
+   "target": "0063fba0",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?Unknown_0063F130@OwnerTalkClass@@QAE_NXZ",
+   "target": "0063f130",
+   "function_entry": true
+  },
+  {
+   "site": "0066ee50",
+   "symbol": "?Unknown_0063F2A0@OwnerTalkClass@@QAEXXZ",
+   "target": "0063f2a0",
+   "function_entry": true
+  },
+  {
+   "site": "0066ee50",
+   "symbol": "?Unknown_0063F510@OwnerTalkClass@@QAE_NPAE@Z",
+   "target": "0063f510",
+   "function_entry": true
+  },
+  {
+   "site": "0066ee50",
+   "symbol": "?Unknown_0063F130@OwnerTalkClass@@QAE_NXZ",
+   "target": "0063f130",
+   "function_entry": true
+  },
+  {
+   "site": "00523d90",
+   "symbol": "?Unknown_0063F4C0@OwnerTalkClass@@QAEEH@Z",
+   "target": "0063f4c0",
+   "function_entry": true
+  },
+  {
+   "site": "0053f780",
+   "symbol": "?Unknown_0063FC90@OwnerTalkClass@@QAEXXZ",
+   "target": "0063fc90",
+   "function_entry": true
+  },
+  {
+   "site": "0053f840",
+   "symbol": "?Unknown_0063FC90@OwnerTalkClass@@QAEXXZ",
+   "target": "0063fc90",
+   "function_entry": true
+  },
+  {
+   "site": "00540c20",
+   "symbol": "?Unknown_0063F4C0@OwnerTalkClass@@QAEEH@Z",
+   "target": "0063f4c0",
+   "function_entry": true
+  },
+  {
+   "site": "005bb5d0",
+   "symbol": "?Unknown_0063FE20@OwnerTalkClass@@QAEXH@Z",
+   "target": "0063fe20",
+   "function_entry": true
+  },
+  {
+   "site": "005bb5d0",
+   "symbol": "?Unknown_0063FBA0@OwnerTalkClass@@QAEHXZ",
+   "target": "0063fba0",
+   "function_entry": true
+  },
+  {
+   "site": "005bb5d0",
+   "symbol": "?Unknown_0063F130@OwnerTalkClass@@QAE_NXZ",
+   "target": "0063f130",
+   "function_entry": true
+  },
+  {
+   "site": "005bb5d0",
+   "symbol": "?Unknown_0063FE20@OwnerTalkClass@@QAEXH@Z",
+   "target": "0063fe20",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "?Unknown_0063FA00@OwnerTalkClass@@QAEPAVIPXAddressClass@@PAD@Z",
+   "target": "0063fa00",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "?Unknown_0063F4C0@OwnerTalkClass@@QAEEH@Z",
+   "target": "0063f4c0",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "?Unknown_0063F4C0@OwnerTalkClass@@QAEEH@Z",
+   "target": "0063f4c0",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Unknown_0063FC90@OwnerTalkClass@@QAEXXZ",
+   "target": "0063fc90",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0EventClass@@QAE@HPAVIPXAddressClass@@E@Z",
+   "address": "004b6560"
+  },
+  {
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "address": "00523410"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??BSystemTimerClass@@QBEJXZ",
+   "address": "0069a430"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@UAEPAXI@Z",
+   "address": "00640220"
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@UAEPAXI@Z",
+   "address": "006401d0"
+  },
+  {
+   "symbol": "?Am_I_Master@SessionClass@@QAE_NPAVHouseClass@@@Z",
+   "address": "0066f150"
+  },
+  {
+   "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
+   "address": "00523840"
+  },
+  {
+   "symbol": "?Connection_Index@IPXManagerClass@@UAEHH@Z",
+   "address": "00525780"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Frame@@3HA",
+   "address": "00a40d2c"
+  },
+  {
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "address": "00523500"
+  },
+  {
+   "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+   "address": "00a32298"
+  },
+  {
+   "symbol": "?Is_Broadcast@IPXAddressClass@@QAEHXZ",
+   "address": "00523560"
+  },
+  {
+   "symbol": "?MainWindow@@3PAUHWND__@@A",
+   "address": "00b263d8"
+  },
+  {
+   "symbol": "?OutList@@3V?$QueueClass@VEventClass@@$0IA@@@A",
+   "address": "00a32338"
+  },
+  {
+   "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
+   "address": "00839c50"
+  },
+  {
+   "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
+   "address": "00481fb0"
+  },
+  {
+   "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+   "address": "00523480"
+  },
+  {
+   "symbol": "?Set_Node@IPXAddressClass@@QAEXQAE@Z",
+   "address": "00523540"
+  },
+  {
+   "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
+   "address": "00523960"
+  },
+  {
+   "symbol": "?Unknown_004F52F0@HouseClass@@QAE_NXZ",
+   "address": "004f52f0"
+  },
+  {
+   "symbol": "?Wide_To_Narrow_006fa120@@YIPADPBG@Z",
+   "address": "006fa120"
+  },
+  {
+   "symbol": "?unknown_525b50@IPXManagerClass@@QAEHPAXH_N@Z",
+   "address": "00525b50"
+  },
+  {
+   "symbol": "?unknown_525bc0@IPXManagerClass@@QAEHPAXPAHPAVIPXAddressClass@@PAG@Z",
+   "address": "00525bc0"
+  },
+  {
+   "symbol": "?unknown_forward_address_a3fbac@@3VIPXAddressClass@@A",
+   "address": "00a3fbac"
+  },
+  {
+   "symbol": "?unknown_forward_address_a3fbb8@@3VIPXAddressClass@@A",
+   "address": "00a3fbb8"
+  },
+  {
+   "symbol": "?unknown_ipx_manager_a40978@@3VIPXManagerClass@@A",
+   "address": "00a40978"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_node_ids_a402ba@@3PAGA",
+   "address": "00a402ba"
+  },
+  {
+   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
+   "address": "00a35db4"
+  },
+  {
+   "symbol": "?unknown_session_a3d298@@3USessionClass@@A",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_slot20@IPXManagerClass@@UAEHXZ",
+   "address": "00526a80"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__CreateProcessA@40",
+   "address": "0079a1a4"
+  },
+  {
+   "symbol": "__imp__GetLastError@0",
+   "address": "0079a1f4"
+  },
+  {
+   "symbol": "__imp__GetStartupInfoA@4",
+   "address": "0079a254"
+  },
+  {
+   "symbol": "__imp__SetFocus@4",
+   "address": "0079a38c"
+  },
+  {
+   "symbol": "__imp__timeGetTime@0",
+   "address": "0079a524"
+  },
+  {
+   "symbol": "__stricmp",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "_atexit",
+   "address": "0078298a"
+  },
+  {
+   "symbol": "_release_buffer_6401d0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_buffer_640220",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_6401d0",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_640220",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_sprintf",
+   "address": "007820f4"
+  },
+  {
+   "symbol": "_strncpy",
+   "address": "007823d0"
+  },
+  {
+   "symbol": "_vtable_6401d0",
+   "address": "007a900c"
+  },
+  {
+   "symbol": "_vtable_640220",
+   "address": "007a900c"
+  }
+ ],
+ "route": "A",
+ "unit": "rocket2.cpp",
+ "form": "include blocks held",
+ "switches": [
+  "VECTOR_IMPLEMENT_ALL",
+  "IPX_ADDRESS_DESTRUCTOR"
+ ],
+ "include_blocks": [],
+ "held_rows": [
+  {
+   "entry": "0063ef60",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "0063efb0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "0063f040",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "0063f0c0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "0063f130",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "0063f2a0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "0063f430",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "0063f4c0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "0063f510",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "0063f9a0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "0063fa00",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "0063faf0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "0063fb60",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "0063fba0",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "0063fe20",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  }
+ ],
+ "joined": [
+  {
+   "entry": "0063fb40",
+   "bytes": 26,
+   "population": "population-42",
+   "bound": "own frozen bound (population-42)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "006401d0",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00640220",
+   "bytes": 73,
+   "population": "population-12",
+   "bound": "own frozen bound (population-12)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "0063f070",
+   "bytes": 76,
+   "population": "population-3353",
+   "source": "src/recovered/rocket2/OwnerTalkClass_Reset.cpp",
+   "cause": "frozen in another population's inventory pass (population-3353)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063fd70",
+   "bytes": 171,
+   "population": "population-2215",
+   "source": "src/recovered/rocket2/OwnerTalkClass_Wait_For_Router_Shutdown.cpp",
+   "cause": "frozen in another population's inventory pass (population-2215)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063ff10",
+   "bytes": 42,
+   "population": "population-1622",
+   "source": "src/recovered/classes/DynamicVectorClass_OwnerTalkClass__ConnectionListStruct_ptr/Clear.cpp",
+   "cause": "frozen in another population's inventory pass (population-1622)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063ff40",
+   "bytes": 27,
+   "population": "population-1622",
+   "source": "src/recovered/classes/DynamicVectorClass_OwnerTalkClass__ConnectionListStruct_ptr/DynamicVectorClass_OwnerTalkClass__ConnectionListStruct_ptr_ID_pointer_0063ff40.cpp",
+   "cause": "frozen in another population's inventory pass (population-1622)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063ff60",
+   "bytes": 13,
+   "population": "population-1622",
+   "source": "src/recovered/classes/VectorClass_OwnerTalkClass__ConnectionListStruct_ptr/Fetch.cpp",
+   "cause": "frozen in another population's inventory pass (population-1622)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063ff70",
+   "bytes": 62,
+   "population": "population-1622",
+   "source": "src/recovered/classes/VectorClass_OwnerTalkClass__ConnectionListStruct_ptr/operator_equal.cpp",
+   "cause": "frozen in another population's inventory pass (population-1622)"
+  },
+  {
+   "kind": "split",
+   "entry": "0063ffb0",
+   "bytes": 174,
+   "population": "population-1622",
+   "source": "src/recovered/classes/VectorClass_OwnerTalkClass__ConnectionListStruct_ptr/Resize.cpp",
+   "cause": "frozen in another population's inventory pass (population-1622)"
+  },
+  {
+   "kind": "split",
+   "entry": "00640060",
+   "bytes": 39,
+   "population": "population-1622",
+   "source": "src/recovered/classes/VectorClass_OwnerTalkClass__ConnectionListStruct_ptr/Clear.cpp",
+   "cause": "frozen in another population's inventory pass (population-1622)"
+  },
+  {
+   "kind": "split",
+   "entry": "00640090",
+   "bytes": 51,
+   "population": "population-1622",
+   "source": "src/recovered/classes/VectorClass_OwnerTalkClass__ConnectionListStruct_ptr/VectorClass_OwnerTalkClass__ConnectionListStruct_ptr_ID_object_00640090.cpp",
+   "cause": "frozen in another population's inventory pass (population-1622)"
+  },
+  {
+   "kind": "split",
+   "entry": "006400d0",
+   "bytes": 27,
+   "population": "population-1622",
+   "source": "src/recovered/classes/VectorClass_OwnerTalkClass__ConnectionListStruct_ptr/VectorClass_OwnerTalkClass__ConnectionListStruct_ptr_ID_pointer_006400d0.cpp",
+   "cause": "frozen in another population's inventory pass (population-1622)"
+  },
+  {
+   "kind": "split",
+   "entry": "006400f0",
+   "bytes": 176,
+   "population": "population-1622",
+   "source": "src/recovered/classes/DynamicVectorClass_OwnerTalkClass__ConnectionListStruct_ptr/Resize.cpp",
+   "cause": "frozen in another population's inventory pass (population-1622)"
+  },
+  {
+   "kind": "split",
+   "entry": "006401a0",
+   "bytes": 38,
+   "population": "population-1622",
+   "source": "src/recovered/classes/DynamicVectorClass_OwnerTalkClass__ConnectionListStruct_ptr/DynamicVectorClass_OwnerTalkClass__ConnectionListStruct_ptr_ID_object_006401a0.cpp",
+   "cause": "frozen in another population's inventory pass (population-1622)"
+  }
+ ],
+ "unit_functions": 48,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 12,
+  "bytes": 896
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

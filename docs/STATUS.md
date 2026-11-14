@@ -11,23 +11,36 @@ original code is still scaffold. Per-batch evidence through A15 is in
 | Measure | Value |
 | --- | ---: |
 | **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + evidenced inline asm + frozen padding + linked library members + assembled handwritten asm; 100% when done) | **3,523,208 of 3,769,805 (93.46%)** |
-| Judgment-call bytes (accepted rows resting on a flagged, unprovable choice: count_calibrated, split_declaration; read from the manifest) | 29,093 in 9 regions (0.77% of .text) |
+| Judgment-call bytes (accepted rows resting on a flagged, unprovable choice: count_calibrated, split_declaration, declarations_only; read from the manifest) | 29,167 in 10 regions (0.77% of .text) |
 | Accepted regions | 17,905 |
 | Matched C/C++ body bytes | 3,271,575 (86.78% of .text) |
 | Count-calibrated C/C++ bytes (rows whose named locals were chosen by count calibration under the user's three conditions, 2026-11-09; own category, included in the matched C/C++ bytes above) | 14,606 in 7 regions (0.39% of .text) |
 | Evidenced inline assembly body bytes (cited TibSun `__asm`; own category beside library code, not C/C++ credit) | 2,514 (0.07% of .text) |
 | Frozen padding bytes | 142,993 |
-| Module form (sources in original translation-unit form, no addresses; manifests/original_target/modules/) | 29 module(s): 253 functions, 25,104 code bytes; **1,583 data bytes compiler-emitted and proven at their original addresses** in 40 sections, 750 bytes of vtable/RTTI copies kept elsewhere; 38 header gaps (withheld template details, modules.json header_gaps; no bytes) in 17 module(s); own ledger, no .text credit (b64pipe, b64straw, base64, blowpipe, blwstraw, buff, buffer, category, ccfile, cdfile, cstraw, facing, gadget, ipxaddr, lzo1x_c, lzo1x_d, milsectmr, mpu, pipe, radio, random, rawfile, rle, shapebtn, shapipe, shastraw, straw, swizzle, version) |
+| Module form (sources in original translation-unit form, no addresses; manifests/original_target/modules/) | 405 module(s): 15,011 functions, 3,156,674 code bytes; **2,086 data bytes compiler-emitted and proven at their original addresses** in 43 sections, 343,086 bytes of vtable/RTTI copies kept elsewhere; 38 header gaps (withheld template details, modules.json header_gaps; no bytes) in 17 module(s); own ledger, no .text credit (_command, _isotile, _logic, _map, _mixfile, _palette, _rect, _rtti, _rules, _warhead, abstract, abstype, abuffer, ahandle, ahandle2, aircraft, airctype, aitrig, alphalighting, alphashp, anim, animfile, animtype, app, astar, audattr, audbag, audcache, audchanl, auddev, audevent, audio, audlists, audplay, audsrc, audstrm, audtimer, b64pipe, b64straw, bar, base, base64, beacon, bench, bfiofile, bfiofile2, bitfont, bittext, blight, blit, blowfish, blowpipe, blwstraw, bomb, bounce, brain, buff, buffer, building, builtype, bullet, bullettype, campaign, campscor, cargo, carry, category, ccfile, ccini, cctooltip, cd, cdcntrl, cdfile, cell, checkbox, cheklist, colrlist, combat, combuf, combuf2, connect, conquer, const, control, convert, coopcamp, coord, copyprotection, counter, cpoint, crate, crc, crcpipe, crcstraw, credits, cstraw, cstream, data, ddraw, delay, dial8, dialog, dib, diskswap, display, draw, drive, drop, droppod, dropship, drv_dsnd, dsurface, ebolt, edit, effects, emember, empulse, enviro, event, facing, factory, fastmath, field, findpath2, fly, fog, foot, fuse, gadget, gamedlg, gametime, gauge, gdlgsupp, getcd, getcpu, globals, goptions, grphmenu, grphmenu2, grphmimg, grphmitm, grphmsct, gscreen, hicolor, house, houstype, hover, hsv, infantry, infatype, ini, init, interpal, intro, ion, ionblast, ipxaddr, ipxconn, ipxgconn, ipxmgr, isotile, isotype, jshell, jumpjet, kamikaze, keyboard, laser, layer, lcwpipe, lcwstraw, ldprgmgr, light, lightcalc, lightcon, link, link2, list, loaddlg, loco, logic, lzo1x_c, lzo1x_d, lzopipe, lzostraw, mainloop, mainopt, map, mapgen, mapsel, matrix3d, mech, milsectmr, missile, mission, mixfile, modemgst, modemhst, modemreg, motlib, mouse, movie, movies, mpcoop, mpfreeforall, mplayer, mpmath, mpobserver, mpscore, mpsiege, mpsiegeteam, mpu, mpunholyalliance, msanim, mschoice, msengine, msfont, msgbox, msglist, mstimer, multiplayer, multiplayerteam, multiplayerteam2, netdlg, netdlg2, netshare, nullconn, nulldlg, nullmgr, object, objtype, options, overlay, overtype, ovrlight, ownrdraw, packet, palette, parasite, particle, partsys, phoneed, pipe, pixelfx, pk, pkpipe, pkstraw, planmgr, polygon, power, preview, progress, psystype, ptype, quat, queue, radar, radbeam, radio, ramfile, random, rawfile, rc_ptr_base, readline, reinf, restate, revent, rgb, rle, rndstraw, rocket, rocket2, rules, saveload, savever, scenario, scheme, score, script, scroll, serialed, session, sha, shapebtn, shapipe, shastraw, ship, side, sidebar, skirmish, slider, smartdeform, smudge, smudtype, sounddlg, spawnmanager, special, sprite, srfcache, startup, statbtn, stats, stbuffer, stimer, stlscore, storage, straw, subtitle, super, suprtype, swizzle, tab, tactical, taction, tag, tagtype, target, taskforc, team, teamtype, techno, techtype, teleport, temporal, terrain, terrtype, tevent, textbtn, theme, tiberium, tmission, toggle, tooltip, tracker, trigger, trigtype, trim, tube, tunnel, txtlabel, txtlabel2, uicmnds, uicmnds2, unit, unittype, unvqtblc, utracker, vanim, vanimtype, vector, vein, version, veteran, voc, volinfo, vox, voxdrsys, voxel, voxlib, voxpal, vqa, vqalib_audio, vqalib_buffer_, vqalib_drawer, vqalib_dstream, vqalib_loader, vqalib_task, vqalib_timer, vqalib_unvq, vqalib_unvqtran, vqoption, walk, warhead, wave, waypoint, wdtcampaign, wdtconflict, wdtgameoptions, wdthistory, wdtmap, wdtnet, wdtprops, wdtsel, wdtstate, wdtterr, wdtvoice, weapon, wincomm, windlg, winfix, winstub, wolpersonainformation, wolpersonainformation2, wonline, worlddom, writepcx, wspipx, wsproto, wspudp, wstring, wwmous, wwmouse, xpipe, xstraw, xsurface, zbuffer) |
+| Route A units (one source per original translation unit under its own header state, refile_unit.py; part of the Module form line) | 376 unit(s): 14,758 functions, 3,131,570 code bytes; residual rows in their own files: **split 1,368 rows, 119,930 bytes** (held by another frozen population; the known ceiling of what joining can still move), **flipped 15 rows, 1,367 bytes** (not exact when moved), kept by rule 13 rows, 4,078 bytes; 686 per-unit switches kept; 6,002 stand-in references from other units. Split rows by cause (read from each row's file and its holding population, no compile): template members 334 rows, 29,004 bytes (the file sets a container implementation switch such as VECTOR_IMPLEMENT_* or instantiates a template); needs another unit's header state 332 rows, 37,715 bytes (another switch, another include or ghidra_types.hpp); stand-ins 96 rows, 12,825 bytes (placeholder-form rows); emitted by another source 352 rows, 13,509 bytes (comment-only files: an inline constructor, dynamic initialiser or compiler-generated destructor another source emits; moves only with its emitter); held by a population that compiles each source alone 92 rows, 7,323 bytes (the holding population compiles each source alone); other option set 88 rows, 9,039 bytes (compiled under another option set than the unit's group); the unit's own second population 47 rows, 9,104 bytes (every row of the holding population is this unit's: a second compile group a join would empty); no bound in the unit's frozen pass 24 rows, 1,064 bytes (a mixed population; the unit's frozen inventory pass gives no equal bound); not yet classified 3 rows, 347 bytes (nothing in the text or the holding population decides). |
+| Rows bound by their own frozen population (joined into a unit's translation unit; bound, gap padding and provenance from `bound_population`'s pass) | 2,875 rows, 186,580 bytes, 132 donor populations |
+| Rows joined under the unit's /GR (frozen without /GR; every RTTI structure the unit emits still proven at its original address; manifest note "joined under the unit's /GR") / under the unit's options (frozen under another option set; the unit's set evidenced by its own rows; manifest note "joined under the unit's options (frozen under X)") | /GR: 942 rows, 60,331 bytes, 139 units; options: 2 rows, 153 bytes, 1 units |
+| Address-named source files remaining (collision / seed name; rename_files.py) | 1,615 files: collision 252, seed name 1,335, not yet renamed 0, other 28 (no unit or folder spelling, not one accepted row) |
+| Files depending on VECTOR_DECLARATIONS_ONLY (container members left undefined; per file, no bytes counted) | 4 (Constructor.cpp, Resize.cpp, gamedlg.cpp, ownrdraw.cpp) |
+| Data bound by enclosed section layout (flag data_bound_by: layout; the split into declarations is a hypothesis) | 20 symbols in 1 source(s); 404 bytes in the proven sections that hold them |
+| Data bound by bss elimination (flag data_bound_by: elimination; earns nothing by itself) | 1 symbols in 1 source(s) |
+| Generated data modules (tracked generator, no original bytes in the repository; each proven at build time as one whole block at its original addresses; not C/C++ credit) | 1 module(s), 155,712 bytes; 1 flagged constant(s) (fastmath_tables) |
 | C runtime / library bytes (.text >= 0x781000; library ledger, not source credit) | 87,989 (2.33% of .text; 110 matched) |
 | Linked library bytes (identified archive members built from the pinned SP3 LIBCMT/COMSUPP and VC98 import libraries; manifests/original_target/library.json; not source credit) | 89,127 in 899 sections (2.36% of .text) |
 | Handwritten assembly reproduced from adopted TibSun .asm sources (manifests/original_target/assembly.json; own ledger) | 16,999 in 51 procedures |
 | Handwritten blitter/codec assembly bytes (9 owner-ruled ranges plus evidenced inline asm; own ledger) | 23,156 (0.61% of .text) |
 | In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) | 3,271,465 of 3,515,691 (93.05%) |
-| In-scope functions matched (game code below 0x781000, handwritten ranges and known false rows excluded) | 17,887 of 17,987 (99.44%) |
-| Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 93 of 100 scored) | 98.92% by bytes, 99.85% per function |
+| In-scope functions matched (game code below 0x781000, handwritten ranges and known false rows excluded) | 17,887 of 17,984 (99.46%) |
+| Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 93 of 97 scored) | 98.92% by bytes, 99.87% per function |
+| In-scope functions with source (exact or draft: accepted rows plus non-exact drafts in source) | 17,981 of 17,984 (99.98%) |
+| Non-exact drafts in source (#ifdef RA2_NON_MATCHING, manifests/original_target/non_exact.json; never compiled by the exact build; no .text credit) | 99 functions, 182,656 bytes, mean score 68.03 |
 | Original .text scaffold bytes | 246,597 |
 | Logical .text bytes | 3,769,805 |
-| Compiler populations | 697 |
+| Compiler populations | 619 |
+| Compile path (build environment, with the pinned VC6 SP3 8447 compiler; docs/ORIGINAL_TARGET_BUILD.md "Fixed compile folder") | `<drive>:\private\tmp\ra2c\XXXXXXXX\gNNNN\accepted.cpp; /I <drive>:\private\tmp\ra2c\XXXXXXXX\src; TMP <drive>:\private\tmp\ra2c\XXXXXXXX\tmp-N` |
+| Populations under /GR (docs/DECISIONS.md "/GR per population") | 342 of 619 |
+| Non-code bytes proven at their original addresses (module maps, deduplicated by address; not .text credit) | 223,706 of 711,662 file-backed (31.4%); RTTI 76,027, vtables 36,972, strings 93,887; 14 class hierarchy descriptor(s) differ from the original only in the ambiguous bit (known difference; the attributes word is not counted) |
 
 Manifest history (body bytes added per commit, and per hour since the previous commit):
 
@@ -2396,6 +2409,549 @@ Manifest history (body bytes added per commit, and per hour since the previous c
 | `401d927f2` | 2026-11-11 18:46 -0600 | 17,905 | 3,271,575 | +0 | 0 |
 | `d0bb3cd81` | 2026-11-11 19:01 -0600 | 17,905 | 3,271,575 | +0 | 0 |
 | `09dfb6518` | 2026-11-11 19:15 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `89263278d` | 2026-11-11 19:38 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `3a5e362d9` | 2026-11-11 22:18 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `39d820fc3` | 2026-11-11 22:18 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `418f6355a` | 2026-11-11 22:37 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `82e732359` | 2026-11-11 22:44 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `7e564a3c4` | 2026-11-11 22:53 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `80db6c9cc` | 2026-11-11 22:53 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `f74ac1659` | 2026-11-11 22:53 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `3ce6dbff8` | 2026-11-11 22:53 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `23a3e3797` | 2026-11-11 22:53 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `7efc21beb` | 2026-11-11 23:18 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `1c1913327` | 2026-11-11 23:18 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `73315b4dd` | 2026-11-11 23:18 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `3c751c328` | 2026-11-11 23:52 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `4f506864c` | 2026-11-11 23:52 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `dafdfd433` | 2026-11-11 23:52 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `b058ca7cd` | 2026-11-12 00:08 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `29bd49150` | 2026-11-12 00:08 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `9cd744abf` | 2026-11-12 00:08 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `1e068d3a4` | 2026-11-12 00:08 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `1b18e7739` | 2026-11-12 00:08 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `78d133ea0` | 2026-11-12 00:08 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `87a07f2b9` | 2026-11-12 00:08 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `6055b8ffb` | 2026-11-12 00:30 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `e61b8fd8f` | 2026-11-12 00:30 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `fa2683c7c` | 2026-11-12 00:30 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `28b847e92` | 2026-11-12 00:39 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `c51b3b4c8` | 2026-11-12 00:39 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `2d1d9bae0` | 2026-11-12 00:39 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `5df3cbd80` | 2026-11-12 00:39 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `d63cb5f6f` | 2026-11-12 00:39 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `271a055ce` | 2026-11-12 00:39 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `0b19f9991` | 2026-11-12 00:39 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `fdcf3ed2f` | 2026-11-12 00:56 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `061c95beb` | 2026-11-12 00:56 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `9ac88fa6e` | 2026-11-12 01:19 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `90cf9b4a1` | 2026-11-12 01:19 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `7e4013fa1` | 2026-11-12 01:19 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `f374db157` | 2026-11-12 01:19 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `1e5bbd8d0` | 2026-11-12 01:19 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `a0cc27621` | 2026-11-12 01:19 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `ef68aa923` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `f37938f47` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `67bfb8ec8` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `215b39475` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `161f4ca1f` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `b4b93cb97` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `a74b68f20` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `c9375d1cc` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `59cc4aa2e` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `85a153605` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `2b55d3a61` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `804273165` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `010fe9241` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `b951f644e` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `f1b17e0cd` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `9efca9301` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `1df01c92d` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `1c077f624` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `76f683f96` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `6e0ee8342` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `da0115461` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `27292d207` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `7cfea35b3` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `1984c0ecb` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `fca42354e` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `5c23c0e34` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `0d9345bfa` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `4e7ceed1f` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `faf638d5e` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `63ad1554d` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `b9d4e8b73` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `bc6c0b0d4` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `48038630d` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `6131306b9` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `a57ae4540` | 2026-11-12 03:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `0f61f71cf` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `9dd8b56e7` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `d7a63418b` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `5e7dee630` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `416f45f15` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `3ecf5949c` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `b24389724` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `6680620d6` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `45192b042` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `2d2c44e60` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `0127b83ab` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `072cb4b11` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `2e43cebd2` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `42b266bd0` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `e194d0774` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `73f5e85d8` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `4cb71ccac` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `62a59d61c` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `6472e5d42` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `2c565ee5d` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `90ac58860` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `3b04e4477` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `e18b75197` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `9324c7c62` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `96f98cb85` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `ec002152f` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `24390fee7` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `94ada538e` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `ef7907ec1` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `55af835e6` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `523e14524` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `19f822472` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `7af91b7e0` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `b37ce026b` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `587fbce9b` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `ba65524e2` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `465f0ecd6` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `af47e6c1e` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `751250128` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `fc73e4ccd` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `3fee14a8c` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `9e67fb64a` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `a2da7d89d` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `519a94dbd` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `d13a2bbf2` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `a46d2d3bc` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `737eb5e28` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `0ae6f1fe0` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `be1817e34` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `2e5fa05c8` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `2950b7999` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `bde236147` | 2026-11-12 03:32 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `60875c2ca` | 2026-11-12 03:51 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `55d08ee12` | 2026-11-12 03:51 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `1b3a50b3e` | 2026-11-12 03:51 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `46c8259f6` | 2026-11-12 03:51 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `0c7479e4e` | 2026-11-12 03:51 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `c394d95c1` | 2026-11-12 03:51 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `4a7191d9d` | 2026-11-12 03:51 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `4bafebdad` | 2026-11-12 03:51 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `7f861d2c3` | 2026-11-12 03:51 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `4f2747bd7` | 2026-11-12 03:51 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `5f0501905` | 2026-11-12 04:03 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `067c8ebb2` | 2026-11-12 04:03 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `271f34e1d` | 2026-11-12 04:03 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `fc38b35e6` | 2026-11-12 04:03 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `6bac69b37` | 2026-11-12 04:03 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `929e37a76` | 2026-11-12 04:03 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `5842cceb2` | 2026-11-12 04:31 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `35270f6d9` | 2026-11-12 04:31 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `5004a52c7` | 2026-11-12 04:31 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `1a2e016d0` | 2026-11-12 04:31 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `f1ecfe50f` | 2026-11-12 04:31 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `e7caeefb8` | 2026-11-12 04:31 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `f39462801` | 2026-11-12 04:31 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `9bd1ff6b2` | 2026-11-12 04:31 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `ee4aad602` | 2026-11-12 04:31 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `474a7603f` | 2026-11-12 04:31 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `5f1b9fbde` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `789d5bea5` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `5ad136b73` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `98f3bd16d` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `f446d9498` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `67ddf7cb2` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `d3067037d` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `eb7f0cb2f` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `e7ef159c3` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `eb28d1ec4` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `d194597cf` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `7c11d77f5` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `cde2b7043` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `e1a02895a` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `259a6c6e5` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `458156786` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `dc9683e41` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `2f8aa3c0f` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `acf48076d` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `b675a04ac` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `3e201e9f3` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `d60426dc1` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `27b8e7525` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `018359a90` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `ed6743c18` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `ffc39ae8c` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `11d999a9a` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `11a18fe41` | 2026-11-12 04:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `7c3f398cb` | 2026-11-12 05:16 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `2b6636c4f` | 2026-11-12 05:16 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `79f35dfb6` | 2026-11-12 05:16 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `f7c91d4d3` | 2026-11-12 05:16 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `d589a9e44` | 2026-11-12 05:16 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `5e039bcb2` | 2026-11-12 05:16 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `8bb1f0e91` | 2026-11-12 05:16 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `fb4b0ec0f` | 2026-11-12 05:16 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `a1cfae427` | 2026-11-12 05:16 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `5494f5399` | 2026-11-12 05:16 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `e122cc356` | 2026-11-12 05:16 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `7d14fed67` | 2026-11-12 05:16 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `f6997d4bc` | 2026-11-12 05:16 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `de829d2ae` | 2026-11-12 05:16 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `6390715a1` | 2026-11-12 05:16 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `e7bfaa3e3` | 2026-11-12 05:29 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `7fcae77da` | 2026-11-12 05:29 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `ae89eec1e` | 2026-11-12 05:29 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `f9fbfbea0` | 2026-11-12 05:29 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `7ee873579` | 2026-11-12 05:29 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `8573cbaaf` | 2026-11-12 05:29 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `52393968b` | 2026-11-12 05:59 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `f37a3c8b9` | 2026-11-12 05:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `58b776f85` | 2026-11-12 05:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `519fa8c17` | 2026-11-12 05:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `e3c549fa4` | 2026-11-12 05:59 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `c30a6e086` | 2026-11-12 05:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `4583fc725` | 2026-11-12 05:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `45d578200` | 2026-11-12 05:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `b838d9b5e` | 2026-11-12 05:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `82feb551f` | 2026-11-12 05:59 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `12d93104b` | 2026-11-12 06:15 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `8e24a8c8d` | 2026-11-12 06:15 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `06c6261dc` | 2026-11-12 06:15 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `d0411133c` | 2026-11-12 06:15 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `0cddd76cd` | 2026-11-12 06:15 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `2549f1d31` | 2026-11-12 06:33 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `08db1e866` | 2026-11-12 06:33 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `2bc7e6e85` | 2026-11-12 06:33 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `0f35f23ff` | 2026-11-12 06:33 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `7e5a61431` | 2026-11-12 06:33 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `66d6d379a` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `428cdf3a0` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `59148cd0f` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `b9362b552` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `082bd374a` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `70d721617` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `5acfaab48` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `fbb7f1c7d` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `518878ac2` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `d1fbcd33d` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `7df461161` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `a39e3d441` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `444df63e8` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `d95ac8a7b` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `2dd030067` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `ad5f77cb2` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `479f96dc9` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `edd13e3d2` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `144652db8` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `74642df8c` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `0d503b638` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `dc461e3dc` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `afbe6cd75` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `e26d4a3fa` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `07de22155` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `0a2cf9582` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `b45099c9a` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `5ecb90f22` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `5e2f73382` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `a1509f510` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `1c72fc440` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `3fccc2f30` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `66a396561` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `9fe40e46d` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `233a6c824` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `069e5bbe1` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `1f85cfe7b` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `39b9452fd` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `c146cc427` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `14670f4e7` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `ffb40b377` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `460c755a8` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `87d1dafec` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `54711fd21` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `870b980a8` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `d002db2d6` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `03c86d38f` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `56bd3b460` | 2026-11-12 06:48 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `7dc3e424f` | 2026-11-12 07:08 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `cd7a3c86b` | 2026-11-12 07:08 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `e03b3ecc2` | 2026-11-12 07:08 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `b34b9efca` | 2026-11-12 07:08 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `b9409e75d` | 2026-11-12 07:08 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `6215056be` | 2026-11-12 07:08 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `b5fed89d7` | 2026-11-12 07:08 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `82e681659` | 2026-11-12 07:08 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `c89ae0b71` | 2026-11-12 07:08 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `6a6a10f02` | 2026-11-12 07:08 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `22b505466` | 2026-11-12 07:08 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `5789d7cc7` | 2026-11-12 07:30 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `3c770c542` | 2026-11-12 07:30 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `38d7e1e12` | 2026-11-12 07:30 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `e00af66c5` | 2026-11-12 07:30 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `41bd59688` | 2026-11-12 07:30 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `f07e163cb` | 2026-11-12 07:30 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `f8c95f961` | 2026-11-12 07:30 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `5db987fea` | 2026-11-12 07:30 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `1a1576599` | 2026-11-12 07:30 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `e5b419e92` | 2026-11-12 07:30 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `29d381769` | 2026-11-12 07:30 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `5fcb00f9f` | 2026-11-12 07:30 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `1301ad500` | 2026-11-12 07:30 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `e9557ba84` | 2026-11-12 07:42 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `5af289f99` | 2026-11-12 07:42 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `dfe5543cd` | 2026-11-12 07:42 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `f96dc8eba` | 2026-11-12 07:42 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `b8c53bdc9` | 2026-11-12 07:42 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `0fd313344` | 2026-11-12 07:42 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `3feea4835` | 2026-11-12 07:42 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `2efb14572` | 2026-11-12 07:42 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `62c74e5e7` | 2026-11-12 07:42 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `e4cb4e8d9` | 2026-11-12 07:42 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `75895e278` | 2026-11-12 07:42 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `4b3c2aafa` | 2026-11-12 07:57 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `ea114b4b8` | 2026-11-12 07:57 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `06a90b4d7` | 2026-11-12 07:57 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `4e8fdbb7f` | 2026-11-12 07:57 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `82d2b7f1c` | 2026-11-12 07:57 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `1718aa64f` | 2026-11-12 08:06 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `cb3747723` | 2026-11-12 08:06 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `44bcb8f5f` | 2026-11-12 08:06 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `9c521bf46` | 2026-11-12 08:06 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `dfef4fc88` | 2026-11-12 08:06 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `10b3a1ed4` | 2026-11-12 08:06 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `4570fe60f` | 2026-11-12 08:06 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `14a3011de` | 2026-11-12 08:06 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `80c590fcd` | 2026-11-12 08:06 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `61af9984b` | 2026-11-12 08:06 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `df0a5cd57` | 2026-11-12 08:06 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `ce313114e` | 2026-11-12 08:06 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `c642385b8` | 2026-11-12 08:17 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `258313bcb` | 2026-11-12 08:17 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `7a0edb628` | 2026-11-12 08:17 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `df0ed5d03` | 2026-11-12 08:17 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `0093dd9d8` | 2026-11-12 08:17 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `58fc8b8e2` | 2026-11-12 08:31 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `a9f9d4b94` | 2026-11-12 08:31 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `085f88d42` | 2026-11-12 08:31 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `6a26f7413` | 2026-11-12 08:31 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `944897375` | 2026-11-12 08:31 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `9cc12d21b` | 2026-11-12 08:40 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `96a68f453` | 2026-11-12 08:40 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `27efaac8d` | 2026-11-12 08:40 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `1efa943ae` | 2026-11-12 08:40 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `6f3d6c15d` | 2026-11-12 08:40 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `7e4430638` | 2026-11-12 08:40 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `3f0bf34b4` | 2026-11-12 08:40 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `9a66be559` | 2026-11-12 08:40 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `d1c3c17b0` | 2026-11-12 08:40 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `45cfe678b` | 2026-11-12 08:40 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `89d57302d` | 2026-11-12 08:40 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `fb3826137` | 2026-11-12 08:40 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `574354a7e` | 2026-11-12 08:55 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `d43eebd93` | 2026-11-12 08:55 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `213973feb` | 2026-11-12 08:55 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `7181f2f5a` | 2026-11-12 08:55 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `903b0d10f` | 2026-11-12 08:55 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `ff16e5384` | 2026-11-12 09:03 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `a1429777c` | 2026-11-12 09:03 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `01454a935` | 2026-11-12 09:04 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `8d037c9a7` | 2026-11-12 09:04 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `65ab5f422` | 2026-11-12 09:04 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `4c780f691` | 2026-11-12 09:04 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `6581a0631` | 2026-11-12 09:04 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `d08d2ce85` | 2026-11-12 09:04 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `13870af43` | 2026-11-12 09:04 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `6af681618` | 2026-11-12 09:04 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `d3c79f741` | 2026-11-12 09:04 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `aaf488c76` | 2026-11-12 09:13 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `2e331bd0a` | 2026-11-12 09:13 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `0ad3269f4` | 2026-11-12 09:13 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `8ca9a8439` | 2026-11-12 09:13 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `d3670c41d` | 2026-11-12 09:14 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `675420525` | 2026-11-12 09:14 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `905381be6` | 2026-11-12 09:14 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `e7823bcbf` | 2026-11-12 09:14 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `38f0e9075` | 2026-11-12 09:14 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `3cc229b2a` | 2026-11-12 09:14 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `745159aaf` | 2026-11-12 09:27 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `d683b85eb` | 2026-11-12 09:27 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `c240be5d9` | 2026-11-12 09:27 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `460e5c007` | 2026-11-12 09:27 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `a4a3c27dc` | 2026-11-12 09:27 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `be364af88` | 2026-11-12 09:27 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `d4e47d5e6` | 2026-11-12 09:27 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `c8927d430` | 2026-11-12 09:27 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `71fda3366` | 2026-11-12 09:27 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `705001355` | 2026-11-12 09:27 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `a24fe7f91` | 2026-11-12 09:39 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `860fe0144` | 2026-11-12 09:39 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `8535901be` | 2026-11-12 09:39 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `2ad4fc855` | 2026-11-12 09:39 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `9df216015` | 2026-11-12 09:39 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `68bb7388e` | 2026-11-12 09:50 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `e52554673` | 2026-11-12 09:50 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `7facb3f97` | 2026-11-12 09:50 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `d16a00166` | 2026-11-12 09:50 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `87038d12d` | 2026-11-12 09:50 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `e85b3fd8f` | 2026-11-12 09:50 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `6d6598511` | 2026-11-12 09:50 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `0b3291185` | 2026-11-12 09:50 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `95af9ed55` | 2026-11-12 09:50 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `cb66605c0` | 2026-11-12 10:07 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `3fe912783` | 2026-11-12 10:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `68371888c` | 2026-11-12 10:07 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `5000f83d0` | 2026-11-12 10:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `c798c277a` | 2026-11-12 10:07 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `828c3e0c5` | 2026-11-12 10:17 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `148e4176e` | 2026-11-12 10:17 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `f32cc1624` | 2026-11-12 10:17 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `8ed1e262a` | 2026-11-12 10:17 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `01c494e8b` | 2026-11-12 10:17 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `09cf1c67f` | 2026-11-12 10:26 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `525d548e2` | 2026-11-12 10:26 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `78b6cc7bf` | 2026-11-12 10:26 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `fb2514c32` | 2026-11-12 10:26 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `49aef0012` | 2026-11-12 10:26 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `548d8234f` | 2026-11-12 10:26 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `f9d104086` | 2026-11-12 10:26 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `6bd774add` | 2026-11-12 10:26 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `b4600bddb` | 2026-11-12 10:26 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `c4dec4845` | 2026-11-12 10:42 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `a31db97e3` | 2026-11-12 10:42 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `3935b49c2` | 2026-11-12 10:42 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `b4037bd15` | 2026-11-12 10:42 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `644929f5a` | 2026-11-12 10:42 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `790360a55` | 2026-11-12 10:42 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `e9d0ff736` | 2026-11-12 10:42 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `7d5ddf961` | 2026-11-12 10:42 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `be44ed1e2` | 2026-11-12 10:42 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `56707c428` | 2026-11-12 10:42 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `d3bd6a798` | 2026-11-12 10:56 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `122e66af4` | 2026-11-12 10:56 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `f81234e5f` | 2026-11-12 10:56 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `05f0463ce` | 2026-11-12 10:56 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `8b5e3a9a6` | 2026-11-12 10:56 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `cea10ca4d` | 2026-11-12 10:56 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `8b67a1eea` | 2026-11-12 11:05 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `5a41fe289` | 2026-11-12 11:05 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `4e5d52a82` | 2026-11-12 11:05 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `4ba243101` | 2026-11-12 11:05 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `c701d9119` | 2026-11-12 11:05 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `4d1066576` | 2026-11-12 11:05 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `41bf6e8c2` | 2026-11-12 11:05 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `a5e725407` | 2026-11-12 11:05 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `b0c088e0d` | 2026-11-12 11:05 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `0399d22ed` | 2026-11-12 11:05 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `b16725009` | 2026-11-12 11:14 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `144fb489b` | 2026-11-12 11:14 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `31ec57698` | 2026-11-12 11:14 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `62609e9ca` | 2026-11-12 11:14 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `0102125a4` | 2026-11-12 11:14 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `7d639d74d` | 2026-11-12 11:28 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `dd58efb5d` | 2026-11-12 11:28 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `1b25f1c69` | 2026-11-12 11:28 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `f535f989b` | 2026-11-12 11:28 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `249355c21` | 2026-11-12 11:28 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `591b28166` | 2026-11-12 11:28 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `1c2020a0b` | 2026-11-12 11:28 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `f64fb0b4e` | 2026-11-12 11:28 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `c41657c4b` | 2026-11-12 11:28 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `ef15a5028` | 2026-11-12 11:40 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `f223417a9` | 2026-11-12 11:40 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `4e5d28005` | 2026-11-12 11:40 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `63657365d` | 2026-11-12 11:40 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `27b61d1b0` | 2026-11-12 11:49 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `fae0c51a4` | 2026-11-12 11:56 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `5d13ed4b4` | 2026-11-12 12:58 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `bea9ae1b0` | 2026-11-12 12:58 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `0e03d39b5` | 2026-11-12 12:58 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `2a9b95694` | 2026-11-12 12:58 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `8adb4c64c` | 2026-11-12 13:15 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `e89060496` | 2026-11-12 13:15 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `18587f6f7` | 2026-11-12 13:15 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `e87377196` | 2026-11-12 14:24 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `ec3d50b72` | 2026-11-12 15:25 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `4695653f1` | 2026-11-12 15:41 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `6d3aa02e7` | 2026-11-12 16:39 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `0f9f52d03` | 2026-11-12 17:10 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `c30d45f86` | 2026-11-12 17:35 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `9d5710c53` | 2026-11-12 18:49 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `18f393726` | 2026-11-12 18:59 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `c9a48112a` | 2026-11-12 19:11 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `bd109482e` | 2026-11-12 19:58 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `78f7eecf2` | 2026-11-12 20:11 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `0db5c6866` | 2026-11-12 20:26 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `5a6c27faa` | 2026-11-12 20:35 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `0ca549bbf` | 2026-11-12 21:01 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `35b5779b4` | 2026-11-12 21:39 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `4915c3ee3` | 2026-11-12 22:15 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `d0e004d7b` | 2026-11-12 23:19 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `2d28a94e1` | 2026-11-12 23:19 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `3bac800b9` | 2026-11-13 00:14 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `6eccb7815` | 2026-11-13 00:16 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `4cfd624d0` | 2026-11-13 00:18 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `a620ed5c6` | 2026-11-13 00:21 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `78c550f0a` | 2026-11-13 00:23 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `a842cd542` | 2026-11-13 00:25 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `18aa79dda` | 2026-11-13 00:28 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `ae65e9e88` | 2026-11-13 00:30 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `4d8554249` | 2026-11-13 03:27 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `c25851952` | 2026-11-13 03:27 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `356056bd5` | 2026-11-13 04:05 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `035c06c00` | 2026-11-13 04:30 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `7d390138e` | 2026-11-13 04:46 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `fbf96dab9` | 2026-11-13 05:07 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `7f8def052` | 2026-11-13 05:10 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `38741fc2c` | 2026-11-13 05:16 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `fef3d36bb` | 2026-11-13 05:19 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `5992f1ab2` | 2026-11-13 05:45 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `281c3f71b` | 2026-11-13 06:06 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `edf8dd8a0` | 2026-11-13 06:53 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `a9aaf1b54` | 2026-11-13 06:53 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `47e05bbd3` | 2026-11-13 07:09 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `b0e19ac2c` | 2026-11-13 07:27 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `1396ccf8a` | 2026-11-13 08:16 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `571064965` | 2026-11-13 08:50 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `a5b67762f` | 2026-11-13 09:16 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `51bac5b45` | 2026-11-13 09:57 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `e8daeb6a8` | 2026-11-13 10:03 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `8266bedc3` | 2026-11-13 10:05 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `3498bb795` | 2026-11-13 10:10 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `7757479b9` | 2026-11-13 10:13 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `a195b1215` | 2026-11-13 10:31 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `63212984a` | 2026-11-13 10:39 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `622c5c95f` | 2026-11-13 10:45 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `58b01c21e` | 2026-11-13 10:57 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `b99007f21` | 2026-11-13 11:05 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `354b800ce` | 2026-11-13 11:16 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `1e9f1b4ed` | 2026-11-13 11:26 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `2a3ff9bf4` | 2026-11-13 11:39 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `a897af1b4` | 2026-11-13 11:54 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `38ed21271` | 2026-11-13 13:08 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `b4a8fc4bd` | 2026-11-13 13:12 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `cf77b4e94` | 2026-11-13 13:34 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `a7ade0bd7` | 2026-11-13 14:15 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `51156dc78` | 2026-11-13 14:15 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `5e33bb598` | 2026-11-13 14:15 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `fb72c225f` | 2026-11-13 14:15 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `25000d038` | 2026-11-13 14:15 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `b6e8a3bb8` | 2026-11-13 14:15 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `59979df37` | 2026-11-13 14:49 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `ef98a6ece` | 2026-11-13 14:49 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `fd35174c8` | 2026-11-13 14:49 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `0a98d896e` | 2026-11-13 15:27 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `a82fa4e9f` | 2026-11-13 15:27 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `a6b81649a` | 2026-11-13 15:27 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `be735980f` | 2026-11-13 15:27 -0600 | 17,905 | 3,271,575 | +0 | 0 |
+| `4adb06327` | 2026-11-13 15:27 -0600 | 17,905 | 3,271,575 | +0 |  |
+| `cad6acf7f` | 2026-11-13 15:27 -0600 | 17,905 | 3,271,575 | +0 | 0 |
 
 <!-- /generated:status -->
 

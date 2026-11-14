@@ -40,9 +40,9 @@ public:
     void Draw_Sub_Title(SubTitle const *subtitle);         // 0x0069B500
 #endif
     ~VQAMovieCompanion();                                  // 0x0069B2A0
-    void Unknown_0069B4F0(int unknown);                    // 0x0069B4F0
-    void Unknown_0069B4E0();                               // 0x0069B4E0
-    bool Unknown_0069B420(int time);                       // 0x0069B420 (Bink frame * interval)
+    void SetCallback_0069b4f0(int unknown);                    // 0x0069B4F0
+    void Reset_0069b4e0();                               // 0x0069B4E0
+    bool Process_0069b420(int time);                       // 0x0069B420 (Bink frame * interval)
 
 #ifdef VQA_MOVIE_COMPANION_UNIT
     DynamicVectorClass<SubTitle *> *SubTitles;             // +0x00 the movie's subtitles

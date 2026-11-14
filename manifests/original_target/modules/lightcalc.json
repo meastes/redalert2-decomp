@@ -1,0 +1,165 @@
+{
+ "module": "lightcalc",
+ "source": "src/recovered/lightcalc.cpp",
+ "header": null,
+ "population": "population-4095",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 888,
+ "code": [
+  {
+   "symbol": "?get@Leaf_5383a0@@QAEXXZ",
+   "entry": "005383a0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Adjust_Tile_RGB@@YIXAAH0000@Z",
+   "entry": "005383c0",
+   "body_bytes": 474,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Unknown_Quantize_Color_005385a0@@YIXPAH00@Z",
+   "entry": "005385a0",
+   "body_bytes": 194,
+   "padding_bytes": 14
+  }
+ ],
+ "code_bytes": 720,
+ "data": [
+  {
+   "symbol": "__real@8@3ff583126e978d4fe000",
+   "address": "0079c528",
+   "bytes": 8,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "__real@8@400f8000000000000000",
+   "address": "007a55c0",
+   "bytes": 8,
+   "kind": "table",
+   "section": 4
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@3ff583126e978d4fe000",
+   "address": "0079c528",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@400f8000000000000000",
+   "address": "007a55c0",
+   "bytes": 8,
+   "kind": "table"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "004790f0",
+   "symbol": "?Clamp_Tile_RGB@@YIXAAH00@Z",
+   "target": "005385a0",
+   "function_entry": true
+  },
+  {
+   "site": "00479310",
+   "symbol": "?Clamp_Tile_RGB@@YIXAAH00@Z",
+   "target": "005385a0",
+   "function_entry": true
+  },
+  {
+   "site": "00479440",
+   "symbol": "?Adjust_Tile_RGB@@YIXAAH0000@Z",
+   "target": "005383c0",
+   "function_entry": true
+  },
+  {
+   "site": "00529590",
+   "symbol": "?Clamp_Tile_RGB@@YIXAAH00@Z",
+   "target": "005385a0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "?unknown_a40b2c@@3HA",
+   "address": "00a40b2c"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  }
+ ],
+ "route": "A",
+ "unit": "lightcalc.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "005383c0",
+   "lines": 1
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "005383a0",
+   "bytes": 23,
+   "population": "population-09",
+   "bound": "own frozen bound (population-09)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [],
+ "unit_functions": 3,
+ "data_unproven": [],
+ "stand_in_references": [
+  {
+   "site": "004790f0",
+   "target": "005385a0",
+   "symbol": "?Clamp_Tile_RGB@@YIXAAH00@Z",
+   "module_symbol": "?Unknown_Quantize_Color_005385a0@@YIXPAH00@Z"
+  },
+  {
+   "site": "00479310",
+   "target": "005385a0",
+   "symbol": "?Clamp_Tile_RGB@@YIXAAH00@Z",
+   "module_symbol": "?Unknown_Quantize_Color_005385a0@@YIXPAH00@Z"
+  },
+  {
+   "site": "00529590",
+   "target": "005385a0",
+   "symbol": "?Clamp_Tile_RGB@@YIXAAH00@Z",
+   "module_symbol": "?Unknown_Quantize_Color_005385a0@@YIXPAH00@Z"
+  }
+ ],
+ "stand_in_reference_count": 3,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

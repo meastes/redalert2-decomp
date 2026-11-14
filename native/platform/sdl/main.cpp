@@ -11,7 +11,12 @@
 // RA2_DATA_DIR); nothing from it is built in.
 #include <SDL3/SDL.h>
 // On iOS SDL's own main starts UIKit and calls this file's main (as SDL_main) on
-// the main thread; elsewhere main stays the program's entry (Scout1247).
+// the main thread; elsewhere main stays the program's entry (Scout1247). On
+// Windows SDL would supply WinMain, the recovered game's own entry point: main
+// stays the entry there too.
+#ifdef _WIN32
+#define SDL_MAIN_HANDLED 1
+#endif
 #include <SDL3/SDL_main.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -84,7 +89,20 @@ void save_app_settings()
     app_settings.values["fullscreen"] = ra2_sdl_host_fullscreen() ? "1" : "0";
     app_settings.save();
 }
+// The enhancements' settings (platform/sdl/enhancements.cpp): enh_* keys of this file,
+// never RA2.INI.
+std::string enhancement_get(const char *key) { return app_settings.get(key); }
+void enhancement_set(const char *key, const char *value)
+{
+    app_settings.values[key] = value;
+    app_settings.save();
 }
+}
+#endif
+#ifdef RA2_NATIVE_GAME
+#include <string>
+extern "C" int ra2_enh_sidebar_height(int screen_height);   // platform/sdl/enhancements.cpp
+void ra2_enhancements_store(std::string (*get)(const char *), void (*set)(const char *, const char *));
 #endif
 
 int main(int argc, char **argv)
@@ -226,6 +244,7 @@ int main(int argc, char **argv)
             fprintf(stderr, "app: writes go to %s\n", game_writes.c_str());
         }
         ra2_sdl_host_options(true, app_settings.get("fullscreen") == "1", save_app_settings);
+        ra2_enhancements_store(enhancement_get, enhancement_set);
         atexit(save_app_settings);
         if (hostos::imports_game_files() && app_window) {
             // The touch app (Scout1248): the in-game resolution from the usable part of the
@@ -247,9 +266,49 @@ int main(int argc, char **argv)
             }
             int gw = 0, gh = 0;
             app::game_resolution(r.w, r.h, scale, gw, gh);
+            // Game interface size (enhancements, C3): a sidebar column shown larger than the
+            // map takes more of the width, so the game's width gives that back (never below 800).
+            {
+                int sidebar = ra2_enh_sidebar_height(gh);
+                if (sidebar > 0 && sidebar < gh) {
+                    double ratio = (double)gh / sidebar;
+                    int narrower = ((int)(gw - 168 * (ratio - 1) + 0.5)) & ~7;
+                    gw = narrower < 800 ? 800 : narrower;
+                }
+            }
             fprintf(stderr, "app: usable %.0fx%.0f points (window %dx%d), scale %g\n", r.w, r.h, ww, wh, scale);
             app::set_ini_resolution(ra2port::write_dir() ? ra2port::write_dir() : app::game_write_dir().c_str(), folder, gw, gh);
             ra2_sdl_host_touch_options(scale, save_ui_scale, 180);
+            // Resume at start (lane I): the system ended the app in the background after a
+            // checkpoint (host.cpp's marker). Offer it once; Resume goes through the menus to
+            // the load (ra2port::request_resume). RA2_NATIVE_RESUME_ANSWER=resume|menu
+            // answers for tests.
+            std::string marker = hostos::settings_dir() + "/resume.pending";
+            std::string checkpoint = std::string(ra2port::write_dir() ? ra2port::write_dir() : app::game_write_dir().c_str()) + "/CHECKPT.SAV";
+            FILE *found = fopen(marker.c_str(), "r");
+            if (found) {
+                fclose(found);
+                remove(marker.c_str());
+                FILE *save = fopen(checkpoint.c_str(), "rb");
+                if (save) {
+                    fclose(save);
+                    int answer = 0;
+                    if (const char *a = getenv("RA2_NATIVE_RESUME_ANSWER")) {
+                        answer = !strcmp(a, "resume") ? 1 : 0;
+                    } else {
+                        const SDL_MessageBoxButtonData buttons[] = {
+                            {SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT, 0, "Main Menu"},
+                            {SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT, 1, "Resume"},
+                        };
+                        const SDL_MessageBoxData box = {SDL_MESSAGEBOX_INFORMATION, app_window, "Resume your game?",
+                            "Red Alert 2 was closed while a game was running. Resume from the checkpoint saved then?",
+                            2, buttons, nullptr};
+                        if (!SDL_ShowMessageBox(&box, &answer)) answer = 0;
+                    }
+                    fprintf(stderr, "app: resume offered: %s\n", answer == 1 ? "resume" : "main menu");
+                    if (answer == 1) ra2port::request_resume("CHECKPT.SAV");
+                }
+            }
         }
         // lan=1 in the settings file turns on the Network (LAN) button, as RA2_NATIVE_LAN=1 does
         // for a test run: a Finder-launched app has no environment of its own (packaging/README.md).

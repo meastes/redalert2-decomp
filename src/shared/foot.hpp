@@ -40,10 +40,10 @@ class TeamTypeClass;
 // An object at 0x00839EA0 told when a unit leaves a cell (FootClass slot 52;
 // hypothesis).
 struct Point2D;
-struct UnknownTracker839EA0 {
+struct AircraftTrackerClass {
     void Unknown_004128A0(CellClass *cell, int radius); // original4128A0, thiscall/RET8
 
-    ~UnknownTracker839EA0();
+    ~AircraftTrackerClass();
     // Known spatial-vector prefix:400 bins at stride18h, then a query working list.
     // Original base-vector RTTI79A7FC is VectorClass<TechnoClass *>; the 0x2598-byte global ends at83C438. Owner name remains a hypothesis.
     DynamicVectorClass<TechnoClass *> Bins[400];
@@ -59,12 +59,12 @@ struct UnknownTracker839EA0 {
 
     void Unknown_00413310(TechnoClass *foot);    // 0x00413310
     // Drops a detached infantry, unit or aircraft (0x004131D0; Detach_This_From_All).
-    void Unknown_004131D0(AbstractClass *target);
+    void Detach_004131d0(AbstractClass *target);
     void Unknown_004131E0(FootClass *foot);    // 0x004131E0 (a unit arrives; FootClass slot 53)
     bool Unknown_004132E0(FootClass *foot);    // 0x004132E0
-    void Unknown_00413600(TechnoClass *foot, Cell from, Cell to);    // 0x00413600 (a unit moves from one cell to another)
+    void Update_00413600(TechnoClass *foot, Cell from, Cell to);    // 0x00413600 (a unit moves from one cell to another)
 };
-extern UnknownTracker839EA0 unknown_tracker_839ea0;
+extern AircraftTrackerClass unknown_tracker_839ea0;
 // An object found by cell (0x00710160 searches the list at 0x00AD074C for
 // one whose cell, +0xE0, matches; FootClass slot 77; hypothesis).
 struct UnknownCellObject710160 {
@@ -258,8 +258,8 @@ public:
     void unknown_4ccf20(FootClass *passenger);                  // 0x004CCF20 (a given passenger leaves; never called)
     void unknown_4c4c30();                                      // 0x004C4C30 (approach the target; hypothesis: Approach_Target)
     bool unknown_4c3000(Cell dest, int arg2, int arg3);   // 0x004C3000 (plans a path to dest; hypothesis: Basic_Path)
-    struct PathStruct *Unknown_004BB350(Cell *dest, int *buffer, int length, int arg4, int arg5, int arg6);  // 0x004BB350 (hypothesis: Find_Path)
-    Cell Unknown_004BB3F0(Cell const &from, Cell const &to, int arg3, int arg4);   // 0x004BB3F0 (hypothesis: TS Safety_Point; TeamClass 0x006B88B0 Regroup)
+    struct PathStruct *Find_Path_004bb350(Cell *dest, int *buffer, int length, int arg4, int arg5, int arg6);  // 0x004BB350 (hypothesis: Find_Path)
+    Cell Safety_Point_004bb3f0(Cell const &from, Cell const &to, int arg3, int arg4);   // 0x004BB3F0 (hypothesis: TS Safety_Point; TeamClass 0x006B88B0 Regroup)
     void unknown_4c9a40(UnknownObjectPair const &voxel, int layer, int key, UnknownBuffer *cache, Rect const &cliprect, Point2D const &draw_point, Matrix3D const &transform, bool force_cache, Surface *mask, unsigned unknown_2, unsigned unknown_3);  // 0x004C9A40 (the shadow draw; AircraftClass, UnitClass)
     void Unknown_004CCE80(FootClass *passenger);                // 0x004CCE80 (a passenger enters this transport)
     virtual int unknown_slot298();                              // slot 298 0x004C86D0 (0)

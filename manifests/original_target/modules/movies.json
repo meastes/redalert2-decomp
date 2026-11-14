@@ -1,0 +1,2114 @@
+{
+ "module": "movies",
+ "source": "src/recovered/movies.cpp",
+ "header": null,
+ "population": "population-3496",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 704,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "005a0b50",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "005a0b70",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "005a0ba0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "005a0bc0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "005a0be0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "005a0c00",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "005a0c20",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "005a0c40",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "005a0c80",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "005a0cb0",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "005a0ce0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "005a0d10",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "005a0d20",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E43",
+   "entry": "005a0d40",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E41",
+   "entry": "005a0d80",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Movie_Lock_Surface@@YIHXZ",
+   "entry": "005a0dc0",
+   "body_bytes": 93,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Movie_Unlock_Surface@@YAXXZ",
+   "entry": "005a0e20",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Movie_Blit_To_Screen@@YAXXZ",
+   "entry": "005a0e30",
+   "body_bytes": 135,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Movie_Blit_To_Screen_Hidden@@YAXXZ",
+   "entry": "005a0ec0",
+   "body_bytes": 329,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?VQA_Unknown_005A1010@@YIPAVVQAMovie@@PBDPAVSurface@@VRect@@2H_N@Z",
+   "entry": "005a1010",
+   "body_bytes": 1107,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?VQA_Movie_Close@@YIXPAVVQAMovie@@@Z",
+   "entry": "005a1470",
+   "body_bytes": 84,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?VQA_Movie_Play@@YIXPAVVQAMovie@@_NH1@Z",
+   "entry": "005a14d0",
+   "body_bytes": 274,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?VQA_Movie_Unknown_005A15F0@@YI_NPAVVQAMovie@@PA_N@Z",
+   "entry": "005a15f0",
+   "body_bytes": 37,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?VQA_Movie_Is_Playing@@YI_NXZ",
+   "entry": "005a1620",
+   "body_bytes": 14,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?VQA_Movie_Pause@@YIXPAVVQAMovie@@@Z",
+   "entry": "005a1630",
+   "body_bytes": 16,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?VQA_Movie_Resume@@YIXPAVVQAMovie@@@Z",
+   "entry": "005a1640",
+   "body_bytes": 16,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?VQA_Movie_Blit@@YIXXZ",
+   "entry": "005a1650",
+   "body_bytes": 177,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "??0VQAMovie@@QAE@XZ",
+   "entry": "005a1710",
+   "body_bytes": 72,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "??1VQAMovie@@QAE@XZ",
+   "entry": "005a1760",
+   "body_bytes": 70,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "??0VQMovieHandle@@QAE@PAVVQAMovie@@@Z",
+   "entry": "005a17b0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Pause@VQMovieHandle@@UAEX_N@Z",
+   "entry": "005a17f0",
+   "body_bytes": 51,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Play@VQMovieHandle@@UAEXXZ",
+   "entry": "005a1830",
+   "body_bytes": 31,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Is_Finished@VQMovieHandle@@UAE_NXZ",
+   "entry": "005a1850",
+   "body_bytes": 4,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?AdvanceFrame@VQMovieHandle@@UAE_NXZ",
+   "entry": "005a1860",
+   "body_bytes": 64,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Waiting@VQMovieHandle@@UAEXXZ",
+   "entry": "005a18a0",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Set_Position@VQMovieHandle@@UAEXHH@Z",
+   "entry": "005a18b0",
+   "body_bytes": 54,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?InitSubtitles@VQMovieHandle@@UAEXH@Z",
+   "entry": "005a18f0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?SeekToFrame@VQMovieHandle@@UAEXH@Z",
+   "entry": "005a1910",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Timing@VQMovieHandle@@UAEHXZ",
+   "entry": "005a1930",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Blit@VQMovieHandle@@UAEXXZ",
+   "entry": "005a1940",
+   "body_bytes": 177,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "??1VQMovieHandle@@UAE@XZ",
+   "entry": "005a1a00",
+   "body_bytes": 113,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "??0BinkMovieHandle@@QAE@PAVBinkClass@@@Z",
+   "entry": "005a1a80",
+   "body_bytes": 35,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Pause@BinkMovieHandle@@UAEX_N@Z",
+   "entry": "005a1ab0",
+   "body_bytes": 16,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Play@BinkMovieHandle@@UAEXXZ",
+   "entry": "005a1ac0",
+   "body_bytes": 25,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?Is_Finished@BinkMovieHandle@@UAE_NXZ",
+   "entry": "005a1ae0",
+   "body_bytes": 8,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?AdvanceFrame@BinkMovieHandle@@UAE_NXZ",
+   "entry": "005a1af0",
+   "body_bytes": 8,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Waiting@BinkMovieHandle@@UAEXXZ",
+   "entry": "005a1b00",
+   "body_bytes": 8,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Set_Position@BinkMovieHandle@@UAEXHH@Z",
+   "entry": "005a1b10",
+   "body_bytes": 21,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?InitSubtitles@BinkMovieHandle@@UAEXH@Z",
+   "entry": "005a1b30",
+   "body_bytes": 16,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?SeekToFrame@BinkMovieHandle@@UAEXH@Z",
+   "entry": "005a1b40",
+   "body_bytes": 16,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Timing@BinkMovieHandle@@UAEHXZ",
+   "entry": "005a1b50",
+   "body_bytes": 8,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Blit@BinkMovieHandle@@UAEXXZ",
+   "entry": "005a1b60",
+   "body_bytes": 8,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "??1BinkMovieHandle@@UAE@XZ",
+   "entry": "005a1b70",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "??1MovieHandle@@UAE@XZ",
+   "entry": "005a1ba0",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Find_Movie_File@@YI_NPBDPADH@Z",
+   "entry": "005a1bb0",
+   "body_bytes": 373,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Create_Movie_Handle@@YIPAVMovieHandle@@PBDPAVSurface@@PBVRect@@@Z",
+   "entry": "005a1d30",
+   "body_bytes": 411,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Is_Movie_Active@@YIHXZ",
+   "entry": "005a1ed0",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Movie_Handle_Blit@@YIXXZ",
+   "entry": "005a1ef0",
+   "body_bytes": 16,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "??_GVQMovieHandle@@UAEPAXI@Z",
+   "entry": "005a1f00",
+   "body_bytes": 124,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "??_GBinkMovieHandle@@UAEPAXI@Z",
+   "entry": "005a1f80",
+   "body_bytes": 63,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Clear@?$DynamicVectorClass@PBD@@UAEXXZ",
+   "entry": "005a1fc0",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PBD@@UAEHPBQBD@Z",
+   "entry": "005a1ff0",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@PBD@@UBEPBDH@Z",
+   "entry": "005a2010",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??8?$VectorClass@PBD@@UBE_NABV0@@Z",
+   "entry": "005a2020",
+   "body_bytes": 62,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@PBD@@UAE_NHPBQBD@Z",
+   "entry": "005a2060",
+   "body_bytes": 174,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Clear@?$VectorClass@PBD@@UAEXXZ",
+   "entry": "005a2110",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PBD@@UAEHABQBD@Z",
+   "entry": "005a2140",
+   "body_bytes": 51,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PBD@@UAEHPBQBD@Z",
+   "entry": "005a2180",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Resize@?$DynamicVectorClass@PBD@@UAE_NHPBQBD@Z",
+   "entry": "005a21a0",
+   "body_bytes": 176,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PBD@@UAEHABQBD@Z",
+   "entry": "005a2250",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?get@Leaf_5a2280@@QAEPAXI@Z",
+   "entry": "005a2280",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?FUN_005a22d0@Owner_005a22d0@seed_005a22d0@@QAEPAIE@Z",
+   "entry": "005a22d0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  }
+ ],
+ "code_bytes": 6096,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a65d0",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PBD@@6B@",
+   "address": "007a65e0",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 47
+  },
+  {
+   "symbol": "??_7?$VectorClass@PBD@@6B@",
+   "address": "007a6600",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 53
+  },
+  {
+   "symbol": "??_7VQMovieHandle@@6B@",
+   "address": "007a6620",
+   "bytes": 48,
+   "kind": "vtable",
+   "section": 119
+  },
+  {
+   "symbol": "??_7BinkMovieHandle@@6B@",
+   "address": "007a6680",
+   "bytes": 48,
+   "kind": "vtable",
+   "section": 157
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CCFileClass@@8",
+   "address": "007b2500",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 75
+  },
+  {
+   "symbol": "??_R2CCFileClass@@8",
+   "address": "007b2518",
+   "bytes": 21,
+   "kind": "rtti",
+   "section": 76
+  },
+  {
+   "symbol": "??_R3CCFileClass@@8",
+   "address": "007b2530",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 77
+  },
+  {
+   "symbol": "??_R4CCFileClass@@6B@",
+   "address": "007b2540",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 79
+  },
+  {
+   "symbol": "??_R1A@?0A@A@FileClass@@8",
+   "address": "007b2558",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 68
+  },
+  {
+   "symbol": "??_R1A@?0A@A@RawFileClass@@8",
+   "address": "007b2570",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 70
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BufferIOFileClass@@8",
+   "address": "007b2588",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 72
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CDFileClass@@8",
+   "address": "007b25a0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 74
+  },
+  {
+   "symbol": "??_R2CDFileClass@@8",
+   "address": "007b25b8",
+   "bytes": 17,
+   "kind": "rtti",
+   "section": 64
+  },
+  {
+   "symbol": "??_R3CDFileClass@@8",
+   "address": "007b25d0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 65
+  },
+  {
+   "symbol": "??_R4CDFileClass@@6B@",
+   "address": "007b25e0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 66
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PBD@@8",
+   "address": "007bde00",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 41
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PBD@@8",
+   "address": "007bde18",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 42
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PBD@@8",
+   "address": "007bde30",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 43
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PBD@@8",
+   "address": "007bde40",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PBD@@6B@",
+   "address": "007bde50",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 46
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PBD@@8",
+   "address": "007bde64",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 50
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PBD@@8",
+   "address": "007bde70",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 51
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PBD@@6B@",
+   "address": "007bde80",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 52
+  },
+  {
+   "symbol": "??_R1A@?0A@A@MovieHandle@@8",
+   "address": "007bde98",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 113
+  },
+  {
+   "symbol": "??_R1A@?0A@A@VQMovieHandle@@8",
+   "address": "007bdeb0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 114
+  },
+  {
+   "symbol": "??_R2VQMovieHandle@@8",
+   "address": "007bdec8",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 115
+  },
+  {
+   "symbol": "??_R3VQMovieHandle@@8",
+   "address": "007bded8",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 116
+  },
+  {
+   "symbol": "??_R4VQMovieHandle@@6B@",
+   "address": "007bdee8",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 118
+  },
+  {
+   "symbol": "??_R2MovieHandle@@8",
+   "address": "007bdefc",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 122
+  },
+  {
+   "symbol": "??_R3MovieHandle@@8",
+   "address": "007bdf08",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 123
+  },
+  {
+   "symbol": "??_R4MovieHandle@@6B@",
+   "address": "007bdf18",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 124
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BinkMovieHandle@@8",
+   "address": "007bdf30",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 152
+  },
+  {
+   "symbol": "??_R2BinkMovieHandle@@8",
+   "address": "007bdf48",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 153
+  },
+  {
+   "symbol": "??_R3BinkMovieHandle@@8",
+   "address": "007bdf58",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 154
+  },
+  {
+   "symbol": "??_R4BinkMovieHandle@@6B@",
+   "address": "007bdf68",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 156
+  },
+  {
+   "symbol": "??_R0?AVCCFileClass@@@8",
+   "address": "007cc8b0",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 78
+  },
+  {
+   "symbol": "??_R0?AVFileClass@@@8",
+   "address": "007cc8d0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 67
+  },
+  {
+   "symbol": "??_R0?AVRawFileClass@@@8",
+   "address": "007cc8e8",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 69
+  },
+  {
+   "symbol": "??_R0?AVBufferIOFileClass@@@8",
+   "address": "007cc908",
+   "bytes": 32,
+   "kind": "rtti",
+   "section": 71
+  },
+  {
+   "symbol": "??_R0?AVCDFileClass@@@8",
+   "address": "007cc928",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 73
+  },
+  {
+   "symbol": "??_C@_04HJCD@?4BIK?$AA@",
+   "address": "007d9d74",
+   "bytes": 5,
+   "kind": "string",
+   "section": 187
+  },
+  {
+   "symbol": "??_C@_04MOHI@?4VQA?$AA@",
+   "address": "007d9d7c",
+   "bytes": 5,
+   "kind": "string",
+   "section": 186
+  },
+  {
+   "symbol": "??_C@_0BH@CNON@Play_Movie?$CI?$CJ?5as?5Bink?$CB?6?$AA@",
+   "address": "007e3284",
+   "bytes": 23,
+   "kind": "string",
+   "section": 190
+  },
+  {
+   "symbol": "??_C@_04LMEE@?4bik?$AA@",
+   "address": "007e329c",
+   "bytes": 5,
+   "kind": "string",
+   "section": 191
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PBD@@@8",
+   "address": "007e32a8",
+   "bytes": 32,
+   "kind": "rtti",
+   "section": 40
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PBD@@@8",
+   "address": "007e32c8",
+   "bytes": 39,
+   "kind": "rtti",
+   "section": 45
+  },
+  {
+   "symbol": "??_R0?AVMovieHandle@@@8",
+   "address": "007e32f0",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 112
+  },
+  {
+   "symbol": "??_R0?AVVQMovieHandle@@@8",
+   "address": "007e3310",
+   "bytes": 28,
+   "kind": "rtti",
+   "section": 117
+  },
+  {
+   "symbol": "??_R0?AVBinkMovieHandle@@@8",
+   "address": "007e3330",
+   "bytes": 30,
+   "kind": "rtti",
+   "section": 155
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a65d0",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PBD@@6B@",
+   "address": "007a65e0",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PBD@@6B@",
+   "address": "007a6600",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7VQMovieHandle@@6B@",
+   "address": "007a6620",
+   "bytes": 48,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7BinkMovieHandle@@6B@",
+   "address": "007a6680",
+   "bytes": 48,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CCFileClass@@8",
+   "address": "007b2500",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2CCFileClass@@8",
+   "address": "007b2518",
+   "bytes": 21,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3CCFileClass@@8",
+   "address": "007b2530",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4CCFileClass@@6B@",
+   "address": "007b2540",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@FileClass@@8",
+   "address": "007b2558",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@RawFileClass@@8",
+   "address": "007b2570",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BufferIOFileClass@@8",
+   "address": "007b2588",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@CDFileClass@@8",
+   "address": "007b25a0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2CDFileClass@@8",
+   "address": "007b25b8",
+   "bytes": 17,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3CDFileClass@@8",
+   "address": "007b25d0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4CDFileClass@@6B@",
+   "address": "007b25e0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@PBD@@8",
+   "address": "007bde00",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PBD@@8",
+   "address": "007bde18",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@PBD@@8",
+   "address": "007bde30",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@PBD@@8",
+   "address": "007bde40",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@PBD@@6B@",
+   "address": "007bde50",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@PBD@@8",
+   "address": "007bde64",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@PBD@@8",
+   "address": "007bde70",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@PBD@@6B@",
+   "address": "007bde80",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@MovieHandle@@8",
+   "address": "007bde98",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@VQMovieHandle@@8",
+   "address": "007bdeb0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2VQMovieHandle@@8",
+   "address": "007bdec8",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3VQMovieHandle@@8",
+   "address": "007bded8",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4VQMovieHandle@@6B@",
+   "address": "007bdee8",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2MovieHandle@@8",
+   "address": "007bdefc",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3MovieHandle@@8",
+   "address": "007bdf08",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4MovieHandle@@6B@",
+   "address": "007bdf18",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@BinkMovieHandle@@8",
+   "address": "007bdf30",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2BinkMovieHandle@@8",
+   "address": "007bdf48",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3BinkMovieHandle@@8",
+   "address": "007bdf58",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4BinkMovieHandle@@6B@",
+   "address": "007bdf68",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVCCFileClass@@@8",
+   "address": "007cc8b0",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVFileClass@@@8",
+   "address": "007cc8d0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVRawFileClass@@@8",
+   "address": "007cc8e8",
+   "bytes": 27,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVBufferIOFileClass@@@8",
+   "address": "007cc908",
+   "bytes": 32,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVCDFileClass@@@8",
+   "address": "007cc928",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_04HJCD@?4BIK?$AA@",
+   "address": "007d9d74",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04MOHI@?4VQA?$AA@",
+   "address": "007d9d7c",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BH@CNON@Play_Movie?$CI?$CJ?5as?5Bink?$CB?6?$AA@",
+   "address": "007e3284",
+   "bytes": 23,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04LMEE@?4bik?$AA@",
+   "address": "007e329c",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@PBD@@@8",
+   "address": "007e32a8",
+   "bytes": 32,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@PBD@@@8",
+   "address": "007e32c8",
+   "bytes": 39,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVMovieHandle@@@8",
+   "address": "007e32f0",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVVQMovieHandle@@@8",
+   "address": "007e3310",
+   "bytes": 28,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVBinkMovieHandle@@@8",
+   "address": "007e3330",
+   "bytes": 30,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "005adba0",
+   "symbol": "?VQA_Unknown_005A1010@@YIPAVVQAMovie@@PBDPAVSurface@@VRect@@2H_N@Z",
+   "target": "005a1010",
+   "function_entry": true
+  },
+  {
+   "site": "005add90",
+   "symbol": "?VQA_Unknown_005A1010@@YIPAVVQAMovie@@PBDPAVSurface@@VRect@@2H_N@Z",
+   "target": "005a1010",
+   "function_entry": true
+  },
+  {
+   "site": "005adf90",
+   "symbol": "?VQA_Movie_Close@@YIXPAVVQAMovie@@@Z",
+   "target": "005a1470",
+   "function_entry": true
+  },
+  {
+   "site": "005adf90",
+   "symbol": "??1VQAMovie@@QAE@XZ",
+   "target": "005a1760",
+   "function_entry": true
+  },
+  {
+   "site": "005adfe0",
+   "symbol": "?VQA_Movie_Unknown_005A15F0@@YI_NPAVVQAMovie@@PA_N@Z",
+   "target": "005a15f0",
+   "function_entry": true
+  },
+  {
+   "site": "005afdf0",
+   "symbol": "?VQA_Movie_Close@@YIXPAVVQAMovie@@@Z",
+   "target": "005a1470",
+   "function_entry": true
+  },
+  {
+   "site": "005afdf0",
+   "symbol": "??1VQAMovie@@QAE@XZ",
+   "target": "005a1760",
+   "function_entry": true
+  },
+  {
+   "site": "005a0840",
+   "symbol": "?Create_Movie_Handle@@YIPAVMovieHandle@@PBDPAVSurface@@PBVRect@@@Z",
+   "target": "005a1d30",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?Find_Movie_File@@YI_NPBDPADH@Z",
+   "target": "005a1bb0",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?VQA_Unknown_005A1010@@YIPAVVQAMovie@@PBDPAVSurface@@VRect@@2H_N@Z",
+   "target": "005a1010",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?VQA_Movie_Close@@YIXPAVVQAMovie@@@Z",
+   "target": "005a1470",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "??1VQAMovie@@QAE@XZ",
+   "target": "005a1760",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?VQA_Movie_Play@@YIXPAVVQAMovie@@_NH1@Z",
+   "target": "005a14d0",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "?VQA_Movie_Close@@YIXPAVVQAMovie@@@Z",
+   "target": "005a1470",
+   "function_entry": true
+  },
+  {
+   "site": "005a02d0",
+   "symbol": "??1VQAMovie@@QAE@XZ",
+   "target": "005a1760",
+   "function_entry": true
+  },
+  {
+   "site": "005a0710",
+   "symbol": "?Create_Movie_Handle@@YIPAVMovieHandle@@PBDPAVSurface@@PBVRect@@@Z",
+   "target": "005a1d30",
+   "function_entry": true
+  },
+  {
+   "site": "005a0920",
+   "symbol": "?Create_Movie_Handle@@YIPAVMovieHandle@@PBDPAVSurface@@PBVRect@@@Z",
+   "target": "005a1d30",
+   "function_entry": true
+  },
+  {
+   "site": "007375a0",
+   "symbol": "?Is_Movie_Active@@YIHXZ",
+   "target": "005a1ed0",
+   "function_entry": true
+  },
+  {
+   "site": "007375a0",
+   "symbol": "?Movie_Handle_Blit@@YIXXZ",
+   "target": "005a1ef0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0BinkClass@@QAE@PBDPAVSurface@@@Z",
+   "address": "0042fea0"
+  },
+  {
+   "symbol": "??0CCFileClass@@QAE@PBD@Z",
+   "address": "00468f50"
+  },
+  {
+   "symbol": "??0VQAClass@@QAE@PBDHP6AHXZP6AXXZ2HH@Z",
+   "address": "0071c5f0"
+  },
+  {
+   "symbol": "??1BinkClass@@QAE@XZ",
+   "address": "0042fee0"
+  },
+  {
+   "symbol": "??1Buffer@@QAE@XZ",
+   "address": "00438410"
+  },
+  {
+   "symbol": "??1BufferIOFileClass@@UAE@XZ",
+   "address": "0042f350"
+  },
+  {
+   "symbol": "??1VQAClass@@QAE@XZ",
+   "address": "0071c8a0"
+  },
+  {
+   "symbol": "??1VQAMovieCompanion@@QAE@XZ",
+   "address": "0069b2a0"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PBD@@UAEPAXI@Z",
+   "address": "005a22d0"
+  },
+  {
+   "symbol": "??_G?$VectorClass@PBD@@UAEPAXI@Z",
+   "address": "005a2280"
+  },
+  {
+   "symbol": "??_GCCFileClass@@UAEPAXI@Z",
+   "address": "004019a0"
+  },
+  {
+   "symbol": "??_GCDFileClass@@UAEPAXI@Z",
+   "address": "00401950"
+  },
+  {
+   "symbol": "??_GMovieHandle@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "?Advance_Frame@VQAClass@@QAE_NPA_N@Z",
+   "address": "0071cfc0"
+  },
+  {
+   "symbol": "?Check_Frame_Ready@BinkClass@@QAEXXZ",
+   "address": "004307e0"
+  },
+  {
+   "symbol": "?Close@BufferIOFileClass@@UAEXXZ",
+   "address": "0042fda0"
+  },
+  {
+   "symbol": "?Close@CCFileClass@@UAEXXZ",
+   "address": "004691f0"
+  },
+  {
+   "symbol": "?Close_And_Free_VQA@VQAClass@@QAEXXZ",
+   "address": "0071d1f0"
+  },
+  {
+   "symbol": "?Create@RawFileClass@@UAEHXZ",
+   "address": "00639200"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Delete@RawFileClass@@UAEHXZ",
+   "address": "00639240"
+  },
+  {
+   "symbol": "?Error@CCFileClass@@UAEXHHPBD@Z",
+   "address": "00469000"
+  },
+  {
+   "symbol": "?Error@RawFileClass@@UAEXHHPBD@Z",
+   "address": "00638b30"
+  },
+  {
+   "symbol": "?FUN_00781d3b@seed_005a22d0@@YAXI@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?Frame_Time@BinkClass@@QAEHXZ",
+   "address": "004303c0"
+  },
+  {
+   "symbol": "?Get_Date_Time@CCFileClass@@UAEKXZ",
+   "address": "00469350"
+  },
+  {
+   "symbol": "?Get_Date_Time@RawFileClass@@UAEKXZ",
+   "address": "006392a0"
+  },
+  {
+   "symbol": "?Get_Desired_Color_Mode@VQAClass@@QAEHXZ",
+   "address": "0071d230"
+  },
+  {
+   "symbol": "?Get_Unknown_7d6290@@YIHXZ",
+   "address": "004abb90"
+  },
+  {
+   "symbol": "?Get_VQA_Height@VQAClass@@QAEHXZ",
+   "address": "0071d310"
+  },
+  {
+   "symbol": "?Get_VQA_Width@VQAClass@@QAEHXZ",
+   "address": "0071d300"
+  },
+  {
+   "symbol": "?Goto_Frame@BinkClass@@QAEXH@Z",
+   "address": "004303a0"
+  },
+  {
+   "symbol": "?Is_Available@BufferIOFileClass@@UAE_NH@Z",
+   "address": "0042f6e0"
+  },
+  {
+   "symbol": "?Is_Available@CCFileClass@@UAE_NH@Z",
+   "address": "004691a0"
+  },
+  {
+   "symbol": "?Is_Finished@BinkClass@@QAE_NXZ",
+   "address": "00430420"
+  },
+  {
+   "symbol": "?Is_Open@BufferIOFileClass@@UBE_NXZ",
+   "address": "0042f700"
+  },
+  {
+   "symbol": "?Is_Open@CCFileClass@@UBE_NXZ",
+   "address": "004691e0"
+  },
+  {
+   "symbol": "?MainWindow@@3PAUHWND__@@A",
+   "address": "00b263d8"
+  },
+  {
+   "symbol": "?Open@CCFileClass@@UAEHH@Z",
+   "address": "00469220"
+  },
+  {
+   "symbol": "?Open@CCFileClass@@UAEHPBDH@Z",
+   "address": "00401980"
+  },
+  {
+   "symbol": "?Open@CDFileClass@@UAEHH@Z",
+   "address": "0046fe10"
+  },
+  {
+   "symbol": "?Open@CDFileClass@@UAEHPBDH@Z",
+   "address": "00470250"
+  },
+  {
+   "symbol": "?Open_And_Load_Buffers@VQAClass@@QAE_NXZ",
+   "address": "0071cb30"
+  },
+  {
+   "symbol": "?Options@@3VOptionsClass@@A",
+   "address": "00a40b18"
+  },
+  {
+   "symbol": "?Pause@BinkClass@@QAEX_N@Z",
+   "address": "00430400"
+  },
+  {
+   "symbol": "?Pause_VQA@VQAClass@@QAEXXZ",
+   "address": "0071d1a0"
+  },
+  {
+   "symbol": "?Play@BinkClass@@QAEXXZ",
+   "address": "00430430"
+  },
+  {
+   "symbol": "?Play_VQA@VQAClass@@QAEHH_N@Z",
+   "address": "0071ccd0"
+  },
+  {
+   "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
+   "address": "006e7e20"
+  },
+  {
+   "symbol": "?Read@BufferIOFileClass@@UAEJPAXJ@Z",
+   "address": "0042fa80"
+  },
+  {
+   "symbol": "?Read@CCFileClass@@UAEJPAXJ@Z",
+   "address": "00469060"
+  },
+  {
+   "symbol": "?Redraw@BinkClass@@QAEXXZ",
+   "address": "00430820"
+  },
+  {
+   "symbol": "?Render_Frame@BinkClass@@QAE_NXZ",
+   "address": "00430800"
+  },
+  {
+   "symbol": "?Reset_VQA@VQAClass@@QAEXXZ",
+   "address": "0071d210"
+  },
+  {
+   "symbol": "?Resume_VQA@VQAClass@@QAEXXZ",
+   "address": "0071d1e0"
+  },
+  {
+   "symbol": "?Seek@BufferIOFileClass@@UAEJJH@Z",
+   "address": "0042fc90"
+  },
+  {
+   "symbol": "?Seek@CCFileClass@@UAEJJH@Z",
+   "address": "004690f0"
+  },
+  {
+   "symbol": "?Seek_To_Frame@VQAClass@@QAEXH@Z",
+   "address": "0071cc60"
+  },
+  {
+   "symbol": "?SetCallback_0069b4f0@VQAMovieCompanion@@QAEXH@Z",
+   "address": "0069b4f0"
+  },
+  {
+   "symbol": "?Set_Date_Time@CCFileClass@@UAE_NK@Z",
+   "address": "00469400"
+  },
+  {
+   "symbol": "?Set_Date_Time@RawFileClass@@UAE_NK@Z",
+   "address": "006392f0"
+  },
+  {
+   "symbol": "?Set_Draw_Buffer@VQAClass@@QAE_NHHHHH@Z",
+   "address": "0071d240"
+  },
+  {
+   "symbol": "?Set_Loop@VQAClass@@QAE_NHH@Z",
+   "address": "0071cbe0"
+  },
+  {
+   "symbol": "?Set_Loop@VQAClass@@QAE_NHHH@Z",
+   "address": "0071cc10"
+  },
+  {
+   "symbol": "?Set_Name@CDFileClass@@UAEPBDPBD@Z",
+   "address": "00470150"
+  },
+  {
+   "symbol": "?Set_Position@BinkClass@@QAEXHH@Z",
+   "address": "00430280"
+  },
+  {
+   "symbol": "?Set_Primary_Color_Mode@VQAClass@@QAEXH@Z",
+   "address": "0071d2b0"
+  },
+  {
+   "symbol": "?Set_Subtitle_Callback@BinkClass@@QAEXH@Z",
+   "address": "004303e0"
+  },
+  {
+   "symbol": "?Set_VQA_Volume@VQAClass@@QAEHH@Z",
+   "address": "0071cbc0"
+  },
+  {
+   "symbol": "?Size@BufferIOFileClass@@UAEJXZ",
+   "address": "0042fd80"
+  },
+  {
+   "symbol": "?Size@CCFileClass@@UAEJXZ",
+   "address": "00469150"
+  },
+  {
+   "symbol": "?Theme@@3VThemeClass@@A",
+   "address": "00a35d78"
+  },
+  {
+   "symbol": "?Unknown_004E0C90@@YIX_NPAVSurface@@PBVRect@@@Z",
+   "address": "004e0c90"
+  },
+  {
+   "symbol": "?Unlock_Movie@OptionsClass@@QAEXPBD@Z",
+   "address": "005da3f0"
+  },
+  {
+   "symbol": "?VQA_Unknown_0071DB60@@YIXH@Z",
+   "address": "0071db60"
+  },
+  {
+   "symbol": "?VQA_Unknown_0071DBA0@@YI_NH@Z",
+   "address": "0071dba0"
+  },
+  {
+   "symbol": "?WWMouse@@3PAVMouse@@A",
+   "address": "00839c68"
+  },
+  {
+   "symbol": "?Write@BufferIOFileClass@@UAEJPBXJ@Z",
+   "address": "0042f830"
+  },
+  {
+   "symbol": "?Write@CCFileClass@@UAEJPBXJ@Z",
+   "address": "00469030"
+  },
+  {
+   "symbol": "?unknown_check_406f30@@YAHXZ",
+   "address": "00406f30"
+  },
+  {
+   "symbol": "?unknown_create_companion_69b190@@YIPAVVQAMovieCompanion@@PBD@Z",
+   "address": "0069b190"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "?unknown_surface_839950@@3PAVSurface@@A",
+   "address": "00839950"
+  },
+  {
+   "symbol": "?unknown_surface_839954@@3PAVSurface@@A",
+   "address": "00839954"
+  },
+  {
+   "symbol": "?unknown_surface_839958@@3PAVSurface@@A",
+   "address": "00839958"
+  },
+  {
+   "symbol": "_PTR_FUN_007a6604",
+   "address": "007a6604"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__ClientToScreen@8",
+   "address": "0079a4ac"
+  },
+  {
+   "symbol": "__imp__GetClientRect@8",
+   "address": "0079a4b8"
+  },
+  {
+   "symbol": "__purecall",
+   "address": "004b8960"
+  },
+  {
+   "symbol": "__stricmp",
+   "address": "00781f20"
+  },
+  {
+   "symbol": "_atexit",
+   "address": "0078298a"
+  },
+  {
+   "symbol": "_release_buffer_5a2280",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_release_object_5a2280",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_strrchr",
+   "address": "00781ff0"
+  },
+  {
+   "symbol": "_vtable_5a2280",
+   "address": "007a6604"
+  }
+ ],
+ "route": "A",
+ "unit": "movies.cpp",
+ "form": "include blocks held",
+ "switches": [
+  "VECTOR_IMPLEMENT_ALL"
+ ],
+ "include_blocks": [
+  {
+   "before": "005a0dc0",
+   "lines": 11
+  }
+ ],
+ "held_rows": [
+  {
+   "entry": "005a0d40",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  },
+  {
+   "entry": "005a0d80",
+   "cause": "differs when the lines of later files are gathered ahead of it"
+  }
+ ],
+ "joined": [
+  {
+   "entry": "005a1fc0",
+   "bytes": 42,
+   "population": "population-2644",
+   "bound": "own frozen bound (population-2644)"
+  },
+  {
+   "entry": "005a1ff0",
+   "bytes": 27,
+   "population": "population-2644",
+   "bound": "own frozen bound (population-2644)"
+  },
+  {
+   "entry": "005a2010",
+   "bytes": 13,
+   "population": "population-2644",
+   "bound": "own frozen bound (population-2644)"
+  },
+  {
+   "entry": "005a2020",
+   "bytes": 62,
+   "population": "population-2644",
+   "bound": "own frozen bound (population-2644)"
+  },
+  {
+   "entry": "005a2060",
+   "bytes": 174,
+   "population": "population-2644",
+   "bound": "own frozen bound (population-2644)"
+  },
+  {
+   "entry": "005a2110",
+   "bytes": 39,
+   "population": "population-2644",
+   "bound": "own frozen bound (population-2644)"
+  },
+  {
+   "entry": "005a2140",
+   "bytes": 51,
+   "population": "population-2644",
+   "bound": "own frozen bound (population-2644)"
+  },
+  {
+   "entry": "005a2180",
+   "bytes": 27,
+   "population": "population-2644",
+   "bound": "own frozen bound (population-2644)"
+  },
+  {
+   "entry": "005a21a0",
+   "bytes": 176,
+   "population": "population-2644",
+   "bound": "own frozen bound (population-2644)"
+  },
+  {
+   "entry": "005a2250",
+   "bytes": 38,
+   "population": "population-2644",
+   "bound": "own frozen bound (population-2644)"
+  },
+  {
+   "entry": "005a2280",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "005a22d0",
+   "bytes": 73,
+   "population": "population-66",
+   "bound": "own frozen bound (population-66)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "005a2320",
+   "bytes": 52,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerBattle/Constructor.cpp",
+   "cause": "frozen in another population's inventory pass (population-2393)"
+  },
+  {
+   "kind": "split",
+   "entry": "005a2360",
+   "bytes": 11,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerBattle/Destructor.cpp",
+   "cause": "held by population-2393; not joined: does not compile in the unit: accepted.cpp(844) : error C2653: 'MultiplayerBattle' : is not a class or namespace name"
+  },
+  {
+   "kind": "split",
+   "entry": "005a2370",
+   "bytes": 3,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerBattle/unknown_slot12.cpp",
+   "cause": "held by population-2393; not joined: does not compile in the unit: accepted.cpp(852) : error C2653: 'MultiplayerBattle' : is not a class or namespace name"
+  },
+  {
+   "kind": "split",
+   "entry": "005a2380",
+   "bytes": 3,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerGameMode/unknown_slot1.cpp",
+   "cause": "frozen in another population's inventory pass (population-2393)"
+  },
+  {
+   "kind": "split",
+   "entry": "005a2390",
+   "bytes": 3,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerGameMode/unknown_slot2.cpp",
+   "cause": "frozen in another population's inventory pass (population-2393)"
+  },
+  {
+   "kind": "split",
+   "entry": "005a23a0",
+   "bytes": 5,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerGameMode/unknown_slot3.cpp",
+   "cause": "frozen in another population's inventory pass (population-2393)"
+  },
+  {
+   "kind": "split",
+   "entry": "005a23b0",
+   "bytes": 1,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerGameMode/unknown_slot8.cpp",
+   "cause": "frozen in another population's inventory pass (population-2393)"
+  },
+  {
+   "kind": "split",
+   "entry": "005a23c0",
+   "bytes": 1,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerGameMode/unknown_slot9.cpp",
+   "cause": "frozen in another population's inventory pass (population-2393)"
+  },
+  {
+   "kind": "split",
+   "entry": "005a23d0",
+   "bytes": 30,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerGameMode/unknown_slot18.cpp",
+   "cause": "frozen in another population's inventory pass (population-2393)"
+  },
+  {
+   "kind": "split",
+   "entry": "005a23f0",
+   "bytes": 30,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerGameMode/unknown_slot17.cpp",
+   "cause": "frozen in another population's inventory pass (population-2393)"
+  },
+  {
+   "kind": "split",
+   "entry": "005a2410",
+   "bytes": 5,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerGameMode/unknown_slot19.cpp",
+   "cause": "frozen in another population's inventory pass (population-2393)"
+  },
+  {
+   "kind": "split",
+   "entry": "005a2420",
+   "bytes": 3,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerGameMode/unknown_slot22.cpp",
+   "cause": "frozen in another population's inventory pass (population-2393)"
+  },
+  {
+   "kind": "split",
+   "entry": "005a2430",
+   "bytes": 3,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerGameMode/unknown_slot25.cpp",
+   "cause": "frozen in another population's inventory pass (population-2393)"
+  },
+  {
+   "kind": "split",
+   "entry": "005a2440",
+   "bytes": 1,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerGameMode/unknown_slot30.cpp",
+   "cause": "frozen in another population's inventory pass (population-2393)"
+  },
+  {
+   "kind": "split",
+   "entry": "005a2450",
+   "bytes": 1,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerGameMode/unknown_slot31.cpp",
+   "cause": "frozen in another population's inventory pass (population-2393)"
+  },
+  {
+   "kind": "split",
+   "entry": "005a2460",
+   "bytes": 4,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerGameMode/unknown_slot32.cpp",
+   "cause": "frozen in another population's inventory pass (population-2393)"
+  },
+  {
+   "kind": "split",
+   "entry": "005a2470",
+   "bytes": 1,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerGameMode/unknown_slot33.cpp",
+   "cause": "frozen in another population's inventory pass (population-2393)"
+  },
+  {
+   "kind": "split",
+   "entry": "005a2480",
+   "bytes": 3,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerGameMode/unknown_slot34.cpp",
+   "cause": "frozen in another population's inventory pass (population-2393)"
+  },
+  {
+   "kind": "split",
+   "entry": "005a2490",
+   "bytes": 3,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerGameMode/unknown_slot35.cpp",
+   "cause": "frozen in another population's inventory pass (population-2393)"
+  },
+  {
+   "kind": "split",
+   "entry": "005a24a0",
+   "bytes": 3,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerGameMode/unknown_slot36.cpp",
+   "cause": "frozen in another population's inventory pass (population-2393)"
+  },
+  {
+   "kind": "split",
+   "entry": "005a24b0",
+   "bytes": 1,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerGameMode/unknown_slot37.cpp",
+   "cause": "frozen in another population's inventory pass (population-2393)"
+  },
+  {
+   "kind": "split",
+   "entry": "005a24c0",
+   "bytes": 1,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerGameMode/unknown_slot38.cpp",
+   "cause": "frozen in another population's inventory pass (population-2393)"
+  },
+  {
+   "kind": "split",
+   "entry": "005a24d0",
+   "bytes": 30,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerGameMode/unknown_slot39.cpp",
+   "cause": "frozen in another population's inventory pass (population-2393)"
+  },
+  {
+   "kind": "split",
+   "entry": "005a24f0",
+   "bytes": 3,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerGameMode/unknown_slot40.cpp",
+   "cause": "frozen in another population's inventory pass (population-2393)"
+  },
+  {
+   "kind": "split",
+   "entry": "005a2500",
+   "bytes": 36,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerBattle/Scalar_Deleting_Destructor.cpp",
+   "cause": "frozen in another population's inventory pass (population-2393)"
+  },
+  {
+   "kind": "split",
+   "entry": "005a2530",
+   "bytes": 32,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerBattleTeam/Constructor.cpp",
+   "cause": "held by population-2393; not joined: does not compile in the unit: accepted.cpp(860) : error C2653: 'MultiplayerBattleTeam' : is not a class or namespace name"
+  },
+  {
+   "kind": "split",
+   "entry": "005a2550",
+   "bytes": 88,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerBattleTeam/unknown_create_battle_team.cpp",
+   "cause": "held by population-2393; not joined: does not compile in the unit: accepted.cpp(870) : error C2143: syntax error : missing ';' before '*'"
+  },
+  {
+   "kind": "split",
+   "entry": "005a25b0",
+   "bytes": 18,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerBattleTeam/IsTeamIncluded.cpp",
+   "cause": "held by population-2393; not joined: does not compile in the unit: accepted.cpp(845) : error C2653: 'MultiplayerBattleTeam' : is not a class or namespace name"
+  },
+  {
+   "kind": "split",
+   "entry": "005a25d0",
+   "bytes": 18,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerBattleTeam/SetPlayerTeam.cpp",
+   "cause": "held by population-2393; not joined: does not compile in the unit: accepted.cpp(854) : error C2653: 'MultiplayerBattleTeam' : is not a class or namespace name"
+  },
+  {
+   "kind": "split",
+   "entry": "005a25f0",
+   "bytes": 30,
+   "population": "population-2393",
+   "source": "src/recovered/classes/MultiplayerBattleTeam/Scalar_Deleting_Destructor.cpp",
+   "cause": "frozen in another population's inventory pass (population-2393)"
+  }
+ ],
+ "unit_functions": 104,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  },
+  {
+   "symbol": "??_7CDFileClass@@6B@",
+   "reason": "relocation target unbound: ?File_Name@RawFileClass@@UBEPBDXZ"
+  },
+  {
+   "symbol": "??_7CCFileClass@@6B@",
+   "reason": "relocation target unbound: ?File_Name@RawFileClass@@UBEPBDXZ"
+  },
+  {
+   "symbol": "??_7MovieHandle@@6B@",
+   "reason": "relocation target unbound: ??_EMovieHandle@@UAEPAXI@Z"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 30,
+  "bytes": 423
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

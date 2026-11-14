@@ -15,8 +15,8 @@ public:
 #endif
     UnknownPairSecond(FileClass *file);  // 0x0059EB70 (a .HVA motion library; hypothesis)
     ~UnknownPairSecond();               // 0x0059EBA0
-    int unknown_59ebc0(FileClass *file);    // 0x0059EBC0 (reads the library; 0 on success)
-    void unknown_59ed30(float scale);   // 0x0059ED30
+    int Read_File_0059ebc0(FileClass *file);    // 0x0059EBC0 (reads the library; 0 on success)
+    void Scale_0059ed30(float scale);   // 0x0059ED30
     bool unknown_00;                    // +0x00 load failed (hypothesis)
     char unknown_01[3];
     unsigned unknown_section_count; // +04,463A5B

@@ -1,0 +1,716 @@
+{
+ "module": "goptions",
+ "source": "src/recovered/goptions.cpp",
+ "header": null,
+ "population": "population-4146",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 896,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "004dd5e0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "004dd600",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "004dd630",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "004dd650",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "004dd670",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "004dd690",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "004dd6b0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "004dd6d0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "004dd710",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "004dd740",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "004dd770",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "004dd7a0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "004dd7b0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Unknown_004DD7D0@@YAXXZ",
+   "entry": "004dd7d0",
+   "body_bytes": 196,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Options_Menu_Proc@@YGHPAUHWND__@@IIJ@Z",
+   "entry": "004dd8a0",
+   "body_bytes": 1336,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E45",
+   "entry": "004ddde0",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E44",
+   "entry": "004dddf0",
+   "body_bytes": 1,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Options_Menu_Init@@YIXPAUHWND__@@@Z",
+   "entry": "004dde00",
+   "body_bytes": 284,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Game_Options_Proc@@YGHPAUHWND__@@IIJ@Z",
+   "entry": "004ddf90",
+   "body_bytes": 490,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Add@?$QueueClass@VEventClass@@$0IA@@@QAEHABVEventClass@@@Z",
+   "entry": "004de180",
+   "body_bytes": 91,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?get@Leaf_4de1e0@@QAEII@Z",
+   "entry": "004de1e0",
+   "body_bytes": 26,
+   "padding_bytes": 6
+  }
+ ],
+ "code_bytes": 2992,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a2b20",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_C@_0CJ@JEPF@Ignoring?5speed?5change?5to?5avoid?5c@",
+   "address": "007d9c18",
+   "bytes": 41,
+   "kind": "string",
+   "section": 42
+  },
+  {
+   "symbol": "??_C@_0CL@OFHF@Ignoring?5latency?5change?5to?5avoid@",
+   "address": "007d9c44",
+   "bytes": 43,
+   "kind": "string",
+   "section": 43
+  },
+  {
+   "symbol": "??_C@_0CB@KDKL@LATENCYFUDGE?5event?5created?5?9?5?$CFd?6@",
+   "address": "007d9c70",
+   "bytes": 33,
+   "kind": "string",
+   "section": 44
+  },
+  {
+   "symbol": "??_C@_15DEDE@?$AA?$CF?$AAs?$AA?$AA@",
+   "address": "007d9c94",
+   "bytes": 6,
+   "kind": "string",
+   "section": 45
+  },
+  {
+   "symbol": "??_C@_0BE@CLPH@D?3?2Ra2?2GOptions?4CPP?$AA@",
+   "address": "007d9c9c",
+   "bytes": 20,
+   "kind": "string",
+   "section": 46
+  },
+  {
+   "symbol": "??_C@_0M@HDJ@GUI?3Observe?$AA@",
+   "address": "007d9cb0",
+   "bytes": 12,
+   "kind": "string",
+   "section": 55
+  },
+  {
+   "symbol": "??_C@_0M@BIAC@GUI?3Restart?$AA@",
+   "address": "007d9cbc",
+   "bytes": 12,
+   "kind": "string",
+   "section": 56
+  },
+  {
+   "symbol": "??_C@_09GNCJ@GUI?3Leave?$AA@",
+   "address": "007d9cc8",
+   "bytes": 10,
+   "kind": "string",
+   "section": 57
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a2b20",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_C@_0CJ@JEPF@Ignoring?5speed?5change?5to?5avoid?5c@",
+   "address": "007d9c18",
+   "bytes": 41,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CL@OFHF@Ignoring?5latency?5change?5to?5avoid@",
+   "address": "007d9c44",
+   "bytes": 43,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0CB@KDKL@LATENCYFUDGE?5event?5created?5?9?5?$CFd?6@",
+   "address": "007d9c70",
+   "bytes": 33,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_15DEDE@?$AA?$CF?$AAs?$AA?$AA@",
+   "address": "007d9c94",
+   "bytes": 6,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BE@CLPH@D?3?2Ra2?2GOptions?4CPP?$AA@",
+   "address": "007d9c9c",
+   "bytes": 20,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@HDJ@GUI?3Observe?$AA@",
+   "address": "007d9cb0",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@BIAC@GUI?3Restart?$AA@",
+   "address": "007d9cbc",
+   "bytes": 12,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_09GNCJ@GUI?3Leave?$AA@",
+   "address": "007d9cc8",
+   "bytes": 10,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0067b7b0",
+   "symbol": "??0?$CDTimerClass@VSystemTimerClass@@@@QAE@J@Z",
+   "target": "004de1e0",
+   "function_entry": true
+  },
+  {
+   "site": "004ddf20",
+   "symbol": "?Game_Options_Proc@@YGHPAUHWND__@@IIJ@Z",
+   "target": "004ddf90",
+   "function_entry": true
+  },
+  {
+   "site": "00481850",
+   "symbol": "?Unknown_004DD7D0@@YAXXZ",
+   "target": "004dd7d0",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "??0?$CDTimerClass@VSystemTimerClass@@@@QAE@J@Z",
+   "target": "004de1e0",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "??0?$CDTimerClass@VSystemTimerClass@@@@QAE@J@Z",
+   "target": "004de1e0",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "??0?$CDTimerClass@VSystemTimerClass@@@@QAE@J@Z",
+   "target": "004de1e0",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "??0?$CDTimerClass@VSystemTimerClass@@@@QAE@J@Z",
+   "target": "004de1e0",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "??0?$CDTimerClass@VSystemTimerClass@@@@QAE@J@Z",
+   "target": "004de1e0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0EventClass@@QAE@HE@Z",
+   "address": "004b5fd0"
+  },
+  {
+   "symbol": "??0EventClass@@QAE@HHK@Z",
+   "address": "004b6030"
+  },
+  {
+   "symbol": "??0LoadOptionsClass@@QAE@XZ",
+   "address": "0053b0e0"
+  },
+  {
+   "symbol": "??1LoadOptionsClass@@UAE@XZ",
+   "address": "0053b130"
+  },
+  {
+   "symbol": "??BSystemTimerClass@@QBEJXZ",
+   "address": "0069a430"
+  },
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Delete_Dialog_0053b1e0@LoadOptionsClass@@QAEDXZ",
+   "address": "0053b1e0"
+  },
+  {
+   "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXH@Z",
+   "address": "004e09a0"
+  },
+  {
+   "symbol": "?Game_Speed_Labels@@3PAPBDA",
+   "address": "007d83c0"
+  },
+  {
+   "symbol": "?Has_Saved_Games_0053c5c0@LoadOptionsClass@@QAE_NXZ",
+   "address": "0053c5c0"
+  },
+  {
+   "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+   "address": "00a32298"
+  },
+  {
+   "symbol": "?Latency_Labels@@3PAPBDA",
+   "address": "007d9bb4"
+  },
+  {
+   "symbol": "?Load_Dialog_0053b190@LoadOptionsClass@@QAEDXZ",
+   "address": "0053b190"
+  },
+  {
+   "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
+   "address": "006f9ec0"
+  },
+  {
+   "symbol": "?Map@@3VMouseClass@@A",
+   "address": "008324e0"
+  },
+  {
+   "symbol": "?Options@@3VOptionsClass@@A",
+   "address": "00a40b18"
+  },
+  {
+   "symbol": "?OutList@@3V?$QueueClass@VEventClass@@$0IA@@@A",
+   "address": "00a32338"
+  },
+  {
+   "symbol": "?Save_Dialog_0053b1b0@LoadOptionsClass@@QAEDPAG@Z",
+   "address": "0053b1b0"
+  },
+  {
+   "symbol": "?Unknown_0063B090@@YIXPAVScenarioClass@@@Z",
+   "address": "0063b090"
+  },
+  {
+   "symbol": "?target@Call_4de1e0_0@@QAEIXZ",
+   "address": "0069a430"
+  },
+  {
+   "symbol": "?unknown_5e2040@@YIXPAUHWND__@@H@Z",
+   "address": "005e2040"
+  },
+  {
+   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "address": "006000d0"
+  },
+  {
+   "symbol": "?unknown_a3fba4@@3HA",
+   "address": "00a3fba4"
+  },
+  {
+   "symbol": "?unknown_b2a7ec@@3HA",
+   "address": "00b2a7ec"
+  },
+  {
+   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "address": "005ff610"
+  },
+  {
+   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "address": "005ff6e0"
+  },
+  {
+   "symbol": "?unknown_dialog_5ff7c0@@YIXPAUHWND__@@@Z",
+   "address": "005ff7c0"
+  },
+  {
+   "symbol": "?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z",
+   "address": "005ffb00"
+  },
+  {
+   "symbol": "?unknown_game_mode_a3d298@@3HA",
+   "address": "00a3d298"
+  },
+  {
+   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
+   "symbol": "?unknown_int_a3d548@@3HA",
+   "address": "00a3d548"
+  },
+  {
+   "symbol": "?unknown_int_a40d48@@3HA",
+   "address": "00a40d48"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
+   "address": "00a35db4"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__imp__EnableWindow@8",
+   "address": "0079a490"
+  },
+  {
+   "symbol": "__imp__GetDlgItem@8",
+   "address": "0079a49c"
+  },
+  {
+   "symbol": "__imp__GetWindowLongA@8",
+   "address": "0079a48c"
+  },
+  {
+   "symbol": "__imp__SendMessageA@16",
+   "address": "0079a4a0"
+  },
+  {
+   "symbol": "__imp__SetWindowLongA@12",
+   "address": "0079a488"
+  },
+  {
+   "symbol": "__imp__ShowWindow@8",
+   "address": "0079a498"
+  },
+  {
+   "symbol": "__imp__UpdateWindow@4",
+   "address": "0079a46c"
+  },
+  {
+   "symbol": "__imp__timeGetTime@0",
+   "address": "0079a524"
+  },
+  {
+   "symbol": "_atexit",
+   "address": "0078298a"
+  },
+  {
+   "symbol": "_swprintf",
+   "address": "00783764"
+  }
+ ],
+ "route": "A",
+ "unit": "goptions.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "004dd5e0",
+   "lines": 15
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "004de1e0",
+   "bytes": 26,
+   "population": "population-02",
+   "bound": "own frozen bound (population-02)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "004ddf20",
+   "bytes": 103,
+   "population": "population-2792",
+   "source": "src/recovered/goptions/Run_Game_Options_Dialog.cpp",
+   "cause": "frozen in another population's inventory pass (population-2792)"
+  },
+  {
+   "kind": "split",
+   "entry": "004de200",
+   "bytes": 49,
+   "population": "population-3407",
+   "source": "src/recovered/classes/CDTimerClass_SystemTimerClass/Value.cpp",
+   "cause": "frozen in another population's inventory pass (population-3407)"
+  }
+ ],
+ "unit_functions": 24,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "0067b7b0",
+   "target": "004de1e0",
+   "symbol": "??0?$CDTimerClass@VSystemTimerClass@@@@QAE@J@Z",
+   "module_symbol": "?get@Leaf_4de1e0@@QAEII@Z"
+  },
+  {
+   "site": "00663fe0",
+   "target": "004de1e0",
+   "symbol": "??0?$CDTimerClass@VSystemTimerClass@@@@QAE@J@Z",
+   "module_symbol": "?get@Leaf_4de1e0@@QAEII@Z"
+  },
+  {
+   "site": "00663fe0",
+   "target": "004de1e0",
+   "symbol": "??0?$CDTimerClass@VSystemTimerClass@@@@QAE@J@Z",
+   "module_symbol": "?get@Leaf_4de1e0@@QAEII@Z"
+  },
+  {
+   "site": "00663fe0",
+   "target": "004de1e0",
+   "symbol": "??0?$CDTimerClass@VSystemTimerClass@@@@QAE@J@Z",
+   "module_symbol": "?get@Leaf_4de1e0@@QAEII@Z"
+  },
+  {
+   "site": "00663fe0",
+   "target": "004de1e0",
+   "symbol": "??0?$CDTimerClass@VSystemTimerClass@@@@QAE@J@Z",
+   "module_symbol": "?get@Leaf_4de1e0@@QAEII@Z"
+  },
+  {
+   "site": "00663fe0",
+   "target": "004de1e0",
+   "symbol": "??0?$CDTimerClass@VSystemTimerClass@@@@QAE@J@Z",
+   "module_symbol": "?get@Leaf_4de1e0@@QAEII@Z"
+  }
+ ],
+ "stand_in_reference_count": 6,
+ "residual_split": {
+  "rows": 2,
+  "bytes": 152
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}
