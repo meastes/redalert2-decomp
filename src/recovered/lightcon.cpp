@@ -5,9 +5,64 @@
 // stay in their own files.
 
 
+#include "shared/shape_file.hpp"
+#include "shared/unknown_geometry.hpp"
 #include "shared/light_convert.hpp"
 #include "shared/id_source.hpp"
 #include "shared/hicolor.hpp"
+
+
+// Header-static dynamic initializers of the unit at 0x00538670: the shape_file.hpp empty rect and the
+// shared/unknown_geometry.hpp constants (0x00538670-0x00538851); the other
+// drafts of this plan are emitted by these includes.
+
+
+// Dynamic initializer (0x00538690, _$E) of diagonal from the header(s) included
+// by HeaderStatics_empty_rect_init_00538670.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005386C0, _$E) of b from the header(s) included
+// by HeaderStatics_empty_rect_init_00538670.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005386E0, _$E) of c from the header(s) included
+// by HeaderStatics_empty_rect_init_00538670.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00538700, _$E) of angle45 from the header(s) included
+// by HeaderStatics_empty_rect_init_00538670.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00538720, _$E) of angle60 from the header(s) included
+// by HeaderStatics_empty_rect_init_00538670.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00538740, _$E) of angle90 from the header(s) included
+// by HeaderStatics_empty_rect_init_00538670.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00538760, _$E) of g from the header(s) included
+// by HeaderStatics_empty_rect_init_00538670.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005387A0, _$E) of h from the header(s) included
+// by HeaderStatics_empty_rect_init_00538670.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005387D0, _$E) of i from the header(s) included
+// by HeaderStatics_empty_rect_init_00538670.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00538800, _$E) of j from the header(s) included
+// by HeaderStatics_empty_rect_init_00538670.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00538830, _$E) of k from the header(s) included
+// by HeaderStatics_empty_rect_init_00538670.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00538840, _$E) of l from the header(s) included
+// by HeaderStatics_empty_rect_init_00538670.cpp; no source of its own.
 
 
 // LightConvertClass::LightConvertClass(...) (0x00538860)

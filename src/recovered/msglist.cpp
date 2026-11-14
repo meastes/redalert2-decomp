@@ -11,6 +11,8 @@
 #define VECTOR_IMPLEMENT_DYNAMIC_ADD
 #define VECTOR_IMPLEMENT_DYNAMIC_DELETE_OBJECT
 #define VECTOR_IMPLEMENT_DYNAMIC_DELETE_INDEX
+#include "shared/shape_file.hpp"
+#include "shared/unknown_geometry.hpp"
 #include "shared/vector_class.hpp"
 #include "shared/message_list.hpp"
 #include "shared/text_label.hpp"
@@ -24,6 +26,59 @@
 #include "shared/keyboard.hpp"
 #include "shared/color_scheme.hpp"
 #include "shared/mouse.hpp"
+
+
+// Header-static dynamic initializers of the unit at 0x005B49E0: the shape_file.hpp empty rect and the
+// shared/unknown_geometry.hpp constants (0x005B49E0-0x005B4BC1); the other
+// drafts of this plan are emitted by these includes.
+
+
+// Dynamic initializer (0x005B4A00, _$E) of diagonal from the header(s) included
+// by HeaderStatics_empty_rect_init_005b49e0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005B4A30, _$E) of b from the header(s) included
+// by HeaderStatics_empty_rect_init_005b49e0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005B4A50, _$E) of c from the header(s) included
+// by HeaderStatics_empty_rect_init_005b49e0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005B4A70, _$E) of angle45 from the header(s) included
+// by HeaderStatics_empty_rect_init_005b49e0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005B4A90, _$E) of angle60 from the header(s) included
+// by HeaderStatics_empty_rect_init_005b49e0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005B4AB0, _$E) of angle90 from the header(s) included
+// by HeaderStatics_empty_rect_init_005b49e0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005B4AD0, _$E) of g from the header(s) included
+// by HeaderStatics_empty_rect_init_005b49e0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005B4B10, _$E) of h from the header(s) included
+// by HeaderStatics_empty_rect_init_005b49e0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005B4B40, _$E) of i from the header(s) included
+// by HeaderStatics_empty_rect_init_005b49e0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005B4B70, _$E) of j from the header(s) included
+// by HeaderStatics_empty_rect_init_005b49e0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005B4BA0, _$E) of k from the header(s) included
+// by HeaderStatics_empty_rect_init_005b49e0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005B4BB0, _$E) of l from the header(s) included
+// by HeaderStatics_empty_rect_init_005b49e0.cpp; no source of its own.
 
 
 // MessageListClass::MessageListClass() -- 0x005B4BD0

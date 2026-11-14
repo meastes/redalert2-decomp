@@ -135,11 +135,13 @@ def _receipt_pairs(receipt, relocs):
     return pairs
 
 
-def group_mapping(coff, rows, references, original):
+def group_mapping(coff, rows, references, original, fixed=None):
     """{old name: fresh name} for the `_$E` names one compiled unit's rows use
     (identity entries omitted). `rows` are the unit's catalog rows,
     `references` the population's binding table, original(address, length)
-    reads the original executable (None or short when unreadable)."""
+    reads the original executable (None or short when unreadable). `fixed`:
+    {old: fresh} bound by independent evidence (apply_rename's xcu_rewrites, by
+    the .CRT$XCU slot): taken as given, and no other name takes their fresh names."""
     used = set()
     contexts = {}       # old name -> (address, length or None, receipt or None)
     for row in rows:
@@ -164,7 +166,7 @@ def group_mapping(coff, rows, references, original):
         return {}
     fresh = fresh_initializers(coff)
     guards = {s['name'] for s in coff.symbols.values() if is_counted(s['name']) and not is_initializer(s['name'])}
-    mapping = {}
+    mapping = {o: n for o, n in (fixed or {}).items() if n in fresh}
 
     def assign(old, new):
         """Bind old -> new with its implied pairs; False on a conflict."""

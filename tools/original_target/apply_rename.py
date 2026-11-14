@@ -22,7 +22,19 @@ re-verifies exactly the affected translation units:
    "options": {"population-3705": ["/O2", "/Ob2", "/G5", "/Gy", "/GR"]},
    "flags": {"src/recovered/ownrdraw.cpp": {"declarations_only": true, "declarations_only_note": "..."}},
    "row_flags": {"0040c690": {"unit_evidence": "xcu-prefix"}},
-   "address_renames": {"OLD MANGLING": {"new": "NEW MANGLING", "at": ["004ba0b0", ...]}}}
+   "address_renames": {"OLD MANGLING": {"new": "NEW MANGLING", "at": ["004ba0b0", ...]}},
+   "xcu_rewrites": {"0073bd20": "initializer", "0073bd40": "0073bd20"}}
+
+`xcu_rewrites` (docs/DECISIONS.md "$E initialiser/atexit rows placed by the original .CRT$XCU
+table", owner 2026-11-14): rows whose source is rewritten from a seed or stand-in into the
+real dynamic-initializer form (a definition the compiler emits `_$E<n>` functions for). Each
+listed row gives up its old name and binds the fresh `_$E<n>` by independent evidence: an
+`initializer` row by its slot in the original's .CRT$XCU table (the unit's entries of the fresh
+object's .CRT$XCU section in order against the original table run the population's rows hold),
+a destructor row (value: its initializer's entry) by the atexit registration in the fresh
+initializer. The old name is renamed in the row's own population and in the tables of
+populations whose rows relocate to it; other populations' tables only held it as a stale copy
+and drop it (logged in the receipt).
 
 `address_renames` rename a name only where it is bound at one of the listed addresses: two
 template instances the source used to spell alike (`VectorClass<T *>` and `VectorClass<T const *>`
@@ -97,6 +109,7 @@ file is restored and the catalog is untouched. On success the catalog is
 written once. Run ./build.command afterwards; it remains the final gate.
 """
 import argparse
+import collections
 import json
 from pathlib import Path
 import re
@@ -144,6 +157,15 @@ def load_spec(path, catalog):
             raise SystemExit('address_renames: %s needs a new name and addresses, and no plain rename' % old)
         scoped[old] = (item['new'], {int(a, 16) for a in item['at']})
     spec['address_renames'] = scoped
+    rewrites = {}
+    for entry, kind in spec.get('xcu_rewrites', {}).items():
+        if kind != 'initializer' and not re.fullmatch(r'[0-9a-fA-F]{8}', kind or ''):
+            raise SystemExit('xcu_rewrites: %s is "initializer" or its initializer\'s entry' % entry)
+        rewrites[int(entry, 16)] = kind if kind == 'initializer' else int(kind, 16)
+    for entry, kind in rewrites.items():
+        if kind != 'initializer' and rewrites.get(kind) != 'initializer':
+            raise SystemExit('xcu_rewrites: destructor %08x names %08x, not a listed initializer' % (entry, kind))
+    spec['xcu_rewrites'] = rewrites
     spec['rules'] = [(re.compile(r['pattern'], re.M), r['replace']) for r in spec.get('rewrite', [])]
     return spec
 
@@ -275,6 +297,16 @@ def gr_only_difference(row_options, unit_options):
     return '/GR' in unit_options and [o for o in unit_options if o != '/GR'] == list(row_options)
 
 
+STALE_DROPPED = []     # join_rows: stale table entries dropped (receipt `stale_dropped`)
+
+
+def stale_names(members, joins, *names):
+    """The `names` no row of the unit (its population's rows that are not joining) relocates
+    to: entries its reference table holds only as stale copies."""
+    used = {r['symbol'] for row in members if row['entry'] not in joins for r in row.get('relocations') or []}
+    return {n for n in names if n not in used}
+
+
 def join_rows(catalog, module, rows, joins, config, own_bound=False, adopt_gr=False, adopt_options=False, renumber=None):
     """Move the `joins` rows into the module's population (see the module docstring);
     return the populations they leave. `own_bound`: a row the module population's pass
@@ -334,6 +366,14 @@ def join_rows(catalog, module, rows, joins, config, own_bound=False, adopt_gr=Fa
             own.setdefault(relocation['symbol'], relocation['target'])
         for symbol, target in sorted(own.items()):
             if not COMPILER_NUMBERED.match(symbol) and table.get(symbol, target) != target:
+                if symbol in stale_names(members, joins, symbol):
+                    # docs/DECISIONS.md (owner 2026-11-14): a name no row of the unit relocates to is
+                    # a stale table entry, not a conflict; it leaves the table (logged), and the
+                    # joining row's binding is compared in full like every used reference.
+                    STALE_DROPPED.append(dict(population=pid, name=symbol, was='%08x' % table[symbol],
+                                              now='%08x' % target, row='%08x' % row['entry']))
+                    del table[symbol]
+                    continue
                 raise SystemExit('%s: %s is %08x in %s and %08x in the row' % (name, symbol, table[symbol], pid, target))
         # An own-bound join brings only the names its accepted relocations bind, never its
         # donor population's whole table (another unit's COMDAT copies of the unit's own
@@ -567,10 +607,131 @@ def restore(backup, written, removed):
         (REPOSITORY / path).write_bytes((backup / path).read_bytes())
 
 
-def rebind_initializers(catalog, compiled, load, original):
+XCU_PLACEHOLDER = 900000000     # `_$E<900000000 + entry>`: no unit counter reaches it
+
+
+def xcu_placeholder(entry):
+    return '_$E%d' % (XCU_PLACEHOLDER + entry)
+
+
+def place_xcu_rewrites(catalog, rewrites):
+    """Rename each `xcu_rewrites` row's old name to its placeholder `_$E<9xxxxxxxx>` (bound to a
+    fresh `_$E<n>` after the compile, bind_xcu_rewrites). The rename reaches the row's own
+    population and every population whose rows relocate to the old name; any other table held
+    the old name only as a stale copy and drops it. Returns (affected populations,
+    {population: [dropped names]})."""
+    by_entry = {r['entry']: r for r in catalog['regions']}
+    renames, homes = {}, {}
+    for entry in sorted(rewrites):
+        row = by_entry.get(entry)
+        if row is None:
+            raise SystemExit('xcu_rewrites: %08x is not an accepted row' % entry)
+        renames[row['symbol']] = xcu_placeholder(entry)
+        homes[row['symbol']] = (row['population'], entry)
+    users = collections.defaultdict(set)
+    for row in catalog['regions']:
+        for relocation in row.get('relocations') or []:
+            if relocation['symbol'] in renames:
+                users[relocation['symbol']].add(row['population'])
+    affected, dropped, tables = set(), collections.defaultdict(list), {}
+    for row in catalog['regions']:
+        pid = row['population']
+        if pid not in tables:
+            old = row.get('references') or {}
+            table = {}
+            for name, value in old.items():
+                if name in renames:
+                    home, entry = homes[name]
+                    if pid != home and pid not in users[name]:
+                        dropped[pid].append(name)
+                        continue
+                    if value != entry:
+                        raise SystemExit('xcu_rewrites: %s: %s is bound at %08x, not %08x' % (pid, name, value, entry))
+                    name = renames[name]
+                if table.setdefault(name, value) != value:
+                    raise SystemExit('%s: %s would bind two addresses' % (pid, name))
+            tables[pid] = table
+            if table != old:
+                affected.add(pid)
+        row['references'] = tables[pid]
+        for key in ('symbol', 'symbol_prefix'):
+            if row[key] in renames or (key == 'symbol_prefix' and row['entry'] in rewrites):
+                row[key] = xcu_placeholder(row['entry']); affected.add(pid)
+        for relocation in row.get('relocations') or []:
+            if relocation['symbol'] in renames:
+                relocation['symbol'] = renames[relocation['symbol']]; affected.add(pid)
+    for pid in affected:
+        home = {p for p, _ in homes.values()}
+        if pid not in home:
+            continue
+        table = tables[pid]
+        for name, (p, entry) in homes.items():
+            if p == pid:
+                table.setdefault(xcu_placeholder(entry), entry)
+    return affected, {p: sorted(n) for p, n in dropped.items()}
+
+
+def xcu_table(executable, entries):
+    """The original's C++ initializer table as a list of initializer addresses (xcu_units)."""
+    import xcu_units
+    image = xcu_units.Image(Path(executable).read_bytes())
+    return [value for _, value in xcu_units.table_slots(image, entries)]
+
+
+def bind_xcu_rewrites(catalog, compiled, load, rewrites, table):
+    """{population: {placeholder: fresh `_$E<n>`}} for the `xcu_rewrites` rows: an initializer
+    takes the name the fresh object's .CRT$XCU section holds at its slot of the original table
+    run (the run is the one window of the table, as long as the section, whose entries are all
+    rows of the population, that holds the row's entry); a destructor takes the one other `_$E`
+    its fresh initializer relocates to (the atexit registration)."""
+    import initializer_rebind
+    if not rewrites:
+        return {}
+    index = {}
+    for slot, address in enumerate(table):
+        index.setdefault(address, slot)
+    result = {}
+    for group, obj in compiled:
+        pid = group[0]['population']
+        mine = [e for e in rewrites if any(r['entry'] == e for r in group)]
+        if not mine:
+            continue
+        coff = load(obj)
+        names = []
+        for section in coff.sections:
+            if section['name'] == '.CRT$XCU':
+                names += [coff.symbols[i]['name'] for _, i, _ in sorted(section['relocs'])]
+        population = {r['entry'] for r in catalog['regions'] if r['population'] == pid}
+        mapping = {}
+        for entry in sorted(e for e in mine if rewrites[e] == 'initializer'):
+            slot = index.get(entry)
+            if slot is None:
+                raise SystemExit('xcu_rewrites: %08x is not in the original .CRT$XCU table' % entry)
+            starts = [s for s in range(max(0, slot - len(names) + 1), slot + 1)
+                      if s + len(names) <= len(table) and all(a in population for a in table[s:s + len(names)])]
+            if len(starts) != 1:
+                raise SystemExit('xcu_rewrites: %08x: %d windows of the original table fit the %d entries of '
+                                 '%s\'s .CRT$XCU' % (entry, len(starts), len(names), pid))
+            mapping[xcu_placeholder(entry)] = names[slot - starts[0]]
+        for entry in sorted(e for e in mine if rewrites[e] != 'initializer'):
+            initializer = mapping.get(xcu_placeholder(rewrites[entry]))
+            extent = initializer_rebind.function_extent(coff, initializer) if initializer else None
+            targets = sorted({n for *_, n in (extent[1] if extent else [])
+                              if initializer_rebind.is_initializer(n) and n != initializer})
+            if len(targets) != 1:
+                raise SystemExit('xcu_rewrites: %08x: its initializer registers %d destructors' % (entry, len(targets)))
+            mapping[xcu_placeholder(entry)] = targets[0]
+        if len(set(mapping.values())) != len(mapping):
+            raise SystemExit('xcu_rewrites: %s: two rows bind one fresh name' % pid)
+        result.setdefault(pid, {}).update(mapping)
+    return result
+
+
+def rebind_initializers(catalog, compiled, load, original, fixed=None):
     """Re-bind the compiler-numbered `_$E<n>` initializers of each compiled unit
     by content and position (initializer_rebind.py): a header change that
-    renumbers them changes no byte. Returns {population: {old: new}} for the
+    renumbers them changes no byte. `fixed` ({population: {old: fresh}},
+    bind_xcu_rewrites) is taken as given. Returns {population: {old: new}} for the
     populations whose names moved; a population whose units disagree keeps
     its names (and refuses as before). `load` parses a compiled object."""
     import initializer_rebind
@@ -580,7 +741,8 @@ def rebind_initializers(catalog, compiled, load, original):
         table = group[0].get('references') or {}
         if initializer_rebind.uses_initializers(group, table):
             by_population.setdefault(pid, []).append(
-                initializer_rebind.group_mapping(load(obj), group, table, original))
+                initializer_rebind.group_mapping(load(obj), group, table, original,
+                                                 fixed=(fixed or {}).get(pid)))
     rebound = {}
     for pid, mappings in sorted(by_population.items()):
         mapping = initializer_rebind.merge_population_mappings(mappings)
@@ -590,7 +752,7 @@ def rebind_initializers(catalog, compiled, load, original):
     return rebound
 
 
-def verify(catalog, populations, config, output, phase, rebound_out=None):
+def verify(catalog, populations, config, output, phase, rebound_out=None, rewrites=None):
     """Compile `populations` as whole canonical units and run the strict audit;
     re-bind renumbered `_$E<n>` initializers (rebind_initializers), then record
     each region's fresh symbol and relocation receipt."""
@@ -604,7 +766,10 @@ def verify(catalog, populations, config, output, phase, rebound_out=None):
     phase('compile')
     audit = CanonicalAudit(REPOSITORY, catalog, config)
     phase('audit setup')
-    rebound_out.update(rebind_initializers(catalog, compiled, lambda obj: Coff(obj.read_bytes()), audit.original))
+    load = lambda obj: Coff(obj.read_bytes())
+    fixed = bind_xcu_rewrites(catalog, compiled, load, rewrites, xcu_table(
+        config['executable'], {r['entry'] for r in catalog['regions']})) if rewrites else {}
+    rebound_out.update(rebind_initializers(catalog, compiled, load, audit.original, fixed))
     misses = []
     for group, obj in compiled:
         coff = Coff(obj.read_bytes())
@@ -652,7 +817,8 @@ def main():
     modules = apply_modules(catalog, spec, files, removed, config)
     sources = {p: d for p, d in files.items() if p.startswith('src/recovered/')}
     headers = sorted(p for p in files if p.startswith('src/shared/'))
-    populations = rename_catalog(catalog, spec['renames'], sources, moves, spec['address_renames']) | modules
+    rewritten, stale = place_xcu_rewrites(catalog, spec['xcu_rewrites']) if spec['xcu_rewrites'] else (set(), {})
+    populations = rename_catalog(catalog, spec['renames'], sources, moves, spec['address_renames']) | modules | rewritten
     unknown = [p for p in sources if p not in {r['source'] for r in catalog['regions']}]
     if unknown:
         raise SystemExit('changed files are not accepted sources: %s' % unknown[:5])
@@ -667,7 +833,10 @@ def main():
                    changed_sources=sorted(sources),
                    changed_headers=headers, moved=moves, affected_populations=sorted(populations),
                    affected_regions=sum(r['population'] in populations for r in catalog['regions']),
-                   header_user_populations=len(users))
+                   header_user_populations=len(users),
+                   xcu_rewrites={'%08x' % e: (k if k == 'initializer' else '%08x' % k)
+                                 for e, k in sorted(spec['xcu_rewrites'].items())},
+                   xcu_rewrites_stale_dropped=stale, stale_dropped=STALE_DROPPED)
     if args.dry_run:
         print(json.dumps(summary, indent=1)); return
     output = (args.output or REPOSITORY / 'private/original-target-20261020' / ('rename-' + spec['name'])).resolve()
@@ -712,7 +881,8 @@ def main():
         phase('write and bind')
         before = {r['entry']: json.dumps(r, sort_keys=True) for r in catalog['regions'] if r['population'] in users}
         rebound = {}
-        misses, manifest = verify(catalog, populations | users, config, output, phase, rebound)
+        misses, manifest = verify(catalog, populations | users, config, output, phase, rebound,
+                                  rewrites=spec['xcu_rewrites'])
         if rebound:
             (output / 'rebound-initializers.json').write_text(json.dumps(rebound, indent=1, sort_keys=True) + '\n')
         if misses:

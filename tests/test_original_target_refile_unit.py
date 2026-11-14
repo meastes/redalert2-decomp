@@ -447,7 +447,7 @@ class JoinRowsTests(unittest.TestCase):
             'population-3': dict(inventory=write('i3', [dict(bound, name='other')]), gaps=write('g3', []))})
         table = {'?G@@3HA': 0x800000}
         self.catalog = dict(regions=[
-            row(0x10, 'population-1', 'a', references=table),
+            row(0x10, 'population-1', 'a', references=table, relocations=[dict(symbol='?G@@3HA', target=0x800000)]),
             row(0x40, 'population-2', 'd', references={'?H@@3HA': 0x810000, '_$E3': 0x40},
                 relocations=[dict(symbol='?G@@3HA', target=0x800000), dict(symbol='?K@@3HA', target=0x820000)])])
 
@@ -466,6 +466,16 @@ class JoinRowsTests(unittest.TestCase):
         self.catalog['regions'][1]['relocations'][0]['target'] = 0x900000
         with self.assertRaises(SystemExit):
             apply_rename.join_rows(self.catalog, 'm', self.catalog['regions'], {0x40}, self.config)
+
+    def test_a_stale_table_entry_leaves_instead_of_refusing(self):
+        # docs/DECISIONS.md (owner 2026-11-14): no row of the unit relocates to the name
+        self.catalog['regions'][0]['relocations'] = []
+        self.catalog['regions'][1]['relocations'][0]['target'] = 0x900000
+        del apply_rename.STALE_DROPPED[:]
+        apply_rename.join_rows(self.catalog, 'm', self.catalog['regions'], {0x40}, self.config)
+        self.assertEqual(self.catalog['regions'][0]['references']['?G@@3HA'], 0x900000)
+        self.assertEqual([d['name'] for d in apply_rename.STALE_DROPPED], ['?G@@3HA'])
+        del apply_rename.STALE_DROPPED[:]
 
     def test_refuses_another_frozen_bound(self):
         self.catalog['regions'][1]['population'] = 'population-3'

@@ -10,7 +10,7 @@
   "/Gy",
   "/GR"
  ],
- "compile_group": 901,
+ "compile_group": 897,
  "code": [
   {
    "symbol": "?FUN_005bbd10@seed_005bbd10@@YAEXZ",
@@ -145,19 +145,19 @@
    "padding_bytes": 2
   },
   {
-   "symbol": "_$E31",
+   "symbol": "_$E70",
    "entry": "005c05c0",
    "body_bytes": 1,
    "padding_bytes": 15
   },
   {
-   "symbol": "_$E30",
+   "symbol": "_$E69",
    "entry": "005c05d0",
    "body_bytes": 1,
    "padding_bytes": 15
   },
   {
-   "symbol": "_$E29",
+   "symbol": "_$E68",
    "entry": "005c05e0",
    "body_bytes": 1,
    "padding_bytes": 15
@@ -196,416 +196,533 @@
  "code_bytes": 24832,
  "data": [
   {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a70d0",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
    "symbol": "??_C@_01KMAE@?0?$AA@",
    "address": "007ce9c0",
    "bytes": 2,
    "kind": "string",
-   "section": 138
+   "section": 174
   },
   {
    "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
    "address": "007d64f4",
    "bytes": 4,
    "kind": "string",
-   "section": 102
+   "section": 139
   },
   {
    "symbol": "??_C@_15DEDE@?$AA?$CF?$AAs?$AA?$AA@",
    "address": "007d9c94",
    "bytes": 6,
    "kind": "string",
-   "section": 54
+   "section": 91
   },
   {
    "symbol": "??_C@_06DN@TXT_OK?$AA@",
    "address": "007db8f4",
    "bytes": 7,
    "kind": "string",
-   "section": 103
+   "section": 140
   },
   {
    "symbol": "??_C@_1BA@FNA@?$AA?$FL?$AA?$CF?$AAs?$AA?$FN?$AA?5?$AA?$CF?$AAs?$AA?$AA@",
    "address": "007e1e78",
    "bytes": 16,
    "kind": "string",
-   "section": 113
+   "section": 150
   },
   {
    "symbol": "??_C@_0BH@NCIJ@TXT_UNABLE_PLAY_WAAUGH?$AA@",
    "address": "007e2184",
    "bytes": 23,
    "kind": "string",
-   "section": 101
+   "section": 138
   },
   {
    "symbol": "??_C@_0N@BAAD@TXT_MISMATCH?$AA@",
    "address": "007e21ac",
    "bytes": 13,
    "kind": "string",
-   "section": 141
+   "section": 177
   },
   {
    "symbol": "??_C@_0BG@HINH@TXT_YOURGAME_OUTDATED?$AA@",
    "address": "007e21bc",
    "bytes": 22,
    "kind": "string",
-   "section": 143
+   "section": 179
   },
   {
    "symbol": "??_C@_0BG@LMNF@TXT_DESTGAME_OUTDATED?$AA@",
    "address": "007e21d4",
    "bytes": 22,
    "kind": "string",
-   "section": 142
+   "section": 178
   },
   {
    "symbol": "??_C@_0BH@KOPH@TXT_SCENARIO_TOO_SMALL?$AA@",
    "address": "007e24cc",
    "bytes": 23,
    "kind": "string",
-   "section": 94
+   "section": 131
   },
   {
    "symbol": "??_C@_13JKDK@?$AA?0?$AA?$AA@",
    "address": "007e5c64",
    "bytes": 4,
    "kind": "string",
-   "section": 109
+   "section": 146
   },
   {
    "symbol": "??_C@_0CD@CKH@MessageListClass?3?3Init?$CIWidth?3?5?$CFd@",
    "address": "007e5de8",
    "bytes": 35,
    "kind": "string",
-   "section": 7
+   "section": 44
   },
   {
    "symbol": "??_C@_0CB@JPBD@MessageListClass?3?3Set_Width?$CI?$CFd?$CJ?6@",
    "address": "007e5e10",
    "bytes": 33,
    "kind": "string",
-   "section": 38
+   "section": 75
   },
   {
    "symbol": "??_C@_0M@GKHD@wolacpt?4pcx?$AA@",
    "address": "007e69a0",
    "bytes": 12,
    "kind": "string",
-   "section": 49
+   "section": 86
   },
   {
    "symbol": "??_C@_0M@BDDC@wolhost?4pcx?$AA@",
    "address": "007e69ac",
    "bytes": 12,
    "kind": "string",
-   "section": 50
+   "section": 87
   },
   {
    "symbol": "??_C@_07LLCA@TXT_NOD?$AA@",
    "address": "007e69b8",
    "bytes": 8,
    "kind": "string",
-   "section": 51
+   "section": 88
   },
   {
    "symbol": "??_C@_07KDFL@TXT_GDI?$AA@",
    "address": "007e69c0",
    "bytes": 8,
    "kind": "string",
-   "section": 52
+   "section": 89
   },
   {
    "symbol": "??_C@_0BD@ELLL@D?3?2Ra2?2netdlg2?4cpp?$AA@",
    "address": "007e69c8",
    "bytes": 19,
    "kind": "string",
-   "section": 53
+   "section": 90
   },
   {
    "symbol": "??_C@_0BK@DJFE@Game?5?8?$CFls?8?5has?5timed?5out?6?$AA@",
    "address": "007e69dc",
    "bytes": 26,
    "kind": "string",
-   "section": 65
+   "section": 102
   },
   {
    "symbol": "??_C@_0BK@HKKP@TXT_THATGUYS_GAME_BRACKET?$AA@",
    "address": "007e69f8",
    "bytes": 26,
    "kind": "string",
-   "section": 68
+   "section": 105
   },
   {
    "symbol": "??_C@_0BC@CGNO@TXT_THATGUYS_GAME?$AA@",
    "address": "007e6a14",
    "bytes": 18,
    "kind": "string",
-   "section": 69
+   "section": 106
   },
   {
    "symbol": "??_C@_09KODH@TXT_LOBBY?$AA@",
    "address": "007e6a28",
    "bytes": 10,
    "kind": "string",
-   "section": 70
+   "section": 107
   },
   {
    "symbol": "??_C@_09IOPK@?$CFd?0?$CFd?0?$CFd?0?$AA@",
    "address": "007e6a68",
    "bytes": 10,
    "kind": "string",
-   "section": 73
+   "section": 110
   },
   {
    "symbol": "??_C@_02FAKD@?$EA?3?$AA@",
    "address": "007e6a74",
    "bytes": 3,
    "kind": "string",
-   "section": 74
+   "section": 111
   },
   {
    "symbol": "??_C@_0BD@JCLE@?$CFs?0?$CFd?0?$CFd?0?$CFx?0?$CFx?0?$CFx?0?$AA@",
    "address": "007e6a78",
    "bytes": 19,
    "kind": "string",
-   "section": 75
+   "section": 112
   },
   {
    "symbol": "??_C@_0DE@DGCJ@?$CFd?0?$CFd?0?$CFd?0?$CFd?0?$CFd?0?$CFd?0?$CFd?0?$CFd?0?$CFd?0?$CFd?0?$CFd@",
    "address": "007e6a8c",
    "bytes": 52,
    "kind": "string",
-   "section": 76
+   "section": 113
   },
   {
    "symbol": "??_C@_0M@LBCF@woldata?4key?$AA@",
    "address": "007e6ac0",
    "bytes": 12,
    "kind": "string",
-   "section": 84
+   "section": 121
   },
   {
    "symbol": "??_C@_01LHO@r?$AA@",
    "address": "007e6acc",
    "bytes": 2,
    "kind": "string",
-   "section": 85
+   "section": 122
   },
   {
    "symbol": "??_C@_06CFKC@Serial?$AA@",
    "address": "007e6ad0",
    "bytes": 7,
    "kind": "string",
-   "section": 86
+   "section": 123
   },
   {
    "symbol": "??_C@_0BO@MFMF@SOFTWARE?2Westwood?2Red?5Alert?52?$AA@",
    "address": "007e6ad8",
    "bytes": 30,
    "kind": "string",
-   "section": 87
+   "section": 124
   },
   {
    "symbol": "??_C@_0BO@KNPM@Received?5READY_TO_GO?5packet?4?6?$AA@",
    "address": "007e6af8",
    "bytes": 30,
    "kind": "string",
-   "section": 90
+   "section": 127
   },
   {
    "symbol": "??_C@_0BP@JJMG@Received?5REQ_SCENARIO?5packet?4?6?$AA@",
    "address": "007e6b18",
    "bytes": 31,
    "kind": "string",
-   "section": 91
+   "section": 128
   },
   {
    "symbol": "??_C@_0CC@DLJC@About?5to?5wait?5for?5?8GO?8?5response?4@",
    "address": "007e6b38",
    "bytes": 34,
    "kind": "string",
-   "section": 92
+   "section": 129
   },
   {
    "symbol": "??_C@_0BG@PBPB@GUI?3HostGameStartHost?$AA@",
    "address": "007e6b5c",
    "bytes": 22,
    "kind": "string",
-   "section": 93
+   "section": 130
   },
   {
    "symbol": "??_C@_0O@DPOL@GUI?3HostNoMap?$AA@",
    "address": "007e6b74",
    "bytes": 14,
    "kind": "string",
-   "section": 95
+   "section": 132
   },
   {
    "symbol": "??_C@_0N@JOIL@TXT_ONLY_ONE?$AA@",
    "address": "007e6b84",
    "bytes": 13,
    "kind": "string",
-   "section": 96
+   "section": 133
   },
   {
    "symbol": "??_C@_0BL@HPCJ@TXT_GAMENAME_MUSTBE_UNIQUE?$AA@",
    "address": "007e6b94",
    "bytes": 27,
    "kind": "string",
-   "section": 97
+   "section": 134
   },
   {
    "symbol": "??_C@_0P@GEF@TXT_NAME_BLANK?$AA@",
    "address": "007e6bb0",
    "bytes": 15,
    "kind": "string",
-   "section": 98
+   "section": 135
   },
   {
    "symbol": "??_C@_0DA@FCOD@Failed?5to?5find?5local?5scenario?0?5f@",
    "address": "007e6bc0",
    "bytes": 48,
    "kind": "string",
-   "section": 104
+   "section": 141
   },
   {
    "symbol": "??_C@_0DD@CJFE@IPX?4Global_Response_Time?$CI?$CJ?5?$DN?$DN?5?$CFd@",
    "address": "007e6bf0",
    "bytes": 51,
    "kind": "string",
-   "section": 105
+   "section": 142
   },
   {
    "symbol": "??_C@_0CH@KMCI@Found?5local?5scenario?0?5file?5name?5@",
    "address": "007e6c24",
    "bytes": 39,
    "kind": "string",
-   "section": 106
+   "section": 143
   },
   {
    "symbol": "??_C@_0BE@CDLH@TXT_NOTHING_TO_JOIN?$AA@",
    "address": "007e6c4c",
    "bytes": 20,
    "kind": "string",
-   "section": 118
+   "section": 155
   },
   {
    "symbol": "??_C@_0BJ@MAAJ@ERROR?3NameIsReservedWord?$AA@",
    "address": "007e6c60",
    "bytes": 25,
    "kind": "string",
-   "section": 119
+   "section": 156
   },
   {
    "symbol": "??_C@_0BD@KCMF@TXT_GAME_IS_CLOSED?$AA@",
    "address": "007e6c7c",
    "bytes": 19,
    "kind": "string",
-   "section": 120
+   "section": 157
   },
   {
    "symbol": "??_C@_0P@FAEG@TXT_NAME_ERROR?$AA@",
    "address": "007e6c90",
    "bytes": 15,
    "kind": "string",
-   "section": 121
+   "section": 158
   },
   {
    "symbol": "??_C@_0BF@GBEB@TXT_MUST_SELECT_GAME?$AA@",
    "address": "007e6ca0",
    "bytes": 21,
    "kind": "string",
-   "section": 122
+   "section": 159
   },
   {
    "symbol": "??_C@_0P@EFOJ@TXT_SERIAL_DUP?$AA@",
    "address": "007e6cb8",
    "bytes": 15,
    "kind": "string",
-   "section": 139
+   "section": 175
   },
   {
    "symbol": "??_C@_0BD@CACI@TXT_GAME_CANCELLED?$AA@",
    "address": "007e6cc8",
    "bytes": 19,
    "kind": "string",
-   "section": 140
+   "section": 176
   },
   {
    "symbol": "??_C@_0BC@NDCC@TXT_OBSERVER_FULL?$AA@",
    "address": "007e6cdc",
    "bytes": 18,
    "kind": "string",
-   "section": 144
+   "section": 180
   },
   {
    "symbol": "??_C@_0O@IOII@TXT_GAME_FULL?$AA@",
    "address": "007e6cf0",
    "bytes": 14,
    "kind": "string",
-   "section": 145
+   "section": 181
   },
   {
    "symbol": "??_C@_0BH@EMGE@TXT_NAME_MUSTBE_UNIQUE?$AA@",
    "address": "007e6d00",
    "bytes": 23,
    "kind": "string",
-   "section": 146
+   "section": 182
   },
   {
    "symbol": "??_C@_0BD@MDDN@TXT_REQUEST_DENIED?$AA@",
    "address": "007e6d18",
    "bytes": 19,
    "kind": "string",
-   "section": 147
+   "section": 183
   },
   {
    "symbol": "??_C@_0L@GBGI@New?5Player?$AA@",
    "address": "007e6d2c",
    "bytes": 11,
    "kind": "string",
-   "section": 148
+   "section": 184
   },
   {
    "symbol": "??_C@_0BJ@FACH@TXT_GAME_NOW_IN_PROGRESS?$AA@",
    "address": "007e6d38",
    "bytes": 25,
    "kind": "string",
-   "section": 149
+   "section": 185
   },
   {
    "symbol": "??_C@_0BG@GABH@TXT_S_FORMED_NEW_GAME?$AA@",
    "address": "007e6d54",
    "bytes": 22,
    "kind": "string",
-   "section": 150
+   "section": 186
   },
   {
    "symbol": "??_C@_06IMK@R?$CFd?0?$CFd?$AA@",
    "address": "007e6d6c",
    "bytes": 7,
    "kind": "string",
-   "section": 153
+   "section": 189
   },
   {
    "symbol": "??_C@_02ONAI@A1?$AA@",
    "address": "007e6d74",
    "bytes": 3,
    "kind": "string",
-   "section": 154
+   "section": 190
   },
   {
    "symbol": "??_C@_0BI@MKML@GUI?3HostGameStartJoiner?$AA@",
    "address": "007e6d78",
    "bytes": 24,
    "kind": "string",
-   "section": 157
+   "section": 193
   }
  ],
  "data_ranges": [],
  "data_bytes_proven": 0,
  "data_complete": true,
  "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a70d0",
+   "bytes": 16,
+   "kind": "table"
+  },
   {
    "symbol": "??_C@_01KMAE@?0?$AA@",
    "address": "007ce9c0",
@@ -1948,6 +2065,14 @@
    "address": "00a3d342"
   },
   {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
    "symbol": "?unknown_max_ahead_a3d560@@3HA",
    "address": "00a3d560"
   },
@@ -2020,6 +2145,10 @@
    "address": "00525450"
   },
   {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
    "symbol": "?unknown_surface_83995c@@3PAVSurface@@A",
    "address": "0083995c"
   },
@@ -2028,8 +2157,16 @@
    "address": "00a3d8d4"
   },
   {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
    "symbol": "__fltused",
    "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
   },
   {
    "symbol": "__imp__ChildWindowFromPointEx@16",
@@ -2307,7 +2444,12 @@
   }
  ],
  "unit_functions": 50,
- "data_unproven": [],
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
  "stand_in_references": [
   {
    "site": "0065d7f0",

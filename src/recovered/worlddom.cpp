@@ -521,132 +521,83 @@ int __fastcall WDT_Setup_Game_00768e90(bool first_time)
 }
 
 
-// 0x00769390: function not yet identified
-//
-// Body: 22 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: void unknown_init_block_00b2ad60_00769390(void)
-// Callees with accepted source:
-//   unknown_free_block_00b2ad60_007693b0 -> src/recovered/007693b0.cpp
-//   atexit_0078298a -> src/recovered/0078298a.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// Two pointer holders of the World Domination Tour code (0x00B2AD60, 0x00B2AD70), the YR
+// twin's WDTPointer<void> globals (ra2-decomp src/worlddom.cpp lines 426 and 432, YR
+// 0x007B0090-0x007B0100): their dynamic initializers (0x00769390, 0x007693D0, _$E) and atexit
+// destructors (0x007693B0, 0x007693F0, _$E) are emitted by these definitions. The holder
+// deletes what it points at when the program ends.
 
-namespace seed_00769390 {
-
-extern void __cdecl unknown_free_block_00b2ad60_007693b0(void);
-extern unsigned int  atexit_0078298a(unsigned int);
-extern "C" unsigned int unknown_wdt_block_00b2ad60;
-
-void  unknown_init_block_00b2ad60_00769390(void)
-{
-    unknown_wdt_block_00b2ad60 = 0;
-    atexit_0078298a((unsigned int)(unknown_free_block_00b2ad60_007693b0));
-    return;
-}
-
-}  // namespace seed_00769390
-
-
-// 0x007693b0: function not yet identified
-//
-// Body: 29 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: void unknown_free_block_00b2ad60_007693b0(void)
-// Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_007693b0 {
-
-extern void  operator_delete_00781d3b(unsigned int);
-extern "C" unsigned int unknown_wdt_block_00b2ad60;
-
-void  unknown_free_block_00b2ad60_007693b0(void)
-{
-    if (unknown_wdt_block_00b2ad60 != 0) {
-        operator_delete_00781d3b((unsigned int)(unknown_wdt_block_00b2ad60));
-        unknown_wdt_block_00b2ad60 = 0;
+template <class T>
+class WDTPointer {
+public:
+    WDTPointer() : Pointer(0) {}
+    ~WDTPointer()
+    {
+        if (Pointer != 0) {
+            delete Pointer;
+            Pointer = 0;
+        }
     }
-    return;
-}
+    T *Pointer;
+};
 
-}  // namespace seed_007693b0
-
-
-// 0x007693d0: function not yet identified
-//
-// Body: 22 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: void unknown_init_block_00b2ad70_007693d0(void)
-// Callees with accepted source:
-//   unknown_free_block_00b2ad70_007693f0 -> src/recovered/007693f0.cpp
-//   atexit_0078298a -> src/recovered/0078298a.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_007693d0 {
-
-extern void __cdecl unknown_free_block_00b2ad70_007693f0(void);
-extern unsigned int  atexit_0078298a(unsigned int);
-extern "C" unsigned int unknown_wdt_block_00b2ad70;
-
-void  unknown_init_block_00b2ad70_007693d0(void)
-{
-    unknown_wdt_block_00b2ad70 = 0;
-    atexit_0078298a((unsigned int)(unknown_free_block_00b2ad70_007693f0));
-    return;
-}
-
-}  // namespace seed_007693d0
-
-
-// 0x007693f0: function not yet identified
-//
-// Body: 29 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: void unknown_free_block_00b2ad70_007693f0(void)
-// Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_007693f0 {
-
-extern void  operator_delete_00781d3b(unsigned int);
-extern "C" unsigned int unknown_wdt_block_00b2ad70;
-
-void  unknown_free_block_00b2ad70_007693f0(void)
-{
-    if (unknown_wdt_block_00b2ad70 != 0) {
-        operator_delete_00781d3b((unsigned int)(unknown_wdt_block_00b2ad70));
-        unknown_wdt_block_00b2ad70 = 0;
-    }
-    return;
-}
-
-}  // namespace seed_007693f0
+// @ref ?WDT_Block_b2ad60@@3V?$WDTPointer@X@@A=00b2ad60
+// @ref ?WDT_Block_b2ad70@@3V?$WDTPointer@X@@A=00b2ad70
+WDTPointer<void> WDT_Block_b2ad60;
+WDTPointer<void> WDT_Block_b2ad70;
 
 
 class Leaf_769510 { public: unsigned int get(); };
 unsigned int Leaf_769510::get() { return 0xb2ad68; }
 
 
+// The World Domination Tour state and campaign last stored by the WOL
+// callbacks (WDT_Store_Current 0x00769520 and WDT_Store_Previous 0x007695A0
+// set them). Their dynamic initializers and atexit destructors (_$E,
+// 0x00769410-0x00769503) are emitted by these definitions; the other rows of
+// the unit have no source of their own. The owning unit is not identified yet.
+namespace WorldDominationTour { class Campaign; }
+
+rc_ptr<WDTState> WDT_Current_State_b2ad68;
+rc_ptr<WDTState> WDT_Previous_State_b2ad80;
+rc_ptr<WorldDominationTour::Campaign> WDT_Current_Campaign_b2ad78;
+rc_ptr<WorldDominationTour::Campaign> WDT_Previous_Campaign_b2ad88;
+
+
+// atexit destructor of WDT_Current_State_b2ad68 (0x00769430, _$E): emitted by the definition in
+// WDT_Current_State_b2ad68_init_00769410.cpp; no source of its own.
+
+
+// dynamic initializer of WDT_Previous_State_b2ad80 (0x00769450, _$E): emitted by the definition in
+// WDT_Current_State_b2ad68_init_00769410.cpp; no source of its own.
+
+
+// atexit destructor of WDT_Previous_State_b2ad80 (0x00769470, _$E): emitted by the definition in
+// WDT_Current_State_b2ad68_init_00769410.cpp; no source of its own.
+
+
+// dynamic initializer of WDT_Current_Campaign_b2ad78 (0x00769490, _$E): emitted by the definition in
+// WDT_Current_State_b2ad68_init_00769410.cpp; no source of its own.
+
+
+// atexit destructor of WDT_Current_Campaign_b2ad78 (0x007694B0, _$E): emitted by the definition in
+// WDT_Current_State_b2ad68_init_00769410.cpp; no source of its own.
+
+
+// dynamic initializer of WDT_Previous_Campaign_b2ad88 (0x007694D0, _$E): emitted by the definition in
+// WDT_Current_State_b2ad68_init_00769410.cpp; no source of its own.
+
+
+// atexit destructor of WDT_Previous_Campaign_b2ad88 (0x007694F0, _$E): emitted by the definition in
+// WDT_Current_State_b2ad68_init_00769410.cpp; no source of its own.
+
+
 // void __fastcall WDT_Store_Current_00769520(rc_ptr<WDTState> const &state) (0x00769520): keeps the
 // current cycle's tour state from the WOL callback and builds the player's campaign from it (TibSun
 // WDT_Start_New_Campaign).
 
-extern rc_ptr<WDTState> WDT_Current_State_b2ad68;
-extern rc_ptr<WorldDominationTour::Campaign> WDT_Current_Campaign_b2ad78;
+
+
 
 void __fastcall WDT_Store_Current_00769520(rc_ptr<WDTState> const &state)
 {
@@ -682,8 +633,8 @@ unsigned char *  WDT_Previous_State_00769590(void)
 // previous cycle's tour state from the WOL callback and builds that campaign from it (TibSun
 // WDT_Resume_Campaign).
 
-extern rc_ptr<WDTState> WDT_Previous_State_b2ad80;
-extern rc_ptr<WorldDominationTour::Campaign> WDT_Previous_Campaign_b2ad88;
+
+
 
 void __fastcall WDT_Store_Previous_007695a0(rc_ptr<WDTState> const &state)
 {
@@ -806,7 +757,7 @@ void __fastcall unknown_set_block_00b2ad70_00769650(unsigned int block)
 // rc_ptr<Campaign> const &__fastcall Previous_WDT_Campaign_00769680() (0x00769680): the campaign the
 // WOL callbacks stored as the previous cycle's (TibSun WDT_Get_Resumed_Campaign).
 namespace WorldDominationTour { class Campaign; }
-extern rc_ptr<WorldDominationTour::Campaign> WDT_Previous_Campaign_b2ad88;
+
 
 rc_ptr<WorldDominationTour::Campaign> const &__fastcall Previous_WDT_Campaign_00769680()
 {

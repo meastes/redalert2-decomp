@@ -440,12 +440,21 @@ def residual_row(row, kind, cause):
                 source=row['source'], cause=scrub_cause(cause))
 
 
-def join_conflict(row, table, text):
+def population_used(catalog, pid):
+    """Names the rows of population `pid` relocate to (their accepted receipts)."""
+    return {r['symbol'] for row in catalog['regions'] if row['population'] == pid
+            for r in row.get('relocations') or []}
+
+
+def join_conflict(row, table, text, used=None, stale=None):
     """Why a row of another population cannot bind under the unit's table, or None.
     The unit's table has precedence: a name the row was accepted with at another address
     (a header file-static of the other unit, another copy of a COMDAT) is a real
     difference, not something to re-bind. Compiler-numbered names are re-bound by
-    content and position after the compile (apply_rename), so they never conflict here."""
+    content and position after the compile (apply_rename), so they never conflict here.
+    `used` (population_used): a name no row of the unit relocates to is a stale table entry,
+    not a conflict (docs/DECISIONS.md, owner 2026-11-14); it is added to `stale` (the caller
+    drops it from the table and logs it) and the row's binding stands."""
     own = {}
     for relocation in row.get('relocations') or []:
         own.setdefault(relocation['symbol'], relocation['target'])
@@ -455,6 +464,10 @@ def join_conflict(row, table, text):
         if COMPILER_NUMBERED.match(name):
             continue
         if name in table and table[name] != target:
+            if used is not None and name not in used:
+                if stale is not None:
+                    stale.append(name)
+                continue
             return '%s is %08x in the unit and %08x in the row\'s population' % (name, table[name], target)
     return None
 
@@ -1361,6 +1374,7 @@ def join_template_plan(catalog, config, item, read, closure, module=None, family
     members = [r for r in catalog['regions'] if r['source'] == module]
     pid, options = members[0]['population'], members[0]['options']
     table = dict(members[0].get('references') or {})
+    used = population_used(catalog, pid)
     policies = {p['id'] for p in catalog.get('populations', []) if p.get('compiler_output_policy')}
     by_entry = {r['entry']: r for r in catalog['regions']}
     counts = collections.Counter(r['source'] for r in catalog['regions'])
@@ -1388,7 +1402,10 @@ def join_template_plan(catalog, config, item, read, closure, module=None, family
         elif own_frozen_bound(config, row):
             refused[row['entry']] = own_frozen_bound(config, row)
         else:
-            conflict = join_conflict(row, table, text)
+            stale = []
+            conflict = join_conflict(row, table, text, used, stale)
+            for name in ([] if conflict else stale):
+                print('%s: stale table entry %s (%08x) dropped for %08x' % (module, name, table.pop(name, 0), row['entry']), flush=True)
             if conflict:
                 refused[row['entry']] = 'binding: %s' % conflict
             else:
@@ -1973,6 +1990,7 @@ def own_join_plan(catalog, config, unit, item, read, closure, classes, fixups, a
     members = [r for r in catalog['regions'] if r['source'] == module]
     pid, options = members[0]['population'], members[0]['options']
     table = dict(members[0].get('references') or {})
+    used = population_used(catalog, pid)
     policies = {p['id'] for p in catalog.get('populations', []) if p.get('compiler_output_policy')}
     by_entry = {r['entry']: r for r in catalog['regions']}
     counts = collections.Counter(r['source'] for r in catalog['regions'])
@@ -2025,7 +2043,10 @@ def own_join_plan(catalog, config, unit, item, read, closure, classes, fixups, a
             refused[row['entry']] = ('its file holds a vtable view classed dead, which the native check '
                                      '(vtable_views.py) reads per object')
         else:
-            conflict = join_conflict(row, table, text)
+            stale = []
+            conflict = join_conflict(row, table, text, used, stale)
+            for name in ([] if conflict else stale):
+                print('%s: stale table entry %s (%08x) dropped for %08x' % (module, name, table.pop(name, 0), row['entry']), flush=True)
             if conflict:
                 refused[row['entry']] = 'binding: %s' % conflict
                 continue
@@ -2430,6 +2451,7 @@ def xcu_plan(catalog, config, unit, item, records, read, closure, fixups, tier, 
     members = [r for r in catalog['regions'] if r['source'] == module]
     pid, options = members[0]['population'], members[0]['options']
     table = dict(members[0].get('references') or {})
+    used = population_used(catalog, pid)
     policies = {p['id'] for p in catalog.get('populations', []) if p.get('compiler_output_policy')}
     counts = collections.Counter(r['source'] for r in catalog['regions'])
     by_source = collections.defaultdict(list)
@@ -2468,7 +2490,10 @@ def xcu_plan(catalog, config, unit, item, records, read, closure, fixups, tier, 
             elif row['source'] in dead_view_files():
                 refused[row['entry']] = 'its file holds a vtable view classed dead'
             else:
-                conflict = join_conflict(row, table, text)
+                stale = []
+                conflict = join_conflict(row, table, text, used, stale)
+                for name in ([] if conflict else stale):
+                    print('%s: stale table entry %s (%08x) dropped for %08x' % (module, name, table.pop(name, 0), row['entry']), flush=True)
                 if conflict:
                     refused[row['entry']] = 'binding: %s' % conflict
                     continue

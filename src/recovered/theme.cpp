@@ -6,6 +6,8 @@
 
 
 #define THEME_CONTROL_RECORD
+#include "shared/unknown_geometry.hpp"
+#include "shared/unknown_static_rect.hpp"
 #include "shared/theme.hpp"
 #include "shared/ccini_class.hpp"
 #include "shared/vector_class.hpp"
@@ -18,6 +20,60 @@
 #include "shared/cd.hpp"
 #include "shared/com_persist.hpp"
 #include "shared/main_loop.hpp"
+
+
+// Header-static dynamic initializers of the unit at 0x006E7550:  the
+// shared/unknown_geometry.hpp constants and unknown_static_rect.hpp
+// (0x006E7550-0x006E7736); the other
+// drafts of this plan are emitted by these includes.
+
+
+// Dynamic initializer (0x006E7580, _$E) of b from the header(s) included
+// by HeaderStatics_diagonal_init_006e7550.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006E75A0, _$E) of c from the header(s) included
+// by HeaderStatics_diagonal_init_006e7550.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006E75C0, _$E) of angle45 from the header(s) included
+// by HeaderStatics_diagonal_init_006e7550.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006E75E0, _$E) of angle60 from the header(s) included
+// by HeaderStatics_diagonal_init_006e7550.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006E7600, _$E) of angle90 from the header(s) included
+// by HeaderStatics_diagonal_init_006e7550.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006E7620, _$E) of g from the header(s) included
+// by HeaderStatics_diagonal_init_006e7550.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006E7660, _$E) of h from the header(s) included
+// by HeaderStatics_diagonal_init_006e7550.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006E7690, _$E) of i from the header(s) included
+// by HeaderStatics_diagonal_init_006e7550.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006E76C0, _$E) of j from the header(s) included
+// by HeaderStatics_diagonal_init_006e7550.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006E76F0, _$E) of k from the header(s) included
+// by HeaderStatics_diagonal_init_006e7550.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006E7700, _$E) of l from the header(s) included
+// by HeaderStatics_diagonal_init_006e7550.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006E7720, _$E) of static_rect from the header(s) included
+// by HeaderStatics_diagonal_init_006e7550.cpp; no source of its own.
 
 
 // ThemeControl::ThemeControl() (0x006E7740)

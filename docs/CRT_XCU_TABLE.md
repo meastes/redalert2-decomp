@@ -142,6 +142,31 @@ compile group also holds multiplayer.cpp, which binds its own copy of the static
 mpcoop's own code uses none of them. The run stays in its tier, refused at the join with that
 cause.
 
+## Lane E1b findings (2026-11-14)
+
+- **Rewritten initialisers bind by slot.** A row rewritten from a seed or stand-in into the
+  real definition (wonline 0x0073BC80/0x0073BCA0/0x0073BD20/0x0073BFC0 with their destructors,
+  worlddom 0x00769390/0x007693D0 with theirs) carries a seed name the catalog shares with many
+  stale table copies. `apply_rename` `xcu_rewrites` binds the fresh `_$E<n>` from the table:
+  an initializer takes the name its slot holds in the fresh object's .CRT$XCU run, a
+  destructor the one other `_$E` its initializer registers. The old name is renamed in the
+  row's population and in tables whose rows relocate to it; other tables drop the stale copy
+  (owner ruling 2026-11-14).
+- **Stale table entries.** lightcon, msglist and theme refused their include-block joins on
+  `_unknown_empty_rect` / `_unknown_static_rect` bound at another address in the unit's table,
+  although no row of the unit relocates to it. Such a name is a stale copy, not a conflict;
+  join-xcu/join-own drop it (logged) and apply_rename `join_rows` records it in the receipt
+  (`stale_dropped`) (owner ruling 2026-11-14).
+- **coopcamp (0x0048DC70-0x0048DE40, 13 rows): parked as a re-roll candidate** (owner ruling
+  2026-11-14). The include block (unknown_geometry.hpp, unknown_static_rect.hpp; the YR twin
+  src/coopcamp.cpp line 17 includes geometry.h) screens exact, but population-3596, which holds
+  the emitter, also holds coopcamp split rows (0x0048E210, 0x004904A0) whose object then emits a
+  .CRT$XCU of its own. Whole compile groups do not move.
+- Still refused: jumpjet and vanim (the group's emitter does not compile placed in the
+  module), voxdrsys (no twin citation for its include block), motlib (its own code binds another
+  copy of the statics, 0x00852618: a hidden unit), subtitle (five headers, not one statics
+  include), globals (files with several rows).
+
 ## Runs
 
 Generated from the table at a4ed83025. "Files" counts address-named `_$E` files whose rows fall

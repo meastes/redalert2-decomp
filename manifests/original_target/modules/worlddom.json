@@ -10,7 +10,7 @@
   "/Gy",
   "/GR"
  ],
- "compile_group": 717,
+ "compile_group": 713,
  "code": [
   {
    "symbol": "_$E2",
@@ -193,28 +193,76 @@
    "padding_bytes": 8
   },
   {
-   "symbol": "?unknown_init_block_00b2ad60_00769390@seed_00769390@@YAXXZ",
+   "symbol": "_$E63",
    "entry": "00769390",
    "body_bytes": 22,
    "padding_bytes": 10
   },
   {
-   "symbol": "?unknown_free_block_00b2ad60_007693b0@seed_007693b0@@YAXXZ",
+   "symbol": "_$E61",
    "entry": "007693b0",
    "body_bytes": 29,
    "padding_bytes": 3
   },
   {
-   "symbol": "?unknown_init_block_00b2ad70_007693d0@seed_007693d0@@YAXXZ",
+   "symbol": "_$E68",
    "entry": "007693d0",
    "body_bytes": 22,
    "padding_bytes": 10
   },
   {
-   "symbol": "?unknown_free_block_00b2ad70_007693f0@seed_007693f0@@YAXXZ",
+   "symbol": "_$E66",
    "entry": "007693f0",
    "body_bytes": 29,
    "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E73",
+   "entry": "00769410",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "_$E71",
+   "entry": "00769430",
+   "body_bytes": 20,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "_$E78",
+   "entry": "00769450",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "_$E76",
+   "entry": "00769470",
+   "body_bytes": 20,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "_$E83",
+   "entry": "00769490",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "_$E81",
+   "entry": "007694b0",
+   "body_bytes": 20,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "_$E88",
+   "entry": "007694d0",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "_$E86",
+   "entry": "007694f0",
+   "body_bytes": 20,
+   "padding_bytes": 12
   },
   {
    "symbol": "?get@Leaf_769510@@QAEIXZ",
@@ -295,7 +343,7 @@
    "padding_bytes": 3
   }
  ],
- "code_bytes": 4832,
+ "code_bytes": 5088,
  "data": [
   {
    "symbol": "__real@8@40008000000000000000",
@@ -358,7 +406,7 @@
    "address": "007a4528",
    "bytes": 8,
    "kind": "vtable",
-   "section": 187
+   "section": 209
   },
   {
    "symbol": "??_7?$rc_ptr@VCampaign@WorldDominationTour@@@@6B@",
@@ -370,6 +418,13 @@
   {
    "symbol": "??_7?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@6B@",
    "address": "007af020",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 185
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VWDTState@@@@6B@",
+   "address": "007af1a0",
    "bytes": 8,
    "kind": "vtable",
    "section": 163
@@ -477,28 +532,28 @@
    "address": "007bc630",
    "bytes": 24,
    "kind": "rtti",
-   "section": 182
+   "section": 204
   },
   {
    "symbol": "??_R2?$rc_ptr@VWDTTerritory@@@@8",
    "address": "007bc648",
    "bytes": 9,
    "kind": "rtti",
-   "section": 183
+   "section": 205
   },
   {
    "symbol": "??_R3?$rc_ptr@VWDTTerritory@@@@8",
    "address": "007bc658",
    "bytes": 16,
    "kind": "rtti",
-   "section": 184
+   "section": 206
   },
   {
    "symbol": "??_R4?$rc_ptr@VWDTTerritory@@@@6B@",
    "address": "007bc668",
    "bytes": 20,
    "kind": "rtti",
-   "section": 186
+   "section": 208
   },
   {
    "symbol": "??_R1A@?0A@A@DialogControl@OwnerDraw@@8",
@@ -547,25 +602,53 @@
    "address": "007c53e0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 158
+   "section": 180
   },
   {
    "symbol": "??_R2?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@8",
    "address": "007c53f8",
    "bytes": 9,
    "kind": "rtti",
-   "section": 159
+   "section": 181
   },
   {
    "symbol": "??_R3?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@8",
    "address": "007c5408",
    "bytes": 16,
    "kind": "rtti",
-   "section": 160
+   "section": 182
   },
   {
    "symbol": "??_R4?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@6B@",
    "address": "007c5418",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 184
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VWDTState@@@@8",
+   "address": "007c58a8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 158
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VWDTState@@@@8",
+   "address": "007c58c0",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 159
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VWDTState@@@@8",
+   "address": "007c58d0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 160
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VWDTState@@@@6B@",
+   "address": "007c58e0",
    "bytes": 20,
    "kind": "rtti",
    "section": 162
@@ -652,7 +735,7 @@
    "address": "007ddae8",
    "bytes": 39,
    "kind": "rtti",
-   "section": 185
+   "section": 207
   },
   {
    "symbol": "??_C@_0BJ@ODIK@WDT?3FactionSelectToolTip?$AA@",
@@ -686,6 +769,13 @@
    "symbol": "??_R0?AV?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@@8",
    "address": "007fb6b0",
    "bytes": 65,
+   "kind": "rtti",
+   "section": 183
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VWDTState@@@@@8",
+   "address": "007fbcb0",
+   "bytes": 35,
    "kind": "rtti",
    "section": 161
   },
@@ -908,6 +998,12 @@
    "kind": "vtable"
   },
   {
+   "symbol": "??_7?$rc_ptr@VWDTState@@@@6B@",
+   "address": "007af1a0",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
    "symbol": "_unknown_geometry_sixty",
    "address": "007af9c8",
    "bytes": 16,
@@ -1076,6 +1172,30 @@
    "kind": "rtti"
   },
   {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VWDTState@@@@8",
+   "address": "007c58a8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VWDTState@@@@8",
+   "address": "007c58c0",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VWDTState@@@@8",
+   "address": "007c58d0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VWDTState@@@@6B@",
+   "address": "007c58e0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
    "symbol": "??_R1A@?0A@A@FactionSelectDialogControl@WorldDominationTour@@8",
    "address": "007c65d0",
    "bytes": 24,
@@ -1175,6 +1295,12 @@
    "symbol": "??_R0?AV?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@@8",
    "address": "007fb6b0",
    "bytes": 65,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VWDTState@@@@@8",
+   "address": "007fbcb0",
+   "bytes": 35,
    "kind": "rtti"
   },
   {
@@ -1489,6 +1615,10 @@
    "address": "00726ac0"
   },
   {
+   "symbol": "??_G?$rc_ptr@VWDTState@@@@UAEPAXI@Z",
+   "address": "00728fa0"
+  },
+  {
    "symbol": "??_G?$rc_ptr@VWDTTerritory@@@@UAEPAXI@Z",
    "address": "0051e600"
   },
@@ -1721,22 +1851,6 @@
    "address": "00b2ada8"
   },
   {
-   "symbol": "?WDT_Current_Campaign_b2ad78@@3V?$rc_ptr@VCampaign@WorldDominationTour@@@@A",
-   "address": "00b2ad78"
-  },
-  {
-   "symbol": "?WDT_Current_State_b2ad68@@3V?$rc_ptr@VWDTState@@@@A",
-   "address": "00b2ad68"
-  },
-  {
-   "symbol": "?WDT_Previous_Campaign_b2ad88@@3V?$rc_ptr@VCampaign@WorldDominationTour@@@@A",
-   "address": "00b2ad88"
-  },
-  {
-   "symbol": "?WDT_Previous_State_b2ad80@@3V?$rc_ptr@VWDTState@@@@A",
-   "address": "00b2ad80"
-  },
-  {
    "symbol": "?Write@BufferIOFileClass@@UAEJPBXJ@Z",
    "address": "0042f830"
   },
@@ -1745,24 +1859,8 @@
    "address": "00469030"
   },
   {
-   "symbol": "?atexit_0078298a@seed_00769390@@YAII@Z",
-   "address": "0078298a"
-  },
-  {
-   "symbol": "?atexit_0078298a@seed_007693d0@@YAII@Z",
-   "address": "0078298a"
-  },
-  {
    "symbol": "?current_campaign_00b2ad78@@3V?$rc_ptr@VCampaign@WorldDominationTour@@@@A",
    "address": "00b2ad78"
-  },
-  {
-   "symbol": "?operator_delete_00781d3b@seed_007693b0@@YAXI@Z",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "?operator_delete_00781d3b@seed_007693f0@@YAXI@Z",
-   "address": "00781d3b"
   },
   {
    "symbol": "?operator_delete_00781d3b@seed_00769620@@YAXI@Z",
@@ -1791,14 +1889,6 @@
   {
    "symbol": "?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z",
    "address": "005ffb00"
-  },
-  {
-   "symbol": "?unknown_free_block_00b2ad60_007693b0@seed_00769390@@YAXXZ",
-   "address": "007693b0"
-  },
-  {
-   "symbol": "?unknown_free_block_00b2ad70_007693f0@seed_007693d0@@YAXXZ",
-   "address": "007693f0"
   },
   {
    "symbol": "?unknown_load_pcx_60d110@@YIPAVSurface@@PAVFileClass@@PAVPaletteClass@@HH@Z",
@@ -1883,22 +1973,6 @@
   {
    "symbol": "_unknown_wdt_block_00b2ad60",
    "address": "00b2ad60"
-  },
-  {
-   "symbol": "_unknown_wdt_block_00b2ad60",
-   "address": "00b2ad60"
-  },
-  {
-   "symbol": "_unknown_wdt_block_00b2ad60",
-   "address": "00b2ad60"
-  },
-  {
-   "symbol": "_unknown_wdt_block_00b2ad70",
-   "address": "00b2ad70"
-  },
-  {
-   "symbol": "_unknown_wdt_block_00b2ad70",
-   "address": "00b2ad70"
   },
   {
    "symbol": "_unknown_wdt_block_00b2ad70",
@@ -1999,74 +2073,81 @@
    "population": "population-3817",
    "bound": "own frozen bound (population-3817)",
    "options": "joined under the unit's /GR (frozen without it)"
-  }
- ],
- "residuals": [
+  },
   {
-   "kind": "split",
    "entry": "00769410",
    "bytes": 32,
    "population": "population-3037",
-   "source": "src/recovered/unowned/WDT_Current_State_b2ad68_init_00769410.cpp",
-   "cause": "held by population-3037; not joined (.CRT$XCU single): differs under the unit's state (Function symbol ambiguous/missing: _$E100119)"
+   "bound": "own frozen bound (population-3037)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu single"
   },
   {
-   "kind": "split",
    "entry": "00769430",
    "bytes": 20,
    "population": "population-3037",
-   "source": "src/recovered/unowned/WDT_Current_State_b2ad68_atexit_destructor_00769430.cpp",
-   "cause": "held by population-3037; not joined (.CRT$XCU single): differs under the unit's state (Function symbol ambiguous/missing: _$E100118)"
+   "bound": "own frozen bound (population-3037)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu single"
   },
   {
-   "kind": "split",
    "entry": "00769450",
    "bytes": 32,
    "population": "population-3037",
-   "source": "src/recovered/unowned/WDT_Previous_State_b2ad80_init_00769450.cpp",
-   "cause": "held by population-3037; not joined (.CRT$XCU single): differs under the unit's state (Function symbol ambiguous/missing: _$E100121)"
+   "bound": "own frozen bound (population-3037)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu single"
   },
   {
-   "kind": "split",
    "entry": "00769470",
    "bytes": 20,
    "population": "population-3037",
-   "source": "src/recovered/unowned/WDT_Previous_State_b2ad80_atexit_destructor_00769470.cpp",
-   "cause": "held by population-3037; not joined (.CRT$XCU single): differs under the unit's state (Function symbol ambiguous/missing: _$E100120)"
+   "bound": "own frozen bound (population-3037)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu single"
   },
   {
-   "kind": "split",
    "entry": "00769490",
    "bytes": 32,
    "population": "population-3037",
-   "source": "src/recovered/unowned/WDT_Current_Campaign_b2ad78_init_00769490.cpp",
-   "cause": "held by population-3037; not joined (.CRT$XCU single): differs under the unit's state (Function symbol ambiguous/missing: _$E100123)"
+   "bound": "own frozen bound (population-3037)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu single"
   },
   {
-   "kind": "split",
    "entry": "007694b0",
    "bytes": 20,
    "population": "population-3037",
-   "source": "src/recovered/unowned/WDT_Current_Campaign_b2ad78_atexit_destructor_007694b0.cpp",
-   "cause": "held by population-3037; not joined (.CRT$XCU single): differs under the unit's state (Function symbol ambiguous/missing: _$E100122)"
+   "bound": "own frozen bound (population-3037)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu single"
   },
   {
-   "kind": "split",
    "entry": "007694d0",
    "bytes": 32,
    "population": "population-3037",
-   "source": "src/recovered/unowned/WDT_Previous_Campaign_b2ad88_init_007694d0.cpp",
-   "cause": "held by population-3037; not joined (.CRT$XCU single): differs under the unit's state (Function symbol ambiguous/missing: _$E100125)"
+   "bound": "own frozen bound (population-3037)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu single"
   },
   {
-   "kind": "split",
    "entry": "007694f0",
    "bytes": 20,
    "population": "population-3037",
-   "source": "src/recovered/unowned/WDT_Previous_Campaign_b2ad88_atexit_destructor_007694f0.cpp",
-   "cause": "held by population-3037; not joined (.CRT$XCU single): differs under the unit's state (Function symbol ambiguous/missing: _$E100124)"
+   "bound": "own frozen bound (population-3037)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu single"
   }
  ],
+ "residuals": [],
  "unit_functions": 57,
  "data_unproven": [
   {
@@ -2110,8 +2191,8 @@
  ],
  "stand_in_reference_count": 4,
  "residual_split": {
-  "rows": 8,
-  "bytes": 208
+  "rows": 0,
+  "bytes": 0
  },
  "residual_flipped": {
   "rows": 0,
