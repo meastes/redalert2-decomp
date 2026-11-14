@@ -145,6 +145,10 @@ int main(int argc, char **argv)
         else if (!strncmp(argv[i], "--input-script=", 15)) setenv("RA2_NATIVE_INPUT_SCRIPT", argv[i] + 15, 1);
         else if (!strcmp(argv[i], "--app")) app_flag = true;
         else if (!strcmp(argv[i], "--setup")) setup_flag = true;
+        // --load-save=<file> (lane C15, a test run's): the menus go to Load Saved Game and
+        // load <file> as Resume at start does (ra2port::request_resume); with
+        // --run-to=frames --frames=N the run ends N Main_Loop frames into the loaded game.
+        else if (!strncmp(argv[i], "--load-save=", 12)) ra2port::request_resume(argv[i] + 12);
     }
 #ifdef RA2_APP_MODE
     bool app_mode = app_flag || (app::in_bundle() && !run_to && !skirmish && !smoke);

@@ -86,3 +86,20 @@ $env:RA2_NATIVE_INIT_TRACE="1"; & $EXE --data-dir $RA2 --run-to=menu --run-secon
 - menu.log and census.log end with `stopped: target reached` and no `trap`, `signal` or
   `crash` line; inittrace.log's `initterm #N` lines count up from #0 to #3609 (358 lines;
   the order the Mac prints) and the last line says `the last starting at original entry #3609`.
+
+## 6. Original saves (lane C15)
+
+The game folder's own saves from the original game (`*.sav`, compound files) load read only.
+Any original base-RA2 save in `$RA2` will do; Allied 1 (`ALL01T.sav`) is the Mac's and Wine's.
+
+```
+$env:RA2_NATIVE_MOVIE_SKIP="1"; $env:RA2_NATIVE_IGNORE_FOCUS="1"; $env:RA2_NATIVE_STG_LOG="1"; $env:RA2_NATIVE_ORIGINAL_LOG="1"
+& $EXE --data-dir $RA2 --run-to=frames --run-seconds=300 --write-dir="$OUT\wd-orig" "--game-args=-noaudio -CD." --load-save=ALL01T.sav --frames=300 2> "$OUT\origsave.log"
+Remove-Item Env:RA2_NATIVE_STG_LOG, Env:RA2_NATIVE_ORIGINAL_LOG
+```
+- origsave.log has `original save (compound file)` for the file, `resume: loaded ALL01T.sav`,
+  many `original-save: ... i686 bytes to ...` lines, no `no layout`, `swizzle: unmatched`,
+  `trap` or `crash` line, and ends with `stopped: target reached`. The save's file date is
+  unchanged afterwards (it is never written).
+- Interactive: `& $EXE --app`, Load Saved Game lists the originals with "(Original) " in front;
+  load one and play on a minute; Delete on an original is refused.

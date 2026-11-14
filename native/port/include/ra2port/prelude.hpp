@@ -137,10 +137,12 @@ template <class T> struct original_read_kind {
     enum { value = (__is_class(T) || __is_union(T)) ? ORIGINAL_READ_OBJECT : ORIGINAL_READ_RAW };
 };
 template <class T> struct original_read_kind<T *> { enum { value = ORIGINAL_READ_UNSIGNED }; };
-// VC6's long is RA2_LONG natively; long and unsigned long here are only the
-// pointer-width rewrites (intptr_t, uintptr_t, size_t: LONG_PTR, WPARAM, ...).
-template <> struct original_read_kind<long> { enum { value = ORIGINAL_READ_SIGNED }; };
-template <> struct original_read_kind<unsigned long> { enum { value = ORIGINAL_READ_UNSIGNED }; };
+// The pointer-width rewrites (intptr_t, uintptr_t, size_t: LONG_PTR, WPARAM, ...),
+// 4 bytes on VC6. They are long and unsigned long on LP64 (macOS, iOS; VC6's long is
+// RA2_LONG there) and long long and unsigned long long on LLP64 Win64, where long
+// is 4 bytes as on VC6 and reads as is (lane C15; no save read takes VC6's __int64).
+template <> struct original_read_kind<intptr_t> { enum { value = ORIGINAL_READ_SIGNED }; };
+template <> struct original_read_kind<uintptr_t> { enum { value = ORIGINAL_READ_UNSIGNED }; };
 template <class T> inline char const *original_type_name() { return __PRETTY_FUNCTION__; }
 template <class T, bool polymorphic = __is_polymorphic(T)> struct original_vptr {
     static void const *get(T const *) { return 0; }

@@ -8,8 +8,9 @@
 //  - pointers, intptr_t/uintptr_t: 4 bytes per value read and widened (zero-
 //    extended, sign-extended for intptr_t). They are swizzle ids and saved
 //    pointer fields: original heap and image addresses, all below 2 GB.
-//  - objects: converted from the i686 layout to the arm64 one (field maps,
-//    original_layouts); a type without a map is read as is and reported once.
+//  - objects: converted from the i686 layout to the native one (field maps,
+//    original_layouts: arm64, or x86_64 Windows in the Windows build, lane C15);
+//    a type without a map is read as is and reported once.
 //  - everything else: read as is.
 #include "ra2port/win32_port.hpp"
 #include "ra2port/original_layouts.hpp"
@@ -33,6 +34,9 @@
 #include <vector>
 
 extern "C" int ra2port_original_save_mode = 0;
+#if defined(_WIN32)
+extern "C" char __ImageBase;   // the linker's: the exe's IMAGE_DOS_HEADER
+#endif
 
 // No maps when the build has none (tools/original_layouts.py writes the strong
 // definitions into gen/original_layouts.cpp for the game).
@@ -86,6 +90,13 @@ std::string static_name(const char *pretty)
     return canonical(s);
 }
 
+uint64_t load_unit(const uint8_t *p, unsigned bytes)
+{
+    uint64_t v = 0;
+    for (unsigned i = 0; i < bytes; ++i) v |= (uint64_t)p[i] << (8 * i);
+    return v;
+}
+
 // Whether p lies in the game's own image (its vtables, RTTI records and their
 // names). A load may read an object over raw memory (VeinholeMonsterClass's
 // load reads one into new char[]): its vtable pointer is then garbage.
@@ -113,6 +124,13 @@ bool in_image(void const *p)
         hi = e;
     }
     return (uintptr_t)p >= lo && (uintptr_t)p < hi;
+#elif defined(_WIN32)
+    // The exe's image from its PE headers (lane C15): IMAGE_DOS_HEADER.e_lfanew at
+    // 0x3C, the PE32+ optional header's SizeOfImage at 0x50 of the NT headers.
+    const uint8_t *base = (const uint8_t *)&__ImageBase;
+    uint32_t nt = (uint32_t)load_unit(base + 0x3C, 4);
+    uintptr_t size = (uintptr_t)load_unit(base + nt + 0x50, 4);
+    return (uintptr_t)p >= (uintptr_t)base && (uintptr_t)p < (uintptr_t)base + size;
 #else
     return p != nullptr;
 #endif
@@ -170,12 +188,6 @@ OriginalLayout const *layout(std::string const &name)
     return it == index->end() ? nullptr : it->second;
 }
 
-uint64_t load_unit(const uint8_t *p, unsigned bytes)
-{
-    uint64_t v = 0;
-    for (unsigned i = 0; i < bytes; ++i) v |= (uint64_t)p[i] << (8 * i);
-    return v;
-}
 void store_unit(uint8_t *p, unsigned bytes, uint64_t v)
 {
     for (unsigned i = 0; i < bytes; ++i) p[i] = (uint8_t)(v >> (8 * i));

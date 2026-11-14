@@ -133,15 +133,20 @@ endif()
 set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/tools/fast_math_tables.py")
 list(APPEND RA2_NATIVE_DATA "${RA2_NATIVE_GEN}/fast_math_tables.s")
 # Field maps for reading the original game's saves (C6, README "Original saves"):
-# i686 and arm64 record layouts of the units that load each type in
-# data/original_save_types.txt (tools/original_layouts.py). The arm64 game only;
-# without them (other builds) port/src/original_save.cpp has none.
-if(RA2_NATIVE_SUBSYSTEM STREQUAL "all" AND CMAKE_SYSTEM_PROCESSOR MATCHES "arm64|aarch64" AND NOT WIN32)
+# i686 and native record layouts of the units that load each type in
+# data/original_save_types.txt (tools/original_layouts.py): the arm64 game, and the
+# x86_64 Windows game (lane C15: LLP64, its own compiler and dialect header); without
+# them (other builds) port/src/original_save.cpp has none.
+set(ra2_original_layouts_target "")
+if(WIN32)
+  set(ra2_original_layouts_target --target windows "--cxx=${CMAKE_CXX_COMPILER}")
+endif()
+if(RA2_NATIVE_SUBSYSTEM STREQUAL "all" AND ((CMAKE_SYSTEM_PROCESSOR MATCHES "arm64|aarch64" AND NOT WIN32) OR WIN32))
   add_custom_command(
     OUTPUT "${RA2_NATIVE_GEN}/original_layouts.cpp"
     COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/original_layouts.py"
             --build "${CMAKE_CURRENT_BINARY_DIR}" --out "${RA2_NATIVE_GEN}/original_layouts.cpp"
-            --report "${RA2_NATIVE_GEN}/original_layouts.json"
+            --report "${RA2_NATIVE_GEN}/original_layouts.json" ${ra2_original_layouts_target}
     DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/tools/original_layouts.py" "${CMAKE_CURRENT_SOURCE_DIR}/data/original_save_types.txt"
             "${CMAKE_CURRENT_SOURCE_DIR}/port/include/ra2port/prelude.hpp" "${RA2_NATIVE_GEN}/units.cmake" ${RA2_NATIVE_UNITS}
     VERBATIM)
@@ -201,6 +206,12 @@ if(RA2_NATIVE_SUBSYSTEM STREQUAL "all" AND CMAKE_SYSTEM_PROCESSOR MATCHES "arm64
   add_test(NAME native-original-layouts COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/original_layouts.py"
            --build "${CMAKE_CURRENT_BINARY_DIR}" --out "${CMAKE_CURRENT_BINARY_DIR}/original_layouts_check.cpp" --check)
 endif()
+endif()
+# The same check for the x86_64 Windows layouts (C15; LLP64, the build's own compiler).
+if(WIN32 AND RA2_NATIVE_SUBSYSTEM STREQUAL "all")
+  add_test(NAME native-original-layouts COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/original_layouts.py"
+           --build "${CMAKE_CURRENT_BINARY_DIR}" --out "${CMAKE_CURRENT_BINARY_DIR}/original_layouts_check.cpp" --check
+           ${ra2_original_layouts_target})
 endif()
 
 # Libraries whose exports the link closure counts as system (default: Homebrew's
@@ -385,6 +396,16 @@ if(RA2_NATIVE_SDL)
       # The run's own limit (420 s; about 40 s alone) ends it before ctest's timeout, so a
       # stalled run still prints its milestones and the main thread's backtrace (C5).
       set_tests_properties(native-census PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 480)
+      # 8b. Original saves (C6, C15): one of the user's saves from the original game
+      #     (Allied 1, in the installation) loads through the menus (--load-save) with
+      #     the field maps and plays 300 frames; on Windows the .exe under Wine.
+      if(RA2_NATIVE_SUBSYSTEM STREQUAL "all" AND ((CMAKE_SYSTEM_PROCESSOR MATCHES "arm64|aarch64" AND NOT WIN32) OR WIN32))
+        add_test(NAME native-original-save COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/original_save_load.py"
+                 --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+                 --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --save ALL01T.sav --frames 300 --seconds 300
+                 --log "${CMAKE_CURRENT_BINARY_DIR}/native-original-save.log" ${ra2_wine_args_original})
+        set_tests_properties(native-original-save PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 360)
+      endif()
       # 9. Plain-virtual views against the real classes' arm64 vtables (Scout1288,
       #    tools/vtable_views.py, data/vtable_views.tsv): every view classified, and each
       #    slot the sources call through a view reaches the real class's entry for that

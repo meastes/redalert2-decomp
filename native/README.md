@@ -784,8 +784,21 @@ logs each conversion; a type read without a map is reported once on stderr
 original. All five of the user's saves (Allied 1, 2 twice, 3 twice) load from the
 menu and play on; saving then writes a port save that loads in a fresh process.
 Not supported: writing original-format saves, Yuri's Revenge, multiplayer saves,
-other internal versions; the x86_64 Windows build has no field maps (LLP64: its
-typed overload is not compiled).
+other internal versions.
+
+The x86_64 Windows build (lane C15) reads them the same way. Win64 is LLP64: `long` is
+4 bytes, as on VC6, and the pointer-width rewrites are `long long`, so the typed read
+kinds are keyed on intptr_t/uintptr_t (size_t is uintptr_t on both targets; no save
+read takes VC6's `__int64`), and `original_layouts.py --target windows --cxx <the
+build's x86_64-w64-mingw32-clang++>` lays out the native side with the build's own
+compiler and dialect header (the same 1,457 maps as arm64's; only Winsock's hostent,
+never saved, differs). The game's image for the RTTI check is the exe's, from its PE
+headers (`__ImageBase`). ctest `native-original-layouts` runs for both targets, and
+`native-original-save` (tests/original_save_load.py; under Wine on the Windows build)
+loads Allied 1 (`ALL01T.sav` in the census data folder) through the menus with
+`--load-save=<file>` (a test run's Resume at start: `--run-to=frames --frames=N` ends
+N frames into the loaded game) and fails on a trap, a fault, a swizzle failure, a type
+read without a map, or no object converted.
 
 ## Layers
 
@@ -1228,13 +1241,15 @@ nothing is installed. SDL3 is built statically from source, as for iOS. `RA2_WIN
 links for the GUI subsystem (no console; the test runs' logs need the console, the default).
 
 Checks (C7): `ctest --test-dir build/native-win` runs on the Mac. `native-census`,
-`native-enhancements-frames` and `native-enhancements-settings` run the .exe under Wine, each
+`native-enhancements-frames`, `native-enhancements-settings` and `native-original-save` (C15)
+run the .exe under Wine, each
 in a fresh prefix of its own under `build/native-win/wine/` (`tests/wine.py`), and are skipped
 when no Wine is found (`RA2_NATIVE_WINE`, cache or environment, else `wine` on PATH, else the
 Wine bundle under the main checkout's `private/tools/wine-11.18`; a local test host, never
 shipped). `native-link-closure` compares the Windows closure with the Mac baseline
 (`--target=windows`: Win64's `long long` is the Mac's 64-bit `long`), `native-vtable-views`
-reads the .exe's COFF names. The unit checks (core, asm, view audit) are the Mac build's. What
+reads the .exe's COFF names, `native-original-layouts` checks the x86_64 field maps (C15). The
+unit checks (core, asm, view audit) are the Mac build's. What
 Wine cannot check (a real window, audio, fullscreen, DPI scaling) is listed with commands in
 `platform/win/REAL_WINDOWS_CHECKS.md`.
 
