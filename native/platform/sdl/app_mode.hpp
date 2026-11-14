@@ -61,7 +61,15 @@ std::string settings_path()
 void make_dirs(std::string const &path)
 {
     for (size_t i = 1; i <= path.size(); ++i) {
-        if (i == path.size() || path[i] == '/') mkdir(path.substr(0, i).c_str(), 0755);
+        // Windows' folders (%LOCALAPPDATA%\RA2Native\Logs) also part at '\\': with '/' alone
+        // the Logs folder was never made and the log file never opened (lane C15d).
+#if defined(_WIN32)
+        bool separator = path[i] == '/' || path[i] == '\\';
+        if (i == 2 && path[1] == ':') continue;   // "C:" itself
+#else
+        bool separator = path[i] == '/';
+#endif
+        if (i == path.size() || separator) mkdir(path.substr(0, i).c_str(), 0755);
     }
 }
 bool is_dir(std::string const &path)
@@ -673,8 +681,9 @@ char log_path[1024];
 char self_path[1024];
 const void *main_image = nullptr;     // the executable's load address (dladdr's dli_fbase)
 
-// stdout and stderr to ~/Library/Logs/RA2Native/ra2-native.log (the previous
-// session's log kept as ra2-native.previous.log).
+// stdout and stderr to ~/Library/Logs/RA2Native/ra2-native.log (Windows:
+// %LOCALAPPDATA%\RA2Native\Logs; the previous session's log kept as
+// ra2-native.previous.log).
 void open_log()
 {
     std::string dir = log_dir();
@@ -686,10 +695,25 @@ void open_log()
     if (fd < 0) return;
     fflush(stdout);
     fflush(stderr);
+#if defined(_WIN32)
+    // RA2Native.exe (the GUI subsystem, lane C15d) starts without standard handles: the
+    // UCRT's stdout and stderr have no descriptor (-2), and writes through them are lost
+    // even after dup2 onto 1 and 2. Each stream is opened on NUL first, which gives it a
+    // descriptor, and the log is put under that descriptor. The UCRT has no line
+    // buffering (_IOLBF is full buffering), so stdout is unbuffered: a crash loses no line.
+    if (_fileno(stdout) < 0) freopen("NUL", "w", stdout);
+    if (_fileno(stderr) < 0) freopen("NUL", "w", stderr);
+    if (_fileno(stdout) >= 0) dup2(fd, _fileno(stdout));
+    if (_fileno(stderr) >= 0) dup2(fd, _fileno(stderr));
+    close(fd);
+    setvbuf(stdout, nullptr, _IONBF, 0);
+    setvbuf(stderr, nullptr, _IONBF, 0);
+#else
     dup2(fd, 1);
     dup2(fd, 2);
     close(fd);
     setvbuf(stdout, nullptr, _IOLBF, 0);
+#endif
     time_t now = time(nullptr);
     char when[64];
     strftime(when, sizeof when, "%Y-%m-%d %H:%M:%S", localtime(&now));

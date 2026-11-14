@@ -103,3 +103,17 @@ Remove-Item Env:RA2_NATIVE_STG_LOG, Env:RA2_NATIVE_ORIGINAL_LOG
   unchanged afterwards (it is never written).
 - Interactive: `& $EXE --app`, Load Saved Game lists the originals with "(Original) " in front;
   load one and play on a minute; Delete on an original is refused.
+
+## 7. The players' GUI exe (lane C15d)
+
+`RA2Native.exe` (beside ra2-native.exe in the drop) is the GUI-subsystem build. Start it by
+double-clicking it in Explorer (not from PowerShell). The settings already in
+`%APPDATA%\RA2Native` are used as they are (delete nothing).
+- No console window opens at any point; the main menu (the setup question first if no
+  game folder was saved yet).
+- Explorer and the taskbar show our icon on the file (red square, white star); the game's
+  window (title bar, taskbar button, Alt+Tab) shows Red Alert 2's own icon.
+- Quit from the menu. `%LOCALAPPDATA%\RA2Native\Logs\ra2-native.log` exists and starts with
+  `ra2-native: session started`, and has `host: window icon 32x32 from game.exe`. Start it again
+  and quit: the earlier log is now `ra2-native.previous.log`.
+- Screenshot the window with its icon and the Explorer file icon.

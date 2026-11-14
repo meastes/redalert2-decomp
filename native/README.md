@@ -1232,13 +1232,26 @@ lld, libc++, the UCRT), on the same SDL3 host; no original code, no emulation:
 cmake -S native -B build/native-win -G Ninja \
   -DCMAKE_TOOLCHAIN_FILE=$PWD/native/cmake/llvm-mingw-x86_64.cmake \
   -DRA2_NATIVE_SDL_SOURCE=<SDL 3.4.2 source> -DRA2_NATIVE_SUBSYSTEM=all -DRA2_NATIVE_LINK_CLOSURE=ON
-cmake --build build/native-win          # build/native-win/ra2-native.exe, self-contained (no toolchain DLLs)
+cmake --build build/native-win          # build/native-win/RA2Native.exe and ra2-native.exe, self-contained (no toolchain DLLs)
 ```
 
 The toolchain is the extracted llvm-mingw release (20261020, macOS universal), found by
 `RA2_LLVM_MINGW` or under the main checkout's `private/toolchains/llvm-mingw-20261020/`;
-nothing is installed. SDL3 is built statically from source, as for iOS. `RA2_WINDOWS_GUI=ON`
-links for the GUI subsystem (no console; the test runs' logs need the console, the default).
+nothing is installed. SDL3 is built statically from source, as for iOS.
+
+Two executables from the same objects (C15d): `RA2Native.exe`, the players' build, linked for
+the GUI subsystem (no console window; `RA2_WINDOWS_GUI`, on by default), and `ra2-native.exe`,
+the console build the test runs and ctest use (their output is the process's). Started
+without a console, either is the app by itself (`host_win.cpp` launched_as_app), its log in
+`%LOCALAPPDATA%\RA2Native\Logs\ra2-native.log` (the previous session's beside it) and its
+settings and games in `%APPDATA%\RA2Native`. Both carry a neutral icon of our own
+(`packaging/make_icon.py --ico`: a red rounded square, a white star; drawn from plain shapes,
+no game art) as their file icon; the game's window shows the game's own icon, which the game
+asks for with LoadIconA(0x5D) and the port reads from the user's game.exe at run time
+(`port/src/icons.cpp`, the RT_GROUP_ICON's largest picture; Windows only, the Mac and iOS
+apps keep their bundle icons). Nothing of the original is copied into the repository or the
+build. ctest `native-windows-gui` checks the two subsystems and the icon resource, then runs
+RA2Native.exe under Wine without `--app` to the main menu and reads its log from the prefix.
 
 Checks (C7): `ctest --test-dir build/native-win` runs on the Mac. `native-census`,
 `native-enhancements-frames`, `native-enhancements-settings` and `native-original-save` (C15)

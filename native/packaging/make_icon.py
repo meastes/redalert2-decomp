@@ -59,16 +59,18 @@ def shade(x, y, star, full_bleed):
     return (int(200 - 70 * t), int(24 - 10 * t), int(20 - 8 * t), 255)
 
 
-def main(out, full_bleed=False):
+def render(n=SIZE, full_bleed=False):
+    """The icon as an n x n PNG (the 1024 design scaled; n == SIZE draws it as designed)."""
     star = star_points(SIZE / 2, SIZE / 2 + 18, 270, 108)
+    k = SIZE / n
     rows = []
-    for py in range(SIZE):
+    for py in range(n):
         row = bytearray([0])
-        for px in range(SIZE):
+        for px in range(n):
             acc = [0, 0, 0, 0]
             for sy in range(SS):
                 for sx in range(SS):
-                    c = shade(px + (sx + 0.5) / SS, py + (sy + 0.5) / SS, star, full_bleed)
+                    c = shade((px + (sx + 0.5) / SS) * k, (py + (sy + 0.5) / SS) * k, star, full_bleed)
                     a = c[3]
                     acc[0] += c[0] * a
                     acc[1] += c[1] * a
@@ -85,16 +87,40 @@ def main(out, full_bleed=False):
     def chunk(tag, data):
         return struct.pack(">I", len(data)) + tag + data + struct.pack(">I", zlib.crc32(tag + data) & 0xFFFFFFFF)
 
-    png = b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", struct.pack(">IIBBBBB", SIZE, SIZE, 8, 6, 0, 0, 0))
+    png = b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", struct.pack(">IIBBBBB", n, n, 8, 6, 0, 0, 0))
     png += chunk(b"IDAT", zlib.compress(raw, 9)) + chunk(b"IEND", b"")
+    return png
+
+
+def main(out, full_bleed=False):
     with open(out, "wb") as f:
-        f.write(png)
+        f.write(render(SIZE, full_bleed))
+
+
+# The Windows exe's file icon (lane C15d, cmake/windows.cmake): an .ico of PNG pictures
+# (Windows Vista and later read PNG entries) at the sizes Explorer and the taskbar use.
+ICO_SIZES = (16, 24, 32, 48, 64, 256)
+
+
+def write_ico(out):
+    pictures = [render(n) for n in ICO_SIZES]
+    head = struct.pack("<HHH", 0, 1, len(pictures))
+    offset = len(head) + 16 * len(pictures)
+    entries, data = b"", b""
+    for n, png in zip(ICO_SIZES, pictures):
+        entries += struct.pack("<BBBBHHII", n % 256, n % 256, 0, 0, 1, 32, len(png), offset + len(data))
+        data += png
+    with open(out, "wb") as f:
+        f.write(head + entries + data)
 
 
 if __name__ == "__main__":
     args = sys.argv[1:]
+    if len(args) == 2 and args[0] == "--ico":
+        write_ico(args[1])
+        sys.exit(0)
     full = "--full-bleed" in args
     args = [a for a in args if a != "--full-bleed"]
     if len(args) != 1:
-        sys.exit("usage: make_icon.py [--full-bleed] <out.png>")
+        sys.exit("usage: make_icon.py [--full-bleed] <out.png> | make_icon.py --ico <out.ico>")
     main(args[0], full)

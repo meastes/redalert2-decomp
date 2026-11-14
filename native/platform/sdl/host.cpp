@@ -2000,7 +2000,29 @@ void game_held(bool on)
     }
 }
 
-const ra2port::Host sdl_host = {create_window, pump_events, present, set_relative_cursor, open_audio, frame, wait_begins, keep_alive, game_held};
+// The game's own icon on its window (lane C15d: the class icon from the user's game.exe,
+// read at run time): the title bar and the taskbar on Windows. The Mac and iOS apps keep
+// their bundle icons (an SDL window icon would replace the Dock's).
+void set_window_icon(void *host_window, const uint32_t *argb, int width, int height)
+{
+#if defined(_WIN32)
+    SDL_Window *w = (SDL_Window *)host_window;
+    SDL_Surface *icon = SDL_CreateSurfaceFrom(width, height, SDL_PIXELFORMAT_ARGB8888, (void *)argb, width * 4);
+    if (w && icon) {
+        if (!SDL_SetWindowIcon(w, icon)) fprintf(stderr, "host: window icon: %s\n", SDL_GetError());
+        else fprintf(stderr, "host: window icon %dx%d from game.exe\n", width, height);
+    }
+    SDL_DestroySurface(icon);
+#else
+    (void)host_window;
+    (void)argb;
+    (void)width;
+    (void)height;
+#endif
+}
+
+const ra2port::Host sdl_host = {create_window, pump_events, present, set_relative_cursor, open_audio, frame, wait_begins, keep_alive, game_held,
+                                set_window_icon};
 
 // Lifecycle (Scout1248): SDL calls this as each event is queued, so going to the
 // background takes effect before the game reads its queue again: a checkpoint is asked

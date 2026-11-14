@@ -1034,12 +1034,12 @@ alignas(16) unsigned char ra2_orig_0292[48] __asm__("_derived_dispatch_005a62d0"
 alignas(16) unsigned char ra2_orig_0293[400] __asm__("_PTR_FUN_007a69dc");
 // row	_Megawealth_vtable_007a6aa4	0x007A6AA4	184	ptr	Megawealth_vtable_007a6aa4	src/recovered/0042ebe0.cpp
 alignas(16) unsigned char ra2_orig_0294[368] __asm__("_Megawealth_vtable_007a6aa4");
-// row	_PTR_FUN_007a6b8c	0x007A6B8C	200	ptr	PTR_FUN_007a6b8c	src/recovered/0042ebe0.cpp
-alignas(16) unsigned char ra2_orig_0295[400] __asm__("_PTR_FUN_007a6b8c");
-// row	_PTR_FUN_007a6c54	0x007A6C54	16	ptr	PTR_FUN_007a6c54	src/recovered/004919b0.cpp
-alignas(16) unsigned char ra2_orig_0296[32] __asm__("_PTR_FUN_007a6c54");
-// row	_PTR_FUN_007a6c64	0x007A6C64	32	ptr	PTR_FUN_007a6c64	src/recovered/004919b0.cpp
-alignas(16) unsigned char ra2_orig_0297[64] __asm__("_PTR_FUN_007a6c64");
+// row	_MultiplayerSiege_VTable_007a6b8c	0x007A6B8C	200	ptr	MultiplayerSiege_VTable_007a6b8c	src/recovered/0042ebe0.cpp
+alignas(16) unsigned char ra2_orig_0295[400] __asm__("_MultiplayerSiege_VTable_007a6b8c");
+// row	_MultiplayerSiegeDefenderTeam_VTable_007a6c54	0x007A6C54	16	ptr	MultiplayerSiegeDefenderTeam_VTable_007a6c54	src/recovered/004919b0.cpp
+alignas(16) unsigned char ra2_orig_0296[32] __asm__("_MultiplayerSiegeDefenderTeam_VTable_007a6c54");
+// row	_MultiplayerSiegeAttackerTeam_VTable_007a6c64	0x007A6C64	32	ptr	MultiplayerSiegeAttackerTeam_VTable_007a6c64	src/recovered/004919b0.cpp
+alignas(16) unsigned char ra2_orig_0297[64] __asm__("_MultiplayerSiegeAttackerTeam_VTable_007a6c64");
 // row	_PTR_FUN_007a6d3c	0x007A6D3C	40	ptr	PTR_FUN_007a6d3c	src/recovered/header_statics/00727100/HeaderStatics_empty_rect_init_00727100.cpp
 alignas(16) unsigned char ra2_orig_0298[80] __asm__("_PTR_FUN_007a6d3c");
 // row	_PTR_FUN_007a6d64	0x007A6D64	40	ptr	PTR_FUN_007a6d64	src/recovered/header_statics/00727100/HeaderStatics_empty_rect_init_00727100.cpp

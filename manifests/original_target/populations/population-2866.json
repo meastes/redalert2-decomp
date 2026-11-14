@@ -4,8 +4,8 @@
     "id": "population-2866",
     "inventory_sha256": "3e023908585ae49fd0823fa0637c7f10d66e70506eb195ae5c54d0a2a8c6fd4d",
     "gaps_sha256": "e06d6cd3c70398d230f749dedf798914ae69ac15d3be098590cddf9d16b79266",
-    "historical_population_sha256": "581cddf8f202f36b5ea3593b138c8a7652171d5b87f8e278c4f77eff9e3cedb2",
-    "historical_acceptance_sha256": "f1f7065b68977ff06753b8555493a5c9e88a112a2431ea2267ca8f71ab55165d"
+    "historical_population_sha256": "b435a395894b3be5ca40bedd4f425965ed963dadcbbbebcbe37bdd8874bcb6ec",
+    "historical_acceptance_sha256": "8b4a2caae8e48a97a2f69a6b5bd2e92ca2edf9204e96205e569d3187efb632db"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -10487,7 +10487,7 @@
     "??_R0?AVMouse@@@8": 8393616,
     "?MultiplayerGameMode_Destructor_005b6e20@seed_005abba0@@YIXXZ": 5991968,
     "?operator_delete_00781d3b@seed_005abba0@@YAXI@Z": 7871803,
-    "_PTR_FUN_007a6b8c": 8022924,
+    "_MultiplayerSiege_VTable_007a6b8c": 8022924,
     "?MultiplayerGameMode_Destructor_005b6e20@seed_005ab5e0@@YIXXZ": 5991968,
     "?MultiplayerGameMode_Constructor_005b6cd0@Callee_005b6cd0@seed_005ab5a0@@QAEXIIIIEI@Z": 5991632,
     "?Service_Game_IO_00481fb0@seed_00482100@@YAXXZ": 4726704,
@@ -10500,7 +10500,7 @@
     "?operator_delete_00781d3b@seed_005a22d0@@YAXI@Z": 7871803,
     "?MultiplayerGameMode_Destructor_005b6e20@seed_005a7500@@YIXXZ": 5991968,
     "?operator_delete_00781d3b@seed_005a7500@@YAXI@Z": 7871803,
-    "?FUN_005abba0@Owner_005abba0@seed_005abba0@@QAEPAIE@Z": 5946272,
+    "?MultiplayerSiege_Scalar_Deleting_Destructor_005abba0@Owner_005abba0@seed_005abba0@@QAEPAIE@Z": 5946272,
     "?operator_delete_00781d3b@seed_005abec0@@YAXI@Z": 7871803,
     "?operator_delete_00781d3b@seed_005abef0@@YAXI@Z": 7871803,
     "?operator_delete_00781d3b@seed_005b8ec0@@YAXI@Z": 7871803,
@@ -10520,7 +10520,7 @@
     "?operator_delete_00781d3b@seed_006231f0@@YAXI@Z": 7871803,
     "?MultiplayerGameMode_Destructor_005b6e20@seed_005a74f0@@YIXXZ": 5991968,
     "?FUN_005ab5e0@seed_005ab5e0@@YIXPAI@Z": 5944800,
-    "?FUN_005ab5a0@Owner_005ab5a0@seed_005ab5a0@@QAEPAIIIIIII@Z": 5944736,
+    "?MultiplayerSiege_Constructor_005ab5a0@Owner_005ab5a0@seed_005ab5a0@@QAEPAIIIIIII@Z": 5944736,
     "?operator_delete_00781d3b@seed_004ba060@@YAXI@Z": 7871803,
     "?operator_delete_00781d3b@seed_00537d40@@YAXI@Z": 7871803,
     "?operator_delete_00781d3b@seed_005b9000@@YAXI@Z": 7871803,
@@ -10560,7 +10560,14 @@
     "?operator_delete_00781d3b@seed_00769650@@YAXI@Z": 7871803,
     "?operator_delete_00781d3b@seed_006e9670@@YAXI@Z": 7871803,
     "?operator_delete_00781d3b@seed_006ea130@@YAXI@Z": 7871803,
-    "?operator_delete_00781d3b@seed_0061abf0@@YAXI@Z": 7871803
+    "?operator_delete_00781d3b@seed_0061abf0@@YAXI@Z": 7871803,
+    "?End@ProgressScreenClass@@QAEXXZ": 6417904,
+    "?Action@seed_006816b0@@YGIHH@Z": 6821552,
+    "?CheckStartConditions@seed_005ac390@@YGII@Z": 5948304,
+    "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z": 7049136,
+    "?Flag_Attach@UnitClass@@QAE_NH@Z": 7358912,
+    "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
+    "?What_Action@ScrollClass@@QAEHABVCell@@PAVObjectClass@@_N@Z": 6723936
   },
   "regions": [
     {
@@ -11330,7 +11337,7 @@
       "full_extent_sha256": "1c93847ee0f29c8102c08f41566abe2ae27a71ab314eec709e90e3a28353e543",
       "relocations": [],
       "source": "src/recovered/mpsiege.cpp",
-      "source_sha256": "5e77401ed1c5bc6e3e684a9a7c9fbaef1a5013f17f652d585bde2ce11a2283ed",
+      "source_sha256": "f51c460770f3e44f35a7cf83fbe04d3befee6ba6d1c7cedbd76cf4b74213f2cb",
       "source_order": 243331,
       "population": "population-2866",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -11340,8 +11347,8 @@
     {
       "entry": 5946272,
       "method": "005abba0",
-      "symbol": "?FUN_005abba0@Owner_005abba0@seed_005abba0@@QAEPAIE@Z",
-      "symbol_prefix": "?FUN_005abba0@",
+      "symbol": "?MultiplayerSiege_Scalar_Deleting_Destructor_005abba0@Owner_005abba0@seed_005abba0@@QAEPAIE@Z",
+      "symbol_prefix": "?MultiplayerSiege_Scalar_Deleting_Destructor_005abba0@Owner_005abba0@seed_005abba0@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -11358,7 +11365,7 @@
         {
           "offset": 5,
           "kind": 6,
-          "symbol": "_PTR_FUN_007a6b8c",
+          "symbol": "_MultiplayerSiege_VTable_007a6b8c",
           "target": 8022924,
           "addend": 0,
           "resolved": 8022924
@@ -11380,7 +11387,7 @@
           "resolved": 1925504
         }
       ],
-      "source_sha256": "5e77401ed1c5bc6e3e684a9a7c9fbaef1a5013f17f652d585bde2ce11a2283ed",
+      "source_sha256": "f51c460770f3e44f35a7cf83fbe04d3befee6ba6d1c7cedbd76cf4b74213f2cb",
       "source": "src/recovered/mpsiege.cpp",
       "source_order": 243332,
       "population": "population-2866",
@@ -11410,7 +11417,7 @@
         {
           "offset": 2,
           "kind": 6,
-          "symbol": "_PTR_FUN_007a6b8c",
+          "symbol": "_MultiplayerSiege_VTable_007a6b8c",
           "target": 8022924,
           "addend": 0,
           "resolved": 8022924
@@ -11424,7 +11431,7 @@
           "resolved": 47157
         }
       ],
-      "source_sha256": "5e77401ed1c5bc6e3e684a9a7c9fbaef1a5013f17f652d585bde2ce11a2283ed",
+      "source_sha256": "f51c460770f3e44f35a7cf83fbe04d3befee6ba6d1c7cedbd76cf4b74213f2cb",
       "source": "src/recovered/mpsiege.cpp",
       "population": "population-2866",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -11436,8 +11443,8 @@
     {
       "entry": 5944736,
       "method": "005ab5a0",
-      "symbol": "?FUN_005ab5a0@Owner_005ab5a0@seed_005ab5a0@@QAEPAIIIIIII@Z",
-      "symbol_prefix": "?FUN_005ab5a0@",
+      "symbol": "?MultiplayerSiege_Constructor_005ab5a0@Owner_005ab5a0@seed_005ab5a0@@QAEPAIIIIIII@Z",
+      "symbol_prefix": "?MultiplayerSiege_Constructor_005ab5a0@Owner_005ab5a0@seed_005ab5a0@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -11462,13 +11469,13 @@
         {
           "offset": 42,
           "kind": 6,
-          "symbol": "_PTR_FUN_007a6b8c",
+          "symbol": "_MultiplayerSiege_VTable_007a6b8c",
           "target": 8022924,
           "addend": 0,
           "resolved": 8022924
         }
       ],
-      "source_sha256": "5e77401ed1c5bc6e3e684a9a7c9fbaef1a5013f17f652d585bde2ce11a2283ed",
+      "source_sha256": "f51c460770f3e44f35a7cf83fbe04d3befee6ba6d1c7cedbd76cf4b74213f2cb",
       "source": "src/recovered/mpsiege.cpp",
       "source_order": 243333,
       "population": "population-2866",
@@ -11544,7 +11551,7 @@
           "resolved": 10746508
         }
       ],
-      "source_sha256": "5e77401ed1c5bc6e3e684a9a7c9fbaef1a5013f17f652d585bde2ce11a2283ed",
+      "source_sha256": "f51c460770f3e44f35a7cf83fbe04d3befee6ba6d1c7cedbd76cf4b74213f2cb",
       "source": "src/recovered/mpsiege.cpp",
       "population": "population-2866",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -11723,7 +11730,7 @@
           "resolved": 1852496
         }
       ],
-      "source_sha256": "5e77401ed1c5bc6e3e684a9a7c9fbaef1a5013f17f652d585bde2ce11a2283ed",
+      "source_sha256": "f51c460770f3e44f35a7cf83fbe04d3befee6ba6d1c7cedbd76cf4b74213f2cb",
       "source": "src/recovered/mpsiege.cpp",
       "population": "population-2866",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -11758,7 +11765,7 @@
           "resolved": 48267
         }
       ],
-      "source_sha256": "5e77401ed1c5bc6e3e684a9a7c9fbaef1a5013f17f652d585bde2ce11a2283ed",
+      "source_sha256": "f51c460770f3e44f35a7cf83fbe04d3befee6ba6d1c7cedbd76cf4b74213f2cb",
       "source": "src/recovered/mpsiege.cpp",
       "population": "population-2866",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -11793,7 +11800,7 @@
           "resolved": 49339
         }
       ],
-      "source_sha256": "5e77401ed1c5bc6e3e684a9a7c9fbaef1a5013f17f652d585bde2ce11a2283ed",
+      "source_sha256": "f51c460770f3e44f35a7cf83fbe04d3befee6ba6d1c7cedbd76cf4b74213f2cb",
       "source": "src/recovered/mpsiege.cpp",
       "population": "population-2866",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -11868,7 +11875,7 @@
           "resolved": 1065
         }
       ],
-      "source_sha256": "5e77401ed1c5bc6e3e684a9a7c9fbaef1a5013f17f652d585bde2ce11a2283ed",
+      "source_sha256": "f51c460770f3e44f35a7cf83fbe04d3befee6ba6d1c7cedbd76cf4b74213f2cb",
       "source": "src/recovered/mpsiege.cpp",
       "population": "population-2866",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -11967,7 +11974,7 @@
           "resolved": 741353
         }
       ],
-      "source_sha256": "5e77401ed1c5bc6e3e684a9a7c9fbaef1a5013f17f652d585bde2ce11a2283ed",
+      "source_sha256": "f51c460770f3e44f35a7cf83fbe04d3befee6ba6d1c7cedbd76cf4b74213f2cb",
       "source": "src/recovered/mpsiege.cpp",
       "population": "population-2866",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -12146,7 +12153,7 @@
           "resolved": 1926119
         }
       ],
-      "source_sha256": "5e77401ed1c5bc6e3e684a9a7c9fbaef1a5013f17f652d585bde2ce11a2283ed",
+      "source_sha256": "f51c460770f3e44f35a7cf83fbe04d3befee6ba6d1c7cedbd76cf4b74213f2cb",
       "source": "src/recovered/mpsiege.cpp",
       "population": "population-2866",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",

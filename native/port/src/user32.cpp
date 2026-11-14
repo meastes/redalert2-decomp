@@ -65,6 +65,7 @@ struct WNDCLASSA_PORT {
 std::mutex queue_lock;
 std::deque<MSG> queue;
 std::map<std::string, WNDPROC> classes;
+std::map<std::string, void *> class_icons;   // RegisterClassA's hIcon per class (the main window's icon)
 HWND main_hwnd = nullptr, focus_hwnd = nullptr, capture_hwnd = nullptr;
 std::vector<HWND> dialog_windows;   // dialogs in creation order (mouse routing: the last visible one is on top)
 int cursor_count = 0;
@@ -179,6 +180,7 @@ WORD RegisterClassA(const WNDCLASSA_PORT *wc)
 {
     if (!wc || !wc->lpszClassName) return 0;
     classes[wc->lpszClassName] = wc->lpfnWndProc;
+    class_icons[wc->lpszClassName] = wc->hIcon;
     return (WORD)(classes.size());
 }
 
@@ -214,6 +216,14 @@ HWND CreateWindowExA(DWORD exstyle, const char *cls, const char *title, DWORD st
         main_hwnd = hwnd;
         focus_hwnd = hwnd;
         if (host() && host()->create_window) wnd->host_window = host()->create_window(wnd->title.c_str(), w, h);
+        // The class's icon (the game's LoadIconA(instance, 0x5D), winstub.cpp) on the host
+        // window, as Windows shows a class icon in the title bar and the taskbar.
+        auto icon = class_icons.find(wnd->cls);
+        if (icon != class_icons.end() && host() && host()->set_window_icon && wnd->host_window) {
+            if (const ra2port::IconImage *image = ra2port::icon_image(icon->second)) {
+                host()->set_window_icon(wnd->host_window, image->argb.data(), image->width, image->height);
+            }
+        }
     }
     if (wnd->proc) {
         // WM_CREATE with the CREATESTRUCTA (pointer-sized fields natively):
@@ -974,7 +984,17 @@ int ShowCursor(BOOL show)
 }
 void *SetCursor(void *cursor_handle) { (void)cursor_handle; return nullptr; }
 void *LoadCursorA(HINSTANCE instance, const char *name) { (void)instance; (void)name; return (void *)(uintptr_t)0x7100; }
-void *LoadIconA(HINSTANCE instance, const char *name) { (void)instance; (void)name; return (void *)(uintptr_t)0x7200; }
+// An icon of the game's own (an integer id: its RT_GROUP_ICON in the supported game.exe,
+// read at run time) gets a handle whose picture the host can show (ra2port::icon_image,
+// lane C15d); anything else, or an icon the image does not have, the plain handle as before.
+void *LoadIconA(HINSTANCE instance, const char *name)
+{
+    (void)instance;
+    if ((uintptr_t)name <= 0xFFFF) {
+        if (void *icon = ra2port::load_original_icon((unsigned)(uintptr_t)name)) return icon;
+    }
+    return (void *)(uintptr_t)0x7200;
+}
 // The US keyboard's virtual keys and set-1 scan codes, as Windows maps them (Scout1281).
 // The game names a hot key with MapVirtualKeyA(vk, 0) << 16 and GetKeyNameTextA
 // (OwnerDraw 0x005FC600: Options > Keyboard, the sidebar's tooltips); the port had

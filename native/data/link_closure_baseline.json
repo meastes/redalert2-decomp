@@ -1,12 +1,12 @@
 {
  "about": "Undefined symbols of the Mac ra2-native link closure (RA2_NATIVE_SUBSYSTEM=all, drafts and link closure on, WIN64_PARAMS on) that tests/link_closure_baseline.py allows. Names only (no bytes). Regenerate with tests/link_closure_baseline.py --build <dir> --write when the set shrinks.",
- "total": 238,
+ "total": 234,
  "by_class": {
   "c-address": 25,
   "c-data": 1,
   "c-function": 4,
   "cxx-data": 3,
-  "cxx-function": 205
+  "cxx-function": 201
  },
  "symbols": [
   {
@@ -440,13 +440,13 @@
    "cls": "cxx-function"
   },
   {
-   "symbol": "__ZN13seed_004015c016stricmp_00781f20Ev",
-   "name": "seed_004015c0::stricmp_00781f20()",
+   "symbol": "__ZN13seed_004015c012FUN_00782025EjjjiPFizE",
+   "name": "seed_004015c0::FUN_00782025(unsigned int, unsigned int, unsigned int, int, int (*)(...))",
    "cls": "cxx-function"
   },
   {
-   "symbol": "__ZN13seed_004015c012FUN_00782025EjjjiPFizE",
-   "name": "seed_004015c0::FUN_00782025(unsigned int, unsigned int, unsigned int, int, int (*)(...))",
+   "symbol": "__ZN13seed_004015c016stricmp_00781f20Ev",
+   "name": "seed_004015c0::stricmp_00781f20()",
    "cls": "cxx-function"
   },
   {
@@ -685,13 +685,13 @@
    "cls": "cxx-function"
   },
   {
-   "symbol": "__ZN13seed_00698cd015atexit_0078298aEj",
-   "name": "seed_00698cd0::atexit_0078298a(unsigned int)",
+   "symbol": "__ZN13seed_00698cd015Callee_0069a43041SystemTimerClass_Long_Conversion_0069a430Ev",
+   "name": "seed_00698cd0::Callee_0069a430::SystemTimerClass_Long_Conversion_0069a430()",
    "cls": "cxx-function"
   },
   {
-   "symbol": "__ZN13seed_00698cd015Callee_0069a43041SystemTimerClass_Long_Conversion_0069a430Ev",
-   "name": "seed_00698cd0::Callee_0069a430::SystemTimerClass_Long_Conversion_0069a430()",
+   "symbol": "__ZN13seed_00698cd015atexit_0078298aEj",
+   "name": "seed_00698cd0::atexit_0078298a(unsigned int)",
    "cls": "cxx-function"
   },
   {
@@ -842,26 +842,6 @@
   {
    "symbol": "__ZN13seed_00763ab024Print_Chat_Line_005c2c80Eiii",
    "name": "seed_00763ab0::Print_Chat_Line_005c2c80(int, int, int)",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN13seed_0076939015atexit_0078298aEj",
-   "name": "seed_00769390::atexit_0078298a(unsigned int)",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN13seed_0076939036unknown_free_block_00b2ad60_007693b0Ev",
-   "name": "seed_00769390::unknown_free_block_00b2ad60_007693b0()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN13seed_007693d015atexit_0078298aEj",
-   "name": "seed_007693d0::atexit_0078298a(unsigned int)",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN13seed_007693d036unknown_free_block_00b2ad70_007693f0Ev",
-   "name": "seed_007693d0::unknown_free_block_00b2ad70_007693f0()",
    "cls": "cxx-function"
   },
   {

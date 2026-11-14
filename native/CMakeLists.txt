@@ -316,8 +316,10 @@ if(RA2_NATIVE_SDL)
       endif()
       target_compile_definitions(ra2-native PRIVATE RA2_NATIVE_GAME=1)
       if(WIN32)
-        # Select-any for repeated definitions there: cmake/windows.cmake.
+        # Select-any for repeated definitions there: cmake/windows.cmake. The players'
+        # GUI-subsystem RA2Native.exe from the same objects (lane C15d).
         ra2_windows_game_link(ra2-native)
+        ra2_windows_gui_exe("${ra2_game_inputs}" "SDL3::SDL3;ra2_port;${ra2_host_frameworks}")
       else()
         # Repeated definitions across units get VC6's select-any semantics.
         add_custom_command(TARGET ra2-native PRE_LINK
@@ -396,6 +398,15 @@ if(RA2_NATIVE_SDL)
       # The run's own limit (420 s; about 40 s alone) ends it before ctest's timeout, so a
       # stalled run still prints its milestones and the main thread's backtrace (C5).
       set_tests_properties(native-census PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 480)
+      # 8c. The players' RA2Native.exe (C15d): GUI subsystem, our icon, the app by itself
+      #     under Wine with its log in the prefix's AppData (tests/windows_gui.py).
+      if(WIN32 AND RA2_WINDOWS_GUI)
+        add_test(NAME native-windows-gui COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/windows_gui.py"
+                 --gui $<TARGET_FILE:RA2Native> --console $<TARGET_FILE:ra2-native>
+                 --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}" --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}"
+                 --work "${CMAKE_CURRENT_BINARY_DIR}/windows-gui" ${ra2_wine_args_gui})
+        set_tests_properties(native-windows-gui PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 900)
+      endif()
       # 8b. Original saves (C6, C15): one of the user's saves from the original game
       #     (Allied 1, in the installation) loads through the menus (--load-save) with
       #     the field maps and plays 300 frames; on Windows the .exe under Wine.

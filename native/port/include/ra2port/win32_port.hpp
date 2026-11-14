@@ -11,6 +11,7 @@
 
 #include <stddef.h>
 #include <stdint.h>
+#include <vector>
 
 typedef int32_t BOOL;
 typedef uint32_t DWORD;
@@ -114,8 +115,22 @@ struct Host {
     // host stops and restarts its audio device (the mixer's play cursors stand
     // still with the game's clocks). May be null (Scout1247).
     void (*held)(bool on);
+    // The main window's icon (its class's LoadIconA picture: the game's own icon from
+    // game.exe), width x height 0xAARRGGBB pixels, top row first. May be null; the SDL
+    // host shows it on Windows only (lane C15d).
+    void (*set_window_icon)(void *host_window, const uint32_t *argb, int width, int height);
 };
 void set_host(const Host *host);
+
+// Icons from the supported game.exe's resources (port/src/icons.cpp, lane C15d):
+// load_original_icon gives a handle for the RT_GROUP_ICON id (null when the image has
+// none or it cannot be read), icon_image its largest picture, decoded.
+struct IconImage {
+    int width = 0, height = 0;
+    std::vector<uint32_t> argb;
+};
+void *load_original_icon(unsigned group_id);
+const IconImage *icon_image(void *icon);
 
 // Host pause (Scout1247): the host asks for it (the Mac app when its window loses
 // the focus; the iOS app when it goes to the background) and lifts it again. The

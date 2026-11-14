@@ -4,8 +4,8 @@
     "id": "population-3698",
     "inventory_sha256": "4cc6fbbae277de2aa5f54bc8335844228867de8d5c647826102563b21f7282cf",
     "gaps_sha256": "c1a5b0a01c67f73a667a0934832e35e24f65b9332cee30a2b1637e5383e37462",
-    "historical_population_sha256": "9d6b8469a34f2e0c6da8e6b149f8ed521d777eafe32f541206fb6e00b92ff795",
-    "historical_acceptance_sha256": "eb5a8e2d8de8d995dfaf872249a82d02393693f188432e421bdcd1f9b31751da"
+    "historical_population_sha256": "b3498bd0a8e547cf49c1a08179e2ec68fa595d10d4681d131b58f64f94e23a6c",
+    "historical_acceptance_sha256": "e055762b141bf6da1ed7d85a7ac9cf7764a8055a0e1df3f82598481a2be58be0"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -8439,10 +8439,10 @@
     "?FUN_005b6e20@": 5991968,
     "_PTR_FUN_007a69dc": 8022492,
     "_Megawealth_vtable_007a6aa4": 8022692,
-    "_PTR_FUN_007a6b8c": 8022924,
+    "_MultiplayerSiege_VTable_007a6b8c": 8022924,
     "?FUN_005b9b50@": 6003536,
-    "_PTR_FUN_007a6c54": 8023124,
-    "_PTR_FUN_007a6c64": 8023140,
+    "_MultiplayerSiegeDefenderTeam_VTable_007a6c54": 8023124,
+    "_MultiplayerSiegeAttackerTeam_VTable_007a6c64": 8023140,
     "_PTR_FUN_007a72b0": 8024752,
     "_unknown_lobby_players_00a3fa80": 10746496,
     "_unknown_lobby_00a3fa94": 10746516,
@@ -10676,7 +10676,7 @@
     "_Map_008324e0": 8594656,
     "?Map_Unknown_0055a1f0@": 5612016,
     "?unknown_slot_005aa770@": 5941104,
-    "?FUN_005ab5a0@": 5944736,
+    "?MultiplayerSiege_Constructor_005ab5a0@Owner_005ab5a0@seed_005ab5a0@@": 5944736,
     "_DAT_00a780c0": 10977472,
     "_DAT_00a780c4": 10977476,
     "?FUN_006232a0@": 6435488,
