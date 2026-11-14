@@ -13,6 +13,102 @@
  "compile_group": 867,
  "code": [
   {
+   "symbol": "_$E2",
+   "entry": "0052ef70",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "0052efa0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "0052efc0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "0052efe0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "0052f000",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "0052f020",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "0052f040",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "0052f080",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "0052f0b0",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "0052f0e0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "0052f110",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "0052f120",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E46",
+   "entry": "0052f140",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??0JumpjetLocomotionClass@@QAE@XZ",
+   "entry": "0052f160",
+   "body_bytes": 163,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "??1JumpjetLocomotionClass@@UAE@XZ",
+   "entry": "0052f210",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Link_To_Object@JumpjetLocomotionClass@@UAGJPAX@Z",
+   "entry": "0052f230",
+   "body_bytes": 286,
+   "padding_bytes": 2
+  },
+  {
    "symbol": "?Is_Moving@JumpjetLocomotionClass@@UAG_NXZ",
    "entry": "0052f350",
    "body_bytes": 10,
@@ -143,9 +239,21 @@
    "entry": "005312d0",
    "body_bytes": 78,
    "padding_bytes": 2
+  },
+  {
+   "symbol": "?Size@JumpjetLocomotionClass@@UAEHXZ",
+   "entry": "00531320",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "??_GJumpjetLocomotionClass@@UAEPAXI@Z",
+   "entry": "00531330",
+   "body_bytes": 43,
+   "padding_bytes": 5
   }
  ],
- "code_bytes": 8144,
+ "code_bytes": 9200,
  "data": [
   {
    "symbol": "__real@8@40008000000000000000",
@@ -557,7 +665,14 @@
   }
  ],
  "failures": [],
- "references_in": [],
+ "references_in": [
+  {
+   "site": "006963b0",
+   "symbol": "??0JumpjetLocomotionClass@@QAE@XZ",
+   "target": "0052f160",
+   "function_entry": true
+  }
+ ],
  "references_out": [
   {
    "symbol": "??0FacingClass@@QAE@H@Z",
@@ -590,10 +705,6 @@
   {
    "symbol": "??_7type_info@@6B@",
    "address": "007b15e4"
-  },
-  {
-   "symbol": "??_GJumpjetLocomotionClass@@UAEPAXI@Z",
-   "address": "00531330"
   },
   {
    "symbol": "?AddRef@LocomotionClass@@UAGKXZ",
@@ -931,9 +1042,114 @@
   }
  ],
  "held_rows": [],
- "joined": [],
+ "joined": [
+  {
+   "entry": "0052ef70",
+   "bytes": 40,
+   "population": "population-4028",
+   "bound": "the unit's compile group (population-4028)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0052efa0",
+   "bytes": 19,
+   "population": "population-4028",
+   "bound": "the unit's compile group (population-4028)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0052efc0",
+   "bytes": 19,
+   "population": "population-4028",
+   "bound": "the unit's compile group (population-4028)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0052efe0",
+   "bytes": 19,
+   "population": "population-4028",
+   "bound": "the unit's compile group (population-4028)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0052f000",
+   "bytes": 19,
+   "population": "population-4028",
+   "bound": "the unit's compile group (population-4028)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0052f020",
+   "bytes": 19,
+   "population": "population-4028",
+   "bound": "the unit's compile group (population-4028)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0052f040",
+   "bytes": 49,
+   "population": "population-4028",
+   "bound": "the unit's compile group (population-4028)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0052f080",
+   "bytes": 33,
+   "population": "population-4028",
+   "bound": "the unit's compile group (population-4028)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0052f0b0",
+   "bytes": 44,
+   "population": "population-4028",
+   "bound": "the unit's compile group (population-4028)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0052f0e0",
+   "bytes": 39,
+   "population": "population-4028",
+   "bound": "the unit's compile group (population-4028)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0052f110",
+   "bytes": 15,
+   "population": "population-4028",
+   "bound": "the unit's compile group (population-4028)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0052f120",
+   "bytes": 18,
+   "population": "population-4028",
+   "bound": "the unit's compile group (population-4028)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  },
+  {
+   "entry": "0052f140",
+   "bytes": 23,
+   "population": "population-4028",
+   "bound": "the unit's compile group (population-4028)",
+   "placed": "prelude",
+   "unit_evidence": "xcu-prefix"
+  }
+ ],
  "residuals": [],
- "unit_functions": 23,
+ "unit_functions": 28,
  "data_unproven": [
   {
    "symbol": "_$S3",

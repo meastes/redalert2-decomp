@@ -122,6 +122,13 @@ class XcuJoinTest(unittest.TestCase):
         self.assertEqual(out.split('\n')[4:], ['', 'extern Wstring w0, w2;', '', 'extern "C" int g_one;',
                                                'extern int g_two;'])
         self.assertEqual(len(dropped), 3)
+        # an array definition and its redeclaration (the bound stays out of the name)
+        out, dropped = refile_unit.drop_redundant_externs('Rec g_list[64];\nextern Rec g_list[64];   // note\n',
+                                                          {1: (1, 1)})
+        self.assertEqual(out.split('\n')[1], '')
+        self.assertEqual(len(dropped), 1)
+        out, _ = refile_unit.drop_redundant_externs('Rec g_a[4];\nextern Rec g_b[8], g_a[4];\n', {1: (1, 1)})
+        self.assertEqual(out.split('\n')[1], 'extern Rec g_b[8];')
         # a redeclaration before the definition stays
         out, dropped = refile_unit.drop_redundant_externs('extern int g;\nint g;\n', {1: (2, 2)})
         self.assertEqual(dropped, [])

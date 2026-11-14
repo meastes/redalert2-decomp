@@ -4,8 +4,8 @@
     "id": "population-3961",
     "inventory_sha256": "7c93e0e0ffb024f6f3938abd1198dbe5cf03632b37dee1109c848a98d75bb596",
     "gaps_sha256": "f56ce2bf65f22675f3be45e88fbe60a530ffa9bebaf5d442b3dc614ebad6c064",
-    "historical_population_sha256": "6d1450a8209bdb46b20d15ef74074930e450465bc07e888961c9dc9b8fb7a0ed",
-    "historical_acceptance_sha256": "808542404465ad9b16d0232f70da36ee35bf6d3babd53d36193b77f1e3171c8c"
+    "historical_population_sha256": "0c6e98681281bca23ea61b728de6b4fe8bf428f8b47de2d7049453bd3c11b5b0",
+    "historical_acceptance_sha256": "5ccd0088e9b1624195512244b9af0a52d3db0d754b2a46dc228a8a9c8de7bac5"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -10851,14 +10851,14 @@
           "resolved": 11339320
         }
       ],
-      "source_sha256": "dc3bc6842c375a7c3695f48873b4721235467259d7efc4c1022cf7d005dd5d26",
-      "source": "src/recovered/header_statics/0070c610/HeaderStatics_diagonal_init_0070c610.cpp",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
+      "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_diagonal_init_0070c610",
-      "source_order": 186264
+      "source_order": 186264,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 7390784,
@@ -10903,14 +10903,14 @@
           "resolved": 11339392
         }
       ],
-      "source_sha256": "eb9b0890408e25243236411e19cf4dc1b88812dd37b051d91b07ab2d0fa21662",
-      "source": "src/recovered/header_statics/0070c610/HeaderStatics_b_init_0070c640.cpp",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
+      "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_b_init_0070c640",
-      "source_order": 186265
+      "source_order": 186265,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 7390816,
@@ -10955,14 +10955,14 @@
           "resolved": 11339376
         }
       ],
-      "source_sha256": "c9c85e537810f771ce7a8b8a753f2c3a869dc29a173775400ec417ff1c1921f0",
-      "source": "src/recovered/header_statics/0070c610/HeaderStatics_c_init_0070c660.cpp",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
+      "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_c_init_0070c660",
-      "source_order": 186266
+      "source_order": 186266,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 7390848,
@@ -11007,14 +11007,14 @@
           "resolved": 11339368
         }
       ],
-      "source_sha256": "c2d2082514ec774d061324e85983e3a98d21b06ea75fd11e9a682485306b63eb",
-      "source": "src/recovered/header_statics/0070c610/HeaderStatics_angle45_init_0070c680.cpp",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
+      "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_angle45_init_0070c680",
-      "source_order": 186267
+      "source_order": 186267,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 7390880,
@@ -11059,14 +11059,14 @@
           "resolved": 11339328
         }
       ],
-      "source_sha256": "cb06a8c95fbcb514c78a4b4c4940d844dd8ae8f181eb64e976c17016741849c0",
-      "source": "src/recovered/header_statics/0070c610/HeaderStatics_angle60_init_0070c6a0.cpp",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
+      "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_angle60_init_0070c6a0",
-      "source_order": 186268
+      "source_order": 186268,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 7390912,
@@ -11111,14 +11111,14 @@
           "resolved": 11339288
         }
       ],
-      "source_sha256": "0d291cc6cadc02559b34ad6d7d189e185978322fa821d6185d308dd639166814",
-      "source": "src/recovered/header_statics/0070c610/HeaderStatics_angle90_init_0070c6c0.cpp",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
+      "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_angle90_init_0070c6c0",
-      "source_order": 186269
+      "source_order": 186269,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 7390944,
@@ -11195,14 +11195,14 @@
           "resolved": 11339400
         }
       ],
-      "source_sha256": "2dffc99d00e7f3a4b908fe37d507ac7696c42fc3184bb1b85fa38207b18da86f",
-      "source": "src/recovered/header_statics/0070c610/HeaderStatics_g_init_0070c6e0.cpp",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
+      "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_g_init_0070c6e0",
-      "source_order": 186270
+      "source_order": 186270,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 7391008,
@@ -11255,14 +11255,14 @@
           "resolved": 11339336
         }
       ],
-      "source_sha256": "5786f2dd0a3ebdd6ebf065aa0d179dbd4dc1c8b232c3ec43dffad58cc060e2d7",
-      "source": "src/recovered/header_statics/0070c610/HeaderStatics_h_init_0070c720.cpp",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
+      "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_h_init_0070c720",
-      "source_order": 186271
+      "source_order": 186271,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 7391056,
@@ -11315,14 +11315,14 @@
           "resolved": 11339360
         }
       ],
-      "source_sha256": "c2d7365c4120de3c75bce8263cd5b5a92fdd7fdbf445a73e6f29367de6b4e743",
-      "source": "src/recovered/header_statics/0070c610/HeaderStatics_i_init_0070c750.cpp",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
+      "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_i_init_0070c750",
-      "source_order": 186272
+      "source_order": 186272,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 7391104,
@@ -11375,14 +11375,14 @@
           "resolved": 11339384
         }
       ],
-      "source_sha256": "54d30f5cfde830d38215afbe6fae1b2c3bcc6b96c5273c5ce09d86d1b84c3faa",
-      "source": "src/recovered/header_statics/0070c610/HeaderStatics_j_init_0070c780.cpp",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
+      "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_j_init_0070c780",
-      "source_order": 186273
+      "source_order": 186273,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 7391152,
@@ -11419,14 +11419,14 @@
           "resolved": 11339314
         }
       ],
-      "source_sha256": "4ec93238da141e8fe0b4a97f3353dccfe862abbda15f5fc8c13e710c7eb157ff",
-      "source": "src/recovered/header_statics/0070c610/HeaderStatics_k_init_0070c7b0.cpp",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
+      "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_k_init_0070c7b0",
-      "source_order": 186274
+      "source_order": 186274,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 7391168,
@@ -11471,14 +11471,14 @@
           "resolved": 11339352
         }
       ],
-      "source_sha256": "bebc078ff750d54515c2c98adaffe60a32c11c29caa5f61f427f4c2d5c9f9601",
-      "source": "src/recovered/header_statics/0070c610/HeaderStatics_l_init_0070c7c0.cpp",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
+      "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_l_init_0070c7c0",
-      "source_order": 186275
+      "source_order": 186275,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 7391200,
@@ -11531,14 +11531,14 @@
           "resolved": 11339308
         }
       ],
-      "source_sha256": "8470a145dd471f946d3c531c9b84ef4db4f83c76ff4d0b13e4b21e08924ea48f",
-      "source": "src/recovered/header_statics/0070c610/HeaderStatics_static_rect_init_0070c7e0.cpp",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
+      "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_static_rect_init_0070c7e0",
-      "source_order": 186276
+      "source_order": 186276,
+      "unit_evidence": "xcu-prefix"
     },
     {
       "entry": 7396768,
@@ -11558,7 +11558,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "4e5a4d15a037f4b61cd89c9a7340ac78aebe6ffd6fb3a271865f643c9fc4d6fc",
       "relocations": [],
-      "source_sha256": "a78a1de9046dc75f63284f18697f0146777c8e5be569f6c91d7b0ccffd44214f",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
       "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -11593,7 +11593,7 @@
           "resolved": 4291830364
         }
       ],
-      "source_sha256": "a78a1de9046dc75f63284f18697f0146777c8e5be569f6c91d7b0ccffd44214f",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
       "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -11652,7 +11652,7 @@
           "resolved": 8002508
         }
       ],
-      "source_sha256": "a78a1de9046dc75f63284f18697f0146777c8e5be569f6c91d7b0ccffd44214f",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
       "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -11678,7 +11678,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "39be0a80fc874a39bb693b5d74651a98a7ce27d64d8146fd1b0120f590f65d0d",
       "relocations": [],
-      "source_sha256": "a78a1de9046dc75f63284f18697f0146777c8e5be569f6c91d7b0ccffd44214f",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
       "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -11704,7 +11704,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "8bf436deeebccfe3a366f06a3b59dacecb96f86e246ed31eaea6ff34f713c35c",
       "relocations": [],
-      "source_sha256": "a78a1de9046dc75f63284f18697f0146777c8e5be569f6c91d7b0ccffd44214f",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
       "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -11730,7 +11730,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "59d4cf13fccefc341c92e090a49039250d4cd45f5d6623880ff04bd739d1d621",
       "relocations": [],
-      "source_sha256": "a78a1de9046dc75f63284f18697f0146777c8e5be569f6c91d7b0ccffd44214f",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
       "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -11756,7 +11756,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "3004f92f58d17d5816db8b502d475d818e57c2ba54e31a90c4f95edece32ad1b",
       "relocations": [],
-      "source_sha256": "a78a1de9046dc75f63284f18697f0146777c8e5be569f6c91d7b0ccffd44214f",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
       "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -11799,7 +11799,7 @@
           "resolved": 474518
         }
       ],
-      "source_sha256": "a78a1de9046dc75f63284f18697f0146777c8e5be569f6c91d7b0ccffd44214f",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
       "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -11978,13 +11978,12 @@
           "resolved": 8624596
         }
       ],
-      "source_sha256": "f69ed0674b3e65dc9e40949ed170dbbc9101be90fa368a804914f430dccbb12b",
-      "source": "src/recovered/classes/VoxelAnimClass/Constructor.cpp",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
+      "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Constructor",
       "source_order": 186277
     },
     {
@@ -12198,13 +12197,12 @@
           "resolved": 4293678543
         }
       ],
-      "source_sha256": "0af7ee3cd1613adae0c0fe813fe15cfd15118eafc8f83c6ffc20d3d3fe1693b7",
-      "source": "src/recovered/classes/VoxelAnimClass/Destructor.cpp",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
+      "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Destructor",
       "source_order": 186278
     },
     {
@@ -12250,13 +12248,12 @@
           "resolved": 4293682483
         }
       ],
-      "source_sha256": "d8bd52be01e8638a8910bceee6139c70f279bc6a74c31d13f2c8273cba8a6193",
-      "source": "src/recovered/classes/VoxelAnimClass/Render.cpp",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
+      "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Render",
       "source_order": 186279
     },
     {
@@ -12390,7 +12387,7 @@
           "resolved": 4294515941
         }
       ],
-      "source_sha256": "a78a1de9046dc75f63284f18697f0146777c8e5be569f6c91d7b0ccffd44214f",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
       "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -12481,7 +12478,7 @@
           "resolved": 4292370480
         }
       ],
-      "source_sha256": "a78a1de9046dc75f63284f18697f0146777c8e5be569f6c91d7b0ccffd44214f",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
       "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -12532,7 +12529,7 @@
           "resolved": 8624608
         }
       ],
-      "source_sha256": "a78a1de9046dc75f63284f18697f0146777c8e5be569f6c91d7b0ccffd44214f",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
       "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -13303,7 +13300,7 @@
           "resolved": 4291990003
         }
       ],
-      "source_sha256": "a78a1de9046dc75f63284f18697f0146777c8e5be569f6c91d7b0ccffd44214f",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
       "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -13658,13 +13655,12 @@
           "resolved": 4292419691
         }
       ],
-      "source_sha256": "ba58e0e9f5536d15c46c2263a6d14ac5d3cad9a5c70c4bf0a78b9d2656445796",
-      "source": "src/recovered/classes/VoxelAnimClass/Draw_It.cpp",
+      "source_sha256": "5996617583712c6688a9bff4cec577cedc0acc775ed5d4912c61cb3e3660d52c",
+      "source": "src/recovered/vanim.cpp",
       "population": "population-3961",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Draw_It",
       "source_order": 186280
     }
   ]

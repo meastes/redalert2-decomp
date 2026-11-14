@@ -2387,9 +2387,9 @@ def place_xcu(module_text, unit_entries, chunks, where):
 
 # A global definition a joining chunk brings (`Type name;` at top level, no initializer list).
 XCU_DEFINITION = re.compile(r'^(?!\s*(?:extern|typedef|return|using|class|struct|enum|namespace|friend)\b)'
-                            r'[A-Za-z_][\w:<>,\s\*&]*?[\s\*&>](\w+)\s*(?:\([^;]*\))?;\s*$')
+                            r'[A-Za-z_][\w:<>,\s\*&]*?[\s\*&>](\w+)\s*(?:\[[^\]]*\]\s*)*(?:\([^;]*\))?;\s*$')
 EXTERN_LINE = re.compile(r'^(\s*)extern\s+(?!"C")([^;=(){}]*);\s*(//.*)?$')
-DECLARATOR = re.compile(r'^(.*?)([\*&\s]*)(\w+)\s*$', re.S)
+DECLARATOR = re.compile(r'^(.*?)([\*&\s]*)(\w+)\s*((?:\[[^\]]*\]\s*)*)$', re.S)
 
 
 def drop_redundant_externs(text, spans):
@@ -2412,8 +2412,8 @@ def drop_redundant_externs(text, spans):
             if head is None:
                 continue
             kind = head.group(1).strip()
-            declarators = [(head.group(2) + head.group(3)).strip()] + [x.strip() for x in parts[1:]]
-            keep = [d for d in declarators if re.sub(r'[\*&\s]', '', d) not in names]
+            declarators = [(head.group(2) + head.group(3) + head.group(4)).strip()] + [x.strip() for x in parts[1:]]
+            keep = [d for d in declarators if re.sub(r'[\*&\s]|\[[^\]]*\]', '', d) not in names]
             if len(keep) == len(declarators) or not kind:
                 continue
             dropped.append(lines[index].strip())

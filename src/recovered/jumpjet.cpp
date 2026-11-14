@@ -4,18 +4,132 @@
 // manifests/original_target/modules/jumpjet.json carries the addresses and the rows that
 // stay in their own files.
 
+#define RA2_COORD_FROM_CELL_INLINE
+#include "shared/fast_math.hpp"
+#define RA2_POINT_LENGTH
+#include "shared/building_class.hpp"
+// Header-static dynamic initializers of the unit at 0x0052EF70:  the
+// shared/unknown_geometry.hpp constants and unknown_static_rect.hpp
+// (0x0052EF70-0x0052F156); the other
+// drafts of this plan are emitted by these includes.
+#include "shared/unknown_geometry.hpp"
+#include "shared/unknown_static_rect.hpp"
+
+
+// Dynamic initializer (0x0052EFA0, _$E) of b from the header(s) included
+// by HeaderStatics_diagonal_init_0052ef70.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0052EFC0, _$E) of c from the header(s) included
+// by HeaderStatics_diagonal_init_0052ef70.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0052EFE0, _$E) of angle45 from the header(s) included
+// by HeaderStatics_diagonal_init_0052ef70.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0052F000, _$E) of angle60 from the header(s) included
+// by HeaderStatics_diagonal_init_0052ef70.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0052F020, _$E) of angle90 from the header(s) included
+// by HeaderStatics_diagonal_init_0052ef70.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0052F040, _$E) of g from the header(s) included
+// by HeaderStatics_diagonal_init_0052ef70.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0052F080, _$E) of h from the header(s) included
+// by HeaderStatics_diagonal_init_0052ef70.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0052F0B0, _$E) of i from the header(s) included
+// by HeaderStatics_diagonal_init_0052ef70.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0052F0E0, _$E) of j from the header(s) included
+// by HeaderStatics_diagonal_init_0052ef70.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0052F110, _$E) of k from the header(s) included
+// by HeaderStatics_diagonal_init_0052ef70.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0052F120, _$E) of l from the header(s) included
+// by HeaderStatics_diagonal_init_0052ef70.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0052F140, _$E) of static_rect from the header(s) included
+// by HeaderStatics_diagonal_init_0052ef70.cpp; no source of its own.
+
+
+
 
 #include "shared/jumpjet_locomotion.hpp"
+#include "shared/rules.hpp"
+#include "shared/unknown_geometry.hpp"
 #include "shared/house.hpp"
 #include "shared/infantry.hpp"
 #include "shared/id_source.hpp"
-#include "shared/unknown_geometry.hpp"
 #include "shared/cell.hpp"
 #include "shared/techno_type.hpp"
-#include "shared/rules.hpp"
 #include "shared/building_type.hpp"
 #include "shared/fast_math.hpp"
 #include "shared/building.hpp"
+
+
+// JumpjetLocomotionClass::JumpjetLocomotionClass() (0x0052F160)
+// The facing turns at the rules' jumpjet turn rate and starts at 0x4000.
+
+JumpjetLocomotionClass::JumpjetLocomotionClass() :
+    unknown_3c(unknown_geometry_l),
+    unknown_48(false),
+    unknown_4c(0),
+    unknown_50(Rules->unknown_368),
+    unknown_68(0),
+    unknown_70(0),
+    unknown_78(0),
+    unknown_80(0),
+    unknown_88(false)
+{
+    unknown_50.Set_Desired(UnknownFacingDir(0x4000));
+    unknown_50.Set(UnknownFacingDir(0x4000));
+}
+
+
+// JumpjetLocomotionClass::~JumpjetLocomotionClass() (0x0052F210)
+
+JumpjetLocomotionClass::~JumpjetLocomotionClass()
+{
+}
+
+
+// HRESULT __stdcall JumpjetLocomotionClass::Link_To_Object(void *object) (0x0052F230, ILocomotion 3)
+// Copies the object's type's jumpjet values (the height at least twice the
+// geometry constant), turns the facing at the jumpjet turn rate from 0x4000,
+// then links.
+
+HRESULT __stdcall JumpjetLocomotionClass::Link_To_Object(void *object)
+{
+    TechnoClass *techno = (TechnoClass *)object;
+    TurnRate = techno->Techno_Type_Class()->JumpjetTurnRate;
+    Speed = techno->Techno_Type_Class()->JumpjetSpeed;
+    Climb = techno->Techno_Type_Class()->JumpjetClimb;
+    Crash = techno->Techno_Type_Class()->JumpjetCrash;
+    int height = techno->Techno_Type_Class()->JumpjetHeight;
+    int minimum = unknown_geometry_g * 2;
+    Height = height > minimum ? height : minimum;
+    Accel = techno->Techno_Type_Class()->JumpjetAccel;
+    Wobbles = techno->Techno_Type_Class()->JumpjetWobbles;
+    Deviation = techno->Techno_Type_Class()->JumpjetDeviation;
+    NoWobbles = techno->Techno_Type_Class()->JumpjetNoWobbles;
+    FacingClass facing(TurnRate);
+    unknown_50 = facing;
+    unknown_50.Set_Desired(UnknownFacingDir(0x4000));
+    unknown_50.Set(UnknownFacingDir(0x4000));
+    return LocomotionClass::Link_To_Object(object);
+}
 
 
 // bool __stdcall JumpjetLocomotionClass::Is_Moving() (0x0052F350, ILocomotion 4)
@@ -732,3 +846,10 @@ CoordStruct __stdcall JumpjetLocomotionClass::Head_To_Coord()
     }
     return CoordStruct(unknown_3c.X, unknown_3c.Y, unknown_3c.Z);
 }
+
+
+// int JumpjetLocomotionClass::Size() (0x00531320): inline in shared/jumpjet_locomotion.hpp, emitted with the vtable; no source of its own.
+
+
+// void *JumpjetLocomotionClass::`scalar deleting destructor'(unsigned int flags) (0x00531330)
+// Compiler-generated with the vtable (the destructor inlined). No source of its own.
