@@ -139,3 +139,11 @@ void Native_Map_Zoom_Frame()
 {
     ra2_enh_in_play(1);
 }
+
+// The game is over (Main_Loop returned true: won, lost, restarted or aborted). The score screen,
+// the next mission's movies and the menus are shown whole (the host's split and zoom layouts are
+// for play only; C11).
+void Native_Map_Zoom_End()
+{
+    ra2_enh_in_play(0);
+}

@@ -295,7 +295,7 @@ bool ra2_enh_sidebar_split(int picture_height, double *ratio)
 // (Start_Scenario, a load); with 1x nothing changes.
 namespace {
 int view_rect[4] = {0, 0, 0, 0}, full_rect[4] = {0, 0, 0, 0};   // the view and the tactical rectangle it stands for
-bool in_play = false;          // a game frame ran since the last scenario start or load
+bool in_play = false;          // a game frame ran since the last scenario start or load, and the game goes on
 }
 // The zoom for the game that starts now (the setting; 1 without one).
 extern "C" double ra2_enh_map_zoom(void)
@@ -318,8 +318,9 @@ extern "C" void ra2_enh_map_view(int x, int y, int w, int h, int full_x, int ful
 // In play (a game frame ran) or not (a scenario starting or loading: its loading screen
 // and movies are shown whole).
 extern "C" void ra2_enh_in_play(int on) { in_play = on != 0; }
-// The host's question (the touch controls, lane C10): has a game frame run since the last
-// scenario start or load?
+// The host's question (the touch controls, lane C10; the split layout, C11): has a game frame
+// run since the last scenario start or load, and is the game still on? Cleared when Main_Loop
+// reports the game over (the score screen, the next mission's movies and the menus).
 bool ra2_enh_game_in_play() { return in_play; }
 // The host's question: is the map shown zoomed now, for a picture this size? view and full
 // get the two rectangles (game pixels).

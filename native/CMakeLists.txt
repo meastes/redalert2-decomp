@@ -420,6 +420,15 @@ if(RA2_NATIVE_SDL)
                  --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/enhancements-newgame"
                  ${ra2_wine_args_newgame})
         set_tests_properties(native-enhancements-newgame PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 600)
+        # A Movies-menu movie at the iPhone Duo's width with the interface and map at 1.25x is
+        # shown whole, and the main menu after a submenu and a focus change has its buttons (C11).
+        # (The Mac app's settings folder; the Windows build is not run under Wine here.)
+        if(NOT WIN32)
+          add_test(NAME native-menu-movie COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/menu_movie.py"
+                   --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+                   --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/menu-movie")
+          set_tests_properties(native-menu-movie PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 400)
+        endif()
         # 12. Touch input (C8): scripted fingers with the touch controls on; a two-finger tap
         #     deselects; A-Move is a toggle: two taps give two attack-move orders, and after
         #     A-Move is turned off a tap is a plain move (C10).

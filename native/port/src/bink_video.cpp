@@ -694,8 +694,14 @@ bool decode_plane(BinkVideo *v, Bits &bits, int index, bool chroma)
                     int block[64] = {};
                     int budget = (int)bits.get(7);
                     if (!read_residue(bits, block, budget)) return false;
+                    // Corrections are added modulo 256, not clamped (also the inter blocks
+                    // below): the coder counts on the wrap. Clamped, a dark pixel given a
+                    // small downward correction coded as a large upward one turned white:
+                    // the stray white specks over dark areas (flags, hair, curtains) the user
+                    // saw in the Movies menu's intro (C11, 2026-11-13). Intra blocks, written
+                    // whole, stay clamped.
                     for (int y = 0; y < 8; ++y)
-                        for (int x = 0; x < 8; ++x) dst[y * stride + x] = clamp255(dst[y * stride + x] + block[y * 8 + x]);
+                        for (int x = 0; x < 8; ++x) dst[y * stride + x] = (unsigned char)(dst[y * stride + x] + block[y * 8 + x]);
                 } else if (type == 7) {
                     int block[64] = {};
                     block[0] = v->bundle[INTER_DC].next();
@@ -703,7 +709,7 @@ bool decode_plane(BinkVideo *v, Bits &bits, int index, bool chroma)
                     int delta[64];
                     inverse_dct(block, delta);
                     for (int y = 0; y < 8; ++y)
-                        for (int x = 0; x < 8; ++x) dst[y * stride + x] = clamp255(dst[y * stride + x] + delta[y * 8 + x]);
+                        for (int x = 0; x < 8; ++x) dst[y * stride + x] = (unsigned char)(dst[y * stride + x] + delta[y * 8 + x]);
                 }
                 break;
             }

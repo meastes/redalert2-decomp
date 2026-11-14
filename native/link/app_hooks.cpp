@@ -25,3 +25,12 @@ extern "C" void ra2_native_save_settings(void)
 {
     Options.Save_Settings();
 }
+
+// port/src/user32.cpp's question after a focus change (C11): is the game's screen redraw
+// mark (0x008523DC, set by WM_ACTIVATEAPP in Windows_Procedure 0x007375A0) still waiting
+// for a menu loop to clear it? The repaint of the dialogs then follows that redraw.
+extern bool unknown_redraw_8523dc;
+extern "C" int ra2port_game_redraw_pending(void)
+{
+    return unknown_redraw_8523dc ? 1 : 0;
+}

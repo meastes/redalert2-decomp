@@ -705,6 +705,9 @@ extern "C" bool ra2port_presents_held(void)
         hold_presents = false;
     return hold_presents;
 }
+// The game's screen redraw mark 0x008523DC is still set (link/native_menu_redraw.cpp; absent
+// in builds without the game).
+extern "C" __attribute__((weak)) int ra2port_game_redraw_pending(void);
 static void exposure_check(const MSG *found, std::chrono::steady_clock::time_point now)
 {
     using namespace std::chrono;
@@ -732,6 +735,21 @@ static void exposure_check(const MSG *found, std::chrono::steady_clock::time_poi
         while (dialog_settle_times.size() < dialog_show_times.size()) dialog_settle_times.push_back(now_ms());
         progress("menu-settled", detail);
     }
+    // The game's redraw after a focus change may come much later than the repaint below
+    // (C11, user report 2026-11-13: the main menu's buttons missing). WM_ACTIVATEAPP only
+    // marks the screen for a redraw (0x008523DC); the menu loop that clears the mark and
+    // copies the hidden surface over the whole screen (Unknown_00517370, the top-level main
+    // menu's loop 0x00516F00) does not run in the submenus (Movies & Credits, a movie). After
+    // a focus change there, the repaint went to the submenu, and back at the main menu the
+    // loop's copy then covered the buttons its slide-in had just drawn; nothing drew them
+    // again (tapping still worked). While the mark is still set after the repaint, a second
+    // repaint follows the game's redraw, as Windows repaints the windows a redraw uncovered.
+    static bool redraw_after = false;
+    if (redraw_after && !(ra2port_game_redraw_pending && ra2port_game_redraw_pending())) {
+        redraw_after = false;
+        exposure_pending = true;
+        idle_since = now;
+    }
     if (!exposure_pending) return;
     bool shown = false;
     for (HWND d : dialog_windows) if (Window *w = win(d)) shown = shown || w->visible;
@@ -739,6 +757,7 @@ static void exposure_check(const MSG *found, std::chrono::steady_clock::time_poi
     if (now - idle_since < milliseconds(250)) return;
     exposure_pending = false;
     for (HWND d : dialog_windows) invalidate(d);
+    if (ra2port_game_redraw_pending && ra2port_game_redraw_pending()) redraw_after = true;
 }
 
 static int idle_spins = 0;

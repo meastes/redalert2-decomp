@@ -191,7 +191,12 @@ runs, C5) keeps the system's focus reports from the game (scripted `blur`/`focus
 apply): on a busy machine another game window taking the focus made the menu redraw and
 slide its buttons in again, held presents, and stopped a skirmish (an inactive game
 waits in MSEngine::Check_Focus 0x005B3670); native-census and native-enhancements-frames
-set it. `RA2_NATIVE_MSG_LOG=1` logs messages to dialogs
+set it. After a focus change USER32 repaints the shown dialogs once the menu is idle, and
+again after the game's own redraw when that comes later (C11: WM_ACTIVATEAPP marks the screen
+for a redraw, 0x008523DC, which only the top-level main menu's loop 0x00516F00 carries out,
+copying the hidden surface over the buttons its slide-in had drawn: after a focus change in a
+submenu or a movie the main menu came back without buttons; `ra2port_game_redraw_pending`,
+link/app_hooks.cpp; ctest `native-menu-movie`). `RA2_NATIVE_MSG_LOG=1` logs messages to dialogs
 and controls, each shown dialog's controls (id, class, screen rectangle, text)
 and every routed click (`=2` adds paint, timer and motion). `--frames=N` reports
 `frames` after N Main_Loop frames of a game started from the menus; the
@@ -385,6 +390,9 @@ quantizer matrices are read at run time from the installed BINKW32.DLL, located
 by those verified tables (user ruling 2026-11-09: allowed like game.exe's data;
 the default since Scout1161, M20). Without the DLL in the data directory, or when
 its tables do not check, one stderr line says so and the video stays black. `RA2_NATIVE_BINK_DUMP=<prefix>` writes decoded frames as BMPs.
+Residue and inter-block corrections are added modulo 256 (C11): clamped, a small downward
+correction the coder sent as a large upward one turned a dark pixel white (stray white
+specks over the intro's flags, hair and curtains); intra blocks stay clamped.
 The drop list's frame (0x005EAD20 draws it one pixel outside its rectangle into
 the back surface) now reaches the screen: the combo box behaviour row repaints
 the dialog after showing the list, and 0x005EE460 paints the dialog, then its
@@ -676,7 +684,11 @@ allocations and the two sidebar layout calls ask `Native_Sidebar_Height`,
 scale, the sidebar column's rows that many times larger, filling the height
 (`host.cpp`, `split_on`; the mouse maps per region; the Mac window is widened by the
 sidebar's extra width; on iOS the game's width gives it back). While a dialog is up in
-play the whole picture is shown as before. Applies when a game starts: a new game in the
+play the whole picture is shown as before; outside play (the menus, a movie, the loading and
+score screens: `ra2_enh_game_in_play`, set by each Main_Loop frame and cleared at a scenario's
+start, a load and when Main_Loop reports the game over) the picture is always shown whole
+(C11: a movie from the Movies menu, with no dialog shown while it played, was cut at the
+sidebar's edge and its right part drawn lower and larger in the sidebar column). Applies when a game starts: a new game in the
 same process makes its sidebar surface again when the size changed since the surface was
 made (`Native_Sidebar_New_Game`, at the top of Start_Scenario 0x0065BC70, as a load's
 Get_All does; C7, codex4 R700); ctest `native-enhancements-newgame` changes the size on the
@@ -1064,8 +1076,9 @@ and Add holds Shift (add to the selection) while on (accent tint); A-Move turns 
 attack-move on (Ctrl and Shift held together, the keyboard form the game checks in
 Unknown_Can_Force_Order 0x006F6670: 0x00A40BAC and 0x00A40BB4 are Options +0x94 KeyForceAttack
 and +0x9C KeySelect): every tap is an attack-move until A-Move is tapped again or Fire, Move or
-Add is picked (lane C10: a toggle, tinted while on, exclusive with those three; it used to arm one
-tap); Deploy and Guard press D and G (the DeployObject and GuardObject commands' default
+Add is picked (lane C10: a toggle, tinted while on; it used to arm one tap). Fire, Move, Add and
+A-Move are one either-or group: turning one on turns the lit one off, tapping the lit one turns it
+off (lane C10, the user's choice; ctest `native-touch-controls` checks all six pairs); Deploy and Guard press D and G (the DeployObject and GuardObject commands' default
 keys; a player who rebinds them in Options > Keyboard would need the toolbar to follow); Esc presses Escape (lane I);
 Keys shows the keyboard
 (it also appears while an edit control has the focus, `ra2port_text_input_wanted`). The

@@ -12,8 +12,9 @@ hidden control's tap does nothing. Passes when, in order:
   movie  the Skip button alone is shown (toolbar and Keys button hidden) and its tap skips;
   menu   the Keys button alone is shown; the toolbar's A-Move tap does nothing; the Keys
          button's tap turns the keyboard on, a second off;
-  play   the toolbar alone is shown; the Keys button's tap does nothing; A-Move and the
-         toolbar's Keys work.
+  play   the toolbar alone is shown; the Keys button's tap does nothing; Fire, Move, Add and
+         A-Move are one either-or group (each of the six pairs: turning one on turns the lit
+         one off; tapping the lit one turns it off); the toolbar's Keys works.
 
   touch_controls.py --binary <ra2-native> --data-dir <game folder> --game-exe <game.exe> --work <dir>
 
@@ -35,9 +36,17 @@ d1+3000 click 834 304
 d2+2000 click 834 388
 d3+2500 click 834 346
 d3+20000 toolbar -3
-d3+20500 toolbar 3
-d3+21000 toolbar 6
-d3+22000 quit
+d3+20300 toolbar 0
+d3+20600 toolbar 1
+d3+20900 toolbar 2
+d3+21200 toolbar 3
+d3+21500 toolbar 0
+d3+21800 toolbar 2
+d3+22100 toolbar 1
+d3+22400 toolbar 3
+d3+22700 toolbar 3
+d3+23000 toolbar 6
+d3+24000 quit
 """
 
 STATE = re.compile(r'^host: touch controls: (\w+) \(toolbar (\w+), keys button (\w+), skip button (\w+)\)$')
@@ -48,8 +57,20 @@ EXPECT = {
     'movie': ['host: skip button tapped', 'host: Escape pressed (touch control)'],
     'menu': ['host: toolbar item 3 tapped while hidden: nothing', 'host: keys button tapped', 'host: toggle KEYS on',
              'host: keys button tapped', 'host: toggle KEYS off'],
-    'play': ['host: keys button tapped while hidden: nothing', 'host: attack-move on', 'host: toggle KEYS on'],
+    'play': ['host: keys button tapped while hidden: nothing',
+             'host: toggle FIRE on',
+             'host: toggle FIRE off', 'host: toggle MOVE on',        # Fire -> Move
+             'host: toggle MOVE off', 'host: toggle ADD on',         # Move -> Add
+             'host: toggle ADD off', 'host: attack-move on',         # Add -> A-Move
+             'host: attack-move off', 'host: toggle FIRE on',        # A-Move -> Fire
+             'host: toggle FIRE off', 'host: toggle ADD on',         # Fire -> Add
+             'host: toggle ADD off', 'host: toggle MOVE on',         # Add -> Move
+             'host: toggle MOVE off', 'host: attack-move on',        # Move -> A-Move
+             'host: attack-move off',                                # the lit one tapped
+             'host: toggle KEYS on'],
 }
+# The modes' log lines in play, exactly (nothing else turns a mode on or off there).
+MODE_LINES = re.compile(r'^host: (toggle (FIRE|MOVE|ADD) (on|off)|attack-move (on|off))')
 
 
 def phases(lines):
@@ -129,6 +150,19 @@ def main():
         missing = in_order(lines, wanted)
         if missing:
             bad.append('%s: no "%s" (in order)' % (ph, missing))
+    # Exclusivity: in play the modes change exactly as listed (no mode left on beside another),
+    # and the same mode states hold after every tap.
+    modes = [l for p_, ls in found if p_ == 'play' for l in ls if MODE_LINES.match(l)]
+    wanted_modes = [w for w in EXPECT['play'] if MODE_LINES.match(w)]
+    if [m[:len(w)] for m, w in zip(modes, wanted_modes)] != wanted_modes or len(modes) != len(wanted_modes):
+        bad.append('play: the modes changed as %s, not %s' % (modes, wanted_modes))
+    on = set()
+    for m in modes:
+        name = 'A-MOVE' if 'attack-move' in m else m.split()[2]
+        (on.add if m.endswith(' on') or ' on (' in m else on.discard)(name)
+        if len(on) > 1:
+            bad.append('play: two modes on at once (%s) after "%s"' % (', '.join(sorted(on)), m))
+            break
     for b in bad:
         print('%s: %s' % (name, b))
     print('%s: %s (see %s)' % (name, 'passed' if not bad else 'FAILED', log))

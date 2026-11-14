@@ -123,17 +123,17 @@ bool layout_dirty = true;
 
 // The touch controls (Scout1248): on where the screen is touched (iOS), or with
 // RA2_NATIVE_TOUCH_UI=1 (tests). A column of toggles at the usable part's left edge:
-// force fire (Ctrl), force move (Alt), add to the selection (Shift) stay held while
-// on; attack-move (Ctrl and Shift held together, the original's keyboard form:
+// force fire (Ctrl), force move (Alt), add to the selection (Shift) stay held while on;
+// attack-move (Ctrl and Shift held together, the original's keyboard form:
 // Unknown_Can_Force_Order 0x006F6670 reads 0x00A40BAC and 0x00A40BB4, Options +0x94
-// KeyForceAttack (Ctrl) and +0x9C KeySelect (Shift)) stays on too, every tap an
-// attack-move, until A-Move is tapped again or Fire, Move or Add is picked (lane C10:
-// A-Move is exclusive with those three); Deploy (the D key, DeployObject's default); Guard (the G key, GuardObject's
-// default); the keyboard; Escape (a key press). (Lane I: attack-move, Deploy, Guard, Escape.)
-// They are the game's commands, shown in play only (lane C10): in the menus a floating Keys
-// button alone (the keyboard for names and save descriptions), during a cutscene the Skip
-// button alone (Controls). The interface scale item is gone: Game interface size is on the
-// Enhancements page.
+// KeyForceAttack (Ctrl) and +0x9C KeySelect (Shift)) stays on too, every tap an attack-move.
+// Those four are modes, one at a time (lane C10, user): turning one on turns the others off,
+// tapping the lit one turns it off. Deploy (the D key, DeployObject's default); Guard (the G
+// key, GuardObject's default); the keyboard; Escape (a key press). (Lane I: attack-move,
+// Deploy, Guard, Escape.) They are the game's commands, shown in play only (lane C10): in the
+// menus a floating Keys button alone (the keyboard for names and save descriptions), during a
+// cutscene the Skip button alone (Controls). The interface scale item is gone: Game interface
+// size is on the Enhancements page.
 bool touch_ui = false;
 bool system_toolbar = false;   // the iOS glass toolbar holds the toggles (hostos::toolbar_create; Scout1249)
 struct Toggle { const char *label; int vk; bool on; };
@@ -282,6 +282,18 @@ float pixel_density()
     if (!window || !SDL_GetWindowSize(window, &ww, &wh) || !SDL_GetWindowSizeInPixels(window, &pw, &ph) || ww <= 0) return 1.0f;
     return (float)pw / (float)ww;
 }
+// The split layout applies in play only (C11, user report 2026-11-13): the sidebar surface is
+// made shorter from the start (the next game's interface size), but the menus, the movies
+// (the Movies menu's, a mission's briefing) and the loading and score screens draw over the
+// whole picture. Before, only a shown dialog turned the split off, so a movie played from the
+// Movies menu (no dialog shown while it plays) was cut at the sidebar's edge and its right
+// part drawn lower down and larger, in the sidebar column.
+bool split_wanted(double *ratio)
+{
+    *ratio = 1.0;
+    if (ra2port_menu_shown() || ra2port::movie_playing() || !ra2_enh_game_in_play()) return false;
+    return ra2_enh_sidebar_split(pic_h, ratio);
+}
 void update_layout()
 {
     layout_dirty = false;
@@ -319,7 +331,7 @@ void update_layout()
     // Split (Game interface size): in play with no dialog up and a sidebar surface shorter
     // than the screen. Dialogs in play draw over the whole picture, which is then shown whole.
     split_ratio = 1.0;
-    split_on = !ra2port_menu_shown() && ra2_enh_sidebar_split(pic_h, &split_ratio);
+    split_on = split_wanted(&split_ratio);
     // Zoom (Map zoom): in play, no dialog up, no movie playing, the view smaller than the
     // tactical area. The picture keeps its size and base scale; only the view is shown larger.
     zoom_on = !ra2port_menu_shown() && !ra2port::movie_playing() && ra2_enh_map_zoomed(pic_w, pic_h, zoom_view, zoom_full);
@@ -847,8 +859,8 @@ void set_modifier_toggle(int i, bool on)
 // Attack-move on or off: Ctrl and Shift held together while on, so every left click is an
 // attack-move, until A-Move is tapped again or another mode is picked (lane C10: a toggle like
 // Fire, Move and Add; it was armed for one tap, which lane I's 250 ms expiry after the release
-// ended). Exclusive with Fire, Move and Add: those are turned off first, so the modifiers
-// held are A-Move's alone.
+// ended). Fire, Move, Add and A-Move are one either-or group: the other three are turned off
+// first, so the modifiers held are A-Move's alone.
 void set_attack_move(bool on)
 {
     if (toggles[kAttackMove].on == on) return;
@@ -874,9 +886,16 @@ void press_toggle(int i)
         set_attack_move(!t.on);
         return;
     } else if (t.vk) {
-        // Fire, Move or Add: picking one ends attack-move (releasing its Ctrl and Shift).
-        if (!t.on) set_attack_move(false);
-        set_modifier_toggle(i, !t.on);
+        // Fire, Move or Add. The four modes (with A-Move) are one either-or group (lane C10,
+        // user): picking one turns the others off first, so only its own modifier is held;
+        // tapping the lit one turns it off.
+        bool on = !t.on;
+        if (on) {
+            set_attack_move(false);
+            for (int j = kFireToggle; j <= kAddToggle; ++j)
+                if (j != i) set_modifier_toggle(j, false);
+        }
+        set_modifier_toggle(i, on);
     } else {
         t.on = !t.on;
         fprintf(stderr, "host: toggle %s %s\n", t.label, t.on ? "on" : "off");
@@ -1295,6 +1314,97 @@ void draw_overlay(float density)
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_NONE);
 }
 
+// PROTOTYPE (C11, the aspect question; off unless RA2_NATIVE_MENU_FILL is set): in the menus
+// the 800x600 panel is centred in a larger picture and the rest is black (the game's own bands
+// above 800x600, then the window's letterbox). Two fills, both at a uniform scale:
+//   mirror:   the panel's edge mirrored outwards (tiled when wider than half the panel), darkened;
+//   backdrop: the whole panel scaled up uniformly to cover the window, blurred (drawn through a
+//             64x48 texture with linear filtering) and darkened, the panel drawn over it.
+// Not in play, not during a movie. Returns whether it drew the picture itself.
+SDL_Texture *menu_blur = nullptr;
+bool fill_menu_bands(float density)
+{
+    static const char *mode = getenv("RA2_NATIVE_MENU_FILL");
+    if (!mode || !*mode || !texture) return false;
+    if (!ra2port_menu_shown() || ra2port::movie_playing() || ra2_enh_game_in_play()) return false;
+    if (pic_w < 800 || pic_h < 600) return false;
+    double scale = picture.w / pic_w;
+    double gx0 = (pic_w - 800) / 2, gy0 = (pic_h - 600) / 2;            // the panel in game pixels
+    double wx0 = picture.x + gx0 * scale, wx1 = wx0 + 800 * scale;      // ... and in window points
+    double wy0 = picture.y + gy0 * scale, wy1 = wy0 + 600 * scale;
+    int ww = 0, wh = 0;
+    SDL_GetWindowSize(window, &ww, &wh);
+    auto put = [&](SDL_Texture *t, double sx, double sy, double sw, double sh, double dx, double dy, double dw, double dh,
+                   SDL_FlipMode flip) {
+        SDL_FRect src = {(float)sx, (float)sy, (float)sw, (float)sh};
+        SDL_FRect to = {(float)(dx * density), (float)(dy * density), (float)(dw * density), (float)(dh * density)};
+        SDL_RenderTextureRotated(renderer, t, &src, &to, 0, nullptr, flip);
+    };
+    if (!strcmp(mode, "backdrop")) {
+        if (!menu_blur) {
+            menu_blur = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, 64, 48);
+            if (menu_blur) SDL_SetTextureScaleMode(menu_blur, SDL_SCALEMODE_LINEAR);
+        }
+        if (!menu_blur) return false;
+        SDL_Texture *old = SDL_GetRenderTarget(renderer);
+        SDL_ScaleMode mode_before = SDL_SCALEMODE_NEAREST;
+        SDL_GetTextureScaleMode(texture, &mode_before);
+        SDL_SetTextureScaleMode(texture, SDL_SCALEMODE_LINEAR);
+        SDL_SetRenderTarget(renderer, menu_blur);
+        SDL_FRect src = {(float)gx0, (float)gy0, 800, 600}, all = {0, 0, 64, 48};
+        SDL_RenderTexture(renderer, texture, &src, &all);
+        SDL_SetRenderTarget(renderer, old);
+        SDL_SetTextureScaleMode(texture, mode_before);
+        // Cover the window at the panel's aspect (4:3), centred: uniform scale, the overflow cut.
+        double cover = SDL_max(ww / 800.0, wh / 600.0);
+        double cw = 800 * cover, ch = 600 * cover;
+        put(menu_blur, 0, 0, 64, 48, (ww - cw) / 2, (wh - ch) / 2, cw, ch, SDL_FLIP_NONE);
+        SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 170);
+        SDL_FRect whole = {0, 0, (float)(ww * density), (float)(wh * density)};
+        SDL_RenderFillRect(renderer, &whole);
+        SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_NONE);
+        put(texture, gx0, gy0, 800, 600, wx0, wy0, 800 * scale, 600 * scale, SDL_FLIP_NONE);
+        return true;
+    }
+    // mirror
+    SDL_FRect dst = {(float)(picture.x * density), (float)(picture.y * density), (float)(picture.w * density),
+                     (float)(picture.h * density)};
+    SDL_RenderTexture(renderer, texture, nullptr, &dst);
+    for (int side = 0; side < 2; ++side) {
+        double edge = side ? wx1 : wx0, limit = side ? ww : 0;
+        double left = SDL_fabs(edge - limit) / scale;
+        bool mirrored = true;
+        double at = edge;
+        while (left > 0.5) {
+            double w = SDL_min(left, 400.0);
+            double sx = side ? gx0 + 800 - w : gx0;
+            double dx = side ? at : at - w * scale;
+            put(texture, sx, gy0, w, 600, dx, wy0, w * scale, 600 * scale, mirrored ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+            at += side ? w * scale : -w * scale;
+            left -= w;
+            mirrored = !mirrored;
+        }
+    }
+    for (int side = 0; side < 2; ++side) {
+        double edge = side ? wy1 : wy0, limit = side ? wh : 0;
+        double h = SDL_min(SDL_fabs(edge - limit) / scale, 300.0);
+        if (h < 0.5) continue;
+        double sy = side ? gy0 + 600 - h : gy0;
+        put(texture, gx0, sy, 800, h, wx0, side ? edge : edge - h * scale, 800 * scale, h * scale, SDL_FLIP_VERTICAL);
+    }
+    SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 150);
+    SDL_FRect bands[4] = {{0, 0, (float)(wx0 * density), (float)(wh * density)},
+                          {(float)(wx1 * density), 0, (float)((ww - wx1) * density), (float)(wh * density)},
+                          {(float)(wx0 * density), 0, (float)((wx1 - wx0) * density), (float)(wy0 * density)},
+                          {(float)(wx0 * density), (float)(wy1 * density), (float)((wx1 - wx0) * density),
+                           (float)((wh - wy1) * density)}};
+    SDL_RenderFillRects(renderer, bands, 4);
+    SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_NONE);
+    return true;
+}
+
 void present_now(const void *pixels, int width, int height, int pitch)
 {
     if (in_background || !renderer) return;     // iOS: no drawing in the background
@@ -1325,7 +1435,7 @@ void present_now(const void *pixels, int width, int height, int pitch)
             fit_window(pic_w, pic_h);
             layout_dirty = true;
         }
-        if ((possible && !ra2port_menu_shown()) != split_on) layout_dirty = true;
+        if (split_wanted(&ratio) != split_on) layout_dirty = true;
         // The zoom layout follows the game too: a game starting or loading, a dialog, a movie.
         int view[4], full[4];
         bool zoom = !ra2port_menu_shown() && !ra2port::movie_playing() && ra2_enh_map_zoomed(pic_w, pic_h, view, full);
@@ -1346,7 +1456,7 @@ void present_now(const void *pixels, int width, int height, int pitch)
             SDL_FRect to = {(float)(r.dx * density), (float)(r.dy * density), (float)(r.dw * density), (float)(r.dh * density)};
             SDL_RenderTexture(renderer, texture, &src, &to);
         }
-    } else if (texture) {
+    } else if (texture && !fill_menu_bands(density)) {
         SDL_RenderTexture(renderer, texture, nullptr, &dst);
     }
     draw_overlay(density);

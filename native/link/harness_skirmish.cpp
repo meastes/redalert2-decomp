@@ -385,6 +385,7 @@ static void Native_Net_Timing_Log(uint64_t work_ns)
 
 void Native_Alliance_Log(int frame);   // harness_orders.cpp (RA2_NATIVE_ALLY_LOG)
 void Native_Map_Zoom_Frame();          // native_map_zoom.cpp (Map zoom: the game is in play)
+void Native_Map_Zoom_End();            // native_map_zoom.cpp (the game is over: whole picture again)
 bool Native_Main_Loop_Seam()
 {
     uint64_t work_start = ra2port_monotonic_ns(), slept_start = ra2port_slept_ns;
@@ -396,6 +397,7 @@ bool Native_Main_Loop_Seam()
     }
     Native_Frame_Floor();
     Native_Map_Zoom_Frame();
+    if (over) Native_Map_Zoom_End();
     Native_Note_Frame();   // native_event_data.cpp: Sync_Delay's in-wait pass waits for a stalled frame
     // Every game counts its frames (a game started from the menus too:
     // --frames=N, scripted input by frame; Scout1119, M14).
