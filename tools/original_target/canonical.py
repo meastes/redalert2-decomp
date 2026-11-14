@@ -355,6 +355,33 @@ def validate_split_declaration(row):
     return True
 
 
+# Unit evidence of `$E` rows placed by the original .CRT$XCU table (docs/DECISIONS.md "$E
+# initialiser/atexit rows placed by the original .CRT$XCU table"; xcu_units.py, refile_unit.py
+# join-xcu): a row whose unit rests on one of three evidence tiers the bytes cannot prove carries
+# `unit_evidence` with the tier; only a row compiled in a module source (several rows) may.
+UNIT_EVIDENCE = ('xcu-exclusion', 'xcu-prefix+map', 'xcu-prefix')
+
+
+def validate_unit_evidence(row, module_rows):
+    """Refuse a malformed unit-evidence flag; return the tier or None."""
+    tier = row.get('unit_evidence')
+    if tier is None:
+        return None
+    require(tier in UNIT_EVIDENCE, 'unit_evidence is one of %s: %08x' % (', '.join(UNIT_EVIDENCE), row['entry']))
+    require(len(module_rows) > 1, 'unit_evidence on a row outside a module source: %08x' % row['entry'])
+    return tier
+
+
+def unit_evidence_counts(catalog):
+    """{tier: (rows, body bytes)} of the rows carrying each unit_evidence tier."""
+    out = {tier: [0, 0] for tier in UNIT_EVIDENCE}
+    for row in catalog['regions']:
+        if row.get('unit_evidence') in out:
+            out[row['unit_evidence']][0] += 1
+            out[row['unit_evidence']][1] += row['body_bytes']
+    return {tier: tuple(v) for tier, v in out.items()}
+
+
 # VECTOR_DECLARATIONS_ONLY (docs/DECISIONS.md "Container member joins on their own frozen
 # bound"): a source that keeps every shared/vector_class.hpp member undefined because its text
 # does not reproduce the original unit's list uses. A judgment call only for the rows whose body
@@ -638,6 +665,7 @@ def validate_catalog(repository, catalog, modules=True):
             validate_inline_asm(data, row, repository / TIBSUN_ARCHIVE)
         validate_count_calibrated(row)
         validate_split_declaration(row)
+        validate_unit_evidence(row, module_rows.get(row['source'], ()))
         validate_declarations_only(row, data)
         validate_data_bound_by(row, module_rows.get(row['source'], ()))
         entries.add(va); orders.add(row['source_order'])

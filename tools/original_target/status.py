@@ -102,6 +102,32 @@ def joined_under_gr_line():
             'options: {:,} rows, {:,} bytes, {:,} units |'.format(rows, body, units, *other))
 
 
+def unit_evidence_lines(catalog):
+    """`$E` rows whose unit rests on the original .CRT$XCU table (docs/DECISIONS.md "$E initialiser/atexit
+    rows placed by the original .CRT$XCU table"): one line per flagged tier (row field unit_evidence,
+    canonical.validate_unit_evidence), plus the rows the table places in one evidenced unit (no flag)."""
+    from canonical import UNIT_EVIDENCE, unit_evidence_counts
+    counts = unit_evidence_counts(catalog)
+    about = {'xcu-exclusion': 'the previous unit already owns that header static',
+             'xcu-prefix+map': 'prefix rule and unit map agree',
+             'xcu-prefix': 'prefix rule alone'}
+    single = joined_unit_evidence('xcu single')
+    lines = ['| `$E` rows joined to the one unit the .CRT$XCU table evidences (no flag; manifest note "xcu single") '
+             '| {:,} rows, {:,} bytes, {:,} units |'.format(*single)]
+    for tier in UNIT_EVIDENCE:
+        lines.append('| `$E` rows joined to a .CRT$XCU boundary pick, flag `unit_evidence: {}` ({}; bytes cannot tell '
+                     'the two candidates apart) | {:,} rows, {:,} bytes |'.format(tier, about[tier], *counts[tier]))
+    return lines
+
+
+def joined_unit_evidence(note, repository=None):
+    """(rows, bytes, units) of joined rows whose module-item record carries `unit_evidence` == note."""
+    path = (repository or Path(__file__).resolve().parents[2]) / 'manifests/original_target/modules.json'
+    modules = json.loads(path.read_text()) if path.exists() else {}
+    rows = [(u, j) for u, item in modules.items() for j in item.get('joined', []) if j.get('unit_evidence') == note]
+    return len(rows), sum(j.get('bytes', 0) for _, j in rows), len({u for u, _ in rows})
+
+
 def address_named_line(catalog):
     """Address-free source file names (rename_files.py): the per-function files that still
     carry an address, by why they keep it."""
@@ -576,7 +602,7 @@ def render(catalog, text, rows, funcs=None, lib=None, asm=None, drafts=(0, 0, 0.
              'credit ({}) |'.format(modules['modules'], modules['functions'], modules['code_bytes'], modules['data_bytes'],
                                      modules['data_sections'], modules['kept_elsewhere_bytes'], modules['header_gaps'],
                                      modules['header_gap_modules'], ', '.join(modules['names']) or 'none'),
-             ] + ([route_a_line(modules)] if modules['route_a_units'] else []) + [own_bound_line(catalog), joined_under_gr_line(), address_named_line(catalog), declarations_only_line(catalog)] + data_bound_by_lines(catalog) + [generated_data_line()] + local_path_lines() + [
+             ] + ([route_a_line(modules)] if modules['route_a_units'] else []) + [own_bound_line(catalog), joined_under_gr_line()] + unit_evidence_lines(catalog) + [address_named_line(catalog), declarations_only_line(catalog)] + data_bound_by_lines(catalog) + [generated_data_line()] + local_path_lines() + [
              '| C runtime / library bytes (.text >= 0x{:X}; library ledger, not source credit) '
              '| {:,} ({:.2f}% of .text; {:,} matched) |'.format(CRT_START, split['crt'], 100.0 * split['crt'] / text,
                                                               split['crt_matched']),

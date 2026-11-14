@@ -13,6 +13,12 @@
  "compile_group": 727,
  "code": [
   {
+   "symbol": "_$E2",
+   "entry": "0073a0f0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
    "symbol": "_$E5",
    "entry": "0073a110",
    "body_bytes": 40,
@@ -97,7 +103,7 @@
    "padding_bytes": 12
   }
  ],
- "code_bytes": 1392,
+ "code_bytes": 1424,
  "data": [
   {
    "symbol": "__real@8@40008000000000000000",
@@ -401,7 +407,16 @@
   }
  ],
  "held_rows": [],
- "joined": [],
+ "joined": [
+  {
+   "entry": "0073a0f0",
+   "bytes": 23,
+   "population": "population-3565",
+   "bound": "the unit's compile group (population-3565)",
+   "placed": "prelude",
+   "unit_evidence": "xcu single"
+  }
+ ],
  "residuals": [],
  "unit_functions": 15,
  "data_unproven": [

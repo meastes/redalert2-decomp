@@ -53,9 +53,15 @@
    "entry": "0040d390",
    "body_bytes": 61,
    "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "0040d3d0",
+   "body_bytes": 59,
+   "padding_bytes": 5
   }
  ],
- "code_bytes": 448,
+ "code_bytes": 512,
  "data": [
   {
    "symbol": "??_7?$DynamicVectorClass@PAVMixFileClass@@@@6B@",
@@ -293,7 +299,16 @@
  "switches": [],
  "include_blocks": [],
  "held_rows": [],
- "joined": [],
+ "joined": [
+  {
+   "entry": "0040d3d0",
+   "bytes": 59,
+   "population": "population-3748",
+   "bound": "the unit's compile group (population-3748)",
+   "placed": "append",
+   "unit_evidence": "xcu single"
+  }
+ ],
  "residuals": [],
  "unit_functions": 7,
  "data_unproven": [

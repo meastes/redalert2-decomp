@@ -16,6 +16,10 @@
                                                        vector; class_factory: shared/class_factory.hpp,
                                                        type_list: shared/type_list.hpp)
     refile_unit.py maps BUILD_DIR                      module maps from a --keep-intermediates build
+    refile_unit.py join-xcu TIER [--units U...]        `$E` rows into the unit the .CRT$XCU table places them in
+                                                       (xcu_units.py tier: single or a flagged tier; the flagged
+                                                       ones carry `unit_evidence` on each row)
+    refile_unit.py unjoin UNIT [ENTRY...] --base REV [--unit-evidence TIER]
 
 The canonical build already compiles each population as one translation unit (its
 sources joined in source order). `run` pours a unit's rows of its largest population
@@ -1280,17 +1284,18 @@ def screen_errors(log, spans, offset=0):
     return inside, outside
 
 
-def screen_compile(config, catalog, pid, module, text, folder, options=None):
+def screen_compile(config, catalog, pid, module, text, folder, options=None, skip=()):
     """Compile the unit's compile group with `text` as the module source (as build.py joins
     it); (object path or None, compile log, lines ahead of the module text). `options`: compile
-    under that option set instead of the group's (the option-evidence screen of join-own)."""
+    under that option set instead of the group's (the option-evidence screen of join-own).
+    `skip`: sources of the group whose text `text` already holds (rows poured into the module)."""
     from build import compile_units
     from canonical import compiler_arguments
     from canonical import separate_unit_populations
     rows = sorted((r for r in catalog['regions'] if r['population'] == pid), key=lambda r: r['source_order'])
     if pid in separate_unit_populations(catalog):     # each source is its own translation unit
         rows = [r for r in rows if r['source'] == module]
-    sources = list(collections.OrderedDict.fromkeys(r['source'] for r in rows))
+    sources = [s for s in collections.OrderedDict.fromkeys(r['source'] for r in rows) if s not in skip]
     parts, offset = [], 0
     for source in sources:
         if source == module:
@@ -2049,19 +2054,24 @@ def own_join_plan(catalog, config, unit, item, read, closure, classes, fixups, a
 
 
 def own_join_screen(config, catalog, audit, unit, module, pid, members, read, candidates, chunks, table, folder,
-                    attempts, log):
+                    attempts, log, place=None):
     """Screen compiles of the unit with the joining rows' text placed in address order:
     rows that do not compile or reproduce their complete extent leave; when the unit's own
     rows differ, the joining rows are halved until the culprits are found. Returns
-    (exact {entry: row}, flipped {entry: cause})."""
+    (exact {entry: row}, flipped {entry: cause}). `place` (join-xcu): places the chunks
+    instead of place_in_address_order; rows of the unit's own population leave their files
+    out of the screen compile."""
     unit_entries = [r['entry'] for r in members]
+    place = place or place_in_address_order
     flipped = {}
     counter = [0]
 
     def screen(subset):
         counter[0] += 1
-        text, spans = place_in_address_order(read(module), unit_entries, sorted((e, chunks[e]) for e in subset))
-        obj, compile_log, offset = screen_compile(config, catalog, pid, module, text, folder / ('screen-%03d' % counter[0]))
+        text, spans = place(read(module), unit_entries, sorted((e, chunks[e]) for e in subset))
+        skip = {candidates[e]['source'] for e in subset if candidates[e]['population'] == pid}
+        obj, compile_log, offset = screen_compile(config, catalog, pid, module, text, folder / ('screen-%03d' % counter[0]),
+                                                  skip=skip)
         if obj is None:
             inside, outside = screen_errors(compile_log, spans, offset)
             log.append(dict(screen=counter[0], rows=len(subset), compiled=False, inside=len(inside),
@@ -2298,6 +2308,354 @@ def join_own(units, config_path, classes=OWN_JOIN_CLASSES, dry_run=False, attemp
     return report
 
 
+# ----------------------------------------------------------------------------- .CRT$XCU joins
+
+# `$E` rows placed by the original .CRT$XCU table (docs/DECISIONS.md "$E initialiser/atexit rows
+# placed by the original .CRT$XCU table"; xcu_units.py). A flagged tier's rows carry the catalog
+# field `unit_evidence` (canonical.UNIT_EVIDENCE); the module item's `joined` entry repeats it
+# (unjoin --unit-evidence) and says where the row's text went (`placed`).
+XCU_PRELUDE = 'prelude'         # a file of the unit's own compile group compiled ahead of the module
+XCU_APPEND = 'append'           # ... compiled behind it
+XCU_ADDRESS = 'address'         # a joining row of another population: address order (join-own)
+
+
+def banner_end(lines):
+    """Index of the first line after a module's leading comment banner (its first run of comment
+    lines). A comment run that is the marker of a non-exact prelude (`#ifdef RA2_NON_MATCHING`
+    directly below) is no banner: it stays above its block."""
+    index = 0
+    while index < len(lines) and lines[index].lstrip().startswith('//'):
+        index += 1
+    if index < len(lines) and lines[index].strip().startswith('#ifdef RA2_NON_MATCHING'):
+        return 0
+    return index
+
+
+def place_xcu(module_text, unit_entries, chunks, where):
+    """The module text with join-xcu chunks placed ([(entry, chunk)]; `where` {entry: (kind,
+    order)}): `prelude` chunks behind the leading banner, in compile order (their files compile
+    ahead of the module now, so the text keeps the translation unit's order); `append` chunks
+    at the end in compile order; `address` chunks as join-own places them. Returns (text,
+    {entry: (first, last)}) with 1-based line numbers."""
+    address = [(e, c) for e, c in chunks if where[e][0] == XCU_ADDRESS]
+    text, spans = place_in_address_order(module_text, unit_entries, address) if address else (module_text, {})
+    lines = text.rstrip('\n').split('\n')
+    prelude = sorted(((where[e][1], e, c) for e, c in chunks if where[e][0] == XCU_PRELUDE))
+    append = sorted(((where[e][1], e, c) for e, c in chunks if where[e][0] == XCU_APPEND))
+    out, new_spans = [], {}
+    at = banner_end(lines)
+    out += lines[:at]
+    if prelude and out and out[-1].strip():
+        out += ['']
+    for _, e, c in prelude:
+        first = len(out) + 1
+        out += c.split('\n')
+        new_spans[e] = (first, len(out))
+        out += ['', '']
+    shift = len(out) - at
+    for e, (first, last) in spans.items():
+        new_spans[e] = (first + shift, last + shift)
+    out += lines[at:]
+    for _, e, c in append:
+        out += ['', '']
+        first = len(out) + 1
+        out += c.split('\n')
+        new_spans[e] = (first, len(out))
+    return '\n'.join(out).rstrip('\n') + '\n', new_spans
+
+
+def xcu_chunk(text):
+    """A same-population file's text as it moves into the module: in place, `// @ref` and seed
+    marker lines dropped (its population's table binds the names)."""
+    body, _ = pour([(0, '', text)], 'inplace')
+    return body.strip('\n')
+
+
+def xcu_records(tier, repository=REPOSITORY):
+    """{unit: [record]} of xcu_units.py for `tier` (single or a flagged tier)."""
+    import xcu_units
+    out = collections.defaultdict(list)
+    for record in xcu_units.report(repository)['files']:
+        if record['tier'] == tier and record['unit']:
+            out[record['unit']].append(record)
+    return out
+
+
+def xcu_plan(catalog, config, unit, item, records, read, closure, fixups, tier, refuse=None):
+    """(candidates, chunks, where, refused, table, pid) for one unit's join-xcu rows."""
+    module = item['source']
+    members = [r for r in catalog['regions'] if r['source'] == module]
+    pid, options = members[0]['population'], members[0]['options']
+    table = dict(members[0].get('references') or {})
+    policies = {p['id'] for p in catalog.get('populations', []) if p.get('compiler_output_policy')}
+    counts = collections.Counter(r['source'] for r in catalog['regions'])
+    by_source = collections.defaultdict(list)
+    for r in catalog['regions']:
+        by_source[r['source']].append(r)
+    module_order = min(r['source_order'] for r in members)
+    state = module_state(read(module), closure)
+    candidates, chunks, where, refused = {}, {}, {}, {}
+    for record in records:
+        source = 'src/recovered/' + record['file']
+        rows = by_source.get(source, [])
+        for row in rows:
+            text = read(source)
+            if refuse and row['entry'] in refuse:
+                refused[row['entry']] = refuse[row['entry']]
+            elif counts[source] > 1:
+                refused[row['entry']] = 'its file holds several rows (%s)' % source
+            elif {pid, row['population']} & policies:
+                refused[row['entry']] = 'a closed compiler-output population'
+            elif re.search(r'\b_?_asm\b', text):
+                refused[row['entry']] = 'evidenced inline assembly keeps its per-file attribution'
+            elif row['population'] == pid:
+                # already compiled in the unit's translation unit: the text moves in compile order
+                candidates[row['entry']] = row
+                chunks[row['entry']] = xcu_chunk(text)
+                where[row['entry']] = (XCU_PRELUDE if row['source_order'] < module_order else XCU_APPEND,
+                                       row['source_order'])
+            elif list(row['options']) != list(options) and not apply_rename.gr_only_difference(row['options'], options) \
+                    and not other_options(row['options'], options):
+                refused[row['entry']] = 'another option set (%s)' % ' '.join(row['options'])
+            elif own_lines(text, state):
+                refused[row['entry']] = 'needs header state the unit does not have: %s' % '; '.join(
+                    ' '.join(l.split()) for l in own_lines(text, state))[:200]
+            elif own_frozen_bound(config, row):
+                refused[row['entry']] = own_frozen_bound(config, row)
+            elif row['source'] in dead_view_files():
+                refused[row['entry']] = 'its file holds a vtable view classed dead'
+            else:
+                conflict = join_conflict(row, table, text)
+                if conflict:
+                    refused[row['entry']] = 'binding: %s' % conflict
+                    continue
+                candidates[row['entry']] = row
+                chunks[row['entry']] = own_join_chunk(text, state)
+                where[row['entry']] = (XCU_ADDRESS, row['source_order'])
+    # a comment-only row whose emitter was refused leaves too
+    for e, row in list(candidates.items()):
+        if row['population'] != pid and not COMMENT.sub('', read(row['source'])).strip():
+            if not any(x['population'] == row['population'] and x['entry'] != e and
+                       COMMENT.sub('', read(x['source'])).strip() for x in candidates.values()):
+                refused[e] = 'comment-only: its emitter (population %s) does not join' % row['population']
+                candidates.pop(e); chunks.pop(e); where.pop(e)
+    if candidates:
+        joining = {e: r for e, r in candidates.items() if r['population'] != pid}
+        text, _ = place_xcu(read(module), [r['entry'] for r in members], sorted(chunks.items()), where)
+        moved = {candidates[e]['source']: module for e in candidates}
+        bad = unplaceable_fixups(fixups, moved, text, {candidates[e]['source']: c for e, c in chunks.items()})
+        for e in [e for e in candidates if candidates[e]['source'] in bad]:
+            refused[e] = bad[candidates[e]['source']]
+            candidates.pop(e); chunks.pop(e); where.pop(e)
+        joining = {e: r for e, r in candidates.items() if r['population'] != pid}
+        renumber = renumber_counted(joining, chunks, members, table, read(module))
+        for e, mapping in renumber.items():
+            candidates[e] = dict(renumbered_row(candidates[e], mapping), renumber=mapping)
+            chunks[e] = renumbered_text(chunks[e], mapping)
+        for e, row in candidates.items():
+            if row['population'] == pid:
+                continue
+            table.update(join_references(dict(row, references={}), table))
+            for name, target in counted_references(row, chunks[e]).items():
+                table.setdefault(name, target)
+    return candidates, chunks, where, refused, table, pid
+
+
+def join_xcu(tier, config_path, units=None, dry_run=False, attempts=80, apply_attempts=8, refuse=None):
+    """Join the `$E` rows xcu_units.py places in `tier` into their unit (Route A modules only):
+    rows of the unit's own compile group move their text into the module in compile order;
+    rows of another population join on their own frozen bound in address order (join-own's
+    gates: option set the unit's, its /GR, or another set the unit's own rows evidence; the
+    unit's table first; complete extent in the unit). Each unit is screened alone, then all go
+    into one apply_rename batch; a flagged tier writes `unit_evidence` on each joined row."""
+    import xcu_units
+    if tier not in ('single',) + xcu_units.FLAG_TIERS:
+        raise SystemExit('join-xcu joins the single tier or a flagged tier, not %s' % tier)
+    started = time.monotonic()
+    config = json.loads(Path(config_path).read_text())
+    catalog = catalog_io.load(catalog_io.locate(REPOSITORY))
+    modules = json.loads(MODULES.read_text(), object_pairs_hook=collections.OrderedDict)
+    read = lambda path: (REPOSITORY / path).read_text(errors='replace')
+    from build import include_closure
+    from canonical import validate_headers
+    from verify_manifest import Audit
+    headers = validate_headers(REPOSITORY, catalog)
+    audit = Audit(REPOSITORY, config['executable'])
+    fixups = native_fixups()
+    records = xcu_records(tier)
+    folder = REPOSITORY / PENDING / ('join-xcu-%s-%d' % (tier.replace('+', '-'), time.time_ns()))
+    plan, report_units, not_refiled = {}, {}, {}
+    for unit in sorted(records):
+        if units and unit not in units:
+            continue
+        item = modules.get(unit)
+        if item is None or item.get('route') != 'A':
+            not_refiled[unit] = [r['file'] for r in records[unit]]
+            print('%s: not a re-filed unit (%d files stay)' % (unit, len(records[unit])), flush=True)
+            continue
+        module = item['source']
+        closure = include_closure(read(module).encode(), headers, {})
+        candidates, chunks, where, refused, table, pid = xcu_plan(catalog, config, unit, item, records[unit], read,
+                                                                  closure, fixups, tier, refuse)
+        members = sorted((r for r in catalog['regions'] if r['source'] == module), key=lambda r: r['entry'])
+        evidence = {}
+        unit_options = members[0]['options']
+        sets = {tuple(r['options']) for r in candidates.values() if other_options(r['options'], unit_options)}
+        if sets:
+            evidence = option_evidence(config, catalog, audit, unit, module, pid, members, read, table, sets,
+                                       folder / unit / 'options')
+            for e, row in list(candidates.items()):
+                differ, total = evidence.get(tuple(row['options']), (1, 1))
+                if not differ:
+                    refused[e] = 'the unit\'s option set is not evidenced against %s' % ' '.join(row['options'])
+                    candidates.pop(e); chunks.pop(e); where.pop(e)
+        log, exact, flipped = [], {}, {}
+        if candidates:
+            exact, flipped = own_join_screen(config, catalog, audit, unit, module, pid, members, read, candidates,
+                                             chunks, table, folder / unit, attempts, log,
+                                             place=lambda t, u, c, w=where: place_xcu(t, u, c, w))
+        # a comment-only row of another population whose emitter left is not exact without it
+        for e in list(exact):
+            row = exact[e]
+            if row['population'] != pid and not COMMENT.sub('', read(row['source'])).strip() and not any(
+                    x['population'] == row['population'] and x['entry'] != e and COMMENT.sub('', read(x['source'])).strip()
+                    for x in exact.values()):
+                flipped[e] = 'comment-only: its emitter did not screen exact'
+                exact.pop(e)
+        print('%s: %d tried, %d screened exact, %d refused before compile, %d not exact' % (
+            unit, len(candidates), len(exact), len(refused), len(flipped)), flush=True)
+        plan[unit] = dict(module=module, pid=pid, entries=[r['entry'] for r in members], candidates=exact,
+                          chunks={e: chunks[e] for e in exact}, where={e: where[e] for e in exact},
+                          causes={**refused, **flipped}, options=unit_options)
+        report_units[unit] = dict(screens=log, option_evidence={' '.join(k): dict(unit_rows_differ=v[0], unit_rows=v[1])
+                                                                for k, v in sorted(evidence.items())})
+    by_entry = {r['entry']: r for r in catalog['regions']}
+    applied, joined = 0, None
+    while not dry_run and any(p['candidates'] for p in plan.values()) and applied < apply_attempts:
+        applied += 1
+        attempt = folder / ('apply-%02d' % applied)
+        attempt.mkdir(parents=True)
+        spec_modules, row_flags = {}, {}
+        for unit, p in plan.items():
+            if not p['candidates']:
+                continue
+            text, _ = place_xcu(read(p['module']), p['entries'], sorted((e, p['chunks'][e]) for e in p['candidates']),
+                                p['where'])
+            draft = attempt / (unit + '.cpp')
+            catalog_io.write_text_lf(draft, text)
+            same = sorted(e for e, r in p['candidates'].items() if r['population'] == p['pid'])
+            joins = sorted(e for e, r in p['candidates'].items() if r['population'] != p['pid'])
+            item = dict(draft=draft.relative_to(REPOSITORY).as_posix(), regions=['%08x' % e for e in p['entries'] + same])
+            if joins:
+                item.update(joins=['%08x' % e for e in joins], joins_bound='own')
+                renumber = {'%08x' % e: p['candidates'][e]['renumber'] for e in joins if p['candidates'][e].get('renumber')}
+                if renumber:
+                    item['joins_renumber'] = renumber
+                if any(other_options(p['candidates'][e]['options'], p['options']) for e in joins):
+                    item['joins_options'] = 'unit'
+                elif any(list(p['candidates'][e]['options']) != list(p['options']) for e in joins):
+                    item['joins_options'] = 'unit_gr'
+            spec_modules[p['module']] = item
+            if tier != 'single':
+                for e in p['candidates']:
+                    row_flags['%08x' % e] = dict(unit_evidence=tier)
+        catalog_io.write_text_lf(attempt / 'spec.json', json.dumps(dict(
+            name='join-xcu-%02d' % applied, renames={}, modules=spec_modules,
+            **(dict(row_flags=row_flags) if row_flags else {})), indent=1) + '\n')
+        result = subprocess.run([sys.executable, '-B', str(Path(__file__).with_name('apply_rename.py')),
+                                 str(attempt / 'spec.json'), '--config', str(config_path), '--output', str(attempt / 'out')],
+                                cwd=REPOSITORY, capture_output=True, text=True)
+        catalog_io.write_text_lf(attempt / 'apply.log', result.stdout + result.stderr)
+        if result.returncode == 0:
+            joined = True
+            break
+        misses = json.loads((attempt / 'out/misses.json').read_text()) if (attempt / 'out/misses.json').exists() else None
+        if misses is None:
+            out_log = result.stdout + result.stderr
+            named = set(re.findall(r'source (src/recovered/[^,\]]+)', out_log))
+            out = [u for u, p in plan.items() if p['module'] in named and p['candidates']]
+            if not out:
+                raise SystemExit('join-xcu: apply_rename refused:\n%s' % out_log[-2000:])
+            reason = re.search(r'(Unsupported allocatable data section \S+|Unaccounted emitted code section bytes)', out_log)
+            for unit in out:
+                for e in list(plan[unit]['candidates']):
+                    plan[unit]['causes'][e] = 'the joined unit fails the strict audit (%s)' % (
+                        reason.group(1) if reason else 'refused')
+                    plan[unit]['candidates'].pop(e)
+            continue
+        missed = {int(m['entry'], 16) for m in misses}
+        dropped = 0
+        for unit, p in plan.items():
+            drop = missed & set(p['candidates'])
+            if not drop and missed & set(p['entries']):
+                drop = set(p['candidates'])
+            for e in drop:
+                p['causes'][e] = 'differs in the batch apply (%d)' % applied
+                p['candidates'].pop(e)
+                dropped += 1
+        if not dropped:
+            outside = {by_entry[e]['population'] for e in missed if e in by_entry}
+            for unit, p in plan.items():
+                for e in [e for e, r in p['candidates'].items() if r['population'] in outside]:
+                    p['causes'][e] = 'its population changes when it leaves (%s)' % ', '.join(
+                        '%08x' % m for m in sorted(missed)[:4])
+                    p['candidates'].pop(e)
+                    dropped += 1
+        print('batch apply %d: %d rows differ, %d joining rows leave' % (applied, len(missed), dropped), flush=True)
+        if not dropped:
+            raise SystemExit('join-xcu: misses outside every joining row: %s' % sorted('%08x' % e for e in missed)[:8])
+    summary = collections.OrderedDict()
+    for unit, p in plan.items():
+        summary[unit] = dict(joined=sorted('%08x' % e for e in p['candidates']) if (joined or dry_run) else [],
+                             joined_bytes=sum(r['body_bytes'] for r in p['candidates'].values()) if (joined or dry_run) else 0,
+                             causes={'%08x' % e: c for e, c in sorted(p['causes'].items())},
+                             screens=report_units[unit]['screens'],
+                             option_evidence=report_units[unit]['option_evidence'])
+    report = dict(tier=tier, dry_run=dry_run, applied=bool(joined), apply_attempts=applied, units=summary,
+                  not_refiled=not_refiled, rows=sum(len(s['joined']) for s in summary.values()),
+                  bytes=sum(s['joined_bytes'] for s in summary.values()), seconds=round(time.monotonic() - started, 1))
+    folder.mkdir(parents=True, exist_ok=True)
+    if joined:
+        moved, chunks = {}, {}
+        for unit, p in plan.items():
+            item = modules[unit]
+            item.setdefault('joined', [])
+            for e, row in sorted(p['candidates'].items()):
+                record = collections.OrderedDict(entry='%08x' % e, bytes=row['body_bytes'], population=row['population'])
+                if row['population'] == p['pid']:
+                    record['bound'] = 'the unit\'s compile group (%s)' % row['population']
+                else:
+                    record['bound'] = 'own frozen bound (%s)' % row['population']
+                    note = options_note(row['options'], p['options'])
+                    if note:
+                        record['options'] = note
+                record['placed'] = p['where'][e][0]
+                record['unit_evidence'] = tier if tier != 'single' else 'xcu single'
+                item['joined'].append(record)
+                moved[row['source']] = p['module']
+                chunks[row['source']] = p['chunks'][e]
+            residuals = []
+            for residual in item.get('residuals', []):
+                e = int(residual['entry'], 16)
+                if e in p['candidates']:
+                    continue
+                if e in p['causes']:
+                    residual = dict(residual, cause='held by %s; not joined (.CRT$XCU %s): %s' % (
+                        residual['population'], tier, scrub_cause(p['causes'][e])))
+                residuals.append(residual)
+            item['residuals'] = residuals
+        catalog_io.write_text_lf(MODULES, json.dumps(modules, indent=1) + '\n')
+        catalog_io.write_text_lf(folder / 'moved.json', json.dumps(dict(moved=moved, chunks=chunks), indent=1) + '\n')
+        native, problems = rekey_native(moved)
+        subprocess.run([sys.executable, '-B', str(REPOSITORY / 'native/tools/initterm_manifest.py')], cwd=REPOSITORY,
+                       capture_output=True, text=True)
+        report.update(native=native, native_problems=problems)
+    catalog_io.write_text_lf(folder / 'report.json', json.dumps(report, indent=1) + '\n')
+    print('join-xcu %s: %d rows, %d bytes (%s); report %s' % (tier, report['rows'], report['bytes'],
+                                                            'applied' if joined else 'not applied', folder / 'report.json'))
+    return report
+
+
 def own_join_chunk(text, state):
     """A joining row's part of the unit text, as join-own places it: the row's file poured
     in place, the directives the unit already holds dropped."""
@@ -2311,7 +2669,7 @@ def git_show(revision, path):
     return result.stdout if result.returncode == 0 else None
 
 
-def unjoin(unit, entries, base):
+def unjoin(unit, entries, base, unit_evidence=None):
     """Undo own-bound joins of `unit` (all its joined rows, or `entries`): each row's file,
     catalog row and residual come back as committed at `base` (the revision before the join)
     and its part leaves the unit's text. Unjoining every joined row of a unit also restores the
@@ -2328,6 +2686,11 @@ def unjoin(unit, entries, base):
     module = item['source']
     earlier = {int(j['entry'], 16) for j in base_modules.get(unit, {}).get('joined', [])}
     joined = {int(j['entry'], 16): j for j in item['joined'] if int(j['entry'], 16) not in earlier}   # since `base`
+    if unit_evidence:
+        # one flag tier of join-xcu (docs/DECISIONS.md: unjoin per flag)
+        entries = sorted(set(entries or joined) & {e for e, j in joined.items() if j.get('unit_evidence') == unit_evidence})
+        if not entries:
+            raise SystemExit('%s has no rows joined since %s with unit_evidence %s' % (unit, base, unit_evidence))
     wanted = set(entries) if entries else set(joined)
     if wanted - set(joined):
         raise SystemExit('not joined rows of %s: %s' % (unit, ' '.join('%08x' % e for e in sorted(wanted - set(joined)))))
@@ -2346,7 +2709,7 @@ def unjoin(unit, entries, base):
     from canonical import validate_headers
     state = module_state(base_text, include_closure(base_text.encode(), validate_headers(REPOSITORY, catalog), {}))
     base_entries = [r['entry'] for r in old.values() if r['source'] == module]
-    since, sources = {}, {}
+    since, sources, where = {}, {}, {}
     for entry in joined:
         was = old.get(entry)
         if was is None or was['source'] == module:
@@ -2357,12 +2720,14 @@ def unjoin(unit, entries, base):
         if source is None:
             raise SystemExit('%08x: %s is not in %s' % (entry, was['source'], base))
         sources[entry] = (was['source'], source)
-        since[entry] = own_join_chunk(source.decode(errors='replace'), state)
-    placed, _ = place_in_address_order(base_text, base_entries, sorted(since.items()))
+        # join-xcu records where the text went (prelude/append: the unit's own compile group)
+        where[entry] = (joined[entry].get('placed', XCU_ADDRESS), was['source_order'])
+        since[entry] = xcu_chunk(source.decode(errors='replace')) if where[entry][0] != XCU_ADDRESS else \
+            own_join_chunk(source.decode(errors='replace'), state)
+    placed, _ = place_xcu(base_text, base_entries, sorted(since.items()), where)
     if placed != (REPOSITORY / module).read_text():
         raise SystemExit('%s changed since %s other than by the joins; unjoin by hand' % (module, base))
-    module_text, _ = place_in_address_order(base_text, base_entries,
-                                            sorted((e, c) for e, c in since.items() if e not in wanted))
+    module_text, _ = place_xcu(base_text, base_entries, sorted((e, c) for e, c in since.items() if e not in wanted), where)
     if not any(e not in wanted for e in since):
         module_text = base_text
     moved = {}
@@ -2399,7 +2764,8 @@ def unjoin(unit, entries, base):
     else:
         base_residuals = {int(r['entry'], 16): r for r in base_modules[unit].get('residuals', [])}
         item['joined'] = [j for j in item['joined'] if int(j['entry'], 16) not in wanted]
-        item['residuals'] = sorted(item.get('residuals', []) + [base_residuals[e] for e in sorted(wanted)],
+        item['residuals'] = sorted(item.get('residuals', []) + [base_residuals[e] for e in sorted(wanted)
+                                                                  if e in base_residuals],
                                    key=lambda r: int(r['entry'], 16))
     catalog_io.write_text_lf(MODULES, json.dumps(modules, indent=1) + '\n')
     problems = restore_native(moved, base)
@@ -2553,8 +2919,15 @@ def main():
                         'unit compiled under the row\'s set loses some of its own rows (docs/DECISIONS.md)')
     p = sub.add_parser('unjoin'); p.add_argument('unit'); p.add_argument('entries', nargs='*')
     p.add_argument('--base', required=True, help='the revision before the join (rows, files and residuals come back from it)')
+    p.add_argument('--unit-evidence', help='only the rows join-xcu joined under this flag tier (xcu-exclusion, ...)')
+    p = sub.add_parser('join-xcu'); p.add_argument('tier', help='single, xcu-exclusion, xcu-prefix+map or xcu-prefix')
+    p.add_argument('--units', nargs='*', help='only these units')
+    p.add_argument('--dry-run', action='store_true', help='plan and screen compiles only; nothing is written')
+    p.add_argument('--attempts', type=int, default=80, help='screen compiles per unit')
+    p.add_argument('--refuse', action='append', default=[], metavar='ENTRY=CAUSE',
+                   help='a row that does not try, with the cause recorded')
     p = sub.add_parser('maps'); p.add_argument('build_dir', type=Path)
-    for name in ('plan', 'run', 'native', 'maps', 'join', 'join-template', 'join-template-batch', 'join-own'):
+    for name in ('plan', 'run', 'native', 'maps', 'join', 'join-template', 'join-template-batch', 'join-own', 'join-xcu'):
         sub.choices[name].add_argument('--config', type=Path, default=catalog_io.config_path(REPOSITORY),
                                        help='compiler config (default: RA2_CONFIG, else private/original-target.local.json)')
     args = parser.parse_args()
@@ -2617,7 +2990,10 @@ def main():
     elif args.command == 'join':
         raise SystemExit(0 if join_one(args.unit, int(args.entry, 16), args.config) else 1)
     elif args.command == 'unjoin':
-        unjoin(args.unit, [int(e, 16) for e in args.entries], args.base)
+        unjoin(args.unit, [int(e, 16) for e in args.entries], args.base, args.unit_evidence)
+    elif args.command == 'join-xcu':
+        refuse = {int(e, 16): c.strip() for e, _, c in (item.partition('=') for item in args.refuse)}
+        join_xcu(args.tier, args.config, args.units, args.dry_run, args.attempts, refuse=refuse)
     elif args.command == 'join-own':
         units = list(units_with_own_join_rows(args.classes.split(','))) if args.units == ['all'] else args.units
         refuse = {int(e, 16): c.strip() for e, _, c in (item.partition('=') for item in args.refuse)}

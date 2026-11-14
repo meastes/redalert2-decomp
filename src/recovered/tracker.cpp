@@ -4,6 +4,75 @@
 // manifests/original_target/modules/tracker.json carries the addresses and the rows that
 // stay in their own files.
 
+// Header-static dynamic initializers of the unit at 0x006EC3A0 and the
+// unit's twelve AbstractClass lists; the other drafts of this plan are emitted by this file.
+#include "shared/unknown_geometry.hpp"
+#include "shared/unknown_static_rect.hpp"
+#ifndef VECTOR_IMPLEMENT_ALL
+#define VECTOR_IMPLEMENT_ALL
+#endif
+#include "shared/vector_class.hpp"
+
+class AbstractClass;
+
+// The unit's list of AbstractClass objects (0x00AC0D60; name is a hypothesis).
+DynamicVectorClass<AbstractClass *> unknown_AbstractClass_list_00ac0d60;
+// The unit's other eleven object lists, in initializer order (0x006EC610-
+// 0x006ECB50: each an initializer and an atexit destructor; every vtable
+// store is DynamicVectorClass<AbstractClass *> 0x007A177C). Names are hypotheses.
+DynamicVectorClass<AbstractClass *> unknown_objects_ac0cb0; // 0x00AC0CB0 (objects and types)
+DynamicVectorClass<AbstractClass *> unknown_objects_ac0c58; // 0x00AC0C58
+DynamicVectorClass<AbstractClass *> unknown_AbstractClass_list_00ac0d48; // 0x00AC0D48 (tags and triggers)
+DynamicVectorClass<AbstractClass *> unknown_abstracts_ac0bf8; // 0x00AC0BF8 (TechnoClass +0x108 holders, bullets)
+DynamicVectorClass<AbstractClass *> unknown_abstracts_ac0c80; // 0x00AC0C80 (buildings and houses)
+DynamicVectorClass<AbstractClass *> unknown_AbstractClass_list_00ac0c98; // 0x00AC0C98 (triggers, tags, events, actions)
+DynamicVectorClass<AbstractClass *> unknown_objects_ac0c30; // 0x00AC0C30
+DynamicVectorClass<AbstractClass *> unknown_list_ac0c18; // 0x00AC0C18 (foot objects and neurons)
+DynamicVectorClass<AbstractClass *> unknown_abstracts_ac0d08; // 0x00AC0D08 (technos, supers)
+DynamicVectorClass<AbstractClass *> unknown_objects_ac0d30; // 0x00AC0D30
+DynamicVectorClass<AbstractClass *> unknown_objects_ac0cd8; // 0x00AC0CD8
+// The later drafts of this unit include headers that declare these lists (shared/object.hpp,
+// shared/object_lists.hpp): they skip the declarations here.
+#define RA2_TRACKER_LISTS_DEFINED
+
+
+// Dynamic initializer (0x006EC3D0, _$E) emitted by HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006EC3F0, _$E) emitted by HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006EC410, _$E) emitted by HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006EC430, _$E) emitted by HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006EC450, _$E) emitted by HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006EC470, _$E) emitted by HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006EC4B0, _$E) emitted by HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006EC4E0, _$E) emitted by HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006EC510, _$E) emitted by HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006EC540, _$E) emitted by HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006EC550, _$E) emitted by HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006EC570, _$E) emitted by HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
+
+
+
 
 #define MAP_VIEW_DECLARE_DETACH
 #include "shared/map_view.hpp"

@@ -342,8 +342,15 @@ What an existing ruling reached:
 - wonline's global-string initializers and destructors (25 rows, 0x0073BCC0-0x0073C450, one
   population per string) reproduce byte for byte in wonline.cpp, but the strict audit then refuses the unit's
   second `.CRT$XCU` section: the initializer pointers are not one contiguous run in the original
-  table. That is evidence they are not wonline's (the files already say the owning unit is not
-  identified); they stay.
+  table. They stay. (Corrected by lane X1/E1, docs/CRT_XCU_TABLE.md: this is not evidence they are
+  another unit's. The original table puts them inside wonline's own run, interleaved with two
+  entries wonline already owns, 0x0073BD20 and 0x0073BFC0, and their data inside wonline's data
+  block: they are wonline's, in population-4248. Lane E1 found what keeps the run broken in our
+  object: 0x0073BD20 and 0x0073BFC0 are not compiled as dynamic initializers (0x0073BD20 is an /O1
+  stand-in in population-08, 0x0073BFC0 a seed function that calls atexit itself). Also,
+  wonline.cpp redeclares several of these globals `extern` after the point where their
+  definitions go. In worlddom.cpp and wolpersonainformation.cpp, a redeclaration like that makes
+  VC6 emit a second initializer for the object.)
 - The header-statics groups (audevent, keyboard, lightcon, msglist, netdlg2, revent, theme,
   txtlabel, wdtnet, coopcamp, 12-16 rows each) are not emitted under the unit's state (no `_$E`
   function binds); motlib and mpcoop bind the `unknown_geometry` statics at other addresses.

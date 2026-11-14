@@ -1949,7 +1949,7 @@
    "bytes": 27,
    "population": "population-2258",
    "source": "src/recovered/unowned/unknown_wstring_b26418_init_00738640.cpp",
-   "cause": "frozen in another population's inventory pass (population-2258)"
+   "cause": "held by population-2258; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
   },
   {
    "kind": "split",
@@ -1957,7 +1957,7 @@
    "bytes": 10,
    "population": "population-2258",
    "source": "src/recovered/unowned/unknown_wstring_b26418_atexit_destructor_00738660.cpp",
-   "cause": "held by population-2258; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E39)"
+   "cause": "held by population-2258; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
   },
   {
    "kind": "split",

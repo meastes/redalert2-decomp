@@ -636,7 +636,7 @@
    "bytes": 22,
    "population": "population-3748",
    "source": "src/recovered/globals/unknown_com_pointer_8324b0_init_0040d0d0.cpp",
-   "cause": "held by population-3748; needs header state the unit does not have: #define VECTOR_IMPLEMENT_DYNAMIC_CONSTRUCTOR; #include \"shared/vector_class.hpp\"; #include \"shared/cd.hpp\"; #include \"shared/milsectmr.hpp\"; #include \"shared/com_api.hpp\""
+   "cause": "held by population-3748; not joined (.CRT$XCU single): needs header state the unit does not have: #define VECTOR_IMPLEMENT_DYNAMIC_CONSTRUCTOR; #include \"shared/cd.hpp\"; #include \"shared/milsectmr.hpp\""
   },
   {
    "kind": "flipped",
@@ -644,7 +644,7 @@
    "bytes": 16,
    "population": "population-3748",
    "source": "src/recovered/globals/unknown_com_pointer_8324b0_destroy_0040d0f0.cpp",
-   "cause": "differs under the unit's state"
+   "cause": "held by population-3748; not joined (.CRT$XCU single): comment-only: its emitter (population population-3748) does not join"
   },
   {
    "kind": "split",

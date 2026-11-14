@@ -4,6 +4,150 @@
 // manifests/original_target/modules/mapgen.json carries the addresses and the rows that
 // stay in their own files.
 
+#define RA2_VECTOR_UNSIGNED_INDEX  // migration holdout: unit not yet re-rolled to VectorClass::operator[](int) (docs/HANDOFF.md)
+#define RA2_MAPGEN_CELL_DATA_CHAIN
+#define RA2_MAPGEN_CLEAR_SPREADS_MEMBER
+#define RA2_MAPGEN_SHAPE_MEMBER
+#define RA2_COORD_AS_CELL
+#define RA2_VECTOR_PUBLIC_COUNT
+#define RA2_MAP_REGION_SPLIT
+#define RA2_POINT_ADD_IN_PLACE
+#define RA2_MAP_REGION_LIST
+#define VECTOR_IMPLEMENT_DYNAMIC_DELETE_OBJECT
+#define VECTOR_IMPLEMENT_VECTOR_DESTRUCTOR
+#define VECTOR_IMPLEMENT_DYNAMIC_DELETE_INDEX
+#define VECTOR_IMPLEMENT_DYNAMIC_SET_GROWTH_STEP
+#define VECTOR_IMPLEMENT_VECTOR_ACCESSORS
+#define VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS
+#define VECTOR_IMPLEMENT_DYNAMIC_CONSTRUCTOR
+#define VECTOR_IMPLEMENT_DYNAMIC_ADD
+#include "shared/map_region.hpp"
+#include "shared/map.hpp"
+#include "shared/radar.hpp"
+// Actual generic vector definitions required by the new constructed/append context.
+// Header-static dynamic initializers of the unit at 0x0056D2D0:  the
+// shared/unknown_geometry.hpp constants and unknown_static_rect.hpp
+// (0x0056D2D0-0x0056D4B6); the other
+// drafts of this plan are emitted by these includes.
+#include "shared/unknown_geometry.hpp"
+#include "shared/unknown_static_rect.hpp"
+#define SHAPE_FILE_EMPTY_RECT unknown_static_rect
+#include "shared/unknown_map_generator.hpp"
+#include "shared/map_gaussian.hpp"
+#include "shared/map_random.hpp"
+#include "shared/house.hpp"
+#include "shared/mouse_class.hpp"
+#include "shared/isometric_tile_type.hpp"
+#include "shared/map_view.hpp"
+#include "shared/cell.hpp"
+#include "shared/random2.hpp"
+#include "shared/coord.hpp"
+#include "shared/crt_math.hpp"
+#include "shared/tileset_index.hpp"
+#include "shared/building.hpp"
+#include "shared/id_source.hpp"
+#include "shared/fast_math.hpp"
+#include "shared/house_type.hpp"
+#include "shared/rules.hpp"
+#include "shared/map_preview.hpp"
+#include "shared/dialog_create.hpp"
+#include "shared/raw_file_class.hpp"
+#include "shared/unknown_globals.hpp"
+#include "shared/map_seed.hpp"
+#include "shared/win32_find.hpp"
+#include "shared/options_dialog.hpp"
+#include "shared/wdt_territory.hpp"
+#include "shared/cc_file_class.hpp"
+#include "shared/win32_api.hpp"
+#include "shared/mouse.hpp"
+#include "shared/keyboard.hpp"
+#include "shared/progress_screen.hpp"
+#include "shared/string_table.hpp"
+#include "shared/crt_memory.hpp"
+#include "shared/owner_draw_dialog_control.hpp"
+#include "shared/anim_type.hpp"
+#include "shared/reference_counted.hpp"
+#include "shared/world_domination_tour.hpp"
+#include "shared/session_state.hpp"
+#define RA2_VEIN_HEAP_REMOVE_MIN_IMPLEMENTATION
+#include "shared/tiberium.hpp"
+#include "shared/debug_printf.hpp"
+#include "shared/ccini_class.hpp"
+#include "shared/tactical.hpp"
+#include "shared/unit.hpp"
+#include "shared/infantry.hpp"
+#include "shared/terrain.hpp"
+#include "shared/terrain_type.hpp"
+#include "shared/overlay_type.hpp"
+#include "shared/building_type_class.hpp"
+#include "shared/smudge_type.hpp"
+#include "shared/isometric_tile.hpp"
+#include "shared/vector_class.hpp"
+#include "shared/random.hpp"
+#include "shared/vein_heap_core.hpp"
+#include "shared/map_cell_view.hpp"
+#include "shared/cell_class.hpp"
+#include "shared/rect.hpp"
+#include "shared/building_type_list.hpp"
+#include "shared/infantry_type.hpp"
+#include "shared/adjacent_cell.hpp"
+#include "shared/dir_type.hpp"
+#include "shared/map_generation_link.hpp"
+#include "shared/map_generation_path.hpp"
+#include "shared/event.hpp"
+#include "shared/facing.hpp"
+#include "shared/vein_heap.hpp"
+
+
+// Dynamic initializer (0x0056D300, _$E) of b from the header(s) included
+// by HeaderStatics_diagonal_init_0056d2d0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0056D320, _$E) of c from the header(s) included
+// by HeaderStatics_diagonal_init_0056d2d0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0056D340, _$E) of angle45 from the header(s) included
+// by HeaderStatics_diagonal_init_0056d2d0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0056D360, _$E) of angle60 from the header(s) included
+// by HeaderStatics_diagonal_init_0056d2d0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0056D380, _$E) of angle90 from the header(s) included
+// by HeaderStatics_diagonal_init_0056d2d0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0056D3A0, _$E) of g from the header(s) included
+// by HeaderStatics_diagonal_init_0056d2d0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0056D3E0, _$E) of h from the header(s) included
+// by HeaderStatics_diagonal_init_0056d2d0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0056D410, _$E) of i from the header(s) included
+// by HeaderStatics_diagonal_init_0056d2d0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0056D440, _$E) of j from the header(s) included
+// by HeaderStatics_diagonal_init_0056d2d0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0056D470, _$E) of k from the header(s) included
+// by HeaderStatics_diagonal_init_0056d2d0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0056D480, _$E) of l from the header(s) included
+// by HeaderStatics_diagonal_init_0056d2d0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0056D4A0, _$E) of static_rect from the header(s) included
+// by HeaderStatics_diagonal_init_0056d2d0.cpp; no source of its own.
+
+
+
 
 // Not exact (RA2_NON_MATCHING) prelude: header switches the drafts below need (guard-on compile only)
 #ifdef RA2_NON_MATCHING

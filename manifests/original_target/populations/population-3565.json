@@ -4,8 +4,8 @@
     "id": "population-3565",
     "inventory_sha256": "e8d7f124e173500ae9419f9c618712ee645beb7ac15e915df8d1c20c9419869e",
     "gaps_sha256": "9db0e8660c408e402fe4e6816ab4b095f5d2d1ae1d077610898dc9c156daa084",
-    "historical_population_sha256": "0dc7e7fd3e52d6ae70813f889675a698ee7631dedb4761f2a35e9e13964604e4",
-    "historical_acceptance_sha256": "6506ac40f8ad8a18cb1e441c0d7c40530cdcc8c995af35dd4f53be6137f0aa3c"
+    "historical_population_sha256": "77ca65b8e2b5efcc9c55682e2548ad7ece6ed28e7b8125fda5795b9b6a0313f5",
+    "historical_acceptance_sha256": "fbdfe76a35e05b7cd1ce7dec185f6eb1727cf5f60248cdf52e61aead1a208132"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -8837,7 +8837,11 @@
     "??_R0?AVCChatEventSink@@@8": 8378944,
     "??_R0?AVWonlineStringDialogControl@@@8": 8382576,
     "??_R0?AVCDownloadEventSink@@@8": 8389648,
-    "??_R0?AVMouse@@@8": 8393616
+    "??_R0?AVMouse@@@8": 8393616,
+    "?Service_Game_IO_00481fb0@seed_00482100@@YAXXZ": 4726704,
+    "?Service_Game_IO_00481fb0@seed_005bbd10@@YAXXZ": 4726704,
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "__ramp_corners": 8339828
   },
   "regions": [
     {
@@ -8891,13 +8895,12 @@
           "resolved": 11691148
         }
       ],
-      "source_sha256": "8fcbd6eb562a3296cb1f41f4d66b0aca8784876c76ce02221b987a1f621d43b7",
-      "source": "src/recovered/header_statics/0073a0f0/HeaderStatics_empty_rect_init_0073a0f0.cpp",
+      "source_sha256": "3a6f385303499dc3ec0616a990c2d818aaae2c27579c84ccc6a32d4c072d205e",
+      "source": "src/recovered/wolpersonainformation2.cpp",
       "population": "population-3565",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_empty_rect_init_0073a0f0",
       "source_order": 156906
     },
     {
@@ -8959,7 +8962,7 @@
           "resolved": 11691160
         }
       ],
-      "source_sha256": "02748e0ec087c7516364b0e76e5891a91cad043883d671dcad5b54ad190dfedf",
+      "source_sha256": "3a6f385303499dc3ec0616a990c2d818aaae2c27579c84ccc6a32d4c072d205e",
       "source": "src/recovered/wolpersonainformation2.cpp",
       "population": "population-3565",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -9010,7 +9013,7 @@
           "resolved": 11691232
         }
       ],
-      "source_sha256": "02748e0ec087c7516364b0e76e5891a91cad043883d671dcad5b54ad190dfedf",
+      "source_sha256": "3a6f385303499dc3ec0616a990c2d818aaae2c27579c84ccc6a32d4c072d205e",
       "source": "src/recovered/wolpersonainformation2.cpp",
       "population": "population-3565",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -9061,7 +9064,7 @@
           "resolved": 11691216
         }
       ],
-      "source_sha256": "02748e0ec087c7516364b0e76e5891a91cad043883d671dcad5b54ad190dfedf",
+      "source_sha256": "3a6f385303499dc3ec0616a990c2d818aaae2c27579c84ccc6a32d4c072d205e",
       "source": "src/recovered/wolpersonainformation2.cpp",
       "population": "population-3565",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -9112,7 +9115,7 @@
           "resolved": 11691208
         }
       ],
-      "source_sha256": "02748e0ec087c7516364b0e76e5891a91cad043883d671dcad5b54ad190dfedf",
+      "source_sha256": "3a6f385303499dc3ec0616a990c2d818aaae2c27579c84ccc6a32d4c072d205e",
       "source": "src/recovered/wolpersonainformation2.cpp",
       "population": "population-3565",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -9163,7 +9166,7 @@
           "resolved": 11691168
         }
       ],
-      "source_sha256": "02748e0ec087c7516364b0e76e5891a91cad043883d671dcad5b54ad190dfedf",
+      "source_sha256": "3a6f385303499dc3ec0616a990c2d818aaae2c27579c84ccc6a32d4c072d205e",
       "source": "src/recovered/wolpersonainformation2.cpp",
       "population": "population-3565",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -9214,7 +9217,7 @@
           "resolved": 11691128
         }
       ],
-      "source_sha256": "02748e0ec087c7516364b0e76e5891a91cad043883d671dcad5b54ad190dfedf",
+      "source_sha256": "3a6f385303499dc3ec0616a990c2d818aaae2c27579c84ccc6a32d4c072d205e",
       "source": "src/recovered/wolpersonainformation2.cpp",
       "population": "population-3565",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -9297,7 +9300,7 @@
           "resolved": 11691240
         }
       ],
-      "source_sha256": "02748e0ec087c7516364b0e76e5891a91cad043883d671dcad5b54ad190dfedf",
+      "source_sha256": "3a6f385303499dc3ec0616a990c2d818aaae2c27579c84ccc6a32d4c072d205e",
       "source": "src/recovered/wolpersonainformation2.cpp",
       "population": "population-3565",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -9356,7 +9359,7 @@
           "resolved": 11691176
         }
       ],
-      "source_sha256": "02748e0ec087c7516364b0e76e5891a91cad043883d671dcad5b54ad190dfedf",
+      "source_sha256": "3a6f385303499dc3ec0616a990c2d818aaae2c27579c84ccc6a32d4c072d205e",
       "source": "src/recovered/wolpersonainformation2.cpp",
       "population": "population-3565",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -9415,7 +9418,7 @@
           "resolved": 11691200
         }
       ],
-      "source_sha256": "02748e0ec087c7516364b0e76e5891a91cad043883d671dcad5b54ad190dfedf",
+      "source_sha256": "3a6f385303499dc3ec0616a990c2d818aaae2c27579c84ccc6a32d4c072d205e",
       "source": "src/recovered/wolpersonainformation2.cpp",
       "population": "population-3565",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -9474,7 +9477,7 @@
           "resolved": 11691224
         }
       ],
-      "source_sha256": "02748e0ec087c7516364b0e76e5891a91cad043883d671dcad5b54ad190dfedf",
+      "source_sha256": "3a6f385303499dc3ec0616a990c2d818aaae2c27579c84ccc6a32d4c072d205e",
       "source": "src/recovered/wolpersonainformation2.cpp",
       "population": "population-3565",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -9517,7 +9520,7 @@
           "resolved": 11691154
         }
       ],
-      "source_sha256": "02748e0ec087c7516364b0e76e5891a91cad043883d671dcad5b54ad190dfedf",
+      "source_sha256": "3a6f385303499dc3ec0616a990c2d818aaae2c27579c84ccc6a32d4c072d205e",
       "source": "src/recovered/wolpersonainformation2.cpp",
       "population": "population-3565",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -9568,7 +9571,7 @@
           "resolved": 11691192
         }
       ],
-      "source_sha256": "02748e0ec087c7516364b0e76e5891a91cad043883d671dcad5b54ad190dfedf",
+      "source_sha256": "3a6f385303499dc3ec0616a990c2d818aaae2c27579c84ccc6a32d4c072d205e",
       "source": "src/recovered/wolpersonainformation2.cpp",
       "population": "population-3565",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -9603,7 +9606,7 @@
           "resolved": 10736292
         }
       ],
-      "source_sha256": "02748e0ec087c7516364b0e76e5891a91cad043883d671dcad5b54ad190dfedf",
+      "source_sha256": "3a6f385303499dc3ec0616a990c2d818aaae2c27579c84ccc6a32d4c072d205e",
       "source": "src/recovered/wolpersonainformation2.cpp",
       "population": "population-3565",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -10318,7 +10321,7 @@
           "resolved": 7578894
         }
       ],
-      "source_sha256": "02748e0ec087c7516364b0e76e5891a91cad043883d671dcad5b54ad190dfedf",
+      "source_sha256": "3a6f385303499dc3ec0616a990c2d818aaae2c27579c84ccc6a32d4c072d205e",
       "switch_data_bytes": 24,
       "source": "src/recovered/wolpersonainformation2.cpp",
       "population": "population-3565",

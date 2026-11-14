@@ -20,7 +20,8 @@ re-verifies exactly the affected translation units:
    "modules": {"src/recovered/version.cpp": {"draft": "build/class-work/W/version.cpp",
                                               "regions": ["00712b20", "00712b50", ...]}},
    "options": {"population-3705": ["/O2", "/Ob2", "/G5", "/Gy", "/GR"]},
-   "flags": {"src/recovered/ownrdraw.cpp": {"declarations_only": true, "declarations_only_note": "..."}}}
+   "flags": {"src/recovered/ownrdraw.cpp": {"declarations_only": true, "declarations_only_note": "..."}},
+   "row_flags": {"0040c690": {"unit_evidence": "xcu-prefix"}}}
 
 `modules` gathers accepted regions of one population into one source file
 (the original translation unit's form): the draft becomes the module source,
@@ -50,6 +51,7 @@ unit's (docs/DECISIONS.md "Stand-ins frozen under another optimisation option th
 unit"; refile_unit.py join-own --adopt-options checks that the unit's set is evidenced).
 `flags` sets row fields on every row of a source (a judgment-call flag such as
 `declarations_only` that the changed text requires; canonical.validate_catalog checks it).
+`row_flags` sets row fields on one row by entry (`unit_evidence`, refile_unit.py join-xcu).
 A module item may also give `inline_asm_citation`: {entry: [citation, ...]} for its
 evidenced inline-assembly rows, restated for the per-function attribution (an asm-only
 archive macro counts once per invocation: docs/DECISIONS.md).
@@ -645,6 +647,11 @@ def main():
                 raise SystemExit('flags: %s is not an accepted source' % source)
             for row in rows:
                 row.update(fields)
+        for entry, fields in spec.get('row_flags', {}).items():
+            rows = [r for r in catalog['regions'] if r['entry'] == int(entry, 16)]
+            if not rows:
+                raise SystemExit('row_flags: %s is not an accepted row' % entry)
+            rows[0].update(fields)
         bind_changed(catalog, populations, sources, config)
         left = leftover(catalog_io.dumps(catalog), spec['renames'])
         if left:    # checked again on the final text; this refuses before compiling

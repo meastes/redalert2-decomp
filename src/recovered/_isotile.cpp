@@ -56,3 +56,12 @@ LogicClass Logic;
 
 
 // Dynamic initializer (0x0040C650, _$E) emitted by HeaderStatics_diagonal_init_0040c4a0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0040C670, _$E) emitted by HeaderStatics_diagonal_init_0040c4a0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0040C690, _$E) emitted by HeaderStatics_diagonal_init_0040c4a0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0040C6D0, _$E) emitted by HeaderStatics_diagonal_init_0040c4a0.cpp; no source of its own.

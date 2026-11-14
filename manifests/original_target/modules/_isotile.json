@@ -83,9 +83,27 @@
    "entry": "0040c650",
    "body_bytes": 18,
    "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "0040c670",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E43",
+   "entry": "0040c690",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "_$E41",
+   "entry": "0040c6d0",
+   "body_bytes": 59,
+   "padding_bytes": 5
   }
  ],
- "code_bytes": 464,
+ "code_bytes": 624,
  "data": [
   {
    "symbol": "__real@8@40008000000000000000",
@@ -658,7 +676,32 @@
  ],
  "include_blocks": [],
  "held_rows": [],
- "joined": [],
+ "joined": [
+  {
+   "entry": "0040c670",
+   "bytes": 23,
+   "population": "population-3779",
+   "bound": "the unit's compile group (population-3779)",
+   "placed": "append",
+   "unit_evidence": "xcu single"
+  },
+  {
+   "entry": "0040c690",
+   "bytes": 61,
+   "population": "population-3779",
+   "bound": "the unit's compile group (population-3779)",
+   "placed": "append",
+   "unit_evidence": "xcu single"
+  },
+  {
+   "entry": "0040c6d0",
+   "bytes": 59,
+   "population": "population-3779",
+   "bound": "the unit's compile group (population-3779)",
+   "placed": "append",
+   "unit_evidence": "xcu single"
+  }
+ ],
  "residuals": [],
  "unit_functions": 12,
  "data_unproven": [

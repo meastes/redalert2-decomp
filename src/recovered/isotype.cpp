@@ -4,6 +4,51 @@
 // manifests/original_target/modules/isotype.json carries the addresses and the rows that
 // stay in their own files.
 
+// Dynamic initializer (0x005283D0, _$E) of b from the header(s) included
+// by HeaderStatics_empty_rect_init_00528380.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005283F0, _$E) of c from the header(s) included
+// by HeaderStatics_empty_rect_init_00528380.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00528410, _$E) of angle45 from the header(s) included
+// by HeaderStatics_empty_rect_init_00528380.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00528430, _$E) of angle60 from the header(s) included
+// by HeaderStatics_empty_rect_init_00528380.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00528450, _$E) of angle90 from the header(s) included
+// by HeaderStatics_empty_rect_init_00528380.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00528470, _$E) of g from the header(s) included
+// by HeaderStatics_empty_rect_init_00528380.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005284B0, _$E) of h from the header(s) included
+// by HeaderStatics_empty_rect_init_00528380.cpp; no source of its own.
+
+
+// Dynamic initializer (0x005284E0, _$E) of i from the header(s) included
+// by HeaderStatics_empty_rect_init_00528380.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00528510, _$E) of j from the header(s) included
+// by HeaderStatics_empty_rect_init_00528380.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00528540, _$E) of k from the header(s) included
+// by HeaderStatics_empty_rect_init_00528380.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00528550, _$E) of l from the header(s) included
+// by HeaderStatics_empty_rect_init_00528380.cpp; no source of its own.
+
+
+
 
 #define ISOMETRIC_TILE_TYPE_DECLARE_STATICS
 // CellClass::Clear_Icon for Load_Tiles (0x0052B2E0; guarded in shared/cell.hpp).

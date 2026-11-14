@@ -4,6 +4,14 @@
 // manifests/original_target/modules/wolpersonainformation2.json carries the addresses and the rows that
 // stay in their own files.
 
+// Header-static dynamic initializers of the unit at 0x0073A0F0: the shape_file.hpp empty rect and the
+// shared/unknown_geometry.hpp constants (0x0073A0F0-0x0073A2D1); the other
+// drafts of this plan are emitted by these includes.
+#include "shared/shape_file.hpp"
+#include "shared/unknown_geometry.hpp"
+
+
+
 
 #include "shared/wol_main.hpp"
 #include "shared/mouse.hpp"
