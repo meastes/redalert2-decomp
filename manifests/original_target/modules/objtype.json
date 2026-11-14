@@ -145,7 +145,7 @@
    "padding_bytes": 11
   },
   {
-   "symbol": "?unknown_slot34@ObjectTypeClass@@UBEHXZ",
+   "symbol": "?Time_To_Build@ObjectTypeClass@@UBEHXZ",
    "entry": "005d5d70",
    "body_bytes": 3,
    "padding_bytes": 13
@@ -2735,6 +2735,10 @@
    "address": "00719860"
   },
   {
+   "symbol": "?Get_Ownable@ObjectTypeClass@@UBEHXZ",
+   "address": null
+  },
+  {
    "symbol": "?Get_RGB@CCINIClass@@QBE?AVRGBClass@@PBD0ABV2@@Z",
    "address": "0046a010"
   },
@@ -2975,10 +2979,6 @@
    "address": "004109a0"
   },
   {
-   "symbol": "?unknown_slot28@ObjectTypeClass@@UBEHXZ",
-   "address": null
-  },
-  {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
   },
@@ -3214,7 +3214,7 @@
   },
   {
    "symbol": "??_7ObjectTypeClass@@6BIPersistStream@@@",
-   "reason": "relocation target unbound: ?unknown_slot28@ObjectTypeClass@@UBEHXZ"
+   "reason": "relocation target unbound: ?Get_Ownable@ObjectTypeClass@@UBEHXZ"
   },
   {
    "symbol": "??_7CDFileClass@@6B@",

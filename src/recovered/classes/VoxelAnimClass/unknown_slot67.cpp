@@ -1,4 +1,4 @@
-// void VoxelAnimClass::unknown_slot67(Point2D const &point, Rect const &window) (0x0070CFC0, slot 67)
+// void VoxelAnimClass::Draw_It(Point2D const &point, Rect const &window) (0x0070CFC0, slot 67)
 // Draws the voxel animation at the screen point point within the window window:
 // its shadow (the voxel flattened onto the ground) and then the voxel itself,
 // lit and rotated by the bounce state.
@@ -42,7 +42,7 @@ extern ConvertClass *unknown_drawer_8323bc;
 // @ref ?unknown_surface_83995c@@3PAVSurface@@A=0083995c
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
 // @ref ?unknown_matrix_436fc0@BounceClass@@QBE?AVMatrix3D@@XZ=00436fc0
-void VoxelAnimClass::unknown_slot67(Point2D const &point, Rect const &window)
+void VoxelAnimClass::Draw_It(Point2D const &point, Rect const &window)
 {
     if ((unknown_id_source_a3d290->unknown_000 & 0x1000) != 0) {
         CoordStruct coord = Coord;

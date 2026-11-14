@@ -25,12 +25,12 @@ bool Native_Building_Is_Going_To_Blow_00500AA0(BuildingClass *building);        
 void Native_Building_Set_Going_To_Blow_00500AA0(BuildingClass *building);
 void Native_Building_Arm_C4_00500AA0(BuildingClass *building, int countdown, AbstractClass *who);
 // @ref ?Unknown_00452390@BuildingClass@@=00452390
-// @ref ?Unknown_00452EB0@BuildingClass@@=00452eb0
-// @ref ?Unknown_004536D0@BuildingClass@@=004536d0
+// @ref ?CanBeOccupiedBy@BuildingClass@@=00452eb0
+// @ref ?KillOccupants@BuildingClass@@=004536d0
 // @ref ?Is_Ally@HouseClass@@QBE_NPBVTechnoClass@@@Z=004e5580
 // @ref ?Spring@TagClass@@=006b3df0
 // @ref ?Is_To_Inherit@TagClass@@=006b41f0
-// @ref ?Unknown_006D9610@TechnoClass@@=006d9610
+// @ref ?UpdateThreatInCell@TechnoClass@@=006d9610
 // @ref ?unknown_slot93@FootClass@@=004c7220
 
 // @ref ??_C@_0BD@HGEC@EVA_BridgeRepaired?$AA@=007daef0
@@ -50,7 +50,7 @@ void InfantryClass::unknown_slot93(int why)
         if (Get_Mission()==8 && (Type->Assaulter || Type->Occupier) && unknown_494 && unknown_494->Kind_Of()==6) {
             BuildingClass *building=static_cast<BuildingClass *>(unknown_494);
             if (building==cell->Unknown_004717B0()) {
-                if (!building->Unknown_00452EB0(this)) {
+                if (!building->CanBeOccupiedBy(this)) {
                     Assign_Destination(0,1);
                     Scatter(building->Center_Coord(),true,true);
                     return;
@@ -59,10 +59,10 @@ void InfantryClass::unknown_slot93(int why)
                 if (Type->Occupier) {
                     Limbo();
                     building->unknown_554.Add(this);
-                    building->Unknown_006D9610(building->Get_Cell_Ptr());
+                    building->UpdateThreatInCell(building->Get_Cell_Ptr());
                     return;
                 } else if (Type->Assaulter) {
-                    building->Unknown_004536D0(this);
+                    building->KillOccupants(this);
                     Assign_Destination(0,1);
                     Scatter(building->Center_Coord(),true,true);
                     return;
@@ -92,13 +92,13 @@ void InfantryClass::unknown_slot93(int why)
             AbstractClass *navigation=unknown_494;
             bool is_techno;
             if (navigation) is_techno=navigation->AbstractFlags.IsTechno;
-            if (navigation && is_techno && static_cast<ObjectClass *>(navigation)->unknown_slot31()) {
+            if (navigation && is_techno && static_cast<ObjectClass *>(navigation)->Considered_Vehicle()) {
                 TechnoClass *destination=static_cast<TechnoClass *>(unknown_494);
                 if (destination && destination->Kind_Of()==6) {
                     if (unknown_slot104()==destination->unknown_slot104()) {
                         if (destination->unknown_34) destination->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
                         destination->unknown_slot54(false);
-                        destination->unknown_slot222(House,1);
+                        destination->Captured(House,1);
                         destination->unknown_290=Type->ArrayIndex;
                         destination->unknown_slot173();
                         if (unknown_34 && unknown_34->Is_To_Inherit()) destination->Attach_Tag(unknown_34);
@@ -157,7 +157,7 @@ void InfantryClass::unknown_slot93(int why)
                             if (building->unknown_34) building->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
                             building->House->unknown_18b=true;
                             if (unknown_34 && unknown_34->Is_To_Inherit()) building->Attach_Tag(unknown_34);
-                            building->unknown_slot222(House,1);
+                            building->Captured(House,1);
                             building->unknown_290=Type->ArrayIndex;
                             building->unknown_slot173();
                         }

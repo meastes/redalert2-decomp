@@ -4394,7 +4394,7 @@ void CellClass::Fog_Cell()
                             building->unknown_slot104();
                             if (building->unknown_452be0()) {
                                 bool fade;
-                                if (building->unknown_slot31() || building->unknown_5bd == 15) {
+                                if (building->Considered_Vehicle() || building->unknown_5bd == 15) {
                                     fade = false;
                                 } else {
                                     fade = true;

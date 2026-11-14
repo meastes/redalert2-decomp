@@ -151,7 +151,7 @@ int BuildingClass::Do_MISSION_MISSILE()
     }
 
     if (unknown_4cc != -1) {
-        unknown_slot221(&Map[House->NukeDest], 0);
+        Fire_At(&Map[House->NukeDest], 0);
         QueueMission(5, false);
     }
 
@@ -203,7 +203,7 @@ int BuildingClass::Do_MISSION_MISSILE()
             velocity.Set_Yaw(yaw);
             velocity.Set_Speed(speed);
 
-            CoordStruct source = unknown_slot181(0);
+            CoordStruct source = Turret_Coord(0);
             CoordStruct centre = target->Center_Coord();
             int dx = centre.X - source.X;
             int dy = centre.Y - source.Y;

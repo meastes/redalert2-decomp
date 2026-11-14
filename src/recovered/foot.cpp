@@ -446,7 +446,7 @@ int FootClass::Do_MISSION_PATROL()
         CoordStruct coord = Coord;
         AbstractClass *target = unknown_slot219(2, &coord, false);
         ObjectClass *optr = target == 0 ? 0 : (target->AbstractFlags.IsObject ? (ObjectClass *)target : 0);
-        int primary = unknown_slot174(optr);
+        int primary = What_Weapon_Should_I_Use(optr);
 
         if (optr != 0 && (unknown_slot212(optr, primary) || Search.Test_Cell_Walk(Coord_Cell(unknown_slot19(0)), Coord_Cell(optr->unknown_slot19(0)), this, Is_Moving_Onto_Bridge(0), optr->Is_Moving_Onto_Bridge(0), -1) < dist)) {
             unknown_4cc = (AbstractClass *)Get_Target_Cell_Ptr();
@@ -484,9 +484,9 @@ int FootClass::Do_MISSION_PATROL()
 
     case 1: {
         ObjectClass *optr = unknown_228 == 0 ? 0 : (unknown_228->AbstractFlags.IsObject ? (ObjectClass *)unknown_228 : 0);
-        int primary = unknown_slot174(optr);
+        int primary = What_Weapon_Should_I_Use(optr);
 
-        if (unknown_slot193() && optr != 0 && optr->Kind_Of() == 6 && House->Is_Ally(((TechnoClass *)optr)->House) && optr->Health_Ratio() > Rules->unknown_1370) {
+        if (Is_Renovator() && optr != 0 && optr->Kind_Of() == 6 && House->Is_Ally(((TechnoClass *)optr)->House) && optr->Health_Ratio() > Rules->unknown_1370) {
             unknown_slot220(0);
         } else if (optr != 0 && (unknown_slot212(optr, primary) || Search.Test_Cell_Walk(((UnknownCellClass *)unknown_4cc)->unknown_24, Coord_Cell(optr->unknown_slot19(0)), this, ((UnknownCellClass *)unknown_4cc)->Flags >> 8 & 1, optr->Is_Moving_Onto_Bridge(0), -1) < dist)) {
             unknown_slot304();
@@ -503,7 +503,7 @@ int FootClass::Do_MISSION_PATROL()
         if (unknown_228 == 0) {
             AbstractClass *target = unknown_slot219(2, &unknown_4cc->Center_Coord(), false);
             ObjectClass *scan = target == 0 ? 0 : (target->AbstractFlags.IsObject ? (ObjectClass *)target : 0);
-            int weapon = unknown_slot174(scan);
+            int weapon = What_Weapon_Should_I_Use(scan);
             if (scan != 0 && (unknown_slot212(scan, weapon) || Search.Test_Cell_Walk(((UnknownCellClass *)unknown_4cc)->unknown_24, Coord_Cell(scan->unknown_slot19(0)), this, ((UnknownCellClass *)unknown_4cc)->Flags >> 8 & 1, scan->Is_Moving_Onto_Bridge(0), -1) < dist)) {
                 unknown_slot220(target);
                 Assign_Destination(0, true);
@@ -534,7 +534,7 @@ int FootClass::Do_MISSION_PATROL()
     case 2: {
         AbstractClass *target = unknown_slot219(2, &unknown_4cc->Center_Coord(), false);
         ObjectClass *optr = target == 0 ? 0 : (target->AbstractFlags.IsObject ? (ObjectClass *)target : 0);
-        int primary = unknown_slot174(optr);
+        int primary = What_Weapon_Should_I_Use(optr);
 
         if (optr != 0 && (unknown_slot212(optr, primary) || Search.Test_Cell_Walk(((UnknownCellClass *)unknown_4cc)->unknown_24, Coord_Cell(optr->unknown_slot19(0)), this, ((UnknownCellClass *)unknown_4cc)->Flags >> 8 & 1, optr->Is_Moving_Onto_Bridge(0), -1) < dist)) {
             unknown_slot220(target);
@@ -760,19 +760,19 @@ int FootClass::Do_MISSION_HUNT()
         if (infantry != 0 && infantry->Type->Engineer && !infantry->Type->C4 && !infantry->unknown_6d7910(14)) {
             Assign_Destination(unknown_228, true);
             QueueMission(8, false);
-            if (unknown_slot122()) {
+            if (Ready_To_Commence()) {
                 Commence();
             }
         } else if (infantry != 0 && (infantry->Type->C4 || infantry->unknown_6d7910(14)) && unknown_228 != 0 && unknown_228->Kind_Of() == 6) {
             Assign_Destination(unknown_228, true);
             QueueMission(17, false);
-            if (unknown_slot122()) {
+            if (Ready_To_Commence()) {
                 Commence();
             }
         } else if (infantry != 0 && infantry->Type->VehicleThief) {
             Assign_Destination(unknown_228, true);
             QueueMission(8, false);
-            if (unknown_slot122()) {
+            if (Ready_To_Commence()) {
                 Commence();
             }
         } else if (infantry != 0) {
@@ -888,7 +888,7 @@ inline CoordStruct Approach_Move_Coord_004c4c30(CoordStruct const &start,DirType
 void FootClass::unknown_slot304()
 {
     if (unknown_228) {
-    int weapon=unknown_slot174(unknown_228);
+    int weapon=What_Weapon_Should_I_Use(unknown_228);
     int maximum_range=Weapon_Range(weapon);
     if (maximum_range>=512) maximum_range-=128;
     bool in_range=unknown_slot212(unknown_228,weapon);
@@ -1262,9 +1262,9 @@ bool FootClass::unknown_slot78(int action, ObjectClass *object, bool arg3)
         if (Can_Player_Fire() && Can_Player_Move()) {
             if (((Kind_Of() == 15 && ((InfantryClass *)this)->Type->C4) || unknown_6d7910(14))
                 && object->Kind_Of() == 6 && !House->Is_Ally((TechnoClass const *)object)) {
-                unknown_slot200(0x11, 0, object, 0);
+                Player_Assign_Mission(0x11, 0, object, 0);
             } else {
-                unknown_slot200(0xB, object, 0, 0);
+                Player_Assign_Mission(0xB, object, 0, 0);
             }
             return true;
         }
@@ -1273,7 +1273,7 @@ bool FootClass::unknown_slot78(int action, ObjectClass *object, bool arg3)
     case 4:
     case 52:
     case 56:
-        unknown_slot200(0x10, 0, 0, 0);
+        Player_Assign_Mission(0x10, 0, 0, 0);
         return true;
 
     case 55:
@@ -1285,35 +1285,35 @@ bool FootClass::unknown_slot78(int action, ObjectClass *object, bool arg3)
     case 63:
     case 64:
         if (Can_Player_Fire()) {
-            unknown_slot200(1, object, 0, 0);
+            Player_Assign_Mission(1, object, 0, 0);
             return true;
         }
         break;
 
     case 3:
         if (Can_Player_Move() && object && object->As_Techno()) {
-            unknown_slot200(7, 0, object, 0);
+            Player_Assign_Mission(7, 0, object, 0);
             return true;
         }
         break;
 
     case 9:
         if (Can_Player_Move()) {
-            unknown_slot200(8, 0, object, 0);
+            Player_Assign_Mission(8, 0, object, 0);
             return true;
         }
         break;
 
     case 11:
         if (Can_Player_Move()) {
-            unknown_slot200(9, 0, object, 0);
+            Player_Assign_Mission(9, 0, object, 0);
             return true;
         }
         break;
 
     case 16:
         if (Can_Player_Move()) {
-            unknown_slot200(0x11, 0, object, 0);
+            Player_Assign_Mission(0x11, 0, object, 0);
             return true;
         }
         break;
@@ -1371,7 +1371,7 @@ bool FootClass::unknown_slot78(int action, ObjectClass *object, bool arg3)
                 if (targ != object && object != 0) {
                     from = &Map[Coord_Cell(object->Center_Coord())];
                 }
-                unknown_slot200(2, 0, targ, from);
+                Player_Assign_Mission(2, 0, targ, from);
             }
             return true;
         }
@@ -1384,7 +1384,7 @@ bool FootClass::unknown_slot78(int action, ObjectClass *object, bool arg3)
     case 59: {
         WeaponStruct *weapon = unknown_slot231(0);
         bool heals = (weapon != 0 && weapon->WeaponType != 0 && weapon->WeaponType->unknown_a4 < 0);
-        unknown_slot200(heals ? 0xB : 5, this, 0, 0);
+        Player_Assign_Mission(heals ? 0xB : 5, this, 0, 0);
         return true;
     }
 
@@ -1409,7 +1409,7 @@ bool FootClass::unknown_slot78(int action, ObjectClass *object, bool arg3)
 bool FootClass::unknown_slot77(int action, Cell const *arg2, Cell const *arg3, bool arg4)
 {
     Cell const &cell = *arg2;
-    action = unknown_slot27(&cell, false, arg4);
+    action = What_Action(&cell, false, arg4);
 
     if (!Map.Unknown_0055A660(cell, true) && action != 2) {
         return false;
@@ -1419,20 +1419,20 @@ bool FootClass::unknown_slot77(int action, Cell const *arg2, Cell const *arg3, b
     case 51:
         if (Can_Player_Move()) {
             Cell moveto = unknown_4cca40(cell, false);
-            unknown_slot200(0x19, 0, &Map[moveto], 0);
+            Player_Assign_Mission(0x19, 0, &Map[moveto], 0);
             break;
         }
         return false;
 
     case 26:
-        if ((Can_Player_Fire() || unknown_slot193()) && Can_Player_Move()) {
-            unknown_slot200(0xB, (AbstractClass *)&Map[cell], 0, 0);
+        if ((Can_Player_Fire() || Is_Renovator()) && Can_Player_Move()) {
+            Player_Assign_Mission(0xB, (AbstractClass *)&Map[cell], 0, 0);
             break;
         }
         return false;
 
     case 6:
-        unknown_slot200(0xA, 0, &Map[cell], 0);
+        Player_Assign_Mission(0xA, 0, &Map[cell], 0);
         break;
 
     case 1:
@@ -1460,7 +1460,7 @@ bool FootClass::unknown_slot77(int action, Cell const *arg2, Cell const *arg3, b
     case 2: {
         Cell moveto = unknown_4cca40(cell, false);
         if (moveto != unknown_geometry_k) {
-            unknown_slot200(2, 0, &Map[moveto], &Map[*arg3]);
+            Player_Assign_Mission(2, 0, &Map[moveto], &Map[*arg3]);
             break;
         }
     }
@@ -1470,10 +1470,10 @@ bool FootClass::unknown_slot77(int action, Cell const *arg2, Cell const *arg3, b
     case 63: {
         UnknownCellObject710160 *veinhole = Unknown_00710160(cell);
         if (veinhole != 0 && !veinhole->unknown_e8 && veinhole->unknown_6c > 0) {
-            unknown_slot200(1, (AbstractClass *)veinhole, 0, 0);
+            Player_Assign_Mission(1, (AbstractClass *)veinhole, 0, 0);
             break;
         } else {
-            unknown_slot200(1, (AbstractClass *)&Map[cell], 0, 0);
+            Player_Assign_Mission(1, (AbstractClass *)&Map[cell], 0, 0);
             break;
         }
     }
@@ -1481,27 +1481,27 @@ bool FootClass::unknown_slot77(int action, Cell const *arg2, Cell const *arg3, b
 
     case 9:
         if (Can_Player_Move()) {
-            unknown_slot200(8, 0, &Map[cell], 0);
+            Player_Assign_Mission(8, 0, &Map[cell], 0);
             break;
         }
         return false;
 
     case 3:
         if (Can_Player_Move()) {
-            unknown_slot200(7, 0, &Map[cell], 0);
+            Player_Assign_Mission(7, 0, &Map[cell], 0);
             break;
         }
         return false;
 
     case 16:
-        unknown_slot200(0x11, 0, &Map[cell], 0);
+        Player_Assign_Mission(0x11, 0, &Map[cell], 0);
         break;
 
     case 35: {
         UnknownTube47A130 *tunnel = ((UnknownCellClass *)&Map[cell])->Get_Tunnel();
         UnknownTube47A130 *exittunnel = ((UnknownCellClass *)&Map[Cell(tunnel->unknown_28)])->Get_Tunnel();
         Cell exit = Adjacent_Cell(Cell(tunnel->unknown_28), (exittunnel->unknown_2c - 4) & 7);
-        unknown_slot200(2, 0, &Map[exit], 0);
+        Player_Assign_Mission(2, 0, &Map[exit], 0);
         break;
     }
     }
@@ -1641,7 +1641,7 @@ void FootClass::unknown_slot93(int why)
             }
         }
 
-        int primary = unknown_slot174(unknown_228);
+        int primary = What_Weapon_Should_I_Use(unknown_228);
         bool inrange = false;
         if (unknown_228 != 0 && unknown_228->AbstractFlags.IsFoot) {
             inrange = In_Range(((FootClass *)unknown_228)->unknown_slot287(), primary);
@@ -1809,7 +1809,7 @@ int FootClass::Receive_Message(RadioClass *from, int message, AbstractClass *&pa
         }
         if (Get_Mission() == 0) {
             QueueMission(5, false);
-            if (unknown_slot122()) {
+            if (Ready_To_Commence()) {
                 Commence();
             }
         }
@@ -1836,7 +1836,7 @@ int FootClass::Receive_Message(RadioClass *from, int message, AbstractClass *&pa
         if (Get_Mission() == 5 && MissionQueue == -1) {
             QueueMission(2, false);
         }
-        if (MissionQueue == 7 && unknown_slot122()) {
+        if (MissionQueue == 7 && Ready_To_Commence()) {
             Commence();
         }
         Assign_Destination(param, true);
@@ -2679,13 +2679,13 @@ void FootClass::Draw_Voxel_Shadow(UnknownObjectPair const &voxel, int layer, int
 }
 
 
-// int FootClass::unknown_slot303() (0x004C9B10)
+// int FootClass::Current_Speed() (0x004C9B10)
 // The unit's current speed (hypothesis: Westwood's Apparent_Speed): the
 // type's speed (slot 206) times the house's factor for the type
 // (0x004F5A20) and +0x470, times the rules' +0x598 with ability 0, times
 // +0x468; a unit (kind 1) with +0x5B4 set moves at half that.
 
-int FootClass::unknown_slot303()
+int FootClass::Current_Speed()
 {
     int speed = (int)(unknown_slot206() * House->Unknown_004F5A20(Techno_Type_Class()) * unknown_470);
     if (unknown_6d7910(0)) {
@@ -3017,13 +3017,13 @@ CoordStruct FootClass::unknown_slot19(TechnoClass *techno) const
 }
 
 
-// bool FootClass::unknown_slot222(HouseClass *house, int arg2) (0x004CA7D0)
+// bool FootClass::Captured(HouseClass *house, int arg2) (0x004CA7D0)
 // TechnoClass's slot 222 (always with true); on success, unless slot 21
 // holds, records the cell of slot 104 at +0x454.
 
-bool FootClass::unknown_slot222(HouseClass *house, int arg2)
+bool FootClass::Captured(HouseClass *house, int arg2)
 {
-    if (TechnoClass::unknown_slot222(house, true)) {
+    if (TechnoClass::Captured(house, true)) {
         if (!In_Air()) {
             unknown_454 = unknown_slot104();
         }
@@ -3081,7 +3081,7 @@ void FootClass::unknown_slot243(bool force, int arg2)
             return;
         }
         if (unknown_228 != 0) {
-            from = unknown_slot181(0);
+            from = Turret_Coord(0);
             to = unknown_6d65b0();
             unknown_6d0510(from, to, Unpack_Hicolor_Pixel(unknown_drawer_8323c4->Convert(8)), 0, 0);
             return;
@@ -3133,7 +3133,7 @@ void FootClass::unknown_4cab90()
     CoordStruct start_coord;
     CoordStruct end_coord;
     if (unknown_228 != 0) {
-        start_coord = unknown_slot181(0);
+        start_coord = Turret_Coord(0);
         end_coord = unknown_6d65b0();
     } else {
         start_coord = Coord;
@@ -3289,12 +3289,12 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
             succeeded = unknown_slot78(action, occupier, true);
             unknown_41c = Cell(0, 0);
         } else {
-            action = unknown_slot27(&cell, false, true);
+            action = What_Action(&cell, false, true);
             Cell offset = unknown_41c;
             Cell adjusted = cell + offset;
             UnknownCellClass *adjusted_cell = (UnknownCellClass *)&Map[adjusted];
             UnknownCellClass *cell_ptr = (UnknownCellClass *)&Map[cell];
-            int adjusted_action = unknown_slot27(&adjusted, false, true);
+            int adjusted_action = What_Action(&adjusted, false, true);
             int zone = Map.Zone(cell, Techno_Type_Class()->MovementZone, cell_ptr->Flags >> 8 & 1);
             int adjusted_zone = Map.Zone(adjusted, Techno_Type_Class()->MovementZone, adjusted_cell->Flags >> 8 & 1);
             int dest_zone = Map.Zone(Coord_Cell(unknown_slot19(0)), Techno_Type_Class()->MovementZone, Is_Moving_Onto_Bridge(0));
@@ -3704,15 +3704,15 @@ bool FootClass::unknown_slot309(AbstractClass *target)
 }
 
 
-// int FootClass::unknown_slot27(Cell const *cell, bool arg2, bool arg3) (0x004CC650)
+// int FootClass::What_Action(Cell const *cell, bool arg2, bool arg3) (0x004CC650)
 // TechnoClass's answer, except that at the centre of the cell (raised to
 // the ground and by a bridge's height) passing the map test 0x00568140 a
 // nonzero answer becomes 2, or 1 for a MoveToShroud type when the map test
 // 0x0055A660 holds and the answer is not 0x33.
 
-int FootClass::unknown_slot27(Cell const *cell, bool arg2, bool arg3)
+int FootClass::What_Action(Cell const *cell, bool arg2, bool arg3)
 {
-    int result = TechnoClass::unknown_slot27(cell, arg2, arg3);
+    int result = TechnoClass::What_Action(cell, arg2, arg3);
     CoordStruct coord(cell->X * 256 + 128, cell->Y * 256 + 128, 0);
     coord.Z = Map.Get_Height_GL(coord);
     if (Loco_Cell(coord)->Flags & 0x100) {
@@ -3824,7 +3824,7 @@ int FootClass::Do_MISSION_RESCUE()
 
 Cell FootClass::unknown_4cca40(Cell const &cell, bool arg2)
 {
-    int action = unknown_slot27(&cell, arg2, false);
+    int action = What_Action(&cell, arg2, false);
     bool in_radar = Map.Unknown_0055A660(cell, true);
 
     CoordStruct coord(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
@@ -4047,13 +4047,13 @@ void FootClass::unknown_slot286(Cell cell)
 }
 
 
-// void FootClass::unknown_slot82(int arg1) (0x004CD3F0)
+// void FootClass::IronCurtain(int arg1) (0x004CD3F0)
 // An Organic type takes damage equal to its strength from the rules
 // warhead at +0xC74; otherwise the parasite riding this unit restarts its
 // timer (50 frames) and is told so, the +0x58C timer restarts, and
 // TechnoClass's slot 82 runs.
 
-void FootClass::unknown_slot82(int arg1)
+void FootClass::IronCurtain(int arg1)
 {
     if (Techno_Type_Class()->Organic) {
         int damage = Techno_Type_Class()->MaxStrength;
@@ -4065,7 +4065,7 @@ void FootClass::unknown_slot82(int arg1)
         unknown_580->unknown_588->Unknown_00607440();
     }
     unknown_58c = CDTimerClass<FrameTimerClass>(0);
-    TechnoClass::unknown_slot82(arg1);
+    TechnoClass::IronCurtain(arg1);
 }
 
 
@@ -4100,7 +4100,7 @@ bool FootClass::unknown_slot224(int source)
         unknown_37d = true;
         unknown_slot149(3);
         unknown_slot210();
-        unknown_6d3040((TechnoClass *)source);
+        Kill_Cargo((TechnoClass *)source);
         if (Kind_Of() != 15 && unknown_a40774 == 0) {
             double spin = unknown_id_source_a3d290->Random()(0, 0x7FFFFFFE);
             spin *= 1.0 / 2147483646.0;
@@ -4130,10 +4130,10 @@ void *FootClass::Get_Image_Data()
 {
     UnknownCellClass *cell = (UnknownCellClass *)&Map[Coord_Cell(Center_Coord())];
     if (!House->Is_Ally(unknown_player_a35db4) && unknown_slot48() && !cell->unknown_47c300(unknown_player_a35db4->ArrayIndex)) {
-        return unknown_slot50(false)->unknown_a4;
+        return GetDisguise(false)->unknown_a4;
     }
     if (!unknown_slot245(unknown_player_a35db4)) {
-        return unknown_slot50(true)->unknown_a4;
+        return GetDisguise(true)->unknown_a4;
     }
     return ObjectClass::Get_Image_Data();
 }
@@ -4225,7 +4225,7 @@ int FootClass::unknown_slot268(UnknownSlot268Arg const *arg)
     if (kind == 0x1D) {
         bool second = arg->unknown_13.unknown_4 != 0;
         bool first = arg->unknown_0e.unknown_4 != 0;
-        if (!unknown_slot275()) {
+        if (!CanAttackOnTheMove()) {
             return first ? 1 : 2;
         }
         unknown_4c1 = false;
@@ -4437,9 +4437,9 @@ class Leaf_4cdde0 { public: unsigned char get(); };
 unsigned char Leaf_4cdde0::get() { return 1; }
 
 
-// UnknownFacingDir TechnoClass::unknown_slot162() (0x004CDDF0, slot 162)
+// UnknownFacingDir TechnoClass::Turret_Facing() (0x004CDDF0, slot 162)
 
-UnknownFacingDir TechnoClass::unknown_slot162()
+UnknownFacingDir TechnoClass::Turret_Facing()
 {
     return unknown_2e0.Current();
 }

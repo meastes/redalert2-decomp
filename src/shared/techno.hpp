@@ -356,14 +356,14 @@ public:
     virtual ~TechnoClass();                                     // 0x006C20B0
 
     // Called by AircraftClass's destructor with 0 (0x006D3040; purpose unknown).
-    void unknown_6d3040(TechnoClass *techno);
+    void Kill_Cargo(TechnoClass *techno);
 
     virtual HRESULT __stdcall Load(IStream *stream);            // slot 5 0x006D6850
     virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // slot 6 0x006D6A80
     virtual void Init();                                        // slot 9 0x006C1C50
     bool unknown_6d7910(int ability);                           // 0x006D7910 (a veteran/elite ability of the type; Merge4c)
     void unknown_6d3400(TechnoClass *source);                   // 0x006D3400 (FootClass slot 86: a Whiner team member calls for help; hypothesis)
-    void unknown_6d83f0(int index);                             // 0x006D83F0 (a weapon index 0..14; UnitClass constructor for Gunner types)
+    void Set_Current_Weapon(int index);                             // 0x006D83F0 (a weapon index 0..14; UnitClass constructor for Gunner types)
     virtual void Detach(AbstractClass *target, bool all = true);    // slot 10 0x006D2D10
     virtual void Compute_CRC(WWCRCEngine &crc) const;           // slot 13 0x006D6AA0
     virtual int Owner() const;                                  // slot 14 0x006C7420
@@ -371,7 +371,7 @@ public:
     virtual void AI();                                          // slot 23 0x006C74C0
     virtual bool unknown_slot24();                              // slot 24 0x006C1320
     virtual int unknown_slot25(bool arg1, int arg2);             // slot 25 0x006CF3C0
-    virtual int unknown_slot27(Cell const *cell, bool arg2, bool arg3);   // slot 27 0x006CCCE0
+    virtual int What_Action(Cell const *cell, bool arg2, bool arg3);   // slot 27 0x006CCCE0
     virtual int unknown_slot28(ObjectClass *object, bool arg2);             // slot 28 0x006CC5D0
     virtual TechnoTypeClass *Techno_Type_Class();                  // slot 32 0x006C12C0 (Class_Of as a techno type)
     virtual int Get_Ownable();                               // slot 34 0x006D3E40
@@ -380,7 +380,7 @@ public:
     virtual bool Can_Player_Move();                              // slot 39 0x006CD290
     virtual CoordStruct unknown_slot43(int arg1);             // slot 43 0x006C1830
     virtual bool unknown_slot48() { return unknown_170; }       // slot 48 kept copy 0x0041B410
-    virtual bool unknown_slot49(HouseClass *house) { return unknown_170; }   // slot 49 kept copy 0x0041B420
+    virtual bool IsDisguisedAs(HouseClass *house) { return unknown_170; }   // slot 49 kept copy 0x0041B420
     virtual bool Limbo();                               // slot 52 0x006C4480
     virtual bool Unlimbo(CoordStruct const *coord, int dir);             // slot 53 0x006C4610
     virtual void Record_The_Kill(TechnoClass *techno);                      // slot 55 0x006CED90
@@ -393,7 +393,7 @@ public:
     virtual bool Mark(int arg1);                      // slot 71 0x006C2550
     virtual void Clicked_As_Target(int arg1);                      // slot 79 0x006C7440
     virtual bool unknown_slot80();                              // slot 80 0x006C91C0
-    virtual void unknown_slot82(int arg1);                      // slot 82 0x006D86B0
+    virtual void IronCurtain(int arg1);                      // slot 82 0x006D86B0
     virtual bool In_Range(CoordStruct const &coord, int weapon);  // slot 84 0x006C5240
     virtual int Weapon_Range(int arg1);                       // slot 85 0x006CD810
     virtual int Take_Damage(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6); // slot 86 0x006CDC40
@@ -417,10 +417,10 @@ public:
     virtual bool unknown_slot156();                                 // slot 156 (+0x270) 0x00453B50 (kept copy elsewhere)
     virtual bool unknown_slot157();                                 // slot 157 (+0x274) 0x006D6780
     virtual bool unknown_slot158();                                 // slot 158 (+0x278) 0x006C7480
-    virtual bool unknown_slot159() { return true; }                 // slot 159 (+0x27C) kept copy 0x0041B370
+    virtual bool Is_Ready_To_Move() { return true; }                 // slot 159 (+0x27C) kept copy 0x0041B370
     virtual bool unknown_slot160();                                  // slot 160 (+0x280) 0x006C9020
     virtual bool unknown_slot161();                                  // slot 161 (+0x284) 0x006C8EF0
-    virtual UnknownFacingDir unknown_slot162();                       // slot 162 (+0x288) 0x004CDDF0 (kept copy elsewhere)
+    virtual UnknownFacingDir Turret_Facing();                       // slot 162 (+0x288) 0x004CDDF0 (kept copy elsewhere)
     virtual bool unknown_slot163();                                   // slot 163 (+0x28C) 0x006CD670
     virtual int unknown_slot164();                                  // slot 164 (+0x290) 0x006D6E60 (returns in eax; Foot6 reads al in FootClass::AI)
     virtual double unknown_slot165();                           // slot 165 (+0x294) 0x006D3EA0
@@ -432,17 +432,17 @@ public:
     virtual bool unknown_slot171(CoordStruct const &coord);                          // slot 171 (+0x2AC) 0x006D32E0
     virtual int unknown_slot172();                              // slot 172 (+0x2B0) 0x006C16D0
     virtual void unknown_slot173();                             // slot 173 (+0x2B4) 0x006D8110
-    virtual int unknown_slot174(AbstractClass *target);                      // slot 174 (+0x2B8) 0x006C1380
+    virtual int What_Weapon_Should_I_Use(AbstractClass *target);                      // slot 174 (+0x2B8) 0x006C1380
     virtual int unknown_slot175(ObjectClass *target);               // slot 175 (+0x2BC) 0x006C15D0
     virtual int unknown_slot176();                                  // slot 176 (+0x2C0) 0x006CFEA0
     virtual int unknown_slot177();                                  // slot 177 (+0x2C4) 0x00453B70 (kept copy elsewhere)
     virtual Cell unknown_slot178() { return unknown_geometry_k; }   // slot 178 (+0x2C8) kept copy 0x00453B80
     virtual void unknown_slot179(Cell cell) {}            // slot 179 (+0x2CC) kept copy 0x00453B90
     virtual Cell unknown_slot180(int arg1);               // slot 180 (+0x2D0) 0x006D5800
-    virtual CoordStruct unknown_slot181(int arg1);                // slot 181 (+0x2D4) 0x006C1A70
-    virtual int unknown_slot182(AbstractClass *object, Cell *cell);    // slot 182 (+0x2D8) 0x006D3EB0
-    virtual UnknownFacingDir unknown_slot183();                   // slot 183 (+0x2DC) 0x006D3F80
-    virtual InfantryTypeClass *unknown_slot184();                   // slot 184 (+0x2E0) 0x006D30B0 the crew type a crewed techno leaves
+    virtual CoordStruct Turret_Coord(int arg1);                // slot 181 (+0x2D4) 0x006C1A70
+    virtual int Desired_Load_Dir(AbstractClass *object, Cell *cell);    // slot 182 (+0x2D8) 0x006D3EB0
+    virtual UnknownFacingDir Fire_Direction();                   // slot 183 (+0x2DC) 0x006D3F80
+    virtual InfantryTypeClass *Crew_Type();                   // slot 184 (+0x2E0) 0x006D30B0 the crew type a crewed techno leaves
     virtual bool unknown_slot185();                                  // slot 185 (+0x2E4) 0x006CD300
     virtual bool unknown_slot186();                                 // slot 186 (+0x2E8) 0x006CD340 (returns al: xor al,al / sete al / mov al,1)
     virtual int unknown_slot187(int arg1);                          // slot 187 (+0x2EC) 0x006C9C00
@@ -451,21 +451,21 @@ public:
     virtual bool unknown_slot190(int *out_kind);                          // slot 190 (+0x2F8) 0x006D7A10
     virtual bool unknown_slot191();                             // slot 191 (+0x2FC) 0x006D7C00
     virtual bool unknown_slot192(HouseClass *house);            // slot 192 (+0x300) 0x006D7C40
-    virtual bool unknown_slot193();                                 // slot 193 (+0x304) 0x0041B380 (kept copy elsewhere)
+    virtual bool Is_Renovator();                                 // slot 193 (+0x304) 0x0041B380 (kept copy elsewhere)
     virtual void unknown_slot194();                                 // slot 194 (+0x308) 0x00453BB0 (kept copy elsewhere)
     virtual bool unknown_slot195();                                 // slot 195 (+0x30C) 0x006CD6E0
     virtual void unknown_slot196();                             // slot 196 (+0x310) 0x006D3FA0
     virtual void unknown_slot197();                             // slot 197 (+0x314) 0x006D4000
     virtual void unknown_slot198();                             // slot 198 (+0x318) 0x006D4060
     virtual bool unknown_slot199(int type);                         // slot 199 (+0x31C) 0x006CC510
-    virtual bool unknown_slot200(int arg1, AbstractClass *arg2, AbstractClass *arg3, AbstractClass *arg4); // slot 200 (+0x320) 0x006CC2A0
+    virtual bool Player_Assign_Mission(int arg1, AbstractClass *arg2, AbstractClass *arg3, AbstractClass *arg4); // slot 200 (+0x320) 0x006CC2A0
     virtual bool unknown_slot201() { return unknown_3fc > 0; } // slot 201 (+0x324) 0x006D8E80
     virtual bool unknown_slot202();                             // slot 202 (+0x328) 0x00453BC0 (kept copy elsewhere)
     virtual bool unknown_slot203() { return unknown_154.Value() > 0; }  // slot 203 (+0x32C) kept copy 0x0041B390 (the +0x154 timer still runs)
-    virtual bool unknown_slot204();                                 // slot 204 (+0x330) 0x0041B3D0 (kept copy elsewhere)
-    virtual void unknown_slot205();                                 // slot 205 (+0x334) 0x0041B3E0 (kept copy elsewhere)
+    virtual bool CanCheer();                                 // slot 204 (+0x330) 0x0041B3D0 (kept copy elsewhere)
+    virtual void Cheer();                                 // slot 205 (+0x334) 0x0041B3E0 (kept copy elsewhere)
     virtual int unknown_slot206() { TechnoTypeClass *type = Techno_Type_Class(); if (type) { return type->Speed; } return 0; } // slot 206 (+0x338) 0x006D8E90
-    virtual void unknown_slot207();                             // slot 207 (+0x33C) 0x006D7E00
+    virtual void Reduce_Ammunition();                             // slot 207 (+0x33C) 0x006D7E00
     virtual bool unknown_slot208(ObjectClass *target);              // slot 208 (+0x340) 0x006D8DB0
     virtual bool unknown_slot209(CoordStruct const *coord, int arg2);   // slot 209 (+0x344) 0x006D46D0
     virtual void unknown_slot210();                             // slot 210 (+0x348) 0x006C9A90
@@ -479,8 +479,8 @@ public:
     virtual int unknown_slot218(AbstractClass *target, int weapon, bool check_range);      // slot 218 (+0x368) 0x006C9260
     virtual AbstractClass *unknown_slot219(int arg1, CoordStruct const *coord, bool arg3);      // slot 219 (+0x36C) 0x006C6530
     virtual void unknown_slot220(AbstractClass *target);                     // slot 220 (+0x370) 0x006C9AF0
-    virtual BulletClass *unknown_slot221(AbstractClass *target, int arg2);                // slot 221 (+0x374) 0x006CA890
-    virtual bool unknown_slot222(HouseClass *house, int arg2);                // slot 222 (+0x378) 0x006CD940
+    virtual BulletClass *Fire_At(AbstractClass *target, int arg2);                // slot 221 (+0x374) 0x006CA890
+    virtual bool Captured(HouseClass *house, int arg2);                // slot 222 (+0x378) 0x006CD940
     virtual void unknown_slot223(CoordStruct const &coord, float force); // slot 223 (+0x37C) 0x006D5F40 (rock from a nearby impact)
     virtual bool unknown_slot224(int arg1);                         // slot 224 (+0x380) 0x00453BD0 (kept copy elsewhere)
     virtual bool unknown_slot225();                             // slot 225 (+0x384) 0x006D84D0
@@ -497,10 +497,10 @@ public:
     virtual void unknown_slot236();                                  // slot 236 (+0x3B0) 0x006C86F0
     virtual void unknown_slot237();                                 // slot 237 (+0x3B4) 0x006D6230
     virtual void unknown_slot238();                                  // slot 238 (+0x3B8) 0x006C2990
-    virtual void unknown_slot239();                                 // slot 239 (+0x3BC) 0x006C8290
+    virtual void Reload();                                 // slot 239 (+0x3BC) 0x006C8290
     virtual void unknown_slot240();                                 // slot 240 (+0x3C0) 0x0041B400 (kept copy elsewhere)
     virtual CoordStruct unknown_slot241();                      // slot 241 (+0x3C4) 0x006D13B0
-    virtual bool unknown_slot242();                             // slot 242 (+0x3C8) 0x006D1460
+    virtual bool IsNotWarpingIn();                             // slot 242 (+0x3C8) 0x006D1460
     virtual void unknown_slot243(bool arg1, int arg2);               // slot 243 (+0x3CC) 0x00453BE0 (kept copy elsewhere)
     virtual int unknown_slot244(int arg1);                          // slot 244 (+0x3D0) 0x006D8C30
     virtual bool unknown_slot245(HouseClass *house);                // slot 245 (+0x3D4) 0x006D8CE0
@@ -513,9 +513,9 @@ public:
     virtual void unknown_slot252(bool quiet);                   // slot 252 (+0x3F0) 0x006CF250
     virtual void unknown_slot253(bool quiet);                       // slot 253 (+0x3F4) 0x006CF300
     virtual int unknown_slot254(int arg1);                      // slot 254 (+0x3F8) 0x006D79D0
-    virtual void unknown_slot255(TechnoClass *techno);                     // slot 255 (+0x3FC) 0x006D8680
-    virtual void unknown_slot256();                             // slot 256 (+0x400) 0x0041B430 (kept copy elsewhere)
-    virtual bool unknown_slot257();                             // slot 257 (+0x404) 0x006D4890
+    virtual void DisguiseAs(TechnoClass *techno);                     // slot 255 (+0x3FC) 0x006D8680
+    virtual void ClearDisguise();                             // slot 256 (+0x400) 0x0041B430 (kept copy elsewhere)
+    virtual bool Is_Ready_To_Random_Animate();                             // slot 257 (+0x404) 0x006D4890
     virtual bool unknown_slot258();                                 // slot 258 (+0x408) 0x0041B440 (kept copy elsewhere)
     virtual void unknown_slot259(int arg1);                         // slot 259 (+0x40C) 0x006D48D0
     virtual void Assign_Destination(AbstractClass *target, bool immediate);               // slot 260 (+0x410) 0x006D48E0
@@ -532,8 +532,8 @@ public:
     virtual bool unknown_slot271() { return false; }           // slot 271 (+0x43C) 0x006D8EE0
     virtual int unknown_slot272() { return -1; }               // slot 272 (+0x440) 0x006D8EF0
     virtual CoordStruct unknown_slot273() { return CoordStruct(-1, -1, -1); } // slot 273 (+0x444) 0x006D8F00
-    virtual bool unknown_slot274();  // slot 274 (+0x448) 0x006D8F20
-    virtual bool unknown_slot275();  // slot 275 (+0x44C) 0x006D8F40
+    virtual bool CanUseWaypoint();  // slot 274 (+0x448) 0x006D8F20
+    virtual bool CanAttackOnTheMove();  // slot 275 (+0x44C) 0x006D8F40
     virtual bool unknown_slot276() { return false; }           // slot 276 (+0x450) 0x006D8F90
     virtual bool unknown_slot277() { return false; }           // slot 277 (+0x454) 0x006D8FA0
     virtual void unknown_slot278() {}                          // slot 278 (+0x458) 0x006D8FB0
@@ -549,9 +549,9 @@ public:
 #ifdef RA2_TECHNO_STATIC_TIMERS
     void unknown_6d0dc0(CoordStruct from, CoordStruct to, RGBClass color, bool shadow);   // 0x006D0DC0 (a 64-step line shaded from unknown_rgb_ab6841 to color; never called)
 #endif
-    void Unknown_006D9610(AbstractClass *cell);                 // 0x006D9610 (InfantryClass slot 93: an occupied building, its cell)
+    void UpdateThreatInCell(AbstractClass *cell);                 // 0x006D9610 (InfantryClass slot 93: an occupied building, its cell)
     bool unknown_6d7f70();                                      // 0x006D7F70 (FootClass::AI, after the movement; the result is unused there)
-    int unknown_6d7e20(int extra);                              // 0x006D7E20 (fires the death weapon at itself; returns the damage)
+    int FireDeathWeapon(int extra);                              // 0x006D7E20 (fires the death weapon at itself; returns the damage)
     void Unknown_006D21E0(UnknownObjectPair const &voxel, int layer, int key, UnknownBuffer *cache, Rect const &cliprect, Point2D const &draw_point, Matrix3D const &transform, bool force_cache, Surface *mask, unsigned unknown_2, unsigned unknown_3);  // 0x006D21E0 (the shadow draw; FootClass 0x004C9A40)
     int unknown_6d6750();                                       // 0x006D6750
     bool unknown_6d83d0();                                      // 0x006D83D0
@@ -792,8 +792,8 @@ public:
     bool Cell_Is_Impassable_Row_00453af0(CellClass const *cell);    // 0x00453AF0 (as shared/building_class.hpp)
     bool unknown_44d900(BuildingTypeClass const *upgrade, HouseClass *house);   // 0x0044D900 (as shared/building_class.hpp: the upgrade may power up this building)
     void unknown_450950();              // 0x00450950 (a firestorm wall building switches its state; HouseClass 0x004EE8F0/0x004EEA40)
-    bool Unknown_00452EB0(TechnoClass *techno);     // 0x00452EB0 (whether techno may enter; InfantryClass slot 132)
-    void Unknown_004536D0(InfantryClass *infantry);     // 0x004536D0 (an Assaulter enters; InfantryClass 0x005094B0)
+    bool CanBeOccupiedBy(TechnoClass *techno);     // 0x00452EB0 (whether techno may enter; InfantryClass slot 132)
+    void KillOccupants(InfantryClass *infantry);     // 0x004536D0 (an Assaulter enters; InfantryClass 0x005094B0)
     BuildingTypeClass *Type;            // +0x418 (AircraftClass slots 28/101)
     void unknown_44d070(int damaged);   // 0x0044D070 (TechnoClass slot 233: health at or below the rules' +0x1368)
     int unknown_449dd0();               // 0x00449DD0 (the power the building drains; as shared/building_class.hpp)

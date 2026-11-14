@@ -33,21 +33,21 @@ public:
 
 class ObjectClass : public AbstractClass {
 public:
-    virtual void unknown_slot24(); virtual void unknown_slot25(); virtual void Get_Image_Data(); virtual void unknown_slot27(); virtual void unknown_slot28(); virtual int In_Which_Layer() const;   // slot 29 (+0x74; as shared/object.hpp; TibSun In_Which_Layer)
-    virtual void Not_Underground(); virtual void unknown_slot31(); virtual UnknownMapTechnoType *Techno_Type_Class() const; virtual ObjectTypeClass *Class_Of() const;   // slot 33 (+0x84; as shared/object.hpp)
+    virtual void unknown_slot24(); virtual void unknown_slot25(); virtual void Get_Image_Data(); virtual void What_Action(); virtual void unknown_slot28(); virtual int In_Which_Layer() const;   // slot 29 (+0x74; as shared/object.hpp; TibSun In_Which_Layer)
+    virtual void Not_Underground(); virtual void Considered_Vehicle(); virtual UnknownMapTechnoType *Techno_Type_Class() const; virtual ObjectTypeClass *Class_Of() const;   // slot 33 (+0x84; as shared/object.hpp)
     virtual void Get_Ownable(); virtual void unknown_slot35();
     virtual void Can_Repair(); virtual void Can_Demolish(); virtual void Can_Player_Fire(); virtual void Can_Player_Move(); virtual void unknown_slot40(); virtual void unknown_slot41();
     virtual void unknown_slot42(); virtual void unknown_slot43(); virtual void unknown_slot44(); virtual void Sort_Y(); virtual void Is_Moving_Onto_Bridge(); virtual void unknown_slot47();
-    virtual void unknown_slot48(); virtual void unknown_slot49(); virtual void unknown_slot50(); virtual void unknown_slot51(); virtual void Limbo();
+    virtual void unknown_slot48(); virtual void IsDisguisedAs(); virtual void GetDisguise(); virtual void GetDisguiseHouse(); virtual void Limbo();
     virtual bool Unlimbo(CoordStruct const &coord, int dir);   // slot 53 (+0xD4; shared/object.hpp passes a pointer; TibSun Unlimbo)
 #ifdef RA2_MAP_COLLAPSE_CLIFF
     virtual void unknown_slot54(); virtual void Record_The_Kill(); virtual void unknown_slot56(); virtual void Fall_From_Height(); virtual void Set_Occupy_Bit(); virtual void Clear_Occupy_Bit();
     virtual void Delete_Me(); virtual void Do_Shimmer(); virtual void Exit_Object(); virtual void Render(); virtual Cell const *Occupy_List(int arg1);   // slot 64 (+0x100; as shared/object.hpp; TibSun Occupy_List)
     virtual void unknown_slot65();
-    virtual void unknown_slot66(); virtual void unknown_slot67(); virtual void Editor_Draw_It(); virtual void Hidden(); virtual void Look();
+    virtual void unknown_slot66(); virtual void Draw_It(); virtual void Editor_Draw_It(); virtual void Hidden(); virtual void Look();
     virtual bool Mark(int arg1);                            // slot 71 (+0x11C; as shared/object.hpp)
     virtual void Get_Visual_Rect(); virtual void Get_Render_Rect(); virtual void unknown_slot74(); virtual void Mark_For_Redraw(); virtual void CanBeSelected();
-    virtual void unknown_slot77(); virtual void unknown_slot78(); virtual void Clicked_As_Target(); virtual void unknown_slot80(); virtual void Unselect(); virtual void unknown_slot82();
+    virtual void unknown_slot77(); virtual void unknown_slot78(); virtual void Clicked_As_Target(); virtual void unknown_slot80(); virtual void Unselect(); virtual void IronCurtain();
     virtual void unknown_slot83(); virtual void In_Range(); virtual void Weapon_Range(); virtual void Take_Damage(); virtual void Scatter(); virtual void Catch_Fire();
     virtual void Fire_Out(); virtual void Value(); virtual void Get_Mission(); virtual void unknown_slot92(); virtual void unknown_slot93(); virtual void unknown_slot94();
     virtual void Receive_Message(); virtual void Revealed(); virtual void Repair(); virtual void Sell_Back(); virtual void Set_Waypoint_Path(); virtual void Move();
@@ -69,17 +69,17 @@ public:
 
 class TechnoClass : public AbstractClass {
 public:
-    virtual void unknown_slot24(); virtual void unknown_slot25(); virtual void Get_Image_Data(); virtual void unknown_slot27(); virtual void unknown_slot28(); virtual void In_Which_Layer();
-    virtual void Not_Underground(); virtual void unknown_slot31(); virtual void Techno_Type_Class(); virtual void unknown_slot33(); virtual void Get_Ownable(); virtual void unknown_slot35();
+    virtual void unknown_slot24(); virtual void unknown_slot25(); virtual void Get_Image_Data(); virtual void What_Action(); virtual void unknown_slot28(); virtual void In_Which_Layer();
+    virtual void Not_Underground(); virtual void Considered_Vehicle(); virtual void Techno_Type_Class(); virtual void unknown_slot33(); virtual void Get_Ownable(); virtual void unknown_slot35();
     virtual void Can_Repair(); virtual void Can_Demolish(); virtual void Can_Player_Fire(); virtual void Can_Player_Move(); virtual void unknown_slot40(); virtual void unknown_slot41();
     virtual void unknown_slot42(); virtual void unknown_slot43(); virtual void unknown_slot44(); virtual void Sort_Y(); virtual void Is_Moving_Onto_Bridge(); virtual void unknown_slot47();
-    virtual void unknown_slot48(); virtual void unknown_slot49(); virtual void unknown_slot50(); virtual void unknown_slot51(); virtual void Limbo(); virtual void Unlimbo();
+    virtual void unknown_slot48(); virtual void IsDisguisedAs(); virtual void GetDisguise(); virtual void GetDisguiseHouse(); virtual void Limbo(); virtual void Unlimbo();
     virtual void unknown_slot54(); virtual void Record_The_Kill(); virtual void unknown_slot56(); virtual void Fall_From_Height(); virtual void Set_Occupy_Bit(); virtual void Clear_Occupy_Bit();
     virtual void Delete_Me(); virtual void Do_Shimmer(); virtual void Exit_Object(); virtual void Render(); virtual void Occupy_List(); virtual void unknown_slot65();
-    virtual void unknown_slot66(); virtual void unknown_slot67(); virtual void Editor_Draw_It(); virtual void Hidden();
+    virtual void unknown_slot66(); virtual void Draw_It(); virtual void Editor_Draw_It(); virtual void Hidden();
     virtual void Look(bool arg1, bool arg2);              // slot 70 (+0x118; as shared/techno.hpp)
     virtual void Mark(); virtual void Get_Visual_Rect(); virtual void Get_Render_Rect(); virtual void unknown_slot74(); virtual void Mark_For_Redraw(); virtual void CanBeSelected();
-    virtual void unknown_slot77(); virtual void unknown_slot78(); virtual void Clicked_As_Target(); virtual void unknown_slot80(); virtual void Unselect(); virtual void unknown_slot82();
+    virtual void unknown_slot77(); virtual void unknown_slot78(); virtual void Clicked_As_Target(); virtual void unknown_slot80(); virtual void Unselect(); virtual void IronCurtain();
     virtual void unknown_slot83(); virtual void In_Range(); virtual void Weapon_Range(); virtual void Take_Damage(); virtual void Scatter(); virtual void Catch_Fire();
     virtual void Fire_Out(); virtual void Value(); virtual void Get_Mission(); virtual void unknown_slot92(); virtual void unknown_slot93(); virtual void unknown_slot94();
     virtual void Receive_Message();
@@ -120,8 +120,8 @@ public:
 class OverlayTypeClass;
 class BuildingTypeClass : public AbstractClass {
 public:
-    virtual void unknown_slot24(); virtual void unknown_slot25(); virtual void unknown_slot26(); virtual void Coord_Fixup(); virtual void unknown_slot28(); virtual void Max_Pips();
-    virtual void Pixel_Dimensions(); virtual void Lepton_Dimensions(); virtual void Create_And_Place(); virtual void Cost_Of(); virtual void unknown_slot34();
+    virtual void unknown_slot24(); virtual void unknown_slot25(); virtual void unknown_slot26(); virtual void Coord_Fixup(); virtual void Get_Ownable(); virtual void Max_Pips();
+    virtual void Pixel_Dimensions(); virtual void Lepton_Dimensions(); virtual void Create_And_Place(); virtual void Cost_Of(); virtual void Time_To_Build();
     virtual ObjectClass *Create_One_Of(HouseClass *house) const;   // slot 35 (+0x8C) a new building (as shared/building_type_class.hpp)
 
     char unknown_024[0x504 - 0x24];

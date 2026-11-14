@@ -1539,6 +1539,10 @@
    "address": "0046c2f0"
   },
   {
+   "symbol": "?Get_Ownable@ObjectTypeClass@@UBEHXZ",
+   "address": null
+  },
+  {
    "symbol": "?Get_String@INIClass@@QBEHPBD00PADH@Z",
    "address": "0050e9a0"
   },
@@ -1691,6 +1695,10 @@
    "address": "00abd868"
   },
   {
+   "symbol": "?Time_To_Build@ObjectTypeClass@@UBEHXZ",
+   "address": "005d5d70"
+  },
+  {
    "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
    "address": "006ecb90"
   },
@@ -1741,14 +1749,6 @@
   {
    "symbol": "?unknown_slot24@AbstractTypeClass@@UAEXH@Z",
    "address": "004109a0"
-  },
-  {
-   "symbol": "?unknown_slot28@ObjectTypeClass@@UBEHXZ",
-   "address": null
-  },
-  {
-   "symbol": "?unknown_slot34@ObjectTypeClass@@UBEHXZ",
-   "address": "005d5d70"
   },
   {
    "symbol": "?unknown_slot38@ObjectTypeClass@@UBEPBXXZ",
@@ -1916,7 +1916,7 @@
   },
   {
    "symbol": "??_7VoxelAnimTypeClass@@6BIPersistStream@@@",
-   "reason": "relocation target unbound: ?unknown_slot28@ObjectTypeClass@@UBEHXZ"
+   "reason": "relocation target unbound: ?Get_Ownable@ObjectTypeClass@@UBEHXZ"
   },
   {
    "symbol": "??_7CDFileClass@@6B@",

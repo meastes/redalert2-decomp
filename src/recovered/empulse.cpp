@@ -141,7 +141,7 @@ void EMPulseClass::Expire_004B4DF0()
 #include "shared/unknown_vector3.hpp"
 // Existing full map and shared object interfaces; no reserved headers edited.
 // The source pointer is forwarded to Foot slot224 and then the existing
-// TechnoClass::unknown_6d3040(TechnoClass *) (004CD4B0 evidence).
+// TechnoClass::Kill_Cargo(TechnoClass *) (004CD4B0 evidence).
 
 inline CoordStruct EMPulse_Cell_Center(Cell const &cell)
 {

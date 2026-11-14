@@ -159,7 +159,7 @@ void AircraftClass::Init()
         unknown_70 = Strength = Type->MaxStrength;
     }
     if (House != 0) {
-        House->unknown_4ea970(this);
+        House->Tracking_Add(this);
     }
 }
 
@@ -176,12 +176,12 @@ AircraftClass::~AircraftClass()
         if (House->Can_Build(Type, 0, 0) == -1) {
             House->unknown_144 = true;
         }
-        unknown_6d3040(0);
+        Kill_Cargo(0);
         if (Team != 0) {
             Team->Remove(this, -1, 0);
             Team = 0;
         }
-        House->unknown_4ea800(this);
+        House->Tracking_Remove(this);
         FootClass::Limbo();
         Type = 0;
     }
@@ -259,7 +259,7 @@ bool AircraftClass::Unlimbo(CoordStruct const *coord, int dir)
 
 Matrix3D __fastcall Aircraft_Isometric_View_Matrix_00717f90();
 
-void AircraftClass::unknown_slot67(Point2D const &point, Rect const &window)
+void AircraftClass::Draw_It(Point2D const &point, Rect const &window)
 {
     if (!Debug_Map && unknown_b263d8 &&
         (unknown_id_source_a3d290->unknown_000 & 0x1000)) {
@@ -272,7 +272,7 @@ void AircraftClass::unknown_slot67(Point2D const &point, Rect const &window)
     Point2D draw_point = point;
     draw_point += Locomotor.Checked()->Draw_Point();
     if (Cargo.Object && Type->Carryall) {
-        Cargo.Attached_Object()->unknown_slot67(draw_point, window);
+        Cargo.Attached_Object()->Draw_It(draw_point, window);
     }
     unknown_slot104();
     if (Type->unknown_206 && Type->unknown_b0.unknown_00) {
@@ -331,7 +331,7 @@ void AircraftClass::unknown_slot67(Point2D const &point, Rect const &window)
             Aircraft_Isometric_View_Matrix_00717f90() * matrix, shadow_height, 0);
     }
     // Original base draw receives the ORIGINAL first argument, not draw_point.
-    FootClass::unknown_slot67(point, window);
+    FootClass::Draw_It(point, window);
 }
 
 
@@ -458,7 +458,7 @@ void AircraftClass::AI()
         unknown_slot220(0);
         unknown_slot261(false, true);
     }
-    if (unknown_slot122()) Commence();
+    if (Ready_To_Commence()) Commence();
     if (unknown_5b0 && Mission != 1) {
         unknown_5b0 = false;
         --unknown_254;
@@ -811,14 +811,14 @@ struct OffsetCoord : public UnknownVector3 {
     OffsetCoord(int x, int y, int z = 0) : UnknownVector3(x, y, z) {}
 };
 
-BulletClass *AircraftClass::unknown_slot221(AbstractClass *target, int arg2)
+BulletClass *AircraftClass::Fire_At(AbstractClass *target, int arg2)
 {
     if (Cargo.Object) {
         Paradrop_Cargo();
         return 0;
     }
 
-    BulletClass *bullet = TechnoClass::unknown_slot221(target, arg2);
+    BulletClass *bullet = TechnoClass::Fire_At(target, arg2);
     if (bullet) {
         if (bullet->Type->ROT == 0) {
             Set_Speed(bullet->Velocity, Locomotor.Checked()->Apparent_Speed());
@@ -1369,7 +1369,7 @@ choose_mission:
     }
     if (HasAnyLink()) mission = 7;
     QueueMission(mission, false);
-    if (unknown_slot122()) Commence();
+    if (Ready_To_Commence()) Commence();
     return result;
 }
 
@@ -1384,16 +1384,16 @@ bool AircraftClass::unknown_slot78(int arg1, ObjectClass *arg2, bool arg3)
     int action = unknown_slot28((ObjectClass *)arg2, arg3);
     switch (action) {
     case 17:
-        return unknown_slot200(2, 0, arg2, 0);
+        return Player_Assign_Mission(2, 0, arg2, 0);
 
     case 2:
         return false;
 
     case 3:
-        return unknown_slot200(7, 0, arg2, 0);
+        return Player_Assign_Mission(7, 0, arg2, 0);
 
     case 4:
-        return unknown_slot200(16, 0, 0, 0);
+        return Player_Assign_Mission(16, 0, 0, 0);
     }
     return FootClass::unknown_slot78(action, arg2, arg3);
 }
@@ -1408,12 +1408,12 @@ bool AircraftClass::unknown_slot77(int arg1, Cell const *arg2, Cell const *arg3,
 }
 
 
-// bool AircraftClass::unknown_slot200(int arg1, AbstractClass *arg2, AbstractClass *arg3, AbstractClass *arg4) (0x00417580, slot 200)
+// bool AircraftClass::Player_Assign_Mission(int arg1, AbstractClass *arg2, AbstractClass *arg3, AbstractClass *arg4) (0x00417580, slot 200)
 // TechnoClass's.
 
-bool AircraftClass::unknown_slot200(int arg1, AbstractClass *arg2, AbstractClass *arg3, AbstractClass *arg4)
+bool AircraftClass::Player_Assign_Mission(int arg1, AbstractClass *arg2, AbstractClass *arg3, AbstractClass *arg4)
 {
-    return TechnoClass::unknown_slot200(arg1, arg2, arg3, arg4);
+    return TechnoClass::Player_Assign_Mission(arg1, arg2, arg3, arg4);
 }
 
 
@@ -1469,7 +1469,7 @@ int AircraftClass::unknown_slot28(ObjectClass *object, bool arg2)
     }
     if (action == 0) {
         Cell cell = Coord_Cell(object->Center_Coord());
-        action = unknown_slot27(&cell, action != 0, arg2);
+        action = What_Action(&cell, action != 0, arg2);
     }
 checks:
     if (action == 4) {
@@ -1499,7 +1499,7 @@ docking:
             }
         }
     } else if (action == 2) {
-        if (object->unknown_slot48() && object->unknown_slot51(true) == 0 && object->unknown_slot50(true)->Kind_Of() == 0x15) {
+        if (object->unknown_slot48() && object->GetDisguiseHouse(true) == 0 && object->GetDisguise(true)->Kind_Of() == 0x15) {
             action = 1;
         }
     } else if (action == 5 && object->Class_Of()->unknown_203) {
@@ -1509,16 +1509,16 @@ docking:
 }
 
 
-// int AircraftClass::unknown_slot27(Cell const *arg1, bool arg2, bool arg3) (0x00417840, slot 27)
+// int AircraftClass::What_Action(Cell const *arg1, bool arg2, bool arg3) (0x00417840, slot 27)
 // 0 unless the house allows it (0x004F52B0); FootClass's action, except
 // that 5 becomes 0 without a primary weapon.
 
-int AircraftClass::unknown_slot27(Cell const *arg1, bool arg2, bool arg3)
+int AircraftClass::What_Action(Cell const *arg1, bool arg2, bool arg3)
 {
     if (!House->Is_Player_Control()) {
         return 0;
     }
-    int action = FootClass::unknown_slot27(arg1, arg2, arg3);
+    int action = FootClass::What_Action(arg1, arg2, arg3);
     if (action == 5 && unknown_slot231(0)->WeaponType == 0) {
         action = 0;
     }
@@ -1620,7 +1620,7 @@ int AircraftClass::Do_MISSION_ATTACK()
             unknown_2e0.Set_Desired(Direction_To(unknown_228));
             unknown_2f8.Set_Desired(Direction_To(unknown_228));
         }
-        switch (unknown_slot218(unknown_228, unknown_slot174(unknown_228), 1)) {
+        switch (unknown_slot218(unknown_228, What_Weapon_Should_I_Use(unknown_228), 1)) {
         case 9:
             unknown_slot252(false);
             break;
@@ -1646,7 +1646,7 @@ int AircraftClass::Do_MISSION_ATTACK()
             break;
         case 0: {
             unknown_5b0 = true;
-            unknown_slot221(unknown_228, unknown_slot174(unknown_228));
+            Fire_At(unknown_228, What_Weapon_Should_I_Use(unknown_228));
             Map[unknown_228->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
             if (Is_Strafe()) {
                 unknown_a8 = 6;
@@ -1677,7 +1677,7 @@ int AircraftClass::Do_MISSION_ATTACK()
         }
         unknown_2e0.Set_Desired(Direction_To(unknown_228));
         unknown_2f8.Set_Desired(Direction_To(unknown_228));
-        switch (unknown_slot218(unknown_228, unknown_slot174(unknown_228), 1)) {
+        switch (unknown_slot218(unknown_228, What_Weapon_Should_I_Use(unknown_228), 1)) {
         case 9:
             unknown_slot252(false);
             break;
@@ -1698,7 +1698,7 @@ int AircraftClass::Do_MISSION_ATTACK()
             }
             break;
         case 0: {
-            unknown_slot221(unknown_228, unknown_slot174(unknown_228));
+            Fire_At(unknown_228, What_Weapon_Should_I_Use(unknown_228));
             Map[unknown_228->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
             if (unknown_254 != 0) {
                 unknown_a8 = Rules->CurleyShuffle ? 1 : 4;
@@ -1723,13 +1723,13 @@ int AircraftClass::Do_MISSION_ATTACK()
             unknown_a8 = 10;
             return 1;
         }
-        switch (unknown_slot218(unknown_228, unknown_slot174(unknown_228), 1)) {
+        switch (unknown_slot218(unknown_228, What_Weapon_Should_I_Use(unknown_228), 1)) {
         case 8:
             Assign_Destination(unknown_228, true);
         case 0:
         case 2:
         case 9: {
-            unknown_slot221(unknown_228, unknown_slot174(unknown_228));
+            Fire_At(unknown_228, What_Weapon_Should_I_Use(unknown_228));
             Map[unknown_228->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
             Assign_Destination(unknown_228, true);
             unknown_a8 = 7;
@@ -1747,13 +1747,13 @@ int AircraftClass::Do_MISSION_ATTACK()
             unknown_a8 = 10;
             return 1;
         }
-        switch (unknown_slot218(unknown_228, unknown_slot174(unknown_228), 1)) {
+        switch (unknown_slot218(unknown_228, What_Weapon_Should_I_Use(unknown_228), 1)) {
         case 8:
             Assign_Destination(unknown_228, true);
         case 0:
         case 2:
         case 9: {
-            unknown_slot221(unknown_228, unknown_slot174(unknown_228));
+            Fire_At(unknown_228, What_Weapon_Should_I_Use(unknown_228));
             Map[unknown_228->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
             Assign_Destination(unknown_228, true);
             unknown_a8 = 8;
@@ -1771,13 +1771,13 @@ int AircraftClass::Do_MISSION_ATTACK()
             unknown_a8 = 10;
             return 1;
         }
-        switch (unknown_slot218(unknown_228, unknown_slot174(unknown_228), 1)) {
+        switch (unknown_slot218(unknown_228, What_Weapon_Should_I_Use(unknown_228), 1)) {
         case 8:
             Assign_Destination(unknown_228, true);
         case 0:
         case 2:
         case 9: {
-            unknown_slot221(unknown_228, unknown_slot174(unknown_228));
+            Fire_At(unknown_228, What_Weapon_Should_I_Use(unknown_228));
             Map[unknown_228->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
             Assign_Destination(unknown_228, true);
             unknown_a8 = 9;
@@ -1795,12 +1795,12 @@ int AircraftClass::Do_MISSION_ATTACK()
             unknown_a8 = 10;
             return 1;
         }
-        switch (unknown_slot218(unknown_228, unknown_slot174(unknown_228), 1)) {
+        switch (unknown_slot218(unknown_228, What_Weapon_Should_I_Use(unknown_228), 1)) {
         case 0:
         case 2:
         case 8:
         case 9: {
-            unknown_slot221(unknown_228, unknown_slot174(unknown_228));
+            Fire_At(unknown_228, What_Weapon_Should_I_Use(unknown_228));
             Map[unknown_228->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
             unknown_a8 = 3;
             return (unknown_slot231(0)->WeaponType->unknown_b4 + 0x400) / Type->Speed;
@@ -2004,13 +2004,13 @@ int AircraftClass::Receive_Message(RadioClass *radio, int message, AbstractClass
 }
 
 
-// int AircraftClass::unknown_slot182(AbstractClass *object, Cell *cell) (0x00418CF0, slot 182)
+// int AircraftClass::Desired_Load_Dir(AbstractClass *object, Cell *cell) (0x00418CF0, slot 182)
 // Looks for a cell next to the aircraft (facings in table order) that is
 // on the map and either object's cell or passes the cell's test
 // (0x00478760); leaves it in *cell (the last one tried otherwise; the zero
 // cell before the search). Always 0.
 
-int AircraftClass::unknown_slot182(AbstractClass *object, Cell *cell)
+int AircraftClass::Desired_Load_Dir(AbstractClass *object, Cell *cell)
 {
     *cell = unknown_geometry_k;
     Cell center = Coord_Cell(Center_Coord());
@@ -2387,10 +2387,10 @@ AbstractClass *AircraftClass::Good_LZ()
 }
 
 
-// UnknownFacingDir AircraftClass::unknown_slot183() (0x00419CB0, slot 183)
+// UnknownFacingDir AircraftClass::Fire_Direction() (0x00419CB0, slot 183)
 // The facing at +0x2F8, as slot 162.
 
-UnknownFacingDir AircraftClass::unknown_slot183()
+UnknownFacingDir AircraftClass::Fire_Direction()
 {
     return unknown_2f8.Current();
 }
@@ -2583,7 +2583,7 @@ void AircraftClass::Assign_Destination(AbstractClass *target, bool immediate)
                             target = Good_LZ();
                         }
                         QueueMission(next_mission, false);
-                        if (unknown_slot122()) Commence();
+                        if (Ready_To_Commence()) Commence();
                     }
                     if (building->Type->unknown_1349) {
                         unknown_3f8 = building;
@@ -2802,10 +2802,10 @@ HRESULT __stdcall AircraftClass::Save(IStream *stream, BOOL clear_dirty)
 }
 
 
-// bool AircraftClass::unknown_slot122() (0x0041AD30, slot 122)
+// bool AircraftClass::Ready_To_Commence() (0x0041AD30, slot 122)
 // False on missions 6 and 21 or while locked (+0x5BA); otherwise +0x5BC.
 
-bool AircraftClass::unknown_slot122()
+bool AircraftClass::Ready_To_Commence()
 {
     if (Mission == 6 || Mission == 21 || unknown_5ba) {
         return false;
@@ -2950,18 +2950,18 @@ bool AircraftClass::unknown_slot282()
 }
 
 
-// void AircraftClass::unknown_slot207() (0x0041B030, slot 207)
+// void AircraftClass::Reduce_Ammunition() (0x0041B030, slot 207)
 // Does nothing (TechnoClass's slot 207 does something for other technos).
 
-void AircraftClass::unknown_slot207()
+void AircraftClass::Reduce_Ammunition()
 {
 }
 
 
-// bool AircraftClass::unknown_slot31() (0x0041B040, slot 31)
+// bool AircraftClass::Considered_Vehicle() (0x0041B040, slot 31)
 // Answers slot 20 (a tail call through the vtable).
 
-bool AircraftClass::unknown_slot31()
+bool AircraftClass::Considered_Vehicle()
 {
     return On_Ground();
 }
@@ -2993,9 +2993,9 @@ bool AircraftClass::On_Ground() const
 }
 
 
-// bool AircraftClass::unknown_slot242() (0x0041B110, slot 242)
+// bool AircraftClass::IsNotWarpingIn() (0x0041B110, slot 242)
 
-bool AircraftClass::unknown_slot242()
+bool AircraftClass::IsNotWarpingIn()
 {
     return unknown_5bd;
 }
@@ -3126,7 +3126,7 @@ unsigned char  FUN_0041b360(void)
 }  // namespace seed_0041b360
 
 
-// TechnoClass::unknown_slot159 (0x0041B370, TechnoClass slot 159): the inline
+// TechnoClass::Is_Ready_To_Move (0x0041B370, TechnoClass slot 159): the inline
 // member defined in shared/techno.hpp, emitted in this unit with the vtables
 // that reference it; no source of its own.
 
@@ -3156,7 +3156,7 @@ class Leaf_41b410 { public: unsigned char get(); };
 unsigned char Leaf_41b410::get() { return *(unsigned char*)((char*)this + 0x170); }
 
 
-// TechnoClass::unknown_slot49 (0x0041B420, TechnoClass slot 49): the inline
+// TechnoClass::IsDisguisedAs (0x0041B420, TechnoClass slot 49): the inline
 // member defined in shared/techno.hpp, emitted in this unit with the vtables
 // that reference it; no source of its own.
 
@@ -3257,10 +3257,10 @@ wchar_t const *AircraftClass::unknown_slot35()
 }
 
 
-// UnknownFacingDir AircraftClass::unknown_slot162() (0x0041B5E0, slot 162)
+// UnknownFacingDir AircraftClass::Turret_Facing() (0x0041B5E0, slot 162)
 // The facing at +0x2F8 (TechnoClass's slot uses +0x2E0).
 
-UnknownFacingDir AircraftClass::unknown_slot162()
+UnknownFacingDir AircraftClass::Turret_Facing()
 {
     return unknown_2f8.Current();
 }

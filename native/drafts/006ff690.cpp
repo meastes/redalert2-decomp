@@ -71,7 +71,7 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
 {
     Point2D drawpoint=point;
     TechnoTypeClass *type=Type;
-    if (!unknown_slot245(unknown_player_house_a35db4)) type=static_cast<TechnoTypeClass *>(unknown_slot50(true));
+    if (!unknown_slot245(unknown_player_house_a35db4)) type=static_cast<TechnoTypeClass *>(GetDisguise(true));
     int frame=unknown_430 % (int)type->unknown_b0.unknown_04->unknown_frame_count;
     Rect cliprect=window;
     Surface *old_surface=unknown_surface_83995c;

@@ -121,7 +121,7 @@
    "padding_bytes": 15
   },
   {
-   "symbol": "?unknown_slot67@InfantryClass@@UAEXABUPoint2D@@ABVRect@@@Z",
+   "symbol": "?Draw_It@InfantryClass@@UAEXABUPoint2D@@ABVRect@@@Z",
    "entry": "00500550",
    "body_bytes": 1356,
    "padding_bytes": 4
@@ -205,7 +205,7 @@
    "padding_bytes": 6
   },
   {
-   "symbol": "?unknown_slot221@InfantryClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z",
+   "symbol": "?Fire_At@InfantryClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z",
    "entry": "00504f50",
    "body_bytes": 128,
    "padding_bytes": 0
@@ -289,7 +289,7 @@
    "padding_bytes": 7
   },
   {
-   "symbol": "?unknown_slot27@InfantryClass@@UAEHPBVCell@@_N1@Z",
+   "symbol": "?What_Action@InfantryClass@@UAEHPBVCell@@_N1@Z",
    "entry": "00506650",
    "body_bytes": 763,
    "padding_bytes": 5
@@ -361,7 +361,7 @@
    "padding_bytes": 11
   },
   {
-   "symbol": "?unknown_slot257@InfantryClass@@UAE_NXZ",
+   "symbol": "?Is_Ready_To_Random_Animate@InfantryClass@@UAE_NXZ",
    "entry": "00508320",
    "body_bytes": 134,
    "padding_bytes": 10
@@ -385,7 +385,7 @@
    "padding_bytes": 7
   },
   {
-   "symbol": "?unknown_slot174@InfantryClass@@UAEHPAVAbstractClass@@@Z",
+   "symbol": "?What_Weapon_Should_I_Use@InfantryClass@@UAEHPAVAbstractClass@@@Z",
    "entry": "00508530",
    "body_bytes": 64,
    "padding_bytes": 0
@@ -415,7 +415,7 @@
    "padding_bytes": 0
   },
   {
-   "symbol": "?unknown_slot122@InfantryClass@@UAE_NXZ",
+   "symbol": "?Ready_To_Commence@InfantryClass@@UAE_NXZ",
    "entry": "00508770",
    "body_bytes": 168,
    "padding_bytes": 8
@@ -445,13 +445,13 @@
    "padding_bytes": 0
   },
   {
-   "symbol": "?unknown_slot181@InfantryClass@@UAE?AUCoordStruct@@H@Z",
+   "symbol": "?Turret_Coord@InfantryClass@@UAE?AUCoordStruct@@H@Z",
    "entry": "00508940",
    "body_bytes": 53,
    "padding_bytes": 11
   },
   {
-   "symbol": "?unknown_slot303@InfantryClass@@UAEHXZ",
+   "symbol": "?Current_Speed@InfantryClass@@UAEHXZ",
    "entry": "00508980",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -493,25 +493,25 @@
    "padding_bytes": 2
   },
   {
-   "symbol": "?unknown_slot193@InfantryClass@@UAE_NXZ",
+   "symbol": "?Is_Renovator@InfantryClass@@UAE_NXZ",
    "entry": "00509090",
    "body_bytes": 13,
    "padding_bytes": 3
   },
   {
-   "symbol": "?unknown_5090a0@InfantryClass@@QBE_NXZ",
+   "symbol": "?Is_Deployer@InfantryClass@@QBE_NXZ",
    "entry": "005090a0",
    "body_bytes": 13,
    "padding_bytes": 3
   },
   {
-   "symbol": "?unknown_5090b0@InfantryClass@@QBE_NXZ",
+   "symbol": "?Has_Undeploy_Delay@InfantryClass@@QBE_NXZ",
    "entry": "005090b0",
    "body_bytes": 21,
    "padding_bytes": 11
   },
   {
-   "symbol": "?unknown_5090d0@InfantryClass@@QBE_NXZ",
+   "symbol": "?Is_Deploying@InfantryClass@@QBE_NXZ",
    "entry": "005090d0",
    "body_bytes": 35,
    "padding_bytes": 13
@@ -529,49 +529,49 @@
    "padding_bytes": 15
   },
   {
-   "symbol": "?unknown_slot82@InfantryClass@@UAEXH@Z",
+   "symbol": "?IronCurtain@InfantryClass@@UAEXH@Z",
    "entry": "005091c0",
    "body_bytes": 55,
    "padding_bytes": 9
   },
   {
-   "symbol": "?unknown_slot50@InfantryClass@@UAEPAVObjectTypeClass@@_N@Z",
+   "symbol": "?GetDisguise@InfantryClass@@UAEPAVObjectTypeClass@@_N@Z",
    "entry": "00509200",
    "body_bytes": 103,
    "padding_bytes": 9
   },
   {
-   "symbol": "?unknown_slot51@InfantryClass@@UAEPAVHouseClass@@_N@Z",
+   "symbol": "?GetDisguiseHouse@InfantryClass@@UAEPAVHouseClass@@_N@Z",
    "entry": "00509270",
    "body_bytes": 61,
    "padding_bytes": 3
   },
   {
-   "symbol": "?unknown_slot255@InfantryClass@@UAEXPAVTechnoClass@@@Z",
+   "symbol": "?DisguiseAs@InfantryClass@@UAEXPAVTechnoClass@@@Z",
    "entry": "005092b0",
    "body_bytes": 119,
    "padding_bytes": 9
   },
   {
-   "symbol": "?unknown_slot256@InfantryClass@@UAEXXZ",
+   "symbol": "?ClearDisguise@InfantryClass@@UAEXXZ",
    "entry": "00509330",
    "body_bytes": 85,
    "padding_bytes": 11
   },
   {
-   "symbol": "?unknown_slot49@InfantryClass@@UAE_NPAVHouseClass@@@Z",
+   "symbol": "?IsDisguisedAs@InfantryClass@@UAE_NPAVHouseClass@@@Z",
    "entry": "00509390",
    "body_bytes": 185,
    "padding_bytes": 7
   },
   {
-   "symbol": "?unknown_slot274@InfantryClass@@UAE_NXZ",
+   "symbol": "?CanUseWaypoint@InfantryClass@@UAE_NXZ",
    "entry": "00509450",
    "body_bytes": 5,
    "padding_bytes": 11
   },
   {
-   "symbol": "?unknown_slot275@InfantryClass@@UAE_NXZ",
+   "symbol": "?CanAttackOnTheMove@InfantryClass@@UAE_NXZ",
    "entry": "00509460",
    "body_bytes": 5,
    "padding_bytes": 11
@@ -595,13 +595,13 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "?unknown_slot204@InfantryClass@@UAE_NXZ",
+   "symbol": "?CanCheer@InfantryClass@@UAE_NXZ",
    "entry": "00509670",
    "body_bytes": 64,
    "padding_bytes": 0
   },
   {
-   "symbol": "?unknown_slot205@InfantryClass@@UAEXXZ",
+   "symbol": "?Cheer@InfantryClass@@UAEXXZ",
    "entry": "005096b0",
    "body_bytes": 33,
    "padding_bytes": 15
@@ -619,7 +619,7 @@
    "padding_bytes": 13
   },
   {
-   "symbol": "?Is_Busy_00509760@InfantryClass@@QBE_NXZ",
+   "symbol": "?Is_Dying@InfantryClass@@QBE_NXZ",
    "entry": "00509760",
    "body_bytes": 65,
    "padding_bytes": 15
@@ -1668,7 +1668,7 @@
   },
   {
    "site": "006bb8b0",
-   "symbol": "?unknown_5090a0@InfantryClass@@QBE_NXZ",
+   "symbol": "?Is_Deployer@InfantryClass@@QBE_NXZ",
    "target": "005090a0",
    "function_entry": true
   },
@@ -1692,31 +1692,31 @@
   },
   {
    "site": "006c9af0",
-   "symbol": "?Is_Busy_00509760@InfantryClass@@QBE_NXZ",
+   "symbol": "?Is_Dying@InfantryClass@@QBE_NXZ",
    "target": "00509760",
    "function_entry": true
   },
   {
    "site": "006f5940",
-   "symbol": "?unknown_5090a0@InfantryClass@@QBE_NXZ",
+   "symbol": "?Is_Deployer@InfantryClass@@QBE_NXZ",
    "target": "005090a0",
    "function_entry": true
   },
   {
    "site": "006f5940",
-   "symbol": "?unknown_5090d0@InfantryClass@@QBE_NXZ",
+   "symbol": "?Is_Deploying@InfantryClass@@QBE_NXZ",
    "target": "005090d0",
    "function_entry": true
   },
   {
    "site": "006f5940",
-   "symbol": "?unknown_5090a0@InfantryClass@@QBE_NXZ",
+   "symbol": "?Is_Deployer@InfantryClass@@QBE_NXZ",
    "target": "005090a0",
    "function_entry": true
   },
   {
    "site": "006f5940",
-   "symbol": "?unknown_5090d0@InfantryClass@@QBE_NXZ",
+   "symbol": "?Is_Deploying@InfantryClass@@QBE_NXZ",
    "target": "005090d0",
    "function_entry": true
   },
@@ -1857,8 +1857,20 @@
    "address": "0049eea0"
   },
   {
+   "symbol": "?CanAttackOnTheMove@TechnoClass@@UAE_NXZ",
+   "address": "006d8f40"
+  },
+  {
+   "symbol": "?CanBeOccupiedBy@BuildingClass@@QAE_NPAVTechnoClass@@@Z",
+   "address": "00452eb0"
+  },
+  {
    "symbol": "?CanBeSelected@ObjectClass@@UAE_NXZ",
    "address": "005d54b0"
+  },
+  {
+   "symbol": "?CanUseWaypoint@TechnoClass@@UAE_NXZ",
+   "address": "006d8f20"
   },
   {
    "symbol": "?Can_Build@HouseClass@@QAEHPBVTechnoTypeClass@@_N1@Z",
@@ -1879,6 +1891,10 @@
   {
    "symbol": "?Can_Repair@TechnoClass@@UAE_NXZ",
    "address": "006cd690"
+  },
+  {
+   "symbol": "?Captured@FootClass@@UAE_NPAVHouseClass@@H@Z",
+   "address": "004ca7d0"
   },
   {
    "symbol": "?Catch_Fire@ObjectClass@@UAE_NXZ",
@@ -1917,6 +1933,10 @@
    "address": "004ca3d0"
   },
   {
+   "symbol": "?Considered_Vehicle@ObjectClass@@UAE_NXZ",
+   "address": "00423d30"
+  },
+  {
    "symbol": "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ",
    "address": "005950d0"
   },
@@ -1929,12 +1949,24 @@
    "address": "0040ffd0"
   },
   {
+   "symbol": "?Crew_Type@TechnoClass@@UAEPAVInfantryTypeClass@@XZ",
+   "address": "006d30b0"
+  },
+  {
    "symbol": "?Current@FacingClass@@QBE?AUUnknownFacingDir@@XZ",
    "address": "004b8be0"
   },
   {
+   "symbol": "?Current_Speed@FootClass@@UAEHXZ",
+   "address": "004c9b10"
+  },
+  {
    "symbol": "?Delete_Me@FootClass@@UAEXXZ",
    "address": "004cce40"
+  },
+  {
+   "symbol": "?Desired_Load_Dir@TechnoClass@@UAEHPAVAbstractClass@@PAVCell@@@Z",
+   "address": "006d3eb0"
   },
   {
    "symbol": "?Detach@FootClass@@UAEXPAVAbstractClass@@_N@Z",
@@ -1943,6 +1975,10 @@
   {
    "symbol": "?Direction_To@ObjectClass@@QBE?AUUnknownFacingDir@@PBVAbstractClass@@@Z",
    "address": "005d2730"
+  },
+  {
+   "symbol": "?DisguiseAs@TechnoClass@@UAEXPAV1@@Z",
+   "address": "006d8680"
   },
   {
    "symbol": "?Do_MISSION_AMBUSH@MissionClass@@UAEHXZ",
@@ -2057,6 +2093,10 @@
    "address": "00532890"
   },
   {
+   "symbol": "?Draw_It@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z",
+   "address": "004c9bc0"
+  },
+  {
    "symbol": "?Editor_Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z",
    "address": "005d4e70"
   },
@@ -2099,6 +2139,14 @@
   {
    "symbol": "?Find_Or_Make@TagClass@@SIPAV1@PAVTagTypeClass@@@Z",
    "address": "006b3d30"
+  },
+  {
+   "symbol": "?Fire_At@TechnoClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z",
+   "address": "006ca890"
+  },
+  {
+   "symbol": "?Fire_Direction@TechnoClass@@UAE?AUUnknownFacingDir@@XZ",
+   "address": "006d3f80"
   },
   {
    "symbol": "?Fire_Out@ObjectClass@@UAEXXZ",
@@ -2245,6 +2293,10 @@
    "address": "004101f0"
   },
   {
+   "symbol": "?IsNotWarpingIn@TechnoClass@@UAE_NXZ",
+   "address": "006d1460"
+  },
+  {
    "symbol": "?Is_Ally@HouseClass@@QBE_NH@Z",
    "address": "004e5500"
   },
@@ -2289,6 +2341,10 @@
    "address": "004f52b0"
   },
   {
+   "symbol": "?Is_Ready_To_Random_Animate@TechnoClass@@UAE_NXZ",
+   "address": "006d4890"
+  },
+  {
    "symbol": "?Is_To_Inherit@TagClass@@QBE_NXZ",
    "address": "006b41f0"
   },
@@ -2311,6 +2367,14 @@
   {
    "symbol": "?KeyForceMove2@@3HA",
    "address": "00a40bb8"
+  },
+  {
+   "symbol": "?KillOccupants@BuildingClass@@QAEXPAVInfantryClass@@@Z",
+   "address": "004536d0"
+  },
+  {
+   "symbol": "?Kill_Cargo@TechnoClass@@QAEXPAV1@@Z",
+   "address": "006d3040"
   },
   {
    "symbol": "?Length@UnknownVector3@@QBEHXZ",
@@ -2401,6 +2465,10 @@
    "address": "006c7430"
   },
   {
+   "symbol": "?Player_Assign_Mission@TechnoClass@@UAE_NHPAVAbstractClass@@00@Z",
+   "address": "006cc2a0"
+  },
+  {
    "symbol": "?Put_String@INIClass@@QAE_NPBD00@Z",
    "address": "0050e5f0"
   },
@@ -2433,8 +2501,16 @@
    "address": "006ced90"
   },
   {
+   "symbol": "?Reduce_Ammunition@TechnoClass@@UAEXXZ",
+   "address": "006d7e00"
+  },
+  {
    "symbol": "?Release@AbstractClass@@UAGKXZ",
    "address": "004100b0"
+  },
+  {
+   "symbol": "?Reload@TechnoClass@@UAEXXZ",
+   "address": "006c8290"
   },
   {
    "symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
@@ -2549,12 +2625,16 @@
    "address": "00713580"
   },
   {
-   "symbol": "?Unknown_00452EB0@BuildingClass@@QAE_NPAVTechnoClass@@@Z",
-   "address": "00452eb0"
+   "symbol": "?Tracking_Add@HouseClass@@QAEXPAVTechnoClass@@@Z",
+   "address": "004ea970"
   },
   {
-   "symbol": "?Unknown_004536D0@BuildingClass@@QAEXPAVInfantryClass@@@Z",
-   "address": "004536d0"
+   "symbol": "?Tracking_Remove@HouseClass@@QAEXPAVTechnoClass@@@Z",
+   "address": "004ea800"
+  },
+  {
+   "symbol": "?Turret_Facing@TechnoClass@@UAE?AUUnknownFacingDir@@XZ",
+   "address": "004cddf0"
   },
   {
    "symbol": "?Unknown_004717B0@UnknownCellClass@@QAEPAVBuildingClass@@XZ",
@@ -2633,10 +2713,6 @@
    "address": "006d8640"
   },
   {
-   "symbol": "?Unknown_006D9610@TechnoClass@@QAEXPAVAbstractClass@@@Z",
-   "address": "006d9610"
-  },
-  {
    "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
    "address": "006ecb90"
   },
@@ -2647,6 +2723,10 @@
   {
    "symbol": "?Unselect@ObjectClass@@UAEXXZ",
    "address": "005d2df0"
+  },
+  {
+   "symbol": "?UpdateThreatInCell@TechnoClass@@QAEXPAVAbstractClass@@@Z",
+   "address": "006d9610"
   },
   {
    "symbol": "?Value@TechnoClass@@UAEHXZ",
@@ -2665,8 +2745,16 @@
    "address": "006cd810"
   },
   {
+   "symbol": "?What_Action@FootClass@@UAEHPBVCell@@_N1@Z",
+   "address": "004cc650"
+  },
+  {
    "symbol": "?What_Am_I@AbstractClass@@UAGHXZ",
    "address": "0040ffb0"
+  },
+  {
+   "symbol": "?What_Weapon_Should_I_Use@TechnoClass@@UAEHPAVAbstractClass@@@Z",
+   "address": "006c1380"
   },
   {
    "symbol": "?Who_Can_Build_Me@ObjectClass@@UAEPAVBuildingClass@@_N0@Z",
@@ -2705,14 +2793,6 @@
    "address": "004cd9b0"
   },
   {
-   "symbol": "?unknown_4ea800@HouseClass@@QAEXPAVTechnoClass@@@Z",
-   "address": "004ea800"
-  },
-  {
-   "symbol": "?unknown_4ea970@HouseClass@@QAEXPAVTechnoClass@@@Z",
-   "address": "004ea970"
-  },
-  {
    "symbol": "?unknown_5025c0@InfantryClass@@QAEXXZ",
    "address": "005025c0"
   },
@@ -2727,10 +2807,6 @@
   {
    "symbol": "?unknown_6d1510@TechnoClass@@QAEXPBXHPBUPoint2D@@PBVRect@@HHHHHHPBUShapeFileStruct@@HU2@H@Z",
    "address": "006d1510"
-  },
-  {
-   "symbol": "?unknown_6d3040@TechnoClass@@QAEXPAV1@@Z",
-   "address": "006d3040"
   },
   {
    "symbol": "?unknown_6d6e50@TechnoClass@@QAEXPAVAbstractClass@@@Z",
@@ -2905,10 +2981,6 @@
    "address": "006c8ef0"
   },
   {
-   "symbol": "?unknown_slot162@TechnoClass@@UAE?AUUnknownFacingDir@@XZ",
-   "address": "004cddf0"
-  },
-  {
    "symbol": "?unknown_slot163@TechnoClass@@UAE_NXZ",
    "address": "006cd670"
   },
@@ -2953,10 +3025,6 @@
    "address": "006d8110"
   },
   {
-   "symbol": "?unknown_slot174@TechnoClass@@UAEHPAVAbstractClass@@@Z",
-   "address": "006c1380"
-  },
-  {
    "symbol": "?unknown_slot175@TechnoClass@@UAEHPAVObjectClass@@@Z",
    "address": "006c15d0"
   },
@@ -2971,18 +3039,6 @@
   {
    "symbol": "?unknown_slot180@TechnoClass@@UAE?AVCell@@H@Z",
    "address": "006d5800"
-  },
-  {
-   "symbol": "?unknown_slot182@TechnoClass@@UAEHPAVAbstractClass@@PAVCell@@@Z",
-   "address": "006d3eb0"
-  },
-  {
-   "symbol": "?unknown_slot183@TechnoClass@@UAE?AUUnknownFacingDir@@XZ",
-   "address": "006d3f80"
-  },
-  {
-   "symbol": "?unknown_slot184@TechnoClass@@UAEPAVInfantryTypeClass@@XZ",
-   "address": "006d30b0"
   },
   {
    "symbol": "?unknown_slot185@TechnoClass@@UAE_NXZ",
@@ -3045,16 +3101,8 @@
    "address": "004ca6f0"
   },
   {
-   "symbol": "?unknown_slot200@TechnoClass@@UAE_NHPAVAbstractClass@@00@Z",
-   "address": "006cc2a0"
-  },
-  {
    "symbol": "?unknown_slot202@FootClass@@UAE_NXZ",
    "address": "004cd080"
-  },
-  {
-   "symbol": "?unknown_slot207@TechnoClass@@UAEXXZ",
-   "address": "006d7e00"
   },
   {
    "symbol": "?unknown_slot208@TechnoClass@@UAE_NPAVObjectClass@@@Z",
@@ -3107,14 +3155,6 @@
   {
    "symbol": "?unknown_slot220@TechnoClass@@UAEXPAVAbstractClass@@@Z",
    "address": "006c9af0"
-  },
-  {
-   "symbol": "?unknown_slot221@TechnoClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z",
-   "address": "006ca890"
-  },
-  {
-   "symbol": "?unknown_slot222@FootClass@@UAE_NPAVHouseClass@@H@Z",
-   "address": "004ca7d0"
   },
   {
    "symbol": "?unknown_slot223@TechnoClass@@UAEXABUCoordStruct@@M@Z",
@@ -3181,16 +3221,8 @@
    "address": "006c2990"
   },
   {
-   "symbol": "?unknown_slot239@TechnoClass@@UAEXXZ",
-   "address": "006c8290"
-  },
-  {
    "symbol": "?unknown_slot241@FootClass@@UAE?AUCoordStruct@@XZ",
    "address": "004c71b0"
-  },
-  {
-   "symbol": "?unknown_slot242@TechnoClass@@UAE_NXZ",
-   "address": "006d1460"
   },
   {
    "symbol": "?unknown_slot243@FootClass@@UAEX_NH@Z",
@@ -3243,14 +3275,6 @@
   {
    "symbol": "?unknown_slot254@TechnoClass@@UAEHH@Z",
    "address": "006d79d0"
-  },
-  {
-   "symbol": "?unknown_slot255@TechnoClass@@UAEXPAV1@@Z",
-   "address": "006d8680"
-  },
-  {
-   "symbol": "?unknown_slot257@TechnoClass@@UAE_NXZ",
-   "address": "006d4890"
   },
   {
    "symbol": "?unknown_slot259@FootClass@@UAEXH@Z",
@@ -3313,14 +3337,6 @@
    "address": "004cdad0"
   },
   {
-   "symbol": "?unknown_slot274@TechnoClass@@UAE_NXZ",
-   "address": "006d8f20"
-  },
-  {
-   "symbol": "?unknown_slot275@TechnoClass@@UAE_NXZ",
-   "address": "006d8f40"
-  },
-  {
    "symbol": "?unknown_slot276@FootClass@@UAE_NXZ",
    "address": "004cdbd0"
   },
@@ -3335,10 +3351,6 @@
   {
    "symbol": "?unknown_slot279@FootClass@@UAE_NXZ",
    "address": "004cdd70"
-  },
-  {
-   "symbol": "?unknown_slot27@FootClass@@UAEHPBVCell@@_N1@Z",
-   "address": "004cc650"
   },
   {
    "symbol": "?unknown_slot282@FootClass@@UAE_NXZ",
@@ -3389,20 +3401,12 @@
    "address": "004cd730"
   },
   {
-   "symbol": "?unknown_slot303@FootClass@@UAEHXZ",
-   "address": "004c9b10"
-  },
-  {
    "symbol": "?unknown_slot306@FootClass@@UAEXN@Z",
    "address": "004c2df0"
   },
   {
    "symbol": "?unknown_slot309@FootClass@@UAE_NPAVAbstractClass@@@Z",
    "address": "004cc4d0"
-  },
-  {
-   "symbol": "?unknown_slot31@ObjectClass@@UAE_NXZ",
-   "address": "00423d30"
   },
   {
    "symbol": "?unknown_slot40@ObjectClass@@UAE?AUCoordStruct@@XZ",
@@ -3439,10 +3443,6 @@
   {
    "symbol": "?unknown_slot66@TechnoClass@@UAEXABUPoint2D@@ABVRect@@@Z",
    "address": "006c2c40"
-  },
-  {
-   "symbol": "?unknown_slot67@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z",
-   "address": "004c9bc0"
   },
   {
    "symbol": "?unknown_slot74@ObjectClass@@UAEXH@Z",

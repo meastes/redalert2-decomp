@@ -554,7 +554,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
             LinkedTo->Mark(1);
         } else {
             LinkedTo->unknown_slot306(1.0);
-            int speed = LinkedTo->unknown_slot303();
+            int speed = LinkedTo->Current_Speed();
             UnknownFacingDir desired = Direction(LinkedTo->Center_Coord(), unknown_24);
             Do_Turn(desired);
             if (LinkedTo->unknown_2e0.Is_Rotating()) {
@@ -654,7 +654,7 @@ bool __stdcall MechLocomotionClass::Is_Moving_Now()
     if (LinkedTo->unknown_2e0.Is_Rotating()) {
         return true;
     }
-    if (Is_Moving() && unknown_24 != unknown_geometry_l && LinkedTo->unknown_slot303() > 0) {
+    if (Is_Moving() && unknown_24 != unknown_geometry_l && LinkedTo->Current_Speed() > 0) {
         return true;
     }
     return false;

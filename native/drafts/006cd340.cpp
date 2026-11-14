@@ -76,9 +76,9 @@ bool TechnoClass::unknown_slot186()
         case 6:
             return false /* NATIVE: 0x0045EC40 is Leaf_45ec40::get, which returns false (decompile) */;
         case 15:
-            if (!((InfantryClass *)this)->unknown_5090b0()
-                || (!((InfantryClass *)this)->unknown_5090d0() && ((InfantryClass *)this)->Sequence != 0x1f)) {
-                return ((InfantryClass *)this)->unknown_5090a0();
+            if (!((InfantryClass *)this)->Has_Undeploy_Delay()
+                || (!((InfantryClass *)this)->Is_Deploying() && ((InfantryClass *)this)->Sequence != 0x1f)) {
+                return ((InfantryClass *)this)->Is_Deployer();
             }
             break;
         default:

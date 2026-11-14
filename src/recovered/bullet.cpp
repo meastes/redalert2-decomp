@@ -447,7 +447,7 @@ void BulletClass::AI()
                         if (building == (BuildingClass *)payback || building->Type->LaserFence && building->unknown_4ec >= 8) {
                             hit = false;
                         }
-                        if (building->unknown_slot31()) {
+                        if (building->Considered_Vehicle()) {
                             hit = false;
                         }
                         if (payback != 0 && payback->House->Is_Ally(building)) {
@@ -646,7 +646,7 @@ extern ConvertClass *bullet_normal_drawer;
 extern ConvertClass *bullet_anim_drawer;
 Matrix3D __fastcall Bullet_Isometric_View();
 int __fastcall Bullet_Height_Pixel(int height);
-void BulletClass::unknown_slot67(Point2D const &point, Rect const &clip)
+void BulletClass::Draw_It(Point2D const &point, Rect const &clip)
 {
     if ((unknown_id_source_a3d290->unknown_000 & 0x1000) && Map.Is_Fogged(CoordStruct(Coord))) return;
     if (Type->Inviso || SpawnNextAnim) return;
@@ -1031,7 +1031,7 @@ void BulletClass::unknown_func_462110(CoordStruct const &position)
             if (object->unknown_38 != 0) object->unknown_38->Unknown_00435FB0();
         }
     } else if (WH->MakesDisguise) {
-        if (Owner != 0) Owner->unknown_slot255(static_cast<TechnoClass *>(Target));
+        if (Owner != 0) Owner->DisguiseAs(static_cast<TechnoClass *>(Target));
     } else if (WH->NukeMaker) {
         unknown_func_463c50();
     } else {

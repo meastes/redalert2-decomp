@@ -35,7 +35,7 @@ void Unknown_005173A0()
 #include "shared/techno.hpp"
 
 // 0x0041B380 TechnoClass slot 193 (+0x304): `xor al, al; ret`, false.
-bool TechnoClass::unknown_slot193()
+bool TechnoClass::Is_Renovator()
 {
     return false;
 }

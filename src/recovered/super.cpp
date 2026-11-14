@@ -719,7 +719,7 @@ void SuperClass::Place(Cell const &cell, bool player)
             for (int index = 0; index < 9; index++) {
                 Cell const *offset = &unknown_cells_abd7a0[index];
                 for (ObjectClass *object = Map[cell + *offset].OccupierPtr; object != 0; object = object->unknown_30) {
-                    object->unknown_slot82(Rules->IronCurtainDuration);
+                    object->IronCurtain(Rules->IronCurtainDuration);
                 }
             }
             if (player) {

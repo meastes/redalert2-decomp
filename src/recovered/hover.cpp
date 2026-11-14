@@ -280,12 +280,12 @@ unsigned char __stdcall HoverLocomotionClass::Process()
         if (!LinkedTo->unknown_7d) return false;
 
         int height = LinkedTo->Get_Height();
-        int speed = (int)(LinkedTo->unknown_slot303() * unknown_50);
+        int speed = (int)(LinkedTo->Current_Speed() * unknown_50);
         UnknownFacingDir direction = Hover_Direction_004fbfc0(LinkedTo->Center_Coord(), unknown_24);
 
         if (speed == 0 && Is_Complete_Turn(unknown_30.Current(), direction, UnknownFacingDir((unsigned short)0))) {
             unknown_4fed20();
-            speed = (int)(LinkedTo->unknown_slot303() * unknown_50);
+            speed = (int)(LinkedTo->Current_Speed() * unknown_50);
         }
 
         if (speed >= Hover_Distance_004fbfc0(Object_Coord(LinkedTo), unknown_24)) {

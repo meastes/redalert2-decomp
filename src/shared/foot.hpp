@@ -155,7 +155,7 @@ public:
     virtual void AI();  // slot 23 0x004C8FF0
     virtual int unknown_slot25(bool arg1, int arg2);  // slot 25 0x004C8FA0
     virtual void *Get_Image_Data();  // slot 26 0x004CD650
-    virtual int unknown_slot27(Cell const *cell, bool arg2, bool arg3);  // slot 27 0x004CC650
+    virtual int What_Action(Cell const *cell, bool arg2, bool arg3);  // slot 27 0x004CC650
     virtual int unknown_slot28(ObjectClass *object, bool arg2);  // slot 28 0x004CC740
     virtual bool Can_Demolish();  // slot 37 0x004C8940
     virtual bool Is_Moving_Onto_Bridge(TechnoClass *techno);  // slot 46 0x004CC4B0
@@ -163,10 +163,10 @@ public:
     virtual bool Unlimbo(CoordStruct const *coord, int dir);  // slot 53 0x004C5E40
     virtual void unknown_slot54(bool arg1);  // slot 54 0x004C8220
     virtual void Delete_Me();  // slot 60 0x004CCE40
-    virtual void unknown_slot67(Point2D const &point, Rect const &window);  // slot 67 0x004C9BC0
+    virtual void Draw_It(Point2D const &point, Rect const &window);  // slot 67 0x004C9BC0
     virtual bool Mark(int arg1);  // slot 71 0x004C2E60
     virtual bool unknown_slot78(int arg1, ObjectClass *arg2, bool arg3);  // slot 78 0x004C61A0
-    virtual void unknown_slot82(int arg1);  // slot 82 0x004CD3F0
+    virtual void IronCurtain(int arg1);  // slot 82 0x004CD3F0
     virtual int Take_Damage(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);  // slot 86 0x004C6000
     virtual void unknown_slot93(int arg1);  // slot 93 0x004C7220
     virtual int Receive_Message(RadioClass *radio, int message, AbstractClass *&param);  // slot 95 0x004C7B30
@@ -187,7 +187,7 @@ public:
     virtual bool unknown_slot171(CoordStruct const &coord);  // slot 171 0x004C2EF0
     virtual int unknown_slot176();  // slot 176 0x004C9930
     virtual void unknown_slot194();  // slot 194 0x004CCDF0
-    virtual bool unknown_slot222(HouseClass *house, int arg2);  // slot 222 0x004CA7D0
+    virtual bool Captured(HouseClass *house, int arg2);  // slot 222 0x004CA7D0
     virtual bool unknown_slot224(int arg1);  // slot 224 0x004CD4B0
     virtual CoordStruct unknown_slot241();  // slot 241 0x004C71B0
     virtual void unknown_slot243(bool arg1, int arg2);  // slot 243 0x004CA8B0
@@ -210,7 +210,7 @@ public:
     virtual void RemoveGunner(int arg1);                     // slot 281 0x004CD070 (ret 4)
     virtual bool unknown_slot282();                             // slot 282 0x004CAFE0
     virtual bool unknown_slot283();                             // slot 283 0x004CA820
-    virtual bool unknown_slot284() { return false; }            // slot 284 (kept copy 0x0041B460)
+    virtual bool Deploy_To_Fire() { return false; }            // slot 284 (kept copy 0x0041B460)
     virtual void unknown_slot285(Cell cell);              // slot 285 0x004CD0C0 (sensor cells entered)
     virtual void unknown_slot286(Cell cell);              // slot 286 0x004CD250 (ret 4)
     virtual CoordStruct unknown_slot287();                      // slot 287 0x004C8AC0 (slot 40's coordinate)
@@ -267,7 +267,7 @@ public:
     virtual TechnoClass *unknown_slot300(TechnoTypeClass *type, int arg2, int arg3, int *score);   // slot 300 0x004CD760
     virtual TechnoClass *unknown_slot301(TechnoTypeClass *type, int arg2, int arg3);  // slot 301 0x004CD730
     virtual void Overrun_Square(Cell const &cell, bool threaten) {}  // slot 302 (kept copy 0x0041B530)
-    virtual int unknown_slot303();                              // slot 303 0x004C9B10 (a speed; LocomotionClass::Apparent_Speed)
+    virtual int Current_Speed();                              // slot 303 0x004C9B10 (a speed; LocomotionClass::Apparent_Speed)
     virtual void unknown_slot304();
     virtual void unknown_slot305(int arg1) {}                   // slot 305 (kept copy 0x0041B540)
     virtual void unknown_slot306(double value);                 // slot 306 0x004C2DF0 (clamped to 0..1)

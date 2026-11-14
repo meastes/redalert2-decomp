@@ -176,7 +176,7 @@ bool __stdcall FlyLocomotionClass::Process()
     if (!unknown_51 && !unknown_50 && unknown_40 >= 1.0 && unknown_38 == 0) {
         unknown_38 = LinkedTo->Techno_Type_Class()->Flight_Level();
     }
-    if (LinkedTo->Strength > 0 && !unknown_51 && !unknown_50 && LinkedTo->unknown_slot122()) {
+    if (LinkedTo->Strength > 0 && !unknown_51 && !unknown_50 && LinkedTo->Ready_To_Commence()) {
         LinkedTo->Commence();
     }
     Rotation_AI();
@@ -457,7 +457,7 @@ void FlyLocomotionClass::unknown_4bcd50()
             int damage=LinkedTo->Strength;
             if (damage==0) {
                 Cell cell=Cell(coord);
-                LinkedTo->unknown_6d7e20(0);
+                LinkedTo->FireDeathWeapon(0);
                 int sound;
                 if (Map[cell].unknown_ec!=2) {
                     sound=LinkedTo->Techno_Type_Class()->ImpactLandSound;

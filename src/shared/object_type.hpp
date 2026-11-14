@@ -124,7 +124,7 @@ public:
     // 0x0041C300, the first type unit in link order); 28 from AnimType.cpp
     // (0x00426760).
     virtual CoordStruct Coord_Fixup(CoordStruct const &coord) const { return coord; }  // slot 27
-    virtual int unknown_slot28() const;                                  // slot 28 (-1)
+    virtual int Get_Ownable() const;                                  // slot 28 (-1)
     virtual int Max_Pips() const;                                  // 0x005D5D00 (0)
     virtual CoordStruct Pixel_Dimensions() const;                          // 0x005D5D10 (10, 10, 10)
     virtual CoordStruct Lepton_Dimensions() const;                          // 0x005D5D30
@@ -132,7 +132,7 @@ public:
     // take two and one stack arguments).
     virtual bool Create_And_Place(Cell const &cell, HouseClass *house) const = 0;   // slot 32
     virtual int Cost_Of(HouseClass *house) const;                          // 0x005D5D60 (0)
-    virtual int unknown_slot34() const;                                  // 0x005D5D70 (0)
+    virtual int Time_To_Build() const;                                  // 0x005D5D70 (0)
     virtual ObjectClass *Create_One_Of(HouseClass *house) const = 0;   // slot 35
     virtual Cell const *Occupy_List(int arg1) const;            // 0x005D5D90
     // The house's building that can produce this type (RA1:

@@ -452,7 +452,7 @@ void MissionClass::QueueMission(int mission, bool commence)
         MissionQueue = mission;
         unknown_a4 = false;
     }
-    if (commence && unknown_slot122()) {
+    if (commence && Ready_To_Commence()) {
         Commence();
     }
 }
@@ -620,7 +620,7 @@ int MissionClass::Timer_Value() const
 }
 
 
-// void ObjectClass::unknown_slot67(Point2D const &point, Rect const &window) (0x00595120): an empty
+// void ObjectClass::Draw_It(Point2D const &point, Rect const &window) (0x00595120): an empty
 // inline virtual of shared/object.hpp whose kept copy is Mission.cpp's;
 // no source of its own.
 

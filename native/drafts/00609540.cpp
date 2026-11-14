@@ -110,7 +110,7 @@ void ParticleClass::unknown_func_609540()
                     if (building->Type->LaserFence && building->unknown_4ec >= 8) {
                         blocked = false;
                     }
-                    if (building->unknown_slot31()) {
+                    if (building->Considered_Vehicle()) {
                         blocked = false;
                     }
                 }

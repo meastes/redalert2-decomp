@@ -262,8 +262,8 @@ public:
     int AI_Infantry();                                     // 0x004EA1B0 (RA's AI_Infantry: picks unknown_5544 from the teams' needs)
     int AI_Aircraft();                                     // 0x004EA4D0 (RA's AI_Aircraft: picks unknown_5548)
     void unknown_4ea7f0(TechnoClass *object); // proposedacceptedLeafownership/typecorrection,0x004EA7F0
-    void unknown_4ea800(TechnoClass *techno);              // 0x004EA800 (AircraftClass/InfantryClass destructors)
-    void unknown_4ea970(TechnoClass *techno);              // 0x004EA970 (AircraftClass::Init)
+    void Tracking_Remove(TechnoClass *techno);              // 0x004EA800 (AircraftClass/InfantryClass destructors)
+    void Tracking_Add(TechnoClass *techno);              // 0x004EA970 (AircraftClass::Init)
     void Update_Present_Super_Weapons();                            // 0x004F4B20 (BuildingClass destructor, for a building with a usable super weapon)
     // The first unit type of the list this house can own (0x004EF6F0; the
     // multiplayer base unit from Rules BaseUnit, Create_Units 0x00660320).

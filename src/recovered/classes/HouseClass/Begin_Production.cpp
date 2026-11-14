@@ -62,7 +62,7 @@ int HouseClass::Begin_Production(int kind,int index,bool naval,bool resume)
             bool suspended=factory->unknown_6c;
             factory->Start_Production_004B9670(onhold);
             if (!suspended && unknown_game_mode_a3d298 && unknown_134) {
-                int duration=factory->Object->Techno_Type_Class()->unknown_slot34();
+                int duration=factory->Object->Techno_Type_Class()->Time_To_Build();
                 int stage=(int)(((unsigned)unknown_a3d568*(unsigned)unknown_max_ahead_a3d560/60)*54)/duration;
                 if (stage>=53) stage=53;
                 if (was_suspended) factory->Stage=stage;

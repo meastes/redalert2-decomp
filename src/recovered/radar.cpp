@@ -622,7 +622,7 @@ int RTacticalClass::Action(unsigned flags, unsigned &key)
             } else if (object) {
                 action = Unknown_0051A690(0, object)->unknown_slot28(object, false);
             } else {
-                action = Unknown_0051A690(&cell, 0)->unknown_slot27(&cell, false, false);
+                action = Unknown_0051A690(&cell, 0)->What_Action(&cell, false, false);
             }
             switch (action) {
             case 1: case 2: case 3: case 5: case 6: case 9: case 0x10: case 0x14: case 0x1A: case 0x25: case 0x26: case 0x29: case 0x41:
@@ -1437,7 +1437,7 @@ void RadarClass::Plot_Radar_Pixel(Point2D const &point)
     }
     if(tech) {
         HouseClass *owner=tech->House;
-        if(tech->unknown_slot48()) owner=tech->unknown_slot51(false);
+        if(tech->unknown_slot48()) owner=tech->GetDisguiseHouse(false);
         int color;
         if(owner) color=Build_Hicolor_Pixel(owner->unknown_55e9.Red,owner->unknown_55e9.Green,owner->unknown_55e9.Blue);
         else color=Fetch_Scheme_By_Name("LightGrey",1)->unknown_color_0x330;
@@ -1482,8 +1482,8 @@ void RadarClass::Render_Tracked_Objects()
                 unknown_1270[i] |= bit;
                 ColorScheme *scheme = ColorSchemes[tech->House->ColorSchemeIndex];
                 if (tech->unknown_slot48()) {
-                    if (tech->unknown_slot51(false) != 0) {
-                        scheme = ColorSchemes[tech->unknown_slot51(false)->ColorSchemeIndex];
+                    if (tech->GetDisguiseHouse(false) != 0) {
+                        scheme = ColorSchemes[tech->GetDisguiseHouse(false)->ColorSchemeIndex];
                     } else {
                         scheme = Fetch_Scheme_By_Name("LightGrey", 1);
                     }

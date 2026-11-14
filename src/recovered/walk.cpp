@@ -521,7 +521,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
         return;
     }
     LinkedTo->unknown_slot306(1.0);
-    int speed = LinkedTo->unknown_slot303();
+    int speed = LinkedTo->Current_Speed();
     LinkedTo->unknown_5a1 = false;
     UnknownFacingDir face = Direction(LinkedTo->Center_Coord(), unknown_28);
     Do_Turn(face);

@@ -35,7 +35,7 @@ struct UnknownUnitHouseType {
     DynamicVectorClass<UnitTypeClass *> unknown_168;    // +0x168
 };
 struct UnknownUnitHouse {
-    void unknown_4ea970(UnitClass *unit);   // 0x004EA970 (also BuildingClass::Init)
+    void Tracking_Add(UnitClass *unit);   // 0x004EA970 (also BuildingClass::Init)
     char unknown_000[0x34];
     UnknownUnitHouseType *unknown_34;       // +0x34
     char unknown_038[0x207 - 0x38];
@@ -85,21 +85,21 @@ public:
     virtual int Size_Of() const { return sizeof(UnitClass); }         // slot 12 0x0070A280 (inline)
     virtual void Compute_CRC(WWCRCEngine &crc) const;                 // slot 13 0x00707DF0
     virtual void AI();                                                // slot 23 0x006FB100
-    virtual int unknown_slot27(Cell const *cell, bool arg2, bool arg3);         // slot 27 0x007041F0
+    virtual int What_Action(Cell const *cell, bool arg2, bool arg3);         // slot 27 0x007041F0
     virtual int unknown_slot28(ObjectClass *object, bool arg2);                 // slot 28 0x00703BD0
-    virtual bool unknown_slot31();                                    // slot 31 0x00709A00
+    virtual bool Considered_Vehicle();                                    // slot 31 0x00709A00
     virtual ObjectTypeClass *Class_Of() const;                        // slot 33 0x00705020
     virtual wchar_t const *unknown_slot35();                                 // slot 35 0x0070A0E0
-    virtual bool unknown_slot49(HouseClass *house);                            // slot 49 0x00709D50
-    virtual ObjectTypeClass *unknown_slot50(bool arg1);                        // slot 50 0x00709BB0
-    virtual HouseClass *unknown_slot51(bool arg1);                         // slot 51 0x00709BF0
+    virtual bool IsDisguisedAs(HouseClass *house);                            // slot 49 0x00709D50
+    virtual ObjectTypeClass *GetDisguise(bool arg1);                        // slot 50 0x00709BB0
+    virtual HouseClass *GetDisguiseHouse(bool arg1);                         // slot 51 0x00709BF0
     virtual bool Limbo();                                     // slot 52 0x007078F0
     virtual bool Unlimbo(CoordStruct const *coord, int dir);                   // slot 53 0x006FC940
     virtual void Record_The_Kill(TechnoClass *techno);                            // slot 55 0x00707ED0
     virtual void Set_Occupy_Bit(CoordStruct const &coord);                             // slot 58 0x00707980
     virtual void Clear_Occupy_Bit(CoordStruct const &coord);                             // slot 59 0x007079E0
     virtual bool Render(Rect *bounds, bool arg2, bool arg3);  // slot 63 0x006FF350
-    virtual void unknown_slot67(Point2D const &point, Rect const &window);                  // slot 67 0x00700E70
+    virtual void Draw_It(Point2D const &point, Rect const &window);                  // slot 67 0x00700E70
     virtual bool unknown_slot77(int arg1, Cell const *arg2, Cell const *arg3, bool arg4);  // slot 77 0x006FD610
     virtual bool unknown_slot78(int arg1, ObjectClass *arg2, bool arg3);        // slot 78 0x006FD5A0
     virtual int Take_Damage(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);  // slot 86 0x006FCA30
@@ -107,7 +107,7 @@ public:
     virtual void unknown_slot93(int arg1);                            // slot 93 0x006FE610
     virtual int Receive_Message(RadioClass *radio, int message, AbstractClass *&param);         // slot 95 0x006FC1F0
     virtual int Can_Enter_Cell(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5);   // slot 101 0x00703040
-    virtual bool unknown_slot122();                                   // slot 122 0x00707A40
+    virtual bool Ready_To_Commence();                                   // slot 122 0x00707A40
     virtual int Do_MISSION_ATTACK();                                    // slot 126 0x00707F50
     virtual int Do_MISSION_GUARD();                                    // slot 129 0x00704440
     virtual int Do_MISSION_GUARD_AREA();                                    // slot 130 0x00707940
@@ -117,8 +117,8 @@ public:
     virtual int Do_MISSION_UNLOAD();                                    // slot 137 0x00701580
     virtual int Do_MISSION_REPAIR();                                    // slot 141 0x00704B10
     virtual int Do_MISSION_PATROL();                                    // slot 145 0x007046E0
-    virtual bool unknown_slot159();                                   // slot 159 0x00707950
-    virtual UnknownFacingDir unknown_slot162()                        // slot 162 0x0070A2E0 (inline: the turret or body facing)
+    virtual bool Is_Ready_To_Move();                                   // slot 159 0x00707950
+    virtual UnknownFacingDir Turret_Facing()                        // slot 162 0x0070A2E0 (inline: the turret or body facing)
     {
         if (Type->Turret) {
             return unknown_2f8.Current();
@@ -127,24 +127,24 @@ public:
     }
     virtual double unknown_slot165();                                 // slot 165 0x00705030
     virtual int unknown_slot166();                                    // slot 166 0x00704A20
-    virtual int unknown_slot182(AbstractClass *object, Cell *cell);          // slot 182 0x00704730
-    virtual UnknownFacingDir unknown_slot183();                             // slot 183 0x00704BB0
-    virtual InfantryTypeClass *unknown_slot184();                     // slot 184 0x00704B00
+    virtual int Desired_Load_Dir(AbstractClass *object, Cell *cell);          // slot 182 0x00704730
+    virtual UnknownFacingDir Fire_Direction();                             // slot 183 0x00704BB0
+    virtual InfantryTypeClass *Crew_Type();                     // slot 184 0x00704B00
     virtual bool unknown_slot201();                                   // slot 201 0x0070A240 (inline in the original: unknown_5c0 != -1 or the TechnoClass copy, called out of line; ours inlines it)
     virtual int unknown_slot218(AbstractClass *target, int weapon, bool check_range);        // slot 218 0x00704C00
     virtual AbstractClass *unknown_slot219(int arg1, CoordStruct const *coord, bool arg3);        // slot 219 0x00706A10
-    virtual BulletClass *unknown_slot221(AbstractClass *target, int arg2);                  // slot 221 0x00704ED0
-    virtual bool unknown_slot222(HouseClass *house, int arg2);                  // slot 222 0x007099A0
-    virtual void unknown_slot239();                                    // slot 239 0x006FBB40
-    virtual void unknown_slot255(TechnoClass *techno);                           // slot 255 0x00709C70
-    virtual void unknown_slot256();                                   // slot 256 0x00709D20
+    virtual BulletClass *Fire_At(AbstractClass *target, int arg2);                  // slot 221 0x00704ED0
+    virtual bool Captured(HouseClass *house, int arg2);                  // slot 222 0x007099A0
+    virtual void Reload();                                    // slot 239 0x006FBB40
+    virtual void DisguiseAs(TechnoClass *techno);                           // slot 255 0x00709C70
+    virtual void ClearDisguise();                                   // slot 256 0x00709D20
     virtual void Assign_Destination(AbstractClass *target, bool immediate);                 // slot 260 0x007053F0
     virtual bool unknown_slot261(bool arg1, bool arg2);                 // slot 261 0x006FD630
-    virtual bool unknown_slot274();                                   // slot 274 0x0070A260 (inline in the original: a jump to TechnoClass's copy, which ours inlines)
-    virtual bool unknown_slot275();                                   // slot 275 0x0070A270 (as slot 274)
+    virtual bool CanUseWaypoint();                                   // slot 274 0x0070A260 (inline in the original: a jump to TechnoClass's copy, which ours inlines)
+    virtual bool CanAttackOnTheMove();                                   // slot 275 0x0070A270 (as slot 274)
     virtual void ReceiveGunner(int arg1);                           // slot 280 0x00709A20
     virtual void RemoveGunner(int arg1);                           // slot 281 0x00709AE0
-    virtual bool unknown_slot284();                                   // slot 284 0x006FBBF0
+    virtual bool Deploy_To_Fire();                                   // slot 284 0x006FBBF0
     virtual void Overrun_Square(Cell const &cell, bool threaten);  // slot 302 0x00705160
     virtual void unknown_slot304();                                   // slot 304 0x00705070
     virtual bool INoticeSink_Unknown(int code, int arg);              // INoticeSink (+8) slot 0 0x00709890 (vtable 0x007ADDD4)

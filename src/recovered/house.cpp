@@ -1285,7 +1285,7 @@ void HouseClass::unknown_func_4e4ef0()
 
 void HouseClass::Attacked(TechnoClass *source)
 {
-    if (source != 0 && source->unknown_slot31()) {
+    if (source != 0 && source->Considered_Vehicle()) {
         return;
     }
     bool is_player = Is_Player_Control();
@@ -2881,7 +2881,7 @@ bool HouseClass::AI_Raise_Money_004e90f0(int urgency)
         if (building) {
             char level=building->unknown_5c6;
             if (level!=0) {
-                int cost=((BuildingTypeClass *)building->unknown_4c0[level-1])->unknown_slot46(this,true);
+                int cost=((BuildingTypeClass *)building->unknown_4c0[level-1])->GetRefund(this,true);
                 Balance+=cost;
                 building->unknown_44c860();
                 unknown_5668=true;
@@ -3254,20 +3254,20 @@ int HouseClass::AI_Aircraft()
 }
 
 
-// void HouseClass::unknown_4ea800(TechnoClass *techno) (0x004EA800)
+// void HouseClass::Tracking_Remove(TechnoClass *techno) (0x004EA800)
 // A techno leaves the house's counts (AircraftClass/InfantryClass destructors):
 // clears its +0x324 flag and, unless its type is flagged (+0x202), lowers the
 // count of its kind (+0x228 units/infantry, +0x238, +0x230, +0x234; an
 // unoccupied naval vehicle also lowers +0x22C) and the per-type counter
 // (+0x5420..+0x5450) of its type's array index.
 
-void HouseClass::unknown_4ea800(TechnoClass *techno)
+void HouseClass::Tracking_Remove(TechnoClass *techno)
 {
     techno->unknown_324 = false;
     if (!techno->Techno_Type_Class()->unknown_202) {
         switch (techno->Kind_Of()) {
         case 6:
-            if (techno->unknown_slot31()) {
+            if (techno->Considered_Vehicle()) {
                 unknown_228--;
             } else {
                 CurBuildings--;
@@ -3294,7 +3294,7 @@ void HouseClass::unknown_4ea800(TechnoClass *techno)
 }
 
 
-// void HouseClass::unknown_4ea970(TechnoClass *techno) (0x004EA970)
+// void HouseClass::Tracking_Add(TechnoClass *techno) (0x004EA970)
 // A techno joins the house's counts (AircraftClass::Init; the counterpart of
 // 0x004EA800): sets its +0x324 flag and, unless its type is flagged (+0x202),
 // raises the count of its kind (+0x228 units, +0x230 buildings, +0x238,
@@ -3302,13 +3302,13 @@ void HouseClass::unknown_4ea800(TechnoClass *techno)
 // (+0x5420..+0x5450) and the kind's tracker (+0x268..+0x1A80) of its type's
 // array index.
 
-void HouseClass::unknown_4ea970(TechnoClass *techno)
+void HouseClass::Tracking_Add(TechnoClass *techno)
 {
     techno->unknown_324 = true;
     if (!techno->Techno_Type_Class()->unknown_202) {
         switch (techno->Kind_Of()) {
         case 6: {
-            if (techno->unknown_slot31()) {
+            if (techno->Considered_Vehicle()) {
                 unknown_228++;
             } else {
                 CurBuildings++;
@@ -7312,7 +7312,7 @@ void HouseClass::Cheer()
     for (int index = 0; index < count; index++) {
         TechnoClass *techno = Technos[index];
         if (techno != 0 && techno->House == this) {
-            techno->unknown_slot205();
+            techno->Cheer();
         }
     }
     Voc_Play(Rules->CheerSound, 1.0f, 0x2000, 0);

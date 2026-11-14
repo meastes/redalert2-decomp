@@ -238,7 +238,7 @@ void ProgressScreenClass::Load_Shape(char const *filename, void const *image, Co
         if (Shape != 0) {
             if (image != 0) {
                 Image = image;
-                Unknown_00515A80(image, false);
+                Load_Title_Page(image, false);
             }
             Drawer = drawer;
         }

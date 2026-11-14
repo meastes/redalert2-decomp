@@ -103,7 +103,7 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "?unknown_slot67@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z",
+   "symbol": "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z",
    "entry": "00433380",
    "body_bytes": 1510,
    "padding_bytes": 10
@@ -428,8 +428,7 @@
    "address": "007b3f38",
    "bytes": 16,
    "kind": "rtti",
-   "section": 64,
-   "known_difference": "hierarchy ambiguous bit"
+   "section": 64
   },
   {
    "symbol": "??_R4BuildingLightClass@@6BIPersistStream@@@",
@@ -690,8 +689,7 @@
    "symbol": "??_R3BuildingLightClass@@8",
    "address": "007b3f38",
    "bytes": 16,
-   "kind": "rtti",
-   "known_difference": "hierarchy ambiguous bit"
+   "kind": "rtti"
   },
   {
    "symbol": "??_R4BuildingLightClass@@6BIPersistStream@@@",
@@ -897,6 +895,10 @@
    "address": "005d4b10"
   },
   {
+   "symbol": "?Considered_Vehicle@ObjectClass@@UAE_NXZ",
+   "address": null
+  },
+  {
    "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z",
    "address": "006a29d0"
   },
@@ -947,6 +949,14 @@
   {
    "symbol": "?Fire_Out@ObjectClass@@UAEXXZ",
    "address": "005d2d10"
+  },
+  {
+   "symbol": "?GetDisguise@ObjectClass@@UAEPAVObjectTypeClass@@_N@Z",
+   "address": null
+  },
+  {
+   "symbol": "?GetDisguiseHouse@ObjectClass@@UAEPAVHouseClass@@_N@Z",
+   "address": null
   },
   {
    "symbol": "?GetSizeMax@AbstractClass@@UAGJPATULARGE_INTEGER@@@Z",
@@ -1017,8 +1027,16 @@
    "address": "00410210"
   },
   {
+   "symbol": "?IronCurtain@ObjectClass@@UAEXH@Z",
+   "address": null
+  },
+  {
    "symbol": "?IsDirty@AbstractClass@@UAGJXZ",
    "address": "004101f0"
+  },
+  {
+   "symbol": "?IsDisguisedAs@ObjectClass@@UAE_NPAVHouseClass@@@Z",
+   "address": null
   },
   {
    "symbol": "?Is_Ally@HouseClass@@QBE_NPBVTechnoClass@@@Z",
@@ -1209,6 +1227,10 @@
    "address": "005d2ce0"
   },
   {
+   "symbol": "?What_Action@ObjectClass@@UAEHPBVCell@@_N1@Z",
+   "address": "005d2bb0"
+  },
+  {
    "symbol": "?What_Am_I@AbstractClass@@UAGHXZ",
    "address": "0040ffb0"
   },
@@ -1297,16 +1319,8 @@
    "address": null
   },
   {
-   "symbol": "?unknown_slot27@ObjectClass@@UAEHPBVCell@@_N1@Z",
-   "address": "005d2bb0"
-  },
-  {
    "symbol": "?unknown_slot28@ObjectClass@@UAEHPAV1@_N@Z",
    "address": "005d2ba0"
-  },
-  {
-   "symbol": "?unknown_slot31@ObjectClass@@UAE_NXZ",
-   "address": null
   },
   {
    "symbol": "?unknown_slot35@ObjectClass@@UAEPBGXZ",
@@ -1341,18 +1355,6 @@
    "address": null
   },
   {
-   "symbol": "?unknown_slot49@ObjectClass@@UAE_NPAVHouseClass@@@Z",
-   "address": null
-  },
-  {
-   "symbol": "?unknown_slot50@ObjectClass@@UAEPAVObjectTypeClass@@_N@Z",
-   "address": null
-  },
-  {
-   "symbol": "?unknown_slot51@ObjectClass@@UAEPAVHouseClass@@_N@Z",
-   "address": null
-  },
-  {
    "symbol": "?unknown_slot54@ObjectClass@@UAEX_N@Z",
    "address": "005d3c10"
   },
@@ -1383,10 +1385,6 @@
   {
    "symbol": "?unknown_slot80@ObjectClass@@UAE_NXZ",
    "address": "005d2e70"
-  },
-  {
-   "symbol": "?unknown_slot82@ObjectClass@@UAEXH@Z",
-   "address": null
   },
   {
    "symbol": "?unknown_slot83@ObjectClass@@UAE_NXZ",

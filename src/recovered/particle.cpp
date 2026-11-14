@@ -315,7 +315,7 @@ void ParticleClass::Gas_Behavior_AI()
                         if (building->Type->LaserFence && building->unknown_4ec >= 8) {
                             blocked = false;
                         }
-                        if (building->unknown_slot31()) {
+                        if (building->Considered_Vehicle()) {
                             blocked = false;
                         }
                     }
@@ -540,7 +540,7 @@ void ParticleClass::unknown_func_609540()
                     if (building->Type->LaserFence && building->unknown_4ec >= 8) {
                         blocked = false;
                     }
-                    if (building->unknown_slot31()) {
+                    if (building->Considered_Vehicle()) {
                         blocked = false;
                     }
                 }
@@ -615,7 +615,7 @@ void ParticleClass::Behavior_AI()
 }
 
 
-// void ParticleClass::unknown_slot67(Point2D const &point, Rect const &cliprect) (0x00609D10, slot 67)
+// void ParticleClass::Draw_It(Point2D const &point, Rect const &cliprect) (0x00609D10, slot 67)
 // Draws the particle (TibSun ParticleClass::Draw_It) at the screen point point
 // within the window cliprect, unless the frame rate is too low or it is hidden
 // under fog. Shape particles draw their frame lifted by their height, with
@@ -623,7 +623,7 @@ void ParticleClass::Behavior_AI()
 // one pixel blended along the type's colour list, dimmed by the alpha buffer
 // and hidden behind closer depth.
 
-void ParticleClass::unknown_slot67(Point2D const &point, Rect const &cliprect)
+void ParticleClass::Draw_It(Point2D const &point, Rect const &cliprect)
 {
     if (unknown_a6eb1c < Unknown_0053D840()) {
         return;

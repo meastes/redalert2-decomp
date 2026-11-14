@@ -503,5 +503,5 @@ int __stdcall LocomotionClass::State()
 
 int __stdcall LocomotionClass::Apparent_Speed()
 {
-    return LinkedTo->unknown_slot303();
+    return LinkedTo->Current_Speed();
 }

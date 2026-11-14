@@ -28,8 +28,8 @@ struct IsoTileImageStruct {
 
 class IsometricTileTypeClass : public AbstractClass {
 public:
-    virtual void unknown_slot24(); virtual void unknown_slot25(); virtual void unknown_slot26(); virtual void Coord_Fixup(); virtual void unknown_slot28(); virtual void Max_Pips();
-    virtual void Pixel_Dimensions(); virtual void Lepton_Dimensions(); virtual void Create_And_Place(); virtual void Cost_Of(); virtual void unknown_slot34(); 
+    virtual void unknown_slot24(); virtual void unknown_slot25(); virtual void unknown_slot26(); virtual void Coord_Fixup(); virtual void Get_Ownable(); virtual void Max_Pips();
+    virtual void Pixel_Dimensions(); virtual void Lepton_Dimensions(); virtual void Create_And_Place(); virtual void Cost_Of(); virtual void Time_To_Build(); 
 #ifdef RA2_MAP_COLLAPSE_CLIFF
     virtual class ObjectClass *Create_One_Of(class HouseClass *house) const;
 #else

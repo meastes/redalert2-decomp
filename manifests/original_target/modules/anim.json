@@ -139,7 +139,7 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "?unknown_slot67@AnimClass@@UAEXABUPoint2D@@ABVRect@@@Z",
+   "symbol": "?Draw_It@AnimClass@@UAEXABUPoint2D@@ABVRect@@@Z",
    "entry": "00420e50",
    "body_bytes": 1711,
    "padding_bytes": 1
@@ -2150,6 +2150,10 @@
    "address": "005d4b10"
   },
   {
+   "symbol": "?Considered_Vehicle@ObjectClass@@UAE_NXZ",
+   "address": "00423d30"
+  },
+  {
    "symbol": "?Create_ID@AbstractClass@@UAGXXZ",
    "address": "0040ffd0"
   },
@@ -2208,6 +2212,14 @@
   {
    "symbol": "?Free_Image@AnimTypeClass@@QAEXXZ",
    "address": "00426700"
+  },
+  {
+   "symbol": "?GetDisguise@ObjectClass@@UAEPAVObjectTypeClass@@_N@Z",
+   "address": "0041b2d0"
+  },
+  {
+   "symbol": "?GetDisguiseHouse@ObjectClass@@UAEPAVHouseClass@@_N@Z",
+   "address": "0041b2e0"
   },
   {
    "symbol": "?GetSizeMax@AbstractClass@@UAGJPATULARGE_INTEGER@@@Z",
@@ -2294,8 +2306,16 @@
    "address": "004790f0"
   },
   {
+   "symbol": "?IronCurtain@ObjectClass@@UAEXH@Z",
+   "address": "00423de0"
+  },
+  {
    "symbol": "?IsDirty@AbstractClass@@UAGJXZ",
    "address": "004101f0"
+  },
+  {
+   "symbol": "?IsDisguisedAs@ObjectClass@@UAE_NPAVHouseClass@@@Z",
+   "address": "00423db0"
   },
   {
    "symbol": "?Is_Inactive@ObjectClass@@UBE_NXZ",
@@ -2578,6 +2598,10 @@
    "address": "005d2ce0"
   },
   {
+   "symbol": "?What_Action@ObjectClass@@UAEHPBVCell@@_N1@Z",
+   "address": "005d2bb0"
+  },
+  {
    "symbol": "?What_Am_I@AbstractClass@@UAGHXZ",
    "address": "0040ffb0"
   },
@@ -2714,16 +2738,8 @@
    "address": "00423d20"
   },
   {
-   "symbol": "?unknown_slot27@ObjectClass@@UAEHPBVCell@@_N1@Z",
-   "address": "005d2bb0"
-  },
-  {
    "symbol": "?unknown_slot28@ObjectClass@@UAEHPAV1@_N@Z",
    "address": "005d2ba0"
-  },
-  {
-   "symbol": "?unknown_slot31@ObjectClass@@UAE_NXZ",
-   "address": "00423d30"
   },
   {
    "symbol": "?unknown_slot35@ObjectClass@@UAEPBGXZ",
@@ -2752,18 +2768,6 @@
   {
    "symbol": "?unknown_slot48@ObjectClass@@UAE_NXZ",
    "address": "00423da0"
-  },
-  {
-   "symbol": "?unknown_slot49@ObjectClass@@UAE_NPAVHouseClass@@@Z",
-   "address": "00423db0"
-  },
-  {
-   "symbol": "?unknown_slot50@ObjectClass@@UAEPAVObjectTypeClass@@_N@Z",
-   "address": "0041b2d0"
-  },
-  {
-   "symbol": "?unknown_slot51@ObjectClass@@UAEPAVHouseClass@@_N@Z",
-   "address": "0041b2e0"
   },
   {
    "symbol": "?unknown_slot54@ObjectClass@@UAEX_N@Z",
@@ -2796,10 +2800,6 @@
   {
    "symbol": "?unknown_slot80@ObjectClass@@UAE_NXZ",
    "address": "005d2e70"
-  },
-  {
-   "symbol": "?unknown_slot82@ObjectClass@@UAEXH@Z",
-   "address": "00423de0"
   },
   {
    "symbol": "?unknown_slot83@ObjectClass@@UAE_NXZ",

@@ -40,10 +40,10 @@ bool __stdcall TeleportLocomotionClass::Is_Moving()
 }
 
 
-// bool TeleportLocomotionClass::unknown_slot11() (0x006DFD30, IPersistStream-side slot 11)
+// bool TeleportLocomotionClass::Is_Stationary() (0x006DFD30, IPersistStream-side slot 11)
 // Not moving.
 
-bool TeleportLocomotionClass::unknown_slot11()
+bool TeleportLocomotionClass::Is_Stationary()
 {
     return Is_Moving() ? false : true;
 }
@@ -355,7 +355,7 @@ bool __stdcall TeleportLocomotionClass::Process()
 {
     int distance = 0;
     if (LinkedTo->unknown_205 && unknown_38 == 0 && LinkedTo->unknown_214 == 0) {
-        unknown_slot10();
+        Process_Delay();
         return false;
     }
     if (unknown_38 == 0 && LinkedTo->unknown_214 != 0) {
@@ -438,7 +438,7 @@ bool __stdcall TeleportLocomotionClass::Process()
         return false;
     }
     if (unknown_38 == 1) {
-        unknown_slot10();
+        Process_Delay();
         return false;
     }
     if (unknown_38 == 2) {
@@ -508,7 +508,7 @@ bool __stdcall TeleportLocomotionClass::Process()
         return false;
     }
     if (unknown_38 == 6) {
-        unknown_slot10();
+        Process_Delay();
         return false;
     }
     if (unknown_38 == 7) {
@@ -523,11 +523,11 @@ bool __stdcall TeleportLocomotionClass::Process()
 }
 
 
-// void __stdcall TeleportLocomotionClass::unknown_slot10() (0x006E16F0, IPersistStream-side slot 10)
+// void __stdcall TeleportLocomotionClass::Process_Delay() (0x006E16F0, IPersistStream-side slot 10)
 // When the warp timer has run out the linked object's +0x205 is cleared
 // and a running count at +0x38 advances.
 
-void __stdcall TeleportLocomotionClass::unknown_slot10()
+void __stdcall TeleportLocomotionClass::Process_Delay()
 {
     if (unknown_3c.Value() == 0) {
         LinkedTo->unknown_205 = false;

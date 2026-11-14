@@ -55,7 +55,7 @@ public:
     virtual int Kind_Of() const;
     virtual int Size_Of() const;
 
-    bool unknown_5090a0() const;            // 0x005090A0 (as shared/infantry.hpp; TeamClass 0x006BB8B0)
+    bool Is_Deployer() const;            // 0x005090A0 (as shared/infantry.hpp; TeamClass 0x006BB8B0)
 
     char unknown_098[0x5A8 - 0x98];         // TechnoClass/FootClass members
     InfantryTypeClass *Type;                // +0x5A8 (as shared/infantry.hpp; TeamClass 0x006B9BB0)

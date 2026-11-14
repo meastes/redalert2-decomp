@@ -330,7 +330,7 @@ void TunnelLocomotionClass::Process_Descending()
 {
     CoordStruct coord = LinkedTo->Coord;
     if (coord.Z > -0x100) {
-        int rate = (int)(LinkedTo->unknown_slot303() * Rules->unknown_20);
+        int rate = (int)(LinkedTo->Current_Speed() * Rules->unknown_20);
         if (rate <= 5) {
             rate = 5;
         }
@@ -395,7 +395,7 @@ void TunnelLocomotionClass::Process_Ascending()
     int ground = Map.Get_Height_GL(coord);
     if (coord.Z < ground) {
         int height = LinkedTo->Get_Height_AGL();
-        int rate = (int)(LinkedTo->unknown_slot303() * Rules->unknown_20);
+        int rate = (int)(LinkedTo->Current_Speed() * Rules->unknown_20);
         if (rate <= 5) {
             rate = 5;
         }

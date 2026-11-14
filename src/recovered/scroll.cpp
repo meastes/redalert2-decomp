@@ -175,7 +175,7 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool arg3)
         if (object != 0) {
             action = Unknown_0051A690(0, object)->unknown_slot28(object, false);
         } else {
-            action = Unknown_0051A690(&cell, 0)->unknown_slot27(&cell, arg3, false);
+            action = Unknown_0051A690(&cell, 0)->What_Action(&cell, arg3, false);
         }
     } else {
         bool visible = true;
@@ -214,7 +214,7 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool arg3)
         if (Map.unknown_11ae) {
             action = 0x22;
             if (object != 0 && object->Owning_House() != 0 && object->Owning_House()->Is_Player_Control()
-                    && object->Kind_Of() == 6 && object->CanBeSelected() && !object->unknown_slot31()) {
+                    && object->Kind_Of() == 6 && object->CanBeSelected() && !object->Considered_Vehicle()) {
                 BuildingTypeClass *type = ((BuildingClass *)object)->Type;
                 if (type->TogglePower && (type->PowerDrain_c6c > 0 || type->Powered)) {
                     action = 0x21;
@@ -253,7 +253,7 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool arg3)
         if (Map.unknown_11ad) {
             if (object != 0 && object->Owning_House() != 0 && object->Owning_House()->Is_Player_Control() && object->Can_Demolish()) {
                 if (object->Kind_Of() == 6) {
-                    action = object->unknown_slot31() ? 14 : 12;
+                    action = object->Considered_Vehicle() ? 14 : 12;
                 } else {
                     action = 13;
                 }

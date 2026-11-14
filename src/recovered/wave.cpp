@@ -481,10 +481,10 @@ bool WaveClass::Limbo()
 }
 
 
-// void WaveClass::unknown_slot67(Point2D const &point, Rect const &window) (0x00722530)
+// void WaveClass::Draw_It(Point2D const &point, Rect const &window) (0x00722530)
 // Draws the wave by its type unless both ends are hidden (tunnels).
 
-void WaveClass::unknown_slot67(Point2D const &point, Rect const &window)
+void WaveClass::Draw_It(Point2D const &point, Rect const &window)
 {
     if ((unknown_id_source_a3d290->unknown_000 & 0x1000) && Map.Is_Fogged(StartCoord) && Map.Is_Fogged(EndCoord)) {
         return;

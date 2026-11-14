@@ -98,7 +98,7 @@ public:
     virtual void Delete_Me();                                      // 0x00423070
     virtual bool Render(Rect *bounds, bool arg2, bool arg3);    // 0x00420E20
     virtual Cell const *Occupy_List(int arg1);                 // 0x00421520 (no cell: a local static)
-    virtual void unknown_slot67(Point2D const &point, Rect const &window);                    // 0x00420E50
+    virtual void Draw_It(Point2D const &point, Rect const &window);                    // 0x00420E50
     virtual bool Mark(int arg1);                              // 0x00421500
     virtual int Get_Height() const;                                // 0x004230E0
     virtual int unknown_slot116();                                      // 0x00421580 (new: bounce step)

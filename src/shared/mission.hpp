@@ -53,7 +53,7 @@ public:
     virtual void Override_Mission(int mission, AbstractClass *target, AbstractClass *destination);  // slot 119 0x00594D20 override
     virtual bool Restore_Mission();                             // slot 120 0x00594D80 restore the suspended mission
     virtual bool Has_Suspended_Mission() const;                       // slot 121 0x005950E0 has a suspended mission
-    virtual bool unknown_slot122() { return true; }             // slot 122 kept copy 0x004CDDE0
+    virtual bool Ready_To_Commence() { return true; }             // slot 122 kept copy 0x004CDDE0
     virtual int Do_MISSION_SLEEP();              // slot 123 (+0x1EC) 0x00594570 returns 450
     virtual int Do_MISSION_HARMLESS();              // slot 124 (+0x1F0) 0x00594580 returns 450
     virtual int Do_MISSION_AMBUSH();              // slot 125 (+0x1F4) 0x00594590 returns 450

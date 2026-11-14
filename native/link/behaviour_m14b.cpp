@@ -4,7 +4,7 @@
 
 // 0x00423D30 (ObjectClass slot 31, +0x7C): the shared leaf `return false`
 // (pass-6a decompile 00423d30: Leaf_423d30::get). Hunting units ask it.
-bool ObjectClass::unknown_slot31()
+bool ObjectClass::Considered_Vehicle()
 {
     return false;
 }

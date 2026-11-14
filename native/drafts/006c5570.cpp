@@ -23,8 +23,8 @@ static inline int Coord_Size(CoordStruct const &c)
 bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *object,int *value,int zone,CoordStruct const *coord)
 {
     TechnoClass *tech=static_cast<TechnoClass *>(object);
-    bool engineer=unknown_slot193();
-    int which=unknown_slot174(object);
+    bool engineer=Is_Renovator();
+    int which=What_Weapon_Should_I_Use(object);
     WeaponTypeClass *weapon=unknown_slot231(which)->WeaponType;
     if(!(method&0x18200) && unknown_slot217(object,which)==5) return false;
     if(object->unknown_70<=0 && Techno_Type_Class()->VHPScan==2) return false;
@@ -46,7 +46,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
         if(object->Kind_Of()==2 && Kind_Of()==1) {
             if(object->Get_Height_AGL()>0) return false;
             if(Map[object->Center_Coord()].Cell_Building()) return false;
-        } else if(Kind_Of()==1 && !object->unknown_slot31()) return false;
+        } else if(Kind_Of()==1 && !object->Considered_Vehicle()) return false;
     }
     if(unknown_id_source_a3d290->unknown_000&0x800) {
         ObjectTypeClass *type=object->Class_Of();
@@ -74,7 +74,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
     if(House->Is_Player_Control() && !tech->unknown_372 && !tech->unknown_373 && unknown_game_mode_a3d298==0 && object->Kind_Of()!=2) return false;
     if(object->Kind_Of()==6 && static_cast<BuildingClass *>(object)->Type->InvisibleInGame) return false;
     int otype=object->Kind_Of();
-    if(!((1<<otype)&mask) && (!(mask&2) || !object->unknown_slot31())) return false;
+    if(!((1<<otype)&mask) && (!(mask&2) || !object->Considered_Vehicle())) return false;
     TechnoTypeClass *tclass=object->Techno_Type_Class();
     if(!tclass->unknown_201) return false;
     if(unknown_game_mode_a3d298!=0 && tech->House->Type->MultiplayPassive) {
@@ -85,7 +85,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
         bool capture;
         if(!static_cast<BuildingClass *>(object)->Type->NeedsEngineer || !inf->Type->Engineer || tech->House==House) capture=false; else capture=true;
         bool occupy;
-        if(!inf->Type->Occupier || !static_cast<BuildingClass *>(object)->Unknown_00452EB0(this)) occupy=false; else occupy=true;
+        if(!inf->Type->Occupier || !static_cast<BuildingClass *>(object)->CanBeOccupiedBy(this)) occupy=false; else occupy=true;
         if(unknown_game_mode_a3d298==0 || defense || (!capture && !occupy)) return false;
     }
     if(tclass->unknown_202 && (object->Kind_Of()!=6 || tech->House->Type->MultiplayPassive)) {
@@ -96,11 +96,11 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
         bool capture;
         if(!static_cast<BuildingClass *>(object)->Type->NeedsEngineer || !inf->Type->Engineer || tech->House==House) capture=false; else capture=true;
         bool occupy;
-        if(!inf->Type->Occupier || !static_cast<BuildingClass *>(object)->Unknown_00452EB0(this)) occupy=false; else occupy=true;
+        if(!inf->Type->Occupier || !static_cast<BuildingClass *>(object)->CanBeOccupiedBy(this)) occupy=false; else occupy=true;
         if(unknown_game_mode_a3d298==0 || defense || (!capture && !occupy)) return false;
     }
     if(tclass->IsTrain && Kind_Of()==15 && static_cast<InfantryClass *>(this)->Type->VehicleThief) return false;
-    if(object->unknown_slot49(House) && !Techno_Type_Class()->DetectDisguise) {
+    if(object->IsDisguisedAs(House) && !Techno_Type_Class()->DetectDisguise) {
         if(!tech->unknown_184.Value()) return false;
         if(House->Is_Human_Player()) return false;
         int roll=unknown_id_source_a3d290->Random()(0,99);
@@ -113,7 +113,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
     if((method&0x200) && (otype!=6 || !static_cast<BuildingTypeClass *>(tclass)->Capturable)) return false;
     bool foot=false;
     if(this) foot=AbstractFlags.IsFoot;
-    if((!foot || !static_cast<FootClass *>(this)->Team) && House->Is_Human_Player() && !object->unknown_slot31() && otype==6) {
+    if((!foot || !static_cast<FootClass *>(this)->Team) && House->Is_Human_Player() && !object->Considered_Vehicle() && otype==6) {
         WeaponStruct *armed=tech->unknown_slot230();
         if((!armed || !armed->WeaponType || !object->Techno_Type_Class()->ThreatPosed) && !engineer) return false;
     }

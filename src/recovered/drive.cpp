@@ -341,7 +341,7 @@ bool __stdcall DriveLocomotionClass::Is_Moving_Now()
     if (LinkedTo->unknown_2e0.Is_Rotating()) {
         return true;
     }
-    if (Is_Moving() && unknown_40 != unknown_geometry_l && LinkedTo->unknown_slot303() > 0) {
+    if (Is_Moving() && unknown_40 != unknown_geometry_l && LinkedTo->Current_Speed() > 0) {
         return true;
     }
     return false;
@@ -807,7 +807,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
         LinkedTo->unknown_slot306(unknown_50);
     }
 
-    int current_speed = LinkedTo->unknown_slot303();
+    int current_speed = LinkedTo->Current_Speed();
 
     int actual;
     actual = unknown_4c + (just_started ? 0 : current_speed);
@@ -1331,7 +1331,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
     if (LinkedTo->unknown_79 ^ next.IsUnderBridge) {
         LinkedTo->unknown_57b = true;
     }
-    if (!LinkedTo->unknown_slot159()) {
+    if (!LinkedTo->Is_Ready_To_Move()) {
         return true;
     }
     if (!unknown_4a47c0((dest).As_Cell())) {

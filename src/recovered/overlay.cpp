@@ -712,5 +712,5 @@ void OverlayClass::unknown_func_5dc180()
 // Compiler-emitted from shared/overlay.hpp in this unit; no source of its own.
 
 
-// void OverlayClass::unknown_slot67(Point2D const &point, Rect const &window) (0x005DC2F0)
+// void OverlayClass::Draw_It(Point2D const &point, Rect const &window) (0x005DC2F0)
 // Compiler-emitted from shared/overlay.hpp in this unit; no source of its own.

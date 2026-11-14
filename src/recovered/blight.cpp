@@ -114,7 +114,7 @@ BuildingLightClass::~BuildingLightClass()
 }
 
 
-// void BuildingLightClass::unknown_slot67(Point2D const &point, Rect const &window) (0x00433380, slot 67)
+// void BuildingLightClass::Draw_It(Point2D const &point, Rect const &window) (0x00433380, slot 67)
 // Draws a building's search light: a spot light at the light's coordinate
 // sized by its distance from the owner, and, past the owner's reach, the two
 // edges of the beam from the owner's top to the points rotated either side of
@@ -131,7 +131,7 @@ BuildingLightClass::~BuildingLightClass()
 // Needs RA2_TPOINT3D_LENGTH_TIBSUN and RA2_RECT_CORNER_INLINE (defined at
 // line 1 of the unit's first row 0x00432DD0).
 
-void BuildingLightClass::unknown_slot67(Point2D const &point, Rect const &window)
+void BuildingLightClass::Draw_It(Point2D const &point, Rect const &window)
 {
     if (Behavior == 0 || Owner == 0 || Owner->Kind_Of() != 6) {
         return;

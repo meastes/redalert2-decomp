@@ -682,8 +682,8 @@
   },
   {
    "entry": "0x0041B380",
-   "name": "TechnoClass::unknown_slot193()",
-   "symbol": "__ZN11TechnoClass15unknown_slot193Ev",
+   "name": "TechnoClass::Is_Renovator()",
+   "symbol": "__ZN11TechnoClass12Is_RenovatorEv",
    "origin_class": "unmatched (skirmish path)",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -772,8 +772,8 @@
   },
   {
    "entry": "0x004C9BC0",
-   "name": "FootClass::unknown_slot67(Point2D const &, Rect const &)",
-   "symbol": "__ZN9FootClass14unknown_slot67ERK7Point2DRK4Rect",
+   "name": "FootClass::Draw_It(Point2D const &, Rect const &)",
+   "symbol": "__ZN9FootClass7Draw_ItERK7Point2DRK4Rect",
    "origin_class": "unmatched leaf (slot 67)",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -1278,7 +1278,7 @@
   },
   {
    "entry": "0x00423D30",
-   "name": "ObjectClass::unknown_slot31",
+   "name": "ObjectClass::Considered_Vehicle",
    "origin_class": "unmatched (leaf)",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -1748,7 +1748,7 @@
   },
   {
    "entry": "0x0041B3E0",
-   "name": "TechnoClass::unknown_slot205 (empty)",
+   "name": "TechnoClass::Cheer (empty)",
    "origin_class": "unmatched (leaf)",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -1818,7 +1818,7 @@
   },
   {
    "entry": "0x00423DB0",
-   "name": "ObjectClass::unknown_slot49",
+   "name": "ObjectClass::IsDisguisedAs",
    "origin_class": "unmatched",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -1828,7 +1828,7 @@
   },
   {
    "entry": "0x0041B2E0",
-   "name": "ObjectClass::unknown_slot51",
+   "name": "ObjectClass::GetDisguiseHouse",
    "origin_class": "unmatched",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -1958,7 +1958,7 @@
   },
   {
    "entry": "0x0041B2D0",
-   "name": "ObjectClass::unknown_slot50",
+   "name": "ObjectClass::GetDisguise",
    "origin_class": "unmatched",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -2018,7 +2018,7 @@
   },
   {
    "entry": "0x00423DE0",
-   "name": "ObjectClass::unknown_slot82",
+   "name": "ObjectClass::IronCurtain",
    "origin_class": "unmatched",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -2088,7 +2088,7 @@
   },
   {
    "entry": "0x00426760",
-   "name": "ObjectTypeClass::unknown_slot28",
+   "name": "ObjectTypeClass::Get_Ownable",
    "origin_class": "unmatched",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -2148,7 +2148,7 @@
   },
   {
    "entry": "0x0041B3D0",
-   "name": "TechnoClass::unknown_slot204",
+   "name": "TechnoClass::CanCheer",
    "origin_class": "unmatched",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -2178,7 +2178,7 @@
   },
   {
    "entry": "0x0041B430",
-   "name": "TechnoClass::unknown_slot256",
+   "name": "TechnoClass::ClearDisguise",
    "origin_class": "unmatched",
    "plan": "behaviour rewrite",
    "exact": false,

@@ -41,7 +41,7 @@ public:
     virtual ObjectTypeClass *Class_Of() const { return (ObjectTypeClass *)Type; }  // 0x00528240 slot 33 (inline)
     virtual bool Limbo();                                 // 0x00528190
     virtual bool Unlimbo(CoordStruct const *coord, int dir);   // 0x00528160
-    virtual void unknown_slot67(Point2D const &point, Rect const &window) {}              // 0x00528250 (inline)
+    virtual void Draw_It(Point2D const &point, Rect const &window) {}              // 0x00528250 (inline)
     virtual bool Mark(int arg1);                          // 0x00527A80
 
     IsometricTileTypeClass *Type;   // +0x98

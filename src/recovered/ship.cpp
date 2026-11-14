@@ -343,7 +343,7 @@ bool __stdcall ShipLocomotionClass::Is_Moving_Now()
     if (LinkedTo->unknown_2e0.Is_Rotating()) {
         return true;
     }
-    if (Is_Moving() && unknown_40 != unknown_geometry_l && LinkedTo->unknown_slot303() > 0) {
+    if (Is_Moving() && unknown_40 != unknown_geometry_l && LinkedTo->Current_Speed() > 0) {
         return true;
     }
     return false;
@@ -788,7 +788,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
         LinkedTo->unknown_slot306(unknown_50);
     }
 
-    int maxspeed = LinkedTo->unknown_slot303();
+    int maxspeed = LinkedTo->Current_Speed();
 
     int actual;
     actual = unknown_4c + (just_started ? 0 : maxspeed);
@@ -1313,7 +1313,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
     if (LinkedTo->unknown_79 ^ next.IsUnderBridge) {
         LinkedTo->unknown_57b = true;
     }
-    if (!LinkedTo->unknown_slot159()) {
+    if (!LinkedTo->Is_Ready_To_Move()) {
         return true;
     }
     if (!unknown_67a710((dest).As_Cell())) {

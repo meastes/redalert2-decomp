@@ -260,7 +260,7 @@ void TerrainClass::Set_Occupy_Bit(CoordStruct const &coord)
 }
 
 
-// void TerrainClass::unknown_slot67(Point2D const &point, Rect const &window) (0x006E3990, slot 67)
+// void TerrainClass::Draw_It(Point2D const &point, Rect const &window) (0x006E3990, slot 67)
 // Draws the terrain object (hypothesis: Draw_It) at the screen point point
 // within the window window: the frame follows the animation stage (crumbling
 // objects offset by their +0xB5 flag; a damaged static object shows frame
@@ -275,7 +275,7 @@ static inline bool Is_Animating(TerrainClass const *terrain)
     return terrain->Class->IsAnimated || terrain->unknown_b5;
 }
 
-void TerrainClass::unknown_slot67(Point2D const &point, Rect const &window)
+void TerrainClass::Draw_It(Point2D const &point, Rect const &window)
 {
     Cell where = unknown_slot104();
     CellClass &cell = Map_Cell(where);
@@ -595,7 +595,7 @@ bool TerrainClass::Render(Rect *bounds, bool forced, bool extras_only)
                 point.Y += unknown_rect_839630.Y - bounds->Y;
             }
 
-            unknown_slot67(point, *bounds);
+            Draw_It(point, *bounds);
             return true;
         }
     }

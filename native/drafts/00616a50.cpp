@@ -18,7 +18,7 @@ void __fastcall Planning_Unknown_616a50(TechnoClass *techno)
     PlanningNodeClass *first = token->Node_At(count - count);
     int members = first->Members.Count();
     for (int i = 0; i < members; i++) {
-        if (first->Members[i]->Owner->unknown_slot275()) {
+        if (first->Members[i]->Owner->CanAttackOnTheMove()) {
             for (int index = start; index < count; index++) {
                 token->Node_At(index)->unknown_611440();
             }

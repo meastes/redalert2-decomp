@@ -88,7 +88,7 @@ public:
     virtual void Set_Occupy_Bit(CoordStruct const &coord);              // 0x006E38F0 (marks the occupation bits)
     virtual void Clear_Occupy_Bit(CoordStruct const &coord);              // 0x006E3850 (clears them)
     virtual bool Render(Rect *bounds, bool arg2, bool arg3);           // 0x006E4430
-    virtual void unknown_slot67(Point2D const &point, Rect const &window);                    // 0x006E3990
+    virtual void Draw_It(Point2D const &point, Rect const &window);                    // 0x006E3990
     virtual void Editor_Draw_It(Point2D const &point, Rect const &window);                    // 0x006E3B40
     virtual bool Mark(int arg1);                              // 0x006E37E0
     virtual Rect Get_Render_Rect();                               // 0x006E4910

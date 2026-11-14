@@ -32,12 +32,12 @@ bool ObjectClass::unknown_slot48()
     return false;
 }
 // 0x00423DB0 slot 49 (a house argument): false.
-bool ObjectClass::unknown_slot49(HouseClass *house)
+bool ObjectClass::IsDisguisedAs(HouseClass *house)
 {
     return false;
 }
 // 0x0041B2E0 slot 51 (a bool argument): no house (0).
-HouseClass *ObjectClass::unknown_slot51(bool arg1)
+HouseClass *ObjectClass::GetDisguiseHouse(bool arg1)
 {
     return 0;
 }

@@ -777,7 +777,7 @@ bool TActionClass::unknown_technos_with_tag_to_house(HouseClass *house, ObjectCl
         TechnoClass *techno = Technos[index];
         if (techno->unknown_7d && techno->unknown_74 && !techno->unknown_76 && techno->unknown_34 != 0
             && techno->unknown_34->Is_Trigger_Attached(trigger)) {
-            techno->unknown_slot222(HouseClass::As_Pointer(Data.Value), 0);
+            techno->Captured(HouseClass::As_Pointer(Data.Value), 0);
             handled = true;
         }
     }
@@ -795,7 +795,7 @@ bool TActionClass::unknown_give_technos_to_house(HouseClass *house, ObjectClass 
     for (int index = 0; index < Technos.Count(); index++) {
         TechnoClass *techno = Technos[index];
         if (techno->House == house) {
-            techno->unknown_slot222(new_house, 0);
+            techno->Captured(new_house, 0);
             handled = true;
         }
     }
@@ -2053,7 +2053,7 @@ bool TActionClass::unknown_iron_curtain_at_waypoint(HouseClass *house, ObjectCla
         CellClass &target = Map[target_cell];
         ObjectClass *occupier = target.OccupierPtr;
         while (occupier != 0) {
-            occupier->unknown_slot82(Rules->IronCurtainDuration);
+            occupier->IronCurtain(Rules->IronCurtainDuration);
             occupier = occupier->unknown_30;
         }
     }

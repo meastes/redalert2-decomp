@@ -153,7 +153,7 @@ UnitClass::UnitClass(UnitTypeClass *type, HouseClass *house) :
     }
     unknown_194 = CDTimerClass<FrameTimerClass>(0);
     if (House) {
-        Unit_House_View(House)->unknown_4ea970(this);
+        Unit_House_View(House)->Tracking_Add(this);
     }
     TechnoClass::Init();
     if (Type) {
@@ -170,7 +170,7 @@ UnitClass::UnitClass(UnitTypeClass *type, HouseClass *house) :
             unknown_118.Set_Veteran(true);
         }
         if (Type->Gunner) {
-            unknown_6d83f0(0);
+            Set_Current_Weapon(0);
         }
     }
     unknown_object_index_abff58.Add_Index(Fetch_ID(), this);
@@ -198,7 +198,7 @@ UnitClass::~UnitClass()
             Team->Remove(this, -1, 0);
             Team = 0;
         }
-        House->unknown_4ea800(this);
+        House->Tracking_Remove(this);
         if (unknown_a40774 == 0) {
             while (Cargo.Object != 0) {
                 ObjectClass *passenger = Cargo.Detach_Object();
@@ -278,7 +278,7 @@ void UnitClass::AI()
             }
         }
     }
-    if (unknown_slot122()) Commence();
+    if (Ready_To_Commence()) Commence();
     FootClass::AI();
     if (Type->CanDisguise && !Type->PermaDisguise) UpdateDisguise();
     if (unknown_325) {
@@ -317,11 +317,11 @@ void UnitClass::AI()
             }
         }
         if (Type->SmallVisceroid || Type->LargeVisceroid) unknown_6fbf40();
-        unknown_slot239();
+        Reload();
         if (Type->Passengers > 0 && !unknown_2a8.Is_Count_Down_Complete() && Get_Mission() != 16 && unknown_slot149(17) != 1) {
             unknown_2a8.Count_Down(Type->DeployTime);
         }
-        if (unknown_slot122()) Commence();
+        if (Ready_To_Commence()) Commence();
         if (unknown_1b8 == 2 && unknown_5b4 != -1) Do_Shimmer();
         if ((Frame & 15) == 0 && (Mission == 11 || Mission == 5) && !House->Is_Human_Player() && MissionQueue == -1 && Strength < Type->MaxStrength && (!unknown_1b0 || Mission == 11) && !Type->Harvester && !Type->Weeder) {
             BuildingClass *repair_building = Unknown_00450F90(House, this);
@@ -538,26 +538,26 @@ void UnitClass::Unknown_006FAA30()
 }
 #endif
 
-// void UnitClass::unknown_slot239() (0x006FBB40, slot 239)
+// void UnitClass::Reload() (0x006FBB40, slot 239)
 // While a unit that cannot fire on the move is moving, keeps the timer at
 // +0x194 from running out (one frame more than it has left); then the
 // techno behaviour.
 
-void UnitClass::unknown_slot239()
+void UnitClass::Reload()
 {
     if (!Type->MobileFire && Locomotor.Checked()->Is_Moving() && unknown_194.Value() > 0) {
         unknown_194 = CDTimerClass<FrameTimerClass>(unknown_194.Value() + 1);
     }
-    TechnoClass::unknown_slot239();
+    TechnoClass::Reload();
 }
 
 
-// bool UnitClass::unknown_slot284() (0x006FBBF0, slot 284)
+// bool UnitClass::Deploy_To_Fire() (0x006FBBF0, slot 284)
 // True for DeployToFire types; for a type that deploys into a tick-tank
 // building, owned by a non-human house (0x004F52F0), with a unit at
 // +0x228: whether the cell here allows building (0x0047CDD0).
 
-bool UnitClass::unknown_slot284()
+bool UnitClass::Deploy_To_Fire()
 {
     if (Type->DeployToFire) {
         return true;
@@ -584,9 +584,9 @@ void UnitClass::unknown_6fbc90()
 {
     if (!unknown_228) return;
     if (!unknown_slot231(0)->WeaponType) return;
-    int weapon = unknown_slot174(unknown_228);
+    int weapon = What_Weapon_Should_I_Use(unknown_228);
     int action = unknown_slot218(unknown_228, weapon, 1);
-    if ((action == 0 || action == 2) && unknown_slot284()) {
+    if ((action == 0 || action == 2) && Deploy_To_Fire()) {
         QueueMission(16, false);
         return;
     }
@@ -611,7 +611,7 @@ void UnitClass::unknown_6fbc90()
             StageClass::Stage = Unit_Attack_Frames_007F8F2C[Dir_To_8(Direction_To(unknown_228))];
             StageClass::Set_Rate(5);
         }
-        unknown_slot221(unknown_228, weapon);
+        Fire_At(unknown_228, weapon);
         return;
     case 2:
         if (!Type->unknown_ba9 && Type->Turret) {
@@ -812,7 +812,7 @@ int UnitClass::Receive_Message(RadioClass *radio, int message, AbstractClass *&p
             unknown_5b9 = false;
             Scatter(unknown_geometry_l, true, false);
             QueueMission(10, false);
-            if (unknown_slot122()) Commence();
+            if (Ready_To_Commence()) Commence();
         }
         break;
     case 3:
@@ -959,7 +959,7 @@ passenger_removed:
             if (unknown_290 != -1) {
                 crew = new InfantryClass(InfantryTypes[unknown_290], House);
             } else {
-                InfantryTypeClass *crew_type = (InfantryTypeClass *)unknown_slot184();
+                InfantryTypeClass *crew_type = (InfantryTypeClass *)Crew_Type();
                 if (!crew_type) goto drop_crate;
                 crew = new InfantryClass(crew_type, House);
             }
@@ -1549,7 +1549,7 @@ void UnitClass::unknown_slot93(int reason)
         unknown_slot263(false,false,false,0);
         unknown_slot262(false,false,false,0);
         Map.Unknown_0054A550(Position_Coord_004f3f40(),0,unknown_1f4+3,0);
-        if (!unknown_5b9 && unknown_slot122()) Commence();
+        if (!unknown_5b9 && Ready_To_Commence()) Commence();
         if (Type->Harvester && Get_Mission()!=16 && Mission!=7 && MissionQueue!=7 && !unknown_5b9) {
             RadioClass *radio=Contact(0);
             if (radio && radio->What_Am_I()==6 && ((BuildingClass *)radio)->Type->Refinery) unknown_slot149(3);
@@ -1891,7 +1891,7 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
 {
     Point2D drawpoint=point;
     TechnoTypeClass *type=Type;
-    if (!unknown_slot245(unknown_player_house_a35db4)) type=static_cast<TechnoTypeClass *>(unknown_slot50(true));
+    if (!unknown_slot245(unknown_player_house_a35db4)) type=static_cast<TechnoTypeClass *>(GetDisguise(true));
     int frame=unknown_430 % (int)type->unknown_b0.unknown_04->unknown_frame_count;
     Rect cliprect=window;
     Surface *old_surface=unknown_surface_83995c;
@@ -2031,7 +2031,7 @@ plain:
 }
 #endif
 
-// void UnitClass::unknown_slot67(Point2D const &point, Rect const &window) (0x00700E70, slot 67)
+// void UnitClass::Draw_It(Point2D const &point, Rect const &window) (0x00700E70, slot 67)
 // TibSun UnitClass::Draw_It.
 bool Unknown_0051FC50();
 bool Unknown_0051FC60();
@@ -2049,7 +2049,7 @@ inline CoordStruct Move_Coord_00700e70(CoordStruct const &start, UnknownFacingDi
     return CoordStruct((int)(start.X + unknown_cos_4ba4d0(radians) * distance), (int)(start.Y - unknown_sin_4ba480(radians) * distance), start.Z);
 }
 
-void UnitClass::unknown_slot67(Point2D const &input, Rect const &window)
+void UnitClass::Draw_It(Point2D const &input, Rect const &window)
 {
     static ShapeFileStruct const *harvesting_shape = (ShapeFileStruct const *)MixFileClass::Retrieve("OREGATH.SHP");
 
@@ -2106,7 +2106,7 @@ void UnitClass::unknown_slot67(Point2D const &input, Rect const &window)
         }
         ObjectTypeClass *type = Type;
         if (!unknown_slot245(unknown_player_a35db4)) {
-            type = unknown_slot50(true);
+            type = GetDisguise(true);
         }
         if (unknown_574 == -1) {
             if (type->unknown_206) {
@@ -2123,7 +2123,7 @@ void UnitClass::unknown_slot67(Point2D const &input, Rect const &window)
                 (ShapeFileStruct const *)MixFileClass::Retrieve("FLAGFLY.SHP"), Frame % 14, raw_point, window, 0xa00,
                 0, 0, 0, brightness, 0, 0, Point2D(0, 0));
         }
-        FootClass::unknown_slot67(raw_point, window);
+        FootClass::Draw_It(raw_point, window);
         if (unknown_314.Value() != 0) {
             unknown_6cc020();
         }
@@ -2209,7 +2209,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                     return 10;
                 }
                 int passengers=Cargo.Count;
-                int facing=unknown_slot182(0,&cell);
+                int facing=Desired_Load_Dir(0,&cell);
                 if (passengers && cell!=unknown_geometry_k) {
                     if (unknown_6d83e0()) {
                         if (passengers==1) unknown_5cc=0;
@@ -2312,7 +2312,7 @@ int UnitClass::Do_MISSION_UNLOAD()
         unknown_slot261(false,true);
         unknown_5b9=false;
         if (Locomotor.Checked()->Is_Moving()) Stop_Driver();
-        if (unknown_slot122()) Commence();
+        if (Ready_To_Commence()) Commence();
         return 1;
     }
     int current_dir=Dir_To_256(unknown_2e0.Current());
@@ -2336,10 +2336,10 @@ int UnitClass::Do_MISSION_UNLOAD()
                     unknown_5b9=false;
                     if (unknown_494 && MissionQueue!=-1 && MissionQueue!=10) {
                         if (Locomotor.Checked()->Is_Moving()) Stop_Driver();
-                        if (unknown_slot122()) Commence();
+                        if (Ready_To_Commence()) Commence();
                     } else {
                         QueueMission(10,false);
-                        if (unknown_slot122()) { if (HasAnyLink()) unknown_slot149(3);Commence(); }
+                        if (Ready_To_Commence()) { if (HasAnyLink()) unknown_slot149(3);Commence(); }
                     }
                 } else {
                     BuildingClass *building=(BuildingClass *)Map[unknown_slot104()+AdjacentCell[6]].Cell_Building();
@@ -2349,10 +2349,10 @@ int UnitClass::Do_MISSION_UNLOAD()
                     unknown_5b9=false;
                     if (unknown_494 && MissionQueue!=-1 && MissionQueue!=10) {
                         if (Locomotor.Checked()->Is_Moving()) Stop_Driver();
-                        if (unknown_slot122()) Commence();
+                        if (Ready_To_Commence()) Commence();
                     } else {
                         QueueMission(10,false);
-                        if (unknown_slot122()) { if (HasAnyLink()) unknown_slot149(3);Commence(); }
+                        if (Ready_To_Commence()) { if (HasAnyLink()) unknown_slot149(3);Commence(); }
                     }
                 }
                 break;
@@ -2859,7 +2859,7 @@ int UnitClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellClass
                         if (!unknown_slot231(0)->WeaponType && !Type->IsTrain) return 7;
                         switch (occupant->Kind_Of()) {
                         case 36: {
-                            int which=unknown_slot174(occupant);
+                            int which=What_Weapon_Should_I_Use(occupant);
                             WeaponTypeClass *weapon=unknown_slot231(which)->WeaponType;
                             if (weapon==0 || weapon->Warhead==0 || !weapon->Warhead->Wood) return 7;
                         }
@@ -2930,7 +2930,7 @@ int UnitClass::unknown_slot28(ObjectClass *object, bool arg2)
     }
     if (unknown_6c16f0(-1) < 0 && House->Is_Player_Control() && action != 4) {
         if (House->Is_Ally((TechnoClass *)object)) {
-            if (object->unknown_slot31() && object != this && object->Not_Underground()) {
+            if (object->Considered_Vehicle() && object != this && object->Not_Underground()) {
                 if (object->Kind_Of() != 2 || Map[object->Center_Coord()].Cell_Building() == 0) {
                     if (object->Health_Ratio() < Rules->unknown_1360) {
                         action = 0x1d;
@@ -3037,8 +3037,8 @@ int UnitClass::unknown_slot28(ObjectClass *object, bool arg2)
         action = 0;
     }
     if (action == 2) {
-        if (object->unknown_slot48() && object->unknown_slot51(true) == 0) {
-            if (object->unknown_slot50(true)->Kind_Of() == 0x15) {
+        if (object->unknown_slot48() && object->GetDisguiseHouse(true) == 0) {
+            if (object->GetDisguise(true)->Kind_Of() == 0x15) {
                 action = 1;
             }
         }
@@ -3049,7 +3049,7 @@ int UnitClass::unknown_slot28(ObjectClass *object, bool arg2)
 }
 
 
-// int UnitClass::unknown_slot27(Cell const *where, bool arg2, bool arg3) (0x007041F0, slot 27)
+// int UnitClass::What_Action(Cell const *where, bool arg2, bool arg3) (0x007041F0, slot 27)
 // The action for a cell (hypothesis: What_Action): arg1 points at the
 // cell, arg2 asks to look through the fog. Only for player-controlled
 // units. Starts from the foot's answer (an unarmed unit's 5 becomes 59);
@@ -3069,13 +3069,13 @@ struct UnknownUnitOverlayTypeView {
 };
 // The height a bridge adds (0x00AD057C).
 
-int UnitClass::unknown_slot27(Cell const *where, bool arg2, bool arg3)
+int UnitClass::What_Action(Cell const *where, bool arg2, bool arg3)
 {
     if (!House->Is_Player_Control()) {
         return 0;
     }
     CellClass *cell = &Map[*where];
-    int action = FootClass::unknown_slot27(where, arg2, arg3);
+    int action = FootClass::What_Action(where, arg2, arg3);
     if (unknown_6c16f0(-1) < 0 && House->Is_Player_Control() && action == 5) {
         action = 59;
     }
@@ -3238,7 +3238,7 @@ static inline UnknownFacingDir &_Direction(UnknownFacingDir &dir, ObjectClass *f
     return dir.Direction(from->Center_Coord(), to->Center_Coord());
 }
 
-int UnitClass::unknown_slot182(AbstractClass *object, Cell *cell)
+int UnitClass::Desired_Load_Dir(AbstractClass *object, Cell *cell)
 {
     FacingType face = FACING_N;
     int faceto;
@@ -3363,12 +3363,12 @@ void UnitClass::APC_Open_Door()
 }
 
 
-// InfantryTypeClass *UnitClass::unknown_slot184() (0x00704B00, slot 184)
+// InfantryTypeClass *UnitClass::Crew_Type() (0x00704B00, slot 184)
 // The TechnoClass behaviour.
 
-InfantryTypeClass *UnitClass::unknown_slot184()
+InfantryTypeClass *UnitClass::Crew_Type()
 {
-    return TechnoClass::unknown_slot184();
+    return TechnoClass::Crew_Type();
 }
 
 
@@ -3394,15 +3394,15 @@ int UnitClass::Do_MISSION_REPAIR()
 }
 
 
-// UnknownFacingDir UnitClass::unknown_slot183() (0x00704BB0, slot 183)
+// UnknownFacingDir UnitClass::Fire_Direction() (0x00704BB0, slot 183)
 // The turret's current facing for a turreted type, otherwise the techno's.
 
-UnknownFacingDir UnitClass::unknown_slot183()
+UnknownFacingDir UnitClass::Fire_Direction()
 {
     if (Type->Turret) {
         return unknown_2f8.Current();
     }
-    return TechnoClass::unknown_slot183();
+    return TechnoClass::Fire_Direction();
 }
 
 
@@ -3426,14 +3426,14 @@ int UnitClass::unknown_slot218(AbstractClass *target, int weapon, bool check_ran
     if (action == 0 || action == 2) {
         CoordStruct position = Coord;
         bool usable_land = Map[position].Can_Build_Here();
-        if (Type->DeployToFire && unknown_slot284() && !usable_land) return 11;
+        if (Type->DeployToFire && Deploy_To_Fire() && !usable_land) return 11;
     }
     if (action == 0) {
         if (unknown_370 && Contact_With_Whom(0)->Kind_Of() == 6) return 6;
         WeaponTypeClass *weapon_type = unknown_slot231(weapon)->WeaponType;
         if (unknown_6c16f0(-1) < 0) {
             TechnoClass *object = As_Techno_0040dbd0(target);
-            if (!object || !object->unknown_slot31() || object->Health_Ratio() >= Rules->unknown_1360) return 5;
+            if (!object || !object->Considered_Vehicle() || object->Health_Ratio() >= Rules->unknown_1360) return 5;
         }
         if (!Type->MobileFire && unknown_494) return 7;
         if ((weapon_type->unknown_106 || weapon_type->unknown_105) && unknown_494) return 7;
@@ -3455,7 +3455,7 @@ int UnitClass::unknown_slot218(AbstractClass *target, int weapon, bool check_ran
 }
 
 
-// BulletClass *UnitClass::unknown_slot221(AbstractClass *target, int arg2) (0x00704ED0, slot 221: Fire)
+// BulletClass *UnitClass::Fire_At(AbstractClass *target, int arg2) (0x00704ED0, slot 221: Fire)
 // target is the target, arg2 the weapon index; answers the bullet. Without a
 // weapon nothing. For the primary weapon, notes whether the burst's firing
 // sync frame is pending. Unless slot 218 refuses, fires through the techno;
@@ -3464,7 +3464,7 @@ int UnitClass::unknown_slot218(AbstractClass *target, int weapon, bool check_ran
 // synchronized, updates scalable bullets, and for DisguiseWhenStill types
 // restarts the +0x184 timer with the weapon's +0x118 delay.
 
-BulletClass *UnitClass::unknown_slot221(AbstractClass *target, int arg2)
+BulletClass *UnitClass::Fire_At(AbstractClass *target, int arg2)
 {
     BulletClass *bullet = 0;
     WeaponTypeClass *weapon = unknown_slot231(arg2)->WeaponType;
@@ -3487,7 +3487,7 @@ BulletClass *UnitClass::unknown_slot221(AbstractClass *target, int arg2)
         }
     }
     if (!unknown_slot218(target, arg2, 1)) {
-        bullet = TechnoClass::unknown_slot221(target, arg2);
+        bullet = TechnoClass::Fire_At(target, arg2);
         if (bullet) {
             if (Type->Ammo > 0 && unknown_254 < Type->Ammo && !Type->ManualReload) {
                 unknown_6c8300();
@@ -3620,7 +3620,7 @@ void UnitClass::Overrun_Square(Cell const &where, bool threaten)
                 ObjectClass *next = object->unknown_30;
                 unknown_372 = infantry->unknown_372;
                 unknown_slot54(false);
-                unknown_slot222(infantry->House, 1);
+                Captured(infantry->House, 1);
                 object->Delete_Me();
                 object = next;
             } else {
@@ -4215,7 +4215,7 @@ void __fastcall UnitClass::Read_INI(CCINIClass &ini)
                         unit->unknown_70 = unit->Strength;
                         if (unknown_game_mode_a3d298 == 0 || unit->House->Unknown_004F52F0()) {
                             unit->QueueMission(mission, false);
-                            if (unit->unknown_slot122()) unit->Commence();
+                            if (unit->Ready_To_Commence()) unit->Commence();
                         } else {
                             unit->unknown_slot261(false, true);
                         }
@@ -4308,7 +4308,7 @@ bool UnitClass::unknown_707170(TechnoClass *target)
             && (!House->Unknown_004F52F0() || Rules->unknown_142f || Type->AutoCrush)
             && House->unknown_c8 != 2
             && (House->Unknown_004F52F0() || House->unknown_194 >= Rules->unknown_10b0)) {
-            if (target->unknown_slot49(House)) {
+            if (target->IsDisguisedAs(House)) {
                 return false;
             }
             return true;
@@ -4451,10 +4451,10 @@ int UnitClass::Do_MISSION_GUARD_AREA()
 }
 
 
-// bool UnitClass::unknown_slot159() (0x00707950, slot 159)
+// bool UnitClass::Is_Ready_To_Move() (0x00707950, slot 159)
 // True when the state at +0x2A8 is in none of its three active phases.
 
-bool UnitClass::unknown_slot159()
+bool UnitClass::Is_Ready_To_Move()
 {
     if (unknown_2a8.Is_Count_Up_Active() || unknown_2a8.Is_Count_Down_Active() || unknown_2a8.Is_Count_Up_Complete()) {
         return false;
@@ -4499,7 +4499,7 @@ void UnitClass::Clear_Occupy_Bit(CoordStruct const &coord)
 }
 
 
-// bool UnitClass::unknown_slot122() (0x00707A40, slot 122)
+// bool UnitClass::Ready_To_Commence() (0x00707A40, slot 122)
 // Whether the unit may start its deploy state (hypothesis): never in
 // missions 6/21 or with +0x5B9; while busy (moving, outside missions 5/1,
 // or flagged +0xA4) only when queued for mission 7; the +0x2A8 state must
@@ -4513,7 +4513,7 @@ struct UnknownUnitBuildingView : TechnoClass {
     BuildingTypeClass *Type;                // +0x418
 };
 
-bool UnitClass::unknown_slot122()
+bool UnitClass::Ready_To_Commence()
 {
     if (Mission == 6 || Mission == 21 || unknown_5b9) {
         return false;
@@ -4904,7 +4904,7 @@ bool UnitClass::INoticeSink_Unknown(int code, int arg)
         if (!Type->BalloonHover) {
             Explode();
         } else {
-            unknown_6d7e20(0);
+            FireDeathWeapon(0);
         }
         Delete_Me();
         return true;
@@ -4913,32 +4913,32 @@ bool UnitClass::INoticeSink_Unknown(int code, int arg)
 }
 
 
-// bool UnitClass::unknown_slot222(HouseClass *house, int arg2) (0x007099A0, slot 222)
+// bool UnitClass::Captured(HouseClass *house, int arg2) (0x007099A0, slot 222)
 // house is the new owner (hypothesis: a change of owner). Nothing for the current
 // owner; otherwise clears +0x5B8, passes the change on to the unit at
 // +0x5B0 (which keeps it, flagged at its +0x5B8), then the foot behaviour
 // with arg2 forced to 1.
 
-bool UnitClass::unknown_slot222(HouseClass *house, int arg2)
+bool UnitClass::Captured(HouseClass *house, int arg2)
 {
     if (house != House) {
         unknown_5b8 = false;
         UnitClass *unit = (UnitClass *)unknown_5b0;
         if (unit) {
-            unit->unknown_slot222(house, 1);
+            unit->Captured(house, 1);
             unknown_5b0 = unit;
             unit->unknown_5b8 = true;
         }
-        return FootClass::unknown_slot222(house, 1);
+        return FootClass::Captured(house, 1);
     }
     return false;
 }
 
 
-// bool UnitClass::unknown_slot31() (0x00709A00, slot 31)
+// bool UnitClass::Considered_Vehicle() (0x00709A00, slot 31)
 // True unless the type is NonVehicle.
 
-bool UnitClass::unknown_slot31()
+bool UnitClass::Considered_Vehicle()
 {
     return !Type->NonVehicle;
 }
@@ -4963,13 +4963,13 @@ void UnitClass::ReceiveGunner(int arg1)
         unknown_208 = object;
         object->unknown_24 = (int)this;
         from->unknown_208 = 0;
-        unknown_6d83f0(7);
+        Set_Current_Weapon(7);
         if (running) {
             unknown_310++;
             unknown_244 = CDTimerClass<FrameTimerClass>(unknown_slot187(7));
         }
     }
-    unknown_6d83f0(from->Techno_Type_Class()->IFVMode);
+    Set_Current_Weapon(from->Techno_Type_Class()->IFVMode);
 }
 
 
@@ -4999,15 +4999,15 @@ void UnitClass::RemoveGunner(int arg1)
             to->unknown_244 = CDTimerClass<FrameTimerClass>(to->unknown_slot187(0));
         }
     }
-    unknown_6d83f0(0);
+    Set_Current_Weapon(0);
 }
 
 
-// ObjectTypeClass *UnitClass::unknown_slot50(bool arg1) (0x00709BB0, slot 50)
+// ObjectTypeClass *UnitClass::GetDisguise(bool arg1) (0x00709BB0, slot 50)
 // The type as the player sees it: the real type for the player's allies
 // (unless arg1), otherwise the disguise at +0x40C.
 
-ObjectTypeClass *UnitClass::unknown_slot50(bool arg1)
+ObjectTypeClass *UnitClass::GetDisguise(bool arg1)
 {
     if (House->Is_Ally(unknown_player_a35db4) && !arg1) {
         return Type;
@@ -5016,11 +5016,11 @@ ObjectTypeClass *UnitClass::unknown_slot50(bool arg1)
 }
 
 
-// HouseClass *UnitClass::unknown_slot51(bool arg1) (0x00709BF0, slot 51)
+// HouseClass *UnitClass::GetDisguiseHouse(bool arg1) (0x00709BF0, slot 51)
 // The owner as the player sees it: the real owner for the player's allies
 // (unless arg1), otherwise the disguise's house at +0x410.
 
-HouseClass *UnitClass::unknown_slot51(bool arg1)
+HouseClass *UnitClass::GetDisguiseHouse(bool arg1)
 {
     if (House->Is_Ally(unknown_player_a35db4) && !arg1) {
         return House;
@@ -5049,14 +5049,14 @@ void UnitClass::Disguise_As_Type(ObjectTypeClass *type)
 // Current slot255 signature is TechnoClass*, but original Kind_Of cases also
 // accept CellClass(11) and TerrainClass(36). Preserve the declared ABI;
 // the observed branch identities justify the local casts, not a global rewrite.
-void UnitClass::unknown_slot255(TechnoClass *target)
+void UnitClass::DisguiseAs(TechnoClass *target)
 {
     if (!target) return;
     switch (target->Kind_Of()) {
     case 1:
         if (!target->unknown_slot48()) return;
-        unknown_40c = target->unknown_slot50(true);
-        unknown_410 = target->unknown_slot51(true);
+        unknown_40c = target->GetDisguise(true);
+        unknown_410 = target->GetDisguiseHouse(true);
         break;
     case 11:
         if (!unknown_slot208(target)) return;
@@ -5066,19 +5066,19 @@ void UnitClass::unknown_slot255(TechnoClass *target)
     case 36:
         unknown_40c = target->Class_Of();
         unknown_410 = 0;
-        TechnoClass::unknown_slot255(target);
+        TechnoClass::DisguiseAs(target);
         return;
     default:
         return;
     }
-    TechnoClass::unknown_slot255(target);
+    TechnoClass::DisguiseAs(target);
 }
 
 
-// void UnitClass::unknown_slot256() (0x00709D20, slot 256)
+// void UnitClass::ClearDisguise() (0x00709D20, slot 256)
 // Clears the flag at +0x170, runs slot 266 and forgets +0x40C/+0x410.
 
-void UnitClass::unknown_slot256()
+void UnitClass::ClearDisguise()
 {
     unknown_170 = false;
     unknown_slot266();
@@ -5087,12 +5087,12 @@ void UnitClass::unknown_slot256()
 }
 
 
-// bool UnitClass::unknown_slot49(HouseClass *house) (0x00709D50, slot 49)
+// bool UnitClass::IsDisguisedAs(HouseClass *house) (0x00709D50, slot 49)
 // arg1 is a house. True while slot 48 holds, the house is not allied with
 // the owner, its bit 0x0047C300 of this cell is clear, and the disguise's
 // house (+0x410) is that house, none, or one of its allies.
 
-bool UnitClass::unknown_slot49(HouseClass *house)
+bool UnitClass::IsDisguisedAs(HouseClass *house)
 {
     if (unknown_slot48()) {
         Cell position = Coord_Cell(Center_Coord());
@@ -5130,7 +5130,7 @@ void UnitClass::Init()
             unknown_118.Set_Veteran(true);
         }
         if (Type->Gunner) {
-            unknown_6d83f0(0);
+            Set_Current_Weapon(0);
         }
     }
 }
@@ -5180,7 +5180,7 @@ void UnitClass::UpdateDisguise()
         return;
     }
 clear_disguise:
-    unknown_slot256();
+    ClearDisguise();
 }
 
 
@@ -5200,17 +5200,17 @@ struct UnknownUnitInfantryView : TechnoClass {
 
 wchar_t const *UnitClass::unknown_slot35()
 {
-    if (unknown_slot49(unknown_player_a35db4) && unknown_slot50(true)) {
-        if (!unknown_slot51(true)) {
+    if (IsDisguisedAs(unknown_player_a35db4) && GetDisguise(true)) {
+        if (!GetDisguiseHouse(true)) {
             return 0;
         }
-        return unknown_slot50(true)->UIName;
+        return GetDisguise(true)->UIName;
     }
     if (unknown_6d83e0() && unknown_6d83d0()) {
         wchar_t const *role = 0;
         TechnoClass *passenger = (TechnoClass *)Cargo.Attached_Object();
         if (passenger && passenger->Kind_Of() == 15) {
-            if (passenger->unknown_slot193()) {
+            if (passenger->Is_Renovator()) {
                 role = StringTable::Load_String("Tip:Repair", 0, "D:\\Ra2\\Unit.CPP", 10328);
             } else if (!((UnknownUnitInfantryView *)passenger)->Type->Civilian) {
                 role = passenger->Class_Of()->UIName;
@@ -5262,21 +5262,21 @@ unsigned int __fastcall FUN_0070a240(int object_address)
 }  // namespace seed_0070a240
 
 
-// bool UnitClass::unknown_slot274() (0x0070A260, slot 274)
+// bool UnitClass::CanUseWaypoint() (0x0070A260, slot 274)
 // Tail jump to the existing out-of-line TechnoClass implementation.
 
-bool UnitClass::unknown_slot274()
+bool UnitClass::CanUseWaypoint()
 {
-    return TechnoClass::unknown_slot274();
+    return TechnoClass::CanUseWaypoint();
 }
 
 
-// bool UnitClass::unknown_slot275() (0x0070A270, slot 275)
+// bool UnitClass::CanAttackOnTheMove() (0x0070A270, slot 275)
 // Tail jump to the existing out-of-line TechnoClass implementation.
 
-bool UnitClass::unknown_slot275()
+bool UnitClass::CanAttackOnTheMove()
 {
-    return TechnoClass::unknown_slot275();
+    return TechnoClass::CanAttackOnTheMove();
 }
 
 
@@ -5289,7 +5289,7 @@ bool UnitClass::unknown_slot275()
 // int UnitClass::Kind_Of() const (0x0070A2D0, slot 11): inline in shared/unit.hpp, emitted with the unit's vtable; no source of its own.
 
 
-// UnknownFacingDir UnitClass::unknown_slot162() (0x0070A2E0, slot 162)
+// UnknownFacingDir UnitClass::Turret_Facing() (0x0070A2E0, slot 162)
 // Inline in shared/unit.hpp (the turret facing for a turreted type,
 // otherwise the body's); emitted with the unit's vtable. No source of its own.
 

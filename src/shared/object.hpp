@@ -240,11 +240,11 @@ public:
     virtual bool unknown_slot24();                                         // slot 24 (+0x60) 0x423d10
     virtual int unknown_slot25(bool arg1, int arg2);                        // slot 25 (+0x64) 0x423d20
     virtual void *Get_Image_Data();                                        // slot 26 (+0x68) 0x5d27b0
-    virtual int unknown_slot27(Cell const *cell, bool arg2, bool arg3);              // slot 27 (+0x6C) 0x5d2bb0
+    virtual int What_Action(Cell const *cell, bool arg2, bool arg3);              // slot 27 (+0x6C) 0x5d2bb0
     virtual int unknown_slot28(ObjectClass *object, bool arg2);                        // slot 28 (+0x70) 0x5d2ba0
     virtual int In_Which_Layer() const;                                    // slot 29 (+0x74) 0x5d2bc0
     virtual bool Not_Underground() const;                                   // slot 30 (+0x78) 0x5d5490
-    virtual bool unknown_slot31();                                         // slot 31 (+0x7C) 0x423d30
+    virtual bool Considered_Vehicle();                                         // slot 31 (+0x7C) 0x423d30
     virtual TechnoTypeClass *Techno_Type_Class();                             // slot 32 (+0x80) 0x5d5440 (the techno type; 0 here)
     virtual ObjectTypeClass *Class_Of() const;                             // slot 33 (+0x84) 0x4cddd0
     virtual int Get_Ownable();                                          // slot 34 (+0x88) 0x5d2c00
@@ -262,9 +262,9 @@ public:
     virtual bool Is_Moving_Onto_Bridge(TechnoClass *techno);                       // slot 46 (+0xB8) 0x5d52f0
     virtual bool unknown_slot47();                                         // slot 47 (+0xBC) 0x423d90
     virtual bool unknown_slot48();                                         // slot 48 (+0xC0) 0x423da0
-    virtual bool unknown_slot49(HouseClass *house);                                 // slot 49 (+0xC4) 0x423db0
-    virtual ObjectTypeClass *unknown_slot50(bool arg1);                                  // slot 50 (+0xC8) 0x41b2d0
-    virtual HouseClass *unknown_slot51(bool arg1);                                  // slot 51 (+0xCC) 0x41b2e0
+    virtual bool IsDisguisedAs(HouseClass *house);                                 // slot 49 (+0xC4) 0x423db0
+    virtual ObjectTypeClass *GetDisguise(bool arg1);                                  // slot 50 (+0xC8) 0x41b2d0
+    virtual HouseClass *GetDisguiseHouse(bool arg1);                                  // slot 51 (+0xCC) 0x41b2e0
     virtual bool Limbo();                                          // slot 52 (+0xD0) 0x5d3700
     virtual bool Unlimbo(CoordStruct const *coord, int dir);                        // slot 53 (+0xD4) 0x5d3890
     virtual void unknown_slot54(bool arg1);                                  // slot 54 (+0xD8) 0x5d3c10
@@ -280,7 +280,7 @@ public:
     virtual Cell const *Occupy_List(int arg1);                                // slot 64 (+0x100) 0x5d4470
     virtual void unknown_slot65(int arg1, int arg2);                       // slot 65 (+0x104) 0x423dc0
     virtual void unknown_slot66(Point2D const &point, Rect const &window);                       // slot 66 (+0x108) 0x423dd0
-    virtual void unknown_slot67(Point2D const &point, Rect const &window) {}                     // slot 67 (+0x10C) kept copy 0x595120 (Mission.cpp)
+    virtual void Draw_It(Point2D const &point, Rect const &window) {}                     // slot 67 (+0x10C) kept copy 0x595120 (Mission.cpp)
     virtual void Editor_Draw_It(Point2D const &point, Rect const &window);                       // slot 68 (+0x110) 0x5d4e70
     virtual void Hidden();                                         // slot 69 (+0x114) 0x5d2c80
     virtual void Look(bool arg1, bool arg2);                       // slot 70 (+0x118) 0x5d2c90
@@ -295,7 +295,7 @@ public:
     virtual void Clicked_As_Target(int arg1);                                 // slot 79 (+0x13C) 0x5d2cc0
     virtual bool unknown_slot80();                                         // slot 80 (+0x140) 0x5d2e70
     virtual void Unselect();                                         // slot 81 (+0x144) 0x5d2df0
-    virtual void unknown_slot82(int arg1);                                 // slot 82 (+0x148) 0x423de0
+    virtual void IronCurtain(int arg1);                                 // slot 82 (+0x148) 0x423de0
     virtual bool unknown_slot83();                                         // slot 83 (+0x14C) 0x41b300
     virtual bool In_Range(CoordStruct const &coord, int weapon);     // slot 84 (+0x150) 0x5d2cd0
     virtual int Weapon_Range(int arg1);                                  // slot 85 (+0x154) 0x5d2ce0

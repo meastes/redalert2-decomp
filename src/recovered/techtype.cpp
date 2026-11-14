@@ -116,11 +116,11 @@ int TechnoTypeClass::Raw_Cost() const
 }
 
 
-// int TechnoTypeClass::unknown_slot28() const (0x006DACF0)
+// int TechnoTypeClass::Get_Ownable() const (0x006DACF0)
 // Who may own the type (hypothesis: RA1 Get_Ownable): every house when
 // DoubleOwned in a non-zero game mode, else the Owner= house set.
 
-int TechnoTypeClass::unknown_slot28() const
+int TechnoTypeClass::Get_Ownable() const
 {
     if (DoubleOwned && unknown_game_mode_a3d298) {
         return 0x7FFFFFFF;
@@ -129,10 +129,10 @@ int TechnoTypeClass::unknown_slot28() const
 }
 
 
-// int TechnoTypeClass::unknown_slot34() const (0x006DAD10)
+// int TechnoTypeClass::Time_To_Build() const (0x006DAD10)
 // Cost scaled by the rules factor at +0x13B0 and 0.9 (meaning unknown).
 
-int TechnoTypeClass::unknown_slot34() const
+int TechnoTypeClass::Time_To_Build() const
 {
     return (int)(Cost * Rules->unknown_13b0 * 0.9);
 }
@@ -152,11 +152,11 @@ int TechnoTypeClass::Cost_Of(HouseClass *house) const
 }
 
 
-// int TechnoTypeClass::unknown_slot46(HouseClass *house, bool full) const (0x006DAD80)
+// int TechnoTypeClass::GetRefund(HouseClass *house, bool full) const (0x006DAD80)
 // Sell value (hypothesis): Soylent= when set, else the house cost scaled by
 // the rules refund factor (1.0 when full).
 
-int TechnoTypeClass::unknown_slot46(HouseClass *house, bool full) const
+int TechnoTypeClass::GetRefund(HouseClass *house, bool full) const
 {
     float percent = (float)Rules->unknown_13a0;
     if (full) {

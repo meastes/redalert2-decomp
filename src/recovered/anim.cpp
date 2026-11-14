@@ -372,7 +372,7 @@ bool AnimClass::Render(Rect *bounds, bool arg2, bool arg3)
 }
 
 
-// void AnimClass::unknown_slot67(Point2D const &point, Rect const &cliprect) (0x00420E50, slot 67)
+// void AnimClass::Draw_It(Point2D const &point, Rect const &cliprect) (0x00420E50, slot 67)
 // Draws the animation (TibSun AnimClass::Draw_It) at the screen point point
 // within the window cliprect: skipped when the frame rate is too low for its
 // detail level, when hidden or fogged; the type's translucency at enough
@@ -380,7 +380,7 @@ bool AnimClass::Render(Rect *bounds, bool arg2, bool arg3)
 // then the bouncing shadow, the tiled column, the flat or upright frame and
 // the shadow frame.
 
-void AnimClass::unknown_slot67(Point2D const &point, Rect const &cliprect)
+void AnimClass::Draw_It(Point2D const &point, Rect const &cliprect)
 {
     if (unknown_a6eb1c < Unknown_0053D840() && Class->DetailLevel > 1) {
         return;

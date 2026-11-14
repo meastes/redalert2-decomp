@@ -44,7 +44,7 @@ original code is still scaffold. Per-batch evidence through A15 is in
 | Compiler populations | 614 |
 | Compile path (build environment, with the pinned VC6 SP3 8447 compiler; docs/ORIGINAL_TARGET_BUILD.md "Fixed compile folder") | `<drive>:\private\tmp\ra2c\XXXXXXXX\gNNNN\accepted.cpp; /I <drive>:\private\tmp\ra2c\XXXXXXXX\src; TMP <drive>:\private\tmp\ra2c\XXXXXXXX\tmp-N` |
 | Populations under /GR (docs/DECISIONS.md "/GR per population") | 342 of 614 |
-| Non-code bytes proven at their original addresses (module maps, deduplicated by address; not .text credit) | 223,752 of 711,662 file-backed (31.4%); RTTI 76,031, vtables 36,972, strings 93,897; 14 class hierarchy descriptor(s) differ from the original only in the ambiguous bit (known difference; the attributes word is not counted) |
+| Non-code bytes proven at their original addresses (module maps, deduplicated by address; not .text credit) | 223,748 of 711,662 file-backed (31.4%); RTTI 76,027, vtables 36,972, strings 93,897; 14 class hierarchy descriptor(s) differ from the original only in the ambiguous bit (known difference; the attributes word is not counted) |
 
 Manifest history (body bytes added per commit, and per hour since the previous commit):
 
@@ -2978,6 +2978,9 @@ Manifest history (body bytes added per commit, and per hour since the previous c
 | `8e8d276e6` | 2026-11-14 10:19 -0600 | 17,907 | 3,272,459 | +0 |  |
 | `6a5dc1329` | 2026-11-14 10:19 -0600 | 17,907 | 3,272,459 | +0 |  |
 | `7fe957f48` | 2026-11-14 10:19 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `5bce7c394` | 2026-11-14 11:12 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `878403b12` | 2026-11-14 11:12 -0600 | 17,907 | 3,272,459 | +0 |  |
+| `8f5c50af9` | 2026-11-14 11:12 -0600 | 17,907 | 3,272,459 | +0 | 0 |
 
 <!-- /generated:status -->
 

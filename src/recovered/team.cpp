@@ -1021,7 +1021,7 @@ void TeamClass::unknown_func_6b9bb0()
                 unit->QueueMission(8, false);
                 unit->unknown_slot220(unknown_40);
             } else if (unit->Get_Mission() != 1 && unit->Get_Mission() != 7 && unit->Get_Mission() != 8
-                && unit->Get_Mission() != 0x11 && (unit->Get_Mission() != 0x10 || !unit->unknown_slot284())) {
+                && unit->Get_Mission() != 0x11 && (unit->Get_Mission() != 0x10 || !unit->Deploy_To_Fire())) {
                 unit->unknown_slot149(3);
                 unit->QueueMission(1, false);
                 unit->unknown_slot220(0);
@@ -1118,7 +1118,7 @@ void TeamClass::unknown_func_6ba1a0()
                         }
                         if (unit->Get_Mission() != 2) {
                             unit->QueueMission(2, false);
-                            if (unit->unknown_slot122()) {
+                            if (unit->Ready_To_Commence()) {
                                 unit->Commence();
                             }
                         }
@@ -1231,7 +1231,7 @@ bool TeamClass::unknown_func_6ba8b0(FootClass *object)
 
 // Disbands every team of the house whose team type has a lower priority than the given one: removes its members, flags it to disappear and starts its leaving timer.
 
-void __fastcall TeamClass::unknown_func_6ba8e0(int priority, HouseClass *house)
+void __fastcall TeamClass::Suspend_Teams(int priority, HouseClass *house)
 {
     for (int index = 0; index < Teams.Count(); index++) {
         TeamClass *team = Teams[index];
@@ -1569,7 +1569,7 @@ void TeamClass::TMission_unknown_6bb350(ScriptMissionClass const &mission, bool 
     FootClass *member = Member;
     while (member != 0) {
         FootClass *next = (FootClass *)member->unknown_4c8;
-        member->unknown_slot222(HouseClass::As_Pointer(mission.Data), 1);
+        member->Captured(HouseClass::As_Pointer(mission.Data), 1);
         member = next;
     }
     StepCompleted = true;
@@ -1707,7 +1707,7 @@ void TeamClass::TMission_unknown_6bb8b0(ScriptMissionClass const &mission, bool 
         if (unknown_func_6bdd80(unit) && (unit->unknown_579 || unit->Kind_Of() == 2)) {
             bool mcv = unit->Kind_Of() == 1 && ((UnitClass *)unit)->Type->DeploysInto != 0;
             bool deployer = unit->Kind_Of() == 1 && ((UnitClass *)unit)->Type->IsSimpleDeployer;
-            bool infantry = unit->Kind_Of() == 0xF && ((InfantryClass *)unit)->unknown_5090a0();
+            bool infantry = unit->Kind_Of() == 0xF && ((InfantryClass *)unit)->Is_Deployer();
             if (mcv) {
                 finished = false;
                 if (unit->Get_Mission() != 0x10) {
@@ -2494,7 +2494,7 @@ void TeamClass::TMission_unknown_6bd4b0(ScriptMissionClass const &mission, bool 
                 unit->unknown_slot220(0);
                 unit->Assign_Destination(unit->unknown_1b0, true);
                 unit->QueueMission(2, false);
-                if (unit->unknown_slot122()) {
+                if (unit->Ready_To_Commence()) {
                     unit->Commence();
                 }
                 unit->unknown_6d6e50(0);

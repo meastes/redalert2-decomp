@@ -295,7 +295,7 @@ void BulletClass::AI()
                         if (building == (BuildingClass *)payback || building->Type->LaserFence && building->unknown_4ec >= 8) {
                             hit = false;
                         }
-                        if (building->unknown_slot31()) {
+                        if (building->Considered_Vehicle()) {
                             hit = false;
                         }
                         if (payback != 0 && payback->House->Is_Ally(building)) {

@@ -184,7 +184,7 @@ void TemporalClass::AI()
             if(Target->Kind_Of()==6) {
                 BuildingClass *building=(BuildingClass *)Target;
                 if(building!=0) {
-                    if(building->unknown_4532f0()>0) building->Unknown_004536D0(0);
+                    if(building->unknown_4532f0()>0) building->KillOccupants(0);
                     if(unknown_a40774==0) {
                         while(building->Cargo.Object!=0) {
                             ObjectClass *passenger=building->Cargo.Detach_Object();
@@ -223,7 +223,7 @@ int TemporalClass::Get_Warp_Per_Step(int step)
     if (unknown_44 != 0 && step <= 50) {
         helpers = unknown_44->Get_Warp_Per_Step(step + 1);
     }
-    unknown_4c = Owner->unknown_slot231(Owner->unknown_slot174(0))->WeaponType->unknown_a4;
+    unknown_4c = Owner->unknown_slot231(Owner->What_Weapon_Should_I_Use(0))->WeaponType->unknown_a4;
     return unknown_4c + helpers;
 }
 
@@ -464,7 +464,7 @@ void TemporalClass::Unknown_006E27B0(TechnoClass *target)
                     if(Unknown_0063B5B0(4,cell)) Speech_Play_Name("EVA_OreMinerUnderAttack",-1,-1);
                 }
             }
-            if(Target->Kind_Of()==6 && !Target->Techno_Type_Class()->unknown_202 && !Target->unknown_slot31())
+            if(Target->Kind_Of()==6 && !Target->Techno_Type_Class()->unknown_202 && !Target->Considered_Vehicle())
                 Target->House->Attacked(As_Building(Target));
         } else {
             unknown_40=(TemporalClass *)Target->unknown_20c;

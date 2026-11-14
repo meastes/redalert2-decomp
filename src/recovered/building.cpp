@@ -447,7 +447,7 @@ BuildingClass::~BuildingClass()
         }
         if (unknown_flag_a40958 && Type) {
             if (House) {
-                House->unknown_4ea800(this);
+                House->Tracking_Remove(this);
             }
             Limbo();
         }
@@ -699,7 +699,7 @@ bool BuildingClass::Render(Rect *bounds,bool force,bool alternate)
                 }
             } else {
                 // Existing int/int declaration is a32-bit ABI view; original passes two addresses.
-                unknown_slot67(pixel,*bounds);
+                Draw_It(pixel,*bounds);
             }
             return true;
         }
@@ -751,7 +751,7 @@ void BuildingClass::Editor_Draw_It(Point2D const &point_ref, Rect const &bounds)
 
 // BuildingClass::Draw_It 0043A5E0: structure, gate and factory-door shape layers.
 // The legacy virtual interface carries Point2D const& and Rect const& as x86 address words (RET8).
-void BuildingClass::unknown_slot67(Point2D const &draw_point, Rect const &bounds)
+void BuildingClass::Draw_It(Point2D const &draw_point, Rect const &bounds)
 {
     Cell cell=unknown_slot104();
     ShapeFileStruct const *shape=(ShapeFileStruct const *)Get_Image_Data();
@@ -849,7 +849,7 @@ void BuildingClass::unknown_slot284(Point2D const &xy,Rect const &bounds)
                    (!Map.Is_Fogged(product->Position_Coord_004f3f40()) && !Map.Is_Fogged(destination))) {
                     Point2D point;
                     unknown_tactical_83996c->Coord_To_Pixel(product->unknown_slot42(),point);
-                    product->unknown_slot67(point,bounds);
+                    product->Draw_It(point,bounds);
                 }
             }
         }
@@ -1068,7 +1068,7 @@ UnknownFacingDir BuildingClass::unknown_slot170(AbstractClass *target)
         Direction_0043b7e0(fcoord, tcoord);
         int max_speed = Unknown_0047FB70(unknown_5d4c00(target), Rules->unknown_1320);
 
-        CoordStruct ucoord = unknown_slot181(0);
+        CoordStruct ucoord = Turret_Coord(0);
         CoordStruct disp = target->Center_Coord() - ucoord;
         int distance2 = disp.X * disp.X + disp.Y * disp.Y;
 
@@ -1429,7 +1429,7 @@ void BuildingClass::AI()
         unknown_slot220(0);
     }
     Update_Animations_0044BD40();
-    if (unknown_slot122() && unknown_42c != 0 && Commence()) {
+    if (Ready_To_Commence() && unknown_42c != 0 && Commence()) {
         unknown_5ad = false;
     }
     TechnoClass::AI();
@@ -1437,7 +1437,7 @@ void BuildingClass::AI()
     if (unknown_254 == 0 && !Type->Hospital && !Type->Armory) {
         unknown_254 = Type->Ammo;
     }
-    if (unknown_slot122() && Commence()) {
+    if (Ready_To_Commence() && Commence()) {
         unknown_5ad = false;
     }
     if (unknown_430 != -1) {
@@ -1702,7 +1702,7 @@ bool BuildingClass::Unlimbo(CoordStruct const *coord, int dir)
             }
         }
 
-        if (!unknown_slot31()) {
+        if (!Considered_Vehicle()) {
             Reserve_Base_Area_004510d0(false);
         }
 
@@ -1857,7 +1857,7 @@ template <> VectorClass<ParticleSystemTypeClass const *>::VectorClass(unsigned s
 // Above is a complete auxiliary duplicate of canonical454AD0, zero new-byte credit.
 void BuildingClass::unknown_slot286(TechnoClass *last_contact,TechnoClass *source,bool forced,Cell const *offset)
 {
-    unknown_6d3040(source);
+    Kill_Cargo(source);
     for (int index=0;index<8;++index) {
         if (unknown_49c[index]) {
             unknown_49c[index]->Delete_Me();
@@ -2032,7 +2032,7 @@ int BuildingClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warh
     if (this!=source) {
     Health_Ratio();
     int old_frame=unknown_43be20();
-    if (source && !unknown_slot31()) {
+    if (source && !Considered_Vehicle()) {
         House->unknown_5408=Frame;
         House->unknown_540c=source->Owning_House()->ArrayIndex;
         unknown_6d3400(source);
@@ -2115,7 +2115,7 @@ int BuildingClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warh
     if (!unknown_7d) return 4;
     if (source) {
         if (result==0) goto refresh_frame;
-        if (!Type->unknown_202 && !unknown_slot31()) House->Attacked(this);
+        if (!Type->unknown_202 && !Considered_Vehicle()) House->Attacked(this);
         unknown_434=source->Owning_House()->ArrayIndex;
         if (Mission!=19 && !House->Is_Ally(source) && unknown_slot231(0)->WeaponType && !unknown_slot231(0)->WeaponType->Projectile->AA && (!unknown_228 || !unknown_slot213(unknown_228))) {
             if (source->Kind_Of()==2 || (House->Unknown_004F52F0() && !Rules->PlayerReturnFire)) {
@@ -2141,7 +2141,7 @@ void BuildingClass::Init()
     TechnoClass::Init();
     if (House) {
         unknown_434 = House->Type->House;
-        House->unknown_4ea970(this);
+        House->Tracking_Add(this);
     }
     if (Type) {
         unknown_70 = Strength = Type->MaxStrength;
@@ -2191,7 +2191,7 @@ void BuildingClass::Spawn_Survivors_0043f8e0(ObjectClass *attacker)
         CellClass *cell=&Map[location];
         if(!House->unknown_13e && remaining>0 && unknown_id_source_a3d290->Random()(0,odds)==1) {
             InfantryClass *survivor=0;
-            InfantryTypeClass *crew=unknown_slot184();
+            InfantryTypeClass *crew=Crew_Type();
             if(crew)survivor=new InfantryClass(crew,House);
             Debug_Printf("Creating survivor type '%s' from building type '%s'\n",survivor->Type->Name.Buffer,Type->Name.Buffer);
             if(survivor) {
@@ -2238,12 +2238,12 @@ void BuildingClass::Spawn_Survivors_0043f8e0(ObjectClass *attacker)
 bool BuildingClass::unknown_slot78(int action,ObjectClass *target,bool arg3)
 {
     if(action==5) {
-        if(target) unknown_slot200(1,target,0,0);
+        if(target) Player_Assign_Mission(1,target,0,0);
     } else if(action==4) {
         if(Type->Factory!=0) OutList.Add(EventClass(Owner(),0x11,TargetClass(this)));
-        if(Type->GapGenerator) unknown_slot200(0x10,target,0,0);
+        if(Type->GapGenerator) Player_Assign_Mission(0x10,target,0,0);
         if(unknown_554.Count()>0) {
-            unknown_slot200(0x10,target,0,0);
+            Player_Assign_Mission(0x10,target,0,0);
             return true;
         }
     } else {
@@ -2276,7 +2276,7 @@ bool BuildingClass::unknown_slot78(int action,ObjectClass *target,bool arg3)
 bool BuildingClass::unknown_slot77(int action, Cell const *arg2, Cell const *arg3, bool arg4)
 {
     if (action == 5) {
-        unknown_slot200(1, &Map[*arg2], 0, 0);
+        Player_Assign_Mission(1, &Map[*arg2], 0, 0);
         return true;
     }
     if (action == 1) {
@@ -2853,7 +2853,7 @@ bool BuildingClass::Limbo()
             if (Type->DetectDisguise) {
                 unknown_slot291(unknown_geometry_k);
             }
-            if (!unknown_slot31()) {
+            if (!Considered_Vehicle()) {
                 unknown_4513b0();
             }
         }
@@ -2927,7 +2927,7 @@ fence:
 }
 
 
-// UnknownFacingDir BuildingClass::unknown_slot162() (0x004425A0, slot 162)
+// UnknownFacingDir BuildingClass::Turret_Facing() (0x004425A0, slot 162)
 // The direction from this center towards the object at +0x228 unless
 // slot 232 holds or there is none; otherwise the current facing at +0x2E0.
 
@@ -2941,7 +2941,7 @@ static inline UnknownFacingDir Coord_Direction(CoordStruct const &from, CoordStr
     return UnknownFacingDir((unsigned short)(int)((angle - 1.5707963267948966) * -10430.060040584269));
 }
 
-UnknownFacingDir BuildingClass::unknown_slot162()
+UnknownFacingDir BuildingClass::Turret_Facing()
 {
     if (!unknown_slot232() && unknown_228) {
         return Coord_Direction(Center_Coord(), unknown_228->Center_Coord());
@@ -3094,7 +3094,7 @@ void BuildingClass::unknown_slot282(bool captured)
                         Map.Zone(Cell(Position_Coord_004f3f40()), unit->Type->MovementZone, false),
                         unit->Type->MovementZone, false, Point2D(1, 1), false, true, false, false, Cell(0, 0), 0);
                     if (new_cell == grand_none_0084ed10 || !unit->Unlimbo(&CoordStruct(new_cell), 0xA0)) {
-                        House->Refund_Money(unit->Type->unknown_slot46(House, true));
+                        House->Refund_Money(unit->Type->GetRefund(House, true));
                         delete unit;
                     } else {
                         placed = true;
@@ -3110,7 +3110,7 @@ void BuildingClass::unknown_slot282(bool captured)
                 unit->Commence();
             }
         } else {
-            House->Refund_Money(Type->FreeUnit->unknown_slot46(House, true));
+            House->Refund_Money(Type->FreeUnit->GetRefund(House, true));
         }
     }
     if (!Rules->unknown_142c && Type->HoverPad && !captured) {
@@ -3283,12 +3283,12 @@ result_action:
 
 // Select an action for a cell using the base action and building-specific limits.
 inline bool Building_Key_Down(int key) { return WWKeyboard->Down(key); }
-int BuildingClass::unknown_slot27(Cell const *cell,bool alternate,bool mode)
+int BuildingClass::What_Action(Cell const *cell,bool alternate,bool mode)
 {
     if(Type->InvisibleInGame) return 0;
     int action;
-    if(Type->UndeploysInto && alternate) action=TechnoClass::unknown_slot27(cell,false,mode);
-    else action=TechnoClass::unknown_slot27(cell,alternate,mode);
+    if(Type->UndeploysInto && alternate) action=TechnoClass::What_Action(cell,false,mode);
+    else action=TechnoClass::What_Action(cell,alternate,mode);
     if(action==1 || action==2) {
         if(!Can_Player_Move() && action==1) {
             action=0;
@@ -3527,7 +3527,7 @@ bool BuildingClass::unknown_slot287()
 }
 
 
-// bool BuildingClass::unknown_slot222(HouseClass *newowner, int announce) (0x00444660): TibSun
+// bool BuildingClass::Captured(HouseClass *newowner, int announce) (0x00444660): TibSun
 // BuildingClass::Captured (building.cpp:4212), independently bounded 00444660..0044537e. YR twin gamemd
 // 0x00448260 (same contact-loop layout and out-of-line Set_Anim_Drawer/Set_Anim_Translucency calls).
 // Original Reestablish vector slots, read after exact-target SHA256 verification.
@@ -3554,7 +3554,7 @@ template<> VectorClass<Reestablish*>::VectorClass(unsigned size,Reestablish *con
         else {Vector=new Reestablish*[size];IsAllocated=true;}
     }
 }
-bool BuildingClass::unknown_slot222(HouseClass *newowner, int announce)
+bool BuildingClass::Captured(HouseClass *newowner, int announce)
 {
     if(newowner!=House) {
     if(unknown_38 && !Type->CanBeOccupied) { unknown_38->Unknown_00435FB0(); }
@@ -3588,7 +3588,7 @@ bool BuildingClass::unknown_slot222(HouseClass *newowner, int announce)
     if(Type->NeedsEngineer) { unknown_44d600(); }
     if(unknown_game_mode_a3d298==4) { newowner->unknown_42a8.Unknown_0070C490(Type->ArrayIndex); }
     TechnoClass *passenger=(TechnoClass*)Cargo.Attached_Object();
-    if(passenger) { passenger->unknown_slot222(newowner,1); }
+    if(passenger) { passenger->Captured(newowner,1); }
     DynamicVectorClass<Reestablish*> reestablish;
     int i;
     // TibSun building.cpp:4212 Captured handles one Contact_With_Whom(); RA2 walks every radio link and
@@ -3604,7 +3604,7 @@ bool BuildingClass::unknown_slot222(HouseClass *newowner, int announce)
             if(!contact->AbstractFlags.IsFoot) contact=0;
             else if(unknown_slot150(19,contact)==1 && (Type->WeaponsFactory || Coord_Difference(contact->Center_Coord(),unknown_slot41((int)contact)).Length()<64)) {
                 tethered=contact->unknown_370;
-                contact->unknown_slot222(newowner,1);
+                contact->Captured(newowner,1);
                 captured=true;
             }
             if(!captured) {
@@ -3639,7 +3639,7 @@ bool BuildingClass::unknown_slot222(HouseClass *newowner, int announce)
     }
     if(Type->GapGenerator) { unknown_slot236(); }
     unknown_slot263(false,false,false,0);
-    TechnoClass::unknown_slot222(newowner,1);
+    TechnoClass::Captured(newowner,1);
     if(Type->CloakGenerator && unknown_slot195()) { Enable_Cloak_Generator_0044fa90(); }
     if(Type->GapGenerator && unknown_slot195()) { unknown_slot235(); }
     unknown_4444b0(false);
@@ -3991,8 +3991,8 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
                 int cells=0;
                 while(end->X!=32767 || end->Y!=32767) {++cells;++end;}
                 while(count) {
-                    InfantryTypeClass *crew=unknown_slot184();
-                    while(crew->Engineer && engineer) crew=unknown_slot184();
+                    InfantryTypeClass *crew=Crew_Type();
+                    while(crew->Engineer && engineer) crew=Crew_Type();
                     if(crew->Engineer) engineer=true;
                     InfantryClass *infantry=0;
                     if(crew) infantry=new InfantryClass(crew,House);
@@ -4015,7 +4015,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
                     --count;
                 }
             }
-            if(House->Is_Player_Control() && !unknown_slot31()) {
+            if(House->Is_Player_Control() && !Considered_Vehicle()) {
                 Voc_Play_At(Rules->unknown_5c4,Position_Coord_004f3f40(),0);
                 if(Type->PackupSound!=-1) Voc_Play_At(Type->PackupSound,Position_Coord_004f3f40(),&unknown_570);
             }
@@ -4534,7 +4534,7 @@ void BuildingClass::unknown_slot216(int arg1)
 
 
 // Round the current facing to an image frame direction, or face the target.
-UnknownFacingDir BuildingClass::unknown_slot183()
+UnknownFacingDir BuildingClass::Fire_Direction()
 {
     if(!unknown_228)
         return (unsigned short)(Dir_To_256(unknown_2e0.Current())<<8);
@@ -4869,16 +4869,16 @@ void BuildingClass::Detach(AbstractClass *target, bool all)
 }
 
 
-// InfantryTypeClass *BuildingClass::unknown_slot184() (0x00449FB0, slot 184)
+// InfantryTypeClass *BuildingClass::Crew_Type() (0x00449FB0, slot 184)
 // For factory type 7 without the flag at +0x5B3, a 25% chance of the rules
 // Engineer; otherwise the techno crew.
 
-InfantryTypeClass *BuildingClass::unknown_slot184()
+InfantryTypeClass *BuildingClass::Crew_Type()
 {
     if (!unknown_5b3 && unknown_id_source_a3d290->Random()(0, 99) < 25 && Type->Factory == 7) {
         return Rules->Engineer;
     }
-    return TechnoClass::unknown_slot184();
+    return TechnoClass::Crew_Type();
 }
 
 
@@ -5405,7 +5405,7 @@ void BuildingClass::unknown_44b770()
             switch (unknown_5c8) {
                 case 1:
                     if (unknown_228 != 0 && unknown_slot218(unknown_228, unknown_5cc.X, true) == 0) {
-                        BulletClass *bullet = unknown_slot221(unknown_228, unknown_5cc.X);
+                        BulletClass *bullet = Fire_At(unknown_228, unknown_5cc.X);
                         if (bullet != 0 && unknown_534 != 0) {
                             bullet->DamageMultiplier = (unsigned)((Rules->PrismSupportModifier * unknown_534 + 100) * 256) / 100;
                             unknown_534 = 0;
@@ -5641,7 +5641,7 @@ int BuildingClass::unknown_slot172()
             if (unknown_5b3) {
                 step += step;
             }
-            int count = Type->unknown_slot46(House, false) / step;
+            int count = Type->GetRefund(House, false) / step;
             if (count < 1) {
                 return 1;
             }
@@ -6268,7 +6268,7 @@ bool BuildingClass::Can_Repair()
     if (!Type->ClickRepairable) {
         return false;
     }
-    if (unknown_slot31()) {
+    if (Considered_Vehicle()) {
         return false;
     }
     return TechnoClass::Can_Repair();
@@ -6747,7 +6747,7 @@ CoordStruct BuildingClass::unknown_slot43(int weapon)
 
 // Resolve a building fire coordinate from garrison, pixel, or voxel-barrel offsets.
 static inline CoordStruct Add_Pixel_Offset(CoordStruct &coord,Point2D const &point);
-CoordStruct BuildingClass::unknown_slot181(int weapon)
+CoordStruct BuildingClass::Turret_Coord(int weapon)
 {
     if(Type->CanBeOccupied && unknown_554.Count()>0) {
         CoordStruct offset=Projected_Coord_0043bbd0(unknown_tactical_83996c->Unknown_006A2900(Type->MuzzleFlash[unknown_56c]));
@@ -6759,7 +6759,7 @@ CoordStruct BuildingClass::unknown_slot181(int weapon)
             return unknown_slot42()+offset;
         }
         if(Type->BarrelAnimIsVoxel) return unknown_44ed60(weapon,false);
-        CoordStruct coord=TechnoClass::unknown_slot181(weapon);
+        CoordStruct coord=TechnoClass::Turret_Coord(weapon);
         if(Type->TurretAnimIsVoxel) {
             Point2D turret(Type->Anims[9].Offset.X,Type->Anims[9].Offset.Y);
             coord=Add_Pixel_Offset(coord,unknown_tactical_83996c->Unknown_006A2900(turret));
@@ -6917,10 +6917,10 @@ HRESULT __stdcall BuildingClass::Save(IStream *stream, BOOL clear_dirty)
 }
 
 
-// bool BuildingClass::unknown_slot122() (0x0044F3B0, slot 122)
+// bool BuildingClass::Ready_To_Commence() (0x0044F3B0, slot 122)
 // The flag at +0x5AD.
 
-bool BuildingClass::unknown_slot122()
+bool BuildingClass::Ready_To_Commence()
 {
     return unknown_5ad ? true : false;
 }
@@ -8098,7 +8098,7 @@ void __fastcall Building_Refund_Upgrades_00452710(BuildingClass *building)
 {
     while (building->unknown_5c6 > 0) {
         building->House->Refund_Money(building->unknown_4c0[building->unknown_5c6 - 1]
-                                      ->unknown_slot46(building->House, true));
+                                      ->GetRefund(building->House, true));
         building->unknown_44c860();
         building->House->unknown_5668 = true;
         building->House->unknown_5669 = true;
@@ -8108,10 +8108,10 @@ void __fastcall Building_Refund_Upgrades_00452710(BuildingClass *building)
 }
 
 
-// bool BuildingClass::unknown_slot31() (0x004527E0, slot 31)
+// bool BuildingClass::Considered_Vehicle() (0x004527E0, slot 31)
 // True when the type undeploys into a unit and its flag at +0x1353 is clear.
 
-bool BuildingClass::unknown_slot31()
+bool BuildingClass::Considered_Vehicle()
 {
     if (!Type->UndeploysInto) {
         return false;
@@ -8258,23 +8258,23 @@ void BuildingClass::Create_Fogged_Copy_00452c70(
 }
 
 
-// void BuildingClass::unknown_slot82(int arg1) (0x00452E60, slot 82)
+// void BuildingClass::IronCurtain(int arg1) (0x00452E60, slot 82)
 // Clears the flag at +0x5AF (resetting +0x438 and restarting the timer at
 // +0x420), then the techno behaviour.
 
-void BuildingClass::unknown_slot82(int arg1)
+void BuildingClass::IronCurtain(int arg1)
 {
     if (unknown_5af) {
         unknown_5af = false;
         unknown_420 = CDTimerClass<FrameTimerClass>();
         unknown_438 = 0;
     }
-    TechnoClass::unknown_slot82(arg1);
+    TechnoClass::IronCurtain(arg1);
 }
 
 
 // Whether the supplied infantry can occupy or assault this building.
-bool BuildingClass::Unknown_00452EB0(TechnoClass *techno)
+bool BuildingClass::CanBeOccupiedBy(TechnoClass *techno)
 {
     if(!Type->CanBeOccupied) return false;
     InfantryClass *infantry=static_cast<InfantryClass *>(techno);
@@ -8350,7 +8350,7 @@ after_first_edge:
         }
     }
     if (!found) {
-        Unknown_004536D0(0);
+        KillOccupants(0);
         return;
     }
 
@@ -8375,7 +8375,7 @@ after_first_edge:
     int capacity = occupants.Length();
     occupants.Clear();
     occupants.Resize(capacity, 0);
-    Unknown_006D9610(Get_Cell_Ptr());
+    UpdateThreatInCell(Get_Cell_Ptr());
 }
 
 
@@ -8415,12 +8415,12 @@ void BuildingClass::unknown_453300()
                     Speech_Play_Name(unknown_eva_structure_abandoned_007cfc14,-1,-1);
             }
             Refresh_State_Animations_00453450();
-            unknown_slot222(civilian,0);
+            Captured(civilian,0);
         }
     }
     if(unknown_554.Count()>0 && House==civilian) {
         Refresh_State_Animations_00453450();
-        unknown_slot222(unknown_554[0]->House,0);
+        Captured(unknown_554[0]->House,0);
         if(unknown_554[0]->House->Is_Player_Control()) {
             Speech_Play_Name(unknown_eva_structure_garrisoned_007cfbfc,-1,-1);
             Voc_Play_At(Rules->BuildingGarrisonedSound,Center_Coord(),0);
@@ -8459,7 +8459,7 @@ static inline void Occupant_Offset_To_Coord(CoordStruct &coordinate,Point2D cons
     coordinate.Y=y;
     coordinate.Z=0;
 }
-void BuildingClass::Unknown_004536D0(InfantryClass *infantry)
+void BuildingClass::KillOccupants(InfantryClass *infantry)
 {
     if(!infantry) {
         for(int index=unknown_554.Count()-1;index>=0;--index)
@@ -8478,7 +8478,7 @@ void BuildingClass::Unknown_004536D0(InfantryClass *infantry)
     int capacity=unknown_554.Length();
     unknown_554.Clear();
     unknown_554.Resize(capacity,0);
-    Unknown_006D9610(Get_Cell_Ptr());
+    UpdateThreatInCell(Get_Cell_Ptr());
 }
 
 

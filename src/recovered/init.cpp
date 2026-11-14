@@ -2186,7 +2186,7 @@ void __fastcall unknown_5159b0(int unknown1, bool unknown2)
 }
 
 
-// void __fastcall Unknown_00515A80(char const *filename, bool blit) -- 0x00515A80
+// void __fastcall Load_Title_Page(char const *filename, bool blit) -- 0x00515A80
 // Clears the hidden surface, draws the named picture on it with the palette
 // 0x00838710 (0x00738190) and, when asked, blits it with the mouse.
 #include "shared/palette.hpp"
@@ -2195,7 +2195,7 @@ extern PaletteClass unknown_palette_838710;
 // Reads a picture file onto a surface with a palette (0x00738190; hypothesis).
 void __fastcall Unknown_00738190(char const *filename, Surface *surface, PaletteClass *palette);
 
-void __fastcall Unknown_00515A80(char const *filename, bool blit)
+void __fastcall Load_Title_Page(char const *filename, bool blit)
 {
     unknown_surface_839954->Fill(0);
     Unknown_00738190(filename, unknown_surface_839954, &unknown_palette_838710);
@@ -2400,16 +2400,16 @@ bool __fastcall Init_Secondary_Mixfiles()
 }
 
 
-// void __fastcall Load_Title_Page() -- 0x00516560
+// void __fastcall Draw_Loading_Screen() -- 0x00516560
 
 
 // When the title page was shown plus five seconds (0x00A41668, Audio_Now time).
 extern __int64 unknown_title_time_a41668;
 
 // Shows the title shape (GLSS.SHP at 640 wide, else GLSL.SHP, in GLS.PAL) centred on the hidden
-// surface with the copyright, brand and loading texts, and blits it (Red Alert's
-// Load_Title_Page).
-void __fastcall Load_Title_Page()
+// surface with the copyright, brand and loading texts, and blits it (like Red Alert's
+// Load_Title_Page; TibSun's Load_Title_Page(name, visible) is 0x00515A80).
+void __fastcall Draw_Loading_Screen()
 {
     CCFileClass file("GLS.PAL");
     ShapeFileStruct *shape = 0;

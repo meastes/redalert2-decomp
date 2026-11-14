@@ -19,7 +19,7 @@ int BuildingClass::Do_MISSION_ATTACK()
         if (unknown_228 == 0) {
             unknown_slot220(0);
             unknown_534 = 0;
-            if (unknown_slot242()) {
+            if (IsNotWarpingIn()) {
                 unknown_6d1470();
             }
             if (Get_Mission() != 0x1C) {
@@ -28,7 +28,7 @@ int BuildingClass::Do_MISSION_ATTACK()
             }
             return 1;
         }
-        int weapon = unknown_slot174(unknown_228);
+        int weapon = What_Weapon_Should_I_Use(unknown_228);
         unknown_5ad = true;
         unsigned fire = (unsigned)unknown_slot218(unknown_228, weapon, true);
         if (fire == 2 && unknown_slot232() && Type->TurretAnimIsVoxel) {
@@ -52,7 +52,7 @@ int BuildingClass::Do_MISSION_ATTACK()
         case 1: case 5: case 6: case 8:         // FIRE_AMMO, FIRE_ILLEGAL, FIRE_CANT, FIRE_RANGE
             unknown_slot220(0);
             unknown_534 = 0;
-            if (unknown_slot242()) {
+            if (IsNotWarpingIn()) {
                 unknown_6d1470();
             }
             if (Get_Mission() == 0x1C) {
@@ -75,8 +75,8 @@ int BuildingClass::Do_MISSION_ATTACK()
         case 0: {                               // FIRE_OK
             if (unknown_5c6 != 0 && unknown_4c0[0] != 0) {
                 if (unknown_4c0[0]->Is_Two_Shooter()) {
-                    unknown_slot221(unknown_228, 0);
-                    unknown_slot221(unknown_228, 1);
+                    Fire_At(unknown_228, 0);
+                    Fire_At(unknown_228, 1);
                 }
                 return 1;
             }
@@ -125,7 +125,7 @@ int BuildingClass::Do_MISSION_ATTACK()
                 unknown_44b870(1, shot);
                 return 1;
             }
-            unknown_slot221(unknown_228, weapon);
+            Fire_At(unknown_228, weapon);
             return 1;
         }
         default:                                // FIRE_BUSY, 7, beyond the table
@@ -179,8 +179,8 @@ int BuildingClass::Do_MISSION_ATTACK()
                 if (fire != 0) {
                     return 1;
                 }
-                unknown_slot221(unknown_228, 0);
-                unknown_slot221(unknown_228, 1);
+                Fire_At(unknown_228, 0);
+                Fire_At(unknown_228, 1);
                 unknown_a8 = 0;
                 return 1;
             }

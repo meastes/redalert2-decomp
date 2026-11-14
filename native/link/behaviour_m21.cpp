@@ -60,7 +60,7 @@ void AudioSource::Finish()
 
 // 0x0041B3E0 TechnoClass slot 205 (techno.hpp; pass-6a decompile): does nothing.
 #include "shared/techno.hpp"
-void TechnoClass::unknown_slot205()
+void TechnoClass::Cheer()
 {
 }
 

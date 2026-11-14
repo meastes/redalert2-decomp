@@ -120,15 +120,15 @@ public:
     virtual bool On_Ground() const;                              // slot 20 0x0041B0B0
     virtual bool In_Air() const;                              // slot 21 0x0041B050
     virtual void AI();                                                // slot 23 0x004147F0
-    virtual int unknown_slot27(Cell const *cell, bool arg2, bool arg3);         // slot 27 0x00417840
+    virtual int What_Action(Cell const *cell, bool arg2, bool arg3);         // slot 27 0x00417840
     virtual int unknown_slot28(ObjectClass *object, bool arg2);                 // slot 28 0x004175A0
     virtual int In_Which_Layer() const;                               // slot 29 0x0041A500
-    virtual bool unknown_slot31();                                    // slot 31 0x0041B040
+    virtual bool Considered_Vehicle();                                    // slot 31 0x0041B040
     virtual ObjectTypeClass *Class_Of() const;                        // slot 33 0x0041B600
     virtual wchar_t const *unknown_slot35();                          // slot 35 0x0041B5D0 (the type's UIName)
     virtual bool Unlimbo(CoordStruct const *coord, int dir);                   // slot 53 0x00414020
     virtual int Exit_Object(TechnoClass *techno);                           // slot 62 0x004153C0
-    virtual void unknown_slot67(Point2D const &point, Rect const &window);                  // slot 67 0x004141C0
+    virtual void Draw_It(Point2D const &point, Rect const &window);                  // slot 67 0x004141C0
     virtual void Look(bool arg1, bool arg2);                  // slot 70 0x0041A530
     virtual bool unknown_slot77(int arg1, Cell const *arg2, Cell const *arg3, bool arg4);  // slot 77 0x00417560
     virtual bool unknown_slot78(int arg1, ObjectClass *arg2, bool arg3);        // slot 78 0x004174B0
@@ -140,7 +140,7 @@ public:
     virtual bool Commence();                                   // slot 117 0x0041AFC0
     virtual void Set_Mission(int mission);                        // slot 118 0x0041B120
     virtual void Override_Mission(int mission, AbstractClass *target, AbstractClass *destination);   // slot 119 0x0041B1A0
-    virtual bool unknown_slot122();                                   // slot 122 0x0041AD30
+    virtual bool Ready_To_Commence();                                   // slot 122 0x0041AD30
     virtual int Do_MISSION_ATTACK();                                    // slot 126 0x004178A0
     virtual int Do_MISSION_GUARD();                                    // slot 129 0x00419D00
     virtual int Do_MISSION_GUARD_AREA();                                    // slot 130 0x0041A080
@@ -152,14 +152,14 @@ public:
     virtual int Do_MISSION_PATROL();                                    // slot 145 0x00416C20
     virtual int Do_MISSION_PARADROP_APPROACH();                                    // slot 146 0x00415190
     virtual int Do_MISSION_PARADROP_OVERFLY();                                    // slot 147 0x00415210
-    virtual UnknownFacingDir unknown_slot162();                               // slot 162 0x0041B5E0
-    virtual int unknown_slot182(AbstractClass *object, Cell *cell);          // slot 182 0x00418CF0
-    virtual UnknownFacingDir unknown_slot183();                               // slot 183 0x00419CB0
-    virtual bool unknown_slot200(int arg1, AbstractClass *arg2, AbstractClass *arg3, AbstractClass *arg4);  // slot 200 0x00417580
-    virtual void unknown_slot207();                                   // slot 207 0x0041B030 (nothing)
+    virtual UnknownFacingDir Turret_Facing();                               // slot 162 0x0041B5E0
+    virtual int Desired_Load_Dir(AbstractClass *object, Cell *cell);          // slot 182 0x00418CF0
+    virtual UnknownFacingDir Fire_Direction();                               // slot 183 0x00419CB0
+    virtual bool Player_Assign_Mission(int arg1, AbstractClass *arg2, AbstractClass *arg3, AbstractClass *arg4);  // slot 200 0x00417580
+    virtual void Reduce_Ammunition();                                   // slot 207 0x0041B030 (nothing)
     virtual int unknown_slot218(AbstractClass *target, int weapon, bool check_range);        // slot 218 0x0041A120
-    virtual BulletClass *unknown_slot221(AbstractClass *target, int arg2);                  // slot 221 0x00415790
-    virtual bool unknown_slot242();                                   // slot 242 0x0041B110
+    virtual BulletClass *Fire_At(AbstractClass *target, int arg2);                  // slot 221 0x00415790
+    virtual bool IsNotWarpingIn();                                   // slot 242 0x0041B110
     virtual void Assign_Destination(AbstractClass *target, bool immediate);                 // slot 260 0x0041A1C0
     virtual bool unknown_slot261(bool arg1, bool arg2);                 // slot 261 0x00417010
     virtual bool unknown_slot282();                                   // slot 282 0x0041AFD0

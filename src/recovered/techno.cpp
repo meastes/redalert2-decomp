@@ -249,14 +249,14 @@ bool TechnoClass::unknown_slot24()
 }
 
 
-// int TechnoClass::unknown_slot174(AbstractClass *target) (0x006C1380, slot 174)
+// int TechnoClass::What_Weapon_Should_I_Use(AbstractClass *target) (0x006C1380, slot 174)
 // Which weapon to use against target: 0 primary, 1 secondary (TibSun's
 // What_Weapon_Should_I_Use, with RA2's rules: a turret weapon set keeps the
 // current index, occupied buildings follow the occupant's house, ...).
 // The armor index is one named local read twice (TibSun's `armor`); read
 // in place, this and target trade esi/edi.
 
-int TechnoClass::unknown_slot174(AbstractClass *target)
+int TechnoClass::What_Weapon_Should_I_Use(AbstractClass *target)
 {
     if (Techno_Type_Class()->Has_Turret_Weapons()) {
         return unknown_10c != -1 ? unknown_10c : 0;
@@ -439,10 +439,10 @@ CoordStruct TechnoClass::unknown_slot43(int which)
         Matrix3D drawn;
         Matrix3D locomotor_matrix(*foot->Locomotor.Checked()->Draw_Matrix(&drawn,0));
         matrix=locomotor_matrix;
-        angle=unknown_slot162().As_Radian32()-unknown_2e0.Current().As_Radian32();
+        angle=Turret_Facing().As_Radian32()-unknown_2e0.Current().As_Radian32();
     } else {
         matrix.Make_Identity();
-        angle=unknown_slot162().As_Radian32();
+        angle=Turret_Facing().As_Radian32();
     }
     matrix.Translate(type->TurretOffset,0.0f,0.0f);
     matrix.Rotate_Z((float)angle);
@@ -455,7 +455,7 @@ CoordStruct TechnoClass::unknown_slot43(int which)
 
 // Weapon mounting coordinate with the locomotor transform and turret angle.
 extern "C" double const unknown_fire_angle_scale_79d090;
-CoordStruct TechnoClass::unknown_slot181(int which)
+CoordStruct TechnoClass::Turret_Coord(int which)
 {
     TechnoTypeClass *type=Techno_Type_Class();
     Matrix3D matrix;
@@ -465,10 +465,10 @@ CoordStruct TechnoClass::unknown_slot181(int which)
         Matrix3D drawn;
         Matrix3D locomotor_matrix(*foot->Locomotor.Checked()->Draw_Matrix(&drawn,0));
         matrix=locomotor_matrix;
-        angle=unknown_slot162().As_Radian32()-unknown_2e0.Current().As_Radian32();
+        angle=Turret_Facing().As_Radian32()-unknown_2e0.Current().As_Radian32();
     } else {
         matrix.Make_Identity();
-        angle=unknown_slot162().As_Radian32();
+        angle=Turret_Facing().As_Radian32();
     }
     matrix.Translate(type->TurretOffset,0.0f,0.0f);
     matrix.Rotate_Z((float)angle);
@@ -624,7 +624,7 @@ TechnoClass::~TechnoClass()
 
 int TechnoClass::Unknown_006C22A0()
 {
-    int time = Class_Of()->unknown_slot34();
+    int time = Class_Of()->Time_To_Build();
     time = House->unknown_func_4f5a70(Techno_Type_Class()) * time;
     float power = House->Power_Fraction();
     float speed = 1.0f - (1.0f - power) * Rules->LowPowerPenaltyModifier;
@@ -951,7 +951,7 @@ void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
                     ((Frame % delay) * 6) / (delay - 1), repair_point, window, 0xe00, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
         }
-        if (!unknown_slot49(unknown_player_a35db4) && unknown_slot25(false, 0) != 5) {
+        if (!IsDisguisedAs(unknown_player_a35db4) && unknown_slot25(false, 0) != 5) {
             unknown_slot250(point, window);
         }
         if (unknown_77 || sensed_underground) {
@@ -991,8 +991,8 @@ void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
             unknown_slot248(point, window, sensed_underground);
         }
         if (Flag_380(this) && !Is_Selected(this)) {
-            if (unknown_slot49(unknown_player_a35db4)) {
-                if (unknown_slot51(true)) {
+            if (IsDisguisedAs(unknown_player_a35db4)) {
+                if (GetDisguiseHouse(true)) {
                     unknown_slot248(point, window, true);
                 }
             } else {
@@ -1280,7 +1280,7 @@ bool TechnoClass::Unlimbo(CoordStruct const *coord, int dir)
         }
         unknown_slot261(true, true);
         unknown_190 = false;
-        if (unknown_slot122()) {
+        if (Ready_To_Commence()) {
             Commence();
         }
         unknown_378 = (char)(coord->Z / Rules->unknown_1324) * 10;
@@ -1522,7 +1522,7 @@ bool TechnoClass::unknown_slot211(ObjectClass *target)
 
 bool TechnoClass::unknown_slot213(AbstractClass *target)
 {
-    return unknown_slot212(target, unknown_slot174(target));
+    return unknown_slot212(target, What_Weapon_Should_I_Use(target));
 }
 
 
@@ -1570,7 +1570,7 @@ bool TechnoClass::unknown_slot215(AbstractClass *target)
 bool TechnoClass::unknown_slot214(CoordStruct const &coord)
 {
     AbstractClass *cell = (AbstractClass *)&Map[coord];
-    return unknown_slot212(cell, unknown_slot174(cell));
+    return unknown_slot212(cell, What_Weapon_Should_I_Use(cell));
 }
 
 
@@ -1709,8 +1709,8 @@ static inline int Coord_Size(CoordStruct const &c)
 bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *object,int *value,int zone,CoordStruct const *coord)
 {
     TechnoClass *tech=static_cast<TechnoClass *>(object);
-    bool engineer=unknown_slot193();
-    int which=unknown_slot174(object);
+    bool engineer=Is_Renovator();
+    int which=What_Weapon_Should_I_Use(object);
     WeaponTypeClass *weapon=unknown_slot231(which)->WeaponType;
     if(!(method&0x18200) && unknown_slot217(object,which)==5) return false;
     if(object->unknown_70<=0 && Techno_Type_Class()->VHPScan==2) return false;
@@ -1732,7 +1732,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
         if(object->Kind_Of()==2 && Kind_Of()==1) {
             if(object->Get_Height_AGL()>0) return false;
             if(Map[object->Center_Coord()].Cell_Building()) return false;
-        } else if(Kind_Of()==1 && !object->unknown_slot31()) return false;
+        } else if(Kind_Of()==1 && !object->Considered_Vehicle()) return false;
     }
     if(unknown_id_source_a3d290->unknown_000&0x800) {
         ObjectTypeClass *type=object->Class_Of();
@@ -1760,7 +1760,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
     if(House->Is_Player_Control() && !tech->unknown_372 && !tech->unknown_373 && unknown_game_mode_a3d298==0 && object->Kind_Of()!=2) return false;
     if(object->Kind_Of()==6 && static_cast<BuildingClass *>(object)->Type->InvisibleInGame) return false;
     int otype=object->Kind_Of();
-    if(!((1<<otype)&mask) && (!(mask&2) || !object->unknown_slot31())) return false;
+    if(!((1<<otype)&mask) && (!(mask&2) || !object->Considered_Vehicle())) return false;
     TechnoTypeClass *tclass=object->Techno_Type_Class();
     if(!tclass->unknown_201) return false;
     if(unknown_game_mode_a3d298!=0 && tech->House->Type->MultiplayPassive) {
@@ -1771,7 +1771,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
         bool capture;
         if(!static_cast<BuildingClass *>(object)->Type->NeedsEngineer || !inf->Type->Engineer || tech->House==House) capture=false; else capture=true;
         bool occupy;
-        if(!inf->Type->Occupier || !static_cast<BuildingClass *>(object)->Unknown_00452EB0(this)) occupy=false; else occupy=true;
+        if(!inf->Type->Occupier || !static_cast<BuildingClass *>(object)->CanBeOccupiedBy(this)) occupy=false; else occupy=true;
         if(unknown_game_mode_a3d298==0 || defense || (!capture && !occupy)) return false;
     }
     if(tclass->unknown_202 && (object->Kind_Of()!=6 || tech->House->Type->MultiplayPassive)) {
@@ -1782,11 +1782,11 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
         bool capture;
         if(!static_cast<BuildingClass *>(object)->Type->NeedsEngineer || !inf->Type->Engineer || tech->House==House) capture=false; else capture=true;
         bool occupy;
-        if(!inf->Type->Occupier || !static_cast<BuildingClass *>(object)->Unknown_00452EB0(this)) occupy=false; else occupy=true;
+        if(!inf->Type->Occupier || !static_cast<BuildingClass *>(object)->CanBeOccupiedBy(this)) occupy=false; else occupy=true;
         if(unknown_game_mode_a3d298==0 || defense || (!capture && !occupy)) return false;
     }
     if(tclass->IsTrain && Kind_Of()==15 && static_cast<InfantryClass *>(this)->Type->VehicleThief) return false;
-    if(object->unknown_slot49(House) && !Techno_Type_Class()->DetectDisguise) {
+    if(object->IsDisguisedAs(House) && !Techno_Type_Class()->DetectDisguise) {
         if(!tech->unknown_184.Value()) return false;
         if(House->Is_Human_Player()) return false;
         int roll=unknown_id_source_a3d290->Random()(0,99);
@@ -1799,7 +1799,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
     if((method&0x200) && (otype!=6 || !static_cast<BuildingTypeClass *>(tclass)->Capturable)) return false;
     bool foot=false;
     if(this) foot=AbstractFlags.IsFoot;
-    if((!foot || !static_cast<FootClass *>(this)->Team) && House->Is_Human_Player() && !object->unknown_slot31() && otype==6) {
+    if((!foot || !static_cast<FootClass *>(this)->Team) && House->Is_Human_Player() && !object->Considered_Vehicle() && otype==6) {
         WeaponStruct *armed=tech->unknown_slot230();
         if((!armed || !armed->WeaponType || !object->Techno_Type_Class()->ThreatPosed) && !engineer) return false;
     }
@@ -1875,7 +1875,7 @@ int TechnoClass::unknown_6c6350(Cell const *cell)
     if (wall->unknown_44 == -1 || !unknown_overlay_types_a35de8[wall->unknown_44]->unknown_278) {
         return 0;
     }
-    int weapon = unknown_slot174((AbstractClass *)&Map[*cell]);
+    int weapon = What_Weapon_Should_I_Use((AbstractClass *)&Map[*cell]);
     if (!In_Range(CoordStruct(cell->X * 256 + 128, cell->Y * 256 + 128, 0), weapon)) {
         return 0;
     }
@@ -2064,7 +2064,7 @@ HouseClass *TechnoClass::Owning_House() const
 
 void TechnoClass::Clicked_As_Target(int arg1)
 {
-    if (!unknown_slot49(unknown_player_a35db4) || unknown_slot51(1)) {
+    if (!IsDisguisedAs(unknown_player_a35db4) || GetDisguiseHouse(1)) {
         FlashCount = arg1;
     }
 }
@@ -2151,13 +2151,13 @@ void TechnoClass::AI()
     if (!House->Is_Human_Player() && unknown_228 && House->Is_Ally(static_cast<ObjectClass *>(unknown_228))) {
         bool infantry=Kind_Of()==15;
         bool building=unknown_228->Kind_Of()==6;
-        bool can_enter=infantry && building && static_cast<BuildingClass *>(unknown_228)->Unknown_00452EB0(this);
+        bool can_enter=infantry && building && static_cast<BuildingClass *>(unknown_228)->CanBeOccupiedBy(this);
         bool engineer=infantry && static_cast<InfantryClass *>(this)->Type->Engineer;
         bool assault=unknown_slot231(1)->WeaponType && unknown_slot231(1)->WeaponType->Warhead->ElectricAssault && building && static_cast<BuildingClass *>(unknown_228)->Type->Overpowerable;
         if (!engineer && !assault && !can_enter) unknown_slot220(0);
     }
     if ((int)Frame%16==0 && Mission!=8 && Mission!=17) {
-        int fire_error=unknown_slot217(unknown_228,unknown_slot174(unknown_228));
+        int fire_error=unknown_slot217(unknown_228,What_Weapon_Should_I_Use(unknown_228));
         if (unknown_228 && (fire_error==5 || fire_error==6)) unknown_slot220(0);
     }
     if (Techno_Type_Class()->TurretRecoil) { unknown_330.unknown_6d8bc0(); unknown_350.unknown_6d8bc0(); }
@@ -2209,7 +2209,7 @@ void TechnoClass::AI()
             if (!unknown_slot169(unknown_228)) {
                 if (Is_Foot(this)) foot->unknown_slot304();
                 if (!foot || !foot->unknown_494) {
-                    int primary=unknown_slot174(unknown_228);
+                    int primary=What_Weapon_Should_I_Use(unknown_228);
                     if (!unknown_slot212(unknown_228,primary)) unknown_slot220(0);
                 }
             }
@@ -2257,11 +2257,11 @@ void TechnoClass::AI()
 }
 
 
-// void TechnoClass::unknown_slot239() (0x006C8290, slot 239)
+// void TechnoClass::Reload() (0x006C8290, slot 239)
 // Reloads one round (+0x254, up to the type's Ammo) when the +0x194 timer
 // has run out, then slot 71 (2) and 0x006C8300.
 
-void TechnoClass::unknown_slot239()
+void TechnoClass::Reload()
 {
     int ammo = Techno_Type_Class()->Ammo;
     if (ammo != -1 && unknown_254 < ammo && unknown_194.Value() == 0) {
@@ -2739,7 +2739,7 @@ void TechnoClass::unknown_slot220(AbstractClass *target)
                 if (active && (techno = (TechnoClass *)target)->unknown_325) {
                     target = 0;
                 }
-                if (active && techno->Kind_Of() == 15 && ((InfantryClass *)techno)->Is_Busy_00509760()) {
+                if (active && techno->Kind_Of() == 15 && ((InfantryClass *)techno)->Is_Dying()) {
                     target = 0;
                 }
             }
@@ -2897,7 +2897,7 @@ EBolt *TechnoClass::unknown_6ca020(AbstractClass *target, WeaponTypeClass *weapo
 
 EBolt *TechnoClass::unknown_6ca130(AbstractClass *target)
 {
-    int weapon = unknown_slot174(target);
+    int weapon = What_Weapon_Should_I_Use(target);
     WeaponTypeClass *type = unknown_slot231(weapon)->WeaponType;
     CoordStruct source = unknown_slot43(weapon);
     EBolt *bolt = unknown_6ca020(target, type, source);
@@ -3015,7 +3015,7 @@ UnknownFacingDir TechnoClass::unknown_slot170(AbstractClass *target)
         } else {
             weapon = 0;
         }
-        CoordStruct delta = end - unknown_slot181(weapon);
+        CoordStruct delta = end - Turret_Coord(weapon);
         WeaponTypeClass *type = unknown_slot231(weapon)->WeaponType;
         double speed = Rules->unknown_1320;
         if (type->Projectile != 0 && type->Projectile->Floater) {
@@ -3076,7 +3076,7 @@ int TechnoClass::unknown_6ca6c0(TechnoClass *target, WeaponTypeClass *weapon)
 }
 
 
-// BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which) (0x006CA890)
+// BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which) (0x006CA890)
 // TibSun TechnoClass::Fire_At.
 inline int Length_006ca890(CoordStruct const &c) { return (int)unknown_sqrt_4ba410((double)c.X * (double)c.X + ((double)c.Z * (double)c.Z + (double)c.Y * (double)c.Y)); }
 struct Point2F_006ca890 { Point2F_006ca890() {} Point2F_006ca890(float x, float y) : X(x), Y(y) {} float X; float Y; };
@@ -3178,7 +3178,7 @@ inline void Recoil_Start_006ca890(RecoilData &block)
 }
 
 
-BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which)
+BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
 {
     WeaponTypeClass *weapon = unknown_slot231(which)->WeaponType;
     if (weapon == 0) {
@@ -3229,7 +3229,7 @@ BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which)
     if (btype->ROT == 0 && !btype->Dropping) {
         dir = UnknownFacingDir((unsigned short)(int)((Fast_Atan2((double)fire_coord.Y - (double)target_coord.Y, (double)target_coord.X - (double)fire_coord.X) - unknown_facing_origin_79b630) * unknown_facing_scale_79b628));
     } else {
-        dir = unknown_slot183();
+        dir = Fire_Direction();
         if (btype->Dropping) {
             fire_coord = Center_Coord();
         }
@@ -3284,7 +3284,7 @@ BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which)
             double angle = Fast_Atan2((double)-displacement.Y, (double)displacement.X);
             dir = UnknownFacingDir((unsigned short)(int)((angle - unknown_facing_origin_79b630) * unknown_facing_scale_79b628));
         } else {
-            dir = unknown_slot183();
+            dir = Fire_Direction();
             if (btype->Dropping) {
                 fire_coord = Center_Coord();
             }
@@ -3345,7 +3345,7 @@ BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which)
                 BuildingClass *building = (BuildingClass *)tarcom;
                 int kind = building != 0 ? building->Kind_Of() : 0;
                 if (kind == 6) {
-                    CoordStruct turret = unknown_slot181(which);
+                    CoordStruct turret = Turret_Coord(which);
                     height = building->Type->Height * 200 - turret.Z;
                     abs_z = abs(height);
                     if ((double)abs_z < unknown_twenty_79d150) {
@@ -3394,7 +3394,7 @@ BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which)
             AnimTypeClass *anim_type = 0;
             int anim_count = weapon->Anim.Count();
             if (anim_count == 8) {
-                anim_type = weapon->Anim[(Dir_To_8(unknown_slot183()) + 1) % 8];
+                anim_type = weapon->Anim[(Dir_To_8(Fire_Direction()) + 1) % 8];
             } else if (anim_count > 0) {
                 anim_type = weapon->Anim[0];
             }
@@ -3444,7 +3444,7 @@ BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which)
                     }
                 }
             } else if (weapon->unknown_127) {
-                int index = unknown_slot174(target);
+                int index = What_Weapon_Should_I_Use(target);
                 WeaponTypeClass *bolt_weapon = unknown_slot231(index)->WeaponType;
                 CoordStruct source = unknown_slot43(index);
                 EBolt *bolt = unknown_6ca020(target, bolt_weapon, source);
@@ -3462,7 +3462,7 @@ BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which)
             } else if (weapon->unknown_12b) {
                 unknown_6ca340((int)weapon->Warhead->CellSpread);
             }
-            unknown_slot207();
+            Reduce_Ammunition();
             Mark(2);
             if (!(unknown_372 || unknown_373)
                 || ((Map.Is_Shrouded(Center_Coord()) || Map.Is_Fogged(Center_Coord())) && !(Kind_Of() == 2 && unknown_372))) {
@@ -3531,7 +3531,7 @@ void TechnoClass::unknown_6cc020()
 {
     static bool pattern[16]={true,false,true,false,true,false,true,false,true,false,true,false,true,false,true,false};
     if(unknown_228) {
-        CoordStruct source=unknown_slot181(0);
+        CoordStruct source=Turret_Coord(0);
         CoordStruct target=unknown_6d65b0();
         Point2D start;
         Point2D end;
@@ -3549,7 +3549,7 @@ void TechnoClass::unknown_6cc020()
 }
 
 
-// bool TechnoClass::unknown_slot200(int mission, AbstractClass *target, AbstractClass *destination, AbstractClass *follow) (0x006CC2A0, slot 200)
+// bool TechnoClass::Player_Assign_Mission(int mission, AbstractClass *target, AbstractClass *destination, AbstractClass *follow) (0x006CC2A0, slot 200)
 // The player orders a mission: a move or attack (1, 2) becomes 0x1D while
 // 0x006F6670 and slot 275 hold; planning mode records a MEGAMISSION event
 // instead; otherwise the mission's voice plays and the MEGAMISSION is queued.
@@ -3557,9 +3557,9 @@ void TechnoClass::unknown_6cc020()
 bool Planning_Active();
 bool Unknown_006F6670();
 
-bool TechnoClass::unknown_slot200(int mission, AbstractClass *target, AbstractClass *destination, AbstractClass *follow)
+bool TechnoClass::Player_Assign_Mission(int mission, AbstractClass *target, AbstractClass *destination, AbstractClass *follow)
 {
-    bool special = Unknown_006F6670() && unknown_slot275();
+    bool special = Unknown_006F6670() && CanAttackOnTheMove();
     if ((mission == 2 || mission == 1) && special) {
         mission = 0x1D;
     }
@@ -3692,14 +3692,14 @@ int TechnoClass::unknown_slot28(ObjectClass *object, bool arg2)
 attack:
     {
         TechnoTypeClass *type = Techno_Type_Class();
-        int weapon = unknown_slot174(object);
+        int weapon = What_Weapon_Should_I_Use(object);
         if (object->Not_Underground()) {
             WeaponTypeClass *weapon_type = unknown_slot231(weapon)->WeaponType;
             bool disguised = Rules->AttackCursorOnDisguise
                 || (object->AbstractFlags.IsTechno && (object->Techno_Type_Class()->PermaDisguise
                     || (object->AbstractFlags.IsTechno && ((TechnoClass *)object)->unknown_184.Value() != 0)));
-            bool owned = object->unknown_slot49(House) && !disguised;
-            bool capture = owned && object->unknown_slot51(true) == 0;
+            bool owned = object->IsDisguisedAs(House) && !disguised;
+            bool capture = owned && object->GetDisguiseHouse(true) == 0;
             bool can208 = unknown_slot208(object);
             bool usable = !owned || (capture && can208);
             bool ivan = weapon_type != 0 && weapon_type->Warhead->IvanBomb && object->Techno_Type_Class() != 0
@@ -3745,7 +3745,7 @@ attack:
 }
 
 
-// int TechnoClass::unknown_slot27(Cell const *cell, bool arg2, bool arg3) (0x006CCCE0, slot 27)
+// int TechnoClass::What_Action(Cell const *cell, bool arg2, bool arg3) (0x006CCCE0, slot 27)
 // The action for a cell (Westwood's What_Action for a cell). Without arg3,
 // the force-fire and force-move key pairs and the 0x00A40BA4/0x00A40BA8 pair
 // are read; force fire and force
@@ -3757,7 +3757,7 @@ attack:
 // attackable, when the cell burns, or when an enemy wall/parasite case
 // allows it; then movement: 1 (move) or 2 (no move).
 
-int TechnoClass::unknown_slot27(Cell const *cell, bool arg2, bool arg3)
+int TechnoClass::What_Action(Cell const *cell, bool arg2, bool arg3)
 {
     UnknownCellClass *cellptr = Map_Cell_At(*cell);
     UnknownOverlayType *overlay = 0;
@@ -3792,7 +3792,7 @@ int TechnoClass::unknown_slot27(Cell const *cell, bool arg2, bool arg3)
     } else if (cellptr->unknown_44 != -1) {
         overlay = unknown_overlay_types_a35de8[cellptr->unknown_44];
     }
-    bool can_deploy = unknown_slot193();
+    bool can_deploy = Is_Renovator();
     if (House->Is_Player_Control() && ((force_fire && third) || unknown_388)
         && Can_Player_Move() && (Can_Player_Fire() || can_deploy)) {
         if (unknown_player_a35db4->Waypoint_At(*cell) == 0 && !unknown_388) {
@@ -3802,7 +3802,7 @@ int TechnoClass::unknown_slot27(Cell const *cell, bool arg2, bool arg3)
     }
     WeaponStruct *primary;
     if (House->Is_Player_Control() && (primary = unknown_slot230()) != 0 && primary->WeaponType != 0) {
-        int weapon = unknown_slot174((AbstractClass *)Map_Cell_At(*cell));
+        int weapon = What_Weapon_Should_I_Use((AbstractClass *)Map_Cell_At(*cell));
         bool burning = (Map_Cell_At(*cell))->Unknown_0047BB10();
         if (burning) {
             WeaponTypeClass *weapon_type = unknown_slot230()->WeaponType;
@@ -3881,7 +3881,7 @@ bool TechnoClass::unknown_slot185()
             return true;
         }
         FootClass *foot = (FootClass *)this;
-        if ((foot->unknown_574 >= 0 && foot->unknown_slot284()) || unknown_slot201()) {
+        if ((foot->unknown_574 >= 0 && foot->Deploy_To_Fire()) || unknown_slot201()) {
             return false;
         }
     }
@@ -3961,9 +3961,9 @@ bool TechnoClass::unknown_slot186()
         case 6:
             return false /* NATIVE: 0x0045EC40 is Leaf_45ec40::get, which returns false (decompile) */;
         case 15:
-            if (!((InfantryClass *)this)->unknown_5090b0()
-                || (!((InfantryClass *)this)->unknown_5090d0() && ((InfantryClass *)this)->Sequence != 0x1f)) {
-                return ((InfantryClass *)this)->unknown_5090a0();
+            if (!((InfantryClass *)this)->Has_Undeploy_Delay()
+                || (!((InfantryClass *)this)->Is_Deploying() && ((InfantryClass *)this)->Sequence != 0x1f)) {
+                return ((InfantryClass *)this)->Is_Deployer();
             }
             break;
         default:
@@ -4102,7 +4102,7 @@ void TechnoClass::unknown_slot233()
 }
 
 
-// bool TechnoClass::unknown_slot222(HouseClass *house, int arg2) (0x006CD940, slot 222)
+// bool TechnoClass::Captured(HouseClass *house, int arg2) (0x006CD940, slot 222)
 // Changes the owner (hypothesis: Westwood's Captured): nothing for the
 // current owner; otherwise drops the target and destination, leaves the old
 // owner's tracking (0x004ED440, 0x004EA800), credits the new owner with the
@@ -4114,7 +4114,7 @@ void TechnoClass::unknown_slot233()
 // three-entry jump table at 0x006CDBE0 and a 15-byte index table at
 // 0x006CDBEC.
 
-bool TechnoClass::unknown_slot222(HouseClass *house, int arg2)
+bool TechnoClass::Captured(HouseClass *house, int arg2)
 {
     if (house != House) {
         unknown_slot220(0);
@@ -4123,8 +4123,8 @@ bool TechnoClass::unknown_slot222(HouseClass *house, int arg2)
         House->Unknown_004ED440(this, false);
         Record_The_Kill(0);
         house->unknown_5418 += Techno_Type_Class()->Cost_Of(House);
-        House->unknown_4ea800(this);
-        house->unknown_4ea970(this);
+        House->Tracking_Remove(this);
+        house->Tracking_Add(this);
         switch (Kind_Of()) {
         case 6:
             house->unknown_5364[Owner()]++;
@@ -4270,7 +4270,7 @@ int TechnoClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
         unknown_13c=CDTimerClass<FrameTimerClass>(Rules->RadarCombatFlashTime);
     }
     if (result!=0 && result!=4 && Techno_Type_Class()->CanDisguise && !Techno_Type_Class()->PermaDisguise) {
-        if (unknown_slot48()) unknown_slot256();
+        if (unknown_slot48()) ClearDisguise();
         unknown_178=CDTimerClass<FrameTimerClass>(*damage*2);
     }
     if (Strength==0) result=4;
@@ -4314,8 +4314,8 @@ int TechnoClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
                 }
                 WeaponTypeClass *weapon=unknown_slot231(unknown_10c)->WeaponType;
                 if (Techno_Type_Class()->Explodes || Has_Ability_L(this,10) || (weapon && weapon->unknown_11c)) {
-                    unknown_6d3040(attacker);
-                    unknown_6d7e20(0);
+                    Kill_Cargo(attacker);
+                    FireDeathWeapon(0);
                 }
             }
         }
@@ -4365,7 +4365,7 @@ int TechnoClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
     if (unknown_6d3b60(attacker,(int)warhead)) {
         if (attacker==0 && Rules->unknown_1431) target=0;
         if (target) {
-            int which=unknown_slot174(target);
+            int which=What_Weapon_Should_I_Use(target);
             bool retaliate=unknown_slot212(target,which);
             if (!retaliate) {
                 if (House->Is_Human_Player()) {
@@ -5159,10 +5159,10 @@ bool TechnoClass::unknown_6d1440()
 }
 
 
-// bool TechnoClass::unknown_slot242() (0x006D1460, slot 242)
+// bool TechnoClass::IsNotWarpingIn() (0x006D1460, slot 242)
 // Always true.
 
-bool TechnoClass::unknown_slot242()
+bool TechnoClass::IsNotWarpingIn()
 {
     return true;
 }
@@ -5190,8 +5190,8 @@ ConvertClass *TechnoClass::unknown_slot115()
     if (palette != 0) {
         return (*palette)[scheme]->Converter;
     }
-    if (!unknown_slot245(unknown_player_a35db4) && unknown_slot51(true) != 0) {
-        return ColorSchemes[unknown_slot51(true)->ColorSchemeIndex]->Converter;
+    if (!unknown_slot245(unknown_player_a35db4) && GetDisguiseHouse(true) != 0) {
+        return ColorSchemes[GetDisguiseHouse(true)->ColorSchemeIndex]->Converter;
     }
     return ColorSchemes[scheme]->Converter;
 }
@@ -5252,7 +5252,7 @@ void TechnoClass::unknown_6d1510(void const *shape, int frame, Point2D const *po
         }
         if (Techno_Type_Class()->NoShadow) shadow=false;
         if (!unknown_slot245(unknown_player_a35db4)) {
-            if (unknown_slot50(true)->Kind_Of()!=21 && unknown_slot50(true)->Kind_Of()!=37) converter=ColorSchemes[unknown_slot51(true)->ColorSchemeIndex]->Converter;
+            if (GetDisguise(true)->Kind_Of()!=21 && GetDisguise(true)->Kind_Of()!=37) converter=ColorSchemes[GetDisguiseHouse(true)->ColorSchemeIndex]->Converter;
             else {
                 CellClass *cell=static_cast<CellClass *>(Get_Cell_Ptr());
                 converter=cell->unknown_34;
@@ -5572,8 +5572,8 @@ void TechnoClass::Detach(AbstractClass *target, bool all)
         House = 0;
         unknown_372 = false;
     }
-    if (unknown_slot48() && unknown_slot51(true) == target) {
-        unknown_slot256();
+    if (unknown_slot48() && GetDisguiseHouse(true) == target) {
+        ClearDisguise();
     }
     for (int slot = 0; slot < 8; slot++) {
         if (unknown_25c[slot] == target) {
@@ -5623,11 +5623,11 @@ void TechnoClass::Detach(AbstractClass *target, bool all)
 }
 
 
-// void TechnoClass::unknown_6d3040(TechnoClass *killer) (0x006D3040)
+// void TechnoClass::Kill_Cargo(TechnoClass *killer) (0x006D3040)
 // Destroys every passenger: each leaves its team, is detached from the
 // cargo, gets slot 55 (killer) and is deleted.
 
-void TechnoClass::unknown_6d3040(TechnoClass *killer)
+void TechnoClass::Kill_Cargo(TechnoClass *killer)
 {
     while (Cargo.Object != 0) {
         ObjectClass *passenger = Cargo.Attached_Object();
@@ -5643,12 +5643,12 @@ void TechnoClass::unknown_6d3040(TechnoClass *killer)
 }
 
 
-// InfantryTypeClass *TechnoClass::unknown_slot184() (0x006D30B0, slot 184)
+// InfantryTypeClass *TechnoClass::Crew_Type() (0x006D30B0, slot 184)
 // The crew type a Crewed techno leaves: AlliedCrew or SovietCrew by the
 // owner's +0x130 (else Technician); Technician for houses without a side,
 // and with a 15% chance for armed technos.
 
-InfantryTypeClass *TechnoClass::unknown_slot184()
+InfantryTypeClass *TechnoClass::Crew_Type()
 {
     if (!Techno_Type_Class()->Crewed) {
         return 0;
@@ -5705,7 +5705,7 @@ int TechnoClass::unknown_slot188(int arg1)
         return -1;
     }
     if (arg1 == 0) {
-        bool flag = unknown_slot193();
+        bool flag = Is_Renovator();
         if (Techno_Type_Class()->GuardRange.Value != 0 && !flag) {
             return Techno_Type_Class()->GuardRange.Value;
         }
@@ -5773,7 +5773,7 @@ void TechnoClass::unknown_6d3400(TechnoClass *attacker)
     bool is_foot;
     if (attacker) is_foot=attacker->AbstractFlags.IsFoot;
     if (attacker && is_foot && static_cast<FootClass *>(attacker)->unknown_540!=0) return;
-    TeamClass::unknown_func_6ba8e0(Rules->SuspendPriority,House);
+    TeamClass::Suspend_Teams(Rules->SuspendPriority,House);
     for (int index=0;index<Infantry.Count();++index) {
         if (required<=0) break;
         InfantryClass *member=Infantry[index];
@@ -5897,7 +5897,7 @@ bool TechnoClass::unknown_6d3b60(TechnoClass *source, int arg2)
     if (House->Is_Ally(source)) {
         return false;
     }
-    if (source->unknown_slot49(House)) {
+    if (source->IsDisguisedAs(House)) {
         return false;
     }
     if (unknown_6c16f0(-1) <= 0) {
@@ -5907,7 +5907,7 @@ bool TechnoClass::unknown_6d3b60(TechnoClass *source, int arg2)
         return false;
     }
     TechnoTypeClass *type = Techno_Type_Class();
-    int weapon = unknown_slot174(source);
+    int weapon = What_Weapon_Should_I_Use(source);
     int result = unknown_slot217(source, weapon);
     if (result == 5 || result == 6) {
         return false;
@@ -5964,7 +5964,7 @@ bool TechnoClass::unknown_6d3b60(TechnoClass *source, int arg2)
 
 int TechnoClass::Get_Ownable()
 {
-    return Techno_Type_Class()->unknown_slot28();
+    return Techno_Type_Class()->Get_Ownable();
 }
 
 
@@ -5994,10 +5994,10 @@ double TechnoClass::unknown_slot165()
 }
 
 
-// int TechnoClass::unknown_slot182(AbstractClass *object, Cell *cell) (0x006D3EB0, slot 182)
+// int TechnoClass::Desired_Load_Dir(AbstractClass *object, Cell *cell) (0x006D3EB0, slot 182)
 // Stores the zero cell; returns 0.
 
-int TechnoClass::unknown_slot182(AbstractClass *object, Cell *cell)
+int TechnoClass::Desired_Load_Dir(AbstractClass *object, Cell *cell)
 {
     *cell = unknown_geometry_k;
     return 0;
@@ -6033,12 +6033,12 @@ int TechnoClass::unknown_slot166()
 }
 
 
-// UnknownFacingDir TechnoClass::unknown_slot183() (0x006D3F80, slot 183)
+// UnknownFacingDir TechnoClass::Fire_Direction() (0x006D3F80, slot 183)
 // Slot 162 by value.
 
-UnknownFacingDir TechnoClass::unknown_slot183()
+UnknownFacingDir TechnoClass::Fire_Direction()
 {
-    return unknown_slot162();
+    return Turret_Facing();
 }
 
 
@@ -6102,7 +6102,7 @@ bool TechnoClass::unknown_6d40c0()
                 if (Kind_Of() != 6 || !((UnknownTechnoBuildingType *)((BuildingClass *)this)->Type)->unknown_121e
                     || ((BuildingClass *)this)->unknown_4532f0() != 0) {
                     bool busy = unknown_230 != 0 && ((UnknownTechno230 *)unknown_230)->unknown_24 != 0;
-                    if ((!unknown_slot193() || !House->Unknown_004F52F0()) && !busy && unknown_slot163()) {
+                    if ((!Is_Renovator() || !House->Unknown_004F52F0()) && !busy && unknown_slot163()) {
                         return true;
                     }
                 }
@@ -6167,7 +6167,7 @@ bool TechnoClass::unknown_6d4180()
         } else {
             flagged = true;
         }
-        int best = unknown_slot174(unknown_228);
+        int best = What_Weapon_Should_I_Use(unknown_228);
         bool same = best == weapon;
         if (flagged && same) {
             return false;
@@ -6384,7 +6384,7 @@ bool TechnoClass::unknown_slot209(CoordStruct const *coord, int arg2)
     }
     int method = arg2 & 3;
     if (unknown_228 != 0 && unknown_404) {
-        int weapon = unknown_slot174(unknown_228);
+        int weapon = What_Weapon_Should_I_Use(unknown_228);
         int result = unknown_slot218(unknown_228, weapon, 1);
         if (result == 6 && SpawnManager != 0) {
             SpawnManager->Abandon_Target();
@@ -6400,7 +6400,7 @@ bool TechnoClass::unknown_slot209(CoordStruct const *coord, int arg2)
             if (target != 0) {
                 unknown_slot220(target);
             }
-            int weapon = unknown_slot174(unknown_228);
+            int weapon = What_Weapon_Should_I_Use(unknown_228);
             TechnoClass *techno = (TechnoClass *)target;
             if (techno != 0) {
                 techno = techno->AbstractFlags.IsTechno ? techno : 0;
@@ -6419,10 +6419,10 @@ class Leaf_6d4880 { public: unsigned int get(unsigned int a1); };
 unsigned int Leaf_6d4880::get(unsigned int a1) { unsigned int self = (unsigned int)this; unsigned int zero; unsigned int spare; zero = 0; return zero; }
 
 
-// bool TechnoClass::unknown_slot257() (0x006D4890, slot 257)
+// bool TechnoClass::Is_Ready_To_Random_Animate() (0x006D4890, slot 257)
 // Whether the timer at +0x130 has expired.
 
-bool TechnoClass::unknown_slot257()
+bool TechnoClass::Is_Ready_To_Random_Animate()
 {
     return unknown_130.Value() == 0;
 }
@@ -6449,7 +6449,7 @@ void TechnoClass::Assign_Destination(AbstractClass *target, bool immediate)
 
 bool TechnoClass::unknown_slot261(bool arg1, bool arg2)
 {
-    if (!unknown_slot279() && unknown_slot242()) {
+    if (!unknown_slot279() && IsNotWarpingIn()) {
         unknown_615360();
     }
     return false;
@@ -6708,7 +6708,7 @@ Cell TechnoClass::unknown_slot180(int arg1)
 
 int TechnoClass::unknown_slot167()
 {
-    return Techno_Type_Class()->unknown_slot46(House, 0);
+    return Techno_Type_Class()->GetRefund(House, 0);
 }
 
 
@@ -7089,7 +7089,7 @@ CoordStruct TechnoClass::unknown_6d65b0()
         if (unknown_228 != 0 && unknown_228->Kind_Of() == 1) {
             FootClass *unit = (FootClass *)unknown_228;
             if (unit != 0 && unit->Locomotor.Checked()->Is_Moving()) {
-                int speed = unit->unknown_slot303();
+                int speed = unit->Current_Speed();
                 int distance = unknown_5d4c00(unknown_228);
                 WeaponStruct *weapon = unknown_slot230();
                 if (weapon != 0 && weapon->WeaponType != 0) {
@@ -7498,13 +7498,13 @@ double TechnoClass::unknown_6d7550(ObjectClass *target, CoordStruct const &coord
         target_strength = Rules->DumbTargetStrengthCoefficient;
         target_distance = Rules->DumbTargetDistanceCoefficient;
     }
-    int index = unknown_slot174(target);
+    int index = What_Weapon_Should_I_Use(target);
     WeaponTypeClass *weapon = unknown_slot231(index)->WeaponType;
     double value = 0;
     int kind = target->Kind_Of();
     if ((kind == 6 || kind == 15 || kind == 1 || kind == 2) && target != 0) {
         TechnoClass *techno = (TechnoClass *)target;
-        int their_index = techno->unknown_slot174(this);
+        int their_index = techno->What_Weapon_Should_I_Use(this);
         WeaponTypeClass *their_weapon = techno->unknown_slot231(their_index)->WeaponType;
         if (their_weapon != 0 && their_weapon->Warhead != 0) {
             if (techno->unknown_228 == this) {
@@ -7710,10 +7710,10 @@ bool TechnoClass::unknown_6d7d20(int weapon)
 }
 
 
-// void TechnoClass::unknown_slot207() (0x006D7E00, slot 207)
+// void TechnoClass::Reduce_Ammunition() (0x006D7E00, slot 207)
 // Counts unknown_254 down to 0.
 
-void TechnoClass::unknown_slot207()
+void TechnoClass::Reduce_Ammunition()
 {
     if (unknown_254 > 0) {
         unknown_254--;
@@ -7721,7 +7721,7 @@ void TechnoClass::unknown_slot207()
 }
 
 
-// int TechnoClass::unknown_6d7e20(int extra) (0x006D7E20)
+// int TechnoClass::FireDeathWeapon(int extra) (0x006D7E20)
 // Fires the death weapon at the techno itself (hypothesis: the explosion
 // when it dies): the type's DeathWeapon scaled by DeathWeaponDamageModifier,
 // else the primary weapon scaled the same way, else the Rules DeathWeapon
@@ -7729,7 +7729,7 @@ void TechnoClass::unknown_slot207()
 // bullet that detonates at the centre; returns that damage, or 0 without a
 // weapon.
 
-int TechnoClass::unknown_6d7e20(int extra)
+int TechnoClass::FireDeathWeapon(int extra)
 {
     WeaponTypeClass *weapon;
     int damage;
@@ -7917,11 +7917,11 @@ bool TechnoClass::unknown_6d83e0()
 }
 
 
-// void TechnoClass::unknown_6d83f0(int index) (0x006D83F0)
+// void TechnoClass::Set_Current_Weapon(int index) (0x006D83F0)
 // Unless the type has a charge turret, selects turret weapon index (0 when
 // outside 0-14): +0x100 the type's turret weapon, +0x10C the index.
 
-void TechnoClass::unknown_6d83f0(int index)
+void TechnoClass::Set_Current_Weapon(int index)
 {
     if (!Techno_Type_Class()->IsChargeTurret) {
         if (index >= 0 && index < 15) {
@@ -8090,10 +8090,10 @@ unsigned int __stdcall unknown_is_set_006d8640(int *value)
 }  // namespace seed_006d8640
 
 
-// void TechnoClass::unknown_slot255(int arg1) (0x006D8680, slot 255)
+// void TechnoClass::DisguiseAs(int arg1) (0x006D8680, slot 255)
 // Sets unknown_170 and its frame when arg1, then slot 266.
 
-void TechnoClass::unknown_slot255(TechnoClass *techno)
+void TechnoClass::DisguiseAs(TechnoClass *techno)
 {
     if (techno) {
         unknown_170 = true;
@@ -8103,10 +8103,10 @@ void TechnoClass::unknown_slot255(TechnoClass *techno)
 }
 
 
-// void TechnoClass::unknown_slot82(int arg1) (0x006D86B0, slot 82)
+// void TechnoClass::IronCurtain(int arg1) (0x006D86B0, slot 82)
 // Restarts the +0x154 timer with arg1 and clears unknown_16c.
 
-void TechnoClass::unknown_slot82(int arg1)
+void TechnoClass::IronCurtain(int arg1)
 {
     unknown_154 = CDTimerClass<FrameTimerClass>(arg1);
     unknown_16c = 0;
@@ -8371,7 +8371,7 @@ bool TechnoClass::unknown_slot245(HouseClass *house)
 
 bool TechnoClass::unknown_slot208(ObjectClass *target)
 {
-    WeaponTypeClass *weapon = unknown_slot231(unknown_slot174((AbstractClass *)target))->WeaponType;
+    WeaponTypeClass *weapon = unknown_slot231(What_Weapon_Should_I_Use((AbstractClass *)target))->WeaponType;
     if (weapon == 0) {
         return false;
     }
@@ -8388,7 +8388,7 @@ bool TechnoClass::unknown_slot208(ObjectClass *target)
         && unknown_overlay_types_a35de8[((UnknownTechnoCellView *)target)->Overlay]->unknown_285) {
         return true;
     }
-    if (target != 0 && target->AbstractFlags.IsObject && target->unknown_slot48() && target->unknown_slot51(true) == 0) {
+    if (target != 0 && target->AbstractFlags.IsObject && target->unknown_slot48() && target->GetDisguiseHouse(true) == 0) {
         return true;
     }
     return false;
@@ -8455,19 +8455,19 @@ unsigned int  unknown_return_minus_one_006d8ef0(void)
 // emitted (and kept) in this unit; no source of its own.
 
 
-// bool TechnoClass::unknown_slot274() (0x006D8F20, slot 274)
+// bool TechnoClass::CanUseWaypoint() (0x006D8F20, slot 274)
 // The type's slot 40, defined out of line (the Infantry and Unit overrides jump to this copy).
 
-bool TechnoClass::unknown_slot274()
+bool TechnoClass::CanUseWaypoint()
 {
     return Techno_Type_Class()->CanUseWaypoint();
 }
 
 
-// bool TechnoClass::unknown_slot275() (0x006D8F40, slot 275)
+// bool TechnoClass::CanAttackOnTheMove() (0x006D8F40, slot 275)
 // The type's slot 41, defined out of line (the Infantry and Unit overrides jump to this copy).
 
-bool TechnoClass::unknown_slot275()
+bool TechnoClass::CanAttackOnTheMove()
 {
     return Techno_Type_Class()->CanAttackMove();
 }
@@ -8603,11 +8603,11 @@ void TechnoClass::unknown_6d95d0(UnknownCellClass *cell)
 }
 
 
-// void TechnoClass::Unknown_006D9610(AbstractClass *cell) (0x006D9610)
+// void TechnoClass::UpdateThreatInCell(AbstractClass *cell) (0x006D9610)
 // Re-registers the techno with a cell: takes the old +0x400 value back
 // (0x006D95D0) and records slot 168's current value (0x006D95A0).
 
-void TechnoClass::Unknown_006D9610(AbstractClass *cell)
+void TechnoClass::UpdateThreatInCell(AbstractClass *cell)
 {
     if (cell != 0) {
         unknown_6d95d0((UnknownCellClass *)cell);

@@ -28,8 +28,8 @@ public:
     virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);          // 0x006E1810
     virtual int Size() { return sizeof(TeleportLocomotionClass); }              // 0x006E1BE0 (inline)
     // Teleport's own virtuals (IPersistStream-side slots 10 and 11; names unknown).
-    virtual void __stdcall unknown_slot10();                                    // 0x006E16F0 (the warp timer ran out: clears the linked object's +0x205, counts +0x38 on)
-    virtual bool unknown_slot11();                                              // 0x006DFD30 (not moving)
+    virtual void __stdcall Process_Delay();                                    // 0x006E16F0 (the warp timer ran out: clears the linked object's +0x205, counts +0x38 on)
+    virtual bool Is_Stationary();                                              // 0x006DFD30 (not moving)
 
     virtual bool __stdcall Is_Moving();                                         // 0x006DFD20
     virtual CoordStruct __stdcall Destination();                                // 0x006DFD40

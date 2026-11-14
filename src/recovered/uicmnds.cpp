@@ -247,8 +247,8 @@ void Unknown_006F5940()
     bool deploying = false;
     for (; index < count; index++) {
         ObjectClass *object = unknown_objects_a40c60[index];
-        if (object != 0 && object->Kind_Of() == 15 && ((InfantryClass *)object)->unknown_5090a0()) {
-            if (((InfantryClass *)object)->unknown_5090d0()) {
+        if (object != 0 && object->Kind_Of() == 15 && ((InfantryClass *)object)->Is_Deployer()) {
+            if (((InfantryClass *)object)->Is_Deploying()) {
                 deploying = true;
             } else {
                 undeployed = true;
@@ -263,8 +263,8 @@ void Unknown_006F5940()
         ObjectClass *object = unknown_objects_a40c60[index];
         if (object != 0 && (object->Can_Player_Move() || object->Can_Player_Fire()) && object->AbstractFlags.IsTechno
             && ((TechnoClass *)object)->unknown_slot185() && ((TechnoClass *)object)->unknown_slot186()) {
-            if (object->Kind_Of() == 15 && ((InfantryClass *)object)->unknown_5090a0() && deploying && undeployed
-                && ((InfantryClass *)object)->unknown_5090d0()) {
+            if (object->Kind_Of() == 15 && ((InfantryClass *)object)->Is_Deployer() && deploying && undeployed
+                && ((InfantryClass *)object)->Is_Deploying()) {
                 continue;
             }
             if (((TechnoClass *)object)->unknown_slot199(9)) {
@@ -296,7 +296,7 @@ void __fastcall Unknown_006F5B10()
         for (int index = 0; index < count; index++) {
             ObjectClass *object = unknown_objects_a40c60[index];
             if (object != 0 && object->AbstractFlags.IsTechno && object->Can_Player_Move() && object->Can_Player_Fire()) {
-                agreed = ((TechnoClass *)object)->unknown_slot200(0x0B, (AbstractClass *)object->Get_Target_Cell_Ptr(), 0, 0);
+                agreed = ((TechnoClass *)object)->Player_Assign_Mission(0x0B, (AbstractClass *)object->Get_Target_Cell_Ptr(), 0, 0);
                 if (!agreed) {
                     return;
                 }
@@ -618,7 +618,7 @@ bool Unknown_006F6520()
             flag = object->AbstractFlags.IsTechno;
         }
         if (object != 0 && flag) {
-            if (!((TechnoClass *)object)->unknown_slot275()) {
+            if (!((TechnoClass *)object)->CanAttackOnTheMove()) {
                 return false;
             }
         }
@@ -646,7 +646,7 @@ void Unknown_006F6570()
                 flag = object->AbstractFlags.IsTechno;
             }
             if (object != 0 && flag) {
-                if (!((TechnoClass *)object)->unknown_slot275()) {
+                if (!((TechnoClass *)object)->CanAttackOnTheMove()) {
                     Show_Message(StringTable::Load_String("MSG:AttackMoveUnsupported", 0, "D:\\Ra2\\UICmnds.cpp", 0x2EF), 0xF0);
                     return;
                 }
@@ -684,7 +684,7 @@ bool Unknown_Can_Force_Order_006F6670()
             flag = object->AbstractFlags.IsTechno;
         }
         if (object != 0 && flag) {
-            if (!((TechnoClass *)object)->unknown_slot275()) {
+            if (!((TechnoClass *)object)->CanAttackOnTheMove()) {
                 return false;
             }
         }

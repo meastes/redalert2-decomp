@@ -66,11 +66,11 @@
 // @ref ?unknown_slot24@ObjectClass@@UAE_NXZ=00423d10
 // @ref ?unknown_slot25@ObjectClass@@UAEHHH@Z=00423d20
 // @ref ?Get_Image_Data@ObjectClass@@UAEPAXXZ=005d27b0
-// @ref ?unknown_slot27@ObjectClass@@UAEHPBVCell@@_N1@Z=005d2bb0
+// @ref ?What_Action@ObjectClass@@UAEHPBVCell@@_N1@Z=005d2bb0
 // @ref ?unknown_slot28@ObjectClass@@UAEHPAV1@_N@Z=005d2ba0
 // @ref ?In_Which_Layer@VoxelAnimClass@@UBEHXZ=0070dda0
 // @ref ?Not_Underground@ObjectClass@@UBE_NXZ=005d5490
-// @ref ?unknown_slot31@ObjectClass@@UAE_NXZ=00423d30
+// @ref ?Considered_Vehicle@ObjectClass@@UAE_NXZ=00423d30
 // @ref ?Techno_Type_Class@ObjectClass@@UAEPAVTechnoTypeClass@@XZ=005d5440
 // @ref ?Get_Ownable@ObjectClass@@UAEHXZ=005d2c00
 // @ref ?unknown_slot35@ObjectClass@@UAEHXZ=00423d40
@@ -87,9 +87,9 @@
 // @ref ?Is_Moving_Onto_Bridge@ObjectClass@@UAEHH@Z=005d52f0
 // @ref ?unknown_slot47@ObjectClass@@UAE_NXZ=00423d90
 // @ref ?unknown_slot48@ObjectClass@@UAE_NXZ=00423da0
-// @ref ?unknown_slot49@ObjectClass@@UAE_NPAVHouseClass@@@Z=00423db0
-// @ref ?unknown_slot50@ObjectClass@@UAEHH@Z=0041b2d0
-// @ref ?unknown_slot51@ObjectClass@@UAEPAVHouseClass@@_N@Z=0041b2e0
+// @ref ?IsDisguisedAs@ObjectClass@@UAE_NPAVHouseClass@@@Z=00423db0
+// @ref ?GetDisguise@ObjectClass@@UAEHH@Z=0041b2d0
+// @ref ?GetDisguiseHouse@ObjectClass@@UAEPAVHouseClass@@_N@Z=0041b2e0
 // @ref ?Unlimbo@ObjectClass@@UAEHHH@Z=005d3890
 // @ref ?unknown_slot54@ObjectClass@@UAEHH@Z=005d3c10
 // @ref ?Record_The_Kill@ObjectClass@@UAEXPAVTechnoClass@@@Z=005d2c50
@@ -103,7 +103,7 @@
 // @ref ?Occupy_List@VoxelAnimClass@@UAEPBVCell@@H@Z=0070df80
 // @ref ?unknown_slot65@ObjectClass@@UAEXHH@Z=00423dc0
 // @ref ?unknown_slot66@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z=00423dd0
-// @ref ?unknown_slot67@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z=0070cfc0
+// @ref ?Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z=0070cfc0
 // @ref ?Editor_Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z=005d4e70
 // @ref ?Hidden@ObjectClass@@UAEXXZ=005d2c80
 // @ref ?Look@ObjectClass@@UAEX_N0@Z=005d2c90
@@ -118,7 +118,7 @@
 // @ref ?Clicked_As_Target@ObjectClass@@UAEXH@Z=005d2cc0
 // @ref ?unknown_slot80@ObjectClass@@UAE_NXZ=005d2e70
 // @ref ?Unselect@ObjectClass@@UAEXXZ=005d2df0
-// @ref ?unknown_slot82@ObjectClass@@UAEXH@Z=00423de0
+// @ref ?IronCurtain@ObjectClass@@UAEXH@Z=00423de0
 // @ref ?unknown_slot83@ObjectClass@@UAE_NXZ=0041b300
 // @ref ?In_Range@ObjectClass@@UAE_NABUCoordStruct@@H@Z=005d2cd0
 // @ref ?Weapon_Range@ObjectClass@@UAEHH@Z=005d2ce0

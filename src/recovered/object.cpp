@@ -319,9 +319,9 @@ int ObjectClass::unknown_slot28(ObjectClass *object, bool arg2)
 }
 
 
-// int ObjectClass::unknown_slot27(Cell const *cell, bool arg2, bool arg3) (0x005D2BB0)
+// int ObjectClass::What_Action(Cell const *cell, bool arg2, bool arg3) (0x005D2BB0)
 
-int ObjectClass::unknown_slot27(Cell const *cell, bool arg2, bool arg3)
+int ObjectClass::What_Action(Cell const *cell, bool arg2, bool arg3)
 {
     return 0;
 }
@@ -662,7 +662,7 @@ draw_clipped:
         pixel.X = (int)((unsigned)pixel.X + (unsigned)unknown_rect_839630.X - (unsigned)bounds->X);
     if (bounds->Y > unknown_rect_839630.Y)
         pixel.Y = (int)((unsigned)pixel.Y + (unsigned)unknown_rect_839630.Y - (unsigned)bounds->Y);
-    unknown_slot67(pixel, *bounds);
+    Draw_It(pixel, *bounds);
     return true;
 }
 
@@ -1422,7 +1422,7 @@ CoordStruct ObjectClass::Center_Coord() const
 
 void ObjectClass::Editor_Draw_It(Point2D const &point, Rect const &window)
 {
-    unknown_slot67(point, window);
+    Draw_It(point, window);
 }
 
 
@@ -1651,7 +1651,7 @@ bool ObjectClass::Not_Underground() const
 
 bool ObjectClass::CanBeSelected()
 {
-    if (unknown_slot49(unknown_player_a35db4) && unknown_slot51(true) == 0) {
+    if (IsDisguisedAs(unknown_player_a35db4) && GetDisguiseHouse(true) == 0) {
         return false;
     }
     return Class_Of()->unknown_200;

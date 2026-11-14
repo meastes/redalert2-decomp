@@ -87,7 +87,7 @@ public:
     void unknown_func_6ba1a0();                                     // 0x006BA1A0
     FootClass *unknown_func_6baa60();                               // 0x006BAA60 (the best member for leading: highest LeadershipRating)
     void unknown_func_6bd870(DynamicVectorClass<TechnoTypeClass *> &types);   // 0x006BD870 (the techno types the task force still lacks)
-    static void __fastcall unknown_func_6ba8e0(int priority, HouseClass *house);   // 0x006BA8E0 (disbands the lower-priority teams of a house)
+    static void __fastcall Suspend_Teams(int priority, HouseClass *house);   // 0x006BA8E0 (disbands the lower-priority teams of a house)
     bool unknown_func_6ba7d0(FootClass *member);                    // 0x006BA7D0
     bool unknown_func_6ba600();                                     // 0x006BA600 (moves stray members back; returns and keeps whether any lags: Red Alert's Lagging_Units)
     bool unknown_func_6ba8b0(FootClass *object);                    // 0x006BA8B0 (whether object is a member)

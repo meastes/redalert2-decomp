@@ -3191,7 +3191,7 @@ void __fastcall Planning_Unknown_616a50(TechnoClass *techno)
     PlanningNodeClass *first = token->Node_At(0);
     int members = first->Members.Count();
     for (int i = 0; i < members; i++) {
-        if (first->Members[i]->Owner->unknown_slot275()) {
+        if (first->Members[i]->Owner->CanAttackOnTheMove()) {
             for (int index = start; index < count; index++) {
                 token->Node_At(index)->unknown_611440();
             }
@@ -3231,7 +3231,7 @@ int Planning_Selection_Kind()
             techno = object->AbstractFlags.IsTechno;
         }
         TechnoClass *candidate = (object != 0 && techno) ? (TechnoClass *)object : 0;
-        if (candidate == 0 || !candidate->unknown_slot274()) {
+        if (candidate == 0 || !candidate->CanUseWaypoint()) {
             kind = Planning_Object_Kind(candidate);
             break;
         }

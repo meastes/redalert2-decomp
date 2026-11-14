@@ -98,10 +98,10 @@ public:
 
     // Overrides of ObjectTypeClass slots (meanings from RA1's
     // TechnoTypeClass, hypotheses).
-    virtual int unknown_slot28() const;         // 0x006DACF0 Get_Ownable
+    virtual int Get_Ownable() const;         // 0x006DACF0 Get_Ownable
     virtual int Max_Pips() const;         // 0x006DE220 Max_Pips
     virtual int Cost_Of(HouseClass *house) const; // 0x006DAD30 Cost_Of(HouseClass *)
-    virtual int unknown_slot34() const;         // 0x006DAD10
+    virtual int Time_To_Build() const;         // 0x006DAD10
     virtual void const *unknown_slot38() const; // 0x006DAE40 Get_Cameo_Data (TibSun returns void const *)
 
     virtual bool CanUseWaypoint() const;                                // 0x006DACB0 (true)
@@ -110,7 +110,7 @@ public:
     virtual int Raw_Cost() const;                                       // 0x006DACE0 slot 43
     virtual int Repair_Cost() const;                                    // 0x006DAEC0 slot 44
     virtual int Repair_Step() const;                                    // 0x006DAF10 slot 45
-    virtual int unknown_slot46(HouseClass *house, bool full) const;     // 0x006DAD80 (refund)
+    virtual int GetRefund(HouseClass *house, bool full) const;     // 0x006DAD80 (refund)
     virtual int Flight_Level() const;                                   // 0x006DF600 slot 47
 
     bool Is_Two_Shooter() const;                                        // 0x006DAF20

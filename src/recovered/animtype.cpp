@@ -105,7 +105,7 @@ void __fastcall AnimTypeClass::Init(int theater)
         for (int index = 0; index < AnimTypes.Count(); index++) {
             AnimTypeClass *anim = AnimTypes[index];
             if (anim->unknown_207 && anim->unknown_a4 == 0) {
-                anim->unknown_slot40(theater);
+                anim->Load_Image(theater);
             }
         }
         return;
@@ -128,7 +128,7 @@ void __fastcall AnimTypeClass::Init(int theater)
                     anim->unknown_a4 = (void *)MixFileClass::Retrieve(fullname);
                 }
             } else if (anim->unknown_207) {
-                anim->unknown_slot40(theater);
+                anim->Load_Image(theater);
             }
         } else if (anim->unknown_1fc || anim->unknown_207) {
             if (anim->unknown_a4 != 0 && anim->unknown_a8) {
@@ -161,17 +161,17 @@ void AnimTypeClass::unknown_slot24(int theater)
         return;
     }
     if (unknown_207) {
-        unknown_slot40(theater);
+        Load_Image(theater);
     }
 }
 
 
-// void AnimTypeClass::unknown_slot40(int theater) (0x00425490)
+// void AnimTypeClass::Load_Image(int theater) (0x00425490)
 // Loads the image (TibSun AnimTypeClass::Load_Image): the theater-named SHP
 // of the Image= name (else the ID), falling back to the generic name; then
 // defaults End/LoopEnd from the frame count and records the largest frame.
 
-void AnimTypeClass::unknown_slot40(int theater)
+void AnimTypeClass::Load_Image(int theater)
 {
     if (!DemandLoad) {
         if (unknown_1fc) {
@@ -284,7 +284,7 @@ bool AnimTypeClass::Read_INI(CCINIClass &ini)
             unknown_1fc = ArtINI.Get_Bool(section, "Theater", unknown_1fc);
             unknown_207 = ArtINI.Get_Bool(section, "NewTheater", unknown_207);
         }
-        unknown_slot40(-1);
+        Load_Image(-1);
     }
 
     Layer = ini.Get_LayerType(section, "Layer", (LayerType)Layer);
@@ -410,7 +410,7 @@ HRESULT __stdcall AnimTypeClass::Load(IStream *stream)
             return S_OK;
         }
         if (unknown_207) {
-            unknown_slot40(unknown_id_source_a3d290->Theater);
+            Load_Image(unknown_id_source_a3d290->Theater);
         }
     }
     return S_OK;
@@ -531,7 +531,7 @@ void *AnimTypeClass::Get_Image_Data() const
                 self->unknown_a8 = true;
             }
         }
-        self->unknown_slot40(unknown_id_source_a3d290->Theater);
+        self->Load_Image(unknown_id_source_a3d290->Theater);
         return unknown_a4;
     }
     return unknown_a4;

@@ -93,7 +93,7 @@ BounceResultType BounceClass::AI()
                     if (building->Type->LaserFence && building->unknown_4ec >= 8) {
                         hit_obstacle = false;
                     }
-                    if (building->unknown_slot31()) {
+                    if (building->Considered_Vehicle()) {
                         hit_obstacle = false;
                     }
                 }

@@ -204,7 +204,7 @@
    "padding_bytes": 6
   },
   {
-   "symbol": "?Unknown_00515A80@@YIXPBD_N@Z",
+   "symbol": "?Load_Title_Page@@YIXPBD_N@Z",
    "entry": "00515a80",
    "body_bytes": 59,
    "padding_bytes": 5
@@ -234,7 +234,7 @@
    "padding_bytes": 12
   },
   {
-   "symbol": "?Load_Title_Page@@YIXXZ",
+   "symbol": "?Draw_Loading_Screen@@YIXXZ",
    "entry": "00516560",
    "body_bytes": 926,
    "padding_bytes": 2
@@ -8952,7 +8952,7 @@
   },
   {
    "site": "0061ef40",
-   "symbol": "?Unknown_00515A80@@YIXPBX_N@Z",
+   "symbol": "?Load_Title_Page@@YIXPBX_N@Z",
    "target": "00515a80",
    "function_entry": true
   },
@@ -9969,10 +9969,6 @@
   {
    "symbol": "?Draw_Line_Depth_Masked@XSurface@@UAE_NABUPoint2D@@0H_N@Z",
    "address": "00773eb0"
-  },
-  {
-   "symbol": "?Draw_Loading_Screen@@YIXXZ",
-   "address": "00516560"
   },
   {
    "symbol": "?Draw_Rect@XSurface@@UAE_NABVRect@@0H@Z",
@@ -12271,8 +12267,8 @@
   {
    "site": "0061ef40",
    "target": "00515a80",
-   "symbol": "?Unknown_00515A80@@YIXPBX_N@Z",
-   "module_symbol": "?Unknown_00515A80@@YIXPBD_N@Z"
+   "symbol": "?Load_Title_Page@@YIXPBX_N@Z",
+   "module_symbol": "?Load_Title_Page@@YIXPBD_N@Z"
   },
   {
    "site": "004cf920",

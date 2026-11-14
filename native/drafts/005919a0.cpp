@@ -362,7 +362,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
     } else {
 
     LinkedTo->unknown_slot306(1.0);
-    int speed = LinkedTo->unknown_slot303();
+    int speed = LinkedTo->Current_Speed();
     UnknownFacingDir desired = Direction(LinkedTo->Center_Coord(), unknown_24);
     Do_Turn(desired);
     if (LinkedTo->unknown_2e0.Is_Rotating()) {

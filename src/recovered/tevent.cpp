@@ -183,14 +183,14 @@ bool TEventClass::unknown_func_6e6050(int event, HouseClass *house, ObjectClass 
     } else if (Type == 0x35) {
         if (event != Type) return false;
         if (!object || Data == -1 || HouseClass::As_Pointer(Data) == 0) return false;
-        if (!object->unknown_slot51(true)) return false;
-        if (object->unknown_slot51(true)->ArrayIndex != HouseClass::As_Pointer(Data)->ArrayIndex) return false;
+        if (!object->GetDisguiseHouse(true)) return false;
+        if (object->GetDisguiseHouse(true)->ArrayIndex != HouseClass::As_Pointer(Data)->ArrayIndex) return false;
         *tripped = true;
         return true;
     } else if (Type == 0x36) {
         if (event != Type) return false;
         if (!object) return false;
-        ObjectTypeClass *type = object->unknown_slot50(true);
+        ObjectTypeClass *type = object->GetDisguise(true);
         if (type->Kind_Of() != 0x10 || Data == -1 || type->Fetch_Heap_ID() != Data) return false;
         *tripped = true;
         return true;

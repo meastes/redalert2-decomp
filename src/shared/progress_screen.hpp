@@ -29,7 +29,7 @@ ColorScheme *__fastcall Fetch_Scheme_By_Name(char const *name, int kind);
 
 // Draws a background image on the primary surface (0x00515A80; clears the
 // surface first; the flag presents it as well; hypothesis).
-void __fastcall Unknown_00515A80(void const *image, bool present);
+void __fastcall Load_Title_Page(void const *image, bool present);
 
 class Surface;
 class ConvertClass;

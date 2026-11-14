@@ -193,9 +193,9 @@ int ObjectTypeClass::Cost_Of(HouseClass *house) const
 }
 
 
-// int ObjectTypeClass::unknown_slot34() const (0x005D5D70)
+// int ObjectTypeClass::Time_To_Build() const (0x005D5D70)
 
-int ObjectTypeClass::unknown_slot34() const
+int ObjectTypeClass::Time_To_Build() const
 {
     return 0;
 }
@@ -335,7 +335,7 @@ void  FUN_005d5f40(void)
 BuildingClass *ObjectTypeClass::Who_Can_Build_Me(bool in_theory, bool legal, bool check_limit, HouseClass *house) const
 {
     BuildingClass *anybuilding = 0;
-    int ownable = unknown_slot28();
+    int ownable = Get_Ownable();
     int count = house->Buildings.Count();
     for (int index = 0; index < count; index++) {
         BuildingClass *building = house->Buildings[index];
@@ -354,7 +354,7 @@ BuildingClass *ObjectTypeClass::Who_Can_Build_Me(bool in_theory, bool legal, boo
         if (check_limit && building->House->Can_Build((TechnoTypeClass const *)this, 1, 1) <= 0) {
             continue;
         }
-        if ((building->Type->unknown_slot28() & ownable) == 0) {
+        if ((building->Type->Get_Ownable() & ownable) == 0) {
             continue;
         }
         if (!in_theory && building->HasAnyLink() && Kind_Of() == 3) {

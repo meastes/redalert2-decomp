@@ -12,7 +12,7 @@
 // @ref ??_7AnimTypeClass@@6BINoticeSource@@@=0079c308
 // @ref ?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A=00ac0cb0
 // @ref ?Create_ID@AbstractClass@@UAGXXZ=0040ffd0
-// @ref ?unknown_slot40@AnimTypeClass@@UAEXH@Z=00425490
+// @ref ?Load_Image@AnimTypeClass@@UAEXH@Z=00425490
 
 AnimTypeClass::AnimTypeClass(char const *ini_name) :
     ObjectTypeClass(ini_name),
@@ -93,7 +93,7 @@ AnimTypeClass::AnimTypeClass(char const *ini_name) :
     AnimTypes.Add(this);
     unknown_objects_ac0cb0.Add(this);
     if (ini_name != 0) {
-        AnimTypeClass::unknown_slot40(-1);
+        AnimTypeClass::Load_Image(-1);
     }
     ArrayIndex = AnimTypes.ID(this);
 }

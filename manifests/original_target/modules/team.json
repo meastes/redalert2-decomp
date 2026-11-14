@@ -211,7 +211,7 @@
    "padding_bytes": 13
   },
   {
-   "symbol": "?unknown_func_6ba8e0@TeamClass@@SIXHPAVHouseClass@@@Z",
+   "symbol": "?Suspend_Teams@TeamClass@@SIXHPAVHouseClass@@@Z",
    "entry": "006ba8e0",
    "body_bytes": 174,
    "padding_bytes": 2
@@ -1603,7 +1603,7 @@
   },
   {
    "site": "006d3400",
-   "symbol": "?unknown_func_6ba8e0@TeamClass@@SIXHPAVHouseClass@@@Z",
+   "symbol": "?Suspend_Teams@TeamClass@@SIXHPAVHouseClass@@@Z",
    "target": "006ba8e0",
    "function_entry": true
   },
@@ -1934,6 +1934,10 @@
    "address": "004e5540"
   },
   {
+   "symbol": "?Is_Deployer@InfantryClass@@QBE_NXZ",
+   "address": "005090a0"
+  },
+  {
    "symbol": "?Is_Human_Player@HouseClass@@QAE_NXZ",
    "address": "004f52f0"
   },
@@ -2164,10 +2168,6 @@
   {
    "symbol": "?unknown_4eec70@HouseClass@@QAEXPAV1@@Z",
    "address": "004eec70"
-  },
-  {
-   "symbol": "?unknown_5090a0@InfantryClass@@QBE_NXZ",
-   "address": "005090a0"
   },
   {
    "symbol": "?unknown_5d4c00@ObjectClass@@QAEHPAVAbstractClass@@@Z",

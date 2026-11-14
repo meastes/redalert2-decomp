@@ -115,7 +115,7 @@
    "padding_bytes": 11
   },
   {
-   "symbol": "?unknown_slot40@AnimTypeClass@@UAEXH@Z",
+   "symbol": "?Load_Image@AnimTypeClass@@UAEXH@Z",
    "entry": "00425490",
    "body_bytes": 396,
    "padding_bytes": 4
@@ -1866,7 +1866,7 @@
  "references_in": [
   {
    "site": "00424e30",
-   "symbol": "?unknown_slot40@AnimTypeClass@@UAEXH@Z",
+   "symbol": "?Load_Image@AnimTypeClass@@UAEXH@Z",
    "target": "00425490",
    "function_entry": true
   },
@@ -2505,6 +2505,10 @@
    "address": "0046c490"
   },
   {
+   "symbol": "?Get_Ownable@ObjectTypeClass@@UBEHXZ",
+   "address": null
+  },
+  {
    "symbol": "?Get_Point@INIClass@@QBE?AUINIPoint2D@@PBD0ABUPoint2D@@@Z",
    "address": "0050f670"
   },
@@ -2677,6 +2681,10 @@
    "address": "0079ab68"
   },
   {
+   "symbol": "?Time_To_Build@ObjectTypeClass@@UBEHXZ",
+   "address": "005d5d70"
+  },
+  {
    "symbol": "?What_Am_I@AbstractClass@@UAGHXZ",
    "address": "0040ffb0"
   },
@@ -2723,14 +2731,6 @@
   {
    "symbol": "?unknown_slot22@AbstractClass@@UBE?AUCoordStruct@@XZ",
    "address": "004102e0"
-  },
-  {
-   "symbol": "?unknown_slot28@ObjectTypeClass@@UBEHXZ",
-   "address": null
-  },
-  {
-   "symbol": "?unknown_slot34@ObjectTypeClass@@UBEHXZ",
-   "address": "005d5d70"
   },
   {
    "symbol": "?unknown_slot38@ObjectTypeClass@@UBEPBXXZ",
@@ -2904,7 +2904,7 @@
   },
   {
    "symbol": "??_7AnimTypeClass@@6BIPersistStream@@@",
-   "reason": "relocation target unbound: ?unknown_slot28@ObjectTypeClass@@UBEHXZ"
+   "reason": "relocation target unbound: ?Get_Ownable@ObjectTypeClass@@UBEHXZ"
   }
  ],
  "stand_in_references": [
