@@ -187,7 +187,7 @@
    "padding_bytes": 14
   },
   {
-   "symbol": "?unknown_slot291@InfantryClass@@UAE_NXZ",
+   "symbol": "?Stop_Driver@InfantryClass@@UAE_NXZ",
    "entry": "00504ae0",
    "body_bytes": 223,
    "padding_bytes": 1
@@ -319,13 +319,13 @@
    "padding_bytes": 7
   },
   {
-   "symbol": "?unknown_5070e0@InfantryClass@@QAE_NXZ",
+   "symbol": "?Edge_Of_World_AI@InfantryClass@@QAE_NXZ",
    "entry": "005070e0",
    "body_bytes": 141,
    "padding_bytes": 3
   },
   {
-   "symbol": "?unknown_507170@InfantryClass@@QAE_NXZ",
+   "symbol": "?Theft_AI@InfantryClass@@QAE_NXZ",
    "entry": "00507170",
    "body_bytes": 955,
    "padding_bytes": 5
@@ -349,7 +349,7 @@
    "padding_bytes": 13
   },
   {
-   "symbol": "?Update_Deployed_Attack_00507f70@InfantryClass@@QAEHXZ",
+   "symbol": "?Update_Deployed_Attack@InfantryClass@@QAEHXZ",
    "entry": "00507f70",
    "body_bytes": 928,
    "padding_bytes": 0
@@ -403,7 +403,7 @@
    "padding_bytes": 9
   },
   {
-   "symbol": "?unknown_slot307@InfantryClass@@UAEXXZ",
+   "symbol": "?Stop_Movement_Animation@InfantryClass@@UAEXXZ",
    "entry": "00508730",
    "body_bytes": 32,
    "padding_bytes": 0
@@ -421,19 +421,19 @@
    "padding_bytes": 8
   },
   {
-   "symbol": "?unknown_slot295@InfantryClass@@UAEXXZ",
+   "symbol": "?Start_Fear@InfantryClass@@UAEXXZ",
    "entry": "00508820",
    "body_bytes": 44,
    "padding_bytes": 4
   },
   {
-   "symbol": "?unknown_slot296@InfantryClass@@UAEXXZ",
+   "symbol": "?Stop_Fear@InfantryClass@@UAEXXZ",
    "entry": "00508850",
    "body_bytes": 27,
    "padding_bytes": 5
   },
   {
-   "symbol": "?unknown_slot297@InfantryClass@@UAEXH@Z",
+   "symbol": "?Do_Idle@InfantryClass@@UAEXH@Z",
    "entry": "00508870",
    "body_bytes": 41,
    "padding_bytes": 7
@@ -457,25 +457,25 @@
    "padding_bytes": 7
   },
   {
-   "symbol": "?unknown_slot288@InfantryClass@@UAEXXZ",
+   "symbol": "?On_Movement_Blocked@InfantryClass@@UAEXXZ",
    "entry": "005089d0",
    "body_bytes": 211,
    "padding_bytes": 13
   },
   {
-   "symbol": "?unknown_slot289@InfantryClass@@UAE_NXZ",
+   "symbol": "?JumpJet_To_Walk@InfantryClass@@UAE_NXZ",
    "entry": "00508ab0",
    "body_bytes": 575,
    "padding_bytes": 1
   },
   {
-   "symbol": "?unknown_slot294@InfantryClass@@UAEXXZ",
+   "symbol": "?Berzerk@InfantryClass@@UAEXXZ",
    "entry": "00508cf0",
    "body_bytes": 8,
    "padding_bytes": 8
   },
   {
-   "symbol": "?unknown_508d00@InfantryClass@@QAE_NXZ",
+   "symbol": "?Is_JumpJet@InfantryClass@@QAE_NXZ",
    "entry": "00508d00",
    "body_bytes": 194,
    "padding_bytes": 14
@@ -517,13 +517,13 @@
    "padding_bytes": 13
   },
   {
-   "symbol": "?unknown_509100@InfantryClass@@QBE_NXZ",
+   "symbol": "?Is_Deploy_Fire@InfantryClass@@QBE_NXZ",
    "entry": "00509100",
    "body_bytes": 13,
    "padding_bytes": 3
   },
   {
-   "symbol": "?unknown_509110@InfantryClass@@QAEHXZ",
+   "symbol": "?Deploy_Or_Stop@InfantryClass@@QAEHXZ",
    "entry": "00509110",
    "body_bytes": 161,
    "padding_bytes": 15
@@ -577,13 +577,13 @@
    "padding_bytes": 11
   },
   {
-   "symbol": "?unknown_slot310@InfantryClass@@UAE_NXZ",
+   "symbol": "?IsDeployed@InfantryClass@@UAE_NXZ",
    "entry": "00509470",
    "body_bytes": 51,
    "padding_bytes": 13
   },
   {
-   "symbol": "?unknown_5094b0@InfantryClass@@QAEXPAVBuildingClass@@@Z",
+   "symbol": "?Enter_Occupiable@InfantryClass@@QAEXPAVBuildingClass@@@Z",
    "entry": "005094b0",
    "body_bytes": 208,
    "padding_bytes": 0
@@ -607,13 +607,13 @@
    "padding_bytes": 15
   },
   {
-   "symbol": "?Is_Prone_Sequence_005096e0@InfantryClass@@QBE_NH@Z",
+   "symbol": "?Is_Idle_Doing@InfantryClass@@QBE_NH@Z",
    "entry": "005096e0",
    "body_bytes": 44,
    "padding_bytes": 4
   },
   {
-   "symbol": "?Is_Busy_Sequence_00509710@InfantryClass@@QBE_NH@Z",
+   "symbol": "?Is_Death_Doing@InfantryClass@@QBE_NH@Z",
    "entry": "00509710",
    "body_bytes": 67,
    "padding_bytes": 13
@@ -2377,6 +2377,10 @@
    "address": "005d53e0"
   },
   {
+   "symbol": "?On_Movement_Blocked@FootClass@@UAEXXZ",
+   "address": "004ca880"
+  },
+  {
    "symbol": "?Options@@3VOptionsClass@@A",
    "address": "00a40b18"
   },
@@ -2417,6 +2421,10 @@
    "address": "00594cb0"
   },
   {
+   "symbol": "?ReceiveGunner@FootClass@@UAEXH@Z",
+   "address": "004cd060"
+  },
+  {
    "symbol": "?Receive_Message@FootClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z",
    "address": "004c7b30"
   },
@@ -2427,6 +2435,14 @@
   {
    "symbol": "?Release@AbstractClass@@UAGKXZ",
    "address": "004100b0"
+  },
+  {
+   "symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
+   "address": "006b8fb0"
+  },
+  {
+   "symbol": "?RemoveGunner@FootClass@@UAEXH@Z",
+   "address": "004cd070"
   },
   {
    "symbol": "?Render@ObjectClass@@UAE_NPAVRect@@_N1@Z",
@@ -2503,6 +2519,10 @@
   {
    "symbol": "?Spring@TagClass@@QAE_NHPAVObjectClass@@VCell@@_NH@Z",
    "address": "006b3df0"
+  },
+  {
+   "symbol": "?Stop_Driver@FootClass@@UAE_NXZ",
+   "address": "004c4b60"
   },
   {
    "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
@@ -2607,10 +2627,6 @@
   {
    "symbol": "?Unknown_006A2970@@YIHH@Z",
    "address": "006a2970"
-  },
-  {
-   "symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
-   "address": "006b8fb0"
   },
   {
    "symbol": "?Unknown_006D8640@TechnoClass@@QAE_NPAUWeaponStruct@@@Z",
@@ -3325,14 +3341,6 @@
    "address": "004cc650"
   },
   {
-   "symbol": "?unknown_slot280@FootClass@@UAEXH@Z",
-   "address": "004cd060"
-  },
-  {
-   "symbol": "?unknown_slot281@FootClass@@UAEXH@Z",
-   "address": "004cd070"
-  },
-  {
    "symbol": "?unknown_slot282@FootClass@@UAE_NXZ",
    "address": "004cafe0"
   },
@@ -3353,20 +3361,12 @@
    "address": "004c8ac0"
   },
   {
-   "symbol": "?unknown_slot288@FootClass@@UAEXXZ",
-   "address": "004ca880"
-  },
-  {
    "symbol": "?unknown_slot28@FootClass@@UAEHPAVObjectClass@@_N@Z",
    "address": "004cc740"
   },
   {
    "symbol": "?unknown_slot290@FootClass@@UAE_NAAUCoordStruct@@@Z",
    "address": "004c4b90"
-  },
-  {
-   "symbol": "?unknown_slot291@FootClass@@UAE_NXZ",
-   "address": "004c4b60"
   },
   {
    "symbol": "?unknown_slot292@FootClass@@UAE_NXZ",

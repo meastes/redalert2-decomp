@@ -35,16 +35,16 @@ original code is still scaffold. Per-batch evidence through A15 is in
 | Handwritten assembly reproduced from adopted TibSun .asm sources (manifests/original_target/assembly.json; own ledger) | 16,999 in 51 procedures |
 | Handwritten blitter/codec assembly bytes (9 owner-ruled ranges plus evidenced inline asm; own ledger) | 23,156 (0.61% of .text) |
 | In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) | 3,272,349 of 3,515,679 (93.08%) |
-| In-scope functions matched (game code below 0x781000, handwritten ranges and known false rows excluded) | 17,887 of 17,984 (99.46%) |
-| Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 93 of 97 scored) | 98.92% by bytes, 99.87% per function |
-| In-scope functions with source (exact or draft: accepted rows plus non-exact drafts in source) | 17,980 of 17,984 (99.98%) |
+| In-scope functions matched (game code below 0x781000, handwritten ranges and known false rows excluded) | 17,889 of 17,985 (99.47%) |
+| Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 92 of 96 scored) | 98.92% by bytes, 99.87% per function |
+| In-scope functions with source (exact or draft: accepted rows plus non-exact drafts in source) | 17,982 of 17,985 (99.98%) |
 | Non-exact drafts in source (#ifdef RA2_NON_MATCHING, manifests/original_target/non_exact.json; never compiled by the exact build; no .text credit) | 98 functions, 182,364 bytes, mean score 68.13 |
 | Original .text scaffold bytes | 245,701 |
 | Logical .text bytes | 3,769,805 |
 | Compiler populations | 619 |
 | Compile path (build environment, with the pinned VC6 SP3 8447 compiler; docs/ORIGINAL_TARGET_BUILD.md "Fixed compile folder") | `<drive>:\private\tmp\ra2c\XXXXXXXX\gNNNN\accepted.cpp; /I <drive>:\private\tmp\ra2c\XXXXXXXX\src; TMP <drive>:\private\tmp\ra2c\XXXXXXXX\tmp-N` |
 | Populations under /GR (docs/DECISIONS.md "/GR per population") | 342 of 619 |
-| Non-code bytes proven at their original addresses (module maps, deduplicated by address; not .text credit) | 223,706 of 711,662 file-backed (31.4%); RTTI 76,027, vtables 36,972, strings 93,887; 14 class hierarchy descriptor(s) differ from the original only in the ambiguous bit (known difference; the attributes word is not counted) |
+| Non-code bytes proven at their original addresses (module maps, deduplicated by address; not .text credit) | 223,710 of 711,662 file-backed (31.4%); RTTI 76,031, vtables 36,972, strings 93,887; 14 class hierarchy descriptor(s) differ from the original only in the ambiguous bit (known difference; the attributes word is not counted) |
 
 Manifest history (body bytes added per commit, and per hour since the previous commit):
 
@@ -2967,6 +2967,8 @@ Manifest history (body bytes added per commit, and per hour since the previous c
 | `23659b155` | 2026-11-14 05:00 -0600 | 17,905 | 3,271,575 | +0 | 0 |
 | `4afe94f96` | 2026-11-14 06:22 -0600 | 17,907 | 3,272,459 | +884 | 648 |
 | `50bc8deee` | 2026-11-14 06:22 -0600 | 17,907 | 3,272,459 | +0 |  |
+| `424f88485` | 2026-11-14 07:35 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `3eb2bee59` | 2026-11-14 07:35 -0600 | 17,907 | 3,272,459 | +0 | 0 |
 
 <!-- /generated:status -->
 

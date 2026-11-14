@@ -47,5 +47,5 @@ void TechnoClass::unknown_slot256() { unknown_170 = false; }               // 0x
 ObjectTypeClass *ObjectClass::Class_Of() const { return 0; }               // 0x004CDDD0
 
 #include "shared/foot.hpp"
-void FootClass::unknown_slot280(intptr_t arg1) { (void)arg1; }                  // 0x004CD060
-void FootClass::unknown_slot281(intptr_t arg1) { (void)arg1; }                  // 0x004CD070
+void FootClass::ReceiveGunner(intptr_t arg1) { (void)arg1; }                  // 0x004CD060
+void FootClass::RemoveGunner(intptr_t arg1) { (void)arg1; }                  // 0x004CD070

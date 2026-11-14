@@ -59,10 +59,10 @@ bool __fastcall Receive_Remote_File_0066b520(char *file_name, unsigned int file_
     if (progress) {
         ProgressScreen.Init(100.0, 1, 0);
         ProgressScreen.Load_Shape("PROGBARM.SHP", 0, 0);
-        ProgressScreen.Unknown_0061EFA0(Point2D(-1, -1), StringTable::Load_String("GUI:MapTransfer", 0, "D:\\Ra2\\SendFile.CPP", 358), false, true);
+        ProgressScreen.Set_Layout(Point2D(-1, -1), StringTable::Load_String("GUI:MapTransfer", 0, "D:\\Ra2\\SendFile.CPP", 358), false, true);
         unknown_5159b0(0, true);
         ProgressScreen.Draw_It(Point2D(-1, -1));
-        ProgressScreen.Set_Progress_006201c0(0, 0.0, Point2D(-1, -1));
+        ProgressScreen.Set_Progress_Percent(0, 0.0, Point2D(-1, -1));
     }
     if (unknown_session_a3d298.Type == 4) {
         unknown_ipx_manager_a40978.unknown_slot16();
@@ -84,11 +84,11 @@ bool __fastcall Receive_Remote_File_0066b520(char *file_name, unsigned int file_
                     Debug_Printf("Received file chunk %d\n", receive_packet->BlockNumber);
                     memcpy(buffer + receive_packet->BlockNumber * 192, receive_packet->RawData, receive_packet->BlockLength);
                     if (progress) {
-                        ProgressScreen.Set_Progress_006201c0(0, percent / total_blocks, Point2D(-1, -1));
+                        ProgressScreen.Set_Progress_Percent(0, percent / total_blocks, Point2D(-1, -1));
                     }
                     if (blocks_received == total_blocks) {
                         if (progress) {
-                            ProgressScreen.Set_Progress_006201c0(0, 100.0, Point2D(-1, -1));
+                            ProgressScreen.Set_Progress_Percent(0, 100.0, Point2D(-1, -1));
                         }
                         return_code = true;
                         break;
@@ -114,12 +114,12 @@ bool __fastcall Receive_Remote_File_0066b520(char *file_name, unsigned int file_
                         Debug_Printf("Received file chunk %d/%d with %d seconds left\n", receive_packet->BlockNumber, total_blocks, (long)response_timer);
                         memcpy(buffer + receive_packet->BlockNumber * 192, receive_packet->RawData, receive_packet->BlockLength);
                         if (progress) {
-                            ProgressScreen.Set_Progress_006201c0(0, percent / total_blocks, Point2D(-1, -1));
+                            ProgressScreen.Set_Progress_Percent(0, percent / total_blocks, Point2D(-1, -1));
                         }
                         if (blocks_received == total_blocks) {
                             return_code = true;
                             if (progress) {
-                                ProgressScreen.Set_Progress_006201c0(0, 100.0, Point2D(-1, -1));
+                                ProgressScreen.Set_Progress_Percent(0, 100.0, Point2D(-1, -1));
                             }
                             break;
                         }

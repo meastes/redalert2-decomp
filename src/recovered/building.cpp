@@ -2454,12 +2454,12 @@ exitcell.X += random; exitcell.Y += random;
             ++unknown_a40774;
             if (House->Unknown_0051FC80()) {
                 Cell nearby = aircraft->unknown_6cf130(this);
-                if (aircraft->Unlimbo(&CoordStruct(nearby, 0), aircraft->Pose_Dir_00417890())) {
+                if (aircraft->Unlimbo(&CoordStruct(nearby, 0), aircraft->Pose_Dir())) {
                     --unknown_a40774;
                     return 2;
                 }
             } else {
-                if (aircraft->Unlimbo(&unknown_slot41((int)aircraft), aircraft->Pose_Dir_00417890())) {
+                if (aircraft->Unlimbo(&unknown_slot41((int)aircraft), aircraft->Pose_Dir())) {
                     unknown_slot150(2, aircraft);
                     unknown_slot150(0x18, aircraft);
                     aircraft->Set_Coord(unknown_slot41((int)aircraft));
@@ -3118,7 +3118,7 @@ void BuildingClass::unknown_slot282(bool captured)
         AircraftClass *aircraft = new AircraftClass(Rules->PadAircraft[0], House);
         if (aircraft) {
             aircraft->Set_Height_AGL(0);
-            if (aircraft->Unlimbo(&Center_Coord(), aircraft->Pose_Dir_00417890())) {
+            if (aircraft->Unlimbo(&Center_Coord(), aircraft->Pose_Dir())) {
                 aircraft->QueueMission(5, false);
                 aircraft->unknown_slot150(2, this);
                 unknown_slot150(0x18, aircraft);
@@ -8363,7 +8363,7 @@ after_first_edge:
             member->Scatter(Center_Coord(), true, true);
             if ((unsigned char)control != 0) {
                 TeamClass *team = member->Team;
-                if (team) team->Unknown_006B8FB0(member, -1, 0);
+                if (team) team->Remove(member, -1, 0);
                 member->QueueMission(15, false);
             }
         } else {

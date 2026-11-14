@@ -2,12 +2,12 @@
 #include "shared/unknown_map_generator.hpp"
 #include "shared/map_cell.hpp"
 #include "shared/map_view.hpp"
-void Set_Generation_Path_Tile_Indices_0058d9d0();
-// @ref ?Set_Generation_Path_Tile_Indices_0058d9d0@@=0058d9d0
+void Init_Dirt_Roads();
+// @ref ?Init_Dirt_Roads@@=0058d9d0
 #include "shared/map_gaussian.hpp"
 // @ref ?Next@MapGaussianClass@@QAENXZ=00579830
 // @ref ?unknown_map_gaussian_a6fd50@@3VMapGaussianClass@@A=00a6fd50
-double __stdcall Map_Clamped_Gaussian_005798f0(double mean,double deviation,double minimum,double maximum)
+double __stdcall Sample_Truncated_Normal(double mean,double deviation,double minimum,double maximum)
 {
     if(maximum<mean-deviation || mean+deviation<minimum) {
         deviation=(maximum-minimum)*0.5;
@@ -31,7 +31,7 @@ void MapGeneratorClass::Generate_Urban_Areas()
 {
     int count=(int)((SeedData.UrbanPresence+0.32)*3);
     int tries=0,placed=0;
-    Set_Generation_Path_Tile_Indices_0058d9d0();
+    Init_Dirt_Roads();
     while(tries<10) {
         if(placed>=count)break;
         Cell position;
@@ -51,7 +51,7 @@ void MapGeneratorClass::Generate_Urban_Areas()
         } else {
             if(localTries!=20) {
                 int mean=(int)((unsigned)Map.MapSize.Width*(unsigned)Map.MapSize.Height*2u)/30;
-                int size=(int)Map_Clamped_Gaussian_005798f0((double)mean,300.0,100.0,2000.0);
+                int size=(int)Sample_Truncated_Normal((double)mean,300.0,100.0,2000.0);
                 DynamicVectorClass<Cell> *cells=Create_Urban_Area(position,size);
                 if(cells) {
                     Generate_Urban_Roads(*cells);

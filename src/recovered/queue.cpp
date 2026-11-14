@@ -1069,7 +1069,7 @@ int __fastcall Wait_For_Players(int first_time, ConnManClass *net, int resend_de
                     if (unknown_session_a3d298.Type == 4) {
                         unknown_ipx_manager_a40978.unknown_5277f0();
                     }
-                    unknown_session_a3d298.Loading_Progress_00672160(unknown_id_source_a3d290->unknown_223b ? 200 : 100);
+                    unknown_session_a3d298.Update_Progress(unknown_id_source_a3d290->unknown_223b ? 200 : 100);
                     progress_timer = 180;
                 }
             }

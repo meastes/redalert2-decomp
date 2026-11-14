@@ -257,7 +257,7 @@ void __cdecl Process_Serial_Progress_Packets_00481f00()
                 // signed progress read. Complete packet format remains unknown.
                 if (*(int *)packet == 108 &&
                     (*(unsigned int *)(packet + 24) & 255) != serial_local_player_00a3fb38) {
-                    ProgressScreen.Set_Progress_006201c0(
+                    ProgressScreen.Set_Progress_Percent(
                         1, (double)*(int *)(packet + 25), Point2D(-1, -1));
                 }
             }
@@ -293,7 +293,7 @@ void __fastcall Service_Game_IO_00481fb0()
                 while (serial_manager_00a40a28.Get_Message(packet,&length)>0) {
                     if (*(int *)packet==108 &&
                         (*(unsigned int *)(packet+24)&255)!=serial_local_player_00a3fb38) {
-                        ProgressScreen.Set_Progress_006201c0(
+                        ProgressScreen.Set_Progress_Percent(
                             1,(double)*(int *)(packet+25),Point2D(-1,-1));
                     }
                 }
@@ -564,7 +564,7 @@ void __fastcall IPX_Call_Back()
                         Debug_Printf("Processing NET_PROGRESS_REPORT\n");
                         for (int i = 0; i < unknown_session_a3d298.Players.Count(); i++) {
                             if (unknown_session_a3d298.Players[i]->Address.Is_Same_Node(unknown_session_a3d298.GAddress) && _stricmp(Wide_To_Narrow_006fa120(unknown_session_a3d298.Players[i]->Name), unknown_session_a3d298.GPacket.Name) == 0) {
-                                ProgressScreen.Set_Progress_006201c0(i, unknown_session_a3d298.GPacket.Progress.Percent, Point2D(-1, -1));
+                                ProgressScreen.Set_Progress_Percent(i, unknown_session_a3d298.GPacket.Progress.Percent, Point2D(-1, -1));
                                 break;
                             }
                         }

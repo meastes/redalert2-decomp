@@ -198,7 +198,7 @@
    "padding_bytes": 6
   },
   {
-   "symbol": "?Pick_Random_Zone_Cell_0056dea0@MapRegionClass@@SI?AVCell@@HH@Z",
+   "symbol": "?Pick_Random_Clear_Cell_In_Zone@MapRegionClass@@SI?AVCell@@HH@Z",
    "entry": "0056dea0",
    "body_bytes": 277,
    "padding_bytes": 11
@@ -216,7 +216,7 @@
    "padding_bytes": 1
   },
   {
-   "symbol": "?Create_Region_From_Cell_0056e100@MapRegionClass@@SIPAV1@PAVCellClass@@@Z",
+   "symbol": "?Create_Region_From_Cell@MapRegionClass@@SIPAV1@PAVCellClass@@@Z",
    "entry": "0056e100",
    "body_bytes": 1678,
    "padding_bytes": 2
@@ -228,7 +228,7 @@
    "padding_bytes": 13
   },
   {
-   "symbol": "?Make_Remaining_Regions_0056e890@MapRegionClass@@SAXXZ",
+   "symbol": "?Create_Water_Regions@MapRegionClass@@SAXXZ",
    "entry": "0056e890",
    "body_bytes": 121,
    "padding_bytes": 7
@@ -300,13 +300,13 @@
    "padding_bytes": 1
   },
   {
-   "symbol": "?Is_Bridge_Allowed_00571bc0@MapRegionClass@@QBE_NABVRect@@@Z",
+   "symbol": "?Is_Bridge_Allowed@MapRegionClass@@QBE_NABVRect@@@Z",
    "entry": "00571bc0",
    "body_bytes": 490,
    "padding_bytes": 6
   },
   {
-   "symbol": "?Place_Neutral_Building_00571db0@MapRegionClass@@QAE_NABVRect@@@Z",
+   "symbol": "?Place_Bridge_Hut@MapRegionClass@@QAE_NABVRect@@@Z",
    "entry": "00571db0",
    "body_bytes": 276,
    "padding_bytes": 12
@@ -438,7 +438,7 @@
    "padding_bytes": 13
   },
   {
-   "symbol": "?Clean_Up_RMCache_005775b0@@YIXXZ",
+   "symbol": "?Clean_Up_RMCache@@YIXXZ",
    "entry": "005775b0",
    "body_bytes": 712,
    "padding_bytes": 8
@@ -474,13 +474,13 @@
    "padding_bytes": 11
   },
   {
-   "symbol": "?unknown_gaussian_value_005798d0@@YGNNN@Z",
+   "symbol": "?Sample_Normal@@YGNNN@Z",
    "entry": "005798d0",
    "body_bytes": 21,
    "padding_bytes": 11
   },
   {
-   "symbol": "?Map_Clamped_Gaussian_005798f0@@YGNNNNN@Z",
+   "symbol": "?Sample_Truncated_Normal@@YGNNNNN@Z",
    "entry": "005798f0",
    "body_bytes": 111,
    "padding_bytes": 1
@@ -540,7 +540,7 @@
    "padding_bytes": 12
   },
   {
-   "symbol": "?Cell_In_Generation_Shape_0057d290@MapGeneratorClass@@QAE_NABVCell@@ABVRect@@_NNN@Z",
+   "symbol": "?Cell_In_Generation_Shape@MapGeneratorClass@@QAE_NABVCell@@ABVRect@@_NNN@Z",
    "entry": "0057d290",
    "body_bytes": 268,
    "padding_bytes": 4
@@ -936,13 +936,13 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "??0UnknownMapGenerationPoint@@QAE@ABVCell@@H@Z",
+   "symbol": "??0DirtRoadLink@@QAE@ABVCell@@H@Z",
    "entry": "0058b100",
    "body_bytes": 20,
    "padding_bytes": 12
   },
   {
-   "symbol": "??0UnknownMapGenerationPoint@@QAE@XZ",
+   "symbol": "??0DirtRoadLink@@QAE@XZ",
    "entry": "0058b120",
    "body_bytes": 21,
    "padding_bytes": 11
@@ -960,37 +960,37 @@
    "padding_bytes": 11
   },
   {
-   "symbol": "??0UnknownMapGenerationPath@@QAE@ABUUnknownMapGenerationPoint@@@Z",
+   "symbol": "??0DirtRoadTile@@QAE@ABUDirtRoadLink@@@Z",
    "entry": "0058b200",
    "body_bytes": 75,
    "padding_bytes": 5
   },
   {
-   "symbol": "??0UnknownMapGenerationPath@@QAE@ABUUnknownMapGenerationPoint@@0@Z",
+   "symbol": "??0DirtRoadTile@@QAE@ABUDirtRoadLink@@0@Z",
    "entry": "0058b250",
    "body_bytes": 103,
    "padding_bytes": 9
   },
   {
-   "symbol": "??0UnknownMapGenerationPath@@QAE@ABUUnknownMapGenerationPoint@@00@Z",
+   "symbol": "??0DirtRoadTile@@QAE@ABUDirtRoadLink@@00@Z",
    "entry": "0058b2c0",
    "body_bytes": 121,
    "padding_bytes": 7
   },
   {
-   "symbol": "??0UnknownMapGenerationPath@@QAE@ABUUnknownMapGenerationPoint@@000@Z",
+   "symbol": "??0DirtRoadTile@@QAE@ABUDirtRoadLink@@000@Z",
    "entry": "0058b340",
    "body_bytes": 139,
    "padding_bytes": 5
   },
   {
-   "symbol": "??0UnknownMapGenerationPath@@QAE@XZ",
+   "symbol": "??0DirtRoadTile@@QAE@XZ",
    "entry": "0058b3d0",
    "body_bytes": 16,
    "padding_bytes": 0
   },
   {
-   "symbol": "??1UnknownMapGenerationPath@@QAE@XZ",
+   "symbol": "??1DirtRoadTile@@QAE@XZ",
    "entry": "0058b3e0",
    "body_bytes": 24,
    "padding_bytes": 8
@@ -2752,7 +2752,7 @@
   },
   {
    "site": "00570810",
-   "symbol": "?Create_Region_From_Cell_0056e100@MapRegionClass@@SIPAV1@PAVCellClass@@@Z",
+   "symbol": "?Create_Region_From_Cell@MapRegionClass@@SIPAV1@PAVCellClass@@@Z",
    "target": "0056e100",
    "function_entry": true
   },
@@ -3285,10 +3285,6 @@
    "address": "00a35cd8"
   },
   {
-   "symbol": "?Clamp_Parameters_00578d80@MapSeedClass@@QAEXXZ",
-   "address": "00578d80"
-  },
-  {
    "symbol": "?Clear@?$DynamicVectorClass@H@@UAEXXZ",
    "address": "0046cc80"
   },
@@ -3503,6 +3499,10 @@
   {
    "symbol": "?Fixup_LAT@CellClass@@QAEXXZ",
    "address": "00471d10"
+  },
+  {
+   "symbol": "?Fixup_Settings@MapSeedClass@@QAEXXZ",
+   "address": "00578d80"
   },
   {
    "symbol": "?From_Name@BuildingTypeClass@@SIHPBD@Z",
@@ -3817,10 +3817,6 @@
    "address": "006f9ec0"
   },
   {
-   "symbol": "?Loading_Progress_00672160@SessionClass@@QAEXH@Z",
-   "address": "00672160"
-  },
-  {
    "symbol": "?Make_Land_Regions_0056e910@@YIX_N@Z",
    "address": "0056e910"
   },
@@ -4061,6 +4057,10 @@
    "address": "0065b830"
   },
   {
+   "symbol": "?Set_Layout@ProgressScreenClass@@QAEXUPoint2D@@PBG_N2@Z",
+   "address": "0061efa0"
+  },
+  {
    "symbol": "?Set_Local_Dimensions@RadarClass@@UAEXABVRect@@@Z",
    "address": "00630840"
   },
@@ -4073,7 +4073,7 @@
    "address": "00470150"
   },
   {
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "address": "006201c0"
   },
   {
@@ -4157,16 +4157,16 @@
    "address": "0055c2c0"
   },
   {
-   "symbol": "?Unknown_0061EFA0@ProgressScreenClass@@QAEXUPoint2D@@PBG_N2@Z",
-   "address": "0061efa0"
-  },
-  {
    "symbol": "?Unknown_Cell_Predicate_0047b5e0@@YI_NPAVCellClass@@@Z",
    "address": "0047b5e0"
   },
   {
    "symbol": "?Unknown_Territory_00769690@@YI?AV?$rc_ptr@VWDTTerritory@@@@H@Z",
    "address": "00769690"
+  },
+  {
+   "symbol": "?Update_Progress@SessionClass@@QAEXH@Z",
+   "address": "00672160"
   },
   {
    "symbol": "?WWKeyboard@@3PAVWWKeyboardClass@@A",
@@ -4417,7 +4417,7 @@
    "address": "00a70068"
   },
   {
-   "symbol": "?unknown_generation_paths_a700a0@@3PAVUnknownMapGenerationPath@@A",
+   "symbol": "?unknown_generation_paths_a700a0@@3PAVDirtRoadTile@@A",
    "address": "00a700a0"
   },
   {

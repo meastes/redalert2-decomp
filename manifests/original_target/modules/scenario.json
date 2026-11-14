@@ -3948,10 +3948,6 @@
    "address": "006b3fa0"
   },
   {
-   "symbol": "?Clear_unknown_60@ProgressScreenClass@@QAEXXZ",
-   "address": "0061edf0"
-  },
-  {
    "symbol": "?Close@BufferIOFileClass@@UAEXXZ",
    "address": "0042fda0"
   },
@@ -4018,6 +4014,10 @@
   {
    "symbol": "?Enable@ToolTipManager@@QAEX_N@Z",
    "address": "006eb480"
+  },
+  {
+   "symbol": "?End@ProgressScreenClass@@QAEXXZ",
+   "address": "0061edf0"
   },
   {
    "symbol": "?Entry_Count@INIClass@@QBEHPBD@Z",
@@ -4266,10 +4266,6 @@
   {
    "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
    "address": "006f9ec0"
-  },
-  {
-   "symbol": "?Loading_Progress_00672160@SessionClass@@QAEXH@Z",
-   "address": "00672160"
   },
   {
    "symbol": "?Logic@@3VLogicClass@@A",
@@ -4600,6 +4596,10 @@
    "address": "00713550"
   },
   {
+   "symbol": "?Set_Layout@ProgressScreenClass@@QAEXUPoint2D@@PBG_N2@Z",
+   "address": "0061efa0"
+  },
+  {
    "symbol": "?Set_Listener@ProgressScreenClass@@UAEXPAUUnknown535910@@@Z",
    "address": "006203e0"
   },
@@ -4612,7 +4612,7 @@
    "address": "0061f150"
   },
   {
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "address": "006201c0"
   },
   {
@@ -4840,10 +4840,6 @@
    "address": "00613e50"
   },
   {
-   "symbol": "?Unknown_0061EFA0@ProgressScreenClass@@QAEXUPoint2D@@PBG_N2@Z",
-   "address": "0061efa0"
-  },
-  {
    "symbol": "?Unknown_00624850@@YIXXZ",
    "address": "00624850"
   },
@@ -4930,6 +4926,10 @@
   {
    "symbol": "?Update_Map_Dimensions@AStarClass@@QAEXABVRect@@@Z",
    "address": "004284e0"
+  },
+  {
+   "symbol": "?Update_Progress@SessionClass@@QAEXH@Z",
+   "address": "00672160"
   },
   {
    "symbol": "?WWKeyboard@@3PAVWWKeyboardClass@@A",

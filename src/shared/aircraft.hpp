@@ -92,7 +92,7 @@ extern "C" GUID const CLSID_AircraftClass; // 0x007A1BD0
 
 class AircraftClass : public FootClass, public IFlyControl {
 public:
-    unsigned int Pose_Dir_00417890() const;
+    unsigned int Pose_Dir() const;
     AircraftClass(AircraftTypeClass *type, HouseClass *house);        // 0x00413A40
     AircraftClass(NoInitClass const &noinit) : FootClass(noinit) {}   // inline (Load)
     virtual ~AircraftClass();                                         // 0x00413DA0
@@ -168,13 +168,13 @@ public:
     static void __fastcall Read_INI_0041A840(CCINIClass &ini); // Aircraft section reader; source identity hypothesis
     static void __fastcall Write_INI_0041A6C0(CCINIClass &ini); // Aircraft section writer; source identity hypothesis
 
-    int unknown_416010(); // private own normal-unload helper00416010; ECX/RET0/int ABI hypothesis
-    int Move_Carryall_00416670(); // private own carryall-move helper00416670; ECX/RET0/int ABI hypothesis
-    bool Is_Landing_Cell_Available_00419250(Cell const &cell, bool allow_self); // AL0/1, RET8; identity hypothesis
-    AbstractClass *Select_Landing_Destination_004185b0(AbstractClass *desired); // approved private source identity hypothesis
-    AbstractClass *unknown_418f10(AbstractClass *desired);                  // 0x00418F10
-    void unknown_416420(); // evidenced own ECX receiver/RET0 cargo operation; declaration only
-    int unknown_415510();                                            // 0x00415510 (slot 147, over the target)
+    int Do_MISSION_MOVE_Normal(); // private own normal-unload helper00416010; ECX/RET0/int ABI hypothesis
+    int Do_MISSION_MOVE_Carryall(); // private own carryall-move helper00416670; ECX/RET0/int ABI hypothesis
+    bool Cell_Seems_Ok(Cell const &cell, bool allow_self); // AL0/1, RET8; identity hypothesis
+    AbstractClass *New_LZ(AbstractClass *desired); // approved private source identity hypothesis
+    AbstractClass *Good_Fire_Location(AbstractClass *desired);                  // 0x00418F10
+    void Drop_Off_Cargo(); // evidenced own ECX receiver/RET0 cargo operation; declaration only
+    int Paradrop_Cargo();                                            // 0x00415510 (slot 147, over the target)
 
     // IFlyControl
     virtual int __stdcall Landing_Altitude();                         // 0x0041ADF0
@@ -195,7 +195,7 @@ public:
     signed char unknown_5bb;                // +0x5BB (5)
     bool unknown_5bc;                       // +0x5BC (true)
     bool unknown_5bd;                       // +0x5BD (true)
-    AbstractClass *unknown_4198b0();                                  // 0x004198B0 (where to land; AircraftClass slot 95)
+    AbstractClass *Good_LZ();                                  // 0x004198B0 (where to land; AircraftClass slot 95)
 };
 
 // The cell offsets of the eight facings (0x00851A70; Westwood's

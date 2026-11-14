@@ -64,15 +64,15 @@ public:
         AbstractClass(noinit), unknown_58(noinit), unknown_64(noinit) {}
     virtual ~TeamClass();                                           // 0x006B7770 (scalar deleting 0x006BE740)
 
-    bool Unknown_006B8FB0(FootClass *member, int slot, bool arg3);  // 0x006B8FB0 (removes a member: Red Alert's Remove; slot -1 finds it by type)
+    bool Remove(FootClass *member, int slot, bool arg3);  // 0x006B8FB0 (removes a member: Red Alert's Remove; slot -1 finds it by type)
     bool Unknown_006BA990();                                        // 0x006BA990
     int Unknown_006BE6A0();                                         // 0x006BE6A0 (how far a member may stray; FootClass 0x004C3000)
     void Unknown_006B9AA0(FootClass *member, int result, TechnoClass *source);   // 0x006B9AA0 (a member was damaged; hypothesis)
 
     TeamClass(TeamTypeClass *type, HouseClass *owner, int arg3);    // 0x006B7430
     bool unknown_func_6b8bb0();                                     // 0x006B8BB0 (updates the strength flags after the members changed)
-    bool unknown_func_6b8cc0(FootClass *member);                    // 0x006B8CC0 (adds a member)
-    bool unknown_func_6b8dc0(FootClass *member, int *slot);         // 0x006B8DC0 (whether member may join; its task force slot)
+    bool Add(FootClass *member);                    // 0x006B8CC0 (adds a member)
+    bool Can_Add(FootClass *member, int *slot);         // 0x006B8DC0 (whether member may join; its task force slot)
     int unknown_func_6b91c0(int slot);                              // 0x006B91C0 (Red Alert's Recruit: adds the nearest object for a task force slot)
     void unknown_func_6b9610(AbstractClass **first, AbstractClass **second);   // 0x006B9610
     void unknown_func_6b8860();                                     // 0x006B8860
@@ -131,7 +131,7 @@ public:
     void TMission_unknown_6badc0(ScriptMissionClass const &mission, bool unknown);  // 0x006BADC0
     void TMission_unknown_6bae00(ScriptMissionClass const &mission, bool unknown);  // 0x006BAE00
     void TMission_unknown_6bd9b0(ScriptMissionClass const &mission, bool unknown);  // 0x006BD9B0
-    void TMission_unknown_6bb3b0(ScriptMissionClass const &mission, bool unknown);  // 0x006BB3B0
+    void TMission_TEAMCHANGE(ScriptMissionClass const &mission, bool unknown);  // 0x006BB3B0
     void TMission_unknown_6bb420(ScriptMissionClass const &mission, bool unknown);  // 0x006BB420
     void TMission_unknown_6bbb40(ScriptMissionClass const &mission, bool unknown);  // 0x006BBB40
     void TMission_unknown_6bb260(ScriptMissionClass const &mission, bool unknown);  // 0x006BB260

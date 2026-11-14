@@ -2177,21 +2177,21 @@ bool RulesClass::Advanced_Command_Bar(CCINIClass &ini, bool multiplayer)
     char const *section = multiplayer ? RulesSection_MultiplayerAdvancedCommandBar : RulesSection_AdvancedCommandBar;
     if (ini.Is_Present(section)) {
         for (int slot = 0; slot < 25; slot++) {
-            TabClass::Unknown_006A05E0(slot, unknown_no_command_7f67f4);
+            TabClass::Set_Command_Position(slot, unknown_no_command_7f67f4);
         }
         char buffer[512];
         if (ini.Get_String(section, RulesSection_ButtonList, RulesSection_None, buffer, sizeof(buffer))) {
             int count = 0;
             int position = 0;
             for (char *token = strtok(buffer, ","); token != 0; token = strtok(0, ",")) {
-                int command = TabClass::Unknown_006A0580(token);
+                int command = TabClass::Command_From_Name(token);
                 if (command != unknown_no_command_7f67f4) {
-                    TabClass::Unknown_006A05E0(command, position);
+                    TabClass::Set_Command_Position(command, position);
                 }
                 count++;
                 position++;
             }
-            TabClass::Unknown_006A0670(count);
+            TabClass::Set_Button_Count(count);
         }
         return true;
     }

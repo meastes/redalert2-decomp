@@ -479,7 +479,7 @@ void ParasiteClass::Detach(AbstractClass *target, bool all)
                     Owner->unknown_slot80();
                 }
                 if (Owner->unknown_384 != 0) {
-                    ((TeamClass *)Owner->unknown_384)->unknown_func_6b8cc0(Owner);
+                    ((TeamClass *)Owner->unknown_384)->Add(Owner);
                 }
                 if (!Owner->unknown_slot270()) {
                     Owner->unknown_6d6e50(0);
@@ -557,7 +557,7 @@ void ParasiteClass::Unknown_00607440()
             Owner->unknown_slot80();
         }
         if (Owner->unknown_384 != 0) {
-            ((TeamClass *)Owner->unknown_384)->unknown_func_6b8cc0(Owner);
+            ((TeamClass *)Owner->unknown_384)->Add(Owner);
         }
         if (!Owner->unknown_slot270()) {
             Owner->unknown_6d6e50(0);

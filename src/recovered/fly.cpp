@@ -279,8 +279,8 @@ void __stdcall FlyLocomotionClass::Stop_Moving()
                 LinkedTo->Take_Damage(&LinkedTo->Strength, 0, Rules->unknown_c74, 0, true, 1);
             } else {
                 AbstractClass *destination;
-                if (LinkedTo->Get_Mission() == 1) destination = aircraft->unknown_4198b0();
-                else destination = aircraft->Select_Landing_Destination_004185b0(&Map[cell]);
+                if (LinkedTo->Get_Mission() == 1) destination = aircraft->Good_LZ();
+                else destination = aircraft->New_LZ(&Map[cell]);
                 LinkedTo->Assign_Destination(destination, true);
                 return;
             }
@@ -859,7 +859,7 @@ int FlyLocomotionClass::unknown_4be720(bool stage,CoordStruct coord)
         if (!LinkedTo->ContainsLink((TechnoClass *)building)) {
             FootClass *self=LinkedTo;
             if (self!=0 && self->Kind_Of()==2) {
-                AbstractClass *dock=((AircraftClass *)self)->Select_Landing_Destination_004185b0(building);
+                AbstractClass *dock=((AircraftClass *)self)->New_LZ(building);
                 if (dock==0) {
                     aim=unknown_geometry_l;
                 } else {

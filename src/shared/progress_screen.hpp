@@ -37,7 +37,7 @@ struct Unknown535910;
 typedef struct HWND__ *HWND;
 // A country's flag image (0x004D1120; "usai.pcx" ... "rusi.pcx", -2 "rani.pcx"
 // for a random country, -3 "obsi.pcx" for an observer; null if none).
-Surface *__fastcall Country_Flag_004d1120(int country);
+Surface *__fastcall Country_Flag(int country);
 
 class ProgressScreenClass {
 public:
@@ -47,7 +47,7 @@ public:
     virtual void Set_Listener(Unknown535910 *listener);         // 0x006203E0 slot 0
 
     void Init(double total, char count, HWND window);           // 0x0061ED80
-    void Clear_unknown_60();                                    // 0x0061EDF0
+    void End();                                    // 0x0061EDF0
     void Free_Shape();                                          // 0x0061EE00
     void Set_Side(int side);                                    // 0x0061EE30
     int Get_Side();                                             // 0x0061EE40
@@ -82,13 +82,13 @@ public:
     void Set_Name_Width(int width);                             // 0x0061F150
     // Sets the text position (-1,-1 centres it), the game ID text and two flags
     // (0x0061EFA0; 0x0065C7D0 passes "not a campaign" for both).
-    void Unknown_0061EFA0(Point2D xy, wchar_t const *text, bool flag1, bool flag2);
+    void Set_Layout(Point2D xy, wchar_t const *text, bool flag1, bool flag2);
     bool Has_Window();                                          // 0x006203C0
     void Clear_Window();                                        // 0x006203D0
     double Get_Progress(int player);                            // 0x006203F0
     // Sets a player's progress and redraws (0x006201C0; the serial game
     // code reports the other player's progress through it).
-    void Set_Progress_006201c0(int index, double value, Point2D point);
+    void Set_Progress_Percent(int index, double value, Point2D point);
     // Adds to a player's progress (percent of the total) and redraws as Set_Progress does.
     void Add_Progress(int index, double value, Point2D point);  // 0x006202C0
 

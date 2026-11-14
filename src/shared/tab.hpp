@@ -63,16 +63,16 @@ public:
     // Frees button shape index when it was loaded (0x006A0540, __fastcall).
     static void __fastcall Unknown_006A0540(int index);
     // Index of a command name in CommandNames, else NoCommand (0x006A0580).
-    static int __fastcall Unknown_006A0580(char const *name);
+    static int __fastcall Command_From_Name(char const *name);
     // The slot-to-button map (0x006A05E0 set, 0x006A05F0 get).
-    static void __fastcall Unknown_006A05E0(int slot, int button);
+    static void __fastcall Set_Command_Position(int slot, int button);
     static int __fastcall Unknown_006A05F0(int slot);
     // The button shown in slot, or null (0x006A0600).
     static ShapeButtonClass *__fastcall Unknown_006A0600(int slot);
     // Screen rectangle of slot (0x006A0620).
     static Rect __fastcall Unknown_006A0620(int slot);
     // Sets the bar's row count and its top edge (0x006A0670).
-    static void __fastcall Unknown_006A0670(int rows);
+    static void __fastcall Set_Button_Count(int rows);
     // Whether value lies in [unknown_int_abe370, unknown_int_abe468] (0x006A06B0).
     static int __fastcall Unknown_006A06B0(int value);
     // value relative to unknown_int_abe370, from 1 (0x006A06D0).

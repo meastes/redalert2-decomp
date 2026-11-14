@@ -4,8 +4,8 @@
     "id": "population-2792",
     "inventory_sha256": "d8264f12c10910f023f07e4111d1a563322f63354c8dda321e5f88fd6e685da2",
     "gaps_sha256": "e7224a98023fdaa02cd5c91264577c9ef1aaaa036f6d9492fd5242d1e99c7d4f",
-    "historical_population_sha256": "a99dfe6ae64a7c3ba6e4356fda78dd4d91e8f60dea940e7a6e69d5c920b85fe2",
-    "historical_acceptance_sha256": "3e8983884720316ccbb0a0396624f0529c2e1b52afff60556f1cadaa4226df4e"
+    "historical_population_sha256": "71a6aa4a0582fb6789f6291660f775b3b592227020a3b7723b5f1c3778d06d88",
+    "historical_acceptance_sha256": "499a3d8f6c400a5e1151dbd29d2428e6fff6d1855a8219ffd704bff171f3b754"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1402,7 +1402,7 @@
     "??0EventClass@@QAE@HHK@Z": 4939824,
     "?OutList@@3V?$QueueClass@VEventClass@@$0IA@@@A": 10691384,
     "__imp__timeGetTime@0": 7972132,
-    "?Unknown_0049E570@DisplayClass@@QAEXXZ": 4842864,
+    "?Reinit_Cell_Drawers@DisplayClass@@QAEXXZ": 4842864,
     "?unknown_6d79c0@TechnoClass@@SIXA_N@Z": 7174592,
     "?ToolTips@@3PAVCCToolTip@@A": 8624560,
     "?Enable@ToolTipManager@@QAEX_N@Z": 7255168,
@@ -2195,7 +2195,7 @@
     "__imp__RegSetValueExA@24": 7970836,
     "?Detach@BombListClass@@QAEXPAVAbstractClass@@@Z": 4417360,
     "?Read_Basic@ScenarioClass@@QAE_NAAVCCINIClass@@@Z": 6691200,
-    "?Loading_Progress_00672160@SessionClass@@QAEXH@Z": 6758752,
+    "?Update_Progress@SessionClass@@QAEXH@Z": 6758752,
     "??_GTActionClass@@UAEPAXI@Z": 7024848,
     "?Read_Scenario_INI@@YI_NAAVCCINIClass@@_N@Z": 6679360,
     "?unknown_difficulty_a40b1c@@3HA": 10750748,
@@ -5862,7 +5862,7 @@
     "?unknown_slot54@ObjectClass@@UAEX_N@Z": 6110224,
     "?Set_Occupy_Bit@ObjectClass@@UAEXABUCoordStruct@@@Z": 6113632,
     "?Clear_Occupy_Bit@ObjectClass@@UAEXABUCoordStruct@@@Z": 6113760,
-    "?unknown_4e76a0@HouseClass@@QAE_NABVCell@@_N@Z": 5142176,
+    "?Flag_Attach@HouseClass@@QAE_NABVCell@@_N@Z": 5142176,
     "?Count_Up@DelayTimerClass@@QAEXN@Z": 4811632,
     "?Limbo@UnitClass@@UAE_NXZ": 7370992,
     "?Set_Occupy_Bit@UnitClass@@UAEXABUCoordStruct@@@Z": 7371136,
@@ -5941,10 +5941,10 @@
     "?unknown_flag_8373c2@@3_NA": 8614850,
     "?Refresh@CCToolTip@@UAEX_N@Z": 4645424,
     "?Get_Text@CCToolTip@@UAEPBGH@Z": 4646000,
-    "?Unknown_0049CC20@DisplayClass@@QAEXXZ": 4836384,
+    "?Encroach_Shadow@DisplayClass@@QAEXXZ": 4836384,
     "?Unknown_0049CF00@DisplayClass@@QAEXABVCell@@@Z": 4837120,
     "?Unknown_0049E110@DisplayClass@@QAEX_N0@Z": 4841744,
-    "?Unknown_0049CD20@DisplayClass@@QAEXXZ": 4836640,
+    "?Encroach_Fog@DisplayClass@@QAEXXZ": 4836640,
     "?Unknown_0049CDB0@DisplayClass@@QAEXABVCell@@@Z": 4836784,
     "?Fog_Cell@CellClass@@QAEXXZ": 4701312,
     "?unknown_slot40@ObjectClass@@UAE?AUCoordStruct@@XZ": 4305472,
@@ -8405,7 +8405,7 @@
     "?CreateInstance@?$TClassFactory@VNeuronClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z": 6914096,
     "?CreateInstance@?$TClassFactory@VFoggedObjectClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z": 6914480,
     "??0FoggedObjectClass@@QAE@XZ": 4980768,
-    "?Unknown_006A05E0@TabClass@@SIXHH@Z": 6948320,
+    "?Set_Command_Position@TabClass@@SIXHH@Z": 6948320,
     "?SlotButton@TabClass@@2PAHA": 11264712,
     "?Help_Text@SidebarClass@@UAEPBGH@Z": 6823632,
     "?unknown_rect_abe560@@3VRect@@A": 11265376,
@@ -8636,7 +8636,7 @@
     "?Unknown_006A0540@TabClass@@SIXH@Z": 6948160,
     "?ButtonShapeAllocated@TabClass@@2PA_NA": 11264812,
     "?ButtonShapes@TabClass@@2PAPBXA": 11262112,
-    "?Unknown_006A0580@TabClass@@SIHPBD@Z": 6948224,
+    "?Command_From_Name@TabClass@@SIHPBD@Z": 6948224,
     "?unknown_command_names_7f67f8@@3PAPBDA": 8349688,
     "?unknown_no_command_7f67f4@@3HA": 8349684,
     "?Unknown_006A0620@TabClass@@SI?AVRect@@H@Z": 6948384,
@@ -8932,7 +8932,7 @@
     "??9WideString@@QBE_NABV0@@Z": 7797552,
     "??HWideString@@QAE?AV0@ABV0@@Z": 7798688,
     "?Submit@LogicClass@@UAE_NPAVObjectClass@@_N@Z": 5497648,
-    "?Unknown_006A0670@TabClass@@SIXH@Z": 6948464,
+    "?Set_Button_Count@TabClass@@SIXH@Z": 6948464,
     "?unknown_int_abe2ac@@3HA": 11264684,
     "?unknown_rect_ac1210@@3PBVRect@@B": 11276816,
     "?unknown_rect_ac1204@@3PBVRect@@B": 11276804,
@@ -10704,7 +10704,13 @@
     "?Options_Menu_Init@@YIXPAUHWND__@@@Z": 5103104,
     "?Service_Game_IO_00481fb0@seed_00482100@@YAXXZ": 4726704,
     "?Service_Game_IO_00481fb0@seed_005bbd10@@YAXXZ": 4726704,
-    "__ramp_corners": 8339828
+    "__ramp_corners": 8339828,
+    "?End@ProgressScreenClass@@QAEXXZ": 6417904,
+    "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z": 7049136,
+    "?Flag_Attach@UnitClass@@QAE_NH@Z": 7358912,
+    "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "?Unknown_005689D0@MapClass@@QAE?AVCell@@ABV2@_N@Z": 5671376
   },
   "regions": [
     {
@@ -10758,7 +10764,7 @@
           "resolved": 8806420
         }
       ],
-      "source_sha256": "a5453a10cfb28c817bdb37e992631ba05c90fa6f393416f69c24cacabe6c8ce7",
+      "source_sha256": "e6a5718234547b060078aca6b7ad6f907e3838bcfcd4b1828eb9815d3ab18e99",
       "source": "src/recovered/gamedlg.cpp",
       "population": "population-2792",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -10825,7 +10831,7 @@
           "resolved": 8806432
         }
       ],
-      "source_sha256": "a5453a10cfb28c817bdb37e992631ba05c90fa6f393416f69c24cacabe6c8ce7",
+      "source_sha256": "e6a5718234547b060078aca6b7ad6f907e3838bcfcd4b1828eb9815d3ab18e99",
       "source": "src/recovered/gamedlg.cpp",
       "population": "population-2792",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -10876,7 +10882,7 @@
           "resolved": 8806504
         }
       ],
-      "source_sha256": "a5453a10cfb28c817bdb37e992631ba05c90fa6f393416f69c24cacabe6c8ce7",
+      "source_sha256": "e6a5718234547b060078aca6b7ad6f907e3838bcfcd4b1828eb9815d3ab18e99",
       "source": "src/recovered/gamedlg.cpp",
       "population": "population-2792",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -10927,7 +10933,7 @@
           "resolved": 8806488
         }
       ],
-      "source_sha256": "a5453a10cfb28c817bdb37e992631ba05c90fa6f393416f69c24cacabe6c8ce7",
+      "source_sha256": "e6a5718234547b060078aca6b7ad6f907e3838bcfcd4b1828eb9815d3ab18e99",
       "source": "src/recovered/gamedlg.cpp",
       "population": "population-2792",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -10978,7 +10984,7 @@
           "resolved": 8806480
         }
       ],
-      "source_sha256": "a5453a10cfb28c817bdb37e992631ba05c90fa6f393416f69c24cacabe6c8ce7",
+      "source_sha256": "e6a5718234547b060078aca6b7ad6f907e3838bcfcd4b1828eb9815d3ab18e99",
       "source": "src/recovered/gamedlg.cpp",
       "population": "population-2792",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -11029,7 +11035,7 @@
           "resolved": 8806440
         }
       ],
-      "source_sha256": "a5453a10cfb28c817bdb37e992631ba05c90fa6f393416f69c24cacabe6c8ce7",
+      "source_sha256": "e6a5718234547b060078aca6b7ad6f907e3838bcfcd4b1828eb9815d3ab18e99",
       "source": "src/recovered/gamedlg.cpp",
       "population": "population-2792",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -11080,7 +11086,7 @@
           "resolved": 8806400
         }
       ],
-      "source_sha256": "a5453a10cfb28c817bdb37e992631ba05c90fa6f393416f69c24cacabe6c8ce7",
+      "source_sha256": "e6a5718234547b060078aca6b7ad6f907e3838bcfcd4b1828eb9815d3ab18e99",
       "source": "src/recovered/gamedlg.cpp",
       "population": "population-2792",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -11163,7 +11169,7 @@
           "resolved": 8806512
         }
       ],
-      "source_sha256": "a5453a10cfb28c817bdb37e992631ba05c90fa6f393416f69c24cacabe6c8ce7",
+      "source_sha256": "e6a5718234547b060078aca6b7ad6f907e3838bcfcd4b1828eb9815d3ab18e99",
       "source": "src/recovered/gamedlg.cpp",
       "population": "population-2792",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -11222,7 +11228,7 @@
           "resolved": 8806448
         }
       ],
-      "source_sha256": "a5453a10cfb28c817bdb37e992631ba05c90fa6f393416f69c24cacabe6c8ce7",
+      "source_sha256": "e6a5718234547b060078aca6b7ad6f907e3838bcfcd4b1828eb9815d3ab18e99",
       "source": "src/recovered/gamedlg.cpp",
       "population": "population-2792",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -11281,7 +11287,7 @@
           "resolved": 8806472
         }
       ],
-      "source_sha256": "a5453a10cfb28c817bdb37e992631ba05c90fa6f393416f69c24cacabe6c8ce7",
+      "source_sha256": "e6a5718234547b060078aca6b7ad6f907e3838bcfcd4b1828eb9815d3ab18e99",
       "source": "src/recovered/gamedlg.cpp",
       "population": "population-2792",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -11340,7 +11346,7 @@
           "resolved": 8806496
         }
       ],
-      "source_sha256": "a5453a10cfb28c817bdb37e992631ba05c90fa6f393416f69c24cacabe6c8ce7",
+      "source_sha256": "e6a5718234547b060078aca6b7ad6f907e3838bcfcd4b1828eb9815d3ab18e99",
       "source": "src/recovered/gamedlg.cpp",
       "population": "population-2792",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -11383,7 +11389,7 @@
           "resolved": 8806426
         }
       ],
-      "source_sha256": "a5453a10cfb28c817bdb37e992631ba05c90fa6f393416f69c24cacabe6c8ce7",
+      "source_sha256": "e6a5718234547b060078aca6b7ad6f907e3838bcfcd4b1828eb9815d3ab18e99",
       "source": "src/recovered/gamedlg.cpp",
       "population": "population-2792",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -11434,7 +11440,7 @@
           "resolved": 8806464
         }
       ],
-      "source_sha256": "a5453a10cfb28c817bdb37e992631ba05c90fa6f393416f69c24cacabe6c8ce7",
+      "source_sha256": "e6a5718234547b060078aca6b7ad6f907e3838bcfcd4b1828eb9815d3ab18e99",
       "source": "src/recovered/gamedlg.cpp",
       "population": "population-2792",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -11637,7 +11643,7 @@
           "resolved": 4294143739
         }
       ],
-      "source_sha256": "a5453a10cfb28c817bdb37e992631ba05c90fa6f393416f69c24cacabe6c8ce7",
+      "source_sha256": "e6a5718234547b060078aca6b7ad6f907e3838bcfcd4b1828eb9815d3ab18e99",
       "source": "src/recovered/gamedlg.cpp",
       "population": "population-2792",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -11850,7 +11856,7 @@
         {
           "offset": 310,
           "kind": 20,
-          "symbol": "?Unknown_0049E570@DisplayClass@@QAEXXZ",
+          "symbol": "?Reinit_Cell_Drawers@DisplayClass@@QAEXXZ",
           "target": 4842864,
           "addend": 0,
           "resolved": 4294765110
@@ -11928,7 +11934,7 @@
           "resolved": 10750748
         }
       ],
-      "source_sha256": "a5453a10cfb28c817bdb37e992631ba05c90fa6f393416f69c24cacabe6c8ce7",
+      "source_sha256": "e6a5718234547b060078aca6b7ad6f907e3838bcfcd4b1828eb9815d3ab18e99",
       "source": "src/recovered/gamedlg.cpp",
       "population": "population-2792",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -12211,7 +12217,7 @@
           "resolved": 10751304
         }
       ],
-      "source_sha256": "a5453a10cfb28c817bdb37e992631ba05c90fa6f393416f69c24cacabe6c8ce7",
+      "source_sha256": "e6a5718234547b060078aca6b7ad6f907e3838bcfcd4b1828eb9815d3ab18e99",
       "source": "src/recovered/gamedlg.cpp",
       "population": "population-2792",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -12278,7 +12284,7 @@
           "resolved": 10751304
         }
       ],
-      "source_sha256": "a5453a10cfb28c817bdb37e992631ba05c90fa6f393416f69c24cacabe6c8ce7",
+      "source_sha256": "e6a5718234547b060078aca6b7ad6f907e3838bcfcd4b1828eb9815d3ab18e99",
       "source": "src/recovered/gamedlg.cpp",
       "population": "population-2792",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",

@@ -221,8 +221,8 @@ public:
     // Behind a guard (the group-select functions 0x006F5F00/0x006F60D0 define it): see slot 41 below.
     void Unknown_0049E3B0();                                                    // 0x0049E3B0
 #endif
-    void Unknown_0049CC20();                                                    // 0x0049CC20
-    void Unknown_0049CD20();                                                    // 0x0049CD20
+    void Encroach_Shadow();                                                    // 0x0049CC20
+    void Encroach_Fog();                                                    // 0x0049CD20
     void Unknown_0049E110(bool skip_buildings, bool arg2);                      // 0x0049E110
     void Unknown_0049E000(bool skip_buildings, bool arg2);                      // 0x0049E000
     void Unknown_0049DE00(bool skip_buildings, bool arg2);                      // 0x0049DE00

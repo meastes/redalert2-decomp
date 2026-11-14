@@ -3570,7 +3570,7 @@ static void Refresh_Country_Flags(HWND dialog)
 {
     for (int i = 0; i < 8; i++) {
         HWND control = GetDlgItem(dialog, unknown_player_control_4d0ee0(i));
-        OwnerDraw::unknown_5e1f30(control, Country_Flag_004d1120(Slot_Country_005ca3f0(i)));
+        OwnerDraw::unknown_5e1f30(control, Country_Flag(Slot_Country_005ca3f0(i)));
     }
 }
 

@@ -94,14 +94,14 @@ public:
     void Unknown_0049CF00(Cell const &cell);
     // Re-maps every mapped cell (0x0049CD20): marks them (+0x140 bit 6), lets
     // 0x0049E110 run, then maps the marked ones again through 0x0049CDB0.
-    void Unknown_0049CD20();
+    void Encroach_Fog();
     // Unmaps a cell for layer 1 and spreads to the neighbours the view still
     // shows (0x0049CDB0).
     void Unknown_0049CDB0(Cell const &cell);
     // Unmaps every cell no longer seen (0x0049CC20): marks the visible cells
     // that are not fully shrouded (+0x140 bit 5), unmaps them through
     // 0x0049CF00, then runs 0x0049E110 (false, 0) and redraws.
-    void Unknown_0049CC20();
+    void Encroach_Shadow();
     void Unknown_0049E110(bool skip_buildings, bool arg2);   // 0x0049E110 (slot 70 over the technos of layer 2)
     void Unknown_0049E000(bool skip_buildings, bool arg2);    // 0x0049E000 (slots 263/236 over every techno)
 #ifdef RA2_DISPLAY_START_POS
@@ -117,7 +117,7 @@ public:
     // buffer and returns its size (0x0049DB60); unpacks it again (0x0049DCD0).
     int Unknown_0049DB60(void *buffer, int arg2);
     void Unknown_0049DCD0(void *buffer);
-    void Unknown_0049E570();                            // 0x0049E570 resets every cell (0x004790F0) and redraws
+    void Reinit_Cell_Drawers();                            // 0x0049E570 resets every cell (0x004790F0) and redraws
     // The width and height of a cell list ending with (0x7FFF, 0x7FFF), at
     // least 1 x 1; 0 x 0 for no list (0x00499810).
     Cell Unknown_00499810(Cell const *list);

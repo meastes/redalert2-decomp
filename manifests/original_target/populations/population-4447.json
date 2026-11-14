@@ -4,8 +4,8 @@
     "id": "population-4447",
     "inventory_sha256": "40e46422776711d82e10743f7d60dfe1e97150f7bdf4ec49921c6903a785871f",
     "gaps_sha256": "7b1305abb764d771521d96e3cac67f9589e64ebd3cbab49891544564a2a45e4a",
-    "historical_population_sha256": "0cd8f549a210c42f682cba44b388d40edbf4baf529bf4b93ddc8d85ea8c7083a",
-    "historical_acceptance_sha256": "b77394bc63e733f64fa9ea324db623c3cd57bf35c4f8ee155666d94a55a62a28"
+    "historical_population_sha256": "b3e32faa9949f3a3459145d2a54c3d565d9b2eadf1332a33c6a5afffe199fc89",
+    "historical_acceptance_sha256": "4a5b4b2d1037d54763c106653eeee1ca7e4ff1c70a65699f504f441e4f1b3552"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -2919,7 +2919,7 @@
     "??GRect@@QBE?AV0@ABURectPoint2D@@@Z": 4706304,
     "?Detach@BombListClass@@QAEXPAVAbstractClass@@@Z": 4417360,
     "?Read_Basic@ScenarioClass@@QAE_NAAVCCINIClass@@@Z": 6691200,
-    "?Loading_Progress_00672160@SessionClass@@QAEXH@Z": 6758752,
+    "?Update_Progress@SessionClass@@QAEXH@Z": 6758752,
     "??_GTActionClass@@UAEPAXI@Z": 7024848,
     "?Read_Scenario_INI@@YI_NAAVCCINIClass@@_N@Z": 6679360,
     "?unknown_difficulty_a40b1c@@3HA": 10750748,
@@ -9011,7 +9011,7 @@
     "?Get_Value@?$ValueGameOption@E@WorldDominationTour@@UBEHABV?$rc_ptr@VWDTTerritory@@@@@Z": 7503376,
     "?Narrow_Copy_00771280@@YI?AVWstring@@ABVWideString@@@Z": 7803520,
     "?Remove_Node_00600410@UnknownNodeList_006003d0@@QAEXPAUUnknownNode_006003d0@@@Z": 6292496,
-    "?Draw_0068ce80@SurfaceCacheClass@@QAE_NABVRect@@PAVSurface@@1H@Z": 6868608,
+    "?DrawTrans@SurfaceCacheClass@@QAE_NABVRect@@PAVSurface@@1H@Z": 6868608,
     "??0SurfaceCacheClass@@QAE@XZ": 6864208,
     "??1SurfaceCacheClass@@QAE@XZ": 6864432,
     "?unknown_5e4720@OwnerDraw@@YI_NPAUHWND__@@@Z": 6178592,
@@ -10708,7 +10708,7 @@
     "?Collect_Neighbor_Regions_005709c0@MapRegionClass@@QAEXXZ": 5704128,
     "?unknown_map_region_next_index_a70a28@@3HA": 10947112,
     "?Collect_Boundary_Cells_0056ed10@MapRegionClass@@QAEPAV?$DynamicVectorClass@VCell@@@@XZ": 5696784,
-    "?Place_Neutral_Building_00571db0@MapRegionClass@@QAE_NABVRect@@@Z": 5709232,
+    "?Place_Bridge_Hut@MapRegionClass@@QAE_NABVRect@@@Z": 5709232,
     "?Select_Separated_Cells_00576810@MapRegionClass@@QAEPAV?$DynamicVectorClass@VCell@@@@ABV2@@Z": 5728272,
     "?Campaigns@@3V?$DynamicVectorClass@PAVCampaignClass@@@@A": 10706272,
     "?Set_Scenario_Name_0065e730@ScenarioClass@@QAEXPBD@Z": 6678320,

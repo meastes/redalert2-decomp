@@ -299,7 +299,7 @@ AnimClass::~AnimClass()
         Limbo();
     }
     unknown_objects_ac0cb0.Delete(this);
-    Class->unknown_func_426700();
+    Class->Free_Image();
     unknown_180.Unknown_00406070();
     unknown_194.Unknown_00406070();
     unknown_180.Unknown_00405C10();

@@ -184,7 +184,7 @@ TeamClass::~TeamClass()
     }
     if (unknown_flag_a40958 && Class != 0) {
         while (Member != 0) {
-            Unknown_006B8FB0(Member, -1, 0);
+            Remove(Member, -1, 0);
         }
         Class->unknown_d4--;
         if (Tag != 0) {
@@ -355,7 +355,7 @@ void TeamClass::AI()
         case 0x0F: TMission_unknown_6bb260(mission, is_next); break;
         case 0x15: TMission_unknown_6bb310(mission, is_next); break;
         case 0x14: TMission_unknown_6bb350(mission, is_next); break;
-        case 0x12: TMission_unknown_6bb3b0(mission, is_next); break;
+        case 0x12: TMission_TEAMCHANGE(mission, is_next); break;
         case 0x11: TMission_unknown_6bb420(mission, is_next); break;
         case 0x00: TMission_unknown_6bb480(mission, is_next); break;
         case 0x0E: TMission_unknown_6bb5f0(mission, is_next); break;
@@ -556,17 +556,17 @@ bool TeamClass::unknown_func_6b8bb0()
 
 // Adds a foot object to the team (when it may join): leaves its old team, becomes the first member in the list, takes the team type's group and tag, and counts it.
 
-bool TeamClass::unknown_func_6b8cc0(FootClass *member)
+bool TeamClass::Add(FootClass *member)
 {
     if (member == 0) {
         return false;
     }
     int slot;
-    if (!unknown_func_6b8dc0(member, &slot)) {
+    if (!Can_Add(member, &slot)) {
         return false;
     }
     if (member->Team != 0) {
-        member->Team->Unknown_006B8FB0(member, -1, 0);
+        member->Team->Remove(member, -1, 0);
     }
     unknown_84[slot]++;
     member->unknown_579 = Member == 0;
@@ -593,7 +593,7 @@ bool TeamClass::unknown_func_6b8cc0(FootClass *member)
 
 // Whether a foot object may join the team, and the task force slot it would fill (written to *slot): it must be a live object of the team's house that is not in radio contact (aircraft only airport-bound ones), recruitable, outranking its current team, and its type must be in the task force with room left.
 
-bool TeamClass::unknown_func_6b8dc0(FootClass *member, int *slot)
+bool TeamClass::Can_Add(FootClass *member, int *slot)
 {
     if (this != member->Team && unknown_func_6bdd80(member) && member->House == Owner) {
         if (!member->HasAnyLink() || (member->Kind_Of() == 2 && ((AircraftClass *)member)->Type->AirportBound)) {
@@ -632,7 +632,7 @@ bool TeamClass::unknown_func_6b8dc0(FootClass *member, int *slot)
 
 // Red Alert's Remove: takes a foot object out of the team: clears its tag when it is the team's, counts down the task force slot it filled (found by type when slot is -1), unlinks it from the member list, idles it unless arg3, and when no remaining member is initiated (+0x579) flags the first one.
 
-bool TeamClass::Unknown_006B8FB0(FootClass *member, int slot, bool arg3)
+bool TeamClass::Remove(FootClass *member, int slot, bool arg3)
 {
     member->unknown_5a2 = true;
     if (this != member->Team) {
@@ -722,7 +722,7 @@ int TeamClass::unknown_func_6b91c0(int slot)
                     if (infantry->unknown_1ac != group) {
                         distance += 0x3200;
                     }
-                    if ((distance < best_distance || best_distance == -1) && unknown_func_6b8dc0(infantry, &slot)) {
+                    if ((distance < best_distance || best_distance == -1) && Can_Add(infantry, &slot)) {
                         best = infantry;
                         best_distance = distance;
                     }
@@ -730,7 +730,7 @@ int TeamClass::unknown_func_6b91c0(int slot)
             }
             if (best != 0) {
                 best->unknown_slot220(0);
-                unknown_func_6b8cc0(best);
+                Add(best);
                 added++;
             }
             break;
@@ -746,7 +746,7 @@ int TeamClass::unknown_func_6b91c0(int slot)
                     if (aircraft->unknown_1ac != group) {
                         distance += 0x3200;
                     }
-                    if ((distance < best_distance || best_distance == -1) && unknown_func_6b8dc0(aircraft, &slot)) {
+                    if ((distance < best_distance || best_distance == -1) && Can_Add(aircraft, &slot)) {
                         best = aircraft;
                         best_distance = distance;
                     }
@@ -754,7 +754,7 @@ int TeamClass::unknown_func_6b91c0(int slot)
             }
             if (best != 0) {
                 best->unknown_slot220(0);
-                unknown_func_6b8cc0(best);
+                Add(best);
                 added++;
             }
             break;
@@ -771,7 +771,7 @@ int TeamClass::unknown_func_6b91c0(int slot)
                         distance += 0x3200;
                     }
                     if (unit->House == Owner && unit->Type == Class->TaskForce->Entries[slot].Type) {
-                        if ((distance < best_distance || best_distance == -1) && unknown_func_6b8dc0(unit, &slot)) {
+                        if ((distance < best_distance || best_distance == -1) && Can_Add(unit, &slot)) {
                             best = unit;
                             best_distance = distance;
                         }
@@ -780,11 +780,11 @@ int TeamClass::unknown_func_6b91c0(int slot)
             }
             if (best != 0) {
                 best->unknown_slot220(0);
-                unknown_func_6b8cc0(best);
+                Add(best);
                 added++;
                 FootClass *passenger = (FootClass *)best->Cargo.Attached_Object();
                 while (passenger != 0) {
-                    unknown_func_6b8cc0(passenger);
+                    Add(passenger);
                     ObjectClass *next = passenger->unknown_30;
                     passenger = next != 0 && next->AbstractFlags.IsFoot ? (FootClass *)next : 0;
                 }
@@ -1237,7 +1237,7 @@ void __fastcall TeamClass::unknown_func_6ba8e0(int priority, HouseClass *house)
         TeamClass *team = Teams[index];
         if (team != 0 && house == team->Owner && team->Class->Priority < priority) {
             while (team->Member != 0) {
-                team->Unknown_006B8FB0(team->Member, -1, 0);
+                team->Remove(team->Member, -1, 0);
             }
             team->JustDisappeared = true;
             team->NeedsToDisappear = true;
@@ -1576,16 +1576,16 @@ void TeamClass::TMission_unknown_6bb350(ScriptMissionClass const &mission, bool 
 }
 
 
-// void TeamClass::TMission_unknown_6bb3b0(ScriptMissionClass const &mission, bool unknown) (0x006BB3B0)
+// void TeamClass::TMission_TEAMCHANGE(ScriptMissionClass const &mission, bool unknown) (0x006BB3B0)
 // Moves every member into a new team of team type Data (same owner) and deletes this team.
 
-void TeamClass::TMission_unknown_6bb3b0(ScriptMissionClass const &mission, bool unknown)
+void TeamClass::TMission_TEAMCHANGE(ScriptMissionClass const &mission, bool unknown)
 {
     TeamClass *team = new TeamClass(TeamTypes[mission.Data], Owner, 0);
     FootClass *member = Member;
     while (member != 0) {
-        Unknown_006B8FB0(member, -1, 0);
-        team->unknown_func_6b8cc0(member);
+        Remove(member, -1, 0);
+        team->Add(member);
         member = Member;
     }
     delete this;
@@ -1855,7 +1855,7 @@ void TeamClass::TMission_unknown_6bbf20(ScriptMissionClass const &mission, bool 
 void TeamClass::TMission_unknown_6bc040(ScriptMissionClass const &mission, bool unknown)
 {
     for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
-        member->unknown_slot296();
+        member->Stop_Fear();
     }
     StepCompleted = true;
 }
@@ -1894,7 +1894,7 @@ void TeamClass::TMission_unknown_6bc070(ScriptMissionClass const &mission, bool 
 void TeamClass::TMission_unknown_6bc130(ScriptMissionClass const &mission, bool unknown)
 {
     for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
-        member->unknown_slot295();
+        member->Start_Fear();
     }
     StepCompleted = true;
 }
@@ -1906,7 +1906,7 @@ void TeamClass::TMission_unknown_6bc130(ScriptMissionClass const &mission, bool 
 void TeamClass::TMission_unknown_6bc160(ScriptMissionClass const &mission, bool unknown)
 {
     for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
-        member->unknown_slot294();
+        member->Berzerk();
     }
     StepCompleted = true;
 }
@@ -1918,7 +1918,7 @@ void TeamClass::TMission_unknown_6bc160(ScriptMissionClass const &mission, bool 
 void TeamClass::TMission_unknown_6bc190(ScriptMissionClass const &mission, bool unknown)
 {
     for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
-        member->unknown_slot297(mission.Data);
+        member->Do_Idle(mission.Data);
     }
     StepCompleted = true;
 }
@@ -2484,13 +2484,13 @@ void TeamClass::TMission_unknown_6bd4b0(ScriptMissionClass const &mission, bool 
         FootClass *next = (FootClass *)unit->unknown_4c8;
         if (unit->Techno_Type_Class()->Passengers == 0 || aircraft && unit->Kind_Of() != 2) {
             if (mode == 1 || mode == 3) {
-                Unknown_006B8FB0(unit, -1, false);
+                Remove(unit, -1, false);
                 unit->unknown_slot220(0);
                 unit->Assign_Destination(0, true);
             }
         } else if (unit->Techno_Type_Class()->Passengers > 0) {
             if (Class->TransportsReturnOnUnload) {
-                Unknown_006B8FB0(unit, -1, false);
+                Remove(unit, -1, false);
                 unit->unknown_slot220(0);
                 unit->Assign_Destination(unit->unknown_1b0, true);
                 unit->QueueMission(2, false);
@@ -2499,7 +2499,7 @@ void TeamClass::TMission_unknown_6bd4b0(ScriptMissionClass const &mission, bool 
                 }
                 unit->unknown_6d6e50(0);
             } else if (mode == 3 || mode == 2) {
-                Unknown_006B8FB0(unit, -1, false);
+                Remove(unit, -1, false);
                 unit->unknown_slot220(0);
                 unit->Assign_Destination(0, true);
             }

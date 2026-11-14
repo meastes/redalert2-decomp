@@ -2092,12 +2092,12 @@ bool DisplayClass::Unknown_0049CBF0(CoordStruct const &coord, bool alt)
 }
 
 
-// void DisplayClass::Unknown_0049CC20() (0x0049CC20)
+// void DisplayClass::Encroach_Shadow() (0x0049CC20)
 // Over all 512 x 512 cells on the map: marks the visible ones that are not
 // fully shrouded (+0x140 bit 5); then unmaps each marked cell through
 // 0x0049CF00 (clearing the mark), runs 0x0049E110 (false, false) and redraws.
 
-void DisplayClass::Unknown_0049CC20()
+void DisplayClass::Encroach_Shadow()
 {
     int x;
     int y;
@@ -2125,12 +2125,12 @@ void DisplayClass::Unknown_0049CC20()
 }
 
 
-// void DisplayClass::Unknown_0049CD20() (0x0049CD20)
+// void DisplayClass::Encroach_Fog() (0x0049CD20)
 // Re-maps the map: marks every mapped cell that is not fully shrouded
 // (+0x140 bit 6), runs 0x0049E110 (false, true), then maps each marked cell
 // again through 0x0049CDB0, clearing the mark.
 
-void DisplayClass::Unknown_0049CD20()
+void DisplayClass::Encroach_Fog()
 {
     Reset_Iterator();
     for (CellClass *cell = Iterate(); cell != 0; cell = Iterate()) {
@@ -2268,7 +2268,7 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
 
     Init(unknown_id_source_a3d290->Theater);
 
-    unknown_session_a3d298.Loading_Progress_00672160(63);
+    unknown_session_a3d298.Update_Progress(63);
     unknown_481fb0();
 
     long uniqueid = unknown_id_source_a3d290->UniqueID;
@@ -2285,7 +2285,7 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
     SmudgeTypeClass::Init(unknown_id_source_a3d290->Theater);
     VeinholeMonsterClass::Init(unknown_id_source_a3d290->Theater);
 
-    unknown_session_a3d298.Loading_Progress_00672160(65);
+    unknown_session_a3d298.Update_Progress(65);
     unknown_481fb0();
 
     unknown_id_source_a3d290->Read_Waypoints(ini);
@@ -2334,7 +2334,7 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
             }
         }
     }
-    unknown_session_a3d298.Loading_Progress_00672160(67);
+    unknown_session_a3d298.Update_Progress(67);
     unknown_481fb0();
 
     BSurface staging_buffer(640, 400, 2);
@@ -2386,12 +2386,12 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
     }
     staging_buffer.Unlock();
 
-    unknown_session_a3d298.Loading_Progress_00672160(68);
+    unknown_session_a3d298.Update_Progress(68);
     unknown_481fb0();
 
     Unknown_0052B2E0(Debug_Map || unknown_flag_a40d05, unknown_id_source_a3d290->unknown_223b);
 
-    unknown_session_a3d298.Loading_Progress_00672160(69);
+    unknown_session_a3d298.Update_Progress(69);
     unknown_481fb0();
 
     (INIRect &)MapLocalSize = ini.Get_Rect(name, "LocalSize", (INIRect const &)MapSize);
@@ -2736,13 +2736,13 @@ void DisplayClass::Unknown_0049E3B0()
 }
 
 
-// void DisplayClass::Unknown_0049E570() (0x0049E570)
+// void DisplayClass::Reinit_Cell_Drawers() (0x0049E570)
 // After 0x00529720, runs 0x004790F0 (0, 0x10000, 0, 1000, 1000, 1000) on every
 // cell of the map with 0x00A6FA2C cleared, then asks for a full redraw.
 
 extern int unknown_int_a6fa2c;      // 0x00A6FA2C
 
-void DisplayClass::Unknown_0049E570()
+void DisplayClass::Reinit_Cell_Drawers()
 {
     Reset_Light_Converts_00529720();
     Map.Reset_Iterator();

@@ -34,7 +34,7 @@ extern "C" GUID const CLSID_InfantryClass;      // 0x007A1BF0
 // the held locomotor. The levels are comip's (_QueryInterface with its
 // operator= arm, GetIID, Attach, _Release), so each caller's /Ob2 budget decides
 // which levels expand: the out-of-line constructor 0x00509870 keeps _Release
-// inline, InfantryClass::unknown_508d00 0x00508D00 expands the constructor and
+// inline, InfantryClass::Is_JumpJet 0x00508D00 expands the constructor and
 // calls _Release 0x004A4D00, Assign_Destination 0x00501CE0 calls both.
 class UnknownPersistPtr {
 public:
@@ -223,26 +223,26 @@ public:
     virtual bool unknown_slot261(bool arg1, bool arg2);   // slot 261 0x00503C00 ret 8
     virtual bool unknown_slot274();   // slot 274 0x00509450 ret 
     virtual bool unknown_slot275();   // slot 275 0x00509460 ret 
-    virtual void unknown_slot288();   // slot 288 0x005089D0 ret 0
-    virtual bool unknown_slot289();   // slot 289 0x00508AB0 ret 0
+    virtual void On_Movement_Blocked();   // slot 288 0x005089D0 ret 0
+    virtual bool JumpJet_To_Walk();   // slot 289 0x00508AB0 ret 0
     virtual bool unknown_slot290(CoordStruct &coord);   // slot 290 0x00504BC0 ret 4
-    virtual bool unknown_slot291();   // slot 291 0x00504AE0 ret 0
-    virtual void unknown_slot294();   // slot 294 0x00508CF0 ret 0
-    virtual void unknown_slot295();   // slot 295 0x00508820 ret 0
-    virtual void unknown_slot296();   // slot 296 0x00508850 ret 0
-    virtual void unknown_slot297(int arg1);   // slot 297 0x00508870 ret 4
+    virtual bool Stop_Driver();   // slot 291 0x00504AE0 ret 0
+    virtual void Berzerk();   // slot 294 0x00508CF0 ret 0
+    virtual void Start_Fear();   // slot 295 0x00508820 ret 0
+    virtual void Stop_Fear();   // slot 296 0x00508850 ret 0
+    virtual void Do_Idle(int arg1);   // slot 297 0x00508870 ret 4
     virtual int unknown_slot303();   // slot 303 0x00508980 ret 0
     virtual void unknown_slot304();   // slot 304 0x00508F30 ret 0
-    virtual void unknown_slot307();   // slot 307 0x00508730 ret 0
+    virtual void Stop_Movement_Animation();   // slot 307 0x00508730 ret 0
     virtual void unknown_slot308();   // slot 308 0x00508750 ret 0
 
     // New virtuals (slots 310-311).
-    virtual bool unknown_slot310();                                   // slot 310 0x00509470
+    virtual bool IsDeployed();                                   // slot 310 0x00509470
     virtual bool unknown_slot311(int sequence, bool force, bool random_start);        // slot 311 0x00504740 (ret 0xC)
 
     // Sequence classification helpers; ownership inferred from Infantry.cpp and the receiver at 0x509760.
-    bool Is_Prone_Sequence_005096e0(int sequence) const;
-    bool Is_Busy_Sequence_00509710(int sequence) const;
+    bool Is_Idle_Doing(int sequence) const;
+    bool Is_Death_Doing(int sequence) const;
     bool Is_Busy_00509760() const;
 
     static void __fastcall Read_INI(CCINIClass &ini);  // 0x00506960
@@ -252,22 +252,22 @@ public:
 
     void Update_Movement_00507b90();                  // 0x00507B90
     void unknown_5025c0();
-    bool unknown_5070e0();
-    bool unknown_507170();
+    bool Edge_Of_World_AI();
+    bool Theft_AI();
     void Advance_Animation_005078b0();
     AnimTypeClass *Pick_Dead_Body(bool use_type) const;        // inline (a dead-body animation, one scenario draw)
-    int Update_Deployed_Attack_00507f70();                       // 0x00507F70 (-1 when it does not apply)
+    int Update_Deployed_Attack();                       // 0x00507F70 (-1 when it does not apply)
     bool unknown_5090a0() const;                // 0x005090A0 (the type's Deployer flag)
     bool unknown_5090b0() const;                // 0x005090B0 (the type's UndeployDelay is set)
-    bool unknown_509100() const;                // 0x00509100 (the type's DeployFire flag)
+    bool Is_Deploy_Fire() const;                // 0x00509100 (the type's DeployFire flag)
     bool unknown_5090d0() const;                // 0x005090D0 (deploying: sequence 27-30; TechnoClass slot 186 and UnitClass test al)
-    bool unknown_508d00();                      // 0x00508D00 (JumpJet type flying with the jumpjet locomotor)
+    bool Is_JumpJet();                      // 0x00508D00 (JumpJet type flying with the jumpjet locomotor)
     bool unknown_508dd0(Cell const *from, Cell const *to);   // 0x00508DD0 (a move worth path-finding)
     int unknown_500350();                       // 0x00500350 (the shape frame of the current sequence; Westwood's Shape_Number)
     void unknown_506f30();                      // 0x00506F30 (fear: decays, goes prone or stands, a Fraidycat runs)
     virtual bool INoticeSink_Unknown(int code, int arg);   // INoticeSink (+8) slot 0 0x00509590 (vtable 0x007A351C)
-    int unknown_509110();
-    void unknown_5094b0(BuildingClass *building); // 0x005094B0 (enter a building: Occupier joins it, Assaulter attacks it)                       // 0x00509110 (deploy-fire start: sequence 27 when standing, else stop and a delay)
+    int Deploy_Or_Stop();
+    void Enter_Occupiable(BuildingClass *building); // 0x005094B0 (enter a building: Occupier joins it, Assaulter attacks it)                       // 0x00509110 (deploy-fire start: sequence 27 when standing, else stop and a delay)
 
     InfantryTypeClass *Type;                    // +0x5A8
     int Sequence;                               // +0x5AC

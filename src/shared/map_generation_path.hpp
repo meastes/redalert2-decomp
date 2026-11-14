@@ -4,25 +4,25 @@
 #ifndef RA2_SHARED_MAP_GENERATION_PATH_HPP
 #define RA2_SHARED_MAP_GENERATION_PATH_HPP
 #include "shared/coord.hpp"
-struct UnknownMapGenerationPoint {
-    UnknownMapGenerationPoint(); //0058B120
-    UnknownMapGenerationPoint(Cell const &position,int value); //0058B100
-    UnknownMapGenerationPoint(UnknownMapGenerationPoint const &other); //0058B140, copyctor-versus-assignment intent qualified
+struct DirtRoadLink {
+    DirtRoadLink(); //0058B120
+    DirtRoadLink(Cell const &position,int value); //0058B100
+    DirtRoadLink(DirtRoadLink const &other); //0058B140, copyctor-versus-assignment intent qualified
     Cell Position;
     int unknown_04;
 };
-class UnknownMapGenerationPath {
+class DirtRoadTile {
 public:
-    UnknownMapGenerationPath(); //0058B3D0, deliberately leaves unknown_08 uninitialized
-    UnknownMapGenerationPath(UnknownMapGenerationPoint const &a); //0058B200
-    UnknownMapGenerationPath(UnknownMapGenerationPoint const &a,UnknownMapGenerationPoint const &b); //0058B250
-    UnknownMapGenerationPath(UnknownMapGenerationPoint const &a,UnknownMapGenerationPoint const &b,UnknownMapGenerationPoint const &c); //0058B2C0
-    UnknownMapGenerationPath(UnknownMapGenerationPoint const &a,UnknownMapGenerationPoint const &b,UnknownMapGenerationPoint const &c,UnknownMapGenerationPoint const &d); //0058B340
-    ~UnknownMapGenerationPath(); //0058B3E0
+    DirtRoadTile(); //0058B3D0, deliberately leaves unknown_08 uninitialized
+    DirtRoadTile(DirtRoadLink const &a); //0058B200
+    DirtRoadTile(DirtRoadLink const &a,DirtRoadLink const &b); //0058B250
+    DirtRoadTile(DirtRoadLink const &a,DirtRoadLink const &b,DirtRoadLink const &c); //0058B2C0
+    DirtRoadTile(DirtRoadLink const &a,DirtRoadLink const &b,DirtRoadLink const &c,DirtRoadLink const &d); //0058B340
+    ~DirtRoadTile(); //0058B3E0
     int Count;
-    UnknownMapGenerationPoint *Points;
+    DirtRoadLink *Points;
     int unknown_08;
 };
-typedef char UnknownMapGenerationPoint_size[(sizeof(UnknownMapGenerationPoint)==8)?1:-1];
-typedef char UnknownMapGenerationPath_size[(sizeof(UnknownMapGenerationPath)==12)?1:-1];
+typedef char UnknownMapGenerationPoint_size[(sizeof(DirtRoadLink)==8)?1:-1];
+typedef char UnknownMapGenerationPath_size[(sizeof(DirtRoadTile)==12)?1:-1];
 #endif

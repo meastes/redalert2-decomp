@@ -193,7 +193,7 @@
    "padding_bytes": 0
   },
   {
-   "symbol": "?unknown_415510@AircraftClass@@QAEHXZ",
+   "symbol": "?Paradrop_Cargo@AircraftClass@@QAEHXZ",
    "entry": "00415510",
    "body_bytes": 629,
    "padding_bytes": 11
@@ -217,19 +217,19 @@
    "padding_bytes": 6
   },
   {
-   "symbol": "?unknown_416010@AircraftClass@@QAEHXZ",
+   "symbol": "?Do_MISSION_MOVE_Normal@AircraftClass@@QAEHXZ",
    "entry": "00416010",
    "body_bytes": 1028,
    "padding_bytes": 12
   },
   {
-   "symbol": "?unknown_416420@AircraftClass@@QAEXXZ",
+   "symbol": "?Drop_Off_Cargo@AircraftClass@@QAEXXZ",
    "entry": "00416420",
    "body_bytes": 592,
    "padding_bytes": 0
   },
   {
-   "symbol": "?Move_Carryall_00416670@AircraftClass@@QAEHXZ",
+   "symbol": "?Do_MISSION_MOVE_Carryall@AircraftClass@@QAEHXZ",
    "entry": "00416670",
    "body_bytes": 1444,
    "padding_bytes": 12
@@ -277,7 +277,7 @@
    "padding_bytes": 0
   },
   {
-   "symbol": "?Pose_Dir_00417890@AircraftClass@@QBEIXZ",
+   "symbol": "?Pose_Dir@AircraftClass@@QBEIXZ",
    "entry": "00417890",
    "body_bytes": 9,
    "padding_bytes": 7
@@ -289,7 +289,7 @@
    "padding_bytes": 14
   },
   {
-   "symbol": "?Select_Landing_Destination_004185b0@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z",
+   "symbol": "?New_LZ@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z",
    "entry": "004185b0",
    "body_bytes": 651,
    "padding_bytes": 5
@@ -313,13 +313,13 @@
    "padding_bytes": 11
   },
   {
-   "symbol": "?unknown_418f10@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z",
+   "symbol": "?Good_Fire_Location@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z",
    "entry": "00418f10",
    "body_bytes": 824,
    "padding_bytes": 8
   },
   {
-   "symbol": "?Is_Landing_Cell_Available_00419250@AircraftClass@@QAE_NABVCell@@_N@Z",
+   "symbol": "?Cell_Seems_Ok@AircraftClass@@QAE_NABVCell@@_N@Z",
    "entry": "00419250",
    "body_bytes": 371,
    "padding_bytes": 13
@@ -331,7 +331,7 @@
    "padding_bytes": 0
   },
   {
-   "symbol": "?unknown_4198b0@AircraftClass@@QAEPAVAbstractClass@@XZ",
+   "symbol": "?Good_LZ@AircraftClass@@QAEPAVAbstractClass@@XZ",
    "entry": "004198b0",
    "body_bytes": 1019,
    "padding_bytes": 5
@@ -2355,7 +2355,7 @@
   },
   {
    "site": "004426d0",
-   "symbol": "?Pose_Dir_00417890@AircraftClass@@QBEIXZ",
+   "symbol": "?Pose_Dir@AircraftClass@@QBEIXZ",
    "target": "00417890",
    "function_entry": true
   },
@@ -2445,13 +2445,13 @@
   },
   {
    "site": "004bc730",
-   "symbol": "?unknown_4198b0@AircraftClass@@QAEPAVAbstractClass@@XZ",
+   "symbol": "?Good_LZ@AircraftClass@@QAEPAVAbstractClass@@XZ",
    "target": "004198b0",
    "function_entry": true
   },
   {
    "site": "004bc730",
-   "symbol": "?Select_Landing_Destination_004185b0@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z",
+   "symbol": "?New_LZ@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z",
    "target": "004185b0",
    "function_entry": true
   },
@@ -3009,7 +3009,7 @@
   },
   {
    "site": "004be720",
-   "symbol": "?Select_Landing_Destination_004185b0@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z",
+   "symbol": "?New_LZ@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z",
    "target": "004185b0",
    "function_entry": true
   },
@@ -3408,6 +3408,10 @@
    "address": "004c8ff0"
   },
   {
+   "symbol": "?Add@TeamClass@@QAE_NPAVFootClass@@@Z",
+   "address": "006b8cc0"
+  },
+  {
    "symbol": "?AddRef@AbstractClass@@UAGKXZ",
    "address": "004100a0"
   },
@@ -3654,6 +3658,10 @@
   {
    "symbol": "?Do_Shimmer@TechnoClass@@UAEXXZ",
    "address": "006cf3b0"
+  },
+  {
+   "symbol": "?Draw_Voxel_Shadow@FootClass@@QAEXABVUnknownObjectPair@@HHPAVUnknownBuffer@@ABVRect@@ABUPoint2D@@ABVMatrix3D@@_NPAVSurface@@II@Z",
+   "address": "004c9a40"
   },
   {
    "symbol": "?Editor_Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z",
@@ -3928,6 +3936,10 @@
    "address": "005d53e0"
   },
   {
+   "symbol": "?On_Movement_Blocked@FootClass@@UAEXXZ",
+   "address": "004ca880"
+  },
+  {
    "symbol": "?Override_Mission@FootClass@@UAEXHPAVAbstractClass@@0@Z",
    "address": "004c7ac0"
   },
@@ -3964,6 +3976,10 @@
    "address": "00594cb0"
   },
   {
+   "symbol": "?ReceiveGunner@FootClass@@UAEXH@Z",
+   "address": "004cd060"
+  },
+  {
    "symbol": "?Receive_Message@FootClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z",
    "address": "004c7b30"
   },
@@ -3974,6 +3990,14 @@
   {
    "symbol": "?Release@AbstractClass@@UAGKXZ",
    "address": "004100b0"
+  },
+  {
+   "symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
+   "address": "006b8fb0"
+  },
+  {
+   "symbol": "?RemoveGunner@FootClass@@UAEXH@Z",
+   "address": "004cd070"
   },
   {
    "symbol": "?Render@ObjectClass@@UAE_NPAVRect@@_N1@Z",
@@ -4050,6 +4074,14 @@
   {
    "symbol": "?Sort_Y@ObjectClass@@UBEHXZ",
    "address": "005d5450"
+  },
+  {
+   "symbol": "?Stop_Driver@FootClass@@UAE_NXZ",
+   "address": "004c4b60"
+  },
+  {
+   "symbol": "?Stop_Movement_Animation@FootClass@@UAEXXZ",
+   "address": "004ca330"
   },
   {
    "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
@@ -4132,10 +4164,6 @@
    "address": "006a2970"
   },
   {
-   "symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
-   "address": "006b8fb0"
-  },
-  {
    "symbol": "?Unknown_006BA990@TeamClass@@QAE_NXZ",
    "address": "006ba990"
   },
@@ -4182,10 +4210,6 @@
   {
    "symbol": "?_com_issue_error@@YGXJ@Z",
    "address": "00795940"
-  },
-  {
-   "symbol": "?unknown_4c9a40@FootClass@@QAEXABVUnknownObjectPair@@HHPAVUnknownBuffer@@ABVRect@@ABUPoint2D@@ABVMatrix3D@@_NPAVSurface@@II@Z",
-   "address": "004c9a40"
   },
   {
    "symbol": "?unknown_4cb110@FootClass@@QAE_NPAUWaypointClass@@@Z",
@@ -4282,10 +4306,6 @@
   {
    "symbol": "?unknown_func_6b79e0@TeamClass@@QAEXPAVAbstractClass@@@Z",
    "address": "006b79e0"
-  },
-  {
-   "symbol": "?unknown_func_6b8cc0@TeamClass@@QAE_NPAVFootClass@@@Z",
-   "address": "006b8cc0"
   },
   {
    "symbol": "?unknown_func_6baa00@TeamClass@@QAE_NXZ",
@@ -4840,14 +4860,6 @@
    "address": "004cc650"
   },
   {
-   "symbol": "?unknown_slot280@FootClass@@UAEXH@Z",
-   "address": "004cd060"
-  },
-  {
-   "symbol": "?unknown_slot281@FootClass@@UAEXH@Z",
-   "address": "004cd070"
-  },
-  {
    "symbol": "?unknown_slot283@FootClass@@UAE_NXZ",
    "address": "004ca820"
   },
@@ -4864,20 +4876,12 @@
    "address": "004c8ac0"
   },
   {
-   "symbol": "?unknown_slot288@FootClass@@UAEXXZ",
-   "address": "004ca880"
-  },
-  {
    "symbol": "?unknown_slot28@FootClass@@UAEHPAVObjectClass@@_N@Z",
    "address": "004cc740"
   },
   {
    "symbol": "?unknown_slot290@FootClass@@UAE_NAAUCoordStruct@@@Z",
    "address": "004c4b90"
-  },
-  {
-   "symbol": "?unknown_slot291@FootClass@@UAE_NXZ",
-   "address": "004c4b60"
   },
   {
    "symbol": "?unknown_slot292@FootClass@@UAE_NXZ",
@@ -4910,10 +4914,6 @@
   {
    "symbol": "?unknown_slot306@FootClass@@UAEXN@Z",
    "address": "004c2df0"
-  },
-  {
-   "symbol": "?unknown_slot307@FootClass@@UAEXXZ",
-   "address": "004ca330"
   },
   {
    "symbol": "?unknown_slot308@FootClass@@UAEXXZ",

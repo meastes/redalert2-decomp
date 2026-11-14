@@ -11,7 +11,7 @@
 extern DynamicVectorClass<MapRegionClass *> unknown_map_regions_a6fd28;
 // @ref ?unknown_map_regions_a6fd28@@=00a6fd28
 // @ref ?Not_Equal_0058db50@Cell@@=0058db50
-// @ref ?Create_Region_From_Cell_0056e100@MapRegionClass@@=0056e100
+// @ref ?Create_Region_From_Cell@MapRegionClass@@=0056e100
 
 #include "shared/unknown_map_generator.hpp"
 #include "shared/map_view.hpp"

@@ -106,10 +106,10 @@ void __fastcall TabClass::Unknown_006A0540(int index)
 }
 
 
-// int __fastcall TabClass::Unknown_006A0580(char const *name) (0x006A0580)
+// int __fastcall TabClass::Command_From_Name(char const *name) (0x006A0580)
 // Index of name among the command names, else the no-command value.
 
-int __fastcall TabClass::Unknown_006A0580(char const *name)
+int __fastcall TabClass::Command_From_Name(char const *name)
 {
     for (int index = 0; index < 11; index++) {
         if (strcmp(unknown_command_names_7f67f8[index], name) == 0) {
@@ -120,10 +120,10 @@ int __fastcall TabClass::Unknown_006A0580(char const *name)
 }
 
 
-// void __fastcall TabClass::Unknown_006A05E0(int slot, int button) (0x006A05E0)
+// void __fastcall TabClass::Set_Command_Position(int slot, int button) (0x006A05E0)
 // Maps slot to button.
 
-void __fastcall TabClass::Unknown_006A05E0(int slot, int button)
+void __fastcall TabClass::Set_Command_Position(int slot, int button)
 {
     SlotButton[slot] = button;
 }
@@ -162,12 +162,12 @@ Rect __fastcall TabClass::Unknown_006A0620(int slot)
 }
 
 
-// void __fastcall TabClass::Unknown_006A0670(int rows) (0x006A0670)
+// void __fastcall TabClass::Set_Button_Count(int rows) (0x006A0670)
 // Sets the bar's row count and its edge: the 0x00AC1210 rectangle's X less
 // rows widths of the 0x00AC120C rectangle, but not less than the right edge
 // of the 0x00AC1204 rectangle.
 
-void __fastcall TabClass::Unknown_006A0670(int rows)
+void __fastcall TabClass::Set_Button_Count(int rows)
 {
     unknown_int_abe2ac = rows;
     int top = unknown_rect_ac1210->X - rows * unknown_rect_ac120c->Width;
@@ -204,17 +204,17 @@ int __fastcall TabClass::Unknown_006A06D0(int value)
 
 TabClass::TabClass() : unknown_4f14(true), unknown_4f15(true), unknown_4f16(true)
 {
-    unknown_int_abe464 = Unknown_006A0580("AttackMove");
-    unknown_int_abe294 = Unknown_006A0580("Beacon");
-    unknown_int_abd910 = Unknown_006A0580("Cheer");
-    unknown_int_abe278 = Unknown_006A0580("Deploy");
-    unknown_int_abe2b8 = Unknown_006A0580("Guard");
-    unknown_int_abe36c = Unknown_006A0580("PlanningMode");
-    unknown_int_abe2bc = Unknown_006A0580("Stop");
-    unknown_int_abe370 = Unknown_006A0580("Team01");
-    unknown_int_abe378 = Unknown_006A0580("Team02");
-    unknown_int_abe468 = Unknown_006A0580("Team03");
-    unknown_int_abe290 = Unknown_006A0580("TypeSelect");
+    unknown_int_abe464 = Command_From_Name("AttackMove");
+    unknown_int_abe294 = Command_From_Name("Beacon");
+    unknown_int_abd910 = Command_From_Name("Cheer");
+    unknown_int_abe278 = Command_From_Name("Deploy");
+    unknown_int_abe2b8 = Command_From_Name("Guard");
+    unknown_int_abe36c = Command_From_Name("PlanningMode");
+    unknown_int_abe2bc = Command_From_Name("Stop");
+    unknown_int_abe370 = Command_From_Name("Team01");
+    unknown_int_abe378 = Command_From_Name("Team02");
+    unknown_int_abe468 = Command_From_Name("Team03");
+    unknown_int_abe290 = Command_From_Name("TypeSelect");
     Unknown_Set_Sink_00613e00(this);
 }
 

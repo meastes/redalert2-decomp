@@ -133,19 +133,19 @@
    "padding_bytes": 8
   },
   {
-   "symbol": "?unknown_func_6b8cc0@TeamClass@@QAE_NPAVFootClass@@@Z",
+   "symbol": "?Add@TeamClass@@QAE_NPAVFootClass@@@Z",
    "entry": "006b8cc0",
    "body_bytes": 252,
    "padding_bytes": 4
   },
   {
-   "symbol": "?unknown_func_6b8dc0@TeamClass@@QAE_NPAVFootClass@@PAH@Z",
+   "symbol": "?Can_Add@TeamClass@@QAE_NPAVFootClass@@PAH@Z",
    "entry": "006b8dc0",
    "body_bytes": 496,
    "padding_bytes": 0
   },
   {
-   "symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
+   "symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
    "entry": "006b8fb0",
    "body_bytes": 526,
    "padding_bytes": 2
@@ -313,7 +313,7 @@
    "padding_bytes": 12
   },
   {
-   "symbol": "?TMission_unknown_6bb3b0@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_TEAMCHANGE@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bb3b0",
    "body_bytes": 111,
    "padding_bytes": 1
@@ -1399,13 +1399,13 @@
   },
   {
    "site": "00413da0",
-   "symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
+   "symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
    "target": "006b8fb0",
    "function_entry": true
   },
   {
    "site": "004146c0",
-   "symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
+   "symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
    "target": "006b8fb0",
    "function_entry": true
   },
@@ -1423,7 +1423,7 @@
   },
   {
    "site": "004c2cb0",
-   "symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
+   "symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
    "target": "006b8fb0",
    "function_entry": true
   },
@@ -1465,19 +1465,19 @@
   },
   {
    "site": "004cce40",
-   "symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
+   "symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
    "target": "006b8fb0",
    "function_entry": true
   },
   {
    "site": "004ff980",
-   "symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
+   "symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
    "target": "006b8fb0",
    "function_entry": true
   },
   {
    "site": "006fa7c0",
-   "symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
+   "symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
    "target": "006b8fb0",
    "function_entry": true
   },
@@ -1489,7 +1489,7 @@
   },
   {
    "site": "00414d90",
-   "symbol": "?unknown_func_6b8cc0@TeamClass@@QAE_NPAVFootClass@@@Z",
+   "symbol": "?Add@TeamClass@@QAE_NPAVFootClass@@@Z",
    "target": "006b8cc0",
    "function_entry": true
   },
@@ -1501,7 +1501,7 @@
   },
   {
    "site": "00415510",
-   "symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
+   "symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
    "target": "006b8fb0",
    "function_entry": true
   },
@@ -1519,25 +1519,25 @@
   },
   {
    "site": "00417010",
-   "symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
+   "symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
    "target": "006b8fb0",
    "function_entry": true
   },
   {
    "site": "00417010",
-   "symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
+   "symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
    "target": "006b8fb0",
    "function_entry": true
   },
   {
    "site": "00452f50",
-   "symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
+   "symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
    "target": "006b8fb0",
    "function_entry": true
   },
   {
    "site": "00467ff0",
-   "symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
+   "symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
    "target": "006b8fb0",
    "function_entry": true
   },
@@ -1549,13 +1549,13 @@
   },
   {
    "site": "00607200",
-   "symbol": "?unknown_func_6b8cc0@TeamClass@@QAE_NPAVFootClass@@@Z",
+   "symbol": "?Add@TeamClass@@QAE_NPAVFootClass@@@Z",
    "target": "006b8cc0",
    "function_entry": true
   },
   {
    "site": "006fca30",
-   "symbol": "?unknown_func_6b8cc0@TeamClass@@QAE_NPAVFootClass@@@Z",
+   "symbol": "?Add@TeamClass@@QAE_NPAVFootClass@@@Z",
    "target": "006b8cc0",
    "function_entry": true
   },
@@ -1579,13 +1579,13 @@
   },
   {
    "site": "004b65c0",
-   "symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
+   "symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
    "target": "006b8fb0",
    "function_entry": true
   },
   {
    "site": "004c8220",
-   "symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
+   "symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
    "target": "006b8fb0",
    "function_entry": true
   },
@@ -1621,7 +1621,7 @@
   },
   {
    "site": "00639da0",
-   "symbol": "?unknown_func_6b8cc0@TeamClass@@QAE_NPAVFootClass@@@Z",
+   "symbol": "?Add@TeamClass@@QAE_NPAVFootClass@@@Z",
    "target": "006b8cc0",
    "function_entry": true
   },
@@ -1639,7 +1639,7 @@
   },
   {
    "site": "004c3000",
-   "symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
+   "symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
    "target": "006b8fb0",
    "function_entry": true
   },
@@ -1657,13 +1657,13 @@
   },
   {
    "site": "00701580",
-   "symbol": "?unknown_func_6b8cc0@TeamClass@@QAE_NPAVFootClass@@@Z",
+   "symbol": "?Add@TeamClass@@QAE_NPAVFootClass@@@Z",
    "target": "006b8cc0",
    "function_entry": true
   },
   {
    "site": "00607440",
-   "symbol": "?unknown_func_6b8cc0@TeamClass@@QAE_NPAVFootClass@@@Z",
+   "symbol": "?Add@TeamClass@@QAE_NPAVFootClass@@@Z",
    "target": "006b8cc0",
    "function_entry": true
   },
@@ -2394,19 +2394,19 @@
    "site": "004ec420",
    "target": "006b8fb0",
    "symbol": "?unknown_func_6b8fb0@UnknownTeamView@@QAEXPAVTechnoClass@@HH@Z",
-   "module_symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z"
+   "module_symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z"
   },
   {
    "site": "006d3040",
    "target": "006b8fb0",
    "symbol": "?unknown_6b8fb0@UnknownPassengerTeam@@QAEXPAVObjectClass@@H_N@Z",
-   "module_symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z"
+   "module_symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z"
   },
   {
    "site": "006cdc40",
    "target": "006b8fb0",
    "symbol": "?unknown_6b8fb0@UnknownPassengerTeam@@QAEXPAVObjectClass@@H_N@Z",
-   "module_symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z"
+   "module_symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z"
   }
  ],
  "stand_in_reference_count": 3,

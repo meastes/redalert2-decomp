@@ -4,8 +4,8 @@
     "id": "population-3943",
     "inventory_sha256": "fa25448e4455e604b027056d8f46436c1b25fbcc1f3c1b7ee08d722896aece56",
     "gaps_sha256": "57480b68f1ddfbf7ad69c897684c743a762962f4de40560ebfbc5a7768a78971",
-    "historical_population_sha256": "74cdc9e5ba2cbdd9eafeb3fff908ed8b129ea1a73f073e8161756a0b6897bc40",
-    "historical_acceptance_sha256": "c1efe67135c14d7cc74e6c8ee98e23852b0a8a4cc57619f3cab7abcf961c0451"
+    "historical_population_sha256": "5cdb7f8f75579749c91f6965ff1c8f99155864f987ee12872fe2408333c98656",
+    "historical_acceptance_sha256": "47d61a9b5559b1711b12bc3737135ede993db5848d29b44e88a18bebf4220bc4"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1601,7 +1601,7 @@
     "?unknown_flag_a40958@@3_NA": 10750296,
     "?Can_Build@HouseClass@@QAEHPBVTechnoTypeClass@@_N1@Z": 5125728,
     "?unknown_6d3040@TechnoClass@@QAEXPAV1@@Z": 7155776,
-    "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z": 7049136,
+    "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z": 7049136,
     "?unknown_4ea800@HouseClass@@QAEXPAVTechnoClass@@@Z": 5154816,
     "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z": 7261072,
     "_qsort": 7871814,
@@ -1627,10 +1627,10 @@
     "?AnimTypes@@3V?$TypeList@PAVAnimTypeClass@@@@A": 8806880,
     "?unknown_dummy_cell_a6f9f8@@3VCellClass@@A": 10942968,
     "?From_Name@AnimTypeClass@@SIHPBD@Z": 4347456,
-    "?Select_Landing_Destination_004185b0@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z": 4294064,
-    "?unknown_416420@AircraftClass@@QAEXXZ": 4285472,
-    "?unknown_4198b0@AircraftClass@@QAEPAVAbstractClass@@XZ": 4298928,
-    "?unknown_415510@AircraftClass@@QAEHXZ": 4281616,
+    "?New_LZ@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z": 4294064,
+    "?Drop_Off_Cargo@AircraftClass@@QAEXXZ": 4285472,
+    "?Good_LZ@AircraftClass@@QAEPAVAbstractClass@@XZ": 4298928,
+    "?Paradrop_Cargo@AircraftClass@@QAEHXZ": 4281616,
     "?Calculated_Cell@DisplayClass@@QAE?AVCell@@HABV2@0H_NH@Z": 4826880,
     "?AdjacentCell@@3QBVCell@@B": 8723056,
     "?unknown_facings_7ce4a8@@3QBHB": 8185000,
@@ -1653,8 +1653,8 @@
     "?Take_Damage@FootClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z": 5005312,
     "??RRandom2Class@@QAEHXZ": 6522944,
     "??0ParticleSystemClass@@QAE@PAVParticleSystemTypeClass@@ABUCoordStruct@@PAVAbstractClass@@PAVObjectClass@@1@Z": 6335088,
-    "?unknown_416010@AircraftClass@@QAEHXZ": 4284432,
-    "?Move_Carryall_00416670@AircraftClass@@QAEHXZ": 4286064,
+    "?Do_MISSION_MOVE_Normal@AircraftClass@@QAEHXZ": 4284432,
+    "?Do_MISSION_MOVE_Carryall@AircraftClass@@QAEHXZ": 4286064,
     "??_C@_0DG@HIJH@Do_MISSION_MOVE_Carryall?5?9?5LAND?5@": 8185388,
     "?Debug_Printf@@YAXPBDZZ": 4221168,
     "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ": 4250656,
@@ -1693,7 +1693,7 @@
     "?Unknown_00478760@CellClass@@QAE_NHHHHHHH@Z": 4687712,
     "?Unknown_0055A740@MapClass@@QAE_NPAVCellClass@@_N@Z": 5613376,
     "?Is_Ally@HouseClass@@QBE_NPBV1@@Z": 5133632,
-    "?Is_Landing_Cell_Available_00419250@AircraftClass@@QAE_NABVCell@@_N@Z": 4297296,
+    "?Cell_Seems_Ok@AircraftClass@@QAE_NABVCell@@_N@Z": 4297296,
     "?Unknown_0055A660@MapClass@@QAE_NABVCell@@_N@Z": 5613152,
     "?Cell_Techno@CellClass@@QBEPAVObjectClass@@ABUPoint2D@@_NPAV2@@Z": 4658784,
     "?unknown_FootClass_list_00865f38@@3V?$DynamicVectorClass@PAVFootClass@@@@A": 8806200,
@@ -1788,11 +1788,11 @@
     "?Do_MISSION_PARADROP_OVERFLY@AircraftClass@@": 4280848,
     "?Do_MISSION_RETREAT@AircraftClass@@": 4281088,
     "?Exit_Object@AircraftClass@@": 4281280,
-    "?unknown_415510@AircraftClass@@": 4281616,
+    "?Paradrop_Cargo@AircraftClass@@": 4281616,
     "?unknown_slot221@AircraftClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z": 4282256,
     "?Take_Damage@AircraftClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z": 4284016,
     "?Do_MISSION_MOVE@AircraftClass@@UAEHXZ": 4284400,
-    "?unknown_416010@AircraftClass@@": 4284432,
+    "?Do_MISSION_MOVE_Normal@AircraftClass@@": 4284432,
     "?Do_MISSION_PATROL@AircraftClass@@": 4287520,
     "?unknown_slot261@AircraftClass@@UAE_N_N0@Z": 4288528,
     "?unknown_slot78@AircraftClass@@": 4289712,
@@ -1800,15 +1800,15 @@
     "?unknown_slot200@AircraftClass@@": 4289920,
     "?unknown_slot28@AircraftClass@@UAEHPAVObjectClass@@_N@Z": 4289952,
     "?unknown_slot27@AircraftClass@@": 4290624,
-    "?Pose_Dir_00417890@AircraftClass@@QBEIXZ": 4290704,
+    "?Pose_Dir@AircraftClass@@QBEIXZ": 4290704,
     "?Do_MISSION_ATTACK@AircraftClass@@": 4290720,
-    "?Select_Landing_Destination_004185b0@AircraftClass@@": 4294064,
+    "?New_LZ@AircraftClass@@": 4294064,
     "?Receive_Message@AircraftClass@@": 4294720,
     "?unknown_slot182@AircraftClass@@": 4295920,
     "?Can_Enter_Cell@AircraftClass@@": 4296192,
-    "?unknown_418f10@AircraftClass@@": 4296464,
+    "?Good_Fire_Location@AircraftClass@@": 4296464,
     "?Do_MISSION_ENTER@AircraftClass@@": 4297680,
-    "?unknown_4198b0@AircraftClass@@": 4298928,
+    "?Good_LZ@AircraftClass@@": 4298928,
     "?unknown_slot183@AircraftClass@@": 4299952,
     "?Scatter@AircraftClass@@": 4299984,
     "?Do_MISSION_GUARD@AircraftClass@@UAEHXZ": 4300032,
@@ -4370,7 +4370,7 @@
     "?TMission_unknown_6bb260@TeamClass@@QAEXABVScriptMissionClass@@_N@Z": 7058016,
     "?TMission_unknown_6bb310@TeamClass@@QAEXABVScriptMissionClass@@_N@Z": 7058192,
     "?TMission_unknown_6bb350@TeamClass@@QAEXABVScriptMissionClass@@_N@Z": 7058256,
-    "?TMission_unknown_6bb3b0@TeamClass@@QAEXABVScriptMissionClass@@_N@Z": 7058352,
+    "?TMission_TEAMCHANGE@TeamClass@@QAEXABVScriptMissionClass@@_N@Z": 7058352,
     "?TMission_unknown_6bb420@TeamClass@@QAEXABVScriptMissionClass@@_N@Z": 7058464,
     "?TMission_unknown_6bbb40@TeamClass@@QAEXABVScriptMissionClass@@_N@Z": 7060288,
     "?TMission_unknown_6bbe60@TeamClass@@QAEXABVScriptMissionClass@@_N@Z": 7061088,
@@ -4830,7 +4830,7 @@
     "?unknown_4c8c90@FootClass@@QAEXXZ": 5016720,
     "?unknown_4c8d00@FootClass@@QAE_NPAVHouseClass@@@Z": 5016832,
     "?unknown_4c8d60@FootClass@@QAE_NXZ": 5016928,
-    "?unknown_4c9a40@FootClass@@QAEXABVUnknownObjectPair@@HHPAVUnknownBuffer@@ABVRect@@ABUPoint2D@@ABVMatrix3D@@_NPAVSurface@@II@Z": 5020224,
+    "?Draw_Voxel_Shadow@FootClass@@QAEXABVUnknownObjectPair@@HHPAVUnknownBuffer@@ABVRect@@ABUPoint2D@@ABVMatrix3D@@_NPAVSurface@@II@Z": 5020224,
     "?unknown_4c9bd0@FootClass@@QAEXXZ": 5020624,
     "?unknown_4ca1a0@FootClass@@QAEXXZ": 5022112,
     "?unknown_4cafb0@FootClass@@QBENXZ": 5025712,
@@ -4845,7 +4845,7 @@
     "?unknown_4ccfc0@FootClass@@QAEPAV1@XZ": 5033920,
     "?unknown_4cd9b0@FootClass@@QAEXXZ": 5036464,
     "?unknown_4cdb60@FootClass@@QAEXXZ": 5036896,
-    "?unknown_4e76a0@HouseClass@@QAE_NABVCell@@_N@Z": 5142176,
+    "?Flag_Attach@HouseClass@@QAE_NABVCell@@_N@Z": 5142176,
     "?unknown_4ea970@UnknownUnitHouse@@QAEXPAVUnitClass@@@Z": 5155184,
     "?Is_Recruitable_Mission@MissionClass@@SI_NH@Z": 5852592,
     "?Scale_0059ed30@UnknownPairSecond@@QAEXM@Z": 5893424,
@@ -4930,7 +4930,7 @@
     "?unknown_empty_wide_839d4c@@3QBGB": 8625484,
     "?unknown_events_section_7ada58@@3PBDB": 8051288,
     "?unknown_flag_a40d04@@3_NA": 10751236,
-    "?unknown_func_426700@AnimTypeClass@@QAEXXZ": 4351744,
+    "?Free_Image@AnimTypeClass@@QAEXXZ": 4351744,
     "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z": 4791568,
     "?unknown_func_4e4ef0@HouseClass@@QAEXXZ": 5132016,
     "?unknown_func_4e5160@HouseClass@@QAEPAVBuildingClass@@XZ": 5132640,
@@ -5010,8 +5010,8 @@
     "?Is_Enters_Zone@TagTypeClass@@QBE_NXZ": 7032000,
     "?unknown_func_6b79e0@TeamClass@@QAEXPAVAbstractClass@@@Z": 7043552,
     "?unknown_func_6b8860@TeamClass@@QAEXXZ": 7047264,
-    "?unknown_func_6b8cc0@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
-    "?unknown_func_6b8dc0@TeamClass@@QAE_NPAVFootClass@@PAH@Z": 7048640,
+    "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
+    "?Can_Add@TeamClass@@QAE_NPAVFootClass@@PAH@Z": 7048640,
     "?unknown_func_6b9610@TeamClass@@QAEXPAPAVAbstractClass@@0@Z": 7050768,
     "?unknown_func_6b9bb0@TeamClass@@QAEXXZ": 7052208,
     "?unknown_func_6b9f40@TeamClass@@QAE_NXZ": 7053120,
@@ -5432,11 +5432,11 @@
     "?unknown_slot27@TechnoClass@@UAEHPBVCell@@_N1@Z": 7130336,
     "?unknown_slot27@UnitClass@@UAEHPBVCell@@_N1@Z": 7356912,
     "?Coord_Fixup@UnitTypeClass@@UBE?AUCoordStruct@@ABU2@@Z": 7385888,
-    "?unknown_slot280@FootClass@@UAEXH@Z": 5034080,
-    "?unknown_slot280@UnitClass@@UAEXH@Z": 7379488,
+    "?ReceiveGunner@FootClass@@UAEXH@Z": 5034080,
+    "?ReceiveGunner@UnitClass@@UAEXH@Z": 7379488,
     "?unknown_slot281@BuildingClass@@UAEHPAVObjectClass@@@Z": 4473520,
-    "?unknown_slot281@FootClass@@UAEXH@Z": 5034096,
-    "?unknown_slot281@UnitClass@@UAEXH@Z": 7379680,
+    "?RemoveGunner@FootClass@@UAEXH@Z": 5034096,
+    "?RemoveGunner@UnitClass@@UAEXH@Z": 7379680,
     "?unknown_slot282@AircraftClass@@UAE_NXZ": 4304848,
     "?unknown_slot282@FootClass@@UAE_NXZ": 5025760,
     "?unknown_slot283@FootClass@@UAE_NXZ": 5023776,
@@ -5446,10 +5446,10 @@
     "?unknown_slot286@FootClass@@UAEXVCell@@@Z": 5034576,
     "?unknown_slot287@FootClass@@UAE?AUCoordStruct@@XZ": 5016256,
     "?unknown_slot288@BuildingClass@@UAEXVCell@@@Z": 4523344,
-    "?unknown_slot288@FootClass@@UAEXXZ": 5023872,
-    "?unknown_slot288@InfantryClass@@UAEXXZ": 5278160,
+    "?On_Movement_Blocked@FootClass@@UAEXXZ": 5023872,
+    "?On_Movement_Blocked@InfantryClass@@UAEXXZ": 5278160,
     "?unknown_slot289@BuildingClass@@UAEXVCell@@@Z": 4523008,
-    "?unknown_slot289@FootClass@@UAE_NXZ": 4306048,
+    "?JumpJet_To_Walk@FootClass@@UAE_NXZ": 4306048,
     "?unknown_slot28@AircraftClass@@UAEHHH@Z": 4289952,
     "?unknown_slot28@ObjectClass@@UAEHPAV1@_N@Z": 6106016,
     "?unknown_slot28@TechnoClass@@UAEHPAVObjectClass@@_N@Z": 7128528,
@@ -5458,19 +5458,19 @@
     "?unknown_slot290@BuildingClass@@UAEXVCell@@@Z": 4523952,
     "?unknown_slot290@FootClass@@UAE_NAAUCoordStruct@@@Z": 5000080,
     "?unknown_slot291@BuildingClass@@UAEXVCell@@@Z": 4523696,
-    "?unknown_slot291@FootClass@@UAE_NXZ": 5000032,
-    "?unknown_slot291@InfantryClass@@UAE_NXZ": 5262048,
+    "?Stop_Driver@FootClass@@UAE_NXZ": 5000032,
+    "?Stop_Driver@InfantryClass@@UAE_NXZ": 5262048,
     "?unknown_slot292@BuildingClass@@UAEHXZ": 4510672,
     "?unknown_slot292@FootClass@@UAE_NXZ": 5022384,
     "?unknown_slot293@FootClass@@UAEXPBXHPBUPoint2D@@PBVRect@@HHHHHHPBUShapeFileStruct@@HU2@H@Z": 4306064,
-    "?unknown_slot294@FootClass@@UAEXXZ": 4306160,
-    "?unknown_slot294@InfantryClass@@UAEXXZ": 5278960,
-    "?unknown_slot295@FootClass@@UAEXXZ": 4306176,
-    "?unknown_slot295@InfantryClass@@UAEXXZ": 5277728,
-    "?unknown_slot296@FootClass@@UAEXXZ": 4306192,
-    "?unknown_slot296@InfantryClass@@UAEXXZ": 5277776,
-    "?unknown_slot297@FootClass@@UAEXH@Z": 4306208,
-    "?unknown_slot297@InfantryClass@@UAEXH@Z": 5277808,
+    "?Berzerk@FootClass@@UAEXXZ": 4306160,
+    "?Berzerk@InfantryClass@@UAEXXZ": 5278960,
+    "?Start_Fear@FootClass@@UAEXXZ": 4306176,
+    "?Start_Fear@InfantryClass@@UAEXXZ": 5277728,
+    "?Stop_Fear@FootClass@@UAEXXZ": 4306192,
+    "?Stop_Fear@InfantryClass@@UAEXXZ": 5277776,
+    "?Do_Idle@FootClass@@UAEXH@Z": 4306208,
+    "?Do_Idle@InfantryClass@@UAEXH@Z": 5277808,
     "?unknown_slot298@FootClass@@UAEHXZ": 5015248,
     "?unknown_slot299@AircraftClass@@UAEPAVTechnoClass@@PBV?$DynamicVectorClass@PAVTechnoTypeClass@@@@HH@Z": 4305376,
     "?In_Which_Layer@AircraftClass@@UBEHXZ": 4302080,
@@ -5500,8 +5500,8 @@
     "?unknown_slot304@UnitClass@@UAEXXZ": 7360624,
     "?unknown_slot305@FootClass@@UAEXH@Z": 4306240,
     "?unknown_slot306@FootClass@@UAEXN@Z": 4992496,
-    "?unknown_slot307@FootClass@@UAEXXZ": 5022512,
-    "?unknown_slot307@InfantryClass@@UAEXXZ": 5277488,
+    "?Stop_Movement_Animation@FootClass@@UAEXXZ": 5022512,
+    "?Stop_Movement_Animation@InfantryClass@@UAEXXZ": 5277488,
     "?unknown_slot308@FootClass@@UAEXXZ": 5022528,
     "?unknown_slot308@InfantryClass@@UAEXXZ": 5277520,
     "?unknown_slot309@FootClass@@UAE_NPAVAbstractClass@@@Z": 5031120,
@@ -6003,8 +6003,8 @@
     "_unknown_clsid_infantry_type_7a1b10": 8002320,
     "?InfantryTypes@@3V?$DynamicVectorClass@PAVInfantryTypeClass@@@@A": 10748752,
     "?unknown_5090d0@InfantryClass@@QBE_NXZ": 5279952,
-    "?unknown_slot310@InfantryClass@@UAE_NXZ": 5280880,
-    "?Is_Prone_Sequence_005096e0@InfantryClass@@QBE_NH@Z": 5281504,
+    "?IsDeployed@InfantryClass@@UAE_NXZ": 5280880,
+    "?Is_Idle_Doing@InfantryClass@@QBE_NH@Z": 5281504,
     "?unknown_a411b0@@3HA": 10752432,
     "?Fast_Atan@@YAMN@Z": 4957616,
     "?unknown_atan_step_817df8@@3MA": 8486392,
@@ -6013,15 +6013,15 @@
     "?unknown_do_controls_7a3474@@3PAUDoStruct@@A": 8008820,
     "?unknown_invalid_coord_a410f8@@3UCoordStruct@@A": 10752248,
     "?unknown_bridge_height_a41120@@3HA": 10752288,
-    "?Update_Deployed_Attack_00507f70@InfantryClass@@QAEHXZ": 5275504,
+    "?Update_Deployed_Attack@InfantryClass@@QAEHXZ": 5275504,
     "?Unknown_004763D0@@YIHABUCoordStruct@@@Z": 4678608,
-    "?unknown_508d00@InfantryClass@@QAE_NXZ": 5278976,
+    "?Is_JumpJet@InfantryClass@@QAE_NXZ": 5278976,
     "?unknown_508dd0@InfantryClass@@QAE_NPBVCell@@0@Z": 5279184,
     "?unknown_5090a0@InfantryClass@@QBE_NXZ": 5279904,
     "?unknown_5090b0@InfantryClass@@QBE_NXZ": 5279920,
-    "?unknown_509100@InfantryClass@@QBE_NXZ": 5280000,
-    "?unknown_509110@InfantryClass@@QAEHXZ": 5280016,
-    "?unknown_5094b0@InfantryClass@@QAEXPAVBuildingClass@@@Z": 5280944,
+    "?Is_Deploy_Fire@InfantryClass@@QBE_NXZ": 5280000,
+    "?Deploy_Or_Stop@InfantryClass@@QAEHXZ": 5280016,
+    "?Enter_Occupiable@InfantryClass@@QAEXPAVBuildingClass@@@Z": 5280944,
     "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104,
     "_?startup@?1??Override_Mouse_Shape@MouseClass@@UAE_NH_N@Z@4_NA": 10948517,
     "?unknown_sqrt_table_817dfc@@3PAIA": 8486396,
@@ -6040,10 +6040,10 @@
     "?Update_Movement_00507b90@InfantryClass@@QAEXXZ": 5274512,
     "??0UnknownPersistPtr@@QAE@ABV?$UnknownComPtr@UILocomotion@@$1?unknown_uuid_ILocomotion_7ce600@@3UGUID@@B@@@Z": 5281904,
     "?unknown_5025c0@InfantryClass@@QAEXXZ": 5252544,
-    "?unknown_507170@InfantryClass@@QAE_NXZ": 5271920,
+    "?Theft_AI@InfantryClass@@QAE_NXZ": 5271920,
     "?unknown_506f30@InfantryClass@@QAEXXZ": 5271344,
     "?Advance_Animation_005078b0@InfantryClass@@QAEXXZ": 5273776,
-    "?unknown_5070e0@InfantryClass@@QAE_NXZ": 5271776,
+    "?Edge_Of_World_AI@InfantryClass@@QAE_NXZ": 5271776,
     "?Render@BuildingClass@@UAE_NPAVRect@@_N1@Z": 4432384,
     "?Do_MISSION_CAPTURE@BuildingClass@@UAEHXZ": 4485696,
     "?Do_MISSION_HARVEST@BuildingClass@@UAEHXZ": 4485712,
@@ -7525,7 +7525,7 @@
     "?unknown_slot199@TechnoClass@@UAE_NH@Z": 7128336,
     "?unknown_slot263@TechnoClass@@UAEX_N00PAVHouseClass@@@Z": 7167632,
     "?Is_Busy_00509760@InfantryClass@@QBE_NXZ": 5281632,
-    "?Is_Busy_Sequence_00509710@InfantryClass@@QBE_NH@Z": 5281552,
+    "?Is_Death_Doing@InfantryClass@@QBE_NH@Z": 5281552,
     "?unknown_slot220@BuildingClass@@UAEXPAVAbstractClass@@@Z": 4457552,
     "?unknown_slot183@BuildingClass@@UAE?AUUnknownFacingDir@@XZ": 4493792,
     "?FindLinkIndex@RadioClass@@QBEHPAVTechnoClass@@@Z": 6516336,
@@ -7700,7 +7700,7 @@
     "??0?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@QAE@IPBQAVVoxelAnimTypeClass@@@Z": 6632256,
     "??0?$DynamicVectorClass@PAVBuildingTypeClass@@@@QAE@IPBQAVBuildingTypeClass@@@Z": 5824880,
     "??_E?$DynamicVectorClass@PAVWaypointPathClass@@@@UAEPAXI@Z": 7494384,
-    "?Unknown_0049CC20@DisplayClass@@QAEXXZ": 4836384,
+    "?Encroach_Shadow@DisplayClass@@QAEXXZ": 4836384,
     "?Unknown_00569FB0@MapClass@@QAE?AUCoordStruct@@ABU2@0PAVHouseClass@@@Z": 5676976,
     "?Unknown_006A17B0@TabClass@@QAEXXZ": 6952880,
     "?Unknown_00559FD0@MapClass@@QAEXXZ": 5611472,
@@ -8328,7 +8328,7 @@
     "?Write_Variables@ScenarioClass@@QAE_NAAVCCINIClass@@@Z": 6690992,
     "?Read_Basic@ScenarioClass@@QAE_NAAVCCINIClass@@@Z": 6691200,
     "?Get_Time@INIClass@@QBEHPBD0H@Z": 5309536,
-    "?Loading_Progress_00672160@SessionClass@@QAEXH@Z": 6758752,
+    "?Update_Progress@SessionClass@@QAEXH@Z": 6758752,
     "?Assign_Houses_0065fbb0@@YIXXZ": 6683568,
     "?unknown_slot175@TechnoClass@@UAEHPAVObjectClass@@@Z": 7083472,
     "?Clear_All@LightSourceClass@@SAXXZ": 5469312,
@@ -9938,7 +9938,7 @@
     "?Unknown_0067E1C0@SidebarClass@@QAEXXZ": 6808000,
     "?Unknown_006A1770@TabClass@@QAEXXZ": 6952816,
     "?Incoming@CellClass@@QAEXPBX_N11@Z": 4679968,
-    "?unknown_418f10@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z": 4296464,
+    "?Good_Fire_Location@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z": 4296464,
     "?Take_Damage@InfantryClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z": 5241712,
     "?unknown_slot67@InfantryClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5244240,
     "?unknown_slot67@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5020608,
@@ -10432,7 +10432,7 @@
     "?Detach@LogicClass@@UAEXPBVAbstractClass@@_N@Z": 5497104,
     "?Remove@LogicClass@@QAEXPAVObjectClass@@@Z": 5497712,
     "??_EConvertClass@@UAEPAXI@Z": 4743456,
-    "?Unknown_0049CD20@DisplayClass@@QAEXXZ": 4836640,
+    "?Encroach_Fog@DisplayClass@@QAEXXZ": 4836640,
     "?Logic@@3VLogicClass@@A": 8594544,
     "?AI@LogicClass@@QAEXXZ": 5494928,
     "?Unknown_004361F0@BombListClass@@QAEXXZ": 4415984,
@@ -10885,7 +10885,7 @@
     "?Unlimbo@BuildingClass@@UAE_NPBUCoordStruct@@H@Z": 4445088,
     "?Action@RTacticalClass@@UAEHIAAI@Z": 6487600,
     "?Scatter@InfantryClass@@UAEXABUCoordStruct@@_N1@Z": 5259552,
-    "?unknown_slot289@InfantryClass@@UAE_NXZ": 5278384,
+    "?JumpJet_To_Walk@InfantryClass@@UAE_NXZ": 5278384,
     "?Plan_Naval_Yard_Path_004eecb0@HouseClass@@QAEXH@Z": 5172400,
     "?Move_To@FlyLocomotionClass@@UAGXUCOMCoordStruct@@@Z": 4965344,
     "?Move_To@RocketLocomotionClass@@UAGXUCOMCoordStruct@@@Z": 6548096,
@@ -11220,7 +11220,14 @@
     "?FUN_004146b0@seed_004146b0@@YGXHH@Z": 4277936,
     "?FUN_0041b360@seed_0041b360@@YAEXZ": 4305760,
     "__ramp_corners": 8339828,
-    "?Reset@BitFontClass@@QAEXXZ": 4399536
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "?End@ProgressScreenClass@@QAEXXZ": 6417904,
+    "?Flag_Attach@UnitClass@@QAE_NH@Z": 7358912,
+    "?Edge_Of_World_AI@UnitClass@@QAE_NXZ": 7322288,
+    "?Stop_Driver@DriveLocomotionClass@@QAE_NXZ": 4853392,
+    "?Stop_Driver@ShipLocomotionClass@@QAE_NXZ": 6778352,
+    "?Edge_Of_World_AI@FlyLocomotionClass@@QAE_NXZ": 4967520,
+    "?Unknown_005689D0@MapClass@@QAE?AVCell@@ABV2@_N@Z": 5671376
   },
   "regions": [
     {
@@ -11282,7 +11289,7 @@
           "resolved": 8635520
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -11333,7 +11340,7 @@
           "resolved": 8635592
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -11384,7 +11391,7 @@
           "resolved": 8635576
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -11435,7 +11442,7 @@
           "resolved": 8635568
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -11486,7 +11493,7 @@
           "resolved": 8635528
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -11537,7 +11544,7 @@
           "resolved": 8635488
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -11620,7 +11627,7 @@
           "resolved": 8635600
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -11679,7 +11686,7 @@
           "resolved": 8635536
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -11738,7 +11745,7 @@
           "resolved": 8635560
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -11797,7 +11804,7 @@
           "resolved": 8635584
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -11840,7 +11847,7 @@
           "resolved": 8635514
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -11891,7 +11898,7 @@
           "resolved": 8635552
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -11950,7 +11957,7 @@
           "resolved": 8635508
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -11985,7 +11992,7 @@
           "resolved": 4294951062
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -12020,7 +12027,7 @@
           "resolved": 4294951062
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -12055,7 +12062,7 @@
           "resolved": 717943
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -12090,7 +12097,7 @@
           "resolved": 2837767
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -12101,8 +12108,8 @@
     {
       "entry": 4290704,
       "method": "00417890",
-      "symbol": "?Pose_Dir_00417890@AircraftClass@@QBEIXZ",
-      "symbol_prefix": "?Pose_Dir_00417890@AircraftClass@@QBEIXZ",
+      "symbol": "?Pose_Dir@AircraftClass@@QBEIXZ",
+      "symbol_prefix": "?Pose_Dir@AircraftClass@@QBEIXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -12125,7 +12132,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -12160,7 +12167,7 @@
           "resolved": 717500
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -12186,7 +12193,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "relocations": [],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -12212,7 +12219,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "0c137b42b6078c7bd1130b58b2d7c646d9256cf2e05f05ea0ed9a8d08a179f32",
       "relocations": [],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -12239,7 +12246,7 @@
       "full_extent_sha256": "3004f92f58d17d5816db8b502d475d818e57c2ba54e31a90c4f95edece32ad1b",
       "relocations": [],
       "source": "src/recovered/aircraft.cpp",
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source_order": 243306,
       "population": "population-3943",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -12265,7 +12272,7 @@
       "full_extent_sha256": "3004f92f58d17d5816db8b502d475d818e57c2ba54e31a90c4f95edece32ad1b",
       "relocations": [],
       "source": "src/recovered/aircraft.cpp",
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source_order": 243307,
       "population": "population-3943",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -12291,7 +12298,7 @@
       "full_extent_sha256": "c4e48398aa494fd8abf1c3e8e6cc058bcdca3836fdfe6744b7d353c518e1c019",
       "relocations": [],
       "source": "src/recovered/aircraft.cpp",
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source_order": 243308,
       "population": "population-3943",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -12317,7 +12324,7 @@
       "full_extent_sha256": "1c93847ee0f29c8102c08f41566abe2ae27a71ab314eec709e90e3a28353e543",
       "relocations": [],
       "source": "src/recovered/aircraft.cpp",
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source_order": 243309,
       "population": "population-3943",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -12343,7 +12350,7 @@
       "full_extent_sha256": "c4e48398aa494fd8abf1c3e8e6cc058bcdca3836fdfe6744b7d353c518e1c019",
       "relocations": [],
       "source": "src/recovered/aircraft.cpp",
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source_order": 243310,
       "population": "population-3943",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -12369,7 +12376,7 @@
       "full_extent_sha256": "1c93847ee0f29c8102c08f41566abe2ae27a71ab314eec709e90e3a28353e543",
       "relocations": [],
       "source": "src/recovered/aircraft.cpp",
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source_order": 243311,
       "population": "population-3943",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -12395,7 +12402,7 @@
       "full_extent_sha256": "1c93847ee0f29c8102c08f41566abe2ae27a71ab314eec709e90e3a28353e543",
       "relocations": [],
       "source": "src/recovered/aircraft.cpp",
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source_order": 243312,
       "population": "population-3943",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -12421,7 +12428,7 @@
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "relocations": [],
       "source": "src/recovered/aircraft.cpp",
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source_order": 243313,
       "population": "population-3943",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -12447,7 +12454,7 @@
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "relocations": [],
       "source": "src/recovered/aircraft.cpp",
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source_order": 243314,
       "population": "population-3943",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -12473,7 +12480,7 @@
       "full_extent_sha256": "0cd231653aa6bfe53939ffb5b0d76cc7fd64bd70625f58d7e6d5855709a846bc",
       "relocations": [],
       "source": "src/recovered/aircraft.cpp",
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source_order": 243315,
       "population": "population-3943",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -12499,7 +12506,7 @@
       "full_extent_sha256": "7c868990b58fc2826376817e58a5201528766e904fb1eed562cebde7ebe0378c",
       "relocations": [],
       "source": "src/recovered/aircraft.cpp",
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source_order": 243316,
       "population": "population-3943",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -12525,7 +12532,7 @@
       "full_extent_sha256": "1c93847ee0f29c8102c08f41566abe2ae27a71ab314eec709e90e3a28353e543",
       "relocations": [],
       "source": "src/recovered/aircraft.cpp",
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source_order": 243317,
       "population": "population-3943",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -12551,7 +12558,7 @@
       "full_extent_sha256": "1c93847ee0f29c8102c08f41566abe2ae27a71ab314eec709e90e3a28353e543",
       "relocations": [],
       "source": "src/recovered/aircraft.cpp",
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source_order": 243318,
       "population": "population-3943",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -12577,7 +12584,7 @@
       "full_extent_sha256": "e54b92b6be0eb787bbc082dea130305cd0d6e3290882874501c162c2ab1f3a89",
       "relocations": [],
       "source": "src/recovered/aircraft.cpp",
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source_order": 243319,
       "population": "population-3943",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -12603,7 +12610,7 @@
       "full_extent_sha256": "1c93847ee0f29c8102c08f41566abe2ae27a71ab314eec709e90e3a28353e543",
       "relocations": [],
       "source": "src/recovered/aircraft.cpp",
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source_order": 243320,
       "population": "population-3943",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -12629,7 +12636,7 @@
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "relocations": [],
       "source": "src/recovered/aircraft.cpp",
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source_order": 243321,
       "population": "population-3943",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -12655,7 +12662,7 @@
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "relocations": [],
       "source": "src/recovered/aircraft.cpp",
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source_order": 243322,
       "population": "population-3943",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -12681,7 +12688,7 @@
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "relocations": [],
       "source": "src/recovered/aircraft.cpp",
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source_order": 243323,
       "population": "population-3943",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -12707,7 +12714,7 @@
       "full_extent_sha256": "c4e48398aa494fd8abf1c3e8e6cc058bcdca3836fdfe6744b7d353c518e1c019",
       "relocations": [],
       "source": "src/recovered/aircraft.cpp",
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source_order": 243324,
       "population": "population-3943",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -12733,7 +12740,7 @@
       "full_extent_sha256": "2a2f950faf0d7851fcb17366fb6bc179054ac4270b9c00d37aa03373db6cc20a",
       "relocations": [],
       "source": "src/recovered/aircraft.cpp",
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source_order": 243325,
       "population": "population-3943",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -12759,7 +12766,7 @@
       "full_extent_sha256": "c4e48398aa494fd8abf1c3e8e6cc058bcdca3836fdfe6744b7d353c518e1c019",
       "relocations": [],
       "source": "src/recovered/aircraft.cpp",
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source_order": 243326,
       "population": "population-3943",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -12785,7 +12792,7 @@
       "full_extent_sha256": "a7c4c722bc78018800aa0716eae27158a465a02435c2e9f856a209efe8502cb0",
       "relocations": [],
       "source": "src/recovered/aircraft.cpp",
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source_order": 243327,
       "population": "population-3943",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -12810,7 +12817,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "845f0fca0b527f8e3d67f935d4ba9d9ff1fbfdeecb23411c645d97cde2ebc39c",
       "relocations": [],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -12836,7 +12843,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "19b223c8571b1c77168d2cce1d14e0e191da4c5d4f24609f4cc5781c903a40a6",
       "relocations": [],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -12895,7 +12902,7 @@
           "resolved": 8002524
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -12921,7 +12928,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "2799f01bfc6cd899ef1f6383dfb9685e28c35ee9f1f3c28d1cccc9150bbb63d6",
       "relocations": [],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -12964,7 +12971,7 @@
           "resolved": 3565334
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -12999,7 +13006,7 @@
           "resolved": 1547396
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -13025,7 +13032,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "d6bb048e016b43876243bfdd98eac5ffa24b58c76f6eb7336a50461c81cf4030",
       "relocations": [],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -13051,7 +13058,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "6940e50837b75784f8a112743646e3bf4314a138511b4114e932b6bfec390c3e",
       "relocations": [],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "source_order": 243328,
       "population": "population-3943",
@@ -13078,7 +13085,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "92e62488513874ddb117144bc6a56b03d11aad98d015bf02848d16f497e9eb92",
       "relocations": [],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -13104,7 +13111,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "2a2f950faf0d7851fcb17366fb6bc179054ac4270b9c00d37aa03373db6cc20a",
       "relocations": [],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -13131,7 +13138,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "8c8bbd8fad1ba5d328de100ba0ca8e91049c5c2407d20aeadadc6e640c2400ad",
       "relocations": [],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -13157,7 +13164,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "1c93847ee0f29c8102c08f41566abe2ae27a71ab314eec709e90e3a28353e543",
       "relocations": [],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "source_order": 243330,
       "population": "population-3943",
@@ -13184,7 +13191,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "ea57a93ca6ac0c965847e28f0f86b37dc31736a041727844b8a96c0fe200e2ae",
       "relocations": [],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -13547,7 +13554,7 @@
           "resolved": 11272028
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -13630,7 +13637,7 @@
           "resolved": 879587
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -13723,7 +13730,7 @@
         {
           "offset": 122,
           "kind": 20,
-          "symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
+          "symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
           "target": 7049136,
           "addend": 0,
           "resolved": 2773394
@@ -13961,7 +13968,7 @@
           "resolved": 716059
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -14004,7 +14011,7 @@
           "resolved": 8003712
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -14033,7 +14040,7 @@
         {
           "offset": 32,
           "kind": 20,
-          "symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
+          "symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
           "target": 7049136,
           "addend": 0,
           "resolved": 2771148
@@ -14087,7 +14094,7 @@
           "resolved": 10736280
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -14130,7 +14137,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -14221,7 +14228,7 @@
           "resolved": 1256696
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -14320,7 +14327,7 @@
           "resolved": 1256354
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -14411,7 +14418,7 @@
           "resolved": 4289833
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "switch_data_bytes": 36,
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
@@ -14455,7 +14462,7 @@
           "resolved": 740833
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -14562,7 +14569,7 @@
           "resolved": 8185064
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -14661,7 +14668,7 @@
           "resolved": 1372760
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -14696,7 +14703,7 @@
           "resolved": 651039
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -14731,7 +14738,7 @@
           "resolved": 1553400
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -14774,7 +14781,7 @@
           "resolved": 702438
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -14825,7 +14832,7 @@
           "resolved": 1803679
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -14860,7 +14867,7 @@
           "resolved": 3650601
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -14983,7 +14990,7 @@
           "resolved": 1243739
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -15009,7 +15016,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "cfb64ce491189a1338c7d9246e63533b833eed326954c786c8a05202acb3f3d0",
       "relocations": [],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -15076,7 +15083,7 @@
           "resolved": 496009
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -15111,7 +15118,7 @@
           "resolved": 710301
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -15162,7 +15169,7 @@
           "resolved": 2212002
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -15221,7 +15228,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -15247,7 +15254,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "17c07ba0e02b02457bedfefc558669ae75bb403111b976bf838d242f6218ab23",
       "relocations": [],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -15273,7 +15280,7 @@
       "full_extent_bytes": 80,
       "full_extent_sha256": "1681f132411a7989cc517b667ab2e3ca337b4e8f0bf20eef50f66de1f7210aac",
       "relocations": [],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -15299,7 +15306,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "fcf98e350b3ba9a0f161daabd25d722b52b83167e4ff55a5095ec65c2f689c0e",
       "relocations": [],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -15334,7 +15341,7 @@
           "resolved": 2750832
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -15385,7 +15392,7 @@
           "resolved": 3647668
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -15436,7 +15443,7 @@
           "resolved": 3647572
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -15471,7 +15478,7 @@
           "resolved": 1545666
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -15506,7 +15513,7 @@
           "resolved": 1547037
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -15541,7 +15548,7 @@
           "resolved": 706792
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -15576,7 +15583,7 @@
           "resolved": 730868
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -15611,7 +15618,7 @@
           "resolved": 644591
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -15646,7 +15653,7 @@
           "resolved": 4294935894
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -15681,7 +15688,7 @@
           "resolved": 4294935974
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -15716,7 +15723,7 @@
           "resolved": 4294935974
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -15947,7 +15954,7 @@
           "resolved": 368660
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -16142,7 +16149,7 @@
           "resolved": 697840
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -16433,7 +16440,7 @@
           "resolved": 2641437
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -16459,7 +16466,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "c0dce4659502e6332db1893ff865491bf4036317f13a2fef7d70e73ef137bfc3",
       "relocations": [],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -16485,7 +16492,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "c0dce4659502e6332db1893ff865491bf4036317f13a2fef7d70e73ef137bfc3",
       "relocations": [],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -16511,7 +16518,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "130d9cd366935f9f5b26b03626848e262317cfc0894d925ba96ee2a5fbbbdaae",
       "relocations": [],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -16537,7 +16544,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "104e230d6b734e8ec9c78b8d66a477c0010df9a7c154c2a04b72cec3ce904be4",
       "relocations": [],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -16563,7 +16570,7 @@
       "full_extent_bytes": 80,
       "full_extent_sha256": "d2a66a7fbd5be925abf410ac486efb7409991d9642cb4b854297e66dc3f56380",
       "relocations": [],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -16662,7 +16669,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -16833,7 +16840,7 @@
           "resolved": 10748840
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -17308,7 +17315,7 @@
           "resolved": 894920
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -17607,7 +17614,7 @@
           "resolved": 343202
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -17730,7 +17737,7 @@
           "resolved": 41302
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -17741,8 +17748,8 @@
     {
       "entry": 4297296,
       "method": "00419250",
-      "symbol": "?Is_Landing_Cell_Available_00419250@AircraftClass@@QAE_NABVCell@@_N@Z",
-      "symbol_prefix": "?Is_Landing_Cell_Available_00419250@AircraftClass@@QAE_NABVCell@@_N@Z",
+      "symbol": "?Cell_Seems_Ok@AircraftClass@@QAE_NABVCell@@_N@Z",
+      "symbol_prefix": "?Cell_Seems_Ok@AircraftClass@@QAE_NABVCell@@_N@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -17837,7 +17844,7 @@
           "resolved": 8806216
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -17863,7 +17870,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "86d602c279b3d518baa9c9a9c1b95b383526f63f7d48accb01dff0369658b3be",
       "relocations": [],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -17898,7 +17905,7 @@
           "resolved": 650402
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -17941,7 +17948,7 @@
           "resolved": 3553631
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -17976,7 +17983,7 @@
           "resolved": 650279
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -18027,7 +18034,7 @@
           "resolved": 7976464
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -18062,7 +18069,7 @@
           "resolved": 650178
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -18105,7 +18112,7 @@
           "resolved": 7976464
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -18148,7 +18155,7 @@
           "resolved": 3564507
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -18191,7 +18198,7 @@
           "resolved": 3564433
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -18276,7 +18283,7 @@
         {
           "offset": 272,
           "kind": 20,
-          "symbol": "?unknown_4198b0@AircraftClass@@QAEPAVAbstractClass@@XZ",
+          "symbol": "?Good_LZ@AircraftClass@@QAEPAVAbstractClass@@XZ",
           "target": 4298928,
           "addend": 0,
           "resolved": 18956
@@ -18340,7 +18347,7 @@
         {
           "offset": 437,
           "kind": 20,
-          "symbol": "?Select_Landing_Destination_004185b0@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z",
+          "symbol": "?New_LZ@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z",
           "target": 4294064,
           "addend": 0,
           "resolved": 13927
@@ -18380,7 +18387,7 @@
         {
           "offset": 492,
           "kind": 20,
-          "symbol": "?Select_Landing_Destination_004185b0@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z",
+          "symbol": "?New_LZ@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z",
           "target": 4294064,
           "addend": 0,
           "resolved": 13872
@@ -18412,7 +18419,7 @@
         {
           "offset": 787,
           "kind": 20,
-          "symbol": "?unknown_416420@AircraftClass@@QAEXXZ",
+          "symbol": "?Drop_Off_Cargo@AircraftClass@@QAEXXZ",
           "target": 4285472,
           "addend": 0,
           "resolved": 4985
@@ -18460,7 +18467,7 @@
         {
           "offset": 925,
           "kind": 20,
-          "symbol": "?unknown_func_6b8cc0@TeamClass@@QAE_NPAVFootClass@@@Z",
+          "symbol": "?Add@TeamClass@@QAE_NPAVFootClass@@@Z",
           "target": 7048384,
           "addend": 0,
           "resolved": 2767759
@@ -18506,7 +18513,7 @@
           "resolved": 4280677
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "switch_data_bytes": 20,
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
@@ -18518,8 +18525,8 @@
     {
       "entry": 4285472,
       "method": "00416420",
-      "symbol": "?unknown_416420@AircraftClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_416420@AircraftClass@@QAEXXZ",
+      "symbol": "?Drop_Off_Cargo@AircraftClass@@QAEXXZ",
+      "symbol_prefix": "?Drop_Off_Cargo@AircraftClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -18702,7 +18709,7 @@
           "resolved": 1251877
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -18763,7 +18770,7 @@
         {
           "offset": 259,
           "kind": 20,
-          "symbol": "?unknown_4198b0@AircraftClass@@QAEPAVAbstractClass@@XZ",
+          "symbol": "?Good_LZ@AircraftClass@@QAEPAVAbstractClass@@XZ",
           "target": 4298928,
           "addend": 0,
           "resolved": 4294964713
@@ -18889,7 +18896,7 @@
           "resolved": 711479
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -18964,7 +18971,7 @@
           "resolved": 7972336
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -18975,8 +18982,8 @@
     {
       "entry": 4281616,
       "method": "00415510",
-      "symbol": "?unknown_415510@AircraftClass@@QAEHXZ",
-      "symbol_prefix": "?unknown_415510@AircraftClass@@",
+      "symbol": "?Paradrop_Cargo@AircraftClass@@QAEHXZ",
+      "symbol_prefix": "?Paradrop_Cargo@AircraftClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -19153,7 +19160,7 @@
         {
           "offset": 547,
           "kind": 20,
-          "symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
+          "symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
           "target": 7049136,
           "addend": 0,
           "resolved": 2766969
@@ -19175,7 +19182,7 @@
           "resolved": 340468
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -19204,7 +19211,7 @@
         {
           "offset": 17,
           "kind": 20,
-          "symbol": "?Move_Carryall_00416670@AircraftClass@@QAEHXZ",
+          "symbol": "?Do_MISSION_MOVE_Carryall@AircraftClass@@QAEHXZ",
           "target": 4286064,
           "addend": 0,
           "resolved": 1643
@@ -19212,13 +19219,13 @@
         {
           "offset": 22,
           "kind": 20,
-          "symbol": "?unknown_416010@AircraftClass@@QAEHXZ",
+          "symbol": "?Do_MISSION_MOVE_Normal@AircraftClass@@QAEHXZ",
           "target": 4284432,
           "addend": 0,
           "resolved": 6
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -19229,8 +19236,8 @@
     {
       "entry": 4286064,
       "method": "00416670",
-      "symbol": "?Move_Carryall_00416670@AircraftClass@@QAEHXZ",
-      "symbol_prefix": "?Move_Carryall_00416670@AircraftClass@@QAEHXZ",
+      "symbol": "?Do_MISSION_MOVE_Carryall@AircraftClass@@QAEHXZ",
+      "symbol_prefix": "?Do_MISSION_MOVE_Carryall@AircraftClass@@QAEHXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -19407,7 +19414,7 @@
         {
           "offset": 391,
           "kind": 20,
-          "symbol": "?Select_Landing_Destination_004185b0@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z",
+          "symbol": "?New_LZ@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z",
           "target": 4294064,
           "addend": 0,
           "resolved": 7605
@@ -19551,7 +19558,7 @@
         {
           "offset": 1109,
           "kind": 20,
-          "symbol": "?unknown_416420@AircraftClass@@QAEXXZ",
+          "symbol": "?Drop_Off_Cargo@AircraftClass@@QAEXXZ",
           "target": 4285472,
           "addend": 0,
           "resolved": 4294965591
@@ -19693,7 +19700,7 @@
           "resolved": 4287102
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "switch_data_bytes": 16,
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
@@ -19739,7 +19746,7 @@
         {
           "offset": 311,
           "kind": 20,
-          "symbol": "?unknown_4198b0@AircraftClass@@QAEPAVAbstractClass@@XZ",
+          "symbol": "?Good_LZ@AircraftClass@@QAEPAVAbstractClass@@XZ",
           "target": 4298928,
           "addend": 0,
           "resolved": 10085
@@ -19771,7 +19778,7 @@
         {
           "offset": 410,
           "kind": 20,
-          "symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
+          "symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
           "target": 7049136,
           "addend": 0,
           "resolved": 2760194
@@ -19779,7 +19786,7 @@
         {
           "offset": 471,
           "kind": 20,
-          "symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
+          "symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
           "target": 7049136,
           "addend": 0,
           "resolved": 2760133
@@ -19787,7 +19794,7 @@
         {
           "offset": 809,
           "kind": 20,
-          "symbol": "?unknown_4198b0@AircraftClass@@QAEPAVAbstractClass@@XZ",
+          "symbol": "?Good_LZ@AircraftClass@@QAEPAVAbstractClass@@XZ",
           "target": 4298928,
           "addend": 0,
           "resolved": 9587
@@ -19817,7 +19824,7 @@
           "resolved": 2226877
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -19843,7 +19850,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "1191f37eec740e495eda01ae2ac0969bf44c3c661ce4ae90583b5fdc05c0f707",
       "relocations": [],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -19878,7 +19885,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -19904,7 +19911,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "67b92ddf0a955684e1b4be06b4c2b099d4ac6ad3d0f6fe8cd85d7e34570743d1",
       "relocations": [],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -19939,7 +19946,7 @@
           "resolved": 2842672
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -19965,7 +19972,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "df41b6b85fcf3490f5ef4c3bdb87e7dcbe33ab74f123c9c3a9b795fb22fed398",
       "relocations": [],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -20098,7 +20105,7 @@
         {
           "offset": 1099,
           "kind": 20,
-          "symbol": "?unknown_416420@AircraftClass@@QAEXXZ",
+          "symbol": "?Drop_Off_Cargo@AircraftClass@@QAEXXZ",
           "target": 4285472,
           "addend": 0,
           "resolved": 4294953985
@@ -20106,7 +20113,7 @@
         {
           "offset": 1149,
           "kind": 20,
-          "symbol": "?unknown_4198b0@AircraftClass@@QAEPAVAbstractClass@@XZ",
+          "symbol": "?Good_LZ@AircraftClass@@QAEPAVAbstractClass@@XZ",
           "target": 4298928,
           "addend": 0,
           "resolved": 95
@@ -20176,7 +20183,7 @@
           "resolved": 4298329
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "switch_data_bytes": 32,
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
@@ -20238,13 +20245,13 @@
         {
           "offset": 156,
           "kind": 20,
-          "symbol": "?unknown_415510@AircraftClass@@QAEHXZ",
+          "symbol": "?Paradrop_Cargo@AircraftClass@@QAEHXZ",
           "target": 4281616,
           "addend": 0,
           "resolved": 608
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -20255,8 +20262,8 @@
     {
       "entry": 4284432,
       "method": "00416010",
-      "symbol": "?unknown_416010@AircraftClass@@QAEHXZ",
-      "symbol_prefix": "?unknown_416010@AircraftClass@@",
+      "symbol": "?Do_MISSION_MOVE_Normal@AircraftClass@@QAEHXZ",
+      "symbol_prefix": "?Do_MISSION_MOVE_Normal@AircraftClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -20321,7 +20328,7 @@
         {
           "offset": 112,
           "kind": 20,
-          "symbol": "?Select_Landing_Destination_004185b0@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z",
+          "symbol": "?New_LZ@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z",
           "target": 4294064,
           "addend": 0,
           "resolved": 9516
@@ -20401,7 +20408,7 @@
         {
           "offset": 632,
           "kind": 20,
-          "symbol": "?Is_Landing_Cell_Available_00419250@AircraftClass@@QAE_NABVCell@@_N@Z",
+          "symbol": "?Cell_Seems_Ok@AircraftClass@@QAE_NABVCell@@_N@Z",
           "target": 4297296,
           "addend": 0,
           "resolved": 12228
@@ -20425,7 +20432,7 @@
         {
           "offset": 951,
           "kind": 20,
-          "symbol": "?Is_Landing_Cell_Available_00419250@AircraftClass@@QAE_NABVCell@@_N@Z",
+          "symbol": "?Cell_Seems_Ok@AircraftClass@@QAE_NABVCell@@_N@Z",
           "target": 4297296,
           "addend": 0,
           "resolved": 11909
@@ -20471,7 +20478,7 @@
           "resolved": 4285181
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "switch_data_bytes": 20,
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
@@ -20483,8 +20490,8 @@
     {
       "entry": 4298928,
       "method": "004198b0",
-      "symbol": "?unknown_4198b0@AircraftClass@@QAEPAVAbstractClass@@XZ",
-      "symbol_prefix": "?unknown_4198b0@AircraftClass@@",
+      "symbol": "?Good_LZ@AircraftClass@@QAEPAVAbstractClass@@XZ",
+      "symbol_prefix": "?Good_LZ@AircraftClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -20755,7 +20762,7 @@
           "resolved": 1237853
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -20832,7 +20839,7 @@
         {
           "offset": 119,
           "kind": 20,
-          "symbol": "?Select_Landing_Destination_004185b0@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z",
+          "symbol": "?New_LZ@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z",
           "target": 4294064,
           "addend": 0,
           "resolved": 6421
@@ -20920,7 +20927,7 @@
         {
           "offset": 766,
           "kind": 20,
-          "symbol": "?Is_Landing_Cell_Available_00419250@AircraftClass@@QAE_NABVCell@@_N@Z",
+          "symbol": "?Cell_Seems_Ok@AircraftClass@@QAE_NABVCell@@_N@Z",
           "target": 4297296,
           "addend": 0,
           "resolved": 9006
@@ -20936,7 +20943,7 @@
         {
           "offset": 955,
           "kind": 20,
-          "symbol": "?Is_Landing_Cell_Available_00419250@AircraftClass@@QAE_NABVCell@@_N@Z",
+          "symbol": "?Cell_Seems_Ok@AircraftClass@@QAE_NABVCell@@_N@Z",
           "target": 4297296,
           "addend": 0,
           "resolved": 8817
@@ -20982,7 +20989,7 @@
           "resolved": 4288336
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "switch_data_bytes": 20,
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
@@ -20994,8 +21001,8 @@
     {
       "entry": 4294064,
       "method": "004185b0",
-      "symbol": "?Select_Landing_Destination_004185b0@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z",
-      "symbol_prefix": "?Select_Landing_Destination_004185b0@AircraftClass@@",
+      "symbol": "?New_LZ@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z",
+      "symbol_prefix": "?New_LZ@AircraftClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -21020,7 +21027,7 @@
         {
           "offset": 140,
           "kind": 20,
-          "symbol": "?Is_Landing_Cell_Available_00419250@AircraftClass@@QAE_NABVCell@@_N@Z",
+          "symbol": "?Cell_Seems_Ok@AircraftClass@@QAE_NABVCell@@_N@Z",
           "target": 4297296,
           "addend": 0,
           "resolved": 3088
@@ -21132,7 +21139,7 @@
         {
           "offset": 551,
           "kind": 20,
-          "symbol": "?Is_Landing_Cell_Available_00419250@AircraftClass@@QAE_NABVCell@@_N@Z",
+          "symbol": "?Cell_Seems_Ok@AircraftClass@@QAE_NABVCell@@_N@Z",
           "target": 4297296,
           "addend": 0,
           "resolved": 2677
@@ -21146,7 +21153,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -21199,7 +21206,7 @@
         {
           "offset": 252,
           "kind": 20,
-          "symbol": "?unknown_4198b0@AircraftClass@@QAEPAVAbstractClass@@XZ",
+          "symbol": "?Good_LZ@AircraftClass@@QAEPAVAbstractClass@@XZ",
           "target": 4298928,
           "addend": 0,
           "resolved": 3952
@@ -21389,7 +21396,7 @@
           "resolved": 4294998
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "switch_data_bytes": 70,
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
@@ -21401,8 +21408,8 @@
     {
       "entry": 4296464,
       "method": "00418f10",
-      "symbol": "?unknown_418f10@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z",
-      "symbol_prefix": "?unknown_418f10@AircraftClass@@",
+      "symbol": "?Good_Fire_Location@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z",
+      "symbol_prefix": "?Good_Fire_Location@AircraftClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -21531,7 +21538,7 @@
         {
           "offset": 477,
           "kind": 20,
-          "symbol": "?Is_Landing_Cell_Available_00419250@AircraftClass@@QAE_NABVCell@@_N@Z",
+          "symbol": "?Cell_Seems_Ok@AircraftClass@@QAE_NABVCell@@_N@Z",
           "target": 4297296,
           "addend": 0,
           "resolved": 351
@@ -21625,7 +21632,7 @@
           "resolved": 1240636
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -21662,7 +21669,7 @@
         {
           "offset": 152,
           "kind": 20,
-          "symbol": "?unknown_418f10@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z",
+          "symbol": "?Good_Fire_Location@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z",
           "target": 4296464,
           "addend": 0,
           "resolved": 5588
@@ -22388,7 +22395,7 @@
           "resolved": 4293576
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "switch_data_bytes": 198,
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
@@ -22740,7 +22747,7 @@
         {
           "offset": 913,
           "kind": 20,
-          "symbol": "?unknown_4c9a40@FootClass@@QAEXABVUnknownObjectPair@@HHPAVUnknownBuffer@@ABVRect@@ABUPoint2D@@ABVMatrix3D@@_NPAVSurface@@II@Z",
+          "symbol": "?Draw_Voxel_Shadow@FootClass@@QAEXABVUnknownObjectPair@@HHPAVUnknownBuffer@@ABVRect@@ABUPoint2D@@ABVMatrix3D@@_NPAVSurface@@II@Z",
           "target": 5020224,
           "addend": 0,
           "resolved": 742635
@@ -22858,7 +22865,7 @@
           "resolved": 742691
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -22887,7 +22894,7 @@
         {
           "offset": 25,
           "kind": 20,
-          "symbol": "?unknown_415510@AircraftClass@@QAEHXZ",
+          "symbol": "?Paradrop_Cargo@AircraftClass@@QAEHXZ",
           "target": 4281616,
           "addend": 0,
           "resolved": 4294966627
@@ -23485,7 +23492,7 @@
           "resolved": 1262278
         }
       ],
-      "source_sha256": "51eb953982bacb6bb2acbecae08e8fcf0ebb04624648e9f764c47e0fc757965d",
+      "source_sha256": "1188c9dc532d89961e27fedfe4427157f9e2cf540e853027de81517e6b251545",
       "source": "src/recovered/aircraft.cpp",
       "population": "population-3943",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",

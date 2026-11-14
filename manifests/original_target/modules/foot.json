@@ -193,7 +193,7 @@
    "padding_bytes": 4
   },
   {
-   "symbol": "?unknown_slot291@FootClass@@UAE_NXZ",
+   "symbol": "?Stop_Driver@FootClass@@UAE_NXZ",
    "entry": "004c4b60",
    "body_bytes": 39,
    "padding_bytes": 9
@@ -451,7 +451,7 @@
    "padding_bytes": 0
   },
   {
-   "symbol": "?unknown_4c9a40@FootClass@@QAEXABVUnknownObjectPair@@HHPAVUnknownBuffer@@ABVRect@@ABUPoint2D@@ABVMatrix3D@@_NPAVSurface@@II@Z",
+   "symbol": "?Draw_Voxel_Shadow@FootClass@@QAEXABVUnknownObjectPair@@HHPAVUnknownBuffer@@ABVRect@@ABUPoint2D@@ABVMatrix3D@@_NPAVSurface@@II@Z",
    "entry": "004c9a40",
    "body_bytes": 205,
    "padding_bytes": 3
@@ -511,7 +511,7 @@
    "padding_bytes": 13
   },
   {
-   "symbol": "?unknown_slot307@FootClass@@UAEXXZ",
+   "symbol": "?Stop_Movement_Animation@FootClass@@UAEXXZ",
    "entry": "004ca330",
    "body_bytes": 1,
    "padding_bytes": 15
@@ -559,7 +559,7 @@
    "padding_bytes": 4
   },
   {
-   "symbol": "?unknown_slot288@FootClass@@UAEXXZ",
+   "symbol": "?On_Movement_Blocked@FootClass@@UAEXXZ",
    "entry": "004ca880",
    "body_bytes": 44,
    "padding_bytes": 4
@@ -2600,13 +2600,13 @@
   },
   {
    "site": "00504ae0",
-   "symbol": "?unknown_slot291@FootClass@@UAE_NXZ",
+   "symbol": "?Stop_Driver@FootClass@@UAE_NXZ",
    "target": "004c4b60",
    "function_entry": true
   },
   {
    "site": "00504ae0",
-   "symbol": "?unknown_slot291@FootClass@@UAE_NXZ",
+   "symbol": "?Stop_Driver@FootClass@@UAE_NXZ",
    "target": "004c4b60",
    "function_entry": true
   },
@@ -2768,7 +2768,7 @@
   },
   {
    "site": "005089d0",
-   "symbol": "?unknown_slot288@FootClass@@UAEXXZ",
+   "symbol": "?On_Movement_Blocked@FootClass@@UAEXXZ",
    "target": "004ca880",
    "function_entry": true
   },
@@ -3110,7 +3110,7 @@
   },
   {
    "site": "004141c0",
-   "symbol": "?unknown_4c9a40@FootClass@@QAEXABVUnknownObjectPair@@HHPAVUnknownBuffer@@ABVRect@@ABUPoint2D@@ABVMatrix3D@@_NPAVSurface@@II@Z",
+   "symbol": "?Draw_Voxel_Shadow@FootClass@@QAEXABVUnknownObjectPair@@HHPAVUnknownBuffer@@ABVRect@@ABUPoint2D@@ABVMatrix3D@@_NPAVSurface@@II@Z",
    "target": "004c9a40",
    "function_entry": true
   },
@@ -4077,6 +4077,10 @@
    "address": "00594cb0"
   },
   {
+   "symbol": "?ReceiveGunner@FootClass@@UAEXH@Z",
+   "address": "004cd060"
+  },
+  {
    "symbol": "?Receive_Message@TechnoClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z",
    "address": "006c2590"
   },
@@ -4103,6 +4107,14 @@
   {
    "symbol": "?Release_Held@?$UnknownComPtr@UIPiggyback@@$1?unknown_uuid_IPiggyback_7cfc30@@3UGUID@@B@@QAEXXZ",
    "address": "00509860"
+  },
+  {
+   "symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
+   "address": "006b8fb0"
+  },
+  {
+   "symbol": "?RemoveGunner@FootClass@@UAEXH@Z",
+   "address": "004cd070"
   },
   {
    "symbol": "?Render@ObjectClass@@UAE_NPAVRect@@_N1@Z",
@@ -4307,10 +4319,6 @@
   {
    "symbol": "?Unknown_006B5810@UnknownTarget@@QBEPAVAbstractClass@@XZ",
    "address": "006b5810"
-  },
-  {
-   "symbol": "?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
-   "address": "006b8fb0"
   },
   {
    "symbol": "?Unknown_006B9AA0@TeamClass@@QAEXPAVFootClass@@HPAVTechnoClass@@@Z",
@@ -5051,14 +5059,6 @@
   {
    "symbol": "?unknown_slot27@TechnoClass@@UAEHPBVCell@@_N1@Z",
    "address": "006ccce0"
-  },
-  {
-   "symbol": "?unknown_slot280@FootClass@@UAEXH@Z",
-   "address": "004cd060"
-  },
-  {
-   "symbol": "?unknown_slot281@FootClass@@UAEXH@Z",
-   "address": "004cd070"
   },
   {
    "symbol": "?unknown_slot28@TechnoClass@@UAEHPAVObjectClass@@_N@Z",

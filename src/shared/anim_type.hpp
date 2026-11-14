@@ -72,7 +72,7 @@ public:
     static char const *__fastcall Name_From(int index);                 // 0x00425620
     static int __fastcall From_Name(char const *name);                  // 0x00425640
     static AnimTypeClass *__fastcall Find_Or_Make(char const *name);    // 0x004264A0
-    void unknown_func_426700();                                         // 0x00426700 (frees a demand-loaded image)
+    void Free_Image();                                         // 0x00426700 (frees a demand-loaded image)
 
     virtual HRESULT __stdcall GetClassID(GUID *clsid);                  // 0x004262C0 slot 3
     virtual HRESULT __stdcall Load(IStream *stream);                    // 0x00426140 slot 5

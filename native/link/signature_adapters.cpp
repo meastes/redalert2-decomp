@@ -166,8 +166,8 @@ extern "C" void ra2_adapter_0037(void * a0, signed char a1, signed char a2) { ra
 extern "C" void ra2_adapter_target_0038(void *, int, bool) __asm__("__ZN10RadarClass14Radar_ActivateEib");
 extern "C" void ra2_adapter_0038(void * a0, int a1, int a2) __asm__("__ZN13seed_0063314015Callee_0063300012FUN_00633000Eij");
 extern "C" void ra2_adapter_0038(void * a0, int a1, int a2) { ra2_adapter_target_0038(a0, a1, (((unsigned int)(int)a2 & 0xFFu) != 0)); }
-// 0x006B8FB0 UnknownTeamView::unknown_func_6b8fb0(TechnoClass*, int, int) -> TeamClass::Unknown_006B8FB0(FootClass*, int, bool) [result ignored, width]
-extern "C" bool ra2_adapter_target_0039(void *, void *, int, bool) __asm__("__ZN9TeamClass16Unknown_006B8FB0EP9FootClassib");
+// 0x006B8FB0 UnknownTeamView::unknown_func_6b8fb0(TechnoClass*, int, int) -> TeamClass::Remove(FootClass*, int, bool) [result ignored, width]
+extern "C" bool ra2_adapter_target_0039(void *, void *, int, bool) __asm__("__ZN9TeamClass6RemoveEP9FootClassib");
 extern "C" void ra2_adapter_0039(void * a0, void * a1, int a2, int a3) __asm__("__ZN15UnknownTeamView19unknown_func_6b8fb0EP11TechnoClassii");
 extern "C" void ra2_adapter_0039(void * a0, void * a1, int a2, int a3) { ra2_adapter_target_0039(a0, a1, a2, (((unsigned int)(int)a3 & 0xFFu) != 0)); }
 // 0x0070B7D0 VQAClass::Unknown_0070B7D0() -> Hicolor_Clear_Table() [this dropped]

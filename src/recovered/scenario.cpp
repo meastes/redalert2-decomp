@@ -695,7 +695,7 @@ bool __fastcall Wait_For_Players_0065c520()
         }
         double progress = ProgressScreen.Average_Progress();
         if (progress >= 0.9995) {
-            unknown_session_a3d298.Loading_Progress_00672160(unknown_id_source_a3d290->unknown_223b ? 200 : 100);
+            unknown_session_a3d298.Update_Progress(unknown_id_source_a3d290->unknown_223b ? 200 : 100);
             return true;
         }
         if (progress != last) {
@@ -704,7 +704,7 @@ bool __fastcall Wait_For_Players_0065c520()
         }
         if (resend.Value() <= 0) {
             resend = 60;
-            unknown_session_a3d298.Loading_Progress_00672160(unknown_id_source_a3d290->unknown_223b ? 200 : 100);
+            unknown_session_a3d298.Update_Progress(unknown_id_source_a3d290->unknown_223b ? 200 : 100);
         }
     }
 }
@@ -777,7 +777,7 @@ bool __fastcall Unknown_0065c7d0(char const *name)
             ProgressScreen.Load_Shape("PROGBARM.SHP", 0, 0);
         }
         bool campaign = unknown_game_mode_a3d298 == 0;
-        ProgressScreen.Unknown_0061EFA0(loader->Unknown_00535AB0(), game_id, !campaign, !campaign);
+        ProgressScreen.Set_Layout(loader->Unknown_00535AB0(), game_id, !campaign, !campaign);
         ProgressScreen.Set_Name_Width(loader->Unknown_00535B60());
 
         if (PacketTransport != 0 && unknown_game_mode_a3d298 == 4 && unknown_players_a3fa7c.Count() > 1) {
@@ -827,12 +827,12 @@ bool __fastcall Unknown_0065c7d0(char const *name)
     unknown_object_a3dc70.Unknown_005B4C60(unknown_int_839630 + 3, unknown_int_839634, 6, 0x62, 0xE, -1, -1, 0, 0x14, 0x62, unknown_int_839638 - 6);
     Fill_In_Data_0065cdd0();
     if (unknown_game_mode_a3d298 == 3 || unknown_game_mode_a3d298 == 4) {
-        unknown_session_a3d298.Loading_Progress_00672160(99);
+        unknown_session_a3d298.Update_Progress(99);
         if (unknown_game_mode_a3d298 == 4 && unknown_flag_a3fba8) {
             unknown_OwnerTalkClass_00ab6d18.Wait_For_Router_Shutdown(15000, true);
         }
     }
-    unknown_session_a3d298.Loading_Progress_00672160(unknown_id_source_a3d290->unknown_223b ? 200 : 100);
+    unknown_session_a3d298.Update_Progress(unknown_id_source_a3d290->unknown_223b ? 200 : 100);
     unknown_session_a3d298.unknown_639 = false;
     unknown_session_a3d298.unknown_63a = false;
     ok = Wait_For_Players_0065c520();
@@ -844,12 +844,12 @@ bool __fastcall Unknown_0065c7d0(char const *name)
         Service_Game_IO_00481fb0();
         while (ProgressScreen.Average_Progress() < 1.0) {
             for (int index = 0; index < unknown_players_a3fa7c.Count(); index++) {
-                ProgressScreen.Set_Progress_006201c0(index, 100.0, Point2D(-1, -1));
+                ProgressScreen.Set_Progress_Percent(index, 100.0, Point2D(-1, -1));
             }
         }
     }
     unknown_id_source_a3d290->unknown_22fc = false;
-    ProgressScreen.Clear_unknown_60();
+    ProgressScreen.End();
     if (loader != 0) {
         ProgressScreen.Set_Listener(0);
         loader->Unknown_00536E20();
@@ -1553,7 +1553,7 @@ void __fastcall Unknown_0065e8c0(bool official)
         }
         unknown_a40774 = saved;
     }
-    unknown_session_a3d298.Loading_Progress_00672160(93);
+    unknown_session_a3d298.Update_Progress(93);
     Service_Game_IO_00481fb0();
     if (unknown_flag_a3d2c1) {
         int crates = Rules->CrateMinimum > unknown_session_a3d55c ? Rules->CrateMinimum : unknown_session_a3d55c;
@@ -1690,18 +1690,18 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
     }
 
     Unknown_00535910()->Unknown_00535BF0();
-    unknown_session_a3d298.Loading_Progress_00672160(3);
+    unknown_session_a3d298.Update_Progress(3);
     Swizzler.Reset();
     delete unknown_tactical_83996c;
     unknown_tactical_83996c = new Tactical;
     unknown_tactical_83996c->Set_View_Dimensions_006a65a0(unknown_rect_839630);
     unknown_id_source_a3d290->Theater = ini.Get_TheaterType("Map", "Theater", (TheaterType)0);
     Init_Theater_00519e70(unknown_id_source_a3d290->Theater);
-    unknown_session_a3d298.Loading_Progress_00672160(30);
+    unknown_session_a3d298.Update_Progress(30);
     Rules->Advanced_Command_Bar(unknown_ini_839860, unknown_game_mode_a3d298 != 0 && unknown_game_mode_a3d298 != 5);
-    unknown_session_a3d298.Loading_Progress_00672160(31);
+    unknown_session_a3d298.Update_Progress(31);
     Rules->Process(*unknown_ini_8396d0);
-    unknown_session_a3d298.Loading_Progress_00672160(35);
+    unknown_session_a3d298.Update_Progress(35);
     Service_Game_IO_00481fb0();
 
     ScenarioClass *scenario = unknown_id_source_a3d290;
@@ -1714,7 +1714,7 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
     }
     Service_Game_IO_00481fb0();
     Rules->Addition(ini);
-    unknown_session_a3d298.Loading_Progress_00672160(45);
+    unknown_session_a3d298.Update_Progress(45);
 
     unknown_a40770 = 0;
     scenario = unknown_id_source_a3d290;
@@ -1752,12 +1752,12 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
             return false;
         }
     }
-    unknown_session_a3d298.Loading_Progress_00672160(50);
+    unknown_session_a3d298.Update_Progress(50);
     if (!unknown_id_source_a3d290->Read_Basic(ini)) {
         unknown_a40774--;
         return false;
     }
-    unknown_session_a3d298.Loading_Progress_00672160(58);
+    unknown_session_a3d298.Update_Progress(58);
     if (unknown_game_mode_a3d298 == 0) {
         char player[32];
         ini.Get_String("Basic", "Player", "Americans", player, sizeof(player));
@@ -1795,13 +1795,13 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
     AITriggerTypeClass::Read_Scenario_INI(unknown_ini_8397a0, 1);
     AITriggerTypeClass::Read_Scenario_INI(ini, 0);
     Unknown_006c0220();
-    unknown_session_a3d298.Loading_Progress_00672160(60);
+    unknown_session_a3d298.Update_Progress(60);
     Map.Read_INI_0049CFD0(ini);
     Service_Game_IO_00481fb0();
     TubeClass::Read_INI(ini);
     BuildingTypeClass::unknown_func_45ebd0();
     Map.Flag_To_Redraw(2);
-    unknown_session_a3d298.Loading_Progress_00672160(70);
+    unknown_session_a3d298.Update_Progress(70);
     Service_Game_IO_00481fb0();
     OverlayClass::Read_INI(ini);
     Service_Game_IO_00481fb0();
@@ -1815,20 +1815,20 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
     VeinholeMonsterClass::Init_Vein_Growth_System(true);
     Unknown_006e9fe0();
     Unknown_006e9520();
-    unknown_session_a3d298.Loading_Progress_00672160(72);
+    unknown_session_a3d298.Update_Progress(72);
     Map.Compute_Radar_Image();
     UnitClass::Read_INI(ini);
     Service_Game_IO_00481fb0();
-    unknown_session_a3d298.Loading_Progress_00672160(74);
+    unknown_session_a3d298.Update_Progress(74);
     AircraftClass::Read_INI_0041A840(ini);
     Service_Game_IO_00481fb0();
     InfantryClass::Read_INI(ini);
     Service_Game_IO_00481fb0();
-    unknown_session_a3d298.Loading_Progress_00672160(76);
+    unknown_session_a3d298.Update_Progress(76);
     unknown_7df630 = false;
     BuildingClass::Read_INI(ini);
     Service_Game_IO_00481fb0();
-    unknown_session_a3d298.Loading_Progress_00672160(78);
+    unknown_session_a3d298.Update_Progress(78);
     unknown_7df630 = true;
     Service_Game_IO_00481fb0();
     SmudgeClass::Read_INI(ini);
@@ -1841,20 +1841,20 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
             Rules->Addition(mission);
         }
     }
-    unknown_session_a3d298.Loading_Progress_00672160(82);
+    unknown_session_a3d298.Update_Progress(82);
     Service_Game_IO_00481fb0();
     Map.Overpass();
-    unknown_session_a3d298.Loading_Progress_00672160(86);
+    unknown_session_a3d298.Update_Progress(86);
     Service_Game_IO_00481fb0();
     unknown_object_84e8d0.Unknown_0042E1A0();
-    unknown_session_a3d298.Loading_Progress_00672160(90);
+    unknown_session_a3d298.Update_Progress(90);
     Service_Game_IO_00481fb0();
     if (unknown_game_mode_a3d298 != 0 && !official) {
         Unknown_0065e8c0(ini.Get_Bool("Basic", "Official", false));
     }
     Service_Game_IO_00481fb0();
     Swizzler.Reset();
-    unknown_session_a3d298.Loading_Progress_00672160(96);
+    unknown_session_a3d298.Update_Progress(96);
     Service_Game_IO_00481fb0();
     Unknown_006ecf10();
     if (unknown_game_mode_a3d298 != 0) {
@@ -1865,7 +1865,7 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
     unknown_a40774 = 0;
     BuildingClass::unknown_44df40();
     unknown_a40774 = init;
-    unknown_session_a3d298.Loading_Progress_00672160(98);
+    unknown_session_a3d298.Update_Progress(98);
     Service_Game_IO_00481fb0();
     Map.Clear_Redraw_Cells();
     if (unknown_id_source_a3d290->unknown_000 & 0x1000) {
@@ -2713,7 +2713,7 @@ bool ScenarioClass::Read_Basic(CCINIClass &ini)
     IonGround = ini.Get_Double("Lighting", "IonGround", AmbientGround / 1000) * 1000.0;
     IonLevel = ini.Get_Double("Lighting", "IonLevel", AmbientLevel / 1000) * 1000.0;
     NukeAmbientChangeRate = ini.Get_Double("Lighting", "NukeAmbientChangeRate", NukeAmbientChangeRate);
-    unknown_session_a3d298.Loading_Progress_00672160(55);
+    unknown_session_a3d298.Update_Progress(55);
     Service_Game_IO_00481fb0();
 
     if (unknown_game_mode_a3d298 == 0) {
@@ -2731,12 +2731,12 @@ bool ScenarioClass::Read_Basic(CCINIClass &ini)
     unknown_player_a35db4->unknown_134 = true;
     unknown_player_a35db4->unknown_135 = true;
     unknown_player_a35db4->unknown_55e4 = 0;
-    unknown_session_a3d298.Loading_Progress_00672160(58);
+    unknown_session_a3d298.Update_Progress(58);
     Service_Game_IO_00481fb0();
     if (Debug_Map) {
         Reset_Light_Converts_00529720();
     }
-    unknown_session_a3d298.Loading_Progress_00672160(60);
+    unknown_session_a3d298.Update_Progress(60);
     Service_Game_IO_00481fb0();
     return true;
 }

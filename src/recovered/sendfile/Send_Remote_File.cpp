@@ -118,10 +118,10 @@ bool __fastcall Send_Remote_File_0066bb20(char const *file_name, int gametype, b
     if (progress) {
         ProgressScreen.Init(100.0, 1, 0);
         ProgressScreen.Load_Shape("PROGBARM.SHP", 0, 0);
-        ProgressScreen.Unknown_0061EFA0(Point2D(-1, -1), StringTable::Load_String("GUI:MapTransfer", 0, "D:\\Ra2\\SendFile.CPP", 659), false, true);
+        ProgressScreen.Set_Layout(Point2D(-1, -1), StringTable::Load_String("GUI:MapTransfer", 0, "D:\\Ra2\\SendFile.CPP", 659), false, true);
         unknown_5159b0(0, true);
         ProgressScreen.Draw_It(Point2D(-1, -1));
-        ProgressScreen.Set_Progress_006201c0(0, 0.0, Point2D(-1, -1));
+        ProgressScreen.Set_Progress_Percent(0, 0.0, Point2D(-1, -1));
     }
     if (unknown_session_a3d298.Type == 4) {
         unknown_ipx_manager_a40978.unknown_slot16();
@@ -150,13 +150,13 @@ bool __fastcall Send_Remote_File_0066bb20(char const *file_name, int gametype, b
                     block_number++;
                     percent += 100;
                     if (progress) {
-                        ProgressScreen.Set_Progress_006201c0(0, percent / total_blocks, Point2D(-1, -1));
+                        ProgressScreen.Set_Progress_Percent(0, percent / total_blocks, Point2D(-1, -1));
                     }
                 }
             } else if (serial_manager_00a40a28.Num_Send() == 0) {
                 return_code = true;
                 if (progress) {
-                    ProgressScreen.Set_Progress_006201c0(0, 100.0, Point2D(-1, -1));
+                    ProgressScreen.Set_Progress_Percent(0, 100.0, Point2D(-1, -1));
                 }
                 break;
             }
@@ -196,7 +196,7 @@ bool __fastcall Send_Remote_File_0066bb20(char const *file_name, int gametype, b
                     block_number++;
                     percent += 100;
                     if (progress) {
-                        ProgressScreen.Set_Progress_006201c0(0, percent / total_blocks, Point2D(-1, -1));
+                        ProgressScreen.Set_Progress_Percent(0, percent / total_blocks, Point2D(-1, -1));
                     }
                 }
             } else if (unknown_ipx_manager_a40978.Global_Num_Send() == 0) {
@@ -204,7 +204,7 @@ bool __fastcall Send_Remote_File_0066bb20(char const *file_name, int gametype, b
                     Debug_Printf("We sent the file properly with %d seconds left!\n", (long)response_timer);
                     return_code = true;
                     if (progress) {
-                        ProgressScreen.Set_Progress_006201c0(0, 100.0, Point2D(-1, -1));
+                        ProgressScreen.Set_Progress_Percent(0, 100.0, Point2D(-1, -1));
                     }
                     break;
                 }

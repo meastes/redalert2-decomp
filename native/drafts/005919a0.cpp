@@ -84,7 +84,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
         if (unknown_18 != unknown_geometry_l) {
             if (LinkedTo->Path[0] == -1) {
                 if (LinkedTo->unknown_530 != 0) {
-                    LinkedTo->unknown_slot307();
+                    LinkedTo->Stop_Movement_Animation();
                     return;
                 }
                 LinkedTo->unknown_530 = Rules->unknown_13c8 * 900.0;
@@ -167,7 +167,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
             }
             int can_enter = LinkedTo->Can_Enter_Cell(&Map[what], dir, LinkedTo->Unknown_005D47D0(), 0, true);
             if (((can_enter != 5 && can_enter != 4) || !LinkedTo->Techno_Type_Class()->Crusher || what_cell->OverlayIndex != 0) && can_enter != 0) {
-                LinkedTo->unknown_slot307();
+                LinkedTo->Stop_Movement_Animation();
                 if (can_enter == 6) {
                     CellClass *cellptr = &Map[what];
                     if (continue_moving) {
@@ -215,10 +215,10 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                             if (!LinkedTo->unknown_slot171(unknown_18)) {
                                 LinkedTo->Assign_Destination(0, 1);
                             } else {
-                                LinkedTo->unknown_slot288();
+                                LinkedTo->On_Movement_Blocked();
                             }
                         } else {
-                            LinkedTo->unknown_slot289();
+                            LinkedTo->JumpJet_To_Walk();
                         }
                         return;
                     }

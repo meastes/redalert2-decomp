@@ -10,7 +10,7 @@ class CellClass;
 struct UnknownMapGenerationCell;
 class MapRegionClass {
 public:
-    bool Is_Bridge_Allowed_00571bc0(Rect const &area) const;
+    bool Is_Bridge_Allowed(Rect const &area) const;
     bool Is_Rectangle_Clear_00575910(Rect const &area,int allowedRegion);
     static void Destroy_Cell_Regions();
     static UnknownMapGenerationCell &Get_Cell_Data(int index);
@@ -19,7 +19,7 @@ public:
     bool Split_Region_0056ef20();
     void Place_Neutral_Tech_Building_00576cd0();
     static bool Make_Regions_00570810();
-    static MapRegionClass *__fastcall Create_Region_From_Cell_0056e100(CellClass *cell);
+    static MapRegionClass *__fastcall Create_Region_From_Cell(CellClass *cell);
     static Cell __fastcall Pick_Random_Map_Cell_0056d720();
     static Cell __fastcall Pick_Random_Clear_Map_Cell_0056d7a0();
     MapRegionClass(Cell origin); //0056D870 by-value packed Cell, nominal constructor hypothesis
@@ -28,11 +28,11 @@ public:
     Cell Pick_Random_Region_Cell_0056dc20();
     Cell Pick_Random_Marked_Cell_0056dda0();
     static void __fastcall Set_Unassigned_Regions_0056e910(bool flag);
-    static void Make_Remaining_Regions_0056e890();
+    static void Create_Water_Regions();
     void Reassign_Cells_0056ea20(int region, int value);
     Cell Pick_Random_Clear_Region_Cell_0056dcb0();
     static void Clear_Cell_Marks_0056dfc0();
-    static Cell __fastcall Pick_Random_Zone_Cell_0056dea0(int zone, int region);
+    static Cell __fastcall Pick_Random_Clear_Cell_In_Zone(int zone, int region);
     void Make_Region_Connections_00571ed0();
     bool Connect_Regions_With_Bridge_00570bc0(MapRegionClass *first,MapRegionClass *second); // ECXowner/RET8; result hypothesis
     bool Connect_Regions_With_Ramp_00572270(Cell const &cell,int region,float density); // ECXowner/RET12/AL
@@ -50,7 +50,7 @@ public:
     ~MapRegionClass(); // original0056D970 nondeleting destruction; nominal source ownership hypothesis
     bool Grow_Border_00570040(int steps); // physical AL0/1, RET4; name/bool intent hypotheses
     DynamicVectorClass<Cell> *Select_Separated_Cells_00576810(DynamicVectorClass<Cell> const &candidates); //operation/reference/constness hypotheses; EAXptr/RET4
-    bool Place_Neutral_Building_00571db0(Rect const &area); // hypothesis name; caller establishes MapRegion receiver, RET4
+    bool Place_Bridge_Hut(Rect const &area); // hypothesis name; caller establishes MapRegion receiver, RET4
     void unknown_0056eac0(int count,int mark);
     void Update_Cell_Marks_005707a0();
     DynamicVectorClass< ::Cell > *Collect_Boundary_Cells_0056ed10();

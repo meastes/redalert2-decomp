@@ -1522,7 +1522,7 @@ bool MultiMission::Unknown_006720E0(Wstring &mode)
 // Reports the local loading progress: the progress screen's own bar (half of it while unknown_223b is set), then,
 // with other players, a 0x0F global packet (IPX; guaranteed to each player once at 99.95%) or a 0x6C serial packet,
 // waiting up to 240 ticks while more than five packets are queued.
-void SessionClass::Loading_Progress_00672160(int percent)
+void SessionClass::Update_Progress(int percent)
 {
     if (Debug_Map) {
         return;
@@ -1532,7 +1532,7 @@ void SessionClass::Loading_Progress_00672160(int percent)
         progress = progress / 2;
     }
     if (ProgressScreen.Get_Progress(0) * 100.0 < progress) {
-        ProgressScreen.Set_Progress_006201c0(0, progress, Point2D(-1, -1));
+        ProgressScreen.Set_Progress_Percent(0, progress, Point2D(-1, -1));
     }
     if (Players.Count() == 1) {
         return;

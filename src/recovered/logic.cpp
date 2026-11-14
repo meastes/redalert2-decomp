@@ -170,14 +170,14 @@ void LogicClass::AI()
 
     if (Rules->ShroudGrow && Rules->ShroudRate != 0 && unknown_id_source_a3d290->unknown_7f8 == 0) {
         unknown_id_source_a3d290->unknown_7f8 = 900 * Rules->ShroudRate;
-        Map.Unknown_0049CC20();
+        Map.Encroach_Shadow();
     }
     if (Frame % 120 == 0) {
         Map.Unknown_0055A300();
     }
     if (((SpecialClass *)unknown_id_source_a3d290)->FogOfWar && Rules->FogRate != 0 && unknown_id_source_a3d290->unknown_804 == 0) {
         unknown_id_source_a3d290->unknown_804 = 900 * Rules->FogRate;
-        Map.Unknown_0049CD20();
+        Map.Encroach_Fog();
     }
 
     if (unknown_id_source_a3d290->unknown_22b0 != unknown_id_source_a3d290->unknown_22ac && Rules->AmbientChangeRate != 0 && unknown_id_source_a3d290->unknown_828 == 0) {
@@ -262,13 +262,13 @@ void LogicClass::Environment_AI()
     if (Rules->ShroudGrow && Rules->ShroudRate != 0) {
         if (unknown_id_source_a3d290->unknown_7f8 == 0) {
             unknown_id_source_a3d290->unknown_7f8 = 900 * Rules->ShroudRate;
-            Map.Unknown_0049CC20();
+            Map.Encroach_Shadow();
         }
     }
     if (((SpecialClass *)unknown_id_source_a3d290)->FogOfWar && Rules->FogRate != 0) {
         if (unknown_id_source_a3d290->unknown_804 == 0) {
             unknown_id_source_a3d290->unknown_804 = 900 * Rules->FogRate;
-            Map.Unknown_0049CD20();
+            Map.Encroach_Fog();
         }
     }
     for (int index = 0; index < Count(); index++) {

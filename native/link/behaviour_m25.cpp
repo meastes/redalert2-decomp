@@ -68,8 +68,8 @@ void RadarClass::Unknown_00634670(int arg1, int index, HouseClass *house)
     SendMessageA(name, 0x498, 0, color);
     SendMessageA(name, 0x4B2, 0, (LPARAM)text);
     HWND flag = GetDlgItem(dialog, unknown_player_control_4d0ee0(index));
-    Surface *image = Country_Flag_004d1120(house->Type->ArrayIndex);
-    if (house == unknown_house_a72d28) image = Country_Flag_004d1120(-3);
+    Surface *image = Country_Flag(house->Type->ArrayIndex);
+    if (house == unknown_house_a72d28) image = Country_Flag(-3);
     OwnerDraw::unknown_5e1f30(flag, image);
     HWND ally = GetDlgItem(dialog, ally_ids[index]);
     if (unknown_int_a3d548) EnableWindow(ally, FALSE);

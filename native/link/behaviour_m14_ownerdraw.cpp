@@ -405,7 +405,7 @@ LRESULT __stdcall unknown_static_proc_5f2b50(HWND window, UINT message, WPARAM w
                     Rect at = to;
                     if (width < to.Width) { at.X = to.X + (to.Width - width) / 2; at.Width = width; }
                     if (height < to.Height) { at.Y = to.Y + (to.Height - height) / 2; at.Height = height; }
-                    unknown_bitmap_writer_a76378.Draw_0068ce80(at, unknown_surface_839958, image, unknown_5fda40(0xFF00FF));
+                    unknown_bitmap_writer_a76378.DrawTrans(at, unknown_surface_839958, image, unknown_5fda40(0xFF00FF));
                 }
             } else if (record->unknown_78) {
                 ShapeFileStruct const *shape = (ShapeFileStruct const *)record->unknown_78;

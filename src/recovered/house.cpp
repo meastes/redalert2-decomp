@@ -2164,12 +2164,12 @@ bool HouseClass::unknown_func_4e7580(AbstractClass *object, bool arg2)
 }
 
 
-// bool HouseClass::unknown_4e76a0(Cell const &cell, bool arg2) (0x004E76A0)
+// bool HouseClass::Flag_Attach(Cell const &cell, bool arg2) (0x004E76A0)
 // Keeps the cell as the house's held object (+0x5308): releases the old one
 // (0x004E7580), then marks the cell, or the nearest cell that takes the
 // house, and stores that cell; false when none does.
 
-bool HouseClass::unknown_4e76a0(Cell const &cell, bool arg2)
+bool HouseClass::Flag_Attach(Cell const &cell, bool arg2)
 {
     if (Map.In_Radar(cell)) {
         unknown_func_4e7580(unknown_5308, arg2);

@@ -288,7 +288,7 @@ FootClass * __fastcall _Create_Group(TeamTypeClass *teamtype)
 
                 if (team != 0) {
                     unknown_a40774++;
-                    team->unknown_func_6b8cc0(temp);
+                    team->Add(temp);
                     unknown_a40774--;
                     temp->unknown_579 = true;
                 }

@@ -195,7 +195,7 @@ UnitClass::~UnitClass()
             House->unknown_144 = true;
         }
         if (Team != 0) {
-            Team->Unknown_006B8FB0(this, -1, 0);
+            Team->Remove(this, -1, 0);
             Team = 0;
         }
         House->unknown_4ea800(this);
@@ -209,7 +209,7 @@ UnitClass::~UnitClass()
         }
         if (FootClass::Limbo() && unknown_5b4 != -1) {
             ObjectClass *object = this;   // (the call below stays virtual, as in the original)
-            Houses[unknown_5b4]->unknown_4e76a0(object->unknown_slot104(), 0);
+            Houses[unknown_5b4]->Flag_Attach(object->unknown_slot104(), 0);
             unknown_5b4 = -1;
         }
     }
@@ -254,7 +254,7 @@ void UnitClass::AI()
     }
     if (unknown_5c0 != -1) {
         if (unknown_5c0++ >= Type->MaxDeathCounter) {
-            unknown_6fd3a0();
+            Explode();
             Mark(0);
             Delete_Me();
             return;
@@ -280,7 +280,7 @@ void UnitClass::AI()
     }
     if (unknown_slot122()) Commence();
     FootClass::AI();
-    if (Type->CanDisguise && !Type->PermaDisguise) Unknown_00709EC0();
+    if (Type->CanDisguise && !Type->PermaDisguise) UpdateDisguise();
     if (unknown_325) {
         CoordStruct position = Coord;
         CoordStruct lowered(position.X, position.Y, position.Z - 5);
@@ -398,7 +398,7 @@ void UnitClass::unknown_6fb890()
 
 
 // Checks mission 5 and the coordinate test before notifying the team and slots210/60.
-bool UnitClass::unknown_6fbab0()
+bool UnitClass::Edge_Of_World_AI()
 {
     if (Get_Mission() == 5) {
         CoordStruct position = Coord;
@@ -915,7 +915,7 @@ int UnitClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhead,
                         goto remove_passengers;
                     }
                 }
-                unknown_6fd3a0();
+                Explode();
             }
         }
 remove_passengers:
@@ -935,7 +935,7 @@ remove_passengers:
                     if (passenger->Unlimbo(&animation_position, facing)) {
                         passenger->Scatter(unknown_geometry_l, true, false);
                         if (!House->Unknown_004F52F0()) {
-                            if (Team) Team->unknown_func_6b8cc0(passenger);
+                            if (Team) Team->Add(passenger);
                             else passenger->QueueMission(15, false);
                         }
                         if (restore_selection) passenger->unknown_slot80();
@@ -1025,7 +1025,7 @@ drop_crate:
 // The original passes a shake magnitude in ECX to this disabled engine hook.
 void __fastcall Unit_Unknown_Shake_00482e00(int magnitude);
 
-void UnitClass::unknown_6fd3a0()
+void UnitClass::Explode()
 {
     if (Type->Explosion.Count()>0) {
         AnimTypeClass *animation=Type->Explosion.Pick(unknown_id_source_a3d290->Random());
@@ -2022,9 +2022,9 @@ plain:
             }
         }
         if (Get_Height_AGL()>0) {
-            unknown_4c9a40(type->unknown_b0,type->ShadowIndex,key,&type->unknown_23c,window,shadow_drawpoint,Unit_Isometric_View_00717f90()*main_matrix,true,cache_key,Locomotor.Checked()->Shadow_Point().X,Locomotor.Checked()->Shadow_Point().Y+1);
+            Draw_Voxel_Shadow(type->unknown_b0,type->ShadowIndex,key,&type->unknown_23c,window,shadow_drawpoint,Unit_Isometric_View_00717f90()*main_matrix,true,cache_key,Locomotor.Checked()->Shadow_Point().X,Locomotor.Checked()->Shadow_Point().Y+1);
         } else {
-            unknown_4c9a40(type->unknown_b0,type->ShadowIndex,key,&type->unknown_23c,window,shadow_drawpoint,Unit_Isometric_View_00717f90()*main_matrix,true,cache_key,Locomotor.Checked()->Shadow_Point().X,Locomotor.Checked()->Shadow_Point().Y);
+            Draw_Voxel_Shadow(type->unknown_b0,type->ShadowIndex,key,&type->unknown_23c,window,shadow_drawpoint,Unit_Isometric_View_00717f90()*main_matrix,true,cache_key,Locomotor.Checked()->Shadow_Point().X,Locomotor.Checked()->Shadow_Point().Y);
         }
     }
     composite_surface->Fill_Rect(dirtyrect,0);
@@ -2256,7 +2256,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                             passenger->QueueMission(2,false);
                             if (prefer_far) passenger->Assign_Destination(&Map[far_cell],true);
                             else passenger->Assign_Destination(&Map[near_cell],true);
-                            if (Team) Team->unknown_func_6b8cc0(passenger);
+                            if (Team) Team->Add(passenger);
                         }
                         break;
                     }
@@ -2311,7 +2311,7 @@ int UnitClass::Do_MISSION_UNLOAD()
     if (!HasAnyLink()) {
         unknown_slot261(false,true);
         unknown_5b9=false;
-        if (Locomotor.Checked()->Is_Moving()) unknown_slot291();
+        if (Locomotor.Checked()->Is_Moving()) Stop_Driver();
         if (unknown_slot122()) Commence();
         return 1;
     }
@@ -2335,7 +2335,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                 if (Type->Weeder) {
                     unknown_5b9=false;
                     if (unknown_494 && MissionQueue!=-1 && MissionQueue!=10) {
-                        if (Locomotor.Checked()->Is_Moving()) unknown_slot291();
+                        if (Locomotor.Checked()->Is_Moving()) Stop_Driver();
                         if (unknown_slot122()) Commence();
                     } else {
                         QueueMission(10,false);
@@ -2348,7 +2348,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                     if (active) return 1;
                     unknown_5b9=false;
                     if (unknown_494 && MissionQueue!=-1 && MissionQueue!=10) {
-                        if (Locomotor.Checked()->Is_Moving()) unknown_slot291();
+                        if (Locomotor.Checked()->Is_Moving()) Stop_Driver();
                         if (unknown_slot122()) Commence();
                     } else {
                         QueueMission(10,false);
@@ -3296,11 +3296,11 @@ int UnitClass::unknown_slot182(AbstractClass *object, Cell *cell)
 }
 
 
-// bool UnitClass::unknown_7049c0(int arg1) (0x007049C0)
+// bool UnitClass::Flag_Attach(int arg1) (0x007049C0)
 // Records arg1 at +0x5B4 (-1 means none; a house index, see slot 52) when
 // nothing is recorded yet, then calls slot 71 with 2. Answers whether it did.
 
-bool UnitClass::unknown_7049c0(int arg1)
+bool UnitClass::Flag_Attach(int arg1)
 {
     if (arg1 != -1 && unknown_5b4 == -1) {
         unknown_5b4 = arg1;
@@ -3312,7 +3312,7 @@ bool UnitClass::unknown_7049c0(int arg1)
 
 
 // Clears the recorded +0x5B4 value and notifies virtual slot71 when set.
-bool UnitClass::Clear_Unknown5B4_007049F0()
+bool UnitClass::Flag_Remove()
 {
     if (unknown_5b4 != -1) {
         unknown_5b4 = -1;
@@ -3341,21 +3341,21 @@ int UnitClass::unknown_slot166()
 }
 
 
-// void UnitClass::unknown_704a80() (0x00704A80): restarts the timed change at
+// void UnitClass::APC_Close_Door() (0x00704A80): restarts the timed change at
 // +0x2A8 over the type's DeployTime. No call sites: AI 0x006FB100 and slot 95
 // 0x006FC1F0 expand the same statement inline.
 
-void UnitClass::unknown_704a80()
+void UnitClass::APC_Close_Door()
 {
     unknown_2a8.Count_Down(Type->DeployTime);
 }
 
 
-// void UnitClass::unknown_704aa0() (0x00704AA0)
+// void UnitClass::APC_Open_Door() (0x00704AA0)
 // A standing unit (locomotor not moving, +0x599 clear) restarts its timer at
 // +0x2A8 with the type's DeployTime (0x00496B70).
 
-void UnitClass::unknown_704aa0()
+void UnitClass::APC_Open_Door()
 {
     if (!Locomotor.Checked()->Is_Moving() && !unknown_599) {
         unknown_2a8.Count_Up(Type->DeployTime);
@@ -4433,7 +4433,7 @@ bool UnitClass::Limbo()
 {
     if (FootClass::Limbo()) {
         if (unknown_5b4 != -1) {
-            Houses[unknown_5b4]->unknown_4e76a0(unknown_slot104(), 0);
+            Houses[unknown_5b4]->Flag_Attach(unknown_slot104(), 0);
             unknown_5b4 = -1;
         }
         return true;
@@ -4902,7 +4902,7 @@ bool UnitClass::INoticeSink_Unknown(int code, int arg)
     if (Type->Crashable && code == 0x117C) {
         Set_Height_AGL(0);
         if (!Type->BalloonHover) {
-            unknown_6fd3a0();
+            Explode();
         } else {
             unknown_6d7e20(0);
         }
@@ -4944,14 +4944,14 @@ bool UnitClass::unknown_slot31()
 }
 
 
-// void UnitClass::unknown_slot280(int arg1) (0x00709A20, slot 280)
+// void UnitClass::ReceiveGunner(int arg1) (0x00709A20, slot 280)
 // arg1 is a techno whose owned object at +0x208 moves to this unit (the
 // IFV gunner hand-over; hypothesis): selects weapon 7, and when the
 // donor's +0x244 timer was still running restarts this unit's (slot 187
 // with 7, counted at +0x310). Either way the donor type's IFVMode weapon is
 // then selected (the call is outside the guards).
 
-void UnitClass::unknown_slot280(int arg1)
+void UnitClass::ReceiveGunner(int arg1)
 {
     TechnoClass *from = (TechnoClass *)arg1;
     UnknownTechno208 *object = from->unknown_208;
@@ -4973,14 +4973,14 @@ void UnitClass::unknown_slot280(int arg1)
 }
 
 
-// void UnitClass::unknown_slot281(int arg1) (0x00709AE0, slot 281)
+// void UnitClass::RemoveGunner(int arg1) (0x00709AE0, slot 281)
 // The reverse of slot 280: this unit's owned object at +0x208 moves to the
 // techno arg1 (refreshed through 0x006E2500 when its +0x28 is set); when
 // this unit's +0x244 timer was still running the receiver's restarts
 // (slot 187 with 0, counted at +0x310). Either way this unit then selects
 // weapon 0 (the call is outside the guards).
 
-void UnitClass::unknown_slot281(int arg1)
+void UnitClass::RemoveGunner(int arg1)
 {
     TechnoClass *to = (TechnoClass *)arg1;
     if (to && unknown_208) {
@@ -5029,12 +5029,12 @@ HouseClass *UnitClass::unknown_slot51(bool arg1)
 }
 
 
-// void UnitClass::unknown_709c30(ObjectTypeClass *type) (0x00709C30)
+// void UnitClass::Disguise_As_Type(ObjectTypeClass *type) (0x00709C30)
 // Starts a disguise (hypothesis): a given type becomes the shown type (+0x40C)
 // with no house (+0x410), the flag at +0x170 is set, the frame is stamped at
 // +0x174 and slot 266 reacts.
 
-void UnitClass::unknown_709c30(ObjectTypeClass *type)
+void UnitClass::Disguise_As_Type(ObjectTypeClass *type)
 {
     if (type) {
         unknown_40c = type;
@@ -5145,7 +5145,7 @@ static inline int Unit_Infantry_Blink_Disguise_Time()
 {
     return Rules->InfantryBlinkDisguiseTime;
 }
-void UnitClass::Unknown_00709EC0()
+void UnitClass::UpdateDisguise()
 {
     {
         bool can_disguise = false;

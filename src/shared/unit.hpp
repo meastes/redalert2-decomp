@@ -142,8 +142,8 @@ public:
     virtual bool unknown_slot261(bool arg1, bool arg2);                 // slot 261 0x006FD630
     virtual bool unknown_slot274();                                   // slot 274 0x0070A260 (inline in the original: a jump to TechnoClass's copy, which ours inlines)
     virtual bool unknown_slot275();                                   // slot 275 0x0070A270 (as slot 274)
-    virtual void unknown_slot280(int arg1);                           // slot 280 0x00709A20
-    virtual void unknown_slot281(int arg1);                           // slot 281 0x00709AE0
+    virtual void ReceiveGunner(int arg1);                           // slot 280 0x00709A20
+    virtual void RemoveGunner(int arg1);                           // slot 281 0x00709AE0
     virtual bool unknown_slot284();                                   // slot 284 0x006FBBF0
     virtual void Overrun_Square(Cell const &cell, bool threaten);  // slot 302 0x00705160
     virtual void unknown_slot304();                                   // slot 304 0x00705070
@@ -158,20 +158,20 @@ public:
     virtual void unknown_slot312(Surface &surface, Point2D point, Rect window, int depth);  // slot 312 0x006FF3E0 (ret 0x20)
     static void __fastcall Read_INI(CCINIClass &ini);                 // 0x00706AE0 (the [Units] section; hypothesis)
     static void __fastcall Write_INI(CCINIClass &ini);                // 0x00706F60 (the [Units] section; hypothesis)
-    void unknown_709c30(ObjectTypeClass *type);                       // 0x00709C30 (sets the disguise; hypothesis)
-    bool Clear_Unknown5B4_007049F0();                 // 0x007049F0
-    bool unknown_6fbab0();                           // 0x006FBAB0
-    bool unknown_7049c0(int arg1);                                    // 0x007049C0
-    void unknown_704a80();                                            // 0x00704A80 (restarts the +0x2A8 change over the type's DeployTime; AI and slot 95 expand it inline)
-    void unknown_704aa0();                                            // 0x00704AA0
+    void Disguise_As_Type(ObjectTypeClass *type);                       // 0x00709C30 (sets the disguise; hypothesis)
+    bool Flag_Remove();                 // 0x007049F0
+    bool Edge_Of_World_AI();                           // 0x006FBAB0
+    bool Flag_Attach(int arg1);                                    // 0x007049C0
+    void APC_Close_Door();                                            // 0x00704A80 (restarts the +0x2A8 change over the type's DeployTime; AI and slot 95 expand it inline)
+    void APC_Open_Door();                                            // 0x00704AA0
     bool unknown_709790(Cell const *from, Cell const *to);   // 0x00709790 (hypothesis: whether a trip should use the path estimator)
 #ifdef RA2_UNIT_PLAN_ROUTE
     AbstractClass *Plan_Route_00707f60(AbstractClass *target);   // 0x00707F60 (YR UnitClass::Plan_Route 0x007447B0: splits a trip at bridge ends)
 #endif
     bool unknown_707170(TechnoClass *target);                         // 0x00707170 (hypothesis: may crush the target)
     void Unknown_006FAA30(); // 0x006FAA30; observed no-argument ECX call
-    void Unknown_00709EC0(); // 0x00709EC0; observed no-argument ECX call
-    void unknown_6fd3a0();                                            // 0x006FD3A0 (hypothesis: the death explosion)
+    void UpdateDisguise(); // 0x00709EC0; observed no-argument ECX call
+    void Explode();                                            // 0x006FD3A0 (hypothesis: the death explosion)
     void unknown_6fbf40();                                            // 0x006FBF40 (hypothesis: an idle shuffle of an unmoving unit)
     void unknown_6fb890();                                            // 0x006FB890 (hypothesis: turret and body turning toward the target)
     void unknown_6fbc90();                                            // 0x006FBC90 (hypothesis: acts on the answer of slot 218 for the target)

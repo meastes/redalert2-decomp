@@ -211,7 +211,7 @@ public:
     void Unknown_004F6310();                               // 0x004F6310 (UnitClass 0x006FDFC0 after moving the base plan; reads BaseCenter)
     float Unknown_004F5B30();                              // 0x004F5B30 (a float of the owner type, +0x148; UnitClass 0x00707130 scales the load value by it)
     void Unknown_004E5280(int amount);                      // 0x004E5280 (spends credits; TechnoClass slot 95 repair)
-    bool unknown_4e76a0(Cell const &cell, bool arg2);         // 0x004E76A0 (RA's Flag_Attach-like: keeps the cell's object at +0x5308; UnitClass slot 52; hypothesis)
+    bool Flag_Attach(Cell const &cell, bool arg2);         // 0x004E76A0 (RA's Flag_Attach-like: keeps the cell's object at +0x5308; UnitClass slot 52; hypothesis)
     void Unknown_004ED610(TechnoClass *techno, bool arg2);   // 0x004ED610 (TechnoClass slot 53: the object enters the map)
     void Unknown_004ED440(TechnoClass *techno, bool arg2);   // 0x004ED440 (TechnoClass slot 52: the object leaves the map)
     double Unknown_004F5A20(TechnoTypeClass *type);       // 0x004F5A20 (a speed factor for a type; FootClass slot 303)

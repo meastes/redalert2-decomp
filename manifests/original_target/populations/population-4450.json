@@ -4,8 +4,8 @@
     "id": "population-4450",
     "inventory_sha256": "58458191582259603df3f2467e385dcf205b4fcef70179f6a3c731e16a5bfedd",
     "gaps_sha256": "8a8288fa7b477a7cfdc4957c8519a0fefe699e89bb0631bcb6900deb759ca591",
-    "historical_population_sha256": "960a9e0c5439c6965728b15d6b97f99c019f0f82d3c7a84de69a7e997d939ea6",
-    "historical_acceptance_sha256": "60cdc5a26095f7a8cf74cc98ba018f44776ab8210134b1eefc2092547d8ec5aa"
+    "historical_population_sha256": "b400337ceab7cb2309afef76d91b2a3ff59a27d336f7e2d3711e9fcd193c187e",
+    "historical_acceptance_sha256": "3422200aec4c6c987aba9ac7a3b7dc7afa45aaeb495aa7877cfbb765f7aaba8b"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -2907,7 +2907,7 @@
     "__DAT_00ab6478": 11232376,
     "__DAT_00ab9718": 11245336,
     "?CacheBMP_0068c040@SurfaceCacheClass@@QAE_NPBDPAXHH@Z": 6864960,
-    "?Draw_0068ce80@SurfaceCacheClass@@QAE_NABVRect@@PAVSurface@@1H@Z": 6868608,
+    "?DrawTrans@SurfaceCacheClass@@QAE_NABVRect@@PAVSurface@@1H@Z": 6868608,
     "?unknown_ping_images_7f86dc@@3PAPBDA": 8357596,
     "?unknown_flag_images_7f86b0@@3PAPBDA": 8357552,
     "?Remove@GadgetClass@@UAEPAVLinkClass@@XZ": 5042544,
@@ -6978,7 +6978,7 @@
     "_?maximum@?1??Building_Find_Nearby_Radio_Acceptor_00450f90@@YIPAVBuildingClass@@PAVHouseClass@@PAVTechnoClass@@@Z@4HA": 8711404,
     "?Create@Conflict@WorldDominationTour@@SI?AV?$rc_ptr@VConflict@WorldDominationTour@@@@ABV?$rc_ptr@VWDTTerritory@@@@@Z": 7500528,
     "?Create@?$ValueGameOption@E@WorldDominationTour@@SI?AV?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@HP6IHPBVWDTTerritory@@@ZVWstring@@H@Z": 7502864,
-    "?Loading_Progress_00672160@SessionClass@@QAEXH@Z": 6758752,
+    "?Update_Progress@SessionClass@@QAEXH@Z": 6758752,
     "?Reset@SwizzleManagerClass@@UAGJXZ": 6945552,
     "?Unknown_006715D0@SessionClass@@QAEHH@Z": 6755792,
     "?unknown_multi_missions_a3d8d8@@3V?$DynamicVectorClass@PAVMultiMission@@@@A": 10737880,
@@ -9020,7 +9020,7 @@
     "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z": 7390352,
     "?Unlink@SpawnManagerClass@@QAEXPAVAbstractClass@@@Z": 6858080,
     "?Compute_CRC@RadioClass@@UBEXAAVWWCRCEngine@@@Z": 6515696,
-    "?unknown_4e76a0@HouseClass@@QAE_NABVCell@@_N@Z": 5142176,
+    "?Flag_Attach@HouseClass@@QAE_NABVCell@@_N@Z": 5142176,
     "??0EventClass@@QAE@HE@Z": 4939728,
     "?Unknown_0062E670@@YG_NVEventClass@@@Z": 6481520,
     "??0EventClass@@QAE@HHVTargetClass@@0@Z": 4939920,

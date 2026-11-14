@@ -144,7 +144,7 @@ void GameControlsDialog::Apply_Settings()
         int detail = SendMessageA(control, 0x400, 0, 0);
         if (Options.DetailLevel != detail) {
             Options.DetailLevel = detail;
-            Map.Unknown_0049E570();
+            Map.Reinit_Cell_Drawers();
         }
     }
     control = GetDlgItem(Window, 0x601);

@@ -154,7 +154,7 @@ void __fastcall Unknown_005bbdd0(bool full)
                 wchar_t country_name[128];
                 swprintf(info,L"%s",unknown_players_a3fa7c[player]);
                 int country=unknown_players_a3fa7c[player]->unknown_66e290();
-                Surface *flag=Country_Flag_004d1120(country);
+                Surface *flag=Country_Flag(country);
                 switch(country) {
                 case 0: swprintf(country_name,L"%s",StringTable::Load_String("TXT_GDI",0,"D:\\Ra2\\netdlg2.cpp",383)); break;
                 case 1: swprintf(country_name,L"%s",StringTable::Load_String("TXT_GDI",0,"D:\\Ra2\\netdlg2.cpp",386)); break;

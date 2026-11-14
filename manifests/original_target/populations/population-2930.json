@@ -4,8 +4,8 @@
     "id": "population-2930",
     "inventory_sha256": "7dfe89dbb948e0c622af0adbb588c03f76fecf8bd0a3e42a6b29941ab396c24d",
     "gaps_sha256": "91c631d866f95b939d8d24bf48f884c386ee7ab760d6ff390b942a5688445205",
-    "historical_population_sha256": "4ce5e114f214945d52fdb67acad9aa6aea92b545b4788beee73bbc527a724187",
-    "historical_acceptance_sha256": "16428216a8d93e794c5672f277763771ecad8bbe8edd46169ed5fa92b6eb7bf0"
+    "historical_population_sha256": "0f8c34be232fbd385a759422e18fed9b517e066389a44dbeb3b640baf3e5124f",
+    "historical_acceptance_sha256": "ce938cd1d66f07b5479485924c137d1a098306213150f85aa22659e01f52db6a"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -963,7 +963,7 @@
     "?ID@?$VectorClass@PAVPlanningTokenClass@@@@UAEHPBQAVPlanningTokenClass@@@Z": 6404208,
     "?ID@?$DynamicVectorClass@PAVPlanningTokenClass@@@@UAEHABQAVPlanningTokenClass@@@Z": 6404576,
     "?Unknown_Load_Shape_00495270@@YIPBXPBDAA_N@Z": 4805232,
-    "?Clear_unknown_60@ProgressScreenClass@@QAEXXZ": 6417904,
+    "?End@ProgressScreenClass@@QAEXXZ": 6417904,
     "?Set_Side@ProgressScreenClass@@QAEXH@Z": 6417968,
     "?Get_Side@ProgressScreenClass@@QAEHXZ": 6417984,
     "?Set_Name_Width@ProgressScreenClass@@QAEXH@Z": 6418768,
@@ -2485,7 +2485,7 @@
     "?unknown_ini_format_a40d24@@3HA": 10751268,
     "?ID@?$DynamicVectorClass@PBVTechnoTypeClass@@@@UAEHPBQBVTechnoTypeClass@@@Z": 4956304,
     "?ProgressScreen@@3VProgressScreenClass@@A": 10971624,
-    "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z": 6422976,
+    "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z": 6422976,
     "?Service_Game_IO_00481fb0@@YIXXZ": 4726704,
     "?As_String@IPXAddressClass@@QAEPADPBV1@@Z": 5388352,
     "?x@?1???A?$IndexClass@HPAVCommandClass@@@@QBEABQAVCommandClass@@ABH@Z@4PAV2@A": 11712060,
@@ -2729,7 +2729,7 @@
     "?Read_Variables@ScenarioClass@@QAE_NAAVCCINIClass@@@Z": 6690672,
     "?Write_Variables@ScenarioClass@@QAE_NAAVCCINIClass@@@Z": 6690992,
     "?Read_Basic@ScenarioClass@@QAE_NAAVCCINIClass@@@Z": 6691200,
-    "?Loading_Progress_00672160@SessionClass@@QAEXH@Z": 6758752,
+    "?Update_Progress@SessionClass@@QAEXH@Z": 6758752,
     "?Assign_Houses_0065fbb0@@YIXXZ": 6683568,
     "?Load@LightSourceClass@@UAGJPAUIStream@@@Z": 5471136,
     "??_GTActionClass@@UAEPAXI@Z": 7024848,
@@ -2882,7 +2882,7 @@
     "??0ProgressScreenClass@@QAE@XZ": 6417664,
     "?Shape_Size@ProgressScreenClass@@QAEXPAH0@Z": 6418784,
     "?Flag_Size@ProgressScreenClass@@QAEXPAH0@Z": 6418896,
-    "?Country_Flag_004d1120@@YIPAVSurface@@H@Z": 5050656,
+    "?Country_Flag@@YIPAVSurface@@H@Z": 5050656,
     "?Text_Size@ProgressScreenClass@@SIXPAH0@Z": 6418960,
     "?Box_Size@ProgressScreenClass@@QAEXPAH0H_N@Z": 6419072,
     "?Row_Y@ProgressScreenClass@@QAEHHH_N@Z": 6419376,
@@ -2984,7 +2984,7 @@
     "?Unknown_005359E0@Unknown535910@@QAEXXZ": 5462496,
     "?Unknown_00535B90@Unknown535910@@QAEXXZ": 5462928,
     "?Unknown_00535AB0@Unknown535910@@QAE?AUPoint2D@@XZ": 5462704,
-    "?Unknown_0061EFA0@ProgressScreenClass@@QAEXUPoint2D@@PBG_N2@Z": 6418336,
+    "?Set_Layout@ProgressScreenClass@@QAEXUPoint2D@@PBG_N2@Z": 6418336,
     "?Unknown_00535B60@Unknown535910@@QAEHXZ": 5462880,
     "?Fill_In_Data_0065cdd0@@YIXXZ": 6671824,
     "?Wait_For_Players_0065c520@@YI_NXZ": 6669600,
@@ -5771,7 +5771,13 @@
     "??_EDropPodLocomotionClass@@UAEPAXI@Z": 4875888,
     "??_EWaveClass@@UAEPAXI@Z": 7489024,
     "??_EBitTextClass@@UAEPAXI@Z": 4402464,
-    "??_EConvertClass@@UAEPAXI@Z": 4743456
+    "??_EConvertClass@@UAEPAXI@Z": 4743456,
+    "?End@FilePipe@@UAEHXZ": 7813056,
+    "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
+    "?Compute_Y@MessageListClass@@QAEXXZ": 5987712,
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "?End@Benchmark@@QAEXXZ": 4387136,
+    "?End@Pipe@@": 4639616
   },
   "regions": [
     {
@@ -5810,7 +5816,7 @@
         {
           "offset": 29,
           "kind": 20,
-          "symbol": "?Loading_Progress_00672160@SessionClass@@QAEXH@Z",
+          "symbol": "?Update_Progress@SessionClass@@QAEXH@Z",
           "target": 6758752,
           "addend": 0,
           "resolved": 1008367
@@ -5826,13 +5832,13 @@
         {
           "offset": 62,
           "kind": 20,
-          "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+          "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
           "target": 6422976,
           "addend": 0,
           "resolved": 672558
         }
       ],
-      "source_sha256": "75691efbb9904bacbd55fc9e7c4fa68d60b3f8940c2165177639ab60a9e4381c",
+      "source_sha256": "b328052e3c8cd1239b3d59df6727f899d9ddeee1a2be6c8b4fc4a5bde2b955ee",
       "source": "src/recovered/mapgen/Report_Generation_Progress.cpp",
       "population": "population-2930",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",

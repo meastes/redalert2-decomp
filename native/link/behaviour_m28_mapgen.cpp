@@ -120,7 +120,7 @@ int MapGeneratorClass::unknown_0057d3a0(int count, Rect const &area, Point2D con
             UnknownMapGenerationCell &data = Cell_Data_m28(next);
             if (data.RegionIndex != 0 || data.unknown_3c == WorkingRegionID) continue;
             if (!Map[next].unknown_47b7e0() || used >= capacity) continue;
-            if (!Cell_In_Generation_Shape_0057d290(next, area, ellipse, x_weight, y_weight)) continue;
+            if (!Cell_In_Generation_Shape(next, area, ellipse, x_weight, y_weight)) continue;
             UnknownVeinNode *node = &nodes[used];
             node->Position = next;
             float key;

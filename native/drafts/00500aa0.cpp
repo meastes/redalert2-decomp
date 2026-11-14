@@ -249,7 +249,7 @@ void InfantryClass::unknown_slot93(int why)
             }
             if (reinterpret_cast<AbstractClass *>(Map_Cell(Center_Coord()))==unknown_494) {
                 Unknown_0047E2C0(CoordStruct(Coord),Rules->unknown_13a8,this,Rules->unknown_c74,true);
-                unknown_slot291();
+                Stop_Driver();
                 Scatter(Adjacent_Cell(CoordStruct(Coord),Dir_To_8(unknown_2e0.Current())),true,true);
                 QueueMission(2,false);
                 if (!unknown_494 || Map_Cell(unknown_494->Center_Coord())->unknown_ec==2) Mark(1);

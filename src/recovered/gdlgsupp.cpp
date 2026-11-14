@@ -201,11 +201,11 @@ void __fastcall Set_Player_Ping_4d1060(HWND dialog, int player, int ping)
 }
 
 
-// Surface *__fastcall Country_Flag_004d1120(int country) (0x004D1120)
+// Surface *__fastcall Country_Flag(int country) (0x004D1120)
 // A country's flag image: countries 0-8 "usai.pcx" ... "rusi.pcx", -2
 // "rani.pcx" (random), -3 "obsi.pcx" (observer); null for any other value.
 
-Surface *__fastcall Country_Flag_004d1120(int country)
+Surface *__fastcall Country_Flag(int country)
 {
     Surface *image = 0;
     if (country == -2) {
@@ -242,7 +242,7 @@ Surface *__fastcall Country_Flag_004d1120(int country)
 void __fastcall Show_Player_Flag_4d1230(HWND dialog, int player)
 {
     HWND control = GetDlgItem(dialog, unknown_player_control_4d0ee0(player));
-    OwnerDraw::unknown_5e1f30(control, Country_Flag_004d1120(Side_Combo_Data_4d1c70(dialog, Player_Side_Combo_ID_4d1350(player), -1)));
+    OwnerDraw::unknown_5e1f30(control, Country_Flag(Side_Combo_Data_4d1c70(dialog, Player_Side_Combo_ID_4d1350(player), -1)));
 }
 
 

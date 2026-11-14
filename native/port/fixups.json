@@ -1175,50 +1175,50 @@
   },
   {
    "source": "src/shared/unit.hpp",
-   "old": "virtual void unknown_slot280(int arg1);",
-   "new": "virtual void unknown_slot280(intptr_t arg1);   // NATIVE: a techno address",
+   "old": "virtual void ReceiveGunner(int arg1);",
+   "new": "virtual void ReceiveGunner(intptr_t arg1);   // NATIVE: a techno address",
    "why": "Pointer width (Scout1177, M22: Allied campaign 2 faulted in UnitClass slot 280, reading through a sign-extended 32-bit techno address): FootClass/UnitClass slots 280/281 (0x00709A20/0x00709AE0, IFV gunner hand-over) take the passenger techno as a DWORD argument, and UnknownTechno208 (the TemporalClass at TechnoClass +0x208; temporal.hpp: +0x24 Owner, +0x28 Target) keeps both as 32-bit ints. Natively the argument and the two fields are pointer-sized intptr_t, so the view's fields lie on TemporalClass's Owner/Target and the address survives; the VC6 meaning (the same techno address) is kept."
   },
   {
    "source": "src/shared/unit.hpp",
-   "old": "virtual void unknown_slot281(int arg1);",
-   "new": "virtual void unknown_slot281(intptr_t arg1);   // NATIVE: a techno address",
+   "old": "virtual void RemoveGunner(int arg1);",
+   "new": "virtual void RemoveGunner(intptr_t arg1);   // NATIVE: a techno address",
    "why": "Pointer width (Scout1177, M22: Allied campaign 2 faulted in UnitClass slot 280, reading through a sign-extended 32-bit techno address): FootClass/UnitClass slots 280/281 (0x00709A20/0x00709AE0, IFV gunner hand-over) take the passenger techno as a DWORD argument, and UnknownTechno208 (the TemporalClass at TechnoClass +0x208; temporal.hpp: +0x24 Owner, +0x28 Target) keeps both as 32-bit ints. Natively the argument and the two fields are pointer-sized intptr_t, so the view's fields lie on TemporalClass's Owner/Target and the address survives; the VC6 meaning (the same techno address) is kept."
   },
   {
    "source": "src/shared/foot.hpp",
-   "old": "virtual void unknown_slot280(int arg1);",
-   "new": "virtual void unknown_slot280(intptr_t arg1);   // NATIVE: a techno address",
+   "old": "virtual void ReceiveGunner(int arg1);",
+   "new": "virtual void ReceiveGunner(intptr_t arg1);   // NATIVE: a techno address",
    "why": "Pointer width (Scout1177, M22: Allied campaign 2 faulted in UnitClass slot 280, reading through a sign-extended 32-bit techno address): FootClass/UnitClass slots 280/281 (0x00709A20/0x00709AE0, IFV gunner hand-over) take the passenger techno as a DWORD argument, and UnknownTechno208 (the TemporalClass at TechnoClass +0x208; temporal.hpp: +0x24 Owner, +0x28 Target) keeps both as 32-bit ints. Natively the argument and the two fields are pointer-sized intptr_t, so the view's fields lie on TemporalClass's Owner/Target and the address survives; the VC6 meaning (the same techno address) is kept."
   },
   {
    "source": "src/shared/foot.hpp",
-   "old": "virtual void unknown_slot281(int arg1);",
-   "new": "virtual void unknown_slot281(intptr_t arg1);   // NATIVE: a techno address",
+   "old": "virtual void RemoveGunner(int arg1);",
+   "new": "virtual void RemoveGunner(intptr_t arg1);   // NATIVE: a techno address",
    "why": "Pointer width (Scout1177, M22: Allied campaign 2 faulted in UnitClass slot 280, reading through a sign-extended 32-bit techno address): FootClass/UnitClass slots 280/281 (0x00709A20/0x00709AE0, IFV gunner hand-over) take the passenger techno as a DWORD argument, and UnknownTechno208 (the TemporalClass at TechnoClass +0x208; temporal.hpp: +0x24 Owner, +0x28 Target) keeps both as 32-bit ints. Natively the argument and the two fields are pointer-sized intptr_t, so the view's fields lie on TemporalClass's Owner/Target and the address survives; the VC6 meaning (the same techno address) is kept."
   },
   {
    "source": "src/recovered/foot.cpp",
-   "old": "    FootClass *passenger = (FootClass *)Cargo.Detach_Object();\n    if (Techno_Type_Class()->Gunner && Cargo.Count == 0) {\n        unknown_slot281((int)passenger)",
-   "new": "    FootClass *passenger = (FootClass *)Cargo.Detach_Object();\n    if (Techno_Type_Class()->Gunner && Cargo.Count == 0) {\n        unknown_slot281((intptr_t)passenger)",
+   "old": "    FootClass *passenger = (FootClass *)Cargo.Detach_Object();\n    if (Techno_Type_Class()->Gunner && Cargo.Count == 0) {\n        RemoveGunner((int)passenger)",
+   "new": "    FootClass *passenger = (FootClass *)Cargo.Detach_Object();\n    if (Techno_Type_Class()->Gunner && Cargo.Count == 0) {\n        RemoveGunner((intptr_t)passenger)",
    "why": "Pointer width (Scout1177, M22: Allied campaign 2 faulted in UnitClass slot 280, reading through a sign-extended 32-bit techno address): FootClass/UnitClass slots 280/281 (0x00709A20/0x00709AE0, IFV gunner hand-over) take the passenger techno as a DWORD argument, and UnknownTechno208 (the TemporalClass at TechnoClass +0x208; temporal.hpp: +0x24 Owner, +0x28 Target) keeps both as 32-bit ints. Natively the argument and the two fields are pointer-sized intptr_t, so the view's fields lie on TemporalClass's Owner/Target and the address survives; the VC6 meaning (the same techno address) is kept."
   },
   {
    "source": "src/recovered/foot.cpp",
-   "old": "    }\n    if (Techno_Type_Class()->Gunner && Cargo.Count == 0) {\n        unknown_slot281((int)passenger)",
-   "new": "    }\n    if (Techno_Type_Class()->Gunner && Cargo.Count == 0) {\n        unknown_slot281((intptr_t)passenger)",
+   "old": "    }\n    if (Techno_Type_Class()->Gunner && Cargo.Count == 0) {\n        RemoveGunner((int)passenger)",
+   "new": "    }\n    if (Techno_Type_Class()->Gunner && Cargo.Count == 0) {\n        RemoveGunner((intptr_t)passenger)",
    "why": "Pointer width (Scout1177, M22: Allied campaign 2 faulted in UnitClass slot 280, reading through a sign-extended 32-bit techno address): FootClass/UnitClass slots 280/281 (0x00709A20/0x00709AE0, IFV gunner hand-over) take the passenger techno as a DWORD argument, and UnknownTechno208 (the TemporalClass at TechnoClass +0x208; temporal.hpp: +0x24 Owner, +0x28 Target) keeps both as 32-bit ints. Natively the argument and the two fields are pointer-sized intptr_t, so the view's fields lie on TemporalClass's Owner/Target and the address survives; the VC6 meaning (the same techno address) is kept."
   },
   {
    "source": "src/recovered/foot.cpp",
-   "old": "unknown_slot280((int)passenger)",
-   "new": "unknown_slot280((intptr_t)passenger)",
+   "old": "ReceiveGunner((int)passenger)",
+   "new": "ReceiveGunner((intptr_t)passenger)",
    "why": "Pointer width (Scout1177, M22: Allied campaign 2 faulted in UnitClass slot 280, reading through a sign-extended 32-bit techno address): FootClass/UnitClass slots 280/281 (0x00709A20/0x00709AE0, IFV gunner hand-over) take the passenger techno as a DWORD argument, and UnknownTechno208 (the TemporalClass at TechnoClass +0x208; temporal.hpp: +0x24 Owner, +0x28 Target) keeps both as 32-bit ints. Natively the argument and the two fields are pointer-sized intptr_t, so the view's fields lie on TemporalClass's Owner/Target and the address survives; the VC6 meaning (the same techno address) is kept."
   },
   {
    "source": "src/recovered/unit.cpp",
-   "old": "void UnitClass::unknown_slot280(int arg1)\n{",
-   "new": "void UnitClass::unknown_slot280(intptr_t arg1)\n{",
+   "old": "void UnitClass::ReceiveGunner(int arg1)\n{",
+   "new": "void UnitClass::ReceiveGunner(intptr_t arg1)\n{",
    "why": "Pointer width (Scout1177, M22: Allied campaign 2 faulted in UnitClass slot 280, reading through a sign-extended 32-bit techno address): FootClass/UnitClass slots 280/281 (0x00709A20/0x00709AE0, IFV gunner hand-over) take the passenger techno as a DWORD argument, and UnknownTechno208 (the TemporalClass at TechnoClass +0x208; temporal.hpp: +0x24 Owner, +0x28 Target) keeps both as 32-bit ints. Natively the argument and the two fields are pointer-sized intptr_t, so the view's fields lie on TemporalClass's Owner/Target and the address survives; the VC6 meaning (the same techno address) is kept."
   },
   {
@@ -1229,8 +1229,8 @@
   },
   {
    "source": "src/recovered/unit.cpp",
-   "old": "void UnitClass::unknown_slot281(int arg1)\n{",
-   "new": "void UnitClass::unknown_slot281(intptr_t arg1)\n{",
+   "old": "void UnitClass::RemoveGunner(int arg1)\n{",
+   "new": "void UnitClass::RemoveGunner(intptr_t arg1)\n{",
    "why": "Pointer width (Scout1177, M22: Allied campaign 2 faulted in UnitClass slot 280, reading through a sign-extended 32-bit techno address): FootClass/UnitClass slots 280/281 (0x00709A20/0x00709AE0, IFV gunner hand-over) take the passenger techno as a DWORD argument, and UnknownTechno208 (the TemporalClass at TechnoClass +0x208; temporal.hpp: +0x24 Owner, +0x28 Target) keeps both as 32-bit ints. Natively the argument and the two fields are pointer-sized intptr_t, so the view's fields lie on TemporalClass's Owner/Target and the address survives; the VC6 meaning (the same techno address) is kept."
   },
   {
@@ -1646,22 +1646,22 @@
   },
   {
    "source": "src/recovered/mapgen.cpp",
-   "old": "            Clean_Up_RMCache_005775b0();\n        }\n        delete unknown_preview_a6fee4;\n        unknown_preview_a6fee4=0;\n    }\n    if(RandomMapGen.MapSeeder!=0) {\n        delete reinterpret_cast<MapSeedClass *>(RandomMapGen.MapSeeder);\n        RandomMapGen.MapSeeder",
-   "new": "            Clean_Up_RMCache_005775b0();\n        }\n        delete unknown_preview_a6fee4;\n        unknown_preview_a6fee4=0;\n    }\n    if(RandomMapGen.MapSeeder!=0) {\n        delete reinterpret_cast<MapSeedClass *>(RandomMapGen.MapSeeder);\n        native_map_seeder_m28",
+   "old": "            Clean_Up_RMCache();\n        }\n        delete unknown_preview_a6fee4;\n        unknown_preview_a6fee4=0;\n    }\n    if(RandomMapGen.MapSeeder!=0) {\n        delete reinterpret_cast<MapSeedClass *>(RandomMapGen.MapSeeder);\n        RandomMapGen.MapSeeder",
+   "new": "            Clean_Up_RMCache();\n        }\n        delete unknown_preview_a6fee4;\n        unknown_preview_a6fee4=0;\n    }\n    if(RandomMapGen.MapSeeder!=0) {\n        delete reinterpret_cast<MapSeedClass *>(RandomMapGen.MapSeeder);\n        native_map_seeder_m28",
    "why": "MapGeneratorClass::MapSeeder (+0x178 of RandomMapGen 0x00A6FD68; the header types it int) holds the copy of the seed the last map was made from: `RandomMapGen.MapSeeder=(int)new MapSeedClass; memcpy((void*)MapSeeder, ...)`. Natively the int cuts the 64-bit pointer (the skirmish Random Map's Generate Map faulted in Map_Seed_Dialog_Proc +1752; Scout1208 M27/M28). Natively every use reads and writes a pointer-sized native global, native_map_seeder_m28 (native/link/behaviour_m28_mapgen.cpp), with no layout change. Same meaning; the exact build is unchanged.",
    "verified": false
   },
   {
    "source": "src/recovered/mapgen.cpp",
-   "old": "            Clean_Up_RMCache_005775b0();\n        }\n        delete unknown_preview_a6fee4;\n        unknown_preview_a6fee4=0;\n    }\n    if(RandomMapGen.MapSeeder!=0) {\n        delete reinterpret_cast<MapSeedClass *>(RandomMapGen.MapSeeder",
-   "new": "            Clean_Up_RMCache_005775b0();\n        }\n        delete unknown_preview_a6fee4;\n        unknown_preview_a6fee4=0;\n    }\n    if(RandomMapGen.MapSeeder!=0) {\n        delete reinterpret_cast<MapSeedClass *>(native_map_seeder_m28",
+   "old": "            Clean_Up_RMCache();\n        }\n        delete unknown_preview_a6fee4;\n        unknown_preview_a6fee4=0;\n    }\n    if(RandomMapGen.MapSeeder!=0) {\n        delete reinterpret_cast<MapSeedClass *>(RandomMapGen.MapSeeder",
+   "new": "            Clean_Up_RMCache();\n        }\n        delete unknown_preview_a6fee4;\n        unknown_preview_a6fee4=0;\n    }\n    if(RandomMapGen.MapSeeder!=0) {\n        delete reinterpret_cast<MapSeedClass *>(native_map_seeder_m28",
    "why": "MapGeneratorClass::MapSeeder (+0x178 of RandomMapGen 0x00A6FD68; the header types it int) holds the copy of the seed the last map was made from: `RandomMapGen.MapSeeder=(int)new MapSeedClass; memcpy((void*)MapSeeder, ...)`. Natively the int cuts the 64-bit pointer (the skirmish Random Map's Generate Map faulted in Map_Seed_Dialog_Proc +1752; Scout1208 M27/M28). Natively every use reads and writes a pointer-sized native global, native_map_seeder_m28 (native/link/behaviour_m28_mapgen.cpp), with no layout change. Same meaning; the exact build is unchanged.",
    "verified": false
   },
   {
    "source": "src/recovered/mapgen.cpp",
-   "old": "            Clean_Up_RMCache_005775b0();\n        }\n        delete unknown_preview_a6fee4;\n        unknown_preview_a6fee4=0;\n    }\n    if(RandomMapGen.MapSeeder",
-   "new": "            Clean_Up_RMCache_005775b0();\n        }\n        delete unknown_preview_a6fee4;\n        unknown_preview_a6fee4=0;\n    }\n    if(native_map_seeder_m28",
+   "old": "            Clean_Up_RMCache();\n        }\n        delete unknown_preview_a6fee4;\n        unknown_preview_a6fee4=0;\n    }\n    if(RandomMapGen.MapSeeder",
+   "new": "            Clean_Up_RMCache();\n        }\n        delete unknown_preview_a6fee4;\n        unknown_preview_a6fee4=0;\n    }\n    if(native_map_seeder_m28",
    "why": "MapGeneratorClass::MapSeeder (+0x178 of RandomMapGen 0x00A6FD68; the header types it int) holds the copy of the seed the last map was made from: `RandomMapGen.MapSeeder=(int)new MapSeedClass; memcpy((void*)MapSeeder, ...)`. Natively the int cuts the 64-bit pointer (the skirmish Random Map's Generate Map faulted in Map_Seed_Dialog_Proc +1752; Scout1208 M27/M28). Natively every use reads and writes a pointer-sized native global, native_map_seeder_m28 (native/link/behaviour_m28_mapgen.cpp), with no layout change. Same meaning; the exact build is unchanged.",
    "verified": false
   },

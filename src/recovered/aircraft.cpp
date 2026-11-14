@@ -178,7 +178,7 @@ AircraftClass::~AircraftClass()
         }
         unknown_6d3040(0);
         if (Team != 0) {
-            Team->Unknown_006B8FB0(this, -1, 0);
+            Team->Remove(this, -1, 0);
             Team = 0;
         }
         House->unknown_4ea800(this);
@@ -306,7 +306,7 @@ void AircraftClass::unknown_slot67(Point2D const &point, Rect const &window)
         Matrix3D matrix;
         matrix = *Locomotor.Checked()->Shadow_Matrix(&COMMatrix3DStruct(), &key);
         if (!unknown_325) {
-            unknown_4c9a40(Type->unknown_b0, 0,
+            Draw_Voxel_Shadow(Type->unknown_b0, 0,
                 key, &Type->unknown_23c,
                 window, shadow_point,
                 Aircraft_Isometric_View_Matrix_00717f90() * matrix, true, 0, 0, 0);
@@ -365,7 +365,7 @@ int AircraftClass::Do_MISSION_HUNT()
 {
     if (unknown_254 == 0) {
         if (Team != 0) {
-            Team->Unknown_006B8FB0(this, -1, 0);
+            Team->Remove(this, -1, 0);
         }
         unknown_slot261(0, 1);
         int delay = (int)(Control()->unknown_10 * 900.0);
@@ -500,16 +500,16 @@ choose_destination:
         if (!unknown_494 && Type->IsDropship && Get_Height_AGL() > 0) {
             TechnoClass *dock = unknown_slot299((DynamicVectorClass<TechnoTypeClass *> const *)&Type->Dock, 0, 0);
             if (dock) Assign_Destination(dock, true);
-            else Assign_Destination(unknown_4198b0(), true);
+            else Assign_Destination(Good_LZ(), true);
         } else if (!unknown_494) {
             unknown_a8 = 2;
         } else if (unknown_slot309(unknown_494)) {
             FootClass *passenger = (FootClass *)Cargo.Attached_Object();
             if (!passenger || !passenger->Team || passenger->Team->Class->Waypoint_Location() == unknown_geometry_k) {
-                Assign_Destination(Select_Landing_Destination_004185b0(&Map[unknown_id_source_a3d290->Get_Waypoint_Location(99)]), true);
+                Assign_Destination(New_LZ(&Map[unknown_id_source_a3d290->Get_Waypoint_Location(99)]), true);
                 if (Team) Team->unknown_func_6b79e0(unknown_494);
             } else {
-                Assign_Destination(Select_Landing_Destination_004185b0(&Map[passenger->Team->Class->Waypoint_Location()]), true);
+                Assign_Destination(New_LZ(&Map[passenger->Team->Class->Waypoint_Location()]), true);
             }
         } else {
             int flight_level = Type->Flight_Level();
@@ -528,14 +528,14 @@ choose_destination:
             if (Cargo.Object) {
                 if (Type->Carryall) {
                     Mark(0);
-                    unknown_416420();
+                    Drop_Off_Cargo();
                     Mark(1);
                 } else {
                 FootClass *passenger = (FootClass *)Cargo.Detach_Object();
                 Map.Pick_Up(unknown_slot104(), this);
                 if (Exit_Object(passenger)) passenger->unknown_37c = false;
                 Map.Place_Down(unknown_slot104(), this);
-                if (!passenger->unknown_37c && passenger->Team) Team->unknown_func_6b8cc0(passenger);
+                if (!passenger->unknown_37c && passenger->Team) Team->Add(passenger);
                 if (!Cargo.Object) unknown_slot261(false, true);
                 }
             } else {
@@ -601,7 +601,7 @@ int AircraftClass::Do_MISSION_PARADROP_OVERFLY()
             return 5;
         } else {
             CoordStruct location = Coord;
-            if (Map.Unknown_0055A7F0(location)) unknown_415510();
+            if (Map.Unknown_0055A7F0(location)) Paradrop_Cargo();
             return 5;
         }
     } else {
@@ -676,7 +676,7 @@ extern double const unknown_angle_scale_79b620;
 double __cdecl unknown_sin_4ba480(double angle);
 double __cdecl unknown_cos_4ba4d0(double angle);
 
-int AircraftClass::unknown_415510()
+int AircraftClass::Paradrop_Cargo()
 {
     // Cargo detach's FootClass result association remains a layout hypothesis.
     FootClass *passenger = static_cast<FootClass *>(Cargo.Detach_Object());
@@ -709,7 +709,7 @@ int AircraftClass::unknown_415510()
                     Voc_Play_At(Rules->ChuteSound, sound_position, 0);
                     }
                     passenger->unknown_454 = Coord_Cell(Map[landing].Center_Coord());
-                    if (Team) Team->Unknown_006B8FB0(passenger, -1, 0);
+                    if (Team) Team->Remove(passenger, -1, 0);
                     unknown_244 = CDTimerClass<FrameTimerClass>(0);
                     unknown_5bb = 5;
                     return 0;
@@ -814,7 +814,7 @@ struct OffsetCoord : public UnknownVector3 {
 BulletClass *AircraftClass::unknown_slot221(AbstractClass *target, int arg2)
 {
     if (Cargo.Object) {
-        unknown_415510();
+        Paradrop_Cargo();
         return 0;
     }
 
@@ -890,8 +890,8 @@ int AircraftClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warh
 // Aircraft slot133 move dispatcher00415FF0, independently verified26+6. Private diagnostic only.
 int AircraftClass::Do_MISSION_MOVE()
 {
-    if (Type->Carryall) return Move_Carryall_00416670();
-    return unknown_416010();
+    if (Type->Carryall) return Do_MISSION_MOVE_Carryall();
+    return Do_MISSION_MOVE_Normal();
 }
 
 
@@ -906,14 +906,14 @@ static inline bool Within_One_Cell(CoordStruct here, CoordStruct target)
 }
 
 // Do_MISSION_MOVE for aircraft that are not carryalls (0x00415FF0 dispatches here).
-int AircraftClass::unknown_416010()
+int AircraftClass::Do_MISSION_MOVE_Normal()
 {
     switch (unknown_a8) {
     case 0:
         if (!unknown_494) {
             unknown_slot261(false, true);
         } else {
-            Assign_Destination(Select_Landing_Destination_004185b0(unknown_494), true);
+            Assign_Destination(New_LZ(unknown_494), true);
             unknown_a8 = 1;
         }
         break;
@@ -942,7 +942,7 @@ int AircraftClass::unknown_416010()
         }
         if (Locomotor.Checked()->Is_Moving()) {
             if (!unknown_494 || Destination_Cell(unknown_494, this) != unknown_slot104()) {
-                if (unknown_494 && !Is_Landing_Cell_Available_00419250(Destination_Cell(unknown_494, this), true)) {
+                if (unknown_494 && !Cell_Seems_Ok(Destination_Cell(unknown_494, this), true)) {
                     unknown_a8 = 0;
                 } else {
                     unknown_a8 = 4;
@@ -962,7 +962,7 @@ int AircraftClass::unknown_416010()
     case 4:
         if (Locomotor.Checked()->Is_Moving()) {
             if (!unknown_494 || Destination_Cell(unknown_494, this) != unknown_slot104()) {
-                if (unknown_494 && !Is_Landing_Cell_Available_00419250(Destination_Cell(unknown_494, this), true)) {
+                if (unknown_494 && !Cell_Seems_Ok(Destination_Cell(unknown_494, this), true)) {
                     unknown_a8 = 0;
                 }
             } else {
@@ -981,7 +981,7 @@ int AircraftClass::unknown_416010()
 // Aircraft carryall passenger placement, original 00416420, complete 592+0.
 // FootClass passenger identity follows the original locomotor and virtual-slot use.
 
-void AircraftClass::unknown_416420()
+void AircraftClass::Drop_Off_Cargo()
 {
     Debug_Printf("Do_MISSION_MOVE_Carryall - LAND - Dropping off cargo\n");
     FootClass *passenger = static_cast<FootClass *>(Cargo.Detach_Object());
@@ -1031,7 +1031,7 @@ void AircraftClass::unknown_416420()
 // Existing UnknownCellClass view and Foot subtype interpretation remain hypotheses.
 // No new Cell/Rules/Bullet fields or foreign interface is proposed or applied.
 
-int AircraftClass::Move_Carryall_00416670()
+int AircraftClass::Do_MISSION_MOVE_Carryall()
 {
     CoordStruct bridge_position;
     CoordStruct occupant_position;
@@ -1068,7 +1068,7 @@ int AircraftClass::Move_Carryall_00416670()
             }
         }
 select_destination:
-        Assign_Destination(Select_Landing_Destination_004185b0(unknown_494), true);
+        Assign_Destination(New_LZ(unknown_494), true);
         if (Team) Team->unknown_func_6b79e0(unknown_494);
         unknown_a8 = 1;
         Debug_Printf("Do_MISSION_MOVE_Carryall - VALIDATE_LZ - Status = TAKE_OFF\n");
@@ -1122,7 +1122,7 @@ select_destination:
         }
         if (Cargo.Object) {
             Mark(0);
-            unknown_416420();
+            Drop_Off_Cargo();
             Mark(1);
             unknown_a8 = 0;
             return 1;
@@ -1178,7 +1178,7 @@ int AircraftClass::Do_MISSION_PATROL()
         if (!unknown_494) {
             unknown_slot261(false, true);
         } else {
-            Assign_Destination(Select_Landing_Destination_004185b0(unknown_494), true);
+            Assign_Destination(New_LZ(unknown_494), true);
             if (Team) {
                 Team->unknown_func_6b79e0(unknown_494);
             }
@@ -1229,7 +1229,7 @@ int AircraftClass::Do_MISSION_PATROL()
         if (!Locomotor.Checked()->Is_Moving()) {
             unknown_a8 = 3;
         } else {
-            if (unknown_494 && !Is_Landing_Cell_Available_00419250(Destination_Cell(unknown_494, this), true)) {
+            if (unknown_494 && !Cell_Seems_Ok(Destination_Cell(unknown_494, this), true)) {
                 unknown_a8 = 0;
             } else {
                 unknown_a8 = 4;
@@ -1245,7 +1245,7 @@ int AircraftClass::Do_MISSION_PATROL()
             unknown_a8 = 3;
         } else {
             if (unknown_494) {
-                if (!Is_Landing_Cell_Available_00419250(Destination_Cell(unknown_494, this), true)) {
+                if (!Cell_Seems_Ok(Destination_Cell(unknown_494, this), true)) {
                     unknown_a8 = 0;
                 }
             }
@@ -1284,7 +1284,7 @@ bool AircraftClass::unknown_slot261(bool first, bool second)
         if (!unknown_32c) goto select_destination;
         if (!Team) {
             mission = 16;
-            Assign_Destination(unknown_4198b0(), true);
+            Assign_Destination(Good_LZ(), true);
             goto choose_mission;
         }
         goto default_mission;
@@ -1297,12 +1297,12 @@ check_owner:
         goto check_weapon;
 check_team:
         if (Team && Team->unknown_func_6baa00())
-            Team->Unknown_006B8FB0(this, -1, 0);
+            Team->Remove(this, -1, 0);
 check_weapon:
         if (unknown_slot231(0)->WeaponType) {
         if (unknown_32c) {
             if (!unknown_254) {
-                if (Team) Team->Unknown_006B8FB0(this, -1, 0);
+                if (Team) Team->Remove(this, -1, 0);
                 unknown_slot220(0);
                 Assign_Destination(0, true);
                 mission = 4;
@@ -1334,7 +1334,7 @@ check_weapon:
         goto select_destination;
     }
 select_destination:
-    Assign_Destination(unknown_4198b0(), true);
+    Assign_Destination(Good_LZ(), true);
     mission = 2;
     goto choose_mission;
 grounded:
@@ -1526,7 +1526,7 @@ int AircraftClass::unknown_slot27(Cell const *arg1, bool arg2, bool arg3)
 }
 
 
-unsigned int AircraftClass::Pose_Dir_00417890() const { return Rules->unknown_50; }
+unsigned int AircraftClass::Pose_Dir() const { return Rules->unknown_50; }
 
 
 // AircraftClass::Do_MISSION_ATTACK 0x004178A0: Do_MISSION_ATTACK (Status 0-10: validate, pick an attack
@@ -1565,7 +1565,7 @@ int AircraftClass::Do_MISSION_ATTACK()
         if (unknown_228 == 0 || unknown_254 == 0) {
             unknown_a8 = 10;
         } else {
-            Assign_Destination(unknown_418f10(unknown_228), true);
+            Assign_Destination(Good_Fire_Location(unknown_228), true);
             if (unknown_494 != 0) {
                 unknown_a8 = 3;
             } else {
@@ -1858,13 +1858,13 @@ static inline Cell Move_Cell(Cell const &start, UnknownFacingDir const &dir, sho
     return Cell(start.X + unknown_cos_4ba4d0(radians) * distance, start.Y - unknown_sin_4ba480(radians) * distance);
 }
 
-AbstractClass *AircraftClass::Select_Landing_Destination_004185b0(AbstractClass *desired)
+AbstractClass *AircraftClass::New_LZ(AbstractClass *desired)
 {
     if (desired) {
         if (Team && Team->Unknown_006BA990()) return desired;
         if (unknown_slot309(desired)) {
             Cell cell = Coord_Cell(desired->unknown_slot19(0));
-            if (Is_Landing_Cell_Available_00419250(cell, false)) return desired;
+            if (Cell_Seems_Ok(cell, false)) return desired;
         }
         CoordStruct coord = desired->Center_Coord();
         if (!unknown_a40774) {
@@ -1876,7 +1876,7 @@ AbstractClass *AircraftClass::Select_Landing_Destination_004185b0(AbstractClass 
                     if (Map.Unknown_0055A660(cell, true)) {
                         CellClass *candidate = &Map[cell];
                         if (cell != previous && unknown_slot309(candidate) &&
-                            Is_Landing_Cell_Available_00419250(cell, false)) {
+                            Cell_Seems_Ok(cell, false)) {
                             return candidate;
                         }
                         previous = cell;
@@ -1931,7 +1931,7 @@ int AircraftClass::Receive_Message(RadioClass *radio, int message, AbstractClass
     }
     case 23:
         QueueMission(2, false);
-        Assign_Destination(unknown_4198b0(), true);
+        Assign_Destination(Good_LZ(), true);
         unknown_slot149(3);
         break;
     case 18: {
@@ -2094,7 +2094,7 @@ static inline int Point_Distance(Point2D const &from, Point2D const &to)
     return Point_Length(from - to);
 }
 
-AbstractClass *AircraftClass::unknown_418f10(AbstractClass *desired)
+AbstractClass *AircraftClass::Good_Fire_Location(AbstractClass *desired)
 {
     if (desired) {
         if (Is_Strafe()) return desired;
@@ -2127,7 +2127,7 @@ AbstractClass *AircraftClass::unknown_418f10(AbstractClass *desired)
                     if (Map.Unknown_0055A660(cell, true) &&
                         (unknown_game_mode_a3d298 || unknown_32c ||
                          (reinterpret_cast<UnknownCellClass *>(&Map[cell])->unknown_12c & 0x10)) &&
-                        Is_Landing_Cell_Available_00419250(cell, true)) {
+                        Cell_Seems_Ok(cell, true)) {
                         int distance;
                         if (destination != unknown_geometry_l) {
                             distance = Point_Distance(Point2D(sample_x, sample_y), Point2D(destination.X, destination.Y));
@@ -2160,7 +2160,7 @@ AbstractClass *AircraftClass::unknown_418f10(AbstractClass *desired)
 
 
 // Aircraft landing-cell predicate00419250. Boolean return spelling is a hypothesis.
-bool AircraftClass::Is_Landing_Cell_Available_00419250(Cell const &cell, bool allow_self)
+bool AircraftClass::Cell_Seems_Ok(Cell const &cell, bool allow_self)
 {
     if (!Map.Unknown_0055A660(cell, true)) return true;
     if (Type->Spawned) {
@@ -2295,10 +2295,10 @@ int AircraftClass::Do_MISSION_ENTER()
             if (passenger->unknown_slot150(2, contact) == 1) {
                 Cargo.Attach(passenger);
                 Mark(0);
-                unknown_416420();
+                Drop_Off_Cargo();
                 Mark(1);
             } else {
-                Assign_Destination(unknown_4198b0(), true);
+                Assign_Destination(Good_LZ(), true);
             }
             QueueMission(MoveMission, false);
         } else {
@@ -2310,7 +2310,7 @@ int AircraftClass::Do_MISSION_ENTER()
 }
 
 
-// AircraftClass::unknown_4198b0 0x004198B0: where to land (Good_LZ): the cell next to the nearest
+// AircraftClass::Good_LZ 0x004198B0: where to land (Good_LZ): the cell next to the nearest
 // dock building (distance quartered for the first dock type), else next to the nearest own techno,
 // else the aircraft's own cell.
 
@@ -2331,7 +2331,7 @@ static inline int Coord_Distance(CoordStruct const &here, CoordStruct const &the
     return (int)unknown_sqrt_4ba410(x * x + z * z + y * y);
 }
 
-AbstractClass *AircraftClass::unknown_4198b0()
+AbstractClass *AircraftClass::Good_LZ()
 {
     Cell best_cell = Cell(0, 0);
     int best_distance = -1;
@@ -2580,7 +2580,7 @@ void AircraftClass::Assign_Destination(AbstractClass *target, bool immediate)
                             target = dock;
                             next_mission = 7;
                         } else {
-                            target = unknown_4198b0();
+                            target = Good_LZ();
                         }
                         QueueMission(next_mission, false);
                         if (unknown_slot122()) Commence();
@@ -3288,7 +3288,7 @@ UnknownVector3::UnknownVector3(int x, int y, int z) : X(x), Y(y), Z(z) {}
 
 
 // Library-derived COM support template, original 0041B650, 136+8.
-// Defined in the canonical header; naturally emitted by Aircraft unknown_416420.
+// Defined in the canonical header; naturally emitted by Aircraft Drop_Off_Cargo.
 // No explicit instantiation, anchor, or duplicate implementation.
 
 

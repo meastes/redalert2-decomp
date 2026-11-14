@@ -294,10 +294,10 @@ void SurfaceCacheClass::Unload_Image_0068cb30(char const *name)
 }
 
 
-// bool SurfaceCacheClass::Draw_0068ce80(Rect const &, Surface *, Surface *, int) (0x0068CE80):
+// bool SurfaceCacheClass::DrawTrans(Rect const &, Surface *, Surface *, int) (0x0068CE80):
 // copies image into rect of destination, skipping the transparent pixel.
 
-bool SurfaceCacheClass::Draw_0068ce80(Rect const &rect, Surface *destination, Surface *image, int transparent)
+bool SurfaceCacheClass::DrawTrans(Rect const &rect, Surface *destination, Surface *image, int transparent)
 {
     unsigned short *target = (unsigned short *)destination->Lock();
     if (target == 0) {

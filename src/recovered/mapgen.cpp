@@ -424,12 +424,12 @@ Cell MapRegionClass::Pick_Random_Marked_Cell_0056dda0()
 }
 
 
-// Cell __fastcall MapRegionClass::Pick_Random_Zone_Cell_0056dea0(int zone, int region) (0x0056DEA0, static; ECX hidden
+// Cell __fastcall MapRegionClass::Pick_Random_Clear_Cell_In_Zone(int zone, int region) (0x0056DEA0, static; ECX hidden
 // result, RET4): up to 99 random generation cells whose map cell is in movement zone zone (Map.Zone(.., 0, false)),
 // passes unknown_47b590 and belongs to region (any when -1); else (0,0). Each pick is copied by value over the
 // first generation cell (the original writes through the table pointer read at entry).
 
-Cell __fastcall MapRegionClass::Pick_Random_Zone_Cell_0056dea0(int zone, int region)
+Cell __fastcall MapRegionClass::Pick_Random_Clear_Cell_In_Zone(int zone, int region)
 {
     UnknownMapGenerationCell *cell = unknown_map_cells_a70a24;
     int count = unknown_map_cell_side_84e804 * unknown_map_cell_side_84e804;
@@ -502,7 +502,7 @@ double __stdcall Unknown_Cell_Score_0056dff0(Cell const &from, Cell const &to, d
 }
 
 
-// MapRegionClass *__fastcall MapRegionClass::Create_Region_From_Cell_0056e100(CellClass *cell_ptr) (0x0056E100, RET0): floods
+// MapRegionClass *__fastcall MapRegionClass::Create_Region_From_Cell(CellClass *cell_ptr) (0x0056E100, RET0): floods
 // out from a cell over neighbours of its height and water character into a new region. A dry patch under 75 cells is
 // merged into a neighbouring region instead (returns 0). TibSun twin: mapgen.cpp MapRegionClass::Create_Region_From_Cell.
 
@@ -558,7 +558,7 @@ static inline int Region_Of(Cell const &cell)
     return data.RegionIndex;
 }
 
-MapRegionClass *__fastcall MapRegionClass::Create_Region_From_Cell_0056e100(CellClass *cell_ptr)
+MapRegionClass *__fastcall MapRegionClass::Create_Region_From_Cell(CellClass *cell_ptr)
 {
     int i;
     int region_id = unknown_map_region_next_index_a70a28;
@@ -667,7 +667,7 @@ public:
 
 extern UnknownGaussianSource_005798d0 unknown_gaussian_a6fd50;
 
-double __stdcall unknown_gaussian_value_005798d0(double mean, double deviation)
+double __stdcall Sample_Normal(double mean, double deviation)
 {
     return unknown_gaussian_a6fd50.Next() * deviation + mean;
 }
@@ -696,10 +696,10 @@ void MapRegionClass::Destroy_Cell_Regions()
  }
 
 
-// void MapRegionClass::Make_Remaining_Regions_0056e890() (0x0056E890, static): creates a region for every real
+// void MapRegionClass::Create_Water_Regions() (0x0056E890, static): creates a region for every real
 // generation cell still without one (RegionIndex -1) whose map cell passes unknown_47b7e0 or unknown_47b9c0.
 
-void MapRegionClass::Make_Remaining_Regions_0056e890()
+void MapRegionClass::Create_Water_Regions()
 {
     int count = unknown_map_cell_side_84e804 * unknown_map_cell_side_84e804;
     for (int i = 0; i < count; i++) {
@@ -708,7 +708,7 @@ void MapRegionClass::Make_Remaining_Regions_0056e890()
         if (unknown_map_cells_a70a24[i].RegionIndex == -1
             && (unknown_map_cells_a70a24[i].Position.X != 0 || unknown_map_cells_a70a24[i].Position.Y != 0)
             && (cell.unknown_47b7e0() || cell.unknown_47b9c0())) {
-            Create_Region_From_Cell_0056e100(&cell);
+            Create_Region_From_Cell(&cell);
         }
     }
 }
@@ -723,7 +723,7 @@ void __fastcall MapRegionClass::Set_Unassigned_Regions_0056e910(bool flag)
     for (int i = 0; i < count; i++) {
         UnknownMapGenerationCell &cell = unknown_map_cells_a70a24[i];
         if (cell.RegionIndex == -1 && (cell.Position.X != 0 || cell.Position.Y != 0)) {
-            MapRegionClass *region = Create_Region_From_Cell_0056e100(&Map[cell.Position]);
+            MapRegionClass *region = Create_Region_From_Cell(&Map[cell.Position]);
             if (region) {
                 region->unknown_1a = flag;
             }
@@ -1213,7 +1213,7 @@ bool MapRegionClass::Connect_Regions_With_Bridge_00570bc0(MapRegionClass *region
         }
 
         if (bridge.Is_Valid() && allow_rect3) {
-            if (Is_Bridge_Allowed_00571bc0(bridge)) {
+            if (Is_Bridge_Allowed(bridge)) {
                 for (int y = bridge.Y; y < bridge.Y + bridge.Height; y++) {
                     for (int x = bridge.X; x < bridge.X + bridge.Width; x++) {
                         if (x == bridge.X) {
@@ -1239,18 +1239,18 @@ bool MapRegionClass::Connect_Regions_With_Bridge_00570bc0(MapRegionClass *region
                     Place_Tile_Footprint_005883f0(unknown_tileset_a6dd08+2, Cell(bridge.X - 1, bridge.Y));
                 }
 
-                if (!Place_Neutral_Building_00571db0(Rect(bridge.X, bridge.Y - 1, 2, 5))) {
-                    Place_Neutral_Building_00571db0(Rect(bridge.X - 1, bridge.Y - 2, 3, 7));
+                if (!Place_Bridge_Hut(Rect(bridge.X, bridge.Y - 1, 2, 5))) {
+                    Place_Bridge_Hut(Rect(bridge.X - 1, bridge.Y - 2, 3, 7));
                 }
 
-                if (!Place_Neutral_Building_00571db0(Rect(bridge.X + bridge.Width - 2, bridge.Y - 1, 2, 5))) {
-                    Place_Neutral_Building_00571db0(Rect(bridge.X + bridge.Width - 2, bridge.Y - 2, 3, 7));
+                if (!Place_Bridge_Hut(Rect(bridge.X + bridge.Width - 2, bridge.Y - 1, 2, 5))) {
+                    Place_Bridge_Hut(Rect(bridge.X + bridge.Width - 2, bridge.Y - 2, 3, 7));
                 }
 
                 result = true;
             }
         } else if (bridge.Is_Valid()) {
-            if (allow_rect1 && Is_Bridge_Allowed_00571bc0(bridge)) {
+            if (allow_rect1 && Is_Bridge_Allowed(bridge)) {
                 for (int y = bridge.Y; y < bridge.Y + bridge.Height; y++) {
                     for (int x = bridge.X; x < bridge.X + bridge.Width; x++) {
                         if (y == bridge.Y) {
@@ -1276,12 +1276,12 @@ bool MapRegionClass::Connect_Regions_With_Bridge_00570bc0(MapRegionClass *region
                     Place_Tile_Footprint_005883f0(unknown_tileset_a6dd08+3, Cell(bridge.X, bridge.Y + bridge.Height));
                 }
 
-                if (!Place_Neutral_Building_00571db0(Rect(bridge.X - 1, bridge.Y, 5, 2))) {
-                    Place_Neutral_Building_00571db0(Rect(bridge.X - 2, bridge.Y - 1, 7, 3));
+                if (!Place_Bridge_Hut(Rect(bridge.X - 1, bridge.Y, 5, 2))) {
+                    Place_Bridge_Hut(Rect(bridge.X - 2, bridge.Y - 1, 7, 3));
                 }
 
-                if (!Place_Neutral_Building_00571db0(Rect(bridge.X - 1, bridge.Y + bridge.Height - 2, 5, 2))) {
-                    Place_Neutral_Building_00571db0(Rect(bridge.X - 2, bridge.Y + bridge.Height - 2, 7, 3));
+                if (!Place_Bridge_Hut(Rect(bridge.X - 1, bridge.Y + bridge.Height - 2, 5, 2))) {
+                    Place_Bridge_Hut(Rect(bridge.X - 2, bridge.Y + bridge.Height - 2, 7, 3));
                 }
 
                 result = true;
@@ -1295,7 +1295,7 @@ bool MapRegionClass::Connect_Regions_With_Bridge_00570bc0(MapRegionClass *region
 
 
 bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &cell);
-bool MapRegionClass::Is_Bridge_Allowed_00571bc0(Rect const &area) const
+bool MapRegionClass::Is_Bridge_Allowed(Rect const &area) const
 {
     int height=Map[Cell(area.X,area.Y)].unknown_11b;
     if(Generation_Cell_In_Bounds_0058da10(XY_Cell(area.X,area.Y)) &&
@@ -1316,7 +1316,7 @@ bool MapRegionClass::Is_Bridge_Allowed_00571bc0(Rect const &area) const
 }
 
 
-bool MapRegionClass::Place_Neutral_Building_00571db0(Rect const &area)
+bool MapRegionClass::Place_Bridge_Hut(Rect const &area)
 {
     for(int y=area.Y;y<area.Y+area.Height+1;y++) {
         for(int x=area.X;x<area.X+area.Width+1;x++) {
@@ -2362,7 +2362,7 @@ int __fastcall Do_Random_Map_Dialog_00577490(bool (*callback)())
 WIN32_IMPORT LONG WINAPI CompareFileTime(FILETIME const *first,FILETIME const *second);
 extern char const rmg_cache_pattern_7e15c4[];
 // Prune cached map previews by last access, creation, then write time.
-void __fastcall Clean_Up_RMCache_005775b0()
+void __fastcall Clean_Up_RMCache()
 {
     WIN32_FIND_DATA *record;
     DynamicVectorClass<WIN32_FIND_DATA *> files;
@@ -2421,7 +2421,7 @@ class Surface;
 int __fastcall Write_PCX_File(FileClass &,Surface &,PaletteClass *);
 void __fastcall unknown_517370(bool);
 char * __fastcall Random_Map_CRC_005c8420();
-void __fastcall Clean_Up_RMCache_005775b0();
+void __fastcall Clean_Up_RMCache();
 extern bool (*rmg_callback_7e09c4)();
 extern char const rmg_preview_filename_7e1540[];
 extern char const rmg_cache_prefix_7e15f0[];
@@ -2480,7 +2480,7 @@ void __fastcall Do_Random_Map_00577880(HWND dialog,bool (*callback)())
             WIN32_FIND_DATA find;
             if(FindFirstFileA(rmg_cache_directory_7e15d4,&find)==(HANDLE)-1)CreateDirectoryA(rmg_cache_directory_7e15d4,0);
             CopyFileA(rmg_preview_filename_7e1540,name,0);
-            Clean_Up_RMCache_005775b0();
+            Clean_Up_RMCache();
         }
         delete unknown_preview_a6fee4;
         unknown_preview_a6fee4=0;
@@ -2610,7 +2610,7 @@ int __stdcall Map_Seed_Dialog_Proc_00577bd0(HWND window,UINT message,WPARAM wpar
             wcscpy(RandomMapGen.SeedData.DescriptionBuffer,
                 StringTable::Load_String(unknown_description_label_7e14dc,0,unknown_mapgen_file_7e14f8,0xed1));
             RandomMapGen.SeedData.Seed=unknown_random_839218(0,65535);
-            RandomMapGen.SeedData.Clamp_Parameters_00578d80();
+            RandomMapGen.SeedData.Fixup_Settings();
             RandomMapGen.SeedData.Populate_Dialog_Parameters_00578600(window);
             delete unknown_preview_a6fee4;
             unknown_preview_a6fee4=0;
@@ -2705,7 +2705,7 @@ extern char const *unknown_resource_labels_7e0af8[4];
 extern char unknown_seed_text_a709c8[];
 void MapSeedClass::Populate_Dialog_Parameters_00578600(HWND dialog)
 {
-    Clamp_Parameters_00578d80();
+    Fixup_Settings();
     {
         HWND control=GetDlgItem(dialog,0x3ea);
         while(SendMessageA(control,0x146,0,0)>0) SendMessageA(control,0x144,0,0);
@@ -2860,7 +2860,7 @@ char MapSeedClass::Delete_Dialog_005794c0()
 }
 
 
-double __stdcall Map_Clamped_Gaussian_005798f0(double mean,double deviation,double minimum,double maximum)
+double __stdcall Sample_Truncated_Normal(double mean,double deviation,double minimum,double maximum)
 {
     if(mean-deviation>maximum || mean+deviation<minimum) {
         deviation=(maximum-minimum)*0.5;
@@ -2908,9 +2908,9 @@ extern "C" char unknown_rmg_radar_message[];
 void __stdcall Report_Generation_Progress_0057be50(int progress)
 {
     if (unknown_id_source_a3d290->unknown_22fc) {
-        unknown_session_a3d298.Loading_Progress_00672160((int)((unsigned int)progress + 99u));
+        unknown_session_a3d298.Update_Progress((int)((unsigned int)progress + 99u));
     } else {
-        ProgressScreen.Set_Progress_006201c0(0, (double)progress, Point2D(-1, -1));
+        ProgressScreen.Set_Progress_Percent(0, (double)progress, Point2D(-1, -1));
     }
 }
 
@@ -2945,7 +2945,7 @@ void MapGeneratorClass::Unknown_0057A0D0(int fullInit,int dialogValue)
     if(showProgress) {
         ProgressScreen.Init(100.0,1,window);
         ProgressScreen.Load_Shape(unknown_rmg_progress_shape_7e19cc,0,0);
-        ProgressScreen.Unknown_0061EFA0(Point2D(-1,-1),0,false,true);
+        ProgressScreen.Set_Layout(Point2D(-1,-1),0,false,true);
         ProgressScreen.Draw_It(Point2D(-1,-1));
         HWND control=GetDlgItem(window,0x638);
         if(control)ShowWindow(control,5);
@@ -3186,7 +3186,7 @@ void MapGeneratorClass::Init_Map(int fullInit)
     ini.Put_Double("Lighting","IonBlue",0.75);
     ini.Put_Double("Lighting","IonGround",0.0);
     ini.Put_Double("Lighting","IonLevel",0.0);
-    if(!unknown_id_source_a3d290->unknown_22fc)ProgressScreen.Set_Progress_006201c0(0,1.0,Point2D(-1,-1));
+    if(!unknown_id_source_a3d290->unknown_22fc)ProgressScreen.Set_Progress_Percent(0,1.0,Point2D(-1,-1));
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
     Clear_Tiberium_Spread_006e9670();
     Clear_Tiberium_Growth_006ea130();
@@ -3533,7 +3533,7 @@ void MapGeneratorClass::Seed_Land_Type2()
                 UnknownMapGenerationCell &data = MapRegionClass::Get_Cell_Data(index);
                 int sum = data.Position.X + data.Position.Y;
                 int diagonal = data.Position.X - data.Position.Y;
-                if (sum >= minimum_sum && sum <= maximum_sum && diagonal >= minimum_diagonal && diagonal <= maximum_diagonal && data.unknown_3c == 0 && Cell_In_Generation_Shape_0057d290(data.Position, bounds, true, inverse_x, inverse_y)) {
+                if (sum >= minimum_sum && sum <= maximum_sum && diagonal >= minimum_diagonal && diagonal <= maximum_diagonal && data.unknown_3c == 0 && Cell_In_Generation_Shape(data.Position, bounds, true, inverse_x, inverse_y)) {
                     double dy = (double)abs(data.Position.Y - origin.Y) * y_scale;
                     double dx = (double)abs(data.Position.X - origin.X) * x_scale;
                     int distance = (int)(dy + dx);
@@ -4096,7 +4096,7 @@ void MapGeneratorClass::Read_Settings_00579960()
 // Operation/name/return intent are hypotheses; physical RET28 and AL predicate. A member of the generator: both
 // callers (0x57C9E0, 0x57D3A0) pass this in ECX, which is not read (ra2-decomp YR twin MapGeneratorClass::FUN_0059BAB0).
 extern double const unknown_half_79a728,unknown_one_79a708;
-bool MapGeneratorClass::Cell_In_Generation_Shape_0057d290(Cell const &position,Rect const &area,bool ellipse,double x_weight,double y_weight)
+bool MapGeneratorClass::Cell_In_Generation_Shape(Cell const &position,Rect const &area,bool ellipse,double x_weight,double y_weight)
 {
     if(area==unknown_static_rect)return true;
     if(ellipse) {
@@ -4210,7 +4210,7 @@ void MapGeneratorClass::Clear_Region_Cells(int source_index,int target_index,int
 // TibSun MapGeneratorClass::Seed_Lake (shape reference); the member keeps its unknown_ name until a rename lands.
 double __stdcall Weighted_Cell_Distance_0057ec60(Cell const *,Cell const *,int);
 bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &position);
-double __stdcall Map_Clamped_Gaussian_005798f0(double,double,double,double);
+double __stdcall Sample_Truncated_Normal(double,double,double,double);
 
 bool MapGeneratorClass::Seed_Lake(Cell const &origin)
 {
@@ -4258,7 +4258,7 @@ bool MapGeneratorClass::Seed_Lake(Cell const &origin)
     int maximum=76;
     if(spreadLimit>=76)maximum=spreadLimit;
     double mean=(double)(spreadLimit/3);
-    int spreadCount=(int)Map_Clamped_Gaussian_005798f0(mean,(double)(spreadLimit/6),75.0,(double)maximum);
+    int spreadCount=(int)Sample_Truncated_Normal(mean,(double)(spreadLimit/6),75.0,(double)maximum);
     heap->Clear();
     int used=1;
     nodes[0].Position=seed;
@@ -4362,7 +4362,7 @@ double __stdcall Weighted_Cell_Distance_0057ec60(Cell const *from,Cell const *to
 
 
 // TibSun MapGeneratorClass::Seed_River (shape reference); the member keeps its unknown_ name until a rename lands.
-double __stdcall Map_Clamped_Gaussian_005798f0(double,double,double,double);
+double __stdcall Sample_Truncated_Normal(double,double,double,double);
 bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &position);
 extern double const unknown_random_scale_7a5dd0;
 extern double const unknown_lake_chance_7a5cb0;
@@ -4409,7 +4409,7 @@ bool MapGeneratorClass::Seed_River(Cell const &point,double value,bool flag)
         candidates[3]=corner+Cell(y,y);
         double base_angle=5.497787143782138-(double)dir4*1.5707963267948966;
         seed_cell=candidates[dir4];
-        angle=Map_Clamped_Gaussian_005798f0(base_angle,0.5235987755982988,base_angle-0.7853981633974483,base_angle+0.7853981633974483);
+        angle=Sample_Truncated_Normal(base_angle,0.5235987755982988,base_angle-0.7853981633974483,base_angle+0.7853981633974483);
     } else {
         seed_cell=point;
         angle=value;
@@ -4545,7 +4545,7 @@ bool MapGeneratorClass::Seed_River(Cell const &point,double value,bool flag)
         }
 
         if(seeded_count>5) {
-            double delta_angle=Map_Clamped_Gaussian_005798f0(0.0,0.3141592653589793,angle_lo-cur_angle,angle_hi-cur_angle);
+            double delta_angle=Sample_Truncated_Normal(0.0,0.3141592653589793,angle_lo-cur_angle,angle_hi-cur_angle);
             cur_angle+=delta_angle;
         }
 
@@ -5585,7 +5585,7 @@ inline float Cell_Distance(Cell const &cell,int x,int y)
     return Fast_Sqrt((double)(dy*dy+dx*dx));
 }
 
-double __stdcall Map_Clamped_Gaussian_005798f0(double mean,double deviation,double minimum,double maximum);
+double __stdcall Sample_Truncated_Normal(double mean,double deviation,double minimum,double maximum);
 inline int Start_Count(MapRegionClass const *region)
 {
     return region->unknown_20;
@@ -5659,7 +5659,7 @@ void MapGeneratorClass::Create_Tiberium()
         }
         int per_cell=amount/count;
         for(int field=0;field<layout->Count();field++) {
-            int size=(int)((double)per_cell+Map_Clamped_Gaussian_005798f0(0.0,50.0,-100.0,100.0));
+            int size=(int)((double)per_cell+Sample_Truncated_Normal(0.0,50.0,-100.0,100.0));
             if(size>=0) {
                 Create_Tiberium_Patch((*layout)[field],size,field+waypoint+1,field==nearest);
             }
@@ -5790,7 +5790,7 @@ double __stdcall Randomized_Cell_Distance_005846b0(Cell const &a,Cell const &b)
 
 
 // TibSun Seed_Hill_Heights: a random walk of height and volatility over the cell grid, trending with the upper neighbours.
-double __stdcall Map_Clamped_Gaussian_005798f0(double,double,double,double);
+double __stdcall Sample_Truncated_Normal(double,double,double,double);
 inline bool Hill_In_Radar(Cell const &cell)
 {
     int x=cell.X;
@@ -5858,7 +5858,7 @@ void MapGeneratorClass::Seed_Hill_Heights()
                     data.unknown_10=0.0025;
                 }
                 double const mean=0.0;
-                data.unknown_10+=Map_Clamped_Gaussian_005798f0(mean,scale,-data.unknown_10,max_volatility-data.unknown_10);
+                data.unknown_10+=Sample_Truncated_Normal(mean,scale,-data.unknown_10,max_volatility-data.unknown_10);
 
                 double min_height=-2.0-data.unknown_08;
                 double max_height=2.0-data.unknown_08;
@@ -5870,7 +5870,7 @@ void MapGeneratorClass::Seed_Hill_Heights()
                 } else {
                     trend=height_trend;
                 }
-                data.unknown_08+=Map_Clamped_Gaussian_005798f0(trend,data.unknown_10,min_height,max_height);
+                data.unknown_08+=Sample_Truncated_Normal(trend,data.unknown_10,min_height,max_height);
             }
         }
 
@@ -6037,7 +6037,7 @@ void Initialize_Grid_Thresholds_00585240()
 // TibSun Generate_Vegetation: per-map random patch means, ground cover by each cell's chances, forests, then rocks.
 // Overlay_Is_Clear and Set_Overlay are one-line accessors: free /Ob2 sites that keep the Cell ctor out of line at the rock pick, as in the original.
 double __cdecl Map_Random_Fraction_00579770();
-double __stdcall Map_Clamped_Gaussian_005798f0(double,double,double,double);
+double __stdcall Sample_Truncated_Normal(double,double,double,double);
 unsigned __fastcall Map_Random_Range_005797a0(unsigned,unsigned);
 int __fastcall unknown_cells_428ac0();
 extern int unknown_tileset_a6e0e8;
@@ -6095,11 +6095,11 @@ void MapGeneratorClass::Generate_Vegetation()
             Cell origin=cell->Fetch_CellID();
             int originID=(int)((unsigned)(int)origin.Y*512u+(unsigned)(int)origin.X);
             if(Map_Random_Fraction_00579770()<data.unknown_18) {
-                Place_Tile_Patch(cell,unknown_tileset_a6e0e8,(int)Map_Clamped_Gaussian_005798f0(green_mean,20.0,4.0,80.0),originID,false);
+                Place_Tile_Patch(cell,unknown_tileset_a6e0e8,(int)Sample_Truncated_Normal(green_mean,20.0,4.0,80.0),originID,false);
             } else if(Map_Random_Fraction_00579770()<data.unknown_28) {
-                Place_Tile_Patch(cell,unknown_tileset_a6cf4c,(int)Map_Clamped_Gaussian_005798f0(sand_mean,20.0,4.0,80.0),originID,false);
+                Place_Tile_Patch(cell,unknown_tileset_a6cf4c,(int)Sample_Truncated_Normal(sand_mean,20.0,4.0,80.0),originID,false);
             } else if(Map_Random_Fraction_00579770()<data.unknown_20) {
-                Place_Tile_Patch(cell,unknown_tileset_a52c60,(int)Map_Clamped_Gaussian_005798f0(rough_mean,20.0,4.0,80.0),originID,false);
+                Place_Tile_Patch(cell,unknown_tileset_a52c60,(int)Sample_Truncated_Normal(rough_mean,20.0,4.0,80.0),originID,false);
             }
         }
         cell=Map.Iterate();
@@ -6116,7 +6116,7 @@ void MapGeneratorClass::Generate_Vegetation()
     int tries;
     for(tries=0;remaining>0 && tries<100;++tries) {
         Cell position=Pick_Random_Clear_Map_Cell();
-        remaining-=Place_Forest(&Map[position],(int)Map_Clamped_Gaussian_005798f0(25.0,10.0,10.0,35.0),Map_Clamped_Gaussian_005798f0(0.2,0.1,0.05,0.4));
+        remaining-=Place_Forest(&Map[position],(int)Sample_Truncated_Normal(25.0,10.0,10.0,35.0),Sample_Truncated_Normal(0.2,0.1,0.05,0.4));
     }
 
     int rock_count=Map_Random_Range_005797a0(0,unknown_cells_428ac0()/200);
@@ -7168,7 +7168,7 @@ void MapGeneratorClass::Generate_Rural_Units(Cell const &origin)
 
 
 extern int unknown_tileset_a6dd04;
-extern UnknownMapGenerationPath unknown_generation_paths_a700a0[109];
+extern DirtRoadTile unknown_generation_paths_a700a0[109];
 unsigned int __fastcall Map_Random_Range_005797a0(unsigned int minimum,unsigned int maximum);
 bool __fastcall Can_Use_Tile_Footprint_005894e0(int tile,Cell const &position,unsigned char check_mark,unsigned char reject_outside);
 void __fastcall Place_Tile_Footprint_005883f0(int tile,Cell const &position,int region,int height);
@@ -7179,7 +7179,7 @@ bool __fastcall Find_Dirt_Road_Tile_0058a6e0(int facing,Cell const &cell,int max
 
 // Same-file bodies of the road records' copy and member constructors; the out-of-line copies 0x58B140
 // and 0x58B160 are accepted in their own population, this unit expands them.
-inline UnknownMapGenerationPoint::UnknownMapGenerationPoint(UnknownMapGenerationPoint const &other)
+inline DirtRoadLink::DirtRoadLink(DirtRoadLink const &other)
     : Position(other.Position),unknown_04(other.unknown_04)
 {
 }
@@ -7253,7 +7253,7 @@ bool MapGeneratorClass::Generate_Rural_Roads(Cell const &cell)
             }
             Place_Tile_Footprint_005883f0(node.unknown_00,node.unknown_04,-1,-1);
 
-            UnknownMapGenerationPath &tile=unknown_generation_paths_a700a0[Dirt_Road_Tile_Index(node.unknown_00)];
+            DirtRoadTile &tile=unknown_generation_paths_a700a0[Dirt_Road_Tile_Index(node.unknown_00)];
 
             if(tile.Count>1) {
                 int link_count=tile.Count-(node.unknown_10!=-1);
@@ -7262,7 +7262,7 @@ bool MapGeneratorClass::Generate_Rural_Roads(Cell const &cell)
                     UnknownMapGenerationLink *child=children;
                     for(int link_index=0;link_index<tile.Count;link_index++) {
                         if(link_index!=node.unknown_10) {
-                            UnknownMapGenerationPoint link=tile.Points[link_index];
+                            DirtRoadLink link=tile.Points[link_index];
                             FacingType reverse=Facing_Sub(link.unknown_04,4);
 
                             Cell connection=CellClass::Adjacent_Cell(node.unknown_04+link.Position,link.unknown_04);
@@ -7340,8 +7340,8 @@ extern double const unknown_road_bias_7a5d70;
 extern double const random_unit_7a5dd0;
 extern int unknown_road_counts_7e1064[8][4];
 extern int *unknown_road_library_7e0fe4[8][4];
-extern UnknownMapGenerationPath unknown_map_paths_a700a0[109];
-double __stdcall Map_Clamped_Gaussian_005798f0(double mean,double deviation,double minimum,double maximum);
+extern DirtRoadTile unknown_map_paths_a700a0[109];
+double __stdcall Sample_Truncated_Normal(double mean,double deviation,double minimum,double maximum);
 unsigned int __fastcall Map_Random_Range_005797a0(unsigned int minimum,unsigned int maximum);
 bool __fastcall Can_Use_Tile_Footprint_005894e0(int tile,Cell const &position,unsigned char check_mark,unsigned char reject_outside);
 bool __fastcall Find_Dirt_Road_Tile_0058a6e0(int facing,Cell const &target_cell,int max_connections,unsigned int &tile,Cell &origin,int &link_index)
@@ -7349,7 +7349,7 @@ bool __fastcall Find_Dirt_Road_Tile_0058a6e0(int facing,Cell const &target_cell,
     int current=1;
     int initial=1;
     if(max_connections>1) {
-        double roll=Map_Clamped_Gaussian_005798f0(2.0,0.5,2.0,max_connections);
+        double roll=Sample_Truncated_Normal(2.0,0.5,2.0,max_connections);
         current=roll;
         initial=current;
     }
@@ -7363,19 +7363,19 @@ bool __fastcall Find_Dirt_Road_Tile_0058a6e0(int facing,Cell const &target_cell,
             start_index=Map_Random_Range_005797a0(0,tile_count-1);
         }
         for(int i=0;i<tile_count;i++) {
-            UnknownMapGenerationPath &path=unknown_map_paths_a700a0[tile_list[(i+start_index)%tile_count]];
+            DirtRoadTile &path=unknown_map_paths_a700a0[tile_list[(i+start_index)%tile_count]];
             int index;
             for(index=0;index<path.Count;index++) {
-                UnknownMapGenerationPoint connection=path.Points[index];
+                DirtRoadLink connection=path.Points[index];
                 if(connection.unknown_04==facing) {
                     break;
                 }
             }
-            UnknownMapGenerationPoint link;
+            DirtRoadLink link;
             link.Position=path.Points[index].Position;
             Cell position=target_cell-link.Position;
             if(Can_Use_Tile_Footprint_005894e0(path.unknown_08,position,1,1)) {
-                UnknownMapGenerationPoint link2;
+                DirtRoadLink link2;
                 link2.Position=path.Points[index].Position;
                 origin=target_cell-link2.Position;
                 tile=path.unknown_08;
@@ -7531,10 +7531,10 @@ void MapGeneratorClass::Generate_Neutral_Buildings()
 }
 
 
-UnknownMapGenerationPoint::UnknownMapGenerationPoint(Cell const &position,int value) : Position(position),unknown_04(value) {}
+DirtRoadLink::DirtRoadLink(Cell const &position,int value) : Position(position),unknown_04(value) {}
 
 
-UnknownMapGenerationPoint::UnknownMapGenerationPoint() : Position(0,0),unknown_04(-1) {}
+DirtRoadLink::DirtRoadLink() : Position(0,0),unknown_04(-1) {}
 
 
 UnknownMapGenerationLink::UnknownMapGenerationLink()
@@ -7549,41 +7549,41 @@ UnknownMapGenerationLink::UnknownMapGenerationLink(UnknownMapGenerationLink cons
 }
 
 
-UnknownMapGenerationPath::UnknownMapGenerationPath(UnknownMapGenerationPoint const &a)
+DirtRoadTile::DirtRoadTile(DirtRoadLink const &a)
     : unknown_08(0)
 {
     Count=1;
-    Points=new UnknownMapGenerationPoint[1];
+    Points=new DirtRoadLink[1];
     Points[0]=a;
 }
 
 
-UnknownMapGenerationPath::UnknownMapGenerationPath(UnknownMapGenerationPoint const &a,UnknownMapGenerationPoint const &b)
+DirtRoadTile::DirtRoadTile(DirtRoadLink const &a,DirtRoadLink const &b)
     : unknown_08(0)
 {
     Count=2;
-    Points=new UnknownMapGenerationPoint[2];
+    Points=new DirtRoadLink[2];
     Points[0]=a;
     Points[1]=b;
 }
 
 
-UnknownMapGenerationPath::UnknownMapGenerationPath(UnknownMapGenerationPoint const &a,UnknownMapGenerationPoint const &b,UnknownMapGenerationPoint const &c)
+DirtRoadTile::DirtRoadTile(DirtRoadLink const &a,DirtRoadLink const &b,DirtRoadLink const &c)
     : unknown_08(0)
 {
     Count=3;
-    Points=new UnknownMapGenerationPoint[3];
+    Points=new DirtRoadLink[3];
     Points[0]=a;
     Points[1]=b;
     Points[2]=c;
 }
 
 
-UnknownMapGenerationPath::UnknownMapGenerationPath(UnknownMapGenerationPoint const &a,UnknownMapGenerationPoint const &b,UnknownMapGenerationPoint const &c,UnknownMapGenerationPoint const &d)
+DirtRoadTile::DirtRoadTile(DirtRoadLink const &a,DirtRoadLink const &b,DirtRoadLink const &c,DirtRoadLink const &d)
     : unknown_08(0)
 {
     Count=4;
-    Points=new UnknownMapGenerationPoint[4];
+    Points=new DirtRoadLink[4];
     Points[0]=a;
     Points[1]=b;
     Points[2]=c;
@@ -7591,128 +7591,128 @@ UnknownMapGenerationPath::UnknownMapGenerationPath(UnknownMapGenerationPoint con
 }
 
 
-UnknownMapGenerationPath::UnknownMapGenerationPath() : Count(0),Points(0)
+DirtRoadTile::DirtRoadTile() : Count(0),Points(0)
 {
 }
 
 
-UnknownMapGenerationPath::~UnknownMapGenerationPath()
+DirtRoadTile::~DirtRoadTile()
 {
     delete[] Points;
     Points=0;
 }
 
 
-UnknownMapGenerationPath unknown_map_paths_a700a0[109] = {
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),0), UnknownMapGenerationPoint(Cell(2,0),1)), // 0
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),0), UnknownMapGenerationPoint(Cell(1,0),2)), // 1
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),0), UnknownMapGenerationPoint(Cell(1,1),3)), // 2
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),0), UnknownMapGenerationPoint(Cell(1,0),5)), // 3
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),0), UnknownMapGenerationPoint(Cell(0,0),6)), // 4
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,0),0), UnknownMapGenerationPoint(Cell(1,1),7)), // 5
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,0),1), UnknownMapGenerationPoint(Cell(1,1),2)), // 6
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,0),1), UnknownMapGenerationPoint(Cell(1,1),3)), // 7
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,0),1), UnknownMapGenerationPoint(Cell(0,1),4)), // 8
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,0),1), UnknownMapGenerationPoint(Cell(0,0),6)), // 9
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(2,0),1), UnknownMapGenerationPoint(Cell(1,1),7)), // 10
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(2,0),1), UnknownMapGenerationPoint(Cell(0,0),0)), // 11
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,0),2), UnknownMapGenerationPoint(Cell(1,2),3)), // 12
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,0),2), UnknownMapGenerationPoint(Cell(0,1),4)), // 13
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,0),2), UnknownMapGenerationPoint(Cell(1,0),5)), // 14
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,0),2), UnknownMapGenerationPoint(Cell(1,1),7)), // 15
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(2,1),3), UnknownMapGenerationPoint(Cell(0,1),4)), // 16
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,1),3), UnknownMapGenerationPoint(Cell(1,0),5)), // 17
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,1),3), UnknownMapGenerationPoint(Cell(0,0),6)), // 18
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,1),4), UnknownMapGenerationPoint(Cell(1,0),5)), // 19
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,1),4), UnknownMapGenerationPoint(Cell(0,0),6)), // 20
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,1),4), UnknownMapGenerationPoint(Cell(1,1),7)), // 21
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,1),5), UnknownMapGenerationPoint(Cell(1,1),7)), // 22
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,1),6), UnknownMapGenerationPoint(Cell(1,1),7)), // 23
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),0), UnknownMapGenerationPoint(Cell(1,0),2), UnknownMapGenerationPoint(Cell(0,1),4)), // 24
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,0),2), UnknownMapGenerationPoint(Cell(0,1),4), UnknownMapGenerationPoint(Cell(0,0),6)), // 25
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),0), UnknownMapGenerationPoint(Cell(0,1),4), UnknownMapGenerationPoint(Cell(0,0),6)), // 26
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),0), UnknownMapGenerationPoint(Cell(1,0),2), UnknownMapGenerationPoint(Cell(0,0),6)), // 27
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),0), UnknownMapGenerationPoint(Cell(1,0),2), UnknownMapGenerationPoint(Cell(0,1),4), UnknownMapGenerationPoint(Cell(0,0),6)), // 28
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(2,0),1), UnknownMapGenerationPoint(Cell(2,2),3), UnknownMapGenerationPoint(Cell(1,1),5)), // 29
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,1),7), UnknownMapGenerationPoint(Cell(1,1),5), UnknownMapGenerationPoint(Cell(2,2),3)), // 30
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(2,0),1), UnknownMapGenerationPoint(Cell(1,1),7), UnknownMapGenerationPoint(Cell(1,1),5)), // 31
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,1),7), UnknownMapGenerationPoint(Cell(2,0),1), UnknownMapGenerationPoint(Cell(2,2),3)), // 32
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,1),7), UnknownMapGenerationPoint(Cell(1,1),5), UnknownMapGenerationPoint(Cell(2,0),1), UnknownMapGenerationPoint(Cell(2,2),3)), // 33
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(3,0),1), UnknownMapGenerationPoint(Cell(3,2),2), UnknownMapGenerationPoint(Cell(0,2),6)), // 34
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(3,0),1), UnknownMapGenerationPoint(Cell(1,2),5)), // 35
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(3,0),1), UnknownMapGenerationPoint(Cell(1,2),5)), // 36
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(3,0),1), UnknownMapGenerationPoint(Cell(1,2),5)), // 37
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(3,0),1), UnknownMapGenerationPoint(Cell(1,2),5)), // 38
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(2,0),1), UnknownMapGenerationPoint(Cell(1,1),5)), // 39
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,0),1), UnknownMapGenerationPoint(Cell(1,0),5)), // 40
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,0),1), UnknownMapGenerationPoint(Cell(1,0),5)), // 41
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,2),5)), // 42
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,1),5)), // 43
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,1),5)), // 44
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(3,0),1)), // 45
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(2,0),1)), // 46
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(2,0),1)), // 47
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(4,0),1), UnknownMapGenerationPoint(Cell(1,1),5)), // 48
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(2,0),1), UnknownMapGenerationPoint(Cell(1,3),5)), // 49
-    UnknownMapGenerationPath(), // 50
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),6), UnknownMapGenerationPoint(Cell(3,0),2)), // 51
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),6), UnknownMapGenerationPoint(Cell(3,0),2)), // 52
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),6), UnknownMapGenerationPoint(Cell(3,0),2)), // 53
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),6), UnknownMapGenerationPoint(Cell(3,0),2)), // 54
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),6), UnknownMapGenerationPoint(Cell(2,0),2)), // 55
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),6), UnknownMapGenerationPoint(Cell(1,0),2)), // 56
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),6), UnknownMapGenerationPoint(Cell(0,0),2)), // 57
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),6), UnknownMapGenerationPoint(Cell(0,0),2)), // 58
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),6)), // 59
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),6)), // 60
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,1),6)), // 61
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(2,0),2)), // 62
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,0),2)), // 63
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,0),2)), // 64
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),6), UnknownMapGenerationPoint(Cell(3,1),2)), // 65
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,1),6), UnknownMapGenerationPoint(Cell(3,0),2)), // 66
-    UnknownMapGenerationPath(), // 67
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,1),7), UnknownMapGenerationPoint(Cell(3,3),3)), // 68
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,1),7), UnknownMapGenerationPoint(Cell(3,3),3)), // 69
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,1),7), UnknownMapGenerationPoint(Cell(3,3),3)), // 70
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,1),7), UnknownMapGenerationPoint(Cell(3,3),3)), // 71
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,1),7), UnknownMapGenerationPoint(Cell(2,2),3)), // 72
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,1),7), UnknownMapGenerationPoint(Cell(1,1),3)), // 73
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,1),7), UnknownMapGenerationPoint(Cell(1,1),3)), // 74
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,1),7)), // 75
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,1),7)), // 76
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,1),7)), // 77
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(3,3),3)), // 78
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,2),3)), // 79
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(2,2),3)), // 80
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,1),7), UnknownMapGenerationPoint(Cell(4,2),3)), // 81
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,1),7), UnknownMapGenerationPoint(Cell(2,4),3)), // 82
-    UnknownMapGenerationPath(), // 83
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),0), UnknownMapGenerationPoint(Cell(0,3),4)), // 84
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),0), UnknownMapGenerationPoint(Cell(0,3),4)), // 85
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),0), UnknownMapGenerationPoint(Cell(0,3),4)), // 86
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),0), UnknownMapGenerationPoint(Cell(0,3),4)), // 87
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),0), UnknownMapGenerationPoint(Cell(0,2),4)), // 88
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),0), UnknownMapGenerationPoint(Cell(0,1),4)), // 89
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),0), UnknownMapGenerationPoint(Cell(0,0),4)), // 90
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),0), UnknownMapGenerationPoint(Cell(0,0),4)), // 91
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,3),4)), // 92
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,2),4)), // 93
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,2),4)), // 94
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),0)), // 95
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),0)), // 96
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),0)), // 97
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(1,0),0), UnknownMapGenerationPoint(Cell(0,3),4)), // 98
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),0), UnknownMapGenerationPoint(Cell(1,3),4)), // 99
-    UnknownMapGenerationPath(), // 100
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),6), UnknownMapGenerationPoint(Cell(0,0),2)), // 101
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),6), UnknownMapGenerationPoint(Cell(0,0),2)), // 102
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),0), UnknownMapGenerationPoint(Cell(0,0),4)), // 103
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),0), UnknownMapGenerationPoint(Cell(0,0),4)), // 104
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),6), UnknownMapGenerationPoint(Cell(0,0),2)), // 105
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),6), UnknownMapGenerationPoint(Cell(0,0),2)), // 106
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),0), UnknownMapGenerationPoint(Cell(0,0),4)), // 107
-    UnknownMapGenerationPath(UnknownMapGenerationPoint(Cell(0,0),0), UnknownMapGenerationPoint(Cell(0,0),4)), // 108
+DirtRoadTile unknown_map_paths_a700a0[109] = {
+    DirtRoadTile(DirtRoadLink(Cell(0,0),0), DirtRoadLink(Cell(2,0),1)), // 0
+    DirtRoadTile(DirtRoadLink(Cell(0,0),0), DirtRoadLink(Cell(1,0),2)), // 1
+    DirtRoadTile(DirtRoadLink(Cell(0,0),0), DirtRoadLink(Cell(1,1),3)), // 2
+    DirtRoadTile(DirtRoadLink(Cell(0,0),0), DirtRoadLink(Cell(1,0),5)), // 3
+    DirtRoadTile(DirtRoadLink(Cell(0,0),0), DirtRoadLink(Cell(0,0),6)), // 4
+    DirtRoadTile(DirtRoadLink(Cell(1,0),0), DirtRoadLink(Cell(1,1),7)), // 5
+    DirtRoadTile(DirtRoadLink(Cell(1,0),1), DirtRoadLink(Cell(1,1),2)), // 6
+    DirtRoadTile(DirtRoadLink(Cell(1,0),1), DirtRoadLink(Cell(1,1),3)), // 7
+    DirtRoadTile(DirtRoadLink(Cell(1,0),1), DirtRoadLink(Cell(0,1),4)), // 8
+    DirtRoadTile(DirtRoadLink(Cell(1,0),1), DirtRoadLink(Cell(0,0),6)), // 9
+    DirtRoadTile(DirtRoadLink(Cell(2,0),1), DirtRoadLink(Cell(1,1),7)), // 10
+    DirtRoadTile(DirtRoadLink(Cell(2,0),1), DirtRoadLink(Cell(0,0),0)), // 11
+    DirtRoadTile(DirtRoadLink(Cell(1,0),2), DirtRoadLink(Cell(1,2),3)), // 12
+    DirtRoadTile(DirtRoadLink(Cell(1,0),2), DirtRoadLink(Cell(0,1),4)), // 13
+    DirtRoadTile(DirtRoadLink(Cell(1,0),2), DirtRoadLink(Cell(1,0),5)), // 14
+    DirtRoadTile(DirtRoadLink(Cell(1,0),2), DirtRoadLink(Cell(1,1),7)), // 15
+    DirtRoadTile(DirtRoadLink(Cell(2,1),3), DirtRoadLink(Cell(0,1),4)), // 16
+    DirtRoadTile(DirtRoadLink(Cell(1,1),3), DirtRoadLink(Cell(1,0),5)), // 17
+    DirtRoadTile(DirtRoadLink(Cell(1,1),3), DirtRoadLink(Cell(0,0),6)), // 18
+    DirtRoadTile(DirtRoadLink(Cell(1,1),4), DirtRoadLink(Cell(1,0),5)), // 19
+    DirtRoadTile(DirtRoadLink(Cell(0,1),4), DirtRoadLink(Cell(0,0),6)), // 20
+    DirtRoadTile(DirtRoadLink(Cell(0,1),4), DirtRoadLink(Cell(1,1),7)), // 21
+    DirtRoadTile(DirtRoadLink(Cell(1,1),5), DirtRoadLink(Cell(1,1),7)), // 22
+    DirtRoadTile(DirtRoadLink(Cell(0,1),6), DirtRoadLink(Cell(1,1),7)), // 23
+    DirtRoadTile(DirtRoadLink(Cell(0,0),0), DirtRoadLink(Cell(1,0),2), DirtRoadLink(Cell(0,1),4)), // 24
+    DirtRoadTile(DirtRoadLink(Cell(1,0),2), DirtRoadLink(Cell(0,1),4), DirtRoadLink(Cell(0,0),6)), // 25
+    DirtRoadTile(DirtRoadLink(Cell(0,0),0), DirtRoadLink(Cell(0,1),4), DirtRoadLink(Cell(0,0),6)), // 26
+    DirtRoadTile(DirtRoadLink(Cell(0,0),0), DirtRoadLink(Cell(1,0),2), DirtRoadLink(Cell(0,0),6)), // 27
+    DirtRoadTile(DirtRoadLink(Cell(0,0),0), DirtRoadLink(Cell(1,0),2), DirtRoadLink(Cell(0,1),4), DirtRoadLink(Cell(0,0),6)), // 28
+    DirtRoadTile(DirtRoadLink(Cell(2,0),1), DirtRoadLink(Cell(2,2),3), DirtRoadLink(Cell(1,1),5)), // 29
+    DirtRoadTile(DirtRoadLink(Cell(1,1),7), DirtRoadLink(Cell(1,1),5), DirtRoadLink(Cell(2,2),3)), // 30
+    DirtRoadTile(DirtRoadLink(Cell(2,0),1), DirtRoadLink(Cell(1,1),7), DirtRoadLink(Cell(1,1),5)), // 31
+    DirtRoadTile(DirtRoadLink(Cell(1,1),7), DirtRoadLink(Cell(2,0),1), DirtRoadLink(Cell(2,2),3)), // 32
+    DirtRoadTile(DirtRoadLink(Cell(1,1),7), DirtRoadLink(Cell(1,1),5), DirtRoadLink(Cell(2,0),1), DirtRoadLink(Cell(2,2),3)), // 33
+    DirtRoadTile(DirtRoadLink(Cell(3,0),1), DirtRoadLink(Cell(3,2),2), DirtRoadLink(Cell(0,2),6)), // 34
+    DirtRoadTile(DirtRoadLink(Cell(3,0),1), DirtRoadLink(Cell(1,2),5)), // 35
+    DirtRoadTile(DirtRoadLink(Cell(3,0),1), DirtRoadLink(Cell(1,2),5)), // 36
+    DirtRoadTile(DirtRoadLink(Cell(3,0),1), DirtRoadLink(Cell(1,2),5)), // 37
+    DirtRoadTile(DirtRoadLink(Cell(3,0),1), DirtRoadLink(Cell(1,2),5)), // 38
+    DirtRoadTile(DirtRoadLink(Cell(2,0),1), DirtRoadLink(Cell(1,1),5)), // 39
+    DirtRoadTile(DirtRoadLink(Cell(1,0),1), DirtRoadLink(Cell(1,0),5)), // 40
+    DirtRoadTile(DirtRoadLink(Cell(1,0),1), DirtRoadLink(Cell(1,0),5)), // 41
+    DirtRoadTile(DirtRoadLink(Cell(1,2),5)), // 42
+    DirtRoadTile(DirtRoadLink(Cell(1,1),5)), // 43
+    DirtRoadTile(DirtRoadLink(Cell(1,1),5)), // 44
+    DirtRoadTile(DirtRoadLink(Cell(3,0),1)), // 45
+    DirtRoadTile(DirtRoadLink(Cell(2,0),1)), // 46
+    DirtRoadTile(DirtRoadLink(Cell(2,0),1)), // 47
+    DirtRoadTile(DirtRoadLink(Cell(4,0),1), DirtRoadLink(Cell(1,1),5)), // 48
+    DirtRoadTile(DirtRoadLink(Cell(2,0),1), DirtRoadLink(Cell(1,3),5)), // 49
+    DirtRoadTile(), // 50
+    DirtRoadTile(DirtRoadLink(Cell(0,0),6), DirtRoadLink(Cell(3,0),2)), // 51
+    DirtRoadTile(DirtRoadLink(Cell(0,0),6), DirtRoadLink(Cell(3,0),2)), // 52
+    DirtRoadTile(DirtRoadLink(Cell(0,0),6), DirtRoadLink(Cell(3,0),2)), // 53
+    DirtRoadTile(DirtRoadLink(Cell(0,0),6), DirtRoadLink(Cell(3,0),2)), // 54
+    DirtRoadTile(DirtRoadLink(Cell(0,0),6), DirtRoadLink(Cell(2,0),2)), // 55
+    DirtRoadTile(DirtRoadLink(Cell(0,0),6), DirtRoadLink(Cell(1,0),2)), // 56
+    DirtRoadTile(DirtRoadLink(Cell(0,0),6), DirtRoadLink(Cell(0,0),2)), // 57
+    DirtRoadTile(DirtRoadLink(Cell(0,0),6), DirtRoadLink(Cell(0,0),2)), // 58
+    DirtRoadTile(DirtRoadLink(Cell(0,0),6)), // 59
+    DirtRoadTile(DirtRoadLink(Cell(0,0),6)), // 60
+    DirtRoadTile(DirtRoadLink(Cell(0,1),6)), // 61
+    DirtRoadTile(DirtRoadLink(Cell(2,0),2)), // 62
+    DirtRoadTile(DirtRoadLink(Cell(1,0),2)), // 63
+    DirtRoadTile(DirtRoadLink(Cell(1,0),2)), // 64
+    DirtRoadTile(DirtRoadLink(Cell(0,0),6), DirtRoadLink(Cell(3,1),2)), // 65
+    DirtRoadTile(DirtRoadLink(Cell(0,1),6), DirtRoadLink(Cell(3,0),2)), // 66
+    DirtRoadTile(), // 67
+    DirtRoadTile(DirtRoadLink(Cell(1,1),7), DirtRoadLink(Cell(3,3),3)), // 68
+    DirtRoadTile(DirtRoadLink(Cell(1,1),7), DirtRoadLink(Cell(3,3),3)), // 69
+    DirtRoadTile(DirtRoadLink(Cell(1,1),7), DirtRoadLink(Cell(3,3),3)), // 70
+    DirtRoadTile(DirtRoadLink(Cell(1,1),7), DirtRoadLink(Cell(3,3),3)), // 71
+    DirtRoadTile(DirtRoadLink(Cell(1,1),7), DirtRoadLink(Cell(2,2),3)), // 72
+    DirtRoadTile(DirtRoadLink(Cell(1,1),7), DirtRoadLink(Cell(1,1),3)), // 73
+    DirtRoadTile(DirtRoadLink(Cell(1,1),7), DirtRoadLink(Cell(1,1),3)), // 74
+    DirtRoadTile(DirtRoadLink(Cell(1,1),7)), // 75
+    DirtRoadTile(DirtRoadLink(Cell(1,1),7)), // 76
+    DirtRoadTile(DirtRoadLink(Cell(1,1),7)), // 77
+    DirtRoadTile(DirtRoadLink(Cell(3,3),3)), // 78
+    DirtRoadTile(DirtRoadLink(Cell(1,2),3)), // 79
+    DirtRoadTile(DirtRoadLink(Cell(2,2),3)), // 80
+    DirtRoadTile(DirtRoadLink(Cell(1,1),7), DirtRoadLink(Cell(4,2),3)), // 81
+    DirtRoadTile(DirtRoadLink(Cell(1,1),7), DirtRoadLink(Cell(2,4),3)), // 82
+    DirtRoadTile(), // 83
+    DirtRoadTile(DirtRoadLink(Cell(0,0),0), DirtRoadLink(Cell(0,3),4)), // 84
+    DirtRoadTile(DirtRoadLink(Cell(0,0),0), DirtRoadLink(Cell(0,3),4)), // 85
+    DirtRoadTile(DirtRoadLink(Cell(0,0),0), DirtRoadLink(Cell(0,3),4)), // 86
+    DirtRoadTile(DirtRoadLink(Cell(0,0),0), DirtRoadLink(Cell(0,3),4)), // 87
+    DirtRoadTile(DirtRoadLink(Cell(0,0),0), DirtRoadLink(Cell(0,2),4)), // 88
+    DirtRoadTile(DirtRoadLink(Cell(0,0),0), DirtRoadLink(Cell(0,1),4)), // 89
+    DirtRoadTile(DirtRoadLink(Cell(0,0),0), DirtRoadLink(Cell(0,0),4)), // 90
+    DirtRoadTile(DirtRoadLink(Cell(0,0),0), DirtRoadLink(Cell(0,0),4)), // 91
+    DirtRoadTile(DirtRoadLink(Cell(0,3),4)), // 92
+    DirtRoadTile(DirtRoadLink(Cell(0,2),4)), // 93
+    DirtRoadTile(DirtRoadLink(Cell(0,2),4)), // 94
+    DirtRoadTile(DirtRoadLink(Cell(0,0),0)), // 95
+    DirtRoadTile(DirtRoadLink(Cell(0,0),0)), // 96
+    DirtRoadTile(DirtRoadLink(Cell(0,0),0)), // 97
+    DirtRoadTile(DirtRoadLink(Cell(1,0),0), DirtRoadLink(Cell(0,3),4)), // 98
+    DirtRoadTile(DirtRoadLink(Cell(0,0),0), DirtRoadLink(Cell(1,3),4)), // 99
+    DirtRoadTile(), // 100
+    DirtRoadTile(DirtRoadLink(Cell(0,0),6), DirtRoadLink(Cell(0,0),2)), // 101
+    DirtRoadTile(DirtRoadLink(Cell(0,0),6), DirtRoadLink(Cell(0,0),2)), // 102
+    DirtRoadTile(DirtRoadLink(Cell(0,0),0), DirtRoadLink(Cell(0,0),4)), // 103
+    DirtRoadTile(DirtRoadLink(Cell(0,0),0), DirtRoadLink(Cell(0,0),4)), // 104
+    DirtRoadTile(DirtRoadLink(Cell(0,0),6), DirtRoadLink(Cell(0,0),2)), // 105
+    DirtRoadTile(DirtRoadLink(Cell(0,0),6), DirtRoadLink(Cell(0,0),2)), // 106
+    DirtRoadTile(DirtRoadLink(Cell(0,0),0), DirtRoadLink(Cell(0,0),4)), // 107
+    DirtRoadTile(DirtRoadLink(Cell(0,0),0), DirtRoadLink(Cell(0,0),4)), // 108
 };
 
 
@@ -7725,9 +7725,9 @@ UnknownMapGenerationPath unknown_map_paths_a700a0[109] = {
 // Complete array extent follows the loop count and field offsets; nominal global name is unknown.
 void Destroy_Map_Paths_0058d970()
 {
-    UnknownMapGenerationPath *current=unknown_map_paths_a700a0+109;
+    DirtRoadTile *current=unknown_map_paths_a700a0+109;
     for(int count=109;count>0;--count) {
-        (--current)->~UnknownMapGenerationPath();
+        (--current)->~DirtRoadTile();
     }
 }
 
@@ -7769,7 +7769,7 @@ extern Random2Class unknown_map_random_a705c0;
 extern double const angle_half_pi_79b630,angle_pi_79d158,angle_turn_79c9b8;
 extern double const angle_weight_7a5cd0,jitter_weight_7a5cc8,random_unit_7a5dd0;
 bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &);
-double __stdcall unknown_gaussian_value_005798d0(double mean,double deviation);
+double __stdcall Sample_Normal(double mean,double deviation);
 unsigned __fastcall Map_Random_Range_005797a0(unsigned,unsigned);
 
 bool MapGeneratorClass::Grow_Water_Region(int region,float scale,Rect const &bounds,Cell const &origin,bool frontier)
@@ -7835,7 +7835,7 @@ bool MapGeneratorClass::Grow_Water_Region(int region,float scale,Rect const &bou
             }
         }
         ++step;
-        angle+=unknown_gaussian_value_005798d0(0.0,0.7853981633974483);
+        angle+=Sample_Normal(0.0,0.7853981633974483);
         node=queue->Remove_Min();
         if(step>=limit)break;
       }
@@ -7954,7 +7954,7 @@ int MapGeneratorClass::unknown_0057d3a0(int count, Rect const &area, Point2D con
                 UnknownMapGenerationCell &data = MapRegionClass::Get_Cell_Data(adjacent);
                 if (data.RegionIndex == 0 && data.unknown_3c != (int)WorkingRegionID) {
                     if (Map[adjacent].unknown_47b7e0() && used < capacity &&
-                        Cell_In_Generation_Shape_0057d290(adjacent, area, ellipse, x_scale, y_scale)) {
+                        Cell_In_Generation_Shape(adjacent, area, ellipse, x_scale, y_scale)) {
                         next->Position = adjacent;
                         Cell center((short)(center_x + 0.5), (short)(center_y + 0.5));
                         double key;

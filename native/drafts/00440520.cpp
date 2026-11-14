@@ -15,7 +15,7 @@
 #include "shared/rules.hpp"
 #include "shared/id_source.hpp"
 #include "shared/building_type_list.hpp"
-// @ref ?Pose_Dir_00417890@AircraftClass@@QBEIXZ=00417890
+// @ref ?Pose_Dir@AircraftClass@@QBEIXZ=00417890
 // @ref ?Fast_Atan2@@=004ba600
 // @ref ?unknown_a40774@@3HA=00a40774
 // @ref _unknown_a40774=00a40774
@@ -89,12 +89,12 @@ exitcell.X += random; exitcell.Y += random;
             ++unknown_a40774;
             if (House->Unknown_0051FC80()) {
                 Cell nearby = aircraft->unknown_6cf130(this);
-                if (aircraft->Unlimbo(&CoordStruct(nearby, 0), aircraft->Pose_Dir_00417890())) {
+                if (aircraft->Unlimbo(&CoordStruct(nearby, 0), aircraft->Pose_Dir())) {
                     --unknown_a40774;
                     return 2;
                 }
             } else {
-                if (aircraft->Unlimbo(&unknown_slot41((intptr_t)aircraft), aircraft->Pose_Dir_00417890())) {
+                if (aircraft->Unlimbo(&unknown_slot41((intptr_t)aircraft), aircraft->Pose_Dir())) {
                     unknown_slot150(2, aircraft);
                     unknown_slot150(0x18, aircraft);
                     aircraft->Set_Coord(unknown_slot41((intptr_t)aircraft));

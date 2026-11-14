@@ -1,5 +1,5 @@
 #include "shared/map_seed.hpp"
-void MapSeedClass::Clamp_Parameters_00578d80()
+void MapSeedClass::Fixup_Settings()
 {
     if(Resources>=4) Resources=3;
     else if(Resources<0) Resources=0;

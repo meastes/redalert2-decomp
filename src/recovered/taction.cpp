@@ -721,7 +721,7 @@ bool TActionClass::unknown_infantry_with_tag_slot294(HouseClass *house, ObjectCl
         InfantryClass *infantry = Infantry[index];
         if (infantry->unknown_7d && infantry->unknown_74 && !infantry->unknown_76 && infantry->unknown_34 != 0
             && infantry->unknown_34->Is_Trigger_Attached(trigger)) {
-            infantry->unknown_slot294();
+            infantry->Berzerk();
             handled = true;
         }
     }
@@ -893,11 +893,11 @@ bool TActionClass::unknown_base_building(HouseClass *house, ObjectClass *object,
 
 
 // bool TActionClass::unknown_map_49cc20(...) (0x006B0620)
-// Calls DisplayClass::Unknown_0049CC20 on the map; always true.
+// Calls DisplayClass::Encroach_Shadow on the map; always true.
 
 bool TActionClass::unknown_map_49cc20(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Map.Unknown_0049CC20();
+    Map.Encroach_Shadow();
     return true;
 }
 

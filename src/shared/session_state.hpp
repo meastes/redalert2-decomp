@@ -62,7 +62,7 @@ struct SessionClass {
     void Set_Value_00672ae0(int value, bool update);
     // Reports scenario-loading progress in percent (redraws the loading
     // screen and sends it to the other players; 0x00672160, name hypothesis).
-    void Loading_Progress_00672160(int percent);
+    void Update_Progress(int percent);
     // The colour scheme of a player colour (0x006715D0; -2 reads as 8).
     int Unknown_006715D0(int color);
     // The unknown_3022 value of the session player with this ID; 0 when none has it (0x00672F50).

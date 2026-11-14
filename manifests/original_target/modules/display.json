@@ -367,13 +367,13 @@
    "padding_bytes": 8
   },
   {
-   "symbol": "?Unknown_0049CC20@DisplayClass@@QAEXXZ",
+   "symbol": "?Encroach_Shadow@DisplayClass@@QAEXXZ",
    "entry": "0049cc20",
    "body_bytes": 242,
    "padding_bytes": 14
   },
   {
-   "symbol": "?Unknown_0049CD20@DisplayClass@@QAEXXZ",
+   "symbol": "?Encroach_Fog@DisplayClass@@QAEXXZ",
    "entry": "0049cd20",
    "body_bytes": 142,
    "padding_bytes": 2
@@ -445,7 +445,7 @@
    "padding_bytes": 12
   },
   {
-   "symbol": "?Unknown_0049E570@DisplayClass@@QAEXXZ",
+   "symbol": "?Reinit_Cell_Drawers@DisplayClass@@QAEXXZ",
    "entry": "0049e570",
    "body_bytes": 98,
    "padding_bytes": 14
@@ -2622,7 +2622,7 @@
   },
   {
    "site": "006b0620",
-   "symbol": "?Unknown_0049CC20@DisplayClass@@QAEXXZ",
+   "symbol": "?Encroach_Shadow@DisplayClass@@QAEXXZ",
    "target": "0049cc20",
    "function_entry": true
   },
@@ -2724,7 +2724,7 @@
   },
   {
    "site": "004cfa00",
-   "symbol": "?Unknown_0049E570@DisplayClass@@QAEXXZ",
+   "symbol": "?Reinit_Cell_Drawers@DisplayClass@@QAEXXZ",
    "target": "0049e570",
    "function_entry": true
   },
@@ -2874,7 +2874,7 @@
   },
   {
    "site": "00542280",
-   "symbol": "?Unknown_0049E570@DisplayClass@@QAEXXZ",
+   "symbol": "?Reinit_Cell_Drawers@DisplayClass@@QAEXXZ",
    "target": "0049e570",
    "function_entry": true
   },
@@ -3096,25 +3096,25 @@
   },
   {
    "site": "0053dfb0",
-   "symbol": "?Unknown_0049CC20@DisplayClass@@QAEXXZ",
+   "symbol": "?Encroach_Shadow@DisplayClass@@QAEXXZ",
    "target": "0049cc20",
    "function_entry": true
   },
   {
    "site": "0053dfb0",
-   "symbol": "?Unknown_0049CD20@DisplayClass@@QAEXXZ",
+   "symbol": "?Encroach_Fog@DisplayClass@@QAEXXZ",
    "target": "0049cd20",
    "function_entry": true
   },
   {
    "site": "0053d890",
-   "symbol": "?Unknown_0049CC20@DisplayClass@@QAEXXZ",
+   "symbol": "?Encroach_Shadow@DisplayClass@@QAEXXZ",
    "target": "0049cc20",
    "function_entry": true
   },
   {
    "site": "0053d890",
-   "symbol": "?Unknown_0049CD20@DisplayClass@@QAEXXZ",
+   "symbol": "?Encroach_Fog@DisplayClass@@QAEXXZ",
    "target": "0049cd20",
    "function_entry": true
   },
@@ -3294,7 +3294,7 @@
   },
   {
    "site": "006adae0",
-   "symbol": "?Unknown_0049CC20@DisplayClass@@QAEXXZ",
+   "symbol": "?Encroach_Shadow@DisplayClass@@QAEXXZ",
    "target": "0049cc20",
    "function_entry": true
   },
@@ -3909,10 +3909,6 @@
    "address": "006f9ec0"
   },
   {
-   "symbol": "?Loading_Progress_00672160@SessionClass@@QAEXH@Z",
-   "address": "00672160"
-  },
-  {
    "symbol": "?Map@@3VMouseClass@@A",
    "address": "008324e0"
   },
@@ -4283,6 +4279,10 @@
   {
    "symbol": "?UnusedWindow@@3PAUHWND__@@A",
    "address": "00b263dc"
+  },
+  {
+   "symbol": "?Update_Progress@SessionClass@@QAEXH@Z",
+   "address": "00672160"
   },
   {
    "symbol": "?WWKeyboard@@3PAVWWKeyboardClass@@A",

@@ -654,10 +654,10 @@ bool __fastcall Calculate_Projectile_Angle(bool high_arc, int speed, int distanc
 }
 
 
-// bool __fastcall Calculate_Projectile_Pitch_Flat(int speed, int distance, int height, double gravity, UnknownFacingDir *pitch) -- 0x0047FB00
+// bool __fastcall Calculate_Projectile_Dir(int speed, int distance, int height, double gravity, UnknownFacingDir *pitch) -- 0x0047FB00
 // The flat solution only, normalised to [0, 2pi) before the conversion (no direct callers).
 
-bool __fastcall Calculate_Projectile_Pitch_Flat(int speed, int distance, int height, double gravity, UnknownFacingDir *pitch)
+bool __fastcall Calculate_Projectile_Dir(int speed, int distance, int height, double gravity, UnknownFacingDir *pitch)
 {
     double angle;
     if (Calculate_Projectile_Angle(false, speed, distance, height, gravity, angle)) {

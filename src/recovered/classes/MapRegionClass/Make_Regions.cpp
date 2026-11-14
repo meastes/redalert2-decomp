@@ -14,7 +14,7 @@ bool MapRegionClass::Make_Regions_00570810()
     int remaining=(int)((unsigned)unknown_map_cell_side_84e804*(unsigned)unknown_map_cell_side_84e804);
     for(int index=0;remaining>0;--remaining,++index) {
         if(unknown_map_cells_a70a24[index].RegionIndex==-1 && (unsigned char)unknown_map_cells_a70a24[index].Position.Not_Equal_0058db50(Cell(0,0))) {
-            MapRegionClass *region=Create_Region_From_Cell_0056e100(&Map[unknown_map_cells_a70a24[index].Position]);
+            MapRegionClass *region=Create_Region_From_Cell(&Map[unknown_map_cells_a70a24[index].Position]);
             if(region)region->unknown_1a=false;
         }
     }

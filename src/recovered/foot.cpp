@@ -175,7 +175,7 @@ FootClass::FootClass(NoInitClass const &noinit) :
 FootClass::~FootClass()
 {
     if (Team != 0 && unknown_flag_a40958) {
-        Team->Unknown_006B8FB0(this, -1, 0);
+        Team->Remove(this, -1, 0);
     }
     unknown_FootClass_list_00865f38.Delete(this);
     unknown_list_ac0c18.Delete(this);
@@ -365,14 +365,14 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
         return true;
     }
     unknown_530=(int)(Rules->unknown_13c8*900.0);
-    unknown_slot291();
+    Stop_Driver();
     CoordStruct coord=Coord;
     Cell current=Coord_Cell(coord);
     max_distance=Path_Max(abs(current.X-cell.X),abs(current.Y-cell.Y));
     if(max_distance>1 || (!unknown_79 && (Map[cell].unknown_140&0x100))) {
         if(Team) {
             Locomotor.Checked()->Lock();
-            Team->Unknown_006B8FB0(this,-1,false);
+            Team->Remove(this,-1,false);
             Locomotor.Checked()->Unlock();
         }
         Assign_Destination(0,true);
@@ -796,10 +796,10 @@ int FootClass::Do_MISSION_HUNT()
 }
 
 
-// bool FootClass::unknown_slot291() (0x004C4B60)
+// bool FootClass::Stop_Driver() (0x004C4B60)
 // Stops the locomotor (ILocomotion::Stop_Moving); always false.
 
-bool FootClass::unknown_slot291()
+bool FootClass::Stop_Driver()
 {
     Locomotor.Checked()->Stop_Moving();
     return false;
@@ -825,7 +825,7 @@ void FootClass::unknown_slot210()
 {
     Assign_Destination(0, true);
     unknown_4d0 = -1;
-    unknown_slot291();
+    Stop_Driver();
     TechnoClass::unknown_slot210();
 }
 
@@ -1962,7 +1962,7 @@ void FootClass::unknown_slot54(bool arg1)
 {
     if (arg1) {
         if (Team != 0 && unknown_a40774 == 0) {
-            Team->Unknown_006B8FB0(this, -1, 0);
+            Team->Remove(this, -1, 0);
         }
     }
     if (!arg1) {
@@ -2660,13 +2660,13 @@ int FootClass::unknown_slot177()
 }
 
 
-// void FootClass::unknown_4c9a40(int arg1 .. int arg11) (0x004C9A40)
+// void FootClass::Draw_Voxel_Shadow(int arg1 .. int arg11) (0x004C9A40)
 // Draws the unit's shadow (hypothesis): when the locomotor casts one
 // (ILocomotion::Is_To_Have_Shadow), the draw point arg6 (a Point2D) moves by
 // the locomotor's Shadow_Point and TechnoClass 0x006D21E0 draws.
 
 
-void FootClass::unknown_4c9a40(UnknownObjectPair const &voxel, int layer, int key, UnknownBuffer *cache, Rect const &cliprect, Point2D const &draw_point, Matrix3D const &transform, bool force_cache, Surface *mask, unsigned unknown_2, unsigned unknown_3)
+void FootClass::Draw_Voxel_Shadow(UnknownObjectPair const &voxel, int layer, int key, UnknownBuffer *cache, Rect const &cliprect, Point2D const &draw_point, Matrix3D const &transform, bool force_cache, Surface *mask, unsigned unknown_2, unsigned unknown_3)
 {
     if (Locomotor != 0 && Locomotor.Checked()->Is_To_Have_Shadow() == true) {
         Point2D point = draw_point;
@@ -2719,7 +2719,7 @@ bool FootClass::Limbo()
             next->unknown_122--;
         }
         if (unknown_a40774 == 0) {
-            unknown_slot291();
+            Stop_Driver();
         }
         if (Locomotor) {
             Locomotor.Checked()->Mark_All_Occupation_Bits(0);
@@ -2912,9 +2912,9 @@ bool FootClass::unknown_slot292()
 }
 
 
-// void FootClass::unknown_slot307() (0x004CA330)
+// void FootClass::Stop_Movement_Animation() (0x004CA330)
 
-void FootClass::unknown_slot307()
+void FootClass::Stop_Movement_Animation()
 {
 }
 
@@ -3052,10 +3052,10 @@ bool FootClass::unknown_slot283()
 }
 
 
-// void FootClass::unknown_slot288() (0x004CA880)
+// void FootClass::On_Movement_Blocked() (0x004CA880)
 // In mission 15 (hypothesis: unloading) clears slot 220 and calls slot 260.
 
-void FootClass::unknown_slot288()
+void FootClass::On_Movement_Blocked()
 {
     if (Get_Mission() == 15) {
         unknown_slot220(0);
@@ -3890,7 +3890,7 @@ void FootClass::Delete_Me()
         ((CaptureManagerClass *)unknown_230)->Release_4681e0();
     }
     if (Team != 0) {
-        Team->Unknown_006B8FB0(this, -1, 0);
+        Team->Remove(this, -1, 0);
     }
     TechnoClass::Delete_Me();
 }
@@ -3917,7 +3917,7 @@ void FootClass::Unknown_004CCE80(FootClass *passenger)
         Voc_Static_Add(Techno_Type_Class()->EnterTransportSound, CoordStruct(Coord), 0);
     }
     if (Techno_Type_Class()->Gunner && Cargo.Count == 1) {
-        unknown_slot280((int)passenger);
+        ReceiveGunner((int)passenger);
     }
 }
 
@@ -3934,7 +3934,7 @@ void FootClass::unknown_4ccf20(FootClass *passenger)
         Voc_Static_Add(Techno_Type_Class()->LeaveTransportSound, CoordStruct(Coord), 0);
     }
     if (Techno_Type_Class()->Gunner && Cargo.Count == 0) {
-        unknown_slot281((int)passenger);
+        RemoveGunner((int)passenger);
     }
 }
 
@@ -3947,7 +3947,7 @@ FootClass *FootClass::unknown_4ccfc0()
 {
     FootClass *passenger = (FootClass *)Cargo.Detach_Object();
     if (Techno_Type_Class()->Gunner && Cargo.Count == 0) {
-        unknown_slot281((int)passenger);
+        RemoveGunner((int)passenger);
     }
     if (passenger != 0 && Techno_Type_Class()->LeaveTransportSound != -1) {
         Voc_Static_Add(Techno_Type_Class()->LeaveTransportSound, CoordStruct(Coord), 0);

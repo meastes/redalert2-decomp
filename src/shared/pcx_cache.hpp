@@ -35,7 +35,7 @@ public:
 #endif
     // Copies image into rect of destination, skipping the transparent pixel
     // (0x0068CE80; false when the image cannot be locked).
-    bool Draw_0068ce80(Rect const &rect, Surface *destination, Surface *image, int transparent);
+    bool DrawTrans(Rect const &rect, Surface *destination, Surface *image, int transparent);
     // The image of a .pcx file, loaded on first use (0x0068CA40; arg2 meaning not recovered).
     Surface *Get_Image_0068ca40(char const *name, int arg2);
 #ifdef PCX_CACHE_DECLARE_LOADS

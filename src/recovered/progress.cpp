@@ -133,9 +133,9 @@ void ProgressScreenClass::Init(double total, char count, HWND window)
 }
 
 
-// void ProgressScreenClass::Clear_unknown_60() (0x0061EDF0)
+// void ProgressScreenClass::End() (0x0061EDF0)
 
-void ProgressScreenClass::Clear_unknown_60()
+void ProgressScreenClass::End()
 {
     unknown_60 = false;
 }
@@ -246,9 +246,9 @@ void ProgressScreenClass::Load_Shape(char const *filename, void const *image, Co
 }
 
 
-// ProgressScreenClass::Unknown_0061EFA0: text, row position and display flags.
+// ProgressScreenClass::Set_Layout: text, row position and display flags.
 Rect __fastcall Get_Title_Screen_Area_006f1f30();
-void ProgressScreenClass::Unknown_0061EFA0(Point2D xy, wchar_t const *text, bool flag1, bool flag2)
+void ProgressScreenClass::Set_Layout(Point2D xy, wchar_t const *text, bool flag1, bool flag2)
 {
     if (xy.X == -1 && xy.Y == -1) {
         int width = 0, height = 0;
@@ -288,7 +288,7 @@ void ProgressScreenClass::Shape_Size(int *width, int *height)
 
 void ProgressScreenClass::Flag_Size(int *width, int *height)
 {
-    Surface *flag = Country_Flag_004d1120(0);
+    Surface *flag = Country_Flag(0);
     if (flag == 0) {
         *width = 0;
         *height = 0;
@@ -446,7 +446,7 @@ void ProgressScreenClass::Draw_Flag(Point2D xy, Surface *flag)
     Rect rect(xy.X, xy.Y, width, height);
     int transparent = RGB_To_Pixel(255, 0, 255);
     if (unknown_surface_839954 != 0 && !static_cast<DSurface *>(unknown_surface_839954)->Is_Surface_Lost()) {
-        unknown_bitmap_writer_a76378.Draw_0068ce80(rect, unknown_surface_839954, flag, transparent);
+        unknown_bitmap_writer_a76378.DrawTrans(rect, unknown_surface_839954, flag, transparent);
     }
 }
 
@@ -500,7 +500,7 @@ void ProgressScreenClass::Draw_Player(ColorScheme *scheme, wchar_t const *name, 
     if (flag) {
         int country = unknown_players_a3fa7c[player]->unknown_66e290();
         if ((unknown_game_mode_a3d298 == 3 || unknown_game_mode_a3d298 == 4) && unknown_players_a3fa7c[player]->Team == -1) country = -3;
-        Surface *image = Country_Flag_004d1120(country);
+        Surface *image = Country_Flag(country);
         if (image) Draw_Flag(flag_point, image);
     }
     Draw_Name(name_point, name, scheme, xy.X - name_point.X - 3 + width);
@@ -562,13 +562,13 @@ void ProgressScreenClass::Draw_It(Point2D xy)
 #include "shared/win32_api.hpp"
 
 
-// void ProgressScreenClass::Set_Progress_006201c0(int index, double value, Point2D point) (0x006201C0)
+// void ProgressScreenClass::Set_Progress_Percent(int index, double value, Point2D point) (0x006201C0)
 // Sets a player's progress to value percent of the total (at most the
 // total); when it changed, repaints the window or redraws at point. The
 // listener (while the screen is active) is told the mean percent before and
 // after.
 
-void ProgressScreenClass::Set_Progress_006201c0(int index, double value, Point2D point)
+void ProgressScreenClass::Set_Progress_Percent(int index, double value, Point2D point)
 {
     int before = Average_Progress() * 100.0;
     double old = Progress[index];

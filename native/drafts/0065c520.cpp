@@ -71,7 +71,7 @@ bool __fastcall Wait_For_Players_0065c520()
         }
         double progress = ProgressScreen.Average_Progress();
         if (progress >= 0.9995) {
-            unknown_session_a3d298.Loading_Progress_00672160(unknown_id_source_a3d290->unknown_223b ? 200 : 100);
+            unknown_session_a3d298.Update_Progress(unknown_id_source_a3d290->unknown_223b ? 200 : 100);
             return true;
         }
         if (progress != last) {
@@ -80,7 +80,7 @@ bool __fastcall Wait_For_Players_0065c520()
         }
         if (resend.Value() <= 0) {
             resend = 60;
-            unknown_session_a3d298.Loading_Progress_00672160(unknown_id_source_a3d290->unknown_223b ? 200 : 100);
+            unknown_session_a3d298.Update_Progress(unknown_id_source_a3d290->unknown_223b ? 200 : 100);
         }
     }
 }

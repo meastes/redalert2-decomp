@@ -4,8 +4,8 @@
     "id": "population-4124",
     "inventory_sha256": "a7be540c1c460ae932a19863f842840e2c657a0e82a2702180c6bc08472a34ca",
     "gaps_sha256": "2065172265532754676ad1fa7214b0fda33ccb735ac88fcc91ff22c384f2f187",
-    "historical_population_sha256": "45ebc9eb690d06811cbee4db40da4f16997fc424dad6c294be7278ee02c8fb23",
-    "historical_acceptance_sha256": "dca2c3f9d90a8847093455a35eb1ede734ea982ed60f425073f29571399558a6"
+    "historical_population_sha256": "f1e743f50fa0011a32698c6f3f56d621baa8e551ebda1b98636808f6a2d7eabc",
+    "historical_acceptance_sha256": "fbc82aceddf3ea0eb358fbf551179545662b0c5d9e39f8384ce8d33d9b7e45f7"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -5181,7 +5181,7 @@
     "??0?$DynamicVectorClass@PAVSmudgeTypeClass@@@@QAE@IPBQAVSmudgeTypeClass@@@Z": 6633264,
     "??0?$DynamicVectorClass@PAVTerrainTypeClass@@@@QAE@IPBQAVTerrainTypeClass@@@Z": 6634048,
     "??_E?$DynamicVectorClass@PAVWaypointPathClass@@@@UAEPAXI@Z": 7494384,
-    "?Unknown_0049CC20@DisplayClass@@QAEXXZ": 4836384,
+    "?Encroach_Shadow@DisplayClass@@QAEXXZ": 4836384,
     "?Unknown_00559F10@MapClass@@QAEXXZ": 5611280,
     "?Unknown_00569FB0@MapClass@@QAE?AUCoordStruct@@ABU2@0PAVHouseClass@@@Z": 5676976,
     "?Unknown_006A17B0@TabClass@@QAEXXZ": 6952880,
@@ -5559,7 +5559,7 @@
     "?Write_Variables@ScenarioClass@@QAE_NAAVCCINIClass@@@Z": 6690992,
     "?Read_Basic@ScenarioClass@@QAE_NAAVCCINIClass@@@Z": 6691200,
     "?Get_Time@INIClass@@QBEHPBD0H@Z": 5309536,
-    "?Loading_Progress_00672160@SessionClass@@QAEXH@Z": 6758752,
+    "?Update_Progress@SessionClass@@QAEXH@Z": 6758752,
     "?Assign_Houses_0065fbb0@@YIXXZ": 6683568,
     "?Clear_All@LightSourceClass@@SAXXZ": 5469312,
     "?Load@LightSourceClass@@UAGJPAUIStream@@@Z": 5471136,
@@ -8441,7 +8441,7 @@
     "?Init_Clear@RadarClass@@UAEXXZ": 6484576,
     "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z": 7261072,
     "?Submit@LogicClass@@UAE_NPAVObjectClass@@_N@Z": 5497648,
-    "?Unknown_0049CD20@DisplayClass@@QAEXXZ": 4836640,
+    "?Encroach_Fog@DisplayClass@@QAEXXZ": 4836640,
     "?Is_Something_Nearby@MapClass@@QAE_NABVCell@@H@Z": 5669024,
     "_$E69": 5622720,
     "?Unknown_0067D420@SidebarClass@@QAEX_N@Z": 6804512,

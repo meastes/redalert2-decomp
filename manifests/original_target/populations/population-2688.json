@@ -4,8 +4,8 @@
     "id": "population-2688",
     "inventory_sha256": "72560ee40d9982cfd66ff8a7ab4123db55b136ab1d4ef68ea2eefec0c537d48b",
     "gaps_sha256": "0cd3b6300732a62ad984dbe4c7b87f4e2fcef785409edae5021ed4460a9225d0",
-    "historical_population_sha256": "b1e145bf71f9de26b7846bc61f9029e28a8e83db451bb56ab7d7a709a491c397",
-    "historical_acceptance_sha256": "dd0146b17e0f25babdc14b57c499edd86efd8b6895ecdceb62340d1365e71d89"
+    "historical_population_sha256": "907ef527dd0b5f3cf72d03170a9e4db84239756c13d69c00fba0f284bb2bcce9",
+    "historical_acceptance_sha256": "926bf0b93b60bed1d2f81ed922ee06408f7a51f732c0d02829924da33692e3c8"
   },
   "references": {
     "?unknown_map_dialog_modified_a70068@@3_NA": 10944616,
@@ -1912,7 +1912,7 @@
     "?Set_Default_Description_00576fe0@MapSeedClass@@QAEXXZ": 5730272,
     "?Randomize_Parameters_005789f0@MapSeedClass@@QAEXH@Z": 5736944,
     "?Randomize_00578b10@MapSeedClass@@QAEXXZ": 5737232,
-    "?Clamp_Parameters_00578d80@MapSeedClass@@QAEXXZ": 5737856,
+    "?Fixup_Settings@MapSeedClass@@QAEXXZ": 5737856,
     "?Save_Or_Prompt_00578ed0@MapSeedClass@@QAE_NPBD@Z": 5738192,
     "?Save_Dialog_0053b1b0@LoadOptionsClass@@QAEDPAG@Z": 5484976,
     "?Save@MapSeedClass@@UAE_NPBDPBG@Z": 5738240,
@@ -2101,7 +2101,7 @@
     "??_EAnimTypeClass@@UAEPAXI@Z": 4351936,
     "?Read_Dialog_Parameters_00578420@MapSeedClass@@": 5735456,
     "?Randomize_Parameters_005789f0@MapSeedClass@@": 5736944,
-    "?Clamp_Parameters_00578d80@MapSeedClass@@": 5737856,
+    "?Fixup_Settings@MapSeedClass@@": 5737856,
     "?Reset@AudioTimeSpan@@QAEXXZ": 4208672,
     "?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ": 4717808,
     "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4717856,
@@ -2695,7 +2695,9 @@
     "__decoder": 7980580,
     "?AI_Takeover@HouseClass@@QAEXXZ": 5193840,
     "__ramp_corners": 8339828,
-    "__real@8@bff6b6db6db6db6db800": 8026880
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
+    "?Reset@BitFontClass@@QAEXXZ": 4399536
   },
   "regions": [
     {
@@ -2838,13 +2840,13 @@
         {
           "offset": 459,
           "kind": 20,
-          "symbol": "?Clamp_Parameters_00578d80@MapSeedClass@@QAEXXZ",
+          "symbol": "?Fixup_Settings@MapSeedClass@@QAEXXZ",
           "target": 5737856,
           "addend": 0,
           "resolved": 1937
         }
       ],
-      "source_sha256": "cbacfd064d0de36e5ecad35523058eecf5a28516c7099b20681e469e676245e6",
+      "source_sha256": "a5880a146a34011c7353bb1ee20174d3a5d0a431bab6a14435ccb6b71ad0f52f",
       "source": "src/recovered/classes/MapSeedClass/Read_Dialog_Parameters.cpp",
       "population": "population-2688",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",

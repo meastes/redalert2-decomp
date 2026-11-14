@@ -205,7 +205,7 @@ InfantryClass::~InfantryClass()
             House->unknown_144 = true;
         }
         if (Team != 0) {
-            Team->Unknown_006B8FB0(this, -1, 0);
+            Team->Remove(this, -1, 0);
             Team = 0;
         }
         House->unknown_4ea800(this);
@@ -232,7 +232,7 @@ int InfantryClass::Take_Damage(int *damage,int distance,WarheadTypeClass *warhea
     if (result==4) {
         // The existing integer slot216 declaration carries the original source-pointer bits.
         unknown_slot216(reinterpret_cast<int>(source));
-        unknown_slot291();
+        Stop_Driver();
         unknown_slot210();
         QueueMission(-1,false);
         QueueMission(5,false);
@@ -655,7 +655,7 @@ void InfantryClass::unknown_slot93(int why)
             }
             if (&Map[Center_Coord()]==unknown_494) {
                 Unknown_0047E2C0(CoordStruct(Coord),Rules->unknown_13a8,this,Rules->unknown_c74,true);
-                unknown_slot291();
+                Stop_Driver();
                 Scatter(Adjacent_Cell(CoordStruct(Coord),Dir_To_8(unknown_2e0.Current())),true,true);
                 QueueMission(2,false);
                 if (!unknown_494 || Map[unknown_494->Center_Coord()].unknown_ec==2) Mark(1);
@@ -720,7 +720,7 @@ void InfantryClass::Assign_Destination(AbstractClass *target, bool immediate)
     }
     if (Locomotor.Checked()->Is_Moving() && target &&
         Map[Center_Coord()].Is_Clear_To_Move(Type->SpeedType,true,false,-1,0,-1,true)) {
-        if (Type->JumpJet || Mission!=1 || unknown_494!=target) unknown_slot291();
+        if (Type->JumpJet || Mission!=1 || unknown_494!=target) Stop_Driver();
     }
     if (House->Is_Human_Player() && target && unknown_494==target &&
         unknown_5c3 && !Type->Fraidycat && !Type->Cyborg) unknown_slot311(7,false,false);
@@ -760,7 +760,7 @@ void InfantryClass::Assign_Destination(AbstractClass *target, bool immediate)
     }
     if (Type->JumpJet && target && !Locomotor.Checked()->Is_Moving()) {
         bool should_fly=unknown_508dd0(&unknown_slot19(0).As_Cell(),&target->Center_Coord().As_Cell());
-        bool is_jumpjet=unknown_508d00();
+        bool is_jumpjet=Is_JumpJet();
         if (Type->HoverAttack) should_fly=true;
         if (is_jumpjet) {
             if (!should_fly) {
@@ -858,7 +858,7 @@ void InfantryClass::AI()
         }
         Commence();
     }
-    if (Strength <= 0 && !Is_Busy_Sequence_00509710(Sequence)) {
+    if (Strength <= 0 && !Is_Death_Doing(Sequence)) {
         Strength = 1;
     }
     FootClass::AI();
@@ -896,10 +896,10 @@ scatter_done:
             unknown_slot311(0, false, false);
         }
     }
-    if (unknown_5070e0()) {
+    if (Edge_Of_World_AI()) {
         return;
     }
-    if (unknown_507170()) {
+    if (Theft_AI()) {
         return;
     }
     if (unknown_slot122()) {
@@ -1512,7 +1512,7 @@ bool InfantryClass::unknown_slot311(int sequence, bool force, bool random_start)
         Voc_Play_At(Techno_Type_Class()->UndeploySound, coord, 0);
     }
     Sequence = sequence;
-    if (Is_Prone_Sequence_005096e0(sequence)) {
+    if (Is_Idle_Doing(sequence)) {
         int rate = Options.Normalize_Delay(unknown_do_controls_7a3474[sequence].Rate);
         StageClass::Set_Rate(rate);
     } else {
@@ -1527,7 +1527,7 @@ bool InfantryClass::unknown_slot311(int sequence, bool force, bool random_start)
         StageClass::Stage = 0;
     }
     if (Strength == 0) {
-        unknown_slot291();
+        Stop_Driver();
     }
     switch (sequence) {
     case 5:
@@ -1542,12 +1542,12 @@ bool InfantryClass::unknown_slot311(int sequence, bool force, bool random_start)
 }
 
 
-// bool InfantryClass::unknown_slot291() (0x00504AE0, slot 291)
+// bool InfantryClass::Stop_Driver() (0x00504AE0, slot 291)
 // Plays slot 311 (28 while deploying (sequences 27-30), 2 when prone,
 // else 0), records in +0x5C4 whether slot 101 reports the current cell
 // occupied in the eight-way facing, then FootClass's slot 291.
 
-bool InfantryClass::unknown_slot291()
+bool InfantryClass::Stop_Driver()
 {
     if (unknown_5090d0()) {
         unknown_slot311(28, 0, 0);
@@ -1563,7 +1563,7 @@ bool InfantryClass::unknown_slot291()
     } else {
         unknown_5c4 = true;
     }
-    return FootClass::unknown_slot291();
+    return FootClass::Stop_Driver();
 }
 
 
@@ -2120,7 +2120,7 @@ int InfantryClass::Do_MISSION_HUNT()
 
 int InfantryClass::Do_MISSION_GUARD()
 {
-    int result = Update_Deployed_Attack_00507f70();
+    int result = Update_Deployed_Attack();
     if (result == -1) {
         return FootClass::Do_MISSION_GUARD();
     }
@@ -2133,7 +2133,7 @@ int InfantryClass::Do_MISSION_GUARD()
 
 int InfantryClass::Do_MISSION_GUARD_AREA()
 {
-    int result = Update_Deployed_Attack_00507f70();
+    int result = Update_Deployed_Attack();
     if (result == -1) {
         return FootClass::Do_MISSION_GUARD_AREA();
     }
@@ -2449,7 +2449,7 @@ void InfantryClass::unknown_506f30()
 // Marks the team target state, or handles a teamless guard outside the map predicate (0x005070E0).
 // Complete independently decoded body through RET 0x0050716C: 141 bytes.
 // Inventory 0x0050711C is inside a displacement, not a separate entry.
-bool InfantryClass::unknown_5070e0()
+bool InfantryClass::Edge_Of_World_AI()
 {
     if (Team != 0 && unknown_32d) {
         Team->TargetNotAssigned = true;
@@ -2468,7 +2468,7 @@ bool InfantryClass::unknown_5070e0()
 
 // Thief capture and pursuit of an enemy vehicle; +0xC13 is the shared Thief flag.
 
-bool InfantryClass::unknown_507170()
+bool InfantryClass::Theft_AI()
 {
     if (!Type->Thief || !unknown_494 || unknown_494->Kind_Of()!=1) return false;
     TechnoClass *vehicle=static_cast<TechnoClass *>(unknown_494);
@@ -2541,7 +2541,7 @@ void InfantryClass::Update_Fire_00507530()
             unknown_2e0.Set(Direction_To(unknown_228));
             if (unknown_228 == unknown_494) {
                 unknown_4cd9b0();
-                unknown_slot291();
+                Stop_Driver();
             }
                 } break;
         case 5: {
@@ -2703,7 +2703,7 @@ void InfantryClass::Update_Movement_00507b90()
     }
 select_sequence:
     if (Locomotor.Checked()->Is_Really_Moving_Now()) {
-        if (unknown_508d00()) {
+        if (Is_JumpJet()) {
             if (unknown_57d) return;
             if (unknown_468 > 0.8) {
                 unknown_slot311(24, false, false);
@@ -2735,7 +2735,7 @@ inline int Infantry_Deployment_Radiation_Threshold(WeaponTypeClass const &weapon
 {
     return weapon.unknown_12c / 3;
 }
-int InfantryClass::Update_Deployed_Attack_00507f70()
+int InfantryClass::Update_Deployed_Attack()
 {
     if (unknown_5090d0()) {
         if (Type->UndeployDelay > -1) {
@@ -2927,10 +2927,10 @@ HRESULT __stdcall InfantryClass::Save(IStream *stream, BOOL clear_dirty)
 }
 
 
-// void InfantryClass::unknown_slot307() (0x00508730)
+// void InfantryClass::Stop_Movement_Animation() (0x00508730)
 // Ends sequences 6, 3 and 0x11.
 
-void InfantryClass::unknown_slot307()
+void InfantryClass::Stop_Movement_Animation()
 {
     if (Sequence == 6 || Sequence == 3 || Sequence == 0x11) {
         Sequence = -1;
@@ -2970,11 +2970,11 @@ bool InfantryClass::unknown_slot122()
 }
 
 
-// void InfantryClass::unknown_slot295() (0x00508820, slot 295)
+// void InfantryClass::Start_Fear() (0x00508820, slot 295)
 // Unless the type is Fearless or check 13 (0x006D7910) holds: +0x5BC = 300
 // (hypothesis: a fear counter).
 
-void InfantryClass::unknown_slot295()
+void InfantryClass::Start_Fear()
 {
     if (!Type->Fearless && !unknown_6d7910(13)) {
         unknown_5bc = 300;
@@ -2982,10 +2982,10 @@ void InfantryClass::unknown_slot295()
 }
 
 
-// void InfantryClass::unknown_slot296() (0x00508850, slot 296)
+// void InfantryClass::Stop_Fear() (0x00508850, slot 296)
 // Clears +0x5BC unless the type is Fearless.
 
-void InfantryClass::unknown_slot296()
+void InfantryClass::Stop_Fear()
 {
     if (!Type->Fearless) {
         unknown_5bc = 0;
@@ -2993,10 +2993,10 @@ void InfantryClass::unknown_slot296()
 }
 
 
-// void InfantryClass::unknown_slot297(int arg1) (0x00508870, slot 297)
+// void InfantryClass::Do_Idle(int arg1) (0x00508870, slot 297)
 // Slot 311 with action 10 for arg1 1, else 9.
 
-void InfantryClass::unknown_slot297(int arg1)
+void InfantryClass::Do_Idle(int arg1)
 {
     switch (arg1) {
     case 1:
@@ -3051,10 +3051,10 @@ int InfantryClass::unknown_slot303()
 
 
 // Foot update plus a nearby jumpjet locomotor's IPersist class-ID query (0x005089D0).
-void InfantryClass::unknown_slot288()
+void InfantryClass::On_Movement_Blocked()
 {
-    FootClass::unknown_slot288();
-    if (unknown_494 != 0 && unknown_5d4c00(unknown_494) < 1024 && unknown_508d00()) {
+    FootClass::On_Movement_Blocked();
+    if (unknown_494 != 0 && unknown_5d4c00(unknown_494) < 1024 && Is_JumpJet()) {
     }
 }
 
@@ -3063,7 +3063,7 @@ void InfantryClass::unknown_slot288()
 // Copyright 2026 ra2-decomp contributors
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
-// bool InfantryClass::unknown_slot289() -- 0x00508AB0
+// bool InfantryClass::JumpJet_To_Walk() -- 0x00508AB0
 // TibSun/YR InfantryClass::JumpJet_To_Walk: a grounded jumpjet infantry with a short path left gets a walking
 // locomotor that carries the jumpjet one as its piggyback. From ra2-decomp (YR 0x00521EB0): the comip
 // `piggy != NULL` tests and Move_To taking the Center_Coord result directly (through CoordStruct's COM
@@ -3073,7 +3073,7 @@ void InfantryClass::unknown_slot288()
 extern "C" GUID const unknown_Walk_clsid_007a1fa0;     // CLSID_WalkLocomotion
 extern "C" GUID const CLSID_JumpjetLocomotionClass;
 
-bool InfantryClass::unknown_slot289()
+bool InfantryClass::JumpJet_To_Walk()
 {
     int path_length = 0;
     if (unknown_494 != 0) {
@@ -3085,7 +3085,7 @@ bool InfantryClass::unknown_slot289()
     }
     if (path_length >= 4) return false;
 
-    if (unknown_508d00()) {
+    if (Is_JumpJet()) {
         UnknownComPtr<IPiggyback, &unknown_uuid_IPiggyback_7cfc30> piggy(Locomotor);
         if (piggy != 0 && !piggy.Checked()->Is_Piggybacking()) {
             UnknownComPtr<ILocomotion, &unknown_uuid_ILocomotion_7ce600> walk(unknown_Walk_clsid_007a1fa0);
@@ -3105,15 +3105,15 @@ bool InfantryClass::unknown_slot289()
 }
 
 
-// void InfantryClass::unknown_slot294() (0x00508CF0, slot 294)
+// void InfantryClass::Berzerk() (0x00508CF0, slot 294)
 
-void InfantryClass::unknown_slot294()
+void InfantryClass::Berzerk()
 {
     unknown_5c0 = true;
 }
 
 
-// bool InfantryClass::unknown_508d00() (0x00508D00)
+// bool InfantryClass::Is_JumpJet() (0x00508D00)
 // True for a JumpJet infantry type whose locomotor's class ID is
 // JumpjetLocomotionClass (asked through IPersist::GetClassID).
 
@@ -3124,7 +3124,7 @@ extern "C" GUID const CLSID_JumpjetLocomotionClass;    // 0x007A2000
 // Attach(pointer) on success, the release out of line, 0x004A4D00).
 
 
-bool InfantryClass::unknown_508d00()
+bool InfantryClass::Is_JumpJet()
 {
     if (!Type->JumpJet) {
         return false;
@@ -3266,22 +3266,22 @@ bool InfantryClass::unknown_5090d0() const
 }
 
 
-// bool InfantryClass::unknown_509100() const (0x00509100)
+// bool InfantryClass::Is_Deploy_Fire() const (0x00509100)
 // The type's DeployFire flag.
 
-bool InfantryClass::unknown_509100() const
+bool InfantryClass::Is_Deploy_Fire() const
 {
     return Type->DeployFire;
 }
 
 
-// int InfantryClass::unknown_509110() (0x00509110; no callers in the
+// int InfantryClass::Deploy_Or_Stop() (0x00509110; no callers in the
 // executable: InfantryClass slot 304 expands the same steps inline)
 // A standing soldier plays sequence 27 (deploy-fire) and the delay is that
 // sequence's frame count; a moving one stops its locomotor, sets +0x5CC and
 // waits the mission control's rate in frames plus 0..2.
 
-int InfantryClass::unknown_509110()
+int InfantryClass::Deploy_Or_Stop()
 {
     if (!Locomotor.Checked()->Is_Moving()) {
         unknown_slot311(27, 0, 0);
@@ -3417,23 +3417,23 @@ bool InfantryClass::unknown_slot275()
 }
 
 
-// bool InfantryClass::unknown_slot310() (0x00509470, slot 310)
+// bool InfantryClass::IsDeployed() (0x00509470, slot 310)
 // Whether a Deployer type is playing one of the deploy sequences (27-30).
 
-bool InfantryClass::unknown_slot310()
+bool InfantryClass::IsDeployed()
 {
     return Type->Deployer && (Sequence == 27 || Sequence == 28 || Sequence == 29 || Sequence == 30);
 }
 
 
-// void InfantryClass::unknown_5094b0(BuildingClass *building) (0x005094B0;
+// void InfantryClass::Enter_Occupiable(BuildingClass *building) (0x005094B0;
 // no callers in the executable: InfantryClass slot 93 expands the same steps
 // inline for an infantry arriving in the building's cell)
 // An Occupier leaves the map (slot 52), joins the building's occupants
 // (+0x554) and the building refreshes its cell; an Assaulter is handed to the
 // building (0x004536D0), stops (slot 260) and moves to the building's centre.
 
-void InfantryClass::unknown_5094b0(BuildingClass *building)
+void InfantryClass::Enter_Occupiable(BuildingClass *building)
 {
     if (Type->Occupier) {
         Limbo();
@@ -3504,7 +3504,7 @@ void InfantryClass::unknown_slot205()
 
 
 // Prone/crawling animation states (receiver unused; member ABI hypothesis).
-bool InfantryClass::Is_Prone_Sequence_005096e0(int sequence) const
+bool InfantryClass::Is_Idle_Doing(int sequence) const
 {
     if (sequence != 9 && sequence != 10 && sequence != 18 && sequence != 19
         && sequence != 23 && sequence != 32) {
@@ -3515,7 +3515,7 @@ bool InfantryClass::Is_Prone_Sequence_005096e0(int sequence) const
 
 
 // Sequence check (receiver unused; member ABI hypothesis).
-bool InfantryClass::Is_Busy_Sequence_00509710(int sequence) const
+bool InfantryClass::Is_Death_Doing(int sequence) const
 {
     return sequence == 11 || sequence == 12 || sequence == 13 || sequence == 14 || sequence == 15
         || sequence == 34 || sequence == 35 || sequence == 36 || sequence == 20 || sequence == 21;
@@ -3525,7 +3525,7 @@ bool InfantryClass::Is_Busy_Sequence_00509710(int sequence) const
 // Whether the current sequence blocks firing; called by TechnoClass at 0x006C9B87.
 bool InfantryClass::Is_Busy_00509760() const
 {
-    return Is_Busy_Sequence_00509710(Sequence);
+    return Is_Death_Doing(Sequence);
 }
 
 

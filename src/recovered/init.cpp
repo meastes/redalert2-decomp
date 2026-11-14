@@ -3358,7 +3358,7 @@ void __fastcall Init_Theater_00519e70(int theater)
     Debug_Printf("Init theater %s\n", Theaters[theater].Name);
 
     unknown_id_source_a3d290->Theater = theater;
-    unknown_session_a3d298.Loading_Progress_00672160(8);
+    unknown_session_a3d298.Update_Progress(8);
 
     if (unknown_id_source_a3d290->Theater != 1
         && (unknown_loaded_theater_7d88dc == 1 || unknown_loaded_theater_7d88dc == -1)) {
@@ -3381,7 +3381,7 @@ void __fastcall Init_Theater_00519e70(int theater)
         unknown_theater_mix_8374c4 = new MixFileClass(shortname, &FastKey);
         unknown_theater_mix_8374c4->Cache();
         unknown_theater_mix_8374c0->Cache();
-        unknown_session_a3d298.Loading_Progress_00672160(6);
+        unknown_session_a3d298.Update_Progress(6);
 
         if (unknown_theater_mix_8374cc != 0) {
             delete unknown_theater_mix_8374cc;
@@ -3392,7 +3392,7 @@ void __fastcall Init_Theater_00519e70(int theater)
             delete unknown_theater_mix_8374d0;
         }
         unknown_theater_mix_8374d0 = new MixFileClass("ISOGEN.MIX", &FastKey);
-        unknown_session_a3d298.Loading_Progress_00672160(12);
+        unknown_session_a3d298.Update_Progress(12);
 
         wsprintfA(fullname, "%s.PAL", Theaters[theater].Root);
         unsigned char const *ptr = (unsigned char const *)MixFileClass::Retrieve(fullname);
@@ -3429,14 +3429,14 @@ void __fastcall Init_Theater_00519e70(int theater)
             ColorSchemes[s]->Unknown_00663B40(&unknown_palette_838a10, &unknown_palette_837e10, 1000, 1000, 1000);
             int percent = (min(12 + (s / prog_step), 25));
             if (percent != last_percent) {
-                unknown_session_a3d298.Loading_Progress_00672160(percent);
+                unknown_session_a3d298.Update_Progress(percent);
                 last_percent = percent;
             }
             unknown_481fb0();
         }
         Unknown_00603750(theater);
         TechnoTypeClass::Load_Palettes();
-        unknown_session_a3d298.Loading_Progress_00672160(25);
+        unknown_session_a3d298.Update_Progress(25);
     }
 }
 

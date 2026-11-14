@@ -28,8 +28,8 @@ extern double const angle_weight_7a5cd0,jitter_weight_7a5cc8,random_unit_7a5dd0;
 // @ref ?unknown_map_random_a705c0@@=00a705c0
 // @ref ??RRandom2Class@@QAEHXZ=00638840
 bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &);
-// @ref ?unknown_gaussian_value_005798d0@@=005798d0
-double __stdcall unknown_gaussian_value_005798d0(double mean,double deviation);
+// @ref ?Sample_Normal@@=005798d0
+double __stdcall Sample_Normal(double mean,double deviation);
 unsigned __fastcall Map_Random_Range_005797a0(unsigned,unsigned);
 
 bool MapGeneratorClass::Grow_Water_Region(int region,float scale,Rect const &bounds,Cell const &origin,bool frontier)
@@ -95,7 +95,7 @@ bool MapGeneratorClass::Grow_Water_Region(int region,float scale,Rect const &bou
             }
         }
         ++step;
-        angle+=unknown_gaussian_value_005798d0(0.0,0.7853981633974483);
+        angle+=Sample_Normal(0.0,0.7853981633974483);
         node=queue->Remove_Min();
         if(step>=limit)break;
       }

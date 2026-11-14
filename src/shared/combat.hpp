@@ -11,7 +11,7 @@
 bool __fastcall Calculate_Projectile_Angle(bool high_arc, int speed, int distance, int height, double gravity, double &angle);
 // The flat solution as a direction, normalised to [0, 2pi) before the conversion (0x0047FB00;
 // no direct callers; hypothesis).
-bool __fastcall Calculate_Projectile_Pitch_Flat(int speed, int distance, int height, double gravity, struct UnknownFacingDir *pitch);
+bool __fastcall Calculate_Projectile_Dir(int speed, int distance, int height, double gravity, struct UnknownFacingDir *pitch);
 // Whether any ballistic solution exists (0x0047FBA0; TibSun Is_Projectile_Trajectory_Valid).
 bool __fastcall Is_Projectile_Trajectory_Valid(int speed, int distance, int height, double gravity);
 

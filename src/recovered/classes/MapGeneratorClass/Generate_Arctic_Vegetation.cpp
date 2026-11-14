@@ -3,7 +3,7 @@
 #include "shared/map_view.hpp"
 #include "shared/unknown_map_generator.hpp"
 double __cdecl Map_Random_Fraction_00579770();
-double __stdcall Map_Clamped_Gaussian_005798f0(double,double,double,double);
+double __stdcall Sample_Truncated_Normal(double,double,double,double);
 extern int unknown_tileset_a6e0e8;
 // @ref ?unknown_tileset_a6e0e8@@=00a6e0e8
 // @ref ?Place_Tile_Patch@MapGeneratorClass@@=00586340
@@ -29,7 +29,7 @@ void MapGeneratorClass::Generate_Arctic_Vegetation()
             Cell origin=cell->Fetch_CellID();
             int originID=(int)((unsigned)(int)origin.Y*512u+(unsigned)(int)origin.X);
             if(Map_Random_Fraction_00579770()<data.unknown_28) {
-                Place_Tile_Patch(cell,unknown_tileset_a6e0e8,(int)Map_Clamped_Gaussian_005798f0(20.0,15.0,4.0,60.0),originID,false);
+                Place_Tile_Patch(cell,unknown_tileset_a6e0e8,(int)Sample_Truncated_Normal(20.0,15.0,4.0,60.0),originID,false);
             }
         }
         cell=Map.Iterate();
@@ -43,7 +43,7 @@ void MapGeneratorClass::Generate_Arctic_Vegetation()
     int remaining=(int)((SeedData.Width*0.1+0.7)*(SeedData.Vegetation*0.01)*MaxTrees);
     for(int attempts=0;remaining>0 && attempts<100;++attempts) {
         Cell position=MapRegionClass::Pick_Random_Clear_Map_Cell_0056d7a0();
-        remaining-=Place_Forest(&Map[position],(int)Map_Clamped_Gaussian_005798f0(25.0,10.0,10.0,35.0),Map_Clamped_Gaussian_005798f0(0.2,0.1,0.05,0.4));
+        remaining-=Place_Forest(&Map[position],(int)Sample_Truncated_Normal(25.0,10.0,10.0,35.0),Sample_Truncated_Normal(0.2,0.1,0.05,0.4));
     }
 }
 // @ref __real@8@3ffcccccccccccccd000=0079c260

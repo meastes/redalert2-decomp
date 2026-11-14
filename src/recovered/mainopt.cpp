@@ -162,7 +162,7 @@ void __fastcall Main_Options_Apply(HWND window)
         int detail = SendMessageA(control, 0x400, 0, 0) ? 2 : 0;
         if (Options.DetailLevel != detail) {
             Options.DetailLevel = detail;
-            Map.Unknown_0049E570();
+            Map.Reinit_Cell_Drawers();
         }
     }
     control = GetDlgItem(window, 0x50F);

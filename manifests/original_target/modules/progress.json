@@ -120,7 +120,7 @@
    "padding_bytes": 2
   },
   {
-   "symbol": "?Clear_unknown_60@ProgressScreenClass@@QAEXXZ",
+   "symbol": "?End@ProgressScreenClass@@QAEXXZ",
    "entry": "0061edf0",
    "body_bytes": 5,
    "padding_bytes": 11
@@ -168,7 +168,7 @@
    "padding_bytes": 3
   },
   {
-   "symbol": "?Unknown_0061EFA0@ProgressScreenClass@@QAEXUPoint2D@@PBG_N2@Z",
+   "symbol": "?Set_Layout@ProgressScreenClass@@QAEXUPoint2D@@PBG_N2@Z",
    "entry": "0061efa0",
    "body_bytes": 422,
    "padding_bytes": 10
@@ -264,7 +264,7 @@
    "padding_bytes": 1
   },
   {
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "entry": "006201c0",
    "body_bytes": 256,
    "padding_bytes": 0
@@ -546,13 +546,13 @@
  "references_in": [
   {
    "site": "00481f00",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "00481fb0",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
@@ -582,7 +582,7 @@
   },
   {
    "site": "0065c7d0",
-   "symbol": "?Unknown_0061EFA0@ProgressScreenClass@@QAEXUPoint2D@@PBG_N2@Z",
+   "symbol": "?Set_Layout@ProgressScreenClass@@QAEXUPoint2D@@PBG_N2@Z",
    "target": "0061efa0",
    "function_entry": true
   },
@@ -606,7 +606,7 @@
   },
   {
    "site": "0065c7d0",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
@@ -618,7 +618,7 @@
   },
   {
    "site": "0065c7d0",
-   "symbol": "?Clear_unknown_60@ProgressScreenClass@@QAEXXZ",
+   "symbol": "?End@ProgressScreenClass@@QAEXXZ",
    "target": "0061edf0",
    "function_entry": true
   },
@@ -630,7 +630,7 @@
   },
   {
    "site": "0057be50",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
@@ -666,7 +666,7 @@
   },
   {
    "site": "00672160",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
@@ -696,7 +696,7 @@
   },
   {
    "site": "0066b520",
-   "symbol": "?Unknown_0061EFA0@ProgressScreenClass@@QAEXUPoint2D@@PBG_N2@Z",
+   "symbol": "?Set_Layout@ProgressScreenClass@@QAEXUPoint2D@@PBG_N2@Z",
    "target": "0061efa0",
    "function_entry": true
   },
@@ -708,31 +708,31 @@
   },
   {
    "site": "0066b520",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0066b520",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0066b520",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0066b520",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0066b520",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
@@ -750,7 +750,7 @@
   },
   {
    "site": "0066bb20",
-   "symbol": "?Unknown_0061EFA0@ProgressScreenClass@@QAEXUPoint2D@@PBG_N2@Z",
+   "symbol": "?Set_Layout@ProgressScreenClass@@QAEXUPoint2D@@PBG_N2@Z",
    "target": "0061efa0",
    "function_entry": true
   },
@@ -762,31 +762,31 @@
   },
   {
    "site": "0066bb20",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0066bb20",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0066bb20",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0066bb20",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0066bb20",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
@@ -816,7 +816,7 @@
   },
   {
    "site": "0057a0d0",
-   "symbol": "?Unknown_0061EFA0@ProgressScreenClass@@QAEXUPoint2D@@PBG_N2@Z",
+   "symbol": "?Set_Layout@ProgressScreenClass@@QAEXUPoint2D@@PBG_N2@Z",
    "target": "0061efa0",
    "function_entry": true
   },
@@ -828,67 +828,67 @@
   },
   {
    "site": "0057a0d0",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0057a0d0",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0057a0d0",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0057a0d0",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0057a0d0",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0057a0d0",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0057a0d0",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0057a0d0",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0057a0d0",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0057a0d0",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0057a0d0",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
@@ -966,79 +966,79 @@
   },
   {
    "site": "0057ae00",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0057ae00",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0057ae00",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0057ae00",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0057ae00",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0057ae00",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0057ae00",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0057ae00",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0057ae00",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0057ae00",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0057ae00",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "0057ae00",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   },
   {
    "site": "00482110",
-   "symbol": "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
+   "symbol": "?Set_Progress_Percent@ProgressScreenClass@@QAEXHNUPoint2D@@@Z",
    "target": "006201c0",
    "function_entry": true
   }
@@ -1061,11 +1061,11 @@
    "address": "00ab6ef8"
   },
   {
-   "symbol": "?Country_Flag_004d1120@@YIPAVSurface@@H@Z",
+   "symbol": "?Country_Flag@@YIPAVSurface@@H@Z",
    "address": "004d1120"
   },
   {
-   "symbol": "?Draw_0068ce80@SurfaceCacheClass@@QAE_NABVRect@@PAVSurface@@1H@Z",
+   "symbol": "?DrawTrans@SurfaceCacheClass@@QAE_NABVRect@@PAVSurface@@1H@Z",
    "address": "0068ce80"
   },
   {

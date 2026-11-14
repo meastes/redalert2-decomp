@@ -291,14 +291,14 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
         if (unknown_1c != unknown_coord_af9060) {
             if (LinkedTo->Path[0] == -1) {
                 if (LinkedTo->unknown_530 != 0) {
-                    LinkedTo->unknown_slot307();
+                    LinkedTo->Stop_Movement_Animation();
                     return;
                 }
                 LinkedTo->unknown_530 = Rules->unknown_13c8 * 900.0;
                 if (!LinkedTo->unknown_4c3000(unknown_1c.As_Cell(), 0, 0)) {
                     unknown_36 = false;
                     if (LinkedTo->unknown_slot171(unknown_1c)) {
-                        LinkedTo->unknown_slot288();
+                        LinkedTo->On_Movement_Blocked();
                         if (Coord_Length(LinkedTo->Center_Coord(), unknown_1c) < Rules->unknown_1380 && !LinkedTo->unknown_370) {
                             LinkedTo->Assign_Destination(0, true);
                         } else if (LinkedTo->unknown_53c != 0) {
@@ -333,7 +333,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                     return;
                 }
                 LinkedTo->unknown_53c = 10;
-                if (LinkedTo->unknown_slot289()) {
+                if (LinkedTo->JumpJet_To_Walk()) {
                     return;
                 }
             }
@@ -374,7 +374,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                 int move = LinkedTo->Can_Enter_Cell(&Map[cell], dir, LinkedTo->Unknown_005D47D0(), 0, true);
                 if (move != 0) {
                     unknown_36 = false;
-                    LinkedTo->unknown_slot307();
+                    LinkedTo->Stop_Movement_Animation();
                     if (move == 6) {
                         CellClass &cellptr = Map[cell];
                         if (first_pass) {
@@ -414,10 +414,10 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                             if (!LinkedTo->unknown_slot171(unknown_1c)) {
                                 LinkedTo->Assign_Destination(0, true);
                             } else {
-                                LinkedTo->unknown_slot288();
+                                LinkedTo->On_Movement_Blocked();
                             }
                         } else {
-                            LinkedTo->unknown_slot289();
+                            LinkedTo->JumpJet_To_Walk();
                         }
                         return;
                     }

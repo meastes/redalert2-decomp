@@ -206,18 +206,18 @@ public:
 
     // New virtuals (slots 280-309); placeholder signatures except where a
     // body is recovered.
-    virtual void unknown_slot280(int arg1);                     // slot 280 0x004CD060 (ret 4)
-    virtual void unknown_slot281(int arg1);                     // slot 281 0x004CD070 (ret 4)
+    virtual void ReceiveGunner(int arg1);                     // slot 280 0x004CD060 (ret 4)
+    virtual void RemoveGunner(int arg1);                     // slot 281 0x004CD070 (ret 4)
     virtual bool unknown_slot282();                             // slot 282 0x004CAFE0
     virtual bool unknown_slot283();                             // slot 283 0x004CA820
     virtual bool unknown_slot284() { return false; }            // slot 284 (kept copy 0x0041B460)
     virtual void unknown_slot285(Cell cell);              // slot 285 0x004CD0C0 (sensor cells entered)
     virtual void unknown_slot286(Cell cell);              // slot 286 0x004CD250 (ret 4)
     virtual CoordStruct unknown_slot287();                      // slot 287 0x004C8AC0 (slot 40's coordinate)
-    virtual void unknown_slot288();                             // slot 288 0x004CA880
-    virtual bool unknown_slot289() { return false; }            // slot 289 (kept copy 0x0041B480)
+    virtual void On_Movement_Blocked();                             // slot 288 0x004CA880
+    virtual bool JumpJet_To_Walk() { return false; }            // slot 289 (kept copy 0x0041B480)
     virtual bool unknown_slot290(CoordStruct &coord);    // slot 290 0x004C4B90 (ILocomotion::Move_To, then Is_Moving)
-    virtual bool unknown_slot291();                             // slot 291 0x004C4B60 (ILocomotion::Stop_Moving; false)
+    virtual bool Stop_Driver();                             // slot 291 0x004C4B60 (ILocomotion::Stop_Moving; false)
     virtual bool unknown_slot292();                             // slot 292 0x004CA2B0
     // slot 293 (kept copy 0x0041B490): passes its arguments on to the
     // TechnoClass shape drawer 0x006D1510 (ret 0x3C).
@@ -227,10 +227,10 @@ public:
     {
         unknown_6d1510(shape, drawer, point, bounds, arg5, arg6, z, arg8, arg9, height, arg11, arg12, offset, arg15);
     }
-    virtual void unknown_slot294() {}                           // slot 294 (kept copy 0x0041B4F0)
-    virtual void unknown_slot295() {}                           // slot 295 (kept copy 0x0041B500)
-    virtual void unknown_slot296() {}                           // slot 296 (kept copy 0x0041B510)
-    virtual void unknown_slot297(int arg1) {}                   // slot 297 (kept copy 0x0041B520)
+    virtual void Berzerk() {}                           // slot 294 (kept copy 0x0041B4F0)
+    virtual void Start_Fear() {}                           // slot 295 (kept copy 0x0041B500)
+    virtual void Stop_Fear() {}                           // slot 296 (kept copy 0x0041B510)
+    virtual void Do_Idle(int arg1) {}                   // slot 297 (kept copy 0x0041B520)
     Cell unknown_4c8af0(Cell const &cell);          // 0x004C8AF0 (returns its argument; TeamClass callers)
     void unknown_4ca1a0();                                      // 0x004CA1A0 (never called: a drop pod locomotor carries the old one)
     void unknown_4c8c90();                                      // 0x004C8C90 (clears the vector at +0x49C)
@@ -260,7 +260,7 @@ public:
     bool unknown_4c3000(Cell dest, int arg2, int arg3);   // 0x004C3000 (plans a path to dest; hypothesis: Basic_Path)
     struct PathStruct *Find_Path_004bb350(Cell *dest, int *buffer, int length, int arg4, int arg5, int arg6);  // 0x004BB350 (hypothesis: Find_Path)
     Cell Safety_Point_004bb3f0(Cell const &from, Cell const &to, int arg3, int arg4);   // 0x004BB3F0 (hypothesis: TS Safety_Point; TeamClass 0x006B88B0 Regroup)
-    void unknown_4c9a40(UnknownObjectPair const &voxel, int layer, int key, UnknownBuffer *cache, Rect const &cliprect, Point2D const &draw_point, Matrix3D const &transform, bool force_cache, Surface *mask, unsigned unknown_2, unsigned unknown_3);  // 0x004C9A40 (the shadow draw; AircraftClass, UnitClass)
+    void Draw_Voxel_Shadow(UnknownObjectPair const &voxel, int layer, int key, UnknownBuffer *cache, Rect const &cliprect, Point2D const &draw_point, Matrix3D const &transform, bool force_cache, Surface *mask, unsigned unknown_2, unsigned unknown_3);  // 0x004C9A40 (the shadow draw; AircraftClass, UnitClass)
     void Unknown_004CCE80(FootClass *passenger);                // 0x004CCE80 (a passenger enters this transport)
     virtual int unknown_slot298();                              // slot 298 0x004C86D0 (0)
     virtual TechnoClass *unknown_slot299(DynamicVectorClass<TechnoTypeClass *> const *types, int arg2, int arg3);  // (hypothesis: the nearest dock of any of the types)   // slot 299 (AircraftClass 0x0041B1E0: ret 0xC, returns +0x5B4)
@@ -271,7 +271,7 @@ public:
     virtual void unknown_slot304();
     virtual void unknown_slot305(int arg1) {}                   // slot 305 (kept copy 0x0041B540)
     virtual void unknown_slot306(double value);                 // slot 306 0x004C2DF0 (clamped to 0..1)
-    virtual void unknown_slot307();                             // slot 307 0x004CA330 (nothing)
+    virtual void Stop_Movement_Animation();                             // slot 307 0x004CA330 (nothing)
     virtual void unknown_slot308();                             // slot 308 0x004CA340 (nothing)
     virtual bool unknown_slot309(AbstractClass *target);         // slot 309 0x004CC4D0 (whether the target's cell is free to dock at; hypothesis)
 

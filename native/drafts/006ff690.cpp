@@ -202,9 +202,9 @@ plain:
             }
         }
         if (Get_Height_AGL()>0) {
-            unknown_4c9a40(type->unknown_b0,type->ShadowIndex,key,&type->unknown_23c,window,shadow_drawpoint,Unit_Isometric_View_00717f90()*main_matrix,true,cache_key,Locomotor.Checked()->Shadow_Point().X,Locomotor.Checked()->Shadow_Point().Y+1);
+            Draw_Voxel_Shadow(type->unknown_b0,type->ShadowIndex,key,&type->unknown_23c,window,shadow_drawpoint,Unit_Isometric_View_00717f90()*main_matrix,true,cache_key,Locomotor.Checked()->Shadow_Point().X,Locomotor.Checked()->Shadow_Point().Y+1);
         } else {
-            unknown_4c9a40(type->unknown_b0,type->ShadowIndex,key,&type->unknown_23c,window,shadow_drawpoint,Unit_Isometric_View_00717f90()*main_matrix,true,cache_key,Locomotor.Checked()->Shadow_Point().X,Locomotor.Checked()->Shadow_Point().Y);
+            Draw_Voxel_Shadow(type->unknown_b0,type->ShadowIndex,key,&type->unknown_23c,window,shadow_drawpoint,Unit_Isometric_View_00717f90()*main_matrix,true,cache_key,Locomotor.Checked()->Shadow_Point().X,Locomotor.Checked()->Shadow_Point().Y);
         }
     }
     composite_surface->Fill_Rect(dirtyrect,0);

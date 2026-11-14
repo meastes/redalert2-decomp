@@ -256,7 +256,7 @@ void EventClass::Execute()
                 foot = techno->AbstractFlags.IsFoot;
             }
             if (techno && foot && ((FootClass *)techno)->Team && ByteAt(0x0C) != 0x10) {
-                ((FootClass *)techno)->Team->Unknown_006B8FB0((FootClass *)techno, -1, true);
+                ((FootClass *)techno)->Team->Remove((FootClass *)techno, -1, true);
             }
             if (object && unknown_player_a35db4->Is_Ally(techno)) {
                 object->Clicked_As_Target(7);
