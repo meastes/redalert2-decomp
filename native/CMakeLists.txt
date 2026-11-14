@@ -398,6 +398,13 @@ if(RA2_NATIVE_SDL)
       # The run's own limit (420 s; about 40 s alone) ends it before ctest's timeout, so a
       # stalled run still prints its milestones and the main thread's backtrace (C5).
       set_tests_properties(native-census PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 480)
+      # 8e. A loaded game abandoned and the game ended by the menus' Exit (C15f, codex4
+      #     R710/R719): WinMain and the exit-time teardown end cleanly (tests/exit_route.py).
+      add_test(NAME native-exit-route COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/exit_route.py"
+               --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+               --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/exit-route"
+               ${ra2_wine_args_exitroute})
+      set_tests_properties(native-exit-route PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 1200)
       # 8c. The players' RA2Native.exe (C15d): GUI subsystem, our icon, the app by itself
       #     under Wine with its log in the prefix's AppData (tests/windows_gui.py).
       if(WIN32 AND RA2_WINDOWS_GUI)
