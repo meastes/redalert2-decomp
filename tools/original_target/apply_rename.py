@@ -21,7 +21,16 @@ re-verifies exactly the affected translation units:
                                               "regions": ["00712b20", "00712b50", ...]}},
    "options": {"population-3705": ["/O2", "/Ob2", "/G5", "/Gy", "/GR"]},
    "flags": {"src/recovered/ownrdraw.cpp": {"declarations_only": true, "declarations_only_note": "..."}},
-   "row_flags": {"0040c690": {"unit_evidence": "xcu-prefix"}}}
+   "row_flags": {"0040c690": {"unit_evidence": "xcu-prefix"}},
+   "address_renames": {"OLD MANGLING": {"new": "NEW MANGLING", "at": ["004ba0b0", ...]}}}
+
+`address_renames` rename a name only where it is bound at one of the listed addresses: two
+template instances the source used to spell alike (`VectorClass<T *>` and `VectorClass<T const *>`
+both written `T *`) share every decorated name across populations, and the original's RTTI says
+which address is which instance. A region is renamed when its entry is listed, a reference table
+entry when its value is, a relocation when its target is, and a `// @ref OLD=ADDRESS` comment when
+its address is; the same name bound elsewhere keeps its spelling. After the batch no listed address
+may still carry the old name.
 
 `modules` gathers accepted regions of one population into one source file
 (the original translation unit's form): the draft becomes the module source,
@@ -129,6 +138,12 @@ def load_spec(path, catalog):
             len(set(renames.values())) != len(renames) or set(renames) & set(renames.values()):
         raise SystemExit('renames must map distinct old names to distinct, new names')
     spec['renames'] = renames
+    scoped = {}
+    for old, item in spec.get('address_renames', {}).items():
+        if old in renames or not item.get('new') or item['new'] == old or not item.get('at'):
+            raise SystemExit('address_renames: %s needs a new name and addresses, and no plain rename' % old)
+        scoped[old] = (item['new'], {int(a, 16) for a in item['at']})
+    spec['address_renames'] = scoped
     spec['rules'] = [(re.compile(r['pattern'], re.M), r['replace']) for r in spec.get('rewrite', [])]
     return spec
 
@@ -141,7 +156,39 @@ def rewrite(text, spec):
         # One pass, longest name first: a replacement is never renamed again.
         names = re.compile('|'.join(map(re.escape, sorted(renames, key=len, reverse=True))))
         text = names.sub(lambda match: renames[match[0]], text)
+    scoped = spec.get('address_renames') or {}
+    if scoped:
+        refs = re.compile(r'(@ref\s+)(%s)=(0x)?([0-9a-fA-F]+)' %
+                          '|'.join(map(re.escape, sorted(scoped, key=len, reverse=True))))
+
+        def scope(match):
+            new, at = scoped[match[2]]
+            name = new if int(match[4], 16) in at else match[2]
+            return '%s%s=%s%s' % (match[1], name, match[3] or '', match[4])
+        text = refs.sub(scope, text)
     return text
+
+
+def scoped_name(scoped, name, address):
+    """The address-scoped rename of `name` bound at `address`, or None."""
+    item = scoped.get(name)
+    return item[0] if item and address in item[1] else None
+
+
+def scoped_left(catalog, scoped):
+    """(name, address) pairs that still carry an address-scoped old name."""
+    left = set()
+    for region in catalog['regions']:
+        for name, value in (region.get('references') or {}).items():
+            if scoped_name(scoped, name, value):
+                left.add((name, value))
+        for key in ('symbol', 'symbol_prefix'):
+            if scoped_name(scoped, region[key], region.get('entry')):
+                left.add((region[key], region['entry']))
+        for relocation in region.get('relocations') or []:
+            if scoped_name(scoped, relocation['symbol'], relocation.get('target')):
+                left.add((relocation['symbol'], relocation.get('target')))
+    return sorted(left)
 
 
 def leftover(text, renames):
@@ -362,8 +409,9 @@ def apply_modules(catalog, spec, files, removed, config=None):
     return affected
 
 
-def rename_catalog(catalog, renames, files, moves):
+def rename_catalog(catalog, renames, files, moves, scoped=None):
     """Rename the catalog's names exactly; return the affected population ids."""
+    scoped = scoped or {}
     affected = set()
     tables = {}
     for region in catalog['regions']:
@@ -372,19 +420,21 @@ def rename_catalog(catalog, renames, files, moves):
             old = region.get('references') or {}
             table = {}
             for name, value in old.items():
-                new = renames.get(name, name)
+                new = renames.get(name) or scoped_name(scoped, name, value) or name
                 if table.setdefault(new, value) != value:
                     raise SystemExit('%s: %s would bind two addresses' % (pid, new))
             tables[pid] = table
-            if any(name in renames for name in old):
+            if any(name in renames or scoped_name(scoped, name, value) for name, value in old.items()):
                 affected.add(pid)
         region['references'] = tables[pid]
         for key in ('symbol', 'symbol_prefix'):
-            if region[key] in renames:
-                region[key] = renames[region[key]]; affected.add(pid)
+            new = renames.get(region[key]) or scoped_name(scoped, region[key], region.get('entry'))
+            if new:
+                region[key] = new; affected.add(pid)
         for relocation in region.get('relocations') or []:
-            if relocation['symbol'] in renames:     # the fresh compile rewrites the receipt;
-                relocation['symbol'] = renames[relocation['symbol']]; affected.add(pid)   # known names stay current
+            new = renames.get(relocation['symbol']) or scoped_name(scoped, relocation['symbol'], relocation.get('target'))
+            if new:     # the fresh compile rewrites the receipt; known names stay current
+                relocation['symbol'] = new; affected.add(pid)
         if region['source'] in moves:
             region['source'] = moves[region['source']]
             if region.get('semantic_name'):
@@ -602,7 +652,7 @@ def main():
     modules = apply_modules(catalog, spec, files, removed, config)
     sources = {p: d for p, d in files.items() if p.startswith('src/recovered/')}
     headers = sorted(p for p in files if p.startswith('src/shared/'))
-    populations = rename_catalog(catalog, spec['renames'], sources, moves) | modules
+    populations = rename_catalog(catalog, spec['renames'], sources, moves, spec['address_renames']) | modules
     unknown = [p for p in sources if p not in {r['source'] for r in catalog['regions']}]
     if unknown:
         raise SystemExit('changed files are not accepted sources: %s' % unknown[:5])
@@ -611,7 +661,10 @@ def main():
         raise SystemExit('refused: the batch changes no accepted source, name or reference and no header user was '
                          'selected, so nothing would be verified')
     phase('plan')
-    summary = dict(name=spec['name'], renames=spec['renames'], changed_sources=sorted(sources),
+    summary = dict(name=spec['name'], renames=spec['renames'],
+                   address_renames={old: dict(new=new, at=['%08x' % a for a in sorted(at)])
+                                    for old, (new, at) in spec['address_renames'].items()},
+                   changed_sources=sorted(sources),
                    changed_headers=headers, moved=moves, affected_populations=sorted(populations),
                    affected_regions=sum(r['population'] in populations for r in catalog['regions']),
                    header_user_populations=len(users))
@@ -653,7 +706,7 @@ def main():
                 raise SystemExit('row_flags: %s is not an accepted row' % entry)
             rows[0].update(fields)
         bind_changed(catalog, populations, sources, config)
-        left = leftover(catalog_io.dumps(catalog), spec['renames'])
+        left = leftover(catalog_io.dumps(catalog), spec['renames']) + scoped_left(catalog, spec['address_renames'])
         if left:    # checked again on the final text; this refuses before compiling
             raise SystemExit('refused: old names left after the rename (tree restored): %s' % left[:10])
         phase('write and bind')
@@ -703,7 +756,7 @@ def main():
             population['historical_population_sha256'] = sha((folder / 'population.json').read_bytes())
             population['historical_acceptance_sha256'] = sha((folder / 'accepted.json').read_bytes())
         text = catalog_io.dumps(catalog)
-        left = sorted(set(leftover(text, spec['renames'])) |
+        left = sorted(set(leftover(text, spec['renames'])) | set(scoped_left(catalog, spec['address_renames'])) |
                       {old for path, data in files.items() for old in leftover(data.decode('latin-1'), spec['renames'])})
         if left:
             raise SystemExit('refused: old names left after the rename (tree restored): %s' % left[:10])

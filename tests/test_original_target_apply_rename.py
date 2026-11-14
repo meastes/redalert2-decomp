@@ -47,6 +47,23 @@ class ApplyRenameTests(unittest.TestCase):
         self.assertEqual(third['references'], untouched)
         self.assertEqual(first['relocations'], [dict(symbol=NEW)])
 
+    def test_address_scoped_rename_touches_only_the_listed_instance(self):
+        mutable, const = '?Clear@?$VectorClass@PAVX@@@@UAEXXZ', '?Clear@?$VectorClass@PBVX@@@@UAEXXZ'
+        scoped = {mutable: (const, {0x500})}
+        rows = [dict(region('population-1', mutable, {mutable: 0x500}), entry=0x500),
+                dict(region('population-2', mutable, {mutable: 0x400}), entry=0x400)]
+        rows[0]['relocations'] = [dict(symbol=mutable, target=0x500)]
+        rows[1]['relocations'] = [dict(symbol=mutable, target=0x400)]
+        catalog = dict(regions=rows)
+        self.assertEqual(apply_rename.rename_catalog(catalog, {}, {}, {}, scoped), {'population-1'})
+        self.assertEqual((rows[0]['symbol'], rows[0]['references'], rows[0]['relocations'][0]['symbol']),
+                         (const, {const: 0x500}, const))
+        self.assertEqual((rows[1]['symbol'], rows[1]['references']), (mutable, {mutable: 0x400}))
+        self.assertEqual(apply_rename.scoped_left(catalog, scoped), [])
+        spec = dict(rules=[], renames={}, address_renames=scoped)
+        text = '// @ref %s=00000500\n// @ref %s=00000400\n' % (mutable, mutable)
+        self.assertEqual(apply_rename.rewrite(text, spec), '// @ref %s=00000500\n// @ref %s=00000400\n' % (const, mutable))
+
     def test_rename_onto_an_existing_binding_at_another_address_refuses(self):
         catalog = dict(regions=[region('population-1', '?F@@YAXXZ', {OLD: 1, NEW: 2})])
         with self.assertRaises(SystemExit):

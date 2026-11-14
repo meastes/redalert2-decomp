@@ -6345,11 +6345,11 @@ LRESULT __stdcall unknown_trackbar_proc_5fb270(HWND window, UINT message, WPARAM
 
     int message_result = track->result;
     int dragging = track->dragging;
-    int maximum;
-    int thumb_pos = track->thumb_pos;
     int range = track->range;
     int value = track->value;
     int minimum = track->minimum;
+    int maximum;
+    int thumb_pos = track->thumb_pos;
     int step = track->step;
     int show_numbers = track->show_numbers;
 
