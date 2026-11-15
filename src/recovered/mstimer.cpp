@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/mstimer.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // mstimer.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -36,7 +47,13 @@ MSTimerClass::operator long() const
 }
 
 
-// MSTimerClass::operator() (0x005B6A30): the same reading as operator long; unreferenced in the
+/// <summary>
+/// Fetches the current millisecond reading of the system clock.
+/// This is the sampling routine that the timer templates call whenever they need to
+/// know how much time has passed.
+/// </summary>
+/// <returns>Returns with the number of milliseconds elapsed since Windows started.</returns>
+// (0x005B6A30)
 // image (name and member order follow TibSun mstimer.cpp, a hypothesis).
 
 long MSTimerClass::operator()() const

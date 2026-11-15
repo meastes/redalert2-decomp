@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/side.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // side.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -61,7 +72,12 @@
 #include "shared/side.hpp"
 
 
-// SideClass::SideClass(char const *ini_name) (0x0067AE10)
+/// <summary>
+/// Creates a side and adds it to the global side list.
+/// This routine is used as the rules are parsed. The side is given its unique heap
+/// identifier so that it can be referred to by the houses that belong to it.
+/// </summary>
+// (0x0067AE10)
 // An empty side named ini_name; registers it in Sides.
 
 SideClass::SideClass(char const *ini_name) :
@@ -72,7 +88,12 @@ SideClass::SideClass(char const *ini_name) :
 }
 
 
-// SideClass::~SideClass() (0x0067AED0)
+/// <summary>
+/// Destroys the side and removes it from the game.
+/// This routine detaches anything that referred to this side before dropping it from
+/// the global side list.
+/// </summary>
+// (0x0067AED0)
 // Leaves the dying side's notice lists and Sides; ~TypeList and ~AbstractTypeClass follow. Defined
 // here, not inline: the scalar deleting destructor 0x0067B1F0 expands this body.
 
@@ -96,7 +117,12 @@ int __fastcall SideClass::Find_Index(char const *name)
 }
 
 
-// void SideClass::Compute_CRC(WWCRCEngine &crc) const (0x0067AFD0)
+/// <summary>
+/// Adds this side to the running game state checksum.
+/// This routine is used by the multiplayer sync checking to prove that every machine
+/// agrees on the side definitions it was handed.
+/// </summary>
+// (0x0067AFD0)
 // The AbstractTypeClass data and the number of houses.
 
 void SideClass::Compute_CRC(WWCRCEngine &crc) const
@@ -106,7 +132,14 @@ void SideClass::Compute_CRC(WWCRCEngine &crc) const
 }
 
 
-// HRESULT __stdcall SideClass::GetClassID(GUID *classid) (0x0067B000)
+/// <summary>
+/// Fetches the class identifier of this object.
+/// This routine is part of the IPersist interface. It is used by the save and load
+/// system to recognize what kind of object it is about to create.
+/// </summary>
+/// <param name="retval">Pointer to the identifier to fill in.</param>
+/// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
+// (0x0067B000)
 
 HRESULT __stdcall SideClass::GetClassID(GUID *classid)
 {
@@ -136,6 +169,13 @@ static inline void Load_List(IStream *stream, TypeList<T> &list)
     }
 }
 
+/// <summary>
+/// Loads this side from a save game stream.
+/// This routine is part of the IPersistStream interface. The base class data is read first
+/// and then the list of houses that belong to this side is restored.
+/// </summary>
+/// <returns>Returns with S_OK if the side was loaded, otherwise the failure code that the
+/// base class reported.</returns>
 HRESULT __stdcall SideClass::Load(IStream *stream)
 {
     HRESULT result = AbstractTypeClass::Load(stream);
@@ -148,7 +188,15 @@ HRESULT __stdcall SideClass::Load(IStream *stream)
 }
 
 
-// HRESULT __stdcall SideClass::Save(IStream *stream, BOOL clear_dirty) (0x0067B160)
+/// <summary>
+/// Saves this side to a save game stream.
+/// This routine is part of the IPersistStream interface. The base class data is written
+/// first and then the list of houses that belong to this side.
+/// </summary>
+/// <param name="cleardirty">Should the dirty flag be cleared as a result of saving?</param>
+/// <returns>Returns with S_OK if the side was saved, otherwise the failure code that the
+/// base class reported.</returns>
+// (0x0067B160)
 // The AbstractClass data, the house count and the houses.
 
 HRESULT __stdcall SideClass::Save(IStream *stream, BOOL clear_dirty)

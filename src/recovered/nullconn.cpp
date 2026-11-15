@@ -1,3 +1,19 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/nullconn.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // nullconn.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -9,7 +25,25 @@
 #include "shared/crt_memory.hpp"
 
 
-// NullModemConnClass::NullModemConnClass(int numsend, int numreceive, int maxlen, unsigned short magicnum) -- 0x005CDB40
+/***************************************************************************
+ * NullModemConnClass::NullModemConnClass -- class constructor             *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      numsend         desired # send queue entries                       *
+ *      numreceive      desired # send receive entries                     *
+ *      maxlen         max length of application's packets                 *
+ *      magicnum         application-defined magic # for the packets       *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x005CDB40)
 // A serial (null-modem) connection: ConnectionClass with a 60-tick retry
 // delta, unlimited retries and a 1200-tick timeout; no port yet (-1) and a
 // send buffer of MaxPacketLen + 11 bytes (header and checksum). Class name
@@ -24,7 +58,21 @@ NullModemConnClass::NullModemConnClass(int numsend, int numreceive, int maxlen, 
 }
 
 
-// NullModemConnClass::~NullModemConnClass() (0x005CDB90)
+/***************************************************************************
+ * NullModemConnClass::~NullModemConnClass -- class destructor             *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x005CDB90)
 // Frees the send buffer (the base destructor follows).
 
 NullModemConnClass::~NullModemConnClass()
@@ -33,7 +81,22 @@ NullModemConnClass::~NullModemConnClass()
 }
 
 
-// void NullModemConnClass::Init(int port) -- 0x005CDBB0
+/***************************************************************************
+ * NullModemConnClass::Init -- hardware-dependent initialization           *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      port      GreenLeaf port handle                                    *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x005CDBB0)
 // The base initialization, then the serial port handle (+0x4C).
 
 void NullModemConnClass::Init(int port)
@@ -43,7 +106,25 @@ void NullModemConnClass::Init(int port)
 }
 
 
-// int NullModemConnClass::Send(char *buf, int buflen, void *extrabuf, int extralen, bool flagged, unsigned short id) -- 0x005CDBD0
+/***************************************************************************
+ * NullModemConnClass::Send -- hardware-dependent packet sending           *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      buf         buffer to send                                         *
+ *      buflen      length of buffer to send                               *
+ *      extrabuf      (not used by this class)                             *
+ *      extralen      (not used by this class)                             *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      1 = OK, 0 = error                                                  *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x005CDBD0)
 // Slot 9: frames the packet for the serial line (magic 0xDABD, length,
 // magic 0xDEAF, the data, a rotating checksum of the data and a carriage
 // return) in SendBuf and writes it through the serial port object (SerialPort,
@@ -72,7 +153,23 @@ int NullModemConnClass::Send(char *buf, int buflen, void *extrabuf, int extralen
 }
 
 
-// int NullModemConnClass::Compute_CRC(char *buf, int buflen) (0x005CDC80)
+/***************************************************************************
+ * NullModemConnClass::Compute_CRC -- computes CRC for given buffer        *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      buf      buffer to compute CRC for                                 *
+ *      buflen   length of buffer in bytes                                 *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x005CDC80)
 // The rotating checksum of the data: each step doubles the sum, adds back
 // its top bit and adds the next byte. Send expands it inline.
 
@@ -94,7 +191,22 @@ int __fastcall NullModemConnClass::Compute_CRC(char *buf, int buflen)
 }
 
 
-// int NullModemConnClass::Packet_Overhead_Size() (0x005CDCB0)
+/***************************************************************************
+ * NullModemConnClass::Packet_Overhead_Size -- number of extra bytes       *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      none.                                                              *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      number of bytes used for communications only.                      *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   04/20/1995 DRD : Created.                                             *
+ *=========================================================================*/
+// (0x005CDCB0)
 // The bytes a packet carries for the serial link only: the frame header and CRC
 // (PACKET_SERIAL_OVERHEAD_SIZE) and the queue header (CommHeaderType).
 

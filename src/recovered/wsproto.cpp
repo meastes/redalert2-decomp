@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/wsproto.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // wsproto.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -63,7 +78,21 @@
 // by HeaderStatics_empty_rect_init_0076aa90.cpp; no source of its own.
 
 
-// WinsockInterfaceClass::WinsockInterfaceClass() (0x0076AC80)
+/***********************************************************************************************
+ * WIC::WinsockInterfaceClass -- constructor for the WinsockInterfaceClass                     *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    3/20/96 2:51PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0076AC80)
 // Empty buffer lists, no sockets, every static buffer free.
 
 WinsockInterfaceClass::WinsockInterfaceClass()
@@ -93,7 +122,21 @@ WinsockInterfaceClass::WinsockInterfaceClass()
 }
 
 
-// WinsockInterfaceClass::~WinsockInterfaceClass() (0x0076AD70)
+/***********************************************************************************************
+ * WIC::~WinsockInterfaceClass -- destructor for the WinsockInterfaceClass                     *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    3/20/96 2:52PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0076AD70)
 
 WinsockInterfaceClass::~WinsockInterfaceClass()
 {
@@ -101,7 +144,21 @@ WinsockInterfaceClass::~WinsockInterfaceClass()
 }
 
 
-// void WinsockInterfaceClass::Close() (0x0076AE10)
+/***********************************************************************************************
+ * WIC::Close -- Releases any currently in use Winsock resources.                              *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    3/20/96 2:52PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0076AE10)
 // Stops listening, closes the sockets and shuts Winsock down.
 
 void WinsockInterfaceClass::Close()
@@ -115,7 +172,21 @@ void WinsockInterfaceClass::Close()
 }
 
 
-// void WinsockInterfaceClass::Close_Socket() (0x0076AE40, slot 1)
+/***********************************************************************************************
+ * WIC::Close_Socket -- Close the communication socket if its open                             *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/5/97 11:53AM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0076AE40, slot 1)
 
 void WinsockInterfaceClass::Close_Socket()
 {
@@ -130,7 +201,21 @@ void WinsockInterfaceClass::Close_Socket()
 }
 
 
-// bool WinsockInterfaceClass::Start_Listening() (0x0076AE80, slot 7)
+/***********************************************************************************************
+ * WIC::Start_Listening -- Enable callbacks for read/write events on our socket                *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/5/97 11:54AM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0076AE80, slot 7)
 // Asks for read and write notifications on both sockets.
 
 bool WinsockInterfaceClass::Start_Listening()
@@ -149,7 +234,21 @@ bool WinsockInterfaceClass::Start_Listening()
 }
 
 
-// void WinsockInterfaceClass::Stop_Listening() (0x0076AF10, slot 8)
+/***********************************************************************************************
+ * WIC::Stop_Listening -- Disable the winsock event callback                                   *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/5/97 12:06PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0076AF10, slot 8)
 
 void WinsockInterfaceClass::Stop_Listening()
 {
@@ -162,7 +261,21 @@ void WinsockInterfaceClass::Stop_Listening()
 }
 
 
-// void WinsockInterfaceClass::Discard_In_Buffers() (0x0076AF60, slot 5)
+/***********************************************************************************************
+ * WIC::Discard_In_Buffers -- Discard any packets in our incoming packet holding buffers       *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/5/97 11:55AM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0076AF60, slot 5)
 
 void WinsockInterfaceClass::Discard_In_Buffers()
 {
@@ -181,7 +294,21 @@ void WinsockInterfaceClass::Discard_In_Buffers()
 }
 
 
-// void WinsockInterfaceClass::Discard_Out_Buffers() (0x0076AFD0, slot 6)
+/***********************************************************************************************
+ * WIC::Discard_In_Buffers -- Discard any packets in our outgoing packet holding buffers       *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/5/97 11:55AM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0076AFD0, slot 6)
 
 void WinsockInterfaceClass::Discard_Out_Buffers()
 {
@@ -213,7 +340,21 @@ void WinsockInterfaceClass::Discard_Out_Buffers()
 }
 
 
-// bool WinsockInterfaceClass::Init() (0x0076B0A0)
+/***********************************************************************************************
+ * WIC::Init -- Initialised Winsock and this class for use.                                    *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   true if Winsock is available and was initialised                                  *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    3/20/96 2:54PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0076B0A0)
 // Starts Winsock 1.1 (once), empties the buffers and takes the smallest
 // usable maximum frame size of the UDP/IPX protocols as the packet size.
 
@@ -280,7 +421,21 @@ bool WinsockInterfaceClass::Init()
 }
 
 
-// void WinsockInterfaceClass::Build_Packet_CRC(WinsockBufferType *packet) (0x0076B290, slot 21)
+/***********************************************************************************************
+ * WIC::Build_Packet_CRC -- Create a CRC value for a packet.                                   *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    ptr to packet                                                                     *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   10/5/99 1:26PM ST : Created                                                               *
+ *=============================================================================================*/
+// (0x0076B290, slot 21)
 // Checksums the packet's data a word at a time (the last partial word masked).
 
 void WinsockInterfaceClass::Build_Packet_CRC(WinsockBufferType *packet)
@@ -297,7 +452,21 @@ void WinsockInterfaceClass::Build_Packet_CRC(WinsockBufferType *packet)
 }
 
 
-// bool WinsockInterfaceClass::Passes_CRC_Check(WinsockBufferType *packet) (0x0076B310, slot 22)
+/***********************************************************************************************
+ * WIC::Passes_CRC_Check -- Checks the CRC for a packet                                        *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    ptr to packet                                                                     *
+ *                                                                                             *
+ * OUTPUT:   true if packet passes CRC check                                                   *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   10/5/99 1:26PM ST : Created                                                               *
+ *=============================================================================================*/
+// (0x0076B310, slot 22)
 
 bool WinsockInterfaceClass::Passes_CRC_Check(WinsockBufferType *packet)
 {
@@ -321,7 +490,21 @@ bool WinsockInterfaceClass::Passes_CRC_Check(WinsockBufferType *packet)
 }
 
 
-// WinsockInterfaceClass::WinsockBufferType *WinsockInterfaceClass::Get_New_Out_Buffer(bool alternate) (0x0076B3A0)
+/***********************************************************************************************
+ * WIC::Get_New_Out_Buffer -- Get a holding buffer for an outgoing packet                      *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   ptr to out buffer                                                                 *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   3/2/00 12:39PM ST : Created                                                               *
+ *=============================================================================================*/
+// (0x0076B3A0)
 // A free static outgoing buffer (round-robin) from the normal or alternate
 // pool, or an allocated one when the pool is exhausted.
 
@@ -380,7 +563,21 @@ WinsockInterfaceClass::WinsockBufferType *WinsockInterfaceClass::Get_New_Out_Buf
 }
 
 
-// WinsockInterfaceClass::WinsockBufferType *WinsockInterfaceClass::Get_New_In_Buffer() (0x0076B500)
+/***********************************************************************************************
+ * WIC::Get_New_In_Buffer -- Get a holding buffer for an incoming packet                       *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   ptr to in buffer                                                                  *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   3/2/00 12:39PM ST : Created                                                               *
+ *=============================================================================================*/
+// (0x0076B500)
 // A free static incoming buffer (round-robin), or an allocated one when the
 // pool is exhausted.
 
@@ -413,7 +610,25 @@ WinsockInterfaceClass::WinsockBufferType *WinsockInterfaceClass::Get_New_In_Buff
 }
 
 
-// int WinsockInterfaceClass::Read(void *buf, int *buflen, void *address, int *addresslen, unsigned short *port) (0x0076B5A0, slot 2)
+/***********************************************************************************************
+ * WIC::Read -- read any pending input from the communications socket                          *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    ptr to buffer to receive input                                                    *
+ *           length of buffer                                                                  *
+ *           ptr to address to fill with address that packet was sent from                     *
+ *           length of address buffer                                                          *
+ *                                                                                             *
+ * OUTPUT:   number of bytes transfered to buffer                                              *
+ *                                                                                             *
+ * WARNINGS: The format of the address is dependent on the protocol in use.                    *
+ *                                                                                             *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    3/20/96 2:58PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0076B5A0, slot 2)
 // Takes the oldest incoming packet: its data, sender address and port;
 // returns its length (0 when none).
 
@@ -444,7 +659,23 @@ int WinsockInterfaceClass::Read(void *buf, int *buflen, void *address, int *addr
 }
 
 
-// void WinsockInterfaceClass::WriteTo(void *buf, int buflen, void *address, int addresslen, bool alternate, unsigned char arg6, unsigned short arg7) (0x0076B670, slot 3)
+/***********************************************************************************************
+ * WIC::WriteTo -- Send data via the Winsock socket                                            *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    ptr to buffer containing data to send                                             *
+ *           length of data to send                                                            *
+ *           address to send data to.                                                          *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: The format of the address is dependent on the protocol in use.                    *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    3/20/96 3:00PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0076B670, slot 3)
 // Queues a packet for one address (checksummed) and posts a write
 // notification for its socket.
 
@@ -471,7 +702,22 @@ void WinsockInterfaceClass::WriteTo(void *buf, int buflen, void *address, int ad
 }
 
 
-// void WinsockInterfaceClass::Broadcast(void *buf, int buflen, bool alternate) (0x0076B7A0, slot 4)
+/***********************************************************************************************
+ * WIC::Broadcast -- Send data via the Winsock socket                                          *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    ptr to buffer containing data to send                                             *
+ *           length of data to send                                                            *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    3/20/96 3:00PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0076B7A0, slot 4)
 // Queues a broadcast packet (checksummed) and posts a write notification.
 
 void WinsockInterfaceClass::Broadcast(void *buf, int buflen, bool alternate)
@@ -494,7 +740,21 @@ void WinsockInterfaceClass::Broadcast(void *buf, int buflen, bool alternate)
 }
 
 
-// void WinsockInterfaceClass::Clear_Socket_Error(SOCKET socket) (0x0076B8A0, slot 9)
+/***********************************************************************************************
+ * WIC::Clear_Socket_Error -- Clear any outstanding erros on the socket                        *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Socket                                                                            *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/5/97 12:05PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0076B8A0, slot 9)
 // Reads and then clears the socket's pending error.
 
 void WinsockInterfaceClass::Clear_Socket_Error(SOCKET socket)
@@ -507,7 +767,21 @@ void WinsockInterfaceClass::Clear_Socket_Error(SOCKET socket)
 }
 
 
-// bool WinsockInterfaceClass::Set_Socket_Options(SOCKET socket) (0x0076B8F0, slot 10)
+/***********************************************************************************************
+ * WIC::Set_Socket_Options -- Sets default socket options for Winsock buffer sizes             *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/5/97 12:07PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0076B8F0, slot 10)
 // Sizes the receive and send buffers of a socket (the primary by default).
 
 bool WinsockInterfaceClass::Set_Socket_Options(SOCKET socket)
@@ -529,7 +803,15 @@ bool WinsockInterfaceClass::Set_Socket_Options(SOCKET socket)
 }
 
 
-// bool WinsockInterfaceClass::Get_Host_Name(char *name, int length) (0x0076B990, slot 17)
+/// <summary>
+/// Fetches the name of the local host machine.
+/// This routine is used when the interface needs to look up the local ip addresses,
+/// since the host name is what the address lookup is keyed on.
+/// </summary>
+/// <param name="name">Buffer that will be filled in with the host name.</param>
+/// <param name="len">Size of the buffer supplied.</param>
+/// <returns>bool; Was the host name fetched?</returns>
+// (0x0076B990, slot 17)
 
 bool WinsockInterfaceClass::Get_Host_Name(char *name, int length)
 {

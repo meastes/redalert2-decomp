@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/matrix3d.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // matrix3d.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -8,7 +23,19 @@
 #include "shared/matrix3d.hpp"
 
 
-// ??0Matrix3D@@QAE@PBM@Z (0x0058FDE0)
+/***********************************************************************************************
+ * M3DC::Matrix3D -- Constructors for Matrix3D                                                 *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   02/24/1997 GH  : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0058FDE0)
 // Matrix3D(float const *matrix): copies twelve floats, row by row.
 
 Matrix3D::Matrix3D(float const *matrix)
@@ -21,6 +48,10 @@ Matrix3D::Matrix3D(float const *matrix)
 
 
 // ??0Matrix3D@@QAE@ABV0@@Z (0x0058FE10)
+/// <summary>
+/// Constructs a matrix from its plain struct form.
+/// This routine is used where a matrix arrives as raw storage rather than as a class.
+/// </summary>
 // Matrix3D(Matrix3D const &matrix): member-wise copy.
 
 struct MatrixData { float Data[12]; };
@@ -31,7 +62,14 @@ Matrix3D::Matrix3D(Matrix3D const &matrix)
 }
 
 
-// ??0Matrix3D@@QAE@MMMMMMMMMMMM@Z (0x0058FE30)
+/// <summary>
+/// Constructs a tilt about an axis lying in the XY plane.
+/// The Z angle picks which horizontal axis to tilt about and the X angle says how far, so
+/// this is the constructor to use for pitching something that already has a heading.
+/// </summary>
+/// <param name="zrot">The heading of the tilt axis, in radians.</param>
+/// <param name="xrot">The angle to tilt by, in radians.</param>
+// (0x0058FE30)
 // Matrix3D from twelve floats, row major.
 
 Matrix3D::Matrix3D(float m11, float m12, float m13, float m14,
@@ -44,7 +82,12 @@ Matrix3D::Matrix3D(float m11, float m12, float m13, float m14,
 }
 
 
-// ??0Matrix3D@@QAE@ABUVector3@@000@Z (0x0058FE90)
+/// <summary>
+/// Constructs a rotation about an arbitrary axis.
+/// </summary>
+/// <param name="axis">The unit vector to rotate about.</param>
+/// <param name="angle">The angle to rotate by, in radians.</param>
+// (0x0058FE90)
 // Matrix3D from three row vectors and a translation.
 
 Matrix3D::Matrix3D(Vector3 const &x, Vector3 const &y, Vector3 const &z, Vector3 const &position)
@@ -105,7 +148,19 @@ Matrix3D::Matrix3D(Vector3 const &axis, float angle)
 }
 
 
-// ?Make_Identity@Matrix3D@@QAEXXZ (0x00590060)
+/***********************************************************************************************
+ * M3DC::Make_Identity -- Initializes the matrix to be the identity matrix                     *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   02/24/1997 GH  : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00590060)
 // Sets the identity transform.
 
 void Matrix3D::Make_Identity()
@@ -116,7 +171,19 @@ void Matrix3D::Make_Identity()
 }
 
 
-// ?Translate@Matrix3D@@QAEXMMM@Z (0x00590090)
+/***********************************************************************************************
+ * M3DC::Translate -- Post-Multiplies by a Translation Matrix                                  *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   02/24/1997 GH  : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00590090)
 // Moves the origin by (x, y, z) in local coordinates.
 
 void Matrix3D::Translate(float x, float y, float z)
@@ -127,7 +194,19 @@ void Matrix3D::Translate(float x, float y, float z)
 }
 
 
-// ?Translate@Matrix3D@@QAEXABUVector3@@@Z (0x005900F0)
+/***********************************************************************************************
+ * M3DC::Translate -- Post-Multiplies the matrix by a translation matrix                       *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   02/24/1997 GH  : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005900F0)
 // Moves the origin by offset in local coordinates: Translate_X, _Y and _Z (defined later, expanded inline).
 
 void Matrix3D::Translate(Vector3 const &offset)
@@ -138,7 +217,19 @@ void Matrix3D::Translate(Vector3 const &offset)
 }
 
 
-// ?Translate_X@Matrix3D@@QAEXM@Z (0x00590180)
+/***********************************************************************************************
+ * M3DC::Translate_X -- Post-Multiplies the matrix by a translation matrix with X only         *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/06/1998 NH  : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00590180)
 // Moves the origin along the local X axis.
 
 void Matrix3D::Translate_X(float x)
@@ -149,7 +240,19 @@ void Matrix3D::Translate_X(float x)
 }
 
 
-// ?Translate_Y@Matrix3D@@QAEXM@Z (0x005901B0)
+/***********************************************************************************************
+ * M3DC::Translate_Y -- Post-Multiplies the matrix by a translation matrix with Y only         *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/06/1998 NH  : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005901B0)
 // Moves the origin along the local Y axis.
 
 void Matrix3D::Translate_Y(float y)
@@ -160,7 +263,19 @@ void Matrix3D::Translate_Y(float y)
 }
 
 
-// ?Translate_Z@Matrix3D@@QAEXM@Z (0x005901E0)
+/***********************************************************************************************
+ * M3DC::Translate_Z -- Post-Multiplies the matrix by a translation matrix with Z only         *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/06/1998 NH  : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005901E0)
 // Moves the origin along the local Z axis.
 
 void Matrix3D::Translate_Z(float z)
@@ -193,7 +308,13 @@ void Matrix3D::Scale(float x, float y, float z)
 }
 
 
-// ?Scale_X@Matrix3D@@QAEXM@Z (0x005902D0)
+/// <summary>
+/// Scales the matrix along its X axis only.
+/// </summary>
+/// <param name="scale">The factor to scale the X axis by.</param>
+/// <remarks>A scaled matrix is no longer orthogonal, so Orthogonal_Inverse will not invert
+/// it.</remarks>
+// (0x005902D0)
 // Scales the local X axis.
 
 void Matrix3D::Scale_X(float x)
@@ -202,7 +323,13 @@ void Matrix3D::Scale_X(float x)
 }
 
 
-// ?Scale_Y@Matrix3D@@QAEXM@Z (0x005902F0)
+/// <summary>
+/// Scales the matrix along its Y axis only.
+/// </summary>
+/// <param name="scale">The factor to scale the Y axis by.</param>
+/// <remarks>A scaled matrix is no longer orthogonal, so Orthogonal_Inverse will not invert
+/// it.</remarks>
+// (0x005902F0)
 // Scales the local Y axis.
 
 void Matrix3D::Scale_Y(float y)
@@ -211,7 +338,13 @@ void Matrix3D::Scale_Y(float y)
 }
 
 
-// ?Scale_Z@Matrix3D@@QAEXM@Z (0x00590320)
+/// <summary>
+/// Scales the matrix along its Z axis only.
+/// </summary>
+/// <param name="scale">The factor to scale the Z axis by.</param>
+/// <remarks>A scaled matrix is no longer orthogonal, so Orthogonal_Inverse will not invert
+/// it.</remarks>
+// (0x00590320)
 // Scales the local Z axis.
 
 void Matrix3D::Scale_Z(float z)
@@ -253,7 +386,20 @@ void Matrix3D::Shear_Y(float x, float z)
 }
 
 
-// ?Pre_Rotate_X@Matrix3D@@QAEXM@Z (0x00590440)
+/***********************************************************************************************
+ * M3DC::Pre_Rotate_X -- Pre-multiplies the matrix by a rotation about X                       *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ * theta - angle (in radians) to rotate                                                        *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/1/1999 NH  : Created.                                                                  *
+ *=============================================================================================*/
+// (0x00590440)
 // Rotates about the world X axis by theta (rows 1 and 2 mixed).
 
 void Matrix3D::Pre_Rotate_X(float theta)
@@ -280,6 +426,19 @@ void Matrix3D::Pre_Rotate_X(float theta)
 }
 
 
+/***********************************************************************************************
+ * M3DC::Pre_Rotate_Y -- Pre-multiplies the matrix by a rotation about Y                       *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ * theta - angle (in radians) to rotate                                                        *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/1/1999 NH  : Created.                                                                  *
+ *=============================================================================================*/
 // Matrix3D pre-multiplication by a Y rotation; original00590550.
 void Matrix3D::Pre_Rotate_Y(float angle)
 {
@@ -305,7 +464,20 @@ void Matrix3D::Pre_Rotate_Y(float angle)
 }
 
 
-// ?Pre_Rotate_Z@Matrix3D@@QAEXM@Z (0x00590650)
+/***********************************************************************************************
+ * M3DC::Pre_Rotate_Z -- Pre-multiplies the matrix by a rotation about Z                       *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ * theta - angle (in radians) to rotate                                                        *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/1/1999 NH  : Created.                                                                  *
+ *=============================================================================================*/
+// (0x00590650)
 // Rotates about the world Z axis by theta (rows 0 and 1 mixed).
 
 void Matrix3D::Pre_Rotate_Z(float theta)
@@ -332,7 +504,11 @@ void Matrix3D::Pre_Rotate_Z(float theta)
 }
 
 
-// ?Rotate_X@Matrix3D@@QAEXM@Z (0x00590760)
+/// <summary>
+/// Post-multiplies the matrix by a rotation about X.
+/// </summary>
+/// <param name="theta">The angle to rotate by, in radians.</param>
+// (0x00590760)
 // Rotates about the local X axis by theta.
 
 void Matrix3D::Rotate_X(float theta)
@@ -356,7 +532,14 @@ void Matrix3D::Rotate_X(float theta)
 }
 
 
-// ?Rotate_X@Matrix3D@@QAEXMM@Z (0x00590800)
+/// <summary>
+/// Post-multiplies the matrix by a rotation about X.
+/// Use this routine when the sine and cosine of the angle are already in hand, as they are
+/// when several matrices are turned by the same amount.
+/// </summary>
+/// <param name="s">The sine of the angle to rotate by.</param>
+/// <param name="c">The cosine of the angle to rotate by.</param>
+// (0x00590800)
 // Rotates about the local X axis (sine and cosine given).
 
 void Matrix3D::Rotate_X(float s, float c)
@@ -378,7 +561,11 @@ void Matrix3D::Rotate_X(float s, float c)
 }
 
 
-// ?Rotate_Y@Matrix3D@@QAEXM@Z (0x00590880)
+/// <summary>
+/// Post-multiplies the matrix by a rotation about Y.
+/// </summary>
+/// <param name="theta">The angle to rotate by, in radians.</param>
+// (0x00590880)
 // Rotates about the local Y axis by theta.
 
 void Matrix3D::Rotate_Y(float theta)
@@ -402,7 +589,14 @@ void Matrix3D::Rotate_Y(float theta)
 }
 
 
-// ?Rotate_Y@Matrix3D@@QAEXMM@Z (0x00590920)
+/// <summary>
+/// Post-multiplies the matrix by a rotation about Y.
+/// Use this routine when the sine and cosine of the angle are already in hand, as they are
+/// when several matrices are turned by the same amount.
+/// </summary>
+/// <param name="s">The sine of the angle to rotate by.</param>
+/// <param name="c">The cosine of the angle to rotate by.</param>
+// (0x00590920)
 // Rotates about the local Y axis (sine and cosine given).
 
 void Matrix3D::Rotate_Y(float s, float c)
@@ -424,7 +618,11 @@ void Matrix3D::Rotate_Y(float s, float c)
 }
 
 
-// ?Rotate_Z@Matrix3D@@QAEXM@Z (0x005909A0)
+/// <summary>
+/// Post-multiplies the matrix by a rotation about Z.
+/// </summary>
+/// <param name="theta">The angle to rotate by, in radians.</param>
+// (0x005909A0)
 // Rotates about the local Z axis by theta.
 
 void Matrix3D::Rotate_Z(float theta)
@@ -448,7 +646,14 @@ void Matrix3D::Rotate_Z(float theta)
 }
 
 
-// ?Rotate_Z@Matrix3D@@QAEXMM@Z (0x00590A40)
+/// <summary>
+/// Post-multiplies the matrix by a rotation about Z.
+/// Use this routine when the sine and cosine of the angle are already in hand, as they are
+/// when several matrices are turned by the same amount.
+/// </summary>
+/// <param name="s">The sine of the angle to rotate by.</param>
+/// <param name="c">The cosine of the angle to rotate by.</param>
+// (0x00590A40)
 // Rotates about the local Z axis (sine and cosine given).
 
 void Matrix3D::Rotate_Z(float s, float c)
@@ -500,7 +705,13 @@ float Matrix3D::Get_Z_Translation() const
 }
 
 
-// ?Get_X_Rotation@Matrix3D@@QBEMXZ (0x00590BB0)
+/// <summary>
+/// Approximates the rotation of the matrix about the X axis.
+/// This routine is an approximation only. It is meaningful when the matrix carries a
+/// rotation about a single axis, and misleading when it carries more than one.
+/// </summary>
+/// <returns>Returns with the X rotation angle, in radians.</returns>
+// (0x00590BB0)
 // The rotation about the X axis, from where the transform takes a unit axis.
 
 float Matrix3D::Get_X_Rotation() const
@@ -510,7 +721,13 @@ float Matrix3D::Get_X_Rotation() const
 }
 
 
-// ?Get_Y_Rotation@Matrix3D@@QBEMXZ (0x00590C10)
+/// <summary>
+/// Approximates the rotation of the matrix about the Y axis.
+/// This routine is an approximation only. It is meaningful when the matrix carries a
+/// rotation about a single axis, and misleading when it carries more than one.
+/// </summary>
+/// <returns>Returns with the Y rotation angle, in radians.</returns>
+// (0x00590C10)
 // The rotation about the Y axis, from where the transform takes a unit axis.
 
 float Matrix3D::Get_Y_Rotation() const
@@ -520,7 +737,13 @@ float Matrix3D::Get_Y_Rotation() const
 }
 
 
-// ?Get_Z_Rotation@Matrix3D@@QBEMXZ (0x00590C70)
+/// <summary>
+/// Approximates the rotation of the matrix about the Z axis.
+/// This routine is an approximation only. It is meaningful when the matrix carries a
+/// rotation about a single axis, and misleading when it carries more than one.
+/// </summary>
+/// <returns>Returns with the Z rotation angle, in radians.</returns>
+// (0x00590C70)
 // The rotation about the Z axis, from where the transform takes a unit axis.
 
 float Matrix3D::Get_Z_Rotation() const
@@ -530,7 +753,13 @@ float Matrix3D::Get_Z_Rotation() const
 }
 
 
-// ?Rotate_Vector@Matrix3D@@QBE?AUVector3@@ABU2@@Z (0x00590CD0)
+/// <summary>
+/// Rotates a vector by the matrix, leaving the translation out.
+/// Use this routine on directions and offsets, where the transform's position must not be
+/// applied. Points belong in the multiply operator instead.
+/// </summary>
+/// <returns>Returns with the rotated vector.</returns>
+// (0x00590CD0)
 // Applies the rotation part to vector.
 
 Vector3 Matrix3D::Rotate_Vector(Vector3 const &vector) const
@@ -543,6 +772,15 @@ Vector3 Matrix3D::Rotate_Vector(Vector3 const &vector) const
 
 // void Matrix3D::Look_At(Vector3 const &position, Vector3 const &target, float roll) (0x00590D50)
 // A transform at position facing target: pitch and yaw from the direction,
+/// <summary>
+/// Builds a viewing transform that looks from one point toward another.
+/// This routine places the matrix at the eye point and orients it onto the target, with the
+/// roll applied last. An eye point sitting on the target leaves the orientation unrotated
+/// rather than dividing by zero.
+/// </summary>
+/// <param name="p">The point to look from.</param>
+/// <param name="t">The point to look at.</param>
+/// <param name="roll">The roll angle, in radians, about the line of sight.</param>
 // then roll about the view axis (Westwood's Look_At; the axis conventions
 // follow the original calls).
 
@@ -581,7 +819,15 @@ void Matrix3D::Look_At(Vector3 const &position, Vector3 const &target, float rol
 }
 
 
-// void Matrix3D::Obj_Look_At(Vector3 const &position, Vector3 const &target, float roll) (0x00590F10)
+/// <summary>
+/// Builds a transform that places an object and aims it at a target.
+/// This routine is the object counterpart to Look_At. The object's own axes are oriented
+/// along the line of sight to the target, and the roll spins it about that line.
+/// </summary>
+/// <param name="p">The position to place the object at.</param>
+/// <param name="t">The point the object is to face.</param>
+/// <param name="roll">The roll angle, in radians, about the line of sight.</param>
+// (0x00590F10)
 // A transform at position whose Z axis points at target (yaw and pitch from the direction, then roll),
 // built from the forward, up and right vectors (Westwood's wwmath Obj_Look_At). The up vector is
 // assigned member by member and the length is held as a double (both fix the original's load order).

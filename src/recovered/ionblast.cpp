@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/ionblast.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // ionblast.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -115,7 +126,13 @@ void __fastcall Calculate_Index_To_Surface_LUT(int stride);
 // atexit destructor of IonBlastClass::IonBlasts (0x00521210, _$E) emitted by HeaderStatics_diagonal_init_00520fa0.cpp; no source of its own.
 
 
-// IonBlastClass::IonBlastClass(CoordStruct) (0x00521270): a new blast at
+/// <summary>
+/// Creates an ion cannon ground blast at the specified location.
+/// The blast adds itself to the list of blasts in progress and is looked after from
+/// there until its shockwave has expired. The ion cannon superweapon and the trigger
+/// action of the same name are the two things that set one off.
+/// </summary>
+// (0x00521270)
 // coord (TibSun ionblast.cpp) joins the list of blasts in progress.
 IonBlastClass::IonBlastClass(CoordStruct coord) :
     Coord(coord),
@@ -126,14 +143,24 @@ IonBlastClass::IonBlastClass(CoordStruct coord) :
 }
 
 
-// IonBlastClass::~IonBlastClass() (0x005212F0): leaves the list of blasts.
+/// <summary>
+/// Removes this blast from the list of blasts in progress.
+/// </summary>
+// (0x005212F0)
 IonBlastClass::~IonBlastClass()
 {
     IonBlasts.Delete(this);
 }
 
 
-// IonBlastClass::AI() (0x00521340): one frame of an ion blast; the shock wave
+/// <summary>
+/// Advances this ion blast by a single frame.
+/// On the frame the blast lands it throws up the explosion animations, damages whatever
+/// is beneath it and lights the scene. From then on the expanding shockwave takes hold
+/// of the infantry and vehicles it rolls over, bringing them to a halt and rocking them
+/// away from the center. Once the wave has run its course the blast deletes itself.
+/// </summary>
+// (0x00521340)
 // rocks every foot occupier within 128 screen pixels (Scout571).
 #define VECTOR3_DECLARE_WWMATH
 extern "C" int __cdecl abs(int);
@@ -271,7 +298,12 @@ void IonBlastClass::AI()
 }
 
 
-// IonBlastClass::Update_All() (0x00521A70): one frame of every blast, last
+/// <summary>
+/// Processes the logic of every ion blast in progress.
+/// This routine is called by the main game logic once per frame. Blasts that have
+/// outlived their shockwave delete themselves along the way.
+/// </summary>
+// (0x00521A70)
 // first (a finished blast deletes itself from the list).
 void IonBlastClass::Update_All()
 {
@@ -281,7 +313,12 @@ void IonBlastClass::Update_All()
 }
 
 
-// IonBlastClass::Clear_All() (0x00521CB0): frees the shockwave surfaces.
+/// <summary>
+/// Frees the precalculated shockwave surfaces.
+/// This routine is called as the game shuts down, to give back the memory One_Time
+/// claimed for the wave animation.
+/// </summary>
+// (0x00521CB0)
 void IonBlastClass::Clear_All()
 {
     for (int i = 0; i < 80; i++) {
@@ -298,7 +335,15 @@ void IonBlastClass::Clear_All()
 // origin lane: Scout1076 (written from the adopted TibSun ionblast.cpp text, THIRD_PARTY.md)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
 // native/drafts.json. Not original bytes.
-// IonBlastClass::One_Time() (0x00521A90): builds the 80 shockwave displacement surfaces
+/// <summary>
+/// Precalculates the shockwave displacement surfaces.
+/// One surface is built for each frame of the blast animation, holding the direction
+/// the ripple pushes every pixel around the blast center. This is far too expensive to
+/// work out while the game is running, so it is done once during startup and the
+/// surfaces are kept until the game exits.
+/// </summary>
+/// <remarks>Harmless to call more than once -- only the first call does any work.</remarks>
+// (0x00521A90)
 // once (256x128, one byte per pixel, filled with -1). Each frame rasterises the ripple
 // band [min_dist, max_dist] of one quadrant around the centre (0x4080) and mirrors it;
 // a pixel holds the spiral index of the wave height. Both band edges then advance by
@@ -354,7 +399,17 @@ void IonBlastClass::One_Time()
 }
 #endif
 
-// void IonBlastClass::Draw_It() (0x00521CE0; TibSun ionblast.cpp): warps the logical surface through the
+/// <summary>
+/// Draws this blast's shockwave onto the tactical view.
+/// Nothing of the wave is actually drawn; instead the scene already on the surface is
+/// warped, each pixel the ripple band covers being replaced by a neighbor pulled from
+/// the direction the wave is pushing. The depth buffer is consulted so that anything
+/// standing nearer than the wave is left undisturbed. The effect is a luxury, so it
+/// only appears at the highest detail level.
+/// </summary>
+/// <remarks>Call this only after the scene has been rendered, and only once the wave
+/// surfaces have been built by One_Time.</remarks>
+// (0x00521CE0; TibSun ionblast.cpp)
 // blast's shockwave surface for this lifetime frame, depth masked, at the highest detail level.
 #include "shared/blit.hpp"
 extern Rect unknown_rect_839630;        // 0x00839630 tactical X, Y, width, height
@@ -436,7 +491,13 @@ void IonBlastClass::Draw_It()
 }
 
 
-// IonBlastClass::Draw_All() (0x00521FB0): rebuilds the offset table when the
+/// <summary>
+/// Draws the shockwave of every ion blast in progress.
+/// The tactical map calls this routine after the scene has been rendered, since the
+/// blast distorts what is already on the surface rather than drawing anything of its
+/// own.
+/// </summary>
+// (0x00521FB0)
 // drawing surface's stride changed, then draws every blast's shockwave.
 void IonBlastClass::Draw_All()
 {
@@ -449,7 +510,14 @@ void IonBlastClass::Draw_All()
 }
 
 
-// Spiral_Index_To_Point(int) (0x00522040): the grid offset a spiral index
+/// <summary>
+/// Converts a spiral index back into a grid point.
+/// Displacement offsets are kept as spiral indices so that each one fits into a single
+/// byte of the wave surface. This routine unpacks one back into the offset it stands
+/// for, counting outward from the center in concentric square rings.
+/// </summary>
+/// <returns>Returns with the grid point that the index refers to.</returns>
+// (0x00522040)
 // stands for (index 0 is the centre; ring n holds 8n points).
 Point2D __fastcall Spiral_Index_To_Point(int index)
 {
@@ -473,7 +541,14 @@ Point2D __fastcall Spiral_Index_To_Point(int index)
 }
 
 
-// Point_To_Spiral_Index(Point2D) (0x005220C0): the inverse of
+/// <summary>
+/// Converts a grid point into its index within the spiral.
+/// This routine is the inverse of Spiral_Index_To_Point. The shockwave rasterizer uses
+/// it to fold a displacement offset down into the single byte that is stored per pixel
+/// of the wave surface.
+/// </summary>
+/// <returns>Returns with the spiral index of the point, zero being the center.</returns>
+// (0x005220C0)
 // Spiral_Index_To_Point.
 int __fastcall Point_To_Spiral_Index(Point2D point)
 {
@@ -498,7 +573,15 @@ int __fastcall Point_To_Spiral_Index(Point2D point)
 }
 
 
-// Calculate_Index_To_Surface_LUT(int) (0x00522150): each spiral index's
+/// <summary>
+/// Rebuilds the spiral index to buffer offset table.
+/// The blast drawer displaces a pixel by fetching a neighbor a short way off in the
+/// direction the ripple is pushing. This routine works out where each of those
+/// neighbors lives in a surface of the given stride, so that the drawer only has to
+/// add. Draw_All calls it whenever the logical surface stride has changed.
+/// </summary>
+/// <param name="stride">The row stride of the surface the blast will be drawn onto.</param>
+// (0x00522150)
 // offset in a surface of the given stride (expanded in Draw_All).
 void __fastcall Calculate_Index_To_Surface_LUT(int stride)
 {

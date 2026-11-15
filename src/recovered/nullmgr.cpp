@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/nullmgr.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // nullmgr.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -74,7 +89,27 @@
 // by HeaderStatics_empty_rect_init_005cfdd0.cpp; no source of its own.
 
 
-// NullModemClass::NullModemClass(int numsend, int numreceive, int maxlen, unsigned short magicnum) (0x005CFFC0)
+/***************************************************************************
+ * NullModemClass::NullModemClass -- class constructor                     *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      numsend         # desired entries for the send queue               *
+ *      numreceive      # desired entries for the receive queue            *
+ *      maxlen         application's max packet length                     *
+ *      magicnum         application-specific magic # (so we don't         *
+ *                     accidentally end up talking to another one of our own*
+ *                     products using the same protocol)                   *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x005CFFC0)
 
 // The modem command results by status, for the debug log (0x007E78F0; the first
 // data of the unit, before Init's com_ids).
@@ -115,7 +150,22 @@ NullModemClass::NullModemClass(int numsend, int numreceive, int maxlen, unsigned
 }
 
 
-// NullModemClass::~NullModemClass() (0x005D0050)
+/***************************************************************************
+ * NullModemClass::~NullModemClass -- class destructor                     *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      none.                                                              *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x005D0050)
 // Releases the modem entry, the connection and the serial port.
 
 NullModemClass::~NullModemClass()
@@ -132,7 +182,30 @@ NullModemClass::~NullModemClass()
 }
 
 
-// int NullModemClass::Init(int port, int irq, char *dev_name, int baud, char parity, int wordlen, int stopbits) (0x005D00E0)
+/***************************************************************************
+ * NullModemClass::Init -- initialization                                  *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      port            address                                            *
+ *      irq            2-15                                                *
+ *     dev_name         name of communications device (win32 only)         *
+ *      baud            300, 1200, 9600, etc                               *
+ *      parity         'O' (odd), 'E' (even), 'N' (none), 'S' (space),     *
+ *                     'M' (mark)                                          *
+ *      wordlength      5, 6, 7, or 8                                      *
+ *      stopbits         1 or 2                                            *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      1 = OK, 0 = error                                                  *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *   10/9/1996  ST : Modified to take device name in win32                 *
+ *=========================================================================*/
+// (0x005D00E0)
 // Creates the connection and its buffers once, then opens the port (COM1-COM4
 // by address, or the registry modem named dev_name): 1 when it opened.
 
@@ -218,7 +291,21 @@ int NullModemClass::Init(int port, int irq, char *dev_name, int baud, char parit
 }
 
 
-// int NullModemClass::Num_Connections() (0x005D0350)
+/***********************************************************************************************
+ * NMC::Num_Connections -- returns NumConnections member                                       *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   NumConnections                                                                    *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/2/96 11:44AM ST : Documented / Win32 support                                           *
+ *=============================================================================================*/
+// (0x005D0350)
 
 int NullModemClass::Num_Connections()
 {
@@ -226,7 +313,21 @@ int NullModemClass::Num_Connections()
 }
 
 
-// int NullModemClass::Delete_Connection() (0x005D0360)
+/***********************************************************************************************
+ * NMC::Delete_Connection -- removes the connection                                            *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   true                                                                              *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/2/96 11:44AM ST : Documented / Win32 support                                           *
+ *=============================================================================================*/
+// (0x005D0360)
 // Deletes the connection and the buffers.
 
 int NullModemClass::Delete_Connection()
@@ -252,7 +353,21 @@ int NullModemClass::Delete_Connection()
 }
 
 
-// int NullModemClass::Init_Send_Queue() (0x005D03C0)
+/***********************************************************************************************
+ * NMC::Init_Send_Queue -- Initialises the connections send queue                              *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   true                                                                              *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/2/96 11:46AM ST : Documented / Win32 support                                           *
+ *=============================================================================================*/
+// (0x005D03C0)
 
 int NullModemClass::Init_Send_Queue()
 {
@@ -263,7 +378,22 @@ int NullModemClass::Init_Send_Queue()
 }
 
 
-// int NullModemClass::Detect_Port(SerialSettingsType *settings) (0x005D03E0)
+/***********************************************************************************************
+ * NMC::Detect_Port -- Checks that the specified com port exists                               *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    ptr to SerialSettingsType                                                         *
+ *                                                                                             *
+ * OUTPUT:   true if port is valid                                                             *
+ *                                                                                             *
+ * WARNINGS: Win32 version always returns true as win95 shouldnt allow us to open the          *
+ *           port if it doesnt exist or is in use by the mouse                                 *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/2/96 11:47AM ST : Documented / Win32 support                                           *
+ *=============================================================================================*/
+// (0x005D03E0)
 // Opens the settings' port (COM1-COM4 by address, or the registry modem
 // named in the settings) to see that it works, and closes it again: 0 when
 // it opened, 1 otherwise.
@@ -320,7 +450,21 @@ int NullModemClass::Detect_Port(SerialSettingsType *settings)
 }
 
 
-// void NullModemClass::Shutdown() (0x005D0570)
+/***********************************************************************************************
+ * NullModemClass::ShutDown -- Closes serial port and removes the connection                   *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/2/96 11:43AM ST : Documented / Win32 support                                           *
+ *=============================================================================================*/
+// (0x005D0570)
 // Closes and deletes the serial port, then the connection.
 
 void NullModemClass::Shutdown()
@@ -335,7 +479,27 @@ void NullModemClass::Shutdown()
 }
 
 
-// void NullModemClass::Set_Timing(unsigned long retrydelta, unsigned long maxretries, unsigned long timeout, bool global) (0x005D05C0, slot 13)
+/***************************************************************************
+ * NullModemClass::Set_Timing -- sets timing for all connections           *
+ *                                                                         *
+ * This will set the timing parameters.  This allows an application to     *
+ * measure the Response_Time while running, and adjust timing accordingly. *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      retrydelta   value to set for retry delta                          *
+ *      maxretries   value to set for max # retries                        *
+ *      timeout      value to set for connection timeout                   *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   08/07/1995 DRD : Created.                                             *
+ *=========================================================================*/
+// (0x005D05C0, slot 13)
 
 void NullModemClass::Set_Timing(unsigned long retrydelta, unsigned long maxretries, unsigned long timeout, bool global)
 {
@@ -348,7 +512,39 @@ void NullModemClass::Set_Timing(unsigned long retrydelta, unsigned long maxretri
 }
 
 
-// int NullModemClass::Send_Message(void *buf, int buflen, int ack_req) (0x005D05F0)
+/***************************************************************************
+ * NullModemClass::Send_Message -- sends a message                         *
+ *                                                                         *
+ * For clarity's sake, here's what happens to the buffer passed in:        *
+ * - It gets passed to the Connection's Send_Packet() routine              *
+ * - The CommHeaderType header gets tacked onto it                         *
+ * - The resulting buffer gets added to the Connection's Send Queue        *
+ * - When Service() determines that it needs to send the data, it          *
+ *   copies the entire packet (CommHeaderType and all) into its local      *
+ *   SendBuf, adds the packet start ID, length, and CRC, then sends it out.*
+ *                                                                         *
+ * The ack_req argument will almost always be '1' (the default).  The only *
+ * reason to use 0 is if you don't know whether the other system is        *
+ * ready or not, so you have to periodically send out a query packet,      *
+ * and wait for a response.  (Using the connection's built-in retry        *
+ * system would just blast out useless data if the other system isn't      *
+ * even there.)                                                            *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      buf         buffer to send                                         *
+ *      buflen      length of buffer                                       *
+ *      ack_req      1 = ACK is required; 0 = not                          *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      1 = OK; 0 = error                                                  *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x005D05F0)
 
 int NullModemClass::Send_Message(void *buf, int buflen, int ack_req)
 {
@@ -363,7 +559,23 @@ int NullModemClass::Send_Message(void *buf, int buflen, int ack_req)
 }
 
 
-// int NullModemClass::Get_Message(void *buf, int *buflen) (0x005D0630)
+/***************************************************************************
+ * NullModemClass::Get_Message -- polls the Queue for a message            *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      buf         buffer to store message in                             *
+ *      buflen      ptr filled in with length of message                   *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      1 = message was received; 0 = wasn't                               *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x005D0630)
 
 int NullModemClass::Get_Message(void *buf, int *buflen)
 {
@@ -374,7 +586,23 @@ int NullModemClass::Get_Message(void *buf, int *buflen)
 }
 
 
-// int NullModemClass::Service() (0x005D0660, slot 1)
+/***************************************************************************
+ * NullModemClass::Service -- main polling routine                         *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      none.                                                              *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      1 = OK, 0 = connection has gone bad                                *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *   8/2/96     ST : Win32 support                                         *
+ *=========================================================================*/
+// (0x005D0660, slot 1)
 // Reads what the port has received into RXBuf, hands one complete frame with
 // a good CRC to the connection, drops bytes up to the next start code, and
 // services the connection's queues.
@@ -463,7 +691,19 @@ int NullModemClass::Service()
 }
 
 
-// int NullModemClass::Num_Send() (0x005D08A0)
+/***************************************************************************
+ * NullModemClass::Num_Send -- Returns # of unACK'd send entries           *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   05/01/1995 BRR : Created.                                             *
+ *=========================================================================*/
+// (0x005D08A0)
 
 int NullModemClass::Num_Send()
 {
@@ -474,7 +714,19 @@ int NullModemClass::Num_Send()
 }
 
 
-// int NullModemClass::Num_Receive() (0x005D08C0)
+/***************************************************************************
+ * NullModemClass::Num_Receive -- Returns # entries in the receive queue   *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   05/01/1995 BRR : Created.                                             *
+ *=========================================================================*/
+// (0x005D08C0)
 
 int NullModemClass::Num_Receive()
 {
@@ -485,7 +737,19 @@ int NullModemClass::Num_Receive()
 }
 
 
-// unsigned long NullModemClass::Response_Time() (0x005D08E0, slot 12)
+/***************************************************************************
+ * NullModemClass::Response_Time -- Returns Queue's avg response time      *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   05/01/1995 BRR : Created.                                             *
+ *=========================================================================*/
+// (0x005D08E0, slot 12)
 
 unsigned long NullModemClass::Response_Time()
 {
@@ -496,7 +760,19 @@ unsigned long NullModemClass::Response_Time()
 }
 
 
-// void NullModemClass::Reset_Response_Time(bool clear) (0x005D0900, slot 11)
+/***************************************************************************
+ * NullModemClass::Reset_Response_Time -- Resets response time computation *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   05/01/1995 BRR : Created.                                             *
+ *=========================================================================*/
+// (0x005D0900, slot 11)
 
 void NullModemClass::Reset_Response_Time(bool clear)
 {
@@ -506,7 +782,19 @@ void NullModemClass::Reset_Response_Time(bool clear)
 }
 
 
-// void *NullModemClass::Oldest_Send() (0x005D0920)
+/***************************************************************************
+ * Oldest_Send -- Returns ptr to oldest unACK'd send buffer                *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   05/01/1995 BRR : Created.                                             *
+ *=========================================================================*/
+// (0x005D0920)
 // The buffer of the oldest unacknowledged data packet that needs an ACK.
 
 void *NullModemClass::Oldest_Send()
@@ -523,7 +811,33 @@ void *NullModemClass::Oldest_Send()
 }
 
 
-// void NullModemClass::Configure_Debug(int index, int offset, int size, int names, int namestart, int namecount) (0x005D0970, slot 15)
+/***************************************************************************
+ * NullModemClass::Configure_Debug -- sets up special debug values         *
+ *                                                                         *
+ * Mono_Debug_Print2() can look into a packet to pull out a particular     *
+ * ID, and can print both that ID and a string corresponding to            *
+ * that ID.  This routine configures these values so it can find           *
+ * and decode the ID.  This ID is used in addition to the normal           *
+ * CommHeaderType values.                                                  *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      index         (not used)                                           *
+ *      type_offset      ID's byte offset into packet                      *
+ *      type_size      size of ID, in bytes; 0 if none                     *
+ *      names            ptr to array of names; use ID as an index into this*
+ *      namestart      numerical start of the 1st name value               *
+ *      namecount      # in the names array; 0 if none.                    *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      Names shouldn't be longer than 12 characters.                      *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   05/31/1995 BRR : Created.                                             *
+ *=========================================================================*/
+// (0x005D0970, slot 15)
 
 void NullModemClass::Configure_Debug(int index, int offset, int size, int names, int namestart, int namecount)
 {
@@ -533,7 +847,25 @@ void NullModemClass::Configure_Debug(int index, int offset, int size, int names,
 }
 
 
-// bool NullModemClass::Detect_Modem(SerialSettingsType *settings, bool reconnect) (0x005D09A0)
+/***************************************************************************
+ * NullModemClass::Detect_Modem -- Detects and initializes the modem       *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      settings      ptr to SerialSettings structure                      *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      -1            init string invalid                                  *
+ *      0            no modem found                                        *
+ *      1            modem found                                           *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   06/02/1995 DRD : Created.                                             *
+ *   8/2/96      ST : Added Win32 support                                  *
+ *=========================================================================*/
+// (0x005D09A0)
 // Initialises the modem in failsafe mode under an "initializing" dialog: echo,
 // result codes and verbose results on, AT, the session's init string (each
 // '|' part), the registry modem's flow control, compression and error
@@ -718,7 +1050,23 @@ bool NullModemClass::Detect_Modem(SerialSettingsType *settings, bool reconnect)
 }
 
 
-// DialStatusType NullModemClass::Dial_Modem(char *string, int method, bool reconnect) (0x005D1350)
+/***************************************************************************
+ * NullModemClass::Dial_Modem -- dials a number passed                     *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      settings      ptr to SerialSettings structure                      *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      status      DialStatus                                             *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   06/02/1995 DRD : Created.                                             *
+ *   8/2/96      ST : Win32 support                                        *
+ *=========================================================================*/
+// (0x005D1350)
 // Dials under a cancel dialog and waits for the modem's answer: CONNECT
 // (copied to ModemRXString), BUSY, NO CARRIER, NO DIALTONE or ERROR; the
 // wait ends on a timeout, the cancel button or ESC (the modem gets a CR).
@@ -827,7 +1175,23 @@ DialStatusType NullModemClass::Dial_Modem(char *string, int method, bool reconne
 }
 
 
-// DialStatusType NullModemClass::Answer_Modem(bool reconnect) (0x005D16E0)
+/***************************************************************************
+ * NullModemClass::Answer_Modem -- waits for call and answers              *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      reconnect   whether this is to reconnect                           *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      status      DialStatus                                             *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   06/02/1995 DRD : Created.                                             *
+ *   8/2/96      ST : Added Win32 support                                  *
+ *=========================================================================*/
+// (0x005D16E0)
 // Waits under a cancel dialog for the modem to ring, answers with ATA and
 // waits for CONNECT (copied to ModemRXString), BUSY, NO CARRIER or ERROR;
 // after the ring a timeout still connects while the modem has carrier.
@@ -946,7 +1310,23 @@ DialStatusType NullModemClass::Answer_Modem(bool reconnect)
 }
 
 
-// bool NullModemClass::Hangup_Modem() (0x005D1B70)
+/***************************************************************************
+ * NullModemClass::Hangup_Modem -- hangs up the modem                      *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      none                                                               *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      status      successful or not                                      *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   06/02/1995 DRD : Created.                                             *
+ *   8/2/96         : Added Win32 support                                  *
+ *=========================================================================*/
+// (0x005D1B70)
 // Hangs the modem up: drops DTR, sends the escape code, then ATH and ATZ.
 // Modem servicing (bit 0 of serial_session_flags_00a3fac0) is off meanwhile.
 
@@ -1016,7 +1396,21 @@ bool NullModemClass::Hangup_Modem()
 }
 
 
-// void NullModemClass::Setup_Modem_Echo(void (__fastcall *func)(char c)) (0x005D1D20)
+/***********************************************************************************************
+ * NMC::Setup_Modem_Echo -- Sets the echo callback function pointer                            *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Ptr to callback function                                                          *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/2/96 12:48PM ST : Documented and added WIn32 support                                   *
+ *=============================================================================================*/
+// (0x005D1D20)
 
 void NullModemClass::Setup_Modem_Echo(void (__fastcall *func)(char c))
 {
@@ -1059,7 +1453,21 @@ void NullModemClass::Clear_Receive_Buffer()
 }
 
 
-// int NullModemClass::Abort_Modem() (0x005D1DB0)
+/***********************************************************************************************
+ * NMC::Abort_Modem -- Checks for user input so that modem operations can be aborted           *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   ASUSERABORT if abort key pressed. ASSUCESS otherwise.                             *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/2/96 12:52PM ST : Documented                                                           *
+ *=============================================================================================*/
+// (0x005D1DB0)
 // The serial port's abort function: services the game, and returns -1000
 // once ESC was pressed (it stays set).
 
@@ -1079,7 +1487,21 @@ int NullModemClass::Abort_Modem()
 }
 
 
-// void NullModemClass::Setup_Abort_Modem() (0x005D1E00)
+/***********************************************************************************************
+ * NMC::Setup_Abort_Modem -- sets the modem abort function pointer                             *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/2/96 2:59PM ST : Documented / Win32 support added                                      *
+ *=============================================================================================*/
+// (0x005D1E00)
 
 void NullModemClass::Setup_Abort_Modem()
 {
@@ -1088,7 +1510,21 @@ void NullModemClass::Setup_Abort_Modem()
 }
 
 
-// void NullModemClass::Remove_Abort_Modem() (0x005D1E20)
+/***********************************************************************************************
+ * NMC::Remove_Abort_Modem -- Removes the modem abort function pointer                         *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/2/96 3:01PM ST : Documented / Win32 support added                                      *
+ *=============================================================================================*/
+// (0x005D1E20)
 
 void NullModemClass::Remove_Abort_Modem()
 {
@@ -1097,7 +1533,22 @@ void NullModemClass::Remove_Abort_Modem()
 }
 
 
-// int NullModemClass::Change_IRQ_Priority(int irq) (0x005D1E40)
+/***********************************************************************************************
+ * NMC::Change_IRQ_Priority -- Increases the priority of the serial interrupt                  *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Interrupt request number                                                          *
+ *                                                                                             *
+ * OUTPUT:   COMMSUCCESS if changed                                                            *
+ *                                                                                             *
+ * WARNINGS: The Win32 version of this function does nothing.                                  *
+ *           Priorities are controlled by windoze                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/2/96 3:03PM ST : Documented / Win32 support added                                      *
+ *=============================================================================================*/
+// (0x005D1E40)
 // Nothing to do under Windows.
 
 int NullModemClass::Change_IRQ_Priority(int irq)
@@ -1106,7 +1557,21 @@ int NullModemClass::Change_IRQ_Priority(int irq)
 }
 
 
-// int NullModemClass::Get_Modem_Status() (0x005D1E50)
+/***********************************************************************************************
+ * NMC::Get_Modem_Status -- returns status of modem control bits                               *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   Modem status                                                                      *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/2/96 3:06PM ST : Documented / Win32 support added                                      *
+ *=============================================================================================*/
+// (0x005D1E50)
 // The port's modem status, without carrier detect (0x80) when the modem
 // answers "AT" (it is in command mode).
 
@@ -1125,7 +1590,26 @@ int NullModemClass::Get_Modem_Status()
 }
 
 
-// int NullModemClass::Send_Modem_Command(char *command, char terminator, char *buffer, int buflen, int delay, int retries) (0x005D1EA0)
+/***********************************************************************************************
+ * NMC::Send_Modem_Command -- Sends an 'AT' command to the modem and gets the response         *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    command to send to modem. e.g. 'ATZ'                                              *
+ *           terminator byte for command string                                                *
+ *           buffer to put modem response into                                                 *
+ *           length of above buffer                                                            *
+ *           delay to wait for response                                                        *
+ *           number of times to retry when modem doesnt respond                                *
+ *                                                                                             *
+ * OUTPUT:   input delay less the time it took the modem to respond                            *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/2/96 3:09PM ST : Documented / Win32 support added                                      *
+ *=============================================================================================*/
+// (0x005D1EA0)
 
 int NullModemClass::Send_Modem_Command(char *command, char terminator, char *buffer, int buflen, int delay, int retries)
 {

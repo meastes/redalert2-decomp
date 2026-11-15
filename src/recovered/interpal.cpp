@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/interpal.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // interpal.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -68,6 +83,19 @@ void __fastcall Write_Interpolation_Palette(char const *palette_file_name)
 }
 
 
+/***************************************************************************
+ * CREATE_PALETTE_INTERPOLATION_TABLE                                      *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/06/1995  MG : Created.                                             *
+ *=========================================================================*/
+// (0x0051E920)
 // Builds the blend table from InterpolationPalette: for each pair of entries the entry
 // nearest (squared RGB distance) to their average (0x0051E920).
 void __fastcall Create_Palette_Interpolation_Table()
@@ -161,6 +189,19 @@ void __fastcall Increase_Palette_Luminance(PaletteClass &palette, double percent
 // Tiberian Sun interpal.cpp (continued).
 int CopyType = 0;
 
+/***************************************************************************
+ * INTERPOLATE_2X_SCALE                                                    *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/06/1995  MG : Created.                                             *
+ *=========================================================================*/
+// (0x0051EB00)
 // Copies source to dest at twice the size with one of the assembly routines; the blend
 // table is read from palette_file_name or rebuilt first when the palette changed, then
 // written back (0x0051EB00).

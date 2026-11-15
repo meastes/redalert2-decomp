@@ -1,3 +1,19 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/infatype.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // infatype.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -132,7 +148,23 @@ InfantryTypeClass::InfantryTypeClass(char const *ini_name) :
 }
 
 
-// InfantryTypeClass::InfantryTypeClass(NoInitClass const &noinit) (0x00509D60)
+/***********************************************************************************************
+ * InfantryTypeClass::InfantryTypeClass -- Constructor for infantry type class objects.        *
+ *                                                                                             *
+ *    This routine will construct the infantry type objects. It is use to create the static    *
+ *    infantry types that are used to give each of the infantry objects their characteristics. *
+ *                                                                                             *
+ * INPUT:   see below...                                                                       *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/24/1994 JLB : Created.                                                                 *
+ *   02/16/1996 JLB : Greatly simplified.                                                      *
+ *=============================================================================================*/
+// (0x00509D60)
 // Load path.
 
 InfantryTypeClass::InfantryTypeClass(NoInitClass const &noinit) :
@@ -144,7 +176,12 @@ InfantryTypeClass::InfantryTypeClass(NoInitClass const &noinit) :
 }
 
 
-// InfantryTypeClass::~InfantryTypeClass() (0x00509DB0)
+/// <summary>
+/// Removes this infantry type from the game.
+/// Everything that refers to this infantry type is detached from it, and its animation
+/// sequence controls are freed, before it is dropped from the infantry type heap.
+/// </summary>
+// (0x00509DB0)
 // Leaves InfantryTypes and frees the sequences.
 
 InfantryTypeClass::~InfantryTypeClass()
@@ -156,7 +193,24 @@ InfantryTypeClass::~InfantryTypeClass()
 }
 
 
-// ObjectClass *InfantryTypeClass::Create_One_Of(HouseClass *house) const (0x00509EF0)
+/***********************************************************************************************
+ * InfantryTypeClass::Create_One_Of -- Creates an infantry object.                             *
+ *                                                                                             *
+ *    This creates an infantry object, but does not attempt to place it on the map. It is      *
+ *    typically used by the scenario editor when an object is needed, but the location has     *
+ *    not yet been specified for where it should appear on the map.                            *
+ *                                                                                             *
+ * INPUT:   house -- The owner of the infantry object.                                         *
+ *                                                                                             *
+ * OUTPUT:  Returns with a pointer to the created infantry object. If an object could not be   *
+ *          created, then NULL is returned.                                                    *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/24/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00509EF0)
 // A new infantry unit of this type for the house (RA1: Create_One_Of).
 
 ObjectClass *InfantryTypeClass::Create_One_Of(HouseClass *house) const
@@ -178,6 +232,24 @@ static inline bool Is_Valid(CoordStruct const &coord)
         || coord.Z != unknown_geometry_l.Z;
 }
 
+/***********************************************************************************************
+ * InfantryTypeClass::Create_And_Place -- Creates and places infantry object onto the map.     *
+ *                                                                                             *
+ *    This routine is used by the scenario editor to create and place an infantry object onto  *
+ *    the map at the location specified.                                                       *
+ *                                                                                             *
+ * INPUT:   cell     -- The cell location to place the infantry object at.                     *
+ *                                                                                             *
+ *          house    -- The owner of the infantry object.                                      *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the infantry object successfully created and placed at the location      *
+ *                specified?                                                                   *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/24/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
 bool InfantryTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) const
 {
     InfantryClass *infantry = new InfantryClass(const_cast<InfantryTypeClass *>(this), house);
@@ -193,7 +265,25 @@ bool InfantryTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) co
 }
 
 
-// Cell const *InfantryTypeClass::Occupy_List(int arg1) const (0x0050A000)
+/***********************************************************************************************
+ * InfantryTypeClass::Occupy_List -- Returns with default infantry occupation list.            *
+ *                                                                                             *
+ *    This routine will return with a cell offset occupation list for a generic infantry       *
+ *    object. This is typically just a single cell since infantry are never bigger than one    *
+ *    cell and this routine presumes the infantry is located in the center of the cell.        *
+ *                                                                                             *
+ * INPUT:   placement   -- Is this for placement legality checking only? The normal condition  *
+ *                         is for marking occupation flags.                                    *
+ *                                                                                             *
+ * OUTPUT:  Returns with a cell offset list for the infantry object as if it were located      *
+ *          in the center of a cell.                                                           *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/24/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0050A000)
 // The occupation list: the origin cell and the end marker.
 
 Cell const *InfantryTypeClass::Occupy_List(int arg1) const
@@ -208,7 +298,24 @@ Cell const *InfantryTypeClass::Occupy_List(int arg1) const
 // @symbol _$E41
 
 
-// static int __fastcall InfantryTypeClass::From_Name(char const *name) (0x0050A070)
+/***********************************************************************************************
+ * InfantryTypeClass::From_Name -- Converts an ASCII name into an infantry type number.        *
+ *                                                                                             *
+ *    This routine is used to convert the infantry ASCII name as specified into an infantry    *
+ *    type number. This is called from the INI reader routine in the process if creating the   *
+ *    infantry objects needed for the scenario.                                                *
+ *                                                                                             *
+ * INPUT:   name  -- The ASCII name to convert into an infantry type number.                   *
+ *                                                                                             *
+ * OUTPUT:  Returns with the infantry type number that corresponds to the infantry ASCII name  *
+ *          specified. If no match could be found, then INFANTRY_NONE is returned.             *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/24/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0050A070)
 // Index of the type with this ID (case-insensitive), or -1 (also for
 // "<none>" and "none").
 
@@ -390,6 +497,21 @@ static inline TypeList<AnimTypeClass *> Get_Anim_List(CCINIClass &ini, char cons
     return defvalue;
 }
 
+/***********************************************************************************************
+ * InfantryTypeClass::Read_INI -- Fetches infantry override values from the INI database.      *
+ *                                                                                             *
+ *    This routine will retrieve the override values for this infantry type class object from  *
+ *    the INI database specified.                                                              *
+ *                                                                                             *
+ * INPUT:   ini   -- Reference to the INI database to retrieve the data from.                  *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the infantry section for this type found and data retrieved from it?     *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/19/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
 bool InfantryTypeClass::Read_INI(CCINIClass &ini)
 {
     unknown_a9b = false;
@@ -440,7 +562,12 @@ bool InfantryTypeClass::Read_INI(CCINIClass &ini)
 }
 
 
-// CoordStruct InfantryTypeClass::Lepton_Dimensions() const (0x0050A940)
+/// <summary>
+/// Fetches the bounding size of this infantry type, in leptons.
+/// This is the volume that collision and targeting logic treats the soldier as filling.
+/// </summary>
+/// <returns>Returns with the width, height and depth of the infantry, in leptons.</returns>
+// (0x0050A940)
 // 0x55 leptons square, twice the 0x00A411B0 height.
 
 CoordStruct InfantryTypeClass::Lepton_Dimensions() const
@@ -449,7 +576,11 @@ CoordStruct InfantryTypeClass::Lepton_Dimensions() const
 }
 
 
-// int InfantryTypeClass::Repair_Step() const (0x0050A970)
+/// <summary>
+/// Fetches the strength restored by one repair step of this infantry type.
+/// </summary>
+/// <returns>Returns with the number of strength points gained per repair step.</returns>
+// (0x0050A970)
 // The rules value at +0x1340.
 
 int InfantryTypeClass::Repair_Step() const
@@ -459,7 +590,12 @@ int InfantryTypeClass::Repair_Step() const
 }
 
 
-// int InfantryTypeClass::Repair_Cost() const (0x0050A980)
+/// <summary>
+/// Fetches the credit cost of one repair step for this infantry type.
+/// Infantry are healed rather than repaired, so the service is free.
+/// </summary>
+/// <returns>Returns with the cost, in credits, of a single repair step.</returns>
+// (0x0050A980)
 // Infantry are not repaired.
 
 int InfantryTypeClass::Repair_Cost() const
@@ -484,7 +620,14 @@ bool InfantryTypeClass::CanAttackMove() const
 }
 
 
-// CoordStruct InfantryTypeClass::Coord_Fixup(CoordStruct const &coord) const (0x0050A9B0)
+/// <summary>
+/// Adjusts a coordinate to be legal for this infantry type.
+/// Infantry cannot occupy a position below the ground, so a coordinate that has sunk beneath
+/// the terrain is lifted back up to it.
+/// </summary>
+/// <param name="coord">The coordinate to adjust.</param>
+/// <returns>Returns with the adjusted coordinate.</returns>
+// (0x0050A9B0)
 // The coordinate, raised to the ground height when below it.
 
 CoordStruct InfantryTypeClass::Coord_Fixup(CoordStruct const &coord) const
@@ -497,7 +640,12 @@ CoordStruct InfantryTypeClass::Coord_Fixup(CoordStruct const &coord) const
 }
 
 
-// void InfantryTypeClass::Compute_CRC(WWCRCEngine &crc) const (0x0050AA20)
+/// <summary>
+/// Submits this infantry type to the game state checksum.
+/// The network sync check uses this routine to prove that every machine in the game is
+/// running with identical infantry rules.
+/// </summary>
+// (0x0050AA20)
 
 void InfantryTypeClass::Compute_CRC(WWCRCEngine &crc) const
 {
@@ -543,6 +691,12 @@ static inline void Load_List(IStream *stream, TypeList<T> &list)
     }
 }
 
+/// <summary>
+/// Loads this infantry type from the stream specified.
+/// The shape images are re-fetched and the voice comment list and animation sequence
+/// controls are rebuilt, since none of those survive a raw read of the object.
+/// </summary>
+/// <returns>Returns with S_OK if the infantry type was read, otherwise a failure code.</returns>
 HRESULT __stdcall InfantryTypeClass::Load(IStream *stream)
 {
     if (DoControls != 0) {
@@ -571,7 +725,14 @@ HRESULT __stdcall InfantryTypeClass::Load(IStream *stream)
 }
 
 
-// HRESULT __stdcall InfantryTypeClass::Save(IStream *stream, BOOL clear_dirty) (0x0050AD80)
+/// <summary>
+/// Saves this infantry type to the stream specified.
+/// The voice comment list and the animation sequence controls hang off this object rather
+/// than living inside it, so they are written out after the object itself.
+/// </summary>
+/// <returns>Returns with S_OK if the infantry type was written, otherwise a failure
+/// code.</returns>
+// (0x0050AD80)
 // The techno part, the three lists and the sequences.
 
 HRESULT __stdcall InfantryTypeClass::Save(IStream *stream, BOOL clear_dirty)
@@ -587,7 +748,13 @@ HRESULT __stdcall InfantryTypeClass::Save(IStream *stream, BOOL clear_dirty)
 }
 
 
-// HRESULT __stdcall InfantryTypeClass::GetClassID(GUID *clsid) (0x0050AE90)
+/// <summary>
+/// Fetches the class identifier of this object.
+/// The save game system stores this identifier so that the object can be recreated as the
+/// correct class when the game is loaded.
+/// </summary>
+/// <returns>Returns with S_OK, or E_POINTER if no return pointer was supplied.</returns>
+// (0x0050AE90)
 
 HRESULT __stdcall InfantryTypeClass::GetClassID(GUID *clsid)
 {
@@ -599,7 +766,14 @@ HRESULT __stdcall InfantryTypeClass::GetClassID(GUID *clsid)
 }
 
 
-// static InfantryTypeClass *__fastcall InfantryTypeClass::Find_Or_Make(char const *name) (0x0050AED0)
+/// <summary>
+/// Fetches the infantry type of the name specified, creating it if need be.
+/// This routine is used while processing the rules and scenario INI databases, where an
+/// infantry type can be mentioned before it has been declared.
+/// </summary>
+/// <param name="name">The internal INI name of the infantry type wanted.</param>
+/// <returns>Returns with a pointer to the matching infantry type.</returns>
+// (0x0050AED0)
 // The type with this ID, a new one when unknown, 0 for "<none>"/"none".
 
 InfantryTypeClass *__fastcall InfantryTypeClass::Find_Or_Make(char const *name)
@@ -632,7 +806,11 @@ int InfantryTypeClass::Size_Of() const
 }
 
 
-// int InfantryTypeClass::Fetch_Heap_ID() const (0x0050AF80)
+/// <summary>
+/// Fetches the heap index of this infantry type.
+/// </summary>
+/// <returns>Returns with the position of this type within the infantry type heap.</returns>
+// (0x0050AF80)
 // The type's index in InfantryTypes.
 
 int InfantryTypeClass::Fetch_Heap_ID() const

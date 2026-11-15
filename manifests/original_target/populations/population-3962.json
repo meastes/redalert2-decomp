@@ -4,8 +4,8 @@
     "id": "population-3962",
     "inventory_sha256": "e1847c8cdcb01e981a7c631cf0ebe3ec8a5e1ad9b8deb768c97cf6f2286690b3",
     "gaps_sha256": "65519fb74b9ffe3f7c7553df67d8e5d2945e5a1d5fae81cd5c3bc15fdbf611a8",
-    "historical_population_sha256": "f95dcc935d13a36c15a5fb33a77a9fb3e4bdc2f4da9eca8e3595e98802143acf",
-    "historical_acceptance_sha256": "966e9ee2629ecfe0957c86a08cb021e5c50cdb89910abf780900bac820952532"
+    "historical_population_sha256": "5b3ae7b1f360118ca0bd6e15bdd31397ef02598847e5195bf5da6da4736c3c2a",
+    "historical_acceptance_sha256": "6ad70a171576ca745ff851ebc33e4cdd1dec5ebd71d9d5fa1813752a2eeeaf6a"
   },
   "references": {
     "__imp__GetDriveTypeA@4": 7971404,
@@ -2695,7 +2695,12 @@
     "__real@8@bff6b6db6db6db6db800": 8026880,
     "??_EWDTState@@": 7522816,
     "??_GWDTState@@": 7522816,
-    "??_EWinModemClass@@UAEPAXI@Z": 7558672
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672,
+    "?Full_Name@Owner_006e7cb0@seed_006e7cb0@@QAEHI@Z": 7240880,
+    "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
+    "?AI@CreditClass@@QAEX_N@Z": 4802128,
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "__ramp_corners": 8339828
   },
   "regions": [
     {
@@ -2772,7 +2777,7 @@
           "resolved": 4291761676
         }
       ],
-      "source_sha256": "5a06f4ed8b4e81985c5290e4d1d92fe9935301baafde6845470b939fd1f7f936",
+      "source_sha256": "272d5186a530bdf0b2fb24dd7e48e1ed1e6df4b68acac64772f98906afb90bb1",
       "source": "src/recovered/volinfo.cpp",
       "population": "population-3962",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -2870,7 +2875,7 @@
           "resolved": 7971576
         }
       ],
-      "source_sha256": "5a06f4ed8b4e81985c5290e4d1d92fe9935301baafde6845470b939fd1f7f936",
+      "source_sha256": "272d5186a530bdf0b2fb24dd7e48e1ed1e6df4b68acac64772f98906afb90bb1",
       "source": "src/recovered/volinfo.cpp",
       "population": "population-3962",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -3016,7 +3021,7 @@
           "resolved": 7985256
         }
       ],
-      "source_sha256": "5a06f4ed8b4e81985c5290e4d1d92fe9935301baafde6845470b939fd1f7f936",
+      "source_sha256": "272d5186a530bdf0b2fb24dd7e48e1ed1e6df4b68acac64772f98906afb90bb1",
       "source": "src/recovered/volinfo.cpp",
       "population": "population-3962",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",

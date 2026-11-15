@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/tagtype.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // tagtype.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -62,7 +73,12 @@ DynamicVectorClass<TagTypeClass *> TagTypes;
 // Dynamic initializer (0x006B4530, _$E) emitted by HeaderStatics_diagonal_init_006b4300.cpp; no source of its own.
 
 
-// TagTypeClass::TagTypeClass(char const *ini_name) (0x006B4570)
+/// <summary>
+/// Constructs a tag type of the name specified.
+/// The new tag type is added to the master tag list and to the abstract type tracker,
+/// so that the scenario reader and the save system can find it later.
+/// </summary>
+// (0x006B4570)
 // A volatile tag with no triggers, named after its ID; registered in the tag
 // type list (its index) and the abstract list.
 
@@ -79,7 +95,13 @@ TagTypeClass::TagTypeClass(char const *ini_name) :
 }
 
 
-// TagTypeClass::~TagTypeClass() (0x006B46B0)
+/// <summary>
+/// Destroys this tag type.
+/// This routine will delete the trigger types hanging off the tag as well as any tag
+/// instances that were built from it, then take the tag type back out of the master
+/// tag list.
+/// </summary>
+// (0x006B46B0)
 // Deletes the type's trigger types and every tag of this type.
 
 TagTypeClass::~TagTypeClass()
@@ -104,7 +126,13 @@ TagTypeClass::~TagTypeClass()
 }
 
 
-// bool TagTypeClass::Link(TriggerTypeClass *trigger) (0x006B47E0)
+/// <summary>
+/// Adds a trigger type to this tag's trigger list.
+/// The tag fires every trigger hanging off it, so this is how a designer gives one
+/// tag more than one thing to do.
+/// </summary>
+/// <returns>bool; Was the trigger attached?</returns>
+// (0x006B47E0)
 
 bool TagTypeClass::Link(TriggerTypeClass *trigger)
 {
@@ -117,7 +145,13 @@ bool TagTypeClass::Link(TriggerTypeClass *trigger)
 }
 
 
-// bool TagTypeClass::Unlink(TriggerTypeClass *trigger) (0x006B4810)
+/// <summary>
+/// Removes a trigger type from this tag's trigger list.
+/// This routine is used by the scenario editor when the designer breaks the tie
+/// between a tag and one of its triggers.
+/// </summary>
+/// <returns>bool; Was the trigger found and unhooked?</returns>
+// (0x006B4810)
 
 bool TagTypeClass::Unlink(TriggerTypeClass *trigger)
 {
@@ -137,7 +171,12 @@ bool TagTypeClass::Unlink(TriggerTypeClass *trigger)
 }
 
 
-// void TagTypeClass::Detach(AbstractClass *target, bool all) (0x006B4860)
+/// <summary>
+/// Removes any reference this tag type holds to the object specified.
+/// This routine is called when an object is being destroyed, so that the tag is not
+/// left pointing at a corpse.
+/// </summary>
+// (0x006B4860)
 
 void TagTypeClass::Detach(AbstractClass *target, bool all)
 {
@@ -147,7 +186,13 @@ void TagTypeClass::Detach(AbstractClass *target, bool all)
 }
 
 
-// TagTypeClass *__fastcall TagTypeClass::From_Name(char const *name) (0x006B4880)
+/// <summary>
+/// Fetches the tag type that goes by the name specified.
+/// Both the database name and the display name are considered, and the comparison
+/// ignores case.
+/// </summary>
+/// <returns>Returns with a pointer to the tag type found, or NULL if there is no match.</returns>
+// (0x006B4880)
 // The tag type whose ID or name matches, or 0.
 
 TagTypeClass *__fastcall TagTypeClass::From_Name(char const *name)
@@ -202,7 +247,13 @@ void __fastcall TagTypeClass::Write_Scenario_INI(CCINIClass &ini)
 }
 
 
-// bool TagTypeClass::Read_INI(CCINIClass &ini) (0x006B4A90)
+/// <summary>
+/// Reads this tag type's data from the INI database.
+/// This routine fetches the persistence, the display name, and the trigger type that
+/// the tag fires.
+/// </summary>
+/// <returns>bool; Was an entry for this tag found in the database?</returns>
+// (0x006B4A90)
 // The [Tags] entry "persistence,name,trigger": the persistence, the
 // display name and the first trigger type (made when missing).
 #include "shared/trigger_type.hpp"
@@ -223,7 +274,12 @@ bool TagTypeClass::Read_INI(CCINIClass &ini)
 }
 
 
-// bool TagTypeClass::Write_INI(CCINIClass &ini) const (0x006B4B70)
+/// <summary>
+/// Writes this tag type out to the INI database.
+/// The tag is stored as its persistence, its display name, and the trigger it is
+/// linked to.
+/// </summary>
+// (0x006B4B70)
 
 bool TagTypeClass::Write_INI(CCINIClass &ini) const
 {
@@ -239,7 +295,14 @@ bool TagTypeClass::Write_INI(CCINIClass &ini) const
 }
 
 
-// int TagTypeClass::Attaches_To() const (0x006B4C00)
+/// <summary>
+/// Fetches what this tag may be attached to.
+/// This routine gathers the attachment types of every trigger hanging off the tag, so
+/// that the scenario reader knows whether the tag belongs to a cell, an object, or the
+/// house itself.
+/// </summary>
+/// <returns>Returns with the combined attachment flags of the attached triggers.</returns>
+// (0x006B4C00)
 // The combined flags of the type's trigger types.
 
 int TagTypeClass::Attaches_To() const
@@ -252,7 +315,13 @@ int TagTypeClass::Attaches_To() const
 }
 
 
-// bool TagTypeClass::Is_Allow_Win() const (0x006B4C30)
+/// <summary>
+/// Can this tag grant a victory?
+/// This routine asks the triggers attached to the tag, since it is they that carry
+/// the win action.
+/// </summary>
+/// <returns>bool; Is one of the attached triggers able to win the scenario?</returns>
+// (0x006B4C30)
 // Whether any trigger type answers TriggerTypeClass::Is_Allow_Win.
 
 bool TagTypeClass::Is_Allow_Win() const
@@ -266,7 +335,13 @@ bool TagTypeClass::Is_Allow_Win() const
 }
 
 
-// bool TagTypeClass::Is_Cross_Horizontal() const (0x006B4C60)
+/// <summary>
+/// Does this tag watch for a horizontal line crossing?
+/// This routine asks the triggers attached to the tag, since it is they that carry
+/// the events.
+/// </summary>
+/// <returns>bool; Is one of the attached triggers a horizontal crossing trigger?</returns>
+// (0x006B4C60)
 // Whether any trigger type answers TriggerTypeClass::Is_Cross_Horizontal.
 
 bool TagTypeClass::Is_Cross_Horizontal() const
@@ -280,7 +355,13 @@ bool TagTypeClass::Is_Cross_Horizontal() const
 }
 
 
-// bool TagTypeClass::Is_Cross_Vertical() const (0x006B4C90)
+/// <summary>
+/// Does this tag watch for a vertical line crossing?
+/// This routine asks the triggers attached to the tag, since it is they that carry
+/// the events.
+/// </summary>
+/// <returns>bool; Is one of the attached triggers a vertical crossing trigger?</returns>
+// (0x006B4C90)
 // Whether any trigger type answers TriggerTypeClass::Is_Cross_Vertical.
 
 bool TagTypeClass::Is_Cross_Vertical() const
@@ -294,7 +375,13 @@ bool TagTypeClass::Is_Cross_Vertical() const
 }
 
 
-// bool TagTypeClass::Is_Enters_Zone() const (0x006B4CC0)
+/// <summary>
+/// Does this tag watch for an object entering a zone?
+/// This routine asks the triggers attached to the tag, since it is they that carry
+/// the events.
+/// </summary>
+/// <returns>bool; Is one of the attached triggers an enters zone trigger?</returns>
+// (0x006B4CC0)
 // Whether any trigger type answers TriggerTypeClass::Is_Enters_Zone.
 
 bool TagTypeClass::Is_Enters_Zone() const
@@ -308,7 +395,11 @@ bool TagTypeClass::Is_Enters_Zone() const
 }
 
 
-// bool TagTypeClass::Is_Linked(TriggerTypeClass *trigger) const (0x006B4CF0)
+/// <summary>
+/// Is the specified trigger type attached to this tag?
+/// </summary>
+/// <returns>bool; Was the trigger found in this tag's trigger list?</returns>
+// (0x006B4CF0)
 
 bool TagTypeClass::Is_Linked(TriggerTypeClass *trigger) const
 {
@@ -321,7 +412,13 @@ bool TagTypeClass::Is_Linked(TriggerTypeClass *trigger) const
 }
 
 
-// TagTypeClass *__fastcall TagTypeClass::Find_Or_Make(char const *name) (0x006B4D20)
+/// <summary>
+/// Fetches the tag type of the name specified, creating it if need be.
+/// This routine is used while reading a scenario, where a tag may be referred to
+/// before the tag section itself has been processed.
+/// </summary>
+/// <returns>Returns with a pointer to the tag type, or NULL if one could not be made.</returns>
+// (0x006B4D20)
 // The named tag type, created when missing; 0 for "<none>" and "none".
 
 TagTypeClass *__fastcall TagTypeClass::Find_Or_Make(char const *name)
@@ -338,7 +435,14 @@ TagTypeClass *__fastcall TagTypeClass::Find_Or_Make(char const *name)
 }
 
 
-// HRESULT __stdcall TagTypeClass::GetClassID(GUID *clsid) (0x006B4DB0)
+/// <summary>
+/// Fetches the class identifier of this object.
+/// This routine is used by the save and load system so that a tag type can be
+/// recognized when it is read back out of a stream.
+/// </summary>
+/// <param name="retval">Pointer to the identifier to fill in.</param>
+/// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
+// (0x006B4DB0)
 
 HRESULT __stdcall TagTypeClass::GetClassID(GUID *clsid)
 {
@@ -350,7 +454,12 @@ HRESULT __stdcall TagTypeClass::GetClassID(GUID *clsid)
 }
 
 
-// void TagTypeClass::Compute_CRC(WWCRCEngine &crc) const (0x006B4DF0)
+/// <summary>
+/// Adds this tag type's data to the CRC calculation.
+/// This routine is used by the multiplayer sync checker to prove that every machine
+/// holds the same tag types.
+/// </summary>
+// (0x006B4DF0)
 
 void TagTypeClass::Compute_CRC(WWCRCEngine &crc) const
 {
@@ -359,7 +468,14 @@ void TagTypeClass::Compute_CRC(WWCRCEngine &crc) const
 }
 
 
-// HRESULT __stdcall TagTypeClass::Load(IStream *stream) (0x006B4E20)
+/// <summary>
+/// Loads this tag type from the data stream.
+/// This routine will rebuild the object in place so that its virtual table is valid,
+/// then remap the saved trigger pointer so that the tag's trigger list refers to the
+/// trigger types of this session.
+/// </summary>
+/// <returns>Returns with S_OK if the tag type was loaded, otherwise the failure code.</returns>
+// (0x006B4E20)
 
 HRESULT __stdcall TagTypeClass::Load(IStream *stream)
 {
@@ -373,7 +489,14 @@ HRESULT __stdcall TagTypeClass::Load(IStream *stream)
 }
 
 
-// HRESULT __stdcall TagTypeClass::Save(IStream *stream, BOOL clear_dirty) (0x006B4E80)
+/// <summary>
+/// Saves this tag type to the data stream.
+/// The base class performs the actual write; this routine exists so that the tag type
+/// takes part in the object persistence chain.
+/// </summary>
+/// <param name="cleardirty">Should the object be marked as clean once written?</param>
+/// <returns>Returns with S_OK if the tag type was saved, otherwise the failure code.</returns>
+// (0x006B4E80)
 
 HRESULT __stdcall TagTypeClass::Save(IStream *stream, BOOL clear_dirty)
 {

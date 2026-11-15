@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/grphmitm.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // grphmitm.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -47,7 +58,12 @@ GraphicMenuItem *__fastcall Create_Menu_Item(Wstring const &section, INIClass &i
 }
 
 
-// GraphicMenuItem::GraphicMenuItem(int id) -- 0x004E0120
+/// <summary>
+/// Constructor for a graphic menu item.
+/// The item starts out enabled, unhighlighted, and with no select sound of its own.
+/// </summary>
+/// <param name="id">The identifier the menu uses to tell this item from its fellows.</param>
+// (0x004E0120)
 // A disabled, visible item without a sound.
 
 GraphicMenuItem::GraphicMenuItem(int id) : ID(id), Enabled(false), Visible(true), Sound(0)
@@ -55,7 +71,12 @@ GraphicMenuItem::GraphicMenuItem(int id) : ID(id), Enabled(false), Visible(true)
 }
 
 
-// GraphicMenuItem::~GraphicMenuItem() -- 0x004E0140
+/// <summary>
+/// Destructor for a graphic menu item.
+/// This routine disposes of the select sound that was handed to the item, since the
+/// item takes ownership of it.
+/// </summary>
+// (0x004E0140)
 // Deletes the item's sound entry (MSSfxEntry::~MSSfxEntry 0x005B16C0).
 
 GraphicMenuItem::~GraphicMenuItem()
@@ -64,7 +85,13 @@ GraphicMenuItem::~GraphicMenuItem()
 }
 
 
-// void GraphicMenuItem::Set_Enabled(bool enabled) -- 0x004E0160
+/// <summary>
+/// Sets whether this menu item may be chosen.
+/// The item is told of the change through On_Enabled_Change, and only when the state
+/// really differs, so derived items never see a redundant notification.
+/// </summary>
+/// <param name="enabled">Should the item be available for use?</param>
+// (0x004E0160)
 // Stores the flag and notifies the item (virtual Enabled_Changed) when it changes.
 
 void GraphicMenuItem::Set_Enabled(bool enabled)
@@ -113,7 +140,13 @@ bool GraphicMenuItem::Contains(Point2D const &point)
 }
 
 
-// bool GraphicMenuItem::Is_Input_Key(int unknown) -- 0x004E01D0
+/// <summary>
+/// Does this menu item answer to the key specified?
+/// The base item claims no keys at all. Items that carry a keyboard shortcut override
+/// this routine so the menu knows where to send the key press.
+/// </summary>
+/// <param name="key">The key that was pressed.</param>
+// (0x004E01D0)
 // Virtual; false in the base class.
 
 bool GraphicMenuItem::Is_Input_Key(int unknown)

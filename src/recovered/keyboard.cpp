@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/keyboard.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // keyboard.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -50,7 +65,17 @@ void  unknown_empty_00532120(void)
 }  // namespace seed_00532120
 
 
-// WWKeyboardClass::WWKeyboardClass() (0x00532130)
+/***********************************************************************************************
+ * WWKeyboardClass::WWKeyBoardClass -- Construction for Westwood Keyboard Class                *
+ *                                                                                             *
+ * INPUT:      none                                                                            *
+ *                                                                                             *
+ * OUTPUT:     none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   10/16/1995 PWG : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00532130)
 // Empty queue, no mouse position, all keys up.
 
 WWKeyboardClass::WWKeyboardClass() :
@@ -64,7 +89,19 @@ WWKeyboardClass::WWKeyboardClass() :
 }
 
 
-// KeyNumType WWKeyboardClass::Buff_Get() (0x00532160)
+/***********************************************************************************************
+ * WWKeyboardClass::Buff_Get -- Lowlevel function to get a key from key buffer                 *
+ *                                                                                             *
+ * INPUT:      none                                                                            *
+ *                                                                                             *
+ * OUTPUT:     int      - the key value that was pulled from buffer (includes bits)            *
+ *                                                                                             *
+ * WARNINGS:   If the key was a mouse event MouseQX and MouseQY will be updated                *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   10/17/1995 PWG : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00532160)
 // Waits for a key and removes it with the data queued behind it: the
 // position of a mouse key, the character of a 0x0A key.
 
@@ -84,7 +121,21 @@ KeyNumType WWKeyboardClass::Buff_Get()
 }
 
 
-// int __fastcall WWKeyboardClass::Is_Mouse_Key(KeyNumType key) (0x00532290)
+/***********************************************************************************************
+ * WWKeyboardClass::Is_Mouse_Key -- Checks to see if specified key refers to the mouse.        *
+ *                                                                                             *
+ *    This checks the specified key code to see if it refers to the mouse buttons.             *
+ *                                                                                             *
+ * INPUT:   key   -- The key to check.                                                         *
+ *                                                                                             *
+ * OUTPUT:  bool; Is the key a mouse button key?                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/30/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00532290)
 // Whether the key (low byte) is a mouse button: VK_LBUTTON, VK_MBUTTON or
 // VK_RBUTTON.
 
@@ -106,7 +157,20 @@ int __fastcall WWKeyboardClass::Is_Char_Key(KeyNumType key)
 }
 
 
-// KeyNumType WWKeyboardClass::Check() (0x005322D0)
+/***********************************************************************************************
+ * WWKeyboardClass::Check -- Checks to see if a key is in the buffer                           *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   10/16/1995 PWG : Created.                                                                 *
+ *   09/24/1996 JLB : Converted to new style keyboard system.                                  *
+ *=============================================================================================*/
+// (0x005322D0)
 // Lets the window messages fill the queue, then returns the next key without
 // removing it, or 0.
 
@@ -120,7 +184,19 @@ KeyNumType WWKeyboardClass::Check()
 }
 
 
-// KeyNumType WWKeyboardClass::Get() (0x00532320)
+/***********************************************************************************************
+ * WWKeyboardClass::Get -- Logic to get a metakey from the buffer                              *
+ *                                                                                             *
+ * INPUT:      none                                                                            *
+ *                                                                                             *
+ * OUTPUT:     int      - the meta key taken from the buffer.                                  *
+ *                                                                                             *
+ * WARNINGS:   This routine will not return until a keypress is received                       *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   10/16/1995 PWG : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00532320)
 // Waits for a key and removes it (see Buff_Get).
 
 KeyNumType WWKeyboardClass::Get()
@@ -131,7 +207,19 @@ KeyNumType WWKeyboardClass::Get()
 }
 
 
-// bool WWKeyboardClass::Put(KeyNumType key) (0x00532490)
+/***********************************************************************************************
+ * WWKeyboardClass::Put -- Logic to insert a key into the keybuffer]                           *
+ *                                                                                             *
+ * INPUT:      int       - the key to insert into the buffer                                   *
+ *                                                                                             *
+ * OUTPUT:     bool      - true if key is sucessfuly inserted.                                 *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   10/16/1995 PWG : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00532490)
 // Queues a key; false when the queue is full.
 
 bool WWKeyboardClass::Put(KeyNumType key)
@@ -144,7 +232,19 @@ bool WWKeyboardClass::Put(KeyNumType key)
 }
 
 
-// bool WWKeyboardClass::Put_Key_Message(KeyNumType key, bool release) (0x005324D0)
+/***********************************************************************************************
+ * WWKeyboardClass::Put_Key_Message -- Translates and inserts wParam into Keyboard Buffer      *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   10/16/1995 PWG : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005324D0)
 // Records the key state, adds the shift/control/alt bits of a keyboard key
 // and the release bit, and queues it. Alt+tab is dropped; while the keyboard
 // is ignored only VK_ESCAPE gets through.
@@ -176,7 +276,27 @@ bool WWKeyboardClass::Put_Key_Message(KeyNumType key, bool release)
 }
 
 
-// bool WWKeyboardClass::Put_Mouse_Message(KeyNumType key, int x, int y, bool release) (0x005325C0)
+/***********************************************************************************************
+ * WWKeyboardClass::Put_Mouse_Message -- Stores a mouse type message into the keyboard buffer. *
+ *                                                                                             *
+ *    This routine will store the mouse type event into the keyboard buffer. It also checks    *
+ *    to ensure that there is enough room in the buffer so that partial mouse events won't     *
+ *    be recorded.                                                                             *
+ *                                                                                             *
+ * INPUT:   vk_key   -- The mouse key message itself.                                          *
+ *                                                                                             *
+ *          x,y      -- The mouse coordinates at the time of the event.                        *
+ *                                                                                             *
+ *          release  -- Is this a mouse button release?                                        *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the event stored sucessfully into the keyboard buffer?                   *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   11/02/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005325C0)
 // Queues a mouse key and its position when three slots are free.
 
 bool WWKeyboardClass::Put_Mouse_Message(KeyNumType key, int x, int y, bool release)
@@ -194,7 +314,11 @@ bool WWKeyboardClass::Put_Mouse_Message(KeyNumType key, int x, int y, bool relea
 }
 
 
-// bool WWKeyboardClass::Put_Char(KeyNumType character) (0x005326A0)
+/// <summary>
+/// RA2: queues a typed character: a wheel key (VK 0x0A) followed by the character's code, which Buff_Get stores in
+/// MouseWheel for To_Char.
+/// </summary>
+// (0x005326A0)
 // Queues the 0x0A marker key followed by a character when two slots are free.
 // Assumes: name hypothesis; it has no callers (Message_Handler's WM_CHAR case
 // queues the same two keys itself).
@@ -213,7 +337,23 @@ bool WWKeyboardClass::Put_Char(KeyNumType character)
 }
 
 
-// char WWKeyboardClass::To_ASCII(KeyNumType key) (0x00532720)
+/***********************************************************************************************
+ * WWKeyboardClass::To_ASCII -- Convert the key value into an ASCII representation.            *
+ *                                                                                             *
+ *    This routine will convert the key code specified into an ASCII value. This takes into    *
+ *    consideration the language and keyboard mapping of the host Windows system.              *
+ *                                                                                             *
+ * INPUT:   key   -- The key code to convert into ASCII.                                       *
+ *                                                                                             *
+ * OUTPUT:  Returns with the key converted into ASCII. If the key has no ASCII equivalent,     *
+ *          then '\0' is returned.                                                             *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/30/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00532720)
 // The character a key produces (ToAscii with the key's own shift, control
 // and alt bits in KeyState); 0 for releases and keys without one.
 // VK_HOME and VK_END give backspace and backslash.
@@ -268,7 +408,12 @@ char WWKeyboardClass::To_ASCII(KeyNumType key)
 }
 
 
-// char WWKeyboardClass::To_Char(KeyNumType key) (0x00532800)
+/// <summary>
+/// RA2: the character a key stands for: a typed character (wheel key 0x0A, from Put_Char) is MouseWheel's low byte
+/// (a carriage return gives none), Home and End are backspace and backslash, and backspace, return and escape are
+/// themselves.
+/// </summary>
+// (0x00532800)
 // The character of a queued key for a text field: backspace, return and escape pass through,
 // 0x0A gives the character queued after it (unknown_08, return as 0), 0x23 a backslash,
 // 0x24 a backspace; released keys (0x800) and others give 0.
@@ -305,7 +450,21 @@ char WWKeyboardClass::To_Char(KeyNumType key)
 }
 
 
-// bool WWKeyboardClass::Down(KeyNumType key) (0x00532890)
+/***********************************************************************************************
+ * WWKeyboardClass::Down -- Checks to see if the specified key is being held down.             *
+ *                                                                                             *
+ *    This routine will examine the key specified to see if it is currently being held down.   *
+ *                                                                                             *
+ * INPUT:   key   -- The key to check.                                                         *
+ *                                                                                             *
+ * OUTPUT:  bool; Is the specified key currently being held down?                              *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/30/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00532890)
 // Whether the key is held now; the left and right mouse buttons are swapped
 // when the system swaps them (SM_SWAPBUTTON).
 
@@ -323,7 +482,23 @@ bool WWKeyboardClass::Down(KeyNumType key)
 }
 
 
-// KeyNumType WWKeyboardClass::Fetch_Element() (0x005328E0)
+/***********************************************************************************************
+ * WWKeyboardClass::Fetch_Element -- Extract the next element in the keyboard buffer.          *
+ *                                                                                             *
+ *    This routine will extract the next pending element in the keyboard queue. If there is    *
+ *    no element available, then NULL is returned.                                             *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  Returns with the element extracted from the queue. An empty queue is signified     *
+ *          by a 0 return value.                                                               *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/30/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005328E0)
 // Removes and returns the next queued element, 0 when empty.
 
 KeyNumType WWKeyboardClass::Fetch_Element()
@@ -337,7 +512,24 @@ KeyNumType WWKeyboardClass::Fetch_Element()
 }
 
 
-// KeyNumType WWKeyboardClass::Peek_Element() (0x00532920)
+/***********************************************************************************************
+ * WWKeyboardClass::Peek_Element -- Fetches the next element in the keyboard buffer.           *
+ *                                                                                             *
+ *    This routine will examine and return with the next element in the keyboard buffer but    *
+ *    it will not alter or remove that element. Use this routine to see what is pending in     *
+ *    the keyboard queue.                                                                      *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  Returns with the next element in the keyboard queue. If the keyboard buffer is     *
+ *          empty, then 0 is returned.                                                         *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/30/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00532920)
 // The next queued element without removing it, 0 when empty.
 
 KeyNumType WWKeyboardClass::Peek_Element()
@@ -349,7 +541,23 @@ KeyNumType WWKeyboardClass::Peek_Element()
 }
 
 
-// bool WWKeyboardClass::Put_Element(KeyNumType key) (0x00532940)
+/***********************************************************************************************
+ * WWKeyboardClass::Put_Element -- Put a keyboard data element into the buffer.                *
+ *                                                                                             *
+ *    This will put one keyboard data element into the keyboard buffer. Typically, this data   *
+ *    is a key code, but it might be mouse coordinates.                                        *
+ *                                                                                             *
+ * INPUT:   val   -- The data element to add to the keyboard buffer.                           *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the keyboard element added successfully? A failure would indicate that   *
+ *                the keyboard buffer is full.                                                 *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/30/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00532940)
 // Appends an element; false when the queue is full.
 
 bool WWKeyboardClass::Put_Element(KeyNumType key)
@@ -364,7 +572,22 @@ bool WWKeyboardClass::Put_Element(KeyNumType key)
 }
 
 
-// bool WWKeyboardClass::Is_Buffer_Full() (0x00532980)
+/***********************************************************************************************
+ * WWKeyboardClass::Is_Buffer_Full -- Determines if the keyboard buffer is full.               *
+ *                                                                                             *
+ *    This routine will examine the keyboard buffer to determine if it is completely           *
+ *    full of queued keyboard events.                                                          *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  bool; Is the keyboard buffer completely full?                                      *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/30/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00532980)
 // Written as an if with two returns: the expression forms compile alike
 // standalone but are cheaper to inline, and the original's callers
 // (Buff_Get, Get) stop expanding at it.
@@ -378,7 +601,21 @@ bool WWKeyboardClass::Is_Buffer_Full()
 }
 
 
-// bool WWKeyboardClass::Is_Buffer_Empty() (0x005329A0)
+/***********************************************************************************************
+ * WWKeyboardClass::Is_Buffer_Empty -- Checks to see if the keyboard buffer is empty.          *
+ *                                                                                             *
+ *    This routine will examine the keyboard buffer to see if it contains no events at all.    *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  bool; Is the keyboard buffer currently without any pending events queued?          *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/30/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005329A0)
 // Written as an if with two returns (see Is_Buffer_Full).
 
 bool WWKeyboardClass::Is_Buffer_Empty()
@@ -390,7 +627,23 @@ bool WWKeyboardClass::Is_Buffer_Empty()
 }
 
 
-// void WWKeyboardClass::Fill_Buffer_From_System() (0x005329C0)
+/***********************************************************************************************
+ * WWKeyboardClass::Fill_Buffer_From_Syste -- Extract and process any queued windows messages. *
+ *                                                                                             *
+ *    This routine will extract and process any windows messages in the windows message        *
+ *    queue. It is presumed that the normal message handler will call the keyboard             *
+ *    message processing function.                                                             *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/30/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005329C0)
 // Unless the queue is full, lets the window messages add keys.
 
 void WWKeyboardClass::Fill_Buffer_From_System()
@@ -401,7 +654,21 @@ void WWKeyboardClass::Fill_Buffer_From_System()
 }
 
 
-// void WWKeyboardClass::Clear() (0x005329F0)
+/***********************************************************************************************
+ * WWKeyboardClass::Clear -- Clears the keyboard buffer.                                       *
+ *                                                                                             *
+ *    This routine will clear the keyboard buffer of all pending keyboard events.              *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/30/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005329F0)
 // Discards everything queued, including keys the pending window messages add.
 
 void WWKeyboardClass::Clear()
@@ -417,6 +684,29 @@ void WWKeyboardClass::Clear()
 // Queues the keyboard and mouse-button messages (mouse keys with the converted screen position)
 // and passes them to DefWindowProc; other messages give 0 (TibSun keyboard.cpp shape).
 
+/***********************************************************************************************
+ * WWKeyboardClass::Message_Handler -- Process a windows message as it relates to the keyboard *
+ *                                                                                             *
+ *    This routine will examine the Windows message specified. If the message relates to an    *
+ *    event that the keyboard input system needs to process, then it will be processed         *
+ *    accordingly.                                                                             *
+ *                                                                                             *
+ * INPUT:   window   -- Handle to the window receiving the message.                            *
+ *                                                                                             *
+ *          message  -- The message number of this event.                                      *
+ *                                                                                             *
+ *          wParam   -- The windows specific word parameter (meaning depends on message).      *
+ *                                                                                             *
+ *          lParam   -- The windows specific long word parameter (meaning is message dependant)*
+ *                                                                                             *
+ * OUTPUT:  bool; Was this keyboard message recognized and processed? A 'false' return value   *
+ *                means that the message should be processed normally.                         *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/30/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
 // The Windows SDK values this handler uses (win32_api.hpp declares no message constants).
 
 int WWKeyboardClass::Message_Handler(HWND window, UINT message, WPARAM wparam, LPARAM lparam)

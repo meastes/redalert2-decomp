@@ -4,8 +4,8 @@
     "id": "population-3640",
     "inventory_sha256": "b4f4c2350aa5ed52ee94624f4b27c8d989691e7d3acb8e99e97cc2a8748be7fe",
     "gaps_sha256": "f4a5305718e51741ea7a3dbdd4bf1a6eb33e075cdd673f6c9fe7b8e4d7377014",
-    "historical_population_sha256": "b62c2f121c39ad7d93d8f4bcb9305a32e3c88c62b1b56c628ab7a352badcb9a1",
-    "historical_acceptance_sha256": "f71887907b90e2d74dab0172e13fcdd451fbbac9d95587a467b2a29b6b2c6ec0"
+    "historical_population_sha256": "008851708dc2f31d0add7525527d480c799e564f992ea125210c5b054720cca3",
+    "historical_acceptance_sha256": "3726c3f19f2984f23ce77a79932288b79a2e88033f5b35fa1c11de02809b8a06"
   },
   "references": {
     "?unknown_cpu_probe_77f14d@@YAEXZ": 7860557,
@@ -7498,7 +7498,10 @@
     "__except_list": 0,
     "__real@8@3ffefd70a3d70a3d7000": 7986552,
     "__real@8@bff6b6db6db6db6db800": 8026880,
-    "??_7type_info@@6B@": 8066532
+    "??_7type_info@@6B@": 8066532,
+    "?Contains@GraphicMenuItem@@UAE_NABUPoint2D@@@Z": 5112256,
+    "?Find@?$HashTableClass@VHashString@@PAVSchemeNode@@@@QAEPAPAVSchemeNode@@ABVHashString@@@Z": 6312128,
+    "__ramp_corners": 8339828
   },
   "regions": [
     {
@@ -7560,7 +7563,7 @@
           "resolved": 2816379
         }
       ],
-      "source_sha256": "7ad343d06cbc4591acd56461803341f9e06432db9e83dd6cde7a7fbb7a955c7f",
+      "source_sha256": "d7fa1bf75562468d9ff588628049658191594db6a853a9027f612d746d311948",
       "source": "src/recovered/getcpu.cpp",
       "population": "population-3640",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -7747,7 +7750,7 @@
           "resolved": 5057319
         }
       ],
-      "source_sha256": "7ad343d06cbc4591acd56461803341f9e06432db9e83dd6cde7a7fbb7a955c7f",
+      "source_sha256": "d7fa1bf75562468d9ff588628049658191594db6a853a9027f612d746d311948",
       "switch_data_bytes": 32,
       "source": "src/recovered/getcpu.cpp",
       "population": "population-3640",

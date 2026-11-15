@@ -1,3 +1,10 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+// Function comment blocks from mischa85/RedAlert2 392e904 src/grphmenu2.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // grphmenu2.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -56,7 +63,10 @@ GraphicMenuItem *__fastcall Create_Anim_Item(Wstring const &section, INIClass &i
 }
 
 
-// GraphicMenuAnimItem::~GraphicMenuAnimItem() -- 0x004DF740
+/// <summary>
+/// Destroys the item and its drawer.
+/// </summary>
+// (0x004DF740)
 // Deletes the item's animation (virtual destructor), then the base part.
 
 GraphicMenuAnimItem::~GraphicMenuAnimItem()

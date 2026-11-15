@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/textbtn.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // textbtn.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -13,7 +28,33 @@
 // rectangle of shared/shape_file.hpp (0x00AC0848), the unit's first function.
 
 
-// TextButtonClass::TextButtonClass(unsigned id, wchar_t const *text, int style, int x, int y, int w, int h, bool blackborder, bool bordered) (0x006E7240)
+/***********************************************************************************************
+ * TextButtonClass::TextButtonClass -- Normal constructor for a text button.                   *
+ *                                                                                             *
+ *    This is the constructor for text buttons if the text is provided as a string pointer.    *
+ *                                                                                             *
+ * INPUT:   id    -- The ID number to assign to this button.                                   *
+ *                                                                                             *
+ *          text  -- Pointer to the text string to display on top of the button.               *
+ *                                                                                             *
+ *          x,y   -- Pixel coordinate of button's upper left corner.                           *
+ *                                                                                             *
+ *          w,h   -- Dimensions of the button. If these are not filled in (or with -1), then   *
+ *                   the dimensions are adapted to fit the text assigned to the button.        *
+ *                                                                                             *
+ *          style -- The print style for the text in the button. These are the TPF_ flags      *
+ *                   used by Fancy_Text_Print().                                               *
+ *                                                                                             *
+ *          border-- If the button is to be surrounded by a black border, then this flag       *
+ *                   should be set to true.                                                    *
+ *                                                                                             *
+ * OUTPUT:   none                                                                              *
+ *                                                                                             *
+ * WARNINGS: Call Set_Text & Set_Style, & init X,Y,Width,Height,ID before using this button.   *
+ *                                                                                             *
+ * HISTORY:  01/15/1995 JLB : Created.                                                         *
+ *=============================================================================================*/
+// (0x006E7240)
 // A width or height of -1 is measured from the text and the current font.
 
 TextButtonClass::TextButtonClass(unsigned id, wchar_t const *text, int style, int x, int y, int w, int h,
@@ -36,7 +77,18 @@ TextButtonClass::TextButtonClass(unsigned id, wchar_t const *text, int style, in
 }
 
 
-// TextButtonClass::TextButtonClass() (0x006E72D0)
+/***********************************************************************************************
+ * TextButtonClass::TextButtonClass -- Default constructor for a text button.                  *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:   none                                                                              *
+ *                                                                                             *
+ * WARNINGS: none                                                                              *
+ *                                                                                             *
+ * HISTORY:  01/15/1995 JLB : Created.                                                         *
+ *=============================================================================================*/
+// (0x006E72D0)
 // An empty button with the default text style 2.
 
 TextButtonClass::TextButtonClass() :
@@ -48,7 +100,23 @@ TextButtonClass::TextButtonClass() :
 }
 
 
-// int TextButtonClass::Draw_Me(int forced) (0x006E7300, slot 27)
+/***********************************************************************************************
+ * TextButtonClass::Draw_Me -- Draws the text buttons as indicated.                            *
+ *                                                                                             *
+ *    This routine will draw the text button.                                                  *
+ *                                                                                             *
+ * INPUT:   forced   -- If the button is to be redrawn regardless of the state of the redraw   *
+ *                      flag, then this parameter will be true.                                *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the button redrawn?                                                      *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/03/1995 MML : Created.                                                                 *
+ *   01/16/1995 JLB : Modified                                                                 *
+ *=============================================================================================*/
+// (0x006E7300, slot 27)
 
 int TextButtonClass::Draw_Me(int forced)
 {
@@ -61,7 +129,24 @@ int TextButtonClass::Draw_Me(int forced)
 }
 
 
-// void TextButtonClass::Set_Text(wchar_t const *text, bool resize) (0x006E7340, slot 34)
+/***********************************************************************************************
+ * TextButtonClass::Set_Text -- Assigns a new text string to this button.                      *
+ *                                                                                             *
+ *    Use this routine to assign a new text string to this button. By using this function it   *
+ *    is possible to dynamically change the button's text. An example of this would be an      *
+ *    on/off button that every time it is clicked, the text toggles between "on" and "off".    *
+ *                                                                                             *
+ * INPUT:   text  -- Pointer to the text string to assign to this button.                      *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   The text is NOT copied to this button. You must make sure that the text         *
+ *             remains valid throughout the lifetime of this text button.                      *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/16/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006E7340, slot 34)
 // Changes the text; resize refits the button to it.
 
 void TextButtonClass::Set_Text(wchar_t const *text, bool resize)
@@ -76,7 +161,23 @@ void TextButtonClass::Set_Text(wchar_t const *text, bool resize)
 }
 
 
-// void TextButtonClass::Draw_Background() (0x006E7390, slot 36)
+/***********************************************************************************************
+ * TextButtonClass::Draw_Background -- Draws the background to the text button.                *
+ *                                                                                             *
+ *    This localizes the drawing of the background for the text button. By overriding this     *
+ *    function you can give a different background to the button. The text is drawn using      *
+ *    a different routine. The mouse is hidden, if necessary, before this routine is called.   *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/19/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006E7390, slot 36)
 // Unless the button is bordered: an outline one pixel outside it (palette
 // index 12 of the box colour scheme) when it has a black border, then a
 // filled box: disabled raised (3), pressed down (0) or raised (1).
@@ -99,7 +200,23 @@ void TextButtonClass::Draw_Background()
 }
 
 
-// void TextButtonClass::Draw_Text(wchar_t const *text) (0x006E7460, slot 37)
+/***********************************************************************************************
+ * TextButtonClass::Draw_Text -- This draws the text for the text button.                      *
+ *                                                                                             *
+ *    This routine draws the text for the text button. You can override this routine if you    *
+ *    wish different text rendering styles or colors. The background has already been drawn    *
+ *    by the time this function is called. The mouse is hidden, if necessary, as well.         *
+ *                                                                                             *
+ * INPUT:   text  -- Pointer to the text string to print over the button.                      *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/19/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006E7460, slot 37)
 // Prints the text centred on the button (one pixel down) in the box colour
 // scheme (scheme 0 when the index is out of range): disabled plain, pressed
 // or on with 0x6000, otherwise with 0x5000, added to the button's print

@@ -1,3 +1,19 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/trigtype.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // trigtype.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -70,7 +86,22 @@
 // by HeaderStatics_diagonal_init_006edcc0.cpp; no source of its own.
 
 
-// TriggerTypeClass::TriggerTypeClass(char const *ini_name) (0x006EDEB0)
+/***********************************************************************************************
+ * TriggerTypeClass::TriggerTypeClass -- Constructor for trigger class object.                 *
+ *                                                                                             *
+ *    This is the normal constructor for a trigger object. The trigger starts with no team     *
+ *    members, no mission, and default values for all settings.                                *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   06/10/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006EDEB0)
 // Enabled on every difficulty, no house, next trigger, events or actions;
 // listed in the abstract lists and numbered by its place in TriggerTypes.
 
@@ -94,7 +125,22 @@ TriggerTypeClass::TriggerTypeClass(char const *ini_name) :
 }
 
 
-// TriggerTypeClass::~TriggerTypeClass() (0x006EE030)
+/***********************************************************************************************
+ * TriggerTypeClass::~TriggerTypeClass -- Deleting a trigger type deletes associated triggers. *
+ *                                                                                             *
+ *    When a trigger type is deleted, then all triggers that refer to that type must also      *
+ *    be deleted as well. There can be no 'orphan' triggers in existence.                      *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/09/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006EE030)
 // Detaches the type, leaves TriggerTypes, deletes its actions and events and
 // leaves the abstract lists.
 
@@ -119,7 +165,13 @@ TriggerTypeClass::~TriggerTypeClass()
 }
 
 
-// bool TriggerTypeClass::Is_Cross_Vertical() const (0x006EE180)
+/// <summary>
+/// Does this trigger watch for a vertical line crossing?
+/// A trigger springs on any one of the events in its list. This routine picks the
+/// vertical line crossing event out of that list.
+/// </summary>
+/// <returns>bool; Is one of this trigger's events a vertical line crossing?</returns>
+// (0x006EE180)
 // Whether the type has an Event of type 0x1A.
 
 bool TriggerTypeClass::Is_Cross_Vertical() const
@@ -135,7 +187,13 @@ bool TriggerTypeClass::Is_Cross_Vertical() const
 }
 
 
-// bool TriggerTypeClass::Is_Cross_Horizontal() const (0x006EE1B0)
+/// <summary>
+/// Does this trigger watch for a horizontal line crossing?
+/// A trigger springs on any one of the events in its list. This routine picks the
+/// horizontal line crossing event out of that list.
+/// </summary>
+/// <returns>bool; Is one of this trigger's events a horizontal line crossing?</returns>
+// (0x006EE1B0)
 // Whether the type has an Event of type 0x19.
 
 bool TriggerTypeClass::Is_Cross_Horizontal() const
@@ -151,7 +209,13 @@ bool TriggerTypeClass::Is_Cross_Horizontal() const
 }
 
 
-// bool TriggerTypeClass::Is_Enters_Zone() const (0x006EE1E0)
+/// <summary>
+/// Does this trigger watch for something entering its zone?
+/// A trigger springs on any one of the events in its list. This routine picks the
+/// enters zone event out of that list.
+/// </summary>
+/// <returns>bool; Is one of this trigger's events an enters zone event?</returns>
+// (0x006EE1E0)
 // Whether the type has an Event of type 0x18.
 
 bool TriggerTypeClass::Is_Enters_Zone() const
@@ -167,7 +231,13 @@ bool TriggerTypeClass::Is_Enters_Zone() const
 }
 
 
-// bool TriggerTypeClass::Is_Allow_Win() const (0x006EE210)
+/// <summary>
+/// Does this trigger hold back the scenario victory?
+/// The allow win action keeps the scenario from being won until every trigger that
+/// carries it has sprung. This routine checks the trigger's action list for it.
+/// </summary>
+/// <returns>bool; Is one of this trigger's actions the allow win action?</returns>
+// (0x006EE210)
 // Whether the type has an Action of type 0xF.
 
 bool TriggerTypeClass::Is_Allow_Win() const
@@ -183,7 +253,14 @@ bool TriggerTypeClass::Is_Allow_Win() const
 }
 
 
-// bool TriggerTypeClass::Is_Linked_To_Global(int value) const (0x006EE240)
+/// <summary>
+/// Is this trigger tied to the specified global variable?
+/// A trigger can watch for a global variable being set or cleared. This routine checks
+/// the trigger's whole event list for either kind of watch on the variable given.
+/// </summary>
+/// <param name="global">The global variable number to check for.</param>
+/// <returns>bool; Does one of this trigger's events watch that global variable?</returns>
+// (0x006EE240)
 // Whether the type has an event of type 0x1B or 0x1C with this data.
 
 bool TriggerTypeClass::Is_Linked_To_Global(int value) const
@@ -199,7 +276,14 @@ bool TriggerTypeClass::Is_Linked_To_Global(int value) const
 }
 
 
-// bool TriggerTypeClass::Is_Linked_To_Local(int value) const (0x006EE280)
+/// <summary>
+/// Is this trigger tied to the specified local variable?
+/// A trigger can watch for a local variable being set or cleared. This routine checks
+/// the trigger's whole event list for either kind of watch on the variable given.
+/// </summary>
+/// <param name="local">The local variable number to check for.</param>
+/// <returns>bool; Does one of this trigger's events watch that local variable?</returns>
+// (0x006EE280)
 // Whether the type has an event of type 0x24 or 0x25 with this data.
 
 bool TriggerTypeClass::Is_Linked_To_Local(int value) const
@@ -215,7 +299,23 @@ bool TriggerTypeClass::Is_Linked_To_Local(int value) const
 }
 
 
-// void TriggerTypeClass::Detach(AbstractClass *target, bool all) (0x006EE2C0)
+/***********************************************************************************************
+ * TriggerTypeClass::Detach -- Removes attachments to the target object specified.             *
+ *                                                                                             *
+ *    When an object disappears from the game, it must be detached from all other objects that *
+ *    may be referring to it. This routine will detach the specified target object from any    *
+ *    references to it in this trigger type class.                                             *
+ *                                                                                             *
+ * INPUT:   target   -- The target object to be detached from this trigger type.               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/09/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006EE2C0)
 // Passes the detach on to the actions and events, then unlinks target.
 
 void TriggerTypeClass::Detach(AbstractClass *target, bool all)
@@ -238,7 +338,25 @@ void TriggerTypeClass::Detach(AbstractClass *target, bool all)
 }
 
 
-// TriggerTypeClass *__fastcall TriggerTypeClass::From_Name(char const *name) (0x006EE350)
+/***********************************************************************************************
+ * TriggerTypeClass::From_Name -- Convert an ASCII name into a trigger type pointer.           *
+ *                                                                                             *
+ *    Given just an ASCII representation of the trigger type, this routine will return with    *
+ *    a pointer to the trigger type it refers to. Typical use of this is when parsing          *
+ *    scenario INI files.                                                                      *
+ *                                                                                             *
+ * INPUT:   name  -- Pointer to the name to use to identify the trigger type class object to   *
+ *                   be looked up.                                                             *
+ *                                                                                             *
+ * OUTPUT:  Returns with a pointer to the trigger type class object that matches the name      *
+ *          specified. If no match could be found, then NULL is returned.                      *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/09/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006EE350)
 
 TriggerTypeClass *__fastcall TriggerTypeClass::From_Name(char const *name)
 {
@@ -254,7 +372,14 @@ TriggerTypeClass *__fastcall TriggerTypeClass::From_Name(char const *name)
 }
 
 
-// int __fastcall TriggerTypeClass::Persistence_From_Name(char const *name) (0x006EE3C0)
+/// <summary>
+/// Converts a persistence name into a trigger persistence type.
+/// The persistence decides whether a trigger dies after it springs, dies once all of
+/// the objects it is attached to have sprung it, or lives on regardless.
+/// </summary>
+/// <returns>Returns with the persistence type of that name. A name that is not
+/// recognized is taken to mean VOLATILE.</returns>
+// (0x006EE3C0)
 // The persistence named (0 when unknown).
 
 int __fastcall TriggerTypeClass::Persistence_From_Name(char const *name)
@@ -268,7 +393,12 @@ int __fastcall TriggerTypeClass::Persistence_From_Name(char const *name)
 }
 
 
-// char const *__fastcall TriggerTypeClass::Name_From_Persistence(int persistence) (0x006EE400)
+/// <summary>
+/// Fetches the name of the specified trigger persistence.
+/// This routine is used when a trigger is written back out to the scenario file.
+/// </summary>
+/// <returns>Returns with a pointer to the name of that persistence type.</returns>
+// (0x006EE400)
 
 char const *__fastcall TriggerTypeClass::Name_From_Persistence(int persistence)
 {
@@ -276,7 +406,24 @@ char const *__fastcall TriggerTypeClass::Name_From_Persistence(int persistence)
 }
 
 
-// int TriggerTypeClass::Attaches_To() const (0x006EE410)
+/***********************************************************************************************
+ * TriggerTypeClass::Attaches_To -- Determines what trigger can attach to.                     *
+ *                                                                                             *
+ *    This routine will examine the trigger events and return with a composit bitfield that    *
+ *    indicates what this trigger can be attached to. This is used for trigger placement       *
+ *    and logic processing.                                                                    *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  Returns with AttachType bitfield representing what this trigger can be attached    *
+ *          to.                                                                                *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   11/30/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006EE410)
 // The combined flags of the events and actions of this and the later types.
 
 int TriggerTypeClass::Attaches_To() const
@@ -295,7 +442,44 @@ int TriggerTypeClass::Attaches_To() const
 }
 
 
-// bool TriggerTypeClass::Read_INI(CCINIClass &ini) (0x006EE470, slot 25)
+/***********************************************************************************************
+ * TriggerTypeClass::Read_INI -- reads triggers from the INI file                              *
+ *                                                                                             *
+ *    INI entry format:                                                                        *
+ *      Triggername = Eventname, Actionname, Data, Housename, TeamName, IsPersistant           *
+ *                                                                                             *
+ * This routine reads in the triggers & creates them. Then, other classes can                  *
+ * get pointers to the triggers they're linked to.                                             *
+ *                                                                                             *
+ * The routine relies on the TeamTypeClasses already being loaded so it can resolve            *
+ * references to teams in this function.                                                       *
+ *                                                                                             *
+ * Cell Trigger pointers & IsTrigger flags are set in DisplayClass::Read_INI(),                *
+ * and cleared in the Map::Init() routine (which clears all cell objects to 0's).              *
+ *                                                                                             *
+ * Object's pointers are set in:                                                               *
+ *      InfantryClass::Read_INI()                                                              *
+ *      BuildingClass::Read_INI()                                                              *
+ *      UnitClass::Read_INI()                                                                  *
+ *      TerrainClass::Read_INI()                                                               *
+ * The object trigger pointers are cleared in the ObjectClass constructor.                     *
+ *                                                                                             *
+ * The House's EMSListOf triggers is set in this routine, and cleared in the                   *
+ * HouseClass::Init() routine.                                                                 *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *      buffer      buffer to hold the INI data                                                *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *      none.                                                                                  *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *      This function must be called before any other class's Read_INI.                        *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   11/28/1994 BR : Created.                                                                  *
+ *=============================================================================================*/
+// (0x006EE470, slot 25)
 // The trigger's [Triggers] line (house, next trigger, name, disabled, easy,
 // normal, hard and the +0xA0 flag), then its event and action lists from
 // [Events] and [Actions] (a count, then each entry's own fields). Events are
@@ -395,7 +579,22 @@ void __fastcall TriggerTypeClass::Read_Scenario_INI(CCINIClass &ini)
 }
 
 
-// bool TriggerTypeClass::Write_INI(CCINIClass &ini) const (0x006EE8C0, slot 26)
+/***********************************************************************************************
+ * TriggerTypeClass::Write_INI -- Stores all trigger types to the INI database specified.      *
+ *                                                                                             *
+ *    This routine will write out all trigger type objects to the INI database. Any existing   *
+ *    trigger types in the database will be cleared out.                                       *
+ *                                                                                             *
+ * INPUT:   ini   -- Reference to the INI database to have the trigger types added.            *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/09/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006EE8C0, slot 26)
 // The inverse of Read_INI: the [Triggers] line, then the [Events] and
 // [Actions] lines (count, then each entry appended after a comma).
 
@@ -482,7 +681,15 @@ void __fastcall TriggerTypeClass::Write_Scenario_INI(CCINIClass &ini)
 }
 
 
-// bool TriggerTypeClass::Delete_Action(TActionClass *action) (0x006EEC00)
+/// <summary>
+/// Removes an action from this trigger.
+/// The action is unlinked from the trigger's action list and destroyed. Handing over an
+/// action that this trigger does not own is not an error -- the request is simply
+/// refused.
+/// </summary>
+/// <param name="taction">Pointer to the action to remove. It is deleted if found.</param>
+/// <returns>bool; Was the action found and removed?</returns>
+// (0x006EEC00)
 // Unlinks and deletes an action of the type.
 
 bool TriggerTypeClass::Delete_Action(TActionClass *action)
@@ -505,7 +712,15 @@ bool TriggerTypeClass::Delete_Action(TActionClass *action)
 }
 
 
-// bool TriggerTypeClass::Delete_Event(TEventClass *event) (0x006EEC60)
+/// <summary>
+/// Removes an event from this trigger.
+/// The event is unlinked from the trigger's event list and destroyed. Handing over an
+/// event that this trigger does not own is not an error -- the request is simply
+/// refused.
+/// </summary>
+/// <param name="tevent">Pointer to the event to remove. It is deleted if found.</param>
+/// <returns>bool; Was the event found and removed?</returns>
+// (0x006EEC60)
 // Unlinks and deletes an event of the type.
 
 bool TriggerTypeClass::Delete_Event(TEventClass *event)
@@ -528,7 +743,13 @@ bool TriggerTypeClass::Delete_Event(TEventClass *event)
 }
 
 
-// TriggerTypeClass *__fastcall TriggerTypeClass::Find_Or_Make(char const *name) (0x006EECC0)
+/// <summary>
+/// Fetches the trigger type of the specified name, creating it if necessary.
+/// This routine is used while the scenario is being read, so that a trigger can be
+/// referred to before its own declaration has been processed.
+/// </summary>
+/// <returns>Returns with a pointer to the trigger type that goes by that name.</returns>
+// (0x006EECC0)
 // The named trigger type, created when missing; 0 for "<none>" and "none".
 
 TriggerTypeClass *__fastcall TriggerTypeClass::Find_Or_Make(char const *name)
@@ -545,7 +766,14 @@ TriggerTypeClass *__fastcall TriggerTypeClass::Find_Or_Make(char const *name)
 }
 
 
-// void TriggerTypeClass::Compute_CRC(WWCRCEngine &crc) const (0x006EED50)
+/// <summary>
+/// Adds this trigger type's data to a running checksum.
+/// A trigger is defined by the objects it hangs off, so the owning house, the linked
+/// trigger and the heads of the event and action lists are submitted by identifier
+/// rather than by pointer.
+/// </summary>
+/// <param name="crc">The checksum engine to submit the data to.</param>
+// (0x006EED50)
 
 void TriggerTypeClass::Compute_CRC(WWCRCEngine &crc) const
 {
@@ -563,7 +791,14 @@ void TriggerTypeClass::Compute_CRC(WWCRCEngine &crc) const
 }
 
 
-// HRESULT __stdcall TriggerTypeClass::GetClassID(GUID *clsid) (0x006EEDD0)
+/// <summary>
+/// Fetches the class identifier of this object.
+/// The save game system uses this identifier to know which kind of object to build
+/// when the stream is read back in.
+/// </summary>
+/// <param name="retval">Pointer to the location to store the class identifier.</param>
+/// <returns>Returns with S_OK, or E_POINTER if no storage location was supplied.</returns>
+// (0x006EEDD0)
 
 HRESULT __stdcall TriggerTypeClass::GetClassID(GUID *clsid)
 {
@@ -575,7 +810,14 @@ HRESULT __stdcall TriggerTypeClass::GetClassID(GUID *clsid)
 }
 
 
-// HRESULT __stdcall TriggerTypeClass::Load(IStream *stream) (0x006EEE10)
+/// <summary>
+/// Reads this trigger type in from the save game stream.
+/// The object is rebuilt in place and its owning house, its linked trigger, and the
+/// heads of its event and action lists are swizzled back into real pointers.
+/// </summary>
+/// <returns>Returns with S_OK if the trigger type was read, otherwise a failure
+/// code.</returns>
+// (0x006EEE10)
 
 HRESULT __stdcall TriggerTypeClass::Load(IStream *stream)
 {
@@ -592,7 +834,15 @@ HRESULT __stdcall TriggerTypeClass::Load(IStream *stream)
 }
 
 
-// HRESULT __stdcall TriggerTypeClass::Save(IStream *stream, BOOL clear_dirty) (0x006EEEA0)
+/// <summary>
+/// Writes this trigger type out to the save game stream.
+/// A trigger's events and actions are separate objects that are saved in their own
+/// right, so nothing beyond the raw object image needs to be appended here.
+/// </summary>
+/// <param name="cleardirty">Should the object be marked as clean once written?</param>
+/// <returns>Returns with S_OK if the trigger type was written, otherwise a failure
+/// code.</returns>
+// (0x006EEEA0)
 
 HRESULT __stdcall TriggerTypeClass::Save(IStream *stream, BOOL clear_dirty)
 {

@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/terrtype.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // terrtype.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -63,7 +78,22 @@ TerrainTypeClass::TerrainTypeClass(char const *ini_name) :
 }
 
 
-// TerrainTypeClass::TerrainTypeClass(NoInitClass const &noinit) (0x006E53B0)
+/***********************************************************************************************
+ * TerrainTypeClass::TerrainTypeClass -- The general constructor for the terrain type objects. *
+ *                                                                                             *
+ *    This is the constructor for terrain type objects. It is only used to construct the       *
+ *    static (constant) terrain type objects.                                                  *
+ *                                                                                             *
+ * INPUT:   see below..                                                                        *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/19/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006E53B0)
 // Load path: installs the vtables only.
 
 TerrainTypeClass::TerrainTypeClass(NoInitClass const &noinit) :
@@ -73,7 +103,12 @@ TerrainTypeClass::TerrainTypeClass(NoInitClass const &noinit) :
 }
 
 
-// TerrainTypeClass::~TerrainTypeClass() (0x006E53E0)
+/// <summary>
+/// Removes this terrain type from the game.
+/// This routine will detach the type from everything that refers to it before it
+/// drops out of the terrain type heap.
+/// </summary>
+// (0x006E53E0)
 // Leaves the notice lists and TerrainTypes.
 
 TerrainTypeClass::~TerrainTypeClass()
@@ -83,7 +118,22 @@ TerrainTypeClass::~TerrainTypeClass()
 }
 
 
-// static void __fastcall TerrainTypeClass::Init(int theater) (0x006E5460)
+/***********************************************************************************************
+ * TerrainTypeClass::Init -- Loads terrain object shape files.                                 *
+ *                                                                                             *
+ *    This routine is used to load up the terrain object shape files.                          *
+ *    The shape files loaded depends on theater.                                               *
+ *                                                                                             *
+ * INPUT:   theater  -- The theater to load the terrain shape data for.                        *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/16/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006E5460)
 // Reloads the theater images of theater-specific terrain types when the
 // theater changes (or a reload is forced), freeing owned images first.
 // Assumptions: unknown_1fc is "Theater="; fullname size 512.
@@ -108,7 +158,23 @@ void __fastcall TerrainTypeClass::Init(int theater)
 }
 
 
-// static int __fastcall TerrainTypeClass::From_Name(char const *name) (0x006E5510)
+/***********************************************************************************************
+ * TerrainTypeClass::From_Name -- Convert name to terrain type.                                *
+ *                                                                                             *
+ *    This routine is used to convert a text name into the matching                            *
+ *    terrain type number. This is used during scenario initialization.                        *
+ *                                                                                             *
+ * INPUT:   name  -- The name to convert.                                                      *
+ *                                                                                             *
+ * OUTPUT:  Returns the TerrainType that matches the name specified. If                        *
+ *          no match was found, then TERRAIN_NONE is returned.                                 *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/16/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006E5510)
 // Index of the type with this ID (case-insensitive), or -1.
 
 int __fastcall TerrainTypeClass::From_Name(char const *name)
@@ -124,7 +190,21 @@ int __fastcall TerrainTypeClass::From_Name(char const *name)
 }
 
 
-// bool TerrainTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) const (0x006E5560)
+/***********************************************************************************************
+ * TerrainTypeClass::Create_And_Place -- Creates and places terrain object on map.             *
+ *                                                                                             *
+ *    This support routine is used by the scenario editor to add a terrain object to the map.  *
+ *                                                                                             *
+ * INPUT:   cell  -- The cell to place the terrain object in.                                  *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the placement successful?                                                *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/28/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006E5560)
 // Creates a terrain object of this type at the cell.
 
 bool TerrainTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) const
@@ -136,7 +216,24 @@ bool TerrainTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) con
 }
 
 
-// ObjectClass *TerrainTypeClass::Create_One_Of(HouseClass *house) const (0x006E55A0)
+/***********************************************************************************************
+ * TerrainTypeClass::Create_One_Of -- Creates a terrain object from type.                      *
+ *                                                                                             *
+ *    This is used to create a terrain object by using the terrain type as a guide. This       *
+ *    routine is typically used by the scenario editor in order to place a terrain object      *
+ *    onto the map.                                                                            *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  Returns with a pointer to the created terrain object or NULL if one couldn't be    *
+ *          created.                                                                           *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/19/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006E55A0)
 // Creates an unplaced terrain object of this type (at the zero cell).
 
 ObjectClass *TerrainTypeClass::Create_One_Of(HouseClass *house) const
@@ -145,7 +242,24 @@ ObjectClass *TerrainTypeClass::Create_One_Of(HouseClass *house) const
 }
 
 
-// Cell const *TerrainTypeClass::Occupy_List(int arg1) const (0x006E55D0)
+/***********************************************************************************************
+ * TerrainTypeClass::Occupy_List -- Returns with the occupy list for the terrain object type.  *
+ *                                                                                             *
+ *    This routine will return with the occupy list for the terrain object type. If there is   *
+ *    no occupy list for this terrain object type, then a special zero length occupy list      *
+ *    pointer is returned.                                                                     *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  Returns with a pointer to the terrain object's occupy list. A zero length list is  *
+ *          returned in the case of no occupy list.                                            *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/20/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006E55D0)
 // The foundation's occupation list, else an empty list (only the 0x7FFF
 // end marker; a function-local static registered with atexit on first use).
 
@@ -183,6 +297,13 @@ static inline RGBClass Frame_Color(ShapeFileStruct const *shape, int frame)
     return RGBClass();
 }
 
+/// <summary>
+/// Fetches the terrain type data from the INI database specified.
+/// This routine reads the rules that make a terrain object what it is -- whether it is a
+/// veinhole, whether it must sit on water, whether it burns or spawns tiberium -- along
+/// with the artwork, foundation and animation settings it draws with.
+/// </summary>
+/// <returns>bool; Was the terrain type data read?</returns>
 bool TerrainTypeClass::Read_INI(CCINIClass &ini)
 {
     if (ObjectTypeClass::Read_INI(ini)) {
@@ -220,7 +341,13 @@ bool TerrainTypeClass::Read_INI(CCINIClass &ini)
 }
 
 
-// CoordStruct TerrainTypeClass::Coord_Fixup(CoordStruct const &coord) const (0x006E5850)
+/// <summary>
+/// Adjusts the coordinate so that the object will rest on the ground.
+/// This routine is used when a terrain object is placed, so that it never ends up
+/// buried in the terrain at that location.
+/// </summary>
+/// <returns>Returns with the coordinate raised to ground level if it was below it.</returns>
+// (0x006E5850)
 // The coordinate, raised to the ground height when below it.
 
 CoordStruct TerrainTypeClass::Coord_Fixup(CoordStruct const &coord) const
@@ -233,7 +360,12 @@ CoordStruct TerrainTypeClass::Coord_Fixup(CoordStruct const &coord) const
 }
 
 
-// void TerrainTypeClass::Compute_CRC(WWCRCEngine &crc) const (0x006E58C0)
+/// <summary>
+/// Adds this terrain type's data to the CRC engine specified.
+/// This routine is used by the multiplayer sync checking logic to prove that every
+/// machine in the game loaded the same terrain rules.
+/// </summary>
+// (0x006E58C0)
 // Note: the base called is AbstractTypeClass's (0x00410960).
 
 void TerrainTypeClass::Compute_CRC(WWCRCEngine &crc) const
@@ -250,7 +382,13 @@ void TerrainTypeClass::Compute_CRC(WWCRCEngine &crc) const
 }
 
 
-// HRESULT __stdcall TerrainTypeClass::Load(IStream *stream) (0x006E5950)
+/// <summary>
+/// Loads this terrain type from the stream specified.
+/// Save games written by an older version of the game lack a couple of the members, so
+/// their data is shuffled into place before the artwork is fetched again.
+/// </summary>
+/// <returns>Returns with S_OK if the terrain type was read.</returns>
+// (0x006E5950)
 // Restores the type in place, reloads its voxel and image and points the
 // occupation list at the foundation's list again.
 
@@ -268,7 +406,12 @@ HRESULT __stdcall TerrainTypeClass::Load(IStream *stream)
 }
 
 
-// HRESULT __stdcall TerrainTypeClass::Save(IStream *stream, BOOL clear_dirty) (0x006E59C0)
+/// <summary>
+/// Saves this terrain type to the stream specified.
+/// </summary>
+/// <param name="cleardirty">Should the dirty flag be cleared by this save?</param>
+/// <returns>Returns with S_OK if the terrain type was written.</returns>
+// (0x006E59C0)
 
 HRESULT __stdcall TerrainTypeClass::Save(IStream *stream, BOOL clear_dirty)
 {
@@ -280,7 +423,14 @@ HRESULT __stdcall TerrainTypeClass::Save(IStream *stream, BOOL clear_dirty)
 }
 
 
-// HRESULT __stdcall TerrainTypeClass::GetClassID(GUID *clsid) (0x006E59E0)
+/// <summary>
+/// Fetches the class identifier of this object.
+/// The save system uses this identifier to know what kind of object to create when the
+/// save file is loaded back in.
+/// </summary>
+/// <param name="retval">Pointer to the buffer to fill in with the class identifier.</param>
+/// <returns>Returns with S_OK, or E_POINTER if no buffer was supplied.</returns>
+// (0x006E59E0)
 
 HRESULT __stdcall TerrainTypeClass::GetClassID(GUID *clsid)
 {
@@ -292,7 +442,13 @@ HRESULT __stdcall TerrainTypeClass::GetClassID(GUID *clsid)
 }
 
 
-// static TerrainTypeClass *__fastcall TerrainTypeClass::Find_Or_Make(char const *name) (0x006E5A20)
+/// <summary>
+/// Fetches the terrain type of the name specified, creating it if necessary.
+/// This routine is used while the rules are being parsed, so that a terrain type may be
+/// referred to before its own section has been reached.
+/// </summary>
+/// <returns>Returns with a pointer to the terrain type found or created.</returns>
+// (0x006E5A20)
 // The type with this ID, else a new one; null for "<none>" and "none".
 
 TerrainTypeClass *__fastcall TerrainTypeClass::Find_Or_Make(char const *name)

@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/coord.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // coord.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -97,6 +112,30 @@ inline UnknownVector3 Compute_Scatter_Vector(CoordStruct const &coord,double rad
     UnknownVector3 result(x,y,z);
     return result;
 }
+/***********************************************************************************************
+ * Coord_Scatter -- Determines a random coordinate from an anchor point.                       *
+ *                                                                                             *
+ *    This routine will perform a scatter algorithm on the specified                           *
+ *    anchor point in order to return with another coordinate that is                          *
+ *    randomly nearby the original. Typical use of this would be for                           *
+ *    missile targeting.                                                                       *
+ *                                                                                             *
+ * INPUT:   coord    -- This is the anchor coordinate.                                         *
+ *                                                                                             *
+ *          distance -- This is the distance in pixels that the scatter                        *
+ *                      should fall within.                                                    *
+ *                                                                                             *
+ *          lock     -- bool; Convert the new coordinate into a center                         *
+ *                      cell based coordinate?                                                 *
+ *                                                                                             *
+ * OUTPUT:  Returns with a new coordinate that is nearby the original.                         *
+ *                                                                                             *
+ * WARNINGS:   Maximum pixel scatter distance is 255.                                          *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   02/01/1992 JLB : Created.                                                                 *
+ *   05/13/1992 JLB : Only uses Random().                                                      *
+ *=============================================================================================*/
 CoordStruct __fastcall Coord_Scatter(CoordStruct const &coord, int distance, bool lock)
 {
     {
@@ -116,7 +155,16 @@ CoordStruct __fastcall Coord_Scatter(CoordStruct const &coord, int distance, boo
 }
 
 
-// CoordStruct __fastcall Adjacent_Coord_With_Height(CoordStruct const &coord, int facing) -- 0x00491880
+/// <summary>
+/// Fetches the adjacent coordinate, following the lay of the land.
+/// This routine steps one cell in the direction specified and then shifts the result
+/// vertically by the difference in ground height, so it stays the same distance above
+/// the terrain as the coordinate it came from. Use this routine when walking across
+/// sloped ground, where a plain adjacent coordinate would end up buried in a hill or
+/// hanging over a cliff.
+/// </summary>
+/// <returns>Returns with the adjacent coordinate, adjusted to match the ground.</returns>
+// (0x00491880)
 // TibSun coord.cpp: the coordinate one cell toward a facing (the AdjacentPoint offsets at
 // 0x00851AC0), its height moved by the ground-height difference between the two places.
 

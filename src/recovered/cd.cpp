@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/cd.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // cd.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -55,7 +70,15 @@ void __fastcall CD::Set_Required_CD(int cd)
 }
 
 
-// bool CD::Force_Available(int cd) (0x0046E4F0, slot 0)
+/// <summary>
+/// Ensures that the specified disc is available.
+/// Call this routine when the disc must genuinely be present before proceeding. A disc
+/// that resides on the local hard drive is always considered available, so the player is
+/// never bothered about it.
+/// </summary>
+/// <param name="disk">The disc that must be made available.</param>
+/// <returns>bool; Is the disc available? A false return means the player cancelled.</returns>
+// (0x0046E4F0, slot 0)
 // Makes sure the disk is available: nothing to do for -2 (any disk) or a
 // local installation, else searches for it with the music theme reset.
 // Assumes: the -2/IsLocal meanings and the callee's purpose (hypotheses).

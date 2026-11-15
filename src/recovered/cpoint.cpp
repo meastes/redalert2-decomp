@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/cpoint.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // cpoint.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -57,6 +68,15 @@ int __fastcall operator!=(tagCONNECTDATA const &a,tagCONNECTDATA const &b) { if 
 int __fastcall operator==(tagCONNECTDATA const &a,tagCONNECTDATA const &b) { if (a.dwCookie==b.dwCookie && a.pUnk==b.pUnk) return 1; return 0; }
 
 
+/// <summary>
+/// Fetches an interface pointer from the enumerator.
+/// This routine serves IEnumConnections and IUnknown. A reference is taken on the
+/// enumerator before the pointer is handed back.
+/// </summary>
+/// <param name="riid">The interface identifier being asked for.</param>
+/// <param name="ppv">Pointer to fill in with the interface.</param>
+/// <returns>Returns with S_OK if the interface was supplied, or E_NOINTERFACE if it is not
+/// supported.</returns>
 HRESULT __stdcall EnumConnectionsClass::QueryInterface(GUID const &iid,void **object) {
  if (!object) return E_POINTER;
  *object=0;
@@ -73,6 +93,18 @@ unsigned long __stdcall EnumConnectionsClass::AddRef() { ++COMReferences_00a6eb1
 unsigned long __stdcall EnumConnectionsClass::Release() { --COMReferences_00a6eb14; unsigned long count=InterlockedDecrement(&RefCount); if (!count) delete this; return count; }
 
 
+/// <summary>
+/// Fetches the next batch of connections.
+/// This routine is called by a client walking the sinks advised on a connection point.
+/// Every sink handed back has been referenced on the client's behalf, so the client must
+/// release them when it is done.
+/// </summary>
+/// <param name="cConnections">The number of connections asked for.</param>
+/// <param name="rgpcd">Buffer to fill in with the connections fetched.</param>
+/// <param name="pcFetched">Pointer to fill in with the number actually fetched. This may be
+/// NULL only when a single connection was asked for.</param>
+/// <returns>Returns with S_OK if any were fetched, or E_FAIL once the enumerator has run
+/// dry.</returns>
 HRESULT __stdcall EnumConnectionsClass::Next(unsigned long requested,tagCONNECTDATA *data,unsigned long *fetched) {
  if (!data) return E_POINTER;
  if (requested>1 && !fetched) return (HRESULT)0x80070057;
@@ -93,6 +125,13 @@ HRESULT __stdcall EnumConnectionsClass::Skip(unsigned long count) { Position+=co
 HRESULT __stdcall EnumConnectionsClass::Reset() { Position=0; return 0; }
 
 
+/// <summary>
+/// Creates a duplicate of this enumerator.
+/// This routine hands the client an independent enumerator positioned exactly where this
+/// one currently sits. The client owns the enumerator returned and must release it.
+/// </summary>
+/// <param name="ppEnum">Pointer to fill in with the clone.</param>
+/// <returns>Returns with S_OK if the clone was created, or an error code otherwise.</returns>
 HRESULT __stdcall EnumConnectionsClass::Clone(IEnumConnections **result) {
  if (!result) return E_POINTER;
  EnumConnectionsClass *copy=new EnumConnectionsClass(*this);
@@ -111,6 +150,15 @@ EnumConnectionsClass::EnumConnectionsClass(EnumConnectionsClass const &other):Co
 EnumConnectionsClass::~EnumConnectionsClass() { for (int i=0;i<Connections.Count();++i) Connections[i].pUnk->Release(); Connections.Clear(); }
 
 
+/// <summary>
+/// Fetches an interface pointer from the connection point.
+/// This routine serves IConnectionPoint and IUnknown. A reference is taken on the
+/// connection point before the pointer is handed back.
+/// </summary>
+/// <param name="riid">The interface identifier being asked for.</param>
+/// <param name="ppv">Pointer to fill in with the interface.</param>
+/// <returns>Returns with S_OK if the interface was supplied, or E_NOINTERFACE if it is not
+/// supported.</returns>
 HRESULT __stdcall ConnectionPointClass::QueryInterface(GUID const &iid,void **object) {
  if (!object) return E_POINTER;
  IUnknown *found=0;
@@ -133,6 +181,17 @@ HRESULT __stdcall ConnectionPointClass::GetConnectionInterface(GUID *iid) { if (
 HRESULT __stdcall ConnectionPointClass::GetConnectionPointContainer(IConnectionPointContainer **container) { return Container->QueryInterface(IID_IConnectionPointContainer,(void **)container); }
 
 
+/// <summary>
+/// Connects a client sink to this connection point.
+/// This routine is called by a client that wants to be notified of the events this
+/// connection point publishes. The sink is asked for the connection interface and held
+/// until the client unadvises it.
+/// </summary>
+/// <param name="pUnkSink">The client sink to connect.</param>
+/// <param name="pdwCookie">Pointer to fill in with the cookie identifying the new
+/// connection.</param>
+/// <returns>Returns with S_OK if the sink was connected, or a connection error code
+/// otherwise.</returns>
 HRESULT __stdcall ConnectionPointClass::Advise(IUnknown *sink,unsigned long *cookie) {
  if (!sink || !cookie) return E_POINTER;
  tagCONNECTDATA connection;
@@ -143,12 +202,27 @@ HRESULT __stdcall ConnectionPointClass::Advise(IUnknown *sink,unsigned long *coo
 }
 
 
+/// <summary>
+/// Breaks the connection identified by the cookie specified.
+/// This routine is called by a client that no longer wants its sink notified.
+/// </summary>
+/// <param name="dwCookie">The cookie Advise handed out for the sink.</param>
+/// <returns>Returns with S_OK if the connection was broken, or CONNECT_E_NOCONNECTION if
+/// the cookie matches nothing.</returns>
 HRESULT __stdcall ConnectionPointClass::Unadvise(unsigned long cookie) {
  for (int i=0;i<Connections.Count();++i) if (Connections[i].dwCookie==cookie) { Connections.Delete(i); return 0; }
  return (HRESULT)0x80040200;
 }
 
 
+/// <summary>
+/// Creates an enumerator over the sinks advised on this connection point.
+/// This routine is used by a client that wants to walk the connections currently
+/// established. The client owns the enumerator returned and must release it.
+/// </summary>
+/// <param name="ppEnum">Pointer to fill in with the enumerator.</param>
+/// <returns>Returns with S_OK if the enumerator was created, or an error code
+/// otherwise.</returns>
 HRESULT __stdcall ConnectionPointClass::EnumConnections(IEnumConnections **result) {
  if (!result) return E_POINTER;
  EnumConnectionsClass *copy=new EnumConnectionsClass(Connections);
@@ -163,6 +237,15 @@ ConnectionPointClass::ConnectionPointClass(GUID const &iid,IUnknown *container):
 ConnectionPointClass::~ConnectionPointClass() { Container->Release(); Connections.Clear(); }
 
 
+/// <summary>
+/// Fetches an interface pointer from the enumerator.
+/// This routine serves IEnumConnectionPoints and IUnknown. A reference is taken on the
+/// enumerator before the pointer is handed back.
+/// </summary>
+/// <param name="riid">The interface identifier being asked for.</param>
+/// <param name="ppv">Pointer to fill in with the interface.</param>
+/// <returns>Returns with S_OK if the interface was supplied, or E_NOINTERFACE if it is not
+/// supported.</returns>
 HRESULT __stdcall EnumConnectionPointsClass::QueryInterface(GUID const &iid,void **object) {
  if (!object) return E_POINTER;
  IUnknown *found=0;
@@ -179,6 +262,18 @@ unsigned long __stdcall EnumConnectionPointsClass::AddRef() { ++COMReferences_00
 unsigned long __stdcall EnumConnectionPointsClass::Release() { --COMReferences_00a6eb14; unsigned long count=InterlockedDecrement(&RefCount); if (!count) delete this; return count; }
 
 
+/// <summary>
+/// Fetches the next batch of connection points.
+/// This routine is called by a client walking the connection points a container supports.
+/// Every connection point handed back has been referenced on the client's behalf, so the
+/// client must release them when it is done.
+/// </summary>
+/// <param name="cConnections">The number of connection points asked for.</param>
+/// <param name="rgpcn">Buffer to fill in with the connection points fetched.</param>
+/// <param name="pcFetched">Pointer to fill in with the number actually fetched. This may be
+/// NULL only when a single connection point was asked for.</param>
+/// <returns>Returns with S_OK if any were fetched, or E_FAIL once the enumerator has run
+/// dry.</returns>
 HRESULT __stdcall EnumConnectionPointsClass::Next(unsigned long requested,IConnectionPoint **data,unsigned long *fetched) {
  if (!data) return E_POINTER;
  if (requested>1 && !fetched) return E_POINTER;
@@ -196,6 +291,13 @@ HRESULT __stdcall EnumConnectionPointsClass::Skip(unsigned long count) { Positio
 HRESULT __stdcall EnumConnectionPointsClass::Reset() { Position=0; return 0; }
 
 
+/// <summary>
+/// Creates a duplicate of this enumerator.
+/// This routine hands the client an independent enumerator positioned exactly where this
+/// one currently sits. The client owns the enumerator returned and must release it.
+/// </summary>
+/// <param name="ppEnum">Pointer to fill in with the clone.</param>
+/// <returns>Returns with S_OK if the clone was created, or an error code otherwise.</returns>
 HRESULT __stdcall EnumConnectionPointsClass::Clone(IEnumConnectionPoints **result) {
  if (!result) return E_POINTER;
  EnumConnectionPointsClass *copy=new EnumConnectionPointsClass(*this);

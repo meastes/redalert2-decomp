@@ -1,3 +1,15 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/lightcon.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // lightcon.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -244,7 +256,10 @@ void LightConvertClass::Set_Tint(int red, int green, int blue, bool stored)
 }
 
 
-// LightConvertClass::~LightConvertClass() (0x00538f20)
+/// <summary>
+/// Destroys the lighting conversion object.
+/// </summary>
+// (0x00538f20)
 
 LightConvertClass::~LightConvertClass()
 {

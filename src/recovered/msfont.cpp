@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/msfont.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // msfont.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -19,7 +30,13 @@ int unknown_font_count_a71858;
 MSFontSlot unknown_font_slots_a71860[3];
 
 
-// MSFont::MSFont(bool sidebar) (0x005B3F40)
+/// <summary>
+/// Creates the standard menu font.
+/// This routine loads the common font used throughout the menu screens, colored either to
+/// suit the side being played or with the neutral palette.
+/// </summary>
+/// <param name="use_side_palette">Should the font take its colors from the side palette?</param>
+// (0x005B3F40)
 // Clears the colour (RGBClass's default constructor), loads the shared font
 // data and counts the instance.
 
@@ -30,7 +47,12 @@ MSFont::MSFont(bool sidebar)
 }
 
 
-// MSFont::~MSFont() (0x005B3F70)
+/// <summary>
+/// Destroys the font.
+/// The glyph data and the typing sound effects are shared by every font in play, so they
+/// are only let go once the last font has been destroyed.
+/// </summary>
+// (0x005B3F70)
 // The last font releases the shared slots, the drawer and an owned shape.
 
 #pragma auto_inline(off)

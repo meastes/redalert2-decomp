@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/dib.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // dib.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -11,6 +26,18 @@
 #include "shared/crt_memory.hpp"
 
 
+/***********************************************************************************************
+ * DIB8C::DIB8Class -- constructor                                                             *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   04/18/1997 GH  : Created.                                                                 *
+ *=============================================================================================*/
 // Allocate an 8-bit Windows DIB and a BSurface over its pixel backing.
 DIB8Class::DIB8Class(HWND window, int width, int height, PaletteClass const &palette)
     : Error(false), Info(0), Bitmap(0), Bits(0), Width(width), Height(height), Origin(0), Stride(0), BackingSurface(0)
@@ -58,6 +85,18 @@ DIB8Class::DIB8Class(HWND window, int width, int height, PaletteClass const &pal
 }
 
 
+/***********************************************************************************************
+ * DIB8C::~DIB8Class -- destructor                                                             *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   04/18/1997 GH  : Created.                                                                 *
+ *=============================================================================================*/
 // Release palette storage, the DIB handle, then the BSurface object.
 DIB8Class::~DIB8Class()
 {
@@ -67,6 +106,18 @@ DIB8Class::~DIB8Class()
 }
 
 
+/***********************************************************************************************
+ * DIB8C::Clear -- clears the DIB                                                              *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   04/18/1997 GH  : Created.                                                                 *
+ *=============================================================================================*/
 // Fill only logical Width*Height bytes, preserving the original tight-size count.
 void DIB8Class::Clear(unsigned char color)
 {

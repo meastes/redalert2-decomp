@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/pkstraw.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // pkstraw.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -9,7 +24,27 @@
 #include "shared/crt_string.hpp"
 
 
-// PKStraw::PKStraw(CryptControl control, RandomStraw &rnd) (0x0060FE30)
+/***********************************************************************************************
+ * PKStraw::PKStraw -- Initialize the public key straw object.                                 *
+ *                                                                                             *
+ *    This constructs the public key straw object. The operation to perform (encrypt or        *
+ *    decrypt) as well as a random number generator must be provided.                          *
+ *                                                                                             *
+ * INPUT:   control  -- What operation to perform on the data. Pass in either ENCRYPT or       *
+ *                      DECRYPT.                                                               *
+ *                                                                                             *
+ *          rnd      -- Reference to a random number straw that is used internally to          *
+ *                      generate the sub-key. The final strength of the cipher depends on      *
+ *                      quality of this random number generator.                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/11/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0060FE30)
 // The embedded Blowfish straw works in the same direction and is the
 // straw this one draws from; the key exchange starts with the first data.
 
@@ -26,7 +61,22 @@ PKStraw::PKStraw(CryptControl control, RandomStraw &rnd) :
 }
 
 
-// PKStraw::Get_From(Straw *straw) (0x0060FEA0, virtual slot 1)
+/***********************************************************************************************
+ * PKStraw::Get_From -- Chains one straw to another.                                           *
+ *                                                                                             *
+ *    This routine handles the special case of this straw object in that there is an           *
+ *    embedded blowfish straw segment. It must be chained on correctly.                        *
+ *                                                                                             *
+ * INPUT:   straw -- Pointer to the straw segment that this segment is to receive data from.   *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/11/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0060FEA0, virtual slot 1)
 // Connects the input: the Blowfish stage draws from straw and this straw
 // draws from the Blowfish stage. The source straw records this straw (not
 // the Blowfish stage) as the one drawing from it.
@@ -53,7 +103,27 @@ void PKStraw::Get_From(Straw *straw)
 }
 
 
-// PKStraw::Key(PKey const *key) (0x0060FEF0)
+/***********************************************************************************************
+ * PKStraw::Key -- Assign a key to the cipher process straw.                                   *
+ *                                                                                             *
+ *    This routine will assign the key (or NULL if the current key is to be removed) to the    *
+ *    cipher stream process. When a key has been assigned, encryption or decryption will       *
+ *    take place. In the absence (NULL key pointer) of a key, the data passes through          *
+ *    unchanged.                                                                               *
+ *                                                                                             *
+ * INPUT:   key   -- Pointer to the key to assign to the stream. If the key pointer is NULL,   *
+ *                   then this causes the cipher stream to stop processing the data and will   *
+ *                   pass the data through unchanged.                                          *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   Be sure that the key passed to this routine is the opposite key to that used    *
+ *             to process the stream originally (when decrypting).                             *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/08/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0060FEF0)
 // Sets the key and restarts the key exchange.
 
 void PKStraw::Key(PKey const *key)
@@ -67,7 +137,26 @@ void PKStraw::Key(PKey const *key)
 }
 
 
-// PKStraw::Get(void *buffer, int length) (0x0060FF10, virtual slot 2)
+/***********************************************************************************************
+ * PKStraw::Get -- Fetch data and process it accordingly.                                      *
+ *                                                                                             *
+ *    This routine will fetch the number of bytes requested. If a valid key has been assigned  *
+ *    to this stream, then the data will be processed as it passes through.                    *
+ *                                                                                             *
+ * INPUT:   source   -- Pointer to the buffer that will hold the requested data.               *
+ *                                                                                             *
+ *          length   -- The number of data bytes requested.                                    *
+ *                                                                                             *
+ * OUTPUT:  Returns with the actual number of data bytes stored to the destination buffer. If  *
+ *          this number is less than that requested, then it indicates that the data source    *
+ *          has been exhausted.                                                                *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/08/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0060FF10, virtual slot 2)
 // Before the first data: decrypting, reads the encrypted Blowfish key,
 // decrypts it with the private key and keys the Blowfish stage;
 // encrypting, makes a random Blowfish key, encrypts it with the public key
@@ -118,7 +207,23 @@ int PKStraw::Get(void *buffer, int length)
 }
 
 
-// PKStraw::Encrypted_Key_Length() const (0x006100E0)
+/***********************************************************************************************
+ * PKStraw::Encrypted_Key_Length -- Fetch the encrypted key length.                            *
+ *                                                                                             *
+ *    This returns the total number of bytes (after encryption) that the blowfish key will     *
+ *    consume. It should be possible to get a block of this size, then pass it to the          *
+ *    public key decrypter and the result will be the full blowfish key.                       *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  Returns with the number of bytes that the encrypted blowfish key required.         *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/11/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006100E0)
 // Size of the Blowfish key once encrypted with the key (0 without a key).
 
 int PKStraw::Encrypted_Key_Length() const
@@ -130,7 +235,24 @@ int PKStraw::Encrypted_Key_Length() const
 }
 
 
-// PKStraw::Plain_Key_Length() const (0x00610110)
+/***********************************************************************************************
+ * PKStraw::Plain_Key_Length -- Returns the number of bytes to encrypt key.                    *
+ *                                                                                             *
+ *    This is the number of plain (unencrypted) bytes that the blowfish key will take up. This *
+ *    is actually the number of plain blocks minimum that can contain the full blowfish        *
+ *    key. The public key cryptography system encrypts in whole blocks only.                   *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  Returns with the total number of bytes that will contain the full blowfish key     *
+ *          and still be an even block size for the public key cryptography process.           *
+ *                                                                                             *
+ * WARNINGS:   This value is probably be larger than the actual blowfish key length.           *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/11/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00610110)
 // Size of the Blowfish key padded to whole plaintext blocks of the key
 // (0 without a key).
 

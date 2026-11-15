@@ -4,8 +4,8 @@
     "id": "population-3678",
     "inventory_sha256": "18ded419f4613126bd119dc40ef1d386785e456dd5836f14c888eceba55e856d",
     "gaps_sha256": "c88ba09ac717ae2ecc9d33909fc5b1999ce2736427e1f89ccd13a04fbfe36255",
-    "historical_population_sha256": "2dc52f2b9b6256b71999ea864c2791f1d3a1e1d53a53969fb362bb413953c0db",
-    "historical_acceptance_sha256": "c169d1c604392211a9d421df5bd90f0b219085f6eb856c15c12d3bc5c9273b45"
+    "historical_population_sha256": "2e54240521d04624cdaafd826e74551e7b7bb39dc55cf60d47b3ab19d04a721f",
+    "historical_acceptance_sha256": "ea1cec167acc4058680dee13bc3d7d6e8a3b72e922348f12a0b4a7e330ac6dbc"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -6747,7 +6747,20 @@
     "?AI@CreditClass@@QAEX_N@Z": 4802128,
     "?Graphic_Logic@CreditClass@@QAEX_N@Z": 4801840,
     "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z": 4272592,
-    "??_E?$VectorClass@PAVTechnoClass@@@@UAEPAXI@Z": 4242288
+    "??_E?$VectorClass@PAVTechnoClass@@@@UAEPAXI@Z": 4242288,
+    "??_G?$VectorClass@PAVBombClass@@@@UAEPAXI@Z": 4242128,
+    "??_G?$DynamicVectorClass@PAVBombClass@@@@UAEPAXI@Z": 4242208,
+    "??_G?$VectorClass@PAVIsometricTileClass@@@@UAEPAXI@Z": 4245968,
+    "??_G?$DynamicVectorClass@PAVIsometricTileClass@@@@UAEPAXI@Z": 4246048,
+    "??_G?$VectorClass@UUndoInfoStruct@@@@UAEPAXI@Z": 6845232,
+    "??_G?$DynamicVectorClass@UUndoInfoStruct@@@@UAEPAXI@Z": 6845312,
+    "?Contains@GraphicMenuItem@@UAE_NABUPoint2D@@@Z": 5112256,
+    "??_E?$VectorClass@PAVBombClass@@@@UAEPAXI@Z": 4242128,
+    "??_E?$DynamicVectorClass@PAVBombClass@@@@UAEPAXI@Z": 4242208,
+    "??_E?$VectorClass@PAVIsometricTileClass@@@@UAEPAXI@Z": 4245968,
+    "??_E?$DynamicVectorClass@PAVIsometricTileClass@@@@UAEPAXI@Z": 4246048,
+    "??_E?$VectorClass@UUndoInfoStruct@@@@UAEPAXI@Z": 6845232,
+    "??_E?$DynamicVectorClass@UUndoInfoStruct@@@@UAEPAXI@Z": 6845312
   },
   "regions": [
     {
@@ -7590,7 +7603,7 @@
         }
       ],
       "source": "src/recovered/_warhead.cpp",
-      "source_sha256": "87d85a5d2a3d9e6d282858a9096bd7d69f58411f8c5443fea2e0cad2c9937ce7",
+      "source_sha256": "151d3d61b04c73c8a6ef05dc35c35bde7c30169bd71ecee2182ee340ac7eec60",
       "source_order": 243625,
       "population": "population-3678",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -7641,7 +7654,7 @@
         }
       ],
       "source": "src/recovered/_warhead.cpp",
-      "source_sha256": "87d85a5d2a3d9e6d282858a9096bd7d69f58411f8c5443fea2e0cad2c9937ce7",
+      "source_sha256": "151d3d61b04c73c8a6ef05dc35c35bde7c30169bd71ecee2182ee340ac7eec60",
       "source_order": 243626,
       "population": "population-3678",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -7683,7 +7696,7 @@
           "resolved": 8624900
         }
       ],
-      "source_sha256": "87d85a5d2a3d9e6d282858a9096bd7d69f58411f8c5443fea2e0cad2c9937ce7",
+      "source_sha256": "151d3d61b04c73c8a6ef05dc35c35bde7c30169bd71ecee2182ee340ac7eec60",
       "source": "src/recovered/_warhead.cpp",
       "population": "population-3678",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -7898,7 +7911,7 @@
           "resolved": 8624900
         }
       ],
-      "source_sha256": "87d85a5d2a3d9e6d282858a9096bd7d69f58411f8c5443fea2e0cad2c9937ce7",
+      "source_sha256": "151d3d61b04c73c8a6ef05dc35c35bde7c30169bd71ecee2182ee340ac7eec60",
       "source": "src/recovered/_warhead.cpp",
       "population": "population-3678",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",

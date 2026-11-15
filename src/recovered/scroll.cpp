@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/scroll.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // scroll.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -103,7 +118,21 @@ CDTimerClass<SystemTimerClass> ScrollClass::Counter;
 // Static-member initializer or guarded atexit destructor (0x006695C0, _$E) emitted by the definition in ScrollClass_Counter_init_00669590.cpp; no source of its own.
 
 
-// ScrollClass::ScrollClass() (0x006695E0)
+/***********************************************************************************************
+ * ScrollClass::ScrollClass -- Constructor for the scroll class object.                        *
+ *                                                                                             *
+ *    This is the constructor for the scroll class object.                                     *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/10/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006695E0)
 // Clears the scroll state; +0x4F29 starts true.
 
 ScrollClass::ScrollClass()
@@ -123,6 +152,19 @@ void ScrollClass::AI(int &input, Point2D const &xy)
 }
 
 
+/// <summary>
+/// Determines what lies underneath a point on the tactical view.
+/// This routine is used by the mouse handling before it can decide on an action. Enemy
+/// objects the player is not meant to see -- cloaked units and invisible types -- are not
+/// reported, and neither is anything hidden behind shroud or fog.
+/// </summary>
+/// <param name="point">The mouse position, relative to the tactical view.</param>
+/// <param name="cell">Receives the cell that lies under the point.</param>
+/// <param name="coord">Receives the coordinate that lies under the point.</param>
+/// <param name="object">Receives the object under the point, or NULL if there is none.</param>
+/// <param name="fog">Receives whether the spot is covered by fog of war.</param>
+/// <param name="shadow">Receives whether the spot is covered by shroud.</param>
+/// <returns>bool; Does the point lie over the map?</returns>
 bool ScrollClass::Resolve_Point(Point2D const &xy,Cell &cell,CoordStruct &coord,ObjectClass *&object,bool &fog,bool &shadow)
 {
     object=0;
@@ -168,6 +210,17 @@ inline bool Scroll_Key_Down(int key)
     return WWKeyboard->Down(key);
 }
 
+/// <summary>
+/// Determines what a left click at this spot would do.
+/// This routine decides both the shape of the mouse cursor and what the click will actually
+/// perform. When something is selected, the answer comes from the selected object. Otherwise
+/// it reflects whichever special mode the map has been put into -- repair, sell, power,
+/// waypoint or super weapon targeting -- and falls back to plain selection.
+/// </summary>
+/// <param name="cell">The cell the mouse is currently over.</param>
+/// <param name="object">The object the mouse is over, or NULL if there is none.</param>
+/// <param name="check_fog">Should the action be limited by what the fog of war hides?</param>
+/// <returns>Returns with the action that a left click would perform.</returns>
 int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool arg3)
 {
     int action = 0;
@@ -402,7 +455,13 @@ void ScrollClass::Edge_Scroll_00669EC0(Point2D const &xy)
 // No source of its own: emitted by this unit (Scroll.cpp) for the static in Edge_Scroll_00669EC0.
 
 
-// void ScrollClass::Scroll_AI() (0x0066A290)
+/// <summary>
+/// Handles the per frame mouse tracking for the tactical map.
+/// This routine is called from the scroll AI every game frame. It feeds the current mouse
+/// position to the map as a held drag, a coast scroll, or a plain hover that keeps the action
+/// cursor up to date, and lets the map scroll when the cursor rests against a screen edge.
+/// </summary>
+// (0x0066A290)
 
 void ScrollClass::Scroll_AI()
 {
@@ -438,7 +497,13 @@ void ScrollClass::Scroll_AI()
 }
 
 
-// bool ScrollClass::Is_Scrolling() (0x0066A3C0, slot 26)
+/// <summary>
+/// Is the tactical map currently in motion?
+/// This routine is used to hold off work that would fight with a scroll already under way. A
+/// drag operation counts as scrolling just as much as actual map movement does.
+/// </summary>
+/// <returns>bool; Is the map moving or being dragged about?</returns>
+// (0x0066A3C0, slot 26)
 // True while a drag select runs, when 0x00A40D44 is set, or when the
 // tactical view's +0xD8 value is not 0.
 
@@ -454,7 +519,14 @@ bool ScrollClass::Is_Scrolling()
 }
 
 
-// void ScrollClass::Message_Handler(HWND window, unsigned &message, unsigned &wparam, long &lparam) (0x0066A400)
+/// <summary>
+/// Handles the mouse messages that drive the tactical map.
+/// This routine is called from the main window procedure. It turns raw button presses and
+/// releases into tactical map actions, and takes and releases the mouse capture so that a
+/// drag survives the cursor leaving the window. Messages arriving while the game is not
+/// running, or while input is being ignored, are quietly dropped.
+/// </summary>
+// (0x0066A400)
 
 void ScrollClass::Message_Handler(HWND window, unsigned &message, unsigned &wparam, long &lparam)
 {
@@ -550,7 +622,16 @@ void ScrollClass::Message_Handler(HWND window, unsigned &message, unsigned &wpar
 }
 
 
-// void ScrollClass::Scroll_Coast(Point2D const &xy) (0x0066A7A0)
+/// <summary>
+/// Handles coast scrolling while the right mouse button is dragged.
+/// Once the mouse has travelled far enough from the press point to count as a drag rather
+/// than a click, the map scrolls away from that point at a speed set by how far the mouse has
+/// been pulled and by the player's scroll method and rate options. The cursor is updated to
+/// show which directions the map can still travel in. Starting a coast scroll cancels any
+/// rubber band selection that was under way.
+/// </summary>
+/// <param name="point">The current mouse position, relative to the tactical view.</param>
+// (0x0066A7A0)
 
 void ScrollClass::Scroll_Coast(Point2D const &xy)
 {
@@ -684,7 +765,13 @@ void ScrollClass::Scroll_Coast(Point2D const &xy)
 }
 
 
-// void ScrollClass::Mouse_Right_Release(Point2D const &xy) (0x0066ABA0, slot 49)
+/// <summary>
+/// Handles the right mouse button being released over the tactical map.
+/// A release that ends a coast scroll drag merely restores the normal cursor. Otherwise the
+/// base class gets the release and treats it as the ordinary deselect click.
+/// </summary>
+/// <param name="point">The mouse position, relative to the tactical view.</param>
+// (0x0066ABA0, slot 49)
 // Ends a pending scroll by restoring the default mouse; otherwise the
 // display's slot 49.
 
@@ -699,7 +786,13 @@ void ScrollClass::Mouse_Right_Release(Point2D const &xy)
 }
 
 
-// void ScrollClass::Mouse_Right_Press(Point2D const &point) (0x0066ABE0, slot 44)
+/// <summary>
+/// Handles the right mouse button being pressed over the tactical map.
+/// The press point is remembered so that Scroll_Coast can measure any subsequent drag against
+/// it. The mouse is shown again in case something had hidden it.
+/// </summary>
+/// <param name="point">The mouse position, relative to the tactical view.</param>
+// (0x0066ABE0, slot 44)
 // Unless 0x00A40D44 is set: the display's slot 44, remembering point, then
 // shows the mouse.
 
@@ -715,7 +808,13 @@ void ScrollClass::Mouse_Right_Press(Point2D const &point)
 }
 
 
-// void ScrollClass::Abort_Drag_Select() (0x0066AC20, slot 35)
+/// <summary>
+/// Aborts any drag operation currently in progress.
+/// Besides letting the base class abandon the rubber band, this routine clears the mouse down
+/// latch and hands back the mouse capture, so a drag interrupted by another window does not
+/// leave the tactical map convinced the button is still held.
+/// </summary>
+// (0x0066AC20, slot 35)
 // Aborts a drag select: the display's slot 35, then releases the mouse
 // capture when the main window holds it.
 

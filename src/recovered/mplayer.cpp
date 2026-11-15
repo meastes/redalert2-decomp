@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/mplayer.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // mplayer.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -67,7 +82,14 @@
 // by HeaderStatics_empty_rect_init_005a71f0.cpp; no source of its own.
 
 
-// int __stdcall Select_MPlayer_Game_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) (0x005A73E0)
+/// <summary>
+/// Handles the messages for the multiplayer game type dialog.
+/// This routine gives the ownerdraw system first crack at the message and hands the
+/// control the player pressed back to the caller.
+/// </summary>
+/// <returns>Returns with the result of the ownerdraw handler, or false when the message was
+/// left unhandled.</returns>
+// (0x005A73E0)
 // The common dialog handler first; WM_COMMAND stores the control id in the int that DWL_USER points at
 // (TibSun mplayer.cpp's Select_MPlayer_Game_Dialog_Proc without its WM_INITDIALOG part).
 

@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/ddraw.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // ddraw.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -92,6 +107,12 @@ extern IDirectDraw *DirectDrawObject;
 extern bool WindowedMode;
 extern char const direct_draw_prep_log_007d5a8c[];
 extern char const direct_draw_create_failed_007d5a70[];
+/// <summary>
+/// Creates the DirectDraw object if there is not one already.
+/// This routine also declares how the game intends to share the display, asking for
+/// exclusive full screen use unless windowed mode is in force. Use this routine before
+/// anything that expects the DirectDraw object to exist.
+/// </summary>
 void __cdecl Prep_Direct_Draw()
 {
     Debug_Printf(direct_draw_prep_log_007d5a8c);
@@ -189,6 +210,18 @@ extern char const create_palette_failed_007d5b3c[];
 extern char const display_mode_set_log_007d5b28[];
 void __fastcall Probe_DirectDraw_Rendering_004957e0();
 void __cdecl Prep_Direct_Draw();
+/***********************************************************************************************
+ * Set_Video_Mode -- Initializes Direct Draw and sets the required Video Mode                  *
+ *                                                                                             *
+ * INPUT:        int width            - the width of the video mode in pixels                  *
+ *               int height           - the height of the video mode in pixels                 *
+ *               int bits_per_pixel   - the number of bits per pixel the video mode supports   *
+ *                                                                                             *
+ * OUTPUT:     none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/26/1995 PWG : Created.                                                                 *
+ *=============================================================================================*/
 bool __fastcall Set_Video_Mode(HWND, int w, int h, int bits_per_pixel)
 {
     HRESULT result;

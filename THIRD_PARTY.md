@@ -145,6 +145,16 @@ inspection tools; VC6 and CrossOver are legitimate user-supplied local build too
   Adopted 2026-11-15 (lane M1 batch b12, names only): 80 function and global names for placeholder-named
   identifiers, from ra2-decomp's names of byte-identical twins (build/ra2decomp/twins.json) where they exist and
   agree in scope, otherwise from mischa85 config/ra2-1.006/names.csv at 392e904; list in the commit message.
+  Adopted 2026-11-15 (lane M1 batch b3, comments only): the function comment blocks of src/<unit>.cpp at 392e904
+  for radar, msanim, vein, bfiofile2, tiberium, factory, wspudp, msengine, light, gscreen, overlay, scroll,
+  dropship, isotile and ipxconn, each file carrying the mischa85 file's licence block and a provenance line.
+  Adopted 2026-11-15 (lane M1 batch b4, comments only): the same for droppod, power, nullmgr, ionblast, trigtype,
+  trigger, aitrig, smudge, infatype, smudtype, ipxgconn, ccini, dialog, laser, bounce, wspipx, crate, msfont,
+  scheme and ddraw.
+  Adopted 2026-11-15 (lane M1 batch b5, names only): HouseClass::Blockage and BorrowedTime from src/tag.cpp at 392e904
+  (TibSun house.h), by apply_rename member_renames.
+  Adopted 2026-11-15 (lane M1 batch b6, comments only): the same for the remaining 119 mischa85 fully matched units
+  whose files carry function comments (list in the batch commit message).
 
 ## Native linked libraries (tested development versions)
 

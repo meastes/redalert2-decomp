@@ -173,7 +173,7 @@ DynamicVectorClass<HouseClass::BuildChoiceClass *> HouseClass::BuildChoiceClass:
 HouseClass::HouseClass(NoInitClass const &noinit)
     : AbstractClass(noinit),
       unknown_1d4(noinit),
-      unknown_1e0(noinit),
+      BorrowedTime(noinit),
       unknown_1ec(noinit),
       unknown_1f8(noinit),
       Tiberium(noinit),
@@ -272,7 +272,7 @@ HouseClass::HouseClass(HouseTypeClass *type)
       unknown_1b8(-1),
       unknown_1bc(-1),
       unknown_1c0(-1),
-      unknown_1c4(0),
+      Blockage(0),
       unknown_204(0),
       unknown_205(0),
       unknown_206(0),
@@ -1074,7 +1074,7 @@ void HouseClass::AI()
         unknown_136=true;
         unknown_137=true;
     }
-    if (unknown_13f && unknown_1e0.Value()==0 && (unknown_game_mode_a3d298!=0 || unknown_1c4<=0)) {
+    if (unknown_13f && BorrowedTime.Value()==0 && (unknown_game_mode_a3d298!=0 || Blockage<=0)) {
         CDTimerClass<SystemTimerClass> speech_wait(120);
         while (Speech_Is_Playing() && speech_wait.Value()!=0) Service_Game_IO_00481fb0();
         unknown_13f=false;
@@ -1085,7 +1085,7 @@ void HouseClass::AI()
             else player_loses_a40c78=true;
         } else player_loses_a40c78=true;
     }
-    if (unknown_140 && unknown_1e0.Value()==0) {
+    if (unknown_140 && BorrowedTime.Value()==0) {
         CDTimerClass<SystemTimerClass> speech_wait(120);
         while (Speech_Is_Playing() && speech_wait.Value()!=0) Service_Game_IO_00481fb0();
         if (unknown_game_mode_a3d298==0) {
@@ -1094,7 +1094,7 @@ void HouseClass::AI()
         } else if (Is_Player_Control()) player_loses_a40c78=true;
         else player_wins_a35db1=true;
     }
-    if (unknown_13e && unknown_1e0.Value()==0) {
+    if (unknown_13e && BorrowedTime.Value()==0) {
         unknown_13e=false;
         unknown_func_4e7df0();
     }
@@ -2373,7 +2373,7 @@ bool HouseClass::unknown_func_4e7e80()
 {
     if (!unknown_13f && !unknown_13e && !unknown_140) {
         unknown_13e = true;
-        unknown_1e0 = CDTimerClass<FrameTimerClass>(0);
+        BorrowedTime = CDTimerClass<FrameTimerClass>(0);
     }
     return unknown_13e;
 }
@@ -2396,11 +2396,11 @@ bool HouseClass::Flag_To_Win(bool quiet)
     if (!unknown_13f && !unknown_13e && !unknown_140) {
         unknown_13f = true;
         if (!quiet) {
-            unknown_1e0 = (int)(Rules->SavourDelay * 900.0);
+            BorrowedTime = (int)(Rules->SavourDelay * 900.0);
             if (unknown_game_mode_a3d298 != 0 && unknown_game_mode_a3d298 != 5) {
-                unknown_1e0 = ((Frame + (unknown_1e0.Value() > unknown_max_ahead_a3d560 ? unknown_1e0 : CDTimerClass<FrameTimerClass>(unknown_max_ahead_a3d560)).Value() + 9) / 10) * 10 - Frame;
+                BorrowedTime = ((Frame + (BorrowedTime.Value() > unknown_max_ahead_a3d560 ? BorrowedTime : CDTimerClass<FrameTimerClass>(unknown_max_ahead_a3d560)).Value() + 9) / 10) * 10 - Frame;
             }
-            Debug_Printf("Frame %d, BorrowedTime == %d\n", Frame, unknown_1e0.Value());
+            Debug_Printf("Frame %d, BorrowedTime == %d\n", Frame, BorrowedTime.Value());
         }
         if (unknown_game_mode_a3d298 == 0) {
             if (Is_Player_Control()) {
@@ -2438,11 +2438,11 @@ bool HouseClass::Flag_To_Lose(bool quiet)
     if (!unknown_13e && !unknown_140) {
         unknown_140 = true;
         if (!quiet) {
-            unknown_1e0 = (int)(Rules->SavourDelay * 900.0);
+            BorrowedTime = (int)(Rules->SavourDelay * 900.0);
             if (unknown_game_mode_a3d298 != 0 && unknown_game_mode_a3d298 != 5) {
-                unknown_1e0 = ((Frame + (unknown_1e0.Value() > unknown_max_ahead_a3d560 ? unknown_1e0 : CDTimerClass<FrameTimerClass>(unknown_max_ahead_a3d560)).Value() + 9) / 10) * 10 - Frame;
+                BorrowedTime = ((Frame + (BorrowedTime.Value() > unknown_max_ahead_a3d560 ? BorrowedTime : CDTimerClass<FrameTimerClass>(unknown_max_ahead_a3d560)).Value() + 9) / 10) * 10 - Frame;
             }
-            Debug_Printf("Frame %d, BorrowedTime == %d\n", Frame, unknown_1e0.Value());
+            Debug_Printf("Frame %d, BorrowedTime == %d\n", Frame, BorrowedTime.Value());
         }
         if (unknown_game_mode_a3d298 == 0) {
             if (Is_Player_Control()) {
@@ -2471,7 +2471,7 @@ void HouseClass::unknown_func_4e82c0()
         Flag_To_Win(false);
         return;
     }
-    unknown_1e0.Start();
+    BorrowedTime.Start();
 }
 
 
@@ -4647,10 +4647,10 @@ void HouseClass::Compute_CRC(WWCRCEngine &crc) const
     crc(unknown_13d);
     crc((long)unknown_194);
     crc((long)unknown_198);
-    crc((long)unknown_1c4);
+    crc((long)Blockage);
     crc(unknown_1c8.Value());
     crc(unknown_1d4.Value());
-    crc(unknown_1e0.Value());
+    crc(BorrowedTime.Value());
     crc((long)unknown_228);
     crc((long)CurBuildings);
     crc((long)unknown_234);

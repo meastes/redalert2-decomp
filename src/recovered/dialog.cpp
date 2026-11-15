@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/dialog.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // dialog.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -32,7 +47,31 @@ Rect __fastcall Text_Rect(wchar_t const *text, int x, int y, unsigned flags, int
 }
 
 
-// void Draw_Box(Rect const &rect, int style, bool fill) (0x004973D0)
+/***********************************************************************************************
+ * Draw_Box -- Displays a highlighted box.                                                     *
+ *                                                                                             *
+ *    This will draw a highlighted box to the logicpage. It can                                *
+ *    optionally fill the box with a color as well. This is a low level                        *
+ *    function and thus, it doesn't do any graphic mode color adjustments.                     *
+ *                                                                                             *
+ * INPUT:   x,y   -- Upper left corner of the box to be drawn (pixels).                        *
+ *                                                                                             *
+ *          w,h   -- Width and height of box (in pixels).                                      *
+ *                                                                                             *
+ *          up    -- Is the box rendered in the "up" stated?                                   *
+ *                                                                                             *
+ *          filled-- Is the box to be filled.                                                  *
+ *                                                                                             *
+ * OUTPUT:     none                                                                            *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/28/1991 JLB : Created.                                                                 *
+ *   05/30/1992 JLB : Embedded color codes.                                                    *
+ *   07/31/1992 JLB : Depressed option added.                                                  *
+ *=============================================================================================*/
+// (0x004973D0)
 // Draws a GUI box in the current box colour scheme on the GUI surface:
 // optionally filled, then by style a sunken or raised bevel (styles 0-3:
 // shadow lines right and bottom, highlight lines top and left, corner
@@ -114,7 +153,16 @@ int __fastcall Text_Lines(wchar_t const *text, int style, int columns, int *widt
 }
 
 
-// Point2D Simple_Text_Print(wchar_t const *text, Surface *surface, Rect const *clip, Point2D *xy, unsigned fore, unsigned back, unsigned flags, int unknown8) (0x00497830)
+/// <summary>
+/// Fetches the font that a text print style calls for.
+/// This routine is used by the gadget drawing and text printing routines to turn the point
+/// size portion of a print style into the font that should actually be used. A style that
+/// names no recognized font falls back to the small six point font, so there is always a
+/// font to draw with.
+/// </summary>
+/// <param name="flags">The text print style whose point size selects the font.</param>
+/// <returns>Returns with a pointer to the font this style should be printed with.</returns>
+// (0x00497830)
 // Prints text at xy inside clip in colour fore (flag 0x100 centres, 0x200
 // right-aligns; 0x8000 puts a translucent black box behind it, 0x400 an
 // opaque one); returns where it was drawn.
@@ -156,7 +204,39 @@ Point2D __fastcall Simple_Text_Print(wchar_t const *text, Surface *surface, Rect
 }
 
 
-// Point2D Fancy_Text_Print(wchar_t const *text, Surface *surface, Rect const *clip, Point2D *xy, ColorScheme *scheme, unsigned back, unsigned flags, int unknown8) (0x00497990)
+/***********************************************************************************************
+ * Clip_Text_Print -- Prints text with clipping and <TAB> support.                             *
+ *                                                                                             *
+ *    Use this routine to print text that that should be clipped at an arbitrary right margin  *
+ *    as well as possibly recognizing <TAB> characters. Typical users of this routine would    *
+ *    be list boxes.                                                                           *
+ *                                                                                             *
+ * INPUT:   text  -- Reference to the text to print.                                           *
+ *                                                                                             *
+ *          x,y   -- Pixel coordinate of the upper left corner of the text position.           *
+ *                                                                                             *
+ *          fore  -- The foreground color to use.                                              *
+ *                                                                                             *
+ *          back  -- The background color to use.                                              *
+ *                                                                                             *
+ *          flag  -- The text print flags to use.                                              *
+ *                                                                                             *
+ *          width -- The maximum pixel width to draw the text. Extra characters beyond this    *
+ *                   point will not be printed.                                                *
+ *                                                                                             *
+ *          tabs  -- Optional pointer to a series of pixel tabstop positions.                  *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/21/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+/// <summary>
+/// Prints formatted wide text in a pixel colour.
+/// </summary>
+// (0x00497990)
 // Simple_Text_Print in the base colour of a colour scheme.
 
 Point2D __fastcall Fancy_Text_Print(wchar_t const *text, Surface *surface, Rect const *clip, Point2D *xy,
@@ -179,7 +259,15 @@ BitFontClass *__fastcall Font_For_Style(int style)
 }
 
 
-// Point2D Plain_Text_Print(wchar_t const *format, Surface *surface, Rect const *clip, Point2D *xy, unsigned fore, unsigned back, unsigned flags, ...) (0x00497A60)
+/// <summary>
+/// Fetches a font remap palette for a solid color.
+/// This routine builds the small remap table that the font printing routines expect, filled
+/// so that the text prints in the requested color over a transparent background.
+/// </summary>
+/// <param name="color">The color to print the text in.</param>
+/// <remarks>The palette is a shared buffer, so it only lasts until the next call to this
+/// routine.</remarks>
+// (0x00497A60)
 // Formats the text (vswprintf) and prints it with Simple_Text_Print.
 
 Point2D __cdecl Plain_Text_Print(wchar_t const *format, Surface *surface, Rect const *clip, Point2D *xy,
@@ -209,7 +297,10 @@ Point2D __cdecl Fancy_Text_Printf(wchar_t const *format, Surface *surface, Rect 
 }
 
 
-// Point2D Conquer_Clip_Text_Print(wchar_t const *text, Surface *surface, Rect const *clip, Point2D *xy, unsigned fore, unsigned back, unsigned flags, unsigned width, int const *tabs) (0x00497CE0)
+/// <summary>
+/// Prints wide text in a pixel colour, honouring tabs and clipping it to the width given.
+/// </summary>
+// (0x00497CE0)
 // Prints tab-separated text, clipped to `width` pixels from xy: each field
 // is printed with Simple_Text_Print; a tab advances to the next stop in
 // `tabs` (or the next multiple-of-50 stop when there is no table). A field

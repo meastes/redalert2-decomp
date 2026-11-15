@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/sounddlg.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // sounddlg.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -53,7 +68,21 @@ void SoundControlsDialog::Run_00688CD0()
 }
 
 
-// int SoundControlsDialog::Sound_Option_Dialog_Func(HWND, UINT, WPARAM, LPARAM) (0x00688DA0)
+/***********************************************************************************************
+ * SoundControlsClass::Process -- Handles all the options graphic interface.                   *
+ *                                                                                             *
+ *    This routine is the main control for the visual representation of the options            *
+ *    screen. It handles the visual overlay and the player input.                              *
+ *                                                                                             *
+ * INPUT:      none                                                                            *
+ *                                                                                             *
+ * OUTPUT:     none                                                                            *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:    12/31/1994 MML : Created.                                                       *
+ *=============================================================================================*/
+// (0x00688DA0)
 // TS SoundControlsClass::Sound_Option_Dialog_Func: the common owner draw handler first; then the
 // init message (0x497) sets up the three volume sliders and, in a game, the shuffle/repeat buttons
 // and the wide track list; WM_COMMAND toggles shuffle/repeat, plays/stops a theme and on 0x686

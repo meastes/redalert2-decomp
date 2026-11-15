@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/mpmath.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // mpmath.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -311,13 +326,22 @@ extern unsigned short const primeTable[3511] = {
     32653, 32687, 32693, 32707, 32713, 32717, 32719
 };
 
+/// <summary>
+/// Fetches the table of small prime numbers.
+/// This routine gives the primality tests access to the shared table of small primes.
+/// </summary>
+/// <returns>Returns with a pointer to the small prime table.</returns>
 unsigned short const * __fastcall XMP_Fetch_Prime_Table()
 {
     return primeTable;
 }
 
 
-// XMP_Fetch_Prime_Size() (0x005A7540)
+/// <summary>
+/// Fetches the number of entries in the small prime table.
+/// </summary>
+/// <returns>Returns with the count of small primes available.</returns>
+// (0x005A7540)
 // Number of entries in the prime table.
 
 int __fastcall XMP_Fetch_Prime_Size()
@@ -326,7 +350,12 @@ int __fastcall XMP_Fetch_Prime_Size()
 }
 
 
-// XMP_Test_Eq_Int(digit const *number, int value, int precision) (0x005A7550)
+/// <summary>
+/// Determines if the MP number is equal to the integer specified.
+/// </summary>
+/// <param name="i">The integer value to compare the MP number against.</param>
+/// <returns>bool; Does the MP number equal the integer?</returns>
+// (0x005A7550)
 // Whether the number equals a small non-negative value.
 
 int __fastcall XMP_Test_Eq_Int(digit const *number, int value, int precision)
@@ -349,6 +378,26 @@ static inline int Length_Bytes(unsigned long value)
     return count;
 }
 
+/***********************************************************************************************
+ * XMP_DER_Length_Encode -- Output the length of a DER block.                                  *
+ *                                                                                             *
+ *    This routine will output the length of the block using Distinguished Encoding Rules.     *
+ *    The rest of the block must be filled in as appropriate. For data blocks that are less    *
+ *    than 128 bytes long, the header consists of only one byte. Longer buffers lengths        *
+ *    can consume up to 5 bytes (depends on magnitude of the length value).                    *
+ *                                                                                             *
+ * INPUT:   length   -- The length of the data block to be output.                             *
+ *                                                                                             *
+ *          output   -- Pointer to the memory block that will be set up.                       *
+ *                                                                                             *
+ * OUTPUT:  Returns with the number of bytes (header) that was used to store the length        *
+ *          value. Subsequent data must be placed after the header.                            *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
 int __fastcall XMP_DER_Length_Encode(unsigned long length, unsigned char *output)
 {
     int header_length = 0;
@@ -367,7 +416,28 @@ int __fastcall XMP_DER_Length_Encode(unsigned long length, unsigned char *output
 }
 
 
-// XMP_DER_Encode(digit const *from, unsigned char *output, int precision) (0x005A7610)
+/***********************************************************************************************
+ * XMP_DER_Encode -- Encode a number into a buffer using DER.                                  *
+ *                                                                                             *
+ *    This routine is used to encode a number into a buffer using Distinguished Encoding       *
+ *    Rules. The number of bytes used will be, typically, two bytes more than the number of    *
+ *    precision bytes in the number.                                                           *
+ *                                                                                             *
+ * INPUT:   from     -- Pointer to the multi-precision number.                                 *
+ *                                                                                             *
+ *          output   -- Pointer to the buffer that will hold the DER encoded number.           *
+ *                                                                                             *
+ *          precision-- The precision of the multi-precision number.                           *
+ *                                                                                             *
+ * OUTPUT:  Returns with the number of bytes used in the output buffer.                        *
+ *                                                                                             *
+ * WARNINGS:   Make sure the buffer is big enough to hold the DER encoded number. For safety   *
+ *             make sure it is precision+6 bytes long.                                         *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A7610)
 // Writes the number as a DER INTEGER (tag, length, two's complement
 // big-endian bytes); returns the bytes written.
 
@@ -384,7 +454,27 @@ int __fastcall XMP_DER_Encode(digit const *from, unsigned char *output, int prec
 }
 
 
-// XMP_DER_Decode(digit *result, unsigned char const *input, int precision) (0x005A76D0)
+/***********************************************************************************************
+ * XMP_DER_Decode -- Decode a DER number into an MP number.                                    *
+ *                                                                                             *
+ *    Use this routine to decode a Distinguished Encoding Rules number into a multi-precision  *
+ *    number. This is the counterpart function to the XMP_DER_Encode() function.               *
+ *                                                                                             *
+ * INPUT:   result      -- The buffer the hold the result MP number.                           *
+ *                                                                                             *
+ *          input       -- Pointer to the DER encoded number.                                  *
+ *                                                                                             *
+ *          precision   -- The precision of the MP number. This is the maximum precision the   *
+ *                         DER number can be.                                                  *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A76D0)
 // Reads a DER INTEGER; malformed or oversized input leaves result unchanged.
 
 void __fastcall XMP_DER_Decode(digit *result, unsigned char const *input, int precision)
@@ -412,7 +502,28 @@ void __fastcall XMP_DER_Decode(digit *result, unsigned char const *input, int pr
 }
 
 
-// XMP_Encode(unsigned char *to, unsigned tobytes, digit const *from, int precision) (0x005A7750)
+/***********************************************************************************************
+ * XMP_Encode -- Encode MP number into buffer.                                                 *
+ *                                                                                             *
+ *    This routine will encode an multi-precision number into a buffer of specified length.    *
+ *    The number of stored in "big endian" format with appropriate sign extension.             *
+ *                                                                                             *
+ * INPUT:   to       -- Pointer to the buffer to place the number.                             *
+ *                                                                                             *
+ *          tobytes  -- The number of bytes to use in the destination buffer.                  *
+ *                                                                                             *
+ *          from     -- Pointer to the MP number to be encoded.                                *
+ *                                                                                             *
+ *          precision-- The precision of the MP number.                                        *
+ *                                                                                             *
+ * OUTPUT:  Returns with the number of bytes placed into the destination buffer.               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A7750)
 // Big-endian encoding into exactly tobytes bytes, sign-filled on the left; returns tobytes.
 
 #ifndef MIN
@@ -438,7 +549,28 @@ unsigned __fastcall XMP_Encode(unsigned char *to, unsigned tobytes, digit const 
 }
 
 
-// XMP_Encode(unsigned char *to, digit const *from, int precision) (0x005A77F0)
+/***********************************************************************************************
+ * XMP_Encode -- Encode MP number into buffer as compactly as possible.                        *
+ *                                                                                             *
+ *    This routine will encode the MP number into the specified buffer. The number will be     *
+ *    encoded using the least number of bytes possible.                                        *
+ *                                                                                             *
+ * INPUT:   to       -- The buffer to encode the MP number into.                               *
+ *                                                                                             *
+ *          from     -- Pointer to the MP number to be encoded.                                *
+ *                                                                                             *
+ *          precision-- The precision of the MP number.                                        *
+ *                                                                                             *
+ * OUTPUT:  Returns with the number of bytes used in the destination buffer to hold the        *
+ *          encoded number.                                                                    *
+ *                                                                                             *
+ * WARNINGS:   Be sure the destination buffer is big enough to hold the encoded MP number.     *
+ *             A safe size would be the precision plus one.                                    *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A77F0)
 // Writes the number as minimal two's complement big-endian bytes; returns
 // the count. (The scan for the top byte starts precision BYTES into the
 // number - original behaviour.)
@@ -471,7 +603,29 @@ int __fastcall XMP_Encode(unsigned char *to, digit const *from, int precision)
 #pragma auto_inline(on)
 
 
-// XMP_Signed_Decode(digit *result, unsigned char const *from, int frombytes, int precision) (0x005A7860)
+/***********************************************************************************************
+ * XMP_Signed_Decode -- Decode a number as if it were signed.                                  *
+ *                                                                                             *
+ *    Use this routine to convert a coded number back into an MP number. The coded number      *
+ *    is presumed to be signed.                                                                *
+ *                                                                                             *
+ * INPUT:   result   -- Pointer to the buffer that will hold the decoded MP number.            *
+ *                                                                                             *
+ *          from     -- Pointer to the encoded MP number.                                      *
+ *                                                                                             *
+ *          frombytes-- The number of bytes consumed by the encoded MP number.                 *
+ *                                                                                             *
+ *          precision -- The precision of the MP number (maximum) of the result.               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   Be sure that the precision is sufficient to hold the decoded MP number.         *
+ *             Otherwise, the result is undefined.                                             *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A7860)
 // Reads big-endian two's complement bytes, sign-extending.
 
 void __fastcall XMP_Signed_Decode(digit *result, unsigned char const *from, int frombytes, int precision)
@@ -491,7 +645,28 @@ void __fastcall XMP_Signed_Decode(digit *result, unsigned char const *from, int 
 }
 
 
-// XMP_Unsigned_Decode(digit *result, unsigned char const *from, int frombytes, int precision) (0x005A78B0)
+/***********************************************************************************************
+ * XMP_Unsigned_Decode -- Decode a number as if it were unsigned.                              *
+ *                                                                                             *
+ *    Use this routine to decode a MP number and treat it as if it were unsigned.              *
+ *                                                                                             *
+ * INPUT:   result   -- Pointer to the buffer to hold the result MP number.                    *
+ *                                                                                             *
+ *          from     -- Pointer to the encoded MP number.                                      *
+ *                                                                                             *
+ *          frombytes-- The number of bytes in the encoded number.                             *
+ *                                                                                             *
+ *          precision-- The precision of the result MP number -- maximum precision.            *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   Be sure the result MP precision is sufficient to hold the decoded number or     *
+ *             else the result is undefined.                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A78B0)
 // Reads big-endian unsigned bytes, zero-extending.
 
 void __fastcall XMP_Unsigned_Decode(digit *result, unsigned char const *from, int frombytes, int precision)
@@ -510,7 +685,25 @@ void __fastcall XMP_Unsigned_Decode(digit *result, unsigned char const *from, in
 }
 
 
-// XMP_Significance(digit const *number, int precision) (0x005A78F0)
+/***********************************************************************************************
+ * XMP_Significance -- Fetch the precision (bytes) of the MP number.                           *
+ *                                                                                             *
+ *    This routine will return with the precision of the MP number expressed as bytes. The     *
+ *    MP number is presumed unsigned.                                                          *
+ *                                                                                             *
+ * INPUT:   number   -- Pointer to the MP number to examine.                                   *
+ *                                                                                             *
+ *          precision-- The precision of the MP number to examine.                             *
+ *                                                                                             *
+ * OUTPUT:  Returns with the minimum number of bytes consumed by this MP number.               *
+ *                                                                                             *
+ * WARNINGS:   Passing a signed MP number to this routine will return an artificially greater  *
+ *             precision than it really is.                                                    *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A78F0)
 // Number of digits up to the highest non-zero one.
 
 int __fastcall XMP_Significance(digit const *number, int precision)
@@ -526,7 +719,23 @@ int __fastcall XMP_Significance(digit const *number, int precision)
 }
 
 
-// XMP_Inc(digit *number, int precision) (0x005A7910)
+/***********************************************************************************************
+ * XMP_Inc -- Increment an MP number by one.                                                   *
+ *                                                                                             *
+ *    This will increment the MP number by one.                                                *
+ *                                                                                             *
+ * INPUT:   number   -- Pointer to the MP number to increment.                                 *
+ *                                                                                             *
+ *          precision-- The precision of the MP number.                                        *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   If the number wraps around the maximum precision, the results are undefined.    *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A7910)
 
 void __fastcall XMP_Inc(digit *number, int precision)
 {
@@ -539,7 +748,23 @@ void __fastcall XMP_Inc(digit *number, int precision)
 }
 
 
-// XMP_Dec(digit *number, int precision) (0x005A7930)
+/***********************************************************************************************
+ * XMP_Dec -- Decrement the MP number by one.                                                  *
+ *                                                                                             *
+ *    Use this routine to decrement the specified MP number by one.                            *
+ *                                                                                             *
+ * INPUT:   number   -- Pointer to the MP number to decrement.                                 *
+ *                                                                                             *
+ *          precision-- The precision of the MP number to decrement.                           *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   If the number wraps below zero, the results are undefined.                      *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A7930)
 
 void __fastcall XMP_Dec(digit *number, int precision)
 {
@@ -552,7 +777,23 @@ void __fastcall XMP_Dec(digit *number, int precision)
 }
 
 
-// XMP_Neg(digit *number, int precision) (0x005A7950)
+/***********************************************************************************************
+ * XMP_Neg -- Negate the specified MP number.                                                  *
+ *                                                                                             *
+ *    This routine will negate (reverse sign) of the specified MP number.                      *
+ *                                                                                             *
+ * INPUT:   number   -- Pointer to the MP number to negate.                                    *
+ *                                                                                             *
+ *          precision-- The precision of the MP number.                                        *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A7950)
 // Two's complement negation.
 
 void __fastcall XMP_Neg(digit *number, int precision)
@@ -562,7 +803,25 @@ void __fastcall XMP_Neg(digit *number, int precision)
 }
 
 
-// XMP_Abs(digit *number, int precision) (0x005A7980)
+/***********************************************************************************************
+ * XMP_Abs -- Perform an absolute value on the specified MP number.                            *
+ *                                                                                             *
+ *    This will perform the absolute value function on the specified MP number. That is, if    *
+ *    the MP number is negative, it will be transformed into a positive number. If the number  *
+ *    is already positive, then it will be left alone.                                         *
+ *                                                                                             *
+ * INPUT:   number   -- Pointer to the MP number to ABS.                                       *
+ *                                                                                             *
+ *          precision-- The precision of the MP number.                                        *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A7980)
 
 void __fastcall XMP_Abs(digit *number, int precision)
 {
@@ -572,7 +831,26 @@ void __fastcall XMP_Abs(digit *number, int precision)
 }
 
 
-// XMP_Shift_Right_Bits(digit *number, int bits, int precision) (0x005A79C0)
+/***********************************************************************************************
+ * XMP_Shift_Right_Bits -- Shift the MP number right by specified bit count.                   *
+ *                                                                                             *
+ *    Use this routine to perform a right shift of the MP number by the number of bits         *
+ *    specified.                                                                               *
+ *                                                                                             *
+ * INPUT:   number   -- Pointer to the MP number to perform the shift upon.                    *
+ *                                                                                             *
+ *          bits     -- The number of bits to shift.                                           *
+ *                                                                                             *
+ *          precision-- The precision of the MP number.                                        *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   This is an unsigned shift.                                                      *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A79C0)
 // Logical right shift.
 
 void __fastcall XMP_Shift_Right_Bits(digit *number, int bits, int precision)
@@ -626,7 +904,25 @@ void __fastcall XMP_Shift_Right_Bits(digit *number, int bits, int precision)
 }
 
 
-// XMP_Shift_Left_Bits(digit *number, int bits, int precision) (0x005A7B00)
+/***********************************************************************************************
+ * XMP_Shift_Left_Bits -- Shifts the MP number left by the specified bit count.                *
+ *                                                                                             *
+ *    Use this routine to perform a left shift of the specified MP number.                     *
+ *                                                                                             *
+ * INPUT:   number   -- Pointer to the MP number to perform the shift operation on.            *
+ *                                                                                             *
+ *          bits     -- The number of bits to shift the MP number leftward.                    *
+ *                                                                                             *
+ *          precision-- The precision of the MP number.                                        *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A7B00)
 
 void __fastcall XMP_Shift_Left_Bits(digit *number, int bits, int precision)
 {
@@ -678,7 +974,28 @@ void __fastcall XMP_Shift_Left_Bits(digit *number, int bits, int precision)
 }
 
 
-// XMP_Rotate_Left(digit *number, bool carry, int precision) (0x005A7C40)
+/***********************************************************************************************
+ * XMP_Rotate_Left -- Rotate specified MP number leftward.                                     *
+ *                                                                                             *
+ *    This routine will rotate the MP number to the left by one bit. The rotation passes bits  *
+ *    through a "carry" bit position. The initial value of this "carry" bit is passed to the   *
+ *    routine and the final value is returned as the result.                                   *
+ *                                                                                             *
+ * INPUT:   number   -- Pointer to the MP number to perform the left rotate upon.              *
+ *                                                                                             *
+ *          carry    -- The initial value of the "carry" bit.                                  *
+ *                                                                                             *
+ *          precision-- The precision of the MP number specified.                              *
+ *                                                                                             *
+ * OUTPUT:  Returns with the final value of the carry bit. This is the the bit value of the    *
+ *          upper most bit of the MP number prior to the rotate operation.                     *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A7C40)
 // Shifts left one bit taking carry in; returns the bit shifted out.
 
 bool __fastcall XMP_Rotate_Left(digit *number, bool carry, int precision)
@@ -696,7 +1013,23 @@ bool __fastcall XMP_Rotate_Left(digit *number, bool carry, int precision)
 }
 
 
-// XMP_Not(digit *number, int precision) (0x005A7C80)
+/***********************************************************************************************
+ * XMP_Not -- Perform bitwise NOT operation on MP number.                                      *
+ *                                                                                             *
+ *    Perform a bitwise NOT operation.                                                         *
+ *                                                                                             *
+ * INPUT:   number   -- Pointer to the MP number to operate on.                                *
+ *                                                                                             *
+ *          precision-- The precision of the MP number.                                        *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A7C80)
 
 void __fastcall XMP_Not(digit *number, int precision)
 {
@@ -707,7 +1040,26 @@ void __fastcall XMP_Not(digit *number, int precision)
 }
 
 
-// XMP_Init(digit *number, digit value, int precision) (0x005A7CA0)
+/***********************************************************************************************
+ * XMP_Init -- Initialize an MP number to a starting value.                                    *
+ *                                                                                             *
+ *    This will initialize (assign) a number to an MP number. The initial value is limited     *
+ *    to the precision allowed by a DIGIT type.                                                *
+ *                                                                                             *
+ * INPUT:   number   -- Pointer to the MP number to initialize.                                *
+ *                                                                                             *
+ *          value    -- Initial integer value to assign to the MP number.                      *
+ *                                                                                             *
+ *          precision-- The precision of the MP number.                                        *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A7CA0)
 
 void __fastcall XMP_Init(digit *number, digit value, int precision)
 {
@@ -716,7 +1068,24 @@ void __fastcall XMP_Init(digit *number, digit value, int precision)
 }
 
 
-// XMP_Count_Bits(digit const *number, int precision) (0x005A7CC0)
+/***********************************************************************************************
+ * XMP_Count_Bits -- Count the total number of bits (precision) in MP number.                  *
+ *                                                                                             *
+ *    This routine will count the maximum number of bits used by this MP number. The result    *
+ *    could be referred to as the "bit precision" of the MP number.                            *
+ *                                                                                             *
+ * INPUT:   number   -- Pointer to the MP number to examine.                                   *
+ *                                                                                             *
+ *          precision-- The (digit) precision of the MP number.                                *
+ *                                                                                             *
+ * OUTPUT:  Returns with the number of significant bits in the MP number.                      *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A7CC0)
 // Bits up to and including the highest set bit.
 
 int __fastcall XMP_Count_Bits(digit const *number, int precision)
@@ -737,7 +1106,24 @@ int __fastcall XMP_Count_Bits(digit const *number, int precision)
 }
 
 
-// XMP_Count_Bytes(digit const *number, int precision) (0x005A7D00)
+/***********************************************************************************************
+ * XMP_Count_Bytes -- Counts the number of precision bytes in MP number.                       *
+ *                                                                                             *
+ *    This routine will scan the MP number and determine the number of bytes needed to         *
+ *    represent the MP number. Consider the result the "byte precision" of the number.         *
+ *                                                                                             *
+ * INPUT:   number   -- Pointer to the MP number to examine.                                   *
+ *                                                                                             *
+ *          precision-- Precision of the MP number.                                            *
+ *                                                                                             *
+ * OUTPUT:  Returns with the number of bytes required to represent the precision of the number.*
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A7D00)
 // Counts the leading non-zero bytes from the low end (original behaviour).
 
 int __fastcall XMP_Count_Bytes(digit const *number, int precision)
@@ -754,7 +1140,25 @@ int __fastcall XMP_Count_Bytes(digit const *number, int precision)
 }
 
 
-// XMP_Move(digit *dest, digit const *source, int precision) (0x005A7D20)
+/***********************************************************************************************
+ * XMP_Move -- Assign one MP number to another.                                                *
+ *                                                                                             *
+ *    This will move one MP number over the top of another.                                    *
+ *                                                                                             *
+ * INPUT:   dest     -- Destination MP number (will get clobbered).                            *
+ *                                                                                             *
+ *          source   -- Source MP number.                                                      *
+ *                                                                                             *
+ *          precision-- Precision of both MP numbers.                                          *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   Both MP numbers must have the same precision.                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A7D20)
 
 void __fastcall XMP_Move(digit *dest, digit const *source, int precision)
 {
@@ -762,7 +1166,28 @@ void __fastcall XMP_Move(digit *dest, digit const *source, int precision)
 }
 
 
-// XMP_Compare(digit const *left, digit const *right, int precision) (0x005A7D40)
+/***********************************************************************************************
+ * XMP_Compare -- Compare one MP number with another.                                          *
+ *                                                                                             *
+ *    This routine will compare two MP numbers. It will return a value indicating which MP     *
+ *    number is greater or if they are equal.                                                  *
+ *                                                                                             *
+ * INPUT:   left_number -- The left hand MP number.                                            *
+ *                                                                                             *
+ *          right_number-- The right hand MP number.                                           *
+ *                                                                                             *
+ *          precision   -- The precision of the MP numbers.                                    *
+ *                                                                                             *
+ * OUTPUT:  Returns -1 if the left_number is less than the right_number.                       *
+ *          Returns 1 if the left_number is greater than the right number.                     *
+ *          Returns 0 if both numbers are identical.                                           *
+ *                                                                                             *
+ * WARNINGS:   Both numbers must have the same precision.                                      *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A7D40)
 // Unsigned comparison: -1, 0 or 1.
 
 int __fastcall XMP_Compare(digit const *left, digit const *right, int precision)
@@ -783,7 +1208,32 @@ int __fastcall XMP_Compare(digit const *left, digit const *right, int precision)
 }
 
 
-// XMP_Add(result, left, right, carry, precision) (0x005A7D90)
+/***********************************************************************************************
+ * XMP_Add -- Add two MP numbers with a carry option.                                          *
+ *                                                                                             *
+ *    Use this routine to add one MP number to another. There is an optional "carry" value     *
+ *    that (when true) will add an additional 1 to the result.                                 *
+ *                                                                                             *
+ * INPUT:   result   -- Pointer to the MP buffer that will hold the result. This can be the    *
+ *                      same value as the left_number or right_number pointers.                *
+ *                                                                                             *
+ *          left_number -- The left hand MP number.                                            *
+ *                                                                                             *
+ *          right_number-- The right hand MP number.                                           *
+ *                                                                                             *
+ *          carry       -- Optional carry flag (typically this will be false).                 *
+ *                                                                                             *
+ *          precision   -- The precision of the numbers involved.                              *
+ *                                                                                             *
+ * OUTPUT:  Returns with the carry flag after the addition. If the value is true then an       *
+ *          overflow occurred.                                                                 *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A7D90)
 // result = left + right + carry; returns the carry out.
 
 bool __fastcall XMP_Add(digit *result, digit const *left, digit const *right, bool carry, int precision)
@@ -801,7 +1251,34 @@ bool __fastcall XMP_Add(digit *result, digit const *left, digit const *right, bo
 }
 
 
-// XMP_Add_Int(result, left, digit right, carry, precision) (0x005A7E00)
+/***********************************************************************************************
+ * XMP_Add_Int -- Add an integer to an MP number (with carry).                                 *
+ *                                                                                             *
+ *    This routine will add an integer number to an MP number. There is an optional carry      *
+ *    parameter. If the carry flag is true, and additional 1 will be added to the result.      *
+ *    This routine is much faster than adding two MP numbers together.                         *
+ *                                                                                             *
+ * INPUT:   result      -- Pointer to the result MP number. This pointer can be the same as    *
+ *                         the left_number parameter.                                          *
+ *                                                                                             *
+ *          left_number -- Pointer to the left hand MP number.                                 *
+ *                                                                                             *
+ *          right_number-- The integer number to add to the left hand number.                  *
+ *                                                                                             *
+ *          carry       -- Input carry flag. If this is true, then an additional one will be   *
+ *                         added to the result.                                                *
+ *                                                                                             *
+ *          precision   -- The precision of the MP numbers.                                    *
+ *                                                                                             *
+ * OUTPUT:  Returns with the result carry flag. A true value means the addition overflowed.    *
+ *                                                                                             *
+ * WARNINGS:   All MP numbers must share the same precision. Negative numbers are not          *
+ *             supported.                                                                      *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A7E00)
 
 bool __fastcall XMP_Add_Int(digit *result, digit const *left, digit right, bool carry, int precision)
 {
@@ -818,7 +1295,33 @@ bool __fastcall XMP_Add_Int(digit *result, digit const *left, digit right, bool 
 }
 
 
-// XMP_Sub(result, left, right, borrow, precision) (0x005A7E60)
+/***********************************************************************************************
+ * XMP_Sub -- Subtract one MP number from another (with borrow).                               *
+ *                                                                                             *
+ *    This routine will subtract one MP number from another. There is an optional borrow       *
+ *    flag that can be specified.                                                              *
+ *                                                                                             *
+ * INPUT:   result      -- Pointer to the MP number that will hold the result. This pointer    *
+ *                         can be the same as the left_number or right_number parameters.      *
+ *                                                                                             *
+ *          left_number -- The left hand number (value will be subtracted from this).          *
+ *                                                                                             *
+ *          right_number-- The right hand number (the value to subtract from the left number)  *
+ *                                                                                             *
+ *          borrow      -- The optional borrow flag. If this flag is true, the an extra one    *
+ *                         will be subtracted from the result.                                 *
+ *                                                                                             *
+ *          precision   -- The precision of the MP numbers involved.                           *
+ *                                                                                             *
+ * OUTPUT:  Returns with the borrow result flag. If the value is true, then an underflow       *
+ *          occurred during subtraction.                                                       *
+ *                                                                                             *
+ * WARNINGS:   All MP numbers must share the same precision.                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A7E60)
 // result = left - right - borrow in 16-bit steps; returns the borrow out.
 
 bool __fastcall XMP_Sub(digit *result, digit const *left, digit const *right, bool borrow, int precision)
@@ -839,7 +1342,32 @@ bool __fastcall XMP_Sub(digit *result, digit const *left, digit const *right, bo
 }
 
 
-// XMP_Sub_Int(result, left, unsigned short right, borrow, precision) (0x005A7EC0)
+/***********************************************************************************************
+ * XMP_Sub_Int -- Subtract an integer from an MP number (with borrow).                         *
+ *                                                                                             *
+ *    This will subtract an integer from the specified MP number. There is an optional borrow  *
+ *    flag available.                                                                          *
+ *                                                                                             *
+ * INPUT:   result      -- Pointer to the MP buffer that will hold the result.                 *
+ *                                                                                             *
+ *          left_number -- Pointer to the MP number that will be subtracted FROM.              *
+ *                                                                                             *
+ *          right_number-- The integer to subtract from the left hand number.                  *
+ *                                                                                             *
+ *          borrow      -- The optional borrow flag. If this value is true, then an extra one  *
+ *                         will be subtracted from the result.                                 *
+ *                                                                                             *
+ *          precision   -- The precision of the MP numbers involved.                           *
+ *                                                                                             *
+ * OUTPUT:  Returns with the borrow flag of the result. If this value is true, then an         *
+ *          underflow occurred during subtraction.                                             *
+ *                                                                                             *
+ * WARNINGS:   The precision must be identical between the MP numbers involved.                *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A7EC0)
 
 bool __fastcall XMP_Sub_Int(digit *result, digit const *left, unsigned short right, bool borrow, int precision)
 {
@@ -858,7 +1386,28 @@ bool __fastcall XMP_Sub_Int(digit *result, digit const *left, unsigned short rig
 }
 
 
-// XMP_Unsigned_Mult(digit *prod, digit const *multiplicand, digit const *multiplier, int precision) (0x005A7F20)
+/***********************************************************************************************
+ * XMP_Unsigned_Mult -- Multiply two unsigned MP numbers together.                             *
+ *                                                                                             *
+ *    This routine will multiply two MP numbers together. The result will have the sum of the  *
+ *    significance of the two.                                                                 *
+ *                                                                                             *
+ * INPUT:   prod        -- Pointer to the product MP buffer that will hold the result.         *
+ *                                                                                             *
+ *          multiplicand-- Pointer to the multiplicand MP number.                              *
+ *                                                                                             *
+ *          multiplier  -- Pointer to the multiplier MP number.                                *
+ *                                                                                             *
+ *          precision   -- The precision of the MP numbers.                                    *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   Be sure the product will fit within the precision of the result.                *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A7F20)
 // Shift-and-add multiplication over the multiplier's significant bits; returns 0.
 // XMP_Unsigned_Mult(digit *product, digit const *multiplicand, digit const *multiplier, int precision) (0x005A7F20)
 // Shift-and-add multiplication; returns 0.
@@ -897,7 +1446,27 @@ int __fastcall XMP_Unsigned_Mult(digit *product, digit const *multiplicand, digi
 }
 
 
-// XMP_Unsigned_Mult_Int(digit *product, digit const *multiplicand, short multiplier, int precision) (0x005A80F0)
+/***********************************************************************************************
+ * XMP_Unsigned_Mult_Int -- Multiply an MP number by a simple integer.                         *
+ *                                                                                             *
+ *    This is a very fast multiply since the multiplier is just an integer integral.           *
+ *                                                                                             *
+ * INPUT:   prod        -- Pointer to the product MP number.                                   *
+ *                                                                                             *
+ *          multiplicand-- Pointer to the MP number that is the multiplicand.                  *
+ *                                                                                             *
+ *          multiplier  -- The integral integer that is the multiplier.                        *
+ *                                                                                             *
+ *          precision   -- The precision of the MP numbers.                                    *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   The multiplier must fit in a signed integer (although it isn't a signed value). *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/02/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A80F0)
 // Multiplies by a 16-bit value in 16-bit steps; returns 0.
 
 int __fastcall XMP_Unsigned_Mult_Int(digit *product, digit const *multiplicand, short multiplier, int precision)
@@ -916,7 +1485,28 @@ int __fastcall XMP_Unsigned_Mult_Int(digit *product, digit const *multiplicand, 
 }
 
 
-// XMP_Signed_Mult_Int(digit *product, digit const *multiplicand, signed short multiplier, int precision) (0x005A8130)
+/***********************************************************************************************
+ * XMP_Signed_Mult_Int -- Multiply an MP number by a signed simple integer.                    *
+ *                                                                                             *
+ *    This will multiply the specified integer with the MP number. It is a much faster         *
+ *    multiply than when multiplying two MP numbers.                                           *
+ *                                                                                             *
+ * INPUT:   prod        -- Pointer to the product MP number.                                   *
+ *                                                                                             *
+ *          multiplicand-- Pointer to the MP number that serves as the multiplicand.           *
+ *                                                                                             *
+ *          multiplier  -- The simple integral integer used as the multiplier.                 *
+ *                                                                                             *
+ *          precision   -- The precision of the MP numbers involved.                           *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   The multiplier must fist within a signed short integer.                         *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/02/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A8130)
 // Signed multiplication by a 16-bit value; returns 0.
 
 int __fastcall XMP_Signed_Mult_Int(digit *product, digit const *multiplicand, signed short multiplier, int precision)
@@ -946,7 +1536,27 @@ int __fastcall XMP_Signed_Mult_Int(digit *product, digit const *multiplicand, si
 }
 
 
-// XMP_Signed_Mult(digit *prod, digit const *multiplicand, digit const *multiplier, int precision) (0x005A8340)
+/***********************************************************************************************
+ * XMP_Signed_Mult -- A signed multiply between two MP numbers.                                *
+ *                                                                                             *
+ *    This routine will perform a multiply between two signed MP numbers.                      *
+ *                                                                                             *
+ * INPUT:   prod        -- Pointer to the product MP number buffer.                            *
+ *                                                                                             *
+ *          multiplicand-- Pointer to the multiplicand MP number.                              *
+ *                                                                                             *
+ *          multiplier  -- Pointer to the multiplier MP number.                                *
+ *                                                                                             *
+ *          precision   -- The precision of the MP numbers involved.                           *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   This is not a very fast routine.                                                *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/02/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A8340)
 // Signed multiplication through XMP_Unsigned_Mult on the absolute values; returns 0.
 
 int __fastcall XMP_Signed_Mult(digit *prod, digit const *multiplicand, digit const *multiplier, int precision)
@@ -985,7 +1595,28 @@ int __fastcall XMP_Signed_Mult(digit *prod, digit const *multiplicand, digit con
 }
 
 
-// XMP_Unsigned_Div_Int(digit *quotient, digit const *dividend, unsigned short divisor, int precision) (0x005A8540)
+/***********************************************************************************************
+ * XMP_Unsigned_Div_Int -- Perform a short integer divide into an MP number.                   *
+ *                                                                                             *
+ *    This routine performs a fast divide of the specified MP dividend by a simple             *
+ *    short integer. The division is an UNSIGNED division however.                             *
+ *                                                                                             *
+ * INPUT:   quotient    -- Pointer to the MP number buffer where the quotient will go.         *
+ *                                                                                             *
+ *          dividend    -- Pointer to the MP number that serves as the dividend.               *
+ *                                                                                             *
+ *          divisor     -- The simple signed short integer that serves as the divisor.         *
+ *                                                                                             *
+ *          precision   -- The precision that is used by the MP numbers involved.              *
+ *                                                                                             *
+ * OUTPUT:  Returns with the remainder of the division.                                        *
+ *                                                                                             *
+ * WARNINGS:   This is an UNSIGNED divide even.                                                *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/02/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A8540)
 // Long division by a 16-bit value; returns the remainder (0 for a zero
 // divisor).
 
@@ -1029,7 +1660,31 @@ unsigned short __fastcall XMP_Unsigned_Div_Int(digit *quotient, digit const *div
 }
 
 
-// XMP_Unsigned_Div(digit *remainder, digit *quotient, digit const *dividend, digit const *divisor, int precision) (0x005A8670)
+/***********************************************************************************************
+ * XMP_Unsigned_Div -- Unsigned divide of one MP number into another.                          *
+ *                                                                                             *
+ *    This will perform the (dog slow) divide of one MP number into another. Because of the    *
+ *    slowness of this routine, both the quotient and the remainder are available as a         *
+ *    result of the operation.                                                                 *
+ *                                                                                             *
+ * INPUT:   remainder   -- Pointer to the MP buffer that will hold the remainder of the divide.*
+ *                                                                                             *
+ *          quotient    -- Pointer to the MP buffer that will hold the quotient of the divide. *
+ *                                                                                             *
+ *          dividend    -- The MP dividend (numerator) number.                                 *
+ *                                                                                             *
+ *          divisor     -- The MP divisor (denominator) number.                                *
+ *                                                                                             *
+ *          precision   -- The precision of the MP numbers involved.                           *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   This is very slow.                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/02/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A8670)
 // Bitwise long division; returns -1 for a zero divisor, else 0.
 
 int __fastcall XMP_Unsigned_Div(digit *remainder, digit *quotient, digit const *dividend, digit const *divisor, int precision)
@@ -1072,7 +1727,31 @@ int __fastcall XMP_Unsigned_Div(digit *remainder, digit *quotient, digit const *
 }
 
 
-// XMP_Signed_Div(digit *remainder, digit *quotient, digit const *dividend, digit const *divisor, int precision) (0x005A8880)
+/***********************************************************************************************
+ * XMP_Signed_Div -- Signed divide of one MP number into another.                              *
+ *                                                                                             *
+ *    This will perform a signed divide (very very slow) of one MP number into another.        *
+ *    Because of the slow nature of this routine, both the quotient and the remainder are      *
+ *    available as results.                                                                    *
+ *                                                                                             *
+ * INPUT:   remainder   -- Pointer to the buffer that will hold the remainder of the divide.   *
+ *                                                                                             *
+ *          quotient    -- Pointer to the buffer that will hold the quotient of the divide.    *
+ *                                                                                             *
+ *          dividend    -- The dividend (numerator) MP number.                                 *
+ *                                                                                             *
+ *          divisor     -- The divisor (denominator) MP number.                                *
+ *                                                                                             *
+ *          precision   -- The precision of the MP numbers involved.                           *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   This is very very slow.                                                         *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/02/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A8880)
 // Floored signed division: a negative quotient is rounded down and the
 // remainder takes the divisor's sign.
 
@@ -1109,7 +1788,29 @@ void __fastcall XMP_Signed_Div(digit *remainder, digit *quotient, digit const *d
 }
 
 
-// XMP_Inverse_A_Mod_B(digit *result, digit const *number, digit const *modulus, int precision) (0x005A8AA0)
+/***********************************************************************************************
+ * XMP_Inverse_A_Mod_B -- Inverts and performs modulus on an MP number.                        *
+ *                                                                                             *
+ *    This is a utility routine that will perform an inverse on the MP number and then         *
+ *    perform a modulus of that number by another MP number. There are some algorithms that    *
+ *    require this process.                                                                    *
+ *                                                                                             *
+ * INPUT:   result      -- Pointer to the MP buffer that will hold the result.                 *
+ *                                                                                             *
+ *          number      -- The MP number that will be inverted then modulo-ized.               *
+ *                                                                                             *
+ *          modulus     -- The MP number to modulus the first number by.                       *
+ *                                                                                             *
+ *          precision   -- The precision of the MP numbers involved.                           *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/02/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A8AA0)
 // Multiplicative inverse of number modulo modulus (extended Euclid with
 // three rotating remainders); result doubles as scratch.
 
@@ -1139,6 +1840,25 @@ void __fastcall XMP_Inverse_A_Mod_B(digit *result, digit const *number, digit co
 }
 
 
+/***********************************************************************************************
+ * XMP_Reciprocal -- Compute the reciprocal (inverse) of the MP number.                        *
+ *                                                                                             *
+ *    Use this routine to determine the inverse of the specified MP number. The inverse is     *
+ *    defined as 1/number.                                                                     *
+ *                                                                                             *
+ * INPUT:   result   -- Pointer to the result MP number buffer.                                *
+ *                                                                                             *
+ *          number   -- The number to be inverted.                                             *
+ *                                                                                             *
+ *          precision-- The precision of the MP number.                                        *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/02/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
 // Multi-precision fixed-point reciprocal; complete original005A8CF0.
 int __fastcall XMP_Reciprocal(digit *quotient, digit const *divisor, int precision)
 {
@@ -1181,7 +1901,25 @@ int __fastcall XMP_Reciprocal(digit *quotient, digit const *divisor, int precisi
 }
 
 
-// XMP_Decode_ASCII(char const *str, digit *number, int precision) (0x005A8F00)
+/***********************************************************************************************
+ * XMP_Decode_ASCII -- Convert ASCII into an MP number.                                        *
+ *                                                                                             *
+ *    This routine will convert a supplied ASCII string into an MP number.                     *
+ *                                                                                             *
+ * INPUT:   str      -- Pointer to the ASCII string that will be converted.                    *
+ *                                                                                             *
+ *          mpn      -- Pointer to the MP number buffer that will be initialized.              *
+ *                                                                                             *
+ *          precision -- The precision of the MP number.                                       *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/02/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A8F00)
 // Parses an optionally negative number; a trailing H, O or B selects
 // hexadecimal, octal or binary (default decimal); commas are ignored.
 // Body includes the switch jump tables (0x005A90D0-0x005A9105).
@@ -1267,7 +2005,29 @@ void __fastcall XMP_Single_Mul(unsigned short *prod, unsigned short const *multi
 }
 
 
-// XMP_Double_Mul(digit *prod, digit const *multiplicand, digit const *multiplier, int precision) (0x005A9160)
+/***********************************************************************************************
+ * XMP_Double_Mul -- Double precision MP multiply.                                             *
+ *                                                                                             *
+ *    This will perform a double precision multiply of MP numbers. This means that the product *
+ *    will be twice the precision of the components.                                           *
+ *                                                                                             *
+ * INPUT:   prod        -- Pointer to the result buffer. This buffer must be able to hold      *
+ *                         double the precision specified.                                     *
+ *                                                                                             *
+ *          multiplicand-- Pointer to the multiplicand MP number.                              *
+ *                                                                                             *
+ *          multiplier  -- Pointer to the multiplier number.                                   *
+ *                                                                                             *
+ *          precision   -- The precision of the two component MP numbers.                      *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   Be sure the product buffer can hold a double precision number.                  *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/02/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A9160)
 // Double-precision product (prod holds 2 * precision digits).
 
 void __fastcall XMP_Double_Mul(digit *prod, digit const *multiplicand, digit const *multiplier, int precision)
@@ -1282,7 +2042,30 @@ void __fastcall XMP_Double_Mul(digit *prod, digit const *multiplicand, digit con
 }
 
 
-// XMP_Prepare_Modulus(digit const *modulus, int precision) (0x005A9220)
+/***********************************************************************************************
+ * XMP_Prepare_Modulus -- Prepare globals for modulus operation.                               *
+ *                                                                                             *
+ *    Calculate the reciprocal of modulus with a precision of two MULTUNITs.                   *
+ *    Assumes that precision has already been adjusted to the                                  *
+ *    size of the modulus, plus SLOP_BITS.                                                     *
+ *                                                                                             *
+ *    Note: This routine was designed to work with large values and                            *
+ *    doesn't have the necessary testing or handling to work with a                            *
+ *    modulus having less than three significant digits.  For such cases,                      *
+ *    the separate multiply and modulus routines can be used.                                  *
+ *                                                                                             *
+ * INPUT:   modulus  -- Pointer to the modulus number.                                         *
+ *                                                                                             *
+ *          precision-- The precision of the modulus number.                                   *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/02/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A9220)
 // Sets up Upton's modular reduction for a modulus: keeps a copy, its size,
 // and a normalised reciprocal of its top 64 bits. Returns 0.
 
@@ -1369,6 +2152,28 @@ TO YOU.
 
 END EA supplemental terms */
 
+/***********************************************************************************************
+ * XMP_Mod_Mult -- Perform a multiply - modulus operation.                                     *
+ *                                                                                             *
+ *    This routine will combine a multiply and a modulus operation. This takes advantage of    *
+ *    a tremendous speed advantage possible if these two processes are combined rather than    *
+ *    being performed separately.                                                              *
+ *                                                                                             *
+ * INPUT:   prod        -- Pointer to the MP buffer that will hold the result.                 *
+ *                                                                                             *
+ *          multiplicand-- The number to multiply.                                             *
+ *                                                                                             *
+ *          multiplier  -- The number to multiply by.                                          *
+ *                                                                                             *
+ *          precision   -- The precision of the MP numbers involved.                           *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   The modulus must already have been prepared by the routine XMP_Prepare_Modulus. *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/02/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
 // Adopted from ra2-decomp YR005C80A0, pinned4453ab030c86d8586992bfa7425ef7f39e3fb8d4.
 // Adaptation: existing RA2 fastcall API, 32-bit digit spelling and Upton globals.
 
@@ -1417,7 +2222,24 @@ int __fastcall XMP_Mod_Mult(digit * prod, const digit * multiplicand, const digi
 }
 
 
-// XMP_Mod_Mult_Clear(int precision) (0x005A9720)
+/***********************************************************************************************
+ * XMP_Mod_Mult_Clear -- Remove temporary values from memory.                                  *
+ *                                                                                             *
+ *    Smith's mp_modmult function leaves some internal arrays in memory,                       *
+ *    so we have to call modmult_burn() at the end of mp_exponent_mod.                         *
+ *    This is so that no cryptographically sensitive data is left in memory                    *
+ *    after the program exits.                                                                 *
+ *                                                                                             *
+ * INPUT:   precision   -- The precision of the numbers involved.                              *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/02/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A9720)
 // Wipes the modular-multiplication state.
 
 void __fastcall XMP_Mod_Mult_Clear(int precision)
@@ -1490,6 +2312,11 @@ END EA supplemental terms */
 #define MIN(a,b) (((a) < (b)) ? (a) : (b))
 #endif
 
+/// <summary>
+/// Computes a trial quotient digit for the modulo reduction.
+/// </summary>
+/// <param name="dividend">Pointer to the most significant unit of the dividend.</param>
+/// <returns>Returns with the trial quotient digit.</returns>
 unsigned short __fastcall mp_quo_digit(unsigned short const *dividend)
 {
 	unsigned int q, q0, q1, q2;
@@ -1554,7 +2381,23 @@ int __fastcall XMP_Exponent_Mod(digit *result, digit const *base,
 }
 
 
-// memrev(char *buffer, unsigned int length) (0x005A9BD0)
+/***********************************************************************************************
+ * memrev -- Reverse the byte order of the buffer specified.                                   *
+ *                                                                                             *
+ *    This routine will reverse the byte order in the buffer specified.                        *
+ *                                                                                             *
+ * INPUT:   buffer   -- Pointer to the buffer that will be reversed.                           *
+ *                                                                                             *
+ *          length   -- The length of the buffer.                                              *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/02/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A9BD0)
 // Reverses a byte buffer in place (unused).
 
 void __fastcall memrev(char *buffer, unsigned int length)
@@ -1568,7 +2411,15 @@ void __fastcall memrev(char *buffer, unsigned int length)
 }
 
 
-// pfunc(void const *key, void const *element) (0x005A9BF0)
+/// <summary>
+/// Compares a candidate value against an entry of the small prime table.
+/// This is the support routine that lets a binary search run over the small prime table.
+/// </summary>
+/// <param name="pkey">Pointer to the value being searched for.</param>
+/// <param name="base">Pointer to the table entry to compare against.</param>
+/// <returns>Returns with a negative value, zero, or a positive value according to whether the
+/// key sorts before, equal to, or after the entry examined.</returns>
+// (0x005A9BF0)
 // Compares two prime-table entries (for the binary search).
 
 int __fastcall pfunc(void const *key, void const *element)
@@ -1603,6 +2454,23 @@ static inline unsigned short const *Search_Primes(unsigned short key)
     return 0;
 }
 
+/***********************************************************************************************
+ * XMP_Is_Small_Prime -- Determine if MP number is a small prime.                              *
+ *                                                                                             *
+ *    This routine will compare the MP number against all known small prime numbers. It will   *
+ *    return true if a match was found.                                                        *
+ *                                                                                             *
+ * INPUT:   candidate   -- Pointer to MP number that is to be tested.                          *
+ *                                                                                             *
+ *          precision   -- The precision of the MP number specified.                           *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the MP number a member of the small prime community?                     *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/02/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
 bool __fastcall XMP_Is_Small_Prime(digit const *candidate, int precision)
 {
     if (XMP_Significance(candidate, precision) > 1) {
@@ -1617,7 +2485,26 @@ bool __fastcall XMP_Is_Small_Prime(digit const *candidate, int precision)
 }
 
 
-// XMP_Small_Divisors_Test(digit const *candidate, int precision) (0x005A9C90)
+/***********************************************************************************************
+ * XMP_Small_Divisors_Test -- Perform the small divisors test on an MP number.                 *
+ *                                                                                             *
+ *    This test for primality will divide an MP number by the set of small primes. If any of   *
+ *    these numbers divides evenly into the candidate number, then it is known that the        *
+ *    candidate is NOT prime.                                                                  *
+ *                                                                                             *
+ * INPUT:   candidate   -- Pointer to the MP number that is to be tested.                      *
+ *                                                                                             *
+ *          precision   -- The precision of the MP number/                                     *
+ *                                                                                             *
+ * OUTPUT:  bool; Did the MP number pass the small divisors test?                              *
+ *                                                                                             *
+ * WARNINGS:   If the MP number passes, it doesn't mean that it is prime, just that is hasn't  *
+ *             yet been proven to be not prime.                                                *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/02/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A9C90)
 // False if any small prime divides the number.
 
 bool __fastcall XMP_Small_Divisors_Test(digit const *candidate, int precision)
@@ -1655,7 +2542,29 @@ bool __fastcall XMP_Fermat_Test(digit const *candidate, unsigned rounds, int pre
 }
 
 
-// XMP_Rabin_Miller_Test(Straw &rng, digit const *w, int rounds, int precision) (0x005A9E10)
+/***********************************************************************************************
+ * XMP_Rabin_Miller_Test -- Performs the Rabin Miller test for primality.                      *
+ *                                                                                             *
+ *    This test for primality is even more expensive the Fermat's Little Theorem. It doesn't   *
+ *    prove that a number is prime, but it can prove that it is not prime.                     *
+ *                                                                                             *
+ * INPUT:   rng      -- Reference to to a random number generator.                             *
+ *                                                                                             *
+ *          candidate-- Pointer to the candidate MP number that is to be tested.               *
+ *                                                                                             *
+ *          rounds   -- The number of test rounds to perform.                                  *
+ *                                                                                             *
+ *          precision-- The precision of the MP number specified.                              *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the number not proven to be not prime? A FALSE means that the number is  *
+ *          not prime. A TRUE means that it might be.                                          *
+ *                                                                                             *
+ * WARNINGS:   This routine takes a long time. Use as few rounds as possible.                  *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/02/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005A9E10)
 // Rabin-Miller probable-prime test with rounds random witnesses.
 
 bool __fastcall XMP_Rabin_Miller_Test(Straw &rng, digit const *w, int rounds, int precision)
@@ -1708,7 +2617,29 @@ bool __fastcall XMP_Rabin_Miller_Test(Straw &rng, digit const *w, int rounds, in
 }
 
 
-// XMP_Randomize(digit *result, Straw &rng, int nbits, int precision) (0x005AA130)
+/***********************************************************************************************
+ * XMP_Randomize -- Generate a random MP number.                                               *
+ *                                                                                             *
+ *    This routine will generate a random MP number with the number of bits precision          *
+ *    specified. This is the starting point for generating large random prime numbers. It is   *
+ *    very important that the random number generated is truly random.                         *
+ *                                                                                             *
+ * INPUT:   result   -- Pointer to the buffer that will hold the MP number.                    *
+ *                                                                                             *
+ *          rng      -- Reference to a random number generator.                                *
+ *                                                                                             *
+ *          total_bits-- The number of bits precision that the MP number must have.            *
+ *                                                                                             *
+ *          precision-- The precision of the MP number to be generated (maximum)               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/02/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005AA130)
 // A random number of at most nbits bits drawn from rng.
 
 void __fastcall XMP_Randomize(digit *result, Straw &rng, int nbits, int precision)
@@ -1724,7 +2655,30 @@ void __fastcall XMP_Randomize(digit *result, Straw &rng, int nbits, int precisio
 }
 
 
-// XMP_Randomize(digit *result, Straw &rng, digit const *minval, digit const *maxval, int precision) (0x005AA1A0)
+/***********************************************************************************************
+ * XMP_Randomize -- Generate a random MP number between the boundaries specified.              *
+ *                                                                                             *
+ *    This routine will generate a random MP number but it will be bounded by the minimum      *
+ *    and maximum MP numbers specified.                                                        *
+ *                                                                                             *
+ * INPUT:   result      -- Pointer to the MP buffer that will hold the result.                 *
+ *                                                                                             *
+ *          rng         -- Reference to a random number generator to use.                      *
+ *                                                                                             *
+ *          minval      -- Minimum value allowed.                                              *
+ *                                                                                             *
+ *          maxval      -- Maximum value allowed.                                              *
+ *                                                                                             *
+ *          precision   -- The precision of the MP numbers involved.                           *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/02/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005AA1A0)
 // A random number in [minval, maxval].
 
 void __fastcall XMP_Randomize(digit *result, Straw &rng, digit const *minval, digit const *maxval, int precision)
@@ -1755,6 +2709,26 @@ digit term[MAX_UNIT_PRECISION];
     }
     return true;
 }
+/***********************************************************************************************
+ * XMP_Is_Prime -- Determine if the specified MP number is prime.                              *
+ *                                                                                             *
+ *    This routine will perform some checks to try and determine if the specified MP number    *
+ *    is a prime number. The result of this test is not 100% conclusive, but it is pretty      *
+ *    darn close.                                                                              *
+ *                                                                                             *
+ * INPUT:   prime    -- Pointer to a candidate number to test for primality.                   *
+ *                                                                                             *
+ *          precision-- The precision of the MP number specified.                              *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the number not proven to be not prime? If FALSE, then the number is      *
+ *          not prime. If TRUE, then it might be.                                              *
+ *                                                                                             *
+ * WARNINGS:   This can take a very very very very very long time. Especially for the larger   *
+ *             numbers.                                                                        *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/02/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
 bool __fastcall XMP_Is_Prime(digit const *number,int precision)
 {
     if (!(*number & 1)) return false;

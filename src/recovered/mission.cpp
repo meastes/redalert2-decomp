@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/mission.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // mission.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -65,7 +80,23 @@
 // headers; no source of its own.
 
 
-// MissionClass::MissionClass() (0x00594500)
+/***********************************************************************************************
+ * MissionClass::MissionClass -- Default constructor for the mission object type.              *
+ *                                                                                             *
+ *    This is the default constructor for the mission class object. It sets the mission        *
+ *    handler into a default -- do nothing -- state.                                           *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/23/1995 JLB : Created.                                                                 *
+ *   03/01/1996 JLB : Uses initializer lists.                                                  *
+ *=============================================================================================*/
+// (0x00594500)
 // No mission, nothing queued or suspended; the timer starts now.
 
 MissionClass::MissionClass() :
@@ -287,7 +318,23 @@ int MissionClass::Do_MISSION_WAIT()
 }
 
 
-// void MissionClass::Set_Mission(int mission) (0x00594710, slot 118)
+/***********************************************************************************************
+ * MissionClass::Set_Mission -- Sets the mission to the specified value.                       *
+ *                                                                                             *
+ *    Use this routine to set the current mission for this object. This routine will blast     *
+ *    over the current mission, bypassing the queue method. Call it when the mission needs     *
+ *    to be changed immediately.                                                               *
+ *                                                                                             *
+ * INPUT:   mission  -- The mission to set to.                                                 *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/23/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00594710, slot 118)
 // Sets the mission (not over mission 28 to 5), clears the queue and
 // restarts the mission timer.
 
@@ -305,7 +352,23 @@ void MissionClass::Set_Mission(int mission)
 }
 
 
-// int MissionClass::Get_Mission() (0x00594770, slot 91): the mission, or the queued one.
+/***********************************************************************************************
+ * MissionClass::Get_Mission -- Fetches the mission that this object is acting under.          *
+ *                                                                                             *
+ *    Use this routine to fetch the mission that this object is CURRENTLY acting under. The    *
+ *    mission queue may be filled with a imminent mission change, but this routine does not    *
+ *    consider that. It only returns the CURRENT mission.                                      *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  Returns with the mission that this unit is currently following.                    *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/23/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00594770, slot 91)
 
 int MissionClass::Get_Mission()
 {
@@ -316,7 +379,24 @@ int MissionClass::Get_Mission()
 }
 
 
-// void MissionClass::AI() (0x00594790, slot 23)
+/***********************************************************************************************
+ * MissionClass::AI -- Processes order script.                                                 *
+ *                                                                                             *
+ *    This routine will process the order script for as much time as                           *
+ *    possible or until a script delay is detected. This routine should                        *
+ *    be called for every unit once per game loop (if possible).                               *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   04/23/1994 JLB : Created.                                                                 *
+ *   06/25/1995 JLB : Added new missions.                                                      *
+ *=============================================================================================*/
+// (0x00594790, slot 23)
 // ObjectClass's part; then, for a live object (+0x7D) whose mission timer
 // has run out and that has strength left, the slot of the current mission
 // (123-148, each returning the frames until the next step) restarts the
@@ -419,7 +499,26 @@ void MissionClass::AI()
 }
 
 
-// bool MissionClass::Commence() (0x00594C50, slot 117)
+/***********************************************************************************************
+ * MissionClass::Commence -- Start script with new order.                                      *
+ *                                                                                             *
+ *    This routine will start script processing according to any queued                        *
+ *    order it may have. If there is no queued order, then this routine                        *
+ *    does nothing. Call this routine whenever the unit is in a good                           *
+ *    position to change its order (such as when it is stopped).                               *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  Did the mission actually change?                                                   *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   04/23/1994 JLB : Created.                                                                 *
+ *   07/14/1994 JLB : Simplified.                                                              *
+ *   06/17/1995 JLB : Returns success flag.                                                    *
+ *=============================================================================================*/
+// (0x00594C50, slot 117)
 // Starts the queued mission; false when nothing is queued.
 
 bool MissionClass::Commence()
@@ -437,7 +536,24 @@ bool MissionClass::Commence()
 }
 
 
-// void MissionClass::QueueMission(int mission, bool commence) (0x00594CB0, slot 116)
+/***********************************************************************************************
+ * MissionClass::Assign_Mission -- Give an order to a unit.                                    *
+ *                                                                                             *
+ *    This routine will assign the specified mission to the mission queue for this object.     *
+ *    The actual mission logic will then be performed at the first available and legal         *
+ *    opportunity.                                                                             *
+ *                                                                                             *
+ * INPUT:   order -- Mission to give the unit.                                                 *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   06/04/1991 JLB : Created.                                                                 *
+ *   04/15/1994 JLB : Converted to member function.                                            *
+ *=============================================================================================*/
+// (0x00594CB0, slot 116)
 // Queues a mission (not over missions 28/5 and 19) and optionally starts it.
 
 void MissionClass::QueueMission(int mission, bool commence)
@@ -458,7 +574,24 @@ void MissionClass::QueueMission(int mission, bool commence)
 }
 
 
-// void MissionClass::Override_Mission(int mission, AbstractClass *target, AbstractClass *destination) (0x00594D20, slot 119)
+/***********************************************************************************************
+ * MissionClass::Override_Mission -- temporarily overrides the units mission                   *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:      MissionType mission - the mission we want to override                           *
+ *               TARGET      tarcom  - the new target we want to override                      *
+ *               TARGET      navcom  - the new navigation point to override                    *
+ *                                                                                             *
+ * OUTPUT:      none                                                                           *
+ *                                                                                             *
+ * WARNINGS:   If a mission is already overridden, the current mission is                      *
+ *               just re-assigned.                                                             *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   04/28/1995 PWG : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00594D20, slot 119)
 // Overrides the mission, suspending the current (or queued) one.
 
 void MissionClass::Override_Mission(int mission, AbstractClass *target, AbstractClass *destination)
@@ -479,7 +612,19 @@ void MissionClass::Override_Mission(int mission, AbstractClass *target, Abstract
 }
 
 
-// bool MissionClass::Restore_Mission() (0x00594D80, slot 120): resumes the suspended mission.
+/***********************************************************************************************
+ * MissionClass::Restore_Mission -- Restores overridden mission                                *
+ *                                                                                             *
+ * INPUT:      none                                                                            *
+ *                                                                                             *
+ * OUTPUT:     none                                                                            *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   04/28/1995 PWG : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00594D80, slot 120)
 
 bool MissionClass::Restore_Mission()
 {
@@ -493,7 +638,22 @@ bool MissionClass::Restore_Mission()
 }
 
 
-// bool __fastcall MissionClass::Is_Recruitable_Mission(int mission) (0x00594DB0): the mission table's flag +0x06 (true for -1).
+/***********************************************************************************************
+ * MissionClass::Is_Recruitable_Mission -- Determines if this mission is recruitable for a tea *
+ *                                                                                             *
+ *    Some missions preclude recruitment into a team. This routine will examine the mission    *
+ *    specified and if not allowed for a team, it will return false.                           *
+ *                                                                                             *
+ * INPUT:   mission  -- The mission type to examine.                                           *
+ *                                                                                             *
+ * OUTPUT:  bool; Is an object following this mission allowed to be recruited into a team?     *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/14/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00594DB0)
 
 bool __fastcall MissionClass::Is_Recruitable_Mission(int mission)
 {
@@ -504,7 +664,12 @@ bool __fastcall MissionClass::Is_Recruitable_Mission(int mission)
 }
 
 
-// MissionControlClass::MissionControlClass() (0x00594DD0)
+/// <summary>
+/// Constructor for the mission control record.
+/// This routine establishes the default behavior for a mission. The rules file is free to
+/// override any of these settings when the mission's own section is processed.
+/// </summary>
+// (0x00594DD0)
 
 MissionControlClass::MissionControlClass() :
     Mission(-1),
@@ -520,7 +685,13 @@ MissionControlClass::MissionControlClass() :
 }
 
 
-// char const *MissionControlClass::Name() const (0x00594E10): "<none>" for -1.
+/// <summary>
+/// Fetches the name of the mission this record controls.
+/// The name doubles as the rules file section that the settings are read from.
+/// </summary>
+/// <returns>Returns with a pointer to the mission name. A placeholder name is returned if
+/// no mission has been assigned to this record.</returns>
+// (0x00594E10)
 
 char const *MissionControlClass::Name() const
 {
@@ -531,7 +702,13 @@ char const *MissionControlClass::Name() const
 }
 
 
-// bool MissionControlClass::Read_INI(CCINIClass &ini) (0x00594E30)
+/// <summary>
+/// Fetches the mission behavior settings from the rules file.
+/// Every mission has a section of its own in the rules, named after the mission. When that
+/// section is missing, the defaults established by the constructor are left in place.
+/// </summary>
+/// <returns>bool; Was a rules section for this mission found and processed?</returns>
+// (0x00594E30)
 // Reads the mission's own section (named by Name()); AARate= defaults to Rate=.
 
 bool MissionControlClass::Read_INI(CCINIClass &ini)
@@ -554,7 +731,25 @@ bool MissionControlClass::Read_INI(CCINIClass &ini)
 }
 
 
-// int __fastcall MissionClass::Mission_From_Name(char const *name) (0x00594FE0): -1 when unknown.
+/***********************************************************************************************
+ * MissionClass::Mission_From_Name -- Fetch order pointer from its name.                       *
+ *                                                                                             *
+ *    This routine is used to convert an ASCII order name into the actual                      *
+ *    order number it represents. Typically, this is used when processing                      *
+ *    a scenario INI file.                                                                     *
+ *                                                                                             *
+ * INPUT:   name  -- The ASCII order name to process.                                          *
+ *                                                                                             *
+ * OUTPUT:  Returns with the actual order number that the ASCII name                           *
+ *          represents.                                                                        *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   10/07/1992 JLB : Created.                                                                 *
+ *   04/22/1994 JLB : Converted to static member function.                                     *
+ *=============================================================================================*/
+// (0x00594FE0)
 
 extern "C" int __cdecl _stricmp(char const *left, char const *right);
 
@@ -582,7 +777,12 @@ char const *__fastcall MissionClass::Name_From_Mission(int mission)
 }
 
 
-// void MissionClass::Compute_CRC(WWCRCEngine &crc) const (0x00595040, slot 13)
+/// <summary>
+/// Submits the mission state of this object to the checksum engine.
+/// This routine is one link in the game state checksum chain that the network code uses to
+/// detect a multiplayer desynchronization.
+/// </summary>
+// (0x00595040, slot 13)
 
 void MissionClass::Compute_CRC(WWCRCEngine &crc) const
 {
@@ -604,7 +804,14 @@ MissionControlClass *MissionClass::Control() const
 }
 
 
-// bool MissionClass::Has_Suspended_Mission() const (0x005950E0, slot 121): a mission is suspended.
+/// <summary>
+/// Determines if this object has a mission held in reserve.
+/// A mission becomes suspended when a temporary override takes control of the object. Use
+/// this routine to find out whether there is anything to fall back to when the override
+/// runs its course.
+/// </summary>
+/// <returns>bool; Is there a suspended mission waiting to be restored?</returns>
+// (0x005950E0, slot 121)
 
 bool MissionClass::Has_Suspended_Mission() const
 {

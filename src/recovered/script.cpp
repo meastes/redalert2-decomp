@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/script.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // script.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -64,7 +75,14 @@
 // by HeaderStatics_diagonal_init_00668540.cpp; no source of its own.
 
 
-// ScriptClass::ScriptClass(ScriptTypeClass *type) (0x00668730)
+/// <summary>
+/// Creates a running instance of the specified script type.
+/// This routine is used when a team is formed and needs its own copy of the script's
+/// execution state. The new script is registered with the master script list and starts
+/// out positioned before the first mission of its type.
+/// </summary>
+/// <param name="type">Pointer to the script type that supplies the mission list.</param>
+// (0x00668730)
 // A script positioned before the first line of type; registered in Scripts.
 
 ScriptClass::ScriptClass(ScriptTypeClass *type) :
@@ -76,7 +94,12 @@ ScriptClass::ScriptClass(ScriptTypeClass *type) :
 }
 
 
-// ScriptClass::~ScriptClass() (0x006687D0)
+/// <summary>
+/// Destroys the script.
+/// This routine will sever any reference the game objects hold to this script before it
+/// is dropped from the master script list.
+/// </summary>
+// (0x006687D0)
 // Releases references to the script and removes it from Scripts.
 
 ScriptClass::~ScriptClass()
@@ -86,7 +109,13 @@ ScriptClass::~ScriptClass()
 }
 
 
-// void ScriptClass::Compute_CRC(WWCRCEngine &crc) const (0x00668850)
+/// <summary>
+/// Adds this script's state to the game state checksum.
+/// This routine is used by the multiplayer synchronization checker to prove that every
+/// machine has its teams at the same point in the same script.
+/// </summary>
+/// <param name="crc">The checksum engine to submit the script state to.</param>
+// (0x00668850)
 
 void ScriptClass::Compute_CRC(WWCRCEngine &crc) const
 {
@@ -95,7 +124,14 @@ void ScriptClass::Compute_CRC(WWCRCEngine &crc) const
 }
 
 
-// ScriptMissionClass ScriptClass::Get_Current_Mission() const (0x00668870)
+/// <summary>
+/// Fetches the mission the script is presently on.
+/// This routine is used by the team logic to discover what orders it should be carrying
+/// out at this moment.
+/// </summary>
+/// <returns>Returns with the current team mission. If the script has not been started, a
+/// TMISSION_NONE mission is returned.</returns>
+// (0x00668870)
 // The current line, or (-1, 0) before the first.
 
 ScriptMissionClass ScriptClass::Get_Current_Mission() const
@@ -107,7 +143,14 @@ ScriptMissionClass ScriptClass::Get_Current_Mission() const
 }
 
 
-// ScriptMissionClass ScriptClass::Get_Next_Mission() const (0x006688B0)
+/// <summary>
+/// Fetches the mission that follows the current one.
+/// Use this routine to peek ahead in the script so that a team can prepare for what it
+/// will be asked to do next.
+/// </summary>
+/// <returns>Returns with the next team mission. If the script has nothing further to ask
+/// for, a TMISSION_NONE mission is returned.</returns>
+// (0x006688B0)
 // The line after the current one, or (-1, 0) past the end.
 
 ScriptMissionClass ScriptClass::Get_Next_Mission() const
@@ -137,7 +180,13 @@ bool ScriptClass::Set_Mission(int mission)
 }
 
 
-// bool ScriptClass::Next_Mission() (0x00668920)
+/// <summary>
+/// Advances the script to the mission that follows.
+/// This routine is called by the team logic once the current mission has been satisfied
+/// and the team is ready to be given its next orders.
+/// </summary>
+/// <returns>bool; Is there a mission waiting at the new line?</returns>
+// (0x00668920)
 // Advances to the next line; true while it exists (unsigned compare).
 
 bool ScriptClass::Next_Mission()
@@ -155,7 +204,14 @@ bool ScriptClass::Has_Mission() const
 }
 
 
-// HRESULT __stdcall ScriptClass::GetClassID(GUID *clsid) (0x00668960)
+/// <summary>
+/// Fetches the class identifier used to persist this script.
+/// This routine is part of the IPersistStream contract that the save game system relies
+/// on to recreate objects when a game is loaded.
+/// </summary>
+/// <param name="retval">Pointer to the identifier to fill in.</param>
+/// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
+// (0x00668960)
 
 HRESULT __stdcall ScriptClass::GetClassID(GUID *clsid)
 {
@@ -167,7 +223,15 @@ HRESULT __stdcall ScriptClass::GetClassID(GUID *clsid)
 }
 
 
-// HRESULT __stdcall ScriptClass::Load(IStream *stream) (0x006689A0)
+/// <summary>
+/// Loads the script from a save game stream.
+/// This routine will rebuild the virtual table pointers and remap the script type
+/// reference onto whatever address that type occupies in the freshly loaded game.
+/// </summary>
+/// <param name="stream">The stream to read the script from.</param>
+/// <returns>Returns with S_OK if the script was loaded, otherwise the failure code from
+/// the base class.</returns>
+// (0x006689A0)
 // Restores the script in place and swizzles its type.
 
 HRESULT __stdcall ScriptClass::Load(IStream *stream)
@@ -182,7 +246,14 @@ HRESULT __stdcall ScriptClass::Load(IStream *stream)
 }
 
 
-// HRESULT __stdcall ScriptClass::Save(IStream *stream, BOOL clear_dirty) (0x00668A00)
+/// <summary>
+/// Saves the script to a save game stream.
+/// </summary>
+/// <param name="stream">The stream to write the script to.</param>
+/// <param name="cleardirty">Should the object be marked as unmodified afterward?</param>
+/// <returns>Returns with S_OK if the script was written, otherwise the failure code from
+/// the base class.</returns>
+// (0x00668A00)
 
 HRESULT __stdcall ScriptClass::Save(IStream *stream, BOOL clear_dirty)
 {
@@ -194,7 +265,13 @@ HRESULT __stdcall ScriptClass::Save(IStream *stream, BOOL clear_dirty)
 }
 
 
-// ScriptTypeClass::ScriptTypeClass(char const *ini_name) (0x00668A20)
+/// <summary>
+/// Creates a script type of the specified name.
+/// This routine is used as the scenario's script list is read in. The new type is added
+/// to the master script type heap and takes its heap identifier from it.
+/// </summary>
+/// <param name="name">The INI name to give this script type.</param>
+// (0x00668A20)
 // An empty script type, registered in ScriptTypes; ArrayIndex is its index.
 
 ScriptTypeClass::ScriptTypeClass(char const *ini_name) :
@@ -207,7 +284,12 @@ ScriptTypeClass::ScriptTypeClass(char const *ini_name) :
 }
 
 
-// ScriptTypeClass::~ScriptTypeClass() (0x00668AE0)
+/// <summary>
+/// Destroys the script type.
+/// This routine will sever any reference the game objects hold to this script type
+/// before it is dropped from the master script type list.
+/// </summary>
+// (0x00668AE0)
 // Releases references to the type and removes it from ScriptTypes.
 
 ScriptTypeClass::~ScriptTypeClass()
@@ -217,7 +299,15 @@ ScriptTypeClass::~ScriptTypeClass()
 }
 
 
-// bool ScriptTypeClass::Write_INI(CCINIClass &ini) const (0x00668B60)
+/// <summary>
+/// Writes this script type's mission list to the INI database.
+/// This routine is used as a scenario is saved. Any mission slot this script does not
+/// use is cleared out, so that no stale lines are left behind from an earlier version of
+/// the script.
+/// </summary>
+/// <param name="ini">The INI database to write the mission list to.</param>
+/// <returns>bool; Was the script type written out?</returns>
+// (0x00668B60)
 // Writes the lines in use ("%d,%d") and clears the rest of "0=" .. "49=".
 
 bool ScriptTypeClass::Write_INI(CCINIClass &ini) const
@@ -242,7 +332,14 @@ bool ScriptTypeClass::Write_INI(CCINIClass &ini) const
 }
 
 
-// bool ScriptTypeClass::Read_INI(CCINIClass &ini) (0x00668C10)
+/// <summary>
+/// Reads this script type's mission list from the INI database.
+/// This routine is used as a scenario is loaded. The numbered entries in the script's own
+/// section supply the missions the teams assigned this script will carry out.
+/// </summary>
+/// <param name="ini">The INI database to read the mission list from.</param>
+/// <returns>bool; Was the script type read in?</returns>
+// (0x00668C10)
 // Reads the lines "0=" .. "49=" ("%d,%d"), keeping at most 50.
 
 bool ScriptTypeClass::Read_INI(CCINIClass &ini)
@@ -326,7 +423,14 @@ ScriptTypeClass *__fastcall ScriptTypeClass::Find_By_Name(char const *name)
 }
 
 
-// ScriptTypeClass *ScriptTypeClass::Find_Or_Make(char const *name) (0x00668F70)
+/// <summary>
+/// Fetches the script type of the specified name, creating it if necessary.
+/// This routine is used while a scenario is being read, where a script can be referred
+/// to before its own section has been reached.
+/// </summary>
+/// <param name="name">The name of the script type to find or create.</param>
+/// <returns>Returns with a pointer to the script type.</returns>
+// (0x00668F70)
 // The script type with this ID, created when missing; null for "<none>"
 // and "none".
 
@@ -344,7 +448,14 @@ ScriptTypeClass *__fastcall ScriptTypeClass::Find_Or_Make(char const *name)
 }
 
 
-// HRESULT __stdcall ScriptTypeClass::GetClassID(GUID *clsid) (0x006690C0)
+/// <summary>
+/// Fetches the class identifier used to persist this script type.
+/// This routine is part of the IPersistStream contract that the save game system relies
+/// on to recreate objects when a game is loaded.
+/// </summary>
+/// <param name="retval">Pointer to the identifier to fill in.</param>
+/// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
+// (0x006690C0)
 
 HRESULT __stdcall ScriptTypeClass::GetClassID(GUID *clsid)
 {
@@ -356,7 +467,15 @@ HRESULT __stdcall ScriptTypeClass::GetClassID(GUID *clsid)
 }
 
 
-// HRESULT __stdcall ScriptTypeClass::Load(IStream *stream) (0x00669100)
+/// <summary>
+/// Loads the script type from a save game stream.
+/// This routine will rebuild the virtual table pointers of the script type as it comes
+/// back off the stream.
+/// </summary>
+/// <param name="stream">The stream to read the script type from.</param>
+/// <returns>Returns with S_OK if the script type was loaded, otherwise the failure code
+/// from the base class.</returns>
+// (0x00669100)
 // Restores the type in place.
 
 HRESULT __stdcall ScriptTypeClass::Load(IStream *stream)
@@ -370,7 +489,14 @@ HRESULT __stdcall ScriptTypeClass::Load(IStream *stream)
 }
 
 
-// HRESULT __stdcall ScriptTypeClass::Save(IStream *stream, BOOL clear_dirty) (0x00669150)
+/// <summary>
+/// Saves the script type to a save game stream.
+/// </summary>
+/// <param name="stream">The stream to write the script type to.</param>
+/// <param name="cleardirty">Should the object be marked as unmodified afterward?</param>
+/// <returns>Returns with S_OK if the script type was written, otherwise the failure code
+/// from the base class.</returns>
+// (0x00669150)
 
 HRESULT __stdcall ScriptTypeClass::Save(IStream *stream, BOOL clear_dirty)
 {
@@ -382,7 +508,13 @@ HRESULT __stdcall ScriptTypeClass::Save(IStream *stream, BOOL clear_dirty)
 }
 
 
-// void ScriptTypeClass::Compute_CRC(WWCRCEngine &crc) const (0x00669170)
+/// <summary>
+/// Adds this script type's state to the game state checksum.
+/// This routine is used by the multiplayer synchronization checker to prove that every
+/// machine is running with the same script definitions.
+/// </summary>
+/// <param name="crc">The checksum engine to submit the script type state to.</param>
+// (0x00669170)
 
 void ScriptTypeClass::Compute_CRC(WWCRCEngine &crc) const
 {

@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/counter.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // counter.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -10,6 +25,12 @@
 #include "shared/counter_class.hpp"
 
 
+/// <summary>
+/// Constructor for the counter object.
+/// The counter starts out empty and sizes itself as counters are tallied, so the
+/// houses may keep a running total per object type without knowing how many types
+/// there will be.
+/// </summary>
 CounterClass::CounterClass() : VectorClass<int>() {}
 
 
@@ -31,6 +52,11 @@ void CounterClass::Clear() { for(int i=0;i<VectorMax;++i) Vector[i]=0; }
 int CounterClass::Sum() const { int total=0;for(int i=0;i<VectorMax;++i) total+=Vector[i];return total; }
 
 
+/// <summary>
+/// Saves the counters to the save game stream.
+/// </summary>
+/// <returns>Returns with S_OK if the counters were written, otherwise with the error
+/// code.</returns>
 HRESULT CounterClass::Save(IStream *stream) {
  int count=VectorMax;
  HRESULT result=stream->Write(&count,4,0);
@@ -40,6 +66,12 @@ HRESULT CounterClass::Save(IStream *stream) {
 }
 
 
+/// <summary>
+/// Loads the counters from the save game stream.
+/// This routine will reconstruct the counter object before reading, so whatever it
+/// was tallying beforehand is discarded.
+/// </summary>
+/// <returns>Returns with S_OK if the counters were read, otherwise with the error code.</returns>
 HRESULT CounterClass::Load(IStream *stream) {
  new(this) CounterClass;
  int count;

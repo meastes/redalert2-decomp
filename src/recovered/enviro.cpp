@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/enviro.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // enviro.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -75,6 +90,11 @@ EnvironmentClass unknown_scenario_checkpoint_00855a90;
 // Emitted by the checkpoint file-global object in the first static draft.
 
 
+/// <summary>
+/// Creates the carry over environment in its empty state.
+/// This routine ensures that a scenario played without a predecessor inherits nothing
+/// from a previous mission.
+/// </summary>
 // Emitted by the checkpoint file-global object in the first static draft.
 
 
@@ -84,6 +104,9 @@ EnvironmentClass::EnvironmentClass() : Credits(0),TimerRemaining(0),Difficulty(1
 }
 
 
+/// <summary>
+/// Destroys the carry over environment object.
+/// </summary>
 EnvironmentClass::~EnvironmentClass() {}
 
 

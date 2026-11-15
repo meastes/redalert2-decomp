@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/txtlabel.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // txtlabel.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -14,7 +29,26 @@
 #include "shared/win32_api.hpp"
 
 
-// TextLabelClass::TextLabelClass(wchar_t const *text, int x, int y, int color, unsigned style) (0x006F15C0)
+/***********************************************************************************************
+ * TextLableClass::TextLabelClass -- Constructor                                               *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *      txt         pointer to text buffer to print from                                       *
+ *      x            x-coord for text printing                                                 *
+ *      y            y-coord for text printing                                                 *
+ *      color         color to print in                                                        *
+ *      style         style to print (determines the meaning of x & y)                         *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *      none.                                                                                  *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *      none.                                                                                  *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   03/24/1995 BRR : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006F15C0)
 // A one-pixel gadget at x, y printing text in colour scheme color with print style style; the
 // width is the surface's (PixWidth -1) and the text is shown at once (no reveal).
 
@@ -35,7 +69,22 @@ TextLabelClass::TextLabelClass(wchar_t const *text, int x, int y, int color, uns
 }
 
 
-// int TextLabelClass::Draw_Me(int forced) (0x006F1620, slot 27)
+/***********************************************************************************************
+ * TextLableClass::Draw_Me -- Graphical update routine                                         *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *      forced      true = draw regardless of the current redraw flag state                    *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *      true = gadget was redrawn, false = wasn't                                              *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *      none.                                                                                  *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   03/24/1995 BRR : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006F1620, slot 27)
 // Prints the label (Tiberian Sun txtlabel.cpp's Draw_Me with RA2's edit text printer): nothing while
 // hidden; clipped to the drawing surface's right edge; with IsRevealed one more character every
 // 16 ms, with the message typing sound while characters remain. The caret shows while focused.

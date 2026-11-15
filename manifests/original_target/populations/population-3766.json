@@ -4,8 +4,8 @@
     "id": "population-3766",
     "inventory_sha256": "a654ef992da11eca0f96ce4e84cb9246477d7eba1a06423be7639f251f50c498",
     "gaps_sha256": "71556148ad33fcac9e0376bb86676715f632bdca0f504ff0cfd8f5e41b873178",
-    "historical_population_sha256": "f7d54a35035cfa984f8eb14968bb1c7cfa9a8fd4ec25016010b4ca15c886e1a1",
-    "historical_acceptance_sha256": "ddd95a9f6ffc27f4fdf8998bd2be2435f9f792c7a9ece096527a2062c311860e"
+    "historical_population_sha256": "a151a08e32daa16400e56ccb4ecbf0a41a2ada43bd1c3182565843ed36fc86e3",
+    "historical_acceptance_sha256": "027ab6ed9f2fb15087b7ff17d5803a4ce77492b6867c405db98039f5b2a14be3"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -3675,7 +3675,9 @@
     "??_EWinModemClass@@UAEPAXI@Z": 7558672,
     "??_7type_info@@6B@": 8066532,
     "??_R0?AVWinModemClass@@@8": 8374768,
-    "__ramp_corners": 8339828
+    "__ramp_corners": 8339828,
+    "?Contains@GraphicMenuItem@@UAE_NABUPoint2D@@@Z": 5112256,
+    "_?timer@?1??Draw_Cursor@ScoreClass@@QAEXHH@Z@4V?$CDTimerClass@VSystemTimerClass@@@@A": 11235152
   },
   "regions": [
     {
@@ -3705,7 +3707,7 @@
           "resolved": 7972132
         }
       ],
-      "source_sha256": "fcfd3540ced85b0f6cf18f2515cf5c5f0a0b1ef6f0de8115a03107b54abf99b9",
+      "source_sha256": "943c0d8fecd8ccc8d259e919cfe20d770e02c29bd19f75493e4bbf0671804717",
       "source": "src/recovered/gametime.cpp",
       "population": "population-3766",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -3740,7 +3742,7 @@
           "resolved": 7972132
         }
       ],
-      "source_sha256": "fcfd3540ced85b0f6cf18f2515cf5c5f0a0b1ef6f0de8115a03107b54abf99b9",
+      "source_sha256": "943c0d8fecd8ccc8d259e919cfe20d770e02c29bd19f75493e4bbf0671804717",
       "source": "src/recovered/gametime.cpp",
       "population": "population-3766",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -3783,7 +3785,7 @@
           "resolved": 8806516
         }
       ],
-      "source_sha256": "fcfd3540ced85b0f6cf18f2515cf5c5f0a0b1ef6f0de8115a03107b54abf99b9",
+      "source_sha256": "943c0d8fecd8ccc8d259e919cfe20d770e02c29bd19f75493e4bbf0671804717",
       "source": "src/recovered/gametime.cpp",
       "population": "population-3766",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -3826,7 +3828,7 @@
           "resolved": 8806516
         }
       ],
-      "source_sha256": "fcfd3540ced85b0f6cf18f2515cf5c5f0a0b1ef6f0de8115a03107b54abf99b9",
+      "source_sha256": "943c0d8fecd8ccc8d259e919cfe20d770e02c29bd19f75493e4bbf0671804717",
       "source": "src/recovered/gametime.cpp",
       "population": "population-3766",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -3869,7 +3871,7 @@
           "resolved": 8806516
         }
       ],
-      "source_sha256": "fcfd3540ced85b0f6cf18f2515cf5c5f0a0b1ef6f0de8115a03107b54abf99b9",
+      "source_sha256": "943c0d8fecd8ccc8d259e919cfe20d770e02c29bd19f75493e4bbf0671804717",
       "source": "src/recovered/gametime.cpp",
       "population": "population-3766",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",

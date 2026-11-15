@@ -1,3 +1,19 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/convert.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // convert.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -255,7 +271,12 @@ void ConvertClass::Initialize_Blitters_00483B00()
 }
 
 
-// ConvertClass::~ConvertClass (0x00485310; TibSun convert.cpp): frees the
+/// <summary>
+/// Destroys this drawer object.
+/// The blitters and the translation tables are freed and the drawer takes itself off the
+/// list of drawers, so that a later display format change will not try to rebuild it.
+/// </summary>
+// (0x00485310; TibSun convert.cpp)
 // blitters and tables and takes the converter off Drawers. The deleting
 // destructor (vtable 0x0079DF70 slot 0, 0x00486120) expands it inline.
 ConvertClass::~ConvertClass()

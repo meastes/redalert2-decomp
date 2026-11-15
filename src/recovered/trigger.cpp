@@ -1,3 +1,19 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/trigger.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // trigger.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -69,7 +85,22 @@
 #include "shared/taction.hpp"
 
 
-// TriggerClass::TriggerClass(TriggerTypeClass *type) (0x006ED220)
+/***********************************************************************************************
+ * TriggerClass::TriggerClass -- constructor                                                   *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *      none.                                                                                  *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *      none.                                                                                  *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *      none.                                                                                  *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   11/28/1994 BR : Created.                                                                  *
+ *=============================================================================================*/
+// (0x006ED220)
 // A live trigger; disabled when its type is, or for the current difficulty.
 
 // The abstract list 0x00AC0D48 (element type AbstractClass * by RTTI).
@@ -100,7 +131,12 @@ TriggerClass::TriggerClass(TriggerTypeClass *type) :
 // No source of its own: emitted by this unit (population-2418).
 
 
-// bool TriggerClass::Is_Cross_Horizontal() const (0x006ED4D0)
+/// <summary>
+/// Does this trigger watch for a horizontal line being crossed?
+/// The linked trigger is consulted as well, so a chain of linked triggers answers as one.
+/// </summary>
+/// <returns>bool; Is this a horizontal crossing trigger?</returns>
+// (0x006ED4D0)
 // TriggerTypeClass::Is_Cross_Horizontal of this trigger's type or of any later one.
 
 bool TriggerClass::Is_Cross_Horizontal() const
@@ -112,7 +148,12 @@ bool TriggerClass::Is_Cross_Horizontal() const
 }
 
 
-// bool TriggerClass::Is_Cross_Vertical() const (0x006ED510)
+/// <summary>
+/// Does this trigger watch for a vertical line being crossed?
+/// The linked trigger is consulted as well, so a chain of linked triggers answers as one.
+/// </summary>
+/// <returns>bool; Is this a vertical crossing trigger?</returns>
+// (0x006ED510)
 // TriggerTypeClass::Is_Cross_Vertical of this trigger's type or of any later one.
 
 bool TriggerClass::Is_Cross_Vertical() const
@@ -124,7 +165,12 @@ bool TriggerClass::Is_Cross_Vertical() const
 }
 
 
-// bool TriggerClass::Is_Enters_Zone() const (0x006ED550)
+/// <summary>
+/// Does this trigger watch for something entering its zone?
+/// The linked trigger is consulted as well, so a chain of linked triggers answers as one.
+/// </summary>
+/// <returns>bool; Is this an enters-zone trigger?</returns>
+// (0x006ED550)
 // TriggerTypeClass::Is_Enters_Zone of this trigger's type or the next one's.
 
 bool TriggerClass::Is_Enters_Zone() const
@@ -136,7 +182,13 @@ bool TriggerClass::Is_Enters_Zone() const
 }
 
 
-// bool TriggerClass::Is_Allow_Win() const (0x006ED590)
+/// <summary>
+/// Must this trigger spring before the scenario can be won?
+/// The victory check consults every allow-win trigger before it declares the mission a
+/// success. The linked trigger is consulted as well, so a chain answers as one.
+/// </summary>
+/// <returns>bool; Is this an allow-win trigger?</returns>
+// (0x006ED590)
 // TriggerTypeClass::Is_Allow_Win of this trigger's type or the next one's.
 
 bool TriggerClass::Is_Allow_Win() const
@@ -148,7 +200,13 @@ bool TriggerClass::Is_Allow_Win() const
 }
 
 
-// bool TriggerClass::Is_Linked_To_Global(int value) const (0x006ED5D0)
+/// <summary>
+/// Is this trigger controlled by the specified global variable?
+/// The linked trigger is consulted as well, so a chain of linked triggers answers as one.
+/// </summary>
+/// <param name="global">Index of the global variable to check against.</param>
+/// <returns>bool; Is this trigger tied to that global variable?</returns>
+// (0x006ED5D0)
 
 bool TriggerClass::Is_Linked_To_Global(int value) const
 {
@@ -159,7 +217,13 @@ bool TriggerClass::Is_Linked_To_Global(int value) const
 }
 
 
-// void TriggerClass::Reset_Global_Linked_Timed_Events(int value) (0x006ED620)
+/// <summary>
+/// Restarts the timed events of triggers tied to the specified global variable.
+/// This routine is used when a global scenario variable changes state. The whole chain of
+/// linked triggers is walked, since a linked trigger may be tied to the variable as well.
+/// </summary>
+/// <param name="global">Index of the global variable that changed.</param>
+// (0x006ED620)
 // Resets every trigger of the chain (from this one) whose type answers
 // TriggerTypeClass::Is_Linked_To_Global(value).
 
@@ -173,7 +237,13 @@ void TriggerClass::Reset_Global_Linked_Timed_Events(int value)
 }
 
 
-// void TriggerClass::Reset_Local_Linked_Timed_Events(int value) (0x006ED650)
+/// <summary>
+/// Restarts the timed events of triggers tied to the specified local variable.
+/// This routine is used when a local scenario variable changes state. The whole chain of
+/// linked triggers is walked, since a linked trigger may be tied to the variable as well.
+/// </summary>
+/// <param name="local">Index of the local variable that changed.</param>
+// (0x006ED650)
 // Resets every trigger of the chain (from this one) whose type answers
 // TriggerTypeClass::Is_Linked_To_Local(value).
 
@@ -187,7 +257,12 @@ void TriggerClass::Reset_Local_Linked_Timed_Events(int value)
 }
 
 
-// void TriggerClass::Reset_All_Timed_Events() (0x006ED680)
+/// <summary>
+/// Restarts this trigger's timed events.
+/// This routine is used whenever a trigger is enabled or rearmed. Any time based event it
+/// carries begins its countdown again from the delay the trigger type specifies.
+/// </summary>
+// (0x006ED680)
 // Restarts the timed events: elapsed time (13) waits Data seconds, random
 // delay (51) Data / 2 plus a Random_Pick in [0, Data]; their fired bits
 // clear (TibSun Reset_All_Timed_Events shape).
@@ -211,7 +286,30 @@ void TriggerClass::Reset_All_Timed_Events()
 }
 
 
-// bool TriggerClass::Should_Spring(int event, ObjectClass *object, bool forced, bool persistent, int source) (0x006ED740)
+/***********************************************************************************************
+ * TriggerClass::Spring -- Spring the trigger (possibly).                                      *
+ *                                                                                             *
+ *    This routine is called when a potential trigger even has occurred. The event is matched  *
+ *    with the trigger event needed by this trigger. If the condition warrants, the trigger    *
+ *    action is performed.                                                                     *
+ *                                                                                             *
+ * INPUT:   event    -- The event that is occurring.                                           *
+ *                                                                                             *
+ *          obj      -- If the trigger is attached to an object, this points to the object.    *
+ *                                                                                             *
+ *          cell     -- If the trigger is attached to a cell, this is the cell number.         *
+ *                                                                                             *
+ *          forced   -- Should the trigger be forced to execute regardless of the event?       *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the trigger sprung?                                                      *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/31/1996 JLB : Created.                                                                 *
+ *   08/13/1996 JLB : Linked triggers supported.                                               *
+ *=============================================================================================*/
+// (0x006ED740)
 // Unless disabled or already sprung: each event not yet marked must fire for event (in the trigger
 // type's house, with the trigger's timer); events that fire and hold are marked. Any event that does
 // not fire keeps the trigger from springing; forced skips the tests. A persistent spring restarts the
@@ -242,7 +340,15 @@ bool TriggerClass::Should_Spring(int event, ObjectClass *object, bool forced, bo
 }
 
 
-// bool TriggerClass::Spring(ObjectClass *object, Cell cell) (0x006ED830)
+/// <summary>
+/// Performs this trigger's actions.
+/// This routine is called once the trigger's events have all been satisfied. Every action
+/// attached to the trigger type is given its chance to run.
+/// </summary>
+/// <param name="object">The object the trigger is attached to, if it is attached to one.</param>
+/// <param name="cell">The cell the trigger is attached to, if it is attached to one.</param>
+/// <returns>bool; Did any of the actions actually do something?</returns>
+// (0x006ED830)
 // Unless disabled or already sprung, performs every action of the type in the type's house;
 // true when any of them acted.
 
@@ -261,7 +367,27 @@ bool TriggerClass::Spring(ObjectClass *object, Cell cell)
 }
 
 
-// TriggerClass *__fastcall TriggerClass::Find_Or_Make(TriggerTypeClass *type) (0x006ED8A0)
+/***********************************************************************************************
+ * Find_Or_Make -- Find or create a trigger of the type specified.                             *
+ *                                                                                             *
+ *    This routine is used when, given a trigger type, an actual trigger object is needed.     *
+ *    In this case, an existing trigger of the correct type must be located, or a trigger      *
+ *    object must be created. In either case, this routine will return a trigger object that   *
+ *    corresponds to the trigger type class specified.                                         *
+ *                                                                                             *
+ * INPUT:   trigtype -- Pointer to the trigger type to find (or create) a matching trigger     *
+ *                      object.                                                                *
+ *                                                                                             *
+ * OUTPUT:  Returns a pointer to a matching trigger object. If no more triggers could be       *
+ *          allocated and no matching trigger could be found, then this routine will return    *
+ *          NULL (a very rare case).                                                           *
+ *                                                                                             *
+ * WARNINGS:   This routine could return NULL.                                                 *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/09/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006ED8A0)
 // The live trigger of a type, created when missing; 0 without a type.
 
 TriggerClass *__fastcall TriggerClass::Find_Or_Make(TriggerTypeClass *type)
@@ -278,7 +404,25 @@ TriggerClass *__fastcall TriggerClass::Find_Or_Make(TriggerTypeClass *type)
 }
 
 
-// void TriggerClass::Detach(AbstractClass *target, bool all) (0x006ED900)
+/***********************************************************************************************
+ * TriggerClass::Detach -- Detach specified target from this trigger.                          *
+ *                                                                                             *
+ *    This routine is called when the specified trigger MUST be detached from all references   *
+ *    to it. The only reference maintained by a trigger is the reference to the trigger        *
+ *    type class it is modeled after.                                                          *
+ *                                                                                             *
+ * INPUT:   target   -- The target identifier to remove all attachments to.                    *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   You must never detach the trigger type class from a trigger. Such a process     *
+ *             will leave the trigger orphan and in a 'crash the game immediately if used'     *
+ *             state. As such, this routine will throw an assertion if this is tried.          *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/09/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006ED900)
 
 void TriggerClass::Detach(AbstractClass *target, bool all)
 {
@@ -291,7 +435,13 @@ void TriggerClass::Detach(AbstractClass *target, bool all)
 }
 
 
-// void TriggerClass::Flag_Event_Tripped(int index) (0x006ED930)
+/// <summary>
+/// Records that the specified event has been satisfied.
+/// This routine is used by the persistent trigger logic so that an event which has already
+/// occurred does not have to occur a second time.
+/// </summary>
+/// <param name="event">Index of the event that was satisfied.</param>
+// (0x006ED930)
 
 void TriggerClass::Flag_Event_Tripped(int index)
 {
@@ -299,7 +449,13 @@ void TriggerClass::Flag_Event_Tripped(int index)
 }
 
 
-// void TriggerClass::Flag_Event_Untripped(int index) (0x006ED950)
+/// <summary>
+/// Clears the sprung record for the specified event.
+/// This routine is used when a trigger is rearmed, so that the event must be satisfied
+/// all over again before the trigger will spring.
+/// </summary>
+/// <param name="event">Index of the event to rearm.</param>
+// (0x006ED950)
 
 void TriggerClass::Flag_Event_Untripped(int index)
 {
@@ -307,7 +463,14 @@ void TriggerClass::Flag_Event_Untripped(int index)
 }
 
 
-// bool TriggerClass::Is_Event_Tripped(int index) const (0x006ED970)
+/// <summary>
+/// Has the specified event of this trigger already been satisfied?
+/// A persistent trigger remembers which of its events have fired, so that the ones still
+/// outstanding can be waited on without re-testing those already met.
+/// </summary>
+/// <param name="event">Index of the event to examine.</param>
+/// <returns>bool; Has the event already sprung?</returns>
+// (0x006ED970)
 
 bool TriggerClass::Is_Event_Tripped(int index) const
 {
@@ -315,7 +478,13 @@ bool TriggerClass::Is_Event_Tripped(int index) const
 }
 
 
-// void TriggerClass::Mark_To_Delete() (0x006ED990)
+/// <summary>
+/// Marks this trigger for deletion.
+/// The trigger stops springing right away, but it is not destroyed until the deferred deletion
+/// list is processed. This keeps a trigger from vanishing out from under the logic that
+/// is still walking it.
+/// </summary>
+// (0x006ED990)
 // Marks the trigger and queues it in the abstract list 0x00AC0CD8.
 
 void TriggerClass::Mark_To_Delete()
@@ -325,7 +494,11 @@ void TriggerClass::Mark_To_Delete()
 }
 
 
-// bool TriggerClass::Is_Marked_To_Delete() const (0x006ED9F0)
+/// <summary>
+/// Has this trigger been marked for deletion?
+/// </summary>
+/// <returns>bool; Is this trigger waiting on deferred deletion list?</returns>
+// (0x006ED9F0)
 
 bool TriggerClass::Is_Marked_To_Delete() const
 {
@@ -333,7 +506,13 @@ bool TriggerClass::Is_Marked_To_Delete() const
 }
 
 
-// void TriggerClass::Compute_CRC(WWCRCEngine &crc) const (0x006EDA00)
+/// <summary>
+/// Adds this trigger's state to the CRC calculation.
+/// This routine is used by the network sync check to prove that every machine in the game
+/// agrees about the triggers currently in play.
+/// </summary>
+/// <param name="crc">The CRC engine to feed this trigger's values into.</param>
+// (0x006EDA00)
 
 void TriggerClass::Compute_CRC(WWCRCEngine &crc) const
 {
@@ -349,7 +528,14 @@ void TriggerClass::Compute_CRC(WWCRCEngine &crc) const
 }
 
 
-// HRESULT __stdcall TriggerClass::GetClassID(GUID *clsid) (0x006EDA90)
+/// <summary>
+/// Fetches the class identifier of this object.
+/// This routine is part of the persistence support. The save game system uses the
+/// identifier to work out what kind of object to build when the stream is read back in.
+/// </summary>
+/// <param name="retval">Pointer to the identifier to fill in.</param>
+/// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
+// (0x006EDA90)
 
 HRESULT __stdcall TriggerClass::GetClassID(GUID *clsid)
 {
@@ -361,7 +547,13 @@ HRESULT __stdcall TriggerClass::GetClassID(GUID *clsid)
 }
 
 
-// HRESULT __stdcall TriggerClass::Load(IStream *stream) (0x006EDAD0)
+/// <summary>
+/// Reads this trigger back in from the save game stream.
+/// The virtual table is rebuilt in place and the trigger type and linked trigger
+/// references are swizzled back into live pointers.
+/// </summary>
+/// <returns>Returns with the result code of the load attempt.</returns>
+// (0x006EDAD0)
 
 HRESULT __stdcall TriggerClass::Load(IStream *stream)
 {
@@ -376,7 +568,13 @@ HRESULT __stdcall TriggerClass::Load(IStream *stream)
 }
 
 
-// HRESULT __stdcall TriggerClass::Save(IStream *stream, BOOL clear_dirty) (0x006EDB40)
+/// <summary>
+/// Writes this trigger out to the save game stream.
+/// This routine is part of the persistence chain the save game system walks. The trigger
+/// keeps nothing beyond its own members, so the base class does all of the real work.
+/// </summary>
+/// <returns>Returns with the result code of the save attempt.</returns>
+// (0x006EDB40)
 
 HRESULT __stdcall TriggerClass::Save(IStream *stream, BOOL clear_dirty)
 {
@@ -388,7 +586,12 @@ HRESULT __stdcall TriggerClass::Save(IStream *stream, BOOL clear_dirty)
 }
 
 
-// void TriggerClass::Enable() (0x006EDB60)
+/// <summary>
+/// Enables this trigger.
+/// The trigger's timed events are restarted as it comes on, so a trigger switched on part
+/// way through a scenario counts its delays from that moment rather than from the start.
+/// </summary>
+// (0x006EDB60)
 
 void TriggerClass::Enable()
 {
@@ -397,7 +600,12 @@ void TriggerClass::Enable()
 }
 
 
-// void TriggerClass::Disable() (0x006EDB70)
+/// <summary>
+/// Disables this trigger.
+/// A disabled trigger ignores every event that comes its way. Use this routine when a
+/// trigger must be held in reserve until the scenario decides to switch it on.
+/// </summary>
+// (0x006EDB70)
 
 void TriggerClass::Disable()
 {
@@ -413,7 +621,22 @@ int TriggerClass::Kind_Of() const
 }
 
 
-// TriggerClass scalar deleting destructor (0x006EDBA0): compiler generated,
+/***********************************************************************************************
+ * TriggerClass::~TriggerClass -- Destructor for trigger objects.                              *
+ *                                                                                             *
+ *    This destructor will update the house blockage value if necessary. No other action need  *
+ *    be performed on trigger destruction.                                                     *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/29/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006EDBA0)
 // with the destructor expanded inline. The destructor itself (0x006ED3C0) is
 // defined here: its frozen inventory bound is split at 0x006ED49A, so it is
 // bound by reference until the bound is refined.

@@ -144,10 +144,10 @@ TagClass::~TagClass()
     if (GameActive && ScenarioActive && Trigger != 0 && Trigger->Class != 0 &&
         Trigger->Class->House != 0 && Class->Is_Allow_Win()) {
         HouseClass *house = HouseClass::As_Pointer(((HouseTypeClass *)Trigger->Class->House)->House);
-        if (house->unknown_1c4 != 0) {
-            house->unknown_1c4--;
+        if (house->Blockage != 0) {
+            house->Blockage--;
         }
-        house->unknown_1e0 = 60;
+        house->BorrowedTime = 60;
     }
     for (TriggerClass *trigger = Trigger; trigger != 0; trigger = trigger->LinkedTo) {
         ObjectsToDelete.Add(trigger);

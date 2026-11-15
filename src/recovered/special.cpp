@@ -1,3 +1,19 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/special.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // special.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -65,7 +81,24 @@
 // by HeaderStatics_empty_rect_init_0068b130.cpp; no source of its own.
 
 
-// void SpecialClass::Init() (0x0068B320)
+/***********************************************************************************************
+ * SpecialClass::Init -- Initialize the special class of options.                              *
+ *                                                                                             *
+ *    This initialization function is required (as opposed to using a constructor) because     *
+ *    the SpecialClass is declared as part of a union. A union cannot have a member with a     *
+ *    constructor. Other than this anomoly, the function serves the same purpose as a          *
+ *    normal constructor.                                                                      *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/20/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0068B320)
 // The default options: bits 0-2 clear, TiberiumSpreads and DestroyableBridges
 // set, EscapeMovies from HKLM\SOFTWARE\Westwood\Red Alert 2\ EscapeMovies
 // (a REG_DWORD, bit 0), everything else clear. `size` is set before the key
@@ -149,7 +182,13 @@ class Leaf_68b420 { public: void get(); };
 void Leaf_68b420::get() {  }
 
 
-// void SpecialClass::Write_INI(INIClass &ini) const (0x0068B430, name hypothesis)
+/// <summary>
+/// Records the special option flags into the scenario file.
+/// This routine is used by the map editor when it saves a scenario back out, so that the
+/// rules in force can be recovered later by Read_INI.
+/// </summary>
+/// <param name="ini">The scenario database to record the flags into.</param>
+// (0x0068B430, name hypothesis)
 // Writes the thirteen named options to [SpecialFlags].
 
 // The original keeps this pointer (to "SpecialFlags") as function-local static data.
@@ -173,7 +212,14 @@ void SpecialClass::Write_INI(INIClass &ini) const
 }
 
 
-// void SpecialClass::Read_INI(INIClass &ini) (0x0068B5A0, name hypothesis)
+/// <summary>
+/// Fetches the special option flags from the scenario file.
+/// This routine is called while the scenario is being read in. The flags that the players
+/// negotiate between themselves are only honored here for a solo mission or when the map
+/// debugger is active -- a network scenario is not allowed to overrule the game options.
+/// </summary>
+/// <param name="ini">The scenario database to fetch the flags from.</param>
+// (0x0068B5A0, name hypothesis)
 // Reads the options from [SpecialFlags]; the Tiberium, bridge, alliance, fog,
 // inert and harvester options are only read outside multiplayer-style games
 // (0x00A3D298 is zero) or when 0x00A40D13 is set.

@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/gauge.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // gauge.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -19,7 +34,22 @@
 // rectangle of shared/shape_file.hpp (0x00866078), the unit's first function.
 
 
-// GaugeClass::GaugeClass(unsigned id, int x, int y, int w, int h) (0x004D00F0)
+/***************************************************************************
+ * GaugeClass::GaugeClass -- class constructor                             *
+ *                                                                         *
+ * INPUT:    id                     -- button ID                           *
+ *                                                                         *
+ *             x,y                     -- upper-left corner, in pixels     *
+ *                                                                         *
+ *             w,h                     -- width, height, in pixels         *
+ *                                                                         *
+ * OUTPUT:   none.                                                         *
+ *                                                                         *
+ * WARNINGS: none.                                                         *
+ *                                                                         *
+ * HISTORY:  01/05/1995 MML : Created.                                     *
+ *=========================================================================*/
+// (0x004D00F0)
 // A sticky 0..255 gauge, horizontal when wider than tall, with a thumb.
 
 GaugeClass::GaugeClass(unsigned id, int x, int y, int w, int h) :
@@ -34,7 +64,24 @@ GaugeClass::GaugeClass(unsigned id, int x, int y, int w, int h) :
 }
 
 
-// int GaugeClass::Set_Maximum(int value) (0x004D0170, slot 34)
+/***********************************************************************************************
+ * GaugeClass::Set_Maximum -- Sets the maximum value for the gauge.                            *
+ *                                                                                             *
+ *    This routine will set the maximum value for the gauge. This is the largest value that    *
+ *    the current setting may reach. The ability to change this allows the gauge to use and    *
+ *    return values that are convenient for the programmer's current needs.                    *
+ *                                                                                             *
+ * INPUT:   value -- The value to use as the gauge maximum.                                    *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the gauge maximum changed? A false indicates that the specified value    *
+ *                already matches the current maximum.                                         *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/16/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x004D0170, slot 34)
 
 int GaugeClass::Set_Maximum(int value)
 {
@@ -47,7 +94,23 @@ int GaugeClass::Set_Maximum(int value)
 }
 
 
-// int GaugeClass::Set_Value(int value) (0x004D0190, slot 35)
+/***********************************************************************************************
+ * GaugeClass::Set_Value -- Set the value of the gauge.                                        *
+ *                                                                                             *
+ *    This routine will set the current value for the gauge. This value is clipped to the      *
+ *    limits of the gauge maximum.                                                             *
+ *                                                                                             *
+ * INPUT:   value -- The value to set at the new current value.                                *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the current setting changed? A false indicates that the setting          *
+ *                specified is the same as what was already there.                             *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/16/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x004D0190, slot 35)
 // Clamps value to 0..MaxValue.
 
 int GaugeClass::Set_Value(int value)
@@ -67,7 +130,22 @@ int GaugeClass::Set_Value(int value)
 }
 
 
-// int GaugeClass::Pixel_To_Value(int pixel) (0x004D01C0, slot 40)
+/***********************************************************************************************
+ * GaugeClass::Pixel_To_Value -- Convert a pixel offset into a gauge value.                    *
+ *                                                                                             *
+ *    Use this routine to convert the specified pixel offset into a gauge value. This is used  *
+ *    in translating mouse clicks into a corresponding setting for the gauge.                  *
+ *                                                                                             *
+ * INPUT:   pixel -- The pixel offset form the start of the gauge.                             *
+ *                                                                                             *
+ * OUTPUT:  Returns with the setting value in gauge coordinates.                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/16/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x004D01C0, slot 40)
 // The value at a screen coordinate along the gauge (inside the 1-pixel border).
 
 int GaugeClass::Pixel_To_Value(int pixel)
@@ -90,7 +168,23 @@ int GaugeClass::Pixel_To_Value(int pixel)
 }
 
 
-// int GaugeClass::Value_To_Pixel(int value) (0x004D0240, slot 41)
+/***********************************************************************************************
+ * GaugeClass::Value_To_Pixel -- Convert gauge value to pixel offset.                          *
+ *                                                                                             *
+ *    Use this routine to convert the specified gauge value into a pixel offset from the       *
+ *    star of the gauge. This is used for thumb positioning.                                   *
+ *                                                                                             *
+ * INPUT:   value -- The value to convert to a pixel offset.                                   *
+ *                                                                                             *
+ * OUTPUT:  Returns with the pixel offset of the specified value from the start of the         *
+ *          gauge.                                                                             *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/16/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x004D0240, slot 41)
 // The screen coordinate of a value along the gauge.
 
 int GaugeClass::Value_To_Pixel(int value)
@@ -109,7 +203,20 @@ int GaugeClass::Value_To_Pixel(int value)
 }
 
 
-// int GaugeClass::Draw_Me(int forced) (0x004D0280, slot 27)
+/***********************************************************************************************
+ * GaugeClass::Draw_Me -- Draws the body of the gauge.                                         *
+ *                                                                                             *
+ *    This routine will draw the body of the gauge if necessary.                               *
+ *                                                                                             *
+ * INPUT:      forced   -- Should the gauge be redrawn regardless of the current redraw flag?  *
+ *                                                                                             *
+ * OUTPUT:     bool; Was the gauge redrawn?                                                    *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:    01/16/1995 JLB : Created.                                                       *
+ *=============================================================================================*/
+// (0x004D0280, slot 27)
 // A box; a colorized gauge fills it up to the value in the gadget colour
 // scheme's colour; then the thumb.
 
@@ -141,7 +248,23 @@ int GaugeClass::Draw_Me(int forced)
 }
 
 
-// int GaugeClass::Action(unsigned flags, unsigned &key) (0x004D0420, slot 31)
+/***********************************************************************************************
+ * GaugeClass::Action -- Handles input events for the gauge.                                   *
+ *                                                                                             *
+ *    This routine will handle input event processing for the gauge. It will adjust the        *
+ *    current setting of the gauge according to the mouse position.                            *
+ *                                                                                             *
+ * INPUT:   flags -- The input event that is the reason for this function call.                *
+ *          key   -- The key code that caused the event.                                       *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the even recognized, processed, and no further gadget scanning is        *
+ *                desired (for this pass).                                                     *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ * HISTORY:                                                                                    *
+ *   01/16/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x004D0420, slot 31)
 // Dragging the thumb sets the value under the mouse (minus the grab offset
 // within the thumb). An unchanged value consumes the input.
 
@@ -178,7 +301,20 @@ int GaugeClass::Action(unsigned flags, unsigned &key)
 }
 
 
-// void GaugeClass::Draw_Thumb() (0x004D0580, slot 39)
+/***********************************************************************************************
+ * GaugeClass::Draw_Thumb -- Draws the body of the gauge.                                      *
+ *                                                                                             *
+ *    This routine will draw the body of the gauge if necessary.                               *
+ *                                                                                             *
+ * INPUT:      none.                                                                           *
+ *                                                                                             *
+ * OUTPUT:     none.                                                                           *
+ *                                                                                             *
+ * WARNINGS:   none.                                                                           *
+ *                                                                                             *
+ * HISTORY:    01/16/1995 MML : Created.                                                       *
+ *=============================================================================================*/
+// (0x004D0580, slot 39)
 // A raised box four pixels long at the current value, kept inside the gauge.
 
 void GaugeClass::Draw_Thumb()
@@ -198,7 +334,20 @@ void GaugeClass::Draw_Thumb()
 }
 
 
-// TriColorGaugeClass::TriColorGaugeClass(unsigned id, int x, int y, int w, int h) (0x004D0630)
+/***********************************************************************************************
+ * TriColorGaugeClass::TriColorGaugeClass -- Constructor for 3 color (red\yellow\green) gauge. *
+ *                                                                                             *
+ *    This routine will draw the body of the gauge if necessary.                               *
+ *                                                                                             *
+ * INPUT:      See below.                                                                      *
+ *                                                                                             *
+ * OUTPUT:     none.                                                                           *
+ *                                                                                             *
+ * WARNINGS:   none.                                                                           *
+ *                                                                                             *
+ * HISTORY:    01/16/1995 MML : Created.                                                       *
+ *=============================================================================================*/
+// (0x004D0630)
 
 TriColorGaugeClass::TriColorGaugeClass(unsigned id, int x, int y, int w, int h) :
     GaugeClass(id, x, y, w, h),
@@ -208,7 +357,18 @@ TriColorGaugeClass::TriColorGaugeClass(unsigned id, int x, int y, int w, int h) 
 }
 
 
-// int TriColorGaugeClass::Set_Red_Limit(int value) (0x004D06D0, slot 42)
+/***********************************************************************************************
+ * TriColorGaugeClass::Set_Red_Limit -- Set the value for the red area of gauge.               *
+ *                                                                                             *
+ * INPUT:      int value.                                                                      *
+ *                                                                                             *
+ * OUTPUT:     bool true of false.                                                             *
+ *                                                                                             *
+ * WARNINGS:   none.                                                                           *
+ *                                                                                             *
+ * HISTORY:    01/16/1995 MML : Created.                                                       *
+ *=============================================================================================*/
+// (0x004D06D0, slot 42)
 
 int TriColorGaugeClass::Set_Red_Limit(int value)
 {
@@ -221,7 +381,18 @@ int TriColorGaugeClass::Set_Red_Limit(int value)
 }
 
 
-// int TriColorGaugeClass::Set_Yellow_Limit(int value) (0x004D0700, slot 43)
+/***********************************************************************************************
+ * TriColorGaugeClass::Set_Yellow_Limit -- Set the value for the yellow area of gauge.         *
+ *                                                                                             *
+ * INPUT:      int value.                                                                      *
+ *                                                                                             *
+ * OUTPUT:     bool true of false.                                                             *
+ *                                                                                             *
+ * WARNINGS:   none.                                                                           *
+ *                                                                                             *
+ * HISTORY:    01/16/1995 MML : Created.                                                       *
+ *=============================================================================================*/
+// (0x004D0700, slot 43)
 
 int TriColorGaugeClass::Set_Yellow_Limit(int value)
 {
@@ -234,7 +405,18 @@ int TriColorGaugeClass::Set_Yellow_Limit(int value)
 }
 
 
-// int TriColorGaugeClass::Draw_Me(int forced) (0x004D0730, slot 27)
+/***********************************************************************************************
+ * TriColorGaugeClass::Draw_Me -- Draw the tri color gauge.                                    *
+ *                                                                                             *
+ * INPUT:      int forced -- draw or not?                                                      *
+ *                                                                                             *
+ * OUTPUT:     bool true of false.                                                             *
+ *                                                                                             *
+ * WARNINGS:   none.                                                                           *
+ *                                                                                             *
+ * HISTORY:    01/16/1995 MML : Created.                                                       *
+ *=============================================================================================*/
+// (0x004D0730, slot 27)
 // Redraws the box (raised when disabled) and fills it in up to three colours:
 // up to the red limit, the yellow limit and the value. Several rectangles
 // keep the original's mixed corner/size arithmetic.

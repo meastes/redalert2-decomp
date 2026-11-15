@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/wspipx.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // wspipx.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -60,7 +75,21 @@
 // by HeaderStatics_diagonal_init_00769ea0.cpp; no source of its own.
 
 
-// IPXInterfaceClass::IPXInterfaceClass() (0x0076A070)
+/***********************************************************************************************
+ * IPXInterfaceClass::IPXInterfaceClass -- Class constructor                                   *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/4/97 11:41AM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0076A070)
 // The network and node addresses start unknown (all 0xFF).
 
 IPXInterfaceClass::IPXInterfaceClass()
@@ -71,7 +100,22 @@ IPXInterfaceClass::IPXInterfaceClass()
 }
 
 
-// int IPXInterfaceClass::Get_Network_Card_Address(int card_number, UnknownIPXSocketAddress *address) (0x0076A0B0)
+/***********************************************************************************************
+ * IPXInterfaceClass::Get_Network_Card_Address -- Get the ID of the installed net card         *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    card number to retrieve ID for                                                    *
+ *           ptr to addr to return ID in                                                       *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/1/97 3:04PM ST : Created                                                               *
+ *=============================================================================================*/
+// (0x0076A0B0)
 // The network and node of an adapter, read through a temporary bound IPX
 // socket; the network is also kept in Network. 0 on failure.
 
@@ -153,7 +197,21 @@ int IPXInterfaceClass::unknown_76a230(int card_number, char *buffer, int length)
 }
 
 
-// bool IPXInterfaceClass::Open_Socket(int socket_number) (0x0076A3A0, slot 15)
+/***********************************************************************************************
+ * IPXInterfaceClass::Open_Socket -- Opens an IPX socket for reading & writing                 *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    SOCKET number to open. This is usually VIRGIN_SOCKET                              *
+ *                                                                                             *
+ * OUTPUT:   true if socket was opened without error                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/4/97 5:54PM ST : Created                                                               *
+ *=============================================================================================*/
+// (0x0076A3A0, slot 15)
 // Opens the IPX datagram socket on the socket number at the address of net
 // card unknown_3f2f8 and sets its broadcast, packet type and filter options.
 
@@ -229,7 +287,21 @@ bool IPXInterfaceClass::Open_Socket(int socket_number)
 }
 
 
-// int IPXInterfaceClass::Message_Handler(int window, int message, int wparam, int lparam) (0x0076A6B0, slot 16)
+/***********************************************************************************************
+ * IPXInterfaceClass::Message_Handler -- Handler for windows messages relating to IPX          *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Usual windoze message handler stuff                                               *
+ *                                                                                             *
+ * OUTPUT:   0 if message was handled                                                          *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/4/97 5:55PM ST : Created                                                               *
+ *=============================================================================================*/
+// (0x0076A6B0, slot 16)
 // The socket notification handler (message 0x473): FD_READ queues an
 // incoming packet that is not our own and passes its CRC check; FD_WRITE
 // sends every queued outgoing packet.

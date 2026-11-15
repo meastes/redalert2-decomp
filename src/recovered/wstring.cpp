@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/wstring.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // wstring.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -10,7 +25,10 @@
 #include "shared/bit_codec.hpp"
 
 
-// Wstring::Wstring() : (0x0076D910)
+/// <summary>
+/// Constructs an empty string.
+/// </summary>
+// (0x0076D910)
 // Empty (null) string.
 
 Wstring::Wstring() :
@@ -19,7 +37,12 @@ Wstring::Wstring() :
 }
 
 
-// Wstring::Wstring(char const *string) : (0x0076D920)
+/// <summary>
+/// Constructs a string from a block of text.
+/// The text is copied into memory this string owns, so the source may be discarded
+/// once construction is complete.
+/// </summary>
+// (0x0076D920)
 // Copy of a C string (an empty string for null).
 
 Wstring::Wstring(char const *string) :
@@ -29,7 +52,11 @@ Wstring::Wstring(char const *string) :
 }
 
 
-// Wstring::Wstring(Wstring const &other) : (0x0076D980)
+/// <summary>
+/// Constructs a copy of another string.
+/// The text is duplicated, so the two strings share no memory afterwards.
+/// </summary>
+// (0x0076D980)
 // Copy constructor; a null source stays null.
 
 Wstring::Wstring(Wstring const &other) :
@@ -42,7 +69,10 @@ Wstring::Wstring(Wstring const &other) :
 }
 
 
-// Wstring::~Wstring() (0x0076D9E0)
+/// <summary>
+/// Destroys the string and frees the text it owns.
+/// </summary>
+// (0x0076D9E0)
 // Frees the buffer.
 
 Wstring::~Wstring()

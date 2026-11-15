@@ -1,3 +1,19 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/warhead.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // warhead.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -137,7 +153,23 @@ WarheadTypeClass::WarheadTypeClass(char const *ini_name) :
 }
 
 
-// WarheadTypeClass::WarheadTypeClass(NoInitClass const &noinit) (0x00720360)
+/***********************************************************************************************
+ * WarheadTypeClass::WarheadTypeClass -- Default constructor for warhead objects.              *
+ *                                                                                             *
+ *    This default constructor for a warhead object will fill in all the default values        *
+ *    for a warhead. It is presumed that these values will be normal unless specifically       *
+ *    overridden by the INI database.                                                          *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/19/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00720360)
 // Load path: only AnimList is constructed (empty).
 
 WarheadTypeClass::WarheadTypeClass(NoInitClass const &noinit) :
@@ -193,6 +225,22 @@ static inline TypeList<AnimTypeClass *> Get_Anim_List(CCINIClass &ini, char cons
     return defvalue;
 }
 
+/***********************************************************************************************
+ * WarheadTypeClass::Read_INI -- Fetches the warhead data from the INI database.               *
+ *                                                                                             *
+ *    Use this routine to retrieve the data specific to this warhead type class object from    *
+ *    the INI database specified. Typical use of this is when processing the rules.ini         *
+ *    file.                                                                                    *
+ *                                                                                             *
+ * INPUT:   ini   -- Reference to the INI database to fetch the values from.                   *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the warhead entry found and the data retrieved?                          *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/19/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
 bool WarheadTypeClass::Read_INI(CCINIClass &ini)
 {
     if (ini.Is_Present(ID)) {
@@ -257,7 +305,12 @@ bool WarheadTypeClass::Read_INI(CCINIClass &ini)
 }
 
 
-// void WarheadTypeClass::Compute_CRC(WWCRCEngine &crc) const (0x00720BD0)
+/// <summary>
+/// Adds this warhead's data to the game state checksum.
+/// This routine is used by the multiplayer sync check to prove that every machine in the
+/// game is playing with the same warhead rules.
+/// </summary>
+// (0x00720BD0)
 
 void WarheadTypeClass::Compute_CRC(WWCRCEngine &crc) const
 {
@@ -291,7 +344,14 @@ void WarheadTypeClass::Compute_CRC(WWCRCEngine &crc) const
 }
 
 
-// HRESULT __stdcall WarheadTypeClass::GetClassID(GUID *clsid) (0x00720D70)
+/// <summary>
+/// Fetches the class identifier of this object.
+/// This routine is part of the persistence interface. The save code stores the identifier
+/// so that the object can be recognized when the game is loaded back in.
+/// </summary>
+/// <param name="retval">Pointer to the identifier to fill in.</param>
+/// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
+// (0x00720D70)
 
 HRESULT __stdcall WarheadTypeClass::GetClassID(GUID *clsid)
 {
@@ -321,6 +381,12 @@ static inline void Load_List(IStream *stream, TypeList<T> &list)
     }
 }
 
+/// <summary>
+/// Reads this warhead back in from the save game stream.
+/// This routine also copes with save games written before the web and limpet data existed,
+/// shifting the trailing values into the places they occupy today.
+/// </summary>
+/// <returns>Returns with S_OK if the warhead was read successfully.</returns>
 HRESULT __stdcall WarheadTypeClass::Load(IStream *stream)
 {
     HRESULT result = AbstractTypeClass::Load(stream);
@@ -337,7 +403,12 @@ HRESULT __stdcall WarheadTypeClass::Load(IStream *stream)
 }
 
 
-// HRESULT __stdcall WarheadTypeClass::Save(IStream *stream, BOOL clear_dirty) (0x00720EC0)
+/// <summary>
+/// Writes this warhead out to the save game stream.
+/// </summary>
+/// <param name="cleardirty">Should the object be considered unmodified after it is written?</param>
+/// <returns>Returns with S_OK if the warhead was written successfully.</returns>
+// (0x00720EC0)
 // The base object, then the animation list as a count and pointers.
 
 HRESULT __stdcall WarheadTypeClass::Save(IStream *stream, BOOL clear_dirty)
@@ -355,7 +426,14 @@ HRESULT __stdcall WarheadTypeClass::Save(IStream *stream, BOOL clear_dirty)
 }
 
 
-// WarheadTypeClass *__fastcall WarheadTypeClass::Find_Or_Make(char const *name) (0x00720F30)
+/// <summary>
+/// Fetches the warhead of the name specified, creating it if it does not exist yet.
+/// Use this routine while processing the rules so that a warhead mentioned before its own
+/// section has been read will still resolve to a real object.
+/// </summary>
+/// <param name="name">The INI name of the warhead desired.</param>
+/// <returns>Returns with a pointer to the warhead type of that name.</returns>
+// (0x00720F30)
 // The named warhead type, created when missing; 0 for "<none>" and "none".
 
 WarheadTypeClass *__fastcall WarheadTypeClass::Find_Or_Make(char const *name)
@@ -372,7 +450,12 @@ WarheadTypeClass *__fastcall WarheadTypeClass::Find_Or_Make(char const *name)
 }
 
 
-// void WarheadTypeClass::Detach(AbstractClass *target, bool all) (0x00720FC0)
+/// <summary>
+/// Removes any reference this warhead holds to the specified object.
+/// This routine is called when an object is about to be destroyed so that the warhead
+/// will not be left pointing at it.
+/// </summary>
+// (0x00720FC0)
 
 void WarheadTypeClass::Detach(AbstractClass *target, bool all)
 {
@@ -384,7 +467,13 @@ void WarheadTypeClass::Detach(AbstractClass *target, bool all)
 }
 
 
-// WarheadTypeClass *__fastcall WarheadTypeClass::From_Name(char const *name) (0x00721020)
+/// <summary>
+/// Finds the warhead type that goes by the name specified.
+/// This routine is used when resolving a warhead reference in the rules database.
+/// </summary>
+/// <param name="name">The INI name of the warhead to search for.</param>
+/// <returns>Returns with a pointer to the warhead type. Otherwise, NULL is returned.</returns>
+// (0x00721020)
 
 WarheadTypeClass *__fastcall WarheadTypeClass::From_Name(char const *name)
 {

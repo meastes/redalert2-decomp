@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/data.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // data.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -14,6 +29,23 @@
 #include "shared/win32_api.hpp"
 
 
+/***********************************************************************************************
+ * Load_Alloc_Data -- Allocates a buffer and loads the file into it.                           *
+ *                                                                                             *
+ *    This is the C++ replacement for the Load_Alloc_Data function. It will allocate the       *
+ *    memory big enough to hold the file and then read the file into it.                       *
+ *                                                                                             *
+ * INPUT:   file  -- The file to read.                                                         *
+ *                                                                                             *
+ *          mem   -- The memory system to use for allocation.                                  *
+ *                                                                                             *
+ * OUTPUT:  Returns with a pointer to the allocated and filled memory block.                   *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   10/17/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
 void *__fastcall Load_Alloc_Data(FileClass &file)
 {
     void *buffer = 0;

@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/dropship.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // dropship.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -99,7 +110,10 @@
 // by HeaderStatics_diagonal_init_004a6720.cpp; no source of its own.
 
 
-// Dynamic initializer (0x004A68F0, _$E) of static_rect from the header(s) included
+/// <summary>
+/// Creates an empty dropship loadout.
+/// </summary>
+// (0x004A68F0, _$E)
 // by HeaderStatics_diagonal_init_004a6720.cpp; no source of its own.
 
 

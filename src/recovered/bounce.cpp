@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/bounce.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // bounce.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -81,6 +92,15 @@ inline double Bounce_Random_Double(double minimum, double maximum)
 {
  return minimum+(maximum-minimum)*((double)Random_Pick(0,0x7ffffffe)*bounce_random_scale);
 }
+/// <summary>
+/// Sets the bouncing object into motion in a random direction.
+/// This routine is used when the caller has no particular direction in mind and just
+/// wants the debris flung somewhere. A speed is picked from the range supplied and aimed
+/// along a random heading and pitch before the object is launched.
+/// </summary>
+/// <param name="elasticity">How much speed the object keeps when it strikes something.</param>
+/// <param name="min_speed">The low end of the speed range to launch the object at.</param>
+/// <param name="max_speed">The high end of the speed range to launch the object at.</param>
 void BounceClass::Init(CoordStruct const &coord, double elasticity, double unused, double min_speed, double max_speed)
 {
  Vector3 velocity;
@@ -125,6 +145,16 @@ inline Vector3 Normalize(Vector3 const &vec)
     return vec;
 }
 
+/// <summary>
+/// Sets the bouncing object into motion.
+/// This routine is called by the animation and voxel animation objects when a piece of
+/// debris is thrown. The axis the object tumbles about is picked at random, so two pieces
+/// launched with the same velocity will still spin differently.
+/// </summary>
+/// <param name="elasticity">How much speed the object keeps when it strikes something.</param>
+/// <param name="gravity">The gravity to pull the object down by each frame.</param>
+/// <param name="max_velocity">The fastest the object is allowed to travel. Use zero for no limit.</param>
+/// <param name="rotation">How quickly the object tumbles about its spin axis.</param>
 void BounceClass::Init(CoordStruct const &coord, double elasticity, double gravity, double max_velocity,
                        Vector3 const &velocity, double rotation)
 {
@@ -166,7 +196,15 @@ Matrix3D BounceClass::unknown_matrix_436fc0() const
 }
 
 
-// double BounceClass::Get_Remaining_Motion() const (0x00436FF0; TibSun bounce.cpp): the
+/// <summary>
+/// Determines how much motion the object has left in it.
+/// This routine weighs the object's speed together with how far it is still standing off
+/// the ground, so that a bouncer caught in mid air is never mistaken for one that has
+/// settled. The bounce logic uses this to decide when the object has come to rest.
+/// </summary>
+/// <returns>Returns with the residual motion of the object. A small value means it has all
+/// but stopped.</returns>
+// (0x00436FF0; TibSun bounce.cpp)
 // speed plus the height above the ground (or bridge deck) scaled by gravity; small means at rest.
 
 double BounceClass::Get_Remaining_Motion() const
@@ -214,6 +252,17 @@ static inline int Bridge_Height(CoordStruct const &coord, int &ground)
     return height + unknown_geometry_j;
 }
 
+/// <summary>
+/// Handles the physics of the bouncing object for one frame.
+/// This routine will pull the object down with gravity, move it along its velocity, and
+/// then settle it onto whatever it lands on -- the ground, a bridge deck, or a building
+/// or wall that gets in the way. An impact reflects the velocity off the slope of the
+/// cell and reverses the tumble. An object that runs off a cliff edge is put back where
+/// it started and bounced away from the drop instead.
+/// </summary>
+/// <returns>Returns BOUNCE_IMPACT if the object struck a surface this frame,
+/// BOUNCE_SETTLED if it has come to rest, or BOUNCE_MOVING if it is still traveling.</returns>
+/// <remarks>Only call this routine once per bouncing object per game logic loop.</remarks>
 BounceResultType BounceClass::AI()
 {
     BounceResultType bounce_result = BOUNCE_MOVING;

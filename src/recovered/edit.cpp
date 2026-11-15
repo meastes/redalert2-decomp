@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/edit.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // edit.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -15,7 +30,41 @@
 // rectangle of shared/shape_file.hpp (0x00853080), the unit's first function.
 
 
-// EditClass::EditClass(unsigned id, wchar_t *text, int max_len, unsigned flags, int x, int y, int w, int h, int editflags) (0x004B2970)
+/***********************************************************************************************
+ * EditClass::EditClass -- Normal constructor for edit class object.                           *
+ *                                                                                             *
+ *    This is the normal constructor used to create an edit object.                            *
+ *                                                                                             *
+ * INPUT:   id    -- The ID number for this edit object. This is the ID number that will be    *
+ *                   returned by the Input() function when the <RETURN> key is pressed if this *
+ *                   gadget has the keyboard input focus.                                      *
+ *                                                                                             *
+ *          text  -- Reference to the text buffer that the edit gadget will modify as keyboard *
+ *                   input is processed. The value that this buffer contains is the default    *
+ *                   text displayed.                                                           *
+ *                                                                                             *
+ *          maxlen-- The maximum size of the text buffer specified. This length INCLUDES the   *
+ *                   trailing null character so a simple sizeof() function call can be used.   *
+ *                                                                                             *
+ *          flags -- These are the text print control flags. It is used to control how the     *
+ *                   text looks in the edit box. Use the normal TPF_??? flags.                 *
+ *                                                                                             *
+ *          x,y   -- The pixel coordinates of the upper left corner of the edit gadget area.   *
+ *                                                                                             *
+ *          w,h   -- The pixel dimensions of the edit box. If either of these are no provided, *
+ *                   or set to -1, then the dimension is determined from the string itself.    *
+ *                                                                                             *
+ *          sytle -- This style flag parameter control what kind of characters are allowed in  *
+ *                   the edit box. The initial string in the text buffer may contain illegal   *
+ *                   characters, but they are NOT removed regardless of this parameter.        *
+ *                                                                                             *
+ * OUTPUT:     none                                                                            *
+ * WARNINGS:   none                                                                            *
+ * HISTORY:                                                                                    *
+ *   01/05/1995 MML : Created.                                                                 *
+ *   01/21/1995 JLB : Modified.                                                                *
+ *=============================================================================================*/
+// (0x004B2970)
 // A width or height of -1 fits the text (or max_len wide characters) in the
 // style's font.
 
@@ -44,7 +93,21 @@ EditClass::EditClass(unsigned id, wchar_t *text, int max_len, unsigned flags, in
 }
 
 
-// EditClass::~EditClass() (0x004B2A60)
+/***********************************************************************************************
+ * EditClass::~EditClass -- Default destructor for the edit gadget.                            *
+ *                                                                                             *
+ *    This default destructor removes the focus setting if it currently has it.                *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/24/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x004B2A60)
 
 EditClass::~EditClass()
 {
@@ -54,7 +117,21 @@ EditClass::~EditClass()
 }
 
 
-// void EditClass::Set_Text(wchar_t *text, int max_len) (0x004B2A90, slot 34)
+/***********************************************************************************************
+ * EditClass::Set_Text -- Sets the text to the edit gadget.                                    *
+ *                                                                                             *
+ *    Use this routine to change the text that this edit gadget refers to.                     *
+ *                                                                                             *
+ * INPUT:   text     -- Reference to the character array that this edit gadget will be         *
+ *                      modifying.                                                             *
+ *          max_len  -- The maximum size of the buffer that will be modified.                  *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ * WARNINGS:   none                                                                            *
+ * HISTORY:                                                                                    *
+ *   01/21/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x004B2A90, slot 34)
 
 void EditClass::Set_Text(wchar_t *text, int max_len)
 {
@@ -65,7 +142,22 @@ void EditClass::Set_Text(wchar_t *text, int max_len)
 }
 
 
-// int EditClass::Draw_Me(int forced) (0x004B2AC0, slot 27)
+/***********************************************************************************************
+ * EditClass::Draw_Me -- Draws the edit box and embedded text.                                 *
+ *                                                                                             *
+ *    This routine will render the edit box. This will show the box outline as well as any     *
+ *    text it may contain.                                                                     *
+ *                                                                                             *
+ * INPUT:   forced   -- Should the edit box be drawn even if it thinks it doesn't have to?     *
+ *                                                                                             *
+ * OUTPUT:  Was the edit box drawn?                                                            *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   06/25/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x004B2AC0, slot 27)
 // Draws the field with the mouse hidden over it.
 
 int EditClass::Draw_Me(int forced)
@@ -81,6 +173,23 @@ int EditClass::Draw_Me(int forced)
 }
 
 
+/***********************************************************************************************
+ * EditClass::Action -- Handles input events.                                                  *
+ *                                                                                             *
+ *    This routine will handle all mouse and keyboard events directed at this edit box         *
+ *    gadget. For keyboard events, this will insert the characters into the edit box.          *
+ *                                                                                             *
+ * INPUT:   flags -- The event flag that triggered this function call.                         *
+ *                                                                                             *
+ *          key   -- Reference to the keyboard/mouse event that triggered this function call.  *
+ *                                                                                             *
+ * OUTPUT:  Should the list be processed further?                                              *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   06/25/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
 int EditClass::Action(unsigned flags, unsigned &key)
 {
     if (IsReadOnly) return 0;
@@ -116,7 +225,22 @@ done:
 }
 
 
-// void EditClass::Draw_Background() (0x004B2C50, slot 36)
+/***********************************************************************************************
+ * EditClass::Draw_Background -- Draw the background to the edit gadget.                       *
+ *                                                                                             *
+ *    This routine will redraw the edit gadget background. The overlaying text is handled by   *
+ *    a different routine. The mouse is guaranteed to be hidden when this routine is called.   *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/21/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x004B2C50, slot 36)
 // An outlined box (style 4), filled.
 
 void EditClass::Draw_Background()
@@ -125,7 +249,23 @@ void EditClass::Draw_Background()
 }
 
 
-// void EditClass::Draw_Text(wchar_t const *text) (0x004B2C90, slot 37)
+/***********************************************************************************************
+ * EditClass::Draw_Text -- Draws the edit gadget text.                                         *
+ *                                                                                             *
+ *    This routine is called when the edit gadget text needs to be drawn. The background has   *
+ *    already been drawn by the time this function is called. The mouse is guaranteed to be    *
+ *    hidden as well.                                                                          *
+ *                                                                                             *
+ * INPUT:   text  -- The text to draw in the edit gadget.                                      *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/21/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x004B2C90, slot 37)
 // Prints the text inside the box (bright, 0x2000, while it has the focus)
 // in colour scheme Color, clipped to the inner width; with the focus and
 // room for another character, an underscore cursor follows the text.
@@ -148,7 +288,24 @@ void EditClass::Draw_Text(wchar_t const *text)
 }
 
 
-// bool EditClass::Handle_Key(int ascii) (0x004B2DD0, slot 38)
+/***********************************************************************************************
+ * EditClass::Handle_Key -- Handles keyboard input to edit gadget.                             *
+ *                                                                                             *
+ *    This is the gruntwork routine that processes keyboard input to the edit gadget. This     *
+ *    routine will be called when keyboard input has been detected and this gadget has the     *
+ *    current focus.                                                                           *
+ *                                                                                             *
+ * INPUT:   ascii -- The ASCII key code that was fetched from the keyboard buffer.             *
+ *                                                                                             *
+ * OUTPUT:  bool; Should this keyboard input NOT cause the gadget ID number to be returned     *
+ *                from the controlling Input() routine? Typically, the return value would be   *
+ *                true unless the focus is lost due to the <RETURN> key being pressed.         *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ * HISTORY:                                                                                    *
+ *   01/21/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x004B2DD0, slot 38)
 // Westwood's edit-key handling: 0 does nothing, backspace (8) removes the
 // last character, return (13) drops the focus (and answers false); any
 // other key that fits (pixel width and MaxLength) is appended when allowed
@@ -209,7 +366,13 @@ bool EditClass::Handle_Key(int ascii)
 }
 
 
-// void EditClass::Set_Focus() (0x004B2F20, slot 20)
+/// <summary>
+/// Gives the keyboard focus to this edit gadget.
+/// This routine will resynchronize the edit length with whatever text the gadget was
+/// handed before letting the normal focus processing proceed, so that typing continues
+/// from the end of the existing text rather than overwriting it.
+/// </summary>
+// (0x004B2F20, slot 20)
 // Puts the cursor at the end of the text.
 
 void EditClass::Set_Focus()

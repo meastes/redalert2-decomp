@@ -1,3 +1,15 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/tiberium.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // tiberium.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -105,7 +117,12 @@ TiberiumClass::TiberiumClass(char const *ini_name)
 }
 
 
-// TiberiumClass::~TiberiumClass() (0x006E8B60)
+/// <summary>
+/// Destroys the tiberium type.
+/// This routine releases the spread and growth tracking data and takes the tiberium type
+/// back out of the master tiberium list.
+/// </summary>
+// (0x006E8B60)
 
 TiberiumClass::~TiberiumClass()
 {
@@ -135,7 +152,13 @@ TiberiumClass::~TiberiumClass()
 }
 
 
-// bool TiberiumClass::Read_INI(CCINIClass &ini) (0x006E8D30, slot 25)
+/// <summary>
+/// Fetches this tiberium type's settings from the rules.
+/// This routine reads the spread and growth behavior, the harvest value and power
+/// rating, and the artwork the tiberium is drawn and shattered with.
+/// </summary>
+/// <returns>bool; Was this tiberium type present in the database?</returns>
+// (0x006E8D30, slot 25)
 // Spread and growth rates, value, power, colour and debris animations, then
 // the overlay image set chosen by "Image=" (-1 keeps the current one).
 // Assumptions: overlay indices 27/127/147/102 are the first images of the
@@ -214,7 +237,12 @@ bool __fastcall TiberiumClass::Read_Types(CCINIClass &ini)
 }
 
 
-// TiberiumClass::Compute_CRC (0x006E90A0, slot 13): the AbstractTypeClass part, then the spread and growth rates,
+/// <summary>
+/// Adds this tiberium type to the game state checksum.
+/// This routine is used by the network sync check to prove that every machine agrees on
+/// the tiberium rules in force.
+/// </summary>
+// (0x006E90A0, slot 13)
 // value, power, colour scheme and the image fields (TibSun tiberium.cpp: SpreadDelay, GrowthDelay, CreditValue,
 // Power, Color, FrameCount, Variety).
 
@@ -231,7 +259,15 @@ void TiberiumClass::Compute_CRC(WWCRCEngine &crc) const
 }
 
 
-// HRESULT TiberiumClass::Load(IStream *stream) (0x006E9160)
+/// <summary>
+/// Loads this tiberium type from a stream.
+/// This routine is used by the save game system to read the tiberium type back in and
+/// to reattach it to the artwork it refers to.
+/// </summary>
+/// <returns>Returns with S_OK if the tiberium type was loaded.</returns>
+/// <remarks>The spread and growth systems are not saved, so they come back empty. They
+/// must be rebuilt once the game has finished loading.</remarks>
+// (0x006E9160)
 // Drops the spread and growth queues and the debris list, loads the base type, restores the object
 // in place and the debris list, fixes up the pointers and leaves the queues to be rebuilt (TibSun
 // tiberium.cpp).
@@ -292,7 +328,14 @@ int __stdcall GetSizeMax_006e9380(int self, int *size)
 }  // namespace seed_006e9380
 
 
-// TiberiumClass::Save (0x006E93B0)
+/// <summary>
+/// Saves this tiberium type to a stream.
+/// This routine is used by the save game system to persist the tiberium type, along with
+/// the list of debris animations it throws off.
+/// </summary>
+/// <param name="cleardirty">Should the object be marked as clean once it is written?</param>
+/// <returns>Returns with S_OK if the tiberium type was saved.</returns>
+// (0x006E93B0)
 
 HRESULT __stdcall TiberiumClass::Save(IStream *stream, BOOL clear_dirty)
 {
@@ -305,7 +348,12 @@ HRESULT __stdcall TiberiumClass::Save(IStream *stream, BOOL clear_dirty)
 }
 
 
-// TiberiumClass::Detach (0x006E9420)
+/// <summary>
+/// Removes any reference this tiberium type holds to the specified object.
+/// This routine is called when an object is about to leave the game, so that the
+/// tiberium type is not left pointing at artwork that no longer exists.
+/// </summary>
+// (0x006E9420)
 
 void TiberiumClass::Detach(AbstractClass *target, bool all)
 {
@@ -320,7 +368,13 @@ void TiberiumClass::Detach(AbstractClass *target, bool all)
 }
 
 
-// void TiberiumClass::Spread_AI() (0x006E9490)
+/// <summary>
+/// Handles the spreading logic for this tiberium type.
+/// This routine seeds new tiberium from a share of the enqueued cells, keeping any cell
+/// that still has room around it in the queue for a later pass. The share taken is
+/// randomized so that the spreading does not look mechanical.
+/// </summary>
+// (0x006E9490)
 // While the scenario lets tiberium spread, each type whose spread timer has run out spreads once and
 // restarts the timer at its Spread rate.
 
@@ -338,7 +392,12 @@ void TiberiumClass::Spread_AI()
 }
 
 
-// void TiberiumClass::Init_Spread() (0x006E9520)
+/// <summary>
+/// Allocates the tiberium spread tracking data.
+/// This routine sets the spread system up for the current map and primes it with every
+/// cell that is able to spread. Any previous spread data is discarded first.
+/// </summary>
+// (0x006E9520)
 // Rebuilds the spread queue of every tiberium type for the current map (Init_Spread_Queue's body, written
 // out: the original expands that member here and keeps its unreferenced copy after this function).
 
@@ -617,7 +676,13 @@ void TiberiumClass::Add_Spread_Cell(Cell const &cell)
 }
 
 
-// void TiberiumClass::Growth_AI() (0x006E9F20)
+/// <summary>
+/// Handles the growth logic for this tiberium type.
+/// This routine ripens a share of the enqueued cells, keeping any cell that has not
+/// reached full bloom in the queue and offering it to the spread system as it matures.
+/// The share taken is randomized so that the growth does not look mechanical.
+/// </summary>
+// (0x006E9F20)
 // While the scenario lets tiberium spread, each type whose growth timer has run out grows once and
 // restarts the timer at its Growth rate (0.3 of it with the TiberiumGrows option).
 
@@ -636,7 +701,12 @@ void TiberiumClass::Growth_AI()
 }
 
 
-// void TiberiumClass::Init_Growth() (0x006E9FE0)
+/// <summary>
+/// Allocates the tiberium growth tracking data.
+/// This routine sets the growth system up for the current map and primes it with every
+/// cell that is able to grow. Any previous growth data is discarded first.
+/// </summary>
+// (0x006E9FE0)
 // Rebuilds the growth queue of every tiberium type for the current map (Init_Growth_Queue's body, written
 // out: the original expands that member here and keeps its unreferenced copy after this function).
 

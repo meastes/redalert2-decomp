@@ -1,3 +1,19 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/overlay.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // overlay.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -91,7 +107,23 @@
 // by HeaderStatics_diagonal_init_005da5e0.cpp; no source of its own.
 
 
-// OverlayClass::OverlayClass(OverlayTypeClass *type, Cell const &cell, int house) (0x005DA7D0)
+/***********************************************************************************************
+ * OverlayClass::OverlayClass -- Overlay object constructor.                                   *
+ *                                                                                             *
+ *    This is the constructor for a overlay object.                                            *
+ *                                                                                             *
+ * INPUT:   type  -- The overlay object this is to become.                                     *
+ *                                                                                             *
+ *          pos   -- The position on the map to place the object.                              *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/17/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x005DA7D0)
 // Registers the overlay and places it at the centre of the cell (unless it
 // is the zero cell) for the given house.
 // Assumptions: slot 53 places an object (Unlimbo); the house global at
@@ -111,7 +143,12 @@ OverlayClass::OverlayClass(OverlayTypeClass *type, Cell const &cell, int house) 
 }
 
 
-// OverlayClass::~OverlayClass() (0x005DA8D0)
+/// <summary>
+/// Removes the overlay from the game.
+/// This routine detaches the overlay from anything that might still be referring to it
+/// and then lifts it off the map.
+/// </summary>
+// (0x005DA8D0)
 // Leaves the notice lists and the overlay list; leaves the map (ObjectClass
 // slot 52) only when the 0x00A40958 flag is set.
 
@@ -141,6 +178,23 @@ inline Cell Adjacent_Cell(Cell const &cell, int facing)
 #endif
 
 
+/***********************************************************************************************
+ * OverlayClass::Mark -- Marks the overlay down on the map.                                    *
+ *                                                                                             *
+ *    This routine will place the overlay onto the map. The overlay object is deleted by this  *
+ *    operation. The map is updated to reflect the presence of the overlay.                    *
+ *                                                                                             *
+ * INPUT:   mark  -- The type of marking to perform. Only MARK_DOWN is supported.              *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the overlay successfully marked? Failure occurs if it is not being       *
+ *                marked down.                                                                 *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/24/1994 JLB : Created.                                                                 *
+ *   12/23/1994 JLB : Checks low level legality before proceeding.                             *
+ *=============================================================================================*/
 bool OverlayClass::Mark(int mark)
 {
     int i;
@@ -420,7 +474,23 @@ bool OverlayClass::Mark(int mark)
 // atexit thunk of a function-local Cell static (0x005DB660, _$E42, only returns): emitted by OverlayClass_Mark_005da970.cpp; no source of its own.
 
 
-// static void __fastcall OverlayClass::Read_INI(CCINIClass &ini) (0x005DB670)
+/***********************************************************************************************
+ * OverlayClass::Read_INI -- Reads the overlay data from an INI file.                          *
+ *                                                                                             *
+ *    This routine is used to load a scenario's overlay data. The overlay objects are read     *
+ *    from the INI file and then created on the map.                                           *
+ *                                                                                             *
+ * INPUT:   buffer   -- Pointer to the INI file staging buffer.                                *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   Requires that all the buildings be placed first, so the scan for assigning wall *
+ *             ownership to the nearest building will work.                                    *
+ * HISTORY:                                                                                    *
+ *   09/01/1994 JLB : Created.                                                                 *
+ *   07/24/1995 JLB : Specifically forbid manual crates in multiplayer scenarios.              *
+ *=============================================================================================*/
+// (0x005DB670)
 // Reads [OverlayPack] (an overlay index per cell, LCW compressed) and
 // [OverlayDataPack] (the overlay data byte per cell) of a scenario through a
 // scratch 640 x 400 surface; every overlay with an image is created, and
@@ -489,7 +559,13 @@ void __fastcall OverlayClass::Read_INI(CCINIClass &ini)
 }
 
 
-// static void __fastcall OverlayClass::Write_INI(CCINIClass &ini) (0x005DBA30)
+/// <summary>
+/// Stores the map's overlay layer into the INI database.
+/// This routine is used when a scenario is saved. The overlay and overlay data of every
+/// cell are compressed into the OverlayPack and OverlayDataPack sections, replacing
+/// whatever the database held before.
+/// </summary>
+// (0x005DBA30)
 // Rewrites [OverlayPack] and [OverlayDataPack]: the overlay index and the
 // overlay data byte of every cell of the 512 x 512 map, LCW compressed into
 // the hidden surface's memory and stored as UU blocks.
@@ -537,7 +613,13 @@ void __fastcall OverlayClass::Write_INI(CCINIClass &ini)
 }
 
 
-// HRESULT __stdcall OverlayClass::Load(IStream *stream) (0x005DBC80)
+/// <summary>
+/// Loads this overlay from the supplied stream.
+/// The overlay is rebuilt in place and its type class pointer is remapped so that it
+/// refers to the running game's overlay type heap rather than the saved one.
+/// </summary>
+/// <returns>Returns with S_OK if the overlay was read, otherwise an error code.</returns>
+// (0x005DBC80)
 // Restores the overlay in place and swizzles its type.
 
 HRESULT __stdcall OverlayClass::Load(IStream *stream)
@@ -576,6 +658,14 @@ int __fastcall Unknown_006A2970(int distance);              // 0x006A2970
 extern int unknown_int_839634;                              // 0x00839634
 extern short unknown_short_8325d0;                          // 0x008325D0
 
+/// <summary>
+/// Draws this overlay onto the tactical map.
+/// This routine handles the three flavors of overlay separately. Tiberium is drawn with
+/// the color scheme of the tiberium it belongs to, veins with the player's own scheme,
+/// and every other overlay with the drawer of the cell it occupies.
+/// </summary>
+/// <param name="point">The pixel location to draw the overlay at.</param>
+/// <param name="cliprect">The clipping rectangle to draw within.</param>
 void OverlayClass::Editor_Draw_It(Point2D const &point, Rect const &window)
 {
     void *shape = Class->Get_Image_Data();
@@ -661,7 +751,11 @@ int __fastcall OverlayClass::To_Tiberium(int overlay)
 }
 
 
-// ObjectTypeClass *OverlayClass::Class_Of() const (0x005DC170)
+/// <summary>
+/// Fetches the type class of this overlay.
+/// </summary>
+/// <returns>Returns with a pointer to the type class this overlay was made from.</returns>
+// (0x005DC170)
 
 ObjectTypeClass *OverlayClass::Class_Of() const
 {
@@ -669,7 +763,13 @@ ObjectTypeClass *OverlayClass::Class_Of() const
 }
 
 
-// static void OverlayClass::Post_Read_Vein_Fixups() (0x005DC180)
+/// <summary>
+/// Repairs the vein overlay after a scenario has been loaded.
+/// This routine is called once the map cells are in place. The saved veins are
+/// stripped back to bare ground and the solid ones are then placed again, so that the
+/// vein network ends up consistent with the terrain it grew over.
+/// </summary>
+// (0x005DC180)
 // Removes overlay 0x7E from every cell, remembering the cells whose
 // overlay data was at least 0x30, then runs the 0x0047A670 / 0x0047AD00
 // pair on those cells in reverse order.

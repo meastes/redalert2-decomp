@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/radar.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // radar.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -162,6 +177,21 @@ static inline HashTableClass<RadarTrackingStruct, TechnoClass *> *Make_Table(int
     return new HashTableClass<RadarTrackingStruct, TechnoClass *>(growth, count, Unknown_00631C60);
 }
 
+/***********************************************************************************************
+ * RadarClass::RadarClass -- Default constructor for RadarClass object.                        *
+ *                                                                                             *
+ *    This default constructor merely sets the radar specific values to default settings. The  *
+ *    radar must be deliberately activated in order for it to be displayed.                    *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   12/16/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
 RadarClass::RadarClass()
     : unknown_11e4(0), unknown_11e8(0), unknown_11ec(0), unknown_11f0(0), unknown_11f4(0), unknown_11f8(0),
       unknown_11fc(0), unknown_1200(0), unknown_1208(unknown_rect_ab6320), unknown_1218(0), unknown_121c(0),
@@ -176,7 +206,10 @@ RadarClass::RadarClass()
 }
 
 
-// RadarClass::~RadarClass() (0x0062F080)
+/// <summary>
+/// Destroys the radar map, releasing its surfaces and object tracking table.
+/// </summary>
+// (0x0062F080)
 // Releases the radar's list at +0x14BC and its tracking table (0x00631E40);
 // the member vectors and the map layers follow.
 
@@ -187,7 +220,10 @@ RadarClass::~RadarClass()
 }
 
 
-// void RadarClass::Queue_Next_Movie() (0x0062F150)
+/// <summary>
+/// Starts the next queued radar movie.
+/// </summary>
+// (0x0062F150)
 // Sets +0x14A8 to 4 and +0x14F8 to 25. No direct callers (inlined elsewhere).
 
 void RadarClass::Queue_Next_Movie()
@@ -197,7 +233,24 @@ void RadarClass::Queue_Next_Movie()
 }
 
 
-// void RadarClass::One_Time() (0x0062F170, slot 5)
+/***********************************************************************************************
+ * RadarClass::One_Time -- Handles one time processing for the radar map.                      *
+ *                                                                                             *
+ *    This routine handles any one time processing required in order for the radar map to      *
+ *    function. This actually only requires an allocation of the radar staging buffer. This    *
+ *    buffer is needed for those cases where the radar area of the page is being destroyed     *
+ *    and it needs to be destroyed.                                                            *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   Be sure to call this routine only ONCE.                                         *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   12/22/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0062F170, slot 5)
 // Fixes the radar's screen metrics, runs the display's one-time setup,
 // places the radar button and looks up the incoming-transmission voice.
 
@@ -221,7 +274,10 @@ void RadarClass::One_Time()
 }
 
 
-// void RadarClass::DisposeOfArt() (0x0062F210, slot 50)
+/// <summary>
+/// Frees the artwork of the two buttons beside the radar.
+/// </summary>
+// (0x0062F210, slot 50)
 // Frees the radar's two shapes when they were loaded rather than retrieved.
 
 void RadarClass::DisposeOfArt()
@@ -239,7 +295,22 @@ void RadarClass::DisposeOfArt()
 }
 
 
-// void RadarClass::Init_Clear() (0x0062F260, slot 7)
+/***********************************************************************************************
+ * RadarClass::Init_Clear -- Sets the radar map to a known state.                              *
+ *                                                                                             *
+ *    This routine is used to initialize the radar map at the start of the scenario. It        *
+ *    sets the radar map position and starts it in the disabled state.                         *
+ *                                                                                             *
+ * INPUT:   theater  -- The theater that the scenario is starting (unused by this routine).    *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   12/22/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0062F260, slot 7)
 // Clears the display, then the radar's state and its two lists.
 
 void RadarClass::Init_Clear()
@@ -259,7 +330,10 @@ void RadarClass::Init_Clear()
 }
 
 
-// void RadarClass::Set_Buttons(bool add) (0x0062F2D0)
+/// <summary>
+/// Adds or removes the two buttons beside the radar.
+/// </summary>
+// (0x0062F2D0)
 // Adds the two radar shape buttons to the button list, or removes them.
 
 void RadarClass::Set_Buttons(bool add)
@@ -274,6 +348,10 @@ void RadarClass::Set_Buttons(bool add)
 }
 
 
+/// <summary>
+/// Handles the radar initialization required for the player's house.
+/// This routine loads the artwork of the two buttons beside the radar and places them.
+/// </summary>
 // Radar Init_For_House0062F310, independent372+12.
 void RadarClass::Init_For_House()
 {
@@ -303,7 +381,10 @@ void RadarClass::Init_For_House()
 }
 
 
-// void RadarClass::Init_IO() (0x0062F490, slot 8)
+/// <summary>
+/// Sets up the two buttons beside the radar.
+/// </summary>
+// (0x0062F490, slot 8)
 // After the display's controls, sets up the two radar shape buttons (ids
 // 0xF2 and 0xF3) at their positions with their shapes.
 
@@ -334,7 +415,24 @@ void RadarClass::Init_IO()
 }
 
 
-// void RadarClass::Draw_It(bool complete) (0x0062F580, slot 16)
+/***********************************************************************************************
+ * RadarClass::Draw_It -- Displays the radar map of the terrain.                               *
+ *                                                                                             *
+ *    This is used to display the radar map that appears in the lower                          *
+ *    right corner. The main changes to this map are the vehicles and                          *
+ *    structure pixels.                                                                        *
+ *                                                                                             *
+ * INPUT:      none                                                                            *
+ *                                                                                             *
+ * OUTPUT:     none                                                                            *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   04/24/1991 JLB : Created.                                                                 *
+ *   05/08/1994 JLB : Converted to member function.                                            *
+ *=============================================================================================*/
+// (0x0062F580, slot 16)
 // Draws the radar frame: the background art and the two radar buttons when a
 // redraw is due, the radar button's open/close animation (+0x14A8 2 closes,
 // 3 opens, one frame per four ticks of +0x14FC), the radar events and image,
@@ -458,7 +556,24 @@ void __stdcall FUN_0062fbc0(int unused_0, int unused_1)
 }  // namespace seed_0062fbc0
 
 
-// Cell RadarClass::Click_Cell_Calc(Point2D const &xy) (0x0062FBD0, slot 51)
+/***********************************************************************************************
+ * RadarClass::Click_Cell_Calc -- Determines what cell the pixel coordinate is over.           *
+ *                                                                                             *
+ *    This routine will examine the pixel coordinate provided and determine what cell it       *
+ *    represents. If the radar map is not active or the coordinates are not positioned over    *
+ *    the radar map, then it will fall into the base class corresponding routine.              *
+ *                                                                                             *
+ * INPUT:   x,y   -- The pixel coordinate to convert into a cell number.                       *
+ *                                                                                             *
+ * OUTPUT:  Returns with the cell number that the coordinate is over or -1 if not over any     *
+ *          cell.                                                                              *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   12/22/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0062FBD0, slot 51)
 // The cell under a screen point: the cached cell (0x00AB6330) when the point
 // maps to the cached coordinate (0x00AB6370), else the tactical view's cell.
 // Both branches on the flag at 0x00A40D13 compile to the same call.
@@ -477,7 +592,23 @@ Cell RadarClass::Click_Cell_Calc(Point2D const &xy)
 }
 
 
-// bool RadarClass::Map_Cell(Cell const &cell, HouseClass *house) (0x0062FC80)
+/***********************************************************************************************
+ * RadarClass::Map_Cell -- Updates radar map when a cell becomes mapped.                       *
+ *                                                                                             *
+ *    This routine will update the radar map if a cell becomes mapped.                         *
+ *                                                                                             *
+ * INPUT:   cell  -- The cell that is being mapped.                                            *
+ *                                                                                             *
+ *          house -- The house that is doing the mapping.                                      *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the cell mapped (for the first time) by this routine?                    *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   12/22/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0062FC80)
 // Passes the call on (the radar adds nothing).
 
 bool RadarClass::Map_Cell(Cell const &cell, HouseClass *house)
@@ -489,7 +620,10 @@ bool RadarClass::Map_Cell(Cell const &cell, HouseClass *house)
 }
 
 
-// bool RadarClass::RevealFogShroud(Cell const &cell, HouseClass *house, bool arg3) (0x0062FCA0)
+/// <summary>
+/// Hands the cell to the base class unchanged.
+/// </summary>
+// (0x0062FCA0)
 // Passes the call on (the radar adds nothing).
 
 bool RadarClass::RevealFogShroud(Cell const &cell, HouseClass *house, bool arg3)
@@ -501,7 +635,28 @@ bool RadarClass::RevealFogShroud(Cell const &cell, HouseClass *house, bool arg3)
 }
 
 
-// void RadarClass::AI(int &input, Point2D const &xy) (0x0062FCC0, slot 10)
+/***********************************************************************************************
+ * RadarClass::AI -- Processes radar input (non-tactical).                                     *
+ *                                                                                             *
+ *    This routine intercepts any player input that concerns the radar map, but not those      *
+ *    areas that represent the tactical map. These are handled by the tactical map AI          *
+ *    processor. Primarily, this routine handles the little buttons that border the radar      *
+ *    map.                                                                                     *
+ *                                                                                             *
+ * INPUT:   input -- The player input code.                                                    *
+ *                                                                                             *
+ *          x,y   -- Mouse coordinate parameters to use.                                       *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   12/23/1994 JLB : Created.                                                                 *
+ *   12/26/1994 JLB : Moves tactical map with click or drag.                                   *
+ *   12/31/1994 JLB : Uses mouse coordinate parameters.                                        *
+ *=============================================================================================*/
+// (0x0062FCC0, slot 10)
 // After the display's AI: the normal mouse over either radar button (shifted
 // right by the tactical width when the sidebar is on the right), the
 // button presses (0x80F2 selects mode 9 outside multiplayer or with a
@@ -550,6 +705,24 @@ void RadarClass::AI(int &input, Point2D const &xy)
 // int RTacticalClass::Action(unsigned flags, unsigned &key) (0x0062FE30, slot 31)
 // The radar's tactical gadget: a click on the radar picks the cell (and object) under it; with a
 // pending action it shows or performs it on the map, otherwise a click recentres the tactical view
+/***********************************************************************************************
+ * RadarClass::RTacticalClass::Action -- I/O function for the radar map.                       *
+ *                                                                                             *
+ *    This is the main action function for handling player I/O on the radar map. It processes  *
+ *    mouse clicks as well as mouse moves.                                                     *
+ *                                                                                             *
+ * INPUT:   flags -- The event flags that trigger this function call.                          *
+ *                                                                                             *
+ *          key   -- Reference the keyboard event that applies to the trigger event.           *
+ *                                                                                             *
+ * OUTPUT:  Should further processing of the input list be aborted?                            *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/08/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006539D0)
 // on that cell, clamped to the playable diamond (TibSun RadarClass::RTacticalClass::Action; the
 // ra2-decomp YR twin has the same four edge clamps). Draft: Scout704/Scout829, Scout836, Scout894.
 // The nested press/cell tests through Cell's operator!= and the CoordStruct(Cell) conversion follow
@@ -686,7 +859,24 @@ int RTacticalClass::Action(unsigned flags, unsigned &key)
 }
 
 
-// void RadarClass::Set_Map_Dimensions(Rect const *rect, bool arg2, int arg3, bool arg4) (0x00630300, slot 28)
+/***********************************************************************************************
+ * RadarClass::Set_Map_Dimensions -- Sets the tactical map dimensions.                         *
+ *                                                                                             *
+ *    This routine is called when the tactical map changes its dimensions. This occurs when    *
+ *    the tactical map moves and when the sidebar pops on or off.                              *
+ *                                                                                             *
+ * INPUT:   x,y   -- The cell coordinate of the upper left corner of the tactical map.         *
+ *                                                                                             *
+ *          w,y   -- The cell width and height of the tactical map.                            *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/08/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00630300, slot 28)
 // Passes the map dimensions on to the base class (TibSun RadarClass::Set_Map_Dimensions).
 
 void RadarClass::Set_Map_Dimensions(Rect const *rect, bool arg2, int arg3, bool arg4)
@@ -695,7 +885,23 @@ void RadarClass::Set_Map_Dimensions(Rect const *rect, bool arg2, int arg3, bool 
 }
 
 
-// void RadarClass::Set_Tactical_Position(CoordStruct const &coord) (0x00630320)
+/***********************************************************************************************
+ * RadarClass::Set_Tactical_Position -- Sets the map's tactical position and adjusts radar to  *
+ *                                                                                             *
+ *    This routine is called when the tactical map is to change position. The radar map might  *
+ *    be adjusted as well by this routine.                                                     *
+ *                                                                                             *
+ * INPUT:   coord -- The new coordinate to use for the upper left corner of the tactical       *
+ *                   map.                                                                      *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/17/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00630320)
 // Centres the tactical view on a coordinate; passes the call on (the radar
 // adds nothing). Fill_In_Data 0x0065CDD0 passes a CoordStruct with its ground
 // height.
@@ -706,7 +912,22 @@ void RadarClass::Set_Tactical_Position(CoordStruct const &coord)
 }
 
 
-// bool RadarClass::Cell_On_Radar(Cell const &cell) (0x00630340)
+/***********************************************************************************************
+ * RadarClass::Cell_On_Radar -- Determines if a cell is currently visible on radar.            *
+ *                                                                                             *
+ *    This routine will examine the specified cell number and return whether it is visible     *
+ *    on the radar map. This depends on the radar map position.                                *
+ *                                                                                             *
+ * INPUT:   cell  -- The cell number to check.                                                 *
+ *                                                                                             *
+ * OUTPUT:  Is the specified cell visible on the radar map currently?                          *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/03/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00630340)
 // Passes the call on (the radar adds nothing).
 
 bool RadarClass::Cell_On_Radar(Cell const &cell)
@@ -715,7 +936,22 @@ bool RadarClass::Cell_On_Radar(Cell const &cell)
 }
 
 
-// void RadarClass::Draw_Names() (0x00630350)
+/***********************************************************************************************
+ * Draw_Names -- draws players' names on the radar map                                         *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *      none.                                                                                  *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *      none.                                                                                  *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *      none.                                                                                  *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   06/07/1995 BRR : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00630350)
 // The multiplayer player list in the radar area (Draw_It, mode 2): the frame,
 // the "Name:" and "Kills:" headings in grey, a rule, then one line per
 // multiplayer house with its name (cut to 18 characters) and the sum of its
@@ -778,7 +1014,12 @@ void RadarClass::Draw_Names()
 }
 
 
-// void RadarClass::Reposition_Sidebar() (0x006306D0, slot 34)
+/// <summary>
+/// Handles the sidebar moving to the other side of the screen.
+/// This routine drags the radar's click region along with the sidebar and forces the radar to
+/// redraw itself in its new home.
+/// </summary>
+// (0x006306D0, slot 34)
 // After the display's, places the radar's buttons (shifted right by the
 // tactical width when the sidebar is on the right, 0x00A40B30), and
 // registers their tooltips (briefing or diplomacy, options).
@@ -820,6 +1061,12 @@ void RadarClass::Reposition_Sidebar()
 }
 
 
+/// <summary>
+/// Sets the local map dimensions and refits the radar to them.
+/// The radar shows the local map rather than the whole playfield, so this routine works out
+/// where the visible portion lands in radar cell space and how large a rectangle it needs.
+/// </summary>
+/// <param name="size">The new local map rectangle.</param>
 void RadarClass::Set_Local_Dimensions(Rect const &size)
 {
     MapClass::Set_Local_Dimensions(size);
@@ -854,7 +1101,13 @@ void RadarClass::Set_Local_Dimensions(Rect const &size)
 }
 
 
-// void RadarClass::Compute_Radar_Image() (0x00630A00)
+/// <summary>
+/// Builds the radar image for the current map.
+/// This routine discards any radar surfaces already in hand and creates fresh ones sized to
+/// fit the map into the radar pane, centering the picture when the map is too small to fill
+/// it. The building footprints are recomputed to suit the new zoom.
+/// </summary>
+// (0x00630A00)
 // Rebuilds the radar surfaces for a non-empty radar rectangle: drops the old
 // image, buffers and drawing surface, renders the image (0x00630B70),
 // centres the rectangle in the 140 x 108 radar area, and makes a cleared
@@ -1058,7 +1311,15 @@ Rect RadarClass::Compute_Background(Rect const &cell_rect, Rect &update_rect, bo
 }
 
 
-// void RadarClass::Fill_In_Background(Rect const &cell_rect, Rect const &update_rect) (0x00631250)
+/// <summary>
+/// Fills in the radar background colors for a region of the map.
+/// This routine asks every visible cell for its low and high terrain colors and stores them
+/// into the radar background color array. That array is the source data the radar image is
+/// scaled down from.
+/// </summary>
+/// <param name="cell_rect">The extent of the radar background color array.</param>
+/// <param name="update_rect">The region of that array to fill in.</param>
+// (0x00631250)
 // TibSun's Fill_In_Background: for every map cell inside the update area of
 // the radar cell grid, stores its two radar colours (CellClass 0x004712C0)
 // into the background colour buffer (+0x1238), one at the left/right edges.
@@ -1096,7 +1357,15 @@ void RadarClass::Fill_In_Background(Rect const &cell_rect, Rect const &update_re
 }
 
 
-// Rect RadarClass::Cell_Radar_Rect(Cell const &cell) (0x00631400)
+/// <summary>
+/// Converts a map cell into its place in radar cell space.
+/// The radar flattens the isometric map into a rectangular grid of background colors, two
+/// entries wide for every cell. This routine is what maps a cell onto that grid, narrowing
+/// the half cells that hang off the left and right edges.
+/// </summary>
+/// <returns>Returns with the rectangle the cell occupies in the background color
+/// array.</returns>
+// (0x00631400)
 // A cell's place on the radar's diamond map: two pixels wide (one at the
 // left and right edges of the local map), one high.
 
@@ -1117,7 +1386,12 @@ Rect RadarClass::Cell_Radar_Rect(Cell const &cell)
 }
 
 
-// Rect RadarClass::Cell_To_Radar_Pixel(Cell const &cell) (0x00631470)
+/// <summary>
+/// Converts a map cell into its position on the radar.
+/// </summary>
+/// <returns>Returns with the single pixel rectangle that the cell occupies on the
+/// radar.</returns>
+// (0x00631470)
 // A cell's place on the zoomed radar: the diamond position scaled by the
 // zoom at +0x1484 and offset by the radar rectangle's origin (+0x1498); one
 // pixel wider at the right edge.
@@ -1135,7 +1409,11 @@ Rect RadarClass::Cell_To_Radar_Pixel(Cell const &cell)
 }
 
 
-// Cell RadarClass::Radar_Pixel_To_Cell(Point2D const &point) (0x00631500)
+/// <summary>
+/// Converts a radar pixel position back into a map cell.
+/// </summary>
+/// <returns>Returns with the map cell that the radar pixel stands for.</returns>
+// (0x00631500)
 // The cell under a radar pixel: the pixel unscaled by the zoom (+0x1484),
 // moved back by the diamond offsets and rotated, rounding to nearest.
 
@@ -1152,7 +1430,12 @@ Cell RadarClass::Radar_Pixel_To_Cell(Point2D const &point)
 }
 
 
-// void RadarClass::Radar_Background(Cell const &cell) (0x00631570)
+/// <summary>
+/// Flags a cell's radar background color to be recomputed.
+/// The cell is only queued here -- Plot_Radar_Background does the recoloring when the radar
+/// next redraws. Use this routine whenever the terrain of a cell changes appearance.
+/// </summary>
+// (0x00631570)
 // Queues a cell for the radar to redraw (newest first in the search), and
 // notes that cells are pending (+0x14D5).
 
@@ -1168,7 +1451,12 @@ void RadarClass::Radar_Background(Cell const &cell)
 }
 
 
-// void RadarClass::Plot_Radar_Background() (0x00631600)
+/// <summary>
+/// Flushes the pending radar background updates.
+/// This routine recolors the radar background for every cell that Radar_Background queued up
+/// and remembers the region of the radar image that will need blitting as a result.
+/// </summary>
+// (0x00631600)
 // TibSun's Plot_Radar_Background: recolours the background (+0x1238) of every
 // cell waiting at +0x1220 that is inside the local radar, rebuilds the radar
 // image over the area it changed (0x00630B70) and keeps the union of those
@@ -1209,7 +1497,14 @@ void RadarClass::Plot_Radar_Background()
 }
 
 
-// void RadarClass::Radar_Track(TechnoClass *techno, Point2D point) (0x00631910)
+/// <summary>
+/// Adds an object to the radar tracking table.
+/// This routine registers the object at a radar pixel so that it will be drawn as a blip on
+/// the next radar render. A unit that lands outside the radar surface is pulled back to the
+/// nearest edge pixel; a building in that position is simply not tracked.
+/// </summary>
+/// <param name="point">The radar pixel to track the object at.</param>
+// (0x00631910)
 // Starts tracking an object at a radar point: a point off the radar surface
 // is clamped into it (and kept as the object's +0x1A0) unless the object is
 // a building (kind 6), which is not tracked there at all. A new key goes to
@@ -1259,7 +1554,14 @@ void RadarClass::Radar_Track(TechnoClass *techno, Point2D point)
 }
 
 
-// void RadarClass::Radar_Untrack(TechnoClass *techno, Point2D point) (0x00631AF0)
+/// <summary>
+/// Removes an object from the radar tracking table.
+/// This routine is called when a tracked object moves off a radar pixel or leaves the game.
+/// The vacated pixel is flagged for redraw so that whatever lies beneath it shows through
+/// again.
+/// </summary>
+/// <param name="point">The radar pixel the object was being tracked at.</param>
+// (0x00631AF0)
 // Stops tracking an object at a radar point: removes it from its bucket of
 // the tracking table and, when it was there, redraws the point (0x00632620)
 // and notes pending work (+0x14D5).
@@ -1278,7 +1580,12 @@ void RadarClass::Radar_Untrack(TechnoClass *techno, Point2D point)
 }
 
 
-// Point2D RadarClass::Coord_To_Radar_Pixel(Point2D const &position, bool clip) (0x00631BA0)
+/// <summary>
+/// Converts a map coordinate into a position on the radar.
+/// </summary>
+/// <param name="clip">Should the result be pulled back inside the radar rectangle?</param>
+/// <returns>Returns with the radar pixel that the coordinate falls on.</returns>
+// (0x00631BA0)
 // The radar pixel of a lepton position (256 leptons per cell): rotated onto
 // the diamond, scaled by the zoom (+0x1484), and kept inside the radar
 // rectangle's size when clip is set.
@@ -1325,7 +1632,10 @@ int __fastcall Unknown_00631C60(RadarTrackingStruct const &key)
 }
 
 
-// void RadarClass::Init_Radar() (0x00631C80)
+/// <summary>
+/// Creates the radar's object tracking table.
+/// </summary>
+// (0x00631C80)
 // Builds a new tracking table (256 buckets, hash 0x00631C60, growth 10).
 
 void RadarClass::Init_Radar()
@@ -1334,7 +1644,13 @@ void RadarClass::Init_Radar()
 }
 
 
-// void RadarClass::Reset_Radar() (0x00631D40)
+/// <summary>
+/// Resets the radar map back to a blank slate.
+/// This routine throws the object tracking table away and rebuilds the radar image from the
+/// current local map bounds. Every object is marked as untracked so that it registers itself
+/// again on its next logic pass.
+/// </summary>
+// (0x00631D40)
 // Rebuilds the radar: a fresh tracking table, the radar refitted to the
 // map's local area (slot 29), 0x00630A00, and the +0x37B flag of every
 // object in the list at 0x00A40C20 cleared.
@@ -1353,7 +1669,10 @@ void RadarClass::Reset_Radar()
 }
 
 
-// void RadarClass::Clear_Radar() (0x00631E40)
+/// <summary>
+/// Frees everything the radar map has allocated.
+/// </summary>
+// (0x00631E40)
 // Releases the radar's two surfaces, its buffers and its tracking table.
 
 void RadarClass::Clear_Radar()
@@ -1381,7 +1700,13 @@ void RadarClass::Clear_Radar()
 }
 
 
-// void RadarClass::Post_Load_Radar_Fixup() (0x00631ED0)
+/// <summary>
+/// Handles the radar repairs needed after a save game is loaded.
+/// The radar's surfaces and object tracking table are never saved, so this routine discards
+/// the stale pointers and builds fresh ones from the loaded map. Every object is marked as
+/// untracked so that it registers itself again as the game resumes.
+/// </summary>
+// (0x00631ED0)
 // Builds the radar after a load: forgets the old surfaces, buffers and
 // table (their pointers are stale), makes a new tracking table, refits the
 // radar to the map (slot 29) and its surfaces (0x00630A00), clears the
@@ -1413,6 +1738,30 @@ void RadarClass::Post_Load_Radar_Fixup()
 extern MouseClass Map;
 ColorScheme *__fastcall Fetch_Scheme_By_Name(char const *name,int kind);
 
+/***********************************************************************************************
+ * RadarClass::Plot_Radar_Pixel -- Updates the radar map with a terrain pixel.                 *
+ *                                                                                             *
+ *    This will update the radar map with a pixel. It is used to display                       *
+ *    vehicle positions on the radar map.                                                      *
+ *                                                                                             *
+ * INPUT:   unit  -- Pointer to unit to render at the given position. If                       *
+ *                   NULL is passed in, then the underlying terrain is                         *
+ *                   displayed instead.                                                        *
+ *                                                                                             *
+ *          pos   -- Position on the map to update.                                            *
+ *                                                                                             *
+ * OUTPUT:     none                                                                            *
+ *                                                                                             *
+ * WARNINGS:   This routine does NOT hide the mouse. It is up to you to                        *
+ *             do so.                                                                          *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   06/04/1991 JLB : Created.                                                                 *
+ *   06/21/1991 JLB : Large blips for units & buildings.                                       *
+ *   02/14/1994 JLB : Revamped.                                                                *
+ *   04/17/1995 PWG : Created.                                                                 *
+ *   04/18/1995 PWG : Created.                                                                 *
+ *=============================================================================================*/
 void RadarClass::Plot_Radar_Pixel(Point2D const &point)
 {
     if(!unknown_player_a35db4) return;
@@ -1460,7 +1809,14 @@ void RadarClass::Plot_Radar_Pixel(Point2D const &point)
 // External references verified against complete original body operands.
 
 
-// void RadarClass::Render_Tracked_Objects() (0x006324A0)
+/// <summary>
+/// Draws every tracked object onto the radar surface.
+/// This routine plots one blip per tracked object in the bright color of the owning house.
+/// Disguised infantry are drawn in the local player's colors so that the disguise holds up on
+/// the radar as well. Where several objects claim the same radar pixel, only the first one
+/// found is drawn.
+/// </summary>
+// (0x006324A0)
 // TibSun's Render_Tracked_Objects: clears the pixel flags, then plots each
 // tracked object once per pixel in its house's bright colour (slot 48 objects
 // in the colour of the slot 51 house, LightGrey without one).
@@ -1496,7 +1852,24 @@ void RadarClass::Render_Tracked_Objects()
 }
 
 
-// void RadarClass::Radar_Pixel(Point2D const &point) (0x00632620)
+/***********************************************************************************************
+ * RadarClass::Radar_Pixel -- Mark a point to be rerendered on the radar map.                  *
+ *                                                                                             *
+ *    This routine is used to inform the system that a pixel needs to be                       *
+ *    rerendered on the radar map. The pixel(s) will be rendered the                           *
+ *    next time the map is refreshed.                                                          *
+ *                                                                                             *
+ * INPUT:   point  -- The map point to be rerendered.                                          *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/12/1992 JLB : Created.                                                                 *
+ *   05/08/1994 JLB : Converted to member function.                                            *
+ *=============================================================================================*/
+// (0x00632620)
 // TibSun's Radar_Pixel: marks a radar pixel inside the radar surface (+0x1218)
 // once in the pixel bit flags (+0x1270), queues it (+0x1258) and notes pending
 // work (+0x14D5).
@@ -1516,7 +1889,14 @@ void RadarClass::Radar_Pixel(Point2D const &point)
 }
 
 
-// void RadarClass::Compute_Foundations() (0x00632700)
+/// <summary>
+/// Computes the radar footprint of every building size.
+/// This routine works out the diamond of radar pixels that a building of each size covers, so
+/// that the radar can stamp a building down without recomputing the shape every time.
+/// </summary>
+/// <remarks>The footprints are measured in radar pixels, so this routine must be run again
+/// whenever the radar zoom changes.</remarks>
+// (0x00632700)
 // Builds the 22 dot shapes at +0x1274: shape i is a diamond of cells a by b
 // in size, each side its scale (0x007CFC70 / 0x007CFCC8) times the zoom
 // +0x1484, rounded, at least 1 for scale 1 and 2 otherwise.
@@ -1562,7 +1942,24 @@ class Leaf_6328d0 { public: unsigned int get(unsigned int type_address); };
 unsigned int Leaf_6328d0::get(unsigned int type_address) { unsigned int radar_address = (unsigned int)this; unsigned int shape_or_address; unsigned int scaled_index; shape_or_address = type_address; shape_or_address = *(unsigned int*)(shape_or_address + 0xc78); scaled_index = shape_or_address + shape_or_address*2; shape_or_address = radar_address + scaled_index*8 + 0x1274; return shape_or_address; }
 
 
-// void RadarClass::Radar_Cell(Cell const &cell) (0x006328F0)
+/***********************************************************************************************
+ * RadarClass::Radar_Pixel -- Mark a cell to be rerendered on the radar map.                   *
+ *                                                                                             *
+ *    This routine is used to inform the system that a cell needs to be                        *
+ *    rerendered on the radar map. The pixel(s) will be rendered the                           *
+ *    next time the map is refreshed.                                                          *
+ *                                                                                             *
+ * INPUT:   cell  -- The map cell to be rerendered.                                            *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/12/1992 JLB : Created.                                                                 *
+ *   05/08/1994 JLB : Converted to member function.                                            *
+ *=============================================================================================*/
+// (0x006328F0)
 // TibSun's Radar_Cell: the cell's diamond rectangle (0x00631400, expanded),
 // clipped to the radar cell size (+0x1238), scaled by the zoom (+0x1484) with
 // a one-pixel margin, every pixel marked through 0x00632620.
@@ -1593,6 +1990,16 @@ void RadarClass::Radar_Cell(Cell const &cell)
 }
 
 
+/// <summary>
+/// Determines what lies underneath a point on the radar map.
+/// This routine is used to turn a click on the radar into something actionable -- the tracked
+/// object sitting on that radar pixel if there is one, otherwise the map cell that the pixel
+/// stands for.
+/// </summary>
+/// <param name="point">The point on the radar, in screen coordinates.</param>
+/// <param name="cell">Set to the map cell that the point refers to.</param>
+/// <param name="object">Set to the tracked object under the point, or NULL if the point is
+/// bare terrain.</param>
 // Resolve the tracked object at a radar pixel, or the underlying terrain cell.
 
 void RadarClass::Resolve_Radar_Point(Point2D const &pixel, Cell &cell, TechnoClass *&found)
@@ -1617,7 +2024,14 @@ void RadarClass::Resolve_Radar_Point(Point2D const &pixel, Cell &cell, TechnoCla
 }
 
 
-// HRESULT RadarClass::Load(IStream *stream) (0x00632BF0, slot 30)
+/// <summary>
+/// Loads the radar map from the save game stream.
+/// The pending update lists are constructed in place as they are read back. Everything else
+/// the radar owns is rebuilt afterwards by Post_Load_Radar_Fixup.
+/// </summary>
+/// <returns>Returns with S_OK if the radar was read back, otherwise the failing stream
+/// result.</returns>
+// (0x00632BF0, slot 30)
 // Loads the radar after the display: rebuilds its list (+0x14BC) and its
 // vectors in place, reads back the queued points and cells, empties the 22
 // point vectors, reads the mode values, and resets the list again.
@@ -1680,7 +2094,14 @@ HRESULT RadarClass::Load(IStream *stream)
 }
 
 
-// HRESULT RadarClass::Save(IStream *stream) (0x00632E10, slot 31)
+/// <summary>
+/// Saves the radar map to the save game stream.
+/// Only the pending update lists are written out. The radar surfaces and the object tracking
+/// table are rebuilt from the map when the game is loaded again.
+/// </summary>
+/// <returns>Returns with S_OK if the radar was written, otherwise the failing stream
+/// result.</returns>
+// (0x00632E10, slot 31)
 // Saves the radar after the display: the queued points (+0x1258) and cells
 // (+0x1220), each with its count, then the mode values at +0x14AC, +0x14A8,
 // +0x14B0 and +0x14B4.
@@ -1730,7 +2151,14 @@ HRESULT RadarClass::Save(IStream *stream)
 }
 
 
-// void RadarClass::Set_Radar_State(bool on, bool sound) (0x00632F30)
+/// <summary>
+/// Sets the radar display into its activating or deactivating state.
+/// This routine starts the radar opening or closing and plays the matching sound effect. The
+/// display does not change over instantly -- the radar state machine carries it the rest of
+/// the way.
+/// </summary>
+/// <param name="on">Should the radar display be brought up?</param>
+// (0x00632F30)
 // Switches the radar on (state 3, from off or deactivated) or off (state 2),
 // clearing its list at +0x14BC, with the rules' activate/deactivate sound.
 
@@ -1779,7 +2207,27 @@ bool __fastcall FUN_00632ff0(int radar_address)
 }  // namespace seed_00632ff0
 
 
-// void RadarClass::Radar_Activate(int mode, bool sound) (0x00633000)
+/***********************************************************************************************
+ * RadarClass::Radar_Activate -- Controls radar activation.                                    *
+ *                                                                                             *
+ *    Use this routine to turn the radar map on or off.                                        *
+ *                                                                                             *
+ * INPUT:   control  -- What to do with the radar map:                                         *
+ *                      0 = Turn radar off.                                                    *
+ *                      1 = Turn radar on.                                                     *
+ *                      2 = Remove Radar Gadgets                                               *
+ *                      3 = Add Radar Gadgets                                                  *
+ *                      4 = Remove radar.                                                      *
+ *                      -1= Toggle radar on or off.                                            *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the radar map already on?                                                *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   12/11/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00633000)
 // TibSun's Radar_Activate: switches the radar mode (+0x14AC); an observer in a
 // multiplayer game always gets mode 1; a running movie keeps the request
 // (+0x14B0); modes 1 and above queue the next movie (0x0062F150, expanded)
@@ -1847,7 +2295,22 @@ unsigned int __fastcall FUN_00633110(int radar_address)
 }  // namespace seed_00633110
 
 
-// RadarClass::Is_Radar_Existing (0x00633130): the player has radar (TibSun RadarClass::Is_Radar_Existing).
+/***********************************************************************************************
+ * RadarClass::Is_Radar_Existing -- Queries to see if radar map is available.                  *
+ *                                                                                             *
+ *    This will determine if the radar map is available. If available, the radar will show     *
+ *    representations of terrain, units, and buildings.                                        *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  bool; Is the radar map available to be displayed?                                  *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/12/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00633130)
 
 bool RadarClass::Is_Radar_Existing()
 {
@@ -1855,7 +2318,13 @@ bool RadarClass::Is_Radar_Existing()
 }
 
 
-// RadarClass::Toggle_Radar (0x00633140): gains or loses radar (TibSun RadarClass::Toggle_Radar).
+/// <summary>
+/// Sets whether the player has radar coverage at all.
+/// This routine is used when a radar facility is gained or lost. Losing coverage shuts the
+/// radar display down; regaining it brings the display back up.
+/// </summary>
+/// <param name="on">Does the player have a working radar facility?</param>
+// (0x00633140)
 
 void RadarClass::Toggle_Radar(bool on)
 {
@@ -1872,7 +2341,11 @@ void RadarClass::Toggle_Radar(bool on)
 }
 
 
-// RadarClass::Is_Player_Names (0x006331A0): the radar shows the player names (TibSun RadarClass::Is_Player_Names).
+/// <summary>
+/// Determines if the radar pane is showing the player name list.
+/// </summary>
+/// <returns>bool; Is the player name list currently displayed?</returns>
+// (0x006331A0)
 
 bool RadarClass::Is_Player_Names()
 {
@@ -1905,7 +2378,12 @@ unsigned int __fastcall FUN_006331c0(int radar_address)
 }  // namespace seed_006331c0
 
 
-// void RadarClass::Redraw_Radar(bool flag) (0x006331E0)
+/// <summary>
+/// Flags the radar map to be redrawn.
+/// </summary>
+/// <param name="complete">Should the entire radar face be redrawn rather than just the
+/// pending updates?</param>
+// (0x006331E0)
 // Asks for a radar redraw (+0x14D5), a complete one (+0x14D6) when flag is set.
 
 void RadarClass::Redraw_Radar(bool flag)
@@ -1915,7 +2393,13 @@ void RadarClass::Redraw_Radar(bool flag)
 }
 
 
-// void RadarClass::Render_Radar() (0x00633210): TibSun Render_Radar. Redraws the radar view,
+/// <summary>
+/// Draws the radar map into the sidebar.
+/// This routine tracks the tactical view rectangle across the radar face, flushes any pending
+/// background and pixel updates, lets the radar events draw themselves, and then blits the
+/// dirty portion of the radar surface onto the sidebar.
+/// </summary>
+// (0x00633210)
 // its old outline, pending cells and events, then copies the dirty area to the sidebar surface.
 bool RadarEventClass_unknown_none();
 void RadarClass::Render_Radar()
@@ -1998,7 +2482,12 @@ void RadarClass::Render_Radar()
 }
 
 
-// void RadarClass::Update_Transmission() (0x00633C40)
+/// <summary>
+/// Steps the incoming transmission that introduces a radar movie.
+/// The EVA announcement plays first. Once it is done, and the other sound has faded, the
+/// radar switches over to movie mode.
+/// </summary>
+// (0x00633C40)
 // The mode-4 (transmission) update: state +0x14B4 0 starts the voice
 // sequence, 1 waits for it (fading the audio streams while 0x00AF8FE8 is
 // set), 2 waits for the fade, then switches to mode 3 and plays the sound.
@@ -2039,7 +2528,15 @@ void RadarClass::Update_Transmission()
 }
 
 
-// void RadarClass::Play_Movie() (0x00633D30)
+/// <summary>
+/// Handles the movie playing in the radar pane.
+/// This routine ducks the game volume for the duration, advances the current in-game VQA by
+/// one frame, and moves on to the next queued movie. Once the queue drains, the volume is
+/// restored and the radar is handed back to whatever mode the movie interrupted.
+/// </summary>
+/// <remarks>Call this routine once per frame for as long as the radar is in movie
+/// mode.</remarks>
+// (0x00633D30)
 // The mode-3 (movie) update: redraws the frame when a full radar redraw is
 // due, steps the first queued movie and, when it is finished, deletes it and
 // starts the next one; with none left the radar returns to its previous mode
@@ -2111,7 +2608,12 @@ void RadarClass::Play_Movie()
 }
 
 
-// void RadarClass::Complete_Radar_Refresh() (0x00634030)
+/// <summary>
+/// Redraws the whole radar map from the background image.
+/// Use this routine when the radar contents can no longer be patched up piecemeal and
+/// must be rebuilt in their entirety.
+/// </summary>
+// (0x00634030)
 // Redraws the whole radar: with no window, copies the surface at +0x121C
 // onto the one at +0x1218 and finishes with 0x006324A0; otherwise draws
 // every point of the radar surface.

@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/brain.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // brain.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -55,7 +66,13 @@
 // by HeaderStatics_diagonal_init_00437740.cpp; no source of its own.
 
 
-// NeuronClass::NeuronClass() (0x00437910)
+/// <summary>
+/// Creates a neuron.
+/// The neuron notes the frame it came into being on and starts out unattached -- a brain
+/// adopts it later. It registers itself with the object trackers so that it can be
+/// detached cleanly when the things it refers to go away.
+/// </summary>
+// (0x00437910)
 // Joins the list 0x00AC0C18 and the abstract list 0x00AC0CB0.
 #ifndef VECTOR_IMPLEMENT_ALL
 #define VECTOR_IMPLEMENT_ALL
@@ -76,7 +93,10 @@ NeuronClass::NeuronClass() :
 }
 
 
-// NeuronClass::~NeuronClass() (0x00437A00)
+/// <summary>
+/// Removes this neuron from the object trackers.
+/// </summary>
+// (0x00437A00)
 // Leaves both lists.
 
 NeuronClass::~NeuronClass()
@@ -86,7 +106,14 @@ NeuronClass::~NeuronClass()
 }
 
 
-// HRESULT NeuronClass::GetClassID(GUID *clsid) (0x00437AC0, slot 3)
+/// <summary>
+/// Fetches the class identifier of this object.
+/// This routine is used by the save game system so that it knows what kind of object to
+/// construct when the stream is read back in.
+/// </summary>
+/// <param name="retval">Pointer to the place to store the class identifier.</param>
+/// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
+// (0x00437AC0, slot 3)
 
 HRESULT __stdcall NeuronClass::GetClassID(GUID *clsid)
 {
@@ -98,7 +125,14 @@ HRESULT __stdcall NeuronClass::GetClassID(GUID *clsid)
 }
 
 
-// HRESULT NeuronClass::Load(IStream *stream) (0x00437B00, slot 5)
+/// <summary>
+/// Loads this neuron from the save game stream.
+/// The object is rebuilt in place once the base class has read the raw image back over
+/// it, and the pointers it carries are handed to the swizzler so that they can be
+/// remapped onto wherever those objects now live.
+/// </summary>
+/// <returns>Returns with S_OK if the neuron was read successfully.</returns>
+// (0x00437B00, slot 5)
 
 HRESULT __stdcall NeuronClass::Load(IStream *stream)
 {
@@ -114,7 +148,12 @@ HRESULT __stdcall NeuronClass::Load(IStream *stream)
 }
 
 
-// HRESULT NeuronClass::Save(IStream *stream, BOOL clear_dirty) (0x00437B70, slot 6)
+/// <summary>
+/// Saves this neuron to the save game stream.
+/// </summary>
+/// <param name="cleardirty">Should the dirty flag be cleared once the object is written?</param>
+/// <returns>Returns with S_OK if the neuron was written successfully.</returns>
+// (0x00437B70, slot 6)
 
 HRESULT __stdcall NeuronClass::Save(IStream *stream, BOOL clear_dirty)
 {
@@ -126,7 +165,14 @@ HRESULT __stdcall NeuronClass::Save(IStream *stream, BOOL clear_dirty)
 }
 
 
-// void NeuronClass::Compute_CRC(WWCRCEngine &crc) const (0x00437B90, slot 13)
+/// <summary>
+/// Folds this neuron's state into a running CRC.
+/// The multiplayer sync check accumulates every object's state each frame; a CRC that
+/// differs between machines means the simulations have drifted apart. A neuron
+/// contributes its age, since its pointers are meaningless across machines.
+/// </summary>
+/// <param name="crc">The running CRC to fold this neuron's state into.</param>
+// (0x00437B90, slot 13)
 // Adds the neuron's age in frames.
 
 void NeuronClass::Compute_CRC(WWCRCEngine &crc) const
@@ -136,7 +182,10 @@ void NeuronClass::Compute_CRC(WWCRCEngine &crc) const
 }
 
 
-// BrainClass::~BrainClass() (0x00437BC0)
+/// <summary>
+/// Destroys the brain along with every neuron it owns.
+/// </summary>
+// (0x00437BC0)
 // Deletes its neurons.
 
 BrainClass::~BrainClass()
@@ -159,7 +208,14 @@ void BrainClass::Clear()
 }
 
 
-// void BrainClass::Init(int value, int max_neurons) (0x00437C70)
+/// <summary>
+/// Prepares the brain to hold neurons.
+/// Any neurons the brain was already holding are thrown away before the new limits take
+/// effect, so this routine can be used to start a brain over from scratch.
+/// </summary>
+/// <param name="min">The fewest neurons this brain is meant to hold.</param>
+/// <param name="max">The most neurons this brain will accept.</param>
+// (0x00437C70)
 
 void BrainClass::Init(int value, int max_neurons)
 {
@@ -183,7 +239,17 @@ bool BrainClass::Add(NeuronClass *neuron)
 }
 
 
-// HRESULT BrainClass::Save(IStream *stream, BOOL clear_dirty) (0x00437D30)
+/// <summary>
+/// Saves this brain to the save game stream.
+/// The number of neurons goes out first so that the loader knows how many to expect,
+/// followed by each neuron in turn.
+/// </summary>
+/// <param name="cleardirty">Should the neurons be marked clean once they are written?</param>
+/// <returns>
+/// Returns with S_OK when the brain was written, E_POINTER when no stream was supplied,
+/// or the first failure code a neuron reported.
+/// </returns>
+// (0x00437D30)
 // The neuron count, then each neuron.
 
 HRESULT BrainClass::Save(IStream *stream, BOOL clear_dirty)
@@ -206,7 +272,16 @@ HRESULT BrainClass::Save(IStream *stream, BOOL clear_dirty)
 }
 
 
-// HRESULT BrainClass::Load(IStream *stream) (0x00437DA0)
+/// <summary>
+/// Reads this brain back from the save game stream.
+/// A neuron is created and read back for each one the stream says was written, and each
+/// is handed to the brain as it arrives.
+/// </summary>
+/// <returns>
+/// Returns with S_OK when the brain was read, E_POINTER when no stream was supplied,
+/// E_OUTOFMEMORY when a neuron could not be created, or the stream's own failure code.
+/// </returns>
+// (0x00437DA0)
 #include "shared/class_factory.hpp"
 
 HRESULT BrainClass::Load(IStream *stream)

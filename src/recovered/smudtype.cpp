@@ -1,3 +1,19 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/smudtype.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // smudtype.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -73,7 +89,22 @@
 // by HeaderStatics_empty_rect_init_00687bb0.cpp; no source of its own.
 
 
-// SmudgeTypeClass::SmudgeTypeClass(char const *ini_name) (0x00687DA0)
+/***********************************************************************************************
+ * SmudgeTypeClass::SmudgeTypeClass -- Constructor for smudge type objects.                    *
+ *                                                                                             *
+ *    This constructor is used to create the smudge type objects. These type objects contain   *
+ *    static information about the various smudge types supported in the game.                 *
+ *                                                                                             *
+ * INPUT:   see below...                                                                       *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/12/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00687DA0)
 // A 1 x 1 smudge that is neither crater nor scorch mark, registered in
 // SmudgeTypes (ArrayIndex is its position there).
 
@@ -97,7 +128,12 @@ SmudgeTypeClass::SmudgeTypeClass(char const *ini_name) :
 }
 
 
-// SmudgeTypeClass::SmudgeTypeClass(NoInitClass const &noinit) (0x00687EB0)
+/// <summary>
+/// Creates a smudge type object without initializing it.
+/// The load process uses this constructor to give the object its virtual function table
+/// back; every value is about to be overwritten with what the save file holds.
+/// </summary>
+// (0x00687EB0)
 // Load path: installs the vtables only.
 
 SmudgeTypeClass::SmudgeTypeClass(NoInitClass const &noinit) :
@@ -106,7 +142,12 @@ SmudgeTypeClass::SmudgeTypeClass(NoInitClass const &noinit) :
 }
 
 
-// SmudgeTypeClass::~SmudgeTypeClass() (0x00687EE0)
+/// <summary>
+/// Destroys this smudge type object.
+/// Anything still pointing at this type is detached from it before the type is dropped from
+/// the smudge type heap.
+/// </summary>
+// (0x00687EE0)
 // Leaves the notice lists and SmudgeTypes.
 
 SmudgeTypeClass::~SmudgeTypeClass()
@@ -116,7 +157,23 @@ SmudgeTypeClass::~SmudgeTypeClass()
 }
 
 
-// static int __fastcall SmudgeTypeClass::From_Name(char const *name) (0x00687F60)
+/***********************************************************************************************
+ * SmudgeTypeClass::From_Name -- Converts an ASCII name into a smudge type.                    *
+ *                                                                                             *
+ *    This converts an ASCII name into a smudge type number. This is typically necessary       *
+ *    when processing scenario INI files and not used otherwise.                               *
+ *                                                                                             *
+ * INPUT:   name  -- Pointer to the name to convert.                                           *
+ *                                                                                             *
+ * OUTPUT:  Returns with the SmudgeType number that matches the name supplied. If no match     *
+ *          was found, then SMUDGE_NONE is returned.                                           *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/12/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00687F60)
 // Index of the type with this ID (case-insensitive), or -1.
 
 int __fastcall SmudgeTypeClass::From_Name(char const *name)
@@ -132,7 +189,22 @@ int __fastcall SmudgeTypeClass::From_Name(char const *name)
 }
 
 
-// static void __fastcall SmudgeTypeClass::Init(int theater) (0x00687FB0)
+/***********************************************************************************************
+ * SmudgeTypeClass::Init -- Performs theater specific initializations.                         *
+ *                                                                                             *
+ *    Smudge object imagery varies between theaters. This routine will load the appropriate    *
+ *    imagery for the theater specified.                                                       *
+ *                                                                                             *
+ * INPUT:   theater  -- The theater to prepare for.                                            *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/12/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00687FB0)
 // Loads the theater images of the theater-specific smudge types when the
 // theater changes (or a reload is forced).
 // Assumptions: unknown_1fc is "Theater="; fullname size 512.
@@ -152,7 +224,24 @@ void __fastcall SmudgeTypeClass::Init(int theater)
 }
 
 
-// bool SmudgeTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) const (0x00688030)
+/***********************************************************************************************
+ * SmudgeTypeClass::Create_And_Place -- Creates and places on map, a smudge object.            *
+ *                                                                                             *
+ *    This routine will, in one motion, create a smudge object and place it upon the map.      *
+ *    Since placing a smudge on the map will destroy the object, this routine will leave the   *
+ *    smudge object count unchanged. Typically, this routine is used by the scenario editor    *
+ *    for creating smudges and placing them on the map.                                        *
+ *                                                                                             *
+ * INPUT:   cell  -- The cell to place the smudge object.                                      *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the placement successful?                                                *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/12/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00688030)
 // Creates a smudge of this type at the centre of the cell (no house).
 
 bool SmudgeTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) const
@@ -164,7 +253,25 @@ bool SmudgeTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) cons
 }
 
 
-// ObjectClass *SmudgeTypeClass::Create_One_Of(HouseClass *house) const (0x006880A0)
+/***********************************************************************************************
+ * SmudgeTypeClass::Create_One_Of -- Creates a smudge object of this type.                     *
+ *                                                                                             *
+ *    This routine will create a smudge object of the appropriate type. Smudge objects are     *
+ *    transitory in nature. They exist only from the point of creation until they are given    *
+ *    a spot on the map to reside. At that time the map data is updated and the smudge         *
+ *    object is destroyed.                                                                     *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  Returns with a pointer to a created smudge object. If none could be created, then  *
+ *          NULL is returned.                                                                  *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/12/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006880A0)
 // Creates an unplaced smudge of this type (at the zero coordinate).
 
 ObjectClass *SmudgeTypeClass::Create_One_Of(HouseClass *house) const
@@ -173,7 +280,22 @@ ObjectClass *SmudgeTypeClass::Create_One_Of(HouseClass *house) const
 }
 
 
-// void SmudgeTypeClass::Draw_It(Point2D const *point, Rect const *window, int piece, int height, Cell const *cell) (0x006880D0)
+/***********************************************************************************************
+ * SmudgeTypeClass::Draw_It -- Renders the smudge image at the coordinate specified.           *
+ *                                                                                             *
+ *    This routine will draw the smudge overlay image at the coordinate (upper left)           *
+ *    specified. The underlying terrain icon is presumed to have already been rendered.        *
+ *                                                                                             *
+ * INPUT:   x,y   -- Coordinate of the upper left corner of icon to render the smudge object.  *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/12/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006880D0)
 // Draws the image at a point: a piece of a multi-cell smudge (row-major in
 // Width) is moved to its own cell of the isometric block; the cell supplies
 // the drawer and the light level, the height the depth.
@@ -197,7 +319,13 @@ void SmudgeTypeClass::Draw_It(Point2D const *point, Rect const *window, int piec
 }
 
 
-// bool SmudgeTypeClass::Read_INI(CCINIClass &ini) (0x006881B0)
+/// <summary>
+/// Fetches this smudge type's settings from the rules.
+/// This routine picks up the size of the smudge and whether it counts as a crater or a
+/// scorch, and it loads the artwork for the type as well.
+/// </summary>
+/// <returns>bool; Was an entry for this smudge type found and read?</returns>
+// (0x006881B0)
 // Reads "Crater", "Burn", "Width" and "Height", then loads the image (the
 // theater variant for theater-specific types, else the .SHP file).
 
@@ -222,7 +350,12 @@ bool SmudgeTypeClass::Read_INI(CCINIClass &ini)
 }
 
 
-// void SmudgeTypeClass::Compute_CRC(WWCRCEngine &crc) const (0x006882B0)
+/// <summary>
+/// Adds this smudge type to the game state checksum.
+/// The network sync check uses this to prove that every machine in the game is working
+/// from the same rules.
+/// </summary>
+// (0x006882B0)
 // Note: the base called is AbstractTypeClass's (0x00410960), not
 // ObjectTypeClass's.
 
@@ -237,7 +370,14 @@ void SmudgeTypeClass::Compute_CRC(WWCRCEngine &crc) const
 }
 
 
-// HRESULT __stdcall SmudgeTypeClass::Load(IStream *stream) (0x00688310)
+/// <summary>
+/// Reads this smudge type back in from a save game.
+/// The object is reconstructed in place so that it regains its virtual function table, and
+/// its artwork is fetched again, since pointers into the mix files do not survive a save.
+/// </summary>
+/// <returns>Returns with S_OK once the object has been rebuilt, otherwise the failure code
+/// from the base class.</returns>
+// (0x00688310)
 // Restores the type in place and reloads its voxel and image.
 
 HRESULT __stdcall SmudgeTypeClass::Load(IStream *stream)
@@ -253,7 +393,13 @@ HRESULT __stdcall SmudgeTypeClass::Load(IStream *stream)
 }
 
 
-// HRESULT __stdcall SmudgeTypeClass::Save(IStream *stream, BOOL clear_dirty) (0x00688370)
+/// <summary>
+/// Writes this smudge type out to a save game.
+/// The smudge type adds nothing of its own beyond what the object type layer records.
+/// </summary>
+/// <returns>Returns with S_OK once the object has been written, otherwise the failure code
+/// from the base class.</returns>
+// (0x00688370)
 
 HRESULT __stdcall SmudgeTypeClass::Save(IStream *stream, BOOL clear_dirty)
 {
@@ -265,7 +411,13 @@ HRESULT __stdcall SmudgeTypeClass::Save(IStream *stream, BOOL clear_dirty)
 }
 
 
-// HRESULT __stdcall SmudgeTypeClass::GetClassID(GUID *clsid) (0x00688390)
+/// <summary>
+/// Fetches the class identifier of this object.
+/// The save system asks for this so that it knows which class to construct when the object
+/// is read back out of a save file.
+/// </summary>
+/// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
+// (0x00688390)
 
 HRESULT __stdcall SmudgeTypeClass::GetClassID(GUID *clsid)
 {
@@ -277,7 +429,14 @@ HRESULT __stdcall SmudgeTypeClass::GetClassID(GUID *clsid)
 }
 
 
-// static SmudgeTypeClass *__fastcall SmudgeTypeClass::Find_Or_Make(char const *name) (0x006883D0)
+/// <summary>
+/// Fetches the smudge type of the specified name.
+/// This routine is used while the rules are being read, where a type may be referred to
+/// before its own section has been reached.
+/// </summary>
+/// <returns>Returns with a pointer to the smudge type, which is created and added to the
+/// heap if no type of that name exists yet.</returns>
+// (0x006883D0)
 // The type with this ID, else a new one; null for "<none>" and "none".
 
 SmudgeTypeClass *__fastcall SmudgeTypeClass::Find_Or_Make(char const *name)
@@ -402,7 +561,15 @@ bool SmudgeTypeClass::Can_Place(Cell const &cell, bool arg2) const
 }
 
 
-// void SmudgeTypeClass::Place(Cell const &cell) const (0x00688B40)
+/// <summary>
+/// Stamps this smudge type onto the map.
+/// This routine lays the smudge across the whole area it covers and flags the affected
+/// cells so that anything overlapping them is redrawn.
+/// </summary>
+/// <param name="origin">The upper left cell of the area the smudge will cover.</param>
+/// <remarks>Check the location with Can_Place_Here first -- this routine overwrites
+/// whatever it finds.</remarks>
+// (0x00688B40)
 // Marks every cell of the Width x Height block with this type and the
 // cell's piece number (row * Width + column).
 

@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/vector.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // vector.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -9,7 +24,25 @@
 #include "shared/crt_memory.hpp"
 
 
-// BooleanVectorClass::BooleanVectorClass(unsigned size, unsigned char *array) (0x0070EFC0).
+/***********************************************************************************************
+ * BooleanVectorClass::BooleanVectorClass -- Explicit data buffer constructor.                 *
+ *                                                                                             *
+ *    This is the constructor for a boolean array. This constructor takes the memory pointer   *
+ *    provided as assigns that as the array data pointer.                                      *
+ *                                                                                             *
+ * INPUT:   size  -- The size of the array (in bits).                                          *
+ *                                                                                             *
+ *          array -- Pointer to the memory that the array is to use.                           *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   You must make sure that the memory specified is large enough to contain the     *
+ *             bits specified.                                                                 *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/18/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0070EFC0)
 
 BooleanVectorClass::BooleanVectorClass(unsigned size, unsigned char *array) :
     BitCount(size),
@@ -21,7 +54,22 @@ BooleanVectorClass::BooleanVectorClass(unsigned size, unsigned char *array) :
 }
 
 
-// BooleanVectorClass::BooleanVectorClass(BooleanVectorClass const &) (0x0070F010): assigns through operator=.
+/***********************************************************************************************
+ * BooleanVectorClass::BooleanVectorClass -- Copy constructor of boolean array.                *
+ *                                                                                             *
+ *    This is the copy constructor for a boolean array. It is used to make a duplicate of the  *
+ *    boolean array.                                                                           *
+ *                                                                                             *
+ * INPUT:   vector   -- Reference to the vector to be duplicated.                              *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/18/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0070F010)
 
 BooleanVectorClass::BooleanVectorClass(BooleanVectorClass const &vector)
 {
@@ -52,7 +100,22 @@ int BooleanVectorClass::operator==(BooleanVectorClass const &vector) const
 }
 
 
-// BooleanVectorClass::Resize (0x0070F1E0): new elements start false; zero clears the vector.
+/***********************************************************************************************
+ * BooleanVectorClass::Resize -- Resizes a boolean vector object.                              *
+ *                                                                                             *
+ *    This routine will resize the boolean vector object. An index value used with a boolean   *
+ *    vector must be less than the value specified in as the new size.                         *
+ *                                                                                             *
+ * INPUT:   size  -- The new maximum size of this boolean vector.                              *
+ *                                                                                             *
+ * OUTPUT:  Was the boolean vector sized successfully?                                         *
+ *                                                                                             *
+ * WARNINGS:   The boolean array might be reallocated or even deleted by this routine.         *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/18/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0070F1E0)
 
 int BooleanVectorClass::Resize(unsigned size)
 {
@@ -75,7 +138,23 @@ int BooleanVectorClass::Resize(unsigned size)
 }
 
 
-// BooleanVectorClass::Clear (0x0070F2C0): empty vector, storage freed.
+/***********************************************************************************************
+ * BooleanVectorClass::Clear -- Resets boolean vector to empty state.                          *
+ *                                                                                             *
+ *    This routine will clear out the boolean array. This will free any allocated memory and   *
+ *    result in the boolean vector being unusable until the Resize function is subsequently    *
+ *    called.                                                                                  *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   The boolean vector cannot be used until it is resized to a non null condition.  *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/18/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0070F2C0)
 
 void BooleanVectorClass::Clear()
 {
@@ -85,7 +164,21 @@ void BooleanVectorClass::Clear()
 }
 
 
-// BooleanVectorClass::Reset (0x0070F300): every element false.
+/***********************************************************************************************
+ * BooleanVectorClass::Reset -- Clear all boolean values in array.                             *
+ *                                                                                             *
+ *    This is the preferred (and quick) method to clear the boolean array to a false condition.*
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/18/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0070F300)
 
 void BooleanVectorClass::Reset()
 {
@@ -96,7 +189,21 @@ void BooleanVectorClass::Reset()
 }
 
 
-// BooleanVectorClass::Set (0x0070F330): every element true.
+/***********************************************************************************************
+ * BooleanVectorClass::Set -- Forces all boolean elements to true.                             *
+ *                                                                                             *
+ *    This is the preferred (and fast) way to set all boolean elements to true.                *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/18/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0070F330)
 
 void BooleanVectorClass::Set()
 {
@@ -107,7 +214,28 @@ void BooleanVectorClass::Set()
 }
 
 
-// BooleanVectorClass::Fixup (0x0070F360): writes Copy back to bit LastIndex and fetches bit index
+/***********************************************************************************************
+ * BooleanVectorClass::Fixup -- Updates the boolean vector to a known state.                   *
+ *                                                                                             *
+ *    Use this routine to set the boolean value copy to match the appropriate bit in the       *
+ *    boolean array. The boolean array will be updated with any changes from the last time     *
+ *    a value was fetched from the boolean vector. By using this update method, the boolean    *
+ *    array can be treated as a normal array even though the elements are composed of          *
+ *    otherwise inaccessible bits.                                                             *
+ *                                                                                             *
+ * INPUT:   index -- The index to set the new copy value to. If the index is -1, then the      *
+ *                   previous value will be updated into the vector array, but no new value    *
+ *                   will be fetched from it.                                                  *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   Always call this routine with "-1" if any direct manipulation of the bit        *
+ *             array is to occur. This ensures that the bit array is accurate.                 *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/18/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0070F360)
 // (an out-of-range index only flushes).
 
 void BooleanVectorClass::Fixup(int index) const

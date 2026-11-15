@@ -4,8 +4,8 @@
     "id": "population-3447",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "ef22f630238c9d1d00148cb1b05c15084c3f5a01ff2830df71919bd43ad45daa",
-    "historical_acceptance_sha256": "254624858b6c09e7b54a45e9b266ee449c29160a37edd6fd79d2eb4e6f66f975"
+    "historical_population_sha256": "b4b254216b1a01c4368d08776115e2b50efd390eaa7c4ff700672072bc0a2c7b",
+    "historical_acceptance_sha256": "877bd050569a0fea1f15fa7ceabc2c4d822ab83185e5eb10500a3256d9149df5"
   },
   "references": {
     "__real@4@4006ff00000000000000": 7975080,
@@ -2558,7 +2558,9 @@
     "_waiting_entry_00a72d40": 10956096,
     "_wcschr": 7879366,
     "_wcscpy": 7878281,
-    "__ramp_corners": 8339828
+    "__ramp_corners": 8339828,
+    "?Contains@GraphicMenuItem@@UAE_NABUPoint2D@@@Z": 5112256,
+    "_?scale@?1??Seed_Hill_Heights@MapGeneratorClass@@QAEXXZ@4NB": 8019200
   },
   "regions": [
     {
@@ -2579,7 +2581,7 @@
       "full_extent_bytes": 144,
       "full_extent_sha256": "3b0b61240ac7f51c4366ceb374fe390aa557bde77522a477e0e70545b5bcf535",
       "relocations": [],
-      "source_sha256": "9bbca4019a425c519d006fb7047d93647c12cfccf3336a73cc2c91df4ed232c3",
+      "source_sha256": "0adb61e9ec0d85440247b8a6a7ee2079892f9e0b1fb3db1fa67bcbb1dda23748",
       "source": "src/recovered/rgb.cpp",
       "population": "population-3447",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -2605,7 +2607,7 @@
       "full_extent_bytes": 80,
       "full_extent_sha256": "4731f9e7f4a378bef1cf17be3de8302bc80ce3402a9629c8e640559fdd262b15",
       "relocations": [],
-      "source_sha256": "9bbca4019a425c519d006fb7047d93647c12cfccf3336a73cc2c91df4ed232c3",
+      "source_sha256": "0adb61e9ec0d85440247b8a6a7ee2079892f9e0b1fb3db1fa67bcbb1dda23748",
       "source": "src/recovered/rgb.cpp",
       "population": "population-3447",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -2792,7 +2794,7 @@
           "resolved": 1319736
         }
       ],
-      "source_sha256": "9bbca4019a425c519d006fb7047d93647c12cfccf3336a73cc2c91df4ed232c3",
+      "source_sha256": "0adb61e9ec0d85440247b8a6a7ee2079892f9e0b1fb3db1fa67bcbb1dda23748",
       "source": "src/recovered/rgb.cpp",
       "population": "population-3447",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -2971,7 +2973,7 @@
           "resolved": 1319432
         }
       ],
-      "source_sha256": "9bbca4019a425c519d006fb7047d93647c12cfccf3336a73cc2c91df4ed232c3",
+      "source_sha256": "0adb61e9ec0d85440247b8a6a7ee2079892f9e0b1fb3db1fa67bcbb1dda23748",
       "source": "src/recovered/rgb.cpp",
       "population": "population-3447",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -2997,7 +2999,7 @@
       "full_extent_bytes": 336,
       "full_extent_sha256": "30553d9b7658b74baac4112c711077e73b7297426568234d1fba5162be557338",
       "relocations": [],
-      "source_sha256": "9bbca4019a425c519d006fb7047d93647c12cfccf3336a73cc2c91df4ed232c3",
+      "source_sha256": "0adb61e9ec0d85440247b8a6a7ee2079892f9e0b1fb3db1fa67bcbb1dda23748",
       "source": "src/recovered/rgb.cpp",
       "population": "population-3447",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",

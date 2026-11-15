@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/alphalighting.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // alphalighting.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -20,7 +31,10 @@ DynamicVectorClass<AlphaLightingRemapClass *> AlphaLightingRemapClass::Array;
 // atexit destructor (0x0041E360, _$E3) emitted by the draft of 0x0041E320; no source of its own.
 
 
-// AlphaLightingRemapInitClass::AlphaLightingRemapInitClass() (0x0041E3C0)
+/// <summary>
+/// Constructs the alpha lighting remap manager.
+/// </summary>
+// (0x0041E3C0)
 #include "shared/alpha_table_cache.hpp"
 
 AlphaLightingRemapInitClass::AlphaLightingRemapInitClass()
@@ -28,7 +42,11 @@ AlphaLightingRemapInitClass::AlphaLightingRemapInitClass()
 }
 
 
-// AlphaLightingRemapInitClass::~AlphaLightingRemapInitClass() (0x0041E3D0)
+/// <summary>
+/// Destroys the alpha lighting remap manager.
+/// The remap tables are shared and counted, so none of them are released here.
+/// </summary>
+// (0x0041E3D0)
 
 AlphaLightingRemapInitClass::~AlphaLightingRemapInitClass()
 {
@@ -72,7 +90,15 @@ void AlphaLightingRemapInitClass::Release(AlphaTableRows table)
 }
 
 
-// AlphaLightingRemapClass::AlphaLightingRemapClass(int level) (0x0041E590)
+/// <summary>
+/// Builds an alpha lighting remap table.
+/// This routine fills in the lookup that the alpha blitters draw through. A row is
+/// fetched for the lighting level in force and indexed with the alpha buffer value, and
+/// the result picks which shading band of the blitter's translation table the pixel is
+/// drawn from.
+/// </summary>
+/// <param name="count">The number of shading bands the translation table provides.</param>
+// (0x0041E590)
 
 AlphaLightingRemapClass::AlphaLightingRemapClass(int level)
     : Level(level), RefCount(0)

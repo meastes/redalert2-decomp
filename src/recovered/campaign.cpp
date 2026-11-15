@@ -1,3 +1,15 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/campaign.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // campaign.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -58,7 +70,13 @@
 // by HeaderStatics_diagonal_init_00465280.cpp; no source of its own.
 
 
-// ??0CampaignClass@@QAE@PBD@Z (0x00465450)
+/// <summary>
+/// Creates a campaign and adds it to the campaign list.
+/// The campaign starts out with the display description borrowed from its given
+/// name; the rules will normally supply a proper one later.
+/// </summary>
+/// <param name="name">The name of the campaign as it appears in the rules.</param>
+// (0x00465450)
 // A campaign named ini_name, listed in the campaign list, with an empty description.
 
 CampaignClass::CampaignClass(char const *ini_name) :
@@ -72,7 +90,12 @@ CampaignClass::CampaignClass(char const *ini_name) :
 }
 
 
-// ??1CampaignClass@@UAE@XZ (0x00465500)
+/// <summary>
+/// Destroys this campaign and removes it from the game.
+/// Any object still pointing at this campaign is detached from it before the
+/// campaign leaves the master campaign list.
+/// </summary>
+// (0x00465500)
 // Detaches the campaign and unlists it.
 
 CampaignClass::~CampaignClass()
@@ -97,7 +120,14 @@ int __fastcall CampaignClass::Find_Index(char const *name)
 }
 
 
-// bool CampaignClass::Read_INI(CCINIClass &ini) (0x004655C0, slot 25)
+/// <summary>
+/// Fetches this campaign's settings from the rules.
+/// This routine picks up the disc the campaign lives on, the scenario it starts
+/// with, the movie that closes it out, and the expansion it requires.
+/// </summary>
+/// <param name="ini">The rules database to read the campaign settings from.</param>
+/// <returns>bool; Was the campaign found and read?</returns>
+// (0x004655C0, slot 25)
 // The campaign's CD, final movie and scenario (upper case), and its
 // description; debug-only campaigns get " - for debug/testing" appended.
 
@@ -144,7 +174,14 @@ void __fastcall CampaignClass::Read_Battles(CCINIClass &ini)
 }
 
 
-// ?GetClassID@CampaignClass@@UAGJPAUGUID@@@Z (0x00465860)
+/// <summary>
+/// Fetches the class identifier of this object.
+/// This routine is required of every persistent object so that the save game loader
+/// can recognize what to construct when the object is read back.
+/// </summary>
+/// <param name="retval">Pointer to the identifier to fill in.</param>
+/// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
+// (0x00465860)
 // The class identifier.
 
 HRESULT __stdcall CampaignClass::GetClassID(GUID *classid)
@@ -157,7 +194,12 @@ HRESULT __stdcall CampaignClass::GetClassID(GUID *classid)
 }
 
 
-// ?Compute_CRC@CampaignClass@@UBEXAAVWWCRCEngine@@@Z (0x004658A0)
+/// <summary>
+/// Submits this campaign to the CRC engine.
+/// This routine is used by the multiplayer sync check to prove that every machine
+/// is playing with the same campaign data.
+/// </summary>
+// (0x004658A0)
 // AbstractTypeClass part and the campaign fields.
 
 void CampaignClass::Compute_CRC(WWCRCEngine &crc) const
@@ -169,7 +211,13 @@ void CampaignClass::Compute_CRC(WWCRCEngine &crc) const
 }
 
 
-// ?Load@CampaignClass@@UAGJPAUIStream@@@Z (0x004658E0)
+/// <summary>
+/// Reads this campaign back in from a save game stream.
+/// The object is reconstructed in place so that its virtual table pointer is valid
+/// again before the game resumes using it.
+/// </summary>
+/// <returns>Returns with S_OK if the campaign was read, otherwise the failure code.</returns>
+// (0x004658E0)
 // AbstractClass load, then the vtables.
 
 HRESULT __stdcall CampaignClass::Load(IStream *stream)
@@ -183,7 +231,12 @@ HRESULT __stdcall CampaignClass::Load(IStream *stream)
 }
 
 
-// ?Save@CampaignClass@@UAGJPAUIStream@@H@Z (0x00465930)
+/// <summary>
+/// Writes this campaign out to a save game stream.
+/// </summary>
+/// <param name="cleardirty">Should the dirty flag be cleared once written?</param>
+/// <returns>Returns with S_OK if the campaign was written, otherwise the failure code.</returns>
+// (0x00465930)
 // Only the AbstractClass part.
 
 HRESULT __stdcall CampaignClass::Save(IStream *stream, BOOL clear_dirty)

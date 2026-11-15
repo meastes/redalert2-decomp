@@ -1,3 +1,19 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/ccini.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // ccini.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -69,7 +85,30 @@
 // by HeaderStatics_diagonal_init_004694c0.cpp; no source of its own.
 
 
-// CCINIClass::Load (0x004696B0).
+/***********************************************************************************************
+ * CCINIClass::Load -- Load the INI database from the file specified.                          *
+ *                                                                                             *
+ *    This routine will load the database from the file specified in much the same manner      *
+ *    that the INIClass load function works. However, this class will examine the message      *
+ *    digest (if present) and compare it to the actual digest. If they differ, a special       *
+ *    return value is used. This will allow verification of the integrity of the ini data.     *
+ *                                                                                             *
+ * INPUT:   file  -- Reference to the file that will be read from.                             *
+ *                                                                                             *
+ *          withdigest  -- Should a message digest be examined when loaded. If there is a      *
+ *                         mismatch detected, then an error will be returned.                  *
+ *                                                                                             *
+ * OUTPUT:  If the file was not read, returns 0. If the file was read ok, returns 1. If the    *
+ *          file was read ok, but the digest doesn't verify, returns 2.                        *
+ *                                                                                             *
+ * WARNINGS:   If no message digest was present in the INI file, then no verification can      *
+ *             be performed.                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/03/1996 JLB : Created.                                                                 *
+ *   08/21/1996 JLB : Handles digest control.                                                  *
+ *=============================================================================================*/
+// (0x004696B0)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 int CCINIClass::Load(FileClass &file, bool withdigest, bool keep_comments)
@@ -79,7 +118,26 @@ int CCINIClass::Load(FileClass &file, bool withdigest, bool keep_comments)
 }
 
 
-// CCINIClass::Load (0x004697E0).
+/***********************************************************************************************
+ * CCINIClass::Load -- Load the INI database from the data stream specified.                   *
+ *                                                                                             *
+ *    This will load the INI database and in the process, it will fetch and verify any         *
+ *    message digest present.                                                                  *
+ *                                                                                             *
+ * INPUT:   straw -- The data stream to fetch the INI data from.                               *
+ *                                                                                             *
+ *          withdigest  -- Should a message digest be examined when loaded. If there is a      *
+ *                         mismatch detected, then an error will be returned.                  *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the database loaded ok? (hack: returns "2" if digest doesn't match).     *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/10/1996 JLB : Created.                                                                 *
+ *   08/21/1996 JLB : Handles message digest control.                                          *
+ *=============================================================================================*/
+// (0x004697E0)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 int CCINIClass::Load(Straw &file, bool withdigest, bool keep_comments)
@@ -104,7 +162,26 @@ int CCINIClass::Load(Straw &file, bool withdigest, bool keep_comments)
 }
 
 
-// CCINIClass::Save (0x004698F0).
+/***********************************************************************************************
+ * CCINIClass::Save -- Save the INI data to the file specified.                                *
+ *                                                                                             *
+ *    This routine will save the INI data to the file. It will add a message digest so that    *
+ *    validity check can be performed when the INI data is subsequently read.                  *
+ *                                                                                             *
+ * INPUT:   file  -- Reference to the file to write the INI data to.                           *
+ *                                                                                             *
+ *          withdigest  -- Should a message digest be generated and saved with the INI         *
+ *                         data file?                                                          *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the INI data saved?                                                      *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/03/1996 JLB : Created.                                                                 *
+ *   08/21/1996 JLB : Handles message digest control.                                          *
+ *=============================================================================================*/
+// (0x004698F0)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 int CCINIClass::Save(FileClass &file, bool withdigest)
@@ -114,7 +191,27 @@ int CCINIClass::Save(FileClass &file, bool withdigest)
 }
 
 
-// CCINIClass::Save (0x00469A00).
+/***********************************************************************************************
+ * CCINIClass::Save -- Pipes the INI database to the pipe specified.                           *
+ *                                                                                             *
+ *    This routine will pipe the INI data to the pipe segment specified. It is functionally    *
+ *    the same as the save operation. A message digest is added to the output data so that     *
+ *    validity check can occur during a subsequent read.                                       *
+ *                                                                                             *
+ * INPUT:   straw -- Reference to the pipe that will receive the output ini data stream.       *
+ *                                                                                             *
+ *          withdigest  -- Should a message digest be generated and saved with the INI         *
+ *                         data file?                                                          *
+ *                                                                                             *
+ * OUTPUT:  Returns with the number of bytes output to the pipe.                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/03/1996 JLB : Created.                                                                 *
+ *   08/21/1996 JLB : Handles message digest control.                                          *
+ *=============================================================================================*/
+// (0x00469A00)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 int CCINIClass::Save(Pipe &pipe, bool withdigest)
@@ -131,7 +228,28 @@ int CCINIClass::Save(Pipe &pipe, bool withdigest)
 }
 
 
-// CCINIClass::Get_Lepton (0x00469AE0).
+/***********************************************************************************************
+ * CCINIClass::Get_Lepton -- Fetches a lepton value from the INI database.                     *
+ *                                                                                             *
+ *    This routine will fetch the lepton value as if it were expressed as cells. Example;      *
+ *    a value of 1 would mean 256 in leptons.                                                  *
+ *                                                                                             *
+ * INPUT:   section  -- The section identifier to look under.                                  *
+ *                                                                                             *
+ *          entry    -- The entry identifier to find.                                          *
+ *                                                                                             *
+ *          defvalue -- The default value to use if the specified section and entry could      *
+ *                      not be located.                                                        *
+ *                                                                                             *
+ * OUTPUT:  Returns with the lepton value of the section & entry specified. If not found, then *
+ *          the default value is returned.                                                     *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/03/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00469AE0)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 int CCINIClass::Get_Lepton(char const *section, char const *entry, int defvalue) const
@@ -144,7 +262,26 @@ int CCINIClass::Get_Lepton(char const *section, char const *entry, int defvalue)
 }
 
 
-// CCINIClass::Put_Lepton (0x00469B20).
+/***********************************************************************************************
+ * CCINIClass::Put_Lepton -- Stores a lepton value to the INI database.                        *
+ *                                                                                             *
+ *    This routine will store the lepton value as if it were expressed in cells. Example;      *
+ *    A lepton of 128 will be stored as ".5".                                                  *
+ *                                                                                             *
+ * INPUT:   section  -- The section identifier to store the value under.                       *
+ *                                                                                             *
+ *          entry    -- The entry to store the lepton value at.                                *
+ *                                                                                             *
+ *          value    -- The lepton value to store.                                             *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the lepton value stored?                                                 *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/03/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00469B20)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 bool CCINIClass::Put_Lepton(char const *section, char const *entry, int lepton)
@@ -177,7 +314,12 @@ int CCINIClass::Get_Facing(char const *section, char const *entry, int defvalue)
 }
 
 
-// CCINIClass::Get_Cell (0x00469C00).
+/// <summary>
+/// Fetches a cell location from the INI database.
+/// The cell is expressed as an "x,y" pair.
+/// </summary>
+/// <returns>Returns with the cell found, or the default cell if the entry is absent.</returns>
+// (0x00469C00)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 Cell CCINIClass::Get_Cell(char const *section, char const *entry, Cell const &defvalue) const
@@ -193,7 +335,12 @@ Cell CCINIClass::Get_Cell(char const *section, char const *entry, Cell const &de
 }
 
 
-// CCINIClass::Put_Cell (0x00469C80).
+/// <summary>
+/// Stores a cell location to the INI database.
+/// The cell is recorded as an "x,y" pair.
+/// </summary>
+/// <returns>bool; Was the cell stored?</returns>
+// (0x00469C80)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 bool CCINIClass::Put_Cell(char const *section, char const *entry, Cell const &cell)
@@ -291,7 +438,14 @@ bool CCINIClass::Put_PipScale(char const *section, char const *entry, int scale)
 }
 
 
-// CCINIClass::Get_CategoryType (0x00469EA0).
+/// <summary>
+/// Fetches an object category from the INI database.
+/// The category is what the AI production logic uses to tell a soldier from a transport or
+/// a power plant.
+/// </summary>
+/// <returns>Returns with the category that matches the name recorded, or CATEGORY_NONE if
+/// the name is not recognized.</returns>
+// (0x00469EA0)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 CategoryType CCINIClass::Get_CategoryType(char const *section, char const *entry, CategoryType defvalue) const
@@ -302,7 +456,12 @@ CategoryType CCINIClass::Get_CategoryType(char const *section, char const *entry
 }
 
 
-// CCINIClass::Put_CategoryType (0x00469EE0).
+/// <summary>
+/// Stores an object category to the INI database.
+/// </summary>
+/// <returns>bool; Was the category stored? A value of CATEGORY_SOLDIER is never
+/// stored.</returns>
+// (0x00469EE0)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 bool CCINIClass::Put_CategoryType(char const *section, char const *entry, CategoryType category)
@@ -473,7 +632,12 @@ bool CCINIClass::Put_MovementZone(char const *section, char const *entry, int zo
 }
 
 
-// CCINIClass::Get_ActionType (0x0046A3A0).
+/// <summary>
+/// Fetches a trigger action identifier from the INI database.
+/// </summary>
+/// <returns>Returns with the action that matches the name recorded, or ACTION_NONE if the
+/// name is not recognized.</returns>
+// (0x0046A3A0)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 int CCINIClass::Get_ActionType(char const *section, char const *entry, int defvalue) const
@@ -489,7 +653,12 @@ int CCINIClass::Get_ActionType(char const *section, char const *entry, int defva
 }
 
 
-// CCINIClass::Get_SuperWeaponType (0x0046A410).
+/// <summary>
+/// Fetches a super weapon identifier from the INI database.
+/// </summary>
+/// <returns>Returns with the super weapon that matches the name recorded, or SUPER_NONE if
+/// the name is not recognized.</returns>
+// (0x0046A410)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 int CCINIClass::Get_SuperWeaponType(char const *section, char const *entry, int defvalue) const
@@ -508,7 +677,12 @@ int CCINIClass::Get_SuperWeaponType(char const *section, char const *entry, int 
 }
 
 
-// CCINIClass::Get_VoxType (0x0046A460).
+/// <summary>
+/// Fetches a speech identifier from the INI database.
+/// </summary>
+/// <returns>Returns with the speech identifier that matches the name recorded, or VOX_NONE
+/// if the name is not recognized.</returns>
+// (0x0046A460)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 int CCINIClass::Get_VoxType(char const *section, char const *entry, int defvalue) const
@@ -522,7 +696,13 @@ int CCINIClass::Get_VoxType(char const *section, char const *entry, int defvalue
 }
 
 
-// CCINIClass::Get_RTTIType (0x0046A4B0).
+/// <summary>
+/// Fetches an object category identifier from the INI database.
+/// This routine is used where a rules entry names the kind of object it refers to, rather
+/// than an individual object type.
+/// </summary>
+/// <returns>Returns with the object category that matches the name recorded.</returns>
+// (0x0046A4B0)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 RTTIType CCINIClass::Get_RTTIType(char const *section, char const *entry, RTTIType defvalue) const
@@ -533,7 +713,11 @@ RTTIType CCINIClass::Get_RTTIType(char const *section, char const *entry, RTTITy
 }
 
 
-// CCINIClass::Put_RTTIType (0x0046A4F0).
+/// <summary>
+/// Stores an object category identifier to the INI database.
+/// </summary>
+/// <returns>bool; Was the object category stored?</returns>
+// (0x0046A4F0)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 bool CCINIClass::Put_RTTIType(char const *section, char const *entry, RTTIType rtti)
@@ -542,7 +726,10 @@ bool CCINIClass::Put_RTTIType(char const *section, char const *entry, RTTIType r
 }
 
 
-// CCINIClass::Get_BuildCat (0x0046A520).
+/// <summary>
+/// RA2: fetches a build category from the INI database.
+/// </summary>
+// (0x0046A520)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 BuildCat CCINIClass::Get_BuildCat(char const *section, char const *entry, BuildCat defvalue) const
@@ -553,7 +740,10 @@ BuildCat CCINIClass::Get_BuildCat(char const *section, char const *entry, BuildC
 }
 
 
-// CCINIClass::Put_BuildCat (0x0046A560).
+/// <summary>
+/// RA2: stores a build category to the INI database.
+/// </summary>
+// (0x0046A560)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 bool CCINIClass::Put_BuildCat(char const *section, char const *entry, BuildCat category)
@@ -562,7 +752,30 @@ bool CCINIClass::Put_BuildCat(char const *section, char const *entry, BuildCat c
 }
 
 
-// CCINIClass::Get_Owners (0x0046A590).
+/***********************************************************************************************
+ * CCINIClass::Get_Owners -- Fetch the owners (list of house bits).                            *
+ *                                                                                             *
+ *    Use this to fetch a house bit array value from the INI database. This value will be      *
+ *    various bit positions set (1 << house#) for each house specified in the database.        *
+ *    Houses can be specified in series by the house name separated by commas or by the        *
+ *    special group names of "soviet", and "allies" to cover the houses that are members of    *
+ *    these groups.                                                                            *
+ *                                                                                             *
+ * INPUT:   section  -- The section identifier to search for the entry under.                  *
+ *                                                                                             *
+ *          entry    -- The entry identifier to search for.                                    *
+ *                                                                                             *
+ *          defvalue -- The default house bitfield to use if the entry could not be found.     *
+ *                                                                                             *
+ * OUTPUT:  Returns with the house bitfield value. If the entry could not be found, then the   *
+ *          default value is returned.                                                         *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/03/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0046A590)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 int CCINIClass::Get_Owners(char const *section, char const *entry, int defvalue) const
@@ -579,7 +792,27 @@ int CCINIClass::Get_Owners(char const *section, char const *entry, int defvalue)
 }
 
 
-// CCINIClass::Put_Owners (0x0046A610).
+/***********************************************************************************************
+ * CCINIClass::Put_Owners -- Store the house bitfield to the INI database.                     *
+ *                                                                                             *
+ *    Use this routine to store the house bitfield data into the database. The bitfield format *
+ *    matches the format used by the Get_Owners function. Example; if both England and         *
+ *    Spain were specified in the bitfield, the entry would be stored as "England,Spain".      *
+ *                                                                                             *
+ * INPUT:   section  -- The section identifier to store the entry under.                       *
+ *                                                                                             *
+ *          entry    -- The entry identifier that is assigned the value.                       *
+ *                                                                                             *
+ *          value    -- The value to assign to the entry.                                      *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the entry stored in the INI database?                                    *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/03/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0046A610)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 bool CCINIClass::Put_Owners(char const *section, char const *entry, int owners)
@@ -604,7 +837,10 @@ bool CCINIClass::Put_Owners(char const *section, char const *entry, int owners)
 }
 
 
-// CCINIClass::Get_Houses (0x0046A720).
+/// <summary>
+/// RA2: fetches a set of houses, by their INI names, as a bit field of house indexes.
+/// </summary>
+// (0x0046A720)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 int CCINIClass::Get_Houses(char const *section, char const *entry, int defvalue) const
@@ -621,7 +857,10 @@ int CCINIClass::Get_Houses(char const *section, char const *entry, int defvalue)
 }
 
 
-// CCINIClass::Put_Houses (0x0046A7A0).
+/// <summary>
+/// RA2: stores a bit field of house indexes as their INI names.
+/// </summary>
+// (0x0046A7A0)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 bool CCINIClass::Put_Houses(char const *section, char const *entry, int houses)
@@ -646,7 +885,26 @@ bool CCINIClass::Put_Houses(char const *section, char const *entry, int houses)
 }
 
 
-// CCINIClass::Get_ArmorType (0x0046A8B0).
+/***********************************************************************************************
+ * CCINIClass::Get_ArmorType -- Fetches the armor type from the INI database.                  *
+ *                                                                                             *
+ *    This routine will fetch the armor type from the database.                                *
+ *                                                                                             *
+ * INPUT:   section  -- Identifier for the section to search for the entry under.              *
+ *                                                                                             *
+ *          entry    -- Th identifier for the entry to search for.                             *
+ *                                                                                             *
+ *          defvalue -- The default value to use if the entry could not be located.            *
+ *                                                                                             *
+ * OUTPUT:  Returns with the armor type specified in the INI database. If it could not be      *
+ *          found, then the default value is returned instead.                                 *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/03/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0046A8B0)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 ArmorType CCINIClass::Get_ArmorType(char const *section, char const *entry, ArmorType defvalue) const
@@ -657,7 +915,25 @@ ArmorType CCINIClass::Get_ArmorType(char const *section, char const *entry, Armo
 }
 
 
-// CCINIClass::Put_ArmorType (0x0046A900).
+/***********************************************************************************************
+ * CCINIClass::Put_ArmorType -- Store the armor type to the INI database.                      *
+ *                                                                                             *
+ *    Use this routine to store the specified armor type to the INI database.                  *
+ *                                                                                             *
+ * INPUT:   section  -- The section identifier to store the entry under.                       *
+ *                                                                                             *
+ *          entry    -- The entry to store the value at.                                       *
+ *                                                                                             *
+ *          value    -- The value to store in the database.                                    *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the entry stored in the database?                                        *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/03/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0046A900)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 bool CCINIClass::Put_ArmorType(char const *section, char const *entry, ArmorType armor)
@@ -666,7 +942,26 @@ bool CCINIClass::Put_ArmorType(char const *section, char const *entry, ArmorType
 }
 
 
-// CCINIClass::Put_VocType (0x0046A920).
+/***********************************************************************************************
+ * CCINIClass::Put_VocType -- Store a sound effect identifier into the INI database.           *
+ *                                                                                             *
+ *    Use this routine to store a voc identifier (stored a the text name of the sound) into    *
+ *    the INI database.                                                                        *
+ *                                                                                             *
+ * INPUT:   section  -- Identifier for the section to store the entry under.                   *
+ *                                                                                             *
+ *          entry    -- The entry to assign the value to.                                      *
+ *                                                                                             *
+ *          value    -- The sound effect to store to the entry.                                *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the sound effect entry stored?                                           *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/03/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0046A920)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 bool CCINIClass::Put_VocType(char const *section, char const *entry, int voc)
@@ -678,7 +973,12 @@ bool CCINIClass::Put_VocType(char const *section, char const *entry, int voc)
 }
 
 
-// CCINIClass::Get_LandType (0x0046A970).
+/// <summary>
+/// Fetches a land type from the INI database.
+/// </summary>
+/// <returns>Returns with the land type named by the entry. If the entry could not be found,
+/// then the default value is returned.</returns>
+// (0x0046A970)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 LandType CCINIClass::Get_LandType(char const *section, char const *entry, LandType defvalue) const
@@ -691,7 +991,11 @@ LandType CCINIClass::Get_LandType(char const *section, char const *entry, LandTy
 }
 
 
-// CCINIClass::Put_LandType (0x0046A9D0).
+/// <summary>
+/// Stores a land type to the INI database.
+/// </summary>
+/// <returns>bool; Was the land type stored?</returns>
+// (0x0046A9D0)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 bool CCINIClass::Put_LandType(char const *section, char const *entry, LandType land)
@@ -700,7 +1004,27 @@ bool CCINIClass::Put_LandType(char const *section, char const *entry, LandType l
 }
 
 
-// CCINIClass::Get_HousesType (0x0046AA00).
+/***********************************************************************************************
+ * CCINIClass::Get_HousesType -- Fetch a house identifier from the INI database.               *
+ *                                                                                             *
+ *    Use this routine to fetch an individual house identifier from the INI database. This is  *
+ *    somewhat similar to the Get_Owners function but is limited to a single house.            *
+ *                                                                                             *
+ * INPUT:   section  -- Identifier for the section to search for the entry under.              *
+ *                                                                                             *
+ *          entry    -- Identifier for the entry to search for.                                *
+ *                                                                                             *
+ *          defvalue -- The default value to use if the entry could not be located.            *
+ *                                                                                             *
+ * OUTPUT:  Returns with the house identifier if it was found. If not found, then the default  *
+ *          value is returned.                                                                 *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/03/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0046AA00)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 int CCINIClass::Get_HousesType(char const *section, char const *entry, int defvalue) const
@@ -718,7 +1042,25 @@ int CCINIClass::Get_HousesType(char const *section, char const *entry, int defva
 }
 
 
-// CCINIClass::Put_HousesType (0x0046AAB0).
+/***********************************************************************************************
+ * CCINIClass::Put_HousesType -- Store a house identifier to the INI database.                 *
+ *                                                                                             *
+ *    Use this routine to store the specified house identifier to the INI database.            *
+ *                                                                                             *
+ * INPUT:   section  -- The section to store the entry under.                                  *
+ *                                                                                             *
+ *          entry    -- Identifier for the entry to search for.                                *
+ *                                                                                             *
+ *          value    -- The house identifier to store in the database.                         *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the house identifier stored?                                             *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/03/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0046AAB0)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 bool CCINIClass::Put_HousesType(char const *section, char const *entry, int house)
@@ -735,7 +1077,15 @@ bool CCINIClass::Put_HousesType(char const *section, char const *entry, int hous
 }
 
 
-// CCINIClass::Get_Side (0x0046AB30).
+/// <summary>
+/// Fetches a side identifier from the INI database.
+/// This routine is used while the rules are being read, where a side may well be named
+/// before it has been declared.
+/// </summary>
+/// <returns>Returns with the side identifier that matches the name recorded. If the entry
+/// could not be found, then the default value is returned.</returns>
+/// <remarks>A name that is not already known will add a new side to the side list.</remarks>
+// (0x0046AB30)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 int CCINIClass::Get_Side(char const *section, char const *entry, int defvalue) const
@@ -753,7 +1103,12 @@ int CCINIClass::Get_Side(char const *section, char const *entry, int defvalue) c
 }
 
 
-// CCINIClass::Put_Side (0x0046ABE0).
+/// <summary>
+/// Stores a side identifier to the INI database.
+/// The side is recorded by name. A side identifier of SIDE_NONE is recorded as no side at all.
+/// </summary>
+/// <returns>bool; Was the side identifier stored?</returns>
+// (0x0046ABE0)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 bool CCINIClass::Put_Side(char const *section, char const *entry, int side)
@@ -794,7 +1149,26 @@ bool CCINIClass::Put_Listed_Name(char const *section, char const *entry, unsigne
 }
 
 
-// CCINIClass::Get_TheaterType (0x0046ACB0).
+/***********************************************************************************************
+ * CCINIClass::Get_TheaterType -- Fetch the theater type from the INI database.                *
+ *                                                                                             *
+ *    This will fetch the theater identifier from the INI database.                            *
+ *                                                                                             *
+ * INPUT:   section  -- Identifier for the section to search for the entry under.              *
+ *                                                                                             *
+ *          entry    -- Identifier for the entry to search for.                                *
+ *                                                                                             *
+ *          defvalue -- The default value to use if the entry could not be located.            *
+ *                                                                                             *
+ * OUTPUT:  Returns with the theater type found. If the entry could not be found, then the     *
+ *          default value is returned.                                                         *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/03/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0046ACB0)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 TheaterType CCINIClass::Get_TheaterType(char const *section, char const *entry, TheaterType defvalue) const
@@ -807,7 +1181,25 @@ TheaterType CCINIClass::Get_TheaterType(char const *section, char const *entry, 
 }
 
 
-// CCINIClass::Put_TheaterType (0x0046AD00).
+/***********************************************************************************************
+ * CCINIClass::Put_TheaterType -- Store the theater identifier to the INI database.            *
+ *                                                                                             *
+ *    Use this routine to store the theater name to the INI database.                          *
+ *                                                                                             *
+ * INPUT:   section  -- The section to store the entry under.                                  *
+ *                                                                                             *
+ *          entry    -- Identifier for the entry to store.                                     *
+ *                                                                                             *
+ *          value    -- The theater identifier to store.                                       *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the theater identifier stored?                                           *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/03/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0046AD00)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 bool CCINIClass::Put_TheaterType(char const *section, char const *entry, TheaterType theater)
@@ -816,7 +1208,26 @@ bool CCINIClass::Put_TheaterType(char const *section, char const *entry, Theater
 }
 
 
-// CCINIClass::Get_ThemeType (0x0046AD30).
+/***********************************************************************************************
+ * CCINIClass::Get_ThemeType -- Fetch the theme identifier.                                    *
+ *                                                                                             *
+ *    This routine will fetch the theme identifier from the INI database.                      *
+ *                                                                                             *
+ * INPUT:   section  -- The section to search for the entry under.                             *
+ *                                                                                             *
+ *          entry    -- Identifier of the entry to search for.                                 *
+ *                                                                                             *
+ *          defvalue -- The default theme identifier to return if the entry could not be found.*
+ *                                                                                             *
+ * OUTPUT:  Returns with the theme identifier if it was found. If not found, then the default  *
+ *          value is returned instead.                                                         *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/03/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0046AD30)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 int CCINIClass::Get_ThemeType(char const *section, char const *entry, int defvalue) const
@@ -829,7 +1240,25 @@ int CCINIClass::Get_ThemeType(char const *section, char const *entry, int defval
 }
 
 
-// CCINIClass::Put_ThemeType (0x0046AD90).
+/***********************************************************************************************
+ * CCINIClass::Put_ThemeType -- Store the theme identifier to the INI database.                *
+ *                                                                                             *
+ *    This routine will store the specified theme identifier to the INI database.              *
+ *                                                                                             *
+ * INPUT:   section  -- Identifier for the section to store the entry under.                   *
+ *                                                                                             *
+ *          entry    -- Identifier for the entry to store the value to.                        *
+ *                                                                                             *
+ *          value    -- The theme identifier to store.                                         *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the theme identifier stored.                                             *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/03/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0046AD90)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 bool CCINIClass::Put_ThemeType(char const *section, char const *entry, int theme)
@@ -838,7 +1267,27 @@ bool CCINIClass::Put_ThemeType(char const *section, char const *entry, int theme
 }
 
 
-// CCINIClass::Get_SourceType (0x0046ADC0).
+/***********************************************************************************************
+ * CCINIClass::Get_SourceType -- Fetch the source (edge) type from the INI database.           *
+ *                                                                                             *
+ *    This routine will fetch the source (reinforcement edge) identifier from the INI          *
+ *    database.                                                                                *
+ *                                                                                             *
+ * INPUT:   section  -- Identifier for the section that the entry will be searched under.      *
+ *                                                                                             *
+ *          entry    -- Identifier for the entry that will be searched for.                    *
+ *                                                                                             *
+ *          defvalue -- The default value to return if the entry could not be located.         *
+ *                                                                                             *
+ * OUTPUT:  Returns with the source type of the entry if found. If not found, then the         *
+ *          default value is returned.                                                         *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/03/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0046ADC0)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 SourceType CCINIClass::Get_SourceType(char const *section, char const *entry, SourceType defvalue) const
@@ -851,7 +1300,25 @@ SourceType CCINIClass::Get_SourceType(char const *section, char const *entry, So
 }
 
 
-// CCINIClass::Put_SourceType (0x0046AE10).
+/***********************************************************************************************
+ * CCINIClass::Put_SourceType -- Store the source (edge) identifier to the INI database.       *
+ *                                                                                             *
+ *    This will store the source type (reinforcement edge) to the INI database.                *
+ *                                                                                             *
+ * INPUT:   section  -- The section to store the entry under.                                  *
+ *                                                                                             *
+ *          entry    -- Identifier of the entry to store the source identifier to.             *
+ *                                                                                             *
+ *          value    -- The source (edge) value to store.                                      *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the source identifier stored?                                            *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/03/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0046AE10)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 bool CCINIClass::Put_SourceType(char const *section, char const *entry, SourceType source)
@@ -860,7 +1327,26 @@ bool CCINIClass::Put_SourceType(char const *section, char const *entry, SourceTy
 }
 
 
-// CCINIClass::Get_CrateType (0x0046AE30).
+/***********************************************************************************************
+ * CCINIClass::Get_CrateType -- Fetches a crate type value from the INI database.              *
+ *                                                                                             *
+ *    This will return with the crate type specified in the INI database.                      *
+ *                                                                                             *
+ * INPUT:   section  -- Identifier for the section to search under.                            *
+ *                                                                                             *
+ *          entry    -- The entry to find the matching crate value for.                        *
+ *                                                                                             *
+ *          defvalue -- The default crate value to return if the entry could not be found.     *
+ *                                                                                             *
+ * OUTPUT:  Returns with the crate type identified with the specified entry. If the entry      *
+ *          could not be located, then the default value is returned.                          *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/08/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0046AE30)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 CrateType CCINIClass::Get_CrateType(char const *section, char const *entry, CrateType defvalue) const
@@ -873,7 +1359,25 @@ CrateType CCINIClass::Get_CrateType(char const *section, char const *entry, Crat
 }
 
 
-// CCINIClass::Put_CrateType (0x0046AE80).
+/***********************************************************************************************
+ * CCINIClass::Put_CrateType -- Stores the crate value in the section and entry specified.     *
+ *                                                                                             *
+ *    This will store the specified crate value to the section and entry specified.            *
+ *                                                                                             *
+ * INPUT:   section  -- The section identifier to store the entry under.                       *
+ *                                                                                             *
+ *          entry    -- The entry identifier to store the crate value with.                    *
+ *                                                                                             *
+ *          value    -- The crate value to store.                                              *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the crate value stored to the INI database?                              *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/08/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0046AE80)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 bool CCINIClass::Put_CrateType(char const *section, char const *entry, CrateType crate)
@@ -882,7 +1386,29 @@ bool CCINIClass::Put_CrateType(char const *section, char const *entry, CrateType
 }
 
 
-// CCINIClass::Get_Buildings (0x0046AEA0; TibSun ccini.cpp): the building bitfield of a comma
+/***********************************************************************************************
+ * CCINIClass::Get_Buildings -- Fetch a building bitfield from the INI database.               *
+ *                                                                                             *
+ *    This routing will fetch the a list of buildings from the INI database. The buildings     *
+ *    are expressed as a comma separated list of building identifiers. The return value is     *
+ *    a composite of bits that represent these buildings -- one bit per building type.         *
+ *                                                                                             *
+ * INPUT:   section  -- The section to search for the entry under.                             *
+ *                                                                                             *
+ *          entry    -- The entry to fetch the building list from.                             *
+ *                                                                                             *
+ *          defvalue -- The default value to return if the section and entry could not be      *
+ *                      located.                                                               *
+ *                                                                                             *
+ * OUTPUT:  Returns with the building list (as a bitfield). If the entry could not be          *
+ *          found, the the default value is returned instead.                                  *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/11/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0046AEA0; TibSun ccini.cpp)
 // separated list: POWER, FACTORY, BARRACKS and RADAR set the top four bits, a building type ID
 // its own bit (BuildingTypeClass::From_Name); defvalue when the entry is missing.
 
@@ -921,7 +1447,29 @@ int CCINIClass::Get_Buildings(char const *section, char const *entry, int defval
 }
 
 
-// CCINIClass::Put_Buildings (0x0046AFB0).
+/***********************************************************************************************
+ * CCINIClass::Put_Buildings -- Store a building list to the INI database.                     *
+ *                                                                                             *
+ *    This will store a list of buildings to the INI database. The buildings are listed by     *
+ *    their identifier names separated by commas.                                              *
+ *                                                                                             *
+ * INPUT:   section  -- The identifier for the section to store the entry under.               *
+ *                                                                                             *
+ *          entry    -- The entry to store the building list to.                               *
+ *                                                                                             *
+ *          value    -- A list of buildings (in the form of a bit field -- one bit per         *
+ *                      building type).                                                        *
+ *                                                                                             *
+ * OUTPUT:  Was the building list stored to the INI file?                                      *
+ *                                                                                             *
+ * WARNINGS:   This is limited to the buildings that can be expressed in a bitfield long.      *
+ *             Which means, there can be only a maximum of 32 building types listed and        *
+ *             even then, the total line length generated must not exceed 128 bytes.           *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/11/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0046AFB0)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 bool CCINIClass::Put_Buildings(char const *section, char const *entry, int buildings)
@@ -1119,7 +1667,14 @@ bool CCINIClass::Put_Techno_List(char const *section, char const *entry, TypeLis
 }
 
 
-// CCINIClass::Get_House_List (0x0046BC00).
+/// <summary>
+/// Fetches a house list from the INI database.
+/// This routine will read a comma separated list of house names. A side may be named in
+/// place of a house, in which case every house belonging to that side is added to the list.
+/// </summary>
+/// <returns>Returns with the list of house identifiers specified. If the entry could not be
+/// found, then the default value is returned.</returns>
+// (0x0046BC00)
 // Layout and behaviour: shared/ccini_class.hpp.
 
 TypeList<int> CCINIClass::Get_House_List(char const *section, char const *entry, TypeList<int> defvalue)
@@ -1147,7 +1702,12 @@ TypeList<int> CCINIClass::Get_House_List(char const *section, char const *entry,
 }
 
 
-// CCINIClass::Put_House_List (0x0046BE60; TibSun ccini.cpp): stores a list of house types as a
+/// <summary>
+/// Stores a house list to the INI database.
+/// The houses are recorded as a comma separated list of house names.
+/// </summary>
+/// <returns>bool; Was the house list stored?</returns>
+// (0x0046BE60; TibSun ccini.cpp)
 // comma separated list of their IDs.
 
 bool CCINIClass::Put_House_List(char const *section, char const *entry, TypeList<int> value)
@@ -1201,7 +1761,23 @@ TypeList<RGBClass> CCINIClass::Get_Color_List(char const *section, char const *e
 }
 
 
-// CCINIClass::Get_Unique_ID (0x0046C1C0).
+/***********************************************************************************************
+ * CCINIClass::Get_Unique_ID -- Fetch a unique identifier number for the INI file.             *
+ *                                                                                             *
+ *    This is a shorthand version of the message digest. It calculates the ID number from the  *
+ *    message digest itself.                                                                   *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  Returns with a 32 bit unique identifier number for the INI database.               *
+ *                                                                                             *
+ * WARNINGS:   Since the return value is only 32 bits, it is much less secure than the         *
+ *             complete message digest.                                                        *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   11/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0046C1C0)
 // Layout and behaviour: shared/ccini_class.hpp (Calculate_Message_Digest,
 // defined later in the unit, is expanded here).
 
@@ -1214,7 +1790,23 @@ int CCINIClass::Get_Unique_ID() const
 }
 
 
-// CCINIClass::Calculate_Message_Digest (0x0046C260).
+/***********************************************************************************************
+ * CCINIClass::Calculate_Message_Digest -- Calculate a message digest for the current database *
+ *                                                                                             *
+ *    This will calculate a new message digest according to the current state of the INI       *
+ *    database.                                                                                *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   If the database is changed in any fashion, this message digest will be rendered *
+ *             obsolete.                                                                       *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   11/01/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0046C260)
 // Layout and behaviour: shared/ccini_class.hpp, shared/sha_pipe.hpp.
 
 void CCINIClass::Calculate_Message_Digest()
@@ -1291,7 +1883,12 @@ bool CCINIClass::Put_Target_Type(char const *section, char const *entry, TargetC
 }
 
 
-// CCINIClass::Get_SpeedType (0x0046C400).
+/// <summary>
+/// Fetches a speed type from the INI database.
+/// </summary>
+/// <returns>Returns with the speed type named by the entry. If the entry could not be
+/// found, then the default value is returned.</returns>
+// (0x0046C400)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 SpeedType CCINIClass::Get_SpeedType(char const *section, char const *entry, SpeedType defvalue)
@@ -1310,7 +1907,10 @@ class Leaf_46c460 { public: unsigned int get(unsigned int section_name, unsigned
 unsigned int Leaf_46c460::get(unsigned int section_name, unsigned int entry_name, unsigned int speed) { unsigned int speed_name_address = ((Call_46c460_0*)(speed))->Name_From_Speed_00482f60(); unsigned int write_result = ((Call_46c460_1*)((unsigned int)this))->Put_String_0050e5f0((unsigned int)(section_name), (unsigned int)(entry_name), (unsigned int)(speed_name_address)); return write_result; }
 
 
-// CCINIClass::Get_LayerType (0x0046C490).
+/// <summary>
+/// RA2: fetches a layer from the INI database.
+/// </summary>
+// (0x0046C490)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 LayerType CCINIClass::Get_LayerType(char const *section, char const *entry, LayerType defvalue)
@@ -1432,7 +2032,14 @@ LevelType CCINIClass::Get_Level(char const *section, char const *entry, LevelTyp
 }
 
 
-// CCINIClass::Get_Abilities (0x0046CA80).
+/// <summary>
+/// Fetches a veterancy ability set from the INI database.
+/// This routine will read a comma separated list of ability names, as used by the elite
+/// ability lists of the object types. Any name that is not recognized is ignored.
+/// </summary>
+/// <returns>Returns with the abilities specified. If the entry could not be found, then the
+/// default value is returned.</returns>
+// (0x0046CA80)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
 AbilitiesStruct CCINIClass::Get_Abilities(char const *section, char const *entry, AbilitiesStruct const &defvalue)

@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/msengine.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // msengine.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -16,7 +27,12 @@
 // empty Rect from shared/shape_file.hpp (0x00A71838 in this unit).
 
 
-// MSEngine::MSEngine() (0x005B2BE0)
+/// <summary>
+/// Creates an empty animation engine.
+/// The list of pending update regions is sized here. The animations and sound effects
+/// are supplied by whichever screen is driving the engine.
+/// </summary>
+// (0x005B2BE0)
 // Empty lists and room for 20 dirty rectangles.
 
 MSEngine::MSEngine()
@@ -28,7 +44,11 @@ MSEngine::MSEngine()
 }
 
 
-// MSEngine::~MSEngine() (0x005B2C70)
+/// <summary>
+/// Destroys the animation engine.
+/// Every animation and sound effect handed to the engine is destroyed along with it.
+/// </summary>
+// (0x005B2C70)
 // Deletes the sound effects and the animations it owns.
 
 MSEngine::~MSEngine()
@@ -62,7 +82,15 @@ int MSEngine::Add_Anim(MSAnim *anim)
 }
 
 
-// void MSEngine::Replace_Anim(MSAnim *anim, MSAnim *old) (0x005B2DD0)
+/// <summary>
+/// Swaps one animation for another.
+/// The replacement takes the old animation's place in the draw order, so whatever was
+/// drawn over the old one stays on top of the new one. This is how a screen exchanges
+/// artwork -- a highlighted button for a plain one, say.
+/// </summary>
+/// <param name="new_anim">The animation to put in place.</param>
+/// <param name="old_anim">The animation to be replaced; it is destroyed.</param>
+// (0x005B2DD0)
 // Inserts anim after old (at index 0 when old is absent), then removes and
 // deletes old.
 
@@ -73,7 +101,12 @@ void MSEngine::Replace_Anim(MSAnim *anim, MSAnim *old)
 }
 
 
-// void MSEngine::Remove_Anim(MSAnim *anim) (0x005B2EC0)
+/// <summary>
+/// Removes an animation from the engine and destroys it.
+/// An animation the engine is not running is left alone, so a caller need not keep
+/// track of which of its animations are still active.
+/// </summary>
+// (0x005B2EC0)
 // Removes and deletes an animation in the list.
 
 void MSEngine::Remove_Anim(MSAnim *anim)
@@ -271,7 +304,15 @@ void MSEngine::Blit_Rects(Surface *surface)
 }
 
 
-// void MSEngine::Blit_Rect(Surface *surface, Rect const &rect) (0x005B3490)
+/// <summary>
+/// Blits a single region to the visible surface.
+/// Use this routine to push one region to the screen straight away rather than letting
+/// it wait for the next Blit_All. The mouse cursor is drawn over the source for the
+/// duration so that it appears in the copy.
+/// </summary>
+/// <param name="surface">The surface to copy from.</param>
+/// <param name="rect">The region of the surface to copy.</param>
+// (0x005B3490)
 // Copies one rectangle of surface to the screen surface (no direct callers).
 
 void MSEngine::Blit_Rect(Surface *surface, Rect const &rect)

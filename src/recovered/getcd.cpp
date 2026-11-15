@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/getcd.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // getcd.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -11,7 +26,13 @@
 #include "shared/crt_string.hpp"
 
 
-// GetCDClass::GetCDClass() (0x004D2940)
+/// <summary>
+/// Constructor for the CD drive list object.
+/// This routine asks the system about every logical drive letter and records the ones
+/// that turn out to be CD-ROM drives. The disc searching code walks this list when it
+/// hunts for the game CD, so an empty list means there is nowhere to look.
+/// </summary>
+// (0x004D2940)
 // Lists the CD-ROM drives: C: to Z: first; when there is none, A: and B:.
 
 GetCDClass::GetCDClass()
@@ -45,7 +66,10 @@ GetCDClass::GetCDClass()
 }
 
 
-// GetCDClass::~GetCDClass() (0x004D2A10): nothing to release.
+/// <summary>
+/// Destructor for the CD drive list object.
+/// </summary>
+// (0x004D2A10)
 
 GetCDClass::~GetCDClass()
 {

@@ -1,3 +1,19 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/smudge.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // smudge.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -65,7 +81,27 @@
 // by HeaderStatics_diagonal_init_006873d0.cpp; no source of its own.
 
 
-// SmudgeClass::SmudgeClass(SmudgeTypeClass *type, CoordStruct const &coord, int house) (0x006875C0)
+/***********************************************************************************************
+ * SmudgeClass::SmudgeClass -- Constructor for smudge objects.                                 *
+ *                                                                                             *
+ *    This is the typical constructor for smudge objects. If the position to place the         *
+ *    smudge is not given, then the smudge will be initialized in a limbo state. If the        *
+ *    smudge is placed on the map, then this operation causes the smudge object itself to be   *
+ *    deleted and special map values updated to reflect the presence of a smudge.              *
+ *                                                                                             *
+ * INPUT:   type  -- The type of smudge to construct.                                          *
+ *                                                                                             *
+ *          pos   -- The position to place the smudge. If -1, then the smudge is initialized   *
+ *                   into a limbo state.                                                       *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/01/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006875C0)
 // Registers the smudge and places it at the coordinate (unless it is the
 // zero coordinate) for the given house; a smudge that cannot be placed is
 // removed again (slot 60).
@@ -88,7 +124,12 @@ SmudgeClass::SmudgeClass(SmudgeTypeClass *type, CoordStruct const &coord, int ho
 }
 
 
-// SmudgeClass::~SmudgeClass() (0x006876B0)
+/// <summary>
+/// Destroys the smudge and removes it from the game.
+/// This routine detaches anything that referred to this smudge, lifts it off the map, and
+/// drops it from the global smudge list.
+/// </summary>
+// (0x006876B0)
 // Leaves the notice lists and the smudge list; leaves the map (ObjectClass
 // slot 52) only when the 0x00A40958 flag is set.
 
@@ -103,7 +144,23 @@ SmudgeClass::~SmudgeClass()
 }
 
 
-// bool SmudgeClass::Mark(int arg1) (0x00687750)
+/***********************************************************************************************
+ * SmudgeClass::Mark -- Marks a smudge down on the map.                                        *
+ *                                                                                             *
+ *    This routine will place the smudge on the map. If the map cell allows.                   *
+ *                                                                                             *
+ * INPUT:   mark  -- The type of marking to perform. Only MARK_DOWN is supported.              *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the smudge marked successfully? Failure occurs if the smudge isn't       *
+ *                marked DOWN.                                                                 *
+ *                                                                                             *
+ * WARNINGS:   The smudge object is DELETED by this routine.                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/22/1994 JLB : Created.                                                                 *
+ *   12/23/1994 JLB : Checks low level legality before proceeding.                             *
+ *=============================================================================================*/
+// (0x00687750)
 // After the base handling succeeds for modes 1 and 3, marks the smudge's
 // cells (SmudgeTypeClass::Place, when the cells allow it or placement is
 // forced) and removes the object (slot 60).
@@ -143,7 +200,23 @@ void __stdcall Disown_006877e0(int unused_0)
 }  // namespace seed_006877e0
 
 
-// static void __fastcall SmudgeClass::Read_INI(CCINIClass &ini) (0x006877F0)
+/***********************************************************************************************
+ * SmudgeClass::Read_INI -- Reads smudge data from an INI file.                                *
+ *                                                                                             *
+ *    This routine is used by the scenario loader to read the smudge data in an INI file and   *
+ *    create the appropriate smudge objects on the map.                                        *
+ *                                                                                             *
+ * INPUT:   buffer   -- Pointer to the INI file staging buffer.                                *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/01/1994 JLB : Created.                                                                 *
+ *   07/24/1995 JLB : Sets the smudge data value as well.                                      *
+ *=============================================================================================*/
+// (0x006877F0)
 // Creates the smudges listed in the [Smudge] section ("type,x,y,piece");
 // only first pieces (piece 0) are created, the type marks its other cells.
 
@@ -172,7 +245,21 @@ void __fastcall SmudgeClass::Read_INI(CCINIClass &ini)
 }
 
 
-// static void __fastcall SmudgeClass::Write_INI(CCINIClass &ini) (0x00687930)
+/***********************************************************************************************
+ * SmudgeClass::Write_INI -- Store all the smudge data to the INI database.                    *
+ *                                                                                             *
+ *    This routine will output all the smudge data to the INI database.                        *
+ *                                                                                             *
+ * INPUT:   ini   -- Reference to the INI database object.                                     *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/03/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00687930)
 // Rewrites the [Smudge] section from the first piece of every smudged cell
 // of the 512 x 512 map ("type,x,y,piece").
 
@@ -197,7 +284,14 @@ void __fastcall SmudgeClass::Write_INI(CCINIClass &ini)
 }
 
 
-// HRESULT __stdcall SmudgeClass::Load(IStream *stream) (0x00687A00)
+/// <summary>
+/// Loads this smudge from a save game stream.
+/// This routine is part of the IPersistStream interface. Once the base class data has been
+/// read, the smudge type reference is remapped to the matching type object in this session.
+/// </summary>
+/// <returns>Returns with S_OK if the smudge was loaded, otherwise the failure code that the
+/// base class reported.</returns>
+// (0x00687A00)
 // Restores the smudge in place and swizzles its type.
 
 HRESULT __stdcall SmudgeClass::Load(IStream *stream)
@@ -211,7 +305,14 @@ HRESULT __stdcall SmudgeClass::Load(IStream *stream)
 }
 
 
-// HRESULT __stdcall SmudgeClass::Save(IStream *stream, BOOL clear_dirty) (0x00687A60)
+/// <summary>
+/// Saves this smudge to a save game stream.
+/// This routine is part of the IPersistStream interface. A smudge carries nothing of its
+/// own that must be recorded, so the base class does all of the work.
+/// </summary>
+/// <param name="cleardirty">Should the dirty flag be cleared as a result of saving?</param>
+/// <returns>Returns with the result code that the base class reported.</returns>
+// (0x00687A60)
 
 HRESULT __stdcall SmudgeClass::Save(IStream *stream, BOOL clear_dirty)
 {

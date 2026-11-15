@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/power.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // power.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -71,7 +86,21 @@
 // by HeaderStatics_empty_rect_init_0061c260.cpp; no source of its own.
 
 
-// PowerClass::PowerClass() (0x0061C450)
+/***********************************************************************************************
+ * PowerClass::PowerClass -- Default constructor for the power bar class.                      *
+ *                                                                                             *
+ *    This is the default constructor for the power bar class. It doesn't really do anything.  *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   12/20/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0061C450)
 // Constructs the radar, then the power bar's timers (started on the system
 // clock) and counters.
 // Power.CPP sees the full HouseClass (the AI and the bar segments call its
@@ -85,7 +114,23 @@ PowerClass::PowerClass()
 }
 
 
-// void PowerClass::Init_Clear() (0x0061C4D0, slot 7)
+/***********************************************************************************************
+ * PowerClass::Init_Clear -- Clears all the power bar variables.                               *
+ *                                                                                             *
+ *    This routine is called in preparation for the start of a scenario. The power bar is      *
+ *    initialized into the null state by this routine. As soon as the scenario starts, the     *
+ *    power bar will rise to reflect the actual power output and drain.                        *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/07/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0061C4D0, slot 7)
 // Clears the radar, then restarts the power bar's timers and counters.
 
 void PowerClass::Init_Clear()
@@ -103,7 +148,21 @@ void PowerClass::Init_Clear()
 }
 
 
-// void PowerClass::One_Time() (0x0061C550, slot 5)
+/***********************************************************************************************
+ * PowerClass::One_Time -- One time processing for the power bar.                              *
+ *                                                                                             *
+ * This routine is for code that truly only needs to be done once per game run.                *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   12/26/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0061C550, slot 5)
 // Only the radar's one-time setup (a tail jump).
 
 void PowerClass::One_Time()
@@ -112,7 +171,12 @@ void PowerClass::One_Time()
 }
 
 
-// void PowerClass::Init_For_House() (0x0061C560, slot 53)
+/// <summary>
+/// Fetches the power bar artwork for the house being played.
+/// This routine is called when the playing house is established so that the sidebar has
+/// its pip shapes on hand before anything is drawn.
+/// </summary>
+// (0x0061C560, slot 53)
 // After the radar's shapes, loads the power bar shape "POWERP.SHP".
 
 void PowerClass::Init_For_House()
@@ -122,7 +186,10 @@ void PowerClass::Init_For_House()
 }
 
 
-// void PowerClass::DisposeOfArt() (0x0061C580, slot 50)
+/// <summary>
+/// RA2: frees the power pip shape if it was read from disk.
+/// </summary>
+// (0x0061C580, slot 50)
 // After the radar's, frees the power bar shape when it was loaded.
 
 void PowerClass::DisposeOfArt()
@@ -135,7 +202,22 @@ void PowerClass::DisposeOfArt()
 }
 
 
-// void PowerClass::Flash_Power() (0x0061C5B0)
+/***********************************************************************************************
+ * PowerClass::Flash_Power -- Flag the power bar to flash.                                     *
+ *                                                                                             *
+ *    This will cause the power bar to display with a flash so as to draw attention to         *
+ *    itself. Typical use of this effect is when power is low.                                 *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   10/14/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0061C5B0)
 // Sets the first counter to 10 and restarts the first timer at 3 ticks.
 
 void PowerClass::Flash_Power()
@@ -145,7 +227,14 @@ void PowerClass::Flash_Power()
 }
 
 
-// int PowerClass::Desired_Power_Height() (0x0061C5F0)
+/// <summary>
+/// Determines how tall the power bar should be.
+/// The bar is scaled so that a modest base uses only part of the available height and a
+/// sprawling one approaches the full sidebar. This keeps the bar informative regardless of
+/// how much power the player has brought online.
+/// </summary>
+/// <returns>Returns with the desired height of the power bar, measured in pips.</returns>
+// (0x0061C5F0)
 // The bar segments left unlit for the player's buildings: the share of the
 // bar the output (less the drain) leaves, 400 / (power + 400) of the
 // segments, clamped to the bar.
@@ -172,7 +261,13 @@ int PowerClass::Desired_Power_Height()
 }
 
 
-// int PowerClass::Update_Delay() (0x0061C690)
+/// <summary>
+/// Fetches the delay between power bar pip adjustments.
+/// The bar animates toward its new height one pip at a time. This routine paces that
+/// animation so that a tall bar takes its time while a short one settles quickly.
+/// </summary>
+/// <returns>Returns with the delay in game frames before the next pip adjustment.</returns>
+// (0x0061C690)
 // The three counters' total, capped at Desired_Power_Height, as a share of it
 // times 5. No direct callers (inlined elsewhere).
 
@@ -187,7 +282,13 @@ int PowerClass::Update_Delay()
 }
 
 
-// int PowerClass::Max_Power_Height() (0x0061C6E0, static)
+/// <summary>
+/// Determines the maximum height of the power bar.
+/// This routine reports how many pips will fit alongside the sidebar at its current size.
+/// Every other power bar height is measured against this figure.
+/// </summary>
+/// <returns>Returns with the maximum number of pips the power bar can hold.</returns>
+// (0x0061C6E0, static)
 // One power bar segment per 3 pixels of 0x00ABCD70, rounded up. No direct
 // callers (inlined elsewhere).
 
@@ -197,7 +298,17 @@ int PowerClass::Max_Power_Height()
 }
 
 
-// int PowerClass::Desired_Levels(int &green, int &yellow, int &red) (0x0061C700)
+/// <summary>
+/// Determines the pip count of each color band in the power bar.
+/// This routine splits the desired bar height between the green, yellow and red portions
+/// according to how much power the player is producing and how much is being consumed.
+/// The power bar logic uses it to decide which color of pip to add or remove.
+/// </summary>
+/// <param name="green">Filled in with the number of surplus power pips desired.</param>
+/// <param name="yellow">Filled in with the number of marginal power pips desired.</param>
+/// <param name="red">Filled in with the number of consumed power pips desired.</param>
+/// <returns>Returns with the maximum number of pips the power bar can hold.</returns>
+// (0x0061C700)
 // The three power bar counters' targets: the segments 0x0061C5F0 leaves are
 // split by the shares of the player's drain (red), of the surplus
 // output up to 100 (yellow) and of the rest of
@@ -244,6 +355,23 @@ int PowerClass::Desired_Levels(int &green, int &yellow, int &red)
 }
 
 
+/***********************************************************************************************
+ * PowerClass::Draw_It -- Renders the power bar graphic.                                       *
+ *                                                                                             *
+ *    This routine will draw the power bar graphic to the LogicPage.                           *
+ *                                                                                             *
+ * INPUT:   complete -- Should the power bar be redrawn even if it isn't specifically flagged  *
+ *                      to do so?                                                              *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   12/20/1994 JLB : Created.                                                                 *
+ *   12/27/1994 JLB : Changes power bar color depending on amount of power.                    *
+ *=============================================================================================*/
+// (0x0061C8C0)
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright 2026 ra2-decomp contributors
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
@@ -321,7 +449,12 @@ void PowerClass::Draw_It(bool complete)
 }
 
 
-// void PowerClass::Remove_Pip() (0x0061CB50)
+/// <summary>
+/// Removes one pip from the power bar.
+/// This routine trims whichever color band carries more pips than it should, so that the
+/// bar shrinks toward the level the player's power warrants.
+/// </summary>
+// (0x0061CB50)
 // Steps one of the power bar's counters down toward the target 0x0061C700
 // gives it: +0x1528 first, then +0x1530, then +0x152C.
 
@@ -345,7 +478,12 @@ void PowerClass::Remove_Pip()
 }
 
 
-// void PowerClass::Add_Pip() (0x0061CBC0)
+/// <summary>
+/// Adds one pip to the power bar.
+/// This routine grows whichever color band falls short of the level the player's power
+/// warrants. It is used by the power bar logic to animate the bar one pip at a time.
+/// </summary>
+// (0x0061CBC0)
 // Steps one of the power bar's counters up toward the target 0x0061C700
 // gives it: +0x1530 first, then +0x1528, then +0x152C (the counterpart of
 // 0x0061CB50; no direct callers).
@@ -370,7 +508,24 @@ void PowerClass::Add_Pip()
 }
 
 
-// void PowerClass::AI(int &input, Point2D const &xy) (0x0061CC30, slot 10)
+/***********************************************************************************************
+ * PowerClass::AI -- Process the power bar logic.                                              *
+ *                                                                                             *
+ *    Use this routine to process the power bar logic. This consists of animation effects.     *
+ *                                                                                             *
+ * INPUT:   input -- The player input value to be consumed or ignored as appropriate.          *
+ *                                                                                             *
+ *          x,y   -- Mouse coordinate parameters to use.                                       *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   12/20/1994 JLB : Created.                                                                 *
+ *   12/31/1994 JLB : Uses mouse coordinate parameters.                                        *
+ *=============================================================================================*/
+// (0x0061CC30, slot 10)
 // While the power bar is shown: counts the first counter down once per
 // expiry of the first timer (redrawing the bar), restarts it when the
 // player's power output or drain changed, then once per expiry of the
@@ -448,7 +603,12 @@ void PowerClass::AI(int &input, Point2D const &xy)
 }
 
 
-// void PowerClass::Reposition_Sidebar() (0x0061D130, slot 34)
+/// <summary>
+/// Repositions the power bar tooltip region.
+/// This routine is called when the sidebar slides. It re-registers the power bar with the
+/// tooltip manager so that hovering over the bar still reports the power figures.
+/// </summary>
+// (0x0061D130, slot 34)
 // After the radar's, registers the power bar's help region (id 999): 8
 // pixels wide at the sidebar origin (5 pixels further right when
 // unknown_id_source_a3d290->unknown_2239 is set), 0x45 below its top.
@@ -476,7 +636,16 @@ void PowerClass::Reposition_Sidebar()
 }
 
 
-// wchar_t const *PowerClass::Help_Text(int id) (0x0061D1C0, slot 33)
+/// <summary>
+/// Fetches the help text for a sidebar gadget.
+/// This routine supplies the power and drain readout that appears when the mouse lingers
+/// over the power bar. Any other gadget is handed on to the sidebar to answer.
+/// </summary>
+/// <param name="id">The gadget to fetch the help text for.</param>
+/// <returns>Returns with a pointer to the help text for the gadget specified.</returns>
+/// <remarks>The power bar text is built in a shared buffer, so use it before calling
+/// this routine again.</remarks>
+// (0x0061D1C0, slot 33)
 // Help text of a button: the power bar (id 999) shows the player's power
 // output and drain; other ids are the radar's.
 

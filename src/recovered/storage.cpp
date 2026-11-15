@@ -1,3 +1,15 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/storage.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // storage.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -60,7 +72,11 @@
 // by HeaderStatics_diagonal_init_0069abd0.cpp; no source of its own.
 
 
-// StorageClass::StorageClass() (0x0069ADA0): every slot empty. Storage.cpp (0x0069ABD0-0x0069B00F; TibSun storage.cpp
+/// <summary>
+/// Creates an empty storage object.
+/// Every tiberium slot starts out holding nothing.
+/// </summary>
+// (0x0069ADA0)
 // with float amounts).
 
 StorageClass::StorageClass()
@@ -71,7 +87,14 @@ StorageClass::StorageClass()
 }
 
 
-// int StorageClass::Get_Total_Value() const (0x0069ADC0): every slot's amount times its tiberium's value.
+/// <summary>
+/// Fetches the credit value of everything in storage.
+/// Each tiberium type carries its own credit value, so this routine weighs every slot
+/// against its type. This is what a refinery uses to decide how much to pay out for a
+/// harvester load.
+/// </summary>
+/// <returns>Returns with the total credit value of the tiberium held.</returns>
+// (0x0069ADC0)
 int StorageClass::Get_Total_Value() const
 {
     int value = 0;
@@ -84,7 +107,14 @@ int StorageClass::Get_Total_Value() const
 }
 
 
-// float StorageClass::Get_Total_Amount() const (0x0069AE10): the sum of the slots (kept as a whole number).
+/// <summary>
+/// Fetches the total quantity held in storage.
+/// This is a plain count of everything stored, with no regard for what the various
+/// tiberium types happen to be worth. Use it when the question is "how full is this?"
+/// rather than "how much is this worth?".
+/// </summary>
+/// <returns>Returns with the sum of every storage slot.</returns>
+// (0x0069AE10)
 float StorageClass::Get_Total_Amount() const
 {
     int amount = 0;
@@ -95,7 +125,11 @@ float StorageClass::Get_Total_Amount() const
 }
 
 
-// float StorageClass::Get_Amount(int type) const (0x0069AE40): the amount held of one
+/// <summary>
+/// Fetches the amount held in one storage slot.
+/// </summary>
+/// <returns>Returns with the quantity of that tiberium type currently stored.</returns>
+// (0x0069AE40)
 // tiberium type (TibSun StorageClass::Get_Amount).
 
 float StorageClass::Get_Amount(int type) const
@@ -181,7 +215,14 @@ StorageClass StorageClass::operator-=(StorageClass const &that)
 }
 
 
-// int StorageClass::First_Used_Slot() const (0x0069AFE0): the first slot holding anything, or -1.
+/// <summary>
+/// Fetches the first storage slot that holds anything.
+/// This routine is used when the holder of the storage only cares about one tiberium
+/// type -- a harvester picking the graphic for its load, for example.
+/// </summary>
+/// <returns>Returns with the slot of the first tiberium type present, or -1 if the storage
+/// is empty.</returns>
+// (0x0069AFE0)
 int StorageClass::First_Used_Slot() const
 {
     for (int i = 0; i < 4; i++) {

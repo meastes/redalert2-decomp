@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/droppod.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // droppod.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -76,7 +87,11 @@
 // by HeaderStatics_diagonal_init_004a5850.cpp; no source of its own.
 
 
-// DropPodLocomotionClass::DropPodLocomotionClass() (0x004A5A40)
+/// <summary>
+/// Constructs a drop pod locomotor.
+/// The pod has no landing site until Move_To assigns one.
+/// </summary>
+// (0x004A5A40)
 
 DropPodLocomotionClass::DropPodLocomotionClass() :
     unknown_1c(false),
@@ -85,7 +100,10 @@ DropPodLocomotionClass::DropPodLocomotionClass() :
 }
 
 
-// DropPodLocomotionClass::~DropPodLocomotionClass() (0x004A5A90)
+/// <summary>
+/// Destroys the drop pod locomotor.
+/// </summary>
+// (0x004A5A90)
 // Releases the carried locomotor.
 
 DropPodLocomotionClass::~DropPodLocomotionClass()
@@ -93,7 +111,11 @@ DropPodLocomotionClass::~DropPodLocomotionClass()
 }
 
 
-// bool __stdcall DropPodLocomotionClass::Is_Moving() (0x004A5AC0, ILocomotion 4)
+/// <summary>
+/// Is the drop pod in motion?
+/// A pod exists only for the duration of its fall, so it always reports movement.
+/// </summary>
+// (0x004A5AC0, ILocomotion 4)
 // Always.
 
 bool __stdcall DropPodLocomotionClass::Is_Moving()
@@ -102,7 +124,12 @@ bool __stdcall DropPodLocomotionClass::Is_Moving()
 }
 
 
-// CoordStruct __stdcall DropPodLocomotionClass::Destination() (0x004A5AD0, ILocomotion 5)
+/// <summary>
+/// Fetches the coordinate the pod is falling toward.
+/// </summary>
+/// <returns>Returns with the landing coordinate, or COORD_NONE if no destination has
+/// been assigned yet.</returns>
+// (0x004A5AD0, ILocomotion 5)
 
 CoordStruct __stdcall DropPodLocomotionClass::Destination()
 {
@@ -110,7 +137,14 @@ CoordStruct __stdcall DropPodLocomotionClass::Destination()
 }
 
 
-// bool __stdcall DropPodLocomotionClass::Process() (0x004A5B00, ILocomotion 16)
+/// <summary>
+/// Handles the drop pod's descent for one game logic frame.
+/// The pod slides in along its fixed approach angle, trailing smoke and shelling the
+/// landing zone as it comes. On touchdown the carried locomotor is handed back and the
+/// passenger is unlimboed, or destroyed along with its surroundings if there is nowhere
+/// for it to stand.
+/// </summary>
+// (0x004A5B00, ILocomotion 16)
 // TibSun DropPod.cpp Process: the pod falls at DropPodAngle (X toward the chosen side)
 // at least DropPodSpeed; on the ground the object is unlimboed (or destroyed with a C4
 // explosion when that fails) and the piggybacked locomotor restored; in the air every
@@ -179,7 +213,15 @@ bool __stdcall DropPodLocomotionClass::Process()
 }
 
 
-// void __stdcall DropPodLocomotionClass::Move_To(CoordStruct to) (0x004A5FC0, ILocomotion 17)
+/// <summary>
+/// Sets the ground position that the pod is to land on.
+/// This routine picks the compass direction the pod will fall in, preferring one whose
+/// approach begins on screen, then lifts the object to the drop height above that
+/// approach and unlimbos it there with the atmosphere entry effect. A pod that already
+/// has a destination ignores any later request.
+/// </summary>
+/// <param name="to">The coordinate the pod should land on.</param>
+// (0x004A5FC0, ILocomotion 17)
 // A pod without a destination lands at this one (on the ground): it starts
 // DropPodHeight above it, DropPodHeight / tan(DropPodAngle) to the east, or
 // as far west when that start is off the map (+0x1C). Placed there facing
@@ -209,7 +251,11 @@ void __stdcall DropPodLocomotionClass::Move_To(CoordStruct to)
 }
 
 
-// HRESULT __stdcall DropPodLocomotionClass::GetClassID(GUID *clsid) (0x004A6180)
+/// <summary>
+/// Fetches the class ID that this locomotor is persisted under.
+/// </summary>
+/// <returns>Returns with S_OK, or E_POINTER if no return pointer was supplied.</returns>
+// (0x004A6180)
 
 HRESULT __stdcall DropPodLocomotionClass::GetClassID(GUID *clsid)
 {
@@ -221,7 +267,13 @@ HRESULT __stdcall DropPodLocomotionClass::GetClassID(GUID *clsid)
 }
 
 
-// HRESULT __stdcall DropPodLocomotionClass::Load(IStream *stream) (0x004A61C0)
+/// <summary>
+/// Loads the drop pod locomotor from a stream.
+/// The pod is reconstructed in place and the locomotor it was carrying, if any, is
+/// restored along with it.
+/// </summary>
+/// <returns>Returns with S_OK, or the failure code reported by the stream.</returns>
+// (0x004A61C0)
 // LocomotionClass::Load, rebuilt in place; then a flag and, when set, the
 // carried locomotor (OleLoadFromStream).
 
@@ -240,7 +292,14 @@ HRESULT __stdcall DropPodLocomotionClass::Load(IStream *stream)
 }
 
 
-// HRESULT __stdcall DropPodLocomotionClass::Save(IStream *stream, BOOL clear_dirty) (0x004A6240)
+/// <summary>
+/// Saves the drop pod locomotor to a stream.
+/// The carried locomotor is written out along with the pod itself, so that a saved game
+/// can restore an object that was still falling when the game was saved.
+/// </summary>
+/// <param name="cleardirty">Should the dirty flag be cleared after saving?</param>
+/// <returns>Returns with S_OK, or the failure code reported by the stream.</returns>
+// (0x004A6240)
 // LocomotionClass::Save, then whether a locomotor is carried and, if so,
 // that locomotor (OleSaveToStream through its IPersistStream); otherwise
 // the result of writing the flag.
@@ -264,7 +323,11 @@ HRESULT __stdcall DropPodLocomotionClass::Save(IStream *stream, BOOL clear_dirty
 }
 
 
-// void __stdcall DropPodLocomotionClass::Stop_Moving() (0x004A6320, ILocomotion 18)
+/// <summary>
+/// Stops the pod's descent.
+/// A pod cannot be halted in mid air, so this request is quietly ignored.
+/// </summary>
+// (0x004A6320, ILocomotion 18)
 // A drop pod cannot stop.
 
 void __stdcall DropPodLocomotionClass::Stop_Moving()
@@ -272,7 +335,14 @@ void __stdcall DropPodLocomotionClass::Stop_Moving()
 }
 
 
-// HRESULT __stdcall DropPodLocomotionClass::Begin_Piggyback(ILocomotion *pointer) (0x004A6330, IPiggyback 3)
+/// <summary>
+/// Takes charge of the object's existing locomotor.
+/// The drop pod holds on to the locomotor it displaces so that the object can be given
+/// it back when the pod touches down.
+/// </summary>
+/// <param name="pointer">The locomotor to carry.</param>
+/// <returns>Returns with S_OK, or E_FAIL if something is already being carried.</returns>
+// (0x004A6330, IPiggyback 3)
 // Carries the locomotor unless one is already carried.
 
 HRESULT __stdcall DropPodLocomotionClass::Begin_Piggyback(ILocomotion *pointer)
@@ -288,7 +358,14 @@ HRESULT __stdcall DropPodLocomotionClass::Begin_Piggyback(ILocomotion *pointer)
 }
 
 
-// HRESULT __stdcall DropPodLocomotionClass::End_Piggyback(ILocomotion **pointer) (0x004A6380, IPiggyback 4)
+/// <summary>
+/// Hands the carried locomotor back to the caller.
+/// The pod gives up its hold without destroying the locomotor, so the object can resume
+/// using it once the pod has landed.
+/// </summary>
+/// <param name="pointer">Pointer to the location that receives the carried locomotor.</param>
+/// <returns>Returns with S_OK, or S_FALSE if nothing was being carried.</returns>
+// (0x004A6380, IPiggyback 4)
 // Hands the carried locomotor (and its reference) back.
 
 HRESULT __stdcall DropPodLocomotionClass::End_Piggyback(ILocomotion **pointer)
@@ -305,7 +382,12 @@ HRESULT __stdcall DropPodLocomotionClass::End_Piggyback(ILocomotion **pointer)
 }
 
 
-// bool __stdcall DropPodLocomotionClass::Is_Ok_To_End() (0x004A63C0, IPiggyback 5)
+/// <summary>
+/// Can the piggyback be ended now?
+/// The carried locomotor may only be given control back once the pod has come to rest.
+/// </summary>
+/// <returns>bool; May the carried locomotor take over again?</returns>
+// (0x004A63C0, IPiggyback 5)
 // Once landed while carrying a locomotor.
 
 bool __stdcall DropPodLocomotionClass::Is_Ok_To_End()
@@ -317,7 +399,14 @@ bool __stdcall DropPodLocomotionClass::Is_Ok_To_End()
 }
 
 
-// HRESULT __stdcall DropPodLocomotionClass::QueryInterface(GUID const &iid, void **object) (0x004A63F0)
+/// <summary>
+/// Fetches an interface pointer from the drop pod locomotor.
+/// This routine extends the base locomotor's interface set with IPiggyback, which is how
+/// the pod carries the object's real locomotor while it falls.
+/// </summary>
+/// <returns>Returns with S_OK, or E_NOINTERFACE if this object does not offer the
+/// interface asked for.</returns>
+// (0x004A63F0)
 // The base interfaces, then IPiggyback.
 
 HRESULT __stdcall DropPodLocomotionClass::QueryInterface(GUID const &iid, void **object)
@@ -345,7 +434,14 @@ int __stdcall DropPodLocomotionClass::Layer()
 }
 
 
-// HRESULT __stdcall DropPodLocomotionClass::Piggyback_CLSID(GUID *classid) (0x004A6460, IPiggyback 6)
+/// <summary>
+/// Fetches the class ID of the locomotor being carried.
+/// The save system uses this to record which locomotor is to be restored underneath the
+/// drop pod. When nothing is being carried, the pod supplies its own class ID instead.
+/// </summary>
+/// <returns>Returns with S_OK, or an error code if the class ID could not be
+/// determined.</returns>
+// (0x004A6460, IPiggyback 6)
 // The class ID of the carried locomotor, or this locomotor's own when none is
 // carried; each is queried for IPersist (TibSun Drive.cpp Piggyback_CLSID).
 
@@ -369,7 +465,11 @@ HRESULT __stdcall DropPodLocomotionClass::Piggyback_CLSID(GUID *classid)
 }
 
 
-// int __stdcall DropPodLocomotionClass::Drawing_Code() (0x004A6570, ILocomotion 34)
+/// <summary>
+/// Fetches the drawing code for the drop pod.
+/// The renderer uses this to choose the artwork that suits the pod's approach.
+/// </summary>
+// (0x004A6570, ILocomotion 34)
 
 int __stdcall DropPodLocomotionClass::Drawing_Code()
 {

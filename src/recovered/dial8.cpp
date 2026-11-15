@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/dial8.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // dial8.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -11,6 +26,24 @@
 #include "shared/fast_math.hpp"
 
 
+/***************************************************************************
+ * Dial8Class::Dial8Class -- constructor for the facing dial               *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      id            button ID                                            *
+ *      x,y,w,h      dimensions in window-relative pixels                  *
+ *      dir         numerical initial facing value (0-255); this is the    *
+ *                  value returned by WWLIB Desired_Facing8()              *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   11/16/1994 BR : Created.                                              *
+ *=========================================================================*/
 Dial8Class::Dial8Class(unsigned id, int x, int y, int width, int height, unsigned direction)
  : ControlClass(id, x, y, width, height, 7, true)
 {
@@ -64,6 +97,22 @@ inline void Dial8Class::Update_Direction(unsigned direction)
     Direction = direction;
     Selected = Dir_To_8(UnknownFacingDir((unsigned short)(direction << 8)));
 }
+/***************************************************************************
+ * Dial8Class::Action -- activation function for Dial8Class                *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      flags      the reason we're being called                           *
+ *      key      the KN_number that was pressed                            *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      true = event was processed, false = event not processed            *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   02/06/1995 BR : Created.                                              *
+ *=========================================================================*/
 int Dial8Class::Action(unsigned flags, unsigned &key)
 {
     Sticky_Process(flags);
@@ -87,6 +136,21 @@ int Dial8Class::Action(unsigned flags, unsigned &key)
 }
 
 
+/***************************************************************************
+ * Dial8Class::Draw_Me -- custom render routine for Dial8Class             *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      forced      true = draw regardless of the current redraw flag state*
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      true = gadget was redrawn, false = wasn't                          *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   02/06/1995 BR : Created.                                              *
+ *=========================================================================*/
 int Dial8Class::Draw_Me(int forced)
 {
     int scheme = Gadget_Color_Scheme();
@@ -107,6 +171,21 @@ int Dial8Class::Draw_Me(int forced)
 }
 
 
+/***************************************************************************
+ * Dial8Class::Set_Direction -- sets current direction (0-255) of dial     *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      DirType to set dial to                                             *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   11/17/1994 BR : Created.                                              *
+ *=========================================================================*/
 void Dial8Class::Set_Direction(unsigned direction)
 {
     Update_Direction(direction);

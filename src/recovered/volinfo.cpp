@@ -1,3 +1,15 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/volinfo.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // volinfo.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -17,6 +29,13 @@
 WIN32_IMPORT DWORD WINAPI GetLogicalDriveStringsA(DWORD size,char *buffer);
 WIN32_IMPORT UINT WINAPI GetDriveTypeA(LPCSTR root);
 extern char volume_label_format_007d5c68[];
+/// <summary>
+/// Determines if a game CD is present in the machine.
+/// This routine is used by the CD handling code to confirm that one of the game discs
+/// is mounted before it goes looking for data on it.
+/// </summary>
+/// <returns>bool; Was a game CD found?</returns>
+/// <remarks>The volume scan is disabled at present, so this check always succeeds.</remarks>
 bool __fastcall VolumeCheck()
 {
     char roots[260];

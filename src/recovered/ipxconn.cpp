@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/ipxconn.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // ipxconn.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -67,7 +82,29 @@
 // by HeaderStatics_empty_rect_init_00523980.cpp; no source of its own.
 
 
-// IPXConnClass::IPXConnClass(int numsend, int numreceive, int maxlen, unsigned short magicnum, IPXAddressClass *address, int id, wchar_t const *name, int extralen) (0x00523B70)
+/***************************************************************************
+ * IPXConnClass::IPXConnClass -- class constructor                         *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      numsend         desired # of entries for the send queue            *
+ *      numreceive      desired # of entries for the receive queue         *
+ *      maxlen         max length of an application packet                 *
+ *      magicnum         the packet "magic number" for this connection     *
+ *      address         address of destination (NULL = no address)         *
+ *      id               connection's unique numerical ID                  *
+ *      name            connection's name                                  *
+ *      extralen         max size of app-specific extra bytes (optional)   *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x00523B70)
 // A connection with a 2-tick retry, no retry limit and a 60-tick timeout,
 // to the given address (sent directly to its node).
 
@@ -89,7 +126,22 @@ IPXConnClass::IPXConnClass(int numsend, int numreceive, int maxlen, unsigned sho
 }
 
 
-// void IPXConnClass::Init() (0x00523C20, slot 1)
+/***************************************************************************
+ * IPXConnClass::Init -- hardware-specific initialization routine          *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      none.                                                              *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x00523C20, slot 1)
 
 void IPXConnClass::Init()
 {
@@ -97,7 +149,37 @@ void IPXConnClass::Init()
 }
 
 
-// void __fastcall IPXConnClass::Configure(unsigned short socket, int conn_num, int arg3, int arg4, int arg5, int arg6, int arg7) (0x00523C30)
+/***************************************************************************
+ * IPXConnClass::Configure -- One-time initialization routine              *
+ *                                                                         *
+ * This routine sets up static members that are shared by all IPX          *
+ * connections (ie those variables used by the Send/Listen/Broadcast       *
+ * routines).                                                              *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      socket            socket ID for sending & receiving                *
+ *      conn_num            local IPX Connection Number (0 = not logged in)*
+ *      listen_ecb         ptr to ECBType for listening                    *
+ *      send_ecb            ptr to ECBType for sending                     *
+ *      listen_header      ptr to IPXHeaderType for listening              *
+ *      send_header         ptr to IPXHeaderType for sending               *
+ *      listen_buf         ptr to buffer for listening                     *
+ *      send_buf            ptr to buffer for sending                      *
+ *      handler_rm_ptr      REAL-MODE pointer to event service routine     *
+ *                        (high word = segment, low word = offset)         *
+ *      maxpacketlen      max packet size to listen for                    *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      - All pointers must be protected-mode pointers, but must point to  *
+ *        DOS real-mode memory (except the Handler segment/offset)         *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x00523C30)
 // Keeps the shared socket settings and marks the class configured.
 
 void __fastcall IPXConnClass::Configure(unsigned short socket, int conn_num, int arg3, int arg4, int arg5, int arg6, int arg7)
@@ -129,6 +211,27 @@ void __fastcall IPXConnClass::Configure(unsigned short socket, int conn_num, int
 // Adapted from TibSun ipxconn.cpp to the recovered RA2 Open/Close_Socket interface.
 unsigned short IPXConnClass::Socket;
 
+/***************************************************************************
+ * IPXConnClass::Start_Listening -- commands IPX to listen                 *
+ *                                                                         *
+ * This routine may be used to start listening in polled mode (if the      *
+ * ECB's Event_Service_Routine is NULL), or in interrupt mode; it's        *
+ * up to the caller to fill the ECB in.  If in polled mode, Listening      *
+ * must be restarted every time a packet comes in.                         *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      none.                                                              *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      - The ListenECB must have been properly filled in by the IPX Manager.*
+ *      - Configure must be called before calling this routine.            *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/16/1994 BR : Created.                                              *
+ *=========================================================================*/
 int IPXConnClass::Start_Listening(void)
 {
 	/*
@@ -152,7 +255,22 @@ int IPXConnClass::Start_Listening(void)
 }
 
 
-// int IPXConnClass::Stop_Listening() (0x00523CF0)
+/***************************************************************************
+ * IPXConnClass::Stop_Listening -- commands IPX to stop  listen            *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      none.                                                              *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      - This routine MUST NOT be called if IPX is not listening already! *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/16/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x00523CF0)
 
 int IPXConnClass::Stop_Listening()
 {
@@ -164,7 +282,25 @@ int IPXConnClass::Stop_Listening()
 }
 
 
-// int IPXConnClass::Send(char *buf, int buflen, void *extrabuf, int extralen, bool flagged, unsigned short id) (0x00523D10, slot 9)
+/***************************************************************************
+ * IPXConnClass::Send -- sends a packet; invoked by SequencedConnection    *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      buf         buffer to send                                         *
+ *      buflen      length of buffer to send                               *
+ *      extrabuf      (not used by this class)                             *
+ *      extralen      (not used by this class)                             *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      1 = OK, 0 = error                                                  *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/16/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x00523D10, slot 9)
 // Sends to this connection's address.
 
 int IPXConnClass::Send(char *buf, int buflen, void *extrabuf, int extralen, bool flagged, unsigned short id)
@@ -173,7 +309,22 @@ int IPXConnClass::Send(char *buf, int buflen, void *extrabuf, int extralen, bool
 }
 
 
-// void __fastcall IPXConnClass::Open_Socket(unsigned short socket) (0x00523D30)
+/***************************************************************************
+ * IPXConnClass::Open_Socket -- opens communications socket                *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      socket      desired socket ID number                               *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      1 = OK, 0 = error                                                  *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/16/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x00523D30)
 
 void __fastcall IPXConnClass::Open_Socket(unsigned short socket)
 {
@@ -182,7 +333,22 @@ void __fastcall IPXConnClass::Open_Socket(unsigned short socket)
 }
 
 
-// void IPXConnClass::Close_Socket() (0x00523D70)
+/***************************************************************************
+ * IPXConnClass::Close_Socket -- closes the socket                         *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      socket      desired socket ID number                               *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      Calling this routine when the sockets aren't open may crash!       *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/16/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x00523D70)
 
 void IPXConnClass::Close_Socket()
 {
@@ -191,7 +357,35 @@ void IPXConnClass::Close_Socket()
 }
 
 
-// int IPXConnClass::Send_To(char *buf, int buflen, IPXAddressClass *address, unsigned char *immed, bool flagged, unsigned short id) (0x00523D90, slot 10)
+/***************************************************************************
+ * IPXConnClass::Send_To -- sends the packet to the given address          *
+ *                                                                         *
+ * The "ImmediateAddress" field of the SendECB must be filled in with the  *
+ * address of a bridge, or the node address of the destination if there    *
+ * is no bridge.  The NETX call to find this address will always crash     *
+ * if NETX isn't loaded (ConnectionNum is 0), so this case is trapped &    *
+ * prevented.                                                              *
+ * Also, if the address of this IPX connection is known when the           *
+ * constructor is called, and Configure has been called, Get_Local_Target  *
+ * is called to precompute the ImmediateAddress; this case is detected &   *
+ * if the value is already computed, it's just memcpy'd over.              *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      buf         buffer to send                                         *
+ *      buflen      length of buffer                                       *
+ *      address      Address to send to                                    *
+ *      immed         ImmediateAddress value, NULL if none                 *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      1 = OK, 0 = error                                                  *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/16/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x00523D90, slot 10)
 // Sends a packet to an address (through a bridge network when given). A
 // forwarded packet gets the connection's forwarding target (no target: not
 // sent) and goes to the forwarding address, carrying the forwarding port
@@ -267,7 +461,22 @@ int IPXConnClass::Send_To(char *buf, int buflen, IPXAddressClass *address, unsig
 }
 
 
-// int __fastcall IPXConnClass::Broadcast(char *buf, int buflen) (0x00523F70)
+/***************************************************************************
+ * IPXConnClass::Broadcast -- broadcasts the given packet                  *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      socket      desired socket ID number                               *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      1 = OK, 0 = error                                                  *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/16/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x00523F70)
 
 int __fastcall IPXConnClass::Broadcast(char *buf, int buflen)
 {

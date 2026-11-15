@@ -1,3 +1,19 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/factory.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // factory.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -56,6 +72,21 @@
 // Emitted by the per-unit shared headers.
 
 
+/***********************************************************************************************
+ * FactoryClass::FactoryClass -- Default constructor for factory objects.                      *
+ *                                                                                             *
+ *    This brings the factory into a null state. It is called when a factory object is         *
+ *    created.                                                                                 *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   12/26/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
 // Emitted by the per-unit shared headers.
 
 
@@ -71,6 +102,21 @@ FactoryClass::FactoryClass() :
 
 
 extern bool GameActive;
+/***********************************************************************************************
+ * FactoryClass::~FactoryClass -- Default destructor for factory objects.                      *
+ *                                                                                             *
+ *    This cleans up a factory object in preparation for deletion. If there is currently       *
+ *    an object in production, it is abandoned and money is refunded.                          *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   12/26/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
 FactoryClass::~FactoryClass()
 {
     Unknown_006ECB90(this, true);
@@ -85,6 +131,24 @@ inline bool Factory_Can_Advance_Production(FactoryClass const &factory)
 {
     return !factory.unknown_6c && (factory.Object!=0 || factory.unknown_64!=0) && !factory.Is_Complete_004B9900();
 }
+/***********************************************************************************************
+ * FactoryClass::AI -- Process factory production logic.                                       *
+ *                                                                                             *
+ *    This routine should be called once per game tick. It handles the production process.     *
+ *    As production proceeds, money is deducted from the owner object's house. When production *
+ *    completes, the factory stop processing. A call to Abandon, Delete, or Completed is       *
+ *    required after that point.                                                               *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   12/26/1994 JLB : Created.                                                                 *
+ *   01/04/1995 JLB : Uses exact installment payment method.                                   *
+ *=============================================================================================*/
 void FactoryClass::AI()
 {
     if(Factory_Can_Advance_Production(*this)) {
@@ -228,6 +292,20 @@ bool FactoryClass::Is_Complete_004B9900() const
 }
 
 
+/***********************************************************************************************
+ * FactoryClass::Get_Object -- Fetches pointer to object being constructed.                    *
+ *                                                                                             *
+ *    This routine gets the pointer to the currently constructing object.                      *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  Returns with a pointer to the object undergoing construction.                      *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   12/26/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
 // Factory object getter, original004B9930; existing4body+12tail bytes.
 
 TechnoClass *FactoryClass::Get_Object() const
@@ -270,6 +348,12 @@ bool FactoryClass::Release_Completed_004B9970()
 
 
 extern "C" GUID const CLSID_FactoryClass;
+/// <summary>
+/// Fetches the class identifier for a factory.
+/// This routine is part of the persistence interface. The save game loader uses the
+/// identifier to know what kind of object to create before handing it the stream.
+/// </summary>
+/// <returns>Returns with S_OK, or E_POINTER if no return location was supplied.</returns>
 HRESULT __stdcall FactoryClass::GetClassID(GUID *id)
 {
  if(!id) return 0x80004003;
@@ -278,6 +362,12 @@ HRESULT __stdcall FactoryClass::GetClassID(GUID *id)
 }
 
 
+/// <summary>
+/// Loads this factory from the save game stream.
+/// The production queue is read back and then the queued types, the owning house, and
+/// the object under construction are remapped to their new addresses.
+/// </summary>
+/// <returns>Returns with S_OK if the factory was read, otherwise the stream error.</returns>
 HRESULT __stdcall FactoryClass::Load(IStream *stream)
 {
     HRESULT result = AbstractClass::Load(stream);
@@ -302,6 +392,12 @@ HRESULT __stdcall FactoryClass::Load(IStream *stream)
 }
 
 
+/// <summary>
+/// Saves this factory to the save game stream.
+/// The base class writes the factory itself; this routine appends the production queue
+/// so that pending orders survive the save.
+/// </summary>
+/// <returns>Returns with S_OK if the factory was written, otherwise the stream error.</returns>
 // Original element-write failure returns S_OK; base/count-write errors propagate.
 HRESULT __stdcall FactoryClass::Save(IStream *stream, BOOL clear_dirty)
 {
@@ -332,6 +428,12 @@ extern "C" char const factory_message_007d7fec[];
 extern "C" char const factory_message_007d8004[];
 extern "C" char const factory_message_007d8018[];
 extern "C" char const factory_message_007d8038[];
+/// <summary>
+/// Submits this factory's state to the game checksum.
+/// This routine is used by the multiplayer sync check to prove that every machine
+/// agrees on what each factory is building and how far along it has got. It also
+/// reports the same values to the debug log so that a desync can be read by eye.
+/// </summary>
 void FactoryClass::Compute_CRC(WWCRCEngine &crc) const
 {
     Debug_Printf(factory_message_007d8038, Frame);
@@ -356,6 +458,11 @@ void FactoryClass::Compute_CRC(WWCRCEngine &crc) const
 }
 
 
+/// <summary>
+/// Removes any reference this factory holds to the specified object.
+/// This routine is called when an object is about to be destroyed, so that the factory
+/// is not left pointing at the thing it was building.
+/// </summary>
 void FactoryClass::Detach(AbstractClass *target,bool all)
 {
  if(target==Object) Object=0;

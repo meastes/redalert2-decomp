@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/modemreg.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // modemreg.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -14,7 +29,23 @@
 #include "shared/unknown_globals.hpp"
 
 
-// HKEY __fastcall Search_Registry_Key(HKEY key, char const *value_name, char const *value) (0x0059CBA0)
+/***********************************************************************************************
+ * Search_Registry_Key -- Search a registry key and all its subkeys for a given value          *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    handle to key to search in                                                        *
+ *           name of key to search for                                                         *
+ *           value expected in key                                                             *
+ *                                                                                             *
+ * OUTPUT:   Handle to key containing value. Null if not found.                                *
+ *                                                                                             *
+ * WARNINGS: This function reenters itself.                                                    *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    10/18/96 4:01AM ST : Created                                                             *
+ *=============================================================================================*/
+// (0x0059CBA0)
 
 HKEY __fastcall Search_Registry_Key(HKEY key, char const *value_name, char const *value)
 {
@@ -56,7 +87,21 @@ HKEY __fastcall Search_Registry_Key(HKEY key, char const *value_name, char const
 }
 
 
-// ModemRegistryEntryClass::ModemRegistryEntryClass (0x0059CD00)
+/***********************************************************************************************
+ * MREC::ModemRegistryEntryClass -- Constructor for ModemRegistryEntryClass                    *
+ *                                                                                             *
+ *  This function does all the work in the class. All the registry searching is done here      *
+ *                                                                                             *
+ * INPUT:    Modem number                                                                      *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    10/18/96 4:12AM ST : Created                                                             *
+ *=============================================================================================*/
+// (0x0059CD00)
 
 ModemRegistryEntryClass::ModemRegistryEntryClass(int modem_number)
 {
@@ -214,7 +259,21 @@ ModemRegistryEntryClass::ModemRegistryEntryClass(int modem_number)
 }
 
 
-// ModemRegistryEntryClass::~ModemRegistryEntryClass (0x0059D4F0)
+/***********************************************************************************************
+ * MREC::~ModemRegistryEntryClass -- Destructor.Free all the memory we allocated for modem info*
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    10/18/96 11:39AM ST : Created                                                            *
+ *=============================================================================================*/
+// (0x0059D4F0)
 
 ModemRegistryEntryClass::~ModemRegistryEntryClass()
 {

@@ -1,3 +1,10 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+// Function comment blocks from mischa85/RedAlert2 392e904 src/bfiofile2.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // bfiofile2.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -54,7 +61,10 @@ BinkClass::~BinkClass()
 }
 
 
-// bool BinkClass::Open(char const *filename) (0x0042FF30)
+/// <summary>
+/// Opens a movie from a loose file or from inside a mixfile, centring it on its surface.
+/// </summary>
+// (0x0042FF30)
 // Opens the movie as a file or from inside a mixfile, sets its volume and
 // frame interval, picks the target surface (the screen surface centred in
 // the window client area unless a companion is present), clips the movie
@@ -110,7 +120,10 @@ bool BinkClass::Open(char const *filename)
 }
 
 
-// void BinkClass::Close() (0x00430230)
+/// <summary>
+/// Closes the movie, its subtitles and the file it was read from.
+/// </summary>
+// (0x00430230)
 // Frees the companion, closes the movie and the file handle.
 
 void BinkClass::Close()
@@ -130,7 +143,10 @@ void BinkClass::Close()
 }
 
 
-// void BinkClass::Set_Position(int x, int y) (0x00430280)
+/// <summary>
+/// Places the movie with its top left corner at the position specified.
+/// </summary>
+// (0x00430280)
 // Places the movie at x, y, clipped to the target surface.
 
 void BinkClass::Set_Position(int x, int y)
@@ -139,7 +155,10 @@ void BinkClass::Set_Position(int x, int y)
 }
 
 
-// void BinkClass::Goto_Frame(int frame) (0x004303A0): BinkGoto(frame, 1).
+/// <summary>
+/// Moves the movie to the frame specified.
+/// </summary>
+// (0x004303A0)
 
 void BinkClass::Goto_Frame(int frame)
 {
@@ -147,7 +166,10 @@ void BinkClass::Goto_Frame(int frame)
 }
 
 
-// int BinkClass::Frame_Time() (0x004303C0): milliseconds per frame.
+/// <summary>
+/// Fetches how long each frame of the movie is shown, in milliseconds.
+/// </summary>
+// (0x004303C0)
 
 int BinkClass::Frame_Time()
 {
@@ -155,7 +177,10 @@ int BinkClass::Frame_Time()
 }
 
 
-// void BinkClass::Set_Subtitle_Callback(int unknown) (0x004303E0): forwards to the companion.
+/// <summary>
+/// Sets the routine the subtitles call as each one is shown.
+/// </summary>
+// (0x004303E0)
 
 void BinkClass::Set_Subtitle_Callback(int unknown)
 {
@@ -165,7 +190,10 @@ void BinkClass::Set_Subtitle_Callback(int unknown)
 }
 
 
-// void BinkClass::Pause(bool pause) (0x00430400): BinkPause.
+/// <summary>
+/// Pauses or resumes the movie.
+/// </summary>
+// (0x00430400)
 
 void BinkClass::Pause(bool pause)
 {
@@ -173,7 +201,10 @@ void BinkClass::Pause(bool pause)
 }
 
 
-// bool BinkClass::Is_Finished() (0x00430420): the movie is past its last frame.
+/// <summary>
+/// Have all the frames of the movie been shown?
+/// </summary>
+// (0x00430420)
 
 bool BinkClass::Is_Finished()
 {
@@ -181,7 +212,10 @@ bool BinkClass::Is_Finished()
 }
 
 
-// void BinkClass::Play() (0x00430430)
+/// <summary>
+/// Plays the whole movie, returning once it ends or the player presses escape.
+/// </summary>
+// (0x00430430)
 // Plays the movie to its last frame: window messages are dispatched first,
 // otherwise the due frames are drawn (at the movie area of the target; a
 // movie drawn elsewhere is then copied to the screen surface at the window
@@ -232,7 +266,10 @@ void BinkClass::Play()
 }
 
 
-// bool BinkClass::Draw_Frame(Surface *surface, int x, int y) (0x00430600)
+/// <summary>
+/// Draws any frames that are due to the surface specified; true if a frame was drawn.
+/// </summary>
+// (0x00430600)
 // Follows the volume setting, pauses or resumes the movie with the
 // application focus, then decodes and copies every due frame into `surface`
 // at x, y; false when no frame was due.
@@ -299,7 +336,10 @@ bool BinkClass::Draw_Frame(Surface *surface, int x, int y)
 }
 
 
-// void BinkClass::Check_Frame_Ready() (0x004307E0): marks the next frame due (BinkWait 0).
+/// <summary>
+/// Notes whether the next frame is due without drawing it.
+/// </summary>
+// (0x004307E0)
 
 void BinkClass::Check_Frame_Ready()
 {
@@ -309,7 +349,10 @@ void BinkClass::Check_Frame_Ready()
 }
 
 
-// bool BinkClass::Render_Frame() (0x00430800): draws the frame onto the target.
+/// <summary>
+/// Draws any frames that are due to the movie's own surface; true if a frame was drawn.
+/// </summary>
+// (0x00430800)
 
 bool BinkClass::Render_Frame()
 {
@@ -317,7 +360,10 @@ bool BinkClass::Render_Frame()
 }
 
 
-// void BinkClass::Redraw() (0x00430820)
+/// <summary>
+/// Draws the current frame again at the movie's own position.
+/// </summary>
+// (0x00430820)
 // Copies the current frame into the target surface again at the movie area
 // (offset by the window client area on the screen surface).
 
@@ -336,7 +382,10 @@ void BinkClass::Redraw()
 }
 
 
-// void BinkClass::Redraw_Frame(Surface *surface, int x, int y) (0x00430940)
+/// <summary>
+/// Draws the current frame and its subtitle again at the position specified.
+/// </summary>
+// (0x00430940)
 // Copies the current frame into `surface` at x, y again (with the companion
 // areas cleared first and drawn after).
 
@@ -354,7 +403,10 @@ void BinkClass::Redraw_Frame(Surface *surface, int x, int y)
 }
 
 
-// void BinkClass::Copy_Frame(Surface *surface, int x, int y, bool unknown4) (0x004309B0)
+/// <summary>
+/// Copies the current frame to the surface specified, optionally with its subtitle.
+/// </summary>
+// (0x004309B0)
 // Copies the current frame into `surface` at x, y; with unknown4 the
 // companion's clear area is filled first and the copy uses Bink's 0x80000000 flag.
 
@@ -380,7 +432,10 @@ void BinkClass::Copy_Frame(Surface *surface, int x, int y, bool unknown4)
 #pragma auto_inline(on)
 
 
-// void BinkClass::Draw_Subtitle(Surface *surface) (0x00430A30)
+/// <summary>
+/// Draws the current subtitle below the movie.
+/// </summary>
+// (0x00430A30)
 // Draws the companion's picture over the movie area of `surface`.
 
 #pragma auto_inline(off)
@@ -403,7 +458,10 @@ void BinkClass::Draw_Subtitle(Surface *surface)
 #pragma auto_inline(on)
 
 
-// void BinkClass::Erase_Subtitle(Surface *surface) (0x00430AF0)
+/// <summary>
+/// Clears the area the previous subtitle occupied.
+/// </summary>
+// (0x00430AF0)
 // Clears the companion's clear area (colour 0) within the movie area.
 
 #pragma auto_inline(off)
@@ -444,7 +502,10 @@ int __fastcall FUN_00430ba0(int object_address)
 }  // namespace seed_00430ba0
 
 
-// void BinkClass::Update_Focus() (0x00430BB0)
+/// <summary>
+/// Pauses the movie while the game is not in focus, and resumes it when it is again.
+/// </summary>
+// (0x00430BB0)
 // Pauses the movie when the application loses the focus and resumes it (and
 // redraws the current frame) when it gets it back. No callers.
 

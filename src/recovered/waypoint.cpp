@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/waypoint.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // waypoint.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -93,6 +104,11 @@ int __fastcall Waypoint_From_String(char const *string)
 }
 
 
+/// <summary>
+/// Constructs a waypoint at the map origin.
+/// The location is expected to be supplied later, either by the editing routines or by the
+/// load process.
+/// </summary>
 // WaypointClass constructor (0x724AD0)
 
 WaypointClass::WaypointClass()
@@ -101,6 +117,9 @@ WaypointClass::WaypointClass()
 }
 
 
+/// <summary>
+/// Constructs a waypoint at the location specified.
+/// </summary>
 // WaypointClass copy constructor (0x724AE0)
 
 WaypointClass::WaypointClass(WaypointClass const &waypoint)
@@ -109,6 +128,9 @@ WaypointClass::WaypointClass(WaypointClass const &waypoint)
 }
 
 
+/// <summary>
+/// Destroys the waypoint.
+/// </summary>
 // WaypointClass destructor (0x724B00)
 
 WaypointClass::~WaypointClass()
@@ -116,7 +138,12 @@ WaypointClass::~WaypointClass()
 }
 
 
-// WaypointPathClass::WaypointPathClass() (0x00724B10): an empty path with no
+/// <summary>
+/// Constructs an empty waypoint path.
+/// This routine will register the new path with the global waypoint path list so that the
+/// rest of the game can find it.
+/// </summary>
+// (0x00724B10)
 // selected waypoint, added to the unit's path list.
 
 WaypointPathClass::WaypointPathClass() :
@@ -126,7 +153,12 @@ WaypointPathClass::WaypointPathClass() :
 }
 
 
-// WaypointPathClass::WaypointPathClass(NoInitClass const &noinit) (0x00724BB0): the vtables only.
+/// <summary>
+/// Constructs a waypoint path without initializing it.
+/// This constructor is used by the load process, which will fill the path in from the save
+/// game stream rather than build it up from scratch.
+/// </summary>
+// (0x00724BB0)
 
 WaypointPathClass::WaypointPathClass(NoInitClass const &noinit) :
     AbstractClass(noinit),
@@ -135,7 +167,13 @@ WaypointPathClass::WaypointPathClass(NoInitClass const &noinit) :
 }
 
 
-// WaypointPathClass::WaypointPathClass(int index) (0x00724BF0): an empty path
+/// <summary>
+/// Constructs an empty waypoint path for the path number specified.
+/// The path only joins the global waypoint path list when the number falls within the
+/// range of paths the game supports.
+/// </summary>
+/// <param name="index">The path number that this path will serve.</param>
+// (0x00724BF0)
 // that joins the unit's path list only for path numbers 0..11.
 
 WaypointPathClass::WaypointPathClass(int index) :
@@ -147,6 +185,11 @@ WaypointPathClass::WaypointPathClass(int index) :
 }
 
 
+/// <summary>
+/// Destroys the waypoint path.
+/// This routine will break any references the game still holds to this path and then drop
+/// it from the global waypoint path list.
+/// </summary>
 // WaypointPathClass destructor (0x724CA0)
 
 WaypointPathClass::~WaypointPathClass()
@@ -156,6 +199,12 @@ WaypointPathClass::~WaypointPathClass()
 }
 
 
+/// <summary>
+/// Fetches a waypoint from this path.
+/// </summary>
+/// <param name="index">The waypoint on this path to fetch.</param>
+/// <returns>Returns with a pointer to the waypoint. Otherwise, NULL is returned if the
+/// index names no waypoint on this path.</returns>
 // WaypointPathClass Get Waypoint (0x724D60)
 
 WaypointClass *WaypointPathClass::Get_Waypoint(int index)
@@ -167,7 +216,13 @@ WaypointClass *WaypointPathClass::Get_Waypoint(int index)
 }
 
 
-// bool WaypointPathClass::Add_Waypoint(CoordStruct const &coord) (0x00724D80):
+/// <summary>
+/// Adds a waypoint to the end of this path.
+/// The location is snapped to the center of its cell, but the original height is kept. A
+/// path with a waypoint selected is being edited rather than extended, so nothing is
+/// appended in that case.
+/// </summary>
+// (0x00724D80)
 // adds the centre of coord's cell (at coord's height) unless a waypoint is
 // selected; always answers true.
 #include "shared/cell.hpp"
@@ -186,6 +241,12 @@ bool WaypointPathClass::Add_Waypoint(CoordStruct const &coord)
 }
 
 
+/// <summary>
+/// Selects the waypoint that lies in the cell specified.
+/// This routine is used when the player clicks on the map in order to pick up a waypoint
+/// that is already part of the path. The match is made by cell, not by exact coordinate.
+/// </summary>
+/// <returns>bool; Was a waypoint found and selected?</returns>
 // WaypointPathClass Select Waypoint (0x724E30)
 
 bool WaypointPathClass::Select_Waypoint(CoordStruct const &coord)
@@ -248,6 +309,11 @@ void WaypointPathClass::Clear_Waypoints()
 }
 
 
+/// <summary>
+/// Adds the state of this waypoint path to the game checksum.
+/// This routine is used by the multiplayer sync check to prove that every machine agrees
+/// about this path.
+/// </summary>
 // WaypointPathClass Compute CRC (0x724FE0)
 
 void WaypointPathClass::Compute_CRC(WWCRCEngine &crc) const
@@ -258,6 +324,13 @@ void WaypointPathClass::Compute_CRC(WWCRCEngine &crc) const
 }
 
 
+/// <summary>
+/// Fetches the class identifier of this object.
+/// This routine is used by the persistence machinery, which records the identifier so that
+/// it knows what kind of object to create when the game is loaded back.
+/// </summary>
+/// <param name="retval">Pointer to the identifier to fill in.</param>
+/// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
 // WaypointPathClass GetClassID (0x725010)
 
 HRESULT __stdcall WaypointPathClass::GetClassID(GUID *clsid)
@@ -270,7 +343,14 @@ HRESULT __stdcall WaypointPathClass::GetClassID(GUID *clsid)
 }
 
 
-// HRESULT __stdcall WaypointPathClass::Load(IStream *stream) (0x00725050):
+/// <summary>
+/// Loads this waypoint path from the save game stream.
+/// The base object is read first and then the waypoints are rebuilt from the stream, so
+/// whatever the path held before the call is discarded.
+/// </summary>
+/// <returns>Returns with S_OK if the path was read, otherwise the failure code that the
+/// stream reported.</returns>
+// (0x00725050)
 // restores the path in place, rebuilds the waypoint list and reads the
 // waypoints back (a count and 12-byte records).
 
@@ -299,7 +379,15 @@ HRESULT __stdcall WaypointPathClass::Load(IStream *stream)
 }
 
 
-// HRESULT __stdcall WaypointPathClass::Save(IStream *stream, BOOL clear_dirty) (0x00725170)
+/// <summary>
+/// Saves this waypoint path to the save game stream.
+/// The base object is written first, then the waypoints that make up the path follow it.
+/// </summary>
+/// <param name="cleardirty">Should the object be marked as clean once it has been
+/// written?</param>
+/// <returns>Returns with S_OK if the path was written, otherwise the failure code that the
+/// stream reported.</returns>
+// (0x00725170)
 // Writes the waypoint count and then each waypoint (12 bytes); TibSun waypoint.cpp shape (index
 // declared first, early return when the count write fails).
 

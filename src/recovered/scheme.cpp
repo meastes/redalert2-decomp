@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/scheme.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // scheme.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -96,7 +107,12 @@ ConvertClass *__fastcall Build_Converter_006637e0(HSVClass const &hsv, PaletteCl
 }
 
 
-// ColorScheme::ColorScheme() (0x00663930; Tiberian Sun scheme.cpp): a blank scheme with no name
+/// <summary>
+/// Constructs a blank color scheme.
+/// The scheme has no name and no converter yet; it merely takes its place in the global color
+/// scheme list. Use Build_Light_Converters to give it a converter.
+/// </summary>
+// (0x00663930; Tiberian Sun scheme.cpp)
 // or converter yet that takes its place in ColorSchemes.
 #define VECTOR_IMPLEMENT_VECTOR_ACCESSORS
 #define VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS
@@ -113,7 +129,21 @@ ColorScheme::ColorScheme() :
 }
 
 
-// ColorScheme::ColorScheme(...) -- 0x006639F0
+/// <summary>
+/// Builds a named color scheme.
+/// This routine creates the scheme's remapped palette and light converter from the color
+/// supplied, fills in the default user interface colors, and adds the scheme to the global
+/// color scheme list.
+/// </summary>
+/// <param name="name">The name that this scheme will be looked up by.</param>
+/// <param name="hsv">The hue, saturation and value that the scheme's color ramp is shaded
+/// from.</param>
+/// <param name="base">The palette that the scheme's remapped ramp is derived from.</param>
+/// <param name="screenpalette">The palette that the converter must remap into.</param>
+/// <param name="intensity_levels">The number of lighting levels to build the converter
+/// with.</param>
+/// <param name="add">Should the scheme join the global color scheme list?</param>
+// (0x006639F0)
 // Builds a colour scheme from a base colour and, when asked, adds it to ColorSchemes.
 #include "shared/unknown_globals.hpp"
 extern "C" char *__cdecl strdup(char const *string);

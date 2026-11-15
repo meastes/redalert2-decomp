@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/connect.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // connect.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -63,7 +78,31 @@
 // by HeaderStatics_empty_rect_init_00480c30.cpp; no source of its own.
 
 
-// ConnectionClass::ConnectionClass(int numsend, int numreceive, int maxlen, unsigned short magicnum, unsigned long retry_delta, unsigned long max_retries, unsigned long timeout, int extralen) (0x00480E20)
+/***************************************************************************
+ * ConnectionClass::ConnectionClass -- class constructor                   *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      numsend         desired # of entries for the send queue            *
+ *      numreceive      desired # of entries for the receive queue         *
+ *      maxlen         max length of an application packet                 *
+ *      magicnum         the packet "magic number" for this connection     *
+ *      retry_delta      the time to wait between sends                    *
+ *      max_retries      the max # of retries allowed for a packet         *
+ *                     (-1 means retry forever, based on this parameter)   *
+ *      timeout         the max amount of time before we give up on a packet*
+ *                     (-1 means retry forever, based on this parameter)   *
+ *      extralen         max size of app-specific extra bytes (optional)   *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x00480E20)
 // Keeps the protocol settings and creates the packet buffer and queue.
 
 ConnectionClass::ConnectionClass(int numsend, int numreceive, int maxlen, unsigned short magicnum,
@@ -79,7 +118,22 @@ ConnectionClass::ConnectionClass(int numsend, int numreceive, int maxlen, unsign
 }
 
 
-// ConnectionClass::~ConnectionClass() (0x00480EA0)
+/***************************************************************************
+ * ConnectionClass::~ConnectionClass -- class destructor                   *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      none.                                                              *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x00480EA0)
 
 ConnectionClass::~ConnectionClass()
 {
@@ -90,7 +144,22 @@ ConnectionClass::~ConnectionClass()
 }
 
 
-// void ConnectionClass::Init() (0x00480ED0, slot 1)
+/***************************************************************************
+ * ConnectionClass::Init -- Initializes connection queue to empty          *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      none.                                                              *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x00480ED0, slot 1)
 // Clears the counters and statistics and empties the queue.
 
 void ConnectionClass::Init()
@@ -110,7 +179,29 @@ void ConnectionClass::Init()
 }
 
 
-// int ConnectionClass::Send_Packet(void *buf, int buflen, int ack_req, unsigned char target) (0x00480F00, slot 2)
+/***************************************************************************
+ * ConnectionClass::Send_Packet -- adds a packet to the send queue         *
+ *                                                                         *
+ * This routine prefixes the given buffer with a CommHeaderType and        *
+ * queues the resulting packet into the Send Queue.  (It's actually the    *
+ * Service() routine that handles the hardware-dependent Send of the data).*
+ * The packet's MagicNumber, Code, and PacketID are set here.              *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      buf         buffer to send                                         *
+ *      buflen      length of buffer                                       *
+ *      ack_req      1 = ACK is required for this packet; 0 = isn't        *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      1 = packet was queue'd OK, 0 = wasn't                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x00480F00, slot 2)
 // Wraps the data in a header (sequenced when an ACK is wanted) and queues
 // it for sending.
 
@@ -146,6 +237,22 @@ int ConnectionClass::Send_Packet(void *buf, int buflen, int ack_req, unsigned ch
 }
 
 
+/***************************************************************************
+ * ConnectionClass::Receive_Packet -- adds packet to receive queue         *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      buf      buffer to process (already includes CommHeaderType)       *
+ *      buflen   length of buffer to process                               *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      1 = packet was processed OK, 0 = error                             *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
 int ConnectionClass::Receive_Packet(void *buf, int buflen)
 {
     CommHeaderType *packet = (CommHeaderType *)buf;
@@ -233,7 +340,23 @@ send_ack:
 }
 
 
-// int ConnectionClass::Get_Packet(void *buf, int *buflen) (0x004812E0, slot 4)
+/***************************************************************************
+ * ConnectionClass::Get_Packet -- gets a packet from receive queue         *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      buf      location to store buffer                                  *
+ *      buflen   filled in with length of 'buf'                            *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      1 = packet was read, 0 = wasn't                                    *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x004812E0, slot 4)
 // Reads the next unread packet: the next sequenced one in order, or any
 // unsequenced one; copies its data (without the header) out.
 
@@ -261,7 +384,22 @@ int ConnectionClass::Get_Packet(void *buf, int *buflen)
 }
 
 
-// int ConnectionClass::Service() (0x00481370, slot 5)
+/***************************************************************************
+ * ConnectionClass::Service -- main polling routine; services packets      *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      none.                                                              *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      1 = OK, 0 = error (connection is broken!)                          *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x00481370, slot 5)
 
 int ConnectionClass::Service()
 {
@@ -272,7 +410,22 @@ int ConnectionClass::Service()
 }
 
 
-// int ConnectionClass::Service_Send_Queue() (0x004813A0, slot 7)
+/***************************************************************************
+ * ConnectionClass::Service_Send_Queue -- services the send queue          *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      none.                                                              *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      1 = OK, 0 = error                                                  *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x004813A0, slot 7)
 // Drops acknowledged packets (timing the round trip of sequenced ones),
 // then resends whatever is due, flagging entries past the retry or time
 // limits; 0 when the connection has gone bad.
@@ -333,7 +486,14 @@ int ConnectionClass::Service_Send_Queue()
 }
 
 
-// int ConnectionClass::Discard_Undeliverable_Packets() (0x00481550, slot 6)
+/// <summary>
+/// Handles a connection that has failed its service pass.
+/// This routine is the do-nothing default for connections that cannot clog. The
+/// connection manager calls it when Service reports failure, giving a derived
+/// connection the chance to throw away whatever is blocking its queues.
+/// </summary>
+/// <returns>Returns with the number of entries discarded, none at this level.</returns>
+// (0x00481550, slot 6)
 // Always 0 here (IPXGlobalConnClass overrides it).
 
 int ConnectionClass::Discard_Undeliverable_Packets()
@@ -342,7 +502,22 @@ int ConnectionClass::Discard_Undeliverable_Packets()
 }
 
 
-// int ConnectionClass::Service_Receive_Queue() (0x00481560, slot 8)
+/***************************************************************************
+ * ConnectionClass::Service_Receive_Queue -- services receive queue        *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      none.                                                              *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      1 = OK, 0 = error                                                  *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x00481560, slot 8)
 // Drops packets already read that are unsequenced or older than the
 // in-order sequence.
 
@@ -362,7 +537,21 @@ int ConnectionClass::Service_Receive_Queue()
 }
 
 
-// unsigned long ConnectionClass::Time() (0x004815C0)
+/***************************************************************************
+ * ConnectionClass::Time -- gets current time                              *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x004815C0)
 // The network tick time.
 
 unsigned long ConnectionClass::Time()
@@ -371,7 +560,22 @@ unsigned long ConnectionClass::Time()
 }
 
 
-// char *__fastcall ConnectionClass::Command_Name(int command) (0x004815F0)
+/***************************************************************************
+ * ConnectionClass::Command_Name -- returns name for given packet command  *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      command      packet Command value to get name for                  *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      ptr to command name, NULL if invalid                               *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   05/31/1995 BRR : Created.                                             *
+ *=========================================================================*/
+// (0x004815F0)
 // The name of a packet code, or null.
 
 char *__fastcall ConnectionClass::Command_Name(int command)

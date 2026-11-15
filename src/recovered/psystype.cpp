@@ -1,3 +1,15 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/psystype.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // psystype.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -61,7 +73,13 @@
 // by HeaderStatics_diagonal_init_00620430.cpp; no source of its own.
 
 
-// Dynamic initializer (0x006205E0, _$E) of l from the header(s) included
+/// <summary>
+/// Constructs a particle system type with default values.
+/// The new type is given a heap ID and added to the master particle system type list, so
+/// that the rules and the game code can refer to it by name from this point on.
+/// </summary>
+/// <param name="ininame">The INI section name that describes this particle system.</param>
+// (0x006205E0, _$E)
 // by HeaderStatics_diagonal_init_00620430.cpp; no source of its own.
 
 
@@ -79,9 +97,19 @@ ParticleSystemTypeClass::ParticleSystemTypeClass(char const *ini_name) :
 }
 
 
+/// <summary>
+/// Constructs a particle system type without initializing it.
+/// This constructor is used by the load process, which is about to overwrite the object
+/// with the data it reads from the save file.
+/// </summary>
 ParticleSystemTypeClass::ParticleSystemTypeClass(NoInitClass const &noinit) : ObjectTypeClass(noinit), SpawnDirection(noinit), LaserColor(noinit) {}
 
 
+/// <summary>
+/// Destroys the particle system type.
+/// Every object that still refers to this type is detached from it first, so that no
+/// dangling reference survives the removal from the master list.
+/// </summary>
 ParticleSystemTypeClass::~ParticleSystemTypeClass()
 {
     Unknown_006ECB90(this, true);
@@ -113,6 +141,12 @@ static inline int Behaves_From_Name(char const *name)
     return -1;
 }
 
+/// <summary>
+/// Fetches this particle system type's data from the INI database.
+/// This routine is called while the rules are being parsed. It lays the particle system
+/// specific entries over whatever the base class has already picked up.
+/// </summary>
+/// <returns>bool; Was the data read?</returns>
 bool ParticleSystemTypeClass::Read_INI(CCINIClass &ini)
 {
     if (ObjectTypeClass::Read_INI(ini)) {
@@ -161,7 +195,12 @@ int __fastcall ParticleSystemTypeClass::Index_Or_Make(char const *name)
 }
 
 
-// char const *__fastcall ParticleSystemTypeClass::Name_From(unsigned int index) (0x00620C40)
+/// <summary>
+/// Converts a particle system type into its name.
+/// </summary>
+/// <returns>Returns with the name of the particle system type. An invalid type yields the
+/// placeholder name used for "no system".</returns>
+// (0x00620C40)
 // The ID of the indexed type, "<none>" when the index is out of range.
 
 char const *__fastcall ParticleSystemTypeClass::Name_From(unsigned int index)
@@ -173,7 +212,13 @@ char const *__fastcall ParticleSystemTypeClass::Name_From(unsigned int index)
 }
 
 
-// void ParticleSystemTypeClass::Compute_CRC(WWCRCEngine &crc) const (0x00620C60, slot 13)
+/// <summary>
+/// Submits this particle system type to the CRC calculation.
+/// This routine is used by the multiplayer sync check so that players running with
+/// different rules are caught rather than left to drift apart.
+/// </summary>
+/// <param name="crc">The CRC engine to submit this object's data to.</param>
+// (0x00620C60, slot 13)
 
 void ParticleSystemTypeClass::Compute_CRC(WWCRCEngine &crc) const
 {
@@ -191,7 +236,14 @@ void ParticleSystemTypeClass::Compute_CRC(WWCRCEngine &crc) const
 }
 
 
-// HRESULT __stdcall ParticleSystemTypeClass::GetClassID(GUID *clsid) (0x00620D00, slot 3)
+/// <summary>
+/// Fetches the class identifier of this object.
+/// This routine is part of the persistence interface. The save system records the class
+/// ID so that the right kind of object can be manufactured when the game is reloaded.
+/// </summary>
+/// <param name="retval">Pointer to the class ID to be filled in.</param>
+/// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
+// (0x00620D00, slot 3)
 
 extern "C" GUID const CLSID_ParticleSystemTypeClass;
 
@@ -205,7 +257,13 @@ HRESULT __stdcall ParticleSystemTypeClass::GetClassID(GUID *clsid)
 }
 
 
-// HRESULT __stdcall ParticleSystemTypeClass::Load(IStream *stream) (0x00620D40)
+/// <summary>
+/// Loads this particle system type from the stream specified.
+/// The object is re-constructed in place once the persisted data has been read, so that
+/// its virtual table pointer is valid for the run it has been loaded into.
+/// </summary>
+/// <returns>Returns with the result code of the load operation.</returns>
+// (0x00620D40)
 // Loads the object type and restores the type in place; always reports
 // success.
 
@@ -218,7 +276,12 @@ HRESULT __stdcall ParticleSystemTypeClass::Load(IStream *stream)
 }
 
 
-// HRESULT __stdcall ParticleSystemTypeClass::Save(IStream *stream, BOOL clear_dirty) (0x00620D90, slot 6)
+/// <summary>
+/// Saves this particle system type to the stream specified.
+/// </summary>
+/// <param name="cleardirty">Should the object be marked as clean once it has been saved?</param>
+/// <returns>Returns with the result code of the save operation.</returns>
+// (0x00620D90, slot 6)
 // The object type's save; always S_OK.
 
 HRESULT __stdcall ParticleSystemTypeClass::Save(IStream *stream, BOOL clear_dirty)
@@ -242,7 +305,14 @@ int __fastcall ParticleSystemTypeClass::Behaviour_From_Name(char const *name)
 }
 
 
-// ParticleSystemTypeClass *__fastcall ParticleSystemTypeClass::Find_Or_Make(char const *name) (0x00620DF0)
+/// <summary>
+/// Fetches the particle system type of the name specified, creating it if need be.
+/// This routine is used while the rules are being parsed so that one section may refer
+/// to a particle system whose own section has not been reached yet.
+/// </summary>
+/// <param name="name">The INI name of the particle system type to find.</param>
+/// <returns>Returns with a pointer to the type found or created.</returns>
+// (0x00620DF0)
 // The named type, created when missing; 0 for "<none>" and "none".
 
 ParticleSystemTypeClass *__fastcall ParticleSystemTypeClass::Find_Or_Make(char const *name)
@@ -275,7 +345,13 @@ int ParticleSystemTypeClass::Kind_Of() const
 }
 
 
-// bool ParticleSystemTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) const (0x00620EA0, slot 32)
+/// <summary>
+/// Creates and places a particle system upon the map.
+/// Particle systems are never placed by the scenario or by the map editor's placement
+/// logic, so this routine always refuses the request.
+/// </summary>
+/// <returns>bool; Was the object placed?</returns>
+// (0x00620EA0, slot 32)
 // Particle system types are never placed as objects.
 
 bool ParticleSystemTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) const
@@ -284,7 +360,13 @@ bool ParticleSystemTypeClass::Create_And_Place(Cell const &cell, HouseClass *hou
 }
 
 
-// ObjectClass *ParticleSystemTypeClass::Create_One_Of(HouseClass *house) const (0x00620EB0, slot 35)
+/// <summary>
+/// Creates a particle system object of this type.
+/// Particle systems are spawned by whatever owns them rather than through the generic
+/// object type interface, so this routine never manufactures one.
+/// </summary>
+/// <returns>Returns with a pointer to the object created, which is always NULL.</returns>
+// (0x00620EB0, slot 35)
 // Particle system types make no object here.
 
 ObjectClass *ParticleSystemTypeClass::Create_One_Of(HouseClass *house) const

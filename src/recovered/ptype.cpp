@@ -1,3 +1,15 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/ptype.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // ptype.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -64,7 +76,13 @@
 // by HeaderStatics_diagonal_init_00620f50.cpp; no source of its own.
 
 
-// Dynamic initializer (0x00621100, _$E) of l from the header(s) included
+/// <summary>
+/// Constructs a particle type of the specified name.
+/// The new type is added to the particle type heap so that the rules parser and the
+/// particle system can find it by name later on.
+/// </summary>
+/// <param name="ininame">The INI name that identifies this particle type.</param>
+// (0x00621100, _$E)
 // by HeaderStatics_diagonal_init_00620f50.cpp; no source of its own.
 
 
@@ -82,9 +100,19 @@ ParticleTypeClass::ParticleTypeClass(char const *ini_name) :
 }
 
 
+/// <summary>
+/// Constructs a particle type object without initializing it.
+/// This routine is used by the load process, which is about to overwrite the object
+/// with the saved data anyway, so any initialization would only be thrown away.
+/// </summary>
 ParticleTypeClass::ParticleTypeClass(NoInitClass const &noinit) : ObjectTypeClass(noinit), StartColor1(noinit), StartColor2(noinit) {}
 
 
+/// <summary>
+/// Destroys the particle type object.
+/// Every reference to this type is severed and the type is removed from the particle
+/// type heap before it goes away.
+/// </summary>
 ParticleTypeClass::~ParticleTypeClass()
 {
     Unknown_006ECB90(this, true);
@@ -122,6 +150,14 @@ static inline int Behaves_From_Name(char const *name)
     return -1;
 }
 
+/// <summary>
+/// Fetches this particle type's settings from the rules database.
+/// This routine reads the appearance, motion, damage and state machine values that
+/// decide how particles of this type look and behave once the particle system starts
+/// spawning them.
+/// </summary>
+/// <param name="ini">The INI database to read the particle's section from.</param>
+/// <returns>bool; Was the particle type data read?</returns>
 bool ParticleTypeClass::Read_INI(CCINIClass &ini)
 {
     if (ObjectTypeClass::Read_INI(ini)) {
@@ -186,7 +222,12 @@ int __fastcall ParticleTypeClass::Index_Or_Make(char const *name)
 }
 
 
-// char const *__fastcall ParticleTypeClass::Name_From(unsigned int index) (0x006219F0)
+/// <summary>
+/// Fetches the name of the specified particle type.
+/// </summary>
+/// <returns>Returns with a pointer to the particle's name, or NULL if the particle type is
+/// not a legal one.</returns>
+// (0x006219F0)
 // The ID of the indexed particle type, 0 when the index is out of range.
 
 char const *__fastcall ParticleTypeClass::Name_From(unsigned int index)
@@ -198,7 +239,13 @@ char const *__fastcall ParticleTypeClass::Name_From(unsigned int index)
 }
 
 
-// void ParticleTypeClass::Compute_CRC(WWCRCEngine &crc) const (0x00621A10, slot 13)
+/// <summary>
+/// Adds this particle type's data to a running checksum.
+/// This routine is used by the multiplayer synchronization check so that a rules
+/// mismatch between the machines in a game can be spotted.
+/// </summary>
+/// <param name="crc">The checksum engine to submit the data to.</param>
+// (0x00621A10, slot 13)
 
 void ParticleTypeClass::Compute_CRC(WWCRCEngine &crc) const
 {
@@ -226,7 +273,14 @@ void ParticleTypeClass::Compute_CRC(WWCRCEngine &crc) const
 }
 
 
-// HRESULT __stdcall ParticleTypeClass::GetClassID(GUID *clsid) (0x00621B50, slot 3)
+/// <summary>
+/// Fetches the class identifier of this object.
+/// The save game system uses this identifier to know which kind of object to build
+/// when the stream is read back in.
+/// </summary>
+/// <param name="retval">Pointer to the location to store the class identifier.</param>
+/// <returns>Returns with S_OK, or E_POINTER if no storage location was supplied.</returns>
+// (0x00621B50, slot 3)
 
 extern "C" GUID const CLSID_ParticleTypeClass;
 
@@ -240,7 +294,14 @@ HRESULT __stdcall ParticleTypeClass::GetClassID(GUID *clsid)
 }
 
 
-// HRESULT __stdcall ParticleTypeClass::Load(IStream *stream) (0x00621B90)
+/// <summary>
+/// Reads this particle type in from the save game stream.
+/// The object is rebuilt in place, its warhead reference is swizzled back into a real
+/// pointer, the color list is restored, and the normal image is fetched again.
+/// </summary>
+/// <returns>Returns with S_OK if the particle type was read, otherwise a failure
+/// code.</returns>
+// (0x00621B90)
 // Loads the object type, restores the particle type in place, swizzles its
 // warhead, rebuilds the colour list from the saved count and colours and
 // reloads its image.
@@ -271,7 +332,15 @@ HRESULT __stdcall ParticleTypeClass::Load(IStream *stream)
 }
 
 
-// HRESULT __stdcall ParticleTypeClass::Save(IStream *stream, BOOL clear_dirty) (0x00621CD0)
+/// <summary>
+/// Writes this particle type out to the save game stream.
+/// The color list is a dynamic vector, so it cannot travel as part of the raw object
+/// image and is written out separately.
+/// </summary>
+/// <param name="cleardirty">Should the object be marked as clean once written?</param>
+/// <returns>Returns with S_OK if the particle type was written, otherwise a failure
+/// code.</returns>
+// (0x00621CD0)
 // Saves the object type, then the colour list as a count and its colours
 // (a failed colour write still reports success).
 
@@ -295,7 +364,13 @@ HRESULT __stdcall ParticleTypeClass::Save(IStream *stream, BOOL clear_dirty)
 }
 
 
-// ParticleTypeClass *__fastcall ParticleTypeClass::Find_Or_Make(char const *name) (0x00621D50)
+/// <summary>
+/// Fetches the particle type of the specified name, creating it if necessary.
+/// This routine is used by the rules parser so that a particle type can be referred to
+/// before its own declaration has been read.
+/// </summary>
+/// <returns>Returns with a pointer to the particle type that goes by that name.</returns>
+// (0x00621D50)
 // The named particle type, created when missing; 0 for "<none>" and "none".
 
 ParticleTypeClass *__fastcall ParticleTypeClass::Find_Or_Make(char const *name)
@@ -312,7 +387,15 @@ ParticleTypeClass *__fastcall ParticleTypeClass::Find_Or_Make(char const *name)
 }
 
 
-// void ParticleTypeClass::Detach(AbstractClass *target, bool all) (0x00621DE0, slot 10)
+/// <summary>
+/// Removes any reference this particle type has to the specified object.
+/// This routine is called when an object is about to disappear so that nothing is left
+/// pointing at it. For a particle type, the only such reference is the warhead it
+/// inflicts its damage with.
+/// </summary>
+/// <param name="target">Pointer to the object that is about to be destroyed.</param>
+/// <param name="all">Should the detachment be forced?</param>
+// (0x00621DE0, slot 10)
 // Forgets the warhead when it is the target.
 
 void ParticleTypeClass::Detach(AbstractClass *target, bool all)
@@ -353,7 +436,13 @@ int ParticleTypeClass::Kind_Of() const
 }
 
 
-// bool ParticleTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) const (0x00621E60, slot 32)
+/// <summary>
+/// Places an object of this particle type onto the map.
+/// This routine is the scenario placement hook. A particle is not a map object, so it
+/// cannot be placed this way and the request is always refused.
+/// </summary>
+/// <returns>bool; Was the particle placed?</returns>
+// (0x00621E60, slot 32)
 // Particle types are never placed as objects.
 
 bool ParticleTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) const
@@ -362,7 +451,14 @@ bool ParticleTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) co
 }
 
 
-// ObjectClass *ParticleTypeClass::Create_One_Of(HouseClass *house) const (0x00621E70, slot 35)
+/// <summary>
+/// Creates an object of this particle type.
+/// This routine is the generic object type creation hook. Particles are never
+/// manufactured through it -- the particle system spawns them directly -- so the
+/// request is always refused.
+/// </summary>
+/// <returns>Returns with a pointer to the object created. This is always NULL.</returns>
+// (0x00621E70, slot 35)
 // Particle types make no object here.
 
 ObjectClass *ParticleTypeClass::Create_One_Of(HouseClass *house) const

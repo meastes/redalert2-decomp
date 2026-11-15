@@ -1,3 +1,15 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/vanimtype.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // vanimtype.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -118,7 +130,13 @@ VoxelAnimTypeClass::VoxelAnimTypeClass(char const *ini_name) :
 }
 
 
-// VoxelAnimTypeClass::~VoxelAnimTypeClass() (0x0070E390)
+/// <summary>
+/// Removes this voxel animation type from the game.
+/// Anything still referring to this type is detached from it first. A voxel image that
+/// was borrowed from another object type is merely let go of, since it belongs to that
+/// other type and must not be destroyed here.
+/// </summary>
+// (0x0070E390)
 // Leaves both lists; a borrowed (shared) voxel pair is released without
 // being destroyed.
 
@@ -180,6 +198,13 @@ static inline ParticleSystemTypeClass *Get_Particle_System(CCINIClass &ini, char
     return defvalue;
 }
 
+/// <summary>
+/// Fetches this voxel animation type's data from the INI database.
+/// This routine reads the bouncing, spawning, sound and damage settings that give the
+/// voxel animation its character. The voxel image itself either comes from a .VXL file
+/// of its own, or is borrowed from the body, turret or barrel of some other object type.
+/// </summary>
+/// <returns>bool; Was the data read from the database?</returns>
 bool VoxelAnimTypeClass::Read_INI(CCINIClass &ini)
 {
     if (ObjectTypeClass::Read_INI(ini)) {
@@ -254,6 +279,11 @@ bool VoxelAnimTypeClass::Read_INI(CCINIClass &ini)
 }
 
 
+/// <summary>
+/// Fetches the INI name of the voxel animation type specified.
+/// </summary>
+/// <returns>Returns with a pointer to the name, or an empty string if the type is not
+/// a legal one.</returns>
 // VoxelAnimTypeClass Name_From0070EA40: unsigned lookup, preserving the original upper-bound test.
 char const *__fastcall VoxelAnimTypeClass::Name_From(unsigned index)
 {
@@ -262,7 +292,14 @@ char const *__fastcall VoxelAnimTypeClass::Name_From(unsigned index)
 }
 
 
-// static int __fastcall VoxelAnimTypeClass::From_Name(char const *name) (0x0070EA60)
+/// <summary>
+/// Converts an ASCII name into a voxel animation type number.
+/// This routine is used when the rules or a map refer to a voxel animation by name.
+/// The comparison ignores case.
+/// </summary>
+/// <param name="name">The INI name of the voxel animation to search for.</param>
+/// <returns>Returns with the type matched, or VANIM_NONE if the name is not known.</returns>
+// (0x0070EA60)
 // Index of the type with this ID (case-insensitive), or -1.
 
 int __fastcall VoxelAnimTypeClass::From_Name(char const *name)
@@ -278,7 +315,12 @@ int __fastcall VoxelAnimTypeClass::From_Name(char const *name)
 }
 
 
-// void VoxelAnimTypeClass::Compute_CRC(WWCRCEngine &crc) const (0x0070EAB0)
+/// <summary>
+/// Submits this voxel animation type's data to the CRC accumulator.
+/// This routine is used by the multiplayer sync checking, which verifies that every
+/// machine in the game agrees on the rules data it was handed.
+/// </summary>
+// (0x0070EAB0)
 
 void VoxelAnimTypeClass::Compute_CRC(WWCRCEngine &crc) const
 {
@@ -304,7 +346,14 @@ void VoxelAnimTypeClass::Compute_CRC(WWCRCEngine &crc) const
 }
 
 
-// HRESULT __stdcall VoxelAnimTypeClass::GetClassID(GUID *clsid) (0x0070EBF0)
+/// <summary>
+/// Fetches the class identifier of this object.
+/// This routine is used by the persistence system to record what kind of object was
+/// written, so that the right class can be created when the save game is loaded.
+/// </summary>
+/// <param name="retval">Pointer to the class identifier to fill in.</param>
+/// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
+// (0x0070EBF0)
 
 HRESULT __stdcall VoxelAnimTypeClass::GetClassID(GUID *clsid)
 {
@@ -316,7 +365,13 @@ HRESULT __stdcall VoxelAnimTypeClass::GetClassID(GUID *clsid)
 }
 
 
-// HRESULT __stdcall VoxelAnimTypeClass::Load(IStream *stream) (0x0070EC30)
+/// <summary>
+/// Loads this voxel animation type from the persist stream.
+/// The base class reads the raw type data, then the pointers within are converted back
+/// from the identifiers they were saved as, and the voxel image is re-fetched.
+/// </summary>
+/// <returns>Returns with the HRESULT of the load. S_OK if the type was rebuilt.</returns>
+// (0x0070EC30)
 // Restores the type in place, swizzles its type pointers and reloads its
 // voxel.
 
@@ -338,7 +393,13 @@ HRESULT __stdcall VoxelAnimTypeClass::Load(IStream *stream)
 }
 
 
-// HRESULT __stdcall VoxelAnimTypeClass::Save(IStream *stream, BOOL clear_dirty) (0x0070ECF0)
+/// <summary>
+/// Saves this voxel animation type to the persist stream.
+/// Everything a voxel animation type owns is written by the base class, so this routine
+/// merely passes the request along.
+/// </summary>
+/// <returns>Returns with the HRESULT of the save. S_OK if the type was written.</returns>
+// (0x0070ECF0)
 
 HRESULT __stdcall VoxelAnimTypeClass::Save(IStream *stream, BOOL clear_dirty)
 {
@@ -350,7 +411,12 @@ HRESULT __stdcall VoxelAnimTypeClass::Save(IStream *stream, BOOL clear_dirty)
 }
 
 
-// void VoxelAnimTypeClass::Detach(AbstractClass *target, bool all) (0x0070ED10)
+/// <summary>
+/// Removes the specified object from this voxel animation type.
+/// This routine is called when an object is about to leave the game. Every reference
+/// this type holds to it must be severed so that nothing is left pointing at it.
+/// </summary>
+// (0x0070ED10)
 // Clears every type pointer that refers to a removed object.
 
 void VoxelAnimTypeClass::Detach(AbstractClass *target, bool all)
@@ -376,7 +442,13 @@ void VoxelAnimTypeClass::Detach(AbstractClass *target, bool all)
 }
 
 
-// static VoxelAnimTypeClass *__fastcall VoxelAnimTypeClass::Find_Or_Make(char const *name) (0x0070ED80)
+/// <summary>
+/// Fetches the voxel animation type of the name specified, creating it if need be.
+/// This routine is used when parsing the rules and the maps, where a reference may name
+/// a voxel animation that has not been declared yet.
+/// </summary>
+/// <returns>Returns with a pointer to the voxel animation type of that name.</returns>
+// (0x0070ED80)
 // The type with this ID, else a new one; null for "<none>" and "none".
 
 VoxelAnimTypeClass *__fastcall VoxelAnimTypeClass::Find_Or_Make(char const *name)

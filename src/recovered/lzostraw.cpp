@@ -1,3 +1,19 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/lzostraw.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // lzostraw.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -9,7 +25,26 @@
 #include "shared/crt_string.hpp"
 
 
-// LZOStraw::LZOStraw(CompControl control, int blocksize) (0x0053EFB0)
+/***********************************************************************************************
+ * LZOStraw::LZOStraw -- Constructor for LZO straw object.                                     *
+ *                                                                                             *
+ *    This will initialize the LZO straw object. Whether the object is to compress or          *
+ *    decompress and the block size to use is specified. The data is compressed in blocks      *
+ *    that are sized to be quick to compress and yet still yield good compression ratios.      *
+ *                                                                                             *
+ * INPUT:   decrypt  -- Should the data be decompressed?                                       *
+ *                                                                                             *
+ *          blocksize-- The size of the blocks to process.                                     *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   It takes two buffers of the blocksize specified if compression is to be         *
+ *             performed.                                                                      *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/04/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0053EFB0)
 // Allocates the block buffer; the compressed-block buffer is needed only
 // when compressing.
 
@@ -28,7 +63,21 @@ LZOStraw::LZOStraw(CompControl control, int blocksize) :
 }
 
 
-// LZOStraw::~LZOStraw() (0x0053F010)
+/***********************************************************************************************
+ * LZOStraw::~LZOStraw -- Destructor for the LZO straw.                                        *
+ *                                                                                             *
+ *    The destructor will free up the allocated buffers that it allocated in the constructor.  *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/04/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0053F010)
 // Releases both block buffers.
 
 LZOStraw::~LZOStraw()
@@ -41,7 +90,28 @@ LZOStraw::~LZOStraw()
 }
 
 
-// LZOStraw::Get(void *buffer, int length) (0x0053F050, virtual slot 2)
+/***********************************************************************************************
+ * LZOStraw::Get -- Fetch data through the LZO processor.                                      *
+ *                                                                                             *
+ *    This routine will fetch the data bytes specified. It does this by first accumulating     *
+ *    a full block of data and then compressing or decompressing it as indicated. Subsequent   *
+ *    requests for data will draw from this buffer of processed data until it is exhausted     *
+ *    and another block must be fetched.                                                       *
+ *                                                                                             *
+ * INPUT:   destbuf  -- Pointer to the buffer to hold the data requested.                      *
+ *                                                                                             *
+ *          length   -- The number of data bytes requested.                                    *
+ *                                                                                             *
+ * OUTPUT:  Returns with the actual number of bytes stored into the buffer. If this number     *
+ *          is less than that requested, then this indicates that the data source has been     *
+ *          exhausted.                                                                         *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/04/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0053F050, virtual slot 2)
 // Hands out processed bytes, refilling a block at a time from the chained
 // straw: decompressing reads a block header and its compressed block (into a
 // temporary buffer) and uncompresses it into Buffer; compressing reads

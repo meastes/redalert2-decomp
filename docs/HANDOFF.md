@@ -22,6 +22,14 @@ Earlier owner periods are in [history/](history/).
    the lane re-verify at the HEAD it will land on.
 6. Post the status in the AGENTS.md "Status format" at the next landing or hand-back.
 
+## Standing rules to cut user babysitting (review, 2026-11-15)
+
+1. Needs-you filter: a user item must match the AGENTS.md "only these go to the user" list and name its category; everything else is decided here or queued to the review. Open items are listed once at the end of each status with their age, never repeated as "still waiting"; each states the default taken meanwhile.
+2. One ask per subject: recurring approvals are asked once as a standing approval with exact limits, recorded here and in memory, and not asked again inside those limits. Standing: YR PRs on the #94-#98 pattern (user 2026-11-15).
+3. Heartbeat: after 90 minutes without a status, post three lines (running; waiting on what, with the gate queue; next landing expected). Anything announced as installing/landing and not done 20 minutes later is reported with the reason, unasked.
+4. Never ask the user to reconnect the Windows share: use ssh (mac-crash-recovery).
+5. Codex workers: never without a stocked assignment plus fallback; no assignment needing an OS/system-settings change or an approval prompt; disk cleanup run by the owner under standing approval before the worker's threshold; worker state checked every 30 minutes and reported in the heartbeat.
+
 ## Restart checkpoint (owner, 2026-11-15 ~05:00Z, the user restarted the Mac)
 
 Main is clean and published. After the restart: C: mount (/Volumes/mike-gaming), stale wineservers (wineserver -k per prefix), one load/swap reading, then resume lanes one or two at a time under the performance lane's concurrency cap (not all at once). Each lane wrote build/RESUME.md in its worktree.

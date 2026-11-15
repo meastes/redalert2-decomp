@@ -909,7 +909,7 @@ void __fastcall Fill_In_Data_0065cdd0()
         TagTypeClass *tagtype = TagTypes[count_index];
         if (tagtype->Is_Allow_Win()) {
             HouseClass *owner = HouseClass::As_Pointer(((HouseTypeClass *)tagtype->FirstTrigger->House)->ArrayIndex);
-            owner->unknown_1c4++;
+            owner->Blockage++;
         }
     }
 

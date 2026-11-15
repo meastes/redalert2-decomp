@@ -4,8 +4,8 @@
     "id": "population-3627",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "dea1e1ff8e883c7aa198bad191b60926e28e4efca1a40531679ec89f536931d9",
-    "historical_acceptance_sha256": "6a74f6a0f519169b49d83d0f4a6571ddea048470d61454efd0440b4d25de2308"
+    "historical_population_sha256": "26791212fc282122897fe6b82c57a0b4f95073d39d15c285aa193f95c25ef93e",
+    "historical_acceptance_sha256": "6d1845333d78905dcbe5d9d9dcf487e7d26e9ad45b4e272ce59604393488e824"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -6024,7 +6024,36 @@
     "??_R0?AVWDTState@@@8": 8372688,
     "??_R0?AVWeaponTypeClass@@@8": 8374128,
     "??_R0?AVWinModemClass@@@8": 8374768,
-    "??_R0?AVWWMouseClass@@@8": 8393584
+    "??_R0?AVWWMouseClass@@@8": 8393584,
+    "?Draw_It@IsometricTileClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5407312,
+    "?Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5853472,
+    "?Draw_It@OverlayClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6144752,
+    "?Draw_It@SmudgeClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6847216,
+    "?Set_Position@TagClass@@QAEXVCell@@@Z": 7028624,
+    "?Service_Game_IO_00481fb0@seed_00482100@@YAXXZ": 4726704,
+    "?Contains@GraphicMenuItem@@UAE_NABUPoint2D@@@Z": 5112256,
+    "?Service_Game_IO_00481fb0@seed_005bbd10@@YAXXZ": 4726704,
+    "?Action@seed_006816b0@@YGIHH@Z": 6821552,
+    "?Movies@@3V?$DynamicVectorClass@PBD@@A": 10948688,
+    "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z": 7049136,
+    "?Draw_It@WaveClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7480624,
+    "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
+    "?AI@CreditClass@@QAEX_N@Z": 4802128,
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "?Draw_It@ParticleSystemClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6336656,
+    "?Draw_It@TerrainClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7223696,
+    "?Draw_It@InfantryClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5244240,
+    "?Draw_It@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5020608,
+    "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z": 4272592,
+    "?Draw_It@AircraftClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4276672,
+    "?Draw_It@ParticleClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6331664,
+    "?Draw_It@AnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4329040,
+    "?Draw_It@VoxelAnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7393216,
+    "?Draw_It@BuildingClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4433376,
+    "__ramp_corners": 8339828,
+    "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
+    "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096
   },
   "regions": [
     {
@@ -6045,7 +6074,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "1acd20c4703c2c2e050c2170732024544b97c1fddcc941f4112e9f150c5f5ca0",
       "relocations": [],
-      "source_sha256": "42b52cb9ecbc41336da4b113561893794f13e7a0df335524899b79a6d0e5987b",
+      "source_sha256": "79ffaa15f35947efa228848fa8f16486d971a4fe0a8b4b113c18b00a5eb13d75",
       "source": "src/recovered/txtlabel.cpp",
       "population": "population-3627",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -6088,7 +6117,7 @@
           "resolved": 8051916
         }
       ],
-      "source_sha256": "42b52cb9ecbc41336da4b113561893794f13e7a0df335524899b79a6d0e5987b",
+      "source_sha256": "79ffaa15f35947efa228848fa8f16486d971a4fe0a8b4b113c18b00a5eb13d75",
       "source": "src/recovered/txtlabel.cpp",
       "population": "population-3627",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -6131,7 +6160,7 @@
           "resolved": 591158
         }
       ],
-      "source_sha256": "42b52cb9ecbc41336da4b113561893794f13e7a0df335524899b79a6d0e5987b",
+      "source_sha256": "79ffaa15f35947efa228848fa8f16486d971a4fe0a8b4b113c18b00a5eb13d75",
       "source": "src/recovered/txtlabel.cpp",
       "population": "population-3627",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -6262,7 +6291,7 @@
           "resolved": 4293980275
         }
       ],
-      "source_sha256": "42b52cb9ecbc41336da4b113561893794f13e7a0df335524899b79a6d0e5987b",
+      "source_sha256": "79ffaa15f35947efa228848fa8f16486d971a4fe0a8b4b113c18b00a5eb13d75",
       "source": "src/recovered/txtlabel.cpp",
       "population": "population-3627",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",

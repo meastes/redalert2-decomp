@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/laser.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // laser.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -92,7 +103,12 @@ LaserDrawClass::LaserDrawClass(CoordStruct source, CoordStruct target, int z_adj
 }
 
 
-// LaserDrawClass::~LaserDrawClass() (0x00533260)
+/// <summary>
+/// Destroys the laser beam.
+/// This routine removes the beam from the master list, so that it is no longer updated
+/// or drawn.
+/// </summary>
+// (0x00533260)
 
 LaserDrawClass::~LaserDrawClass()
 {
@@ -124,7 +140,12 @@ void LaserDrawClass::Update()
 }
 
 
-// void LaserDrawClass::Update_All() (0x005333F0)
+/// <summary>
+/// Processes the logic for every laser beam that is currently active.
+/// This routine is called once per game logic loop. Beams that have outlived their
+/// duration remove themselves from the list during this call.
+/// </summary>
+// (0x005333F0)
 
 void LaserDrawClass::Update_All()
 {
@@ -134,7 +155,12 @@ void LaserDrawClass::Update_All()
 }
 
 
-// void LaserDrawClass::Draw_All() (0x005334D0)
+/// <summary>
+/// Draws every laser beam that is currently active.
+/// This routine is called by the tactical map rendering pass so that beams appear over
+/// the objects they were fired between.
+/// </summary>
+// (0x005334D0)
 
 void LaserDrawClass::Draw_All()
 {
@@ -190,6 +216,13 @@ struct LaserGlowOffset : Point2D {
     ~LaserGlowOffset() {}
 };
 
+/// <summary>
+/// Draws the laser beam onto the logical surface.
+/// This routine draws the beam as a thin inner core and, when an outer color was
+/// specified, a pair of parallel glow lines flanking it. A beam that lies under the fog
+/// of war, or that is currently blinked off, draws nothing at all. At the lowest detail
+/// level the beam degrades to a plain depth shaded line.
+/// </summary>
 void LaserDrawClass::Draw_It()
 {
     if (Duration > 0) {

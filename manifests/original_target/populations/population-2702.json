@@ -4,8 +4,8 @@
     "id": "population-2702",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "3e259f10bc8c35fd11de0ccd705c872dbf9811a168d96bd187b0fe90087a510c",
-    "historical_acceptance_sha256": "9203df995acddc4f5d8b8fc65da026bd6c7c7672776ad1653c197713466fafb8"
+    "historical_population_sha256": "4bba90c7e051acdd164d94df933652f1648f12dd882aae783ea768ff66673921",
+    "historical_acceptance_sha256": "a081b066cea23b2ee7b940e5fe71552e04be4e08046f6ab3e178dbfc5c8d2bab"
   },
   "references": {
     "_unknown_empty_rect": 8806520,
@@ -4482,7 +4482,35 @@
     "??_R0?AVWaveClass@@@8": 8369160,
     "??_R0?AVWDTState@@@8": 8372688,
     "??_R0?AVWWMouseClass@@@8": 8393584,
-    "??_R0?AVMouse@@@8": 8393616
+    "??_R0?AVMouse@@@8": 8393616,
+    "?Draw_It@IsometricTileClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5407312,
+    "?Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5853472,
+    "?Draw_It@OverlayClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6144752,
+    "?Draw_It@SmudgeClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6847216,
+    "?Set_Position@TagClass@@QAEXVCell@@@Z": 7028624,
+    "?Service_Game_IO_00481fb0@seed_00482100@@YAXXZ": 4726704,
+    "?Contains@GraphicMenuItem@@UAE_NABUPoint2D@@@Z": 5112256,
+    "?Service_Game_IO_00481fb0@seed_005bbd10@@YAXXZ": 4726704,
+    "?Action@seed_006816b0@@YGIHH@Z": 6821552,
+    "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z": 7049136,
+    "?Draw_It@WaveClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7480624,
+    "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
+    "?AI@CreditClass@@QAEX_N@Z": 4802128,
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "?Draw_It@ParticleSystemClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6336656,
+    "?Draw_It@TerrainClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7223696,
+    "?Draw_It@InfantryClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5244240,
+    "?Draw_It@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5020608,
+    "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z": 4272592,
+    "?Draw_It@AircraftClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4276672,
+    "?Draw_It@ParticleClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6331664,
+    "?Draw_It@AnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4329040,
+    "?Draw_It@VoxelAnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7393216,
+    "?Draw_It@BuildingClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4433376,
+    "__ramp_corners": 8339828,
+    "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
+    "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096
   },
   "regions": [
     {
@@ -4536,7 +4564,7 @@
           "resolved": 8806532
         }
       ],
-      "source_sha256": "8d435ccd912e0f4145c8830ae405f4b0cd887e3acbb6cbf196bb275002ce4823",
+      "source_sha256": "4a4827135555644fa73cdfa4d00338019ff68376704f0d1e8e185063d1dae09e",
       "source": "src/recovered/gauge.cpp",
       "population": "population-2702",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -4562,7 +4590,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "3500270645271a553625b69eaea7002580a82d5d7dd2eb604d73fd1537a3ca09",
       "relocations": [],
-      "source_sha256": "8d435ccd912e0f4145c8830ae405f4b0cd887e3acbb6cbf196bb275002ce4823",
+      "source_sha256": "4a4827135555644fa73cdfa4d00338019ff68376704f0d1e8e185063d1dae09e",
       "source": "src/recovered/gauge.cpp",
       "population": "population-2702",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -4588,7 +4616,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "5905aca689084d39b183f9d8fd13ce15ed9cb7d75af8d0f7f1ec5e3225f8e88e",
       "relocations": [],
-      "source_sha256": "8d435ccd912e0f4145c8830ae405f4b0cd887e3acbb6cbf196bb275002ce4823",
+      "source_sha256": "4a4827135555644fa73cdfa4d00338019ff68376704f0d1e8e185063d1dae09e",
       "source": "src/recovered/gauge.cpp",
       "population": "population-2702",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -4631,7 +4659,7 @@
           "resolved": 2822262
         }
       ],
-      "source_sha256": "8d435ccd912e0f4145c8830ae405f4b0cd887e3acbb6cbf196bb275002ce4823",
+      "source_sha256": "4a4827135555644fa73cdfa4d00338019ff68376704f0d1e8e185063d1dae09e",
       "source": "src/recovered/gauge.cpp",
       "population": "population-2702",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -4657,7 +4685,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "815bf2c5496b4386aff38161c15e4704c5a1586c9f7a6bbcd91a60dd0e9f5e7e",
       "relocations": [],
-      "source_sha256": "8d435ccd912e0f4145c8830ae405f4b0cd887e3acbb6cbf196bb275002ce4823",
+      "source_sha256": "4a4827135555644fa73cdfa4d00338019ff68376704f0d1e8e185063d1dae09e",
       "source": "src/recovered/gauge.cpp",
       "population": "population-2702",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -4683,7 +4711,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "dcf1aab1842466cdd03e3af43730214b4e631dcecfa19e9e768d94a818020998",
       "relocations": [],
-      "source_sha256": "8d435ccd912e0f4145c8830ae405f4b0cd887e3acbb6cbf196bb275002ce4823",
+      "source_sha256": "4a4827135555644fa73cdfa4d00338019ff68376704f0d1e8e185063d1dae09e",
       "source": "src/recovered/gauge.cpp",
       "population": "population-2702",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -4726,7 +4754,7 @@
           "resolved": 2822230
         }
       ],
-      "source_sha256": "8d435ccd912e0f4145c8830ae405f4b0cd887e3acbb6cbf196bb275002ce4823",
+      "source_sha256": "4a4827135555644fa73cdfa4d00338019ff68376704f0d1e8e185063d1dae09e",
       "source": "src/recovered/gauge.cpp",
       "population": "population-2702",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -4752,7 +4780,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "c33db389727d83ef5e76ffed65c611b76a2648e50a832da3629694d919b310a0",
       "relocations": [],
-      "source_sha256": "8d435ccd912e0f4145c8830ae405f4b0cd887e3acbb6cbf196bb275002ce4823",
+      "source_sha256": "4a4827135555644fa73cdfa4d00338019ff68376704f0d1e8e185063d1dae09e",
       "source": "src/recovered/gauge.cpp",
       "population": "population-2702",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -4778,7 +4806,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "d71f6b38d6bc3b460b5e8b61b3ce5a4dfa61fad842db3372dcf1e6f4c775d03c",
       "relocations": [],
-      "source_sha256": "8d435ccd912e0f4145c8830ae405f4b0cd887e3acbb6cbf196bb275002ce4823",
+      "source_sha256": "4a4827135555644fa73cdfa4d00338019ff68376704f0d1e8e185063d1dae09e",
       "source": "src/recovered/gauge.cpp",
       "population": "population-2702",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -4829,7 +4857,7 @@
           "resolved": 8001852
         }
       ],
-      "source_sha256": "8d435ccd912e0f4145c8830ae405f4b0cd887e3acbb6cbf196bb275002ce4823",
+      "source_sha256": "4a4827135555644fa73cdfa4d00338019ff68376704f0d1e8e185063d1dae09e",
       "source": "src/recovered/gauge.cpp",
       "population": "population-2702",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -4855,7 +4883,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "bf6ddf17becb6f199d4f92abed7bdee1b080f859efac9a153956b185102d4361",
       "relocations": [],
-      "source_sha256": "8d435ccd912e0f4145c8830ae405f4b0cd887e3acbb6cbf196bb275002ce4823",
+      "source_sha256": "4a4827135555644fa73cdfa4d00338019ff68376704f0d1e8e185063d1dae09e",
       "source": "src/recovered/gauge.cpp",
       "population": "population-2702",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -4898,7 +4926,7 @@
           "resolved": 2813655
         }
       ],
-      "source_sha256": "8d435ccd912e0f4145c8830ae405f4b0cd887e3acbb6cbf196bb275002ce4823",
+      "source_sha256": "4a4827135555644fa73cdfa4d00338019ff68376704f0d1e8e185063d1dae09e",
       "source": "src/recovered/gauge.cpp",
       "population": "population-2702",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -4933,7 +4961,7 @@
           "resolved": 2813593
         }
       ],
-      "source_sha256": "8d435ccd912e0f4145c8830ae405f4b0cd887e3acbb6cbf196bb275002ce4823",
+      "source_sha256": "4a4827135555644fa73cdfa4d00338019ff68376704f0d1e8e185063d1dae09e",
       "source": "src/recovered/gauge.cpp",
       "population": "population-2702",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -4992,7 +5020,7 @@
           "resolved": 8001952
         }
       ],
-      "source_sha256": "8d435ccd912e0f4145c8830ae405f4b0cd887e3acbb6cbf196bb275002ce4823",
+      "source_sha256": "4a4827135555644fa73cdfa4d00338019ff68376704f0d1e8e185063d1dae09e",
       "source": "src/recovered/gauge.cpp",
       "population": "population-2702",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -5107,7 +5135,7 @@
           "resolved": 8625256
         }
       ],
-      "source_sha256": "8d435ccd912e0f4145c8830ae405f4b0cd887e3acbb6cbf196bb275002ce4823",
+      "source_sha256": "4a4827135555644fa73cdfa4d00338019ff68376704f0d1e8e185063d1dae09e",
       "source": "src/recovered/gauge.cpp",
       "population": "population-2702",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -5190,7 +5218,7 @@
           "resolved": 4294651715
         }
       ],
-      "source_sha256": "8d435ccd912e0f4145c8830ae405f4b0cd887e3acbb6cbf196bb275002ce4823",
+      "source_sha256": "4a4827135555644fa73cdfa4d00338019ff68376704f0d1e8e185063d1dae09e",
       "source": "src/recovered/gauge.cpp",
       "population": "population-2702",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -5233,7 +5261,7 @@
           "resolved": 4294733226
         }
       ],
-      "source_sha256": "8d435ccd912e0f4145c8830ae405f4b0cd887e3acbb6cbf196bb275002ce4823",
+      "source_sha256": "4a4827135555644fa73cdfa4d00338019ff68376704f0d1e8e185063d1dae09e",
       "source": "src/recovered/gauge.cpp",
       "population": "population-2702",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -5468,7 +5496,7 @@
           "resolved": 8625256
         }
       ],
-      "source_sha256": "8d435ccd912e0f4145c8830ae405f4b0cd887e3acbb6cbf196bb275002ce4823",
+      "source_sha256": "4a4827135555644fa73cdfa4d00338019ff68376704f0d1e8e185063d1dae09e",
       "source": "src/recovered/gauge.cpp",
       "population": "population-2702",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",

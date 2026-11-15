@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/abstract.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // abstract.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -65,7 +80,12 @@
 #include "shared/vector_class.hpp"
 
 
-// AbstractClass::AbstractClass() (0x0040FF10)
+/// <summary>
+/// Default constructor for abstract objects.
+/// This routine puts the object into its neutral state: no unique ID assigned
+/// yet, and nothing pending for the save system.
+/// </summary>
+// (0x0040FF10)
 // No unique ID yet (-1), clean, reference count 0.
 
 AbstractClass::AbstractClass() :
@@ -80,7 +100,12 @@ AbstractClass::AbstractClass() :
 }
 
 
-// AbstractClass::AbstractClass(NoInitClass const &noinit) (0x0040FF60)
+/// <summary>
+/// No-initialization constructor for abstract objects.
+/// Use this constructor when the object is about to be overwritten wholesale by
+/// the load process. It deliberately leaves every member untouched.
+/// </summary>
+// (0x0040FF60)
 // Installs the vtables only (the save-game load path).
 
 AbstractClass::AbstractClass(NoInitClass const &noinit)
@@ -88,7 +113,10 @@ AbstractClass::AbstractClass(NoInitClass const &noinit)
 }
 
 
-// AbstractClass::~AbstractClass() (0x0040FF90)
+/// <summary>
+/// Destructor for abstract objects.
+/// </summary>
+// (0x0040FF90)
 // Restores the AbstractClass vtables.
 
 AbstractClass::~AbstractClass()
@@ -96,7 +124,14 @@ AbstractClass::~AbstractClass()
 }
 
 
-// int __stdcall AbstractClass::What_Am_I() (0x0040FFB0)
+/// <summary>
+/// Fetches the RTTI type of this object.
+/// The engine carries its own run-time type scheme in place of the C++ feature.
+/// Only instantiable classes report a type of their own; the intermediate layers
+/// of the hierarchy report RTTI_NONE.
+/// </summary>
+/// <returns>Returns with the RTTI type constant for this object.</returns>
+// (0x0040FFB0)
 // IRTTITypeInfo: the object kind (Kind_Of); `this` is the +4 interface.
 
 int __stdcall AbstractClass::What_Am_I()
@@ -105,7 +140,11 @@ int __stdcall AbstractClass::What_Am_I()
 }
 
 
-// long __stdcall AbstractClass::Fetch_ID() (0x0040FFC0)
+/// <summary>
+/// Fetches this object's unique identifier.
+/// </summary>
+/// <returns>Returns with the unique ID, or -1 if none has been assigned yet.</returns>
+// (0x0040FFC0)
 // IRTTITypeInfo: the unique ID.
 
 long __stdcall AbstractClass::Fetch_ID()
@@ -114,7 +153,12 @@ long __stdcall AbstractClass::Fetch_ID()
 }
 
 
-// void __stdcall AbstractClass::Create_ID() (0x0040FFD0)
+/// <summary>
+/// Assigns this object a unique identifier.
+/// The ID is drawn from the scenario's running counter, so objects created
+/// before a scenario exists are all given an ID of zero.
+/// </summary>
+// (0x0040FFD0)
 // IRTTITypeInfo: takes a new unique ID from the ID source (0 without one).
 
 void __stdcall AbstractClass::Create_ID()
@@ -123,7 +167,20 @@ void __stdcall AbstractClass::Create_ID()
 }
 
 
-// HRESULT __stdcall AbstractClass::QueryInterface(GUID const &iid, void **object) (0x00410000)
+/// <summary>
+/// Fetches a COM interface pointer from this object.
+/// This is the IUnknown implementation shared by every game object. Abstract
+/// objects expose IUnknown, IPersistStream, IPersist and IRTTITypeInfo; the save
+/// game system reaches the whole object hierarchy through them.
+/// </summary>
+/// <param name="riid">The identifier of the interface being asked for.</param>
+/// <param name="ppvObject">Receives the interface pointer, or NULL when the
+/// interface is not supported.</param>
+/// <returns>
+/// Returns with S_OK when the interface was supplied. Otherwise E_NOINTERFACE is
+/// returned for an unsupported interface, or E_POINTER when no output pointer was given.
+/// </returns>
+// (0x00410000)
 // IUnknown: IUnknown, IPersistStream and IPersist give the object, IRTTITypeInfo its +4 interface.
 
 HRESULT __stdcall AbstractClass::QueryInterface(GUID const &iid, void **object)
@@ -152,7 +209,13 @@ HRESULT __stdcall AbstractClass::QueryInterface(GUID const &iid, void **object)
 }
 
 
-// unsigned long __stdcall AbstractClass::AddRef() (0x004100A0)
+/// <summary>
+/// Satisfies the IUnknown reference count contract.
+/// The game owns its objects outright and they outlive any interface pointer
+/// handed out, so nothing is actually counted.
+/// </summary>
+/// <returns>Returns with the reference count, which is always one.</returns>
+// (0x004100A0)
 // IUnknown: no reference counting (always 1).
 
 unsigned long __stdcall AbstractClass::AddRef()
@@ -161,7 +224,12 @@ unsigned long __stdcall AbstractClass::AddRef()
 }
 
 
-// unsigned long __stdcall AbstractClass::Release() (0x004100B0)
+/// <summary>
+/// Satisfies the IUnknown release contract.
+/// Releasing an interface never destroys a game object -- see AddRef.
+/// </summary>
+/// <returns>Returns with the reference count, which is always one.</returns>
+// (0x004100B0)
 // IUnknown: no reference counting (always 1).
 
 unsigned long __stdcall AbstractClass::Release()
@@ -170,7 +238,18 @@ unsigned long __stdcall AbstractClass::Release()
 }
 
 
-// HRESULT __stdcall AbstractClass::Save(IStream *stream, BOOL clear_dirty) (0x004100C0)
+/// <summary>
+/// Writes this object to the save stream.
+/// The object's address goes out first as its swizzle identity, followed by the
+/// raw object image. Load reverses the process.
+/// </summary>
+/// <param name="stream">The stream to write to.</param>
+/// <param name="cleardirty">Should the object be marked clean once it has been written?</param>
+/// <returns>
+/// Returns with S_OK when the object was written, E_POINTER when no stream was
+/// supplied, or the stream's own failure code.
+/// </returns>
+// (0x004100C0)
 // IPersistStream: writes the object pointer (for swizzling), then Size_Of() bytes of the object.
 
 HRESULT __stdcall AbstractClass::Save(IStream *stream, BOOL clear_dirty)
@@ -191,7 +270,18 @@ HRESULT __stdcall AbstractClass::Save(IStream *stream, BOOL clear_dirty)
 }
 
 
-// HRESULT __stdcall AbstractClass::Load(IStream *stream) (0x00410120)
+/// <summary>
+/// Reads this object back from the save stream.
+/// The saved address is handed to the swizzle system so that pointers elsewhere
+/// in the save game can be remapped onto this object's new location, and then the
+/// raw object image is read back over this one.
+/// </summary>
+/// <param name="stream">The stream to read from.</param>
+/// <returns>
+/// Returns with S_OK when the object was read, E_POINTER when no stream was
+/// supplied, or the stream's own failure code.
+/// </returns>
+// (0x00410120)
 // IPersistStream: reads the saved pointer, registers it with the swizzle manager, then reads the object over itself keeping RefCount.
 
 HRESULT __stdcall AbstractClass::Load(IStream *stream)
@@ -211,7 +301,12 @@ HRESULT __stdcall AbstractClass::Load(IStream *stream)
 }
 
 
-// HRESULT __stdcall AbstractClass::GetSizeMax(ULARGE_INTEGER *size) (0x00410180)
+/// <summary>
+/// Fetches the number of bytes that Save will write.
+/// </summary>
+/// <param name="pcbSize">Receives the maximum size, in bytes.</param>
+/// <returns>Returns with S_OK, or E_POINTER when no output pointer was given.</returns>
+// (0x00410180)
 // IPersistStream: Size_Of() plus the saved pointer.
 
 HRESULT __stdcall AbstractClass::GetSizeMax(ULARGE_INTEGER *size)
@@ -224,7 +319,14 @@ HRESULT __stdcall AbstractClass::GetSizeMax(ULARGE_INTEGER *size)
 }
 
 
-// void AbstractClass::Compute_CRC(WWCRCEngine &crc) const (0x004101B0)
+/// <summary>
+/// Folds this object's state into a running CRC.
+/// The multiplayer sync check walks every object each frame and accumulates its
+/// state; a CRC that differs between machines means the simulations have drifted
+/// apart. Derived classes add their own state on top of this.
+/// </summary>
+/// <param name="crc">The running CRC to fold this object's state into.</param>
+// (0x004101B0)
 // Adds the unique ID and the dirty flag to the CRC.
 
 void AbstractClass::Compute_CRC(WWCRCEngine &crc) const
@@ -234,7 +336,13 @@ void AbstractClass::Compute_CRC(WWCRCEngine &crc) const
 }
 
 
-// bool AbstractClass::Is_Inactive() const (0x004101E0)
+/// <summary>
+/// Determines if this object is inactive.
+/// The bare abstract object is never a participant in the game, so it always
+/// reports inactive. Objects that can be placed in the world override this.
+/// </summary>
+/// <returns>bool; Is the object inactive?</returns>
+// (0x004101E0)
 // Virtual slot 17: true.
 
 bool AbstractClass::Is_Inactive() const
@@ -243,7 +351,11 @@ bool AbstractClass::Is_Inactive() const
 }
 
 
-// HRESULT __stdcall AbstractClass::IsDirty() (0x004101F0)
+/// <summary>
+/// Determines if this object has changed since it was last saved.
+/// </summary>
+/// <returns>Returns with S_OK when the object is dirty, or S_FALSE when it is not.</returns>
+// (0x004101F0)
 // IPersistStream: S_OK when changed since the last clearing save, else S_FALSE.
 
 HRESULT __stdcall AbstractClass::IsDirty()
@@ -252,7 +364,11 @@ HRESULT __stdcall AbstractClass::IsDirty()
 }
 
 
-// void AbstractClass::Init() (0x00410210)
+/// <summary>
+/// Resets this object to its start of scenario state.
+/// The bare abstract object carries no scenario state, so there is nothing to do.
+/// </summary>
+// (0x00410210)
 // Virtual slot 9: nothing.
 
 void AbstractClass::Init()
@@ -260,7 +376,14 @@ void AbstractClass::Init()
 }
 
 
-// void AbstractClass::Detach(AbstractClass *target, bool all) (0x00410220)
+/// <summary>
+/// Severs any references this object holds to the target.
+/// This routine is called on every object when one of them is about to be
+/// destroyed, so that nothing is left pointing at the corpse.
+/// </summary>
+/// <param name="target">The object that is about to disappear.</param>
+/// <param name="all">Should every reference be severed, including cargo and radio links?</param>
+// (0x00410220)
 // Virtual slot 10: nothing to detach.
 
 void AbstractClass::Detach(AbstractClass *target, bool all)
@@ -268,7 +391,12 @@ void AbstractClass::Detach(AbstractClass *target, bool all)
 }
 
 
-// int AbstractClass::Owner() const (0x00410230)
+/// <summary>
+/// Fetches the house that owns this object.
+/// The bare abstract object belongs to nobody. Ownable objects override this.
+/// </summary>
+/// <returns>Returns with the owning house, or HOUSE_NONE when the object is unowned.</returns>
+// (0x00410230)
 // Virtual slot 14: no owning house (-1).
 
 int AbstractClass::Owner() const
@@ -286,7 +414,12 @@ HouseClass *AbstractClass::Owning_House() const
 }
 
 
-// int AbstractClass::Fetch_Heap_ID() const (0x00410250)
+/// <summary>
+/// Fetches this object's index within its heap.
+/// </summary>
+/// <returns>Returns with the heap index, or zero for an object that does not
+/// live in a heap.</returns>
+// (0x00410250)
 // Virtual slot 16: 0.
 
 int AbstractClass::Fetch_Heap_ID() const
@@ -295,7 +428,23 @@ int AbstractClass::Fetch_Heap_ID() const
 }
 
 
-// CoordStruct AbstractClass::Center_Coord() const (0x00410260)
+/***********************************************************************************************
+ * ObjectClass::Center_Coord -- Fetches the center coordinate for the object.                  *
+ *                                                                                             *
+ *    This routine will return the center coordinate for the object. The center coordinate is  *
+ *    typically the coordinate recorded in the object structure. Exceptions to this include    *
+ *    the trees and other terrain elements.                                                    *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  Returns the coordinate that is considered the center point of this object.         *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/21/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00410260)
 // Virtual slot 18: the zero coordinate (Abstract.cpp's copy of
 // unknown_geometry_l, 0x00839CA8).
 
@@ -314,7 +463,11 @@ CoordStruct AbstractClass::unknown_slot19(TechnoClass *techno) const
 }
 
 
-// bool AbstractClass::On_Ground() const (0x004102C0)
+/// <summary>
+/// Determines if this object is resting on the ground.
+/// </summary>
+/// <returns>bool; Is the object on the ground?</returns>
+// (0x004102C0)
 // Virtual slot 20: false.
 
 bool AbstractClass::On_Ground() const
@@ -323,7 +476,11 @@ bool AbstractClass::On_Ground() const
 }
 
 
-// bool AbstractClass::In_Air() const (0x004102D0)
+/// <summary>
+/// Determines if this object is airborne.
+/// </summary>
+/// <returns>bool; Is the object in the air?</returns>
+// (0x004102D0)
 // Virtual slot 21: false.
 
 bool AbstractClass::In_Air() const
@@ -341,7 +498,12 @@ CoordStruct AbstractClass::unknown_slot22() const
 }
 
 
-// void AbstractClass::AI() (0x00410310)
+/// <summary>
+/// Handles the per frame logic for this object.
+/// This routine is called once per game frame for every active object. The bare
+/// abstract object has no logic of its own.
+/// </summary>
+// (0x00410310)
 // Virtual slot 23: nothing per frame.
 
 void AbstractClass::AI()

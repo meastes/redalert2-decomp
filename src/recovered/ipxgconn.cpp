@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/ipxgconn.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // ipxgconn.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -65,7 +80,30 @@
 // by HeaderStatics_empty_rect_init_00523fc0.cpp; no source of its own.
 
 
-// IPXGlobalConnClass::IPXGlobalConnClass(int numsend, int numreceive, int maxlen, unsigned short product_id, unsigned short magicnum) (0x005241B0)
+/***************************************************************************
+ * IPXGlobalConnClass::IPXGlobalConnClass -- class constructor             *
+ *                                                                         *
+ * This routine chains to the parent constructor, but it adjusts the size  *
+ * of the packet by the added bytes in the GlobalHeaderType structure.     *
+ * This forces the parent classes to allocate the proper sized PacketBuf   *
+ * for outgoing packets, and to set MaxPacketLen to the proper value.      *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      numsend         desired # of entries for the send queue            *
+ *      numreceive      desired # of entries for the receive queue         *
+ *      maxlen         max length of an application packet                 *
+ *      product_id      unique ID for this product                         *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x005241B0)
 // An IPX connection with no address (two extra bytes per packet, 12 bytes
 // of extra data for the sender's address) and per-receive-entry address and
 // ID tables.
@@ -86,7 +124,12 @@ IPXGlobalConnClass::IPXGlobalConnClass(int numsend, int numreceive, int maxlen, 
 }
 
 
-// IPXGlobalConnClass::~IPXGlobalConnClass() (0x00524290)
+/// <summary>
+/// Destroys the global connection.
+/// The record of recently received packets, which the connection keeps in order to
+/// recognize resends, is thrown away along with it.
+/// </summary>
+// (0x00524290)
 
 IPXGlobalConnClass::~IPXGlobalConnClass()
 {
@@ -101,7 +144,30 @@ IPXGlobalConnClass::~IPXGlobalConnClass()
 }
 
 
-// int IPXGlobalConnClass::Send_Packet(void *buf, int buflen, IPXAddressClass *address, int ack_req, unsigned short id, unsigned long packet_id) (0x005242F0, slot 11)
+/***************************************************************************
+ * IPXGlobalConnClass::Send_Packet -- adds a packet to the send queue      *
+ *                                                                         *
+ * This routine prefixes the given buffer with a GlobalHeaderType and      *
+ * queues the resulting packet into the Send Queue.  The packet's          *
+ * MagicNumber, Code, PacketID, destination Address and ProductID are set  *
+ * here.                                                                   *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      buf         buffer to send                                         *
+ *      buflen      length of buffer                                       *
+ *      address      address to send the packet to (NULL = Broadcast)      *
+ *      ack_req      1 = ACK is required for this packet; 0 = isn't        *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      1 = OK, 0 = error                                                  *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x005242F0, slot 11)
 // Wraps the data in a global header (sequenced only with an ACK and an
 // address; numbered by the send total unless a number is given) and queues
 // it with the destination address as extra data.
@@ -132,7 +198,25 @@ int IPXGlobalConnClass::Send_Packet(void *buf, int buflen, IPXAddressClass *addr
 }
 
 
-// Receive global IPX/UDP packets, reject duplicates, and acknowledge reliable data (0x005243D0).
+/***************************************************************************
+ * IPXGlobalConnClass::Receive_Packet -- adds packet to the receive queue  *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      buf      buffer to process (already includes GlobalHeaderType)     *
+ *      buflen   length of buffer to process                               *
+ *      address   the address of the sender (the IPX Manager class must    *
+ *               extract this from the IPX Header of the received packet.) *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      1 = OK, 0 = error                                                  *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x005243D0)
 
 int IPXGlobalConnClass::Receive_Packet(void *buf, int buflen, IPXAddressClass *address, unsigned short port)
 {
@@ -202,7 +286,25 @@ int IPXGlobalConnClass::Receive_Packet(void *buf, int buflen, IPXAddressClass *a
 }
 
 
-// int IPXGlobalConnClass::Get_Packet(void *buf, int *buflen, IPXAddressClass *address, unsigned short *product_id) (0x00524670, slot 13)
+/***************************************************************************
+ * IPXGlobalConnClass::Get_Packet -- gets a packet from the receive queue  *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      buf         location to store buffer                               *
+ *      buflen      filled in with length of 'buf'                         *
+ *      address      filled in with sender's address                       *
+ *      product_id   filled in with sender's ProductID                     *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      1 = OK, 0 = error                                                  *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x00524670, slot 13)
 // Reads the first received packet if unread: its data, product ID and
 // sender address.
 
@@ -228,7 +330,10 @@ int IPXGlobalConnClass::Get_Packet(void *buf, int *buflen, IPXAddressClass *addr
 }
 
 
-// int IPXGlobalConnClass::Peek_Packet(int index, void *buf, int *buflen, IPXAddressClass *address, unsigned short *product_id, unsigned long *packet_id) (0x00524700, slot 14)
+/// <summary>
+/// RA2: Fetches the packet at the index of the receive queue without removing it.
+/// </summary>
+// (0x00524700, slot 14)
 // Reads the index'th received packet if unread, without marking it read.
 
 int IPXGlobalConnClass::Peek_Packet(int index, void *buf, int *buflen, IPXAddressClass *address, unsigned short *product_id, unsigned long *packet_id)
@@ -255,7 +360,10 @@ int IPXGlobalConnClass::Peek_Packet(int index, void *buf, int *buflen, IPXAddres
 }
 
 
-// void IPXGlobalConnClass::Mark_Packet_Read(int index) (0x00524790, slot 15)
+/// <summary>
+/// RA2: Marks the packet at the index of the receive queue as read.
+/// </summary>
+// (0x00524790, slot 15)
 // Marks the index'th received packet read.
 
 void IPXGlobalConnClass::Mark_Packet_Read(int index)
@@ -266,7 +374,29 @@ void IPXGlobalConnClass::Mark_Packet_Read(int index)
 }
 
 
-// int IPXGlobalConnClass::Send(char *buf, int buflen, void *extrabuf, int extralen, bool flagged, unsigned short id) (0x005247B0, slot 9)
+/***************************************************************************
+ * IPXGlobalConnClass::Send -- sends a packet                              *
+ *                                                                         *
+ * This routine gets invoked by NonSequencedConn, when it's processing     *
+ * the Send & Receive Queues.  The buffer provided will already have the   *
+ * GlobalHeaderType header embedded in it.                                 *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      buf         buffer to send                                         *
+ *      buflen      length of buffer                                       *
+ *      extrabuf      extra buffer to send                                 *
+ *      extralen      length of extra buffer                               *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      1 = OK, 0 = error                                                  *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x005247B0, slot 9)
 // Sends to the address carried as the packet's extra data: broadcast, to
 // the bridge node when it is on the bridged network, or directly.
 
@@ -283,7 +413,26 @@ int IPXGlobalConnClass::Send(char *buf, int buflen, void *extrabuf, int extralen
 }
 
 
-// int IPXGlobalConnClass::Service_Receive_Queue() (0x00524830, slot 8)
+/***************************************************************************
+ * IPXGlobalConnClass::Service_Receive_Queue -- services the receive queue *
+ *                                                                         *
+ * This routine is necessary because the regular ConnectionClass checks    *
+ * for sequential packet ID's before removing them from the receive queue; *
+ * this class cannot do that.                                              *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      none.                                                              *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      1 = OK, 0 = error                                                  *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x00524830, slot 8)
 // Drops every packet already read.
 
 int IPXGlobalConnClass::Service_Receive_Queue()
@@ -298,7 +447,10 @@ int IPXGlobalConnClass::Service_Receive_Queue()
 }
 
 
-// void IPXGlobalConnClass::Discard_Old_Packets(unsigned long age) (0x00524870, slot 17)
+/// <summary>
+/// RA2: Removes the received packets older than the age, in frames.
+/// </summary>
+// (0x00524870, slot 17)
 // Strips received global packets older than AGE ticks from the receive queue
 // and forgets their packet IDs in the duplicate ring (unknown_d0).
 
@@ -331,7 +483,26 @@ void IPXGlobalConnClass::Discard_Old_Packets(unsigned long age)
 }
 
 
-// void IPXGlobalConnClass::Set_Bridge(NetNumType bridge) (0x00524A10; Red Alert's Set_Bridge).
+/***************************************************************************
+ * Set_Bridge -- Sets up connection to cross a bridge                      *
+ *                                                                         *
+ * This routine is designed to prevent the connection from having to       *
+ * call Get_Local_Target, except the minimum number of times, since that   *
+ * routine is buggy & goes away for long periods sometimes.                *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      bridge      network number of the destination bridge               *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none                                                               *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none                                                               *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   07/06/1995 BRR : Created.                                             *
+ *=========================================================================*/
+// (0x00524A10; Red Alert's Set_Bridge)
 // Clears IsBridge once the IPX class is configured (the bridge network is unused under Winsock).
 
 void IPXGlobalConnClass::Set_Bridge(NetNumType bridge)
@@ -342,7 +513,14 @@ void IPXGlobalConnClass::Set_Bridge(NetNumType bridge)
 }
 
 
-// int IPXGlobalConnClass::Discard_Undeliverable_Packets() (0x00524A30, slot 6)
+/// <summary>
+/// Throws away the outgoing packets that will never be acknowledged.
+/// The IPX manager calls this routine when the global channel reports that it has gone
+/// bad, so that a single packet nobody ever answers cannot clog the channel forever.
+/// Only packets that have already given up on their acknowledgement are discarded.
+/// </summary>
+/// <returns>Returns with the number of packets thrown away.</returns>
+// (0x00524A30, slot 6)
 // Removes the sends that failed (retry or time limit) without an ACK and
 // returns how many.
 
@@ -365,7 +543,10 @@ int IPXGlobalConnClass::Discard_Undeliverable_Packets()
 }
 
 
-// int IPXGlobalConnClass::Discard_Packets_To(IPXAddressClass *address, unsigned short id) (0x00524AA0, slot 16)
+/// <summary>
+/// RA2: Removes the unacknowledged packets for the address and port from the send queue; returns how many.
+/// </summary>
+// (0x00524AA0, slot 16)
 // Removes the unacknowledged sends to an address (same node) with the given ID and
 // returns how many.
 
@@ -389,7 +570,10 @@ int IPXGlobalConnClass::Discard_Packets_To(IPXAddressClass *address, unsigned sh
 }
 
 
-// int IPXGlobalConnClass::Send_To(char *buf, int buflen, IPXAddressClass *address, unsigned char *immed, bool flagged, unsigned short id) (0x00524B50, slot 10)
+/// <summary>
+/// RA2: Sends a global packet; through the packet router in an internet game routed by it.
+/// </summary>
+// (0x00524B50, slot 10)
 // Sends a packet to an address (through a bridge network when given). In the
 // forwarding session (game mode 4) an untargeted header gets the target of the
 // node whose address matches (1 when none), and the packet goes to the

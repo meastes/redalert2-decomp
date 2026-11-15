@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/isotile.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // isotile.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -69,7 +80,17 @@
 #include "shared/anim.hpp"
 
 
-// bool IsometricTileClass::Mark(int mark) (0x00527A80)
+/// <summary>
+/// Marks this tile up or down on the map.
+/// This routine stamps the tile's terrain -- tile index, subtile, ramp and height -- into
+/// every cell it covers, or lifts that data back out again. Marking down also clears any
+/// smudge or overlay those cells were carrying and repairs the neighboring LAT edges.
+/// </summary>
+/// <param name="mark">The marking operation to perform.</param>
+/// <returns>bool; Was the tile marked?</returns>
+/// <remarks>Marking the tile down destroys it. The terrain now lives in the cells, so the
+/// tile must not be referred to again after such a call.</remarks>
+// (0x00527A80)
 // Takes the tile off the map (mark 0) or puts it on (marks 1 and 3): for
 // every cell of the type's grid that has an image tile, the cell's tile
 // index, sub-tile and height are reset or set, its smudge and overlay are
@@ -173,7 +194,13 @@ bool IsometricTileClass::Mark(int mark)
 }
 
 
-// IsometricTileClass::IsometricTileClass(int type, Cell const &cell) (0x00527ED0)
+/// <summary>
+/// Creates an isometric tile of the type specified.
+/// The tile is stamped onto the map straight away when a real cell is supplied, and is
+/// added to the global isometric tile list either way.
+/// </summary>
+/// <param name="cell">The cell to place the tile at, or CELL_NONE to leave it in limbo.</param>
+// (0x00527ED0)
 // A tile of the given type; unless the cell is the "no cell" value it is
 // placed at the middle of the cell by slot 53 (qualified, expanded inline).
 
@@ -188,7 +215,12 @@ IsometricTileClass::IsometricTileClass(int type, Cell const &cell) :
 }
 
 
-// IsometricTileClass::~IsometricTileClass() (0x00527FD0)
+/// <summary>
+/// Destroys this isometric tile.
+/// The tile is detached from everything that refers to it, lifted back off the map, and
+/// dropped from the isometric tile list.
+/// </summary>
+// (0x00527FD0)
 // Leaves the map (slot 52), then the tile list and the object list.
 
 IsometricTileClass::~IsometricTileClass()
@@ -201,7 +233,13 @@ IsometricTileClass::~IsometricTileClass()
 }
 
 
-// HRESULT __stdcall IsometricTileClass::Load(IStream *stream) (0x005280E0)
+/// <summary>
+/// Loads this tile from the stream specified.
+/// The tile is rebuilt in place and its type pointer is put back through the swizzle
+/// manager so that it refers to the tile type as loaded by this session.
+/// </summary>
+/// <returns>Returns with S_OK if the tile was read, otherwise the failure code.</returns>
+// (0x005280E0)
 
 HRESULT __stdcall IsometricTileClass::Load(IStream *stream)
 {
@@ -214,7 +252,13 @@ HRESULT __stdcall IsometricTileClass::Load(IStream *stream)
 }
 
 
-// HRESULT __stdcall IsometricTileClass::Save(IStream *stream, BOOL clear_dirty) (0x00528140)
+/// <summary>
+/// Saves this tile to the stream specified.
+/// This routine is part of the persistence contract used by the game's save system.
+/// </summary>
+/// <param name="cleardirty">Should the dirty flag be cleared once the tile is written?</param>
+/// <returns>Returns with S_OK if the tile was written, otherwise the failure code.</returns>
+// (0x00528140)
 
 HRESULT __stdcall IsometricTileClass::Save(IStream *stream, BOOL clear_dirty)
 {
@@ -226,7 +270,13 @@ HRESULT __stdcall IsometricTileClass::Save(IStream *stream, BOOL clear_dirty)
 }
 
 
-// bool IsometricTileClass::Unlimbo(CoordStruct const *coord, int dir) (0x00528160)
+/// <summary>
+/// Places this tile onto the map at the coordinate specified.
+/// This routine will stamp the tile's terrain data down into every cell it covers.
+/// </summary>
+/// <returns>bool; Was the tile placed onto the map?</returns>
+/// <remarks>Placing the tile down destroys it. Do not refer to the tile after this call.</remarks>
+// (0x00528160)
 // Places the tile at the coordinate and marks it mapped (slot 71).
 
 bool IsometricTileClass::Unlimbo(CoordStruct const *coord, int dir)
@@ -237,7 +287,13 @@ bool IsometricTileClass::Unlimbo(CoordStruct const *coord, int dir)
 }
 
 
-// bool IsometricTileClass::Limbo() (0x00528190)
+/// <summary>
+/// Removes this tile from the map.
+/// This routine will unselect the tile, break every attachment to it, and lift its
+/// terrain data back out of the cells it was covering.
+/// </summary>
+/// <returns>bool; Was the tile removed from the map?</returns>
+// (0x00528190)
 // Takes the tile off the map (only while the 0x00A40958 flag is set).
 
 bool IsometricTileClass::Limbo()

@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/grphmsct.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // grphmsct.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -40,7 +51,14 @@ GraphicMenuItem *__fastcall Create_Shortcut_Item(Wstring const &section, INIClas
 }
 
 
-// GraphicMenuShortcutItem::GraphicMenuShortcutItem(int id, Wstring const &keys) (0x004E0310)
+/// <summary>
+/// Creates a shortcut item for a graphic menu.
+/// The key list is split apart and each description is converted into a key code
+/// that the item will answer to. Descriptions that cannot be recognized are quietly
+/// discarded.
+/// </summary>
+/// <param name="keys">The shortcut key descriptions, separated by commas.</param>
+// (0x004E0310)
 // Splits the comma (or comma/semicolon) separated key names and keeps the key code of
 // every name Parse_Shortcut_Key knows.
 int __fastcall Parse_Shortcut_Key(Wstring const &text);
@@ -125,7 +143,12 @@ int __fastcall Parse_Shortcut_Key(Wstring const &text)
 }
 
 
-// GraphicMenuShortcutItem::~GraphicMenuShortcutItem() -- 0x004E0560
+/// <summary>
+/// Destroys the graphic menu shortcut item.
+/// The shortcut list cleans up after itself, so there is nothing left for this
+/// routine to do.
+/// </summary>
+// (0x004E0560)
 // Destroys the shortcut list (VectorClass<unsigned int>, expanded inline),
 // then the base part.
 
@@ -134,7 +157,13 @@ GraphicMenuShortcutItem::~GraphicMenuShortcutItem()
 }
 
 
-// bool GraphicMenuShortcutItem::Is_Input_Key(int key) (0x004E05B0)
+/// <summary>
+/// Determines if a key press triggers this menu item.
+/// This routine is called by the graphic menu when it is looking for the item that
+/// should respond to a key press. A disabled item never claims a key.
+/// </summary>
+/// <returns>bool; Is this key one of the item's shortcuts?</returns>
+// (0x004E05B0)
 // True when the item is visible and one of its shortcut keys is `key`.
 // The cursor is used through a pointer, so its virtual slots stay calls.
 typedef VectorCursor<unsigned int, DynamicVectorClass<unsigned int> > KeyCursor;

@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/layer.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // layer.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -61,7 +76,24 @@
 // by HeaderStatics_diagonal_init_005346b0.cpp; no source of its own.
 
 
-// bool LayerClass::Submit(ObjectClass *object, bool sort) (0x005348A0, slot 7)
+/***********************************************************************************************
+ * LayerClass::Submit -- Adds an object to a layer list.                                       *
+ *                                                                                             *
+ *    This routine is used to add an object to the layer list. If the list is full, then the   *
+ *    object is not added.                                                                     *
+ *                                                                                             *
+ * INPUT:   object   -- Pointer to the object to add.                                          *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the object added successfully?                                           *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/31/1994 JLB : Created.                                                                 *
+ *   05/31/1994 JLB : Allows sorted insert.                                                    *
+ *   01/02/1995 JLB : Fixed to work with EMSListOf template.                                   *
+ *=============================================================================================*/
+// (0x005348A0, slot 7)
 #ifndef VECTOR_IMPLEMENT_ALL
 #define VECTOR_IMPLEMENT_ALL
 #endif
@@ -78,7 +110,24 @@ bool LayerClass::Submit(ObjectClass *object, bool sort)
 }
 
 
-// void LayerClass::Sort() (0x00534920)
+/***********************************************************************************************
+ * LayerClass::Sort -- Handles sorting the objects in the layer.                               *
+ *                                                                                             *
+ *    This routine is used if the layer objects must be sorted and sorting is to occur now.    *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   Don't call this routine too often since it does take a bit of time to           *
+ *             execute. It is a single pass binary sort and thus isn't horribly slow,          *
+ *             but it does take some time.                                                     *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   10/17/1994 JLB : Created.                                                                 *
+ *   03/10/1995 JLB : Uses comparison operator.                                                *
+ *=============================================================================================*/
+// (0x00534920)
 // One pass of a bubble sort by ObjectClass slot 45 (Westwood's LAYER.CPP).
 
 void LayerClass::Sort()
@@ -95,7 +144,22 @@ void LayerClass::Sort()
 }
 
 
-// int LayerClass::Sorted_Add(ObjectClass *object) (0x00534980)
+/***********************************************************************************************
+ * DynamicVectorClass<T>::Sorted_Add -- Adds object in sorted order to vector.                 *
+ *                                                                                             *
+ *    Use this routine to add an object to the vector but it will be inserted in sorted        *
+ *    order. This depends on the ">" operator being defined for the vector object.             *
+ *                                                                                             *
+ * INPUT:   object   -- Reference to the object that will be added to the vector.              *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the object added to the vector successfully?                             *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   03/10/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00534980)
 // Inserts the object before the first larger one (Westwood's LAYER.CPP).
 
 int LayerClass::Sorted_Add(ObjectClass *object)
@@ -124,7 +188,15 @@ int LayerClass::Sorted_Add(ObjectClass *object)
 }
 
 
-// HRESULT LayerClass::Save(IStream *stream) (0x00534A10)
+/// <summary>
+/// Saves the layer to the data stream.
+/// This routine is called as part of the persistent save process. The objects themselves
+/// are written by their own owners -- only the layer's object pointers are recorded here,
+/// to be swizzled back into real addresses when the game is loaded.
+/// </summary>
+/// <returns>Returns with S_OK if the layer was written. Otherwise, the failure code from
+/// the stream is returned.</returns>
+// (0x00534A10)
 // The object count, then each object pointer.
 
 HRESULT LayerClass::Save(IStream *stream)
@@ -147,7 +219,16 @@ HRESULT LayerClass::Save(IStream *stream)
 }
 
 
-// HRESULT LayerClass::Load(IStream *stream) (0x00534A80)
+/// <summary>
+/// Loads the layer from the data stream.
+/// This routine is the counterpart to Save and is called while the save game is being
+/// reconstructed. The object pointers are read back exactly as they were written and then
+/// handed to the pointer swizzler, so they do not become usable until the remap pass has
+/// run.
+/// </summary>
+/// <returns>Returns with S_OK if the layer was read. Otherwise, the failure code from the
+/// stream is returned.</returns>
+// (0x00534A80)
 // Reads the object pointers back and registers each for swizzling.
 
 HRESULT LayerClass::Load(IStream *stream)

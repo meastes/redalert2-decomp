@@ -1,3 +1,15 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/light.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // light.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -104,7 +116,14 @@ DynamicVectorClass<LightSourceClass::PendingCellClass *> LightSourceClass::Pendi
 // atexit destructor (0x005371E0, _$E52) emitted by HeaderStatics_diagonal_init_00536f30.cpp; no source of its own.
 
 
-// LightSourceClass::LightSourceClass (0x00537240): create and register an
+/// <summary>
+/// Creates a light source at the location specified.
+/// The light is listed with the other light sources but starts out switched off; call
+/// Enable on it once it is ready to contribute to the scene.
+/// </summary>
+/// <param name="visibility">The distance, in leptons, that the light reaches.</param>
+/// <param name="intensity">The strength of the light at its center.</param>
+// (0x00537240)
 // initially inactive light with the supplied position, radius and tint.
 
 LightSourceClass::LightSourceClass(CoordStruct coord, int visibility, int intensity, int red, int green, int blue) :
@@ -114,7 +133,12 @@ LightSourceClass::LightSourceClass(CoordStruct coord, int visibility, int intens
 }
 
 
-// LightSourceClass::LightSourceClass() (0x00537310): an unlit light at the
+/// <summary>
+/// Creates a blank light source.
+/// The light has no position, no tint and is switched off, but it is already listed
+/// with the other light sources so that it will be processed along with them.
+/// </summary>
+// (0x00537310)
 // zero coordinate; added to the light list.
 
 LightSourceClass::LightSourceClass() :
@@ -128,7 +152,12 @@ LightSourceClass::LightSourceClass() :
 }
 
 
-// LightSourceClass::LightSourceClass(NoInitClass const &noinit) (0x005373C0): installs the vtables only
+/// <summary>
+/// Load constructor for a light source.
+/// This constructor deliberately leaves the members alone. It is used when the object
+/// is being rebuilt over bytes that a save file has already supplied.
+/// </summary>
+// (0x005373C0)
 // (the load path restores the object in place; Load 0x00537BA0 expands it).
 
 LightSourceClass::LightSourceClass(NoInitClass const &noinit) :
@@ -137,7 +166,12 @@ LightSourceClass::LightSourceClass(NoInitClass const &noinit) :
 }
 
 
-// LightSourceClass::~LightSourceClass() (0x005373F0): detaches the light from
+/// <summary>
+/// Removes this light source from the game.
+/// The light is switched off so that the cells it was tinting revert to normal, it
+/// leaves the global light list, and anything still pointing at it is notified.
+/// </summary>
+// (0x005373F0)
 // everything, leaves the light list and, when active, turns it off.
 #include "shared/radsite.hpp"
 
@@ -330,7 +364,13 @@ void __fastcall LightSourceClass::Unknown_00537830(int time, bool force)
 }
 
 
-// void LightSourceClass::Compute_CRC(WWCRCEngine &crc) const (0x00537B50, slot 13): only the AbstractClass part.
+/// <summary>
+/// Submits this light source to the game state checksum.
+/// This routine is used by the network sync check so that every machine can prove it
+/// agrees about the lighting in the scene.
+/// </summary>
+/// <param name="crc">The checksum engine to feed this object's state into.</param>
+// (0x00537B50, slot 13)
 
 void LightSourceClass::Compute_CRC(WWCRCEngine &crc) const
 {
@@ -338,7 +378,12 @@ void LightSourceClass::Compute_CRC(WWCRCEngine &crc) const
 }
 
 
-// HRESULT LightSourceClass::GetClassID(GUID *clsid) (0x00537B60, slot 3)
+/// <summary>
+/// Fetches the class identifier this object is persisted under.
+/// </summary>
+/// <param name="retval">Destination for the class identifier.</param>
+/// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
+// (0x00537B60, slot 3)
 
 HRESULT __stdcall LightSourceClass::GetClassID(GUID *clsid)
 {
@@ -350,7 +395,13 @@ HRESULT __stdcall LightSourceClass::GetClassID(GUID *clsid)
 }
 
 
-// HRESULT __stdcall LightSourceClass::Load(IStream *stream) (0x00537BA0):
+/// <summary>
+/// Loads this light source from the stream specified.
+/// The object is re-created in place over the bytes that were read back, so that its
+/// virtual table pointer refers to this session rather than the saved one.
+/// </summary>
+/// <returns>Returns with S_OK if the object was read successfully.</returns>
+// (0x00537BA0)
 // restores the light in place.
 
 HRESULT __stdcall LightSourceClass::Load(IStream *stream)

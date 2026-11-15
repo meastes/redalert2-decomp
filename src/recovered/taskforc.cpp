@@ -1,3 +1,19 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/taskforc.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // taskforc.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -64,7 +80,13 @@
 // by HeaderStatics_diagonal_init_006b6660.cpp; no source of its own.
 
 
-// TaskForceClass::TaskForceClass(char const *ini_name) (0x006B6850)
+/// <summary>
+/// Creates a task force with the specified name.
+/// The new force joins the global task force list and starts out empty, waiting for its
+/// member list to arrive from the INI database.
+/// </summary>
+/// <param name="name">The INI name to give the new task force.</param>
+// (0x006B6850)
 // An empty task force named ini_name, registered in TaskForces.
 
 TaskForceClass::TaskForceClass(char const *ini_name) :
@@ -80,7 +102,12 @@ TaskForceClass::TaskForceClass(char const *ini_name) :
 }
 
 
-// TaskForceClass::TaskForceClass(NoInitClass const &noinit) (0x006B6920)
+/// <summary>
+/// Creates a task force without initializing it.
+/// This constructor is used by the load process, which fills the object in from the save
+/// game stream rather than building it up from scratch.
+/// </summary>
+// (0x006B6920)
 // Load path: installs the vtables only.
 
 TaskForceClass::TaskForceClass(NoInitClass const &noinit) :
@@ -89,7 +116,12 @@ TaskForceClass::TaskForceClass(NoInitClass const &noinit) :
 }
 
 
-// TaskForceClass::~TaskForceClass() (0x006B6950)
+/// <summary>
+/// Destroys the task force.
+/// Anything still pointing at this force is detached from it before the force drops out
+/// of the global list.
+/// </summary>
+// (0x006B6950)
 // Releases references to the task force and removes it from TaskForces.
 
 TaskForceClass::~TaskForceClass()
@@ -99,7 +131,10 @@ TaskForceClass::~TaskForceClass()
 }
 
 
-// TaskForceClass::TaskForceClass(TaskForceClass const &that) (0x006B69D0)
+/// <summary>
+/// Creates a copy of the specified task force.
+/// </summary>
+// (0x006B69D0)
 // Copies the base type, the group, flag and the entries in use.
 
 TaskForceClass::TaskForceClass(TaskForceClass const &that) :
@@ -227,7 +262,13 @@ void __fastcall TaskForceClass::Write_Scenario_INI(CCINIClass &ini, int is_globa
 }
 
 
-// bool TaskForceClass::Read_INI(CCINIClass &ini) (0x006B6DF0)
+/// <summary>
+/// Reads this task force from the INI database.
+/// The member list is rebuilt from the numbered entries in the force's own section. A
+/// member that names an object type the game does not recognize is quietly dropped.
+/// </summary>
+/// <returns>bool; Was the task force read in?</returns>
+// (0x006B6DF0)
 // Reads the entries "0=" .. "5=" (count,type; entries without a known type
 // are dropped) and "Group=".
 
@@ -254,7 +295,13 @@ bool TaskForceClass::Read_INI(CCINIClass &ini)
 }
 
 
-// bool TaskForceClass::Write_INI(CCINIClass &ini) const (0x006B6ED0)
+/// <summary>
+/// Writes this task force out to the INI database.
+/// Every member slot is dealt with, and the slots this force does not use are cleared,
+/// so that no leftover member from an earlier version of the force survives.
+/// </summary>
+/// <returns>bool; Was the task force written out?</returns>
+// (0x006B6ED0)
 // Writes the entries in use, clears the unused ones, and "Group=".
 
 bool TaskForceClass::Write_INI(CCINIClass &ini) const
@@ -291,7 +338,13 @@ bool TaskForceClass::unknown_all_kind16_6b6f70() const
 }
 
 
-// TaskForceClass *TaskForceClass::Find_Or_Make(char const *name) (0x006B6FB0)
+/// <summary>
+/// Fetches the task force of the specified name, creating it if need be.
+/// This routine is used while reading a scenario, so that a task force can be referred
+/// to before its own section has been reached.
+/// </summary>
+/// <returns>Returns with a pointer to the task force found or created.</returns>
+// (0x006B6FB0)
 // The task force with this ID, created when missing; null for "<none>" and
 // "none".
 
@@ -309,7 +362,11 @@ TaskForceClass *__fastcall TaskForceClass::Find_Or_Make(char const *name)
 }
 
 
-// HRESULT __stdcall TaskForceClass::Save(IStream *stream, BOOL clear_dirty) (0x006B7040)
+/// <summary>
+/// Saves this task force to the save game stream.
+/// </summary>
+/// <returns>Returns with the result code of the save operation.</returns>
+// (0x006B7040)
 
 HRESULT __stdcall TaskForceClass::Save(IStream *stream, BOOL clear_dirty)
 {
@@ -321,7 +378,14 @@ HRESULT __stdcall TaskForceClass::Save(IStream *stream, BOOL clear_dirty)
 }
 
 
-// HRESULT __stdcall TaskForceClass::Load(IStream *stream) (0x006B7060)
+/// <summary>
+/// Loads this task force from the save game stream.
+/// The member object types are remembered as raw identifiers in the save file, so they
+/// are handed to the swizzler to be turned back into pointers once the rest of the file
+/// has been read in.
+/// </summary>
+/// <returns>Returns with the result code of the load operation.</returns>
+// (0x006B7060)
 // Restores the task force in place and swizzles the entry types.
 
 HRESULT __stdcall TaskForceClass::Load(IStream *stream)
@@ -338,7 +402,13 @@ HRESULT __stdcall TaskForceClass::Load(IStream *stream)
 }
 
 
-// HRESULT __stdcall TaskForceClass::GetClassID(GUID *clsid) (0x006B70D0)
+/// <summary>
+/// Fetches the class identifier of this object.
+/// This routine is used by the save game code so that an object of the right kind can
+/// be created when the game is loaded back in.
+/// </summary>
+/// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
+// (0x006B70D0)
 
 HRESULT __stdcall TaskForceClass::GetClassID(GUID *clsid)
 {
@@ -350,7 +420,11 @@ HRESULT __stdcall TaskForceClass::GetClassID(GUID *clsid)
 }
 
 
-// void TaskForceClass::Compute_CRC(WWCRCEngine &crc) const (0x006B7110)
+/// <summary>
+/// Adds the state of this task force to the running game checksum.
+/// This routine is used by the multiplayer sync checking code.
+/// </summary>
+// (0x006B7110)
 
 void TaskForceClass::Compute_CRC(WWCRCEngine &crc) const
 {

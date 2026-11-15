@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/sha.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // sha.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -10,7 +25,29 @@
 #define Reverse_LONG(a) ((((a) >> 24) & 0x000000FFL) | (((a) >> 8) & 0x0000FF00L) | (((a) << 8) & 0x00FF0000L) | (((a) << 24) & 0xFF000000L))
 
 
-// SHAEngine::Process_Partial(void const *&data, long &length) (0x00674BF0)
+/***********************************************************************************************
+ * SHAEngine::Process_Partial -- Helper routine to process any partially accumulated data bloc *
+ *                                                                                             *
+ *    This routine will see if there is a partial block already accumulated in the holding     *
+ *    buffer. If so, then the data is fetched from the source such that a full buffer is       *
+ *    accumulated and then processed. If there is insufficient data to fill the buffer, then   *
+ *    it accumulates what data it can and then returns so that this routine can be called      *
+ *    again later.                                                                             *
+ *                                                                                             *
+ * INPUT:   data  -- Reference to a pointer to the data. This pointer will be modified if      *
+ *                   this routine consumes any of the data in the buffer.                      *
+ *                                                                                             *
+ *          length-- Reference to the length of the data available. If this routine consumes   *
+ *                   any of the data, then this length value will be modified.                 *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/03/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00674BF0)
 // Stages source bytes in Partial when a block is already partly staged or
 // fewer than a block's bytes remain, advancing data and length; hashes
 // Partial once it holds a whole block.
@@ -39,7 +76,25 @@ void SHAEngine::Process_Partial(void const *&data, long &length)
 }
 
 
-// SHAEngine::Hash(void const *data, long length) (0x00674C90)
+/***********************************************************************************************
+ * SHAEngine::Hash -- Process an arbitrarily long data block.                                  *
+ *                                                                                             *
+ *    This is the main access routine to the SHA engine. It will take the arbitrarily long     *
+ *    data block and process it. The hash value is accumulated with any previous calls to      *
+ *    this routine.                                                                            *
+ *                                                                                             *
+ * INPUT:   data     -- Pointer to the data block to process.                                  *
+ *                                                                                             *
+ *          length   -- The number of bytes to process.                                        *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/03/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00674C90)
 // Adds data to the digest: completes a staged block, hashes whole blocks
 // straight from the source and stages the remainder.
 
@@ -66,7 +121,22 @@ void SHAEngine::Hash(void const *data, long length)
 }
 
 
-// SHAEngine::Result(void *result) const (0x00674D10)
+/***********************************************************************************************
+ * SHAEngine::Result -- Fetch the current digest.                                              *
+ *                                                                                             *
+ *    This routine will return the digest as it currently stands.                              *
+ *                                                                                             *
+ * INPUT:   pointer  -- Pointer to the buffer that will hold the digest -- 20 bytes.           *
+ *                                                                                             *
+ * OUTPUT:  Returns with the number of bytes copied into the buffer. This will always be       *
+ *          20.                                                                                *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/03/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00674D10)
 // Pads a copy of the staged data with the end bit and the bit length,
 // hashes it into a copy of the accumulator and returns the big-endian
 // digest (20 bytes). A cached digest is copied out first but always
@@ -114,7 +184,25 @@ int SHAEngine::Result(void *result) const
 }
 
 
-// SHAEngine::Process_Block(void const *source, SHADigest &acc) const (0x00674E60)
+/***********************************************************************************************
+ * SHAEngine::Process_Block -- Process a full data block into the hash accumulator.            *
+ *                                                                                             *
+ *    This helper routine is called when a full block of data is available for processing      *
+ *    into the hash.                                                                           *
+ *                                                                                             *
+ * INPUT:   source   -- Pointer to the block of data to process.                               *
+ *                                                                                             *
+ *          acc      -- Reference to the hash accumulator that this hash step will be          *
+ *                      accumulated into.                                                      *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/03/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00674E60)
 // One SHA-1 compression: expands the big-endian 16-word block to 80 words
 // and runs the 80 steps, adding the result into acc.
 

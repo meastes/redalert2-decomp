@@ -1,3 +1,15 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/vein.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // vein.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -71,7 +83,12 @@ DynamicVectorClass<VeinholeMonsterClass *> VeinholeMonsterClass::VeinholeMonster
 // atexit destructor (0x0070F7C0, _$E42) emitted by HeaderStatics_empty_rect_init_0070f590.cpp; no source of its own.
 
 
-// VeinholeMonsterClass::VeinholeMonsterClass(NoInitClass const &) (0x0070F820)
+/// <summary>
+/// Creates a veinhole monster in preparation for loading a saved game.
+/// The monster's own state arrives from the save game stream, but the growth records
+/// are allocated fresh here since the pointers that were saved are meaningless now.
+/// </summary>
+// (0x0070F820)
 // The constructor Load rebuilds objects with: registers in VeinholeMonsters and builds the
 // vein node block, the heap and the per-cell table. Body 389 bytes (the
 // inventory stops at 172 inside the first operator new call).
@@ -90,7 +107,14 @@ VeinholeMonsterClass::VeinholeMonsterClass(NoInitClass const &noinit) : ObjectCl
 }
 
 
-// VeinholeMonsterClass::VeinholeMonsterClass(Cell const *cell) (0x0070F9B0)
+/// <summary>
+/// Creates a veinhole monster at the cell specified.
+/// The ground around the monster is sunk into a pit and ramped down to meet the terrain
+/// beyond, and the records it needs to tend its own veins are allocated. A monster that
+/// cannot be accommodated at the location is left in limbo and never joins the game.
+/// </summary>
+/// <param name="cell">The cell to place the center of the monster at.</param>
+// (0x0070F9B0)
 // A veinhole monster at the cell. Only where one may spawn (Can_Monster_Go_Here)
 // does it join VeinholeMonsters, sink and retile its 3x3 cells (unless 0x00A40774 is
 // set), start its stage timer, build the node block, heap and tables, move
@@ -166,6 +190,11 @@ extern Rect unknown_rect_839630;
 inline RectPoint2D Rect::Top_Left() const { return RectPoint2D(X, Y); }
 inline Rect Rect::operator-(RectPoint2D const &point) const { return Rect(Top_Left() - point, Width, Height); }
 
+/// <summary>
+/// Destroys this veinhole monster and scrubs its veins off the map.
+/// The cells around the veinhole are stripped of their vein overlay and flagged for
+/// redraw, and the monster is detached from everything that was tracking it.
+/// </summary>
 VeinholeMonsterClass::~VeinholeMonsterClass()
 {
     for (int x = -2; x <= 2; x++) {
@@ -195,7 +224,11 @@ VeinholeMonsterClass::~VeinholeMonsterClass()
 }
 
 
-// VeinholeMonsterClass *VeinholeMonsterClass::Get_Monster_At(Cell const &cell) (0x00710160)
+/// <summary>
+/// Finds the veinhole monster that sits at the cell specified.
+/// </summary>
+/// <returns>Returns with a pointer to the monster found, or NULL if there is none there.</returns>
+// (0x00710160)
 // The last monster in VeinholeMonsters whose cell is cell, or null.
 #include "shared/house.hpp"
 
@@ -210,7 +243,12 @@ VeinholeMonsterClass *__fastcall VeinholeMonsterClass::Get_Monster_At(::Cell con
 }
 
 
-// VeinholeMonsterClass *VeinholeMonsterClass::Get_Vein_Owner_At(Cell const &cell) (0x007101B0)
+/// <summary>
+/// Finds the veinhole monster that owns the veins at the cell specified.
+/// </summary>
+/// <returns>Returns with a pointer to the monster that grew the veins there, or NULL if
+/// no monster lays claim to that cell.</returns>
+// (0x007101B0)
 // The last monster in VeinholeMonsters whose per-cell table (+0xB0) has a byte set at the cell, or null.
 
 VeinholeMonsterClass *__fastcall VeinholeMonsterClass::Get_Vein_Owner_At(::Cell const &cell)
@@ -224,7 +262,12 @@ VeinholeMonsterClass *__fastcall VeinholeMonsterClass::Get_Vein_Owner_At(::Cell 
 }
 
 
-// void VeinholeMonsterClass::Update_All() (0x007101F0)
+/// <summary>
+/// Handles the per frame logic for every veinhole monster.
+/// This routine is called by the main game logic loop. Monsters that have finished
+/// dying are disposed of afterward.
+/// </summary>
+// (0x007101F0)
 // Runs every monster's AI, last first, then deletes the dead ones.
 
 void __cdecl VeinholeMonsterClass::Update_All()
@@ -251,6 +294,13 @@ inline double Vein_Random_Double(double low,double high)
     int sample=unknown_id_source_a3d290->Random()(0,0x7ffffffe);
     return (high-low)*((double)sample*vein_random_unit_79c280)+low;
 }
+/// <summary>
+/// Handles the per frame logic for this veinhole monster.
+/// The monster dozes until something wanders close by, then rouses itself and starts
+/// belching gas clouds at the intruder until it is left alone again. This routine also
+/// drives the growth and the withering of the monster's patch of veins.
+/// </summary>
+/// <remarks>Only call this routine once per veinhole monster per game logic loop.</remarks>
 void VeinholeMonsterClass::AI()
 {
     // Same evidenced 0x18 layout, using the shared StageClass operation hierarchy.
@@ -331,7 +381,10 @@ void VeinholeMonsterClass::AI()
 }
 
 
-// void VeinholeMonsterClass::Draw_All() (0x00710820)
+/// <summary>
+/// Draws every veinhole monster on the map.
+/// </summary>
+// (0x00710820)
 // Calls Draw_It on every monster, last first.
 
 void __cdecl VeinholeMonsterClass::Draw_All()
@@ -342,7 +395,13 @@ void __cdecl VeinholeMonsterClass::Draw_All()
 }
 
 
-// void VeinholeMonsterClass::Init(int theater) (0x00710840)
+/// <summary>
+/// Fetches the veinhole monster artwork for the theater specified.
+/// This routine is called whenever the theater changes so that the monster is drawn
+/// with artwork that suits the terrain around it.
+/// </summary>
+/// <param name="theater">The theater to load the monster shape for.</param>
+// (0x00710840)
 // Loads VEINHOLE.<theater suffix> into the shape pointer.
 #include "shared/anim_type.hpp"
 #include "shared/mix_file_class.hpp"
@@ -361,7 +420,13 @@ void __fastcall VeinholeMonsterClass::Init(int theater)
 // Copyright 2025 Electronic Arts Inc.
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 // void VeinholeMonsterClass::Draw_It() (0x00710880)
-// from ra2-decomp 0x0074D490 (VeinholeMonsterClass::Draw_It, src/vein.cpp)
+/// <summary>
+/// Draws this veinhole monster onto the tactical map.
+/// The monster is drawn with whichever mouth frame its logic has settled on, and it
+/// registers itself as a selectable object so that the player can click on it. A
+/// monster hidden under fog keeps its mouth shut.
+/// </summary>
+// (0x0074D490)
 // Draws an unplaced monster: its shape frame (0 while the cell has flag
 // 0x400000) at the cell centre, raised by the cell level, in the player's
 // colours, and records the screen position with the tactical view.
@@ -391,7 +456,16 @@ void VeinholeMonsterClass::Draw_It()
 }
 
 
-// int VeinholeMonsterClass::Take_Damage(...) (0x007109C0, slot 86: take damage)
+/// <summary>
+/// Applies damage to this veinhole monster.
+/// A monster that survives being hurt rouses itself and starts belching gas at whatever
+/// disturbed it. One that does not begins its death throes and is detached from
+/// everything that was tracking it.
+/// </summary>
+/// <param name="damage">The damage to inflict; adjusted to the amount actually taken.</param>
+/// <param name="forced">Should the damage be applied regardless of the usual immunities?</param>
+/// <returns>Returns with the result of the damage, such as RESULT_DESTROYED.</returns>
+// (0x007109C0, slot 86: take damage)
 // ObjectClass's result decides the state (+0xB8): 4 -> 3 and the object is
 // ended through 0x006ECB90, 5 -> unchanged, otherwise 2 and a 120 frame timer.
 
@@ -416,7 +490,15 @@ int VeinholeMonsterClass::Take_Damage(int *damage, int distance, WarheadTypeClas
 }
 
 
-// bool VeinholeMonsterClass::Can_Monster_Go_Here(Cell const &cell) (0x00710A60)
+/// <summary>
+/// Can a veinhole monster be placed at the cell specified?
+/// A monster demands a flat patch of clear ground to itself and must keep its distance
+/// from any other veinhole. The check is waived while the scenario is still being set
+/// up, since the map author is trusted to have placed them sensibly.
+/// </summary>
+/// <param name="cell">The cell to consider as the center of the monster.</param>
+/// <returns>bool; Can the monster go here?</returns>
+// (0x00710A60)
 // True while the global at 0x00A40774 is positive; otherwise only when no
 // monster is within 2 cells and the 3x3 block around the cell has no blocked
 // cell, no occupier list and the same level as the cell (+0x11B).
@@ -451,7 +533,12 @@ bool __fastcall VeinholeMonsterClass::Can_Monster_Go_Here(::Cell const &cell)
 }
 
 
-// void VeinholeMonsterClass::Reset() (0x00710B50)
+/// <summary>
+/// Destroys every veinhole monster in the game.
+/// This routine is used when the scenario is being torn down, or when a saved game is
+/// about to be loaded over the top of it.
+/// </summary>
+// (0x00710B50)
 // Deletes every monster and empties VeinholeMonsters.
 
 void __cdecl VeinholeMonsterClass::Reset()
@@ -463,7 +550,13 @@ void __cdecl VeinholeMonsterClass::Reset()
 }
 
 
-// void VeinholeMonsterClass::Grow() (0x00710BB0)
+/// <summary>
+/// Spreads this monster's vein patch by a few cells.
+/// This routine is called by the monster's own logic whenever its growth timer expires.
+/// Growth stops once the monster has reached the vein limit imposed by the rules, or if
+/// vein growth has been switched off for the scenario.
+/// </summary>
+// (0x00710BB0)
 // Grows the vein network while the monster has room for nodes and the
 // scenario allows it (+0x222B): takes one to five nodes off the heap; each
 // node's cell is grown (0x0047AD00) and claimed, and its four straight
@@ -534,7 +627,11 @@ void VeinholeMonsterClass::Grow()
 }
 
 
-// void VeinholeMonsterClass::Shrink() (0x00710FF0)
+/// <summary>
+/// Withers a few cells of this dying monster's vein patch.
+/// This routine is called by the monster's own logic whenever its shrink timer expires.
+/// </summary>
+// (0x00710FF0)
 // Spreads the veins: takes one to four nodes (random) with the lowest keys
 // off the heap and grows the vein at each node's cell (0x00712300).
 // Body: 646 bytes (ret at 0x00711275); the inventory splits it at 0x00711076.
@@ -558,7 +655,14 @@ void VeinholeMonsterClass::Shrink()
 }
 
 
-// static void VeinholeMonsterClass::Init_Vein_Growth_System(bool rebuild) (0x00711280)
+/// <summary>
+/// Prepares the vein growth system for play.
+/// This routine is called once the map and its veinholes are in place. Every monster is
+/// given the records it needs to tend its own patch, and any vein on the map that no
+/// monster ends up claiming is quietly removed.
+/// </summary>
+/// <param name="clear">Should the existing growth records be thrown away and rebuilt?</param>
+// (0x00711280)
 // With rebuild, frees every monster's buffers and the shared table and
 // allocates them again (nodes, heap and per-cell table); then clears the
 // shared table and the cells' vein bit (0x8000), lets every monster mark its
@@ -604,7 +708,10 @@ void __fastcall VeinholeMonsterClass::Init_Vein_Growth_System(bool rebuild)
 }
 
 
-// VeinholeMonsterClass::Deinit_Vein_Growth_System (0x007114F0): every monster's Clear_Growth, last first, then the
+/// <summary>
+/// Frees the vein growth records of every veinhole monster.
+/// </summary>
+// (0x007114F0)
 // shared table (Clear_Global_Data).
 
 void __cdecl VeinholeMonsterClass::Deinit_Vein_Growth_System()
@@ -618,6 +725,12 @@ void __cdecl VeinholeMonsterClass::Deinit_Vein_Growth_System()
 
 // Veinhole growth traversal, independently bounded at007115B0.
 #include "shared/map_view.hpp"
+/// <summary>
+/// Builds the queue of cells this monster can grow its veins from.
+/// This routine spreads outward from the veinhole across the connected patch of veins,
+/// claiming those cells for this monster and queueing the ones that still have room to
+/// thicken or push further out.
+/// </summary>
 void VeinholeMonsterClass::Build_Growth_Queue()
 {
     DynamicVectorClass<::Cell> pending;
@@ -679,6 +792,12 @@ void VeinholeMonsterClass::Build_Growth_Queue()
 
 #include "shared/anim.hpp"
 
+/// <summary>
+/// Builds the queue of vein cells for this dying monster to wither away.
+/// This routine is used once a veinhole has been destroyed. Only the mature vein cells
+/// this monster is recorded as owning are gathered, and the ones farthest from the
+/// veinhole are the first to go.
+/// </summary>
 void VeinholeMonsterClass::Build_Shrinking_Queue()
 {
     GrowthCount = 0;
@@ -705,7 +824,10 @@ void VeinholeMonsterClass::Build_Shrinking_Queue()
 }
 
 
-// VeinholeMonsterClass::Clear_Global_Data (0x00711C70): frees the shared per-cell table.
+/// <summary>
+/// Frees the growth state that is shared between all the veinhole monsters.
+/// </summary>
+// (0x00711C70)
 
 void __cdecl VeinholeMonsterClass::Clear_Global_Data()
 {
@@ -716,7 +838,10 @@ void __cdecl VeinholeMonsterClass::Clear_Global_Data()
 }
 
 
-// VeinholeMonsterClass::Clear_Growth (0x00711C90; Clear_Growth as TiberiumClass names it): drops this monster's growth queue and tables.
+/// <summary>
+/// Frees the vein growth records held by this monster.
+/// </summary>
+// (0x00711C90; Clear_Growth as TiberiumClass names it)
 
 void VeinholeMonsterClass::Clear_Growth()
 {
@@ -737,6 +862,12 @@ void VeinholeMonsterClass::Clear_Growth()
 }
 
 
+/// <summary>
+/// Kills this veinhole monster and leaves a patch of veins behind.
+/// The cells the monster occupied are turned over to plain vein overlay, the map zones
+/// are brought up to date, and a shrinking queue is built so that the leftover patch
+/// will wither away over time.
+/// </summary>
 void VeinholeMonsterClass::Destroy_Monster()
 {
     CellClass &cptr = Map[CellID];
@@ -767,7 +898,12 @@ void VeinholeMonsterClass::Destroy_Monster()
 }
 
 
-// void VeinholeMonsterClass::Remove_Dead() (0x00711E20)
+/// <summary>
+/// Disposes of any veinhole monster that has finished dying.
+/// A destroyed monster lingers on so that its patch of veins can wither away, so this
+/// routine only deletes one once it has no shrinking work left to do.
+/// </summary>
+// (0x00711E20)
 // Deletes every placed monster (IsDead) whose node heap is empty, last
 // first (expanded into Update_All 0x007101F0).
 
@@ -782,6 +918,13 @@ void __cdecl VeinholeMonsterClass::Remove_Dead()
 }
 
 
+/// <summary>
+/// Loads every veinhole monster from the save game stream.
+/// This routine is called by the scenario load process. Any monsters presently in
+/// existence are destroyed first, then each saved monster is recreated with its vein
+/// growth records and handed to the swizzler and the target tracker.
+/// </summary>
+/// <returns>bool; Were all the monsters read successfully?</returns>
 bool __fastcall VeinholeMonsterClass::Load_All(IStream *stream)
 {
     Reset();
@@ -841,6 +984,12 @@ bool __fastcall VeinholeMonsterClass::Load_All(IStream *stream)
 }
 
 
+/// <summary>
+/// Saves every veinhole monster to the save game stream.
+/// This routine is called by the scenario save process. Each monster is written along
+/// with its vein growth records so that growth can pick up where it left off.
+/// </summary>
+/// <returns>bool; Were all the monsters written successfully?</returns>
 bool __fastcall VeinholeMonsterClass::Save_All(IStream *stream)
 {
     int monster_count = VeinholeMonsters.Count();
@@ -878,7 +1027,12 @@ bool __fastcall VeinholeMonsterClass::Save_All(IStream *stream)
 }
 
 
-// HRESULT __stdcall VeinholeMonsterClass::Save(IStream *stream, BOOL clear_dirty) (0x007122D0)
+/// <summary>
+/// Saves this veinhole monster to the save game stream.
+/// </summary>
+/// <param name="cleardirty">Should the object be marked as clean once it has been written?</param>
+/// <returns>Returns with S_OK if the monster was written successfully.</returns>
+// (0x007122D0)
 
 HRESULT __stdcall VeinholeMonsterClass::Save(IStream *stream, BOOL clear_dirty)
 {
@@ -886,7 +1040,11 @@ HRESULT __stdcall VeinholeMonsterClass::Save(IStream *stream, BOOL clear_dirty)
 }
 
 
-// ObjectTypeClass *VeinholeMonsterClass::Class_Of() const (0x007122F0, slot 33)
+/// <summary>
+/// Fetches the object type class for this veinhole monster.
+/// </summary>
+/// <returns>Returns with a pointer to the veinhole type as specified by the rules.</returns>
+// (0x007122F0, slot 33)
 // The type named by the rules (+0xCB4).
 
 ObjectTypeClass *VeinholeMonsterClass::Class_Of() const
@@ -895,6 +1053,13 @@ ObjectTypeClass *VeinholeMonsterClass::Class_Of() const
 }
 
 
+/// <summary>
+/// Removes a stage of vein growth from the cell specified.
+/// This routine is used by the shrinking logic of a dying veinhole. The neighboring
+/// cells are re-examined afterward so that any cell left bare is dropped from the
+/// growth records, while a cell that still carries veins is queued for further work.
+/// </summary>
+/// <param name="cellptr">Pointer to the cell to reduce the veins at.</param>
 void VeinholeMonsterClass::Reduce_Veins_At(CellClass *cellptr)
 {
     if (cellptr->OverlayIndex == 0x7e && cellptr->OverlayData >= 0x30) {
@@ -945,7 +1110,13 @@ void VeinholeMonsterClass::Reduce_Veins_At(CellClass *cellptr)
 }
 
 
-// HRESULT __stdcall VeinholeMonsterClass::GetClassID(GUID *clsid) (0x007126C0)
+/// <summary>
+/// Fetches the class identifier used by the save game system.
+/// This routine is called by the persistence layer so that it knows which class to
+/// recreate when the saved game is read back in.
+/// </summary>
+/// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
+// (0x007126C0)
 
 HRESULT __stdcall VeinholeMonsterClass::GetClassID(GUID *clsid)
 {

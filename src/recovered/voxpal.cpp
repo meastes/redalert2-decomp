@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/voxpal.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // voxpal.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -6,6 +17,16 @@
 
 
 #pragma auto_inline(off)
+/// <summary>
+/// Creates a voxel palette library.
+/// The library holds the palette every voxel is colored from together with the tables the
+/// drawing routines shade with. The caller may hand over its own buffers -- the voxel draw
+/// system does exactly that, so the loaded data lands straight in the globals the drawing
+/// routines read -- or leave them NULL and let the library find its own storage.
+/// </summary>
+/// <param name="rgb">Pointer to the palette buffer to use, or NULL to allocate one.</param>
+/// <param name="lut">Pointer to the shading table buffer to use, or NULL to allocate
+/// one.</param>
 VoxelPaletteLibrary::VoxelPaletteLibrary(unsigned char *palette, unsigned char *table)
 {
     if (palette == 0) {
@@ -28,6 +49,11 @@ VoxelPaletteLibrary::VoxelPaletteLibrary(unsigned char *palette, unsigned char *
 
 
 #pragma auto_inline(off)
+/// <summary>
+/// Destroys the palette library.
+/// Only the buffers this library allocated for itself are freed; any that the creator
+/// supplied are left alone.
+/// </summary>
 VoxelPaletteLibrary::~VoxelPaletteLibrary()
 {
     if (ColorsAllocated) {
@@ -41,6 +67,12 @@ VoxelPaletteLibrary::~VoxelPaletteLibrary()
 #pragma auto_inline(on)
 
 
+/// <summary>
+/// Reads just the palette from a file.
+/// Use this routine when the colors alone are wanted and the header and shading tables are
+/// of no interest.
+/// </summary>
+/// <returns>Returns with zero if the palette was read, or one if it could not be.</returns>
 int VoxelPaletteLibrary::Read_Colors(FileClass *file)
 {
     int failed = 0;
@@ -53,6 +85,12 @@ int VoxelPaletteLibrary::Read_Colors(FileClass *file)
 }
 
 
+/// <summary>
+/// Reads a complete palette library from a file.
+/// This routine loads the header, the palette, and the prebuilt shading tables, which is
+/// everything the voxel drawing routines need to color and light a model.
+/// </summary>
+/// <returns>Returns with zero if the library was read, or one if it could not be.</returns>
 int VoxelPaletteLibrary::Read_File(FileClass *file)
 {
     int failed = 0;
@@ -77,6 +115,12 @@ int VoxelPaletteLibrary::Read_File(FileClass *file)
 }
 
 
+/// <summary>
+/// Writes this palette library out to a file.
+/// This is the counterpart of Read_File and produces a VPL the game can load again --
+/// header, palette, and shading tables.
+/// </summary>
+/// <returns>Returns with zero if the library was written, or one if it could not be.</returns>
 int VoxelPaletteLibrary::Write_File(FileClass *file)
 {
     int failed = 0;
@@ -101,6 +145,16 @@ int VoxelPaletteLibrary::Write_File(FileClass *file)
 }
 
 
+/// <summary>
+/// Builds the shading lookup tables for this palette.
+/// This routine is used when a voxel object carries its own palette rather than the one out
+/// of VOXELS.VPL. Every palette color is dimmed and brightened through the scale ramp and
+/// matched back onto the nearest palette entry, so the drawing routines can shade a voxel by
+/// table lookup instead of by color arithmetic.
+/// </summary>
+/// <param name="scale">The ramp of brightness scales to build with, or NULL to use the
+/// built in ramp.</param>
+/// <param name="lut_count">The number of brightness steps in the ramp supplied.</param>
 // Builds the lookup: for each section a brightness level (from `levels`, or
 // 32 default levels, 0.6..1.35 and 1.4..3.275, built in place
 // in unknown_levels_af8f10) scales every palette color
@@ -161,6 +215,12 @@ void VoxelPaletteLibrary::Calculate_Lookup_Table(float *levels, int count)
 }
 
 
+/// <summary>
+/// Finds the palette entry closest to the color specified.
+/// This routine searches the whole voxel palette, house colors included, for the entry
+/// nearest the color given.
+/// </summary>
+/// <returns>Returns with the index of the closest color in the palette.</returns>
 // The index of the palette entry nearest to a color (squared distance in
 // float; the search starts at a distance of 100000).
 unsigned char VoxelPaletteLibrary::Closest_Color(float red, float green, float blue)
@@ -182,6 +242,15 @@ unsigned char VoxelPaletteLibrary::Closest_Color(float red, float green, float b
 }
 
 
+/// <summary>
+/// Finds the palette entry closest to the color specified, respecting the remap band.
+/// This routine is used while the shading tables are built. The house color remap range is
+/// kept apart from the rest of the palette, so that a remappable color never shades into a
+/// fixed one and a fixed color never strays into the house colors.
+/// </summary>
+/// <param name="is_remap">Should the search be confined to the house color remap range?</param>
+/// <returns>Returns with the index of the closest color on the side of the palette asked
+/// for.</returns>
 // The nearest palette entry (1..255) inside the remap range when `remap`,
 // outside it otherwise.
 unsigned char VoxelPaletteLibrary::Closest_Color(float red, float green, float blue, bool remap)

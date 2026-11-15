@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/animfile.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // animfile.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -9,7 +20,11 @@
 #include "shared/crt_memory.hpp"
 
 
-// AnimFile::AnimFile() (0x00423F90)
+/// <summary>
+/// Constructs an empty animation.
+/// No file is attached until Load is called.
+/// </summary>
+// (0x00423F90)
 // An empty player: no file, a cleared palette, no frame surface or page
 // buffer, no current frame or page.
 
@@ -25,7 +40,10 @@ AnimFile::AnimFile() :
 }
 
 
-// AnimFile::~AnimFile() (0x00423FF0)
+/// <summary>
+/// Destroys the animation and releases the file it was playing.
+/// </summary>
+// (0x00423FF0)
 // Closes the player (the file when this object opened it, the frame surface
 // and the page buffer).
 
@@ -149,7 +167,12 @@ bool AnimFile::Validate()
 }
 
 
-// int AnimFile::Get_Frame_Count() (0x00424370)
+/// <summary>
+/// Fetches the number of frames in the animation.
+/// A file may carry an extra last-to-first delta record so that it can loop seamlessly.
+/// That record is not a frame and is not counted here.
+/// </summary>
+// (0x00424370)
 // The frame count; one less when the file ends with a delta back to the
 // first frame.
 
@@ -163,7 +186,10 @@ int AnimFile::Get_Frame_Count()
 }
 
 
-// int AnimFile::Get_Width() (0x00424390)
+/// <summary>
+/// Fetches the width of the animation in pixels.
+/// </summary>
+// (0x00424390)
 
 int AnimFile::Get_Width()
 {
@@ -171,7 +197,10 @@ int AnimFile::Get_Width()
 }
 
 
-// int AnimFile::Get_Height() (0x004243A0)
+/// <summary>
+/// Fetches the height of the animation in pixels.
+/// </summary>
+// (0x004243A0)
 
 int AnimFile::Get_Height()
 {
@@ -313,7 +342,18 @@ int AnimFile::Frame_Size(int frame)
 }
 
 
-// bool AnimFile::Decode_Frame(void *source, int size, void *dest, int destsize) (0x004249F0):
+/// <summary>
+/// Decodes one animation record into the destination bitmap.
+/// This is the low level decompressor that Load_Frame uses to lay each record over the
+/// working surface. Only uncompressed and Run-Skip-Dump bodies are understood; any
+/// other compression is refused rather than guessed at.
+/// </summary>
+/// <param name="source">Pointer to the record data, which begins with its body type.</param>
+/// <param name="nBytes">Length of the record data in bytes.</param>
+/// <param name="dest">Pointer to the bitmap to decode into.</param>
+/// <param name="dlength">Size of the destination bitmap in bytes.</param>
+/// <returns>bool; Was the record decoded?</returns>
+// (0x004249F0)
 // lays one frame record over dest. The record starts with its body type (short): 0 is an
 // uncompressed copy (refused unless it fills dest exactly), 1 a run/skip/dump stream that
 // must end in the stop code 80 00 00; any other type is refused. An empty record is no change.

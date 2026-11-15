@@ -1,3 +1,15 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/aitrig.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // aitrig.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -47,7 +59,10 @@ AITriggerTypeClass::AITriggerTypeClass(char const *ini_name) :
 }
 
 
-// ??1AITriggerTypeClass@@UAE@XZ (0x0041C6F0)
+/// <summary>
+/// Removes this trigger type from the master trigger list.
+/// </summary>
+// (0x0041C6F0)
 // Unlists the type.
 
 AITriggerTypeClass::~AITriggerTypeClass()
@@ -56,7 +71,13 @@ AITriggerTypeClass::~AITriggerTypeClass()
 }
 
 
-// ?GetClassID@AITriggerTypeClass@@UAGJPAUGUID@@@Z (0x0041C770)
+/// <summary>
+/// Fetches the class identifier of this object.
+/// The save game system uses this identifier to work out which class to build when the
+/// object is read back in.
+/// </summary>
+/// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
+// (0x0041C770)
 // The class identifier.
 
 HRESULT __stdcall AITriggerTypeClass::GetClassID(GUID *classid)
@@ -69,7 +90,14 @@ HRESULT __stdcall AITriggerTypeClass::GetClassID(GUID *classid)
 }
 
 
-// ?Load@AITriggerTypeClass@@UAGJPAUIStream@@@Z (0x0041C7B0)
+/// <summary>
+/// Loads this trigger from the stream specified.
+/// This routine is part of the persistence chain the save game system walks. The object
+/// is rebuilt in place and its condition object and team pointers are remapped to
+/// wherever those objects have landed in the restored game.
+/// </summary>
+/// <returns>Returns with the result of the load, which is S_OK if all went well.</returns>
+// (0x0041C7B0)
 // AbstractClass load, vtables, pointer fixups.
 
 HRESULT __stdcall AITriggerTypeClass::Load(IStream *stream)
@@ -86,7 +114,13 @@ HRESULT __stdcall AITriggerTypeClass::Load(IStream *stream)
 }
 
 
-// ?Save@AITriggerTypeClass@@UAGJPAUIStream@@H@Z (0x0041C830)
+/// <summary>
+/// Saves this trigger to the stream specified.
+/// This routine is part of the persistence chain the save game system walks.
+/// </summary>
+/// <param name="cleardirty">Should the object be marked as clean once it has been saved?</param>
+/// <returns>Returns with the result of the save, which is S_OK if all went well.</returns>
+// (0x0041C830)
 // Only the AbstractClass part.
 
 HRESULT __stdcall AITriggerTypeClass::Save(IStream *stream, BOOL clear_dirty)
@@ -99,7 +133,12 @@ HRESULT __stdcall AITriggerTypeClass::Save(IStream *stream, BOOL clear_dirty)
 }
 
 
-// ?Compute_CRC@AITriggerTypeClass@@UBEXAAVWWCRCEngine@@@Z (0x0041C850)
+/// <summary>
+/// Adds this trigger's settings to the CRC calculation.
+/// This routine is used by the network sync check to prove that every machine in the
+/// game agrees about the trigger.
+/// </summary>
+// (0x0041C850)
 // AbstractTypeClass part and the trigger fields; the comparator only for condition types 0, 1, 4 and 7.
 
 void AITriggerTypeClass::Compute_CRC(WWCRCEngine &crc) const
@@ -614,7 +653,14 @@ void __fastcall AITriggerTypeClass::Write_Scenario_INI(CCINIClass &ini, int is_g
 }
 
 
-// bool AITriggerTypeClass::Read_INI(CCINIClass &ini) (0x0041D7E0, slot 25)
+/// <summary>
+/// Fetches this trigger's settings from the INI database.
+/// This routine parses the comma separated line that the AI trigger section uses,
+/// resolving the team, house, and condition object names into pointers. The tech level
+/// the trigger demands is raised to cover whatever its teams need to be built.
+/// </summary>
+/// <returns>bool; Was an entry for this trigger found and parsed?</returns>
+// (0x0041D7E0, slot 25)
 // Parses this type's comma-separated line under [AITriggerTypes] in the
 // order Write_INI writes it: name, team 1, house ("<all>", "<none>" or a
 // house type), an ignored field, condition type, the object type
@@ -763,7 +809,14 @@ bool AITriggerTypeClass::Read_INI(CCINIClass &ini)
 }
 
 
-// bool AITriggerTypeClass::Write_INI(CCINIClass &ini) const (0x0041DD60)
+/// <summary>
+/// Writes this trigger out to the INI database.
+/// This routine flattens the trigger into the single comma separated line that the AI
+/// trigger section uses. Any team, house, or condition object that is not specified is
+/// recorded as the none placeholder so that the line can be read back unambiguously.
+/// </summary>
+/// <returns>bool; Was the trigger recorded in the INI database?</returns>
+// (0x0041DD60)
 // Writes this type's line under [AITriggerTypes] in the order Read_INI
 // parses it: name, team 1, house ("<all>", "<none>" or the house type),
 // tech level, condition type, the object type, the comparator as hex digit
@@ -814,7 +867,13 @@ bool AITriggerTypeClass::Write_INI(CCINIClass &ini) const
 }
 
 
-// AITriggerTypeClass *__fastcall AITriggerTypeClass::Find_Or_Make(char const *name) (0x0041DEF0)
+/// <summary>
+/// Fetches the trigger type of the name specified, creating it if need be.
+/// This routine is used by the INI reader so that a trigger may be mentioned before it
+/// has been declared.
+/// </summary>
+/// <returns>Returns with a pointer to the trigger type found or created.</returns>
+// (0x0041DEF0)
 // The named AI trigger type, created when missing; 0 for "<none>" and "none".
 
 AITriggerTypeClass *__fastcall AITriggerTypeClass::Find_Or_Make(char const *name)
@@ -834,7 +893,12 @@ AITriggerTypeClass *__fastcall AITriggerTypeClass::Find_Or_Make(char const *name
 }
 
 
-// void AITriggerTypeClass::Set_Condition_Object(AbstractTypeClass *object) (0x0041DF80)
+/// <summary>
+/// Sets the object type this trigger's condition counts.
+/// The owns and money style trigger conditions test the tally of this object type
+/// against the trigger's own number.
+/// </summary>
+// (0x0041DF80)
 
 void AITriggerTypeClass::Set_Condition_Object(AbstractTypeClass *object)
 {

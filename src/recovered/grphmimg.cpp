@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/grphmimg.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // grphmimg.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -55,7 +66,21 @@ GraphicMenuItem *__fastcall Create_Image_Item(Wstring const &section, INIClass &
 }
 
 
-// GraphicMenuImageItem::GraphicMenuImageItem(...) (0x004DFB30)
+/// <summary>
+/// Constructs an image based menu item.
+/// This routine loads the normal, highlighted and disabled artwork as animations and
+/// hands them to the menu engine to display. Only the normal image starts out visible;
+/// the others are activated as the item gains the selection or is disabled. Any of the
+/// images may be omitted, in which case that state simply shows nothing.
+/// </summary>
+/// <param name="origin">The screen position to display the artwork at.</param>
+/// <param name="rect">The screen area the mouse must be within to select this item.</param>
+/// <param name="image">Filename of the artwork shown normally.</param>
+/// <param name="highlight_image">Filename of the artwork shown while selected.</param>
+/// <param name="disabled_image">Filename of the artwork shown while disabled.</param>
+/// <param name="highlight_sound">Filename of the sound to play as this item is selected.</param>
+/// <param name="select_vq">Filename of the movie to play when this item is chosen.</param>
+// (0x004DFB30)
 // Takes the engine and the active area, the hover sound and the select movie name, and
 // adds the PCX images that are named (highlighted and disabled ones start hidden).
 
@@ -92,7 +117,12 @@ GraphicMenuImageItem::GraphicMenuImageItem(int id, void *unknown_list, Point2D c
 }
 
 
-// GraphicMenuImageItem::~GraphicMenuImageItem() -- 0x004DFCD0
+/// <summary>
+/// Destroys this menu item.
+/// The images belong to the menu engine and are disposed of along with it, so only the
+/// highlight sound is freed here.
+/// </summary>
+// (0x004DFCD0)
 // Deletes the hover sound entry and destroys the name; the images belong
 // to the screen engine and are not deleted here.
 

@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/mschoice.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // mschoice.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -228,7 +239,14 @@ int MapSelectData::Stage_Index(MapStage *stage)
 }
 
 
-// MSSfxEntry *MapSelectData::Find_Sound(Wstring const &name) const (0x005B0980)
+/// <summary>
+/// Fetches the sound effect registered under the specified name.
+/// The map selection screen asks for its sounds by name rather than by file, so that
+/// the control file may re-point them without the screen caring.
+/// </summary>
+/// <param name="name">Name of the sound effect as the control file spells it.</param>
+/// <returns>Returns with a pointer to the sound effect. Otherwise, NULL is returned.</returns>
+// (0x005B0980)
 // Sound entry of that name, ignoring case; null without sound.
 
 MSSfxEntry *MapSelectData::Find_Sound(Wstring const &name) const
@@ -249,7 +267,16 @@ MSSfxEntry *MapSelectData::Find_Sound(Wstring const &name) const
 }
 
 
-// MapStage::MapStage(INIClass &ini, Wstring const &section) (0x005B0A20)
+/// <summary>
+/// Creates a map selection stage from its control file section.
+/// This routine gathers everything the map selection screen needs in order to present
+/// one stage -- the scenario it launches, its description and voice over, the movie
+/// and overlay artwork, the target markers, and the click map regions the player may
+/// pick from.
+/// </summary>
+/// <param name="ini">The map selection control file to read the stage from.</param>
+/// <param name="label">Name of the section that describes this stage.</param>
+// (0x005B0A20)
 // Loads one stage from its MAPSEL.INI section: the scenario, description
 // (a string-table label), voice-over, map movie, up to two overlays, the
 // click map, the "Text1".."Text7" lines, the "Targets" points and the
@@ -349,7 +376,12 @@ MapStage::MapStage(INIClass &ini, Wstring const &section)
 }
 
 
-// MapStage::~MapStage() (0x005B11B0)
+/// <summary>
+/// Destroys the map selection stage.
+/// The strings this stage copied out of the control file, along with its text entries
+/// and its selections, are all released here.
+/// </summary>
+// (0x005B11B0)
 // Deletes the stage's text lines and selections.
 
 MapStage::~MapStage()
@@ -402,7 +434,13 @@ Wstring MapStage::Selection_Name(char key) const
 }
 
 
-// MSTextEntry::MSTextEntry(WideString const &line) (0x005B13D0)
+/// <summary>
+/// Creates a stage text entry from its control file line.
+/// The line gives the screen position, the moment the text is due to appear, and the
+/// text itself.
+/// </summary>
+/// <param name="string">The control file line to parse; it is chopped up in place.</param>
+// (0x005B13D0)
 // Parses "x,y,unknown,text".
 
 MSTextEntry::MSTextEntry(WideString const &line) :
@@ -431,7 +469,13 @@ MSTextEntry::MSTextEntry(WideString const &line) :
 }
 
 
-// MSAnimEntry::MSAnimEntry(Wstring const &line) (0x005B14C0)
+/// <summary>
+/// Creates a map selection animation entry from its control file line.
+/// The line names the animation to play and gives the screen position and the rate to
+/// play it at.
+/// </summary>
+/// <param name="string">The control file line to parse; it is chopped up in place.</param>
+// (0x005B14C0)
 // Parses "name,a,b,c".
 
 MSAnimEntry::MSAnimEntry(Wstring const &line) :
@@ -460,7 +504,16 @@ MSAnimEntry::MSAnimEntry(Wstring const &line) :
 }
 
 
-// MSSfxEntry::MSSfxEntry(Wstring const &name, Wstring const &line) (0x005B15B0)
+/// <summary>
+/// Creates a map selection sound effect from its control file line.
+/// The line names the sample file and the volume to play it at. The sample comes from
+/// the mixfiles, or from a loose file if the mixfiles do not carry it. Nothing is
+/// loaded when the audio system is unavailable or the volume works out to silence.
+/// </summary>
+/// <param name="name">Name the map selection screen will ask for this sound by.</param>
+/// <param name="string">The control file line to parse; it is chopped up in place.</param>
+/// <remarks>Check Get_Name for NULL to tell whether the sound effect is usable.</remarks>
+// (0x005B15B0)
 // With sound available: line is "file,volume" (volume in percent, clamped
 // to 0..100 and scaled to 0..255); keeps the name when audible.
 
@@ -491,7 +544,12 @@ MSSfxEntry::MSSfxEntry(Wstring const &name, Wstring const &line) :
 }
 
 
-// MSSfxEntry::~MSSfxEntry() (0x005B16C0)
+/// <summary>
+/// Destroys the sound effect.
+/// Any playback in progress is stopped first, and the sample data is released only if
+/// this entry is the one that loaded it.
+/// </summary>
+// (0x005B16C0)
 // Out-of-line for the screens that delete their entries (destroys Name).
 
 MSSfxEntry::~MSSfxEntry()
@@ -499,7 +557,12 @@ MSSfxEntry::~MSSfxEntry()
 }
 
 
-// void MSSfxEntry::Play() (0x005B16D0)
+/// <summary>
+/// Plays the sound effect.
+/// The volume this entry was configured with is scaled by the player's sound volume
+/// option before the sample is handed to the audio system.
+/// </summary>
+// (0x005B16D0)
 // Empty in this build (callers find the entry, then call this).
 
 void MSSfxEntry::Play()

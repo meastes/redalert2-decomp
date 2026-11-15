@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/lzopipe.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // lzopipe.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -9,7 +24,24 @@
 #include "shared/crt_string.hpp"
 
 
-// LZOPipe::LZOPipe(CompControl control, int blocksize) (0x0053EB40)
+/***********************************************************************************************
+ * LZOPipe::LZOPipe -- Constructor for the LZO processor pipe.                                 *
+ *                                                                                             *
+ *    This will initialize the LZOPipe object so that it is prepared for compression or        *
+ *    decompression as indicated.                                                              *
+ *                                                                                             *
+ * INPUT:   decrypt  -- Should decompression be performed?                                     *
+ *                                                                                             *
+ *          blocksize-- The size of the data blocks to process.                                *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/04/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0053EB40)
 // Allocates the staging and output buffers, each with a safety margin of a
 // whole block for data that grows when compressed.
 
@@ -27,7 +59,21 @@ LZOPipe::LZOPipe(CompControl control, int blocksize) :
 }
 
 
-// LZOPipe::~LZOPipe() (0x0053EBA0)
+/***********************************************************************************************
+ * LZOPipe::~LZOPipe -- Deconstructor for the LZO pipe object.                                 *
+ *                                                                                             *
+ *    This will free any buffers it may have allocated.                                        *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/04/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0053EBA0)
 // Releases both block buffers.
 
 LZOPipe::~LZOPipe()
@@ -40,7 +86,26 @@ LZOPipe::~LZOPipe()
 }
 
 
-// LZOPipe::Put(void const *source, int length) (0x0053EBE0, virtual slot 4)
+/***********************************************************************************************
+ * LZOPipe::Put -- Send some data through the LZO processor pipe.                              *
+ *                                                                                             *
+ *    This routine will take the data requested and process it (decompression or compression). *
+ *    It does this by accumulating the necessary bytes to make a whole block. Then the block   *
+ *    is processed and the entire contents are flushed to the next pipe segment in the chain.  *
+ *                                                                                             *
+ * INPUT:   source   -- Pointer to the data to be fed to this LZO processor.                   *
+ *                                                                                             *
+ *          length   -- The number of bytes received.                                          *
+ *                                                                                             *
+ * OUTPUT:  Returns with the actual number of bytes output at the far distant final link in    *
+ *          the pipe chain.                                                                    *
+ *                                                                                             *
+ * WARNINGS:   The compression process may be slow as well as consuming two buffers.           *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/04/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0053EBE0, virtual slot 4)
 // Decompressing: gathers each 4-byte block header and its compressed block,
 // then passes the uncompressed block on. Compressing: gathers BlockSize
 // bytes, then passes the block header and compressed block on. Returns the
@@ -136,7 +201,26 @@ int LZOPipe::Put(void const *source, int length)
 }
 
 
-// LZOPipe::Flush() (0x0053EE70, virtual slot 1)
+/***********************************************************************************************
+ * LZOPipe::Flush -- Flushes any partially accumulated block.                                  *
+ *                                                                                             *
+ *    This routine is called when any buffered data must be flushed out the pipe. For the      *
+ *    compression process, this will generate the sub-sized compressed block. For              *
+ *    decompression, this routine should not have any data in the buffer. In such a case, it   *
+ *    means that the data source was prematurely truncated. In such a case, just dump the      *
+ *    accumulated data through the pipe.                                                       *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  Returns with the actual number of data bytes output to the distant final link in   *
+ *          the pipe chain.                                                                    *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/04/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0053EE70, virtual slot 1)
 // Passes on whatever partial block or header is held, then flushes the
 // chain. Returns the bytes passed down the chain.
 

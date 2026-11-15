@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/carry.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // carry.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -75,7 +90,22 @@
 #include "shared/cell.hpp"
 
 
-// CarryoverClass::CarryoverClass(TechnoClass *techno) (0x00468CB0)
+/***********************************************************************************************
+ * CarryoverClass::CarryoverClass -- Constructor for carry over objects.                       *
+ *                                                                                             *
+ *    This is the constructor for a carry over object. Such an object is used to record the    *
+ *    object that will be "carried over" into a new scenario at some future time.              *
+ *                                                                                             *
+ * INPUT:   techno   -- Pointer to the object that will be carried over.                       *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/10/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00468CB0)
 // Records the object's kind, type, cell, strength and house.
 // The unit builds buildings (Create): the full BuildingClass before techno.hpp's stub.
 
@@ -103,7 +133,23 @@ CarryoverClass::CarryoverClass(TechnoClass *techno) :
 }
 
 
-// bool CarryoverClass::Create() const (0x00468D50)
+/***********************************************************************************************
+ * CarryoverClass::Create -- Creates a carried over object.                                    *
+ *                                                                                             *
+ *    Use this routine to convert a carried over object into an actual object that will be     *
+ *    placed on the map.                                                                       *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the object successfully created and placed on the map?                   *
+ *                                                                                             *
+ * WARNINGS:   This routine might not place the object if the old map location was invalid     *
+ *             or there are other barriers to the object's creation and placement.             *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/10/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00468D50)
 // Recreates the object for its house at its cell with its strength;
 // infantry is placed with ScenarioInit cleared. Always false.
 

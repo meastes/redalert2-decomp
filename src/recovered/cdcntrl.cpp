@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/cdcntrl.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // cdcntrl.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -9,7 +24,19 @@
 #define MAKEWORD(low, high) ((WORD)(((BYTE)(low)) | ((WORD)((BYTE)(high))) << 8))
 
 
-// CDControlClass::CDControlClass() (0x0046EA70)
+/***********************************************************************************************
+ * CDControlClass::CDControlClass -- Class constructor                                         *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   2/17/99 2:03AM ST : Created                                                               *
+ *=============================================================================================*/
+// (0x0046EA70)
 // Clears the whole object.
 
 CDControlClass::CDControlClass()
@@ -18,7 +45,19 @@ CDControlClass::CDControlClass()
 }
 
 
-// CDControlClass::~CDControlClass() (0x0046EA90)
+/***********************************************************************************************
+ * CDControlClass::~CDControlClass -- Class destructor                                         *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   2/17/99 2:03AM ST : Created                                                               *
+ *=============================================================================================*/
+// (0x0046EA90)
 // Nothing to release.
 
 CDControlClass::~CDControlClass()
@@ -26,7 +65,19 @@ CDControlClass::~CDControlClass()
 }
 
 
-// void CDControlClass::Force_CD_Eject(char drive) (0x0046EAA0)
+/***********************************************************************************************
+ * CDControlClass::Force_CD_Eject -- Ppen the CD tray on the given drive                       *
+ *                                                                                             *
+ * INPUT:    Drive number (0=a, 1=b etc)                                                       *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   2/17/99 1:17AM ST : Created                                                               *
+ *=============================================================================================*/
+// (0x0046EAA0)
 // Ejects the CD in drive (0 = A:): through VWIN32 when the Windows 95 flag is
 // set, else through the volume handle (Eject_CD, expanded inline).
 // Assumes: the flag's meaning (hypothesis).
@@ -41,7 +92,19 @@ void CDControlClass::Force_CD_Eject(char drive)
 }
 
 
-// HANDLE CDControlClass::Open_Removable_Volume(char drive) (0x0046EC60)
+/***********************************************************************************************
+ * CDControlClass::Open_Removable_Volume -- Fetch a handle to a removable drive                *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   2/16/99 11:25PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0046EC60)
 // Opens "\\.\X:" for a removable or CD-ROM drive (0 = A:), read/write for
 // removable media and read-only for CD-ROMs; INVALID_HANDLE_VALUE otherwise.
 
@@ -73,7 +136,19 @@ HANDLE CDControlClass::Open_Removable_Volume(char drive)
 }
 
 
-// bool CDControlClass::Close_Removable_Volume(HANDLE volume) (0x0046ED10)
+/***********************************************************************************************
+ * CDControlClass::Close_Removable_Volume -- Close the handle to a removable volume            *
+ *                                                                                             *
+ * INPUT:    HANDLE of volume to close                                                         *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   2/16/99 11:27PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0046ED10)
 
 bool CDControlClass::Close_Removable_Volume(HANDLE volume)
 {
@@ -81,7 +156,19 @@ bool CDControlClass::Close_Removable_Volume(HANDLE volume)
 }
 
 
-// bool CDControlClass::Lock_Volume(HANDLE volume) (0x0046ED30)
+/***********************************************************************************************
+ * CDControlClass::Lock_Volume -- Prevent access by other threads to a given volume            *
+ *                                                                                             *
+ * INPUT:    HANDLE to volume                                                                  *
+ *                                                                                             *
+ * OUTPUT:   true if locked                                                                    *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   2/16/99 11:29PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0046ED30)
 // Locks the volume (FSCTL), up to 20 attempts 500 ms apart.
 
 bool CDControlClass::Lock_Volume(HANDLE volume)
@@ -98,7 +185,19 @@ bool CDControlClass::Lock_Volume(HANDLE volume)
 }
 
 
-// bool CDControlClass::Unlock_Volume(HANDLE volume) (0x0046EDA0)
+/***********************************************************************************************
+ * CDControlClass::Unlock_Volume -- Allow access by other threads to a given volume            *
+ *                                                                                             *
+ * INPUT:    HANDLE to volume                                                                  *
+ *                                                                                             *
+ * OUTPUT:   true if unlocked                                                                  *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   2/16/99 11:29PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0046EDA0)
 // Unlocks the volume (FSCTL), up to 20 attempts 500 ms apart.
 
 bool CDControlClass::Unlock_Volume(HANDLE volume)
@@ -115,7 +214,19 @@ bool CDControlClass::Unlock_Volume(HANDLE volume)
 }
 
 
-// bool CDControlClass::Dismount_Volume(HANDLE volume) (0x0046EE10)
+/***********************************************************************************************
+ * CDControlClass::Dismount_Volume -- Dismount the given volume                                *
+ *                                                                                             *
+ * INPUT:    HANDLE of volume to dismount                                                      *
+ *                                                                                             *
+ * OUTPUT:   true if volume dismounted OK                                                      *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   2/16/99 11:31PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0046EE10)
 
 bool CDControlClass::Dismount_Volume(HANDLE volume)
 {
@@ -128,7 +239,20 @@ bool CDControlClass::Dismount_Volume(HANDLE volume)
 }
 
 
-// bool CDControlClass::Prevent_Removal_Of_Volume(HANDLE volume, bool prevent) (0x0046EE60)
+/***********************************************************************************************
+ * CDControlClass::Prevent_Removal_Of_Volume -- Disable the eject button on the given drive    *
+ *                                                                                             *
+ * INPUT:    HANDLE of volume to enable/disable                                                *
+ *           true to prevent removal. false to allow it.                                       *
+ *                                                                                             *
+ * OUTPUT:   true if status changed OK                                                         *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   2/16/99 11:32PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0046EE60)
 // Allows or prevents ejecting the media (IOCTL_STORAGE_MEDIA_REMOVAL).
 
 bool CDControlClass::Prevent_Removal_Of_Volume(HANDLE volume, bool prevent)
@@ -145,7 +269,19 @@ bool CDControlClass::Prevent_Removal_Of_Volume(HANDLE volume, bool prevent)
 }
 
 
-// bool CDControlClass::Auto_Eject_Volume(HANDLE volume) (0x0046EEB0)
+/***********************************************************************************************
+ * CDControlClass::Auto_Eject_Volume -- Eject the removable media                              *
+ *                                                                                             *
+ * INPUT:    HANDLE of volume to eject                                                         *
+ *                                                                                             *
+ * OUTPUT:   true if ejection occured                                                          *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   2/16/99 11:34PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0046EEB0)
 // Ejects the media (IOCTL_STORAGE_EJECT_MEDIA).
 
 bool CDControlClass::Auto_Eject_Volume(HANDLE volume)
@@ -159,7 +295,19 @@ bool CDControlClass::Auto_Eject_Volume(HANDLE volume)
 }
 
 
-// bool CDControlClass::Eject_CD(char drive) (0x0046EF00)
+/***********************************************************************************************
+ * CDControlClass::Eject_CD -- Force the CD drive to eject                                     *
+ *                                                                                             *
+ * INPUT:    drive number                                                                      *
+ *                                                                                             *
+ * OUTPUT:   true if ejected                                                                   *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   2/16/99 11:35PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0046EF00)
 // Windows NT: opens the volume, locks and dismounts it, allows removal and
 // ejects the media; true when the media was ejected.
 
@@ -219,7 +367,19 @@ bool CDControlClass::Unlock_CD_Tray_NT(char drive)
 }
 
 
-// void CDControlClass::Eject_CD_Win95(char drive) (0x0046F3E0)
+/***********************************************************************************************
+ * CDControlClass::Eject_CD_Win95 -- Eject the cd in the given drive                           *
+ *                                                                                             *
+ * INPUT:    drive. 0=a etc.                                                                   *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   2/17/99 1:04AM ST : Created                                                               *
+ *=============================================================================================*/
+// (0x0046F3E0)
 // Windows 95: takes the logical volume lock, removes the media locks and
 // ejects the media of drive (0 = A:) through VWIN32.
 // The early failure paths leave the VWIN32 handle open, as in the original.
@@ -245,7 +405,19 @@ void CDControlClass::Eject_CD_Win95(char drive)
 }
 
 
-// bool CDControlClass::Lock_CD_Drive_95(char drive) (0x0046F510)
+/***********************************************************************************************
+ * CDControlClass::Lock_CD_Drive_95 -- Prevent the user from ejecting the cd in the given drive*
+ *                                                                                             *
+ * INPUT:    drive. 0=a etc.                                                                   *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   2/17/99 1:04AM ST : Created                                                               *
+ *=============================================================================================*/
+// (0x0046F510)
 // Windows 95: under the logical volume lock, locks the media of drive
 // (0 = A:) so the tray cannot be opened.
 // Name from its own debug strings.
@@ -277,7 +449,19 @@ bool CDControlClass::Lock_CD_Drive_95(char drive)
 }
 
 
-// bool CDControlClass::Unlock_CD_Drive_95(char drive) (0x0046F630)
+/***********************************************************************************************
+ * CDControlClass::Unlock_CD_Drive_95 -- Allow the user to eject the cd in the given drive     *
+ *                                                                                             *
+ * INPUT:    drive. 0=a etc.                                                                   *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   2/17/99 1:04AM ST : Created                                                               *
+ *=============================================================================================*/
+// (0x0046F630)
 // Windows 95: under the logical volume lock, unlocks the media of drive
 // (0 = A:) so the tray can be opened again.
 // Name from its own debug strings.
@@ -403,7 +587,19 @@ bool CDControlClass::Eject_Media(HANDLE vwin32, char drive)
 }
 
 
-// HANDLE WINAPI CDControlClass::Open_VWin32() (0x0046FA10)
+/***********************************************************************************************
+ * CDControlClass::Open_VWin32 -- Opens a handle to VWIN32 to issue low-level disk I/O         *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   HANDLE to VWin32                                                                  *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   2/17/99 0:26AM ST : Created                                                               *
+ *=============================================================================================*/
+// (0x0046FA10)
 // Opens the VWIN32 device driver that carries DOS IOCTL calls on Windows 95.
 // Assumes: WINAPI member (this on the stack, ret 4), as in Microsoft's
 // VWIN32 sample OpenVWin32.
@@ -414,7 +610,19 @@ HANDLE WINAPI CDControlClass::Open_VWin32()
 }
 
 
-// bool WINAPI CDControlClass::Close_VWin32(HANDLE vwin32) (0x0046FA30)
+/***********************************************************************************************
+ * CDControlClass::Close_VWin32 -- Closes the handle opened by Open_VWin32.                    *
+ *                                                                                             *
+ * INPUT:    Handle to VWin32                                                                  *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   2/17/99 0:26AM ST : Created                                                               *
+ *=============================================================================================*/
+// (0x0046FA30)
 // Closes the VWIN32 device handle. The inventory splits this function at
 // 0x0046FA35 (the CloseHandle call); it is one 19-byte body.
 // Assumes: WINAPI member (this on the stack, ret 8).
@@ -425,7 +633,22 @@ bool WINAPI CDControlClass::Close_VWin32(HANDLE vwin32)
 }
 
 
-// bool WINAPI CDControlClass::Lock_Logical_Volume(HANDLE vwin32, char drive, char lock_level, short permissions) (0x0046FA50)
+/***********************************************************************************************
+ * CDControlClass::Lock_Logical_Volume -- Take a lock on a logical volume                      *
+ *                                                                                             *
+ * INPUT:    Handle to VWin32                                                                  *
+ *           drive number (DOS format)                                                         *
+ *           lock level                                                                        *
+ *           permissions                                                                       *
+ *                                                                                             *
+ * OUTPUT:   true if locked                                                                    *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   2/17/99 0:33AM ST : Created                                                               *
+ *=============================================================================================*/
+// (0x0046FA50)
 // Windows 95: takes a logical volume lock (IOCTL 440Dh minor 4Ah) on drive
 // (1 = A:), trying the FAT32 device category 48h before 08h; after both fail
 // it logs the DOS error, waits a second and retries, five rounds in all.
@@ -483,7 +706,25 @@ bool WINAPI CDControlClass::Lock_Logical_Volume(HANDLE vwin32, char drive, char 
 }
 
 
-// bool WINAPI CDControlClass::Unlock_Logical_Volume(HANDLE vwin32, char drive) (0x0046FC80)
+/***********************************************************************************************
+ * CDControlClass::Unlock_Logical_Volume -- Unlocks a logical volume                           *
+ *                                                                                             *
+ * INPUT:    Handle to VWin32                                                                  *
+ *           drive number (DOS format)                                                         *
+ *                                                                                             *
+ * OUTPUT:   true if unlocked                                                                  *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ *  Must be called the same number of times as LockLogicalVolume() to                          *
+ *  completely unlock a volume.                                                                *
+ *                                                                                             *
+ *  Only the lock owner can unlock a volume.                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   2/17/99 0:39AM ST : Created                                                               *
+ *=============================================================================================*/
+// (0x0046FC80)
 // Windows 95: releases a logical volume lock (IOCTL 440Dh minor 6Ah) on
 // drive (1 = A:), trying the FAT32 device category 48h before 08h.
 // Assumes: WINAPI member; names from Microsoft's VWIN32 sample.

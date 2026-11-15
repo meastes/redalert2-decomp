@@ -1,3 +1,19 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/airctype.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // airctype.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -67,7 +83,21 @@
 #include "shared/cc_file_class.hpp"
 
 
-// AircraftTypeClass::AircraftTypeClass(char const *ini_name) (0x0041BC90)
+/***********************************************************************************************
+ * AircraftTypeClass::AircraftTypeClass -- Constructor for aircraft objects.                   *
+ *                                                                                             *
+ *    This is the constructor for the aircraft object.                                         *
+ *                                                                                             *
+ * INPUT:   see below...                                                                       *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/26/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0041BC90)
 // Speed type 4; joins AircraftTypes and records its index; aircraft
 // defaults for inherited flags.
 
@@ -95,7 +125,12 @@ AircraftTypeClass::AircraftTypeClass(char const *ini_name) :
 }
 
 
-// AircraftTypeClass::AircraftTypeClass(NoInitClass const &noinit) (0x0041BDB0)
+/// <summary>
+/// Creates an aircraft type without initializing it.
+/// This is the constructor used when loading a save game. The data has already been read
+/// into the object, so nothing may be disturbed here beyond restoring the virtual table.
+/// </summary>
+// (0x0041BDB0)
 // Load path.
 
 AircraftTypeClass::AircraftTypeClass(NoInitClass const &noinit) :
@@ -104,7 +139,12 @@ AircraftTypeClass::AircraftTypeClass(NoInitClass const &noinit) :
 }
 
 
-// AircraftTypeClass::~AircraftTypeClass() (0x0041BDE0)
+/// <summary>
+/// Destroys the aircraft type.
+/// Any object still pointing at this type is told to forget it, and the type is removed
+/// from the aircraft type heap so that nothing can find it again.
+/// </summary>
+// (0x0041BDE0)
 // Leaves AircraftTypes.
 
 AircraftTypeClass::~AircraftTypeClass()
@@ -114,7 +154,23 @@ AircraftTypeClass::~AircraftTypeClass()
 }
 
 
-// static int __fastcall AircraftTypeClass::From_Name(char const *name) (0x0041BE60)
+/***********************************************************************************************
+ * AircraftTypeClass::From_Name -- Converts an ASCII name into an aircraft type number.        *
+ *                                                                                             *
+ *    This routine is used to convert an ASCII representation of an aircraft into the          *
+ *    matching aircraft type number. This is used by the scenario INI reader code.             *
+ *                                                                                             *
+ * INPUT:   name  -- Pointer to ASCII name to translate.                                       *
+ *                                                                                             *
+ * OUTPUT:  Returns the aircraft type number that matches the ASCII name provided. If no       *
+ *          match could be found, then AIRCRAFT_NONE is returned.                              *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/26/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0041BE60)
 // Index of the type with this ID (case-insensitive), or -1.
 
 int __fastcall AircraftTypeClass::From_Name(char const *name)
@@ -141,7 +197,23 @@ void AircraftTypeClass::Init()
 }
 
 
-// ObjectClass *AircraftTypeClass::Create_One_Of(HouseClass *house) const (0x0041BED0)
+/***********************************************************************************************
+ * AircraftTypeClass::Create_One_Of -- Creates an aircraft object of the appropriate type.     *
+ *                                                                                             *
+ *    This routine is used to create an aircraft object that matches the aircraft type. It     *
+ *    serves as a shortcut to creating an object using the "new" operator and "if" checks.     *
+ *                                                                                             *
+ * INPUT:   house -- The house owner of the aircraft that is to be created.                    *
+ *                                                                                             *
+ * OUTPUT:  Returns with a pointer to the aircraft created. If the aircraft could not be       *
+ *          created, then a NULL is returned.                                                  *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/26/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0041BED0)
 // A new aircraft of this type for the house (RA1: Create_One_Of).
 
 ObjectClass *AircraftTypeClass::Create_One_Of(HouseClass *house) const
@@ -166,7 +238,22 @@ bool AircraftTypeClass::CanAttackMove() const
 }
 
 
-// Cell const *AircraftTypeClass::Occupy_List(int arg1) const (0x0041BF20)
+/***********************************************************************************************
+ * AircraftTypeClass::Occupy_List -- Returns with occupation list for landed aircraft.         *
+ *                                                                                             *
+ *    This determines the occupation list for the aircraft (if it was landed).                 *
+ *                                                                                             *
+ * INPUT:   placement   -- Is this for placement legality checking only? The normal condition  *
+ *                         is for marking occupation flags.                                    *
+ *                                                                                             *
+ * OUTPUT:  Returns with a pointer to a cell offset occupation list for the aircraft.          *
+ *                                                                                             *
+ * WARNINGS:   This occupation list is only valid if the aircraft is landed.                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/26/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0041BF20)
 // The occupation list: the origin cell and the end marker.
 
 Cell const *AircraftTypeClass::Occupy_List(int arg1) const
@@ -181,7 +268,22 @@ Cell const *AircraftTypeClass::Occupy_List(int arg1) const
 // @symbol _$E47
 
 
-// bool AircraftTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) const (0x0041BF90)
+/***********************************************************************************************
+ * AircraftTypeClass::Create_And_Place -- Creates and places aircraft using normal game system *
+ *                                                                                             *
+ *    This routine is used to create and place an aircraft through the normal game system.     *
+ *    Since creation of aircraft in this fashion is prohibited, this routine does nothing.     *
+ *                                                                                             *
+ * INPUT:   na                                                                                 *
+ *                                                                                             *
+ * OUTPUT:  Always returns a failure code (false).                                             *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/07/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0041BF90)
 // Aircraft are never placed this way (RA1: Create_And_Place).
 
 bool AircraftTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) const
@@ -190,7 +292,24 @@ bool AircraftTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) co
 }
 
 
-// CoordStruct AircraftTypeClass::Lepton_Dimensions() const (0x0041BFA0)
+/***********************************************************************************************
+ * AircraftTypeClass::Dimensions -- Fetches the graphic dimensions of the aircraft type.       *
+ *                                                                                             *
+ *    This routine will fetch the pixel dimensions of this aircraft type. These dimensions     *
+ *    are used to control map refresh and select box rendering.                                *
+ *                                                                                             *
+ * INPUT:   width    -- Reference to variable that will be filled in with aircraft width.      *
+ *                                                                                             *
+ *          height   -- Reference to variable that will be filled in with aircraft height.     *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/07/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0041BFA0)
 // One cell square, twice the 0x0083C550 height.
 
 CoordStruct AircraftTypeClass::Lepton_Dimensions() const
@@ -199,7 +318,22 @@ CoordStruct AircraftTypeClass::Lepton_Dimensions() const
 }
 
 
-// bool AircraftTypeClass::Read_INI(CCINIClass &ini) (0x0041BFD0)
+/***********************************************************************************************
+ * AircraftTypeClass::Read_INI -- Fetches aircraft override values from the INI database.      *
+ *                                                                                             *
+ *    This routine will retrieve the override values for this aircraft type class object from  *
+ *    the INI database specified.                                                              *
+ *                                                                                             *
+ * INPUT:   ini   -- Reference to the INI database to retrieve the data from.                  *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the aircraft section for this type found and data retrieved from it?     *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/19/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x0041BFD0)
 // The techno values, then the aircraft keys (rules) and the art keys
 // (art INI, image section).
 
@@ -220,7 +354,14 @@ bool AircraftTypeClass::Read_INI(CCINIClass &ini)
 }
 
 
-// void AircraftTypeClass::Compute_CRC(WWCRCEngine &crc) const (0x0041C110)
+/// <summary>
+/// Adds the aircraft type to a running checksum.
+/// This routine is used by the network code to prove that every machine in a multiplayer
+/// game agrees about the rules. Anything that differs between machines must be folded in
+/// here or a desynchronization will go unnoticed.
+/// </summary>
+/// <param name="crc">The checksum engine to submit the type's data to.</param>
+// (0x0041C110)
 
 void AircraftTypeClass::Compute_CRC(WWCRCEngine &crc) const
 {
@@ -234,7 +375,14 @@ void AircraftTypeClass::Compute_CRC(WWCRCEngine &crc) const
 }
 
 
-// HRESULT __stdcall AircraftTypeClass::Load(IStream *stream) (0x0041C180)
+/// <summary>
+/// Reads the aircraft type back in from a save game stream.
+/// The saved bytes carry no artwork or virtual table, so this routine rebuilds the object
+/// in place and then re-fetches the voxel and shape images the aircraft draws with.
+/// </summary>
+/// <param name="stream">The stream to read the aircraft type from.</param>
+/// <returns>Returns with S_OK, or the failure code reported by the base class.</returns>
+// (0x0041C180)
 // Rebuilds the object in place, swizzles Trailer and reloads the image.
 
 HRESULT __stdcall AircraftTypeClass::Load(IStream *stream)
@@ -251,7 +399,15 @@ HRESULT __stdcall AircraftTypeClass::Load(IStream *stream)
 }
 
 
-// HRESULT __stdcall AircraftTypeClass::Save(IStream *stream, BOOL clear_dirty) (0x0041C1F0)
+/// <summary>
+/// Writes the aircraft type out to a save game stream.
+/// This routine is called by the save game machinery. All of the work is done by the
+/// techno type layer; the aircraft type itself has nothing further to record.
+/// </summary>
+/// <param name="stream">The stream to write the aircraft type to.</param>
+/// <param name="cleardirty">Should the object be marked as saved once it is written?</param>
+/// <returns>Returns with S_OK, or the failure code reported by the base class.</returns>
+// (0x0041C1F0)
 
 HRESULT __stdcall AircraftTypeClass::Save(IStream *stream, BOOL clear_dirty)
 {
@@ -263,7 +419,14 @@ HRESULT __stdcall AircraftTypeClass::Save(IStream *stream, BOOL clear_dirty)
 }
 
 
-// HRESULT __stdcall AircraftTypeClass::GetClassID(GUID *clsid) (0x0041C210)
+/// <summary>
+/// Fetches the class identifier of the aircraft type.
+/// The save game machinery asks each object for this identifier so that it can create an
+/// object of the right class again when the game is loaded.
+/// </summary>
+/// <param name="retval">Pointer to the identifier to fill in.</param>
+/// <returns>Returns with S_OK, or E_POINTER if there was nowhere to put the answer.</returns>
+// (0x0041C210)
 
 HRESULT __stdcall AircraftTypeClass::GetClassID(GUID *clsid)
 {
@@ -275,7 +438,15 @@ HRESULT __stdcall AircraftTypeClass::GetClassID(GUID *clsid)
 }
 
 
-// static AircraftTypeClass *__fastcall AircraftTypeClass::Find_Or_Make(char const *name) (0x0041C250)
+/// <summary>
+/// Fetches the aircraft type of the name specified, creating it if need be.
+/// This routine is used while parsing the rules and the scenario so that a type may be
+/// referred to before its own section has been read. A type made this way is added to the
+/// aircraft type heap and filled in later.
+/// </summary>
+/// <param name="name">The INI name of the aircraft type to look for.</param>
+/// <returns>Returns with a pointer to the aircraft type. This will never be NULL.</returns>
+// (0x0041C250)
 // The type with this ID, a new one when unknown, 0 for "<none>"/"none".
 
 AircraftTypeClass *__fastcall AircraftTypeClass::Find_Or_Make(char const *name)

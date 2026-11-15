@@ -1,3 +1,15 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/lightcalc.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // lightcalc.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -8,6 +20,20 @@
 #include "shared/unknown_globals.hpp"
 
 
+/// <summary>
+/// Normalizes a tile lighting tint to its strongest channel.
+/// This routine is used by the cell lighting recalculation so that the tint handed to a
+/// tile drawer always peaks at full strength, with the brightness taken out of the tint
+/// folded into the light level instead. The caller uses the reported intensity to bring
+/// any other brightness values it is tracking for the cell into line.
+/// </summary>
+/// <param name="intensity">Filled in with the scale divided out of the tint, expressed in
+/// 16.16 fixed point.</param>
+/// <param name="light">The light level for the tile. It is scaled to suit the normalized
+/// tint and limited to full brightness.</param>
+/// <param name="red">The red tint level, where 1000 is full strength.</param>
+/// <param name="green">The green tint level, where 1000 is full strength.</param>
+/// <param name="blue">The blue tint level, where 1000 is full strength.</param>
 // Normalize tile tint and scale light intensity, exact-target 005383C0.
 // RA2 adds an upper clamp to all three channels before normalization.
 void __fastcall Adjust_Tile_RGB(int &intensity, int &light, int &red, int &green, int &blue)

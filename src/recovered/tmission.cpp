@@ -1,3 +1,19 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/tmission.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // tmission.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -82,7 +98,15 @@ void ScriptMissionClass::Read_INI_Entry(char const *text)
 }
 
 
-// int ScriptMissionClass::Build_INI_Entry(char *buffer) const (0x006EAFA0):
+/// <summary>
+/// Builds the INI text form of this team mission.
+/// This routine is the counterpart to Fill_In and is used when a team type is written
+/// back out to the scenario file.
+/// </summary>
+/// <param name="ptr">Buffer to build the entry into. A NULL pointer builds nothing.</param>
+/// <returns>Returns with the number of characters placed into the buffer.</returns>
+/// <remarks>Be sure that the destination buffer is big enough to hold the entry.</remarks>
+// (0x006EAFA0)
 // writes "action,argument" and returns its length (0 for no buffer).
 
 int ScriptMissionClass::Build_INI_Entry(char *buffer) const
@@ -95,7 +119,22 @@ int ScriptMissionClass::Build_INI_Entry(char *buffer) const
 }
 
 
-// int __fastcall TeamMission_Needs(int mission) -- 0x006EAFE0
+/***********************************************************************************************
+ * TeamMission_Needs -- Determines what extra data is needed by team mission.                  *
+ *                                                                                             *
+ *    This routine will return the required extra data that the specified team mission will    *
+ *    need.                                                                                    *
+ *                                                                                             *
+ * INPUT:   tmtype   -- The team mission type to check.                                        *
+ *                                                                                             *
+ * OUTPUT:  Returns with the data type needed for this team mission.                           *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/26/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x006EAFE0)
 // Maps a script action number to a value (most actions give 0); no callers by direct call
 // (name, argument and result types are hypotheses).
 

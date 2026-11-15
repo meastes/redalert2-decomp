@@ -1,3 +1,19 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/crate.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // crate.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -71,7 +87,21 @@
 // by HeaderStatics_empty_rect_init_00493740.cpp; no source of its own.
 
 
-// bool CrateClass::Remove_It() -- 0x00493930
+/***********************************************************************************************
+ * CrateClass::Remove_It -- Removes the crate from wherever it is.                             *
+ *                                                                                             *
+ *    This routine will remove the crate from whereever it happens to be.                      *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the crate found and removed?                                             *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/26/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00493930)
 // Removes the crate this object tracks (if any) and stops its timer.
 
 bool CrateClass::Remove_It()
@@ -96,6 +126,22 @@ inline double Random_Double(double a, double b)
     return (b - a) * (num * (1.0 / 2147483646.0)) + a;
 }
 
+/***********************************************************************************************
+ * CrateClass::Create_Crate -- Create a crate in the cell specified.                           *
+ *                                                                                             *
+ *    This will create a crate in the cell specified. If the crate could not be crated there   *
+ *    then 'false' will be returned.                                                           *
+ *                                                                                             *
+ * INPUT:   cell  -- The desired cell to place the crate in.                                   *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the crate created and placed in the cell?                                *
+ *                                                                                             *
+ * WARNINGS:   It is quite possible for the crate not to have been placed. Only the most clear *
+ *             locations are valid for crate placement.                                        *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/26/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
 bool CrateClass::Create_Crate(Cell const &cell)
 {
     Remove_It();
@@ -111,7 +157,23 @@ bool CrateClass::Create_Crate(Cell const &cell)
 }
 
 
-// bool __fastcall CrateClass::Put_Crate(Cell &cell) -- 0x00493AD0
+/***********************************************************************************************
+ * CrateClass::Put_Crate -- Generates crate overlay at cell specified.                         *
+ *                                                                                             *
+ *    This helpter routine will examine the cell and place the appropriate crate type into     *
+ *    the cell specified. If the overlay could not be generated, then 'false' is returned.     *
+ *                                                                                             *
+ * INPUT:   cell  -- The cell to generate the crate overlay in.                                *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the crate overlay generated?                                             *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/26/1996 JLB : Created.                                                                 *
+ *   10/14/1996 JLB : Takes reference to cell so that tracking can occur.                      *
+ *=============================================================================================*/
+// (0x00493AD0)
 // Places a wood crate (a water crate on water) at cell when the cell is on the map and has no overlay,
 // and redraws the area it covers.
 

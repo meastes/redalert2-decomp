@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/wspudp.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // wspudp.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -70,7 +85,21 @@
 // by HeaderStatics_diagonal_init_0076be60.cpp; no source of its own.
 
 
-// UDPInterfaceClass::UDPInterfaceClass() (0x0076C050)
+/***********************************************************************************************
+ * UDPInterfaceClass::UDPInterfaceClass -- Class constructor.                                  *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/5/97 12:11PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0076C050)
 
 UDPInterfaceClass::UDPInterfaceClass()
 {
@@ -81,7 +110,21 @@ UDPInterfaceClass::UDPInterfaceClass()
 }
 
 
-// UDPInterfaceClass::~UDPInterfaceClass() (0x0076C0F0)
+/***********************************************************************************************
+ * UDPIC::~UDPInterfaceClass -- UDPInterface class destructor                                  *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    10/9/97 12:17PM ST : Created                                                             *
+ *=============================================================================================*/
+// (0x0076C0F0)
 // Frees the broadcast and local addresses, then shuts Winsock down.
 
 UDPInterfaceClass::~UDPInterfaceClass()
@@ -95,7 +138,12 @@ UDPInterfaceClass::~UDPInterfaceClass()
 }
 
 
-// void UDPInterfaceClass::Clear_Broadcast_Addresses() (0x0076C230, slot 12)
+/// <summary>
+/// Discards every broadcast address the interface knows about.
+/// This routine is used to forget the addresses handed over by Set_Broadcast_Address,
+/// so that a later broadcast will not reach a stale set of destinations.
+/// </summary>
+// (0x0076C230, slot 12)
 // Frees the broadcast addresses.
 
 void UDPInterfaceClass::Clear_Broadcast_Addresses()
@@ -107,7 +155,21 @@ void UDPInterfaceClass::Clear_Broadcast_Addresses()
 }
 
 
-// void UDPInterfaceClass::Set_Broadcast_Address(char *address, unsigned short port) (0x0076C290, slot 11)
+/***********************************************************************************************
+ * UDPInterfaceClass::Set_Broadcast_Address -- Sets the address to send broadcast packets to   *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    ptr to address in decimal dot format. i.e. xxx.xxx.xxx.xxx                        *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/5/97 12:12PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0076C290, slot 11)
 // Adds a broadcast address given as "a.b.c.d" (the default port when 0).
 
 void UDPInterfaceClass::Set_Broadcast_Address(char *address, unsigned short port)
@@ -127,7 +189,10 @@ void UDPInterfaceClass::Set_Broadcast_Address(char *address, unsigned short port
 }
 
 
-// bool UDPInterfaceClass::OpenSocket(unsigned short port) (0x0076C350, slot 23)
+/// <summary>
+/// RA2
+/// </summary>
+// (0x0076C350, slot 23)
 // (Re)opens the primary datagram socket and binds it to the port (the
 // default game port when 0), with lingering off.
 
@@ -237,7 +302,10 @@ void UDPInterfaceClass::Close_Spare_Socket(unsigned short port)
 }
 
 
-// void UDPInterfaceClass::Select_Port_Socket(unsigned short port) (0x0076C670, slot 29)
+/// <summary>
+/// RA2
+/// </summary>
+// (0x0076C670, slot 29)
 // Selects the socket bound to a non-default port (else none).
 
 void UDPInterfaceClass::Select_Port_Socket(unsigned short port)
@@ -254,7 +322,10 @@ void UDPInterfaceClass::Select_Port_Socket(unsigned short port)
 }
 
 
-// bool UDPInterfaceClass::Init_Ports() (0x0076C6D0, slot 25)
+/// <summary>
+/// RA2
+/// </summary>
+// (0x0076C6D0, slot 25)
 
 bool UDPInterfaceClass::Init_Ports()
 {
@@ -266,7 +337,21 @@ bool UDPInterfaceClass::Init_Ports()
 }
 
 
-// bool UDPInterfaceClass::Open_Socket(int socket) (0x0076C6F0, slot 15)
+/***********************************************************************************************
+ * UDPInterfaceClass::Open_Socket -- Opens a socket for communications via the UDP protocol    *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Socket number to use. Not required for this protocol.                             *
+ *                                                                                             *
+ * OUTPUT:   True if socket was opened OK                                                      *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    8/5/97 12:13PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0076C6F0, slot 15)
 // Starts Winsock if needed, opens the primary socket on the default port,
 // records this host's addresses as the local addresses and opens the
 // alternate socket on the alternate port.
@@ -329,7 +414,10 @@ bool UDPInterfaceClass::Open_Socket(int)
 }
 
 
-// void UDPInterfaceClass::WriteTo(void *buf, int buflen, void *address, int addresslen, bool alternate, unsigned char arg6, unsigned short arg7) (0x0076C960, slot 3)
+/// <summary>
+/// RA2
+/// </summary>
+// (0x0076C960, slot 3)
 // A write to a broadcast address becomes a broadcast.
 
 void UDPInterfaceClass::WriteTo(void *buf, int buflen, void *address, int addresslen, bool alternate, unsigned char arg6, unsigned short arg7)
@@ -342,7 +430,22 @@ void UDPInterfaceClass::WriteTo(void *buf, int buflen, void *address, int addres
 }
 
 
-// void UDPInterfaceClass::Broadcast(void *buf, int buflen, bool alternate) (0x0076C9C0, slot 4)
+/***********************************************************************************************
+ * UDPIC::Broadcast -- Send data via the Winsock socket                                        *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    ptr to buffer containing data to send                                             *
+ *           length of data to send                                                            *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    3/20/96 3:00PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0076C9C0, slot 4)
 // A broadcast goes to every broadcast address as its own checksummed
 // packet, each followed by a write notification.
 
@@ -371,7 +474,10 @@ void UDPInterfaceClass::Broadcast(void *buf, int buflen, bool alternate)
 }
 
 
-// bool UDPInterfaceClass::Start_Listening() (0x0076CB30, slot 7)
+/// <summary>
+/// RA2
+/// </summary>
+// (0x0076CB30, slot 7)
 // The base sockets, then read/write notifications on every spare socket.
 
 bool UDPInterfaceClass::Start_Listening()
@@ -389,7 +495,10 @@ bool UDPInterfaceClass::Start_Listening()
 }
 
 
-// void UDPInterfaceClass::Stop_Listening() (0x0076CBA0, slot 8)
+/// <summary>
+/// RA2
+/// </summary>
+// (0x0076CBA0, slot 8)
 
 void UDPInterfaceClass::Stop_Listening()
 {
@@ -398,7 +507,10 @@ void UDPInterfaceClass::Stop_Listening()
 }
 
 
-// void UDPInterfaceClass::Add_Peer(unsigned long *address, unsigned short port) (0x0076CBC0, slot 30)
+/// <summary>
+/// RA2
+/// </summary>
+// (0x0076CBC0, slot 30)
 // Remembers an address and port as unreachable (up to 16).
 
 void UDPInterfaceClass::Add_Peer(unsigned long *address, unsigned short port)
@@ -420,7 +532,10 @@ void UDPInterfaceClass::Add_Peer(unsigned long *address, unsigned short port)
 }
 
 
-// bool UDPInterfaceClass::Is_Reachable(unsigned long *address, unsigned short port) (0x0076CC70)
+/// <summary>
+/// RA2
+/// </summary>
+// (0x0076CC70)
 // False when the address and port are marked unreachable.
 
 bool UDPInterfaceClass::Is_Reachable(unsigned long *address, unsigned short port)
@@ -434,7 +549,10 @@ bool UDPInterfaceClass::Is_Reachable(unsigned long *address, unsigned short port
 }
 
 
-// void UDPInterfaceClass::Close_All_Port_Sockets() (0x0076CCC0, slot 28)
+/// <summary>
+/// RA2
+/// </summary>
+// (0x0076CCC0, slot 28)
 // Closes the spare sockets and forgets them.
 
 extern HWND MainWindow;                     // 0x00B263D8
@@ -451,7 +569,21 @@ void UDPInterfaceClass::Close_All_Port_Sockets()
 }
 
 
-// int UDPInterfaceClass::Message_Handler(int window, int message, int wparam, int lparam) (0x0076CD40, slot 16)
+/***********************************************************************************************
+ * TMC::Message_Handler -- Message handler function for Winsock related messages               *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Windows message handler stuff                                                     *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    3/20/96 3:05PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x0076CD40, slot 16)
 // The Winsock message handler (TibSun wspudp.cpp Message_Handler with RA2's spare sockets,
 // alternate socket, unreachable list and packet-router address translation).
 
@@ -646,7 +778,10 @@ int UDPInterfaceClass::Message_Handler(int window, int message, int wparam, int 
 // Inline in shared/udp_interface.hpp; emitted with the vtable. No source of its own.
 
 
-// unsigned int UDPInterfaceClass::Protocol_Event_Message(int socket) (0x0076D3F0, slot 14)
+/// <summary>
+/// RA2
+/// </summary>
+// (0x0076D3F0, slot 14)
 // The notification message: 0x474 for the primary socket (or -1), 0x475
 // for the alternate, else 0.
 

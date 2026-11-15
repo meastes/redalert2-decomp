@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/tooltip.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // tooltip.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -11,7 +26,14 @@
 #include "shared/display.hpp"
 
 
-// ToolTipManager::ToolTipManager(HWND window) (0x006EB2E0)
+/// <summary>
+/// Constructs an empty tooltip manager for the window specified.
+/// The manager starts out deactivated and carrying no tooltips, with the default hover
+/// delay and lifetime.
+/// </summary>
+/// <param name="window">The window whose tooltips this manager will look after.</param>
+/// <remarks>No tooltip will appear until Activate is called.</remarks>
+// (0x006EB2E0)
 
 ToolTipManager::ToolTipManager(HWND window) :
     Current(0),
@@ -25,7 +47,12 @@ ToolTipManager::ToolTipManager(HWND window) :
 }
 
 
-// ToolTipManager::~ToolTipManager() (0x006EB390)
+/// <summary>
+/// Destroys the tooltip manager.
+/// The hover timer is handed back to Windows and every tooltip registered with the manager
+/// is destroyed along with it.
+/// </summary>
+// (0x006EB390)
 // Stops the timer, hides the tip being shown and frees the registered tips.
 
 ToolTipManager::~ToolTipManager()
@@ -173,7 +200,15 @@ int ToolTipManager::Count() const
 }
 
 
-// bool ToolTipManager::Add(ToolTip const &tip) (0x006EB860)
+/// <summary>
+/// Adds a tooltip to the manager.
+/// The manager takes a copy, so the caller's record does not have to outlive the call.
+/// Identifiers must be unique -- a duplicate is refused rather than displacing the tooltip
+/// already registered under that identifier.
+/// </summary>
+/// <param name="tooltip">The tooltip to copy into the manager.</param>
+/// <returns>bool; Was the tooltip added?</returns>
+// (0x006EB860)
 // Registers a copy of the tip unless its ID is already known: the copy goes into Tips and the ID index.
 
 bool ToolTipManager::Add(ToolTip const &tip)
@@ -192,7 +227,13 @@ bool ToolTipManager::Add(ToolTip const &tip)
 }
 
 
-// void ToolTipManager::Remove(unsigned int id) (0x006EBA10)
+/// <summary>
+/// Removes the tooltip with the identifier specified.
+/// The tooltip is destroyed outright. If it happens to be the one on display, the display
+/// is cleared first so that nothing is left pointing at it.
+/// </summary>
+/// <param name="id">Identifier of the tooltip to remove.</param>
+// (0x006EBA10)
 // Unregisters and deletes the tip with this ID (hiding it first when it is the one shown).
 
 void ToolTipManager::Remove(unsigned int id)
@@ -211,7 +252,13 @@ void ToolTipManager::Remove(unsigned int id)
 }
 
 
-// bool ToolTipManager::Find(unsigned int id, ToolTip *tooltip) (0x006EBBA0; Tiberian Sun's Find)
+/// <summary>
+/// Finds the tooltip with the identifier specified.
+/// </summary>
+/// <param name="id">Identifier of the tooltip to look for.</param>
+/// <param name="tooltip">Optional destination to copy the tooltip found into.</param>
+/// <returns>bool; Was a tooltip with that identifier registered?</returns>
+// (0x006EBBA0; Tiberian Sun's Find)
 // The tip registered under id exists; when tooltip is not 0 the tip is copied there. No caller keeps
 // this copy: Add expands it.
 
@@ -265,7 +312,14 @@ void ToolTipManager::Hide(ToolTipRecord *record)
 }
 
 
-// bool ToolTipManager::Update() (0x006EBDB0; Tiberian Sun's Process)
+/// <summary>
+/// Works out the display metrics for the tooltip text specified.
+/// This is the hook a derived manager overrides in order to measure the text and decide
+/// where the tooltip box will sit. The base manager takes the text as it stands.
+/// </summary>
+/// <param name="text">The tooltip display record to prepare.</param>
+/// <returns>bool; Can the tooltip be displayed?</returns>
+// (0x006EBDB0; Tiberian Sun's Process)
 // Prepares the tip under the mouse: its text (the string table label, or Get_Text(ID) without one) is
 // copied into Record at the cursor and offered to Show; a tip without text, or one Show refuses, is
 // dropped. True while a tip remains.

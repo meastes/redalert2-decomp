@@ -1,3 +1,19 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/weapon.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // weapon.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -123,7 +139,23 @@ WeaponTypeClass::WeaponTypeClass(char const *ini_name)
 }
 
 
-// WeaponTypeClass::WeaponTypeClass(NoInitClass const &noinit) (0x007330D0)
+/***********************************************************************************************
+ * WeaponTypeClass::WeaponTypeClass -- Default constructor for weapon type objects.            *
+ *                                                                                             *
+ *    This default constructor will initialize all the values of the weapon to the default     *
+ *    state. Thus, if any of these settings are not specifically overridden by the rules.ini   *
+ *    file, they will remain this value in the game.                                           *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/17/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x007330D0)
 
 WeaponTypeClass::WeaponTypeClass(NoInitClass const &noinit) :
     AbstractTypeClass(noinit),
@@ -136,7 +168,22 @@ WeaponTypeClass::WeaponTypeClass(NoInitClass const &noinit) :
 }
 
 
-// WeaponTypeClass::~WeaponTypeClass() (0x00733120)
+/***********************************************************************************************
+ * WeaponTypeClass::~WeaponTypeClass -- Destructor for weapon type class objects.              *
+ *                                                                                             *
+ *    This destructor really doesn't do anything but set the pointers to NULL. This is a       *
+ *    general purposes safety tactic but is otherwise useless.                                 *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/17/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00733120)
 // Detaches the weapon type everywhere, forgets its projectile and warhead and
 // leaves the weapon type list.
 
@@ -149,7 +196,23 @@ WeaponTypeClass::~WeaponTypeClass()
 }
 
 
-// WeaponTypeClass::Read_INI (0x00733220)
+/***********************************************************************************************
+ * WeaponTypeClass::Read_INI -- Fetch the weapon data from the INI database.                   *
+ *                                                                                             *
+ *    This routine will fetch the weapon data for this weapon type object from the INI         *
+ *    database specified.                                                                      *
+ *                                                                                             *
+ * INPUT:   ini   -- Reference to the INI database that the weapon data will be fetched        *
+ *                   from.                                                                     *
+ *                                                                                             *
+ * OUTPUT:  bool; Was this weapon type described in the database and the values retrieved?     *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/19/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00733220)
 // Reads the weapon's rules.ini section; the section must exist.
 
 bool WeaponTypeClass::Read_INI(CCINIClass &ini)
@@ -219,7 +282,14 @@ bool WeaponTypeClass::Read_INI(CCINIClass &ini)
 }
 
 
-// void WeaponTypeClass::Init_Max_Speed() (0x007339C0)
+/// <summary>
+/// Sets the launch speed for a ballistic weapon.
+/// A weapon that throws an unguided projectile must launch it hard enough to carry it the
+/// weapon's full range, so the speed is worked out from that range and the gravity the
+/// projectile falls under. A guided projectile steers itself and is left alone.
+/// </summary>
+/// <remarks>Only call this routine once the rules have been read, since it leans on them.</remarks>
+// (0x007339C0)
 // Derives unknown_a8 from the range and the projectile's speed (rules
 // default, or 0x0047FCD0 for floaters); nothing for homing (ROT) projectiles.
 
@@ -235,7 +305,23 @@ void WeaponTypeClass::Init_Max_Speed()
 }
 
 
-// ArmorType __fastcall Armor_From_Name(char const *name) (0x00733A20)
+/***********************************************************************************************
+ * Armor_From_Name -- Convert ASCII name into armor type number.                               *
+ *                                                                                             *
+ *    This will find the armor type that matches the ASCII name specified and then will return *
+ *    the armor ID number of it.                                                               *
+ *                                                                                             *
+ * INPUT:   name  -- Pointer to the ASCII name of the armor to find.                           *
+ *                                                                                             *
+ * OUTPUT:  Returns with the armor ID number of the armor that matches the name specified. If  *
+ *          no match could be found, then ARMOR_NONE is returned.                              *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/17/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00733A20)
 
 ArmorType __fastcall Armor_From_Name(char const *name)
 {
@@ -250,7 +336,22 @@ ArmorType __fastcall Armor_From_Name(char const *name)
 }
 
 
-// int WeaponTypeClass::Allowed_Threats() const (0x00733A60)
+/***********************************************************************************************
+ * WeaponTypeClass::Allowed_Threats -- Determine what threats this weapon can address.         *
+ *                                                                                             *
+ *    This routine will examine the capabilities of this weapon and return with the threat     *
+ *    types that it can address.                                                               *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  Returns with the threat types that this weapon can address.                        *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/09/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00733A60)
 // Flags from the projectile type (4 for +0x274, 0xB8 added for +0x275).
 
 int WeaponTypeClass::Allowed_Threats() const
@@ -266,7 +367,13 @@ int WeaponTypeClass::Allowed_Threats() const
 }
 
 
-// bool WeaponTypeClass::Is_Wall_Destroyer() const (0x00733A90)
+/// <summary>
+/// Can this weapon knock down a wall?
+/// The answer comes from the warhead the weapon fires, and it is used when deciding whether
+/// an object should bother attacking a wall that is in its way.
+/// </summary>
+/// <returns>bool; Will this weapon destroy walls?</returns>
+// (0x00733A90)
 
 bool WeaponTypeClass::Is_Wall_Destroyer() const
 {
@@ -277,7 +384,14 @@ bool WeaponTypeClass::Is_Wall_Destroyer() const
 }
 
 
-// void WeaponTypeClass::Compute_CRC(WWCRCEngine &crc) const (0x00733AB0)
+/// <summary>
+/// Adds this weapon type's data to the CRC calculation.
+/// This routine is used by the multiplayer sync checker to prove that every machine agrees
+/// about the weapon, so the projectile and warhead it refers to are submitted by identifier
+/// rather than by pointer.
+/// </summary>
+/// <param name="crc">The checksum engine to submit the data to.</param>
+// (0x00733AB0)
 
 void WeaponTypeClass::Compute_CRC(WWCRCEngine &crc) const
 {
@@ -315,7 +429,14 @@ void WeaponTypeClass::Compute_CRC(WWCRCEngine &crc) const
 }
 
 
-// HRESULT __stdcall WeaponTypeClass::GetClassID(GUID *clsid) (0x00733C50)
+/// <summary>
+/// Fetches the class identifier of this object.
+/// This routine is used by the persistence machinery to recognize what kind of object it
+/// is about to load back.
+/// </summary>
+/// <param name="retval">Pointer to the identifier to fill in.</param>
+/// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
+// (0x00733C50)
 
 HRESULT __stdcall WeaponTypeClass::GetClassID(GUID *clsid)
 {
@@ -327,7 +448,15 @@ HRESULT __stdcall WeaponTypeClass::GetClassID(GUID *clsid)
 }
 
 
-// WeaponTypeClass::Load (0x00733C90)
+/// <summary>
+/// Loads this weapon type from the save game stream.
+/// A weapon type saved by an older version of the game lacks the projectile range and
+/// burst delay data, so such a save is patched up to the current layout as it is read. The
+/// object is then rebuilt in place, its sound and animation lists are read back, and the
+/// saved pointers are remapped to the objects of this session.
+/// </summary>
+/// <returns>Returns with S_OK if the weapon type was loaded, otherwise the failure code.</returns>
+// (0x00733C90)
 // Clears the sound list, loads the base object, restores the weapon type in
 // place, rebuilds both lists from their saved counts and entries, and swizzles
 // the projectile, warhead, attached particle system, assault animation and the
@@ -354,7 +483,14 @@ HRESULT __stdcall WeaponTypeClass::Load(IStream *stream)
 }
 
 
-// HRESULT __stdcall WeaponTypeClass::Save(IStream *stream, BOOL clear_dirty) (0x00733DF0)
+/// <summary>
+/// Writes this weapon type out to the save game stream.
+/// The base class writes the raw object image, and this routine then writes out the
+/// report sound and firing animation lists that hang off it.
+/// </summary>
+/// <param name="cleardirty">Should the object be marked as clean once it has been written?</param>
+/// <returns>Returns with S_OK if the weapon type was written, otherwise the failure code.</returns>
+// (0x00733DF0)
 // The base object, then the two lists as counts and elements.
 
 HRESULT __stdcall WeaponTypeClass::Save(IStream *stream, BOOL clear_dirty)
@@ -377,7 +513,14 @@ HRESULT __stdcall WeaponTypeClass::Save(IStream *stream, BOOL clear_dirty)
 }
 
 
-// WeaponTypeClass *__fastcall WeaponTypeClass::Find_Or_Make(char const *name) (0x00733EA0)
+/// <summary>
+/// Fetches the weapon of the name specified, creating it if it does not exist yet.
+/// Use this routine while processing the rules so that a weapon mentioned before its own
+/// section has been read will still resolve to a real object.
+/// </summary>
+/// <param name="name">The INI name of the weapon desired.</param>
+/// <returns>Returns with a pointer to the weapon type of that name.</returns>
+// (0x00733EA0)
 // The named weapon type, created when missing; 0 for "<none>" and "none".
 
 WeaponTypeClass *__fastcall WeaponTypeClass::Find_Or_Make(char const *name)
@@ -407,7 +550,11 @@ int __fastcall WeaponTypeClass::Index_From_Name(char const *name)
 }
 
 
-// int WeaponTypeClass::Get_Speed(int range) const (0x00733F70)
+/**
+ *  RA2: The speed of the projectile for the range given. Ballistic projectiles (no rate of
+ *  turn) are given the speed needed to cover the range under gravity.
+ */
+// (0x00733F70)
 // Init_Max_Speed's value for another range.
 
 int WeaponTypeClass::Get_Speed(int range) const

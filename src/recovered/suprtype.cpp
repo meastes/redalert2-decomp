@@ -1,3 +1,15 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/suprtype.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // suprtype.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -109,7 +121,13 @@ SuperWeaponTypeClass::SuperWeaponTypeClass(char const *ini_name) :
 }
 
 
-// SuperWeaponTypeClass::SuperWeaponTypeClass(NoInitClass const &noinit) (0x0069F130)
+/// <summary>
+/// Constructs a super weapon type of the rules name specified.
+/// The new type is given a heap identifier and added to the super weapon type heap. Only
+/// harmless defaults are installed here; Read_INI supplies the real characteristics.
+/// </summary>
+/// <param name="ininame">The rules section this super weapon is declared by.</param>
+// (0x0069F130)
 
 SuperWeaponTypeClass::SuperWeaponTypeClass(NoInitClass const &noinit) :
     AbstractTypeClass(noinit),
@@ -119,7 +137,12 @@ SuperWeaponTypeClass::SuperWeaponTypeClass(NoInitClass const &noinit) :
 }
 
 
-// SuperWeaponTypeClass::~SuperWeaponTypeClass() (0x0069F170)
+/// <summary>
+/// Removes this super weapon type from the game.
+/// The type is unlinked from the super weapon type heap so that nothing can reach it
+/// afterwards.
+/// </summary>
+// (0x0069F170)
 
 SuperWeaponTypeClass::~SuperWeaponTypeClass()
 {
@@ -127,7 +150,13 @@ SuperWeaponTypeClass::~SuperWeaponTypeClass()
 }
 
 
-// HRESULT __stdcall SuperWeaponTypeClass::GetClassID(GUID *classid) (0x0069F1F0)
+/// <summary>
+/// Fetches the class identifier of this object.
+/// The save game system uses this to know which class to construct when the object is
+/// read back in.
+/// </summary>
+/// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
+// (0x0069F1F0)
 
 HRESULT __stdcall SuperWeaponTypeClass::GetClassID(GUID *classid)
 {
@@ -139,7 +168,14 @@ HRESULT __stdcall SuperWeaponTypeClass::GetClassID(GUID *classid)
 }
 
 
-// HRESULT __stdcall SuperWeaponTypeClass::Load(IStream *stream) (0x0069F230)
+/// <summary>
+/// Reads this super weapon type back from the save game stream.
+/// The weapon and auxiliary building references are remapped to their new addresses, and
+/// the sidebar cameo is fetched from the mix files again since artwork is never written
+/// to a save game.
+/// </summary>
+/// <returns>Returns with S_OK if the object was read successfully.</returns>
+// (0x0069F230)
 // Rebuilds the type in place, fixes up the pointers and reloads the sidebar icon.
 
 HRESULT __stdcall SuperWeaponTypeClass::Load(IStream *stream)
@@ -161,7 +197,12 @@ HRESULT __stdcall SuperWeaponTypeClass::Load(IStream *stream)
 }
 
 
-// HRESULT __stdcall SuperWeaponTypeClass::Save(IStream *stream, BOOL clear_dirty) (0x0069F300)
+/// <summary>
+/// Writes this super weapon type to the save game stream.
+/// </summary>
+/// <param name="cleardirty">Should the object be marked as clean once written?</param>
+/// <returns>Returns with S_OK if the object was written successfully.</returns>
+// (0x0069F300)
 
 HRESULT __stdcall SuperWeaponTypeClass::Save(IStream *stream, BOOL clear_dirty)
 {
@@ -189,7 +230,12 @@ int SuperWeaponTypeClass::Size_Of() const
 }
 
 
-// void SuperWeaponTypeClass::Compute_CRC(WWCRCEngine &crc) const (0x0069F340)
+/// <summary>
+/// Submits this super weapon type to the game state checksum.
+/// This routine is used by the multiplayer sync check to prove that every machine is
+/// playing with the same rules.
+/// </summary>
+// (0x0069F340)
 
 void SuperWeaponTypeClass::Compute_CRC(WWCRCEngine &crc) const
 {
@@ -213,7 +259,11 @@ void SuperWeaponTypeClass::Compute_CRC(WWCRCEngine &crc) const
 }
 
 
-// int SuperWeaponTypeClass::Fetch_Heap_ID() const (0x0069F440)
+/// <summary>
+/// Fetches the heap identifier of this super weapon type.
+/// </summary>
+/// <returns>Returns with the index of this object within the super weapon type heap.</returns>
+// (0x0069F440)
 
 int SuperWeaponTypeClass::Fetch_Heap_ID() const
 {
@@ -221,7 +271,14 @@ int SuperWeaponTypeClass::Fetch_Heap_ID() const
 }
 
 
-// bool SuperWeaponTypeClass::Read_INI(CCINIClass &ini) (0x0069F450)
+/// <summary>
+/// Fetches this super weapon's characteristics from the rules.
+/// This routine picks up the weapon, the announcement voices, the recharge delay, and
+/// the sidebar cameo artwork. A missing cameo falls back on the generic icon so that the
+/// sidebar always has something to draw.
+/// </summary>
+/// <returns>bool; Was the database entry found and read?</returns>
+// (0x0069F450)
 
 bool SuperWeaponTypeClass::Read_INI(CCINIClass &ini)
 {
@@ -292,7 +349,14 @@ int __fastcall SuperWeaponTypeClass::Find_Index(char const *name)
 }
 
 
-// SuperWeaponTypeClass *__fastcall SuperWeaponTypeClass::From_Action(int action) (0x0069F7E0)
+/// <summary>
+/// Fetches the super weapon type that performs the action specified.
+/// This routine is used to work back from a mouse action to the super weapon that
+/// offers it.
+/// </summary>
+/// <returns>Returns with a pointer to the matching super weapon type. Otherwise, NULL is
+/// returned.</returns>
+// (0x0069F7E0)
 
 SuperWeaponTypeClass *__fastcall SuperWeaponTypeClass::From_Action(int action)
 {
@@ -305,7 +369,13 @@ SuperWeaponTypeClass *__fastcall SuperWeaponTypeClass::From_Action(int action)
 }
 
 
-// SuperWeaponTypeClass *__fastcall SuperWeaponTypeClass::Find_Or_Make(char const *name) (0x0069F820)
+/// <summary>
+/// Fetches the super weapon type of the name specified, creating it if need be.
+/// This routine is used while the rules are being parsed so that a super weapon may be
+/// referred to before its own section has been reached.
+/// </summary>
+/// <returns>Returns with a pointer to the super weapon type object.</returns>
+// (0x0069F820)
 
 SuperWeaponTypeClass *__fastcall SuperWeaponTypeClass::Find_Or_Make(char const *name)
 {

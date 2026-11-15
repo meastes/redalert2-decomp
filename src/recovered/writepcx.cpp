@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/writepcx.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // writepcx.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -60,6 +75,25 @@ static unsigned char const rle_code = 0xC0;                         // Run code.
 static unsigned char const rle_max_run = 0x2F;                      // Maximum run allowed.
 static unsigned char const rle_full_run = (rle_max_run | rle_code); // Full character run (0x007AF9F0).
 
+/***********************************************************************************************
+ * Write_PCX_File -- Write a PCX file from specified buffer.                                   *
+ *                                                                                             *
+ *    This routine will take the specified buffer and write out the data as a PCX file to the  *
+ *    the file object specified.                                                               *
+ *                                                                                             *
+ * INPUT:   file     -- Reference to the file object to write the buffer as a PCX file.        *
+ *                                                                                             *
+ *          pic      -- Reference to a graphic buffer that contains the data to be written.    *
+ *                                                                                             *
+ *          palette  -- Reference to the palette to be attached to the PCX file as well.       *
+ *                                                                                             *
+ * OUTPUT:  bool; Was there an error?                                                          *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   06/03/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
 bool __fastcall Write_PCX_File(FileClass &file, Surface &pic, PaletteClass *palette)
 {
     unsigned char palcopy[256 * sizeof(PCXRGB)];

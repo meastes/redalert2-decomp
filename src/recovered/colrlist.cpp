@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/colrlist.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // colrlist.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -13,7 +28,26 @@
 // rectangle of shared/shape_file.hpp (0x00850C68), the unit's first function.
 
 
-// ColorListClass::ColorListClass(int id, int x, int y, int w, int h, unsigned flags, void const *up, void const *down) (0x0047D7C0)
+/***************************************************************************
+ * ColorListClass::ColorListClass -- class constructor                     *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      id               button ID                                         *
+ *      x,y            upper-left corner, in pixels                        *
+ *      w,h            width, height, in pixels                            *
+ *      list            ptr to array of char strings to list               *
+ *    flags          flags for mouse, style of listbox                     *
+ *      up,down         pointers to shapes for up/down buttons             *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:          01/05/1995 MML : Created.                             *
+ *=========================================================================*/
+// (0x0047D7C0)
 // An empty colour list with the default selection style.
 
 ColorListClass::ColorListClass(int id, int x, int y, int w, int h, unsigned flags, void const *up, void const *down) :
@@ -24,7 +58,22 @@ ColorListClass::ColorListClass(int id, int x, int y, int w, int h, unsigned flag
 }
 
 
-// ColorListClass::~ColorListClass() (0x0047D850)
+/***************************************************************************
+ * ColorListClass::~ColorListClass -- Class destructor                     *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      none.                                                              *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   04/19/1995 BRR : Created.                                             *
+ *=========================================================================*/
+// (0x0047D850)
 
 ColorListClass::~ColorListClass()
 {
@@ -33,7 +82,23 @@ ColorListClass::~ColorListClass()
 }
 
 
-// int ColorListClass::Add_Item(wchar_t *text, int color) (0x0047D8B0, slot 51)
+/***************************************************************************
+ * ColorListClass::Add_Item -- Adds an item to the list                    *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      text      text to add to list                                      *
+ *      color      color for item                                          *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      position of item in the list                                       *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   04/19/1995 BRR : Created.                                             *
+ *=========================================================================*/
+// (0x0047D8B0, slot 51)
 // Adds an entry drawn in a colour scheme.
 
 int ColorListClass::Add_Item(wchar_t *text, int color)
@@ -43,7 +108,21 @@ int ColorListClass::Add_Item(wchar_t *text, int color)
 }
 
 
-// void ColorListClass::Remove_Item(wchar_t *text) (0x0047D910, slot 43)
+/***************************************************************************
+ * ColorListClass::Remove_Item -- Removes an item from the list            *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      text      ptr to item to remove                                    *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   04/19/1995 BRR : Created.                                             *
+ *=========================================================================*/
+// (0x0047D910, slot 43)
 // Removes the entry with this text and its colour.
 
 void ColorListClass::Remove_Item(wchar_t *text)
@@ -56,7 +135,12 @@ void ColorListClass::Remove_Item(wchar_t *text)
 }
 
 
-// void ColorListClass::Remove_Item(int index) (0x0047D970, slot 42)
+/// <summary>
+/// Removes the specified entry from the list.
+/// This routine will discard the color assigned to the entry as well, so that the color
+/// list stays in step with the text list.
+/// </summary>
+// (0x0047D970, slot 42)
 // Removes an entry and its colour.
 
 void ColorListClass::Remove_Item(int index)
@@ -68,7 +152,23 @@ void ColorListClass::Remove_Item(int index)
 }
 
 
-// void ColorListClass::Set_Selected_Style(int style, int color) (0x0047D9C0, slot 52)
+/***************************************************************************
+ * ColorListClass::Set_Selected_Style -- tells how to draw selected item   *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      style      style to draw                                           *
+ *      color      color to draw the special style in; -1 = use item's color*
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   04/19/1995 BRR : Created.                                             *
+ *=========================================================================*/
+// (0x0047D9C0, slot 52)
 
 void ColorListClass::Set_Selected_Style(int style, int color)
 {
@@ -77,7 +177,25 @@ void ColorListClass::Set_Selected_Style(int style, int color)
 }
 
 
-// void ColorListClass::Draw_Entry(int index, int x, int y, int width, int selected) (0x0047D9E0, slot 50)
+/***************************************************************************
+ * ColorListClass::Draw_Entry -- Draws one text line                       *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      index         index into List of item to draw                      *
+ *      x,y         x,y coords to draw at                                  *
+ *      width         maximum width allowed for text                       *
+ *      selected      true = this item is selected                         *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   04/19/1995 BRR : Created.                                             *
+ *=========================================================================*/
+// (0x0047D9E0, slot 50)
 // An unselected entry prints in its own colour scheme; a selected one in the selection style:
 // 0 its own scheme, 1 the selection scheme (bright for the 6-point fonts), 2 a box in the
 // selection colour, 3 a bar under the text, 4 inverted (a bar in the entry's colour).

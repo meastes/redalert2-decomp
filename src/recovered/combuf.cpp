@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/combuf.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // combuf.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -13,7 +28,25 @@
 // shape_file.hpp empty rect.
 
 
-// CommBufferClass::CommBufferClass(int numsend, int numreceive, int maxlen, int extralen) (0x004800C0)
+/***************************************************************************
+ * CommBufferClass::CommBufferClass -- class constructor                   *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      numsend      # queue entries for sending                           *
+ *      numreceive   # queue entries for receiving                         *
+ *      maxlen      maximum desired packet length, in bytes                *
+ *      extralen      max size of app-specific extra bytes (optional)      *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/19/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x004800C0)
 // Allocates both queues, their index tables and a packet (and extra) buffer
 // per entry, then clears everything.
 
@@ -48,7 +81,22 @@ CommBufferClass::CommBufferClass(int numsend, int numreceive, int maxlen, int ex
 }
 
 
-// CommBufferClass::~CommBufferClass() (0x004801D0)
+/***************************************************************************
+ * CommBufferClass::~CommBufferClass -- class destructor                   *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      none.                                                              *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/19/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x004801D0)
 // Frees every entry's buffers, both queues and their index tables.
 
 CommBufferClass::~CommBufferClass()
@@ -73,7 +121,22 @@ CommBufferClass::~CommBufferClass()
 }
 
 
-// void CommBufferClass::Init() (0x00480280)
+/***************************************************************************
+ * CommBufferClass::Init -- initializes this queue                         *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      none.                                                              *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   01/20/1995 BR : Created.                                              *
+ *=========================================================================*/
+// (0x00480280)
 // Clears the counters, the delay statistics, every queue entry and index,
 // and the debug configuration.
 
@@ -116,7 +179,22 @@ void CommBufferClass::Init()
 }
 
 
-// void CommBufferClass::Init_Send_Queue() (0x00480370)
+/***************************************************************************
+ * CommBufferClass::Init_Send_Queue -- Clears the send queue               *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      none.                                                              *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   10/23/1995 BRR : Created.                                             *
+ *=========================================================================*/
+// (0x00480370)
 // Empties the send queue.
 
 void CommBufferClass::Init_Send_Queue()
@@ -137,7 +215,25 @@ void CommBufferClass::Init_Send_Queue()
 }
 
 
-// int CommBufferClass::Queue_Send(void *buf, int buflen, void *extrabuf, int extralen, unsigned short id) (0x004803F0)
+/***************************************************************************
+ * CommBufferClass::Queue_Send -- queues a message for sending             *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      buf         buffer containing the message                          *
+ *      buflen      length of 'buf'                                        *
+ *      extrabuf      buffer containing extra data (optional)              *
+ *      extralen      length of extra data (optional)                      *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      1 = OK, 0 = no room in the queue                                   *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x004803F0)
 // Copies a packet (and its extra data) into a free send entry and appends
 // it to the send order; 0 when full or too long.
 
@@ -183,7 +279,30 @@ int CommBufferClass::Queue_Send(void *buf, int buflen, void *extrabuf, int extra
 }
 
 
-// int CommBufferClass::UnQueue_Send(void *buf, int *buflen, int index, void *extrabuf, int *extralen, unsigned short *id) (0x00480550)
+/***************************************************************************
+ * CommBufferClass::UnQueue_Send -- removes next entry from send queue     *
+ *                                                                         *
+ * Frees the given entry; the index given by the caller is the "active"    *
+ * index value (ie the "nth" active entry), not the actual index in the    *
+ * array.                                                                  *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      buf         buffer to store entry's data in; if NULL, it's discarded*
+ *      buflen      filled in with length of entry retrieved               *
+ *      index         "index" of entry to un-queue                         *
+ *      extrabuf      buffer for extra data (optional)                     *
+ *      extralen      ptr to length of extra data (optional)               *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      1 = OK, 0 = no entry to retrieve                                   *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x00480550)
 // Copies out (when asked) and frees the index'th packet in send order,
 // closing the gap in the order; 0 when there is none.
 
@@ -221,7 +340,26 @@ int CommBufferClass::UnQueue_Send(void *buf, int *buflen, int index, void *extra
 }
 
 
-// SendQueueType *CommBufferClass::Get_Send(int index) (0x00480700)
+/***************************************************************************
+ * CommBufferClass::Get_Send -- gets ptr to queue entry                    *
+ *                                                                         *
+ * This routine gets a pointer to the indicated queue entry.  The index    *
+ * value is relative to the next-accessible queue entry; 0 = get the       *
+ * next available queue entry, 1 = get the one behind that, etc.           *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      index      index of entry to get (0 = 1st available)               *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      ptr to entry                                                       *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/21/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x00480700)
 // The index'th packet in send order, or null when that entry is free.
 
 SendQueueType *CommBufferClass::Get_Send(int index)
@@ -233,7 +371,25 @@ SendQueueType *CommBufferClass::Get_Send(int index)
 }
 
 
-// int CommBufferClass::Queue_Receive(void *buf, int buflen, void *extrabuf, int extralen) (0x00480730)
+/***************************************************************************
+ * CommBufferClass::Queue_Receive -- queues a received message             *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      buf         buffer containing the message                          *
+ *      buflen      length of 'buf'                                        *
+ *      extrabuf      buffer containing extra data (optional)              *
+ *      extralen      length of extra data (optional)                      *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      1 = OK, 0 = no room in the queue                                   *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x00480730)
 // Copies an incoming packet (and its extra data) into a free receive entry
 // stamped with the tick time and appends it to the receive order.
 
@@ -272,7 +428,30 @@ int CommBufferClass::Queue_Receive(void *buf, int buflen, void *extrabuf, int ex
 }
 
 
-// int CommBufferClass::UnQueue_Receive(void *buf, int *buflen, int index, void *extrabuf, int *extralen) (0x00480870)
+/***************************************************************************
+ * CommBufferClass::UnQueue_Receive -- removes next entry from send queue  *
+ *                                                                         *
+ * Frees the given entry; the index given by the caller is the "active"    *
+ * index value (ie the "nth" active entry), not the actual index in the    *
+ * array.                                                                  *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      buf         buffer to store entry's data in; if NULL, it's discarded*
+ *      buflen      filled in with length of entry retrieved               *
+ *      index         index of entry to un-queue                           *
+ *      extrabuf      buffer for extra data (optional)                     *
+ *      extralen      ptr to length of extra data (optional)               *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      1 = OK, 0 = no entry to retrieve                                   *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/20/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x00480870)
 // Copies out (when asked) and frees the index'th packet in receive order,
 // closing the gap in the order; 0 when there is none.
 
@@ -303,7 +482,26 @@ int CommBufferClass::UnQueue_Receive(void *buf, int *buflen, int index, void *ex
 }
 
 
-// ReceiveQueueType *CommBufferClass::Get_Receive(int index) (0x004809C0)
+/***************************************************************************
+ * CommBufferClass::Get_Receive -- gets ptr to queue entry                 *
+ *                                                                         *
+ * This routine gets a pointer to the indicated queue entry.  The index    *
+ * value is relative to the next-accessible queue entry; 0 = get the       *
+ * next available queue entry, 1 = get the one behind that, etc.           *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      index      index of entry to get (0 = 1st available)               *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      ptr to entry                                                       *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   12/21/1994 BR : Created.                                              *
+ *=========================================================================*/
+// (0x004809C0)
 // The index'th packet in receive order, or null when that entry is free.
 
 ReceiveQueueType *CommBufferClass::Get_Receive(int index)
@@ -315,7 +513,32 @@ ReceiveQueueType *CommBufferClass::Get_Receive(int index)
 }
 
 
-// void CommBufferClass::Add_Delay(unsigned long delay) (0x004809F0)
+/***************************************************************************
+ * CommBufferClass::Add_Delay -- adds a new delay value for response time  *
+ *                                                                         *
+ * This routine updates the average response time for this queue.  The     *
+ * computation is based on the average of the last 'n' delay values given, *
+ * It computes a running total of the last n delay values, then divides    *
+ * that by n to compute the average.                                       *
+ *                                                                         *
+ * When the number of values given exceeds the max, the mean is subtracted *
+ * off the total, then the new value is added in.  Thus, any single delay  *
+ * value will have an effect on the total that approaches 0 over time, and *
+ * the new delay value contributes to 1/n of the mean.                     *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      delay         value to add into the response time computation      *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      none.                                                              *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   01/19/1995 BR : Created.                                              *
+ *=========================================================================*/
+// (0x004809F0)
 // Folds a round-trip delay into the running mean (a 256-sample window once
 // full, rounded) and the maximum.
 
@@ -373,7 +596,31 @@ void CommBufferClass::Reset_Delay(bool clear)
 }
 
 
-// void CommBufferClass::Configure_Debug(int offset, int size, int names, int namestart, int namecount) (0x00480AB0)
+/***************************************************************************
+ * CommBufferClass::Configure_Debug -- sets up special debug values        *
+ *                                                                         *
+ * Mono_Debug_Print2() can look into a packet to pull out a particular     *
+ * ID, and can print both that ID and a string corresponding to            *
+ * that ID.  This routine configures these values so it can find           *
+ * and decode the ID.  This ID is used in addition to the normal           *
+ * CommHeaderType values.                                                  *
+ *                                                                         *
+ * INPUT:                                                                  *
+ *      type_offset      ID's byte offset into packet                      *
+ *      type_size      size of ID, in bytes; 0 if none                     *
+ *      names            ptr to array of names; use ID as an index into this*
+ *      maxnames         max # in the names array; 0 if none.              *
+ *                                                                         *
+ * OUTPUT:                                                                 *
+ *      none.                                                              *
+ *                                                                         *
+ * WARNINGS:                                                               *
+ *      Names shouldn't be longer than 12 characters.                      *
+ *                                                                         *
+ * HISTORY:                                                                *
+ *   05/31/1995 BRR : Created.                                             *
+ *=========================================================================*/
+// (0x00480AB0)
 
 void CommBufferClass::Configure_Debug(int offset, int size, int names, int namestart, int namecount)
 {

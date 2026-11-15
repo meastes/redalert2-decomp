@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/wincomm.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // wincomm.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -15,7 +30,21 @@
 #include "shared/crt_tokens.hpp"
 
 
-// void WinModemClass::Set_Echo_Function(void (__fastcall *func)(char c)) (0x007354A0, slot 8).
+/***********************************************************************************************
+ * WMC::Set_Echo_Function -- set up the echo function pointer                                  *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    ptr to echo function                                                              *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    1/10/96 2:35PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x007354A0, slot 8)
 
 void WinModemClass::Set_Echo_Function(void (__fastcall *func)(char c))
 {
@@ -23,7 +52,21 @@ void WinModemClass::Set_Echo_Function(void (__fastcall *func)(char c))
 }
 
 
-// void WinModemClass::Set_Abort_Function(int (*func)()) (0x007354B0, slot 9).
+/***********************************************************************************************
+ * WMC::Set_Abort_Function -- set up the abort function pointer                                *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    ptr to abort function                                                             *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    1/10/96 2:35PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x007354B0, slot 9)
 
 void WinModemClass::Set_Abort_Function(int (*func)())
 {
@@ -31,7 +74,21 @@ void WinModemClass::Set_Abort_Function(int (*func)())
 }
 
 
-// HANDLE WinModemClass::Get_Port_Handle() (0x007354C0).
+/***********************************************************************************************
+ * WMC::Get_Port_Handle -- returns a handle to the communications port                         *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Nothing                                                                           *
+ *                                                                                             *
+ * OUTPUT:   Com port handle                                                                   *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    5/23/96 1:25PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x007354C0)
 
 HANDLE WinModemClass::Get_Port_Handle()
 {
@@ -220,7 +277,22 @@ HKEY __fastcall Get_Registry_Sub_Key(HKEY base_key, char const *search_key, bool
 }
 
 
-// bool __fastcall Get_Modem_Name_From_Registry(char *buffer, int buffer_len) (0x00734310)
+/***********************************************************************************************
+ * Get_Modem_Name_From_Registry -- retrieve the name of the installed modem from the registry  *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    buffer to put the name in                                                         *
+ *           length of buffer                                                                  *
+ *                                                                                             *
+ * OUTPUT:   TRUE if modem was found in the registry                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    1/12/96 2:13PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x00734310)
 // Copies the FriendlyName of HKEY_LOCAL_MACHINE\Enum\Root\Modem\0000.
 
 bool __fastcall Get_Modem_Name_From_Registry(char *buffer, int buffer_len)
@@ -253,7 +325,26 @@ bool __fastcall Get_Modem_Name_From_Registry(char *buffer, int buffer_len)
 }
 
 
-// HANDLE WinModemClass::Serial_Port_Open(char const *port_name, int baud, int parity, int wordlen, int stopbits) (0x00734410)
+/***********************************************************************************************
+ * WMC::Serial_Port_Open -- opens a com port for asyncronous read/write and gets a handle to it*
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    Com port    - 0=com1, 1=com2 etc.                                                 *
+ *           baud rate    - bits per second                                                    *
+ *           parity       - true or false                                                      *
+ *           word length   - 5 to 8 bits                                                       *
+ *           stop bits   - 0=1 stop bit, 1=1.5 & 2=2                                           *
+ *           flow control- 0 = none, 1 = hardware                                              *
+ *                                                                                             *
+ * OUTPUT:   Handle to port                                                                    *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    1/10/96 2:17PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x00734410)
 // Opens \\.\port_name for overlapped I/O with 8 KB queues and RTS/CTS flow
 // control, records the settings and raises DTR; INVALID_HANDLE_VALUE on
 // failure.
@@ -335,7 +426,15 @@ HANDLE WinModemClass::Serial_Port_Open(char const *port_name, int baud, int pari
 }
 
 
-// bool WinModemClass::Enter_Failsafe_Mode() (0x00734670)
+/// <summary>
+/// Puts the serial port into a plain state that any modem should cope with.
+/// This routine is used by the modem detection code before it starts issuing commands.
+/// Any traffic still in flight is thrown away and the port is dropped to undemanding
+/// settings, regardless of what the game's own connection settings happen to be.
+/// </summary>
+/// <returns>bool; Was the port switched into failsafe mode?</returns>
+/// <remarks>Call Leave_Failsafe_Mode afterwards to restore the port's real settings.</remarks>
+// (0x00734670)
 // Drops pending I/O and sets the port to 9600 baud, 8 data bits, no parity,
 // one stop bit, no flow control; false when the settings are refused.
 
@@ -391,7 +490,14 @@ bool WinModemClass::Enter_Failsafe_Mode()
 }
 
 
-// void WinModemClass::Leave_Failsafe_Mode() (0x007347C0)
+/// <summary>
+/// Restores the serial port settings that failsafe mode replaced.
+/// This routine is the counterpart to Enter_Failsafe_Mode. Any traffic still in flight is
+/// discarded and the port is handed back with the settings it was opened with, ready for
+/// the game to talk to whatever is on the other end of the wire.
+/// </summary>
+/// <remarks>Only call this routine after a successful Enter_Failsafe_Mode.</remarks>
+// (0x007347C0)
 // Drops pending I/O and restores the settings Serial_Port_Open made.
 
 void WinModemClass::Leave_Failsafe_Mode()
@@ -430,7 +536,21 @@ void WinModemClass::Set_Modem_Dial_Type(int method)
 }
 
 
-// void WinModemClass::Set_Serial_DTR(bool state) (0x00734900; slot 4)
+/***********************************************************************************************
+ * WMC::Set_Serial_DTR -- set the state of the modems DTR control line                         *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    state - true or false                                                             *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    1/10/96 2:25PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x00734900; slot 4)
 // Raises (SETDTR) or drops (CLRDTR) the port's DTR line; reports a failure.
 
 void WinModemClass::Set_Serial_DTR(bool state)
@@ -585,6 +705,23 @@ void WinModemClass::Write_To_Serial_Port(unsigned char *buffer, int length)
 }
 
 
+/***********************************************************************************************
+ * WMC::Get_Modem_Result -- gets the result code from the modem after issuing an 'AT' command  *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    delay for result time-out                                                         *
+ *           ptr to buffer to receive modem result                                             *
+ *           length of buffer                                                                  *
+ *                                                                                             *
+ * OUTPUT:   un-elapsed delay                                                                  *
+ *                                                                                             *
+ * WARNINGS: None                                                                              *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    1/10/96 2:30PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x00734CD0)
 // int WinModemClass::Get_Modem_Result(int delay, char *buffer, int buffer_len, int timeout)
 // (0x00734CD0; slot 5)
 // Collects the modem reply into buffer until delay runs out or a line ends and the
@@ -667,7 +804,21 @@ int WinModemClass::Get_Modem_Result(int delay, char *buffer, int buffer_len, int
 }
 
 
-// void WinModemClass::Dial_Modem(char const *dial_number) (0x00734F50; slot 6)
+/***********************************************************************************************
+ * WMC::Dial_Modem -- issue an 'ATD' command to the modem                                      *
+ *                                                                                             *
+ *                                                                                             *
+ *                                                                                             *
+ * INPUT:    string - number to dial                                                           *
+ *                                                                                             *
+ * OUTPUT:   Nothing                                                                           *
+ *                                                                                             *
+ * WARNINGS: Use Set_Modem_Dial_Type to choose pulse or tone dialling                          *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *    1/10/96 2:32PM ST : Created                                                              *
+ *=============================================================================================*/
+// (0x00734F50; slot 6)
 // Sends "ATDT<number>\r" (ATDP for pulse dialling) and waits for the write.
 
 void WinModemClass::Dial_Modem(char const *dial_number)

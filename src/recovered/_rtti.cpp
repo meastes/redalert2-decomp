@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/_rtti.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // _rtti.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -62,7 +77,14 @@
 // by HeaderStatics_empty_rect_init_0040d950.cpp; no source of its own.
 
 
-// char const *__fastcall Name_From_RTTI(RTTIType rtti) (0x0040DB60)
+/// <summary>
+/// Fetches the readable name for an RTTI type.
+/// Use this routine whenever an object type must be recorded in human readable form --
+/// when storing it in an INI database, or when logging object state for the sync debugger.
+/// </summary>
+/// <returns>Returns with the name of the RTTI type specified. If the type has no name
+/// assigned, then "Unknown" is returned.</returns>
+// (0x0040DB60)
 // The name of an AbstractClass kind, "Unknown" when it is not in the table.
 
 char const *__fastcall Name_From_RTTI(RTTIType rtti)
@@ -76,7 +98,14 @@ char const *__fastcall Name_From_RTTI(RTTIType rtti)
 }
 
 
-// RTTIType __fastcall RTTI_From_Name(char const *name) (0x0040DB90)
+/// <summary>
+/// Converts an RTTI name back into its RTTI type.
+/// This routine is the counterpart to Name_From_RTTI and is used when an object type is
+/// read back out of an INI database. The name comparison ignores case.
+/// </summary>
+/// <returns>Returns with the RTTI type that the name refers to, or RTTI_NONE if the name
+/// is not recognized.</returns>
+// (0x0040DB90)
 // The AbstractClass kind of a name (case-insensitive), RTTI_NONE when it is
 // not in the table.
 

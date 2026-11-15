@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/zbuffer.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // zbuffer.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -14,6 +25,14 @@
 // shared/unknown_static_rect.hpp (0x00B2AF80). The ZBuffer members follow.
 
 
+/// <summary>
+/// Creates a depth buffer covering the area specified.
+/// The buffer is a 16 bit surface that the depth aware blitters test and write against. It
+/// is treated as a ring rather than a plain bitmap, so that the tactical map can scroll it
+/// by sliding its origin. It starts out cleared to maximum depth, so that the first objects
+/// drawn always pass the depth test.
+/// </summary>
+/// <param name="rect">The area the buffer is to cover.</param>
 // Construct the 16-bit ring stored at original global 00839C6C.
 // ZBuffer is the existing project name hypothesis, not an asserted RTTI identity.
 ZBuffer::ZBuffer(Rect area)
@@ -32,6 +51,13 @@ ZBuffer::ZBuffer(Rect area)
 }
 
 
+/// <summary>
+/// Copies the depth buffer out to a surface.
+/// The buffer is unwrapped as it is copied, so the destination receives the region laid out
+/// the way it is displayed rather than the way it happens to be stored.
+/// </summary>
+/// <param name="surface">The surface to copy into.</param>
+/// <param name="rect">The region of the destination surface to copy into.</param>
 // Copy an area-sized block of alpha values, starting at the ring's current
 // origin, into surface at the area's position (a view of the buffer).
 void ZBuffer::Copy_To(::Surface &surface, Rect area)
@@ -55,6 +81,17 @@ void ZBuffer::Copy_To(::Surface &surface, Rect area)
 ZBuffer::~ZBuffer() { delete Surface; }
 
 
+/// <summary>
+/// Fills a run of depth entries with the value specified.
+/// This is the low level fill routine that the pan and update code use once they have
+/// worked out where in the buffer to write. It works in raw buffer addresses rather than
+/// in coordinates.
+/// </summary>
+/// <param name="dst">The buffer address to begin filling at.</param>
+/// <param name="size">The number of depth entries to fill.</param>
+/// <param name="value">The depth value to fill with.</param>
+/// <remarks>The run is not wrapped. The caller must split any fill that would otherwise
+/// run off the end of the buffer.</remarks>
 // Store value into count 16-bit entries from pointer: a leading single
 // entry when pointer is not 4-byte aligned, then packed pairs, then a final
 // single entry. As in the original, the final entry is written only when at
@@ -77,6 +114,16 @@ void ZBuffer::Set(unsigned short *pointer, int count, unsigned short value)
 }
 
 
+/// <summary>
+/// Scrolls the depth buffer by the amount specified.
+/// This routine is what makes the buffer cheap for the tactical map to scroll. The depth
+/// entries are never moved; the buffer's origin slides instead, and only the rows and
+/// columns that have just come into view are reset. A scroll far enough to leave nothing
+/// worth keeping resets the whole buffer instead.
+/// </summary>
+/// <param name="x">The distance to scroll horizontally, in pixels.</param>
+/// <param name="y">The distance to scroll vertically, in pixels.</param>
+/// <param name="value">The depth value to reset the newly exposed area to.</param>
 // Scroll the ring by dx columns and dy rows (the view moved): move the ring
 // origin and clear the newly exposed columns and rows to value. A move
 // larger than the buffer clears all of it and resets MaxValue.
@@ -148,6 +195,13 @@ void ZBuffer::Fill(unsigned short color) { Surface->Fill_Rect(Rect(0,0,Width,Hei
 void ZBuffer::Clear_Region_007761A0(unsigned short color, Rect area) { Surface->Fill_Rect(area,color); }
 
 
+/// <summary>
+/// Resets a region of the depth buffer back to maximum depth.
+/// The tactical map calls this routine for every region it is about to redraw, so that the
+/// depth compares there start from a clean slate. Unlike Fill, the region is located
+/// through the current pan offset and is allowed to straddle the wrap point.
+/// </summary>
+/// <param name="rect">The region of the buffer to reset.</param>
 // Clear a by-value rectangle to FFFF in the ring at original global00839C6C.
 void ZBuffer::Update(Rect area)
 {
@@ -172,6 +226,13 @@ void ZBuffer::Update(Rect area)
 }
 
 
+/// <summary>
+/// Fetches the address of a point within the depth buffer.
+/// The point is given in buffer coordinates. The current pan offset is applied to it and
+/// the result is wrapped, so the address returned is where that entry actually lives.
+/// </summary>
+/// <param name="pos">The point within the buffer to locate.</param>
+/// <returns>Returns with the address of the entry within the depth buffer.</returns>
 // Point-by-value getter for the ring at original global00839C6C.
 // ZBuffer remains the existing project-name hypothesis.
 unsigned short *ZBuffer::Get_Buffer_Offset(Point2D point)

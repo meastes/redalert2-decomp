@@ -1,3 +1,19 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/cargo.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // cargo.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -23,6 +39,23 @@ inline bool Cargo_Is_Foot(ObjectClass const *object)
     return object != 0 && is_foot;
 }
 
+/***********************************************************************************************
+ * CargoClass::Attach -- Add unit to cargo hold.                                               *
+ *                                                                                             *
+ *    This routine will add the specified unit to the cargo hold. The                          *
+ *    unit will chain to any existing units in the hold. The chaining is                       *
+ *    in a LIFO order.                                                                         *
+ *                                                                                             *
+ * INPUT:   object-- Pointer to the object to attach to the cargo hold.                        *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   04/23/1994 JLB : Created.                                                                 *
+ *   10/31/94   JLB : Handles chained objects.                                                 *
+ *=============================================================================================*/
 void CargoClass::Attach(FootClass *passenger)
 {
     if (passenger == 0) return;
@@ -60,6 +93,24 @@ void CargoClass::Attach(FootClass *passenger)
 }
 
 
+/***********************************************************************************************
+ * CargoClass::Detach_Object -- Removes a unit from the cargo hold.                            *
+ *                                                                                             *
+ *    This routine will take a unit from the cargo hold and extract it.                        *
+ *    The unit extracted is the last unit added to the hold. If there                          *
+ *    is no unit in the hold or the occupant is not a unit, then NULL is                       *
+ *    returned.                                                                                *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  Returns with a pointer to the unit that has been extracted.                        *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   04/23/1994 JLB : Created.                                                                 *
+ *   06/07/1994 JLB : Handles generic object types.                                            *
+ *=============================================================================================*/
 ObjectClass *CargoClass::Detach_Object() {
     ObjectClass *passenger = Object;
     if (!passenger) return 0;
@@ -95,6 +146,13 @@ int CargoClass::GetTotalSize() const
 }
 
 
+/// <summary>
+/// Removes a specific object from the cargo hold.
+/// This routine will unlink the object from the passenger list wherever it happens to sit
+/// in the chain. Use Detach_Object when unloading passengers in the normal order; use this
+/// routine when one particular passenger must leave out of turn.
+/// </summary>
+/// <param name="object">The passenger to remove from the cargo hold.</param>
 // Unlinks only: original65-bytebody leaves Count and removed-next unchanged.
 void CargoClass::Detach(FootClass *passenger)
 {

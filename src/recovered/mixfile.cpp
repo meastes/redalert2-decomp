@@ -1,3 +1,18 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/mixfile.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // mixfile.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -46,7 +61,24 @@ int MixFileClass::Compare_Blocks(void const *left, void const *right)
 }
 
 
-// MixFileClass::MixFileClass(char const *filename, PKey const *key) (0x005952F0)
+/***********************************************************************************************
+ * MixFileClass::MixFileClass -- Constructor for mixfile object.                               *
+ *                                                                                             *
+ *    This is the constructor for the mixfile object. It takes a filename and a memory         *
+ *    handler object and registers the mixfile object with the system. The index block is      *
+ *    allocated and loaded from disk by this routine.                                          *
+ *                                                                                             *
+ * INPUT:   filename -- Pointer to the filename of the mixfile object.                         *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/08/1994 JLB : Created.                                                                 *
+ *   07/12/1996 JLB : Handles compressed file header.                                          *
+ *=============================================================================================*/
+// (0x005952F0)
 // TibSun mixfile.cpp: makes sure a disk is present, opens the archive, reads the (optionally
 // Blowfish/PK encrypted) header and index, notes where the member data starts and links the
 // archive at the tail of MixList.
@@ -123,7 +155,21 @@ MixFileClass::MixFileClass(char const *filename, PKey const *key) :
 }
 
 
-// bool __fastcall MixFileClass::Free(char const *filename) (0x00595560)
+/***********************************************************************************************
+ * MixFileClass::Free -- Uncaches a cached mixfile.                                            *
+ *                                                                                             *
+ *    Use this routine to uncache a mixfile that has been cached.                              *
+ *                                                                                             *
+ * INPUT:   filename -- Pointer to the filename of the mixfile that is to be uncached.         *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the mixfile found and freed?                                             *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/23/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00595560)
 // Releases the cache of the named registered archive; false when it is not registered.
 
 class CCFileClass;
@@ -139,7 +185,24 @@ bool __fastcall MixFileClass::Free(char const *filename)
 }
 
 
-// MixFileClass::~MixFileClass() (0x00595620)
+/***********************************************************************************************
+ * MixFileClass::~MixFileClass -- Destructor for the mixfile object.                           *
+ *                                                                                             *
+ *    This destructor will free all memory allocated by this mixfile and will remove it from   *
+ *    the system. A mixfile removed in this fashion must be created anew in order to be        *
+ *    subsequent used.                                                                         *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/08/1994 JLB : Created.                                                                 *
+ *   01/06/1995 JLB : Puts mixfile header table into EMS.                                      *
+ *=============================================================================================*/
+// (0x00595620)
 // Frees the name, the cache and the index, then leaves the archive list.
 
 class CCFileClass;
@@ -162,7 +225,24 @@ MixFileClass::~MixFileClass()
 }
 
 
-// MixFileClass *__fastcall MixFileClass::Finder(char const *filename) (0x005956E0)
+/***********************************************************************************************
+ * MixFileClass::Finder -- Finds the mixfile object that matches the name specified.           *
+ *                                                                                             *
+ *    This routine will scan through all registered mixfiles and return with a pointer to      *
+ *    the matching mixfile. If no mixfile could be found that matches the name specified,      *
+ *    then NULL is returned.                                                                   *
+ *                                                                                             *
+ * INPUT:   filename -- Pointer to the filename to search for.                                 *
+ *                                                                                             *
+ * OUTPUT:  Returns with a pointer to the matching mixfile -- if found.                        *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/08/1994 JLB : Created.                                                                 *
+ *   06/08/1996 JLB : Only compares filename and extension.                                    *
+ *=============================================================================================*/
+// (0x005956E0)
 // First registered archive whose name and extension equal filename (case-insensitive).
 
 class CCFileClass;
@@ -185,7 +265,21 @@ MixFileClass *__fastcall MixFileClass::Finder(char const *filename)
 }
 
 
-// bool __fastcall MixFileClass::Cache(char const *filename, Buffer const *buffer) (0x00595770)
+/***********************************************************************************************
+ * MixFileClass::Cache -- Caches the named mixfile into RAM.                                   *
+ *                                                                                             *
+ *    This routine will cache the mixfile, specified by name, into RAM.                        *
+ *                                                                                             *
+ * INPUT:   filename -- The name of the mixfile that should be cached.                         *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the cache successful?                                                    *
+ *                                                                                             *
+ * WARNINGS:   This routine could go to disk for a very long time.                             *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/08/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00595770)
 // Caches the named registered archive; false when it is not registered.
 
 class CCFileClass;
@@ -200,7 +294,24 @@ bool __fastcall MixFileClass::Cache(char const *filename, Buffer const *buffer)
 }
 
 
-// bool MixFileClass::Cache(Buffer const *buffer) (0x00595810)
+/***********************************************************************************************
+ * MixFileClass::Cache -- Loads this particular mixfile's data into RAM.                       *
+ *                                                                                             *
+ *    This load the mixfile data into ram for this mixfile object. This is the counterpart     *
+ *    to the Free() function.                                                                  *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the file load successful?  It could fail if there wasn't enough room     *
+ *                to allocate the raw data block.                                              *
+ *                                                                                             *
+ * WARNINGS:   This routine goes to disk for a potentially very long time.                     *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/08/1994 JLB : Created.                                                                 *
+ *   07/12/1996 JLB : Handles attached message digest.                                         *
+ *=============================================================================================*/
+// (0x00595810)
 // TibSun mixfile.cpp: loads the archive's member data into memory (the caller's buffer when it is
 // large enough, else an owned allocation touched every 4 KB), reads it through the file straw (and
 // a SHA straw for a digested archive), and checks the digest that follows the data.
@@ -261,7 +372,24 @@ bool MixFileClass::Cache(Buffer const *buffer)
 }
 
 
-// void MixFileClass::Free() (0x00595A70)
+/***********************************************************************************************
+ * MixFileClass::Free -- Frees the allocated raw data block (not the index block).             *
+ *                                                                                             *
+ *    This routine will free the (presumably large) raw data block, but leave the index        *
+ *    block intact. By using this in conjunction with the Cache() function, one can maintain   *
+ *    tight control of memory usage. If the index block is desired to be freed, then the       *
+ *    mixfile object must be deleted.                                                          *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/08/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00595A70)
 // Releases the cached data (when owned) and forgets it.
 
 class CCFileClass;
@@ -276,7 +404,37 @@ void MixFileClass::Free()
 }
 
 
-// bool __fastcall MixFileClass::Offset(char const *filename, void **realptr, MixFileClass **mixfile, (0x00595AA0)
+/***********************************************************************************************
+ * MixFileClass::Offset -- Determines the offset of the requested file from the mixfile system.*
+ *                                                                                             *
+ *    This routine will take the filename specified and search through the mixfile system      *
+ *    looking for it. If the file was found, then the mixfile it was found in, the offset      *
+ *    from the start of the mixfile, and the size of the embedded file will be returned.       *
+ *    Using this method it is possible for the CCFileClass system to process it as a normal    *
+ *    file.                                                                                    *
+ *                                                                                             *
+ * INPUT:   filename    -- The filename to search for.                                         *
+ *                                                                                             *
+ *          realptr     -- Stores a pointer to the start of the file in memory here. If the    *
+ *                         file is not in memory, then NULL is stored here.                    *
+ *                                                                                             *
+ *          mixfile     -- The pointer to the corresponding mixfile is placed here. If no      *
+ *                         mixfile was found that contains the file, then NULL is stored here. *
+ *                                                                                             *
+ *          offset      -- The starting offset from the beginning of the parent mixfile is     *
+ *                         stored here.                                                        *
+ *                                                                                             *
+ *          size        -- The size of the embedded file is stored here.                       *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the file found? The file may or may not be resident, but it does exist   *
+ *                 and can be opened.                                                          *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   10/17/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00595AA0)
 // Locates a member by the CRC of its upper-cased name in every registered archive.
 
 class CCFileClass;

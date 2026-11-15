@@ -493,10 +493,10 @@ public:
     int unknown_1b8;                                      // +0x001B8 (-1)
     int unknown_1bc;                                      // +0x001BC (-1)
     int unknown_1c0;                                      // +0x001C0 (-1)
-    int unknown_1c4;                                      // +0x001C4 a count the tag destructor lowers
+    int Blockage;                                      // +0x001C4 a count the tag destructor lowers
     CDTimerClass<FrameTimerClass> unknown_1c8;            // +0x001C8
     CDTimerClass<FrameTimerClass> unknown_1d4;            // +0x001D4
-    CDTimerClass<FrameTimerClass> unknown_1e0;            // +0x001E0 (restarted at 60 by the tag destructor)
+    CDTimerClass<FrameTimerClass> BorrowedTime;            // +0x001E0 (restarted at 60 by the tag destructor)
     CDTimerClass<FrameTimerClass> unknown_1ec;            // +0x001EC
     CDTimerClass<FrameTimerClass> unknown_1f8;            // +0x001F8
     bool unknown_204;                                     // +0x00204

@@ -4,8 +4,8 @@
     "id": "population-3555",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "1ea98fa6a2aed9521ab4d7e1b56a393901ff43d828bf7f5923636d2a1f3b522e",
-    "historical_acceptance_sha256": "b86ffcd5da7ebe122c867b5de3490f7ee45cc61d6dce634542fa08031b58f2c9"
+    "historical_population_sha256": "400290bb856157a9fbbbff6bdf167e0051769aec949649de9ec80f9d18165488",
+    "historical_acceptance_sha256": "cf970e19cae8bb8ac43e2f21f2b53d061ad41de4624b012400d213eaa595d292"
   },
   "references": {
     "_unknown_empty_rect": 11709872,
@@ -2162,7 +2162,28 @@
     "??_R0?AVTactical@@@8": 8350296,
     "??_R0?AVVeinholeMonsterClass@@@8": 8361640,
     "??_R0?AVWinModemClass@@@8": 8374768,
-    "??_R0?AVWWMouseClass@@@8": 8393584
+    "??_R0?AVWWMouseClass@@@8": 8393584,
+    "?Draw_It@IsometricTileClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5407312,
+    "?Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5853472,
+    "?Draw_It@OverlayClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6144752,
+    "?Draw_It@SmudgeClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6847216,
+    "?Contains@GraphicMenuItem@@UAE_NABUPoint2D@@@Z": 5112256,
+    "?Action@seed_006816b0@@YGIHH@Z": 6821552,
+    "?Draw_It@WaveClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7480624,
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "?Draw_It@ParticleSystemClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6336656,
+    "?Draw_It@TerrainClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7223696,
+    "?Draw_It@InfantryClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5244240,
+    "?Draw_It@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5020608,
+    "?Draw_It@AircraftClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4276672,
+    "?Draw_It@ParticleClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6331664,
+    "?Draw_It@AnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4329040,
+    "?Draw_It@VoxelAnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7393216,
+    "?Draw_It@BuildingClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4433376,
+    "__ramp_corners": 8339828,
+    "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
+    "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096
   },
   "regions": [
     {
@@ -2216,7 +2237,7 @@
           "resolved": 11709884
         }
       ],
-      "source_sha256": "4afb3851b01149c481887b7c275060836272651b2ef28ae9a9bb20974b9f7b9a",
+      "source_sha256": "11be346f7ef021ae5656349db443a58fdc844bda627475012d87b700f6d6c979",
       "source": "src/recovered/writepcx.cpp",
       "population": "population-3555",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -2395,7 +2416,7 @@
           "resolved": 103624
         }
       ],
-      "source_sha256": "4afb3851b01149c481887b7c275060836272651b2ef28ae9a9bb20974b9f7b9a",
+      "source_sha256": "11be346f7ef021ae5656349db443a58fdc844bda627475012d87b700f6d6c979",
       "source": "src/recovered/writepcx.cpp",
       "population": "population-3555",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -2430,7 +2451,7 @@
           "resolved": 8059376
         }
       ],
-      "source_sha256": "4afb3851b01149c481887b7c275060836272651b2ef28ae9a9bb20974b9f7b9a",
+      "source_sha256": "11be346f7ef021ae5656349db443a58fdc844bda627475012d87b700f6d6c979",
       "source": "src/recovered/writepcx.cpp",
       "population": "population-3555",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",

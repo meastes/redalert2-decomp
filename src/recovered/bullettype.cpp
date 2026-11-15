@@ -1,3 +1,19 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/bullettype.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // bullettype.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -128,7 +144,23 @@ BulletTypeClass::BulletTypeClass(char const *ini_name) :
 }
 
 
-// BulletTypeClass::BulletTypeClass(NoInitClass const &noinit) (0x00464700)
+/***********************************************************************************************
+ * BulletTypeClass::BulletTypeClass -- Constructor for bullet type objects.                    *
+ *                                                                                             *
+ *    This is basically a constructor for static type objects used by bullets. All bullets     *
+ *    are of a type constructed by this routine at game initialization time.                   *
+ *                                                                                             *
+ * INPUT:   see below...                                                                       *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   10/17/1994 JLB : Created.                                                                 *
+ *   07/17/1996 JLB : Uses correct default values.                                             *
+ *=============================================================================================*/
+// (0x00464700)
 
 BulletTypeClass::BulletTypeClass(NoInitClass const &noinit) :
     ObjectTypeClass(noinit)
@@ -136,7 +168,12 @@ BulletTypeClass::BulletTypeClass(NoInitClass const &noinit) :
 }
 
 
-// BulletTypeClass::~BulletTypeClass() (0x00464730)
+/// <summary>
+/// Removes this bullet type from the game.
+/// This routine severs any references other objects hold to this bullet type before
+/// dropping it from the type databases.
+/// </summary>
+// (0x00464730)
 
 BulletTypeClass::~BulletTypeClass()
 {
@@ -168,6 +205,21 @@ static inline WeaponTypeClass *Get_WeaponType(CCINIClass &ini, char const *secti
     return defvalue;
 }
 
+/***********************************************************************************************
+ * BulletTypeClass::Read_INI -- Fetch the bullet type data from the INI database.              *
+ *                                                                                             *
+ *    Use this routine to fetch override information about this bullet type class object       *
+ *    from the INI database specified.                                                         *
+ *                                                                                             *
+ * INPUT:   ini   -- Reference to the INI database to examine.                                 *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the section for this bullet found and the data extracted?                *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/19/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
 bool BulletTypeClass::Read_INI(CCINIClass &ini)
 {
     if (ObjectTypeClass::Read_INI(ini)) {
@@ -248,7 +300,13 @@ int __fastcall BulletTypeClass::Index_Or_Make(char const *name)
 }
 
 
-// char const *__fastcall BulletTypeClass::Name_From(int index) (0x00464DE0)
+/// <summary>
+/// Converts a bullet type number into its ASCII name.
+/// </summary>
+/// <param name="bullet">The bullet type to fetch the name of.</param>
+/// <returns>Returns with the name of the bullet type. If the type is not a legal one,
+/// then NULL is returned.</returns>
+// (0x00464DE0)
 
 char const *__fastcall BulletTypeClass::Name_From(int index)
 {
@@ -259,7 +317,14 @@ char const *__fastcall BulletTypeClass::Name_From(int index)
 }
 
 
-// CoordStruct BulletTypeClass::Coord_Fixup(CoordStruct const &coord) const (0x00464E00)
+/// <summary>
+/// Adjusts a coordinate so that it is legal for a bullet of this type.
+/// This routine lifts the coordinate clear of the terrain, so that a bullet is never
+/// created or moved to a spot buried in the landscape.
+/// </summary>
+/// <param name="coord">The coordinate to be adjusted.</param>
+/// <returns>Returns with the adjusted coordinate.</returns>
+// (0x00464E00)
 // The coordinate, raised above the ground height when it is not above it.
 
 CoordStruct BulletTypeClass::Coord_Fixup(CoordStruct const &coord) const
@@ -272,7 +337,13 @@ CoordStruct BulletTypeClass::Coord_Fixup(CoordStruct const &coord) const
 }
 
 
-// void BulletTypeClass::Compute_CRC(WWCRCEngine &crc) const (0x00464E70, slot 13)
+/// <summary>
+/// Submits this bullet type's data to the running checksum.
+/// This routine is used by the multiplayer sync check to prove that every machine is
+/// playing by the same bullet rules.
+/// </summary>
+/// <param name="crc">The checksum engine to submit this object's data to.</param>
+// (0x00464E70, slot 13)
 // The base CRC, then the flight flags and values (Westwood's selection).
 // Extent: the inventory stops at 0x00464F52; a linear sweep reaches the ret 4
 // at 0x00464F9F, followed by nop padding to the Load at 0x00464FB0.
@@ -303,7 +374,14 @@ void BulletTypeClass::Compute_CRC(WWCRCEngine &crc) const
 }
 
 
-// HRESULT __stdcall BulletTypeClass::Load(IStream *stream) (0x00464FB0)
+/// <summary>
+/// Reads this bullet type back in from the save game stream.
+/// This routine copes with save games written before the later members existed, and then
+/// restores the parts of the object that a save file cannot carry -- the artwork and the
+/// pointers to other type objects.
+/// </summary>
+/// <returns>Returns with S_OK if the object was read successfully.</returns>
+// (0x00464FB0)
 // Restores the type in place, reloads its voxel and image and swizzles its
 // trailer and weapon pointers.
 
@@ -323,7 +401,12 @@ HRESULT __stdcall BulletTypeClass::Load(IStream *stream)
 }
 
 
-// HRESULT __stdcall BulletTypeClass::Save(IStream *stream, BOOL clear_dirty) (0x00465040)
+/// <summary>
+/// Writes this bullet type out to the save game stream.
+/// </summary>
+/// <param name="cleardirty">Should the object be marked as clean once written?</param>
+/// <returns>Returns with S_OK if the object was written successfully.</returns>
+// (0x00465040)
 
 HRESULT __stdcall BulletTypeClass::Save(IStream *stream, BOOL clear_dirty)
 {
@@ -335,7 +418,11 @@ HRESULT __stdcall BulletTypeClass::Save(IStream *stream, BOOL clear_dirty)
 }
 
 
-// HRESULT __stdcall BulletTypeClass::GetClassID(GUID *clsid) (0x00465060)
+/// <summary>
+/// Fetches the class identifier that the save game code stores for this object.
+/// </summary>
+/// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
+// (0x00465060)
 
 HRESULT __stdcall BulletTypeClass::GetClassID(GUID *clsid)
 {
@@ -347,7 +434,14 @@ HRESULT __stdcall BulletTypeClass::GetClassID(GUID *clsid)
 }
 
 
-// BulletTypeClass *__fastcall BulletTypeClass::Find_Or_Make(char const *name) (0x004650A0)
+/// <summary>
+/// Fetches the bullet type of the name specified, creating it if need be.
+/// This routine is used by the rules parser when it meets a bullet name that has not been
+/// declared yet, so that bullets may be mentioned in any order.
+/// </summary>
+/// <param name="name">Pointer to the ASCII name of the bullet type wanted.</param>
+/// <returns>Returns with a pointer to the bullet type of that name.</returns>
+// (0x004650A0)
 // The named bullet type, created when missing; 0 for "<none>" and "none".
 
 BulletTypeClass *__fastcall BulletTypeClass::Find_Or_Make(char const *name)
@@ -364,7 +458,13 @@ BulletTypeClass *__fastcall BulletTypeClass::Find_Or_Make(char const *name)
 }
 
 
-// void BulletTypeClass::Detach(AbstractClass *target, bool all) (0x00465130)
+/// <summary>
+/// Removes any reference this bullet type holds to the object specified.
+/// This routine is called when an object is about to leave the game, so that no bullet
+/// type is left pointing at it.
+/// </summary>
+/// <param name="target">Pointer to the object that is going away.</param>
+// (0x00465130)
 
 void BulletTypeClass::Detach(AbstractClass *target, bool all)
 {

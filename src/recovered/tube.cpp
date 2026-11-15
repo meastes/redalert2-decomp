@@ -1,3 +1,15 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/tube.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
 // tube.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -75,7 +87,15 @@
 // by HeaderStatics_diagonal_init_006eefe0.cpp; no source of its own.
 
 
-// TubeClass::TubeClass(Cell const &enter, int facing) (0x006EF1D0)
+/// <summary>
+/// Creates a tunnel and adds it to the tunnel list.
+/// The tunnel starts out with no length at all -- it enters and leaves at the same cell
+/// until directions are added to it. The cell it is entered from is stamped with this
+/// tunnel's index so that anything standing there can find its way underground.
+/// </summary>
+/// <param name="cell">The cell that the tunnel is entered from.</param>
+/// <param name="dir">The facing that the tunnel is entered by.</param>
+// (0x006EF1D0)
 // (the first Tube source: its vector macros are the unit's, the others' come after the first include)
 // A tunnel from the entry cell: no directions yet, listed and indexed by the entry cell.
 
@@ -94,7 +114,12 @@ TubeClass::TubeClass(Cell const &enter, int facing) : EnterCell(enter), ExitCell
 }
 
 
-// TubeClass::~TubeClass() (0x006EF2D0)
+/// <summary>
+/// Removes this tunnel from the game.
+/// Everything that was holding on to this tunnel is told to let go of it, and the cell
+/// the tunnel was entered from forgets about it as well.
+/// </summary>
+// (0x006EF2D0)
 // Forgets the tube: clears the entry cell's tube index when it is this tube's, leaves the list.
 
 TubeClass::~TubeClass()
@@ -111,7 +136,13 @@ TubeClass::~TubeClass()
 }
 
 
-// HRESULT __stdcall TubeClass::Load(IStream *stream) (0x006EF3A0)
+/// <summary>
+/// Loads this tunnel from the save game stream.
+/// The object is rebuilt in place once the base class has read the raw image back over
+/// it, so that the tunnel has a working virtual table again.
+/// </summary>
+/// <returns>Returns with S_OK if the tunnel was read successfully.</returns>
+// (0x006EF3A0)
 // Restores the tube in place.
 
 HRESULT __stdcall TubeClass::Load(IStream *stream)
@@ -125,7 +156,12 @@ HRESULT __stdcall TubeClass::Load(IStream *stream)
 }
 
 
-// HRESULT __stdcall TubeClass::Save(IStream *stream, BOOL clear_dirty) (0x006EF3E0)
+/// <summary>
+/// Saves this tunnel to the save game stream.
+/// </summary>
+/// <param name="cleardirty">Should the dirty flag be cleared once the object is written?</param>
+/// <returns>Returns with S_OK if the tunnel was written successfully.</returns>
+// (0x006EF3E0)
 
 HRESULT __stdcall TubeClass::Save(IStream *stream, BOOL clear_dirty)
 {
@@ -160,7 +196,14 @@ void TubeClass::Update_All_Indexes()
 }
 
 
-// void __fastcall TubeClass::Write_INI(CCINIClass &ini) (0x006EF480)
+/// <summary>
+/// Writes all of the tunnels out to the map file.
+/// Each tunnel becomes a single entry holding the cell it is entered from, the facing it
+/// is entered by, the cell it comes out of, and the chain of directions that traces its
+/// path underground. The tunnel list is tidied up first so that the indices written here
+/// agree with the ones stamped into the cells.
+/// </summary>
+// (0x006EF480)
 // Rewrites [Tubes]: renumbers the tubes (deleting the unusable), then one "index=x,y,facing,x,y,directions" entry each.
 extern "C" int __cdecl sprintf(char *buffer, char const *format, ...);
 extern "C" unsigned int __cdecl strlen(char const *string);
@@ -185,7 +228,12 @@ void __fastcall TubeClass::Write_INI(CCINIClass &ini)
 }
 
 
-// void __fastcall TubeClass::Read_INI(CCINIClass &ini) (0x006EF5C0)
+/// <summary>
+/// Reads the tunnels in from the map file.
+/// A tunnel is created for every entry found, and the cell each one is entered from is
+/// stamped with the index of the tunnel that leads out of it.
+/// </summary>
+// (0x006EF5C0)
 // Makes a tube of every [Tubes] entry: "enter x,y,facing,exit x,y,directions..." (a -1 direction ends the list).
 extern "C" int __cdecl atoi(char const *string);
 
@@ -260,6 +308,15 @@ inline Cell Adjacent_Cell(Cell const &cell, int facing)
 }
 #endif
 
+/// <summary>
+/// Extends this tunnel by one step.
+/// The direction is appended to the path that traces the tunnel underground, and the
+/// exit cell moves along with it. The map editor builds a tunnel up one step at a time
+/// this way.
+/// </summary>
+/// <param name="dir">The direction to extend the tunnel in.</param>
+/// <remarks>A tunnel can hold no more than 99 steps. Beyond that the direction is
+/// dropped, although the exit cell still moves.</remarks>
 void TubeClass::Add_Direction(int facing)
 {
     if (unknown_1c0 < 99) {
@@ -270,7 +327,13 @@ void TubeClass::Add_Direction(int facing)
 }
 
 
-// void TubeClass::Compute_CRC(WWCRCEngine &crc) const (0x006EF830)
+/// <summary>
+/// Folds this tunnel's state into a running CRC.
+/// The multiplayer sync check uses this to prove that every machine still agrees on
+/// where the tunnels run.
+/// </summary>
+/// <param name="crc">The running CRC to fold this tunnel's state into.</param>
+// (0x006EF830)
 
 void TubeClass::Compute_CRC(WWCRCEngine &crc) const
 {
@@ -303,7 +366,14 @@ int TubeClass::Kind_Of() const
 }
 
 
-// HRESULT __stdcall TubeClass::GetClassID(GUID *clsid) (0x006EF8D0)
+/// <summary>
+/// Fetches the class identifier of this object.
+/// This routine is used by the save game system so that it knows what kind of object to
+/// construct when the stream is read back in.
+/// </summary>
+/// <param name="retval">Pointer to the place to store the class identifier.</param>
+/// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
+// (0x006EF8D0)
 
 HRESULT __stdcall TubeClass::GetClassID(GUID *clsid)
 {

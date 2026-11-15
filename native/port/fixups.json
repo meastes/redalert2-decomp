@@ -3071,8 +3071,8 @@
   },
   {
    "source": "src/recovered/scroll.cpp",
-   "old": "// void ScrollClass::Message_Handler(HWND window, unsigned &message, unsigned &wparam, long &lparam) (0x0066A400)\n",
-   "new": "// void ScrollClass::Message_Handler(HWND window, unsigned &message, unsigned &wparam, long &lparam) (0x0066A400)\nint Native_Modern_Left_Up(Cell const &cell, ObjectClass *&object, int action);   // NATIVE (C16): link/native_modern_controls.cpp\nvoid Native_Modern_Left_Done();\nbool Native_Modern_Right_Order(bool scrolled);\nint Native_Modern_Right_Action(ObjectClass *object, int action);\n",
+   "old": "// (0x0066A400)\n",
+   "new": "// (0x0066A400)\nint Native_Modern_Left_Up(Cell const &cell, ObjectClass *&object, int action);   // NATIVE (C16): link/native_modern_controls.cpp\nvoid Native_Modern_Left_Done();\nbool Native_Modern_Right_Order(bool scrolled);\nint Native_Modern_Right_Action(ObjectClass *object, int action);\n",
    "why": "Native addition (C16, Controls: Modern; not original behaviour): with the Enhancements setting Modern, left click selects and right click orders (link/native_modern_controls.cpp). With Classic (the default and the ORIGINAL preset) every Native_Modern_* answer is the original's own value, so the code runs as before. This row: ScrollClass::Message_Handler 0x0066A400: declares the questions.",
    "verified": false
   },
