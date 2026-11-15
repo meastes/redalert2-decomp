@@ -860,7 +860,23 @@ order; the toolbar's Fire, Move and A-Move hold Ctrl or Alt, so their taps order
 Add (Shift) makes a tap add or remove a unit. ctest `native-controls-modern` and
 `native-controls-classic` (`tests/controls_input.py`) play the same clicks in a skirmish with
 each and check the selection, the first tank's mission and the MCV's deploy; ctest
-`native-touch-modern` (`tests/touch_input.py`) plays the touch gestures with Modern. The radar's
+`native-touch-modern` (`tests/touch_input.py`) plays the touch gestures with Modern.
+A tap across player-controlled houses (C18, the user's Duo report: with one unit selected a tap
+on another moved the selected one): campaign maps give some units a house of their own under the
+player's control (Allied mission 2's Tanya is the Germans', its Rocketeers the Alliance's; the
+original's own save ALL02S.sav has them so), and the original answers a click on the player's
+units with such a unit selected, or on it with one of the player's selected, with a move there
+(TechnoClass slot 28 0x006CC5D0 gives no action for another owner, InfantryClass slot 28
+0x00505390 turns that into a move; a mouse shows the move cursor first). With either setting a
+tap (the host's `ra2_host_touch_click`: the left press came from a touch) with no modifier, no
+mode, on a selectable unit of another player-controlled house whose original action is a move
+selects it instead (`Tap_Selects_Across_Houses`); a mouse click keeps the original's move. ctest
+`native-touch-second-classic` and `-second-modern` tap a second tank with one selected in a
+skirmish; `native-touch-cross-classic`, `-cross-modern` and `-cross-mouse` load ALL02S.sav from
+the data folder (skipped without it) and tap a GI, Tanya, the other GI and Tanya (the mouse case:
+the GI clicked to Tanya moves, the original's). harness-input lists a selected object of another
+house as ` other=ID/HOUSE` before the `;`, and `@ID` points find the player's technos first, then
+those of other player-controlled houses. The radar's
 swap has no ctest (the build order would need a radar building, about 2,500 frames).
 
 HD vehicles (C16, the user's list: 2x units and shadows first; written from the behaviour the
@@ -1479,7 +1495,15 @@ in play. The iPhone Duo has no camera cutout and no home indicator; the safe-are
 reserved regions the Simulator reports, about 85 points on one side and 34 at the bottom, are not
 the device's and cannot be told apart from it, so they are only logged); the touch controls keep a
 small fixed margin (8 points) from the window's edges. The renderer no longer uses SDL's logical
-presentation, the host converts coordinates itself. The in-game resolution (RA2.INI
+presentation, the host converts coordinates itself. In fullscreen (the iOS app always) the host
+laid the picture out again at every present until C18 (`fit_window` returned before noting
+`split_fitted`, which each present compares with the split the game asks for; the Duo's log had the
+play layout at every frame); the layout's log line is now written only when it changes, and the
+render scale's whole-screen layout logs too (`log_layout`), so a layout that changes for a frame
+shows in a device's log. The Duo's report of the command bar flashing higher while its buttons are
+pressed did not reproduce on the Mac (interface 1.25x, with and without Zoom gestures, HD vehicles
+and the Duo's other settings, every present captured around taps on each command bar button); the
+per-frame layout was the one difference found on the device. The in-game resolution (RA2.INI
 [Video], written before the game starts) is a fixed number of lines by the screen's size
 in points (lane C14, `app::game_resolution` in app_mode.hpp; never by device name): 720
 lines on a large screen (the shorter side at least 600 points and the aspect at most

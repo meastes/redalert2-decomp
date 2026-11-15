@@ -34,6 +34,16 @@
 //                                       selected factory its primary (the original's own
 //                                       "self" action)
 //   right drag                          scrolls, as in the original
+// Touch, with either setting (lane C18, the user's Duo report: "I'm not able to select another
+// unit while one is already selected"): a tap with no modifier on a selectable unit of another
+// house under the player's control than the selected object's selects it. Campaign maps give
+// some units their own player-controlled house (Allied mission 2's Tanya is the Germans', its
+// Rocketeers the Alliance's; the original's own save of it, ALL02S.sav, has them so), and the
+// original answers a click on the player's other units with that house's object selected, or on
+// that object with one of the player's selected, with a move there (TechnoClass slot 28 0x006CC5D0
+// gives no action for another owner and InfantryClass slot 28 0x00505390 turns that into a
+// move). A mouse shows the move cursor first and keeps the original's click; a tap has no cursor.
+// With Modern a tap already selects.
 // With Ctrl or Alt held (force fire, force move; Ctrl and Shift: attack-move) a left click
 // keeps the original's meaning, so those keys order with either button, and the touch
 // toolbar's Fire, Move and A-Move modes (which hold them) still order with a tap.
@@ -52,11 +62,14 @@
 #include <stdio.h>
 
 void __cdecl Clear_Selected_Objects_00482bc0();         // 0x00482BC0 every selected object's Unselect
+ObjectClass *__fastcall Best_Selected_Object(Cell const *cell, ObjectClass *object);   // 0x0051A690 (init.cpp)
 void __fastcall Unknown_0049C3F0(ObjectClass *object);  // 0x0049C3F0 the selection band's select
 
 extern "C" long long ra2port_now_ms(void);
 // The setting (platform/sdl/enhancements.cpp). Weak default: Classic.
 extern "C" __attribute__((weak)) int ra2_enh_modern_controls(void) { return 0; }
+// The left button's last press was a touch's (platform/sdl/host.cpp). Weak default: never.
+extern "C" __attribute__((weak)) int ra2_host_touch_click(void) { return 0; }
 
 namespace {
 
@@ -119,6 +132,20 @@ void __fastcall Unselect_Band(ObjectClass *object)
     if (Band_Takes(object) && object->unknown_77) object->Unselect();
 }
 
+// A tap's own rule (lane C18): a plain tap on a selectable unit of a player-controlled house other
+// than the selected object's, which the original answers with a move (1 move to the shroud, 2 a move).
+bool Tap_Selects_Across_Houses(ObjectClass *object, int action)
+{
+    if ((action != 1 && action != 2) || !ra2_host_touch_click() || In_Mode() || Held(kCtrl) || Held(kAlt) || Held(kShift))
+        return false;
+    if (!Selectable(object) || object->unknown_77 || !object->AbstractFlags.IsTechno || unknown_objects_a40c60.Count() == 0)
+        return false;
+    HouseClass *house = object->Owning_House();
+    if (house == 0 || !house->Is_Player_Control()) return false;
+    ObjectClass *selected = Best_Selected_Object(0, object);
+    return selected != 0 && selected->Owning_House() != house;
+}
+
 }  // namespace
 
 // The left button released over the map (ScrollClass::Message_Handler, WM_LBUTTONUP): the
@@ -128,6 +155,10 @@ int Native_Modern_Left_Up(Cell const &cell, ObjectClass *&object, int action)
 {
     (void)cell;
     type_select = 0;
+    if (!ra2_enh_modern_controls() && Tap_Selects_Across_Houses(object, action)) {
+        fprintf(stderr, "controls: tap on another player-controlled house's unit: selected (the original's move there)\n");
+        return kSelect;
+    }
     if (!ra2_enh_modern_controls() || In_Mode() || Held(kCtrl) || Held(kAlt)) return action;
     bool shift = Held(kShift);
     if (Map.unknown_11cb) {

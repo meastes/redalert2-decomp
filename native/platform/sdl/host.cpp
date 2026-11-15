@@ -6,6 +6,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdarg.h>
 #include <string.h>
 #include <strings.h>
 #include <unistd.h>
@@ -267,11 +268,15 @@ extern "C" int ra2_enh_render_scale(void);
 extern "C" int ra2_enh_dialog_screen(void);   // platform/sdl/enhancements.cpp: in-play dialogs at the window's size (C16)
 void fit_window(int width, int height)
 {
+    // Whether the split layout applies to this picture is noted first, also in fullscreen (lane
+    // C18): present_now compares it with ra2_enh_sidebar_split each present, and in fullscreen (the
+    // iOS app always) it stayed false, so every present laid the picture out again (the Duo's log:
+    // the play layout logged at every frame).
+    double ratio = 1.0;
+    split_fitted = ra2_enh_sidebar_split(height, &ratio);
     if (!window || is_fullscreen()) return;
     int w = width, h = height;
     // The split layout's window: the map at one point per pixel, the sidebar column larger.
-    double ratio = 1.0;
-    split_fitted = ra2_enh_sidebar_split(height, &ratio);
     if (split_fitted) w = (int)(width - kSidebarWidth + kSidebarWidth * ratio + 0.5);
     // A render scale (lane C16): the window the screen's own size before it was scaled (the map
     // column and the height above the command bar render_scale times smaller), with the sidebar
@@ -317,6 +322,21 @@ void set_attack_move(bool on);
 void sync_toolbar();
 hostos::Rect keys_rect();
 void redraw();
+// The layout's log line, written when it differs from the last one (lane C18: a layout made
+// again with the same result logs nothing, so one that changes for a frame shows in the log).
+void log_layout(const char *format, ...) __attribute__((format(printf, 1, 2)));
+void log_layout(const char *format, ...)
+{
+    static char last[256];
+    char line[256];
+    va_list args;
+    va_start(args, format);
+    vsnprintf(line, sizeof line, format, args);
+    va_end(args);
+    if (strcmp(line, last) == 0) return;
+    snprintf(last, sizeof last, "%s", line);
+    fprintf(stderr, "%s", line);
+}
 float pixel_density()
 {
     int ww = 0, wh = 0, pw = 0, ph = 0;
@@ -361,7 +381,7 @@ bool update_layout_scaled()
             double px = usable.x + (usable.w - nominal_w * scale) / 2, py = usable.y + (usable.h - nominal_h * scale) / 2;
             picture = hostos::Rect{px, py, pic_w * scale, pic_h * scale};
             regions.clear();
-            fprintf(stderr, "host: layout: in-play dialogs at %.0fx%.0f, the screen's top left\n", nominal_w, nominal_h);
+            log_layout("host: layout: in-play dialogs at %.0fx%.0f, the screen's top left\n", nominal_w, nominal_h);
             if (system_toolbar) hostos::keys_button_place(keys_rect());
             return true;
         }
@@ -408,13 +428,14 @@ bool update_layout_scaled()
             add(0, map_h, cw, kCmd, px, py + ch * scale, cw * scale, kCmd * scale);
             add(map_w, 0, kSidebarWidth, top, px + cw * scale, py, kSidebarWidth * scale, top * scale);
             add(map_w, pic_h - bottom, kSidebarWidth, bottom, px + cw * scale, py + top * scale, kSidebarWidth * scale, bottom * scale);
-            fprintf(stderr, "host: layout: dialog in play %dx%d at %d,%d: map column from %.0f,%.0f\n", d[2], d[3], d[0], d[1], sx, sy);
+            log_layout("host: layout: dialog in play %dx%d at %d,%d: map column from %.0f,%.0f\n", d[2], d[3], d[0], d[1], sx, sy);
             if (system_toolbar) hostos::keys_button_place(keys_rect());
             return true;
         }
         double cx = usable.x + usable.w / 2, cy = usable.y + usable.h / 2;
         picture = hostos::Rect{cx - pic_w * scale / 2, cy - pic_h * scale / 2, pic_w * scale, pic_h * scale};
         regions.clear();
+        log_layout("host: layout: the screen's centre at %.3f (render scale %d)\n", scale, r);
         if (system_toolbar) hostos::keys_button_place(keys_rect());
         return true;
     }
@@ -436,8 +457,8 @@ bool update_layout_scaled()
     add(0, tac_h, map_w / r, cmd, px, py + tac_h * scale, map_w * scale, cmd * r * scale);
     add(map_w, 0, kSidebarWidth, rows, px + map_w * scale, py, kSidebarWidth * split_ratio * scale, rows * split_ratio * scale);
     const Region &side = regions.back();
-    fprintf(stderr, "host: layout: map zoom %.3f (render scale %d), sidebar %.1f,%.1f %.1fx%.1f\n", map_zoom / r, r, side.dx, side.dy,
-            side.dw, side.dh);
+    log_layout("host: layout: map zoom %.3f (render scale %d), sidebar %.1f,%.1f %.1fx%.1f\n", map_zoom / r, r, side.dx, side.dy,
+               side.dw, side.dh);
     if (system_toolbar) hostos::keys_button_place(keys_rect());
     return true;
 }
@@ -514,7 +535,7 @@ void update_layout()
         add(map_w, 0, kSidebarWidth, pic_h / split_ratio, px + map_w * scale, py, kSidebarWidth * split_ratio * scale, pic_h * scale);
         // The sidebar's place in the window (lane C16: the zoom never moves it; tests compare it).
         const Region &side = regions.back();
-        fprintf(stderr, "host: layout: map zoom %.3f, sidebar %.1f,%.1f %.1fx%.1f\n", map_zoom, side.dx, side.dy, side.dw, side.dh);
+        log_layout("host: layout: map zoom %.3f, sidebar %.1f,%.1f %.1fx%.1f\n", map_zoom, side.dx, side.dy, side.dw, side.dh);
     }
     if (system_toolbar) hostos::keys_button_place(keys_rect());
 }
@@ -951,8 +972,13 @@ void touch_move(float x, float y)
     if (touch_queue.empty()) { touch_move_now(x, y); return; }
     touch_queue.push_back({false, 0, false, x, y});
 }
+// The left button's last press came from a touch (a tap or the selection box), not a mouse (lane
+// C18): link/native_modern_controls.cpp asks it (ra2_host_touch_click) for the touch-only rule
+// that a tap on a unit of another player-controlled house selects it.
+bool left_press_touch = false;
 void touch_button_now(int b, bool down, float x, float y)
 {
+    if (b == 0 && down) left_press_touch = true;
     if (!down && touch_move_waiting) {          // the drag's last move before its release
         touch_move_waiting = false;
         pointer_posted_x = touch_move_x;
@@ -1407,6 +1433,7 @@ void pump_events()
             if (e.button.which == SDL_TOUCH_MOUSEID) break;
             clamp_to_picture(e.button.x, e.button.y);
             if (e.button.button != SDL_BUTTON_LEFT && e.button.button != SDL_BUTTON_RIGHT) break;
+            if (e.button.button == SDL_BUTTON_LEFT && e.type == SDL_EVENT_MOUSE_BUTTON_DOWN) left_press_touch = false;
             mouse_button(e.button.button == SDL_BUTTON_RIGHT ? 1 : 0, e.type == SDL_EVENT_MOUSE_BUTTON_DOWN, e.button.x, e.button.y);
             break;
         }
@@ -2522,3 +2549,6 @@ void ra2_sdl_host_touch_options(int checkpoint_seconds)
 void ra2_sdl_host_use_window(SDL_Window *made) { window = made; }
 // The window's fullscreen state at exit (remembered in the settings).
 bool ra2_sdl_host_fullscreen() { return is_fullscreen(); }
+
+// Lane C18: the left button's last press was a touch's (link/native_modern_controls.cpp).
+extern "C" int ra2_host_touch_click(void) { return left_press_touch ? 1 : 0; }

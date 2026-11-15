@@ -113,18 +113,23 @@ int Resolve(char const *spec, int *x, int *y)
     if (*p == ':') { ++p; index = Read_Int(p); }
     // "+dx,dy" or "-dx,dy" (the sign is dx's own; Scout1125: "@GACNST-4,0" did not parse).
     if (*p == '+' || *p == '-') { dx = Read_Int(p); if (*p == ',') { ++p; dy = Read_Int(p); } }
-    for (int i = 0; i < Technos.Count(); ++i) {
-        TechnoClass *techno = Technos[i];
-        if (techno == 0 || techno->House != player || !Same_Name(Type_ID(techno), spec, length)) continue;
-        if (index-- > 0) continue;
-        CoordStruct coord = techno->Center_Coord();
-        coord.X += dx * 256;
-        coord.Y += dy * 256;
-        Point2D pixel;
-        TacticalMap->Coord_To_Pixel(coord, pixel);
-        *x = pixel.X;
-        *y = pixel.Y;
-        return 1;
+    // The player's technos first, then those of other houses under the player's control (lane
+    // C18: Allied mission 2's Tanya is the Germans').
+    for (int pass = 0; pass < 2; ++pass) {
+        for (int i = 0; i < Technos.Count(); ++i) {
+            TechnoClass *techno = Technos[i];
+            if (techno == 0 || !Same_Name(Type_ID(techno), spec, length)) continue;
+            if (pass == 0 ? techno->House != player : techno->House == player || !techno->House->Is_Player_Control()) continue;
+            if (index-- > 0) continue;
+            CoordStruct coord = techno->Center_Coord();
+            coord.X += dx * 256;
+            coord.Y += dy * 256;
+            Point2D pixel;
+            TacticalMap->Coord_To_Pixel(coord, pixel);
+            *x = pixel.X;
+            *y = pixel.Y;
+            return 1;
+        }
     }
     return 0;
 }
@@ -169,6 +174,18 @@ void Native_Harness_Input(int frame)
     }
     char detail[1200] = "selected ";
     Append_Int(detail, unknown_objects_a40c60.Count(), sizeof detail);
+    // The selected objects of another house under the player's control (lane C18: a campaign's
+    // units of their own house, Allied mission 2's Tanya the Germans'): " other=ID/HOUSE".
+    for (int i = 0; i < unknown_objects_a40c60.Count(); ++i) {
+        ObjectClass *object = unknown_objects_a40c60[i];
+        HouseClass *house = object ? object->Owning_House() : 0;
+        if (object == 0 || house == unknown_player_a35db4) continue;
+        ObjectTypeClass *type = object->Class_Of();
+        Append(detail, " other=", sizeof detail);
+        Append(detail, type ? type->ID.Buffer : "?", sizeof detail);
+        Append(detail, "/", sizeof detail);
+        Append(detail, house ? house->IniName.Buffer : "-", sizeof detail);
+    }
     Append(detail, ";", sizeof detail);
     for (int i = 0; i < Technos.Count(); ++i) {
         TechnoClass *techno = Technos[i];
