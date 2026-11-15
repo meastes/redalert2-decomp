@@ -30863,9 +30863,24 @@
     "lines": 2
    }
   ],
-  "joined": [],
+  "joined": [
+   {
+    "entry": "0040f680",
+    "bytes": 73,
+    "population": "population-15",
+    "bound": "own frozen bound (population-15)",
+    "options": "joined under the unit's /GR (frozen without it)"
+   },
+   {
+    "entry": "0040f6d0",
+    "bytes": 73,
+    "population": "population-12",
+    "bound": "own frozen bound (population-12)",
+    "options": "joined under the unit's /GR (frozen without it)"
+   }
+  ],
   "residuals": [],
-  "unit_functions": 3
+  "unit_functions": 5
  },
  "getcd": {
   "source": "src/recovered/getcd.cpp",
@@ -34898,10 +34913,24 @@
     "bound": "the unit's compile group (population-3748)",
     "placed": "append",
     "unit_evidence": "xcu single"
+   },
+   {
+    "entry": "0040d6d0",
+    "bytes": 73,
+    "population": "population-15",
+    "bound": "own frozen bound (population-15)",
+    "options": "joined under the unit's /GR (frozen without it)"
+   },
+   {
+    "entry": "0040d720",
+    "bytes": 73,
+    "population": "population-12",
+    "bound": "own frozen bound (population-12)",
+    "options": "joined under the unit's /GR (frozen without it)"
    }
   ],
   "residuals": [],
-  "unit_functions": 7
+  "unit_functions": 9
  },
  "link": {
   "source": "src/recovered/link.cpp",

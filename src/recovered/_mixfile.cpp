@@ -35,3 +35,11 @@
 
 // Atexit destructor of unknown_movies_mixes_8374a0 (0x0040D3D0, _$E): emitted by the definition in
 // unknown_com_pointer_8324b0_init_0040d0d0.cpp; no source of its own.
+
+
+// ??_G?$VectorClass@PAVMixFileClass@@@@UAEPAXI@Z (0x0040D6D0): compiler generated with the vtable the unit's MixFileClass lists stores
+// (VectorClass<MixFileClass *>, shared/vector_class.hpp); emitted by this unit's globals/unknown_com_pointer_8324b0_init_0040d0d0.cpp. No source of its own.
+
+
+// ??_G?$DynamicVectorClass@PAVMixFileClass@@@@UAEPAXI@Z (0x0040D720): compiler generated with the vtable the unit's MixFileClass lists stores
+// (DynamicVectorClass<MixFileClass *>, shared/vector_class.hpp); emitted by this unit's globals/unknown_com_pointer_8324b0_init_0040d0d0.cpp. No source of its own.

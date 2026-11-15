@@ -6,7 +6,7 @@
 
 | Directory under `src/recovered/` | Regions | Body bytes | Descriptive names | Address range |
 | --- | ---: | ---: | ---: | --- |
-| (discovery: address-named) | 15583 | 3,054,588 | 15509 | 0x00401000–0x00793976 |
+| (discovery: address-named) | 15587 | 3,054,880 | 15513 | 0x00401000–0x00793976 |
 | [header_statics/004d2ba0](../src/recovered/header_statics/004d2ba0/) | 351 | 25,025 | 351 | 0x004D2BA0–0x004DBBC0 |
 | [unowned](../src/recovered/unowned/) | 138 | 15,966 | 138 | 0x0040AEA0–0x00768260 |
 | [ownrdraw](../src/recovered/ownrdraw/) | 22 | 9,504 | 22 | 0x005DEF80–0x00600FD0 |
@@ -84,11 +84,9 @@
 | [classes/VectorClass_HWND___ptr](../src/recovered/classes/VectorClass_HWND___ptr/) | 7 | 439 | 6 | 0x005B6260–0x005B6870 |
 | [classes/VectorClass_IsometricTileClass_ptr](../src/recovered/classes/VectorClass_IsometricTileClass_ptr/) | 7 | 439 | 6 | 0x0040C760–0x0040C9D0 |
 | [classes/VectorClass_LightConvertClass_ptr](../src/recovered/classes/VectorClass_LightConvertClass_ptr/) | 7 | 439 | 7 | 0x0040C190–0x0040C400 |
-| [classes/VectorClass_MixFileClass_ptr](../src/recovered/classes/VectorClass_MixFileClass_ptr/) | 7 | 439 | 6 | 0x0040D460–0x0040D6D0 |
 | [classes/VectorClass_ObjectClass_ptr](../src/recovered/classes/VectorClass_ObjectClass_ptr/) | 7 | 439 | 6 | 0x0040CBB0–0x0040CE20 |
 | [classes/VectorClass_ScriptClass_ptr](../src/recovered/classes/VectorClass_ScriptClass_ptr/) | 7 | 439 | 6 | 0x0040E660–0x0040E8D0 |
 | [classes/VectorClass_VoxelAnimClass_ptr](../src/recovered/classes/VectorClass_VoxelAnimClass_ptr/) | 7 | 439 | 6 | 0x0040ED10–0x0040EF80 |
-| [classes/VectorClass_WarheadTypeClass_ptr](../src/recovered/classes/VectorClass_WarheadTypeClass_ptr/) | 7 | 439 | 6 | 0x0040F410–0x0040F680 |
 | [classes/VectorClass_WeaponTypeClass_ptr](../src/recovered/classes/VectorClass_WeaponTypeClass_ptr/) | 7 | 439 | 6 | 0x0040F9C0–0x0040FC30 |
 | [classes/DynamicVectorClass_AITriggerTypeDistribution](../src/recovered/classes/DynamicVectorClass_AITriggerTypeDistribution/) | 3 | 425 | 3 | 0x006C0360–0x006C0790 |
 | [classes/DynamicVectorClass_BuildingTypeDistribution](../src/recovered/classes/DynamicVectorClass_BuildingTypeDistribution/) | 3 | 425 | 3 | 0x004F6E60–0x004F83F0 |
@@ -109,6 +107,7 @@
 | [classes/VectorClass_GlobalPacketType_ptr](../src/recovered/classes/VectorClass_GlobalPacketType_ptr/) | 6 | 366 | 6 | 0x00673980–0x00674430 |
 | [classes/VectorClass_HouseClass__BuildChoiceClass_ptr](../src/recovered/classes/VectorClass_HouseClass__BuildChoiceClass_ptr/) | 6 | 366 | 6 | 0x004F6D90–0x004F7AE0 |
 | [classes/VectorClass_IsometricTileTypeClass__TileInsertType_ptr](../src/recovered/classes/VectorClass_IsometricTileTypeClass__TileInsertType_ptr/) | 6 | 366 | 6 | 0x0052E780–0x0052EB50 |
+| [classes/VectorClass_MixFileClass_ptr](../src/recovered/classes/VectorClass_MixFileClass_ptr/) | 6 | 366 | 6 | 0x0040D460–0x0040D5D0 |
 | [classes/VectorClass_MultiplayerGameMode_ptr](../src/recovered/classes/VectorClass_MultiplayerGameMode_ptr/) | 6 | 366 | 6 | 0x005B9050–0x005B95A0 |
 | [classes/VectorClass_MultiplayerTeam_ptr](../src/recovered/classes/VectorClass_MultiplayerTeam_ptr/) | 6 | 366 | 6 | 0x005B8FF0–0x005B9340 |
 | [classes/VectorClass_OwnerTalkClass__ConnectionListStruct_ptr](../src/recovered/classes/VectorClass_OwnerTalkClass__ConnectionListStruct_ptr/) | 6 | 366 | 6 | 0x0063FF60–0x006400D0 |
@@ -117,6 +116,7 @@
 | [classes/VectorClass_RadarEventClass_ptr](../src/recovered/classes/VectorClass_RadarEventClass_ptr/) | 6 | 366 | 6 | 0x0063C810–0x0063C980 |
 | [classes/VectorClass_SpawnControl_ptr](../src/recovered/classes/VectorClass_SpawnControl_ptr/) | 6 | 366 | 6 | 0x0068AA70–0x0068AC40 |
 | [classes/VectorClass_TeamTypeClass_ptr](../src/recovered/classes/VectorClass_TeamTypeClass_ptr/) | 6 | 366 | 6 | 0x004F6DF0–0x004F7D40 |
+| [classes/VectorClass_WarheadTypeClass_ptr](../src/recovered/classes/VectorClass_WarheadTypeClass_ptr/) | 6 | 366 | 6 | 0x0040F410–0x0040F580 |
 | [classes/VectorClass__DDSURFACEDESC_ptr](../src/recovered/classes/VectorClass__DDSURFACEDESC_ptr/) | 6 | 366 | 6 | 0x004964C0–0x00496630 |
 | [classes/VectorClass__WIN32_FIND_DATAA_ptr](../src/recovered/classes/VectorClass__WIN32_FIND_DATAA_ptr/) | 6 | 366 | 6 | 0x0058DD80–0x0058E430 |
 | [classes/VectorClass_char_ptr](../src/recovered/classes/VectorClass_char_ptr/) | 6 | 366 | 6 | 0x004910B0–0x00491240 |
@@ -127,10 +127,8 @@
 | [classes/DynamicVectorClass_CommandClass_ptr](../src/recovered/classes/DynamicVectorClass_CommandClass_ptr/) | 5 | 356 | 5 | 0x0040BD60–0x0040C070 |
 | [classes/DynamicVectorClass_HWND___ptr](../src/recovered/classes/DynamicVectorClass_HWND___ptr/) | 5 | 356 | 4 | 0x005B6210–0x005B68C0 |
 | [classes/DynamicVectorClass_IsometricTileClass_ptr](../src/recovered/classes/DynamicVectorClass_IsometricTileClass_ptr/) | 5 | 356 | 4 | 0x0040C710–0x0040CA20 |
-| [classes/DynamicVectorClass_MixFileClass_ptr](../src/recovered/classes/DynamicVectorClass_MixFileClass_ptr/) | 5 | 356 | 4 | 0x0040D410–0x0040D720 |
 | [classes/DynamicVectorClass_ScriptClass_ptr](../src/recovered/classes/DynamicVectorClass_ScriptClass_ptr/) | 5 | 356 | 4 | 0x0040E610–0x0040E920 |
 | [classes/DynamicVectorClass_VoxelAnimClass_ptr](../src/recovered/classes/DynamicVectorClass_VoxelAnimClass_ptr/) | 5 | 356 | 4 | 0x0040ECC0–0x0040EFD0 |
-| [classes/DynamicVectorClass_WarheadTypeClass_ptr](../src/recovered/classes/DynamicVectorClass_WarheadTypeClass_ptr/) | 5 | 356 | 4 | 0x0040F3C0–0x0040F6D0 |
 | [classes/DynamicVectorClass_WeaponTypeClass_ptr](../src/recovered/classes/DynamicVectorClass_WeaponTypeClass_ptr/) | 5 | 356 | 4 | 0x0040F970–0x0040FC80 |
 | [header_statics/0040acb0](../src/recovered/header_statics/0040acb0/) | 13 | 356 | 13 | 0x0040ACB0–0x0040AE80 |
 | [header_statics/0041c3d0](../src/recovered/header_statics/0041c3d0/) | 13 | 356 | 13 | 0x0041C3D0–0x0041C5A0 |
@@ -189,6 +187,7 @@
 | [classes/DynamicVectorClass_HouseClass__BuildChoiceClass_ptr](../src/recovered/classes/DynamicVectorClass_HouseClass__BuildChoiceClass_ptr/) | 4 | 283 | 4 | 0x004F6D40–0x004F7BB0 |
 | [classes/DynamicVectorClass_IsometricTileTypeClass__TileInsertType_ptr](../src/recovered/classes/DynamicVectorClass_IsometricTileTypeClass__TileInsertType_ptr/) | 4 | 283 | 4 | 0x0052E730–0x0052EC20 |
 | [classes/DynamicVectorClass_MapRegionClass_ptr](../src/recovered/classes/DynamicVectorClass_MapRegionClass_ptr/) | 4 | 283 | 4 | 0x0058DC10–0x0058E140 |
+| [classes/DynamicVectorClass_MixFileClass_ptr](../src/recovered/classes/DynamicVectorClass_MixFileClass_ptr/) | 4 | 283 | 4 | 0x0040D410–0x0040D6A0 |
 | [classes/DynamicVectorClass_MultiplayerTeam_ptr](../src/recovered/classes/DynamicVectorClass_MultiplayerTeam_ptr/) | 4 | 283 | 4 | 0x005B8FA0–0x005B9410 |
 | [classes/DynamicVectorClass_OwnerTalkClass__ConnectionListStruct_ptr](../src/recovered/classes/DynamicVectorClass_OwnerTalkClass__ConnectionListStruct_ptr/) | 4 | 283 | 4 | 0x0063FF10–0x006401A0 |
 | [classes/DynamicVectorClass_ParticleSystemTypeClass_ptr](../src/recovered/classes/DynamicVectorClass_ParticleSystemTypeClass_ptr/) | 4 | 283 | 4 | 0x00453CC0–0x00454100 |
@@ -196,6 +195,7 @@
 | [classes/DynamicVectorClass_TeamTypeClass_ptr](../src/recovered/classes/DynamicVectorClass_TeamTypeClass_ptr/) | 4 | 283 | 4 | 0x004F6DA0–0x004F7E10 |
 | [classes/DynamicVectorClass_ThemeControl_ptr](../src/recovered/classes/DynamicVectorClass_ThemeControl_ptr/) | 4 | 283 | 4 | 0x006E85B0–0x006E86B0 |
 | [classes/DynamicVectorClass_WDTAnimationPalette_ptr](../src/recovered/classes/DynamicVectorClass_WDTAnimationPalette_ptr/) | 4 | 283 | 4 | 0x0072B000–0x0072B690 |
+| [classes/DynamicVectorClass_WarheadTypeClass_ptr](../src/recovered/classes/DynamicVectorClass_WarheadTypeClass_ptr/) | 4 | 283 | 4 | 0x0040F3C0–0x0040F650 |
 | [classes/DynamicVectorClass_char_ptr](../src/recovered/classes/DynamicVectorClass_char_ptr/) | 4 | 283 | 4 | 0x00491060–0x00491310 |
 | [classes/IsometricTileClass](../src/recovered/classes/IsometricTileClass/) | 1 | 282 | 1 | 0x00528260–0x00528260 |
 | [classes/ParticleClass](../src/recovered/classes/ParticleClass/) | 3 | 278 | 3 | 0x004D3210–0x0060A7E0 |

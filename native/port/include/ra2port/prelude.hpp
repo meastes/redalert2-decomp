@@ -132,11 +132,14 @@ inline int x87_ftol(double value)
 // widened (the swizzle ids and pointer fields: original addresses, below 2 GB),
 // objects are converted from their i686 layout to the arm64 one, the rest is read
 // as is.
-enum OriginalReadKind { ORIGINAL_READ_RAW, ORIGINAL_READ_UNSIGNED, ORIGINAL_READ_SIGNED, ORIGINAL_READ_OBJECT };
+// ORIGINAL_READ_POINTER: a pointer, read as UNSIGNED; written as a swizzle id or the
+// original's address (lane C17, writing the original's format).
+enum OriginalReadKind { ORIGINAL_READ_RAW, ORIGINAL_READ_UNSIGNED, ORIGINAL_READ_SIGNED, ORIGINAL_READ_OBJECT,
+                        ORIGINAL_READ_POINTER };
 template <class T> struct original_read_kind {
     enum { value = (__is_class(T) || __is_union(T)) ? ORIGINAL_READ_OBJECT : ORIGINAL_READ_RAW };
 };
-template <class T> struct original_read_kind<T *> { enum { value = ORIGINAL_READ_UNSIGNED }; };
+template <class T> struct original_read_kind<T *> { enum { value = ORIGINAL_READ_POINTER }; };
 // The pointer-width rewrites (intptr_t, uintptr_t, size_t: LONG_PTR, WPARAM, ...),
 // 4 bytes on VC6. They are long and unsigned long on LP64 (macOS, iOS; VC6's long is
 // RA2_LONG there) and long long and unsigned long long on LLP64 Win64, where long
@@ -144,7 +147,13 @@ template <class T> struct original_read_kind<T *> { enum { value = ORIGINAL_READ
 template <> struct original_read_kind<intptr_t> { enum { value = ORIGINAL_READ_SIGNED }; };
 template <> struct original_read_kind<uintptr_t> { enum { value = ORIGINAL_READ_UNSIGNED }; };
 template <class T> inline char const *original_type_name() { return __PRETTY_FUNCTION__; }
-template <class T, bool polymorphic = __is_polymorphic(T)> struct original_vptr {
+// A type a unit only declares (a write through a forward-declared pointer, lane C17) has
+// no vtable pointer to give: its layout is found by name.
+template <class T, class = void> struct original_complete { enum { value = 0 }; };
+template <class T> struct original_complete<T, decltype(void(sizeof(T)))> { enum { value = 1 }; };
+template <class T, bool complete = original_complete<T>::value> struct original_polymorphic { enum { value = 0 }; };
+template <class T> struct original_polymorphic<T, true> { enum { value = __is_polymorphic(T) }; };
+template <class T, bool polymorphic = original_polymorphic<T>::value> struct original_vptr {
     static void const *get(T const *) { return 0; }
 };
 template <class T> struct original_vptr<T, true> {
@@ -153,6 +162,9 @@ template <class T> struct original_vptr<T, true> {
 }  // namespace ra2port
 
 extern "C" int ra2port_original_save_mode;
+// Writing an original-format save (lane C17; RA2_NATIVE_SAVE_FORMAT=original): set while
+// such a storage is open for writing; typed IStream writes then go to ra2port_original_write.
+extern "C" int ra2port_original_write_mode;
 // The port save container version being read (port/src/storage.cpp): 1 (RA2NSTG1) or 2.
 extern "C" int ra2port_port_save_version;
 // stream_read: the stream's own (virtual) Read, through a thunk; vptr: the object's
@@ -162,6 +174,11 @@ typedef int32_t (*ra2port_stream_read_fn)(void *stream, void *buffer, uint32_t s
 extern "C" int32_t ra2port_original_read(ra2port_stream_read_fn stream_read, void *stream, void *buffer,
                                          uint32_t size, uint32_t *read, int kind, void const *vptr,
                                          char const *type_name);
+
+typedef int32_t (*ra2port_stream_write_fn)(void *stream, void const *buffer, uint32_t size, uint32_t *written);
+extern "C" int32_t ra2port_original_write(ra2port_stream_write_fn stream_write, void *stream, void const *buffer,
+                                          uint32_t size, uint32_t *written, int kind, void const *vptr,
+                                          char const *type_name);
 
 inline void *operator new(size_t size, ra2port::factory_tag) { return ::operator new(2 * size); }
 inline void operator delete(void *p, ra2port::factory_tag) { ::operator delete(p); }

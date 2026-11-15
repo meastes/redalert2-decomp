@@ -839,8 +839,28 @@ logs each conversion; a type read without a map is reported once on stderr
 (`original-save: no layout for ...`). `RA2_NATIVE_STG_LOG=1` logs the open of each
 original. All five of the user's saves (Allied 1, 2 twice, 3 twice) load from the
 menu and play on; saving then writes a port save that loads in a fresh process.
-Not supported: writing original-format saves, Yuri's Revenge, multiplayer saves,
-other internal versions.
+Not supported: Yuri's Revenge, multiplayer saves, other internal versions.
+
+**Writing the original's format (lane C17, off by default).** With
+`RA2_NATIVE_SAVE_FORMAT=original` a save is written as the original game writes it, for the
+installed game to load: StgCreateDocfile's storage becomes a compound file (version 3,
+512-byte sectors, the mini stream under 4,096 bytes, the streams in a balanced red-black
+directory tree; no property sets, as the original's own saves have none), and while it is
+open `ra2port_original_write_mode` sends every typed `ISequentialStream::Write` (the
+mirror of the typed Read, port/fixups.json com_persist.hpp) to `ra2port_original_write`:
+pointers become 4-byte swizzle ids (the id an object had in the original save it was loaded
+from, kept by a Here_I_Am fixup, else a fresh 8-aligned id from 0x10000000; pointers into the
+game's globals or the mapped image become the original's own addresses), pointer-width
+integers 4 bytes, and objects their i686 image through the field maps run backwards, padding
+zeroed. The maps carry two more kinds: POINTER (a pointer member: read as WIDEN, written as an
+id) and VPTR (a vtable pointer: not read; written as the original's vtable for that offset of
+the owning class, found from its primary vtable's RTTI type descriptor in game.exe at run
+time, `original_vtable`, since manifests/rtti_classes.json lists only some secondary
+vtables). The root entry's state bits carry "R2NP": the port may replace or delete a
+compound file it wrote (and does not mark it "(Original)"), never one the original wrote.
+The port's own container stays the default. ctest `native-original-save-write` writes a
+fresh skirmish and each of the user's five saves (loaded, then saved at frame 50) this way
+and loads each back for 300 frames.
 
 The x86_64 Windows build (lane C15) reads them the same way. Win64 is LLP64: `long` is
 4 bytes, as on VC6, and the pointer-width rewrites are `long long`, so the typed read

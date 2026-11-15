@@ -4,8 +4,8 @@
     "id": "population-15",
     "inventory_sha256": "82d76aac864d26e1a63b17341b43281aa316ce10c95f0d35474ebdba4d64c791",
     "gaps_sha256": "fc491a93adcd49a62ae199caad76cf7fff9e4553116a461478335a50bacdd82b",
-    "historical_population_sha256": "5f5081d13c798344340f039fc44f72db8e1caf3d1f4eb95066f5a74873d04a99",
-    "historical_acceptance_sha256": "22db14a55d1b4fd5456d9079d54b14e34274d0c9d5646dc5b0e5a2940f9e87d2"
+    "historical_population_sha256": "38ea67cb1f806a8bd3f019935dd090dac45b487275b0c3c6988be1ebfbf4fb41",
+    "historical_acceptance_sha256": "201e2ad2c8f24251145afef0c2e79e0513ebdc7d4aacf853952289d95964f875"
   },
   "references": {
     "_vtable_40bad0": 7972828,
@@ -1099,55 +1099,6 @@
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function"
     },
     {
-      "entry": 4249296,
-      "method": "40d6d0",
-      "symbol": "?get@Leaf_40d6d0@@QAEPAXI@Z",
-      "symbol_prefix": "?get@Leaf_40d6d0@@",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy"
-      ],
-      "body_bytes": 73,
-      "body_sha256": "b7ab91a2d671c63c58e94ad147be3c8c4d0535e572aa9db4a5f4ac777ff27fd3",
-      "padding_bytes": 7,
-      "full_extent_bytes": 80,
-      "full_extent_sha256": "dc98604b0454e12fa57222f06eefd34599031d21df73718dabe77836b2baf03b",
-      "relocations": [
-        {
-          "offset": 8,
-          "kind": 6,
-          "symbol": "_vtable_40d6d0",
-          "target": 7973460,
-          "addend": 0,
-          "resolved": 7973460
-        },
-        {
-          "offset": 25,
-          "kind": 20,
-          "symbol": "_release_buffer_40d6d0",
-          "target": 7871803,
-          "addend": 0,
-          "resolved": 3622478
-        },
-        {
-          "offset": 60,
-          "kind": 20,
-          "symbol": "_release_object_40d6d0",
-          "target": 7871803,
-          "addend": 0,
-          "resolved": 3622443
-        }
-      ],
-      "source": "src/recovered/classes/VectorClass_MixFileClass_ptr/0040d6d0.cpp",
-      "source_sha256": "212c344af8f5b7f1e914277015c081bbea55c4409a991d7b88f66b99d815ad77",
-      "source_order": 198,
-      "population": "population-15",
-      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function"
-    },
-    {
       "entry": 4253904,
       "method": "40e8d0",
       "symbol": "?get@Leaf_40e8d0@@QAEPAXI@Z",
@@ -1241,55 +1192,6 @@
       "source": "src/recovered/classes/VectorClass_VoxelAnimClass_ptr/0040ef80.cpp",
       "source_sha256": "c01d8bae5759e26f1f42708c294fb6e707780bfc6f9472ca8377b7684c5ed8d8",
       "source_order": 275,
-      "population": "population-15",
-      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function"
-    },
-    {
-      "entry": 4257408,
-      "method": "40f680",
-      "symbol": "?get@Leaf_40f680@@QAEPAXI@Z",
-      "symbol_prefix": "?get@Leaf_40f680@@",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy"
-      ],
-      "body_bytes": 73,
-      "body_sha256": "045fb753dac0d897c72ab4a35bd3ad0ae8950cd83360bf4ccc7b30a9ab990927",
-      "padding_bytes": 7,
-      "full_extent_bytes": 80,
-      "full_extent_sha256": "c87a3839e58051bef4b9fb239ad2985d83385cac2c165ee5de1e674878e923e4",
-      "relocations": [
-        {
-          "offset": 8,
-          "kind": 6,
-          "symbol": "_vtable_40f680",
-          "target": 7974188,
-          "addend": 0,
-          "resolved": 7974188
-        },
-        {
-          "offset": 25,
-          "kind": 20,
-          "symbol": "_release_buffer_40f680",
-          "target": 7871803,
-          "addend": 0,
-          "resolved": 3614366
-        },
-        {
-          "offset": 60,
-          "kind": 20,
-          "symbol": "_release_object_40f680",
-          "target": 7871803,
-          "addend": 0,
-          "resolved": 3614331
-        }
-      ],
-      "source": "src/recovered/classes/VectorClass_WarheadTypeClass_ptr/0040f680.cpp",
-      "source_sha256": "a2d66edc875c4c9761a3db4e7f780866ae9b79c1efd84faa917ebfd0666339b9",
-      "source_order": 302,
       "population": "population-15",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function"

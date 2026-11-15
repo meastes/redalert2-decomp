@@ -23,9 +23,21 @@
    "entry": "0040f3a0",
    "body_bytes": 28,
    "padding_bytes": 4
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVWarheadTypeClass@@@@UAEPAXI@Z",
+   "entry": "0040f680",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVWarheadTypeClass@@@@UAEPAXI@Z",
+   "entry": "0040f6d0",
+   "body_bytes": 73,
+   "padding_bytes": 7
   }
  ],
- "code_bytes": 208,
+ "code_bytes": 368,
  "data": [
   {
    "symbol": "__real@8@40008000000000000000",
@@ -352,14 +364,6 @@
    "address": "007b15e4"
   },
   {
-   "symbol": "??_G?$DynamicVectorClass@PAVWarheadTypeClass@@@@UAEPAXI@Z",
-   "address": "0040f6d0"
-  },
-  {
-   "symbol": "??_G?$VectorClass@PAVWarheadTypeClass@@@@UAEPAXI@Z",
-   "address": "0040f680"
-  },
-  {
    "symbol": "?unknown_math_4ba520@@YANN@Z",
    "address": "004ba520"
   },
@@ -403,9 +407,24 @@
   }
  ],
  "held_rows": [],
- "joined": [],
+ "joined": [
+  {
+   "entry": "0040f680",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0040f6d0",
+   "bytes": 73,
+   "population": "population-12",
+   "bound": "own frozen bound (population-12)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  }
+ ],
  "residuals": [],
- "unit_functions": 3,
+ "unit_functions": 5,
  "data_unproven": [
   {
    "symbol": "_$S3",

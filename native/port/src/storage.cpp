@@ -12,6 +12,8 @@
 // memory; Commit (or the last Release of a writable storage) writes the file.
 #include "ra2port/win32_port.hpp"
 
+#include <algorithm>
+#include <functional>
 #include <map>
 #include <memory>
 #include <stdarg.h>
@@ -24,6 +26,7 @@
 using namespace ra2port;
 
 extern "C" int ra2port_original_save_mode;   // port/src/original_save.cpp
+extern "C" int ra2port_original_write_mode;  // the same, writing (lane C17)
 // The version of the port save being read (1 or 2; 0 when none): MouseClass::Load reads
 // 0x4F3C bytes of a version 1 save, its whole native object from version 2 (port/fixups.json).
 extern "C" int ra2port_port_save_version = 0;
@@ -394,6 +397,149 @@ bool compound_streams(std::vector<uint8_t> in, Data &data)
     return data.streams.count(ascii_w("CONTENTS")) != 0;
 }
 
+// ---- Writing the original's format (lane C17; RA2_NATIVE_SAVE_FORMAT=original) ----
+// A compound file as ole32 lays one out for the game (version 3: 512-byte sectors, the
+// mini stream for streams under 4,096 bytes), holding the root storage's streams; the
+// property sets are left out (the original's own saves have none). The root entry's
+// state bits carry kPortMark: the port may replace or delete a compound file it wrote,
+// never one the original wrote.
+const uint32_t kPortMark = 0x504E3252u;   // "R2NP"
+bool save_format_original()
+{
+    const char *f = getenv("RA2_NATIVE_SAVE_FORMAT");
+    return f && !strcmp(f, "original");
+}
+
+// CFB name order: shorter names first, then by upper-cased UTF-16 units.
+bool cfb_less(wstr const &a, wstr const &b)
+{
+    if (a.size() != b.size()) return a.size() < b.size();
+    for (size_t i = 0; i < a.size(); ++i) {
+        WCHAR x = a[i] >= 'a' && a[i] <= 'z' ? (WCHAR)(a[i] - 32) : a[i];
+        WCHAR y = b[i] >= 'a' && b[i] <= 'z' ? (WCHAR)(b[i] - 32) : b[i];
+        if (x != y) return x < y;
+    }
+    return false;
+}
+
+std::vector<uint8_t> compound_file(Data const &data)
+{
+    const uint32_t SECT = 512, MINI = 64, CUTOFF = 4096, FREE = 0xFFFFFFFFu, END = 0xFFFFFFFEu,
+                   FATSECT = 0xFFFFFFFDu, NOSTREAM = 0xFFFFFFFFu;
+    struct Item { wstr name; std::shared_ptr<std::vector<uint8_t>> bytes; uint32_t start = END; };
+    std::vector<Item> items;
+    for (auto &st : data.streams) items.push_back({st.first, st.second});
+    std::sort(items.begin(), items.end(), [](Item const &a, Item const &b) { return cfb_less(a.name, b.name); });
+    // The mini stream and its FAT.
+    std::vector<uint8_t> ministream;
+    std::vector<uint32_t> minifat;
+    for (Item &it : items) {
+        size_t n = it.bytes->size();
+        if (n >= CUTOFF || n == 0) continue;
+        uint32_t first = (uint32_t)minifat.size(), blocks = (uint32_t)((n + MINI - 1) / MINI);
+        for (uint32_t k = 0; k < blocks; ++k) minifat.push_back(k + 1 < blocks ? first + k + 1 : END);
+        ministream.insert(ministream.end(), it.bytes->begin(), it.bytes->end());
+        ministream.resize((size_t)(first + blocks) * MINI, 0);
+        it.start = first;
+    }
+    // Regular sectors: the large streams, the mini stream, the mini FAT, the directory, then the FAT.
+    std::vector<uint8_t> body;                 // sector images after the header
+    std::vector<uint32_t> fat;
+    auto place = [&](std::vector<uint8_t> const &bytes) -> uint32_t {
+        if (bytes.empty()) return END;
+        uint32_t first = (uint32_t)fat.size(), count = (uint32_t)((bytes.size() + SECT - 1) / SECT);
+        for (uint32_t k = 0; k < count; ++k) fat.push_back(k + 1 < count ? first + k + 1 : END);
+        body.insert(body.end(), bytes.begin(), bytes.end());
+        body.resize((size_t)(first + count) * SECT, 0);
+        return first;
+    };
+    for (Item &it : items) if (it.bytes->size() >= CUTOFF) it.start = place(*it.bytes);
+    uint32_t ministream_start = place(ministream);
+    std::vector<uint8_t> minifat_bytes;
+    for (uint32_t v : minifat) put32(minifat_bytes, v);
+    minifat_bytes.resize((minifat_bytes.size() + SECT - 1) / SECT * SECT, 0xFF);
+    uint32_t minifat_start = place(minifat_bytes), minifat_sectors = (uint32_t)(minifat_bytes.size() / SECT);
+    // The directory: the root, then the streams as a balanced red-black tree (the
+    // deepest level red, the rest black: every path holds the same number of black entries).
+    size_t count = items.size();
+    std::vector<uint32_t> left(count, NOSTREAM), right(count, NOSTREAM);
+    std::vector<int> depth(count, 0);
+    int deepest = 0;
+    std::function<uint32_t(size_t, size_t, int)> build = [&](size_t lo, size_t hi, int d) -> uint32_t {
+        if (lo >= hi) return NOSTREAM;
+        size_t mid = (lo + hi) / 2;
+        depth[mid] = d;
+        deepest = std::max(deepest, d);
+        left[mid] = build(lo, mid, d + 1);
+        right[mid] = build(mid + 1, hi, d + 1);
+        return (uint32_t)(mid + 1);   // directory index (the root is entry 0)
+    };
+    uint32_t tree = build(0, count, 0);
+    bool perfect = count == 0 || ((count + 1) & count) == 0;
+    std::vector<uint8_t> dir;
+    auto entry = [&](wstr const &name, uint8_t type, uint8_t color, uint32_t l, uint32_t r, uint32_t child,
+                     uint32_t state, uint32_t start, uint32_t size) {
+        uint8_t e[128];
+        memset(e, 0, sizeof e);
+        size_t n = std::min<size_t>(name.size(), 31);
+        for (size_t i = 0; i < n; ++i) { e[2 * i] = (uint8_t)name[i]; e[2 * i + 1] = (uint8_t)(name[i] >> 8); }
+        uint16_t bytes = (uint16_t)((n + 1) * 2);
+        e[64] = (uint8_t)bytes; e[65] = (uint8_t)(bytes >> 8);
+        e[66] = type;
+        e[67] = color;
+        auto w32 = [&](int at, uint32_t v) { for (int i = 0; i < 4; ++i) e[at + i] = (uint8_t)(v >> (8 * i)); };
+        w32(68, l); w32(72, r); w32(76, child); w32(96, state); w32(116, start); w32(120, size);
+        dir.insert(dir.end(), e, e + 128);
+    };
+    entry(ascii_w("Root Entry"), 5, 1, NOSTREAM, NOSTREAM, tree, kPortMark,
+          ministream.empty() ? END : ministream_start, (uint32_t)ministream.size());
+    for (size_t i = 0; i < count; ++i) {
+        uint8_t color = !perfect && depth[i] == deepest ? 0 : 1;
+        entry(items[i].name, 2, color, left[i], right[i], NOSTREAM, 0, items[i].bytes->empty() ? END : items[i].start,
+              (uint32_t)items[i].bytes->size());
+    }
+    while (dir.size() % SECT) {                 // unused entries
+        uint8_t e[128];
+        memset(e, 0, sizeof e);
+        memset(e + 68, 0xFF, 12);
+        dir.insert(dir.end(), e, e + 128);
+    }
+    uint32_t dir_start = place(dir);
+    // The FAT covers every sector, its own included.
+    uint32_t data_sectors = (uint32_t)fat.size(), fat_sectors = 0;
+    while ((size_t)fat_sectors * (SECT / 4) < data_sectors + fat_sectors) ++fat_sectors;
+    if (fat_sectors > 109) return std::vector<uint8_t>();   // over 7 MB: no DIFAT sectors written
+    uint32_t fat_start = data_sectors;
+    for (uint32_t k = 0; k < fat_sectors; ++k) fat.push_back(FATSECT);
+    fat.resize((size_t)fat_sectors * (SECT / 4), FREE);
+    std::vector<uint8_t> fat_bytes;
+    for (uint32_t v : fat) put32(fat_bytes, v);
+    body.insert(body.end(), fat_bytes.begin(), fat_bytes.end());
+    std::vector<uint8_t> o(512, 0);
+    memcpy(o.data(), compound_magic, 8);
+    auto h16 = [&](int at, uint16_t v) { o[at] = (uint8_t)v; o[at + 1] = (uint8_t)(v >> 8); };
+    auto h32 = [&](int at, uint32_t v) { for (int i = 0; i < 4; ++i) o[at + i] = (uint8_t)(v >> (8 * i)); };
+    h16(24, 0x3E); h16(26, 3); h16(28, 0xFFFE); h16(30, 9); h16(32, 6);
+    h32(40, 0); h32(44, fat_sectors); h32(48, dir_start); h32(52, 0); h32(56, CUTOFF);
+    h32(60, minifat_sectors ? minifat_start : END); h32(64, minifat_sectors); h32(68, END); h32(72, 0);
+    for (int i = 0; i < 109; ++i) h32(76 + 4 * i, i < (int)fat_sectors ? fat_start + (uint32_t)i : FREE);
+    o.insert(o.end(), body.begin(), body.end());
+    return o;
+}
+
+// Whether the compound file at path is one the port wrote (its root entry's state bits).
+bool port_written_compound(const char *path)
+{
+    FILE *f = fopen(path, "rb");
+    if (!f) return false;
+    uint8_t h[512];
+    bool ok = fread(h, 1, 512, f) == 512 && !memcmp(h, compound_magic, 8) && le16(h + 30) == 9;
+    uint8_t root[128];
+    if (ok) ok = fseek(f, (long)(512 + (size_t)le32(h + 48) * 512), SEEK_SET) == 0 && fread(root, 1, 128, f) == 128;
+    fclose(f);
+    return ok && root[66] == 5 && le32(root + 96) == kPortMark;
+}
+
 // The load dialog lists an original save by its description; the port marks it
 // (only in the copy in memory: the file is never written).
 void mark_original(Data &data)
@@ -421,12 +567,14 @@ struct Storage : IUnknownPort {
     bool dirty = false;
     bool original = false;   // an original save (compound file): read only, original_save_mode while open
     int version = 0;         // a port save read: its container version (ra2port_port_save_version while open)
+    bool compound_out = false;   // written in the original's format (lane C17): ra2port_original_write_mode while open
     Data data;
     PropertySetStorage props{this};
     Storage(std::string const &host, bool write) : path(host), writable(write) {}
     ~Storage()
     {
         if (original) --ra2port_original_save_mode;
+        if (compound_out) --ra2port_original_write_mode;
         if (version) {
             // The version of the most recently opened port save still open (a storage
             // closed out of order, such as the summary read's, leaves the others' own).
@@ -441,6 +589,17 @@ struct Storage : IUnknownPort {
     }
     bool Save()
     {
+        if (compound_out) {
+            std::vector<uint8_t> c = compound_file(data);
+            if (c.empty()) { stg_log("save %s: too large for the original's format", path.c_str()); return false; }
+            FILE *f = fopen(path.c_str(), "wb");
+            if (!f) return false;
+            bool ok = fwrite(c.data(), 1, c.size(), f) == c.size();
+            fclose(f);
+            dirty = false;
+            stg_log("save %s: original format, %zu streams, %zu bytes", path.c_str(), data.streams.size(), c.size());
+            return ok;
+        }
         std::vector<uint8_t> o;
         // A storage read from a version 1 file and written back (the summary read opens it
         // read-write) stays version 1: its MouseClass image is the 0x4F3C-byte one.
@@ -493,7 +652,7 @@ struct Storage : IUnknownPort {
             original = true;
             writable = false;
             ++ra2port_original_save_mode;
-            mark_original(data);
+            if (!port_written_compound(path.c_str())) mark_original(data);   // the port's own (C17) are not marked
             stg_log("open %s: original save (compound file), %zu streams, read only", path.c_str(), data.streams.size());
             return true;
         }
@@ -616,6 +775,9 @@ struct PersistStreamPort : IUnknownPort {
 };
 }  // namespace
 
+// kernel32.cpp's DeleteFileA: a compound file the port wrote may be deleted (lane C17).
+extern "C" int ra2port_port_written_compound(const char *path) { return port_written_compound(path) ? 1 : 0; }
+
 extern "C" {
 HRESULT CoCreateInstance(const GUID *clsid, IUnknownPort *outer, DWORD context, const GUID *iid, void **out);
 
@@ -639,7 +801,7 @@ HRESULT StgCreateDocfile(const WCHAR *name, DWORD mode, DWORD reserved, void **o
         if (f) {
             size_t got = fread(head, 1, 8, f);
             fclose(f);
-            if (got == 8 && !memcmp(head, compound_magic, 8)) {
+            if (got == 8 && !memcmp(head, compound_magic, 8) && !port_written_compound(path)) {
                 stg_log("create %s -> %s: an original save, not replaced", game.c_str(), path);
                 *out = nullptr;
                 return STG_E_ACCESSDENIED;
@@ -648,7 +810,11 @@ HRESULT StgCreateDocfile(const WCHAR *name, DWORD mode, DWORD reserved, void **o
     }
     Storage *s = new Storage(path, true);
     s->dirty = true;
-    stg_log("create %s -> %s", game.c_str(), path);
+    if (save_format_original()) {
+        s->compound_out = true;
+        ++ra2port_original_write_mode;
+    }
+    stg_log("create %s -> %s%s", game.c_str(), path, s->compound_out ? " (original format)" : "");
     *out = s;
     return S_OK;
 }

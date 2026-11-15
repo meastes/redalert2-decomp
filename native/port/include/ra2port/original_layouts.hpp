@@ -11,6 +11,9 @@ enum OriginalLayoutOpKind {
     ORIGINAL_OP_WIDEN = 1,     // n 4-byte values to 8 bytes, zero-extended (pointers)
     ORIGINAL_OP_WIDEN_S = 2,   // the same, sign-extended (intptr_t)
     ORIGINAL_OP_BITS = 3,      // a bit-field: width bits at sbit of a unit-byte value to dbit of a dunit-byte value
+    ORIGINAL_OP_POINTER = 4,   // n pointers: read as WIDEN; written as swizzle ids or the original's addresses (C17)
+    ORIGINAL_OP_VPTR = 5,      // a vtable pointer at src: not read (the object keeps its own); written as the
+                               // original's vtable for offset dst of the class whose primary vtable is n (C17)
 };
 
 struct OriginalLayoutOp {

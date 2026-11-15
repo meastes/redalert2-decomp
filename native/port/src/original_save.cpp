@@ -45,9 +45,10 @@ extern "C" __attribute__((weak)) const OriginalLayout ra2port_original_layouts[1
 extern "C" __attribute__((weak)) const unsigned ra2port_original_layout_count = 0;
 
 typedef int32_t (*ra2port_stream_read_fn)(void *stream, void *buffer, uint32_t size, uint32_t *read);
+typedef int32_t (*ra2port_stream_write_fn)(void *stream, void const *buffer, uint32_t size, uint32_t *written);
 
 namespace {
-enum { RAW, UNSIGNED_WIDE, SIGNED_WIDE, OBJECT };
+enum { RAW, UNSIGNED_WIDE, SIGNED_WIDE, OBJECT, POINTER };
 
 bool log_on()
 {
@@ -204,6 +205,7 @@ void convert(uint8_t *out, const uint8_t *in, OriginalLayout const &l)
             memcpy(out + o.dst, in + o.src, o.n);
             break;
         case ORIGINAL_OP_WIDEN:
+        case ORIGINAL_OP_POINTER:
         case ORIGINAL_OP_WIDEN_S:
             for (uint32_t k = 0; k < o.n; ++k) {
                 uint32_t v = (uint32_t)load_unit(in + o.src + 4 * k, 4);
@@ -247,6 +249,7 @@ extern "C" int32_t ra2port_original_read(ra2port_stream_read_fn stream_read, voi
                                          uint32_t *read, int kind, void const *vptr, char const *type_name)
 {
     switch (kind) {
+    case POINTER:
     case UNSIGNED_WIDE:
     case SIGNED_WIDE:
         if (size == 4 || (size && size % 8 == 0)) {
@@ -284,4 +287,166 @@ extern "C" int32_t ra2port_original_read(ra2port_stream_read_fn stream_read, voi
         break;
     }
     return stream_read(stream, buffer, size, read);
+}
+
+// ---- Writing the original's saves (lane C17; RA2_NATIVE_SAVE_FORMAT=original) ----
+// While a storage written in the original's format is open (storage.cpp sets
+// ra2port_original_write_mode), every typed IStream::Write comes here, the mirror of
+// the read above: pointers are written as 4-byte swizzle ids (the id an object had in
+// the original save it was loaded from, else a new one; the game's globals and the
+// mapped image as the original's own addresses), pointer-width integers as 4 bytes,
+// objects as their i686 image through the field maps run backwards, with the
+// original's vtable addresses in their vtable pointers and padding zeroed.
+extern "C" int ra2port_original_write_mode = 0;
+
+namespace ra2port {
+uint32_t original_address_of(const void *p);                        // original_image.cpp
+uint32_t original_vtable(uint32_t primary, uint32_t object_offset);
+}
+
+namespace {
+std::mutex id_lock;
+std::map<uintptr_t, uint32_t> &pointer_ids()
+{
+    static std::map<uintptr_t, uint32_t> ids;
+    return ids;
+}
+std::set<uint32_t> &used_ids()
+{
+    static std::set<uint32_t> used;
+    return used;
+}
+
+// Fresh ids: 8-aligned values above any original heap address seen in the saves (the
+// original's swizzle manager needs only distinct non-zero ids).
+uint32_t pointer_id(uint64_t value)
+{
+    if (value == 0) return 0;
+    if (uint32_t va = ra2port::original_address_of((const void *)(uintptr_t)value)) return va;
+    std::lock_guard<std::mutex> g(id_lock);
+    auto &ids = pointer_ids();
+    auto it = ids.find((uintptr_t)value);
+    if (it != ids.end()) return it->second;
+    static uint32_t next = 0x10000000u;
+    auto &used = used_ids();
+    while (used.count(next)) next += 8;
+    uint32_t id = next;
+    next += 8;
+    ids[(uintptr_t)value] = id;
+    used.insert(id);
+    return id;
+}
+
+void report_once(std::string const &what)
+{
+    static std::mutex lock;
+    static std::set<std::string> seen;
+    std::lock_guard<std::mutex> g(lock);
+    if (seen.insert(what).second) olog("%s", what.c_str());
+}
+
+// The i686 image of one native object (the read's convert run backwards).
+void convert_back(uint8_t *out, const uint8_t *in, OriginalLayout const &l)
+{
+    memset(out, 0, l.i686_size);
+    for (uint32_t i = 0; i < l.count; ++i) {
+        OriginalLayoutOp const &o = ra2port_original_ops[l.first + i];
+        switch (o.kind) {
+        case ORIGINAL_OP_COPY:
+            memcpy(out + o.src, in + o.dst, o.n);
+            break;
+        case ORIGINAL_OP_WIDEN:
+        case ORIGINAL_OP_WIDEN_S:
+            for (uint32_t k = 0; k < o.n; ++k) store_unit(out + o.src + 4 * k, 4, (uint32_t)load_unit(in + o.dst + 8 * k, 8));
+            break;
+        case ORIGINAL_OP_POINTER:
+            for (uint32_t k = 0; k < o.n; ++k) store_unit(out + o.src + 4 * k, 4, pointer_id(load_unit(in + o.dst + 8 * k, 8)));
+            break;
+        case ORIGINAL_OP_BITS: {
+            uint64_t mask = o.width >= 64 ? ~0ull : ((1ull << o.width) - 1);
+            uint64_t v = (load_unit(in + o.dst, o.dunit) >> o.dbit) & mask;
+            uint64_t d = load_unit(out + o.src, o.unit);
+            d = (d & ~(mask << o.sbit)) | (v << o.sbit);
+            store_unit(out + o.src, o.unit, d);
+            break;
+        }
+        case ORIGINAL_OP_VPTR: {
+            uint32_t va = ra2port::original_vtable(o.n, o.dst);
+            if (!va) report_once(std::string("write: no original vtable for ") + l.name + " +" + std::to_string(o.src));
+            store_unit(out + o.src, 4, va);
+            break;
+        }
+        default:
+            break;
+        }
+    }
+}
+
+int32_t write_object(ra2port_stream_write_fn stream_write, void *stream, void const *buffer, uint32_t size,
+                     uint32_t *written, OriginalLayout const &l, uint32_t count)
+{
+    std::vector<uint8_t> image((size_t)l.i686_size * count);
+    for (uint32_t k = 0; k < count; ++k) {
+        convert_back(image.data() + (size_t)k * l.i686_size, (const uint8_t *)buffer + (size_t)k * l.arm64_size, l);
+    }
+    uint64_t put = 0;   // the stream's Write stores an unsigned long (8 bytes on LP64)
+    int32_t r = stream_write(stream, image.data(), (uint32_t)image.size(), (uint32_t *)&put);
+    if (log_on()) olog("write %s: %u x %u bytes to %u i686 bytes", l.name, count, l.arm64_size, l.i686_size);
+    if (written) *written = (uint32_t)put == image.size() ? size : (uint32_t)put;
+    return r;
+}
+
+int32_t write_narrowed(ra2port_stream_write_fn stream_write, void *stream, void const *buffer, uint32_t size,
+                       uint32_t *written, bool pointers)
+{
+    uint32_t count = size / 8;
+    std::vector<uint32_t> narrow(count);
+    for (uint32_t i = 0; i < count; ++i) {
+        uint64_t v = load_unit((const uint8_t *)buffer + 8 * i, 8);
+        narrow[i] = pointers ? pointer_id(v) : (uint32_t)v;
+    }
+    uint64_t put = 0;
+    int32_t r = stream_write(stream, narrow.data(), count * 4, (uint32_t *)&put);
+    if (written) *written = (uint32_t)put == count * 4 ? size : (uint32_t)put * 2;
+    return r;
+}
+}  // namespace
+
+// The id an object had in the original save being read (SwizzleManagerClass::Here_I_Am,
+// port/fixups.json): written again for it, so a save written after loading one keeps them.
+extern "C" void ra2port_original_note_id(intptr_t id, void *pointer)
+{
+    if (!ra2port_original_save_mode || !pointer || id <= 0 || (uint64_t)id > 0xFFFFFFFFu) return;
+    std::lock_guard<std::mutex> g(id_lock);
+    pointer_ids()[(uintptr_t)pointer] = (uint32_t)id;
+    used_ids().insert((uint32_t)id);
+}
+
+extern "C" int32_t ra2port_original_write(ra2port_stream_write_fn stream_write, void *stream, void const *buffer,
+                                          uint32_t size, uint32_t *written, int kind, void const *vptr,
+                                          char const *type_name)
+{
+    switch (kind) {
+    case POINTER:
+    case UNSIGNED_WIDE:
+    case SIGNED_WIDE:
+        if (size && size % 8 == 0) return write_narrowed(stream_write, stream, buffer, size, written, kind == POINTER);
+        break;
+    case OBJECT: {
+        OriginalLayout const *s = layout(static_name(type_name));
+        if (s && size == s->arm64_size) return write_object(stream_write, stream, buffer, size, written, *s, 1);
+        std::string dynamic = vptr ? dynamic_name(vptr) : std::string();
+        OriginalLayout const *d = dynamic.empty() ? nullptr : layout(dynamic);
+        if (d && size == d->arm64_size) return write_object(stream_write, stream, buffer, size, written, *d, 1);
+        if (s && s->arm64_size && size % s->arm64_size == 0) {
+            return write_object(stream_write, stream, buffer, size, written, *s, size / s->arm64_size);
+        }
+        report_once("write: no layout for " + (dynamic.empty() ? static_name(type_name) : dynamic) + " (" +
+                    std::to_string(size) + " bytes): written as is");
+        break;
+    }
+    default:
+        break;
+    }
+    return stream_write(stream, buffer, size, written);
 }

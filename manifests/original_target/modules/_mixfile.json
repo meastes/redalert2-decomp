@@ -59,9 +59,21 @@
    "entry": "0040d3d0",
    "body_bytes": 59,
    "padding_bytes": 5
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVMixFileClass@@@@UAEPAXI@Z",
+   "entry": "0040d6d0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVMixFileClass@@@@UAEPAXI@Z",
+   "entry": "0040d720",
+   "body_bytes": 73,
+   "padding_bytes": 7
   }
  ],
- "code_bytes": 512,
+ "code_bytes": 672,
  "data": [
   {
    "symbol": "??_7?$DynamicVectorClass@PAVMixFileClass@@@@6B@",
@@ -249,14 +261,6 @@
    "address": "007b15e4"
   },
   {
-   "symbol": "??_G?$DynamicVectorClass@PAVMixFileClass@@@@UAEPAXI@Z",
-   "address": null
-  },
-  {
-   "symbol": "??_G?$VectorClass@PAVMixFileClass@@@@UAEPAXI@Z",
-   "address": null
-  },
-  {
    "symbol": "?Clear@?$DynamicVectorClass@PAVMixFileClass@@@@UAEXXZ",
    "address": "0040d410"
   },
@@ -307,10 +311,24 @@
    "bound": "the unit's compile group (population-3748)",
    "placed": "append",
    "unit_evidence": "xcu single"
+  },
+  {
+   "entry": "0040d6d0",
+   "bytes": 73,
+   "population": "population-15",
+   "bound": "own frozen bound (population-15)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0040d720",
+   "bytes": 73,
+   "population": "population-12",
+   "bound": "own frozen bound (population-12)",
+   "options": "joined under the unit's /GR (frozen without it)"
   }
  ],
  "residuals": [],
- "unit_functions": 7,
+ "unit_functions": 9,
  "data_unproven": [
   {
    "symbol": "_$S7",

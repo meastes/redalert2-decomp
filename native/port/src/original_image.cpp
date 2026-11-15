@@ -17,6 +17,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include <algorithm>
+#include <map>
 #include <string>
 #include <vector>
 
@@ -138,6 +140,73 @@ void *original_data_pointer(uint32_t va)
     for (const Image::Range &r : img.sections)
         if (va >= r.start && va < r.end) return r.exec ? nullptr : img.mem.data() + (va - img.base);
     return nullptr;
+}
+
+// Writing the original's saves (lane C17): the original's address for a native pointer
+// into the game's globals (the storage original_data_pointer hands out for va, offset
+// kept; pointer slots are twice as wide natively) or into the mapped image; 0 for
+// anything else (heap objects: their swizzle ids come from original_save.cpp).
+uint32_t original_address_of(const void *p)
+{
+    Image &img = image();
+    if (!img.loaded || !p) return 0;
+    const unsigned char *c = (const unsigned char *)p;
+    if (c >= img.mem.data() && c < img.mem.data() + img.mem.size()) return img.base + (uint32_t)(c - img.mem.data());
+    static std::vector<size_t> by_storage;       // g_places indices sorted by storage
+    static const ra2_original_place *indexed = nullptr;
+    if (indexed != g_places) {
+        indexed = g_places;
+        by_storage.clear();
+        for (size_t i = 0; i < g_place_count; ++i) by_storage.push_back(i);
+        std::sort(by_storage.begin(), by_storage.end(),
+                  [](size_t a, size_t b) { return (uintptr_t)g_places[a].storage < (uintptr_t)g_places[b].storage; });
+    }
+    size_t lo = 0, hi = by_storage.size();
+    while (lo < hi) {                            // last place whose storage <= p
+        size_t mid = (lo + hi) / 2;
+        if ((uintptr_t)g_places[by_storage[mid]].storage <= (uintptr_t)p) lo = mid + 1; else hi = mid;
+    }
+    if (lo == 0) return 0;
+    const ra2_original_place &pl = g_places[by_storage[lo - 1]];
+    uintptr_t off = (uintptr_t)p - (uintptr_t)pl.storage;
+    if (pl.pointers) {
+        if (off % 8) return 0;
+        off /= 2;
+    }
+    return off < pl.extent ? pl.address + (uint32_t)off : 0;
+}
+
+// The original's vtable for the vtable pointer at object_offset of the class whose
+// primary vtable is primary (lane C17): from the RTTI complete-object locators in the
+// supported game.exe (the one before each vtable: signature 0, offset, its type
+// descriptor), the vtable with the primary's type descriptor and that offset. 0 when
+// the image has none.
+uint32_t original_vtable(uint32_t primary, uint32_t object_offset)
+{
+    if (!primary || object_offset == 0) return primary;
+    Image &img = image();
+    if (!img.loaded) return 0;
+    static std::map<std::pair<uint32_t, uint32_t>, uint32_t> *vtables = nullptr;   // (type descriptor, offset) -> vtable
+    if (!vtables) {
+        vtables = new std::map<std::pair<uint32_t, uint32_t>, uint32_t>;
+        auto in_image = [&](uint32_t va) { return va >= img.base && va - img.base + 20 <= img.size; };
+        for (uint32_t rva = 4; rva + 4 <= img.size; rva += 4) {
+            uint32_t col = rd32(img.mem.data() + rva - 4);   // the pointer before a vtable
+            if (!in_image(col)) continue;
+            const unsigned char *c = img.mem.data() + (col - img.base);
+            uint32_t td = rd32(c + 12), chd = rd32(c + 16);
+            if (rd32(c) != 0 || rd32(c + 8) != 0 || rd32(c + 4) > 0x10000 || !in_image(td) || !in_image(chd)) continue;
+            const unsigned char *t = img.mem.data() + (td - img.base);
+            if (t[8] != '.' || t[9] != '?' || t[10] != 'A') continue;   // ".?AV<name>@@": a type descriptor's name
+            vtables->emplace(std::make_pair(td, rd32(c + 4)), img.base + rva);
+        }
+    }
+    if (primary - img.base < 4 || primary - img.base >= img.size) return 0;
+    uint32_t col = rd32(img.mem.data() + (primary - img.base) - 4);
+    if (col < img.base || col - img.base + 20 > img.size) return 0;
+    uint32_t td = rd32(img.mem.data() + (col - img.base) + 12);
+    auto it = vtables->find(std::make_pair(td, object_offset));
+    return it == vtables->end() ? 0 : it->second;
 }
 
 // A resource the original stores (PE resource directory, data directory 2):

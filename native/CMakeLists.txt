@@ -431,6 +431,14 @@ if(RA2_NATIVE_SDL)
                  --log "${CMAKE_CURRENT_BINARY_DIR}/native-original-save.log" ${ra2_wine_args_original})
         # Room for the Wine host retries (tests/wine.py host_failure: at most two more launches).
         set_tests_properties(native-original-save PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 900)
+        # 8b'. Writing the original's format (C17, RA2_NATIVE_SAVE_FORMAT=original): a fresh
+        #      skirmish and each of the user's five saves, saved that way, load back and play.
+        add_test(NAME native-original-save-write COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/original_save_write.py"
+                 --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+                 --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/original-save-write"
+                 --save ALL01T.sav --save ALL02S.sav --save ALL03U.sav --save SAVE397A.SAV --save SAVE4FBD.SAV
+                 ${ra2_wine_args_originalwrite})
+        set_tests_properties(native-original-save-write PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 2400)
       endif()
       # 9. Plain-virtual views against the real classes' arm64 vtables (Scout1288,
       #    tools/vtable_views.py, data/vtable_views.tsv): every view classified, and each

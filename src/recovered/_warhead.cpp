@@ -39,3 +39,11 @@ char const *__fastcall unknown_warhead_name_0040f3a0(int index)
     }
     return 0;
 }
+
+
+// ??_G?$VectorClass@PAVWarheadTypeClass@@@@UAEPAXI@Z (0x0040F680): compiler generated with the vtable unknown_WarheadTypeClass_list_00839b00 stores
+// (VectorClass<WarheadTypeClass *>, shared/vector_class.hpp); emitted by this unit's header_statics/0040f0a0. No source of its own.
+
+
+// ??_G?$DynamicVectorClass@PAVWarheadTypeClass@@@@UAEPAXI@Z (0x0040F6D0): compiler generated with the vtable unknown_WarheadTypeClass_list_00839b00 stores
+// (DynamicVectorClass<WarheadTypeClass *>, shared/vector_class.hpp); emitted by this unit's header_statics/0040f0a0. No source of its own.

@@ -163,16 +163,22 @@ class Flattener:
             return LONG[self.triple]
         return SCALAR.get(t)
 
-    def leaves(self, node, base, prefix, out):
+    def leaves(self, node, base, prefix, out, owner='', owner_base=0):
         """Leaves under node; the dump's offsets are from the start of the record the
-        block dumps, which sits at base."""
+        block dumps, which sits at base. owner is the complete object the node lies in
+        (the written type, or a member object's type) and owner_base its offset: an
+        i686 vtable pointer is a 'vptr' leaf naming that class and the pointer's offset
+        in it (the original's vtable address there, for writing: lane C17)."""
         anonymous = 0
         for child in node.children:
-            if child.label == 'vptr':
-                continue
             off = base + child.offset
+            if child.label == 'vptr':
+                if self.triple == 'i686' and owner:
+                    out.append(Leaf(prefix + '(vptr %d)' % (off - owner_base), off, 'vptr', 4,
+                                    unit=off - owner_base, type_=owner))
+                continue
             if child.label == 'base':
-                self.leaves(child, base, prefix + child.name + '.', out)
+                self.leaves(child, base, prefix + child.name + '.', out, owner, owner_base)
                 continue
             name = child.name
             if not name:
@@ -184,7 +190,9 @@ class Flattener:
                 if t.startswith('union ') or t.startswith('const union '):
                     out.append(self.union_leaf(path, off, t, child))
                 else:
-                    self.leaves(child, base, path + '.', out)
+                    # A member object laid out inline: its own complete object (vtable pointers).
+                    mtype = canonical(re.sub(r'\b(const|volatile)\b', '', t).strip())
+                    self.leaves(child, base, path + '.', out, mtype, off)
                 continue
             if child.bits:
                 unit = self.scalar_size(t) or 4
@@ -248,13 +256,14 @@ class Flattener:
                 out.append(self.union_leaf(path + ('[%d]' % k if array else ''), off + k * rec.size, base, rec.root))
             return
         for k in range(n):
-            self.leaves(rec.root, off + k * rec.size, path + ('[%d].' % k if array else '.'), out)
+            self.leaves(rec.root, off + k * rec.size, path + ('[%d].' % k if array else '.'), out,
+                        rec.name, off + k * rec.size)
 
 
 def flatten(recs, name, triple, problems):
     rec = recs[name]
     out = []
-    Flattener(recs, triple, problems).leaves(rec.root, 0, '', out)
+    Flattener(recs, triple, problems).leaves(rec.root, 0, '', out, name, 0)
     out.sort(key=lambda l: l.offset)
     # Sizes the type does not give (enums): up to the next leaf or the record's end, at most 4.
     for i, l in enumerate(out):
@@ -272,6 +281,18 @@ def ops_for(recs_i, recs_a, name, problems):
     by_path = {l.path: l for l in la}
     ops, unmatched = [], []
     for l in li:
+        if l.kind == 'vptr':
+            # The original's vtable address for this pointer (written; a read keeps the
+            # object's own): the RTTI record of the owning class with this object offset.
+            # n: the owning class's primary vtable (its RTTI record at object offset 0); dst:
+            # the pointer's offset in that object. The port finds the vtable for that offset
+            # from the primary one's RTTI type descriptor in game.exe at run time (the
+            # manifest lists only some secondary vtables, e.g. not INoticeSink/INoticeSource).
+            va = rtti_vtable(l.type, 0)
+            if not va:
+                MISSING_VTABLES.add('%s+%d' % (l.type, l.unit))
+            ops.append(('VPTR', l.offset, l.unit, va, 0, 0, 0, 0, 0))
+            continue
         a = by_path.pop(l.path, None)
         if a is None:
             unmatched.append(('i686 only', l.path, l.type))
@@ -288,7 +309,9 @@ def ops_for(recs_i, recs_a, name, problems):
             if a.kind not in ('pointer', 'long'):
                 unmatched.append(('pointer in one layout', l.path, l.type))
                 continue
-            ops.append(('WIDEN_S' if l.signed else 'WIDEN', l.offset, a.offset, l.count, 0, 0, 0, 0, 0))
+            # POINTER: widened on reading as WIDEN; written as a swizzle id (lane C17).
+            kind = 'POINTER' if l.kind == 'pointer' and a.kind == 'pointer' else ('WIDEN_S' if l.signed else 'WIDEN')
+            ops.append((kind, l.offset, a.offset, l.count, 0, 0, 0, 0, 0))
             continue
         if l.kind == 'union':
             if l.size == a.size:
@@ -392,7 +415,30 @@ def find_unit(build, name, hint, units_text):
     return None
 
 
-KIND_CODE = {'COPY': 0, 'WIDEN': 1, 'WIDEN_S': 2, 'BITS': 3}
+KIND_CODE = {'COPY': 0, 'WIDEN': 1, 'WIDEN_S': 2, 'BITS': 3, 'POINTER': 4, 'VPTR': 5}
+
+# The original's vtables (manifests/rtti_classes.json, from the executable's RTTI: class,
+# vtable address, the vtable pointer's offset in the complete object).
+RTTI_VTABLES = None
+MISSING_VTABLES = set()
+
+
+def rtti_key(name):
+    """A class name as both spellings compare: no record keywords, const or spaces, bool."""
+    key = canonical(re.sub(r'\bconst\b', '', name).replace('_Bool', 'bool'))
+    return re.sub(r'(?<=[<,])const', '', key)     # layout names come without spaces already
+
+
+def rtti_vtable(cls, offset):
+    global RTTI_VTABLES
+    if RTTI_VTABLES is None:
+        RTTI_VTABLES = {}
+        try:
+            for v in json.loads((ROOT / 'manifests/rtti_classes.json').read_text())['vtables']:
+                RTTI_VTABLES.setdefault((rtti_key(v['class_name']), int(v.get('object_offset', 0))), int(v['vtable'], 16))
+        except (OSError, ValueError, KeyError):
+            pass
+    return RTTI_VTABLES.get((rtti_key(cls), offset), 0)
 
 
 def main():
@@ -450,6 +496,10 @@ def main():
                             % (name, where[name].name, suggest(name, loads.get(name), units_text)))
             continue
         ops, unmatched = ops_for(ri, ra, key, problems)
+        for o in ops:
+            if o[0] == 'VPTR' and not o[3]:
+                problems.append('%s: no original vtable (manifests/rtti_classes.json) for its vtable pointer at +%d'
+                                % (name, o[1]))
         if name in sizes and sizes[name] != ri[key].size:
             problems.append('%s: i686 layout %d bytes in %s, the original\'s object %d' % (name, ri[key].size, where[name].name, sizes[name]))
         for u in unmatched:
@@ -480,7 +530,8 @@ def main():
                 continue
             others[key] = entry
     tables.extend(others[k] for k in sorted(others))
-    report_others = {'records': len(others), 'conflicting names left out': sorted(conflicts)}
+    report_others = {'records': len(others), 'conflicting names left out': sorted(conflicts),
+                     'vtable pointers without an original vtable': sorted(MISSING_VTABLES)}
     lines = ['// generated by native/tools/original_layouts.py from data/original_save_types.txt: do not edit.',
              '// i686 (VC6) to %s field maps of the types read from the original game\'s saves (lane C6).'
              % ('arm64' if NATIVE == 'arm64' else 'x86_64 Windows'),

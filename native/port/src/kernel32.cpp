@@ -364,6 +364,7 @@ BOOL CloseHandle(HANDLE handle)
     return 1;
 }
 
+extern "C" int ra2port_port_written_compound(const char *path);   // storage.cpp (lane C17)
 BOOL DeleteFileA(const char *name)
 {
     char path[1024];
@@ -377,7 +378,11 @@ BOOL DeleteFileA(const char *name)
         if (fd >= 0) {
             ssize_t got = read(fd, head, 8);
             close(fd);
-            if (got == 8 && !memcmp(head, compound, 8)) { set_last_error(ERROR_ACCESS_DENIED); return 0; }
+            // One the port wrote in the original's format (lane C17) may go.
+            if (got == 8 && !memcmp(head, compound, 8) && !ra2port_port_written_compound(path)) {
+                set_last_error(ERROR_ACCESS_DENIED);
+                return 0;
+            }
         }
     }
     if (unlink(path) != 0) { set_last_error(errno_to_win32(errno)); return 0; }
