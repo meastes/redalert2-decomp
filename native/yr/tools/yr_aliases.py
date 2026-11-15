@@ -10,7 +10,11 @@ address, as an ld64 alias (the same mechanism as the RA2 tree's data/address_ali
   * functions: the manifest's function at the address (data/manifest.csv, its MSVC symbol), when
     exactly one native definition has that qualified name (and, if several overloads do, the
     one with the same parameter count);
-  * data: the global native/yr/data/globals.tsv gives at the address, when a unit defines it.
+  * data: the global native/yr/data/globals.tsv gives at the address, when a unit defines it;
+  * names: the tree also calls matched functions by the name data/functions.csv gives their
+    address (Game::AudioGetTime for AudioGetTime at 0x004093B0; lane Y3). Such a call is bound
+    to the manifest's function at that address when the parameter counts agree; each binding
+    is listed in the output's comment lines, so a differing return type can be seen.
 
 Writes a TSV (alias, target; Mach-O symbols) for tools/link_closure.py --aliases.
 
@@ -25,6 +29,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
 MANIFEST = ROOT / 'yr/ra2-decomp/data/manifest.csv'
+FUNCTIONS = ROOT / 'yr/ra2-decomp/data/functions.csv'   # address, size, flags, name
 GLOBALS = ROOT / 'native/yr/data/globals.tsv'
 NAME_ALIASES = ROOT / 'native/yr/data/name_aliases.tsv'   # one function, two names in the tree
 ADDRESS = re.compile(r'(?:FUN|DAT|PTR|LAB)_([0-9A-Fa-f]{8})\b')
@@ -134,14 +139,35 @@ def main():
             rows.append((sym, target))
         else:
             unbound += 1
+    # Calls by the functions.csv name of a matched function.
+    named = {}
+    for r in csv.DictReader(FUNCTIONS.open()):
+        if r['name'] and not ADDRESS.search(r['name']):
+            named.setdefault(r['name'], set()).add(int(r['address'], 16))
+    bound = {r[0] for r in rows}
+    by_csv = []
+    for sym in sorted(undefined - bound):
+        dem = dem_undefined[sym]
+        if not sym.startswith('__Z') or '(' not in dem:
+            continue
+        addresses = named.get(dem.split('(')[0], set())
+        if len(addresses) != 1:
+            continue
+        address = next(iter(addresses))
+        name = msvc_name(functions.get(address, '')) if address in functions else None
+        candidates = [c for c in by_name.get(name, []) if params(c[1]) == params(dem)] if name else []
+        if len(candidates) == 1 and candidates[0][0] != sym:
+            rows.append((sym, candidates[0][0]))
+            by_csv.append('# 0x%08X %s -> %s' % (address, dem, candidates[0][1]))
     for line in NAME_ALIASES.read_text().splitlines():
         if line and not line.startswith(('#', 'alias\t')):
             alias, target = line.split('\t')[:2]
             if alias in undefined and target in defined:
                 rows.append((alias, target))
-    a.out.write_text('# yr_aliases.py: YR address names bound to the definition at that address\nalias\ttarget\n'
+    a.out.write_text('# yr_aliases.py: YR address names bound to the definition at that address\n'
+                     + ''.join(l + '\n' for l in by_csv) + 'alias\ttarget\n'
                      + ''.join('%s\t%s\n' % r for r in rows))
-    print('yr_aliases: %d address names bound, %d left' % (len(rows), unbound))
+    print('yr_aliases: %d address names bound (%d by functions.csv name), %d left' % (len(rows), len(by_csv), unbound))
 
 
 if __name__ == '__main__':

@@ -71,11 +71,44 @@ Run: `yr-native --data-dir <RA2+YR install> --run-to=menu` creates the "Yuri's R
 palettes, and stops in Init_Game at FUN_00754CB0 (3,290 bytes, TS Init_Voxel_Matrices; RA2
 twin `src/recovered/voxel.cpp` Unknown_00718060).
 
-## Next (to the main menu)
+## Stage 2, lane Y3 (2026-11-15): to the main menu
 
-1. FUN_00754CB0 from its RA2 twin; then Init_Game's remaining callees as they trap
-   (Init_Secondary_Mixfiles, Init_Bulk_Data and FUN_0052CD70 are matched upstream), Main_Loop
-   (unmatched in YR; RA2 twin), Game::PlayMovie / FUN_005BF260 (movies), Read_PCX_File.
-2. Init_Game's CD search when no search path is set (not drafted: the native host always
-   passes -CD.).
-3. Variant* and the other Win32 imports the port does not yet supply (the run lists them).
+* The pin moved to ra2-decomp `8719494` (`yr/README.md`, `THIRD_PARTY.md`): 17 of our stops had been
+  matched upstream since `f8d8d53` (BuildingTypeClass::Read_INI, Main_Loop, Message_Input,
+  VoxelLibrary::Read_File, ...).
+* `tools/yr_aliases.py` also binds calls made by a matched function's `functions.csv` name
+  (Game::AudioGetTime, INIClass::GetSection, ...; 22 bindings, listed in the generated
+  `aliases.tsv`); `data/name_aliases.tsv` gained the ones read from gamemd.exe's calls
+  (Toggle_Cameo_Text, ObjectTypeClass::One_Time, IonStormClass::Is_Ion_Storm_Active,
+  Vox_From_Name, Fill_Surface_Rect, OwnerDraw::Dialog_Message_Handler, FUN_0053D330).
+* Native drafts (NON-EXACT, `fixups.json` "append"): FUN_00754CB0 (voxel matrices, RA2 twin),
+  SidebarClass::Reposition_Sidebar, IonBlastClass::One_Time, the TechnoTypeClass constructor
+  (gamemd.exe's stores mapped to field offsets), Read_PCX_File (TibSun text), the Adjust_Color
+  tables (`yr_asm.cpp`), and the owner-draw layer the menu needs (`glue/ownrdraw_native.inc`):
+  UI::StandardWndProc, OwnerDraw::DefaultHandler (TibSun CtrlProc via the RA2 draft),
+  OwnerDrawButtonHandler, StaticHandler, ResetControlDrawModeAndTimerProc, FUN_0060C0C0,
+  FUN_0060B950, DrawCampaignMenuTransition (the RA2 tree's matched twin). Bindings:
+  Game::CallBack, Game::PlayMovie / FUN_005BF260, the game-mode initialisers' Allocate.
+* Pointer-width fixes: the audio memory pool and stream casts, ToolTip::Text (intptr_t), and the
+  owner-draw record (OwnerDraw::WinData): the unit reaches fields both by name and at raw 32-bit
+  offsets; natively the raw ones go through the union's pointer-free Dialog view, the record
+  constructor's font by name, and the statics' pointer fields (+0x58, +0x60, +0x74, +0x78, +0xA4)
+  sit in a side table by window.
+* Research helpers: `tools/yr_dis.py` (gamemd.exe disassembly with the tree's names),
+  `tools/yr_layout.py` (32-bit field offsets of a YR class), `tools/yr_ctor_stores.py`
+  (a constructor's stores by field), `tools/yr_run.sh` (a run with window dumps).
+
+Run: the "Yuri's Revenge" main menu shows (Single Player, Internet, Network, Movies & Credits,
+Options, Exit Game, Version 1.001) with its TV movie playing, and Main_Menu's loop runs. Link closure: 343 entries.
+
+## Next
+
+1. The buttons' targets (input not yet exercised; the runs are unattended): each submenu
+   will stop at its unmatched handlers (ListBoxHandler 14.7 KB, ComboBoxHandler 6.9 KB,
+   ComboDropWindowHandler 7.6 KB, SysTabHandler, NewEditHandler, PrepareDialogChildControls,
+   UI::RegisterWindow; RA2 counterparts in native/link/behaviour_m14_ownerdraw.cpp).
+2. The owner-draw unit's other 32-bit pointer assumptions: globals declared `int` that hold
+   pointers (FUN_00603870's shapes, DAT_00833674), `(char *)p + 0x74`-style raw offsets on other
+   variables, union views with pointer members read at the same offsets.
+3. Init_Game's CD search when no search path is set (not drafted: the host always passes -CD.).
+4. Variant* and the other Win32 imports the port does not yet supply (the run lists them).

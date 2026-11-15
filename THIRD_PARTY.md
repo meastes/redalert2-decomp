@@ -99,7 +99,7 @@ inspection tools; VC6 and CrossOver are legitimate user-supplied local build too
   (including the EA line where present) and the commit subject says "from TibSun <file>". Acceptance is unchanged.
 
 - **Native Yuri's Revenge port (lane Y1, user decision 2026-11-15)**: `yr/ra2-decomp` is a pinned copy of
-  ra2-decomp at `f8d8d53000af32ce7eb25305b27b277b56c07c24` (`src/`, `include/`, `COPYING.md`, `LICENSE`, `README.md`
+  ra2-decomp at `8719494727dd9d5db16f92087e3cc13ea99f4dd3` (moved from `f8d8d53` by lane Y3) (`src/`, `include/`, `COPYING.md`, `LICENSE`, `README.md`
   and the `data/` function map, manifest, names, library and module tables), GPL-3.0-or-later with Electronic Arts'
   section 7 terms on files carrying an EA or OpenTS copyright line; `data/` and the tooling text are MIT. `yr/tibsun`
   is a pinned copy of the OpenTS TibSun archive's headers (`code/**/*.h`, `LICENSE.md`, `README.md`) at

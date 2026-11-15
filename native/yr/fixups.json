@@ -220,6 +220,135 @@
    "file": "src/init.cpp",
    "append": "init_game_native.inc",
    "why": "Init_Game (0x0052BA60) is unmatched in the YR tree; a native draft from the RA2 tree's and gamemd.exe's code (lane Y2)."
+  },
+  {
+   "file": "src/voxel.cpp",
+   "append": "voxel_native.inc",
+   "why": "FUN_00754CB0 (TibSun Init_Voxel_Matrices) is unmatched in the YR tree; a native draft from the RA2 twin Unknown_00718060 (src/recovered/voxel.cpp) mapped to this unit's tables (lane Y3)."
+  },
+  {
+   "file": "src/conquer.cpp",
+   "append": "conquer_native.inc",
+   "why": "Game::CallBack (0x0048D080) is the tree's Call_Back under a second name and a bool return; one definition calls the other and returns what gamemd.exe leaves in eax (lane Y3)."
+  },
+  {
+   "file": "src/movie.cpp",
+   "append": "movie_native.inc",
+   "why": "Game::PlayMovie (0x005BED40) and FUN_005BF260 (0x005BF260) are the tree's matched Play_Movie overloads under other names and argument types; each forwards to the definition at its address (lane Y3)."
+  },
+  {
+   "file": "src/wpaudio/audmpool.cpp",
+   "old": "(unsigned)pool + (unsigned)sizeof",
+   "new": "(uintptr_t)pool + (uintptr_t)sizeof",
+   "why": "Pointer arithmetic through a 32-bit unsigned cuts the pointer natively; uintptr_t keeps the same address arithmetic at full width (lane Y3)."
+  },
+  {
+   "file": "src/wpaudio/audmpool.cpp",
+   "old": "(MemoryItem *)((unsigned)item + (unsigned)(sizeof",
+   "new": "(MemoryItem *)((uintptr_t)item + (uintptr_t)(sizeof",
+   "why": "Pointer arithmetic through a 32-bit unsigned cuts the pointer natively; uintptr_t keeps the same address arithmetic at full width (lane Y3)."
+  },
+  {
+   "file": "src/wpaudio/audmpool.cpp",
+   "old": "(void *)((unsigned)item + (unsigned)sizeof",
+   "new": "(void *)((uintptr_t)item + (uintptr_t)sizeof",
+   "why": "Pointer arithmetic through a 32-bit unsigned cuts the pointer natively; uintptr_t keeps the same address arithmetic at full width (lane Y3)."
+  },
+  {
+   "file": "src/wpaudio/audmpool.cpp",
+   "old": "(MemoryItem *)((unsigned)item - (unsigned)sizeof",
+   "new": "(MemoryItem *)((uintptr_t)item - (uintptr_t)sizeof",
+   "why": "Pointer arithmetic through a 32-bit unsigned cuts the pointer natively; uintptr_t keeps the same address arithmetic at full width (lane Y3)."
+  },
+  {
+   "file": "src/wpaudio/audevent.cpp",
+   "old": "(VocClass *)((unsigned)event - ((unsigned)&event->nodeVol - (unsigned)event))",
+   "new": "(VocClass *)((uintptr_t)event - ((uintptr_t)&event->nodeVol - (uintptr_t)event))",
+   "why": "Pointer arithmetic through a 32-bit unsigned cuts the pointer natively; uintptr_t keeps the same address arithmetic at full width (lane Y3)."
+  },
+  {
+   "file": "src/wpaudio/audcache.cpp",
+   "old": "(void *)((unsigned)frame + sizeof(AudioFrame))",
+   "new": "(void *)((uintptr_t)frame + sizeof(AudioFrame))",
+   "why": "Pointer arithmetic through a 32-bit unsigned cuts the pointer natively; uintptr_t keeps the same address arithmetic at full width (lane Y3)."
+  },
+  {
+   "file": "src/wpaudio/audstrm.cpp",
+   "old": "(unsigned char *)(((unsigned)buf->buffer_memory + (1 << align) - 1) & (-1 << align))",
+   "new": "(unsigned char *)(((uintptr_t)buf->buffer_memory + (1 << align) - 1) & ((uintptr_t)-1 << align))",
+   "why": "Pointer arithmetic through a 32-bit unsigned cuts the pointer natively; uintptr_t keeps the same address arithmetic at full width (lane Y3)."
+  },
+  {
+   "file": "hdr/tooltip.h",
+   "old": "\tint Text;\n\n\tbool Flag;",
+   "new": "\tintptr_t Text; /* native: holds a string pointer (the label's name), pointer-sized */\n\n\tbool Flag;",
+   "why": "ToolTip::Text holds either 0 or the label's char pointer (tooltip.cpp passes it to StringTable::LoadString); a 32-bit int cuts the pointer natively, intptr_t keeps it (lane Y3)."
+  },
+  {
+   "file": "src/radar.cpp",
+   "old": "tip.Text = (int)\"",
+   "new": "tip.Text = (intptr_t)\"",
+   "why": "The tooltip label's pointer stored whole (ToolTip::Text is intptr_t natively; lane Y3)."
+  },
+  {
+   "file": "src/tab.cpp",
+   "old": "tip.Text = (int)text;",
+   "new": "tip.Text = (intptr_t)text;",
+   "why": "The tooltip label's pointer stored whole (ToolTip::Text is intptr_t natively; lane Y3)."
+  },
+  {
+   "file": "src/sidebar.cpp",
+   "append": "sidebar_native.inc",
+   "why": "SidebarClass::Reposition_Sidebar (0x006ABD30) is unmatched in the YR tree; a native draft from the RA2 twin (src/recovered/sidebar.cpp 0x006819A0) and gamemd.exe's code (lane Y3)."
+  },
+  {
+   "file": "src/ionblast.cpp",
+   "append": "ionblast_native.inc",
+   "why": "IonBlastClass::One_Time (0x0053D330) is unmatched in the YR tree; a native draft from the RA2 tree's draft (0x00521A90, TibSun's text) with gamemd.exe's surface sizes (lane Y3)."
+  },
+  {
+   "file": "src/techtype.cpp",
+   "append": "techtype_native.inc",
+   "why": "TechnoTypeClass::TechnoTypeClass(char const *, SpeedType) (0x00710AF0) is unmatched in the YR tree; a native draft from gamemd.exe's stores mapped to the tree's field offsets (lane Y3)."
+  },
+  {
+   "file": "src/multiplayer.cpp",
+   "append": "multiplayer_native.inc",
+   "why": "The game-mode initialisers' Allocate members (gamemd.exe's vtable slots hold the tree's __stdcall Allocate_MP* functions) call those functions (lane Y3)."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "append": "ownrdraw_native.inc",
+   "why": "UI::StandardWndProc (0x00622B50) and the other unmatched owner-draw functions the menus reach; native drafts from gamemd.exe's code and the RA2 tree's counterparts (lane Y3)."
+  },
+  {
+   "file": "src/srfcache.cpp",
+   "append": "pcx_native.inc",
+   "why": "Read_PCX_File (0x00630310) is unmatched in the YR tree; TibSun's text (gamemd.exe repeats it), adopted with attribution (lane Y3)."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "(char *)data + 0x",
+   "new": "((char *)&data->Dialog - 0x28) + 0x",
+   "why": "The unit reaches some WinData fields at their 32-bit offsets ((char *)data + 0x6c, 0xbc, ...), others by name. Natively the record's leading pointers are 8 bytes, so a raw offset from the record start lands elsewhere; taken from the union's pointer-free Dialog view (which starts at 32-bit offset 0x28) the raw and named accesses agree again (lane Y3)."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "*(BitFont **)((char *)this + 0x64) = BitFont::Instance;",
+   "new": "Wide.font = BitFont::Instance;",
+   "why": "The record constructor sets the font at its 32-bit offset 0x64, which is Wide.font: natively a pointer member placed after 8-byte pointers, so it is set by name (lane Y3)."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "*(int *)((char *)this + 0x40) = 0;",
+   "new": "Wide.caretIndex = 0;",
+   "why": "32-bit offset 0x40 is Wide.caretIndex; set by name natively (lane Y3)."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "(char *)this + 0x",
+   "new": "((char *)&this->Dialog - 0x28) + 0x",
+   "why": "The record constructor's other raw 32-bit offsets, taken through the pointer-free Dialog view as for (char *)data (lane Y3)."
   }
  ]
 }

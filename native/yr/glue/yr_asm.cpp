@@ -153,3 +153,50 @@ bool Detect_CMOV_Availability(void)
     return false;
 }
 }
+
+// Adjust_Color_565/555/556/655, YR 0x007DE200, 0x007DE53A, 0x007DE87A, 0x007DEBBA (winasm.asm's
+// ADJUST_COLOR macro; lightcon.cpp calls them by address). The RA2 native tree's C for the same
+// macro (native/link/behaviour_launch.cpp, RA2 0x00797440 and 0x0079777A; lane Y3): a 256-entry
+// 16-bit table from the palette's RGB bytes, entry 0 transparent (0); entry i scales the palette's
+// red, green and blue by red/green/blue where mask[i] is set, else all three by intensity (16.16
+// fixed point, saturated to 255), packed by the macro's masks and shifts for each mode. The
+// original's MMX and CMOV paths give the same table; this is the plain path.
+static void Adjust_Color(void const *palette, void *translator, int red, int green, int blue, int intensity,
+                         bool const *mask, unsigned r_mask, int r_shift, unsigned g_mask, int g_shift,
+                         unsigned b_mask, int b_shift)
+{
+    uint8_t const *rgb = (uint8_t const *)palette;
+    uint16_t *table = (uint16_t *)translator;
+    table[0] = 0;
+    for (int i = 1; i < 256; ++i) {
+        unsigned r_scale = mask[i] ? (unsigned)red : (unsigned)intensity;
+        unsigned g_scale = mask[i] ? (unsigned)green : (unsigned)intensity;
+        unsigned b_scale = mask[i] ? (unsigned)blue : (unsigned)intensity;
+        unsigned r = ((unsigned)rgb[3 * i] * r_scale) >> 16;
+        unsigned g = ((unsigned)rgb[3 * i + 1] * g_scale) >> 16;
+        unsigned b = ((unsigned)rgb[3 * i + 2] * b_scale) >> 16;
+        if (r > 255) r = 255;
+        if (g > 255) g = 255;
+        if (b > 255) b = 255;
+        table[i] = (uint16_t)(((r & r_mask) << r_shift) | ((g & g_mask) << g_shift) | ((b & b_mask) >> b_shift));
+    }
+}
+
+extern "C" {
+void FUN_007DE200(void *palette, void *translator, int red, int green, int blue, int intensity, bool *mask)
+{
+    Adjust_Color(palette, translator, red, green, blue, intensity, mask, 0xF8, 8, 0xFC, 3, 0xF8, 3);   // 565
+}
+void FUN_007DE53A(void *palette, void *translator, int red, int green, int blue, int intensity, bool *mask)
+{
+    Adjust_Color(palette, translator, red, green, blue, intensity, mask, 0xF8, 7, 0xF8, 2, 0xF8, 3);   // 555
+}
+void FUN_007DE87A(void *palette, void *translator, int red, int green, int blue, int intensity, bool *mask)
+{
+    Adjust_Color(palette, translator, red, green, blue, intensity, mask, 0xF8, 8, 0xF8, 3, 0xFC, 2);   // 556
+}
+void FUN_007DEBBA(void *palette, void *translator, int red, int green, int blue, int intensity, bool *mask)
+{
+    Adjust_Color(palette, translator, red, green, blue, intensity, mask, 0xFC, 8, 0xF8, 2, 0xF8, 3);   // 655
+}
+}
