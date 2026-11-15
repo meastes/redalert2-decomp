@@ -28,7 +28,8 @@ execute_process(
 if(ra2_yr_rc)
   message(FATAL_ERROR "yr_units.py failed")
 endif()
-set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS
+file(GLOB ra2_yr_appends "${CMAKE_CURRENT_SOURCE_DIR}/yr/glue/*.inc")   # fixups.json "append" files
+set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS ${ra2_yr_appends}
   "${CMAKE_CURRENT_SOURCE_DIR}/yr/fixups.json" "${CMAKE_CURRENT_SOURCE_DIR}/yr/tools/yr_units.py"
   "${CMAKE_CURRENT_SOURCE_DIR}/yr/tools/yr_sdk.py")
 include("${RA2_NATIVE_YR_GEN}/units.cmake")
@@ -56,21 +57,52 @@ target_compile_definitions(yr_host_objs PRIVATE RA2_NATIVE_GAME=1 RA2_NATIVE_YR=
 
 file(GENERATE OUTPUT "${RA2_NATIVE_YR_GEN}/link_inputs.txt"
      CONTENT "$<JOIN:$<TARGET_OBJECTS:yr_units_objs>;$<TARGET_FILE:ra2_port>,\n>\n")
+# The tree's address names bound to the definitions at those addresses (yr_aliases.py; ld64 aliases).
 add_custom_command(
-  OUTPUT "${RA2_NATIVE_YR_GEN}/link_closure.c" "${RA2_NATIVE_YR_GEN}/link_closure.json"
-  COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/link_closure.py"
+  OUTPUT "${RA2_NATIVE_YR_GEN}/aliases.tsv"
+  COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tools/yr_aliases.py"
+          --inputs "${RA2_NATIVE_YR_GEN}/link_inputs.txt" --out "${RA2_NATIVE_YR_GEN}/aliases.tsv"
+  DEPENDS yr_units_objs "${CMAKE_CURRENT_SOURCE_DIR}/yr/tools/yr_aliases.py" "${CMAKE_CURRENT_SOURCE_DIR}/yr/data/globals.tsv" "${CMAKE_CURRENT_SOURCE_DIR}/yr/data/name_aliases.tsv"
+          $<TARGET_OBJECTS:yr_units_objs>
+  COMMAND_EXPAND_LISTS VERBATIM)
+# The YR globals no source defines: storage and the port's load table (yr_data.py, from the
+# undefined data of the units and native/yr/data/globals.tsv).
+add_custom_command(
+  OUTPUT "${RA2_NATIVE_YR_GEN}/yr_original_data.cpp" "${RA2_NATIVE_YR_GEN}/yr_original_data.json"
+  COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tools/yr_data.py"
           --inputs "${RA2_NATIVE_YR_GEN}/link_inputs.txt" --host $<TARGET_OBJECTS:yr_host_objs>
-          --out "${RA2_NATIVE_YR_GEN}/link_closure.c" --system-libs ${RA2_NATIVE_CLOSURE_SYSTEM_LIBS}
-          --frameworks ${ra2_closure_frameworks}
-  DEPENDS yr_units_objs ra2_port yr_host_objs "${CMAKE_CURRENT_SOURCE_DIR}/tools/link_closure.py"
+          --gen "${RA2_NATIVE_YR_GEN}" --out "${RA2_NATIVE_YR_GEN}/yr_original_data.cpp"
+          --aliases "${RA2_NATIVE_YR_GEN}/aliases.tsv"
+          --system-libs ${RA2_NATIVE_CLOSURE_SYSTEM_LIBS} --frameworks ${ra2_closure_frameworks}
+  DEPENDS yr_units_objs ra2_port yr_host_objs "${CMAKE_CURRENT_SOURCE_DIR}/yr/tools/yr_data.py" "${RA2_NATIVE_YR_GEN}/aliases.tsv"
+          "${CMAKE_CURRENT_SOURCE_DIR}/yr/data/globals.tsv" "${CMAKE_CURRENT_SOURCE_DIR}/tools/link_closure.py"
           $<TARGET_FILE:ra2_port> $<TARGET_OBJECTS:yr_host_objs> $<TARGET_OBJECTS:yr_units_objs>
   COMMAND_EXPAND_LISTS VERBATIM)
-add_executable(yr-native $<TARGET_OBJECTS:yr_host_objs> $<TARGET_OBJECTS:yr_units_objs> "${RA2_NATIVE_YR_GEN}/link_closure.c")
+add_library(yr_data_obj OBJECT "${RA2_NATIVE_YR_GEN}/yr_original_data.cpp")
+file(GENERATE OUTPUT "${RA2_NATIVE_YR_GEN}/closure_inputs.txt"
+     CONTENT "$<JOIN:$<TARGET_OBJECTS:yr_units_objs>;$<TARGET_OBJECTS:yr_data_obj>;$<TARGET_FILE:ra2_port>,\n>\n")
+add_custom_command(
+  OUTPUT "${RA2_NATIVE_YR_GEN}/link_closure.c" "${RA2_NATIVE_YR_GEN}/link_closure.json" "${RA2_NATIVE_YR_GEN}/alias_list.txt"
+  COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/link_closure.py"
+          --inputs "${RA2_NATIVE_YR_GEN}/closure_inputs.txt" --host $<TARGET_OBJECTS:yr_host_objs>
+          --out "${RA2_NATIVE_YR_GEN}/link_closure.c" --system-libs ${RA2_NATIVE_CLOSURE_SYSTEM_LIBS}
+          --frameworks ${ra2_closure_frameworks} --data-from 0x7E1000
+          --aliases "${RA2_NATIVE_YR_GEN}/aliases.tsv" --alias-list "${RA2_NATIVE_YR_GEN}/alias_list.txt"
+  DEPENDS yr_units_objs yr_data_obj ra2_port yr_host_objs "${CMAKE_CURRENT_SOURCE_DIR}/tools/link_closure.py"
+          $<TARGET_FILE:ra2_port> $<TARGET_OBJECTS:yr_host_objs> $<TARGET_OBJECTS:yr_units_objs> $<TARGET_OBJECTS:yr_data_obj>
+  COMMAND_EXPAND_LISTS VERBATIM)
+add_executable(yr-native $<TARGET_OBJECTS:yr_host_objs> $<TARGET_OBJECTS:yr_units_objs> $<TARGET_OBJECTS:yr_data_obj>
+               "${RA2_NATIVE_YR_GEN}/link_closure.c")
 target_link_libraries(yr-native PRIVATE SDL3::SDL3 ra2_port ${ra2_host_frameworks})
+target_link_options(yr-native PRIVATE "LINKER:-alias_list,${RA2_NATIVE_YR_GEN}/alias_list.txt")
+set_property(TARGET yr-native APPEND PROPERTY LINK_DEPENDS "${RA2_NATIVE_YR_GEN}/alias_list.txt")
 target_compile_definitions(yr-native PRIVATE RA2_NATIVE_GAME=1 RA2_NATIVE_YR=1)
 # Repeated definitions across units (explicit template instantiations in several units, as VC6's
 # COMDATs) get select-any semantics, as in the RA2 game (tools/weaken_duplicates.py).
+# The units' static initialisers run after the original data is in place (defer_initializers.py).
 add_custom_command(TARGET yr-native PRE_LINK
   COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/weaken_duplicates.py"
           --inputs "${RA2_NATIVE_YR_GEN}/link_inputs.txt" --report "${RA2_NATIVE_YR_GEN}/duplicates.json"
+  COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tools/defer_initializers.py"
+          --inputs "${RA2_NATIVE_YR_GEN}/link_inputs.txt"
   VERBATIM)

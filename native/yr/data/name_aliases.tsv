@@ -1,0 +1,4 @@
+# YR functions the tree defines under one name and calls under another (one address each, data/manifest.csv).
+# yr_aliases.py adds these rows to aliases.tsv (ld64 -alias_list). alias<TAB>target (Mach-O symbols).
+alias	target
+__Z26FileSystem_LoadWholeFileExPKcRb	__ZN10FileSystem15LoadWholeFileExEPKcRb

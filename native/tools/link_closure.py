@@ -149,6 +149,9 @@ def catalog_data_names():
     return names
 
 
+DATA_FROM = 0x79A000   # the first address past the code: RA2's .rdata (yr-native: --data-from 0x7E1000)
+
+
 def classify(missing):
     """Rows (symbol, name, cls, kind) of undefined symbols."""
     demangled = subprocess.run(['c++filt'], input='\n'.join(missing), capture_output=True, text=True).stdout.split('\n')
@@ -171,7 +174,7 @@ def classify(missing):
             cls, kind = 'win32', 'function'
         else:
             m = re.search(r'_(?:0x)?([0-9a-fA-F]{6,8})$', name)
-            is_data = name in data_names or (m is not None and int(m.group(1), 16) >= 0x79A000)
+            is_data = name in data_names or (m is not None and int(m.group(1), 16) >= DATA_FROM)
             if m:
                 cls = 'c-address'
             else:
@@ -277,9 +280,13 @@ def main():
     ap.add_argument('--frameworks', nargs='*', default=[], help='SDK frameworks the host links (their exports are system)')
     ap.add_argument('--system-libs', nargs='*', default=[], help='libraries whose exports are system (default: Homebrew SDL3)')
     ap.add_argument('--target', choices=('apple', 'windows'), default='apple', help='object format and system libraries')
+    ap.add_argument('--data-from', type=lambda v: int(v, 0), default=0x79A000,
+                    help="address-named symbols at or past this are data (yr-native: gamemd.exe's .rdata, 0x7E1000)")
     ap.add_argument('--nm', default='nm', help="nm for the objects (Windows: the toolchain's llvm-nm)")
     ap.add_argument('--sysroot', default='', help='Windows: the mingw-w64 sysroot (<llvm-mingw>/x86_64-w64-mingw32)')
     args = ap.parse_args()
+    global DATA_FROM
+    DATA_FROM = args.data_from
     global NM, PREFIX
     NM = args.nm
     if args.target == 'windows':

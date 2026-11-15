@@ -100,8 +100,8 @@
   {
    "file": "src/teleport.cpp",
    "old": "bool bridge = cptr->Is_Bridge_Here;",
-   "new": "bool bridge = cptr->Is_Bridge_Here(); /* native: see fixups.json */",
-   "why": "The text names the member function without calling it; ISO C++ refuses. NOT VERIFIED against the original bytes: the call is the evident intent (TibSun's teleport.cpp tests the cell's bridge state); if VC6 compiled the bare name as always true, this differs where a teleporting unit lands beside a bridge. Recorded as a known difference to check."
+   "new": "bool bridge = true; /* native: VC6 took the bare member name as true (no call in gamemd.exe) */",
+   "why": "The text names CellClass::Is_Bridge_Here without calling it; ISO C++ refuses. Checked against gamemd.exe 1.001 (lane Y2): the matched TeleportLocomotionClass function 0x00718260 makes no call to Is_Bridge_Here (0x00483610), so VC6 compiled the bare name as a true constant; natively the flag is true, as there."
   },
   {
    "file": "src/animtype.cpp",
@@ -150,12 +150,6 @@
    "why": "Westwood Online persona data (Internet play; also needs ATL), as above."
   },
   {
-   "file": "src/winstub.cpp",
-   "old": "wndclass.lpfnWndProc = Windows_Procedure;",
-   "new": "wndclass.lpfnWndProc = (WNDPROC)Windows_Procedure;",
-   "why": "Windows_Procedure takes UINT/LONG message parameters (VC6 Win32) and hands them on by reference (Map.Message_Handler); the class registration casts it to the Win64 WNDPROC. KNOWN LIMIT: a message that carries a pointer in lParam reaches it cut to 32 bits; the port's messages to the game window carry values (the RA2 native tree passes the same messages)."
-  },
-  {
    "file": "src/teleport.cpp",
    "old": "Timer = (Timer > Rule->ChronoMinimumDelay) ? Timer : Rule->ChronoMinimumDelay;",
    "new": "Timer = ((int)Timer > Rule->ChronoMinimumDelay) ? (int)Timer : Rule->ChronoMinimumDelay;",
@@ -190,6 +184,42 @@
    "old": ", ElapsedTimer);",
    "new": ", *(int const *)&ElapsedTimer);",
    "why": "A timer object passed to a debug print's %ld (save and load): VC6 pushed the object's bytes and the format read the first four as its value (the timer's first field); the cast reads the same four bytes."
+  },
+  {
+   "file": "src/startup.cpp",
+   "append": "startup_winmain.inc",
+   "why": "WinMain (0x006BB9A0) is unmatched in the YR tree; a native draft from the RA2 tree's WinMain and gamemd.exe's code (lane Y2), appended to the startup unit."
+  },
+  {
+   "file": "src/wwmous.cpp",
+   "append": "wwmous_native.inc",
+   "why": "WinMain's mouse: made and hidden where gamemd.exe's WWMouseClass is in scope (the startup unit sees TibSun's)."
+  },
+  {
+   "file": "src/uicmnds2.cpp",
+   "append": "uicmnds2_native.inc",
+   "why": "StringTable::LoadString: uicmnds2.cpp defines it after #undef LoadString; units that include windows.h call it as LoadStringA (the Win32 macro). One definition, both spellings (an assembler alias)."
+  },
+  {
+   "file": "src/base64.cpp",
+   "old": "#ifdef BIG_ENDIAN",
+   "new": "#if defined(BIG_ENDIAN) && defined(BYTE_ORDER) && BYTE_ORDER == BIG_ENDIAN",
+   "why": "Darwin's headers define BIG_ENDIAN (4321) on every machine (machine/endian.h, with LITTLE_ENDIAN and BYTE_ORDER); the packet union's byte order is chosen by the machine's actual order, little-endian on arm64 as on x86. Without this the base64 decoder swapped bytes and the encryption keys (Init_Keys) decoded to nothing."
+  },
+  {
+   "file": "src/init.cpp",
+   "append": "init_native.inc",
+   "why": "Allocate_Surfaces (0x00533FD0) is unmatched in the YR tree; a native draft from the RA2 tree's and gamemd.exe's code (lane Y2)."
+  },
+  {
+   "file": "src/ccini.cpp",
+   "append": "ccini_native.inc",
+   "why": "CCINIClass::ReadCCFile (0x004741F0) is the function ccini.h also declares as Load(FileClass &, bool, bool); both names bound to the one definition."
+  },
+  {
+   "file": "src/init.cpp",
+   "append": "init_game_native.inc",
+   "why": "Init_Game (0x0052BA60) is unmatched in the YR tree; a native draft from the RA2 tree's and gamemd.exe's code (lane Y2)."
   }
  ]
 }

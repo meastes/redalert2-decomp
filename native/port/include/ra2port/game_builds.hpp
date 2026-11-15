@@ -107,15 +107,31 @@ const uint32_t kTargetImageBase = 0x400000;
 
 enum class Kind { target, same_data, other };
 
+// The native Yuri's Revenge game (lane Y2; native/yr): gamemd.exe 1.001, recognised by its code
+// and data sections (ra2-decomp's target build). The retail copy with the official patch and
+// copies that carry an installer overlay or a two-byte no-CD change (the jz at 0x0052F949 made
+// two nops, as in the user's installation) are the same build: the section hashes are taken with
+// that change put back. Nothing else of the file is read.
+enum class Game { ra2, yr };
+const SectionSig kYrSections[4] = {
+    {".text", 0x1000, 0x3df38d, 0x1000, 0x3e0000, "9468a34ae8a46235cfadac32fa8c14aff8be97e89ed4a92cd17c1245c1c16199"},
+    {".rdata", 0x3e1000, 0x30074, 0x3e1000, 0x31000, "efce5b84ebf6fbb2dce20c3a065b35c5681e41fdd5185b10fcde17d21974d2d7"},
+    {".data", 0x412000, 0x367be4, 0x412000, 0x6c000, "c67eaa0fffa56fe7f2ef2eaaccfd1e1c7e0b5078cc36666a9c674323d7d5d465"},
+    {".rsrc", 0x77a000, 0x18128, 0x47e000, 0x19000, "02259fd60cbdbd5b7526e51618f4f7058837bda1a4c8f3df1d93481d97a5a31b"},
+};
+struct KnownPatch { uint32_t va; unsigned char original[2], patched[2]; };
+const KnownPatch kYrPatches[1] = {{0x0052F949, {0x74, 0x07}, {0x90, 0x90}}};
+inline const char *exe_name(Game game) { return game == Game::yr ? "gamemd.exe" : "game.exe"; }
+
 inline uint32_t rd32(const unsigned char *p) { return (uint32_t)p[0] | (uint32_t)p[1] << 8 | (uint32_t)p[2] << 16 | (uint32_t)p[3] << 24; }
 inline uint16_t rd16(const unsigned char *p) { return (uint16_t)(p[0] | p[1] << 8); }
 
-// file/size: the whole executable; whole_sha256: its digest (hex); hex(p, n): the SHA-256 hex
-// digest of a byte range. `why` receives a short reason for `other`.
 template <class Hex>
-Kind classify(const unsigned char *file, size_t size, std::string const &whole_sha256, Hex hex, std::string *why = nullptr)
+Kind classify(const unsigned char *file, size_t size, std::string const &whole_sha256, Hex hex, std::string *why = nullptr,
+              Game game = Game::ra2)
 {
-    if ((long long)size == kTargetSize && whole_sha256 == kTargetSha256) return Kind::target;
+    if (game == Game::ra2 && (long long)size == kTargetSize && whole_sha256 == kTargetSha256) return Kind::target;
+    SectionSig const *sections = game == Game::yr ? kYrSections : kTargetSections;
     auto fail = [&](std::string const &reason) { if (why) *why = reason; return Kind::other; };
     if (size < 0x400 || file[0] != 'M' || file[1] != 'Z') return fail("not a Windows executable");
     uint32_t pe = rd32(file + 0x3C);
@@ -126,7 +142,7 @@ Kind classify(const unsigned char *file, size_t size, std::string const &whole_s
     if (rd32(o + 28) != kTargetImageBase || nsec != 4) return fail("a different section layout");
     const unsigned char *s = o + opt;
     for (int i = 0; i < 4; ++i, s += 40) {
-        SectionSig const &t = kTargetSections[i];
+        SectionSig const &t = sections[i];
         char name[9] = {0};
         memcpy(name, s, 8);
         if (strcmp(name, t.name) != 0 || rd32(s + 8) != t.vsize || rd32(s + 12) != t.va || rd32(s + 16) != t.rawsize ||
@@ -134,14 +150,30 @@ Kind classify(const unsigned char *file, size_t size, std::string const &whole_s
             return fail("a different section layout");
         if (!t.sha256) continue;
         if ((size_t)t.raw + t.rawsize > size) return fail("truncated sections");
-        if (hex(file + t.raw, t.rawsize) != t.sha256) return fail(std::string("different data in ") + t.name);
+        if (hex(file + t.raw, t.rawsize) == t.sha256) continue;
+        if (game == Game::yr && i == 0) {
+            // The known no-CD change put back (kYrPatches), then the code compared again.
+            std::string copy((const char *)file + t.raw, t.rawsize);
+            for (KnownPatch const &k : kYrPatches) {
+                size_t at = k.va - kTargetImageBase - t.va;
+                if (at + 2 <= copy.size() && (unsigned char)copy[at] == k.patched[0] && (unsigned char)copy[at + 1] == k.patched[1]) {
+                    copy[at] = (char)k.original[0];
+                    copy[at + 1] = (char)k.original[1];
+                }
+            }
+            if (hex((const unsigned char *)copy.data(), copy.size()) == t.sha256) continue;
+        }
+        return fail(std::string("different ") + (i == 0 ? "code" : "data") + " in " + t.name);
     }
     return Kind::same_data;
 }
 
 // For messages: what is supported.
-inline const char *supported_builds_text()
+inline const char *supported_builds_text(Game game = Game::ra2)
 {
+    if (game == Game::yr)
+        return "Yuri's Revenge gamemd.exe 1.001 (the retail build with the official patch; copies with an installer "
+               "overlay or the two-byte no-CD change are the same build)";
     return "the base Red Alert 2 1.006 game.exe (4,485,392 bytes, SHA-256 e6418111c2c36081…), or a copy of that "
            "build whose data is unchanged (for example the signed 4,489,184-byte game.exe with no-CD patches, "
            "SHA-256 7bb2c7e1…)";

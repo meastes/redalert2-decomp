@@ -128,3 +128,28 @@ void RDTSC(void)
     yr_tsc_high = (unsigned int)(t >> 32);
 }
 int Get_RDTSC_CPU_Speed(void) { return 1000; }
+
+// Detect_MMX_Availability / Detect_CMOV_Availability (detproc.asm, Westwood's handwritten
+// assembly; the RA2 tree's 0x0077F14D / 0x0077F20F behaviour, native/link/behaviour_launch.cpp).
+// arm64 has neither instruction: a CPUID-capable family-6 processor without MMX and CMOV, so
+// every MMX/CMOV branch takes the plain path; the stored vendor text is left as it is.
+extern "C" {
+extern char CPUType;
+extern unsigned char UseMMX;
+extern unsigned char UseCMOV;
+extern unsigned char HasCMOV;
+
+bool Detect_MMX_Availability(void)
+{
+    CPUType = 6;
+    UseMMX = 0;
+    return false;
+}
+
+bool Detect_CMOV_Availability(void)
+{
+    UseCMOV = 0;
+    HasCMOV = 0;
+    return false;
+}
+}

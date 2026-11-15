@@ -37,6 +37,11 @@ struct Image {
     uint32_t resource_rva = 0, resource_size = 0;   // data directory 2 (.rsrc)
 };
 
+// The game this process runs (lane Y2): RA2 by default; yr-native's glue (native/yr/glue)
+// defines a strong ra2port_game_yr that answers 1.
+extern "C" __attribute__((weak)) int ra2port_game_yr(void) { return 0; }
+ra2build::Game current_game() { return ra2port_game_yr() ? ra2build::Game::yr : ra2build::Game::ra2; }
+
 Image &image()
 {
     static Image img;
@@ -47,7 +52,7 @@ Image &image()
     char path[1024];
     const char *override_path = getenv("RA2_GAME_EXE");
     if (override_path && *override_path) snprintf(path, sizeof path, "%s", override_path);
-    else ra2port::host_path("game.exe", path, sizeof path);
+    else ra2port::host_path(ra2build::exe_name(current_game()), path, sizeof path);
     FILE *f = fopen(path, "rb");
     if (!f) { fprintf(stderr, "ra2_port: game.exe not found in the installation (%s)\n", path); return img; }
     std::vector<unsigned char> file;
@@ -68,10 +73,10 @@ Image &image()
         part.update(b, len);
         part.hex(h);
         return std::string(h);
-    }, &why);
+    }, &why, current_game());
     if (kind == ra2build::Kind::other) {
         fprintf(stderr, "ra2_port: %s is not a supported game.exe (size %zu, SHA-256 %s: %s): its stored data is not read; "
-                "supported: %s\n", path, file.size(), digest, why.c_str(), ra2build::supported_builds_text());
+                "supported: %s\n", path, file.size(), digest, why.c_str(), ra2build::supported_builds_text(current_game()));
         return img;
     }
     if (kind == ra2build::Kind::same_data)

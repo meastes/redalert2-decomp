@@ -26,6 +26,16 @@ ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / 'native/tools'))
 import native_units  # noqa: E402
 
+# Window and dialog procedures (and the handlers they pass their parameters to) take the message
+# parameters pointer-sized (WPARAM/LPARAM), as the RA2 tree's (native_units.py --win64-params): WM_CREATE,
+# WM_NOTIFY, WM_DRAWITEM and dialog init parameters carry pointers. The YR tree also spells the
+# last one LONG, which the RA2 pattern does not take.
+native_units.WIN64_PARAMS = False   # the RA2 pattern's uintptr_t/intptr_t are not mingw's WPARAM/LPARAM types
+YR_MSG_PARAMS = re.compile(r'\(\s*((?:struct\s+)?HWND(?:__)?\s*\*?\s*\w*)\s*,'
+                           r'\s*(?:unsigned\s+int|unsigned|UINT)\b(\s*&?\s*\w*)\s*,'
+                           r'\s*(?:unsigned\s+int|unsigned|UINT|WPARAM)\b(\s*&?\s*\w*)\s*,'
+                           r'\s*(?:LONG|long|LPARAM)\b(\s*&?\s*\w*)\s*\)')
+
 TREE = ROOT / 'yr/ra2-decomp'
 TIBSUN = ROOT / 'yr/tibsun/code'
 HEADER_SUFFIXES = ('.h', '.hh', '.hpp', '.inl')
@@ -42,7 +52,7 @@ def load_fixups():
     rows = json.loads(FIXUPS_PATH.read_text())['fixups']
     for r in rows:
         r['hits'] = 0
-        if r.get('skip_unit'):
+        if r.get('skip_unit') or 'append' in r:
             r['rx'] = None
             continue
         if 'cut' in r:
@@ -71,6 +81,7 @@ FOR_INIT = re.compile(r'([;{}](?:[ \t]*(?://[^\n]*)?\n)*[ \t]*)for[ \t]*\([ \t]*
 
 def apply_fixups(key, text, fixups):
     text = WINDOW_LONG.sub(r'\1WindowLongA', text)
+    text = YR_MSG_PARAMS.sub(lambda m: '(%s, UINT%s, WPARAM%s, LPARAM%s)' % m.groups(), text)
     text = FOR_INIT.sub(lambda m: '%s%s; for(;' % (m.group(1), m.group(2)), text)
     """key: 'hdr/<name>' or 'src/<path>'"""
     for r in fixups:
@@ -78,6 +89,12 @@ def apply_fixups(key, text, fixups):
             continue
         text, n = r['rx'].subn((lambda m, r=r: m.expand(r['new'])) if r.get('regex') else (lambda m, r=r: r['new']), text)
         r['hits'] += n
+    # "append": a native glue file (native/yr/glue) added to the end of the unit, so it sees the
+    # unit's includes and declarations (a native draft of a function the tree leaves unmatched).
+    for r in fixups:
+        if 'append' in r and r['file'].lower() == key.lower():
+            text += '\n#line 1 "native/yr/glue/%s"\n' % r['append'] + (ROOT / 'native/yr/glue' / r['append']).read_text(encoding='latin-1')
+            r['hits'] += 1
     return text
 
 

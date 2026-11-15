@@ -150,6 +150,13 @@ std::string missing_mix(std::string const &dir)
     return missing;
 }
 
+// The game this host is built for (lane Y2): yr-native's host is compiled with RA2_NATIVE_YR and
+// reads gamemd.exe (ra2port/game_builds.hpp); the RA2 game's reads game.exe.
+#ifdef RA2_NATIVE_YR
+constexpr ra2build::Game kHostGame = ra2build::Game::yr;
+#else
+constexpr ra2build::Game kHostGame = ra2build::Game::ra2;
+#endif
 enum class Exe { missing, supported, other };
 // Why the last checked game.exe was refused (ra2build::classify).
 std::string &exe_reason() { static std::string r; return r; }
@@ -179,7 +186,7 @@ Exe check_exe(std::string const &path, std::string &digest, long long &size)
         char h[65];
         part.hex(h);
         return std::string(h);
-    }, &exe_reason());
+    }, &exe_reason(), kHostGame);
     return kind == ra2build::Kind::other ? Exe::other : Exe::supported;
 }
 
@@ -330,7 +337,7 @@ bool setup(Settings &settings, bool force, std::string &data_dir, std::string &g
         settings.save();
         return true;
     }
-    std::string installed = find_file(dir, "game.exe");
+    std::string installed = find_file(dir, ra2build::exe_name(kHostGame));
     Exe state = check_exe(installed, digest, size);
     if (state == Exe::supported) {
         game_exe = installed;
@@ -418,7 +425,7 @@ std::string imported_problem(std::string const &dir)
     if (!is_file(dir + "/binkw32.dll")) return "missing BINKW32.DLL";
     std::string digest;
     long long size = 0;
-    Exe exe = check_exe(dir + "/game.exe", digest, size);
+    Exe exe = check_exe(dir + "/" + ra2build::exe_name(kHostGame), digest, size);
     if (exe == Exe::missing) return "missing game.exe";
     if (exe == Exe::other) return "game.exe is a build the native game cannot read (" + exe_reason() + ")";
     return "";
@@ -578,7 +585,7 @@ bool setup_imported(void *native_window, bool force, std::string &data_dir, std:
         note = problem.empty() ? "" : "The import did not work: " + problem + ".\n\n";
     }
     data_dir = dir;
-    game_exe = dir + "/game.exe";
+    game_exe = dir + "/" + ra2build::exe_name(kHostGame);
     return true;
 }
 
