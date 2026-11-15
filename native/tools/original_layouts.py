@@ -288,7 +288,7 @@ def ops_for(recs_i, recs_a, name, problems):
             # the pointer's offset in that object. The port finds the vtable for that offset
             # from the primary one's RTTI type descriptor in game.exe at run time (the
             # manifest lists only some secondary vtables, e.g. not INoticeSink/INoticeSource).
-            va = rtti_vtable(l.type, 0)
+            va = rtti_vtable(l.type, 0, name)
             if not va:
                 MISSING_VTABLES.add('%s+%d' % (l.type, l.unit))
             ops.append(('VPTR', l.offset, l.unit, va, 0, 0, 0, 0, 0))
@@ -429,16 +429,31 @@ def rtti_key(name):
     return re.sub(r'(?<=[<,])const', '', key)     # layout names come without spaces already
 
 
-def rtti_vtable(cls, offset):
+def rtti_vtable(cls, offset, outer=''):
+    """The original's vtable of cls at offset. A class some units instantiate apart (a
+    template's COMDAT copies: two DynamicVectorClass<TechnoTypeClass *> vtables) has several;
+    for a member object, the one the outer class's own constructors store (their
+    vptr_writers meet), else the first."""
     global RTTI_VTABLES
     if RTTI_VTABLES is None:
         RTTI_VTABLES = {}
         try:
             for v in json.loads((ROOT / 'manifests/rtti_classes.json').read_text())['vtables']:
-                RTTI_VTABLES.setdefault((rtti_key(v['class_name']), int(v.get('object_offset', 0))), int(v['vtable'], 16))
+                key = (rtti_key(v['class_name']), int(v.get('object_offset', 0)))
+                RTTI_VTABLES.setdefault(key, []).append((int(v['vtable'], 16), set(v.get('vptr_writers', []))))
         except (OSError, ValueError, KeyError):
             pass
-    return RTTI_VTABLES.get((rtti_key(cls), offset), 0)
+    found = RTTI_VTABLES.get((rtti_key(cls), offset), [])
+    if not found:
+        return 0
+    if len(found) > 1 and outer and rtti_key(outer) != rtti_key(cls):
+        writers = set()
+        for va, w in RTTI_VTABLES.get((rtti_key(outer), 0), []):
+            writers |= w
+        for va, w in found:
+            if w & writers:
+                return va
+    return found[0][0]
 
 
 def main():
@@ -447,6 +462,9 @@ def main():
     ap.add_argument('--out', required=True, type=Path)
     ap.add_argument('--types', type=Path, default=TYPES)
     ap.add_argument('--report', type=Path)
+    ap.add_argument('--members', type=Path,
+                    help='write each map\'s i686 members (path, offset, size, count, kind) as JSON: the save comparison\'s '
+                         'member names (tools/original_save_compare.py, lane C17)')
     ap.add_argument('-j', type=int, default=8)
     ap.add_argument('--check', action='store_true', help='exit 1 when a problem is found (the test)')
     ap.add_argument('--target', choices=('arm64', 'windows'), default='arm64',
@@ -486,6 +504,7 @@ def main():
     with ThreadPoolExecutor(args.j) as ex:
         parsed = {u: (ri, ra) for u, ri, ra in ex.map(both, needed)}
     tables, report = [], {}
+    member_recs = {}
     for name, _ in rows:
         if name not in where:
             continue
@@ -505,6 +524,7 @@ def main():
         for u in unmatched:
             problems.append('%s: %s %s (%s)' % (name, u[0], u[1], u[2]))
         tables.append((key, ri[key].size, ra[key].size, ops))
+        member_recs[key] = ri
         report[key] = {'unit': where[name].name, 'i686_size': ri[key].size, 'arm64_size': ra[key].size,
                        'ops': len(ops), 'unmatched': [list(u) for u in unmatched]}
     # Every other record those units lay out (members, list elements, structs a load
@@ -529,6 +549,7 @@ def main():
                 del others[key]
                 continue
             others[key] = entry
+            member_recs.setdefault(key, ri)
     tables.extend(others[k] for k in sorted(others))
     report_others = {'records': len(others), 'conflicting names left out': sorted(conflicts),
                      'vtable pointers without an original vtable': sorted(MISSING_VTABLES)}
@@ -555,6 +576,14 @@ def main():
     text = '\n'.join(lines) + '\n'
     if not args.out.exists() or args.out.read_text() != text:
         args.out.write_text(text)
+    if args.members:
+        members = {}
+        for key, si, sa, _ in tables:
+            leaves = flatten(member_recs[key], key, 'i686', []) if key in member_recs else []
+            members[key] = {'i686_size': si, 'native_size': sa,
+                            'members': [[l.path, l.offset, (l.size or 0) * max(l.count, 1) if l.kind != 'bits' else l.unit,
+                                         l.kind] for l in leaves]}
+        args.members.write_text(json.dumps(members, separators=(',', ':')) + '\n')
     if args.report:
         args.report.write_text(json.dumps({'problems': problems, 'types': report, 'others': report_others}, indent=1) + '\n')
     if args.check:

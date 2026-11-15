@@ -146,7 +146,8 @@ if(RA2_NATIVE_SUBSYSTEM STREQUAL "all" AND ((CMAKE_SYSTEM_PROCESSOR MATCHES "arm
     OUTPUT "${RA2_NATIVE_GEN}/original_layouts.cpp"
     COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/original_layouts.py"
             --build "${CMAKE_CURRENT_BINARY_DIR}" --out "${RA2_NATIVE_GEN}/original_layouts.cpp"
-            --report "${RA2_NATIVE_GEN}/original_layouts.json" ${ra2_original_layouts_target}
+            --report "${RA2_NATIVE_GEN}/original_layouts.json" --members "${RA2_NATIVE_GEN}/original_layouts_members.json"
+            ${ra2_original_layouts_target}
     DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/tools/original_layouts.py" "${CMAKE_CURRENT_SOURCE_DIR}/data/original_save_types.txt"
             "${CMAKE_CURRENT_SOURCE_DIR}/port/include/ra2port/prelude.hpp" "${RA2_NATIVE_GEN}/units.cmake" ${RA2_NATIVE_UNITS}
     VERBATIM)
@@ -439,6 +440,16 @@ if(RA2_NATIVE_SDL)
                  --save ALL01T.sav --save ALL02S.sav --save ALL03U.sav --save SAVE397A.SAV --save SAVE4FBD.SAV
                  ${ra2_wine_args_originalwrite})
         set_tests_properties(native-original-save-write PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 2400)
+        # 8b''. The round trip (C17 stage E): each of the user's saves loaded and saved again at
+        #       once in the original's format, the decoded streams compared (original_save_compare.py);
+        #       fails on a differing vtable pointer or indexes that never meet again.
+        add_test(NAME native-original-save-roundtrip COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/original_save_roundtrip.py"
+                 --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+                 --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --members "${RA2_NATIVE_GEN}/original_layouts_members.json"
+                 --work "${CMAKE_CURRENT_BINARY_DIR}/original-save-roundtrip"
+                 --save ALL01T.sav --save ALL02S.sav --save ALL03U.sav --save SAVE397A.SAV --save SAVE4FBD.SAV
+                 ${ra2_wine_args_roundtrip})
+        set_tests_properties(native-original-save-roundtrip PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 2400)
       endif()
       # 9. Plain-virtual views against the real classes' arm64 vtables (Scout1288,
       #    tools/vtable_views.py, data/vtable_views.tsv): every view classified, and each

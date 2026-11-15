@@ -67,6 +67,38 @@ void olog(const char *fmt, ...)
     va_end(a);
 }
 
+// RA2_NATIVE_SAVE_INDEX=<file> (lane C17, comparing saves): one line per typed read or
+// write of a save's CONTENTS stream: R|W, its position in the decompressed stream (the
+// CStreamClass byte counts, cstream.cpp fixups), the bytes in the file, the kind and map.
+std::mutex index_lock;
+std::map<std::pair<void *, int>, uint64_t> &index_positions()   // (stream, writing) -> bytes
+{
+    static std::map<std::pair<void *, int>, uint64_t> positions;
+    return positions;
+}
+FILE *index_file()
+{
+    static FILE *f = nullptr;
+    static bool tried = false;
+    if (!tried) {
+        tried = true;
+        const char *path = getenv("RA2_NATIVE_SAVE_INDEX");
+        if (path && *path) f = fopen(path, "w");
+    }
+    return f;
+}
+void index_note(char rw, void *stream, uint32_t bytes, const char *kind, const char *name, uint32_t count)
+{
+    FILE *f = index_file();
+    if (!f) return;
+    std::lock_guard<std::mutex> g(index_lock);
+    auto &positions = index_positions();
+    auto it = positions.find(std::make_pair(stream, rw == 'W' ? 1 : 0));
+    uint64_t at = it == positions.end() ? 0 : it->second;
+    fprintf(f, "%c %p %llu %u %s %s %u\n", rw, stream, (unsigned long long)at, bytes, kind, name, count);
+    fflush(f);
+}
+
 // "UnitClass", "DynamicVectorClass<int>": without class/struct keywords and spaces.
 std::string canonical(std::string s)
 {
@@ -161,9 +193,10 @@ std::string dynamic_name(void const *vptr)
 }
 
 int32_t read_widened(ra2port_stream_read_fn stream_read, void *stream, void *buffer, uint32_t size, uint32_t *read,
-                     bool is_signed)
+                     bool is_signed, bool pointers = false)
 {
     uint32_t count = size == 4 ? 1 : size / 8;
+    index_note('R', stream, count * 4, pointers ? "pointer" : is_signed ? "signed" : "wide", "-", count);
     std::vector<uint32_t> narrow(count ? count : 1);
     uint32_t got = 0;
     int32_t r = stream_read(stream, narrow.data(), count * 4, &got);
@@ -232,6 +265,7 @@ int32_t read_object(ra2port_stream_read_fn stream_read, void *stream, void *buff
                     OriginalLayout const &l, uint32_t count)
 {
     uint32_t bytes = l.i686_size * count;
+    index_note('R', stream, bytes, "object", l.name, count);
     std::vector<uint8_t> image(bytes);
     uint32_t got = 0;
     int32_t r = stream_read(stream, image.data(), bytes, &got);
@@ -253,7 +287,7 @@ extern "C" int32_t ra2port_original_read(ra2port_stream_read_fn stream_read, voi
     case UNSIGNED_WIDE:
     case SIGNED_WIDE:
         if (size == 4 || (size && size % 8 == 0)) {
-            return read_widened(stream_read, stream, buffer, size, read, kind == SIGNED_WIDE);
+            return read_widened(stream_read, stream, buffer, size, read, kind == SIGNED_WIDE, kind == POINTER);
         }
         break;
     case OBJECT: {
@@ -386,6 +420,7 @@ int32_t write_object(ra2port_stream_write_fn stream_write, void *stream, void co
                      uint32_t *written, OriginalLayout const &l, uint32_t count)
 {
     std::vector<uint8_t> image((size_t)l.i686_size * count);
+    index_note('W', stream, (uint32_t)image.size(), "object", l.name, count);
     for (uint32_t k = 0; k < count; ++k) {
         convert_back(image.data() + (size_t)k * l.i686_size, (const uint8_t *)buffer + (size_t)k * l.arm64_size, l);
     }
@@ -397,9 +432,10 @@ int32_t write_object(ra2port_stream_write_fn stream_write, void *stream, void co
 }
 
 int32_t write_narrowed(ra2port_stream_write_fn stream_write, void *stream, void const *buffer, uint32_t size,
-                       uint32_t *written, bool pointers)
+                       uint32_t *written, bool pointers, bool kind_signed = false)
 {
     uint32_t count = size / 8;
+    index_note('W', stream, count * 4, pointers ? "pointer" : kind_signed ? "signed" : "wide", "-", count);
     std::vector<uint32_t> narrow(count);
     for (uint32_t i = 0; i < count; ++i) {
         uint64_t v = load_unit((const uint8_t *)buffer + 8 * i, 8);
@@ -430,7 +466,9 @@ extern "C" int32_t ra2port_original_write(ra2port_stream_write_fn stream_write, 
     case POINTER:
     case UNSIGNED_WIDE:
     case SIGNED_WIDE:
-        if (size && size % 8 == 0) return write_narrowed(stream_write, stream, buffer, size, written, kind == POINTER);
+        if (size && size % 8 == 0) {
+            return write_narrowed(stream_write, stream, buffer, size, written, kind == POINTER, kind == SIGNED_WIDE);
+        }
         break;
     case OBJECT: {
         OriginalLayout const *s = layout(static_name(type_name));
@@ -449,4 +487,11 @@ extern "C" int32_t ra2port_original_write(ra2port_stream_write_fn stream_write, 
         break;
     }
     return stream_write(stream, buffer, size, written);
+}
+
+extern "C" void ra2port_save_index_bytes(void *stream, unsigned long size, int writing)
+{
+    if (!index_file()) return;
+    std::lock_guard<std::mutex> g(index_lock);
+    index_positions()[std::make_pair(stream, writing ? 1 : 0)] += size;
 }

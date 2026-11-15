@@ -48,6 +48,7 @@ void __fastcall Unit_Unknown_Shake_00482e00(int)
 #include "shared/load_dlg.hpp"   // WWMouse, the dialog helpers
 #include "shared/dialog_create.hpp"   // unknown_create_dialog_5ff610
 #include <stdio.h>
+#include <stdlib.h>
 #include "shared/cd.hpp"
 #include "shared/campaign.hpp"
 #include "shared/ww_message_box.hpp"
@@ -91,6 +92,13 @@ char LoadOptionsClass::Load_Dialog_0053b190()
         if (dialog) unknown_dialog_5ff6e0(dialog);
         if (loaded) {
             fprintf(stderr, "resume: loaded %s\n", file);
+            // RA2_NATIVE_SAVE_AFTER_LOAD=<file> (test scaffolding, lane C17): the game just
+            // loaded saved again at once, before any frame runs, for the save comparison
+            // (tools/original_save_compare.py): what differs is the writing, not play.
+            if (char const *again = getenv("RA2_NATIVE_SAVE_AFTER_LOAD")) {
+                bool saved = Unknown_006554A0(again, L"Native C17 save after load", 0);
+                fprintf(stderr, "resume: %s %s after the load\n", saved ? "saved" : "could not save", again);
+            }
             return true;
         }
         WWMouse->Show_Mouse();
