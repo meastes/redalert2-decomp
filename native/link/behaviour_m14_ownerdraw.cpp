@@ -97,7 +97,7 @@ void Text(WinData *record, Rect const &area, wchar_t const *text, int x_alignmen
 void Image(Surface *image, Rect const &area)
 {
     Rect from(0, 0, area.Width, area.Height);
-    AlternateSurface->Copy_From(area, *image, from, true, true);
+    AlternateSurface->Copy_From(area, *image, from, false, true);   // not transparent (0x005F095B push 1, push 0; C16 audit)
 }
 
 // A list or combo item's text (strings kept by the Win32 control), widened.
@@ -200,7 +200,7 @@ LRESULT __stdcall unknown_button_proc_5f0320(HWND window, UINT message, WPARAM w
     case 0x113:                                     // WM_TIMER: the flash
         flash[1] = !flash[1];
         InvalidateRect(window, 0, TRUE);
-        return 0;
+        break;                                      // then the default procedure (0x005F0DC8; C16 audit)
     case 0x201: case 0x203:                         // WM_LBUTTONDOWN / DBLCLK
         if (record->unknown_bc) return 0;
         Voc_Play(Rules->unknown_180, 1.0f, 0x2000, 0);   // GUIMainButtonSound
@@ -682,8 +682,21 @@ LRESULT __stdcall unknown_list_proc_5f6690(HWND window, UINT message, WPARAM wpa
         InvalidateRect(window, 0, TRUE);
         return 0;
     }
-    if (!record || message != 0xF) {
-        if (message == 0x14) return 1;
+    // C16 behaviour audit (2026-11-15, against the original's instructions): without a registry
+    // record the original returns 0 without the default procedure; WM_ERASEBKGND returns 0; and
+    // LB_SETCURSEL (jump-table case at 0x005F7E80) selects the row when -1 <= index < the count,
+    // then always tells the parent (WM_COMMAND, the control id with LBN_SELCHANGE), repaints
+    // without erasing and returns 0 (a load or save list selected from code updates its
+    // description through that notification).
+    if (!record) return 0;
+    if (message == 0x186) {
+        if ((int)wparam >= -1 && (int)wparam < (int)Original(window, 0x18B, 0, 0)) Original(window, 0x186, wparam, 0);
+        SendMessageA(GetParent(window), 0x111, (WPARAM)((GetWindowLongA(window, -12) & 0xFFFF) | 0x10000), (LPARAM)window);
+        InvalidateRect(window, 0, FALSE);
+        return 0;
+    }
+    if (message != 0xF) {
+        if (message == 0x14) return 0;
         LRESULT result = Original(window, message, wparam, lparam);
         if (record && (message == 0x201 || message == 0x203 || message == 0x186 || message == 0x180 || message == 0x184))
             InvalidateRect(window, 0, TRUE);

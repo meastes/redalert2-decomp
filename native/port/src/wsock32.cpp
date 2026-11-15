@@ -80,8 +80,16 @@ struct WinSockAddrIpx { int16_t family; uint8_t netnum[4]; uint8_t nodenum[6]; u
 struct WinIpxAddressData { int32_t adapternum; uint8_t netnum[4]; uint8_t nodenum[6]; uint8_t wan, status; int32_t maxpkt; uint32_t linkspeed; };
 const int AF_IPX_WIN = 6, NSPROTO_IPX_WIN = 1000;
 const int IPX_ADDRESS_OPT = 0x4007, IPX_MAX_ADAPTER_NUM_OPT = 0x400D;
-const uint16_t ipx_base_port = 26300;
 const int ipx_port_count = 8;
+// RA2_NATIVE_IPX_PORT (tests): another first port of the range, so a test pair on a machine
+// running other pairs plays on its own network (native/tests/lan_pair.py); 26300 otherwise.
+uint16_t ipx_first_port()
+{
+    const char *value = getenv("RA2_NATIVE_IPX_PORT");
+    long port = value && *value ? strtol(value, nullptr, 10) : 0;
+    return port >= 1024 && port <= 65535 - ipx_port_count ? (uint16_t)port : (uint16_t)26300;
+}
+const uint16_t ipx_base_port = ipx_first_port();
 struct IpxSocket { uint16_t number = 0; };
 std::mutex ipx_lock;
 std::map<SOCKET, IpxSocket> ipx_sockets;

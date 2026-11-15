@@ -12,7 +12,8 @@ template <>
 void BlitTransLucent50<unsigned short>::BlitForward(void *target, void const *source, int length,
                                                     int, void *, void *, int, int) const
 {
-    for (int index = 0; index < length; index++) {
+    int index = length;
+    do {    // a do-while, as the original's (0x004870AA-0x004870CF: one pixel even for length <= 0; C16 audit)
         unsigned char color = *(unsigned char const *)source;
         source = (unsigned char const *)source + 1;
         if (color) {
@@ -20,7 +21,7 @@ void BlitTransLucent50<unsigned short>::BlitForward(void *target, void const *so
                                                          + ((Palette[color] >> 1) & ChannelMask));
         }
         target = (unsigned short *)target + 1;
-    }
+    } while (--index > 0);
 }
 
 template <>

@@ -543,7 +543,7 @@ if(RA2_NATIVE_SDL)
           add_test(NAME native-lan-pair COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/lan_pair.py"
                    --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
                    --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/lan-pair")
-          set_tests_properties(native-lan-pair PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 1200 RUN_SERIAL TRUE)
+          set_tests_properties(native-lan-pair PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 3600 RUN_SERIAL TRUE)
         endif()
         # 12. Touch input (C8): scripted fingers with the touch controls on; a two-finger tap
         #     deselects; A-Move is a toggle: two taps give two attack-move orders, and after

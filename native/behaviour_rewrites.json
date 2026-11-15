@@ -284,7 +284,9 @@
    "file": "native/port/fixups.json",
    "source": "src/recovered/conquer/Main_Game.cpp (evidenced __asm, TibSun conquer.cpp)",
    "notes": "already compiled natively through the Scout1058 fixup: the esp/ebp/resume-address capture for the SEH handler is dropped (no SEH natively)",
-   "test": null
+   "test": null,
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x00577010",
@@ -294,7 +296,9 @@
    "exact": false,
    "file": "native/link/behaviour_mapgen.cpp",
    "source": "the row decompile (Scout530 sweep seed)",
-   "reached": "launch path 0x577010 (startup, Scout1050); written before Scout1069, listed here"
+   "reached": "launch path 0x577010 (startup, Scout1050); written before Scout1069, listed here",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x0077F14D",
@@ -305,7 +309,9 @@
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
    "source": "instruction listing (handwritten assembly, CPUID/EFLAGS probe)",
-   "notes": "NATIVE: reports family 6, model 0, no MMX; vendor text left as stored"
+   "notes": "NATIVE: reports family 6, model 0, no MMX; vendor text left as stored",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x0077F20F",
@@ -316,7 +322,9 @@
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
    "source": "instruction listing (handwritten assembly, CMOV probe)",
-   "notes": "NATIVE: no CMOV (0x008015A0/A1 = 0)"
+   "notes": "NATIVE: no CMOV (0x008015A0/A1 = 0)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x0079777A",
@@ -338,7 +346,9 @@
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
    "source": "decompile (handwritten assembly: MMX, CMOV and plain paths)",
-   "notes": "5:6:5 light table; the plain path"
+   "notes": "5:6:5 light table; the plain path",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x00674AF0",
@@ -358,7 +368,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_scheme.cpp",
-   "source": "seed (scheme table walk) + UnknownSchemeListIterator::Next 0x00603640"
+   "source": "seed (scheme table walk) + UnknownSchemeListIterator::Next 0x00603640",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, saveend)"
   },
   {
    "entry": "0x005DE970",
@@ -368,7 +380,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
-   "source": "seed src/recovered/ownrdraw/unknown_hash_key.cpp"
+   "source": "seed src/recovered/ownrdraw/unknown_hash_key.cpp",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x005DE970",
@@ -378,7 +392,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
-   "source": "seed src/recovered/ownrdraw/unknown_hash_key.cpp (second declared name of the row)"
+   "source": "seed src/recovered/ownrdraw/unknown_hash_key.cpp (second declared name of the row)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x005E8720",
@@ -388,7 +404,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
-   "source": "draft OwnrDraw233 c/5e8720e3.cpp (51.12), Scout720 keep/e8720_n1.cpp (53.29)"
+   "source": "draft OwnrDraw233 c/5e8720e3.cpp (51.12), Scout720 keep/e8720_n1.cpp (53.29)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x005E7EB0",
@@ -398,7 +416,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
-   "source": "draft Scout720 keep/e7eb0_8955.cpp (89.55)"
+   "source": "draft Scout720 keep/e7eb0_8955.cpp (89.55)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x005E8130",
@@ -408,7 +428,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
-   "source": "draft Scout1004 keep/e8130_ke.cpp (49.20)"
+   "source": "draft Scout1004 keep/e8130_ke.cpp (49.20)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x00491C00",
@@ -418,7 +440,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
-   "source": "CounterClass_Construct_00491c00.cpp (member)"
+   "source": "CounterClass_Construct_00491c00.cpp (member)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x00491C20",
@@ -438,7 +462,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
-   "source": "Unknown4A6AE0Owner_Constructor_004a6910.cpp (member)"
+   "source": "Unknown4A6AE0Owner_Constructor_004a6910.cpp (member)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x004A6930",
@@ -458,7 +484,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
-   "source": "UnitTrackerClass_constructor_0070c440.cpp"
+   "source": "UnitTrackerClass_constructor_0070c440.cpp",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x0070C480",
@@ -478,7 +506,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_scenario.cpp",
-   "source": "the VC6 CRT type_info comparison (an MSVCRT import in the original); the class as src/recovered/unowned/Process_Deferred_Deletion_006ecf10.cpp declares it, compared with libc++ std::type_info equality"
+   "source": "the VC6 CRT type_info comparison (an MSVCRT import in the original); the class as src/recovered/unowned/Process_Deferred_Deletion_006ecf10.cpp declares it, compared with libc++ std::type_info equality",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x0051FC80",
@@ -488,7 +518,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_scenario.cpp",
-   "source": "leaf src/recovered/0051fc80.cpp (returns false)"
+   "source": "leaf src/recovered/0051fc80.cpp (returns false)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x00622160",
@@ -498,7 +530,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_scenario.cpp",
-   "source": "accepted Quaternion::Quaternion 0x00622160 (same address, other class name; no address alias across class names)"
+   "source": "accepted Quaternion::Quaternion 0x00622160 (same address, other class name; no address alias across class names)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x00423E00",
@@ -508,7 +542,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_scenario.cpp",
-   "source": "TibSun object.h Can_Enter_Cell (returns MOVE_OK)"
+   "source": "TibSun object.h Can_Enter_Cell (returns MOVE_OK)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x0053D820",
@@ -538,7 +574,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_tactical.cpp",
-   "source": "seed src/recovered/0049ec40.cpp"
+   "source": "seed src/recovered/0049ec40.cpp",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x00405110",
@@ -548,7 +586,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_frame.cpp",
-   "source": "seed src/recovered/00405110.cpp"
+   "source": "seed src/recovered/00405110.cpp",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x00405140",
@@ -558,7 +598,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_frame.cpp",
-   "source": "seed src/recovered/00405140.cpp"
+   "source": "seed src/recovered/00405140.cpp",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x00406320",
@@ -578,7 +620,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_frame.cpp",
-   "source": "seed src/recovered/00406140.cpp; audio.hpp Audio_Event_Resolve"
+   "source": "seed src/recovered/00406140.cpp; audio.hpp Audio_Event_Resolve",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x00406100",
@@ -598,7 +642,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_frame.cpp",
-   "source": "leaf src/recovered/classes/ObjectClass/00423dc0.cpp (ret 8)"
+   "source": "leaf src/recovered/classes/ObjectClass/00423dc0.cpp (ret 8)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (load-ALL01T.sav, load-ALL03U.sav, load-SAVE397A.SAV)"
   },
   {
    "entry": "0x00614840",
@@ -618,7 +664,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_frame.cpp",
-   "source": "seed src/recovered/00496ce0.cpp; TechnoClass::AI 0x006C74C0 called the seed with a truncated pointer (fixup)"
+   "source": "seed src/recovered/00496ce0.cpp; TechnoClass::AI 0x006C74C0 called the seed with a truncated pointer (fixup)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x0047C2E0",
@@ -628,7 +676,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_map_dimensions.cpp",
-   "source": "forwarder: techno.hpp's cell view onto the recovered CellClass::Is_Sensed (cell.cpp)"
+   "source": "forwarder: techno.hpp's cell view onto the recovered CellClass::Is_Sensed (cell.cpp)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x0041B440",
@@ -638,7 +688,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_frame.cpp",
-   "source": "the shared body at 0x0041B440 (xor al, al; ret)"
+   "source": "the shared body at 0x0041B440 (xor al, al; ret)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x00406180",
@@ -648,7 +700,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_frame.cpp",
-   "source": "seed src/recovered/00406180.cpp"
+   "source": "seed src/recovered/00406180.cpp",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x0042EBE0",
@@ -678,7 +732,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_frames.cpp",
-   "source": "leaf src/recovered/005173a0.cpp (empty)"
+   "source": "leaf src/recovered/005173a0.cpp (empty)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (saveend)"
   },
   {
    "entry": "0x0041B380",
@@ -688,7 +744,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_frames.cpp",
-   "source": "the shared body at 0x0041B380 (xor al, al; ret)"
+   "source": "the shared body at 0x0041B380 (xor al, al; ret)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x004718B0",
@@ -698,7 +756,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_map_dimensions.cpp",
-   "source": "forwarder: object.hpp view name of CellClass::Is_Clear_To_Build (accepted in src/recovered/cell.cpp; the adapted draft native/drafts/004718b0.cpp, Scout998 71.99, retired by C3 after codex4 r599)"
+   "source": "forwarder: object.hpp view name of CellClass::Is_Clear_To_Build (accepted in src/recovered/cell.cpp; the adapted draft native/drafts/004718b0.cpp, Scout998 71.99, retired by C3 after codex4 r599)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL02S.sav, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x006328D0",
@@ -708,7 +768,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_map_dimensions.cpp",
-   "source": "leaf src/recovered/006328d0.cpp (&this->unknown_1274[type->Foundation])"
+   "source": "leaf src/recovered/006328d0.cpp (&this->unknown_1274[type->Foundation])",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x006816B0",
@@ -728,7 +790,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_cell_draw.cpp",
-   "source": "decompile 0x00474260 (SHROUD.SHP/FOG.SHP frame into the 0x008315B4 depth ring; names and the transparent byte read from game.exe)"
+   "source": "decompile 0x00474260 (SHROUD.SHP/FOG.SHP frame into the 0x008315B4 depth ring; names and the transparent byte read from game.exe)",
+   "behaviour_verdict": "differs, fixed: the unwrapped do-while path (at least one row and pixel) when the span fits before the ring's end",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x00434820",
@@ -738,7 +802,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_coord.cpp",
-   "source": "shared/coord.hpp inline forms (X, Y, Z stores)"
+   "source": "shared/coord.hpp inline forms (X, Y, Z stores)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x004A0050",
@@ -748,7 +814,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_locomotion.cpp",
-   "source": "decompile 0x004A0050; Scout907 w/d3n.cpp (95.91) with the slope matrix from 0x0049FAA0"
+   "source": "decompile 0x004A0050; Scout907 w/d3n.cpp (95.91) with the slope matrix from 0x0049FAA0",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x006CFEA0",
@@ -758,7 +826,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_techno_z.cpp",
-   "source": "decompile 0x006CFEA0; TibSun techno.cpp TechnoClass::Get_Z_Adjust; statics 0x007F7124/28/2C read from game.exe"
+   "source": "decompile 0x006CFEA0; TibSun techno.cpp TechnoClass::Get_Z_Adjust; statics 0x007F7124/28/2C read from game.exe",
+   "behaviour_verdict": "differs, fixed: the facing at +0x2E0 and the clear tile set index (C16 audit)",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x00423E60",
@@ -778,7 +848,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_coord.cpp",
-   "source": "leaf src/recovered/classes/FootClass/004c9bc0.cpp (ret 8: an empty body)"
+   "source": "leaf src/recovered/classes/FootClass/004c9bc0.cpp (ret 8: an empty body)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x006D8640",
@@ -788,7 +860,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_walk.cpp",
-   "source": "decompile 0x006D8640 (weapon && weapon->WeaponType)"
+   "source": "decompile 0x006D8640 (weapon && weapon->WeaponType)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x00406660",
@@ -798,7 +872,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_audio_m8.cpp",
-   "source": "decompile 0x00406660 (Flags bit 0 && LoopCount == 0)"
+   "source": "decompile 0x00406660 (Flags bit 0 && LoopCount == 0)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x00402940",
@@ -878,7 +954,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_m9.cpp",
-   "source": "leaf src/recovered/classes/ObjectClass/00423d90.cpp (returns 1)"
+   "source": "leaf src/recovered/classes/ObjectClass/00423d90.cpp (returns 1)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x00402030",
@@ -938,7 +1016,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_m10.cpp",
-   "source": "seed decompile 0x004CDE90 (comip checked operator->)"
+   "source": "seed decompile 0x004CDE90 (comip checked operator->)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x0070A240",
@@ -948,7 +1028,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_m10_unit.cpp",
-   "source": "seed decompile 0x0070A240"
+   "source": "seed decompile 0x0070A240",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x0041F1C0",
@@ -958,7 +1040,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_m10_alpha.cpp",
-   "source": "seed decompile 0x0041F1C0; TibSun alphashp.cpp AlphaShapeClass::Draw_In_Area"
+   "source": "seed decompile 0x0041F1C0; TibSun alphashp.cpp AlphaShapeClass::Draw_In_Area",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, saveend)"
   },
   {
    "entry": "0x004CD9B0",
@@ -978,7 +1062,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_m10.cpp",
-   "source": "seed leaf 0x004131D0 (ret 4: an empty body)"
+   "source": "seed leaf 0x004131D0 (ret 4: an empty body)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL03U.sav, load-SAVE397A.SAV, saveend)"
   },
   {
    "entry": "0x004370E0",
@@ -1030,7 +1116,9 @@
    "exact": false,
    "file": "native/link/behaviour_m12_factory.cpp",
    "source": "seed decompile 0x004B9430 (the +0x59 byte, cleared)",
-   "notes": "reads the real FactoryClass at its native layout (Scout1111: the harness build order reaches it through StripClass::AI 0x0067F050)"
+   "notes": "reads the real FactoryClass at its native layout (Scout1111: the harness build order reaches it through StripClass::AI 0x0067F050)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, saveend)"
   },
   {
    "entry": "0x004B98F0",
@@ -1041,7 +1129,9 @@
    "exact": false,
    "file": "native/link/behaviour_m12_factory.cpp",
    "source": "seed decompile 0x004B98F0 (Leaf_4b98f0: StageClass's value at +0x24)",
-   "notes": "reads the real FactoryClass at its native layout (Scout1111: the harness build order reaches it through StripClass::AI 0x0067F050)"
+   "notes": "reads the real FactoryClass at its native layout (Scout1111: the harness build order reaches it through StripClass::AI 0x0067F050)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, saveend)"
   },
   {
    "entry": "0x004B9940",
@@ -1063,7 +1153,9 @@
    "exact": false,
    "file": "native/link/behaviour_m12_blit.cpp",
    "source": "TibSun blitblit.h BlitTransLucent50::BlitForward",
-   "notes": "vtable slot of the blitter (entry address not bound in the catalog); the sidebar build clock reaches the 50% forward blit (Scout1111)"
+   "notes": "vtable slot of the blitter (entry address not bound in the catalog); the sidebar build clock reaches the 50% forward blit (Scout1111)",
+   "behaviour_verdict": "differs, fixed: a do-while, one pixel even for length <= 0 (0x004870AA)",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, saveend)"
   },
   {
    "entry": null,
@@ -1107,7 +1199,9 @@
    "exact": false,
    "file": "native/link/behaviour_m12_placement.cpp",
    "source": "seed src/recovered/006f8a00.cpp",
-   "notes": "the harness build order reaches it (StripClass::AI 0x0067F050, a completed building); Scout1111"
+   "notes": "the harness build order reaches it (StripClass::AI 0x0067F050, a completed building); Scout1111",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat)"
   },
   {
    "entry": "0x0069ED20",
@@ -1118,7 +1212,9 @@
    "exact": false,
    "file": "native/link/behaviour_m12_piggyback.cpp",
    "source": "twin of 0x00453EA0 (src/recovered/unowned/Locomotor_Add_Ref_Held_00453ea0.cpp); comip _AddRef",
-   "notes": "the refinery's free harvester (UnitClass::Assign_Destination 0x007053F0) reaches it; Scout1111"
+   "notes": "the refinery's free harvester (UnitClass::Assign_Destination 0x007053F0) reaches it; Scout1111",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (combat)"
   },
   {
    "entry": "0x00406F50",
@@ -1194,7 +1290,9 @@
    "exact": false,
    "file": "native/link/behaviour_m14_ownerdraw.cpp",
    "source": "pass-6a decompile 005f0320",
-   "notes": "push button procedure: input/state as the decompile (click sound, flash timer 0x4DC, disabled flag), painting simplified (image or frame + text; the PCX button art not drawn); Scout1119 (M14); Scout1161 M20: paint follows the decompile (kind +0xB0: interface shape frames for 1-3, three-piece b?e_li/mi/ri PCX for 0), user report: main menu buttons were text only"
+   "notes": "push button procedure: input/state as the decompile (click sound, flash timer 0x4DC, disabled flag), painting simplified (image or frame + text; the PCX button art not drawn); Scout1119 (M14); Scout1161 M20: paint follows the decompile (kind +0xB0: interface shape frames for 1-3, three-piece b?e_li/mi/ri PCX for 0), user report: main menu buttons were text only",
+   "behaviour_verdict": "differs, partly fixed: WM_TIMER now passes on and the kind-0 image copy is not transparent; open: the saved background (+0x10), the click sound memory 0x007E8D4C, the disabled colouring and darkening, the shape position (0x006F1AE0) and the pressed test (the original reads only +0xE8 bit 0)",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x005F2B50",
@@ -1204,7 +1302,9 @@
    "exact": false,
    "file": "native/link/behaviour_m14_ownerdraw.cpp",
    "source": "pass-6a decompile 005f2b50",
-   "notes": "static procedure following the pass-6a decompile and the original's code (Scout1191, M24): kinds 0 text / 1 typed text / 2 picture / 3 shape / 4 animated shape, saved background BSurface +0x10, fill colour 0x4B1, text colour 0x498, movies 0x4DF/0x4E0-0x4E4/0x4F0 with timer 0x65 (the main menu's Ra2ts_l loop), animation control 0x4D3-0x4D7; the movie handle and notify window kept in a native side table (pointer-sized); Scout1119 (M14) simplified version replaced"
+   "notes": "static procedure following the pass-6a decompile and the original's code (Scout1191, M24): kinds 0 text / 1 typed text / 2 picture / 3 shape / 4 animated shape, saved background BSurface +0x10, fill colour 0x4B1, text colour 0x498, movies 0x4DF/0x4E0-0x4E4/0x4F0 with timer 0x65 (the main menu's Ra2ts_l loop), animation control 0x4D3-0x4D7; the movie handle and notify window kept in a native side table (pointer-sized); Scout1119 (M14) simplified version replaced",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x005F6690",
@@ -1214,7 +1314,9 @@
    "exact": false,
    "file": "native/link/behaviour_m14_ownerdraw.cpp",
    "source": "pass-6a decompile 005f6690",
-   "notes": "list box procedure: delegates to the Win32 list; paints frame, item strings, selection frame; Scout1119 (M14)"
+   "notes": "list box procedure: delegates to the Win32 list; paints frame, item strings, selection frame; Scout1119 (M14)",
+   "behaviour_verdict": "differs, partly fixed: LB_SETCURSEL notifies the parent (LBN_SELCHANGE) and returns 0, WM_ERASEBKGND returns 0, no record returns 0; open: the other list messages use the port's Win32 list store, not the original's +0xEC store",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV)"
   },
   {
    "entry": "0x005F4BA0",
@@ -1294,7 +1396,9 @@
    "exact": false,
    "file": "native/link/behaviour_m14b_techno.cpp",
    "source": "pass-6a decompile 00453b50",
-   "notes": "shared leaf returning false (TechnoClass slot 156); hunting units; Scout1121 (M14b)"
+   "notes": "shared leaf returning false (TechnoClass slot 156); hunting units; Scout1121 (M14b)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (combat, load-ALL01T.sav, load-ALL03U.sav, load-SAVE397A.SAV)"
   },
   {
    "entry": "0x0041B3F0",
@@ -1304,7 +1408,9 @@
    "exact": false,
    "file": "native/link/behaviour_m14b_techno.cpp",
    "source": "pass-6a decompile 0041b3f0",
-   "notes": "the type's Turret (slot 32's TechnoTypeClass +0xAAB); Scout1121 (M14b)"
+   "notes": "the type's Turret (slot 32's TechnoTypeClass +0xAAB); Scout1121 (M14b)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (load-ALL01T.sav, load-ALL03U.sav, load-SAVE397A.SAV)"
   },
   {
    "entry": "0x004CEDF0",
@@ -1314,7 +1420,9 @@
    "exact": false,
    "file": "native/link/behaviour_m14b_bullet.cpp",
    "source": "pass-6a decompile 004cedf0",
-   "notes": "two frame timers started with no delay, coordinate and +0x24 zero; Scout1121 (M14b)"
+   "notes": "two frame timers started with no delay, coordinate and +0x24 zero; Scout1121 (M14b)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (combat, load-ALL01T.sav, load-ALL03U.sav, load-SAVE397A.SAV)"
   },
   {
    "entry": "0x00446920",
@@ -1324,7 +1432,9 @@
    "exact": false,
    "file": "native/link/behaviour_m14b_building.cpp",
    "source": "pass-6a decompile 00446920",
-   "notes": "follows the pass-6a decompile and the original's jump table 0x00447214 case by case (SAM two-state launcher, voxel-turret facing snap within ROT, fire results 0-10: two-shooter upgrades, prism tower support gathering up to Rules->PrismSupportMax and the delayed shot 0x0044B870, IsAnimDelayedFire, FACING/REARM return 2, CLOAKED uncloaks, AMMO/ILLEGAL/CANT/RANGE drop the target); Scout1121 (M14b), full body Scout1191 (M24)"
+   "notes": "follows the pass-6a decompile and the original's jump table 0x00447214 case by case (SAM two-state launcher, voxel-turret facing snap within ROT, fire results 0-10: two-shooter upgrades, prism tower support gathering up to Rules->PrismSupportMax and the delayed shot 0x0044B870, IsAnimDelayedFire, FACING/REARM return 2, CLOAKED uncloaks, AMMO/ILLEGAL/CANT/RANGE drop the target); Scout1121 (M14b), full body Scout1191 (M24)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (load-ALL01T.sav)"
   },
   {
    "entry": "0x0041B300",
@@ -1334,7 +1444,9 @@
    "exact": false,
    "file": "native/link/behaviour_m14b.cpp",
    "source": "pass-6a decompile 0041b300",
-   "notes": "shared leaf returning false; Scout1121 (M14b)"
+   "notes": "shared leaf returning false; Scout1121 (M14b)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (load-ALL03U.sav, load-SAVE397A.SAV)"
   },
   {
    "entry": "0x00453B60",
@@ -1344,7 +1456,9 @@
    "exact": false,
    "file": "native/link/behaviour_m14b_techno.cpp",
    "source": "pass-6a decompile 00453b60",
-   "notes": "shared leaf returning true (one argument); Scout1121 (M14b)"
+   "notes": "shared leaf returning true (one argument); Scout1121 (M14b)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (load-ALL01T.sav)"
   },
   {
    "entry": "0x0060AA70",
@@ -1354,7 +1468,9 @@
    "exact": false,
    "file": "native/link/behaviour_m14b.cpp",
    "source": "shared/particle_system.hpp",
-   "notes": "the RA2_PARTICLE_SYSTEM_POINT3D constructor name bound to the CoordStruct one (same address, layout-identical parameter); Scout1121 (M14b)"
+   "notes": "the RA2_PARTICLE_SYSTEM_POINT3D constructor name bound to the CoordStruct one (same address, layout-identical parameter); Scout1121 (M14b)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x004BBAF0",
@@ -1374,7 +1490,9 @@
    "exact": false,
    "file": "native/link/behaviour_m15.cpp",
    "source": "pass-6a decompile 00601710; shared/wol_dictionary.hpp Get_Pointer",
-   "notes": "the UnknownControlIndex name of the registry 0x00A73640 forwards to its WolDictionary getPointer (one storage); Default_Dialog_Proc 0x005FFB00's WM_PAINT reaches it; Scout1125 (M15)"
+   "notes": "the UnknownControlIndex name of the registry 0x00A73640 forwards to its WolDictionary getPointer (one storage); Default_Dialog_Proc 0x005FFB00's WM_PAINT reaches it; Scout1125 (M15)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x00482E00",
@@ -1414,7 +1532,9 @@
    "exact": false,
    "file": "native/link/behaviour_m15.cpp",
    "source": "pass-6a decompiles 0053b190/0053b1b0/0053b1e0",
-   "notes": "the accepted seeds carry these under seed names: style +0x04, description +0x0C, then Dialog 0x0053B770; Scout1125 (M15)"
+   "notes": "the accepted seeds carry these under seed names: style +0x04, description +0x0C, then Dialog 0x0053B770; Scout1125 (M15)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV)"
   },
   {
    "entry": "0x0053C970",
@@ -1444,7 +1564,9 @@
    "exact": false,
    "file": "native/link/behaviour_m15_save.cpp",
    "source": "pass-6a decompile 00537bf0",
-   "notes": "AbstractClass::Save, success as S_OK; Scout1125 (M15)"
+   "notes": "AbstractClass::Save, success as S_OK; Scout1125 (M15)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (saveend)"
   },
   {
    "entry": "0x006AC400",
@@ -1454,7 +1576,9 @@
    "exact": false,
    "file": "native/link/behaviour_m15_save2.cpp",
    "source": "pass-6a decompile 006ac400",
-   "notes": "AbstractClass::Save, success as S_OK; Scout1125 (M15)"
+   "notes": "AbstractClass::Save, success as S_OK; Scout1125 (M15)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (saveend)"
   },
   {
    "entry": "0x006822A0",
@@ -1474,7 +1598,9 @@
    "exact": false,
    "file": "native/link/behaviour_m15_load.cpp",
    "source": "pass-6a decompile 0059eba0",
-   "notes": "frees the matrix array; load game deletes the types; Scout1125 (M15)"
+   "notes": "frees the matrix array; load game deletes the types; Scout1125 (M15)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV)"
   },
   {
    "entry": "0x006EA9D0",
@@ -1494,7 +1620,9 @@
    "exact": false,
    "file": "native/link/behaviour_m15_noinit.cpp",
    "source": "pass-6a decompile 00423f60 (return this)",
-   "notes": "plain functions under the constructor symbols (no member default construction); Scout1125 (M15)"
+   "notes": "plain functions under the constructor symbols (no member default construction); Scout1125 (M15)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV)"
   },
   {
    "entry": "0x0065B780",
@@ -1504,7 +1632,9 @@
    "exact": false,
    "file": "native/link/behaviour_m15_noinit.cpp",
    "source": "pass-6a decompile 0065b780 (TibSun scenario.cpp ScenarioClass(NoInitClass) for shape)",
-   "notes": "the original's steps (Random2Class(0), the +0x620 countdown restarted, the three TypeLists rebuilt, the mission timer text fetched); loads in a fresh process; Scout1125 (M15), completed by Scout1133 (M16)"
+   "notes": "the original's steps (Random2Class(0), the +0x620 countdown restarted, the three TypeLists rebuilt, the mission timer text fetched); loads in a fresh process; Scout1125 (M15), completed by Scout1133 (M16)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x00492E20",
@@ -1524,7 +1654,9 @@
    "exact": false,
    "file": "native/link/behaviour_m16.cpp",
    "source": "original bytes (a lone ret)",
-   "notes": "empty, as the original; Scout1133 (M16)"
+   "notes": "empty, as the original; Scout1133 (M16)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV)"
   },
   {
    "entry": "0x005A7500",
@@ -1564,7 +1696,9 @@
    "exact": false,
    "file": "native/link/behaviour_m16.cpp",
    "source": "original bytes (mov eax, 2; ret)",
-   "notes": "Scout1133 (M16)"
+   "notes": "Scout1133 (M16)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (load-ALL01T.sav, load-ALL02S.sav, load-SAVE4FBD.SAV)"
   },
   {
    "entry": null,
@@ -1584,7 +1718,9 @@
    "exact": false,
    "file": "native/link/behaviour_m16_matrix.cpp",
    "source": "Matrix3D copy constructor 0x0058FE10",
-   "notes": "twelve floats copied; Scout1133 (M16)"
+   "notes": "twelve floats copied; Scout1133 (M16)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x00716940",
@@ -1594,7 +1730,9 @@
    "exact": false,
    "file": "native/link/behaviour_m16_radar.cpp",
    "source": "pass-6a decompile 00716940",
-   "notes": "Scout1133 (M16)"
+   "notes": "Scout1133 (M16)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (load-ALL01T.sav, load-ALL02S.sav, load-SAVE4FBD.SAV)"
   },
   {
    "entry": "0x00716690",
@@ -1604,7 +1742,9 @@
    "exact": false,
    "file": "native/link/behaviour_m16_radar.cpp",
    "source": "pass-6a decompile 00716690",
-   "notes": "Scout1133 (M16)"
+   "notes": "Scout1133 (M16)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (load-ALL01T.sav, load-ALL02S.sav, load-SAVE4FBD.SAV)"
   },
   {
    "entry": "0x007291F0",
@@ -1684,7 +1824,9 @@
    "exact": false,
    "file": "native/link/behaviour_m21.cpp",
    "source": "pass-6a decompile 0047ce40",
-   "notes": "Scout1170 M21: reached by the super weapons (scripted play, TRAP_CONTINUE)"
+   "notes": "Scout1170 M21: reached by the super weapons (scripted play, TRAP_CONTINUE)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (combat)"
   },
   {
    "entry": "0x0047CE30",
@@ -1694,7 +1836,9 @@
    "exact": false,
    "file": "native/link/behaviour_m21.cpp",
    "source": "pass-6a decompile 0047ce30",
-   "notes": "Scout1170 M21: reached by the super weapons (scripted play, TRAP_CONTINUE)"
+   "notes": "Scout1170 M21: reached by the super weapons (scripted play, TRAP_CONTINUE)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (combat)"
   },
   {
    "entry": "0x0047CEA0",
@@ -1704,7 +1848,9 @@
    "exact": false,
    "file": "native/link/behaviour_m21.cpp",
    "source": "pass-6a decompile 0047cea0",
-   "notes": "Scout1170 M21: reached by the super weapons (scripted play, TRAP_CONTINUE)"
+   "notes": "Scout1170 M21: reached by the super weapons (scripted play, TRAP_CONTINUE)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (combat)"
   },
   {
    "entry": "0x00422690",
@@ -1714,7 +1860,9 @@
    "exact": false,
    "file": "native/link/behaviour_m21.cpp",
    "source": "pass-6a decompile 00422690",
-   "notes": "Scout1170 M21: reached by the super weapons (scripted play, TRAP_CONTINUE)"
+   "notes": "Scout1170 M21: reached by the super weapons (scripted play, TRAP_CONTINUE)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (combat)"
   },
   {
    "entry": "0x0051FC70",
@@ -1724,7 +1872,9 @@
    "exact": false,
    "file": "native/link/behaviour_m21.cpp",
    "source": "pass-6a decompile 0051fc70",
-   "notes": "Scout1170 M21: reached by the super weapons (scripted play, TRAP_CONTINUE)"
+   "notes": "Scout1170 M21: reached by the super weapons (scripted play, TRAP_CONTINUE)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (combat)"
   },
   {
    "entry": "0x0069CFB0",
@@ -1734,7 +1884,9 @@
    "exact": false,
    "file": "native/link/behaviour_m21.cpp",
    "source": "pass-6a decompile 0069cfb0",
-   "notes": "Scout1170 M21: reached by the super weapons (scripted play, TRAP_CONTINUE)"
+   "notes": "Scout1170 M21: reached by the super weapons (scripted play, TRAP_CONTINUE)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (combat)"
   },
   {
    "entry": "0x00408450",
@@ -1774,7 +1926,9 @@
    "exact": false,
    "file": "native/link/behaviour_m21.cpp",
    "source": "rect.hpp's inline body (RA2_RECT_POINT_INLINE)",
-   "notes": "Scout1170 M21: reached by Allied 1's win, the score screen and Allied 2 (TRAP_CONTINUE)"
+   "notes": "Scout1170 M21: reached by Allied 1's win, the score screen and Allied 2 (TRAP_CONTINUE)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (combat, load-ALL02S.sav)"
   },
   {
    "entry": "0x0072A6D0",
@@ -2284,7 +2438,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_misc.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, saveend)"
   },
   {
    "entry": "0x00784AA8",
@@ -2979,7 +3135,9 @@
    "exact": false,
    "file": "native/link/behaviour_r9_lan.cpp",
    "source": "inventory/decompiled/007837d3.c",
-   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
+   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, saveend)"
   },
   {
    "entry": "0x00672F20",
@@ -3100,7 +3258,9 @@
    "exact": false,
    "file": "native/link/behaviour_m12_piggyback.cpp",
    "source": "src/recovered/classes/BuildingClass/ComPtr_IPersist_Query_00454bf0.cpp (the other overload)",
-   "notes": "Scout1281: forwards to the accepted overload (the two ILocomotion holders are one _com_ptr_t in the original); ShipLocomotionClass::Piggyback_CLSID reached the trap"
+   "notes": "Scout1281: forwards to the accepted overload (the two ILocomotion holders are one _com_ptr_t in the original); ShipLocomotionClass::Piggyback_CLSID reached the trap",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x005794D0",
@@ -3166,7 +3326,9 @@
    "exact": false,
    "file": "native/link/behaviour_c3_attack_move.cpp",
    "source": "src/recovered/004cda80.cpp (seed scaffolding)",
-   "notes": "C3: attack-move (Ctrl+Shift, pending order 0x1D). Natively undefined and bound by data/address_aliases.tsv to TechnoClass's inline default of the same slot (different behaviour), so the attack-move never scanned for enemies (TechnoClass::AI slot 276 -> 278) and ended as a plain move; alias row removed."
+   "notes": "C3: attack-move (Ctrl+Shift, pending order 0x1D). Natively undefined and bound by data/address_aliases.tsv to TechnoClass's inline default of the same slot (different behaviour), so the attack-move never scanned for enemies (TechnoClass::AI slot 276 -> 278) and ended as a plain move; alias row removed.",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, saveend)"
   },
   {
    "entry": "0x004CDAA0",
@@ -3177,7 +3339,9 @@
    "exact": false,
    "file": "native/link/behaviour_c3_attack_move.cpp",
    "source": "src/recovered/004cdaa0.cpp (seed scaffolding)",
-   "notes": "C3: attack-move (Ctrl+Shift, pending order 0x1D). Natively undefined and bound by data/address_aliases.tsv to TechnoClass's inline default of the same slot (different behaviour), so the attack-move never scanned for enemies (TechnoClass::AI slot 276 -> 278) and ended as a plain move; alias row removed."
+   "notes": "C3: attack-move (Ctrl+Shift, pending order 0x1D). Natively undefined and bound by data/address_aliases.tsv to TechnoClass's inline default of the same slot (different behaviour), so the attack-move never scanned for enemies (TechnoClass::AI slot 276 -> 278) and ended as a plain move; alias row removed.",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x004CDAB0",
@@ -3199,7 +3363,9 @@
    "exact": false,
    "file": "native/link/behaviour_c3_attack_move.cpp",
    "source": "src/recovered/004cdac0.cpp (seed scaffolding)",
-   "notes": "C3: attack-move (Ctrl+Shift, pending order 0x1D). Natively undefined and bound by data/address_aliases.tsv to TechnoClass's inline default of the same slot (different behaviour), so the attack-move never scanned for enemies (TechnoClass::AI slot 276 -> 278) and ended as a plain move; alias row removed."
+   "notes": "C3: attack-move (Ctrl+Shift, pending order 0x1D). Natively undefined and bound by data/address_aliases.tsv to TechnoClass's inline default of the same slot (different behaviour), so the attack-move never scanned for enemies (TechnoClass::AI slot 276 -> 278) and ended as a plain move; alias row removed.",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV)"
   },
   {
    "entry": "0x004CDBD0",
@@ -3210,7 +3376,9 @@
    "exact": false,
    "file": "native/link/behaviour_c3_attack_move.cpp",
    "source": "src/recovered/004cdbd0.cpp (seed scaffolding)",
-   "notes": "C3: attack-move (Ctrl+Shift, pending order 0x1D). Natively undefined and bound by data/address_aliases.tsv to TechnoClass's inline default of the same slot (different behaviour), so the attack-move never scanned for enemies (TechnoClass::AI slot 276 -> 278) and ended as a plain move; alias row removed."
+   "notes": "C3: attack-move (Ctrl+Shift, pending order 0x1D). Natively undefined and bound by data/address_aliases.tsv to TechnoClass's inline default of the same slot (different behaviour), so the attack-move never scanned for enemies (TechnoClass::AI slot 276 -> 278) and ended as a plain move; alias row removed.",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
    "entry": "0x0077C7D0",

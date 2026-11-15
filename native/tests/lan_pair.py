@@ -31,6 +31,7 @@ game went on after; the network edge-scroll rate is at most 1.5 times the skirmi
 on one machine). Without the installed game it exits 77 (skipped)."""
 import argparse
 import os
+import random
 import re
 import shutil
 import subprocess
@@ -39,11 +40,17 @@ import time
 
 import wine as winehost
 
+# The pair's own network (RA2_NATIVE_IPX_PORT, native/port/src/wsock32.cpp): a first UDP port of
+# its own, so games other lanes' pairs host on this machine (on 26300 or their own ports) are
+# neither seen nor joined.
+IPX_PORT = str(random.SystemRandom().randrange(27000, 60000, 8))
+
 SKIP = 77
 BAD = re.compile(r'unrecovered|\btrap\b|signal \d+|SIG(SEGV|BUS|ILL|ABRT|FPE)|crash:|\babort\b', re.I)
 CRC = re.compile(r'^crc (\d+) ([0-9a-f]{8})$', re.M)
 # The Sound dialog's own control (RA2_NATIVE_MSG_LOG's control list when it is shown).
 SOUND = re.compile(r'^  control \d+ \S+ style \w+ shown at [\d,]+ \d+x\d+ "GUI:SoundVolume"', re.M)
+FRAME = re.compile(r'^(?:progress: frame +|crc )(\d+)(?: [0-9a-f]{8})?$', re.M)
 VIEW = re.compile(r'^harness-view (\d+) @(-?\d+),(-?\d+)', re.M)
 
 
@@ -131,7 +138,8 @@ class Instance:
         env.update({'HOME': os.path.join(folder, 'home'), 'RA2_GAME_EXE': game_exe, 'RA2_NATIVE_LOG_STDERR': '1',
                     'RA2_NATIVE_MOVIE_SKIP': '1', 'RA2_NATIVE_IGNORE_FOCUS': '1', 'RA2_NATIVE_CRASH_TRACE': '1',
                     'RA2_NATIVE_SCRIPT_AS_USER': '1', 'RA2_NATIVE_DIALOG_LOG': '1', 'RA2_NATIVE_CRC_LOG': '1',
-                    'RA2_NATIVE_DEBUG_LOG': '1', 'RA2_NATIVE_INPUT_LOG': '20', 'RA2_NATIVE_PROGRESS_LOG': '1'})
+                    'RA2_NATIVE_DEBUG_LOG': '1', 'RA2_NATIVE_INPUT_LOG': '20', 'RA2_NATIVE_PROGRESS_LOG': '1',
+                    'RA2_NATIVE_IPX_PORT': IPX_PORT})
         if name == 'Bravo':
             env['RA2_NATIVE_MSG_LOG'] = '1'      # the Sound dialog's controls
         if skirmish:
@@ -171,6 +179,75 @@ class Instance:
         self.start()
         self.finish(timeout)
 
+    def frame(self):
+        """the last game frame this instance's log reports ("progress: frame N" or its per-frame
+        "crc N": the progress lines can stop in a long run), 0 before the game"""
+        self.log.flush()
+        try:
+            with open(self.log.name, errors='replace') as f:
+                f.seek(max(0, os.path.getsize(self.log.name) - 2000000))
+                found = FRAME.findall(f.read())
+        except OSError:
+            return 0
+        return max(int(x) for x in found) if found else 0
+
+    def finish_paced(self, quit_frame, stall=180, after_quit=90, cap=3000, start_stall=420):
+        """wait for a game that quits itself at quit_frame (its script's quit), paced by its own
+        progress rather than a fixed time (C16: under a loaded gate the pair played every frame in
+        sync but slower than the old fixed limit allowed): it fails ('timeout') when its frames stop
+        advancing for stall seconds before quit_frame (start_stall before its first frame: the menus
+        and the lobby), or when it has not ended after_quit seconds
+        after reaching quit_frame (the quit's own anchor), or after cap seconds in all."""
+        start = time.time()
+        last, last_at, quit_at = -1, start, None
+        while True:
+            try:
+                self.code = self.p.wait(timeout=5)
+                break
+            except subprocess.TimeoutExpired:
+                pass
+            now = time.time()
+            f = self.frame()
+            if f != last:
+                last, last_at = f, now
+            if quit_at is None and f >= quit_frame - 1:     # its crc lines end at quit_frame - 1
+                quit_at = now
+            why = None
+            if quit_at is not None and now - quit_at > after_quit:
+                # Its game frames (the crc lines) passed the quit frame but the script's quit, which
+                # counts the Main_Loop seam's frames, has not come: in a network game frames also run
+                # inside modal waits, past the seam, so the two counts drift apart (the gate's
+                # 58,000-frame "exit timeout"). End it as a player closing the window would (SIGTERM:
+                # the host's own quit) and accept a clean exit.
+                print('lan-pair: %s: game frame %d reached, its scripted quit not yet: closing it' % (self.name, f))
+                self.p.terminate()
+                try:
+                    self.code = self.p.wait(timeout=30)
+                    self.code = 'stopped'
+                except subprocess.TimeoutExpired:
+                    self.p.kill()
+                    self.p.wait()
+                    self.code = 'timeout'
+                    print('lan-pair: %s: did not end 30 s after being closed' % self.name)
+                break
+            elif quit_at is None and now - last_at > (stall if last > 0 else start_stall):
+                why = 'no new frame for %d s (at frame %d)' % (stall if last > 0 else start_stall, last)
+            elif now - start > cap:
+                why = 'still running after %d s' % cap
+            if why:
+                print('lan-pair: %s: %s' % (self.name, why))
+                self.p.terminate()
+                try:
+                    self.p.wait(timeout=20)
+                except subprocess.TimeoutExpired:
+                    self.p.kill()
+                    self.p.wait()
+                self.code = 'timeout'
+                break
+        self.log.seek(0)
+        self.out = self.log.read()
+        self.log.close()
+
 
 def scroll_rate(out):
     """the view's movement per game frame while the mouse rests on an edge: the largest of the
@@ -182,6 +259,30 @@ def scroll_rate(out):
             k = 0 if axis == 'x' else 1
             rates.append(abs(views[hi][k] - views[lo][k]) / float(hi - lo))
     return rates
+
+
+def pair_lock():
+    """the machine-wide LAN-pair lock (in the main checkout's build/owner-watch; held until exit)"""
+    import fcntl
+    try:
+        common = subprocess.run(['git', '-C', os.path.dirname(os.path.abspath(__file__)), 'rev-parse', '--git-common-dir'],
+                                capture_output=True, text=True).stdout.strip()
+        root = os.path.dirname(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), common)))
+    except OSError:
+        root = ''
+    folder = os.path.join(root, 'build', 'owner-watch') if root else tempfile_dir()
+    os.makedirs(folder, exist_ok=True)
+    f = open(os.path.join(folder, 'lan-pair.lock'), 'w')
+    start = time.time()
+    fcntl.flock(f, fcntl.LOCK_EX)
+    if time.time() - start > 1:
+        print('lan-pair: waited %.0f s for another LAN pair on this machine' % (time.time() - start))
+    return f
+
+
+def tempfile_dir():
+    import tempfile
+    return tempfile.gettempdir()
 
 
 def main():
@@ -208,6 +309,9 @@ def main():
     work = os.path.abspath(a.work)
     os.makedirs(work, exist_ok=True)
     problems = []
+    # One LAN pair on this machine at a time (C16): two pairs from two worktrees see each other's
+    # games in the lobby (Bravo joins the first game listed) and neither starts.
+    lock = pair_lock()
 
     # The one-player reference: the same edge holds in a skirmish.
     solo = Instance('Solo', a.binary, work, a.data_dir, a.game_exe, skirmish_script(), skirmish=True)
@@ -216,13 +320,13 @@ def main():
 
     alpha = Instance('Alpha', a.binary, work, a.data_dir, a.game_exe, host_script(a.frames))
     bravo = Instance('Bravo', a.binary_b or a.binary, work, a.data_dir, a.game_exe, joiner_script(a.frames), prefix=prefix)
-    limit = 180 + a.frames // 20
     # Alpha leaves at its frame count; Bravo, told the host has gone, is then closed (20 s on).
+    # Alpha's wait follows its own frames (finish_paced): a loaded machine plays the pair slower.
     alpha.start()
     time.sleep(4)
     bravo.start()
     try:
-        alpha.finish(limit)
+        alpha.finish_paced(a.frames)
         bravo.finish(20, stop=True)
     finally:
         if prefix:

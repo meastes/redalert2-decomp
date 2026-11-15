@@ -92,7 +92,12 @@ void summary_locked(const char *stop)
     // -fsanitize=undefined; UBSAN_OPTIONS=coverage=1) writes its .sancov file at
     // exit, which the runs' _exit skips: dump it here (diagnostics only; looked
     // up at run time so ordinary builds reference no sanitizer symbol).
-    if (void (*dump)(void) = (void (*)(void))dlsym(RTLD_DEFAULT, "__sanitizer_cov_dump")) dump();
+    if (void (*dump)(void) = (void (*)(void))dlsym(RTLD_DEFAULT, "__sanitizer_cov_dump")) {
+        dump();
+        // The program's load address, so the dumped PCs map to its symbols (ASLR; lane C16 audit).
+        Dl_info self = {};
+        if (dladdr((void *)&elapsed_ms, &self)) fprintf(stderr, "run-to: coverage image base %p\n", self.dli_fbase);
+    }
     int furthest = -1;
     std::string last;
     for (auto &r : s.reached) {

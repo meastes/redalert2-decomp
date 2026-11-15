@@ -11,6 +11,7 @@
 #include "shared/tactical.hpp"
 #include "shared/isometric_tile_type.hpp"
 #include "shared/facing.hpp"
+#include "shared/tileset_index.hpp"
 
 namespace ra2port { void *original_data_pointer(unsigned int va); }
 
@@ -81,7 +82,8 @@ int TechnoClass::unknown_slot176()
             }
         }
     }
-    int dir8 = ((unknown_2c8.Current().Raw >> 12) + 1) >> 1 & 7;
+    // The facing at +0x2E0 (0x006D00CB add esi,0x2e0 before each Current), not +0x2C8 (C16 audit).
+    int dir8 = ((unknown_2e0.Current().Raw >> 12) + 1) >> 1 & 7;
     CellClass *ahead_right = &Map[Adjacent(cell, dir8 + 1)];
     CellClass *ahead_left = &Map[Adjacent(cell, dir8 - 1)];
     CellClass *ahead = &Map[Adjacent(cell, dir8)];
@@ -126,7 +128,7 @@ int TechnoClass::unknown_slot176()
             int subtile = 0;
             IsometricTileTypeClass *tile;
             if (type == 0xFFFF || type == 0xFF) {
-                tile = IsoTileTypes[0];
+                tile = IsoTileTypes[unknown_tileset_a52f00];   // the clear tile set (0x006D04B0; C16 audit)
             } else {
                 tile = IsoTileTypes[type];
                 subtile = (unsigned char)cells[i]->unknown_11a;

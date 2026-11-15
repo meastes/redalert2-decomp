@@ -106,6 +106,23 @@ void CellClass::Draw_Shroud_Or_Fog_Shape(Point2D const &point, Rect const &clip,
     unsigned char const *source = pixels + fw * (y0 - top) + skip;
     unsigned char const *transparent = (unsigned char const *)ra2port::original_data_pointer(0x0079DAD0);
     unsigned char clear = transparent != 0 ? *transparent : 0xFE;
+    // C16 behaviour audit (0x0047443D-0x004744F8): when the span fits before the ring's end the
+    // original draws without wrapping in do-while loops (at least one row and one pixel, as when the
+    // frame's offset leaves no rows or columns inside the clip); only the wrapping path tests first.
+    int rows = y1 - y0, cols = x1 - x0;
+    if ((char *)dest + 2 * (cols + buffer->Width * rows) + 4 < buffer->BufferTail) {
+        do {
+            int c = cols;
+            do {
+                unsigned char value = *source++;
+                if (value != clear) *dest = value;
+                ++dest;
+            } while (--c > 0);
+            source += source_step;
+            dest += dest_step;
+        } while (--rows > 0);
+        return;
+    }
     for (int row = y0; row < y1; ++row) {
         for (int column = x0; column < x1; ++column) {
             unsigned char value = *source++;
