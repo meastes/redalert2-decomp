@@ -3339,6 +3339,20 @@
    "new": "void Native_VQA_Default_Config();   // NATIVE (C16): link/behaviour_c16_vqa.cpp\nvoid __fastcall VQA_Unknown_00777850(VQAConfig *config)\n{\n    Native_VQA_Default_Config();\n    *config = unknown_vqa_default_config_801470;\n",
    "why": "Native addition (C16, owner ruling 2026-11-15: a mod's .VQA movie plays): VQA_DefaultConfig 0x00777850 copies the library's default configuration 0x00801470, which the original stores and no permitted text supplies; natively its integer fields are read from the user's game.exe at the first copy (link/behaviour_c16_vqa.cpp Native_VQA_Default_Config; the pointer fields are null there). Without it every field was a link-closure zero.",
    "verified": false
+  },
+  {
+   "source": "src/recovered/mainloop.cpp",
+   "old": "            Do_Win_0065d7f0();\n",
+   "new": "            void Native_Map_Zoom_End();   // NATIVE (C16): link/native_map_zoom.cpp\n            Native_Map_Zoom_End();\n            Do_Win_0065d7f0();\n",
+   "why": "Native addition (C16, Zoom gestures at render scale 2; not original behaviour): Main_Loop_End runs Do_Win/Do_Lose (the score screen) before Main_Loop returns, so the host still took the game for in play and showed the score screen (a menu-style dialog centred on the screen) through the in-play dialog layout, its title and Continue button cut off. The host is told the game is over first (link/native_map_zoom.cpp Native_Map_Zoom_End, which the Main_Loop seam calls again harmlessly). At render scale 1 the host shows the same either way. This row: before Do_Win_0065d7f0.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/mainloop.cpp",
+   "old": "            Do_Lose_0065dec0();\n",
+   "new": "            void Native_Map_Zoom_End();   // NATIVE (C16): link/native_map_zoom.cpp\n            Native_Map_Zoom_End();\n            Do_Lose_0065dec0();\n",
+   "why": "Native addition (C16, Zoom gestures at render scale 2; not original behaviour): Main_Loop_End runs Do_Win/Do_Lose (the score screen) before Main_Loop returns, so the host still took the game for in play and showed the score screen (a menu-style dialog centred on the screen) through the in-play dialog layout, its title and Continue button cut off. The host is told the game is over first (link/native_map_zoom.cpp Native_Map_Zoom_End, which the Main_Loop seam calls again harmlessly). At render scale 1 the host shows the same either way. This row: before Do_Lose_0065dec0.",
+   "verified": false
   }
  ]
 }

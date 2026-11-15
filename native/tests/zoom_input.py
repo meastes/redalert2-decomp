@@ -18,11 +18,15 @@ game's state and the host's own measures:
           shows that part (the column's bottom button, Back and Resume Mission, is where the
           original has it only when the interface art was laid out again); then the game plays on
           to its last frame with the play layout back.
+  score   a skirmish won at frame 100 (RA2_NATIVE_FORCE_END): the score screen (a menu-style dialog
+          centred on the screen) is shown as the menus are, the screen's centre at the window's scale,
+          not through the in-play dialog layout; its Continue button clicked through the window (where
+          the original at 1024x768 has it, moved to the screen's centre) ends the game (WinMain returns).
   pinch   two scripted fingers (the touch controls on, RA2_NATIVE_TOUCH_UI) move apart from 100 to
           220 points: a pinch (no click, no selection, no pan), the zoom about 2.2x; then they move
           together: back down.
 
-  zoom_input.py --case steps|menu|pinch --binary <ra2-native> --data-dir <installed RA2> --game-exe <game.exe>
+  zoom_input.py --case steps|menu|score|pinch --binary <ra2-native> --data-dir <installed RA2> --game-exe <game.exe>
                 [--log <file>]
 
 Without the data folder or game.exe it exits 77 (skipped); the Windows build too (no window
@@ -56,6 +60,8 @@ CLICKS = [(140, 1), (195, 2), (240, 3)]     # frame, the tank (n-th MTNK) select
 # dialog shown: 1 the menu, 2 Save, 3 the menu, 4 Abort).
 MENU = ['150 key Escape', 'd1+1500 click 940 289', 'd2+1500 click 940 714', 'd3+1500 click 940 339',
         'd4+1500 click 940 714']
+# The score screen's Continue (game pixels: 831,640 at 1024x768, the screen's centre 428,368 further).
+SCORE = ['d1+1500 click 1259 1008']
 
 
 def pinch_script():
@@ -74,7 +80,7 @@ def tanks_selected(state):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument('--case', required=True, choices=['steps', 'menu', 'pinch'])
+    ap.add_argument('--case', required=True, choices=['steps', 'menu', 'score', 'pinch'])
     ap.add_argument('--binary', required=True)
     ap.add_argument('--data-dir', default=os.environ.get('RA2_NATIVE_CENSUS_DATA_DIR', ''))
     ap.add_argument('--game-exe', default=os.environ.get('RA2_NATIVE_CENSUS_GAME_EXE', ''))
@@ -96,6 +102,10 @@ def main():
     elif a.case == 'menu':
         env['RA2_NATIVE_SCRIPT_AS_USER'] = '1'
         lines, frames = MENU, 250
+    elif a.case == 'score':
+        env['RA2_NATIVE_SCRIPT_AS_USER'] = '1'
+        env['RA2_NATIVE_FORCE_END'] = '100'
+        lines, frames = SCORE, 300
     else:
         env['RA2_NATIVE_TOUCH_UI'] = '1'
         lines, frames = pinch_script(), 140
@@ -105,7 +115,7 @@ def main():
             f.write('\n'.join(lines) + '\n')
         write_dir = os.path.join(work, 'write')
         os.mkdir(write_dir)
-        cmd = [a.binary, '--data-dir', a.data_dir, '--run-to=frames', '--run-seconds=240', '--write-dir=' + write_dir,
+        cmd = [a.binary, '--data-dir', a.data_dir, '--run-to=seconds' if a.case == 'score' else '--run-to=frames', '--run-seconds=240', '--write-dir=' + write_dir,
                '--game-args=-noaudio -CD.', '--skirmish=#5', '--skirmish-frames=%d' % frames, '--input-script=' + script]
         p = subprocess.run(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors='replace')
     out = p.stdout
@@ -155,6 +165,15 @@ def main():
             print('frame %d: tanks selected %s (wanted [%d])' % (frame, sel, tank))
             if sel != [tank]:
                 problems.append('frame %d: tanks selected %s, not [%d]' % (frame, sel, tank))
+    elif a.case == 'score':
+        for want, what in (('player wins at frame 100', 'the game was not won at frame 100'),
+                           ('dialog #0 shown (50 controls)', 'the score screen was not shown'),
+                           ('stopped: WinMain returned 0', 'Continue did not end the game (WinMain did not return)')):
+            print('%s: %s' % (want, want in out))
+            if want not in out:
+                problems.append(what)
+        if 'host: layout: dialog in play' in out:
+            problems.append('the score screen was shown through the in-play dialog layout')
     elif a.case == 'menu':
         want = 'zoom: in-play dialogs at %dx%d' % (full[0] // scale + 168, full[1] // scale + 32)
         print('%s: %s' % (want, want in out))

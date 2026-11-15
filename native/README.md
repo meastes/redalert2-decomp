@@ -770,8 +770,9 @@ out at the window's size (the Abort screen's backdrop, message and column, the c
 button), and the host shows that part at the window's scale (`Native_Dialog_Screen`,
 `ra2_enh_dialog_screen`); the screen size and the layouts are restored when the loop ends (the
 user's Duo report). A dialog in play outside that loop is shown through regions as a fallback
-(`ra2port_top_dialog_rect`, `ra2port_top_dialog_controls`). The score screen is not yet checked at
-the render scale (a skirmish's abort returns to the skirmish setup). A start is centred on the point
+(`ra2port_top_dialog_rect`, `ra2port_top_dialog_controls`). The score screen (Do_Win/Do_Lose, run
+inside Main_Loop's end) is a menu-style dialog: the host is told the game is over before it (native
+fixups in mainloop.cpp), so it is shown as the menus are. A start is centred on the point
 the game asked for (its base) before the larger screen's map edge moved it (native fixup at
 Tactical::Set_Tactical_Position 0x006A6640, `Native_View_Asked`).
 Off by default and in the Original preset (the Enhanced preset leaves it). ctest
@@ -781,7 +782,9 @@ click through the window on a given tank at each zoom, and that the sidebar stay
 `native-zoom-pinch` plays a scripted two-finger pinch out and back in; `native-zoom-menu` opens
 the in-game menu at the render scale, its Save screen, Back, Abort Mission and the Abort screen's
 Resume Mission through the window where the original at the window's size has them, and checks the
-dialogs were laid out at the window's size and the game plays on. The input script's `dump` (also timed: `dN+MS dump`) writes the
+dialogs were laid out at the window's size and the game plays on. `native-zoom-score` wins a skirmish at frame 100
+(`RA2_NATIVE_FORCE_END`), checks the score screen is not shown through the in-play layout and clicks
+its Continue through the window. The input script's `dump` (also timed: `dN+MS dump`) writes the
 last picture to RA2_NATIVE_WINDOW_DUMP whatever its period: a dialog idle in its own loop presents
 nothing new.
 
