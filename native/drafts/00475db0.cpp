@@ -19,13 +19,13 @@
 int CellClass::unknown_475db0(int levels)
 {
     Rect dirty = Union(Overlay_Render_Rect(), Overlay_Shadow_Render_Rect());
-    dirty.Y -= unknown_rect_839630.Y;
+    dirty.Y -= TacticalRect.Y;
 
     int tibtype = OverlayClass::To_Tiberium(OverlayIndex);
     int reducer = levels;
 
     if (levels > 0 && tibtype != -1) {
-        TiberiumClass *tiberium = unknown_TiberiumClass_list_00ac0b30[tibtype];
+        TiberiumClass *tiberium = Tiberiums[tibtype];
         if (OverlayData == 11) {
             tiberium->Add_Growth_Cell(MapCoords);
         }

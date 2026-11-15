@@ -212,24 +212,24 @@ void __fastcall OverlayTypeClass::Init(int theater)
             char fullname[512];
             if (overlay->unknown_1fc) {
                 _makepath(fullname, 0, 0, overlay->unknown_1c8, Theaters[theater].Suffix);
-                overlay->unknown_a4 = (void *)MixFileClass::Retrieve(fullname);
-                if (overlay->unknown_a4 == 0) {
+                overlay->ImageData = (void *)MixFileClass::Retrieve(fullname);
+                if (overlay->ImageData == 0) {
                     Generic_Naming_Convention(fullname);
-                    overlay->unknown_a4 = (void *)MixFileClass::Retrieve(fullname);
+                    overlay->ImageData = (void *)MixFileClass::Retrieve(fullname);
                 }
             } else if (overlay->unknown_207) {
                 _makepath(fullname, 0, 0, overlay->unknown_1c8, ".SHP");
                 Theater_Naming_Convention(fullname, theater);
-                overlay->unknown_a4 = (void *)MixFileClass::Retrieve(fullname);
-                if (overlay->unknown_a4 == 0) {
+                overlay->ImageData = (void *)MixFileClass::Retrieve(fullname);
+                if (overlay->ImageData == 0) {
                     Generic_Naming_Convention(fullname);
-                    overlay->unknown_a4 = (void *)MixFileClass::Retrieve(fullname);
+                    overlay->ImageData = (void *)MixFileClass::Retrieve(fullname);
                 }
             }
-        } else if ((overlay->unknown_1fc || overlay->unknown_207) && overlay->unknown_a4 != 0 && overlay->unknown_a8) {
-            operator delete(overlay->unknown_a4);
-            overlay->unknown_a4 = 0;
-            overlay->unknown_a8 = false;
+        } else if ((overlay->unknown_1fc || overlay->unknown_207) && overlay->ImageData != 0 && overlay->ImageAllocated) {
+            operator delete(overlay->ImageData);
+            overlay->ImageData = 0;
+            overlay->ImageAllocated = false;
         }
     }
 }
@@ -269,7 +269,7 @@ bool OverlayTypeClass::Read_INI(CCINIClass &ini)
         DamageLevels = ArtINI.Get_Int(image, "DamageLevels", DamageLevels);
         DemandLoad = ArtINI.Get_Bool(image, "DemandLoad", DemandLoad);
         if (Tiberium) {
-            unknown_9c = 6;
+            Armor = 6;
             if (Land == 0) {
                 Land = 5;
             }
@@ -277,7 +277,7 @@ bool OverlayTypeClass::Read_INI(CCINIClass &ini)
         if (!unknown_1fc && !DemandLoad) {
             char fullname[512];
             _makepath(fullname, 0, 0, image, ".SHP");
-            unknown_a4 = (void *)MixFileClass::Retrieve(fullname);
+            ImageData = (void *)MixFileClass::Retrieve(fullname);
         }
         NoUseTileLandType = ini.Get_Bool(section, "NoUseTileLandType", NoUseTileLandType);
         IsVeinholeMonster = ini.Get_Bool(section, "IsVeinholeMonster", IsVeinholeMonster);
@@ -340,7 +340,7 @@ HRESULT __stdcall OverlayTypeClass::Load(IStream *stream)
                 _makepath(fullname, 0, 0, unknown_1c8, ".SHP");
                 Theater_Naming_Convention(fullname, unknown_id_source_a3d290->Theater);
             }
-            unknown_a4 = (void *)MixFileClass::Retrieve(fullname);
+            ImageData = (void *)MixFileClass::Retrieve(fullname);
         }
         result = S_OK;
     }
@@ -420,7 +420,7 @@ RGBClass OverlayTypeClass::Get_Radar_Color(unsigned frame) const
 void *OverlayTypeClass::Get_Image_Data() const
 {
     OverlayTypeClass *self = (OverlayTypeClass *)this;
-    if (unknown_a4 == 0 && DemandLoad) {
+    if (ImageData == 0 && DemandLoad) {
         Debug_Printf("Demand loading image for %s\n", (char const *)Name);
         char fullname[512];
         if (unknown_1fc) {
@@ -430,13 +430,13 @@ void *OverlayTypeClass::Get_Image_Data() const
             Theater_Naming_Convention(fullname, unknown_id_source_a3d290->Theater);
         }
         CCFileClass file(fullname);
-        self->unknown_a4 = Load_Alloc_Data(file);
-        if (unknown_a4 != 0) {
-            self->unknown_a8 = true;
+        self->ImageData = Load_Alloc_Data(file);
+        if (ImageData != 0) {
+            self->ImageAllocated = true;
         }
-        return unknown_a4;
+        return ImageData;
     }
-    return unknown_a4;
+    return ImageData;
 }
 
 

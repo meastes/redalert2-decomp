@@ -118,7 +118,7 @@ int Scripted_Order(char const *command)
         int listed = 0;
         for (int i = 0; i < Technos.Count(); ++i) {
             TechnoClass *techno = Technos[i];
-            if (techno == 0 || techno->House == unknown_player_a35db4) continue;
+            if (techno == 0 || techno->House == PlayerPtr) continue;
             TechnoTypeClass *type = techno->Techno_Type_Class();
             Cell cell = techno->Center_Coord().As_Cell();
             fprintf(stderr, "harness-list h%d %s k%d @%d,%d\n", techno->House ? techno->House->ArrayIndex : -1,
@@ -142,7 +142,7 @@ int Scripted_Order(char const *command)
     int attack_mission = Same(word[1], "capture", 8) ? 8 : Same(word[1], "sabotage", 9) ? 17 : 1;
     if (Same(word[1], "train", 6) && words >= 3) {
         // The barracks' cameo click: PRODUCE (0x0E) of InfantryTypeClass (kind 0x10) by its ID.
-        HouseClass *player = unknown_player_a35db4;
+        HouseClass *player = PlayerPtr;
         for (int i = 0; player && i < InfantryTypes.Count(); ++i) {
             if (Same_Type(InfantryTypes[i]->ID.Buffer, word[2])) {
                 OutList.Add(EventClass(player->ArrayIndex, 0x0E, 0x10, i, 0));
@@ -164,7 +164,7 @@ int Scripted_Order(char const *command)
         // player's units of type ID enter the first of the player's transports of that type
         // (mission Enter 7, the transport as the destination, as the click on it queues);
         // the transports unload (mission 16, the deploy key's order).
-        HouseClass *player = unknown_player_a35db4;
+        HouseClass *player = PlayerPtr;
         bool board = Same(word[1], "board", 6);
         TechnoClass *transport = 0;
         for (int i = 0; board && i < Technos.Count() && transport == 0; ++i) {
@@ -197,14 +197,14 @@ int Scripted_Order(char const *command)
         int buildings = 0;
         for (int i = 0; i < Technos.Count(); ++i) {
             TechnoClass *techno = Technos[i];
-            if (techno && techno->House != unknown_player_a35db4 && Super_Target(techno, units)
+            if (techno && techno->House != PlayerPtr && Super_Target(techno, units)
                 && (only < 0 || (techno->House && techno->House->ArrayIndex == only))) ++buildings;
         }
         if (buildings == 0) return -1;
         int pick = (next_target++ * 7) % buildings;
         for (int i = 0; i < Technos.Count(); ++i) {
             TechnoClass *techno = Technos[i];
-            if (techno && techno->House != unknown_player_a35db4 && Super_Target(techno, units)
+            if (techno && techno->House != PlayerPtr && Super_Target(techno, units)
                 && (only < 0 || (techno->House && techno->House->ArrayIndex == only)) && pick-- == 0) {
                 Cell cell = techno->Center_Coord().As_Cell();
                 char text[64] = "0 super ";
@@ -222,7 +222,7 @@ int Scripted_Order(char const *command)
         // `super <index> home [<dx> <dy>]` (C17, HD vehicles: a paradrop's cargo plane over the
         // player's own view): the cell of the player's first building, else first unit, moved by
         // dx, dy cells.
-        HouseClass *player = unknown_player_a35db4;
+        HouseClass *player = PlayerPtr;
         if (player == 0) return -1;
         TechnoClass *home = 0;
         for (int i = 0; i < Technos.Count() && home == 0; ++i)
@@ -245,7 +245,7 @@ int Scripted_Order(char const *command)
         // 0x0069CCF0, Forced_Charge 0x0069D690), then fired at cell x,y with the
         // event the map click queues once the cameo is armed (SPECIAL_PLACE 0x12,
         // executed as HouseClass 0x004E68D0). An index past the list: -1.
-        HouseClass *player = unknown_player_a35db4;
+        HouseClass *player = PlayerPtr;
         int index = atoi(word[2]);
         if (player == 0 || index < 0 || index >= player->Supers.Count()) return -1;
         SuperClass *super = player->Supers[index];
@@ -271,7 +271,7 @@ int Scripted_Order(char const *command)
         // the player's first building (east, south, north-east and a steep one from 8 cells
         // up), drawn by LaserDrawClass::Draw_All through DSurface::Draw_Depth_Antialiased_Line
         // for 90 frames: covers the x-major, y-major and depth-major bodies.
-        HouseClass *player = unknown_player_a35db4;
+        HouseClass *player = PlayerPtr;
         if (player == 0 || player->Buildings.Count() == 0) return -1;
         CoordStruct from = player->Buildings[0]->Coord;
         from.Z += 200;
@@ -296,7 +296,7 @@ int Scripted_Order(char const *command)
         // building as a firing unit's would be (the wave follows while the target holds),
         // and a laser wave (type 1, same owner) from the building 10 cells east: covers
         // WaveClass::Draw_Sonic 0x007225B0 and Draw_Laser 0x00722CB0.
-        HouseClass *player = unknown_player_a35db4;
+        HouseClass *player = PlayerPtr;
         if (player == 0 || player->Buildings.Count() == 0) return -1;
         ObjectClass *building = player->Buildings[0];
         TechnoClass *unit = 0;
@@ -314,7 +314,7 @@ int Scripted_Order(char const *command)
     }
     if (Same(word[1], "grant", 6) && words >= 3) {
         // Grant and charge only (the cameo is then armed from the sidebar by a click).
-        HouseClass *player = unknown_player_a35db4;
+        HouseClass *player = PlayerPtr;
         int index = atoi(word[2]);
         if (player == 0 || index < 0 || index >= player->Supers.Count()) return -1;
         player->Supers[index]->Grant(false, false, false);
@@ -325,7 +325,7 @@ int Scripted_Order(char const *command)
     if (attack_type) {
         for (int i = 0; i < Technos.Count() && target == 0; ++i) {
             TechnoClass *techno = Technos[i];
-            if (techno == 0 || techno->House == unknown_player_a35db4 || techno->Techno_Type_Class() == 0) continue;
+            if (techno == 0 || techno->House == PlayerPtr || techno->Techno_Type_Class() == 0) continue;
             if (Same_Type(techno->Techno_Type_Class()->ID.Buffer, word[3])) target = techno;
         }
         if (target == 0) return -1;
@@ -339,7 +339,7 @@ int Scripted_Order(char const *command)
     int count = 0;
     for (int i = 0; i < Technos.Count(); ++i) {
         TechnoClass *techno = Technos[i];
-        if (techno == 0 || techno->House != unknown_player_a35db4) continue;
+        if (techno == 0 || techno->House != PlayerPtr) continue;
         int kind = techno->Kind_Of();
         if (kind != 1 && kind != 0x0F) continue;     // UnitClass, InfantryClass
         TechnoTypeClass *type = techno->Techno_Type_Class();
@@ -416,7 +416,7 @@ void Native_Harness_Orders(int frame)
         char detail[400] = "";
         for (int i = 0; i < Technos.Count(); ++i) {
             TechnoClass *techno = Technos[i];
-            if (techno == 0 || techno->House != unknown_player_a35db4) continue;
+            if (techno == 0 || techno->House != PlayerPtr) continue;
             Cell cell = techno->Center_Coord().As_Cell();
             Append_Int(detail, techno->Kind_Of());
             Append(detail, ":m");
@@ -444,7 +444,7 @@ void Native_Harness_Orders(int frame)
     int moved = 0, deployed = 0;
     for (int i = 0; i < Technos.Count(); ++i) {
         TechnoClass *techno = Technos[i];
-        if (techno == 0 || techno->House != unknown_player_a35db4) continue;
+        if (techno == 0 || techno->House != PlayerPtr) continue;
         int kind = techno->Kind_Of();
         if (kind != 1 && kind != 0x0F) continue;     // UnitClass, InfantryClass
         TechnoTypeClass *type = techno->Techno_Type_Class();
@@ -457,7 +457,7 @@ void Native_Harness_Orders(int frame)
             // The MCV cannot hunt: it drives to the first enemy techno's cell.
             for (int k = 0; k < Technos.Count(); ++k) {
                 TechnoClass *enemy = Technos[k];
-                if (enemy == 0 || enemy->House == unknown_player_a35db4 || enemy->House == 0 || enemy->House->Is_Player_Control()) continue;
+                if (enemy == 0 || enemy->House == PlayerPtr || enemy->House == 0 || enemy->House->Is_Player_Control()) continue;
                 Queue_Mission(TargetClass(techno), 2, TargetClass(), TargetClass(enemy->Center_Coord().As_Cell()));
                 break;
             }

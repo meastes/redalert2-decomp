@@ -272,7 +272,7 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
         Rect rectangle = data->unknown_40;
         rectangle.X -= TacticalMap->TacPixelX;
         rectangle.Y -= TacticalMap->TacPixelY;
-        rectangle += unknown_rect_839630.Top_Left();
+        rectangle += TacticalRect.Top_Left();
 
         Rect clipped = Intersect(rect, rectangle);
         if (!clipped.Is_Valid()) {
@@ -310,7 +310,7 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
 
                 Point2D xy;
                 TacticalMap->Coord_To_Pixel(CoordStruct(*position), xy);
-                xy += unknown_rect_839630.Top_Left() - rect.Top_Left();
+                xy += TacticalRect.Top_Left() - rect.Top_Left();
 
                 int zadjust = -Unknown_006A2970(CoordStruct(*position).Z);
 
@@ -341,7 +341,7 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
                         Point2D drawpoint;
                         TacticalMap->Coord_To_Pixel(CoordStruct(*position) - CoordStruct(256 / 2, 256 / 2, 0), drawpoint);
                         CellClass *cellptr = &Map[CoordStruct(*position)];
-                        drawpoint += unknown_rect_839630.Top_Left() - rect.Top_Left();
+                        drawpoint += TacticalRect.Top_Left() - rect.Top_Left();
 
                         if (type->InvisibleInGame) {
                             break;
@@ -394,7 +394,7 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
                             TPoint3D<int> *position = &data->Coord;
                             Point2D drawpoint;
                             TacticalMap->Coord_To_Pixel(CoordStruct(*position) - CoordStruct(256 / 2, 256 / 2, 0), drawpoint);
-                            drawpoint += unknown_rect_839630.Top_Left() - rect.Top_Left();
+                            drawpoint += TacticalRect.Top_Left() - rect.Top_Left();
 
                             int brightness = 1000;
                             if (!anim->UseNormalLight) {
@@ -422,7 +422,7 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
             }
 
             case 0x1d: {
-                Point2D point = data->unknown_40.Top_Left() - RectPoint2D(TacticalMap->TacPixelX, TacticalMap->TacPixelY) + (unknown_rect_839630.Top_Left() + RectPoint2D(60 / 2, 0)) - rect.Top_Left();
+                Point2D point = data->unknown_40.Top_Left() - RectPoint2D(TacticalMap->TacPixelX, TacticalMap->TacPixelY) + (TacticalRect.Top_Left() + RectPoint2D(60 / 2, 0)) - rect.Top_Left();
 
                 ShapeFileStruct const *shape = (ShapeFileStruct const *)SmudgeTypes[data->unknown_54]->Get_Image_Data();
                 if (shape != 0) {

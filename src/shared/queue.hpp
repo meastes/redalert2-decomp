@@ -283,8 +283,8 @@ void __fastcall Unknown_00626CB0(HWND dialog);
 BOOL __stdcall Unknown_00627350(HWND dialog, UINT message, WPARAM wparam, LPARAM lparam);
 // The dialog helpers it calls (0x005B6000 on setup, 0x005B6060 on WM_DESTROY, and 0x005FEE70 /
 // 0x005FE380, declared in shared/unknown_globals.hpp; hypotheses).
-void __fastcall Unknown_005B6000(HWND dialog);
-void __fastcall Unknown_005B6060(HWND dialog);
+void __fastcall Add_Modeless_Dialog(HWND dialog);
+void __fastcall Remove_Modeless_Dialog(HWND dialog);
 
 // The queue processing of a frame: playback, single player or multiplayer (0x00623770).
 void __fastcall Queue_AI();
@@ -309,7 +309,7 @@ void __fastcall Unknown_0062CF40(int index);
 void __fastcall Print_CRCs(EventClass *event);
 // The other CRC log (0x0062DBA0; used instead of Print_CRCs while unknown_flag_ab62e8 is set).
 void __fastcall Unknown_0062DBA0(int index, EventClass *event);
-// Unknown_00691320 (0x00691320, posts the main window's WM_DESTROY): shared/exit.hpp.
+// Emergency_Exit (0x00691320, posts the main window's WM_DESTROY): shared/exit.hpp.
 
 // A CRC sent in the FRAMESYNC packet (0x00A40770).
 extern unsigned long unknown_crc_a40770;

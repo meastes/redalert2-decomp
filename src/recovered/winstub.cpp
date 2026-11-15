@@ -104,8 +104,8 @@ void Focus_Loss()
     Pause_Radar_Movie_005a0a90(true);
     Audio_Focus_Lose();
     if (WWMouse != 0) {
-        unknown_mouse_captured_b263e8 = WWMouse->Is_Captured();
-        Debug_Printf("Focus_Loss(): _MouseCaptured = %s\n", unknown_mouse_captured_b263e8 ? "true" : "false");
+        _MouseCaptured = WWMouse->Is_Captured();
+        Debug_Printf("Focus_Loss(): _MouseCaptured = %s\n", _MouseCaptured ? "true" : "false");
         WWMouse->Release_Mouse();
     }
 }
@@ -117,15 +117,15 @@ void Focus_Loss()
 // a complete redraw, invalidates the window, resumes the radar movie and re-activates the current
 // dialog window. Like Focus_Loss, an out-of-line copy of what the window procedure expands.
 
-extern Surface *unknown_surface_839944;
+extern Surface *TileSurface;
 HWND __fastcall WS_Top_Window();    // 0x00735B10 (the current dialog window)
 
 void Focus_Restore()
 {
     Debug_Printf("Focus_Restore()\n");
     Audio_Focus_Regain();
-    Debug_Printf("Focus_Restore(): _MouseCaptured = %s\n", unknown_mouse_captured_b263e8 ? "true" : "false");
-    if (WWMouse != 0 && unknown_mouse_captured_b263e8 == true && !Debug_Map) {
+    Debug_Printf("Focus_Restore(): _MouseCaptured = %s\n", _MouseCaptured ? "true" : "false");
+    if (WWMouse != 0 && _MouseCaptured == true && !Debug_Map) {
         WWMouse->Capture_Mouse();
     }
     if (!WindowedMode) {
@@ -135,14 +135,14 @@ void Focus_Restore()
         if (HiddenSurface != 0) {
             static_cast<DSurface *>(HiddenSurface)->Restore_Check();
         }
-        if (unknown_surface_839964 != 0) {
-            if (((DSurface *)unknown_surface_839964)->Restore_Check() && (!ScenarioActive || Frame > 0x10)) {
-                unknown_surface_839964->Fill(0);
+        if (CompositeSurface != 0) {
+            if (((DSurface *)CompositeSurface)->Restore_Check() && (!ScenarioActive || Frame > 0x10)) {
+                CompositeSurface->Fill(0);
             }
         }
-        if (unknown_surface_839944 != 0) {
-            if (((DSurface *)unknown_surface_839944)->Restore_Check() && (!ScenarioActive || Frame > 0x10)) {
-                unknown_surface_839944->Fill(0);
+        if (TileSurface != 0) {
+            if (((DSurface *)TileSurface)->Restore_Check() && (!ScenarioActive || Frame > 0x10)) {
+                TileSurface->Fill(0);
             }
         }
         if (SidebarSurface != 0) {
@@ -198,9 +198,9 @@ LRESULT WINAPI Windows_Procedure(HWND hwnd, UINT message, WPARAM wParam, LPARAM 
         return 0;
     case 0xf:
         if (unknown_int_a40d48 == 0 && (GameInFocus == true || WindowedMode == true)
-            && WWMouse && VisibleSurface && HiddenSurface && unknown_surface_839964) {
+            && WWMouse && VisibleSurface && HiddenSurface && CompositeSurface) {
             if (ScenarioActive == true) {
-                Update_Visible_Surface(WWMouse->Is_Captured(), unknown_surface_839964, 0);
+                Update_Visible_Surface(WWMouse->Is_Captured(), CompositeSurface, 0);
                 Map.Blit_Sidebar(true);
                 ValidateRect(hwnd, 0);
                 break;
@@ -294,13 +294,13 @@ void __fastcall Build_Time_Text(char *buffer, int size)
 }
 
 
-// char *Unknown_00737ad0(char *buffer, int size) (0x00737AD0)
+// char *Build_Number_String(char *buffer, int size) (0x00737AD0)
 // TS winstub.cpp Build_Number_String: the build number (0x007D8900) as decimal text in buffer;
 // size is not read.
 
 extern int unknown_build_number_7d8900;         // 0x007D8900 the build number (39)
 
-char *__fastcall Unknown_00737ad0(char *buffer, int size)
+char *__fastcall Build_Number_String(char *buffer, int size)
 {
     sprintf(buffer, "%d", unknown_build_number_7d8900);
     return buffer;

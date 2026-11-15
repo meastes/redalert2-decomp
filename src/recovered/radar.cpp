@@ -487,7 +487,7 @@ void RadarClass::Draw_It(bool forced)
         }
     }
 
-    RadarEventClass_unknown_all_63b910();
+    Process_Radar_Events();
     Render_Radar();
     if (unknown_14a8 == 1) {
         switch (unknown_14ac) {
@@ -734,7 +734,7 @@ void RadarClass::AI(int &input, Point2D const &xy)
 // (scroll.hpp refuses the light map_view; main_loop.hpp brings always.hpp's min next to the
 // unit's own).
 ObjectClass *__fastcall Best_Selected_Object(Cell const *cell, ObjectClass *object);
-extern bool unknown_flag_a40d45;
+extern bool drag_select_aborted;
 extern int unknown_int_8325d0;
 extern int unknown_int_8325d4;
 
@@ -812,7 +812,7 @@ int RTacticalClass::Action(unsigned flags, unsigned &key)
             if (flags & 8) {
                 Map.unknown_slot46(cell, shadow, object, action, true);
             }
-            if ((flags & 4) && !unknown_flag_a40d45) {
+            if ((flags & 4) && !drag_select_aborted) {
                 Map.Mouse_Left_Release(CoordStruct(cell), cell, object, action, true);
             }
         } else {
@@ -1546,7 +1546,7 @@ void RadarClass::Radar_Track(TechnoClass *techno, Point2D point)
             return;
         }
     }
-    if (techno->House == unknown_player_a35db4) {
+    if (techno->House == PlayerPtr) {
         bucket.Add_Head(object);
     } else {
         bucket.Add(object);
@@ -1766,7 +1766,7 @@ ColorScheme *__fastcall Fetch_Scheme_By_Name(char const *name,int kind);
  *=============================================================================================*/
 void RadarClass::Plot_Radar_Pixel(Point2D const &point)
 {
-    if(!unknown_player_a35db4) return;
+    if(!PlayerPtr) return;
     if(!unknown_1218->Get_Rect().Is_Point_Within(point)) return;
     Cell cell=Radar_Pixel_To_Cell(point);
     CoordStruct coord(cell.X*256+128,cell.Y*256+128,0);
@@ -1781,7 +1781,7 @@ void RadarClass::Plot_Radar_Pixel(Point2D const &point)
         TechnoClass *candidate=items[index].Key.unknown_00;
         if(items[index].Key.unknown_04==point &&
             (!shadow || candidate->House->Is_Player_Control()) &&
-            (!candidate->Techno_Type_Class()->unknown_1ff || unknown_player_a35db4->Is_Ally(candidate))) {
+            (!candidate->Techno_Type_Class()->unknown_1ff || PlayerPtr->Is_Ally(candidate))) {
             tech=candidate;
             break;
         }
@@ -1793,7 +1793,7 @@ void RadarClass::Plot_Radar_Pixel(Point2D const &point)
         if(owner) color=Build_Hicolor_Pixel(owner->unknown_55e9.Red,owner->unknown_55e9.Green,owner->unknown_55e9.Blue);
         else color=Fetch_Scheme_By_Name("LightGrey",1)->unknown_color_0x330;
         int remaining=tech->unknown_13c.Value();
-        if(remaining>0 && ((remaining-1)/Rules->FlashFrameTime)%2==1 && tech->House==unknown_player_a35db4)
+        if(remaining>0 && ((remaining-1)/Rules->FlashFrameTime)%2==1 && tech->House==PlayerPtr)
             unknown_1218->Put_Pixel(point,~color);
         else unknown_1218->Put_Pixel(point,color);
     } else {
@@ -2173,7 +2173,7 @@ void RadarClass::Set_Radar_State(bool on, bool sound)
             unknown_14a8 = 3;
             unknown_14bc.Unknown_00406070();
             if (sound) {
-                Voc_Play(Rules->unknown_610, 1.0f, 0x2000, 0);
+                Voc_Play(Rules->RadarOn, 1.0f, 0x2000, 0);
             }
             Debug_Printf("Radar: ACTIVATING\n");
         }
@@ -2181,7 +2181,7 @@ void RadarClass::Set_Radar_State(bool on, bool sound)
         unknown_14bc.Unknown_00406070();
         unknown_14a8 = 2;
         if (sound) {
-            Voc_Play(Rules->unknown_614, 1.0f, 0x2000, 0);
+            Voc_Play(Rules->RadarOff, 1.0f, 0x2000, 0);
         }
         Debug_Printf("Radar: DEACTIVING\n");
     }
@@ -2236,7 +2236,7 @@ bool __fastcall FUN_00632ff0(int radar_address)
 // when the radar is up, otherwise turn it on or off (0x00632F30).
 void RadarClass::Radar_Activate(int control, bool sound)
 {
-    if (unknown_game_mode_a3d298 && unknown_player_a35db4->unknown_13d && MuteSWLaunches) {
+    if (unknown_game_mode_a3d298 && PlayerPtr->unknown_13d && MuteSWLaunches) {
         control = 1;
     }
     if (unknown_14ac == control) {
@@ -2410,13 +2410,13 @@ void RadarClass::Render_Radar()
     Rect previous = unknown_1208;
     bool tactical = unknown_14ac == 1 && unknown_14a8 == 1;
     Cell center = Map[TacticalMap->Pixel_To_Cell(Point2D(
-        unknown_rect_839630.X + unknown_rect_839630.Width / 2,
-        unknown_rect_839630.Y + unknown_rect_839630.Height / 2))].Fetch_CellID();
+        TacticalRect.X + TacticalRect.Width / 2,
+        TacticalRect.Y + TacticalRect.Height / 2))].Fetch_CellID();
     unknown_14d8 = Cell_To_Radar_Pixel(center);
-    unknown_14d8.Width = (2 * unknown_rect_839630.Width) / (60.0f / unknown_1484) + 1.0f;
-    unknown_14d8.Height = (2 * unknown_rect_839630.Height) / (30.0f / unknown_1484);
-    unknown_14d8 -= Point2D(unknown_rect_839630.Width / (60.0f / unknown_1484),
-        (2 * unknown_rect_839630.Height) / (30.0f / unknown_1484) * 0.5f);
+    unknown_14d8.Width = (2 * TacticalRect.Width) / (60.0f / unknown_1484) + 1.0f;
+    unknown_14d8.Height = (2 * TacticalRect.Height) / (30.0f / unknown_1484);
+    unknown_14d8 -= Point2D(TacticalRect.Width / (60.0f / unknown_1484),
+        (2 * TacticalRect.Height) / (30.0f / unknown_1484) * 0.5f);
     if (unknown_14d8.X < unknown_1498.X) unknown_14d8.X = unknown_1498.X;
     else if (unknown_14d8.X + unknown_14d8.Width >= unknown_1498.X + unknown_1498.Width)
         unknown_14d8.X = unknown_1498.X - (unknown_14d8.Width - unknown_1498.Width) - 1;
@@ -2425,7 +2425,7 @@ void RadarClass::Render_Radar()
         unknown_14d8.Y = unknown_1498.Y - (unknown_14d8.Height - unknown_1498.Height) - 1;
     if (unknown_14d6) unknown_14e8 = unknown_14d8;
     if (unknown_14d5 || unknown_14e8 != unknown_14d8 || !RadarEventClass_unknown_none()
-        || unknown_1258.Count() > 0 || unknown_1220.Count() > 0 || unknown_object_84e8d0.Is_Flashing_0042efd0()) {
+        || unknown_1258.Count() > 0 || unknown_1220.Count() > 0 || BeaconManager.Is_Flashing_0042efd0()) {
         if (tactical) unknown_14d5 = false;
         Plot_Radar_Background();
         bool moved = false;
@@ -2456,7 +2456,7 @@ void RadarClass::Render_Radar()
         for (edge = unknown_1258.Count() - 1; edge >= 0; --edge) Plot_Radar_Pixel(unknown_1258[edge]);
         unknown_1258.Clear();
         RadarEventClass::Draw_Events();
-        unknown_object_84e8d0.Draw_On_Radar_0042eed0(unknown_1218, unknown_1218->Get_Rect());
+        BeaconManager.Draw_On_Radar_0042eed0(unknown_1218, unknown_1218->Get_Rect());
         if (tactical) {
             if (unknown_14d6) {
                 unknown_1208 = unknown_1498;
@@ -2518,12 +2518,12 @@ void RadarClass::Update_Transmission()
             }
             if (unknown_int_af8fe8 != 0) {
                 Remove_Speech_Hold();
-                Unknown_005A0B10();
+                Movie_Audio_Suspend();
             }
         }
         Radar_Activate(3, false);
         unknown_14bc.Unknown_00406070();
-        unknown_14bc.Unknown_00406100(Voc_Play(Rules->unknown_618, 1.0f, 0x2000, 0), 0);
+        unknown_14bc.Unknown_00406100(Voc_Play(Rules->MovieOn, 1.0f, 0x2000, 0), 0);
         Set_Frame_Rate_Limit(Rules->DetailMinFrameRateMovie);
         break;
     }
@@ -2580,7 +2580,7 @@ void RadarClass::Play_Movie()
         if (has) {
             Debug_Printf("Radar: Next movie.\n");
             unknown_14bc.Unknown_00406070();
-            unknown_14bc.Unknown_00406100(Voc_Play(Rules->unknown_618, 1.0f, 0x2000, 0), 0);
+            unknown_14bc.Unknown_00406100(Voc_Play(Rules->MovieOn, 1.0f, 0x2000, 0), 0);
             unknown_14a8 = 4;
             unknown_14f8 = 25;
         }
@@ -2590,7 +2590,7 @@ void RadarClass::Play_Movie()
         Debug_Printf("Radar: Movie done.\n");
         unknown_14a8 = 5;
         Radar_Activate(unknown_14b0, false);
-        Unknown_005A0AC0();
+        Movie_Audio_Resume();
         hold = has;
         unknown_14bc.Unknown_00406070();
         unknown_14bc.Unknown_00406100(Voc_Play(Rules->MovieOff, 1.0f, 0x2000, 0), 0);
@@ -2710,17 +2710,17 @@ int __stdcall Unknown_006340F0(HWND window, UINT message, WPARAM wparam, LPARAM 
                 HWND ally = Get_Item(window, Diplomacy_Ally_Controls[index]);
                 HWND chat = Get_Item(window, Diplomacy_Chat_Controls[index]);
                 int house_index = index;
-                if (index == unknown_player_a35db4->ArrayIndex) {
+                if (index == PlayerPtr->ArrayIndex) {
                     house_index = 0;
                 }
                 HouseClass *house;
                 if (house_index < count && (house = Houses[house_index]) != 0 && house->Type->Multiplay) {
                     if (Rules->unknown_111d && house->Unknown_004F52F0()) {
-                        if (unknown_house_a72d28 != unknown_player_a35db4) {
+                        if (unknown_house_a72d28 != PlayerPtr) {
                         unknown_send_byte_message_005e1fb0(ally, 1);
-                        bool allied = unknown_player_a35db4->Is_Ally(house);
+                        bool allied = PlayerPtr->Is_Ally(house);
                         SendMessageA(ally, 0xF1, allied, 0);
-                        unknown_5e1fd0(ally, house->Is_Ally(unknown_player_a35db4));
+                        unknown_5e1fd0(ally, house->Is_Ally(PlayerPtr));
                         any_ally = true;
                         if (MuteSWLaunches) {
                             EnableWindow(ally, 0);
@@ -2804,7 +2804,7 @@ int __stdcall Unknown_006340F0(HWND window, UINT message, WPARAM wparam, LPARAM 
                 unsigned int code = wparam >> 16;
                 if (code == 1 || code == 0) {
                     int house_index = Control_Index(Diplomacy_Ally_Controls, id);
-                    if (house_index == unknown_player_a35db4->ArrayIndex) {
+                    if (house_index == PlayerPtr->ArrayIndex) {
                         house_index = 0;
                     }
                     if (code == 0) {
@@ -2820,7 +2820,7 @@ int __stdcall Unknown_006340F0(HWND window, UINT message, WPARAM wparam, LPARAM 
                 if (value == 1 || value == 0) {
                     bool checked = (unsigned short)(wparam >> 16) == 1;
                     int house_index = Control_Index(Diplomacy_Chat_Controls, id);
-                    if (house_index == unknown_player_a35db4->ArrayIndex) {
+                    if (house_index == PlayerPtr->ArrayIndex) {
                         house_index = 0;
                     }
                     unknown_flags_a3f118[house_index] = checked;

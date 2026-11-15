@@ -111,7 +111,7 @@ MixFileClass::MixFileClass(char const *filename, PKey const *key) :
     Data(0)
 {
     if (!CD().Force_Available(CD::RequiredCD)) {
-        Unknown_00691320();
+        Emergency_Exit();
         Emergency_Exit(1);
     }
 

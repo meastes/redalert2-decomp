@@ -21,10 +21,10 @@ static inline UnknownVector3 Detector_Offset(CoordStruct const &a, CoordStruct c
 
 bool __fastcall Building_Player_Detector_Covers_Target_004386f0(FootClass *object)
 {
-    if (!unknown_player_a35db4->Is_Ally(object->House)) {
-    int count = unknown_player_a35db4->unknown_b0.Count();
+    if (!PlayerPtr->Is_Ally(object->House)) {
+    int count = PlayerPtr->unknown_b0.Count();
     for (int index = 0; index < count; ++index) {
-        BuildingClass *detector = unknown_player_a35db4->unknown_b0.Fetch(index);
+        BuildingClass *detector = PlayerPtr->unknown_b0.Fetch(index);
         if (detector->unknown_slot195()) {
             AbstractClass *target = object->unknown_228;
             if (target != 0) {

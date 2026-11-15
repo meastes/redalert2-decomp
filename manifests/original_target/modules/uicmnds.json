@@ -265,7 +265,7 @@
    "padding_bytes": 8
   },
   {
-   "symbol": "?Unknown_006f6780@@YIXI@Z",
+   "symbol": "?Set_Type_Select_Mode@@YIXI@Z",
    "entry": "006f6780",
    "body_bytes": 14,
    "padding_bytes": 2
@@ -1365,7 +1365,7 @@
   },
   {
    "site": "00482bc0",
-   "symbol": "?Unknown_006f6780@@YIXI@Z",
+   "symbol": "?Set_Type_Select_Mode@@YIXI@Z",
    "target": "006f6780",
    "function_entry": true
   },
@@ -1467,13 +1467,13 @@
   },
   {
    "site": "005d2e70",
-   "symbol": "?Unknown_006f6780@@YIXI@Z",
+   "symbol": "?Set_Type_Select_Mode@@YIXI@Z",
    "target": "006f6780",
    "function_entry": true
   },
   {
    "site": "005d2e70",
-   "symbol": "?Unknown_006f6780@@YIXI@Z",
+   "symbol": "?Set_Type_Select_Mode@@YIXI@Z",
    "target": "006f6780",
    "function_entry": true
   },
@@ -1551,7 +1551,7 @@
   },
   {
    "site": "006aad40",
-   "symbol": "?Unknown_006f6780@@YIXI@Z",
+   "symbol": "?Set_Type_Select_Mode@@YIXI@Z",
    "target": "006f6780",
    "function_entry": true
   },
@@ -1830,6 +1830,10 @@
    "address": "005b4da0"
   },
   {
+   "symbol": "?AllowVoice@@3_NA",
+   "address": "007d88d6"
+  },
+  {
    "symbol": "?Clear@?$DynamicVectorClass@H@@UAEXXZ",
    "address": "0046cc80"
   },
@@ -1844,6 +1848,10 @@
   {
    "symbol": "?Count@UnknownSelection@@QAEHXZ",
    "address": "006ac7b0"
+  },
+  {
+   "symbol": "?CurrentObject@@3V?$DynamicVectorClass@PAVObjectClass@@@@A",
+   "address": "00a40c60"
   },
   {
    "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
@@ -1876,6 +1884,14 @@
   {
    "symbol": "?Get@UnknownSelection@@QAEPAVObjectClass@@H@Z",
    "address": "006ac7c0"
+  },
+  {
+   "symbol": "?GetHealthStatus@ObjectClass@@QBEHXZ",
+   "address": "005d46b0"
+  },
+  {
+   "symbol": "?GetOccupantCount@BuildingClass@@QAEHXZ",
+   "address": "004532f0"
   },
   {
    "symbol": "?Get_Mouse_Start_Frame_0059f170@Target_6f6750@@QAEIII@Z",
@@ -1986,6 +2002,10 @@
    "address": "00616e70"
   },
   {
+   "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+   "address": "00a35db4"
+  },
+  {
    "symbol": "?RadarEventClass_unknown_newest_cell@@YI?AVCell@@XZ",
    "address": "0063c6f0"
   },
@@ -1996,6 +2016,10 @@
   {
    "symbol": "?Remaining_Levels@VeterancyClass@@QBEHXZ",
    "address": "00713440"
+  },
+  {
+   "symbol": "?Reset_Action_Line_Timer@TechnoClass@@SAXXZ",
+   "address": "006d7990"
   },
   {
    "symbol": "?Resize@?$DynamicVectorClass@H@@UAE_NHPBH@Z",
@@ -2090,14 +2114,6 @@
    "address": "00832468"
   },
   {
-   "symbol": "?unknown_4532f0@BuildingClass@@QAEHXZ",
-   "address": "004532f0"
-  },
-  {
-   "symbol": "?unknown_6d7990@TechnoClass@@SAXXZ",
-   "address": "006d7990"
-  },
-  {
    "symbol": "?unknown_833684@@3HA",
    "address": "00833684"
   },
@@ -2128,10 +2144,6 @@
   {
    "symbol": "?unknown_func_5d27d0@UnknownObject_006f7610@@QBE_NPBD@Z",
    "address": "005d27d0"
-  },
-  {
-   "symbol": "?unknown_func_5d46b0@ObjectClass@@QBEHXZ",
-   "address": "005d46b0"
   },
   {
    "symbol": "?unknown_game_mode_a3d298@@3HA",
@@ -2166,10 +2178,6 @@
    "address": "00a3dc70"
   },
   {
-   "symbol": "?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A",
-   "address": "00a40c60"
-  },
-  {
    "symbol": "?unknown_pending_building_ac1334@@3PAVBuildingClass@@A",
    "address": "00ac1334"
   },
@@ -2178,20 +2186,12 @@
    "address": "00ac1338"
   },
   {
-   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
-   "address": "00a35db4"
-  },
-  {
    "symbol": "?unknown_radar_jump_frame_7f8bd4@@3HA",
    "address": "007f8bd4"
   },
   {
    "symbol": "?unknown_selected_83996c@@3PAUUnknownSelection@@A",
    "address": "0083996c"
-  },
-  {
-   "symbol": "?unknown_sound_enabled_7d88d6@@3_NA",
-   "address": "007d88d6"
   },
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",

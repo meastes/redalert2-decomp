@@ -174,7 +174,7 @@ void LineTrail::Draw()
         TacticalMap->Coord_To_Pixel(to->Position, end);
         int start_height = -2 - Unknown_006A2970(from->Position.Z);
         int end_height = -2 - Unknown_006A2970(to->Position.Z);
-        ((DSurface *)unknown_surface_839964)->Draw_Trail_Line_4AE9C0(unknown_rect_839630, start, end, Color,
+        ((DSurface *)CompositeSurface)->Draw_Trail_Line_4AE9C0(TacticalRect, start, end, Color,
                                                                      from->Value, start_height, end_height);
 
         slot++;

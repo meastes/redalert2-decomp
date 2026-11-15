@@ -149,7 +149,7 @@ InfantryClass::InfantryClass(InfantryTypeClass *type, HouseClass *house) :
         Locomotor.CreateInstance(Type->Locomotor, 0, CLSCTX_ALL);
         Locomotor.Checked()->Link_To_Object(this);
     }
-    unknown_2e0.Set_ROT(0x7F);
+    PrimaryFacing.Set_ROT(0x7F);
     unknown_object_index_abff58.Add_Index(Fetch_ID(), this);
 }
 
@@ -340,7 +340,7 @@ int InfantryClass::unknown_500350()
         }
     }
     InfantryTypeClass *type = Type;
-    if (!unknown_slot245(unknown_player_a35db4)) {
+    if (!unknown_slot245(PlayerPtr)) {
         type = (InfantryTypeClass *)GetDisguise(true);
     }
     int count = type->DoControls[sequence].Count;
@@ -358,7 +358,7 @@ int InfantryClass::unknown_500350()
                 * type->DoControls[sequence].Jump;
         }
     } else if (type->DoControls[sequence].Jump > 0) {
-        frame += unknown_sequence_facings_7a33f4[Dir_To_32(unknown_2e0.Current())]
+        frame += unknown_sequence_facings_7a33f4[Dir_To_32(PrimaryFacing.Current())]
             * type->DoControls[sequence].Jump;
     }
     return type->DoControls[sequence].Frame + frame;
@@ -555,7 +555,7 @@ void InfantryClass::unknown_slot93(int why)
                         if (unknown_game_mode_a3d298!=0 && unknown_session_a3d298.unknown_34 && building->Health_Ratio()>Rules->unknown_1370) {
                             int max_damage=building->Strength-int(building->Techno_Type_Class()->MaxStrength*Rules->unknown_1370*0.5);
                             int damage=MIN(building->Techno_Type_Class()->MaxStrength*((1-Rules->unknown_1370/2)/2),max_damage);
-                            building->Take_Damage(&damage,0,Rules->unknown_c74,this,true,0);
+                            building->Take_Damage(&damage,0,Rules->C4Warhead,this,true,0);
                         } else if (capturable) {
                             if (building->Mission==19) {
                                 Assign_Destination(0,true);
@@ -636,7 +636,7 @@ void InfantryClass::unknown_slot93(int why)
                 if (building->Get_Mission()!=19 && !building->unknown_slot203()) {
                     if (going_to_blow) {
                         Assign_Destination(0,true);
-                        unknown_244=unknown_slot187(1);
+                        Arm=unknown_slot187(1);
                         Scatter(building->Center_Coord(),true,true);
                         return;
                     }
@@ -649,18 +649,18 @@ void InfantryClass::unknown_slot93(int why)
                 }
                 Abort_Motion();
                 unknown_slot252(false);
-                unknown_244=unknown_slot187(1);
+                Arm=unknown_slot187(1);
                 Scatter(building->Center_Coord(),true,true);
                 return;
             }
             if (&Map[Center_Coord()]==unknown_494) {
-                Unknown_0047E2C0(CoordStruct(Coord),Rules->unknown_13a8,this,Rules->unknown_c74,true);
+                Unknown_0047E2C0(CoordStruct(Coord),Rules->unknown_13a8,this,Rules->C4Warhead,true);
                 Stop_Driver();
-                Scatter(Adjacent_Cell(CoordStruct(Coord),Dir_To_8(unknown_2e0.Current())),true,true);
+                Scatter(Adjacent_Cell(CoordStruct(Coord),Dir_To_8(PrimaryFacing.Current())),true,true);
                 QueueMission(2,false);
                 if (!unknown_494 || Map[unknown_494->Center_Coord()].unknown_ec==2) Mark(1);
-                Unknown_0047E2C0(CoordStruct(Coord),Rules->unknown_13a8,static_cast<TechnoClass *>(0),Rules->unknown_c74,true);
-                Unknown_0047E2C0(CoordStruct(Coord),Rules->unknown_13a8,static_cast<TechnoClass *>(0),Rules->unknown_c74,true);
+                Unknown_0047E2C0(CoordStruct(Coord),Rules->unknown_13a8,static_cast<TechnoClass *>(0),Rules->C4Warhead,true);
+                Unknown_0047E2C0(CoordStruct(Coord),Rules->unknown_13a8,static_cast<TechnoClass *>(0),Rules->C4Warhead,true);
                 if (!IsActive) return;
                 Mark(1);
             }
@@ -681,7 +681,7 @@ void InfantryClass::unknown_slot93(int why)
         int land=current->unknown_ec;
         if (!Locomotor.Checked()->Is_Moving() && !Type->C4 && !unknown_6d7910(14) && (land==3 || land==2) && (!unknown_79 || !current->IsUnderBridge)) {
             int damage=Strength;
-            Take_Damage(&damage,0,Rules->unknown_c74,0,true,0);
+            Take_Damage(&damage,0,Rules->C4Warhead,0,true,0);
             return;
         }
     }
@@ -840,7 +840,7 @@ void InfantryClass::AI()
     if (unknown_20c != 0) {
         unknown_20c->AI();
     }
-    if (unknown_slot112() || (unknown_slot111() && unknown_210)) {
+    if (unknown_slot112() || (unknown_slot111() && IsImmobilized)) {
         Locomotor.Checked()->Process();
     }
     if (unknown_slot111()) {
@@ -952,7 +952,7 @@ int InfantryClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellC
     if (unknown_slot102(reinterpret_cast<UnknownCellClass*>(cell),direction,&height,&bridge,reinterpret_cast<UnknownCellClass*>(adjacent))==7) return 7;
     if (height!=-1 && (cell->unknown_140&0x100) && height==cell->unknown_11b+4) {
         flags=cell->unknown_128;
-        infantry_owner=cell->unknown_58;
+        infantry_owner=cell->BridgeInfType;
         vehicle=reinterpret_cast<CellOccupancyFlags_00503190 const &>(cell->unknown_128).vehicle!=0;
     }
     if (unknown_32d && !ScenarioInit && !Map.Unknown_0055A740(cell,true) && !unknown_slot189()) return 7;
@@ -1100,10 +1100,10 @@ inline CoordStruct operator+(CoordStruct const &coord, TPoint2D<int> const &offs
 // TibSun InfantryClass::Tunnel_AI: walks the soldier along its tube and sets it down at the exit.
 void InfantryClass::unknown_5025c0()
 {
-    bool finished = unknown_TubeClass_list_008661c8[unknown_574]->Directions[unknown_575] == -1;
+    bool finished = Tubes[unknown_574]->Directions[unknown_575] == -1;
     if (!finished) {
         int distance = Distance(unknown_45c);
-        TubeClass *tube = unknown_TubeClass_list_008661c8[unknown_574];
+        TubeClass *tube = Tubes[unknown_574];
         UnknownFacingDir facing;
         UnknownFacingDir direction = facing.Direction(Center_Coord(), unknown_45c);
         int speed = Type->Speed;
@@ -1222,7 +1222,7 @@ int InfantryClass::unknown_slot218(AbstractClass *target, int weapon, bool check
             if (weapon_type->unknown_105 && unknown_494 != 0) {
                 return 7;
             }
-            if (weapon_type->unknown_126 && target != Get_Cell_Ptr()) {
+            if (weapon_type->AreaFire && target != Get_Cell_Ptr()) {
                 return 5;
             }
             WarheadTypeClass *warhead = weapon_type->Warhead;
@@ -1285,7 +1285,7 @@ bool InfantryClass::unknown_slot261(bool arg1, bool arg2)
                 return false;
             }
             if (!House->Unknown_004F52F0() && Team == 0) {
-                if (House->unknown_194 < Rules->unknown_10a8 && Mission != 11) {
+                if (House->IQ < Rules->unknown_10a8 && Mission != 11) {
                     mission = 5;
                 } else if (!unknown_slot163() && !Type->Engineer && !Type->VehicleThief) {
                     mission = 5;
@@ -1326,7 +1326,7 @@ inline bool Infantry_Play_Idle_Action(InfantryClass *infantry)
         return true;
     case 6: {
         UnknownFacingDir facing((unsigned short)(unknown_id_source_a3d290->Random()(0,7)<<13));
-        infantry->unknown_2e0.Set(UnknownFacingDir((unsigned short)(Dir_To_256(facing) << 8)));
+        infantry->PrimaryFacing.Set(UnknownFacingDir((unsigned short)(Dir_To_256(facing) << 8)));
         return true;
     }
     case 1: case 2: case 7:
@@ -1340,7 +1340,7 @@ inline bool Infantry_Play_Idle_Action(InfantryClass *infantry)
         break;
     case 8: {
         UnknownFacingDir facing((unsigned short)(unknown_id_source_a3d290->Random()(0,7)<<13));
-        infantry->unknown_2e0.Set(UnknownFacingDir((unsigned short)(Dir_To_256(facing) << 8)));
+        infantry->PrimaryFacing.Set(UnknownFacingDir((unsigned short)(Dir_To_256(facing) << 8)));
         if (is_cow || (!infantry->House->Unknown_004F52F0() && infantry->Type->Fraidycat)) {
             infantry->Scatter(unknown_geometry_l, true, false);
             return true;
@@ -1349,7 +1349,7 @@ inline bool Infantry_Play_Idle_Action(InfantryClass *infantry)
     }
     case 9: case 10: {
         UnknownFacingDir facing((unsigned short)(unknown_id_source_a3d290->Random()(0,7)<<13));
-        infantry->unknown_2e0.Set(UnknownFacingDir((unsigned short)(Dir_To_256(facing) << 8)));
+        infantry->PrimaryFacing.Set(UnknownFacingDir((unsigned short)(Dir_To_256(facing) << 8)));
         break;
     }
     }
@@ -1421,7 +1421,7 @@ void InfantryClass::Scatter(CoordStruct const &threat, bool forced, bool nokiddi
         } else {
             Point2D position=Cell_Fraction(Center_Coord(),Center_Coord());
             if (position!=Point2D(128,128)) facing=Dir_To_8(Direction_00504120(Point2D(128,128),position));
-            else facing=Dir_To_8(unknown_2e0.Current());
+            else facing=Dir_To_8(PrimaryFacing.Current());
             facing=facing+unknown_id_source_a3d290->Random()(0,4)-2;
             Cell nearby=Map.Nearby_Location(Cell(unknown_slot19(0)),Type->SpeedType,-1,0,unknown_79,Point2D(1,1),0,1,0,1,Cell(0,0),0);
             if (nearby!=unknown_geometry_k) {
@@ -1556,7 +1556,7 @@ bool InfantryClass::Stop_Driver()
     } else {
         unknown_slot311(0, 0, 0);
     }
-    int facing = Dir_To_8(unknown_2e0.Current());
+    int facing = Dir_To_8(PrimaryFacing.Current());
     CoordStruct coord = Coord;
     if (Can_Enter_Cell(&Map[coord], facing, Unknown_005D47D0(), 0, 1) == 0) {
         unknown_5c4 = false;
@@ -1894,7 +1894,7 @@ check_action_four:
             if (Infantry_Action_Allowed_00614b50(4)) {
                 if (!House->Is_Player_Control()) action = 0;
                 else {
-                    if (unknown_slot229()->WeaponType && unknown_slot229()->WeaponType->unknown_126) action = 0x34;
+                    if (unknown_slot229()->WeaponType && unknown_slot229()->WeaponType->AreaFire) action = 0x34;
                     else if (!Type->Deployer) action = 0;
                 }
             } else action = 0x1e;
@@ -1953,7 +1953,7 @@ infiltration:
         } else {
 cloning:
             if (action == 7 && object->Kind_Of() == 6 && House->Is_Player_Control() && !object->Considered_Vehicle() && building->Type->Cloning)
-                return object->Owning_House() != unknown_player_a35db4 ? 0x1f : 0xb;
+                return object->Owning_House() != PlayerPtr ? 0x1f : 0xb;
             goto finish;
         }
 finish:
@@ -2027,7 +2027,7 @@ wchar_t const *InfantryClass::unknown_slot35()
     if (unknown_5c1) {
         return StringTable::Load_String("TXT_TECHNICIAN", 0, "D:\\Ra2\\Infantry.CPP", 4221);
     }
-    if (unknown_slot48() && !House->Is_Ally(unknown_player_a35db4)) {
+    if (unknown_slot48() && !House->Is_Ally(PlayerPtr)) {
         return GetDisguise(true)->UIName;
     }
     return Type->UIName;
@@ -2174,7 +2174,7 @@ int InfantryClass::Do_MISSION_UNLOAD()
         } else {
             unknown_slot311(27, true, false);
             WeaponStruct *weapon = unknown_slot229();
-            if (Unknown_006D8640(weapon) && weapon->WeaponType->unknown_126) {
+            if (Unknown_006D8640(weapon) && weapon->WeaponType->AreaFire) {
                 if (unknown_func_5d27d0("DESO")) {
                     delay = Type->DoControls[27].Count + 1;
                 } else {
@@ -2277,7 +2277,7 @@ ObjectTypeClass *InfantryClass::Class_Of() const
 
 // Creates scenario infantry from the [Infantry] records (0x00506960).
 extern char const *unknown_infantry_section_7a33f0;
-extern int unknown_ini_format_a40d24;
+extern int NewINIFormat;
 extern CoordStruct const unknown_infantry_spots_850e50[];
 extern CellClass unknown_dummy_cell_a6f9f8;
 inline CoordStruct Infantry_Subcell_Position(CoordStruct center, int spot)
@@ -2301,7 +2301,7 @@ void __fastcall InfantryClass::Read_INI(CCINIClass &ini)
                 if (infantry != 0) {
                     int health = atoi(strtok(0, ","));
                     CoordStruct coord;
-                    if (unknown_ini_format_a40d24 >= 4) {
+                    if (NewINIFormat >= 4) {
                         int x = atoi(strtok(0, ","));
                         short y = (short)atoi(strtok(0, ","));
                         coord = Cell_Coord(Cell((short)x, y));
@@ -2395,7 +2395,7 @@ void __fastcall InfantryClass::Write_INI(CCINIClass &ini)
                 tag = "None";
             }
             int mission = infantry->Get_Mission() == -1 ? infantry->MissionQueue : infantry->Get_Mission();
-            unsigned raw = *(unsigned const *)&infantry->unknown_2e0.Current();
+            unsigned raw = *(unsigned const *)&infantry->PrimaryFacing.Current();
             unsigned direction = (((raw >> 7) + 1) >> 1) & 0xff;
             CoordStruct coord = infantry->Coord;
             char line[128];
@@ -2538,7 +2538,7 @@ void InfantryClass::Update_Fire_00507530()
             }
         sequence_started:
             unknown_57d = true;
-            unknown_2e0.Set(Direction_To(unknown_228));
+            PrimaryFacing.Set(Direction_To(unknown_228));
             if (unknown_228 == unknown_494) {
                 Abort_Motion();
                 Stop_Driver();
@@ -2626,7 +2626,7 @@ void InfantryClass::Advance_Animation_005078b0()
                 int facing = Type->DoControls[Sequence].Facing;
                 if (facing != -1) {
                     UnknownFacingDir direction((unsigned short)(facing << 13));
-                    unknown_2e0.Set(direction);
+                    PrimaryFacing.Set(direction);
                 }
             }
             if (Locomotor.Checked()->Is_Moving() && unknown_468 > 0.1) {
@@ -3206,7 +3206,7 @@ void InfantryClass::unknown_slot304()
     int weapon = Type->DeployFireWeapon;
     bool in_range = unknown_slot212(unknown_228, weapon);
     WeaponTypeClass *weapon_type = unknown_slot231(weapon)->WeaponType;
-    if (weapon_type == 0 || weapon_type->unknown_126) {
+    if (weapon_type == 0 || weapon_type->AreaFire) {
         return;
     }
     if (Is_Deploying()) {
@@ -3301,7 +3301,7 @@ int InfantryClass::Deploy_Or_Stop()
 void InfantryClass::IronCurtain(int arg1)
 {
     int damage = Type->MaxStrength;
-    Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 0);
+    Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, 0);
 }
 
 
@@ -3313,16 +3313,16 @@ void InfantryClass::IronCurtain(int arg1)
 
 ObjectTypeClass *InfantryClass::GetDisguise(bool arg1)
 {
-    if (House->Is_Ally(unknown_player_a35db4) && !arg1) {
+    if (House->Is_Ally(PlayerPtr) && !arg1) {
         return Type;
     }
     if (unknown_40c != 0) {
         return unknown_40c;
     }
-    if (unknown_player_a35db4 != 0 && unknown_player_a35db4->unknown_130 == 0) {
-        return Rules->unknown_b6c;
+    if (PlayerPtr != 0 && PlayerPtr->unknown_130 == 0) {
+        return Rules->AlliedDisguise;
     }
-    return Rules->unknown_b70;
+    return Rules->SovietDisguise;
 }
 
 
@@ -3332,10 +3332,10 @@ ObjectTypeClass *InfantryClass::GetDisguise(bool arg1)
 
 HouseClass *InfantryClass::GetDisguiseHouse(bool arg1)
 {
-    if (House->Is_Ally(unknown_player_a35db4) && !arg1) {
+    if (House->Is_Ally(PlayerPtr) && !arg1) {
         return House;
     }
-    return unknown_410 != 0 ? unknown_410 : unknown_player_a35db4;
+    return unknown_410 != 0 ? unknown_410 : PlayerPtr;
 }
 
 
@@ -3369,9 +3369,9 @@ void InfantryClass::ClearDisguise()
         unknown_170 = true;
         unknown_410 = House;
         if (House->unknown_130 == 0) {
-            unknown_40c = Rules->unknown_b6c;
+            unknown_40c = Rules->AlliedDisguise;
         } else {
-            unknown_40c = Rules->unknown_b70;
+            unknown_40c = Rules->SovietDisguise;
         }
     } else {
         unknown_170 = false;

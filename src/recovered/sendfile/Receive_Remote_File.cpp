@@ -73,7 +73,7 @@ bool __fastcall Receive_Remote_File_0066b520(char *file_name, unsigned int file_
     int percent = 0;
     do {
         if (gametype == 1 || gametype == 2) {
-            Unknown_005B5EE0();
+            Windows_Message_Handler();
             Service_Game_IO_00481fb0();
             if (serial_manager_00a40a28.Get_Message(receive_packet, &packet_len) > 0 && receive_packet->Command == 0x70) {
                 if (received[receive_packet->BlockNumber] == 0) {
@@ -96,7 +96,7 @@ bool __fastcall Receive_Remote_File_0066b520(char *file_name, unsigned int file_
                 }
             }
         } else {
-            Unknown_005B5EE0();
+            Windows_Message_Handler();
             Service_Game_IO_00481fb0();
             int receive_packet_length = 0x1E7;
             if (Ipx.Get_Global_Message(receive_packet, &receive_packet_length, &sender_address, &product_id)) {

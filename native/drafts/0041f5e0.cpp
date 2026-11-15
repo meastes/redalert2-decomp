@@ -20,7 +20,7 @@ void *Native_Pointer_From_Handle(int handle);   // NATIVE: native/link/native_po
 // @ref ?Intersect@@YI?AVRect@@ABV1@0PAH1@Z=0041fdf0
 // @ref ?Get_Buffer_Offset@ABuffer@@QAEPAGUPoint2D@@@Z=00411230
 // @ref ?AlphaBuffer@@3PAVABuffer@@A=008315b4
-// @ref ?unknown_rect_839630@@3VRect@@A=00839630
+// @ref ?TacticalRect@@3VRect@@A=00839630
 // @ref ?TacticalMap@@3PAVTactical@@A=0083996c
 // @ref _unknown_empty_rect=0083c600
 
@@ -37,8 +37,8 @@ void __fastcall Unknown_0041F5E0(Rect const &cliprect)   // NATIVE: the callers'
         {
             Rect r1 = unknown_AlphaShapeClass_list_0083c648[index]->Bounds;
             r1 -= Point2D(TacticalMap->TacPixelX, TacticalMap->TacPixelY);
-            r1.X += unknown_rect_839630.X;   // NATIVE: the overlay's Rect += Point2D (RA2_RECT_POINT_INLINE): moves the corner
-            r1.Y += unknown_rect_839630.Y;   // NATIVE
+            r1.X += TacticalRect.X;   // NATIVE: the overlay's Rect += Point2D (RA2_RECT_POINT_INLINE): moves the corner
+            r1.Y += TacticalRect.Y;   // NATIVE
             Rect clip = cliprect;
             Rect r2 = Intersect(r1, clip);
             if (r2.Is_Valid()) {
@@ -59,7 +59,7 @@ void __fastcall Unknown_0041F5E0(Rect const &cliprect)   // NATIVE: the callers'
                 int shape_skip = shape_rect.Width - right + shape_rect.X + x1 + src_x;
                 int alpha_skip = AlphaBuffer->Width - right + left;
                 unsigned char *shapedata = (unsigned char *)shape->Get_Frame_Data(0);
-                unsigned short *alphaptr = AlphaBuffer->Get_Buffer_Offset(Point2D(left - unknown_rect_839630.X, top - unknown_rect_839630.Y));
+                unsigned short *alphaptr = AlphaBuffer->Get_Buffer_Offset(Point2D(left - TacticalRect.X, top - TacticalRect.Y));
                 unsigned char *shapeptr = &shapedata[src_x + src_y * shape_rect.Width];
                 if (&alphaptr[right - left + (bottom - top) * AlphaBuffer->Width + 2] >= (unsigned short *)AlphaBuffer->BufferTail) {
                     for (int y = top; y < bottom; y++) {

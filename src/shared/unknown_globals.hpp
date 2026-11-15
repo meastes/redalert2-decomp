@@ -39,18 +39,18 @@ extern char unknown_profile_ram_text_a41388[];
 extern char unknown_profile_vram_text_a41308[];
 extern char unknown_profile_blit_text_a41408[];
 extern char unknown_profile_text_a4127c[];
-extern Surface *unknown_surface_839944;  // 0x00839944 (a video memory surface: Get_Performance_Profile times blits from it)
+extern Surface *TileSurface;  // 0x00839944 (a video memory surface: Get_Performance_Profile times blits from it)
 extern Surface *VisibleSurface;  // 0x00839950 screen
 class DSurface;
 extern Surface *HiddenSurface; // 0x00839954 (Get_Input draws the buttons on it; shared/dsurface.hpp)
 extern Surface *AlternateSurface;  // 0x00839958 background
 extern Surface *LogicalSurface;  // 0x0083995C current drawing surface
-extern Surface *unknown_surface_839964;  // 0x00839964 the surface Render composes
+extern Surface *CompositeSurface;  // 0x00839964 the surface Render composes
 extern bool unknown_flag_839c4c;  // 0x00839C4C
 extern int VideoModeWidth;  // 0x008523E0 VQA frame width (hypothesis)
 extern int VideoModeHeight;  // 0x008523E4 VQA frame height (hypothesis)
 extern bool UseDirect3D;  // 0x00852FD7
-extern HouseClass *unknown_player_a35db4;  // 0x00A35DB4 the player's house
+extern HouseClass *PlayerPtr;  // 0x00A35DB4 the player's house
 // A flag at 0x00A3D548 (radar: with the player's +0x13D, forces mode 1; no cheering while set;
 // moved from shared/radar.hpp).
 extern int MuteSWLaunches;
@@ -386,7 +386,7 @@ public:
     int unknown_7c;                 // +0x7C the radar beacon's blink cycle (frames << 2)
     CoordStruct unknown_80;         // +0x80 the position a new beacon starts at
 };
-extern BeaconManagerClass unknown_object_84e8d0;
+extern BeaconManagerClass BeaconManager;
 // Read_Scenario_INI's settings and helpers (0x0065EB40; meanings mostly not recovered).
 extern int unknown_difficulty_a40b1c;           // 0x00A40B1C the campaign difficulty (the scenario's Difficulty)
 extern int unknown_session_difficulty_a3d2d8;   // 0x00A3D2D8 (session +0x40) the multiplayer difficulty
@@ -549,7 +549,7 @@ extern bool unknown_flag_a40b30;  // 0x00A40B30 the sidebar is on the left
 extern float unknown_volume_a40b44;  // 0x00A40B44 sound effect volume scale
 extern bool ScenarioActive;  // 0x00A40D04 (FootClass::Detach keeps a live parasite while it is set)
 extern bool Debug_Map;  // 0x00A40D13 (TibSun Debug_Map: the scenario editor flag)
-extern int unknown_ini_format_a40d24;
+extern int NewINIFormat;
 extern bool GameInFocus;  // 0x00A40D28 application active (focus)
 extern bool IgnoreInput;  // 0x00A40D44
 extern int UnlockInputFrame;        // 0x00AB9174 (cleared when the game pauses or resumes)

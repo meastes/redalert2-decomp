@@ -140,8 +140,8 @@ int __fastcall Planning_House(TechnoClass *techno);
 inline RGBClass Planning_House_Color(TechnoClass *techno)
 {
     int house = techno->House->ArrayIndex;
-    if (techno->House->Is_Player_Control() && unknown_player_a35db4) {
-        house = unknown_player_a35db4->ArrayIndex;
+    if (techno->House->Is_Player_Control() && PlayerPtr) {
+        house = PlayerPtr->ArrayIndex;
     }
     return Houses[house]->unknown_55e9;
 }

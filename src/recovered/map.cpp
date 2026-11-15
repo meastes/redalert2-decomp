@@ -480,12 +480,12 @@ void MapClass::One_Time()
 void MapClass::Init_Clear()
 {
     Debug_Printf("MapClass::Init_Clear entry\n");
-    unknown_481fb0();
+    Call_Back();
     unknown_839c6c->Unknown_00776160(0xFFFF);
     unknown_8315b4->Unknown_00411050(0x7F);
-    unknown_481fb0();
+    Call_Back();
     GScreenClass::Init_Clear();
-    unknown_481fb0();
+    Call_Back();
     for (int index = 0; index < 256; index++) {
         UnknownMapEntry154 &entry = unknown_154[index];
         entry.Cell = unknown_cell_a6f238;
@@ -717,8 +717,8 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
             }
         }
 
-        for (i = 0; i < unknown_TubeClass_list_008661c8.Count(); i++) {
-            TubeClass *tube = unknown_TubeClass_list_008661c8[i];
+        for (i = 0; i < Tubes.Count(); i++) {
+            TubeClass *tube = Tubes[i];
             tube->EnterCell = tube->EnterCell + offset;   // NATIVE: overlay Cell::operator+= (base 0x0056AA20)
             tube->ExitCell = tube->ExitCell + offset;     // NATIVE
         }
@@ -932,20 +932,20 @@ void MapClass::Unknown_00549C50(CoordStruct const &xcoord, int sightrange, House
     }
     ptr2--;
 
-    if (house != 0 && unknown_player_a35db4 != 0) {
-        if (house != unknown_player_a35db4) {
-            if ((house->unknown_5414 & (1 << unknown_player_a35db4->Type->House)) != 0) {
-                house = unknown_player_a35db4;
+    if (house != 0 && PlayerPtr != 0) {
+        if (house != PlayerPtr) {
+            if ((house->unknown_5414 & (1 << PlayerPtr->Type->House)) != 0) {
+                house = PlayerPtr;
             }
         }
-        if (house != unknown_player_a35db4) {
-            if (house->Is_Ally(unknown_player_a35db4) && Rules->unknown_142b) {
-                house = unknown_player_a35db4;
+        if (house != PlayerPtr) {
+            if (house->Is_Ally(PlayerPtr) && Rules->unknown_142b) {
+                house = PlayerPtr;
             }
         }
     }
 
-    if (house != unknown_player_a35db4) {
+    if (house != PlayerPtr) {
         return;
     }
 
@@ -1037,20 +1037,20 @@ void MapClass::Sight_From(CoordStruct const &xcoord, int sightrange, HouseClass 
     }
     ptr2--;
 
-    if (house != 0 && unknown_player_a35db4 != 0) {
-        if (house != unknown_player_a35db4) {
-            if ((house->unknown_5414 & (1 << unknown_player_a35db4->Type->House)) != 0) {
-                house = unknown_player_a35db4;
+    if (house != 0 && PlayerPtr != 0) {
+        if (house != PlayerPtr) {
+            if ((house->unknown_5414 & (1 << PlayerPtr->Type->House)) != 0) {
+                house = PlayerPtr;
             }
         }
-        if (house != unknown_player_a35db4) {
-            if (house->Is_Ally(unknown_player_a35db4) && Rules->unknown_142b) {
-                house = unknown_player_a35db4;
+        if (house != PlayerPtr) {
+            if (house->Is_Ally(PlayerPtr) && Rules->unknown_142b) {
+                house = PlayerPtr;
             }
         }
     }
 
-    if (house != unknown_player_a35db4) {
+    if (house != PlayerPtr) {
         return;
     }
 
@@ -6389,7 +6389,7 @@ void MapClass::Unknown_00559F10()
         cell->IsFogVisible = false; cell->IsFogMapped = false;
     }
     Map.Unknown_0049DE00(false, false);
-    unknown_player_a35db4->unknown_188 = false;
+    PlayerPtr->unknown_188 = false;
     Map.Complete_Radar_Refresh();
     Flag_To_Redraw(2);
 }
@@ -6408,7 +6408,7 @@ void MapClass::Shroud_The_Map()
         cell->IsFogVisible = false; cell->IsFogMapped = false;
     }
     Map.Unknown_0049E110(false, false);
-    unknown_player_a35db4->unknown_188 = false;
+    PlayerPtr->unknown_188 = false;
     Map.Complete_Radar_Refresh();
     Flag_To_Redraw(2);
 }
@@ -6431,7 +6431,7 @@ void MapClass::Unknown_0055A070()
         }
     }
     Map.Unknown_0049E110(false, false);
-    unknown_player_a35db4->unknown_188 = false;
+    PlayerPtr->unknown_188 = false;
     Map.Complete_Radar_Refresh();
     Flag_To_Redraw(2);
 }
@@ -6445,9 +6445,9 @@ void MapClass::Unknown_0055A070()
 
 void MapClass::Unknown_0055A120()
 {
-    if (!unknown_player_a35db4->unknown_188) {
+    if (!PlayerPtr->unknown_188) {
         Map.Unknown_0049E000(false, false);
-        unknown_player_a35db4->unknown_188 = true;
+        PlayerPtr->unknown_188 = true;
         Map.Reset_Iterator();
         for (CellClass *cell = Map.Iterate(); cell != 0; cell = Map.Iterate()) {
             cell->IsMapped = true; cell->IsVisible = true;
@@ -6468,11 +6468,11 @@ void MapClass::Unknown_0055A120()
 
 void MapClass::Reveal_The_Map()
 {
-    if (!unknown_player_a35db4->unknown_188) {
-        unknown_player_a35db4->unknown_188 = true;
+    if (!PlayerPtr->unknown_188) {
+        PlayerPtr->unknown_188 = true;
         Map.Reset_Iterator();
         for (CellClass *cell = Map.Iterate(); cell != 0; cell = Map.Iterate()) {
-            Map.unknown_slot39(cell->MapCoords, unknown_player_a35db4);
+            Map.unknown_slot39(cell->MapCoords, PlayerPtr);
         }
         Map.Complete_Radar_Refresh();
         Map.Flag_To_Redraw(1);
@@ -6511,7 +6511,7 @@ void MapClass::Refresh_Shroud()
             cellptr->unknown_138 = true;
             TacticalMap->Flag_Cell(cellptr);
             if (cellptr->unknown_120 == -2) {
-                Map.Unknown_00568520(cellptr, unknown_player_a35db4, true);
+                Map.Unknown_00568520(cellptr, PlayerPtr, true);
             }
         }
         cellptr = Iterate();
@@ -6527,7 +6527,7 @@ void MapClass::Refresh_Shroud()
             cellptr->unknown_138 = true;
             TacticalMap->Flag_Cell(cellptr);
             if (cellptr->unknown_120 == -2) {
-                Map.Unknown_00568520(cellptr, unknown_player_a35db4, true);
+                Map.Unknown_00568520(cellptr, PlayerPtr, true);
             }
         }
         cellptr = Iterate();
@@ -7941,7 +7941,7 @@ bool MapClass::Unknown_0055DCA0(Cell const &cell)
 // below 0x53 -> 0x64 destroyed), damages the pieces beside it (0x0055FCC0),
 // redraws the overlays, recalculates the cells and, once destroyed, springs the
 // span's triggers (0x0055EA50) and resets the zones. True when it gave way.
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 
 bool MapClass::Unknown_0055DEF0(Cell const &cell)
 {
@@ -7988,7 +7988,7 @@ bool MapClass::Unknown_0055DEF0(Cell const &cell)
             break;
         }
 
-        draw_rect = Union(draw_rect, Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
+        draw_rect = Union(draw_rect, Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect())) - TacticalRect.Top_Left();
         TacticalMap->Register_Dirty_Area(draw_rect, false);
 
         cellptr1->Recalc_Attributes(-1);
@@ -8015,7 +8015,7 @@ bool MapClass::Unknown_0055DEF0(Cell const &cell)
 #ifdef RA2_NON_MATCHING
 // bool MapClass::Unknown_0055E410(Cell const &cell) (0x0055E410)
 // north/south twin of 0x0055DEF0 (Damage_Low_Bridge_EW): piece 0x005601F0, spring 0x0055E930 (draft, Scout1029).
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 // ref ?Damage_Low_Bridge_Piece_NS_005601F0MapClassQAEXABVCellZ=0055fcc0
 // ref ?Spring_Low_Bridge_Destroyed_EWMapClassQAEXVCellZ=0055ea50
 // ref ?Overlay_Render_RectCellClassQBE?AVRectXZ=00474eb0
@@ -8077,7 +8077,7 @@ bool MapClass::Unknown_0055E410(Cell const &cell)
             break;
         }
 
-        draw_rect = Union(draw_rect, Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
+        draw_rect = Union(draw_rect, Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect())) - TacticalRect.Top_Left();
         TacticalMap->Register_Dirty_Area(draw_rect, false);
 
         cellptr1->Recalc_Attributes(-1);
@@ -8265,7 +8265,7 @@ bool MapClass::Unknown_0055EDB0(Cell const &cell)
 #ifdef RA2_NON_MATCHING
 // bool MapClass::Unknown_0055F020(Cell const &cell) (0x0055F020)
 // east/west-set-2 twin of 0x0055DEF0 (Damage_Low_Bridge_EW): piece 0x005606D0, spring 0x0055FB90 (draft, Scout1029).
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 // ref ?Damage_Low_Bridge2_Piece_EW_005606D0MapClassQAEXABVCellZ=0055fcc0
 // ref ?Spring_Low_Bridge_Destroyed_EWMapClassQAEXVCellZ=0055ea50
 // ref ?Overlay_Render_RectCellClassQBE?AVRectXZ=00474eb0
@@ -8327,7 +8327,7 @@ bool MapClass::Unknown_0055F020(Cell const &cell)
             break;
         }
 
-        draw_rect = Union(draw_rect, Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
+        draw_rect = Union(draw_rect, Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect())) - TacticalRect.Top_Left();
         TacticalMap->Register_Dirty_Area(draw_rect, false);
 
         cellptr1->Recalc_Attributes(-1);
@@ -8354,7 +8354,7 @@ bool MapClass::Unknown_0055F020(Cell const &cell)
 #ifdef RA2_NON_MATCHING
 // bool MapClass::Unknown_0055F540(Cell const &cell) (0x0055F540)
 // north/south-set-2 twin of 0x0055DEF0 (Damage_Low_Bridge_EW): piece 0x00560C10, spring 0x0055FA60 (draft, Scout1029).
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 // ref ?Damage_Low_Bridge2_Piece_NS_00560C10MapClassQAEXABVCellZ=0055fcc0
 // ref ?Spring_Low_Bridge_Destroyed_EWMapClassQAEXVCellZ=0055ea50
 // ref ?Overlay_Render_RectCellClassQBE?AVRectXZ=00474eb0
@@ -8416,7 +8416,7 @@ bool MapClass::Unknown_0055F540(Cell const &cell)
             break;
         }
 
-        draw_rect = Union(draw_rect, Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
+        draw_rect = Union(draw_rect, Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect())) - TacticalRect.Top_Left();
         TacticalMap->Register_Dirty_Area(draw_rect, false);
 
         cellptr1->Recalc_Attributes(-1);
@@ -8489,7 +8489,7 @@ void MapClass::Unknown_0055FB90(Cell cell)
 }
 
 
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 inline RectPoint2D Rect::Top_Left() const { return RectPoint2D(X, Y); }
 inline Rect Rect::operator-(RectPoint2D const &point) const { return Rect(Top_Left() - point, Width, Height); }
 // Damage one low-bridge piece using its neighboring span mask, original0055FCC0.
@@ -8514,7 +8514,7 @@ void MapClass::Damage_Low_Bridge_Piece_EW_0055FCC0(Cell const &cell)
             if (current == next) return;
         }
         side2->OverlayIndex = side1->OverlayIndex = center->OverlayIndex = next;
-        draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
+        draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - TacticalRect.Top_Left();
         TacticalMap->Register_Dirty_Area(draw_rect, false);
         if (next == 0x64) {
             Map.Radar_Background(cell);
@@ -8531,7 +8531,7 @@ void MapClass::Damage_Low_Bridge_Piece_EW_0055FCC0(Cell const &cell)
 }
 
 
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 // Damage one low-bridge piece using its neighboring span mask, original005601F0.
 void MapClass::Damage_Low_Bridge_Piece_NS_005601F0(Cell const &cell)
 {
@@ -8554,7 +8554,7 @@ void MapClass::Damage_Low_Bridge_Piece_NS_005601F0(Cell const &cell)
             if (next == current) return;
         }
         side2->OverlayIndex = side1->OverlayIndex = center->OverlayIndex = next;
-        draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
+        draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - TacticalRect.Top_Left();
         TacticalMap->Register_Dirty_Area(draw_rect, false);
         if (next == 0x65) {
             Map.Radar_Background(cell);
@@ -8571,7 +8571,7 @@ void MapClass::Damage_Low_Bridge_Piece_NS_005601F0(Cell const &cell)
 }
 
 
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 // Damage one low-bridge piece using its neighboring span mask, original005606D0.
 void MapClass::Damage_Low_Bridge2_Piece_EW_005606D0(Cell const &cell)
 {
@@ -8594,7 +8594,7 @@ void MapClass::Damage_Low_Bridge2_Piece_EW_005606D0(Cell const &cell)
             if (current == next) return;
         }
         side2->OverlayIndex = side1->OverlayIndex = center->OverlayIndex = next;
-        draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
+        draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - TacticalRect.Top_Left();
         TacticalMap->Register_Dirty_Area(draw_rect, false);
         if (next == 0xe7) {
             Map.Radar_Background(cell);
@@ -8611,7 +8611,7 @@ void MapClass::Damage_Low_Bridge2_Piece_EW_005606D0(Cell const &cell)
 }
 
 
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 // Damage one low-bridge piece using its neighboring span mask, original00560C10.
 void MapClass::Damage_Low_Bridge2_Piece_NS_00560C10(Cell const &cell)
 {
@@ -8634,7 +8634,7 @@ void MapClass::Damage_Low_Bridge2_Piece_NS_00560C10(Cell const &cell)
             if (next == current) return;
         }
         side2->OverlayIndex = side1->OverlayIndex = center->OverlayIndex = next;
-        draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
+        draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - TacticalRect.Top_Left();
         TacticalMap->Register_Dirty_Area(draw_rect, false);
         if (next == 0xe8) {
             Map.Radar_Background(cell);
@@ -8721,7 +8721,7 @@ void MapClass::Repair_Low_Bridge2_Span(Cell const &cell)
 
 // Rebuild the east/west low bridge run, original005615A0.
 unsigned int __fastcall Map_Random_Range_005797a0(unsigned int minimum, unsigned int maximum);
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 
 void MapClass::Repair_Low_Bridge_EW(Cell const &cell)
 {
@@ -8766,7 +8766,7 @@ void MapClass::Repair_Low_Bridge_EW(Cell const &cell)
             center->OverlayIndex = new_overlay;
             side1->OverlayIndex = new_overlay;
             side2->OverlayIndex = new_overlay;
-            draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
+            draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - TacticalRect.Top_Left();
             TacticalMap->Register_Dirty_Area(draw_rect, false);
             if (old_overlay == 0x64) {
                 Map.Radar_Background(cursor);
@@ -8787,7 +8787,7 @@ void MapClass::Repair_Low_Bridge_EW(Cell const &cell)
 
 // Rebuild the north/south low bridge run, original00561A80.
 unsigned int __fastcall Map_Random_Range_005797a0(unsigned int minimum, unsigned int maximum);
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 
 void MapClass::Repair_Low_Bridge_NS(Cell const &cell)
 {
@@ -8832,7 +8832,7 @@ void MapClass::Repair_Low_Bridge_NS(Cell const &cell)
             center->OverlayIndex = new_overlay;
             side1->OverlayIndex = new_overlay;
             side2->OverlayIndex = new_overlay;
-            draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
+            draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - TacticalRect.Top_Left();
             TacticalMap->Register_Dirty_Area(draw_rect, false);
             if (old_overlay == 0x65) {
                 Map.Radar_Background(cursor);
@@ -8853,7 +8853,7 @@ void MapClass::Repair_Low_Bridge_NS(Cell const &cell)
 
 // Rebuild the east/west low bridge run, original00561F60.
 unsigned int __fastcall Map_Random_Range_005797a0(unsigned int minimum, unsigned int maximum);
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 
 void MapClass::Repair_Low_Bridge2_EW(Cell const &cell)
 {
@@ -8898,7 +8898,7 @@ void MapClass::Repair_Low_Bridge2_EW(Cell const &cell)
             center->OverlayIndex = new_overlay;
             side1->OverlayIndex = new_overlay;
             side2->OverlayIndex = new_overlay;
-            draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
+            draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - TacticalRect.Top_Left();
             TacticalMap->Register_Dirty_Area(draw_rect, false);
             if (old_overlay == 0xe7) {
                 Map.Radar_Background(cursor);
@@ -8919,7 +8919,7 @@ void MapClass::Repair_Low_Bridge2_EW(Cell const &cell)
 
 // Rebuild the north/south low bridge run, original00562450.
 unsigned int __fastcall Map_Random_Range_005797a0(unsigned int minimum, unsigned int maximum);
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 
 void MapClass::Repair_Low_Bridge2_NS(Cell const &cell)
 {
@@ -8964,7 +8964,7 @@ void MapClass::Repair_Low_Bridge2_NS(Cell const &cell)
             center->OverlayIndex = new_overlay;
             side1->OverlayIndex = new_overlay;
             side2->OverlayIndex = new_overlay;
-            draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
+            draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - TacticalRect.Top_Left();
             TacticalMap->Register_Dirty_Area(draw_rect, false);
             if (old_overlay == 0xe8) {
                 Map.Radar_Background(cursor);
@@ -10905,7 +10905,7 @@ bool MapClass::Is_Under_Fog(CoordStruct const &coord)
 bool MapClass::Is_Fogged(CoordStruct const &coord)
 {
     CellClass *cellptr;
-    if (unknown_game_mode_a3d298 == 0 || !unknown_player_a35db4->unknown_13d || !MuteSWLaunches) {
+    if (unknown_game_mode_a3d298 == 0 || !PlayerPtr->unknown_13d || !MuteSWLaunches) {
         int level = coord.Z / unknown_geometry_g;
         if ((level & 1) != 0) {
             int offset = level / 2 + 1;

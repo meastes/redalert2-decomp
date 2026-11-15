@@ -9,7 +9,7 @@ void TemporalClass::Unknown_006E2610()
         Target->unknown_204=false;
         if(Target->Kind_Of()==6) {
             TechnoClass *building=Target;
-            building->House->unknown_5668=true;
+            building->House->RecalcPower=true;
             seed_0044d380::unknown_temporal_thaw_0044d380((int)building);
             building->House->unknown_144=true;
         }

@@ -247,7 +247,7 @@ void IonBlastClass::AI()
                                 to_blast.Z = (float)(blast_coord.Z - occupier_coord.Z);
                                 Vector3 flat = to_blast;
 
-                                double facing_rad = (double)((short)foot->unknown_2e0.Current().Raw - 0x3FFF) * -9.587672516830327e-05;
+                                double facing_rad = (double)((short)foot->PrimaryFacing.Current().Raw - 0x3FFF) * -9.587672516830327e-05;
                                 float facing_sin = (float)unknown_sin_4ba480(facing_rad);
                                 Vector3 facing;
                                 facing.X = (float)unknown_cos_4ba4d0(facing_rad);
@@ -412,13 +412,13 @@ void IonBlastClass::One_Time()
 // (0x00521CE0; TibSun ionblast.cpp)
 // blast's shockwave surface for this lifetime frame, depth masked, at the highest detail level.
 #include "shared/blit.hpp"
-extern Rect unknown_rect_839630;        // 0x00839630 tactical X, Y, width, height
+extern Rect TacticalRect;        // 0x00839630 tactical X, Y, width, height
 void IonBlastClass::Draw_It()
 {
     Point2D point;
     if (unknown_a40b2c == 2 && TacticalMap->Coord_To_Pixel(Coord, point)) {
         Surface *dest_surface = LogicalSurface;
-        Rect dcliprect = unknown_rect_839630;
+        Rect dcliprect = TacticalRect;
         dcliprect.Height -= 7;
         Surface *source_surface = BlastSurfaces[Lifetime];
         int stride = dest_surface->Stride();

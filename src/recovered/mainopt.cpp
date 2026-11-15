@@ -481,20 +481,20 @@ bool __fastcall Set_Display_Mode(int width, int height)
         delete HiddenSurface;
         HiddenSurface = 0;
     }
-    if (unknown_surface_839944) {
+    if (TileSurface) {
         Debug_Printf("Deleting TileSurface\n");
-        delete unknown_surface_839944;
-        unknown_surface_839944 = 0;
+        delete TileSurface;
+        TileSurface = 0;
     }
     if (SidebarSurface) {
         Debug_Printf("Deleting SidebarSurface\n");
         delete SidebarSurface;
         SidebarSurface = 0;
     }
-    if (unknown_surface_839964) {
+    if (CompositeSurface) {
         Debug_Printf("Deleting CompositeSurface\n");
-        delete unknown_surface_839964;
-        unknown_surface_839964 = 0;
+        delete CompositeSurface;
+        CompositeSurface = 0;
     }
     if (WindowedMode == false) {
         Debug_Printf("Setting new window size to %dx%d\n", width, height);

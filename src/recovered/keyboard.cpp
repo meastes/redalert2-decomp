@@ -651,7 +651,7 @@ bool WWKeyboardClass::Is_Buffer_Empty()
 void WWKeyboardClass::Fill_Buffer_From_System()
 {
     if (!Is_Buffer_Full()) {
-        Unknown_005B5EE0();
+        Windows_Message_Handler();
     }
 }
 

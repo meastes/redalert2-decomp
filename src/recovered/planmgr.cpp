@@ -114,8 +114,8 @@ int __fastcall Planning_House(TechnoClass *techno)
 {
     HouseClass *side = techno->House;
     int house = side->ArrayIndex;
-    if (side->Is_Player_Control() && unknown_player_a35db4) {
-        house = unknown_player_a35db4->ArrayIndex;
+    if (side->Is_Player_Control() && PlayerPtr) {
+        house = PlayerPtr->ArrayIndex;
     }
     return house;
 }
@@ -1099,7 +1099,7 @@ void PlanningNodeClass::Draw_Marker(int color)
 {
     ::Rect view = Get_Title_Screen_Area_006f1f30();
     ::Rect marker = Rect();
-    unknown_surface_839964->Draw_Rect(view, marker, color);
+    CompositeSurface->Draw_Rect(view, marker, color);
     if (view.Is_Overlapping(marker)) {
         unknown_list_00a766d8.Add(this);
     }
@@ -1117,7 +1117,7 @@ void PlanningNodeClass::Fill_Marker(int color)
     marker.Y += 1;
     marker.Width -= 2;
     marker.Height -= 2;
-    unknown_surface_839964->Fill_Rect(view, marker, color);
+    CompositeSurface->Fill_Rect(view, marker, color);
 }
 
 
@@ -1129,7 +1129,7 @@ void PlanningNodeClass::Draw_Outer_Outline(int color)
     ::Rect view = Get_Title_Screen_Area_006f1f30();
     ::Rect rect = Outer_Rect();
     for (int ring = 0; ring < 3; ring++) {
-        unknown_surface_839964->Draw_Rect(view, rect, color);
+        CompositeSurface->Draw_Rect(view, rect, color);
         Planning_Inflate(rect, -1);
     }
 }
@@ -1143,7 +1143,7 @@ void PlanningNodeClass::Draw_Marker_Outline(int color)
     ::Rect view = Get_Title_Screen_Area_006f1f30();
     ::Rect rect = Outer_Rect2();
     for (int ring = 0; ring < 3; ring++) {
-        unknown_surface_839964->Draw_Rect(view, rect, color);
+        CompositeSurface->Draw_Rect(view, rect, color);
         Planning_Inflate(rect, -1);
     }
 }
@@ -2257,7 +2257,7 @@ void Planning_Begin()
 void Planning_End()
 {
     if (unknown_flag_a767a4) {
-        EventClass event(unknown_player_a35db4->ArrayIndex, 0x2B);
+        EventClass event(PlayerPtr->ArrayIndex, 0x2B);
         Unknown_0062E670(event);
         unknown_node_a7678c = 0;
         unknown_node_a766f8 = 0;
@@ -2326,7 +2326,7 @@ void PlanningNodeClass::unknown_614aa0()
     }
     AbstractClass *object = reference->As_Abstract();
     if (object) {
-        EventClass send(unknown_player_a35db4->ArrayIndex, 0x2C, TargetClass(object));
+        EventClass send(PlayerPtr->ArrayIndex, 0x2C, TargetClass(object));
         Unknown_0062E670(send);
     }
 }
@@ -2425,7 +2425,7 @@ void __fastcall Planning_Execute(EventClass *event)
             if (node) {
                 PlanningNodeClass *next = Planning_Next_On_Path(node);
                 Planning_Remove_Node(node);
-                if (next && house == unknown_player_a35db4->ArrayIndex) {
+                if (next && house == PlayerPtr->ArrayIndex) {
                     unknown_node_a766b0 = next;
                 }
             }
@@ -2471,7 +2471,7 @@ bool __fastcall Planning_Add_Order(TechnoClass *techno, EventClass *event)
     if (!techno) {
         return false;
     }
-    bool player = event->House == unknown_player_a35db4->ArrayIndex;
+    bool player = event->House == PlayerPtr->ArrayIndex;
     CoordStruct const &coord = Planning_Event_Coord(*event);
     if (coord == CoordStruct(-1, -1, -1)) {
         return false;
@@ -2774,7 +2774,7 @@ void __fastcall Planning_Hover()
     if (node != unknown_node_a7678c) {
         unknown_a766fc = 0;
         if (node != 0) {
-            if (node->Member_Owner(0)->House != unknown_player_a35db4
+            if (node->Member_Owner(0)->House != PlayerPtr
                 || (unknown_node_a766f8 != 0 && unknown_node_a766f8 != node)
                 || Planning_Selection_Node_State(node) != -1) {
                 unknown_a766fc = (int)node;
@@ -2865,7 +2865,7 @@ fail:
 bool __fastcall Planning_Can_Add()
 {
     if (unknown_flag_a767a4) {
-        int total = Planning_Count(unknown_player_a35db4->ArrayIndex);
+        int total = Planning_Count(PlayerPtr->ArrayIndex);
         int added = 0;
         int count = CurrentObject.Count();
         for (int i = 0; i < count; i++) {
@@ -2985,7 +2985,7 @@ void __fastcall Planning_Send_Pair(AbstractClass *source, PlanningNodeClass *nod
     }
     AbstractClass *object = reference->As_Abstract();
     if (object) {
-        EventClass send(unknown_player_a35db4->ArrayIndex, 0x2A, TargetClass(source), TargetClass(object));
+        EventClass send(PlayerPtr->ArrayIndex, 0x2A, TargetClass(source), TargetClass(object));
         Unknown_0062E670(send);
     }
 }
@@ -3346,7 +3346,7 @@ void __fastcall Planning_Refuse_Event(EventClass const *event)
     } else if (event->Type == 7) {
         Planning_Refuse("MSG:PlanningModeNoScatter");
     }
-    Voc_Play(Rules->unknown_620, 1.0f, 0x2000, 0);
+    Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
 }
 
 
@@ -3430,7 +3430,7 @@ void __fastcall Planning_Refuse(char const *label)
     if (!unknown_flag_a766c8) {
         unknown_flag_a766c8 = true;
         Planning_Message(label);
-        Voc_Play(Rules->unknown_620, 1.0f, 0x2000, 0);
+        Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
     }
 }
 
@@ -3761,7 +3761,7 @@ static inline void Connect_Node_Target(PlanningNodeClass *node, TechnoClass *tec
     EventClass packet = node->Member_Event(0);
     AbstractClass *target = ((PlanningEventTargets *)&packet)->First_Target_Object();
     if (target) {
-        EventClass event(unknown_player_a35db4->ArrayIndex, 0x2A, TargetClass(techno), TargetClass(target));
+        EventClass event(PlayerPtr->ArrayIndex, 0x2A, TargetClass(techno), TargetClass(target));
         Unknown_0062E670(event);
     }
 }
@@ -3883,7 +3883,7 @@ void Planning_Redraw()
     int i;
     for (i = 0; i < count; i++) {
         PlanningNodeClass *node = PlanningNodeClass::unknown_list_00a76628[i];
-        if (node->House()->Is_Ally(unknown_player_a35db4)) {
+        if (node->House()->Is_Ally(PlayerPtr)) {
             Planning_Draw_Node_619420(node);
         }
     }
@@ -3891,7 +3891,7 @@ void Planning_Redraw()
     for (i = 0; i < count; i++) {
         TechnoClass *techno = unknown_list_a40c20[i];
         HouseClass *house = techno->House;
-        if (house->Is_Ally(unknown_player_a35db4)) {
+        if (house->Is_Ally(PlayerPtr)) {
             Planning_Draw_Techno(techno);
         }
     }
@@ -3910,7 +3910,7 @@ static inline void Planning_Fill_Inner_Marker(PlanningNodeClass *node, int color
     ::Rect view = Get_Title_Screen_Area_006f1f30();
     ::Rect marker = node->Rect();
     Planning_Inflate(marker, -1);
-    unknown_surface_839964->Fill_Rect(view, marker, color);
+    CompositeSurface->Fill_Rect(view, marker, color);
 }
 
 void Planning_Draw_All()
@@ -3919,20 +3919,20 @@ void Planning_Draw_All()
     int i;
     for (i = 0; i < count; i++) {
         PlanningNodeClass *node = PlanningNodeClass::unknown_list_00a76628[i];
-        if (node->House()->Is_Ally(unknown_player_a35db4)) {
+        if (node->House()->Is_Ally(PlayerPtr)) {
             Planning_Draw_Node_619870(node);
         }
     }
     for (i = 0; i < count; i++) {
         PlanningNodeClass *node = PlanningNodeClass::unknown_list_00a76628[i];
-        if (node->House()->Is_Ally(unknown_player_a35db4)) {
+        if (node->House()->Is_Ally(PlayerPtr)) {
             Planning_Fill_Inner_Marker(node, node->Color());
         }
     }
     int technos = unknown_list_a40c20.Count();
     for (i = 0; i < technos; i++) {
         TechnoClass *techno = unknown_list_a40c20[i];
-        if (techno->House->Is_Ally(unknown_player_a35db4)) {
+        if (techno->House->Is_Ally(PlayerPtr)) {
             Planning_Draw_Techno_618c00(techno);
         }
     }
@@ -4383,7 +4383,7 @@ void __fastcall Planning_Draw_Dot(Point2D center, int color)
     view = Get_Title_Screen_Area_006f1f30();
     ::Rect square;
     square = Planning_Centered_Rect(center, 6);
-    unknown_surface_839964->Draw_Rect(view, square, color);
+    CompositeSurface->Draw_Rect(view, square, color);
 }
 
 
@@ -4398,7 +4398,7 @@ void __fastcall Planning_Fill_Dot(Point2D center, int color)
     ::Rect square;
     square = Planning_Centered_Rect(point, 6);
     Planning_Inflate(square, -1);
-    Surface *surface = unknown_surface_839964;
+    Surface *surface = CompositeSurface;
     surface->Fill_Rect(view, square, color);
 }
 
@@ -4437,7 +4437,7 @@ void __fastcall Planning_Draw_Midpoint(Point2D start, Point2D end, int color)
     int y = (start.Y + end.Y) / 2 - 10;
     ::Rect view = Get_Title_Screen_Area_006f1f30();
     ::Rect square(x, y, 21, 21);
-    unknown_surface_839964->Draw_Rect(view, square, color);
+    CompositeSurface->Draw_Rect(view, square, color);
 }
 
 
@@ -4463,9 +4463,9 @@ void __fastcall Planning_Draw_Midpoint_Shape(Point2D start, Point2D end, int col
         ::Rect view = Get_Title_Screen_Area_006f1f30();
         ::Rect square(left, top, 21, 21);
         Planning_Inflate(square, -1);
-        unknown_surface_839964->Draw_Rect(view, square, color);
+        CompositeSurface->Draw_Rect(view, square, color);
         Planning_Inflate(square, -1);
-        unknown_surface_839964->Fill_Rect(view, square, fill);
+        CompositeSurface->Fill_Rect(view, square, fill);
         Point2D point(left, top);
         ::Rect window = view;
         MouseShapeHeader const *shape = MouseClass::MouseShapes;
@@ -4473,7 +4473,7 @@ void __fastcall Planning_Draw_Midpoint_Shape(Point2D start, Point2D end, int col
         int height = shape->Height;
         point.X = x - width / 2 - 1;
         point.Y = y - height / 2;
-        CC_Draw_Shape(unknown_surface_839964, unknown_drawer_8323c8, (ShapeFileStruct const *)shape, frame, point, window,
+        CC_Draw_Shape(CompositeSurface, unknown_drawer_8323c8, (ShapeFileStruct const *)shape, frame, point, window,
                       0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
     }
 }
@@ -4502,9 +4502,9 @@ void __fastcall Planning_Draw_Line(Point2D start, Point2D end, int offset, int c
     if (Clip_Line(start, end, area)) {
         if (dashed) {
             int phase = (-(int)timeGetTime() >> 5) & 0xF;
-            unknown_surface_839964->Draw_Dashed_Line(start, end, color, unknown_pattern_7eb9f8, phase);
+            CompositeSurface->Draw_Dashed_Line(start, end, color, unknown_pattern_7eb9f8, phase);
         } else {
-            unknown_surface_839964->Draw_Line(start, end, color);
+            CompositeSurface->Draw_Line(start, end, color);
         }
     }
 }

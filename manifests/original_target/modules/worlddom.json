@@ -1482,7 +1482,7 @@
   },
   {
    "site": "005c3550",
-   "symbol": "?Unknown_Territory_00769690@@YI?AV?$rc_ptr@VWDTTerritory@@@@H@Z",
+   "symbol": "?Find_WDT_Territory@@YI?AV?$rc_ptr@VWDTTerritory@@@@H@Z",
    "target": "00769690",
    "function_entry": true
   },
@@ -1494,7 +1494,7 @@
   },
   {
    "site": "0072ffc0",
-   "symbol": "?Unknown_Territory_00769690@@YI?AV?$rc_ptr@VWDTTerritory@@@@H@Z",
+   "symbol": "?Find_WDT_Territory@@YI?AV?$rc_ptr@VWDTTerritory@@@@H@Z",
    "target": "00769690",
    "function_entry": true
   },
@@ -1512,7 +1512,7 @@
   },
   {
    "site": "00577880",
-   "symbol": "?Unknown_Territory_00769690@@YI?AV?$rc_ptr@VWDTTerritory@@@@H@Z",
+   "symbol": "?Find_WDT_Territory@@YI?AV?$rc_ptr@VWDTTerritory@@@@H@Z",
    "target": "00769690",
    "function_entry": true
   },
@@ -1661,6 +1661,10 @@
   {
    "symbol": "?Create@RawFileClass@@UAEHXZ",
    "address": "00639200"
+  },
+  {
+   "symbol": "?Darken_Surface@@YIXH_N@Z",
+   "address": "005159b0"
   },
   {
    "symbol": "?Delete@RawFileClass@@UAEHXZ",
@@ -1831,6 +1835,10 @@
    "address": "00469150"
   },
   {
+   "symbol": "?Slide_Pending_Dialog@@YIXPAUHWND__@@@Z",
+   "address": "005e5f20"
+  },
+  {
    "symbol": "?Test_Display_Mode@@YI_NHH@Z",
    "address": "00543a70"
   },
@@ -1883,16 +1891,8 @@
    "address": "00781d3b"
   },
   {
-   "symbol": "?unknown_5159b0@@YIXH_N@Z",
-   "address": "005159b0"
-  },
-  {
    "symbol": "?unknown_a3d3bc@@3HA",
    "address": "00a3d3bc"
-  },
-  {
-   "symbol": "?unknown_dialog_5e5f20@@YIXPAUHWND__@@@Z",
-   "address": "005e5f20"
   },
   {
    "symbol": "?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z",
@@ -2167,19 +2167,19 @@
   {
    "site": "005c3550",
    "target": "00769690",
-   "symbol": "?Unknown_Territory_00769690@@YI?AV?$rc_ptr@VWDTTerritory@@@@H@Z",
+   "symbol": "?Find_WDT_Territory@@YI?AV?$rc_ptr@VWDTTerritory@@@@H@Z",
    "module_symbol": "?Get_WDT_Territory_00769690@@YI?AV?$rc_ptr@VWDTTerritory@@@@H@Z"
   },
   {
    "site": "0072ffc0",
    "target": "00769690",
-   "symbol": "?Unknown_Territory_00769690@@YI?AV?$rc_ptr@VWDTTerritory@@@@H@Z",
+   "symbol": "?Find_WDT_Territory@@YI?AV?$rc_ptr@VWDTTerritory@@@@H@Z",
    "module_symbol": "?Get_WDT_Territory_00769690@@YI?AV?$rc_ptr@VWDTTerritory@@@@H@Z"
   },
   {
    "site": "00577880",
    "target": "00769690",
-   "symbol": "?Unknown_Territory_00769690@@YI?AV?$rc_ptr@VWDTTerritory@@@@H@Z",
+   "symbol": "?Find_WDT_Territory@@YI?AV?$rc_ptr@VWDTTerritory@@@@H@Z",
    "module_symbol": "?Get_WDT_Territory_00769690@@YI?AV?$rc_ptr@VWDTTerritory@@@@H@Z"
   },
   {

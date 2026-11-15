@@ -151,8 +151,8 @@ void __fastcall Special_Dialog_00481850()
         return;
     }
     if (unknown_game_mode_a3d298 != 0) {
-        if (unknown_player_a35db4->unknown_140 || unknown_player_a35db4->unknown_13f || unknown_player_a35db4->unknown_13e
-            || (!unknown_flag_007d88e0 && !unknown_player_a35db4->unknown_13d)) {
+        if (PlayerPtr->unknown_140 || PlayerPtr->unknown_13f || PlayerPtr->unknown_13e
+            || (!unknown_flag_007d88e0 && !PlayerPtr->unknown_13d)) {
             unknown_int_a40d48 = 0;
             return;
         }
@@ -202,13 +202,13 @@ void __fastcall Special_Dialog_00481850()
         case 3:
             switch (Run_Game_Options_Dialog()) {
             case 3:
-                OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 8));
+                OutList.Add(EventClass(PlayerPtr->ArrayIndex, 8));
                 unknown_flag_007d88e0 = false;
             case 2:
                 Queue_Exit();
                 break;
             case 4:
-                OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 8));
+                OutList.Add(EventClass(PlayerPtr->ArrayIndex, 8));
                 unknown_flag_007d88e0 = false;
                 break;
             case 5:
@@ -220,10 +220,10 @@ void __fastcall Special_Dialog_00481850()
         case 2:
             if (unknown_a72c68 != 0) {
                 Queue_Exit();
-            } else if (!unknown_player_a35db4->unknown_13d && !unknown_player_a35db4->unknown_13f
-                       && !unknown_player_a35db4->unknown_140 && !unknown_player_a35db4->unknown_13e) {
+            } else if (!PlayerPtr->unknown_13d && !PlayerPtr->unknown_13f
+                       && !PlayerPtr->unknown_140 && !PlayerPtr->unknown_13e) {
                 if (OK_Cancel_Message_005A7430(StringTable::Load_String("TXT_SURRENDER", 0, "D:\\Ra2\\Conquer.CPP", 487))) {
-                    OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 8));
+                    OutList.Add(EventClass(PlayerPtr->ArrayIndex, 8));
                     unknown_flag_007d88e0 = false;
                 }
             }
@@ -461,19 +461,19 @@ void __fastcall IPX_Call_Back()
 
                     case 0x20:
                     {
-                        unknown_object_84e8d0.Unknown_0042E370(unknown_session_a3d298.GPacket.Beacon.House, CoordStruct(unknown_session_a3d298.GPacket.Beacon.X, unknown_session_a3d298.GPacket.Beacon.Y, unknown_session_a3d298.GPacket.Beacon.Z), unknown_session_a3d298.GPacket.Beacon.Slot);
+                        BeaconManager.Unknown_0042E370(unknown_session_a3d298.GPacket.Beacon.House, CoordStruct(unknown_session_a3d298.GPacket.Beacon.X, unknown_session_a3d298.GPacket.Beacon.Y, unknown_session_a3d298.GPacket.Beacon.Z), unknown_session_a3d298.GPacket.Beacon.Slot);
                         break;
                     }
 
                     case 0x21:
                     {
-                        unknown_object_84e8d0.Unknown_0042E990(unknown_session_a3d298.GPacket.Beacon.House, unknown_session_a3d298.GPacket.Beacon.Slot);
+                        BeaconManager.Unknown_0042E990(unknown_session_a3d298.GPacket.Beacon.House, unknown_session_a3d298.GPacket.Beacon.Slot);
                         break;
                     }
 
                     case 0x22:
                     {
-                        unknown_object_84e8d0.EditBeaconMessage_0042ec20(unknown_session_a3d298.GPacket.BeaconText.Text, unknown_session_a3d298.GPacket.BeaconText.House, unknown_session_a3d298.GPacket.BeaconText.Slot, false);
+                        BeaconManager.EditBeaconMessage_0042ec20(unknown_session_a3d298.GPacket.BeaconText.Text, unknown_session_a3d298.GPacket.BeaconText.House, unknown_session_a3d298.GPacket.BeaconText.Slot, false);
                         break;
                     }
 
@@ -641,7 +641,7 @@ int __fastcall Facing_From_Key_00482b50(unsigned int key)
 
 // Existing shared/display.hpp receiver type, incomplete here: no new owner class.
 class BeaconManagerClass;
-extern BeaconManagerClass unknown_object_84e8d0;
+extern BeaconManagerClass BeaconManager;
 // Observed one-DWORD ECX argument, no stack arguments; original source form unknown.
 void __fastcall Set_Type_Select_Mode(unsigned int value);
 // Observed one-pointer ECX receiver, no stack arguments; member/free source form unknown.
@@ -651,7 +651,7 @@ void __cdecl Clear_Selected_Objects_00482bc0()
     while (CurrentObject.Count()!=0)
         CurrentObject[0]->Unselect();
     Set_Type_Select_Mode(0);
-    Unknown_0042e830(&unknown_object_84e8d0);
+    Unknown_0042e830(&BeaconManager);
 }
 
 

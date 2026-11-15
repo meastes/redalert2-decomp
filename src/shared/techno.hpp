@@ -678,11 +678,11 @@ public:
     bool unknown_1fd;                       // +0x1FD
     int unknown_200;                        // +0x200
     bool unknown_204;                       // +0x204
-    bool unknown_205;                       // +0x205
+    bool WarpingOut;                       // +0x205
     bool unknown_206;                       // +0x206
-    UnknownTechno208 *unknown_208;          // +0x208 (owned; swizzled)
+    UnknownTechno208 *TemporalImUsing;          // +0x208 (owned; swizzled)
     AbstractClass *unknown_20c;             // +0x20C (swizzled)
-    bool unknown_210;                       // +0x210
+    bool IsImmobilized;                       // +0x210
     int unknown_214;                        // +0x214
     int unknown_218;                        // +0x218
     CoordStruct unknown_21c;                // +0x21C
@@ -692,8 +692,8 @@ public:
     AbstractClass *unknown_234;             // +0x234 (swizzled)
     SpawnManagerClass *SpawnManager;          // +0x238 (owned; swizzled)
     AbstractClass *unknown_23c;             // +0x23C (swizzled)
-    float unknown_240;                      // +0x240 (float: TechnoClass::Compute_CRC hashes it as one)
-    CDTimerClass<FrameTimerClass> unknown_244;  // +0x244
+    float PitchAngle;                      // +0x240 (float: TechnoClass::Compute_CRC hashes it as one)
+    CDTimerClass<FrameTimerClass> Arm;  // +0x244
     int unknown_250;                        // +0x250
     int unknown_254;                        // +0x254 (-1)
     int unknown_258;                        // +0x258
@@ -706,11 +706,11 @@ public:
     int unknown_290;                        // +0x290 (-1)
     StorageClass unknown_294;               // +0x294
     int unknown_2a4;                        // +0x2A4
-    DelayTimerClass unknown_2a8;               // +0x2A8
+    DelayTimerClass Door;               // +0x2A8
     FacingClass unknown_2c8;                // +0x2C8 (rate 3)
-    FacingClass unknown_2e0;                // +0x2E0
-    FacingClass unknown_2f8;                // +0x2F8
-    int unknown_310;                        // +0x310
+    FacingClass PrimaryFacing;                // +0x2E0
+    FacingClass SecondaryFacing;                // +0x2F8
+    int BurstIndex;                        // +0x310
     CDTimerClass<FrameTimerClass> unknown_314;  // +0x314
     short unknown_320;                      // +0x320 (random when constructed)
     short unknown_322;                      // +0x322

@@ -609,6 +609,10 @@
    "address": "005c34d0"
   },
   {
+   "symbol": "?Darken_Surface@@YIXH_N@Z",
+   "address": "005159b0"
+  },
+  {
    "symbol": "?Fill_Color_Combos_4d2300@@YIXPAUHWND__@@@Z",
    "address": "004d2300"
   },
@@ -631,6 +635,10 @@
   {
    "symbol": "?Init_Color_Entries_4d1ea0@@YIXXZ",
    "address": "004d1ea0"
+  },
+  {
+   "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
+   "address": "006720c0"
   },
   {
    "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
@@ -667,6 +675,10 @@
   {
    "symbol": "?Read_PCX_Preview@MapPreviewClass@@QAE_NPBD@Z",
    "address": "0061e170"
+  },
+  {
+   "symbol": "?RuleINI@@3PAVCCINIClass@@A",
+   "address": "008396d0"
   },
   {
    "symbol": "?Rules@@3PAVRulesClass@@A",
@@ -737,18 +749,6 @@
    "address": "005c34b0"
   },
   {
-   "symbol": "?Unknown_005c7570@@YIXPAUHWND__@@@Z",
-   "address": "005c7570"
-  },
-  {
-   "symbol": "?Unknown_005e5fc0@@YIXPAUHWND__@@@Z",
-   "address": "005e5fc0"
-  },
-  {
-   "symbol": "?Unknown_006720C0@MultiMission@@QAE_NXZ",
-   "address": "006720c0"
-  },
-  {
    "symbol": "?Unknown_00672810@GameOptionsType@@QAEXXZ",
    "address": "00672810"
   },
@@ -757,16 +757,20 @@
    "address": "00672bb0"
   },
   {
+   "symbol": "?Update_Network_Dialog_Preview@@YIXPAUHWND__@@@Z",
+   "address": "005c7570"
+  },
+  {
+   "symbol": "?WS_Save_Dialog_Values@@YIXPAUHWND__@@@Z",
+   "address": "005e5fc0"
+  },
+  {
    "symbol": "?WideToCharString_006fa0f0@@YIXPADPBGH@Z",
    "address": "006fa0f0"
   },
   {
    "symbol": "?Write_MultiPlayer_Settings@SessionClass@@QAEXXZ",
    "address": "00670380"
-  },
-  {
-   "symbol": "?unknown_5159b0@@YIXH_N@Z",
-   "address": "005159b0"
   },
   {
    "symbol": "?unknown_5b7470@MultiplayerGameMode@@QAE_NPAVMultiMission@@@Z",
@@ -811,10 +815,6 @@
   {
    "symbol": "?unknown_first_mode_5b6ec0@MultiplayerGameMode@@SAPAV1@XZ",
    "address": "005b6ec0"
-  },
-  {
-   "symbol": "?unknown_ini_8396d0@@3PAVCCINIClass@@A",
-   "address": "008396d0"
   },
   {
    "symbol": "?unknown_lobby_state_a3d2b0@@3VGameOptionsType@@A",

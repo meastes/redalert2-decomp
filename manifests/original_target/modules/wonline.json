@@ -5466,6 +5466,14 @@
    "address": "00673090"
   },
   {
+   "symbol": "?AlternateListenPort@@3HA",
+   "address": "007f60d8"
+  },
+  {
+   "symbol": "?AlternateSendPort@@3HA",
+   "address": "007f60d4"
+  },
+  {
    "symbol": "?As_Lower@WideString@@QBE?AV1@XZ",
    "address": "00770a30"
   },
@@ -5596,6 +5604,10 @@
   {
    "symbol": "?Current_WDT_Campaign_00769670@@YIABV?$rc_ptr@VCampaign@WorldDominationTour@@@@XZ",
    "address": "00769670"
+  },
+  {
+   "symbol": "?Darken_Surface@@YIXH_N@Z",
+   "address": "005159b0"
   },
   {
    "symbol": "?Debug_Printf@@YAXPBDZZ",
@@ -5742,6 +5754,10 @@
    "address": "00770470"
   },
   {
+   "symbol": "?Get_Country@NodeNameType@@QAEHXZ",
+   "address": "0066e290"
+  },
+  {
    "symbol": "?Get_Date_Time@CCFileClass@@UAEKXZ",
    "address": "00469350"
   },
@@ -5798,6 +5814,18 @@
    "address": "00601180"
   },
   {
+   "symbol": "?Global_Channel_Clear_FieldC8@IPXManagerClass@@QAEXXZ",
+   "address": "005277f0"
+  },
+  {
+   "symbol": "?Global_Channel_Op@IPXManagerClass@@QAEHHPAXPAHPAVIPXAddressClass@@PAGPAK@Z",
+   "address": "00525af0"
+  },
+  {
+   "symbol": "?Global_Channel_Op_44@IPXManagerClass@@QAEXH@Z",
+   "address": "00527830"
+  },
+  {
    "symbol": "?Global_Num_Receive@IPXManagerClass@@UAEHXZ",
    "address": "00526a60"
   },
@@ -5850,6 +5878,10 @@
    "address": "00765e90"
   },
   {
+   "symbol": "?Ipx@@3VIPXManagerClass@@A",
+   "address": "00a40978"
+  },
+  {
    "symbol": "?Is_Available@BufferIOFileClass@@UAE_NH@Z",
    "address": "0042f6e0"
   },
@@ -5876,6 +5908,10 @@
   {
    "symbol": "?Is_Previous_Cycle@WDTState@@QBEEXZ",
    "address": "0072c3a0"
+  },
+  {
+   "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
+   "address": "006720c0"
   },
   {
    "symbol": "?Is_Real_Player_Entry_005c9320@seed_005c9320@@YIIH@Z",
@@ -6038,6 +6074,10 @@
    "address": "00a40b18"
   },
   {
+   "symbol": "?OwnerTalk@@3VOwnerTalkClass@@A",
+   "address": "00ab6d18"
+  },
+  {
    "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
    "address": "00839c50"
   },
@@ -6062,6 +6102,10 @@
    "address": "005c3230"
   },
   {
+   "symbol": "?PregameSetup@@YAXXZ",
+   "address": "005c74f0"
+  },
+  {
    "symbol": "?Print_Chat_Line_005c2c80@seed_00763ab0@@YAXHHH@Z",
    "address": "005c2c80"
   },
@@ -6072,6 +6116,10 @@
   {
    "symbol": "?ProgressScreen@@3VProgressScreenClass@@A",
    "address": "00a769e8"
+  },
+  {
+   "symbol": "?PumpGameopts@@YIX_N0@Z",
+   "address": "005c3810"
   },
   {
    "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
@@ -6214,6 +6262,10 @@
    "address": "005c3c60"
   },
   {
+   "symbol": "?Send_Global_Message_To_Name@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "address": "005259a0"
+  },
+  {
    "symbol": "?Send_Remote_File_0066bb20@@YI_NPBDH_N1@Z",
    "address": "0066bb20"
   },
@@ -6250,6 +6302,10 @@
    "address": "007399d0"
   },
   {
+   "symbol": "?Set_Country@NodeNameType@@QAEXH@Z",
+   "address": "0066e2d0"
+  },
+  {
    "symbol": "?Set_Country_007399b0@PlayerProfile@@QAEII@Z",
    "address": "007399b0"
   },
@@ -6272,6 +6328,10 @@
   {
    "symbol": "?Set_Empty@WolIntArray@@QAEXXZ",
    "address": "00766060"
+  },
+  {
+   "symbol": "?Set_Global_Routed@IPXManagerClass@@QAEXXZ",
+   "address": "00527800"
   },
   {
    "symbol": "?Set_Ladder_007399f0@PlayerProfile@@QAEXPAULadder@WOL@@@Z",
@@ -6362,6 +6422,10 @@
    "address": "00469150"
   },
   {
+   "symbol": "?Slide_Pending_Dialog@@YIXPAUHWND__@@@Z",
+   "address": "005e5f20"
+  },
+  {
    "symbol": "?Slot_Control_Id_005c97a0@@YIHH@Z",
    "address": "005c97a0"
   },
@@ -6380,6 +6444,10 @@
   {
    "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
    "address": "006e81a0"
+  },
+  {
+   "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
+   "address": "00a76378"
   },
   {
    "symbol": "?Test_Display_Mode@@YI_NHH@Z",
@@ -6454,10 +6522,6 @@
    "address": "005c34b0"
   },
   {
-   "symbol": "?Unknown_005c3810@@YIX_N0@Z",
-   "address": "005c3810"
-  },
-  {
    "symbol": "?Unknown_005c3b70@@YIXXZ",
    "address": "005c3b70"
   },
@@ -6468,10 +6532,6 @@
   {
    "symbol": "?Unknown_005c5ff0@@YIXPAUHWND__@@PAV?$WolDictionary@VWideString@@_N@@@Z",
    "address": "005c5ff0"
-  },
-  {
-   "symbol": "?Unknown_005c7570@@YIXPAUHWND__@@@Z",
-   "address": "005c7570"
   },
   {
    "symbol": "?Unknown_005c9320@@YI_NPAUNodeNameType@@@Z",
@@ -6534,10 +6594,6 @@
    "address": "006525f0"
   },
   {
-   "symbol": "?Unknown_006720C0@MultiMission@@QAE_NXZ",
-   "address": "006720c0"
-  },
-  {
    "symbol": "?Unknown_00672140@SessionClass@@QAE_NXZ",
    "address": "00672140"
   },
@@ -6556,10 +6612,6 @@
   {
    "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
    "address": "007357e0"
-  },
-  {
-   "symbol": "?Unknown_007359e0@@YIHPAUHWND__@@P6A_NXZHHH@Z",
-   "address": "007359e0"
   },
   {
    "symbol": "?Unknown_00738eb0@@YA_NXZ",
@@ -6638,16 +6690,16 @@
    "address": "005cd0e0"
   },
   {
-   "symbol": "?Unknown_Pregame_Setup_005c74f0@@YAXXZ",
-   "address": "005c74f0"
-  },
-  {
    "symbol": "?Unknown_Reset_Slots_005c8a90@@YAXXZ",
    "address": "005c8a90"
   },
   {
    "symbol": "?Unknown_WOL_Save_Settings_0073C890@@YIXXZ",
    "address": "0073c890"
+  },
+  {
+   "symbol": "?Update_Network_Dialog_Preview@@YIXPAUHWND__@@@Z",
+   "address": "005c7570"
   },
   {
    "symbol": "?User_List_Description_0073f250@@YI?AVWideString@@ABUUser@WOL@@@Z",
@@ -6702,12 +6754,20 @@
    "address": "00739470"
   },
   {
+   "symbol": "?WS_Create_Dialog@@YIPAXPAXHPAUHWND__@@P6GJ1IIJ@ZJ@Z",
+   "address": "00735700"
+  },
+  {
    "symbol": "?WS_Find_Dialog_00735940@@YIPAUHWND__@@H@Z",
    "address": "00735940"
   },
   {
    "symbol": "?WS_Top_Window@@YIPAUHWND__@@XZ",
    "address": "00735b10"
+  },
+  {
+   "symbol": "?WS_Wait_Dialog@@YIHPAUHWND__@@P6A_NXZHHH@Z",
+   "address": "007359e0"
   },
   {
    "symbol": "?WWKeyboard@@3PAVWWKeyboardClass@@A",
@@ -8290,32 +8350,8 @@
    "address": "004ff2c0"
   },
   {
-   "symbol": "?unknown_5159b0@@YIXH_N@Z",
-   "address": "005159b0"
-  },
-  {
-   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
-   "address": "005259a0"
-  },
-  {
-   "symbol": "?unknown_525af0@IPXManagerClass@@QAEHHPAXPAHPAVIPXAddressClass@@PAGPAK@Z",
-   "address": "00525af0"
-  },
-  {
    "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
    "address": "00526c30"
-  },
-  {
-   "symbol": "?unknown_5277f0@IPXManagerClass@@QAEXXZ",
-   "address": "005277f0"
-  },
-  {
-   "symbol": "?unknown_527800@IPXManagerClass@@QAEXXZ",
-   "address": "00527800"
-  },
-  {
-   "symbol": "?unknown_527830@IPXManagerClass@@QAEXH@Z",
-   "address": "00527830"
   },
   {
    "symbol": "?unknown_5e1f30@OwnerDraw@@YIXPAUHWND__@@PAVSurface@@@Z",
@@ -8346,16 +8382,8 @@
    "address": "006000d0"
   },
   {
-   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
-   "address": "0066e290"
-  },
-  {
    "symbol": "?unknown_66e2a0@NodeNameType@@QAEHXZ",
    "address": "0066e2a0"
-  },
-  {
-   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
-   "address": "0066e2d0"
   },
   {
    "symbol": "?unknown_66e300@NodeNameType@@QAEXH@Z",
@@ -8376,10 +8404,6 @@
   {
    "symbol": "?unknown_7fd374@@3_NA",
    "address": "007fd374"
-  },
-  {
-   "symbol": "?unknown_OwnerTalkClass_00ab6d18@@3VOwnerTalkClass@@A",
-   "address": "00ab6d18"
   },
   {
    "symbol": "?unknown_a3d2a4@@3HA",
@@ -8448,10 +8472,6 @@
   {
    "symbol": "?unknown_addresses_a3fbd4@@3PAVIPXAddressClass@@A",
    "address": "00a3fbd4"
-  },
-  {
-   "symbol": "?unknown_alternate_port_7f60d8@@3HA",
-   "address": "007f60d8"
   },
   {
    "symbol": "?unknown_art_ini_unique_id@@YAHXZ",
@@ -8650,10 +8670,6 @@
    "address": "00b2acc8"
   },
   {
-   "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
-   "address": "00a76378"
-  },
-  {
    "symbol": "?unknown_call_741750@UnknownTarget_0075eeb0@@QAEXXZ",
    "address": "00741750"
   },
@@ -8730,16 +8746,8 @@
    "address": "005ff610"
   },
   {
-   "symbol": "?unknown_create_dialog_735700@@YIPAXPAXHPAUHWND__@@P6GJ1IIJ@ZJ@Z",
-   "address": "00735700"
-  },
-  {
    "symbol": "?unknown_default_port_7f60d0@@3HA",
    "address": "007f60d0"
-  },
-  {
-   "symbol": "?unknown_dialog_5e5f20@@YIXPAUHWND__@@@Z",
-   "address": "005e5f20"
   },
   {
    "symbol": "?unknown_dialog_5ecf40@@YGXPAUHWND__@@H@Z",
@@ -8860,10 +8868,6 @@
   {
    "symbol": "?unknown_int_a3db1c@@3HA",
    "address": "00a3db1c"
-  },
-  {
-   "symbol": "?unknown_ipx_manager_a40978@@3VIPXManagerClass@@A",
-   "address": "00a40978"
   },
   {
    "symbol": "?unknown_irc_index_b292d8@@3HA",
@@ -9036,10 +9040,6 @@
   {
    "symbol": "?unknown_players_a3fa7c@@3V?$DynamicVectorClass@PAUNodeNameType@@@@A",
    "address": "00a3fa7c"
-  },
-  {
-   "symbol": "?unknown_port_7f60d4@@3HA",
-   "address": "007f60d4"
   },
   {
    "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",

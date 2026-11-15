@@ -817,35 +817,35 @@
    "address": "007b3278",
    "bytes": 9,
    "kind": "rtti",
-   "section": 256
+   "section": 249
   },
   {
    "symbol": "??_R3XSurface@@8",
    "address": "007b3288",
    "bytes": 16,
    "kind": "rtti",
-   "section": 257
+   "section": 250
   },
   {
    "symbol": "??_R4XSurface@@6B@",
    "address": "007b3298",
    "bytes": 20,
    "kind": "rtti",
-   "section": 259
+   "section": 252
   },
   {
    "symbol": "??_R1A@?0A@A@Surface@@8",
    "address": "007b32b0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 254
+   "section": 247
   },
   {
    "symbol": "??_R1A@?0A@A@XSurface@@8",
    "address": "007b32c8",
    "bytes": 24,
    "kind": "rtti",
-   "section": 255
+   "section": 248
   },
   {
    "symbol": "??_R1A@?0A@A@BSurface@@8",
@@ -964,14 +964,14 @@
    "address": "007b4ae8",
    "bytes": 24,
    "kind": "rtti",
-   "section": 320
+   "section": 321
   },
   {
    "symbol": "??_R1A@?0A@A@Straw@@8",
    "address": "007b4b50",
    "bytes": 24,
    "kind": "rtti",
-   "section": 247
+   "section": 254
   },
   {
    "symbol": "??_R2?$DynamicVectorClass@PAVObjectClass@@@@8",
@@ -1076,28 +1076,28 @@
    "address": "007b7960",
    "bytes": 24,
    "kind": "rtti",
-   "section": 248
+   "section": 255
   },
   {
    "symbol": "??_R2BufferStraw@@8",
    "address": "007b7978",
    "bytes": 9,
    "kind": "rtti",
-   "section": 249
+   "section": 256
   },
   {
    "symbol": "??_R3BufferStraw@@8",
    "address": "007b7988",
    "bytes": 16,
    "kind": "rtti",
-   "section": 250
+   "section": 257
   },
   {
    "symbol": "??_R4BufferStraw@@6B@",
    "address": "007b7998",
    "bytes": 20,
    "kind": "rtti",
-   "section": 252
+   "section": 259
   },
   {
    "symbol": "??_R2Straw@@8",
@@ -1125,49 +1125,49 @@
    "address": "007b79dc",
    "bytes": 5,
    "kind": "rtti",
-   "section": 316
+   "section": 322
   },
   {
    "symbol": "??_R3Pipe@@8",
    "address": "007b79e8",
    "bytes": 16,
    "kind": "rtti",
-   "section": 317
+   "section": 323
   },
   {
    "symbol": "??_R4Pipe@@6B@",
    "address": "007b79f8",
    "bytes": 20,
    "kind": "rtti",
-   "section": 318
+   "section": 325
   },
   {
    "symbol": "??_R1A@?0A@A@BufferPipe@@8",
    "address": "007b7a10",
    "bytes": 24,
    "kind": "rtti",
-   "section": 321
+   "section": 316
   },
   {
    "symbol": "??_R2BufferPipe@@8",
    "address": "007b7a28",
    "bytes": 9,
    "kind": "rtti",
-   "section": 322
+   "section": 317
   },
   {
    "symbol": "??_R3BufferPipe@@8",
    "address": "007b7a38",
    "bytes": 16,
    "kind": "rtti",
-   "section": 323
+   "section": 318
   },
   {
    "symbol": "??_R4BufferPipe@@6B@",
    "address": "007b7a48",
    "bytes": 20,
    "kind": "rtti",
-   "section": 325
+   "section": 320
   },
   {
    "symbol": "??_R0?AV?$VectorClass@USubzoneConnectionStruct@@@@@8",
@@ -1237,14 +1237,14 @@
    "address": "007ce2b0",
    "bytes": 22,
    "kind": "rtti",
-   "section": 253
+   "section": 246
   },
   {
    "symbol": "??_R0?AVXSurface@@@8",
    "address": "007ce2c8",
    "bytes": 23,
    "kind": "rtti",
-   "section": 258
+   "section": 251
   },
   {
    "symbol": "??_R0?AVBSurface@@@8",
@@ -1321,14 +1321,14 @@
    "address": "007d1e90",
    "bytes": 19,
    "kind": "rtti",
-   "section": 319
+   "section": 324
   },
   {
    "symbol": "??_R0?AVStraw@@@8",
    "address": "007d1ec0",
    "bytes": 20,
    "kind": "rtti",
-   "section": 246
+   "section": 253
   },
   {
    "symbol": "??_R0?AVGadgetClass@@@8",
@@ -1468,7 +1468,7 @@
    "address": "007d5df8",
    "bytes": 26,
    "kind": "rtti",
-   "section": 251
+   "section": 258
   },
   {
    "symbol": "??_C@_09OOBE@LocalSize?$AA@",
@@ -1496,7 +1496,7 @@
    "address": "007d5e30",
    "bytes": 25,
    "kind": "rtti",
-   "section": 324
+   "section": 319
   },
   {
    "symbol": "??_C@_0L@NALF@TXT_SHADOW?$AA@",
@@ -3509,6 +3509,10 @@
    "address": "00851a70"
   },
   {
+   "symbol": "?AllowVoice@@3_NA",
+   "address": "007d88d6"
+  },
+  {
    "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
    "address": "008315b4"
   },
@@ -3525,8 +3529,20 @@
    "address": "0047a460"
   },
   {
+   "symbol": "?BeaconManager@@3VBeaconManagerClass@@A",
+   "address": "0084e8d0"
+  },
+  {
    "symbol": "?Blit_Display@GScreenClass@@UAEXXZ",
    "address": "004e0c50"
+  },
+  {
+   "symbol": "?Call_Back@@YAXXZ",
+   "address": "00481fb0"
+  },
+  {
+   "symbol": "?Can_Upgrade@BuildingClass@@QAE_NPBVBuildingTypeClass@@PAVHouseClass@@@Z",
+   "address": "0044d900"
   },
   {
    "symbol": "?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ",
@@ -3579,6 +3595,14 @@
   {
    "symbol": "?Copy_From@XSurface@@UAE_NABVRect@@AAVSurface@@0_N2@Z",
    "address": "00774f00"
+  },
+  {
+   "symbol": "?CurrentObject@@3V?$DynamicVectorClass@PAVObjectClass@@@@A",
+   "address": "00a40c60"
+  },
+  {
+   "symbol": "?CursorCheat@@3_NA",
+   "address": "00a416bc"
   },
   {
    "symbol": "?Debug_Map@@3_NA",
@@ -3765,6 +3789,10 @@
    "address": "0050d7f0"
   },
   {
+   "symbol": "?Get_Max_Level@MapClass@@QAEHXZ",
+   "address": "0056a8a0"
+  },
+  {
    "symbol": "?Get_Next@GadgetClass@@UBEPAVLinkClass@@XZ",
    "address": "004cf190"
   },
@@ -3819,6 +3847,10 @@
   {
    "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
    "address": "0054aab0"
+  },
+  {
+   "symbol": "?IncreaseShroudCounter@CellClass@@QAEXXZ",
+   "address": "0047c8a0"
   },
   {
    "symbol": "?Init@AnimTypeClass@@SIXH@Z",
@@ -3893,6 +3925,10 @@
    "address": "00476460"
   },
   {
+   "symbol": "?Is_Valid_Waypoint@ScenarioClass@@QBE_NH@Z",
+   "address": "00663240"
+  },
+  {
    "symbol": "?Is_Visible@MapClass@@UAGJVCell@@@Z",
    "address": "00547fa0"
   },
@@ -3941,6 +3977,10 @@
    "address": "00a3d548"
   },
   {
+   "symbol": "?NewINIFormat@@3HA",
+   "address": "00a40d24"
+  },
+  {
    "symbol": "?One_Time@MapClass@@UAEXXZ",
    "address": "005480d0"
   },
@@ -3959,6 +3999,10 @@
   {
    "symbol": "?Planning_Can_Add@@YI_NXZ",
    "address": "00615ed0"
+  },
+  {
+   "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+   "address": "00a35db4"
   },
   {
    "symbol": "?Plot_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1P6IX1@Z@Z",
@@ -4013,6 +4057,10 @@
    "address": "004798f0"
   },
   {
+   "symbol": "?ReduceShroudCounter@CellClass@@QAEXXZ",
+   "address": "0047c840"
+  },
+  {
    "symbol": "?Remove@GadgetClass@@UAEPAVLinkClass@@XZ",
    "address": "004cf170"
   },
@@ -4033,6 +4081,10 @@
    "address": "006819a0"
   },
   {
+   "symbol": "?Reset_Action_Line_Timer@TechnoClass@@SAXXZ",
+   "address": "006d7990"
+  },
+  {
    "symbol": "?Reset_Iterator@MapClass@@QAEXXZ",
    "address": "0055a550"
   },
@@ -4047,6 +4099,10 @@
   {
    "symbol": "?Retrieve@MixFileClass@@SIPBXPBD@Z",
    "address": "005956c0"
+  },
+  {
+   "symbol": "?Rubber_Band_Contains_Selectable@Tactical@@QAEHXZ",
+   "address": "006aa6a0"
   },
   {
    "symbol": "?Rules@@3PAVRulesClass@@A",
@@ -4067,6 +4123,10 @@
   {
    "symbol": "?Scroll_Map_006a8b70@Tactical@@QAEXHH@Z",
    "address": "006a8b70"
+  },
+  {
+   "symbol": "?Select_Rubber_Band@Tactical@@QAEXP6IXPAVObjectClass@@@Z@Z",
+   "address": "006aa610"
   },
   {
    "symbol": "?Set_Focus@GadgetClass@@UAEXXZ",
@@ -4129,6 +4189,10 @@
    "address": "0083996c"
   },
   {
+   "symbol": "?TacticalRect@@3VRect@@A",
+   "address": "00839630"
+  },
+  {
    "symbol": "?Tail_Of_List@LinkClass@@UAEAAV1@XZ",
    "address": "00539070"
   },
@@ -4143,6 +4207,10 @@
   {
    "symbol": "?TransIconset@DisplayClass@@2PBXB",
    "address": "00852614"
+  },
+  {
+   "symbol": "?Unfog_Cell@CellClass@@QAEXXZ",
+   "address": "0047be00"
   },
   {
    "symbol": "?Unknown_0042E370@BeaconManagerClass@@QAEXHUCoordStruct@@H@Z",
@@ -4237,10 +4305,6 @@
    "address": "00568520"
   },
   {
-   "symbol": "?Unknown_0056A8A0@MapClass@@QAEHXZ",
-   "address": "0056a8a0"
-  },
-  {
    "symbol": "?Unknown_005B4C60@UnknownObjectA3DC70@@QAEXHHHHHHHHHHH@Z",
    "address": "005b4c60"
   },
@@ -4251,18 +4315,6 @@
   {
    "symbol": "?Unknown_00630840@RadarClass@@QAEXABVRect@@@Z",
    "address": "00630840"
-  },
-  {
-   "symbol": "?Unknown_00663240@ScenarioClass@@QBE_NH@Z",
-   "address": "00663240"
-  },
-  {
-   "symbol": "?Unknown_006AA610@Tactical@@QAEXP6IXPAVObjectClass@@@Z@Z",
-   "address": "006aa610"
-  },
-  {
-   "symbol": "?Unknown_006AA6A0@Tactical@@QAEHXZ",
-   "address": "006aa6a0"
   },
   {
    "symbol": "?Unknown_006AA770@Tactical@@QAEXXZ",
@@ -4333,36 +4385,16 @@
    "address": "0054f8f0"
   },
   {
+   "symbol": "?drag_select_aborted@@3_NA",
+   "address": "00a40d45"
+  },
+  {
    "symbol": "?target@Call_49a5b0_0@@QAEIIII@Z",
    "address": "00548070"
   },
   {
-   "symbol": "?unknown_44d900@BuildingClass@@QAE_NPBVBuildingTypeClass@@PAVHouseClass@@@Z",
-   "address": "0044d900"
-  },
-  {
    "symbol": "?unknown_47a200@CellClass@@QBEPBGXZ",
    "address": "0047a200"
-  },
-  {
-   "symbol": "?unknown_47be00@CellClass@@QAEXXZ",
-   "address": "0047be00"
-  },
-  {
-   "symbol": "?unknown_47c840@CellClass@@QAEXXZ",
-   "address": "0047c840"
-  },
-  {
-   "symbol": "?unknown_47c8a0@CellClass@@QAEXXZ",
-   "address": "0047c8a0"
-  },
-  {
-   "symbol": "?unknown_481fb0@@YAXXZ",
-   "address": "00481fb0"
-  },
-  {
-   "symbol": "?unknown_6d7990@TechnoClass@@SAXXZ",
-   "address": "006d7990"
   },
   {
    "symbol": "?unknown_852630@DisplayClass@@2HA",
@@ -4385,20 +4417,12 @@
    "address": "00a40d05"
   },
   {
-   "symbol": "?unknown_flag_a40d45@@3_NA",
-   "address": "00a40d45"
-  },
-  {
    "symbol": "?unknown_height_step_852948@@3HA",
    "address": "00852948"
   },
   {
    "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
    "address": "00a3d290"
-  },
-  {
-   "symbol": "?unknown_ini_format_a40d24@@3HA",
-   "address": "00a40d24"
   },
   {
    "symbol": "?unknown_int_a6fa2c@@3HA",
@@ -4425,28 +4449,12 @@
    "address": "004ba5b0"
   },
   {
-   "symbol": "?unknown_object_84e8d0@@3VBeaconManagerClass@@A",
-   "address": "0084e8d0"
-  },
-  {
    "symbol": "?unknown_object_a3dc70@@3VUnknownObjectA3DC70@@A",
    "address": "00a3dc70"
   },
   {
-   "symbol": "?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A",
-   "address": "00a40c60"
-  },
-  {
    "symbol": "?unknown_palette_837810@@3VPaletteClass@@A",
    "address": "00837810"
-  },
-  {
-   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
-   "address": "00a35db4"
-  },
-  {
-   "symbol": "?unknown_rect_839630@@3VRect@@A",
-   "address": "00839630"
   },
   {
    "symbol": "?unknown_session_a3d298@@3USessionClass@@A",
@@ -4475,10 +4483,6 @@
   {
    "symbol": "?unknown_shift_852fcc@@3HA",
    "address": "00852fcc"
-  },
-  {
-   "symbol": "?unknown_show_cursor_position_a416bc@@3_NA",
-   "address": "00a416bc"
   },
   {
    "symbol": "?unknown_slot22@MapClass@@UAEXXZ",
@@ -4515,10 +4519,6 @@
   {
    "symbol": "?unknown_slot9@LayerClass@@UAEXXZ",
    "address": "0040cb00"
-  },
-  {
-   "symbol": "?unknown_sound_enabled_7d88d6@@3_NA",
-   "address": "007d88d6"
   },
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",

@@ -191,7 +191,7 @@ void LaserDrawClass::Draw_All()
 
 extern double const unknown_facing_scale_79b628;
 extern double const unknown_facing_origin_79b630;
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 
 // The direction from one coordinate to another (TibSun inline.h Direction(Coord const &, Coord const &);
 // file-local here until another unit shows it).
@@ -304,37 +304,37 @@ void LaserDrawClass::Draw_It()
 
             if (unknown_a40b2c != 0) {
                 if (Blinks) {
-                    LogicalSurface->Draw_Depth_Antialiased_Line(unknown_rect_839630, start_pixel, end_pixel,
+                    LogicalSurface->Draw_Depth_Antialiased_Line(TacticalRect, start_pixel, end_pixel,
                         InnerColor, start_z, end_z, false, true, true, true, current_intensity);
                     if (has_outer_glow) {
-                        LogicalSurface->Draw_Depth_Antialiased_Line(unknown_rect_839630,
+                        LogicalSurface->Draw_Depth_Antialiased_Line(TacticalRect,
                             start_pixel + _glow_offsets[2 * facing], end_pixel + _glow_offsets[2 * facing],
                             outer_color, start_z, end_z, false, true, true, true, 1.0f);
-                        LogicalSurface->Draw_Depth_Antialiased_Line(unknown_rect_839630,
+                        LogicalSurface->Draw_Depth_Antialiased_Line(TacticalRect,
                             start_pixel + _glow_offsets[2 * facing + 1], end_pixel + _glow_offsets[2 * facing + 1],
                             outer_color, start_z, end_z, false, true, true, true, 1.0f);
                     }
                 } else if (has_outer_glow) {
-                    LogicalSurface->Unknown_Slot16(unknown_rect_839630,
+                    LogicalSurface->Unknown_Slot16(TacticalRect,
                         start_pixel + _glow_offsets[2 * facing], end_pixel + _glow_offsets[2 * facing],
                         outer_color, current_intensity, start_z, end_z);
-                    LogicalSurface->Unknown_Slot16(unknown_rect_839630,
+                    LogicalSurface->Unknown_Slot16(TacticalRect,
                         start_pixel + _glow_offsets[2 * facing + 1], end_pixel + _glow_offsets[2 * facing + 1],
                         outer_color, current_intensity, start_z, end_z);
-                    LogicalSurface->Unknown_Slot16(unknown_rect_839630, start_pixel, end_pixel,
+                    LogicalSurface->Unknown_Slot16(TacticalRect, start_pixel, end_pixel,
                         InnerColor, current_intensity, start_z, end_z);
                 } else {
-                    LogicalSurface->Draw_Depth_Antialiased_Line(unknown_rect_839630, start_pixel, end_pixel,
+                    LogicalSurface->Draw_Depth_Antialiased_Line(TacticalRect, start_pixel, end_pixel,
                         InnerColor, start_z, end_z, false, has_r, has_g, has_b, current_intensity);
                 }
             } else {
-                LogicalSurface->Draw_Depth_Shaded_Line(unknown_rect_839630, start_pixel, end_pixel,
+                LogicalSurface->Draw_Depth_Shaded_Line(TacticalRect, start_pixel, end_pixel,
                     RGB_To_Pixel(InnerColor.Red, InnerColor.Green, InnerColor.Blue), start_z, end_z);
                 if (has_outer_glow) {
-                    LogicalSurface->Draw_Depth_Shaded_Line(unknown_rect_839630,
+                    LogicalSurface->Draw_Depth_Shaded_Line(TacticalRect,
                         start_pixel + _glow_offsets[2 * facing], end_pixel + _glow_offsets[2 * facing],
                         outer_hicolor, start_z, end_z);
-                    LogicalSurface->Draw_Depth_Shaded_Line(unknown_rect_839630,
+                    LogicalSurface->Draw_Depth_Shaded_Line(TacticalRect,
                         start_pixel + _glow_offsets[2 * facing + 1], end_pixel + _glow_offsets[2 * facing + 1],
                         outer_hicolor, start_z, end_z);
                 }
@@ -414,14 +414,14 @@ void LaserDrawClass::Draw_House_Color()
             end2.X += house_offsets[2 * facing + 1].X;
         }
         if (high_detail) {
-            LogicalSurface->Unknown_Slot16(unknown_rect_839630, start1, end1, glow_color, intensity, start_z, end_z);
-            LogicalSurface->Unknown_Slot16(unknown_rect_839630, start2, end2, glow_color, intensity, start_z, end_z);
+            LogicalSurface->Unknown_Slot16(TacticalRect, start1, end1, glow_color, intensity, start_z, end_z);
+            LogicalSurface->Unknown_Slot16(TacticalRect, start2, end2, glow_color, intensity, start_z, end_z);
         } else {
             adjusted_color = glow_color;
             adjusted_color.Adjust(ratio, white);
             int pixel = RGB_To_Pixel(adjusted_color.Red, adjusted_color.Green, adjusted_color.Blue);
-            LogicalSurface->Draw_Depth_Shaded_Line(unknown_rect_839630, start1, end1, pixel, start_z, end_z);
-            LogicalSurface->Draw_Depth_Shaded_Line(unknown_rect_839630, start2, end2, pixel, start_z, end_z);
+            LogicalSurface->Draw_Depth_Shaded_Line(TacticalRect, start1, end1, pixel, start_z, end_z);
+            LogicalSurface->Draw_Depth_Shaded_Line(TacticalRect, start2, end2, pixel, start_z, end_z);
         }
         if (unknown_1d && layer == 1) {
             glow_color = InnerColor;
@@ -435,11 +435,11 @@ void LaserDrawClass::Draw_House_Color()
         }
     }
     if (high_detail) {
-        LogicalSurface->Unknown_Slot16(unknown_rect_839630, start_pixel, end_pixel, core_color, intensity, start_z, end_z);
+        LogicalSurface->Unknown_Slot16(TacticalRect, start_pixel, end_pixel, core_color, intensity, start_z, end_z);
     } else {
         adjusted_color = core_color;
         adjusted_color.Adjust(ratio, white);
-        LogicalSurface->Draw_Depth_Shaded_Line(unknown_rect_839630, start_pixel, end_pixel,
+        LogicalSurface->Draw_Depth_Shaded_Line(TacticalRect, start_pixel, end_pixel,
             RGB_To_Pixel(adjusted_color.Red, adjusted_color.Green, adjusted_color.Blue), start_z, end_z);
     }
 }

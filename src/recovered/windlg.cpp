@@ -34,7 +34,7 @@ void *__fastcall WS_Create_Dialog(void *instance, int id, HWND parent, UnknownDi
         return 0;
     }
     _dialog_count++;
-    Unknown_005B6000(dialog);
+    Add_Modeless_Dialog(dialog);
     EnumChildWindows(dialog, Resize_Dialog, 1);
     Resize_Dialog(dialog, 0);
     entry->Window = dialog;
@@ -85,7 +85,7 @@ bool __fastcall End_Dialog_007357e0(HWND dialog, int result)
     OwnerDraw::unknown_5e5fc0(dialog);
 
     for (i = DialogStackCount - 1; i >= index; i--) {
-        Unknown_005B6060(DialogStack[i].Window);
+        Remove_Modeless_Dialog(DialogStack[i].Window);
         DestroyWindow(DialogStack[i].Window);
         _dialog_count--;
     }

@@ -25,7 +25,7 @@
 #include "shared/ebolt.hpp"
 #include "shared/line_trail.hpp"
 #include "shared/capture_manager.hpp"
-// @ref ?unknown_rect_839630@@3VRect@@A=00839630
+// @ref ?TacticalRect@@3VRect@@A=00839630
 // @ref ?DirtyAreas@TacticalLists@@2V?$DynamicVectorClass@UDirtyAreaStruct@@@@A=00abe5b0
 // @ref ??_C@_0BC@KAME@MSG?3BlackoutTimer?$AA@=007f6a70
 // @ref ??_C@_0BE@LNLL@D?3?2Ra2?2Tactical?4CPP?$AA@=007f6a84
@@ -64,13 +64,13 @@ void __fastcall Unknown_004CAB90(TechnoClass *techno);  // 0x004CAB90 (hypothesi
 void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
 {
     unknown_db0 = 0;
-    bool has_selectable_buildings = Contains_Selectable_Buildings(unknown_rect_839630);
+    bool has_selectable_buildings = Contains_Selectable_Buildings(TacticalRect);
 
     int xoffset = LastTacPixelX - TacPixelX;
     int yoffset = LastTacPixelY - TacPixelY;
 
     if (drawpass == 0) {
-        if (abs(xoffset) < unknown_rect_839630.Width && abs(yoffset) < unknown_rect_839630.Height) {
+        if (abs(xoffset) < TacticalRect.Width && abs(yoffset) < TacticalRect.Height) {
             unknown_scrolled_off_screen_abfd6c = false;
         } else {
             fullredraw = true;
@@ -91,12 +91,12 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
     bool render;
     if (fullredraw) {
         render = true;
-    } else if (!unknown_d7c && !has_selectable_buildings && TacticalLists::DirtyAreas.Count() == 0 && !unknown_d7d && unknown_d64.X == unknown_d6c.X && unknown_d64.Y == unknown_d6c.Y) {
+    } else if (!unknown_d7c && !has_selectable_buildings && TacticalLists::DirtyAreas.Count() == 0 && !IsToRedraw && unknown_d64.X == unknown_d6c.X && unknown_d64.Y == unknown_d6c.Y) {
         render = false;
     } else if (has_selectable_buildings) {
         render = true;
     } else {
-        render = unknown_d7d || TacticalLists::DirtyAreas.Count() != 0 || TacPixelX != LastTacPixelX || TacPixelY != LastTacPixelY;
+        render = IsToRedraw || TacticalLists::DirtyAreas.Count() != 0 || TacPixelX != LastTacPixelX || TacPixelY != LastTacPixelY;
     }
 
     if (render) {
@@ -115,7 +115,7 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
 
         if (xoffset != 0 || yoffset != 0) {
             if (drawpass == 0 || drawpass == 3) {
-                unknown_surface_839964->Copy_From(destrect, *unknown_surface_839944, sourcerect, false, true);
+                CompositeSurface->Copy_From(destrect, *TileSurface, sourcerect, false, true);
             }
             if (drawpass == 0 || drawpass == 3) {
                 DepthBuffer->Pan(-xoffset, -yoffset, 0xFFFF);
@@ -124,11 +124,11 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
                 AlphaBuffer->Pan(-xoffset, -yoffset, 0x7F);
             }
             if (drawpass == 0 || drawpass == 3) {
-                Surface *oldcomp = unknown_surface_839964;
-                unknown_surface_839964 = unknown_surface_839944;
-                unknown_surface_839944 = oldcomp;
-                surface = unknown_surface_839964;
-                LogicalSurface = unknown_surface_839964;
+                Surface *oldcomp = CompositeSurface;
+                CompositeSurface = TileSurface;
+                TileSurface = oldcomp;
+                surface = CompositeSurface;
+                LogicalSurface = CompositeSurface;
             }
         } else {
             if (fullredraw && (drawpass == 0 || drawpass == 3)) {
@@ -142,12 +142,12 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
         }
 
         if (!Debug_Map) {
-            Register_Dirty_Buildings(Rect(unknown_rect_839630.X - 64, unknown_rect_839630.Y - 64,
-                unknown_rect_839630.Width + 128, unknown_rect_839630.Height + 128));
+            Register_Dirty_Buildings(Rect(TacticalRect.X - 64, TacticalRect.Y - 64,
+                TacticalRect.Width + 128, TacticalRect.Height + 128));
         }
 
         Surface *prevlogical = LogicalSurface;
-        LogicalSurface = unknown_surface_839944;
+        LogicalSurface = TileSurface;
         LogicalSurface->Lock();
 
         if (drawpass == 1 || drawpass == 3) {
@@ -156,29 +156,29 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
             bool scrolled_up = LastTacPixelY > TacPixelY;
             bool scrolled_down = LastTacPixelY < TacPixelY;
 
-            Rect leftstrip(unknown_rect_839630.X, unknown_rect_839630.Y, panwidth, unknown_rect_839630.Height);
-            Rect rightstrip(unknown_rect_839630.X + unknown_rect_839630.Width - panwidth, unknown_rect_839630.Y, panwidth, unknown_rect_839630.Height);
-            Rect leftclip = Intersect(leftstrip, unknown_rect_839630);
-            Rect rightclip = Intersect(rightstrip, unknown_rect_839630);
+            Rect leftstrip(TacticalRect.X, TacticalRect.Y, panwidth, TacticalRect.Height);
+            Rect rightstrip(TacticalRect.X + TacticalRect.Width - panwidth, TacticalRect.Y, panwidth, TacticalRect.Height);
+            Rect leftclip = Intersect(leftstrip, TacticalRect);
+            Rect rightclip = Intersect(rightstrip, TacticalRect);
 
             Rect topstrip;
             Rect bottomstrip;
             if (scrolled_left) {
-                topstrip = Rect(unknown_rect_839630.X + panwidth, unknown_rect_839630.Y, unknown_rect_839630.Width - panwidth, panheight);
-                bottomstrip = Rect(unknown_rect_839630.X + panwidth, unknown_rect_839630.Y + unknown_rect_839630.Height - panheight, unknown_rect_839630.Width - panwidth, panheight);
+                topstrip = Rect(TacticalRect.X + panwidth, TacticalRect.Y, TacticalRect.Width - panwidth, panheight);
+                bottomstrip = Rect(TacticalRect.X + panwidth, TacticalRect.Y + TacticalRect.Height - panheight, TacticalRect.Width - panwidth, panheight);
             } else if (scrolled_right) {
-                topstrip = Rect(unknown_rect_839630.X, unknown_rect_839630.Y, unknown_rect_839630.Width - panwidth, panheight);
-                bottomstrip = Rect(unknown_rect_839630.X, unknown_rect_839630.Y + unknown_rect_839630.Height - panheight, unknown_rect_839630.Width - panwidth, panheight);
+                topstrip = Rect(TacticalRect.X, TacticalRect.Y, TacticalRect.Width - panwidth, panheight);
+                bottomstrip = Rect(TacticalRect.X, TacticalRect.Y + TacticalRect.Height - panheight, TacticalRect.Width - panwidth, panheight);
             } else {
-                topstrip = Rect(unknown_rect_839630.X, unknown_rect_839630.Y, unknown_rect_839630.Width, panheight);
-                bottomstrip = Rect(unknown_rect_839630.X, unknown_rect_839630.Y + unknown_rect_839630.Height - panheight, unknown_rect_839630.Width, panheight);
+                topstrip = Rect(TacticalRect.X, TacticalRect.Y, TacticalRect.Width, panheight);
+                bottomstrip = Rect(TacticalRect.X, TacticalRect.Y + TacticalRect.Height - panheight, TacticalRect.Width, panheight);
             }
-            Rect topclip = Intersect(topstrip, unknown_rect_839630);
-            Rect bottomclip = Intersect(bottomstrip, unknown_rect_839630);
+            Rect topclip = Intersect(topstrip, TacticalRect);
+            Rect bottomclip = Intersect(bottomstrip, TacticalRect);
 
-            Rect bounds(unknown_rect_839630.X + (scrolled_left ? panwidth : 0),
-                unknown_rect_839630.Y + (scrolled_up ? panheight : 0),
-                unknown_rect_839630.Width - panwidth, unknown_rect_839630.Height - panheight);
+            Rect bounds(TacticalRect.X + (scrolled_left ? panwidth : 0),
+                TacticalRect.Y + (scrolled_up ? panheight : 0),
+                TacticalRect.Width - panwidth, TacticalRect.Height - panheight);
 
             Rect xpanrect(0, 0, 0, 0);
             Rect ypanrect(0, 0, 0, 0);
@@ -219,7 +219,7 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
     LastTacPixelY = TacPixelY;
 
     if (drawpass == 1 || drawpass == 3) {
-        LogicalSurface->Copy_From(unknown_rect_839630, *unknown_surface_839944, unknown_rect_839630, false, true);
+        LogicalSurface->Copy_From(TacticalRect, *TileSurface, TacticalRect, false, true);
     }
 
     if (drawpass == 1) {
@@ -229,7 +229,7 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
     if (drawpass == 2 || drawpass == 3) {
         int i;
 
-        Add_Buildings_To_Selectable(unknown_rect_839630);
+        Add_Buildings_To_Selectable(TacticalRect);
         surface->Lock();
         Surface *savedlogical = LogicalSurface;
         LogicalSurface = surface;
@@ -245,7 +245,7 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
         LineTrail::Update_All();
         Unknown_006354E0();
         Draw_Radial_Indicators();
-        unknown_object_84e8d0.Unknown_0042E290(LogicalSurface, unknown_rect_839630);
+        BeaconManager.Unknown_0042E290(LogicalSurface, TacticalRect);
         Draw_Rubber_Band();
         Draw_Waypoints(true);
         Draw_Rally_Points(true);
@@ -279,13 +279,13 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
             Unknown_00618090();
         }
 
-        Draw_Pixel_Effects(unknown_rect_839630, unknown_rect_839630);
+        Draw_Pixel_Effects(TacticalRect, TacticalRect);
         LogicalSurface = savedlogical;
         surface->Unlock();
 
         int line = 0;
         if (unknown_id_source_a3d290->MissionTimer.Started != -1) {
-            Draw_Timer(0, ColorSchemes[unknown_player_a35db4->ColorSchemeIndex], unknown_id_source_a3d290->MissionTimer / 15,
+            Draw_Timer(0, ColorSchemes[PlayerPtr->ColorSchemeIndex], unknown_id_source_a3d290->MissionTimer / 15,
                 unknown_id_source_a3d290->MissionTimerText, 0, 0);
             line = 1;
         }
@@ -313,6 +313,6 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
 
         Draw_Screen_Text((wchar_t const *)&unknown_24);
         unknown_d7c = false;
-        unknown_d7d = false;
+        IsToRedraw = false;
     }
 }

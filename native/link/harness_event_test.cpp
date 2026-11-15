@@ -43,7 +43,7 @@ void Hex(char const *buf, int size)
 // Queues one random run or event in OutList; returns false when OutList is full.
 bool Queue_Random(int max_units)
 {
-    int house = unknown_player_a35db4->ArrayIndex;
+    int house = PlayerPtr->ArrayIndex;
     if (Rnd(100) < 70) {
         Group *g;
         if (g_group_count && Rnd(2)) {
@@ -137,7 +137,7 @@ void Native_Harness_Event_Test(int frame)
         int delay = 5;
         finfo->Type = 0x1C;
         finfo->Frame = ::Frame + delay;
-        finfo->House = (char)unknown_player_a35db4->ArrayIndex;
+        finfo->House = (char)PlayerPtr->ArrayIndex;
         finfo->LongAt(0x07) = 0x12345678;
         finfo->ShortAt(0x0B) = (short)events;
         finfo->ByteAt(0x0D) = (unsigned char)delay;

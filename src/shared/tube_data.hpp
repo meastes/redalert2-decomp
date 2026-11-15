@@ -14,11 +14,11 @@ static inline int Tube_Index(TubeClass *tube)
 {
     int index = 0;
     for (;; index++) {
-        if (index >= unknown_TubeClass_list_008661c8.Count()) {
+        if (index >= Tubes.Count()) {
             index = -1;
             break;
         }
-        if (unknown_TubeClass_list_008661c8[index] == tube) {
+        if (Tubes[index] == tube) {
             break;
         }
     }

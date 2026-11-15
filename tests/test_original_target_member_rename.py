@@ -321,5 +321,35 @@ class CompilerRekeyTests(unittest.TestCase):
                                                           "error: use of undeclared identifier 'x'\n"))
 
 
+class FixupsFollowTests(unittest.TestCase):
+    def test_a_fixup_takes_only_the_renames_its_source_took(self):
+        import json
+        folder = tempfile.TemporaryDirectory()
+        saved = native_rekey.REPOSITORY
+        native_rekey.REPOSITORY = Path(folder.name)
+        try:
+            root = Path(folder.name)
+            (root / 'src/shared').mkdir(parents=True)
+            (root / 'native/port').mkdir(parents=True)
+            # the source after the batch: the class's field renamed, a view's padding of that spelling not
+            (root / 'src/shared/house_screen.hpp').write_text(
+                '    bool WarFactoryInfiltrated;   // +0x207\n    char unknown_208[0x230 - 0x208];\n')
+            fixups = {'fixups': [{'source': 'src/shared/house_screen.hpp',
+                                  'old': '    bool unknown_207;   // +0x207\n    char unknown_208[0x230 - 0x208];\n',
+                                  'new': '    bool unknown_207;   // arm64\n    char unknown_208[0x2f0 - 0x2c8];\n'}]}
+            (root / 'native/port/fixups.json').write_text(json.dumps(fixups))
+            spec = {'member_renames': [{'class': 'HouseClass', 'old': 'unknown_207', 'new': 'WarFactoryInfiltrated'},
+                                       {'class': 'TechnoClass', 'old': 'unknown_208', 'new': 'TemporalImUsing'}]}
+            self.assertEqual(native_rekey.fixups_follow(spec), ['src/shared/house_screen.hpp'])
+            entry = json.loads((root / 'native/port/fixups.json').read_text())['fixups'][0]
+            self.assertIn('bool WarFactoryInfiltrated;', entry['old'])
+            self.assertIn('char unknown_208[0x230', entry['old'])
+            self.assertIn('bool WarFactoryInfiltrated;   // arm64', entry['new'])
+            self.assertIn('char unknown_208[0x2f0', entry['new'])
+        finally:
+            native_rekey.REPOSITORY = saved
+            folder.cleanup()
+
+
 if __name__ == '__main__':
     unittest.main()

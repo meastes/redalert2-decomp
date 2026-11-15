@@ -240,11 +240,11 @@ public:
                                                      //        [4] AnimAux1=, [5] AnimAux2= (art); 0x004584D0 sets one
     BuildingAnimStruct Anims[18];                    // +0xCD4 ActiveAnim .. IdleAnim (art INI)
     int Upgrades;                                    // +0x119C
-    void *unknown_11a0;                              // +0x11A0
+    void *DeployingAnim;                              // +0x11A0
     bool unknown_11a4;                               // +0x11A4 11A0 owned
     void *unknown_11a8;                              // +0x11A8
     bool unknown_11ac;                               // +0x11AC
-    void *unknown_11b0;                              // +0x11B0
+    void *RoofDeployingAnim;                              // +0x11B0
     bool unknown_11b4;                               // +0x11B4
     void *unknown_11b8;                              // +0x11B8
     bool unknown_11bc;                               // +0x11BC

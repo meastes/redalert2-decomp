@@ -174,8 +174,8 @@ bool ScrollClass::Resolve_Point(Point2D const &point,Cell &cell,CoordStruct &coo
     fog=false;
     shadow=false;
     if (point.X<0 || point.Y<0) return false;
-    cell = TacticalMap ? TacticalMap->Pixel_To_Cell(point+Point2D(unknown_rect_839630.X,unknown_rect_839630.Y)) : unknown_geometry_k;
-    coord = TacticalMap ? TacticalMap->Pixel_To_Coord(point+Point2D(unknown_rect_839630.X,unknown_rect_839630.Y)) : unknown_geometry_l;
+    cell = TacticalMap ? TacticalMap->Pixel_To_Cell(point+Point2D(TacticalRect.X,TacticalRect.Y)) : unknown_geometry_k;
+    coord = TacticalMap ? TacticalMap->Pixel_To_Coord(point+Point2D(TacticalRect.X,TacticalRect.Y)) : unknown_geometry_l;
     if (TacticalMap && Map.Unknown_0054AB00(coord)) {
         UnknownCoord434820 adjusted = UnknownCoord434820(cell,Map.Get_Height_GL(UnknownCoord434820(cell)));
         shadow=Map.Is_Shrouded(adjusted) && unknown_b263d8!=0;
@@ -189,11 +189,11 @@ bool ScrollClass::Resolve_Point(Point2D const &point,Cell &cell,CoordStruct &coo
             object=TacticalMap->Get_Selectable_Object_006aa990(point);
             TechnoClass *techno=object->As_Techno();
             if (techno && !techno->unknown_372) {
-                if ((techno->unknown_1b8==2 && !Map[techno->Center_Coord()].Is_Sensed(unknown_player_a35db4->ArrayIndex)) || techno->Techno_Type_Class()->Invisible) object=0;
+                if ((techno->unknown_1b8==2 && !Map[techno->Center_Coord()].Is_Sensed(PlayerPtr->ArrayIndex)) || techno->Techno_Type_Class()->Invisible) object=0;
             }
             if (object && object->Kind_Of()==6) {
                 BuildingClass *building=static_cast<BuildingClass *>(object);
-                if (!building->unknown_372 && ((building->unknown_5bd==15 && !Map[techno->Center_Coord()].Is_Sensed(unknown_player_a35db4->ArrayIndex)) || building->Type->InvisibleInGame)) object=0;
+                if (!building->unknown_372 && ((building->unknown_5bd==15 && !Map[techno->Center_Coord()].Is_Sensed(PlayerPtr->ArrayIndex)) || building->Type->InvisibleInGame)) object=0;
             }
         }
         return true;
@@ -235,7 +235,7 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool check_f
         bool visible = true;
         TechnoClass *techno = As_Techno_0040dbd0(object);
         if (techno != 0 && !techno->unknown_372) {
-            if ((techno->unknown_1b8 == 2 && !Map[techno->Center_Coord()].Is_Sensed(unknown_player_a35db4->ArrayIndex))
+            if ((techno->unknown_1b8 == 2 && !Map[techno->Center_Coord()].Is_Sensed(PlayerPtr->ArrayIndex))
                     || techno->Techno_Type_Class()->Invisible) {
                 visible = false;
             }
@@ -243,7 +243,7 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool check_f
 
         if (object != 0 && object->Kind_Of() == 6 && !((BuildingClass *)object)->unknown_372
                 && ((BuildingClass *)object)->unknown_5bd == 15
-                && !Map[techno->Center_Coord()].Is_Sensed(unknown_player_a35db4->ArrayIndex)) {
+                && !Map[techno->Center_Coord()].Is_Sensed(PlayerPtr->ArrayIndex)) {
             visible = false;
         }
         if (visible) {
@@ -252,7 +252,7 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool check_f
                     && (techno == 0 || !techno->unknown_32c)) {
                 action = 7;
             }
-            if (unknown_object_84e8d0.FindBeaconAt_0042e860(CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, Map[cell].unknown_11b * unknown_geometry_g))) {
+            if (BeaconManager.FindBeaconAt_0042e860(CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, Map[cell].unknown_11b * unknown_geometry_g))) {
                 action = 0x3D;
             }
         }
@@ -276,23 +276,23 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool check_f
             }
         }
 
-        WaypointClass *waypoint = unknown_player_a35db4->Waypoint_At(cell);
+        WaypointClass *waypoint = PlayerPtr->Waypoint_At(cell);
         if (Map.unknown_11af) {
             bool force = Scroll_Key_Down(KeyForceMove1) || Scroll_Key_Down(KeyForceMove2);
             int path = -1;
             char position;
             if (waypoint != 0) {
-                unknown_player_a35db4->Fetch_Waypoint_Data(waypoint, &path, &position);
+                PlayerPtr->Fetch_Waypoint_Data(waypoint, &path, &position);
             }
             if (Map.unknown_11b8 != 0) {
                 action = 0x30;
-            } else if (force && waypoint != 0 && path == unknown_player_a35db4->unknown_154
-                    && unknown_player_a35db4->Can_Add_Waypoint_To_Path()
-                    && unknown_player_a35db4->WaypointPaths[path]->Next_Waypoint(waypoint) != 0) {
+            } else if (force && waypoint != 0 && path == PlayerPtr->unknown_154
+                    && PlayerPtr->Can_Add_Waypoint_To_Path()
+                    && PlayerPtr->WaypointPaths[path]->Next_Waypoint(waypoint) != 0) {
                 action = 0x2F;
             } else if (waypoint != 0) {
                 action = 0x2E;
-            } else if (unknown_player_a35db4->unknown_154 != -1 && unknown_player_a35db4->Can_Add_Waypoint_To_Path()
+            } else if (PlayerPtr->unknown_154 != -1 && PlayerPtr->Can_Add_Waypoint_To_Path()
                     && Map.Unknown_0055A660(cell, true)) {
                 action = 0x2A;
             } else {
@@ -360,11 +360,11 @@ static inline int Scroll_Bound(int original, int minval, int maxval)
 void ScrollClass::Edge_Scroll_00669EC0(Point2D const &xy)
 {
     if (unknown_4f2a != true) {
-        Point2D p = Point2D(unknown_rect_839630.X, unknown_rect_839630.Y) + xy;
+        Point2D p = Point2D(TacticalRect.X, TacticalRect.Y) + xy;
         int x = p.X;
         int y = p.Y;
-        int w = (unknown_surface_839964->Get_Width() + SidebarSurface->Get_Width()) - 1;
-        int h = unknown_surface_839964->Get_Height() - 1;
+        int w = (CompositeSurface->Get_Width() + SidebarSurface->Get_Width()) - 1;
+        int h = CompositeSurface->Get_Height() - 1;
 
         bool at_screen_edge = (y <= 0 || x <= 0 || x >= w || y >= h);
 
@@ -469,8 +469,8 @@ void ScrollClass::Scroll_AI()
     if (IgnoreInput) {
         return;
     }
-    int x = unknown_rect_839630.X;
-    int y = unknown_rect_839630.Y;
+    int x = TacticalRect.X;
+    int y = TacticalRect.Y;
     Point2D mouse = WWMouse->Get_Mouse_XY();
     Point2D xy(mouse.X - x, mouse.Y - y);
     if (Planning_Mouse_Move_00617900(xy.X, xy.Y)) {
@@ -513,7 +513,7 @@ bool ScrollClass::Is_Scrolling()
     if (unknown_4f2a || IgnoreInput) {
         return true;
     }
-    if (TacticalMap != 0 && TacticalMap->unknown_d8 != 0.0f) {
+    if (TacticalMap != 0 && TacticalMap->MoveSpeed != 0.0f) {
         return true;
     }
     return false;
@@ -552,8 +552,8 @@ void ScrollClass::Message_Handler(HWND hwnd, unsigned &message, unsigned &wParam
     switch (message) {
     case 0x201: {
         long position = lParam;
-        xy.X = ((short *)&position)[0] - unknown_rect_839630.X;
-        xy.Y = ((short *)&position)[1] - unknown_rect_839630.Y;
+        xy.X = ((short *)&position)[0] - TacticalRect.X;
+        xy.Y = ((short *)&position)[1] - TacticalRect.Y;
         if (!Resolve_Point(xy, cell, coord, object, arg5, arg6)) {
             break;
         }
@@ -571,8 +571,8 @@ void ScrollClass::Message_Handler(HWND hwnd, unsigned &message, unsigned &wParam
     }
     case 0x202: {
         long position = lParam;
-        xy.X = ((short *)&position)[0] - unknown_rect_839630.X;
-        xy.Y = ((short *)&position)[1] - unknown_rect_839630.Y;
+        xy.X = ((short *)&position)[0] - TacticalRect.X;
+        xy.Y = ((short *)&position)[1] - TacticalRect.Y;
         if (Planning_Left_Up_00617680(xy)) {
             break;
         }
@@ -587,8 +587,8 @@ void ScrollClass::Message_Handler(HWND hwnd, unsigned &message, unsigned &wParam
     }
     case 0x204: {
         long position = lParam;
-        xy.X = ((short *)&position)[0] - unknown_rect_839630.X;
-        xy.Y = ((short *)&position)[1] - unknown_rect_839630.Y;
+        xy.X = ((short *)&position)[0] - TacticalRect.X;
+        xy.Y = ((short *)&position)[1] - TacticalRect.Y;
         Planning_Mouse_Down(xy.X, xy.Y);
         if (unknown_4f2a) {
             break;
@@ -603,7 +603,7 @@ void ScrollClass::Message_Handler(HWND hwnd, unsigned &message, unsigned &wParam
     }
     case 0x205: {
         long position = lParam;
-        Point2D point(((short *)&position)[0] - unknown_rect_839630.X, ((short *)&position)[1] - unknown_rect_839630.Y);
+        Point2D point(((short *)&position)[0] - TacticalRect.X, ((short *)&position)[1] - TacticalRect.Y);
         Planning_Mouse_Up(point.X, point.Y);
         if (!unknown_4f2a) {
             break;
@@ -723,7 +723,7 @@ void ScrollClass::Scroll_Coast(Point2D const &xy)
                 point.x = 0;
                 point.y = 0;
                 ClientToScreen(MainWindow, &point);
-                SetCursorPos(point.x + unknown_rect_839630.X + unknown_4f20.X, point.y + unknown_rect_839630.Y + unknown_4f20.Y);
+                SetCursorPos(point.x + TacticalRect.X + unknown_4f20.X, point.y + TacticalRect.Y + unknown_4f20.Y);
             }
             break;
         }
@@ -738,7 +738,7 @@ void ScrollClass::Scroll_Coast(Point2D const &xy)
                 point.x = 0;
                 point.y = 0;
                 ClientToScreen(MainWindow, &point);
-                SetCursorPos(point.x + unknown_rect_839630.X + unknown_4f20.X, point.y + unknown_rect_839630.Y + unknown_4f20.Y);
+                SetCursorPos(point.x + TacticalRect.X + unknown_4f20.X, point.y + TacticalRect.Y + unknown_4f20.Y);
             }
             break;
         }

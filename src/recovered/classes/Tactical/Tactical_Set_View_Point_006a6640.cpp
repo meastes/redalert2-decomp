@@ -22,5 +22,5 @@ void Tactical::Set_Tactical_Position_006a6640(Point2D const &point)
     unknown_d64 = Point2D(x, y);
     unknown_d74 = Point2D(x, y);
     Update_Visible_Cells();
-    unknown_d7d = true;
+    IsToRedraw = true;
 }

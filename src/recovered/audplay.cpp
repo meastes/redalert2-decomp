@@ -564,7 +564,7 @@ void __fastcall Audio_Stream_Wait(AudioStreamPlayer *stream)
 {
     __int64 end = Audio_Now() + stream->Channel->Levels.Volume.MaxElapsed;
     while (Audio_Stream_Is_Fading(stream) && (unsigned __int64)Audio_Now() < (unsigned __int64)end) {
-        unknown_481fb0();
+        Call_Back();
     }
 }
 

@@ -13,7 +13,7 @@
 #include "shared/map_view.hpp"
 #include "shared/map_cell.hpp"
 #include "shared/tactical.hpp"
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 // @ref ?Damage_Low_Bridge_Piece_EW_0055FCC0@MapClass@@QAEXABVCell@@@Z=0055fcc0
 // @ref ?Spring_Low_Bridge_Destroyed_EW@MapClass@@QAEXVCell@@@Z=0055ea50
 // @ref ?Overlay_Render_Rect@CellClass@@QBE?AVRect@@XZ=00474eb0
@@ -25,7 +25,7 @@ extern Rect unknown_rect_839630;
 // @ref ??0Rect@@QAE@ABURectPoint2D@@HH@Z=00453e40
 // @ref ?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z=006a3020
 // @ref ?TacticalMap@@3PAVTactical@@A=0083996c
-// @ref ?unknown_rect_839630@@3VRect@@A=00839630
+// @ref ?TacticalRect@@3VRect@@A=00839630
 // @ref ?Radar_Background@RadarClass@@QAEXABVCell@@@Z=00631570
 // @ref ?Zone_Reset@MapClass@@QAEHXZ=0054ebd0
 // @ref ?Unknown_005687B0@MapClass@@QAEXABVRect@@@Z=005687b0
@@ -75,7 +75,7 @@ bool MapClass::Unknown_0055DEF0(Cell const &cell)
             break;
         }
 
-        draw_rect = Union(draw_rect, Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
+        draw_rect = Union(draw_rect, Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect())) - TacticalRect.Top_Left();
         TacticalMap->Register_Dirty_Area(draw_rect, false);
 
         cellptr1->Recalc_Attributes(-1);

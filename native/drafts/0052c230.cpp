@@ -45,7 +45,7 @@
 #include "shared/alpha_table_cache.hpp"
 #include "shared/hicolor.hpp"
 // The tactical area (0x00839630; shared/display.hpp).
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 #include "shared/rules.hpp"
 #include "shared/always.hpp"
 
@@ -205,7 +205,7 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
             if (cell_variation != 0) {
                 IsometricTileTypeClass const * next = this;
                 do {
-                    next = (IsometricTileTypeClass const *)next->unknown_28c;
+                    next = (IsometricTileTypeClass const *)next->NextTileTypeInSet;
                 } while (--cell_variation != 0);
                 if (next != this) {
                     next->Draw_Tile(drawer, subtile, surface, x, y, cliprect, height, brightness, use_z, 0, fill, depth_only, fog, fog_color);
@@ -369,10 +369,10 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
                         if (!record->IsHasZData) {
                             use_z = false;
                         } else if (use_z) {
-                            IsoDrawData.DepthPtr = DepthBuffer->Get_Buffer_Offset(Point2D(lock_x, work_y - unknown_rect_839630.Y));
+                            IsoDrawData.DepthPtr = DepthBuffer->Get_Buffer_Offset(Point2D(lock_x, work_y - TacticalRect.Y));
                             IsoDrawData.DepthWidth = DepthBuffer->Width;
                         }
-                        IsoDrawData.AlphaPtr = AlphaBuffer->Get_Buffer_Offset(Point2D(lock_x, work_y - unknown_rect_839630.Y));
+                        IsoDrawData.AlphaPtr = AlphaBuffer->Get_Buffer_Offset(Point2D(lock_x, work_y - TacticalRect.Y));
                         IsoDrawData.AlphaWidth = AlphaBuffer->Width;
                         IsoDrawData.SrcPixel = (intptr_t)(record + 1);
                         unsigned char const * image = (unsigned char const *)IsoDrawData.SrcPixel;
@@ -758,10 +758,10 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
                             IsoDrawData.ImageRowStep = record->ExtraWidth - IsoDrawData.SpanWidth;
                             IsoDrawData.SurfacePitch = surface.Stride() - IsoDrawData.SpanWidth * surface.Bytes_Per_Pixel();
                             if (use_z) {
-                                IsoDrawData.DepthPtr = (unsigned short *)DepthBuffer->Get_Buffer_Offset(Point2D(ex, ey - unknown_rect_839630.Y));
+                                IsoDrawData.DepthPtr = (unsigned short *)DepthBuffer->Get_Buffer_Offset(Point2D(ex, ey - TacticalRect.Y));
                                 IsoDrawData.DepthWidth = DepthBuffer->Width - IsoDrawData.SpanWidth;
                             }
-                            IsoDrawData.AlphaPtr = (unsigned short *)AlphaBuffer->Get_Buffer_Offset(Point2D(ex, ey - unknown_rect_839630.Y));
+                            IsoDrawData.AlphaPtr = (unsigned short *)AlphaBuffer->Get_Buffer_Offset(Point2D(ex, ey - TacticalRect.Y));
                             IsoDrawData.AlphaWidth = AlphaBuffer->Width - IsoDrawData.SpanWidth;
                             IsoDrawData.DestPtr = (unsigned short *)surface.Lock(Point2D(ex, ey));
                             if (IsoDrawData.DestPtr != NULL) {

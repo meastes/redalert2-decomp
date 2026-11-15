@@ -253,7 +253,7 @@
    "padding_bytes": 2
   },
   {
-   "symbol": "?unknown_7013a0@UnitClass@@QAE_NXZ",
+   "symbol": "?Harvesting@UnitClass@@QAE_NXZ",
    "entry": "007013a0",
    "body_bytes": 477,
    "padding_bytes": 3
@@ -523,7 +523,7 @@
    "padding_bytes": 7
   },
   {
-   "symbol": "?unknown_709790@UnitClass@@QAE_NPBVCell@@0@Z",
+   "symbol": "?AStarAttempt@UnitClass@@QAE_NPBVCell@@0@Z",
    "entry": "00709790",
    "body_bytes": 254,
    "padding_bytes": 2
@@ -2087,6 +2087,10 @@
    "address": "0068a4b0"
   },
   {
+   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
+   "address": "004cd9b0"
+  },
+  {
    "symbol": "?Add@TeamClass@@QAE_NPAVFootClass@@@Z",
    "address": "006b8cc0"
   },
@@ -2121,6 +2125,10 @@
   {
    "symbol": "?As_Techno_0040dbd0@@YIPAVTechnoClass@@PAVAbstractClass@@@Z",
    "address": "0040dbd0"
+  },
+  {
+   "symbol": "?Assign_Archive_Target@TechnoClass@@QAEXPAVAbstractClass@@@Z",
+   "address": "006d6e50"
   },
   {
    "symbol": "?Assign_Destination@FootClass@@UAEXPAVAbstractClass@@_N@Z",
@@ -2183,6 +2191,10 @@
    "address": "004c86e0"
   },
   {
+   "symbol": "?Can_Enter_Tunnel@CellClass@@QBE_NPAVTechnoClass@@@Z",
+   "address": "0047a120"
+  },
+  {
    "symbol": "?Can_Player_Fire@TechnoClass@@UAE_NXZ",
    "address": "006cd630"
   },
@@ -2237,6 +2249,10 @@
   {
    "symbol": "?Clear@INIClass@@QAE_NPBD0@Z",
    "address": "0050b9a0"
+  },
+  {
+   "symbol": "?Clear_Navigation_List@FootClass@@QAEXXZ",
+   "address": "004c8c90"
   },
   {
    "symbol": "?Clicked_As_Target@TechnoClass@@UAEXH@Z",
@@ -2307,8 +2323,16 @@
    "address": "004cce40"
   },
   {
+   "symbol": "?Deploy_Facing@BuildingTypeClass@@QBEHXZ",
+   "address": "0045ec90"
+  },
+  {
    "symbol": "?Desired@FacingClass@@QBE?AUUnknownFacingDir@@XZ",
    "address": "004b8c80"
+  },
+  {
+   "symbol": "?DestroyNthAnim@BuildingClass@@QAEXH@Z",
+   "address": "0044cfd0"
   },
   {
    "symbol": "?Detach@FootClass@@UAEXPAVAbstractClass@@_N@Z",
@@ -2439,6 +2463,10 @@
    "address": "004c9bc0"
   },
   {
+   "symbol": "?Draw_Target_Laser@TechnoClass@@QAEXXZ",
+   "address": "006cc020"
+  },
+  {
    "symbol": "?Editor_Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z",
    "address": "005d4e70"
   },
@@ -2479,6 +2507,10 @@
    "address": "006b3d30"
   },
   {
+   "symbol": "?Find_Unit_Repair_Facility@@YIPAVBuildingClass@@PAVHouseClass@@PAVUnitClass@@@Z",
+   "address": "00450f90"
+  },
+  {
    "symbol": "?FireDeathWeapon@TechnoClass@@QAEHH@Z",
    "address": "006d7e20"
   },
@@ -2501,6 +2533,10 @@
   {
    "symbol": "?Flag_Attach@HouseClass@@QAE_NABVCell@@_N@Z",
    "address": "004e76a0"
+  },
+  {
+   "symbol": "?Flush_For_Placement@BuildingTypeClass@@QBEHABVCell@@PAVHouseClass@@@Z",
+   "address": "00458b10"
   },
   {
    "symbol": "?Foundation_Height@BuildingTypeClass@@QBEH_N@Z",
@@ -2543,6 +2579,10 @@
    "address": "005d51e0"
   },
   {
+   "symbol": "?Get_Current_Weapon_Number@TechnoClass@@QAEHXZ",
+   "address": "006d84a0"
+  },
+  {
    "symbol": "?Get_Entry@INIClass@@QBEPBDPBDH@Z",
    "address": "0050ce00"
   },
@@ -2575,6 +2615,10 @@
    "address": "006d3e40"
   },
   {
+   "symbol": "?Get_Predator_Offset@TechnoClass@@QAEHXZ",
+   "address": "006d6750"
+  },
+  {
    "symbol": "?Get_Render_Rect@ObjectClass@@UAE?AVRect@@XZ",
    "address": "005d31c0"
   },
@@ -2603,6 +2647,18 @@
    "address": "005d3060"
   },
   {
+   "symbol": "?Get_Z_Fudge_Column@TechnoClass@@QAEHXZ",
+   "address": "006cf9d0"
+  },
+  {
+   "symbol": "?Goto_Tiberium@FootClass@@QAE_NH_N@Z",
+   "address": "004cb830"
+  },
+  {
+   "symbol": "?Goto_Weed@FootClass@@QAE_NH@Z",
+   "address": "004cc400"
+  },
+  {
    "symbol": "?Ground@@3PAUGroundType@@A",
    "address": "00850ea0"
   },
@@ -2621,6 +2677,10 @@
   {
    "symbol": "?Has_Tunnel@CellClass@@QBE_NXZ",
    "address": "00479cc0"
+  },
+  {
+   "symbol": "?Has_Turret_Tooltips@TechnoClass@@QAE_NXZ",
+   "address": "006d83d0"
   },
   {
    "symbol": "?Health_Ratio@ObjectClass@@QBENXZ",
@@ -2667,6 +2727,14 @@
    "address": "006c1c50"
   },
   {
+   "symbol": "?InitScalable@BulletClass@@QAEXXZ",
+   "address": "00463bc0"
+  },
+  {
+   "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
+   "address": "0051fc80"
+  },
+  {
    "symbol": "?IronCurtain@FootClass@@UAEXH@Z",
    "address": "004cd3f0"
   },
@@ -2707,6 +2775,10 @@
    "address": "00496b30"
   },
   {
+   "symbol": "?Is_Gate_Open@BuildingClass@@QAE_NXZ",
+   "address": "0044d880"
+  },
+  {
    "symbol": "?Is_Human_Player@HouseClass@@QAE_NXZ",
    "address": "004f52f0"
   },
@@ -2717,6 +2789,10 @@
   {
    "symbol": "?Is_Inactive@ObjectClass@@UBE_NXZ",
    "address": "005d4f10"
+  },
+  {
+   "symbol": "?Is_Mobile_Deployer@BuildingTypeClass@@QBE_NXZ",
+   "address": "0045ec50"
   },
   {
    "symbol": "?Is_Moving_Onto_Bridge@FootClass@@UAE_NPAVTechnoClass@@@Z",
@@ -2743,8 +2819,16 @@
    "address": "00568140"
   },
   {
+   "symbol": "?Is_Tile_Bridge@CellClass@@QBE_NXZ",
+   "address": "0047b960"
+  },
+  {
    "symbol": "?Is_To_Inherit@TagClass@@QBE_NXZ",
    "address": "006b41f0"
+  },
+  {
+   "symbol": "?Is_Z_Fudge_Bridge@TechnoClass@@QAE_NXZ",
+   "address": "006cf670"
   },
   {
    "symbol": "?Launching_Count@SpawnManagerClass@@QBEHXZ",
@@ -2761,6 +2845,10 @@
   {
    "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
    "address": "006f9ec0"
+  },
+  {
+   "symbol": "?LogicalSurface@@3PAVSurface@@A",
+   "address": "0083995c"
   },
   {
    "symbol": "?Look@TechnoClass@@UAEX_N0@Z",
@@ -2795,6 +2883,14 @@
    "address": "005502e0"
   },
   {
+   "symbol": "?NewINIFormat@@3HA",
+   "address": "00a40d24"
+  },
+  {
+   "symbol": "?NormalDrawer@@3PAVConvertClass@@A",
+   "address": "008323c4"
+  },
+  {
    "symbol": "?Not_Underground@ObjectClass@@UBE_NXZ",
    "address": "005d5490"
   },
@@ -2827,8 +2923,20 @@
    "address": "006c7430"
   },
   {
+   "symbol": "?Place_Crate@MapClass@@QAE_NVCell@@H@Z",
+   "address": "0054e580"
+  },
+  {
    "symbol": "?Place_Tiberium@HouseClass@@QAEXHH@Z",
    "address": "004e51f0"
+  },
+  {
+   "symbol": "?PlayNthAnim@BuildingClass@@QAEXH_N0H@Z",
+   "address": "0044c920"
+  },
+  {
+   "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+   "address": "00a35db4"
   },
   {
    "symbol": "?Player_Assign_Mission@TechnoClass@@UAE_NHPAVAbstractClass@@00@Z",
@@ -2873,6 +2981,10 @@
   {
    "symbol": "?Reduce_Wall@CellClass@@QAEHH@Z",
    "address": "00475fe0"
+  },
+  {
+   "symbol": "?Reduce_Weed@CellClass@@QAEHXZ",
+   "address": "0047c040"
   },
   {
    "symbol": "?Release@AbstractClass@@UAGKXZ",
@@ -2935,12 +3047,20 @@
    "address": "004c9fe0"
   },
   {
+   "symbol": "?ScanForTiberium@FootClass@@QAE?AVCell@@H_N@Z",
+   "address": "004cb8f0"
+  },
+  {
    "symbol": "?ScenarioInit@@3HA",
    "address": "00a40774"
   },
   {
    "symbol": "?Search@@3UAStarClass@@A",
    "address": "008315c8"
+  },
+  {
+   "symbol": "?Search_For_Weed@FootClass@@QAE?AVCell@@H@Z",
+   "address": "004cc100"
   },
   {
    "symbol": "?Select_Blitter_00485AA0@ConvertClass@@QAEPAVBlitter@@I@Z",
@@ -2995,6 +3115,10 @@
    "address": "004cb060"
   },
   {
+   "symbol": "?Shake_The_Screen@@YIXH@Z",
+   "address": "00482e00"
+  },
+  {
    "symbol": "?Sort_Y@ObjectClass@@UBEHXZ",
    "address": "005d5450"
   },
@@ -3005,6 +3129,10 @@
   {
    "symbol": "?Spring@TagClass@@QAE_NHPAVObjectClass@@VCell@@_NH@Z",
    "address": "006b3df0"
+  },
+  {
+   "symbol": "?StartReloading@TechnoClass@@QAEXXZ",
+   "address": "006c8300"
   },
   {
    "symbol": "?Stop_Driver@FootClass@@UAE_NXZ",
@@ -3031,6 +3159,10 @@
    "address": "004c6000"
   },
   {
+   "symbol": "?Techno_Draw_Object@TechnoClass@@QAEXPBXHPBUPoint2D@@PBVRect@@HHHHHHPBUShapeFileStruct@@HU2@H@Z",
+   "address": "006d1510"
+  },
+  {
    "symbol": "?Techno_Type_Class@TechnoClass@@UAEPAVTechnoTypeClass@@XZ",
    "address": "006c12c0"
   },
@@ -3045,6 +3177,10 @@
   {
    "symbol": "?Tiberium_Type_Here@CellClass@@QBEHXZ",
    "address": "0047a220"
+  },
+  {
+   "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+   "address": "00ac0b30"
   },
   {
    "symbol": "?To_Integer@VeterancyClass@@QBEHXZ",
@@ -3091,20 +3227,12 @@
    "address": "007f819c"
   },
   {
-   "symbol": "?Unit_Unknown_Shake_00482e00@@YIXH@Z",
-   "address": "00482e00"
-  },
-  {
    "symbol": "?Units@@3V?$DynamicVectorClass@PAVUnitClass@@@@A",
    "address": "00866198"
   },
   {
    "symbol": "?Unknown_0040DC20@@YIPAVTechnoClass@@PAVAbstractClass@@@Z",
    "address": "0040dc20"
-  },
-  {
-   "symbol": "?Unknown_00450F90@@YIPAVBuildingClass@@PAVHouseClass@@PAVUnitClass@@@Z",
-   "address": "00450f90"
   },
   {
    "symbol": "?Unknown_004717B0@UnknownCellClass@@QAEPAVBuildingClass@@XZ",
@@ -3159,20 +3287,12 @@
    "address": "0051fc60"
   },
   {
-   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
-   "address": "0051fc80"
-  },
-  {
    "symbol": "?Unknown_0054A550@MapClass@@QAEXABUCoordStruct@@HHH@Z",
    "address": "0054a550"
   },
   {
    "symbol": "?Unknown_0054AB00@MapClass@@QAE_NABUCoordStruct@@@Z",
    "address": "0054ab00"
-  },
-  {
-   "symbol": "?Unknown_0054E580@MapClass@@QAE_NVCell@@H@Z",
-   "address": "0054e580"
   },
   {
    "symbol": "?Unknown_0054F7C0@MapClass@@QAE_NABVCell@@0H_N11@Z",
@@ -3275,40 +3395,12 @@
    "address": "00795940"
   },
   {
-   "symbol": "?unknown_44c920@BuildingClass@@QAEXH_N0H@Z",
-   "address": "0044c920"
-  },
-  {
-   "symbol": "?unknown_44cfd0@BuildingClass@@QAEXH@Z",
-   "address": "0044cfd0"
-  },
-  {
-   "symbol": "?unknown_44d880@BuildingClass@@QAE_NXZ",
-   "address": "0044d880"
-  },
-  {
-   "symbol": "?unknown_458b10@BuildingTypeClass@@QBEHABVCell@@PAVHouseClass@@@Z",
-   "address": "00458b10"
-  },
-  {
    "symbol": "?unknown_475db0@CellClass@@QAEHH@Z",
    "address": "00475db0"
   },
   {
-   "symbol": "?unknown_47a120@CellClass@@QBE_NPAVTechnoClass@@@Z",
-   "address": "0047a120"
-  },
-  {
    "symbol": "?unknown_47b7e0@CellClass@@QBE_NXZ",
    "address": "0047b7e0"
-  },
-  {
-   "symbol": "?unknown_47b960@CellClass@@QBE_NXZ",
-   "address": "0047b960"
-  },
-  {
-   "symbol": "?unknown_47c040@CellClass@@QAEHXZ",
-   "address": "0047c040"
   },
   {
    "symbol": "?unknown_47c300@CellClass@@QBE_NH@Z",
@@ -3327,32 +3419,8 @@
    "address": "004c8bb0"
   },
   {
-   "symbol": "?unknown_4c8c90@FootClass@@QAEXXZ",
-   "address": "004c8c90"
-  },
-  {
-   "symbol": "?unknown_4cb830@FootClass@@QAE_NH_N@Z",
-   "address": "004cb830"
-  },
-  {
-   "symbol": "?unknown_4cb8f0@FootClass@@QAE?AVCell@@H_N@Z",
-   "address": "004cb8f0"
-  },
-  {
-   "symbol": "?unknown_4cc100@FootClass@@QAE?AVCell@@H@Z",
-   "address": "004cc100"
-  },
-  {
-   "symbol": "?unknown_4cc400@FootClass@@QAE_NH@Z",
-   "address": "004cc400"
-  },
-  {
    "symbol": "?unknown_4ccfc0@FootClass@@QAEPAV1@XZ",
    "address": "004ccfc0"
-  },
-  {
-   "symbol": "?unknown_4cd9b0@FootClass@@QAEXXZ",
-   "address": "004cd9b0"
   },
   {
    "symbol": "?unknown_5d47d0@ObjectClass@@QAEHXZ",
@@ -3367,68 +3435,24 @@
    "address": "006c16f0"
   },
   {
-   "symbol": "?unknown_6c8300@TechnoClass@@QAEXXZ",
-   "address": "006c8300"
-  },
-  {
-   "symbol": "?unknown_6cc020@TechnoClass@@QAEXXZ",
-   "address": "006cc020"
-  },
-  {
    "symbol": "?unknown_6cf130@TechnoClass@@QAE?AVCell@@PAVAbstractClass@@@Z",
    "address": "006cf130"
-  },
-  {
-   "symbol": "?unknown_6cf670@TechnoClass@@QAE_NXZ",
-   "address": "006cf670"
-  },
-  {
-   "symbol": "?unknown_6cf9d0@TechnoClass@@QAEHXZ",
-   "address": "006cf9d0"
-  },
-  {
-   "symbol": "?unknown_6d1510@TechnoClass@@QAEXPBXHPBUPoint2D@@PBVRect@@HHHHHHPBUShapeFileStruct@@HU2@H@Z",
-   "address": "006d1510"
-  },
-  {
-   "symbol": "?unknown_6d6750@TechnoClass@@QAEHXZ",
-   "address": "006d6750"
-  },
-  {
-   "symbol": "?unknown_6d6e50@TechnoClass@@QAEXPAVAbstractClass@@@Z",
-   "address": "006d6e50"
   },
   {
    "symbol": "?unknown_6d7910@TechnoClass@@QAE_NH@Z",
    "address": "006d7910"
   },
   {
-   "symbol": "?unknown_6d83d0@TechnoClass@@QAE_NXZ",
-   "address": "006d83d0"
-  },
-  {
    "symbol": "?unknown_6d83e0@TechnoClass@@QAE_NXZ",
    "address": "006d83e0"
-  },
-  {
-   "symbol": "?unknown_6d84a0@TechnoClass@@QAEHXZ",
-   "address": "006d84a0"
   },
   {
    "symbol": "?unknown_6e2500@UnknownTechno208@@QAEXXZ",
    "address": "006e2500"
   },
   {
-   "symbol": "?unknown_TiberiumClass_list_00ac0b30@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
-   "address": "00ac0b30"
-  },
-  {
    "symbol": "?unknown_cos_4ba4d0@@YANN@Z",
    "address": "004ba4d0"
-  },
-  {
-   "symbol": "?unknown_drawer_8323c4@@3PAVConvertClass@@A",
-   "address": "008323c4"
   },
   {
    "symbol": "?unknown_facing_origin_79b630@@3NB",
@@ -3451,18 +3475,6 @@
    "address": "00a3d2c1"
   },
   {
-   "symbol": "?unknown_func_45ec50@BuildingTypeClass@@QBE_NXZ",
-   "address": "0045ec50"
-  },
-  {
-   "symbol": "?unknown_func_45ec90@BuildingTypeClass@@QBEHXZ",
-   "address": "0045ec90"
-  },
-  {
-   "symbol": "?unknown_func_463bc0@BulletClass@@QAEXXZ",
-   "address": "00463bc0"
-  },
-  {
    "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
    "address": "00491d10"
   },
@@ -3479,10 +3491,6 @@
    "address": "00a3d290"
   },
   {
-   "symbol": "?unknown_ini_format_a40d24@@3HA",
-   "address": "00a40d24"
-  },
-  {
    "symbol": "?unknown_iso_tiles_a40cd0@@3V?$DynamicVectorClass@PAUUnknownIsoTile@@@@A",
    "address": "00a40cd0"
   },
@@ -3497,10 +3505,6 @@
   {
    "symbol": "?unknown_object_index_abff58@@3V?$IndexClass@JPAVAbstractClass@@@@A",
    "address": "00abff58"
-  },
-  {
-   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
-   "address": "00a35db4"
   },
   {
    "symbol": "?unknown_sin_4ba480@@YANN@Z",
@@ -4093,10 +4097,6 @@
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "?unknown_surface_83995c@@3PAVSurface@@A",
-   "address": "0083995c"
   },
   {
    "symbol": "?unknown_surface_ad0604@@3PAVBSurface@@A",

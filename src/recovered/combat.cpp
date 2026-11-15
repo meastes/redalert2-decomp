@@ -257,7 +257,7 @@ int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int strength, TechnoCl
             if (overlay->Wall) {
                 if (warhead->WallAbsoluteDestroyer) {
                     cptr->Reduce_Wall(-1);
-                } else if (warhead->Wall || (warhead->Wood && overlay->unknown_9c == 6)) {
+                } else if (warhead->Wall || (warhead->Wood && overlay->Armor == 6)) {
                     cptr->Reduce_Wall(strength);
                 }
             }
@@ -428,7 +428,7 @@ int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int strength, TechnoCl
         Unknown_006D7C80((AbstractClass *)cptr);
 
         new AnimClass(Rules->BarrelExplode, coord, 0, 1, 0x600, 0);
-        Unknown_0047E2C0(coord, Rules->AmmoCrateDamage, (TechnoClass *)0, Rules->unknown_c74, true);
+        Unknown_0047E2C0(coord, Rules->AmmoCrateDamage, (TechnoClass *)0, Rules->C4Warhead, true);
         for (i = 0; i < Rules->BarrelDebris.Count(); i++) {
             if (Percent_Chance(15)) {
                 new VoxelAnimClass(Rules->BarrelDebris[i], coord, 0);
@@ -676,7 +676,7 @@ bool __fastcall Calculate_Projectile_Dir(int speed, int distance, int height, do
 // int __fastcall Calculate_Projectile_Speed(int range, double gravity) -- 0x0047FB70
 // TibSun combat.cpp: sqrt(range * gravity * 1.2).
 
-int __fastcall Unknown_0047FB70(int range, double speed)
+int __fastcall Calculate_Projectile_Speed(int range, double speed)
 {
     return (int)unknown_sqrt_4ba410((double)range * speed * 1.2);
 }
@@ -721,7 +721,7 @@ bool __fastcall Is_Projectile_Trajectory_Valid(int speed, int distance, int heig
 // double Get_Floater_Gravity() -- 0x0047FCD0
 // TibSun combat.cpp: half the rules gravity.
 
-double __cdecl Unknown_0047FCD0()
+double __cdecl Get_Floater_Gravity()
 {
     return Rules->unknown_1320 * 0.5;
 }

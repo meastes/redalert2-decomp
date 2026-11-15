@@ -5185,7 +5185,7 @@ LRESULT __stdcall unknown_button_proc_5f42d0(HWND window,UINT message,WPARAM wpa
         if(!data->unknown_e8) {
             data->unknown_e8=1;
             InvalidateRect(window,0,1);
-            Voc_Play(Rules->unknown_62c,1.0f,0x2000,0);
+            Voc_Play(Rules->GenericClick,1.0f,0x2000,0);
             break;
         }
         return 0;
@@ -6653,7 +6653,7 @@ LRESULT __stdcall unknown_trackbar_proc_5fb270(HWND window, UINT message, WPARAM
         SendMessageA(parent, 0x114, (WPARAM)((unsigned short)5 | (unsigned long)(unsigned short)(value + minimum) << 16), (LPARAM)window);
 
         if (play_click == true && !track->click_suppress) {
-            Voc_Play(Rules->unknown_62c, 1.0f, 0x2000, 0);
+            Voc_Play(Rules->GenericClick, 1.0f, 0x2000, 0);
         }
     }
 
@@ -7660,7 +7660,7 @@ HWND __fastcall unknown_create_dialog_5ff610(int resource, DialogProc proc, int 
     }
     DialogStack[index].Window = window;
     DialogStack[index].Resource = id;
-    Unknown_005B6000(window);
+    Add_Modeless_Dialog(window);
     CurrentDialog = window;
     CurrentDialogResource = id;
     return window;
@@ -7768,7 +7768,7 @@ void __fastcall unknown_show_dialog_5ff7e0(void *handle, int kind)
 // Services the game for a modal dialog loop (0x006000D0).
 bool unknown_6000d0()
 {
-    Unknown_005B5EE0();
+    Windows_Message_Handler();
     if (unknown_game_mode_a3d298 == 0 || unknown_game_mode_a3d298 == 5 || unknown_session_a3f616 ||
         unknown_counter_a3fabc != 0) {
         Service_Game_IO_00481fb0();
@@ -8155,7 +8155,7 @@ bool __fastcall unknown_choice_dialog_600c80(unsigned short const *text)
         SetWindowLongA(dialog, DWL_USER, (LONG)&result);
         unknown_dialog_5ff7c0(dialog);
         while (result < 0) {
-            Unknown_005B5EE0();
+            Windows_Message_Handler();
             if (unknown_game_mode_a3d298 != 0 && unknown_game_mode_a3d298 != 5 && !unknown_session_a3f616 &&
                 unknown_counter_a3fabc == 0 && !unknown_53f460() && unknown_53fbd0()) {
                 break;

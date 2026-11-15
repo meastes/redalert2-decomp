@@ -103,13 +103,13 @@
    "padding_bytes": 5
   },
   {
-   "symbol": "?unknown_undo_record_684fc0@@YIXABUPoint2D@@H@Z",
+   "symbol": "?Record_Deform_Undo@@YIXABUPoint2D@@H@Z",
    "entry": "00684fc0",
    "body_bytes": 111,
    "padding_bytes": 1
   },
   {
-   "symbol": "?unknown_undo_restore_685030@@YAXXZ",
+   "symbol": "?Undo_Deform@@YAXXZ",
    "entry": "00685030",
    "body_bytes": 122,
    "padding_bytes": 6
@@ -792,6 +792,10 @@
    "address": "0083996c"
   },
   {
+   "symbol": "?TacticalRect@@3VRect@@A",
+   "address": "00839630"
+  },
+  {
    "symbol": "?unknown_generation_cell_56dba0@@YIPAUUnknownMapGenerationCell@@ABVCell@@@Z",
    "address": "0056dba0"
   },
@@ -810,10 +814,6 @@
   {
    "symbol": "?unknown_math_4ba5b0@@YANN@Z",
    "address": "004ba5b0"
-  },
-  {
-   "symbol": "?unknown_rect_839630@@3VRect@@A",
-   "address": "00839630"
   },
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",

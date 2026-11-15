@@ -187,7 +187,7 @@
    "padding_bytes": 2
   },
   {
-   "symbol": "?Unknown_005DA360@OptionsClass@@QAE_NXZ",
+   "symbol": "?Hotkey_Dialog@OptionsClass@@QAE_NXZ",
    "entry": "005da360",
    "body_bytes": 115,
    "padding_bytes": 13
@@ -406,63 +406,63 @@
    "address": "007b2c38",
    "bytes": 24,
    "kind": "rtti",
-   "section": 168
+   "section": 161
   },
   {
    "symbol": "??_R2?$List@PAUINISection@INIClass@@@@8",
    "address": "007b2c50",
    "bytes": 9,
    "kind": "rtti",
-   "section": 169
+   "section": 162
   },
   {
    "symbol": "??_R3?$List@PAUINISection@INIClass@@@@8",
    "address": "007b2c60",
    "bytes": 16,
    "kind": "rtti",
-   "section": 170
+   "section": 163
   },
   {
    "symbol": "??_R4?$List@PAUINISection@INIClass@@@@6B@",
    "address": "007b2c70",
    "bytes": 20,
    "kind": "rtti",
-   "section": 172
+   "section": 165
   },
   {
    "symbol": "??_R1A@?0A@A@INIClass@@8",
    "address": "007b2c88",
    "bytes": 24,
    "kind": "rtti",
-   "section": 160
+   "section": 167
   },
   {
    "symbol": "??_R1A@?0A@A@CCINIClass@@8",
    "address": "007b2ca0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 161
+   "section": 168
   },
   {
    "symbol": "??_R2CCINIClass@@8",
    "address": "007b2cb8",
    "bytes": 9,
    "kind": "rtti",
-   "section": 162
+   "section": 169
   },
   {
    "symbol": "??_R3CCINIClass@@8",
    "address": "007b2cc8",
    "bytes": 16,
    "kind": "rtti",
-   "section": 163
+   "section": 170
   },
   {
    "symbol": "??_R4CCINIClass@@6B@",
    "address": "007b2cd8",
    "bytes": 20,
    "kind": "rtti",
-   "section": 165
+   "section": 172
   },
   {
    "symbol": "??_R1A@?0A@A@GenericNode@@8",
@@ -497,7 +497,7 @@
    "address": "007b2d38",
    "bytes": 24,
    "kind": "rtti",
-   "section": 167
+   "section": 160
   },
   {
    "symbol": "??_R2GenericList@@8",
@@ -560,21 +560,21 @@
    "address": "007cded8",
    "bytes": 46,
    "kind": "rtti",
-   "section": 171
+   "section": 164
   },
   {
    "symbol": "??_R0?AVINIClass@@@8",
    "address": "007cdf08",
    "bytes": 23,
    "kind": "rtti",
-   "section": 159
+   "section": 166
   },
   {
    "symbol": "??_R0?AVCCINIClass@@@8",
    "address": "007cdf20",
    "bytes": 25,
    "kind": "rtti",
-   "section": 164
+   "section": 171
   },
   {
    "symbol": "??_R0?AVGenericNode@@@8",
@@ -588,7 +588,7 @@
    "address": "007cdf60",
    "bytes": 26,
    "kind": "rtti",
-   "section": 166
+   "section": 159
   },
   {
    "symbol": "??_C@_0M@PNCF@DetailLevel?$AA@",
@@ -1858,7 +1858,7 @@
   },
   {
    "site": "00481850",
-   "symbol": "?Unknown_005DA360@OptionsClass@@QAE_NXZ",
+   "symbol": "?Hotkey_Dialog@OptionsClass@@QAE_NXZ",
    "target": "005da360",
    "function_entry": true
   },
@@ -1936,7 +1936,7 @@
   },
   {
    "site": "00542460",
-   "symbol": "?Unknown_005DA360@OptionsClass@@QAE_NXZ",
+   "symbol": "?Hotkey_Dialog@OptionsClass@@QAE_NXZ",
    "target": "005da360",
    "function_entry": true
   },
@@ -2127,6 +2127,10 @@
    "address": "0040e1d0"
   },
   {
+   "symbol": "?AllCommands@@3V?$DynamicVectorClass@PBVCommandClass@@@@A",
+   "address": "00832358"
+  },
+  {
    "symbol": "?AlliedMovies@@3PAUMovieEntryStruct@@A",
    "address": "007e8258"
   },
@@ -2161,6 +2165,10 @@
   {
    "symbol": "?Create@RawFileClass@@UAEHXZ",
    "address": "00639200"
+  },
+  {
+   "symbol": "?Debug_IngameModeChange@@3_NA",
+   "address": "00a40d0b"
   },
   {
    "symbol": "?Debug_Printf@@YAXPBDZZ",
@@ -2217,6 +2225,10 @@
   {
    "symbol": "?IntroMovie@@3UMovieEntryStruct@@A",
    "address": "007e8248"
+  },
+  {
+   "symbol": "?Ipx@@3VIPXManagerClass@@A",
+   "address": "00a40978"
   },
   {
    "symbol": "?Is_Available@BufferIOFileClass@@UAE_NH@Z",
@@ -2311,6 +2323,10 @@
    "address": "00407080"
   },
   {
+   "symbol": "?Set_Action_Lines@TechnoClass@@SIX_N@Z",
+   "address": "006d79c0"
+  },
+  {
    "symbol": "?Set_Date_Time@CCFileClass@@UAE_NK@Z",
    "address": "00469400"
   },
@@ -2355,7 +2371,7 @@
    "address": "00517370"
   },
   {
-   "symbol": "?Unknown_0067B880@SidebarClass@@QAEX_N@Z",
+   "symbol": "?Toggle_Cameo_Text@SidebarClass@@QAEX_N@Z",
    "address": "0067b880"
   },
   {
@@ -2373,18 +2389,6 @@
   {
    "symbol": "?unknown_6000d0@@YA_NXZ",
    "address": "006000d0"
-  },
-  {
-   "symbol": "?unknown_6d79c0@TechnoClass@@SIX_N@Z",
-   "address": "006d79c0"
-  },
-  {
-   "symbol": "?unknown_allow_mode_toggle_a40d0b@@3_NA",
-   "address": "00a40d0b"
-  },
-  {
-   "symbol": "?unknown_commands_832358@@3V?$DynamicVectorClass@PBVCommandClass@@@@A",
-   "address": "00832358"
   },
   {
    "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
@@ -2425,10 +2429,6 @@
   {
    "symbol": "?unknown_ini_839740@@3VCCINIClass@@A",
    "address": "00839740"
-  },
-  {
-   "symbol": "?unknown_ipx_manager_a40978@@3VIPXManagerClass@@A",
-   "address": "00a40978"
   },
   {
    "symbol": "?unknown_math_4ba520@@YANN@Z",

@@ -112,7 +112,7 @@ bool OwnerTalkClass::Unknown_0063F130()
     for (int index = 0; index < Connections.Count(); index++) {
         packet.Players[index] = *Connections[index];
         if (Ipx.Connection_Index(Connections[index]->ID) == -1
-            && unknown_player_a35db4->ArrayIndex != Connections[index]->ID) {
+            && PlayerPtr->ArrayIndex != Connections[index]->ID) {
             Debug_Printf("Marking player %s as inactive\n", Connections[index]->Name);
             packet.Players[index].IsActive = false;
             packet.Players[index].IsHost = false;
@@ -329,7 +329,7 @@ void OwnerTalkClass::Unknown_0063F840()
                 *(unsigned long *)node = *(unsigned long *)&RouterBuffer[2];
                 IPXAddressClass newaddress;
                 newaddress.Set_Address(net, node, 0);
-                OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, &newaddress, id));
+                OutList.Add(EventClass(PlayerPtr->ArrayIndex, &newaddress, id));
             }
         }
     }
@@ -433,7 +433,7 @@ int OwnerTalkClass::Unknown_0063FBA0()
             }
         }
     }
-    if (!unknown_session_a3d298.Am_I_Master(0) && host != -1 && host == unknown_player_a35db4->ArrayIndex
+    if (!unknown_session_a3d298.Am_I_Master(0) && host != -1 && host == PlayerPtr->ArrayIndex
         && unknown_session_a3d298.Players.Count() > 2) {
         IPXAddressClass *address = 0;
         for (index = 0; index < unknown_session_a3d298.Players.Count(); index++) {

@@ -145,7 +145,7 @@ TeamClass::TeamClass(TeamTypeClass *type, HouseClass *owner, int arg3) :
     memset(unknown_84, 0, sizeof(unknown_84));
     if (Class != 0) {
         if (Owner != 0 && Class->IsBaseDefense) {
-            Owner->unknown_555c++;
+            Owner->BaseDefenseTeamCount++;
         }
         if (Class->Waypoint_Location() != unknown_geometry_k) {
             unknown_34 = (AbstractClass *)&Map[Class->Waypoint_Location()];
@@ -180,7 +180,7 @@ TeamClass::~TeamClass()
         }
     }
     if (Owner != 0 && Class != 0 && Class->IsBaseDefense) {
-        Owner->unknown_555c--;
+        Owner->BaseDefenseTeamCount--;
     }
     if (GameActive && Class != 0) {
         while (Member != 0) {
@@ -213,7 +213,7 @@ void TeamClass::Assign_Mission_Target(AbstractClass *target)
     if (target != unknown_3c) {
         FootClass *member = Member;
         if (unknown_3c != 0) {
-            for (; member != 0; member = (FootClass *)member->unknown_4c8) {
+            for (; member != 0; member = (FootClass *)member->Member) {
                 bool target_hit = member->unknown_228 == unknown_3c;
                 bool destination_hit = member->unknown_494 == unknown_3c;
                 if (target_hit || destination_hit) {
@@ -235,7 +235,7 @@ void TeamClass::Assign_Mission_Target(AbstractClass *target)
     if (target != 0 && target->Kind_Of() == 0xB) {
         if (!Map.Unknown_0055A740((CellClass *)target, 1)) {
             TargetNotAssigned = true;
-            for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
+            for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
                 member->Assign_Destination(0, true);
             }
         } else {
@@ -318,7 +318,7 @@ void TeamClass::AI()
             is_next = true;
             StepCompleted = false;
             Script->Next_Mission();
-            for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
+            for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
                 if (Class->TransportsReturnOnUnload && member->Techno_Type_Class()->Passengers > 0) {
                     if (member->unknown_1b0 != 0) {
                         Debug_Printf("A Transport just recieved orders to go home after unloading\n");
@@ -368,11 +368,11 @@ void TeamClass::AI()
         case 0x0D: TMission_IDLE_ANIM(mission, is_next); break;
         case 0x06: TMission_LOOP(mission, is_next); break;
         case 0x07:
-            unknown_player_a35db4->Flag_To_Win(false);
+            PlayerPtr->Flag_To_Win(false);
             StepCompleted = true;
             break;
         case 0x17:
-            unknown_player_a35db4->Flag_To_Lose(false);
+            PlayerPtr->Flag_To_Lose(false);
             StepCompleted = true;
             break;
         case 0x19: TMission_PLAY_SOUND(mission, is_next); break;
@@ -440,7 +440,7 @@ void TeamClass::Flag_Into_Action()
     IsMoving = true;
     IsHasBeen = true;
     IsUnderStrength = false;
-    for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
         if (IsReforming || IsForcedActive) {
             member->unknown_579 = true;
         }
@@ -570,7 +570,7 @@ bool TeamClass::Add(FootClass *member)
     }
     unknown_84[slot]++;
     member->unknown_579 = Member == 0;
-    member->unknown_4c8 = Member;
+    member->Member = Member;
     Member = member;
     member->Team = this;
     member->unknown_1ac = Class->Get_Group();
@@ -658,12 +658,12 @@ bool TeamClass::Remove(FootClass *member, int slot, bool arg3)
     while (current != 0 && (!found || !first)) {
         if (current == member) {
             if (previous != 0) {
-                previous->unknown_4c8 = current->unknown_4c8;
+                previous->Member = current->Member;
             } else {
-                Member = (FootClass *)current->unknown_4c8;
+                Member = (FootClass *)current->Member;
             }
-            FootClass *next = (FootClass *)current->unknown_4c8;
-            current->unknown_4c8 = 0;
+            FootClass *next = (FootClass *)current->Member;
+            current->Member = 0;
             current->Team = 0;
             current->SuspendedMission = -1;
             current->unknown_498 = 0;
@@ -676,7 +676,7 @@ bool TeamClass::Remove(FootClass *member, int slot, bool arg3)
         }
         first = first || current->unknown_579;
         previous = current;
-        current = (FootClass *)current->unknown_4c8;
+        current = (FootClass *)current->Member;
     }
     if (member->Team != 0) {
         member->Team = 0;
@@ -808,7 +808,7 @@ void TeamClass::Detach(AbstractClass *target, bool all)
         Tag = 0;
     }
     if (target == Member && all) {
-        Member = (FootClass *)Member->unknown_4c8;
+        Member = (FootClass *)Member->Member;
     }
     if (target == Owner) {
         Owner = 0;
@@ -896,7 +896,7 @@ void TeamClass::unknown_func_6b9610(AbstractClass **center, AbstractClass **clos
         }
         if (closest != 0) {
             if (closest->unknown_574 >= 0) {
-                Cell exit = unknown_TubeClass_list_008661c8[closest->unknown_574]->ExitCell;
+                Cell exit = Tubes[closest->unknown_574]->ExitCell;
                 *center = &Map[exit];
             } else {
                 *center = closest;
@@ -927,7 +927,7 @@ void TeamClass::unknown_func_6b9610(AbstractClass **center, AbstractClass **clos
                     }
                 }
             }
-            member = (FootClass *)member->unknown_4c8;
+            member = (FootClass *)member->Member;
         }
         if (quantity) {
             x /= quantity;
@@ -962,7 +962,7 @@ void TeamClass::Took_Damage(FootClass *member, int result, TechnoClass *source)
             return;
         }
         FootClass *first = Member;
-        for (FootClass *current = Member; current != 0; current = (FootClass *)current->unknown_4c8) {
+        for (FootClass *current = Member; current != 0; current = (FootClass *)current->Member) {
             if (current == (FootClass *)source) {
                 return;
             }
@@ -1014,7 +1014,7 @@ void TeamClass::unknown_func_6b9bb0()
     }
     ScriptMissionClass mission = Script->Get_Current_Mission();
     bool attacking = false;
-    for (FootClass *unit = Member; unit != 0; unit = (FootClass *)unit->unknown_4c8) {
+    for (FootClass *unit = Member; unit != 0; unit = (FootClass *)unit->Member) {
         Coordinate_Conscript(unit);
         if (unknown_func_6bdd80(unit) && (unit->unknown_579 || unit->Kind_Of() == 2)) {
             if (mission.Mission == 0xF && unit->Kind_Of() == 0xF && ((InfantryClass *)unit)->Type->Infiltrate) {
@@ -1065,7 +1065,7 @@ bool TeamClass::unknown_func_6b9f40()
                 unit->Assign_Destination(0, true);
             }
         }
-        unit = (FootClass *)unit->unknown_4c8;
+        unit = (FootClass *)unit->Member;
     }
     if (retval == true) {
         NeedsReGrouping = false;
@@ -1093,7 +1093,7 @@ void TeamClass::unknown_func_6ba1a0()
     }
     if (unknown_40 != 0) {
         if (!unknown_func_6ba600()) {
-            for (; unit != 0; unit = (FootClass *)unit->unknown_4c8) {
+            for (; unit != 0; unit = (FootClass *)unit->Member) {
                 if (Coordinate_Conscript(unit)) {
                     finished = false;
                 }
@@ -1171,7 +1171,7 @@ bool TeamClass::unknown_func_6ba600()
     if (!IsLagging) {
         return false;
     }
-    for (; member != 0; member = (FootClass *)member->unknown_4c8) {
+    for (; member != 0; member = (FootClass *)member->Member) {
         if (unknown_func_6bdd80(member) && (member->unknown_579 || member->Kind_Of() == 2)) {
             int allowed = Stray_Distance();
             if (member->Kind_Of() == 2) {
@@ -1220,7 +1220,7 @@ bool TeamClass::Coordinate_Conscript(FootClass *member)
 
 bool TeamClass::Is_A_Member(FootClass *object)
 {
-    for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
         if (member == object) {
             return true;
         }
@@ -1267,7 +1267,7 @@ bool TeamClass::Is_Leaving_Map()
 bool TeamClass::Has_Entered_Map()
 {
     bool all = true;
-    for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
         if (!member->unknown_32d) {
             all = false;
             break;
@@ -1282,7 +1282,7 @@ bool TeamClass::Has_Entered_Map()
 void TeamClass::Scan_Limit()
 {
     Assign_Mission_Target(0);
-    for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
         member->unknown_slot220(0);
         member->unknown_578 = true;
     }
@@ -1303,7 +1303,7 @@ FootClass *TeamClass::Fetch_A_Leader()
     FootClass *member = Member;
     FootClass *leader = Member;
     int best = -1;
-    for (; member != 0; member = (FootClass *)member->unknown_4c8) {
+    for (; member != 0; member = (FootClass *)member->Member) {
         int rating = member->Techno_Type_Class()->LeadershipRating;
         if (_Is_It_Playing(member) && rating > best) {
             leader = member;
@@ -1477,7 +1477,7 @@ void TeamClass::TMission_ATT_WAYPT(ScriptMissionClass const &mission, bool unkno
         Assign_Mission_Target(cell);
     }
     if (unknown_3c != 0) {
-        for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
+        for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
             if (member->Techno_Type_Class()->Ammo <= 0 || member->unknown_254 > 0) {
                 unknown_func_6b9bb0();
                 return;
@@ -1554,7 +1554,7 @@ void TeamClass::TMission_unknown_6bb260(ScriptMissionClass const &mission, bool 
 
 void TeamClass::TMission_SCATTER(ScriptMissionClass const &mission, bool unknown)
 {
-    for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
         member->Scatter(unknown_geometry_l, true, false);
     }
     StepCompleted = true;
@@ -1568,7 +1568,7 @@ void TeamClass::TMission_CHANGE_HOUSE(ScriptMissionClass const &mission, bool un
 {
     FootClass *member = Member;
     while (member != 0) {
-        FootClass *next = (FootClass *)member->unknown_4c8;
+        FootClass *next = (FootClass *)member->Member;
         member->Captured(HouseClass::As_Pointer(mission.Data), 1);
         member = next;
     }
@@ -1618,7 +1618,7 @@ void TeamClass::TMission_ATTACK(ScriptMissionClass const &mission, bool unknown)
         Assign_Mission_Target(target);
         bool armed = true;
         if (unknown_3c != 0) {
-            for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
+            for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
                 if (member->Techno_Type_Class()->Ammo <= 0 || member->unknown_254 > 0) {
                     armed = false;
                     break;
@@ -1631,7 +1631,7 @@ void TeamClass::TMission_ATTACK(ScriptMissionClass const &mission, bool unknown)
     }
     bool armed = true;
     if (unknown_3c != 0) {
-        for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
+        for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
             if (member->Techno_Type_Class()->Ammo <= 0 || member->unknown_254 > 0) {
                 armed = false;
                 break;
@@ -1659,7 +1659,7 @@ void TeamClass::TMission_LOAD(ScriptMissionClass const &mission, bool unknown)
                 break;
             }
         }
-        unit = (FootClass *)unit->unknown_4c8;
+        unit = (FootClass *)unit->Member;
     }
     if (trans == 0) {
         StepCompleted = true;
@@ -1681,7 +1681,7 @@ void TeamClass::TMission_LOAD(ScriptMissionClass const &mission, bool unknown)
                 break;
             }
         }
-        unit = (FootClass *)unit->unknown_4c8;
+        unit = (FootClass *)unit->Member;
     }
     if (finished) {
         if (Class->TransportsReturnOnUnload) {
@@ -1726,7 +1726,7 @@ void TeamClass::TMission_DEPLOY(ScriptMissionClass const &mission, bool unknown)
                 unit->QueueMission(0x10, false);
             }
         }
-        unit = (FootClass *)unit->unknown_4c8;
+        unit = (FootClass *)unit->Member;
     }
     if (finished) {
         StepCompleted = true;
@@ -1777,7 +1777,7 @@ void TeamClass::TMission_DO(ScriptMissionClass const &mission, bool unknown)
                 unit->Assign_Destination(0, true);
             }
         }
-        unit = (FootClass *)unit->unknown_4c8;
+        unit = (FootClass *)unit->Member;
     }
 }
 
@@ -1832,7 +1832,7 @@ void TeamClass::TMission_HOUND_DOG(ScriptMissionClass const &mission, bool unkno
     unknown_func_6ba1a0();
     TechnoClass *target = unknown_34->As_Techno();
     if (target != 0) {
-        for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
+        for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
             if (unknown_func_6bdd80(member) && (member->unknown_579 || member->Kind_Of() == 2)) {
                 if (member->unknown_228 != 0 && member->unknown_228 != target->unknown_228) {
                     member->unknown_slot220(0);
@@ -1854,7 +1854,7 @@ void TeamClass::TMission_HOUND_DOG(ScriptMissionClass const &mission, bool unkno
 
 void TeamClass::TMission_UNPANIC(ScriptMissionClass const &mission, bool unknown)
 {
-    for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
         member->Stop_Fear();
     }
     StepCompleted = true;
@@ -1874,11 +1874,11 @@ void TeamClass::TMission_FORCE_FACING(ScriptMissionClass const &mission, bool un
                 done = false;
             } else {
                 int facing = mission.Data;
-                if (member->unknown_2e0.Current().Raw != (unsigned short)(facing << 13)) {
+                if (member->PrimaryFacing.Current().Raw != (unsigned short)(facing << 13)) {
                     member->Locomotor.Checked()->Do_Turn(Facing_Dir(mission.Data));
                 }
             }
-            member = (FootClass *)member->unknown_4c8;
+            member = (FootClass *)member->Member;
         } while (member != 0);
         if (!done) {
             return;
@@ -1893,7 +1893,7 @@ void TeamClass::TMission_FORCE_FACING(ScriptMissionClass const &mission, bool un
 
 void TeamClass::TMission_PANIC(ScriptMissionClass const &mission, bool unknown)
 {
-    for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
         member->Start_Fear();
     }
     StepCompleted = true;
@@ -1905,7 +1905,7 @@ void TeamClass::TMission_PANIC(ScriptMissionClass const &mission, bool unknown)
 
 void TeamClass::TMission_BERZERK(ScriptMissionClass const &mission, bool unknown)
 {
-    for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
         member->Berzerk();
     }
     StepCompleted = true;
@@ -1917,7 +1917,7 @@ void TeamClass::TMission_BERZERK(ScriptMissionClass const &mission, bool unknown
 
 void TeamClass::TMission_IDLE_ANIM(ScriptMissionClass const &mission, bool unknown)
 {
-    for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
         member->Do_Idle(mission.Data);
     }
     StepCompleted = true;
@@ -2003,7 +2003,7 @@ void Owner_006bc2c0::FUN_006bc2c0(int argument_address, int unused_1)
 
 void TeamClass::TMission_REDUCE_TIBERIUM(ScriptMissionClass const &mission, bool unknown)
 {
-    for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
         Map.Unknown_0055D990(Coord_Cell(member->Center_Coord()));
     }
     StepCompleted = true;
@@ -2038,10 +2038,10 @@ void TeamClass::TMission_SELF_DESTRUCT(ScriptMissionClass const &mission, bool u
     bool hit;
     do {
         hit = false;
-        for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
+        for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
             if (member->Strength > 0 && member->IsActive && member->unknown_74 && !member->unknown_76) {
                 int damage = member->Strength;
-                member->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 0);
+                member->Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, 0);
                 hit = true;
             }
         }
@@ -2057,7 +2057,7 @@ void TeamClass::TMission_DESTROY_MEMBERS(ScriptMissionClass const &mission, bool
 {
     FootClass *member = Member;
     while (member != 0) {
-        FootClass *next = (FootClass *)member->unknown_4c8;
+        FootClass *next = (FootClass *)member->Member;
         member->Limbo();
         member->Delete_Me();
         member = next;
@@ -2122,7 +2122,7 @@ unsigned int Leaf_6bc590::get(unsigned int unused_script_argument_1, unsigned in
 
 void TeamClass::TMission_FULLY_LOADED(ScriptMissionClass const &mission, bool unknown)
 {
-    for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
         if (member->Techno_Type_Class()->Passengers > member->Cargo.Count) {
             return;
         }
@@ -2136,7 +2136,7 @@ void TeamClass::TMission_FULLY_LOADED(ScriptMissionClass const &mission, bool un
 
 void TeamClass::TMission_UNLOAD_TRUCK(ScriptMissionClass const &mission, bool unknown)
 {
-    for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
         if (member->Kind_Of() == 1 && _stricmp(member->Techno_Type_Class()->ID, "TRUCKB") == 0) {
             ((UnitClass *)member)->Type = UnitTypes[UnitTypeClass::From_Name("TRUCKA")];
         }
@@ -2150,7 +2150,7 @@ void TeamClass::TMission_UNLOAD_TRUCK(ScriptMissionClass const &mission, bool un
 
 void TeamClass::TMission_LOAD_TRUCK(ScriptMissionClass const &mission, bool unknown)
 {
-    for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
         if (member->Kind_Of() == 1 && _stricmp(member->Techno_Type_Class()->ID, "TRUCKA") == 0) {
             ((UnitClass *)member)->Type = UnitTypes[UnitTypeClass::From_Name("TRUCKB")];
         }
@@ -2182,7 +2182,7 @@ void TeamClass::TMission_ATTACK_BUILDING_WITH_PROPERTY(ScriptMissionClass const 
         }
     }
     if (unknown_3c != 0) {
-        for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
+        for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
             if (member->Techno_Type_Class()->Ammo <= 0 || member->unknown_254 > 0) {
                 unknown_func_6b9bb0();
                 return;
@@ -2459,7 +2459,7 @@ void TeamClass::TMission_unknown_6bd4b0(ScriptMissionClass const &mission, bool 
     FootClass *unit = Member;
     bool finished = true;
     while (unit != 0) {
-        FootClass *next = (FootClass *)unit->unknown_4c8;
+        FootClass *next = (FootClass *)unit->Member;
         Coordinate_Conscript(unit);
         if (unknown_func_6bdd80(unit) && (unit->unknown_579 || unit->Kind_Of() == 2)) {
             if (unit->Cargo.Object != 0) {
@@ -2481,7 +2481,7 @@ void TeamClass::TMission_unknown_6bd4b0(ScriptMissionClass const &mission, bool 
     int mode = mission.Data;
     bool aircraft = Has_Air_Transport();
     while (unit != 0) {
-        FootClass *next = (FootClass *)unit->unknown_4c8;
+        FootClass *next = (FootClass *)unit->Member;
         if (unit->Techno_Type_Class()->Passengers == 0 || aircraft && unit->Kind_Of() != 2) {
             if (mode == 1 || mode == 3) {
                 Remove(unit, -1, false);
@@ -2544,7 +2544,7 @@ void TeamClass::Team_Members(DynamicVectorClass<TechnoTypeClass *> &types)
             types.Add(type);
         }
     }
-    for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
         TechnoTypeClass *type = member->Techno_Type_Class();
         types.Delete(type);
     }
@@ -2588,7 +2588,7 @@ void Owner_006bd960::FUN_006bd960(int argument_address, char apply_to_members)
 
 void TeamClass::unknown_func_6bd990(int value)
 {
-    for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
         member->FlashCount = value;
     }
 }
@@ -2610,7 +2610,7 @@ void TeamClass::TMission_PLAY_ANIM(ScriptMissionClass const &mission, bool unkno
                 if (anim != 0) {
                     anim->Attach_To(member);
                 }
-                member = (FootClass *)member->unknown_4c8;
+                member = (FootClass *)member->Member;
             } while (member != 0);
             StepCompleted = true;
             return;
@@ -2883,7 +2883,7 @@ int TeamClass::Stray_Distance()
 bool TeamClass::Has_Ammo()
 {
     bool result = false;
-    for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
         if (member->Techno_Type_Class()->Ammo <= 0 || member->unknown_254 > 0) {
             result = true;
             break;

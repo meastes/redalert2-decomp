@@ -154,7 +154,7 @@ static void __fastcall Options_Menu_Command(HWND window, int id, HWND control, u
                     ShowWindow(window, SW_SHOW);
                     UpdateWindow(window);
                 } else {
-                    OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 0x1D));
+                    OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0x1D));
                     *result = 0x51F;
                 }
             }
@@ -198,7 +198,7 @@ static void __fastcall Options_Menu_Command(HWND window, int id, HWND control, u
                             if (latency != unknown_a3fba4) {
                                 if (latency_timer == 0) {
                                     latency_timer = 900;
-                                    OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 0x24, latency));
+                                    OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0x24, latency));
                                     Debug_Printf("LATENCYFUDGE event created - %d\n", latency);
                                 } else {
                                     Debug_Printf("Ignoring latency change to avoid cheating\n");
@@ -211,7 +211,7 @@ static void __fastcall Options_Menu_Command(HWND window, int id, HWND control, u
                             if (Options.GameSpeed != speed) {
                                 if (speed_timer == 0) {
                                     speed_timer = 900;
-                                    OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 0xD, speed));
+                                    OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0xD, speed));
                                 } else {
                                     Debug_Printf("Ignoring speed change to avoid cheating\n");
                                 }
@@ -340,7 +340,7 @@ int __stdcall Game_Options_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
                         humans++;
                     }
                 }
-                if (humans >= 2 && !unknown_player_a35db4->unknown_13d) {
+                if (humans >= 2 && !PlayerPtr->unknown_13d) {
                     Leave_Result = 3;
                     SendMessageA(other, 0x4B2, 0, (LPARAM)StringTable::Load_String("GUI:Observe", 0, "D:\\Ra2\\GOptions.CPP", 0x246));
                     Other_Result = 4;

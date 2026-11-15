@@ -100,7 +100,7 @@ int StorageClass::Get_Total_Value() const
     int value = 0;
     for (int i = 0; i < 4; i++) {
         if (Amounts[i] > 0) {
-            value += Amounts[i] * unknown_TiberiumClass_list_00ac0b30[i]->Value;
+            value += Amounts[i] * Tiberiums[i]->Value;
         }
     }
     return value;

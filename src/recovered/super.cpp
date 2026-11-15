@@ -647,8 +647,8 @@ void SuperClass::Place(Cell const &cell, bool player)
                     TechnoTypeClass *ttype = object->Techno_Type_Class();
                     if (ttype->Organic && !object->Techno_Type_Class()->Teleporter && !object->In_Air()) {
                         int damage = object->Techno_Type_Class()->MaxStrength;
-                        object->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 0);
-                    } else if (!foot->unknown_slot203() && !foot->unknown_210 && !object->unknown_slot111() && !object->unknown_slot112()) {
+                        object->Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, 0);
+                    } else if (!foot->unknown_slot203() && !foot->IsImmobilized && !object->unknown_slot111() && !object->unknown_slot112()) {
                         UnknownComPtr<IPiggyback, &unknown_uuid_IPiggyback_7cfc30> piggyback(foot->Locomotor);
                         UnknownComPtr<ILocomotion, &unknown_uuid_ILocomotion_7ce600> teleport(CLSID_TeleportLocomotionClass);
                         UnitClass *unit = object->Kind_Of() == 1 ? (UnitClass *)object : 0;
@@ -675,7 +675,7 @@ void SuperClass::Place(Cell const &cell, bool player)
                                 coord.Z += unknown_geometry_j;
                             }
                         }
-                        foot->unknown_210 = true;
+                        foot->IsImmobilized = true;
                         foot->unknown_21c = coord;
                         foot->Assign_Destination(&Map[*offset + cell], true);
                     }
@@ -812,7 +812,7 @@ void SuperClass::Place(Cell const &cell, bool player)
                 if (Map[spot].unknown_140 & 0x100) {
                     coord.Z += unknown_geometry_j;
                 }
-                WeaponTypeClass *payload = unknown_WeaponTypeClass_list_00839b90[WeaponTypeClass::Index_From_Name("NukePayload")];
+                WeaponTypeClass *payload = Weapons[WeaponTypeClass::Index_From_Name("NukePayload")];
                 CellClass *target = &Map[coord];
                 CoordStruct sound = coord;
                 CoordStruct launch(sound.X, sound.Y, sound.Z + 20000);

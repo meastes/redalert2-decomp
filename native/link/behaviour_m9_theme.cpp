@@ -25,7 +25,7 @@ bool ThemeClass::Is_Allowed(unsigned theme)
         if (!control->unknown_288) {
             return false;
         }
-        if (unknown_player_a35db4 != 0 && control->Owner != -1 && unknown_player_a35db4->Type->Side != control->Owner) {
+        if (PlayerPtr != 0 && control->Owner != -1 && PlayerPtr->Type->Side != control->Owner) {
             return false;
         }
         if (unknown_game_mode_a3d298 == 0 && unknown_id_source_a3d290->TechLevel < control->Scenario) {

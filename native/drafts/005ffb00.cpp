@@ -77,7 +77,7 @@ int __fastcall unknown_dialog_proc_5ffb00(HWND window, UINT message, WPARAM wpar
 {
     switch (message) {
     case 0x2:
-        Unknown_005B6060(window);
+        Remove_Modeless_Dialog(window);
         _dialog_count--;
         SetFocus(MainWindow);
         return 0;

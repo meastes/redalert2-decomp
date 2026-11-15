@@ -122,7 +122,7 @@ bool __fastcall Do_Chrono_Reinforcements(TeamTypeClass *teamtype, int wp)
             }
             object->unknown_21c = coord;
             object->Locomotor.Checked()->Move_To(CoordStruct(coord.X, coord.Y, coord.Z));
-            object->unknown_205 = true;
+            object->WarpingOut = true;
             object->unknown_218 = Rules->ChronoReinfDelay;
             object->unknown_30 = list;
             list = object;
@@ -158,7 +158,7 @@ bool __fastcall Do_Chrono_Reinforcements(TeamTypeClass *teamtype, int wp)
         }
     }
 
-    if (teamtype->Owner->Is_Ally(unknown_player_a35db4)) {
+    if (teamtype->Owner->Is_Ally(PlayerPtr)) {
         RadarEventClass_unknown_remember_cell(origin);
     }
     return true;

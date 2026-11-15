@@ -221,7 +221,7 @@ bool BulletClass::Mark(int arg1)
 #include "shared/tactical.hpp"
 #include "shared/lightning_storm.hpp"
 #include "shared/radar_event.hpp"
-Matrix3D * __fastcall Unknown_00718D60(Matrix3D *matrix, int ramp);
+Matrix3D * __fastcall Get_Slope_Matrix(Matrix3D *matrix, int ramp);
 int __fastcall Projectile_Motion_00593870(CoordStruct &coord, TVelocity3D<double> &velocity, CoordStruct const &target, UnknownDirStruct const &dir, bool aircraft, bool airburst, bool very_high, bool level);
 // The offset and its length (inline, defined further down in this unit).
 inline UnknownVector3 Coord_Offset(CoordStruct const &from, CoordStruct const &to);
@@ -385,7 +385,7 @@ void BulletClass::AI()
         position.Z = coord.Z;
         double gravity = Rules->unknown_1320;
         if (Type->Floater) {
-            gravity = Unknown_0047FCD0();
+            gravity = Get_Floater_Gravity();
         }
         if (Type->Vertical) {
             int current = (int)Velocity.Speed();
@@ -471,7 +471,7 @@ void BulletClass::AI()
                     }
                     Matrix3D slope;
                     Matrix3D inverse;
-                    inverse = Matrix3D_Rigid_Inverse_00591420(slope = *Unknown_00718D60(&Matrix3D(), TacticalMap->Get_Cell_Ramp_006a7110(new_coord)));
+                    inverse = Matrix3D_Rigid_Inverse_00591420(slope = *Get_Slope_Matrix(&Matrix3D(), TacticalMap->Get_Cell_Ramp_006a7110(new_coord)));
                     Vector3 vec;
                     vec.Set_00437690((float)velocity.X, -(float)velocity.Y, (float)velocity.Z);
                     vec = inverse.Rotate_Vector(vec);
@@ -675,7 +675,7 @@ void BulletClass::Draw_It(Point2D const &point, Rect const &clip)
     if (Type->AnimPalette) drawer = bullet_anim_drawer;
     else if (Type->FirersPalette) {
         if (InheritedColor != -1) drawer = ColorSchemes[InheritedColor]->Converter;
-        else drawer = ColorSchemes[unknown_player_a35db4->ColorSchemeIndex]->Converter;
+        else drawer = ColorSchemes[PlayerPtr->ColorSchemeIndex]->Converter;
     }
     CC_Draw_Shape(LogicalSurface, drawer, image, shape, point, clip, 0x2e00, 0, -30 - Bullet_Height_Pixel(Get_Height()), 0, 1000, 0, 0, Point2D(0, 0));
 }
@@ -1023,7 +1023,7 @@ void BulletClass::unknown_func_462110(CoordStruct const &position)
     } else if (WH->Temporal) {
         if (Owner != 0 && Target != 0) {
             TechnoClass *target = Bullet_Target_Techno(Target);
-            Owner->unknown_208->Unknown_006E27B0(target);
+            Owner->TemporalImUsing->Unknown_006E27B0(target);
         }
     } else if (WH->BombDisarm) {
         if (Target != 0 && Target->AbstractFlags.IsObject) {
@@ -1393,7 +1393,7 @@ void BulletClass::unknown_func_463c50()
 {
     AbstractClass *target = Target;
     CellClass *target_cell = &Map[Coord_Cell_Of(target->Center_Coord())];
-    WeaponTypeClass *payload = unknown_WeaponTypeClass_list_00839b90[WeaponTypeClass::Index_From_Name("NukePayload")];
+    WeaponTypeClass *payload = Weapons[WeaponTypeClass::Index_From_Name("NukePayload")];
     BulletTypeClass *projectile = payload->Projectile;
     WarheadTypeClass *warhead = payload->Warhead;
     int speed = payload->unknown_a8;

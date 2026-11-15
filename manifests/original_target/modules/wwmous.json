@@ -173,56 +173,56 @@
    "address": "007c6838",
    "bytes": 24,
    "kind": "rtti",
-   "section": 23
+   "section": 18
   },
   {
    "symbol": "??_R2WWMouseClass@@8",
    "address": "007c6850",
    "bytes": 9,
    "kind": "rtti",
-   "section": 24
+   "section": 19
   },
   {
    "symbol": "??_R3WWMouseClass@@8",
    "address": "007c6860",
    "bytes": 16,
    "kind": "rtti",
-   "section": 25
+   "section": 20
   },
   {
    "symbol": "??_R4WWMouseClass@@6B@",
    "address": "007c6870",
    "bytes": 20,
    "kind": "rtti",
-   "section": 27
+   "section": 22
   },
   {
    "symbol": "??_R1A@?0A@A@Mouse@@8",
    "address": "007c6888",
    "bytes": 24,
    "kind": "rtti",
-   "section": 22
+   "section": 23
   },
   {
    "symbol": "??_R2Mouse@@8",
    "address": "007c68a0",
    "bytes": 5,
    "kind": "rtti",
-   "section": 18
+   "section": 24
   },
   {
    "symbol": "??_R3Mouse@@8",
    "address": "007c68a8",
    "bytes": 16,
    "kind": "rtti",
-   "section": 19
+   "section": 25
   },
   {
    "symbol": "??_R4Mouse@@6B@",
    "address": "007c68b8",
    "bytes": 20,
    "kind": "rtti",
-   "section": 20
+   "section": 27
   },
   {
    "symbol": "??_R0?AVSurface@@@8",
@@ -271,14 +271,14 @@
    "address": "00801370",
    "bytes": 27,
    "kind": "rtti",
-   "section": 26
+   "section": 21
   },
   {
    "symbol": "??_R0?AVMouse@@@8",
    "address": "00801390",
    "bytes": 20,
    "kind": "rtti",
-   "section": 21
+   "section": 26
   },
   {
    "symbol": "??_C@_0CC@EGPP@Calc_Confining_Rect?$CI?$CFd?0?$CFd?0?$CFd?0?$CFd?$CJ@",
@@ -594,6 +594,10 @@
    "address": "00411320"
   },
   {
+   "symbol": "?Blit_Block@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z",
+   "address": "0049f3a0"
+  },
+  {
    "symbol": "?Copy_From@XSurface@@UAE_NAAVSurface@@_N1@Z",
    "address": "00774e60"
   },
@@ -674,6 +678,10 @@
    "address": "00a40d28"
   },
   {
+   "symbol": "?Get_Input_Record_Mode@@YAHXZ",
+   "address": "00522e80"
+  },
+  {
    "symbol": "?Get_Pixel@XSurface@@UAEHABUPoint2D@@@Z",
    "address": "007741d0"
   },
@@ -702,20 +710,12 @@
    "address": "00773ef0"
   },
   {
-   "symbol": "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z",
-   "address": "0049f3a0"
-  },
-  {
    "symbol": "?unknown_convert_8323c8@@3PAXA",
    "address": "008323c8"
   },
   {
    "symbol": "?unknown_flag_a40b30@@3_NA",
    "address": "00a40b30"
-  },
-  {
-   "symbol": "?unknown_function_522e80@@YAHXZ",
-   "address": "00522e80"
   },
   {
    "symbol": "?unknown_int_839638@@3HA",

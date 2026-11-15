@@ -55,7 +55,7 @@
    "padding_bytes": 3
   },
   {
-   "symbol": "?unknown_6e0430@TeleportLocomotionClass@@QAEXUCoordStruct@@@Z",
+   "symbol": "?Check_Landing@TeleportLocomotionClass@@QAEXUCoordStruct@@@Z",
    "entry": "006e0430",
    "body_bytes": 627,
    "padding_bytes": 13
@@ -783,6 +783,10 @@
    "address": "0053d610"
   },
   {
+   "symbol": "?Assign_Archive_Target@TechnoClass@@QAEXPAVAbstractClass@@@Z",
+   "address": "006d6e50"
+  },
+  {
    "symbol": "?Can_Enter_Cell@LocomotionClass@@UAGHVCell@@@Z",
    "address": "0053d4f0"
   },
@@ -877,6 +881,10 @@
   {
    "symbol": "?Load@LocomotionClass@@UAGJPAUIStream@@@Z",
    "address": "0053d3c0"
+  },
+  {
+   "symbol": "?LoseTarget@BulletClass@@QAEXXZ",
+   "address": "00461470"
   },
   {
    "symbol": "?Map@@3VMouseClass@@A",
@@ -1007,16 +1015,8 @@
    "address": "0047b7e0"
   },
   {
-   "symbol": "?unknown_6d6e50@TechnoClass@@QAEXPAVAbstractClass@@@Z",
-   "address": "006d6e50"
-  },
-  {
    "symbol": "?unknown_BulletClass_list_00a40ce8@@3V?$DynamicVectorClass@PAVBulletClass@@@@A",
    "address": "00a40ce8"
-  },
-  {
-   "symbol": "?unknown_func_461470@BulletClass@@QAEXXZ",
-   "address": "00461470"
   },
   {
    "symbol": "?unknown_math_4ba520@@YANN@Z",

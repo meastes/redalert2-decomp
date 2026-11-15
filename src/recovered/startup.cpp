@@ -823,7 +823,7 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
         if (!unknown_hicolor_7ce008) {
             Wide_Message_Box(MainWindow, StringTable::Load_String("TXT_INVALIDMODE", 0, "D:\\Ra2\\Startup.CPP", 0x846),
                              StringTable::Load_String("TXT_SHORT_TITLE", 0, "D:\\Ra2\\Startup.CPP", 0x846), 0x30);
-            Unknown_00691320();
+            Emergency_Exit();
         }
         if (!Notify_Launcher_00491930()) {
             Debug_Printf("Failed to notify launcher\n");
@@ -1291,17 +1291,17 @@ void __fastcall Emergency_Exit(int code)
 }
 
 
-// void Unknown_00691320() (0x00691320): the orderly shutdown before Emergency_Exit. Sets ReadyToQuit,
+// void Emergency_Exit() (0x00691320): the orderly shutdown before Emergency_Exit. Sets ReadyToQuit,
 // posts WM_DESTROY to the game window and pumps messages until the window procedure has handled it,
 // revokes and disconnects the application object, uninitializes OLE, removes the mouse, frees a
 // pending block, posts WM_QUIT and ends with Prog_End.
 
-void Unknown_00691320()
+void Emergency_Exit()
 {
     ReadyToQuit = 1;
     PostMessageA(MainWindow, 0x0002, 0, 0);  // WM_DESTROY
     while (MainWindow) {
-        Unknown_005B5EE0();
+        Windows_Message_Handler();
         if (ReadyToQuit != 1) {
             break;
         }

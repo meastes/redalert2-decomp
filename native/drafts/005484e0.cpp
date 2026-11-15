@@ -28,7 +28,7 @@
 // @ref ?unknown_cell_a6f238@@3VCell@@A=00a6f238
 // @ref ?unknown_objects_a40368@@3V?$DynamicVectorClass@PAVObjectClass@@@@A=00a40368
 // @ref ?Anims@@3V?$DynamicVectorClass@PAVAnimClass@@@@A=00a40960
-// @ref ?unknown_TubeClass_list_008661c8@@3V?$DynamicVectorClass@PAVTubeClass@@@@A=008661c8
+// @ref ?Tubes@@3V?$DynamicVectorClass@PAVTubeClass@@@@A=008661c8
 // @ref ?unknown_id_source_a3d290@@3PAVScenarioClass@@A=00a3d290
 // @ref ?ScenarioInit@@3HA=00a40774
 // @ref ?unknown_map_min_a70a1c@@3HA=00a70a1c
@@ -183,8 +183,8 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
             }
         }
 
-        for (i = 0; i < unknown_TubeClass_list_008661c8.Count(); i++) {
-            TubeClass *tube = unknown_TubeClass_list_008661c8[i];
+        for (i = 0; i < Tubes.Count(); i++) {
+            TubeClass *tube = Tubes[i];
             tube->EnterCell = tube->EnterCell + offset;   // NATIVE: overlay Cell::operator+= (base 0x0056AA20)
             tube->ExitCell = tube->ExitCell + offset;     // NATIVE
         }

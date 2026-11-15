@@ -113,7 +113,7 @@ public:
 // The tactical area X, Y, width, height (0x00839630; shared/display.hpp), a
 // counter the draw tests (0x00B263D8; shared/techno.hpp) and the flag that
 // forces image reloads (0x00A40D13; shared/anim_type.hpp).
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 // The [Terrain] section name (a pointer variable at 0x007AD390).
 extern char const *unknown_terrain_section_7ad390;
 // The scenario INI format (0x00A40D24; below 4 cells are numbered x + y *

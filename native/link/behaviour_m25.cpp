@@ -13,7 +13,7 @@
 #include "shared/win32_api.hpp"
 #include "shared/owner_draw_dialog_control.hpp"
 
-extern HouseClass *unknown_player_a35db4;                       // 0x00A35DB4
+extern HouseClass *PlayerPtr;                       // 0x00A35DB4
 
 // 0x005E1FD0: sends 0x4E6 with a byte to a control (as 0x005E1FB0 sends 0x4E5; the
 // diplomacy dialog marks an allied player's check box with it).
@@ -76,9 +76,9 @@ void RadarClass::Unknown_00634670(int arg1, int index, HouseClass *house)
     if (house->unknown_13d) {
         ShowWindow(ally, 0);
     } else {
-        SendMessageA(ally, 0xF1, unknown_player_a35db4->Is_Ally(house) ? 1 : 0, 0);
+        SendMessageA(ally, 0xF1, PlayerPtr->Is_Ally(house) ? 1 : 0, 0);
     }
-    unknown_5e1fd0(ally, house->Is_Ally(unknown_player_a35db4));
+    unknown_5e1fd0(ally, house->Is_Ally(PlayerPtr));
     if (house->unknown_18f) {
         ShowWindow(GetDlgItem(dialog, team_ids[index]), 0);
     } else if (MuteSWLaunches) {

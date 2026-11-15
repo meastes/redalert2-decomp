@@ -183,7 +183,7 @@ bool AITriggerTypeClass::Is_Ready(HouseClass *house, HouseClass *enemy, bool unk
     if (unknown_dc == 0) {
         return false;
     }
-    if (enemy == 0 || (Rules->unknown_1437 && house->unknown_555c < Rules->MinimumAIDefensiveTeams[house->unknown_c8])) {
+    if (enemy == 0 || (Rules->unknown_1437 && house->BaseDefenseTeamCount < Rules->MinimumAIDefensiveTeams[house->unknown_c8])) {
         if (!teams_ok) {
             return false;
         }

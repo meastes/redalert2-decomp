@@ -275,7 +275,7 @@ void __fastcall AlphaShapeClass::Draw_In_Area(Point2D const &point, Rect const &
         if (!unknown_AlphaShapeClass_list_0083c648[index]->unknown_3c) {
             Rect r1 = unknown_AlphaShapeClass_list_0083c648[index]->Bounds;
             r1 -= Point2D(TacticalMap->TacPixelX, TacticalMap->TacPixelY);
-            r1 += Point2D(unknown_rect_839630.X, unknown_rect_839630.Y);
+            r1 += Point2D(TacticalRect.X, TacticalRect.Y);
             Rect r2 = Intersect(r1, cliprect);
             Rect r3(point.X, point.Y, 60, 30);
             Rect r4 = Intersect(r2, r3);
@@ -295,7 +295,7 @@ void __fastcall AlphaShapeClass::Draw_In_Area(Point2D const &point, Rect const &
                 int mask_skip = 60 - r4.Width;
                 unsigned char const *maskptr = &_tilemask[60 * dy + dx];
                 unsigned char *shapedata = (unsigned char *)shape->Get_Frame_Data(0);
-                unsigned short *alphaptr = AlphaBuffer->Get_Buffer_Offset(Point2D(left, top - unknown_rect_839630.Y));
+                unsigned short *alphaptr = AlphaBuffer->Get_Buffer_Offset(Point2D(left, top - TacticalRect.Y));
                 unsigned char *shapeptr = &shapedata[src_x + src_y * shape_rect.Width];
                 if (&alphaptr[right - left + (bottom - top) * AlphaBuffer->Width + 2] >= (unsigned short *)AlphaBuffer->BufferTail) {
                     for (int y = top; y < bottom; y++) {
@@ -356,8 +356,8 @@ void __fastcall Unknown_0041F5E0(Rect const &cliprect)   // NATIVE: the callers'
         {
             Rect r1 = unknown_AlphaShapeClass_list_0083c648[index]->Bounds;
             r1 -= Point2D(TacticalMap->TacPixelX, TacticalMap->TacPixelY);
-            r1.X += unknown_rect_839630.X;   // NATIVE: the overlay's Rect += Point2D (RA2_RECT_POINT_INLINE): moves the corner
-            r1.Y += unknown_rect_839630.Y;   // NATIVE
+            r1.X += TacticalRect.X;   // NATIVE: the overlay's Rect += Point2D (RA2_RECT_POINT_INLINE): moves the corner
+            r1.Y += TacticalRect.Y;   // NATIVE
             Rect clip = cliprect;
             Rect r2 = Intersect(r1, clip);
             if (r2.Is_Valid()) {
@@ -378,7 +378,7 @@ void __fastcall Unknown_0041F5E0(Rect const &cliprect)   // NATIVE: the callers'
                 int shape_skip = shape_rect.Width - right + shape_rect.X + x1 + src_x;
                 int alpha_skip = AlphaBuffer->Width - right + left;
                 unsigned char *shapedata = (unsigned char *)shape->Get_Frame_Data(0);
-                unsigned short *alphaptr = AlphaBuffer->Get_Buffer_Offset(Point2D(left - unknown_rect_839630.X, top - unknown_rect_839630.Y));
+                unsigned short *alphaptr = AlphaBuffer->Get_Buffer_Offset(Point2D(left - TacticalRect.X, top - TacticalRect.Y));
                 unsigned char *shapeptr = &shapedata[src_x + src_y * shape_rect.Width];
                 if (&alphaptr[right - left + (bottom - top) * AlphaBuffer->Width + 2] >= (unsigned short *)AlphaBuffer->BufferTail) {
                     for (int y = top; y < bottom; y++) {

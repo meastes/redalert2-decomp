@@ -84,10 +84,10 @@ template class DynamicVectorClass<BuildingTypeClass const *>;
 // 0x00482100 (pass-6a decompile): the random map dialog's progress callback (Do_Random_Map_Dialog
 // 0x00577490 stores it in rmg_callback_7e09c4): runs the per-frame service 0x00481FB0 and never
 // asks the generator to stop.
-void unknown_481fb0();
+void Call_Back();
 bool Default_Map_Generation_Callback_00482100()
 {
-    unknown_481fb0();
+    Call_Back();
     return false;
 }
 

@@ -207,7 +207,7 @@ void ParasiteClass::Reset_Grapple_Counters_006066a0()
 
 bool ParasiteClass::Grapple_Frame_006066B0()
 {
-    UnknownFacingDir dir = unknown_28->unknown_2e0.Current();
+    UnknownFacingDir dir = unknown_28->PrimaryFacing.Current();
     int base;
     int delay;
     switch (unknown_48) {
@@ -305,7 +305,7 @@ void ParasiteClass::Unknown_00606780()
         case 4: {
             unknown_28->unknown_280 = 0.0f;
             int count = Rules->SplashList.Count();
-            double angle = -unknown_28->unknown_2e0.Current().As_Radian();
+            double angle = -unknown_28->PrimaryFacing.Current().As_Radian();
             double cosine = Fast_Cos(angle);
             double sine = Fast_Sin(angle);
             for (int index = 0; index < 3; ++index) {
@@ -379,7 +379,7 @@ inline double UnknownFacingDir::As_Radian() const
 
 void __fastcall Make_Wakes_00606E10(FootClass *victim, CoordStruct coord)
 {
-    double angle = -victim->unknown_2e0.Current().As_Radian();
+    double angle = -victim->PrimaryFacing.Current().As_Radian();
     double cosine = unknown_cos_4ba4d0(angle);
     double sine = unknown_sin_4ba480(angle);
     for (int i = 0; i < 3; i++) {
@@ -421,7 +421,7 @@ void ParasiteClass::AI()
         unknown_28->Take_Damage(&damage, 0, warhead, Owner, true, true);
     } else {
         new ParticleSystemClass(Rules->unknown_ce0, coord, 0, 0, unknown_geometry_l);
-        UnknownFacingDir dir = unknown_28->unknown_2e0.Current();
+        UnknownFacingDir dir = unknown_28->PrimaryFacing.Current();
         if (weapon->Anim.Count() != 0) {
             AnimTypeClass *anim = weapon->Anim[Dir_To_8(dir)];
             if (anim != 0) {
@@ -472,7 +472,7 @@ void ParasiteClass::Detach(AbstractClass *target, bool all)
         CoordStruct coord = Unknown_00607C30();
         ScenarioInit++;
         if (coord != unknown_geometry_l) {
-            if (Owner->Unlimbo(&coord, Dir_To_256(unknown_28->unknown_2e0.Current()))) {
+            if (Owner->Unlimbo(&coord, Dir_To_256(unknown_28->PrimaryFacing.Current()))) {
                 ScenarioInit--;
                 if (Owner->unknown_381 && Owner->House->Is_Player_Control()) {
                     Owner->unknown_381 = false;
@@ -512,12 +512,12 @@ void ParasiteClass::Detach(AbstractClass *target, bool all)
 void ParasiteClass::Unknown_00607440()
 {
     bool naval = Owner->Techno_Type_Class()->Naval;
-    int facing = Dir_To_8(unknown_28->unknown_2e0.Current());
+    int facing = Dir_To_8(unknown_28->PrimaryFacing.Current());
     UnknownFacingDir exit_dir;
     if (facing >= 0 && facing <= 2) {
-        exit_dir = UnknownFacingDir((unsigned short)(unknown_28->unknown_2e0.Current().Raw + 0x3fff));
+        exit_dir = UnknownFacingDir((unsigned short)(unknown_28->PrimaryFacing.Current().Raw + 0x3fff));
     } else {
-        exit_dir = UnknownFacingDir((unsigned short)(unknown_28->unknown_2e0.Current().Raw - 0x3fff));
+        exit_dir = UnknownFacingDir((unsigned short)(unknown_28->PrimaryFacing.Current().Raw - 0x3fff));
     }
     Cell cell;
     if (naval) {
@@ -668,7 +668,7 @@ CoordStruct ParasiteClass::Unknown_00607C30()
         if (can_exit) {
             return unknown_28->Coord;
         }
-        int facing = Dir_To_8(unknown_28->unknown_2e0.Current());
+        int facing = Dir_To_8(unknown_28->PrimaryFacing.Current());
         CellClass *victim_cell = (CellClass *)unknown_28->Get_Cell_Ptr();
         CellClass &cell = victim_cell->Adjacent_Cell(facing);
         if (!Owner->Techno_Type_Class()->Naval) {

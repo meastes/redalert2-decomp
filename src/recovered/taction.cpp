@@ -531,7 +531,7 @@ bool TActionClass::unknown_set_session_flag_222b(HouseClass *house, ObjectClass 
 
 bool TActionClass::unknown_set_session_flag_222a(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_id_source_a3d290->unknown_222a = Data.Boolean;
+    unknown_id_source_a3d290->IsTibGrowth = Data.Boolean;
     return true;
 }
 
@@ -603,7 +603,7 @@ bool TActionClass::unknown_hunt_technos_of_house_type(HouseClass *house, ObjectC
 
 bool TActionClass::unknown_player_4e7ee0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_player_a35db4->Flag_To_Win(true);
+    PlayerPtr->Flag_To_Win(true);
     return true;
 }
 
@@ -613,7 +613,7 @@ bool TActionClass::unknown_player_4e7ee0(HouseClass *house, ObjectClass *object,
 
 bool TActionClass::unknown_player_4e80d0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_player_a35db4->Flag_To_Lose(true);
+    PlayerPtr->Flag_To_Lose(true);
     return true;
 }
 
@@ -623,7 +623,7 @@ bool TActionClass::unknown_player_4e80d0(HouseClass *house, ObjectClass *object,
 
 bool TActionClass::unknown_player_4e82c0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_player_a35db4->Flag_To_End();
+    PlayerPtr->Flag_To_End();
     return true;
 }
 
@@ -635,15 +635,15 @@ bool TActionClass::unknown_player_4e82c0(HouseClass *house, ObjectClass *object,
 bool TActionClass::TAction_DAMAGE(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     int damage = 100;
-    Unknown_0047E2C0(Waypoint_As_Coord(), damage, 0, Rules->unknown_c74, 1);
+    Unknown_0047E2C0(Waypoint_As_Coord(), damage, 0, Rules->C4Warhead, 1);
     damage = 100;
-    Unknown_0047E2C0(Waypoint_As_Coord() + CoordStruct(85, 85, 0), damage, 0, Rules->unknown_c74, 1);
+    Unknown_0047E2C0(Waypoint_As_Coord() + CoordStruct(85, 85, 0), damage, 0, Rules->C4Warhead, 1);
     damage = 100;
-    Unknown_0047E2C0(Waypoint_As_Coord() + CoordStruct(-85, 85, 0), damage, 0, Rules->unknown_c74, 1);
+    Unknown_0047E2C0(Waypoint_As_Coord() + CoordStruct(-85, 85, 0), damage, 0, Rules->C4Warhead, 1);
     damage = 100;
-    Unknown_0047E2C0(Waypoint_As_Coord() + CoordStruct(85, -85, 0), damage, 0, Rules->unknown_c74, 1);
+    Unknown_0047E2C0(Waypoint_As_Coord() + CoordStruct(85, -85, 0), damage, 0, Rules->C4Warhead, 1);
     damage = 100;
-    Unknown_0047E2C0(Waypoint_As_Coord() + CoordStruct(-85, -85, 0), damage, 0, Rules->unknown_c74, 1);
+    Unknown_0047E2C0(Waypoint_As_Coord() + CoordStruct(-85, -85, 0), damage, 0, Rules->C4Warhead, 1);
     bool valid_waypoint = unknown_id_source_a3d290->Is_Valid_Waypoint(Data.Value);
     if (valid_waypoint) {
         Cell spot = unknown_id_source_a3d290->Get_Waypoint_Location(Data.Value);
@@ -665,7 +665,7 @@ bool TActionClass::TAction_DAMAGE(HouseClass *house, ObjectClass *object, Trigge
 
 bool TActionClass::unknown_explosion_50_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Unknown_0047F600(unknown_id_source_a3d290->Waypoint_Coord(Data.Value), 50, Rules->unknown_c74, 0, 0);
+    Unknown_0047F600(unknown_id_source_a3d290->Waypoint_Coord(Data.Value), 50, Rules->C4Warhead, 0, 0);
     return true;
 }
 
@@ -675,7 +675,7 @@ bool TActionClass::unknown_explosion_50_at_waypoint(HouseClass *house, ObjectCla
 
 bool TActionClass::unknown_explosion_100_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Unknown_0047F600(unknown_id_source_a3d290->Waypoint_Coord(Data.Value), 100, Rules->unknown_c74, 0, 0);
+    Unknown_0047F600(unknown_id_source_a3d290->Waypoint_Coord(Data.Value), 100, Rules->C4Warhead, 0, 0);
     return true;
 }
 
@@ -685,7 +685,7 @@ bool TActionClass::unknown_explosion_100_at_waypoint(HouseClass *house, ObjectCl
 
 bool TActionClass::unknown_explosion_300_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Unknown_0047F600(unknown_id_source_a3d290->Waypoint_Coord(Data.Value), 300, Rules->unknown_c74, 0, 0);
+    Unknown_0047F600(unknown_id_source_a3d290->Waypoint_Coord(Data.Value), 300, Rules->C4Warhead, 0, 0);
     return true;
 }
 
@@ -929,7 +929,7 @@ bool TActionClass::unknown_clear_local_variable(HouseClass *house, ObjectClass *
 
 bool TActionClass::unknown_reveal_around_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (!unknown_player_a35db4->unknown_188) {
+    if (!PlayerPtr->unknown_188) {
         Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(Data.Value);
         int extra;
         if ((Map[waypoint].unknown_140 & 0x100) || (Map[waypoint].unknown_140 & 0x400)) {
@@ -939,9 +939,9 @@ bool TActionClass::unknown_reveal_around_waypoint(HouseClass *house, ObjectClass
         }
         int size = Map[waypoint].unknown_11b + extra;
         Cell spot = waypoint - Cell(size / 2, size / 2);
-        Map.Sight_From(XYZ_Coord(spot.X * 256 + 128, spot.Y * 256 + 128, unknown_geometry_g * size), Rules->RevealTriggerRadius, unknown_player_a35db4, false, false, 0, true, 0);
+        Map.Sight_From(XYZ_Coord(spot.X * 256 + 128, spot.Y * 256 + 128, unknown_geometry_g * size), Rules->RevealTriggerRadius, PlayerPtr, false, false, 0, true, 0);
         spot = waypoint - Cell(size / 2, size / 2);
-        Map.Sight_From(XYZ_Coord(spot.X * 256 + 128, spot.Y * 256 + 128, unknown_geometry_g * size), Rules->RevealTriggerRadius, unknown_player_a35db4, false, false, 0, true, 1);
+        Map.Sight_From(XYZ_Coord(spot.X * 256 + 128, spot.Y * 256 + 128, unknown_geometry_g * size), Rules->RevealTriggerRadius, PlayerPtr, false, false, 0, true, 1);
     }
     return true;
 }
@@ -969,7 +969,7 @@ bool TActionClass::unknown_map_55d990_at_waypoint(HouseClass *house, ObjectClass
 
 bool TActionClass::unknown_reveal_zone_of_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (!unknown_player_a35db4->unknown_188) {
+    if (!PlayerPtr->unknown_188) {
         int zone = Map.Zone(unknown_id_source_a3d290->Get_Waypoint_Location(Data.Value), 1, false);
         Map.Unknown_0055AA50();
         CellClass *cellptr;
@@ -978,9 +978,9 @@ bool TActionClass::unknown_reveal_zone_of_waypoint(HouseClass *house, ObjectClas
             if (Map.Zone(where, 1, false) == zone) {
                 int level = cellptr->unknown_11b / 2;
                 Cell spot = where - Cell(level / 2, level / 2);
-                Map.Sight_From(XYZ_Coord(spot.X * 256 + 128, spot.Y * 256 + 128, unknown_geometry_g * level), 2, unknown_player_a35db4, false, false, 0, true, 0);
+                Map.Sight_From(XYZ_Coord(spot.X * 256 + 128, spot.Y * 256 + 128, unknown_geometry_g * level), 2, PlayerPtr, false, false, 0, true, 0);
                 spot = where - Cell(level / 2, level / 2);
-                Map.Sight_From(XYZ_Coord(spot.X * 256 + 128, spot.Y * 256 + 128, unknown_geometry_g * level), 2, unknown_player_a35db4, false, false, 0, true, 1);
+                Map.Sight_From(XYZ_Coord(spot.X * 256 + 128, spot.Y * 256 + 128, unknown_geometry_g * level), 2, PlayerPtr, false, false, 0, true, 1);
             }
         }
     }
@@ -994,12 +994,12 @@ bool TActionClass::unknown_reveal_zone_of_waypoint(HouseClass *house, ObjectClas
 
 bool TActionClass::unknown_reveal_whole_map(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (!unknown_player_a35db4->unknown_188) {
-        unknown_player_a35db4->unknown_188 = true;
+    if (!PlayerPtr->unknown_188) {
+        PlayerPtr->unknown_188 = true;
         Map.Reset_Iterator();
         CellClass *cell;
         while ((cell = Map.Iterate()) != 0) {
-            Map.Map_Cell(cell->MapCoords, unknown_player_a35db4);
+            Map.Map_Cell(cell->MapCoords, PlayerPtr);
         }
         Map.Flag_To_Redraw(1);
     }
@@ -1219,7 +1219,7 @@ bool TActionClass::TAction_STOP_SOUND_AT(HouseClass *house, ObjectClass *object,
 
 bool TActionClass::TAction_REVEAL_AROUND_WAYPOINT(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (!unknown_player_a35db4->unknown_188) {
+    if (!PlayerPtr->unknown_188) {
         Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(Data.Value);
         int extra;
         if ((Map[waypoint].unknown_140 & 0x100) || (Map[waypoint].unknown_140 & 0x400)) {
@@ -1265,7 +1265,7 @@ bool TActionClass::unknown_play_voice(HouseClass *house, ObjectClass *object, Tr
 bool TActionClass::TAction_1_SPECIAL(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     house->Supers[Data.Value]->Grant(true, false, false);
-    if (unknown_player_a35db4 == house) {
+    if (PlayerPtr == house) {
         Map.Unknown_0067C530(31, Data.Value);
         Map.Flag_Tab_To_Redraw(Unknown_006818D0(31, Data.Value, 0));
     }
@@ -1280,7 +1280,7 @@ bool TActionClass::TAction_FULL_SPECIAL(HouseClass *house, ObjectClass *object, 
 {
     house->Supers[Data.Value]->Grant(false, false, false);
     house->Supers[Data.Value]->unknown_0x48 = false;
-    if (unknown_player_a35db4 == house) {
+    if (PlayerPtr == house) {
         Map.Unknown_0067C530(31, Data.Value);
         Map.Flag_Tab_To_Redraw(Unknown_006818D0(31, Data.Value, 0));
     }
@@ -1313,11 +1313,11 @@ bool TActionClass::TAction_DZ(HouseClass *house, ObjectClass *object, TriggerCla
 
 bool TActionClass::TAction_WIN(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (Data.Value == unknown_player_a35db4->Type->House) {
-        unknown_player_a35db4->Flag_To_Win(false);
+    if (Data.Value == PlayerPtr->Type->House) {
+        PlayerPtr->Flag_To_Win(false);
         return true;
     }
-    unknown_player_a35db4->Flag_To_Lose(false);
+    PlayerPtr->Flag_To_Lose(false);
     return true;
 }
 
@@ -1327,11 +1327,11 @@ bool TActionClass::TAction_WIN(HouseClass *house, ObjectClass *object, TriggerCl
 
 bool TActionClass::TAction_LOSE(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (Data.Value != unknown_player_a35db4->Type->House) {
-        unknown_player_a35db4->Flag_To_Win(false);
+    if (Data.Value != PlayerPtr->Type->House) {
+        PlayerPtr->Flag_To_Win(false);
         return true;
     }
-    unknown_player_a35db4->Flag_To_Lose(false);
+    PlayerPtr->Flag_To_Lose(false);
     return true;
 }
 
@@ -1449,7 +1449,7 @@ bool TActionClass::TAction_DESTROY_OBJECT(HouseClass *house, ObjectClass *object
             if (techno->Strength > 0 && techno->IsActive && techno->unknown_74 && !techno->unknown_76 && techno->unknown_34 != 0
                 && techno->unknown_34->Is_Trigger_Attached(trigger)) {
                 int damage = techno->Strength;
-                techno->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 0);
+                techno->Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, 0);
                 killed = true;
                 again = true;
                 index--;
@@ -1533,15 +1533,15 @@ bool TActionClass::unknown_weapon_explosion_at_waypoint(HouseClass *house, Objec
         coord.Z += unknown_geometry_j;
     }
     int index = Data.Value;
-    WeaponTypeClass *weapon = unknown_WeaponTypeClass_list_00839b90[index];
+    WeaponTypeClass *weapon = Weapons[index];
     int damage = weapon->unknown_a4;
     int land = Map[coord].unknown_ec;
     AnimTypeClass *anim = Select_Damage_Anim(damage, weapon->Warhead, land, &coord);
     if (anim != 0) {
         new AnimClass(anim, coord, 0, 1, 0x2600, Get_Explosion_Z_0047fcc0(coord));
     }
-    Unknown_0047F600(coord, damage, unknown_WeaponTypeClass_list_00839b90[index]->Warhead, 0, 0);
-    Unknown_0047E2C0(coord, damage, 0, unknown_WeaponTypeClass_list_00839b90[index]->Warhead, 1);
+    Unknown_0047F600(coord, damage, Weapons[index]->Warhead, 0, 0);
+    Unknown_0047E2C0(coord, damage, 0, Weapons[index]->Warhead, 1);
     return true;
 }
 
@@ -1995,7 +1995,7 @@ bool TActionClass::unknown_nuke_at_waypoint(HouseClass *house, ObjectClass *obje
     if (Map[waypoint].unknown_140 & 0x100) {
         coord.Z += unknown_geometry_j;
     }
-    WeaponTypeClass *payload = unknown_WeaponTypeClass_list_00839b90[WeaponTypeClass::Index_From_Name("NukePayload")];
+    WeaponTypeClass *payload = Weapons[WeaponTypeClass::Index_From_Name("NukePayload")];
     BulletTypeClass *projectile = payload->Projectile;
     BulletClass *bullet = Create_Bullet(projectile, (AbstractClass *)&Map[coord], 0, payload->unknown_a4, payload->Warhead, 50, false);
     bullet->Set_Weapon_Type(payload);
@@ -2106,7 +2106,7 @@ bool TActionClass::unknown_chem_missile_at_waypoint(HouseClass *house, ObjectCla
         coord.Z += unknown_geometry_j;
     }
     Cell from = Map.Unknown_005689D0(Coord_Cell(coord), 0);
-    WeaponTypeClass *launcher = unknown_WeaponTypeClass_list_00839b90[WeaponTypeClass::Index_From_Name("ChemLauncher")];
+    WeaponTypeClass *launcher = Weapons[WeaponTypeClass::Index_From_Name("ChemLauncher")];
     BulletTypeClass *projectile = launcher->Projectile;
     BulletClass *bullet = Create_Bullet(projectile, (AbstractClass *)&Map[coord], 0, launcher->unknown_a4, launcher->Warhead, 20, false);
     if (bullet != 0) {

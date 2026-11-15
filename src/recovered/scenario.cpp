@@ -324,7 +324,7 @@ void ScenarioClass::Set_Defaults()
     unknown_2224 = 0;
     FreeRadar = false;
     unknown_2229 = false;
-    unknown_222a = true;
+    IsTibGrowth = true;
     unknown_222b = true;
     unknown_222c = true;
     unknown_222d = false;
@@ -811,7 +811,7 @@ bool __fastcall Unknown_0065c7d0(char const *name)
     }
     if (!ok) {
         Debug_Printf("Error - Unable to read scenario: %s\n", filename);
-        Set_Palette(&GamePalette, 7, unknown_481fb0);
+        Set_Palette(&GamePalette, 7, Call_Back);
         WWMessageBox(L" ").Process(
             StringTable::Load_String("TXT_UNABLE_READ_SCENARIO", 0, "D:\\Ra2\\Scenario.CPP", 1394),
             StringTable::Load_String("TXT_OK", 0, "D:\\Ra2\\Scenario.CPP", 1394), 0, 0, false);
@@ -918,7 +918,7 @@ void __fastcall Fill_In_Data_0065cdd0()
             HouseClass *house = Houses[house_index];
             if (house != 0) {
                 int money = house->Available_Money();
-                TiberiumClass *tiberium = unknown_TiberiumClass_list_00ac0b30[0];
+                TiberiumClass *tiberium = Tiberiums[0];
                 while (money > tiberium->Value && house->Available_Storage() > 0) {
                     house->Harvested(1.0f, 0);
                     money -= tiberium->Value;
@@ -1017,7 +1017,7 @@ namespace seed_006ea130 { void Deinit_Tiberium_Growth_System_006ea130(); }
 void Sound_Clear_Static();
 void Unknown_00613E50();
 void Unknown_0051FBB0();
-extern HouseClass *unknown_player_a35db4;
+extern HouseClass *PlayerPtr;
 extern BombListClass unknown_bomb_list_8322e0;
 extern DynamicVectorClass<ObjectClass *> CurrentObjects;
 extern DynamicVectorClass<int> unknown_map_list_83252c;
@@ -1033,7 +1033,7 @@ void Clear_Scenario_0065d370()
     unknown_saved_volume_7f1dec = 0x4000;
     Audio_Global_Levels[7]->Volume.Set(0x4000);
     Sound_Clear_Static();
-    unknown_player_a35db4 = 0;
+    PlayerPtr = 0;
     unknown_id_source_a3d290->Set_Defaults();
     Unknown_0051FBB0();
     for (int index = AbstractTypes.Count() - 1; index >= 0; index--) {
@@ -1286,7 +1286,7 @@ void __fastcall Do_Win_0065d7f0()
         ToolTips->Enable(unknown_tooltips_enabled_a40b34);
     }
     Map.Render();
-    Set_Palette(&GamePalette, 7, unknown_481fb0);
+    Set_Palette(&GamePalette, 7, Call_Back);
 }
 
 
@@ -1694,7 +1694,7 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
     Swizzler.Reset();
     delete TacticalMap;
     TacticalMap = new Tactical;
-    TacticalMap->Set_View_Dimensions_006a65a0(unknown_rect_839630);
+    TacticalMap->Set_View_Dimensions_006a65a0(TacticalRect);
     unknown_id_source_a3d290->Theater = ini.Get_TheaterType("Map", "Theater", (TheaterType)0);
     Init_Theater_00519e70(unknown_id_source_a3d290->Theater);
     unknown_session_a3d298.Update_Progress(30);
@@ -1846,7 +1846,7 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
     Map.Overpass();
     unknown_session_a3d298.Update_Progress(86);
     Service_Game_IO_00481fb0();
-    unknown_object_84e8d0.Unknown_0042E1A0();
+    BeaconManager.Unknown_0042E1A0();
     unknown_session_a3d298.Update_Progress(90);
     Service_Game_IO_00481fb0();
     if (unknown_game_mode_a3d298 != 0 && !official) {
@@ -1973,7 +1973,7 @@ void __fastcall Assign_Houses_0065fbb0()
         house->Update_Color();
         house->Update_Laser_Color();
         if (pick == 0) {
-            unknown_player_a35db4 = house;
+            PlayerPtr = house;
             house->unknown_135 = true;
         }
         if (player->Team == -1) {
@@ -2001,7 +2001,7 @@ void __fastcall Assign_Houses_0065fbb0()
             house->IniName = FixedString<21>("Computer");
             wcscpy(house->UIName, StringTable::Load_String("TXT_COMPUTER", 0, "D:\\Ra2\\Scenario.CPP", 3947));
             if (unknown_game_mode_a3d298 != 0) {
-                house->unknown_194 = Rules->MaxIQ;
+                house->IQ = Rules->MaxIQ;
             }
             int difficulty = unknown_session_a3d298.AIDifficulty[slot];
             if (unknown_players_a3fa7c.Count() > 1 && Rules->CompEasyBonus && difficulty > 0) {
@@ -2657,7 +2657,7 @@ bool ScenarioClass::Read_Basic(CCINIClass &ini)
     unknown_2231 = ini.Get_Bool("Basic", "TimerInherit", unknown_2231);
     EndOfGame = ini.Get_Bool("Basic", "EndOfGame", EndOfGame);
     Theme = ini.Get_ThemeType("Basic", "Theme", Theme);
-    unknown_ini_format_a40d24 = ini.Get_Int("Basic", "NewINIFormat", 0);
+    NewINIFormat = ini.Get_Int("Basic", "NewINIFormat", 0);
     CarryOverMoney = ini.Get_Double("Basic", "CarryOverMoney", CarryOverMoney);
     CarryOverMoney = Min(CarryOverMoney, 1.0);
     unknown_1208 = ini.Get_Int("Basic", "CarryOverCap", unknown_1208);
@@ -2672,7 +2672,7 @@ bool ScenarioClass::Read_Basic(CCINIClass &ini)
     StartingDropships = ini.Get_Int("Basic", "StartingDropships", StartingDropships);
     AllowableUnits = ini.Get_Techno_List("Basic", "AllowableUnits", AllowableUnits);
     AllowableUnitMaximums = ini.Get_Integer_List("Basic", "AllowableUnitMaximums", AllowableUnitMaximums);
-    unknown_222a = ini.Get_Bool("Basic", "TiberiumGrowthEnabled", unknown_222a);
+    IsTibGrowth = ini.Get_Bool("Basic", "TiberiumGrowthEnabled", IsTibGrowth);
     unknown_222b = ini.Get_Bool("Basic", "VeinGrowthEnabled", unknown_222b);
     unknown_222c = ini.Get_Bool("Basic", "IceGrowthEnabled", unknown_222c);
     TiberiumDeathToVisceroid = ini.Get_Bool("Basic", "TiberiumDeathToVisceroid", TiberiumDeathToVisceroid);
@@ -2723,14 +2723,14 @@ bool ScenarioClass::Read_Basic(CCINIClass &ini)
         if (house == -1) {
             house = 0;
         }
-        unknown_player_a35db4 = Houses[house];
-        unknown_11fc = unknown_player_a35db4->Type->House;
+        PlayerPtr = Houses[house];
+        unknown_11fc = PlayerPtr->Type->House;
     } else {
         Assign_Houses_0065fbb0();
     }
-    unknown_player_a35db4->unknown_134 = true;
-    unknown_player_a35db4->unknown_135 = true;
-    unknown_player_a35db4->unknown_55e4 = 0;
+    PlayerPtr->unknown_134 = true;
+    PlayerPtr->unknown_135 = true;
+    PlayerPtr->unknown_55e4 = 0;
     unknown_session_a3d298.Update_Progress(58);
     Service_Game_IO_00481fb0();
     if (Debug_Map) {
@@ -2781,7 +2781,7 @@ bool ScenarioClass::Write_Basic(CCINIClass &ini, bool skip_player)
 
     if (!skip_player) {
         char player[32];
-        strcpy(player, unknown_player_a35db4->IniName);
+        strcpy(player, PlayerPtr->IniName);
         ini.Put_String(unknown_basic_section_7a9204, "Player", player);
         ini.Put_Listed_Name(unknown_basic_section_7a9204, "Intro", IntroMovie);
         ini.Put_Listed_Name(unknown_basic_section_7a9204, "Brief", BriefMovie);
@@ -2798,7 +2798,7 @@ bool ScenarioClass::Write_Basic(CCINIClass &ini, bool skip_player)
         ini.Put_Int(unknown_basic_section_7a9204, "AltHomeCell", AltHomeCell);
     }
     ini.Put_Int(unknown_basic_section_7a9204, "MultiplayerOnly", MultiplayerOnly);
-    ini.Put_Bool(unknown_basic_section_7a9204, "TiberiumGrowthEnabled", unknown_222a);
+    ini.Put_Bool(unknown_basic_section_7a9204, "TiberiumGrowthEnabled", IsTibGrowth);
     ini.Put_Bool(unknown_basic_section_7a9204, "VeinGrowthEnabled", unknown_222b);
     ini.Put_Bool(unknown_basic_section_7a9204, "IceGrowthEnabled", unknown_222c);
     ini.Put_Bool(unknown_basic_section_7a9204, "TiberiumDeathToVisceroid", TiberiumDeathToVisceroid);

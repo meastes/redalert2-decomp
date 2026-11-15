@@ -108,7 +108,7 @@
 
 void *__fastcall Load_Alloc_Data(class FileClass &file);
 void __fastcall Load_Title_Screen_00738190(char const *name, Surface *surface, PaletteClass *palette);
-void unknown_481fb0();
+void Call_Back();
 
 extern "C" char *__cdecl _strdup(char const *text);
 inline ScoreSoundClass::ScoreSoundClass(char const *name, char const *filename) :
@@ -181,12 +181,12 @@ void ScoreClass::Presentation()
 
     LOAD(best01shape, "BEST01.SHP")
     LOAD(best02shape, "BEST02.SHP")
-    unknown_481fb0();
+    Call_Back();
     LOAD(logo01shape, "LOGO01.SHP")
     LOAD(efic01shape, "EFIC01.SHP")
     LOAD(time01shape, "TIME01.SHP")
     LOAD(casu01shape, "CASU01.SHP")
-    unknown_481fb0();
+    Call_Back();
     LOAD(casu02shape, "CASU02.SHP")
     LOAD(curr01shape, "CURR01.SHP")
 
@@ -201,7 +201,7 @@ void ScoreClass::Presentation()
 
     Font = new ScoreFullFontClass(drawer);
     unknown_font_10 = new ScoreBigFontClass(drawer);
-    unknown_481fb0();
+    Call_Back();
     Anims.Clear();
     WWKeyboard->Clear();
     Play_Sound("Wipe", 256);
@@ -227,7 +227,7 @@ void ScoreClass::Presentation()
     WAIT();
     WWKeyboard->Clear();
 
-    total = Efficiency(unknown_player_a35db4);
+    total = Efficiency(PlayerPtr);
     unsigned short dest[64];
     swprintf((wchar_t *)dest, L"%3d%%", total);
     PRINT(dest, XOffset + 520, YOffset + 60, unknown_font_10);
@@ -332,7 +332,7 @@ void ScoreClass::Presentation()
             hallfame[index].name[0] = 0;
             hallfame[index].score = total;
             hallfame[index].level = unknown_id_source_a3d290->TechLevel;
-            hallfame[index].side = unknown_player_a35db4->Type->Side;
+            hallfame[index].side = PlayerPtr->Type->Side;
             break;
         }
     }
@@ -510,7 +510,7 @@ void ScoreClass::Do_Graphs()
         HouseClass *house = Houses[index];
         Debug_Printf("Stats: %s - UnitsLost %ld, BuildingsLost %ld\n", (char const *)house->Type->ID,
                      house->unknown_5360, house->unknown_53b4);
-        if ((unknown_player_a35db4->Is_Ally(house) && house->Is_Ally(unknown_player_a35db4)) || unknown_player_a35db4 == house) {
+        if ((PlayerPtr->Is_Ally(house) && house->Is_Ally(PlayerPtr)) || PlayerPtr == house) {
             allyunits += house->unknown_5360;
             allybuildings += house->unknown_53b4;
         } else {
@@ -520,7 +520,7 @@ void ScoreClass::Do_Graphs()
         Debug_Printf("AllyUnits %ld, AllyBuildings %ld, EnemyUnits %ld, EnemyBldgs %ld\n",
                      allyunits, allybuildings, enemyunits, enemybuildings);
     }
-    if (unknown_player_a35db4->Type->Side == 0) {
+    if (PlayerPtr->Type->Side == 0) {
         Do_Graph(allybuildings, enemybuildings, 227);
         Do_Graph(allyunits, enemyunits, 283);
     } else {
@@ -631,7 +631,7 @@ void ScoreClass::Do_Graph(int first, int second, int xpos)
 void ScoreClass::Show_Credits()
 {
     char buffer[20];
-    sprintf(buffer, "%d", unknown_player_a35db4->Available_Money());
+    sprintf(buffer, "%d", PlayerPtr->Available_Money());
     int x = 590 - strlen(buffer) * 12;
     ScorePrintClass *anim = new ScorePrintClass(buffer, XOffset + x, YOffset + 214, Font, false);
     Anims.Add(anim);
@@ -691,7 +691,7 @@ void ScoreClass::Input_Name(char *name, int x, int y)
         Wait_While_Inactive();
         if (WWKeyboard->Check()) {
             key = WWKeyboard->To_Char(WWKeyboard->Get()) & 0xFF;
-            unknown_481fb0();
+            Call_Back();
             if (xpos >= x + 90) {
                 while (WWKeyboard->Check()) {
                     WWKeyboard->Get();

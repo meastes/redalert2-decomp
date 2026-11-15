@@ -263,7 +263,7 @@ void TemporalClass::Let_Go_Of_Target()
             Target->unknown_204=false;
             if(Target->Kind_Of()==6) {
                 TechnoClass *building=Target;
-                building->House->unknown_5668=true;
+                building->House->RecalcPower=true;
                 seed_0044d380::unknown_temporal_thaw_0044d380((int)building);
                 building->House->unknown_144=true;
             }
@@ -447,7 +447,7 @@ void TemporalClass::Unknown_006E27B0(TechnoClass *target)
         if(target->SpawnManager!=0) target->SpawnManager->Kill_Nodes();
         if(target->unknown_230!=0) ((CaptureManagerClass *)target->unknown_230)->Release_4681e0();
     }
-    TemporalClass *owner_link=(TemporalClass *)Owner->unknown_208;
+    TemporalClass *owner_link=(TemporalClass *)Owner->TemporalImUsing;
     if(owner_link!=0 && owner_link->Target!=0) owner_link->Let_Go_Of_Target();
     if(Can_Warp_Target(target) && Owner->unknown_20c==0) {
         Target=target;
@@ -459,7 +459,7 @@ void TemporalClass::Unknown_006E27B0(TechnoClass *target)
                 UnitClass *unit;
                 if(object==0) unit=0;
                 else unit=object->Kind_Of()==1 ? (UnitClass *)object:0;
-                if(unit->Type->Harvester && Target->House==unknown_player_a35db4) {
+                if(unit->Type->Harvester && Target->House==PlayerPtr) {
                     Cell cell(Target->unknown_slot19(0));
                     if(Unknown_0063B5B0(4,cell)) Speech_Play_Name("EVA_OreMinerUnderAttack",-1,-1);
                 }
@@ -475,12 +475,12 @@ void TemporalClass::Unknown_006E27B0(TechnoClass *target)
         Target->unknown_204=true;
         if(Target->Kind_Of()==6) {
             TechnoClass *building=Target;
-            building->House->unknown_5668=true;
+            building->House->RecalcPower=true;
             seed_0044d320::unknown_temporal_freeze_0044d320((int)building);
             building->House->unknown_144=true;
         }
         Target->Mark(2);
-        TemporalClass *target_link=(TemporalClass *)Target->unknown_208;
+        TemporalClass *target_link=(TemporalClass *)Target->TemporalImUsing;
         if(target_link!=0 && target_link->Target!=0) target_link->Let_Go_Of_Target();
     }
 }

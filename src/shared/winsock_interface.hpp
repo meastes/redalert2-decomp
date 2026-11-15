@@ -118,7 +118,7 @@ public:
         bool IsAllocated;               // +0x16 (allocated rather than static)
         bool IsAlternate;               // +0x17 (from the alternate pool/socket)
         unsigned char unknown_18;       // +0x18
-        unsigned short unknown_1a;      // +0x1A
+        unsigned short SrcPort;      // +0x1A
         unsigned long CRC;              // +0x1C
         char Buffer[0x280];             // +0x20
     };

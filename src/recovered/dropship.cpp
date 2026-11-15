@@ -255,7 +255,7 @@ void __fastcall Dropship_Screen_004A6B90()
     int k;
 
     int dropship_count = unknown_id_source_a3d290->StartingDropships;
-    int money = unknown_player_a35db4->Available_Money();
+    int money = PlayerPtr->Available_Money();
     unsigned int money_display = 0;
 
     static const char *_drop_btn_names[] = {
@@ -380,7 +380,7 @@ void __fastcall Dropship_Screen_004A6B90()
     DynamicVectorClass<TechnoTypeClass *> candidates;
     int type_count = InfantryTypes.Count() + UnitTypes.Count();
 
-    unsigned int ownable_mask = 1 << HouseTypes.ID(unknown_player_a35db4->Type);
+    unsigned int ownable_mask = 1 << HouseTypes.ID(PlayerPtr->Type);
 
     if (unknown_id_source_a3d290->AllowableUnits.Count() > 0) {
         for (i = 0; i < unknown_id_source_a3d290->AllowableUnits.Count(); ++i) {
@@ -398,7 +398,7 @@ void __fastcall Dropship_Screen_004A6B90()
                 techtype = (TechnoTypeClass *)UnitTypes[k - InfantryTypes.Count()];
             }
 
-            if (techtype->TechLevel > unknown_player_a35db4->unknown_11c) {
+            if (techtype->TechLevel > PlayerPtr->unknown_11c) {
                 continue;
             }
             if (techtype->Kind_Of() == 16 && techtype->Category == 1) {
@@ -532,7 +532,7 @@ void __fastcall Dropship_Screen_004A6B90()
             }
         }
 
-        unknown_481fb0();
+        Call_Back();
 
         int input = button_list->Input();
         if (!recent_click && (input & 0x8000) != 0) {
@@ -944,7 +944,7 @@ void __fastcall Dropship_Screen_004A6B90()
     }
 
     for (i = 0; i < selections.Count(); ++i) {
-        ((DropshipLoadoutClass *)&unknown_player_a35db4->unknown_5560[i / 5])->Add_Type_004A6940(selections[i]);
+        ((DropshipLoadoutClass *)&PlayerPtr->unknown_5560[i / 5])->Add_Type_004A6940(selections[i]);
     }
 
     delete drawer_dropship;
@@ -1069,7 +1069,7 @@ void __fastcall Draw_Type_Details_004a97b0(Surface *background, ConvertClass *co
         if (type->Get_Weapon(0)->WeaponType)
             swprintf(armament,type_armament_format_007d6238,(char const *)type->Get_Weapon(0)->WeaponType->Name);
         else swprintf(armament,type_armament_none_007d6218);
-        swprintf(armor,type_armor_format_007d6204,ArmorNames[type->unknown_9c]);
+        swprintf(armor,type_armor_format_007d6204,ArmorNames[type->Armor]);
         ColorScheme *scheme;
         if(show_cost) scheme=Fetch_Scheme_By_Name(type_green_scheme_007d61fc,1);
         else scheme=Fetch_Scheme_By_Name(type_red_scheme_007d61f8,1);

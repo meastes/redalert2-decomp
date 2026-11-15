@@ -414,7 +414,7 @@ CoordStruct UnitTypeClass::Coord_Fixup(CoordStruct const &coord) const
 
 int UnitTypeClass::Repair_Step() const
 {
-    return Rules->unknown_1334;
+    return Rules->RepairStep;
 }
 
 

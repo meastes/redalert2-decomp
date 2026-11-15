@@ -265,7 +265,7 @@ CellClass::CellClass() :
     unknown_4c(0),
     unknown_50(-1),
     unknown_54(-1),
-    unknown_58(-1),
+    BridgeInfType(-1),
     unknown_5c(-1),
     unknown_60(-1),
     unknown_64(-1),
@@ -441,11 +441,11 @@ void CellClass::Cell_Color(RGBClass &lowcolor, RGBClass &highcolor) const
     }
 
     IsometricTileTypeClass *next = itype->Next_Tile_From_Set(tile);
-    if (next->unknown_a4 == 0 && next->unknown_2c4) {
+    if (next->ImageData == 0 && next->IsFileLoaded) {
         next->Load_Tile_Image();
     }
 
-    IsoTileImageStruct const *image = (IsoTileImageStruct const *)next->unknown_a4;
+    IsoTileImageStruct const *image = (IsoTileImageStruct const *)next->ImageData;
     if (image->Tiles[(unsigned char)unknown_11a] != 0) {
         IsoTileCellStruct const *record = (IsoTileCellStruct const *)image->Tiles[(unsigned char)unknown_11a];
         RGBClass lowest(record->LowRed, record->LowGreen, record->LowBlue);
@@ -973,7 +973,7 @@ void CellClass::Recalc_Attributes(int cell_height)
         }
 
         if (unknown_ec == 10) {
-            if (unknown_116 < 0 || unknown_116 >= unknown_TubeClass_list_008661c8.Count()) {
+            if (unknown_116 < 0 || unknown_116 >= Tubes.Count()) {
                 int tunnel_dir = -1;
 
                 if (IsoTileIndex >= unknown_tileset_a52ea4 && IsoTileIndex <= unknown_tileset_a52ea4 + 3) {
@@ -1062,7 +1062,7 @@ void CellClass::Destroy_Bridge()
         ObjectClass *occupier = OccupierPtr;
         while (occupier != 0) {
             ObjectClass *next = occupier->unknown_30;
-            occupier->Take_Damage(&occupier->Strength, 0, Rules->unknown_c74, 0, true, true);
+            occupier->Take_Damage(&occupier->Strength, 0, Rules->C4Warhead, 0, true, true);
             occupier = next;
         }
 
@@ -1295,7 +1295,7 @@ void CellClass::Occupy_Down(ObjectClass *object, bool alt)
     }
 
     if (!Map.Is_Shrouded(unknown_475d60()) && !Map.Is_Fogged(unknown_475d60()) || unknown_game_mode_a3d298 != 0) {
-        object->Revealed(unknown_player_a35db4);
+        object->Revealed(PlayerPtr);
     }
 
     if (object->Kind_Of() != 0x0F && object->unknown_slot47()) {
@@ -1386,7 +1386,7 @@ bool CellClass::Draw_Placement_Cursor(Point2D const &pixel, Rect const &rect, bo
 
     bool ok = false;
     if ((unknown_12c & 2) != 0 || (unknown_12c & 4) != 0) {
-        ObjectTypeClass const *pending = (unknown_12c & 2) ? (ObjectTypeClass const *)Map.PendingObject : (ObjectTypeClass const *)Map.unknown_1190;
+        ObjectTypeClass const *pending = (unknown_12c & 2) ? (ObjectTypeClass const *)Map.PendingObject : (ObjectTypeClass const *)Map.CopyPendingObject;
         int loco = -1;
         if (pending != 0 && pending->Kind_Of() == 7) {
             loco = ((BuildingTypeClass const *)pending)->SpeedType;
@@ -1413,13 +1413,13 @@ bool CellClass::Draw_Placement_Cursor(Point2D const &pixel, Rect const &rect, bo
                 BuildingClass *building = (BuildingClass *)Cell_Object(Point2D(0, 0), false);
                 if (building != 0 && building->Kind_Of() == 6) {
                     BuildingTypeClass *ptype = (BuildingTypeClass *)Map.PendingObject;
-                    if (building->Can_Upgrade(ptype, unknown_player_a35db4)) {
+                    if (building->Can_Upgrade(ptype, PlayerPtr)) {
                         ok = true;
                     }
                 }
             } else {
                 if (Map.unknown_117c && Map.PendingObject != 0 && ((ObjectTypeClass const *)Map.PendingObject)->Kind_Of() == 7
-                        && Is_Clear_To_Build(loco, static_cast<BuildingTypeClass const *>(Map.PendingObject), unknown_player_a35db4)
+                        && Is_Clear_To_Build(loco, static_cast<BuildingTypeClass const *>(Map.PendingObject), PlayerPtr)
                         && !(((BuildingTypeClass *)Map.PendingObject)->unknown_bf0 != 0 && unknown_ec == 1)) {
                     ok = true;
                 }
@@ -1476,7 +1476,7 @@ void CellClass::Draw_Fog_Shape(Point2D const &point, Rect const &clip, int frame
     int depth_skip = left - right + AlphaBuffer->Width;
 
     unsigned char const *shapeptr = (unsigned char const *)shapes->Get_Frame_Data(frame);
-    unsigned short *depth = AlphaBuffer->Get_Buffer_Offset(Point2D(left, top - unknown_rect_839630.Y));
+    unsigned short *depth = AlphaBuffer->Get_Buffer_Offset(Point2D(left, top - TacticalRect.Y));
 
     shapeptr += src_x + src_y * shaperect.Width;
     if (&depth[right - left + (bottom - top) * AlphaBuffer->Width + 2] >= (unsigned short *)AlphaBuffer->BufferTail) {
@@ -1562,7 +1562,7 @@ void CellClass::Draw_Overlay_Shadow(Point2D const &xpoint, Rect const &clip)
 extern unsigned char unknown_redraws_833634;
 extern int unknown_bridge_variation_7d2b18[16];
 extern void *unknown_slope_shapes_a52eb0[];
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 
 void CellClass::Draw_Overlay(Point2D const &xpoint, Rect const &clip)
 {
@@ -1586,7 +1586,7 @@ void CellClass::Draw_Overlay(Point2D const &xpoint, Rect const &clip)
             }
             CC_Draw_Shape(LogicalSurface, unknown_34, shape, shapenum, point, clip, 0x4E00, 0, -2 - yoffset, 0, unknown_10e, 0, 0, Point2D(0, 0));
             unknown_64 = Frame;
-            unknown_68 = unknown_rect_839630;
+            unknown_68 = TacticalRect;
             unknown_118 = unknown_redraws_833634;
         }
         return;
@@ -1596,7 +1596,7 @@ void CellClass::Draw_Overlay(Point2D const &xpoint, Rect const &clip)
         if (tib == -1) {
             return;
         }
-        TiberiumClass *tiberium = unknown_TiberiumClass_list_00ac0b30[tib];
+        TiberiumClass *tiberium = Tiberiums[tib];
         OverlayTypeClass *tib_overlay;
         if (unknown_11c != 0) {
             tib_overlay = OverlayTypes[tiberium->Image->ArrayIndex + tiberium->NumFrames + tiberium->NumImages / 4 * (unknown_11c - 1) + MapCoords.X * MapCoords.Y % (tiberium->NumImages / 4)];
@@ -1610,7 +1610,7 @@ void CellClass::Draw_Overlay(Point2D const &xpoint, Rect const &clip)
             CC_Draw_Shape(LogicalSurface, TerrainDrawer, tibshape, OverlayData, point, clip, 0x4E00, 0, -2 - yoffset, 0, 1000, 0, 0, Point2D(0, 0));
         }
     } else if (otype->Wall) {
-        CC_Draw_Shape(LogicalSurface, ColorSchemes[unknown_player_a35db4->ColorSchemeIndex]->Converter, shape, OverlayData, point, clip, 0x4E00, 0, -2 - yoffset, 2, unknown_10a, 0, 0, Point2D(0, 0));
+        CC_Draw_Shape(LogicalSurface, ColorSchemes[PlayerPtr->ColorSchemeIndex]->Converter, shape, OverlayData, point, clip, 0x4E00, 0, -2 - yoffset, 2, unknown_10a, 0, 0, Point2D(0, 0));
     } else if (otype->ArrayIndex == 0x7E) {
         if (unknown_11c != 0) {
             CC_Draw_Shape(LogicalSurface, TerrainDrawer, shape, OverlayData, point, clip, 0x4E00, 0, -2 - yoffset, 0, unknown_10c, (ShapeFileStruct const *)unknown_slope_shapes_a52eb0[unknown_11c - 1], 0, Point2D(30, -2));
@@ -1655,7 +1655,7 @@ Rect CellClass::Overlay_Render_Rect() const
     if (overlay->Tiberium) {
         int tib = Tiberium_Type_Here();
         if (tib != -1) {
-            TiberiumClass *tiberium = unknown_TiberiumClass_list_00ac0b30[tib];
+            TiberiumClass *tiberium = Tiberiums[tib];
             if (unknown_11c != 0) {
                 image = (ShapeFileStruct *)OverlayTypes[tiberium->Image->ArrayIndex + tiberium->NumFrames + tiberium->NumImages / 4 * (unknown_11c - 1) + MapCoords.X * MapCoords.Y % (tiberium->NumImages / 4)]->Get_Image_Data();
             } else {
@@ -1813,7 +1813,7 @@ void CellClass::Draw_Shroud_And_Fog(Point2D const &point, Rect const &clip)
     }
     Draw_Shroud_Or_Fog_Shape(point, clip, frame);
     unknown_121 = TacticalMap->Cell_Shadow(MapCoords, 1);
-    if ((unknown_id_source_a3d290->unknown_000 & 0x1000) && !unknown_player_a35db4->unknown_13d) {
+    if ((unknown_id_source_a3d290->unknown_000 & 0x1000) && !PlayerPtr->unknown_13d) {
         frame = unknown_121;
         if (frame == -2) {
             frame = 15;
@@ -1968,7 +1968,7 @@ void CellClass::Wall_Update(bool flag)
     for (int *offset = unknown_wall_offsets_7d2b58; offset < &unknown_wall_offsets_7d2b58[5]; offset++) {
         CellClass &newcell = (CellClass &)((CellClass const *)this)->Adjacent_Cell(*offset);
         if (!flag || *offset != -1) {
-            Union(Wall_Rect(newcell.Overlay_Render_Rect()), newcell.Overlay_Shadow_Render_Rect()) - unknown_rect_839630.Top_Left();
+            Union(Wall_Rect(newcell.Overlay_Render_Rect()), newcell.Overlay_Shadow_Render_Rect()) - TacticalRect.Top_Left();
         }
         newcell.Register_For_Redraw();
 
@@ -2071,7 +2071,7 @@ int CellClass::Reduce_Wall(int damage)
 
             if (destroyed) {
                 Rect rect = Union(Overlay_Render_Rect(), Overlay_Shadow_Render_Rect());
-                rect.Y -= unknown_rect_839630.Y;
+                rect.Y -= TacticalRect.Y;
                 TacticalMap->Register_Dirty_Area(rect, false);
                 OverlayData += 0x10;
                 if ((OverlayData >> 4) == wall->DamageLevels - 1 && wall->DamageLevels > 2) {
@@ -2121,13 +2121,13 @@ int CellClass::Reduce_Wall(int damage)
 int CellClass::unknown_475db0(int levels)
 {
     Rect dirty = Union(Overlay_Render_Rect(), Overlay_Shadow_Render_Rect());
-    dirty.Y -= unknown_rect_839630.Y;
+    dirty.Y -= TacticalRect.Y;
 
     int tibtype = OverlayClass::To_Tiberium(OverlayIndex);
     int reducer = levels;
 
     if (levels > 0 && tibtype != -1) {
-        TiberiumClass *tiberium = unknown_TiberiumClass_list_00ac0b30[tibtype];
+        TiberiumClass *tiberium = Tiberiums[tibtype];
         if (OverlayData == 11) {
             tiberium->Add_Growth_Cell(MapCoords);
         }
@@ -2385,7 +2385,7 @@ void CellClass::Incoming(void const *threat, bool forced, bool nokidding, bool a
     for (int i = 0; i < objs.Count(); i++) {
         TechnoClass *techno = objs[i]->As_Techno();
         if (elite || nokidding || Rules->unknown_1431
-            || (techno != 0 && (techno->unknown_6d7910(3) || techno->House->unknown_194 >= Rules->IQScatter))) {
+            || (techno != 0 && (techno->unknown_6d7910(3) || techno->House->IQ >= Rules->IQScatter))) {
             objs[i]->Scatter(*(CoordStruct const *)threat, forced, nokidding);
         }
     }
@@ -2435,9 +2435,9 @@ int CellClass::Tiberium_Adjust(bool pregame)
         int tiberium = OverlayClass::To_Tiberium(OverlayIndex);
         if (tiberium != -1) {
             int count = 0;
-            int value = unknown_TiberiumClass_list_00ac0b30[tiberium]->Value;
+            int value = Tiberiums[tiberium]->Value;
             if (pregame) {
-                TiberiumClass *type = unknown_TiberiumClass_list_00ac0b30[tiberium];
+                TiberiumClass *type = Tiberiums[tiberium];
                 OverlayIndex = (int)Random_Pick(type->Image, type->Image + type->NumFrames - 1);
             }
             for (int facing = 0; facing < 8; facing++) {
@@ -2446,7 +2446,7 @@ int CellClass::Tiberium_Adjust(bool pregame)
                     count++;
                 }
             }
-            OverlayData = unknown_tiberium_stage_7d2c10[count % unknown_TiberiumClass_list_00ac0b30[tiberium]->unknown_e4];
+            OverlayData = unknown_tiberium_stage_7d2c10[count % Tiberiums[tiberium]->FrameCount];
             return (OverlayData + 1) * value;
         }
     }
@@ -2614,7 +2614,7 @@ crate_money:
                 if (!object->House->Is_Player_Control() || unknown_game_mode_a3d298 != 0) {
                     object->House->Refund_Money(force_money);
                 } else {
-                    unknown_player_a35db4->Refund_Money(force_money);
+                    PlayerPtr->Refund_Money(force_money);
                 }
                 if (object->House->Is_Player_Control()) {
                     Voc_Play_At(Rules->CrateMoneySound, Ground_Coord(), 0);
@@ -2634,7 +2634,7 @@ crate_money:
 
             case CRATE_TIBERIUM: {
                 Debug_Printf("Crate at %d,%d contains tiberium\n", MapCoords.X, MapCoords.Y);
-                int tibtype = Random_Pick(0, unknown_TiberiumClass_list_00ac0b30.Count() - 1);
+                int tibtype = Random_Pick(0, Tiberiums.Count() - 1);
                 if (tibtype == 1) {
                     tibtype = 0;
                 }
@@ -2721,15 +2721,15 @@ crate_money:
                 damage = data;
                 {
                     int d = damage;
-                    object->Take_Damage(&d, 0, Rules->unknown_c74, 0, true, 0);
+                    object->Take_Damage(&d, 0, Rules->C4Warhead, 0, true, 0);
                 }
                 {
                 for (int i = 0; i < 5; i++) {
                     CoordStruct frag_coord = Coord_Scatter(Ground_Coord(), Random_Pick(0, 2 * 256), false);
-                    Unknown_0047E2C0(frag_coord, damage, (TechnoClass *)0, Rules->unknown_c74, true);
-                    AnimTypeClass *anim = Select_Damage_Anim(damage, Rules->unknown_c74, 0, &frag_coord);
+                    Unknown_0047E2C0(frag_coord, damage, (TechnoClass *)0, Rules->C4Warhead, true);
+                    AnimTypeClass *anim = Select_Damage_Anim(damage, Rules->C4Warhead, 0, &frag_coord);
                     new AnimClass(anim, frag_coord, 0, 1, 0x2600, Get_Explosion_Z_0047fcc0(frag_coord));
-                    Unknown_0047F600(frag_coord, damage, Rules->unknown_c74, 0, 0);
+                    Unknown_0047F600(frag_coord, damage, Rules->C4Warhead, 0, 0);
                 }
                 }
                 break;
@@ -2790,7 +2790,7 @@ crate_money:
                     ObjectClass *obj = unknown_list_832470[i];
                     if (obj != 0 && object->Is_Techno() && object->House == obj->Owning_House()) {
                         int damage = obj->Strength - obj->Class_Of()->MaxStrength;
-                        obj->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 1);
+                        obj->Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, 1);
                     }
                 }
                 }
@@ -3006,18 +3006,18 @@ bool CellClass::Is_Bridge_Here() const
 
 bool CellClass::Can_Tiberium_Grow() const
 {
-    if (!unknown_id_source_a3d290->unknown_222a) {
+    if (!unknown_id_source_a3d290->IsTibGrowth) {
         return false;
     }
     int tiberium = OverlayClass::To_Tiberium(OverlayIndex);
     if (tiberium == -1) {
         return false;
     }
-    TiberiumClass *type = unknown_TiberiumClass_list_00ac0b30[tiberium];
+    TiberiumClass *type = Tiberiums[tiberium];
     if (unknown_11c) {
         return false;
     }
-    if (OverlayData >= type->unknown_e4 - 1) {
+    if (OverlayData >= type->FrameCount - 1) {
         return false;
     }
     if (type->unknown_b0 < 0.00001) {
@@ -3048,7 +3048,7 @@ bool CellClass::Can_Tiberium_Spread() const
     if (unknown_11c) {
         return false;
     }
-    if (unknown_TiberiumClass_list_00ac0b30[tiberium]->unknown_a0 < 0.00001) {
+    if (Tiberiums[tiberium]->unknown_a0 < 0.00001) {
         return false;
     }
     if (OccupierPtr != 0) {
@@ -3064,11 +3064,11 @@ bool CellClass::Can_Tiberium_Spread() const
 
 bool CellClass::Grow_Tiberium()
 {
-    if (unknown_id_source_a3d290->unknown_222a) {
+    if (unknown_id_source_a3d290->IsTibGrowth) {
         int tiberium = OverlayClass::To_Tiberium(OverlayIndex);
         if (tiberium != -1) {
-            TiberiumClass *type = unknown_TiberiumClass_list_00ac0b30[tiberium];
-            if (!unknown_11c && OverlayData < type->unknown_e4 - 1 && !(type->unknown_b0 < 0.00001)) {
+            TiberiumClass *type = Tiberiums[tiberium];
+            if (!unknown_11c && OverlayData < type->FrameCount - 1 && !(type->unknown_b0 < 0.00001)) {
                 int type_index = OverlayClass::To_Tiberium(OverlayIndex);
                 return Place_Tiberium(type_index, 1);
             }
@@ -3099,7 +3099,7 @@ bool CellClass::Spread_Tiberium(bool forced)
     if (tiberium == -1) {
         tiberium = 0;
     }
-    TiberiumClass *type = unknown_TiberiumClass_list_00ac0b30[tiberium];
+    TiberiumClass *type = Tiberiums[tiberium];
     int offset = Random_Pick(0, 7);
     int count = 8;
     for (int index = 0; index < count; index++) {
@@ -3619,7 +3619,7 @@ void __stdcall Dec_Drawer_Ref_Count_00479ca0(int drawer)
 bool CellClass::Has_Tunnel() const
 {
     int land = unknown_ec;
-    return unknown_116 >= 0 && unknown_116 < unknown_TubeClass_list_008661c8.Count() && land == 10;
+    return unknown_116 >= 0 && unknown_116 < Tubes.Count() && land == 10;
 }
 
 
@@ -3749,7 +3749,7 @@ wchar_t const *CellClass::unknown_47a200() const
 {
     int tiberium = OverlayClass::To_Tiberium(OverlayIndex);
     if (tiberium != -1) {
-        return unknown_TiberiumClass_list_00ac0b30[tiberium]->UIName;
+        return Tiberiums[tiberium]->UIName;
     }
     return 0;
 }
@@ -3774,7 +3774,7 @@ int CellClass::Get_Tiberium_Value() const
     if (tiberium == -1) {
         return 0;
     }
-    return unknown_TiberiumClass_list_00ac0b30[tiberium]->Value * (OverlayData + 1);
+    return Tiberiums[tiberium]->Value * (OverlayData + 1);
 }
 
 
@@ -3923,7 +3923,7 @@ bool CellClass::Can_Place_Veins() const
 }
 
 
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 extern "C" int __cdecl abs(int value);
 // Recompute this vein connection and its cardinal neighbors, redrawing their old and new areas.
 void CellClass::Redraw_Veins()
@@ -3944,12 +3944,12 @@ void CellClass::Redraw_Veins()
             if(neighbor_frame==0) adjacent.OverlayIndex=-1;
             else adjacent.OverlayData=3*neighbor_frame+abs(unknown_id_source_a3d290->Random()()%3);
             adjacent.Recalc_Attributes(-1);
-            area=Union(area,Union(adjacent.Overlay_Render_Rect(),adjacent.Overlay_Shadow_Render_Rect()))-unknown_rect_839630.Top_Left();
+            area=Union(area,Union(adjacent.Overlay_Render_Rect(),adjacent.Overlay_Shadow_Render_Rect()))-TacticalRect.Top_Left();
             TacticalMap->Register_Dirty_Area(area,false);
             Map.Radar_Background(adjacent.MapCoords);
         }
     }
-    dirty=Union(dirty,Union(Overlay_Render_Rect(),Overlay_Shadow_Render_Rect()))-unknown_rect_839630.Top_Left();
+    dirty=Union(dirty,Union(Overlay_Render_Rect(),Overlay_Shadow_Render_Rect()))-TacticalRect.Top_Left();
     TacticalMap->Register_Dirty_Area(dirty,false);
     Recalc_Attributes(-1);
 }
@@ -4250,7 +4250,7 @@ void CellClass::Place_Veins()
                         adjacent.OverlayIndex = 0x7E;
                         adjacent.OverlayData = 3 * frame + abs(unknown_id_source_a3d290->Random()() % 3);
                         adjacent.Recalc_Attributes(-1);
-                        RectPoint2D origin = unknown_rect_839630.Top_Left();
+                        RectPoint2D origin = TacticalRect.Top_Left();
                         adjrect = Union(adjrect, Union(adjacent.Overlay_Render_Rect(), adjacent.Overlay_Shadow_Render_Rect())) - origin;
                         TacticalMap->Register_Dirty_Area(adjrect, 0);
                     }
@@ -4259,7 +4259,7 @@ void CellClass::Place_Veins()
                     adjrect = Union(adjrect, Union(adjacent.Overlay_Render_Rect(), adjacent.Overlay_Shadow_Render_Rect()));
                     adjacent.OverlayIndex = 0x7E;
                     adjacent.OverlayData = 2 * adjacent.unknown_11c + (abs(unknown_id_source_a3d290->Random()()) & 1) + 0x33;
-                    adjrect = Union(adjrect, Union(adjacent.Overlay_Render_Rect(), adjacent.Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
+                    adjrect = Union(adjrect, Union(adjacent.Overlay_Render_Rect(), adjacent.Overlay_Shadow_Render_Rect())) - TacticalRect.Top_Left();
                     TacticalMap->Register_Dirty_Area(adjrect, 0);
                 }
 
@@ -4271,7 +4271,7 @@ void CellClass::Place_Veins()
             OverlayData = 2 * unknown_11c + (abs(unknown_id_source_a3d290->Random()()) & 1) + 0x33;
         }
 
-        rect = Union(rect, Union(Overlay_Render_Rect(), Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
+        rect = Union(rect, Union(Overlay_Render_Rect(), Overlay_Shadow_Render_Rect())) - TacticalRect.Top_Left();
         TacticalMap->Register_Dirty_Area(rect, 0);
         Recalc_Attributes(-1);
     }
@@ -4296,11 +4296,11 @@ bool CellClass::On_Ground() const
 
 bool CellClass::Should_Draw_As_Cloaked(int house) const
 {
-    if (unknown_player_a35db4 != 0 && Is_House_Bit(house)) {
-        if (house == unknown_player_a35db4->ArrayIndex) {
+    if (PlayerPtr != 0 && Is_House_Bit(house)) {
+        if (house == PlayerPtr->ArrayIndex) {
             return true;
         }
-        if (unknown_7c[unknown_player_a35db4->ArrayIndex] <= 0) {
+        if (unknown_7c[PlayerPtr->ArrayIndex] <= 0) {
             return true;
         }
     }
@@ -4508,7 +4508,7 @@ int CellClass::Reduce_Weed()
 void CellClass::Register_For_Redraw()
 {
     Rect rect = Union(Union(Cell_Render_Rect(), Overlay_Render_Rect()), Overlay_Shadow_Render_Rect());
-    TacticalMap->Register_Dirty_Area(rect - unknown_rect_839630.Top_Left(), 0);
+    TacticalMap->Register_Dirty_Area(rect - TacticalRect.Top_Left(), 0);
     Map.Radar_Background(MapCoords);
 }
 
@@ -4523,7 +4523,7 @@ bool CellClass::Can_Burrow_Here()
     if (!Map.Unknown_0055A740(this, true)) {
         return true;
     }
-    if ((IsoTileIndex >= 0 && IsoTileIndex < IsoTileTypes.Count() && !IsoTileTypes[IsoTileIndex]->unknown_2d5)
+    if ((IsoTileIndex >= 0 && IsoTileIndex < IsoTileTypes.Count() && !IsoTileTypes[IsoTileIndex]->IsAllowBurrowing)
         || unknown_11c || (unknown_140 & 0x500) != 0) {
         return false;
     }
@@ -4619,8 +4619,8 @@ void Leaf_47c390::get(unsigned int a1) { unsigned int self = (unsigned int)this;
 
 bool CellClass::Place_Tiberium(int tib, int data)
 {
-    TiberiumClass *tiberium = unknown_TiberiumClass_list_00ac0b30[tib];
-    if (data < tiberium->unknown_e4) {
+    TiberiumClass *tiberium = Tiberiums[tib];
+    if (data < tiberium->FrameCount) {
         if (Can_Tiberium_Germinate(tiberium)) {
             if (unknown_11c != 0) {
                 new OverlayClass(OverlayTypes[tiberium->Image->ArrayIndex + tiberium->NumFrames + 2 * unknown_11c + (Random_Pick(0, 1) - 2)], Fetch_CellID());
@@ -4636,9 +4636,9 @@ bool CellClass::Place_Tiberium(int tib, int data)
         if (Can_Tiberium_Grow()) {
             if (Tiberium_Type_Here() == tib) {
                 OverlayData += data;
-                OverlayData = OverlayData < tiberium->unknown_e4 - 1 ? OverlayData : tiberium->unknown_e4 - 1;
+                OverlayData = OverlayData < tiberium->FrameCount - 1 ? OverlayData : tiberium->FrameCount - 1;
                 Rect rect = Union(Union(Cell_Render_Rect(), Overlay_Render_Rect()), Overlay_Shadow_Render_Rect());
-                TacticalMap->Register_Dirty_Area(rect - unknown_rect_839630.Top_Left(), 0);
+                TacticalMap->Register_Dirty_Area(rect - TacticalRect.Top_Left(), 0);
                 tiberium->Add_Spread_Cell(MapCoords);
                 return true;
             }
@@ -4741,7 +4741,7 @@ void CellClass::On_Bridge_Collapse()
                             FootClass *fptr = (FootClass *)optr;
                             if (fptr->Locomotor.Checked()->Is_Moving_Here(coord)) {
                                 int damage = fptr->Strength;
-                                fptr->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, true);
+                                fptr->Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, true);
                             }
                         }
                         optr = next;
@@ -4757,7 +4757,7 @@ void CellClass::On_Bridge_Collapse()
                             FootClass *fptr = (FootClass *)optr;
                             if (fptr->Locomotor.Checked()->Is_Moving_Here(coord)) {
                                 int damage = fptr->Strength;
-                                fptr->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, true);
+                                fptr->Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, true);
                             }
                         }
                         optr = next;
@@ -4805,7 +4805,7 @@ void CellClass::Kill_Illegal_Occupiers()
         next=object->unknown_30;
         if(object->Can_Enter_Cell(this,-1,-1,0,true)==7) {
             int damage=object->Strength;
-            object->Take_Damage(&damage,0,Rules->unknown_c74,0,true,true);
+            object->Take_Damage(&damage,0,Rules->C4Warhead,0,true,true);
         }
         object=next;
     }
@@ -4823,7 +4823,7 @@ void CellClass::Kill_Illegal_Occupiers()
                         if(foot->Locomotor.Checked()->Is_Moving_Here(center)
                             && foot->Can_Enter_Cell(this,-1,-1,0,true)==7) {
                             int damage=foot->Strength;
-                            foot->Take_Damage(&damage,0,Rules->unknown_c74,0,true,true);
+                            foot->Take_Damage(&damage,0,Rules->C4Warhead,0,true,true);
                         }
                     }
                     object=object->unknown_30;

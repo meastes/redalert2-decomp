@@ -163,7 +163,7 @@
    "padding_bytes": 14
   },
   {
-   "symbol": "?Unknown_00714410@@YAXXZ",
+   "symbol": "?Sound_Clear_Static@@YAXXZ",
    "entry": "00714410",
    "body_bytes": 77,
    "padding_bytes": 3
@@ -199,7 +199,7 @@
    "padding_bytes": 9
   },
   {
-   "symbol": "?Unknown_00714860@@YAXXZ",
+   "symbol": "?Free_Vocs@@YAXXZ",
    "entry": "00714860",
    "body_bytes": 220,
    "padding_bytes": 4
@@ -1567,25 +1567,25 @@
   },
   {
    "site": "0065e440",
-   "symbol": "?Unknown_00714410@@YAXXZ",
+   "symbol": "?Sound_Clear_Static@@YAXXZ",
    "target": "00714410",
    "function_entry": true
   },
   {
    "site": "0065e590",
-   "symbol": "?Unknown_00714410@@YAXXZ",
+   "symbol": "?Sound_Clear_Static@@YAXXZ",
    "target": "00714410",
    "function_entry": true
   },
   {
    "site": "0065d7f0",
-   "symbol": "?Unknown_00714410@@YAXXZ",
+   "symbol": "?Sound_Clear_Static@@YAXXZ",
    "target": "00714410",
    "function_entry": true
   },
   {
    "site": "0065dec0",
-   "symbol": "?Unknown_00714410@@YAXXZ",
+   "symbol": "?Sound_Clear_Static@@YAXXZ",
    "target": "00714410",
    "function_entry": true
   },
@@ -1723,7 +1723,7 @@
   },
   {
    "site": "00672e70",
-   "symbol": "?Unknown_00714410@@YAXXZ",
+   "symbol": "?Sound_Clear_Static@@YAXXZ",
    "target": "00714410",
    "function_entry": true
   },
@@ -1765,7 +1765,7 @@
   },
   {
    "site": "006909e0",
-   "symbol": "?Unknown_00714860@@YAXXZ",
+   "symbol": "?Free_Vocs@@YAXXZ",
    "target": "00714860",
    "function_entry": true
   },
@@ -1819,7 +1819,7 @@
   },
   {
    "site": "005116a0",
-   "symbol": "?Unknown_00714860@@YAXXZ",
+   "symbol": "?Free_Vocs@@YAXXZ",
    "target": "00714860",
    "function_entry": true
   },
@@ -2605,7 +2605,7 @@
   },
   {
    "site": "0065d370",
-   "symbol": "?Unknown_00714410@@YAXXZ",
+   "symbol": "?Sound_Clear_Static@@YAXXZ",
    "target": "00714410",
    "function_entry": true
   },
@@ -3140,6 +3140,34 @@
    "address": "006a29d0"
   },
   {
+   "symbol": "?DefaultControl@@3IA",
+   "address": "00ad0850"
+  },
+  {
+   "symbol": "?DefaultLimit@@3HA",
+   "address": "007f9a80"
+  },
+  {
+   "symbol": "?DefaultMinVolume@@3MA",
+   "address": "007f9a74"
+  },
+  {
+   "symbol": "?DefaultPriority@@3HA",
+   "address": "007f9a6c"
+  },
+  {
+   "symbol": "?DefaultRange@@3HA",
+   "address": "007f9a7c"
+  },
+  {
+   "symbol": "?DefaultType@@3IA",
+   "address": "007f9a78"
+  },
+  {
+   "symbol": "?DefaultVolume@@3MA",
+   "address": "007f9a70"
+  },
+  {
    "symbol": "?Entry_Count@INIClass@@QBEHPBD@Z",
    "address": "0050cb00"
   },
@@ -3176,6 +3204,10 @@
    "address": "0083996c"
   },
   {
+   "symbol": "?TacticalRect@@3VRect@@A",
+   "address": "00839630"
+  },
+  {
    "symbol": "?unknown_math_4ba520@@YANN@Z",
    "address": "004ba520"
   },
@@ -3188,32 +3220,8 @@
    "address": "00405150"
   },
   {
-   "symbol": "?unknown_rect_839630@@3VRect@@A",
-   "address": "00839630"
-  },
-  {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "?unknown_voc_control_ad0850@@3IA",
-   "address": "00ad0850"
-  },
-  {
-   "symbol": "?unknown_voc_limit_7f9a80@@3HA",
-   "address": "007f9a80"
-  },
-  {
-   "symbol": "?unknown_voc_min_volume_7f9a74@@3MA",
-   "address": "007f9a74"
-  },
-  {
-   "symbol": "?unknown_voc_priority_7f9a6c@@3HA",
-   "address": "007f9a6c"
-  },
-  {
-   "symbol": "?unknown_voc_range_7f9a7c@@3HA",
-   "address": "007f9a7c"
   },
   {
    "symbol": "?unknown_voc_static_list_ad07d0@@3UAudioListNode@@A",
@@ -3222,14 +3230,6 @@
   {
    "symbol": "?unknown_voc_static_pool_ad0844@@3PAUAudioPool@@A",
    "address": "00ad0844"
-  },
-  {
-   "symbol": "?unknown_voc_type_7f9a78@@3IA",
-   "address": "007f9a78"
-  },
-  {
-   "symbol": "?unknown_voc_volume_7f9a70@@3MA",
-   "address": "007f9a70"
   },
   {
    "symbol": "__CIpow",

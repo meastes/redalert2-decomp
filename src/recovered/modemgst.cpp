@@ -946,7 +946,7 @@ void ModemGuest::Sign_Off_00598590()
             break;
         }
         Service_Game_IO_00481fb0();
-        Unknown_005B5EE0();
+        Windows_Message_Handler();
         serial_manager_00a40a28.Service();
     }
     Shutdown_Modem();
@@ -995,7 +995,7 @@ bool ModemGuest::Start_Game_005986f0(bool unknown)
     unsigned long start = TickCount.Time();
     while ((serial_manager_00a40a28.Num_Send() && TickCount.Time() - start < 1800) || TickCount.Time() - start < 60) {
         Service_Game_IO_00481fb0();
-        Unknown_005B5EE0();
+        Windows_Message_Handler();
         serial_manager_00a40a28.Service();
     }
     if (dialog) {

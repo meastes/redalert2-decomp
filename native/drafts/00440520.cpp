@@ -287,7 +287,7 @@ exitcell.X += random; exitcell.Y += random;
                 exitcell = Adjacent_Cell(Cell(Center_Coord()), 5);
                 ++ScenarioInit;
                 if (base->Unlimbo(&CoordStruct(Adjacent_Cell(exitcell, 4), 0), 0xA0)) {
-                    base->unknown_2e0.Set(UnknownFacingDir((unsigned short)0x8000));
+                    base->PrimaryFacing.Set(UnknownFacingDir((unsigned short)0x8000));
                     base->QueueMission(10, 0);
                 }
             } else {

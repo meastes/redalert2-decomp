@@ -40,7 +40,7 @@ void TechnoClass::unknown_slot223(CoordStruct const &coord, float force)
         vec1.Z=pos.Z-coord.Z;
         Vector3 vec2=vec1;
 
-        float theta=unknown_2e0.Current().As_Radian();
+        float theta=PrimaryFacing.Current().As_Radian();
         float sangle=Fast_Sin(theta);
         float cangle=Fast_Cos(theta);
 

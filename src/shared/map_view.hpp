@@ -251,9 +251,9 @@ public:
     Cell unknown_117e;
     Cell unknown_1182;
     Cell const *unknown_1188;
-    ObjectClass *unknown_118c;
-    ObjectTypeClass *unknown_1190;
-    int unknown_1194;
+    ObjectClass *CopyPendingObjectPtr;
+    ObjectTypeClass *CopyPendingObject;
+    int CopyPendingHouse;
     bool unknown_1198;
     void *unknown_119c;
 #else

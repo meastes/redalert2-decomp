@@ -319,7 +319,7 @@ int __fastcall Init_Game()
         Play_Movie_005A02D0("WESTLOGO", -1, true, true, true, false);
     }
     Darken_Surface(0, true);
-    unknown_481fb0();
+    Call_Back();
 
     unknown_max_players_a3d558 = Rules->MaxPlayers;
     Gadget_Scheme_Name = "Grey";
@@ -493,7 +493,7 @@ static void Init_Mouse()
         WWMouse->Set_Cursor(pt, (ShapeFileStruct const *)unknown_block_abd488, 0);
     }
     Map.Set_Default_Mouse(0, false);
-    unknown_481fb0();
+    Call_Back();
 }
 
 static bool Init_CDROM_Access()
@@ -1151,7 +1151,7 @@ static int Choose_Campaign()
     }
     unknown_hover_time_a41680 = (unsigned __int64)Audio_Now() + 3000;
     while (Audio_Event_Handle_Event(&unknown_side_sound_a411e8) != 0 && (unsigned __int64)unknown_hover_time_a41680 > (unsigned __int64)Audio_Now()) {
-        unknown_481fb0();
+        Call_Back();
     }
     Unknown_006F2D00();
     return choice.Campaign;
@@ -1167,7 +1167,7 @@ top:
         bool process = true;
 
         GameActive = true;
-        unknown_player_a35db4 = 0;
+        PlayerPtr = 0;
         DoList.Init();
         OutList.Init();
         Frame = 0;
@@ -1232,7 +1232,7 @@ top:
                 if (selection != 7) {
                     Theme.Play_Song((ThemeType)Theme.From_Name("INTRO"));
                 }
-                unknown_481fb0();
+                Call_Back();
                 switch (selection) {
                 case -1:
                     if (unknown_session_a3d298.Attract && unknown_session_a3d298.RecordFile.Is_Available()) {
@@ -1288,7 +1288,7 @@ top:
                     Theme.Stop(true);
                     long timeout = TickCount.Time() + 3000;
                     while (Theme.Still_Playing() && Speech_Is_Playing() && timeout > TickCount.Time()) {
-                        unknown_481fb0();
+                        Call_Back();
                     }
                     Theme.Stop(false);
                     if (!unknown_flag_7ce008) {
@@ -1520,7 +1520,7 @@ top:
             WWMouse->Hide_Mouse();
             if (selection != 8) {
                 if (!unknown_flag_7ce008) {
-                    Set_Palette(&unknown_palette_837510, 15, unknown_481fb0);
+                    Set_Palette(&unknown_palette_837510, 15, Call_Back);
                 }
                 HiddenSurface->Fill(0);
                 Update_Visible_Surface(true, HiddenSurface, 0);
@@ -1564,10 +1564,10 @@ top:
                 Ipx.Set_Timing(Max(Ipx.unknown_526c30() + 2, 60), -1, 600, true);
             }
         }
-        unknown_481fb0();
+        Call_Back();
         WWMouse->Hide_Mouse();
         if (!unknown_flag_7ce008) {
-            Set_Palette(&unknown_palette_837510, 15, unknown_481fb0);
+            Set_Palette(&unknown_palette_837510, 15, Call_Back);
         }
         HiddenSurface->Fill(0);
         Update_Visible_Surface(true, HiddenSurface, 0);
@@ -1579,7 +1579,7 @@ top:
             Map.unknown_slot54(1);
         }
         Map.Flag_To_Redraw(false);
-        unknown_481fb0();
+        Call_Back();
         WWMouse->Hide_Mouse();
         return true;
     }
@@ -2485,7 +2485,7 @@ void __fastcall Draw_Loading_Screen()
 
 
 extern UnknownObjectPair unknown_drop_pod_voxel_a40c80;    // 0x00A40C80 the drop pod voxel and motion (TS's DropPodVoxel)
-void unknown_481fb0();                  // 0x00481FB0 once per frame
+void Call_Back();                  // 0x00481FB0 once per frame
 void Unknown_00458370();                // 0x00458370 empty (a type class One_Time in TS's order)
 void Unknown_004E2E30();                // 0x004E2E30 empty (TS: HouseClass::One_Time)
 void __fastcall Unknown_005DD760();                // 0x005DD760 (TS order: SpotLightClass::One_Time)
@@ -2495,7 +2495,7 @@ void __fastcall Unknown_00521A90();                // 0x00521A90 (TS order: IonB
 // inlined into its only caller).
 static bool Init_One_Time_Systems()
 {
-    unknown_481fb0();
+    Call_Back();
     Map.One_Time();
     Options.One_Time();
     unknown_session_a3d298.One_Time();
@@ -2537,7 +2537,7 @@ bool __fastcall Init_Bulk_Data()
     if (CameoMix == 0 || !CameoMix->Cache()) {
         return false;
     }
-    unknown_481fb0();
+    Call_Back();
     return Init_One_Time_Systems();
 }
 
@@ -3079,15 +3079,15 @@ bool __fastcall Allocate_Surfaces(Rect *hidden, Rect *composite, Rect *tile, Rec
         delete HiddenSurface;
         HiddenSurface = 0;
     }
-    if (unknown_surface_839964 != 0) {
+    if (CompositeSurface != 0) {
         Debug_Printf("Deleting CompositeSurface\n");
-        delete unknown_surface_839964;
-        unknown_surface_839964 = 0;
+        delete CompositeSurface;
+        CompositeSurface = 0;
     }
-    if (unknown_surface_839944 != 0) {
+    if (TileSurface != 0) {
         Debug_Printf("Deleting TileSurface\n");
-        delete unknown_surface_839944;
-        unknown_surface_839944 = 0;
+        delete TileSurface;
+        TileSurface = 0;
     }
     if (SidebarSurface != 0) {
         Debug_Printf("Deleting SidebarSurface\n");
@@ -3106,28 +3106,28 @@ bool __fastcall Allocate_Surfaces(Rect *hidden, Rect *composite, Rect *tile, Rec
     }
 
     if (composite->Is_Valid()) {
-        unknown_surface_839964 = new DSurface(composite->Width, composite->Height, Memory_Flag(tile_sysmem));
-        unknown_surface_839964->Fill(0);
+        CompositeSurface = new DSurface(composite->Width, composite->Height, Memory_Flag(tile_sysmem));
+        CompositeSurface->Fill(0);
         Debug_Printf("CompositeSurface (%dx%d) %s\n", composite->Width, composite->Height,
-                     ((DSurface *)unknown_surface_839964)->Is_Video_Ram() ? "VRAM" : "SYSTEM MEMORY");
+                     ((DSurface *)CompositeSurface)->Is_Video_Ram() ? "VRAM" : "SYSTEM MEMORY");
     }
 
     if (tile->Is_Valid()) {
-        unknown_surface_839944 = new DSurface(tile->Width, tile->Height, Memory_Flag(tile_sysmem));
-        unknown_surface_839944->Fill(0);
+        TileSurface = new DSurface(tile->Width, tile->Height, Memory_Flag(tile_sysmem));
+        TileSurface->Fill(0);
         Debug_Printf("TileSurface (%dx%d) %s\n", tile->Width, tile->Height,
-                     ((DSurface *)unknown_surface_839944)->Is_Video_Ram() ? "VRAM" : "SYSTEM MEMORY");
+                     ((DSurface *)TileSurface)->Is_Video_Ram() ? "VRAM" : "SYSTEM MEMORY");
     }
 
-    if (unknown_surface_839964 != 0 && unknown_surface_839944 != 0) {
-        bool composite_vram = ((DSurface *)unknown_surface_839964)->Is_Video_Ram();
-        bool tile_vram = ((DSurface *)unknown_surface_839944)->Is_Video_Ram();
+    if (CompositeSurface != 0 && TileSurface != 0) {
+        bool composite_vram = ((DSurface *)CompositeSurface)->Is_Video_Ram();
+        bool tile_vram = ((DSurface *)TileSurface)->Is_Video_Ram();
         if (composite_vram ^ tile_vram) {
-            delete unknown_surface_839964;
-            delete unknown_surface_839944;
+            delete CompositeSurface;
+            delete TileSurface;
             Debug_Printf("Moving TileSurface and CompositeSurface into system memory\n");
-            unknown_surface_839964 = new DSurface(composite->Width, composite->Height, true);
-            unknown_surface_839944 = new DSurface(tile->Width, tile->Height, true);
+            CompositeSurface = new DSurface(composite->Width, composite->Height, true);
+            TileSurface = new DSurface(tile->Width, tile->Height, true);
         }
     }
 
@@ -3222,8 +3222,8 @@ void __fastcall Delete_All_Objects_00519960()
         delete Triggers[0];
     }
     Unknown_006ecf10();
-    while (unknown_TubeClass_list_008661c8.Count()) {
-        delete unknown_TubeClass_list_008661c8[0];
+    while (Tubes.Count()) {
+        delete Tubes[0];
     }
     Unknown_006ecf10();
     while (BuildingLights.Count()) {
@@ -3325,7 +3325,7 @@ void __fastcall Delete_All_Objects_00519960()
     TacticalMap = 0;
     Map.unknown_slot23();
     Unknown_006ecf10();
-    unknown_object_84e8d0.Unknown_0042E150();
+    BeaconManager.Unknown_0042E150();
     ScenarioInit--;
 }
 
@@ -3412,7 +3412,7 @@ void __fastcall Init_Theater_00519e70(int theater)
 
         wsprintfA(fullname, "UNIT%s.PAL", Theaters[theater].Suffix);
         PaletteClass const *unitpal = (PaletteClass const *)MixFileClass::Retrieve(fullname);
-        unknown_481fb0();
+        Call_Back();
         if (unitpal != 0) {
             unknown_palette_838a10 = *unitpal;
         }
@@ -3432,7 +3432,7 @@ void __fastcall Init_Theater_00519e70(int theater)
                 unknown_session_a3d298.Update_Progress(percent);
                 last_percent = percent;
             }
-            unknown_481fb0();
+            Call_Back();
         }
         Unknown_00603750(theater);
         TechnoTypeClass::Load_Palettes();
@@ -3723,9 +3723,9 @@ int __fastcall Get_Performance_Profile()
 
         int speed = 5;
         int blits = 0;
-        if (unknown_surface_839944 != 0 && ((DSurface *)unknown_surface_839944)->Is_Video_Ram()
+        if (TileSurface != 0 && ((DSurface *)TileSurface)->Is_Video_Ram()
             && !((DSurface *)AlternateSurface)->Is_Video_Ram()) {
-            Rect area = unknown_surface_839944->Get_Rect();
+            Rect area = TileSurface->Get_Rect();
             Rect other = AlternateSurface->Get_Rect();
             if (area.Width >= other.Width) {
                 area.Width = other.Width;
@@ -3740,18 +3740,18 @@ int __fastcall Get_Performance_Profile()
                 area.Height = 400;
             }
             for (int index = 0; index < 4; index++) {
-                unknown_surface_839944->Copy_From(area, *AlternateSurface, area, false, true);
-                AlternateSurface->Copy_From(area, *unknown_surface_839944, area, false, true);
+                TileSurface->Copy_From(area, *AlternateSurface, area, false, true);
+                AlternateSurface->Copy_From(area, *TileSurface, area, false, true);
                 Sleep(0);
             }
             DWORD start = timeGetTime();
             if ((start & 0xFF000000) != 0xFF) {
-                unknown_surface_839944->Copy_From(area, *AlternateSurface, area, false, true);
-                AlternateSurface->Copy_From(area, *unknown_surface_839944, area, false, true);
+                TileSurface->Copy_From(area, *AlternateSurface, area, false, true);
+                AlternateSurface->Copy_From(area, *TileSurface, area, false, true);
                 blits++;
                 while (timeGetTime() - start <= 1000 && blits <= 5000) {
-                    unknown_surface_839944->Copy_From(area, *AlternateSurface, area, false, true);
-                    AlternateSurface->Copy_From(area, *unknown_surface_839944, area, false, true);
+                    TileSurface->Copy_From(area, *AlternateSurface, area, false, true);
+                    AlternateSurface->Copy_From(area, *TileSurface, area, false, true);
                     blits++;
                 }
                 speed = blits / 4 < 1 ? 1 : blits / 4;
@@ -3952,7 +3952,7 @@ void SetStructureTabCommandClass::Execute(int key) const
         Map.Select_Tab(0);
         BuildingClass *building = Unknown_006F8A50();
         if (building != 0) {
-            unknown_player_a35db4->unknown_func_4e7070(building->Who_Can_Build_Me(false, false), building);
+            PlayerPtr->unknown_func_4e7070(building->Who_Can_Build_Me(false, false), building);
         }
     }
 }
@@ -4007,7 +4007,7 @@ void SetDefenseTabCommandClass::Execute(int key) const
         Map.Select_Tab(1);
         BuildingClass *building = Unknown_006F8A60();
         if (building != 0) {
-            unknown_player_a35db4->unknown_func_4e7070(building->Who_Can_Build_Me(false, false), building);
+            PlayerPtr->unknown_func_4e7070(building->Who_Can_Build_Me(false, false), building);
         }
     }
 }
@@ -5115,7 +5115,7 @@ void CenterBaseCommandClass::Execute(int key) const
 {
     CoordStruct yard = unknown_geometry_l;
     CoordStruct other = unknown_geometry_l;
-    if (unknown_player_a35db4->CurBuildings) {
+    if (PlayerPtr->CurBuildings) {
         for (int index = 0; index < unknown_BuildingClass_list_00a40af8.Count(); index++) {
             BuildingClass *building = unknown_BuildingClass_list_00a40af8[index];
             if (building != 0 && !building->unknown_76 && building->House->Is_Player_Control()) {
@@ -5130,11 +5130,11 @@ void CenterBaseCommandClass::Execute(int key) const
             }
         }
     }
-    if (other == unknown_geometry_l && yard == unknown_geometry_l && unknown_player_a35db4->unknown_228) {
+    if (other == unknown_geometry_l && yard == unknown_geometry_l && PlayerPtr->unknown_228) {
         for (int index = 0; index < Units.Count(); index++) {
             UnitClass *unit = Units[index];
             if (unit != 0 && !unit->unknown_76 && unit->House->Is_Player_Control()
-                && unit->Type == unknown_player_a35db4->Get_First_Ownable(Rules->BaseUnit)) {
+                && unit->Type == PlayerPtr->Get_First_Ownable(Rules->BaseUnit)) {
                 yard = unit->Center_Coord();
                 break;
             }
@@ -6704,11 +6704,11 @@ wchar_t const *CursorPositionCommandClass::Get_Description() const
 // void CursorPositionCommandClass::Execute(int key) const -- 0x0051D990
 // Toggles the cursor position display (flag 0x00A416BC; name hypothesis).
 
-extern bool unknown_show_cursor_position_a416bc;
+extern bool CursorCheat;
 
 void CursorPositionCommandClass::Execute(int key) const
 {
-    unknown_show_cursor_position_a416bc = !unknown_show_cursor_position_a416bc;
+    CursorCheat = !CursorCheat;
 }
 
 

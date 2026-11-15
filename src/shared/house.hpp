@@ -92,7 +92,7 @@ class HouseClass;
 
 // Members of other classes read here, as views until their headers exist.
 class TiberiumClass;
-extern DynamicVectorClass<TiberiumClass *> unknown_TiberiumClass_list_00ac0b30;   // 0x00AC0B30
+extern DynamicVectorClass<TiberiumClass *> Tiberiums;   // 0x00AC0B30
 struct UnknownTiberiumView {
     char unknown_00[0xB8];
     int Value;                              // +0xB8 credits per unit (hypothesis)
@@ -329,7 +329,7 @@ public:
         if (unknown_game_mode_a3d298 == 0) {
             return unknown_134 || unknown_135;
         }
-        return this == unknown_player_a35db4;
+        return this == PlayerPtr;
     }
     // Whether a human controls the house: the human flag, in the campaign also
     // the player-control flag (inline; YRpp calls it ControlledByHuman).
@@ -486,7 +486,7 @@ public:
     bool unknown_190;                                     // +0x00190
     bool unknown_191;                                     // +0x00191
     bool unknown_192;                                     // +0x00192 (true)
-    int unknown_194;                                      // +0x00194
+    int IQ;                                      // +0x00194
     int unknown_198;                                      // +0x00198
     DynamicVectorClass<SuperClass *> Supers;              // +0x0019C (vtable 0x007A2A24)
     int unknown_1b4;                                      // +0x001B4 (-1)
@@ -502,7 +502,7 @@ public:
     bool unknown_204;                                     // +0x00204
     bool unknown_205;                                     // +0x00205
     bool unknown_206;                                     // +0x00206 (Get_Cameo_Data: infantry alt cameo)
-    bool unknown_207;                                     // +0x00207 (Get_Cameo_Data: unit alt cameo)
+    bool WarFactoryInfiltrated;                                     // +0x00207 (Get_Cameo_Data: unit alt cameo)
     int unknown_208;                                      // +0x00208
     int unknown_20c;                                      // +0x0020C
     int unknown_210;                                      // +0x00210
@@ -605,15 +605,15 @@ public:
     int unknown_5550;                                     // +0x05550 (75)
     int unknown_5554;                                     // +0x05554 (75)
     int unknown_5558;                                     // +0x05558 (75)
-    int unknown_555c;                                     // +0x0555C
+    int BaseDefenseTeamCount;                                     // +0x0555C
     UnknownHouseBase unknown_5560[3];                     // +0x05560 (0x2C bytes; constructor 0x004A6910)
     int unknown_55e4;                                     // +0x055E4
     bool unknown_55e8;                                    // +0x055E8
     RGBClass unknown_55e9;                                // +0x055E9 (black when made)
     RGBClass unknown_55ec;                                // +0x055EC (white when made)
     BaseClass unknown_55f0;                               // +0x055F0 (the house's base plan)
-    bool unknown_5668;                                    // +0x05668 (true)
-    bool unknown_5669;                                    // +0x05669 (true)
+    bool RecalcPower;                                    // +0x05668 (true)
+    bool RecalcRadar;                                    // +0x05669 (true)
     bool unknown_566a;                                    // +0x0566A
     Cell EMPDest;                                        // +0x0566C, reference-supported target cell
     Cell NukeDest;                                       // +0x05670, reference-supported target cell

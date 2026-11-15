@@ -441,7 +441,7 @@ bool OverlayClass::Mark(int mark)
 
                     int tibtype = cellptr->Tiberium_Type_Here();
                     if (tibtype != -1) {
-                        TiberiumClass *tiberium = unknown_TiberiumClass_list_00ac0b30[tibtype];
+                        TiberiumClass *tiberium = Tiberiums[tibtype];
                         if (tiberium != 0) {
                             aptr->unknown_bc = ColorSchemes[tiberium->unknown_c0]->Converter;
                             aptr->unknown_e4 = cellptr->unknown_10a;
@@ -501,7 +501,7 @@ void Process_Deferred_Deletion();            // 0x006ECF10
 
 void __fastcall OverlayClass::Read_INI(CCINIClass &ini)
 {
-    if (unknown_ini_format_a40d24 > 1) {
+    if (NewINIFormat > 1) {
         BSurface surface(640, 400, 2);
         surface.Fill(0);
         int length = ini.Get_UUBlock("OverlayPack", surface.Lock(), surface.Get_Width() * surface.Get_Height() * surface.Bytes_Per_Pixel());
@@ -675,7 +675,7 @@ void OverlayClass::Editor_Draw_It(Point2D const &point, Rect const &cliprect)
     Point2D position = Point2D(point.X, point.Y + Draw_Offset(overlay).Y);
     position.Y += unknown_int_839634;
     if (Class->Tiberium) {
-        TiberiumClass *tiberium = unknown_TiberiumClass_list_00ac0b30[To_Tiberium(Overlay_Type_Index(Class))];
+        TiberiumClass *tiberium = Tiberiums[To_Tiberium(Overlay_Type_Index(Class))];
         ColorScheme *scheme = ColorSchemes[tiberium->unknown_c0];
         shape = OverlayTypes[tiberium->Image->ArrayIndex]->Get_Image_Data();
         if (!shape && Class->CellAnim) {
@@ -688,7 +688,7 @@ void OverlayClass::Editor_Draw_It(Point2D const &point, Rect const &cliprect)
             position.Y -= 0x26;
         }
         Point2D origin(0, 0);
-        CC_Draw_Shape(LogicalSurface, ColorSchemes[unknown_player_a35db4->ColorSchemeIndex]->Converter, (ShapeFileStruct const *)shape, 0, position, cliprect,
+        CC_Draw_Shape(LogicalSurface, ColorSchemes[PlayerPtr->ColorSchemeIndex]->Converter, (ShapeFileStruct const *)shape, 0, position, cliprect,
                       0xE00, 0, -2 - height, 0, Map[CoordStruct(Coord)].unknown_10c, 0, 0, origin);
     } else {
         CellClass *drawn;
@@ -737,8 +737,8 @@ int __fastcall OverlayClass::To_Tiberium(int overlay)
 {
     OverlayTypeClass *type;
     if (overlay != -1 && (type = OverlayTypes[overlay])->Tiberium) {
-        for (int index = 0; index < unknown_TiberiumClass_list_00ac0b30.Count(); index++) {
-            TiberiumClass *tiberium = unknown_TiberiumClass_list_00ac0b30[index];
+        for (int index = 0; index < Tiberiums.Count(); index++) {
+            TiberiumClass *tiberium = Tiberiums[index];
             int first = tiberium->Image->ArrayIndex;
             if ((overlay >= first && overlay < first + tiberium->NumFrames) ||
                 (overlay >= first + tiberium->NumFrames && overlay < first + tiberium->NumFrames + tiberium->NumImages)) {

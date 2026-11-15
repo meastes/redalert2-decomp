@@ -90,7 +90,7 @@
    "padding_bytes": 14
   },
   {
-   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
+   "symbol": "?Get_Country@NodeNameType@@QAEHXZ",
    "entry": "0066e290",
    "body_bytes": 16,
    "padding_bytes": 0
@@ -108,7 +108,7 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
+   "symbol": "?Set_Country@NodeNameType@@QAEXH@Z",
    "entry": "0066e2d0",
    "body_bytes": 35,
    "padding_bytes": 13
@@ -132,7 +132,7 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "?Unknown_0066EAA0@SessionClass@@QAEXXZ",
+   "symbol": "?Load_Call_Wait_Strings@SessionClass@@QAEXXZ",
    "entry": "0066eaa0",
    "body_bytes": 118,
    "padding_bytes": 10
@@ -288,7 +288,7 @@
    "padding_bytes": 9
   },
   {
-   "symbol": "?Unknown_006720E0@MultiMission@@QAE_NAAVWstring@@@Z",
+   "symbol": "?Supports_Game_Mode@MultiMission@@QAE_NAAVWstring@@@Z",
    "entry": "006720e0",
    "body_bytes": 93,
    "padding_bytes": 3
@@ -384,7 +384,7 @@
    "padding_bytes": 9
   },
   {
-   "symbol": "?Unknown_00672F50@SessionClass@@QAEGH@Z",
+   "symbol": "?Player_Port@SessionClass@@QAEGH@Z",
    "entry": "00672f50",
    "body_bytes": 63,
    "padding_bytes": 1
@@ -2791,7 +2791,7 @@
  "references_in": [
   {
    "site": "005b7350",
-   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
+   "symbol": "?Get_Country@NodeNameType@@QAEHXZ",
    "target": "0066e290",
    "function_entry": true
   },
@@ -2803,7 +2803,7 @@
   },
   {
    "site": "0048f040",
-   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
+   "symbol": "?Get_Country@NodeNameType@@QAEHXZ",
    "target": "0066e290",
    "function_entry": true
   },
@@ -2815,7 +2815,7 @@
   },
   {
    "site": "0048f040",
-   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
+   "symbol": "?Get_Country@NodeNameType@@QAEHXZ",
    "target": "0066e290",
    "function_entry": true
   },
@@ -2953,7 +2953,7 @@
   },
   {
    "site": "0065fbb0",
-   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
+   "symbol": "?Set_Country@NodeNameType@@QAEXH@Z",
    "target": "0066e2d0",
    "function_entry": true
   },
@@ -3013,25 +3013,25 @@
   },
   {
    "site": "005b7400",
-   "symbol": "?Unknown_006720C0@MultiMission@@QAE_NXZ",
+   "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
    "target": "006720c0",
    "function_entry": true
   },
   {
    "site": "005b7400",
-   "symbol": "?Unknown_006720E0@MultiMission@@QAE_NAAVWstring@@@Z",
+   "symbol": "?Supports_Game_Mode@MultiMission@@QAE_NAAVWstring@@@Z",
    "target": "006720e0",
    "function_entry": true
   },
   {
    "site": "005b7470",
-   "symbol": "?Unknown_006720C0@MultiMission@@QAE_NXZ",
+   "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
    "target": "006720c0",
    "function_entry": true
   },
   {
    "site": "005b7470",
-   "symbol": "?Unknown_006720E0@MultiMission@@QAE_NAAVWstring@@@Z",
+   "symbol": "?Supports_Game_Mode@MultiMission@@QAE_NAAVWstring@@@Z",
    "target": "006720e0",
    "function_entry": true
   },
@@ -3073,25 +3073,25 @@
   },
   {
    "site": "005a3320",
-   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
+   "symbol": "?Get_Country@NodeNameType@@QAEHXZ",
    "target": "0066e290",
    "function_entry": true
   },
   {
    "site": "005a3320",
-   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
+   "symbol": "?Set_Country@NodeNameType@@QAEXH@Z",
    "target": "0066e2d0",
    "function_entry": true
   },
   {
    "site": "005a3760",
-   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
+   "symbol": "?Set_Country@NodeNameType@@QAEXH@Z",
    "target": "0066e2d0",
    "function_entry": true
   },
   {
    "site": "005a3760",
-   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
+   "symbol": "?Set_Country@NodeNameType@@QAEXH@Z",
    "target": "0066e2d0",
    "function_entry": true
   },
@@ -3133,7 +3133,7 @@
   },
   {
    "site": "005c9a10",
-   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
+   "symbol": "?Set_Country@NodeNameType@@QAEXH@Z",
    "target": "0066e2d0",
    "function_entry": true
   },
@@ -3157,7 +3157,7 @@
   },
   {
    "site": "005ca3f0",
-   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
+   "symbol": "?Get_Country@NodeNameType@@QAEHXZ",
    "target": "0066e290",
    "function_entry": true
   },
@@ -3169,19 +3169,19 @@
   },
   {
    "site": "005cbdb0",
-   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
+   "symbol": "?Get_Country@NodeNameType@@QAEHXZ",
    "target": "0066e290",
    "function_entry": true
   },
   {
    "site": "005cbdb0",
-   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
+   "symbol": "?Get_Country@NodeNameType@@QAEHXZ",
    "target": "0066e290",
    "function_entry": true
   },
   {
    "site": "005cc800",
-   "symbol": "?Unknown_006720C0@MultiMission@@QAE_NXZ",
+   "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
    "target": "006720c0",
    "function_entry": true
   },
@@ -3289,19 +3289,19 @@
   },
   {
    "site": "0073d550",
-   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
+   "symbol": "?Get_Country@NodeNameType@@QAEHXZ",
    "target": "0066e290",
    "function_entry": true
   },
   {
    "site": "0073d550",
-   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
+   "symbol": "?Set_Country@NodeNameType@@QAEXH@Z",
    "target": "0066e2d0",
    "function_entry": true
   },
   {
    "site": "0073d550",
-   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
+   "symbol": "?Get_Country@NodeNameType@@QAEHXZ",
    "target": "0066e290",
    "function_entry": true
   },
@@ -3391,7 +3391,7 @@
   },
   {
    "site": "00523d90",
-   "symbol": "?Unknown_00672F50@SessionClass@@QAEGH@Z",
+   "symbol": "?Player_Port@SessionClass@@QAEGH@Z",
    "target": "00672f50",
    "function_entry": true
   },
@@ -3403,7 +3403,7 @@
   },
   {
    "site": "005c67c0",
-   "symbol": "?Unknown_006720C0@MultiMission@@QAE_NXZ",
+   "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
    "target": "006720c0",
    "function_entry": true
   },
@@ -3451,7 +3451,7 @@
   },
   {
    "site": "005c84e0",
-   "symbol": "?Unknown_006720C0@MultiMission@@QAE_NXZ",
+   "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
    "target": "006720c0",
    "function_entry": true
   },
@@ -3577,7 +3577,7 @@
   },
   {
    "site": "006f8e30",
-   "symbol": "?Unknown_0066EAA0@SessionClass@@QAEXXZ",
+   "symbol": "?Load_Call_Wait_Strings@SessionClass@@QAEXXZ",
    "target": "0066eaa0",
    "function_entry": true
   },
@@ -3655,7 +3655,7 @@
   },
   {
    "site": "0075c570",
-   "symbol": "?Unknown_006720C0@MultiMission@@QAE_NXZ",
+   "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
    "target": "006720c0",
    "function_entry": true
   },
@@ -3679,7 +3679,7 @@
   },
   {
    "site": "0061fc20",
-   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
+   "symbol": "?Get_Country@NodeNameType@@QAEHXZ",
    "target": "0066e290",
    "function_entry": true
   },
@@ -3709,7 +3709,7 @@
   },
   {
    "site": "005bd070",
-   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
+   "symbol": "?Set_Country@NodeNameType@@QAEXH@Z",
    "target": "0066e2d0",
    "function_entry": true
   },
@@ -3727,19 +3727,19 @@
   },
   {
    "site": "005bd070",
-   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
+   "symbol": "?Get_Country@NodeNameType@@QAEHXZ",
    "target": "0066e290",
    "function_entry": true
   },
   {
    "site": "005bd070",
-   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
+   "symbol": "?Set_Country@NodeNameType@@QAEXH@Z",
    "target": "0066e2d0",
    "function_entry": true
   },
   {
    "site": "005bd070",
-   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
+   "symbol": "?Set_Country@NodeNameType@@QAEXH@Z",
    "target": "0066e2d0",
    "function_entry": true
   },
@@ -3775,13 +3775,13 @@
   },
   {
    "site": "00683fc0",
-   "symbol": "?Unknown_006720C0@MultiMission@@QAE_NXZ",
+   "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
    "target": "006720c0",
    "function_entry": true
   },
   {
    "site": "005c08a0",
-   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
+   "symbol": "?Set_Country@NodeNameType@@QAEXH@Z",
    "target": "0066e2d0",
    "function_entry": true
   },
@@ -3811,7 +3811,7 @@
   },
   {
    "site": "005c08a0",
-   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
+   "symbol": "?Set_Country@NodeNameType@@QAEXH@Z",
    "target": "0066e2d0",
    "function_entry": true
   },
@@ -3829,13 +3829,13 @@
   },
   {
    "site": "005c08a0",
-   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
+   "symbol": "?Get_Country@NodeNameType@@QAEHXZ",
    "target": "0066e290",
    "function_entry": true
   },
   {
    "site": "005c08a0",
-   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
+   "symbol": "?Set_Country@NodeNameType@@QAEXH@Z",
    "target": "0066e2d0",
    "function_entry": true
   },
@@ -3859,19 +3859,19 @@
   },
   {
    "site": "005c08a0",
-   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
+   "symbol": "?Set_Country@NodeNameType@@QAEXH@Z",
    "target": "0066e2d0",
    "function_entry": true
   },
   {
    "site": "005c08a0",
-   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
+   "symbol": "?Set_Country@NodeNameType@@QAEXH@Z",
    "target": "0066e2d0",
    "function_entry": true
   },
   {
    "site": "005c08a0",
-   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
+   "symbol": "?Set_Country@NodeNameType@@QAEXH@Z",
    "target": "0066e2d0",
    "function_entry": true
   },
@@ -3883,7 +3883,7 @@
   },
   {
    "site": "005c08a0",
-   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
+   "symbol": "?Get_Country@NodeNameType@@QAEHXZ",
    "target": "0066e290",
    "function_entry": true
   },
@@ -3901,13 +3901,13 @@
   },
   {
    "site": "006829f0",
-   "symbol": "?Unknown_006720C0@MultiMission@@QAE_NXZ",
+   "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
    "target": "006720c0",
    "function_entry": true
   },
   {
    "site": "006829f0",
-   "symbol": "?Unknown_006720C0@MultiMission@@QAE_NXZ",
+   "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
    "target": "006720c0",
    "function_entry": true
   },
@@ -3973,7 +3973,7 @@
   },
   {
    "site": "0074a710",
-   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
+   "symbol": "?Set_Country@NodeNameType@@QAEXH@Z",
    "target": "0066e2d0",
    "function_entry": true
   },
@@ -4123,7 +4123,7 @@
   },
   {
    "site": "007459a0",
-   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
+   "symbol": "?Set_Country@NodeNameType@@QAEXH@Z",
    "target": "0066e2d0",
    "function_entry": true
   },
@@ -4141,7 +4141,7 @@
   },
   {
    "site": "007459a0",
-   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
+   "symbol": "?Set_Country@NodeNameType@@QAEXH@Z",
    "target": "0066e2d0",
    "function_entry": true
   },
@@ -4165,7 +4165,7 @@
   },
   {
    "site": "0073ccb0",
-   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
+   "symbol": "?Get_Country@NodeNameType@@QAEHXZ",
    "target": "0066e290",
    "function_entry": true
   },
@@ -4177,7 +4177,7 @@
   },
   {
    "site": "005bbdd0",
-   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
+   "symbol": "?Get_Country@NodeNameType@@QAEHXZ",
    "target": "0066e290",
    "function_entry": true
   },
@@ -4189,7 +4189,7 @@
   },
   {
    "site": "005bc940",
-   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
+   "symbol": "?Get_Country@NodeNameType@@QAEHXZ",
    "target": "0066e290",
    "function_entry": true
   },
@@ -4207,7 +4207,7 @@
   },
   {
    "site": "00760c00",
-   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
+   "symbol": "?Set_Country@NodeNameType@@QAEXH@Z",
    "target": "0066e2d0",
    "function_entry": true
   },
@@ -4249,7 +4249,7 @@
   },
   {
    "site": "00760c00",
-   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
+   "symbol": "?Get_Country@NodeNameType@@QAEHXZ",
    "target": "0066e290",
    "function_entry": true
   },
@@ -4315,25 +4315,25 @@
   },
   {
    "site": "00761c50",
-   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
+   "symbol": "?Get_Country@NodeNameType@@QAEHXZ",
    "target": "0066e290",
    "function_entry": true
   },
   {
    "site": "00761c50",
-   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
+   "symbol": "?Set_Country@NodeNameType@@QAEXH@Z",
    "target": "0066e2d0",
    "function_entry": true
   },
   {
    "site": "00761c50",
-   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
+   "symbol": "?Set_Country@NodeNameType@@QAEXH@Z",
    "target": "0066e2d0",
    "function_entry": true
   },
   {
    "site": "00761c50",
-   "symbol": "?unknown_66e2d0@NodeNameType@@QAEXH@Z",
+   "symbol": "?Set_Country@NodeNameType@@QAEXH@Z",
    "target": "0066e2d0",
    "function_entry": true
   },
@@ -4357,7 +4357,7 @@
   },
   {
    "site": "00761890",
-   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
+   "symbol": "?Get_Country@NodeNameType@@QAEHXZ",
    "target": "0066e290",
    "function_entry": true
   },
@@ -4648,6 +4648,10 @@
    "address": "00406dc0"
   },
   {
+   "symbol": "?Call_Back@@YAXXZ",
+   "address": "00481fb0"
+  },
+  {
    "symbol": "?Char_To_Wide_006fa0c0@@YIXPAGPBDH@Z",
    "address": "006fa0c0"
   },
@@ -4714,6 +4718,10 @@
   {
    "symbol": "?Create_Connection@IPXManagerClass@@QAEHHPBGPAVIPXAddressClass@@@Z",
    "address": "00525500"
+  },
+  {
+   "symbol": "?Create_Multicast_Connection@IPXManagerClass@@QAEHXZ",
+   "address": "005255b0"
   },
   {
    "symbol": "?Debug_Map@@3_NA",
@@ -4988,6 +4996,10 @@
    "address": null
   },
   {
+   "symbol": "?Ipx@@3VIPXManagerClass@@A",
+   "address": "00a40978"
+  },
+  {
    "symbol": "?Is_Available@BufferIOFileClass@@UAE_NH@Z",
    "address": "0042f6e0"
   },
@@ -5064,8 +5076,16 @@
    "address": "00a40b18"
   },
   {
+   "symbol": "?OwnerTalk@@3VOwnerTalkClass@@A",
+   "address": "00ab6d18"
+  },
+  {
    "symbol": "?Pause_Game_0065c3d0@@YAXXZ",
    "address": "0065c3d0"
+  },
+  {
+   "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+   "address": "00a35db4"
   },
   {
    "symbol": "?ProgressScreen@@3VProgressScreenClass@@A",
@@ -5188,6 +5208,10 @@
    "address": null
   },
   {
+   "symbol": "?RuleINI@@3PAVCCINIClass@@A",
+   "address": "008396d0"
+  },
+  {
    "symbol": "?Rules@@3PAVRulesClass@@A",
    "address": "00839848"
   },
@@ -5206,6 +5230,10 @@
   {
    "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
    "address": "00525830"
+  },
+  {
+   "symbol": "?Send_Global_Message_To_Name@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "address": "005259a0"
   },
   {
    "symbol": "?Send_Message@NullModemClass@@QAEHPAXHH@Z",
@@ -5232,6 +5260,10 @@
    "address": "006392f0"
   },
   {
+   "symbol": "?Set_Lobby_Address@IPXManagerClass@@QAEXPAVIPXAddressClass@@@Z",
+   "address": "005277c0"
+  },
+  {
    "symbol": "?Set_Name@CDFileClass@@UAEPBDPBD@Z",
    "address": "00470150"
   },
@@ -5250,6 +5282,10 @@
   {
    "symbol": "?Size@CCFileClass@@UAEJXZ",
    "address": "00469150"
+  },
+  {
+   "symbol": "?Sound_Clear_Static@@YAXXZ",
+   "address": "00714410"
   },
   {
    "symbol": "?Speech_Reset@@YAXXZ",
@@ -5280,10 +5316,6 @@
    "address": "005a09e0"
   },
   {
-   "symbol": "?Unknown_005B5EE0@@YAXXZ",
-   "address": "005b5ee0"
-  },
-  {
    "symbol": "?Unknown_0063F130@OwnerTalkClass@@QAE_NXZ",
    "address": "0063f130"
   },
@@ -5296,12 +5328,12 @@
    "address": "0063f510"
   },
   {
-   "symbol": "?Unknown_00714410@@YAXXZ",
-   "address": "00714410"
-  },
-  {
    "symbol": "?Unknown_007160D0@@YIXXZ",
    "address": "007160d0"
+  },
+  {
+   "symbol": "?UnlockInputFrame@@3HA",
+   "address": "00ab9174"
   },
   {
    "symbol": "?WWKeyboard@@3PAVWWKeyboardClass@@A",
@@ -5318,6 +5350,10 @@
   {
    "symbol": "?Wide_To_Narrow_006fa120@@YIPADPBG@Z",
    "address": "006fa120"
+  },
+  {
+   "symbol": "?Windows_Message_Handler@@YAXXZ",
+   "address": "005b5ee0"
   },
   {
    "symbol": "?Write@BufferIOFileClass@@UAEJPBXJ@Z",
@@ -5344,32 +5380,8 @@
    "address": "00781f20"
   },
   {
-   "symbol": "?unknown_481fb0@@YAXXZ",
-   "address": "00481fb0"
-  },
-  {
-   "symbol": "?unknown_5255b0@IPXManagerClass@@QAEHXZ",
-   "address": "005255b0"
-  },
-  {
-   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
-   "address": "005259a0"
-  },
-  {
-   "symbol": "?unknown_5277c0@IPXManagerClass@@QAEXPAVIPXAddressClass@@@Z",
-   "address": "005277c0"
-  },
-  {
-   "symbol": "?unknown_OwnerTalkClass_00ab6d18@@3VOwnerTalkClass@@A",
-   "address": "00ab6d18"
-  },
-  {
    "symbol": "?unknown_a3d3b4@@3HA",
    "address": "00a3d3b4"
-  },
-  {
-   "symbol": "?unknown_ab9174@@3HA",
-   "address": "00ab9174"
   },
   {
    "symbol": "?unknown_address_a3db2c@@3VIPXAddressClass@@A",
@@ -5424,16 +5436,8 @@
    "address": "00a3d290"
   },
   {
-   "symbol": "?unknown_ini_8396d0@@3PAVCCINIClass@@A",
-   "address": "008396d0"
-  },
-  {
    "symbol": "?unknown_ini_839740@@3VCCINIClass@@A",
    "address": "00839740"
-  },
-  {
-   "symbol": "?unknown_ipx_manager_a40978@@3VIPXManagerClass@@A",
-   "address": "00a40978"
   },
   {
    "symbol": "?unknown_math_4ba520@@YANN@Z",
@@ -5446,10 +5450,6 @@
   {
    "symbol": "?unknown_mixes_837480@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
    "address": "00837480"
-  },
-  {
-   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
-   "address": "00a35db4"
   },
   {
    "symbol": "?unknown_player_slots_a3fa98@@3PAPAUNodeNameType@@A",
@@ -6419,13 +6419,13 @@
   {
    "site": "005b7400",
    "target": "006720c0",
-   "symbol": "?Unknown_006720C0@MultiMission@@QAE_NXZ",
+   "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
    "module_symbol": "?FUN_006720c0@seed_006720c0@@YI_NH@Z"
   },
   {
    "site": "005b7470",
    "target": "006720c0",
-   "symbol": "?Unknown_006720C0@MultiMission@@QAE_NXZ",
+   "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
    "module_symbol": "?FUN_006720c0@seed_006720c0@@YI_NH@Z"
   },
   {
@@ -6449,7 +6449,7 @@
   {
    "site": "005cc800",
    "target": "006720c0",
-   "symbol": "?Unknown_006720C0@MultiMission@@QAE_NXZ",
+   "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
    "module_symbol": "?FUN_006720c0@seed_006720c0@@YI_NH@Z"
   },
   {
@@ -6503,7 +6503,7 @@
   {
    "site": "005c67c0",
    "target": "006720c0",
-   "symbol": "?Unknown_006720C0@MultiMission@@QAE_NXZ",
+   "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
    "module_symbol": "?FUN_006720c0@seed_006720c0@@YI_NH@Z"
   },
   {
@@ -6515,7 +6515,7 @@
   {
    "site": "005c84e0",
    "target": "006720c0",
-   "symbol": "?Unknown_006720C0@MultiMission@@QAE_NXZ",
+   "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
    "module_symbol": "?FUN_006720c0@seed_006720c0@@YI_NH@Z"
   },
   {
@@ -6533,7 +6533,7 @@
   {
    "site": "0075c570",
    "target": "006720c0",
-   "symbol": "?Unknown_006720C0@MultiMission@@QAE_NXZ",
+   "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
    "module_symbol": "?FUN_006720c0@seed_006720c0@@YI_NH@Z"
   },
   {
@@ -6557,7 +6557,7 @@
   {
    "site": "00683fc0",
    "target": "006720c0",
-   "symbol": "?Unknown_006720C0@MultiMission@@QAE_NXZ",
+   "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
    "module_symbol": "?FUN_006720c0@seed_006720c0@@YI_NH@Z"
   },
   {
@@ -6593,13 +6593,13 @@
   {
    "site": "006829f0",
    "target": "006720c0",
-   "symbol": "?Unknown_006720C0@MultiMission@@QAE_NXZ",
+   "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
    "module_symbol": "?FUN_006720c0@seed_006720c0@@YI_NH@Z"
   },
   {
    "site": "006829f0",
    "target": "006720c0",
-   "symbol": "?Unknown_006720C0@MultiMission@@QAE_NXZ",
+   "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
    "module_symbol": "?FUN_006720c0@seed_006720c0@@YI_NH@Z"
   },
   {

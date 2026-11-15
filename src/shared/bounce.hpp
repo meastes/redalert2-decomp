@@ -57,7 +57,7 @@ double __cdecl unknown_sin_4ba480(double angle);    // 0x004BA480
 double __cdecl unknown_cos_4ba4d0(double angle);    // 0x004BA4D0
 // The slope matrix of a ramp (0x00718D60) and the matrix that bounces toward
 // a facing (0x00719010): both fill and return matrix.
-Matrix3D * __fastcall Unknown_00718D60(Matrix3D *matrix, int ramp);
+Matrix3D * __fastcall Get_Slope_Matrix(Matrix3D *matrix, int ramp);
 Matrix3D * __fastcall Get_Bounce_Matrix(Matrix3D *matrix, int index);
 #endif
 

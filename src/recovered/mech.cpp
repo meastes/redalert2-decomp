@@ -172,7 +172,7 @@ void __stdcall MechLocomotionClass::Stop_Moving()
 
 void __stdcall MechLocomotionClass::Do_Turn(UnknownFacingDir dir)
 {
-    LinkedTo->unknown_2e0.Set_Desired(UnknownFacingDir(dir));
+    LinkedTo->PrimaryFacing.Set_Desired(UnknownFacingDir(dir));
 }
 
 
@@ -280,7 +280,7 @@ static inline void Step_Along(MechLocomotionClass *loco, UnknownFacingDir desire
 
 void MechLocomotionClass::Movement_AI(bool continue_moving)
 {
-    if (LinkedTo->unknown_2e0.Is_Rotating()) {
+    if (LinkedTo->PrimaryFacing.Is_Rotating()) {
         return;
     }
 
@@ -303,7 +303,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                         LinkedTo->unknown_53c--;
                     } else {
                         if (LinkedTo->unknown_57a) {
-                            Voc_Play(Rules->unknown_620, 1.0f, 0x2000, 0);
+                            Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
                         }
                         LinkedTo->unknown_57a = false;
                         Cell dest = unknown_18.As_Cell();
@@ -334,10 +334,10 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
             int dir = LinkedTo->Path[0];
             if (dir == 8) {
                 int tube = Map[Object_Coord(LinkedTo)].unknown_116;
-                if (tube >= 0 && tube < unknown_TubeClass_list_008661c8.Count()) {
+                if (tube >= 0 && tube < Tubes.Count()) {
                     LinkedTo->Mark(0);
                     LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
-                    TubeClass *tube_ptr = unknown_TubeClass_list_008661c8[tube];
+                    TubeClass *tube_ptr = Tubes[tube];
                     Cell cell = tube_ptr->ExitCell;
                     unknown_24 = Cell_Coord(cell);
                     memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);
@@ -406,7 +406,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                     if (can_enter == 2) {
                         if (!LinkedTo->unknown_5a1) {
                             LinkedTo->unknown_5a1 = true;
-                            LinkedTo->unknown_558 = Rules->unknown_13d0;
+                            LinkedTo->unknown_558 = Rules->BlockagePathDelay;
                         }
                         if (LinkedTo->unknown_530 == 0) {
                             bool blocked = LinkedTo->unknown_5a1 && LinkedTo->unknown_558 == 0;
@@ -486,7 +486,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                     }
                     UnknownFacingDir face = Direction(LinkedTo->Center_Coord(), unknown_24);
                     Do_Turn(face);
-                    if (LinkedTo->unknown_2e0.Is_Rotating()) {
+                    if (LinkedTo->PrimaryFacing.Is_Rotating()) {
                         return;
                     }
                     LinkedTo->unknown_slot306(1.0);
@@ -557,7 +557,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
             int speed = LinkedTo->Current_Speed();
             UnknownFacingDir desired = Direction(LinkedTo->Center_Coord(), unknown_24);
             Do_Turn(desired);
-            if (LinkedTo->unknown_2e0.Is_Rotating()) {
+            if (LinkedTo->PrimaryFacing.Is_Rotating()) {
                 return;
             }
             if (LinkedTo->unknown_slot47()) {
@@ -651,7 +651,7 @@ int __stdcall MechLocomotionClass::Layer()
 
 bool __stdcall MechLocomotionClass::Is_Moving_Now()
 {
-    if (LinkedTo->unknown_2e0.Is_Rotating()) {
+    if (LinkedTo->PrimaryFacing.Is_Rotating()) {
         return true;
     }
     if (Is_Moving() && unknown_24 != unknown_geometry_l && LinkedTo->Current_Speed() > 0) {

@@ -149,7 +149,7 @@ void BuildingLightClass::Draw_It(Point2D const &point, Rect const &window)
     int planar_dist = Distance(Owner->Center_Coord());
     int stage = Sweep_Stage();
 
-    if (planar_dist > Rules->unknown_6b4 && Behavior == 3) {
+    if (planar_dist > Rules->SpotlightLocationRadius && Behavior == 3) {
         int radius = stage + 80;
         radius = (radius > 0) ? radius : 0;
         spotlight->Set_Radius(min(radius, 89));
@@ -191,18 +191,18 @@ void BuildingLightClass::Draw_It(Point2D const &point, Rect const &window)
     TacticalMap->Coord_To_Pixel(arc2, arc2_px);
     TacticalMap->Coord_To_Pixel(there + CoordStruct(0, 0, 430), caster_px);
 
-    arc1_px += unknown_rect_839630.Top_Left();
-    arc2_px += unknown_rect_839630.Top_Left();
-    caster_px += unknown_rect_839630.Top_Left();
+    arc1_px += TacticalRect.Top_Left();
+    arc2_px += TacticalRect.Top_Left();
+    caster_px += TacticalRect.Top_Left();
     Point2D caster_px2 = caster_px;
 
     int zstart = -Unknown_006A2970(there.Z + 400);
     int zend = -Unknown_006A2970((Position_Coord_004f3f40() + CoordStruct(0, 0, 250)).Z);
 
-    if (Clip_Line(caster_px, arc1_px, unknown_rect_839630)) {
+    if (Clip_Line(caster_px, arc1_px, TacticalRect)) {
         LogicalSurface->Draw_Depth_Glow_Line(LogicalSurface->Get_Rect(), caster_px, arc1_px, 75 - 6 * stage, zstart, zend);
     }
-    if (Clip_Line(caster_px2, arc2_px, unknown_rect_839630)) {
+    if (Clip_Line(caster_px2, arc2_px, TacticalRect)) {
         LogicalSurface->Draw_Depth_Glow_Line(LogicalSurface->Get_Rect(), caster_px2, arc2_px, 75 - 6 * stage, zstart, zend);
     }
 }
@@ -296,7 +296,7 @@ void BuildingLightClass::AI()
         following = Following;
         if (following != 0 && following->IsActive) {
             int dist = following->Distance_YZX(Owner->Center_Coord());
-            if (dist < Rules->unknown_6b0) {
+            if (dist < Rules->SpotlightMovementRadius) {
                 coord = Lerp(Position_Coord_004f3f40(), following->Position_Coord_004f3f40(), 0.25f);
                 break;
             }
@@ -423,9 +423,9 @@ static inline void Move_To(BuildingLightClass *light, CoordStruct const &coord)
 // +0x6B4 ahead, +0x6B0 behind) and moves the light to the front one.
 void BuildingLightClass::Init_Rotation_Arc(TechnoClass *object)
 {
-    CoordStruct near_point = Coord_Along_Facing(object->unknown_2e0.Current(), Rules->unknown_6b4, object->Coord);
+    CoordStruct near_point = Coord_Along_Facing(object->PrimaryFacing.Current(), Rules->SpotlightLocationRadius, object->Coord);
     unknown_ac = near_point;
-    unknown_a0 = Coord_Along_Facing(object->unknown_2e0.Current(), -Rules->unknown_6b0, object->Position_Coord_004f3f40());
+    unknown_a0 = Coord_Along_Facing(object->PrimaryFacing.Current(), -Rules->SpotlightMovementRadius, object->Position_Coord_004f3f40());
     Move_To(this, near_point);
 }
 
@@ -479,7 +479,7 @@ void BuildingLightClass::Set_Behavior(int behavior)
 int BuildingLightClass::Detection_Radius() const
 {
     static const double _scale = 5.973333333333333;
-    int radius = (int)(Sweep_Stage() * _scale) + Rules->unknown_6d0;
+    int radius = (int)(Sweep_Stage() * _scale) + Rules->SpotlightRadius;
     return(radius);
 }
 
@@ -498,11 +498,11 @@ int BuildingLightClass::Detection_Radius() const
 int BuildingLightClass::Sweep_Stage() const
 {
     int distance = Distance_To(Owner);
-    int near_range = Rules->unknown_6b4;
+    int near_range = Rules->SpotlightLocationRadius;
     if (distance < near_range) {
         return 0;
     }
-    return (distance - near_range) / ((Rules->unknown_6b0 - near_range) / 10);
+    return (distance - near_range) / ((Rules->SpotlightMovementRadius - near_range) / 10);
 }
 
 

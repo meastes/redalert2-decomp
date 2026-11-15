@@ -403,63 +403,63 @@
    "address": "007b3278",
    "bytes": 9,
    "kind": "rtti",
-   "section": 97
+   "section": 89
   },
   {
    "symbol": "??_R3XSurface@@8",
    "address": "007b3288",
    "bytes": 16,
    "kind": "rtti",
-   "section": 98
+   "section": 90
   },
   {
    "symbol": "??_R4XSurface@@6B@",
    "address": "007b3298",
    "bytes": 20,
    "kind": "rtti",
-   "section": 100
+   "section": 91
   },
   {
    "symbol": "??_R1A@?0A@A@Surface@@8",
    "address": "007b32b0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 95
+   "section": 93
   },
   {
    "symbol": "??_R1A@?0A@A@XSurface@@8",
    "address": "007b32c8",
    "bytes": 24,
    "kind": "rtti",
-   "section": 96
+   "section": 95
   },
   {
    "symbol": "??_R1A@?0A@A@BSurface@@8",
    "address": "007b32e0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 89
+   "section": 96
   },
   {
    "symbol": "??_R2BSurface@@8",
    "address": "007b32f8",
    "bytes": 13,
    "kind": "rtti",
-   "section": 90
+   "section": 97
   },
   {
    "symbol": "??_R3BSurface@@8",
    "address": "007b3308",
    "bytes": 16,
    "kind": "rtti",
-   "section": 91
+   "section": 98
   },
   {
    "symbol": "??_R4BSurface@@6B@",
    "address": "007b3318",
    "bytes": 20,
    "kind": "rtti",
-   "section": 93
+   "section": 100
   },
   {
    "symbol": "??_R2Surface@@8",
@@ -536,8 +536,7 @@
    "address": "007c4940",
    "bytes": 16,
    "kind": "rtti",
-   "section": 66,
-   "known_difference": "hierarchy ambiguous bit"
+   "section": 66
   },
   {
    "symbol": "??_R4UnitTypeClass@@6BIPersistStream@@@",
@@ -621,21 +620,21 @@
    "address": "007ce2b0",
    "bytes": 22,
    "kind": "rtti",
-   "section": 94
+   "section": 92
   },
   {
    "symbol": "??_R0?AVXSurface@@@8",
    "address": "007ce2c8",
    "bytes": 23,
    "kind": "rtti",
-   "section": 99
+   "section": 94
   },
   {
    "symbol": "??_R0?AVBSurface@@@8",
    "address": "007ce2e0",
    "bytes": 23,
    "kind": "rtti",
-   "section": 92
+   "section": 99
   },
   {
    "symbol": "??_R0?AVObjectTypeClass@@@8",
@@ -1346,8 +1345,7 @@
    "symbol": "??_R3UnitTypeClass@@8",
    "address": "007c4940",
    "bytes": 16,
-   "kind": "rtti",
-   "known_difference": "hierarchy ambiguous bit"
+   "kind": "rtti"
   },
   {
    "symbol": "??_R4UnitTypeClass@@6BIPersistStream@@@",
@@ -2155,6 +2153,10 @@
    "address": "00774100"
   },
   {
+   "symbol": "?EightBitDrawer@@3PAVConvertClass@@A",
+   "address": "00ad0608"
+  },
+  {
    "symbol": "?Fetch_ID@AbstractClass@@UAGJXZ",
    "address": "0040ffc0"
   },
@@ -2381,10 +2383,6 @@
   {
    "symbol": "?unknown_ad0600@@3HA",
    "address": "00ad0600"
-  },
-  {
-   "symbol": "?unknown_drawer_ad0608@@3PAVConvertClass@@A",
-   "address": "00ad0608"
   },
   {
    "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",

@@ -805,6 +805,10 @@
    "address": "00ab6ef8"
   },
   {
+   "symbol": "?Darken_Surface@@YIXH_N@Z",
+   "address": "005159b0"
+  },
+  {
    "symbol": "?Debug_Printf@@YAXPBDZZ",
    "address": "004068f0"
   },
@@ -813,12 +817,24 @@
    "address": "00525ab0"
   },
   {
+   "symbol": "?Global_Channel_Clear_FieldC8@IPXManagerClass@@QAEXXZ",
+   "address": "005277f0"
+  },
+  {
    "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
    "address": "00a32298"
   },
   {
+   "symbol": "?Ipx@@3VIPXManagerClass@@A",
+   "address": "00a40978"
+  },
+  {
    "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
    "address": "006f9ec0"
+  },
+  {
+   "symbol": "?Send_Global_Message_To_Name@IPXManagerClass@@QAEHPAXHHPBG@Z",
+   "address": "005259a0"
   },
   {
    "symbol": "?Service@IPXManagerClass@@UAEHXZ",
@@ -829,16 +845,20 @@
    "address": "00481fb0"
   },
   {
+   "symbol": "?Set_Global_Routed@IPXManagerClass@@QAEXXZ",
+   "address": "00527800"
+  },
+  {
+   "symbol": "?Slide_Pending_Dialog@@YIXPAUHWND__@@@Z",
+   "address": "005e5f20"
+  },
+  {
    "symbol": "?Sum@UnknownHouseCounter@@QBEHXZ",
    "address": "00491d90"
   },
   {
    "symbol": "?To_RGB@HSVClass@@QBE?AVRGBClass@@XZ",
    "address": "004ff050"
-  },
-  {
-   "symbol": "?Unknown_005B5EE0@@YAXXZ",
-   "address": "005b5ee0"
   },
   {
    "symbol": "?Unknown_005FEE70@@YIXPAUHWND__@@@Z",
@@ -873,20 +893,8 @@
    "address": "006fa120"
   },
   {
-   "symbol": "?unknown_5159b0@@YIXH_N@Z",
-   "address": "005159b0"
-  },
-  {
-   "symbol": "?unknown_5259a0@IPXManagerClass@@QAEHPAXHHPBG@Z",
-   "address": "005259a0"
-  },
-  {
-   "symbol": "?unknown_5277f0@IPXManagerClass@@QAEXXZ",
-   "address": "005277f0"
-  },
-  {
-   "symbol": "?unknown_527800@IPXManagerClass@@QAEXXZ",
-   "address": "00527800"
+   "symbol": "?Windows_Message_Handler@@YAXXZ",
+   "address": "005b5ee0"
   },
   {
    "symbol": "?unknown_5c05f0@@YI_NPAUUnknownScorePacket@@PAVIPXAddressClass@@@Z",
@@ -895,10 +903,6 @@
   {
    "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "address": "005ff610"
-  },
-  {
-   "symbol": "?unknown_dialog_5e5f20@@YIXPAUHWND__@@@Z",
-   "address": "005e5f20"
   },
   {
    "symbol": "?unknown_dialog_5ecf40@@YGXPAUHWND__@@H@Z",
@@ -967,10 +971,6 @@
   {
    "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
    "address": "00a3d290"
-  },
-  {
-   "symbol": "?unknown_ipx_manager_a40978@@3VIPXManagerClass@@A",
-   "address": "00a40978"
   },
   {
    "symbol": "?unknown_math_4ba520@@YANN@Z",

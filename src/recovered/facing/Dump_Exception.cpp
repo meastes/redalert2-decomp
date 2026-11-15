@@ -120,7 +120,7 @@ void __fastcall Dump_Exception_004b7df0(_EXCEPTION_POINTERS *information);
 // @ref ?Get_CPU_Type_Name@@YIPBDXZ=004d2b80
 // @ref ?unknown_cpu_text_8015a5@@3PADA=008015a5
 // @ref ?Build_Time_Text@@YIXPADH@Z=00737a60
-// @ref ?Unknown_00737ad0@@YIPADPADH@Z=00737ad0
+// @ref ?Build_Number_String@@YIPADPADH@Z=00737ad0
 // @ref ?Build_By_String_00737b00@@YIPADPADH@Z=00737b00
 // @ref ?Version_Name@@YIPBDXZ=007131d0
 // @ref ?Version_Name@VersionClass@@QAEPBDXZ=00712ed0
@@ -277,7 +277,7 @@ void __fastcall Dump_Exception_004b7df0(_EXCEPTION_POINTERS *information)
 
     char build_number[128];
     char build_name[128];
-    wsprintfA(scrap, "Release Build: %s by %s - %s\r\n", Unknown_00737ad0(build_number, sizeof(build_number)),
+    wsprintfA(scrap, "Release Build: %s by %s - %s\r\n", Build_Number_String(build_number, sizeof(build_number)),
               Build_By_String_00737b00(build_name, sizeof(build_name)), buildinfo);
     Add_Txt(scrap);
 

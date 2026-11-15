@@ -283,7 +283,7 @@ bool __fastcall Do_Reinforcements(TeamTypeClass *teamtype, int wp)
         ok = _Create_Paradrop(teamtype, object, origin);
     }
 
-    if (ok && teamtype->Owner->Is_Ally(unknown_player_a35db4)) {
+    if (ok && teamtype->Owner->Is_Ally(PlayerPtr)) {
         RadarEventClass_unknown_remember_cell(origin);
     }
     return true;

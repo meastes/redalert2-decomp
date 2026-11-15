@@ -185,14 +185,14 @@ TechnoClass::TechnoClass(HouseClass *house) :
     unknown_1bc(), unknown_1d4(0), unknown_1e0(0), unknown_1e4(false),
     unknown_1e8(unknown_geometry_l), unknown_1f4(0), unknown_1f8(0),
     unknown_1fc(false), unknown_1fd(false), unknown_200(0),
-    unknown_204(false), unknown_205(false), unknown_206(false),
-    unknown_208(0), unknown_20c(0), unknown_210(false), unknown_214(0), unknown_218(0),
+    unknown_204(false), WarpingOut(false), unknown_206(false),
+    TemporalImUsing(0), unknown_20c(0), IsImmobilized(false), unknown_214(0), unknown_218(0),
     unknown_21c(unknown_geometry_l), unknown_228(0), unknown_22c(0), unknown_230(0),
-    unknown_234(0), SpawnManager(0), unknown_23c(0), unknown_240(0), unknown_244(0),
+    unknown_234(0), SpawnManager(0), unknown_23c(0), PitchAngle(0), Arm(0),
     unknown_250(0), unknown_254(-1), unknown_258(0),
     unknown_27c(0), unknown_280(0), unknown_284(0), unknown_288(0), unknown_28c(0), unknown_290(-1),
-    unknown_294(), unknown_2a8(), unknown_2c8(3), unknown_2e0(), unknown_2f8(),
-    unknown_310(0), unknown_314(0), unknown_322(0),
+    unknown_294(), Door(), unknown_2c8(3), PrimaryFacing(), SecondaryFacing(),
+    BurstIndex(0), unknown_314(0), unknown_322(0),
     unknown_324(false), unknown_325(false), unknown_326(false), unknown_327(false),
     unknown_328(false), unknown_329(false), unknown_32a(false), unknown_32b(false),
     unknown_32c(false), unknown_32d(false), unknown_330(), unknown_350(),
@@ -272,7 +272,7 @@ int TechnoClass::What_Weapon_Should_I_Use(AbstractClass *target)
     if (secondary->unknown_112) {
         return 0;
     }
-    if (secondary->unknown_126 && Get_Mission() == 0x10) {
+    if (secondary->AreaFire && Get_Mission() == 0x10) {
         return 1;
     }
     if (Kind_Of() == 6 && ((BuildingClass *)this)->unknown_531) {
@@ -295,11 +295,11 @@ int TechnoClass::What_Weapon_Should_I_Use(AbstractClass *target)
         return 0;
     }
     ObjectClass *object = (ObjectClass *)target;
-    int armor = object->Techno_Type_Class()->unknown_9c;
+    int armor = object->Techno_Type_Class()->Armor;
     if (secondary->Warhead->Verses[armor] == 0.0) {
         return 0;
     }
-    armor = object->Techno_Type_Class()->unknown_9c;
+    armor = object->Techno_Type_Class()->Armor;
     if (primary->Warhead->Verses[armor] == 0.0) {
         return 1;
     }
@@ -439,14 +439,14 @@ CoordStruct TechnoClass::unknown_slot43(int which)
         Matrix3D drawn;
         Matrix3D locomotor_matrix(*foot->Locomotor.Checked()->Draw_Matrix(&drawn,0));
         matrix=locomotor_matrix;
-        angle=Turret_Facing().As_Radian32()-unknown_2e0.Current().As_Radian32();
+        angle=Turret_Facing().As_Radian32()-PrimaryFacing.Current().As_Radian32();
     } else {
         matrix.Make_Identity();
         angle=Turret_Facing().As_Radian32();
     }
     matrix.Translate(type->TurretOffset,0.0f,0.0f);
     matrix.Rotate_Z((float)angle);
-    matrix.Translate((float)fire_x,(float)(fire_y*(unknown_310%2!=0 ? -1 : 1)),(float)fire_z);
+    matrix.Translate((float)fire_x,(float)(fire_y*(BurstIndex%2!=0 ? -1 : 1)),(float)fire_z);
     Vector3 fire=matrix*Vector3(0.0f,0.0f,0.0f);
     CoordStruct offset((int)fire.X,(int)-fire.Y,(int)fire.Z);
     return offset+unknown_slot42();
@@ -465,7 +465,7 @@ CoordStruct TechnoClass::Turret_Coord(int which)
         Matrix3D drawn;
         Matrix3D locomotor_matrix(*foot->Locomotor.Checked()->Draw_Matrix(&drawn,0));
         matrix=locomotor_matrix;
-        angle=Turret_Facing().As_Radian32()-unknown_2e0.Current().As_Radian32();
+        angle=Turret_Facing().As_Radian32()-PrimaryFacing.Current().As_Radian32();
     } else {
         matrix.Make_Identity();
         angle=Turret_Facing().As_Radian32();
@@ -501,7 +501,7 @@ inline void Copy_Recoil(RecoilData &block, RecoilControl const &data)
 void TechnoClass::Init()
 {
     if (House != 0) {
-        if (unknown_player_a35db4 == House) {
+        if (PlayerPtr == House) {
             unknown_372 = true;
         } else {
             unknown_372 = false;
@@ -521,16 +521,16 @@ void TechnoClass::Init()
         ((FootClass *)this)->unknown_588 = new ParasiteClass(this);
     }
     if (unknown_slot231(0)->WeaponType != 0 && unknown_slot231(0)->WeaponType->Warhead->Temporal) {
-        unknown_208 = (UnknownTechno208 *)new TemporalClass(this);
-        ((TemporalClass *)unknown_208)->unknown_4c = unknown_slot231(0)->WeaponType->unknown_a4;
+        TemporalImUsing = (UnknownTechno208 *)new TemporalClass(this);
+        ((TemporalClass *)TemporalImUsing)->unknown_4c = unknown_slot231(0)->WeaponType->unknown_a4;
     }
     if (Techno_Type_Class()->CanDisguise && Techno_Type_Class()->PermaDisguise) {
         unknown_170 = true;
         unknown_410 = House;
         if (House->unknown_130 == 0) {
-            unknown_40c = Rules->unknown_b6c;
+            unknown_40c = Rules->AlliedDisguise;
         } else {
-            unknown_40c = Rules->unknown_b70;
+            unknown_40c = Rules->SovietDisguise;
         }
     }
     Copy_Recoil(unknown_330, Techno_Type_Class()->TurretAnimData);
@@ -557,8 +557,8 @@ TechnoClass::TechnoClass(NoInitClass const &noinit) :
     unknown_130(noinit), unknown_13c(noinit), unknown_148(noinit), unknown_154(noinit),
     unknown_160(noinit), unknown_178(noinit), unknown_184(noinit), unknown_194(noinit),
     unknown_1d4(noinit),
-    unknown_244(noinit), unknown_294(noinit), unknown_2a8(noinit),
-    unknown_2c8(noinit), unknown_2e0(noinit), unknown_2f8(noinit), unknown_314(noinit),
+    Arm(noinit), unknown_294(noinit), Door(noinit),
+    unknown_2c8(noinit), PrimaryFacing(noinit), SecondaryFacing(noinit), unknown_314(noinit),
     unknown_390(0, 0), unknown_3a8(0, 0), unknown_3c0(0, 0)
 {
     bool found = false;
@@ -596,9 +596,9 @@ TechnoClass::~TechnoClass()
         delete SpawnManager;
         SpawnManager = 0;
     }
-    if (unknown_208 != 0) {
-        delete unknown_208;
-        unknown_208 = 0;
+    if (TemporalImUsing != 0) {
+        delete TemporalImUsing;
+        TemporalImUsing = 0;
     }
     unknown_3d8.Unknown_00405FE0();
     unknown_3d8.Unknown_00405C10();
@@ -668,7 +668,7 @@ int TechnoClass::Unknown_006C22A0()
 
 bool TechnoClass::Revealed(HouseClass *house)
 {
-    if (house == unknown_player_a35db4) {
+    if (house == PlayerPtr) {
         if (unknown_373) {
             return false;
         }
@@ -682,10 +682,10 @@ bool TechnoClass::Revealed(HouseClass *house)
         if (!house->Unknown_004F52F0() && Get_Mission() == 14) {
             QueueMission(15, false);
         }
-        if (house == unknown_player_a35db4) {
+        if (house == PlayerPtr) {
             unknown_373 = true;
-            House->unknown_5668 = true;
-            House->unknown_5669 = true;
+            House->RecalcPower = true;
+            House->RecalcRadar = true;
             if (!unknown_372) {
                 if (ScenarioInit == 0 && unknown_34 != 0) {
                     unknown_34->Spring(4, this, unknown_cell_ac0148, 0, 0);
@@ -888,8 +888,8 @@ void TechnoClass::unknown_slot238()
 void TechnoClass::unknown_slot93(int arg1)
 {
     if (arg1 == 2) {
-        if (unknown_208 != 0 && unknown_208->unknown_28 != 0) {
-            unknown_208->unknown_6e2500();
+        if (TemporalImUsing != 0 && TemporalImUsing->unknown_28 != 0) {
+            TemporalImUsing->unknown_6e2500();
         }
         Cell cell = Coord_Cell(Center_Coord());
         unknown_slot238();
@@ -900,7 +900,7 @@ void TechnoClass::unknown_slot93(int arg1)
             unknown_32d = true;
         }
         if (!unknown_373 && (Map_Cell_At(cell)->unknown_12c & 0x10)) {
-            Revealed(unknown_player_a35db4);
+            Revealed(PlayerPtr);
         }
         Map_Cell_At(cell)->Trigger_Veins();
     }
@@ -909,7 +909,7 @@ void TechnoClass::unknown_slot93(int arg1)
 
 // TechnoClass slot 66 0x006C2C40: Draw_Post_Render (TibSun techno.cpp 1225).
 extern void *unknown_convert_8323c8;
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 void __fastcall Draw_Double_Selection_Bracket_006c3950(::Coord const &,::Coord const &,int);
 // 0x006C3A90: the last infantry site refuses it, so this unit emits the out-of-line copy (TibSun techno.cpp).
 inline void __fastcall Draw_Single_Selection_Bracket(::Coord const &from, ::Coord const &to, int color)
@@ -929,7 +929,7 @@ void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
     bool sensed_underground = false;
     if (!unknown_325) {
         CellClass *cell = static_cast<CellClass *>(Get_Cell_Ptr());
-        if (!unknown_77 && Get_Height_AGL() < -20 && cell && cell->Is_Sensed(unknown_player_a35db4->ArrayIndex)) {
+        if (!unknown_77 && Get_Height_AGL() < -20 && cell && cell->Is_Sensed(PlayerPtr->ArrayIndex)) {
             sensed_underground = true;
         }
         if (unknown_68 && unknown_38 && !Map[unknown_slot104()].unknown_47cb50()) {
@@ -937,7 +937,7 @@ void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
             TacticalMap->Coord_To_Pixel(unknown_slot42(), bomb_point);
             CC_Draw_Shape(LogicalSurface, static_cast<ConvertClass *>(unknown_convert_8323c8),
                 static_cast<ShapeFileStruct const *>(Rules->BombCursorShape), unknown_38->Get_Current_Flicker_Frame(),
-                bomb_point, unknown_rect_839630, 0xe00, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                bomb_point, TacticalRect, 0xe00, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
         }
         if (this && Kind_Of() == 6) {
             BuildingClass *building = Kind_Of() == 6 ? static_cast<BuildingClass *>(this) : 0;
@@ -951,7 +951,7 @@ void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
                     ((Frame % delay) * 6) / (delay - 1), repair_point, window, 0xe00, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
         }
-        if (!IsDisguisedAs(unknown_player_a35db4) && unknown_slot25(false, 0) != 5) {
+        if (!IsDisguisedAs(PlayerPtr) && unknown_slot25(false, 0) != 5) {
             unknown_slot250(point, window);
         }
         if (unknown_77 || sensed_underground) {
@@ -974,7 +974,7 @@ void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
                     Draw_Double_Selection_Bracket_006c3950(center + ::Coord(-x, y, 0), center + ::Coord(-x, y, dim.Z), color);
                     Draw_Double_Selection_Bracket_006c3950(center + ::Coord(x, -y, 0), center + ::Coord(x, -y, dim.Z), color);
                 }
-                if (Strength > 0 && (House->Is_Ally(unknown_player_a35db4) || Rules->EnemyHealth)) {
+                if (Strength > 0 && (House->Is_Ally(PlayerPtr) || Rules->EnemyHealth)) {
                     unknown_slot247(reinterpret_cast<int>(&point), reinterpret_cast<int>(&window));
                 }
                 if (Kind_Of() != 15) {
@@ -991,7 +991,7 @@ void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
             unknown_slot248(point, window, sensed_underground);
         }
         if (Flag_380(this) && !Is_Selected(this)) {
-            if (IsDisguisedAs(unknown_player_a35db4)) {
+            if (IsDisguisedAs(PlayerPtr)) {
                 if (GetDisguiseHouse(true)) {
                     unknown_slot248(point, window, true);
                 }
@@ -1142,7 +1142,7 @@ void TechnoClass::unknown_slot248(Point2D const &point, Rect const &window, bool
             xoff += 4;
             yoff -= 2;
         }
-        if (House->Is_Ally(unknown_player_a35db4) || (unknown_1a8 & (1 << unknown_player_a35db4->Type->House))) {
+        if (House->Is_Ally(PlayerPtr) || (unknown_1a8 & (1 << PlayerPtr->Type->House))) {
             unknown_slot249(point + p2, point, window);
         }
     } else {
@@ -1185,7 +1185,7 @@ void TechnoClass::unknown_slot248(Point2D const &point, Rect const &window, bool
             CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)unknown_pips_shapes_a72fe4,
                           frame, position, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
         }
-        if (House->Is_Ally(unknown_player_a35db4) || (unknown_1a8 & (1 << unknown_player_a35db4->Type->House))) {
+        if (House->Is_Ally(PlayerPtr) || (unknown_1a8 & (1 << PlayerPtr->Type->House))) {
             unknown_slot249(point + Point2D(-10, 10), point, window);
         }
     }
@@ -1204,7 +1204,7 @@ bool TechnoClass::Limbo()
 {
     if (!unknown_76 && Techno_Type_Class() != 0) {
         if (Techno_Type_Class()->RevealToAll) {
-            unknown_slot263(0, 0, true, unknown_player_a35db4);
+            unknown_slot263(0, 0, true, PlayerPtr);
         } else {
             unknown_slot263(0, 0, false, 0);
         }
@@ -1267,7 +1267,7 @@ bool TechnoClass::Unlimbo(CoordStruct const *coord, int dir)
             unknown_list_8322e0.Unknown_00436680(this);
         }
         House->Unknown_004ED610(this, false);
-        unknown_2e0.Set(UnknownFacingDir((unsigned short)((unsigned char)dir << 8)));
+        PrimaryFacing.Set(UnknownFacingDir((unsigned short)((unsigned char)dir << 8)));
         unknown_2c8.Set(UnknownFacingDir(0x4000));
         {
             UnknownFacingDir fire = UnknownFacingDir((unsigned short)(0x4000 - ((unsigned char)Techno_Type_Class()->FireAngle << 8)));
@@ -1457,8 +1457,8 @@ bool TechnoClass::unknown_6c4bb0(CoordStruct const *coord, AbstractClass *target
             if (dist > arcrange) {
                 return false;
             }
-            double gravity = weapon->Projectile->Floater ? Unknown_0047FCD0() : Rules->unknown_1320;
-            int speed = Unknown_0047FB70(arcrange, gravity);
+            double gravity = weapon->Projectile->Floater ? Get_Floater_Gravity() : Rules->unknown_1320;
+            int speed = Calculate_Projectile_Speed(arcrange, gravity);
             if (!Is_Projectile_Trajectory_Valid(speed, dist, delta.Z, gravity)) {
                 return false;
             }
@@ -1715,7 +1715,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
     if(!(method&0x18200) && unknown_slot217(object,which)==5) return false;
     if(object->unknown_70<=0 && Techno_Type_Class()->VHPScan==2) return false;
     if(weapon && weapon->Warhead) {
-        if((int)(weapon->Warhead->Verses[object->Techno_Type_Class()->unknown_9c]*100.0)==1) return false;
+        if((int)(weapon->Warhead->Verses[object->Techno_Type_Class()->Armor]*100.0)==1) return false;
     }
     if(object==0 || object->unknown_76 || object->Strength==0) return false;
     if(tech->unknown_1b8==2) {
@@ -2064,7 +2064,7 @@ HouseClass *TechnoClass::Owning_House() const
 
 void TechnoClass::Clicked_As_Target(int arg1)
 {
-    if (!IsDisguisedAs(unknown_player_a35db4) || GetDisguiseHouse(1)) {
+    if (!IsDisguisedAs(PlayerPtr) || GetDisguiseHouse(1)) {
         FlashCount = arg1;
     }
 }
@@ -2164,13 +2164,13 @@ void TechnoClass::AI()
     if (Techno_Type_Class()->IsChargeTurret && Techno_Type_Class()->Has_Turret_Weapons()) {
         int turret=0;
         if (unknown_250>0) {
-            turret=Techno_Type_Class()->TurretCount*unknown_244.Value()/unknown_250;
+            turret=Techno_Type_Class()->TurretCount*Arm.Value()/unknown_250;
             if (turret>=Techno_Type_Class()->TurretCount) turret=Techno_Type_Class()->TurretCount-1;
             else if (turret<0) turret=0;
         }
         unknown_100=turret;
     }
-    if (unknown_2a8.Has_Ended()) seed_00496ce0::End_Count_00496ce0(reinterpret_cast<int>(&unknown_2a8));
+    if (Door.Has_Ended()) seed_00496ce0::End_Count_00496ce0(reinterpret_cast<int>(&Door));
     if (unknown_376) --unknown_376;
     if (unknown_228 && unknown_404) {
         if (Mission==0 || Mission==7 || Mission==13 || Mission==14 || Mission==16 || Mission==18 || Mission==19 || Mission==20 || Mission==22 || Mission==23 || Mission==28 || Mission==24) unknown_slot220(0);
@@ -2240,7 +2240,7 @@ void TechnoClass::AI()
     if (unknown_3fc>0 && --unknown_3fc==0) {
         if (Kind_Of()==6) {
             BuildingClass *building=static_cast<BuildingClass *>(this);
-            if (building && !building->Type->InvisibleInGame) { building->unknown_44d600(); if (building->Type->Radar) House->unknown_5669=true; }
+            if (building && !building->Type->InvisibleInGame) { building->unknown_44d600(); if (building->Type->Radar) House->RecalcRadar=true; }
         } else {
             bool is_foot=false;
             if (this) is_foot=AbstractFlags.IsFoot;
@@ -2249,7 +2249,7 @@ void TechnoClass::AI()
                 if (foot->Locomotor) foot->Locomotor.Checked()->Power_On();
                 for (int i=0;i<Anims.Count();++i) {
                     AnimClass *anim=Anims[i];
-                    if (anim && anim->unknown_b4==this && anim->Class==Rules->unknown_1438) anim->Loops=0;
+                    if (anim && anim->xObject==this && anim->Class==Rules->unknown_1438) anim->Loops=0;
                 }
             }
         }
@@ -2295,7 +2295,7 @@ void TechnoClass::StartReloading()
 // Gap-generator registration/removal, with the original void return behavior.
 void TechnoClass::unknown_slot235()
 {
-    if (unknown_player_a35db4 && !unknown_1fd && unknown_slot195()) {
+    if (PlayerPtr && !unknown_1fd && unknown_slot195()) {
         if (!unknown_200) unknown_200=Techno_Type_Class()->GapRadiusInCells;
         unknown_1fd=true;
         CoordStruct projected=Coord;
@@ -2307,7 +2307,7 @@ void TechnoClass::unknown_slot235()
             for (int y=-radius-2; y<radius+2; ++y) {
                 if (x*x+y*y<(radius+1)*(radius+1)) {
                     Cell cell=Cell(center.X+x,center.Y+y);
-                    if (!Owning_House()->Is_Player_Control() && !House->Is_Ally(unknown_player_a35db4) && !unknown_player_a35db4->unknown_13d) {
+                    if (!Owning_House()->Is_Player_Control() && !House->Is_Ally(PlayerPtr) && !PlayerPtr->unknown_13d) {
                         if (Map[cell].unknown_130!=1 && Map[cell].unknown_130>=0) {
                             ++Map[cell].unknown_130;
                         }
@@ -2317,13 +2317,13 @@ void TechnoClass::unknown_slot235()
                             Map[cell].unknown_12c&=~0x08u;
                         }
                     }
-                    if (Owning_House()->Is_Player_Control() || House->Is_Ally(unknown_player_a35db4) || unknown_player_a35db4->unknown_13d) {
+                    if (Owning_House()->Is_Player_Control() || House->Is_Ally(PlayerPtr) || PlayerPtr->unknown_13d) {
                         ++Map[cell].unknown_13c;
                     }
                 }
             }
         }
-        if (unknown_player_a35db4) unknown_player_a35db4->unknown_188=false;
+        if (PlayerPtr) PlayerPtr->unknown_188=false;
         Map.Complete_Radar_Refresh();
         Map.Flag_To_Redraw(2);
     }
@@ -2333,7 +2333,7 @@ void TechnoClass::unknown_slot235()
 // Gap-generator registration/removal, with the original void return behavior.
 void TechnoClass::unknown_slot236()
 {
-    if (unknown_player_a35db4 && unknown_1fd) {
+    if (PlayerPtr && unknown_1fd) {
         if (!unknown_200) unknown_200=Techno_Type_Class()->GapRadiusInCells;
         unknown_1fd=false;
         CoordStruct projected=Coord;
@@ -2345,9 +2345,9 @@ void TechnoClass::unknown_slot236()
             for (int y=-radius-2; y<radius+2; ++y) {
                 if (x*x+y*y<(radius+1)*(radius+1)) {
                     Cell cell=Cell(center.X+x,center.Y+y);
-                    if (!Owning_House()->Is_Player_Control() && !House->Is_Ally(unknown_player_a35db4) && !unknown_player_a35db4->unknown_13d) {
+                    if (!Owning_House()->Is_Player_Control() && !House->Is_Ally(PlayerPtr) && !PlayerPtr->unknown_13d) {
                         --Map[cell].unknown_134;
-                        if (unknown_player_a35db4->unknown_566a && Map[cell].unknown_134<=0) {
+                        if (PlayerPtr->unknown_566a && Map[cell].unknown_134<=0) {
                             --Map[cell].unknown_130;
                             if (Map[cell].unknown_130<=0) {
                                 Map[cell].unknown_12c|=0x08u;
@@ -2355,13 +2355,13 @@ void TechnoClass::unknown_slot236()
                             }
                         }
                     }
-                    if (Owning_House()->Is_Player_Control() || House->Is_Ally(unknown_player_a35db4) || unknown_player_a35db4->unknown_13d) {
+                    if (Owning_House()->Is_Player_Control() || House->Is_Ally(PlayerPtr) || PlayerPtr->unknown_13d) {
                         --Map[cell].unknown_13c;
                     }
                 }
             }
         }
-        if (unknown_player_a35db4) unknown_player_a35db4->unknown_188=false;
+        if (PlayerPtr) PlayerPtr->unknown_188=false;
         Map.Complete_Radar_Refresh();
         Map.Flag_To_Redraw(2);
     }
@@ -2536,7 +2536,7 @@ bool TechnoClass::unknown_slot160()
     if (unknown_1b8 == 2) {
         return false;
     }
-    if (unknown_244.Value() != 0) {
+    if (Arm.Value() != 0) {
         return false;
     }
     if (unknown_228 != 0 && unknown_slot213(unknown_228)) {
@@ -2599,12 +2599,12 @@ int TechnoClass::unknown_slot218(AbstractClass *target,int which,bool check_rang
     if(unknown_slot112()) return 3;
     if(unknown_slot111()) goto ILLEGAL;
     if(unknown_325) goto ILLEGAL;
-    if(unknown_slot113() && unknown_208 && (int)target==unknown_208->unknown_28) return 3;
+    if(unknown_slot113() && TemporalImUsing && (int)target==TemporalImUsing->unknown_28) return 3;
     techno=target->AbstractFlags.IsTechno?static_cast<TechnoClass *>(target):0;
     cellptr=reinterpret_cast<CellClass *>(&Map[target->Center_Coord()]);
     if(techno) {
         if(techno->unknown_76) goto ILLEGAL;
-        if(techno->unknown_210) goto ILLEGAL;
+        if(techno->IsImmobilized) goto ILLEGAL;
         if(techno->unknown_slot25(true,(int)House)==5 && !cellptr->Is_Sensed(House->ArrayIndex)) {
             if(unknown_6c16f0(-1)>0) goto CANT;
             if(!techno->House->Is_Ally(House)) goto CANT;
@@ -2642,13 +2642,13 @@ int TechnoClass::unknown_slot218(AbstractClass *target,int which,bool check_rang
         check_rearm=true;
         if(which==0 && this && Kind_Of()==1) {
             UnitClass *unit=static_cast<UnitClass *>(this);
-            int burst=unknown_310%weapon->Burst;
+            int burst=BurstIndex%weapon->Burst;
             if(burst<2 && unit->Type->FiringSyncFrame[burst]!=-1 && unit->unknown_5a8!=-1) {
                 if(unit->unknown_5a8!=unit->Type->FiringSyncFrame[burst]) return 3;
                 check_rearm=false;
             }
         }
-        if(check_rearm && unknown_244.Value()!=0) return 3;
+        if(check_rearm && Arm.Value()!=0) return 3;
         if(weapon->unknown_105 && unknown_25c[0]) return 3;
         if(weapon->unknown_109 && unknown_25c[4]) return 3;
         if(weapon->unknown_106 && unknown_25c[1]) return 3;
@@ -2666,7 +2666,7 @@ int TechnoClass::unknown_slot218(AbstractClass *target,int which,bool check_rang
             if(parasite && techno->unknown_slot203()) return 5;
             if(weapon->Warhead->MindControl && !reinterpret_cast<CaptureManagerClass *>(unknown_230)->Can_Capture(techno)) return 5;
             WarheadTypeClass *warhead=weapon->Warhead;
-            if(warhead->Verses[techno->Techno_Type_Class()->unknown_9c]==0.0) return 5;
+            if(warhead->Verses[techno->Techno_Type_Class()->Armor]==0.0) return 5;
             if(warhead->BombDisarm && techno->unknown_38==0) return 5;
             if(warhead->IvanBomb && techno->unknown_38!=0) return 5;
             if(techno->unknown_325) return 5;
@@ -2750,7 +2750,7 @@ void TechnoClass::unknown_slot220(AbstractClass *target)
         SpawnManager->Set_Target(target);
     }
     if (unknown_228 == 0) {
-        unknown_310 = 0;
+        BurstIndex = 0;
     }
     if (unknown_25c[0] != 0 && !unknown_slot213(target)) {
         unknown_25c[0]->Delete_Me();
@@ -2772,9 +2772,9 @@ int TechnoClass::unknown_slot187(int which)
     UnitClass *unit;
     if (!this) unit=0;
     else unit=Kind_Of()==1 ? static_cast<UnitClass *>(this) : 0;
-    if (unknown_310<weapon->Burst) {
+    if (BurstIndex<weapon->Burst) {
         int delay=-1;
-        if (unknown_310>0 && unknown_310<=4 && unit) delay=unit->Type->BurstDelay[unknown_310-1];
+        if (BurstIndex>0 && BurstIndex<=4 && unit) delay=unit->Type->BurstDelay[BurstIndex-1];
         return delay!=-1 ? delay : Random_Pick(3,5);
     } else {
         int delay=weapon->unknown_b0*House->unknown_f0+Random_Pick(0,2);
@@ -3019,7 +3019,7 @@ UnknownFacingDir TechnoClass::unknown_slot170(AbstractClass *target)
         WeaponTypeClass *type = unknown_slot231(weapon)->WeaponType;
         double speed = Rules->unknown_1320;
         if (type->Projectile != 0 && type->Projectile->Floater) {
-            speed = Unknown_0047FCD0();
+            speed = Get_Floater_Gravity();
         }
         int distance = (int)unknown_sqrt_4ba410(pow(delta.X, 2.0) + pow(delta.Y, 2.0));
         int velocity = type->Get_Speed(distance);
@@ -3070,7 +3070,7 @@ int TechnoClass::Estimate_Damage(TechnoClass *target, WeaponTypeClass *weapon)
         if (damage < 1) {
             damage = 1;
         }
-        damage = Unknown_0047E1C0(damage, weapon->Warhead, target->Class_Of()->unknown_9c, 0);
+        damage = Unknown_0047E1C0(damage, weapon->Warhead, target->Class_Of()->Armor, 0);
     }
     return damage;
 }
@@ -3191,7 +3191,7 @@ BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
     }
     if (weapon->unknown_11c) {
         int damage = Techno_Type_Class()->MaxStrength;
-        Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, false);
+        Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, false);
         return 0;
     }
     if ((weapon->unknown_105 && unknown_25c[0] != 0) || (weapon->unknown_109 && unknown_25c[4] != 0)
@@ -3311,7 +3311,7 @@ BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
         velocity.Z *= ratio;
         if (segments > 0) {
             double angle = unknown_tau_79d158 / (double)segments * unknown_38c - unknown_facing_origin_79b630;
-            UnknownFacingDir current = unknown_2e0.Current();
+            UnknownFacingDir current = PrimaryFacing.Current();
             UnknownFacingDir facing((unsigned short)(int)((((short)current.Raw - 0x3FFF) * unknown_facing_radians_79b620 + angle - unknown_facing_origin_79b630) * unknown_facing_scale_79b628));
             velocity.Set_Yaw(facing);
             unknown_38c++;
@@ -3327,7 +3327,7 @@ BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
         if (bullet->Type->Arcing) {
             double gravity = (double)Rules->unknown_1320;
             if (bullet->Type->Floater) {
-                gravity = Unknown_0047FCD0();
+                gravity = Get_Floater_Gravity();
             }
             int planar = Planar_006ca890(displacement);
             valid = Unknown_0047F8B0(Should_Use_High_Arc(which), speed, planar, height, gravity, &pitch);
@@ -3386,11 +3386,11 @@ BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
                 CoordStruct end = Railgun_Beam_Damage(fire_coord, target, weapon);
                 unknown_25c[4] = new ParticleSystemClass(weapon->unknown_f8, fire_coord, 0, this, end);
             }
-            unknown_310++;
+            BurstIndex++;
             int delay = unknown_slot187(which);
             unknown_250 = delay;
-            unknown_244 = delay;
-            unknown_310 %= weapon->Burst;
+            Arm = delay;
+            BurstIndex %= weapon->Burst;
             AnimTypeClass *anim_type = 0;
             int anim_count = weapon->Anim.Count();
             if (anim_count == 8) {
@@ -3516,7 +3516,7 @@ BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
 
 
 // Draw a dashed targeting line with a three-pixel marker at each end.
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 // Reference rectangle/point operations, with their ordinary C++ copy lifetimes.
 inline Rect::Rect(RectPoint2D const &point,int width,int height):X(point.X),Y(point.Y),Width(width),Height(height) {}
 inline RectPoint2D Rect::Top_Left() const { return RectPoint2D(X,Y); }
@@ -3537,11 +3537,11 @@ void TechnoClass::Draw_Target_Laser()
         Point2D end;
         TacticalMap->Coord_To_Pixel(source,start);
         TacticalMap->Coord_To_Pixel(target,end);
-        start.Y+=unknown_rect_839630.Y;
-        end.Y+=unknown_rect_839630.Y;
-        LogicalSurface->Fill_Rect(unknown_rect_839630.Intersect(Rect(RectPoint2D(start.X,start.Y),3,3)-RectPoint2D(2,2)),NormalDrawer->Convert(8));
-        LogicalSurface->Fill_Rect(unknown_rect_839630.Intersect(Target_Laser_Rect(end)),NormalDrawer->Convert(8));
-        Rect clip=unknown_rect_839630;
+        start.Y+=TacticalRect.Y;
+        end.Y+=TacticalRect.Y;
+        LogicalSurface->Fill_Rect(TacticalRect.Intersect(Rect(RectPoint2D(start.X,start.Y),3,3)-RectPoint2D(2,2)),NormalDrawer->Convert(8));
+        LogicalSurface->Fill_Rect(TacticalRect.Intersect(Target_Laser_Rect(end)),NormalDrawer->Convert(8));
+        Rect clip=TacticalRect;
         if(Clip_Line(start,end,clip)) {
             LogicalSurface->Draw_Dashed_Line(start,end,NormalDrawer->Convert(8),pattern,7*Frame%16);
         }
@@ -3564,7 +3564,7 @@ bool TechnoClass::Player_Assign_Mission(int mission, AbstractClass *target, Abst
         mission = 0x1D;
     }
     if (Planning_Active()) {
-        EventClass event(unknown_player_a35db4->ArrayIndex, TargetClass(this), (unsigned char)mission, target, destination, follow);
+        EventClass event(PlayerPtr->ArrayIndex, TargetClass(this), (unsigned char)mission, target, destination, follow);
         Planning_Send_Event(event);
         return false;
     }
@@ -3610,7 +3610,7 @@ bool Planning_Active();
 
 bool TechnoClass::unknown_slot199(int type)
 {
-    EventClass event(unknown_player_a35db4->ArrayIndex, type, TargetClass(this));
+    EventClass event(PlayerPtr->ArrayIndex, type, TargetClass(this));
     if (Planning_Active()) {
         Planning_Refuse_Event(&event);
         return false;
@@ -3668,7 +3668,7 @@ int TechnoClass::unknown_slot28(ObjectClass *object, bool arg2)
     if (object == this && CurrentObject.Count() == 1 && House->Is_Player_Control()) {
         return 4;
     }
-    if (object == this && CurrentObject.Count() == 1 && House->Is_Ally(unknown_player_a35db4) && unknown_game_mode_a3d298 == 0) {
+    if (object == this && CurrentObject.Count() == 1 && House->Is_Ally(PlayerPtr) && unknown_game_mode_a3d298 == 0) {
         if (this != 0) {
             if (Kind_Of() == 1 && ((UnitClass *)this)->Type->Passengers > 0 && Cargo.Count > 0) {
                 return 4;
@@ -3780,7 +3780,7 @@ int TechnoClass::What_Action(Cell const *cell, bool arg2, bool arg3)
                 if (entry->unknown_30 == 0x14) {
                     overlay_index = entry->unknown_24;
                 } else if (entry->unknown_30 == 6
-                    && (entry->unknown_28 == 0 || !unknown_player_a35db4->Is_Ally(entry->unknown_28))
+                    && (entry->unknown_28 == 0 || !PlayerPtr->Is_Ally(entry->unknown_28))
                     && (Unknown_004C2030(entry) == 0 || Unknown_004C2030(entry)->unknown_201)) {
                     entry_target = true;
                 }
@@ -3795,7 +3795,7 @@ int TechnoClass::What_Action(Cell const *cell, bool arg2, bool arg3)
     bool can_deploy = Is_Renovator();
     if (House->Is_Player_Control() && ((force_fire && third) || unknown_388)
         && Can_Player_Move() && (Can_Player_Fire() || can_deploy)) {
-        if (unknown_player_a35db4->Waypoint_At(*cell) == 0 && !unknown_388) {
+        if (PlayerPtr->Waypoint_At(*cell) == 0 && !unknown_388) {
             return 0x1A;
         }
         return 0x33;
@@ -4186,7 +4186,7 @@ bool TechnoClass::Captured(HouseClass *house, int arg2)
 void TechnoClass::unknown_6cdc00(HouseClass *house)
 {
     House = house;
-    unknown_372 = house == unknown_player_a35db4 && unknown_player_a35db4 != 0;
+    unknown_372 = house == PlayerPtr && PlayerPtr != 0;
 }
 
 
@@ -4604,11 +4604,11 @@ int TechnoClass::unknown_slot25(bool arg1, int arg2)
                 return 3;
             }
             Cell cell = Coord_Cell(CoordStruct(Coord));
-            if (((UnknownCellClass *)&Map[cell])->Is_Sensed(unknown_player_a35db4->ArrayIndex)) {
+            if (((UnknownCellClass *)&Map[cell])->Is_Sensed(PlayerPtr->ArrayIndex)) {
                 return 3;
             }
-            if (unknown_game_mode_a3d298 != 0 && House != 0 && unknown_player_a35db4 != 0
-                && unknown_player_a35db4->Is_Ally(House) && House->Is_Ally(unknown_player_a35db4)) {
+            if (unknown_game_mode_a3d298 != 0 && House != 0 && PlayerPtr != 0
+                && PlayerPtr->Is_Ally(House) && House->Is_Ally(PlayerPtr)) {
                 return 3;
             }
         }
@@ -4885,12 +4885,12 @@ int TechnoClass::unknown_slot176()
             }
         }
     }
-    CellClass *ahead_right = (CellClass *)&Map[Adjacent_Cell(cell, Facing_Add(Dir_To_8(unknown_2e0.Current()), 1))];
-    CellClass *ahead_left = (CellClass *)&Map[Adjacent_Cell(cell, Facing_Sub(Dir_To_8(unknown_2e0.Current()), 1))];
-    CellClass *ahead = (CellClass *)&Map[Adjacent_Cell(cell, Facing_Add(Dir_To_8(unknown_2e0.Current()), 0))];
-    CellClass *behind = (CellClass *)&Map[Adjacent_Cell(cell, Facing_Sub(Dir_To_8(unknown_2e0.Current()), 4))];
-    CellClass *behind_right = (CellClass *)&Map[Adjacent_Cell(cell, Facing_Add(Dir_To_8(unknown_2e0.Current()), 3))];
-    CellClass *behind_left = (CellClass *)&Map[Adjacent_Cell(cell, Facing_Sub(Dir_To_8(unknown_2e0.Current()), 3))];
+    CellClass *ahead_right = (CellClass *)&Map[Adjacent_Cell(cell, Facing_Add(Dir_To_8(PrimaryFacing.Current()), 1))];
+    CellClass *ahead_left = (CellClass *)&Map[Adjacent_Cell(cell, Facing_Sub(Dir_To_8(PrimaryFacing.Current()), 1))];
+    CellClass *ahead = (CellClass *)&Map[Adjacent_Cell(cell, Facing_Add(Dir_To_8(PrimaryFacing.Current()), 0))];
+    CellClass *behind = (CellClass *)&Map[Adjacent_Cell(cell, Facing_Sub(Dir_To_8(PrimaryFacing.Current()), 4))];
+    CellClass *behind_right = (CellClass *)&Map[Adjacent_Cell(cell, Facing_Add(Dir_To_8(PrimaryFacing.Current()), 3))];
+    CellClass *behind_left = (CellClass *)&Map[Adjacent_Cell(cell, Facing_Sub(Dir_To_8(PrimaryFacing.Current()), 3))];
     bool ramp = false;
     if (ahead_right != 0 && ahead_left != 0 && ahead != 0) {
         if (ahead_right->unknown_11c == 0 && ahead_left->unknown_11c == 0 && ahead->unknown_11c == 0) {
@@ -4899,11 +4899,11 @@ int TechnoClass::unknown_slot176()
                     if (cptr->unknown_11c) {
                         return zadjust + unknown_techno_zadj_ramp1_7f7124;
                     }
-                    if (Dir_To_8(unknown_2e0.Current()) == 6 || Dir_To_8(unknown_2e0.Current()) == 0) {
+                    if (Dir_To_8(PrimaryFacing.Current()) == 6 || Dir_To_8(PrimaryFacing.Current()) == 0) {
                         cptrs[0] = behind;
                         cptrs[1] = behind_right;
                         cptrs[2] = behind_left;
-                    } else if (Dir_To_8(unknown_2e0.Current()) == 4 || Dir_To_8(unknown_2e0.Current()) == 2) {
+                    } else if (Dir_To_8(PrimaryFacing.Current()) == 4 || Dir_To_8(PrimaryFacing.Current()) == 2) {
                         cptrs[0] = ahead_right;
                         cptrs[1] = ahead_left;
                         cptrs[2] = ahead;
@@ -4963,8 +4963,8 @@ void TechnoClass::unknown_6d0510(CoordStruct from, CoordStruct to, RGBClass colo
     Point2D end;
     TacticalMap->Coord_To_Pixel(from,start);
     TacticalMap->Coord_To_Pixel(to,end);
-    start.Y+=unknown_rect_839630.Y;
-    end.Y+=unknown_rect_839630.Y;
+    start.Y+=TacticalRect.Y;
+    end.Y+=TacticalRect.Y;
     Point2D shadow_start=start;
     shadow_start.Y+=1;
     Point2D shadow_end=end;
@@ -4972,25 +4972,25 @@ void TechnoClass::unknown_6d0510(CoordStruct from, CoordStruct to, RGBClass colo
     char shadow=(char)arg9;
     if (shadow) {
         int black=NormalDrawer->Convert(0);
-        unknown_surface_839964->Fill_Rect(unknown_rect_839630.Intersect(Moved_Rect(Rect(-2,-2,3,3),shadow_start)),black);
+        CompositeSurface->Fill_Rect(TacticalRect.Intersect(Moved_Rect(Rect(-2,-2,3,3),shadow_start)),black);
         black=NormalDrawer->Convert(0);
-        unknown_surface_839964->Fill_Rect(unknown_rect_839630.Intersect(Moved_Rect(Rect(-2,-2,3,3),shadow_end)),black);
+        CompositeSurface->Fill_Rect(TacticalRect.Intersect(Moved_Rect(Rect(-2,-2,3,3),shadow_end)),black);
     }
-    Rect clip=unknown_rect_839630;
+    Rect clip=TacticalRect;
     if (shadow && Clip_Line(shadow_start,shadow_end,clip)) {
-        unknown_surface_839964->Draw_Line(shadow_start,shadow_end,NormalDrawer->Convert(0));
+        CompositeSurface->Draw_Line(shadow_start,shadow_end,NormalDrawer->Convert(0));
     }
     int pixel=((color.Red>>unknown_shift_852fbc)<<unknown_shift_852fb8)|((color.Blue>>unknown_shift_852fc4)<<unknown_shift_852fc0)|((color.Green>>unknown_shift_852fcc)<<unknown_shift_852fc8);
-    unknown_surface_839964->Fill_Rect(unknown_rect_839630.Intersect(Moved_Rect(Rect(-2,-2,3,3),start)),pixel);
-    unknown_surface_839964->Fill_Rect(unknown_rect_839630.Intersect(Moved_Rect(Rect(-2,-2,3,3),end)),pixel);
+    CompositeSurface->Fill_Rect(TacticalRect.Intersect(Moved_Rect(Rect(-2,-2,3,3),start)),pixel);
+    CompositeSurface->Fill_Rect(TacticalRect.Intersect(Moved_Rect(Rect(-2,-2,3,3),end)),pixel);
     if ((char)arg8) {
         int offset=(0x7fffffff-Frame)%15;
         if (Clip_Line(start,end,clip)) {
-            unknown_surface_839964->Draw_Dashed_Line_Depth_Masked(start,end,pixel,unknown_dash_7f7130,offset,false);
+            CompositeSurface->Draw_Dashed_Line_Depth_Masked(start,end,pixel,unknown_dash_7f7130,offset,false);
         }
     } else {
         if (Clip_Line(start,end,clip)) {
-            unknown_surface_839964->Draw_Line(start,end,pixel);
+            CompositeSurface->Draw_Line(start,end,pixel);
         }
     }
 }
@@ -5019,8 +5019,8 @@ void TechnoClass::unknown_6d0dc0(CoordStruct from, CoordStruct to, RGBClass colo
     Point2D end;
     TacticalMap->Coord_To_Pixel(from,start);
     TacticalMap->Coord_To_Pixel(to,end);
-    start.Y+=unknown_rect_839630.Y;
-    end.Y+=unknown_rect_839630.Y;
+    start.Y+=TacticalRect.Y;
+    end.Y+=TacticalRect.Y;
     int pixel=Build_Hicolor_Pixel(color);
     int fade=Build_Hicolor_Pixel(unknown_rgb_ab6841);
     Point2D shadow_start=start;
@@ -5028,15 +5028,15 @@ void TechnoClass::unknown_6d0dc0(CoordStruct from, CoordStruct to, RGBClass colo
     Point2D shadow_end=end;
     shadow_end.Y+=1;
     if (shadow) {
-        unknown_surface_839964->Fill_Rect(unknown_rect_839630.Intersect(Moved_Rect(Rect(-2,-2,3,3),shadow_start)),pixel);
-        unknown_surface_839964->Fill_Rect(unknown_rect_839630.Intersect(Moved_Rect(Rect(-2,-2,3,3),shadow_end)),fade);
+        CompositeSurface->Fill_Rect(TacticalRect.Intersect(Moved_Rect(Rect(-2,-2,3,3),shadow_start)),pixel);
+        CompositeSurface->Fill_Rect(TacticalRect.Intersect(Moved_Rect(Rect(-2,-2,3,3),shadow_end)),fade);
     }
-    Rect clip=unknown_rect_839630;
+    Rect clip=TacticalRect;
     if (shadow && Clip_Line(shadow_start,shadow_end,clip)) {
-        unknown_surface_839964->Draw_Line(shadow_start,shadow_end,NormalDrawer->Convert(0));
+        CompositeSurface->Draw_Line(shadow_start,shadow_end,NormalDrawer->Convert(0));
     }
-    unknown_surface_839964->Fill_Rect(unknown_rect_839630.Intersect(Line_End_Rect(start)),fade);
-    unknown_surface_839964->Fill_Rect(unknown_rect_839630.Intersect(Line_End_Rect(end)),pixel);
+    CompositeSurface->Fill_Rect(TacticalRect.Intersect(Line_End_Rect(start)),fade);
+    CompositeSurface->Fill_Rect(TacticalRect.Intersect(Line_End_Rect(end)),pixel);
     CoordStruct last=from;
     CoordStruct next;
     int i=1;
@@ -5047,13 +5047,13 @@ void TechnoClass::unknown_6d0dc0(CoordStruct from, CoordStruct to, RGBClass colo
         next.Z=(from.Z*j+to.Z*i)/64;
         TacticalMap->Coord_To_Pixel(last,start);
         TacticalMap->Coord_To_Pixel(next,end);
-        start.Y+=unknown_rect_839630.Y;
-        end.Y+=unknown_rect_839630.Y;
+        start.Y+=TacticalRect.Y;
+        end.Y+=TacticalRect.Y;
         if (Clip_Line(start,end,clip)) {
             shade=color;
             int ratio=j*4;
             shade.Adjust(ratio<0xfe?ratio:0xfe,unknown_rgb_ab6841);
-            unknown_surface_839964->Draw_Line(start,end,Build_Hicolor_Pixel(shade));
+            CompositeSurface->Draw_Line(start,end,Build_Hicolor_Pixel(shade));
         }
         last=next;
         i++;
@@ -5068,7 +5068,7 @@ void TechnoClass::unknown_6d0dc0(CoordStruct from, CoordStruct to, RGBClass colo
 extern "C" __declspec(dllimport) unsigned long __stdcall timeGetTime();
 static inline void Fill_Line_End_Rect(Point2D const &point, int pixel)
 {
-    unknown_surface_839964->Fill_Rect(unknown_rect_839630.Intersect(Line_End_Rect(point)),pixel);
+    CompositeSurface->Fill_Rect(TacticalRect.Intersect(Line_End_Rect(point)),pixel);
 }
 void TechnoClass::unknown_6d0990(CoordStruct from, CoordStruct to, RGBClass color)
 {
@@ -5080,13 +5080,13 @@ void TechnoClass::unknown_6d0990(CoordStruct from, CoordStruct to, RGBClass colo
     {
         TacticalMap->Coord_To_Pixel(from,start);
         TacticalMap->Coord_To_Pixel(to,end);
-        start.Y+=unknown_rect_839630.Y;
-        end.Y+=unknown_rect_839630.Y;
+        start.Y+=TacticalRect.Y;
+        end.Y+=TacticalRect.Y;
         int pixel=Build_Hicolor_Pixel(color.Red,color.Green,color.Blue);
         Fill_Line_End_Rect(start,pixel);
         Fill_Line_End_Rect(end,pixel);
     }
-    Rect clip=unknown_rect_839630;
+    Rect clip=TacticalRect;
     int phase=timeGetTime()>>4;
     CoordStruct last=from;
     int i=1;
@@ -5100,15 +5100,15 @@ void TechnoClass::unknown_6d0990(CoordStruct from, CoordStruct to, RGBClass colo
         next.Z=(int)(z+(arc+1.0)*512.0);
         TacticalMap->Coord_To_Pixel(last,start);
         TacticalMap->Coord_To_Pixel(next,end);
-        start.Y+=unknown_rect_839630.Y;
-        end.Y+=unknown_rect_839630.Y;
+        start.Y+=TacticalRect.Y;
+        end.Y+=TacticalRect.Y;
         if (Clip_Line(start,end,clip)) {
             shade=color;
             unsigned ratio=((i-phase)*8)&0x1f8;
             if (ratio<=0xf8 && ratio!=0) {
                 shade.Adjust(ratio,white);
             }
-            unknown_surface_839964->Draw_Line(start,end,Build_Hicolor_Pixel(shade.Red,shade.Green,shade.Blue));
+            CompositeSurface->Draw_Line(start,end,Build_Hicolor_Pixel(shade.Red,shade.Green,shade.Blue));
         }
         last=next;
         i++;
@@ -5190,7 +5190,7 @@ ConvertClass *TechnoClass::unknown_slot115()
     if (palette != 0) {
         return (*palette)[scheme]->Converter;
     }
-    if (!unknown_slot245(unknown_player_a35db4) && GetDisguiseHouse(true) != 0) {
+    if (!unknown_slot245(PlayerPtr) && GetDisguiseHouse(true) != 0) {
         return ColorSchemes[GetDisguiseHouse(true)->ColorSchemeIndex]->Converter;
     }
     return ColorSchemes[scheme]->Converter;
@@ -5251,7 +5251,7 @@ void TechnoClass::Techno_Draw_Object(void const *shape, int frame, Point2D const
             break;
         }
         if (Techno_Type_Class()->NoShadow) shadow=false;
-        if (!unknown_slot245(unknown_player_a35db4)) {
+        if (!unknown_slot245(PlayerPtr)) {
             if (GetDisguise(true)->Kind_Of()!=21 && GetDisguise(true)->Kind_Of()!=37) converter=ColorSchemes[GetDisguiseHouse(true)->ColorSchemeIndex]->Converter;
             else {
                 CellClass *cell=static_cast<CellClass *>(Get_Cell_Ptr());
@@ -5262,7 +5262,7 @@ void TechnoClass::Techno_Draw_Object(void const *shape, int frame, Point2D const
                 }
                 brightness=cell->unknown_10c;
             }
-            if (!converter) converter=ColorSchemes[unknown_player_a35db4->ColorSchemeIndex]->Converter;
+            if (!converter) converter=ColorSchemes[PlayerPtr->ColorSchemeIndex]->Converter;
         }
         if (gradient!=-1) flags|=0x2000;
         if ((unsigned char)zwrite) flags|=0x4000;
@@ -5509,7 +5509,7 @@ void TechnoClass::Blit_Voxel_006d29d0(void const *image,Point2D const &point,Rec
 void TechnoClass::Calculate_Sinking_Offset(int x, int y)
 {
     unknown_322 = TacticalMap->TacPixelY + x + y - 10;
-    int dir = Dir_To_8(unknown_2e0.Current());
+    int dir = Dir_To_8(PrimaryFacing.Current());
     if (dir == 0 || dir == 6) {
         unknown_322 -= 8;
     } else if (dir == 7) {
@@ -5597,8 +5597,8 @@ void TechnoClass::Detach(AbstractClass *target, bool all)
     if (SpawnManager != 0) {
         SpawnManager->Unlink(target);
     }
-    if (unknown_208 != 0) {
-        unknown_208->Unknown_006E24C0(target);
+    if (TemporalImUsing != 0) {
+        TemporalImUsing->Unknown_006E24C0(target);
     }
     if (target == unknown_384) {
         unknown_384 = 0;
@@ -5682,7 +5682,7 @@ int TechnoClass::Value()
 {
     int passengers = 0;
     HouseClass *house = House;
-    if (Rules->Diff[house->unknown_c8].ContentScan || house->unknown_194 >= Rules->unknown_10b8) {
+    if (Rules->Diff[house->unknown_c8].ContentScan || house->IQ >= Rules->unknown_10b8) {
         if (Cargo.Object != 0) {
             for (ObjectClass *object = Cargo.Attached_Object(); object != 0; object = object->unknown_30) {
                 passengers += object->Value();
@@ -5779,8 +5779,8 @@ void TechnoClass::unknown_6d3400(TechnoClass *attacker)
         InfantryClass *member=Infantry[index];
         if (member && member->IsActive && member->Owner()==Owner()) {
             bool base_defense=member->Team && member->Team->Class->IsBaseDefense;
-            if ((!member->Team || base_defense) && member->unknown_379 && member->unknown_slot163() && member->unknown_37a && (member->Control()->unknown_06 || unknown_game_mode_a3d298)) {
-                int armor=attacker->Techno_Type_Class()->unknown_9c;
+            if ((!member->Team || base_defense) && member->unknown_379 && member->unknown_slot163() && member->unknown_37a && (member->Control()->IsRecruitable || unknown_game_mode_a3d298)) {
+                int armor=attacker->Techno_Type_Class()->Armor;
                 if (member->unknown_slot230()->WeaponType->Warhead->Verses[armor]!=0.0) {
                     Cell from=Coord_Cell(unknown_slot19(0));
                     Cell to=Coord_Cell(member->unknown_slot19(0));
@@ -5811,8 +5811,8 @@ void TechnoClass::unknown_6d3400(TechnoClass *attacker)
             int member_owner=member->Owner();
             if (member_owner!=Owner()) continue;
             bool base_defense=member->Team && member->Team->Class->IsBaseDefense;
-            if ((!member->Team || base_defense) && member->unknown_379 && member->unknown_slot163() && member->unknown_37a && (member->Control()->unknown_06 || unknown_game_mode_a3d298)) {
-                int armor=attacker->Techno_Type_Class()->unknown_9c;
+            if ((!member->Team || base_defense) && member->unknown_379 && member->unknown_slot163() && member->unknown_37a && (member->Control()->IsRecruitable || unknown_game_mode_a3d298)) {
+                int armor=attacker->Techno_Type_Class()->Armor;
                 if (member->unknown_slot230()->WeaponType->Warhead->Verses[armor]!=0.0) {
                     Cell from=Coord_Cell(unknown_slot19(0));
                     Cell to=Coord_Cell(member->unknown_slot19(0));
@@ -6162,7 +6162,7 @@ bool TechnoClass::Should_Scan_For_Target()
         int weapon = unknown_slot226();
         WeaponStruct *slot = unknown_slot231(weapon);
         bool flagged;
-        if (slot == 0 || slot->WeaponType == 0 || !slot->WeaponType->unknown_126) {
+        if (slot == 0 || slot->WeaponType == 0 || !slot->WeaponType->AreaFire) {
             flagged = false;
         } else {
             flagged = true;
@@ -6934,7 +6934,7 @@ void TechnoClass::unknown_slot223(CoordStruct const &coord, float force)
         vec1.Z=pos.Z-coord.Z;
         Vector3 vec2=vec1;
 
-        float theta=unknown_2e0.Current().As_Radian();
+        float theta=PrimaryFacing.Current().As_Radian();
         float sangle=Fast_Sin(theta);
         float cangle=Fast_Cos(theta);
 
@@ -6978,7 +6978,7 @@ void TechnoClass::unknown_slot237()
     if (unknown_325) {
         float roll = unknown_284 < 0.0f ? -unknown_284 : unknown_284;
         if (roll < 0.7853982f) {
-            int facing = Dir_To_8(unknown_2e0.Current());
+            int facing = Dir_To_8(PrimaryFacing.Current());
             if (facing != 0 && (facing <= 5 || facing > 7)) {
                 unknown_284 += 0.01;
             } else {
@@ -7095,7 +7095,7 @@ CoordStruct TechnoClass::Predict_Target_Coord()
                 if (weapon != 0 && weapon->WeaponType != 0) {
                     double range = distance;
                     int lead = (int)(range / (weapon->WeaponType->Get_Speed(distance) * 0.9) * speed);
-                    coord = Move_Coord(coord, unit->unknown_2e0.Current(), lead);
+                    coord = Move_Coord(coord, unit->PrimaryFacing.Current(), lead);
                 }
             }
         }
@@ -7159,7 +7159,7 @@ HRESULT __stdcall TechnoClass::Load(IStream *stream)
     Swizzler.Swizzle((void **)&unknown_23c);
     Swizzler.Swizzle((void **)&unknown_40c);
     Swizzler.Swizzle((void **)&unknown_410);
-    Swizzler.Swizzle((void **)&unknown_208);
+    Swizzler.Swizzle((void **)&TemporalImUsing);
     Swizzler.Swizzle((void **)&unknown_20c);
     Swizzler.Swizzle((void **)&Cargo.Object);
     Swizzler.Swizzle((void **)&unknown_27c);
@@ -7207,8 +7207,8 @@ void TechnoClass::Compute_CRC(WWCRCEngine &crc) const
     crc(unknown_1e0);
     crc(unknown_1e4);
     crc((long)unknown_1f4);
-    crc(unknown_240);
-    crc(unknown_244.Value());
+    crc(PitchAngle);
+    crc(Arm.Value());
     crc((long)unknown_254);
     crc(unknown_194.Value());
     crc((long)unknown_258);
@@ -7275,7 +7275,7 @@ bool TechnoClass::unknown_slot111()
 
 bool TechnoClass::unknown_slot112()
 {
-    return unknown_205;
+    return WarpingOut;
 }
 
 
@@ -7284,7 +7284,7 @@ bool TechnoClass::unknown_slot112()
 
 bool TechnoClass::unknown_slot113()
 {
-    if (unknown_208 && unknown_208->unknown_28) {
+    if (TemporalImUsing && TemporalImUsing->unknown_28) {
         return true;
     }
     return false;
@@ -7296,7 +7296,7 @@ bool TechnoClass::unknown_slot113()
 
 bool TechnoClass::unknown_slot114()
 {
-    if (!unknown_204 && !unknown_205) {
+    if (!unknown_204 && !WarpingOut) {
         return true;
     }
     return false;
@@ -7508,9 +7508,9 @@ double TechnoClass::Target_Threat(ObjectClass *target, CoordStruct const &coord)
         WeaponTypeClass *their_weapon = techno->unknown_slot231(their_index)->WeaponType;
         if (their_weapon != 0 && their_weapon->Warhead != 0) {
             if (techno->unknown_228 == this) {
-                value = -(target_effectiveness * their_weapon->Warhead->Verses[type->unknown_9c]);
+                value = -(target_effectiveness * their_weapon->Warhead->Verses[type->Armor]);
             } else {
-                value = target_effectiveness * their_weapon->Warhead->Verses[type->unknown_9c];
+                value = target_effectiveness * their_weapon->Warhead->Verses[type->Armor];
             }
         }
         value += target_special_threat * techno->Techno_Type_Class()->SpecialThreatValue;
@@ -7519,7 +7519,7 @@ double TechnoClass::Target_Threat(ObjectClass *target, CoordStruct const &coord)
         }
     }
     if (weapon != 0 && weapon->Warhead != 0) {
-        value += my_effectiveness * weapon->Warhead->Verses[target->Class_Of()->unknown_9c];
+        value += my_effectiveness * weapon->Warhead->Verses[target->Class_Of()->Armor];
     }
     value += target->Health_Ratio() * target_strength;
     int range;
@@ -7621,7 +7621,7 @@ bool TechnoClass::unknown_slot190(int *out_kind)
     if (!unknown_slot191()) {
         return false;
     }
-    if (!unknown_player_a35db4->Is_Ally(House) && !ability && !tunnel && !hidden) {
+    if (!PlayerPtr->Is_Ally(House) && !ability && !tunnel && !hidden) {
         *out_kind = value < -20 ? 2 : 1;
     }
     return true;
@@ -7633,8 +7633,8 @@ bool TechnoClass::unknown_slot190(int *out_kind)
 
 bool TechnoClass::unknown_slot191()
 {
-    if (unknown_player_a35db4) {
-        return Map_Cell(Center_Coord())->Is_Sensed(unknown_player_a35db4->ArrayIndex);
+    if (PlayerPtr) {
+        return Map_Cell(Center_Coord())->Is_Sensed(PlayerPtr->ArrayIndex);
     }
     return false;
 }
@@ -7893,7 +7893,7 @@ void TechnoClass::unknown_slot267(bool arg1)
     if (!unknown_37b && visible) {
         unknown_slot264();
     }
-    if (House == unknown_player_a35db4 && unknown_13c.Value() > 0 && unknown_13c.Value() % Rules->FlashFrameTime == 0) {
+    if (House == PlayerPtr && unknown_13c.Value() > 0 && unknown_13c.Value() % Rules->FlashFrameTime == 0) {
         unknown_slot266();
     }
 }
@@ -7983,7 +7983,7 @@ bool TechnoClass::unknown_slot225()
 {
     WeaponStruct *weapon = unknown_slot229();
     if (weapon && weapon->WeaponType) {
-        return weapon->WeaponType->unknown_126;
+        return weapon->WeaponType->AreaFire;
     }
     return false;
 }
@@ -8521,7 +8521,7 @@ void __fastcall TechnoClass::Set_Talker(TechnoClass *techno, int value)
         unknown_talk_value_ac01c8 = value;
         unknown_talk_techno_ac01c4 = techno;
         unknown_timer_ac0168 = Rules->TalkBubbleTime;
-        Map.Unknown_00549C50(techno->Center_Coord(), 2, unknown_player_a35db4, false, false, false, true, true);
+        Map.Unknown_00549C50(techno->Center_Coord(), 2, PlayerPtr, false, false, false, true, true);
     } else {
         unknown_talk_value_ac01c8 = 0;
         unknown_talk_techno_ac01c4 = 0;
@@ -8569,7 +8569,7 @@ void TechnoClass::unknown_6d9080(Point2D const &center, void const *unused)
                 LogicalSurface->Draw_Line(origin+Point2D(0,-4),origin+Point2D(0,4),color);
                 ++origin.X;
                 ++origin.Y;
-                RGBClass rgb=ColorSchemes[unknown_player_a35db4->ColorSchemeIndex]->BaseColor.To_RGB();
+                RGBClass rgb=ColorSchemes[PlayerPtr->ColorSchemeIndex]->BaseColor.To_RGB();
                 color=Build_Hicolor_Pixel(rgb.Red,rgb.Green,rgb.Blue);
             }
         }

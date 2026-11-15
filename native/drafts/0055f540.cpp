@@ -9,7 +9,7 @@
 #include "shared/map_view.hpp"
 #include "shared/map_cell.hpp"
 #include "shared/tactical.hpp"
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 // ref ?Damage_Low_Bridge2_Piece_NS_00560C10MapClassQAEXABVCellZ=0055fcc0
 // ref ?Spring_Low_Bridge_Destroyed_EWMapClassQAEXVCellZ=0055ea50
 // ref ?unknown_474eb0CellClassQBE?AVRectXZ=00474eb0
@@ -71,7 +71,7 @@ bool MapClass::Unknown_0055F540(Cell const &cell)
             break;
         }
 
-        draw_rect = Union(draw_rect, Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
+        draw_rect = Union(draw_rect, Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect())) - TacticalRect.Top_Left();
         TacticalMap->Register_Dirty_Area(draw_rect, false);
 
         cellptr1->Recalc_Attributes(-1);

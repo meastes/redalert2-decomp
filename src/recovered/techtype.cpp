@@ -134,7 +134,7 @@ int TechnoTypeClass::Get_Ownable() const
 
 int TechnoTypeClass::Time_To_Build() const
 {
-    return (int)(Cost * Rules->unknown_13b0 * 0.9);
+    return (int)(Cost * Rules->BuildSpeedBias * 0.9);
 }
 
 
@@ -183,10 +183,10 @@ int TechnoTypeClass::GetRefund(HouseClass *house, bool full) const
 
 void const *TechnoTypeClass::unknown_slot38() const
 {
-    if (unknown_player_a35db4 && unknown_player_a35db4->unknown_206 && Kind_Of() == 0x10 && AltCameoData && Trainable) {
+    if (PlayerPtr && PlayerPtr->unknown_206 && Kind_Of() == 0x10 && AltCameoData && Trainable) {
         return AltCameoData;
     }
-    if (unknown_player_a35db4 && unknown_player_a35db4->unknown_207 && Kind_Of() == 0x28 && AltCameoData && Trainable) {
+    if (PlayerPtr && PlayerPtr->WarFactoryInfiltrated && Kind_Of() == 0x28 && AltCameoData && Trainable) {
         return AltCameoData;
     }
     return CameoData;
@@ -198,7 +198,7 @@ void const *TechnoTypeClass::unknown_slot38() const
 
 int TechnoTypeClass::Repair_Cost() const
 {
-    int result = (int)((Raw_Cost() / (MaxStrength / Rules->unknown_1334)) * Rules->unknown_1338);
+    int result = (int)((Raw_Cost() / (MaxStrength / Rules->RepairStep)) * Rules->RepairPercent);
     if (result <= 1) {
         result = 1;
     }
@@ -211,7 +211,7 @@ int TechnoTypeClass::Repair_Cost() const
 
 int TechnoTypeClass::Repair_Step() const
 {
-    return Rules->unknown_1334;
+    return Rules->RepairStep;
 }
 
 
@@ -531,12 +531,12 @@ bool TechnoTypeClass::Read_INI(CCINIClass &ini)
 
         char fullname[512];
         _makepath(fullname, 0, 0, unknown_1c8, ".SHP");
-        if (unknown_a8 && unknown_a4 != 0) {
-            delete unknown_a4;
-            unknown_a4 = 0;
-            unknown_a8 = false;
+        if (ImageAllocated && ImageData != 0) {
+            delete ImageData;
+            ImageData = 0;
+            ImageAllocated = false;
         }
-        unknown_a4 = (void *)MixFileClass::Retrieve(fullname);
+        ImageData = (void *)MixFileClass::Retrieve(fullname);
 
         ArtINI.Get_String(unknown_1c8, "Palette", "", PaletteFile.Buffer, sizeof(PaletteFile.Buffer));
         Load_Palette();
@@ -796,7 +796,7 @@ HRESULT __stdcall TechnoTypeClass::Load(IStream *stream)
     char name[256];
     char filename[260];
     _makepath(filename, 0, 0, unknown_1c8, ".SHP");
-    unknown_a4 = (void *)MixFileClass::Retrieve(filename);
+    ImageData = (void *)MixFileClass::Retrieve(filename);
 
     unknown_art_ini_8397f0.Get_String(unknown_1c8, "Cameo", "XXICON", name, sizeof(name));
     if (_stricmp(name, "XXICON") == 0) {
@@ -1019,7 +1019,7 @@ WeaponStruct *TechnoTypeClass::Get_Elite_Weapon(int index)
 int TechnoTypeClass::Flight_Level() const
 {
     if (FlightLevel == -1) {
-        return Rules->unknown_6dc;
+        return Rules->FlightLevel;
     }
     return FlightLevel;
 }

@@ -79,7 +79,7 @@ extern void *unknown_buffer_ac0ff0;
 // The frame art of the multiplayer player list (0x00AB64A0; frame 32 drawn by 0x00630350).
 extern void *unknown_shape_ab64a0;
 // Updates every radar event (RadarEvent.cpp 0x0063B910; name hypothesis).
-void RadarEventClass_unknown_all_63b910();
+void Process_Radar_Events();
 
 // Positions of the two radar shape buttons (set by slot 53, used by Init_IO).
 class ConvertClass;
@@ -122,8 +122,8 @@ void Add_Speech_Hold();                                // 0x00716940
 bool __fastcall Is_Speech_Finished(int voice);            // 0x00716690
 void AudioStreamerFadeOutAllStreams();                                // 0x004082B0
 int AudioStreamerAllFaded();                                 // 0x00408330
-void Unknown_005A0B10();                                // 0x005A0B10
-void Unknown_005A0AC0();                                // 0x005A0AC0 (radar mode 3: after the last movie)
+void Movie_Audio_Suspend();                                // 0x005A0B10
+void Movie_Audio_Resume();                                // 0x005A0AC0 (radar mode 3: after the last movie)
 // Hold_Scenario (0x0065C1F0): shared/unknown_globals.hpp.
 void Release_Scenario();                                // 0x0065C310
 bool Speech_Is_Playing();                               // 0x00715E20 (as shared/wdt_voices.hpp)

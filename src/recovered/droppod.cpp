@@ -178,8 +178,8 @@ bool __stdcall DropPodLocomotionClass::Process()
         locomotor.Attach(0);
         End_Piggyback(&locomotor.Pointer);
         if (!linked->Unlimbo(&coord, 0)) {
-            Unknown_0047E2C0(coord, 100, LinkedTo, Rules->unknown_c74, true);
-            new AnimClass(Select_Damage_Anim(100, Rules->unknown_c74, 0, &coord), coord, 0, 1, 0x2600, Get_Explosion_Z_0047fcc0(coord));
+            Unknown_0047E2C0(coord, 100, LinkedTo, Rules->C4Warhead, true);
+            new AnimClass(Select_Damage_Anim(100, Rules->C4Warhead, 0, &coord), coord, 0, 1, 0x2600, Get_Explosion_Z_0047fcc0(coord));
         } else {
             new AnimClass(Rules->DropPodPuff, coord, 0, 1, 0x600, 0);
             if (unknown_1c) {
@@ -244,7 +244,7 @@ void __stdcall DropPodLocomotionClass::Move_To(CoordStruct to)
         LinkedTo->Set_Coord(dropcoord);
         if (LinkedTo->Unlimbo(&dropcoord, 0x80)) {
             LinkedTo->Set_Coord(dropcoord);
-            LinkedTo->unknown_2e0.Set(UnknownFacingDir(0x8000));
+            LinkedTo->PrimaryFacing.Set(UnknownFacingDir(0x8000));
             new AnimClass(Rules->AtmosphereEntry, dropcoord, 0, 1, 0x600, 0);
         } else {
             LinkedTo->Unlimbo(&dropcoord, 0x80);

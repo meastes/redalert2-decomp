@@ -18,10 +18,10 @@ extern bool unknown_flag_839c4c;
 extern Surface *VisibleSurface;
 // @ref ?VisibleSurface@@=00839950
 // @ref ?HiddenSurface@@=00839954
-extern Surface *unknown_surface_839964;
-// @ref ?unknown_surface_839964@@=00839964
-extern Surface *unknown_surface_839944;
-// @ref ?unknown_surface_839944@@=00839944
+extern Surface *CompositeSurface;
+// @ref ?CompositeSurface@@=00839964
+extern Surface *TileSurface;
+// @ref ?TileSurface@@=00839944
 extern Surface *SidebarSurface;
 // @ref ?SidebarSurface@@=00839948
 extern Surface *AlternateSurface;
@@ -62,8 +62,8 @@ int __fastcall Handle_Exception_004b87f0(unsigned int exceptionCode, _EXCEPTION_
     }
     if (((VisibleSurface && VisibleSurface->Is_Locked())
       || (HiddenSurface && HiddenSurface->Is_Locked())
-      || (unknown_surface_839964 && unknown_surface_839964->Is_Locked())
-      || (unknown_surface_839944 && unknown_surface_839944->Is_Locked())
+      || (CompositeSurface && CompositeSurface->Is_Locked())
+      || (TileSurface && TileSurface->Is_Locked())
       || (SidebarSurface && SidebarSurface->Is_Locked())
       || (AlternateSurface && AlternateSurface->Is_Locked())) && unknown_flag_839c4c)
         goto unavailable;

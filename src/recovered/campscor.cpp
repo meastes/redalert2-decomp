@@ -542,7 +542,7 @@ void CampaignScoreClass::Presentation(DynamicVectorClass<MPlayerScoreType *> sco
         SetWindowLongA(window, 8, (LONG)&result);
         unknown_dialog_5ff7c0(window);
         while (result == 0 || result == 1) {
-            Unknown_005B5EE0();
+            Windows_Message_Handler();
             if (result == 1) {
                 for (i = 0; i < unknown_session_a3d298.ScoreCount; i++) {
                     if (wcscmp(unknown_players_a3fa7c[0]->Name, unknown_score_list_850448[i]->Name) == 0) {

@@ -117,7 +117,7 @@ ObjectClass::ObjectClass() :
     unknown_7c(false),
     IsActive(true),
     unknown_80(-1),
-    unknown_84(false),
+    IsSubmittedToLayer(false),
     unknown_85(true),
     Coord(unknown_geometry_l),
     unknown_94(0)
@@ -259,7 +259,7 @@ void ObjectClass::AI()
         if (!unknown_7a) {
         if (unknown_7c && Strength > 0) {
             int damage = Strength;
-            Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 1);
+            Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, 1);
         }
         if (Kind_Of() == 4) {
             AnimClass *animation = static_cast<AnimClass *>(this);
@@ -334,7 +334,7 @@ int ObjectClass::In_Which_Layer() const
     if (!In_Air()) {
         return 2;
     }
-    return (Get_Height_AGL() >= Rules->unknown_378) + 3;
+    return (Get_Height_AGL() >= Rules->JumpjetCruiseHeight) + 3;
 }
 
 
@@ -581,7 +581,7 @@ bool ObjectClass::unknown_slot80()
 // The current artwork rectangle in view-relative pixels, or the unit's empty rectangle.
 // The unit's shape frames go through the range-checked Is_Shape_Index_Valid form (Get_Render_Rect 0x005D31C0
 // keeps its first Get_Frame_Rect's Rect constructor out of line only with it); this is the unit's first include.
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 Rect ObjectClass::Get_Visual_Rect()
 {
     Point2D pixel;
@@ -592,7 +592,7 @@ Rect ObjectClass::Get_Visual_Rect()
     Rect visual(pixel.X+frame.X-shape->Get_Width()/2,
                 pixel.Y+frame.Y-shape->Get_Height()/2,
                 frame.Width,frame.Height);
-    if (unknown_rect_839630.Is_Overlapping(visual+unknown_rect_839630.Top_Left())) return visual;
+    if (TacticalRect.Is_Overlapping(visual+TacticalRect.Top_Left())) return visual;
     return unknown_static_rect;
 }
 
@@ -645,7 +645,7 @@ Rect ObjectClass::Get_Render_Rect()
 
 // ObjectClass clipping/draw gate existing ABI/types; diagnostic only.
 extern bool Debug_Map;
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 
 bool ObjectClass::Render(Rect *bounds, bool redraw, bool arg3)
 {
@@ -657,11 +657,11 @@ bool ObjectClass::Render(Rect *bounds, bool redraw, bool arg3)
 not_drawable:
     return false;
 draw_clipped:
-    *bounds = bounds->Intersect(unknown_rect_839630);
-    if (bounds->X > unknown_rect_839630.X)
-        pixel.X = (int)((unsigned)pixel.X + (unsigned)unknown_rect_839630.X - (unsigned)bounds->X);
-    if (bounds->Y > unknown_rect_839630.Y)
-        pixel.Y = (int)((unsigned)pixel.Y + (unsigned)unknown_rect_839630.Y - (unsigned)bounds->Y);
+    *bounds = bounds->Intersect(TacticalRect);
+    if (bounds->X > TacticalRect.X)
+        pixel.X = (int)((unsigned)pixel.X + (unsigned)TacticalRect.X - (unsigned)bounds->X);
+    if (bounds->Y > TacticalRect.Y)
+        pixel.Y = (int)((unsigned)pixel.Y + (unsigned)TacticalRect.Y - (unsigned)bounds->Y);
     Draw_It(pixel, *bounds);
     return true;
 }
@@ -869,7 +869,7 @@ int ObjectClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
     int old_strength = Strength;
     if (old_strength <= 0 || *damage == 0 || (!forced && Class_Of()->unknown_203)) goto damage_done;
     int maximum_strength = Class_Of()->MaxStrength;
-    if (!forced) *damage = Unknown_0047E1C0(*damage, warhead, Class_Of()->unknown_9c, distance);
+    if (!forced) *damage = Unknown_0047E1C0(*damage, warhead, Class_Of()->Armor, distance);
     if (*damage == 0) return 0;
     if (*damage < 0) {
         int before_heal = Strength;
@@ -1651,7 +1651,7 @@ bool ObjectClass::Not_Underground() const
 
 bool ObjectClass::CanBeSelected()
 {
-    if (IsDisguisedAs(unknown_player_a35db4) && GetDisguiseHouse(true) == 0) {
+    if (IsDisguisedAs(PlayerPtr) && GetDisguiseHouse(true) == 0) {
         return false;
     }
     return Class_Of()->unknown_200;

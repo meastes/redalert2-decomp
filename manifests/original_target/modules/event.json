@@ -973,6 +973,10 @@
    "address": "006b5910"
   },
   {
+   "symbol": "?Assign_Archive_Target@TechnoClass@@QAEXPAVAbstractClass@@@Z",
+   "address": "006d6e50"
+  },
+  {
    "symbol": "?Begin_Production@HouseClass@@QAEHHH_N0@Z",
    "address": "004e5e30"
   },
@@ -983,6 +987,10 @@
   {
    "symbol": "?Cheer@HouseClass@@QAEXXZ",
    "address": "004f62b0"
+  },
+  {
+   "symbol": "?Clear_Navigation_List@FootClass@@QAEXXZ",
+   "address": "004c8c90"
   },
   {
    "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
@@ -1019,6 +1027,10 @@
   {
    "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
    "address": "00a32298"
+  },
+  {
+   "symbol": "?Ipx@@3VIPXManagerClass@@A",
+   "address": "00a40978"
   },
   {
    "symbol": "?Is_Ally@HouseClass@@QBE_NPBV1@@Z",
@@ -1061,12 +1073,20 @@
    "address": "00a32338"
   },
   {
+   "symbol": "?OwnerTalk@@3VOwnerTalkClass@@A",
+   "address": "00ab6d18"
+  },
+  {
    "symbol": "?Planning_Event_00614BA0@@YIXPAVEventClass@@@Z",
    "address": "00614ba0"
   },
   {
    "symbol": "?Planning_Techno_00615480@@YIXPAVTechnoClass@@PAVEventClass@@@Z",
    "address": "00615480"
+  },
+  {
+   "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+   "address": "00a35db4"
   },
   {
    "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
@@ -1099,6 +1119,10 @@
   {
    "symbol": "?Set_Connection_Address@IPXManagerClass@@QAEXHPAVIPXAddressClass@@@Z",
    "address": "005269f0"
+  },
+  {
+   "symbol": "?Set_Lobby_Address@IPXManagerClass@@QAEXPAVIPXAddressClass@@@Z",
+   "address": "005277c0"
   },
   {
    "symbol": "?Unknown_00435D30@BombClass@@QAEXXZ",
@@ -1135,22 +1159,6 @@
   {
    "symbol": "?unknown_44d530@BuildingClass@@QAEXXZ",
    "address": "0044d530"
-  },
-  {
-   "symbol": "?unknown_4c8c90@FootClass@@QAEXXZ",
-   "address": "004c8c90"
-  },
-  {
-   "symbol": "?unknown_5277c0@IPXManagerClass@@QAEXPAVIPXAddressClass@@@Z",
-   "address": "005277c0"
-  },
-  {
-   "symbol": "?unknown_6d6e50@TechnoClass@@QAEXPAVAbstractClass@@@Z",
-   "address": "006d6e50"
-  },
-  {
-   "symbol": "?unknown_OwnerTalkClass_00ab6d18@@3VOwnerTalkClass@@A",
-   "address": "00ab6d18"
   },
   {
    "symbol": "?unknown_a35db0@@3_NA",
@@ -1225,10 +1233,6 @@
    "address": "00a40d48"
   },
   {
-   "symbol": "?unknown_ipx_manager_a40978@@3VIPXManagerClass@@A",
-   "address": "00a40978"
-  },
-  {
    "symbol": "?unknown_math_4ba520@@YANN@Z",
    "address": "004ba520"
   },
@@ -1239,10 +1243,6 @@
   {
    "symbol": "?unknown_node_ids_a402ba@@3PAGA",
    "address": "00a402ba"
-  },
-  {
-   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
-   "address": "00a35db4"
   },
   {
    "symbol": "?unknown_session_a3d298@@3USessionClass@@A",

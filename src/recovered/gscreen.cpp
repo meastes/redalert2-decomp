@@ -279,7 +279,7 @@ void GScreenClass::Init_IO()
 void GScreenClass::Flag_To_Redraw(int flags)
 {
     if (TacticalMap != 0) {
-        TacticalMap->unknown_d7d = true;
+        TacticalMap->IsToRedraw = true;
     }
     if (flags) {
         if (IsToRedraw != 2) {
@@ -415,16 +415,16 @@ bool GScreenClass::Remove_A_Button(GadgetClass &gadget)
 void GScreenClass::Render()
 {
     Surface *oldpage = LogicalSurface;
-    LogicalSurface = unknown_surface_839964;
-    WWMouse->Erase_Mouse(unknown_surface_839964, false);
+    LogicalSurface = CompositeSurface;
+    WWMouse->Erase_Mouse(CompositeSurface, false);
 
     bool redraw = IsToRedraw != 0;
     bool complete = IsToRedraw == 2;
     IsToRedraw = 0;
-    TacticalMap->Render(unknown_surface_839964, redraw, 0);
-    TacticalMap->Render(unknown_surface_839964, redraw, 1);
+    TacticalMap->Render(CompositeSurface, redraw, 0);
+    TacticalMap->Render(CompositeSurface, redraw, 1);
     Draw_It(complete);
-    TacticalMap->Render(unknown_surface_839964, redraw, 2);
+    TacticalMap->Render(CompositeSurface, redraw, 2);
 
     if (unknown_flag_abcd85 && !Debug_Map) {
         WWMouse->Erase_Mouse(SidebarSurface, true);
@@ -440,7 +440,7 @@ void GScreenClass::Render()
     if (unknown_flag_a3d8c4) {
         Draw_Multiplayer_Debug(false);
     }
-    WWMouse->Draw_Mouse(unknown_surface_839964, false);
+    WWMouse->Draw_Mouse(CompositeSurface, false);
     Blit_Display();
     LogicalSurface = oldpage;
 }
@@ -471,7 +471,7 @@ void GScreenClass::Blit_Display()
     if (UseDirect3D && unknown_device_852fe0->BeginScene() == 0) {
         unknown_device_852fe0->EndScene();
     }
-    Blit(false, unknown_surface_839964);
+    Blit(false, CompositeSurface);
 }
 
 

@@ -13,7 +13,7 @@
  "compile_group": 597,
  "code": [
   {
-   "symbol": "?VQA_Unknown_0071DB20@@YIXXZ",
+   "symbol": "?Initialize_Options@@YIXXZ",
    "entry": "0071db20",
    "body_bytes": 53,
    "padding_bytes": 11
@@ -25,7 +25,7 @@
    "padding_bytes": 13
   },
   {
-   "symbol": "?VQA_Unknown_0071DB80@@YIXH@Z",
+   "symbol": "?Clear_Option@@YIXH@Z",
    "entry": "0071db80",
    "body_bytes": 29,
    "padding_bytes": 3
@@ -37,7 +37,7 @@
    "padding_bytes": 8
   },
   {
-   "symbol": "?VQA_Unknown_0071DBC0@@YIHH@Z",
+   "symbol": "?Toggle_Option@@YIHH@Z",
    "entry": "0071dbc0",
    "body_bytes": 77,
    "padding_bytes": 3
@@ -71,7 +71,7 @@
   },
   {
    "site": "00515100",
-   "symbol": "?VQA_Unknown_0071DB20@@YIXXZ",
+   "symbol": "?Initialize_Options@@YIXXZ",
    "target": "0071db20",
    "function_entry": true
   },
@@ -143,7 +143,7 @@
   },
   {
    "site": "005116a0",
-   "symbol": "?VQA_Unknown_0071DB20@@YIXXZ",
+   "symbol": "?Initialize_Options@@YIXXZ",
    "target": "0071db20",
    "function_entry": true
   },
@@ -180,7 +180,7 @@
  ],
  "references_out": [
   {
-   "symbol": "?unknown_vqa_options_af9020@@3PAEA",
+   "symbol": "?VQOptions@@3PAEA",
    "address": "00af9020"
   }
  ],

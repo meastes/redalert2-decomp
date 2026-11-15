@@ -106,7 +106,7 @@ TubeClass::TubeClass(Cell const &enter, int facing) : EnterCell(enter), ExitCell
     for (int index = 0; index < 100; index++) {
         Directions[index] = -1;
     }
-    unknown_TubeClass_list_008661c8.Add(this);
+    Tubes.Add(this);
     if (enter.X != 0 || enter.Y != 0) {
         CellClass &cell = Map[enter];
         int index = Tube_Index(this);
@@ -133,7 +133,7 @@ TubeClass::~TubeClass()
             cell->unknown_116 = -1;
         }
     }
-    unknown_TubeClass_list_008661c8.Delete(this);
+    Tubes.Delete(this);
 }
 
 
@@ -180,9 +180,9 @@ HRESULT __stdcall TubeClass::Save(IStream *stream, BOOL cleardirty)
 void TubeClass::Update_All_Indexes()
 {
     short index = -1;
-    int count = unknown_TubeClass_list_008661c8.Count();
+    int count = Tubes.Count();
     for (int position = 0; position < count; position++) {
-        TubeClass *tube = unknown_TubeClass_list_008661c8[position];
+        TubeClass *tube = Tubes[position];
         CellClass &cell = Map[tube->EnterCell];
         if (!cell.Has_Tunnel()) {
             delete tube;
@@ -213,8 +213,8 @@ void __fastcall TubeClass::Write_INI(CCINIClass &ini)
 {
     ini.Clear(TubeSection_Tubes, 0);
     Update_All_Indexes();
-    for (int index = 0; index < unknown_TubeClass_list_008661c8.Count(); index++) {
-        TubeClass *tube = unknown_TubeClass_list_008661c8[index];
+    for (int index = 0; index < Tubes.Count(); index++) {
+        TubeClass *tube = Tubes[index];
         if (tube != 0) {
             char key[12];
             char value[552];

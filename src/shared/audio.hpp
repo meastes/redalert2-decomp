@@ -420,7 +420,7 @@ void Audio_Streams_Resume();                                                    
 void Audio_Streams_Fade_Out();                                                              // 0x004082B0
 void Audio_Streams_Fade_In();                                                               // 0x004082F0
 int Audio_Streams_Done_Fading();                                                            // 0x00408330
-void unknown_481fb0();                                                                       // 0x00481FB0 once per frame (shared/ms_engine.hpp)
+void Call_Back();                                                                       // 0x00481FB0 once per frame (shared/ms_engine.hpp)
 
 // IMA ADPCM decoder state (0x0040ABF0).
 struct AudioAdpcmState {

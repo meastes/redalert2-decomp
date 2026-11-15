@@ -129,8 +129,8 @@ int TerrainClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhe
         }
         if (result == 4) {
             if (Class->SpawnsTiberium) {
-                new AnimClass(Select_Damage_Anim(100, Rules->unknown_c74, Land_Type_At(Get_Coord(this)), &Get_Coord(this)), Get_Coord(this), 0, 1, 0x2600, Get_Explosion_Z_0047fcc0(Get_Coord(this)));
-                Unknown_0047E2C0(Get_Coord(this), 100, 0, Rules->unknown_c74, 1);
+                new AnimClass(Select_Damage_Anim(100, Rules->C4Warhead, Land_Type_At(Get_Coord(this)), &Get_Coord(this)), Get_Coord(this), 0, 1, 0x2600, Get_Explosion_Z_0047fcc0(Get_Coord(this)));
+                Unknown_0047E2C0(Get_Coord(this), 100, 0, Rules->C4Warhead, 1);
                 unknown_slot104().unknown_47e2b0();
             } else if (unknown_b4) {
                 Shorten_Attached_Anims(this);
@@ -397,7 +397,7 @@ int TerrainClass::Can_Enter_Cell(CellClass *arg1, int arg2, int arg3, CellClass 
 
 bool TerrainClass::Catch_Fire()
 {
-    if (!unknown_b5 && !unknown_b4 && Class->unknown_9c == 6 && !Class->SpawnsTiberium) {
+    if (!unknown_b5 && !unknown_b4 && Class->Armor == 6 && !Class->SpawnsTiberium) {
         int pick = unknown_id_source_a3d290->Random()();
         AnimClass *anim = new AnimClass(Rules->TreeFire[pick & 1], Center_Coord() + CoordStruct(0, 0, 80), 0, 255, 0x600, 0);
         if (anim) {
@@ -534,7 +534,7 @@ void __fastcall TerrainClass::Read_INI(CCINIClass &ini)
         TerrainTypeClass *terrain = TGet_Class<TerrainTypeClass>(ini, unknown_terrain_section_7ad390, entry, 0);
 
         Cell cell;
-        if (unknown_ini_format_a40d24 >= 4) {
+        if (NewINIFormat >= 4) {
             int val = atoi(entry);
             cell = Cell(val % 1000, val / 1000);
         } else {
@@ -581,18 +581,18 @@ bool TerrainClass::Render(Rect *bounds, bool forced, bool extras_only)
 
         Point2D point;
 
-        *bounds = Intersect(*bounds, unknown_rect_839630);
+        *bounds = Intersect(*bounds, TacticalRect);
 
-        Rect rect = Get_Render_Rect() + unknown_rect_839630.Top_Left();
+        Rect rect = Get_Render_Rect() + TacticalRect.Top_Left();
 
         if (bounds->Is_Overlapping(rect)) {
             TacticalMap->Coord_To_Pixel(unknown_slot42(), point);
 
-            if (bounds->X > unknown_rect_839630.X) {
-                point.X += unknown_rect_839630.X - bounds->X;
+            if (bounds->X > TacticalRect.X) {
+                point.X += TacticalRect.X - bounds->X;
             }
-            if (bounds->Y > unknown_rect_839630.Y) {
-                point.Y += unknown_rect_839630.Y - bounds->Y;
+            if (bounds->Y > TacticalRect.Y) {
+                point.Y += TacticalRect.Y - bounds->Y;
             }
 
             Draw_It(point, *bounds);

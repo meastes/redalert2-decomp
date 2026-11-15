@@ -460,7 +460,7 @@ void UDPInterfaceClass::Broadcast(void *buffer, int buffer_len, bool alternate)
         packet->IsBroadcast = true;
         memset(packet->Address, 0, sizeof(packet->Address));
         *(unsigned long *)&packet->Address[4] = *(unsigned long *)BroadcastAddresses[i];
-        packet->unknown_1a = BroadcastPorts[i];
+        packet->SrcPort = BroadcastPorts[i];
         Build_Packet_CRC(packet);
         SOCKET send_socket;
         if (alternate) {
@@ -471,7 +471,7 @@ void UDPInterfaceClass::Broadcast(void *buffer, int buffer_len, bool alternate)
             send_socket = Socket;
         }
         SendMessageA((HWND)unknown_window_b263d8, Protocol_Event_Message(send_socket), 0, 2);
-        Unknown_005B5EE0();
+        Windows_Message_Handler();
     }
 }
 
@@ -492,7 +492,7 @@ bool UDPInterfaceClass::Start_Listening()
             }
         }
     }
-    Unknown_005B5EE0();
+    Windows_Message_Handler();
     return true;
 }
 
@@ -671,10 +671,10 @@ int UDPInterfaceClass::Message_Handler(int window, int message, int wparam, int 
             }
             memset(packet->Address, 0, sizeof(packet->Address));
             if (addr.sin_addr == htonl(0x7F000001)) {
-                packet->unknown_1a = 0;
+                packet->SrcPort = 0;
                 *(IPXAddressClass *)packet->Address = unknown_forward_address_a3fbb8;
             } else {
-                packet->unknown_1a = ntohs(addr.sin_port);
+                packet->SrcPort = ntohs(addr.sin_port);
                 *(unsigned long *)&packet->Address[4] = addr.sin_addr;
             }
             InBuffers.Add(packet);
@@ -713,7 +713,7 @@ int UDPInterfaceClass::Message_Handler(int window, int message, int wparam, int 
             packet = OutBuffers[0];
         }
         addr.sin_addr = *(unsigned long *)&packet->Address[4];
-        addr.sin_port = htons(packet->unknown_1a);
+        addr.sin_port = htons(packet->SrcPort);
         addr.sin_family = AF_INET;
         if (alternate) {
             if (addr.sin_addr != htonl(0x7F000001)) {
@@ -721,8 +721,8 @@ int UDPInterfaceClass::Message_Handler(int window, int message, int wparam, int 
                 addr.sin_addr = htonl(0x7F000001);
             }
         } else {
-            if (packet->unknown_1a) {
-                addr.sin_port = htons(packet->unknown_1a);
+            if (packet->SrcPort) {
+                addr.sin_port = htons(packet->SrcPort);
             } else {
                 addr.sin_port = htons(unknown_default_port_7f60d0);
             }

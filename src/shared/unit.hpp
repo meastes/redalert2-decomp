@@ -121,9 +121,9 @@ public:
     virtual UnknownFacingDir Turret_Facing()                        // slot 162 0x0070A2E0 (inline: the turret or body facing)
     {
         if (Type->Turret) {
-            return unknown_2f8.Current();
+            return SecondaryFacing.Current();
         }
-        return unknown_2e0.Current();
+        return PrimaryFacing.Current();
     }
     virtual double unknown_slot165();                                 // slot 165 0x00705030
     virtual int unknown_slot166();                                    // slot 166 0x00704A20

@@ -276,8 +276,8 @@ WWCRCEngine __fastcall Game_CRC()
     for (index = 0; index < unknown_WarheadTypeClass_list_00839b00.Count(); index++) {
         unknown_WarheadTypeClass_list_00839b00[index]->Compute_CRC(crc);
     }
-    for (index = 0; index < unknown_WeaponTypeClass_list_00839b90.Count(); index++) {
-        unknown_WeaponTypeClass_list_00839b90[index]->Compute_CRC(crc);
+    for (index = 0; index < Weapons.Count(); index++) {
+        Weapons[index]->Compute_CRC(crc);
     }
     for (index = 0; index < ParticleTypes.Count(); index++) {
         ParticleTypes[index]->Compute_CRC(crc);
@@ -312,14 +312,14 @@ WWCRCEngine __fastcall Game_CRC()
     for (index = 0; index < BuildingLights.Count(); index++) {
         BuildingLights[index]->Compute_CRC(crc);
     }
-    for (index = 0; index < unknown_TubeClass_list_008661c8.Count(); index++) {
-        unknown_TubeClass_list_008661c8[index]->Compute_CRC(crc);
+    for (index = 0; index < Tubes.Count(); index++) {
+        Tubes[index]->Compute_CRC(crc);
     }
     for (index = 0; index < Sides.Count(); index++) {
         Sides[index]->Compute_CRC(crc);
     }
-    for (index = 0; index < unknown_TiberiumClass_list_00ac0b30.Count(); index++) {
-        unknown_TiberiumClass_list_00ac0b30[index]->Compute_CRC(crc);
+    for (index = 0; index < Tiberiums.Count(); index++) {
+        Tiberiums[index]->Compute_CRC(crc);
     }
     for (index = 0; index < EMPulseClass::Array.Count(); index++) {
         EMPulseClass::Array[index]->Compute_CRC(crc);
@@ -336,8 +336,8 @@ WWCRCEngine __fastcall Game_CRC()
     for (index = 0; index < Terrains.Count(); index++) {
         Terrains[index]->Compute_CRC(crc);
     }
-    if (unknown_player_a35db4 != 0) {
-        crc((long)unknown_player_a35db4->ArrayIndex);
+    if (PlayerPtr != 0) {
+        crc((long)PlayerPtr->ArrayIndex);
     }
     crc((long)Frame);
     crc((long)CurrentObject.Count());
@@ -371,7 +371,7 @@ bool __fastcall Unknown_006554A0(char const *filename, wchar_t const *descriptio
     info.Set_Internal_Version(unknown_savegame_version_7f1b18);
     info.Set_Scenario_Description(description);
     info.Set_Version(1);
-    info.Set_Player_House(unknown_player_a35db4->Type->UIName);
+    info.Set_Player_House(PlayerPtr->Type->UIName);
     info.Set_Campaign_Number(unknown_id_source_a3d290->unknown_224c);
     info.Set_Scenario_Number(unknown_id_source_a3d290->TechLevel);
     info.Set_Executable_Name("SUN.EXE");
@@ -437,7 +437,7 @@ bool __fastcall Put_All(IStream *stream, int save_net)
     }
     DebugString("Saving Map\n");
     Map.Save(stream);
-    if (FAILED(Save_Vector(stream, unknown_TubeClass_list_008661c8))) {
+    if (FAILED(Save_Vector(stream, Tubes))) {
         DebugString("\t***** FAILED!\n");
         return false;
     }
@@ -557,7 +557,7 @@ bool __fastcall Put_All(IStream *stream, int save_net)
         DebugString("\t***** FAILED!\n");
         return false;
     }
-    if (FAILED(Save_Vector(stream, unknown_WeaponTypeClass_list_00839b90))) {
+    if (FAILED(Save_Vector(stream, Weapons))) {
         DebugString("\t***** FAILED!\n");
         return false;
     }
@@ -609,7 +609,7 @@ bool __fastcall Put_All(IStream *stream, int save_net)
         DebugString("\t***** FAILED!\n");
         return false;
     }
-    if (FAILED(Save_Vector(stream, unknown_TiberiumClass_list_00ac0b30))) {
+    if (FAILED(Save_Vector(stream, Tiberiums))) {
         DebugString("\t***** FAILED!\n");
         return false;
     }
@@ -1152,7 +1152,7 @@ HRESULT __fastcall Save_Misc_Values(IStream *stream)
     if (FAILED(res)) {
         return res;
     }
-    res = stream->Write(&unknown_player_a35db4, sizeof(unknown_player_a35db4), 0);
+    res = stream->Write(&PlayerPtr, sizeof(PlayerPtr), 0);
     if (FAILED(res)) {
         return res;
     }
@@ -1242,11 +1242,11 @@ HRESULT __fastcall Load_Misc_Values(IStream *stream)
         return res;
     }
     Swizzler.Swizzle((void **)&GasSystem);
-    res = stream->Read(&unknown_player_a35db4, sizeof(unknown_player_a35db4), 0);
+    res = stream->Read(&PlayerPtr, sizeof(PlayerPtr), 0);
     if (FAILED(res)) {
         return res;
     }
-    Swizzler.Swizzle((void **)&unknown_player_a35db4);
+    Swizzler.Swizzle((void **)&PlayerPtr);
     res = stream->Read(&Frame, sizeof(Frame), 0);
     if (FAILED(res)) {
         return res;

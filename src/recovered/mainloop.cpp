@@ -259,7 +259,7 @@ void __fastcall Unknown_0053F780()
 bool __fastcall Main_Loop_End_0053f840()
 {
     if ((Frame & 0x3FF) == 0 && !Unknown_00491A10()) {
-        OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 8));
+        OutList.Add(EventClass(PlayerPtr->ArrayIndex, 8));
     }
     if (player_wins_a35db1 || player_loses_a40c78 || player_restarts_866250 || player_aborts_a35db0) {
         unknown_a3fabc++;
@@ -548,7 +548,7 @@ bool __fastcall unknown_53fbd0()
         }
     }
 
-    unknown_flag_a40d45 = false;
+    drag_select_aborted = false;
 
     if (unknown_session_a3d298.Record || unknown_session_a3d298.Play) {
         Do_Record_Playback();
@@ -803,11 +803,11 @@ void __fastcall Message_Input(int &input)
         int ascii = (unsigned char)Main_Loop_To_ASCII(WWKeyboard, input);
         if (ascii == '\r' || ascii == '\\' || ascii == '\b') {
             txt[0] = 0;
-            bool beacon = unknown_object_84e8d0.FindSelected(unknown_player_a35db4->ArrayIndex) != 0;
+            bool beacon = BeaconManager.FindSelected(PlayerPtr->ArrayIndex) != 0;
             if (beacon) {
                 swprintf(txt, StringTable::Load_String("TXT_BEACON_MESSAGE", 0, "D:\\Ra2\\MainLoop.CPP", 1796));
             } else {
-                swprintf(txt, StringTable::Load_String("TXT_FROM", 0, "D:\\Ra2\\MainLoop.CPP", 1798), unknown_player_a35db4->UIName);
+                swprintf(txt, StringTable::Load_String("TXT_FROM", 0, "D:\\Ra2\\MainLoop.CPP", 1798), PlayerPtr->UIName);
                 if (ascii == '\r') {
                     unknown_chat_target_a6ebe0 = 1;
                 } else if (ascii == '\\') {
@@ -825,7 +825,7 @@ void __fastcall Message_Input(int &input)
                 }
                 unknown_session_a3d298.Messages.unknown_18 = false;
                 wcscpy(name, Narrow_To_Wide_006fa180("_"));
-                unknown_object_84e8d0.EditBeaconMessage_0042ec20(name, -1, -1, false);
+                BeaconManager.EditBeaconMessage_0042ec20(name, -1, -1, false);
             } else {
                 unknown_session_a3d298.Messages.unknown_18 = true;
             }
@@ -848,9 +848,9 @@ void __fastcall Message_Input(int &input)
         }
     }
 
-    if ((unknown_object_84e8d0.FindSelected(unknown_player_a35db4->ArrayIndex) && copy_input && rc == 1) || rc == 2 || rc == 4 || IMEComposing) {
+    if ((BeaconManager.FindSelected(PlayerPtr->ArrayIndex) && copy_input && rc == 1) || rc == 2 || rc == 4 || IMEComposing) {
         if (copy_input == 0x1B) {
-            unknown_object_84e8d0.EditBeaconMessage_0042ec20(0, -1, -1, true);
+            BeaconManager.EditBeaconMessage_0042ec20(0, -1, -1, true);
         } else {
             wcsncpy(edit, unknown_session_a3d298.Messages.Get_Edit_Buf(), 162);
             edit[161] = 0;
@@ -858,7 +858,7 @@ void __fastcall Message_Input(int &input)
             edit[161] = 0;
             wcsncat(edit, Narrow_To_Wide_006fa180("_"), 162);
             edit[161] = 0;
-            unknown_object_84e8d0.EditBeaconMessage_0042ec20(edit, -1, -1, false);
+            BeaconManager.EditBeaconMessage_0042ec20(edit, -1, -1, false);
         }
     }
 
@@ -881,8 +881,8 @@ void __fastcall Message_Input(int &input)
                 wcscpy(unknown_last_message_a3f122, (wchar_t *)(packet + 0x19));
             }
         } else if (unknown_session_a3d298.Type == 3 || unknown_session_a3d298.Type == 4) {
-            if (unknown_object_84e8d0.FindSelected(unknown_player_a35db4->ArrayIndex)) {
-                unknown_object_84e8d0.EditBeaconMessage_0042ec20(unknown_session_a3d298.Messages.Get_Edit_Buf(), -1, -1, true);
+            if (BeaconManager.FindSelected(PlayerPtr->ArrayIndex)) {
+                BeaconManager.EditBeaconMessage_0042ec20(unknown_session_a3d298.Messages.Get_Edit_Buf(), -1, -1, true);
             } else {
                 if (unknown_session_a3d298.Type == 4) {
                     if (rc == 3) {
@@ -922,7 +922,7 @@ void __fastcall Message_Input(int &input)
                         if (rc == 4) {
                             wchar_t *buf = unknown_session_a3d298.Messages.Get_Edit_Buf();
                             if (buf) {
-                                swprintf(prefix, StringTable::Load_String("TXT_FROM", 0, "D:\\Ra2\\MainLoop.CPP", 2024), unknown_player_a35db4->UIName);
+                                swprintf(prefix, StringTable::Load_String("TXT_FROM", 0, "D:\\Ra2\\MainLoop.CPP", 2024), PlayerPtr->UIName);
                                 swprintf(rest, L"%s%s %s", command, name, buf);
                                 unknown_session_a3d298.Messages.Remove_Edit();
                                 unknown_session_a3d298.Messages.Add_Edit(unknown_a3d3b4, 0x4046, prefix, 0, -1);
@@ -972,7 +972,7 @@ void __fastcall Message_Input(int &input)
                         if (rc == 4) {
                             wchar_t *buf = unknown_session_a3d298.Messages.Get_Edit_Buf();
                             if (buf) {
-                                swprintf(edit, StringTable::Load_String("TXT_FROM", 0, "D:\\Ra2\\MainLoop.CPP", 2094), unknown_player_a35db4->UIName);
+                                swprintf(edit, StringTable::Load_String("TXT_FROM", 0, "D:\\Ra2\\MainLoop.CPP", 2094), PlayerPtr->UIName);
                                 if (shortform) {
                                     swprintf(rest, L"%s %s", command2, buf);
                                 } else {
@@ -1079,13 +1079,13 @@ void __fastcall Draw_Multiplayer_Debug(bool noframecheck)
 {
     if (unknown_time_7ec498 != -1) {
         double seconds = unknown_time_7ec498 * 0.001;
-        Fancy_Text_Printf(L"%.2f", unknown_surface_839964, &Rect(0, 0, 500, 15), &Point2D(100, 0),
+        Fancy_Text_Printf(L"%.2f", CompositeSurface, &Rect(0, 0, 500, 15), &Point2D(100, 0),
             ColorSchemes[Gadget_Color_Scheme()], 0x1F, 6, seconds, unknown_id_source_a3d290->FileName);
     }
 
     if (unknown_debug_display_a3d8c5 && unknown_session_a3d298.Type != 0 && unknown_session_a3d298.Type != 1 && unknown_session_a3d298.Type != 2) {
 
-        Surface *surface = unknown_surface_839964;
+        Surface *surface = CompositeSurface;
         WWMouse->Hide_Mouse();
 
         surface->Fill_Rect(Rect(0, 300, 639, 230), 0);

@@ -103,7 +103,7 @@ void KamikazeTrackerClass::Add(AircraftClass *missile, AbstractClass *target)
     KamikazeControl *node = new KamikazeControl;
     node->Unit = missile;
     if (target == 0) {
-        int facing = Dir_To_8(missile->unknown_2e0.Current());
+        int facing = Dir_To_8(missile->PrimaryFacing.Current());
         CellClass *here = (CellClass *)missile->Get_Cell_Ptr();
         node->Cell = &here->Adjacent_Cell(facing);
     } else {
@@ -130,7 +130,7 @@ void KamikazeTrackerClass::AI()
             AircraftClass *missile = node->Unit;
             missile->unknown_254 = 1;
             if (cell == 0) {
-                int facing = Dir_To_8(missile->unknown_2e0.Current());
+                int facing = Dir_To_8(missile->PrimaryFacing.Current());
                 CellClass *here = (CellClass *)missile->Get_Cell_Ptr();
                 CellClass *adjacent = &here->Adjacent_Cell(facing);
                 missile->unknown_slot220(adjacent);

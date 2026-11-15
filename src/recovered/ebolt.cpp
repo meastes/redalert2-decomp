@@ -69,8 +69,8 @@ EBolt::EBolt() : Start(CoordStruct(0,0,0)),End(CoordStruct(0,0,0)),unknown_18(0)
 #include "shared/convert.hpp"
 #include "shared/surface.hpp"
 extern ConvertClass *NormalDrawer;
-extern Surface *unknown_surface_839964;
-extern Rect unknown_rect_839630;
+extern Surface *CompositeSurface;
+extern Rect TacticalRect;
 int __fastcall Unknown_006A2970(int height);
 void EBolt::Draw_Line_004B1850(CoordStruct start,CoordStruct end,int color,int first_depth,int second_depth)
 {
@@ -80,7 +80,7 @@ void EBolt::Draw_Line_004B1850(CoordStruct start,CoordStruct end,int color,int f
     int first_z=first_depth-Unknown_006A2970(start.Z)-2;
     int second_z=second_depth-Unknown_006A2970(end.Z)-2;
     int pixel=NormalDrawer->Convert(color);
-    unknown_surface_839964->Draw_Depth_Shaded_Line(unknown_rect_839630,first_pixel,second_pixel,
+    CompositeSurface->Draw_Depth_Shaded_Line(TacticalRect,first_pixel,second_pixel,
         pixel,first_z,second_z);
 }
 
@@ -122,8 +122,8 @@ void __fastcall FUN_004b1830(int object_address)
 #include "shared/crt_memory.hpp"
 #include "shared/unknown_vector3.hpp"
 extern ConvertClass *NormalDrawer;
-extern Surface *unknown_surface_839964;
-extern Rect unknown_rect_839630;
+extern Surface *CompositeSurface;
+extern Rect TacticalRect;
 extern Random2Class NonCriticalRandomNumber;
 int __fastcall Unknown_006A2970(int height);
 
@@ -244,14 +244,14 @@ void EBolt::Draw_Bolt_004B1900(CoordStruct start, CoordStruct end, int color)
 }
 
 
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 void EBolt::Draw_004B2170()
 {
  if(unknown_28) {
   Point2D start,end;
   TacticalMap->Coord_To_Pixel(Start,start);
   TacticalMap->Coord_To_Pixel(End,end);
-  if(Clip_Line(start,end,unknown_rect_839630)) Draw_Bolt_004B1900(Start,End,unknown_2c ? 5 : 10);
+  if(Clip_Line(start,end,TacticalRect)) Draw_Bolt_004B1900(Start,End,unknown_2c ? 5 : 10);
   ++unknown_1c;
  }
  unknown_28>>=1;

@@ -4,11 +4,11 @@
 #include "shared/map_cell.hpp"
 #include "shared/vector_class.hpp"
 class TubeClass;
-extern DynamicVectorClass<TubeClass *> unknown_TubeClass_list_008661c8;
-// @ref ?unknown_TubeClass_list_008661c8@@=008661c8
+extern DynamicVectorClass<TubeClass *> Tubes;
+// @ref ?Tubes@@=008661c8
 TubeClass *__fastcall Cell_Tube_0047a130(CellClass const *cell)
 {
     short index=cell->unknown_116;
-    if (index>=0 && index<unknown_TubeClass_list_008661c8.Count()) return unknown_TubeClass_list_008661c8[index];
+    if (index>=0 && index<Tubes.Count()) return Tubes[index];
     return 0;
 }

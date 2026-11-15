@@ -178,7 +178,7 @@ VeinholeMonsterClass::VeinholeMonsterClass(::Cell const *cell) :
     CoordStruct coord = CoordStruct(cell->X * 256 + 128, cell->Y * 256 + 128, 0);
     coord.Z = Map.Get_Height_GL(coord);
     ObjectClass::Unlimbo(&coord, 0);
-    Strength = Rules->unknown_cb4->MaxStrength;
+    Strength = Rules->VeinholeTypeClass->MaxStrength;
     unknown_object_index_abff58.Add_Index(Fetch_ID(), this);
 }
 
@@ -187,7 +187,7 @@ VeinholeMonsterClass::VeinholeMonsterClass(::Cell const *cell) :
 #include "shared/overlay_type.hpp"
 #include "shared/tactical.hpp"
 #include "shared/object_index.hpp"
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 
 inline RectPoint2D Rect::Top_Left() const { return RectPoint2D(X, Y); }
 inline Rect Rect::operator-(RectPoint2D const &point) const { return Rect(Top_Left() - point, Width, Height); }
@@ -210,7 +210,7 @@ VeinholeMonsterClass::~VeinholeMonsterClass()
             CellClass *map_cell = &Map[cell];
             if (map_cell->OverlayIndex == 0x7e || (map_cell->OverlayIndex != -1 && OverlayTypes[map_cell->OverlayIndex]->IsVeins)) {
                 Map.Radar_Background(map_cell->MapCoords);
-                RectPoint2D origin(unknown_rect_839630.Top_Left());
+                RectPoint2D origin(TacticalRect.Top_Left());
                 TacticalMap->Register_Dirty_Area(Union(map_cell->Overlay_Render_Rect(), map_cell->Overlay_Shadow_Render_Rect()) - origin, false);
                 map_cell->OverlayIndex = -1;
                 map_cell->OverlayData = 0;
@@ -450,9 +450,9 @@ void VeinholeMonsterClass::Draw_It()
         TacticalMap->Coord_To_Pixel(coord, drawpoint);
         int height = 15 * Map[CellID].unknown_11b;
         drawpoint.Y += -58 - height;
-        TacticalMap->Add_To_Selectables(this, Point2D(drawpoint.X, unknown_rect_839630.Y + drawpoint.Y + 58));
-        ConvertClass *drawer = ColorSchemes[unknown_player_a35db4->ColorSchemeIndex]->Converter;
-        CC_Draw_Shape(LogicalSurface, drawer, (ShapeFileStruct const *)shape, frame, drawpoint, unknown_rect_839630, 0x2e00, 0, -17 - height, 0,
+        TacticalMap->Add_To_Selectables(this, Point2D(drawpoint.X, TacticalRect.Y + drawpoint.Y + 58));
+        ConvertClass *drawer = ColorSchemes[PlayerPtr->ColorSchemeIndex]->Converter;
+        CC_Draw_Shape(LogicalSurface, drawer, (ShapeFileStruct const *)shape, frame, drawpoint, TacticalRect, 0x2e00, 0, -17 - height, 0,
                       Map[coord].unknown_10c, 0, 0, Point2D(0, 0));
     }
 }
@@ -1051,7 +1051,7 @@ HRESULT __stdcall VeinholeMonsterClass::Save(IStream *stream, BOOL cleardirty)
 
 ObjectTypeClass *VeinholeMonsterClass::Class_Of() const
 {
-    return Rules->unknown_cb4;
+    return Rules->VeinholeTypeClass;
 }
 
 

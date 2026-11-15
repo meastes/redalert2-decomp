@@ -41,7 +41,7 @@
 #endif
 
 // The unit's list of TiberiumClass objects (0x00AC0B30; name is a hypothesis).
-DynamicVectorClass<TiberiumClass *> unknown_TiberiumClass_list_00ac0b30;
+DynamicVectorClass<TiberiumClass *> Tiberiums;
 
 
 // Dynamic initializer (0x006E8760, _$E) emitted by HeaderStatics_diagonal_init_006e8730.cpp; no source of its own.
@@ -99,7 +99,7 @@ TiberiumClass::TiberiumClass(char const *ininame)
       Power(0),
       unknown_c0(0),
       Image(0),
-      unknown_e4(0),
+      FrameCount(0),
       NumFrames(0),
       NumImages(0),
       SpreadCount(0),
@@ -111,8 +111,8 @@ TiberiumClass::TiberiumClass(char const *ininame)
       GrowthMap(0),
       GrowthData(0)
 {
-    ArrayIndex = unknown_TiberiumClass_list_00ac0b30.Count();
-    unknown_TiberiumClass_list_00ac0b30.Add(this);
+    ArrayIndex = Tiberiums.Count();
+    Tiberiums.Add(this);
     Debris.Clear();
     AbstractTypePtrTracker.Add(this);
 }
@@ -129,7 +129,7 @@ TiberiumClass::~TiberiumClass()
 {
     Detach_This_From_All(this, true);
     AbstractTypePtrTracker.Delete(this);
-    unknown_TiberiumClass_list_00ac0b30.Delete(this);
+    Tiberiums.Delete(this);
     delete SpreadData;
     SpreadData = 0;
     delete SpreadMap;
@@ -182,27 +182,27 @@ bool TiberiumClass::Read_INI(CCINIClass &ini)
 
             case 2:
                 Image = OverlayTypes[27];
-                unknown_e4 = 12;
+                FrameCount = 12;
                 NumFrames = 12;
                 break;
 
             case 3:
                 Image = OverlayTypes[127];
-                unknown_e4 = 12;
+                FrameCount = 12;
                 NumFrames = 12;
                 NumImages = 8;
                 break;
 
             case 4:
                 Image = OverlayTypes[147];
-                unknown_e4 = 12;
+                FrameCount = 12;
                 NumFrames = 12;
                 NumImages = 8;
                 break;
 
             default:
                 Image = OverlayTypes[102];
-                unknown_e4 = 12;
+                FrameCount = 12;
                 NumFrames = 12;
                 NumImages = 8;
                 break;
@@ -226,8 +226,8 @@ bool __fastcall TiberiumClass::Read_Types(CCINIClass &ini)
         if (ini.Get_String("Tiberiums", key, "", id, sizeof(id)) > 0) {
             int number = atoi(key);
             TiberiumClass *type;
-            if (number < unknown_TiberiumClass_list_00ac0b30.Count()) {
-                type = unknown_TiberiumClass_list_00ac0b30[number];
+            if (number < Tiberiums.Count()) {
+                type = Tiberiums[number];
             } else {
                 type = new TiberiumClass(id);
             }
@@ -255,7 +255,7 @@ void TiberiumClass::Compute_CRC(WWCRCEngine &crc) const
     crc((long)Value);
     crc((long)Power);
     crc((long)unknown_c0);
-    crc((long)unknown_e4);
+    crc((long)FrameCount);
     crc((long)NumFrames);
 }
 
@@ -381,12 +381,12 @@ void TiberiumClass::Detach(AbstractClass *target, bool all)
 
 void TiberiumClass::Spread_AI()
 {
-    if (unknown_id_source_a3d290->unknown_222a) {
-        for (int index = 0; index < unknown_TiberiumClass_list_00ac0b30.Count(); index++) {
-            if (unknown_TiberiumClass_list_00ac0b30[index]->SpreadTimer == 0) {
-                unknown_TiberiumClass_list_00ac0b30[index]->Process_Spread();
-                unknown_TiberiumClass_list_00ac0b30[index]->SpreadTimer =
-                    CDTimerClass<FrameTimerClass>(unknown_TiberiumClass_list_00ac0b30[index]->Spread);
+    if (unknown_id_source_a3d290->IsTibGrowth) {
+        for (int index = 0; index < Tiberiums.Count(); index++) {
+            if (Tiberiums[index]->SpreadTimer == 0) {
+                Tiberiums[index]->Process_Spread();
+                Tiberiums[index]->SpreadTimer =
+                    CDTimerClass<FrameTimerClass>(Tiberiums[index]->Spread);
             }
         }
     }
@@ -404,8 +404,8 @@ void TiberiumClass::Spread_AI()
 
 void TiberiumClass::Init_Spread()
 {
-    for (int index = 0; index < unknown_TiberiumClass_list_00ac0b30.Count(); index++) {
-        TiberiumClass *tiberium = unknown_TiberiumClass_list_00ac0b30[index];
+    for (int index = 0; index < Tiberiums.Count(); index++) {
+        TiberiumClass *tiberium = Tiberiums[index];
         if (tiberium->SpreadQueue != 0) {
             tiberium->SpreadQueue->Clear();
             delete tiberium->SpreadQueue;
@@ -652,8 +652,8 @@ void __fastcall Clear_Spread_006e9d00(int self)
 void __fastcall TiberiumClass::Clear_Spread_Cell(Cell const &cell)
 {
     int index = Map_Cell_Index(cell);
-    for (int type = 0; type < unknown_TiberiumClass_list_00ac0b30.Count(); type++) {
-        unknown_TiberiumClass_list_00ac0b30[type]->SpreadMap[index] = false;
+    for (int type = 0; type < Tiberiums.Count(); type++) {
+        Tiberiums[type]->SpreadMap[index] = false;
     }
 }
 
@@ -689,13 +689,13 @@ void TiberiumClass::Add_Spread_Cell(Cell const &cell)
 
 void TiberiumClass::Growth_AI()
 {
-    if (unknown_id_source_a3d290->unknown_222a) {
-        for (int index = 0; index < unknown_TiberiumClass_list_00ac0b30.Count(); index++) {
-            if (unknown_TiberiumClass_list_00ac0b30[index]->GrowthTimer == 0) {
-                unknown_TiberiumClass_list_00ac0b30[index]->Process_Growth();
+    if (unknown_id_source_a3d290->IsTibGrowth) {
+        for (int index = 0; index < Tiberiums.Count(); index++) {
+            if (Tiberiums[index]->GrowthTimer == 0) {
+                Tiberiums[index]->Process_Growth();
                 double factor = unknown_id_source_a3d290->Special().TiberiumGrows ? 0.3 : 1.0;
-                unknown_TiberiumClass_list_00ac0b30[index]->GrowthTimer =
-                    CDTimerClass<FrameTimerClass>(unknown_TiberiumClass_list_00ac0b30[index]->Growth * factor);
+                Tiberiums[index]->GrowthTimer =
+                    CDTimerClass<FrameTimerClass>(Tiberiums[index]->Growth * factor);
             }
         }
     }
@@ -713,8 +713,8 @@ void TiberiumClass::Growth_AI()
 
 void TiberiumClass::Init_Growth()
 {
-    for (int index = 0; index < unknown_TiberiumClass_list_00ac0b30.Count(); index++) {
-        TiberiumClass *tiberium = unknown_TiberiumClass_list_00ac0b30[index];
+    for (int index = 0; index < Tiberiums.Count(); index++) {
+        TiberiumClass *tiberium = Tiberiums[index];
         if (tiberium->GrowthQueue != 0) {
             tiberium->GrowthQueue->Clear();
             delete tiberium->GrowthQueue;

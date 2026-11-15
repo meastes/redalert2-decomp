@@ -229,7 +229,7 @@
    "padding_bytes": 13
   },
   {
-   "symbol": "?unknown_5d1d40@NullModemClass@@QAEXXZ",
+   "symbol": "?Remove_Modem_Echo@NullModemClass@@QAEXXZ",
    "entry": "005d1d40",
    "body_bytes": 1,
    "padding_bytes": 15
@@ -1909,7 +1909,7 @@
   },
   {
    "site": "005cf0b0",
-   "symbol": "?unknown_5d1d40@NullModemClass@@QAEXXZ",
+   "symbol": "?Remove_Modem_Echo@NullModemClass@@QAEXXZ",
    "target": "005d1d40",
    "function_entry": true
   },
@@ -1957,7 +1957,7 @@
   },
   {
    "site": "005cf0b0",
-   "symbol": "?unknown_5d1d40@NullModemClass@@QAEXXZ",
+   "symbol": "?Remove_Modem_Echo@NullModemClass@@QAEXXZ",
    "target": "005d1d40",
    "function_entry": true
   },
@@ -2005,7 +2005,7 @@
   },
   {
    "site": "005cf0b0",
-   "symbol": "?unknown_5d1d40@NullModemClass@@QAEXXZ",
+   "symbol": "?Remove_Modem_Echo@NullModemClass@@QAEXXZ",
    "target": "005d1d40",
    "function_entry": true
   },
@@ -2023,7 +2023,7 @@
   },
   {
    "site": "005cf0b0",
-   "symbol": "?unknown_5d1d40@NullModemClass@@QAEXXZ",
+   "symbol": "?Remove_Modem_Echo@NullModemClass@@QAEXXZ",
    "target": "005d1d40",
    "function_entry": true
   },
@@ -2053,7 +2053,7 @@
   },
   {
    "site": "005cf0b0",
-   "symbol": "?unknown_5d1d40@NullModemClass@@QAEXXZ",
+   "symbol": "?Remove_Modem_Echo@NullModemClass@@QAEXXZ",
    "target": "005d1d40",
    "function_entry": true
   },
@@ -2095,7 +2095,7 @@
   },
   {
    "site": "005cf780",
-   "symbol": "?unknown_5d1d40@NullModemClass@@QAEXXZ",
+   "symbol": "?Remove_Modem_Echo@NullModemClass@@QAEXXZ",
    "target": "005d1d40",
    "function_entry": true
   },
@@ -2143,7 +2143,7 @@
   },
   {
    "site": "005cf780",
-   "symbol": "?unknown_5d1d40@NullModemClass@@QAEXXZ",
+   "symbol": "?Remove_Modem_Echo@NullModemClass@@QAEXXZ",
    "target": "005d1d40",
    "function_entry": true
   },
@@ -2191,7 +2191,7 @@
   },
   {
    "site": "005cf780",
-   "symbol": "?unknown_5d1d40@NullModemClass@@QAEXXZ",
+   "symbol": "?Remove_Modem_Echo@NullModemClass@@QAEXXZ",
    "target": "005d1d40",
    "function_entry": true
   },
@@ -2209,7 +2209,7 @@
   },
   {
    "site": "005cf780",
-   "symbol": "?unknown_5d1d40@NullModemClass@@QAEXXZ",
+   "symbol": "?Remove_Modem_Echo@NullModemClass@@QAEXXZ",
    "target": "005d1d40",
    "function_entry": true
   },
@@ -2233,7 +2233,7 @@
   },
   {
    "site": "005cf780",
-   "symbol": "?unknown_5d1d40@NullModemClass@@QAEXXZ",
+   "symbol": "?Remove_Modem_Echo@NullModemClass@@QAEXXZ",
    "target": "005d1d40",
    "function_entry": true
   },
@@ -2990,6 +2990,10 @@
    "address": "006f9ec0"
   },
   {
+   "symbol": "?ModemDialogIsOpen@@3_NA",
+   "address": "00a72ec4"
+  },
+  {
    "symbol": "?ModemRXString@@3PADA",
    "address": "00a72e10"
   },
@@ -3022,16 +3026,16 @@
    "address": "00517370"
   },
   {
-   "symbol": "?Unknown_005B5EE0@@YAXXZ",
-   "address": "005b5ee0"
-  },
-  {
    "symbol": "?WWKeyboard@@3PAVWWKeyboardClass@@A",
    "address": "00832468"
   },
   {
    "symbol": "?Wait_Timer_00496A20@@YIXJ@Z",
    "address": "00496a20"
+  },
+  {
+   "symbol": "?Windows_Message_Handler@@YAXXZ",
+   "address": "005b5ee0"
   },
   {
    "symbol": "?Write_To_Serial_Port@WinModemClass@@QAEXPAEH@Z",
@@ -3068,10 +3072,6 @@
   {
    "symbol": "?unknown_math_4ba5b0@@YANN@Z",
    "address": "004ba5b0"
-  },
-  {
-   "symbol": "?unknown_modem_aborted_a72ec4@@3_NA",
-   "address": "00a72ec4"
   },
   {
    "symbol": "?unknown_session_a3d298@@3USessionClass@@A",

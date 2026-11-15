@@ -113,7 +113,7 @@ int Hunt_All()
     int sent = 0;
     for (int i = 0; i < Technos.Count(); ++i) {
         TechnoClass *techno = Technos[i];
-        if (techno == 0 || techno->House != unknown_player_a35db4 || !Is_Combat(techno)) continue;
+        if (techno == 0 || techno->House != PlayerPtr || !Is_Combat(techno)) continue;
         if (techno->Mission == 15) continue;
         Queue_Mission(TargetClass(techno), 15, TargetClass(), TargetClass());
         ++sent;
@@ -126,7 +126,7 @@ int Riflemen()
     int count = 0;
     for (int i = 0; i < Technos.Count(); ++i) {
         TechnoClass *techno = Technos[i];
-        if (techno == 0 || techno->House != unknown_player_a35db4 || techno->Kind_Of() != 0x0F) continue;
+        if (techno == 0 || techno->House != PlayerPtr || techno->Kind_Of() != 0x0F) continue;
         TechnoTypeClass *type = techno->Techno_Type_Class();
         if (type != 0 && infantry_index >= 0 && type == InfantryTypes[infantry_index]) ++count;
     }
@@ -137,7 +137,7 @@ int Tanks()
     int count = 0;
     for (int i = 0; i < Technos.Count(); ++i) {
         TechnoClass *techno = Technos[i];
-        if (techno == 0 || techno->House != unknown_player_a35db4 || techno->Kind_Of() != 1) continue;
+        if (techno == 0 || techno->House != PlayerPtr || techno->Kind_Of() != 1) continue;
         TechnoTypeClass *type = techno->Techno_Type_Class();
         if (type != 0 && tank_index >= 0 && type == UnitTypes[tank_index]) ++count;
     }
@@ -151,7 +151,7 @@ void Native_Harness_Houses(char const *milestone);   // harness_build.cpp
 // the order kind is win.
 void Native_Harness_Army(int frame)
 {
-    HouseClass *player = unknown_player_a35db4;
+    HouseClass *player = PlayerPtr;
     if (frame % 2000 == 0 && frame <= 60000) {
         // Buildings and units per house every 2,000 frames (harness-houses-<k>k).
         static char names[31][24];

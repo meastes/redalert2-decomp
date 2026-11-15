@@ -151,13 +151,13 @@
    "padding_bytes": 12
   },
   {
-   "symbol": "?Unknown_00436000@BombClass@@QBEHXZ",
+   "symbol": "?Get_Current_Flicker_Frame@BombClass@@QBEHXZ",
    "entry": "00436000",
    "body_bytes": 99,
    "padding_bytes": 13
   },
   {
-   "symbol": "?Unknown_00436070@BombClass@@QBE_NXZ",
+   "symbol": "?Time_To_Explode@BombClass@@QBE_NXZ",
    "entry": "00436070",
    "body_bytes": 32,
    "padding_bytes": 0
@@ -895,7 +895,7 @@
  "references_in": [
   {
    "site": "005d4e90",
-   "symbol": "?Unknown_00435FB0@BombClass@@QAEXXZ",
+   "symbol": "?Disarm@BombClass@@QAEXXZ",
    "target": "00435fb0",
    "function_entry": true
   },
@@ -919,7 +919,7 @@
   },
   {
    "site": "00462110",
-   "symbol": "?Unknown_00435FB0@BombClass@@QAEXXZ",
+   "symbol": "?Disarm@BombClass@@QAEXXZ",
    "target": "00435fb0",
    "function_entry": true
   },
@@ -985,7 +985,7 @@
   },
   {
    "site": "006c74c0",
-   "symbol": "?Unknown_00436070@BombClass@@QBE_NXZ",
+   "symbol": "?Time_To_Explode@BombClass@@QBE_NXZ",
    "target": "00436070",
    "function_entry": true
   },
@@ -1003,7 +1003,7 @@
   },
   {
    "site": "006c2c40",
-   "symbol": "?Unknown_00436000@BombClass@@QBEHXZ",
+   "symbol": "?Get_Current_Flicker_Frame@BombClass@@QBEHXZ",
    "target": "00436000",
    "function_entry": true
   },
@@ -1015,7 +1015,7 @@
   },
   {
    "site": "00444660",
-   "symbol": "?Unknown_00435FB0@BombClass@@QAEXXZ",
+   "symbol": "?Disarm@BombClass@@QAEXXZ",
    "target": "00435fb0",
    "function_entry": true
   }
@@ -1414,7 +1414,7 @@
   {
    "site": "005d4e90",
    "target": "00435fb0",
-   "symbol": "?Unknown_00435FB0@BombClass@@QAEXXZ",
+   "symbol": "?Disarm@BombClass@@QAEXXZ",
    "module_symbol": "?unknown_435fb0@Unknown435FB0Owner@@QAEXXZ"
   },
   {
@@ -1432,7 +1432,7 @@
   {
    "site": "00462110",
    "target": "00435fb0",
-   "symbol": "?Unknown_00435FB0@BombClass@@QAEXXZ",
+   "symbol": "?Disarm@BombClass@@QAEXXZ",
    "module_symbol": "?unknown_435fb0@Unknown435FB0Owner@@QAEXXZ"
   },
   {
@@ -1456,7 +1456,7 @@
   {
    "site": "00444660",
    "target": "00435fb0",
-   "symbol": "?Unknown_00435FB0@BombClass@@QAEXXZ",
+   "symbol": "?Disarm@BombClass@@QAEXXZ",
    "module_symbol": "?unknown_435fb0@Unknown435FB0Owner@@QAEXXZ"
   }
  ],

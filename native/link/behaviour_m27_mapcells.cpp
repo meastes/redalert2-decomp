@@ -24,7 +24,7 @@ UnknownMapGenerationCell &__fastcall Get_Cell_Data_0056dbc0(int index)
 // 0x0052B560), then the colour pair of sub tile `tile` at light level `level`.
 unsigned short *IsometricTileTypeClass::Preview_Tile(int tile, int level)
 {
-    if (unknown_a4 == 0 && unknown_2c4) {
+    if (ImageData == 0 && IsFileLoaded) {
         Load_Tile_Data();
     }
     return unknown_274[tile] + level * 2;

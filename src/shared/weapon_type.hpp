@@ -26,8 +26,8 @@ extern "C" GUID const CLSID_WeaponTypeClass;    // 0x007A1DA0
 
 // Speed helpers (0x0047FCD0 returns a default speed for floating
 // projectiles; 0x0047FB70 converts a range and speed; hypotheses).
-double __cdecl Unknown_0047FCD0();
-int __fastcall Unknown_0047FB70(int range, double speed);
+double __cdecl Get_Floater_Gravity();
+int __fastcall Calculate_Projectile_Speed(int range, double speed);
 struct UnknownFacingDir;
 // Whether a ballistic shot reaches: the arc direction for a horizontal
 // distance and height difference at a speed (0x0047F8B0; TechnoClass slot
@@ -110,7 +110,7 @@ public:
     bool unknown_123;                       // +0x123
     char unknown_124;                       // +0x124 "LaserDuration"
     bool unknown_125;                       // +0x125
-    bool unknown_126;                       // +0x126
+    bool AreaFire;                       // +0x126
     bool unknown_127;                       // +0x127
     bool unknown_128;                       // +0x128
     bool unknown_129;                       // +0x129
@@ -120,6 +120,6 @@ public:
 };
 
 // Every weapon type (0x00839B90; defined in the unit at 0x0040F720).
-extern DynamicVectorClass<WeaponTypeClass *> unknown_WeaponTypeClass_list_00839b90;
+extern DynamicVectorClass<WeaponTypeClass *> Weapons;
 
 #endif

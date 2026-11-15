@@ -147,7 +147,7 @@ static inline CoordStruct Move_Coord(CoordStruct const &start, UnknownFacingDir 
 CoordStruct RocketLocomotionClass::unknown_63dbe0(int distance)
 {
     CoordStruct coord = Object_Coord(LinkedTo);
-    CoordStruct result = Move_Coord(coord, LinkedTo->unknown_2e0.Current(), Fast_Cos(unknown_50) * (double)distance);
+    CoordStruct result = Move_Coord(coord, LinkedTo->PrimaryFacing.Current(), Fast_Cos(unknown_50) * (double)distance);
     result.Z += Fast_Sin(unknown_50) * (double)distance;
     return result;
 }
@@ -342,7 +342,7 @@ bool __stdcall RocketLocomotionClass::Process()
                 unknown_40 = 5;
             }
         }
-        LinkedTo->unknown_2e0.Set_Desired(Direction_To(LinkedTo, unknown_18));
+        LinkedTo->PrimaryFacing.Set_Desired(Direction_To(LinkedTo, unknown_18));
         break;
     case 5:
         exploded = unknown_63dcf0(rocket);
@@ -511,7 +511,7 @@ Matrix3D * __stdcall RocketLocomotionClass::Draw_Matrix(Matrix3D *matrix, int *k
 {
     Matrix3D transform;
     transform.Make_Identity();
-    transform.Rotate_Z((float)((Dir_To_32(LinkedTo->unknown_2e0.Current()) - 8) * -0.19634954084936207));
+    transform.Rotate_Z((float)((Dir_To_32(LinkedTo->PrimaryFacing.Current()) - 8) * -0.19634954084936207));
     if (unknown_50 != 0.0f) {
         transform.Rotate_Y(-unknown_50);
         RocketStruct const *rocket;
@@ -532,7 +532,7 @@ Matrix3D * __stdcall RocketLocomotionClass::Draw_Matrix(Matrix3D *matrix, int *k
         }
     }
     if (key != 0) {
-        *key |= Dir_To_32(LinkedTo->unknown_2e0.Current());
+        *key |= Dir_To_32(LinkedTo->PrimaryFacing.Current());
     }
     *matrix = transform;
     return matrix;

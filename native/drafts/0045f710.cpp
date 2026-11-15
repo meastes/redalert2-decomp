@@ -45,11 +45,11 @@ inline int Projectile_Motion_00593870(CoordStruct &coord, TVelocity3D<double> &v
     return ra2_native_projectile_motion_593870(&coord, &velocity, &target, &rot, aircraft, airburst, very_high, level);
 }
 // NATIVE: the slope matrix 0x00718D60 as shared/locomotion.hpp declares it (fills and returns a matrix).
-Matrix3D * __fastcall Unknown_00718D60(Matrix3D *matrix, int ramp);
+Matrix3D * __fastcall Get_Slope_Matrix(Matrix3D *matrix, int ramp);
 inline Matrix3D Slope_Matrix_00718d60(int ramp)
 {
     Matrix3D matrix;
-    Unknown_00718D60(&matrix, ramp);
+    Get_Slope_Matrix(&matrix, ramp);
     return matrix;
 }
 
@@ -233,7 +233,7 @@ void BulletClass::AI()
         position.Z = coord.Z;
         double gravity = Rules->unknown_1320;
         if (Type->Floater) {
-            gravity = Unknown_0047FCD0();
+            gravity = Get_Floater_Gravity();
         }
         if (Type->Vertical) {
             int current = (int)Velocity.Speed();

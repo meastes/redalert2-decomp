@@ -106,7 +106,7 @@ void __fastcall Unknown_005DD760()
             surface.Fill(0);
             Point2D center(128,128);
             Rect bounds(0,0,255,255);
-            int radius = 60*Rules->unknown_6d0;
+            int radius = 60*Rules->SpotlightRadius;
             surface.Fill_Circle(center,i-int(radius/-358.4),bounds,128-i*6);
             for (j = 0; j < 128; j++)
                 SpotLight_Surfaces[i+64]->Copy_From(Rect(0,j,255,1),surface,Rect(0,2*j,255,1),false,true);
@@ -162,7 +162,7 @@ void Unknown_005DDB40()
 // lights, darkens or tints the pixels under the spot light through the type's falloff
 // surface for the light's current radius; the plain light uses the asm blitters.
 // From ra2-decomp SpotLightClass::Draw_It (YR 0x005FF850), adapted to our names.
-extern Rect unknown_rect_839630;        // 0x00839630 tactical X, Y, width, height
+extern Rect TacticalRect;        // 0x00839630 tactical X, Y, width, height
 extern "C" char SpotLight_Index_Table[];        // 0x007E8C50
 extern "C" int SpotLight_Color_Mode;            // 0x007E8C4C
 extern "C" void *SpotLight_MMX_Buffer;          // 0x00A73378
@@ -191,7 +191,7 @@ void SpotLightClass::unknown_func_5ddb90()
         if (!(unknown_id_source_a3d290->unknown_000 & 0x1000) || !Map.Is_Fogged(Coord)) {
             Surface *dsurf = LogicalSurface;
             Rect drect(drawpoint.X - 128, drawpoint.Y - 64, 255, 127);
-            Rect dcliprect = unknown_rect_839630;
+            Rect dcliprect = TacticalRect;
             int index = SpotLight_Index_Table[unknown_0c];
             if (index < 64) {
                 index = index * unknown_10 / 64;

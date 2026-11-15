@@ -163,7 +163,7 @@
    "padding_bytes": 15
   },
   {
-   "symbol": "?unknown_71ba20@@YIXPBUVector3@@H@Z",
+   "symbol": "?Precalculate_Normal_Lookup@@YIXPBUVector3@@H@Z",
    "entry": "0071ba20",
    "body_bytes": 120,
    "padding_bytes": 8
@@ -175,13 +175,13 @@
    "padding_bytes": 9
   },
   {
-   "symbol": "?unknown_71bc30@@YIHPBUVector3@@H@Z",
+   "symbol": "?Find_Closest_Normal@@YIHPBUVector3@@H@Z",
    "entry": "0071bc30",
    "body_bytes": 167,
    "padding_bytes": 9
   },
   {
-   "symbol": "?unknown_71bce0@@YAXXZ",
+   "symbol": "?Init_Normal_Lookup@@YAXXZ",
    "entry": "0071bce0",
    "body_bytes": 20,
    "padding_bytes": 12
@@ -762,6 +762,14 @@
    "address": "004ba410"
   },
   {
+   "symbol": "?VoxelDrawFunctions@@3PAP6AXPAUVoxelFuncArgumentStruct@@@ZA",
+   "address": "007f9de0"
+  },
+  {
+   "symbol": "?VoxelNormalTableEntryCount@@3PAHA",
+   "address": "007f9f94"
+  },
+  {
    "symbol": "?VoxelPaletteTranslateTable@@3PAEA",
    "address": "00af4608"
   },
@@ -778,20 +786,12 @@
    "address": "00af6614"
   },
   {
-   "symbol": "?unknown_drawers_7f9de0@@3PAP6AXPAUVoxelFuncArgumentStruct@@@ZA",
-   "address": "007f9de0"
-  },
-  {
    "symbol": "?unknown_grid_ae3408@@3PAEA",
    "address": "00ae3408"
   },
   {
    "symbol": "?unknown_lit_colors_af4608@@3PAY0BAA@EA",
    "address": "00af4608"
-  },
-  {
-   "symbol": "?unknown_normal_counts_7f9f94@@3PAHA",
-   "address": "007f9f94"
   },
   {
    "symbol": "?unknown_normal_tables_7f9f80@@3PAPBUVector3@@A",
@@ -839,7 +839,7 @@
    "site": "00717050",
    "target": "0071ba20",
    "symbol": "?unknown_normal_lookup_71ba20@@YIXABUVector3@@H@Z",
-   "module_symbol": "?unknown_71ba20@@YIXPBUVector3@@H@Z"
+   "module_symbol": "?Precalculate_Normal_Lookup@@YIXPBUVector3@@H@Z"
   },
   {
    "site": "007170d0",

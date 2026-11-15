@@ -770,6 +770,10 @@
    "address": "00851118"
   },
   {
+   "symbol": "?CurrentObject@@3V?$DynamicVectorClass@PAVObjectClass@@@@A",
+   "address": "00a40c60"
+  },
+  {
    "symbol": "?Debug_Printf@@YAXPBDZZ",
    "address": "004068f0"
   },
@@ -924,6 +928,10 @@
   {
    "symbol": "?ParticleTypes@@3V?$DynamicVectorClass@PAVParticleTypeClass@@@@A",
    "address": "00a35e00"
+  },
+  {
+   "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+   "address": "00a35db4"
   },
   {
    "symbol": "?Post_Load_Game_0065d2c0@@YIXXZ",
@@ -1142,12 +1150,20 @@
    "address": "00a35d78"
   },
   {
+   "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+   "address": "00ac0b30"
+  },
+  {
    "symbol": "?TriggerTypes@@3V?$DynamicVectorClass@PAVTriggerTypeClass@@@@A",
    "address": "00866208"
   },
   {
    "symbol": "?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A",
    "address": "00a40aa0"
+  },
+  {
+   "symbol": "?Tubes@@3V?$DynamicVectorClass@PAVTubeClass@@@@A",
+   "address": "008661c8"
   },
   {
    "symbol": "?UnitTypes@@3V?$DynamicVectorClass@PAVUnitTypeClass@@@@A",
@@ -1166,6 +1182,10 @@
    "address": "006f30f0"
   },
   {
+   "symbol": "?UnlockInputFrame@@3HA",
+   "address": "00ab9174"
+  },
+  {
    "symbol": "?Voc_Static_Load@@YIJPAUIStream@@@Z",
    "address": "00714b80"
   },
@@ -1180,6 +1200,10 @@
   {
    "symbol": "?Waves@@3V?$DynamicVectorClass@PAVWaveClass@@@@A",
    "address": "00a40be8"
+  },
+  {
+   "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+   "address": "00839b90"
   },
   {
    "symbol": "?Write_004B5C70@EnvironmentClass@@QAEXPAUIStream@@@Z",
@@ -1242,14 +1266,6 @@
    "address": "00ac02e0"
   },
   {
-   "symbol": "?unknown_TiberiumClass_list_00ac0b30@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
-   "address": "00ac0b30"
-  },
-  {
-   "symbol": "?unknown_TubeClass_list_008661c8@@3V?$DynamicVectorClass@PAVTubeClass@@@@A",
-   "address": "008661c8"
-  },
-  {
    "symbol": "?unknown_VoxelAnimClass_list_008399d0@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A",
    "address": "008399d0"
   },
@@ -1260,14 +1276,6 @@
   {
    "symbol": "?unknown_WaypointPathClass_list_00b25590@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
    "address": "00b25590"
-  },
-  {
-   "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
-   "address": "00839b90"
-  },
-  {
-   "symbol": "?unknown_ab9174@@3HA",
-   "address": "00ab9174"
   },
   {
    "symbol": "?unknown_flag_a6ebd0@@3_NA",
@@ -1292,14 +1300,6 @@
   {
    "symbol": "?unknown_math_4ba5b0@@YANN@Z",
    "address": "004ba5b0"
-  },
-  {
-   "symbol": "?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A",
-   "address": "00a40c60"
-  },
-  {
-   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
-   "address": "00a35db4"
   },
   {
    "symbol": "?unknown_savegame_version_7f1b18@@3HA",

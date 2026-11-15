@@ -1089,12 +1089,20 @@
    "address": "0066e2a0"
   },
   {
+   "symbol": "?Get_Country@NodeNameType@@QAEHXZ",
+   "address": "0066e290"
+  },
+  {
    "symbol": "?Get_Title_Screen_Area_006f1f30@@YI?AVRect@@XZ",
    "address": "006f1f30"
   },
   {
    "symbol": "?HiddenSurface@@3PAVSurface@@A",
    "address": "00839954"
+  },
+  {
+   "symbol": "?Inflate_Rect@@YIXPAVRect@@H@Z",
+   "address": "006f1b00"
   },
   {
    "symbol": "?Is_Surface_Lost@DSurface@@QAE_NXZ",
@@ -1109,8 +1117,16 @@
    "address": "006fa180"
   },
   {
+   "symbol": "?NormalDrawer@@3PAVConvertClass@@A",
+   "address": "008323c4"
+  },
+  {
    "symbol": "?String_Pixel_Width@BitFontClass@@QBEHPBGH@Z",
    "address": "00431690"
+  },
+  {
+   "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
+   "address": "00a76378"
   },
   {
    "symbol": "?To_RGB@HSVClass@@QBE?AVRGBClass@@XZ",
@@ -1129,24 +1145,8 @@
    "address": "00495270"
   },
   {
-   "symbol": "?Unknown_Rect_Shrink_006F1B00@@YIXPAVRect@@H@Z",
-   "address": "006f1b00"
-  },
-  {
    "symbol": "?Window_Rect_In_Main_Client@@YIHPAUHWND__@@PAURECT@@@Z",
    "address": "00735690"
-  },
-  {
-   "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
-   "address": "0066e290"
-  },
-  {
-   "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
-   "address": "00a76378"
-  },
-  {
-   "symbol": "?unknown_drawer_8323c4@@3PAVConvertClass@@A",
-   "address": "008323c4"
   },
   {
    "symbol": "?unknown_empty_wide_839d4c@@3QBGB",

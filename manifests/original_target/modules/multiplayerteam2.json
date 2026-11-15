@@ -790,6 +790,10 @@
    "address": "00523840"
   },
   {
+   "symbol": "?Call_Back@@YAXXZ",
+   "address": "00481fb0"
+  },
+  {
    "symbol": "?Debug_Printf@@YAXPBDZZ",
    "address": "004068f0"
   },
@@ -798,12 +802,24 @@
    "address": "0050d7f0"
   },
   {
+   "symbol": "?Global_Channel_Op@IPXManagerClass@@QAEHHPAXPAHPAVIPXAddressClass@@PAGPAK@Z",
+   "address": "00525af0"
+  },
+  {
+   "symbol": "?Global_Channel_Op_3C@IPXManagerClass@@QAEXH@Z",
+   "address": "00525b30"
+  },
+  {
    "symbol": "?Global_Num_Receive@IPXManagerClass@@UAEHXZ",
    "address": "00526a60"
   },
   {
    "symbol": "?Global_Num_Send@IPXManagerClass@@UAEHXZ",
    "address": "00526a40"
+  },
+  {
+   "symbol": "?Ipx@@3VIPXManagerClass@@A",
+   "address": "00a40978"
   },
   {
    "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
@@ -834,18 +850,6 @@
    "address": "00523960"
   },
   {
-   "symbol": "?unknown_481fb0@@YAXXZ",
-   "address": "00481fb0"
-  },
-  {
-   "symbol": "?unknown_525af0@IPXManagerClass@@QAEHHPAXPAHPAVIPXAddressClass@@PAGPAK@Z",
-   "address": "00525af0"
-  },
-  {
-   "symbol": "?unknown_525b30@IPXManagerClass@@QAEXH@Z",
-   "address": "00525b30"
-  },
-  {
    "symbol": "?unknown_default_manglers_7e6334@@3PAY0CA@DA",
    "address": "007e6334"
   },
@@ -856,10 +860,6 @@
   {
    "symbol": "?unknown_ini_839740@@3VCCINIClass@@A",
    "address": "00839740"
-  },
-  {
-   "symbol": "?unknown_ipx_manager_a40978@@3VIPXManagerClass@@A",
-   "address": "00a40978"
   },
   {
    "symbol": "?unknown_mangler_addresses_b26cbc@@3PAY0IA@DA",

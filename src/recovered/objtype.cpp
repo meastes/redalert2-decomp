@@ -106,7 +106,7 @@ template <> inline bool DynamicVectorClass<ObjectTypeClass *>::Add(ObjectTypeCla
 }
 ObjectTypeClass::ObjectTypeClass(char const *ini_name)
     : AbstractTypeClass(ini_name),
-      unknown_9c(0), MaxStrength(0), unknown_a4(0), unknown_a8(false), unknown_ac(0),
+      Armor(0), MaxStrength(0), ImageData(0), ImageAllocated(false), unknown_ac(0),
       unknown_1b8(false), unknown_1bc(0), unknown_1c0(-1), unknown_1c4(-1),
       unknown_1e1(false), unknown_1e2(false),
       unknown_1fc(false), unknown_1fd(false), unknown_1fe(true), unknown_1ff(false),
@@ -127,7 +127,7 @@ ObjectTypeClass::ObjectTypeClass(char const *ini_name)
 ObjectTypeClass::ObjectTypeClass(NoInitClass const &noinit) :
     AbstractTypeClass(noinit),
     RadialColor(noinit),
-    unknown_a4(0),
+    ImageData(0),
     unknown_b0(noinit),
     unknown_b8(noinit),
     unknown_c0(noinit),
@@ -145,10 +145,10 @@ ObjectTypeClass::ObjectTypeClass(NoInitClass const &noinit) :
 ObjectTypeClass::~ObjectTypeClass()
 {
     ObjectTypes.Delete(this);
-    if (unknown_a8 && unknown_a4 != 0) {
-        operator delete(unknown_a4);
-        unknown_a4 = 0;
-        unknown_a8 = false;
+    if (ImageAllocated && ImageData != 0) {
+        operator delete(ImageData);
+        ImageData = 0;
+        ImageAllocated = false;
     }
 }
 
@@ -770,7 +770,7 @@ extern "C" void __cdecl _makepath(char *path, char const *drive, char const *dir
 void ObjectTypeClass::Fetch_Normal_Image()
 {
     char fullname[260];
-    if (unknown_1e1 && unknown_id_source_a3d290->Theater == 1 && !unknown_a8) {
+    if (unknown_1e1 && unknown_id_source_a3d290->Theater == 1 && !ImageAllocated) {
         if (!unknown_1e2) {
             char buffer[256];
             sprintf(buffer, "%sA", (char const *)unknown_1c8);
@@ -788,14 +788,14 @@ void ObjectTypeClass::Fetch_Normal_Image()
         Theater_Naming_Convention(fullname, unknown_id_source_a3d290->Theater);
     }
 
-    if (unknown_a8 && unknown_a4 != 0) {
-        operator delete(unknown_a4);
+    if (ImageAllocated && ImageData != 0) {
+        operator delete(ImageData);
     }
-    unknown_a4 = 0;
-    unknown_a8 = false;
-    unknown_a4 = (void *)MixFileClass::Retrieve(fullname);
-    if (unknown_a4 != 0) {
-        ShapeFileStruct const *shape = (ShapeFileStruct const *)unknown_a4;
+    ImageData = 0;
+    ImageAllocated = false;
+    ImageData = (void *)MixFileClass::Retrieve(fullname);
+    if (ImageData != 0) {
+        ShapeFileStruct const *shape = (ShapeFileStruct const *)ImageData;
         int size;
         if (shape->Width > shape->Height) {
             size = shape->Width;
@@ -856,7 +856,7 @@ bool ObjectTypeClass::Read_INI(CCINIClass &ini)
         unknown_1ff = ini.Get_Bool(ID, "RadarInvisible", unknown_1ff);
         unknown_200 = ini.Get_Bool(ID, "Selectable", unknown_200);
         unknown_201 = ini.Get_Bool(ID, "LegalTarget", unknown_201);
-        unknown_9c = ini.Get_ArmorType(ID, "Armor", (ArmorType)unknown_9c);
+        Armor = ini.Get_ArmorType(ID, "Armor", (ArmorType)Armor);
         MaxStrength = ini.Get_Int(ID, "Strength", MaxStrength);
         unknown_203 = ini.Get_Bool(ID, "Immune", unknown_203);
         unknown_202 = ini.Get_Bool(ID, "Insignificant", unknown_202);
@@ -957,8 +957,8 @@ HRESULT __stdcall ObjectTypeClass::Load(IStream *stream)
         return result;
     }
 
-    unknown_a4 = 0;
-    unknown_a8 = false;
+    ImageData = 0;
+    ImageAllocated = false;
     unknown_ac = 0;
     new (&unknown_214) UnknownBuffer;
     new (&unknown_228) UnknownBuffer;

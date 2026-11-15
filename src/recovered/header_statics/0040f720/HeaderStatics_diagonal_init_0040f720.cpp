@@ -9,7 +9,7 @@
 class WeaponTypeClass;
 
 // The unit's list of WeaponTypeClass objects (0x00839B90; name is a hypothesis).
-DynamicVectorClass<WeaponTypeClass *> unknown_WeaponTypeClass_list_00839b90;
+DynamicVectorClass<WeaponTypeClass *> Weapons;
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref ??8?$VectorClass@PAVWeaponTypeClass@@@@UBE_NABV0@@Z=0040f9d0
 // @ref ??_7?$DynamicVectorClass@PAVWeaponTypeClass@@@@6B@=0079ad5c
@@ -25,7 +25,7 @@ DynamicVectorClass<WeaponTypeClass *> unknown_WeaponTypeClass_list_00839b90;
 // @ref ?ID@?$VectorClass@PAVWeaponTypeClass@@@@UAEHPBQAVWeaponTypeClass@@@Z=0040fb30
 // @ref ?Resize@?$DynamicVectorClass@PAVWeaponTypeClass@@@@UAE_NHPBQAVWeaponTypeClass@@@Z=0040fb50
 // @ref ?Resize@?$VectorClass@PAVWeaponTypeClass@@@@UAE_NHPBQAVWeaponTypeClass@@@Z=0040fa10
-// @ref ?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A=00839b90
+// @ref ?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A=00839b90
 // @ref ?unknown_math_4ba520@@YANN@Z=004ba520
 // @ref ?unknown_math_4ba5b0@@YANN@Z=004ba5b0
 // @ref ?unknown_sqrt_4ba410@@YANN@Z=004ba410

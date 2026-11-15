@@ -301,7 +301,7 @@ public:
     bool unknown_4c0;                           // +0x4C0
     bool unknown_4c1;                           // +0x4C1
     TeamClass *Team;                            // +0x4C4
-    AbstractClass *unknown_4c8;   // +0x4C8 (swizzled)
+    AbstractClass *Member;   // +0x4C8 (swizzled)
     AbstractClass *unknown_4cc;   // +0x4CC (swizzled)
     union {
         int unknown_4d0;                        // +0x4D0 (the first path facing, -1 none)

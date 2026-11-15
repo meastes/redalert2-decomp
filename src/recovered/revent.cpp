@@ -97,11 +97,11 @@ RadarEventClass::~RadarEventClass()
 }
 
 
-// void RadarEventClass_unknown_all_63b910() -- 0x0063B910
+// void Process_Radar_Events() -- 0x0063B910
 // Purpose: runs 0x0063B940 on every radar event of the list at 0x00AB67E8
 // (TS Process_Radar_Events). Names are hypotheses.
 
-void RadarEventClass_unknown_all_63b910()
+void Process_Radar_Events()
 {
     for (int index = 0; index < unknown_radar_events_ab67e8.Count(); index++) {
         unknown_radar_events_ab67e8[index]->Unknown_0063B940();

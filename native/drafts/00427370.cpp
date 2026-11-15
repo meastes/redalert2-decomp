@@ -188,7 +188,7 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
     if (foot->Techno_Type_Class()->IsTrain) {
         is_train = true;
         for (face = 0; face <= 8; face++) {
-            int facing_diff = Dir_To_8(foot->unknown_2e0.Current()) - face;
+            int facing_diff = Dir_To_8(foot->PrimaryFacing.Current()) - face;
             int abs_diff = abs(facing_diff);
             if (abs_diff > 2 && abs_diff < 6 && face != 8) {
                 CellClass *&neighbor = from_pptr[_offsets[face]];
@@ -225,7 +225,7 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
             if (face == 8) {
                 int tube = (*working_from)->unknown_116;
                 if (tube != -1) {
-                    Cell exit_cell = unknown_TubeClass_list_008661c8[tube]->ExitCell;
+                    Cell exit_cell = Tubes[tube]->ExitCell;
                     neighbor_slot = Native_Map_Cell_Slot(512 * exit_cell.Y + exit_cell.X);
                 } else {
                     static CellClass *NoneCell = 0;

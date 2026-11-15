@@ -185,7 +185,7 @@ void EMPulseClass::Apply_004B4E30(TechnoClass *source)
                             if (building_cell==cell && !building->Type->InvisibleInGame) {
                                 building->unknown_44d6c0();
                                 building->unknown_3fc=Duration;
-                                if (building->Type->Radar) building->House->unknown_5669=true;
+                                if (building->Type->Radar) building->House->RecalcRadar=true;
                             }
                         } else {
                             bool active=false;

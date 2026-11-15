@@ -504,7 +504,8 @@
    "address": "007c3228",
    "bytes": 16,
    "kind": "rtti",
-   "section": 64
+   "section": 64,
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4SuperClass@@6BIPersistStream@@@",
@@ -865,7 +866,8 @@
    "symbol": "??_R3SuperClass@@8",
    "address": "007c3228",
    "bytes": 16,
-   "kind": "rtti"
+   "kind": "rtti",
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4SuperClass@@6BIPersistStream@@@",
@@ -1445,6 +1447,10 @@
    "address": "00714290"
   },
   {
+   "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+   "address": "00839b90"
+  },
+  {
    "symbol": "?_AddRef@?$UnknownComPtr@UILocomotion@@$1?unknown_uuid_ILocomotion_7ce600@@3UGUID@@B@@QBEXXZ",
    "address": "00453ea0"
   },
@@ -1455,10 +1461,6 @@
   {
    "symbol": "?_com_issue_error@@YGXJ@Z",
    "address": "00795940"
-  },
-  {
-   "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
-   "address": "00839b90"
   },
   {
    "symbol": "?unknown_cell_abd768@@3VCell@@B",

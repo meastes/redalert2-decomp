@@ -85,7 +85,7 @@
    "padding_bytes": 5
   },
   {
-   "symbol": "?unknown_scheme_text_print_498050@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@IIIHH@Z",
+   "symbol": "?Plain_Text_Print_Wide@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@IIIHH@Z",
    "entry": "00498050",
    "body_bytes": 267,
    "padding_bytes": 5
@@ -707,7 +707,7 @@
   },
   {
    "site": "006d4920",
-   "symbol": "?unknown_scheme_text_print_498050@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@IIIHH@Z",
+   "symbol": "?Plain_Text_Print_Wide@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@IIIHH@Z",
    "target": "00498050",
    "function_entry": true
   },
@@ -786,6 +786,10 @@
    "address": "004314b0"
   },
   {
+   "symbol": "?LogicalSurface@@3PAVSurface@@A",
+   "address": "0083995c"
+  },
+  {
    "symbol": "?Print@BitTextClass@@QAEHPAVBitFontClass@@PAVSurface@@PBGHHHH@Z",
    "address": "00432350"
   },
@@ -836,10 +840,6 @@
   {
    "symbol": "?unknown_shift_852fcc@@3HA",
    "address": "00852fcc"
-  },
-  {
-   "symbol": "?unknown_surface_83995c@@3PAVSurface@@A",
-   "address": "0083995c"
   },
   {
    "symbol": "_vswprintf",

@@ -181,7 +181,7 @@
    "padding_bytes": 0
   },
   {
-   "symbol": "?unknown_func_6e6d50@TEventClass@@QBE_NXZ",
+   "symbol": "?Is_To_Flag_As_Tripped@TEventClass@@QBE_NXZ",
    "entry": "006e6d50",
    "body_bytes": 22,
    "padding_bytes": 10
@@ -542,7 +542,8 @@
    "address": "007c41f8",
    "bytes": 16,
    "kind": "rtti",
-   "section": 76
+   "section": 76,
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4TEventClass@@6BIPersistStream@@@",
@@ -867,7 +868,8 @@
    "symbol": "??_R3TEventClass@@8",
    "address": "007c41f8",
    "bytes": 16,
-   "kind": "rtti"
+   "kind": "rtti",
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4TEventClass@@6BIPersistStream@@@",
@@ -1000,7 +1002,7 @@
   },
   {
    "site": "006ed740",
-   "symbol": "?unknown_func_6e6d50@TEventClass@@QBE_NXZ",
+   "symbol": "?Is_To_Flag_As_Tripped@TEventClass@@QBE_NXZ",
    "target": "006e6d50",
    "function_entry": true
   }

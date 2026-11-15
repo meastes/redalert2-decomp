@@ -175,7 +175,7 @@
    "padding_bytes": 12
   },
   {
-   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "symbol": "?Pixel_To_Lepton@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
    "entry": "006a2900",
    "body_bytes": 107,
    "padding_bytes": 5
@@ -205,7 +205,7 @@
    "padding_bytes": 1
   },
   {
-   "symbol": "?Unknown_006A2BF0@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
+   "symbol": "?Pixel_To_Coord_Absolute@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
    "entry": "006a2bf0",
    "body_bytes": 190,
    "padding_bytes": 2
@@ -433,7 +433,7 @@
    "padding_bytes": 15
   },
   {
-   "symbol": "?Unknown_006A8C80@Tactical@@QAE_NPAUPoint2D@@@Z",
+   "symbol": "?Clamp_To_Tactical_Rect@Tactical@@QAE_NPAUPoint2D@@@Z",
    "entry": "006a8c80",
    "body_bytes": 190,
    "padding_bytes": 2
@@ -451,7 +451,7 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "?Unknown_006A9170@Tactical@@QAEXXZ",
+   "symbol": "?Update_Visible_Cells@Tactical@@QAEXXZ",
    "entry": "006a9170",
    "body_bytes": 289,
    "padding_bytes": 15
@@ -481,7 +481,7 @@
    "padding_bytes": 4
   },
   {
-   "symbol": "?Unknown_006A9F60@Tactical@@QAEX_NABVRect@@1@Z",
+   "symbol": "?Draw_Buildings@Tactical@@QAEX_NABVRect@@1@Z",
    "entry": "006a9f60",
    "body_bytes": 300,
    "padding_bytes": 4
@@ -523,13 +523,13 @@
    "padding_bytes": 4
   },
   {
-   "symbol": "?Unknown_006AA610@Tactical@@QAEXP6IXPAVObjectClass@@@Z@Z",
+   "symbol": "?Select_Rubber_Band@Tactical@@QAEXP6IXPAVObjectClass@@@Z@Z",
    "entry": "006aa610",
    "body_bytes": 136,
    "padding_bytes": 8
   },
   {
-   "symbol": "?Unknown_006AA6A0@Tactical@@QAEHXZ",
+   "symbol": "?Rubber_Band_Contains_Selectable@Tactical@@QAEHXZ",
    "entry": "006aa6a0",
    "body_bytes": 206,
    "padding_bytes": 2
@@ -541,7 +541,7 @@
    "padding_bytes": 3
   },
   {
-   "symbol": "?Unknown_006AA790@Tactical@@QAEXXZ",
+   "symbol": "?Draw_Rubber_Band@Tactical@@QAEXXZ",
    "entry": "006aa790",
    "body_bytes": 168,
    "padding_bytes": 8
@@ -583,7 +583,7 @@
    "padding_bytes": 14
   },
   {
-   "symbol": "?Unknown_006AABC0@Tactical@@QAEXPBVRect@@P6IXPAVObjectClass@@@Z@Z",
+   "symbol": "?Select_These@Tactical@@QAEXPBVRect@@P6IXPAVObjectClass@@@Z@Z",
    "entry": "006aabc0",
    "body_bytes": 378,
    "padding_bytes": 6
@@ -2100,19 +2100,19 @@
   },
   {
    "site": "004536d0",
-   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "symbol": "?Pixel_To_Lepton@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
    "target": "006a2900",
    "function_entry": true
   },
   {
    "site": "0043bbd0",
-   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "symbol": "?Pixel_To_Lepton@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
    "target": "006a2900",
    "function_entry": true
   },
   {
    "site": "0044ed60",
-   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "symbol": "?Pixel_To_Lepton@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
    "target": "006a2900",
    "function_entry": true
   },
@@ -2166,49 +2166,49 @@
   },
   {
    "site": "0044c9a0",
-   "symbol": "?Unknown_006A2BF0@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
+   "symbol": "?Pixel_To_Coord_Absolute@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
    "target": "006a2bf0",
    "function_entry": true
   },
   {
    "site": "0044ea30",
-   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "symbol": "?Pixel_To_Lepton@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
    "target": "006a2900",
    "function_entry": true
   },
   {
    "site": "0044ea30",
-   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "symbol": "?Pixel_To_Lepton@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
    "target": "006a2900",
    "function_entry": true
   },
   {
    "site": "0044ea30",
-   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "symbol": "?Pixel_To_Lepton@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
    "target": "006a2900",
    "function_entry": true
   },
   {
    "site": "0044ea30",
-   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "symbol": "?Pixel_To_Lepton@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
    "target": "006a2900",
    "function_entry": true
   },
   {
    "site": "0044ebf0",
-   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "symbol": "?Pixel_To_Lepton@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
    "target": "006a2900",
    "function_entry": true
   },
   {
    "site": "0044ebf0",
-   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "symbol": "?Pixel_To_Lepton@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
    "target": "006a2900",
    "function_entry": true
   },
   {
    "site": "0044ebf0",
-   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "symbol": "?Pixel_To_Lepton@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
    "target": "006a2900",
    "function_entry": true
   },
@@ -2448,49 +2448,49 @@
   },
   {
    "site": "006a2dd0",
-   "symbol": "?Unknown_006A8C80@Tactical@@QAE_NPAUPoint2D@@@Z",
+   "symbol": "?Clamp_To_Tactical_Rect@Tactical@@QAE_NPAUPoint2D@@@Z",
    "target": "006a8c80",
    "function_entry": true
   },
   {
    "site": "006a2dd0",
-   "symbol": "?Unknown_006A9170@Tactical@@QAEXXZ",
+   "symbol": "?Update_Visible_Cells@Tactical@@QAEXXZ",
    "target": "006a9170",
    "function_entry": true
   },
   {
    "site": "006a2dd0",
-   "symbol": "?Unknown_006A8C80@Tactical@@QAE_NPAUPoint2D@@@Z",
+   "symbol": "?Clamp_To_Tactical_Rect@Tactical@@QAE_NPAUPoint2D@@@Z",
    "target": "006a8c80",
    "function_entry": true
   },
   {
    "site": "006a2dd0",
-   "symbol": "?Unknown_006A9170@Tactical@@QAEXXZ",
+   "symbol": "?Update_Visible_Cells@Tactical@@QAEXXZ",
    "target": "006a9170",
    "function_entry": true
   },
   {
    "site": "006a65a0",
-   "symbol": "?Unknown_006A8C80@Tactical@@QAE_NPAUPoint2D@@@Z",
+   "symbol": "?Clamp_To_Tactical_Rect@Tactical@@QAE_NPAUPoint2D@@@Z",
    "target": "006a8c80",
    "function_entry": true
   },
   {
    "site": "006a65a0",
-   "symbol": "?Unknown_006A9170@Tactical@@QAEXXZ",
+   "symbol": "?Update_Visible_Cells@Tactical@@QAEXXZ",
    "target": "006a9170",
    "function_entry": true
   },
   {
    "site": "006a6640",
-   "symbol": "?Unknown_006A8C80@Tactical@@QAE_NPAUPoint2D@@@Z",
+   "symbol": "?Clamp_To_Tactical_Rect@Tactical@@QAE_NPAUPoint2D@@@Z",
    "target": "006a8c80",
    "function_entry": true
   },
   {
    "site": "006a6640",
-   "symbol": "?Unknown_006A9170@Tactical@@QAEXXZ",
+   "symbol": "?Update_Visible_Cells@Tactical@@QAEXXZ",
    "target": "006a9170",
    "function_entry": true
   },
@@ -2814,7 +2814,7 @@
   },
   {
    "site": "004395f0",
-   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "symbol": "?Pixel_To_Lepton@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
    "target": "006a2900",
    "function_entry": true
   },
@@ -2832,7 +2832,7 @@
   },
   {
    "site": "0044ca60",
-   "symbol": "?Unknown_006A2BF0@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
+   "symbol": "?Pixel_To_Coord_Absolute@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
    "target": "006a2bf0",
    "function_entry": true
   },
@@ -3372,13 +3372,13 @@
   },
   {
    "site": "0049bb20",
-   "symbol": "?Unknown_006AA6A0@Tactical@@QAEHXZ",
+   "symbol": "?Rubber_Band_Contains_Selectable@Tactical@@QAEHXZ",
    "target": "006aa6a0",
    "function_entry": true
   },
   {
    "site": "0049bb20",
-   "symbol": "?Unknown_006AA610@Tactical@@QAEXP6IXPAVObjectClass@@@Z@Z",
+   "symbol": "?Select_Rubber_Band@Tactical@@QAEXP6IXPAVObjectClass@@@Z@Z",
    "target": "006aa610",
    "function_entry": true
   },
@@ -3462,7 +3462,7 @@
   },
   {
    "site": "0043c930",
-   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "symbol": "?Pixel_To_Lepton@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
    "target": "006a2900",
    "function_entry": true
   },
@@ -3666,13 +3666,13 @@
   },
   {
    "site": "006a66b0",
-   "symbol": "?Unknown_006A8C80@Tactical@@QAE_NPAUPoint2D@@@Z",
+   "symbol": "?Clamp_To_Tactical_Rect@Tactical@@QAE_NPAUPoint2D@@@Z",
    "target": "006a8c80",
    "function_entry": true
   },
   {
    "site": "006a66b0",
-   "symbol": "?Unknown_006A9170@Tactical@@QAEXXZ",
+   "symbol": "?Update_Visible_Cells@Tactical@@QAEXXZ",
    "target": "006a9170",
    "function_entry": true
   },
@@ -3810,13 +3810,13 @@
   },
   {
    "site": "00472540",
-   "symbol": "?Unknown_006A2BF0@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
+   "symbol": "?Pixel_To_Coord_Absolute@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
    "target": "006a2bf0",
    "function_entry": true
   },
   {
    "site": "0043bfc0",
-   "symbol": "?Unknown_006A2BF0@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
+   "symbol": "?Pixel_To_Coord_Absolute@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
    "target": "006a2bf0",
    "function_entry": true
   },
@@ -3882,7 +3882,7 @@
   },
   {
    "site": "0043b7e0",
-   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "symbol": "?Pixel_To_Lepton@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
    "target": "006a2900",
    "function_entry": true
   },
@@ -4080,7 +4080,7 @@
   },
   {
    "site": "006df6c0",
-   "symbol": "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
+   "symbol": "?Pixel_To_Lepton@Tactical@@QAE?AUPoint2D@@ABU2@@Z",
    "target": "006a2900",
    "function_entry": true
   },
@@ -4279,6 +4279,10 @@
    "address": "00476ac0"
   },
   {
+   "symbol": "?AllowVoice@@3_NA",
+   "address": "007d88d6"
+  },
+  {
    "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
    "address": "008315b4"
   },
@@ -4323,12 +4327,20 @@
    "address": "00ab6ef8"
   },
   {
+   "symbol": "?CompositeSurface@@3PAVSurface@@A",
+   "address": "00839964"
+  },
+  {
    "symbol": "?Compute_CRC@AbstractClass@@UBEXAAVWWCRCEngine@@@Z",
    "address": "004101b0"
   },
   {
    "symbol": "?Create_ID@AbstractClass@@UAGXXZ",
    "address": "0040ffd0"
+  },
+  {
+   "symbol": "?CurrentObject@@3V?$DynamicVectorClass@PAVObjectClass@@@@A",
+   "address": "00a40c60"
   },
   {
    "symbol": "?Debug_Map@@3_NA",
@@ -4503,6 +4515,10 @@
    "address": "00410120"
   },
   {
+   "symbol": "?LogicalSurface@@3PAVSurface@@A",
+   "address": "0083995c"
+  },
+  {
    "symbol": "?MainWindow@@3PAUHWND__@@A",
    "address": "00b263d8"
   },
@@ -4523,6 +4539,10 @@
    "address": "00724f80"
   },
   {
+   "symbol": "?NormalDrawer@@3PAVConvertClass@@A",
+   "address": "008323c4"
+  },
+  {
    "symbol": "?On_Ground@AbstractClass@@UBE_NXZ",
    "address": "004102c0"
   },
@@ -4541,6 +4561,10 @@
   {
    "symbol": "?Owning_House@AbstractClass@@UBEPAVHouseClass@@XZ",
    "address": "00410240"
+  },
+  {
+   "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+   "address": "00a35db4"
   },
   {
    "symbol": "?Print@BitTextClass@@QAEHPAVBitFontClass@@PAVSurface@@PBGHHHH@Z",
@@ -4595,6 +4619,10 @@
    "address": "00499070"
   },
   {
+   "symbol": "?Set_Type_Select_Mode@@YIXI@Z",
+   "address": "006f6780"
+  },
+  {
    "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
    "address": "0069fb20"
   },
@@ -4605,6 +4633,14 @@
   {
    "symbol": "?TacticalMap@@3PAVTactical@@A",
    "address": "0083996c"
+  },
+  {
+   "symbol": "?TacticalRect@@3VRect@@A",
+   "address": "00839630"
+  },
+  {
+   "symbol": "?TileSurface@@3PAVSurface@@A",
+   "address": "00839944"
   },
   {
    "symbol": "?TransIconset@DisplayClass@@2PBXB",
@@ -4625,10 +4661,6 @@
   {
    "symbol": "?Unknown_006F76B0@@YA_NXZ",
    "address": "006f76b0"
-  },
-  {
-   "symbol": "?Unknown_006f6780@@YIXI@Z",
-   "address": "006f6780"
   },
   {
    "symbol": "?Update@ABuffer@@QAEXVRect@@@Z",
@@ -4689,10 +4721,6 @@
   {
    "symbol": "?unknown_b263d8@@3HA",
    "address": "00b263d8"
-  },
-  {
-   "symbol": "?unknown_drawer_8323c4@@3PAVConvertClass@@A",
-   "address": "008323c4"
   },
   {
    "symbol": "?unknown_drawer_8323c8@@3PAVConvertClass@@A",
@@ -4759,24 +4787,12 @@
    "address": "00a40368"
   },
   {
-   "symbol": "?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A",
-   "address": "00a40c60"
-  },
-  {
    "symbol": "?unknown_origin_x_7f6928@@3HA",
    "address": "007f6928"
   },
   {
    "symbol": "?unknown_origin_y_7f692c@@3HA",
    "address": "007f692c"
-  },
-  {
-   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
-   "address": "00a35db4"
-  },
-  {
-   "symbol": "?unknown_rect_839630@@3VRect@@A",
-   "address": "00839630"
   },
   {
    "symbol": "?unknown_rgb_ab6841@@3VRGBClass@@A",
@@ -4823,24 +4839,8 @@
    "address": "004102e0"
   },
   {
-   "symbol": "?unknown_sound_enabled_7d88d6@@3_NA",
-   "address": "007d88d6"
-  },
-  {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "?unknown_surface_839944@@3PAVSurface@@A",
-   "address": "00839944"
-  },
-  {
-   "symbol": "?unknown_surface_83995c@@3PAVSurface@@A",
-   "address": "0083995c"
-  },
-  {
-   "symbol": "?unknown_surface_839964@@3PAVSurface@@A",
-   "address": "00839964"
   },
   {
    "symbol": "_CLSID_Tactical",

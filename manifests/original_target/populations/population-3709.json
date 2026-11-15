@@ -4,8 +4,8 @@
     "id": "population-3709",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "799553a3a16efd6ec23d47627e3cd06fdd22f8db275e96fafa81c089c91126d0",
-    "historical_acceptance_sha256": "b164ccb29dbe33b0ebbf4dc1929a94f388a3ab6ee21dbc3f4d04a09317dfefb0"
+    "historical_population_sha256": "9ffbfff18b6da0771170e4bbb229f9e66358178593b25181aadcc35833ed245c",
+    "historical_acceptance_sha256": "f1309f4418a12704a09f7b619bb95a25ea4f21e4b1139284dc2ac8fbd0045e1d"
   },
   "references": {
     "_unknown_empty_rect": 10937240,
@@ -1828,7 +1828,7 @@
     "?Print@ScoreFontClass@@UAEXPAVSurface@@PBGHHH@Z": 6716528,
     "_fgetc": 7883275,
     "_exit": 7884508,
-    "?Unknown_00691320@@YAXXZ": 6886176,
+    "?Emergency_Exit@@YAXXZ": 6886176,
     "?ReadyToQuit@@3HA": 10751360,
     "?dwRegisterMap@@3KA": 8342732,
     "?unknown_flag_abd48c@@3_NA": 11261068,
@@ -2284,7 +2284,7 @@
           "resolved": 10937252
         }
       ],
-      "source_sha256": "0d76ef7db9d03ee1d722d10642ffef2f7fd64b360aa32af85283c6724c0b5b9a",
+      "source_sha256": "f4a6a3cd72c7964b4fc4891d0747ed9210ecdbbedbf71364e01a090a81a2e5c4",
       "source": "src/recovered/jshell.cpp",
       "population": "population-3709",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -2310,7 +2310,7 @@
       "full_extent_bytes": 80,
       "full_extent_sha256": "92d13e2fd1d8329f6a0cfa255a3e2f83ba82d06d5fd981fdbb9238c301b765cb",
       "relocations": [],
-      "source_sha256": "0d76ef7db9d03ee1d722d10642ffef2f7fd64b360aa32af85283c6724c0b5b9a",
+      "source_sha256": "f4a6a3cd72c7964b4fc4891d0747ed9210ecdbbedbf71364e01a090a81a2e5c4",
       "source": "src/recovered/jshell.cpp",
       "population": "population-3709",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -2336,7 +2336,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "9f897d253ff18f6ed912d5afdf451570faf46edaf53d2512ff35ca41a636c51c",
       "relocations": [],
-      "source_sha256": "0d76ef7db9d03ee1d722d10642ffef2f7fd64b360aa32af85283c6724c0b5b9a",
+      "source_sha256": "f4a6a3cd72c7964b4fc4891d0747ed9210ecdbbedbf71364e01a090a81a2e5c4",
       "source": "src/recovered/jshell.cpp",
       "population": "population-3709",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -2362,7 +2362,7 @@
       "full_extent_bytes": 80,
       "full_extent_sha256": "46db18993fd0eb0263a68226c6ea4fe39bd2d9a9e6f1bc8dfbfa2fcb3bf100fd",
       "relocations": [],
-      "source_sha256": "0d76ef7db9d03ee1d722d10642ffef2f7fd64b360aa32af85283c6724c0b5b9a",
+      "source_sha256": "f4a6a3cd72c7964b4fc4891d0747ed9210ecdbbedbf71364e01a090a81a2e5c4",
       "source": "src/recovered/jshell.cpp",
       "population": "population-3709",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -2388,7 +2388,7 @@
       "full_extent_bytes": 80,
       "full_extent_sha256": "4f28b8dffaf0b4c0a0d2e66862f1b859ad59a150e2d27f3c4c2bc5063d1357b3",
       "relocations": [],
-      "source_sha256": "0d76ef7db9d03ee1d722d10642ffef2f7fd64b360aa32af85283c6724c0b5b9a",
+      "source_sha256": "f4a6a3cd72c7964b4fc4891d0747ed9210ecdbbedbf71364e01a090a81a2e5c4",
       "source": "src/recovered/jshell.cpp",
       "population": "population-3709",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -2417,7 +2417,7 @@
         {
           "offset": 1,
           "kind": 20,
-          "symbol": "?Unknown_00691320@@YAXXZ",
+          "symbol": "?Emergency_Exit@@YAXXZ",
           "target": 6886176,
           "addend": 0,
           "resolved": 1451291
@@ -2463,7 +2463,7 @@
           "resolved": 1451218
         }
       ],
-      "source_sha256": "0d76ef7db9d03ee1d722d10642ffef2f7fd64b360aa32af85283c6724c0b5b9a",
+      "source_sha256": "f4a6a3cd72c7964b4fc4891d0747ed9210ecdbbedbf71364e01a090a81a2e5c4",
       "source": "src/recovered/jshell.cpp",
       "population": "population-3709",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",

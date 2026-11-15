@@ -364,56 +364,56 @@
    "address": "007b2500",
    "bytes": 24,
    "kind": "rtti",
-   "section": 56
+   "section": 51
   },
   {
    "symbol": "??_R2CCFileClass@@8",
    "address": "007b2518",
    "bytes": 21,
    "kind": "rtti",
-   "section": 57
+   "section": 52
   },
   {
    "symbol": "??_R3CCFileClass@@8",
    "address": "007b2530",
    "bytes": 16,
    "kind": "rtti",
-   "section": 58
+   "section": 53
   },
   {
    "symbol": "??_R4CCFileClass@@6B@",
    "address": "007b2540",
    "bytes": 20,
    "kind": "rtti",
-   "section": 60
+   "section": 55
   },
   {
    "symbol": "??_R1A@?0A@A@FileClass@@8",
    "address": "007b2558",
    "bytes": 24,
    "kind": "rtti",
-   "section": 49
+   "section": 44
   },
   {
    "symbol": "??_R1A@?0A@A@RawFileClass@@8",
    "address": "007b2570",
    "bytes": 24,
    "kind": "rtti",
-   "section": 51
+   "section": 46
   },
   {
    "symbol": "??_R1A@?0A@A@BufferIOFileClass@@8",
    "address": "007b2588",
    "bytes": 24,
    "kind": "rtti",
-   "section": 53
+   "section": 48
   },
   {
    "symbol": "??_R1A@?0A@A@CDFileClass@@8",
    "address": "007b25a0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 55
+   "section": 50
   },
   {
    "symbol": "??_R2CDFileClass@@8",
@@ -441,28 +441,28 @@
    "address": "007c0c18",
    "bytes": 24,
    "kind": "rtti",
-   "section": 43
+   "section": 56
   },
   {
    "symbol": "??_R2ScorePrintClass@@8",
    "address": "007c0c30",
    "bytes": 9,
    "kind": "rtti",
-   "section": 44
+   "section": 57
   },
   {
    "symbol": "??_R3ScorePrintClass@@8",
    "address": "007c0c40",
    "bytes": 16,
    "kind": "rtti",
-   "section": 45
+   "section": 58
   },
   {
    "symbol": "??_R4ScorePrintClass@@6B@",
    "address": "007c0c50",
    "bytes": 20,
    "kind": "rtti",
-   "section": 47
+   "section": 60
   },
   {
    "symbol": "??_R1A@?0A@A@ScoreAnimClass@@8",
@@ -525,35 +525,35 @@
    "address": "007cc8b0",
    "bytes": 26,
    "kind": "rtti",
-   "section": 59
+   "section": 54
   },
   {
    "symbol": "??_R0?AVFileClass@@@8",
    "address": "007cc8d0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 48
+   "section": 43
   },
   {
    "symbol": "??_R0?AVRawFileClass@@@8",
    "address": "007cc8e8",
    "bytes": 27,
    "kind": "rtti",
-   "section": 50
+   "section": 45
   },
   {
    "symbol": "??_R0?AVBufferIOFileClass@@@8",
    "address": "007cc908",
    "bytes": 32,
    "kind": "rtti",
-   "section": 52
+   "section": 47
   },
   {
    "symbol": "??_R0?AVCDFileClass@@@8",
    "address": "007cc928",
    "bytes": 26,
    "kind": "rtti",
-   "section": 54
+   "section": 49
   },
   {
    "symbol": "??_C@_02MECO@?$CFd?$AA@",
@@ -602,7 +602,7 @@
    "address": "007f2750",
    "bytes": 30,
    "kind": "rtti",
-   "section": 46
+   "section": 59
   },
   {
    "symbol": "??_R0?AVScoreAnimClass@@@8",
@@ -1474,6 +1474,10 @@
    "address": "0049eea0"
   },
   {
+   "symbol": "?Call_Back@@YAXXZ",
+   "address": "00481fb0"
+  },
+  {
    "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
    "address": "005322d0"
   },
@@ -1602,6 +1606,10 @@
    "address": "006e7eb0"
   },
   {
+   "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+   "address": "00a35db4"
+  },
+  {
    "symbol": "?Queue_Song@ThemeClass@@QAEXH@Z",
    "address": "006e7e20"
   },
@@ -1662,6 +1670,10 @@
    "address": "00469150"
   },
   {
+   "symbol": "?StillUpdating@@3_NA",
+   "address": "00ab6f9c"
+  },
+  {
    "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
    "address": "006e81a0"
   },
@@ -1684,6 +1696,10 @@
   {
    "symbol": "?To_Char@WWKeyboardClass@@QAEDG@Z",
    "address": "00532800"
+  },
+  {
+   "symbol": "?VisibleSurface@@3PAVSurface@@A",
+   "address": "00839950"
   },
   {
    "symbol": "?WWKeyboard@@3PAVWWKeyboardClass@@A",
@@ -1714,10 +1730,6 @@
    "address": "00a40a28"
   },
   {
-   "symbol": "?unknown_481fb0@@YAXXZ",
-   "address": "00481fb0"
-  },
-  {
    "symbol": "?unknown_5b5ee0@@YAXXZ",
    "address": "005b5ee0"
   },
@@ -1736,14 +1748,6 @@
   {
    "symbol": "?unknown_math_4ba5b0@@YANN@Z",
    "address": "004ba5b0"
-  },
-  {
-   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
-   "address": "00a35db4"
-  },
-  {
-   "symbol": "?unknown_score_print_ab6f9c@@3_NA",
-   "address": "00ab6f9c"
   },
   {
    "symbol": "?unknown_shift_852fb8@@3HA",
@@ -1772,10 +1776,6 @@
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "?unknown_surface_839950@@3PAVSurface@@A",
-   "address": "00839950"
   },
   {
    "symbol": "_PTR_FUN_007a928c",

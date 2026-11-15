@@ -4,8 +4,8 @@
     "id": "population-4223",
     "inventory_sha256": "30952e864846da74c93998490bfdf040e6c6898075c7ea550110681fb24aa1bd",
     "gaps_sha256": "63f361024dec5e325f8acb1fa4de455e14c194d8942e8a8563450a5d60303cbd",
-    "historical_population_sha256": "ee7c92622975f6e99731220986e8bd436760573263de15961e7422228ca7f460",
-    "historical_acceptance_sha256": "cc7ac7589f997ef018577fdda4fbb69c31994993a4c4db4f4a4aa10cbcd8e082"
+    "historical_population_sha256": "a290549db3744a78a2613046809bc0ec5bbf674ea26365d43bb01e40fadd5dd3",
+    "historical_acceptance_sha256": "296b27e06473d148b461827f08563f6c55ea380d9997799e501b851c6ded7fb7"
   },
   "references": {
     "_unknown_empty_rect": 10950712,
@@ -1628,7 +1628,7 @@
     "??0BufferIOFileClass@@QAE@PBD@Z": 4387328,
     "??_7BufferIOFileClass@@6B@": 7980860,
     "??_GBufferIOFileClass@@UAEPAXI@Z": 4390384,
-    "?unknown_object_84e8d0@@3VBeaconManagerClass@@A": 8710352,
+    "?BeaconManager@@3VBeaconManagerClass@@A": 8710352,
     "??4Buffer@@QAEAAV0@ABV0@@Z": 4424656,
     "??_GCDFileClass@@UAEPAXI@Z": 4200784,
     "?First@CDFileClass@@2PAUCDSearchDrive@@A": 8718488,
@@ -2461,11 +2461,11 @@
     "??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z": 5537904,
     "?On_Ground@ObjectClass@@UBE_NXZ": 6116320,
     "?In_Air@ObjectClass@@UBE_NXZ": 6116368,
-    "?unknown_player_a35db4@@3PAVHouseClass@@A": 10706356,
+    "?PlayerPtr@@3PAVHouseClass@@A": 10706356,
     "?Pixel_Dimensions@ObjectTypeClass@@UBE?AUCoordStruct@@XZ": 6118672,
     "?Lepton_Dimensions@ObjectTypeClass@@UBE?AUCoordStruct@@XZ": 6118704,
     "?Render@GScreenClass@@UAEXXZ": 5114672,
-    "?unknown_surface_839964@@3PAVSurface@@A": 8624484,
+    "?CompositeSurface@@3PAVSurface@@A": 8624484,
     "?LogicalSurface@@3PAVSurface@@A": 8624476,
     "?Render@Tactical@@QAEXPAVSurface@@_NH@Z": 6964640,
     "?Debug_Map@@3_NA": 10751251,
@@ -2817,7 +2817,7 @@
     "?RadarEventClass_unknown_delete_all_63c640@@YAXXZ": 6538816,
     "?Resume@ScoreAnimClass@@UAEXXZ": 6718288,
     "?Value@UnknownTimeSource_0069a160@@QAEHXZ": 6923312,
-    "?unknown_object_84e8d0@@3UUnknownFallback_006f6490@@A": 8710352,
+    "?BeaconManager@@3UUnknownFallback_006f6490@@A": 8710352,
     "?Resume@Anim@Voices@WorldDominationTour@@UAEXXZ": 7547808,
     "?Advance@Anim@Voices@WorldDominationTour@@UAE_NPAVSurface@@PAVRect@@@Z": 7547840,
     "?Clear@?$WolArrayList@VWstring@@@@QAEXXZ": 7758272,
@@ -2970,7 +2970,7 @@
     "?Load@Group@Voices@WorldDominationTour@@QAEXAAVINIClass@@ABVWstring@@H@Z": 7545024,
     "?Stop@Voices@WorldDominationTour@@QAEXXZ": 7547376,
     "__aulldiv": 7873920,
-    "?unknown_481fb0@@YAXXZ": 4726704,
+    "?Call_Back@@YAXXZ": 4726704,
     "?Create_And_Place@BuildingTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 4555808,
     "?Get_Image_Data@BuildingTypeClass@@UBEPAXXZ": 4558048,
     "?AI@FootClass@@UAEXXZ": 5017584,
@@ -3203,7 +3203,7 @@
     "__real@8@4007e100000000000000": 7988944,
     "?unknown_slot28@InfantryClass@@UAEHPAVObjectClass@@_N@Z": 5264272,
     "?Read_INI@InfantryClass@@SIXAAVCCINIClass@@@Z": 5269856,
-    "?unknown_ini_format_a40d24@@3HA": 10751268,
+    "?NewINIFormat@@3HA": 10751268,
     "?ID@?$DynamicVectorClass@PBVTechnoTypeClass@@@@UAEHPBQBVTechnoTypeClass@@@Z": 4956304,
     "?Service_Game_IO_00481fb0@@YIXXZ": 4726704,
     "?x@?1???A?$IndexClass@HPAVCommandClass@@@@QBEABQAVCommandClass@@ABH@Z@4PAV2@A": 11712060,
@@ -3211,7 +3211,7 @@
     "__imp__EndDialog@8": 7971772,
     "__imp__DialogBoxParamA@20": 7971780,
     "__imp__lstrlenA@4": 7971228,
-    "?unknown_surface_839944@@3PAVSurface@@A": 8624452,
+    "?TileSurface@@3PAVSurface@@A": 8624452,
     "__imp__RegOpenKeyExA@20": 7970828,
     "__imp__RegCloseKey@4": 7970820,
     "?Fill@ZBuffer@@QAEXG@Z": 7823712,
@@ -4705,7 +4705,7 @@
     "__DAT_00ac0170": 11272560,
     "__DAT_00a769e8": 10971624,
     "?Planar_Distance@ObjectClass@@QBEHPBVAbstractClass@@@Z": 6114528,
-    "?unknown_player_a35db4@@3PAUUnknownHouse_00610770@@A": 10706356,
+    "?PlayerPtr@@3PAUUnknownHouse_00610770@@A": 10706356,
     "?Set@UnknownRefHolder_00639530@@QAEXPAUUnknownRefCounted_00639530@@@Z": 6526256,
     "?Get@UnknownStringList_7662c0@@QAE_NAAVWstring@@H@Z": 7758528,
     "?target@Call_40d890_0@@QAIIII@Z": 5930144,
@@ -6233,7 +6233,7 @@
           "resolved": 10950724
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -6258,7 +6258,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "relocations": [],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -6300,7 +6300,7 @@
           "resolved": 1893606
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -6334,7 +6334,7 @@
           "resolved": 1893568
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -6359,7 +6359,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "relocations": [],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -6384,7 +6384,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
       "relocations": [],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -6418,7 +6418,7 @@
           "resolved": 1893472
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -6443,7 +6443,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "relocations": [],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -6468,7 +6468,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
       "relocations": [],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -6493,7 +6493,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
       "relocations": [],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -6527,7 +6527,7 @@
           "resolved": 1893139
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -6552,7 +6552,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
       "relocations": [],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -6577,7 +6577,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "relocations": [],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -6602,7 +6602,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
       "relocations": [],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -6627,7 +6627,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
       "relocations": [],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -6661,7 +6661,7 @@
           "resolved": 1892531
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -6686,7 +6686,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
       "relocations": [],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -6711,7 +6711,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "relocations": [],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -6736,7 +6736,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
       "relocations": [],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -6786,7 +6786,7 @@
           "resolved": 1892123
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -6836,7 +6836,7 @@
           "resolved": 1892043
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -6886,7 +6886,7 @@
           "resolved": 1891963
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -6936,7 +6936,7 @@
           "resolved": 1891883
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -6978,7 +6978,7 @@
           "resolved": 1893216
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -7020,7 +7020,7 @@
           "resolved": 1892909
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -7062,7 +7062,7 @@
           "resolved": 1892608
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -7104,7 +7104,7 @@
           "resolved": 1892301
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -7162,7 +7162,7 @@
           "resolved": 8024104
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -7260,7 +7260,7 @@
           "resolved": 1896431
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -7285,7 +7285,7 @@
       "full_extent_bytes": 112,
       "full_extent_sha256": "8c66e4fea7ac437e4c32c64479bd601d15e4a305176084d81208f195fedfd787",
       "relocations": [],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -7319,7 +7319,7 @@
           "resolved": 1901652
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -7344,7 +7344,7 @@
       "full_extent_bytes": 112,
       "full_extent_sha256": "b781cf3d9f71b4928ba27fa36f8654bf2bbf7e198342c10e7683983bade1df91",
       "relocations": [],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -7394,7 +7394,7 @@
           "resolved": 14
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -7468,7 +7468,7 @@
           "resolved": 26
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -7550,7 +7550,7 @@
           "resolved": 8625256
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -7632,7 +7632,7 @@
           "resolved": 8625256
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -7746,7 +7746,7 @@
           "resolved": 4293210635
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -7788,7 +7788,7 @@
           "resolved": 12916
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -7813,7 +7813,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "dbb12737b5e63bac357a0fa7dbf36a136dbf754e5a837c8b40ae3ea7ebe76648",
       "relocations": [],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -7855,7 +7855,7 @@
           "resolved": 1491
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -7899,7 +7899,7 @@
         {
           "offset": 40,
           "kind": 20,
-          "symbol": "?unknown_481fb0@@YAXXZ",
+          "symbol": "?Call_Back@@YAXXZ",
           "target": 4726704,
           "addend": 0,
           "resolved": 4293716532
@@ -8001,7 +8001,7 @@
           "resolved": 945669
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -8067,7 +8067,7 @@
           "resolved": 12804
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -8101,7 +8101,7 @@
           "resolved": 4294966901
         }
       ],
-      "source_sha256": "149780d0e50e4541bd944140f181f236e7e57b63ad2b2a064587ead8ebbd329d",
+      "source_sha256": "81a90cfbdb1fc1b8721d6ce400a82bc9b771e2375da14627f8799c0e664784ce",
       "source": "src/recovered/msengine.cpp",
       "population": "population-4223",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",

@@ -84,7 +84,7 @@ public:
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x00422DB0 slot 13
 #ifdef RA2_ANIM_INLINE_CENTER
     virtual CoordStruct Center_Coord() const {
-        if (unknown_b4 != 0) return unknown_b4->Center_Coord() + ObjectClass::Center_Coord();
+        if (xObject != 0) return xObject->Center_Coord() + ObjectClass::Center_Coord();
         return ObjectClass::Center_Coord();
     }
 #else
@@ -117,7 +117,7 @@ public:
     void unknown_func_422c20();                                         // 0x00422C20 (unknown_17e = false)
 
     AnimTypeClass *Class;                   // +0x0B0
-    ObjectClass *unknown_b4;                // +0x0B4
+    ObjectClass *xObject;                // +0x0B4
     int unknown_b8;                         // +0x0B8
     ConvertClass *unknown_bc;               // +0x0BC (a ColorSchemes entry's Converter)
     int unknown_c0;                         // +0x0C0
@@ -227,13 +227,13 @@ int __stdcall Get_Explosion_Z_0047fcc0(CoordStruct position);
 
 // Called from the bullets' AI (0x00422BA0; arg1 is not read): damages the
 // center of cell and, in game mode 0, has 0x004955D0
-// schedule unknown_481fb0 (hypotheses).
+// schedule Call_Back (hypotheses).
 void __fastcall Unknown_00422BA0(int arg1, Cell const &cell);
 // Gives every animated-tiberium animation the palette entry of its cell's
 // tiberium (0x00423C70; name hypothesis).
 void __fastcall Unknown_00423C70();
 // Set_Palette and GamePalette are in shared/unknown_globals.hpp.
-void unknown_481fb0();                              // 0x00481FB0 (shared/ms_engine.hpp)
+void Call_Back();                              // 0x00481FB0 (shared/ms_engine.hpp)
 
 // The cell offsets of the eight facings (0x00851A70; shared/aircraft.hpp
 // declares the same table as AdjacentCell).

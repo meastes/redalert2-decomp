@@ -505,7 +505,7 @@ void WaveClass::Draw_It(Point2D const &point, Rect const &window)
 #ifdef RA2_NON_MATCHING
 #include "shared/blit.hpp"
 void __fastcall Rasterize_Polygon_0061be40(WavePolygonInput const &shape, WaveScanlineBuffer &raster);
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 #define MIN(a,b) (((a) < (b)) ? (a) : (b))
 #define MAX(a,b) (((a) > (b)) ? (a) : (b))
 
@@ -526,7 +526,7 @@ void WaveClass::Draw_Sonic_007225b0(Point2D const &point, Rect const &cliprect)
         Rasterize_Polygon_0061be40(Polygon_130, Scanlines_168);
 
         if (Scanlines_168.Spans != 0) {
-            int starty = yoff + unknown_rect_839630.Y + Scanlines_168.FirstY;
+            int starty = yoff + TacticalRect.Y + Scanlines_168.FirstY;
             int endy = (Scanlines_168.Count + starty - 1 < cliprect.Height + cliprect.Y) ? Scanlines_168.Count + starty - 1 : cliprect.Height + cliprect.Y;
 
             int y;
@@ -539,7 +539,7 @@ void WaveClass::Draw_Sonic_007225b0(Point2D const &point, Rect const &cliprect)
                 int xstop;
                 int xstart;
                 zval = (unsigned short)(DepthBuffer->MaxValue - zpix) - starty - 2;
-                unsigned short *zptr = DepthBuffer->Get_Buffer_Offset(Point2D(0, starty - unknown_rect_839630.Y));
+                unsigned short *zptr = DepthBuffer->Get_Buffer_Offset(Point2D(0, starty - TacticalRect.Y));
                 int width = LogicalSurface->Get_Width();
                 int zwidth = DepthBuffer->Width;
 
@@ -582,7 +582,7 @@ void WaveClass::Draw_Sonic_007225b0(Point2D const &point, Rect const &cliprect)
                             xstart = MAX(entry->X + xoff, cliprect.X + 2);
 
                             unsigned short *dest = surfptr + xstart + y * (LogicalSurface->Stride() >> 1);
-                            int zy = y - unknown_rect_839630.Y;
+                            int zy = y - TacticalRect.Y;
                             Point2D zpos(xstart, zy);
                             int ypos = abs(y - yoff - WaveStartMiddle.Y);
                             for (int x = xstart; x <= xstop; x++, dest++) {
@@ -598,7 +598,7 @@ void WaveClass::Draw_Sonic_007225b0(Point2D const &point, Rect const &cliprect)
             } else {
                 int xstop;
                 int xstart;
-                unsigned int zoffset = (unsigned int)DepthBuffer->Get_Buffer_Offset(Point2D(0, starty - unknown_rect_839630.Y));
+                unsigned int zoffset = (unsigned int)DepthBuffer->Get_Buffer_Offset(Point2D(0, starty - TacticalRect.Y));
                 int width = LogicalSurface->Get_Width();
                 int zwidth = DepthBuffer->Width;
 
@@ -607,7 +607,7 @@ void WaveClass::Draw_Sonic_007225b0(Point2D const &point, Rect const &cliprect)
                     unsigned short *dest = surfptr + endy * stride;
                     points = &Scanlines_168.Spans[endy - starty];
                     zval = (unsigned short)(DepthBuffer->MaxValue - endy) - zpix - 2;
-                    unsigned short *zptr = DepthBuffer->Get_Buffer_Offset(Point2D(0, endy - unknown_rect_839630.Y));
+                    unsigned short *zptr = DepthBuffer->Get_Buffer_Offset(Point2D(0, endy - TacticalRect.Y));
 
                     for (y = endy; y >= starty; y--) {
                         if (y >= top && y <= bottom) {
@@ -644,7 +644,7 @@ void WaveClass::Draw_Sonic_007225b0(Point2D const &point, Rect const &cliprect)
                             xstop = MAX(xoff + entry->X, cliprect.X + 2);
 
                             unsigned short *dest = surfptr + xstart + y * (LogicalSurface->Stride() >> 1);
-                            int zy = y - unknown_rect_839630.Y;
+                            int zy = y - TacticalRect.Y;
                             Point2D zpos(xstart, zy);
                             int ypos = abs(y - yoff - WaveStartMiddle.Y);
                             for (int x = xstart; x >= xstop; x--, dest--) {
@@ -672,7 +672,7 @@ void WaveClass::Draw_Sonic_007225b0(Point2D const &point, Rect const &cliprect)
 
 // Not exact (RA2_NON_MATCHING): FUN_00722cb0 at 0x00722CB0, best score 61.27, 2026-11-13; differs: 394 instructions in the original, 396 in the draft (shape 92.41)
 #ifdef RA2_NON_MATCHING
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 #ifndef MIN
 #endif
 void __fastcall Rasterize_Polygon_0061be40(WavePolygonInput const &shape, WaveScanlineBuffer &raster);
@@ -694,7 +694,7 @@ void WaveClass::Draw_Laser_00722cb0(Point2D const &point, Rect const &cliprect)
             int right = cliprect.X + cliprect.Width;
 
             int xoff = point.X - WaveStartMiddle.X;
-            int yoff = point.Y - WaveStartMiddle.Y + unknown_rect_839630.Y;
+            int yoff = point.Y - WaveStartMiddle.Y + TacticalRect.Y;
 
             Rasterize_Polygon_0061be40(Polygon_130, Scanlines_168);
 
@@ -717,7 +717,7 @@ void WaveClass::Draw_Laser_00722cb0(Point2D const &point, Rect const &cliprect)
                 depth = (short)DepthBuffer->Get_Scroll() - zpix;
                 depth -= ystart;
                 depth -= 2;
-                zoff = DepthBuffer->Get_Buffer_Offset(Point2D(0, ystart - unknown_rect_839630.Y));
+                zoff = DepthBuffer->Get_Buffer_Offset(Point2D(0, ystart - TacticalRect.Y));
                 if (zoff + (LogicalSurface->Get_Width() + (yend - ystart + 1) * DepthBuffer->Width) < (unsigned short *)DepthBuffer->BufferTail) {
 
                     stride = LogicalSurface->Stride() >> 1;
@@ -774,7 +774,7 @@ void WaveClass::Draw_Laser_00722cb0(Point2D const &point, Rect const &cliprect)
                             }
 
                             scrptr = &buffer[xstart + y * (LogicalSurface->Stride() >> 1)];
-                            Point2D zpos(xstart, y - unknown_rect_839630.Y);
+                            Point2D zpos(xstart, y - TacticalRect.Y);
 
                             for (x = xstart; x <= xstop; x++) {
                                 if (*DepthBuffer->Get_Buffer_Offset(zpos) > depth) {
@@ -973,7 +973,7 @@ void WaveClass::Draw_NonMagnetic_007238b0(CoordStruct const &source, CoordStruct
     Polygon_130.Points[2]=WaveEndRight;
     Polygon_130.Points[3]=WaveStartRight;
     Polygon_130.Points[5]=WaveStartLeft;
-    Facing=Owner->unknown_2f8;
+    Facing=Owner->SecondaryFacing;
 }
 
 

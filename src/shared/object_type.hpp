@@ -139,7 +139,7 @@ public:
     // Who_Can_Build_Me): primary factories first, else the last match.
     virtual BuildingClass *Who_Can_Build_Me(bool in_theory, bool legal, bool check_limit, HouseClass *house) const; // 0x005D5FC0 slot 37
     virtual void const *unknown_slot38() const;                          // 0x005D5D80 (0) Get_Cameo_Data
-    virtual void *Get_Image_Data() const { return unknown_a4; }          // slot 39
+    virtual void *Get_Image_Data() const { return ImageData; }          // slot 39
 
     // Loads the shared pip and talk-bubble shapes once (PIPBRD.SHP,
     // PIPS.SHP, PIPS2.SHP, TALKBUBL.SHP; RA1 name One_Time).
@@ -176,10 +176,10 @@ public:
 #endif
 
     RGBClass RadialColor;                   // +0x098 (RadialColor=)
-    int unknown_9c;                         // +0x09C
+    int Armor;                         // +0x09C
     int MaxStrength;                         // +0x0A0
-    void *unknown_a4;                       // +0x0A4 (the loaded image; hypothesis)
-    bool unknown_a8;                        // +0x0A8
+    void *ImageData;                       // +0x0A4 (the loaded image; hypothesis)
+    bool ImageAllocated;                        // +0x0A8
     int unknown_ac;                         // +0x0AC
     UnknownObjectPair unknown_b0;           // +0x0B0
     UnknownObjectPair unknown_b8;           // +0x0B8

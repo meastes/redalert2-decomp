@@ -7,7 +7,7 @@
 void __fastcall Emergency_Exit(int code);                           // 0x00691310
 // Posts the main window's WM_DESTROY (0x00691320; MixFileClass's constructor calls it before
 // Emergency_Exit when no game disk can be found).
-void Unknown_00691320();
+void Emergency_Exit();
 // The CRT's exit (0x00784EDC; never returns).
 extern "C" __declspec(noreturn) void __cdecl exit(int code);
 // Red Alert's ReadyToQuit (0x00A40D80): 1 while the window procedure is quitting.

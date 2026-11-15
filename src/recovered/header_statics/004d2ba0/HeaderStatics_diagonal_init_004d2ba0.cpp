@@ -64,7 +64,7 @@ DynamicVectorClass<BuildingLightClass *> BuildingLights;
 // The unit's list of ParticleSystemClass (0x00A32280; name is a hypothesis).
 DynamicVectorClass<ParticleSystemClass *> ParticleSystems;
 // The unit's list of TubeClass (0x008661C8; name is a hypothesis).
-DynamicVectorClass<TubeClass *> unknown_TubeClass_list_008661c8;
+DynamicVectorClass<TubeClass *> Tubes;
 // The unit's list of WaveClass (0x00A40BE8; name is a hypothesis).
 DynamicVectorClass<WaveClass *> Waves;
 // The unit's list of BulletClass (0x00A40CE8; name is a hypothesis).
@@ -821,7 +821,7 @@ DynamicVectorClass<AnimClass *> unknown_AnimClass_list_00a35e60;
 // @ref ?TerrainTypes@@3V?$DynamicVectorClass@PAVTerrainTypeClass@@@@A=00a40320
 // @ref ?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A=00a40aa0
 // @ref ?TriggerTypes@@3V?$DynamicVectorClass@PAVTriggerTypeClass@@@@A=00866208
-// @ref ?unknown_TubeClass_list_008661c8@@3V?$DynamicVectorClass@PAVTubeClass@@@@A=008661c8
+// @ref ?Tubes@@3V?$DynamicVectorClass@PAVTubeClass@@@@A=008661c8
 // @ref ?Units@@3V?$DynamicVectorClass@PAVUnitClass@@@@A=00866198
 // @ref ?UnitTypes@@3V?$DynamicVectorClass@PAVUnitTypeClass@@@@A=00a35d48
 // @ref ?VoxelAnimTypes@@3V?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@A=00a40ae0

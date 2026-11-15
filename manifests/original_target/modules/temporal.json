@@ -566,7 +566,8 @@
    "address": "007c3f40",
    "bytes": 16,
    "kind": "rtti",
-   "section": 76
+   "section": 76,
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4TemporalClass@@6BIPersistStream@@@",
@@ -877,7 +878,8 @@
    "symbol": "??_R3TemporalClass@@8",
    "address": "007c3f40",
    "bytes": 16,
-   "kind": "rtti"
+   "kind": "rtti",
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4TemporalClass@@6BIPersistStream@@@",
@@ -1087,6 +1089,10 @@
    "address": "00a40d2c"
   },
   {
+   "symbol": "?GetOccupantCount@BuildingClass@@QAEHXZ",
+   "address": "004532f0"
+  },
+  {
    "symbol": "?GetSizeMax@AbstractClass@@UAGJPATULARGE_INTEGER@@@Z",
    "address": "00410180"
   },
@@ -1143,6 +1149,10 @@
    "address": "00410240"
   },
   {
+   "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+   "address": "00a35db4"
+  },
+  {
    "symbol": "?QueryInterface@AbstractClass@@UAGJABUGUID@@PAPAX@Z",
    "address": "00410000"
   },
@@ -1191,20 +1201,12 @@
    "address": "0040ffb0"
   },
   {
-   "symbol": "?unknown_4532f0@BuildingClass@@QAEHXZ",
-   "address": "004532f0"
-  },
-  {
    "symbol": "?unknown_math_4ba520@@YANN@Z",
    "address": "004ba520"
   },
   {
    "symbol": "?unknown_math_4ba5b0@@YANN@Z",
    "address": "004ba5b0"
-  },
-  {
-   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
-   "address": "00a35db4"
   },
   {
    "symbol": "?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z",

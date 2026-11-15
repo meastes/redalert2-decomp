@@ -112,7 +112,7 @@ extern int unknown_process_frames_a3d574;            // 0x00A3D574 (Session.Proc
 extern bool unknown_trap_check_heap_a40d1a;          // 0x00A40D1A (Debug_Trap_Check_Heap)
 extern bool unknown_flag_a40b51;                     // 0x00A40B51 (picks the theme Main_Loop restarts)
 extern int unknown_net_frame_delay_a6ebcc;           // 0x00A6EBCC (the network frame timer's time left)
-extern bool unknown_flag_a40d45;                     // 0x00A40D45 (cleared once per frame; TibSun's drag_select_aborted)
+extern bool drag_select_aborted;                     // 0x00A40D45 (cleared once per frame; TibSun's drag_select_aborted)
 extern int unknown_team_event_a6ebc4;                // 0x00A6EBC4 (TibSun's TeamEvent)
 extern int unknown_team_number_a6ebc8;               // 0x00A6EBC8 (TibSun's TeamNumber)
 extern bool unknown_flag_a6ebd0;                     // 0x00A6EBD0 (the scenario's save name is set once)

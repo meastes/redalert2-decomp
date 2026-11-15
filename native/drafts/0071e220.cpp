@@ -103,7 +103,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                             LinkedTo->unknown_53c--;
                         } else {
                             if (LinkedTo->unknown_57a) {
-                                Voc_Play(Rules->unknown_620, 1.0f, 0x2000, 0);
+                                Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
                             }
                             LinkedTo->unknown_57a = false;
                             Cell dest = unknown_1c.As_Cell();
@@ -139,10 +139,10 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
             int dir = LinkedTo->Path[0];
             if (dir == 8) {
                 int tube = Map[Object_Coord(LinkedTo)].unknown_116;
-                if (tube >= 0 && tube < unknown_TubeClass_list_008661c8.Count()) {
+                if (tube >= 0 && tube < Tubes.Count()) {
                     LinkedTo->Mark(0);
                     LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
-                    TubeClass *tube_ptr = unknown_TubeClass_list_008661c8[tube];
+                    TubeClass *tube_ptr = Tubes[tube];
                     Cell cell = tube_ptr->ExitCell;
                     unknown_28 = Cell_Coord(cell);
                     memmove(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);   // NATIVE (C16): overlapping (the original's forward rep movsd)
@@ -200,7 +200,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                     if (move == 2) {
                         if (!LinkedTo->unknown_5a1) {
                             LinkedTo->unknown_5a1 = true;
-                            LinkedTo->unknown_558 = Rules->unknown_13d0;
+                            LinkedTo->unknown_558 = Rules->BlockagePathDelay;
                         }
                         if (LinkedTo->unknown_530 != 0) {
                             return;

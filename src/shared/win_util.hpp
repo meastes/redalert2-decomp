@@ -73,8 +73,8 @@ void __fastcall Prefetch_Audio_Buffer(char *buffer, int length);
 // (0x005B6000/0x005B6060), shared/gscreen.hpp (0x00A40D34) and shared/lobby.hpp (0x00735700,
 // 0x007359E0): identical redeclarations so this unit does not include those headers.
 extern int _dialog_count;
-void __fastcall Unknown_005B6000(HWND dialog);
-void __fastcall Unknown_005B6060(HWND dialog);
+void __fastcall Add_Modeless_Dialog(HWND dialog);
+void __fastcall Remove_Modeless_Dialog(HWND dialog);
 typedef long (__stdcall *UnknownDialogProc)(HWND window, unsigned message, unsigned wparam, long lparam);
 // Creates dialog id from its template resource over parent, pushes it on the dialog stack, prepares
 // it and its children (0x00735BC0), shows it when show is set and makes it the current dialog (0x00735700).

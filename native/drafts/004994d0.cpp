@@ -21,7 +21,7 @@
 #include "shared/unknown_globals.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?WWMouse@@3PAVMouse@@A=00839c68
-// @ref ?unknown_rect_839630@@3VRect@@A=00839630
+// @ref ?TacticalRect@@3VRect@@A=00839630
 // @ref ?TacticalMap@@3PAVTactical@@A=0083996c
 // @ref ?unknown_a40d13@@3_NA=00a40d13
 // @ref ?Click_Cell_Calc@RadarClass@@QAE?AVCell@@ABUPoint2D@@@Z=0062fbd0
@@ -39,8 +39,8 @@ Cell DisplayClass::Unknown_004994D0(Cell const &xpos)
 
     if (pos == unknown_geometry_k) {
         Point2D xy = WWMouse->Get_Mouse_XY();
-        Point2D tl = Point2D(unknown_rect_839630.X, unknown_rect_839630.Y);
-        if (xy.X >= tl.X && xy.X < tl.X + unknown_rect_839630.Width && xy.Y >= tl.Y && xy.Y < tl.Y + unknown_rect_839630.Height) {
+        Point2D tl = Point2D(TacticalRect.X, TacticalRect.Y);
+        if (xy.X >= tl.X && xy.X < tl.X + TacticalRect.Width && xy.Y >= tl.Y && xy.Y < tl.Y + TacticalRect.Height) {
             Point2D mouse = WWMouse->Get_Mouse_XY();
             Cell click = Native_Radar_Cell_At(mouse);   // NATIVE: Map.Click_Cell_Calc(mouse)
             if (click != unknown_geometry_k) {

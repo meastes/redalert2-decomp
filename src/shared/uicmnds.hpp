@@ -67,8 +67,8 @@ extern UnknownMessageList unknown_messages_a3dc70;
 inline void Show_Message(wchar_t const *text, int delay)
 {
     int color = 3;
-    if (unknown_player_a35db4 != 0) {
-        color = unknown_player_a35db4->ColorSchemeIndex;
+    if (PlayerPtr != 0) {
+        color = PlayerPtr->ColorSchemeIndex;
     }
     unknown_messages_a3dc70.Add_Message(0, 0, text, color, 0x4046, delay, 1);
 }

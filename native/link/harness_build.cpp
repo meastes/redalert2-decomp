@@ -133,7 +133,7 @@ int buildings_before = 0;
 
 int Player_Buildings()
 {
-    return unknown_player_a35db4->Buildings.Count();
+    return PlayerPtr->Buildings.Count();
 }
 
 void Note(char const *what, int frame, char const *name, Cell const *cell)
@@ -174,7 +174,7 @@ void Houses_Summary(char const *milestone)
         for (int i = 0; i < Technos.Count(); ++i) {
             if (Technos[i] && Technos[i]->Kind_Of() != 6 && Technos[i]->House == house) ++technos;
         }
-        Append(detail, house == unknown_player_a35db4 ? "player" : "house");
+        Append(detail, house == PlayerPtr ? "player" : "house");
         Append_Int(detail, h);
         Append(detail, house->Is_Player_Control() ? " (human" : " (computer");
         Append(detail, ")");
@@ -182,7 +182,7 @@ void Houses_Summary(char const *milestone)
         Append_Int(detail, house->Buildings.Count());
         Append(detail, ", units ");
         Append_Int(detail, technos);
-        if (house == unknown_player_a35db4) {
+        if (house == PlayerPtr) {
             Append(detail, ", money ");
             Append_Int(detail, (int)house->Available_Money());
         }
@@ -203,7 +203,7 @@ void Native_Harness_Houses(char const *milestone)
 // the order kind is build, all or win (army: the long build list).
 void Native_Harness_Build(int frame, bool army)
 {
-    HouseClass *player = unknown_player_a35db4;
+    HouseClass *player = PlayerPtr;
     // RA2_NATIVE_BUILD_LIST=<ID>[,<ID>...] (Scout1295; test scaffolding): this build order
     // instead (up to 8 building types, each built and placed in turn), e.g. a campaign
     // mission's objective building (Soviet 3's Psychic Beacon NAPSYB).

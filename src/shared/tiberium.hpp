@@ -18,7 +18,7 @@ class AnimTypeClass;
 #include "shared/vein_heap.hpp"
 
 class TiberiumClass;
-extern DynamicVectorClass<TiberiumClass *> unknown_TiberiumClass_list_00ac0b30;   // 0x00AC0B30
+extern DynamicVectorClass<TiberiumClass *> Tiberiums;   // 0x00AC0B30
 extern DynamicVectorClass<AbstractClass *> AbstractTypePtrTracker;                 // 0x00AC0CB0
 void __fastcall Detach_This_From_All(AbstractClass *object, bool all);             // 0x006ECB90
 
@@ -84,7 +84,7 @@ public:
     int unknown_c0;                                 // +0x0C0 [Color] (a colour scheme index)
     TypeList<AnimTypeClass *> Debris;               // +0x0C4 (vtable 0x007A3B3C)
     OverlayTypeClass *Image;                        // +0x0E0
-    int unknown_e4;                                 // +0x0E4
+    int FrameCount;                                 // +0x0E4
     int NumFrames;                                  // +0x0E8
     int NumImages;                                  // +0x0EC
     int SpreadCount;                                // +0x0F0 SpreadData entries in use

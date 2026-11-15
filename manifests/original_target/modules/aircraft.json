@@ -3448,8 +3448,16 @@
    "address": "0040dc20"
   },
   {
+   "symbol": "?Assign_Archive_Target@TechnoClass@@QAEXPAVAbstractClass@@@Z",
+   "address": "006d6e50"
+  },
+  {
    "symbol": "?Assign_Destination@FootClass@@UAEXPAVAbstractClass@@_N@Z",
    "address": "004c8030"
+  },
+  {
+   "symbol": "?Assign_Mission_Target@TeamClass@@QAEXPAVAbstractClass@@@Z",
+   "address": "006b79e0"
   },
   {
    "symbol": "?Attach@CargoClass@@QAEXPAVFootClass@@@Z",
@@ -3728,6 +3736,10 @@
    "address": "004ba480"
   },
   {
+   "symbol": "?Feet@@3V?$DynamicVectorClass@PAVFootClass@@@@A",
+   "address": "00865f38"
+  },
+  {
    "symbol": "?Fetch_Heap_ID@AbstractClass@@UBEHXZ",
    "address": "00410250"
   },
@@ -3856,6 +3868,10 @@
    "address": "00636f10"
   },
   {
+   "symbol": "?Has_Entered_Map@TeamClass@@QAE_NXZ",
+   "address": "006baa00"
+  },
+  {
    "symbol": "?Has_Suspended_Mission@MissionClass@@UBE_NXZ",
    "address": "005950e0"
   },
@@ -3900,6 +3916,10 @@
    "address": "006c1c50"
   },
   {
+   "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
+   "address": "0051fc80"
+  },
+  {
    "symbol": "?IronCurtain@FootClass@@UAEXH@Z",
    "address": "004cd3f0"
   },
@@ -3930,6 +3950,10 @@
   {
    "symbol": "?Is_Inactive@ObjectClass@@UBE_NXZ",
    "address": "005d4f10"
+  },
+  {
+   "symbol": "?Is_Leaving_Map@TeamClass@@QAE_NXZ",
+   "address": "006ba990"
   },
   {
    "symbol": "?Is_Moving_Onto_Bridge@FootClass@@UAE_NPAVTechnoClass@@@Z",
@@ -3984,12 +4008,20 @@
    "address": "005d2d60"
   },
   {
+   "symbol": "?Move_To_Object_Nearby@TechnoClass@@QAE_NXZ",
+   "address": "006d8080"
+  },
+  {
    "symbol": "?Name_From_Mission@MissionClass@@SIPBDH@Z",
    "address": "00595020"
   },
   {
    "symbol": "?Nearby_Location@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z",
    "address": "005502e0"
+  },
+  {
+   "symbol": "?NewINIFormat@@3HA",
+   "address": "00a40d24"
   },
   {
    "symbol": "?Next_Waypoint@WaypointPathClass@@QAEPAUWaypointClass@@PBU2@@Z",
@@ -4034,6 +4066,10 @@
   {
    "symbol": "?Planar_Distance@ObjectClass@@QBEHPBVAbstractClass@@@Z",
    "address": "005d4ce0"
+  },
+  {
+   "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+   "address": "00a35db4"
   },
   {
    "symbol": "?Player_Assign_Mission@TechnoClass@@UAE_NHPAVAbstractClass@@00@Z",
@@ -4184,6 +4220,10 @@
    "address": "004c6000"
   },
   {
+   "symbol": "?Techno_Draw_Object@TechnoClass@@QAEXPBXHPBUPoint2D@@PBVRect@@HHHHHHPBUShapeFileStruct@@HU2@H@Z",
+   "address": "006d1510"
+  },
+  {
    "symbol": "?Techno_Type_Class@TechnoClass@@UAEPAVTechnoTypeClass@@XZ",
    "address": "006c12c0"
   },
@@ -4236,10 +4276,6 @@
    "address": "0051fc50"
   },
   {
-   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
-   "address": "0051fc80"
-  },
-  {
    "symbol": "?Unknown_0054A550@MapClass@@QAEXABUCoordStruct@@HHH@Z",
    "address": "0054a550"
   },
@@ -4262,10 +4298,6 @@
   {
    "symbol": "?Unknown_006A2970@@YIHH@Z",
    "address": "006a2970"
-  },
-  {
-   "symbol": "?Unknown_006BA990@TeamClass@@QAE_NXZ",
-   "address": "006ba990"
   },
   {
    "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
@@ -4328,22 +4360,6 @@
    "address": "006cf130"
   },
   {
-   "symbol": "?unknown_6d1510@TechnoClass@@QAEXPBXHPBUPoint2D@@PBVRect@@HHHHHHPBUShapeFileStruct@@HU2@H@Z",
-   "address": "006d1510"
-  },
-  {
-   "symbol": "?unknown_6d6e50@TechnoClass@@QAEXPAVAbstractClass@@@Z",
-   "address": "006d6e50"
-  },
-  {
-   "symbol": "?unknown_6d8080@TechnoClass@@QAE_NXZ",
-   "address": "006d8080"
-  },
-  {
-   "symbol": "?unknown_FootClass_list_00865f38@@3V?$DynamicVectorClass@PAVFootClass@@@@A",
-   "address": "00865f38"
-  },
-  {
    "symbol": "?unknown_aircraft_section_79b0d0@@3PBDB",
    "address": "0079b0d0"
   },
@@ -4392,24 +4408,12 @@
    "address": "004eb360"
   },
   {
-   "symbol": "?unknown_func_6b79e0@TeamClass@@QAEXPAVAbstractClass@@@Z",
-   "address": "006b79e0"
-  },
-  {
-   "symbol": "?unknown_func_6baa00@TeamClass@@QAE_NXZ",
-   "address": "006baa00"
-  },
-  {
    "symbol": "?unknown_game_mode_a3d298@@3HA",
    "address": "00a3d298"
   },
   {
    "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
    "address": "00a3d290"
-  },
-  {
-   "symbol": "?unknown_ini_format_a40d24@@3HA",
-   "address": "00a40d24"
   },
   {
    "symbol": "?unknown_math_4ba520@@YANN@Z",
@@ -4426,10 +4430,6 @@
   {
    "symbol": "?unknown_objects_a40368@@3V?$DynamicVectorClass@PAVObjectClass@@@@A",
    "address": "00a40368"
-  },
-  {
-   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
-   "address": "00a35db4"
   },
   {
    "symbol": "?unknown_sin_4ba480@@YANN@Z",

@@ -2747,7 +2747,7 @@ bool DSurface::Draw_Line_Depth_Masked(Point2D const &startpoint, Point2D const &
 
 HRESULT Init_Direct3D()
 {
-    IDirectDrawSurface *surface = ((DSurface *)unknown_surface_839964)->Get_DD_Surface();
+    IDirectDrawSurface *surface = ((DSurface *)CompositeSurface)->Get_DD_Surface();
     HRESULT result = DirectDrawObject->QueryInterface(&IID_IDirect3D, (void **)&unknown_direct3d_852fe8);
     if (result != DD_OK) {
         return result;

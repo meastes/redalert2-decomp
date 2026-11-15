@@ -174,13 +174,13 @@
    "padding_bytes": 5
   },
   {
-   "symbol": "?unknown_func_4584d0@BuildingTypeClass@@QAEXHHHH@Z",
+   "symbol": "?Init_Anim@BuildingTypeClass@@QAEXHHHH@Z",
    "entry": "004584d0",
    "body_bytes": 49,
    "padding_bytes": 15
   },
   {
-   "symbol": "?unknown_func_458510@BuildingTypeClass@@SAXXZ",
+   "symbol": "?Fetch_Z_Data@BuildingTypeClass@@SAXXZ",
    "entry": "00458510",
    "body_bytes": 229,
    "padding_bytes": 11
@@ -240,7 +240,7 @@
    "padding_bytes": 15
   },
   {
-   "symbol": "?unknown_458b10@BuildingTypeClass@@QBEHABVCell@@PAVHouseClass@@@Z",
+   "symbol": "?Flush_For_Placement@BuildingTypeClass@@QBEHABVCell@@PAVHouseClass@@@Z",
    "entry": "00458b10",
    "body_bytes": 461,
    "padding_bytes": 3
@@ -252,25 +252,25 @@
    "padding_bytes": 2
   },
   {
-   "symbol": "?unknown_func_458e00@BuildingTypeClass@@QBE_NPAPAXPAH@Z",
+   "symbol": "?Get_Rubble_Shape@BuildingTypeClass@@QBE_NPAPAXPAH@Z",
    "entry": "00458e00",
    "body_bytes": 69,
    "padding_bytes": 11
   },
   {
-   "symbol": "?unknown_func_458e50@BuildingTypeClass@@QBE_NPAPAXPAH@Z",
+   "symbol": "?Get_Rubble_Shadow@BuildingTypeClass@@QBE_NPAPAXPAH@Z",
    "entry": "00458e50",
    "body_bytes": 68,
    "padding_bytes": 12
   },
   {
-   "symbol": "?unknown_func_458ea0@BuildingTypeClass@@QAEXH@Z",
+   "symbol": "?Fetch_Building_Normal_Image@BuildingTypeClass@@QAEXH@Z",
    "entry": "00458ea0",
    "body_bytes": 1943,
    "padding_bytes": 9
   },
   {
-   "symbol": "?unknown_func_459640@BuildingTypeClass@@QAEXXZ",
+   "symbol": "?Fetch_Building_Voxel_Image@BuildingTypeClass@@QAEXXZ",
    "entry": "00459640",
    "body_bytes": 951,
    "padding_bytes": 9
@@ -330,19 +330,19 @@
    "padding_bytes": 13
   },
   {
-   "symbol": "?unknown_func_45e170@BuildingTypeClass@@SAXXZ",
+   "symbol": "?Post_Load_Game@BuildingTypeClass@@SAXXZ",
    "entry": "0045e170",
    "body_bytes": 248,
    "padding_bytes": 8
   },
   {
-   "symbol": "?unknown_45e270@BuildingTypeClass@@QBEPBVCell@@XZ",
+   "symbol": "?Exit_List@BuildingTypeClass@@QBEPBVCell@@XZ",
    "entry": "0045e270",
    "body_bytes": 30,
    "padding_bytes": 2
   },
   {
-   "symbol": "?unknown_func_45e290@BuildingTypeClass@@QAE?AVRect@@XZ",
+   "symbol": "?Get_Draw_Rect@BuildingTypeClass@@QAE?AVRect@@XZ",
    "entry": "0045e290",
    "body_bytes": 1189,
    "padding_bytes": 11
@@ -408,13 +408,13 @@
    "padding_bytes": 13
   },
   {
-   "symbol": "?unknown_func_45eaa0@BuildingTypeClass@@QAEXXZ",
+   "symbol": "?Calculate_Base_Defense_Values@BuildingTypeClass@@QAEXXZ",
    "entry": "0045eaa0",
    "body_bytes": 292,
    "padding_bytes": 12
   },
   {
-   "symbol": "?unknown_func_45ebd0@BuildingTypeClass@@SIXXZ",
+   "symbol": "?Post_Read_Tile_Fixup@BuildingTypeClass@@SIXXZ",
    "entry": "0045ebd0",
    "body_bytes": 110,
    "padding_bytes": 2
@@ -426,13 +426,13 @@
    "padding_bytes": 13
   },
   {
-   "symbol": "?unknown_func_45ec50@BuildingTypeClass@@QBE_NXZ",
+   "symbol": "?Is_Mobile_Deployer@BuildingTypeClass@@QBE_NXZ",
    "entry": "0045ec50",
    "body_bytes": 49,
    "padding_bytes": 15
   },
   {
-   "symbol": "?unknown_func_45ec90@BuildingTypeClass@@QBEHXZ",
+   "symbol": "?Deploy_Facing@BuildingTypeClass@@QBEHXZ",
    "entry": "0045ec90",
    "body_bytes": 94,
    "padding_bytes": 2
@@ -4720,7 +4720,7 @@
   },
   {
    "site": "00450dd0",
-   "symbol": "?unknown_func_45e290@BuildingTypeClass@@QAE?AVRect@@XZ",
+   "symbol": "?Get_Draw_Rect@BuildingTypeClass@@QAE?AVRect@@XZ",
    "target": "0045e290",
    "function_entry": true
   },
@@ -4864,7 +4864,7 @@
   },
   {
    "site": "00652270",
-   "symbol": "?unknown_func_45eaa0@BuildingTypeClass@@QAEXXZ",
+   "symbol": "?Calculate_Base_Defense_Values@BuildingTypeClass@@QAEXXZ",
    "target": "0045eaa0",
    "function_entry": true
   },
@@ -4990,13 +4990,13 @@
   },
   {
    "site": "0065eb40",
-   "symbol": "?unknown_func_45ebd0@BuildingTypeClass@@SIXXZ",
+   "symbol": "?Post_Read_Tile_Fixup@BuildingTypeClass@@SIXXZ",
    "target": "0045ebd0",
    "function_entry": true
   },
   {
    "site": "0065d2c0",
-   "symbol": "?unknown_func_45e170@BuildingTypeClass@@SAXXZ",
+   "symbol": "?Post_Load_Game@BuildingTypeClass@@SAXXZ",
    "target": "0045e170",
    "function_entry": true
   },
@@ -5050,25 +5050,25 @@
   },
   {
    "site": "006fdfc0",
-   "symbol": "?unknown_func_45ec50@BuildingTypeClass@@QBE_NXZ",
+   "symbol": "?Is_Mobile_Deployer@BuildingTypeClass@@QBE_NXZ",
    "target": "0045ec50",
    "function_entry": true
   },
   {
    "site": "006fdfc0",
-   "symbol": "?unknown_458b10@BuildingTypeClass@@QBEHABVCell@@PAVHouseClass@@@Z",
+   "symbol": "?Flush_For_Placement@BuildingTypeClass@@QBEHABVCell@@PAVHouseClass@@@Z",
    "target": "00458b10",
    "function_entry": true
   },
   {
    "site": "006fdfc0",
-   "symbol": "?unknown_func_45ec90@BuildingTypeClass@@QBEHXZ",
+   "symbol": "?Deploy_Facing@BuildingTypeClass@@QBEHXZ",
    "target": "0045ec90",
    "function_entry": true
   },
   {
    "site": "006bb8b0",
-   "symbol": "?unknown_458b10@BuildingTypeClass@@QBEHABVCell@@PAVHouseClass@@@Z",
+   "symbol": "?Flush_For_Placement@BuildingTypeClass@@QBEHABVCell@@PAVHouseClass@@@Z",
    "target": "00458b10",
    "function_entry": true
   },
@@ -5080,7 +5080,7 @@
   },
   {
    "site": "0043eba0",
-   "symbol": "?unknown_func_458e00@BuildingTypeClass@@QBE_NPAPAXPAH@Z",
+   "symbol": "?Get_Rubble_Shape@BuildingTypeClass@@QBE_NPAPAXPAH@Z",
    "target": "00458e00",
    "function_entry": true
   },
@@ -5104,13 +5104,13 @@
   },
   {
    "site": "00474830",
-   "symbol": "?unknown_func_458e50@BuildingTypeClass@@QBE_NPAPAXPAH@Z",
+   "symbol": "?Get_Rubble_Shadow@BuildingTypeClass@@QBE_NPAPAXPAH@Z",
    "target": "00458e50",
    "function_entry": true
   },
   {
    "site": "00474eb0",
-   "symbol": "?unknown_func_458e00@BuildingTypeClass@@QBE_NPAPAXPAH@Z",
+   "symbol": "?Get_Rubble_Shape@BuildingTypeClass@@QBE_NPAPAXPAH@Z",
    "target": "00458e00",
    "function_entry": true
   },
@@ -5128,7 +5128,7 @@
   },
   {
    "site": "0044a3d0",
-   "symbol": "?unknown_458b10@BuildingTypeClass@@QBEHABVCell@@PAVHouseClass@@@Z",
+   "symbol": "?Flush_For_Placement@BuildingTypeClass@@QBEHABVCell@@PAVHouseClass@@@Z",
    "target": "00458b10",
    "function_entry": true
   },
@@ -5368,7 +5368,7 @@
   },
   {
    "site": "00445b30",
-   "symbol": "?unknown_func_45ec90@BuildingTypeClass@@QBEHXZ",
+   "symbol": "?Deploy_Facing@BuildingTypeClass@@QBEHXZ",
    "target": "0045ec90",
    "function_entry": true
   },
@@ -5428,7 +5428,7 @@
   },
   {
    "site": "004749c0",
-   "symbol": "?unknown_func_458e00@BuildingTypeClass@@QBE_NPAPAXPAH@Z",
+   "symbol": "?Get_Rubble_Shape@BuildingTypeClass@@QBE_NPAPAXPAH@Z",
    "target": "00458e00",
    "function_entry": true
   },
@@ -5643,6 +5643,10 @@
   {
    "symbol": "?BuildingTypes@@3V?$DynamicVectorClass@PAVBuildingTypeClass@@@@A",
    "address": "00a35cd8"
+  },
+  {
+   "symbol": "?Can_Upgrade@BuildingClass@@QAE_NPBVBuildingTypeClass@@PAVHouseClass@@@Z",
+   "address": "0044d900"
   },
   {
    "symbol": "?Center_Coord@AbstractClass@@UBE?AUCoordStruct@@XZ",
@@ -6025,6 +6029,10 @@
    "address": "005956c0"
   },
   {
+   "symbol": "?RuleINI@@3PAVCCINIClass@@A",
+   "address": "008396d0"
+  },
+  {
    "symbol": "?Rules@@3PAVRulesClass@@A",
    "address": "00839848"
   },
@@ -6121,10 +6129,6 @@
    "address": "00410910"
   },
   {
-   "symbol": "?unknown_44d900@BuildingClass@@QAE_NPBVBuildingTypeClass@@PAVHouseClass@@@Z",
-   "address": "0044d900"
-  },
-  {
    "symbol": "?unknown_buildcat_table_7cfc40@@3PAUUnknownBuildCatEntry@@A",
    "address": "007cfc40"
   },
@@ -6147,10 +6151,6 @@
   {
    "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
    "address": "00a3d290"
-  },
-  {
-   "symbol": "?unknown_ini_8396d0@@3PAVCCINIClass@@A",
-   "address": "008396d0"
   },
   {
    "symbol": "?unknown_math_4ba520@@YANN@Z",

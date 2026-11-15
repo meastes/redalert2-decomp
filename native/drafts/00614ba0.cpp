@@ -76,7 +76,7 @@ void __fastcall Planning_Execute(EventClass *event)
             if (node) {
                 PlanningNodeClass *next = Planning_Next_On_Path(node);
                 Planning_Remove_Node(node);
-                if (next && house == unknown_player_a35db4->ArrayIndex) {
+                if (next && house == PlayerPtr->ArrayIndex) {
                     unknown_node_a766b0 = next;
                 }
             }

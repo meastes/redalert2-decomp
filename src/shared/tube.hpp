@@ -48,6 +48,6 @@ public:
 void __fastcall Detach_This_From_All(AbstractClass *object, bool all);     // 0x006ECB90
 
 // Every tube (0x008661C8; defined in the globals unit).
-extern DynamicVectorClass<TubeClass *> unknown_TubeClass_list_008661c8;
+extern DynamicVectorClass<TubeClass *> Tubes;
 
 #endif

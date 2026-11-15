@@ -110,7 +110,7 @@ void ToolTipManager::Process_Message(MSG *message)
             break;
 
         case 0x200:     // WM_MOUSEMOVE
-            if (Delay != 0 && !unknown_show_cursor_position_a416bc) {
+            if (Delay != 0 && !CursorCheat) {
                 KillTimer(Window, 0x54544950);
                 SetTimer(Window, 0x54544950, Delay, 0);
                 Hide_Current();

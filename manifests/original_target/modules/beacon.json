@@ -229,7 +229,7 @@
    "padding_bytes": 6
   },
   {
-   "symbol": "?Unknown_0042E940@BeaconManagerClass@@QAEPAVUnknownBeacon@@H@Z",
+   "symbol": "?FindSelected@BeaconManagerClass@@QAEPAVUnknownBeacon@@H@Z",
    "entry": "0042e940",
    "body_bytes": 76,
    "padding_bytes": 4
@@ -710,19 +710,19 @@
   },
   {
    "site": "00540c20",
-   "symbol": "?Unknown_0042E940@BeaconManagerClass@@QAEPAVUnknownBeacon@@H@Z",
+   "symbol": "?FindSelected@BeaconManagerClass@@QAEPAVUnknownBeacon@@H@Z",
    "target": "0042e940",
    "function_entry": true
   },
   {
    "site": "00540c20",
-   "symbol": "?Unknown_0042E940@BeaconManagerClass@@QAEPAVUnknownBeacon@@H@Z",
+   "symbol": "?FindSelected@BeaconManagerClass@@QAEPAVUnknownBeacon@@H@Z",
    "target": "0042e940",
    "function_entry": true
   },
   {
    "site": "00540c20",
-   "symbol": "?Unknown_0042E940@BeaconManagerClass@@QAEPAVUnknownBeacon@@H@Z",
+   "symbol": "?FindSelected@BeaconManagerClass@@QAEPAVUnknownBeacon@@H@Z",
    "target": "0042e940",
    "function_entry": true
   },
@@ -833,6 +833,10 @@
    "address": "0041fdf0"
   },
   {
+   "symbol": "?Ipx@@3VIPXManagerClass@@A",
+   "address": "00a40978"
+  },
+  {
    "symbol": "?Is_Ally@HouseClass@@QBE_NH@Z",
    "address": "004e5500"
   },
@@ -855,6 +859,10 @@
   {
    "symbol": "?Narrow_To_Wide_006fa180@@YIPAGPBD@Z",
    "address": "006fa180"
+  },
+  {
+   "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+   "address": "00a35db4"
   },
   {
    "symbol": "?Print_Box@BitTextClass@@QAE_NPAVBitFontClass@@PAVSurface@@PBGHHHHHHH@Z",
@@ -933,20 +941,12 @@
    "address": "00a3dc89"
   },
   {
-   "symbol": "?unknown_ipx_manager_a40978@@3VIPXManagerClass@@A",
-   "address": "00a40978"
-  },
-  {
    "symbol": "?unknown_math_4ba520@@YANN@Z",
    "address": "004ba520"
   },
   {
    "symbol": "?unknown_math_4ba5b0@@YANN@Z",
    "address": "004ba5b0"
-  },
-  {
-   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
-   "address": "00a35db4"
   },
   {
    "symbol": "?unknown_players_a3fa7c@@3V?$DynamicVectorClass@PAUNodeNameType@@@@A",

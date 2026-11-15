@@ -36,7 +36,7 @@ int BuildingClass::Do_MISSION_ATTACK()
             bool snap = true;
             int rot = Type->ROT;
             if (rot != 0) {
-                UnknownFacingDir current = unknown_2e0.Current();
+                UnknownFacingDir current = PrimaryFacing.Current();
                 int step = (short)(unsigned short)((rot & 0xFF) << 8);
                 int diff = (short)(*(short *)&current - *(short *)&dir);
                 if ((step < 0 ? -step : step) < (diff < 0 ? -diff : diff)) {
@@ -44,7 +44,7 @@ int BuildingClass::Do_MISSION_ATTACK()
                 }
             }
             if (snap) {
-                unknown_2e0.Set(dir);
+                PrimaryFacing.Set(dir);
                 fire = (unsigned)unknown_slot218(unknown_228, weapon, true);
             }
         }
@@ -64,7 +64,7 @@ int BuildingClass::Do_MISSION_ATTACK()
         case 2: case 3:                         // FIRE_FACING, FIRE_REARM
             if (unknown_228 != 0) {
                 UnknownFacingDir dir = unknown_slot285(unknown_228);
-                unknown_2e0.Set_Desired(dir);
+                PrimaryFacing.Set_Desired(dir);
             }
             return 2;
         case 9:                                 // FIRE_CLOAKED
@@ -91,7 +91,7 @@ int BuildingClass::Do_MISSION_ATTACK()
                         if (other == 0 || !other->IsActive || other->Type != Rules->PrismType) {
                             continue;
                         }
-                        if ((long)other->unknown_244 != 0 || other->unknown_5d8 != 0) {
+                        if ((long)other->Arm != 0 || other->unknown_5d8 != 0) {
                             continue;
                         }
                         if (other->Get_Mission() == 1 || other == this) {
@@ -133,7 +133,7 @@ int BuildingClass::Do_MISSION_ATTACK()
         }
         if (unknown_228 != 0) {
             UnknownFacingDir dir = unknown_slot285(unknown_228);
-            unknown_2e0.Set_Desired(dir);
+            PrimaryFacing.Set_Desired(dir);
         }
         return 1;
     }
@@ -152,16 +152,16 @@ int BuildingClass::Do_MISSION_ATTACK()
             Commence();
             return 1;
         }
-        if (!unknown_2e0.Is_Rotating()) {
+        if (!PrimaryFacing.Is_Rotating()) {
             UnknownFacingDir dir = unknown_slot285(unknown_228);
-            UnknownFacingDir current = unknown_2e0.Current();
+            UnknownFacingDir current = PrimaryFacing.Current();
             int diff = (short)(*(short *)&current - *(short *)&dir);
             if ((diff < 0 ? -diff : diff) <= 0x2000) {
                 unknown_a8 = 1;
                 return 1;
             }
             UnknownFacingDir desired = unknown_slot285(unknown_228);
-            unknown_2e0.Set_Desired(desired);
+            PrimaryFacing.Set_Desired(desired);
         }
         return 1;
     }

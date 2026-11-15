@@ -88,7 +88,7 @@ namespace {
 
 int Resolve(char const *spec, int *x, int *y)
 {
-    HouseClass *player = unknown_player_a35db4;
+    HouseClass *player = PlayerPtr;
     if (player == 0 || TacticalMap == 0) return 0;
     // "@tab=N", "@cameo=ID": the sidebar's tab button, a build icon shown (lane C16).
     if (Native_Harness_Sidebar_Point(spec, x, y)) return 1;
@@ -154,7 +154,7 @@ void Native_Harness_Input(int frame)
         every = text ? atoi(text) : 0;
     }
     bool last = frame == ra2port_skirmish_frames();
-    if ((!last && (every <= 0 || frame % every != 0)) || unknown_player_a35db4 == 0) return;
+    if ((!last && (every <= 0 || frame % every != 0)) || PlayerPtr == 0) return;
     {
         // The view position too (Scout1231: scroll-rate measurements; stderr, so RA2.app runs log it).
         Point2D view = TacticalMap ? TacticalMap->Get_Tactical_Position() : Point2D(0, 0);
@@ -179,7 +179,7 @@ void Native_Harness_Input(int frame)
     for (int i = 0; i < CurrentObject.Count(); ++i) {
         ObjectClass *object = CurrentObject[i];
         HouseClass *house = object ? object->Owning_House() : 0;
-        if (object == 0 || house == unknown_player_a35db4) continue;
+        if (object == 0 || house == PlayerPtr) continue;
         ObjectTypeClass *type = object->Class_Of();
         Append(detail, " other=", sizeof detail);
         Append(detail, type ? type->ID.Buffer : "?", sizeof detail);
@@ -189,7 +189,7 @@ void Native_Harness_Input(int frame)
     Append(detail, ";", sizeof detail);
     for (int i = 0; i < Technos.Count(); ++i) {
         TechnoClass *techno = Technos[i];
-        if (techno == 0 || techno->House != unknown_player_a35db4) continue;
+        if (techno == 0 || techno->House != PlayerPtr) continue;
         Cell cell = techno->Center_Coord().As_Cell();
         Append(detail, " ", sizeof detail);
         Append(detail, Type_ID(techno), sizeof detail);

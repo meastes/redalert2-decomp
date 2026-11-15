@@ -193,13 +193,13 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "?unknown_530940@JumpjetLocomotionClass@@QAEXXZ",
+   "symbol": "?Process_Crashing@JumpjetLocomotionClass@@QAEXXZ",
    "entry": "00530940",
    "body_bytes": 388,
    "padding_bytes": 12
   },
   {
-   "symbol": "?unknown_530ad0@JumpjetLocomotionClass@@QAEXXZ",
+   "symbol": "?Process_Unknown@JumpjetLocomotionClass@@QAEXXZ",
    "entry": "00530ad0",
    "body_bytes": 1,
    "padding_bytes": 15
@@ -223,7 +223,7 @@
    "padding_bytes": 2
   },
   {
-   "symbol": "?unknown_531140@JumpjetLocomotionClass@@QAEHXZ",
+   "symbol": "?Desired_Flight_Level@JumpjetLocomotionClass@@QAEHXZ",
    "entry": "00531140",
    "body_bytes": 270,
    "padding_bytes": 2
@@ -735,6 +735,10 @@
    "address": "00636e10"
   },
   {
+   "symbol": "?Crossing_Firestorm@BuildingClass@@QAE_NPAVObjectClass@@_N@Z",
+   "address": "00450cb0"
+  },
+  {
    "symbol": "?Current@FacingClass@@QBE?AUUnknownFacingDir@@XZ",
    "address": "004b8be0"
   },
@@ -795,6 +799,10 @@
    "address": "0054aab0"
   },
   {
+   "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
+   "address": "0051fc80"
+  },
+  {
    "symbol": "?Is_Fogged@MapClass@@QAE_NABUCoordStruct@@@Z",
    "address": "005683c0"
   },
@@ -835,8 +843,16 @@
    "address": "005502e0"
   },
   {
+   "symbol": "?Next_Planning_Node@TechnoClass@@QAE_NXZ",
+   "address": "006d1470"
+  },
+  {
    "symbol": "?Occupier_Height@CellClass@@QBEHXZ",
    "address": "0047a290"
+  },
+  {
+   "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+   "address": "00a35db4"
   },
   {
    "symbol": "?Power_Off@LocomotionClass@@UAG_NXZ",
@@ -881,6 +897,10 @@
   {
    "symbol": "?Set_Desired@FacingClass@@QAE_NABUUnknownFacingDir@@@Z",
    "address": "004b8a30"
+  },
+  {
+   "symbol": "?Set_Height@ObjectClass@@QAEXH@Z",
+   "address": "005d4920"
   },
   {
    "symbol": "?Set_unknown_e0@CellClass@@QAE_NPAX@Z",
@@ -931,10 +951,6 @@
    "address": "0049cb70"
   },
   {
-   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
-   "address": "0051fc80"
-  },
-  {
    "symbol": "?Unknown_0054A550@MapClass@@QAEXABUCoordStruct@@HHH@Z",
    "address": "0054a550"
   },
@@ -959,14 +975,6 @@
    "address": "0053d4b0"
   },
   {
-   "symbol": "?unknown_450cb0@BuildingClass@@QAE_NPAVObjectClass@@_N@Z",
-   "address": "00450cb0"
-  },
-  {
-   "symbol": "?unknown_6d1470@TechnoClass@@QAE_NXZ",
-   "address": "006d1470"
-  },
-  {
    "symbol": "?unknown_facing_offsets_851ac0@@3QBV?$TPoint2D@H@@B",
    "address": "00851ac0"
   },
@@ -977,10 +985,6 @@
   {
    "symbol": "?unknown_facing_scale_79b628@@3NB",
    "address": "0079b628"
-  },
-  {
-   "symbol": "?unknown_func_5d4920@ObjectClass@@QAEXH@Z",
-   "address": "005d4920"
   },
   {
    "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
@@ -1005,10 +1009,6 @@
   {
    "symbol": "?unknown_move_angle_scale_79b620@@3NB",
    "address": "0079b620"
-  },
-  {
-   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
-   "address": "00a35db4"
   },
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",

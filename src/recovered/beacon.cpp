@@ -95,7 +95,7 @@
 // Definition of the beacon manager object (0x0084E8D0): its dynamic initializer (0x0042D960, the
 // constructor, then atexit of the exit thunk) and the exit thunk (0x0042D990, the destructor).
 
-BeaconManagerClass unknown_object_84e8d0;
+BeaconManagerClass BeaconManager;
 
 
 // Exit thunk (0x0042D990, _$E41) of the beacon manager object: its destructor, atexit-registered by
@@ -296,16 +296,16 @@ extern Rect unknown_radar_rect_833978;
 
 void UnknownBeacon::Unknown_0042DE20(Surface *surface, Rect window, bool forced)
 {
-    int frame = Frame % unknown_object_84e8d0.unknown_7c;
-    if (frame < unknown_object_84e8d0.unknown_78 + 1 || forced) {
+    int frame = Frame % BeaconManager.unknown_7c;
+    if (frame < BeaconManager.unknown_78 + 1 || forced) {
         // The canonical radar interface reads only the X/Y prefix; Z is not read.
         Point2D pixel = Map.Coord_To_Radar_Pixel((Point2D const &)unknown_coord, true);
-        if (frame < unknown_object_84e8d0.unknown_78 && !forced) {
+        if (frame < BeaconManager.unknown_78 && !forced) {
             CC_Draw_Shape(surface, ColorSchemes[Houses[unknown_house]->ColorSchemeIndex]->Converter,
                 unknown_radar_beacon_shape_84e990, frame, pixel, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
         }
-        int width = unknown_object_84e8d0.unknown_70;
-        int height = unknown_object_84e8d0.unknown_74;
+        int width = BeaconManager.unknown_70;
+        int height = BeaconManager.unknown_74;
         Rect marker(pixel.X - width / 2, pixel.Y - height / 2, width, height);
         Rect dirty = marker + Point2D(unknown_radar_rect_833978.X, unknown_radar_rect_833978.Y);
         unknown_rect_8336e8 = Intersect(Union(unknown_rect_8336e8, dirty), unknown_radar_rect_833978);
@@ -324,8 +324,8 @@ void UnknownBeacon::Unknown_0042DE20(Surface *surface, Rect window, bool forced)
 
 bool UnknownBeacon::Unknown_0042E080()
 {
-    if ((unknown_flags & 1) && unknown_player_a35db4->Is_Ally(unknown_house)
-        && Houses[unknown_house]->Is_Ally(unknown_player_a35db4) && !Houses[unknown_house]->unknown_13d) {
+    if ((unknown_flags & 1) && PlayerPtr->Is_Ally(unknown_house)
+        && Houses[unknown_house]->Is_Ally(PlayerPtr) && !Houses[unknown_house]->unknown_13d) {
         return true;
     }
     return false;
@@ -333,7 +333,7 @@ bool UnknownBeacon::Unknown_0042E080()
 
 
 // BeaconManagerClass::BeaconManagerClass (0x0042E0E0): no beacons, disabled, no radar blink cycle. Out of line
-// here; the definition of unknown_object_84e8d0 (0x0042D960) expands it.
+// here; the definition of BeaconManager (0x0042D960) expands it.
 
 BeaconManagerClass::BeaconManagerClass()
 {
@@ -348,7 +348,7 @@ BeaconManagerClass::BeaconManagerClass()
 
 
 // BeaconManagerClass::~BeaconManagerClass (0x0042E100): deletes every beacon (0x0042E150 expanded). Out of line
-// here; the exit thunk of unknown_object_84e8d0 (0x0042D990) expands it.
+// here; the exit thunk of BeaconManager (0x0042D990) expands it.
 
 BeaconManagerClass::~BeaconManagerClass()
 {
@@ -411,8 +411,8 @@ void BeaconManagerClass::Unknown_0042E290(Surface *surface, Rect rect)
         for (int house = 0; house < 8; house++) {
             for (int slot = 0; slot < 3; slot++) {
                 UnknownBeacon *beacon = unknown_00[house][slot];
-                if (beacon && (beacon->unknown_flags & 1) && unknown_player_a35db4->Is_Ally(beacon->unknown_house)
-                    && Houses[beacon->unknown_house]->Is_Ally(unknown_player_a35db4)
+                if (beacon && (beacon->unknown_flags & 1) && PlayerPtr->Is_Ally(beacon->unknown_house)
+                    && Houses[beacon->unknown_house]->Is_Ally(PlayerPtr)
                     && !Houses[beacon->unknown_house]->unknown_13d) {
                     beacon->Unknown_0042DA20(surface, rect);
                 }
@@ -463,13 +463,13 @@ void BeaconManagerClass::Unknown_0042E370(int house, CoordStruct coord, int slot
     beacon->Unknown_0042DD60(coord, house);
     unknown_60++;
     if (unknown_session_a3d298.Type != 0 && unknown_session_a3d298.Type != 5) {
-        if (house == unknown_player_a35db4->ArrayIndex) {
+        if (house == PlayerPtr->ArrayIndex) {
             unknown_session_a3d298.Messages.Add_Message(0, 0,
                 StringTable::Load_String("TXT_BEACON_HELP1", 0, "D:\\Ra2\\Beacon.CPP", 811),
-                unknown_player_a35db4->ColorSchemeIndex, 0x4046, 225, false);
+                PlayerPtr->ColorSchemeIndex, 0x4046, 225, false);
             unknown_session_a3d298.Messages.Add_Message(0, 0,
                 StringTable::Load_String("TXT_BEACON_HELP2", 0, "D:\\Ra2\\Beacon.CPP", 812),
-                unknown_player_a35db4->ColorSchemeIndex, 0x4046, 225, false);
+                PlayerPtr->ColorSchemeIndex, 0x4046, 225, false);
             Speech_Play_Name("EVA_BeaconPlaced", -1, -1);
             Voc_Play(Rules->PlaceBeaconSound, 1.0f, 0x2000, 0);
             UnknownBeaconPacket packet;
@@ -610,7 +610,7 @@ void BeaconManagerClass::Unknown_0042E990(int house, int slot)
         }
         if (beacon) {
             int owner = beacon->unknown_house;
-            if (owner != unknown_player_a35db4->ArrayIndex && edited) {
+            if (owner != PlayerPtr->ArrayIndex && edited) {
                 beacon->unknown_flags &= 0xfc;
                 return;
             }
@@ -629,7 +629,7 @@ found:
             unknown_00[owner][index] = 0;
             unknown_60--;
             if (unknown_session_a3d298.Type != 0 && unknown_session_a3d298.Type != 5
-                && owner == unknown_player_a35db4->ArrayIndex && edited) {
+                && owner == PlayerPtr->ArrayIndex && edited) {
                 UnknownBeaconPacket packet;
                 packet.Type = 0x21;
                 strcpy(packet.Name, Wide_To_Narrow_006fa120(unknown_players_a3fa7c[0]->Name));

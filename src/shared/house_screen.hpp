@@ -80,7 +80,7 @@ public:
     DynamicVectorClass<SuperClass *> Supers;    // +0x19C (Vector +0x1A0, ActiveCount +0x1AC)
     char unknown_1b4[0x206 - 0x1B4];
     bool unknown_206;                   // +0x206 (Get_Cameo_Data: infantry alt cameo)
-    bool unknown_207;                   // +0x207 (Get_Cameo_Data: unit alt cameo)
+    bool WarFactoryInfiltrated;                   // +0x207 (Get_Cameo_Data: unit alt cameo)
     char unknown_208[0x230 - 0x208];
     int unknown_230;                    // +0x230 (SidebarClass::AI: the sidebar's +0x4EE5 state follows it being positive)
     char unknown_234[0x52D0 - 0x234];

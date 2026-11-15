@@ -48,7 +48,7 @@ Cell ra2native_object_cell_5484e0(ObjectClass const *object)
 // AnimClass +0xB4: the object the animation is attached to.
 bool ra2native_anim_attached_5484e0(ObjectClass const *anim)
 {
-    return static_cast<AnimClass const *>(anim)->unknown_b4 != 0;
+    return static_cast<AnimClass const *>(anim)->xObject != 0;
 }
 
 // A particle system (Kind_Of 0x18) whose type's BehavesLike (+0x284) is 1 (Gas).

@@ -139,7 +139,7 @@
    "padding_bytes": 15
   },
   {
-   "symbol": "?Unknown_00717F90@@YI?AVMatrix3D@@XZ",
+   "symbol": "?Get_Isometric_View_Matrix@@YI?AVMatrix3D@@XZ",
    "entry": "00717f90",
    "body_bytes": 21,
    "padding_bytes": 11
@@ -157,25 +157,25 @@
    "padding_bytes": 6
   },
   {
-   "symbol": "?Unknown_00718D40@@YIXHPAVMatrix3D@@@Z",
+   "symbol": "?Get_Screen_Slope_Matrix@@YIXHPAVMatrix3D@@@Z",
    "entry": "00718d40",
    "body_bytes": 26,
    "padding_bytes": 6
   },
   {
-   "symbol": "?Unknown_00718D60@@YIPAVMatrix3D@@PAV1@H@Z",
+   "symbol": "?Get_Slope_Matrix@@YIPAVMatrix3D@@PAV1@H@Z",
    "entry": "00718d60",
    "body_bytes": 28,
    "padding_bytes": 4
   },
   {
-   "symbol": "?Unknown_00718D80@@YIXHHPAVMatrix3D@@N@Z",
+   "symbol": "?Get_Screen_Slope_Transition_Matrix@@YIXHHPAVMatrix3D@@N@Z",
    "entry": "00718d80",
    "body_bytes": 111,
    "padding_bytes": 1
   },
   {
-   "symbol": "?Unknown_00718DF0@@YIPAVMatrix3D@@PAV1@HHN@Z",
+   "symbol": "?Get_Slope_Transition_Matrix@@YIPAVMatrix3D@@PAV1@HHN@Z",
    "entry": "00718df0",
    "body_bytes": 116,
    "padding_bytes": 12
@@ -187,13 +187,13 @@
    "padding_bytes": 8
   },
   {
-   "symbol": "?Unknown_00718E80@@YIDABUCoordStruct@@0@Z",
+   "symbol": "?_Direction256@@YIDABUCoordStruct@@0@Z",
    "entry": "00718e80",
    "body_bytes": 87,
    "padding_bytes": 9
   },
   {
-   "symbol": "?Unknown_00718EE0@@YIXPAVMatrix3D@@HH@Z",
+   "symbol": "?Apply_Light_Transform@@YIXPAVMatrix3D@@HH@Z",
    "entry": "00718ee0",
    "body_bytes": 180,
    "padding_bytes": 12
@@ -211,7 +211,7 @@
    "padding_bytes": 11
   },
   {
-   "symbol": "?Unknown_00719010@@YIPAVMatrix3D@@PAV1@H@Z",
+   "symbol": "?Get_Bounce_Matrix@@YIPAVMatrix3D@@PAV1@H@Z",
    "entry": "00719010",
    "body_bytes": 36,
    "padding_bytes": 12
@@ -411,43 +411,43 @@
  "references_in": [
   {
    "site": "0053d0d0",
-   "symbol": "?Unknown_00718D60@@YIPAVMatrix3D@@PAV1@H@Z",
+   "symbol": "?Get_Slope_Matrix@@YIPAVMatrix3D@@PAV1@H@Z",
    "target": "00718d60",
    "function_entry": true
   },
   {
    "site": "004bf280",
-   "symbol": "?Unknown_00718D60@@YIPAVMatrix3D@@PAV1@H@Z",
+   "symbol": "?Get_Slope_Matrix@@YIPAVMatrix3D@@PAV1@H@Z",
    "target": "00718d60",
    "function_entry": true
   },
   {
    "site": "006f0ce0",
-   "symbol": "?Unknown_00718D60@@YIPAVMatrix3D@@PAV1@H@Z",
+   "symbol": "?Get_Slope_Matrix@@YIPAVMatrix3D@@PAV1@H@Z",
    "target": "00718d60",
    "function_entry": true
   },
   {
    "site": "00675a60",
-   "symbol": "?Unknown_00718DF0@@YIPAVMatrix3D@@PAV1@HHN@Z",
+   "symbol": "?Get_Slope_Transition_Matrix@@YIPAVMatrix3D@@PAV1@HHN@Z",
    "target": "00718df0",
    "function_entry": true
   },
   {
    "site": "00675a60",
-   "symbol": "?Unknown_00718D60@@YIPAVMatrix3D@@PAV1@H@Z",
+   "symbol": "?Get_Slope_Matrix@@YIPAVMatrix3D@@PAV1@H@Z",
    "target": "00718d60",
    "function_entry": true
   },
   {
    "site": "0049faa0",
-   "symbol": "?Unknown_00718DF0@@YIPAVMatrix3D@@PAV1@HHN@Z",
+   "symbol": "?Get_Slope_Transition_Matrix@@YIPAVMatrix3D@@PAV1@HHN@Z",
    "target": "00718df0",
    "function_entry": true
   },
   {
    "site": "0049faa0",
-   "symbol": "?Unknown_00718D60@@YIPAVMatrix3D@@PAV1@H@Z",
+   "symbol": "?Get_Slope_Matrix@@YIPAVMatrix3D@@PAV1@H@Z",
    "target": "00718d60",
    "function_entry": true
   },
@@ -465,7 +465,7 @@
   },
   {
    "site": "004fbbf0",
-   "symbol": "?Unknown_00718D60@@YIPAVMatrix3D@@PAV1@H@Z",
+   "symbol": "?Get_Slope_Matrix@@YIPAVMatrix3D@@PAV1@H@Z",
    "target": "00718d60",
    "function_entry": true
   },
@@ -525,7 +525,7 @@
   },
   {
    "site": "00608bb0",
-   "symbol": "?Unknown_00718D60@@YIPAVMatrix3D@@PAV1@H@Z",
+   "symbol": "?Get_Slope_Matrix@@YIPAVMatrix3D@@PAV1@H@Z",
    "target": "00718d60",
    "function_entry": true
   },
@@ -574,6 +574,10 @@
    "address": "005d7ef0"
   },
   {
+   "symbol": "?ExtraLightTiltAngles@@3PAMA",
+   "address": "007f9d84"
+  },
+  {
    "symbol": "?Fast_Atan2@@YAMNN@Z",
    "address": "004ba600"
   },
@@ -602,6 +606,10 @@
    "address": "00622ac0"
   },
   {
+   "symbol": "?SomeNumbers@@3PAHA",
+   "address": "007f9d9c"
+  },
+  {
    "symbol": "?Translate@Matrix3D@@QAEXABUVector3@@@Z",
    "address": "005900f0"
   },
@@ -610,20 +618,16 @@
    "address": "00590090"
   },
   {
+   "symbol": "?VoxelLightAngle@@3MA",
+   "address": "00839aac"
+  },
+  {
    "symbol": "?unknown_839a60@@3UVector3@@A",
    "address": "00839a60"
   },
   {
-   "symbol": "?unknown_839aac@@3MA",
-   "address": "00839aac"
-  },
-  {
    "symbol": "?unknown_839ab0@@3UVector3@@A",
    "address": "00839ab0"
-  },
-  {
-   "symbol": "?unknown_angles_7f9d84@@3PAMA",
-   "address": "007f9d84"
   },
   {
    "symbol": "?unknown_facing_origin_79b630@@3NB",
@@ -644,10 +648,6 @@
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "?unknown_table_7f9d9c@@3PAHA",
-   "address": "007f9d9c"
   },
   {
    "symbol": "__CIpow",
@@ -689,61 +689,61 @@
    "site": "004141c0",
    "target": "00717f90",
    "symbol": "?Aircraft_Isometric_View_Matrix_00717f90@@YI?AVMatrix3D@@XZ",
-   "module_symbol": "?Unknown_00717F90@@YI?AVMatrix3D@@XZ"
+   "module_symbol": "?Get_Isometric_View_Matrix@@YI?AVMatrix3D@@XZ"
   },
   {
    "site": "004141c0",
    "target": "00717f90",
    "symbol": "?Aircraft_Isometric_View_Matrix_00717f90@@YI?AVMatrix3D@@XZ",
-   "module_symbol": "?Unknown_00717F90@@YI?AVMatrix3D@@XZ"
+   "module_symbol": "?Get_Isometric_View_Matrix@@YI?AVMatrix3D@@XZ"
   },
   {
    "site": "007005b0",
    "target": "00717f90",
    "symbol": "?Unit_Isometric_View_00717f90@@YI?AVMatrix3D@@XZ",
-   "module_symbol": "?Unknown_00717F90@@YI?AVMatrix3D@@XZ"
+   "module_symbol": "?Get_Isometric_View_Matrix@@YI?AVMatrix3D@@XZ"
   },
   {
    "site": "007005b0",
    "target": "00717f90",
    "symbol": "?Unit_Isometric_View_00717f90@@YI?AVMatrix3D@@XZ",
-   "module_symbol": "?Unknown_00717F90@@YI?AVMatrix3D@@XZ"
+   "module_symbol": "?Get_Isometric_View_Matrix@@YI?AVMatrix3D@@XZ"
   },
   {
    "site": "0043abd0",
    "target": "00717f90",
    "symbol": "?Aircraft_Isometric_View_Matrix_00717f90@@YI?AVMatrix3D@@XZ",
-   "module_symbol": "?Unknown_00717F90@@YI?AVMatrix3D@@XZ"
+   "module_symbol": "?Get_Isometric_View_Matrix@@YI?AVMatrix3D@@XZ"
   },
   {
    "site": "0043abd0",
    "target": "00717f90",
    "symbol": "?Aircraft_Isometric_View_Matrix_00717f90@@YI?AVMatrix3D@@XZ",
-   "module_symbol": "?Unknown_00717F90@@YI?AVMatrix3D@@XZ"
+   "module_symbol": "?Get_Isometric_View_Matrix@@YI?AVMatrix3D@@XZ"
   },
   {
    "site": "0043abd0",
    "target": "00717f90",
    "symbol": "?Aircraft_Isometric_View_Matrix_00717f90@@YI?AVMatrix3D@@XZ",
-   "module_symbol": "?Unknown_00717F90@@YI?AVMatrix3D@@XZ"
+   "module_symbol": "?Get_Isometric_View_Matrix@@YI?AVMatrix3D@@XZ"
   },
   {
    "site": "0043abd0",
    "target": "00717f90",
    "symbol": "?Aircraft_Isometric_View_Matrix_00717f90@@YI?AVMatrix3D@@XZ",
-   "module_symbol": "?Unknown_00717F90@@YI?AVMatrix3D@@XZ"
+   "module_symbol": "?Get_Isometric_View_Matrix@@YI?AVMatrix3D@@XZ"
   },
   {
    "site": "0043abd0",
    "target": "00717f90",
    "symbol": "?Aircraft_Isometric_View_Matrix_00717f90@@YI?AVMatrix3D@@XZ",
-   "module_symbol": "?Unknown_00717F90@@YI?AVMatrix3D@@XZ"
+   "module_symbol": "?Get_Isometric_View_Matrix@@YI?AVMatrix3D@@XZ"
   },
   {
    "site": "004610d0",
    "target": "00717f90",
    "symbol": "?Bullet_Isometric_View@@YI?AVMatrix3D@@XZ",
-   "module_symbol": "?Unknown_00717F90@@YI?AVMatrix3D@@XZ"
+   "module_symbol": "?Get_Isometric_View_Matrix@@YI?AVMatrix3D@@XZ"
   }
  ],
  "stand_in_reference_count": 10,

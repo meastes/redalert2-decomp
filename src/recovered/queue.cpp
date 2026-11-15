@@ -191,7 +191,7 @@ UnknownSyncState unknown_sync_states_a780d8[256];
 
 bool __fastcall Queue_Mission(TargetClass whom, int mission, TargetClass const &target, TargetClass const &destination)
 {
-    if (!OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, whom, mission, target, destination, TargetClass()))) {
+    if (!OutList.Add(EventClass(PlayerPtr->ArrayIndex, whom, mission, target, destination, TargetClass()))) {
         return false;
     }
     return true;
@@ -202,7 +202,7 @@ bool __fastcall Queue_Mission(TargetClass whom, int mission, TargetClass const &
 
 bool __fastcall Queue_Mission(TargetClass whom, int mission, TargetClass const &target, TargetClass const &destination, int speed, int maxspeed)
 {
-    if (!OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, whom, mission, target, destination, speed, maxspeed))) {
+    if (!OutList.Add(EventClass(PlayerPtr->ArrayIndex, whom, mission, target, destination, speed, maxspeed))) {
         return false;
     }
     return true;
@@ -213,10 +213,10 @@ bool __fastcall Queue_Mission(TargetClass whom, int mission, TargetClass const &
 
 bool __fastcall Queue_Options()
 {
-    if (unknown_player_a35db4->unknown_13f || unknown_player_a35db4->unknown_140 || unknown_player_a35db4->unknown_13e) {
+    if (PlayerPtr->unknown_13f || PlayerPtr->unknown_140 || PlayerPtr->unknown_13e) {
         return false;
     }
-    if (!OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 0x0C))) {
+    if (!OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0x0C))) {
         return false;
     }
     return true;
@@ -227,10 +227,10 @@ bool __fastcall Queue_Options()
 
 bool __fastcall Queue_Event_22()
 {
-    if (unknown_player_a35db4->unknown_13f || unknown_player_a35db4->unknown_140 || unknown_player_a35db4->unknown_13e) {
+    if (PlayerPtr->unknown_13f || PlayerPtr->unknown_140 || PlayerPtr->unknown_13e) {
         return false;
     }
-    if (!OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 0x22))) {
+    if (!OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0x22))) {
         return false;
     }
     return true;
@@ -246,7 +246,7 @@ bool __fastcall Queue_Exit()
     if (unknown_game_mode_a3d298 == 4 && unknown_flag_a3fba8 && unknown_session_a3d298.Players.Count() > 2 && unknown_session_a3d298.Am_I_Master(0)) {
         type = 0x27;
     }
-    if (!OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, type))) {
+    if (!OutList.Add(EventClass(PlayerPtr->ArrayIndex, type))) {
         return false;
     }
     return true;
@@ -270,7 +270,7 @@ static void Queue_AI_Normal()
     if (unknown_flags_a3f600 & 1) {
         Queue_Record();
     }
-    if (!Execute_DoList(1, unknown_player_a35db4->Type->House, 0, 0, 0)) {
+    if (!Execute_DoList(1, PlayerPtr->Type->House, 0, 0, 0)) {
         GameActive = false;
         return;
     }
@@ -310,7 +310,7 @@ static void Queue_Playback()
         } else {
             Print_CRCs(0);
         }
-        Unknown_00691320();
+        Emergency_Exit();
         Emergency_Exit(0);
     }
 
@@ -345,7 +345,7 @@ static void Queue_Playback()
 
     if (unknown_game_mode_a3d298 == 0) {
         max_houses = 1;
-        base_house = unknown_player_a35db4->Type->House;
+        base_house = PlayerPtr->Type->House;
     } else {
         max_houses = unknown_max_players_a3d558;
         base_house = 0;
@@ -426,7 +426,7 @@ latency_done:
         packet.Type=0x21;
         packet.Data.ProcessTime.AverageTicks=unknown_process_ticks_a3d570/unknown_process_frames_a3d574;
         packet.Frame=Frame;
-        packet.House=unknown_player_a35db4->ArrayIndex;
+        packet.House=PlayerPtr->ArrayIndex;
         OutList.Add(packet);
         unknown_process_ticks_a3d570=0;
         unknown_process_frames_a3d574=0;
@@ -445,7 +445,7 @@ static void __fastcall Generate_Real_Timing_Event_00623b00(ConnManClass *net, in
             packet.Data.Timing.MaxAhead=unknown_session_a3d298.unknown_2e4;
             packet.Data.Timing.FrameSendRate=(unsigned int)unknown_session_a3d298.unknown_2e8>30U?10:5;
             packet.Frame=Frame;
-            packet.House=unknown_player_a35db4->ArrayIndex;
+            packet.House=PlayerPtr->ArrayIndex;
             OutList.Add(packet);
             unknown_session_a3d298.unknown_2e4=0;unknown_session_a3d298.unknown_2e8=0;
         
@@ -502,7 +502,7 @@ timing_latency_done:
                 packet.Type=0x20;
                 packet.Data.Timing.DesiredFrameRate=desired;
                 packet.Frame=Frame;
-                packet.House=unknown_player_a35db4->ArrayIndex;
+                packet.House=PlayerPtr->ArrayIndex;
                 packet.Data.Timing.MaxAhead=ahead+(unknown_id_source_a3d290->Special().FogOfWar?10:0);
                 packet.Data.Timing.FrameSendRate=send_rate;
                 OutList.Add(packet);
@@ -758,7 +758,7 @@ void __fastcall Wait_For_End_Game()
                 break;
             }
         }
-        unknown_481fb0();
+        Call_Back();
         if (!unknown_int_a40d48) {
             Map.Get_Input(input, x, y);
             Keyboard_Process(input);
@@ -1046,18 +1046,18 @@ int __fastcall Wait_For_Players(int first_time, ConnManClass *net, int resend_de
                 UnknownGlobalPacket packet;
                 packet.Command = 0x27;
                 strncpy(packet.Name, Wide_To_Narrow_006fa120((unsigned short const *)unknown_session_a3d298.Players[0]->Name), 20);
-                *(int *)&packet.unknown_2f[0] = unknown_player_a35db4->ArrayIndex;
+                *(int *)&packet.unknown_2f[0] = PlayerPtr->ArrayIndex;
                 IPXAddressClass address = unknown_forward_address_a3fbac;
                 address.Set_Port(unknown_forward_port_a3fbc4);
                 *(IPXAddressClass *)&packet.unknown_2f[4] = address;
                 for (i = 1; i < unknown_session_a3d298.Players.Count(); i++) {
                     int id2 = unknown_session_a3d298.Players[i]->ID;
-                    if (id2 != unknown_player_a35db4->ArrayIndex) {
+                    if (id2 != PlayerPtr->ArrayIndex) {
                         Ipx.Send_Global_Message(&packet, 0x5B, 0,
                             &unknown_session_a3d298.Players[i]->Address, unknown_node_ids_a402ba[i], 0);
                     }
                 }
-                unknown_481fb0();
+                Call_Back();
             }
         }
         if (keepalive_timer.Value() == 0 && !first_time) {
@@ -1227,7 +1227,7 @@ int __fastcall Wait_For_Players(int first_time, ConnManClass *net, int resend_de
             stall_drawn = true;
         }
 service:
-        unknown_481fb0();
+        Call_Back();
         if (!first_time && !unknown_int_a40d48 && !reconnect_dlg) {
             Map.Get_Input(input, x, y);
             Keyboard_Process(input);
@@ -1314,7 +1314,7 @@ static int Build_Send_Packet(void *buf, int bufsize, int frame_delay, int num_cm
     } else {
         finfo->Frame = ::Frame + frame_delay;
     }
-    finfo->House = unknown_player_a35db4->ArrayIndex;
+    finfo->House = PlayerPtr->ArrayIndex;
     finfo->LongAt(0x07) = GameCRC;
     finfo->ShortAt(0x0B) = num_cmds;
     finfo->ByteAt(0x0D) = frame_delay;
@@ -1353,7 +1353,7 @@ static int Add_Uncompressed_Events(void *buf, int bufsize, int frame_delay, int 
             return size;
         }
         OutList.First().Frame = ::Frame + frame_delay;
-        OutList.First().House = unknown_player_a35db4->ArrayIndex;
+        OutList.First().House = PlayerPtr->ArrayIndex;
         OutList.First().IsExecuted = 0;
         if (!DoList.Add(OutList.First())) {
             return size;
@@ -1387,7 +1387,7 @@ void __fastcall Send_FrameSync(ConnManClass *net, int cmd_count)
     } else {
         packet.Frame = ::Frame + unknown_max_ahead_a3d560;
     }
-    packet.House = unknown_player_a35db4->ArrayIndex;
+    packet.House = PlayerPtr->ArrayIndex;
     packet.LongAt(0x07) = unknown_crc_a40770;
     packet.ShortAt(0x0b) = cmd_count;
     packet.ByteAt(0x0d) = unknown_max_ahead_a3d560;
@@ -1454,7 +1454,7 @@ RetcodeType __fastcall Process_Receive_Packet(ConnManClass *net, char *multi_pac
                         their[player].unknown_0c = timer->Timer - timer->Started;
                     }
                 } else {
-                    if (timing->ID == unknown_player_a35db4->ArrayIndex) {
+                    if (timing->ID == PlayerPtr->ArrayIndex) {
                         unsigned long response = timing->ResponseTime;
                         unknown_a402dc = response;
                         Debug_Printf("My router response time = %d ms\n", response * 1000 / 60);
@@ -1471,7 +1471,7 @@ RetcodeType __fastcall Process_Receive_Packet(ConnManClass *net, char *multi_pac
                         most = response;
                     }
                     if (timing->unknown_01 && unknown_session_a3d298.Am_I_Master(0) && unknown_a402d4 != timing->ID) {
-                        OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 0x28, timing->ID));
+                        OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0x28, timing->ID));
                     }
                 }
             }
@@ -1624,7 +1624,7 @@ RetcodeType __fastcall Process_Serial_Packet(char *multi_packet_buf, int first_t
     if (event->Type <= 0 || event->Type >= 0x2E) {
         return RC_SERIAL_PROCESSED;
     }
-    if ((char)event->House == unknown_player_a35db4->ArrayIndex) {
+    if ((char)event->House == PlayerPtr->ArrayIndex) {
         return RC_HUNG_UP;
     }
     return RC_NORMAL;
@@ -1798,7 +1798,7 @@ BOOL __stdcall Unknown_00627350(HWND dialog, UINT message, WPARAM wparam, LPARAM
 
     switch (message) {
     case 0x0002:        // WM_DESTROY
-        Unknown_005B6060(dialog);
+        Remove_Modeless_Dialog(dialog);
         return FALSE;
     case 0x002B:        // WM_DRAWITEM
         Unknown_005FE380(lparam);
@@ -1875,7 +1875,7 @@ BOOL __stdcall Unknown_00627350(HWND dialog, UINT message, WPARAM wparam, LPARAM
     case 0x0138:
         return (BOOL)GetStockObject(4);      // BLACK_BRUSH
     case 0x0497: {      // WM_USER + 0x97: set up
-        Unknown_005B6000(dialog);
+        Add_Modeless_Dialog(dialog);
         for (i = 0; i < 8; i++) {
             button = GetDlgItem(dialog, unknown_kick_buttons_7ec3f8[i]);
             EnableWindow(button, FALSE);
@@ -2146,7 +2146,7 @@ int __fastcall Add_Compressed_Events(void *buf, int bufsize, int frame_delay, in
         } else {
             OutList.First().Frame = ::Frame + frame_delay;
         }
-        OutList.First().House = unknown_player_a35db4->ArrayIndex;
+        OutList.First().House = PlayerPtr->ArrayIndex;
         OutList.First().IsExecuted = 0;
 
         if (!DoList.Add(OutList.First(), OutList.Timings[OutList.Head])) {
@@ -2488,8 +2488,8 @@ int __fastcall Execute_DoList(int max_houses, int base_house, ConnManClass *net,
                             Unknown_0069A160();
                             Unknown_00698D00(false);
                         }
-                        if (unknown_game_mode_a3d298 == 4 && !unknown_flag_a417c8 && unknown_player_a35db4 != 0 &&
-                                unknown_player_a35db4 == quithptr) {
+                        if (unknown_game_mode_a3d298 == 4 && !unknown_flag_a417c8 && PlayerPtr != 0 &&
+                                PlayerPtr == quithptr) {
                             Debug_Printf("Sending game results because I quit, but didn't see completion");
                             Unknown_00698D00(false);
                         }
@@ -2500,7 +2500,7 @@ int __fastcall Execute_DoList(int max_houses, int base_house, ConnManClass *net,
                                 DoList[j].House, (char const *)Houses[DoList[j].House]->IniName, DoList[j].Frame, ::Frame);
                         }
                     }
-                    if (DoList[j].House == unknown_player_a35db4->ArrayIndex) {
+                    if (DoList[j].House == PlayerPtr->ArrayIndex) {
                         int stamp = DoList.Timings[(DoList.Head + j) & 0x3FFF];
                         unknown_time_7ec498 = timeGetTime() - stamp;
                         DoList[j].Execute();
@@ -2519,7 +2519,7 @@ int __fastcall Execute_DoList(int max_houses, int base_house, ConnManClass *net,
                         }
                         if ((unknown_flags_a3f600 & 2) && DoList[j].Type == 0x13) {
                             hptr->unknown_134 = false;
-                            hptr->unknown_194 = Rules->MaxIQ;
+                            hptr->IQ = Rules->MaxIQ;
                             HouseClass::unknown_func_4ec5e0();
                             hptr->IniName = FixedString<21>("Computer");
                             wcsncpy(hptr->UIName, StringTable::Load_String("TXT_COMPUTER", 0, "D:\\Ra2\\Queue.CPP", 0x1623), 0x15);
@@ -2906,20 +2906,20 @@ void __fastcall Compute_Game_CRC()
 
     for (i = 0; i < Infantry.Count(); i++) {
         infp = Infantry[i];
-        unsigned long val = Coord_CRC(infp->Coord) + Dir_To_256(infp->unknown_2e0.Current());
+        unsigned long val = Coord_CRC(infp->Coord) + Dir_To_256(infp->PrimaryFacing.Current());
         Add_CRC(&GameCRC, val);
     }
 
     for (i = 0; i < Units.Count(); i++) {
         unitp = Units[i];
-        unsigned long val = Coord_CRC(unitp->Coord) + Dir_To_256(unitp->unknown_2e0.Current())
-            + Dir_To_256(unitp->unknown_2f8.Current());
+        unsigned long val = Coord_CRC(unitp->Coord) + Dir_To_256(unitp->PrimaryFacing.Current())
+            + Dir_To_256(unitp->SecondaryFacing.Current());
         Add_CRC(&GameCRC, val);
     }
 
     for (i = 0; i < unknown_BuildingClass_list_00a40af8.Count(); i++) {
         bldgp = unknown_BuildingClass_list_00a40af8[i];
-        unsigned long val = Coord_CRC(bldgp->Coord) + Dir_To_256(bldgp->unknown_2e0.Current());
+        unsigned long val = Coord_CRC(bldgp->Coord) + Dir_To_256(bldgp->PrimaryFacing.Current());
         Add_CRC(&GameCRC, val);
     }
 
@@ -3071,7 +3071,7 @@ void __fastcall Print_CRCs(EventClass *event)
     int i, j;
     int house;
 
-    sprintf(filename, "SYNC%01d.TXT", unknown_player_a35db4->ArrayIndex);
+    sprintf(filename, "SYNC%01d.TXT", PlayerPtr->ArrayIndex);
     Debug_Printf("Writing sync data to file %s\n", filename);
     MonoClass *mono = Mono_Page_0059da50(4);
     mono->Clear();
@@ -3087,7 +3087,7 @@ void __fastcall Print_CRCs(EventClass *event)
     fprintf(file, "Internal Version %s\n", VerNum.Version_Name());
     time[0] = 0;
     Build_Time_Text(time, sizeof(time));
-    fprintf(file, "Release Build: %s by %s - %s\r\n", Unknown_00737ad0(machine, sizeof(machine)), Build_By_String_00737b00(builder, sizeof(builder)), time);
+    fprintf(file, "Release Build: %s by %s - %s\r\n", Build_Number_String(machine, sizeof(machine)), Build_By_String_00737b00(builder, sizeof(builder)), time);
     family = 5;
     has_mmx = 0;
     Get_CPU_Info(&family, &has_mmx, 0, 0);
@@ -3149,12 +3149,12 @@ void __fastcall Print_CRCs(EventClass *event)
                 int target_id, navcom_id;
                 char const *target_name;
                 char const *navcom_name;
-                unsigned long val = Coord_CRC(infp->Coord) + Dir_To_256(infp->unknown_2e0.Current());
+                unsigned long val = Coord_CRC(infp->Coord) + Dir_To_256(infp->PrimaryFacing.Current());
                 Add_CRC(&GameCRC, val);
                 target_name = Sync_Target_Name(infp->unknown_228, target_id);
                 navcom_name = Sync_Target_Name(infp->unknown_494, navcom_id);
                 fprintf(file, "COORD:%x   Facing:%d   Mission:%d   Type:%d(%s)   Tgt:%s(%d) Speed:%d NavCom:%s(%d)\n",
-                    Coord_CRC(infp->Coord), Dir_To_256(infp->unknown_2e0.Current()), infp->Get_Mission(),
+                    Coord_CRC(infp->Coord), Dir_To_256(infp->PrimaryFacing.Current()), infp->Get_Mission(),
                     infp->Type->ArrayIndex, (char const *)infp->Type->ID, target_name, target_id, int(infp->unknown_468 * 256.0),
                     navcom_name, navcom_id);
             }
@@ -3172,13 +3172,13 @@ void __fastcall Print_CRCs(EventClass *event)
                 int target_id, navcom_id;
                 char const *target_name;
                 char const *navcom_name;
-                unsigned long val = Coord_CRC(unitp->Coord) + Dir_To_256(unitp->unknown_2e0.Current())
-                    + Dir_To_256(unitp->unknown_2f8.Current());
+                unsigned long val = Coord_CRC(unitp->Coord) + Dir_To_256(unitp->PrimaryFacing.Current())
+                    + Dir_To_256(unitp->SecondaryFacing.Current());
                 Add_CRC(&GameCRC, val);
                 target_name = Sync_Target_Name(unitp->unknown_228, target_id);
                 navcom_name = Sync_Target_Name(unitp->unknown_494, navcom_id);
                 fprintf(file, "COORD:%x   Facing:%d   Facing2:%d   Mission:%d   Type:%d(%s)   Tgt:%s(%d)  NavCom:%s(%d)   TrkNum:%d TrkInd:%d SpdAc:%d\n",
-                    Coord_CRC(unitp->Coord), Dir_To_256(unitp->unknown_2e0.Current()), Dir_To_256(unitp->unknown_2f8.Current()),
+                    Coord_CRC(unitp->Coord), Dir_To_256(unitp->PrimaryFacing.Current()), Dir_To_256(unitp->SecondaryFacing.Current()),
                     unitp->Get_Mission(), unitp->Type->ArrayIndex, (char const *)unitp->Type->ID, target_name, target_id,
                     navcom_name, navcom_id, unitp->Locomotor.Checked()->Get_Track_Number(),
                     unitp->Locomotor.Checked()->Get_Track_Index(), unitp->Locomotor.Checked()->Get_Speed_Accum());
@@ -3194,10 +3194,10 @@ void __fastcall Print_CRCs(EventClass *event)
         for (i = 0; i < unknown_BuildingClass_list_00a40af8.Count(); i++) {
             BuildingClass *bldgp = unknown_BuildingClass_list_00a40af8[i];
             if (bldgp->House == housep) {
-                unsigned long val = Coord_CRC(bldgp->Coord) + Dir_To_256(bldgp->unknown_2e0.Current());
+                unsigned long val = Coord_CRC(bldgp->Coord) + Dir_To_256(bldgp->PrimaryFacing.Current());
                 Add_CRC(&GameCRC, val);
                 fprintf(file, "COORD:%x   Facing:%d   Mission:%d   Type:%d(%s)   Tgt:%x\n",
-                    Coord_CRC(bldgp->Coord), Dir_To_256(bldgp->unknown_2e0.Current()), bldgp->Get_Mission(),
+                    Coord_CRC(bldgp->Coord), Dir_To_256(bldgp->PrimaryFacing.Current()), bldgp->Get_Mission(),
                     bldgp->Type->ArrayIndex, (char const *)bldgp->Type->ID, Sync_Target(TargetClass(bldgp)));
             }
         }
@@ -3211,10 +3211,10 @@ void __fastcall Print_CRCs(EventClass *event)
         for (i = 0; i < Aircraft.Count(); i++) {
             AircraftClass *aircraftp = Aircraft[i];
             if (aircraftp->House == housep) {
-                unsigned long val = Coord_CRC(aircraftp->Coord) + Dir_To_256(aircraftp->unknown_2e0.Current());
+                unsigned long val = Coord_CRC(aircraftp->Coord) + Dir_To_256(aircraftp->PrimaryFacing.Current());
                 Add_CRC(&GameCRC, val);
                 fprintf(file, "COORD:%x   Facing:%d   Mission:%d   Type:%d(%s)   Tgt:%x\n",
-                    Coord_CRC(aircraftp->Coord), Dir_To_256(aircraftp->unknown_2e0.Current()), aircraftp->Get_Mission(),
+                    Coord_CRC(aircraftp->Coord), Dir_To_256(aircraftp->PrimaryFacing.Current()), aircraftp->Get_Mission(),
                     aircraftp->Type->ArrayIndex, (char const *)aircraftp->Type->ID, Sync_Target(TargetClass(aircraftp)));
             }
         }
@@ -3346,7 +3346,7 @@ void __fastcall Print_CRCs(EventClass *event)
     PRINT_LIST_CRCS("\n\n*************** Voxel Anim Type CRCs**************\n\n", VoxelAnimTypes)
     PRINT_LIST_CRCS("\n\n*************** Voxel Anim CRCs**************\n\n", unknown_VoxelAnimClass_list_008399d0)
     PRINT_LIST_CRCS("\n\n*************** Warhead CRCs**************\n\n", unknown_WarheadTypeClass_list_00839b00)
-    PRINT_LIST_CRCS("\n\n*************** Weapon CRCs**************\n\n", unknown_WeaponTypeClass_list_00839b90)
+    PRINT_LIST_CRCS("\n\n*************** Weapon CRCs**************\n\n", Weapons)
     PRINT_LIST_CRCS("\n\n*************** Particle Type CRCs**************\n\n", ParticleTypes)
     PRINT_LIST_CRCS("\n\n*************** Particle CRCs**************\n\n", unknown_ParticleClass_list_00a35e28)
     PRINT_LIST_CRCS("\n\n*************** Particle System CRCs**************\n\n", ParticleSystems)
@@ -3358,9 +3358,9 @@ void __fastcall Print_CRCs(EventClass *event)
     PRINT_LIST_CRCS("\n\n*************** Overlay Type CRCs**************\n\n", OverlayTypes)
     PRINT_LIST_CRCS("\n\n*************** Light Source CRCs**************\n\n", unknown_LightSourceClass_list_00a6e818)
     PRINT_LIST_CRCS("\n\n*************** Building Light CRCs**************\n\n", BuildingLights)
-    PRINT_LIST_CRCS("\n\n*************** Tube CRCs**************\n\n", unknown_TubeClass_list_008661c8)
+    PRINT_LIST_CRCS("\n\n*************** Tube CRCs**************\n\n", Tubes)
     PRINT_LIST_CRCS("\n\n*************** Sides CRCs**************\n\n", Sides)
-    PRINT_LIST_CRCS("\n\n*************** Tiberium CRCs**************\n\n", unknown_TiberiumClass_list_00ac0b30)
+    PRINT_LIST_CRCS("\n\n*************** Tiberium CRCs**************\n\n", Tiberiums)
     PRINT_LIST_CRCS("\n\n*************** Em Pulse CRCs**************\n\n", EMPulseClass::Array)
     delete crc;
     fclose(file);
@@ -3440,7 +3440,7 @@ void __fastcall Unknown_0062CF40(int index)
     for (count = 0; count < Infantry.Count(); count++) {
         InfantryClass *infp = Infantry[count];
         obj->Coord = Coord_CRC(infp->Coord);
-        obj->Facing = Dir_To_256(infp->unknown_2e0.Current());
+        obj->Facing = Dir_To_256(infp->PrimaryFacing.Current());
         obj->Mission = infp->Get_Mission();
         obj->Type = infp->Type->ArrayIndex;
         obj->Speed = infp->unknown_468 * 256.0;
@@ -3492,8 +3492,8 @@ void __fastcall Unknown_0062CF40(int index)
     for (i = 0; i < Units.Count(); i++) {
         UnitClass *unitp = Units[i];
         obj->Coord = Coord_CRC(unitp->Coord);
-        obj->Facing = Dir_To_256(unitp->unknown_2e0.Current());
-        obj->Facing2 = Dir_To_256(unitp->unknown_2f8.Current());
+        obj->Facing = Dir_To_256(unitp->PrimaryFacing.Current());
+        obj->Facing2 = Dir_To_256(unitp->SecondaryFacing.Current());
         obj->Mission = unitp->Get_Mission();
         obj->Type = unitp->Type->ArrayIndex;
         obj->Speed = unitp->unknown_468 * 256.0;
@@ -3549,7 +3549,7 @@ void __fastcall Unknown_0062CF40(int index)
     for (i = 0; i < Aircraft.Count(); i++) {
         AircraftClass *aircraftp = Aircraft[i];
         obj->Coord = Coord_CRC(aircraftp->Coord);
-        obj->Facing = Dir_To_256(aircraftp->unknown_2e0.Current());
+        obj->Facing = Dir_To_256(aircraftp->PrimaryFacing.Current());
         obj->Mission = aircraftp->Get_Mission();
         obj->Type = aircraftp->Type->ArrayIndex;
         obj->Speed = aircraftp->unknown_468 * 256.0;
@@ -3602,7 +3602,7 @@ void __fastcall Unknown_0062CF40(int index)
     for (i = 0; i < unknown_BuildingClass_list_00a40af8.Count(); i++) {
         BuildingClass *bldgp = unknown_BuildingClass_list_00a40af8[i];
         obj->Coord = Coord_CRC(bldgp->Coord);
-        obj->Facing = Dir_To_256(bldgp->unknown_2e0.Current());
+        obj->Facing = Dir_To_256(bldgp->PrimaryFacing.Current());
         obj->Mission = bldgp->Get_Mission();
         obj->Type = bldgp->Type->ArrayIndex;
         obj->Owner = bldgp->House->ArrayIndex;
@@ -3712,7 +3712,7 @@ void __fastcall Unknown_0062DBA0(int index, EventClass *event)
     int i;
     UnknownSyncObject *objects;
 
-    sprintf(filename, "SYNC%01d_%03d.TXT", unknown_player_a35db4->ArrayIndex, index);
+    sprintf(filename, "SYNC%01d_%03d.TXT", PlayerPtr->ArrayIndex, index);
     Debug_Printf("Writing sync data to file %s\n", filename);
     _iobuf *file = fopen(filename, "wt");
     if (!file) {
@@ -3725,7 +3725,7 @@ void __fastcall Unknown_0062DBA0(int index, EventClass *event)
     fprintf(file, "Internal Version %s\n", VerNum.Version_Name());
     time[0] = 0;
     Build_Time_Text(time, sizeof(time));
-    fprintf(file, "Release Build: %s by %s - %s\r\n", Unknown_00737ad0(machine, sizeof(machine)), Build_By_String_00737b00(builder, sizeof(builder)), time);
+    fprintf(file, "Release Build: %s by %s - %s\r\n", Build_Number_String(machine, sizeof(machine)), Build_By_String_00737b00(builder, sizeof(builder)), time);
     family = 5;
     has_mmx = 0;
     Get_CPU_Info(&family, &has_mmx, 0, 0);
@@ -4073,7 +4073,7 @@ void __fastcall Send_Port_Unreachable()
     }
     CDTimerClass<SystemTimerClass> timer(300);
     while (Ipx.Global_Num_Send() > start && timer) {
-        unknown_481fb0();
+        Call_Back();
     }
     Unknown_00623260();
 }

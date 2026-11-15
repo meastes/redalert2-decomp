@@ -138,14 +138,14 @@ bool TeleportLocomotionClass::unknown_6dff00(CoordStruct coord, bool arrive)
             if (!object->unknown_slot83() && object->Kind_Of() == 15 && LinkedTo->Kind_Of() == 15) {
                 if (coord == object->Center_Coord()) {
                     int damage = object->Techno_Type_Class()->MaxStrength;
-                    object->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 0);
+                    object->Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, 0);
                 }
             } else if (!object->unknown_slot83() && Foot_Of_6dff00(object) != 0) {
                 int damage = object->Techno_Type_Class()->MaxStrength;
-                object->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 0);
+                object->Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, 0);
             } else if (object->unknown_slot83()) {
                 int damage = LinkedTo->Techno_Type_Class()->MaxStrength;
-                LinkedTo->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 0);
+                LinkedTo->Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, 0);
             } else if (Foot_Of_6dff00(object) == 0) {
                 blocked = true;
             }
@@ -209,7 +209,7 @@ void TeleportLocomotionClass::Check_Landing(CoordStruct coord)
     for (ObjectClass *object = Map[coord].OccupierPtr; object != 0; object = object->unknown_30) {
         if (object->unknown_slot83()) {
             int damage = LinkedTo->Techno_Type_Class()->MaxStrength;
-            LinkedTo->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 0);
+            LinkedTo->Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, 0);
         }
     }
     bool kill = false;
@@ -225,7 +225,7 @@ void TeleportLocomotionClass::Check_Landing(CoordStruct coord)
     if (LinkedTo->Can_Enter_Cell(&Map[Coord_Cell(coord)], -1, -1, 0, true) == 7 || kill) {
         if (!Map[Coord_Cell(coord)].unknown_47b7e0() || LinkedTo->Kind_Of() == 15) {
             int damage = LinkedTo->Techno_Type_Class()->MaxStrength;
-            LinkedTo->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 0);
+            LinkedTo->Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, 0);
         } else {
             LinkedTo->unknown_325 = true;
             LinkedTo->unknown_slot210();
@@ -300,7 +300,7 @@ bool TeleportLocomotionClass::Pick_Arrival(CoordStruct const &to)
                     }
                 }
             }
-        } else if (LinkedTo->unknown_210) {
+        } else if (LinkedTo->IsImmobilized) {
             LinkedTo->Set_Occupy_Bit(unknown_28);
         } else {
             int zone = LinkedTo->Techno_Type_Class()->MovementZone;
@@ -334,7 +334,7 @@ bool TeleportLocomotionClass::Pick_Arrival(CoordStruct const &to)
 
 void __stdcall TeleportLocomotionClass::Do_Turn(UnknownFacingDir dir)
 {
-    LinkedTo->unknown_2e0.Set_Desired(UnknownFacingDir(dir));
+    LinkedTo->PrimaryFacing.Set_Desired(UnknownFacingDir(dir));
 }
 
 
@@ -354,7 +354,7 @@ void __stdcall TeleportLocomotionClass::Do_Turn(UnknownFacingDir dir)
 bool __stdcall TeleportLocomotionClass::Process()
 {
     int distance = 0;
-    if (LinkedTo->unknown_205 && unknown_38 == 0 && LinkedTo->unknown_214 == 0) {
+    if (LinkedTo->WarpingOut && unknown_38 == 0 && LinkedTo->unknown_214 == 0) {
         Process_Delay();
         return false;
     }
@@ -362,7 +362,7 @@ bool __stdcall TeleportLocomotionClass::Process()
         unknown_38 = LinkedTo->unknown_214;
         return false;
     }
-    if (!LinkedTo->unknown_210) {
+    if (!LinkedTo->IsImmobilized) {
         if (unknown_38 <= 0) {
             if (Is_Moving()) {
                 if (Object_Coord(LinkedTo) != unknown_28 && unknown_28 != unknown_geometry_l) {
@@ -383,10 +383,10 @@ bool __stdcall TeleportLocomotionClass::Process()
                     if (distance < Rules->ChronoRangeMinimum) {
                         unknown_3c = Rules->ChronoMinimumDelay;
                     }
-                    LinkedTo->unknown_205 = true;
+                    LinkedTo->WarpingOut = true;
                     if (LinkedTo->Kind_Of() == 1 && ((UnitClass *)LinkedTo)->Type->Harvester) {
                         unknown_3c = 0;
-                        LinkedTo->unknown_205 = false;
+                        LinkedTo->WarpingOut = false;
                     }
                     if (LinkedTo->unknown_580 != 0) {
                         LinkedTo->unknown_580->unknown_588->Unknown_00607440();
@@ -451,8 +451,8 @@ bool __stdcall TeleportLocomotionClass::Process()
                 Voc_Play_At(sound, Object_Coord(linked), 0);
             }
         }
-        LinkedTo->unknown_205 = true;
-        LinkedTo->unknown_210 = false;
+        LinkedTo->WarpingOut = true;
+        LinkedTo->IsImmobilized = false;
         LinkedTo->unknown_204 = false;
         LinkedTo->unknown_79 = false;
         bool ok = unknown_6dff00(LinkedTo->unknown_21c, false);
@@ -512,7 +512,7 @@ bool __stdcall TeleportLocomotionClass::Process()
         return false;
     }
     if (unknown_38 == 7) {
-        LinkedTo->unknown_205 = false;
+        LinkedTo->WarpingOut = false;
         LinkedTo->Assign_Archive_Target(0);
         LinkedTo->Assign_Destination(0, true);
         unknown_34 = false;
@@ -530,7 +530,7 @@ bool __stdcall TeleportLocomotionClass::Process()
 void __stdcall TeleportLocomotionClass::Process_Delay()
 {
     if (unknown_3c.Value() == 0) {
-        LinkedTo->unknown_205 = false;
+        LinkedTo->WarpingOut = false;
         if (unknown_38 > 0) {
             unknown_38++;
         }
@@ -658,7 +658,7 @@ HRESULT __stdcall TeleportLocomotionClass::End_Piggyback(ILocomotion **pointer)
 
 bool __stdcall TeleportLocomotionClass::Is_Ok_To_End()
 {
-    if (!Is_Moving() && Piggybacker != 0 && !unknown_35 && !LinkedTo->unknown_210 && !unknown_38) {
+    if (!Is_Moving() && Piggybacker != 0 && !unknown_35 && !LinkedTo->IsImmobilized && !unknown_38) {
         return true;
     }
     return false;

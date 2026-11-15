@@ -24,8 +24,8 @@ void Tactical::AI()
         return;
     }
     if (unknown_a8 != Frame) {
-        if (ScenarioActive && unknown_d0 != unknown_abe540 && unknown_d8 != 0.0f) {
-            unknown_dc = unknown_dc + unknown_d8;
+        if (ScenarioActive && unknown_d0 != unknown_abe540 && MoveSpeed != 0.0f) {
+            unknown_dc = unknown_dc + MoveSpeed;
             if (unknown_dc > 1.0) {
                 unknown_dc = 1.0f;
             }
@@ -33,7 +33,7 @@ void Tactical::AI()
             if (unknown_dc >= 1.0) {
                 unknown_d0 = Point2D(0, 0);
                 unknown_c8 = Point2D(0, 0);
-                unknown_d8 = 0;
+                MoveSpeed = 0;
                 unknown_dc = 0;
             }
             Point2D point = pos;
@@ -49,7 +49,7 @@ void Tactical::AI()
             unknown_d64 = Point2D(x, y);
             unknown_d74 = Point2D(x, y);
             Update_Visible_Cells();
-            unknown_d7d = true;
+            IsToRedraw = true;
             moved = true;
         }
         if (unknown_da4.Value() == 0) {
@@ -72,6 +72,6 @@ void Tactical::AI()
         unknown_d64 = Point2D(x, y);
         unknown_d74 = Point2D(x, y);
         Update_Visible_Cells();
-        unknown_d7d = true;
+        IsToRedraw = true;
     }
 }

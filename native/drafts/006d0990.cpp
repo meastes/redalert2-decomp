@@ -26,13 +26,13 @@ void TechnoClass::unknown_6d0990(CoordStruct from, CoordStruct to, RGBClass colo
         Point2D end;
         TacticalMap->Coord_To_Pixel(from,start);
         TacticalMap->Coord_To_Pixel(to,end);
-        start.Y+=unknown_rect_839630.Y;
-        end.Y+=unknown_rect_839630.Y;
+        start.Y+=TacticalRect.Y;
+        end.Y+=TacticalRect.Y;
         int pixel=Build_Hicolor_Pixel(color.Red,color.Green,color.Blue);
-        unknown_surface_839964->Fill_Rect(unknown_rect_839630.Intersect(Line_End_Rect(start)),pixel);
-        unknown_surface_839964->Fill_Rect(unknown_rect_839630.Intersect(Line_End_Rect(end)),pixel);
+        CompositeSurface->Fill_Rect(TacticalRect.Intersect(Line_End_Rect(start)),pixel);
+        CompositeSurface->Fill_Rect(TacticalRect.Intersect(Line_End_Rect(end)),pixel);
     }
-    Rect clip=unknown_rect_839630;
+    Rect clip=TacticalRect;
     int phase=timeGetTime()>>4;
     phase<<=3;
     CoordStruct last=from;
@@ -49,15 +49,15 @@ void TechnoClass::unknown_6d0990(CoordStruct from, CoordStruct to, RGBClass colo
         Point2D end;
         TacticalMap->Coord_To_Pixel(last,start);
         TacticalMap->Coord_To_Pixel(next,end);
-        start.Y+=unknown_rect_839630.Y;
-        end.Y+=unknown_rect_839630.Y;
+        start.Y+=TacticalRect.Y;
+        end.Y+=TacticalRect.Y;
         if (Clip_Line(start,end,clip)) {
             shade=color;
             unsigned ratio=(i*8-phase)&0x1f8;
             if (ratio<=0xf8 && ratio!=0) {
                 shade.Adjust(ratio,white);
             }
-            unknown_surface_839964->Draw_Line(start,end,Build_Hicolor_Pixel(shade.Red,shade.Green,shade.Blue));
+            CompositeSurface->Draw_Line(start,end,Build_Hicolor_Pixel(shade.Red,shade.Green,shade.Blue));
         }
         last=next;
         i++;

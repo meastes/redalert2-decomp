@@ -240,17 +240,17 @@ void SpawnManagerClass::AI()
                 WeaponTypeClass *weapon = Owner->unknown_slot231(0)->WeaponType;
                 if (weapon != 0 && weapon->Burst > 1) {
                     burst = true;
-                    Owner->unknown_310 = i & 1;
+                    Owner->BurstIndex = i & 1;
                 }
             }
             SpawnedNodes[i]->Status = 2;
             {
                 CoordStruct coord = Owner->unknown_slot43(0);
                 coord.Z += 10;
-                unit->Unlimbo(&coord, Dir_To_256(Owner->unknown_2e0.Current()));
+                unit->Unlimbo(&coord, Dir_To_256(Owner->PrimaryFacing.Current()));
             }
             if (burst) {
-                Owner->unknown_310 = 0;
+                Owner->BurstIndex = 0;
             }
             if (SpawnedNodes[i]->IsMissile == 1) {
                 if (Target != 0) {

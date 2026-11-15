@@ -43,9 +43,9 @@ extern int unknown_layers_7d5ce8[3];
 double __cdecl unknown_sqrt_4ba410(double value);
 
 // The tactical area: X, Y, width, height (0x00839630; as shared/tool_tip.hpp).
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 // The cursor position display toggle (0x00A416BC; CursorPositionCommandClass 0x0051D990 flips it).
-extern bool unknown_show_cursor_position_a416bc;
+extern bool CursorCheat;
 
 // The cell offsets of the eight facings (0x00851A70; Westwood's AdjacentCell;
 // the same block as shared/infantry.hpp).
@@ -214,9 +214,9 @@ public:
     Cell unknown_117e;        // +0x117E
     Cell unknown_1182;        // +0x1182
     Cell const *unknown_1188; // +0x1188 a cell list marked with flag 4
-    ObjectClass *unknown_118c;      // +0x118C the placement object (copied from +0x11A0)
-    ObjectTypeClass const *unknown_1190; // +0x1190 its type (copied from +0x11A4)
-    int unknown_1194;               // +0x1194 -1
+    ObjectClass *CopyPendingObjectPtr;      // +0x118C the placement object (copied from +0x11A0)
+    ObjectTypeClass const *CopyPendingObject; // +0x1190 its type (copied from +0x11A4)
+    int CopyPendingHouse;               // +0x1194 -1
     bool unknown_1198;              // +0x1198
     void *unknown_119c;             // +0x119C (a pointer: the load swizzles it)
     ObjectClass *PendingObjectPtr;   // +0x11A0 an object waiting for placement (cancelled by slot 49)

@@ -1119,7 +1119,7 @@ void IPXManagerClass::Store_Stats()
     for (int i = 0; i < NumConnections; i++) {
         HouseClass *house = Houses[Connection[i]->ID];
 
-        if (house != 0 && house != unknown_player_a35db4) {
+        if (house != 0 && house != PlayerPtr) {
             UnknownNetworkPlayerStatistics &stats = player_statistics_00a3d584[i];
             if (stats.unknown_00[0] == '\0') {
                 WideToCharString_006fa0f0(stats.unknown_00, Connection[i]->Name, -1);
@@ -1163,7 +1163,7 @@ void IPXManagerClass::Multiplayer_Debug_Print_00526d90()
 {
     wchar_t buffer[256];
     wchar_t name[200];
-    Surface *surface = unknown_surface_839964;
+    Surface *surface = CompositeSurface;
 
     swprintf(buffer, L"Rtry delta: %d", 1000 * RetryDelta / 60);
     Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 402), Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
@@ -1190,7 +1190,7 @@ void IPXManagerClass::Multiplayer_Debug_Print_00526d90()
 
     for (int i = 0; i < NumConnections; i++) {
         HouseClass *house = Houses[Connection[i]->ID];
-        if (house != 0 && house != unknown_player_a35db4) {
+        if (house != 0 && house != PlayerPtr) {
             int scheme = house->ColorSchemeIndex;
             int x = (i + 1) * 100;
 

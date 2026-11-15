@@ -104,7 +104,7 @@ void __fastcall AnimTypeClass::Init(int theater)
     if (!Debug_Map && theater == unknown_loaded_theater_7d88dc) {
         for (int index = 0; index < AnimTypes.Count(); index++) {
             AnimTypeClass *anim = AnimTypes[index];
-            if (anim->unknown_207 && anim->unknown_a4 == 0) {
+            if (anim->unknown_207 && anim->ImageData == 0) {
                 anim->Load_Image(theater);
             }
         }
@@ -115,27 +115,27 @@ void __fastcall AnimTypeClass::Init(int theater)
         AnimTypeClass *anim = AnimTypes[index];
         if (!anim->DemandLoad) {
             if (anim->unknown_1fc) {
-                if (anim->unknown_a4 != 0 && anim->unknown_a8) {
-                    operator delete(anim->unknown_a4);
-                    anim->unknown_a8 = false;
+                if (anim->ImageData != 0 && anim->ImageAllocated) {
+                    operator delete(anim->ImageData);
+                    anim->ImageAllocated = false;
                 }
-                anim->unknown_a4 = 0;
+                anim->ImageData = 0;
                 char fullname[512];
                 _makepath(fullname, 0, 0, anim->ID, Theaters[theater].Suffix);
-                anim->unknown_a4 = (void *)MixFileClass::Retrieve(fullname);
-                if (anim->unknown_a4 == 0) {
+                anim->ImageData = (void *)MixFileClass::Retrieve(fullname);
+                if (anim->ImageData == 0) {
                     _makepath(fullname, 0, 0, anim->ID, ".SHP");
-                    anim->unknown_a4 = (void *)MixFileClass::Retrieve(fullname);
+                    anim->ImageData = (void *)MixFileClass::Retrieve(fullname);
                 }
             } else if (anim->unknown_207) {
                 anim->Load_Image(theater);
             }
         } else if (anim->unknown_1fc || anim->unknown_207) {
-            if (anim->unknown_a4 != 0 && anim->unknown_a8) {
-                operator delete(anim->unknown_a4);
-                anim->unknown_a8 = false;
+            if (anim->ImageData != 0 && anim->ImageAllocated) {
+                operator delete(anim->ImageData);
+                anim->ImageAllocated = false;
             }
-            anim->unknown_a4 = 0;
+            anim->ImageData = 0;
         }
     }
 }
@@ -150,14 +150,14 @@ void AnimTypeClass::unknown_slot24(int theater)
         return;
     }
     if (unknown_1fc && !DemandLoad) {
-        if (unknown_a4 != 0 && unknown_a8) {
-            operator delete(unknown_a4);
-            unknown_a8 = false;
+        if (ImageData != 0 && ImageAllocated) {
+            operator delete(ImageData);
+            ImageAllocated = false;
         }
-        unknown_a4 = 0;
+        ImageData = 0;
         char fullname[512];
         _makepath(fullname, 0, 0, ID, Theaters[theater].Suffix);
-        unknown_a4 = (void *)MixFileClass::Retrieve(fullname);
+        ImageData = (void *)MixFileClass::Retrieve(fullname);
         return;
     }
     if (unknown_207) {
@@ -177,23 +177,23 @@ void AnimTypeClass::Load_Image(int theater)
         if (unknown_1fc) {
             Fetch_Normal_Image();
         } else {
-            if (unknown_a4 != 0 && unknown_a8) {
-                operator delete(unknown_a4);
-                unknown_a8 = false;
+            if (ImageData != 0 && ImageAllocated) {
+                operator delete(ImageData);
+                ImageAllocated = false;
             }
-            unknown_a4 = 0;
+            ImageData = 0;
             char fullname[512];
             _makepath(fullname, 0, 0, unknown_1c8[0] != '\0' ? (char const *)unknown_1c8 : ID, ".SHP");
             Theater_Naming_Convention(fullname, theater);
-            unknown_a4 = (void *)MixFileClass::Retrieve(fullname);
-            if (unknown_a4 == 0) {
+            ImageData = (void *)MixFileClass::Retrieve(fullname);
+            if (ImageData == 0) {
                 Generic_Naming_Convention(fullname);
-                unknown_a4 = (void *)MixFileClass::Retrieve(fullname);
+                ImageData = (void *)MixFileClass::Retrieve(fullname);
             }
         }
     }
 
-    ShapeFileStruct const *shape = (ShapeFileStruct const *)unknown_a4;
+    ShapeFileStruct const *shape = (ShapeFileStruct const *)ImageData;
     if (shape != 0) {
         if (End == 0) {
             End = shape->FrameCount;
@@ -280,7 +280,7 @@ bool AnimTypeClass::Read_INI(CCINIClass &ini)
     }
 
     if (unknown_1c8[0] != '\0') {
-        if (unknown_a4 == 0) {
+        if (ImageData == 0) {
             unknown_1fc = ArtINI.Get_Bool(section, "Theater", unknown_1fc);
             unknown_207 = ArtINI.Get_Bool(section, "NewTheater", unknown_207);
         }
@@ -406,7 +406,7 @@ HRESULT __stdcall AnimTypeClass::Load(IStream *stream)
         if (unknown_1fc) {
             char fullname[512];
             _makepath(fullname, 0, 0, ID, Theaters[unknown_id_source_a3d290->Theater].Suffix);
-            unknown_a4 = (void *)MixFileClass::Retrieve(fullname);
+            ImageData = (void *)MixFileClass::Retrieve(fullname);
             return S_OK;
         }
         if (unknown_207) {
@@ -510,7 +510,7 @@ void AnimTypeClass::Detach(AbstractClass *target, bool all)
 void *AnimTypeClass::Get_Image_Data() const
 {
     AnimTypeClass *self = (AnimTypeClass *)this;
-    if (unknown_a4 == 0 && DemandLoad) {
+    if (ImageData == 0 && DemandLoad) {
         Debug_Printf("Demand loading image for %s\n", (char const *)Name);
         char fullname[512];
         _makepath(fullname, 0, 0, unknown_1c8[0] != 0 ? (char const *)unknown_1c8 : (char const *)ID, ".SHP");
@@ -520,21 +520,21 @@ void *AnimTypeClass::Get_Image_Data() const
             Theater_Naming_Convention(fullname, unknown_id_source_a3d290->Theater);
         }
         CCFileClass file(fullname);
-        self->unknown_a4 = Load_Alloc_Data(file);
-        if (unknown_a4 != 0) {
-            self->unknown_a8 = true;
+        self->ImageData = Load_Alloc_Data(file);
+        if (ImageData != 0) {
+            self->ImageAllocated = true;
         } else {
             Generic_Naming_Convention(fullname);
             CCFileClass generic(fullname);
-            self->unknown_a4 = Load_Alloc_Data(generic);
-            if (unknown_a4 != 0) {
-                self->unknown_a8 = true;
+            self->ImageData = Load_Alloc_Data(generic);
+            if (ImageData != 0) {
+                self->ImageAllocated = true;
             }
         }
         self->Load_Image(unknown_id_source_a3d290->Theater);
-        return unknown_a4;
+        return ImageData;
     }
-    return unknown_a4;
+    return ImageData;
 }
 
 
@@ -543,11 +543,11 @@ void *AnimTypeClass::Get_Image_Data() const
 
 void AnimTypeClass::Free_Image()
 {
-    if (DemandLoad && unknown_a4 != 0 && FreeAfterPlaying) {
+    if (DemandLoad && ImageData != 0 && FreeAfterPlaying) {
         Debug_Printf("Freeing loaded image for %s\n", (char const *)Name);
-        operator delete(unknown_a4);
-        unknown_a4 = 0;
-        unknown_a8 = false;
+        operator delete(ImageData);
+        ImageData = 0;
+        ImageAllocated = false;
     }
 }
 

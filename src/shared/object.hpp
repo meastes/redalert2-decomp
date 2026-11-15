@@ -142,7 +142,7 @@ public:
 #include "shared/rules.hpp"
 
 // A game-mode value (0x00A3D298); Compute_CRC adds two flags for 0 and 5.
-// Slot 76 passes the player's house (unknown_player_a35db4, shared/house.hpp)
+// Slot 76 passes the player's house (PlayerPtr, shared/house.hpp)
 // to slot 49.
 
 // The type of ObjectClass::unknown_slot64's function-local static: a cell
@@ -370,7 +370,7 @@ public:
     bool unknown_7c;                        // +0x7C
     bool IsActive;                        // +0x7D
     int unknown_80;                         // +0x80
-    bool unknown_84;                        // +0x84
+    bool IsSubmittedToLayer;                        // +0x84
     bool unknown_85;                        // +0x85
     // Unadjusted position copy at004F3F5A; nonvirtual dispatch is an inline-only hypothesis.
     CoordStruct Position_Coord_004f3f40() const { return Coord; }

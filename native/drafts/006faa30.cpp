@@ -52,10 +52,10 @@ inline CoordStruct Move_Coord_006faa30(CoordStruct const &start, UnknownFacingDi
 void UnitClass::Unknown_006FAA30()
 {
     CoordStruct coord;
-    bool finished = unknown_TubeClass_list_008661c8[unknown_574]->Directions[unknown_575] == -1;
+    bool finished = Tubes[unknown_574]->Directions[unknown_575] == -1;
     if (!finished) {
         int distance = Distance_006faa30(Center_Coord(), unknown_45c);
-        TubeClass *tube = unknown_TubeClass_list_008661c8[unknown_574];
+        TubeClass *tube = Tubes[unknown_574];
         UnknownFacingDir direction_temp;
         UnknownFacingDir direction = direction_temp.Direction(Center_Coord(), unknown_45c);
         int speed = (int)(Type->Speed * unknown_tube_speed_79d568);
@@ -118,7 +118,7 @@ void UnitClass::Unknown_006FAA30()
         }
         unknown_slot306(0.0);
     } else {
-        TubeClass *tube = unknown_TubeClass_list_008661c8[unknown_574];
+        TubeClass *tube = Tubes[unknown_574];
         CoordStruct exit_coord = Cell_Center_006faa30(tube->ExitCell, unknown_45c.Z);
         Set_Coord(exit_coord);
         unknown_574 = -1;
@@ -131,7 +131,7 @@ void UnitClass::Unknown_006FAA30()
         unknown_slot306(1.0);
         TubeClass *here = Cell_Tube_0047a130(&Map[CoordStruct(Coord)]);
         if (here != 0) {
-            unknown_2e0.Set(UnknownFacingDir((unsigned short)((here->Facing << 13) - 0x8000)));
+            PrimaryFacing.Set(UnknownFacingDir((unsigned short)((here->Facing << 13) - 0x8000)));
         }
     }
 }

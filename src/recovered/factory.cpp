@@ -185,7 +185,7 @@ bool FactoryClass::unknown_4b9440(TechnoTypeClass *type, HouseClass *house, unsi
             Queue.Add(type);
             return true;
         }
-        if (house->Is_Player_Control()) Voc_Play(Rules->unknown_620,1.0f,0x2000,0);
+        if (house->Is_Player_Control()) Voc_Play(Rules->ScoldSound,1.0f,0x2000,0);
         return false;
     }
     unknown_59=true;

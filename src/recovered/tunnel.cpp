@@ -184,7 +184,7 @@ void __stdcall TunnelLocomotionClass::Stop_Moving()
                 nearby = Map.Nearby_Location(cell, 1, -1, 0, false, Point2D(1, 1), 0, 0, 1, 1, Cell(0, 0), 0);
             }
             if (nearby == unknown_geometry_k) {
-                LinkedTo->Take_Damage(&LinkedTo->Strength, 0, Rules->unknown_c74, 0, true, true);
+                LinkedTo->Take_Damage(&LinkedTo->Strength, 0, Rules->C4Warhead, 0, true, true);
                 DestinationCoord = unknown_geometry_l;
             } else {
                 DestinationCoord = Cell_Coord(nearby);
@@ -289,9 +289,9 @@ static inline UnknownFacingDir Coord_Direction(CoordStruct const &from, CoordStr
 
 void TunnelLocomotionClass::Process_Turning()
 {
-    if (!LinkedTo->unknown_2e0.Is_Rotating()) {
+    if (!LinkedTo->PrimaryFacing.Is_Rotating()) {
         UnknownFacingDir dir = Coord_Direction(LinkedTo->Coord, DestinationCoord);
-        if (dir.Raw != LinkedTo->unknown_2e0.Current().Raw) {
+        if (dir.Raw != LinkedTo->PrimaryFacing.Current().Raw) {
             Do_Turn(dir);
             return;
         }
@@ -372,7 +372,7 @@ void TunnelLocomotionClass::Process_Tunneling()
    cell=Map.Nearby_Location(cell,1,Map.Zone(cell,0,false),0,false,Point2D(1,1),false,false,true,true,Cell(0,0),0);
    if(cell==unknown_geometry_k) cell=Map.Nearby_Location(LinkedTo->unknown_slot104(),1,-1,6,false,Point2D(1,1),false,false,true,true,Cell(0,0),0);
    if(cell==unknown_geometry_k) {
-    LinkedTo->Take_Damage(&LinkedTo->Strength,0,Rules->unknown_c74,0,true,true);
+    LinkedTo->Take_Damage(&LinkedTo->Strength,0,Rules->C4Warhead,0,true,true);
     return;
    }
    Move_To(CoordStruct(cell,0));
@@ -454,7 +454,7 @@ Matrix3D * __stdcall TunnelLocomotionClass::Draw_Matrix(Matrix3D *matrix, int *k
             Matrix3D temp;
             Matrix3D body(*LocomotionClass::Draw_Matrix(&temp, key));
             Matrix3D ramp_matrix;
-            transform = *Unknown_00718D60(&ramp_matrix, ramp) * body;
+            transform = *Get_Slope_Matrix(&ramp_matrix, ramp) * body;
         } else {
             Matrix3D temp;
             Matrix3D body(*LocomotionClass::Draw_Matrix(&temp, key));
@@ -518,7 +518,7 @@ int __stdcall TunnelLocomotionClass::Z_Adjust()
     TacticalMap->Coord_To_Pixel(coord, to);
     int height = from.Y - to.Y;
     double ratio = DigTimer.Ratio();
-    int facing = Dir_To_256(LinkedTo->unknown_2e0.Current());
+    int facing = Dir_To_256(LinkedTo->PrimaryFacing.Current());
     switch (unknown_18) {
     case 4:
         return unknown_7f8664 + height;
@@ -589,7 +589,7 @@ int __stdcall TunnelLocomotionClass::Can_Enter_Cell(Cell cell)
 
 void __stdcall TunnelLocomotionClass::Do_Turn(UnknownFacingDir dir)
 {
-    LinkedTo->unknown_2e0.Set_Desired(UnknownFacingDir(dir));
+    LinkedTo->PrimaryFacing.Set_Desired(UnknownFacingDir(dir));
 }
 
 

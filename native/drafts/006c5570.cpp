@@ -29,7 +29,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
     if(!(method&0x18200) && unknown_slot217(object,which)==5) return false;
     if(object->unknown_70<=0 && Techno_Type_Class()->VHPScan==2) return false;
     if(weapon && weapon->Warhead) {
-        if((int)(weapon->Warhead->Verses[object->Techno_Type_Class()->unknown_9c]*100.0)==1) return false;
+        if((int)(weapon->Warhead->Verses[object->Techno_Type_Class()->Armor]*100.0)==1) return false;
     }
     if(object==0 || object->unknown_76 || object->Strength==0) return false;
     if(tech->unknown_1b8==2) {

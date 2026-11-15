@@ -113,9 +113,9 @@ EnvironmentClass::~EnvironmentClass() {}
 void EnvironmentClass::Capture_004B5AB0()
 {
  for(int i=0;i<50;++i) Variables[i]=unknown_id_source_a3d290->Variables[i].Value;
- Credits=unknown_player_a35db4->Available_Money();
+ Credits=PlayerPtr->Available_Money();
  TimerRemaining=unknown_id_source_a3d290->MissionTimer.Value();
- Difficulty=unknown_player_a35db4->unknown_c8;
+ Difficulty=PlayerPtr->unknown_c8;
  unknown_40=unknown_id_source_a3d290->unknown_2304;
 }
 
@@ -137,9 +137,9 @@ void EnvironmentClass::Restore_004B5B40()
         money = money < (double)cap ? money : (double)cap;
     }
     int credits = (int)money;
-    unknown_player_a35db4->Refund_Money(credits);
-    unknown_player_a35db4->unknown_124 += credits;
-    unknown_player_a35db4->Assign_Handicap(Difficulty);
+    PlayerPtr->Refund_Money(credits);
+    PlayerPtr->unknown_124 += credits;
+    PlayerPtr->Assign_Handicap(Difficulty);
     if (unknown_id_source_a3d290->unknown_2231) {
         if (TimerRemaining > 0) {
             unknown_id_source_a3d290->MissionTimer = CDTimerClass<FrameTimerClass>(TimerRemaining);

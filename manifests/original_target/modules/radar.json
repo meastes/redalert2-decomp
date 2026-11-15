@@ -2236,6 +2236,10 @@
    "address": "004082b0"
   },
   {
+   "symbol": "?BeaconManager@@3VBeaconManagerClass@@A",
+   "address": "0084e8d0"
+  },
+  {
    "symbol": "?Best_Selected_Object@@YIPAVObjectClass@@PBVCell@@PAV1@@Z",
    "address": "0051a690"
   },
@@ -2278,6 +2282,10 @@
   {
    "symbol": "?Copy_From@XSurface@@UAE_NABVRect@@AAVSurface@@0_N2@Z",
    "address": "00774f00"
+  },
+  {
+   "symbol": "?CurrentObject@@3V?$DynamicVectorClass@PAVObjectClass@@@@A",
+   "address": "00a40c60"
   },
   {
    "symbol": "?Debug_Map@@3_NA",
@@ -2596,6 +2604,14 @@
    "address": "0049af90"
   },
   {
+   "symbol": "?Movie_Audio_Resume@@YAXXZ",
+   "address": "005a0ac0"
+  },
+  {
+   "symbol": "?Movie_Audio_Suspend@@YAXXZ",
+   "address": "005a0b10"
+  },
+  {
    "symbol": "?MuteSWLaunches@@3HA",
    "address": "00a3d548"
   },
@@ -2620,8 +2636,16 @@
    "address": "006a2b10"
   },
   {
+   "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+   "address": "00a35db4"
+  },
+  {
    "symbol": "?Plot_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1P6IX1@Z@Z",
    "address": null
+  },
+  {
+   "symbol": "?Process_Radar_Events@@YAXXZ",
+   "address": "0063b910"
   },
   {
    "symbol": "?Put_Pixel@XSurface@@UAE_NABUPoint2D@@H@Z",
@@ -2634,10 +2658,6 @@
   {
    "symbol": "?QueryInterface@GScreenClass@@UAGJABUGUID@@PAPAX@Z",
    "address": "004e08f0"
-  },
-  {
-   "symbol": "?RadarEventClass_unknown_all_63b910@@YAXXZ",
-   "address": "0063b910"
   },
   {
    "symbol": "?RadarEventClass_unknown_none@@YA_NXZ",
@@ -2764,6 +2784,10 @@
    "address": "0083996c"
   },
   {
+   "symbol": "?TacticalRect@@3VRect@@A",
+   "address": "00839630"
+  },
+  {
    "symbol": "?Tail_Of_List@LinkClass@@UAEAAV1@XZ",
    "address": "00539070"
   },
@@ -2804,14 +2828,6 @@
    "address": "0055a660"
   },
   {
-   "symbol": "?Unknown_005A0AC0@@YAXXZ",
-   "address": "005a0ac0"
-  },
-  {
-   "symbol": "?Unknown_005A0B10@@YAXXZ",
-   "address": "005a0b10"
-  },
-  {
    "symbol": "?Unknown_00634670@RadarClass@@QAEXHHPAVHouseClass@@@Z",
    "address": "00634670"
   },
@@ -2850,6 +2866,10 @@
   {
    "symbol": "?Zap@LinkClass@@UAEXXZ",
    "address": "00538ff0"
+  },
+  {
+   "symbol": "?drag_select_aborted@@3_NA",
+   "address": "00a40d45"
   },
   {
    "symbol": "?unknown_475d60@UnknownCellClass@@QBE?AUCoordStruct@@XZ",
@@ -2910,10 +2930,6 @@
   {
    "symbol": "?unknown_flag_a40b30@@3_NA",
    "address": "00a40b30"
-  },
-  {
-   "symbol": "?unknown_flag_a40d45@@3_NA",
-   "address": "00a40d45"
   },
   {
    "symbol": "?unknown_flag_abcd84@@3_NA",
@@ -3008,28 +3024,12 @@
    "address": "004ba5b0"
   },
   {
-   "symbol": "?unknown_object_84e8d0@@3VBeaconManagerClass@@A",
-   "address": "0084e8d0"
-  },
-  {
-   "symbol": "?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A",
-   "address": "00a40c60"
-  },
-  {
    "symbol": "?unknown_pending_super_833694@@3HA",
    "address": "00833694"
   },
   {
-   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
-   "address": "00a35db4"
-  },
-  {
    "symbol": "?unknown_player_control_4d0ee0@@YIHH@Z",
    "address": "004d0ee0"
-  },
-  {
-   "symbol": "?unknown_rect_839630@@3VRect@@A",
-   "address": "00839630"
   },
   {
    "symbol": "?unknown_rect_ab6320@RadarClass@@2VRect@@A",

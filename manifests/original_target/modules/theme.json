@@ -109,7 +109,7 @@
    "padding_bytes": 7
   },
   {
-   "symbol": "?Unknown_006E7A70@ThemeClass@@QAEXXZ",
+   "symbol": "?Free_Themes@ThemeClass@@QAEXXZ",
    "entry": "006e7a70",
    "body_bytes": 113,
    "padding_bytes": 15
@@ -301,77 +301,77 @@
    "address": "007b2500",
    "bytes": 24,
    "kind": "rtti",
-   "section": 68
+   "section": 57
   },
   {
    "symbol": "??_R2CCFileClass@@8",
    "address": "007b2518",
    "bytes": 21,
    "kind": "rtti",
-   "section": 69
+   "section": 58
   },
   {
    "symbol": "??_R3CCFileClass@@8",
    "address": "007b2530",
    "bytes": 16,
    "kind": "rtti",
-   "section": 70
+   "section": 59
   },
   {
    "symbol": "??_R4CCFileClass@@6B@",
    "address": "007b2540",
    "bytes": 20,
    "kind": "rtti",
-   "section": 72
+   "section": 61
   },
   {
    "symbol": "??_R1A@?0A@A@FileClass@@8",
    "address": "007b2558",
    "bytes": 24,
    "kind": "rtti",
-   "section": 61
+   "section": 63
   },
   {
    "symbol": "??_R1A@?0A@A@RawFileClass@@8",
    "address": "007b2570",
    "bytes": 24,
    "kind": "rtti",
-   "section": 63
+   "section": 65
   },
   {
    "symbol": "??_R1A@?0A@A@BufferIOFileClass@@8",
    "address": "007b2588",
    "bytes": 24,
    "kind": "rtti",
-   "section": 65
+   "section": 67
   },
   {
    "symbol": "??_R1A@?0A@A@CDFileClass@@8",
    "address": "007b25a0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 67
+   "section": 68
   },
   {
    "symbol": "??_R2CDFileClass@@8",
    "address": "007b25b8",
    "bytes": 17,
    "kind": "rtti",
-   "section": 57
+   "section": 69
   },
   {
    "symbol": "??_R3CDFileClass@@8",
    "address": "007b25d0",
    "bytes": 16,
    "kind": "rtti",
-   "section": 58
+   "section": 70
   },
   {
    "symbol": "??_R4CDFileClass@@6B@",
    "address": "007b25e0",
    "bytes": 20,
    "kind": "rtti",
-   "section": 59
+   "section": 72
   },
   {
    "symbol": "??_R1A@?0A@A@?$VectorClass@PAUThemeControl@@@@8",
@@ -434,35 +434,35 @@
    "address": "007cc8b0",
    "bytes": 26,
    "kind": "rtti",
-   "section": 71
+   "section": 60
   },
   {
    "symbol": "??_R0?AVFileClass@@@8",
    "address": "007cc8d0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 60
+   "section": 62
   },
   {
    "symbol": "??_R0?AVRawFileClass@@@8",
    "address": "007cc8e8",
    "bytes": 27,
    "kind": "rtti",
-   "section": 62
+   "section": 64
   },
   {
    "symbol": "??_R0?AVBufferIOFileClass@@@8",
    "address": "007cc908",
    "bytes": 32,
    "kind": "rtti",
-   "section": 64
+   "section": 66
   },
   {
    "symbol": "??_R0?AVCDFileClass@@@8",
    "address": "007cc928",
    "bytes": 26,
    "kind": "rtti",
-   "section": 66
+   "section": 71
   },
   {
    "symbol": "??_C@_04LJDI@Side?$AA@",
@@ -1112,7 +1112,7 @@
   },
   {
    "site": "006909e0",
-   "symbol": "?Unknown_006E7A70@ThemeClass@@QAEXXZ",
+   "symbol": "?Free_Themes@ThemeClass@@QAEXXZ",
    "target": "006e7a70",
    "function_entry": true
   },
@@ -1166,7 +1166,7 @@
   },
   {
    "site": "005116a0",
-   "symbol": "?Unknown_006E7A70@ThemeClass@@QAEXXZ",
+   "symbol": "?Free_Themes@ThemeClass@@QAEXXZ",
    "target": "006e7a70",
    "function_entry": true
   },
@@ -1250,7 +1250,7 @@
   },
   {
    "site": "00688da0",
-   "symbol": "?unknown_6e8440@ThemeClass@@QAE_NI@Z",
+   "symbol": "?Is_Allowed@ThemeClass@@QAE_NI@Z",
    "target": "006e8440",
    "function_entry": true
   },
@@ -1574,7 +1574,7 @@
   },
   {
    "site": "0068e280",
-   "symbol": "?Unknown_006E7A70@ThemeClass@@QAEXXZ",
+   "symbol": "?Free_Themes@ThemeClass@@QAEXXZ",
    "target": "006e7a70",
    "function_entry": true
   }
@@ -1627,6 +1627,30 @@
   {
    "symbol": "?AudioDeviceAvailable@@YAHXZ",
    "address": "00406f30"
+  },
+  {
+   "symbol": "?AudioStreamerDestroy@@YIXPAX@Z",
+   "address": "004079c0"
+  },
+  {
+   "symbol": "?AudioStreamerFadeOut@@YIXPAX@Z",
+   "address": "00407fe0"
+  },
+  {
+   "symbol": "?AudioStreamerIsFading@@YIHPAX@Z",
+   "address": "00407ff0"
+  },
+  {
+   "symbol": "?AudioStreamerIsPlaying@@YIHPAX@Z",
+   "address": "00407f90"
+  },
+  {
+   "symbol": "?AudioStreamerStop@@YIXPAX@Z",
+   "address": "00407e60"
+  },
+  {
+   "symbol": "?AudioStreamerWaitForFade@@YIXPAX@Z",
+   "address": "00408010"
   },
   {
    "symbol": "?Audio_Format_Init@@YIXPAUAudioFormat@@@Z",
@@ -1733,6 +1757,10 @@
    "address": "00850828"
   },
   {
+   "symbol": "?Is_Allowed@ThemeClass@@QAE_NI@Z",
+   "address": "006e8440"
+  },
+  {
    "symbol": "?Is_Available@BufferIOFileClass@@UAE_NH@Z",
    "address": "0042f6e0"
   },
@@ -1829,10 +1857,6 @@
    "address": "00469030"
   },
   {
-   "symbol": "?unknown_6e8440@ThemeClass@@QAE_NI@Z",
-   "address": "006e8440"
-  },
-  {
    "symbol": "?unknown_audio_levels_831454@@3PAUAudioLevelSet@@A",
    "address": "00831454"
   },
@@ -1857,36 +1881,12 @@
    "address": "004ba5b0"
   },
   {
-   "symbol": "?unknown_sample_4079c0@@YIXPAX@Z",
-   "address": "004079c0"
-  },
-  {
-   "symbol": "?unknown_sample_407f90@@YIHPAX@Z",
-   "address": "00407f90"
-  },
-  {
-   "symbol": "?unknown_sample_407fe0@@YIXPAX@Z",
-   "address": "00407fe0"
-  },
-  {
-   "symbol": "?unknown_sample_407ff0@@YIHPAX@Z",
-   "address": "00407ff0"
-  },
-  {
-   "symbol": "?unknown_sample_408010@@YIXPAX@Z",
-   "address": "00408010"
-  },
-  {
    "symbol": "?unknown_sound_enabled_a40c18@@3DA",
    "address": "00a40c18"
   },
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "?unknown_stop_sample_407e60@@YIXPAX@Z",
-   "address": "00407e60"
   },
   {
    "symbol": "_DAT_00a35db4",
@@ -2207,7 +2207,7 @@
   {
    "site": "00688da0",
    "target": "006e8440",
-   "symbol": "?unknown_6e8440@ThemeClass@@QAE_NI@Z",
+   "symbol": "?Is_Allowed@ThemeClass@@QAE_NI@Z",
    "module_symbol": "?FUN_006e8440@Owner_006e8440@seed_006e8440@@QAE_NI@Z"
   },
   {

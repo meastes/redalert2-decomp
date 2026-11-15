@@ -163,7 +163,7 @@ void __fastcall Destroy_Connection_005bb5d0(int id, int error)
         if (Frame == 0) {
             housep->unknown_func_4e7e80();
         } else {
-            OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 0x23, id));
+            OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0x23, id));
         }
     } else {
         if (unknown_game_mode_a3d298 == 4 && unknown_b2a7ec) {

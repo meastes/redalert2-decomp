@@ -266,7 +266,7 @@ HouseClass::HouseClass(HouseTypeClass *type)
       unknown_190(0),
       unknown_191(0),
       unknown_192(1),
-      unknown_194(unknown_118),
+      IQ(unknown_118),
       unknown_198(0),
       unknown_1b4(-1),
       unknown_1b8(-1),
@@ -276,7 +276,7 @@ HouseClass::HouseClass(HouseTypeClass *type)
       unknown_204(0),
       unknown_205(0),
       unknown_206(0),
-      unknown_207(0),
+      WarFactoryInfiltrated(0),
       unknown_208(0),
       unknown_20c(0),
       unknown_210(0),
@@ -341,13 +341,13 @@ HouseClass::HouseClass(HouseTypeClass *type)
       unknown_5550(75),
       unknown_5554(75),
       unknown_5558(75),
-      unknown_555c(0),
+      BaseDefenseTeamCount(0),
       unknown_55e4(0),
       unknown_55e8(0),
       unknown_55e9(0, 0, 0),
       unknown_55ec(255, 255, 255),
-      unknown_5668(1),
-      unknown_5669(1),
+      RecalcPower(1),
+      RecalcRadar(1),
       unknown_566a(0),
       EMPDest(0, 0),
       NukeDest(0, 0),
@@ -1046,17 +1046,17 @@ void HouseClass::AI()
 {
     if (unknown_1ec.Value()==1) {
         unknown_1ec = CDTimerClass<FrameTimerClass>(0);
-        unknown_5668 = true;
+        RecalcPower = true;
     }
     if (unknown_1f8.Value()==1) {
         unknown_1f8 = CDTimerClass<FrameTimerClass>(0);
-        unknown_5669 = true;
+        RecalcRadar = true;
     }
-    if (unknown_5668 != false) {
+    if (RecalcPower != false) {
         Recalc_Power_004f2cc0();
-        unknown_5669 = true;
+        RecalcRadar = true;
     }
-    if ((unknown_5669 != false) && (MuteSWLaunches == 0)) {
+    if ((RecalcRadar != false) && (MuteSWLaunches == 0)) {
         unknown_func_4f2e50();
         unknown_func_4f2fc0();
     }
@@ -1069,7 +1069,7 @@ void HouseClass::AI()
         long frame_delay=0;
         static_cast<IAIHouse *>(unknown_56cc)->AI(&frame_delay);
     }
-    if (!Is_Human_Control() && (unknown_13b || unknown_194>=Rules->IQProduction)) {
+    if (!Is_Human_Control() && (unknown_13b || IQ>=Rules->IQProduction)) {
         unknown_13b=true;
         unknown_136=true;
         unknown_137=true;
@@ -1113,7 +1113,7 @@ void HouseClass::AI()
                 int count=0;
                 while (!occupant->unknown_76 && count++<5) {
                     int damage=occupant->Strength;
-                    occupant->Take_Damage(&damage,0,Rules->unknown_c74,0,true,0);
+                    occupant->Take_Damage(&damage,0,Rules->C4Warhead,0,true,0);
                 }
             }
         }
@@ -1128,9 +1128,9 @@ void HouseClass::AI()
         }
         unknown_5684=CDTimerClass<FrameTimerClass>(Rules->TeamDelays[unknown_c8]);
     }
-    if (unknown_player_a35db4==this) {
+    if (PlayerPtr==this) {
         if (!CurBuildings && unknown_sell_mode_83368d) Map.Unknown_0049C7C0(0);
-        if (unknown_player_a35db4==this) {
+        if (PlayerPtr==this) {
             if (unknown_56c0.Value()==0 && Available_Money()<100 &&
                 unknown_52c8+unknown_52c4+unknown_52c0+unknown_52bc>0) {
                 Speech_Play_Name(eva_insufficient_funds_007cf9e8,-1,-1);
@@ -1165,7 +1165,7 @@ void HouseClass::AI()
     }
     for (int super_index=0;super_index<Supers.Count();++super_index) {
         SuperClass *super=Supers[super_index];
-        if (super->Is_Present() && super->unknown_69d390(this==unknown_player_a35db4) && this==unknown_player_a35db4) {
+        if (super->Is_Present() && super->unknown_69d390(this==PlayerPtr) && this==PlayerPtr) {
             int type_index=super->Type->Fetch_Heap_ID();
             Map.Flag_Tab_To_Redraw(Unknown_006818D0(0x39,type_index,0));
         }
@@ -1228,7 +1228,7 @@ defeat_checked:;
             }
         }
     }
-    if (unknown_player_a35db4 == this) {
+    if (PlayerPtr == this) {
         if (unknown_144 != false) {
             unknown_144 = false;
             {
@@ -1236,7 +1236,7 @@ defeat_checked:;
             for (int index=0;index<building_count;++index) {
                 BuildingClass *building=Buildings[index];
                 if (building && building->IsActive && building->Strength>0 && building->Get_Mission()!=0x13 &&
-                    building->MissionQueue!=0x13 && unknown_player_a35db4==building->House) {
+                    building->MissionQueue!=0x13 && PlayerPtr==building->House) {
                     building->unknown_slot283();
                 }
             }
@@ -1252,7 +1252,7 @@ update_super_weapons:;
         goto update_super_weapons;
     }
     if (unknown_18c && unknown_1c8.Value()==0) unknown_18c=false;
-    if (this==unknown_player_a35db4 && unknown_192) {
+    if (this==PlayerPtr && unknown_192) {
         unknown_192=false;
         Map.Unknown_0049DE00(false,false);
     }
@@ -1267,8 +1267,8 @@ void HouseClass::unknown_func_4e4ef0()
 {
     for (int index = 0; index < Supers.Count(); index++) {
         UnknownSuperView *super = (UnknownSuperView *)Supers[index];
-        if (super->unknown_55 && super->unknown_func_69d390(this == unknown_player_a35db4) &&
-            this == unknown_player_a35db4) {
+        if (super->unknown_55 && super->unknown_func_69d390(this == PlayerPtr) &&
+            this == PlayerPtr) {
             int id = super->Type->Fetch_Heap_ID();
             Map.Flag_Tab_To_Redraw(Unknown_006818D0(0x39, id, 0));
         }
@@ -1289,7 +1289,7 @@ void HouseClass::Attacked(TechnoClass *source)
         return;
     }
     bool is_player = Is_Player_Control();
-    bool is_ally = unknown_player_a35db4 != 0 && unknown_player_a35db4 != this && Is_Ally(unknown_player_a35db4)
+    bool is_ally = PlayerPtr != 0 && PlayerPtr != this && Is_Ally(PlayerPtr)
         && (unknown_game_mode_a3d298 == 0 || !source->House->Type->MultiplayPassive);
     if (is_player) {
         if (Unknown_0063B5B0(3, Coord_Cell(source->Center_Coord()))) {
@@ -1313,7 +1313,7 @@ void HouseClass::Attacked(TechnoClass *source)
 float HouseClass::Harvested(float amount, int type)
 {
     unknown_5418 = (int)(amount * 5.0f + unknown_5418);
-    Balance = (int)(((UnknownTiberiumView *)unknown_TiberiumClass_list_00ac0b30[type])->Value * Type->unknown_0x148 * amount + Balance);
+    Balance = (int)(((UnknownTiberiumView *)Tiberiums[type])->Value * Type->unknown_0x148 * amount + Balance);
     return amount;
 }
 
@@ -1349,7 +1349,7 @@ BuildingClass *HouseClass::unknown_func_4e5160()
 void HouseClass::Place_Tiberium(int count, int type)
 {
     while (count > 0) {
-        float limit = (float)Rules->unknown_1410;
+        float limit = (float)Rules->WeedCapacity;
         if (!(unknown_254.Get_Total_Amount() < limit)) {
             break;
         }
@@ -1366,7 +1366,7 @@ double HouseClass::Weed_Fraction() const
     if (unknown_254.Get_Total_Amount() == 0.0f) {
         return 0.0;
     }
-    return unknown_254.Get_Total_Amount() / Rules->unknown_1410;
+    return unknown_254.Get_Total_Amount() / Rules->WeedCapacity;
 }
 
 
@@ -1398,7 +1398,7 @@ void HouseClass::Spend_Money_004e5280(int money)
                     while (remaining > 0 && storage.Get_Amount(type) > 0.0f) {
                         float removed = storage.Remove_Amount(1.0f, type);
                         Tiberium.Remove_Amount(removed, type);
-                        int value = (int)(unknown_TiberiumClass_list_00ac0b30[type]->Value *
+                        int value = (int)(Tiberiums[type]->Value *
                             Type->unknown_0x148 * removed);
                         remaining -= value;
                         spent += value;
@@ -1561,7 +1561,7 @@ void HouseClass::Make_Ally(HouseClass *house, bool announce)
                 if (announce) {
                     if (house->Is_Ally(this)) {
                         if (!MuteSWLaunches) {
-                            if (unknown_player_a35db4->Is_Ally(house) && unknown_player_a35db4->Is_Ally(this)) {
+                            if (PlayerPtr->Is_Ally(house) && PlayerPtr->Is_Ally(this)) {
                                 Speech_Play_Name("EVA_AllianceFormed", -1, -1);
                             } else {
                                 Speech_Play_Name("EVA_EnemyAllianceFormed", -1, -1);
@@ -1689,7 +1689,7 @@ int HouseClass::unknown_func_4e63f0(int kind, int index, bool naval)
         return 3;
     }
     factory->unknown_func_4b9630(true);
-    if (unknown_player_a35db4 == this) {
+    if (PlayerPtr == this) {
         Map.Flag_Tab_To_Redraw(Unknown_006818D0(kind, index, 0));
     }
     return 0;
@@ -1718,7 +1718,7 @@ int HouseClass::Abandon_Production(int kind, int index, bool naval)
             return 0;
         }
     }
-    if (unknown_player_a35db4 == this) {
+    if (PlayerPtr == this) {
         Map.Unknown_00681740(kind, index, factory);
         if (kind == 7 || kind == 6) {
             Map.PendingObjectPtr = 0;
@@ -1782,10 +1782,10 @@ bool HouseClass::unknown_func_4e68d0(int index, Cell const &cell)
             super->unknown_4a = linked->unknown_4a;
         }
     }
-    super->unknown_func_69d090(this == unknown_player_a35db4, &cell);
+    super->unknown_func_69d090(this == PlayerPtr, &cell);
     if (super->Type->unknown_e1 && linked != 0) {
         linked->unknown_func_69cfb0(0);
-        linked->unknown_func_69cfc0(this == unknown_player_a35db4);
+        linked->unknown_func_69cfc0(this == PlayerPtr);
     }
     return true;
 }
@@ -1795,7 +1795,7 @@ bool HouseClass::unknown_func_4e68d0(int index, Cell const &cell)
 // House004E6950: completed production placement, 1460 body bytes and 12 frozen NOPs.
 // RA2 additions and call/storage order checked against the exact target; TS is shape evidence only.
 
-extern Rect unknown_rect_839630; // Existing shared/display.hpp view rectangle, 00839630.
+extern Rect TacticalRect; // Existing shared/display.hpp view rectangle, 00839630.
 
 bool HouseClass::Unknown_004E6950(int kind, int index, bool naval, Cell const &cell)
 {
@@ -1850,13 +1850,13 @@ bool HouseClass::Unknown_004E6950(int kind, int index, bool naval, Cell const &c
                         tech->unknown_slot150(12, builder);
                         Abandon_Production(kind, index, naval);
                         placed = true;
-                        if (unknown_player_a35db4 == this) {
+                        if (PlayerPtr == this) {
                             if (tech->IsActive && !tech->unknown_373) tech->Revealed(this);
                             Voc_Play(Rules->BuildingSlam, 1.0f, 0x2000, 0);
                             if (!Debug_Map) {
                                 Map.Set_Cursor_Shape(0);
-                                Map.unknown_118c = 0;
-                                Map.unknown_1190 = 0;
+                                Map.CopyPendingObjectPtr = 0;
+                                Map.CopyPendingObject = 0;
                             }
                             Map.Unknown_00498F10(0);
                             Map.PendingObjectPtr = 0;
@@ -1865,19 +1865,19 @@ bool HouseClass::Unknown_004E6950(int kind, int index, bool naval, Cell const &c
                         }
                     } else {
                         placed = false;
-                        if (this == unknown_player_a35db4) Speech_Play_Name("EVA_CannotDeployHere", -1, -1);
-                        if (!Debug_Map && this == unknown_player_a35db4) {
-                            Map.PendingObjectPtr = Map.unknown_118c;
-                            Map.PendingObject = Map.unknown_1190;
-                            Map.unknown_11a8 = Map.unknown_1194;
+                        if (this == PlayerPtr) Speech_Play_Name("EVA_CannotDeployHere", -1, -1);
+                        if (!Debug_Map && this == PlayerPtr) {
+                            Map.PendingObjectPtr = Map.CopyPendingObjectPtr;
+                            Map.PendingObject = Map.CopyPendingObject;
+                            Map.unknown_11a8 = Map.CopyPendingHouse;
                             Map.unknown_1170 = Map.unknown_117e;
                             Map.unknown_1174 = Map.unknown_1182;
                             Map.unknown_1178 = Map.unknown_1188;
-                            if (Map.unknown_1190) {
-                                Map.Unknown_00498F10(((ObjectTypeClass *)Map.unknown_1190)->Occupy_List(1));
+                            if (Map.CopyPendingObject) {
+                                Map.Unknown_00498F10(((ObjectTypeClass *)Map.CopyPendingObject)->Occupy_List(1));
                                 Point2D xy = WWMouse->Get_Mouse_XY();
                                 TacticalMap->Pixel_To_Coord(xy);
-                                xy -= Point2D(unknown_rect_839630.X, unknown_rect_839630.Y);
+                                xy -= Point2D(TacticalRect.X, TacticalRect.Y);
                                 Cell mouse_cell;
                                 CoordStruct mouse_coord;
                                 ObjectClass *object = 0;
@@ -1886,8 +1886,8 @@ bool HouseClass::Unknown_004E6950(int kind, int index, bool naval, Cell const &c
                                 Map.Unknown_004994D0(mouse_cell);
                             }
                             Map.Set_Cursor_Shape(0);
-                            Map.unknown_118c = 0;
-                            Map.unknown_1190 = 0;
+                            Map.CopyPendingObjectPtr = 0;
+                            Map.CopyPendingObject = 0;
                         }
                     }
                     builder->unknown_slot149(3);
@@ -1959,7 +1959,7 @@ void __cdecl Clear_Selected_Objects_00482bc0();
 
 bool HouseClass::unknown_func_4e7070(TechnoClass *builder, BuildingClass *building)
 {
-    if (this == unknown_player_a35db4 && Map.PendingObject == 0 && builder != 0 && building != 0) {
+    if (this == PlayerPtr && Map.PendingObject == 0 && builder != 0 && building != 0) {
         Clear_Selected_Objects_00482bc0();
         Map.Unknown_0049CA20(0);
         Map.Unknown_0049C7C0(0);
@@ -2223,7 +2223,7 @@ void HouseClass::MPlayer_Defeated_004e77f0()
     int alive,humans;
     bool all_allies;
     unknown_13d=true;
-    if (unknown_194==Rules->MaxIQ && !Is_Human_Control() && Rules->Paranoid && unknown_game_mode_a3d298!=0) unknown_func_4ec5e0();
+    if (IQ==Rules->MaxIQ && !Is_Human_Control() && Rules->Paranoid && unknown_game_mode_a3d298!=0) unknown_func_4ec5e0();
     if (unknown_id_source_a3d290->unknown_000 & 0x10) {
         if (unknown_5308) unknown_func_4e7580(unknown_5308,true);
         else if (unknown_530c!=unknown_cell_a40f10) unknown_func_4e7580((AbstractClass *)&Map[unknown_530c],true);
@@ -2234,8 +2234,8 @@ void HouseClass::MPlayer_Defeated_004e77f0()
             if (unit->House==this && unit->IsActive) unit->Delete_Me();
         }
     }
-    if (unknown_player_a35db4==this) {
-        unknown_object_84e8d0.Unknown_0042EBE0(unknown_player_a35db4->ArrayIndex);
+    if (PlayerPtr==this) {
+        BeaconManager.Unknown_0042EBE0(PlayerPtr->ArrayIndex);
         if (unknown_flag_8373f4) {
             Map.Unknown_006A1F10();
             unknown_flag_7d9fe8=true;
@@ -2249,7 +2249,7 @@ void HouseClass::MPlayer_Defeated_004e77f0()
         Map.Flag_To_Redraw(2);
         memset(unknown_flags_a3f118,1,sizeof(unknown_flags_a3f118));
         if (Current_Dialog_Id_00735b20()==0x73) Map.Unknown_00634970((int)WS_Top_Window());
-        if (unknown_house_a72d28!=unknown_player_a35db4) {
+        if (unknown_house_a72d28!=PlayerPtr) {
             swprintf(text,StringTable::Load_String("TXT_PLAYER_DEFEATED",0,"D:\\Ra2\\House.CPP",0x125f),UIName);
             unknown_session_a3d298.Messages.Add_Message(0,0,text,unknown_session_a3d298.Unknown_006715D0(unknown_a3d3b4),0x4046,(int)(Rules->MessageDelay*900),false);
             Speech_Play_Name("EVA_YouHaveLost",-1,-1);
@@ -2298,7 +2298,7 @@ void HouseClass::MPlayer_Defeated_004e77f0()
     }
     if (alive==1 || humans==0) {
         if (unknown_flag_7d9fe8) Map.Unknown_006A1EC0();
-        if (unknown_player_a35db4->unknown_13d) {
+        if (PlayerPtr->unknown_13d) {
             UnknownSessionA3D29C *mode=unknown_session_a3d29c;
             bool present=mode!=0;
             bool cooperative=(unknown_game_mode_a3d298==3 || unknown_game_mode_a3d298==4) && present && mode->unknown_slot1() && mode->unknown_slot2();
@@ -2310,18 +2310,18 @@ void HouseClass::MPlayer_Defeated_004e77f0()
                 }
                 if (human_alive) {
                     Debug_Printf("MPlayer_Defeated() - Allies win, Flag_To_Win\n");
-                    unknown_player_a35db4->Flag_To_Win(false);
+                    PlayerPtr->Flag_To_Win(false);
                 } else {
                     Debug_Printf("MPlayer_Defeated() - Allies lost, Flag_To_Lose\n");
-                    unknown_player_a35db4->Flag_To_Lose(false);
+                    PlayerPtr->Flag_To_Lose(false);
                 }
             } else {
                 Debug_Printf("MPlayer_Defeated() - Flag_To_Lose\n");
-                unknown_player_a35db4->Flag_To_Lose(false);
+                PlayerPtr->Flag_To_Lose(false);
             }
         } else {
             Debug_Printf("MPlayer_Defeated() - Flag_To_Win\n");
-            unknown_player_a35db4->Flag_To_Win(false);
+            PlayerPtr->Flag_To_Win(false);
         }
     }
 }
@@ -2356,7 +2356,7 @@ void HouseClass::unknown_func_4e7df0()
             if (techno->unknown_20c != 0) {
                 ((UnknownTechno20cView *)techno->unknown_20c)->unknown_func_6e2680();
             }
-            techno->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 1);
+            techno->Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, 1);
             last = techno;
         } else {
             index++;
@@ -2453,7 +2453,7 @@ bool HouseClass::Flag_To_Lose(bool quiet)
             }
         } else if (Is_Player_Control()) {
             TacticalMap->Set_Caption_Text_006a53f0(StringTable::Load_String("TXT_LOST", 0, "D:\\Ra2\\House.CPP", 5362), 3);
-            if (unknown_player_a35db4 != unknown_house_a72d28) {
+            if (PlayerPtr != unknown_house_a72d28) {
                 Speech_Play_Name("EVA_YouHaveLost", -1, -1);
             }
             Map.Flag_To_Redraw(false);
@@ -2525,8 +2525,8 @@ void HouseClass::Sell_Wall(Cell const &cell, bool quiet)
                         }
                     }
                     if (btype != 0 && !btype->Unsellable) {
-                        if (unknown_player_a35db4 == this && !quiet) {
-                            Voc_Play(Rules->unknown_5c4, 1.0f, 0x2000, 0);
+                        if (PlayerPtr == this && !quiet) {
+                            Voc_Play(Rules->SellSound, 1.0f, 0x2000, 0);
                         }
                         btype->Cost_Of(this);
                         Map[cell].OverlayIndex = -1;
@@ -2725,7 +2725,7 @@ int HouseClass::Expert_AI()
             unknown_54f0=-1;
         }
     }
-    if(unknown_game_mode_a3d298!=0 || unknown_194>=Rules->IQSuperWeapons) AI_Supers_004f3910();
+    if(unknown_game_mode_a3d298!=0 || IQ>=Rules->IQSuperWeapons) AI_Supers_004f3910();
     if(unknown_198==4) {
         Fire_Sale();
         All_To_Hunt();
@@ -2884,8 +2884,8 @@ bool HouseClass::AI_Raise_Money_004e90f0(int urgency)
                 int cost=((BuildingTypeClass *)building->unknown_4c0[level-1])->GetRefund(this,true);
                 Balance+=cost;
                 building->Remove_Upgrade();
-                unknown_5668=true;
-                unknown_5669=true;
+                RecalcPower=true;
+                RecalcRadar=true;
                 Building_Refresh_House_Buildings_0044fa40(this);
             } else {
                 building->Sell_Back(1);
@@ -3046,7 +3046,7 @@ int HouseClass::AI_Unit()
     int refineries = unknown_5460.unknown_func_491d10(Rules->BuildRefinery[0]->ArrayIndex)
         + unknown_5460.unknown_func_491d10(Rules->BuildRefinery[1]->ArrayIndex);
     int per_refinery = Rules->HarvestersPerRefinery;
-    if (unknown_194 >= Rules->IQHarvester && !unknown_189 && !Is_Human_Control()
+    if (IQ >= Rules->IQHarvester && !unknown_189 && !Is_Human_Control()
             && per_refinery * refineries > harvesters) {
         if ((unsigned)Get_First_Ownable(Rules->unknown_9ec)->TechLevel <= (unsigned)unknown_11c) {
             unknown_5540 = Get_First_Ownable(Rules->unknown_9ec)->ArrayIndex;
@@ -3906,7 +3906,7 @@ void HouseClass::Read_INI(CCINIClass &ini)
         iq = 1;
     }
     unknown_118 = iq;
-    unknown_194 = iq;
+    IQ = iq;
 
     unknown_128 = ini.Get_SourceType(section, "Edge", (SourceType)0);
     ColorSchemeIndex = ini.Get_ColorScheme(section, "Color", ColorSchemeIndex);
@@ -4246,7 +4246,7 @@ void HouseClass::unknown_func_4ec9b0()
             UnknownBuildingView *building = (UnknownBuildingView *)CurrentObject[index];
             if (building != 0 && building->Kind_Of() == 6 && !building->unknown_372 &&
                 ((UnknownBuildingTypeView *)building->Type)->unknown_c68 > 0 &&
-                (building->unknown_1a8 & (1 << unknown_player_a35db4->Type->House)) != 0) {
+                (building->unknown_1a8 & (1 << PlayerPtr->Type->House)) != 0) {
                 building->Mark(2);
             }
         }
@@ -4546,7 +4546,7 @@ void HouseClass::Unknown_004ED440(TechnoClass *techno, bool sold)
         unknown_5460.Decrement(techno->Techno_Type_Class()->Fetch_Heap_ID());
         if (techno != 0) {
             BuildingClass *building = (BuildingClass *)techno;
-            unknown_5668 = true;
+            RecalcPower = true;
             Capacity -= building->Type->Storage;
             if (sold) {
                 StorageClass &storage = building->unknown_294;
@@ -4554,7 +4554,7 @@ void HouseClass::Unknown_004ED440(TechnoClass *techno, bool sold)
                 while (type != -1) {
                     int amount = (int)storage.Remove_Amount(2147483648.0f, type);
                     unknown_5418 += amount * 5.0f;
-                    Balance += unknown_TiberiumClass_list_00ac0b30[type]->Value * Type->unknown_0x148 * amount;
+                    Balance += Tiberiums[type]->Value * Type->unknown_0x148 * amount;
                     type = storage.First_Used_Slot();
                 }
             } else {
@@ -4645,7 +4645,7 @@ void HouseClass::Compute_CRC(WWCRCEngine &crc) const
     crc(unknown_137);
     crc(unknown_13a);
     crc(unknown_13d);
-    crc((long)unknown_194);
+    crc((long)IQ);
     crc((long)unknown_198);
     crc((long)Blockage);
     crc(unknown_1c8.Value());
@@ -6029,7 +6029,7 @@ void __fastcall Building_Refresh_House_Buildings_0044fa40(HouseClass *house);
 void HouseClass::Recalc_Power_004f2cc0()
 {
     bool was_low = Power_Fraction() < 1.0;
-    unknown_5668 = false;
+    RecalcPower = false;
     Power = 0;
     Drain = 0;
     int count = Buildings.Count();
@@ -6046,7 +6046,7 @@ void HouseClass::Recalc_Power_004f2cc0()
     Building_Refresh_House_Buildings_0044fa40(this);
     FactoryClass::Update_Rates(this);
     if (was_low != (Power_Fraction() < 1.0)) Update_Present_Super_Weapons();
-    unknown_5669 = true;
+    RecalcRadar = true;
 }
 
 
@@ -6060,8 +6060,8 @@ void HouseClass::Recalc_Power_004f2cc0()
 
 void HouseClass::unknown_func_4f2e50()
 {
-    unknown_5669 = false;
-    if (this == unknown_player_a35db4) {
+    RecalcRadar = false;
+    if (this == PlayerPtr) {
         bool radar = false;
         if (unknown_1f8 == 0) {
             if (unknown_id_source_a3d290->FreeRadar) {
@@ -6099,8 +6099,8 @@ void HouseClass::unknown_func_4f2e50()
 
 void HouseClass::unknown_func_4f2fc0()
 {
-    unknown_5669 = false;
-    if (this == unknown_player_a35db4) {
+    RecalcRadar = false;
+    if (this == PlayerPtr) {
         for (int index = 0; index < Buildings.Count(); index++) {
             BuildingClass *building = Buildings[index];
             if (building != 0 && building->Type->SpySat && !building->unknown_76 && building->unknown_74
@@ -6224,7 +6224,7 @@ void HouseClass::unknown_func_4f3170(int kind, bool naval, int arg3)
             factory->Start_Next_Queued_004B9D70();
         } else if (factory->Object->Techno_Type_Class()->Who_Can_Build_Me(true, true, true, this) == 0) {
             factory->Suspend_004B9630(false);
-            if (unknown_player_a35db4 == this) {
+            if (PlayerPtr == this) {
                 Map.Flag_Tab_To_Redraw(SidebarClass::Which_Column(kind, arg3, naval));
             }
         } else if (factory->unknown_6c && !factory->unknown_6d) {
@@ -6244,7 +6244,7 @@ void HouseClass::unknown_func_4f3170(int kind, bool naval, int arg3)
 void HouseClass::unknown_func_4f3320(HouseClass *house)
 {
     unknown_5414 |= 1 << house->Type->House;
-    if (house == unknown_player_a35db4) {
+    if (house == PlayerPtr) {
         for (int index = 0; index < Technos.Count(); index++) {
             TechnoClass *techno = Technos[index];
             if (techno != 0 && !techno->unknown_76 && techno->House == this) {
@@ -6640,7 +6640,7 @@ void HouseClass::AI_Takeover()
     if (!Is_Human_Player()) return;
     unknown_134=false;
     unknown_135=false;
-    unknown_194=Rules->MaxIQ;
+    IQ=Rules->MaxIQ;
     IniName=FixedString<21>("Computer");
     wcscpy(UIName,StringTable::Load_String("TXT_COMPUTER",0,"D:\\Ra2\\House.CPP",0x3130));
     int index;
@@ -6797,7 +6797,7 @@ void HouseClass::AI_Takeover()
 void HouseClass::Update_Present_Super_Weapons()
 {
     if (!GameActive) return;
-    bool is_player = unknown_player_a35db4 == this;
+    bool is_player = PlayerPtr == this;
     for (int s = 0; s < Supers.Count(); ++s) {
         if (Supers[s]->Is_Present() && ((Supers[s]->unknown_0x48 && !Supers[s]->Is_One_Time()) || unknown_13d)) {
             bool present = false;
@@ -6843,7 +6843,7 @@ void HouseClass::Update_Present_Super_Weapons()
                     unknown_144 = true;
                 }
             } else {
-                if (Supers[s]->Remove() && unknown_player_a35db4 != 0) {
+                if (Supers[s]->Remove() && PlayerPtr != 0) {
                     if (is_player) {
                         if (unknown_pending_super_833694 == s) unknown_pending_super_833694 = -1;
                         Map.Flag_Tab_To_Redraw(type_index);
@@ -6875,8 +6875,8 @@ void HouseClass::Enable_Available_Super_Weapons_004f4db0()
                         }
                     }
                     if (building->Fetch_Super_Weapon()==super_index || building->Fetch_Super_Weapon2()==super_index || from_upgrade) {
-                        Supers[super_index]->Grant(false,this==unknown_player_a35db4,Power_Fraction()<1.0);
-                        if (this==unknown_player_a35db4) {
+                        Supers[super_index]->Grant(false,this==PlayerPtr,Power_Fraction()<1.0);
+                        if (this==PlayerPtr) {
                             Map.Unknown_0067C530(31,super_index);
                             int type_index=Supers[super_index]->Type->Fetch_Heap_ID();
                             Map.Flag_Tab_To_Redraw(Unknown_006818D0(57,type_index,0));
@@ -6966,7 +6966,7 @@ bool HouseClass::Is_Player_Control()
     if (!unknown_game_mode_a3d298) {
         return unknown_134 || unknown_135;
     }
-    return this == unknown_player_a35db4;
+    return this == PlayerPtr;
 }
 
 
@@ -7068,7 +7068,7 @@ void HouseClass::Update_Laser_Color()
 void HouseClass::unknown_func_4f5800(long delay)
 {
     unknown_1ec = CDTimerClass<FrameTimerClass>(delay);
-    unknown_5668 = true;
+    RecalcPower = true;
 }
 
 
@@ -7077,7 +7077,7 @@ void HouseClass::unknown_func_4f5800(long delay)
 void HouseClass::unknown_func_4f5840(long delay)
 {
     unknown_1f8 = CDTimerClass<FrameTimerClass>(delay);
-    unknown_5669 = true;
+    RecalcRadar = true;
 }
 
 
@@ -7086,7 +7086,7 @@ void HouseClass::unknown_func_4f5840(long delay)
 
 void HouseClass::unknown_func_4f5880()
 {
-    if (this == unknown_player_a35db4 && !unknown_566a) {
+    if (this == PlayerPtr && !unknown_566a) {
         Map.Unknown_00559F10();
     }
 }

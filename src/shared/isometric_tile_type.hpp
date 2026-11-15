@@ -165,7 +165,7 @@ public:
     int NonMarbleMadness;                               // +0x26C 0xFFFF: none
     int TileSetBaseID;                                  // +0x270
     DynamicVectorClass<unsigned short *> unknown_274;   // +0x274 the preview colour tables (TibSun PreviewTiles)
-    AbstractClass *unknown_28c;                         // +0x28C next variation (TibSun NextTileTypeInSet)
+    AbstractClass *NextTileTypeInSet;                         // +0x28C next variation (TibSun NextTileTypeInSet)
     int ToSnowTheater;                                  // +0x290 -1: none
     int ToTemperateTheater;                             // +0x294 -1: none
     int unknown_298;                                    // +0x298 AnimTypes index (-1: none)
@@ -181,9 +181,9 @@ public:
     int unknown_2b8;                                    // +0x2B8 cells down
     int Unused2;                                        // +0x2BC the constructor's third argument
     int NumTileTypesInSet;                              // +0x2C0 the unknown_28c chain's length
-    bool unknown_2c4;                                   // +0x2C4 image loads on demand (TibSun IsFileLoaded)
+    bool IsFileLoaded;                                   // +0x2C4 image loads on demand (TibSun IsFileLoaded)
     char Filename[16];                                  // +0x2C5 the image file's name
-    bool unknown_2d5;                                   // +0x2D5 (map_cell_view.hpp; TibSun IsAllowBurrowing)
+    bool IsAllowBurrowing;                                   // +0x2D5 (map_cell_view.hpp; TibSun IsAllowBurrowing)
     bool unknown_2d6;                                   // +0x2D6 (map_cell_view.hpp: tiberium may grow; TibSun IsAllowTiberium)
     int UseCount;                                       // +0x2D8
 };

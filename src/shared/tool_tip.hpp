@@ -241,7 +241,7 @@ public:
 // tactical rectangle and the layout flags; shared/sidebar.hpp declares the
 // same objects field by field but drags in the radar headers).
 extern Rect unknown_rect_839620;        // 0x00839620 sidebar X, Y, width, height
-extern Rect unknown_rect_839630;        // 0x00839630 tactical X, Y, width, height
+extern Rect TacticalRect;        // 0x00839630 tactical X, Y, width, height
 extern bool unknown_flag_8373c2;        // 0x008373C2
 
 class CCToolTip : public ToolTipManager {

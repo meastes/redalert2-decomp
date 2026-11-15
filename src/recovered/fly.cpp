@@ -140,7 +140,7 @@ FlyLocomotionClass::~FlyLocomotionClass()
 
 bool __stdcall FlyLocomotionClass::Is_Moving()
 {
-    return unknown_34 || LinkedTo->unknown_240 > 0.0f;
+    return unknown_34 || LinkedTo->PitchAngle > 0.0f;
 }
 
 
@@ -276,7 +276,7 @@ void __stdcall FlyLocomotionClass::Stop_Moving()
         if (linked && linked->Kind_Of() == 2) {
             AircraftClass *aircraft = static_cast<AircraftClass *>(linked);
             if (cell == unknown_geometry_k) {
-                LinkedTo->Take_Damage(&LinkedTo->Strength, 0, Rules->unknown_c74, 0, true, 1);
+                LinkedTo->Take_Damage(&LinkedTo->Strength, 0, Rules->C4Warhead, 0, true, 1);
             } else {
                 AbstractClass *destination;
                 if (LinkedTo->Get_Mission() == 1) destination = aircraft->Good_LZ();
@@ -295,7 +295,7 @@ void __stdcall FlyLocomotionClass::Stop_Moving()
                 return;
             }
             if (LinkedTo->Strength <= 0) return;
-            LinkedTo->Take_Damage(&LinkedTo->Strength, 0, Rules->unknown_c74, 0, true, 1);
+            LinkedTo->Take_Damage(&LinkedTo->Strength, 0, Rules->C4Warhead, 0, true, 1);
         }
         unknown_1c = unknown_geometry_l;
     }
@@ -472,11 +472,11 @@ void FlyLocomotionClass::unknown_4bcd50()
                 LinkedTo->Delete_Me();
                 return;
             }
-            LinkedTo->Take_Damage(&LinkedTo->Strength,0,Rules->unknown_c74,0,true,1);
+            LinkedTo->Take_Damage(&LinkedTo->Strength,0,Rules->C4Warhead,0,true,1);
             Cell cell=Cell(coord);
-            new AnimClass(Select_Damage_Anim(damage,Rules->unknown_c74,Fly_Land_004bcd50(Map[cell]),&oldcoord),coord,0,1,0x2600,Get_Explosion_Z_0047fcc0(coord));
-            Unknown_0047F600(coord,damage,Rules->unknown_c74,0,0);
-            Unknown_0047E2C0(coord,damage,0,Rules->unknown_c74,1);
+            new AnimClass(Select_Damage_Anim(damage,Rules->C4Warhead,Fly_Land_004bcd50(Map[cell]),&oldcoord),coord,0,1,0x2600,Get_Explosion_Z_0047fcc0(coord));
+            Unknown_0047F600(coord,damage,Rules->C4Warhead,0,0);
+            Unknown_0047E2C0(coord,damage,0,Rules->C4Warhead,1);
             return;
         }
     } else {
@@ -492,7 +492,7 @@ void FlyLocomotionClass::unknown_4bcd50()
     bool is_hunter_seeker=ttype->HunterSeeker;
     LinkedTo->Mark(0);
     coord=Object_Coord(LinkedTo);
-    Physics_004bdc20(coord,LinkedTo->unknown_2e0.Current());
+    Physics_004bdc20(coord,LinkedTo->PrimaryFacing.Current());
     if (!Map.In_Radar(Cell(coord)) && LinkedTo->unknown_slot282()) {
         Cell cell=Cell(coord);
         Cell edge=Map.Unknown_00547F30(cell);
@@ -630,7 +630,7 @@ void FlyLocomotionClass::unknown_4bcd50()
         int slowdown=ttype->SlowdownDistance;
         if (dist<slowdown) {
             double factor=1.0-((double)dist-((double)slowdown*0.6))/((double)slowdown*0.4);
-            LinkedTo->unknown_240=MIN(LinkedTo->Techno_Type_Class()->PitchAngle,factor*LinkedTo->Techno_Type_Class()->PitchAngle);
+            LinkedTo->PitchAngle=MIN(LinkedTo->Techno_Type_Class()->PitchAngle,factor*LinkedTo->Techno_Type_Class()->PitchAngle);
         }
     }
     if (!unknown_5c && LinkedTo->Strength>0 && !unknown_51 && !unknown_50) {
@@ -672,9 +672,9 @@ void FlyLocomotionClass::Rotation_AI()
 {
     if (unknown_53 && LinkedTo->Strength>0) {
         if (!Is_Powered()) {
-            UnknownFacingDir current=LinkedTo->unknown_2e0.Current();
+            UnknownFacingDir current=LinkedTo->PrimaryFacing.Current();
             UnknownFacingDir direction=Fly_Add_Rotation_004bdd10(current,unknown_54);
-            LinkedTo->unknown_2e0.Set(direction);
+            LinkedTo->PrimaryFacing.Set(direction);
             int step=abs(unknown_54)<1?abs(unknown_54):1;
             if (unknown_54<0) unknown_54+=step;
             else unknown_54-=step;
@@ -708,10 +708,10 @@ bool FlyLocomotionClass::Process_Take_Off_004bddf0()
     unknown_50=false;
     unknown_51=false;
     if (relative_height>relative_level-relative_level/3) {
-        LinkedTo->unknown_2f8.Set_Desired(LinkedTo->unknown_2e0.Desired());
+        LinkedTo->SecondaryFacing.Set_Desired(LinkedTo->PrimaryFacing.Desired());
     } else if (relative_height>relative_level/2) {
         UnknownFacingDir dir=Fly_Direction_004bddf0(LinkedTo->Center_Coord(),unknown_1c);
-        LinkedTo->unknown_2e0.Set_Desired(dir);
+        LinkedTo->PrimaryFacing.Set_Desired(dir);
         unknown_40=1;
     }
     return true;
@@ -739,10 +739,10 @@ bool FlyLocomotionClass::Process_Landing_004bdfb0()
     if ((Loco_Cell(Object_Coord(LinkedTo))->Flags & 0x100) && height>=unknown_geometry_j)
         height-=unknown_geometry_j;
     if (LinkedTo->Techno_Type_Class()->IsDropship) {
-      if (height==0 && LinkedTo->unknown_240>unknown_fly_pitch_zero_79a738) {
-        double pitch=LinkedTo->unknown_240-unknown_fly_pitch_rate_7a0ff8;
+      if (height==0 && LinkedTo->PitchAngle>unknown_fly_pitch_zero_79a738) {
+        double pitch=LinkedTo->PitchAngle-unknown_fly_pitch_rate_7a0ff8;
         if (unknown_fly_pitch_floor_79b610>pitch) pitch=unknown_fly_pitch_floor_79b610;
-        LinkedTo->unknown_240=(float)pitch;
+        LinkedTo->PitchAngle=(float)pitch;
       }
       unknown_40=0;
     } else {
@@ -763,7 +763,7 @@ bool FlyLocomotionClass::Process_Landing_004bdfb0()
             if ((reinterpret_cast<UnknownLocoCell *>(&Map[nearby])->Flags&0x100)) next.Z+=unknown_geometry_j;
             Move_To(next);
         } else {
-            LinkedTo->Take_Damage(&LinkedTo->Strength,0,Rules->unknown_c74,0,true,1);
+            LinkedTo->Take_Damage(&LinkedTo->Strength,0,Rules->C4Warhead,0,true,1);
             unknown_1c=unknown_geometry_l;
             return false;
         }
@@ -779,7 +779,7 @@ bool FlyLocomotionClass::Process_Landing_004bdfb0()
         }
         if (LinkedTo->Strength>0) Voc_Play_At(LinkedTo->Techno_Type_Class()->AuxSound2,coord,0);
     }
-    if (height<=landing_altitude && LinkedTo->unknown_240<=unknown_fly_pitch_zero_79a738) {
+    if (height<=landing_altitude && LinkedTo->PitchAngle<=unknown_fly_pitch_zero_79a738) {
         CoordStruct coord=Object_Coord(LinkedTo);
         if ((Loco_Cell(coord)->Flags&0x100) && coord.Z>=Map.Get_Height_GL(coord)+unknown_geometry_j)
             LinkedTo->unknown_79=true;
@@ -877,19 +877,19 @@ int FlyLocomotionClass::unknown_4be720(bool stage,CoordStruct coord)
         bool turn=true;
         if (flyctrl!=0 && flyctrl->Is_Strafe()) {
             if (Fly_Distance_XY_004be720(LinkedTo->Center_Coord(),coord)<=0x300) {
-                if (!Fly_Is_Complete_Turn(dir,LinkedTo->unknown_2e0.Current(),UnknownFacingDir((unsigned short)0x2000))) {
+                if (!Fly_Is_Complete_Turn(dir,LinkedTo->PrimaryFacing.Current(),UnknownFacingDir((unsigned short)0x2000))) {
                     turn=false;
                 }
             }
         }
         if (turn) {
-            LinkedTo->unknown_2e0.Set_Desired(Fly_Direction_XY_004be720(LinkedTo->Center_Coord(),CoordStruct(coord)));
+            LinkedTo->PrimaryFacing.Set_Desired(Fly_Direction_XY_004be720(LinkedTo->Center_Coord(),CoordStruct(coord)));
         }
     }
     if (dist<0x100 && stage && !LinkedTo->Techno_Type_Class()->HunterSeeker) {
         if (LinkedTo->unknown_228!=0 && LinkedTo->unknown_254!=0 && (flyctrl==0 || !flyctrl->Is_Strafe())) {
             if (flyctrl==0 || !flyctrl->Is_Locked()) {
-                LinkedTo->unknown_2f8.Set_Desired(LinkedTo->Direction_To(LinkedTo->unknown_228));
+                LinkedTo->SecondaryFacing.Set_Desired(LinkedTo->Direction_To(LinkedTo->unknown_228));
             }
         } else {
             UnknownFacingDir land((unsigned short)0);
@@ -897,12 +897,12 @@ int FlyLocomotionClass::unknown_4be720(bool stage,CoordStruct coord)
                 land=UnknownFacingDir((unsigned short)(flyctrl->Landing_Direction()<<13));
             }
             if (flyctrl==0 || !flyctrl->Is_Locked()) {
-                LinkedTo->unknown_2f8.Set_Desired(land);
+                LinkedTo->SecondaryFacing.Set_Desired(land);
             }
         }
     } else {
         if (flyctrl==0 || !flyctrl->Is_Locked()) {
-            LinkedTo->unknown_2f8.Set_Desired(Fly_Direction_004bddf0(LinkedTo->Center_Coord(),coord));
+            LinkedTo->SecondaryFacing.Set_Desired(Fly_Direction_004bddf0(LinkedTo->Center_Coord(),coord));
         }
     }
     if (unknown_5c && dist<0x300) {
@@ -953,9 +953,9 @@ Matrix3D * __stdcall FlyLocomotionClass::Draw_Matrix(Matrix3D *matrix, int *key)
     Matrix3D transform;
     transform.Make_Identity();
     if (key != 0) {
-        *key |= Dir_To_32(LinkedTo->unknown_2f8.Current()) << 3;
+        *key |= Dir_To_32(LinkedTo->SecondaryFacing.Current()) << 3;
     }
-    transform.Rotate_Z((float)((Dir_To_32(LinkedTo->unknown_2f8.Current()) - 8) * -0.19634954084936207));
+    transform.Rotate_Z((float)((Dir_To_32(LinkedTo->SecondaryFacing.Current()) - 8) * -0.19634954084936207));
     if (LinkedTo->Get_Height_AGL() > 0) {
         if (LinkedTo->unknown_37d) {
             transform.Rotate_X(LinkedTo->unknown_280);
@@ -975,12 +975,12 @@ Matrix3D * __stdcall FlyLocomotionClass::Draw_Matrix(Matrix3D *matrix, int *key)
                 transform.Rotate_Y((float)LinkedTo->Techno_Type_Class()->PitchAngle);
             }
             if (LinkedTo->Techno_Type_Class()->RollAngle != 0.0) {
-                if (LinkedTo->unknown_2f8.Is_Rotating_CW()) {
+                if (LinkedTo->SecondaryFacing.Is_Rotating_CW()) {
                     if (key != 0) {
                         *key |= 1;
                     }
                     transform.Rotate_X((float)LinkedTo->Techno_Type_Class()->RollAngle);
-                } else if (LinkedTo->unknown_2f8.Is_Rotating_CCW()) {
+                } else if (LinkedTo->SecondaryFacing.Is_Rotating_CCW()) {
                     if (key != 0) {
                         *key |= 2;
                     }
@@ -1031,7 +1031,7 @@ void FlyLocomotionClass::Take_Off_004bf0d0()
             AircraftTracker.Unknown_004131E0(LinkedTo);
         unknown_38=LinkedTo->Techno_Type_Class()->Flight_Level();
         if (LinkedTo->Get_Height_AGL()==0) {
-            LinkedTo->unknown_2e0.Set(LinkedTo->unknown_2f8.Desired());
+            LinkedTo->PrimaryFacing.Set(LinkedTo->SecondaryFacing.Desired());
         }
         Voc_Play_At(LinkedTo->Techno_Type_Class()->AuxSound1,Object_Coord(LinkedTo),0);
     }
@@ -1078,11 +1078,11 @@ Matrix3D * __stdcall FlyLocomotionClass::Shadow_Matrix(Matrix3D *matrix, int *ke
     }
     Matrix3D transform;
     Matrix3D ramp_matrix;
-    transform = *Unknown_00718D60(&ramp_matrix, ramp);
-    transform.Rotate_Z((float)((Dir_To_32(LinkedTo->unknown_2f8.Current()) - 8) * -0.19634954084936207));
+    transform = *Get_Slope_Matrix(&ramp_matrix, ramp);
+    transform.Rotate_Z((float)((Dir_To_32(LinkedTo->SecondaryFacing.Current()) - 8) * -0.19634954084936207));
     if (key != 0 && *key != -1) {
         *key = ((*key << 6) + ramp) << 5;
-        *key |= Dir_To_32(LinkedTo->unknown_2f8.Current());
+        *key |= Dir_To_32(LinkedTo->SecondaryFacing.Current());
     }
     *matrix = transform;
     return matrix;
@@ -1094,7 +1094,7 @@ Matrix3D * __stdcall FlyLocomotionClass::Shadow_Matrix(Matrix3D *matrix, int *ke
 
 void __stdcall FlyLocomotionClass::Do_Turn(UnknownFacingDir dir)
 {
-    LinkedTo->unknown_2f8.Set(UnknownFacingDir(dir));
+    LinkedTo->SecondaryFacing.Set(UnknownFacingDir(dir));
 }
 
 

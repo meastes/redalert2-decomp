@@ -97,7 +97,7 @@
    "padding_bytes": 4
   },
   {
-   "symbol": "?unknown_76a230@IPXInterfaceClass@@QAEHHPADH@Z",
+   "symbol": "?Get_Network_Card_Address_As_String@IPXInterfaceClass@@QAEHHPADH@Z",
    "entry": "0076a230",
    "body_bytes": 364,
    "padding_bytes": 4
@@ -745,7 +745,7 @@
   },
   {
    "site": "00542d60",
-   "symbol": "?unknown_76a230@IPXInterfaceClass@@QAEHHPADH@Z",
+   "symbol": "?Get_Network_Card_Address_As_String@IPXInterfaceClass@@QAEHHPADH@Z",
    "target": "0076a230",
    "function_entry": true
   },
@@ -822,6 +822,10 @@
    "address": "0076b0a0"
   },
   {
+   "symbol": "?IsMalformedIPXPacketReported@@3_NA",
+   "address": "00b2ae24"
+  },
+  {
    "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
    "address": "00839218"
   },
@@ -868,10 +872,6 @@
   {
    "symbol": "?unknown_flag_839c4c@@3_NA",
    "address": "00839c4c"
-  },
-  {
-   "symbol": "?unknown_malformed_seen_b2ae24@@3_NA",
-   "address": "00b2ae24"
   },
   {
    "symbol": "?unknown_math_4ba520@@YANN@Z",

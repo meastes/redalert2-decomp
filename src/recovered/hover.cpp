@@ -181,11 +181,11 @@ Matrix3D *__stdcall HoverLocomotionClass::Draw_Matrix(Matrix3D *matrix,int *key)
             int ramp=Map[Object_Coord(LinkedTo)].unknown_11c;
             Matrix3D slope;
             Matrix3D result;
-            result=*Unknown_00718D60(&slope,ramp);
-            result.Rotate_Z((float)((Dir_To_32(LinkedTo->unknown_2e0.Current())-8)*unknown_hover_facing_step_79d090));
+            result=*Get_Slope_Matrix(&slope,ramp);
+            result.Rotate_Z((float)((Dir_To_32(LinkedTo->PrimaryFacing.Current())-8)*unknown_hover_facing_step_79d090));
             if (key && *key!=-1) {
                 *key=32*(ramp+(*key<<6));
-                *key|=Dir_To_32(LinkedTo->unknown_2e0.Current());
+                *key|=Dir_To_32(LinkedTo->PrimaryFacing.Current());
             }
             *matrix=result;
         } else {
@@ -368,8 +368,8 @@ unsigned char __stdcall HoverLocomotionClass::Process()
 
     if (unknown_68) {
         if (Is_Powered()) {
-            UnknownFacingDir dir = LinkedTo->unknown_2e0.Current();
-            LinkedTo->unknown_2e0.Set(dir + Dir256_004fbfc0(unknown_6c));
+            UnknownFacingDir dir = LinkedTo->PrimaryFacing.Current();
+            LinkedTo->PrimaryFacing.Set(dir + Dir256_004fbfc0(unknown_6c));
             int delta = Hover_Abs_004fbfc0(unknown_6c);
             if (delta >= 1) {
                 delta = 1;
@@ -508,10 +508,10 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
 
     if (nextface == 8) {
         int tubenum = Map[Object_Coord(LinkedTo)].unknown_116;
-        if (tubenum >= 0 && tubenum < unknown_TubeClass_list_008661c8.Count()) {
+        if (tubenum >= 0 && tubenum < Tubes.Count()) {
             LinkedTo->Mark(0);
             LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
-            TubeClass *tube = unknown_TubeClass_list_008661c8[tubenum];
+            TubeClass *tube = Tubes[tubenum];
             Cell exit = tube->ExitCell;
             unknown_24 = exit.As_Coord();
             memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);
@@ -657,7 +657,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
             unknown_4fda80();
             if (!LinkedTo->unknown_5a1) {
                 LinkedTo->unknown_5a1 = true;
-                LinkedTo->unknown_558 = Rules->unknown_13d0;
+                LinkedTo->unknown_558 = Rules->BlockagePathDelay;
             }
             if (LinkedTo->unknown_530 == 0) {
                 LinkedTo->Path[0] = -1;
@@ -766,7 +766,7 @@ void HoverLocomotionClass::Motion_AI_004fdaf0()
             if (LinkedTo->Path[0]!=-1 && LinkedTo->Path[0]!=8)
                 coord=Hover_Adjacent_Coord_004fb9d0(coord,LinkedTo->Path[0]);
             UnknownFacingDir facing=Hover_Direction_004fdaf0(LinkedTo->Center_Coord(),coord);
-            LinkedTo->unknown_2e0.Set_Desired(facing);
+            LinkedTo->PrimaryFacing.Set_Desired(facing);
         }
         return;
     }
@@ -796,7 +796,7 @@ void __stdcall HoverLocomotionClass::Stop_Moving()
 
 void __stdcall HoverLocomotionClass::Do_Turn(UnknownFacingDir dir)
 {
-    LinkedTo->unknown_2e0.Set_Desired(UnknownFacingDir(dir));
+    LinkedTo->PrimaryFacing.Set_Desired(UnknownFacingDir(dir));
 }
 
 
@@ -874,7 +874,7 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
             else {
                 LinkedTo->Assign_Destination(0,true);
                 if (!LinkedTo->IsActive) return;
-                if (LinkedTo->unknown_57a) Voc_Play(Rules->unknown_620,1.0f,0x2000,0);
+                if (LinkedTo->unknown_57a) Voc_Play(Rules->ScoldSound,1.0f,0x2000,0);
                 LinkedTo->unknown_57a=false;
             }
         }

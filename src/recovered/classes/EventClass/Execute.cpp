@@ -258,7 +258,7 @@ void EventClass::Execute()
             if (techno && foot && ((FootClass *)techno)->Team && ByteAt(0x0C) != 0x10) {
                 ((FootClass *)techno)->Team->Remove((FootClass *)techno, -1, true);
             }
-            if (object && unknown_player_a35db4->Is_Ally(techno)) {
+            if (object && PlayerPtr->Is_Ally(techno)) {
                 object->Clicked_As_Target(7);
             }
             int mission = techno->unknown_slot268((UnknownSlot268Arg const *)this);
@@ -393,7 +393,7 @@ void EventClass::Execute()
     case 0x0D: {
         Options.GameSpeed = Data.LongsCell.Long1;
         house = Houses[House];
-        if (house != unknown_player_a35db4 && house) {
+        if (house != PlayerPtr && house) {
             str = StringTable::Load_String("TXT_PLAYER_CHANGED_SPEED", 0, "D:\\Ra2\\Event.CPP", 0x579);
             if (str && wcslen(str)) {
                 wchar_t buffer[256];
@@ -427,7 +427,7 @@ void EventClass::Execute()
         break;
 
     case 0x1F:
-        if (House != unknown_player_a35db4->ArrayIndex) {
+        if (House != PlayerPtr->ArrayIndex) {
             delete [] (char *)Data.LongsCell.Long1;
         }
         break;
@@ -482,7 +482,7 @@ void EventClass::Execute()
     case 0x27: {
         Debug_Printf("Processing ABOUTTOEXIT event on frame %d\n", ::Frame);
         if (unknown_session_a3d298.Am_I_Master(0)) {
-            OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 0x13));
+            OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0x13));
             unknown_a402b8 = true;
         }
         unknown_a402d8 = true;
@@ -530,7 +530,7 @@ void EventClass::Execute()
         unknown_a3fba4 = Data.LongsCell.Long1;
         Debug_Printf("LatencyFudge is %d\n", unknown_a3fba4);
         house = Houses[House];
-        if (house != unknown_player_a35db4 && house) {
+        if (house != PlayerPtr && house) {
             str = StringTable::Load_String("TXT_PLAYER_CHANGED_LATENCY", 0, "D:\\Ra2\\Event.CPP", 0x6B6);
             if (str && wcslen(str)) {
                 wchar_t buffer[256];

@@ -112,7 +112,7 @@ FootClass::FootClass(HouseClass *house) :
     unknown_4bc(0),
     unknown_4c1(false),
     Team(0),
-    unknown_4c8(0),
+    Member(0),
     unknown_4cc(0),
     unknown_53c(10),
     unknown_568(unknown_geometry_l),
@@ -730,8 +730,8 @@ int FootClass::Do_MISSION_GUARD()
         QueueMission(17, false);
     }
     int result = 0;
-    if (unknown_244.Value() != 0) {
-        result = unknown_244.Value();
+    if (Arm.Value() != 0) {
+        result = Arm.Value();
     } else if (!Techno_Type_Class()->DistributedFire || unknown_3a8.Count() <= 0) {
         result = delay + unknown_id_source_a3d290->Random()(0, 2);
     }
@@ -783,7 +783,7 @@ int FootClass::Do_MISSION_HUNT()
         }
     } else if (!House->Unknown_004F52F0() && unknown_game_mode_a3d298 == 0) {
         Cell cell = unknown_geometry_k;
-        cell = Coord_Cell(unknown_player_a35db4->BaseCenter);
+        cell = Coord_Cell(PlayerPtr->BaseCenter);
         if (cell != unknown_geometry_k) {
             Assign_Destination((AbstractClass *)&Map[cell], true);
             QueueMission(2, true);
@@ -1536,8 +1536,8 @@ bool FootClass::unknown_slot261(bool initial,bool resume_waypoint)
         }
         if (Mission!=25 || unknown_a8==0) {
             if (unknown_418!=-1 && resume_waypoint) {
-                WaypointClass *waypoint=unknown_player_a35db4->WaypointPaths[unknown_418]->Get_Waypoint(unknown_576);
-                WaypointClass *next_waypoint=unknown_player_a35db4->WaypointPaths[unknown_418]->Next_Waypoint(waypoint);
+                WaypointClass *waypoint=PlayerPtr->WaypointPaths[unknown_418]->Get_Waypoint(unknown_576);
+                WaypointClass *next_waypoint=PlayerPtr->WaypointPaths[unknown_418]->Next_Waypoint(waypoint);
                 unknown_4cb110(next_waypoint);
             }
         }
@@ -1707,7 +1707,7 @@ void FootClass::unknown_slot93(int why)
             if (building->Type->LaserFence && building->unknown_4ec < 8) {
                 int rtti = Kind_Of();
                 if (rtti > 0 && (rtti <= 2 || rtti == 15) && Strength > 0) {
-                    Take_Damage(&Strength, 0, Rules->unknown_c74, (TechnoClass *)building, true, true);
+                    Take_Damage(&Strength, 0, Rules->C4Warhead, (TechnoClass *)building, true, true);
                 }
             }
         }
@@ -1729,7 +1729,7 @@ void FootClass::unknown_slot93(int why)
     }
 
     if (unknown_418 != -1) {
-        WaypointPathClass *path = unknown_player_a35db4->WaypointPaths[unknown_418];
+        WaypointPathClass *path = PlayerPtr->WaypointPaths[unknown_418];
         WaypointClass *next = path->Get_Waypoint(unknown_576);
         if (next != 0) {
             Cell wp_cell = Coord_Cell(next->Coord);
@@ -1948,7 +1948,7 @@ void FootClass::Assign_Destination(AbstractClass *target, bool immediate)
         unknown_494 = 0;
     }
     unknown_5a1 = false;
-    unknown_558 = CDTimerClass<FrameTimerClass>(Rules->unknown_13d0);
+    unknown_558 = CDTimerClass<FrameTimerClass>(Rules->BlockagePathDelay);
     unknown_530 = CDTimerClass<FrameTimerClass>(0);
 }
 
@@ -2073,8 +2073,8 @@ void FootClass::Detach(AbstractClass *target, bool all)
     if (target == this) {
         unknown_580 = 0;
     }
-    if (unknown_4c8 == target && all && target != 0) {
-        unknown_4c8 = ((FootClass *)unknown_4c8)->unknown_4c8;
+    if (Member == target && all && target != 0) {
+        Member = ((FootClass *)Member)->Member;
     }
     if (unknown_1b0 == target) {
         Assign_Archive_Target(0);
@@ -2221,7 +2221,7 @@ void FootClass::Sell_Back(int arg1)
     if (arg1) {
         if (House->Is_Player_Control()) {
             Speech_Play_Name("EVA_UnitSold", -1, -1);
-            Voc_Play(Rules->unknown_5c4, 1.0f, 0x2000, 0);
+            Voc_Play(Rules->SellSound, 1.0f, 0x2000, 0);
         }
         House->Refund_Money(unknown_slot167());
         unknown_slot210();
@@ -2495,7 +2495,7 @@ void FootClass::AI()
         && Map.Unknown_0055A740((CellClass *)Get_Cell_Ptr(), 1)) {
         unknown_32d = true;
     }
-    if (Locomotor.Checked()->Is_Moving_Now() && In_Air() && House->Is_Ally(unknown_player_a35db4)
+    if (Locomotor.Checked()->Is_Moving_Now() && In_Air() && House->Is_Ally(PlayerPtr)
         && unknown_54c.Value() == 0) {
         unknown_slot263(0, 0, 0, 0);
         unknown_slot262(0, 0, 0, 0);
@@ -2782,7 +2782,7 @@ HRESULT __stdcall FootClass::Load(IStream *stream)
         OleLoadFromStream(stream, IID_ILocomotion, (void **)&Locomotor);
         unknown_490 = 0;
         Swizzle_Pointer(Team);
-        Swizzle_Pointer(unknown_4c8);
+        Swizzle_Pointer(Member);
         Swizzle_Pointer(unknown_494);
         Swizzle_Pointer(unknown_498);
         Swizzle_Pointer(unknown_4b8);
@@ -2959,8 +2959,8 @@ void FootClass::Compute_CRC(WWCRCEngine &crc) const
     if (Team != 0) {
         crc(Team->Fetch_ID());
     }
-    if (unknown_4c8 != 0) {
-        crc(unknown_4c8->Fetch_ID());
+    if (Member != 0) {
+        crc(Member->Fetch_ID());
     }
     crc(unknown_530.Value());
     crc((long)unknown_53c);
@@ -3006,7 +3006,7 @@ bool FootClass::unknown_slot154()
 CoordStruct FootClass::unknown_slot19(TechnoClass *techno) const
 {
     if (unknown_574 >= 0) {
-        Cell cell = unknown_TubeClass_list_008661c8[unknown_574]->ExitCell;
+        Cell cell = Tubes[unknown_574]->ExitCell;
         return CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
     }
     CoordStruct coord = Locomotor.Checked()->Head_To_Coord();
@@ -3104,7 +3104,7 @@ void FootClass::unknown_slot243(bool force, int arg2)
 #include "shared/map_cell_view.hpp"
 #include "shared/tactical.hpp"
 #include "shared/surface.hpp"
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 extern bool const unknown_action_line_pattern_7d81dc[];
 extern "C" __declspec(dllimport) unsigned long __stdcall timeGetTime();
 
@@ -3121,8 +3121,8 @@ inline int Build_Hicolor_Pixel(RGBClass const &rgb)
 // The inline helper's original declaration and name remain hypotheses.
 static inline void Clipped_Fill(Rect area, int pixel)
 {
-    Rect clipped = Intersect(unknown_rect_839630, area);
-    unknown_surface_839964->Fill_Rect(clipped, pixel);
+    Rect clipped = Intersect(TacticalRect, area);
+    CompositeSurface->Fill_Rect(clipped, pixel);
 }
 
 void FootClass::Draw_Action_Line()
@@ -3150,13 +3150,13 @@ void FootClass::Draw_Action_Line()
     Point2D end;
     TacticalMap->Coord_To_Pixel(start_coord, start);
     TacticalMap->Coord_To_Pixel(end_coord, end);
-    start.Y += unknown_rect_839630.Y;
-    end.Y += unknown_rect_839630.Y;
+    start.Y += TacticalRect.Y;
+    end.Y += TacticalRect.Y;
     color = House->unknown_55e9;
     int pixel = Build_Hicolor_Pixel(color);
     Clipped_Fill(Rect(RectPoint2D(start.X - 2, start.Y - 2), 3, 3), pixel);
     Clipped_Fill(Rect(RectPoint2D(end.X - 2, end.Y - 2), 3, 3), pixel);
-    Rect clip = unknown_rect_839630;
+    Rect clip = TacticalRect;
     if (Clip_Line(start, end, clip)) {
         unsigned long tick = timeGetTime();
         unsigned amount = tick & 0x3ff;
@@ -3164,7 +3164,7 @@ void FootClass::Draw_Action_Line()
             if (amount & 0x100) amount ^= 0xff;
             color.Adjust(amount & 0xff, white);
         }
-        unknown_surface_839964->Draw_Dashed_Line_Depth_Masked(start, end, Build_Hicolor_Pixel(color), unknown_action_line_pattern_7d81dc, ((-(int)tick) >> 5) & 15, false);
+        CompositeSurface->Draw_Dashed_Line_Depth_Masked(start, end, Build_Hicolor_Pixel(color), unknown_action_line_pattern_7d81dc, ((-(int)tick) >> 5) & 15, false);
     }
 }
 
@@ -3208,7 +3208,7 @@ void FootClass::Set_Waypoint_Path(int path, char waypoint)
     if (path != -1) {
         unknown_418 = path;
         unknown_576 = waypoint;
-        unknown_420 = Coord_Cell(unknown_player_a35db4->WaypointPaths[path]->Get_Waypoint(waypoint)->Coord);
+        unknown_420 = Coord_Cell(PlayerPtr->WaypointPaths[path]->Get_Waypoint(waypoint)->Coord);
     } else {
         unknown_418 = -1;
         unknown_576 = 0;
@@ -3242,7 +3242,7 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
     }
 
     if (waypoint != 0) {
-        unknown_player_a35db4->Fetch_Waypoint_Data(waypoint, &unknown_418, &unknown_576);
+        PlayerPtr->Fetch_Waypoint_Data(waypoint, &unknown_418, &unknown_576);
 
         CoordStruct coord = waypoint->Coord;
         ObjectClass *occupier = ((UnknownCellClass *)&Map[coord])->unknown_e4;
@@ -3261,12 +3261,12 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
         if (techno != 0) {
             action = unknown_slot28(occupier, true);
 
-            if (unknown_player_a35db4->Is_Ally(techno->House)) {
+            if (PlayerPtr->Is_Ally(techno->House)) {
                 if (techno->Kind_Of() == 6) {
                     BuildingClass *building = (BuildingClass *)techno;
                     bool repair = building->Type->UnitRepair && Strength < Techno_Type_Class()->MaxStrength && Kind_Of() != 15;
                     bool reload = building->Type->UnitReload && unknown_254 < Techno_Type_Class()->Ammo && unknown_254 != -1;
-                    bool allied = building->House->Is_Ally(unknown_player_a35db4);
+                    bool allied = building->House->Is_Ally(PlayerPtr);
                     if ((repair || reload) && allied && action != 7 && action != 8) {
                         click = true;
                     }
@@ -3873,8 +3873,8 @@ Cell FootClass::unknown_4cca40(Cell const &cell, bool arg2)
 void FootClass::unknown_slot194()
 {
     if (unknown_418 != -1) {
-        unknown_4cb110(unknown_player_a35db4->WaypointPaths[unknown_418]->Next_Waypoint(
-            unknown_player_a35db4->WaypointPaths[unknown_418]->Get_Waypoint(unknown_576)));
+        unknown_4cb110(PlayerPtr->WaypointPaths[unknown_418]->Next_Waypoint(
+            PlayerPtr->WaypointPaths[unknown_418]->Get_Waypoint(unknown_576)));
     }
 }
 
@@ -4000,7 +4000,7 @@ void FootClass::unknown_slot285(Cell cell)
                     }
                 }
                 BuildingClass *building = object->Unknown_004717B0();
-                if (building != 0 && building->House != unknown_player_a35db4 && building->unknown_slot25(false, 0)) {
+                if (building != 0 && building->House != PlayerPtr && building->unknown_slot25(false, 0)) {
                     building->unknown_75 = true;
                 }
             }
@@ -4037,7 +4037,7 @@ void FootClass::unknown_slot286(Cell cell)
                         }
                     }
                     BuildingClass *building = object->Unknown_004717B0();
-                    if (building != 0 && building->House != unknown_player_a35db4 && building->unknown_slot25(false, 0)) {
+                    if (building != 0 && building->House != PlayerPtr && building->unknown_slot25(false, 0)) {
                         building->unknown_75 = true;
                     }
                 }
@@ -4057,7 +4057,7 @@ void FootClass::IronCurtain(int arg1)
 {
     if (Techno_Type_Class()->Organic) {
         int damage = Techno_Type_Class()->MaxStrength;
-        Take_Damage(&damage, 0, Rules->unknown_c74, 0, false, 0);
+        Take_Damage(&damage, 0, Rules->C4Warhead, 0, false, 0);
         return;
     }
     if (unknown_580 != 0) {
@@ -4129,11 +4129,11 @@ bool FootClass::unknown_slot224(int source)
 void *FootClass::Get_Image_Data()
 {
     UnknownCellClass *cell = (UnknownCellClass *)&Map[Coord_Cell(Center_Coord())];
-    if (!House->Is_Ally(unknown_player_a35db4) && unknown_slot48() && !cell->unknown_47c300(unknown_player_a35db4->ArrayIndex)) {
-        return GetDisguise(false)->unknown_a4;
+    if (!House->Is_Ally(PlayerPtr) && unknown_slot48() && !cell->unknown_47c300(PlayerPtr->ArrayIndex)) {
+        return GetDisguise(false)->ImageData;
     }
-    if (!unknown_slot245(unknown_player_a35db4)) {
-        return GetDisguise(true)->unknown_a4;
+    if (!unknown_slot245(PlayerPtr)) {
+        return GetDisguise(true)->ImageData;
     }
     return ObjectClass::Get_Image_Data();
 }
@@ -4441,7 +4441,7 @@ unsigned char Leaf_4cdde0::get() { return 1; }
 
 UnknownFacingDir TechnoClass::Turret_Facing()
 {
-    return unknown_2e0.Current();
+    return PrimaryFacing.Current();
 }
 
 

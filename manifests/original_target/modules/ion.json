@@ -562,13 +562,13 @@
   },
   {
    "site": "004c5e40",
-   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
+   "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
    "target": "0051fc80",
    "function_entry": true
   },
   {
    "site": "00508dd0",
-   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
+   "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
    "target": "0051fc80",
    "function_entry": true
   },
@@ -598,7 +598,7 @@
   },
   {
    "site": "0041a1c0",
-   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
+   "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
    "target": "0051fc80",
    "function_entry": true
   },
@@ -634,7 +634,7 @@
   },
   {
    "site": "00689c90",
-   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
+   "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
    "target": "0051fc80",
    "function_entry": true
   },
@@ -670,7 +670,7 @@
   },
   {
    "site": "0052fca0",
-   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
+   "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
    "target": "0051fc80",
    "function_entry": true
   },
@@ -682,7 +682,7 @@
   },
   {
    "site": "0052f3c0",
-   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
+   "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
    "target": "0051fc80",
    "function_entry": true
   },
@@ -700,13 +700,13 @@
   },
   {
    "site": "004cca40",
-   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
+   "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
    "target": "0051fc80",
    "function_entry": true
   },
   {
    "site": "004cca40",
-   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
+   "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
    "target": "0051fc80",
    "function_entry": true
   },
@@ -802,7 +802,7 @@
   },
   {
    "site": "004fc9e0",
-   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
+   "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
    "target": "0051fc80",
    "function_entry": true
   },
@@ -838,7 +838,7 @@
   },
   {
    "site": "006c9260",
-   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
+   "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
    "target": "0051fc80",
    "function_entry": true
   },
@@ -904,7 +904,7 @@
   },
   {
    "site": "007053f0",
-   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
+   "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
    "target": "0051fc80",
    "function_entry": true
   }
@@ -1003,6 +1003,10 @@
    "address": "00603640"
   },
   {
+   "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+   "address": "00a35db4"
+  },
+  {
    "symbol": "?Rules@@3PAVRulesClass@@A",
    "address": "00839848"
   },
@@ -1047,6 +1051,10 @@
    "address": "00abd868"
   },
   {
+   "symbol": "?TileDrawers@@3V?$DynamicVectorClass@PAVLightConvertClass@@@@A",
+   "address": "00832398"
+  },
+  {
    "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "address": "0047e2c0"
   },
@@ -1083,10 +1091,6 @@
    "address": "00475d60"
   },
   {
-   "symbol": "?unknown_LightConvertClass_list_00832398@@3V?$DynamicVectorClass@PAVLightConvertClass@@@@A",
-   "address": "00832398"
-  },
-  {
    "symbol": "?unknown_dominator_delay_7ddb1c@@3HA",
    "address": "007ddb1c"
   },
@@ -1113,10 +1117,6 @@
   {
    "symbol": "?unknown_math_4ba5b0@@YANN@Z",
    "address": "004ba5b0"
-  },
-  {
-   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
-   "address": "00a35db4"
   },
   {
    "symbol": "?unknown_session_a3d298@@3USessionClass@@A",
@@ -1350,49 +1350,49 @@
   {
    "site": "004c5e40",
    "target": "0051fc80",
-   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
+   "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
    "module_symbol": "?get@Leaf_51fc80@@QAE_NXZ"
   },
   {
    "site": "00508dd0",
    "target": "0051fc80",
-   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
+   "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
    "module_symbol": "?get@Leaf_51fc80@@QAE_NXZ"
   },
   {
    "site": "0041a1c0",
    "target": "0051fc80",
-   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
+   "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
    "module_symbol": "?get@Leaf_51fc80@@QAE_NXZ"
   },
   {
    "site": "00689c90",
    "target": "0051fc80",
-   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
+   "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
    "module_symbol": "?get@Leaf_51fc80@@QAE_NXZ"
   },
   {
    "site": "0052fca0",
    "target": "0051fc80",
-   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
+   "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
    "module_symbol": "?get@Leaf_51fc80@@QAE_NXZ"
   },
   {
    "site": "0052f3c0",
    "target": "0051fc80",
-   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
+   "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
    "module_symbol": "?get@Leaf_51fc80@@QAE_NXZ"
   },
   {
    "site": "004cca40",
    "target": "0051fc80",
-   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
+   "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
    "module_symbol": "?get@Leaf_51fc80@@QAE_NXZ"
   },
   {
    "site": "004cca40",
    "target": "0051fc80",
-   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
+   "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
    "module_symbol": "?get@Leaf_51fc80@@QAE_NXZ"
   },
   {
@@ -1404,7 +1404,7 @@
   {
    "site": "004fc9e0",
    "target": "0051fc80",
-   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
+   "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
    "module_symbol": "?get@Leaf_51fc80@@QAE_NXZ"
   },
   {
@@ -1416,13 +1416,13 @@
   {
    "site": "006c9260",
    "target": "0051fc80",
-   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
+   "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
    "module_symbol": "?get@Leaf_51fc80@@QAE_NXZ"
   },
   {
    "site": "007053f0",
    "target": "0051fc80",
-   "symbol": "?Unknown_0051FC80@HouseClass@@QAE_NXZ",
+   "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
    "module_symbol": "?get@Leaf_51fc80@@QAE_NXZ"
   }
  ],

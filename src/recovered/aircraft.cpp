@@ -151,9 +151,9 @@ void AircraftClass::Init()
                 }
             }
         }
-        unknown_2e0.Set_ROT(Type->ROT);
-        unknown_2f8.Set_ROT(Type->ROT);
-        unknown_2f8.Set(unknown_2e0.Current());
+        PrimaryFacing.Set_ROT(Type->ROT);
+        SecondaryFacing.Set_ROT(Type->ROT);
+        SecondaryFacing.Set(PrimaryFacing.Current());
         Set_Height_AGL(Type->Flight_Level());
         unknown_254 = Type->InitialAmmo != -1 ? Type->InitialAmmo : Type->Ammo;
         unknown_70 = Strength = Type->MaxStrength;
@@ -242,7 +242,7 @@ bool AircraftClass::Unlimbo(CoordStruct const *coord, int dir)
             (unknown_slot231(0)->WeaponType && unknown_slot231(0)->WeaponType->unknown_11f))
             unknown_32c = true;
         if (Cargo.Object) unknown_5b1 = true;
-        unknown_2f8.Set(UnknownFacingDir((unsigned short)((unsigned char)dir << 8)));
+        SecondaryFacing.Set(UnknownFacingDir((unsigned short)((unsigned char)dir << 8)));
         StageClass::Set_Rate(1);
         StageClass::Stage = 0;
         int altitude = Type->Flight_Level();
@@ -404,7 +404,7 @@ void AircraftClass::AI()
     if (unknown_20c) unknown_20c->AI();
     if ((unknown_slot111() || unknown_slot112()) && Frame % 24 == 0 && Rules->unknown_2a8)
         new AnimClass(Rules->unknown_2a8, CoordStruct(Coord), 0, 1, 0x600, 0);
-    if (unknown_slot112() || (unknown_slot111() && unknown_210)) {
+    if (unknown_slot112() || (unknown_slot111() && IsImmobilized)) {
         Locomotor.Checked()->Process();
         if (!IsActive) return;
     }
@@ -469,8 +469,8 @@ void AircraftClass::AI()
             new AnimClass(AnimTypes[AnimTypeClass::From_Name("SGRYSMK1")], CoordStruct(Coord), 0, 1, 0x600, 0);
     }
     if (Cargo.Object && Type->Carryall) {
-        ((TechnoClass *)Cargo.Attached_Object())->unknown_2e0 = unknown_2f8;
-        ((TechnoClass *)Cargo.Attached_Object())->unknown_2f8 = unknown_2f8;
+        ((TechnoClass *)Cargo.Attached_Object())->PrimaryFacing = SecondaryFacing;
+        ((TechnoClass *)Cargo.Attached_Object())->SecondaryFacing = SecondaryFacing;
         CoordStruct passenger_position = Coord;
         Cargo.Attached_Object()->Set_Coord(passenger_position);
     }
@@ -483,7 +483,7 @@ int AircraftClass::Do_MISSION_UNLOAD()
 {
     switch (unknown_a8) {
     case 0:
-        if (Get_Height_AGL() == 0 && unknown_240 == 0.0) {
+        if (Get_Height_AGL() == 0 && PitchAngle == 0.0) {
             if (unknown_494) {
                 CoordStruct current = Coord;
                 if (current != unknown_494->Center_Coord()) goto choose_destination;
@@ -685,9 +685,9 @@ int AircraftClass::Paradrop_Cargo()
         CoordStruct landing = Center_Coord();
         UnknownFacingDir facing;
         if (unknown_254 & 1) {
-            facing = UnknownFacingDir((unsigned short)(unknown_2e0.Current().Raw - 0x3fff));
+            facing = UnknownFacingDir((unsigned short)(PrimaryFacing.Current().Raw - 0x3fff));
         } else {
-            facing = UnknownFacingDir((unsigned short)(unknown_2e0.Current().Raw + 0x3fff));
+            facing = UnknownFacingDir((unsigned short)(PrimaryFacing.Current().Raw + 0x3fff));
         }
         double angle = ((short)facing.Raw - 0x3fff) * unknown_angle_scale_79b620;
         int altitude = landing.Z;
@@ -710,7 +710,7 @@ int AircraftClass::Paradrop_Cargo()
                     }
                     passenger->unknown_454 = Coord_Cell(Map[landing].Center_Coord());
                     if (Team) Team->Remove(passenger, -1, 0);
-                    unknown_244 = CDTimerClass<FrameTimerClass>(0);
+                    Arm = CDTimerClass<FrameTimerClass>(0);
                     unknown_5bb = 5;
                     return 0;
                 }
@@ -823,7 +823,7 @@ BulletClass *AircraftClass::Fire_At(AbstractClass *target, int arg2)
         if (bullet->Type->ROT == 0) {
             Set_Speed(bullet->Velocity, Locomotor.Checked()->Apparent_Speed());
             Set_Pitch(bullet->Velocity, UnknownFacingDir(0x4000));
-            Set_Yaw(bullet->Velocity, unknown_2f8.Current());
+            Set_Yaw(bullet->Velocity, SecondaryFacing.Current());
         }
 
         if (bullet->Type->ROT == 1) {
@@ -936,8 +936,8 @@ int AircraftClass::Do_MISSION_MOVE_Normal()
                 proceed = true;
             }
             if (proceed) {
-                unknown_4cb110(unknown_player_a35db4->WaypointPaths[unknown_418]->Next_Waypoint(
-                    unknown_player_a35db4->WaypointPaths[unknown_418]->Get_Waypoint(unknown_576)));
+                unknown_4cb110(PlayerPtr->WaypointPaths[unknown_418]->Next_Waypoint(
+                    PlayerPtr->WaypointPaths[unknown_418]->Get_Waypoint(unknown_576)));
             }
         }
         if (Locomotor.Checked()->Is_Moving()) {
@@ -1222,8 +1222,8 @@ int AircraftClass::Do_MISSION_PATROL()
                 proceed = true;
             }
             if (proceed) {
-                unknown_4cb110(unknown_player_a35db4->WaypointPaths[unknown_418]->Next_Waypoint(
-                    unknown_player_a35db4->WaypointPaths[unknown_418]->Get_Waypoint(unknown_576)));
+                unknown_4cb110(PlayerPtr->WaypointPaths[unknown_418]->Next_Waypoint(
+                    PlayerPtr->WaypointPaths[unknown_418]->Get_Waypoint(unknown_576)));
             }
         }
         if (!Locomotor.Checked()->Is_Moving()) {
@@ -1598,13 +1598,13 @@ int AircraftClass::Do_MISSION_ATTACK()
             }
             int distance = Planar_Distance(unknown_494);
             if (distance < 0x200) {
-                unknown_2f8.Set_Desired(Direction_To(unknown_228));
+                SecondaryFacing.Set_Desired(Direction_To(unknown_228));
                 if (distance < 0x10) {
                     unknown_a8 = 4;
                     Assign_Destination(0, true);
                 }
             } else {
-                unknown_2f8.Set_Desired(UnknownFacingDir(unknown_slot43(0), unknown_494->Center_Coord()));
+                SecondaryFacing.Set_Desired(UnknownFacingDir(unknown_slot43(0), unknown_494->Center_Coord()));
                 return 1;
             }
         } else {
@@ -1617,8 +1617,8 @@ int AircraftClass::Do_MISSION_ATTACK()
             return 1;
         }
         if (!Is_Strafe()) {
-            unknown_2e0.Set_Desired(Direction_To(unknown_228));
-            unknown_2f8.Set_Desired(Direction_To(unknown_228));
+            PrimaryFacing.Set_Desired(Direction_To(unknown_228));
+            SecondaryFacing.Set_Desired(Direction_To(unknown_228));
         }
         switch (unknown_slot218(unknown_228, What_Weapon_Should_I_Use(unknown_228), 1)) {
         case 9:
@@ -1675,8 +1675,8 @@ int AircraftClass::Do_MISSION_ATTACK()
             unknown_a8 = 10;
             return 1;
         }
-        unknown_2e0.Set_Desired(Direction_To(unknown_228));
-        unknown_2f8.Set_Desired(Direction_To(unknown_228));
+        PrimaryFacing.Set_Desired(Direction_To(unknown_228));
+        SecondaryFacing.Set_Desired(Direction_To(unknown_228));
         switch (unknown_slot218(unknown_228, What_Weapon_Should_I_Use(unknown_228), 1)) {
         case 9:
             unknown_slot252(false);
@@ -1957,7 +1957,7 @@ int AircraftClass::Receive_Message(RadioClass *radio, int message, AbstractClass
         AircraftTypeClass *type = Type;
         int count = Cargo.Count;
         int capacity = type->Passengers;
-        if (count == capacity) unknown_2a8.Count_Down(type->DeployTime);
+        if (count == capacity) Door.Count_Down(type->DeployTime);
         InfantryClass *infantry = Aircraft_Radio_Infantry(radio);
         if (infantry && infantry->Type->Civilian && !infantry->unknown_5c1) {
             unknown_slot220(0);
@@ -1971,7 +1971,7 @@ int AircraftClass::Receive_Message(RadioClass *radio, int message, AbstractClass
         if (capacity > 0 && Cargo.Count < capacity) {
             FootClass::Receive_Message(radio, message, param);
             if (!Locomotor.Checked()->Is_Moving()) {
-                unknown_2a8.Count_Up(Type->DeployTime);
+                Door.Count_Up(Type->DeployTime);
                 if (unknown_slot150(19, (TechnoClass *)radio) == 1) {
                     param = this;
                     if (unknown_slot151(18, &param, (TechnoClass *)radio) != 1) {
@@ -2392,7 +2392,7 @@ AbstractClass *AircraftClass::Good_LZ()
 
 UnknownFacingDir AircraftClass::Fire_Direction()
 {
-    return unknown_2f8.Current();
+    return SecondaryFacing.Current();
 }
 
 
@@ -2540,7 +2540,7 @@ int AircraftClass::unknown_slot218(AbstractClass *arg1, int arg2, bool check_ran
         if (unknown_5b1 && Cargo.Object == 0) {
             return 1;
         }
-        UnknownFacingDir facing = unknown_2f8.Current();
+        UnknownFacingDir facing = SecondaryFacing.Current();
         if (!Is_Fighter()) {
             short difference = (short)(facing.Raw - Direction_To(arg1).Raw);
             if (abs(0x800) < abs(difference)) {
@@ -2672,9 +2672,9 @@ void AircraftClass::Look(bool arg1, bool arg2)
     } else if (unknown_id_source_a3d290->unknown_000 & 0x1000) {
         sight = Rules->unknown_ec;
         coord = Coord;
-        Map.Sight_From(coord, sight, House, 0, 0, 1, Get_Height_AGL() < Rules->unknown_6dc / 2, 0);
+        Map.Sight_From(coord, sight, House, 0, 0, 1, Get_Height_AGL() < Rules->FlightLevel / 2, 0);
         coord = Coord;
-        Map.Sight_From(coord, sight, House, 0, 0, 1, Get_Height_AGL() < Rules->unknown_6dc / 2, 1);
+        Map.Sight_From(coord, sight, House, 0, 0, 1, Get_Height_AGL() < Rules->FlightLevel / 2, 1);
     }
 }
 
@@ -2692,7 +2692,7 @@ void __fastcall AircraftClass::Write_INI_0041A6C0(CCINIClass &ini)
             char const *tag;
             if (aircraft->unknown_34) tag = (char const *)aircraft->unknown_34->Class->ID;
             else tag = "None";
-            unsigned raw = *(unsigned const *)&aircraft->unknown_2e0.Current();
+            unsigned raw = *(unsigned const *)&aircraft->PrimaryFacing.Current();
             unsigned direction = (((raw >> 7) + 1) >> 1) & 0xff;
             char line[128];
             sprintf(line, "%s,%s,%d,%d,%d,%d,%s,%s,%d,%d,%d,%d",
@@ -2710,7 +2710,7 @@ void __fastcall AircraftClass::Write_INI_0041A6C0(CCINIClass &ini)
 
 // Aircraft.cpp scenario input0041A840; static member identity is a hypothesis.
 extern char const *unknown_aircraft_section_79b0d0;
-extern int unknown_ini_format_a40d24;
+extern int NewINIFormat;
 void __fastcall AircraftClass::Read_INI_0041A840(CCINIClass &ini)
 {
     int count = ini.Entry_Count(unknown_aircraft_section_79b0d0);
@@ -2727,7 +2727,7 @@ void __fastcall AircraftClass::Read_INI_0041A840(CCINIClass &ini)
                 if (aircraft) {
                     int health = atoi(strtok(0, ","));
                     Cell cell;
-                    if (unknown_ini_format_a40d24 >= 4) {
+                    if (NewINIFormat >= 4) {
                         Cell parsed;
                         parsed.X = (short)atoi(strtok(0, ","));
                         parsed.Y = (short)atoi(strtok(0, ","));
@@ -2872,10 +2872,10 @@ int __stdcall AircraftClass::Landing_Direction()
 {
     if (HasAnyLink()) {
         TechnoClass *contact = Contact_With_Whom(0);
-        return Dir_To_8(contact->unknown_2e0.Current());
+        return Dir_To_8(contact->PrimaryFacing.Current());
     }
     if (Cargo.Object != 0) {
-        return Dir_To_8(unknown_2f8.Current());
+        return Dir_To_8(SecondaryFacing.Current());
     }
     return Rules->unknown_50;
 }
@@ -3262,7 +3262,7 @@ wchar_t const *AircraftClass::unknown_slot35()
 
 UnknownFacingDir AircraftClass::Turret_Facing()
 {
-    return unknown_2f8.Current();
+    return SecondaryFacing.Current();
 }
 
 

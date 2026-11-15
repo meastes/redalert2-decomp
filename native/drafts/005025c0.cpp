@@ -20,7 +20,7 @@ double __cdecl unknown_cos_4ba4d0(double angle);
 // @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 // @ref ?unknown_sin_4ba480@@YANN@Z=004ba480
 // @ref ?unknown_cos_4ba4d0@@YANN@Z=004ba4d0
-// @ref ?unknown_TubeClass_list_008661c8@@3V?$DynamicVectorClass@PAVTubeClass@@@@A=008661c8
+// @ref ?Tubes@@3V?$DynamicVectorClass@PAVTubeClass@@@@A=008661c8
 // @ref ?unknown_facing_offsets_851ac0@@3QBUUnknownFacingOffset@@B=00851ac0
 // @ref ?unknown_coord_a410f8@@3UCoordStruct@@A=00a410f8
 // @ref ?unknown_tube_angle_scale_79b620@@3NB=0079b620
@@ -69,10 +69,10 @@ inline CoordStruct Move_Coord(CoordStruct const &start, UnknownFacingDir const &
 // TibSun InfantryClass::Tunnel_AI: walks the soldier along its tube and sets it down at the exit.
 void InfantryClass::unknown_5025c0()
 {
-    bool finished = unknown_TubeClass_list_008661c8[unknown_574]->Directions[unknown_575] == -1;
+    bool finished = Tubes[unknown_574]->Directions[unknown_575] == -1;
     if (!finished) {
         int distance = Tube_Distance(this, unknown_45c);
-        TubeClass *tube = unknown_TubeClass_list_008661c8[unknown_574];
+        TubeClass *tube = Tubes[unknown_574];
         UnknownFacingDir facing;
         UnknownFacingDir direction = facing.Direction(Center_Coord(), unknown_45c);
         int speed = Type->Speed;

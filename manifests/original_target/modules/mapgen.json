@@ -252,7 +252,7 @@
    "padding_bytes": 3
   },
   {
-   "symbol": "?unknown_0056eac0@MapRegionClass@@QAEXHH@Z",
+   "symbol": "?Reassign_Border_Cells@MapRegionClass@@QAEXHH@Z",
    "entry": "0056eac0",
    "body_bytes": 586,
    "padding_bytes": 6
@@ -330,7 +330,7 @@
    "padding_bytes": 9
   },
   {
-   "symbol": "?unknown_005729f0@MapRegionClass@@QAE_NABVCell@@0H@Z",
+   "symbol": "?Build_South_Ramp@MapRegionClass@@QAE_NABVCell@@0H@Z",
    "entry": "005729f0",
    "body_bytes": 1616,
    "padding_bytes": 0
@@ -504,7 +504,7 @@
    "padding_bytes": 5
   },
   {
-   "symbol": "?unknown_0057c4f0@MapGeneratorClass@@QAEXXZ",
+   "symbol": "?Seed_Land_Type0@MapGeneratorClass@@QAEXXZ",
    "entry": "0057c4f0",
    "body_bytes": 645,
    "padding_bytes": 11
@@ -678,7 +678,7 @@
    "padding_bytes": 3
   },
   {
-   "symbol": "?unknown_00582fd0@MapGeneratorClass@@QAEXXZ",
+   "symbol": "?Vary_Cliff_Runs@MapGeneratorClass@@QAEXXZ",
    "entry": "00582fd0",
    "body_bytes": 483,
    "padding_bytes": 13
@@ -2674,7 +2674,7 @@
   },
   {
    "site": "0057bea0",
-   "symbol": "?unknown_0057c4f0@MapGeneratorClass@@QAEXXZ",
+   "symbol": "?Seed_Land_Type0@MapGeneratorClass@@QAEXXZ",
    "target": "0057c4f0",
    "function_entry": true
   },
@@ -2716,7 +2716,7 @@
   },
   {
    "site": "005835f0",
-   "symbol": "?unknown_00582fd0@MapGeneratorClass@@QAEXXZ",
+   "symbol": "?Vary_Cliff_Runs@MapGeneratorClass@@QAEXXZ",
    "target": "00582fd0",
    "function_entry": true
   },
@@ -2746,7 +2746,7 @@
   },
   {
    "site": "005707a0",
-   "symbol": "?unknown_0056eac0@MapRegionClass@@QAEXHH@Z",
+   "symbol": "?Reassign_Border_Cells@MapRegionClass@@QAEXHH@Z",
    "target": "0056eac0",
    "function_entry": true
   },
@@ -3493,6 +3493,10 @@
    "address": "004f94d0"
   },
   {
+   "symbol": "?Find_WDT_Territory@@YI?AV?$rc_ptr@VWDTTerritory@@@@H@Z",
+   "address": "00769690"
+  },
+  {
    "symbol": "?Fixup_Cliff_Corners@MapGeneratorClass@@QAEXXZ",
    "address": "005831c0"
   },
@@ -3721,6 +3725,10 @@
    "address": "0058e720"
   },
   {
+   "symbol": "?In_Area_Radar@MapClass@@QAE_NABVRect@@ABVCell@@_N@Z",
+   "address": "0055a840"
+  },
+  {
    "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
    "address": "0054aab0"
   },
@@ -3795,6 +3803,42 @@
   {
    "symbol": "?Is_Open@CCFileClass@@UBE_NXZ",
    "address": "004691e0"
+  },
+  {
+   "symbol": "?Is_Tile_Clear@CellClass@@QBE_NXZ",
+   "address": "0047b590"
+  },
+  {
+   "symbol": "?Is_Tile_Clear_To_Green_LAT@CellClass@@QBE_NXZ",
+   "address": "0047b9c0"
+  },
+  {
+   "symbol": "?Is_Tile_Clear_To_Sand_LAT@CellClass@@QBE_NXZ",
+   "address": "0047b9a0"
+  },
+  {
+   "symbol": "?Is_Tile_Misc_Pavement@CellClass@@QBE_NXZ",
+   "address": "0047b860"
+  },
+  {
+   "symbol": "?Is_Tile_Paved_Road@CellClass@@QBE_NXZ",
+   "address": "0047b8e0"
+  },
+  {
+   "symbol": "?Is_Tile_Paved_Road_End@CellClass@@QBE_NXZ",
+   "address": "0047b900"
+  },
+  {
+   "symbol": "?Is_Tile_Pavement@CellClass@@QBE_NXZ",
+   "address": "0047b880"
+  },
+  {
+   "symbol": "?Is_Tile_Ramp@CellClass@@QBE_NXZ",
+   "address": "0047b5b0"
+  },
+  {
+   "symbol": "?Is_Tile_Road_Median@CellClass@@QBE_NXZ",
+   "address": "0047b940"
   },
   {
    "symbol": "?IsoTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A",
@@ -4033,6 +4077,10 @@
    "address": "0058e5a0"
   },
   {
+   "symbol": "?RuleINI@@3PAVCCINIClass@@A",
+   "address": "008396d0"
+  },
+  {
    "symbol": "?Rules@@3PAVRulesClass@@A",
    "address": "00839848"
   },
@@ -4169,10 +4217,6 @@
    "address": "0055a740"
   },
   {
-   "symbol": "?Unknown_0055A840@MapClass@@QAE_NABVRect@@ABVCell@@_N@Z",
-   "address": "0055a840"
-  },
-  {
    "symbol": "?Unknown_0055BD70@MapClass@@QAEIPAVCellClass@@@Z",
    "address": "0055bd70"
   },
@@ -4183,10 +4227,6 @@
   {
    "symbol": "?Unknown_Cell_Predicate_0047b5e0@@YI_NPAVCellClass@@@Z",
    "address": "0047b5e0"
-  },
-  {
-   "symbol": "?Unknown_Territory_00769690@@YI?AV?$rc_ptr@VWDTTerritory@@@@H@Z",
-   "address": "00769690"
   },
   {
    "symbol": "?Update_Progress@SessionClass@@QAEXH@Z",
@@ -4281,14 +4321,6 @@
    "address": "005c7ef0"
   },
   {
-   "symbol": "?unknown_47b590@CellClass@@QBE_NXZ",
-   "address": "0047b590"
-  },
-  {
-   "symbol": "?unknown_47b5b0@CellClass@@QBE_NXZ",
-   "address": "0047b5b0"
-  },
-  {
    "symbol": "?unknown_47b5e0@CellClass@@QBE_NXZ",
    "address": "0047b5e0"
   },
@@ -4299,34 +4331,6 @@
   {
    "symbol": "?unknown_47b7e0@CellClass@@QBE_NXZ",
    "address": "0047b7e0"
-  },
-  {
-   "symbol": "?unknown_47b860@CellClass@@QBE_NXZ",
-   "address": "0047b860"
-  },
-  {
-   "symbol": "?unknown_47b880@CellClass@@QBE_NXZ",
-   "address": "0047b880"
-  },
-  {
-   "symbol": "?unknown_47b8e0@CellClass@@QBE_NXZ",
-   "address": "0047b8e0"
-  },
-  {
-   "symbol": "?unknown_47b900@CellClass@@QBE_NXZ",
-   "address": "0047b900"
-  },
-  {
-   "symbol": "?unknown_47b940@CellClass@@QBE_NXZ",
-   "address": "0047b940"
-  },
-  {
-   "symbol": "?unknown_47b9a0@CellClass@@QBE_NXZ",
-   "address": "0047b9a0"
-  },
-  {
-   "symbol": "?unknown_47b9c0@CellClass@@QBE_NXZ",
-   "address": "0047b9c0"
   },
   {
    "symbol": "?unknown_5e4720@OwnerDraw@@YI_NPAUHWND__@@@Z",
@@ -4459,10 +4463,6 @@
   {
    "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
    "address": "00a3d290"
-  },
-  {
-   "symbol": "?unknown_ini_8396d0@@3PAVCCINIClass@@A",
-   "address": "008396d0"
   },
   {
    "symbol": "?unknown_jitter_scale_7a5ca0@@3MB",

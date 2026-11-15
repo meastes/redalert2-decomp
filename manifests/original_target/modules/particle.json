@@ -193,7 +193,7 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "?Unknown_0060A5C0@@YIHABUPoint2D@@@Z",
+   "symbol": "?Approximate_Distance@@YIHABUPoint2D@@@Z",
    "entry": "0060a5c0",
    "body_bytes": 26,
    "padding_bytes": 6
@@ -1158,6 +1158,10 @@
    "address": "005d31c0"
   },
   {
+   "symbol": "?Get_Slope_Matrix@@YIPAVMatrix3D@@PAV1@H@Z",
+   "address": "00718d60"
+  },
+  {
    "symbol": "?Get_Target_Cell@ObjectClass@@UBE?AVCell@@XZ",
    "address": "005d5240"
   },
@@ -1228,6 +1232,10 @@
   {
    "symbol": "?Load@ObjectClass@@UAGJPAUIStream@@@Z",
    "address": "005d4760"
+  },
+  {
+   "symbol": "?LogicalSurface@@3PAVSurface@@A",
+   "address": "0083995c"
   },
   {
    "symbol": "?Look@ObjectClass@@UAEX_N0@Z",
@@ -1384,10 +1392,6 @@
   {
    "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
    "address": "006ecb90"
-  },
-  {
-   "symbol": "?Unknown_00718D60@@YIPAVMatrix3D@@PAV1@H@Z",
-   "address": "00718d60"
   },
   {
    "symbol": "?Unlimbo@ObjectClass@@UAE_NPBUCoordStruct@@H@Z",
@@ -1604,10 +1608,6 @@
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "?unknown_surface_83995c@@3PAVSurface@@A",
-   "address": "0083995c"
   },
   {
    "symbol": "?unknown_wind_7eb7e4@@3PAY07HA",

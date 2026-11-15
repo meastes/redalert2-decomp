@@ -218,7 +218,7 @@ void __fastcall SmudgeTypeClass::Init(int theater)
             if (smudge->unknown_1fc) {
                 char fullname[512];
                 _makepath(fullname, 0, 0, smudge->ID, Theaters[theater].Suffix);
-                smudge->unknown_a4 = (void *)MixFileClass::Retrieve(fullname);
+                smudge->ImageData = (void *)MixFileClass::Retrieve(fullname);
             }
         }
     }
@@ -344,7 +344,7 @@ bool SmudgeTypeClass::Read_INI(CCINIClass &ini)
         } else {
             _makepath(fullname, 0, 0, unknown_1c8, Theaters[unknown_id_source_a3d290->Theater].Suffix);
         }
-        unknown_a4 = (void *)MixFileClass::Retrieve(fullname);
+        ImageData = (void *)MixFileClass::Retrieve(fullname);
         return true;
     }
     return false;

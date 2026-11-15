@@ -810,6 +810,10 @@
    "address": "00851a70"
   },
   {
+   "symbol": "?Blit_Block@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z",
+   "address": "0049f3a0"
+  },
+  {
    "symbol": "?CanBeSelected@ObjectClass@@UAE_NXZ",
    "address": "005d54b0"
   },
@@ -1038,6 +1042,10 @@
    "address": "005d4760"
   },
   {
+   "symbol": "?LogicalSurface@@3PAVSurface@@A",
+   "address": "0083995c"
+  },
+  {
    "symbol": "?Look@ObjectClass@@UAEX_N0@Z",
    "address": "005d2c90"
   },
@@ -1186,6 +1194,14 @@
    "address": "005d5440"
   },
   {
+   "symbol": "?TiberiumDrawer@@3PAVConvertClass@@A",
+   "address": "008323bc"
+  },
+  {
+   "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+   "address": "00ac0b30"
+  },
+  {
    "symbol": "?To_Tiberium@OverlayClass@@SIHH@Z",
    "address": "005dc0b0"
   },
@@ -1262,24 +1278,12 @@
    "address": "005d4500"
   },
   {
-   "symbol": "?unknown_TiberiumClass_list_00ac0b30@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
-   "address": "00ac0b30"
-  },
-  {
    "symbol": "?unknown_VoxelAnimClass_list_008399d0@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A",
    "address": "008399d0"
   },
   {
-   "symbol": "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z",
-   "address": "0049f3a0"
-  },
-  {
    "symbol": "?unknown_drawer_8323b4@@3PAVConvertClass@@A",
    "address": "008323b4"
-  },
-  {
-   "symbol": "?unknown_drawer_8323bc@@3PAVConvertClass@@A",
-   "address": "008323bc"
   },
   {
    "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
@@ -1428,10 +1432,6 @@
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "?unknown_surface_83995c@@3PAVSurface@@A",
-   "address": "0083995c"
   },
   {
    "symbol": "?unknown_voxel_light_839ab0@@3UVector3@@A",

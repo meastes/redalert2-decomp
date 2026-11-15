@@ -547,7 +547,7 @@ int SessionClass::Create_Connections()
 bool SessionClass::Am_I_Master(HouseClass *house)
 {
     if (house == 0) {
-        house = unknown_player_a35db4;
+        house = PlayerPtr;
     }
     if (unknown_game_mode_a3d298 == 4 && house != 0) {
         if (MasterPlayerID != -1) {
@@ -1554,11 +1554,11 @@ void SessionClass::Update_Progress(int percent)
                 Ipx.Send_Global_Message_To_Name(&packet, 0x33, 1, unknown_players_a3fa7c[i]->Name);
             }
         }
-        unknown_481fb0();
+        Call_Back();
         while (Ipx.Global_Num_Send() > 5 && timeout > 0) {
             Sleep(20);
-            Unknown_005B5EE0();
-            unknown_481fb0();
+            Windows_Message_Handler();
+            Call_Back();
         }
         break;
     }
@@ -1579,7 +1579,7 @@ void SessionClass::Update_Progress(int percent)
         break;
     }
     }
-    unknown_481fb0();
+    Call_Back();
 }
 
 

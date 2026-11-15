@@ -137,7 +137,7 @@ public:
     int unknown_2224;                           // +0x2224
     bool FreeRadar;                             // +0x2228 [Basic] FreeRadar
     bool unknown_2229;                          // +0x2229 (toggled by a trigger action 0x006ADB18)
-    bool unknown_222a;                          // +0x222A (set from a trigger action's data, 0x006AFB60)
+    bool IsTibGrowth;                          // +0x222A (set from a trigger action's data, 0x006AFB60)
     bool unknown_222b;                          // +0x222B (set from a trigger action's data, 0x006AFB40)
     bool unknown_222c;                          // +0x222C (set from a trigger action's data, 0x006AFB80)
     bool unknown_222d;                          // +0x222D

@@ -90,7 +90,7 @@ extern short unknown_key_states_a51fd0[256];      // 0x00A51FD0
 
 // Pumps the window messages that fill the queue (hypothesis; it reads the
 // main window handle 0x00B263D8).
-void Unknown_005B5EE0();               // 0x005B5EE0
+void Windows_Message_Handler();               // 0x005B5EE0
 
 // The modifier keys the action code tests (two bindings each; runtime-set
 // .bss words; declared as 32-bit ints: the callers push them as dwords,

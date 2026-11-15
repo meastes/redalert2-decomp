@@ -477,13 +477,13 @@ void SidebarClass::Unknown_0067C150(ObjectClass *object)
         return;
     }
     TechnoTypeClass *type = object->Techno_Type_Class();
-    if (!unknown_player_a35db4) {
+    if (!PlayerPtr) {
         return;
     }
     int kind = object->Kind_Of();
     int id = object->Fetch_Heap_ID();
     if (Which_Column(kind, id) == unknown_4ed8) {
-        if (((UnknownSidebarHouse *)unknown_player_a35db4)->Unknown_004F4F30(type)) {
+        if (((UnknownSidebarHouse *)PlayerPtr)->Unknown_004F4F30(type)) {
             Unknown_0067C100();
         }
     } else if (kind == 6 && ((UnknownSidebarBuilding *)object)->Type->unknown_1365) {
@@ -951,7 +951,7 @@ void SidebarClass::AI(int &input, Point2D const &xy)
             }
         }
 
-        Unknown_0067C4C0(unknown_player_a35db4->unknown_230 > 0);
+        Unknown_0067C4C0(PlayerPtr->unknown_230 > 0);
 
         if (input == 0x8066) {
             Voc_Play(Rules->unknown_180, 1.0f, 0x2000, 0);
@@ -966,14 +966,14 @@ void SidebarClass::AI(int &input, Point2D const &xy)
             unknown_button_abcbe8.IsPressed = false;
             StripClass &strip = Column[unknown_4ed8];
             if (!strip.Scroll(false, (unknown_int_839624 + unknown_int_83962c - unknown_abcd64 - (unknown_id_source_a3d290->unknown_2239 ? 26 : 18) - 7) / 50)) {
-                Voc_Play(Rules->unknown_620, 1.0f, 0x2000, 0);
+                Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
             } else {
                 Voc_Play(Rules->unknown_188, 1.0f, 0x2000, 0);
             }
         } else if ((input & ~0x4000) == (unknown_button_abccc0.ID | 0x8000)) {
             unknown_button_abccc0.IsPressed = false;
             if (!Column[unknown_4ed8].Page(true)) {
-                Voc_Play(Rules->unknown_620, 1.0f, 0x2000, 0);
+                Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
             } else {
                 Voc_Play(Rules->unknown_188, 1.0f, 0x2000, 0);
             }
@@ -1266,7 +1266,7 @@ bool SidebarClass::StripClass::Unknown_0067EA20(int type, int id, int other_type
             return wcscmp(name, other_name) <= 0 ? true : false;
         }
     } else if (!other_super) {
-        int side = unknown_player_a35db4->Type->Side;
+        int side = PlayerPtr->Type->Side;
         bool own = side == techno->AIBasePlanningSide;
         bool other_own = side == other->AIBasePlanningSide;
         if (own && !other_own) {
@@ -1322,8 +1322,8 @@ bool SidebarClass::StripClass::Unknown_0067EA20(int type, int id, int other_type
     if (techno->TechLevel > other->TechLevel) {
         return false;
     }
-    int cost = techno->Cost_Of(unknown_player_a35db4);
-    int other_cost = other->Cost_Of(unknown_player_a35db4);
+    int cost = techno->Cost_Of(PlayerPtr);
+    int other_cost = other->Cost_Of(PlayerPtr);
     if (cost < other_cost) {
         return true;
     }
@@ -1507,7 +1507,7 @@ bool SidebarClass::StripClass::AI(int &input, Point2D const &xy)
     if (unknown_34 == 0 || unknown_34 == 1) {
         for (int index = 0; index < BuildableCount; index++) {
             if (Buildables[index].unknown_04 == 31) {
-                SuperClass *super = unknown_player_a35db4->Supers[Buildables[index].unknown_00];
+                SuperClass *super = PlayerPtr->Supers[Buildables[index].unknown_00];
                 if (super && super->Unknown_0069D820()) {
                     goto flash;
                 }
@@ -1604,11 +1604,11 @@ wchar_t const *SidebarClass::StripClass::Help_Text(int gadget_index)
     if (unknown_flag_8373c0) {
         swprintf(unknown_text_ab9484,
             StringTable::Load_String("TXT_MONEY_FORMAT_1", 0, "D:\\Ra2\\Sidebar.CPP", 2627),
-            type->Cost_Of(unknown_player_a35db4));
+            type->Cost_Of(PlayerPtr));
     } else {
         swprintf(unknown_text_ab9484,
             StringTable::Load_String("TXT_MONEY_FORMAT_2", 0, "D:\\Ra2\\Sidebar.CPP", 2629),
-            type->UIName, type->Cost_Of(unknown_player_a35db4));
+            type->UIName, type->Cost_Of(PlayerPtr));
     }
     int length = wcslen(unknown_text_ab9484);
     for (int i = 0; i < length; i++) {
@@ -1720,12 +1720,12 @@ void SidebarClass::StripClass::Unknown_0067F800(bool complete)
                             bool isbusy = false;
                             if (obj->Kind_Of() == 7 && busy) {
                                 isbusy = true;
-                            } else if (obj->Who_Can_Build_Me(true, true, true, unknown_player_a35db4) == 0) {
+                            } else if (obj->Who_Can_Build_Me(true, true, true, PlayerPtr) == 0) {
                                 isbusy = true;
                             } else {
                                 TechnoTypeClass *type = (TechnoTypeClass *)Unknown_00482C00(Buildables[index].unknown_04, Buildables[index].unknown_00);
-                                bool none = unknown_player_a35db4->Can_Build(type, false, false) == -1;
-                                bool limited = ((UnknownSidebarHouse *)unknown_player_a35db4)->Unknown_004F4F30(type);
+                                bool none = PlayerPtr->Can_Build(type, false, false) == -1;
+                                bool limited = ((UnknownSidebarHouse *)PlayerPtr)->Unknown_004F4F30(type);
                                 if (none || limited) {
                                     isbusy = true;
                                 }
@@ -1778,9 +1778,9 @@ void SidebarClass::StripClass::Unknown_0067F800(bool complete)
                         name = SuperWeaponTypes[id]->UIName;
                         shape = Unknown_0067E740(id);
                         production = true;
-                        completed = !unknown_player_a35db4->Supers[id]->unknown_69e990();
-                        state = unknown_player_a35db4->Supers[id]->State_String();
-                        stage = unknown_player_a35db4->Supers[id]->Anim_Stage();
+                        completed = !PlayerPtr->Supers[id]->unknown_69e990();
+                        state = PlayerPtr->Supers[id]->State_String();
+                        stage = PlayerPtr->Supers[id]->Anim_Stage();
                         darken = false;
                         draw = true;
                     }
@@ -1815,7 +1815,7 @@ void SidebarClass::StripClass::Unknown_0067F800(bool complete)
                         | ((TooltipColor.Blue >> unknown_shift_852fc4) << unknown_shift_852fc0)
                         | ((TooltipColor.Green >> unknown_shift_852fcc) << unknown_shift_852fc8);
                     if (obj) {
-                        FactoryClass *queue = ((UnknownSidebarHouse *)unknown_player_a35db4)->Unknown_004EB580(obj->Kind_Of(), obj->Naval, 0);
+                        FactoryClass *queue = ((UnknownSidebarHouse *)PlayerPtr)->Unknown_004EB580(obj->Kind_Of(), obj->Naval, 0);
                         if (queue) {
                             int total = queue->Count_Type_004B9E40(obj);
                             if (total > 1 || total > 0 && (!queue->Object || queue->Object->Techno_Type_Class() && queue->Object->Techno_Type_Class() != obj)) {
@@ -1912,18 +1912,18 @@ bool SidebarClass::StripClass::Unknown_006802D0()
         int ok;
         TechnoTypeClass *tech = (TechnoTypeClass *)Unknown_00482C00(Buildables[index].unknown_04, Buildables[index].unknown_00);
         if (tech) {
-            TechnoClass *who = (TechnoClass *)tech->Who_Can_Build_Me(true, false, false, unknown_player_a35db4);
+            TechnoClass *who = (TechnoClass *)tech->Who_Can_Build_Me(true, false, false, PlayerPtr);
             ok = who && who->House->Can_Build(tech, false, true);   // NATIVE: the overlay's UnknownSidebarHouse::Unknown_004E3660 is HouseClass::Can_Build 0x004E3660
         } else {
-            if ((unsigned)Buildables[index].unknown_00 < (unsigned)unknown_player_a35db4->Supers.Count()) {
-                ok = unknown_player_a35db4->Supers[Buildables[index].unknown_00]->Is_Present();
+            if ((unsigned)Buildables[index].unknown_00 < (unsigned)PlayerPtr->Supers.Count()) {
+                ok = PlayerPtr->Supers[Buildables[index].unknown_00]->Is_Present();
             } else {
                 ok = false;
             }
         }
         if (!ok) {
             if (Buildables[index].Factory) {
-                OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 16, Buildables[index].unknown_04,
+                OutList.Add(EventClass(PlayerPtr->ArrayIndex, 16, Buildables[index].unknown_04,
                     Buildables[index].unknown_00, tech->Naval));
                 if (Buildables[index].unknown_04 == 7 || Buildables[index].unknown_04 == 6) {
                     Map.PendingObjectPtr = 0;
@@ -1933,11 +1933,11 @@ bool SidebarClass::StripClass::Unknown_006802D0()
                 }
             }
             if (tech) {
-                FactoryClass *factory = unknown_player_a35db4->Fetch_Factory(tech->Kind_Of(), tech->Naval, 0);   // NATIVE: 0x004EB580 under house_screen.hpp's name
+                FactoryClass *factory = PlayerPtr->Fetch_Factory(tech->Kind_Of(), tech->Naval, 0);   // NATIVE: 0x004EB580 under house_screen.hpp's name
                 if (factory) {
                     for (int q = factory->Queue.Count() - 1; q >= 0; q--) {
                         if (factory->Queue[q] == tech) {
-                            OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 16, Buildables[index].unknown_04,
+                            OutList.Add(EventClass(PlayerPtr->ArrayIndex, 16, Buildables[index].unknown_04,
                                 Buildables[index].unknown_00, tech->Naval));
                         }
                     }
@@ -2054,16 +2054,16 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
             Map.unknown_11b4 = -1;
         }
         if (flags & 1) {
-            if ((unsigned)spc < (unsigned)unknown_player_a35db4->Supers.Count()) {
+            if ((unsigned)spc < (unsigned)PlayerPtr->Supers.Count()) {
                 Unknown_Play_Sound(Rules->unknown_184);
-                SuperClass *super = unknown_player_a35db4->Supers[spc];
+                SuperClass *super = PlayerPtr->Supers[spc];
                 if (super->Unknown_0069D820()) {
-                    if (unknown_player_a35db4->Supers[spc]->Type->Action == 0) {
+                    if (PlayerPtr->Supers[spc]->Type->Action == 0) {
                         Cell cell;
                         cell.X = 0;
                         cell.Y = 0;
-                        OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, (unsigned char)0x12,
-                            unknown_player_a35db4->Supers[spc]->Type->ArrayIndex, cell));
+                        OutList.Add(EventClass(PlayerPtr->ArrayIndex, (unsigned char)0x12,
+                            PlayerPtr->Supers[spc]->Type->ArrayIndex, cell));
                     } else {
                         Map.PendingObjectPtr = 0;
                         Map.PendingObject = 0;
@@ -2099,11 +2099,11 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
                 if (!factory->Is_Building()) {
                     Unknown_Play_Sound(Rules->unknown_184);
                     Speech_Play_Name("EVA_Canceled", -1, -1);
-                    OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 0x10, kind, id, choice->Naval));
+                    OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0x10, kind, id, choice->Naval));
                 } else {
                     Unknown_Play_Sound(Rules->unknown_184);
                     Speech_Play_Name("EVA_OnHold", -1, -1);
-                    OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 0xF, kind, id, choice->Naval));
+                    OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0xF, kind, id, choice->Naval));
                     Map.Column[Strip->unknown_34].unknown_38 = true;
                 }
             } else {
@@ -2112,12 +2112,12 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
                     Strip->Flag_To_Redraw();
                     Unknown_Play_Sound(Rules->unknown_184);
                     Speech_Play_Name("EVA_OnHold", -1, -1);
-                    OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 0xF, kind, id, choice->Naval));
+                    OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0xF, kind, id, choice->Naval));
                 }
-                FactoryClass *fptr = ((UnknownSidebarHouse *)unknown_player_a35db4)->Unknown_004EB580(kind, choice->Naval, arg);
+                FactoryClass *fptr = ((UnknownSidebarHouse *)PlayerPtr)->Unknown_004EB580(kind, choice->Naval, arg);
                 if (fptr != 0 && fptr->Has_Queued_004B9E80(choice)) {
                     Unknown_Play_Sound(Rules->unknown_184);
-                    OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 0x10, kind, id, choice->Naval));
+                    OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0x10, kind, id, choice->Naval));
                 }
             }
         }
@@ -2137,7 +2137,7 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
                             OutList.Add(EventClass(pending->Owner(), 0x10, kind, id, choice->Naval));
                             Speech_Play_Name("EVA_UnableToComply", -1, -1);
                         } else if (pending->Kind_Of() == 6) {
-                            ((UnknownSidebarHouse *)unknown_player_a35db4)->Unknown_004E7070((TechnoClass *)builder, (BuildingClass *)pending);
+                            ((UnknownSidebarHouse *)PlayerPtr)->Unknown_004E7070((TechnoClass *)builder, (BuildingClass *)pending);
                         } else {
                             OutList.Add(EventClass(pending->Owner(), 0xB, kind, -1, choice->Naval, unknown_geometry_k));
                         }
@@ -2151,8 +2151,8 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
                     }
                     TechnoTypeClass *type = (TechnoTypeClass *)Unknown_00482C00(Strip->Buildables[index].unknown_04, Strip->Buildables[index].unknown_00);
                     bool naval = type && type->Naval;
-                    ((UnknownSidebarHouse *)unknown_player_a35db4)->Unknown_004EB620(kind, choice->Naval, arg);
-                    OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 0xE, Strip->Buildables[index].unknown_04,
+                    ((UnknownSidebarHouse *)PlayerPtr)->Unknown_004EB620(kind, choice->Naval, arg);
+                    OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0xE, Strip->Buildables[index].unknown_04,
                         Strip->Buildables[index].unknown_00, naval));
                     Strip->Buildables[index].unknown_10 = 1;
                     Strip->Buildables[index].Stage.Value = Strip->Unknown_0067F7C0(index);
@@ -2162,10 +2162,10 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
                     unknown_flag_8373c3 = true;
                 }
             } else {
-                factory = (UnknownFactory *)((UnknownSidebarHouse *)unknown_player_a35db4)->Unknown_004EB580(kind, choice->Naval, arg);
+                factory = (UnknownFactory *)((UnknownSidebarHouse *)PlayerPtr)->Unknown_004EB580(kind, choice->Naval, arg);
                 TechnoTypeClass *type = (TechnoTypeClass *)Unknown_00482C00(Strip->Buildables[index].unknown_04, Strip->Buildables[index].unknown_00);
                 bool naval = type && type->Naval;
-                bool limited = ((UnknownSidebarHouse *)unknown_player_a35db4)->Unknown_004F4F30(type);
+                bool limited = ((UnknownSidebarHouse *)PlayerPtr)->Unknown_004F4F30(type);
                 bool busy;
                 bool produce = false;
                 if (factory != 0 && (factory->Is_Building() || ((FactoryClass *)factory)->Object != 0 || ((FactoryClass *)factory)->Queue.Count() > 0)) {
@@ -2189,15 +2189,15 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
                     produce = true;
                 }
                 if (produce) {
-                    bool queued = ((UnknownSidebarHouse *)unknown_player_a35db4)->Unknown_004EB770(kind, choice->Naval, arg);
+                    bool queued = ((UnknownSidebarHouse *)PlayerPtr)->Unknown_004EB770(kind, choice->Naval, arg);
                     bool started = false;
                     if (!limited) {
                         Unknown_Play_Sound(Rules->unknown_184);
                         if (factory == 0 && !queued) {
-                            ((UnknownSidebarHouse *)unknown_player_a35db4)->Unknown_004EB620(kind, choice->Naval, arg);
+                            ((UnknownSidebarHouse *)PlayerPtr)->Unknown_004EB620(kind, choice->Naval, arg);
                             started = true;
                         }
-                        OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 0xE, Strip->Buildables[index].unknown_04,
+                        OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0xE, Strip->Buildables[index].unknown_04,
                             Strip->Buildables[index].unknown_00, naval));
                     }
                     if (started || !queued) {
@@ -2207,8 +2207,8 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
                             TechnoTypeClass *tech = (TechnoTypeClass *)Unknown_00482C00(kind, Strip->Buildables[index].unknown_00);
                             if (tech) {
                                 int ahead = unknown_max_ahead_a3d560;
-                                if (((UnknownSidebarIHouse *)((char *)unknown_player_a35db4 + 0x24))->Available_Money() >= tech->Cost_Of(unknown_player_a35db4) * ahead / 54
-                                    && tech->Who_Can_Build_Me(true, false, false, (HouseClass *)unknown_player_a35db4)) {
+                                if (((UnknownSidebarIHouse *)((char *)PlayerPtr + 0x24))->Available_Money() >= tech->Cost_Of(PlayerPtr) * ahead / 54
+                                    && tech->Who_Can_Build_Me(true, false, false, (HouseClass *)PlayerPtr)) {
                                     int time = tech->Time_To_Build();
                                     if (tech->Kind_Of() == 7 && ((BuildingTypeClass *)tech)->Wall) {
                                         time = time * Rules->WallBuildSpeedCoefficient;
@@ -2488,7 +2488,7 @@ void SidebarClass::Reposition_Sidebar()
     Background.Flag_To_Redraw();
     int top = RadarButton.Y + RadarButton.Height;
     if (unknown_flag_a40b30) {
-        Background.Set_Position(unknown_rect_839630.X + unknown_rect_839630.Width, top);
+        Background.Set_Position(TacticalRect.X + TacticalRect.Width, top);
     } else {
         Background.Set_Position(0, top);
     }

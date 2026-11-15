@@ -200,15 +200,15 @@ bool __stdcall JumpjetLocomotionClass::Process()
             Process_Unknown();
             break;
         }
-        if (LinkedTo->unknown_77 && LinkedTo->House != unknown_player_a35db4) {
+        if (LinkedTo->unknown_77 && LinkedTo->House != PlayerPtr) {
             if (Map.Is_Shrouded(Object_Coord(LinkedTo)) ||
                 ((unknown_id_source_a3d290->unknown_000 & 0x1000) && Map.Is_Fogged(Object_Coord(LinkedTo)))) {
                 LinkedTo->Unselect();
             }
         }
-        if (!LinkedTo->unknown_373 && LinkedTo->House != unknown_player_a35db4) {
+        if (!LinkedTo->unknown_373 && LinkedTo->House != PlayerPtr) {
             if (!Map.Is_Shrouded(Object_Coord(LinkedTo))) {
-                LinkedTo->Revealed(unknown_player_a35db4);
+                LinkedTo->Revealed(PlayerPtr);
             }
         }
     }
@@ -281,7 +281,7 @@ void __stdcall JumpjetLocomotionClass::Stop_Moving()
             return;
         }
         if (LinkedTo->Strength > 0) {
-            LinkedTo->Take_Damage(&LinkedTo->Strength, 0, Rules->unknown_c74, 0, 1, 1);
+            LinkedTo->Take_Damage(&LinkedTo->Strength, 0, Rules->C4Warhead, 0, 1, 1);
             unknown_3c = unknown_geometry_l;
         }
     }
@@ -293,7 +293,7 @@ void __stdcall JumpjetLocomotionClass::Stop_Moving()
 
 void __stdcall JumpjetLocomotionClass::Do_Turn(UnknownFacingDir dir)
 {
-    LinkedTo->unknown_2e0.Set(UnknownFacingDir(dir));
+    LinkedTo->PrimaryFacing.Set(UnknownFacingDir(dir));
 }
 
 
@@ -354,7 +354,7 @@ void JumpjetLocomotionClass::unknown_52fca0()
 {
     if (Is_Moving()) {
         LinkedTo->unknown_slot306(1.0);
-        unknown_50.Set(LinkedTo->unknown_2e0.Current());
+        unknown_50.Set(LinkedTo->PrimaryFacing.Current());
         unknown_68 = 0;
         unknown_70 = 0;
         unknown_78 = Height;
@@ -762,7 +762,7 @@ void JumpjetLocomotionClass::unknown_530b00()
     BuildingClass *building=static_cast<BuildingClass *>(Map[next].Cell_Building());
     if (building && building->Type->FirestormWall && building->House->unknown_142)
         building->Crossing_Firestorm(LinkedTo,true);
-    LinkedTo->unknown_2e0.Set(unknown_50.Current());
+    LinkedTo->PrimaryFacing.Set(unknown_50.Current());
     if (need_mark) LinkedTo->Mark(1);
     else LinkedTo->unknown_74=was_down;
 }

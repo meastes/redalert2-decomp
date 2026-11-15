@@ -396,6 +396,10 @@
    "address": "00480ed0"
   },
   {
+   "symbol": "?Ipx@@3VIPXManagerClass@@A",
+   "address": "00a40978"
+  },
+  {
    "symbol": "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z",
    "address": "00523690"
   },
@@ -404,12 +408,24 @@
    "address": "00a5240c"
   },
   {
+   "symbol": "?LoopbackPort@@3HA",
+   "address": "007f60dc"
+  },
+  {
    "symbol": "?Num_Connections@IPXManagerClass@@UAEHXZ",
    "address": "005256d0"
   },
   {
+   "symbol": "?OwnerTalk@@3VOwnerTalkClass@@A",
+   "address": "00ab6d18"
+  },
+  {
    "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
    "address": "00839c50"
+  },
+  {
+   "symbol": "?Player_Port@SessionClass@@QAEGH@Z",
+   "address": "00672f50"
   },
   {
    "symbol": "?Receive_Packet@ConnectionClass@@UAEHPAXH@Z",
@@ -442,14 +458,6 @@
   {
    "symbol": "?Unknown_0063F4C0@OwnerTalkClass@@QAEEH@Z",
    "address": "0063f4c0"
-  },
-  {
-   "symbol": "?Unknown_00672F50@SessionClass@@QAEGH@Z",
-   "address": "00672f50"
-  },
-  {
-   "symbol": "?unknown_OwnerTalkClass_00ab6d18@@3VOwnerTalkClass@@A",
-   "address": "00ab6d18"
   },
   {
    "symbol": "?unknown_a40b60@@3HA",
@@ -496,10 +504,6 @@
    "address": "00a3d298"
   },
   {
-   "symbol": "?unknown_ipx_manager_a40978@@3VIPXManagerClass@@A",
-   "address": "00a40978"
-  },
-  {
    "symbol": "?unknown_math_4ba520@@YANN@Z",
    "address": "004ba520"
   },
@@ -510,10 +514,6 @@
   {
    "symbol": "?unknown_players_a3fa7c@@3V?$DynamicVectorClass@PAUNodeNameType@@@@A",
    "address": "00a3fa7c"
-  },
-  {
-   "symbol": "?unknown_port_7f60dc@@3HA",
-   "address": "007f60dc"
   },
   {
    "symbol": "?unknown_session_a3d298@@3USessionClass@@A",

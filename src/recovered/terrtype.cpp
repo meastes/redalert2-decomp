@@ -76,7 +76,7 @@ TerrainTypeClass::TerrainTypeClass(char const *ini_name) :
     TerrainTypes.Add(this);
     ArrayIndex = TerrainTypes.ID(this);
     MaxStrength = -1;
-    unknown_9c = 6;
+    Armor = 6;
 }
 
 
@@ -148,12 +148,12 @@ void __fastcall TerrainTypeClass::Init(int theater)
             if (terrain->unknown_1fc) {
                 char fullname[512];
                 _makepath(fullname, 0, 0, terrain->ID, Theaters[theater].Suffix);
-                if (terrain->unknown_a8 && terrain->unknown_a4 != 0) {
-                    operator delete(terrain->unknown_a4);
+                if (terrain->ImageAllocated && terrain->ImageData != 0) {
+                    operator delete(terrain->ImageData);
                 }
-                terrain->unknown_a4 = 0;
-                terrain->unknown_a8 = false;
-                terrain->unknown_a4 = (void *)MixFileClass::Retrieve(fullname);
+                terrain->ImageData = 0;
+                terrain->ImageAllocated = false;
+                terrain->ImageData = (void *)MixFileClass::Retrieve(fullname);
             }
         }
     }
@@ -310,7 +310,7 @@ bool TerrainTypeClass::Read_INI(CCINIClass &ini)
 {
     if (ObjectTypeClass::Read_INI(ini)) {
         if (MaxStrength == -1) {
-            MaxStrength = Rules->unknown_e1c;
+            MaxStrength = Rules->TreeStrength;
         }
         char const *section = ID;
         IsVeinhole = ini.Get_Bool(section, "IsVeinhole", IsVeinhole);
@@ -326,7 +326,7 @@ bool TerrainTypeClass::Read_INI(CCINIClass &ini)
         if (!unknown_1fc) {
             char filename[512];
             _makepath(filename, 0, 0, unknown_1c8, ".SHP");
-            unknown_a4 = (void *)MixFileClass::Retrieve(filename);
+            ImageData = (void *)MixFileClass::Retrieve(filename);
         }
         ShapeFileStruct const *shape = (ShapeFileStruct const *)Get_Image_Data();
         if (shape != 0) {

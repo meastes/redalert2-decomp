@@ -51,6 +51,6 @@ void __fastcall Unknown_006F58E0(wchar_t const *text, int priority)
 {
     if (priority == -1) priority = 0xF0;
     int color = 3;
-    if (unknown_player_a35db4 != 0) color = unknown_player_a35db4->ColorSchemeIndex;
+    if (PlayerPtr != 0) color = PlayerPtr->ColorSchemeIndex;
     unknown_messages_a3dc70.Add_Message(0, 0, text, color, 0x4046, priority, true);
 }

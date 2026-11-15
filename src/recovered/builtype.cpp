@@ -220,9 +220,9 @@ BuildingTypeClass::BuildingTypeClass(char const *ini_name) :
     MidPoint(0),
     DoorStages(0),
     Upgrades(0),
-    unknown_11a0(0),
+    DeployingAnim(0),
     unknown_11a8(0),
-    unknown_11b0(0),
+    RoofDeployingAnim(0),
     unknown_11b8(0),
     DoorAnimData_11c0(0),
     SpecialZOverlayData_11c4(0),
@@ -393,9 +393,9 @@ BuildingTypeClass::~BuildingTypeClass()
         unknown_11cc = 0;
         unknown_11d0 = false;
     }
-    if (unknown_11a4 && unknown_11a0) {
-        operator delete(unknown_11a0);
-        unknown_11a0 = 0;
+    if (unknown_11a4 && DeployingAnim) {
+        operator delete(DeployingAnim);
+        DeployingAnim = 0;
         unknown_11a4 = false;
     }
     if (unknown_11ac && unknown_11a8) {
@@ -403,9 +403,9 @@ BuildingTypeClass::~BuildingTypeClass()
         unknown_11a8 = 0;
         unknown_11ac = false;
     }
-    if (unknown_11b4 && unknown_11b0) {
-        operator delete(unknown_11b0);
-        unknown_11b0 = 0;
+    if (unknown_11b4 && RoofDeployingAnim) {
+        operator delete(RoofDeployingAnim);
+        RoofDeployingAnim = 0;
         unknown_11b4 = false;
     }
     if (unknown_11bc && unknown_11b8) {
@@ -552,11 +552,11 @@ void __fastcall BuildingTypeClass::Init(int theater)
             char fullname[512];
             if (!type->DemandLoad) {
                 _makepath(fullname, 0, 0, type->unknown_1c8, Theaters[theater].Suffix);
-                type->unknown_a4 = (void *)MixFileClass::Retrieve(fullname);
-            } else if (type->unknown_a4 != 0) {
-                operator delete(type->unknown_a4);
-                type->unknown_a4 = 0;
-                type->unknown_a8 = false;
+                type->ImageData = (void *)MixFileClass::Retrieve(fullname);
+            } else if (type->ImageData != 0) {
+                operator delete(type->ImageData);
+                type->ImageData = 0;
+                type->ImageAllocated = false;
             }
             if (!type->DemandLoadBuildup) {
                 _makepath(fullname, 0, 0, type->BuildupFile, Theaters[theater].Suffix);
@@ -577,10 +577,10 @@ void __fastcall BuildingTypeClass::Init(int theater)
                 type->AnimFrames[0].unknown_08 = rate;
             }
         } else if (type->unknown_207) {
-            if (type->DemandLoad && type->unknown_a4 != 0) {
-                operator delete(type->unknown_a4);
-                type->unknown_a4 = 0;
-                type->unknown_a8 = false;
+            if (type->DemandLoad && type->ImageData != 0) {
+                operator delete(type->ImageData);
+                type->ImageData = 0;
+                type->ImageAllocated = false;
             }
             if (type->DemandLoadBuildup && type->BuildupData != 0) {
                 operator delete(type->BuildupData);
@@ -663,7 +663,7 @@ int BuildingTypeClass::Max_Pips() const
     switch (PipScale) {
     case 2:
         if (Weeder) {
-            int storage = Rules->unknown_1410;
+            int storage = Rules->WeedCapacity;
             if (storage < 0) {
                 return 0;
             }
@@ -690,7 +690,7 @@ int BuildingTypeClass::Raw_Cost() const
 {
     int value=TechnoTypeClass::Raw_Cost();
     TechnoTypeClass *first_type=Rules->PadAircraft[0];
-    if(this==first_type->Dock[0] && !Rules->unknown_142c) {
+    if(this==first_type->Dock[0] && !Rules->IsSeparate) {
         int second_cost=Rules->PadAircraft[1]->Raw_Cost();
         int first_cost=first_type->Raw_Cost();
         int average=(int)((unsigned int)first_cost+(unsigned int)second_cost)/2;
@@ -714,7 +714,7 @@ int BuildingTypeClass::Cost_Of(HouseClass *house) const
 {
     int value=TechnoTypeClass::Cost_Of(house);
     TechnoTypeClass *first_type=Rules->PadAircraft[0];
-    if(this==first_type->Dock[0] && !Rules->unknown_142c) {
+    if(this==first_type->Dock[0] && !Rules->IsSeparate) {
         int average=(int)((unsigned int)Rules->PadAircraft[0]->Cost_Of(house)+(unsigned int)Rules->PadAircraft[1]->Cost_Of(house))/2;
         value=(int)((unsigned int)value+(unsigned int)average);
     }
@@ -787,27 +787,27 @@ void *__fastcall Load_Alloc_Data(FileClass &file);            // 0x00495230
 void *BuildingTypeClass::Get_Image_Data() const
 {
     BuildingTypeClass *self = (BuildingTypeClass *)this;
-    if (unknown_a4 == 0 && DemandLoad) {
+    if (ImageData == 0 && DemandLoad) {
         if (unknown_13eb[0] != 0) {
             CCFileClass file(unknown_13eb);
             file.Is_Available();
-            self->unknown_a4 = Load_Alloc_Data(file);
-            if (unknown_a4 != 0) {
-                self->unknown_a8 = true;
+            self->ImageData = Load_Alloc_Data(file);
+            if (ImageData != 0) {
+                self->ImageAllocated = true;
             } else {
                 char name[260];
                 strncpy(name, unknown_13eb, 19);
                 Generic_Naming_Convention(name);
                 CCFileClass generic(name);
-                self->unknown_a4 = Load_Alloc_Data(generic);
-                if (unknown_a4 != 0) {
-                    self->unknown_a8 = true;
+                self->ImageData = Load_Alloc_Data(generic);
+                if (ImageData != 0) {
+                    self->ImageAllocated = true;
                 }
             }
         }
-        return unknown_a4;
+        return ImageData;
     }
-    return unknown_a4;
+    return ImageData;
 }
 
 
@@ -880,11 +880,11 @@ void BuildingTypeClass::Fetch_Building_Normal_Image(int theater)
         _makepath(fullname,0,0,name,".SHP");
         Theater_Naming_Convention(fullname,theater);
         Free_unknown_11a0();
-        unknown_11a0=(void *)Unknown_Load_Shape_00495270(fullname,unknown_11a4);
-        if(unknown_11a0==0) {
+        DeployingAnim=(void *)Unknown_Load_Shape_00495270(fullname,unknown_11a4);
+        if(DeployingAnim==0) {
             Generic_Naming_Convention(fullname);
             Free_unknown_11a0();
-            unknown_11a0=(void *)Unknown_Load_Shape_00495270(fullname,unknown_11a4);
+            DeployingAnim=(void *)Unknown_Load_Shape_00495270(fullname,unknown_11a4);
         }
     }
     ArtINI.Get_String(unknown_1c8,"RoofDeployingAnim",unknown_string_83c55c,name,64);
@@ -892,12 +892,12 @@ void BuildingTypeClass::Fetch_Building_Normal_Image(int theater)
         _makepath(fullname,0,0,name,".SHP");
         Theater_Naming_Convention(fullname,theater);
         Free_unknown_11b0();
-        unknown_11b0=(void *)Unknown_Load_Shape_00495270(fullname,unknown_11b4);
-        if(unknown_11b0==0) {
+        RoofDeployingAnim=(void *)Unknown_Load_Shape_00495270(fullname,unknown_11b4);
+        if(RoofDeployingAnim==0) {
             Generic_Naming_Convention(fullname);
             Free_unknown_11b0();
             // The original roof fallback writes the deploying-image allocation flag.
-            unknown_11b0=(void *)Unknown_Load_Shape_00495270(fullname,unknown_11a4);
+            RoofDeployingAnim=(void *)Unknown_Load_Shape_00495270(fullname,unknown_11a4);
         }
     }
     ArtINI.Get_String(unknown_1c8,"DoorAnim",unknown_string_83c55c,name,64);
@@ -964,11 +964,11 @@ void BuildingTypeClass::Fetch_Building_Normal_Image(int theater)
     Theater_Naming_Convention(fullname,theater);
     strncpy(unknown_13eb,fullname,19);
     if(!DemandLoad) {
-        unknown_a4=(void *)MixFileClass::Retrieve(fullname);
-        if(unknown_a4==0) {
+        ImageData=(void *)MixFileClass::Retrieve(fullname);
+        if(ImageData==0) {
             Generic_Naming_Convention(fullname);
             strncpy(unknown_13eb,fullname,19);
-            unknown_a4=(void *)MixFileClass::Retrieve(fullname);
+            ImageData=(void *)MixFileClass::Retrieve(fullname);
         }
     }
     Fetch_Building_Voxel_Image();
@@ -1531,11 +1531,11 @@ HRESULT __stdcall BuildingTypeClass::Load(IStream *stream)
         BuildupDataAllocated = false;
         unknown_11cc = 0;
         unknown_11d0 = false;
-        unknown_11a0 = 0;
+        DeployingAnim = 0;
         unknown_11a4 = false;
         unknown_11a8 = 0;
         unknown_11ac = false;
-        unknown_11b0 = 0;
+        RoofDeployingAnim = 0;
         unknown_11b4 = false;
         unknown_11b8 = 0;
         unknown_11bc = false;
@@ -1809,9 +1809,9 @@ void BuildingTypeClass::Free_unknown_11cc()
 
 void BuildingTypeClass::Free_unknown_11a0()
 {
-    if (unknown_11a4 && unknown_11a0) {
-        operator delete(unknown_11a0);
-        unknown_11a0 = 0;
+    if (unknown_11a4 && DeployingAnim) {
+        operator delete(DeployingAnim);
+        DeployingAnim = 0;
         unknown_11a4 = false;
     }
 }
@@ -1835,9 +1835,9 @@ void BuildingTypeClass::Free_unknown_11a8()
 
 void BuildingTypeClass::Free_unknown_11b0()
 {
-    if (unknown_11b4 && unknown_11b0) {
-        operator delete(unknown_11b0);
-        unknown_11b0 = 0;
+    if (unknown_11b4 && RoofDeployingAnim) {
+        operator delete(RoofDeployingAnim);
+        RoofDeployingAnim = 0;
         unknown_11b4 = false;
     }
 }

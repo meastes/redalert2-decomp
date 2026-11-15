@@ -83,7 +83,7 @@ int TechnoClass::unknown_slot176()
         }
     }
     // The facing at +0x2E0 (0x006D00CB add esi,0x2e0 before each Current), not +0x2C8 (C16 audit).
-    int dir8 = ((unknown_2e0.Current().Raw >> 12) + 1) >> 1 & 7;
+    int dir8 = ((PrimaryFacing.Current().Raw >> 12) + 1) >> 1 & 7;
     CellClass *ahead_right = &Map[Adjacent(cell, dir8 + 1)];
     CellClass *ahead_left = &Map[Adjacent(cell, dir8 - 1)];
     CellClass *ahead = &Map[Adjacent(cell, dir8)];

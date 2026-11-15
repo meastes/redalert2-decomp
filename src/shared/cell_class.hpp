@@ -451,7 +451,7 @@ public:
     int unknown_4c;                             // +0x04C
     int unknown_50;                             // +0x050
     int unknown_54;                             // +0x054
-    int unknown_58;                             // +0x058
+    int BridgeInfType;                             // +0x058
     int unknown_5c;                             // +0x05C
     int unknown_60;                             // +0x060
     int unknown_64;                             // +0x064

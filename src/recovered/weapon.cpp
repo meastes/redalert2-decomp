@@ -128,7 +128,7 @@ WeaponTypeClass::WeaponTypeClass(char const *ini_name)
       unknown_123(false),
       unknown_124(10),
       unknown_125(false),
-      unknown_126(false),
+      AreaFire(false),
       unknown_127(false),
       unknown_128(false),
       unknown_129(false),
@@ -137,7 +137,7 @@ WeaponTypeClass::WeaponTypeClass(char const *ini_name)
       unknown_12c(0)
 {
     AbstractClass::Create_ID();
-    unknown_WeaponTypeClass_list_00839b90.Add(this);
+    Weapons.Add(this);
 }
 
 
@@ -194,7 +194,7 @@ WeaponTypeClass::~WeaponTypeClass()
     Unknown_006ECB90(this, true);
     Projectile = 0;
     Warhead = 0;
-    unknown_WeaponTypeClass_list_00839b90.Delete(this);
+    Weapons.Delete(this);
 }
 
 
@@ -262,7 +262,7 @@ bool WeaponTypeClass::Read_INI(CCINIClass &ini)
         unknown_122 = ini.Get_Bool(ID, "IsBigLaser", unknown_122);
         unknown_10b = ini.Get_Bool(ID, "Bright", unknown_10b);
         unknown_125 = ini.Get_Bool(ID, "IonSensitive", unknown_125);
-        unknown_126 = ini.Get_Bool(ID, "AreaFire", unknown_126);
+        AreaFire = ini.Get_Bool(ID, "AreaFire", AreaFire);
         unknown_127 = ini.Get_Bool(ID, "IsElectricBolt", unknown_127);
         unknown_128 = ini.Get_Bool(ID, "DrawBoltAsLaser", unknown_128);
         unknown_129 = ini.Get_Bool(ID, "IsAlternateColor", unknown_129);
@@ -300,9 +300,9 @@ void WeaponTypeClass::Init_Max_Speed()
     if (Projectile != 0 && Projectile->ROT == 0) {
         double gravity = Rules->unknown_1320;
         if (Projectile->Floater) {
-            gravity = Unknown_0047FCD0();
+            gravity = Get_Floater_Gravity();
         }
-        unknown_a8 = Unknown_0047FB70(unknown_b4, gravity);
+        unknown_a8 = Calculate_Projectile_Speed(unknown_b4, gravity);
     }
 }
 
@@ -530,9 +530,9 @@ WeaponTypeClass *__fastcall WeaponTypeClass::Find_Or_Make(char const *name)
     if (!_stricmp("<none>", name) || !_stricmp("none", name)) {
         return 0;
     }
-    for (int index = 0; index < unknown_WeaponTypeClass_list_00839b90.Count(); index++) {
-        if (!_stricmp(unknown_WeaponTypeClass_list_00839b90[index]->ID, name)) {
-            return unknown_WeaponTypeClass_list_00839b90[index];
+    for (int index = 0; index < Weapons.Count(); index++) {
+        if (!_stricmp(Weapons[index]->ID, name)) {
+            return Weapons[index];
         }
     }
     return new WeaponTypeClass(name);
@@ -543,8 +543,8 @@ WeaponTypeClass *__fastcall WeaponTypeClass::Find_Or_Make(char const *name)
 
 int __fastcall WeaponTypeClass::Index_From_Name(char const *name)
 {
-    for (int index = 0; index < unknown_WeaponTypeClass_list_00839b90.Count(); index++) {
-        if (!_stricmp(unknown_WeaponTypeClass_list_00839b90[index]->ID, name)) {
+    for (int index = 0; index < Weapons.Count(); index++) {
+        if (!_stricmp(Weapons[index]->ID, name)) {
             return index;
         }
     }
@@ -562,8 +562,8 @@ int __fastcall WeaponTypeClass::Index_From_Name(char const *name)
 int WeaponTypeClass::Get_Speed(int range) const
 {
     if (Projectile != 0 && Projectile->ROT == 0) {
-        double gravity = Projectile->Floater ? Unknown_0047FCD0() : Rules->unknown_1320;
-        return Unknown_0047FB70(range, gravity);
+        double gravity = Projectile->Floater ? Get_Floater_Gravity() : Rules->unknown_1320;
+        return Calculate_Projectile_Speed(range, gravity);
     }
     return unknown_a8;
 }

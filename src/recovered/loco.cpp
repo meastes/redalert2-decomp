@@ -144,10 +144,10 @@ Matrix3D * __stdcall LocomotionClass::Draw_Matrix(Matrix3D *matrix, int *key)
 {
     Matrix3D draw_matrix;
     draw_matrix.Make_Identity();
-    draw_matrix.Rotate_Z((float)((Dir_To_32(LinkedTo->unknown_2e0.Current()) - 8) * -0.19634954084936207));
+    draw_matrix.Rotate_Z((float)((Dir_To_32(LinkedTo->PrimaryFacing.Current()) - 8) * -0.19634954084936207));
     if (key != 0 && *key != -1) {
         *key <<= 5;
-        *key |= Dir_To_32(LinkedTo->unknown_2e0.Current());
+        *key |= Dir_To_32(LinkedTo->PrimaryFacing.Current());
     }
     *matrix = draw_matrix;
     return matrix;
@@ -173,11 +173,11 @@ Matrix3D * __stdcall LocomotionClass::Shadow_Matrix(Matrix3D *matrix, int *key)
     int ramp = Map[coord].unknown_11c;
     Matrix3D transform;
     Matrix3D ramp_matrix;
-    transform = *Unknown_00718D60(&ramp_matrix, ramp);
-    transform.Rotate_Z((float)((Dir_To_32(LinkedTo->unknown_2e0.Current()) - 8) * -0.19634954084936207));
+    transform = *Get_Slope_Matrix(&ramp_matrix, ramp);
+    transform.Rotate_Z((float)((Dir_To_32(LinkedTo->PrimaryFacing.Current()) - 8) * -0.19634954084936207));
     if (key != 0 && *key != -1) {
         *key = ((*key << 6) + ramp) << 5;
-        *key |= Dir_To_32(LinkedTo->unknown_2e0.Current());
+        *key |= Dir_To_32(LinkedTo->PrimaryFacing.Current());
     }
     *matrix = transform;
     return matrix;

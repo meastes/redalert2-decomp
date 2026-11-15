@@ -175,7 +175,7 @@ double AStarClass::Get_Movement_Cost(CellClass **from, CellClass **to, bool brid
                         break;
                     }
                 } else {
-                    facing = Dir_To_8(((FootClass *)occupier)->unknown_2e0.Current());
+                    facing = Dir_To_8(((FootClass *)occupier)->PrimaryFacing.Current());
                 }
                 clear = false;
                 cellptr = &Map[Path_Adjacent_Cell(occupier->unknown_slot104(), facing)];
@@ -486,7 +486,7 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
     if (foot->Techno_Type_Class()->IsTrain) {
         is_train = true;
         for (face = 0; face <= 8; face++) {
-            int facing_diff = Dir_To_8(foot->unknown_2e0.Current()) - face;
+            int facing_diff = Dir_To_8(foot->PrimaryFacing.Current()) - face;
             int abs_diff = abs(facing_diff);
             if (abs_diff > 2 && abs_diff < 6 && face != 8) {
                 CellClass *&neighbor = from_pptr[_offsets[face]];
@@ -523,7 +523,7 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
             if (face == 8) {
                 int tube = (*working_from)->unknown_116;
                 if (tube != -1) {
-                    Cell exit_cell = unknown_TubeClass_list_008661c8[tube]->ExitCell;
+                    Cell exit_cell = Tubes[tube]->ExitCell;
                     neighbor_slot = Native_Map_Cell_Slot(512 * exit_cell.Y + exit_cell.X);
                 } else {
                     static CellClass *NoneCell = 0;
@@ -848,7 +848,7 @@ void AStarClass::Apply_Path_Collision_Avoidance(FootClass *foot)
     if(IsAvoidPathCollision) {
     Cell current=foot->unknown_slot104();
     CellClass *currentCell=&Map[current];
-    CellClass *next=&Map[CellClass::Adjacent_Cell(current,Dir_To_8(foot->unknown_2e0.Current()))];
+    CellClass *next=&Map[CellClass::Adjacent_Cell(current,Dir_To_8(foot->PrimaryFacing.Current()))];
     bool bridge=(next->unknown_140&0x100)!=0 &&
         (abs(currentCell->unknown_11b-next->unknown_11b)>3 || foot->unknown_79);
     FootClass *blocker=(FootClass*)(bridge?next->AltOccupierPtr:next->OccupierPtr);
@@ -1832,7 +1832,7 @@ Cell __fastcall AStarClass::Next_Cell(Cell const &cell, int facing)
     if (facing == 8) {
         int tube = Map[cell].unknown_116;
         if (tube != -1) {
-            return Cell(unknown_TubeClass_list_008661c8[tube]->ExitCell);
+            return Cell(Tubes[tube]->ExitCell);
         }
         return Cell(0, 0);
     }

@@ -4,8 +4,8 @@
     "id": "population-2437",
     "inventory_sha256": "e4b500abc53aa59b50a527cc9cd30d397ca5f381fdb7148006fb689e5de5715a",
     "gaps_sha256": "c8f174cbfe4423293eddc97c1c2f12d741d001439148058c38e1ea788f7cb8d4",
-    "historical_population_sha256": "50f4d62b01bd0bb9531b18839642088e76e054e6c98ee0457383bce755e58681",
-    "historical_acceptance_sha256": "109e8f51d80efecbc1b8145c2ceb99b6f077ec36b798d49c06ef1a00b1f6e30a"
+    "historical_population_sha256": "8d106898aa2b69a7ce95b9a7f1090c3b38f75e01b6031b6bd8fcf40b0cabdace",
+    "historical_acceptance_sha256": "721c0becaa015e135a9c3574a193cc74d6c836c8c2501bab632a182dbc18926b"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1031,12 +1031,12 @@
     "?ID@?$VectorClass@PAVIConnectionPoint@@@@UAEHPBQAVIConnectionPoint@@@Z": 4797856,
     "??_C@_04KIKH@none?$AA@": 8184044,
     "?ArmorNames@@3PAPBDA": 7986728,
-    "?Unknown_0047FB70@@YIHHN@Z": 4717424,
-    "?Unknown_0047FCD0@@YANXZ": 4717776,
+    "?Calculate_Projectile_Speed@@YIHHN@Z": 4717424,
+    "?Get_Floater_Gravity@@YANXZ": 4717776,
     "_CLSID_WeaponTypeClass": 8002976,
     "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275440,
     "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275256,
-    "?unknown_player_a35db4@@3PAVHouseClass@@A": 10706356,
+    "?PlayerPtr@@3PAVHouseClass@@A": 10706356,
     "?unknown_id_source_a3d290@@3PAVScenarioClass@@A": 10736272,
     "?Coord_Fixup@ObjectTypeClass@@UBE?AUCoordStruct@@ABU2@@Z": 4309728,
     "?Get_Image_Data@ObjectTypeClass@@UBEPAXXZ": 4309760,
@@ -1123,7 +1123,7 @@
     "?Clear@?$DynamicVectorClass@PAVWarheadTypeClass@@@@UAEXXZ": 4256704,
     "?Fetch@?$VectorClass@PAVWarheadTypeClass@@@@UBEPAVWarheadTypeClass@@H@Z": 4256784,
     "?Clear@?$VectorClass@PAVWarheadTypeClass@@@@UAEXXZ": 4257040,
-    "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A": 8625040,
+    "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A": 8625040,
     "?Clear@?$DynamicVectorClass@PAVWeaponTypeClass@@@@UAEXXZ": 4258160,
     "?Fetch@?$VectorClass@PAVWeaponTypeClass@@@@UBEPAVWeaponTypeClass@@H@Z": 4258240,
     "?Clear@?$VectorClass@PAVWeaponTypeClass@@@@UAEXXZ": 4258496,
@@ -3545,7 +3545,7 @@
     "__imp__timeGetTime@0": 7972132,
     "?Write@WinModemClass@@QAEXPAXH@Z": 7556208,
     "?Init@NullModemConnClass@@UAEXXZ": 6085824,
-    "?unknown_player_a35db4@@3PAUUnknownHouse_00610770@@A": 10706356,
+    "?PlayerPtr@@3PAUUnknownHouse_00610770@@A": 10706356,
     "?Set@UnknownRefHolder_00639530@@QAEXPAUUnknownRefCounted_00639530@@@Z": 6526256,
     "?Value@UnknownTimeSource_0069a160@@QAEHXZ": 6923312,
     "?Save@ThemeClass@@QAEJPAUIStream@@@Z": 7242512,
@@ -6967,7 +6967,7 @@
     "?Execute@BeaconPlacementCommandClass@@UBEXH@Z": 5359024,
     "?Get_Save_Size@SwizzleManagerClass@@UAGJPAH@Z": 6946032,
     "?Fetch_Swizzle_ID@SwizzleManagerClass@@UAGJPAXPAJ@Z": 6946160,
-    "?unknown_object_84e8d0@@3VBeaconManagerClass@@A": 8710352,
+    "?BeaconManager@@3VBeaconManagerClass@@A": 8710352,
     "??_GXSurface@@UAEPAXI@Z": 4264736,
     "??_GBitFontClass@@UAEPAXI@Z": 4399616,
     "??_7BitFontClass@@6B@": 7980936,
@@ -7111,7 +7111,7 @@
     "?Draw@MSPCXAnim@@UAEXPAVSurface@@PBVRect@@@Z": 5962240,
     "_malloc": 7874096,
     "?Render@GScreenClass@@UAEXXZ": 5114672,
-    "?unknown_surface_839964@@3PAVSurface@@A": 8624484,
+    "?CompositeSurface@@3PAVSurface@@A": 8624484,
     "?LogicalSurface@@3PAVSurface@@A": 8624476,
     "?Find_Index@HouseTypeClass@@SIHPBD@Z": 5215440,
     "?Find_Index@SideClass@@SIHPBD@Z": 6795152,
@@ -7192,7 +7192,7 @@
     "?unknown_wstring_b26cb8@@3VWstring@@A": 11693240,
     "?RadarEventClass_unknown_delete_all_63c640@@YAXXZ": 6538816,
     "??1IUnknownPtr@@QAE@XZ": 6915040,
-    "?unknown_object_84e8d0@@3UUnknownFallback_006f6490@@A": 8710352,
+    "?BeaconManager@@3UUnknownFallback_006f6490@@A": 8710352,
     "?Read_File@VoxelLibrary@@QAEHPAVFileClass@@H@Z": 7442784,
     "?Clear@?$WolArrayList@VWstring@@@@QAEXXZ": 7758272,
     "??YWideString@@QAEAAV0@PBG@Z": 7798224,
@@ -7327,12 +7327,12 @@
     "??1FactoryClass@@UAE@XZ": 4952560,
     "??_GFactoryClass@@UAEPAXI@Z": 4955968,
     "?unknown_instance_00851ca8@@3PAXA": 8723624,
-    "?unknown_ini_format_a40d24@@3HA": 10751268,
+    "?NewINIFormat@@3HA": 10751268,
     "?Service_Game_IO_00481fb0@@YIXXZ": 4726704,
     "__imp__EndDialog@8": 7971772,
     "__imp__DialogBoxParamA@20": 7971780,
     "__imp__lstrlenA@4": 7971228,
-    "?unknown_surface_839944@@3PAVSurface@@A": 8624452,
+    "?TileSurface@@3PAVSurface@@A": 8624452,
     "__imp__RegOpenKeyExA@20": 7970828,
     "__imp__RegCloseKey@4": 7970820,
     "?Draw@EgoClass@@QAEX_N@Z": 4929168,
@@ -9000,7 +9000,8 @@
     "?Graphic_Logic@CreditClass@@QAEX_N@Z": 4801840,
     "?Reset@BitFontClass@@QAEXXZ": 4399536,
     "?What_Action@ScrollClass@@QAEHABVCell@@PAVObjectClass@@_N@Z": 6723936,
-    "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z": 4272592
+    "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z": 4272592,
+    "?Overlays@@3V?$DynamicVectorClass@PAVOverlayClass@@@@A": 10750976
   },
   "regions": [
     {
@@ -9061,7 +9062,7 @@
           "resolved": 11688776
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -9111,7 +9112,7 @@
           "resolved": 11688848
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -9161,7 +9162,7 @@
           "resolved": 11688832
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -9211,7 +9212,7 @@
           "resolved": 11688824
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -9261,7 +9262,7 @@
           "resolved": 11688784
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -9311,7 +9312,7 @@
           "resolved": 11688744
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -9393,7 +9394,7 @@
           "resolved": 11688856
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -9451,7 +9452,7 @@
           "resolved": 11688792
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -9509,7 +9510,7 @@
           "resolved": 11688816
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -9567,7 +9568,7 @@
           "resolved": 11688840
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -9609,7 +9610,7 @@
           "resolved": 11688770
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -9659,7 +9660,7 @@
           "resolved": 11688808
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -9717,7 +9718,7 @@
           "resolved": 11688764
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -9777,7 +9778,7 @@
         {
           "offset": 41,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 16,
           "resolved": 8625056
@@ -9785,7 +9786,7 @@
         {
           "offset": 52,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 4,
           "resolved": 8625044
@@ -9801,7 +9802,7 @@
         {
           "offset": 77,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 16,
           "resolved": 8625056
@@ -9825,13 +9826,13 @@
         {
           "offset": 116,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 4,
           "resolved": 8625044
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -9856,7 +9857,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "39be0a80fc874a39bb693b5d74651a98a7ce27d64d8146fd1b0120f590f65d0d",
       "relocations": [],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -9881,7 +9882,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "8bf291c3a973a30ed243bd468796ca06e28c595c1c7191fb6a27ec181cea0ad0",
       "relocations": [],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -9906,7 +9907,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "0d84083d0a8002254629005f34a0ab6aaaba44a86ac2fef7c0226f4a83aa9041",
       "relocations": [],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -9964,7 +9965,7 @@
           "resolved": 8002988
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -10046,7 +10047,7 @@
           "resolved": 8057952
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -10082,7 +10083,7 @@
         {
           "offset": 53,
           "kind": 20,
-          "symbol": "?Unknown_0047FCD0@@YANXZ",
+          "symbol": "?Get_Floater_Gravity@@YANXZ",
           "target": 4717776,
           "addend": 0,
           "resolved": 4292133591
@@ -10090,13 +10091,13 @@
         {
           "offset": 78,
           "kind": 20,
-          "symbol": "?Unknown_0047FB70@@YIHHN@Z",
+          "symbol": "?Calculate_Projectile_Speed@@YIHHN@Z",
           "target": 4717424,
           "addend": 0,
           "resolved": 4292133214
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -10146,7 +10147,7 @@
           "resolved": 7986772
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -10171,7 +10172,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "e0d99a7c93d71d2004e8793b6093f4101fe76b265fd1ce63ea9c19df2d1cb632",
       "relocations": [],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -10413,7 +10414,7 @@
           "resolved": 4292215354
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -10447,7 +10448,7 @@
           "resolved": 4291674810
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -10475,7 +10476,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 16,
           "resolved": 8625056
@@ -10483,7 +10484,7 @@
         {
           "offset": 16,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 4,
           "resolved": 8625044
@@ -10499,13 +10500,13 @@
         {
           "offset": 41,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 16,
           "resolved": 8625056
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -10533,7 +10534,7 @@
         {
           "offset": 34,
           "kind": 20,
-          "symbol": "?Unknown_0047FCD0@@YANXZ",
+          "symbol": "?Get_Floater_Gravity@@YANXZ",
           "target": 4717776,
           "addend": 0,
           "resolved": 4292132154
@@ -10549,13 +10550,13 @@
         {
           "offset": 70,
           "kind": 20,
-          "symbol": "?Unknown_0047FB70@@YIHHN@Z",
+          "symbol": "?Calculate_Projectile_Speed@@YIHHN@Z",
           "target": 4717424,
           "addend": 0,
           "resolved": 4292131766
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -10623,7 +10624,7 @@
         {
           "offset": 59,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 0,
           "resolved": 8625040
@@ -10631,7 +10632,7 @@
         {
           "offset": 65,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 0,
           "resolved": 8625040
@@ -10639,7 +10640,7 @@
         {
           "offset": 83,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 16,
           "resolved": 8625056
@@ -10647,7 +10648,7 @@
         {
           "offset": 96,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 16,
           "resolved": 8625056
@@ -10655,7 +10656,7 @@
         {
           "offset": 104,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 4,
           "resolved": 8625044
@@ -10663,7 +10664,7 @@
         {
           "offset": 118,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 16,
           "resolved": 8625056
@@ -10826,7 +10827,7 @@
         {
           "offset": 458,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 8,
           "resolved": 8625048
@@ -10834,7 +10835,7 @@
         {
           "offset": 464,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 16,
           "resolved": 8625056
@@ -10842,7 +10843,7 @@
         {
           "offset": 474,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 13,
           "resolved": 8625053
@@ -10850,7 +10851,7 @@
         {
           "offset": 486,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 20,
           "resolved": 8625060
@@ -10858,7 +10859,7 @@
         {
           "offset": 496,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 0,
           "resolved": 8625040
@@ -10866,7 +10867,7 @@
         {
           "offset": 505,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 0,
           "resolved": 8625040
@@ -10874,7 +10875,7 @@
         {
           "offset": 518,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 16,
           "resolved": 8625056
@@ -10882,7 +10883,7 @@
         {
           "offset": 527,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 16,
           "resolved": 8625056
@@ -10890,13 +10891,13 @@
         {
           "offset": 533,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 4,
           "resolved": 8625044
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -10964,7 +10965,7 @@
         {
           "offset": 59,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 0,
           "resolved": 8625040
@@ -10972,7 +10973,7 @@
         {
           "offset": 65,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 0,
           "resolved": 8625040
@@ -10980,7 +10981,7 @@
         {
           "offset": 83,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 16,
           "resolved": 8625056
@@ -10988,7 +10989,7 @@
         {
           "offset": 96,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 16,
           "resolved": 8625056
@@ -10996,7 +10997,7 @@
         {
           "offset": 104,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 4,
           "resolved": 8625044
@@ -11004,7 +11005,7 @@
         {
           "offset": 118,
           "kind": 6,
-          "symbol": "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
           "target": 8625040,
           "addend": 16,
           "resolved": 8625056
@@ -11050,7 +11051,7 @@
           "resolved": 4291679533
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -12156,7 +12157,7 @@
           "resolved": 4292024101
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -12326,7 +12327,7 @@
           "resolved": 4294360386
         }
       ],
-      "source_sha256": "638ba81b1d126308ce829878faeb71048e57b605dbdc51b0cf333f5207039933",
+      "source_sha256": "915865f7f49e5c492a6c61dd4d86ede9216e0130456c13681a834b435f7d0132",
       "source": "src/recovered/weapon.cpp",
       "population": "population-2437",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",

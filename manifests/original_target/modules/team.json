@@ -103,7 +103,7 @@
    "padding_bytes": 8
   },
   {
-   "symbol": "?unknown_func_6b79e0@TeamClass@@QAEXPAVAbstractClass@@@Z",
+   "symbol": "?Assign_Mission_Target@TeamClass@@QAEXPAVAbstractClass@@@Z",
    "entry": "006b79e0",
    "body_bytes": 239,
    "padding_bytes": 1
@@ -115,7 +115,7 @@
    "padding_bytes": 12
   },
   {
-   "symbol": "?unknown_func_6b8860@TeamClass@@QAEXXZ",
+   "symbol": "?Flag_Into_Action@TeamClass@@QAEXXZ",
    "entry": "006b8860",
    "body_bytes": 70,
    "padding_bytes": 10
@@ -127,7 +127,7 @@
    "padding_bytes": 8
   },
   {
-   "symbol": "?unknown_func_6b8bb0@TeamClass@@QAE_NXZ",
+   "symbol": "?Recalc_Strength@TeamClass@@QAE_NXZ",
    "entry": "006b8bb0",
    "body_bytes": 264,
    "padding_bytes": 8
@@ -169,7 +169,7 @@
    "padding_bytes": 8
   },
   {
-   "symbol": "?Unknown_006B9AA0@TeamClass@@QAEXPAVFootClass@@HPAVTechnoClass@@@Z",
+   "symbol": "?Took_Damage@TeamClass@@QAEXPAVFootClass@@HPAVTechnoClass@@@Z",
    "entry": "006b9aa0",
    "body_bytes": 259,
    "padding_bytes": 13
@@ -199,13 +199,13 @@
    "padding_bytes": 3
   },
   {
-   "symbol": "?unknown_func_6ba7d0@TeamClass@@QAE_NPAVFootClass@@@Z",
+   "symbol": "?Coordinate_Conscript@TeamClass@@QAE_NPAVFootClass@@@Z",
    "entry": "006ba7d0",
    "body_bytes": 222,
    "padding_bytes": 2
   },
   {
-   "symbol": "?unknown_func_6ba8b0@TeamClass@@QAE_NPAVFootClass@@@Z",
+   "symbol": "?Is_A_Member@TeamClass@@QAE_NPAVFootClass@@@Z",
    "entry": "006ba8b0",
    "body_bytes": 35,
    "padding_bytes": 13
@@ -217,25 +217,25 @@
    "padding_bytes": 2
   },
   {
-   "symbol": "?Unknown_006BA990@TeamClass@@QAE_NXZ",
+   "symbol": "?Is_Leaving_Map@TeamClass@@QAE_NXZ",
    "entry": "006ba990",
    "body_bytes": 98,
    "padding_bytes": 14
   },
   {
-   "symbol": "?unknown_func_6baa00@TeamClass@@QAE_NXZ",
+   "symbol": "?Has_Entered_Map@TeamClass@@QAE_NXZ",
    "entry": "006baa00",
    "body_bytes": 33,
    "padding_bytes": 15
   },
   {
-   "symbol": "?unknown_func_6baa30@TeamClass@@QAEXXZ",
+   "symbol": "?Scan_Limit@TeamClass@@QAEXXZ",
    "entry": "006baa30",
    "body_bytes": 48,
    "padding_bytes": 0
   },
   {
-   "symbol": "?unknown_func_6baa60@TeamClass@@QAEPAVFootClass@@XZ",
+   "symbol": "?Fetch_A_Leader@TeamClass@@QAEPAVFootClass@@XZ",
    "entry": "006baa60",
    "body_bytes": 119,
    "padding_bytes": 9
@@ -265,31 +265,31 @@
    "padding_bytes": 13
   },
   {
-   "symbol": "?TMission_unknown_6badc0@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_GOTO_SHROUD@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006badc0",
    "body_bytes": 51,
    "padding_bytes": 13
   },
   {
-   "symbol": "?TMission_unknown_6bae00@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_MOVECELL@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bae00",
    "body_bytes": 86,
    "padding_bytes": 10
   },
   {
-   "symbol": "?TMission_unknown_6bae60@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_MOVE@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bae60",
    "body_bytes": 448,
    "padding_bytes": 0
   },
   {
-   "symbol": "?TMission_unknown_6bb020@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_ATT_WAYPT@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bb020",
    "body_bytes": 199,
    "padding_bytes": 9
   },
   {
-   "symbol": "?TMission_unknown_6bb0f0@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_PATROL@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bb0f0",
    "body_bytes": 363,
    "padding_bytes": 5
@@ -301,13 +301,13 @@
    "padding_bytes": 1
   },
   {
-   "symbol": "?TMission_unknown_6bb310@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_SCATTER@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bb310",
    "body_bytes": 52,
    "padding_bytes": 12
   },
   {
-   "symbol": "?TMission_unknown_6bb350@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_CHANGE_HOUSE@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bb350",
    "body_bytes": 84,
    "padding_bytes": 12
@@ -319,103 +319,103 @@
    "padding_bytes": 1
   },
   {
-   "symbol": "?TMission_unknown_6bb420@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_SCRIPT@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bb420",
    "body_bytes": 85,
    "padding_bytes": 11
   },
   {
-   "symbol": "?TMission_unknown_6bb480@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_ATTACK@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bb480",
    "body_bytes": 353,
    "padding_bytes": 15
   },
   {
-   "symbol": "?TMission_unknown_6bb5f0@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_LOAD@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bb5f0",
    "body_bytes": 695,
    "padding_bytes": 9
   },
   {
-   "symbol": "?TMission_unknown_6bb8b0@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_DEPLOY@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bb8b0",
    "body_bytes": 651,
    "padding_bytes": 5
   },
   {
-   "symbol": "?TMission_unknown_6bbb40@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_GUARD@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bbb40",
    "body_bytes": 98,
    "padding_bytes": 14
   },
   {
-   "symbol": "?TMission_unknown_6bbbb0@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_DO@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bbbb0",
    "body_bytes": 675,
    "padding_bytes": 13
   },
   {
-   "symbol": "?TMission_unknown_6bbe60@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_SET_GLOBAL@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bbe60",
    "body_bytes": 35,
    "padding_bytes": 13
   },
   {
-   "symbol": "?TMission_unknown_6bbe90@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_CLEAR_GLOBAL@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bbe90",
    "body_bytes": 35,
    "padding_bytes": 13
   },
   {
-   "symbol": "?TMission_unknown_6bbec0@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_SET_LOCAL@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bbec0",
    "body_bytes": 35,
    "padding_bytes": 13
   },
   {
-   "symbol": "?TMission_unknown_6bbef0@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_CLEAR_LOCAL@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bbef0",
    "body_bytes": 35,
    "padding_bytes": 13
   },
   {
-   "symbol": "?TMission_unknown_6bbf20@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_HOUND_DOG@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bbf20",
    "body_bytes": 280,
    "padding_bytes": 8
   },
   {
-   "symbol": "?TMission_unknown_6bc040@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_UNPANIC@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bc040",
    "body_bytes": 43,
    "padding_bytes": 5
   },
   {
-   "symbol": "?TMission_unknown_6bc070@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_FORCE_FACING@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bc070",
    "body_bytes": 178,
    "padding_bytes": 14
   },
   {
-   "symbol": "?TMission_unknown_6bc130@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_PANIC@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bc130",
    "body_bytes": 43,
    "padding_bytes": 5
   },
   {
-   "symbol": "?TMission_unknown_6bc160@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_BERZERK@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bc160",
    "body_bytes": 43,
    "padding_bytes": 5
   },
   {
-   "symbol": "?TMission_unknown_6bc190@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_IDLE_ANIM@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bc190",
    "body_bytes": 65,
    "padding_bytes": 15
   },
   {
-   "symbol": "?TMission_unknown_6bc1e0@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_LOOP@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bc1e0",
    "body_bytes": 33,
    "padding_bytes": 15
@@ -427,19 +427,19 @@
    "padding_bytes": 5
   },
   {
-   "symbol": "?TMission_unknown_6bc250@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_PLAY_SPEECH@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bc250",
    "body_bytes": 10,
    "padding_bytes": 6
   },
   {
-   "symbol": "?TMission_unknown_6bc260@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_PLAY_SOUND@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bc260",
    "body_bytes": 38,
    "padding_bytes": 10
   },
   {
-   "symbol": "?TMission_unknown_6bc290@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_PLAY_MOVIE@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bc290",
    "body_bytes": 35,
    "padding_bytes": 13
@@ -451,49 +451,49 @@
    "padding_bytes": 0
   },
   {
-   "symbol": "?TMission_unknown_6bc2e0@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_REDUCE_TIBERIUM@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bc2e0",
    "body_bytes": 115,
    "padding_bytes": 13
   },
   {
-   "symbol": "?TMission_unknown_6bc360@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_BEGIN_PRODUCTION@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bc360",
    "body_bytes": 26,
    "padding_bytes": 6
   },
   {
-   "symbol": "?TMission_unknown_6bc380@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_FIRE_SALE@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bc380",
    "body_bytes": 29,
    "padding_bytes": 3
   },
   {
-   "symbol": "?TMission_unknown_6bc3a0@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_SELF_DESTRUCT@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bc3a0",
    "body_bytes": 111,
    "padding_bytes": 1
   },
   {
-   "symbol": "?TMission_unknown_6bc410@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_DESTROY_MEMBERS@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bc410",
    "body_bytes": 69,
    "padding_bytes": 11
   },
   {
-   "symbol": "?TMission_unknown_6bc460@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_ION_STORM_START@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bc460",
    "body_bytes": 55,
    "padding_bytes": 9
   },
   {
-   "symbol": "?TMission_unknown_6bc4a0@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_ION_STORM_END@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bc4a0",
    "body_bytes": 28,
    "padding_bytes": 4
   },
   {
-   "symbol": "?TMission_unknown_6bc4c0@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_CENTER_VIEWPOINT@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bc4c0",
    "body_bytes": 164,
    "padding_bytes": 12
@@ -511,55 +511,55 @@
    "padding_bytes": 8
   },
   {
-   "symbol": "?TMission_unknown_6bc5b0@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_FULLY_LOADED@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bc5b0",
    "body_bytes": 59,
    "padding_bytes": 5
   },
   {
-   "symbol": "?TMission_unknown_6bc5f0@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_UNLOAD_TRUCK@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bc5f0",
    "body_bytes": 104,
    "padding_bytes": 8
   },
   {
-   "symbol": "?TMission_unknown_6bc660@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_LOAD_TRUCK@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bc660",
    "body_bytes": 104,
    "padding_bytes": 8
   },
   {
-   "symbol": "?TMission_unknown_6bc6d0@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_ATTACK_BUILDING_WITH_PROPERTY@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bc6d0",
    "body_bytes": 209,
    "padding_bytes": 15
   },
   {
-   "symbol": "?TMission_unknown_6bc7b0@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_MOVETO_BUILDING_WITH_PROPERTY@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bc7b0",
    "body_bytes": 452,
    "padding_bytes": 12
   },
   {
-   "symbol": "?TMission_unknown_6bc980@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_MOVETO_FRIENDLY_BUILDING_WITH_PROPERTY@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bc980",
    "body_bytes": 558,
    "padding_bytes": 2
   },
   {
-   "symbol": "?TMission_unknown_6bcbb0@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_SCOUT@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bcbb0",
    "body_bytes": 951,
    "padding_bytes": 9
   },
   {
-   "symbol": "?Unknown_006BCF70@@YIPAVAbstractClass@@PAVBuildingTypeClass@@PAVHouseClass@@PAVFootClass@@H_N@Z",
+   "symbol": "?Pick_Building_With_Property@@YIPAVAbstractClass@@PAVBuildingTypeClass@@PAVHouseClass@@PAVFootClass@@H_N@Z",
    "entry": "006bcf70",
    "body_bytes": 708,
    "padding_bytes": 12
   },
   {
-   "symbol": "?Unknown_006BD240@@YIPAVAbstractClass@@PAVBuildingTypeClass@@PAVHouseClass@@PAVFootClass@@H_N@Z",
+   "symbol": "?Pick_Own_Building_With_Property@@YIPAVAbstractClass@@PAVBuildingTypeClass@@PAVHouseClass@@PAVFootClass@@H_N@Z",
    "entry": "006bd240",
    "body_bytes": 616,
    "padding_bytes": 8
@@ -571,19 +571,19 @@
    "padding_bytes": 12
   },
   {
-   "symbol": "?TMission_unknown_6bd7f0@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_SUCCESS@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bd7f0",
    "body_bytes": 17,
    "padding_bytes": 15
   },
   {
-   "symbol": "?unknown_func_6bd810@TeamClass@@QAE_NXZ",
+   "symbol": "?Has_Air_Transport@TeamClass@@QAE_NXZ",
    "entry": "006bd810",
    "body_bytes": 92,
    "padding_bytes": 4
   },
   {
-   "symbol": "?unknown_func_6bd870@TeamClass@@QAEXAAV?$DynamicVectorClass@PAVTechnoTypeClass@@@@@Z",
+   "symbol": "?Team_Members@TeamClass@@QAEXAAV?$DynamicVectorClass@PAVTechnoTypeClass@@@@@Z",
    "entry": "006bd870",
    "body_bytes": 229,
    "padding_bytes": 11
@@ -601,13 +601,13 @@
    "padding_bytes": 2
   },
   {
-   "symbol": "?TMission_unknown_6bd9b0@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_PLAY_ANIM@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bd9b0",
    "body_bytes": 186,
    "padding_bytes": 6
   },
   {
-   "symbol": "?TMission_unknown_6bda70@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_TALK_BUBBLE@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bda70",
    "body_bytes": 37,
    "padding_bytes": 11
@@ -625,7 +625,7 @@
    "padding_bytes": 8
   },
   {
-   "symbol": "?TMission_unknown_6bddb0@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
+   "symbol": "?TMission_MOVE_TO_BASE_FRONT@TeamClass@@QAEXABVScriptMissionClass@@_N@Z",
    "entry": "006bddb0",
    "body_bytes": 594,
    "padding_bytes": 14
@@ -649,13 +649,13 @@
    "padding_bytes": 9
   },
   {
-   "symbol": "?Unknown_006BE6A0@TeamClass@@QAEHXZ",
+   "symbol": "?Stray_Distance@TeamClass@@QAEHXZ",
    "entry": "006be6a0",
    "body_bytes": 60,
    "padding_bytes": 4
   },
   {
-   "symbol": "?unknown_func_6be6e0@TeamClass@@QAE_NXZ",
+   "symbol": "?Has_Ammo@TeamClass@@QAE_NXZ",
    "entry": "006be6e0",
    "body_bytes": 61,
    "padding_bytes": 3
@@ -1411,13 +1411,13 @@
   },
   {
    "site": "00418e00",
-   "symbol": "?Unknown_006BA990@TeamClass@@QAE_NXZ",
+   "symbol": "?Is_Leaving_Map@TeamClass@@QAE_NXZ",
    "target": "006ba990",
    "function_entry": true
   },
   {
    "site": "0041afd0",
-   "symbol": "?Unknown_006BA990@TeamClass@@QAE_NXZ",
+   "symbol": "?Is_Leaving_Map@TeamClass@@QAE_NXZ",
    "target": "006ba990",
    "function_entry": true
   },
@@ -1429,13 +1429,13 @@
   },
   {
    "site": "004c8ca0",
-   "symbol": "?Unknown_006BA990@TeamClass@@QAE_NXZ",
+   "symbol": "?Is_Leaving_Map@TeamClass@@QAE_NXZ",
    "target": "006ba990",
    "function_entry": true
   },
   {
    "site": "004cafe0",
-   "symbol": "?Unknown_006BA990@TeamClass@@QAE_NXZ",
+   "symbol": "?Is_Leaving_Map@TeamClass@@QAE_NXZ",
    "target": "006ba990",
    "function_entry": true
   },
@@ -1459,7 +1459,7 @@
   },
   {
    "site": "004c6000",
-   "symbol": "?Unknown_006B9AA0@TeamClass@@QAEXPAVFootClass@@HPAVTechnoClass@@@Z",
+   "symbol": "?Took_Damage@TeamClass@@QAEXPAVFootClass@@HPAVTechnoClass@@@Z",
    "target": "006b9aa0",
    "function_entry": true
   },
@@ -1483,7 +1483,7 @@
   },
   {
    "site": "00414d90",
-   "symbol": "?unknown_func_6b79e0@TeamClass@@QAEXPAVAbstractClass@@@Z",
+   "symbol": "?Assign_Mission_Target@TeamClass@@QAEXPAVAbstractClass@@@Z",
    "target": "006b79e0",
    "function_entry": true
   },
@@ -1507,13 +1507,13 @@
   },
   {
    "site": "00416670",
-   "symbol": "?unknown_func_6b79e0@TeamClass@@QAEXPAVAbstractClass@@@Z",
+   "symbol": "?Assign_Mission_Target@TeamClass@@QAEXPAVAbstractClass@@@Z",
    "target": "006b79e0",
    "function_entry": true
   },
   {
    "site": "00417010",
-   "symbol": "?unknown_func_6baa00@TeamClass@@QAE_NXZ",
+   "symbol": "?Has_Entered_Map@TeamClass@@QAE_NXZ",
    "target": "006baa00",
    "function_entry": true
   },
@@ -1543,7 +1543,7 @@
   },
   {
    "site": "004f6a80",
-   "symbol": "?unknown_func_6baa60@TeamClass@@QAEPAVFootClass@@XZ",
+   "symbol": "?Fetch_A_Leader@TeamClass@@QAEPAVFootClass@@XZ",
    "target": "006baa60",
    "function_entry": true
   },
@@ -1561,19 +1561,19 @@
   },
   {
    "site": "004e9c90",
-   "symbol": "?unknown_func_6bd870@TeamClass@@QAEXAAV?$DynamicVectorClass@PAVTechnoTypeClass@@@@@Z",
+   "symbol": "?Team_Members@TeamClass@@QAEXAAV?$DynamicVectorClass@PAVTechnoTypeClass@@@@@Z",
    "target": "006bd870",
    "function_entry": true
   },
   {
    "site": "004ea1b0",
-   "symbol": "?unknown_func_6bd870@TeamClass@@QAEXAAV?$DynamicVectorClass@PAVTechnoTypeClass@@@@@Z",
+   "symbol": "?Team_Members@TeamClass@@QAEXAAV?$DynamicVectorClass@PAVTechnoTypeClass@@@@@Z",
    "target": "006bd870",
    "function_entry": true
   },
   {
    "site": "004ea4d0",
-   "symbol": "?unknown_func_6bd870@TeamClass@@QAEXAAV?$DynamicVectorClass@PAVTechnoTypeClass@@@@@Z",
+   "symbol": "?Team_Members@TeamClass@@QAEXAAV?$DynamicVectorClass@PAVTechnoTypeClass@@@@@Z",
    "target": "006bd870",
    "function_entry": true
   },
@@ -1591,13 +1591,13 @@
   },
   {
    "site": "00416c20",
-   "symbol": "?unknown_func_6b79e0@TeamClass@@QAEXPAVAbstractClass@@@Z",
+   "symbol": "?Assign_Mission_Target@TeamClass@@QAEXPAVAbstractClass@@@Z",
    "target": "006b79e0",
    "function_entry": true
   },
   {
    "site": "004185b0",
-   "symbol": "?Unknown_006BA990@TeamClass@@QAE_NXZ",
+   "symbol": "?Is_Leaving_Map@TeamClass@@QAE_NXZ",
    "target": "006ba990",
    "function_entry": true
   },
@@ -1615,7 +1615,7 @@
   },
   {
    "site": "00639da0",
-   "symbol": "?unknown_func_6bd810@TeamClass@@QAE_NXZ",
+   "symbol": "?Has_Air_Transport@TeamClass@@QAE_NXZ",
    "target": "006bd810",
    "function_entry": true
   },
@@ -1627,13 +1627,13 @@
   },
   {
    "site": "004fe0f0",
-   "symbol": "?unknown_func_6baa30@TeamClass@@QAEXXZ",
+   "symbol": "?Scan_Limit@TeamClass@@QAEXXZ",
    "target": "006baa30",
    "function_entry": true
   },
   {
    "site": "004c3000",
-   "symbol": "?Unknown_006BE6A0@TeamClass@@QAEHXZ",
+   "symbol": "?Stray_Distance@TeamClass@@QAEHXZ",
    "target": "006be6a0",
    "function_entry": true
   },
@@ -1645,13 +1645,13 @@
   },
   {
    "site": "006785c0",
-   "symbol": "?unknown_func_6baa30@TeamClass@@QAEXXZ",
+   "symbol": "?Scan_Limit@TeamClass@@QAEXXZ",
    "target": "006baa30",
    "function_entry": true
   },
   {
    "site": "004a2670",
-   "symbol": "?unknown_func_6baa30@TeamClass@@QAEXXZ",
+   "symbol": "?Scan_Limit@TeamClass@@QAEXXZ",
    "target": "006baa30",
    "function_entry": true
   },
@@ -1675,7 +1675,7 @@
   },
   {
    "site": "006ca890",
-   "symbol": "?unknown_func_6b79e0@TeamClass@@QAEXPAVAbstractClass@@@Z",
+   "symbol": "?Assign_Mission_Target@TeamClass@@QAEXPAVAbstractClass@@@Z",
    "target": "006b79e0",
    "function_entry": true
   }
@@ -1770,6 +1770,10 @@
    "address": "004100a0"
   },
   {
+   "symbol": "?Adjust_Dest@FootClass@@QAE?AVCell@@ABV2@@Z",
+   "address": "004c8af0"
+  },
+  {
    "symbol": "?Aircraft@@3V?$DynamicVectorClass@PAVAircraftClass@@@@A",
    "address": "00a40398"
   },
@@ -1784,6 +1788,10 @@
   {
    "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
    "address": "0040dc20"
+  },
+  {
+   "symbol": "?Assign_Archive_Target@TechnoClass@@QAEXPAVAbstractClass@@@Z",
+   "address": "006d6e50"
   },
   {
    "symbol": "?Attach_Tag@ObjectClass@@QAE_NPAVTagClass@@@Z",
@@ -1866,6 +1874,10 @@
    "address": "004e7ee0"
   },
   {
+   "symbol": "?Flush_For_Placement@BuildingTypeClass@@QBEHABVCell@@PAVHouseClass@@@Z",
+   "address": "00458b10"
+  },
+  {
    "symbol": "?Frame@@3HA",
    "address": "00a40d2c"
   },
@@ -1900,6 +1912,10 @@
   {
    "symbol": "?Get_Waypoint_Location@ScenarioClass@@QBE?AVCell@@H@Z",
    "address": "00663180"
+  },
+  {
+   "symbol": "?Get_Waypoint_Target@ScenarioClass@@QAEPAVCellClass@@H@Z",
+   "address": "006631a0"
   },
   {
    "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
@@ -1974,6 +1990,10 @@
    "address": "008324e0"
   },
   {
+   "symbol": "?Mark_Scouted@HouseClass@@QAEXPAV1@@Z",
+   "address": "004eec70"
+  },
+  {
    "symbol": "?Mark_To_Delete@TagClass@@QAEXXZ",
    "address": "006b3cc0"
   },
@@ -2006,6 +2026,10 @@
    "address": "00410240"
   },
   {
+   "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+   "address": "00a35db4"
+  },
+  {
    "symbol": "?QueryInterface@AbstractClass@@UAGJABUGUID@@PAPAX@Z",
    "address": "00410000"
   },
@@ -2034,6 +2058,10 @@
    "address": "00668900"
   },
   {
+   "symbol": "?Reveal_The_Map@MapClass@@QAEXXZ",
+   "address": "0055a1f0"
+  },
+  {
    "symbol": "?Rules@@3PAVRulesClass@@A",
    "address": "00839848"
   },
@@ -2054,12 +2082,24 @@
    "address": "00866258"
   },
   {
+   "symbol": "?Set_Global_To@ScenarioClass@@QAE_NI_N@Z",
+   "address": "006612c0"
+  },
+  {
+   "symbol": "?Set_Local_To@ScenarioClass@@QAE_NI_N@Z",
+   "address": "00661560"
+  },
+  {
    "symbol": "?Set_Mission@ScriptClass@@QAE_NH@Z",
    "address": "00668910"
   },
   {
    "symbol": "?Setup_Trigger_Scroll@Tactical@@QAEXABUCoordStruct@@H@Z",
    "address": "006a2cb0"
+  },
+  {
+   "symbol": "?Shroud_The_Map@MapClass@@QAEXXZ",
+   "address": "00559fd0"
   },
   {
    "symbol": "?Spring@TagClass@@QAE_NHPAVObjectClass@@VCell@@_NH@Z",
@@ -2098,6 +2138,10 @@
    "address": "006b6b30"
   },
   {
+   "symbol": "?Tubes@@3V?$DynamicVectorClass@PAVTubeClass@@@@A",
+   "address": "008661c8"
+  },
+  {
    "symbol": "?UnitTypes@@3V?$DynamicVectorClass@PAVUnitTypeClass@@@@A",
    "address": "00a35d48"
   },
@@ -2120,14 +2164,6 @@
   {
    "symbol": "?Unknown_0051FC50@@YA_NXZ",
    "address": "0051fc50"
-  },
-  {
-   "symbol": "?Unknown_00559FD0@MapClass@@QAEXXZ",
-   "address": "00559fd0"
-  },
-  {
-   "symbol": "?Unknown_0055A1F0@MapClass@@QAEXXZ",
-   "address": "0055a1f0"
   },
   {
    "symbol": "?Unknown_0055A660@MapClass@@QAE_NABVCell@@_N@Z",
@@ -2190,44 +2226,12 @@
    "address": "0055a1f0"
   },
   {
-   "symbol": "?unknown_458b10@BuildingTypeClass@@QBEHABVCell@@PAVHouseClass@@@Z",
-   "address": "00458b10"
-  },
-  {
-   "symbol": "?unknown_4c8af0@FootClass@@QAE?AVCell@@ABV2@@Z",
-   "address": "004c8af0"
-  },
-  {
-   "symbol": "?unknown_4eec70@HouseClass@@QAEXPAV1@@Z",
-   "address": "004eec70"
-  },
-  {
    "symbol": "?unknown_5d4c00@ObjectClass@@QAEHPAVAbstractClass@@@Z",
    "address": "005d4c00"
   },
   {
-   "symbol": "?unknown_6612c0@ScenarioClass@@QAE_NI_N@Z",
-   "address": "006612c0"
-  },
-  {
-   "symbol": "?unknown_661560@ScenarioClass@@QAE_NI_N@Z",
-   "address": "00661560"
-  },
-  {
-   "symbol": "?unknown_6631a0@ScenarioClass@@QAEPAVCellClass@@H@Z",
-   "address": "006631a0"
-  },
-  {
-   "symbol": "?unknown_6d6e50@TechnoClass@@QAEXPAVAbstractClass@@@Z",
-   "address": "006d6e50"
-  },
-  {
    "symbol": "?unknown_BuildingClass_list_00a40af8@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A",
    "address": "00a40af8"
-  },
-  {
-   "symbol": "?unknown_TubeClass_list_008661c8@@3V?$DynamicVectorClass@PAVTubeClass@@@@A",
-   "address": "008661c8"
   },
   {
    "symbol": "?unknown_cos_4ba4d0@@YANN@Z",
@@ -2264,10 +2268,6 @@
   {
    "symbol": "?unknown_math_4ba5b0@@YANN@Z",
    "address": "004ba5b0"
-  },
-  {
-   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
-   "address": "00a35db4"
   },
   {
    "symbol": "?unknown_sin_4ba480@@YANN@Z",

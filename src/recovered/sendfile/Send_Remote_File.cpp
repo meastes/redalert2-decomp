@@ -132,7 +132,7 @@ bool __fastcall Send_Remote_File_0066bb20(char const *file_name, int gametype, b
     percent = 0;
     while (response_timer) {
         if (gametype == 1 || gametype == 2) {
-            Unknown_005B5EE0();
+            Windows_Message_Handler();
             Service_Game_IO_00481fb0();
             if (block_number < total_blocks) {
                 if (serial_manager_00a40a28.Num_Send() < 2) {
@@ -161,7 +161,7 @@ bool __fastcall Send_Remote_File_0066bb20(char const *file_name, int gametype, b
                 break;
             }
         } else {
-            Unknown_005B5EE0();
+            Windows_Message_Handler();
             Service_Game_IO_00481fb0();
             if (block_number < total_blocks) {
                 if (Ipx.Global_Num_Send() < 10) {

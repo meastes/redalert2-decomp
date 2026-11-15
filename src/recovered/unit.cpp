@@ -133,15 +133,15 @@ UnitClass::UnitClass(UnitTypeClass *type, HouseClass *house) :
 {
     Create_ID();
     Units.Add(this);
-    unknown_2f8.Set(unknown_2e0.Current());
+    SecondaryFacing.Set(PrimaryFacing.Current());
     if (Type) {
         // Interface* assignment: this unit's Assign_Destination 0x007053F0 specializes the ILocomotion copy assignment.
         Locomotor = (ILocomotion *)UnknownComPtr<ILocomotion, &unknown_uuid_ILocomotion_7ce600>(Type->Locomotor);
         Locomotor.Checked()->Link_To_Object(this);
     }
     if (Type) {
-        unknown_2e0.Set_ROT(Type->ROT);
-        unknown_2f8.Set_ROT(Type->ROT);
+        PrimaryFacing.Set_ROT(Type->ROT);
+        SecondaryFacing.Set_ROT(Type->ROT);
         int ammo = Type->InitialAmmo;
         if (ammo != -1) {
             unknown_254 = ammo;
@@ -240,7 +240,7 @@ void UnitClass::AI()
     if ((unknown_slot111() || unknown_slot112()) && Frame % 24 == 0 && Rules->unknown_2a8) {
         new AnimClass(Rules->unknown_2a8, Unit_AI_Smoke_Position(Coord), 0, 1, 0x600, 0);
     }
-    if (unknown_slot112() || (unknown_slot111() && unknown_210)) {
+    if (unknown_slot112() || (unknown_slot111() && IsImmobilized)) {
         Locomotor.Checked()->Process();
         if (!IsActive) return;
     }
@@ -318,8 +318,8 @@ void UnitClass::AI()
         }
         if (Type->SmallVisceroid || Type->LargeVisceroid) unknown_6fbf40();
         Reload();
-        if (Type->Passengers > 0 && !unknown_2a8.Is_Count_Down_Complete() && Get_Mission() != 16 && unknown_slot149(17) != 1) {
-            unknown_2a8.Count_Down(Type->DeployTime);
+        if (Type->Passengers > 0 && !Door.Is_Count_Down_Complete() && Get_Mission() != 16 && unknown_slot149(17) != 1) {
+            Door.Count_Down(Type->DeployTime);
         }
         if (Ready_To_Commence()) Commence();
         if (unknown_1b8 == 2 && unknown_5b4 != -1) Do_Shimmer();
@@ -359,40 +359,40 @@ void UnitClass::unknown_6fb890()
             WeaponStruct *weapon = unknown_slot230();
             if (Unknown_006D8640(weapon) && !weapon->WeaponType->unknown_107) {
                 if (weapon->TurretLocked) {
-                    unknown_2f8.Set_Desired(unknown_2e0.Current());
+                    SecondaryFacing.Set_Desired(PrimaryFacing.Current());
                 } else {
-                    unknown_2f8.Set_Desired(toward);
+                    SecondaryFacing.Set_Desired(toward);
                 }
             }
         } else if (Type->SpeedType == 1 && !unknown_494
             && !Locomotor.Checked()->Is_Moving()
-            && unknown_2e0.Current().Raw == toward.Raw) {
-            unknown_2e0.Set_Desired(toward);
+            && PrimaryFacing.Current().Raw == toward.Raw) {
+            PrimaryFacing.Set_Desired(toward);
         }
     }
     if (Type->TurretSpins) {
-        UnknownFacingDir direction((unsigned short)((Dir_To_256(unknown_2f8.Current()) + 8) << 8));
-        unknown_2f8.Set(direction);
+        UnknownFacingDir direction((unsigned short)((Dir_To_256(SecondaryFacing.Current()) + 8) << 8));
+        SecondaryFacing.Set(direction);
     } else {
         unknown_599 = false;
         if (Type->Turret) {
-            if (unknown_2f8.Is_Rotating()) {
+            if (SecondaryFacing.Is_Rotating()) {
                 if (!Type->TurretSpins) {
-                    unknown_599 = unknown_2f8.Is_Rotating();
+                    unknown_599 = SecondaryFacing.Is_Rotating();
                 }
             } else if (!unknown_228) {
                 WeaponStruct *weapon = unknown_slot230();
                 bool locked = Unknown_006D8640(weapon) && weapon->TurretLocked;
                 if (unknown_494 && !locked) {
-                    unknown_2f8.Set_Desired(Direction_To(unknown_494));
+                    SecondaryFacing.Set_Desired(Direction_To(unknown_494));
                 } else {
-                    unknown_2f8.Set_Desired(unknown_2e0.Current());
+                    SecondaryFacing.Set_Desired(PrimaryFacing.Current());
                 }
             }
         }
     }
     if (Type->Turret) {
-        unknown_3f0 = unknown_2f8.Is_Rotating();
+        unknown_3f0 = SecondaryFacing.Is_Rotating();
     }
 }
 
@@ -453,10 +453,10 @@ inline CoordStruct Move_Coord_006faa30(CoordStruct const &start, UnknownFacingDi
 void UnitClass::Unknown_006FAA30()
 {
     CoordStruct coord;
-    bool finished = unknown_TubeClass_list_008661c8[unknown_574]->Directions[unknown_575] == -1;
+    bool finished = Tubes[unknown_574]->Directions[unknown_575] == -1;
     if (!finished) {
         int distance = Distance_006faa30(Center_Coord(), unknown_45c);
-        TubeClass *tube = unknown_TubeClass_list_008661c8[unknown_574];
+        TubeClass *tube = Tubes[unknown_574];
         UnknownFacingDir direction_temp;
         UnknownFacingDir direction = direction_temp.Direction(Center_Coord(), unknown_45c);
         int speed = (int)(Type->Speed * unknown_tube_speed_79d568);
@@ -519,7 +519,7 @@ void UnitClass::Unknown_006FAA30()
         }
         unknown_slot306(0.0);
     } else {
-        TubeClass *tube = unknown_TubeClass_list_008661c8[unknown_574];
+        TubeClass *tube = Tubes[unknown_574];
         CoordStruct exit_coord = Cell_Center_006faa30(tube->ExitCell, unknown_45c.Z);
         Set_Coord(exit_coord);
         unknown_574 = -1;
@@ -532,7 +532,7 @@ void UnitClass::Unknown_006FAA30()
         unknown_slot306(1.0);
         TubeClass *here = Cell_Tube_0047a130(&Map[CoordStruct(Coord)]);
         if (here != 0) {
-            unknown_2e0.Set(UnknownFacingDir((unsigned short)((here->Facing << 13) - 0x8000)));
+            PrimaryFacing.Set(UnknownFacingDir((unsigned short)((here->Facing << 13) - 0x8000)));
         }
     }
 }
@@ -615,12 +615,12 @@ void UnitClass::unknown_6fbc90()
         return;
     case 2:
         if (!Type->unknown_ba9 && Type->Turret) {
-            unknown_2f8.Set_Desired(Direction_To(unknown_228));
+            SecondaryFacing.Set_Desired(Direction_To(unknown_228));
             return;
         }
         if (!unknown_494 && !Locomotor.Checked()->Is_Moving()) {
-            unknown_2e0.Set_Desired(Direction_To(unknown_228));
-            unknown_2f8.Set_Desired(unknown_2e0.Desired());
+            PrimaryFacing.Set_Desired(Direction_To(unknown_228));
+            SecondaryFacing.Set_Desired(PrimaryFacing.Desired());
         }
         break;
     case 9:
@@ -744,7 +744,7 @@ int UnitClass::Receive_Message(RadioClass *radio, int message, AbstractClass *&p
         return 0;
     case 22:
         FootClass::Receive_Message(radio, message, param);
-        if (!unknown_599 && unknown_2e0.Current().Raw != 0x4000) {
+        if (!unknown_599 && PrimaryFacing.Current().Raw != 0x4000) {
             Locomotor.Checked()->Do_Turn(UnknownFacingDir(0x4000));
             return 1;
         }
@@ -758,7 +758,7 @@ int UnitClass::Receive_Message(RadioClass *radio, int message, AbstractClass *&p
         {
             int capacity = Type->Passengers;
             if (Cargo.GetTotalSize() == capacity)
-                unknown_2a8.Count_Down(Type->DeployTime);
+                Door.Count_Down(Type->DeployTime);
         }
         return 5;
     case 14:
@@ -835,7 +835,7 @@ no_transport_room:
 bool UnitClass::Unlimbo(CoordStruct const *coord, int dir)
 {
     if (FootClass::Unlimbo(coord, dir)) {
-        unknown_2f8.Set(UnknownFacingDir((unsigned short)(dir << 8)));
+        SecondaryFacing.Set(UnknownFacingDir((unsigned short)(dir << 8)));
         if (unknown_32a && !unknown_32d) {
             unknown_1b8 = 2;
         }
@@ -886,7 +886,7 @@ int UnitClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhead,
                 Type->Weight >= Rules->ShipSinkingWeight) {
                 CoordStruct position = Coord;
                 Cell cell = Coord_Cell(position);
-                if (Map[cell].unknown_47b7e0() && !unknown_205) {
+                if (Map[cell].unknown_47b7e0() && !WarpingOut) {
                     unknown_slot216((int)source);
                     Strength = 1;
                     IsActive = true;
@@ -931,7 +931,7 @@ remove_passengers:
                 animation_position = Coord;
                 animation_position.Z = Get_Cell_Ptr()->Center_Coord().Z;
                 if (!forced && !unknown_7c && can_place) {
-                    int facing = Dir_To_256(unknown_2e0.Current());
+                    int facing = Dir_To_256(PrimaryFacing.Current());
                     if (passenger->Unlimbo(&animation_position, facing)) {
                         passenger->Scatter(unknown_geometry_l, true, false);
                         if (!House->Unknown_004F52F0()) {
@@ -994,7 +994,7 @@ drop_crate:
             if (!unknown_325) Delete_Me();
         }
     } else {
-        if (result && Type->Harvester && House == unknown_player_a35db4) {
+        if (result && Type->Harvester && House == PlayerPtr) {
             Cell cell = Coord_Cell(unknown_slot19(0));
             if (Unknown_0063B5B0(4, cell))
                 Speech_Play_Name(Unit_Ore_Miner_Under_Attack_007F819C, -1, -1);
@@ -1035,8 +1035,8 @@ void UnitClass::Explode()
         new AnimClass(animation,Position_Coord_004f3f40(),0,1,0x600,0);
         if (unknown_294.Get_Total_Amount()>0 && Rules->unknown_1429 && !(unknown_id_source_a3d290->unknown_000&0x800)) {
             int power=0;
-            for (int i=0;i<unknown_TiberiumClass_list_00ac0b30.Count();i++) {
-                power+=unknown_294.Get_Amount(i)*unknown_TiberiumClass_list_00ac0b30[i]->Power;
+            for (int i=0;i<Tiberiums.Count();i++) {
+                power+=unknown_294.Get_Amount(i)*Tiberiums[i]->Power;
             }
         }
         if (Type->MaxStrength>Rules->unknown_4e8) {
@@ -1149,7 +1149,7 @@ bool UnitClass::unknown_slot261(bool arg1, bool arg2)
         if (Get_Mission() != -1 && (Control()->unknown_07 || Control()->unknown_05)) {
             return result;
         }
-        if (!(House->unknown_194 >= Rules->unknown_10a8 || unknown_6d7910(16) || Type->DefaultToGuardArea)
+        if (!(House->IQ >= Rules->unknown_10a8 || unknown_6d7910(16) || Type->DefaultToGuardArea)
             || Team) {
             mission = 5;
         } else {
@@ -1350,7 +1350,7 @@ bool UnitClass::unknown_6fdfc0()
             Locomotor.Checked()->Mark_All_Occupation_Bits(1);
             Mark(1);
             int facing = Type->DeploysInto->Deploy_Facing();
-            if (Dir_To_256(unknown_2e0.Current()) != facing) {
+            if (Dir_To_256(PrimaryFacing.Current()) != facing) {
                 if (!Locomotor.Checked()->Is_Moving_Now()) {
                     Locomotor.Checked()->Do_Turn(UnknownFacingDir((unsigned short)(facing << 8)));
                 }
@@ -1558,15 +1558,15 @@ void UnitClass::unknown_slot93(int reason)
             RadioClass *radio=Contact(0);
             if (radio && radio->What_Am_I()==6 && ((BuildingClass *)radio)->Type->Weeder) unknown_slot149(3);
         }
-        if (!unknown_494 && Path[0]==-1 && !Type->MobileFire) unknown_244=unknown_slot187(1)/4;
+        if (!unknown_494 && Path[0]==-1 && !Type->MobileFire) Arm=unknown_slot187(1)/4;
         CellClass *current_cell=&Map[Position_Coord_004f3f40()];
         int land=current_cell->unknown_ec;
         if (!Locomotor.Checked()->Is_Moving() && Can_Enter_Cell(current_cell,-1,-1,0,1)==7 && (!unknown_79 || !(current_cell->unknown_140&0x100)) && !unknown_325) {
             if (Mission!=7) {
-                new AnimClass(Select_Damage_Anim(Strength,Rules->unknown_c74,land,&Position_Coord_004f3f40()),Position_Coord_004f3f40(),0,1,0x2600,Get_Explosion_Z_0047fcc0(Position_Coord_004f3f40()));
+                new AnimClass(Select_Damage_Anim(Strength,Rules->C4Warhead,land,&Position_Coord_004f3f40()),Position_Coord_004f3f40(),0,1,0x2600,Get_Explosion_Z_0047fcc0(Position_Coord_004f3f40()));
                 int damage=Strength;
-                Unknown_0047F600(Center_Coord(),damage,Rules->unknown_c74,0,0);
-                Take_Damage(&damage,0,Rules->unknown_c74,0,true,0);
+                Unknown_0047F600(Center_Coord(),damage,Rules->C4Warhead,0,0);
+                Take_Damage(&damage,0,Rules->C4Warhead,0,true,0);
                 return;
             }
             Scatter(unknown_geometry_l,true,true);
@@ -1637,7 +1637,7 @@ bool UnitClass::Render(Rect *bounds, bool arg2, bool arg3)
     if (unknown_370) {
         TechnoClass *contact = Contact_With_Whom(0);
         if (contact->Kind_Of() == 6 && (contact->Get_Mission() == 16 || contact->MissionQueue == 16)) {
-            DelayTimerClass *state = &contact->unknown_2a8;
+            DelayTimerClass *state = &contact->Door;
             if (state->Is_Count_Up_Active() || state->Is_Count_Down_Active() || state->Is_Count_Up_Complete() || state->Is_Count_Down_Complete()) {
                 return false;
             }
@@ -1746,7 +1746,7 @@ void UnitClass::unknown_slot311(Point2D point,Rect window,int brightness)
     ShapeFileStruct const *shape=static_cast<ShapeFileStruct const *>(Get_Image_Data());
     bool barrel_above=true;
     int frame;
-    if (Type->Facings==8 && !unknown_slot48()) frame=(Dir_To_8(unknown_2e0.Current())+1)&7;
+    if (Type->Facings==8 && !unknown_slot48()) frame=(Dir_To_8(PrimaryFacing.Current())+1)&7;
     else frame=0;
     if (unknown_5a8>=0) {
         frame=Type->StartFiringFrame+Type->FiringFrames*frame+unknown_5a8/2;
@@ -1782,7 +1782,7 @@ void UnitClass::unknown_slot311(Point2D point,Rect window,int brightness)
             Matrix3D draw_result;
             Matrix3D turret_matrix(*Locomotor.Checked()->Draw_Matrix(&draw_result,&key));
             turret_matrix.Translate_X((float)(Type->TurretOffset/8));
-            turret_matrix.Rotate_Z((float)(Unit_Direction_Radians32_007005b0(unknown_2f8.Current())-Unit_Direction_Radians32_007005b0(unknown_2e0.Current())));
+            turret_matrix.Rotate_Z((float)(Unit_Direction_Radians32_007005b0(SecondaryFacing.Current())-Unit_Direction_Radians32_007005b0(PrimaryFacing.Current())));
             barrel_matrix=turret_matrix;
             Vector3 translation=Unit_Matrix_Translation_007005b0(turret_matrix);
             barrel_matrix.Translate(-translation);
@@ -1801,7 +1801,7 @@ void UnitClass::unknown_slot311(Point2D point,Rect window,int brightness)
             barrel_matrix.Rotate_Y((float)-Unit_Direction_Radians32_007005b0(pitch.Current()));
             barrel_matrix.Translate(fire_offset);
             barrel_matrix.Translate(translation);
-            barrel_above=Unit_Dir_To_4_007005b0(unknown_2f8.Current())>0 && Unit_Dir_To_4_007005b0(unknown_2f8.Current())<3;
+            barrel_above=Unit_Dir_To_4_007005b0(SecondaryFacing.Current())>0 && Unit_Dir_To_4_007005b0(SecondaryFacing.Current())<3;
         }
         unknown_slot293(shape,frame,&composite_point,&composite_window,0,256,0,0,0,brightness,0,0,Point2D(0,0),0x2800);
         voxel=&Type->unknown_c0;
@@ -1810,7 +1810,7 @@ void UnitClass::unknown_slot311(Point2D point,Rect window,int brightness)
             unknown_slot246(Type->unknown_c0,0,-1,0,composite_window,composite_point,
                             (Unit_Isometric_View_00717f90()*barrel_matrix),brightness,0x2800);
         }
-        unsigned turret_frame=((Dir_To_32(unknown_2f8.Current())+4)&31)+8*Type->WalkFrames;
+        unsigned turret_frame=((Dir_To_32(SecondaryFacing.Current())+4)&31)+8*Type->WalkFrames;
         unknown_slot293(shape,turret_frame,&composite_point,&composite_window,0,256,0,0,0,brightness,0,0,Point2D(0,0),0x2820);
         voxel=&Type->unknown_c0;
         if (Unit_Voxel_Loaded_007005b0(*voxel) && barrel_above) {
@@ -1919,7 +1919,7 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
     }
     int turret_key=key;
     if (turret_key!=-1) {
-        turret_key=(turret_key&~31)|unknown_2f8.Current().As_Dir32();
+        turret_key=(turret_key&~31)|SecondaryFacing.Current().As_Dir32();
         if (Techno_Type_Class()->TurretOffset==0) turret_key&=0xfffffc1f;
     }
     if (!type->Turret && (!unknown_6d83e0() || !Has_Current_Turret())) {
@@ -1942,7 +1942,7 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
         Matrix3D barrel_matrix;
         if (!cached_turret || (has_barrel && !cached_barrel)) {
             main_matrix.Translate_X((float)(type->TurretOffset*unknown_geometry_c));
-            main_matrix.Rotate_Z((float)(unknown_2f8.Current().As_Radian32()-unknown_2e0.Current().As_Radian32()));
+            main_matrix.Rotate_Z((float)(SecondaryFacing.Current().As_Radian32()-PrimaryFacing.Current().As_Radian32()));
             Matrix3D barrel;
             barrel=main_matrix;
             Vector3 translation=Unit_Matrix_Translation_007005b0(main_matrix);
@@ -1957,7 +1957,7 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
         }
         bool barrel_above;
         if (unknown_6d83e0()) {
-            if (Unit_Is_Barrel_Ahead_006ff690(unknown_2f8)) barrel_above=true;
+            if (Unit_Is_Barrel_Ahead_006ff690(SecondaryFacing)) barrel_above=true;
             else {
                 barrel_above=false;
                 if (has_barrel) unknown_slot246(type->unknown_140[turret_index],0,turret_key,&type->unknown_250,cliprect,drawpoint,barrel_matrix,brightness,0x2800);
@@ -1965,7 +1965,7 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
             unknown_slot246(type->unknown_c8[turret_index],frame,turret_key,&type->unknown_228,cliprect,drawpoint,turret_matrix,brightness,0x2800);
             if (barrel_above && has_barrel) unknown_slot246(type->unknown_140[turret_index],0,turret_key,&type->unknown_250,cliprect,drawpoint,barrel_matrix,brightness,0x2800);
         } else {
-            if (Unit_Is_Barrel_Ahead_006ff690(unknown_2f8)) barrel_above=true;
+            if (Unit_Is_Barrel_Ahead_006ff690(SecondaryFacing)) barrel_above=true;
             else {
                 barrel_above=false;
                 if (Unit_Voxel_Loaded_007005b0(type->unknown_c0)) unknown_slot246(type->unknown_c0,0,turret_key,&type->unknown_250,cliprect,drawpoint,barrel_matrix,brightness,0x2800);
@@ -2089,9 +2089,9 @@ void UnitClass::Draw_It(Point2D const &input, Rect const &window)
 
         if (Type->Harvester && unknown_5ba && !Locomotor.Checked()->Is_Moving_Now()) {
             Point2D pixel;
-            int face = Dir_To_8(unknown_2e0.Current());
+            int face = Dir_To_8(PrimaryFacing.Current());
             Coord_Pixel_00700e70(Move_Coord_00700e70(unknown_slot42(), Facing_Dir(face), 30), pixel);
-            int offset = Dir_To_8(unknown_2e0.Current());
+            int offset = Dir_To_8(PrimaryFacing.Current());
             offset = 7 - offset;
             if (unknown_20c == 0 && !unknown_slot111() && !unknown_slot112()) {
                 CC_Draw_Shape(LogicalSurface, Unit_Draw_Convert_008323C0, harvesting_shape,
@@ -2105,7 +2105,7 @@ void UnitClass::Draw_It(Point2D const &input, Rect const &window)
             Type = oldclass->UnloadingClass;
         }
         ObjectTypeClass *type = Type;
-        if (!unknown_slot245(unknown_player_a35db4)) {
+        if (!unknown_slot245(PlayerPtr)) {
             type = GetDisguise(true);
         }
         if (unknown_574 == -1) {
@@ -2230,7 +2230,7 @@ int UnitClass::Do_MISSION_UNLOAD()
             if (Cargo.Count>unknown_5cc) {
                 FootClass *passenger=unknown_4ccfc0();
                 if (passenger) {
-                    UnknownFacingDir opposite((unsigned short)(unknown_2e0.Current().Raw+0x7fff));
+                    UnknownFacingDir opposite((unsigned short)(PrimaryFacing.Current().Raw+0x7fff));
                     int attempt=0;
                     int start=((*(unsigned const *)&opposite>>12)+1)>>1;
                     bool prefer_far=true;
@@ -2315,7 +2315,7 @@ int UnitClass::Do_MISSION_UNLOAD()
         if (Ready_To_Commence()) Commence();
         return 1;
     }
-    int current_dir=Dir_To_256(unknown_2e0.Current());
+    int current_dir=Dir_To_256(PrimaryFacing.Current());
     if (current_dir!=64) {
         if (!unknown_599) Locomotor.Checked()->Do_Turn(UnknownFacingDir(0x4000));
         return 5;
@@ -2741,7 +2741,7 @@ int UnitClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellClass
     if (height!=-1 && (cell->unknown_140&0x100) && height==cell->unknown_11b+4) {
         flags=cell->unknown_128;
         vehicle=reinterpret_cast<CellOccupancyFlags_00703040 const &>(cell->unknown_128).vehicle!=0;
-        infantry_owner=cell->unknown_58;
+        infantry_owner=cell->BridgeInfType;
     }
     if (!ScenarioInit && !Map.Unknown_0055A740(cell,true) && !unknown_slot189() && unknown_32d) return 7;
     result=FootClass::Can_Enter_Cell(cell,direction,height,adjacent,unused);
@@ -2757,7 +2757,7 @@ int UnitClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellClass
             } else {
                 if (unknown_slot163()) {
                     WarheadTypeClass *warhead=unknown_slot231(0)->WeaponType->Warhead;
-                    if (warhead->Wall || (warhead->Wood && overlay->unknown_9c==6)) {
+                    if (warhead->Wall || (warhead->Wood && overlay->Armor==6)) {
                         if (House->Is_Ally(cell->unknown_50)) {
                             if (result<4) result=4;
                         } else {
@@ -2831,11 +2831,11 @@ int UnitClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellClass
             } else {
                 foot=0;
             }
-            bool is_moving=foot!=0 && (foot->unknown_494 || foot->unknown_2e0.Is_Rotating() || foot->Locomotor.Checked()->Is_Moving());
+            bool is_moving=foot!=0 && (foot->unknown_494 || foot->PrimaryFacing.Is_Rotating() || foot->Locomotor.Checked()->Is_Moving());
             if (House->Is_Ally(static_cast<TechnoClass*>(occupant))) {
                 if (is_moving) {
-                    int face=Dir_To_8(unknown_2e0.Current());
-                    UnknownFacingDir reverse=UnknownFacingDir((unsigned short)(static_cast<FootClass*>(occupant)->unknown_2e0.Current().Raw+0x7FFF));
+                    int face=Dir_To_8(PrimaryFacing.Current());
+                    UnknownFacingDir reverse=UnknownFacingDir((unsigned short)(static_cast<FootClass*>(occupant)->PrimaryFacing.Current().Raw+0x7FFF));
                     int techface=Dir_To_8(reverse);
                     int &tech=techface;
                     UnknownFacingDir direct=Direction_00703040(Position_Coord_004f3f40(),occupant->Position_Coord_004f3f40());
@@ -3194,8 +3194,8 @@ int UnitClass::Do_MISSION_MOVE()
         QueueMission(5, false);
         return 1;
     }
-    if (!unknown_2a8.Is_Count_Down_Complete()) {
-        unknown_2a8.Count_Down(Type->DeployTime);
+    if (!Door.Is_Count_Down_Complete()) {
+        Door.Count_Down(Type->DeployTime);
     }
     return FootClass::Do_MISSION_MOVE();
 }
@@ -3208,8 +3208,8 @@ int UnitClass::Do_MISSION_MOVE()
 int UnitClass::Do_MISSION_PATROL()
 {
     unknown_5ba = false;
-    if (!unknown_2a8.Is_Count_Down_Complete()) {
-        unknown_2a8.Count_Down(Type->DeployTime);
+    if (!Door.Is_Count_Down_Complete()) {
+        Door.Count_Down(Type->DeployTime);
     }
     return FootClass::Do_MISSION_PATROL();
 }
@@ -3246,7 +3246,7 @@ int UnitClass::Desired_Load_Dir(AbstractClass *object, Cell *cell)
         UnknownFacingDir direction = _Direction(direction, this, object);
         faceto = Dir_To_256(direction);
     } else {
-        UnknownFacingDir dir((unsigned short)(unknown_2e0.Current().Raw + 0x7FFF));
+        UnknownFacingDir dir((unsigned short)(PrimaryFacing.Current().Raw + 0x7FFF));
         faceto = Dir_To_256(dir);
     }
     int desired = (signed char)faceto;
@@ -3290,7 +3290,7 @@ int UnitClass::Desired_Load_Dir(AbstractClass *object, Cell *cell)
         facing = unknown_facings_7f8f4c[bestdir];
     }
     if (Type->IsTrain) {
-        facing = Dir_To_8(unknown_2e0.Current());
+        facing = Dir_To_8(PrimaryFacing.Current());
     }
     return facing;
 }
@@ -3347,7 +3347,7 @@ int UnitClass::unknown_slot166()
 
 void UnitClass::APC_Close_Door()
 {
-    unknown_2a8.Count_Down(Type->DeployTime);
+    Door.Count_Down(Type->DeployTime);
 }
 
 
@@ -3358,7 +3358,7 @@ void UnitClass::APC_Close_Door()
 void UnitClass::APC_Open_Door()
 {
     if (!Locomotor.Checked()->Is_Moving() && !unknown_599) {
-        unknown_2a8.Count_Up(Type->DeployTime);
+        Door.Count_Up(Type->DeployTime);
     }
 }
 
@@ -3400,7 +3400,7 @@ int UnitClass::Do_MISSION_REPAIR()
 UnknownFacingDir UnitClass::Fire_Direction()
 {
     if (Type->Turret) {
-        return unknown_2f8.Current();
+        return SecondaryFacing.Current();
     }
     return TechnoClass::Fire_Direction();
 }
@@ -3437,12 +3437,12 @@ int UnitClass::unknown_slot218(AbstractClass *target, int weapon, bool check_ran
         }
         if (!Type->MobileFire && unknown_494) return 7;
         if ((weapon_type->unknown_106 || weapon_type->unknown_105) && unknown_494) return 7;
-        if (unknown_208 && unknown_494) return 7;
+        if (TemporalImUsing && unknown_494) return 7;
         if (!unknown_57d && unknown_599 && weapon_type->Projectile->ROT == 0) return 4;
         if (!weapon_type->unknown_107 && !Type->LargeVisceroid && !Type->SmallVisceroid) {
             UnknownFacingDir current;
-            if (Type->Turret) current = unknown_2f8.Current();
-            else current = unknown_2e0.Current();
+            if (Type->Turret) current = SecondaryFacing.Current();
+            else current = PrimaryFacing.Current();
             int steps = weapon_type->Projectile->ROT ? 16 : 8;
             if (UnknownFacingDir((unsigned short)((unsigned char)steps << 8)) < UnknownFacingDir((unsigned short)(current.Raw - Direction_To(target).Raw))) {
                 return 2;
@@ -3473,7 +3473,7 @@ BulletClass *UnitClass::Fire_At(AbstractClass *target, int arg2)
     }
     bool synchronized = false;
     if (arg2 == 0) {
-        int burst = unknown_310 % weapon->Burst;
+        int burst = BurstIndex % weapon->Burst;
         int frame;
         if (burst < 2) {
             frame = Type->FiringSyncFrame[burst];
@@ -3916,7 +3916,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 
 	} else { unknown_478.Clear(); }
 
-    if(Type->Teleporter && !unknown_210) {
+    if(Type->Teleporter && !IsImmobilized) {
         TechnoClass *contact=Contact(0);
         UnknownComPtr<IPersist,&unknown_uuid_IPersist_7cf208> persist(Locomotor);
         GUID tclsid;
@@ -4137,7 +4137,7 @@ AbstractClass *UnitClass::unknown_slot219(int arg1, CoordStruct const *coord, bo
 // Original 0x00706AE0: 1147 body bytes and 5 independently bounded NOP bytes.
 // Creates scenario units from [Units], then resolves their linked-unit indices.
 extern char const *unknown_units_section_7addc0;
-extern int unknown_ini_format_a40d24;
+extern int NewINIFormat;
 // VC6 health block emits exact original native instructions, without a float32 store. This does not establish a portable source-width contract.
 static inline UnitTypeClass *Unit_Read_Float_Health_00706AE0(UnitClass &unit, float health)
 {
@@ -4174,7 +4174,7 @@ void __fastcall UnitClass::Read_INI(CCINIClass &ini)
                 if (unit != 0) {
                     int health = atoi(strtok(0, ","));
                     Cell cell;
-                    if (unknown_ini_format_a40d24 >= 4) {
+                    if (NewINIFormat >= 4) {
                         int x = atoi(strtok(0, ","));
                         short y = (short)atoi(strtok(0, ","));
                         cell = Cell((short)x, y);
@@ -4256,7 +4256,7 @@ void __fastcall UnitClass::Write_INI(CCINIClass &ini)
             } else {
                 tag = "None";
             }
-            unsigned raw = *(unsigned const *)&unit->unknown_2e0.Current();
+            unsigned raw = *(unsigned const *)&unit->PrimaryFacing.Current();
             unsigned direction = (((raw >> 7) + 1) >> 1) & 0xff;
             char line[128];
             sprintf(line, "%s,%s,%d,%d,%d,%d,%s,%s,%d,%d,%d,%d,%d,%d",
@@ -4307,7 +4307,7 @@ bool UnitClass::unknown_707170(TechnoClass *target)
         if (Coord_Distance(Center_Coord(), target->Center_Coord()) <= Rules->unknown_1390
             && (!House->Unknown_004F52F0() || Rules->unknown_142f || Type->AutoCrush)
             && House->unknown_c8 != 2
-            && (House->Unknown_004F52F0() || House->unknown_194 >= Rules->unknown_10b0)) {
+            && (House->Unknown_004F52F0() || House->IQ >= Rules->unknown_10b0)) {
             if (target->IsDisguisedAs(House)) {
                 return false;
             }
@@ -4352,7 +4352,7 @@ void UnitClass::Scatter(CoordStruct const &source, bool forced, bool nokidding)
     if (!Control()->unknown_09 && !forced) {
         return;
     }
-    if (unknown_2e0.Is_Rotating()) {
+    if (PrimaryFacing.Is_Rotating()) {
         return;
     }
     if (unknown_494 != 0 && !nokidding) {
@@ -4381,7 +4381,7 @@ void UnitClass::Scatter(CoordStruct const &source, bool forced, bool nokidding)
                     - unknown_facing_origin_79b630) * unknown_facing_scale_79b628));
                 facing = (Dir_To_8(dir) + Random_Pick(0, 2) - 1) & 7;
             } else {
-                facing = (Dir_To_8(unknown_2e0.Current()) + Random_Pick(0, 2) - 1) & 7;
+                facing = (Dir_To_8(PrimaryFacing.Current()) + Random_Pick(0, 2) - 1) & 7;
             }
             Cell alt(0, 0);
             Cell found(0, 0);
@@ -4456,7 +4456,7 @@ int UnitClass::Do_MISSION_GUARD_AREA()
 
 bool UnitClass::Is_Ready_To_Move()
 {
-    if (unknown_2a8.Is_Count_Up_Active() || unknown_2a8.Is_Count_Down_Active() || unknown_2a8.Is_Count_Up_Complete()) {
+    if (Door.Is_Count_Up_Active() || Door.Is_Count_Down_Active() || Door.Is_Count_Up_Complete()) {
         return false;
     }
     return true;
@@ -4522,7 +4522,7 @@ bool UnitClass::Ready_To_Commence()
         && Get_Mission() != 5 && (Get_Mission() != 1 || unknown_228) && !unknown_a4) {
         return false;
     }
-    if (!unknown_2a8.Is_Count_Down_Complete()) {
+    if (!Door.Is_Count_Down_Complete()) {
         return false;
     }
     TechnoClass *contact = Contact_With_Whom(0);
@@ -4954,19 +4954,19 @@ bool UnitClass::Considered_Vehicle()
 void UnitClass::ReceiveGunner(int arg1)
 {
     TechnoClass *from = (TechnoClass *)arg1;
-    UnknownTechno208 *object = from->unknown_208;
+    UnknownTechno208 *object = from->TemporalImUsing;
     if (object) {
         int running = 0;
-        if (from->unknown_244.Value()) {
+        if (from->Arm.Value()) {
             running = 1;
         }
-        unknown_208 = object;
+        TemporalImUsing = object;
         object->unknown_24 = (int)this;
-        from->unknown_208 = 0;
+        from->TemporalImUsing = 0;
         Set_Current_Weapon(7);
         if (running) {
-            unknown_310++;
-            unknown_244 = CDTimerClass<FrameTimerClass>(unknown_slot187(7));
+            BurstIndex++;
+            Arm = CDTimerClass<FrameTimerClass>(unknown_slot187(7));
         }
     }
     Set_Current_Weapon(from->Techno_Type_Class()->IFVMode);
@@ -4983,20 +4983,20 @@ void UnitClass::ReceiveGunner(int arg1)
 void UnitClass::RemoveGunner(int arg1)
 {
     TechnoClass *to = (TechnoClass *)arg1;
-    if (to && unknown_208) {
+    if (to && TemporalImUsing) {
         int running = 0;
-        if (unknown_244.Value()) {
+        if (Arm.Value()) {
             running = 1;
         }
-        to->unknown_208 = unknown_208;
-        unknown_208->unknown_24 = (int)to;
-        unknown_208 = 0;
-        if (to->unknown_208 && to->unknown_208->unknown_28) {
-            to->unknown_208->unknown_6e2500();
+        to->TemporalImUsing = TemporalImUsing;
+        TemporalImUsing->unknown_24 = (int)to;
+        TemporalImUsing = 0;
+        if (to->TemporalImUsing && to->TemporalImUsing->unknown_28) {
+            to->TemporalImUsing->unknown_6e2500();
         }
         if (running) {
-            to->unknown_310++;
-            to->unknown_244 = CDTimerClass<FrameTimerClass>(to->unknown_slot187(0));
+            to->BurstIndex++;
+            to->Arm = CDTimerClass<FrameTimerClass>(to->unknown_slot187(0));
         }
     }
     Set_Current_Weapon(0);
@@ -5009,7 +5009,7 @@ void UnitClass::RemoveGunner(int arg1)
 
 ObjectTypeClass *UnitClass::GetDisguise(bool arg1)
 {
-    if (House->Is_Ally(unknown_player_a35db4) && !arg1) {
+    if (House->Is_Ally(PlayerPtr) && !arg1) {
         return Type;
     }
     return (ObjectTypeClass *)unknown_40c;
@@ -5022,7 +5022,7 @@ ObjectTypeClass *UnitClass::GetDisguise(bool arg1)
 
 HouseClass *UnitClass::GetDisguiseHouse(bool arg1)
 {
-    if (House->Is_Ally(unknown_player_a35db4) && !arg1) {
+    if (House->Is_Ally(PlayerPtr) && !arg1) {
         return House;
     }
     return (HouseClass *)unknown_410;
@@ -5200,7 +5200,7 @@ struct UnknownUnitInfantryView : TechnoClass {
 
 wchar_t const *UnitClass::unknown_slot35()
 {
-    if (IsDisguisedAs(unknown_player_a35db4) && GetDisguise(true)) {
+    if (IsDisguisedAs(PlayerPtr) && GetDisguise(true)) {
         if (!GetDisguiseHouse(true)) {
             return 0;
         }

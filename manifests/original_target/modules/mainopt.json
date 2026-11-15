@@ -1052,8 +1052,16 @@
    "address": "005b9e70"
   },
   {
+   "symbol": "?CompositeSurface@@3PAVSurface@@A",
+   "address": "00839964"
+  },
+  {
    "symbol": "?Create_Primary@DSurface@@SIPAV1@PAPAV1@@Z",
    "address": "004aa660"
+  },
+  {
+   "symbol": "?Darken_Surface@@YIXH_N@Z",
+   "address": "005159b0"
   },
   {
    "symbol": "?Debug_Printf@@YAXPBDZZ",
@@ -1084,6 +1092,10 @@
    "address": "004abb60"
   },
   {
+   "symbol": "?Get_Network_Card_Address_As_String@IPXInterfaceClass@@QAEHHPADH@Z",
+   "address": "0076a230"
+  },
+  {
    "symbol": "?Get_Red_Left@@YAHXZ",
    "address": "004abb30"
   },
@@ -1100,6 +1112,10 @@
    "address": "00839954"
   },
   {
+   "symbol": "?Hotkey_Dialog@OptionsClass@@QAE_NXZ",
+   "address": "005da360"
+  },
+  {
    "symbol": "?Init@WinsockInterfaceClass@@QAE_NXZ",
    "address": "0076b0a0"
   },
@@ -1110,6 +1126,10 @@
   {
    "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
    "address": "006f9ec0"
+  },
+  {
+   "symbol": "?LogicalSurface@@3PAVSurface@@A",
+   "address": "0083995c"
   },
   {
    "symbol": "?MainWindow@@3PAUHWND__@@A",
@@ -1176,6 +1196,10 @@
    "address": "005d91b0"
   },
   {
+   "symbol": "?Set_Action_Lines@TechnoClass@@SIX_N@Z",
+   "address": "006d79c0"
+  },
+  {
    "symbol": "?Set_Default_Mouse@MouseClass@@UAEXH_N@Z",
    "address": "0059f060"
   },
@@ -1212,16 +1236,16 @@
    "address": "00a35d78"
   },
   {
+   "symbol": "?TileSurface@@3PAVSurface@@A",
+   "address": "00839944"
+  },
+  {
    "symbol": "?Title_Screen_Restore@@YIX_N@Z",
    "address": "00517370"
   },
   {
    "symbol": "?Unknown_00486010@@YIXHHHHHH@Z",
    "address": "00486010"
-  },
-  {
-   "symbol": "?Unknown_005DA360@OptionsClass@@QAE_NXZ",
-   "address": "005da360"
   },
   {
    "symbol": "?Unknown_005E9F00@@YIXPAUHWND__@@PAUPoint2D@@@Z",
@@ -1252,6 +1276,10 @@
    "address": "008523e0"
   },
   {
+   "symbol": "?VisibleSurface@@3PAVSurface@@A",
+   "address": "00839950"
+  },
+  {
    "symbol": "?WS_Top_Window@@YIPAUHWND__@@XZ",
    "address": "00735b10"
   },
@@ -1268,20 +1296,8 @@
    "address": "00851cb0"
   },
   {
-   "symbol": "?unknown_5159b0@@YIXH_N@Z",
-   "address": "005159b0"
-  },
-  {
    "symbol": "?unknown_6000d0@@YA_NXZ",
    "address": "006000d0"
-  },
-  {
-   "symbol": "?unknown_6d79c0@TechnoClass@@SIX_N@Z",
-   "address": "006d79c0"
-  },
-  {
-   "symbol": "?unknown_76a230@IPXInterfaceClass@@QAEHHPADH@Z",
-   "address": "0076a230"
   },
   {
    "symbol": "?unknown_card_selected_7dfdb8@@3HA",
@@ -1338,22 +1354,6 @@
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "?unknown_surface_839944@@3PAVSurface@@A",
-   "address": "00839944"
-  },
-  {
-   "symbol": "?unknown_surface_839950@@3PAVSurface@@A",
-   "address": "00839950"
-  },
-  {
-   "symbol": "?unknown_surface_83995c@@3PAVSurface@@A",
-   "address": "0083995c"
-  },
-  {
-   "symbol": "?unknown_surface_839964@@3PAVSurface@@A",
-   "address": "00839964"
   },
   {
    "symbol": "?unknown_window_839640@@3VRect@@A",

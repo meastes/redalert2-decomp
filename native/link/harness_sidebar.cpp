@@ -40,7 +40,7 @@ void Centre(GadgetClass const &gadget, int *x, int *y)
 }
 int In_Factory(int kind)
 {
-    HouseClass *player = unknown_player_a35db4;
+    HouseClass *player = PlayerPtr;
     FactoryClass *factory = player ? player->Fetch_Factory(kind, false, 0) : 0;
     if (factory == 0) return 0;
     return (factory->Object ? 1 : 0) + factory->Queue.Count();

@@ -160,8 +160,8 @@ int BuildingClass::Do_MISSION_MISSILE()
         case 0: {
             UnknownFacingDir aim = unknown_slot285(&Map[House->EMPDest]);
             UnknownFacingDir barrel = unknown_slot170(&Map[House->EMPDest]);
-            if (Facing_Turning_m26(unknown_2e0.Current(), aim)) {
-                unknown_2e0.Set_Desired(aim);
+            if (Facing_Turning_m26(PrimaryFacing.Current(), aim)) {
+                PrimaryFacing.Set_Desired(aim);
             } else if (Facing_Turning_m26(unknown_2c8.Current(), barrel)) {
                 unknown_2c8.Set_Desired(barrel);
             } else {
@@ -194,7 +194,7 @@ int BuildingClass::Do_MISSION_MISSILE()
             Map.Get_Height_GL(position);
             CoordStruct to(House->EMPDest.X * 256 + 128, House->EMPDest.Y * 256 + 128, 0);
             UnknownFacingDir yaw = Radian_Dir_m26(unknown_math_4ba600(double(fire.Y) - to.Y, double(to.X) - fire.X));
-            int speed = Unknown_0047FB70(unknown_5d4c00(target), Rules->unknown_1320);
+            int speed = Calculate_Projectile_Speed(unknown_5d4c00(target), Rules->unknown_1320);
 
             BulletClass *bullet = Create_Bullet(weapon->Projectile, target, this, weapon->unknown_a4,
                 weapon->Warhead, 3 * speed / 4, weapon->unknown_10b);

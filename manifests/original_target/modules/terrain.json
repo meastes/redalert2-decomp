@@ -629,6 +629,10 @@
    "address": "005d2c60"
   },
   {
+   "symbol": "?DrawShapeShadows@@3_NA",
+   "address": "007d88d5"
+  },
+  {
    "symbol": "?Entry_Count@INIClass@@QBEHPBD@Z",
    "address": "0050cb00"
   },
@@ -785,6 +789,10 @@
    "address": "005d4760"
   },
   {
+   "symbol": "?LogicalSurface@@3PAVSurface@@A",
+   "address": "0083995c"
+  },
+  {
    "symbol": "?Look@ObjectClass@@UAEX_N0@Z",
    "address": "005d2c90"
   },
@@ -803,6 +811,10 @@
   {
    "symbol": "?Move@ObjectClass@@UAEXH@Z",
    "address": "005d2d60"
+  },
+  {
+   "symbol": "?NewINIFormat@@3HA",
+   "address": "00a40d24"
   },
   {
    "symbol": "?Not_Underground@ObjectClass@@UBE_NXZ",
@@ -909,6 +921,10 @@
    "address": "005d53d0"
   },
   {
+   "symbol": "?Shorten_Attached_Anims@@YIXPAVObjectClass@@@Z",
+   "address": "00420d30"
+  },
+  {
    "symbol": "?Sort_Y@ObjectClass@@UBEHXZ",
    "address": "005d5450"
   },
@@ -929,6 +945,10 @@
    "address": "0083996c"
   },
   {
+   "symbol": "?TacticalRect@@3VRect@@A",
+   "address": "00839630"
+  },
+  {
    "symbol": "?Take_Damage@ObjectClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z",
    "address": "005d3d20"
   },
@@ -941,8 +961,8 @@
    "address": "00a40940"
   },
   {
-   "symbol": "?Unknown_00420D30@@YIXPAVObjectClass@@@Z",
-   "address": "00420d30"
+   "symbol": "?TiberiumDrawer@@3PAVConvertClass@@A",
+   "address": "008323bc"
   },
   {
    "symbol": "?Unknown_004718B0@UnknownPlacementCellView@@QAE_NHPBVTechnoTypeClass@@PAVHouseClass@@@Z",
@@ -1005,20 +1025,8 @@
    "address": "00b263d8"
   },
   {
-   "symbol": "?unknown_drawer_8323bc@@3PAVConvertClass@@A",
-   "address": "008323bc"
-  },
-  {
-   "symbol": "?unknown_flag_7d88d5@@3_NA",
-   "address": "007d88d5"
-  },
-  {
    "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
    "address": "00a3d290"
-  },
-  {
-   "symbol": "?unknown_ini_format_a40d24@@3HA",
-   "address": "00a40d24"
   },
   {
    "symbol": "?unknown_math_4ba520@@YANN@Z",
@@ -1031,10 +1039,6 @@
   {
    "symbol": "?unknown_object_index_abff58@@3V?$IndexClass@JPAVAbstractClass@@@@A",
    "address": "00abff58"
-  },
-  {
-   "symbol": "?unknown_rect_839630@@3VRect@@A",
-   "address": "00839630"
   },
   {
    "symbol": "?unknown_slot102@ObjectClass@@UAEHPAVUnknownCellClass@@HPAHPA_N0@Z",
@@ -1167,10 +1171,6 @@
   {
    "symbol": "?unknown_string_83c55c@@3PADA",
    "address": "0083c55c"
-  },
-  {
-   "symbol": "?unknown_surface_83995c@@3PAVSurface@@A",
-   "address": "0083995c"
   },
   {
    "symbol": "?unknown_terrain_section_7ad390@@3PBDB",

@@ -341,7 +341,7 @@ void Unknown_006F5BC0()
 void Unknown_006F5C50()
 {
     if (Frame >= unknown_cheer_frame_ac134c && MuteSWLaunches == 0) {
-        OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 0x2D));
+        OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0x2D));
         unknown_cheer_frame_ac134c = Rules->MaximumCheerRate + Frame;
     }
 }
@@ -544,7 +544,7 @@ void __fastcall Unknown_006F61F0(int group)
 void __fastcall Unknown_006F62D0(unsigned long argument)
 {
     if (unknown_game_mode_a3d298 != 0 && !(unknown_id_source_a3d290->unknown_000 & 0x400) && Rules->unknown_111d) {
-        OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 3, argument));
+        OutList.Add(EventClass(PlayerPtr->ArrayIndex, 3, argument));
     }
 }
 
@@ -555,11 +555,11 @@ void __fastcall Unknown_006F62D0(unsigned long argument)
 
 void Unknown_006F6380()
 {
-    if (CurrentObject.Count() != 0 && !unknown_player_a35db4->unknown_13d) {
-        if (CurrentObject[0]->Owning_House() != unknown_player_a35db4 && CurrentObject[0]->Owning_House()->unknown_134) {
+    if (CurrentObject.Count() != 0 && !PlayerPtr->unknown_13d) {
+        if (CurrentObject[0]->Owning_House() != PlayerPtr && CurrentObject[0]->Owning_House()->unknown_134) {
             unsigned long owner = CurrentObject[0]->Owner();
             if (unknown_game_mode_a3d298 != 0 && !(unknown_id_source_a3d290->unknown_000 & 0x400) && Rules->unknown_111d) {
-                OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 3, owner));
+                OutList.Add(EventClass(PlayerPtr->ArrayIndex, 3, owner));
             }
         }
     }

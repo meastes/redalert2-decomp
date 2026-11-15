@@ -277,7 +277,7 @@ Matrix3D *ShipLocomotionClass::unknown_675a60(Matrix3D *matrix)
         tilt = *Get_Slope_Transition_Matrix(&blend, unknown_20, unknown_1c, ratio);
     } else if (unknown_1c != 0) {
         Matrix3D ramp;
-        tilt = *Unknown_00718D60(&ramp, unknown_1c);
+        tilt = *Get_Slope_Matrix(&ramp, unknown_1c);
     }
     *matrix = tilt;
     return matrix;
@@ -340,7 +340,7 @@ bool __stdcall ShipLocomotionClass::Is_Moving()
 
 bool __stdcall ShipLocomotionClass::Is_Moving_Now()
 {
-    if (LinkedTo->unknown_2e0.Is_Rotating()) {
+    if (LinkedTo->PrimaryFacing.Is_Rotating()) {
         return true;
     }
     if (Is_Moving() && unknown_40 != unknown_geometry_l && LinkedTo->Current_Speed() > 0) {
@@ -538,7 +538,7 @@ bool __stdcall ShipLocomotionClass::Process()
             unknown_67a7a0();
             return false;
         }
-        if (LinkedTo->unknown_2e0.Is_Rotating()) {
+        if (LinkedTo->PrimaryFacing.Is_Rotating()) {
             unknown_62 = true;
         } else {
             if (unknown_62) {
@@ -688,7 +688,7 @@ bool ShipLocomotionClass::Start_Driver(CoordStruct const &headto)
 
 void __stdcall ShipLocomotionClass::Do_Turn(UnknownFacingDir dir)
 {
-    LinkedTo->unknown_2e0.Set_Desired(UnknownFacingDir(dir));
+    LinkedTo->PrimaryFacing.Set_Desired(UnknownFacingDir(dir));
 }
 
 
@@ -802,8 +802,8 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
 
         CellClass *cell = (CellClass *)LinkedTo->Get_Cell_Ptr();
         int tubenum = cell->unknown_116;
-        if (tubenum >= 0 && tubenum < unknown_TubeClass_list_008661c8.Count()) {
-            TubeClass *tube = unknown_TubeClass_list_008661c8[tubenum];
+        if (tubenum >= 0 && tubenum < Tubes.Count()) {
+            TubeClass *tube = Tubes[tubenum];
             Cell c = tube->ExitCell;
             unknown_40 = c.As_Coord();
             memcpy((char *)&LinkedTo->Path, (char *)&LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);
@@ -901,9 +901,9 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                             ObjectClass *next = occupier->unknown_30;
                             if (!occupier->Class_Of()->unknown_1fd) {
                                 int strength = 10000;
-                                occupier->Take_Damage(&strength, 0, Rules->unknown_c74, 0, true, true);
+                                occupier->Take_Damage(&strength, 0, Rules->C4Warhead, 0, true, true);
                                 strength = 20;
-                                train->Take_Damage(&strength, 0, Rules->unknown_c74, 0, true, false);
+                                train->Take_Damage(&strength, 0, Rules->C4Warhead, 0, true, false);
                             }
                             occupier = next;
                         }
@@ -937,7 +937,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                 LinkedTo->Set_Height_AGL(0);
                 LinkedTo->unknown_74 = down;
 
-                LinkedTo->unknown_2e0.Set(UnknownFacingDir((unsigned short)((unsigned char)dir << 8)));
+                LinkedTo->PrimaryFacing.Set(UnknownFacingDir((unsigned short)((unsigned char)dir << 8)));
 
                 if (unknown_5c && ShipRawTracks[tracknum - 1].Cell == unknown_5c) {
                     LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
@@ -1208,9 +1208,9 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                     if (unknown_67a7a0()) return true;
                     if (!LinkedTo->IsActive) return false;
                 } else {
-                    Cell cell = Adjacent_Cell((LinkedTo->Center_Coord()).As_Cell(), Dir_To_8(LinkedTo->unknown_2e0.Current()));
+                    Cell cell = Adjacent_Cell((LinkedTo->Center_Coord()).As_Cell(), Dir_To_8(LinkedTo->PrimaryFacing.Current()));
                     if (Map.Unknown_0055A660(cell, true)) {
-                        int ok = LinkedTo->Can_Enter_Cell(&Map[cell], Dir_To_8(LinkedTo->unknown_2e0.Current()), LinkedTo->unknown_5d47d0(), 0, true);
+                        int ok = LinkedTo->Can_Enter_Cell(&Map[cell], Dir_To_8(LinkedTo->PrimaryFacing.Current()), LinkedTo->unknown_5d47d0(), 0, true);
                         if (ok == 3) {
                             unknown_67a710(cell);
                         } else if (ok == 6) {
@@ -1242,7 +1242,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                         Stop_Driver();
                         if (unknown_67a7a0()) return true;
                         if (!LinkedTo->IsActive) return false;
-                        if (LinkedTo->unknown_57a) Voc_Play(Rules->unknown_620, 1.0f, 0x2000, 0);
+                        if (LinkedTo->unknown_57a) Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
                         LinkedTo->unknown_57a = false;
                     }
                 }
@@ -1320,7 +1320,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
         return true;
     }
 
-    if (UnknownFacingDir(DIR_MIN) < (LinkedTo->unknown_2e0.Current() - UnknownFacingDir((FacingType)facing))) {
+    if (UnknownFacingDir(DIR_MIN) < (LinkedTo->PrimaryFacing.Current() - UnknownFacingDir((FacingType)facing))) {
         Do_Turn(UnknownFacingDir((FacingType)facing));
         return true;
     } else {
@@ -1385,7 +1385,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
             if (cando == 2) {
                 if (!LinkedTo->unknown_5a1) {
                     LinkedTo->unknown_5a1 = true;
-                    LinkedTo->unknown_558 = CDTimerClass<FrameTimerClass>(Rules->unknown_13d0);
+                    LinkedTo->unknown_558 = CDTimerClass<FrameTimerClass>(Rules->BlockagePathDelay);
                 }
                 if (LinkedTo->unknown_530 == 0) {
                     bool around_blockage = LinkedTo->unknown_5a1 && LinkedTo->unknown_558 == 0;
@@ -1419,7 +1419,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                     }
                 }
             } else {
-                if (LinkedTo->unknown_57a) Voc_Play(Rules->unknown_620, 1.0f, 0x2000, 0);
+                if (LinkedTo->unknown_57a) Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
             }
 
             if (cando == 7 && retry) {

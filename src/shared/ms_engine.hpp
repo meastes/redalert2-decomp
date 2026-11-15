@@ -74,7 +74,7 @@ public:
 
 extern bool SurfacesRestored;              // 0x008523DC set by Redraw: Draw clears and repaints everything
 
-void unknown_481fb0();                          // 0x00481FB0 once per frame
+void Call_Back();                          // 0x00481FB0 once per frame
 void Wait_Blit();                          // 0x004961D0 once per frame
 void unknown_5b5ee0();                          // 0x005B5EE0 once per frame and while inactive
 #include "shared/sound_available.hpp"

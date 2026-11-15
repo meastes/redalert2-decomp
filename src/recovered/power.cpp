@@ -242,7 +242,7 @@ void PowerClass::Flash_Power()
 
 int PowerClass::Desired_Power_Height()
 {
-    HouseClass *house = unknown_player_a35db4;
+    HouseClass *house = PlayerPtr;
     int segments = Max_Power_Height();
     int drain = 0;
     int output = 0;
@@ -320,7 +320,7 @@ int PowerClass::Desired_Levels(int &green, int &yellow, int &red)
 {
     int segments = Max_Power_Height();
     int count = Desired_Power_Height();
-    int surplus = unknown_player_a35db4->Power_Output() - unknown_player_a35db4->Power_Drain();
+    int surplus = PlayerPtr->Power_Output() - PlayerPtr->Power_Drain();
     double value = surplus;
     double first = 100.0;
     double second;
@@ -336,11 +336,11 @@ int PowerClass::Desired_Levels(int &green, int &yellow, int &red)
     double drain_share = 1.0;
     double second_share = 0.0;
     double first_share = 0.0;
-    double total = unknown_player_a35db4->Power_Drain();
+    double total = PlayerPtr->Power_Drain();
     total += first;
     total += second;
     if (total > 0.0) {
-        drain_share = unknown_player_a35db4->Power_Drain() / total;
+        drain_share = PlayerPtr->Power_Drain() / total;
         second_share = second / total;
         first_share = first / total;
     }
@@ -544,17 +544,17 @@ void PowerClass::AI(int &input, Point2D const &xy)
             Map.Flag_To_Redraw(false);
             FlashTimer = 3;
         }
-        if (unknown_player_a35db4->Power_Drain() != RecordedDrain || unknown_player_a35db4->Power_Output() != RecordedPower || HasChanged) {
+        if (PlayerPtr->Power_Drain() != RecordedDrain || PlayerPtr->Power_Output() != RecordedPower || HasChanged) {
             IsToRedraw = true;
             unknown_flag_8373c2 = true;
             Map.Flag_To_Redraw(false);
-            if (unknown_player_a35db4->Power_Drain() != RecordedDrain || unknown_player_a35db4->Power_Output() != RecordedPower) {
+            if (PlayerPtr->Power_Drain() != RecordedDrain || PlayerPtr->Power_Output() != RecordedPower) {
                 HasChanged = true;
                 FlashCount = 10;
                 FlashTimer = 3;
             }
-            RecordedDrain = unknown_player_a35db4->Power_Drain();
-            RecordedPower = unknown_player_a35db4->Power_Output();
+            RecordedDrain = PlayerPtr->Power_Drain();
+            RecordedPower = PlayerPtr->Power_Output();
             int green;
             int yellow;
             int red;
@@ -654,7 +654,7 @@ wchar_t const *PowerClass::Help_Text(int id)
 {
     if (id == 999) {
         swprintf(unknown_text_a767e0, StringTable::Load_String("TXT_POWER_DRAIN", 0, "D:\\Ra2\\Power.CPP", 662),
-                 unknown_player_a35db4->Power, unknown_player_a35db4->Drain);
+                 PlayerPtr->Power, PlayerPtr->Drain);
         return unknown_text_a767e0;
     }
     return RadarClass::Help_Text(id);

@@ -42,7 +42,7 @@ void Tactical::Draw_Pixel_Effects(Rect const &area, Rect const &cliprect)
         frames = 1000;
     }
     int pitch = LogicalSurface->Stride();
-    Point2D lepton = Pixel_To_Lepton(Point2D(area.Top_Left()) + Point2D(TacPixelX, TacPixelY) - unknown_rect_839630.Top_Left());
+    Point2D lepton = Pixel_To_Lepton(Point2D(area.Top_Left()) + Point2D(TacPixelX, TacPixelY) - TacticalRect.Top_Left());
     Cell origin(lepton.X / 256, lepton.Y / 256);
     Cell base = origin;
     int rows = area.Height / 15 + 17;

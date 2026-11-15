@@ -280,8 +280,8 @@ AudioEvent *__fastcall Voc_Play_At(int voc, CoordStruct const &coord, AudioEvent
 float __fastcall Voc_Volume_At(CoordStruct const &coord, int *pan, AudioEventType *type)
 {
     *pan = 0;
-    float half_width = unknown_rect_839630.Width * 0.5f;
-    float half_height = unknown_rect_839630.Height * 0.5f;
+    float half_width = TacticalRect.Width * 0.5f;
+    float half_height = TacticalRect.Height * 0.5f;
     float volume = 0;
     float width = half_width + half_width;
     float range = Audio_Event_Type_Range(type) * 60;

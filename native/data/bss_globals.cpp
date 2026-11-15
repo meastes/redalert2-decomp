@@ -91,13 +91,13 @@ __asm__(".globl _unknown_int_83962c\n.set _unknown_int_83962c, _unknown_int_8396
 alignas(16) unsigned char ra2_bss_0069[32] __asm__("_RuleINI");  // 0x008396D0 RuleINI (?RuleINI@@3PAVCCINIClass@@A)
 alignas(16) unsigned char ra2_bss_0070[48] __asm__("_Rules");  // 0x00839848 Rules (?Rules@@3PAVRulesClass@@A)
 __asm__(".globl _Rule_00839848\n.set _Rule_00839848, _Rules\n");  // same address: Rule_00839848
-alignas(16) unsigned char ra2_bss_0071[16] __asm__("_unknown_surface_839944");  // 0x00839944 unknown_surface_839944 (?unknown_surface_839944@@3PAVSurface@@A)
+alignas(16) unsigned char ra2_bss_0071[16] __asm__("_TileSurface");  // 0x00839944 TileSurface (?TileSurface@@3PAVSurface@@A)
 alignas(16) unsigned char ra2_bss_0072[16] __asm__("_SidebarSurface");  // 0x00839948 SidebarSurface (?SidebarSurface@@3PAVSurface@@A)
 alignas(16) unsigned char ra2_bss_0073[16] __asm__("_VisibleSurface");  // 0x00839950 VisibleSurface (?VisibleSurface@@3PAVSurface@@A)
 alignas(16) unsigned char ra2_bss_0074[16] __asm__("_HiddenSurface");  // 0x00839954 HiddenSurface (?HiddenSurface@@3PAVSurface@@A)
 alignas(16) unsigned char ra2_bss_0075[16] __asm__("_AlternateSurface");  // 0x00839958 AlternateSurface (?AlternateSurface@@3PAVSurface@@A)
 alignas(16) unsigned char ra2_bss_0076[16] __asm__("_LogicalSurface");  // 0x0083995C LogicalSurface (?LogicalSurface@@3PAVSurface@@A)
-alignas(16) unsigned char ra2_bss_0077[16] __asm__("_unknown_surface_839964");  // 0x00839964 unknown_surface_839964 (?unknown_surface_839964@@3PAVSurface@@A)
+alignas(16) unsigned char ra2_bss_0077[16] __asm__("_CompositeSurface");  // 0x00839964 CompositeSurface (?CompositeSurface@@3PAVSurface@@A)
 alignas(16) unsigned char ra2_bss_0078[16] __asm__("_unknown_surface_839968");  // 0x00839968 unknown_surface_839968 (?unknown_surface_839968@@3PAVSurface@@A)
 alignas(16) unsigned char ra2_bss_0079[16] __asm__("_TacticalMap_0083996c");  // 0x0083996C TacticalMap_0083996c
 __asm__(".globl _unknown_selected_83996c\n.set _unknown_selected_83996c, _TacticalMap_0083996c\n");  // same address: unknown_selected_83996c
@@ -269,7 +269,7 @@ __asm__(".globl _unknown_flag_a35db1\n.set _unknown_flag_a35db1, _player_wins_a3
 alignas(16) unsigned char ra2_bss_0209[16] __asm__("_global_6bc210_a35db4");  // 0x00A35DB4 global_6bc210_a35db4
 __asm__(".globl _global_6bc230_a35db4\n.set _global_6bc230_a35db4, _global_6bc210_a35db4\n");  // same address: global_6bc230_a35db4
 __asm__(".globl _DAT_00a35db4\n.set _DAT_00a35db4, _global_6bc210_a35db4\n");  // same address: DAT_00a35db4
-__asm__(".globl _unknown_player_a35db4\n.set _unknown_player_a35db4, _global_6bc210_a35db4\n");  // same address: unknown_player_a35db4
+__asm__(".globl _PlayerPtr\n.set _PlayerPtr, _global_6bc210_a35db4\n");  // same address: PlayerPtr
 __asm__(".globl _unknown_player_house_a35db4\n.set _unknown_player_house_a35db4, _global_6bc210_a35db4\n");  // same address: unknown_player_house_a35db4
 alignas(16) unsigned char ra2_bss_0210[16] __asm__("_unknown_buffer_a35e20");  // 0x00A35E20 unknown_buffer_a35e20 (?unknown_buffer_a35e20@@3PAVBuffer@@A)
 alignas(16) unsigned char ra2_bss_0211[16] __asm__("_MapTriggerID");  // 0x00A35E24 MapTriggerID (?MapTriggerID@@3HA)
@@ -322,7 +322,7 @@ alignas(16) unsigned char ra2_bss_0247[16] __asm__("_unknown_trap_check_heap_a40
 alignas(16) unsigned char ra2_bss_0248[16] __asm__("_unknown_debug_print_events_a40d1c");  // 0x00A40D1C unknown_debug_print_events_a40d1c (?unknown_debug_print_events_a40d1c@@3_NA)
 __asm__(".globl _unknown_flag_a40d1c\n.set _unknown_flag_a40d1c, _unknown_debug_print_events_a40d1c\n");  // same address: unknown_flag_a40d1c
 alignas(16) unsigned char ra2_bss_0249[16] __asm__("_GasSystem");  // 0x00A40D20 GasSystem (?GasSystem@@3PAVParticleSystemClass@@A)
-alignas(16) unsigned char ra2_bss_0250[16] __asm__("_unknown_ini_format_a40d24");  // 0x00A40D24 unknown_ini_format_a40d24 (?unknown_ini_format_a40d24@@3HA)
+alignas(16) unsigned char ra2_bss_0250[16] __asm__("_NewINIFormat");  // 0x00A40D24 NewINIFormat (?NewINIFormat@@3HA)
 alignas(16) unsigned char ra2_bss_0251[16] __asm__("_GameInFocus");  // 0x00A40D28 GameInFocus (?GameInFocus@@3_NA)
 alignas(16) unsigned char ra2_bss_0252[16] __asm__("_Frame");  // 0x00A40D2C Frame (?Frame@@3HA)
 __asm__(".globl _test_network_end_flag_00a40d2c\n.set _test_network_end_flag_00a40d2c, _Frame\n");  // same address: test_network_end_flag_00a40d2c
@@ -334,7 +334,7 @@ alignas(16) unsigned char ra2_bss_0255[16] __asm__("_Seed");  // 0x00A40D3C Seed
 __asm__(".globl _unknown_a40d3c\n.set _unknown_a40d3c, _Seed\n");  // same address: unknown_a40d3c
 alignas(16) unsigned char ra2_bss_0256[16] __asm__("_CustomSeed");  // 0x00A40D40 CustomSeed (?CustomSeed@@3IA)
 alignas(16) unsigned char ra2_bss_0257[16] __asm__("_IgnoreInput");  // 0x00A40D44 IgnoreInput (?IgnoreInput@@3_NA)
-alignas(16) unsigned char ra2_bss_0258[16] __asm__("_unknown_flag_a40d45");  // 0x00A40D45 unknown_flag_a40d45 (?unknown_flag_a40d45@@3_NA)
+alignas(16) unsigned char ra2_bss_0258[16] __asm__("_drag_select_aborted");  // 0x00A40D45 drag_select_aborted (?drag_select_aborted@@3_NA)
 alignas(16) unsigned char ra2_bss_0259[112] __asm__("_unknown_int_a40d48");  // 0x00A40D48 unknown_int_a40d48 (?unknown_int_a40d48@@3HA)
 alignas(16) unsigned char ra2_bss_0260[16] __asm__("_ReadyToQuit");  // 0x00A40D80 ReadyToQuit (?ReadyToQuit@@3HA)
 alignas(16) unsigned char ra2_bss_0261[168] __asm__("_unknown_flag_a40d84");  // 0x00A40D84 unknown_flag_a40d84 (?unknown_flag_a40d84@@3_NA)
@@ -368,7 +368,7 @@ alignas(16) unsigned char ra2_bss_0285[16] __asm__("_unknown_campaign_list_a4168
 alignas(16) unsigned char ra2_bss_0286[16] __asm__("_unknown_pressed_a41690");  // 0x00A41690 unknown_pressed_a41690 (?unknown_pressed_a41690@@3PAUHWND__@@A)
 alignas(16) unsigned char ra2_bss_0287[16] __asm__("_unknown_a41698");  // 0x00A41698 unknown_a41698 (?unknown_a41698@@3HA)
 alignas(16) unsigned char ra2_bss_0288[64] __asm__("_unknown_cheat_text_a4169c");  // 0x00A4169C unknown_cheat_text_a4169c (?unknown_cheat_text_a4169c@@3PADA)
-alignas(16) unsigned char ra2_bss_0289[16] __asm__("_unknown_show_cursor_position_a416bc");  // 0x00A416BC unknown_show_cursor_position_a416bc (?unknown_show_cursor_position_a416bc@@3_NA)
+alignas(16) unsigned char ra2_bss_0289[16] __asm__("_CursorCheat");  // 0x00A416BC CursorCheat (?CursorCheat@@3_NA)
 alignas(16) unsigned char ra2_bss_0290[48] __asm__("_unknown_flag_a417c8");  // 0x00A417C8 unknown_flag_a417c8 (?unknown_flag_a417c8@@3_NA)
 alignas(16) unsigned char ra2_bss_0291[16] __asm__("_StormActive");  // 0x00A51934 StormActive (?StormActive@@3_NA)
 alignas(16) unsigned char ra2_bss_0292[16] __asm__("_StormDeferment");  // 0x00A51938 StormDeferment (?StormDeferment@@3HA)
@@ -1326,7 +1326,7 @@ __asm__(".globl _unknown_parent_b263d8\n.set _unknown_parent_b263d8, _MainWindow
 __asm__(".globl _unknown_window_b263d8\n.set _unknown_window_b263d8, _MainWindow\n");  // same address: unknown_window_b263d8
 alignas(16) unsigned char ra2_bss_1002[16] __asm__("_UnusedWindow");  // 0x00B263DC UnusedWindow (?UnusedWindow@@3PAUHWND__@@A)
 alignas(16) unsigned char ra2_bss_1003[16] __asm__("_IMEContext");  // 0x00B263E4 IMEContext (?IMEContext@@3PAUHIMC__@@A)
-alignas(16) unsigned char ra2_bss_1004[16] __asm__("_unknown_mouse_captured_b263e8");  // 0x00B263E8 unknown_mouse_captured_b263e8 (?unknown_mouse_captured_b263e8@@3_NA)
+alignas(16) unsigned char ra2_bss_1004[16] __asm__("__MouseCaptured");  // 0x00B263E8 _MouseCaptured (?_MouseCaptured@@3_NA)
 alignas(16) unsigned char ra2_bss_1005[16] __asm__("_window_mouse_wheel_b263e9");  // 0x00B263E9 window_mouse_wheel_b263e9 (?window_mouse_wheel_b263e9@@3_NA)
 alignas(16) unsigned char ra2_bss_1006[16] __asm__("_IMECompositionLength");  // 0x00B263EC IMECompositionLength (?IMECompositionLength@@3HA)
 alignas(16) unsigned char ra2_bss_1007[16] __asm__("_IMECursorPosition");  // 0x00B263F0 IMECursorPosition (?IMECursorPosition@@3HA)

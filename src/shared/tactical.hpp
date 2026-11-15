@@ -235,7 +235,7 @@ public:
     double unknown_c0;              // +0xC0 zoom factor (Blit_Display divides by it; 1.0 = none)
     Point2D unknown_c8;             // +0xC8 the scroll start (AI 0x006A2DD0 interpolates it to unknown_d0)
     Point2D unknown_d0;             // +0xD0 the scroll target
-    float unknown_d8;               // +0xD8 the scroll step per frame (ScrollClass slot 26 tests it against 0)
+    float MoveSpeed;               // +0xD8 the scroll step per frame (ScrollClass slot 26 tests it against 0)
     float unknown_dc;               // +0xDC the scroll progress, 0..1
     int unknown_e0;                 // +0xE0
     CellClass *unknown_e4[800];     // +0xE4 the cells to redraw (TibSun CellRedraw; cleared by the constructor, swizzled by Load; unknown_e0 counts them)
@@ -243,7 +243,7 @@ public:
     Point2D unknown_d6c;            // +0xD6C
     Point2D unknown_d74;            // +0xD74 the requested view position
     bool unknown_d7c;               // +0xD7C true after construction
-    bool unknown_d7d;               // +0xD7D set by Flag_To_Redraw
+    bool IsToRedraw;               // +0xD7D set by Flag_To_Redraw
     bool unknown_d7e;               // +0xD7E
     Rect unknown_d80;               // +0xD80 copied from the global rectangle at 0x00ABE4A8
     Point2D RubberBandStart;            // +0xD90 the selection band corner (DisplayClass slot 47 starts it)

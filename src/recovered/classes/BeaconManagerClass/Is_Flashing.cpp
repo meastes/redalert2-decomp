@@ -13,8 +13,8 @@ bool BeaconManagerClass::Is_Flashing_0042efd0()
             int slot = 0;
             do {
                 UnknownBeacon *beacon = unknown_00[house][slot];
-                if (beacon && (beacon->unknown_flags & 1) && unknown_player_a35db4->Is_Ally(beacon->unknown_house)
-                    && Houses[beacon->unknown_house]->Is_Ally(unknown_player_a35db4)
+                if (beacon && (beacon->unknown_flags & 1) && PlayerPtr->Is_Ally(beacon->unknown_house)
+                    && Houses[beacon->unknown_house]->Is_Ally(PlayerPtr)
                     && !Houses[beacon->unknown_house]->unknown_13d) {
                     found = true;
                     break;

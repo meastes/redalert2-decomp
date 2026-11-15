@@ -129,7 +129,7 @@ void GameControlsDialog::Apply_Settings()
         int speed = 6 - SendMessageA(control, 0x400, 0, 0);
         if (Options.GameSpeed != speed) {
             if (GameActive == 1 && unknown_game_mode_a3d298 != 0 && unknown_game_mode_a3d298 != 5) {
-                OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 0xD, speed));
+                OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0xD, speed));
             } else {
                 Options.GameSpeed = speed;
             }

@@ -12,7 +12,7 @@ static_assert(offsetof(HouseClass, unknown_13d) == 0x195, "house_screen.hpp unkn
 static_assert(offsetof(HouseClass, FirestormActive) == 0x19A, "house_screen.hpp FirestormActive");
 static_assert(offsetof(HouseClass, WaypointPaths) == 0x1B0, "house_screen.hpp WaypointPaths");
 static_assert(offsetof(HouseClass, Supers) == 0x228, "house_screen.hpp Supers");
-static_assert(offsetof(HouseClass, unknown_207) == 0x29B, "house_screen.hpp unknown_207");
+static_assert(offsetof(HouseClass, WarFactoryInfiltrated) == 0x29B, "house_screen.hpp unknown_207");
 static_assert(offsetof(HouseClass, unknown_230) == 0x2C4, "house_screen.hpp unknown_230");
 static_assert(offsetof(HouseClass, PowerOutput) == 0x5364, "house_screen.hpp PowerOutput");
 static_assert(offsetof(HouseClass, unknown_5364) == 0x5428, "house_screen.hpp unknown_5364");

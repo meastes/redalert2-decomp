@@ -26,7 +26,7 @@ public:
     int Mission;                // +0x00 (-1)
     bool unknown_04;            // +0x04
     bool unknown_05;            // +0x05
-    bool unknown_06;            // +0x06 true
+    bool IsRecruitable;            // +0x06 true
     bool unknown_07;            // +0x07
     bool unknown_08;            // +0x08 true
     bool unknown_09;            // +0x09 true

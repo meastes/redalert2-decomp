@@ -30,7 +30,7 @@ extern int unknown_radial_step_7f6974;
 // @ref ?Adjust@RGBClass@@QAEXHABV1@@Z=0063cf20
 // @ref ?Fast_Sqrt@@YAMN@Z=004ba410
 // @ref ?unknown_475d60@CellClass@@QBE?AUCoordStruct@@XZ=00475d60
-// @ref ?unknown_player_a35db4@@3PAVHouseClass@@A=00a35db4
+// @ref ?PlayerPtr@@3PAVHouseClass@@A=00a35db4
 // @ref _?$S92@?BA@??Draw_Radial_Indicators@Tactical@@QAEXXZ@4EA=00abe488
 // @ref _$E93=006ac7a0
 // @ref _?black@?BA@??Draw_Radial_Indicators@Tactical@@QAEXXZ@4VRGBClass@@A=00abe54c
@@ -66,10 +66,10 @@ void Tactical::Draw_Radial_Indicators()
                 Draw_Radial_Indicator_00451BF0(radius, 0, center, color, true, false);
 
                 int nearest = 0x7FFFFFFF;
-                int buildings = unknown_player_a35db4->Buildings.Count();
+                int buildings = PlayerPtr->Buildings.Count();
                 int index;
                 for (index = 0; index < buildings; index++) {
-                    BuildingClass *building = (BuildingClass *)unknown_player_a35db4->Buildings[index];
+                    BuildingClass *building = (BuildingClass *)PlayerPtr->Buildings[index];
                     if (building != 0 && building->IsActive && building != pending && building->Type == pending->Type) {
                         Cell zone = Map.unknown_1170;
                         Cell where = Cell(building->Center_Coord());
@@ -81,7 +81,7 @@ void Tactical::Draw_Radial_Indicators()
                     }
                 }
                 for (index = 0; index < buildings; index++) {
-                    BuildingClass *building = (BuildingClass *)unknown_player_a35db4->Buildings[index];
+                    BuildingClass *building = (BuildingClass *)PlayerPtr->Buildings[index];
                     if (building != 0 && building->IsActive && building != pending && building->Type == pending->Type) {
                         Cell zone = Map.unknown_1170;
                         Cell where = Cell(building->Center_Coord());

@@ -357,8 +357,8 @@ void __fastcall Unknown_0051F930(int duration, int deferment, Cell cell, HouseCl
             }
         }
     }
-    if (unknown_player_a35db4 != 0) {
-        unknown_player_a35db4->unknown_5669 = true;
+    if (PlayerPtr != 0) {
+        PlayerPtr->RecalcRadar = true;
     }
     if (unknown_dominator_state_a5193c != 1) {
         unknown_id_source_a3d290->unknown_22b0 = unknown_id_source_a3d290->IonAmbient;
@@ -368,8 +368,8 @@ void __fastcall Unknown_0051F930(int duration, int deferment, Cell cell, HouseCl
     }
     if (Rules->LightningPrintText) {
         int color = 3;
-        if (unknown_player_a35db4 != 0) {
-            color = unknown_player_a35db4->ColorSchemeIndex;
+        if (PlayerPtr != 0) {
+            color = PlayerPtr->ColorSchemeIndex;
         }
         Voc_Play(Rules->StormSound, 1.0f, 0x2000, 0);
         unknown_session_a3d298.Messages.Add_Message(0, 0,
@@ -653,8 +653,8 @@ void __fastcall Update_Storm_00520200()
             Unknown_0051F930(StormDuration, 0, StormCoords, StormOwner);
         } else if (StormDeferment % 225 == 0 && Rules->LightningPrintText) {
             int color = 3;
-            if (unknown_player_a35db4 != 0) {
-                color = unknown_player_a35db4->ColorSchemeIndex;
+            if (PlayerPtr != 0) {
+                color = PlayerPtr->ColorSchemeIndex;
             }
             Speech_Play_Name("EVA_LightningStormCreated", -1, -1);
             unknown_session_a3d298.Messages.Add_Message(0, 0,
@@ -675,7 +675,7 @@ void Unknown_00520770()
             unknown_id_source_a3d290->unknown_22e8 * 1000 / 100,
             unknown_id_source_a3d290->unknown_22ec * 1000 / 100, true);
     } else if (StormActive) {
-        unknown_player_a35db4->unknown_5669 = true;
+        PlayerPtr->RecalcRadar = true;
         unknown_id_source_a3d290->unknown_22b0 = unknown_id_source_a3d290->IonAmbient;
         Set_Lighting_00520B00(unknown_id_source_a3d290->IonRed * 1000 / 100,
             unknown_id_source_a3d290->IonGreen * 1000 / 100,
@@ -767,8 +767,8 @@ void __fastcall Storm_Active_Message_00520BF0()
 {
     wchar_t const *text = StringTable::Load_String("Msg:LightningStormActive", 0, "D:\\Ra2\\Ion.cpp", 1066);
     int color = 3;
-    if (unknown_player_a35db4 != 0) {
-        color = unknown_player_a35db4->ColorSchemeIndex;
+    if (PlayerPtr != 0) {
+        color = PlayerPtr->ColorSchemeIndex;
     }
     unknown_session_a3d298.Messages.Add_Message(0, 0, text, color, 0x4046, 150, false);
 }

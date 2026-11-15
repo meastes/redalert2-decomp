@@ -521,7 +521,7 @@
   },
   {
    "site": "0065cdd0",
-   "symbol": "?unknown_set_buffer_zone_0053d830@@YIXH@Z",
+   "symbol": "?Set_Buffer_Zone_Width@@YIXH@Z",
    "target": "0053d830",
    "function_entry": true
   },
@@ -712,6 +712,10 @@
    "address": "00a32280"
   },
   {
+   "symbol": "?Refresh_Shroud@MapClass@@QAEXXZ",
+   "address": "0055a300"
+  },
+  {
    "symbol": "?Resize@?$DynamicVectorClass@PAVTeamClass@@@@UAE_NHPBQAVTeamClass@@@Z",
    "address": "004d68d0"
   },
@@ -782,10 +786,6 @@
   {
    "symbol": "?Unknown_00537830@LightSourceClass@@SIXH_N@Z",
    "address": "00537830"
-  },
-  {
-   "symbol": "?Unknown_0055A300@MapClass@@QAEXXZ",
-   "address": "0055a300"
   },
   {
    "symbol": "?Update_All@AlphaShapeClass@@SAXXZ",
@@ -1014,7 +1014,7 @@
   {
    "site": "0065cdd0",
    "target": "0053d830",
-   "symbol": "?unknown_set_buffer_zone_0053d830@@YIXH@Z",
+   "symbol": "?Set_Buffer_Zone_Width@@YIXH@Z",
    "module_symbol": "?get@Leaf_53d830@@QAEXXZ"
   },
   {

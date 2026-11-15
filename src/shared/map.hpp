@@ -82,7 +82,7 @@ bool __fastcall Unknown_00529710(int unknown1, bool unknown2);   // TibSun Isome
 
 // Used by MapClass::Init_Clear (owners unknown).
 #include "shared/debug_printf.hpp"
-void unknown_481fb0();                                  // 0x00481FB0 (shared/ms_engine.hpp)
+void Call_Back();                                  // 0x00481FB0 (shared/ms_engine.hpp)
 class Unknown839C6C {
 public:
     void Unknown_00776160(int value);                   // 0x00776160 (called with 0xFFFF)

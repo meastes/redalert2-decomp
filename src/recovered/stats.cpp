@@ -167,7 +167,7 @@ void __fastcall Unknown_00698D00(bool arg)
     PacketClass stats;
     unsigned int playercount = 0;
     unsigned int statsid = 0;
-    if (unknown_house_a72d28 && unknown_player_a35db4 == unknown_house_a72d28) {
+    if (unknown_house_a72d28 && PlayerPtr == unknown_house_a72d28) {
         return;
     }
     HouseClass *player;

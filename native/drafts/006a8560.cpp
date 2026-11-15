@@ -69,7 +69,7 @@ void Tactical::Draw_Tiles(Cell const &cell, Rect const &cliprect)
     if (basecell->unknown_11b < 2) {
         pixel.X = screen.X - 30;
         pixel.Y = screen.Y;
-        basecell->Draw_It(pixel, unknown_rect_839630, 0);
+        basecell->Draw_It(pixel, TacticalRect, 0);
     }
 
     int x = cell.X;
@@ -124,7 +124,7 @@ void Tactical::Draw_Tiles(Cell const &cell, Rect const &cliprect)
                 coord = Coord_Snap(Tile_Center(above));
                 Point2D tilepixel;
                 Project_Tile_Left(*this, coord, tilepixel);
-                Map[above].Draw_It(tilepixel, unknown_rect_839630, 0);
+                Map[above].Draw_It(tilepixel, TacticalRect, 0);
             }
         }
         x++;

@@ -286,7 +286,7 @@ void VoxelAnimClass::AI()
                     for (int facing = 0; facing < 8; facing++) {
                         CellClass &cell = Map[Adjacent_Cell(Coord_Cell(center), facing)];
                         if (cell.Can_Tiberium_Germinate(0)) {
-                            TiberiumClass *tiberium = unknown_TiberiumClass_list_00ac0b30[OverlayClass::To_Tiberium(0x7F)];
+                            TiberiumClass *tiberium = Tiberiums[OverlayClass::To_Tiberium(0x7F)];
                             if (cell.unknown_11c != 0) {
                                 new OverlayClass(OverlayTypes[tiberium->Image->ArrayIndex + cell.unknown_11c * 2 + tiberium->NumFrames + Random_Pick(0, 1) - 2], Cell(cell.MapCoords), -1);
                             } else {
@@ -305,7 +305,7 @@ void VoxelAnimClass::AI()
             } else if (Class->IsTiberium && !bridge) {
                 CellClass &cell = Map[BounceClass::Coord()];
                 if (cell.Can_Tiberium_Germinate(0)) {
-                    TiberiumClass *tiberium = unknown_TiberiumClass_list_00ac0b30[OverlayClass::To_Tiberium(0x7F)];
+                    TiberiumClass *tiberium = Tiberiums[OverlayClass::To_Tiberium(0x7F)];
                     if (cell.unknown_11c != 0) {
                         new OverlayClass(OverlayTypes[tiberium->Image->ArrayIndex + cell.unknown_11c * 2 + tiberium->NumFrames + Random_Pick(0, 1) - 2], Cell(cell.MapCoords), -1);
                     } else {

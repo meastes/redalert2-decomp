@@ -1117,6 +1117,14 @@
    "address": "0076d870"
   },
   {
+   "symbol": "?AlternateListenPort@@3HA",
+   "address": "007f60d8"
+  },
+  {
+   "symbol": "?AlternateSendPort@@3HA",
+   "address": "007f60d4"
+  },
+  {
    "symbol": "?Build_Packet_CRC@WinsockInterfaceClass@@UAEXPAVWinsockBufferType@1@@Z",
    "address": "0076b290"
   },
@@ -1161,8 +1169,16 @@
    "address": "0076b0a0"
   },
   {
+   "symbol": "?IsMalformedPacketReported@@3_NA",
+   "address": "00b2af1c"
+  },
+  {
    "symbol": "?Is_Broadcast@IPXAddressClass@@QAEHXZ",
    "address": "00523560"
+  },
+  {
+   "symbol": "?LoopbackPort@@3HA",
+   "address": "007f60dc"
   },
   {
    "symbol": "?MainWindow@@3PAUHWND__@@A",
@@ -1193,7 +1209,7 @@
    "address": "0076af10"
   },
   {
-   "symbol": "?Unknown_005B5EE0@@YAXXZ",
+   "symbol": "?Windows_Message_Handler@@YAXXZ",
    "address": "005b5ee0"
   },
   {
@@ -1203,14 +1219,6 @@
   {
    "symbol": "?unknown_76b9f0@WinsockInterfaceClass@@SAHXZ",
    "address": "0076b9f0"
-  },
-  {
-   "symbol": "?unknown_alternate_port_7f60d8@@3HA",
-   "address": "007f60d8"
-  },
-  {
-   "symbol": "?unknown_b2af1c@@3_NA",
-   "address": "00b2af1c"
   },
   {
    "symbol": "?unknown_default_port_7f60d0@@3HA",
@@ -1227,14 +1235,6 @@
   {
    "symbol": "?unknown_math_4ba5b0@@YANN@Z",
    "address": "004ba5b0"
-  },
-  {
-   "symbol": "?unknown_port_7f60d4@@3HA",
-   "address": "007f60d4"
-  },
-  {
-   "symbol": "?unknown_port_7f60dc@@3HA",
-   "address": "007f60dc"
   },
   {
    "symbol": "?unknown_session_a3d298@@3USessionClass@@A",

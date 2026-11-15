@@ -356,13 +356,13 @@
   },
   {
    "site": "00633c40",
-   "symbol": "?Unknown_005A0B10@@YAXXZ",
+   "symbol": "?Movie_Audio_Suspend@@YAXXZ",
    "target": "005a0b10",
    "function_entry": true
   },
   {
    "site": "00633d30",
-   "symbol": "?Unknown_005A0AC0@@YAXXZ",
+   "symbol": "?Movie_Audio_Resume@@YAXXZ",
    "target": "005a0ac0",
    "function_entry": true
   },
@@ -931,18 +931,6 @@
    "module_symbol": "?Play_Movie@@YIXHH_N00@Z"
   },
   {
-   "site": "00633c40",
-   "target": "005a0b10",
-   "symbol": "?Unknown_005A0B10@@YAXXZ",
-   "module_symbol": "?Movie_Audio_Suspend@@YAXXZ"
-  },
-  {
-   "site": "00633d30",
-   "target": "005a0ac0",
-   "symbol": "?Unknown_005A0AC0@@YAXXZ",
-   "module_symbol": "?Movie_Audio_Resume@@YAXXZ"
-  },
-  {
    "site": "006b0d30",
    "target": "005a07f0",
    "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
@@ -1123,7 +1111,7 @@
    "module_symbol": "?Play_Movie@@YIXPBDH_N111@Z"
   }
  ],
- "stand_in_reference_count": 33,
+ "stand_in_reference_count": 31,
  "residual_split": {
   "rows": 0,
   "bytes": 0

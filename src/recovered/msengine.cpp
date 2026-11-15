@@ -343,7 +343,7 @@ void MSEngine::Run(int frames)
     CDTimerClass<SystemTimerClass> timer(1);
     do {
         do {
-            unknown_481fb0();
+            Call_Back();
             Unknown_Slot2();
             Wait_Blit();
             Draw(HiddenSurface);

@@ -56,7 +56,7 @@ MonoClass *__fastcall Unknown_0059DA50(int page);       // 0x0059DA50
 
 void __cdecl Fatal(char const *message, ...)
 {
-    Unknown_00691320();
+    Emergency_Exit();
     vfprintf(stderr, message, (char *)(&message + 1));
     Unknown_0059DA50(4)->Printf(message);
     Emergency_Exit(1);

@@ -47,18 +47,18 @@ bool SidebarClass::StripClass::Unknown_006802D0()
         int ok;
         TechnoTypeClass *tech = (TechnoTypeClass *)Unknown_00482C00(Buildables[index].unknown_04, Buildables[index].unknown_00);
         if (tech) {
-            TechnoClass *who = (TechnoClass *)tech->Who_Can_Build_Me(true, false, false, unknown_player_a35db4);
+            TechnoClass *who = (TechnoClass *)tech->Who_Can_Build_Me(true, false, false, PlayerPtr);
             ok = who && who->House->Can_Build(tech, false, true);   // NATIVE: the overlay's UnknownSidebarHouse::Unknown_004E3660 is HouseClass::Can_Build 0x004E3660
         } else {
-            if ((unsigned)Buildables[index].unknown_00 < (unsigned)unknown_player_a35db4->Supers.Count()) {
-                ok = unknown_player_a35db4->Supers[Buildables[index].unknown_00]->Is_Present();
+            if ((unsigned)Buildables[index].unknown_00 < (unsigned)PlayerPtr->Supers.Count()) {
+                ok = PlayerPtr->Supers[Buildables[index].unknown_00]->Is_Present();
             } else {
                 ok = false;
             }
         }
         if (!ok) {
             if (Buildables[index].Factory) {
-                OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 16, Buildables[index].unknown_04,
+                OutList.Add(EventClass(PlayerPtr->ArrayIndex, 16, Buildables[index].unknown_04,
                     Buildables[index].unknown_00, tech->Naval));
                 if (Buildables[index].unknown_04 == 7 || Buildables[index].unknown_04 == 6) {
                     Map.PendingObjectPtr = 0;
@@ -68,11 +68,11 @@ bool SidebarClass::StripClass::Unknown_006802D0()
                 }
             }
             if (tech) {
-                FactoryClass *factory = unknown_player_a35db4->Fetch_Factory(tech->Kind_Of(), tech->Naval, 0);   // NATIVE: 0x004EB580 under house_screen.hpp's name
+                FactoryClass *factory = PlayerPtr->Fetch_Factory(tech->Kind_Of(), tech->Naval, 0);   // NATIVE: 0x004EB580 under house_screen.hpp's name
                 if (factory) {
                     for (int q = factory->Queue.Count() - 1; q >= 0; q--) {
                         if (factory->Queue[q] == tech) {
-                            OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 16, Buildables[index].unknown_04,
+                            OutList.Add(EventClass(PlayerPtr->ArrayIndex, 16, Buildables[index].unknown_04,
                                 Buildables[index].unknown_00, tech->Naval));
                         }
                     }

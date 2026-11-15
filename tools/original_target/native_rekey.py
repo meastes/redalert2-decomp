@@ -140,6 +140,53 @@ def merged(path, text):
     return '\n'.join(out)
 
 
+FIXUPS = 'native/port/fixups.json'
+
+
+def fixups_follow(spec, dry_run=False):
+    """native/port/fixups.json patches accepted source text (`source`, `old` -> `new`). When the batch's
+    member renames changed that text, a fixup whose `old` no longer occurs is re-keyed: the member
+    renames are applied to its `old` and `new`, and kept only when the renamed `old` occurs in the
+    source exactly (the source's tokens were renamed by type, so the same tokens follow). Returns the
+    re-keyed entries' sources."""
+    members = spec.get('member_renames') or []
+    path = REPOSITORY / FIXUPS
+    if not members or not path.exists():
+        return []
+    document = json.loads(path.read_text())
+    done = []
+    for entry in document.get('fixups', []):
+        source = REPOSITORY / entry.get('source', '')
+        if not entry.get('source') or not source.exists():
+            continue
+        text = source.read_text(encoding='latin-1')
+        if entry['old'] in text:
+            continue
+        # each rename is taken only where it brings the text closer to the source: the same spelling
+        # may name another class's member in the fixup (e.g. a view's padding array) and stays
+        def present(candidate):
+            return sum(line in text for line in candidate.split('\n'))
+        old, new = entry['old'], entry['new']
+        taken = []
+        for m in members:
+            pattern = re.compile(r'(?<![\w$?@])%s(?!\w)' % re.escape(m['old']))
+            for match in reversed(list(pattern.finditer(old))):
+                trial = old[:match.start()] + m['new'] + old[match.end():]
+                if present(trial) > present(old):
+                    old = trial
+                    taken.append(pattern)
+        # the renames the fixup's `old` took follow into its replacement text (the same members, in
+        # the replacement's own layout); renames it did not take stay out of it
+        for pattern in taken:
+            new = pattern.sub(next(m['new'] for m in members if pattern.pattern.endswith(re.escape(m['old']) + r'(?!\w)')), new)
+        if old != entry['old'] and old in text:
+            entry['old'], entry['new'] = old, new
+            done.append(entry['source'])
+    if done and not dry_run:
+        path.write_text(json.dumps(document, indent=1) + '\n')
+    return done
+
+
 def rekey(spec, dry_run=False):
     """{path: {kind: count}} of the edits; writes unless dry_run. Also returns review notes."""
     rule_list, review = rules(spec)
@@ -161,6 +208,9 @@ def rekey(spec, dry_run=False):
             changed[path] = counts
             if not dry_run:
                 (REPOSITORY / path).write_text(new, encoding='utf-8')
+    for source in fixups_follow(spec, dry_run):
+        changed.setdefault(FIXUPS, {}).setdefault('fixup', 0)
+        changed[FIXUPS]['fixup'] += 1
     return changed, review
 
 
@@ -197,7 +247,7 @@ def rename_at(path, line, column, old, new):
     return True
 
 
-def compiler_rekey(spec, build_dir, rounds=10, build=None):
+def compiler_rekey(spec, build_dir, rounds=30, build=None):
     """Member renames in native-only code by the native compiler's type resolution: build, rename
     each use the compiler reports as the old member name (its class now has only the new one),
     and build again until the build passes. Refuses (SystemExit) when an error it cannot place,
@@ -206,7 +256,9 @@ def compiler_rekey(spec, build_dir, rounds=10, build=None):
     new_of = {m['old']: m['new'] for m in members}
     if build is None:
         def build():
-            result = subprocess.run(['cmake', '--build', str(build_dir)], cwd=REPOSITORY, capture_output=True, text=True)
+            # -k 0: every failing unit reports in one round, not only the first
+            result = subprocess.run(['cmake', '--build', str(build_dir), '--', '-k', '0'], cwd=REPOSITORY,
+                                    capture_output=True, text=True)
             return result.returncode, result.stdout + result.stderr
     made = []
     for _ in range(rounds):

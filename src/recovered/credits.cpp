@@ -127,7 +127,7 @@ void CreditClass::AI(bool forced)
 
     _last = Frame;
 
-    Credits = unknown_player_a35db4->As_IHouse()->Available_Money();
+    Credits = PlayerPtr->As_IHouse()->Available_Money();
 
     /*
     **	Make sure that the credit counter doesn't drop below zero.

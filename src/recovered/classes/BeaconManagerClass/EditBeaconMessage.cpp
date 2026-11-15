@@ -26,7 +26,7 @@ void BeaconManagerClass::EditBeaconMessage_0042ec20(unsigned short const *text, 
     if (beacon) {
         beacon->Unknown_0042DDF0(text);
         if (unknown_session_a3d298.Type != 0 && unknown_session_a3d298.Type != 5) {
-            if (edited && beacon->unknown_house == unknown_player_a35db4->ArrayIndex && done) {
+            if (edited && beacon->unknown_house == PlayerPtr->ArrayIndex && done) {
                 UnknownBeaconTextPacket packet;
                 packet.Type = 0x22;
                 strcpy(packet.Name, Wide_To_Narrow_006fa120(unknown_players_a3fa7c[0]->Name));
@@ -35,7 +35,7 @@ void BeaconManagerClass::EditBeaconMessage_0042ec20(unsigned short const *text, 
                 } else {
                     wcscpy(packet.Text, Narrow_To_Wide_006fa180(unknown_string_83c55c));
                 }
-                packet.House = (char)unknown_player_a35db4->ArrayIndex;
+                packet.House = (char)PlayerPtr->ArrayIndex;
                 packet.Slot = -1;
                 for (int index = 0; index < 3; index++) {
                     if (unknown_00[packet.House][index] == beacon) {
@@ -48,7 +48,7 @@ void BeaconManagerClass::EditBeaconMessage_0042ec20(unsigned short const *text, 
                         Ipx.Send_Global_Message(&packet, 0x1C7, 1, &unknown_players_a3fa7c[player]->Address, 0, 0);
                     }
                 }
-            } else if (beacon->unknown_house != unknown_player_a35db4->ArrayIndex && beacon->Unknown_0042E080()) {
+            } else if (beacon->unknown_house != PlayerPtr->ArrayIndex && beacon->Unknown_0042E080()) {
                 CoordStruct coord = beacon->unknown_coord;
                 Unknown_0063B5B0(11, Cell(coord.X / 256, coord.Y / 256));
             }

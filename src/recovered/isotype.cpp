@@ -129,7 +129,7 @@ IsometricTileTypeClass::IsometricTileTypeClass(int type, int unknown1, unsigned 
     NonMarbleMadness(0xFFFF),
     TileSetBaseID(0),
     unknown_274(),
-    unknown_28c(0),
+    NextTileTypeInSet(0),
     ToSnowTheater(-1),
     ToTemperateTheater(-1),
     unknown_298(-1),
@@ -145,8 +145,8 @@ IsometricTileTypeClass::IsometricTileTypeClass(int type, int unknown1, unsigned 
     unknown_2b8(0),
     Unused2(unknown2),
     NumTileTypesInSet(1),
-    unknown_2c4(false),
-    unknown_2d5(true),
+    IsFileLoaded(false),
+    IsAllowBurrowing(true),
     unknown_2d6(false),
     UseCount(0)
 {
@@ -186,9 +186,9 @@ void __fastcall Detach_This_From_All(AbstractClass *object, bool all);
 IsometricTileTypeClass::~IsometricTileTypeClass()
 {
     Detach_This_From_All(this, true);
-    if (unknown_28c != 0) {
-        AbstractClass *owned = unknown_28c;
-        unknown_28c = 0;
+    if (NextTileTypeInSet != 0) {
+        AbstractClass *owned = NextTileTypeInSet;
+        NextTileTypeInSet = 0;
         delete owned;
     }
     IsoTileTypes.Delete(this);
@@ -241,10 +241,10 @@ bool IsometricTileTypeClass::Is_Tile_Index_Valid(int tile, bool load)
 
 bool IsometricTileTypeClass::Load_Tile_Image()
 {
-    if (unknown_a4 == 0 && unknown_2c4) {
+    if (ImageData == 0 && IsFileLoaded) {
         Load_Tile_Data();
     }
-    return unknown_a4 != 0;
+    return ImageData != 0;
 }
 
 
@@ -255,10 +255,10 @@ bool IsometricTileTypeClass::Load_Tile_Image()
 
 void *IsometricTileTypeClass::Get_Image_Data() const
 {
-    void *image = unknown_a4;
-    if (image == 0 && unknown_2c4) {
+    void *image = ImageData;
+    if (image == 0 && IsFileLoaded) {
         ((IsometricTileTypeClass *)this)->Load_Tile_Data();
-        image = unknown_a4;
+        image = ImageData;
     }
     return image;
 }
@@ -320,7 +320,7 @@ IsometricTileTypeClass *IsometricTileTypeClass::Next_Tile_From_Set(int index)
     }
     IsometricTileTypeClass *next = this;
     do {
-        next = (IsometricTileTypeClass *)next->unknown_28c;
+        next = (IsometricTileTypeClass *)next->NextTileTypeInSet;
     } while (--i != 0);
     return next;
 }
@@ -785,18 +785,18 @@ void __fastcall Unknown_00529870(int theater, bool from_ccfile)
                     tile->NonMarbleMadness = _NonMarbleMadness;
                     tile->unknown_2b0 = _Morphable;
                     tile->IsAllowToPlace = _AllowToPlace;
-                    tile->unknown_2d5 = _AllowBurrowing;
+                    tile->IsAllowBurrowing = _AllowBurrowing;
                     tile->unknown_2d6 = _AllowTiberium;
                     tile->IsRequiredForRMG = _RequiredForRMG;
-                    tile->unknown_a4 = 0;
-                    tile->unknown_a8 = false;
+                    tile->ImageData = 0;
+                    tile->ImageAllocated = false;
                     tile->ToSnowTheater = _ToSnowTheater;
                     tile->ToTemperateTheater = _ToTemperateTheater;
                     if (is_shadow_caster && shadow_tiles) {
                         tile->IsShadowCaster = is_shadow_caster;
                     }
                     if (from_ccfile) {
-                        tile->unknown_2c4 = true;
+                        tile->IsFileLoaded = true;
                     }
                     tile->TileSetBaseID = TileSetIDLookup[TileSetLookupCount - 1];
                     tile->unknown_274.Clear();
@@ -873,24 +873,24 @@ void __fastcall Unknown_00529870(int theater, bool from_ccfile)
                     tile->NonMarbleMadness = _NonMarbleMadness;
                     tile->unknown_2b0 = _Morphable;
                     tile->IsAllowToPlace = _AllowToPlace;
-                    tile->unknown_2d5 = _AllowBurrowing;
+                    tile->IsAllowBurrowing = _AllowBurrowing;
                     tile->unknown_2d6 = _AllowTiberium;
                     tile->IsRequiredForRMG = _RequiredForRMG;
                     if (from_ccfile) {
-                        tile->unknown_2c4 = true;
+                        tile->IsFileLoaded = true;
                         strncpy(tile->Filename, file_path, sizeof(tile->Filename) - 2);
                     }
                     if (is_shadow_caster && shadow_tiles) {
                         tile->IsShadowCaster = is_shadow_caster;
                     }
                     tile->TileSetBaseID = TileSetIDLookup[TileSetLookupCount - 1];
-                    tail_tile->unknown_28c = tile;
+                    tail_tile->NextTileTypeInSet = tile;
                     tile->unknown_274.Clear();
                     tail_tile = tile;
                 }
 
                 if (tile_count == 0 || mixfile_set) {
-                    tile->unknown_a4 = mixfile_set;
+                    tile->ImageData = mixfile_set;
                 }
 
                 if (mixfile_set != 0) {
@@ -916,7 +916,7 @@ void __fastcall Unknown_00529870(int theater, bool from_ccfile)
                 IsometricTileTypeClass *tile = head_tile;
                 for (char t = tile_count; t > 1; t--) {
                     tile->NumTileTypesInSet = t;
-                    tile = (IsometricTileTypeClass *)tile->unknown_28c;
+                    tile = (IsometricTileTypeClass *)tile->NextTileTypeInSet;
                 }
             }
         }
@@ -983,21 +983,21 @@ void __fastcall IsometricTileTypeClass::Load_Tiles(bool skip_iteration, bool is_
         }
         ptr = IsoTileTypes[i];
         while (ptr != 0) {
-            if (ptr->unknown_2c4 && strlen(ptr->Filename)) {
+            if (ptr->IsFileLoaded && strlen(ptr->Filename)) {
                 if (!skip_iteration && ptr->UseCount == 0 && (!is_random || !ptr->IsRequiredForRMG)) {
-                    if (ptr->unknown_a4 != 0) {
-                        delete [] (unsigned char *)ptr->unknown_a4;
-                        ptr->unknown_a4 = 0;
-                        ptr->unknown_a8 = false;
+                    if (ptr->ImageData != 0) {
+                        delete [] (unsigned char *)ptr->ImageData;
+                        ptr->ImageData = 0;
+                        ptr->ImageAllocated = false;
                     }
                 } else {
-                    if (ptr->unknown_a4 == 0) {
+                    if (ptr->ImageData == 0) {
                         bytes += ptr->Load_Tile_Data();
                         tile_count++;
                     }
                 }
             }
-            ptr = (IsometricTileTypeClass *)ptr->unknown_28c;
+            ptr = (IsometricTileTypeClass *)ptr->NextTileTypeInSet;
         }
     }
     Debug_Printf("Loaded %d isometric tiles consuming %d Kb\n", tile_count, bytes / 1024);
@@ -1012,21 +1012,21 @@ int IsometricTileTypeClass::Load_Tile_Data()
 {
     CCFileClass file(Filename);
     int size = file.Size();
-    if (unknown_a4 != 0) {
-        delete [] (unsigned char *)unknown_a4;
+    if (ImageData != 0) {
+        delete [] (unsigned char *)ImageData;
     }
     unsigned char *data = new unsigned char[size];
-    unknown_a4 = data;
+    ImageData = data;
     file.Read(data, size);
-    unknown_a8 = true;
+    ImageAllocated = true;
 
-    IsoTileImageStruct *image = (IsoTileImageStruct *)unknown_a4;
+    IsoTileImageStruct *image = (IsoTileImageStruct *)ImageData;
     unknown_2b4 = (unsigned char)image->unknown_00[0];
     unknown_2b8 = (unsigned char)image->unknown_00[1];
 
     for (int i = 0; i < unknown_2b4 * unknown_2b8; i++) {
         if (image->Tiles[i] != 0) {
-            unsigned char *ptr = (unsigned char *)unknown_a4;
+            unsigned char *ptr = (unsigned char *)ImageData;
             if ((unsigned char *)image->Tiles[i] < ptr) {
                 image->Tiles[i] = (int)(ptr + image->Tiles[i]);
             }
@@ -1043,7 +1043,7 @@ void IsometricTileTypeClass::Clear_Use_Counts()
 {
     IsometricTileTypeClass *type;
     for (int i = 0; i < IsoTileTypes.Count(); i++) {
-        for (type = IsoTileTypes[i]; type != 0; type = (IsometricTileTypeClass *)type->unknown_28c) {
+        for (type = IsoTileTypes[i]; type != 0; type = (IsometricTileTypeClass *)type->NextTileTypeInSet) {
             type->UseCount = 0;
         }
     }
@@ -1106,7 +1106,7 @@ bool IsometricTileTypeClass::Is_Randomized(int tile) const
 // int offset) (0x0052B770)
 #include "shared/palette.hpp"
 
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 
 void IsometricTileTypeClass::Draw_Shadow_Caster(int index, Surface *surface, Point2D point, Rect cliprect, int offset)
 {
@@ -1163,8 +1163,8 @@ void IsometricTileTypeClass::Draw_Shadow_Caster(int index, Surface *surface, Poi
     if (can_draw) {
         point.X += x;
         point.Y += y;
-        point.X += unknown_rect_839630.X;
-        point.Y += unknown_rect_839630.Y;
+        point.X += TacticalRect.X;
+        point.Y += TacticalRect.Y;
         point.X -= cliprect.X;
         point.Y -= cliprect.Y;
         CC_Draw_Shape(surface, TileDrawers[0], (ShapeFileStruct const *)unknown_block_a6e38c,
@@ -1271,7 +1271,7 @@ Cell const *IsometricTileTypeClass::Shadow_Caster_List() const
 #include "shared/blit.hpp"
 #include "shared/alpha_table_cache.hpp"
 // The tactical area (0x00839630; shared/display.hpp).
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 #include "shared/rules.hpp"
 #include "shared/always.hpp"
 
@@ -1428,7 +1428,7 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
             if (cell_variation != 0) {
                 IsometricTileTypeClass const * next = tileptr;
                 for (; cell_variation != 0; --cell_variation) {
-                    next = (IsometricTileTypeClass const *)next->unknown_28c;
+                    next = (IsometricTileTypeClass const *)next->NextTileTypeInSet;
                 }
                 if (next != tileptr) {
                     next->Draw_Tile(drawer, subtile, surface, x, y, cliprect, height, brightness, use_z, 0, fill, depth_only, fog, fog_color);
@@ -1591,10 +1591,10 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
                         if (!record->IsHasZData) {
                             use_z = false;
                         } else if (use_z) {
-                            IsoDrawData.DepthPtr = DepthBuffer->Get_Buffer_Offset(Point2D(lock_x, work.Y - unknown_rect_839630.Y));
+                            IsoDrawData.DepthPtr = DepthBuffer->Get_Buffer_Offset(Point2D(lock_x, work.Y - TacticalRect.Y));
                             IsoDrawData.DepthWidth = DepthBuffer->Width;
                         }
-                        IsoDrawData.AlphaPtr = AlphaBuffer->Get_Buffer_Offset(Point2D(lock_x, work.Y - unknown_rect_839630.Y));
+                        IsoDrawData.AlphaPtr = AlphaBuffer->Get_Buffer_Offset(Point2D(lock_x, work.Y - TacticalRect.Y));
                         IsoDrawData.AlphaWidth = AlphaBuffer->Width;
                         IsoDrawData.SrcPixel = (int)(record + 1);
                         unsigned char const * image = (unsigned char const *)IsoDrawData.SrcPixel;
@@ -1930,10 +1930,10 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
                             IsoDrawData.ImageRowStep = record->ExtraWidth - IsoDrawData.SpanWidth;
                             IsoDrawData.SurfacePitch = surface.Stride() - IsoDrawData.SpanWidth * surface.Bytes_Per_Pixel();
                             if (use_z) {
-                                IsoDrawData.DepthPtr = (unsigned short *)DepthBuffer->Get_Buffer_Offset(Point2D(ex, ey - unknown_rect_839630.Y));
+                                IsoDrawData.DepthPtr = (unsigned short *)DepthBuffer->Get_Buffer_Offset(Point2D(ex, ey - TacticalRect.Y));
                                 IsoDrawData.DepthWidth = DepthBuffer->Width - IsoDrawData.SpanWidth;
                             }
-                            IsoDrawData.AlphaPtr = (unsigned short *)AlphaBuffer->Get_Buffer_Offset(Point2D(ex, ey - unknown_rect_839630.Y));
+                            IsoDrawData.AlphaPtr = (unsigned short *)AlphaBuffer->Get_Buffer_Offset(Point2D(ex, ey - TacticalRect.Y));
                             IsoDrawData.AlphaWidth = AlphaBuffer->Width - IsoDrawData.SpanWidth;
                             IsoDrawData.DestPtr = (unsigned short *)surface.Lock(Point2D(ex, ey));
                             if (IsoDrawData.DestPtr != NULL) {
@@ -2231,7 +2231,7 @@ extern Cell const unknown_cell_a52eac;
 
 ObjectClass *IsometricTileTypeClass::Create_One_Of(HouseClass *house) const
 {
-    if (unknown_a4 == 0 && unknown_2c4) {
+    if (ImageData == 0 && IsFileLoaded) {
         const_cast<IsometricTileTypeClass *>(this)->Load_Tile_Data();
     }
     return new IsometricTileClass(ArrayIndex, unknown_cell_a52eac);
@@ -2289,8 +2289,8 @@ void IsometricTileTypeClass::Compute_CRC(WWCRCEngine &crc) const
     crc((long)NonMarbleMadness);
     crc((long)TileSetBaseID);
     crc((long)unknown_274.Count());
-    if (unknown_28c != 0) {
-        crc(unknown_28c->Fetch_ID());
+    if (NextTileTypeInSet != 0) {
+        crc(NextTileTypeInSet->Fetch_ID());
     }
     crc((long)ToSnowTheater);
     crc((long)ToTemperateTheater);
@@ -2325,7 +2325,7 @@ HRESULT __stdcall IsometricTileTypeClass::Load(IStream *stream)
         return result;
     }
     new (this) IsometricTileTypeClass(NoInitClass());
-    Swizzler.Swizzle((void **)&unknown_28c);
+    Swizzler.Swizzle((void **)&NextTileTypeInSet);
 
     for (index = 0; index < TileDrawers.Count(); index++) {
         TileDrawers[index] = 0;
@@ -2368,8 +2368,8 @@ HRESULT __stdcall IsometricTileTypeClass::GetClassID(GUID *clsid)
 
 void IsometricTileTypeClass::Detach(AbstractClass *target, bool all)
 {
-    if (unknown_28c == target) {
-        unknown_28c = 0;
+    if (NextTileTypeInSet == target) {
+        NextTileTypeInSet = 0;
     }
     if (unknown_298 != -1 && AnimTypes[unknown_298] == target) {
         unknown_298 = -1;
@@ -2396,7 +2396,7 @@ void IsometricTileTypeClass::Build_Preview_Tiles()
 {
     int i;
     int j;
-    IsoTileImageStruct *tileset = (IsoTileImageStruct *)unknown_a4;
+    IsoTileImageStruct *tileset = (IsoTileImageStruct *)ImageData;
     for (i = 0; i < unknown_274.Count(); i++) {
         if (unknown_274[i] != 0) {
             delete [] unknown_274[i];

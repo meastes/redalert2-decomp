@@ -6,11 +6,11 @@
 // @ref ?Unknown_004B1470@@YAXXZ=004b1470
 // @ref ?Restore_Video_Mode_00495e90@@YAXXZ=00495e90
 // @ref ?unknown_flag_abd48d@@3_NA=00abd48d
-// @ref ?unknown_surface_839944@@3PAVSurface@@A=00839944
+// @ref ?TileSurface@@3PAVSurface@@A=00839944
 #include "shared/dsurface.hpp"
 #include "shared/unknown_globals.hpp"
 
-extern Surface *unknown_surface_839944;
+extern Surface *TileSurface;
 extern bool unknown_flag_abd48d;
 void Unknown_004B1470();
 void __cdecl Restore_Video_Mode_00495e90();
@@ -29,17 +29,17 @@ void Unknown_Free_Screen_Surfaces_0068E1C0()
             delete AlternateSurface;
             AlternateSurface = 0;
         }
-        if (unknown_surface_839944 != 0) {
-            delete unknown_surface_839944;
-            unknown_surface_839944 = 0;
+        if (TileSurface != 0) {
+            delete TileSurface;
+            TileSurface = 0;
         }
         if (SidebarSurface != 0) {
             delete SidebarSurface;
             SidebarSurface = 0;
         }
-        if (unknown_surface_839964 != 0) {
-            delete unknown_surface_839964;
-            unknown_surface_839964 = 0;
+        if (CompositeSurface != 0) {
+            delete CompositeSurface;
+            CompositeSurface = 0;
         }
         if (VisibleSurface != 0) {
             delete VisibleSurface;

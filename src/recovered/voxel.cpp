@@ -260,7 +260,7 @@ void __fastcall Get_Screen_Slope_Matrix(int index, Matrix3D *matrix)
 }
 
 
-Matrix3D * __fastcall Unknown_00718D60(Matrix3D *matrix, int ramp)
+Matrix3D * __fastcall Get_Slope_Matrix(Matrix3D *matrix, int ramp)
 {
     *matrix = SlopeMatrices[ramp];
     return matrix;

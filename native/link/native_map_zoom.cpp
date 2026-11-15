@@ -31,7 +31,7 @@
 #include <stdio.h>
 
 Rect __fastcall Get_Title_Screen_Area_006f1f30();     // the tactical rectangle for the screen (0x006F1F30)
-extern Rect unknown_rect_839630;        // the view rectangle Set_View_Dimensions keeps
+extern Rect TacticalRect;        // the view rectangle Set_View_Dimensions keeps
 
 // The host's side (platform/sdl/enhancements.cpp). Weak defaults: a build without the SDL
 // host keeps the original view.
@@ -136,7 +136,7 @@ void apply_zoom()
     // The world pixel under the anchor now: the view's origin (its centre less half the view) and
     // the fraction shown past it.
     Point2D origin0 = view_origin(tactical);
-    Rect const view0 = unknown_rect_839630;
+    Rect const view0 = TacticalRect;
     double wx = origin0.X + show_ox + ax / z0;
     double wy = origin0.Y + show_oy + ay / z0;
     game_zoom = z1;
@@ -145,7 +145,7 @@ void apply_zoom()
     if (view1.Width != view0.Width || view1.Height != view0.Height) {
         Map.unknown_slot42(full);    // Set_View_Dimensions: the game's view takes the new size
     }
-    Rect const &view = unknown_rect_839630;
+    Rect const &view = TacticalRect;
     // The new origin, split into whole pixels for the game and the fraction shown.
     double ox = wx - ax / z1, oy = wy - ay / z1;
     int tx = (int)ox, ty = (int)oy;
@@ -208,7 +208,7 @@ int Native_Sidebar_Bottom(int view_bottom)
 void Native_Tooltip_Zoom(bool map_side, int *x, int *y, int width, int height)
 {
     if (!zoomed || !map_side) return;
-    Rect const &view = unknown_rect_839630;
+    Rect const &view = TacticalRect;
     if (*x >= view.X && *y >= view.Y && *x + width <= view.X + view.Width && *y + height <= view.Y + view.Height) return;
     int nx = view.X + (int)((*x - view.X) / view_zoom);
     int ny = view.Y + (int)((*y - view.Y) / view_zoom);
@@ -270,14 +270,14 @@ void Native_Map_Zoom_Start()
         double cx = 0, cy = 0;
         if (t) {
             Point2D o = view_origin(t);
-            cx = asked ? asked_at.X : o.X + unknown_rect_839630.Width / 2.0;
-            cy = asked ? asked_at.Y : o.Y + unknown_rect_839630.Height / 2.0;
+            cx = asked ? asked_at.X : o.X + TacticalRect.Width / 2.0;
+            cy = asked ? asked_at.Y : o.Y + TacticalRect.Height / 2.0;
         }
         Map.unknown_slot42(tactical);
         if (t) {
             show_ox = show_oy = 0;
             set_view_origin(t, (int)(cx - show_w / 2), (int)(cy - show_h / 2));
-            report_show(unknown_rect_839630);
+            report_show(TacticalRect);
         }
         Map.Flag_To_Redraw(2);
     }

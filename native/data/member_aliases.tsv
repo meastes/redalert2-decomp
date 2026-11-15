@@ -63,22 +63,22 @@ _unknown_flag_839c4c	_WinVersion	140	140	exact	unknown_flag_839c4c	WinVersion	Ma
 _unknown_text_buffer_a40a34	_serial_manager_00a40a28	24	12	exact	unknown_text_buffer_a40a34	serial_manager_00a40a28	base:class ConnManClass.ReceiveBuf	char*	char *	152
 _unknown_text_capacity_a40a38	_serial_manager_00a40a28	32	16	exact	unknown_text_capacity_a40a38	serial_manager_00a40a28	base:class ConnManClass.ReceiveLen	int	int	152
 _unknown_text_length_a40a3c	_serial_manager_00a40a28	36	20	exact	unknown_text_length_a40a3c	serial_manager_00a40a28	base:class ConnManClass.ReceiveIndex	int	int	152
-_Tiberiums_ActiveCount_00ac0b40	_unknown_TiberiumClass_list_00ac0b30	24	16	exact	Tiberiums_ActiveCount_00ac0b40	unknown_TiberiumClass_list_00ac0b30	base:class VectorClass<class TiberiumClass *>.ActiveCount	int	int	32
+_Tiberiums_ActiveCount_00ac0b40	_Tiberiums	24	16	exact	Tiberiums_ActiveCount_00ac0b40	Tiberiums	base:class VectorClass<class TiberiumClass *>.ActiveCount	int	int	32
 _DAT_00ad0940	_unknown_VoxClass_list_00ad0930	24	16	exact	DAT_00ad0940	unknown_VoxClass_list_00ad0930	base:class VectorClass<class VoxClass *>.ActiveCount	int	int	32
 _g4_735d70_b25dcc	_unknown_font_cache_b25dc8	4	4	compatible	g4_735d70_b25dcc	unknown_font_cache_b25dc8	Count.Max	unsigned int	int	16
 _unknown_mono_leading_a70eb0	_unknown_mono_metrics_a70ea0	16	16	exact	unknown_mono_leading_a70eb0	unknown_mono_metrics_a70ea0	tmHeight.tmExternalLeading	int	LONG	56
 _unknown_mono_width_a70eb8	_unknown_mono_metrics_a70ea0	24	24	exact	unknown_mono_width_a70eb8	unknown_mono_metrics_a70ea0	tmHeight.tmMaxCharWidth	int	LONG	56
 _unknown_int_af8fe8	_IngameVQ	24	16	exact	unknown_int_af8fe8	IngameVQ	base:class VectorClass<class MovieHandle *>.ActiveCount	int	int	32
-_unknown_beacon_cycle_84e93c	_unknown_object_84e8d0	204	108	exact	unknown_beacon_cycle_84e93c	unknown_object_84e8d0	unknown_00.unknown_6c	int	int	240
-_unknown_beacon_phase_84e948	_unknown_object_84e8d0	216	120	exact	unknown_beacon_phase_84e948	unknown_object_84e8d0	unknown_00.unknown_78	int	int	240
+_unknown_beacon_cycle_84e93c	_BeaconManager	204	108	exact	unknown_beacon_cycle_84e93c	BeaconManager	unknown_00.unknown_6c	int	int	240
+_unknown_beacon_phase_84e948	_BeaconManager	216	120	exact	unknown_beacon_phase_84e948	BeaconManager	unknown_00.unknown_78	int	int	240
 _DAT_00a40c70	_CurrentObject	24	16	exact	DAT_00a40c70	CurrentObject	base:class VectorClass<class ObjectClass *>.ActiveCount	int	int	32
 _unknown_player_checked_b28dcc	_unknown_player_ready_b28dc4	8	8	exact	unknown_player_checked_b28dcc	unknown_player_ready_b28dc4	unknown_player_ready_b28dc4[8]	bool[8]	bool[9]	9
 _unknown_int_839624	_unknown_rect_839620	4	4	exact	unknown_int_839624	unknown_rect_839620	X.Y	int	int	16
 _unknown_int_839628	_unknown_rect_839620	8	8	exact	unknown_int_839628	unknown_rect_839620	X.Width	int	int	16
 _unknown_int_83962c	_unknown_rect_839620	12	12	exact	unknown_int_83962c	unknown_rect_839620	X.Height	int	int	16
-_unknown_int_839634	_unknown_rect_839630	4	4	exact	unknown_int_839634	unknown_rect_839630	X.Y	int	int	16
-_unknown_int_839638	_unknown_rect_839630	8	8	exact	unknown_int_839638	unknown_rect_839630	X.Width	int	int	16
-_unknown_int_83963c	_unknown_rect_839630	12	12	exact	unknown_int_83963c	unknown_rect_839630	X.Height	int	int	16
+_unknown_int_839634	_TacticalRect	4	4	exact	unknown_int_839634	TacticalRect	X.Y	int	int	16
+_unknown_int_839638	_TacticalRect	8	8	exact	unknown_int_839638	TacticalRect	X.Width	int	int	16
+_unknown_int_83963c	_TacticalRect	12	12	exact	unknown_int_83963c	TacticalRect	X.Height	int	int	16
 _unknown_int_ab633c	_unknown_rect_ab6338	4	4	exact	unknown_int_ab633c	unknown_rect_ab6338	X.Y	int	int	16
 _unknown_int_ab6340	_unknown_rect_ab6338	8	8	exact	unknown_int_ab6340	unknown_rect_ab6338	X.Width	int	int	16
 _unknown_int_ab6344	_unknown_rect_ab6338	12	12	exact	unknown_int_ab6344	unknown_rect_ab6338	X.Height	int	int	16

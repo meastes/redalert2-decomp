@@ -99,7 +99,7 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
     }
     int turret_key=key;
     if (turret_key!=-1) {
-        turret_key=(turret_key&~31)|unknown_2f8.Current().As_Dir32();
+        turret_key=(turret_key&~31)|SecondaryFacing.Current().As_Dir32();
         if (Techno_Type_Class()->TurretOffset==0) turret_key&=0xfffffc1f;
     }
     if (!type->Turret && (!unknown_6d83e0() || !Has_Current_Turret())) {
@@ -122,7 +122,7 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
         Matrix3D barrel_matrix;
         if (!cached_turret || (has_barrel && !cached_barrel)) {
             main_matrix.Translate_X((float)(type->TurretOffset*unknown_geometry_c));
-            main_matrix.Rotate_Z((float)(unknown_2f8.Current().As_Radian32()-unknown_2e0.Current().As_Radian32()));
+            main_matrix.Rotate_Z((float)(SecondaryFacing.Current().As_Radian32()-PrimaryFacing.Current().As_Radian32()));
             Matrix3D barrel;
             barrel=main_matrix;
             Vector3 translation=Unit_Matrix_Translation_007005b0(main_matrix);
@@ -137,7 +137,7 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
         }
         bool barrel_above;
         if (unknown_6d83e0()) {
-            if (Unit_Is_Barrel_Ahead_006ff690(unknown_2f8)) barrel_above=true;
+            if (Unit_Is_Barrel_Ahead_006ff690(SecondaryFacing)) barrel_above=true;
             else {
                 barrel_above=false;
                 if (has_barrel) unknown_slot246(type->unknown_140[turret_index],0,turret_key,&type->unknown_250,cliprect,drawpoint,barrel_matrix,brightness,0x2800);
@@ -145,7 +145,7 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
             unknown_slot246(type->unknown_c8[turret_index],frame,turret_key,&type->unknown_228,cliprect,drawpoint,turret_matrix,brightness,0x2800);
             if (barrel_above && has_barrel) unknown_slot246(type->unknown_140[turret_index],0,turret_key,&type->unknown_250,cliprect,drawpoint,barrel_matrix,brightness,0x2800);
         } else {
-            if (Unit_Is_Barrel_Ahead_006ff690(unknown_2f8)) barrel_above=true;
+            if (Unit_Is_Barrel_Ahead_006ff690(SecondaryFacing)) barrel_above=true;
             else {
                 barrel_above=false;
                 if (Unit_Voxel_Loaded_007005b0(type->unknown_c0)) unknown_slot246(type->unknown_c0,0,turret_key,&type->unknown_250,cliprect,drawpoint,barrel_matrix,brightness,0x2800);

@@ -107,7 +107,7 @@
 
 AnimClass::AnimClass(AnimTypeClass const *type, CoordStruct const &coord, int loop_delay, int loops, int flags, int zadjust) :
     Class((AnimTypeClass *)type),
-    unknown_b4(0),
+    xObject(0),
     unknown_b8(-1),
     unknown_bc(0),
     unknown_c0(-1),
@@ -174,7 +174,7 @@ AnimClass::AnimClass(AnimTypeClass const *type, CoordStruct const &coord, int lo
     }
     Stage = 0;
     if (Class->Layer == 3 || Class->Layer == 4) {
-        Set_Height(Rules->unknown_6dc);
+        Set_Height(Rules->FlightLevel);
     } else {
         ObjectClass::Set_Height_AGL(0);
     }
@@ -217,8 +217,8 @@ AnimClass::AnimClass(AnimTypeClass const *type, CoordStruct const &coord, int lo
         }
     }
     if (Class == Rules->DropZoneAnim) {
-        Map.Sight_From(coord, Rules->DropZoneRadius / 256, unknown_player_a35db4, false, 0, 0, true, 0);
-        Map.Sight_From(coord, Rules->DropZoneRadius / 256, unknown_player_a35db4, false, 0, 0, true, 1);
+        Map.Sight_From(coord, Rules->DropZoneRadius / 256, PlayerPtr, false, 0, 0, true, 0);
+        Map.Sight_From(coord, Rules->DropZoneRadius / 256, PlayerPtr, false, 0, 0, true, 1);
     }
     if (loops <= 1) {
         loops = 1;
@@ -236,7 +236,7 @@ AnimClass::AnimClass(AnimTypeClass const *type, CoordStruct const &coord, int lo
 
 AnimClass::AnimClass() :
     Class(0),
-    unknown_b4(0),
+    xObject(0),
     unknown_b8(-1),
     unknown_bc(0),
     unknown_c0(-1),
@@ -281,12 +281,12 @@ AnimClass::~AnimClass()
 {
     Unknown_006ECB90(this, true);
     if (GameActive) {
-        if (unknown_b4 != 0) {
-            ObjectClass *object = unknown_b4;
+        if (xObject != 0) {
+            ObjectClass *object = xObject;
             int index;
             for (index = 0; index < Anims.Count(); index++) {
                 AnimClass *anim = Anims[index];
-                if (anim != this && anim->unknown_b4 == object) {
+                if (anim != this && anim->xObject == object) {
                     break;
                 }
             }
@@ -294,7 +294,7 @@ AnimClass::~AnimClass()
                 object->Fire_Out();
                 object->unknown_78 = false;
             }
-            unknown_b4 = 0;
+            xObject = 0;
         }
         Limbo();
     }
@@ -304,7 +304,7 @@ AnimClass::~AnimClass()
     unknown_194.Unknown_00406070();
     unknown_180.Unknown_00405C10();
     unknown_194.Unknown_00405C10();
-    unknown_b4 = 0;
+    xObject = 0;
     Class = 0;
     if (Fetch_ID() == -2) {
         unknown_anims_a35e60.Delete(this);
@@ -338,7 +338,7 @@ void __fastcall Shorten_Attached_Anims(ObjectClass *object)
     if (object != 0) {
         for (int index = 0; index < Anims.Count(); index++) {
             AnimClass *anim = Anims[index];
-            if (anim->unknown_b4 == object) {
+            if (anim->xObject == object) {
                 anim->Loops = 0;
             }
         }
@@ -434,7 +434,7 @@ void AnimClass::Draw_It(Point2D const &point, Rect const &cliprect)
             ConvertClass *convert;
 
             if (Class->IsVeins) {
-                convert = ColorSchemes[unknown_player_a35db4->ColorSchemeIndex]->Converter;
+                convert = ColorSchemes[PlayerPtr->ColorSchemeIndex]->Converter;
                 if (!Class->UseNormalLight) {
                     brightness = Map[unknown_slot42()].unknown_10c;
                 }
@@ -473,7 +473,7 @@ void AnimClass::Draw_It(Point2D const &point, Rect const &cliprect)
                 bool done = false;
                 int height_offset = ZAdjust + Class->YDrawOffset - Unknown_006A2970(Get_Height()) - 50;
                 while (!done) {
-                    CC_Draw_Shape(LogicalSurface, Unit_Draw_Convert_008323C0, shapefile, shapenum, Point2D(origin.X, drawpoint.Y + Class->YDrawOffset), unknown_rect_839630, flags | 0x2000, 0, height_offset, 2, brightness, 0, 0, Point2D(0, 0));
+                    CC_Draw_Shape(LogicalSurface, Unit_Draw_Convert_008323C0, shapefile, shapenum, Point2D(origin.X, drawpoint.Y + Class->YDrawOffset), TacticalRect, flags | 0x2000, 0, height_offset, 2, brightness, 0, 0, Point2D(0, 0));
                     if (drawpoint.Y < 0) done = true;
                     drawpoint.Y -= frameheight;
                     height_offset -= frameheight + frameheight / 2;
@@ -559,7 +559,7 @@ int AnimClass::unknown_slot116()
 
 // AnimClass AI 00421710: RA2 visibility, bounce effects, tiberium and frame lifecycle.
 extern DynamicVectorClass<OverlayTypeClass *> OverlayTypes;
-extern Rect unknown_rect_839630;
+extern Rect TacticalRect;
 bool __fastcall Building_Player_Detector_Covers_Cell_00438a60(HouseClass const *house, CellClass const *cell);
 void AnimClass::AI()
 {
@@ -633,7 +633,7 @@ void AnimClass::AI()
                                     unsigned char data=(unsigned char)Random_Pick(0,2);
                                     cell->OverlayData=data;
                                     Rect overlay=cell->Overlay_Render_Rect();
-                                    overlay.Y-=unknown_rect_839630.Y;
+                                    overlay.Y-=TacticalRect.Y;
                                     update=Union(update,overlay);
                                 }
                             }
@@ -671,13 +671,13 @@ void AnimClass::AI()
         if (!unknown_17e && !unknown_102 && StageClass::Graphic_Logic()) {
             int stage=Stage;
             if (Class->Damage>0.0 && !unknown_174) {
-                if (unknown_b4 && unknown_b4->Kind_Of()==36) unknown_168+=Class->Damage*5.0;
+                if (xObject && xObject->Kind_Of()==36) unknown_168+=Class->Damage*5.0;
                 else unknown_168+=Class->Damage;
                 if (unknown_168>=1.0 && !unknown_178) {
                     int damage=(int)unknown_168;
                     unknown_168-=damage;
                     if (strcmp(Class->ID,"INVISO")==0)
-                        Unknown_0047E2C0(Center_Coord(),damage,0,Rules->unknown_c74,1);
+                        Unknown_0047E2C0(Center_Coord(),damage,0,Rules->C4Warhead,1);
                     else Unknown_0047E2C0(Center_Coord(),damage,0,Rules->FlameDamage2,1);
                     if (!IsActive) return;
                 }
@@ -738,8 +738,8 @@ void AnimClass::AI()
 
 void AnimClass::Attach_To(ObjectClass *object)
 {
-    if (unknown_b4 != 0) {
-        ObjectClass *old = unknown_b4;
+    if (xObject != 0) {
+        ObjectClass *old = xObject;
         bool on_map = unknown_74;
         if (on_map) {
             Map.Remove(this);
@@ -747,7 +747,7 @@ void AnimClass::Attach_To(ObjectClass *object)
         int index;
         for (index = 0; index < Anims.Count(); index++) {
             AnimClass *anim = Anims[index];
-            if (anim != this && anim->unknown_b4 == unknown_b4) {
+            if (anim != this && anim->xObject == xObject) {
                 break;
             }
         }
@@ -756,7 +756,7 @@ void AnimClass::Attach_To(ObjectClass *object)
             old->unknown_78 = false;
         }
         CoordStruct coord = Center_Coord();
-        unknown_b4 = 0;
+        xObject = 0;
         Set_Coord(coord);
         if (on_map) {
             Map.Submit(this);
@@ -766,7 +766,7 @@ void AnimClass::Attach_To(ObjectClass *object)
         CoordStruct coord = Center_Coord();
         Map.Remove(this);
         object->unknown_78 = true;
-        unknown_b4 = object;
+        xObject = object;
         CoordStruct offset = coord - object->Center_Coord();
         Set_Coord(offset);
         Map.Submit(this);
@@ -792,7 +792,7 @@ void Leaf_422690::get(unsigned int house) { unsigned int animation_address = (un
 
 int AnimClass::In_Which_Layer() const
 {
-    if (unknown_b4 != 0) {
+    if (xObject != 0) {
         return 2;
     }
     if (Class != 0) {
@@ -837,7 +837,7 @@ void AnimClass::unknown_func_4226d0()
             }
             {
                 CoordStruct coord = Coord;
-                Unknown_0047E2C0(coord, Rules->unknown_488, 0, Rules->unknown_c74, 0);
+                Unknown_0047E2C0(coord, Rules->unknown_488, 0, Rules->C4Warhead, 0);
             }
             cell->Recalc_Attributes(-1);
             Map.Update_Cell_Zone(cell->unknown_24);
@@ -889,9 +889,9 @@ void AnimClass::Middle()
 void AnimClass::Detach(AbstractClass *target, bool all)
 {
     ObjectClass::Detach(target, all);
-    if (unknown_b4 == target) {
+    if (xObject == target) {
         Map.Remove(this);
-        unknown_b4 = 0;
+        xObject = 0;
         unknown_17b = true;
         Mark(0);
     }
@@ -907,7 +907,7 @@ void AnimClass::Detach(AbstractClass *target, bool all)
 
 // void __fastcall Unknown_00422BA0(int arg1, Cell const &cell) (0x00422BA0)
 // Damages the center of a cell with the rules' values (+0x1190, warhead
-// +0xC60); in game mode 0 it also hands unknown_481fb0 to 0x004955D0 (30).
+// +0xC60); in game mode 0 it also hands Call_Back to 0x004955D0 (30).
 // Called from BulletClass's AI; arg1 is not read.
 
 void __fastcall Unknown_00422BA0(int arg1, Cell const &cell)
@@ -918,7 +918,7 @@ void __fastcall Unknown_00422BA0(int arg1, Cell const &cell)
     coord.Y = cell.Y * 256 + 128;
     Unknown_0047E2C0(coord, Rules->unknown_1190, 0, Rules->unknown_c60, 0);
     if (unknown_game_mode_a3d298 == 0) {
-        Set_Palette(&GamePalette, 30, unknown_481fb0);
+        Set_Palette(&GamePalette, 30, Call_Back);
     }
 }
 
@@ -953,7 +953,7 @@ HRESULT __stdcall AnimClass::Load(IStream *stream)
         unknown_180.Init();
         unknown_194.Init();
         Swizzle_Pointer(Class);
-        Swizzle_Pointer(unknown_b4);
+        Swizzle_Pointer(xObject);
         Swizzle_Pointer(unknown_15c);
         if (unknown_c0 > -1) {
             if (unknown_c0 < ColorSchemes.Count()) {
@@ -1003,8 +1003,8 @@ save:
 void AnimClass::Compute_CRC(WWCRCEngine &crc) const
 {
     ObjectClass::Compute_CRC(crc);
-    if (unknown_b4 != 0) {
-        crc(unknown_b4->Fetch_ID());
+    if (xObject != 0) {
+        crc(xObject->Fetch_ID());
     }
     crc((long)unknown_b8);
     crc((long)unknown_e4);
@@ -1116,9 +1116,9 @@ void AnimClass::Delete_Me()
 int AnimClass::Get_Height() const
 {
     CoordStruct coord = Coord;
-    if (unknown_b4 != 0) {
+    if (xObject != 0) {
         int z = coord.Z;
-        coord = unknown_b4->Coord;
+        coord = xObject->Coord;
         return z + coord.Z;
     }
     return coord.Z;

@@ -661,7 +661,7 @@ bool __fastcall MissionClass::Is_Recruitable_Mission(int mission)
     if (mission == -1) {
         return true;
     }
-    return MissionControl[mission].unknown_06;
+    return MissionControl[mission].IsRecruitable;
 }
 
 
@@ -676,7 +676,7 @@ MissionControlClass::MissionControlClass() :
     Mission(-1),
     unknown_04(false),
     unknown_05(false),
-    unknown_06(true),
+    IsRecruitable(true),
     unknown_07(false),
     unknown_08(true),
     unknown_09(true),
@@ -717,7 +717,7 @@ bool MissionControlClass::Read_INI(CCINIClass &ini)
     if (ini.Is_Present(Name())) {
         unknown_04 = ini.Get_Bool(Name(), "NoThreat", unknown_04);
         unknown_05 = ini.Get_Bool(Name(), "Zombie", unknown_05);
-        unknown_06 = ini.Get_Bool(Name(), "Recruitable", unknown_06);
+        IsRecruitable = ini.Get_Bool(Name(), "Recruitable", IsRecruitable);
         unknown_07 = ini.Get_Bool(Name(), "Paralyzed", unknown_07);
         unknown_08 = ini.Get_Bool(Name(), "Retaliate", unknown_08);
         unknown_09 = ini.Get_Bool(Name(), "Scatter", unknown_09);

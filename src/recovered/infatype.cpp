@@ -588,7 +588,7 @@ CoordStruct InfantryTypeClass::Lepton_Dimensions() const
 int InfantryTypeClass::Repair_Step() const
 {
     // Rules +0x1340 is not yet a named field of shared/object.hpp's rules view.
-    return Rules->unknown_1340;
+    return Rules->IRepairStep;
 }
 
 

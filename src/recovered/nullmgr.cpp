@@ -1475,7 +1475,7 @@ void NullModemClass::Clear_Receive_Buffer()
 int NullModemClass::Abort_Modem()
 {
     Service_Game_IO_00481fb0();
-    Unknown_005B5EE0();
+    Windows_Message_Handler();
     int key = WWKeyboard->Check();
     if (key) {
         WWKeyboard->Clear();

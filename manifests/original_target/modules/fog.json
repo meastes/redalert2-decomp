@@ -181,7 +181,7 @@
    "padding_bytes": 12
   },
   {
-   "symbol": "?unknown_4c1f00@FoggedObjectClass@@QBEPBVCell@@XZ",
+   "symbol": "?Get_Head_Record_Occupy_List@FoggedObjectClass@@QBEPBVCell@@XZ",
    "entry": "004c1f00",
    "body_bytes": 25,
    "padding_bytes": 7
@@ -1116,13 +1116,13 @@
   },
   {
    "site": "0047be60",
-   "symbol": "?unknown_4c1f00@FoggedObjectClass@@QBEPBVCell@@XZ",
+   "symbol": "?Get_Head_Record_Occupy_List@FoggedObjectClass@@QBEPBVCell@@XZ",
    "target": "004c1f00",
    "function_entry": true
   },
   {
    "site": "0047be60",
-   "symbol": "?unknown_4c1f00@FoggedObjectClass@@QBEPBVCell@@XZ",
+   "symbol": "?Get_Head_Record_Occupy_List@FoggedObjectClass@@QBEPBVCell@@XZ",
    "target": "004c1f00",
    "function_entry": true
   },
@@ -1265,6 +1265,10 @@
    "address": "00410220"
   },
   {
+   "symbol": "?DrawShapeShadows@@3_NA",
+   "address": "007d88d5"
+  },
+  {
    "symbol": "?Draw_Overlay@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z",
    "address": "004749c0"
   },
@@ -1329,6 +1333,10 @@
    "address": "00410120"
   },
   {
+   "symbol": "?LogicalSurface@@3PAVSurface@@A",
+   "address": "0083995c"
+  },
+  {
    "symbol": "?MainWindow@@3PAUHWND__@@A",
    "address": "00b263d8"
   },
@@ -1387,6 +1395,10 @@
   {
    "symbol": "?TacticalMap@@3PAVTactical@@A",
    "address": "0083996c"
+  },
+  {
+   "symbol": "?TacticalRect@@3VRect@@A",
+   "address": "00839630"
   },
   {
    "symbol": "?Unit_Draw_Convert_008323C0@@3PAVConvertClass@@A",
@@ -1477,10 +1489,6 @@
    "address": "0085029c"
   },
   {
-   "symbol": "?unknown_flag_7d88d5@@3_NA",
-   "address": "007d88d5"
-  },
-  {
    "symbol": "?unknown_int_839630@@3HA",
    "address": "00839630"
   },
@@ -1497,10 +1505,6 @@
    "address": "004ba5b0"
   },
   {
-   "symbol": "?unknown_rect_839630@@3VRect@@A",
-   "address": "00839630"
-  },
-  {
    "symbol": "?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z",
    "address": "00410290"
   },
@@ -1511,10 +1515,6 @@
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "?unknown_surface_83995c@@3PAVSurface@@A",
-   "address": "0083995c"
   },
   {
    "symbol": "_CLSID_FoggedObjectClass",

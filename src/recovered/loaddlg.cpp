@@ -629,11 +629,11 @@ void LoadOptionsClass::Fill_List_0053c040(HWND list)
     if (unknown_04 == 2) {
         FileEntryClass *entry = new FileEntryClass;
         swprintf(entry->Description, StringTable::Load_String("TXT_EMPTY_SLOT", 0, "D:\\Ra2\\LoadDlg.CPP", 0x2f8));
-        if (unknown_player_a35db4 != 0) {
+        if (PlayerPtr != 0) {
             entry->unknown_120 = unknown_id_source_a3d290->TechLevel;
             entry->unknown_124 = unknown_id_source_a3d290->unknown_11fc;
             entry->unknown_1a8 = unknown_id_source_a3d290->unknown_224c;
-            wcscpy((wchar_t *)entry->unknown_128, unknown_player_a35db4->Type->UIName);
+            wcscpy((wchar_t *)entry->unknown_128, PlayerPtr->Type->UIName);
         } else {
             entry->unknown_120 = 0;
             entry->unknown_124 = unknown_a3d3bc;

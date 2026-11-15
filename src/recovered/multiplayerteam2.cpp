@@ -144,7 +144,7 @@ unsigned short FirewallSettings::Get_Next_Port(int step)
 // bool FirewallSettings::Send_Mangler_Query(IPXAddressClass *address, unsigned short port, int packet_id, bool flag)
 // (0x005B9F90): selects port on the UDP transport, sends a 0x2B mangler query ("WW", the port, flag) to address as a
 // global message and services the manager until it has gone out (180 ticks at most), then resets the port.
-void unknown_481fb0();
+void Call_Back();
 
 bool FirewallSettings::Send_Mangler_Query(IPXAddressClass *address, unsigned short port, int packet_id, bool flag)
 {
@@ -164,7 +164,7 @@ bool FirewallSettings::Send_Mangler_Query(IPXAddressClass *address, unsigned sho
             break;
         }
         Ipx.Service();
-        unknown_481fb0();
+        Call_Back();
     }
     ((UDPInterfaceClass *)PacketTransport)->Select_Port_Socket(0);
     return true;
@@ -174,7 +174,7 @@ bool FirewallSettings::Send_Mangler_Query(IPXAddressClass *address, unsigned sho
 // unsigned short FirewallSettings::Wait_For_Mangler_Reply(int packet_id, int time) (0x005BA0D0): services the manager
 // for 60 ticks (or time) looking for the mangler's 0x2C reply to packet_id (product 0xAA03); returns the port the
 // mangler saw ("Mangler is seeing packets from port %d as coming from port %d") or 0.
-void unknown_481fb0();
+void Call_Back();
 
 unsigned short FirewallSettings::Wait_For_Mangler_Reply(int packet_id, int time)
 {
@@ -190,7 +190,7 @@ unsigned short FirewallSettings::Wait_For_Mangler_Reply(int packet_id, int time)
     }
     while (timer) {
         Ipx.Service();
-        unknown_481fb0();
+        Call_Back();
         if (index >= Ipx.Global_Num_Receive()) {
             index = 0;
         }

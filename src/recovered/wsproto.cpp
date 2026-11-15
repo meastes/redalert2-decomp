@@ -648,7 +648,7 @@ int WinsockInterfaceClass::Read(void *buf, int *buflen, void *address, int *addr
     }
     *addresslen = length;
     memcpy(address, packet->Address, length);
-    *port = packet->unknown_1a;
+    *port = packet->SrcPort;
     *buflen = packet->BufferLen;
     InBuffers.Delete(0);
     if (packet->IsAllocated) {
@@ -689,7 +689,7 @@ void WinsockInterfaceClass::WriteTo(void *buf, int buflen, void *address, int ad
     packet->IsBroadcast = false;
     packet->unknown_18 = arg6;
     memcpy(packet->Address, address, addresslen);
-    packet->unknown_1a = arg7;
+    packet->SrcPort = arg7;
     Build_Packet_CRC(packet);
     SOCKET socket;
     if (alternate) {

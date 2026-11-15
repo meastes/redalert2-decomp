@@ -230,7 +230,7 @@ double BounceClass::Get_Remaining_Motion() const
 static inline Vector3 Slope_Vector(Vector3 &vector, CoordStruct const &coord, float length)
 {
     Matrix3D slope_matrix;
-    slope_matrix = *Unknown_00718D60(&Matrix3D(), TacticalMap->Get_Cell_Ramp_006a7110(coord));
+    slope_matrix = *Get_Slope_Matrix(&Matrix3D(), TacticalMap->Get_Cell_Ramp_006a7110(coord));
     Matrix3D slope_matrix_inv = Matrix3D_Rigid_Inverse_00591420(slope_matrix);
     Vector3 vec;
     vec.Set_00437690(vector.X, -vector.Y, vector.Z);

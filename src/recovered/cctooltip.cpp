@@ -75,17 +75,17 @@ bool CCToolTip::Show(ToolTipRecord *record)
     BitFontClass *font = BitFont;
     Rect *area = 0;
     if (unknown_flag_a40b30 == true) {
-        if (record->unknown_00 > unknown_rect_839630.X + unknown_rect_839630.Width) {
+        if (record->unknown_00 > TacticalRect.X + TacticalRect.Width) {
             area = &unknown_rect_839620;
             unknown_flag_8373c2 = true;
         } else {
-            area = &unknown_rect_839630;
+            area = &TacticalRect;
         }
     } else if (record->unknown_00 <= unknown_rect_839620.X + unknown_rect_839620.Width) {
         area = &unknown_rect_839620;
         unknown_flag_8373c2 = true;
     } else {
-        area = &unknown_rect_839630;
+        area = &TacticalRect;
     }
     if (area != 0) {
         int width;
@@ -141,7 +141,7 @@ bool CCToolTip::Show(ToolTipRecord *record)
 void CCToolTip::Hide(ToolTipRecord *record)
 {
     if (unknown_flag_a40b30 == true) {
-        if (record->unknown_00 >= unknown_rect_839630.X + unknown_rect_839630.Width) {
+        if (record->unknown_00 >= TacticalRect.X + TacticalRect.Width) {
             unknown_flag_8373c2 = true;
             unknown_flag_8373c3 = true;
         }
@@ -173,8 +173,8 @@ void CCToolTip::Debug_Print(ToolTipRecord *record)
     int y = record->unknown_04;
     Surface *surface = 0;
     if (unknown_flag_a40b30 == true) {
-        int boundary = unknown_rect_839630.X + unknown_rect_839630.Width;
-        if (x + record->unknown_08 <= boundary) surface = unknown_surface_839964;
+        int boundary = TacticalRect.X + TacticalRect.Width;
+        if (x + record->unknown_08 <= boundary) surface = CompositeSurface;
         else if (unknown_260 == true && x >= boundary) {
             surface = SidebarSurface;
             x -= boundary;
@@ -183,7 +183,7 @@ void CCToolTip::Debug_Print(ToolTipRecord *record)
     } else {
         int boundary = unknown_rect_839620.X + unknown_rect_839620.Width;
         if (x >= boundary) {
-            surface = unknown_surface_839964;
+            surface = CompositeSurface;
             x -= boundary;
         } else if (unknown_260 == true && x + record->unknown_08 < boundary) {
             surface = SidebarSurface;

@@ -97,13 +97,13 @@
    "padding_bytes": 8
   },
   {
-   "symbol": "?unknown_6357b0@RadBeam@@QAEXN@Z",
+   "symbol": "?Set_Phase@RadBeam@@QAEXN@Z",
    "entry": "006357b0",
    "body_bytes": 17,
    "padding_bytes": 15
   },
   {
-   "symbol": "?unknown_6357d0@RadBeam@@QAEXH@Z",
+   "symbol": "?Set_Start_Delay@RadBeam@@QAEXH@Z",
    "entry": "006357d0",
    "body_bytes": 10,
    "padding_bytes": 6
@@ -565,13 +565,13 @@
  "references_in": [
   {
    "site": "006ca340",
-   "symbol": "?unknown_6357b0@RadBeam@@QAEXN@Z",
+   "symbol": "?Set_Phase@RadBeam@@QAEXN@Z",
    "target": "006357b0",
    "function_entry": true
   },
   {
    "site": "006ca340",
-   "symbol": "?unknown_6357d0@RadBeam@@QAEXH@Z",
+   "symbol": "?Set_Start_Delay@RadBeam@@QAEXH@Z",
    "target": "006357d0",
    "function_entry": true
   },
@@ -622,12 +622,20 @@
    "address": "006a29d0"
   },
   {
+   "symbol": "?LogicalSurface@@3PAVSurface@@A",
+   "address": "0083995c"
+  },
+  {
    "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
    "address": "00839218"
   },
   {
    "symbol": "?TacticalMap@@3PAVTactical@@A",
    "address": "0083996c"
+  },
+  {
+   "symbol": "?TacticalRect@@3VRect@@A",
+   "address": "00839630"
   },
   {
    "symbol": "?Unknown_006A2970@@YIHH@Z",
@@ -658,10 +666,6 @@
    "address": "004ba5b0"
   },
   {
-   "symbol": "?unknown_rect_839630@@3VRect@@A",
-   "address": "00839630"
-  },
-  {
    "symbol": "?unknown_shift_852fb8@@3HA",
    "address": "00852fb8"
   },
@@ -688,10 +692,6 @@
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "?unknown_surface_83995c@@3PAVSurface@@A",
-   "address": "0083995c"
   },
   {
    "symbol": "__CIpow",

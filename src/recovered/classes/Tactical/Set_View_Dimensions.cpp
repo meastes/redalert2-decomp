@@ -26,5 +26,5 @@ void Tactical::Set_View_Dimensions_006a65a0(Rect const &rect)
     unknown_d64 = Point2D(x, y);
     unknown_d74 = Point2D(x, y);
     Update_Visible_Cells();
-    unknown_d7d = true;
+    IsToRedraw = true;
 }

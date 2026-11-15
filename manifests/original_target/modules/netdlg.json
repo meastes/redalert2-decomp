@@ -515,6 +515,10 @@
    "address": "005251c0"
   },
   {
+   "symbol": "?Ipx@@3VIPXManagerClass@@A",
+   "address": "00a40978"
+  },
+  {
    "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
    "address": "006f9ec0"
   },
@@ -527,8 +531,16 @@
    "address": "00a32338"
   },
   {
+   "symbol": "?OwnerTalk@@3VOwnerTalkClass@@A",
+   "address": "00ab6d18"
+  },
+  {
    "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
    "address": "00839c50"
+  },
+  {
+   "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+   "address": "00a35db4"
   },
   {
    "symbol": "?Rules@@3PAVRulesClass@@A",
@@ -541,6 +553,10 @@
   {
    "symbol": "?Set_Bridge@IPXManagerClass@@QAEXQAE@Z",
    "address": "00527730"
+  },
+  {
+   "symbol": "?Set_Lobby_Address@IPXManagerClass@@QAEXPAVIPXAddressClass@@@Z",
+   "address": "005277c0"
   },
   {
    "symbol": "?Unknown_0063F130@OwnerTalkClass@@QAE_NXZ",
@@ -557,14 +573,6 @@
   {
    "symbol": "?Unknown_00672F20@SessionClass@@QAEXH@Z",
    "address": "00672f20"
-  },
-  {
-   "symbol": "?unknown_5277c0@IPXManagerClass@@QAEXPAVIPXAddressClass@@@Z",
-   "address": "005277c0"
-  },
-  {
-   "symbol": "?unknown_OwnerTalkClass_00ab6d18@@3VOwnerTalkClass@@A",
-   "address": "00ab6d18"
   },
   {
    "symbol": "?unknown_a402d8@@3_NA",
@@ -607,10 +615,6 @@
    "address": "00a3f618"
   },
   {
-   "symbol": "?unknown_ipx_manager_a40978@@3VIPXManagerClass@@A",
-   "address": "00a40978"
-  },
-  {
    "symbol": "?unknown_math_4ba520@@YANN@Z",
    "address": "004ba520"
   },
@@ -621,10 +625,6 @@
   {
    "symbol": "?unknown_node_ids_a402ba@@3PAGA",
    "address": "00a402ba"
-  },
-  {
-   "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
-   "address": "00a35db4"
   },
   {
    "symbol": "?unknown_session_a3d298@@3USessionClass@@A",

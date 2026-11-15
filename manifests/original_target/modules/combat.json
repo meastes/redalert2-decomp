@@ -145,7 +145,7 @@
    "padding_bytes": 11
   },
   {
-   "symbol": "?Unknown_0047FB70@@YIHHN@Z",
+   "symbol": "?Calculate_Projectile_Speed@@YIHHN@Z",
    "entry": "0047fb70",
    "body_bytes": 41,
    "padding_bytes": 7
@@ -157,7 +157,7 @@
    "padding_bytes": 1
   },
   {
-   "symbol": "?Unknown_0047FCD0@@YANXZ",
+   "symbol": "?Get_Floater_Gravity@@YANXZ",
    "entry": "0047fcd0",
    "body_bytes": 18,
    "padding_bytes": 14
@@ -734,25 +734,25 @@
  "references_in": [
   {
    "site": "007339c0",
-   "symbol": "?Unknown_0047FCD0@@YANXZ",
+   "symbol": "?Get_Floater_Gravity@@YANXZ",
    "target": "0047fcd0",
    "function_entry": true
   },
   {
    "site": "007339c0",
-   "symbol": "?Unknown_0047FB70@@YIHHN@Z",
+   "symbol": "?Calculate_Projectile_Speed@@YIHHN@Z",
    "target": "0047fb70",
    "function_entry": true
   },
   {
    "site": "00733f70",
-   "symbol": "?Unknown_0047FCD0@@YANXZ",
+   "symbol": "?Get_Floater_Gravity@@YANXZ",
    "target": "0047fcd0",
    "function_entry": true
   },
   {
    "site": "00733f70",
-   "symbol": "?Unknown_0047FB70@@YIHHN@Z",
+   "symbol": "?Calculate_Projectile_Speed@@YIHHN@Z",
    "target": "0047fb70",
    "function_entry": true
   },
@@ -788,7 +788,7 @@
   },
   {
    "site": "006ca540",
-   "symbol": "?Unknown_0047FCD0@@YANXZ",
+   "symbol": "?Get_Floater_Gravity@@YANXZ",
    "target": "0047fcd0",
    "function_entry": true
   },
@@ -818,7 +818,7 @@
   },
   {
    "site": "00462110",
-   "symbol": "?Unknown_0047F4D0@@YIPAVAnimTypeClass@@HPAVWarheadTypeClass@@HABUCoordStruct@@@Z",
+   "symbol": "?Combat_Anim@@YIPAVAnimTypeClass@@HPAVWarheadTypeClass@@HABUCoordStruct@@@Z",
    "target": "0047f4d0",
    "function_entry": true
   },
@@ -1022,13 +1022,13 @@
   },
   {
    "site": "006c4bb0",
-   "symbol": "?Unknown_0047FCD0@@YANXZ",
+   "symbol": "?Get_Floater_Gravity@@YANXZ",
    "target": "0047fcd0",
    "function_entry": true
   },
   {
    "site": "006c4bb0",
-   "symbol": "?Unknown_0047FB70@@YIHHN@Z",
+   "symbol": "?Calculate_Projectile_Speed@@YIHHN@Z",
    "target": "0047fb70",
    "function_entry": true
   },
@@ -1112,7 +1112,7 @@
   },
   {
    "site": "0043b7e0",
-   "symbol": "?Unknown_0047FB70@@YIHHN@Z",
+   "symbol": "?Calculate_Projectile_Speed@@YIHHN@Z",
    "target": "0047fb70",
    "function_entry": true
   },
@@ -1136,7 +1136,7 @@
   },
   {
    "site": "006ca890",
-   "symbol": "?Unknown_0047FCD0@@YANXZ",
+   "symbol": "?Get_Floater_Gravity@@YANXZ",
    "target": "0047fcd0",
    "function_entry": true
   },
@@ -1439,7 +1439,7 @@
   {
    "site": "00462110",
    "target": "0047f4d0",
-   "symbol": "?Unknown_0047F4D0@@YIPAVAnimTypeClass@@HPAVWarheadTypeClass@@HABUCoordStruct@@@Z",
+   "symbol": "?Combat_Anim@@YIPAVAnimTypeClass@@HPAVWarheadTypeClass@@HABUCoordStruct@@@Z",
    "module_symbol": "?Select_Damage_Anim@@YIPAVAnimTypeClass@@HPAVWarheadTypeClass@@HPAUCoordStruct@@@Z"
   },
   {
