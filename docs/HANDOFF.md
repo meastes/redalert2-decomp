@@ -22,6 +22,18 @@ Earlier owner periods are in [history/](history/).
    the lane re-verify at the HEAD it will land on.
 6. Post the status in the AGENTS.md "Status format" at the next landing or hand-back.
 
+## Restart checkpoint (owner, 2026-11-15 ~05:00Z, the user restarted the Mac)
+
+Main is clean and published. After the restart: C: mount (/Volumes/mike-gaming), stale wineservers (wineserver -k per prefix), one load/swap reading, then resume lanes one or two at a time under the performance lane's concurrency cap (not all at once). Each lane wrote build/RESUME.md in its worktree.
+- E1b (.claude/worktrees/lane-e1b): apply_rename tooling job (type-aware member renamer, overload-aware renames, native re-key from the spec); then re-run the motlib xcu batch on the post-M1 base.
+- N5 (lane-n5*): replay codex1 r2032-r2035 (r2036 if delivered).
+- M1 (.claude/worktrees/lane-m1): replay of the five clean-text units (credits, tracker, winfix, movie, tag) on latest main, then standing fill work (93 small units as names.csv batches, then ~60 units).
+- C16 (.claude/worktrees/lane-c16): mod support level 2 on lane-c16-mods (L1 at 33c2a3e73).
+- C15/C17 (.claude/worktrees/lane-c17): stopped until codex4 reruns SAVE0029 on drop native-win-9bd49f33f (font guard) and resumes the installed-game save test (G).
+- P1 performance (review message 074c0347, box 4 h): stage timings in the receipt and native gate, native-only changes off the full-build lock, object cache if compile dominates, a heavy-job concurrency cap; measure on the quiet machine after the restart.
+- Y1: done (PRs gibbo101/ra2-decomp #258-#260 open; answer reviews only). K1: idle.
+- Windows: codex1 active (prunes its own gate builds), codex4 on R747+ (SAVE0029 rerun note sent 03:50Z).
+
 ## In flight (owner, 2026-11-13 ~10:40Z): start here after a compaction
 
 - Main cebe906f2. Landed today: codex1 r1986-r1993 (names, Ghidra header removal); own-bound joins 1,242 rows / 169 units (874 under the unit's /GR); address-free renames 849 files (1,816 address-named files remain: 1,545 seed/view names, 250 collisions, 21 other; overload suffixes declined until real names); native: interface size (v2 part 1), sidebar tooltip fix, x86_64 Windows build (llvm-mingw 20261020 in private/toolchains, user-approved download).
