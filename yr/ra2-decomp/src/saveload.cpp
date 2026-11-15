@@ -1,0 +1,1441 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+
+#define INCLUDE_COM
+#include "always.h"
+#include "rect.h"
+#include "saveload.h"
+#include "_logic.h"
+#include "_map.h"
+#include "_rect.h"
+#include "_rules.h"
+#include "_script.h"
+#include "_tactica.h"
+#include "_vanim.h"
+#include "_warhead.h"
+#include "_weapon.h"
+#include "aircraft.h"
+#include "airctype.h"
+#include "aitrig.h"
+#include "alphashp.h"
+#include "anim.h"
+#include "animtype.h"
+#include "blight.h"
+#include "building.h"
+#include "builtype.h"
+#include "bullet.h"
+#include "bullettype.h"
+#include "dbgprint.h"
+#include "empulse.h"
+#include "enviro.h"
+#include "factory.h"
+#include "fog.h"
+#include "globals.h"
+#include "goptions.h"
+#include "houstype.h"
+#include "ilinkstm.h"
+#include "infantry.h"
+#include "infatype.h"
+#include "init.h"
+#include "ion.h"
+#include "loaddlg.h"
+#include "light.h"
+#include "logic.h"
+#include "overlay.h"
+#include "overtype.h"
+#include "ovrlight.h"
+#include "particle.h"
+#include "partsys.h"
+#include "psystype.h"
+#include "progress.h"
+#include "ptype.h"
+#include "revent.h"
+#include "rules.h"
+#include "savever.h"
+#include "scenario.h"
+#include "script.h"
+#include "session.h"
+#include "side.h"
+#include "sidebar.h"
+#include "smudtype.h"
+#include "sun.h"
+#include "super.h"
+#include "suprtype.h"
+#include "swizzle.h"
+#include "tactical.h"
+#include "taction.h"
+#include "tag.h"
+#include "tagtype.h"
+#include "taskforc.h"
+#include "team.h"
+#include "teamtype.h"
+#include "terrain.h"
+#include "terrtype.h"
+#include "tevent.h"
+#include "tiberium.h"
+#include "trigger.h"
+#include "trigtype.h"
+#include "tube.h"
+#include "unit.h"
+#include "unittype.h"
+#include "vanim.h"
+#include "vanimtype.h"
+#include "vein.h"
+#include "vox.h"
+#include "warhead.h"
+#include "wave.h"
+#include "waypoint.h"
+#include "weapon.h"
+#include <math.h>
+#include "geometry.h"
+#include "airstrike.h"
+#include "bomb.h"
+#include "capmgr.h"
+#include "parasite.h"
+#include "slavemgr.h"
+#include "spawnmgr.h"
+#include "temporal.h"
+#include "disklaser.h"
+#include "radsite.h"
+
+// SYNTHETIC: GAMEMD 0x0067C480 SYMBOL
+// _$E2
+// SYNTHETIC: GAMEMD 0x0067C4A0 SYMBOL
+// _$E155
+// SYNTHETIC: GAMEMD 0x0067C4D0 SYMBOL
+// _$E158
+// SYNTHETIC: GAMEMD 0x0067C4F0 SYMBOL
+// _$E161
+// SYNTHETIC: GAMEMD 0x0067C510 SYMBOL
+// _$E164
+// SYNTHETIC: GAMEMD 0x0067C530 SYMBOL
+// _$E167
+// SYNTHETIC: GAMEMD 0x0067C550 SYMBOL
+// _$E170
+// SYNTHETIC: GAMEMD 0x0067C570 SYMBOL
+// _$E173
+// SYNTHETIC: GAMEMD 0x0067C5B0 SYMBOL
+// _$E176
+// SYNTHETIC: GAMEMD 0x0067C5E0 SYMBOL
+// _$E179
+// SYNTHETIC: GAMEMD 0x0067C610 SYMBOL
+// _$E182
+// SYNTHETIC: GAMEMD 0x0067C640 SYMBOL
+// _$E185
+// SYNTHETIC: GAMEMD 0x0067C650 SYMBOL
+// _$E188
+
+#define	SAVE_BLOCK_SIZE	4096
+#define	SAVEGAME_VERSION		(DESCRIP_MAX + 0x01000006)
+
+int DAT_00B05420;
+int DAT_00B05424;
+int DAT_00B05428;
+
+// FUNCTION: GAMEMD 0x0067C670
+void FUN_0067C670(void)
+{
+	DAT_00B05428 = 0;
+	DAT_00B05420 = 128;
+	DAT_00B05424 = 128;
+}
+
+// FUNCTION: GAMEMD 0x0067C690
+HRESULT Load_Vector(IStream * stream)
+{
+	int count;
+	int index;
+	LPVOID obj;
+
+	HRESULT result = stream->Read(&count, sizeof(count), NULL);
+	if (FAILED(result)) return(result);
+	for (index = 0; index < count; index++) {
+		if (FAILED(result = OleLoadFromStream(stream, IID_IUnknown, &obj))) return(result);
+	}
+	return(S_OK);
+}
+
+// FUNCTION: GAMEMD 0x0067C6E0
+CRCEngine Object_CRCs(void)
+{
+	int i;
+	CRCEngine crc;
+	Scen->Compute_CRC(crc);
+
+#define DO_OBJ_CRC(VECTOR) \
+	for (i = 0; i < VECTOR.Count(); i++) { \
+		VECTOR[i]->Compute_CRC(crc); \
+	} \
+
+	DO_OBJ_CRC(HouseTypes);
+	DO_OBJ_CRC(Houses);
+	DO_OBJ_CRC(UnitTypes);
+	DO_OBJ_CRC(Units);
+	DO_OBJ_CRC(InfantryTypes);
+	DO_OBJ_CRC(Infantry);
+	DO_OBJ_CRC(BuildingTypes);
+	DO_OBJ_CRC(Buildings);
+	DO_OBJ_CRC(AircraftTypes);
+	DO_OBJ_CRC(Aircraft);
+	DO_OBJ_CRC(AITriggerTypes);
+	DO_OBJ_CRC(Anims);
+	DO_OBJ_CRC(AnimTypes);
+	DO_OBJ_CRC(TaskForces);
+	DO_OBJ_CRC(TeamTypes);
+	DO_OBJ_CRC(Teams);
+	DO_OBJ_CRC(ScriptTypes);
+	DO_OBJ_CRC(Scripts);
+	DO_OBJ_CRC(TagTypes);
+	DO_OBJ_CRC(Tags);
+	DO_OBJ_CRC(TriggerTypes);
+	DO_OBJ_CRC(Triggers);
+	DO_OBJ_CRC(Actions);
+	DO_OBJ_CRC(Events);
+	DO_OBJ_CRC(Factories);
+	DO_OBJ_CRC(VoxelAnimTypes);
+	DO_OBJ_CRC(VoxelAnims);
+	DO_OBJ_CRC(Warheads);
+	DO_OBJ_CRC(Weapons);
+	DO_OBJ_CRC(ParticleTypes);
+	DO_OBJ_CRC(Particles);
+	DO_OBJ_CRC(ParticleSystems);
+	DO_OBJ_CRC(ParticleSystemTypes);
+	DO_OBJ_CRC(BulletTypes);
+	DO_OBJ_CRC(Bullets);
+	DO_OBJ_CRC(WaypointPaths);
+	DO_OBJ_CRC(SmudgeTypes);
+	DO_OBJ_CRC(OverlayTypes);
+	DO_OBJ_CRC(LightSources);
+	DO_OBJ_CRC(BuildingLights);
+	DO_OBJ_CRC(Tubes);
+	DO_OBJ_CRC(Sides);
+	DO_OBJ_CRC(Tiberiums);
+	DO_OBJ_CRC(EMPulseClass::EMPulses);
+	DO_OBJ_CRC(SuperWeaponTypes);
+	DO_OBJ_CRC(SuperWeapons);
+	DO_OBJ_CRC(TerrainTypes);
+	DO_OBJ_CRC(Terrains);
+
+#undef DO_OBJ_CRC
+
+	if (PlayerPtr != NULL) {
+		crc(PlayerPtr->HeapID);
+	}
+	crc((int)Frame);
+	crc(CurrentObject.Count());
+	return(crc);
+}
+
+#include "bomblist.h"
+#include "kamikaze.h"
+#include "theme.h"
+
+extern bool UserInputLocked;
+extern int SidebarWidth;
+extern DynamicVectorClass<BuildingClass *> DAT_008B41E0;
+bool __fastcall FUN_00534FA0(int side);
+Rect __fastcall Get_Title_Screen_Area(void);
+void __cdecl FUN_004068E0(char const * format, ...);
+HRESULT __fastcall FUN_00751710(IStream * stream);
+HRESULT __fastcall FUN_007533F0(IStream * stream);
+
+template<class T>
+HRESULT Save_Vector(IStream * stream, const DynamicVectorClass<T> &list)
+{
+	int count;
+	int index;
+	LPPERSISTSTREAM lpPS;
+
+	count = list.Count();
+	HRESULT result = stream->Write(&count, sizeof(count), NULL);
+	if (FAILED(result)) return(result);
+	for (index = 0; index < count; index++) {
+		lpPS = NULL;
+		if (FAILED(result = list[index]->QueryInterface(IID_IPersistStream, (LPVOID *)&lpPS))) return(result);
+		if (FAILED(result = OleSaveToStream(lpPS, stream))) return(result);
+		if (FAILED(result = lpPS->Release())) return(result);
+	}
+	return(S_OK);
+}
+
+extern DynamicVectorClass<AirstrikeClass *> Airstrikes;
+extern DynamicVectorClass<BombClass *> Bombs;
+HRESULT __fastcall FUN_00751620(IStream * stream);
+HRESULT __fastcall FUN_007533B0(IStream * stream);
+
+// FUNCTION: GAMEMD 0x0067D300
+bool Put_All(IStream * stream, int save_net)
+{
+	HRESULT res;
+
+	Scen->Save(stream);
+	Environment.Save(stream);
+	Rule->Save(stream);
+
+	res = Save_Vector(stream, AnimTypes);
+	if (FAILED(res)) {
+		return(false);
+	}
+
+	Map.Save(stream);
+
+	res = Save_Vector(stream, Tubes);
+	if (FAILED(res)) {
+		return(false);
+	}
+
+	if (FAILED(Save_Misc_Values(stream))) {
+		return(false);
+	}
+
+	Logic.Save(stream);
+
+	if (FAILED(OleSaveToStream(TacticalMap, stream))) {
+		return(false);
+	}
+
+	res = Save_Vector(stream, HouseTypes);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, Houses);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, Units);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, UnitTypes);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, InfantryTypes);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, Infantry);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, BuildingTypes);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, Buildings);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, AircraftTypes);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, Aircraft);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, Anims);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, TaskForces);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, TeamTypes);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, Teams);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, ScriptTypes);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, Scripts);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, TagTypes);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, Tags);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, TriggerTypes);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, Triggers);
+	if (FAILED(res)) {
+		return(false);
+	}
+	Save_Vector(stream, AITriggerTypes);
+	Save_Vector(stream, Actions);
+	res = Save_Vector(stream, Events);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, Factories);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, VoxelAnimTypes);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, VoxelAnims);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, Warheads);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, Weapons);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, ParticleTypes);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, Particles);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, ParticleSystemTypes);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, ParticleSystems);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, BulletTypes);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, Bullets);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, WaypointPaths);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, SmudgeTypes);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, OverlayTypes);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, LightSources);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, BuildingLights);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, Sides);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, Tiberiums);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, EMPulseClass::EMPulses);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, SuperWeaponTypes);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, SuperWeapons);
+	if (FAILED(res)) {
+		return(false);
+	}
+
+	{
+	int count = ShowTimers.Count();
+	res = stream->Write(&count, sizeof(count), NULL);
+	if (SUCCEEDED(res)) {
+		for (int i = 0; i < count; i++) {
+			SuperClass * ptr = ShowTimers[i];
+			res = stream->Write(&ptr, sizeof(ptr), NULL);
+			if (FAILED(res)) {
+				break;
+			}
+		}
+	}
+	}
+	if (FAILED(res)) {
+		return(false);
+	}
+
+	{
+	int count = DAT_008B41E0.Count();
+	res = stream->Write(&count, sizeof(count), NULL);
+	if (SUCCEEDED(res)) {
+		for (int i = 0; i < count; i++) {
+			BuildingClass * ptr = DAT_008B41E0[i];
+			res = stream->Write(&ptr, sizeof(ptr), NULL);
+			if (FAILED(res)) {
+				break;
+			}
+		}
+	}
+	}
+	if (FAILED(res)) {
+		return(false);
+	}
+
+	res = Save_Vector(stream, TerrainTypes);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, Terrains);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, FoggedObjectClass::FoggyObjects);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, AlphaShapes);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, Waves);
+	if (FAILED(res)) {
+		return(false);
+	}
+	if (!VeinholeMonsterClass::Save_All(stream)) {
+		return(false);
+	}
+	if (!RadarEventClass::Save(stream)) {
+		return(false);
+	}
+	res = Save_Vector(stream, CaptureManagerArray);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, DiskLasers);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, Parasites);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, Temporals);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, Airstrikes);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, SpawnManagers);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, SlaveManagers);
+	if (FAILED(res)) {
+		return(false);
+	}
+
+	if (FAILED(AircraftTracker.Save(stream))) {
+		return(false);
+	}
+	if (FAILED(KamikazeInstance.Save(stream))) {
+		return(false);
+	}
+	if (FAILED(BombListInstance.Save(stream))) {
+		return(false);
+	}
+
+	res = Save_Vector(stream, Bombs);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, RadSites);
+	if (FAILED(res)) {
+		return(false);
+	}
+
+	if (Session.Type == GAME_SKIRMISH) {
+		FUN_004068E0("Writing Skirmish Session.Options\n");
+		if (!Session.Options.Save(stream)) {
+			FUN_004068E0("\t***** FAILED!\n");
+			return(false);
+		}
+	}
+
+	if (FAILED(FUN_00751620(stream))) {
+		return(false);
+	}
+	if (FAILED(FUN_007533B0(stream))) {
+		return(false);
+	}
+	if (FAILED(Theme.Save(stream))) {
+		return(false);
+	}
+
+	return(true);
+}
+
+_COM_SMARTPTR_TYPEDEF(ILinkStream, __uuidof(ILinkStream));
+
+void __fastcall FUN_0072DEF0(void);
+bool Get_All(IStream * stream, bool save_net);
+
+// FUNCTION: GAMEMD 0x0067E440
+bool Load_Game(const char * file_name)
+{
+	WCHAR name[64];
+
+	FUN_004068E0("\nLOADING GAME [%s]\n", file_name);
+
+	SaveVersionInfo info;
+	if (!Get_Savefile_Info(file_name, &info)) {
+		return(false);
+	}
+
+	Session.Type = (GameType)info.Get_Game_Type();
+	Swizzler.Reset();
+
+	IStoragePtr storage = NULL;
+	MultiByteToWideChar(0, 0, file_name, -1, name, (sizeof(name) / sizeof(WCHAR)));
+
+	if (FAILED(StgOpenStorage(name, 0, STGM_SHARE_DENY_WRITE, 0, 0, &storage))) {
+		return(false);
+	}
+
+	IStreamPtr content;
+	if (FAILED(storage->OpenStream(L"CONTENTS", 0, STGM_SHARE_EXCLUSIVE, 0, &content))) {
+		return(false);
+	}
+
+	ILinkStreamPtr link;
+	link.CreateInstance(CLSID_CompressStream, NULL, CLSCTX_INPROC | CLSCTX_LOCAL_SERVER);
+	link->Link_Stream(content);
+	IStreamPtr stream(link);
+
+	Progress.Initialize(100.0, 0, 0);
+	Get_All(stream, false);
+
+	link->Unlink_Stream(NULL);
+
+	Swizzler.Reset();
+
+	Post_Load_Game();
+
+	Map.Init_IO();
+	Map.Activate(1);
+	Map.Reposition_Sidebar();
+	TiberiumClass::Init_Tiberium_Growth_System();
+	TiberiumClass::Init_Tiberium_Spread_System();
+	Map.sub_657CE0();
+	ScenarioActive = true;
+	TacticalActive = true;
+	Toggle_Display_Mode(true);
+	FUN_0072DEF0();
+	FUN_004068E0("LOADING GAME [%s] - Complete\n\n", file_name);
+	return(true);
+}
+
+// FUNCTION: GAMEMD 0x0067E730
+bool Get_All(IStream * stream, bool save_net)
+{
+	int i;
+	HRESULT res;
+
+	Clear_Scenario();
+	Scen->Load(stream);
+	UserInputLocked = Scen->IsInputLocked;
+
+	if (!FUN_00534FA0(Scen->PlayerSideIndex)) {
+		return(false);
+	}
+
+	Rect temp = Get_Title_Screen_Area();
+
+	Allocate_Surfaces(VisibleRect, Rect(0, 0, temp.Width, VisibleRect.Height), Rect(0, 0, temp.Width, VisibleRect.Height), Rect(0, 0, SidebarWidth, VisibleRect.Height), false);
+
+	Map.Set_View_Dimensions(temp);
+
+	Environment.Load(stream);
+
+	Init_Theater(Scen->Theater);
+
+	Rule->Load(stream);
+
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+
+	Map.Load(stream);
+
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+
+	if (FAILED(Load_Misc_Values(stream))) {
+		return(false);
+	}
+
+	Map.Reset_All_Subzones();
+	Logic.Load(stream);
+
+	if (TacticalMap != NULL) {
+		delete TacticalMap;
+		TacticalMap = NULL;
+	}
+	Tactical * old_tactical;
+	if (FAILED(OleLoadFromStream(stream, IID_IUnknown, (LPVOID *)&old_tactical))) {
+		return(false);
+	}
+
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	{
+		int count;
+		SuperClass * ptr;
+		ShowTimers.Clear();
+		res = stream->Read(&count, sizeof(count), NULL);
+		if (SUCCEEDED(res) && count > 0) {
+			for (i = 0; i < count; i++) {
+				res = stream->Read(&ptr, sizeof(ptr), NULL);
+				if (FAILED(res)) {
+					break;
+				}
+				ShowTimers.Add(ptr);
+			}
+			for (i = 0; i < count; i++) {
+				Swizzle_Pointer(&ShowTimers[i]);
+			}
+		}
+	}
+	if (FAILED(res)) {
+		return(false);
+	}
+
+	{
+		int count;
+		BuildingClass * ptr;
+		DAT_008B41E0.Clear();
+		res = stream->Read(&count, sizeof(count), NULL);
+		if (SUCCEEDED(res) && count > 0) {
+			for (i = 0; i < count; i++) {
+				res = stream->Read(&ptr, sizeof(ptr), NULL);
+				if (FAILED(res)) {
+					break;
+				}
+				DAT_008B41E0.Add(ptr);
+			}
+			for (i = 0; i < count; i++) {
+				Swizzle_Pointer(&DAT_008B41E0[i]);
+			}
+		}
+	}
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	if (!VeinholeMonsterClass::Load_All(stream)) {
+		return(false);
+	}
+	if (!RadarEventClass::Load(stream)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+
+	AircraftTracker.Clear();
+	if (FAILED(AircraftTracker.Load(stream))) {
+		return(false);
+	}
+
+	KamikazeInstance.Clear();
+	if (FAILED(KamikazeInstance.Load(stream))) {
+		return(false);
+	}
+
+	BombListInstance.FUN_00439110();
+	if (FAILED(BombListInstance.Load(stream))) {
+		return(false);
+	}
+
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Load_Vector(stream);
+	if (FAILED(res)) {
+		return(false);
+	}
+
+	if (Session.Type == GAME_SKIRMISH) {
+		FUN_004068E0("Reading Skirmish Session.Options\n");
+		if (!Session.Options.Load(stream)) {
+			FUN_004068E0("\t***** FAILED!\n");
+			return(false);
+		}
+	}
+
+	if (FAILED(FUN_00751710(stream))) {
+		return(false);
+	}
+	if (FAILED(FUN_007533F0(stream))) {
+		return(false);
+	}
+	if (FAILED(Theme.Load(stream))) {
+		return(false);
+	}
+
+	Map.Flag_To_Redraw(GS_REDRAW_ALL);
+
+	if (Session.Type == GAME_NORMAL) {
+		ScenarioClass::WasGameSaved = true;
+	}
+
+	return(true);
+}
+
+namespace Unsorted { extern int CurrentFrame; }
+namespace Powerups {
+extern int Weights[19];
+extern AnimType Anims[19];
+extern double Arguments[19];
+extern bool Naval[19];
+}
+extern int DAT_00B07784;
+HRESULT __fastcall FUN_00539890(IStream * stream);
+HRESULT __fastcall FUN_00539AE0(IStream * stream);
+
+// FUNCTION: GAMEMD 0x0067F7E0
+int Save_Misc_Values(IStream * stream)
+{
+	int i;
+	int count;
+	HRESULT res;
+
+	res = stream->Write(&GasSystem, sizeof(GasSystem), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+
+	res = stream->Write(&PlayerPtr, sizeof(PlayerPtr), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+
+	res = stream->Write(&Unsorted::CurrentFrame, sizeof(Unsorted::CurrentFrame), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+
+	count = CurrentObject.Count();
+	res = stream->Write(&count, sizeof(count), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+
+	for (i = 0; i < count; i++) {
+		res = stream->Write(&CurrentObject[i], sizeof(CurrentObject[i]), NULL);
+		if (FAILED(res)) {
+			return(res);
+		}
+	}
+
+	res = stream->Write(&Ground, sizeof(Ground), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+
+	FUN_00539890(stream);
+
+	count = LogicTags.Count();
+	res = stream->Write(&count, sizeof(count), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+
+	for (i = 0; i < count; i++) {
+		res = stream->Write(&LogicTags[i], sizeof(LogicTags[i]), NULL);
+		if (FAILED(res)) {
+			return(res);
+		}
+	}
+
+	count = MapTags.Count();
+	res = stream->Write(&count, sizeof(count), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+
+	for (i = 0; i < count; i++) {
+		res = stream->Write(&MapTags[i], sizeof(MapTags[i]), NULL);
+		if (FAILED(res)) {
+			return(res);
+		}
+	}
+
+	res = stream->Write(&Powerups::Weights, sizeof(Powerups::Weights), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+
+	res = stream->Write(&Powerups::Anims, sizeof(Powerups::Anims), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+
+	res = stream->Write(&Powerups::Arguments, sizeof(Powerups::Arguments), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+
+	res = stream->Write(&Powerups::Naval, sizeof(Powerups::Naval), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+
+	res = stream->Write(&MissionControl, sizeof(MissionControl), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+
+	res = stream->Write(&DAT_00B07784, sizeof(DAT_00B07784), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+
+	return(S_OK);
+}
+
+// FUNCTION: GAMEMD 0x0067F9C0
+int Load_Misc_Values(IStream * stream)
+{
+	int i;
+	int count;
+	void * ptr;
+	HRESULT res;
+
+	res = stream->Read(&GasSystem, sizeof(GasSystem), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+	Swizzle_Pointer(&GasSystem);
+
+	res = stream->Read(&PlayerPtr, sizeof(PlayerPtr), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+	Swizzle_Pointer(&PlayerPtr);
+
+	res = stream->Read(&Unsorted::CurrentFrame, sizeof(Unsorted::CurrentFrame), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+
+	res = stream->Read(&count, sizeof(count), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+
+	for (i = 0; i < count; i++) {
+		res = stream->Read(&ptr, sizeof(ptr), NULL);
+		if (FAILED(res)) {
+			return(res);
+		}
+		CurrentObject.Add(*(ObjectClass **)&ptr);
+	}
+
+	for (i = 0; i < CurrentObject.Count(); i++) {
+		Swizzle_Pointer(&CurrentObject[i]);
+	}
+
+	res = stream->Read(&Ground, sizeof(Ground), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+
+	FUN_00539AE0(stream);
+
+	res = stream->Read(&count, sizeof(count), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+
+	for (i = 0; i < count; i++) {
+		res = stream->Read(&ptr, sizeof(ptr), NULL);
+		if (FAILED(res)) {
+			return(res);
+		}
+		LogicTags.Add(*(TagClass **)&ptr);
+	}
+
+	for (i = 0; i < LogicTags.Count(); i++) {
+		Swizzle_Pointer(&LogicTags[i]);
+	}
+
+	res = stream->Read(&count, sizeof(count), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+
+	for (i = 0; i < count; i++) {
+		res = stream->Read(&ptr, sizeof(ptr), NULL);
+		if (FAILED(res)) {
+			return(res);
+		}
+		MapTags.Add(*(TagClass **)&ptr);
+	}
+
+	for (i = 0; i < MapTags.Count(); i++) {
+		Swizzle_Pointer(&MapTags[i]);
+	}
+
+	res = stream->Read(&Powerups::Weights, sizeof(Powerups::Weights), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+
+	res = stream->Read(&Powerups::Anims, sizeof(Powerups::Anims), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+
+	res = stream->Read(&Powerups::Arguments, sizeof(Powerups::Arguments), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+
+	res = stream->Read(&Powerups::Naval, sizeof(Powerups::Naval), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+
+	res = stream->Read(&MissionControl, sizeof(MissionControl), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+
+	res = stream->Read(&DAT_00B07784, sizeof(DAT_00B07784), NULL);
+	if (FAILED(res)) {
+		return(res);
+	}
+
+	return(S_OK);
+}
+
+// FUNCTION: GAMEMD 0x0067FD20
+bool Get_Savefile_Info(char const * name, SaveVersionInfo * info)
+{
+	IStoragePtr storage;
+	WCHAR wname[64];
+
+	MultiByteToWideChar(0, 0, name, -1, wname, sizeof(wname) / sizeof(WCHAR));
+
+	HRESULT result = StgOpenStorage(wname, NULL, STGM_SHARE_EXCLUSIVE|STGM_READWRITE, NULL, 0, &storage);
+	if (FAILED(result)) {
+		return(false);
+	}
+
+	result = info->Load(storage);
+	if (FAILED(result)) {
+		return(false);
+	}
+
+	return(true);
+}
+
+// FUNCTION: GAMEMD 0x0067FDC0
+void FUN_0067FDC0(void)
+{
+}
+
+// TEMPLATE: GAMEMD 0x0067FDD0
+// ?_Release@?$_com_ptr_t@V?$_com_IIID@UIStorage@@$1?_GUID_0000000b_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ
+template class _com_ptr_t<_com_IIID<IStorage, &__uuidof(IStorage)> >;
+
+// TEMPLATE: GAMEMD 0x0067FDE0
+// ?_Release@?$_com_ptr_t@V?$_com_IIID@UIStream@@$1?_GUID_0000000c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ
+template class _com_ptr_t<_com_IIID<IStream, &__uuidof(IStream)> >;
+
+// TEMPLATE: GAMEMD 0x0067FDF0
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVFactoryClass@@@@@Z
+template HRESULT Save_Vector<FactoryClass *>(IStream *, const DynamicVectorClass<FactoryClass *> &);
+
+// TEMPLATE: GAMEMD 0x0067FE70
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@@Z
+template HRESULT Save_Vector<VoxelAnimTypeClass *>(IStream *, const DynamicVectorClass<VoxelAnimTypeClass *> &);
+
+// TEMPLATE: GAMEMD 0x0067FEF0
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVVoxelAnimClass@@@@@Z
+template HRESULT Save_Vector<VoxelAnimClass *>(IStream *, const DynamicVectorClass<VoxelAnimClass *> &);
+
+// TEMPLATE: GAMEMD 0x0067FF70
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVWarheadTypeClass@@@@@Z
+template HRESULT Save_Vector<WarheadTypeClass *>(IStream *, const DynamicVectorClass<WarheadTypeClass *> &);
+
+// TEMPLATE: GAMEMD 0x0067FFF0
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVWeaponTypeClass@@@@@Z
+template HRESULT Save_Vector<WeaponTypeClass *>(IStream *, const DynamicVectorClass<WeaponTypeClass *> &);
+
+// TEMPLATE: GAMEMD 0x00680070
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVParticleTypeClass@@@@@Z
+template HRESULT Save_Vector<ParticleTypeClass *>(IStream *, const DynamicVectorClass<ParticleTypeClass *> &);
+
+// TEMPLATE: GAMEMD 0x006800F0
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVParticleClass@@@@@Z
+template HRESULT Save_Vector<ParticleClass *>(IStream *, const DynamicVectorClass<ParticleClass *> &);
+
+// TEMPLATE: GAMEMD 0x00680170
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVParticleSystemTypeClass@@@@@Z
+template HRESULT Save_Vector<ParticleSystemTypeClass *>(IStream *, const DynamicVectorClass<ParticleSystemTypeClass *> &);
+
+// TEMPLATE: GAMEMD 0x006801F0
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVParticleSystemClass@@@@@Z
+template HRESULT Save_Vector<ParticleSystemClass *>(IStream *, const DynamicVectorClass<ParticleSystemClass *> &);
+
+// TEMPLATE: GAMEMD 0x00680270
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVBulletTypeClass@@@@@Z
+template HRESULT Save_Vector<BulletTypeClass *>(IStream *, const DynamicVectorClass<BulletTypeClass *> &);
+
+// TEMPLATE: GAMEMD 0x006802F0
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVBulletClass@@@@@Z
+template HRESULT Save_Vector<BulletClass *>(IStream *, const DynamicVectorClass<BulletClass *> &);
+
+// TEMPLATE: GAMEMD 0x00680370
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVWaypointPathClass@@@@@Z
+template HRESULT Save_Vector<WaypointPathClass *>(IStream *, const DynamicVectorClass<WaypointPathClass *> &);
+
+// TEMPLATE: GAMEMD 0x006803F0
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVSmudgeTypeClass@@@@@Z
+template HRESULT Save_Vector<SmudgeTypeClass *>(IStream *, const DynamicVectorClass<SmudgeTypeClass *> &);
+
+// TEMPLATE: GAMEMD 0x00680470
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVOverlayTypeClass@@@@@Z
+template HRESULT Save_Vector<OverlayTypeClass *>(IStream *, const DynamicVectorClass<OverlayTypeClass *> &);
+
+// TEMPLATE: GAMEMD 0x006804F0
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVLightSourceClass@@@@@Z
+template HRESULT Save_Vector<LightSourceClass *>(IStream *, const DynamicVectorClass<LightSourceClass *> &);
+
+// TEMPLATE: GAMEMD 0x00680570
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVBuildingLightClass@@@@@Z
+template HRESULT Save_Vector<BuildingLightClass *>(IStream *, const DynamicVectorClass<BuildingLightClass *> &);
+
+// TEMPLATE: GAMEMD 0x006805F0
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVSideClass@@@@@Z
+template HRESULT Save_Vector<SideClass *>(IStream *, const DynamicVectorClass<SideClass *> &);
+
+// TEMPLATE: GAMEMD 0x00680670
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVTiberiumClass@@@@@Z
+template HRESULT Save_Vector<TiberiumClass *>(IStream *, const DynamicVectorClass<TiberiumClass *> &);
+
+// TEMPLATE: GAMEMD 0x006806F0
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVEMPulseClass@@@@@Z
+template HRESULT Save_Vector<EMPulseClass *>(IStream *, const DynamicVectorClass<EMPulseClass *> &);
+
+// TEMPLATE: GAMEMD 0x00680770
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVSuperWeaponTypeClass@@@@@Z
+template HRESULT Save_Vector<SuperWeaponTypeClass *>(IStream *, const DynamicVectorClass<SuperWeaponTypeClass *> &);
+
+// TEMPLATE: GAMEMD 0x006807F0
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVSuperClass@@@@@Z
+template HRESULT Save_Vector<SuperClass *>(IStream *, const DynamicVectorClass<SuperClass *> &);
+
+// TEMPLATE: GAMEMD 0x00680870
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVTerrainTypeClass@@@@@Z
+template HRESULT Save_Vector<TerrainTypeClass *>(IStream *, const DynamicVectorClass<TerrainTypeClass *> &);
+
+// TEMPLATE: GAMEMD 0x006808F0
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVTerrainClass@@@@@Z
+template HRESULT Save_Vector<TerrainClass *>(IStream *, const DynamicVectorClass<TerrainClass *> &);
+
+// TEMPLATE: GAMEMD 0x00680970
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVFoggedObjectClass@@@@@Z
+template HRESULT Save_Vector<FoggedObjectClass *>(IStream *, const DynamicVectorClass<FoggedObjectClass *> &);
+
+// TEMPLATE: GAMEMD 0x006809F0
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVAlphaShapeClass@@@@@Z
+template HRESULT Save_Vector<AlphaShapeClass *>(IStream *, const DynamicVectorClass<AlphaShapeClass *> &);
+
+// TEMPLATE: GAMEMD 0x00680A70
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVWaveClass@@@@@Z
+template HRESULT Save_Vector<WaveClass *>(IStream *, const DynamicVectorClass<WaveClass *> &);
+
+// TEMPLATE: GAMEMD 0x00680AF0
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVCaptureManagerClass@@@@@Z
+template HRESULT Save_Vector<CaptureManagerClass *>(IStream *, const DynamicVectorClass<CaptureManagerClass *> &);
+
+// TEMPLATE: GAMEMD 0x00680B70
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVDiskLaserClass@@@@@Z
+template HRESULT Save_Vector<DiskLaserClass *>(IStream *, const DynamicVectorClass<DiskLaserClass *> &);
+
+// TEMPLATE: GAMEMD 0x00680BF0
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVParasiteClass@@@@@Z
+template HRESULT Save_Vector<ParasiteClass *>(IStream *, const DynamicVectorClass<ParasiteClass *> &);
+
+// TEMPLATE: GAMEMD 0x00680C70
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVTemporalClass@@@@@Z
+template HRESULT Save_Vector<TemporalClass *>(IStream *, const DynamicVectorClass<TemporalClass *> &);
+
+// TEMPLATE: GAMEMD 0x00680CF0
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVAirstrikeClass@@@@@Z
+template HRESULT Save_Vector<AirstrikeClass *>(IStream *, const DynamicVectorClass<AirstrikeClass *> &);
+
+// TEMPLATE: GAMEMD 0x00680D70
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVSpawnManagerClass@@@@@Z
+template HRESULT Save_Vector<SpawnManagerClass *>(IStream *, const DynamicVectorClass<SpawnManagerClass *> &);
+
+// TEMPLATE: GAMEMD 0x00680DF0
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVSlaveManagerClass@@@@@Z
+template HRESULT Save_Vector<SlaveManagerClass *>(IStream *, const DynamicVectorClass<SlaveManagerClass *> &);
+
+// TEMPLATE: GAMEMD 0x00680E70
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVBombClass@@@@@Z
+template HRESULT Save_Vector<BombClass *>(IStream *, const DynamicVectorClass<BombClass *> &);
+
+// TEMPLATE: GAMEMD 0x00680EF0
+// ?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVRadSiteClass@@@@@Z
+template HRESULT Save_Vector<RadSiteClass *>(IStream *, const DynamicVectorClass<RadSiteClass *> &);
+
+// TEMPLATE: GAMEMD 0x00680F70
+// ?_QueryInterface@?$_com_ptr_t@V?$_com_IIID@UIStorage@@$1?_GUID_0000000b_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEJABQAUIUnknown@@@Z

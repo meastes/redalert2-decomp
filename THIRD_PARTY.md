@@ -98,6 +98,16 @@ inspection tools; VC6 and CrossOver are legitimate user-supplied local build too
   `src/` as candidates, adapted to our shared headers; an adopted file keeps the source's SPDX and copyright lines
   (including the EA line where present) and the commit subject says "from TibSun <file>". Acceptance is unchanged.
 
+- **Native Yuri's Revenge port (lane Y1, user decision 2026-11-15)**: `yr/ra2-decomp` is a pinned copy of
+  ra2-decomp at `f8d8d53000af32ce7eb25305b27b277b56c07c24` (`src/`, `include/`, `COPYING.md`, `LICENSE`, `README.md`
+  and the `data/` function map, manifest, names, library and module tables), GPL-3.0-or-later with Electronic Arts'
+  section 7 terms on files carrying an EA or OpenTS copyright line; `data/` and the tooling text are MIT. `yr/tibsun`
+  is a pinned copy of the OpenTS TibSun archive's headers (`code/**/*.h`, `LICENSE.md`, `README.md`) at
+  `dbfbfbfaac40364ce7e1cd8fad7bcade5c6fb0d4`, GPL-3.0-or-later with EA's section 7 terms. Both are copied unchanged
+  with every notice kept (`yr/README.md`); the native build reads generated copies with `native/yr/fixups.json`
+  applied and never edits them. The Win32/DirectX headers the native YR build compiles against are the mingw-w64
+  headers of the local llvm-mingw toolchain, rewritten into `build/` at configure time and never copied into the
+  repository (mingw-w64 headers: public domain / ZPL, Wine-derived DirectX headers LGPL-2.1-or-later).
 - **ra2-decomp** (`gibbo101/ra2-decomp` commit `6e6f6a1a3430ae9e2b743fe4fe176da2b5ccf661`, 2026-11-07; earlier pins ca9b8ad, 4453ab030): a matching
   decompilation of Yuri's Revenge gamemd.exe 1.001 built with the same VC6 SP3. Game source in `src/` and `include/`
   GPL-3.0-or-later, Copyright 2026 ra2-decomp contributors, with Electronic Arts' section 7 terms on files carrying an

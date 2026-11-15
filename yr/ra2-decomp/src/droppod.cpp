@@ -1,0 +1,375 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+
+#include "always.h"
+#include "droppod.h"
+#include "_map.h"
+#include "_rand.h"
+#include "_rules.h"
+#include "anim.h"
+#include "cell.h"
+#include "combat.h"
+#include "coord.h"
+#include "foot.h"
+#include "geometry.h"
+#include "globals.h"
+#include "house.h"
+#include "map.h"
+#include "noinit.h"
+#include "rules.h"
+#include "sun.h"
+#include "weapon.h"
+#include "layer.hh"
+#include <new.h>
+#include <math.h>
+
+// SYNTHETIC: GAMEMD 0x004B58A0 SYMBOL
+// _$E81
+// SYNTHETIC: GAMEMD 0x004B58D0 SYMBOL
+// _$E84
+// SYNTHETIC: GAMEMD 0x004B58F0 SYMBOL
+// _$E87
+// SYNTHETIC: GAMEMD 0x004B5910 SYMBOL
+// _$E90
+// SYNTHETIC: GAMEMD 0x004B5930 SYMBOL
+// _$E93
+// SYNTHETIC: GAMEMD 0x004B5950 SYMBOL
+// _$E96
+// SYNTHETIC: GAMEMD 0x004B5970 SYMBOL
+// _$E99
+// SYNTHETIC: GAMEMD 0x004B59B0 SYMBOL
+// _$E102
+// SYNTHETIC: GAMEMD 0x004B59E0 SYMBOL
+// _$E105
+// SYNTHETIC: GAMEMD 0x004B5A10 SYMBOL
+// _$E108
+// SYNTHETIC: GAMEMD 0x004B5A40 SYMBOL
+// _$E111
+// SYNTHETIC: GAMEMD 0x004B5A50 SYMBOL
+// _$E114
+// SYNTHETIC: GAMEMD 0x004B5A70 SYMBOL
+// _$E117
+// SYNTHETIC: GAMEMD 0x004B5A90 SYMBOL
+// _$E13
+
+// FUNCTION: GAMEMD 0x004B5AB0
+DropPodLocomotionClass::DropPodLocomotionClass(void) :
+	BASECLASS(),
+	Flipped(false),
+	DestinationCoord(COORD_NONE),
+	Piggybacker(NULL)
+{
+}
+
+// FUNCTION: GAMEMD 0x004B5B00
+DropPodLocomotionClass::~DropPodLocomotionClass(void)
+{
+}
+
+// FUNCTION: GAMEMD 0x004B5B30
+boolean STDMETHODCALLTYPE DropPodLocomotionClass::Is_Moving(void)
+{
+	return(true);
+}
+
+// FUNCTION: GAMEMD 0x004B5B40
+CoordStruct STDMETHODCALLTYPE DropPodLocomotionClass::Destination(void)
+{
+	return(DestinationCoord);
+}
+
+// FUNCTION: GAMEMD 0x004B5B70
+boolean STDMETHODCALLTYPE DropPodLocomotionClass::Process(void)
+{
+	Coord coord = LinkedTo->Position;
+	Coord smoke_coord = coord;
+
+	int speed = LinkedTo->HeightAGL / 10 + 2;
+	if (Rule->DropPodSpeed > speed) {
+		speed = Rule->DropPodSpeed;
+	}
+
+	if (Flipped) {
+		coord.X += fastmath::cos(Rule->DropPodAngle) * speed;
+	} else {
+		coord.X -= fastmath::cos(Rule->DropPodAngle) * speed;
+	}
+	coord.Z -= fastmath::sin(Rule->DropPodAngle) * speed;
+
+	int height = LinkedTo->HeightAGL;
+	FootClass * linked = LinkedTo;
+
+	if (height <= 0) {
+		linked->HeightAGL = 0;
+		coord = linked->Position;
+		linked->Limbo();
+
+		AddRef();
+		End_Piggyback(&LinkedTo->Locomotion);
+
+		if (!linked->Unlimbo(coord, DIR_N)) {
+			Map.DamageArea(coord, 100, LinkedTo, Rule->C4Warhead, true, NULL);
+			new AnimClass(Combat_Anim(100, Rule->C4Warhead, LAND_CLEAR, coord), coord, 0, 1, ShapeFlags_Type(0x2600), Get_Explosion_Z(coord));
+		} else {
+			new AnimClass(Rule->DropPodPuff, coord);
+			if (Flipped) {
+				new AnimClass(Rule->DropPod[1], coord);
+			} else {
+				new AnimClass(Rule->DropPod[0], coord);
+			}
+			linked->Mark(MARK_DOWN);
+			linked->HeightAGL = 0;
+			linked->Enter_Idle_Mode();
+			linked->Commence();
+			linked->Scatter(COORD_NONE);
+		}
+		Release();
+	} else {
+		LinkedTo->PositionCoord = coord;
+		WeaponTypeClass const * weapon = Rule->DropPodWeapon;
+
+		if (weapon != NULL) {
+			if (Frame % 6 == 0) {
+				new AnimClass(AnimTypes[AnimTypeClass::From_Name("SMOKEY")], smoke_coord);
+			}
+			if (Frame % 3 == 0) {
+				if (!LinkedTo->House->Is_Ally(Map[DestinationCoord].Cell_Techno())) {
+					Coord scattered_coord = Coord_Scatter(DestinationCoord, 0x55, false);
+					VocClass::PlayAt(weapon->Sound.Pick(NonCriticalRandomNumber), coord, NULL);
+					Map.DamageArea(scattered_coord, 2 * weapon->Attack, LinkedTo, weapon->WarheadPtr, true, NULL);
+					new AnimClass(Combat_Anim(2 * weapon->Attack, weapon->WarheadPtr, LAND_CLEAR, scattered_coord), scattered_coord, 0, 1, ShapeFlags_Type(0x2600), Get_Explosion_Z(scattered_coord));
+				}
+			}
+		}
+	}
+	return(true);
+}
+
+// FUNCTION: GAMEMD 0x004B6040
+void STDMETHODCALLTYPE DropPodLocomotionClass::Move_To(CoordStruct to)
+{
+	if (DestinationCoord == COORD_NONE) {
+
+		DestinationCoord = to;
+		DestinationCoord.Z = Map.Get_Height_GL(DestinationCoord);
+
+		Coord dropcoord = DestinationCoord;
+		dropcoord.Z += Rule->DropPodHeight;
+		dropcoord.X += (double)Rule->DropPodHeight / fastmath::tan(Rule->DropPodAngle);
+
+		if (!Map.In_Local_Radar(dropcoord)) {
+			Flipped = true;
+			dropcoord.X = DestinationCoord.X - (double)Rule->DropPodHeight / fastmath::tan(Rule->DropPodAngle);
+		}
+
+		LinkedTo->PositionCoord = dropcoord;
+
+		if (LinkedTo->Unlimbo(dropcoord, DIR_S)) {
+			LinkedTo->PositionCoord = dropcoord;
+			LinkedTo->PrimaryFacing.Set(DIR_S << 8);
+			new AnimClass(Rule->AtmosphereEntry, dropcoord);
+		} else {
+			LinkedTo->Unlimbo(dropcoord, DIR_S);
+		}
+	}
+}
+
+// FUNCTION: GAMEMD 0x004B6200
+HRESULT STDMETHODCALLTYPE DropPodLocomotionClass::GetClassID(CLSID * retval)
+{
+	if (retval == NULL) return(E_POINTER);
+	*retval = CLSID_BallisticLocomotion;
+	return(S_OK);
+}
+
+// FUNCTION: GAMEMD 0x004B6240
+HRESULT STDMETHODCALLTYPE DropPodLocomotionClass::Load(IStream * stream)
+{
+	HRESULT result = BASECLASS::Load(stream);
+	if (SUCCEEDED(result)) {
+		new (this) DropPodLocomotionClass(NoInitClass());
+
+		bool haspiggy;
+		stream->Read(&haspiggy, sizeof(haspiggy), NULL);
+
+		if (haspiggy) {
+			result = OleLoadFromStream(stream, IID_ILocomotion, (void**)&Piggybacker);
+		}
+	}
+	return(result);
+}
+
+// FUNCTION: GAMEMD 0x004B62C0
+HRESULT STDMETHODCALLTYPE DropPodLocomotionClass::Save(IStream * stream, BOOL cleardirty)
+{
+	HRESULT result = BASECLASS::Save(stream, cleardirty);
+	if (SUCCEEDED(result)) {
+		bool haspiggy;
+		if (Piggybacker != NULL) {
+			haspiggy = true;
+			stream->Write(&haspiggy, sizeof(haspiggy), NULL);
+			IPersistStreamPtr ptr(Piggybacker);
+			result = OleSaveToStream(ptr, stream);
+		} else {
+			haspiggy = false;
+			result = stream->Write(&haspiggy, sizeof(haspiggy), NULL);
+		}
+	}
+	return(result);
+}
+
+// FUNCTION: GAMEMD 0x004B63A0
+void STDMETHODCALLTYPE DropPodLocomotionClass::Stop_Moving(void)
+{
+}
+
+// FUNCTION: GAMEMD 0x004B63B0
+HRESULT STDMETHODCALLTYPE DropPodLocomotionClass::Begin_Piggyback(ILocomotion * pointer)
+{
+	if (pointer == NULL) {
+		return(E_POINTER);
+	}
+	if (Piggybacker == NULL) {
+		Piggybacker = pointer;
+		return(S_OK);
+	}
+	return(E_FAIL);
+}
+
+// FUNCTION: GAMEMD 0x004B6400
+HRESULT STDMETHODCALLTYPE DropPodLocomotionClass::End_Piggyback(ILocomotion ** pointer)
+{
+	if (pointer == NULL) {
+		return(E_POINTER);
+	}
+	if (Piggybacker != NULL) {
+		*pointer = Piggybacker;
+		Piggybacker.Detach();
+		return(S_OK);
+	}
+	return(S_FALSE);
+}
+
+// FUNCTION: GAMEMD 0x004B6440
+boolean STDMETHODCALLTYPE DropPodLocomotionClass::Is_Ok_To_End(void)
+{
+	if (!Is_Moving() && Piggybacker != NULL) {
+		return(true);
+	}
+	return(false);
+}
+
+// FUNCTION: GAMEMD 0x004B6470
+HRESULT STDMETHODCALLTYPE DropPodLocomotionClass::QueryInterface(REFIID riid, LPVOID * ppvObject)
+{
+	HRESULT result = BASECLASS::QueryInterface(riid, ppvObject);
+
+	if (result == E_NOINTERFACE) {
+		if (riid == IID_IPiggyback) {
+			*ppvObject = (IPiggyback*)this;
+		}
+		if (*ppvObject == NULL) {
+			result = E_NOINTERFACE;
+		} else {
+			AddRef();
+			result = S_OK;
+		}
+	}
+	return(result);
+}
+
+// FUNCTION: GAMEMD 0x004B64D0
+LayerType STDMETHODCALLTYPE DropPodLocomotionClass::In_Which_Layer(void)
+{
+	return(LAYER_AIR);
+}
+
+// FUNCTION: GAMEMD 0x004B64E0
+HRESULT STDMETHODCALLTYPE DropPodLocomotionClass::Piggyback_CLSID(GUID * classid)
+{
+	if (classid == NULL) {
+		return(E_POINTER);
+	}
+
+	if (Piggybacker != NULL) {
+		IPersistPtr ptr(Piggybacker);
+		if (ptr == NULL) {
+			return(E_FAIL);
+		}
+		return(ptr->GetClassID(classid));
+	}
+
+	IPersistPtr ptr(this);
+	if (ptr == NULL) {
+		return(E_FAIL);
+	}
+	return(ptr->GetClassID(classid));
+}
+
+// FUNCTION: GAMEMD 0x004B65F0
+int STDMETHODCALLTYPE DropPodLocomotionClass::Drawing_Code(void)
+{
+	return(Flipped ? 1 : 0);
+}
+
+// FUNCTION: GAMEMD 0x004B6610
+// LocomotionClass::Is_Moving_Now
+
+// FUNCTION: GAMEMD 0x004B6620
+// LocomotionClass::Mark_All_Occupation_Bits
+
+// FUNCTION: GAMEMD 0x004B6630
+// LocomotionClass::Is_Moving_Here
+
+// FUNCTION: GAMEMD 0x004B6640
+// LocomotionClass::Will_Jump_Tracks
+
+// FUNCTION: GAMEMD 0x004B6650
+// LocomotionClass::Lock
+
+// FUNCTION: GAMEMD 0x004B6660
+// LocomotionClass::Unlock
+
+// FUNCTION: GAMEMD 0x004B6670
+// LocomotionClass::Get_Track_Number
+
+// FUNCTION: GAMEMD 0x004B6680
+// LocomotionClass::Get_Track_Index
+
+// FUNCTION: GAMEMD 0x004B6690
+// LocomotionClass::Get_Speed_Accum
+
+// FUNCTION: GAMEMD 0x004B66A0
+// DropPodLocomotionClass::AddRef
+
+// FUNCTION: GAMEMD 0x004B66B0
+// DropPodLocomotionClass::Release
+
+// FUNCTION: GAMEMD 0x004B66C0
+// DropPodLocomotionClass::Is_Piggybacking
+
+// FUNCTION: GAMEMD 0x004B66E0
+// DropPodLocomotionClass::Fetch_Object_Size
+
+// SYNTHETIC: GAMEMD 0x004B66F0
+// ??_GDropPodLocomotionClass@@UAEPAXI@Z
+
+// FUNCTION: GAMEMD 0x004B6740
+// DropPodLocomotionClass::QueryInterface
+
+// FUNCTION: GAMEMD 0x004B6750
+// DropPodLocomotionClass::AddRef
+
+// FUNCTION: GAMEMD 0x004B6760
+// DropPodLocomotionClass::Release
+
+// FUNCTION: GAMEMD 0x004B6770
+// DropPodLocomotionClass::QueryInterface
+
+// FUNCTION: GAMEMD 0x004B6780
+// DropPodLocomotionClass::AddRef
+
+// FUNCTION: GAMEMD 0x004B6790
+// DropPodLocomotionClass::Release

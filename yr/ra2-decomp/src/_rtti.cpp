@@ -1,0 +1,186 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+
+#include "always.h"
+#include <math.h>
+#include "geometry.h"
+#include "rect.h"
+#include "_rtti.h"
+#include "object.h"
+
+// SYNTHETIC: GAMEMD 0x0040DAA0 SYMBOL
+// _$E2
+// SYNTHETIC: GAMEMD 0x0040DAD0 SYMBOL
+// _$E5
+// SYNTHETIC: GAMEMD 0x0040DAF0 SYMBOL
+// _$E8
+// SYNTHETIC: GAMEMD 0x0040DB10 SYMBOL
+// _$E11
+// SYNTHETIC: GAMEMD 0x0040DB30 SYMBOL
+// _$E14
+// SYNTHETIC: GAMEMD 0x0040DB50 SYMBOL
+// _$E17
+// SYNTHETIC: GAMEMD 0x0040DB70 SYMBOL
+// _$E20
+// SYNTHETIC: GAMEMD 0x0040DBB0 SYMBOL
+// _$E23
+// SYNTHETIC: GAMEMD 0x0040DBE0 SYMBOL
+// _$E26
+// SYNTHETIC: GAMEMD 0x0040DC10 SYMBOL
+// _$E29
+// SYNTHETIC: GAMEMD 0x0040DC40 SYMBOL
+// _$E32
+// SYNTHETIC: GAMEMD 0x0040DC50 SYMBOL
+// _$E35
+// SYNTHETIC: GAMEMD 0x0040DC70 SYMBOL
+// _$E38
+// SYNTHETIC: GAMEMD 0x0040DC90 SYMBOL
+// _$E41
+
+struct {
+	char const *Name;
+	RTTIType RTTI;
+} RTTIs[RTTI_COUNT] = {
+	{ "<none>",				RTTI_NONE },
+	{ "Unit",				RTTI_UNIT },
+	{ "Aircraft",			RTTI_AIRCRAFT },
+	{ "AircraftType",		RTTI_AIRCRAFTTYPE },
+	{ "Anim",				RTTI_ANIM },
+	{ "AnimType",			RTTI_ANIMTYPE },
+	{ "Building",			RTTI_BUILDING },
+	{ "BuildingType",		RTTI_BUILDINGTYPE },
+	{ "Bullet",				RTTI_BULLET },
+	{ "BulletType",			RTTI_BULLETTYPE },
+	{ "Campaign",			RTTI_CAMPAIGN },
+	{ "Cell",				RTTI_CELL },
+	{ "Factory",			RTTI_FACTORY },
+	{ "House",				RTTI_HOUSE },
+	{ "HouseType",			RTTI_HOUSETYPE },
+	{ "Infantry",			RTTI_INFANTRY },
+	{ "InfantryType",		RTTI_INFANTRYTYPE },
+	{ "Isotile",			RTTI_ISOTILE },
+	{ "IsotileType",		RTTI_ISOTILETYPE },
+	{ "Light",				RTTI_LIGHT },
+	{ "Overlay",			RTTI_OVERLAY },
+	{ "OverlayType",		RTTI_OVERLAYTYPE },
+	{ "Particle",			RTTI_PARTICLE },
+	{ "ParticleType",		RTTI_PARTICLETYPE },
+	{ "ParticleSystem",		RTTI_PARTICLESYSTEM },
+	{ "ParticleSystemType",	RTTI_PARTICLESYSTEMTYPE },
+	{ "Script",				RTTI_SCRIPT },
+	{ "ScriptType",			RTTI_SCRIPTTYPE },
+	{ "Side",				RTTI_SIDE },
+	{ "Smudge",				RTTI_SMUDGE },
+	{ "SmudgeType",			RTTI_SMUDGETYPE },
+	{ "Special",			RTTI_SPECIAL },
+	{ "SuperWeaponType",	RTTI_SUPERWEAPONTYPE },
+	{ "TaskForce",			RTTI_TASKFORCE },
+	{ "Team",				RTTI_TEAM },
+	{ "TeamType",			RTTI_TEAMTYPE },
+	{ "Terrain",			RTTI_TERRAIN },
+	{ "TerrainType",		RTTI_TERRAINTYPE },
+	{ "Trigger",			RTTI_TRIGGER },
+	{ "TriggerType",		RTTI_TRIGGERTYPE },
+	{ "UnitType",			RTTI_UNITTYPE },
+	{ "VoxelAnim",			RTTI_VOXELANIM },
+	{ "VoxelAnimType",		RTTI_VOXELANIMTYPE },
+	{ "Wave",				RTTI_WAVE },
+	{ "Tag",				RTTI_TAG },
+	{ "TagType",			RTTI_TAGTYPE },
+	{ "Tiberium",			RTTI_TIBERIUM },
+	{ "Action",				RTTI_ACTION },
+	{ "Event",				RTTI_EVENT },
+	{ "WeaponType",			RTTI_WEAPONTYPE },
+	{ "WarheadType",		RTTI_WARHEADTYPE },
+	{ "Waypoint",			RTTI_WAYPOINT },
+	{ "Abstract",			RTTI_ABSTRACT },
+	{ "Tube",				RTTI_TUBE },
+	{ "LightSource",		RTTI_LIGHTSOURCE },
+	{ "EMPulse",			RTTI_EMPULSE },
+	{ "TacticalMap",		RTTI_TACTICALMAP },
+	{ "SuperWeapon",		RTTI_SUPERWEAPON },
+	{ "AITrigger",			RTTI_AITRIGGER },
+	{ "AITriggerType",		RTTI_AITRIGGERTYPE },
+	{ "Neuron",				RTTI_NEURON },
+	{ "FoggedObject",		RTTI_FOGGEDOBJECT },
+	{ "AlphaShape",			RTTI_ALPHASHAPE },
+	{ "VeinholeMonster",	RTTI_VEINHOLEMONSTER },
+	{ "NavyType",			RTTI_NAVYTYPE },
+	{ "SpawnManager",		RTTI_SPAWNMANAGER },
+	{ "CaptureManager",		RTTI_CAPTUREMANAGER },
+	{ "Parasite",			RTTI_PARASITE },
+	{ "Bomb",				RTTI_BOMB },
+	{ "Temporal",			RTTI_TEMPORAL },
+	{ "RadSite",			RTTI_RADSITE },
+	{ "Airstrike",			RTTI_AIRSTRIKE },
+	{ "SlaveManager",		RTTI_SLAVEMANAGER },
+	{ "DiskLaser",			RTTI_DISKLASER },
+};
+
+static char UNKNOWN_RTTI_NAME[] = { "Unknown" };
+
+// FUNCTION: GAMEMD 0x0040DCB0
+char const *Name_From_RTTI(RTTIType rtti)
+{
+	for (int i = 0; i < RTTI_COUNT; i++) {
+		if (RTTIs[i].RTTI == rtti) {
+			return(RTTIs[i].Name);
+		}
+	}
+	return(UNKNOWN_RTTI_NAME);
+}
+
+// FUNCTION: GAMEMD 0x0040DCE0
+RTTIType RTTI_From_Name(char const *name)
+{
+	for (int i = 0; i < RTTI_COUNT; i++) {
+		if (!strcmpi(RTTIs[i].Name, name)) {
+			return(RTTIs[i].RTTI);
+		}
+	}
+	return(RTTI_NONE);
+}
+
+// FUNCTION: GAMEMD 0x0040DD20
+// Dynamic_Cast@@YIPBVTechnoClass
+template <>
+TechnoClass const * Dynamic_Cast<TechnoClass const *>(AbstractClass const * target)
+{
+	if (target != NULL) {
+		RTTIType rtti = target->Fetch_RTTI();
+		switch (rtti) {
+			case RTTI_INFANTRY:
+				return((TechnoClass *)target);
+			case RTTI_UNIT:
+				return((TechnoClass *)target);
+			case RTTI_BUILDING:
+				return((TechnoClass *)target);
+			case RTTI_AIRCRAFT:
+				return((TechnoClass *)target);
+		}
+	}
+	return(NULL);
+}
+
+// FUNCTION: GAMEMD 0x0040DD70
+// Dynamic_Cast@@YIPAVTechnoClass
+template <>
+TechnoClass * Dynamic_Cast<TechnoClass *>(AbstractClass * target)
+{
+	if (target != NULL) {
+		RTTIType rtti = target->Fetch_RTTI();
+		switch (rtti) {
+			case RTTI_INFANTRY:
+				return((TechnoClass *)target);
+			case RTTI_UNIT:
+				return((TechnoClass *)target);
+			case RTTI_BUILDING:
+				return((TechnoClass *)target);
+			case RTTI_AIRCRAFT:
+				return((TechnoClass *)target);
+		}
+	}
+	return(NULL);
+}

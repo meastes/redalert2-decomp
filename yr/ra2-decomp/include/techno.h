@@ -1,0 +1,762 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+#pragma once
+
+#include "_voxel.h"
+#include "audioctl.h"
+#include "cargo.h"
+#include "comtypes.h"
+#include "door.h"
+#include "facing.h"
+#include "flasher.h"
+#include "ftimer.h"
+#include "globals.h"
+#include "house.h"
+#include "matrix3d.h"
+#include "point.h"
+#include "radio.h"
+#include "stage.h"
+#include "stbuffer.h"
+#include "storage.h"
+#include "techtype.h"
+#include "timer.h"
+#include "vector.h"
+#include "veteran.h"
+
+#include "cloak.hh"
+#include "detected.hh"
+#include "draw.hh"
+#include "fire.hh"
+#include "infantry.hh"
+#include "particle.hh"
+#include "talk.hh"
+#include "threat.hh"
+#include "zgrad.hh"
+
+class ParticleSystemClass;
+class WaveClass;
+class LaserDrawClass;
+class EBolt;
+class WeaponTypeClass;
+class ShapeSet;
+struct WeaponDataStruct;
+class AnimClass;
+class TemporalClass;
+class AirstrikeClass;
+class FootClass;
+class CaptureManagerClass;
+class SpawnManagerClass;
+class SlaveManagerClass;
+class TeamClass;
+class RadBeam;
+class PlanningTokenClass;
+class ObjectTypeClass;
+class Surface;
+
+struct RecoilData
+{
+	TurretControl Turret;
+	float TravelPerFrame;
+	float TravelSoFar;
+	int State;
+	int TravelFramesLeft;
+
+	RecoilData(void)
+	{
+		Turret.Travel = 2;
+		Turret.CompressFrames = 1;
+		Turret.RecoverFrames = 1;
+		Turret.HoldFrames = 1;
+		TravelSoFar = 0;
+		State = 0;
+	}
+
+	void Fire(void);
+	void Update(void);
+};
+
+struct YRVectorData
+{
+	void * VTable;
+	void ** Items;
+	int Capacity;
+	bool IsInitialized;
+	bool IsAllocated;
+	int Count;
+	int CapacityIncrement;
+};
+
+class TechnoClass : public RadioClass
+{
+		typedef RadioClass BASECLASS;
+
+	public:
+		enum {
+			RAILGUN_STEPS = 50,
+		};
+
+		FlasherClass Flashing;
+		StageClass Animation;
+
+		CargoClass Cargo;
+		TechnoClass * Transporter;
+
+		int LastFireBulletFrame;
+		int CurrentTurretNumber;
+		int unknown_int_128;
+		AnimClass * BehindAnim;
+		AnimClass * DeployAnim;
+		bool InAir;
+		int CurrentWeaponNumber;
+		int CurrentRanking;
+		int CurrentGattlingStage;
+		int GattlingValue;
+		int TurretAnimFrame;
+		HouseClass * InitialOwner;
+
+		VeterancyClass Veterancy;
+
+		double ArmorBias;
+		double FirepowerBias;
+
+		CDTimerClass<FrameTimerClass> IdleTimer;
+		CDTimerClass<FrameTimerClass> RadarFlashTimer;
+		CDTimerClass<FrameTimerClass> TargetingTimer;
+		CDTimerClass<FrameTimerClass> IronCurtainTimer;
+		CDTimerClass<FrameTimerClass> IronTintTimer;
+		int IronTintStage;
+		CDTimerClass<FrameTimerClass> AirstrikeTimer;
+		CDTimerClass<FrameTimerClass> AirstrikeTintTimer;
+		unsigned AirstrikeTintStage;
+		int ForceShielded;
+		bool Deactivated;
+		TechnoClass * DrainTarget;
+		TechnoClass * DrainingMe;
+		AnimClass * DrainAnim;
+		bool Disguised;
+		unsigned DisguiseCreationFrame;
+		CDTimerClass<FrameTimerClass> InfantryBlinkTimer;
+		CDTimerClass<FrameTimerClass> DisguiseBlinkTimer;
+		bool UnlimboingInfantry;
+		CDTimerClass<FrameTimerClass> ReloadTimer;
+
+		Point2D RadarPos;
+
+		unsigned SpiedBy;
+
+		int Group;
+
+		AbstractClass * ArchivedTarget;
+
+		HouseClass * House;
+
+		CloakType Cloak;
+		StageClass CloakingDevice;
+		CDTimerClass<FrameTimerClass> CloakDelay;
+
+		float WarpFactor;
+		bool unknown_bool_250;
+		Coord LastSightCoords;
+		int LastSightRange;
+		int LastSightHeight;
+		bool GapSuperCharged;
+		bool GeneratingGap;
+		int GapRadius;
+		bool BeingWarpedOut;
+		bool WarpingOut;
+		bool unknown_bool_272;
+		unsigned char unused_273;
+		TemporalClass * TemporalImUsing;
+		TemporalClass * TemporalTargetingMe;
+		bool IsImmobilized;
+		unsigned unknown_280;
+		int ChronoLockRemaining;
+		Coord ChronoDestCoords;
+		AirstrikeClass * Airstrike;
+		bool Berzerk;
+		int BerzerkDurationLeft;
+		int SprayOffsetIndex;
+		bool Uncrushable;
+		FootClass * DirectRockerLinkedUnit;
+		FootClass * LocomotorTarget;
+		FootClass * LocomotorSource;
+
+		AbstractClass * TarCom;
+		AbstractClass * SuspendedTarCom;
+
+		CaptureManagerClass * CaptureManager;
+		TechnoClass * MindControlledBy;
+		bool MindControlledByAUnit;
+		AnimClass * MindControlRingAnim;
+		HouseClass * MindControlledByHouse;
+		SpawnManagerClass * SpawnManager;
+		TechnoClass * SpawnOwner;
+		SlaveManagerClass * SlaveManager;
+		TechnoClass * SlaveOwner;
+		HouseClass * OriginallyOwnedByHouse;
+		TechnoClass * BunkerLinkedItem;
+
+		float PitchAngle;
+
+		CDTimerClass<FrameTimerClass> Arm;
+
+		int ChargeTurretDelay;
+
+		int Ammo;
+
+		int PurchasePrice;
+
+		ParticleSystemClass * ParticleSystems[8];
+
+		WaveClass * Wave;
+
+		float AngleRotatedSideways;
+		float AngleRotatedForwards;
+
+		float RockingSidewaysPerFrame;
+		float RockingForwardsPerFrame;
+
+		InfantryType EnteredByInfType;
+
+		StorageClass Storage;
+		unsigned unknown_34C;
+
+		DoorClass Door;
+
+		FacingClass BarrelPitch;
+
+		FacingClass PrimaryFacing;
+
+		FacingClass SecondaryFacing;
+
+		int BurstIndex;
+
+		CDTimerClass<FrameTimerClass> TargetingLaserTimer;
+
+		unsigned short SoundRandomSeed;
+		short SinkingYOffset;
+
+		bool CountedAsOwned;
+
+		bool IsSinking;
+		bool WasSinkingAlready;
+		bool unknown_bool_3CF;
+
+		bool IsUseless;
+
+		bool IsTickedOff;
+
+		bool IsCloakable;
+
+		bool IsLeader;
+
+		bool IsALoaner;
+
+		bool IsInPlayfield;
+
+		RecoilData TurretRecoil;
+		RecoilData BarrelRecoil;
+
+		bool IsTethered;
+		bool IsAlternativeTether;
+
+		bool IsOwnedByPlayer;
+
+		bool IsDiscoveredByPlayer;
+
+		bool IsDiscoveredByComputer;
+		bool unknown_bool_41D;
+		unsigned char unknown_41E;
+		bool unknown_bool_41F;
+
+		char SightIncrease;
+
+		bool IsTeamRecruitable;
+		bool IsAutocreateRecruitable;
+
+		bool IsRadarTracked;
+
+		bool IsInTransport;
+		bool IsCrashing;
+		bool WasCrashingAlready;
+		bool IsBeingManipulated;
+		TechnoClass * BeingManipulatedBy;
+		HouseClass * ChronoWarpedByHouse;
+		bool unknown_bool_430;
+		bool IsMouseHovering;
+		bool ShouldBeReselectOnUnlimbo;
+		TeamClass * OldTeam;
+		bool CountedAsOwnedSpecial;
+		bool Absorbed;
+		bool unknown_bool_43A;
+		int unknown_43C;
+
+		mutable DynamicVectorClass<int> CurrentTargetThreatValues;
+		mutable DynamicVectorClass<AbstractClass *> CurrentTargets;
+		mutable DynamicVectorClass<AbstractClass *> AttackedTargets;
+
+		AudioController TurretRotateSoundController;
+		int IsTurretRotateSoundPlaying;
+		int TurretIsRotating;
+		AudioController GattlingSoundController;
+		bool IsGattlingSoundPlaying;
+		unsigned unknown_4BC;
+		AudioController UnusedGattlingSoundController;
+		bool IsUnusedGattlingSoundPlaying;
+		unsigned unknown_4D8;
+		AudioController QueuedVoiceSoundController;
+		unsigned QueuedVoiceIndex;
+		unsigned unknown_4F4;
+		bool unknown_bool_4F8;
+		unsigned unknown_4FC;
+		TechnoClass * QueueUpToEnter;
+		unsigned EMPLockRemaining;
+		unsigned ThreatPosed;
+		bool ShouldLoseTargetNow;
+		RadBeam * FiringRadBeam;
+		PlanningTokenClass * PlanningToken;
+		ObjectTypeClass * Disguise;
+		HouseClass * DisguisedAsHouse;
+
+		TechnoClass(HouseClass * house=0);
+		TechnoClass(NoInitClass const & x);
+		virtual ~TechnoClass(void) override;
+
+		virtual HRESULT STDMETHODCALLTYPE Load(IStream * stream) override;
+
+		virtual void Compute_CRC(CRCEngine &) const override;
+		virtual TechnoTypeClass const * Techno_Type_Class(void) const override;
+		virtual HRESULT STDMETHODCALLTYPE Save(IStream * stream, BOOL cleardirty) override;
+		virtual void AnimPointerExpired(AnimClass * anim) override;
+		virtual bool IsDisguised(void) const override;
+		virtual bool IsDisguisedAs(HouseClass * house) const override;
+		virtual void RegisterDestruction(TechnoClass * destroyer) override;
+		virtual bool CanBeSelectedNow(void) const override;
+		virtual int IronCurtain(int duration, HouseClass * source, bool force_shield) override;
+		virtual void StopAirstrikeTimer(void) override;
+		virtual void StartAirstrikeTimer(int duration) override;
+		virtual bool IsIronCurtained(void) const override;
+		virtual void Destroy(void) override;
+		virtual bool IsBeingWarpedOut(void) const override;
+		virtual bool IsWarpingIn(void) const override;
+		virtual bool IsWarpingSomethingOut(void) const override;
+		virtual bool IsNotWarping(void) const override;
+		virtual LightConvertClass * GetRemapColour(void) const override;
+
+		virtual bool Is_Move_Override(void) const;
+		virtual bool Is_Allowed_To_Recloak(void) const;
+		virtual bool Can_Scatter(void) const;
+		virtual bool Is_In_Team(void) const;
+		virtual bool Should_Self_Heal_Now(void) const;
+		virtual bool Is_Voxel_Loaded(void) const;
+		virtual bool Is_Ready_To_Move(void) const;
+		virtual bool Is_Ready_To_Cloak(void) const;
+		virtual bool Should_Uncloak(void) const;
+		virtual DirType Turret_Facing(void) const;
+		virtual bool Is_Weapon_Equipped(void) const;
+		virtual bool Is_On_Elevation(void) const;
+		virtual double Tiberium_Load(void) const;
+		virtual int Pip_Count(void) const;
+		virtual int Refund_Amount(void) const;
+		virtual int Risk(void) const;
+		virtual bool Is_In_Same_Zone_As(ObjectClass const * object) const;
+		virtual DirType Barrel_Pitch(AbstractClass * target) const;
+		virtual bool Is_In_Same_Zone(Coord const & coord) const;
+		virtual int How_Many_Survivors(void) const;
+		virtual int Anti_Air(void) const {return(0);}
+		virtual int Anti_Armor(void) const {return(0);}
+		virtual int Anti_Infantry(void) const {return(0);}
+		virtual void GotHijacked(void);
+		virtual int What_Weapon_Should_I_Use(AbstractClass * target) const;
+		virtual int SelectNavalTargeting(AbstractClass * target) const;
+		virtual int Get_Z_Adjust(void) const;
+		virtual ZGradientType Get_Z_Gradient(void) const {return(ZGRAD_90DEG);}
+		virtual Cell GetLastFlightMapCoords(void) const;
+		virtual void SetLastFlightMapCoords(Cell coord);
+		virtual Cell Find_Exit_Cell(TechnoClass const * techno, unsigned) const;
+		virtual Coord Turret_Coord(int which=0) const;
+		void Create_Planning_Token(void);
+		static void __stdcall FUN_00705860(Coord start, Coord end);
+		void FUN_00705270(Coord src, Coord dst, RGBClass color, unsigned char shadow);
+		void Draw_A_Link_To(Coord src, Coord dst, RGBClass color);
+		void FUN_00705D10(PlanningTokenClass * token);
+		PlanningTokenClass * FUN_00705D20(void);
+		bool FUN_00705D30(void);
+		bool FUN_00705D60(void);
+		bool TryNextPlanningTokenNode(void);
+		void FUN_0070DC70(int which);
+		int GetEffectTintIntensity(int brightness) const;
+		int GetInvulnerabilityTintIntensity(int brightness) const;
+		int GetAirstrikeTintIntensity(int brightness) const;
+		void FUN_0070E5A0(void);
+		void FUN_0070E920(void);
+		int FUN_0070DDF0(void);
+		int FUN_007011A0(void);
+		bool FUN_0070DC50(void) const;
+		bool FUN_0070DC60(void) const;
+		bool FUN_0070DCE0(void) const;
+		int FUN_0070DCF0(void) const;
+		int FUN_0070DD00(void);
+		int FUN_0070DD20(void) const;
+		bool FUN_0070DD50(void) const;
+		int FUN_0070DD70(void) const;
+		int FUN_0070DD90(void) const;
+		int FUN_0070DDA0(void) const;
+		int FUN_0070DDC0(void) const;
+		void SetCurrentWeaponStage(int stage);
+		void sub_70DE00(int value);
+		void FUN_0070DE20(int amount);
+		void FUN_0070DE40(int amount);
+		void GattlingRateUp(int rate);
+		void ReleaseLocomotor(bool set_target);
+		void GattlingRateDown(int rate);
+		int FUN_0070E1E0(int which) const;
+		bool FUN_0070E240(WeaponDataStruct const * weapon) const;
+		bool FUN_0070E260(void) const;
+		bool FUN_0070FB50(void) const;
+		void FUN_0070FD70(BuildingClass * building);
+		void FUN_0070FE40(TechnoClass * drainer);
+		void FUN_0070FE50(void);
+		bool FUN_0070FED0(void) const;
+		void ImbueLocomotor(FootClass * target, CLSID clsid);
+		void Reactivate();
+		void Deactivate(void);
+		int FireDeathWeapon(int additional_damage);
+		virtual FacingType Desired_Load_Dir(ObjectClass * , Cell & moveto) const;
+		virtual DirType Fire_Direction(void) const;
+		virtual InfantryTypeClass const * Crew_Type(void) const;
+		virtual bool Can_Attack_Now(void) const;
+		virtual bool Can_Deploy_Now(void) const;
+		virtual int Rearm_Delay(int which=0) const;
+		virtual int Threat_Range(int control) const;
+		virtual bool Is_Allowed_To_Leave_Map(void) const;
+		virtual bool Is_Radar_Visible(DetectedType & detected) const;
+		virtual bool Is_Sensed_By_Player(void) const;
+		virtual bool Is_Sensed_By_House(HouseClass const * house) const;
+		virtual bool Is_Renovator(void) const;
+		virtual void Advance_Waypoint_Path(void);
+		virtual Cell ScanForTiberium(int range, bool allow_weighted);
+		virtual bool EnterGrinder(void);
+		virtual bool EnterBioReactor(void);
+		virtual bool EnterTankBunker(void);
+		virtual bool EnterBattleBunker(void);
+		virtual bool GarrisonStructure(void);
+		virtual bool IsPowerOnline(void) const;
+		virtual void QueueVoice(int voice);
+		virtual int VoiceEnter(void);
+		virtual int VoiceHarvest(void);
+		virtual void Response_Select(void);
+		virtual int VoiceCapture(void);
+		virtual void Response_Move(void);
+		virtual int VoiceDeploy(void);
+		virtual void Response_Attack(AbstractClass * target);
+		virtual bool ClickedEvent(int event);
+		virtual bool Player_Assign_Mission(MissionType order, AbstractClass * target=NULL, AbstractClass * destination=NULL, AbstractClass * nearby=NULL);
+		virtual bool IsUnderEMP(void) const;
+		virtual bool IsParalyzed(void) const;
+		virtual bool CanCheer(void) const;
+		virtual void Cheer(bool force);
+		virtual int Get_Max_Speed(void) const;
+		virtual void Reduce_Ammunition(void);
+		virtual void AddPassenger(FootClass * passenger);
+		virtual bool CanDisguiseAs(AbstractClass * target) const;
+		virtual bool Target_Something_Nearby(Coord const & coord, ThreatType threat=THREAT_NORMAL);
+		virtual void Stun(void);
+		virtual bool TriggersCellInset(AbstractClass * target);
+		virtual bool In_Range(AbstractClass * target, int which=0) const;
+		virtual bool IsCloseEnoughToAttack(AbstractClass * target) const;
+		virtual bool IsCloseEnoughToAttackCoords(Coord const & coord) const;
+		virtual bool InAuxiliarySearchRange(AbstractClass * target) const;
+		virtual void Death_Announcement(TechnoClass const * source=0) const = 0;
+		virtual int GetFireErrorWithoutRange(AbstractClass * target, int which) const;
+		virtual FireErrorType Can_Fire(AbstractClass * target, int which=0, bool ignoreRange=false) const;
+		virtual AbstractClass * Greatest_Threat(ThreatType threat, Coord const & coord, bool) const;
+		virtual void Assign_Target(AbstractClass * target);
+		virtual BulletClass * Fire_At(AbstractClass * target, int which=0);
+		virtual void Guard(void);
+		virtual bool Captured(HouseClass * newowner, bool announce = true);
+		virtual void vt_entry_3D8(Coord const & coord, float force, bool flag);
+		virtual bool Crash(ObjectClass * killer);
+		virtual bool IsAreaFire(void) const;
+		virtual int IsNotSprayAttack(void) const;
+		virtual int GetSecondaryWeaponIndex(void) const;
+		virtual int IsNotSprayAttack2(void) const;
+		virtual WeaponDataStruct const * GetDeployWeapon(void) const;
+		virtual WeaponDataStruct const * GetTurretWeapon(void) const;
+		virtual WeaponDataStruct const * Get_Class_Weapon_Data(int which=0) const;
+		virtual bool Is_Turret_Equipped(void) const;
+		virtual bool CanOccupyFire(void) const;
+		virtual int GetOccupyRangeBonus(void) const;
+		virtual int GetOccupantCount(void) const;
+		virtual void Renovate(void);
+		virtual void Cloaking_AI(bool=false);
+		virtual void CreateGap(void);
+		virtual void DestroyGap(void);
+		virtual void Try_To_Cloak(void);
+		virtual void Sensed(void);
+		virtual void Reload(void);
+		virtual void Rocking_AI(void);
+		virtual Coord GetAttackCoordinates(void) const;
+		virtual bool IsNotWarpingIn(void) const;
+		virtual bool vt_entry_434(unsigned) const;
+		virtual void Draw_Action_Line(bool force, int unknown) const;
+		virtual unsigned GetDisguiseFlags(unsigned flags) const;
+		virtual bool IsClearlyVisibleTo(HouseClass * house) const;
+		virtual void Draw_Voxel(VoxelDataStruct const & voxeldata, int frame, int key, VoxelIndexClass * cache, Rect const & cliprect, Point2D const & point, Matrix3D const & matrix, int brightness, unsigned short tint, ShapeFlags_Type negflags) const;
+		virtual void Draw_Health_Bar_Old(Point2D const & point, Rect const & cliprect) const;
+		virtual void Draw_Health_Bar(Point2D const & point, Rect const & rect, bool sensed_underground) const;
+		virtual void Draw_Pips(Point2D const & bottomleft, Point2D const & bottomright, Rect const & rect) const;
+		virtual void DrawVeterancyPips(Point2D const & point, Rect const & rect) const;
+		virtual void Draw_Text_Overlay(Point2D const & point1, Point2D const & point2, Rect const & rect) const;
+		virtual void Do_Uncloak(bool silent=false);
+		virtual void Do_Cloak(bool silent=false);
+		virtual int Apparent_Brightness(int brightness = 1000) const;
+		virtual void UpdateRefinerySmokeSystems(void);
+		virtual unsigned DisguiseAs(AbstractClass * target);
+		virtual void ClearDisguise(void);
+		virtual bool Is_Ready_To_Random_Animate(void) const;
+		virtual bool Random_Animate(void) {return(false);}
+		virtual void vt_entry_47C(AbstractClass * target);
+		virtual void Assign_Destination(AbstractClass * target, bool = true);
+		virtual bool Enter_Idle_Mode(bool initial=false, bool = true);
+		bool Is_Draining(void) const;
+		virtual void UpdateSight(bool, bool, bool, HouseClass *, int);
+		virtual void vt_entry_48C(bool, bool, bool, HouseClass *);
+		virtual bool ForceCreate(Coord & coord, unsigned unk = 0);
+		virtual void Radar_Track(void);
+		virtual void Radar_Untrack(void);
+		virtual void Plot_On_Radar(void) const;
+		virtual void Update_Radar_Position(bool force_update=false);
+		virtual int RespondMegaEventMission(void * event);
+		virtual void ClearMegaMissionData(void);
+		virtual bool HaveMegaMission(void) const;
+		virtual bool HaveAttackMoveTarget(void) const;
+		virtual int GetMegaMission(void) const;
+		virtual Coord GetAttackMoveCoords(void);
+		virtual bool CanUseWaypoint(void) const;
+		virtual bool CanAttackOnTheMove(void) const;
+		virtual bool MegaMissionIsAttackMove(void) const;
+		virtual bool ContinueMegaMission(void);
+		virtual void UpdateAttackMove(void);
+		virtual bool RefreshMegaMission(void);
+
+		bool FUN_005F6C70(void) const;
+		EBolt * CreateEBolt(AbstractClass * target, WeaponTypeClass * weapon, Coord const & source_coord);
+		EBolt * FireEBolt(ObjectClass * target);
+		RadBeam * CreateRadBeam(ObjectClass * target, int type);
+		void CreateRadBeams(int spread);
+		void FUN_006FF950(void);
+		int Estimate_Damage(TechnoClass * target, WeaponTypeClass const * weapon) const;
+		LaserDrawClass * CreateLaser(AbstractClass * target, int which, WeaponTypeClass * weapon, Coord const & source_coord);
+		FireErrorType FUN_006FC090(AbstractClass * target, int which) const;
+		bool CanPassiveAcquireTargets(void) const;
+		bool CanOpportunityFire(void) const;
+		int FUN_00709460(FireErrorType error) const;
+		bool FUN_00709480(void);
+		bool FUN_007094E0(void) const;
+		bool FUN_00709500(void) const;
+		void FUN_00709550(void);
+		int FUN_00709800(FireErrorType error) const;
+		bool IsMindControlled(void) const;
+		void FUN_00710460(void);
+		void EnteredOpenTopped(TechnoClass * who);
+		void ExitedOpenTopped(TechnoClass * who);
+		void SetTargetForPassengers(AbstractClass * target);
+		int FUN_00710590(void);
+		int FUN_00710600(void) const;
+		int FUN_00710630(void) const;
+		bool CanBePermaMindControlled(void) const;
+		bool Is_Immobilized(void) const {return(IsUnderEMP() || IsParalyzed() || IsBeingWarpedOut() || IsWarpingIn());}
+		void Scatter_Incoming_Infantry(void) const;
+		int Get_Collateral_Damage(void) const;
+		void Laser_Zap(AbstractClass * target, int which, WeaponTypeClass const * weapon, Coord const & source_coord);
+		void Rock(Coord const & coord, float force);
+		void FUN_0070F670(CellClass * cell);
+		void FUN_0070F6A0(CellClass * cell);
+		void FUN_0070F740(int delay);
+		void FUN_0070F770(void);
+		bool TargetingTimerFinished(void);
+		void FUN_0070F850(void);
+		void FUN_0070F890(int duration);
+		Cell FUN_0070F8F0(int rad, unsigned unused);
+		void FUN_0070F1D0(Point2D const & point, Rect const & rect);
+
+
+		bool Is_Z_Fudge_Bridge(void) const;
+		bool Was_Z_Fudge_Bridge(void) const;
+		int Get_Z_Fudge_Column(void) const;
+		int Get_Z_Fudge_Tunnel(void) const;
+		int Get_Z_Fudge_Cliff(void) const;
+
+
+
+
+		bool CanRetaliateToAttacker(ObjectClass * attacker, WarheadTypeClass * warhead);
+		virtual bool Is_Players_Army(void) const override;
+		int Combat_Damage(int which=-1) const;
+
+		Cell Nearby_Location(TechnoClass const * from=NULL) const;
+
+		int Time_To_Build(void) const;
+		virtual ActionType What_Action(ObjectClass const *, bool disallow_force = false) const override;
+		virtual ActionType What_Action(Cell const &, bool check_fog = false, bool disallow_force = false) const override;
+		virtual Coord Fire_Coord(int which, Point3D base) const override;
+
+		virtual HousesType Owner(void) const override;
+		virtual HouseClass * Owner_HouseClass(void) const override;
+		virtual bool Can_Player_Fire(void) const override;
+		virtual bool Can_Player_Move(void) const override;
+		virtual bool Can_Repair(void) const override;
+		virtual int Value(void) const override;
+		virtual int Get_Ownable(void) const override;
+		virtual VisualType Visual_Character(bool raw = false, HouseClass const * = NULL) const override;
+
+		virtual void Clicked_As_Target(int count = 7) override;
+		virtual bool Select(void) override;
+		Coord Predict_Target_Coord(void) const;
+		void FUN_007049C0(Coord start, Coord end, RGBClass color, unsigned char a, unsigned char b) const;
+
+		double Area_Modify(Cell const & cell) const;
+		void StartReloading(void);
+		void Base_Is_Attacked(TechnoClass const * enemy);
+		void Kill_Cargo(TechnoClass * source);
+		void MarkPassengersAsExited(void);
+		virtual void Record_The_Kill(HouseClass * source) override;
+		virtual bool In_Range(Coord const & coord, int which=0) const override;
+		virtual void Override_Mission(MissionType mission, AbstractClass * tarcom, AbstractClass * navcom) override;
+		virtual bool Restore_Mission(void) override;
+		virtual int Weapon_Range(int which) const override;
+		void Set_Owner(HouseClass * newowner);
+		int Get_Sight_Bonus(Coord const & coord);
+		int Elevation_Distance(AbstractClass const * target) const;
+		int Elevation_Range_Bonus(AbstractClass const * target) const;
+		bool In_Weapon_Range(Coord const & coord, AbstractClass * target, WeaponTypeClass * weapon) const;
+		static void Remove_Target(AbstractClass * target);
+		bool Has_Ability(AbilityType ability) const;
+		bool Should_Use_High_Arc(int which) const;
+		HouseClass * GetOriginalOwner(void) const;
+		void UpdateThreatInCell(CellClass * cell);
+		double Target_Threat(TechnoClass * target, Coord const & firing_coord = COORD_NONE) const;
+
+		virtual ResultType Take_Damage(int & damage, int distance, WarheadTypeClass const * warhead, TechnoClass * source=0, bool forced=false, bool=false, HouseClass * = 0) override;
+		bool TryAutoTargetObject(ThreatType method, int mask, Cell const & cell, int range, TechnoClass const ** object, int & value, int zone=0) const;
+		bool CanAutoTargetObject(ThreatType method, int mask, int range, TechnoClass const * object, int & value, int zone=-1, Coord const & coord=COORD_NONE) const;
+		int Evaluate_Just_Cell(Cell const & cell) const;
+
+		void Assign_Archive_Target(AbstractClass * target);
+		AbstractClass * Fetch_Archive_Target(void) const { return(ArchivedTarget); }
+		__declspec( property( get=Fetch_Archive_Target, put=Assign_Archive_Target) ) AbstractClass * ArchiveTarget;
+
+		Coord Railgun_Beam_Damage(Coord & coord, AbstractClass *abstract, WeaponTypeClass *weapon);
+
+		inline WeaponTypeClass * Get_Primary_Weapon(void) const { const WeaponDataStruct * wdata = Get_Class_Weapon_Data(0); return(wdata->Weapon); }
+		inline WeaponTypeClass * Get_Secondary_Weapon(void) const { const WeaponDataStruct * wdata = Get_Class_Weapon_Data(1); return(wdata->Weapon); }
+		__declspec( property( get=Get_Primary_Weapon) ) WeaponTypeClass * PrimaryWeapon;
+		__declspec( property( get=Get_Secondary_Weapon) ) WeaponTypeClass * SecondaryWeapon;
+
+		virtual void AI(void) override;
+		virtual bool Revealed(HouseClass * house) override;
+		virtual RadioMessageType Receive_Message(RadioClass * from, RadioMessageType message, int & param) override;
+
+#ifdef _DEBUG
+		virtual void Debug_Dump(MonoClass *mono) const override;
+#endif
+
+		void Techno_Draw_Object(ShapeSet const * shapefile, int shapenum, Point2D const & drawpoint, Rect const & rect, Dir256 rotation=DIR_N, int scale=0x0100, int zadjust=0, ZGradientType zgrad=ZGRAD_GROUND, bool=false, int brightness=0, unsigned short tint=0, ShapeSet const * zshapefile=0, int zshapenum=0, Point2D zoff = Point2D(0,0), ShapeFlags_Type negflags=SHAPE_NORMAL) const;
+
+		virtual void Draw_Pre_Render(Point2D const & point, Rect const & cliprect) const override;
+		virtual void Draw_Post_Render(Point2D const & point, Rect const & cliprect) const override;
+
+
+		void Techno_Blit_Voxel(StaticBufferClass::Entry const & cache, Point2D const & point, Rect const & cliprect, ShapeFlags_Type flags, int brightness, unsigned short tint) const;
+		void Techno_Draw_Voxel_Shadow(VoxelDataStruct const & voxeldata, int layer_index, int key, VoxelIndexClass * cache, Rect const & cliprect, Point2D const & point, Matrix3D const & matrix, bool force_cache, Surface * surface, int shadow_x, int shadow_y) const;
+		SurfaceRegion Techno_Render_Voxel_Object(VoxelDataStruct const & voxeldata, Matrix3D const & matrix, Point2D const & point, Rect const & cliprect, int frame, ShapeFlags_Type flags, int brightness, unsigned short tint) const;
+		SurfaceRegion Techno_Render_Voxel_Shadow(VoxelDataStruct const & voxeldata, Matrix3D const & matrix, Point2D const & point, Rect const & cliprect, int layer_index, ShapeFlags_Type flags, bool cached, Surface * surface, int shadow_x, int shadow_y) const;
+
+		virtual void Hidden(void) override;
+		virtual bool Mark(MarkType mark=MARK_CHANGE) override;
+		virtual int Exit_Object(TechnoClass * techno, Cell cell) override;
+		virtual void Do_Shimmer(void) override;
+		int Get_Predator_Offset(void) const;
+		void Calculate_Sinking_Offset(short height, int y);
+		void Draw_Target_Laser(void) const;
+		void ClearSidebarTabObject(void);
+		static void Draw_Double_Selection_Bracket(Coord const & coord1, Coord const & coord2, int color);
+		static void Draw_Single_Selection_Bracket(Coord const & coord1, Coord const & coord2, int color);
+
+		virtual void Per_Cell_Process(PCPType why) override;
+		virtual void Look(bool incremental=false, bool dontmap=false) override;
+		static void Set_Talker(TechnoClass * techno, TalkType bubble=TALK_NONE);
+		static void Set_Action_Lines(bool on);
+		void Remove_Damage_Particle(void);
+		bool Enter_Object_Nearby(void);
+		bool Move_To_Object_Nearby(void);
+
+		virtual bool Limbo(void) override;
+		virtual bool Unlimbo(Coord const & , Dir256 facing=DIR_N) override;
+		virtual void Init(void) override;
+		virtual void Detach(AbstractClass const * target, bool all) override;
+
+		static DynamicVectorClass<TechnoClass *> Array;
+
+		static CDTimerClass<FrameTimerClass> ActionLineTimer;
+
+		static bool ActionLines;
+
+		static void Reset_Action_Line_Timer(void);
+
+		static TalkType TalkBubbleType;
+		static TechnoClass * TalkBubbleOwner;
+		static CDTimerClass<SystemTimerClass> TalkBubbleTimer;
+
+		static int const BodyShape[FACING_COUNT * 4];
+};
+
+inline bool TechnoClass::Is_Allowed_To_Leave_Map(void) const { return(false); }
+inline bool TechnoClass::Is_Renovator(void) const { return(false); }
+inline bool TechnoClass::IsIronCurtained(void) const { return(IronCurtainTimer.Value() > 0); }
+inline bool TechnoClass::CanCheer(void) const { return(false); }
+inline void TechnoClass::Cheer(bool) {}
+inline bool TechnoClass::CanOccupyFire(void) const { return(false); }
+inline int TechnoClass::GetOccupyRangeBonus(void) const { return(0); }
+inline int TechnoClass::GetOccupantCount(void) const { return(0); }
+inline void TechnoClass::Rocking_AI(void) {}
+inline bool TechnoClass::vt_entry_434(unsigned) const { return(false); }
+inline void TechnoClass::UpdateRefinerySmokeSystems(void) {}
+inline bool TechnoClass::IsDisguised(void) const { return(Disguised); }
+inline bool TechnoClass::Is_Turret_Equipped(void) const { return(TClass->IsTurretEquipped); }
+inline bool TechnoClass::Is_Move_Override(void) const { return(false); }
+inline bool TechnoClass::Is_In_Team(void) const { return(false); }
+inline bool TechnoClass::Is_Ready_To_Move(void) const { return(true); }
+
+inline DirType TechnoClass::Turret_Facing(void) const
+{
+	return(PrimaryFacing.Current());
+}
+
+inline void TechnoClass::Advance_Waypoint_Path(void)
+{
+
+}
+
+inline void TechnoClass::Draw_Action_Line(bool force, int unknown) const
+{
+
+}
+
+inline bool TechnoClass::Is_In_Same_Zone_As(ObjectClass const * object) const
+{
+	return(true);
+}
+
+inline TechnoClass * AbstractClass::As_TechnoClass(void)
+{
+	return(dynamic_cast<TechnoClass *>(this));
+}
+
+inline TechnoClass const * AbstractClass::As_TechnoClass(void) const
+{
+	return(dynamic_cast<TechnoClass const *>(this));
+}

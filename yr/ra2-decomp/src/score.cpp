@@ -1,0 +1,1182 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+
+#include "always.h"
+#include "geometry.h"
+#include "score.h"
+#include "_keyboar.h"
+#include "_mixfile.h"
+#include "_palette.h"
+#include "_surface.h"
+#include "_timer.h"
+#include "conquer.h"
+#include "convert.h"
+#include "data.h"
+#include "dbgprint.h"
+#include "draw.h"
+#include "dsaudio.h"
+#include "dsurface.h"
+#include "goptions.h"
+#include "houstype.h"
+#include "keyboard.h"
+#include "language\language.h"
+#include "misc.h"
+#include "mixfile.h"
+#include "movie.h"
+#include "msgloop.h"
+#include "nullmgr.h"
+#include "scenario.h"
+#include "session.h"
+#include "shapeset.h"
+#include "surface.h"
+#include "theme.h"
+#include "windlg.h"
+#include "winstub.h"
+#include "msanim.h"
+#undef LoadString
+#include "stringtable.h"
+
+#define SIZEGBAR			140
+#define HALLFAME_X		11
+#define HALLFAME_Y		242
+#define NUMFAMENAMES				9
+#define MAX_FAMENAME_LENGTH	104
+
+// SYNTHETIC: GAMEMD 0x0068CB10 SYMBOL
+// _$E41
+
+bool StillUpdating;
+
+// SYNTHETIC: GAMEMD 0x0068CB30 SYMBOL
+// _$E2
+// SYNTHETIC: GAMEMD 0x0068CB60 SYMBOL
+// _$E5
+// SYNTHETIC: GAMEMD 0x0068CB80 SYMBOL
+// _$E8
+// SYNTHETIC: GAMEMD 0x0068CBA0 SYMBOL
+// _$E11
+// SYNTHETIC: GAMEMD 0x0068CBC0 SYMBOL
+// _$E14
+// SYNTHETIC: GAMEMD 0x0068CBE0 SYMBOL
+// _$E17
+// SYNTHETIC: GAMEMD 0x0068CC00 SYMBOL
+// _$E20
+// SYNTHETIC: GAMEMD 0x0068CC40 SYMBOL
+// _$E23
+// SYNTHETIC: GAMEMD 0x0068CC70 SYMBOL
+// _$E26
+// SYNTHETIC: GAMEMD 0x0068CCA0 SYMBOL
+// _$E29
+// SYNTHETIC: GAMEMD 0x0068CCD0 SYMBOL
+// _$E32
+// SYNTHETIC: GAMEMD 0x0068CCE0 SYMBOL
+// _$E35
+
+// SYNTHETIC: GAMEMD 0x0068CD00 SYMBOL
+// _$E38
+Coord DAT_00B05568(128, 128, 0);
+
+int score_font_count;
+
+int FUN_00407000(void);
+
+struct FileSystem {
+	static void const * LoadFile(char const * name, bool flag);
+};
+
+void __cdecl FUN_004068E0(char const * format, ...);
+
+struct ScoreTextSoundStruct {
+	void * mSound;
+	bool mAllocated;
+} text_sounds[3];
+
+void Play_Movie(char const *name, ThemeType theme, bool clrscrn_after,
+	bool stretch, bool clrscrn_before, bool fullscreen);
+
+#define FETCH(label, line) \
+	StringTable::LoadString(label, NULL, "D:\\ra2mdpost\\Score.CPP", line)
+
+struct Fame {
+	char name[MAX_FAMENAME_LENGTH];
+	int score;
+	int level;
+	int side;
+};
+
+#define PRINT(string, xp, yp, font) \
+	Alloc_Object(obj = new ScorePrintClass(string, xp, yp, font, false))
+
+// FUNCTION: GAMEMD 0x0068CD20
+void ScoreClass::Presentation()
+{
+	int i;
+	int index;
+	int total;
+	int x, y;
+	wchar_t const *str;
+	ScoreAnimClass *obj;
+	CCFileClass file;
+	Fame hallfame[NUMFAMENAMES];
+
+	XPos = (HiddenSurface->Get_Width() - 640) / 2;
+	YPos = (HiddenSurface->Get_Height() - 400) / 2;
+	MouseCursor->Hide_Mouse();
+	Keyboard->Clear();
+	Theme.Stop();
+	Theme.Play_Song(Theme.From_Name("SCORE"));
+
+	file.Open("SIDEFNT3.PAL");
+	PaletteClass *fontpal = (PaletteClass *)Load_Alloc_Data(file);
+	file.Close();
+	for (i = 0; i < 256; i++) {
+		CCPalette[i] = RGBClass(
+			((unsigned char *)*fontpal)[i * 3] << 2,
+			((unsigned char *)*fontpal)[i * 3 + 1] << 2,
+			((unsigned char *)*fontpal)[i * 3 + 2] << 2);
+	}
+	Color = DSurface::Build_Hicolor_Pixel(
+		(*fontpal)[68].Get_Red() << 2,
+		(*fontpal)[68].Get_Green() << 2,
+		(*fontpal)[68].Get_Blue() << 2);
+	delete fontpal;
+
+	ConvertClass *drawer = new ConvertClass(
+		CCPalette, CCPalette, *VisibleSurface, 1, false);
+	SurfacePtr = new DSurface(
+		HiddenSurface->Get_Width(), HiddenSurface->Get_Height(), false);
+	SurfacePtr->Fill(0);
+	Load_Title_Screen("SCORE.PCX", SurfacePtr, &CCPalette);
+
+#define LOAD(var, name) \
+	file.Open(name); \
+	ShapeSet const *var = (ShapeSet const *)Load_Alloc_Data(file); \
+	file.Close();
+
+	LOAD(best01shape, "BEST01.SHP")
+	LOAD(best02shape, "BEST02.SHP")
+	Call_Back();
+	LOAD(logo01shape, "LOGO01.SHP")
+	LOAD(efic01shape, "EFIC01.SHP")
+	LOAD(time01shape, "TIME01.SHP")
+	LOAD(casu01shape, "CASU01.SHP")
+	Call_Back();
+	LOAD(casu02shape, "CASU02.SHP")
+	LOAD(curr01shape, "CURR01.SHP")
+
+	ScoreSnds.Clear();
+	ScoreSnds.Add(new SfxEntry("Wipe", "WIPE.AUD"));
+	ScoreSnds.Add(new SfxEntry("Emblem", "EMBLEM.AUD"));
+	ScoreSnds.Add(new SfxEntry("BestBox", "BESTBOX.AUD"));
+	ScoreSnds.Add(new SfxEntry("Efficiency", "EFFICIEN.AUD"));
+	ScoreSnds.Add(new SfxEntry("BarGraph", "BARGRAPH.AUD"));
+	ScoreSnds.Add(new SfxEntry("Type", "TYPE.AUD"));
+	ScoreSnds.Add(new SfxEntry("Back", "SCOLD8.AUD"));
+
+	FullFont = new ScoreFullFontClass(drawer);
+	BigFont = new ScoreBigFontClass(drawer);
+	Call_Back();
+	ScoreObjs.Clear();
+	Keyboard->Clear();
+	DoSound("Wipe", 256);
+	Play_Movie("SCORE.VQA", THEME_NONE, false, false, true, false);
+	HiddenSurface->Blit_From(*SurfacePtr, false, true);
+	AlternateSurface->Blit_From(*SurfacePtr, false, true);
+
+	Drawer = new ConvertClass(
+		CCPalette, CCPalette, *VisibleSurface, 1, false);
+	Alloc_Object(new ScoreTimeClass(
+		XPos + 7, YPos + 6, logo01shape, 60, 3, Drawer));
+
+	DoSound("Efficiency", 128);
+
+#define WIPE(shape, xp, yp) \
+	Draw_Shape(*HiddenSurface, *Drawer, shape, i, Point2D(xp, yp), \
+		HiddenSurface->Get_Rect(), SHAPE_WIN_REL)
+
+	for (i = 0; i < 10; i++) {
+		WIPE(efic01shape, XPos + 480, YPos + 23);
+		Call_Back_Delay(4);
+	}
+	Rect rect(XPos + 480, YPos + 23, 160, 120);
+	SurfacePtr->Blit_From(rect, *HiddenSurface, rect, false, true);
+	AlternateSurface->Blit_From(rect, *HiddenSurface, rect, false, true);
+	str = FETCH("TXT_MISSION_EFFICIENCY", 506);
+	FullFont->String_Width(str);
+	x = XPos - FullFont->String_Width(str) / 2 + 552;
+	PRINT(str, x, YPos + 13, FullFont);
+	Wait_For_Print(obj);
+	Keyboard->Clear();
+
+	total = Do_Calc(PlayerPtr);
+	wchar_t dest[64];
+	swprintf(dest, L"%3d%%", total);
+	PRINT(dest, XPos + 520, YPos + 60, BigFont);
+	Wait_For_Print(obj);
+
+	for (i = 0; i < 10; i++) {
+		WIPE(curr01shape, XPos + 481, YPos + 148);
+		Call_Back_Delay(4);
+	}
+	rect.Set(XPos + 481, YPos + 148, 144, 86);
+	SurfacePtr->Blit_From(rect, *HiddenSurface, rect, false, true);
+	AlternateSurface->Blit_From(rect, *HiddenSurface, rect, false, true);
+	str = FETCH("TXT_CURRENCY", 543);
+	FullFont->String_Width(str);
+	x = XPos - FullFont->String_Width(str) / 2 + 560;
+	PRINT(str, x, YPos + 193, FullFont);
+	Wait_For_Print(obj);
+	rect.Set(XPos + 481, YPos + 148, 150, 120);
+	SurfacePtr->Blit_From(rect, *HiddenSurface, rect, false, true);
+	AlternateSurface->Blit_From(rect, *HiddenSurface, rect, false, true);
+	Show_Credits();
+
+	for (i = 0; i < 10; i++) {
+		WIPE(time01shape, XPos + 444, YPos + 273);
+		Call_Back_Delay(4);
+	}
+	rect.Set(XPos + 444, YPos + 273, 196, 118);
+	SurfacePtr->Blit_From(rect, *HiddenSurface, rect, false, true);
+	AlternateSurface->Blit_From(rect, *HiddenSurface, rect, false, true);
+	str = FETCH("TXT_MISSION_TIME_LAPSE", 571);
+	FullFont->String_Width(str);
+	x = XPos - FullFont->String_Width(str) / 2 + 542;
+	PRINT(str, x, YPos + 366, FullFont);
+	Wait_For_Print(obj);
+	Print_Minutes(Scen->ElapsedTimer / 60);
+
+	DoSound("Emblem", 256);
+	for (i = 0; i < 10; i++) {
+		WIPE(casu01shape, XPos + 186, YPos + 54);
+		WIPE(casu02shape, XPos + 186, YPos + 254);
+		Call_Back_Delay(4);
+	}
+	rect.Set(XPos + 186, YPos + 54, 262, 326);
+	SurfacePtr->Blit_From(rect, *HiddenSurface, rect, false, true);
+	AlternateSurface->Blit_From(rect, *HiddenSurface, rect, false, true);
+	str = FETCH("TXT_CASUALTIES", 601);
+	FullFont->String_Width(str);
+	x = XPos - FullFont->String_Width(str) / 2 + 316;
+	PRINT(str, x, YPos + 300, FullFont);
+	Wait_For_Print(obj);
+
+	str = FETCH("TXT_STRUCTURES", 613);
+	x = XPos + 194;
+	PRINT(str, x, YPos + 247, FullFont);
+	x = XPos + 328;
+	PRINT(str, x, YPos + 247, FullFont);
+	Wait_For_Print(obj);
+	str = FETCH("TXT_UNITS", 628);
+	x = XPos - FullFont->String_Width(str) / 2 + 290;
+	PRINT(str, x, YPos + 247, FullFont);
+	x = XPos - FullFont->String_Width(str) / 2 + 422;
+	PRINT(str, x, YPos + 247, FullFont);
+	Wait_For_Print(obj);
+	Do_Graphs();
+	while (StillUpdating) {
+		Call_Back_Delay(1);
+	}
+	Keyboard->Clear();
+
+	DoSound("BestBox", 256);
+	for (i = 0; i < 10; i++) {
+		WIPE(best01shape, XPos, YPos + 188);
+		WIPE(best02shape, XPos, YPos + 388);
+		Call_Back_Delay(4);
+	}
+	rect.Set(XPos, YPos + 188, 182, 212);
+	SurfacePtr->Blit_From(rect, *HiddenSurface, rect, false, true);
+	AlternateSurface->Blit_From(rect, *HiddenSurface, rect, false, true);
+	str = FETCH("TXT_BEST_SCORES", 669);
+	FullFont->String_Width(str);
+	x = XPos - FullFont->String_Width(str) / 2 + 84;
+	PRINT(str, x, YPos + 217, FullFont);
+
+	memset(hallfame, 0, sizeof(hallfame));
+	file.Close();
+	file.Set_Name("HALLFAME.DAT");
+	if (file.Is_Available() == true) {
+		file.Read(hallfame, sizeof(hallfame));
+		file.Close();
+	}
+	if (hallfame[8].score >= total) {
+		hallfame[8].score = 0;
+	}
+	for (index = 0; index < 9; index++) {
+		// Compares with the wipe index (10), not the hall-of-fame index.
+		if (total > hallfame[i].score) {
+			if (index < 8) {
+				for (i = 8; i > index; i--) {
+					hallfame[i] = hallfame[i - 1];
+				}
+			}
+			hallfame[index].name[0] = 0;
+			hallfame[index].score = total;
+			hallfame[index].level = Scen->Scenario;
+			hallfame[index].side = PlayerPtr->Class->Side;
+			break;
+		}
+	}
+	char maststr[9 * 32];
+	for (i = 0; i < 9; i++) {
+		PRINT(hallfame[i].name, XPos + 7, YPos + 242 + i * 16, FullFont);
+		if (hallfame[i].score) {
+			char *scorestr = maststr + i * 32;
+			sprintf(scorestr, "%d%%", hallfame[i].score);
+			PRINT(scorestr, XPos + 109, YPos + 242 + i * 16, FullFont);
+			char *levelstr = scorestr + 16;
+			sprintf(levelstr, "%02d", hallfame[i].level);
+			PRINT(levelstr, XPos + 151, YPos + 242 + i * 16, FullFont);
+			Wait_For_Print(obj);
+		}
+		Call_Back_Delay(1);
+	}
+	while (StillUpdating) {
+		Call_Back_Delay(1);
+	}
+	Keyboard->Clear();
+	MouseCursor->Show_Mouse();
+	if (index < 9) {
+		Input_Name(hallfame[index].name,
+			XPos + 7, YPos + 242 + index * 16);
+	} else {
+		wchar_t const *click_str = FETCH("TXT_CLICK_CONTINUE", 749);
+		x = XPos + (640 - FullFont->String_Width(click_str)) / 2;
+		y = YPos - FullFont->Height / 2 + 357;
+		PRINT(click_str, x, y, FullFont);
+		Cycle_Wait_Click(true);
+	}
+	Keyboard->Clear();
+	if (file.Open("HALLFAME.DAT", FileClass::WRITE)) {
+		file.Write(hallfame, sizeof(hallfame));
+		file.Close();
+	}
+	Theme.Stop(true);
+
+	for (i = 0; i < ScoreSnds.Count(); i++) {
+		if (ScoreSnds[i]) {
+			delete ScoreSnds[i];
+		}
+	}
+	ScoreSnds.Clear();
+	for (i = 0; i < ScoreObjs.Count(); i++) {
+		if (ScoreObjs[i]) {
+			delete ScoreObjs[i];
+		}
+	}
+	ScoreObjs.Clear();
+	if (Drawer != 0) {
+		delete Drawer;
+		Drawer = 0;
+	}
+	if (FullFont != 0) {
+		delete FullFont;
+		FullFont = 0;
+	}
+	if (BigFont != 0) {
+		delete BigFont;
+		BigFont = 0;
+	}
+	if (SurfacePtr != 0) {
+		delete SurfacePtr;
+		SurfacePtr = 0;
+	}
+	delete drawer;
+	HiddenSurface->Fill(0);
+	Draw();
+	Theme.Queue_Song(THEME_NONE);
+}
+
+#undef PRINT
+#undef FETCH
+#undef LOAD
+#undef WIPE
+
+// FUNCTION: GAMEMD 0x0068EB90
+int ScoreClass::Alloc_Object(ScoreAnimClass *obj)
+{
+	return(ScoreObjs.Add(obj));
+}
+
+// FUNCTION: GAMEMD 0x0068EC00
+bool ScoreClass::Score_Object_Not_Present(ScoreAnimClass * obj)
+{
+	int index = ScoreObjs.ID(obj);
+	bool absent = index == -1;
+	return(absent);
+}
+
+// FUNCTION: GAMEMD 0x0068EC20
+void ScoreClass::Cycle_Wait_Click(bool cycle)
+{
+	int counter = 0;
+	int minclicks = 20;
+	unsigned int timingtime = TickCount;
+	SerialPacketType sendpacket;
+	SerialPacketType receivepacket;
+	int packetlen;
+
+	Keyboard->Clear();
+	while (minclicks || (!Keyboard->Check()) ) {
+
+		if (Session.Type == GAME_NULL_MODEM ||
+			Session.Type == GAME_MODEM) {
+
+			if ( (TickCount - timingtime) > PACKET_TIMING_TIMEOUT) {
+				memset (&sendpacket, 0, sizeof(SerialPacketType));
+				sendpacket.Command = SERIAL_SCORE_SCREEN;
+				sendpacket.ScenarioInfo.ResponseTime = NullModem.Response_Time();
+				sendpacket.ID = Session.ModemType;
+
+				NullModem.Send_Message (&sendpacket, sizeof(sendpacket), 0);
+				timingtime = TickCount;
+			}
+
+			if (NullModem.Get_Message (&receivepacket, &packetlen) > 0) {
+				packetlen = packetlen;
+			}
+
+			NullModem.Service();
+		}
+
+		Call_Back_Delay(1);
+		if (minclicks) {
+			minclicks--;
+			Keyboard->Clear();
+		}
+	}
+	Keyboard->Clear();
+}
+
+void ScoreClass::Wait_For_Print(ScoreAnimClass * obj)
+{
+	while (!Score_Object_Not_Present(obj)) {
+		Call_Back_Delay(1);
+	}
+}
+
+// FUNCTION: GAMEMD 0x0068ED80
+unsigned int ScoreClass::Do_Calc(HouseClass * house)
+{
+	int remain = 0;
+	int total = 0;
+
+	for (int i = 0; i < Houses.Count(); i++) {
+		HouseClass * hptr = Houses[i];
+		if (house->Is_Ally(hptr) && hptr->Is_Ally(house) || house == hptr) {
+			remain += hptr->ABQuantity.Total();
+			remain += hptr->AUQuantity.Total();
+			remain += hptr->AIQuantity.Total();
+			remain += hptr->AAQuantity.Total();
+			total += hptr->BuildingsLost;
+			total += hptr->UnitsLost;
+		}
+	}
+
+	total += remain;
+	DebugString("Remaining: %ld, Total: %ld\n", remain, total);
+
+	float build_eco = total > 0 ? ((float)remain / total) : 0.0f;
+
+	DebugString("BuildEconomy = %f\n", build_eco);
+
+	DebugString("Money: %ld, Harvested: %ld, Initial: %ld\n", house->Available_Money(), house->HarvestedCredits, house->Control.InitialCredits);
+
+	total = house->HarvestedCredits + house->Control.InitialCredits;
+	float money_eco = total > 0 ? (float)house->Available_Money() / (float)total : 0.0f;
+
+	DebugString("MoneyEconomy = %f\n", money_eco);
+
+	float eco = money_eco + build_eco;
+
+	unsigned int efficiency = (unsigned int)((eco / 2.0) * 100.0);
+
+	DebugString("Efficiency: %ld\n", efficiency);
+
+	return(efficiency);
+}
+
+// FUNCTION: GAMEMD 0x0068EF20
+void ScoreClass::Do_Graphs(void)
+{
+	int allyu = 0;
+	int allyb = 0;
+	int enemyu = 0;
+	int enemyb = 0;
+
+	for (int hous = 0; hous < Houses.Count(); hous++) {
+
+		HouseClass *hows = Houses[hous];
+		DebugString("Stats: %s - UnitsLost %ld, BuildingsLost %ld\n", (char *)hows->Class->IniName, hows->UnitsLost, hows->BuildingsLost);
+
+		if ((PlayerPtr->Is_Ally(hows) && hows->Is_Ally(PlayerPtr)) || PlayerPtr == hows) {
+			allyu += hows->UnitsLost;
+			allyb += hows->BuildingsLost;
+		} else {
+			enemyu += hows->UnitsLost;
+			enemyb += hows->BuildingsLost;
+		}
+
+		DebugString("AllyUnits %ld, AllyBuildings %ld, EnemyUnits %ld, EnemyBldgs %ld\n", allyu, allyb, enemyu, enemyb);
+	}
+
+	if (PlayerPtr->Class->Side == SIDE_GDI) {
+		Do_Graph(allyb, enemyb, 227);
+		Do_Graph(allyu, enemyu, 283);
+	} else {
+		Do_Graph(enemyb, allyb, 227);
+		Do_Graph(enemyu, allyu, 283);
+	}
+}
+
+// FUNCTION: GAMEMD 0x0068F060
+void ScoreClass::Do_Graph(int gkilled, int nkilled, int xpos)
+{
+	Rect rect1(0,0,0,0);
+	Rect rect2(0,0,0,0);
+
+	int maxval;
+
+	xpos = XPos + xpos;
+	int ypos = YPos + 244;
+
+	int gdikilled = gkilled, nodkilled=nkilled;
+
+	maxval = MAX(gdikilled, nodkilled);
+	if (!maxval) maxval=1;
+
+	gdikilled = (gdikilled * SIZEGBAR) / maxval;
+	nodkilled = (nodkilled * SIZEGBAR) / maxval;
+	if (maxval < 20) {
+		gdikilled = gkilled * 5;
+		nodkilled = nkilled * 5;
+	}
+
+	maxval = MAX(gdikilled, nodkilled);
+	if (!maxval) maxval=1;
+
+	Rect trect;
+
+	trect.Set(xpos, ypos - gdikilled, 4, gdikilled);
+	SurfacePtr->Fill_Rect_Trans(trect, RGBClass(253, 181, 28), 25);
+	trect.Set(xpos + 4, ypos - gdikilled, 7, gdikilled);
+	SurfacePtr->Fill_Rect_Trans(trect, RGBClass(253, 181, 28), 50);
+	trect.Set(xpos + 11, ypos - gdikilled, 4, gdikilled);
+	SurfacePtr->Fill_Rect_Trans(trect, RGBClass(253, 181, 28), 25);
+
+	trect.Set(xpos + 132, ypos - nodkilled, 4, nodkilled);
+	SurfacePtr->Fill_Rect_Trans(trect, RGBClass(250, 28, 28), 25);
+	trect.Set(xpos + 132 + 4, ypos - nodkilled, 7, nodkilled);
+	SurfacePtr->Fill_Rect_Trans(trect, RGBClass(250, 28, 28), 50);
+	trect.Set(xpos + 132 + 11, ypos - nodkilled, 4, nodkilled);
+	SurfacePtr->Fill_Rect_Trans(trect, RGBClass(250, 28, 28), 25);
+
+	int count = 1;
+	int nodrun = nkilled;
+	int gdirun = gkilled;
+	int nodadd = 2 * nkilled;
+	int gdiadd = 2 * gkilled;
+
+	for (int i = ypos - 1; count <= MAX(gdikilled, nodkilled); ) {
+
+		if (rect1.Is_Valid()) {
+			HiddenSurface->Blit_From(rect1, *AlternateSurface, rect1);
+		}
+
+		if (count <= gdikilled) {
+			trect.Set(xpos, i, 15, count);
+			HiddenSurface->Blit_From(trect, *SurfacePtr, trect);
+			rect1 = Count_Up_Print(HiddenSurface, L"%d", gdirun / maxval, gkilled, xpos, i);
+		} else {
+			rect1 = Count_Up_Print(HiddenSurface, L"%d", gkilled, gkilled, xpos, ypos - gdikilled);
+		}
+
+		if (rect2.Is_Valid()) {
+			HiddenSurface->Blit_From(rect2, *AlternateSurface, rect2);
+		}
+
+		if (count <= nodkilled) {
+			trect.Set(xpos + 132, i, 15, count);
+			HiddenSurface->Blit_From(trect, *SurfacePtr, trect);
+			rect2 = Count_Up_Print(HiddenSurface, L"%d", nodrun / maxval, nkilled, xpos + 132, i);
+		} else {
+			rect2 = Count_Up_Print(HiddenSurface, L"%d", nkilled, nkilled, xpos + 132, ypos - nodkilled);
+		}
+
+		DoSound("BarGraph", 96);
+		Call_Back_Delay(1);
+
+		count += 2;
+		gdirun += gdiadd;
+		i -= 2;
+		nodrun += nodadd;
+	}
+
+	if (rect1.Is_Valid()) {
+		HiddenSurface->Blit_From(rect1, *AlternateSurface, rect1);
+	}
+	trect.Set(xpos, ypos - gdikilled, 15, gdikilled);
+	AlternateSurface->Blit_From(trect, *SurfacePtr, trect);
+	Count_Up_Print(HiddenSurface, L"%d", gkilled, gkilled, xpos, ypos - gdikilled);
+	Count_Up_Print(AlternateSurface, L"%d", gkilled, gkilled, xpos, ypos - gdikilled);
+
+	if (rect2.Is_Valid()) {
+		HiddenSurface->Blit_From(rect2, *AlternateSurface, rect2);
+	}
+	trect.Set(xpos + 132, ypos - nodkilled, 15, nodkilled);
+	AlternateSurface->Blit_From(trect, *SurfacePtr, trect);
+	Count_Up_Print(HiddenSurface, L"%d", nkilled, nkilled, xpos + 132, ypos - nodkilled);
+	Count_Up_Print(AlternateSurface, L"%d", nkilled, nkilled, xpos + 132, ypos - nodkilled);
+
+	Call_Back_Delay(20);
+}
+
+// FUNCTION: GAMEMD 0x0068F8A0
+void ScoreClass::Show_Credits(void)
+{
+	char str[20];
+
+	sprintf(str, "%d", PlayerPtr->Available_Money());
+
+	int x = 590 - (12 * strlen(str));
+
+	ScoreAnimClass *obj = new ScorePrintClass(str, XPos + x, YPos + 214, FullFont, false);
+	Alloc_Object(obj);
+
+	Wait_For_Print(obj);
+}
+
+// FUNCTION: GAMEMD 0x0068F9B0
+void ScoreClass::Print_Minutes(int time)
+{
+	wchar_t str[20];
+
+	if (((unsigned)time/3600) > 99) time = 359999;
+
+	int hours	 = int((unsigned)time / 3600);
+	time		-= hours * 3600;
+	int minutes	 = int((unsigned)time / 60);
+	time		-= minutes * 60;
+	int seconds	 = (unsigned)time;
+
+	swprintf(str, L"%02ld:%02ld:%02ld", hours, minutes, seconds);
+
+	int x = XPos - (BigFont->String_Width(str) / 2) + 542;
+
+	ScoreAnimClass *obj = new ScorePrintClass(str, x, YPos + 322, BigFont, false);
+	Alloc_Object(obj);
+
+	Wait_For_Print(obj);
+}
+
+// FUNCTION: GAMEMD 0x0068FB10
+Rect ScoreClass::Count_Up_Print(Surface * surf, wchar_t *str, int percent, int maxval, int xpos, int ypos)
+{
+	wchar_t destbuf[64];
+
+	swprintf(destbuf, str, percent >= maxval ? maxval : percent);
+	ypos = ypos - FullFont->Get_Height();
+	FullFont->Print_String(surf, destbuf, xpos, ypos, 2);
+	return(Rect(xpos, ypos, FullFont->String_Width(destbuf), FullFont->Get_Height()));
+}
+
+// FUNCTION: GAMEMD 0x0068FBB0
+void ScoreClass::Input_Name(char str[], int xpos, int ypos)
+{
+	int x = xpos;
+	int key = 0;
+	int index = 0;
+
+	do {
+
+		Timing();
+
+		if (Keyboard->Check()) {
+			key = Keyboard->WWKeyboardClass::FUN_0054F530(Keyboard->WWKeyboardClass::Get()) & 0xFF;
+			Call_Back();
+
+			if (x >= xpos + 90) {
+				while (Keyboard->Check()) {
+					Keyboard->Get();
+				}
+			}
+
+			if (key == KN_BACKSPACE && x >= xpos + 84 && str[index] != 0 && str[index] != 32) {
+				Rect rect(x, ypos + 1, FullFont->Char_Width(str[index]) + 1, 16);
+				HiddenSurface->Blit_From(rect, *SurfacePtr, rect);
+				AlternateSurface->Blit_From(rect, *SurfacePtr, rect);
+				key = 32;
+			}
+
+			if (key == KN_BACKSPACE) {
+
+				if (index) {
+					char letter = str[--index];
+					int cw = FullFont->Char_Width(letter) + 1;
+					x -= cw;
+					Rect rect(x, ypos + 1, cw, 16);
+					HiddenSurface->Blit_From(rect, *SurfacePtr, rect);
+					AlternateSurface->Blit_From(rect, *SurfacePtr, rect);
+					str[index] = 0;
+					DoSound("Back", 192);
+				}
+
+			} else if (key != KN_KEYPAD_RETURN && key >= KN_SPACE) {
+
+				int cw = FullFont->Char_Width(key) + 1;
+				if (x + FullFont->Get_Width() <= xpos + 90) {
+					if (x + cw >= xpos + 84) {
+						Rect rect(x, ypos + 1, FullFont->Char_Width(str[index]) + 1, 16);
+						HiddenSurface->Blit_From(rect, *SurfacePtr, rect);
+						AlternateSurface->Blit_From(rect, *SurfacePtr, rect);
+					}
+					str[index] = key;
+					str[index + 1] = 0;
+					Alloc_Object(new ScorePrintClass(str + index, x, ypos, FullFont, false));
+					DoSound("Type", 128);
+					if (x < xpos + 87) {
+						index++;
+						x += FullFont->Char_Width(key) + 1;
+					}
+				}
+			}
+		}
+
+		Animate_Cursor(x, ypos);
+		Call_Back_Delay(1);
+
+	} while (key != KN_RETURN);
+}
+
+// FUNCTION: GAMEMD 0x0068FFE0
+void ScoreClass::Animate_Cursor(int pos, int ypos)
+{
+	static int _lastpos = 0, _state;
+	static CDTimerClass<SystemTimerClass> _timer;
+
+	Rect rect;
+
+	ypos += 14;
+
+	if (pos != _lastpos) {
+		rect.Set(_lastpos, ypos, HALLFAME_X, 1);
+		HiddenSurface->Blit_From(rect, *AlternateSurface, rect);
+		_lastpos = pos;
+	}
+
+	if (_state) {
+		HiddenSurface->Draw_Line(Point2D(pos, ypos), Point2D(pos + HALLFAME_X - 1, ypos), Color);
+	} else {
+		rect.Set(pos, ypos, HALLFAME_X, 1);
+		HiddenSurface->Blit_From(rect, *SurfacePtr, rect);
+	}
+
+	if (!_timer) {
+		_state ^= 1;
+		_timer = 5;
+	}
+}
+
+// SYNTHETIC: GAMEMD 0x00690150 SYMBOL
+// _$E108
+
+// FUNCTION: GAMEMD 0x00690160
+void ScoreClass::Call_Back_Delay(int time)
+{
+	Rect rect;
+	CDTimerClass<SystemTimerClass> cd = 1;
+
+	do {
+		Animate_Score_Objs();
+
+		Draw();
+
+		do {
+
+			Call_Back();
+			Windows_Message_Handler();
+
+			if (!GameInFocus) {
+
+				cd.Stop();
+
+				Timing();
+
+				cd.Start();
+			}
+
+			Sleep(0);
+
+		} while (cd > 0);
+
+		cd = 1;
+		time--;
+
+	} while (time > 0);
+}
+
+// FUNCTION: GAMEMD 0x00690360
+void ScoreClass::Animate_Score_Objs(void)
+{
+	StillUpdating = false;
+
+	if (SurfacesRestored) {
+		SurfacesRestored=FALSE;
+		HiddenSurface->Fill(0);
+		HiddenSurface->Blit_From(*AlternateSurface);
+	}
+
+	for (int i = 0; i < ScoreObjs.Count(); i++) {
+		if (ScoreObjs[i]->Update(SurfacePtr) == true) {
+			delete ScoreObjs[i];
+			ScoreObjs.Delete_Index(i);
+		}
+	}
+}
+
+// FUNCTION: GAMEMD 0x00690400
+void ScoreClass::Draw(void)
+{
+	RECT r;
+	GetClientRect(MainWindow, &r);
+	ClientToScreen(MainWindow, (LPPOINT)&r);
+
+	Rect rect1(XPos + r.left, YPos + r.top, 640, 400);
+	Rect rect2(XPos, YPos, 640, 400);
+
+	if (MouseCursor != NULL) MouseCursor->Draw_Mouse(HiddenSurface);
+
+	VisibleSurface->Blit_From(rect1, *HiddenSurface, rect2);
+
+	if (MouseCursor != NULL) MouseCursor->Erase_Mouse(HiddenSurface);
+}
+
+// FUNCTION: GAMEMD 0x006904C0
+void ScoreClass::Timing(void)
+{
+	if (GameInFocus == true) {
+		return;
+	}
+
+	int i;
+
+	for (i = 0; i < ScoreObjs.Count(); i++) {
+		ScoreObjs[i]->Stop();
+	}
+
+	while (!GameInFocus) {
+		Sleep(500);
+		Windows_Message_Handler();
+	}
+
+	for (i = 0; i < ScoreObjs.Count(); i++) {
+		ScoreObjs[i]->Start();
+	}
+}
+
+// FUNCTION: GAMEMD 0x00690530
+void ScoreClass::DoSound(const char * name, int volume)
+{
+	if (name != NULL && FUN_00407000()) {
+
+		for (int i = 0; i < ScoreSnds.Count(); i++) {
+			SfxEntry * snd = ScoreSnds[i];
+
+			if (stricmp(name, snd->Get_Name()) == 0) {
+				break;
+			}
+		}
+	}
+}
+
+// FUNCTION: GAMEMD 0x00690580
+ScoreFontClass::ScoreFontClass(void) :
+	Width(0),
+	Height(0),
+	ShapePtr(NULL),
+	Drawer(NULL)
+{
+	Load_Sounds();
+	score_font_count++;
+}
+
+// FUNCTION: GAMEMD 0x006905B0
+ScoreFontClass::ScoreFontClass(int w, int h, void const * data, ConvertClass * drawer) :
+	Width(w),
+	Height(h),
+	ShapePtr((ShapeSet const *)data),
+	Drawer(drawer)
+{
+	Load_Sounds();
+	score_font_count++;
+}
+
+// FUNCTION: GAMEMD 0x006905F0
+ScoreFontClass::~ScoreFontClass(void)
+{
+	if (ShapePtr != NULL && IsShapeAllocated == true) {
+		delete (char *)ShapePtr;
+		ShapePtr = NULL;
+		IsShapeAllocated = false;
+	}
+
+	score_font_count--;
+	if (score_font_count == 0) {
+		for (int i = 0; i < 3; i++) {
+			text_sounds[i].mSound = NULL;
+			text_sounds[i].mAllocated = false;
+		}
+	}
+}
+
+// FUNCTION: GAMEMD 0x00690640
+void ScoreFontClass::Load_Sounds(void)
+{
+	if (FUN_00407000()) {
+		CCFileClass file;
+		text_sounds[0].mSound = (void *)FileSystem::LoadFile("TEXT1.AUD", false);
+		if (text_sounds[0].mSound == NULL) {
+			file.Open("TEXT1.AUD", FileClass::READ);
+			text_sounds[0].mSound = Load_Alloc_Data(file);
+			text_sounds[0].mAllocated = true;
+			file.Close();
+			FUN_004068E0("ScoreScreen: Loaded TEXT1.AUD\n");
+		}
+		text_sounds[1].mSound = (void *)FileSystem::LoadFile("TEXT2.AUD", false);
+		if (text_sounds[1].mSound == NULL) {
+			file.Open("TEXT2.AUD", FileClass::READ);
+			text_sounds[1].mSound = Load_Alloc_Data(file);
+			text_sounds[1].mAllocated = true;
+			file.Close();
+			FUN_004068E0("ScoreScreen: Loaded TEXT2.AUD\n");
+		}
+		text_sounds[2].mSound = (void *)FileSystem::LoadFile("TEXT3.AUD", false);
+		if (text_sounds[2].mSound == NULL) {
+			file.Open("TEXT3.AUD", FileClass::READ);
+			text_sounds[2].mSound = Load_Alloc_Data(file);
+			text_sounds[2].mAllocated = true;
+			file.Close();
+			FUN_004068E0("ScoreScreen: Loaded TEXT3.AUD\n");
+		}
+	}
+}
+
+// FUNCTION: GAMEMD 0x006907A0
+int ScoreFontClass::String_Width(const wchar_t * string)
+{
+	const wchar_t * str = string;
+	int w = 0;
+	while (*str) {
+		w += Char_Width(*str++) + 1;
+	}
+	return(w);
+}
+
+// FUNCTION: GAMEMD 0x006907E0
+int ScoreFontClass::Char_Width(wchar_t ch)
+{
+	char out[1];
+	char c = (char)ch;
+
+	if (ch == 32) {
+		return(8);
+	}
+
+	CharToOemBuff(&c, out, sizeof(out));
+
+	unsigned frame;
+	frame = MAX((unsigned)(out[0] - 33), 0u);
+	frame = 3 * MIN((int)frame, 216);
+
+	return(((SHPStruct const *)ShapePtr)->GetFrameBounds(frame + 2).Width);
+}
+
+// FUNCTION: GAMEMD 0x00690850
+void ScoreFontClass::Print_Char(Surface *surf, wchar_t ch, int x, int y, int v, bool play_sound)
+{
+	char c = (char)ch;
+	CharToOemBuff(&c, &c, sizeof(c));
+
+	if (c != 32) {
+		unsigned frame;
+		frame = MAX((unsigned)(c - 33), 0u);
+		frame = 3 * MIN((int)frame, 216);
+
+		Draw_Shape(*surf, *Drawer, ShapePtr, frame + v, Point2D(x - ((SHPStruct const *)ShapePtr)->GetFrameBounds(frame + 2).X, y), surf->Get_Rect(), SHAPE_WIN_REL);
+	}
+}
+
+// FUNCTION: GAMEMD 0x00690A10
+ScoreFullFontClass::ScoreFullFontClass(ConvertClass * drawer) :
+	ScoreFontClass()
+{
+	IsShapeAllocated = false;
+	ShapePtr = (const ShapeSet *)FileSystem::LoadFile("FULLFNT3.SHP", false);
+	if (ShapePtr == NULL) {
+		CCFileClass file("FULLFNT3.SHP");
+		ShapePtr = (ShapeSet const *)Load_Alloc_Data(file);
+		IsShapeAllocated = true;
+		file.Close();
+		FUN_004068E0("ScoreScreen: Loaded FULLFNT3.SHP\n");
+	}
+	Width = 11;
+	Drawer = drawer;
+	Height = 21;
+}
+
+// FUNCTION: GAMEMD 0x00690AE0
+ScoreBigFontClass::ScoreBigFontClass(ConvertClass * drawer) :
+	ScoreFontClass()
+{
+	IsShapeAllocated = false;
+	ShapePtr = (const ShapeSet *)FileSystem::LoadFile("BIGFONT.SHP", false);
+	if (ShapePtr == NULL) {
+		CCFileClass file("BIGFONT.SHP");
+		ShapePtr = (ShapeSet const *)Load_Alloc_Data(file);
+		IsShapeAllocated = true;
+		file.Close();
+		FUN_004068E0("ScoreScreen: Loaded BIGFONT.SHP\n");
+	}
+	Width = 20;
+	Drawer = drawer;
+	Height = 35;
+}
+
+// FUNCTION: GAMEMD 0x00690BB0
+ScoreTimeClass::ScoreTimeClass(int xpos, int ypos, void const * data, int maxval, int xtimer, ConvertClass * drawer) :
+	ScoreAnimClass(xpos, ypos, data),
+	Stage(0),
+	MaxStage(maxval),
+	TimerReset(xtimer),
+	Drawer(drawer)
+{
+}
+
+// FUNCTION: GAMEMD 0x00690C00
+bool ScoreTimeClass::Update(Surface * surf)
+{
+	if (!Timer) {
+		Timer = TimerReset;
+		if (++Stage >= MaxStage) Stage = 0;
+		Draw_Shape(*HiddenSurface, *Drawer, (ShapeSet *)DataPtr, Stage, Point2D(XPos, YPos), HiddenSurface->Get_Rect(), SHAPE_WIN_REL);
+		Draw_Shape(*AlternateSurface, *Drawer, (ShapeSet *)DataPtr, Stage, Point2D(XPos, YPos), AlternateSurface->Get_Rect(), SHAPE_WIN_REL);
+	}
+	return(false);
+}
+
+// FUNCTION: GAMEMD 0x00690D10
+ScorePrintClass::ScorePrintClass(void const * string, int xpos, int ypos, ScoreFontClass * font, bool is_fully_lit) :
+	ScoreAnimClass(xpos, ypos, string),
+	Pos(0),
+	Stage(0),
+	State(is_fully_lit),
+	Font(font)
+{
+}
+
+// FUNCTION: GAMEMD 0x00690D60
+bool ScorePrintClass::Update(Surface * surf)
+{
+	StillUpdating = true;
+
+	if (!Timer) {
+		Timer = 2;
+
+		if ((unsigned)Pos > wcslen((const wchar_t *)DataPtr) && Stage > 2) {
+			return(true);
+		}
+
+		if (State == false) {
+			Rect rect;
+			int w = Font->String_Width((const wchar_t *)DataPtr);
+			rect.Set(XPos - 8 <= 0 ? 0 : XPos - 8, YPos, w + 10, Font->Get_Height());
+			HiddenSurface->Blit_From(rect, *AlternateSurface, rect);
+		}
+
+		int x = XPos;
+		for (int i = 0; i <= Pos; i++) {
+
+			char localstr;
+			localstr = ((wchar_t *)DataPtr)[i];
+			if (localstr == '\0') {
+				Stage++;
+				break;
+			}
+
+			int v;
+			if (State != true) {
+				v = (Pos - i >= 2) ? 2 : (Pos - i);
+			} else {
+				v = 2;
+			}
+
+			Font->Print_Char(HiddenSurface, localstr, x, YPos, v, true);
+			if (v == 2) {
+				Font->Print_Char(AlternateSurface, localstr, x, YPos, v, false);
+			}
+			x += Font->Char_Width(localstr) + 1;
+		}
+
+		Pos++;
+	}
+
+	return(false);
+}
+
+// FUNCTION: GAMEMD 0x00690EF0
+SfxEntry::SfxEntry(char const * name, char const *filename) :
+	Name(NULL),
+	Sample(NULL),
+	IsAllocated(false)
+{
+	if (FUN_00407000()) {
+		Name = strdup(name);
+	}
+}
+
+// FUNCTION: GAMEMD 0x00690F20
+SfxEntry::~SfxEntry(void)
+{
+	if (Name != NULL) {
+		free(Name);
+	}
+}
+
+// FUNCTION: GAMEMD 0x00690F30
+ScoreAnimClass::ScoreAnimClass(int x, int y, void const * data) :
+	XPos(x),
+	YPos(y),
+	Timer(0),
+	DataPtr(data)
+{
+}
+
+// FUNCTION: GAMEMD 0x00690F70
+// ScoreAnimClass::Stop
+
+// FUNCTION: GAMEMD 0x00690FC0
+// ScoreAnimClass::Start
+
+// SYNTHETIC: GAMEMD 0x00690FE0
+// ??_GScoreAnimClass@@UAEPAXI@Z
+
+// SYNTHETIC: GAMEMD 0x00691000
+// ??_GScoreTimeClass@@UAEPAXI@Z
+
+// SYNTHETIC: GAMEMD 0x00691020
+// ??_GScorePrintClass@@UAEPAXI@Z
+
+// SYNTHETIC: GAMEMD 0x00691040
+// ??_GScoreFontClass@@UAEPAXI@Z
+
+// SYNTHETIC: GAMEMD 0x006910A0
+// ??_GScoreFullFontClass@@UAEPAXI@Z
+
+// SYNTHETIC: GAMEMD 0x00691100
+// ??_GScoreBigFontClass@@UAEPAXI@Z
+
+// TEMPLATE: GAMEMD 0x00691160
+// ?Add@?$DynamicVectorClass@PAVSfxEntry@@@@QAE_NABQAVSfxEntry@@@Z
+template class DynamicVectorClass<SfxEntry *>;

@@ -1,0 +1,251 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+#pragma once
+
+#include "arraylist.h"
+#include "keyboard.h"
+#include "surface.h"
+#include "win.h"
+#include "winfix.h"
+#include "widewstring.h"
+#include "wstring.h"
+
+class BitFont;
+
+namespace OwnerDraw {
+
+	struct CellData {
+		CellData(void);
+		CellData(CellData const & that) : type(that.type), string(that.string), hint(that.hint), color(that.color), surf(that.surf), pingtime(that.pingtime)  {}
+		CellData const & operator=(CellData & that)
+		{
+			type = that.type;
+			string = that.string;
+			hint = that.hint;
+			color = that.color;
+			surf = that.surf;
+			pingtime = that.pingtime;
+			return(*this);
+		}
+
+		enum DataType {
+			INVALID,
+			TEXT,
+			SURFACE,
+			PING,
+			PRIMARY,
+		};
+
+		DataType type;
+
+		WideWstring string;
+
+		WideWstring hint;
+
+		int color;
+
+		Surface * surf;
+
+		int pingtime;
+	};
+
+	struct ColumnData {
+		ColumnData(void) : xPos(0), width(0), cells() {}
+		ColumnData(ColumnData & that);
+
+		int xPos;
+
+		int width;
+
+		ArrayList<CellData> cells;
+	};
+
+	struct Tooltip {
+
+		Rect bounds;
+
+		Surface * background;
+
+		wchar_t text[128];
+
+		int isActive;
+
+		int isHidden;
+
+		HWND window;
+
+		Tooltip(void);
+	};
+
+	struct CtrlMsgData {
+
+		UINT message;
+		HWND window;
+
+		bool operator ==(CtrlMsgData const & that) const;
+	};
+
+	struct FontMetrics {
+		int charWidths[256];
+		int glyphWidth;
+		int glyphHeight;
+		int topMargin;
+		int leftMargin;
+	};
+
+	struct WinNode {
+		WinNode *next;
+		int id;
+		wchar_t *text;
+		int data;
+	};
+
+
+	class DialogControl {
+		public:
+			DialogControl(void);
+			virtual ~DialogControl(void);
+			virtual void F1(HWND window, int value) = 0;
+			virtual bool F2(void) = 0;
+			virtual int F3(void) = 0;
+			virtual bool F4(void) = 0;
+	};
+
+	class SimpleDialogControl : public DialogControl {
+		public:
+			SimpleDialogControl(void);
+			virtual ~SimpleDialogControl(void);
+			virtual void F1(HWND window, int value);
+			virtual bool F2(void);
+			virtual int F3(void);
+			virtual bool F4(void);
+
+			int Field4;
+			bool Field8;
+	};
+
+	void Initialize(void);
+	LRESULT CALLBACK SysListViewHandler(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
+	LRESULT CALLBACK EditHandler(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
+	LRESULT CALLBACK NewEditHandler(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
+	LRESULT CALLBACK CheckBoxButtonHandler(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
+	LRESULT CALLBACK ProgressHandler(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
+	LRESULT CALLBACK GroupBoxButtonHandler(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
+	LRESULT CALLBACK HotkeyHandler(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
+	void Register_Control_Classes(void);
+	bool Subclass_Dialog(HWND window, LPARAM lParam);
+
+	void Draw_Item(LPDRAWITEMSTRUCT drawit);
+	void Draw_Dialog_Back(HWND window);
+
+	int Capture_Mouse(void);
+	int Release_Mouse(void);
+
+	HWND Begin_Dialog(int id, DLGPROC proc, LPARAM lparam);
+	void Display_Dialog(HWND window);
+	int Move_Dialog(HWND window, int x, int y);
+	void End_Dialog(HWND window);
+
+	int Default_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
+	bool Dialog_Message_Handler(void);
+
+	bool Start_Tooltip(Rect const & rect, wchar_t const * text, HWND window);
+	bool DrawTooltip(bool save_background);
+	bool RestoreTooltipBackground(void);
+	bool End_Tooltip(void);
+
+	HWND Custom_Message_Box(wchar_t const * btn1txt, wchar_t const * btn2txt = NULL, bool * cancelled = NULL);
+	void Set_Custom_Message_Box_Text(HWND window, wchar_t const * text);
+};
+
+#define OD_TEXT_ALIGN_MIN 1
+#define OD_TEXT_ALIGN_CENTER 2
+#define OD_TEXT_ALIGN_MAX 3
+
+int OD_Draw_Text(COLORREF color, HFONT font, Rect const & rect, const char * text, int len, int x_alignment, int y_alignment, Surface * surface);
+void OD_Draw_Rect(Surface & surf, Rect const & rect, int offset, int color);
+
+void On_WM_NCDESTROY(HWND window);
+
+int Build_Hotkey_String(KeyNumType key, char * buffer);
+
+extern COLORREF ODColorDisabled;
+extern COLORREF ODColorFrame;
+extern COLORREF ODListBoxColor;
+extern COLORREF ODColorUnused1;
+
+#define OD_DRAW_CHAR_FLAG_HORIZONTAL_CENTER 1
+#define OD_DRAW_CHAR_ALIGN_FLAG_RIGHT 2
+#define OD_DRAW_CHAR_FLAG_VERTICAL_CENTER 4
+
+struct ODComponentMasks
+{
+	unsigned short R;
+	unsigned short G;
+};
+extern ODComponentMasks ODMasks;
+extern unsigned short ODBComponentMask;
+#define ODRComponentMask (ODMasks.R)
+#define ODGComponentMask (ODMasks.G)
+
+inline unsigned short OD_Blend_Color(unsigned short pixel, unsigned short color, unsigned char alpha)
+{
+	static unsigned blend_color_alpha;
+	static unsigned blend_pixel_alpha;
+
+	blend_color_alpha = alpha;
+	blend_pixel_alpha = 255 - alpha;
+
+	unsigned short r = ((((pixel & ODRComponentMask) * blend_pixel_alpha) + ((color & ODRComponentMask) * blend_color_alpha)) >> 8) & ODRComponentMask;
+	unsigned short g = ((((pixel & ODGComponentMask) * blend_pixel_alpha) + ((color & ODGComponentMask) * blend_color_alpha)) >> 8) & ODGComponentMask;
+	unsigned short b = (((pixel & ODBComponentMask) * blend_pixel_alpha) + ((color & ODBComponentMask) * blend_color_alpha)) >> 8;
+	return((unsigned short)(r | g | b));
+}
+
+#define OD_SUBCLASSED				(WM_USER + 151)
+
+#define OD_SETCOLOR					(WM_USER + 152)
+
+#define OD_TOOLTIPS					(WM_USER + 154)
+
+#define OD_GETTIPTEXT				(WM_USER + 155)
+
+#define OD_SETIMAGE					(WM_USER + 156)
+
+#define OD_DISABLEPAINT				(WM_USER + 157)
+
+#define OD_RESTOREDC				(WM_USER + 158)
+
+#define OD_SAVEDC					(WM_USER + 159)
+
+#define OD_HASATTACHED				(WM_USER + 160)
+
+#define OD_REFRESHNOPAINT			(WM_USER + 165)
+
+#define OD_ADDCOLUMN				(WM_USER + 166)
+
+#define OD_REMOVECOLUMN				(WM_USER + 167)
+
+#define OD_SETCELL					(WM_USER + 168)
+
+#define OD_SETTOP					(WM_USER + 169)
+
+#define OD_SETALTIMAGE				(WM_USER + 170)
+
+#define OD_SETTRACKSTEP				(WM_USER + 171)
+
+#define OD_TRACKNUMBERS				(WM_USER + 172)
+
+#define OD_GETCELLTIP				(WM_USER + 173)
+
+#define OD_TRACKSILENT				(WM_USER + 174)
+
+#define OD_ACTIVATE					(WM_USER + 175)
+
+#define OD_REFOCUS					(WM_USER + 176)
+
+#define OD_SETKEEPCAPTURE			(WM_USER + 177)
+
+#define OD_DROPSUBCLASSED			(WM_USER + 1000)

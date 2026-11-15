@@ -1,0 +1,195 @@
+{
+ "about": "Native-only text substitutions for the pinned YR tree (yr/ra2-decomp, yr/tibsun headers; lane Y1), applied by native/yr/tools/yr_units.py before the port rewrites, where clang rejects VC6 dialect. 'file' is a path under the tree's header directory ('hdr/<name>') or its sources ('src/<path>'), or '*' for every file; 'old' is literal text (every occurrence; a fixup that matches nothing fails the generation), or with 'regex': true a Python regular expression. Each keeps the original behaviour; 'why' says how. Like native/port/fixups.json for the RA2 tree, it never edits yr/. A row with 'cut' instead of 'old' removes the function whose marker (// FUNCTION: GAMEMD <address>) it names, up to the next marker or the end of the file; native/yr/glue supplies the native version. A row with 'skip_unit' leaves that source out of the native build (its functions are link-closure traps until native/yr/glue or a later stage supplies them).",
+ "fixups": [
+  {
+   "file": "hdr/int.h",
+   "old": "friend Int<PRECISION> Generate_Prime(Straw & rng, int pbits, Int<PRECISION> const * = 0);",
+   "new": "friend Int<PRECISION> Generate_Prime(Straw & rng, int pbits, Int<PRECISION> const *);",
+   "why": "clang: a friend declaration with a default argument must be a definition. The default (a null third argument) stays on the namespace-scope declaration of Generate_Prime; the RA2 tree's int.hpp declares it the same way."
+  },
+  {
+   "file": "*",
+   "old": "\\bTagClass::Init\\b",
+   "regex": true,
+   "new": "TagClass::Init_All",
+   "why": "clang: a static member function named Init cannot hide the virtual AbstractClass::Init. Renamed with its one caller (ScenarioClass, scenario.cpp), as the RA2 tree renames its own (Init_Static_0041beb0)."
+  },
+  {
+   "file": "hdr/tag.h",
+   "old": "static void Init(void);",
+   "new": "static void Init_All(void);",
+   "why": "The declaration of the rename above."
+  },
+  {
+   "file": "hdr/typelist.h",
+   "old": "return(*this)[rand((unsigned)0, (unsigned)Count()-1)];",
+   "new": "return(*this)[(rand)((unsigned)0, (unsigned)Count()-1)];",
+   "why": "TypeList::Random_Pick(Random2Class &rand) calls its parameter, rand(lo, hi). The RA2 tree's port rewrite sends every call spelled rand( to the VC6 rand (ra2_rand); parenthesised, the call stays the parameter's operator()."
+  },
+  {
+   "file": "hdr/wolapi/wolapi.h",
+   "old": "typedef long time_t;",
+   "new": "/* native: time_t is the host's */",
+   "why": "The Westwood Online interface header redefines time_t as long; the host's <time.h> has it already. WOL is not part of the native build (Internet play), so its interface methods' time_t width does not matter."
+  },
+  {
+   "file": "src/lcw.cpp",
+   "cut": "0x00551E50",
+   "why": "LCW_Comp is TibSun's inline assembly (LCWCOMP.ASM); native/yr/glue/yr_asm.cpp has the RA2 native tree's C++ transliteration of the same register program."
+  },
+  {
+   "file": "src/mpu.cpp",
+   "cut": "0x005CAFB0",
+   "why": "RDTSC reads the x86 time-stamp counter (inline assembly); native/yr/glue/yr_asm.cpp reads the port's game clock, as the RA2 native tree does."
+  },
+  {
+   "file": "src/mpu.cpp",
+   "cut": "0x005CAFC0",
+   "why": "Get_RDTSC_CPU_Speed measures the x86 time-stamp counter (inline assembly); natively the counter is a virtual 1 GHz clock and the glue returns its rate, 1000, as the RA2 native tree does."
+  },
+  {
+   "file": "src/conquer.cpp",
+   "old": "\t__asm {\n\t\tmov ExceptionReturnStack, esp\n\t\tmov ExceptionReturnFrame, ebp\n\t\tlea eax, ret_addr\n\t\tmov ExceptionReturnAddress, eax\n\t}\n\nret_addr:\n",
+   "new": "\t/* native: the x86 return stack and address the crash handler resumed at are not taken */\n",
+   "why": "Main_Game records esp/ebp and a code address for its x86 crash handler (Exception_Handler) to resume at; natively the port's own fault handler reports and ends (the RA2 native tree drops the same block)."
+  },
+  {
+   "file": "src/xsurface.cpp",
+   "regex": true,
+   "old": "static void \\*surface_quick_fill\\(void \\*buf, int count, int color\\)\\n\\{\\n\\t_asm \\{[\\s\\S]*?\\n\\t\\}\\n\\}",
+   "new": "static void *surface_quick_fill(void *buf, int count, int color)\n{\n\tunsigned int *p = (unsigned int *)buf;\n\tfor (int i = 0; i < count; i++) *p++ = (unsigned int)color;\n\treturn p;\n}",
+   "why": "surface_quick_fill is rep stosd (inline assembly): count dwords of color from buf, returning the end; the same writes in C++."
+  },
+  {
+   "file": "hdr/except.h",
+   "old": "#ifdef _MSC_VER",
+   "new": "#if 1 /* native: the declarations are the same for clang */",
+   "why": "except.h declares the crash handler and its globals only for MSVC; startup.cpp and conquer.cpp use them."
+  },
+  {
+   "file": "src/facing.cpp",
+   "cut": "0x004C85E0",
+   "why": "Dump_Exception_Info formats the x86 CONTEXT (Eip, Esp, segment registers) into except.txt; natively the port's fault handler writes the report (native/yr/glue/yr_glue.cpp keeps an empty one for Exception_Handler)."
+  },
+  {
+   "file": "src/hover.cpp",
+   "old": "Move_To((CoordStruct const &)(Coord)cell);",
+   "new": "Move_To((CoordStruct)(Coord)cell);",
+   "why": "A cast of the converted cell to a const reference, which the RA2 tree's port rewrites turn into an lvalue helper that cannot take this spelling; Move_To takes the CoordStruct by value, so a value cast passes the same coordinate."
+  },
+  {
+   "file": "src/map.cpp",
+   "old": "bool HashTableClass<unsigned int, SubzoneConnectionStruct>::Add_Object(int bucket_index, ObjectType const & object)",
+   "new": "template<> bool HashTableClass<unsigned int, SubzoneConnectionStruct>::Add_Object(int bucket_index, ObjectType const & object)",
+   "why": "An explicit specialisation of a class template's member needs template<> in ISO C++; VC6 took it without."
+  },
+  {
+   "file": "src/version.cpp",
+   "regex": true,
+   "old": "extern \"C\" \\{\\nDWORD __stdcall GetFileVersionInfoSizeA\\(LPSTR filename, LPDWORD handle\\);\\nBOOL __stdcall GetFileVersionInfoA\\(LPSTR filename, DWORD handle, DWORD size, LPVOID block\\);\\nBOOL __stdcall VerQueryValueA\\(LPVOID block, LPSTR sub, LPVOID \\* buffer, UINT \\* len\\);\\n\\}",
+   "new": "/* native: winver.h declares GetFileVersionInfoSizeA, GetFileVersionInfoA and VerQueryValueA (const strings) */",
+   "why": "version.cpp declares the three version-resource calls itself with non-const string parameters; the Win32 headers' const declarations are the same functions."
+  },
+  {
+   "file": "src/house.cpp",
+   "regex": true,
+   "old": "MAX\\(BorrowedTime, \\(int\\)Session\\.MaxAhead\\)",
+   "new": "MAX((int)BorrowedTime, (int)Session.MaxAhead)",
+   "why": "BorrowedTime is a CDTimerClass; in MAX's conditional clang finds both conversions (timer to int, int to timer) and refuses. VC6 compared and returned the timer's int value; the cast names that conversion."
+  },
+  {
+   "file": "src/teleport.cpp",
+   "old": "bool bridge = cptr->Is_Bridge_Here;",
+   "new": "bool bridge = cptr->Is_Bridge_Here(); /* native: see fixups.json */",
+   "why": "The text names the member function without calling it; ISO C++ refuses. NOT VERIFIED against the original bytes: the call is the evident intent (TibSun's teleport.cpp tests the cell's bridge state); if VC6 compiled the bare name as always true, this differs where a teleporting unit lands beside a bridge. Recorded as a known difference to check."
+  },
+  {
+   "file": "src/animtype.cpp",
+   "old": "*GraphicName != '\\0' ? Graphic_Name() : IniName",
+   "new": "*GraphicName != '\\0' ? Graphic_Name() : (const char *)IniName",
+   "why": "The conditional's arms are a const char * and a TStringID that converts both ways; clang refuses the ambiguity. VC6 took the string (the result goes to _makepath's const char *)."
+  },
+  {
+   "file": "src/cdcntrl.cpp",
+   "old": "_stprintf\\(([a-z_]+), _TEXT\\((\"[^\"]*\")\\)",
+   "new": "sprintf(\\1, \\2",
+   "why": "_stprintf is sprintf in an ANSI build (mingw's tchar.h maps it to its own printf); the port's VC6 sprintf takes the call.",
+   "regex": true
+  },
+  {
+   "file": "src/ahandle.cpp",
+   "old": "void CALLBACK AudioCallback(UINT uTimerID, UINT, DWORD dwUser, DWORD, DWORD);",
+   "new": "void CALLBACK AudioCallback(UINT uTimerID, UINT, DWORD_PTR dwUser, DWORD_PTR, DWORD_PTR);",
+   "why": "The multimedia-timer callback's user value carries the VQA handle pointer: pointer-sized natively (Win64 DWORD_PTR), as LPTIMECALLBACK declares it."
+  },
+  {
+   "file": "src/ahandle.cpp",
+   "old": "void CALLBACK AudioCallback ( UINT uTimerID, UINT, DWORD dwUser, DWORD, DWORD )",
+   "new": "void CALLBACK AudioCallback ( UINT uTimerID, UINT, DWORD_PTR dwUser, DWORD_PTR, DWORD_PTR )",
+   "why": "The definition of the declaration above."
+  },
+  {
+   "file": "src/ahandle.cpp",
+   "old": "timeSetEvent ( 1000/VQA_TIMETICKS , 1 , AudioCallback , (DWORD)vqap , TIME_PERIODIC)",
+   "new": "timeSetEvent ( 1000/VQA_TIMETICKS , 1 , AudioCallback , (DWORD_PTR)vqap , TIME_PERIODIC)",
+   "why": "The handle pointer passed whole (DWORD would cut it to 32 bits natively)."
+  },
+  {
+   "file": "src/wonline.cpp",
+   "skip_unit": true,
+   "why": "Westwood Online (Internet play): not in the native build; the Internet button says so (the RA2 tree's WOL code is link-closure traps the same way)."
+  },
+  {
+   "file": "src/wolpersonainformation.cpp",
+   "skip_unit": true,
+   "why": "Westwood Online persona data (Internet play), as above."
+  },
+  {
+   "file": "src/wolpersonainformation2.cpp",
+   "skip_unit": true,
+   "why": "Westwood Online persona data (Internet play; also needs ATL), as above."
+  },
+  {
+   "file": "src/winstub.cpp",
+   "old": "wndclass.lpfnWndProc = Windows_Procedure;",
+   "new": "wndclass.lpfnWndProc = (WNDPROC)Windows_Procedure;",
+   "why": "Windows_Procedure takes UINT/LONG message parameters (VC6 Win32) and hands them on by reference (Map.Message_Handler); the class registration casts it to the Win64 WNDPROC. KNOWN LIMIT: a message that carries a pointer in lParam reaches it cut to 32 bits; the port's messages to the game window carry values (the RA2 native tree passes the same messages)."
+  },
+  {
+   "file": "src/teleport.cpp",
+   "old": "Timer = (Timer > Rule->ChronoMinimumDelay) ? Timer : Rule->ChronoMinimumDelay;",
+   "new": "Timer = ((int)Timer > Rule->ChronoMinimumDelay) ? (int)Timer : Rule->ChronoMinimumDelay;",
+   "why": "Timer is a CDTimerClass; its conditional with an int converts both ways and clang refuses. VC6 compared and kept the timer's int value."
+  },
+  {
+   "file": "src/cell.cpp",
+   "old": "for the building %s\\n\", obj->Class->IniName);",
+   "new": "for the building %s\\n\", (const char *)obj->Class->IniName);",
+   "why": "A TStringID object passed through a debug print's varargs: VC6 copied its bytes onto the stack, so %s read its first four bytes as a pointer; clang refuses a class through varargs (and would trap). The name's text is what the message wants; the print is the debug output (FUN_004068E0)."
+  },
+  {
+   "file": "src/worlddom.cpp",
+   "old": "sprintf(buffer, \"TheaterChoice%sMenu\", *WorldDominationTour::FUN_007AF2A0(side));",
+   "new": "sprintf(buffer, \"TheaterChoice%sMenu\", (*WorldDominationTour::FUN_007AF2A0(side)).get());",
+   "why": "A Wstring object passed to %s: VC6 pushed the object's bytes and the format read the first four as its value, which is the Wstring's text pointer (its first member). clang refuses a class through varargs; get() passes that pointer."
+  },
+  {
+   "file": "src/mainloop.cpp",
+   "old": "swprintf(buffer, L\"NFT : %d\", NetFrameTimer);",
+   "new": "swprintf(buffer, L\"NFT : %d\", *(int const *)&NetFrameTimer);",
+   "why": "A timer object passed to %d: VC6 pushed the object's bytes and the format read the first four as its value (the timer's first field); the cast reads the same four bytes."
+  },
+  {
+   "file": "src/overlay.cpp",
+   "old": "DebugString(\"Overlay %s not really tiberium\\n\", otype->GivenName);",
+   "new": "DebugString(\"Overlay %s not really tiberium\\n\", (const char *)otype->GivenName);",
+   "why": "A TStringID object passed to a debug print's %s: VC6 pushed the object's bytes and the format read the first four as its value as a pointer (the name's first characters); the debug text names the overlay instead."
+  },
+  {
+   "file": "src/scenario.cpp",
+   "old": ", ElapsedTimer);",
+   "new": ", *(int const *)&ElapsedTimer);",
+   "why": "A timer object passed to a debug print's %ld (save and load): VC6 pushed the object's bytes and the format read the first four as its value (the timer's first field); the cast reads the same four bytes."
+  }
+ ]
+}

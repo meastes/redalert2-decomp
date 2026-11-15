@@ -1,0 +1,76 @@
+# The native Yuri's Revenge game, yr-native (lane Y1; user decision 2026-11-15, AGENTS.md;
+# docs/YR_PORT_SIZING.md plan 1, stage 1). Built from the pinned ra2-decomp tree (yr/) through
+# native/yr/tools (generated units with native/yr/fixups.json, the Win32/DirectX headers from the
+# local llvm-mingw toolchain rewritten for the VC6 widths), with native/'s platform layer: the
+# SDL3 host and the ra2_port seams. Included by native/CMakeLists.txt with -DRA2_NATIVE_YR=ON on
+# the Mac build (the RA2 targets are unchanged). Unrecovered code and unsourced data link as
+# traps and zero placeholders (tools/link_closure.py): gen-yr/link_closure.json is the work queue.
+set(RA2_NATIVE_YR_GEN "${CMAKE_CURRENT_BINARY_DIR}/gen-yr")
+file(GLOB ra2_yr_mingw_default "${CMAKE_CURRENT_SOURCE_DIR}/../private/toolchains/llvm-mingw-*/llvm-mingw-*-macos-*/generic-w64-mingw32/include")
+set(ra2_yr_mingw_first "")
+if(ra2_yr_mingw_default)
+  list(GET ra2_yr_mingw_default 0 ra2_yr_mingw_first)
+endif()
+set(RA2_NATIVE_YR_MINGW "${ra2_yr_mingw_first}" CACHE PATH "mingw-w64 headers (llvm-mingw <root>/generic-w64-mingw32/include) for the YR build's Win32/DirectX layer")
+if(NOT IS_DIRECTORY "${RA2_NATIVE_YR_MINGW}")
+  message(FATAL_ERROR "RA2_NATIVE_YR: set RA2_NATIVE_YR_MINGW to llvm-mingw's generic-w64-mingw32/include")
+endif()
+execute_process(
+  COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tools/yr_sdk.py"
+          --mingw "${RA2_NATIVE_YR_MINGW}" --out "${RA2_NATIVE_YR_GEN}/mingw"
+  RESULT_VARIABLE ra2_yr_rc)
+if(ra2_yr_rc)
+  message(FATAL_ERROR "yr_sdk.py failed")
+endif()
+execute_process(
+  COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tools/yr_units.py" --out "${RA2_NATIVE_YR_GEN}"
+  RESULT_VARIABLE ra2_yr_rc)
+if(ra2_yr_rc)
+  message(FATAL_ERROR "yr_units.py failed")
+endif()
+set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS
+  "${CMAKE_CURRENT_SOURCE_DIR}/yr/fixups.json" "${CMAKE_CURRENT_SOURCE_DIR}/yr/tools/yr_units.py"
+  "${CMAKE_CURRENT_SOURCE_DIR}/yr/tools/yr_sdk.py")
+include("${RA2_NATIVE_YR_GEN}/units.cmake")
+file(GLOB ra2_yr_glue CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/yr/glue/*.cpp")
+
+# The YR units: the RA2 tree's VC6 dialect options (ra2_dialect), the YR prelude, the generated
+# header directory and the rewritten Win32 headers after the host's own.
+get_target_property(ra2_yr_dialect_options ra2_dialect INTERFACE_COMPILE_OPTIONS)
+add_library(yr_units_objs OBJECT ${YR_NATIVE_UNITS} ${ra2_yr_glue})
+target_compile_options(yr_units_objs PRIVATE ${ra2_yr_dialect_options}
+  "SHELL:-include ${CMAKE_CURRENT_SOURCE_DIR}/yr/sdk/yr_prelude.h"
+  "SHELL:-idirafter ${RA2_NATIVE_YR_GEN}/mingw"
+  # Header constants defined in every unit (geometry.h's CELL_NONE, COORD_NONE, ...; VC6 emitted a
+  # copy per unit): zero-filled storage cannot carry the weak definitions weaken_duplicates.py
+  # gives the repeats, so it goes in __DATA, where ld64 keeps the first.
+  -fno-zero-initialized-in-bss)
+target_compile_definitions(yr_units_objs PRIVATE WIN32 _WIN32 __GNUC__=4 __GNUC_MINOR__=2 RA2_NATIVE_YR=1)
+target_include_directories(yr_units_objs BEFORE PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/yr/sdk"
+  "${RA2_NATIVE_YR_GEN}/hdr" "${RA2_NATIVE_YR_GEN}/hdr/vqalib")
+
+# The host (native/platform/sdl), compiled again for this game.
+add_library(yr_host_objs OBJECT ${ra2_host_sources})
+target_link_libraries(yr_host_objs PRIVATE SDL3::SDL3 ra2_port)
+target_compile_definitions(yr_host_objs PRIVATE RA2_NATIVE_GAME=1 RA2_NATIVE_YR=1)
+
+file(GENERATE OUTPUT "${RA2_NATIVE_YR_GEN}/link_inputs.txt"
+     CONTENT "$<JOIN:$<TARGET_OBJECTS:yr_units_objs>;$<TARGET_FILE:ra2_port>,\n>\n")
+add_custom_command(
+  OUTPUT "${RA2_NATIVE_YR_GEN}/link_closure.c" "${RA2_NATIVE_YR_GEN}/link_closure.json"
+  COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/link_closure.py"
+          --inputs "${RA2_NATIVE_YR_GEN}/link_inputs.txt" --host $<TARGET_OBJECTS:yr_host_objs>
+          --out "${RA2_NATIVE_YR_GEN}/link_closure.c" --system-libs ${RA2_NATIVE_CLOSURE_SYSTEM_LIBS}
+          --frameworks ${ra2_closure_frameworks}
+  DEPENDS yr_units_objs ra2_port yr_host_objs "${CMAKE_CURRENT_SOURCE_DIR}/tools/link_closure.py"
+          $<TARGET_FILE:ra2_port> $<TARGET_OBJECTS:yr_host_objs> $<TARGET_OBJECTS:yr_units_objs>
+  COMMAND_EXPAND_LISTS VERBATIM)
+add_executable(yr-native $<TARGET_OBJECTS:yr_host_objs> $<TARGET_OBJECTS:yr_units_objs> "${RA2_NATIVE_YR_GEN}/link_closure.c")
+target_link_libraries(yr-native PRIVATE SDL3::SDL3 ra2_port ${ra2_host_frameworks})
+target_compile_definitions(yr-native PRIVATE RA2_NATIVE_GAME=1 RA2_NATIVE_YR=1)
+# Repeated definitions across units (explicit template instantiations in several units, as VC6's
+# COMDATs) get select-any semantics, as in the RA2 game (tools/weaken_duplicates.py).
+add_custom_command(TARGET yr-native PRE_LINK
+  COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/weaken_duplicates.py"
+          --inputs "${RA2_NATIVE_YR_GEN}/link_inputs.txt" --report "${RA2_NATIVE_YR_GEN}/duplicates.json"
+  VERBATIM)
