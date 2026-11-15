@@ -3410,12 +3410,12 @@ void MapGeneratorClass::unknown_0057c4f0()
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 // From ra2-decomp 0x0059AFA0 MapGeneratorClass::Seed_Land_Type1 (src/mapgen.cpp, YR twin).
 // Scatters one land mass from the middle of the map until the land target is met.
-int __fastcall unknown_cells_428ac0();
+int __fastcall Map_Cell_Count();
 extern double const unknown_land_minimum_7a5c58,unknown_land_maximum_7a5c60,unknown_land_chunk_7a5c68;
 void MapGeneratorClass::Seed_Land_Type1()
 {
     WorkingRegionID = 1;
-    int total = unknown_cells_428ac0();
+    int total = Map_Cell_Count();
     int placed = 0;
     int tries = 0;
     double current = 0.0;
@@ -3468,13 +3468,13 @@ void MapGeneratorClass::Seed_Land_Type1()
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 // From ra2-decomp 0x0059B200 MapGeneratorClass::Seed_Land_Type2 (src/mapgen.cpp, YR twin).
 // Scatters land over two halves of the map until each half meets the land target.
-int __fastcall unknown_cells_428ac0();
+int __fastcall Map_Cell_Count();
 extern double const unknown_random_scale_7a5dd0;
 extern double const unknown_land2_minimum_7a5c78,unknown_land2_maximum_7a5c80,unknown_land2_chunk_7a5c88;
 void MapGeneratorClass::Seed_Land_Type2()
 {
     WorkingRegionID = 1;
-    int total = unknown_cells_428ac0();
+    int total = Map_Cell_Count();
     int tries = 0;
     double target = (1.0 - SeedData.WaterAmount * 0.01) * (unknown_land2_maximum_7a5c80 - unknown_land2_minimum_7a5c78) + unknown_land2_minimum_7a5c78;
     int maximum = (int)((double)total * unknown_land2_chunk_7a5c88 * target);
@@ -4827,11 +4827,11 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 						Cell base(patch.X, patch.Y + patch.Height);
 						int height = Map[base + Cell(2, 0)].unknown_11b;
 
-						Map.unknown_11a4 = IsoTileTypes[unknown_tileset_a52584];
+						Map.PendingObject = IsoTileTypes[unknown_tileset_a52584];
 						Map.Unknown_004994D0(base);
 						Map.Pick_Random_Tile_Variant(0,0x10000,height,WorkingRegionID,place_ok,false);
 
-						Map.unknown_11a4 = IsoTileTypes[unknown_tileset_a52584+3];
+						Map.PendingObject = IsoTileTypes[unknown_tileset_a52584+3];
 						Map.Unknown_004994D0(base - Cell(0, patch.Height + 2));
 						Map.Pick_Random_Tile_Variant(0,0x10000,height,WorkingRegionID,place_ok,false);
 
@@ -4862,12 +4862,12 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 						do {
 							if (remaining % 2) {
 								Map.Unknown_004994D0(base - Cell(0, seg + 1));
-								Map.unknown_11a4 = IsoTileTypes[unknown_tileset_a52584 + 1];
+								Map.PendingObject = IsoTileTypes[unknown_tileset_a52584 + 1];
 								seg++;
 								remaining--;
 							} else {
 								Map.Unknown_004994D0(base - Cell(0, seg + 2));
-								Map.unknown_11a4 = IsoTileTypes[unknown_tileset_a52584 + 2];
+								Map.PendingObject = IsoTileTypes[unknown_tileset_a52584 + 2];
 								seg += 2;
 								remaining -= 2;
 							}
@@ -4881,11 +4881,11 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 						Cell base(seed.X - 2, patch.Y + patch.Height);
 						int height = Map[base - Cell(2, 0)].unknown_11b;
 
-						Map.unknown_11a4 = IsoTileTypes[unknown_tileset_a6cf58];
+						Map.PendingObject = IsoTileTypes[unknown_tileset_a6cf58];
 						Map.Unknown_004994D0(base);
 						Map.Pick_Random_Tile_Variant(0,0x10000,height,WorkingRegionID,place_ok,false);
 
-						Map.unknown_11a4 = IsoTileTypes[unknown_tileset_a6cf58+3];
+						Map.PendingObject = IsoTileTypes[unknown_tileset_a6cf58+3];
 						Map.Unknown_004994D0(base - Cell(0, patch.Height + 2));
 						Map.Pick_Random_Tile_Variant(0,0x10000,height,WorkingRegionID,place_ok,false);
 
@@ -4923,12 +4923,12 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 						do {
 							if (remaining % 2) {
 								Map.Unknown_004994D0(base - Cell(-1, seg + 1));
-								Map.unknown_11a4 = IsoTileTypes[unknown_tileset_a6cf58 + 1];
+								Map.PendingObject = IsoTileTypes[unknown_tileset_a6cf58 + 1];
 								seg++;
 								remaining--;
 							} else {
 								Map.Unknown_004994D0(base - Cell(-1, seg + 2));
-								Map.unknown_11a4 = IsoTileTypes[unknown_tileset_a6cf58 + 2];
+								Map.PendingObject = IsoTileTypes[unknown_tileset_a6cf58 + 2];
 								seg += 2;
 								remaining -= 2;
 							}
@@ -4942,11 +4942,11 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 						Cell base(patch.X - 2, patch.Y);
 						int height = Map[base + Cell(0, 2)].unknown_11b;
 
-						Map.unknown_11a4 = IsoTileTypes[unknown_tileset_a52ea0];
+						Map.PendingObject = IsoTileTypes[unknown_tileset_a52ea0];
 						Map.Unknown_004994D0(base);
 						Map.Pick_Random_Tile_Variant(0,0x10000,height,WorkingRegionID,place_ok,false);
 
-						Map.unknown_11a4 = IsoTileTypes[unknown_tileset_a52ea0+3];
+						Map.PendingObject = IsoTileTypes[unknown_tileset_a52ea0+3];
 						Map.Unknown_004994D0(base + Cell(patch.Width + 2, 0));
 						Map.Pick_Random_Tile_Variant(0,0x10000,height,WorkingRegionID,place_ok,false);
 
@@ -4977,12 +4977,12 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 						do {
 							if (remaining % 2) {
 								Map.Unknown_004994D0(base + Cell(seg + 2, 0));
-								Map.unknown_11a4 = IsoTileTypes[unknown_tileset_a52ea0 + 1];
+								Map.PendingObject = IsoTileTypes[unknown_tileset_a52ea0 + 1];
 								seg++;
 								remaining--;
 							} else {
 								Map.Unknown_004994D0(base + Cell(seg + 2, 0));
-								Map.unknown_11a4 = IsoTileTypes[unknown_tileset_a52ea0 + 2];
+								Map.PendingObject = IsoTileTypes[unknown_tileset_a52ea0 + 2];
 								seg += 2;
 								remaining -= 2;
 							}
@@ -4996,11 +4996,11 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 						Cell base(seed.X - 2, seed.Y - 2);
 						int height = Map[base - Cell(0, 2)].unknown_11b;
 
-						Map.unknown_11a4 = IsoTileTypes[unknown_tileset_a52ef0];
+						Map.PendingObject = IsoTileTypes[unknown_tileset_a52ef0];
 						Map.Unknown_004994D0(base);
 						Map.Pick_Random_Tile_Variant(0,0x10000,height,WorkingRegionID,place_ok,false);
 
-						Map.unknown_11a4 = IsoTileTypes[unknown_tileset_a52ef0+3];
+						Map.PendingObject = IsoTileTypes[unknown_tileset_a52ef0+3];
 						Map.Unknown_004994D0(base + Cell(patch.Width + 2, 0));
 						Map.Pick_Random_Tile_Variant(0,0x10000,height,WorkingRegionID,place_ok,false);
 
@@ -5038,12 +5038,12 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 						do {
 							if (remaining % 2) {
 								Map.Unknown_004994D0(base + Cell(seg + 2, 1));
-								Map.unknown_11a4 = IsoTileTypes[unknown_tileset_a52ef0 + 1];
+								Map.PendingObject = IsoTileTypes[unknown_tileset_a52ef0 + 1];
 								seg++;
 								remaining--;
 							} else {
 								Map.Unknown_004994D0(base + Cell(seg + 2, 1));
-								Map.unknown_11a4 = IsoTileTypes[unknown_tileset_a52ef0 + 2];
+								Map.PendingObject = IsoTileTypes[unknown_tileset_a52ef0 + 2];
 								seg += 2;
 								remaining -= 2;
 							}
@@ -6039,7 +6039,7 @@ void Initialize_Grid_Thresholds_00585240()
 double __cdecl Map_Random_Fraction_00579770();
 double __stdcall Sample_Truncated_Normal(double,double,double,double);
 unsigned __fastcall Map_Random_Range_005797a0(unsigned,unsigned);
-int __fastcall unknown_cells_428ac0();
+int __fastcall Map_Cell_Count();
 extern int unknown_tileset_a6e0e8;
 extern int unknown_tileset_a6cf4c;
 // Same-file bodies of MapRegionClass::Pick_Random_Map_Cell 0x56D720 and Pick_Random_Clear_Map_Cell 0x56D7A0,
@@ -6119,7 +6119,7 @@ void MapGeneratorClass::Generate_Vegetation()
         remaining-=Place_Forest(&Map[position],(int)Sample_Truncated_Normal(25.0,10.0,10.0,35.0),Sample_Truncated_Normal(0.2,0.1,0.05,0.4));
     }
 
-    int rock_count=Map_Random_Range_005797a0(0,unknown_cells_428ac0()/200);
+    int rock_count=Map_Random_Range_005797a0(0,Map_Cell_Count()/200);
     int placed=0;
     for(tries=0;tries<rock_count*5 && placed<rock_count;tries++) {
         Cell position=Pick_Random_Map_Cell();

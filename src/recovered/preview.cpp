@@ -393,7 +393,7 @@ bool MapPreviewClass::Read_PCX_Preview(char const *filename)
             delete unknown_00;
             unknown_00 = 0;
         }
-        Surface *surf = unknown_load_pcx_60d110(&file, 0, 0, 0);
+        Surface *surf = Read_PCX_File(&file, 0, 0, 0);
 
         if (surf != 0 && surf->Get_Width() && surf->Get_Height()) {
             unknown_00 = new DSurface(surf->Get_Width(), surf->Get_Height(), true);

@@ -271,10 +271,10 @@ void Audio_Update()
 }
 
 
-// int unknown_check_406f30() -- 0x00406F30
+// int AudioDeviceAvailable() -- 0x00406F30
 // Purpose: whether the audio library has its main device (the sound system can play).
 
-int unknown_check_406f30()
+int AudioDeviceAvailable()
 {
     return Audio_Main_Device != 0;
 }
@@ -398,7 +398,7 @@ int __fastcall FUN_00406fc0(int object_address)
 // time limit (now plus level->MaxElapsed) has passed. Do_Lose-like scenario
 // ends (0x0065E590) fade the global volume level to zero and wait here.
 
-void unknown_00481fb0();            // 0x00481FB0
+void Call_Back();            // 0x00481FB0
 
 void __fastcall Audio_Wait_Drain(AudioLevel *level)
 {
@@ -408,6 +408,6 @@ void __fastcall Audio_Wait_Drain(AudioLevel *level)
         if ((unsigned __int64)Audio_Now() >= (unsigned __int64)end) {
             return;
         }
-        unknown_00481fb0();
+        Call_Back();
     }
 }

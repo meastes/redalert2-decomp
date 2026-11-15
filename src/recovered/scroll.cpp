@@ -332,7 +332,7 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool arg3)
         if (action == 0 && waypoint != 0) {
             action = 0x2C;
         }
-        if (Map.unknown_11a4 != 0) {
+        if (Map.PendingObject != 0) {
             action = 0;
         }
     }

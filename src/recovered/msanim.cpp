@@ -748,7 +748,7 @@ MSVQAnim::MSVQAnim(Wstring const &name, Surface *surface, DynamicVectorClass<MSA
         name.Get_Token(0, ".", base);
         CCFileClass file(base + ".PCX");
         if (file.Is_Available()) {
-            Image = unknown_load_pcx_60d110(&file, 0, 0, 0);
+            Image = Read_PCX_File(&file, 0, 0, 0);
         }
     }
 }
@@ -780,7 +780,7 @@ MSVQAnim::MSVQAnim(Wstring const &name, Surface *surface, DynamicVectorClass<MSA
         name.Get_Token(0, ".", base);
         CCFileClass file(base + ".PCX");
         if (file.Is_Available()) {
-            Image = unknown_load_pcx_60d110(&file, 0, 0, 0);
+            Image = Read_PCX_File(&file, 0, 0, 0);
         }
     }
 }
@@ -1465,7 +1465,7 @@ MSPCXAnim::MSPCXAnim(Wstring const &name, DynamicVectorClass<MSAnim *> *anims, b
         name.Get_Token(0, ".", base);
         CCFileClass file(base + ".PCX");
         if (file.Is_Available()) {
-            Image = unknown_load_pcx_60d110(&file, 0, 0, 0);
+            Image = Read_PCX_File(&file, 0, 0, 0);
             if (Image != 0) {
                 PCXRect = Image->Get_Rect();
                 Rect screen = Background->Get_Rect();
@@ -1504,7 +1504,7 @@ MSPCXAnim::MSPCXAnim(Wstring const &name, DynamicVectorClass<MSAnim *> *anims, P
         name.Get_Token(0, ".", base);
         CCFileClass file(base + ".PCX");
         if (file.Is_Available()) {
-            Image = unknown_load_pcx_60d110(&file, 0, 0, 0);
+            Image = Read_PCX_File(&file, 0, 0, 0);
             if (Image != 0) {
                 PCXRect = Image->Get_Rect();
                 PCXRect.X = position.X;

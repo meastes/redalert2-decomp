@@ -80,7 +80,7 @@ bool VQA_Message_Handler();                                // 0x0071C590 one win
 
 // Player callbacks given to the VQA library through the configuration.
 int __cdecl VQA_Unknown_0071D490(VQAHandle *handle, int unknown2, int unknown3, int unknown4);
-int __cdecl VQA_Unknown_0071D640(VQAHandle *handle, int unknown2, int unknown3, int unknown4);
+int __cdecl VQAMixFileHandler(VQAHandle *handle, int unknown2, int unknown3, int unknown4);
 int __fastcall VQACacheHandler(VQAHandle *handle, int unknown2, int unknown3, int unknown4);
 int __cdecl VQAMemoryHandler(VQAHandle *handle, int request, int unknown3, int unknown4);
 int __cdecl VQAEventHandler(VQAHandle *handle, int event, int unknown3, int unknown4);

@@ -3349,8 +3349,8 @@
   },
   {
    "source": "src/recovered/vqalib_config/VQA_Unknown.cpp",
-   "old": "void __fastcall VQA_Unknown_00777850(VQAConfig *config)\n{\n    *config = unknown_vqa_default_config_801470;\n",
-   "new": "void Native_VQA_Default_Config();   // NATIVE (C16): link/behaviour_c16_vqa.cpp\nvoid __fastcall VQA_Unknown_00777850(VQAConfig *config)\n{\n    Native_VQA_Default_Config();\n    *config = unknown_vqa_default_config_801470;\n",
+   "old": "void __fastcall VQA_DefaultConfig(VQAConfig *config)\n{\n    *config = unknown_vqa_default_config_801470;\n",
+   "new": "void Native_VQA_Default_Config();   // NATIVE (C16): link/behaviour_c16_vqa.cpp\nvoid __fastcall VQA_DefaultConfig(VQAConfig *config)\n{\n    Native_VQA_Default_Config();\n    *config = unknown_vqa_default_config_801470;\n",
    "why": "Native addition (C16, owner ruling 2026-11-15: a mod's .VQA movie plays): VQA_DefaultConfig 0x00777850 copies the library's default configuration 0x00801470, which the original stores and no permitted text supplies; natively its integer fields are read from the user's game.exe at the first copy (link/behaviour_c16_vqa.cpp Native_VQA_Default_Config; the pointer fields are null there). Without it every field was a link-closure zero.",
    "verified": false
   },

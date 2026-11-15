@@ -4,7 +4,7 @@
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
 // Scout1069 (native/drafts.json). Not original bytes.
 // ==== 0060d110 /Users/ivalice/Code/redalert2-native/build/class-work/Scout611/w/pcx_best_89.68.cpp
-// Surface *unknown_load_pcx_60d110(FileClass *, PaletteClass *, int, int) (0x0060D110):
+// Surface *Read_PCX_File(FileClass *, PaletteClass *, int, int) (0x0060D110):
 // TibSun pcx.cpp Read_PCX_File. Reads a PCX file into a new BSurface (8-bit, or three
 // colour planes packed into hicolor pixels); a non-null buff gives a caller-supplied block.
 // @ref ??2@YAPAXI@Z=00782017
@@ -26,7 +26,7 @@
 
 class PaletteClass;
 
-Surface *__fastcall unknown_load_pcx_60d110(FileClass *file, PaletteClass *palette, int buff, int size);
+Surface *__fastcall Read_PCX_File(FileClass *file, PaletteClass *palette, int buff, int size);
 
 #pragma pack(push, 1)
 struct RGB {
@@ -68,7 +68,7 @@ struct PCX_HEADER {
                          file->Read (pool, POOL_SIZE ); \
                      }
 
-Surface *__fastcall unknown_load_pcx_60d110(FileClass *file, PaletteClass *palette, int buff, int size)
+Surface *__fastcall Read_PCX_File(FileClass *file, PaletteClass *palette, int buff, int size)
 {
     unsigned i, j;
     unsigned char rle;

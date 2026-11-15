@@ -240,7 +240,7 @@ inline int Distance(CoordStruct const &a, CoordStruct const &b)
 void BulletClass::AI()
 {
     ObjectClass::AI();
-    if (!unknown_7d) {
+    if (!IsActive) {
         return;
     }
     if (SpawnNextAnim) {
@@ -819,7 +819,7 @@ bool BulletClass::unknown_slot118(CoordStruct const &source, TVelocity3D<double>
         if (Type->ROT > 0) {
             Set_Projectile_Speed(Velocity,1.0);
         }
-        if (unknown_7d) Map.Submit(this);
+        if (IsActive) Map.Submit(this);
         return true;
     }
     return false;
@@ -928,7 +928,7 @@ void BulletClass::unknown_func_461de0(bool forced)
         CoordStruct origin = coord;
         for (int index = 0; index < Type->Cluster; index++) {
             unknown_func_462110(coord);
-            if (!unknown_7d) {
+            if (!IsActive) {
                 return;
             }
             int distance = unknown_id_source_a3d290->Random()(0x100, 0x200);
@@ -997,7 +997,7 @@ void BulletClass::unknown_func_462110(CoordStruct const &position)
                 (Target->AbstractFlags.IsObject ? static_cast<ObjectClass *>(Target) : 0);
             bool target_house = Target != 0 && Target->AbstractFlags.IsTechno &&
                 static_cast<TechnoClass *>(Target)->House->Is_Player_Control();
-            if (object != 0 && object->unknown_7d && object->unknown_34 != 0) {
+            if (object != 0 && object->IsActive && object->unknown_34 != 0) {
                 object->unknown_34->Spring(6, object, unknown_geometry_k, false, (int)Owner);
                 object->unknown_34->Spring(0x2c, object, unknown_geometry_k, false, (int)Owner);
             }
@@ -1038,7 +1038,7 @@ void BulletClass::unknown_func_462110(CoordStruct const &position)
         if (Type->ShrapnelWeapon != 0) unknown_func_462c50();
         int damage = DamageMultiplier * Strength;
         damage_result = Unknown_0047E2C0(position, damage >> 8, Owner, WH, true);
-        if (!unknown_7d) return;
+        if (!IsActive) return;
         if (damage_result == 2) special_impact = true;
     }
     CoordStruct impact = position;

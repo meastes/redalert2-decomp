@@ -188,7 +188,7 @@ AircraftClass::~AircraftClass()
     Unknown_006ECB90(this, true);
     Aircraft.Delete(this);
     unknown_object_index_abff58.Remove_Index(Fetch_ID());
-    unknown_7d = false;
+    IsActive = false;
 }
 
 
@@ -406,7 +406,7 @@ void AircraftClass::AI()
         new AnimClass(Rules->unknown_2a8, CoordStruct(Coord), 0, 1, 0x600, 0);
     if (unknown_slot112() || (unknown_slot111() && unknown_210)) {
         Locomotor.Checked()->Process();
-        if (!unknown_7d) return;
+        if (!IsActive) return;
     }
     if ((unknown_slot112() && unknown_20c) || unknown_slot111()) {
         if (unknown_228) unknown_slot220(0);
@@ -423,7 +423,7 @@ void AircraftClass::AI()
         }
     }
     FootClass::AI();
-    if (!unknown_7d) return;
+    if (!IsActive) return;
     if (unknown_325) {
         CoordStruct current = Coord;
         Set_Coord(current - CoordStruct(0, 0, 5));
@@ -2686,7 +2686,7 @@ void __fastcall AircraftClass::Write_INI_0041A6C0(CCINIClass &ini)
     ini.Clear(unknown_aircraft_section_79b0d0, 0);
     for (int index = 0; index < Aircraft.Count(); index++) {
         AircraftClass *aircraft = Aircraft[index];
-        if (aircraft && !aircraft->unknown_76 && aircraft->unknown_7d) {
+        if (aircraft && !aircraft->unknown_76 && aircraft->IsActive) {
             char id[12];
             sprintf(id, "%d", index);
             char const *tag;

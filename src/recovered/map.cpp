@@ -3012,7 +3012,7 @@ void MapClass::Update_Cell_Zone_Constructively(Cell const &cell)
 // the span's facing until it passes the far end subtile, then records a connection to the
 // cell before the end (type 0), passable unless a cell on the way was neither a bridge nor
 // under one; a walk that leaves the map first records nothing.
-int __fastcall unknown_cell_index_428a90(Cell const &cell);
+int __fastcall Map_Cell_Index(Cell const &cell);
 
 void MapClass::Compute_Zone_Connections()
 {
@@ -3042,7 +3042,7 @@ void MapClass::Compute_Zone_Connections()
                     (cptr->Adjacent_Cell(4).Has_Tunnel() && cptr->Adjacent_Cell(0).Has_Tunnel())) {
 
                     Cell cell = cptr->Get_Tunnel()->ExitCell;
-                    if (unknown_cell_index_428a90(cptr->MapCoords) < unknown_cell_index_428a90(cell)) {
+                    if (Map_Cell_Index(cptr->MapCoords) < Map_Cell_Index(cell)) {
                         Cell exit = cptr->Get_Tunnel()->ExitCell;
                         ZoneConnectionClass con;
                         con.From = cptr->MapCoords;
@@ -6952,11 +6952,11 @@ bool MapClass::Build_All_Cliffs(int unused, int region_id)
         cellptr = Map.Iterate();
     }
 
-    ObjectClass *obj = Map.unknown_11a0;
-    Map.unknown_11a4 = 0;
+    ObjectClass *obj = Map.PendingObjectPtr;
+    Map.PendingObject = 0;
     if (obj != 0) {
         delete obj;
-        Map.unknown_11a0 = 0;
+        Map.PendingObjectPtr = 0;
     }
 
     if (is_temp_data) {
@@ -7155,7 +7155,7 @@ bool MapClass::Place_Cliff(CellClass *cellptr, int region_id)
     }
 
     if (variant > 0) {
-        Map.unknown_11a4 = IsoTileTypes[unknown_tileset_a52e68 + variant - 1];
+        Map.PendingObject = IsoTileTypes[unknown_tileset_a52e68 + variant - 1];
         Cell cell = cellptr->Fetch_CellID();
         Cell const &varcell = unknown_cells_a6fb50[variant - 1];
 
@@ -7278,11 +7278,11 @@ bool MapClass::Build_All_Shores(int region_id, bool set_region)
         cellptr = Map.Iterate();
     }
 
-    ObjectClass *obj = Map.unknown_11a0;
-    Map.unknown_11a4 = 0;
+    ObjectClass *obj = Map.PendingObjectPtr;
+    Map.PendingObject = 0;
     if (obj != 0) {
         delete obj;
-        Map.unknown_11a0 = 0;
+        Map.PendingObjectPtr = 0;
     }
 
     if (is_temp_data) {
@@ -7609,7 +7609,7 @@ bool MapClass::Place_Shore(CellClass *cellptr, int pass, int region_id, bool set
     }
     }
     if (index > 0) {
-        Map.unknown_11a4 = IsoTileTypes[unknown_tileset_a6cb74 + index - 1];
+        Map.PendingObject = IsoTileTypes[unknown_tileset_a6cb74 + index - 1];
         Cell cellid = cellptr->Fetch_CellID();
         Cell cursor = Map.Unknown_004994D0(cellid + unknown_shore_offsets_a6f91c[index]);
         bool result = true;
@@ -7722,9 +7722,9 @@ struct IsoTileCellHeight {
 
 bool MapClass::Pick_Random_Tile_Variant(int first, int last, int height, int region_id, bool &result, bool set_region)
 {
-    if (((AbstractClass *)Map.unknown_11a4)->Kind_Of() == 18) {
+    if (((AbstractClass *)Map.PendingObject)->Kind_Of() == 18) {
         if (set_region) region_id = 0;
-        IsometricTileTypeClass *type = (IsometricTileTypeClass *)Map.unknown_11a4;
+        IsometricTileTypeClass *type = (IsometricTileTypeClass *)Map.PendingObject;
         IsoTileImageStruct const *image = (IsoTileImageStruct const *)type->Get_Image_Data();
         if (image != 0) {
             for (int row = 0; row < type->unknown_2b8; ++row) {
@@ -10568,11 +10568,11 @@ bool MapClass::Rebuild_Shores_At(Cell const &origin)
         cellptr = Map.Iterate();
     }
 
-    ObjectClass *obj = Map.unknown_11a0;
-    Map.unknown_11a4 = 0;
+    ObjectClass *obj = Map.PendingObjectPtr;
+    Map.PendingObject = 0;
     if (obj != 0) {
         delete obj;
-        Map.unknown_11a0 = 0;
+        Map.PendingObjectPtr = 0;
     }
 
     for (int j = 0; j < s; j++) {
@@ -10703,11 +10703,11 @@ bool MapClass::Rebuild_Cliffs_At(Cell const &cell)
         cellptr = Map.Iterate();
     }
 
-    ObjectClass *obj = Map.unknown_11a0;
-    Map.unknown_11a4 = 0;
+    ObjectClass *obj = Map.PendingObjectPtr;
+    Map.PendingObject = 0;
     if (obj != 0) {
         delete obj;
-        Map.unknown_11a0 = 0;
+        Map.PendingObjectPtr = 0;
     }
 
     for (int i = 0; i < s; i++) {

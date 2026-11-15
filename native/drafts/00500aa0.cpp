@@ -255,7 +255,7 @@ void InfantryClass::unknown_slot93(int why)
                 if (!unknown_494 || Map_Cell(unknown_494->Center_Coord())->unknown_ec==2) Mark(1);
                 Unknown_0047E2C0(CoordStruct(Coord),Rules->unknown_13a8,static_cast<TechnoClass *>(0),Rules->unknown_c74,true);
                 Unknown_0047E2C0(CoordStruct(Coord),Rules->unknown_13a8,static_cast<TechnoClass *>(0),Rules->unknown_c74,true);
-                if (!unknown_7d) return;
+                if (!IsActive) return;
                 Mark(1);
             }
         }
@@ -279,5 +279,5 @@ void InfantryClass::unknown_slot93(int why)
             return;
         }
     }
-    if (unknown_7d) FootClass::unknown_slot93(why);
+    if (IsActive) FootClass::unknown_slot93(why);
 }

@@ -652,22 +652,22 @@ long __fastcall Load_SND1(VQAHandleP *vqap, unsigned long iffsize);             
 long __fastcall Load_SND2(VQAHandleP *vqap, unsigned long iffsize);                                   // 0x0077B620
 
 // Library entry points called by VQAClass (names from the call sites; TS names in comments).
-void __fastcall VQA_Unknown_00777850(VQAConfig *config);                                         // defaults
-int __fastcall VQA_Unknown_0077B7A0(char const *filename, VQAConfig *config, VQAHandle **handle);   // VQA_Open
-int __fastcall VQA_Unknown_0077C640(VQAHandle *handle, int id, int iterations, int mode);         // VQA_SetLoop
-int __fastcall VQA_Unknown_0077C6C0(VQAHandle *handle, int start, int end, int iterations, int mode);  // VQA_SetLoop_Internal
-int __fastcall VQA_Unknown_0077C2E0(VQAHandle *handle, int frame, int fromwhere);               // VQA_SeekFrame
-int __fastcall VQA_Unknown_0077BF10(VQAHandle *handle, int mode, int flags);                    // VQA_Play
-void __fastcall VQA_Unknown_0077BE70(VQAHandle *handle);                                         // stop
-void __fastcall VQA_Unknown_0077C7D0(VQAHandle *handle);
-int __fastcall VQA_Unknown_0077C480(VQAHandle *handle, int buffer, int width, int height, int x, int y);  // VQA_Set_DrawBuffer
-int __fastcall VQA_Unknown_0077C8A0(VQAHandle *handle, int frames);
-int __fastcall VQA_Unknown_0077C920(VQAHandle *handle, int *blockw, int *blockh, int *clrmode);  // VQA_GetBlockInfo
-int __fastcall VQA_Unknown_0077C440(VQAHandle *handle, UNVQ_FUNC unvq1, UNVQ_FUNC unvq2);       // VQA_SetUnVQ
-int __fastcall VQA_Unknown_0077CBA0(VQAHandle *handle);                                         // VQA_GetMovieTime
+void __fastcall VQA_DefaultConfig(VQAConfig *config);                                         // defaults
+int __fastcall VQA_Open(char const *filename, VQAConfig *config, VQAHandle **handle);   // VQA_Open
+int __fastcall VQA_SetLoop(VQAHandle *handle, int id, int iterations, int mode);         // VQA_SetLoop
+int __fastcall VQA_SetLoop_Internal(VQAHandle *handle, int start, int end, int iterations, int mode);  // VQA_SetLoop_Internal
+int __fastcall VQA_SeekFrame(VQAHandle *handle, int frame, int fromwhere);               // VQA_SeekFrame
+int __fastcall VQA_Play(VQAHandle *handle, int mode, int flags);                    // VQA_Play
+void __fastcall VQA_Close(VQAHandle *handle);                                         // stop
+void __fastcall VQA_Reset(VQAHandle *handle);
+int __fastcall VQA_Set_DrawBuffer(VQAHandle *handle, int buffer, int width, int height, int x, int y);  // VQA_Set_DrawBuffer
+int __fastcall VQA_SetStop(VQAHandle *handle, int frames);
+int __fastcall VQA_GetBlockInfo(VQAHandle *handle, int *blockw, int *blockh, int *clrmode);  // VQA_GetBlockInfo
+int __fastcall VQA_SetUnVQ(VQAHandle *handle, UNVQ_FUNC unvq1, UNVQ_FUNC unvq2);       // VQA_SetUnVQ
+int __fastcall VQA_GetMovieTime(VQAHandle *handle);                                         // VQA_GetMovieTime
 void __cdecl VQA_Unknown_0077FD80(unsigned char *codebook, unsigned char *pointers, unsigned char *buffer,
-    unsigned long blocksperrow, unsigned long numrows, unsigned long bufwidth);   // an UnVQ drawer (VQA_Unknown_0077C440)
+    unsigned long blocksperrow, unsigned long numrows, unsigned long bufwidth);   // an UnVQ drawer (VQA_SetUnVQ)
 void __cdecl VQA_Unknown_0077FE89(unsigned char *codebook, unsigned char *pointers, unsigned char *buffer,
-    unsigned long blocksperrow, unsigned long numrows, unsigned long bufwidth);   // an UnVQ drawer (VQA_Unknown_0077C440)
+    unsigned long blocksperrow, unsigned long numrows, unsigned long bufwidth);   // an UnVQ drawer (VQA_SetUnVQ)
 
 #endif

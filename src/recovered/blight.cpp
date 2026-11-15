@@ -137,7 +137,7 @@ void BuildingLightClass::Draw_It(Point2D const &point, Rect const &window)
         return;
     }
     BuildingClass *building = (BuildingClass *)Owner;
-    if (building == 0 || !building->unknown_7d || !building->unknown_slot195() || building->unknown_5b7) {
+    if (building == 0 || !building->IsActive || !building->unknown_slot195() || building->unknown_5b7) {
         return;
     }
     if ((unknown_id_source_a3d290->unknown_000 & 0x1000) && Map.Is_Fogged(Position_Coord_004f3f40())) {
@@ -229,7 +229,7 @@ CoordStruct __fastcall Lerp(CoordStruct const &from, CoordStruct const &to, floa
 
 void BuildingLightClass::AI()
 {
-    if (Owner == 0 || !Owner->unknown_7d) {
+    if (Owner == 0 || !Owner->IsActive) {
         Delete_Me();
         return;
     }
@@ -294,7 +294,7 @@ void BuildingLightClass::AI()
 
     case 3:
         following = Following;
-        if (following != 0 && following->unknown_7d) {
+        if (following != 0 && following->IsActive) {
             int dist = following->Distance_YZX(Owner->Center_Coord());
             if (dist < Rules->unknown_6b0) {
                 coord = Lerp(Position_Coord_004f3f40(), following->Position_Coord_004f3f40(), 0.25f);
@@ -311,7 +311,7 @@ void BuildingLightClass::AI()
     BuildingClass *owner_building = (Owner->Kind_Of() == 6) ? (BuildingClass *)Owner : 0;
 
     if (Behavior == 1) {
-        if (owner_building != 0 && owner_building->unknown_7d && owner_building->unknown_slot195() && owner_building->unknown_34 != 0) {
+        if (owner_building != 0 && owner_building->IsActive && owner_building->unknown_slot195() && owner_building->unknown_34 != 0) {
             bool found = false;
             Cell cell = unknown_slot104();
             int radius = Detection_Radius();

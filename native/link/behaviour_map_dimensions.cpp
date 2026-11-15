@@ -22,7 +22,7 @@ static_assert(offsetof(MapClass, MapSize) == 0x168, "full MapClass::MapSize");
 static_assert(offsetof(MapClass, MapLocalSize) == 0x178, "full MapClass::MapLocalSize");
 static_assert(offsetof(MapClass, unknown_120) == 0x1A8, "full MapClass::unknown_120");
 static_assert(sizeof(MapClass) == 0x1210, "full MapClass");
-static_assert(offsetof(DisplayClass, unknown_11a0) == 0x1258, "full DisplayClass::unknown_11a0");
+static_assert(offsetof(DisplayClass, PendingObjectPtr) == 0x1258, "full DisplayClass::PendingObjectPtr");
 static_assert(offsetof(DisplayClass, unknown_11b4) == 0x1274, "full DisplayClass::unknown_11b4");
 static_assert(offsetof(RadarClass, unknown_11b8) == 0x1278, "full RadarClass::unknown_11b8");
 static_assert(offsetof(RadarClass, unknown_1220) == 0x12F0, "full RadarClass::unknown_1220");

@@ -129,13 +129,13 @@ def location(cursor):
 class Unit:
     """One parsed translation unit: every cursor spelled `name` that declares or references
     something, by location: {(file, offset): {USR, ...}}, plus the declarations of `name`."""
-    def __init__(self, path, name, new=None):
+    def __init__(self, path, name, new=None, extra=()):
         L = lib()
         self.path, self.name = path, name
         import os
         os.chdir(REPOSITORY)
         index = L.clang_createIndex(0, 0)
-        args = [a.encode() for a in CLANG_ARGS]
+        args = [a.encode() for a in list(CLANG_ARGS) + list(extra)]
         self.tu = L.clang_parseTranslationUnit(index, str(REPOSITORY / path).encode(),
                                                (ctypes.c_char_p * len(args))(*args), len(args), None, 0, 0x1)
         if not self.tu:
@@ -241,8 +241,13 @@ def plan(klass, old, new, mangled=None, files=None, allow_hiding=False):
     headers = {p for p in spelled if p.startswith('src/shared/')}
     units = sorted(p for p in graph if p.endswith('.cpp') and (p in spelled or includes(p, graph) & headers))
     seen, decls, macro, bases, new_owners, new_virtual = {}, {}, set(), set(), set(), set()
-    for path in units:
-        unit = Unit(path, old, new)
+    # Non-exact drafts sit under RA2_NON_MATCHING (the exact build never compiles them): a unit
+    # that holds one is parsed a second time with it defined, so draft uses resolve by type too.
+    passes = [(p, ()) for p in units]
+    passes += [(p, ('-DRA2_NON_MATCHING',)) for p in units if 'RA2_NON_MATCHING' in texts.get(p, '') or
+               'RA2_NON_MATCHING' in (REPOSITORY / p).read_text(encoding='latin-1')]
+    for path, extra in passes:
+        unit = Unit(path, old, new, extra)
         bases |= unit.bases
         new_owners |= unit.new_owners
         new_virtual |= unit.new_virtual

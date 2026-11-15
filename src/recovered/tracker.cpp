@@ -240,12 +240,12 @@ void __fastcall Detach_This_From_All(AbstractClass *target, bool all)
     int rtti = target->Kind_Of();
     int index = 0;
 
-    if (Map.unknown_11a0 == target) {
-        Map.unknown_11a0 = 0;
+    if (Map.PendingObjectPtr == target) {
+        Map.PendingObjectPtr = 0;
     }
 
-    if (Map.unknown_11a4 == target) {
-        Map.unknown_11a4 = 0;
+    if (Map.PendingObject == target) {
+        Map.PendingObject = 0;
         Map.Unknown_00498F10(0);
     }
 
@@ -396,7 +396,7 @@ void Process_Deferred_Deletion()
                  || typeid(UnitClass) == typeid(*obj)
                  || typeid(InfantryClass) == typeid(*obj)
                  || typeid(AircraftClass) == typeid(*obj)) {
-                    ((ObjectClass *)obj)->unknown_7d = true;
+                    ((ObjectClass *)obj)->IsActive = true;
                 }
                 delete obj;
             }

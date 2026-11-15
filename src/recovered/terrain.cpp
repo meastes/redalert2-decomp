@@ -89,7 +89,7 @@ TerrainClass::~TerrainClass()
     Unknown_006ECB90(this, true);
     Terrains.Delete(this);
     if (GameActive && Class != 0) {
-        unknown_7d = true;
+        IsActive = true;
         TerrainClass::Limbo();
     }
     unknown_object_index_abff58.Remove_Index(AbstractClass::Fetch_ID());
@@ -558,7 +558,7 @@ void __fastcall TerrainClass::Write_INI(CCINIClass &ini)
     ini.Clear(unknown_terrain_section_7ad390);
     for (int index = 0; index < Terrains.Count(); index++) {
         TerrainClass *terrain = Terrains[index];
-        if (terrain != 0 && !terrain->unknown_76 && terrain->unknown_7d) {
+        if (terrain != 0 && !terrain->unknown_76 && terrain->IsActive) {
             Cell cell = terrain->unknown_slot104();
             char entry[12];
             sprintf(entry, "%d", cell.X + cell.Y * 1000);

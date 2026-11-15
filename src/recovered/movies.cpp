@@ -180,7 +180,7 @@ VQAMovie *__fastcall Movie_Create(char const *name, Surface *surface, Rect sourc
         }
         int flags = 0;
 
-        if (!unknown_check_406f30()) {
+        if (!AudioDeviceAvailable()) {
             Set_Option(3);
         }
 
@@ -388,7 +388,7 @@ void __fastcall VQA_Movie_Blit()
 {
     if (CurrentVQAMovie) {
         AlternateSurface->Fill(0);
-        Unknown_004E0C90(false, AlternateSurface, 0);
+        Update_Visible_Surface(false, AlternateSurface, 0);
         if (!Get_Option(15)) {
             RECT client;
             GetClientRect(MainWindow, &client);

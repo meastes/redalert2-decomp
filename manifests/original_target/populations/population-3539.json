@@ -4,8 +4,8 @@
     "id": "population-3539",
     "inventory_sha256": "581cd964f0a860551ff371b65340107678e0fc690ced4e3b7b370f9423b1f441",
     "gaps_sha256": "4d30f006364241db658b5163bb493ee6bfc6537c3bb7d645d837cd3e5be029dd",
-    "historical_population_sha256": "877342703854831123cc15d7b74c956425d479f0cef4c6f42244aaf124d84f7c",
-    "historical_acceptance_sha256": "592f72fec346a4be9a622a79dfa478b9ce38c44b4e97cde95224f3ab54a324ee"
+    "historical_population_sha256": "eb9c7032dab628881580735a5a818e8937ded13d69094626204e685b0287fd98",
+    "historical_acceptance_sha256": "a8d767f283b79fcf9421b5585201acd9a017a5ba48da87c984f0a31b0537fd2a"
   },
   "references": {
     "_unknown_empty_rect": 11259808,
@@ -484,7 +484,7 @@
     "?Theme@@3VThemeClass@@A": 10706296,
     "?unknown_flag_a40b51@@3_NA": 10750801,
     "?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z": 6290176,
-    "?unknown_check_406f30@@YAHXZ": 4222768,
+    "?AudioDeviceAvailable@@YAHXZ": 4222768,
     "?Full_Name@ThemeClass@@QBEPBGI@Z": 7240880,
     "?unknown_theme_length@ThemeClass@@QBEHI@Z": 7242064,
     "?unknown_6e8440@ThemeClass@@QAE_NI@Z": 7242816,
@@ -4607,7 +4607,7 @@
           "resolved": 11259820
         }
       ],
-      "source_sha256": "5b39dfa676968a616e1cc113b955762065370a63d90ce9be7ab0cb66667b431a",
+      "source_sha256": "e73b4974491b0d3f33436dfc86cde51e5d73f15df5ca77c7caa3b724fcc62fd1",
       "source": "src/recovered/sounddlg.cpp",
       "population": "population-3539",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -4794,7 +4794,7 @@
           "resolved": 4292336482
         }
       ],
-      "source_sha256": "5b39dfa676968a616e1cc113b955762065370a63d90ce9be7ab0cb66667b431a",
+      "source_sha256": "e73b4974491b0d3f33436dfc86cde51e5d73f15df5ca77c7caa3b724fcc62fd1",
       "source": "src/recovered/sounddlg.cpp",
       "population": "population-3539",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -4839,7 +4839,7 @@
         {
           "offset": 96,
           "kind": 20,
-          "symbol": "?unknown_check_406f30@@YAHXZ",
+          "symbol": "?AudioDeviceAvailable@@YAHXZ",
           "target": 4222768,
           "addend": 0,
           "resolved": 4292337964
@@ -5629,7 +5629,7 @@
           "resolved": 10750801
         }
       ],
-      "source_sha256": "5b39dfa676968a616e1cc113b955762065370a63d90ce9be7ab0cb66667b431a",
+      "source_sha256": "e73b4974491b0d3f33436dfc86cde51e5d73f15df5ca77c7caa3b724fcc62fd1",
       "source": "src/recovered/sounddlg.cpp",
       "population": "population-3539",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",

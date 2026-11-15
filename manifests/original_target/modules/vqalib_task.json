@@ -13,49 +13,49 @@
  "compile_group": 610,
  "code": [
   {
-   "symbol": "?VQA_Unknown_0077B7A0@@YIHPBDPAUVQAConfig@@PAPAUVQAHandle@@@Z",
+   "symbol": "?VQA_Open@@YIHPBDPAUVQAConfig@@PAPAUVQAHandle@@@Z",
    "entry": "0077b7a0",
    "body_bytes": 1735,
    "padding_bytes": 9
   },
   {
-   "symbol": "?VQA_Unknown_0077BE70@@YIXPAUVQAHandle@@@Z",
+   "symbol": "?VQA_Close@@YIXPAUVQAHandle@@@Z",
    "entry": "0077be70",
    "body_bytes": 154,
    "padding_bytes": 6
   },
   {
-   "symbol": "?VQA_Unknown_0077BF10@@YIHPAUVQAHandle@@HH@Z",
+   "symbol": "?VQA_Play@@YIHPAUVQAHandle@@HH@Z",
    "entry": "0077bf10",
    "body_bytes": 962,
    "padding_bytes": 14
   },
   {
-   "symbol": "?VQA_Unknown_0077C2E0@@YIHPAUVQAHandle@@HH@Z",
+   "symbol": "?VQA_SeekFrame@@YIHPAUVQAHandle@@HH@Z",
    "entry": "0077c2e0",
    "body_bytes": 349,
    "padding_bytes": 3
   },
   {
-   "symbol": "?VQA_Unknown_0077C440@@YIHPAUVQAHandle@@P6AXPAE11KKK@Z2@Z",
+   "symbol": "?VQA_SetUnVQ@@YIHPAUVQAHandle@@P6AXPAE11KKK@Z2@Z",
    "entry": "0077c440",
    "body_bytes": 58,
    "padding_bytes": 6
   },
   {
-   "symbol": "?VQA_Unknown_0077C480@@YIHPAUVQAHandle@@HHHHH@Z",
+   "symbol": "?VQA_Set_DrawBuffer@@YIHPAUVQAHandle@@HHHHH@Z",
    "entry": "0077c480",
    "body_bytes": 440,
    "padding_bytes": 8
   },
   {
-   "symbol": "?VQA_Unknown_0077C640@@YIHPAUVQAHandle@@HHH@Z",
+   "symbol": "?VQA_SetLoop@@YIHPAUVQAHandle@@HHH@Z",
    "entry": "0077c640",
    "body_bytes": 114,
    "padding_bytes": 14
   },
   {
-   "symbol": "?VQA_Unknown_0077C6C0@@YIHPAUVQAHandle@@HHHH@Z",
+   "symbol": "?VQA_SetLoop_Internal@@YIHPAUVQAHandle@@HHHH@Z",
    "entry": "0077c6c0",
    "body_bytes": 255,
    "padding_bytes": 1
@@ -73,7 +73,7 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "?VQA_Unknown_0077C8A0@@YIHPAUVQAHandle@@H@Z",
+   "symbol": "?VQA_SetStop@@YIHPAUVQAHandle@@H@Z",
    "entry": "0077c8a0",
    "body_bytes": 41,
    "padding_bytes": 7
@@ -91,7 +91,7 @@
    "padding_bytes": 8
   },
   {
-   "symbol": "?VQA_Unknown_0077C920@@YIHPAUVQAHandle@@PAH11@Z",
+   "symbol": "?VQA_GetBlockInfo@@YIHPAUVQAHandle@@PAH11@Z",
    "entry": "0077c920",
    "body_bytes": 44,
    "padding_bytes": 4
@@ -165,121 +165,121 @@
  "references_in": [
   {
    "site": "0071cb30",
-   "symbol": "?VQA_Unknown_0077B7A0@@YIHPBDPAUVQAConfig@@PAPAUVQAHandle@@@Z",
+   "symbol": "?VQA_Open@@YIHPBDPAUVQAConfig@@PAPAUVQAHandle@@@Z",
    "target": "0077b7a0",
    "function_entry": true
   },
   {
    "site": "0071cbe0",
-   "symbol": "?VQA_Unknown_0077C640@@YIHPAUVQAHandle@@HHH@Z",
+   "symbol": "?VQA_SetLoop@@YIHPAUVQAHandle@@HHH@Z",
    "target": "0077c640",
    "function_entry": true
   },
   {
    "site": "0071cc10",
-   "symbol": "?VQA_Unknown_0077C6C0@@YIHPAUVQAHandle@@HHHH@Z",
+   "symbol": "?VQA_SetLoop_Internal@@YIHPAUVQAHandle@@HHHH@Z",
    "target": "0077c6c0",
    "function_entry": true
   },
   {
    "site": "0071cc90",
-   "symbol": "?VQA_Unknown_0077C2E0@@YIHPAUVQAHandle@@HH@Z",
+   "symbol": "?VQA_SeekFrame@@YIHPAUVQAHandle@@HH@Z",
    "target": "0077c2e0",
    "function_entry": true
   },
   {
    "site": "0071d1a0",
-   "symbol": "?VQA_Unknown_0077BF10@@YIHPAUVQAHandle@@HH@Z",
+   "symbol": "?VQA_Play@@YIHPAUVQAHandle@@HH@Z",
    "target": "0077bf10",
    "function_entry": true
   },
   {
    "site": "0071d1f0",
-   "symbol": "?VQA_Unknown_0077BE70@@YIXPAUVQAHandle@@@Z",
+   "symbol": "?VQA_Close@@YIXPAUVQAHandle@@@Z",
    "target": "0077be70",
    "function_entry": true
   },
   {
    "site": "0071d240",
-   "symbol": "?VQA_Unknown_0077C480@@YIHPAUVQAHandle@@HHHHH@Z",
+   "symbol": "?VQA_Set_DrawBuffer@@YIHPAUVQAHandle@@HHHHH@Z",
    "target": "0077c480",
    "function_entry": true
   },
   {
    "site": "0071cc60",
-   "symbol": "?VQA_Unknown_0077C2E0@@YIHPAUVQAHandle@@HH@Z",
+   "symbol": "?VQA_SeekFrame@@YIHPAUVQAHandle@@HH@Z",
    "target": "0077c2e0",
    "function_entry": true
   },
   {
    "site": "0071ccd0",
-   "symbol": "?VQA_Unknown_0077C8A0@@YIHPAUVQAHandle@@H@Z",
+   "symbol": "?VQA_SetStop@@YIHPAUVQAHandle@@H@Z",
    "target": "0077c8a0",
    "function_entry": true
   },
   {
    "site": "0071ccd0",
-   "symbol": "?VQA_Unknown_0077C920@@YIHPAUVQAHandle@@PAH11@Z",
+   "symbol": "?VQA_GetBlockInfo@@YIHPAUVQAHandle@@PAH11@Z",
    "target": "0077c920",
    "function_entry": true
   },
   {
    "site": "0071ccd0",
-   "symbol": "?VQA_Unknown_0077C440@@YIHPAUVQAHandle@@P6AXPAE11KKK@Z2@Z",
+   "symbol": "?VQA_SetUnVQ@@YIHPAUVQAHandle@@P6AXPAE11KKK@Z2@Z",
    "target": "0077c440",
    "function_entry": true
   },
   {
    "site": "0071ccd0",
-   "symbol": "?VQA_Unknown_0077BF10@@YIHPAUVQAHandle@@HH@Z",
+   "symbol": "?VQA_Play@@YIHPAUVQAHandle@@HH@Z",
    "target": "0077bf10",
    "function_entry": true
   },
   {
    "site": "0071ccd0",
-   "symbol": "?VQA_Unknown_0077BF10@@YIHPAUVQAHandle@@HH@Z",
+   "symbol": "?VQA_Play@@YIHPAUVQAHandle@@HH@Z",
    "target": "0077bf10",
    "function_entry": true
   },
   {
    "site": "0071cf50",
-   "symbol": "?VQA_Unknown_0077C2E0@@YIHPAUVQAHandle@@HH@Z",
+   "symbol": "?VQA_SeekFrame@@YIHPAUVQAHandle@@HH@Z",
    "target": "0077c2e0",
    "function_entry": true
   },
   {
    "site": "0071cfc0",
-   "symbol": "?VQA_Unknown_0077C8A0@@YIHPAUVQAHandle@@H@Z",
+   "symbol": "?VQA_SetStop@@YIHPAUVQAHandle@@H@Z",
    "target": "0077c8a0",
    "function_entry": true
   },
   {
    "site": "0071cfc0",
-   "symbol": "?VQA_Unknown_0077C920@@YIHPAUVQAHandle@@PAH11@Z",
+   "symbol": "?VQA_GetBlockInfo@@YIHPAUVQAHandle@@PAH11@Z",
    "target": "0077c920",
    "function_entry": true
   },
   {
    "site": "0071cfc0",
-   "symbol": "?VQA_Unknown_0077C440@@YIHPAUVQAHandle@@P6AXPAE11KKK@Z2@Z",
+   "symbol": "?VQA_SetUnVQ@@YIHPAUVQAHandle@@P6AXPAE11KKK@Z2@Z",
    "target": "0077c440",
    "function_entry": true
   },
   {
    "site": "0071cfc0",
-   "symbol": "?VQA_Unknown_0077BF10@@YIHPAUVQAHandle@@HH@Z",
+   "symbol": "?VQA_Play@@YIHPAUVQAHandle@@HH@Z",
    "target": "0077bf10",
    "function_entry": true
   },
   {
    "site": "0071cfc0",
-   "symbol": "?VQA_Unknown_0077BF10@@YIHPAUVQAHandle@@HH@Z",
+   "symbol": "?VQA_Play@@YIHPAUVQAHandle@@HH@Z",
    "target": "0077bf10",
    "function_entry": true
   },
   {
    "site": "007776b0",
-   "symbol": "?VQA_Unknown_0077C480@@YIHPAUVQAHandle@@HHHHH@Z",
+   "symbol": "?VQA_Set_DrawBuffer@@YIHPAUVQAHandle@@HHHHH@Z",
    "target": "0077c480",
    "function_entry": true
   }
@@ -386,6 +386,10 @@
    "address": "00779740"
   },
   {
+   "symbol": "?VQA_Reset@@YIXPAUVQAHandle@@@Z",
+   "address": "0077c7d0"
+  },
+  {
    "symbol": "?VQA_ResetLastFrameNum@@YIJPAUVQAHandle@@@Z",
    "address": "00777870"
   },
@@ -404,10 +408,6 @@
   {
    "symbol": "?VQA_StopAudio@@YIXPAUVQAHandleP@@@Z",
    "address": "007764c0"
-  },
-  {
-   "symbol": "?VQA_Unknown_0077C7D0@@YIXPAUVQAHandle@@@Z",
-   "address": "0077c7d0"
   },
   {
    "symbol": "_VQA_sosCODECInitStream",

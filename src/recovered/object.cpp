@@ -115,7 +115,7 @@ ObjectClass::ObjectClass() :
     unknown_7a(false),
     unknown_7b(false),
     unknown_7c(false),
-    unknown_7d(true),
+    IsActive(true),
     unknown_80(-1),
     unknown_84(false),
     unknown_85(true),
@@ -151,7 +151,7 @@ ObjectClass::~ObjectClass()
     AbstractTypePtrTracker.Delete(this);
     TagPtrTracker.Delete(this);
     unknown_30 = 0;
-    unknown_7d = false;
+    IsActive = false;
     unknown_3c.Unknown_00405D50();
     unknown_50.Unknown_00405D50();
     unknown_3c.Unknown_00405C10();
@@ -739,7 +739,7 @@ bool ObjectClass::Unlimbo(CoordStruct const *coord, int direction)
     if (type) placed = type->Coord_Fixup(*coord);
     Set_Coord(placed);
     if (Mark(1)) {
-        if (unknown_7d) {
+        if (IsActive) {
             if (In_Which_Layer() != -1) Map.Submit(this);
             if (type) {
                 if (type->unknown_204 &&
@@ -903,37 +903,37 @@ int ObjectClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
     int strength_after_damage = Strength;
     if (state == 2) {
         if (source && unknown_34) unknown_34->Spring(39, this, unknown_geometry_k, 0, 0);
-        if (!unknown_7d) goto damage_interrupted;
+        if (!IsActive) goto damage_interrupted;
         if (unknown_34) unknown_34->Spring(42, this, unknown_geometry_k, 0, 0);
     }
-    if (unknown_7d) {
+    if (IsActive) {
         if (state == 3) {
             if (source && unknown_34) unknown_34->Spring(40, this, unknown_geometry_k, 0, 0);
-            if (!unknown_7d) goto damage_interrupted;
+            if (!IsActive) goto damage_interrupted;
             if (unknown_34) unknown_34->Spring(43, this, unknown_geometry_k, 0, 0);
         }
-        if (unknown_7d) {
+        if (IsActive) {
             if (Strength != old_strength && Class_Of() && old_strength == Class_Of()->MaxStrength) {
                 if (source && unknown_34) unknown_34->Spring(38, this, unknown_geometry_k, 0, 0);
-                if (unknown_34 && unknown_7d) unknown_34->Spring(41, this, unknown_geometry_k, 0, 0);
+                if (unknown_34 && IsActive) unknown_34->Spring(41, this, unknown_geometry_k, 0, 0);
                 if (unknown_34) {
-                    if (!unknown_7d) goto damage_interrupted;
+                    if (!IsActive) goto damage_interrupted;
                     if (source) unknown_34->Spring(41, this, unknown_geometry_k, 0, reinterpret_cast<int>(source));
                 }
             }
-            if (unknown_7d && (strength_after_damage <= 0 || Strength > 0)) {
+            if (IsActive && (strength_after_damage <= 0 || Strength > 0)) {
                 if (Strength == 0) {
                     Record_The_Kill(source);
                     state = 4;
                     unknown_slot54(true);
                 }
-                if (!unknown_7d) goto damage_done;
+                if (!IsActive) goto damage_done;
                 if (source && unknown_34 && state != 4)
                     unknown_34->Spring(6, this, unknown_geometry_k, 0, reinterpret_cast<int>(source));
-                if (!unknown_7d) goto damage_done;
+                if (!IsActive) goto damage_done;
                 if (source && unknown_34 && state != 4)
                     unknown_34->Spring(44, this, unknown_geometry_k, 0, reinterpret_cast<int>(source));
-                if (!unknown_7d) goto damage_done;
+                if (!IsActive) goto damage_done;
                 if (state == 0) goto damage_done;
                 if (!unknown_77) goto damage_done;
                 Mark(2);
@@ -1324,7 +1324,7 @@ void ObjectClass::Compute_CRC(WWCRCEngine &crc) const
     crc(unknown_79);
     crc(unknown_7a);
     crc(unknown_7c);
-    crc(unknown_7d);
+    crc(IsActive);
     crc((long)Coord.X);
     crc((long)Coord.Y);
     crc((long)Coord.Z);
@@ -1435,7 +1435,7 @@ void ObjectClass::Delete_Me()
     }
     Unknown_006ECB90(this, true);
     Limbo();
-    unknown_7d = false;
+    IsActive = false;
     ObjectsToDelete.Add(this);
 }
 
@@ -1444,7 +1444,7 @@ void ObjectClass::Delete_Me()
 
 bool ObjectClass::Is_Inactive() const
 {
-    return !unknown_7d;
+    return !IsActive;
 }
 
 

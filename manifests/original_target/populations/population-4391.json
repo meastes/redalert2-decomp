@@ -4,8 +4,8 @@
     "id": "population-4391",
     "inventory_sha256": "bd13b49f75d369a227e1906a60800e6c62aaf67bca75975f6039ed48be421b15",
     "gaps_sha256": "279d62c1601ca48d0feda76075447ebd22fe4b49c7deebcbf298293298e5967c",
-    "historical_population_sha256": "7c0fa699e11d37bd012d19bf351a7f11053234f75f0801f19a1707ece27c6a4c",
-    "historical_acceptance_sha256": "cd97b2c47feda5a0024c169683e63e9bf299b7efb94da9e5dc7d2a270b64d475"
+    "historical_population_sha256": "5f9ff653393841e598428e44d717d00565e32325e3281d41f25e8ba5757466d7",
+    "historical_acceptance_sha256": "c16c8c69a7f558463749e69d713acb50ee81332d3de25fcce4431ae1335ec77d"
   },
   "references": {
     "?Init_00401000@Call_402190_0@@QAEIXZ": 4198400,
@@ -2128,18 +2128,18 @@
     "__real@4@3ff9c90e560000000000": 8055348,
     "?Add@StaticBufferClass@@QAEPAUEntry@1@AAVSurface@@ABUSurfaceRegion@@@Z": 6922704,
     "__real@8@4004d800000000000000": 8045168,
-    "?unknown_prepare_control_735bc0@@YGHPAUHWND__@@J@Z": 7560128,
+    "?Resize_Dialog@@YGHPAUHWND__@@J@Z": 7560128,
     "?Dialog_Loop_007359e0@@YIHPAUHWND__@@P6A_NXZH_N2@Z": 7559648,
     "?End_Dialog_007357e0@@YI_NPAUHWND__@@H@Z": 7559136,
     "?g_LastResponse@@3HA": 11689436,
     "?unknown_template_size_b25de4@@3PAJA": 11689444,
-    "?unknown_null_dialog_proc_735b40@@YGHPAUHWND__@@IIJ@Z": 7560000,
+    "?Resize_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z": 7560000,
     "?unknown_layout_width_7fd048@@3HA": 8376392,
     "?unknown_layout_height_7fd04c@@3HA": 8376396,
     "?unknown_clear_font_cache_735d90@@YAXXZ": 7560592,
     "?unknown_font_cache_b25dc8@@3UUnknownFontCache@@A": 11689416,
-    "?unknown_find_font_735db0@@YIPAUHFONT__@@PAUHDC__@@PBDHHI@Z": 7560624,
-    "?unknown_create_font_7360b0@@YIPAUHFONT__@@PAUHDC__@@PBDHHI@Z": 7561392,
+    "?WS_Get_Font@@YIPAUHFONT__@@PAUHDC__@@PBDHHI@Z": 7560624,
+    "?Ez_Create_Font@@YIPAUHFONT__@@PAUHDC__@@PBDHHI@Z": 7561392,
     "__imp__SaveDC@4": 7970980,
     "__imp__SetGraphicsMode@8": 7970972,
     "__imp__ModifyWorldTransform@12": 7970968,
@@ -2529,12 +2529,12 @@
     "?unknown_create_dialog_735700@@": 7558912,
     "?End_Dialog_007357e0@@": 7559136,
     "?Dialog_Loop_007359e0@@": 7559648,
-    "?unknown_null_dialog_proc_735b40@@": 7560000,
+    "?Resize_Dialog_Proc@@": 7560000,
     "?unknown_735ba0@@": 7560096,
-    "?unknown_prepare_control_735bc0@@": 7560128,
+    "?Resize_Dialog@@": 7560128,
     "?unknown_clear_font_cache_735d90@@": 7560592,
-    "?unknown_find_font_735db0@@": 7560624,
-    "?unknown_create_font_7360b0@@": 7561392,
+    "?WS_Get_Font@@": 7560624,
+    "?Ez_Create_Font@@": 7561392,
     "?TreeView_Begin_Drag@@": 7561776,
     "?TreeView_End_Drag@@": 7562016,
     "?TreeView_get_item_data@@": 7562384,
@@ -8212,7 +8212,7 @@
     "??_Gexception@@": 7909647,
     "?Put_All@@YI_NPAUIStream@@H@Z": 6641840,
     "?FUN_004011b0@seed_004011b0@@YIHPAHH@Z": 4198832,
-    "?unknown_check_406f30@@YAHXZ": 4222768,
+    "?AudioDeviceAvailable@@YAHXZ": 4222768,
     "__imp__HeapFree@12": 7971432,
     "__imp__HeapAlloc@12": 7971440,
     "__imp__GetCurrentThreadId@0": 7971268,
@@ -9582,7 +9582,7 @@
       "full_extent_sha256": "044c451bc11895d30856f23b9a7d297d113542077cf4b559819d96a1f50009b8",
       "relocations": [],
       "source": "src/recovered/windlg.cpp",
-      "source_sha256": "06ab4ea64796e168b987795a9e2fb29ce18e93f82f08449cb9a9ebaaeeb8da63",
+      "source_sha256": "860b6b2cdd4b77dddafcdb4b14fe102fdff894aee7de95cff4b51a2c803632ce",
       "source_order": 243403,
       "population": "population-4391",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -9607,7 +9607,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "2e5df3a653d6c7df38df72fec2ef301ebad6c59b089524f8c8d50e1b2d9d5249",
       "relocations": [],
-      "source_sha256": "06ab4ea64796e168b987795a9e2fb29ce18e93f82f08449cb9a9ebaaeeb8da63",
+      "source_sha256": "860b6b2cdd4b77dddafcdb4b14fe102fdff894aee7de95cff4b51a2c803632ce",
       "source": "src/recovered/windlg.cpp",
       "population": "population-4391",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -9634,7 +9634,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "83e934f3c3addcf4ddb5b120558f74bee1af3b2c08ef231556dc870f9ecd2f8b",
       "relocations": [],
-      "source_sha256": "06ab4ea64796e168b987795a9e2fb29ce18e93f82f08449cb9a9ebaaeeb8da63",
+      "source_sha256": "860b6b2cdd4b77dddafcdb4b14fe102fdff894aee7de95cff4b51a2c803632ce",
       "source": "src/recovered/windlg.cpp",
       "population": "population-4391",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -9646,8 +9646,8 @@
     {
       "entry": 7560000,
       "method": "00735b40",
-      "symbol": "?unknown_null_dialog_proc_735b40@@YGHPAUHWND__@@IIJ@Z",
-      "symbol_prefix": "?unknown_null_dialog_proc_735b40@@",
+      "symbol": "?Resize_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+      "symbol_prefix": "?Resize_Dialog_Proc@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -9661,7 +9661,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "952daaf271d817ce53b5ac1723eb076fb427be8f4736f05891d158981d93ff66",
       "relocations": [],
-      "source_sha256": "06ab4ea64796e168b987795a9e2fb29ce18e93f82f08449cb9a9ebaaeeb8da63",
+      "source_sha256": "860b6b2cdd4b77dddafcdb4b14fe102fdff894aee7de95cff4b51a2c803632ce",
       "source": "src/recovered/windlg.cpp",
       "population": "population-4391",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -9696,7 +9696,7 @@
           "resolved": 11689436
         }
       ],
-      "source_sha256": "06ab4ea64796e168b987795a9e2fb29ce18e93f82f08449cb9a9ebaaeeb8da63",
+      "source_sha256": "860b6b2cdd4b77dddafcdb4b14fe102fdff894aee7de95cff4b51a2c803632ce",
       "source": "src/recovered/windlg.cpp",
       "population": "population-4391",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -9726,7 +9726,7 @@
         {
           "offset": 6,
           "kind": 6,
-          "symbol": "?unknown_prepare_control_735bc0@@YGHPAUHWND__@@J@Z",
+          "symbol": "?Resize_Dialog@@YGHPAUHWND__@@J@Z",
           "target": 7560128,
           "addend": 0,
           "resolved": 7560128
@@ -9742,13 +9742,13 @@
         {
           "offset": 21,
           "kind": 20,
-          "symbol": "?unknown_prepare_control_735bc0@@YGHPAUHWND__@@J@Z",
+          "symbol": "?Resize_Dialog@@YGHPAUHWND__@@J@Z",
           "target": 7560128,
           "addend": 0,
           "resolved": 7
         }
       ],
-      "source_sha256": "06ab4ea64796e168b987795a9e2fb29ce18e93f82f08449cb9a9ebaaeeb8da63",
+      "source_sha256": "860b6b2cdd4b77dddafcdb4b14fe102fdff894aee7de95cff4b51a2c803632ce",
       "source": "src/recovered/windlg.cpp",
       "population": "population-4391",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -10228,7 +10228,7 @@
           "resolved": 11688888
         }
       ],
-      "source_sha256": "06ab4ea64796e168b987795a9e2fb29ce18e93f82f08449cb9a9ebaaeeb8da63",
+      "source_sha256": "860b6b2cdd4b77dddafcdb4b14fe102fdff894aee7de95cff4b51a2c803632ce",
       "source": "src/recovered/windlg.cpp",
       "population": "population-4391",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -10470,7 +10470,7 @@
           "resolved": 7971796
         }
       ],
-      "source_sha256": "06ab4ea64796e168b987795a9e2fb29ce18e93f82f08449cb9a9ebaaeeb8da63",
+      "source_sha256": "860b6b2cdd4b77dddafcdb4b14fe102fdff894aee7de95cff4b51a2c803632ce",
       "source": "src/recovered/windlg.cpp",
       "population": "population-4391",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -10595,7 +10595,7 @@
         {
           "offset": 137,
           "kind": 6,
-          "symbol": "?unknown_prepare_control_735bc0@@YGHPAUHWND__@@J@Z",
+          "symbol": "?Resize_Dialog@@YGHPAUHWND__@@J@Z",
           "target": 7560128,
           "addend": 0,
           "resolved": 7560128
@@ -10611,7 +10611,7 @@
         {
           "offset": 152,
           "kind": 20,
-          "symbol": "?unknown_prepare_control_735bc0@@YGHPAUHWND__@@J@Z",
+          "symbol": "?Resize_Dialog@@YGHPAUHWND__@@J@Z",
           "target": 7560128,
           "addend": 0,
           "resolved": 1060
@@ -10657,7 +10657,7 @@
           "resolved": 11689432
         }
       ],
-      "source_sha256": "06ab4ea64796e168b987795a9e2fb29ce18e93f82f08449cb9a9ebaaeeb8da63",
+      "source_sha256": "860b6b2cdd4b77dddafcdb4b14fe102fdff894aee7de95cff4b51a2c803632ce",
       "source": "src/recovered/windlg.cpp",
       "population": "population-4391",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -10836,7 +10836,7 @@
           "resolved": 11689436
         }
       ],
-      "source_sha256": "06ab4ea64796e168b987795a9e2fb29ce18e93f82f08449cb9a9ebaaeeb8da63",
+      "source_sha256": "860b6b2cdd4b77dddafcdb4b14fe102fdff894aee7de95cff4b51a2c803632ce",
       "source": "src/recovered/windlg.cpp",
       "population": "population-4391",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -10847,8 +10847,8 @@
     {
       "entry": 7560128,
       "method": "00735bc0",
-      "symbol": "?unknown_prepare_control_735bc0@@YGHPAUHWND__@@J@Z",
-      "symbol_prefix": "?unknown_prepare_control_735bc0@@",
+      "symbol": "?Resize_Dialog@@YGHPAUHWND__@@J@Z",
+      "symbol_prefix": "?Resize_Dialog@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -10921,7 +10921,7 @@
         {
           "offset": 219,
           "kind": 6,
-          "symbol": "?unknown_null_dialog_proc_735b40@@YGHPAUHWND__@@IIJ@Z",
+          "symbol": "?Resize_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
           "target": 7560000,
           "addend": 0,
           "resolved": 7560000
@@ -11007,7 +11007,7 @@
           "resolved": 7971808
         }
       ],
-      "source_sha256": "06ab4ea64796e168b987795a9e2fb29ce18e93f82f08449cb9a9ebaaeeb8da63",
+      "source_sha256": "860b6b2cdd4b77dddafcdb4b14fe102fdff894aee7de95cff4b51a2c803632ce",
       "source": "src/recovered/windlg.cpp",
       "population": "population-4391",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -11058,7 +11058,7 @@
           "resolved": 311190
         }
       ],
-      "source_sha256": "06ab4ea64796e168b987795a9e2fb29ce18e93f82f08449cb9a9ebaaeeb8da63",
+      "source_sha256": "860b6b2cdd4b77dddafcdb4b14fe102fdff894aee7de95cff4b51a2c803632ce",
       "source": "src/recovered/windlg.cpp",
       "population": "population-4391",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -11069,8 +11069,8 @@
     {
       "entry": 7560624,
       "method": "00735db0",
-      "symbol": "?unknown_find_font_735db0@@YIPAUHFONT__@@PAUHDC__@@PBDHHI@Z",
-      "symbol_prefix": "?unknown_find_font_735db0@@",
+      "symbol": "?WS_Get_Font@@YIPAUHFONT__@@PAUHDC__@@PBDHHI@Z",
+      "symbol_prefix": "?WS_Get_Font@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -11111,7 +11111,7 @@
         {
           "offset": 263,
           "kind": 20,
-          "symbol": "?unknown_create_font_7360b0@@YIPAUHFONT__@@PAUHDC__@@PBDHHI@Z",
+          "symbol": "?Ez_Create_Font@@YIPAUHFONT__@@PAUHDC__@@PBDHHI@Z",
           "target": 7561392,
           "addend": 0,
           "resolved": 501
@@ -11309,7 +11309,7 @@
           "resolved": 11689416
         }
       ],
-      "source_sha256": "06ab4ea64796e168b987795a9e2fb29ce18e93f82f08449cb9a9ebaaeeb8da63",
+      "source_sha256": "860b6b2cdd4b77dddafcdb4b14fe102fdff894aee7de95cff4b51a2c803632ce",
       "source": "src/recovered/windlg.cpp",
       "population": "population-4391",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -11320,8 +11320,8 @@
     {
       "entry": 7561392,
       "method": "007360b0",
-      "symbol": "?unknown_create_font_7360b0@@YIPAUHFONT__@@PAUHDC__@@PBDHHI@Z",
-      "symbol_prefix": "?unknown_create_font_7360b0@@",
+      "symbol": "?Ez_Create_Font@@YIPAUHFONT__@@PAUHDC__@@PBDHHI@Z",
+      "symbol_prefix": "?Ez_Create_Font@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -11440,7 +11440,7 @@
           "resolved": 7970964
         }
       ],
-      "source_sha256": "06ab4ea64796e168b987795a9e2fb29ce18e93f82f08449cb9a9ebaaeeb8da63",
+      "source_sha256": "860b6b2cdd4b77dddafcdb4b14fe102fdff894aee7de95cff4b51a2c803632ce",
       "source": "src/recovered/windlg.cpp",
       "population": "population-4391",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -13264,7 +13264,7 @@
           "resolved": 11689436
         }
       ],
-      "source_sha256": "06ab4ea64796e168b987795a9e2fb29ce18e93f82f08449cb9a9ebaaeeb8da63",
+      "source_sha256": "860b6b2cdd4b77dddafcdb4b14fe102fdff894aee7de95cff4b51a2c803632ce",
       "source": "src/recovered/windlg.cpp",
       "population": "population-4391",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",

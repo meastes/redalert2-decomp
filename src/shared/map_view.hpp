@@ -259,8 +259,8 @@ public:
 #else
     char unknown_130[0x11A0 - 0x130];
 #endif
-    ObjectClass *unknown_11a0;      // +0x11A0 the object waiting for placement
-    void *unknown_11a4;             // +0x11A4 its type
+    ObjectClass *PendingObjectPtr;      // +0x11A0 the object waiting for placement
+    void *PendingObject;             // +0x11A4 its type
     int unknown_11a8;               // +0x11A8 its house (-1)
     bool unknown_11ac;              // +0x11AC
     bool unknown_11ad;              // +0x11AD

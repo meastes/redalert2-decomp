@@ -35,8 +35,8 @@ void *__fastcall unknown_create_dialog_735700(void *instance, int id, HWND paren
     }
     _dialog_count++;
     Unknown_005B6000(dialog);
-    EnumChildWindows(dialog, unknown_prepare_control_735bc0, 1);
-    unknown_prepare_control_735bc0(dialog, 0);
+    EnumChildWindows(dialog, Resize_Dialog, 1);
+    Resize_Dialog(dialog, 0);
     entry->Window = dialog;
     entry->Resource = id;
     if (arg != 0) {
@@ -195,11 +195,11 @@ unsigned int  FUN_00735b30(void)
 }  // namespace seed_00735b30
 
 
-// BOOL __stdcall unknown_null_dialog_proc_735b40(HWND dialog, UINT message, WPARAM wparam, LPARAM lparam) (0x00735B40)
+// BOOL __stdcall Resize_Dialog_Proc(HWND dialog, UINT message, WPARAM wparam, LPARAM lparam) (0x00735B40)
 // A dialog procedure that handles nothing: Dialog_Template_Size measures
 // templates with it (0x00735BC0).
 
-BOOL __stdcall unknown_null_dialog_proc_735b40(HWND dialog, UINT message, WPARAM wparam, LPARAM lparam)
+BOOL __stdcall Resize_Dialog_Proc(HWND dialog, UINT message, WPARAM wparam, LPARAM lparam)
 {
     return 0;
 }
@@ -230,17 +230,17 @@ int __fastcall Dialog_Template_Size(int dialog_id, DLGPROC procedure, int unused
 
 void __fastcall unknown_735ba0(HWND window)
 {
-    EnumChildWindows(window, unknown_prepare_control_735bc0, 1);
-    unknown_prepare_control_735bc0(window, 0);
+    EnumChildWindows(window, Resize_Dialog, 1);
+    Resize_Dialog(window, 0);
 }
 
 
-// BOOL __stdcall unknown_prepare_control_735bc0(HWND window, LPARAM parameter) (0x00735BC0)
+// BOOL __stdcall Resize_Dialog(HWND window, LPARAM parameter) (0x00735BC0)
 // Scales window (a dialog, or with parameter set a control placed relative to its parent) from
 // the layout size to the client size of template 0xC6 and moves it; combo boxes use their
 // dropped-down rectangle. EnumChildWindows callback of 0x00735700.
 
-BOOL __stdcall unknown_prepare_control_735bc0(HWND window, LPARAM parameter)
+BOOL __stdcall Resize_Dialog(HWND window, LPARAM parameter)
 {
     RECT rect;
     GetWindowRect(window, &rect);
@@ -260,7 +260,7 @@ BOOL __stdcall unknown_prepare_control_735bc0(HWND window, LPARAM parameter)
     }
     LONG *size = unknown_template_size_b25de4;
     if (size[0] == 0) {
-        Dialog_Template_Size(0xC6, (DLGPROC)unknown_null_dialog_proc_735b40, 0, size);
+        Dialog_Template_Size(0xC6, (DLGPROC)Resize_Dialog_Proc, 0, size);
     }
     int width = (rect.right - rect.left + 1) * unknown_layout_width_7fd048 / size[0];
     int height = (rect.bottom - rect.top + 1) * unknown_layout_height_7fd04c / size[1];
@@ -282,9 +282,9 @@ void unknown_clear_font_cache_735d90()
 }
 
 
-// HFONT __fastcall unknown_find_font_735db0(HDC dc, char const *face, int width, int height, unsigned attributes) (0x00735DB0)
+// HFONT __fastcall WS_Get_Font(HDC dc, char const *face, int width, int height, unsigned attributes) (0x00735DB0)
 
-HFONT __fastcall unknown_find_font_735db0(HDC dc, char const *face, int width, int height, unsigned attributes)
+HFONT __fastcall WS_Get_Font(HDC dc, char const *face, int width, int height, unsigned attributes)
 {
     for (int index = 0; index < unknown_font_cache_b25dc8.Count; index++) {
         UnknownFontEntry entry;
@@ -297,7 +297,7 @@ HFONT __fastcall unknown_find_font_735db0(HDC dc, char const *face, int width, i
     if (dc == 0) {
         return 0;
     }
-    HFONT font = unknown_create_font_7360b0(dc, face, width, height, attributes);
+    HFONT font = Ez_Create_Font(dc, face, width, height, attributes);
     if (font == 0) {
         return font;
     }
@@ -312,9 +312,9 @@ HFONT __fastcall unknown_find_font_735db0(HDC dc, char const *face, int width, i
 }
 
 
-// HFONT __fastcall unknown_create_font_7360b0(HDC dc, char const *face, int width, int height, unsigned attributes) (0x007360B0)
+// HFONT __fastcall Ez_Create_Font(HDC dc, char const *face, int width, int height, unsigned attributes) (0x007360B0)
 
-HFONT __fastcall unknown_create_font_7360b0(HDC dc, char const *face, int width, int height, unsigned attributes)
+HFONT __fastcall Ez_Create_Font(HDC dc, char const *face, int width, int height, unsigned attributes)
 {
     POINT point;
     TEXTMETRICA metrics;

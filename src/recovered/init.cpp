@@ -1144,7 +1144,7 @@ static int Choose_Campaign()
             if (SurfacesRestored) {
                 SurfacesRestored = false;
                 unknown_5159b0(0, true);
-                Unknown_004E0C90(false, HiddenSurface, 0);
+                Update_Visible_Surface(false, HiddenSurface, 0);
             }
         }
         unknown_dialog_5ff6e0(window);
@@ -1523,7 +1523,7 @@ top:
                     Unknown_004955D0(&unknown_palette_837510, 15, unknown_481fb0);
                 }
                 HiddenSurface->Fill(0);
-                Unknown_004E0C90(true, HiddenSurface, 0);
+                Update_Visible_Surface(true, HiddenSurface, 0);
             }
             WWMouse->Show_Mouse();
             if (unknown_session_a3d298.Type == 4) {
@@ -1570,7 +1570,7 @@ top:
             Unknown_004955D0(&unknown_palette_837510, 15, unknown_481fb0);
         }
         HiddenSurface->Fill(0);
-        Unknown_004E0C90(true, HiddenSurface, 0);
+        Update_Visible_Surface(true, HiddenSurface, 0);
         WWMouse->Show_Mouse();
         unknown_surface_83995c = HiddenSurface;
         Map.Override_Mouse_Shape(0x13, false);
@@ -2181,7 +2181,7 @@ void __fastcall unknown_5159b0(int unknown1, bool unknown2)
     surface->Copy_From(*work, false, true);
     delete work;
     if (unknown2) {
-        Unknown_004E0C90(false, surface, 0);
+        Update_Visible_Surface(false, surface, 0);
     }
 }
 
@@ -5145,7 +5145,7 @@ void CenterBaseCommandClass::Execute(int key) const
     } else if (other != unknown_geometry_l) {
         TacticalMap->Set_Tactical_Position_006a66b0(other);
     }
-    if (Map.unknown_11a4 != 0) {
+    if (Map.PendingObject != 0) {
         Map.Unknown_004994D0(unknown_geometry_k);
     }
     Map.Unknown_0049EC60(0);
@@ -6012,7 +6012,7 @@ void View1CommandClass::Execute(int key) const
     CoordStruct coord(unknown_id_source_a3d290->Views[0].X * 256 + 128, unknown_id_source_a3d290->Views[0].Y * 256 + 128, 0);
     coord.Z = Map.Get_Height_GL(coord);
     TacticalMap->Set_Tactical_Position_006a66b0(coord);
-    if (Map.unknown_11a4 != 0) {
+    if (Map.PendingObject != 0) {
         Map.Unknown_004994D0(unknown_geometry_k);
     }
 }
@@ -6063,7 +6063,7 @@ void View2CommandClass::Execute(int key) const
     CoordStruct coord(unknown_id_source_a3d290->Views[1].X * 256 + 128, unknown_id_source_a3d290->Views[1].Y * 256 + 128, 0);
     coord.Z = Map.Get_Height_GL(coord);
     TacticalMap->Set_Tactical_Position_006a66b0(coord);
-    if (Map.unknown_11a4 != 0) {
+    if (Map.PendingObject != 0) {
         Map.Unknown_004994D0(unknown_geometry_k);
     }
 }
@@ -6114,7 +6114,7 @@ void View3CommandClass::Execute(int key) const
     CoordStruct coord(unknown_id_source_a3d290->Views[2].X * 256 + 128, unknown_id_source_a3d290->Views[2].Y * 256 + 128, 0);
     coord.Z = Map.Get_Height_GL(coord);
     TacticalMap->Set_Tactical_Position_006a66b0(coord);
-    if (Map.unknown_11a4 != 0) {
+    if (Map.PendingObject != 0) {
         Map.Unknown_004994D0(unknown_geometry_k);
     }
 }
@@ -6165,7 +6165,7 @@ void View4CommandClass::Execute(int key) const
     CoordStruct coord(unknown_id_source_a3d290->Views[3].X * 256 + 128, unknown_id_source_a3d290->Views[3].Y * 256 + 128, 0);
     coord.Z = Map.Get_Height_GL(coord);
     TacticalMap->Set_Tactical_Position_006a66b0(coord);
-    if (Map.unknown_11a4 != 0) {
+    if (Map.PendingObject != 0) {
         Map.Unknown_004994D0(unknown_geometry_k);
     }
 }

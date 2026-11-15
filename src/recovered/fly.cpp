@@ -184,7 +184,7 @@ bool __stdcall FlyLocomotionClass::Process()
     if (!Is_Powered()) {
         return false;
     }
-    if (!LinkedTo->unknown_7d) {
+    if (!LinkedTo->IsActive) {
         return false;
     }
     if (LinkedTo->Strength > 0 && unknown_1c != unknown_geometry_l && !unknown_51 && !unknown_50 && LinkedTo->Get_Height_AGL() > 0) {
@@ -1237,7 +1237,7 @@ void __stdcall FlyLocomotionClass::Acquire_Hunter_Seeker_Target()
                 }
             }
 
-            if (enemy && techno->Strength > 0 && !techno->unknown_76 && techno->unknown_7d &&
+            if (enemy && techno->Strength > 0 && !techno->unknown_76 && techno->IsActive &&
                 !techno->Techno_Type_Class()->Invisible && techno->Techno_Type_Class()->unknown_201 &&
                 !(unknown_id_source_a3d290->Special().HarvesterImmune && techno->Kind_Of() == 1 && ((UnitClass *)techno)->Type->Harvester)) {
 

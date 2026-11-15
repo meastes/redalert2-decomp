@@ -295,7 +295,7 @@
    "padding_bytes": 12
   },
   {
-   "symbol": "?VQA_Unknown_0071D640@@YAHPAUVQAHandle@@HHH@Z",
+   "symbol": "?VQAMixFileHandler@@YAHPAUVQAHandle@@HHH@Z",
    "entry": "0071d640",
    "body_bytes": 31,
    "padding_bytes": 1
@@ -1380,6 +1380,58 @@
    "address": "0070b7d0"
   },
   {
+   "symbol": "?VQA_Close@@YIXPAUVQAHandle@@@Z",
+   "address": "0077be70"
+  },
+  {
+   "symbol": "?VQA_DefaultConfig@@YIXPAUVQAConfig@@@Z",
+   "address": "00777850"
+  },
+  {
+   "symbol": "?VQA_GetBlockInfo@@YIHPAUVQAHandle@@PAH11@Z",
+   "address": "0077c920"
+  },
+  {
+   "symbol": "?VQA_GetMovieTime@@YIHPAUVQAHandle@@@Z",
+   "address": "0077cba0"
+  },
+  {
+   "symbol": "?VQA_Open@@YIHPBDPAUVQAConfig@@PAPAUVQAHandle@@@Z",
+   "address": "0077b7a0"
+  },
+  {
+   "symbol": "?VQA_Play@@YIHPAUVQAHandle@@HH@Z",
+   "address": "0077bf10"
+  },
+  {
+   "symbol": "?VQA_Reset@@YIXPAUVQAHandle@@@Z",
+   "address": "0077c7d0"
+  },
+  {
+   "symbol": "?VQA_SeekFrame@@YIHPAUVQAHandle@@HH@Z",
+   "address": "0077c2e0"
+  },
+  {
+   "symbol": "?VQA_SetLoop@@YIHPAUVQAHandle@@HHH@Z",
+   "address": "0077c640"
+  },
+  {
+   "symbol": "?VQA_SetLoop_Internal@@YIHPAUVQAHandle@@HHHH@Z",
+   "address": "0077c6c0"
+  },
+  {
+   "symbol": "?VQA_SetStop@@YIHPAUVQAHandle@@H@Z",
+   "address": "0077c8a0"
+  },
+  {
+   "symbol": "?VQA_SetUnVQ@@YIHPAUVQAHandle@@P6AXPAE11KKK@Z2@Z",
+   "address": "0077c440"
+  },
+  {
+   "symbol": "?VQA_Set_DrawBuffer@@YIHPAUVQAHandle@@HHHHH@Z",
+   "address": "0077c480"
+  },
+  {
    "symbol": "?VQA_Unknown_0070B690@@YIXH@Z",
    "address": "0070b690"
   },
@@ -1402,58 +1454,6 @@
   {
    "symbol": "?VQA_Unknown_0070C0A0@@YAXPAE00KKK@Z",
    "address": "0070c0a0"
-  },
-  {
-   "symbol": "?VQA_Unknown_00777850@@YIXPAUVQAConfig@@@Z",
-   "address": "00777850"
-  },
-  {
-   "symbol": "?VQA_Unknown_0077B7A0@@YIHPBDPAUVQAConfig@@PAPAUVQAHandle@@@Z",
-   "address": "0077b7a0"
-  },
-  {
-   "symbol": "?VQA_Unknown_0077BE70@@YIXPAUVQAHandle@@@Z",
-   "address": "0077be70"
-  },
-  {
-   "symbol": "?VQA_Unknown_0077BF10@@YIHPAUVQAHandle@@HH@Z",
-   "address": "0077bf10"
-  },
-  {
-   "symbol": "?VQA_Unknown_0077C2E0@@YIHPAUVQAHandle@@HH@Z",
-   "address": "0077c2e0"
-  },
-  {
-   "symbol": "?VQA_Unknown_0077C440@@YIHPAUVQAHandle@@P6AXPAE11KKK@Z2@Z",
-   "address": "0077c440"
-  },
-  {
-   "symbol": "?VQA_Unknown_0077C480@@YIHPAUVQAHandle@@HHHHH@Z",
-   "address": "0077c480"
-  },
-  {
-   "symbol": "?VQA_Unknown_0077C640@@YIHPAUVQAHandle@@HHH@Z",
-   "address": "0077c640"
-  },
-  {
-   "symbol": "?VQA_Unknown_0077C6C0@@YIHPAUVQAHandle@@HHHH@Z",
-   "address": "0077c6c0"
-  },
-  {
-   "symbol": "?VQA_Unknown_0077C7D0@@YIXPAUVQAHandle@@@Z",
-   "address": "0077c7d0"
-  },
-  {
-   "symbol": "?VQA_Unknown_0077C8A0@@YIHPAUVQAHandle@@H@Z",
-   "address": "0077c8a0"
-  },
-  {
-   "symbol": "?VQA_Unknown_0077C920@@YIHPAUVQAHandle@@PAH11@Z",
-   "address": "0077c920"
-  },
-  {
-   "symbol": "?VQA_Unknown_0077CBA0@@YIHPAUVQAHandle@@@Z",
-   "address": "0077cba0"
   },
   {
    "symbol": "?VQA_Unknown_0077FD80@@YAXPAE00KKK@Z",

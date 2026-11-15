@@ -216,7 +216,7 @@ UnitClass::~UnitClass()
     Unknown_006ECB90(this, true);
     Units.Delete(this);
     unknown_object_index_abff58.Remove_Index(Fetch_ID());
-    unknown_7d = false;
+    IsActive = false;
 }
 
 
@@ -242,7 +242,7 @@ void UnitClass::AI()
     }
     if (unknown_slot112() || (unknown_slot111() && unknown_210)) {
         Locomotor.Checked()->Process();
-        if (!unknown_7d) return;
+        if (!IsActive) return;
     }
     if ((unknown_slot112() && unknown_20c) || unknown_slot111()) {
         if (unknown_228) unknown_slot220(0);
@@ -303,7 +303,7 @@ void UnitClass::AI()
             new AnimClass(Rules->unknown_09c, position, 0, 1, 0x600, 0);
         }
     }
-    if (unknown_7d) {
+    if (IsActive) {
         if (Get_Mission() != 10) unknown_5ba = false;
         unknown_6fbc90();
         unknown_6fb890();
@@ -880,7 +880,7 @@ int UnitClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhead,
                 unknown_slot216((int)source);
             }
             Strength = 1;
-            unknown_7d = true;
+            IsActive = true;
         } else {
             if (Type->Naval && !Type->Underwater && !Type->Organic &&
                 Type->Weight >= Rules->ShipSinkingWeight) {
@@ -889,7 +889,7 @@ int UnitClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhead,
                 if (Map[cell].unknown_47b7e0() && !unknown_205) {
                     unknown_slot216((int)source);
                     Strength = 1;
-                    unknown_7d = true;
+                    IsActive = true;
                     unknown_325 = true;
                     unknown_slot210();
                     goto remove_passengers;
@@ -1369,7 +1369,7 @@ bool UnitClass::unknown_6fdfc0()
                     for (int index = 0; index < Technos.Count(); index++) {
                         TechnoClass *techno = Technos[index];
                         if (techno->unknown_228 && techno->unknown_228->Kind_Of() == 1 &&
-                            techno->unknown_228 == this && techno->unknown_7d &&
+                            techno->unknown_228 == this && techno->IsActive &&
                             techno != this && techno != building) {
                             if (building->Type->ConstructionYard && techno->Kind_Of() == 15 &&
                                 ((InfantryTypeClass *)techno->Techno_Type_Class())->VehicleThief) {
@@ -1440,7 +1440,7 @@ void UnitClass::unknown_slot93(int reason)
     Cell cell=unknown_slot104();
     if ((reason==2 || reason==0) && unknown_57c) {
         unknown_6fdfc0();
-        if (!unknown_7d) return;
+        if (!IsActive) return;
     }
     if (reason==2) {
         TechnoClass *contact=Contact(0);
@@ -1583,7 +1583,7 @@ void UnitClass::unknown_slot93(int reason)
         }
     }
     Overrun_Square(unknown_slot104(),false);
-    if (unknown_7d) FootClass::unknown_slot93(reason);
+    if (IsActive) FootClass::unknown_slot93(reason);
 }
 
 
@@ -2289,7 +2289,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                 case 1:
                 if (!Locomotor.Checked()->Is_Moving()) {
                     unknown_6fdfc0();
-                    if (unknown_7d) {
+                    if (IsActive) {
                         if (unknown_57c) unknown_a8=2;
                         else if (!House->Unknown_004F52F0() && unknown_game_mode_a3d298) QueueMission(15,false);
                         else QueueMission(5,false);
@@ -4246,7 +4246,7 @@ void __fastcall UnitClass::Write_INI(CCINIClass &ini)
     ini.Clear(unknown_units_section_7addc0, 0);
     for (int index = 0; index < Units.Count(); index++) {
         UnitClass *unit = Units[index];
-        if (unit != 0 && !unit->unknown_76 && unit->unknown_7d) {
+        if (unit != 0 && !unit->unknown_76 && unit->IsActive) {
             char id[12];
             sprintf(id, "%d", index);
             int linked = unit->unknown_5b0 != 0 ? Units.ID((UnitClass *)unit->unknown_5b0) : -1;

@@ -83,6 +83,8 @@ def rules(spec):
         out += name_rules(item['old'], scopes, item['new'], scopes)
         out.append(('msvc-prefix', re.compile(r'\?%s@%s@' % (re.escape(item['old']), re.escape(item['class']))),
                     '?%s@%s@' % (item['new'], item['class'])))
+        out.append(('offsetof', re.compile(r'(offsetof\(\s*%s\s*,\s*)%s\b' % (re.escape(item['class']), re.escape(item['old']))),
+                    r'\g<1>%s' % item['new']))
     return out, review
 
 

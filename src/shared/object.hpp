@@ -368,7 +368,7 @@ public:
     bool unknown_7a;                        // +0x7A
     bool unknown_7b;                        // +0x7B
     bool unknown_7c;                        // +0x7C
-    bool unknown_7d;                        // +0x7D
+    bool IsActive;                        // +0x7D
     int unknown_80;                         // +0x80
     bool unknown_84;                        // +0x84
     bool unknown_85;                        // +0x85

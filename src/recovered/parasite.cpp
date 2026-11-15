@@ -586,7 +586,7 @@ void ParasiteClass::Unknown_00607440()
 
 bool ParasiteClass::Can_Infect_006078F0(FootClass *target)
 {
-    if (target != 0 && !target->unknown_76 && target->unknown_7d && target->Strength != 0
+    if (target != 0 && !target->unknown_76 && target->IsActive && target->Strength != 0
         && target->unknown_580 == 0 && target->Techno_Type_Class()->Parasiteable) {
         if (Owner == 0 || !Owner->Techno_Type_Class()->Naval || target->Get_Cell_Ptr() == 0
             || ((CellClass *)target->Get_Cell_Ptr())->Is_Tile_Water()) {

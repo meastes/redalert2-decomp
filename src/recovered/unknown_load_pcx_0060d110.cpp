@@ -1,6 +1,6 @@
-// Not exact (RA2_NON_MATCHING): unknown_load_pcx_60d110 at 0x0060D110, best score 36.88, 2026-11-13; differs: 116 instructions in the original, 513 in the draft (shape 36.88)
+// Not exact (RA2_NON_MATCHING): Read_PCX_File at 0x0060D110, best score 36.88, 2026-11-13; differs: 116 instructions in the original, 513 in the draft (shape 36.88)
 #ifdef RA2_NON_MATCHING
-// Surface *unknown_load_pcx_60d110(FileClass *, PaletteClass *, int, int) (0x0060D110):
+// Surface *Read_PCX_File(FileClass *, PaletteClass *, int, int) (0x0060D110):
 // TibSun pcx.cpp Read_PCX_File. Reads a PCX file into a new BSurface (8-bit, or three
 // colour planes packed into hicolor pixels); a non-null buff gives a caller-supplied block.
 #include "shared/raw_file_class.hpp"
@@ -10,7 +10,7 @@
 
 class PaletteClass;
 
-Surface *__fastcall unknown_load_pcx_60d110(FileClass *file, PaletteClass *palette, int buff, int size);
+Surface *__fastcall Read_PCX_File(FileClass *file, PaletteClass *palette, int buff, int size);
 
 #pragma pack(push, 1)
 struct RGB {
@@ -52,7 +52,7 @@ struct PCX_HEADER {
                          file->Read (pool, POOL_SIZE ); \
                      }
 
-Surface *__fastcall unknown_load_pcx_60d110(FileClass *file, PaletteClass *palette, int buff, int size)
+Surface *__fastcall Read_PCX_File(FileClass *file, PaletteClass *palette, int buff, int size)
 {
     unsigned i, j;
     unsigned char rle;

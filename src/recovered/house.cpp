@@ -1235,7 +1235,7 @@ defeat_checked:;
             int building_count=Buildings.Count();
             for (int index=0;index<building_count;++index) {
                 BuildingClass *building=Buildings[index];
-                if (building && building->unknown_7d && building->Strength>0 && building->Get_Mission()!=0x13 &&
+                if (building && building->IsActive && building->Strength>0 && building->Get_Mission()!=0x13 &&
                     building->MissionQueue!=0x13 && unknown_player_a35db4==building->House) {
                     building->unknown_slot283();
                 }
@@ -1721,8 +1721,8 @@ int HouseClass::Abandon_Production(int kind, int index, bool naval)
     if (unknown_player_a35db4 == this) {
         Map.Unknown_00681740(kind, index, factory);
         if (kind == 7 || kind == 6) {
-            Map.unknown_11a0 = 0;
-            Map.unknown_11a4 = 0;
+            Map.PendingObjectPtr = 0;
+            Map.PendingObject = 0;
             Map.unknown_11a8 = -1;
             Map.Unknown_00498F10(0);
         }
@@ -1851,7 +1851,7 @@ bool HouseClass::Unknown_004E6950(int kind, int index, bool naval, Cell const &c
                         Abandon_Production(kind, index, naval);
                         placed = true;
                         if (unknown_player_a35db4 == this) {
-                            if (tech->unknown_7d && !tech->unknown_373) tech->Revealed(this);
+                            if (tech->IsActive && !tech->unknown_373) tech->Revealed(this);
                             Voc_Play(Rules->BuildingSlam, 1.0f, 0x2000, 0);
                             if (!Debug_Map) {
                                 Map.Set_Cursor_Shape(0);
@@ -1859,16 +1859,16 @@ bool HouseClass::Unknown_004E6950(int kind, int index, bool naval, Cell const &c
                                 Map.unknown_1190 = 0;
                             }
                             Map.Unknown_00498F10(0);
-                            Map.unknown_11a0 = 0;
-                            Map.unknown_11a4 = 0;
+                            Map.PendingObjectPtr = 0;
+                            Map.PendingObject = 0;
                             Map.unknown_11a8 = -1;
                         }
                     } else {
                         placed = false;
                         if (this == unknown_player_a35db4) Speech_Play_Name("EVA_CannotDeployHere", -1, -1);
                         if (!Debug_Map && this == unknown_player_a35db4) {
-                            Map.unknown_11a0 = Map.unknown_118c;
-                            Map.unknown_11a4 = Map.unknown_1190;
+                            Map.PendingObjectPtr = Map.unknown_118c;
+                            Map.PendingObject = Map.unknown_1190;
                             Map.unknown_11a8 = Map.unknown_1194;
                             Map.unknown_1170 = Map.unknown_117e;
                             Map.unknown_1174 = Map.unknown_1182;
@@ -1959,7 +1959,7 @@ void __cdecl Clear_Selected_Objects_00482bc0();
 
 bool HouseClass::unknown_func_4e7070(TechnoClass *builder, BuildingClass *building)
 {
-    if (this == unknown_player_a35db4 && Map.unknown_11a4 == 0 && builder != 0 && building != 0) {
+    if (this == unknown_player_a35db4 && Map.PendingObject == 0 && builder != 0 && building != 0) {
         Clear_Selected_Objects_00482bc0();
         Map.Unknown_0049CA20(0);
         Map.Unknown_0049C7C0(0);
@@ -1967,8 +1967,8 @@ bool HouseClass::unknown_func_4e7070(TechnoClass *builder, BuildingClass *buildi
         Map.unknown_11af = false;
         Map.unknown_11b0 = false;
         Map.unknown_11b4 = -1;
-        Map.unknown_11a4 = building->Type;
-        Map.unknown_11a0 = building;
+        Map.PendingObject = building->Type;
+        Map.PendingObjectPtr = building;
         Map.unknown_11a8 = ArrayIndex;
         Map.Unknown_00498F10(building->Occupy_List(1));
         Map.Unknown_004994D0(builder->unknown_slot104());
@@ -2231,7 +2231,7 @@ void HouseClass::MPlayer_Defeated_004e77f0()
     if (unknown_game_mode_a3d298!=0 && (unknown_id_source_a3d290->unknown_000 & 0x800)) {
         for (i=0;i<Units.Count();++i) {
             UnitClass *unit=Units[i];
-            if (unit->House==this && unit->unknown_7d) unit->Delete_Me();
+            if (unit->House==this && unit->IsActive) unit->Delete_Me();
         }
     }
     if (unknown_player_a35db4==this) {
@@ -2772,7 +2772,7 @@ int HouseClass::unknown_func_4e8d20()
         int count = Buildings.Count();
         for (int index = 0; index < count; index++) {
             UnknownBuildingView *building = (UnknownBuildingView *)Buildings[index];
-            if (building != 0 && building->unknown_7d && !building->unknown_76 &&
+            if (building != 0 && building->IsActive && !building->unknown_76 &&
                 ((UnknownBuildingTypeView *)building->Type)->unknown_c44 != 0) {
                 return 0;
             }
@@ -6284,7 +6284,7 @@ void HouseClass::unknown_func_4f3420()
     }
     for (int index = Technos.Count() - 1; index >= 0; index--) {
         TechnoClass *techno = Technos[index];
-        if (techno->unknown_76 || !techno->unknown_7d) {
+        if (techno->unknown_76 || !techno->IsActive) {
             continue;
         }
         int threat = techno->unknown_slot168();
@@ -6806,7 +6806,7 @@ void HouseClass::Update_Present_Super_Weapons()
             if (alive) {
                 for (int j = 0; j < unknown_BuildingClass_list_00a40af8.Count(); ++j) {
                     BuildingClass *b = unknown_BuildingClass_list_00a40af8[j];
-                    if (!b->unknown_76 && b->unknown_7d && b->House->Fetch_ID() == Fetch_ID()) {
+                    if (!b->unknown_76 && b->IsActive && b->House->Fetch_ID() == Fetch_ID()) {
                         for (int k = 0; k < 3; ++k) {
                             BuildingTypeClass *upgrade = (BuildingTypeClass *)b->unknown_4c0[k];
                             if (upgrade && (upgrade->SuperWeapon == s || upgrade->SuperWeapon2 == s)) {
@@ -6866,7 +6866,7 @@ void HouseClass::Enable_Available_Super_Weapons_004f4db0()
             int building_index=Buildings.Count()-1;
             if (building_index>=0) while (true) {
                 BuildingClass *building=Buildings[building_index];
-                if (building->unknown_7d && !building->unknown_76) {
+                if (building->IsActive && !building->unknown_76) {
                     for (int upgrade_index=0;upgrade_index<3;++upgrade_index) {
                         BuildingTypeClass *upgrade=(BuildingTypeClass *)building->unknown_4c0[upgrade_index];
                         if (upgrade && (upgrade->SuperWeapon==super_index || upgrade->SuperWeapon2==super_index)) {
@@ -7382,7 +7382,7 @@ Cell HouseClass::unknown_func_4f65a0()
         TechnoClass *techno=Technos[i];
         if (techno->House==enemy) {
             value=1;
-            if (techno->In_Which_Layer()==2 && techno->unknown_7d && !techno->unknown_76) valid=true;
+            if (techno->In_Which_Layer()==2 && techno->IsActive && !techno->unknown_76) valid=true;
             else if (unknown_c8==0) {
                 for (int j=0;j<Factories.Count();++j) {
                     FactoryClass *factory=Factories[j];

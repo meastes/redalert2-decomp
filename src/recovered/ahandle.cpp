@@ -153,7 +153,7 @@ long __cdecl Open_Audio_Handler(VQAHandleP *vqap, AhandleInitParams *params, lon
     Debug_Printf("Opening VQ audio handler\n");
     Debug_Printf("Current thread ID is %08x\n", GetCurrentThreadId());
 
-    if (!unknown_check_406f30()) {
+    if (!AudioDeviceAvailable()) {
         return AHANDLE_ERROR;
     }
 

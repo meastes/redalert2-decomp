@@ -164,7 +164,7 @@ unsigned int __fastcall unknown_hash_window_5de970(HWND const &key)
 #include "shared/owner_draw_dialog_control.hpp"
 #include "shared/session_state.hpp"
 
-BOOL __stdcall unknown_prepare_control_735bc0(HWND window, LPARAM lparam);
+BOOL __stdcall Resize_Dialog(HWND window, LPARAM lparam);
 
 bool __fastcall OwnerDraw_Control_Test_005e0760(unsigned int key, HWND window);
 int __fastcall OwnerDraw_Control_Height_005defb0(unsigned int key, HWND window);

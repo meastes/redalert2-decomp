@@ -405,7 +405,7 @@ bool MSEngine::Add_Sfx(char const *name, int unknown2)
 
 void MSEngine::Play_Sfx(char const *name, int volume)
 {
-    if (name != 0 && unknown_check_406f30()) {
+    if (name != 0 && AudioDeviceAvailable()) {
         for (int i = 0; i < Sfx.Count(); i++) {
             MSSfx *sfx = Sfx[i];
             char const *sfx_name = sfx->Name;

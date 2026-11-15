@@ -114,7 +114,7 @@ extern "C" char *__cdecl _strdup(char const *text);
 inline ScoreSoundClass::ScoreSoundClass(char const *name, char const *filename) :
     Name(0), unknown_04(0), unknown_08(false)
 {
-    if (unknown_check_406f30()) {
+    if (AudioDeviceAvailable()) {
         Name = _strdup(name);
     }
 }
@@ -869,7 +869,7 @@ void ScoreClass::Wait_While_Inactive()
 
 void ScoreClass::Play_Sound(char const *name, int volume)
 {
-    if (name != 0 && unknown_check_406f30()) {
+    if (name != 0 && AudioDeviceAvailable()) {
         for (int index = 0; index < Sounds.Count(); index++) {
             char const *soundname = Sounds[index]->Name;
             if (_stricmp(name, soundname) == 0) {

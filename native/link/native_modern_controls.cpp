@@ -72,8 +72,8 @@ bool Held(KeyNumType key) { return WWKeyboard != 0 && WWKeyboard->Down(key); }
 // target, the waypoint mode and the beacon mode), or a type waiting for placement.
 bool In_Mode()
 {
-    ObjectClass *pending = Map.unknown_11a0;
-    return (pending != 0 && pending->AbstractFlags.IsTechno) || Map.unknown_11a4 != 0 || Map.unknown_11ac
+    ObjectClass *pending = Map.PendingObjectPtr;
+    return (pending != 0 && pending->AbstractFlags.IsTechno) || Map.PendingObject != 0 || Map.unknown_11ac
            || Map.unknown_11ad || Map.unknown_11ae || Map.unknown_11b4 != -1 || Map.unknown_11af || Map.unknown_11b0;
 }
 

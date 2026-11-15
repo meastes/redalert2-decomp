@@ -419,9 +419,9 @@ void TiberiumClass::Init_Spread()
             tiberium->SpreadMap = 0;
         }
         tiberium->SpreadCount = 0;
-        tiberium->SpreadData = new UnknownVeinNode[unknown_cells_428ac0()];
-        tiberium->SpreadMap = new bool[unknown_cells_428ac0()];
-        tiberium->SpreadQueue = new UnknownVeinHeap(unknown_cells_428ac0());
+        tiberium->SpreadData = new UnknownVeinNode[Map_Cell_Count()];
+        tiberium->SpreadMap = new bool[Map_Cell_Count()];
+        tiberium->SpreadQueue = new UnknownVeinHeap(Map_Cell_Count());
         tiberium->Rebuild_Spread();
     }
 }
@@ -509,7 +509,7 @@ void TiberiumClass::Process_Spread()
     if (SpreadQueue != 0 && SpreadQueue->Count != 0 && unknown_a0 > 0.00001) {
         int count = MIN(25, MAX(5, (int)(SpreadQueue->Count * unknown_a0)));
         count = abs(unknown_id_source_a3d290->Random()()) % count + 1;
-        if (SpreadQueue->Active_Count() > unknown_cells_428ac0() - 20) {
+        if (SpreadQueue->Active_Count() > Map_Cell_Count() - 20) {
             Rebuild_Spread();
         }
         int index = 0;
@@ -530,10 +530,10 @@ void TiberiumClass::Process_Spread()
                     SpreadData[SpreadCount].Position = cellptr->MapCoords;
                     SpreadData[SpreadCount].Key = 0.0f;
                     SpreadQueue->Insert(&SpreadData[SpreadCount++]);
-                    SpreadMap[unknown_cell_index_428a90(cellptr->MapCoords)] = true;
+                    SpreadMap[Map_Cell_Index(cellptr->MapCoords)] = true;
                 }
             } else {
-                SpreadMap[unknown_cell_index_428a90(cellptr->MapCoords)] = false;
+                SpreadMap[Map_Cell_Index(cellptr->MapCoords)] = false;
             }
             if (index < count) {
                 node = SpreadQueue->Remove_Min();
@@ -563,9 +563,9 @@ void TiberiumClass::Init_Spread_Queue()
         SpreadMap = 0;
     }
     SpreadCount = 0;
-    SpreadData = new UnknownVeinNode[unknown_cells_428ac0()];
-    SpreadMap = new bool[unknown_cells_428ac0()];
-    SpreadQueue = new UnknownVeinHeap(unknown_cells_428ac0());
+    SpreadData = new UnknownVeinNode[Map_Cell_Count()];
+    SpreadMap = new bool[Map_Cell_Count()];
+    SpreadQueue = new UnknownVeinHeap(Map_Cell_Count());
     Rebuild_Spread();
 }
 
@@ -577,7 +577,7 @@ void TiberiumClass::Rebuild_Spread()
 {
     SpreadCount = 0;
     SpreadQueue->Clear();
-    for (int index = unknown_cells_428ac0() - 1; index >= 0; index--) {
+    for (int index = Map_Cell_Count() - 1; index >= 0; index--) {
         SpreadMap[index] = false;
     }
     Map.Reset_Iterator();
@@ -586,7 +586,7 @@ void TiberiumClass::Rebuild_Spread()
             SpreadData[SpreadCount].Position = cell->MapCoords;
             SpreadData[SpreadCount].Key = 0.0f;
             SpreadQueue->Insert(&SpreadData[SpreadCount++]);
-            SpreadMap[unknown_cell_index_428a90(cell->MapCoords)] = true;
+            SpreadMap[Map_Cell_Index(cell->MapCoords)] = true;
         }
     }
 }
@@ -650,7 +650,7 @@ void __fastcall Clear_Spread_006e9d00(int self)
 
 void __fastcall TiberiumClass::Clear_Spread_Cell(Cell const &cell)
 {
-    int index = unknown_cell_index_428a90(cell);
+    int index = Map_Cell_Index(cell);
     for (int type = 0; type < unknown_TiberiumClass_list_00ac0b30.Count(); type++) {
         unknown_TiberiumClass_list_00ac0b30[type]->SpreadMap[index] = false;
     }
@@ -663,15 +663,15 @@ void __fastcall TiberiumClass::Clear_Spread_Cell(Cell const &cell)
 
 void TiberiumClass::Add_Spread_Cell(Cell const &cell)
 {
-    int index = unknown_cell_index_428a90(cell);
+    int index = Map_Cell_Index(cell);
     if (Map[cell].Can_Tiberium_Spread() && !SpreadMap[index]) {
-        if (SpreadCount >= unknown_cells_428ac0() - 20) {
+        if (SpreadCount >= Map_Cell_Count() - 20) {
             Rebuild_Spread();
         }
         SpreadData[SpreadCount].Position = cell;
         SpreadData[SpreadCount].Key = abs(unknown_id_source_a3d290->Random()()) % 50 + Frame;
         SpreadQueue->Insert(&SpreadData[SpreadCount++]);
-        SpreadMap[unknown_cell_index_428a90(cell)] = true;
+        SpreadMap[Map_Cell_Index(cell)] = true;
     }
 }
 
@@ -728,9 +728,9 @@ void TiberiumClass::Init_Growth()
             tiberium->GrowthMap = 0;
         }
         tiberium->GrowthCount = 0;
-        tiberium->GrowthData = new UnknownVeinNode[unknown_cells_428ac0()];
-        tiberium->GrowthMap = new bool[unknown_cells_428ac0()];
-        tiberium->GrowthQueue = new UnknownVeinHeap(unknown_cells_428ac0());
+        tiberium->GrowthData = new UnknownVeinNode[Map_Cell_Count()];
+        tiberium->GrowthMap = new bool[Map_Cell_Count()];
+        tiberium->GrowthQueue = new UnknownVeinHeap(Map_Cell_Count());
         tiberium->Rebuild_Growth();
     }
 }
@@ -819,7 +819,7 @@ void TiberiumClass::Process_Growth()
     if (GrowthQueue != 0 && GrowthQueue->Active_Count() != 0 && unknown_b0 > 0.00001) {
         int count = MIN(50, MAX(5, (int)(GrowthQueue->Active_Count() * unknown_b0)));
         count = abs(unknown_id_source_a3d290->Random()()) % count + 1;
-        if (GrowthQueue->Active_Count() > unknown_cells_428ac0() - 2 * count) {
+        if (GrowthQueue->Active_Count() > Map_Cell_Count() - 2 * count) {
             Rebuild_Growth();
         }
         int index = 0;
@@ -831,11 +831,11 @@ void TiberiumClass::Process_Growth()
                 if (cellptr->OverlayData < 11) {
                     GrowthData[GrowthCount].Position = node->Position;
                     GrowthData[GrowthCount].Key = float(Frame + abs(unknown_id_source_a3d290->Random()() % 50));
-                    GrowthMap[unknown_cell_index_428a90(node->Position)] = true;
+                    GrowthMap[Map_Cell_Index(node->Position)] = true;
                     GrowthQueue->Insert(&GrowthData[GrowthCount++]);
                     Add_Spread_Cell(node->Position);
                 } else {
-                    GrowthMap[unknown_cell_index_428a90(node->Position)] = false;
+                    GrowthMap[Map_Cell_Index(node->Position)] = false;
                 }
             }
             index++;
@@ -867,9 +867,9 @@ void TiberiumClass::Init_Growth_Queue()
         GrowthMap = 0;
     }
     GrowthCount = 0;
-    GrowthData = new UnknownVeinNode[unknown_cells_428ac0()];
-    GrowthMap = new bool[unknown_cells_428ac0()];
-    GrowthQueue = new UnknownVeinHeap(unknown_cells_428ac0());
+    GrowthData = new UnknownVeinNode[Map_Cell_Count()];
+    GrowthMap = new bool[Map_Cell_Count()];
+    GrowthQueue = new UnknownVeinHeap(Map_Cell_Count());
     Rebuild_Growth();
 }
 
@@ -881,7 +881,7 @@ void TiberiumClass::Rebuild_Growth()
 {
     GrowthCount = 0;
     GrowthQueue->Clear();
-    for (int index = unknown_cells_428ac0() - 1; index >= 0; index--) {
+    for (int index = Map_Cell_Count() - 1; index >= 0; index--) {
         GrowthMap[index] = false;
     }
     Map.Reset_Iterator();
@@ -890,7 +890,7 @@ void TiberiumClass::Rebuild_Growth()
             GrowthData[GrowthCount].Position = cell->MapCoords;
             GrowthData[GrowthCount].Key = 0.0f;
             GrowthQueue->Insert(&GrowthData[GrowthCount++]);
-            GrowthMap[unknown_cell_index_428a90(cell->MapCoords)] = true;
+            GrowthMap[Map_Cell_Index(cell->MapCoords)] = true;
         }
     }
 }
@@ -955,9 +955,9 @@ void __fastcall Clear_Growth_006ea7f0(int self)
 
 void TiberiumClass::Add_Growth_Cell(Cell const &cell)
 {
-    int index = unknown_cell_index_428a90(cell);
+    int index = Map_Cell_Index(cell);
     if (Map[cell].OverlayData < 11) {
-        if (GrowthCount > unknown_cells_428ac0() - 10) {
+        if (GrowthCount > Map_Cell_Count() - 10) {
             Rebuild_Growth();
         }
         GrowthData[GrowthCount].Position = cell;

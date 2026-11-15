@@ -277,7 +277,7 @@ unsigned char __stdcall HoverLocomotionClass::Process()
 {
     if (Is_Moving() && unknown_4fdfc0()) {
         Motion_AI_004fdaf0();
-        if (!LinkedTo->unknown_7d) return false;
+        if (!LinkedTo->IsActive) return false;
 
         int height = LinkedTo->Get_Height();
         int speed = (int)(LinkedTo->Current_Speed() * unknown_50);
@@ -307,10 +307,10 @@ unsigned char __stdcall HoverLocomotionClass::Process()
             if (unknown_18 != unknown_geometry_l || arrived) {
                 int ok = While_Moving_004fcbc0(true);
                 int const &result = ok;
-                if (!LinkedTo->unknown_7d || LinkedTo->unknown_76 || LinkedTo->unknown_7a) return 7;
+                if (!LinkedTo->IsActive || LinkedTo->unknown_76 || LinkedTo->unknown_7a) return 7;
                 if (result == 0 && unknown_24 == unknown_geometry_l) {
                     LinkedTo->unknown_slot93(2);
-                    if (!LinkedTo->unknown_7d || LinkedTo->unknown_76 || LinkedTo->unknown_7a) return false;
+                    if (!LinkedTo->IsActive || LinkedTo->unknown_76 || LinkedTo->unknown_7a) return false;
                 }
                 if (ok == 7) {
                     if (LinkedTo->unknown_574 >= 0) return false;
@@ -544,7 +544,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
         }
 
         if (!Map[unknown_24].Goodie_Check(LinkedTo) && !LinkedTo->unknown_76) {
-            if (LinkedTo->unknown_7d && !LinkedTo->unknown_7a) {
+            if (LinkedTo->IsActive && !LinkedTo->unknown_7a) {
                 LinkedTo->Path[0] = -1;
                 unknown_24 = unknown_geometry_l;
                 Stop();
@@ -553,7 +553,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
             return 7;
         }
 
-        if (!LinkedTo->unknown_7d || LinkedTo->unknown_76 || LinkedTo->unknown_7a) {
+        if (!LinkedTo->IsActive || LinkedTo->unknown_76 || LinkedTo->unknown_7a) {
             return 7;
         }
 
@@ -619,7 +619,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
 
         case 0:
             LinkedTo->unknown_slot93(2);
-            if (!LinkedTo->unknown_7d || LinkedTo->unknown_76 || LinkedTo->unknown_7a) {
+            if (!LinkedTo->IsActive || LinkedTo->unknown_76 || LinkedTo->unknown_7a) {
                 return 7;
             }
             if (LinkedTo->unknown_32d) {
@@ -868,12 +868,12 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
         }
         if (!LinkedTo->unknown_4c8d60() && Hover_Foot_Distance_004fe0f0(LinkedTo->Center_Coord(),unknown_18)<Rules->unknown_1380 && (LinkedTo->Get_Mission()==2 || LinkedTo->Get_Mission()==11)) {
             LinkedTo->Assign_Destination(0,true);
-            if (!LinkedTo->unknown_7d) return;
+            if (!LinkedTo->IsActive) return;
         } else {
             if (LinkedTo->unknown_53c>0) --LinkedTo->unknown_53c;
             else {
                 LinkedTo->Assign_Destination(0,true);
-                if (!LinkedTo->unknown_7d) return;
+                if (!LinkedTo->IsActive) return;
                 if (LinkedTo->unknown_57a) Voc_Play(Rules->unknown_620,1.0f,0x2000,0);
                 LinkedTo->unknown_57a=false;
             }

@@ -261,7 +261,7 @@ int __stdcall Game_Controls_Proc(HWND window, UINT message, WPARAM wparam, LPARA
             if (GameActive == 1) {
                 HWND button = GetDlgItem(window, 0x52D);
                 if (button) {
-                    EnableWindow(button, unknown_check_406f30());
+                    EnableWindow(button, AudioDeviceAvailable());
                 }
                 return 0;
             }

@@ -43,7 +43,7 @@ extern "C" int ra2_native_vqa_selftest(void)
                      (uint32_t)raw[offset + 3] << 24);
     };
     VQAConfig config;
-    VQA_Unknown_00777850(&config);
+    VQA_DefaultConfig(&config);
     check(config.ImageWidth == at(0x20) && config.ImageHeight == at(0x24) && config.X1 == at(0x28) && config.Y1 == at(0x2C) &&
               config.FrameRate == at(0x30) && config.DrawRate == at(0x34) && config.OptionFlags == at(0x44) &&
               config.NumFrameBufs == at(0x48) && config.NumCBBufs == at(0x4C) && config.AudioBufSize == at(0x58) &&
@@ -68,7 +68,7 @@ extern "C" int ra2_native_vqa_selftest(void)
     vqap->Audio.Block2 = 6;
     vqap->Audio.BufferPosition = 7;
     vqap->LoopCache.ID = 2;
-    VQA_Unknown_0077C7D0((VQAHandle *)vqap);
+    VQA_Reset((VQAHandle *)vqap);
     check(vqap->LoadedFrames == 0 && vqap->DrawnFrames == 0 && vqap->StopFrame == 39 && vqap->LoopEndFrameMode2 == 39 &&
               vqap->LoopEndFrame2 == 39,
           "reset: counters and stop frame");

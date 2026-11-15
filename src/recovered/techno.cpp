@@ -1258,7 +1258,7 @@ bool TechnoClass::Unlimbo(CoordStruct const *coord, int dir)
 {
     unknown_32d = Map.Unknown_0055A660(Coord_Cell(*coord), true);
     if (ObjectClass::Unlimbo(coord, dir)) {
-        if (!unknown_7d) {
+        if (!IsActive) {
             return true;
         }
         unknown_slot262(0, 0, 0, 0);
@@ -2133,7 +2133,7 @@ void TechnoClass::AI()
         }
         unknown_110=unknown_118.Remaining_Levels();
     }
-    if (unknown_slot158()) { unknown_slot237(); if (!unknown_7d) return; }
+    if (unknown_slot158()) { unknown_slot237(); if (!IsActive) return; }
     Cell where(Center_Coord());
     CellClass &cell=Map[where];
     bool draw_behind;
@@ -2187,7 +2187,7 @@ void TechnoClass::AI()
         }
     }
     if (unknown_38 && unknown_38->Unknown_00436070()) unknown_38->Unknown_00435D30();
-    if (!unknown_7d) return;
+    if (!IsActive) return;
     if (unknown_slot157()) {
         ++Strength;
         if ((Health_Ratio()>Rules->unknown_1368 || Get_Height_AGL()<-10) && unknown_25c[3]) unknown_25c[3]->Delete_Me();
@@ -2731,7 +2731,7 @@ void TechnoClass::unknown_slot220(AbstractClass *target)
         if (target == this) {
             target = (AbstractClass *)Map_Cell(CoordStruct(Coord));
         } else if (target->AbstractFlags.IsObject) {
-            if (!((ObjectClass *)target)->unknown_7d || ((ObjectClass *)target)->Strength == 0) {
+            if (!((ObjectClass *)target)->IsActive || ((ObjectClass *)target)->Strength == 0) {
                 target = 0;
             } else {
                 bool active = target->AbstractFlags.IsFoot;
@@ -2901,7 +2901,7 @@ EBolt *TechnoClass::unknown_6ca130(AbstractClass *target)
     WeaponTypeClass *type = unknown_slot231(weapon)->WeaponType;
     CoordStruct source = unknown_slot43(weapon);
     EBolt *bolt = unknown_6ca020(target, type, source);
-    if (bolt != 0 && Kind_Of() == 1 && unknown_7d && ((UnitClass *)this)->unknown_5c4 == 0) {
+    if (bolt != 0 && Kind_Of() == 1 && IsActive && ((UnitClass *)this)->unknown_5c4 == 0) {
         ((UnitClass *)this)->unknown_5c4 = bolt;
         bolt->Attach_004B2580(this, weapon);
     }
@@ -3448,7 +3448,7 @@ BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
                 WeaponTypeClass *bolt_weapon = unknown_slot231(index)->WeaponType;
                 CoordStruct source = unknown_slot43(index);
                 EBolt *bolt = unknown_6ca020(target, bolt_weapon, source);
-                if (bolt != 0 && Kind_Of() == 1 && unknown_7d && reinterpret_cast<UnknownUnitView_006ca890 *>(this)->unknown_5c4 == 0) {
+                if (bolt != 0 && Kind_Of() == 1 && IsActive && reinterpret_cast<UnknownUnitView_006ca890 *>(this)->unknown_5c4 == 0) {
                     reinterpret_cast<UnknownUnitView_006ca890 *>(this)->unknown_5c4 = bolt;
                     bolt->Attach_004B2580(this, index);
                 }
@@ -4259,7 +4259,7 @@ int TechnoClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
                     building->unknown_5af=true;
                     building->unknown_420=CDTimerClass<FrameTimerClass>(frames);
                 }
-                unknown_7d=true;
+                IsActive=true;
                 Strength=1;
                 result=5;
             }
@@ -4422,21 +4422,21 @@ void TechnoClass::Record_The_Kill(TechnoClass *killer)
 {
     int found = 0;
     int points = Techno_Type_Class()->Cost_Of(House);
-    if (unknown_7d && unknown_34 != 0 && killer != 0) {
+    if (IsActive && unknown_34 != 0 && killer != 0) {
         unknown_34->Spring(6, this, unknown_cell_ac0148, 0, 0);
     }
-    if (unknown_7d) {
+    if (IsActive) {
         if (unknown_34 != 0 && killer != 0) {
             unknown_34->Spring(4, this, unknown_cell_ac0148, 0, 0);
         }
-        if (unknown_7d && Kind_Of() != 1) {
-            if (unknown_7d && unknown_34 != 0 && killer != 0) {
+        if (IsActive && Kind_Of() != 1) {
+            if (IsActive && unknown_34 != 0 && killer != 0) {
                 unknown_34->Spring(7, this, unknown_cell_ac0148, 0, 0);
             }
-            if (unknown_7d && unknown_34 != 0) {
+            if (IsActive && unknown_34 != 0) {
                 unknown_34->Spring(0x30, this, unknown_cell_ac0148, 0, 0);
             }
-            if (unknown_7d && unknown_34 != 0) {
+            if (IsActive && unknown_34 != 0) {
                 unknown_34->Spring(0x1D, this, unknown_cell_ac0148, 0, 0);
             }
         }
@@ -5777,7 +5777,7 @@ void TechnoClass::unknown_6d3400(TechnoClass *attacker)
     for (int index=0;index<Infantry.Count();++index) {
         if (required<=0) break;
         InfantryClass *member=Infantry[index];
-        if (member && member->unknown_7d && member->Owner()==Owner()) {
+        if (member && member->IsActive && member->Owner()==Owner()) {
             bool base_defense=member->Team && member->Team->Class->IsBaseDefense;
             if ((!member->Team || base_defense) && member->unknown_379 && member->unknown_slot163() && member->unknown_37a && (member->Control()->unknown_06 || unknown_game_mode_a3d298)) {
                 int armor=attacker->Techno_Type_Class()->unknown_9c;
@@ -5807,7 +5807,7 @@ void TechnoClass::unknown_6d3400(TechnoClass *attacker)
     for (int unit_index=0;unit_index<Units.Count();++unit_index) {
         if (required<=0) break;
         UnitClass *member=Units[unit_index];
-        if (member && member->unknown_7d) {
+        if (member && member->IsActive) {
             int member_owner=member->Owner();
             if (member_owner!=Owner()) continue;
             bool base_defense=member->Team && member->Team->Class->IsBaseDefense;
@@ -7787,7 +7787,7 @@ bool TechnoClass::unknown_6d7f70()
     if (unknown_3f8 == 0) {
         return false;
     }
-    if (((ObjectClass *)unknown_3f8)->unknown_7d) {
+    if (((ObjectClass *)unknown_3f8)->IsActive) {
         AbstractClass *contact = unknown_3f8;
         if (contact != 0 && contact->AbstractFlags.IsTechno) {
             TechnoClass *techno = (TechnoClass *)contact;
@@ -7826,7 +7826,7 @@ bool TechnoClass::unknown_6d7f70()
 bool TechnoClass::unknown_6d8080()
 {
     if (unknown_3f8 != 0) {
-        if (unknown_3f8->AbstractFlags.IsTechno && ((ObjectClass *)unknown_3f8)->unknown_7d) {
+        if (unknown_3f8->AbstractFlags.IsTechno && ((ObjectClass *)unknown_3f8)->IsActive) {
             Cell cell = unknown_6cf130(unknown_3f8);
             if (cell.X != unknown_geometry_k.X || cell.Y != unknown_geometry_k.Y) {
                 Assign_Destination((AbstractClass *)&Map[cell], true);

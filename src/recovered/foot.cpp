@@ -1716,7 +1716,7 @@ void FootClass::unknown_slot93(int why)
             Fall_From_Height();
         }
 
-        if (!unknown_7d) return;
+        if (!IsActive) return;
 
         if (!Map.Unknown_0055A660(unknown_slot104(), true) && unknown_slot282()) {
             Delete_Me();
@@ -2095,7 +2095,7 @@ void FootClass::Detach(AbstractClass *target, bool all)
             }
         }
         if (Get_Mission() == 8 && Kind_Of() == 15 && ((InfantryClass *)this)->Type->Occupier && unknown_494 != 0
-            && unknown_494->AbstractFlags.IsObject && ((ObjectClass *)unknown_494)->unknown_7d && ((ObjectClass *)unknown_494)->Strength > 0) {
+            && unknown_494->AbstractFlags.IsObject && ((ObjectClass *)unknown_494)->IsActive && ((ObjectClass *)unknown_494)->Strength > 0) {
         } else if (forget) {
             unknown_490 = 0;
             unknown_494 = 0;
@@ -2476,7 +2476,7 @@ inline int Random_Sound(TypeList<int> &list)
 void FootClass::AI()
 {
     TechnoClass::AI();
-    if (!unknown_7d) {
+    if (!IsActive) {
         return;
     }
     unknown_59d = false;
@@ -2486,7 +2486,7 @@ void FootClass::AI()
         if (amount > 0) {
             int damage = (int)(amount * Rules->unknown_1460);
             Take_Damage(&damage, 0, Rules->unknown_147c, 0, false, 1);
-            if (!unknown_7d) {
+            if (!IsActive) {
                 return;
             }
         }
@@ -2511,7 +2511,7 @@ void FootClass::AI()
     int frame = unknown_430;
     if (Locomotor != 0 && !unknown_325 && !unknown_7a) {
         Locomotor.Checked()->Process();
-        if (!unknown_7d) {
+        if (!IsActive) {
             return;
         }
         if (((Locomotor.Checked()->Is_Moving_Now() && !unknown_slot112())
@@ -3695,7 +3695,7 @@ bool FootClass::unknown_slot309(AbstractClass *target)
         }
         for (int index = 0; index < Aircraft.Count(); index++) {
             AircraftClass *aircraft = Aircraft[index];
-            if (aircraft->unknown_7d && !aircraft->unknown_76 && aircraft->unknown_494 == target && aircraft != this) {
+            if (aircraft->IsActive && !aircraft->unknown_76 && aircraft->unknown_494 == target && aircraft != this) {
                 return false;
             }
         }
@@ -4082,17 +4082,17 @@ bool FootClass::unknown_slot224(int source)
             if (source != 0 && unknown_34 != 0) {
                 unknown_34->Spring(0x26, this, unknown_geometry_k, 0, 0);
             }
-            if (unknown_34 != 0 && unknown_7d) {
+            if (unknown_34 != 0 && IsActive) {
                 unknown_34->Spring(0x29, this, unknown_geometry_k, 0, 0);
             }
-            if (unknown_34 != 0 && unknown_7d && source != 0) {
+            if (unknown_34 != 0 && IsActive && source != 0) {
                 unknown_34->Spring(0x29, this, unknown_geometry_k, 0, source);
             }
-            if (!unknown_7d) {
+            if (!IsActive) {
                 return true;
             }
             Record_The_Kill((TechnoClass *)source);
-            if (!unknown_7d) {
+            if (!IsActive) {
                 return true;
             }
             Strength = 0;

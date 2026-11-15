@@ -458,7 +458,7 @@ BuildingClass::~BuildingClass()
     Remove_From(FactoryPtrTracker, this);
     unknown_object_index_abff58.Remove_Index(Fetch_ID());
     Type = 0;
-    unknown_7d = false;
+    IsActive = false;
     Reset_List(unknown_53c);
     Reset_List(unknown_554);
 }
@@ -1433,7 +1433,7 @@ void BuildingClass::AI()
         unknown_5ad = false;
     }
     TechnoClass::AI();
-    if (!unknown_7d) return;
+    if (!IsActive) return;
     if (unknown_254 == 0 && !Type->Hospital && !Type->Armory) {
         unknown_254 = Type->Ammo;
     }
@@ -1514,7 +1514,7 @@ void BuildingClass::AI()
         } else {
             Take_Damage(&damage, 0, Rules->unknown_c74, (TechnoClass *)unknown_438, true, 0);
         }
-        if (!unknown_7d) return;
+        if (!IsActive) return;
         Mark(2);
     }
     if (Type->FirestormWall && (Frame & 7) == 0) {
@@ -1688,7 +1688,7 @@ bool BuildingClass::Unlimbo(CoordStruct const *coord, int dir)
             House->unknown_55e8 = true;
         }
 
-        if (!unknown_7d) {
+        if (!IsActive) {
             return true;
         }
 
@@ -1743,7 +1743,7 @@ bool BuildingClass::Unlimbo(CoordStruct const *coord, int dir)
         }
 
         if (Type->LaserFencePost && !ScenarioInit) {
-            if (unknown_7d && !unknown_76) {
+            if (IsActive && !unknown_76) {
                 unknown_44dfc0(0);
                 unknown_44dfc0(2);
                 unknown_44dfc0(4);
@@ -2047,7 +2047,7 @@ int BuildingClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warh
     if (Type->BridgeRepairHut && Type->unknown_203) return 0;
     if (Strength!=0) {
         result=TechnoClass::Take_Damage(damage,distance,warhead,source,forced,no_crew);
-        if (!unknown_7d) return result;
+        if (!IsActive) return result;
         switch (result) {
         case 5:
             return result;
@@ -2112,7 +2112,7 @@ int BuildingClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warh
             break;
         }
     }
-    if (!unknown_7d) return 4;
+    if (!IsActive) return 4;
     if (source) {
         if (result==0) goto refresh_frame;
         if (!Type->unknown_202 && !Considered_Vehicle()) House->Attacked(this);
@@ -3648,7 +3648,7 @@ bool BuildingClass::Captured(HouseClass *newowner, int announce)
     House->unknown_func_4e8640();
     if(House->unknown_5410==this) { House->unknown_5410=0; }
     if(oldowner->Is_Player_Control() && Type->ConstructionYard) {
-        Map.unknown_11a0=0;Map.unknown_11a4=0;Map.unknown_11a8=-1;
+        Map.PendingObjectPtr=0;Map.PendingObject=0;Map.unknown_11a8=-1;
         Map.Unknown_00498F10(0);
     }
     House->unknown_func_4eac70(this);
@@ -4060,7 +4060,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
                     for(int index=0;index<Technos.Count();++index) {
                         TechnoClass *techno=Technos[index];
                         if(techno->unknown_228 && techno->unknown_228->Kind_Of()==6 &&
-                           techno->unknown_228==this && techno->unknown_7d && techno!=this && techno!=unit) {
+                           techno->unknown_228==this && techno->IsActive && techno!=this && techno!=unit) {
                             targetters.Add(techno);
                         }
                     }
@@ -5845,7 +5845,7 @@ void BuildingClass::unknown_44ca60(char const *name, int index, bool damaged, bo
 // Clear a detached building animation and restart the appropriate follow-up state.
 void BuildingClass::unknown_44cce0(AbstractClass *object)
 {
-    if(!unknown_7d) return;
+    if(!IsActive) return;
     for(int index=0;index<18;++index) {
         if(unknown_454[index]!=object) continue;
         unknown_454[index]=0;
@@ -6188,7 +6188,7 @@ void BuildingClass::unknown_44d6c0()
     int count = house->Buildings.Count();
     for (int index = 0; index < count; index++) {
         BuildingClass *building = house->Buildings[index];
-        if (building->unknown_7d && !building->unknown_76) {
+        if (building->IsActive && !building->unknown_76) {
             if (building->Type->LaserFencePost) {
                 building->unknown_44e5a0(0);
             }
@@ -6381,7 +6381,7 @@ bool BuildingClass::unknown_44db40(CellClass *cell)
 
 void BuildingClass::unknown_44dbe0()
 {
-    if (!ScenarioInit && Type->LaserFencePost && unknown_7d && !unknown_76) {
+    if (!ScenarioInit && Type->LaserFencePost && IsActive && !unknown_76) {
         unknown_44dfc0(0);
         unknown_44dfc0(2);
         unknown_44dfc0(4);
@@ -6465,7 +6465,7 @@ void __fastcall BuildingClass::unknown_44df40()
 {
     for(int index=0;index<unknown_BuildingClass_list_00a40af8.Count();++index) {
         BuildingClass *building=unknown_BuildingClass_list_00a40af8[index];
-        if(building && building->Type->LaserFencePost && ScenarioInit==0 && building->unknown_7d && !building->unknown_76) {
+        if(building && building->Type->LaserFencePost && ScenarioInit==0 && building->IsActive && !building->unknown_76) {
             building->unknown_44dfc0(0);
             building->unknown_44dfc0(2);
             building->unknown_44dfc0(4);
@@ -6632,7 +6632,7 @@ void __fastcall Building_Reset_Fence_Progress_0044e570(BuildingClass *building)
 // Refresh laser-fence segment frames and apply damage along connected active fields.
 void BuildingClass::unknown_44e5a0(int force)
 {
-    if(Type->LaserFencePost && unknown_7d && !unknown_76) {
+    if(Type->LaserFencePost && IsActive && !unknown_76) {
         int range=Type->GuardRange.Value>>8;
         if(range<=1) range=1;
         bool powered=false;
@@ -7111,7 +7111,7 @@ void __fastcall Building_Refresh_House_Buildings_0044fa40(HouseClass *house)
     int count = house->Buildings.Count();
     for (int index = 0; index < count; ++index) {
         BuildingClass *building = house->Buildings[index];
-        if (building->unknown_7d && !building->unknown_76) {
+        if (building->IsActive && !building->unknown_76) {
             if (building->Type->LaserFencePost)
                 building->unknown_44e5a0(0);
             building->unknown_44f8e0();
@@ -7270,7 +7270,7 @@ void BuildingClass::Cloaking_AI(int fast)
             if (unknown_5bc==0) {
                 for (int i=0;i<unknown_BuildingClass_list_00a40af8.Count();++i) {
                     BuildingClass *building=unknown_BuildingClass_list_00a40af8[i];
-                    if (building->unknown_7d && building!=this && building->Type->CloakGenerator &&
+                    if (building->IsActive && building!=this && building->Type->CloakGenerator &&
                         building->unknown_slot195() && building->unknown_5bb==0) {
                         Cell diff=center-Cell(building->Center_Coord());
                         int dy=diff.Y;
@@ -7450,7 +7450,7 @@ int BuildingClass::unknown_4508c0()
     UnknownCellClass *cell = Map_Cell(coord);
     for (int facing = 0; facing < 8; facing += 2) {
         BuildingClass *building = cell->Unknown_00476AC0(facing)->Unknown_004717B0();
-        if (building && building->Type->FirestormWall && !building->unknown_76 && building->unknown_7d) {
+        if (building && building->Type->FirestormWall && !building->unknown_76 && building->IsActive) {
             mask |= 1 << (facing >> 1);
         }
     }
@@ -8161,7 +8161,7 @@ void BuildingClass::unknown_slot173()
     for (int index = 0; index < Infantry.Count(); index++) {
         UnknownBuildingInfantryView *infantry = (UnknownBuildingInfantryView *)Infantry[index];
         ObjectClass *building = Map[infantry->unknown_slot19(0)].Cell_Building();
-        if (infantry->unknown_7d && building && building == this
+        if (infantry->IsActive && building && building == this
             && (!infantry->unknown_494 || infantry->unknown_494 == building)) {
             infantry->Scatter(unknown_geometry_l, 1 != 0, 1 != 0);
         }

@@ -11,7 +11,7 @@
 #include "shared/crt_string.hpp"
 
 
-// int __fastcall VQA_Unknown_0077B7A0(char const *filename, VQAConfig *_config, VQAHandle **handle) -- 0x0077B7A0
+// int __fastcall VQA_Open(char const *filename, VQAConfig *_config, VQAHandle **handle) -- 0x0077B7A0
 // Purpose: VQA_Open (TS): allocates and clears a private handle, copies the
 // configuration (default memory and disk stream handlers), opens the
 // stream, keeps the last 31 characters of the name, reads the FORM/WVQA
@@ -20,7 +20,7 @@
 // sets the initial loop, configures the drawer and primes the buffers.
 // Stores the handle and returns -1, else an error after closing.
 
-int __fastcall VQA_Unknown_0077B7A0(char const *filename, VQAConfig *_config, VQAHandle **handle)
+int __fastcall VQA_Open(char const *filename, VQAConfig *_config, VQAHandle **handle)
 {
     VQAHandle *vqa;
     VQAHandleP *vqap;
@@ -83,26 +83,26 @@ int __fastcall VQA_Unknown_0077B7A0(char const *filename, VQAConfig *_config, VQ
     strcpy(vqap->Filename, filename + pos);
 
     if (config->StreamHandler(vqa, VQACMD_READ, (int)&chunk, sizeof(chunk))) {
-        VQA_Unknown_0077BE70(vqa);
+        VQA_Close(vqa);
         return -4;
     }
     if ((chunk.ID != ID_FORM) || (chunk.Size == 0)) {
-        VQA_Unknown_0077BE70(vqa);
+        VQA_Close(vqa);
         return -7;
     }
     if (config->StreamHandler(vqa, VQACMD_READ, (int)&chunk, sizeof(chunk.ID))) {
-        VQA_Unknown_0077BE70(vqa);
+        VQA_Close(vqa);
         return -4;
     }
     if (chunk.ID != ID_WVQA) {
-        VQA_Unknown_0077BE70(vqa);
+        VQA_Close(vqa);
         return -7;
     }
 
     done = 0;
     while (!done) {
         if (config->StreamHandler(vqa, VQACMD_READ, (int)&chunk, sizeof(chunk))) {
-            VQA_Unknown_0077BE70(vqa);
+            VQA_Close(vqa);
             return -4;
         }
         chunk.Size = REVERSE_LONG(chunk.Size);
@@ -110,11 +110,11 @@ int __fastcall VQA_Unknown_0077B7A0(char const *filename, VQAConfig *_config, VQ
         switch (chunk.ID) {
         case ID_VQHD:
             if (chunk.Size != sizeof(VQAHeader)) {
-                VQA_Unknown_0077BE70(vqa);
+                VQA_Close(vqa);
                 return -7;
             }
             if (config->StreamHandler(vqa, VQACMD_READ, (int)header, PADSIZE(chunk.Size))) {
-                VQA_Unknown_0077BE70(vqa);
+                VQA_Close(vqa);
                 return -4;
             }
             vqap->Version = header->Version;
@@ -139,46 +139,46 @@ int __fastcall VQA_Unknown_0077B7A0(char const *filename, VQAConfig *_config, VQ
 
         case ID_CLIP:
             if (Load_CLIP(vqap, chunk.Size) != -1) {
-                VQA_Unknown_0077BE70(vqa);
+                VQA_Close(vqa);
                 return -4;
             }
             break;
 
         case ID_LINF:
             if (Load_LINF(vqap) != -1) {
-                VQA_Unknown_0077BE70(vqa);
+                VQA_Close(vqa);
                 return -4;
             }
             break;
 
         case ID_MFCI:
             if (Load_MFCI(vqap) != -1) {
-                VQA_Unknown_0077BE70(vqa);
+                VQA_Close(vqa);
                 return -4;
             }
             break;
 
         case ID_CINF:
             if (Load_CINF(vqap) != -1) {
-                VQA_Unknown_0077BE70(vqa);
+                VQA_Close(vqa);
                 return -4;
             }
             break;
 
         case ID_PINF:
             if (Load_PINF(vqap) != -1) {
-                VQA_Unknown_0077BE70(vqa);
+                VQA_Close(vqa);
                 return -4;
             }
             break;
 
         case ID_FINF:
             if (AllocBuffers(vqap) != -1) {
-                VQA_Unknown_0077BE70(vqa);
+                VQA_Close(vqa);
                 return -8;
             }
             if (Load_FINF(vqap, chunk.Size) != -1) {
-                VQA_Unknown_0077BE70(vqa);
+                VQA_Close(vqa);
                 return -4;
             }
             done = true;
@@ -186,14 +186,14 @@ int __fastcall VQA_Unknown_0077B7A0(char const *filename, VQAConfig *_config, VQ
 
         case ID_MSCI:
             if (Load_MSCI(vqap) != -1) {
-                VQA_Unknown_0077BE70(vqa);
+                VQA_Close(vqa);
                 return -4;
             }
             break;
 
         default:
             if (config->StreamHandler(vqa, VQACMD_SEEK, 1, PADSIZE(chunk.Size))) {
-                VQA_Unknown_0077BE70(vqa);
+                VQA_Close(vqa);
                 return -6;
             }
             break;
@@ -204,7 +204,7 @@ int __fastcall VQA_Unknown_0077B7A0(char const *filename, VQAConfig *_config, VQ
         vqap->PaletteInfo.Header.Count = (unsigned short)VQA_NumFramesWithPalettes(vqap);
     }
 
-    VQA_Unknown_0077C7D0((VQAHandle *)vqap);
+    VQA_Reset((VQAHandle *)vqap);
 
     if ((header->Flags & VQAHDF_AUDIO) == 0) {
         config->OptionFlags &= ~VQAOPTF_AUDIO;
@@ -213,7 +213,7 @@ int __fastcall VQA_Unknown_0077B7A0(char const *filename, VQAConfig *_config, VQ
     if (config->OptionFlags & VQAOPTF_AUDIO) {
         VQAAudio *audio;
         if (config->AudioHandler == 0) {
-            VQA_Unknown_0077BE70(vqa);
+            VQA_Close(vqa);
             return -21;
         }
         audio = &vqap->Audio;
@@ -227,7 +227,7 @@ int __fastcall VQA_Unknown_0077B7A0(char const *filename, VQAConfig *_config, VQ
             vqap->BitsPerSample = header->BitsPerSample;
         }
         if (VQA_OpenAudio(vqap) != -1) {
-            VQA_Unknown_0077BE70(vqa);
+            VQA_Close(vqa);
             return -13;
         }
         Lock_Audio_Handler();
@@ -265,7 +265,7 @@ int __fastcall VQA_Unknown_0077B7A0(char const *filename, VQAConfig *_config, VQ
                     void *ptr = (void *)config->MemoryHandler(vqa, VQAMEM_ALLOC, 0, vqap->LoopCache.Size);
                     cache->Ptr = (char *)ptr;
                     if (ptr == 0) {
-                        VQA_Unknown_0077BE70(vqa);
+                        VQA_Close(vqa);
                         return -8;
                     }
                     config->MemoryHandler(vqa, VQAMEM_LOCK, (int)vqap->LoopCache.Ptr, vqap->LoopCache.Size);
@@ -277,13 +277,13 @@ int __fastcall VQA_Unknown_0077B7A0(char const *filename, VQAConfig *_config, VQ
         }
 
         if (config->InitialLoopID >= 0) {
-            if (VQA_Unknown_0077C640(vqa, config->InitialLoopID, config->InitialLoopIterations, 2) != -1) {
-                VQA_Unknown_0077BE70(vqa);
+            if (VQA_SetLoop(vqa, config->InitialLoopID, config->InitialLoopIterations, 2) != -1) {
+                VQA_Close(vqa);
                 return -23;
             }
         } else {
-            if (VQA_Unknown_0077C6C0(vqa, 0, vqap->StopFrame, 0, 0) != -1) {
-                VQA_Unknown_0077BE70(vqa);
+            if (VQA_SetLoop_Internal(vqa, 0, vqap->StopFrame, 0, 0) != -1) {
+                VQA_Close(vqa);
                 return -23;
             }
         }
@@ -297,7 +297,7 @@ int __fastcall VQA_Unknown_0077B7A0(char const *filename, VQAConfig *_config, VQ
 
     if (!(config->OptionFlags & VQAOPTF_LOOPS) || config->InitialLoopID < 0) {
         if (PrimeBuffers(vqap) != -1) {
-            VQA_Unknown_0077BE70(vqa);
+            VQA_Close(vqa);
             return -4;
         }
     }
@@ -307,12 +307,12 @@ int __fastcall VQA_Unknown_0077B7A0(char const *filename, VQAConfig *_config, VQ
 }
 
 
-// void __fastcall VQA_Unknown_0077BE70(VQAHandle *vqa) -- 0x0077BE70
+// void __fastcall VQA_Close(VQAHandle *vqa) -- 0x0077BE70
 // Purpose: VQA_Close (TS): closes the audio (and releases the game's audio
 // lock), frees the private image buffer and all player buffers, closes the
 // stream and frees the handle.
 
-void __fastcall VQA_Unknown_0077BE70(VQAHandle *vqa)
+void __fastcall VQA_Close(VQAHandle *vqa)
 {
     VQAHandleP *vqap;
     VQAConfig *config;
@@ -343,14 +343,14 @@ void __fastcall VQA_Unknown_0077BE70(VQAHandle *vqa)
 }
 
 
-// int __fastcall VQA_Unknown_0077BF10(VQAHandle *vqa, int mode, int flags) -- 0x0077BF10
+// int __fastcall VQA_Play(VQAHandle *vqa, int mode, int flags) -- 0x0077BF10
 // Purpose: VQA_Play (TS): primes playback on the first call (clock, image
 // buffer, audio), tracks the client callback count, then pauses (drawing
 // one forced frame with VQAPLAYF_REPAINT) or runs the load/draw loop until
 // both loader and drawer are done (one frame in walk mode), honoring the
 // wait-for-refill audio sync. Returns the last drawn frame, -2 at the end.
 
-int __fastcall VQA_Unknown_0077BF10(VQAHandle *vqa, int mode, int flags)
+int __fastcall VQA_Play(VQAHandle *vqa, int mode, int flags)
 {
     VQAHandleP *vqabuf;
     VQAConfig *config;
@@ -534,14 +534,14 @@ int __fastcall VQA_Unknown_0077BF10(VQAHandle *vqa, int mode, int flags)
 }
 
 
-// int __fastcall VQA_Unknown_0077C2E0(VQAHandle *vqa, int framenum, int fromwhere) -- 0x0077C2E0
+// int __fastcall VQA_SeekFrame(VQAHandle *vqa, int framenum, int fromwhere) -- 0x0077C2E0
 // Purpose: VQA_SeekFrame (TS): repositions playback at a frame up to the
 // stop frame: stops the audio, empties the loop cache, reloads the
 // palette in effect there (color mode 0, not a loop start), seeks the
 // loader to the frame's group, clears the frame ring, primes the buffers
 // and sets the clock. Returns the frame, or -6 past the stop frame.
 
-int __fastcall VQA_Unknown_0077C2E0(VQAHandle *vqa, int framenum, int fromwhere)
+int __fastcall VQA_SeekFrame(VQAHandle *vqa, int framenum, int fromwhere)
 {
     VQAHandleP *vqap;
     VQALoader *loader;
@@ -610,11 +610,11 @@ int __fastcall VQA_Unknown_0077C2E0(VQAHandle *vqa, int framenum, int fromwhere)
 }
 
 
-// int __fastcall VQA_Unknown_0077C440(VQAHandle *vqa, UNVQ_FUNC unvq1, UNVQ_FUNC unvq2) -- 0x0077C440
+// int __fastcall VQA_SetUnVQ(VQAHandle *vqa, UNVQ_FUNC unvq1, UNVQ_FUNC unvq2) -- 0x0077C440
 // Purpose: VQA_SetUnVQ (TS): installs caller-supplied UnVQ decoders; a null
 // pointer installs UnVQ_Nop.
 
-int __fastcall VQA_Unknown_0077C440(VQAHandle *vqa, UNVQ_FUNC unvq1, UNVQ_FUNC unvq2)
+int __fastcall VQA_SetUnVQ(VQAHandle *vqa, UNVQ_FUNC unvq1, UNVQ_FUNC unvq2)
 {
     VQAHandleP *vqap = (VQAHandleP *)vqa;
 
@@ -632,14 +632,14 @@ int __fastcall VQA_Unknown_0077C440(VQAHandle *vqa, UNVQ_FUNC unvq1, UNVQ_FUNC u
 }
 
 
-// int __fastcall VQA_Unknown_0077C480(VQAHandle *vqa, int buffer, int width, int height, int xpos, int ypos) -- 0x0077C480
+// int __fastcall VQA_Set_DrawBuffer(VQAHandle *vqa, int buffer, int width, int height, int xpos, int ypos) -- 0x0077C480
 // Purpose: VQA_Set_DrawBuffer (TS): sets the image buffer and its size
 // (0 keeps the movie's) and places the movie in it: centered (or at the
 // movie's offset with DrawFlags bit 3) without a position, else at the
 // position relative to the configured origin corner, halved for half-size
 // playback. -24 when the origin falls outside the buffer.
 
-int __fastcall VQA_Unknown_0077C480(VQAHandle *vqa, int buffer, int width, int height, int xpos, int ypos)
+int __fastcall VQA_Set_DrawBuffer(VQAHandle *vqa, int buffer, int width, int height, int xpos, int ypos)
 {
     long origin;
     VQAHeader *header;
@@ -723,12 +723,12 @@ int __fastcall VQA_Unknown_0077C480(VQAHandle *vqa, int buffer, int width, int h
 }
 
 
-// int __fastcall VQA_Unknown_0077C640(VQAHandle *vqa, int id, int iterations, int mode) -- 0x0077C640
+// int __fastcall VQA_SetLoop(VQAHandle *vqa, int id, int iterations, int mode) -- 0x0077C640
 // Purpose: VQA_SetLoop (TS): plays loop `id` of the LINF table
 // (VQA_SetLoop_Internal with its frame range) and records it as the
 // current loop. -23 for an unknown loop.
 
-int __fastcall VQA_Unknown_0077C640(VQAHandle *vqa, int id, int iterations, int mode)
+int __fastcall VQA_SetLoop(VQAHandle *vqa, int id, int iterations, int mode)
 {
     VQAHandleP *vqap = (VQAHandleP *)vqa;
     VQAConfig *config = &vqap->Config;
@@ -744,7 +744,7 @@ int __fastcall VQA_Unknown_0077C640(VQAHandle *vqa, int id, int iterations, int 
     int start = data->StartFrame;
     int end = data->EndFrame;
     vqap->LoopID = id;
-    int rc = VQA_Unknown_0077C6C0(vqa, start, end, iterations, mode);
+    int rc = VQA_SetLoop_Internal(vqa, start, end, iterations, mode);
     if (rc == -1) {
         vqap->LoopID = id;
     }
@@ -752,13 +752,13 @@ int __fastcall VQA_Unknown_0077C640(VQAHandle *vqa, int id, int iterations, int 
 }
 
 
-// int __fastcall VQA_Unknown_0077C6C0(VQAHandle *vqa, int start, int end, int iterations, int mode) -- 0x0077C6C0
+// int __fastcall VQA_SetLoop_Internal(VQAHandle *vqa, int start, int end, int iterations, int mode) -- 0x0077C6C0
 // Purpose: VQA_SetLoop_Internal (TS): queues a loop over frames start..end.
 // Mode 0 loops after the current loop, mode 1 jumps at the current loop's
 // end (mode 2 when no loop is running), mode 2 seeks to the loop now.
 // A negative iteration count loops forever. -23 for a bad range or mode.
 
-int __fastcall VQA_Unknown_0077C6C0(VQAHandle *vqa, int start, int end, int iterations, int mode)
+int __fastcall VQA_SetLoop_Internal(VQAHandle *vqa, int start, int end, int iterations, int mode)
 {
     VQAHandleP *vqap = (VQAHandleP *)vqa;
     int rc = -1;
@@ -796,7 +796,7 @@ int __fastcall VQA_Unknown_0077C6C0(VQAHandle *vqa, int start, int end, int iter
             if (mode == VQALOOP_2) {
                 vqap->LoopEndFrameMode2 = end;
                 vqap->StopFrame = end;
-                if (VQA_Unknown_0077C2E0(vqa, start, 0) >= 0) {
+                if (VQA_SeekFrame(vqa, start, 0) >= 0) {
                     rc = -1;
                 } else {
                     rc = -23;
@@ -830,11 +830,11 @@ void __fastcall VQA_ResetCache(VQAHandleP *vqap)
 }
 
 
-// int __fastcall VQA_Unknown_0077C8A0(VQAHandle *vqa, int stop) -- 0x0077C8A0
+// int __fastcall VQA_SetStop(VQAHandle *vqa, int stop) -- 0x0077C8A0
 // Purpose: VQA_SetStop (TS): sets the frame playback stops at (1..Frames)
 // and returns the previous one, else -1.
 
-int __fastcall VQA_Unknown_0077C8A0(VQAHandle *vqa, int stop)
+int __fastcall VQA_SetStop(VQAHandle *vqa, int stop)
 {
     VQAHandleP *vqap = (VQAHandleP *)vqa;
     int oldstop = -1;
@@ -875,10 +875,10 @@ int __fastcall VQA_GetClipping(VQAHandleP *vqap, int &clipw, long &cliph)
 }
 
 
-// int __fastcall VQA_Unknown_0077C920(VQAHandle *vqa, int *blockw, int *blockh, int *clrmode) -- 0x0077C920
+// int __fastcall VQA_GetBlockInfo(VQAHandle *vqa, int *blockw, int *blockh, int *clrmode) -- 0x0077C920
 // Purpose: VQA_GetBlockInfo (TS): the block width, height and color mode.
 
-int __fastcall VQA_Unknown_0077C920(VQAHandle *vqa, int *blockw, int *blockh, int *clrmode)
+int __fastcall VQA_GetBlockInfo(VQAHandle *vqa, int *blockw, int *blockh, int *clrmode)
 {
     VQAHandleP *vqap = (VQAHandleP *)vqa;
     VQAHeader *header;
@@ -1021,12 +1021,12 @@ long __fastcall VQA_LargestLoop(VQAHandleP *vqap, long streamsize)
 
 // Not exact (RA2_NON_MATCHING): VQA_Reset at 0x0077C7D0, best score 66.67, 2026-11-13; differs: 36 instructions in the original, 39 in the draft (shape 77.33)
 #ifdef RA2_NON_MATCHING
-// void __fastcall VQA_Unknown_0077C7D0(VQAHandle *vqa) -- 0x0077C7D0
+// void __fastcall VQA_Reset(VQAHandle *vqa) -- 0x0077C7D0
 // Purpose: VQA_Reset (TS): clears the playback counters, loop state, timing
 // and audio block positions, and the loop cache window (VQA_ResetCache,
 // defined after it in the unit and expanded inline here).
 
-void __fastcall VQA_Unknown_0077C7D0(VQAHandle *vqa)
+void __fastcall VQA_Reset(VQAHandle *vqa)
 {
     VQAHandleP *vqap;
     VQAAudio *audio;

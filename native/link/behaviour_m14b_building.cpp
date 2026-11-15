@@ -88,7 +88,7 @@ int BuildingClass::Do_MISSION_ATTACK()
                     int count = House->Buildings.Count();
                     for (int index = 0; index < count; ++index) {
                         BuildingClass *other = House->Buildings[index];
-                        if (other == 0 || !other->unknown_7d || other->Type != Rules->PrismType) {
+                        if (other == 0 || !other->IsActive || other->Type != Rules->PrismType) {
                             continue;
                         }
                         if ((long)other->unknown_244 != 0 || other->unknown_5d8 != 0) {

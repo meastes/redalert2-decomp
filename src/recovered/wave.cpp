@@ -297,7 +297,7 @@ void WaveClass::Damage_Cell_00721eb0(CoordStruct const &coord)
             object = cell.OccupierPtr;
         else object = cell.AltOccupierPtr;
         for (; object; object = object->unknown_30) {
-            if (object != Owner && object->unknown_7d && object->unknown_74 && !object->unknown_76 && object->Strength > 0)
+            if (object != Owner && object->IsActive && object->unknown_74 && !object->unknown_76 && object->Strength > 0)
                 object->Take_Damage(&damage, 0, warhead, Owner, false, 0);
         }
         if (cell.OverlayIndex != -1) {
@@ -448,7 +448,7 @@ bool WaveClass::Unlimbo(CoordStruct const *coord, int dir)
         unknown_75 = false;
         Set_Coord(*coord);
         if (Mark(1)) {
-            if (unknown_7d) {
+            if (IsActive) {
                 if (In_Which_Layer() != -1) {
                     Map.Submit(this);
                 }

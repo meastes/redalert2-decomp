@@ -145,7 +145,7 @@ DisplayClass::DisplayClass()
     : unknown_1170(unknown_geometry_k), unknown_1174(0, 0), unknown_1178(0), unknown_117c(false),
       unknown_117d(false), unknown_117e(unknown_geometry_k), unknown_1182(0, 0), unknown_1188(0),
       unknown_118c(0), unknown_1190(0), unknown_1194(-1), unknown_1198(false), unknown_119c(0),
-      unknown_11a0(0), unknown_11a4(0), unknown_11a8(-1), unknown_11ac(false), unknown_11ad(false),
+      PendingObjectPtr(0), PendingObject(0), unknown_11a8(-1), unknown_11ac(false), unknown_11ad(false),
       unknown_11ae(false), unknown_11af(false), unknown_11b0(false), unknown_11b4(-1), unknown_11b8(0),
       unknown_11bc(0), unknown_11c0(0), unknown_11c4(0), WaypointColor(0, 0, 0), unknown_11cb(false), unknown_11cc(false), unknown_11cd(false), unknown_11d0(0, 0),
       unknown_11d8(0, 0)
@@ -175,8 +175,8 @@ void DisplayClass::One_Time()
 void DisplayClass::Init_Clear()
 {
     MapClass::Init_Clear();
-    unknown_11a0 = 0;
-    unknown_11a4 = 0;
+    PendingObjectPtr = 0;
+    PendingObject = 0;
     unknown_11a8 = -1;
     unknown_1178 = 0;
     unknown_11b4 = -1;
@@ -491,9 +491,9 @@ Cell DisplayClass::Unknown_004994D0(Cell const &xpos)
         }
     }
     unknown_1170 = pos;
-    unknown_117c = Passes_Proximity_Check_004991D0(unknown_11a4, unknown_11a8, unknown_1178, unknown_1170 + unknown_1174);
+    unknown_117c = Passes_Proximity_Check_004991D0(PendingObject, unknown_11a8, unknown_1178, unknown_1170 + unknown_1174);
     Cell cell = unknown_1170 + unknown_1174;
-    unknown_117d = Unknown_00499390((BuildingTypeClass *)unknown_11a4, unknown_11a8, (int)unknown_1178, &cell);
+    unknown_117d = Unknown_00499390((BuildingTypeClass *)PendingObject, unknown_11a8, (int)unknown_1178, &cell);
 
     return prevpos;
 }
@@ -1241,14 +1241,14 @@ void Unknown_00482BC0();
 
 void DisplayClass::Mouse_Right_Release(Point2D const &xy)
 {
-    ObjectClass *pending = unknown_11a0;
+    ObjectClass *pending = PendingObjectPtr;
     bool techno;
     if (pending != 0) {
         techno = pending->AbstractFlags.IsTechno;
     }
     if (pending != 0 && techno) {
-        unknown_11a0 = 0;
-        unknown_11a4 = 0;
+        PendingObjectPtr = 0;
+        PendingObject = 0;
         unknown_11a8 = -1;
         Unknown_00498F10(0);
         Set_Default_Mouse(0, unknown_flag_83740c);
@@ -1303,37 +1303,37 @@ void DisplayClass::Mouse_Left_Release(CoordStruct const &coord, Cell const &cell
 {
     if (object && ScenarioActive && GameActive && !Debug_Map &&
         object->unknown_slot25(false, 0) == 5) object = 0;
-    if (unknown_11a0) {
-        if (unknown_11a4->Kind_Of() == 7) {
+    if (PendingObjectPtr) {
+        if (PendingObject->Kind_Of() == 7) {
             TPoint2D<short> const *placement=&cell;
             Cell const where=placement->operator+(unknown_1174);
-            unknown_117c = Passes_Proximity_Check_004991D0(unknown_11a4, unknown_11a8, unknown_1178, where);
+            unknown_117c = Passes_Proximity_Check_004991D0(PendingObject, unknown_11a8, unknown_1178, where);
         }
-        if (unknown_11a4->Kind_Of() == 7 && object && object->Kind_Of() == 6 &&
-            static_cast<BuildingClass *>(object)->unknown_44d900(static_cast<BuildingTypeClass const *>(unknown_11a4), unknown_player_a35db4))
+        if (PendingObject->Kind_Of() == 7 && object && object->Kind_Of() == 6 &&
+            static_cast<BuildingClass *>(object)->unknown_44d900(static_cast<BuildingTypeClass const *>(PendingObject), unknown_player_a35db4))
             unknown_117c = true;
         if (unknown_117c && unknown_117d) {
-            TechnoTypeClass const *techno_type = dynamic_cast<TechnoTypeClass const *>(unknown_11a4);
+            TechnoTypeClass const *techno_type = dynamic_cast<TechnoTypeClass const *>(PendingObject);
             bool naval = techno_type && techno_type->Naval;
-            ObjectClass *pending = unknown_11a0;
+            ObjectClass *pending = PendingObjectPtr;
             OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 0xb, pending->Kind_Of(),
-                unknown_11a4->Fetch_Heap_ID(), naval, cell + unknown_1174));
-            pending = unknown_11a0;
+                PendingObject->Fetch_Heap_ID(), naval, cell + unknown_1174));
+            pending = PendingObjectPtr;
             BuildingClass *placed;
             if (!pending) placed = 0;
             else placed = pending->Kind_Of() == 6 ? static_cast<BuildingClass *>(pending) : 0;
             Unknown_006F8A20(placed);
             if (!Debug_Map) {
-                unknown_1190 = unknown_11a4;
-                unknown_118c = unknown_11a0;
+                unknown_1190 = PendingObject;
+                unknown_118c = PendingObjectPtr;
                 unknown_117e = cell;
                 unknown_1182 = unknown_1174;
                 unknown_1188 = unknown_1178;
                 unknown_1194 = unknown_11a8;
-                if (unknown_11a4) Map.Set_Cursor_Shape(unknown_11a4->Occupy_List(true));
+                if (PendingObject) Map.Set_Cursor_Shape(PendingObject->Occupy_List(true));
                 Map.Unknown_00498F10(0);
-                Map.unknown_11a0 = 0;
-                Map.unknown_11a4 = 0;
+                Map.PendingObjectPtr = 0;
+                Map.PendingObject = 0;
                 Map.unknown_11a8 = -1;
             }
         } else {
@@ -1776,7 +1776,7 @@ void __fastcall Unknown_0049C3F0(ObjectClass *object)
 
 void DisplayClass::Mouse_Left_Press(Point2D const &xy)
 {
-    if (!unknown_11ac && !unknown_11ae && !unknown_11ad && unknown_11b4 == -1 && unknown_11a4 == 0) {
+    if (!unknown_11ac && !unknown_11ae && !unknown_11ad && unknown_11b4 == -1 && PendingObject == 0) {
         unknown_11cc = true;
         unknown_11d0 = xy;
         unknown_11d8 = xy;
@@ -1874,7 +1874,7 @@ void DisplayClass::Unknown_0049C7C0(int control)
         mode = true;
         break;
     }
-    if (mode != unknown_11ad && !unknown_11a4) {
+    if (mode != unknown_11ad && !PendingObject) {
         Set_Default_Mouse(0, false);
         unknown_11ac = false;
         unknown_11ae = false;
@@ -1914,7 +1914,7 @@ void DisplayClass::Unknown_0049C860(int control, bool keep)
         mode = true;
         break;
     }
-    if (mode != unknown_11af && !unknown_11a4) {
+    if (mode != unknown_11af && !PendingObject) {
         unknown_11ac = false;
         unknown_11ad = false;
         unknown_11ae = false;
@@ -1967,7 +1967,7 @@ void DisplayClass::Unknown_0049C980(int control)
         mode = true;
         break;
     }
-    if (mode != unknown_11ae && !unknown_11a4) {
+    if (mode != unknown_11ae && !PendingObject) {
         Set_Default_Mouse(0, false);
         unknown_11ac = false;
         unknown_11ad = false;
@@ -2006,7 +2006,7 @@ void DisplayClass::Unknown_0049CA20(int control)
         mode = true;
         break;
     }
-    if (mode != unknown_11ac && !unknown_11a4) {
+    if (mode != unknown_11ac && !PendingObject) {
         unknown_11ad = false;
         unknown_11ae = false;
         unknown_11af = false;
@@ -2046,7 +2046,7 @@ void DisplayClass::Unknown_0049CAC0(int control)
         mode = true;
         break;
     }
-    if (mode != unknown_11b0 && !unknown_11a4) {
+    if (mode != unknown_11b0 && !PendingObject) {
         if (mode && !unknown_object_84e8d0.Unknown_0042E700(unknown_player_a35db4->ArrayIndex)) {
             mode = false;
         }

@@ -271,7 +271,7 @@ extern char unknown_flag_a40d0c;
 
 void Speech_Update()
 {
-    if (unknown_flag_a40d0c || !unknown_check_406f30() || unknown_vox_stream_ad095c == 0
+    if (unknown_flag_a40d0c || !AudioDeviceAvailable() || unknown_vox_stream_ad095c == 0
             || Audio_Stream_Is_Playing(unknown_vox_stream_ad095c)) {
         return;
     }

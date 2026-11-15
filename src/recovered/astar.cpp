@@ -919,21 +919,21 @@ ObjectClass *AStarClass::Find_Moving_Blocker(Cell const &cell,int level)
 }
 
 
-// int __fastcall unknown_cell_index_428a90(Cell const &cell) (0x00428A90)
+// int __fastcall Map_Cell_Index(Cell const &cell) (0x00428A90)
 // The index of a cell in the map's isometric cell block (0x00428AC0 counts them).
 #include "shared/veinhole.hpp"
 
-int __fastcall unknown_cell_index_428a90(Cell const &cell)
+int __fastcall Map_Cell_Index(Cell const &cell)
 {
     return (cell.X - Map.MapSize.Width - 1 + cell.Y) * Map.MapSize.Width + ((cell.X - cell.Y - 1 + Map.MapSize.Width) >> 1);
 }
 
 
-// int __fastcall unknown_cells_428ac0() (0x00428AC0)
+// int __fastcall Map_Cell_Count() (0x00428AC0)
 // The number of cells of the map's isometric cell block: (height + 4) rows of
 // twice the width (TiberiumClass sizes its growth tables with it).
 
-int __fastcall unknown_cells_428ac0()
+int __fastcall Map_Cell_Count()
 {
     return (Map.MapSize.Height + 4) * Map.MapSize.Width * 2;
 }

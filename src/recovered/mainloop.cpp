@@ -459,7 +459,7 @@ bool __fastcall unknown_53fbd0()
         unknown_trap_check_heap_a40d1a = true;
     }
 
-    if (TacticalActive == true && unknown_check_406f30()) {
+    if (TacticalActive == true && AudioDeviceAvailable()) {
         int theme = Theme.Score;
         if (theme == -1) {
             theme = Theme.Pending;

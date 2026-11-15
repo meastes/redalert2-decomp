@@ -351,7 +351,7 @@ void ParticleClass::Gas_Behavior_AI()
         while (occupier) {
             CoordStruct delta = Position_Coord_004f3f40() - occupier->Position_Coord_004f3f40();
             ObjectClass *next = occupier->unknown_30;
-            if (occupier->unknown_7d) {
+            if (occupier->IsActive) {
                 if (occupier->Strength > 0) {
                     int damage = Class->Damage;
                     occupier->Take_Damage(&damage, Unknown_006A2970(abs(delta.X) + abs(delta.Y)), Class->Warhead, 0, 0, 0);
@@ -472,7 +472,7 @@ void ParticleClass::Fire_Behavior_AI()
             delta = Center_Coord() - delta;
             int distance = Particle_Distance(delta);
             int damage = Class->Damage;
-            if (target->Strength > 0 && target->unknown_7d && target != System->Owner) {
+            if (target->Strength > 0 && target->IsActive && target != System->Owner) {
                 target->Take_Damage(&damage, distance / 10, Class->Warhead, 0, false, 0);
             }
             target = target->unknown_30;

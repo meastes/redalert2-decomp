@@ -171,7 +171,7 @@ int __stdcall Main_Options_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
             SendMessageA(slider, 0x406, 1, 0x60000);
             SendMessageA(slider, 0x405, 1, 6 - Options.ScrollRate);
         }
-        int sound = unknown_check_406f30();
+        int sound = AudioDeviceAvailable();
         static int const volume_ids[3] = {0x52F, 0x532, 0x536};
         float const *volumes[3] = {&Options.ScoreVolume, &Options.SoundVolume, &Options.VoiceVolume};
         for (int i = 0; i < 3; ++i) {

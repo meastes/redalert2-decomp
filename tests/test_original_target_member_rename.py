@@ -81,6 +81,15 @@ class MemberRenameTests(unittest.TestCase):
         self.assertIn('no parse explains', str(caught.exception))
         self.assertIn('b.cpp:3', str(caught.exception))
 
+    def test_uses_in_a_non_exact_draft_are_renamed_by_type(self):
+        (self.root / 'src/recovered/d.cpp').write_text(
+            '#include "shared/a.hpp"\n#ifdef RA2_NON_MATCHING\nvoid h(Derived *d, Other *o) { d->Get_Cell(); o->Get_Cell(); }\n#endif\n')
+        result = member_rename.plan('Base', 'Get_Cell', 'Get_Position')
+        text = (self.root / 'src/recovered/d.cpp').read_text()
+        self.assertEqual([text.count('\n', 0, o) + 1 for o in result['edits']['src/recovered/d.cpp']], [3])
+        edited = member_rename.apply_edits(text, result['edits']['src/recovered/d.cpp'], 'Get_Cell', 'Get_Position')
+        self.assertIn('d->Get_Position(); o->Get_Cell();', edited)
+
     def test_a_use_inside_a_macro_refuses(self):
         (self.root / 'src/recovered/c.cpp').write_text(
             '#include "shared/a.hpp"\n#define CALL(p) (p)->Get_Cell()\nvoid g(Base *b) { CALL(b); }\n')
@@ -145,6 +154,11 @@ class NativeRekeyTests(unittest.TestCase):
                                   'OtherClass::Get_Cell ?Get_Cell@OtherClass@@')
         self.assertEqual(out, '__ZNK8TagClass12Get_PositionEv TagClass::Get_Position() '
                               '?Get_Position@TagClass@@QBE?AVCell@@XZ OtherClass::Get_Cell ?Get_Cell@OtherClass@@')
+
+    def test_offsetof_spellings_follow_a_member_rename(self):
+        spec = {'member_renames': [{'class': 'DisplayClass', 'old': 'unknown_11a0', 'new': 'PendingObjectPtr'}]}
+        out, _ = self.apply(spec, 'offsetof(DisplayClass, unknown_11a0) offsetof(MapView, unknown_11a0)')
+        self.assertEqual(out, 'offsetof(DisplayClass, PendingObjectPtr) offsetof(MapView, unknown_11a0)')
 
     def test_signature_only_rename_is_left_for_review(self):
         _, review = self.apply({'renames': {'?F@@YAXH@Z': '?F@@YAXI@Z'}}, '')

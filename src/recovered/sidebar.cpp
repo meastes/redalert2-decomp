@@ -1926,8 +1926,8 @@ bool SidebarClass::StripClass::Unknown_006802D0()
                 OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 16, Buildables[index].unknown_04,
                     Buildables[index].unknown_00, tech->Naval));
                 if (Buildables[index].unknown_04 == 7 || Buildables[index].unknown_04 == 6) {
-                    Map.unknown_11a0 = 0;
-                    Map.unknown_11a4 = 0;
+                    Map.PendingObjectPtr = 0;
+                    Map.PendingObject = 0;
                     Map.unknown_11a8 = -1;
                     Map.Unknown_00498F10(0);
                 }
@@ -2065,8 +2065,8 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
                         OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, (unsigned char)0x12,
                             unknown_player_a35db4->Supers[spc]->Type->ArrayIndex, cell));
                     } else {
-                        Map.unknown_11a0 = 0;
-                        Map.unknown_11a4 = 0;
+                        Map.PendingObjectPtr = 0;
+                        Map.PendingObject = 0;
                         Map.unknown_11a8 = -1;
                         Map.Unknown_00498F10(0);
                         Map.Unknown_0049CA20(0);
@@ -2090,9 +2090,9 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
 
         if (flags & 0x10) {
             if (factory != 0) {
-                if (Map.unknown_11a0 && ((AbstractClass *)Map.unknown_11a0)->As_Techno()) {
-                    Map.unknown_11a0 = 0;
-                    Map.unknown_11a4 = 0;
+                if (Map.PendingObjectPtr && ((AbstractClass *)Map.PendingObjectPtr)->As_Techno()) {
+                    Map.PendingObjectPtr = 0;
+                    Map.PendingObject = 0;
                     Map.unknown_11a8 = -1;
                     Map.Unknown_00498F10(0);
                 }

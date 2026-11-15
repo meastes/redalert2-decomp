@@ -17,7 +17,7 @@
 
 namespace ra2port { bool original_bytes(uint32_t va, void *out, size_t n); }
 
-void __fastcall VQA_Unknown_0077C7D0(VQAHandle *vqa)
+void __fastcall VQA_Reset(VQAHandle *vqa)
 {
     VQAHandleP *vqap = (VQAHandleP *)vqa;
     VQAAudio *audio = &vqap->Audio;

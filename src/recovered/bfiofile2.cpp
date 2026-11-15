@@ -74,7 +74,7 @@ BinkClass::~BinkClass()
 bool BinkClass::Open(char const *filename)
 {
     Close();
-    if (unknown_check_406f30()) {
+    if (AudioDeviceAvailable()) {
         BinkSetSoundSystem((void *)BinkOpenDirectSound, (unsigned long)GetDirectSoundObject());
     }
     if (RawFileClass(filename).Is_Available() == true) {

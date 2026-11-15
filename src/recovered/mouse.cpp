@@ -298,8 +298,8 @@ HRESULT MouseClass::Load(IStream *stream)
             Swizzle_Pointer(buildable[item].Factory);
         }
     }
-    Swizzle_Pointer(unknown_11a0);
-    Swizzle_Pointer(unknown_11a4);
+    Swizzle_Pointer(PendingObjectPtr);
+    Swizzle_Pointer(PendingObject);
     Swizzle_Pointer(unknown_119c);
     unknown_slot22();
     unknown_slot24();

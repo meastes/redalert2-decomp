@@ -226,7 +226,7 @@ int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int strength, TechnoCl
         AircraftTracker.Unknown_004128A0(cptr, (int)warhead->CellSpread);
         TechnoClass *techno;
         while ((techno = AircraftTracker.Fetch_Next_004134e0()) != 0) {
-            if (techno->unknown_7d && techno->unknown_74 && techno->Strength > 0) {
+            if (techno->IsActive && techno->unknown_74 && techno->Strength > 0) {
                 distance = Coord_Distance_To(coord, techno->Coord);
                 if (distance <= range) {
                     if (close && distance < 0x55 && techno->unknown_slot203()) {
@@ -268,7 +268,7 @@ int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int strength, TechnoCl
 
         object = cptr->Cell_Occupier(isbridge);
         for (; object; object = object->unknown_30) {
-            if (object != source && object->unknown_7d) {
+            if (object != source && object->IsActive) {
                 if (object->Kind_Of() == 1 && unknown_id_source_a3d290->Special().HarvesterImmune) {
                     if (Rules->unknown_9ec.Is_Present((UnitTypeClass *)object->Class_Of())) {
                         continue;
@@ -302,7 +302,7 @@ int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int strength, TechnoCl
     for (int j = 0; j < groups.Count(); j++) {
         object = groups[j]->Target;
         distance = groups[j]->Distance;
-        if (object->unknown_7d && (object->Kind_Of() != 6 || !((BuildingClass *)object)->Type->InvisibleInGame)) {
+        if (object->IsActive && (object->Kind_Of() != 6 || !((BuildingClass *)object)->Type->InvisibleInGame)) {
             if (!blocked || Is_Protected(object)) {
                 if (object->Kind_Of() == 2 && object->In_Air()) {
                     distance /= 2;

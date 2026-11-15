@@ -214,7 +214,7 @@ InfantryClass::~InfantryClass()
     Unknown_006ECB90(this, true);
     Infantry.Delete(this);
     unknown_object_index_abff58.Remove_Index(Fetch_ID());
-    unknown_7d = false;
+    IsActive = false;
 }
 
 
@@ -661,7 +661,7 @@ void InfantryClass::unknown_slot93(int why)
                 if (!unknown_494 || Map[unknown_494->Center_Coord()].unknown_ec==2) Mark(1);
                 Unknown_0047E2C0(CoordStruct(Coord),Rules->unknown_13a8,static_cast<TechnoClass *>(0),Rules->unknown_c74,true);
                 Unknown_0047E2C0(CoordStruct(Coord),Rules->unknown_13a8,static_cast<TechnoClass *>(0),Rules->unknown_c74,true);
-                if (!unknown_7d) return;
+                if (!IsActive) return;
                 Mark(1);
             }
         }
@@ -685,7 +685,7 @@ void InfantryClass::unknown_slot93(int why)
             return;
         }
     }
-    if (unknown_7d) FootClass::unknown_slot93(why);
+    if (IsActive) FootClass::unknown_slot93(why);
 }
 #endif
 
@@ -862,7 +862,7 @@ void InfantryClass::AI()
         Strength = 1;
     }
     FootClass::AI();
-    if (!unknown_7d) {
+    if (!IsActive) {
         return;
     }
     if (Get_Mission() == 5 || Get_Mission() == 11) {
@@ -913,9 +913,9 @@ scatter_done:
         unknown_5c2 = false;
     }
     Update_Fire_00507530();
-    if (unknown_7d) {
+    if (IsActive) {
         Advance_Animation_005078b0();
-        if (unknown_7d) {
+        if (IsActive) {
             Update_Movement_00507b90();
         }
     }
@@ -1608,7 +1608,7 @@ bool InfantryClass::unknown_slot290(CoordStruct &headto)
         headto=reinterpret_cast<UnknownCellClass &>(Map[old]).Unknown_004764B0(Move_Coord(old,Direction_00504bc0(Center_Coord(),headto)+UnknownFacingDir(0x7fff),128),true,reinterpret_cast<CellBridgeFlags_00504bc0 const &>(Map[old].unknown_140).under_bridge);
     }
     if (headto!=unknown_geometry_l && FootClass::unknown_slot290(headto)) {
-        if (!unknown_7d) return false;
+        if (!IsActive) return false;
         Clear_Occupy_Bit(CoordStruct(Coord));
         Set_Occupy_Bit(headto);
         return true;

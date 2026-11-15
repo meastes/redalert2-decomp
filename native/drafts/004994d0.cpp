@@ -75,9 +75,9 @@ Cell DisplayClass::Unknown_004994D0(Cell const &xpos)
         }
     }
     unknown_1170 = pos;
-    unknown_117c = Passes_Proximity_Check_004991D0(unknown_11a4, unknown_11a8, unknown_1178, unknown_1170 + unknown_1174);
+    unknown_117c = Passes_Proximity_Check_004991D0(PendingObject, unknown_11a8, unknown_1178, unknown_1170 + unknown_1174);
     Cell cell = unknown_1170 + unknown_1174;
-    unknown_117d = Unknown_00499390((BuildingTypeClass *)unknown_11a4, unknown_11a8, (int)unknown_1178, &cell);
+    unknown_117d = Unknown_00499390((BuildingTypeClass *)PendingObject, unknown_11a8, (int)unknown_1178, &cell);
 
     return prevpos;
 }

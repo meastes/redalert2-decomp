@@ -514,7 +514,7 @@ long __fastcall VQA_Configure_Buffer(VQAHandleP *vqap)
             return -9;
         }
     }
-    VQA_Unknown_0077C480((VQAHandle *)vqap, (int)buffer, width, height, config->X1, config->Y1);
+    VQA_Set_DrawBuffer((VQAHandle *)vqap, (int)buffer, width, height, config->X1, config->Y1);
     vqap->Flags |= 0x10;
     return -1;
 }

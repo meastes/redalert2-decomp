@@ -465,7 +465,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                 }
                 if (Mark_Head_To(coord)) {
                     unknown_36 = true;
-                    if (!LinkedTo->unknown_7d) {
+                    if (!LinkedTo->IsActive) {
                         return;
                     }
                     UnknownFacingDir face = Direction(LinkedTo->Center_Coord(), unknown_28);
@@ -500,7 +500,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
             LinkedTo->unknown_slot306(0.0);
         }
         LinkedTo->unknown_slot93(2);
-        if (LinkedTo->unknown_7d && !LinkedTo->unknown_76 && !LinkedTo->unknown_7a) {
+        if (LinkedTo->IsActive && !LinkedTo->unknown_76 && !LinkedTo->unknown_7a) {
             if (unknown_1c == unknown_coord_af9060
                 || (LinkedTo->unknown_slot19(0).As_Cell() == unknown_1c.As_Cell()
                     && abs(LinkedTo->unknown_slot19(0).Z - unknown_1c.Z) < unknown_geometry_g * 2)) {
@@ -598,7 +598,7 @@ bool WalkLocomotionClass::Mark_Head_To(CoordStruct const &coord)
 
         if (!Map[unknown_28].Goodie_Check(LinkedTo) && !LinkedTo->unknown_76) {
             unknown_28 = unknown_geometry_l;
-            if (!LinkedTo->unknown_7d) {
+            if (!LinkedTo->IsActive) {
                 return false;
             }
         }

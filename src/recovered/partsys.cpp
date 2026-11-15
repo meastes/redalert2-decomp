@@ -417,7 +417,7 @@ void ParticleSystemClass::unknown_func_60bb70()
         }
     }
 
-    if (!unknown_e4 && unknown_7d && Frame % (int)unknown_d4 == 0) {
+    if (!unknown_e4 && IsActive && Frame % (int)unknown_d4 == 0) {
         FootClass *foot = Foot_Of(Owner);
         if (foot == 0 || foot->unknown_574 < 0) {
             Random2Class &random = unknown_id_source_a3d290->Random();
@@ -594,7 +594,7 @@ void ParticleSystemClass::Fire_AI()
     bool reaimed = false;
     TechnoClass *source = Owner->As_Techno();
     if (source) {
-        if (source->unknown_7d) {
+        if (source->IsActive) {
             if (source->unknown_228 && source->unknown_2e0.Is_Rotating()) {
                 CoordStruct target = source->unknown_228->Center_Coord();
                 CoordStruct delta = target - source->Position_Coord_004f3f40();
@@ -604,7 +604,7 @@ void ParticleSystemClass::Fire_AI()
                 reaimed = true;
             }
         }
-        if (!source->unknown_7d) Delete_Me();
+        if (!source->IsActive) Delete_Me();
     } else Delete_Me();
     if (!unknown_e4 && (!(Frame % Class->SpawnFrames) || (!(Frame % 3) && reaimed))) {
         int index = Frame % 500;
@@ -650,9 +650,9 @@ void ParticleSystemClass::AI()
     if (--Lifetime == 0) {
         Delete_Me();
     }
-    if (unknown_7d && unknown_e4 && Particles.Count() == 0) {
+    if (IsActive && unknown_e4 && Particles.Count() == 0) {
         Limbo();
-        unknown_7d = false;
+        IsActive = false;
         ObjectsToDelete.Add(this);
     }
 }

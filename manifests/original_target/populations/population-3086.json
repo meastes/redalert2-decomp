@@ -4,8 +4,8 @@
     "id": "population-3086",
     "inventory_sha256": "1b0f08704985a5c887d5a3123ae136b12c4132fef2da335fa4bc52ae9cd6ddf9",
     "gaps_sha256": "dd769c12d95f36cb69acf3ce86e15d5f183ffbc16f4cc157d2377276e2ae2484",
-    "historical_population_sha256": "dd926bb04e6455aa21fb25595c6d209bb46f109bd491ae6fdea3254de8c08ae7",
-    "historical_acceptance_sha256": "81a6ba49217692c38af1c7fae02ccc159cca5c37266d8f4edd4041fc746580d2"
+    "historical_population_sha256": "ce71e7d89ba5243036d6456810c8ce2bf33e459f5f950f56135433f6e28de504",
+    "historical_acceptance_sha256": "a1a9749a43e7b008016b652967f48e2f33f9536395bf2314c97fd70186e32a10"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -158,7 +158,7 @@
     "__purecall": 4950368,
     "??_EScoreFontClass@@UAEPAXI@Z": 6718416,
     "?Load_Sounds@ScoreFontClass@@QAEXXZ": 6715648,
-    "?unknown_check_406f30@@YAHXZ": 4222768,
+    "?AudioDeviceAvailable@@YAHXZ": 4222768,
     "??0CCFileClass@@QAE@XZ": 4624336,
     "?Close@CCFileClass@@UAEXXZ": 4624880,
     "?Load_Alloc_Data@@YIPAXAAVFileClass@@@Z": 4805168,
@@ -5531,7 +5531,28 @@
     "?Delete_All@LineTrail@@SAXXZ": 5478320,
     "?Render@TerrainClass@@UAE_NPAVRect@@_N1@Z": 7226416,
     "_WinMain@16": 6873728,
-    "?AI@AnimClass@@UAEXXZ": 4331280
+    "?AI@AnimClass@@UAEXXZ": 4331280,
+    "?Draw_It@IsometricTileClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5407312,
+    "?Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5853472,
+    "?Draw_It@OverlayClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6144752,
+    "?End@ProgressScreenClass@@QAEXXZ": 6417904,
+    "?Draw_It@SmudgeClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6847216,
+    "?Action@seed_006816b0@@YGIHH@Z": 6821552,
+    "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z": 7049136,
+    "?Draw_It@WaveClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7480624,
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "?Draw_It@ParticleSystemClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6336656,
+    "?Draw_It@TerrainClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7223696,
+    "?Draw_It@InfantryClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5244240,
+    "?Draw_It@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5020608,
+    "?Draw_It@AircraftClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4276672,
+    "?Draw_It@ParticleClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6331664,
+    "?Draw_It@AnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4329040,
+    "?Draw_It@VoxelAnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7393216,
+    "?Draw_It@BuildingClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4433376,
+    "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
+    "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096
   },
   "regions": [
     {
@@ -6539,7 +6560,7 @@
         {
           "offset": 4,
           "kind": 20,
-          "symbol": "?unknown_check_406f30@@YAHXZ",
+          "symbol": "?AudioDeviceAvailable@@YAHXZ",
           "target": 4222768,
           "addend": 0,
           "resolved": 4292474408
@@ -6825,7 +6846,7 @@
           "resolved": 4292638972
         }
       ],
-      "source_sha256": "7cb33e6a9f5415c062bfe69b1e1e13e6e3d97d3b83c58792c2aa4c16a885fc51",
+      "source_sha256": "a4e6ee47f00c3f9dbf6313e63580ecbf1f31b10255b859c9ed8a6bf4118fc9b4",
       "source": "src/recovered/classes/ScoreFontClass/Load_Sounds.cpp",
       "population": "population-3086",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",

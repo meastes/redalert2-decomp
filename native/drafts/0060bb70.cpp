@@ -100,7 +100,7 @@ void ParticleSystemClass::unknown_func_60bb70()
         }
     }
 
-    if (!unknown_e4 && unknown_7d && Frame % (int)unknown_d4 == 0) {
+    if (!unknown_e4 && IsActive && Frame % (int)unknown_d4 == 0) {
         FootClass *foot = Foot_Of(Owner);
         if (foot == 0 || foot->unknown_574 < 0) {
             Random2Class &random = unknown_id_source_a3d290->Random();

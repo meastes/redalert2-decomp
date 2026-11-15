@@ -133,7 +133,7 @@ void __fastcall Show_Who_Was_Responsible_004b37c0()
         } while (length>0);
         Theme.Stop();
         HiddenSurface->Fill(0);
-        Unknown_004E0C90(true,HiddenSurface,0);
+        Update_Visible_Surface(true,HiddenSurface,0);
         unknown_surface_853118=new DSurface(unknown_int_839648,unknown_int_83964c,false);
         unknown_surface_853118->Copy_From(*HiddenSurface,false,true);
         WWKeyboard->Clear();
@@ -212,7 +212,7 @@ void __fastcall Show_Who_Was_Responsible_004b37c0()
             while (TickCount.Time()-time<frame*credits_scroll_speed_007d6430 && !WWKeyboard->Check()) {}
         }
         HiddenSurface->Fill(0);
-        Unknown_004E0C90(true,HiddenSurface,0);
+        Update_Visible_Surface(true,HiddenSurface,0);
         WWMouse->Show_Mouse();
         unknown_scheme_name_007d83b4="Blue";
         Theme.Stop();

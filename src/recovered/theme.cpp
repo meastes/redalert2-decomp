@@ -227,7 +227,7 @@ extern "C" void __cdecl _makepath(char *path, char const *drive, char const *dir
 
 void ThemeClass::Scan()
 {
-    if (unknown_sound_enabled_a40c18 && unknown_check_406f30() && !unknown_flag_a40d0c) {
+    if (unknown_sound_enabled_a40c18 && AudioDeviceAvailable() && !unknown_flag_a40d0c) {
         for (int theme = 0; theme < Themes.Count(); theme++) {
             char name[512];
             _makepath(name, 0, 0, Themes[theme]->Sound, ".WAV");
@@ -321,7 +321,7 @@ int __fastcall unknown_sample_407ff0(void *sample);
 
 void ThemeClass::AI()
 {
-    if (unknown_check_406f30() && !unknown_flag_a40d0c && unknown_sound_enabled_a40c18 && Volume > 0) {
+    if (AudioDeviceAvailable() && !unknown_flag_a40d0c && unknown_sound_enabled_a40c18 && Volume > 0) {
         bool ready = false;
         if (Sample != 0) {
             if (unknown_11 && !unknown_sample_407ff0(Sample)) {
@@ -406,7 +406,7 @@ int __fastcall unknown_sample_407ff0(void *sample);
 
 void ThemeClass::Queue_Song(ThemeType theme)
 {
-    if (unknown_sound_enabled_a40c18 && unknown_check_406f30() && !unknown_flag_a40d0c) {
+    if (unknown_sound_enabled_a40c18 && AudioDeviceAvailable() && !unknown_flag_a40d0c) {
         Pending = theme;
         if (theme != -1 && theme != -2 && theme != Score) {
             Debug_Printf("Theme::QueueSong(%d)\n", theme);
@@ -438,7 +438,7 @@ int __fastcall Audio_Stream_Open(AudioStreamPlayer *stream, char const *name, in
 
 int ThemeClass::Play_Song(ThemeType theme)
 {
-    if (unknown_sound_enabled_a40c18 && unknown_check_406f30() && !unknown_flag_a40d0c) {
+    if (unknown_sound_enabled_a40c18 && AudioDeviceAvailable() && !unknown_flag_a40d0c) {
         if (Still_Playing() && Score == theme) {
             return Current;
         }
@@ -504,7 +504,7 @@ int __fastcall unknown_sample_407ff0(void *sample);
 
 void ThemeClass::Stop(bool fade)
 {
-    if (unknown_sound_enabled_a40c18 && unknown_check_406f30() && !unknown_flag_a40d0c && Current != -1) {
+    if (unknown_sound_enabled_a40c18 && AudioDeviceAvailable() && !unknown_flag_a40d0c && Current != -1) {
         if (fade && Still_Playing() == true) {
             Debug_Printf("Theme::Stop(%d) - Fading\n", Score);
             if (Sample != 0) {

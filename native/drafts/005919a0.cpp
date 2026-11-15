@@ -285,7 +285,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                         }
                     }
                 }
-                if (!LinkedTo->unknown_7d) {
+                if (!LinkedTo->IsActive) {
                     return;
                 }
                 UnknownFacingDir face = Direction(LinkedTo->Center_Coord(), unknown_24);
@@ -330,7 +330,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
             unknown_30 = false;
         }
         LinkedTo->unknown_slot93(2);
-        if (!LinkedTo->unknown_7d) {
+        if (!LinkedTo->IsActive) {
             return;
         }
         if (LinkedTo->unknown_76 || LinkedTo->unknown_7a) {
@@ -353,7 +353,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                         }
                     }
                 }
-                if (!LinkedTo->unknown_7d || LinkedTo->unknown_76) {
+                if (!LinkedTo->IsActive || LinkedTo->unknown_76) {
                     return;
                 }
                 LinkedTo->Mark(1);

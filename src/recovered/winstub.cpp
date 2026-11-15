@@ -194,7 +194,7 @@ LRESULT WINAPI Windows_Procedure(HWND window, UINT message, WPARAM wparam, LPARA
         if (unknown_int_a40d48 == 0 && (GameInFocus == true || WindowedMode == true)
             && WWMouse && unknown_surface_839950 && HiddenSurface && unknown_surface_839964) {
             if (ScenarioActive == true) {
-                Unknown_004E0C90(WWMouse->Is_Captured(), unknown_surface_839964, 0);
+                Update_Visible_Surface(WWMouse->Is_Captured(), unknown_surface_839964, 0);
                 Map.Unknown_0067D420(true);
                 ValidateRect(window, 0);
                 break;
@@ -204,7 +204,7 @@ LRESULT WINAPI Windows_Procedure(HWND window, UINT message, WPARAM wparam, LPARA
                 ValidateRect(window, 0);
                 break;
             }
-            Unknown_004E0C90(WWMouse->Is_Captured(), HiddenSurface, 0);
+            Update_Visible_Surface(WWMouse->Is_Captured(), HiddenSurface, 0);
         }
         ValidateRect(window, 0);
         break;
@@ -646,14 +646,14 @@ unsigned short __fastcall Char_To_Wide_00738130(unsigned int character, long)
 
 
 // Loads a title picture, redraws its background and draws the paletted/image surface.
-Surface *__fastcall unknown_load_pcx_60d110(FileClass *file, PaletteClass *palette, int unknown3, int unknown4);
+Surface *__fastcall Read_PCX_File(FileClass *file, PaletteClass *palette, int unknown3, int unknown4);
 void __fastcall Fill_Surface_Rect_006f3a20(Surface *surface, Rect const &window, bool draw);
 Rect __fastcall Get_Title_Screen_Area_006f1f30();
 extern int const title_width_threshold_007add70;
 void __fastcall Load_Title_Screen_00738190(char const *name, Surface *surface, PaletteClass *palette)
 {
     CCFileClass file(name);
-    Surface *image = unknown_load_pcx_60d110(&file, palette, 0, 0);
+    Surface *image = Read_PCX_File(&file, palette, 0, 0);
     if (image) {
         int width = surface->Get_Width();
         int height = surface->Get_Height();

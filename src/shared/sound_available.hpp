@@ -3,6 +3,6 @@
 #ifndef RA2_SHARED_SOUND_AVAILABLE_HPP
 #define RA2_SHARED_SOUND_AVAILABLE_HPP
 
-int unknown_check_406f30();                     // 0x00406F30 sound available
+int AudioDeviceAvailable();                     // 0x00406F30 sound available
 
 #endif

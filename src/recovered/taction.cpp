@@ -314,7 +314,7 @@ void TActionClass::Read_INI()
 bool TActionClass::Execute(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     bool success = true;
-    if (object != 0 && !object->unknown_7d) object = 0;
+    if (object != 0 && !object->IsActive) object = 0;
     switch (Type) {
     case 97: success = unknown_toggle_session_flag_2229(house, object, trigger, cell); break;
     case 94: success = unknown_ion_blast_at_waypoint(house, object, trigger, cell); break;
@@ -473,7 +473,7 @@ bool TActionClass::unknown_func_6af980(HouseClass *house, ObjectClass *object, T
     Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
     for (int index = 0; index < ParticleSystems.Count(); index++) {
         ParticleSystemClass *system = ParticleSystems[index];
-        if (system->unknown_7d && system->unknown_slot104() == waypoint) {
+        if (system->IsActive && system->unknown_slot104() == waypoint) {
             system->Delete_Me();
         }
     }
@@ -505,7 +505,7 @@ bool TActionClass::unknown_hunt_technos_with_tag(HouseClass *house, ObjectClass 
 {
     for (int index = 0; index < Technos.Count(); index++) {
         TechnoClass *techno = Technos[index];
-        if (techno->Kind_Of() != 6 && techno->unknown_7d && techno->unknown_74 && techno->unknown_34 != 0
+        if (techno->Kind_Of() != 6 && techno->IsActive && techno->unknown_74 && techno->unknown_34 != 0
             && techno->unknown_34->Is_Trigger_Attached(trigger)) {
             if (techno->Get_Mission() == 0 || techno->Get_Mission() == 0x17) {
                 techno->QueueMission(5, false);
@@ -555,7 +555,7 @@ bool TActionClass::unknown_hunt_idle_feet_not_of_house(HouseClass *house, Object
 {
     for (int index = 0; index < unknown_FootClass_list_00865f38.Count(); index++) {
         FootClass *foot = unknown_FootClass_list_00865f38[index];
-        if (foot->Get_Mission() == 0 && foot->Strength > 0 && foot->unknown_7d && foot->unknown_74
+        if (foot->Get_Mission() == 0 && foot->Strength > 0 && foot->IsActive && foot->unknown_74
             && !foot->unknown_76 && house != foot->House) {
             foot->QueueMission(5, false);
         }
@@ -572,7 +572,7 @@ bool TActionClass::unknown_hunt_feet_mission_23_of_house(HouseClass *house, Obje
 {
     for (int index = 0; index < unknown_FootClass_list_00865f38.Count(); index++) {
         FootClass *foot = unknown_FootClass_list_00865f38[index];
-        if (foot->Get_Mission() == 0x17 && foot->Strength > 0 && foot->unknown_7d && foot->unknown_74
+        if (foot->Get_Mission() == 0x17 && foot->Strength > 0 && foot->IsActive && foot->unknown_74
             && !foot->unknown_76 && foot->House == house) {
             foot->QueueMission(5, false);
         }
@@ -589,7 +589,7 @@ bool TActionClass::unknown_hunt_technos_of_house_type(HouseClass *house, ObjectC
     for (int index = 0; index < Technos.Count(); index++) {
         TechnoClass *techno = Technos[index];
         if (techno->unknown_1ac == Data.Value && (techno->Get_Mission() == 0 || techno->Get_Mission() == 0x17)
-            && techno->Strength > 0 && techno->unknown_7d && techno->unknown_74 && !techno->unknown_76) {
+            && techno->Strength > 0 && techno->IsActive && techno->unknown_74 && !techno->unknown_76) {
             techno->QueueMission(5, false);
         }
     }
@@ -699,7 +699,7 @@ bool TActionClass::unknown_buildings_with_tag_slot98(HouseClass *house, ObjectCl
     bool handled = false;
     for (int index = 0; index < unknown_BuildingClass_list_00a40af8.Count(); index++) {
         BuildingClass *building = unknown_BuildingClass_list_00a40af8[index];
-        if (building->unknown_7d && building->unknown_74 && !building->unknown_76 && building->unknown_34 != 0
+        if (building->IsActive && building->unknown_74 && !building->unknown_76 && building->unknown_34 != 0
             && building->unknown_34->Is_Trigger_Attached(trigger)) {
             building->Sell_Back(1);
             handled = true;
@@ -719,7 +719,7 @@ bool TActionClass::unknown_infantry_with_tag_slot294(HouseClass *house, ObjectCl
     bool handled = false;
     for (int index = 0; index < Infantry.Count(); index++) {
         InfantryClass *infantry = Infantry[index];
-        if (infantry->unknown_7d && infantry->unknown_74 && !infantry->unknown_76 && infantry->unknown_34 != 0
+        if (infantry->IsActive && infantry->unknown_74 && !infantry->unknown_76 && infantry->unknown_34 != 0
             && infantry->unknown_34->Is_Trigger_Attached(trigger)) {
             infantry->Berzerk();
             handled = true;
@@ -738,7 +738,7 @@ bool TActionClass::unknown_buildings_with_tag_power_down(HouseClass *house, Obje
     bool handled = false;
     for (int index = 0; index < unknown_BuildingClass_list_00a40af8.Count(); index++) {
         BuildingClass *building = unknown_BuildingClass_list_00a40af8[index];
-        if (building->unknown_7d && building->unknown_74 && !building->unknown_76 && building->unknown_34 != 0
+        if (building->IsActive && building->unknown_74 && !building->unknown_76 && building->unknown_34 != 0
             && building->unknown_34->Is_Trigger_Attached(trigger) && building->unknown_530) {
             building->unknown_44d530();
             handled = true;
@@ -757,7 +757,7 @@ bool TActionClass::unknown_buildings_with_tag_power_up(HouseClass *house, Object
     bool handled = false;
     for (int index = 0; index < unknown_BuildingClass_list_00a40af8.Count(); index++) {
         BuildingClass *building = unknown_BuildingClass_list_00a40af8[index];
-        if (building->unknown_7d && building->unknown_74 && !building->unknown_76 && building->unknown_34 != 0
+        if (building->IsActive && building->unknown_74 && !building->unknown_76 && building->unknown_34 != 0
             && building->unknown_34->Is_Trigger_Attached(trigger) && !building->unknown_530) {
             building->unknown_44d3e0();
             handled = true;
@@ -775,7 +775,7 @@ bool TActionClass::unknown_technos_with_tag_to_house(HouseClass *house, ObjectCl
     bool handled = false;
     for (int index = 0; index < Technos.Count(); index++) {
         TechnoClass *techno = Technos[index];
-        if (techno->unknown_7d && techno->unknown_74 && !techno->unknown_76 && techno->unknown_34 != 0
+        if (techno->IsActive && techno->unknown_74 && !techno->unknown_76 && techno->unknown_34 != 0
             && techno->unknown_34->Is_Trigger_Attached(trigger)) {
             techno->Captured(HouseClass::As_Pointer(Data.Value), 0);
             handled = true;
@@ -1446,7 +1446,7 @@ bool TActionClass::unknown_func_6b14d0(HouseClass *house, ObjectClass *object, T
         again = false;
         for (int index = 0; index < Technos.Count(); index++) {
             TechnoClass *techno = Technos[index];
-            if (techno->Strength > 0 && techno->unknown_7d && techno->unknown_74 && !techno->unknown_76 && techno->unknown_34 != 0
+            if (techno->Strength > 0 && techno->IsActive && techno->unknown_74 && !techno->unknown_76 && techno->unknown_34 != 0
                 && techno->unknown_34->Is_Trigger_Attached(trigger)) {
                 int damage = techno->Strength;
                 techno->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 0);
@@ -1695,7 +1695,7 @@ bool TActionClass::unknown_spotlight_behavior_6b1d80(HouseClass *house, ObjectCl
     bool handled = false;
     for (int index = 0; index < unknown_BuildingClass_list_00a40af8.Count(); index++) {
         BuildingClass *building = unknown_BuildingClass_list_00a40af8[index];
-        if (building->Strength > 0 && building->unknown_7d && building->unknown_74 && !building->unknown_76
+        if (building->Strength > 0 && building->IsActive && building->unknown_74 && !building->unknown_76
             && building->Type->HasSpotlight && building->unknown_4d4 != 0
             && building->unknown_34 != 0 && building->unknown_34->Is_Trigger_Attached(trigger)) {
             building->unknown_4d4->Set_Behavior(Data.Value);
@@ -2442,7 +2442,7 @@ bool TActionClass::unknown_func_6b2fa0(HouseClass *house, ObjectClass *object, T
     bool handled = false;
     for (int index = 0; index < unknown_BuildingClass_list_00a40af8.Count(); index++) {
         BuildingClass *building = unknown_BuildingClass_list_00a40af8[index];
-        if (building->unknown_7d && building->unknown_74 && !building->unknown_76 && building->unknown_34 != 0
+        if (building->IsActive && building->unknown_74 && !building->unknown_76 && building->unknown_34 != 0
             && building->unknown_34->Is_Trigger_Attached(trigger)) {
             building->unknown_452f50(0);
             handled = true;

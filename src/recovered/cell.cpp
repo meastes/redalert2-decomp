@@ -847,7 +847,7 @@ void CellClass::Set_Wall_Owner()
         int best = 0x7FFFFFFF;
         for (int index = 0; index < unknown_BuildingClass_list_00a40af8.Count(); index++) {
             BuildingClass *building = unknown_BuildingClass_list_00a40af8[index];
-            if (building->unknown_7d && building->unknown_74 && building->House->Type->WallOwner) {
+            if (building->IsActive && building->unknown_74 && building->House->Type->WallOwner) {
                 int distance = building->unknown_5d4c00(this);
                 if (distance < best) {
                     best = distance;
@@ -1386,7 +1386,7 @@ bool CellClass::Draw_Placement_Cursor(Point2D const &pixel, Rect const &rect, bo
 
     bool ok = false;
     if ((unknown_12c & 2) != 0 || (unknown_12c & 4) != 0) {
-        ObjectTypeClass const *pending = (unknown_12c & 2) ? (ObjectTypeClass const *)Map.unknown_11a4 : (ObjectTypeClass const *)Map.unknown_1190;
+        ObjectTypeClass const *pending = (unknown_12c & 2) ? (ObjectTypeClass const *)Map.PendingObject : (ObjectTypeClass const *)Map.unknown_1190;
         int loco = -1;
         if (pending != 0 && pending->Kind_Of() == 7) {
             loco = ((BuildingTypeClass const *)pending)->SpeedType;
@@ -1399,28 +1399,28 @@ bool CellClass::Draw_Placement_Cursor(Point2D const &pixel, Rect const &rect, bo
             height_offset -= 10;
         }
 
-        if ((unknown_12c & 2) != 0 && ((ObjectTypeClass const *)Map.unknown_11a4)->Kind_Of() == 7) {
+        if ((unknown_12c & 2) != 0 && ((ObjectTypeClass const *)Map.PendingObject)->Kind_Of() == 7) {
             CoordStruct coord = CoordStruct(MapCoords, 0);
             coord.Z = Map.Get_Height_GL(coord);
 
             if (Map.Is_Shrouded(coord)) {
-                if (Map.unknown_117c && Map.unknown_11a4 != 0 && ((ObjectTypeClass const *)Map.unknown_11a4)->Kind_Of() == 7 && ((BuildingTypeClass *)Map.unknown_11a4)->unknown_bf0 != 0) {
+                if (Map.unknown_117c && Map.PendingObject != 0 && ((ObjectTypeClass const *)Map.PendingObject)->Kind_Of() == 7 && ((BuildingTypeClass *)Map.PendingObject)->unknown_bf0 != 0) {
                     ok = true;
                 } else {
                     ok = false;
                 }
-            } else if (((BuildingTypeClass *)Map.unknown_11a4)->PowersUpBuilding[0] != '\0') {
+            } else if (((BuildingTypeClass *)Map.PendingObject)->PowersUpBuilding[0] != '\0') {
                 BuildingClass *building = (BuildingClass *)Cell_Object(Point2D(0, 0), false);
                 if (building != 0 && building->Kind_Of() == 6) {
-                    BuildingTypeClass *ptype = (BuildingTypeClass *)Map.unknown_11a4;
+                    BuildingTypeClass *ptype = (BuildingTypeClass *)Map.PendingObject;
                     if (building->unknown_44d900(ptype, unknown_player_a35db4)) {
                         ok = true;
                     }
                 }
             } else {
-                if (Map.unknown_117c && Map.unknown_11a4 != 0 && ((ObjectTypeClass const *)Map.unknown_11a4)->Kind_Of() == 7
-                        && Is_Clear_To_Build(loco, static_cast<BuildingTypeClass const *>(Map.unknown_11a4), unknown_player_a35db4)
-                        && !(((BuildingTypeClass *)Map.unknown_11a4)->unknown_bf0 != 0 && unknown_ec == 1)) {
+                if (Map.unknown_117c && Map.PendingObject != 0 && ((ObjectTypeClass const *)Map.PendingObject)->Kind_Of() == 7
+                        && Is_Clear_To_Build(loco, static_cast<BuildingTypeClass const *>(Map.PendingObject), unknown_player_a35db4)
+                        && !(((BuildingTypeClass *)Map.PendingObject)->unknown_bf0 != 0 && unknown_ec == 1)) {
                     ok = true;
                 }
             }
@@ -2143,7 +2143,7 @@ int CellClass::unknown_475db0(int levels)
             TiberiumClass::Clear_Spread_Cell(MapCoords);
             for (int facing = 0; facing < 8; facing++) {
                 Cell adjacent = Adjacent_Cell(MapCoords, facing);
-                if (Map.In_Radar(adjacent) && !tiberium->SpreadMap[unknown_cell_index_428a90(adjacent)]) {
+                if (Map.In_Radar(adjacent) && !tiberium->SpreadMap[Map_Cell_Index(adjacent)]) {
                     tiberium->Add_Spread_Cell(adjacent);
                 }
             }
@@ -2496,7 +2496,7 @@ bool CellClass::Goodie_Check(ObjectClass *crate_object)
             if (object->unknown_34 != 0) {
                 Debug_Printf("Springing trigger on crate at %d,%d\n", MapCoords.X, MapCoords.Y);
                 object->unknown_34->Spring(0x31, object, unknown_cell_850bd8, false, 0);
-                if (!object->unknown_7d) {
+                if (!object->IsActive) {
                     return false;
                 }
             }

@@ -495,7 +495,7 @@ bool __stdcall TeleportLocomotionClass::Process()
         if (LinkedTo->unknown_214 == 0) {
             unknown_6e0430(unknown_28);
         }
-        if (LinkedTo->unknown_7d) {
+        if (LinkedTo->IsActive) {
             LinkedTo->unknown_slot93(2);
             Stop_Moving();
             LinkedTo->unknown_6d6e50(0);

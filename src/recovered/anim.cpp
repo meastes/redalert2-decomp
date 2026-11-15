@@ -146,7 +146,7 @@ AnimClass::AnimClass(AnimTypeClass const *type, CoordStruct const &coord, int lo
     unknown_180.Init();
     unknown_194.Init();
     Anims.Add(this);
-    unknown_7d = true;
+    IsActive = true;
     YSortAdjust = Class->YSortAdjust;
     if (Class->End == -1) {
         Class->End = ((ShapeFileStruct *)Class->Get_Image_Data())->FrameCount;
@@ -265,7 +265,7 @@ AnimClass::AnimClass() :
     Anims.Add(this);
     unknown_180.Init();
     unknown_194.Init();
-    unknown_7d = true;
+    IsActive = true;
 }
 
 
@@ -646,7 +646,7 @@ void AnimClass::AI()
             return;
         }
     }
-    if (unknown_7d && !unknown_17b) {
+    if (IsActive && !unknown_17b) {
         if (Class->TrailerAnim && (Class->TrailerSeperation==1 || Frame%Class->TrailerSeperation==0))
             new AnimClass(Class->TrailerAnim,Center_Coord(),1,1,0x600,0);
     }
@@ -656,7 +656,7 @@ void AnimClass::AI()
     if (LoopDelay) {
         --LoopDelay;
         if (!LoopDelay) unknown_func_4226d0();
-    } else if (unknown_7d) {
+    } else if (IsActive) {
         if (Class->IsVeins) unknown_func_422f50();
         if (Class->IsAnimatedTiberium) {
             int overlay=Map[Center_Coord()-CoordStruct(384,384,0)].OverlayIndex;
@@ -679,7 +679,7 @@ void AnimClass::AI()
                     if (strcmp(Class->ID,"INVISO")==0)
                         Unknown_0047E2C0(Center_Coord(),damage,0,Rules->unknown_c74,1);
                     else Unknown_0047E2C0(Center_Coord(),damage,0,Rules->FlameDamage2,1);
-                    if (!unknown_7d) return;
+                    if (!IsActive) return;
                 }
             }
             if (Class->unknown_268 && Class->Start+stage==Class->unknown_268 && !unknown_174)
@@ -1083,7 +1083,7 @@ void AnimClass::unknown_func_422f50()
             int damage = Rules->unknown_e4;
             UnknownAnimTechno *techno = (UnknownAnimTechno *)object->As_Techno();
             if (techno != 0 && !((UnknownAnimTechnoType *)techno->Techno_Type_Class())->ImmuneToVeins &&
-                !techno->Unknown_006D7910(8) && techno->Strength > 0 && techno->unknown_7d &&
+                !techno->Unknown_006D7910(8) && techno->Strength > 0 && techno->IsActive &&
                 techno->Get_Height_AGL() <= 5) {
                 techno->Take_Damage(&damage, 0, (WarheadTypeClass *)Rules->unknown_cb0, 0, 0, 0);
             }

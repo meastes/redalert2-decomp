@@ -472,7 +472,7 @@ bool __fastcall Start_Scenario_0065bc70(char const *name, bool briefing, int cam
     Unknown_Free_Art_Set_006F30F0();
     Options.Set();
     HiddenSurface->Fill(0);
-    Unknown_004E0C90(true, HiddenSurface, 0);
+    Update_Visible_Surface(true, HiddenSurface, 0);
     Toggle_Display_Mode_0065c480(true);
     unknown_id_source_a3d290->ElapsedTime.Start();
     if (unknown_id_source_a3d290->Theme != -1) {

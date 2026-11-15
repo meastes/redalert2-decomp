@@ -88,9 +88,9 @@ void UnknownScore_0069A640::Presentation_0069A650()
     Unknown_Load_Art_Once_006F2710(unknown_id_source_a3d290->unknown_2239 == false);
     Rect rect(0, 0, VideoModeWidth, VideoModeHeight);
     Unknown_6F3BF0(HiddenSurface, rect);
-    Unknown_004E0C90(true, HiddenSurface, 0);
+    Update_Visible_Surface(true, HiddenSurface, 0);
     unknown_dialog_box_5eab60(0x103, Score_Dialog_Proc_0069A7D0, 0);
     Unknown_6F3BF0(HiddenSurface, rect);
-    Unknown_004E0C90(true, HiddenSurface, 0);
+    Update_Visible_Surface(true, HiddenSurface, 0);
     Unknown_Free_Art_Flagged_006F2750();
 }

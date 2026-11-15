@@ -109,7 +109,7 @@ VQAClass::VQAClass(char const *filename, int flags, int (*callback538)(), void (
                    void (*callback540)(), int unknown6, int unknown7)
 {
     char unknown;
-    VQA_Unknown_00777850(&Config);
+    VQA_DefaultConfig(&Config);
     Flags = flags;
     Config.Owner = this;
     Config.ImageBuf = &unknown;
@@ -159,7 +159,7 @@ VQAClass::VQAClass(char const *filename, int flags, int (*callback538)(), void (
     }
     Config.NumCBBufs = -1;
     if (Flags & 1) {
-        Config.StreamHandler = VQA_Unknown_0071D640;
+        Config.StreamHandler = VQAMixFileHandler;
     } else {
         Config.StreamHandler = VQA_Unknown_0071D490;
     }
@@ -325,7 +325,7 @@ void VQAClass::Set_DirectDraw_Palette()
 
 bool VQAClass::Open_And_Load_Buffers()
 {
-    if (VQA_Unknown_0077B7A0(Filename, &Config, &Handle) != -1) {
+    if (VQA_Open(Filename, &Config, &Handle) != -1) {
         Opened = false;
         return false;
     }
@@ -368,7 +368,7 @@ bool VQAClass::Set_Loop(int unknown1, int unknown2)
     if (unknown2 < 0) {
         unknown2 = -1;
     }
-    return VQA_Unknown_0077C640(Handle, unknown1, unknown2, 1) == -1 ? true : false;
+    return VQA_SetLoop(Handle, unknown1, unknown2, 1) == -1 ? true : false;
 }
 
 
@@ -386,7 +386,7 @@ bool VQAClass::Set_Loop(int unknown1, int unknown2, int unknown3)
     if (unknown3 < 0) {
         unknown3 = -1;
     }
-    return VQA_Unknown_0077C6C0(Handle, unknown1, unknown2, unknown3, 0) == -1 ? true : false;
+    return VQA_SetLoop_Internal(Handle, unknown1, unknown2, unknown3, 0) == -1 ? true : false;
 }
 
 
@@ -397,7 +397,7 @@ bool VQAClass::Set_Loop(int unknown1, int unknown2, int unknown3)
 void VQAClass::Seek_To_Frame(int frame)
 {
     if (frame != CurrentFrame) {
-        if (VQA_Unknown_0077C2E0(Handle, frame, 0) != -6) {
+        if (VQA_SeekFrame(Handle, frame, 0) != -6) {
             CurrentFrame = frame;
         }
     }
@@ -409,7 +409,7 @@ void VQAClass::Seek_To_Frame(int frame)
 bool VQAClass::Seek_To_Stored_Frame()
 {
     if (Opened) {
-        if (VQA_Unknown_0077C2E0(Handle, unknown_544, 0) != -6) {
+        if (VQA_SeekFrame(Handle, unknown_544, 0) != -6) {
             CurrentFrame = unknown_544;
         } else {
             return false;
@@ -433,23 +433,23 @@ int VQAClass::Play_VQA(int frame, bool unknown)
     if (frame < 0 || frame >= FrameCount) {
         frame = FrameCount - 1;
     }
-    VQA_Unknown_0077C8A0(Handle, frame);
+    VQA_SetStop(Handle, frame);
     if (unknown_508 != -1) {
         int unknown2;
         int unknown3;
         int state;
-        VQA_Unknown_0077C920(Handle, &unknown3, &unknown2, &state);
+        VQA_GetBlockInfo(Handle, &unknown3, &unknown2, &state);
         if (state == 1) {
             VQA_Unknown_0070B690(unknown_508);
             if (Get_Option(11)) {
-                VQA_Unknown_0077C440(Handle, VQA_Unknown_0077FE89, VQA_Unknown_0070BBC0);
+                VQA_SetUnVQ(Handle, VQA_Unknown_0077FE89, VQA_Unknown_0070BBC0);
             } else {
-                VQA_Unknown_0077C440(Handle, VQA_Unknown_0077FD80, VQA_Unknown_0070B820);
+                VQA_SetUnVQ(Handle, VQA_Unknown_0077FD80, VQA_Unknown_0070B820);
             }
         } else if (state == 4) {
             VQA_Unknown_0070B690(unknown_508);
             if (Get_Option(11)) {
-                VQA_Unknown_0077C440(Handle, VQA_Unknown_0070BF60, VQA_Unknown_0070C0A0);
+                VQA_SetUnVQ(Handle, VQA_Unknown_0070BF60, VQA_Unknown_0070C0A0);
             }
         }
     }
@@ -466,14 +466,14 @@ int VQAClass::Play_VQA(int frame, bool unknown)
             Debug_Printf("Movie is awake\n");
         }
         if (GameInFocus == true && !unknown_548) {
-            result = VQA_Unknown_0077BF10(Handle, 1, 0);
+            result = VQA_Play(Handle, 1, 0);
             if (result >= 0) {
                 if (PaletteChanged) {
                     Set_DirectDraw_Palette();
                     PaletteChanged = false;
                 }
                 if (Companion) {
-                    Companion->Process_0069b420(VQA_Unknown_0077CBA0(Handle));
+                    Companion->Process_0069b420(VQA_GetMovieTime(Handle));
                 }
                 if (Callback540) {
                     Callback540();
@@ -483,7 +483,7 @@ int VQAClass::Play_VQA(int frame, bool unknown)
         } else if (!sleeping) {
             sleeping = true;
             if (Opened && !unknown_548) {
-                VQA_Unknown_0077BF10(Handle, 2, 0);
+                VQA_Play(Handle, 2, 0);
             }
             unknown_548 = true;
             Debug_Printf("Movie is sleeping\n");
@@ -524,16 +524,16 @@ bool VQAClass::Advance_Frame(bool *unknown)
 {
     *unknown = false;
     if (!unknown_549) {
-        VQA_Unknown_0077C8A0(Handle, FrameCount);
+        VQA_SetStop(Handle, FrameCount);
         if (unknown_508 != -1) {
             int unknown2;
             int unknown3;
             int state;
-            VQA_Unknown_0077C920(Handle, &unknown3, &unknown2, &state);
+            VQA_GetBlockInfo(Handle, &unknown3, &unknown2, &state);
             if (state == 1 || state == 4) {
                 VQA_Unknown_0070B690(unknown_508);
                 if (state == 1) {
-                    VQA_Unknown_0077C440(Handle, VQA_Unknown_0077FD80, VQA_Unknown_0070B820);
+                    VQA_SetUnVQ(Handle, VQA_Unknown_0077FD80, VQA_Unknown_0070B820);
                 }
             }
         }
@@ -548,14 +548,14 @@ bool VQAClass::Advance_Frame(bool *unknown)
         Debug_Printf("VQAClass::Advance_Frame() - Unpause\n");
     }
     if (GameInFocus == true && !unknown_548) {
-        int result = VQA_Unknown_0077BF10(Handle, 1, 0);
+        int result = VQA_Play(Handle, 1, 0);
         if (result >= 0) {
             if (PaletteChanged) {
                 Set_DirectDraw_Palette();
                 PaletteChanged = false;
             }
             if (Companion) {
-                Companion->Process_0069b420(VQA_Unknown_0077CBA0(Handle));
+                Companion->Process_0069b420(VQA_GetMovieTime(Handle));
             }
             if (Callback540) {
                 Callback540();
@@ -577,7 +577,7 @@ bool VQAClass::Advance_Frame(bool *unknown)
 pause:
     if (!unknown_vqa_paused_af901c) {
         if (Opened && !unknown_548) {
-            VQA_Unknown_0077BF10(Handle, 2, 0);
+            VQA_Play(Handle, 2, 0);
         }
         unknown_548 = true;
         unknown_vqa_paused_af901c = true;
@@ -592,7 +592,7 @@ pause:
 void VQAClass::Pause_VQA()
 {
     if (Opened && !unknown_548) {
-        VQA_Unknown_0077BF10(Handle, 2, 0);
+        VQA_Play(Handle, 2, 0);
     }
     unknown_548 = true;
 }
@@ -611,7 +611,7 @@ void VQAClass::Resume_VQA()
 void VQAClass::Close_And_Free_VQA()
 {
     if (Opened) {
-        VQA_Unknown_0077BE70(Handle);
+        VQA_Close(Handle);
     }
 }
 
@@ -620,7 +620,7 @@ void VQAClass::Close_And_Free_VQA()
 
 void VQAClass::Reset_VQA()
 {
-    VQA_Unknown_0077C7D0(Handle);
+    VQA_Reset(Handle);
     if (Companion != 0) {
         Companion->Reset_0069b4e0();
     }
@@ -656,7 +656,7 @@ bool VQAClass::Set_Draw_Buffer(int unknown1, int x, int y, int width, int height
     if (height == -1) {
         height = 0;
     }
-    return VQA_Unknown_0077C480(Handle, unknown1, x, y, width, height) == -1 ? true : false;
+    return VQA_Set_DrawBuffer(Handle, unknown1, x, y, width, height) == -1 ? true : false;
 }
 
 
@@ -844,10 +844,10 @@ int VQAClass::MixFileHandler(int request, int unknown2, int unknown3)
 }
 
 
-// int __cdecl VQA_Unknown_0071D640(VQAHandle *handle, int unknown2, int unknown3, int unknown4) (0x0071D640)
+// int __cdecl VQAMixFileHandler(VQAHandle *handle, int unknown2, int unknown3, int unknown4) (0x0071D640)
 // Library callback: forwards to the owning player's 0x0071D4B0.
 
-int __cdecl VQA_Unknown_0071D640(VQAHandle *handle, int unknown2, int unknown3, int unknown4)
+int __cdecl VQAMixFileHandler(VQAHandle *handle, int unknown2, int unknown3, int unknown4)
 {
     VQAClass *player = handle->Player;
     return player->MixFileHandler(unknown2, unknown3, unknown4);

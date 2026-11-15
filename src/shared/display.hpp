@@ -219,8 +219,8 @@ public:
     int unknown_1194;               // +0x1194 -1
     bool unknown_1198;              // +0x1198
     void *unknown_119c;             // +0x119C (a pointer: the load swizzles it)
-    ObjectClass *unknown_11a0;   // +0x11A0 an object waiting for placement (cancelled by slot 49)
-    ObjectTypeClass const *unknown_11a4;             // +0x11A4 (a pointer: the load swizzles it)
+    ObjectClass *PendingObjectPtr;   // +0x11A0 an object waiting for placement (cancelled by slot 49)
+    ObjectTypeClass const *PendingObject;             // +0x11A4 (a pointer: the load swizzles it)
     int unknown_11a8;               // +0x11A8 -1
     bool unknown_11ac;              // +0x11AC
     bool unknown_11ad;              // +0x11AD

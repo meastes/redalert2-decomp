@@ -335,7 +335,7 @@ namespace WorldDominationTour {
 static void Load_Image(Surface *&image, char const *filename)
 {
     CCFileClass file(filename);
-    image = unknown_load_pcx_60d110(&file, 0, 0, 0);
+    image = Read_PCX_File(&file, 0, 0, 0);
 }
 
 inline FactionSelectDialogControl::FactionSelectDialogControl() :

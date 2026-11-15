@@ -681,7 +681,7 @@ bool TeamClass::Remove(FootClass *member, int slot, bool arg3)
     if (member->Team != 0) {
         member->Team = 0;
     }
-    if (ScenarioInit == 0 && member->unknown_7d && !member->unknown_37d && !member->unknown_76 && !arg3) {
+    if (ScenarioInit == 0 && member->IsActive && !member->unknown_37d && !member->unknown_76 && !arg3) {
         member->unknown_slot261(false, true);
     }
     if (!first && Member != 0) {
@@ -2039,7 +2039,7 @@ void TeamClass::TMission_unknown_6bc3a0(ScriptMissionClass const &mission, bool 
     do {
         hit = false;
         for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
-            if (member->Strength > 0 && member->unknown_7d && member->unknown_74 && !member->unknown_76) {
+            if (member->Strength > 0 && member->IsActive && member->unknown_74 && !member->unknown_76) {
                 int damage = member->Strength;
                 member->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 0);
                 hit = true;
@@ -2683,7 +2683,7 @@ void TeamClass::TMission_unknown_6bdaa0(ScriptMissionClass const &mission, bool 
 
 bool __fastcall TeamClass::unknown_func_6bdd80(ObjectClass *object)
 {
-    if (object != 0 && object->unknown_7d && object->Strength != 0 && (ScenarioInit != 0 || !object->unknown_76)) {
+    if (object != 0 && object->IsActive && object->Strength != 0 && (ScenarioInit != 0 || !object->unknown_76)) {
         return true;
     }
     return false;

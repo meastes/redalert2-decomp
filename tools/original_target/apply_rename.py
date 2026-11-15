@@ -338,6 +338,42 @@ def global_rules(spec, catalog, renames, overloads):
     return rules
 
 
+NON_EXACT = REPOSITORY / 'manifests/original_target/non_exact.json'
+
+
+def non_exact_renamed(spec):
+    """(new bytes of non_exact.json or None when nothing there changes, its draft sources) with the
+    batch's names applied to the rows' `symbol` and `references` keys."""
+    if not NON_EXACT.exists():
+        return None
+    raw = NON_EXACT.read_text()
+    document = json.loads(raw)
+    renames = spec['renames']
+    overloads = spec.get('overload_renames') or {}
+    def renamed(name, address=None):
+        if name in renames:
+            return renames[name]
+        new = overload_name(overloads, name, address)
+        return new or name
+    changed = False
+    sources = set()
+    for row in document.get('rows', []):
+        sources.add(row.get('source'))
+        if row.get('symbol'):
+            new = renamed(row['symbol'], int(row['entry'], 16) if row.get('entry') else None)
+            changed |= new != row['symbol']; row['symbol'] = new
+        refs = row.get('references') or {}
+        out = {}
+        for name, value in refs.items():
+            new = renamed(name, int(value, 16) if isinstance(value, str) else value)
+            changed |= new != name
+            if out.setdefault(new, value) != value:
+                raise SystemExit('non_exact.json: %s would bind two addresses in %s' % (new, row.get('name')))
+        if refs:
+            row['references'] = out
+    return ((json.dumps(document, indent=1) + '\n').encode() if changed else None), sources
+
+
 def member_edited(path, text, spec):
     """`text` with the batch's member edits for `path` applied (offsets of the tree's text)."""
     items = (spec.get('member_edits') or {}).get(path)
@@ -1105,9 +1141,18 @@ def main():
     rewritten, stale = place_xcu_rewrites(catalog, spec['xcu_rewrites']) if spec['xcu_rewrites'] else (set(), {})
     populations = rename_catalog(catalog, spec['renames'], sources, moves, spec['address_renames'],
                                  spec['overload_renames']) | modules | rewritten
-    unknown = [p for p in sources if p not in {r['source'] for r in catalog['regions']}]
+    # Non-exact drafts (RA2_NON_MATCHING files, manifests/original_target/non_exact.json) are tracked
+    # sources too: their text follows the renames, and their rows' names and references with it.
+    drafts = non_exact_renamed(spec)
+    draft_sources = set()
+    if drafts is not None:
+        if drafts[0] is not None:
+            files[NON_EXACT.relative_to(REPOSITORY).as_posix()] = drafts[0]
+        draft_sources = drafts[1]
+    unknown = [p for p in sources if p not in {r['source'] for r in catalog['regions']} and p not in draft_sources]
     if unknown:
         raise SystemExit('changed files are not accepted sources: %s' % unknown[:5])
+    sources = {p: d for p, d in sources.items() if p not in draft_sources or p in {r['source'] for r in catalog['regions']}}
     users = header_users(catalog, headers, populations) if use_header_users(args.header_users, headers, populations) else set()
     if not populations and not users:
         raise SystemExit('refused: the batch changes no accepted source, name or reference and no header user was '

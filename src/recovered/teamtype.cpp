@@ -723,7 +723,7 @@ void TeamTypeClass::Compute_CRC(WWCRCEngine &crc) const
 
 bool TeamTypeClass::unknown_func_6c0010(FootClass *foot, HouseClass *house)
 {
-    if ((foot->Team == 0 || this != foot->Team->Class) && foot->Strength > 0 && foot->unknown_7d && !foot->unknown_76
+    if ((foot->Team == 0 || this != foot->Team->Class) && foot->Strength > 0 && foot->IsActive && !foot->unknown_76
         && !foot->HasAnyLink() && foot->House == house) {
         if (foot->Get_Mission() != -1) {
             if (!MissionClass::Is_Recruitable_Mission(foot->Get_Mission())) {

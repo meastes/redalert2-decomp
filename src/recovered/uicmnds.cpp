@@ -1006,7 +1006,7 @@ void __fastcall Unknown_006F6D00(bool flag)
 
 int __fastcall Unknown_006F6FE0(TechnoClass *techno, int argument)
 {
-    if (techno != 0 && techno->unknown_7d) {
+    if (techno != 0 && techno->IsActive) {
         bool mine;
         if (unknown_game_mode_a3d298 == 0) {
             mine = techno->House->unknown_135;
@@ -1058,7 +1058,7 @@ void __fastcall Unknown_006F7020(char const *name)
 
 int __fastcall Unknown_006F7190(TechnoClass *techno, char const *name)
 {
-    if (techno != 0 && techno->unknown_7d) {
+    if (techno != 0 && techno->IsActive) {
         if (Is_Player_Side(techno)) {
             if (techno->unknown_func_5d27d0(name)) {
                 return 1;
@@ -1418,7 +1418,7 @@ void __fastcall Unknown_006F7B80(bool flag)
 
 int __fastcall Unknown_006F7DF0(TechnoClass *techno, int argument)
 {
-    if (techno != 0 && techno->unknown_7d) {
+    if (techno != 0 && techno->IsActive) {
         if (Is_Player_Side(techno)) {
             if (techno->Kind_Of() != 6) {
                 return 1;

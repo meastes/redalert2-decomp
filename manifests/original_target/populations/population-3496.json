@@ -4,8 +4,8 @@
     "id": "population-3496",
     "inventory_sha256": "9b8eb02ecb80b6423ced77282142d072c50191403a46461a36c785c05d162440",
     "gaps_sha256": "c3018d206b8641e5fc154e9d77bd1e09f064ed44933cc1360dbb679091634db5",
-    "historical_population_sha256": "8f06ecb0c020e6bfb12a8c8791cb04c86ab2b2dbfd1948de6d6414b5f7ad7022",
-    "historical_acceptance_sha256": "e5d4a0a5fc4e2e0e7f2d5ffb2df8db2610e099d31e27395fae0550dcb001293a"
+    "historical_population_sha256": "ea26ebb2720e74cc0d989444c3617a4fd24b82d499bfb5c6c48503672f46da04",
+    "historical_acceptance_sha256": "475d6ba3193f2ccb9f79ba53330f1b769598e9f819b608d8fa09c09923ae9542"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -2949,7 +2949,7 @@
     "??1BufferIOFileClass@@UAE@XZ": 4387664,
     "??_7CCFileClass@@6B@": 7972512,
     "??_7CDFileClass@@6B@": 7972440,
-    "?unknown_check_406f30@@YAHXZ": 4222768,
+    "?AudioDeviceAvailable@@YAHXZ": 4222768,
     "?Set_Option@@YIXH@Z": 7461728,
     "?MovieInt1@@3HA": 10948788,
     "?Movie_Lock_Surface@@YIHXZ": 5901760,
@@ -2972,7 +2972,7 @@
     "?Pause_VQA@VQAClass@@QAEXXZ": 7459232,
     "?Resume_VQA@VQAClass@@QAEXXZ": 7459296,
     "?AlternateSurface@@3PAVSurface@@A": 8624472,
-    "?Unknown_004E0C90@@YIX_NPAVSurface@@PBVRect@@@Z": 5115024,
+    "?Update_Visible_Surface@@YIX_NPAVSurface@@PBVRect@@@Z": 5115024,
     "??_7VQMovieHandle@@6B@": 8021540,
     "?Get_VQA_Width@VQAClass@@QAEHXZ": 7459584,
     "?Get_VQA_Height@VQAClass@@QAEHXZ": 7459600,
@@ -3325,7 +3325,7 @@
     "?VQA_SetTimer@@YIXPAUVQAHandleP@@J@Z": 7850784,
     "?Is_Inactive@ObjectClass@@UBE_NXZ": 6115088,
     "?In_Which_Layer@ParticleClass@@UBEHXZ": 6333872,
-    "?VQA_Unknown_0077C920@@YIHPAUVQAHandle@@PAH11@Z": 7850272,
+    "?VQA_GetBlockInfo@@YIHPAUVQAHandle@@PAH11@Z": 7850272,
     "?Detach@IsometricTileTypeClass@@UAEXPAVAbstractClass@@_N@Z": 5432080,
     "?Detach@SuperClass@@UAEXPAVAbstractClass@@_N@Z": 6941424,
     "?Detach@TActionClass@@UAEXPAVAbstractClass@@_N@Z": 7001600,
@@ -3524,7 +3524,7 @@
     "?Put_Pixel@XSurface@@UAE_NABUPoint2D@@HABVRect@@@Z": 7815936,
     "?GameInFocus@@3_NA": 10751272,
     "?Unlock@DSurface@@UAE_NXZ": 4894272,
-    "?VQA_Unknown_0077C8A0@@YIHPAUVQAHandle@@H@Z": 7850144,
+    "?VQA_SetStop@@YIHPAUVQAHandle@@H@Z": 7850144,
     "?Time@ConnectionClass@@SAKXZ": 4724160,
     "??0MultiplayerGameMode@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z": 5991632,
     "__imp__CreateMutexA@12": 7971384,
@@ -3585,18 +3585,18 @@
     "__imp__DispatchMessageA@4": 7972020,
     "?Unknown_0070B7D0@VQAClass@@QAEXXZ": 7387088,
     "?Open_And_Load_Buffers@VQAClass@@QAE_NXZ": 7457584,
-    "?VQA_Unknown_0077B7A0@@YIHPBDPAUVQAConfig@@PAPAUVQAHandle@@@Z": 7845792,
-    "?VQA_Unknown_0077C640@@YIHPAUVQAHandle@@HHH@Z": 7849536,
-    "?VQA_Unknown_0077C6C0@@YIHPAUVQAHandle@@HHHH@Z": 7849664,
+    "?VQA_Open@@YIHPBDPAUVQAConfig@@PAPAUVQAHandle@@@Z": 7845792,
+    "?VQA_SetLoop@@YIHPAUVQAHandle@@HHH@Z": 7849536,
+    "?VQA_SetLoop_Internal@@YIHPAUVQAHandle@@HHHH@Z": 7849664,
     "?Seek_To_Stored_Frame@VQAClass@@QAE_NXZ": 7457936,
-    "?VQA_Unknown_0077C2E0@@YIHPAUVQAHandle@@HH@Z": 7848672,
-    "?VQA_Unknown_0077BF10@@YIHPAUVQAHandle@@HH@Z": 7847696,
-    "?VQA_Unknown_0077BE70@@YIXPAUVQAHandle@@@Z": 7847536,
-    "?VQA_Unknown_0077C7D0@@YIXPAUVQAHandle@@@Z": 7849936,
-    "?VQA_Unknown_0077C480@@YIHPAUVQAHandle@@HHHHH@Z": 7849088,
+    "?VQA_SeekFrame@@YIHPAUVQAHandle@@HH@Z": 7848672,
+    "?VQA_Play@@YIHPAUVQAHandle@@HH@Z": 7847696,
+    "?VQA_Close@@YIXPAUVQAHandle@@@Z": 7847536,
+    "?VQA_Reset@@YIXPAUVQAHandle@@@Z": 7849936,
+    "?VQA_Set_DrawBuffer@@YIHPAUVQAHandle@@HHHHH@Z": 7849088,
     "?Handle_Codebook_Event@VQAClass@@QAEXPAXI@Z": 7459520,
     "?VQA_Unknown_0070B7F0@@YIXPAXH@Z": 7387120,
-    "?VQA_Unknown_0071D640@@YAHPAUVQAHandle@@HHH@Z": 7460416,
+    "?VQAMixFileHandler@@YAHPAUVQAHandle@@HHH@Z": 7460416,
     "?MixFileHandler@VQAClass@@QAEHHHH@Z": 7460016,
     "?VQACacheHandler@@YIHPAUVQAHandle@@HHH@Z": 7460448,
     "?CacheHandler@VQAClass@@QAEHHHH@Z": 7457280,
@@ -4392,7 +4392,7 @@
     "?VQA_Unknown_0071DB80@@YIXH@Z": 7461760,
     "?VQA_Unknown_0071DBC0@@YIHH@Z": 7461824,
     "??0VQAClass@@QAE@PBDHP6AHXZP6AXXZ2HH@Z": 7456240,
-    "?VQA_Unknown_00777850@@YIXPAUVQAConfig@@@Z": 7829584,
+    "?VQA_DefaultConfig@@YIXPAUVQAConfig@@@Z": 7829584,
     "?unknown_int_a40b54@@3HA": 10750804,
     "?VQA_Unknown_0070B690@@YIXH@Z": 7386768,
     "?VQA_Unknown_0070BBC0@@YAXPAE00KKK@Z": 7388096,
@@ -4401,8 +4401,8 @@
     "?VQA_Unknown_0077FD80@@YAXPAE00KKK@Z": 7863680,
     "?VQA_Unknown_0070C0A0@@YAXPAE00KKK@Z": 7389344,
     "?VQA_Unknown_0070BF60@@YAXPAE00KKK@Z": 7389024,
-    "?VQA_Unknown_0077C440@@YIHPAUVQAHandle@@P6AXPAE11KKK@Z2@Z": 7849024,
-    "?VQA_Unknown_0077CBA0@@YIHPAUVQAHandle@@@Z": 7850912,
+    "?VQA_SetUnVQ@@YIHPAUVQAHandle@@P6AXPAE11KKK@Z2@Z": 7849024,
+    "?VQA_GetMovieTime@@YIHPAUVQAHandle@@@Z": 7850912,
     "?Process_0069b420@VQAMovieCompanion@@QAE_NH@Z": 6927392,
     "?Play_VQA_Frame@VQAClass@@QAEXH@Z": 7458640,
     "?unknown_vqa_paused_af901c@@3_NA": 11505692,
@@ -7338,7 +7338,7 @@
           "resolved": 10948660
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -7405,7 +7405,7 @@
           "resolved": 10948672
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -7456,7 +7456,7 @@
           "resolved": 10948744
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -7507,7 +7507,7 @@
           "resolved": 10948680
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -7558,7 +7558,7 @@
           "resolved": 10948640
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -7641,7 +7641,7 @@
           "resolved": 10948776
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -7700,7 +7700,7 @@
           "resolved": 10948712
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -7759,7 +7759,7 @@
           "resolved": 10948736
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -7818,7 +7818,7 @@
           "resolved": 10948760
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -7861,7 +7861,7 @@
           "resolved": 10948666
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -7912,7 +7912,7 @@
           "resolved": 10948728
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -8019,7 +8019,7 @@
           "resolved": 1973263
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -8045,7 +8045,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "59526fce2b74a9bd8625d3d5629c439d94851e5234c4deb460e7abc40e69df6e",
       "relocations": [],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -8071,7 +8071,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "relocations": [],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -8106,7 +8106,7 @@
           "resolved": 1022960
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -8149,7 +8149,7 @@
           "resolved": 1553204
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -8175,7 +8175,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "6d6b16c4d472c6358de7822265d3c9f8a0ff34c64ba4c7910b90625028f3803a",
       "relocations": [],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -8210,7 +8210,7 @@
           "resolved": 4293454147
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -8261,7 +8261,7 @@
           "resolved": 10948784
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -8296,7 +8296,7 @@
           "resolved": 4293453662
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -8331,7 +8331,7 @@
           "resolved": 4293453987
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -8366,7 +8366,7 @@
           "resolved": 4293453907
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -8401,7 +8401,7 @@
           "resolved": 1965408
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -8428,7 +8428,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "relocations": [],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -8455,7 +8455,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
       "relocations": [],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -8482,7 +8482,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
       "relocations": [],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -8518,7 +8518,7 @@
           "resolved": 1965075
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -8545,7 +8545,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
       "relocations": [],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -8572,7 +8572,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "relocations": [],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -8599,7 +8599,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
       "relocations": [],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -8652,7 +8652,7 @@
         }
       ],
       "source": "src/recovered/movies.cpp",
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source_order": 243152,
       "population": "population-3496",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -8694,7 +8694,7 @@
           "resolved": 10948784
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -8745,7 +8745,7 @@
           "resolved": 1964587
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "source_order": 243153,
       "population": "population-3496",
@@ -8789,7 +8789,7 @@
           "resolved": 1965152
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -8833,7 +8833,7 @@
           "resolved": 1964845
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -8869,7 +8869,7 @@
           "resolved": 10948780
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -8904,7 +8904,7 @@
           "resolved": 10948780
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -8939,7 +8939,7 @@
           "resolved": 8021588
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -9006,7 +9006,7 @@
           "resolved": 1968264
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -9137,7 +9137,7 @@
           "resolved": 10948780
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -9196,7 +9196,7 @@
           "resolved": 10948780
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -9231,7 +9231,7 @@
           "resolved": 1555297
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -9266,7 +9266,7 @@
           "resolved": 1555345
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -9319,7 +9319,7 @@
         {
           "offset": 40,
           "kind": 20,
-          "symbol": "?Unknown_004E0C90@@YIX_NPAVSurface@@PBVRect@@@Z",
+          "symbol": "?Update_Visible_Surface@@YIX_NPAVSurface@@PBVRect@@@Z",
           "target": 5115024,
           "addend": 0,
           "resolved": 4294178324
@@ -9381,7 +9381,7 @@
           "resolved": 8624464
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -9407,7 +9407,7 @@
       "full_extent_bytes": 80,
       "full_extent_sha256": "2dd5c5610a839539bdc8535291520cca4a92dcfeb358640d9b11d01c87f277fe",
       "relocations": [],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -9474,7 +9474,7 @@
           "resolved": 1967522
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -9525,7 +9525,7 @@
           "resolved": 1555256
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -9568,7 +9568,7 @@
           "resolved": 1554880
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -9619,7 +9619,7 @@
           "resolved": 10948784
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -9678,7 +9678,7 @@
           "resolved": 10948780
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -9704,7 +9704,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "e61ff31e6dbf297ef1d0462bb27a936a6c35309986b95684592017e851502d26",
       "relocations": [],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -9757,7 +9757,7 @@
         {
           "offset": 40,
           "kind": 20,
-          "symbol": "?Unknown_004E0C90@@YIX_NPAVSurface@@PBVRect@@@Z",
+          "symbol": "?Update_Visible_Surface@@YIX_NPAVSurface@@PBVRect@@@Z",
           "target": 5115024,
           "addend": 0,
           "resolved": 4294177572
@@ -9819,7 +9819,7 @@
           "resolved": 8624464
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -9910,7 +9910,7 @@
           "resolved": 8021588
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -9945,7 +9945,7 @@
           "resolved": 8021636
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -9980,7 +9980,7 @@
           "resolved": 4293454136
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -10015,7 +10015,7 @@
           "resolved": 4293455112
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -10050,7 +10050,7 @@
           "resolved": 4293455064
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -10085,7 +10085,7 @@
           "resolved": 4293453928
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -10120,7 +10120,7 @@
           "resolved": 4293455032
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -10179,7 +10179,7 @@
           "resolved": 8021588
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -10326,7 +10326,7 @@
           "resolved": 1553527
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -10361,7 +10361,7 @@
           "resolved": 10948784
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -10452,7 +10452,7 @@
           "resolved": 1965513
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -10519,7 +10519,7 @@
           "resolved": 1965446
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -10570,7 +10570,7 @@
           "resolved": 10948768
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -10621,7 +10621,7 @@
           "resolved": 10948752
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -10712,7 +10712,7 @@
           "resolved": 10948696
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -10763,7 +10763,7 @@
           "resolved": 1557546
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -10846,7 +10846,7 @@
           "resolved": 8624464
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -10985,7 +10985,7 @@
           "resolved": 8624464
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -11124,7 +11124,7 @@
           "resolved": 4293449334
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -11209,7 +11209,7 @@
         {
           "offset": 195,
           "kind": 20,
-          "symbol": "?unknown_check_406f30@@YAHXZ",
+          "symbol": "?AudioDeviceAvailable@@YAHXZ",
           "target": 4222768,
           "addend": 0,
           "resolved": 4293287513
@@ -11375,7 +11375,7 @@
           "resolved": 1023307
         }
       ],
-      "source_sha256": "9a67289fc22babb65a1527cff4184f3656bc182813fffefdc5b8d88286d9087a",
+      "source_sha256": "c537a9c17851e82b5cab274f2aaf7af1ce063dd69fb3d31f58072a4d8231bb56",
       "source": "src/recovered/movies.cpp",
       "population": "population-3496",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",

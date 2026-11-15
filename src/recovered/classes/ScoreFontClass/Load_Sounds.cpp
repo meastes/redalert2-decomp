@@ -8,7 +8,7 @@
 #include "shared/cc_file_class.hpp"
 #include "shared/mix_file_class.hpp"
 #include "shared/debug_printf.hpp"
-// @ref ?unknown_check_406f30@@YAHXZ=00406f30
+// @ref ?AudioDeviceAvailable@@YAHXZ=00406f30
 // @ref ??0CCFileClass@@QAE@XZ=00468fd0
 // @ref ?Close@CCFileClass@@UAEXXZ=004691f0
 // @ref ?Load_Alloc_Data@@YIPAXAAVFileClass@@@Z=00495230
@@ -27,7 +27,7 @@ void *__fastcall Load_Alloc_Data(class FileClass &file);
 
 void ScoreFontClass::Load_Sounds()
 {
-    if (unknown_check_406f30()) {
+    if (AudioDeviceAvailable()) {
         CCFileClass ccfile;
         FileClass &file = ccfile;
         unknown_score_sounds_ab6fa8[0].Data = MixFileClass::Retrieve("TEXT1.AUD");

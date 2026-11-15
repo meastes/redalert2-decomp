@@ -7,7 +7,7 @@
 // +0x08 suspended, +0x2C sample); the object is Theme (0x00A35D78).
 // @ref ?unknown_sound_enabled_a40c18@@3DA=00a40c18
 // @ref ?unknown_flag_a40d0c@@3DA=00a40d0c
-// @ref ?unknown_check_406f30@@YAHXZ=00406f30
+// @ref ?AudioDeviceAvailable@@YAHXZ=00406f30
 // @ref ?Debug_Printf@@YAXPBDZZ=004068f0
 // @ref ?unknown_stop_sample_407e60@@YIXPAX@Z=00407e60
 // @ref ??_C@_0BE@KPIN@Theme?3?3Suspend?$CI?$CFd?$CJ?6?$AA@=007f841c
@@ -31,7 +31,7 @@ public:
 
 void ThemeClass::Suspend()
 {
-    if (unknown_sound_enabled_a40c18 && unknown_check_406f30() && !unknown_flag_a40d0c && Current != -1) {
+    if (unknown_sound_enabled_a40c18 && AudioDeviceAvailable() && !unknown_flag_a40d0c && Current != -1) {
         Debug_Printf("Theme::Suspend(%d)\n", Playing);
         if (Sample != 0) {
             unknown_stop_sample_407e60(Sample);

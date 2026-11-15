@@ -981,13 +981,13 @@ void Tactical::Draw_Placement(bool drawtrans)
     Cell start = Cell(0, 0);
     Cell dims;
 
-    if (Map.unknown_11a4 != 0) {
+    if (Map.PendingObject != 0) {
         Point2D mouse = WWMouse->Get_Mouse_XY();
         if (!unknown_rect_839630.Is_Point_Within(mouse)) {
             return;
         }
 
-        if (Map.unknown_11a4->Kind_Of() == 7 && ((BuildingTypeClass *)Map.unknown_11a4)->Gate) {
+        if (Map.PendingObject->Kind_Of() == 7 && ((BuildingTypeClass *)Map.PendingObject)->Gate) {
             dims = Cell(3, 3);
             start = Cell(-1, -1);
         } else {
@@ -1009,25 +1009,25 @@ void Tactical::Draw_Placement(bool drawtrans)
             }
         }
 
-        int rtti = Map.unknown_11a4->Kind_Of();
+        int rtti = Map.PendingObject->Kind_Of();
 
-        if (Debug_Map && Map.unknown_11a0 != 0) {
+        if (Debug_Map && Map.PendingObjectPtr != 0) {
             Cell cell = start + Map.unknown_1170 + Map.unknown_1174;
             CoordStruct coord = CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
             if (rtti == 7) {
                 coord = Coord_Snap(coord);
             }
             coord.Z = Map.Get_Height_GL(coord);
-            Map.unknown_11a0->Set_Coord(coord);
+            Map.PendingObjectPtr->Set_Coord(coord);
             Point2D pixel;
             Coord_To_Pixel(coord, pixel);
             if (rtti != 0x12) {
-                Map.unknown_11a0->Editor_Draw_It(pixel, unknown_rect_839630);
+                Map.PendingObjectPtr->Editor_Draw_It(pixel, unknown_rect_839630);
             }
         }
 
-        if (all_valid && Map.unknown_11a0 != 0 && Map.unknown_11a0->Kind_Of() == 6) {
-            BuildingClass *bptr = (BuildingClass *)Map.unknown_11a0;
+        if (all_valid && Map.PendingObjectPtr != 0 && Map.PendingObjectPtr->Kind_Of() == 6) {
+            BuildingClass *bptr = (BuildingClass *)Map.PendingObjectPtr;
             if (bptr->Type->LaserFencePost) {
                 Draw_Fence_Placement(drawtrans, Cell(start.X, start.Y) + Map.unknown_1170 + Map.unknown_1174);
             } else if (bptr->Type->FirestormWall) {
@@ -1068,7 +1068,7 @@ void Tactical::Draw_Fence_Placement(bool drawtrans, Cell cell)
     for (int index = 0; index < 8; index += 2) {
         Cell scan = cell;
         int count = 0;
-        int range = ((BuildingClass *)Map.unknown_11a0)->Type->GuardRange.Value >> 8;
+        int range = ((BuildingClass *)Map.PendingObjectPtr)->Type->GuardRange.Value >> 8;
         if (range <= 0) continue;
         int facing = index;
         BuildingClass *building;
@@ -1118,7 +1118,7 @@ void Tactical::Draw_Firestorm_Wall_Placement(bool drawtrans, Cell cell)
     for (int index = 0; index < 8; index += 2) {
         Cell scan = cell;
         int count = 0;
-        BuildingTypeClass *type = ((BuildingClass *)Map.unknown_11a0)->Type;
+        BuildingTypeClass *type = ((BuildingClass *)Map.PendingObjectPtr)->Type;
         int range = type->GuardRange.Value >> 8;
         int facing = index;
         bool found = false;
@@ -1165,7 +1165,7 @@ void Tactical::Draw_Firestorm_Wall_Placement(bool drawtrans, Cell cell)
 
 void Tactical::Draw_Wall_Placement(bool drawtrans, Cell cell)
 {
-    OverlayTypeClass const *to_overlay = ((BuildingClass *)Map.unknown_11a0)->Type->ToOverlay;
+    OverlayTypeClass const *to_overlay = ((BuildingClass *)Map.PendingObjectPtr)->Type->ToOverlay;
     if (to_overlay == 0) {
         return;
     }
@@ -1173,7 +1173,7 @@ void Tactical::Draw_Wall_Placement(bool drawtrans, Cell cell)
     for (int index = 0; index < 8; index += 2) {
         Cell scan = cell;
         int count = 0;
-        BuildingTypeClass *type = ((BuildingClass *)Map.unknown_11a0)->Type;
+        BuildingTypeClass *type = ((BuildingClass *)Map.PendingObjectPtr)->Type;
         int range = type->GuardRange.Value >> 8;
         if (range <= 0) {
             continue;
@@ -2708,7 +2708,7 @@ bool Tactical::Contains_Selectable_Buildings(Rect rect)
 
     for (int i = 0; i < unknown_BuildingClass_list_00a40af8.Count(); i++) {
         BuildingClass *bptr = unknown_BuildingClass_list_00a40af8[i];
-        if (bptr->unknown_7d && bptr->unknown_75 && bptr->unknown_74) {
+        if (bptr->IsActive && bptr->unknown_75 && bptr->unknown_74) {
             Point2D point = Coord_To_Pixel_Absolute(bptr->unknown_slot42());
             if (point.X >= top_left.X && point.X <= bottom_right.X && point.Y >= top_left.Y && point.Y <= bottom_right.Y) {
                 return true;
@@ -2733,7 +2733,7 @@ void Tactical::Add_Buildings_To_Selectable(Rect rect)
 
     for (int i = 0; i < unknown_BuildingClass_list_00a40af8.Count(); i++) {
         BuildingClass *bptr = unknown_BuildingClass_list_00a40af8[i];
-        if (bptr->unknown_7d && bptr->unknown_74 && !bptr->Type->InvisibleInGame) {
+        if (bptr->IsActive && bptr->unknown_74 && !bptr->Type->InvisibleInGame) {
             CoordStruct coord = bptr->Coord;
             Point2D point = Coord_To_Pixel_Absolute(coord);
             if (point.X >= top_left.X && point.X <= bottom_right.X && point.Y >= top_left.Y && point.Y <= bottom_right.Y) {
@@ -2837,7 +2837,7 @@ int Tactical::Unknown_006AA6A0()
     if (rect.Is_Valid()) {
         for (int index = 0; index < unknown_db0; index++) {
             TacticalObjectPixel &entry = unknown_tactical_pixels_abe5f8[index];
-            if (entry.Object != 0 && entry.Object->unknown_7d) {
+            if (entry.Object != 0 && entry.Object->IsActive) {
                 Point2D view(TacPixelX, TacPixelY);
                 Point2D point(entry.Pixel.X - view.X, entry.Pixel.Y - view.Y);
                 if (rect.Is_Point_Within(point)) {
@@ -2982,7 +2982,7 @@ ObjectClass *Tactical::Get_Selectable_Object_006aa990(Point2D const &point)
             bool pass = false;
 
             if (tech != 0) {
-                if (obj->unknown_7d && !tech->unknown_76) {
+                if (obj->IsActive && !tech->unknown_76) {
                     if (tech->unknown_372 || tech->unknown_1b8 != 2 || ((UnknownCellClass *)&Map[tech->Center_Coord()])->Is_Sensed(unknown_player_a35db4->ArrayIndex)) {
                         pass = true;
                     }
@@ -3050,7 +3050,7 @@ void Tactical::Unknown_006AABC0(Rect const *rect, void (__fastcall *callback)(Ob
     if (rect->Is_Valid()) {
         for (int index = 0; index < unknown_db0; index++) {
             TacticalObjectPixel &entry = unknown_tactical_pixels_abe5f8[index];
-            if (entry.Object != 0 && entry.Object->unknown_7d) {
+            if (entry.Object != 0 && entry.Object->IsActive) {
                 ObjectClass *object = entry.Object;
                 Point2D view(TacPixelX, TacPixelY);
                 Point2D point(entry.Pixel.X - view.X, entry.Pixel.Y - view.Y);
@@ -3190,7 +3190,7 @@ void Tactical::Draw_Rally_Points(bool inshroud)
     int shadow = Build_Hicolor_Pixel(unknown_rgb_ab6841.Red, unknown_rgb_ab6841.Green, unknown_rgb_ab6841.Blue);
     for (int index = unknown_objects_a40c60.Count() - 1; index >= 0; index--) {
         ObjectClass *object = unknown_objects_a40c60[index];
-        if (object->Kind_Of() == 6 && object->unknown_7d && object->unknown_77) {
+        if (object->Kind_Of() == 6 && object->IsActive && object->unknown_77) {
             BuildingClass *building = (BuildingClass *)object;
             if (building->House == unknown_player_a35db4 && building->unknown_slot153() && building->unknown_1b0 != 0) {
                 CoordStruct center = building->Center_Coord();
@@ -3504,7 +3504,7 @@ void Tactical::Draw_Radial_Indicators()
     }
 
     if (unknown_a40b32) {
-        BuildingClass *pending = (BuildingClass *)Map.unknown_11a0;
+        BuildingClass *pending = (BuildingClass *)Map.PendingObjectPtr;
         if (pending != 0 && pending->Kind_Of() == 6) {
             if (pending->unknown_451930() > 0) {
                 Cell cell = Map.unknown_1170;
@@ -3525,7 +3525,7 @@ void Tactical::Draw_Radial_Indicators()
                 int count = unknown_player_a35db4->Buildings.Count();
                 for (int index = 0; index < count; index++) {
                     BuildingClass *building = unknown_player_a35db4->Buildings[index];
-                    if (building != 0 && building->unknown_7d && building != pending && building->Type == pending->Type) {
+                    if (building != 0 && building->IsActive && building != pending && building->Type == pending->Type) {
                         Cell zone = Map.unknown_1170;
                         Cell bcell = Cell(building->Center_Coord());
                         int dist = zone.Distance_To(bcell);
@@ -3536,7 +3536,7 @@ void Tactical::Draw_Radial_Indicators()
                 }
                 for (index = 0; index < count; index++) {
                     BuildingClass *building = unknown_player_a35db4->Buildings[index];
-                    if (building != 0 && building->unknown_7d && building != pending && building->Type == pending->Type) {
+                    if (building != 0 && building->IsActive && building != pending && building->Type == pending->Type) {
                         Cell zone = Map.unknown_1170;
                         Cell bcell = Cell(building->Center_Coord());
                         int dist = zone.Distance_To(bcell);

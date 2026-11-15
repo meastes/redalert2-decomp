@@ -61,8 +61,8 @@ bool SidebarClass::StripClass::Unknown_006802D0()
                 OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 16, Buildables[index].unknown_04,
                     Buildables[index].unknown_00, tech->Naval));
                 if (Buildables[index].unknown_04 == 7 || Buildables[index].unknown_04 == 6) {
-                    Map.unknown_11a0 = 0;
-                    Map.unknown_11a4 = 0;
+                    Map.PendingObjectPtr = 0;
+                    Map.PendingObject = 0;
                     Map.unknown_11a8 = -1;
                     Map.Unknown_00498F10(0);
                 }

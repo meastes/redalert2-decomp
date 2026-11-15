@@ -128,7 +128,7 @@ bool MapSelectData::Load(Wstring const &section)
         }
     }
 
-    if (unknown_check_406f30()) {
+    if (AudioDeviceAvailable()) {
         Wstring entry;
         if (ini.Get_String(section, "Sounds", (char const *)0, anims) > 0) {
             for (index = 0; index < ini.Entry_Count(anims); index++) {
@@ -251,7 +251,7 @@ int MapSelectData::Stage_Index(MapStage *stage)
 
 MSSfxEntry *MapSelectData::Find_Sound(Wstring const &name) const
 {
-    if (unknown_check_406f30()) {
+    if (AudioDeviceAvailable()) {
         for (int index = 0; index < Sounds.Count(); index++) {
             MSSfxEntry *sound = Sounds[index];
             Wstring entry(sound->Name);
@@ -523,7 +523,7 @@ MSSfxEntry::MSSfxEntry(Wstring const &name, Wstring const &line) :
     unknown_08(0),
     Volume(255)
 {
-    if (name != 0 && unknown_check_406f30()) {
+    if (name != 0 && AudioDeviceAvailable()) {
         Wstring file;
         int position = line.Get_Token(0, ",", file);
         Wstring volume;

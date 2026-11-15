@@ -4,8 +4,8 @@
     "id": "population-4342",
     "inventory_sha256": "e44a5103f96f828553c158a703572725dc927b2dc2c936b8543884d4d5f1d707",
     "gaps_sha256": "d6127909d40f3ec17894ccd1b80caa77ad3452e4982d4df473ecaa74ab3790bb",
-    "historical_population_sha256": "acfc4fc562c58c184e0193108f3db5cdd8f604c5de184d39465046868ce99d95",
-    "historical_acceptance_sha256": "fc26e3dcaf2bed7d7c5a8229b69836bb192886ac6250f700ff5216b5de42bd41"
+    "historical_population_sha256": "94bb1c8193b151c8f32aca68ef7e076f879e1920c0f073c4264846044549b279",
+    "historical_acceptance_sha256": "97d964b0b59b4809b60fe4af19a29ad77f25d08220f1974769305ba55330be49"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -11025,7 +11025,9 @@
     "?Reset@BitFontClass@@QAEXXZ": 4399536,
     "__ramp_corners": 8339828,
     "?Unknown_005689D0@MapClass@@QAE?AVCell@@ABV2@_N@Z": 5671376,
-    "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z": 4272592
+    "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z": 4272592,
+    "?Movies@@3V?$DynamicVectorClass@PBD@@A": 10948688,
+    "?Play_Ingame_Movie@@YIXH_N@Z": 5900576
   },
   "regions": [
     {
@@ -11087,7 +11089,7 @@
           "resolved": 8710672
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -11138,7 +11140,7 @@
           "resolved": 8710744
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -11189,7 +11191,7 @@
           "resolved": 8710728
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -11240,7 +11242,7 @@
           "resolved": 8710720
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -11291,7 +11293,7 @@
           "resolved": 8710680
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -11350,7 +11352,7 @@
           "resolved": 8710688
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -11409,7 +11411,7 @@
           "resolved": 8710712
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -11468,7 +11470,7 @@
           "resolved": 8710736
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -11511,7 +11513,7 @@
           "resolved": 8710666
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -11562,7 +11564,7 @@
           "resolved": 8710704
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -11621,7 +11623,7 @@
           "resolved": 8710660
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -11647,7 +11649,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "a907b58aafff460f30ed4348c17566f65f8e3481d9f1956999f118f4f3213ab5",
       "relocations": [],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -11706,7 +11708,7 @@
           "resolved": 8002732
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -11741,7 +11743,7 @@
           "resolved": 4294819676
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -11767,7 +11769,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "33cb7c6b5695e070548b4e7f33d43173b10670c306067b684edf21470a662ef2",
       "relocations": [],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -11793,7 +11795,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "4e5a4d15a037f4b61cd89c9a7340ac78aebe6ffd6fb3a271865f643c9fc4d6fc",
       "relocations": [],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -11819,7 +11821,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "fbe4baecfb52139ca3fea50a6c3659e74957de6d2f458312bc3a550cfbc200ae",
       "relocations": [],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -11870,7 +11872,7 @@
           "resolved": 1088409
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -11921,7 +11923,7 @@
           "resolved": 8710640
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -12004,7 +12006,7 @@
           "resolved": 8710752
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -12111,7 +12113,7 @@
           "resolved": 2537948
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -12146,7 +12148,7 @@
           "resolved": 1702445
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -12277,7 +12279,7 @@
           "resolved": 391040
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -12328,7 +12330,7 @@
           "resolved": 1088299
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -12475,7 +12477,7 @@
           "resolved": 3462235
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -12542,7 +12544,7 @@
           "resolved": 3451975
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -12609,7 +12611,7 @@
           "resolved": 3451666
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -12660,7 +12662,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -12799,7 +12801,7 @@
           "resolved": 3452373
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -12938,7 +12940,7 @@
           "resolved": 1700285
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -13301,7 +13303,7 @@
           "resolved": 8806948
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -13632,7 +13634,7 @@
           "resolved": 2620800
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -14067,7 +14069,7 @@
           "resolved": 8624476
         }
       ],
-      "source_sha256": "c405ff4b66a5d7e50d9d5e74d88b740149d1eb70a8e097c2dfd0f90a9b650951",
+      "source_sha256": "4eeb176b1c964a4edb7aca33e04a85c6cf9ff6fddbc5ebbcc61bc0c506f28172",
       "source": "src/recovered/blight.cpp",
       "population": "population-4342",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",

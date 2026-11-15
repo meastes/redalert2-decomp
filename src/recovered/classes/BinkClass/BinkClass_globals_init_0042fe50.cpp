@@ -4,7 +4,7 @@
 #include "shared/shape_file.hpp"
 #include "shared/dsurface.hpp"
 // @ref _unknown_empty_rect=0084e9b0
-// @ref ?unknown_check_406f30@@YAHXZ=00406f30
+// @ref ?AudioDeviceAvailable@@YAHXZ=00406f30
 // @ref ?GetDirectSoundObject@@YAPAXXZ=0040a6c0
 // @ref ?unknown_volume_a40b48@@3MA=00a40b48
 // @ref ?unknown_volume_84e9a8@@3MA=0084e9a8

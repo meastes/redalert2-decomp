@@ -209,7 +209,7 @@ void Map::Load(INIClass &ini, MSEngine *engine, int unknown3)
     engine->Add_Anim(unknown_1c);
     ini.Get_String(art, "ClickMap", 0, value);
     CCFileClass file(value);
-    unknown_24 = unknown_load_pcx_60d110(&file, 0, 0, 0);
+    unknown_24 = Read_PCX_File(&file, 0, 0, 0);
     file.Close();
     {
         MSAnim *sidebar = 0;
@@ -555,7 +555,7 @@ void __fastcall unknown_write_wdtmap_ini_72a880(Wstring const &prefix, Wstring c
     file.Close();
 
     CDFileClass pcx(filename);
-    Surface *surface = unknown_load_pcx_60d110(&pcx, 0, 0, 0);
+    Surface *surface = Read_PCX_File(&pcx, 0, 0, 0);
     int height = surface->Get_Height();
     int width = surface->Get_Width();
 

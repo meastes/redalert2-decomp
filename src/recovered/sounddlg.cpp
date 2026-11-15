@@ -105,7 +105,7 @@ int __stdcall SoundControlsDialog::Sound_Option_Dialog_Func(HWND window, UINT me
         switch (message) {
             case 0x497: {
                 DialogInitialized = false;
-                int enabled = unknown_check_406f30();
+                int enabled = AudioDeviceAvailable();
 
                 HWND track = GetDlgItem(window, 0x52F);
                 if (track) {

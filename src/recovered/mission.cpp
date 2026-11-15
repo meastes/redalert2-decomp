@@ -405,7 +405,7 @@ int MissionClass::Get_Mission()
 void MissionClass::AI()
 {
     ObjectClass::AI();
-    if (unknown_7d && Timer.Value() == 0 && Strength > 0) {
+    if (IsActive && Timer.Value() == 0 && Strength > 0) {
         switch (Mission) {
         case 0:
             Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_SLEEP());

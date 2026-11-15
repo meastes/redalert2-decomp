@@ -164,7 +164,7 @@ bool __stdcall JumpjetLocomotionClass::Process()
     int layer = Layer();
     if (Is_Moving() || Is_Moving_Now()) {
         unknown_530b00();
-        if (!LinkedTo->unknown_7d) {
+        if (!LinkedTo->IsActive) {
             return false;
         }
         if (LinkedTo->House->Unknown_0051FC80() && unknown_4c != 0 && unknown_4c != 5) {
@@ -212,7 +212,7 @@ bool __stdcall JumpjetLocomotionClass::Process()
             }
         }
     }
-    if (LinkedTo->unknown_7d && Layer() != layer) {
+    if (LinkedTo->IsActive && Layer() != layer) {
         Map.Submit(LinkedTo);
     }
     return false;
@@ -612,12 +612,12 @@ void JumpjetLocomotionClass::unknown_530550()
         unknown_48 = false;
         LinkedTo->unknown_slot93(2);
         LinkedTo->Assign_Destination(0, true);
-        if (LinkedTo->unknown_7d && !LinkedTo->unknown_76 && !LinkedTo->unknown_7a) {
+        if (LinkedTo->IsActive && !LinkedTo->unknown_76 && !LinkedTo->unknown_7a) {
             LinkedTo->unknown_slot263(0, 0, 0, 0);
-            if (LinkedTo->unknown_7d) {
+            if (LinkedTo->IsActive) {
                 LinkedTo->unknown_slot262(0, 0, 0, 0);
             }
-            if (LinkedTo->unknown_7d) {
+            if (LinkedTo->IsActive) {
                 Map.Unknown_0054A550(Object_Coord(LinkedTo), LinkedTo->unknown_1f4 - 3, LinkedTo->unknown_1f4 + 3, 0);
             }
             if (((CellClass *)LinkedTo->Get_Cell_Ptr())->unknown_e0 == LinkedTo) {

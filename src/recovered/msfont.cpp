@@ -125,7 +125,7 @@ bool MSFont::Load(bool sidebar)
         Width = Shape->Width;
         Height = Shape->Height;
     }
-    unknown_check_406f30();
+    AudioDeviceAvailable();
     return true;
 }
 

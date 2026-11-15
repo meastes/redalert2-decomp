@@ -521,7 +521,7 @@ bool __stdcall DriveLocomotionClass::Process()
         if (While_Moving(false)) {
             return false;
         }
-        if (!LinkedTo->unknown_7d) {
+        if (!LinkedTo->IsActive) {
             return false;
         }
         if (unknown_58 == -1 && (Is_Moving() || LinkedTo->unknown_4d0 != -1)
@@ -537,11 +537,11 @@ bool __stdcall DriveLocomotionClass::Process()
             if (stop) {
                 return false;
             }
-            if (!LinkedTo->unknown_7d) {
+            if (!LinkedTo->IsActive) {
                 return false;
             }
             While_Moving(true);
-            if (!LinkedTo->unknown_7d) {
+            if (!LinkedTo->IsActive) {
                 return false;
             }
         }
@@ -563,7 +563,7 @@ bool __stdcall DriveLocomotionClass::Process()
             if (unknown_62) {
                 unknown_62 = false;
                 LinkedTo->unknown_slot93(0);
-                if (!LinkedTo->unknown_7d || LinkedTo->unknown_76 || LinkedTo->unknown_7a) {
+                if (!LinkedTo->IsActive || LinkedTo->unknown_76 || LinkedTo->unknown_7a) {
                     return false;
                 }
             }
@@ -580,11 +580,11 @@ bool __stdcall DriveLocomotionClass::Process()
                         if (stop) {
                             return false;
                         }
-                        if (!LinkedTo->unknown_7d) {
+                        if (!LinkedTo->IsActive) {
                             return false;
                         }
                         While_Moving(false);
-                        if (!LinkedTo->unknown_7d) {
+                        if (!LinkedTo->IsActive) {
                             return false;
                         }
                     }
@@ -694,7 +694,7 @@ bool DriveLocomotionClass::Start_Driver(CoordStruct const &headto)
             unknown_4a0bc0(headto, 1);
             return true;
         }
-        if (LinkedTo->unknown_7d) {
+        if (LinkedTo->IsActive) {
             unknown_40 = unknown_geometry_l;
             unknown_63 = false;
         }
@@ -927,7 +927,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
                             occupier = next;
                         }
                     }
-                    if (!LinkedTo->unknown_7d) return false;
+                    if (!LinkedTo->IsActive) return false;
                     LinkedTo->Mark(1);
 
                     if (newcellptr->OverlayIndex != -1) {
@@ -947,7 +947,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
                     LinkedTo->unknown_74 = down;
                 }
 
-                if (!LinkedTo->unknown_7d) {
+                if (!LinkedTo->IsActive) {
                     return false;
                 }
 
@@ -990,7 +990,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
                                 unknown_63 = true;
                                 LinkedTo->unknown_slot93(2);
                                 unknown_63 = false;
-                                if (!LinkedTo->unknown_7d || LinkedTo->unknown_76 || LinkedTo->unknown_7a) return false;
+                                if (!LinkedTo->IsActive || LinkedTo->unknown_76 || LinkedTo->unknown_7a) return false;
                                 if (Start_Driver(c)) {
                                     LinkedTo->unknown_slot306(oldspeed);
                                     memcpy((char *)&LinkedTo->Path, (char *)&LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);
@@ -1060,7 +1060,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
                 }
 
                 LinkedTo->unknown_slot93(2);
-                if (!LinkedTo->unknown_7d || LinkedTo->unknown_76 || LinkedTo->unknown_7a) return true;
+                if (!LinkedTo->IsActive || LinkedTo->unknown_76 || LinkedTo->unknown_7a) return true;
 
                 if (arrived) {
                     LinkedTo->unknown_4cd9b0();
@@ -1074,7 +1074,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
                     return true;
                 }
 
-                if (!LinkedTo->unknown_7d) return false;
+                if (!LinkedTo->IsActive) return false;
 
                 break;
             }
@@ -1224,7 +1224,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                 if (!LinkedTo->unknown_4c8d60() && LinkedTo->Distance(unknown_34) < Rules->unknown_1380 && (LinkedTo->Get_Mission() == 2 || LinkedTo->Get_Mission() == 11)) {
                     Stop_Driver();
                     if (unknown_4a4850()) return true;
-                    if (!LinkedTo->unknown_7d) return false;
+                    if (!LinkedTo->IsActive) return false;
                 } else {
                     Cell cell = Adjacent_Cell((LinkedTo->Center_Coord()).As_Cell(), Dir_To_8(LinkedTo->unknown_2e0.Current()));
                     if (Map.Unknown_0055A660(cell, true)) {
@@ -1259,7 +1259,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                     } else {
                         Stop_Driver();
                         if (unknown_4a4850()) return true;
-                        if (!LinkedTo->unknown_7d) return false;
+                        if (!LinkedTo->IsActive) return false;
                         if (LinkedTo->unknown_57a) Voc_Play(Rules->unknown_620, 1.0f, 0x2000, 0);
                         LinkedTo->unknown_57a = false;
                     }
@@ -1540,9 +1540,9 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
             int nextcando;
             if (!Map[destcell].Goodie_Check(LinkedTo) && !LinkedTo->unknown_76) {
                 nextcando = 7;
-                if (!LinkedTo->unknown_7d) return false;
+                if (!LinkedTo->IsActive) return false;
             } else {
-                if (!LinkedTo->unknown_7d) return false;
+                if (!LinkedTo->IsActive) return false;
                 dest = Adjacent_Coord_SOM(dest, nextface);
                 destcell = (dest).As_Cell();
                 nextcando = LinkedTo->Can_Enter_Cell(&Map[destcell], nextface, height, 0, true);
@@ -1552,7 +1552,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                     nextcando = 0;
                 }
             }
-            if (!LinkedTo->unknown_7d) return false;
+            if (!LinkedTo->IsActive) return false;
 
             if (nextcando != 0) {
                 if (nextcando == 3) {

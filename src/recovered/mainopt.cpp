@@ -558,12 +558,12 @@ bool __fastcall Test_Display_Mode(int width, int height)
     Debug_Printf("Testing display mode @ %dx%d\n", width, height);
     WWMouse->Hide_Mouse();
     HiddenSurface->Fill(0);
-    Unknown_004E0C90(true, HiddenSurface, 0);
+    Update_Visible_Surface(true, HiddenSurface, 0);
     if (!Set_Display_Mode(width, height)) {
         return false;
     }
     HiddenSurface->Fill(0);
-    Unknown_004E0C90(true, HiddenSurface, 0);
+    Update_Visible_Surface(true, HiddenSurface, 0);
     WWMouse->Show_Mouse();
     unknown_5159b0(0, true);
     HWND dialog = unknown_create_dialog_5ff610(0xD9, Confirm_Mode_Proc, 0);

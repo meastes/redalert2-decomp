@@ -89,7 +89,7 @@ namespace OwnerDraw {
 bool __fastcall unknown_5e5fc0(HWND dialog);
 }
 // Prepares a dialog control (EnumChildWindows callback; 0x00735BC0).
-BOOL __stdcall unknown_prepare_control_735bc0(HWND window, LPARAM parameter);
+BOOL __stdcall Resize_Dialog(HWND window, LPARAM parameter);
 // The dialog loop (0x007359E0; shared/lobby.hpp declares it as Unknown_007359e0 with int flags):
 // runs the message loop until dialog leaves the stack, calling callback each pass (true ends the
 // dialog with result 2); modal brackets it with message 0x4A9 (1 before, 0 after), show shows it;
@@ -161,7 +161,7 @@ inline bool Is_Window_Class(HWND window, char const *class_name)
 extern int unknown_layout_width_7fd048;
 extern int unknown_layout_height_7fd04c;
 extern LONG unknown_template_size_b25de4[2];
-BOOL __stdcall unknown_null_dialog_proc_735b40(HWND dialog, UINT message, WPARAM wparam, LPARAM lparam);
+BOOL __stdcall Resize_Dialog_Proc(HWND dialog, UINT message, WPARAM wparam, LPARAM lparam);
 // WM_LBUTTONUP during a drag: moves the drag image a last time (0x00736670), ends the drag, offers
 // the drop to the target (message 0x4CA) when it takes it, stops the scroll timer and clears the
 // drop highlight; false when no drag is on (0x00736320).
@@ -212,7 +212,7 @@ WIN32_IMPORT BOOL WINAPI SetWindowOrgEx(HDC dc, int x, int y, POINT *old);
 WIN32_IMPORT BOOL WINAPI DPtoLP(HDC dc, POINT *points, int count);
 WIN32_IMPORT HFONT WINAPI CreateFontIndirectA(LOGFONTA const *font);
 WIN32_IMPORT BOOL WINAPI GetTextMetricsA(HDC dc, TEXTMETRICA *metrics);
-HFONT __fastcall unknown_create_font_7360b0(HDC dc, char const *face, int width, int height, unsigned attributes);
+HFONT __fastcall Ez_Create_Font(HDC dc, char const *face, int width, int height, unsigned attributes);
 // The font cache: fonts made by 0x007360B0, found by face, size and attributes (0x00735DB0);
 // 0x00735D90 empties it (the capacity is kept). A plain growable array at 0x00B25DC8.
 struct UnknownFontEntry {
@@ -272,6 +272,6 @@ extern UnknownFontCache unknown_font_cache_b25dc8;
 void unknown_clear_font_cache_735d90();
 // The cached font of face at width x height with attributes, made and cached when missing; 0 when
 // dc is null and the font is not cached (0x00735DB0).
-HFONT __fastcall unknown_find_font_735db0(HDC dc, char const *face, int width, int height, unsigned attributes);
+HFONT __fastcall WS_Get_Font(HDC dc, char const *face, int width, int height, unsigned attributes);
 
 #endif

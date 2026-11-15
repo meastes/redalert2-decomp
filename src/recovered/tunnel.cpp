@@ -422,7 +422,7 @@ void TunnelLocomotionClass::Process_Emerging()
 {
     if (DigTimer.Ratio() == 1.0) {
         LinkedTo->unknown_slot93(2);
-        if (LinkedTo->unknown_7d && !LinkedTo->unknown_76 && !LinkedTo->unknown_7a) {
+        if (LinkedTo->IsActive && !LinkedTo->unknown_76 && !LinkedTo->unknown_7a) {
             Stop_Moving();
             unknown_18 = 0;
             LinkedTo->unknown_4cd9b0();

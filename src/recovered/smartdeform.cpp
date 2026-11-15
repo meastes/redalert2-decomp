@@ -178,7 +178,7 @@ void unknown_undo_restore_685030()
 }
 
 
-// bool __fastcall unknown_undo_cell_open_6850b0(CellClass *cell) (0x006850B0)
+// bool __fastcall Can_Deform_Cell_RMG(CellClass *cell) (0x006850B0)
 // Whether the cell is inside the map diamond, has no overlay or occupier,
 // is not marked in the map-generation grid and its tile type allows it
 // (unknown_2b0; true without a valid tile type). flag is unused; every caller
@@ -203,7 +203,7 @@ inline bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &position)
     return false;
 }
 
-bool __fastcall unknown_undo_cell_open_6850b0(CellClass *cell, bool flag)
+bool __fastcall Can_Deform_Cell_RMG(CellClass *cell, bool flag)
 {
     if (Generation_Cell_In_Bounds_0058da10(cell->Fetch_CellID())
         && cell->OverlayIndex == -1
@@ -220,7 +220,7 @@ bool __fastcall unknown_undo_cell_open_6850b0(CellClass *cell, bool flag)
 }
 
 
-// bool __fastcall unknown_undo_cell_free_685150(CellClass *cell) (0x00685150)
+// bool __fastcall Can_Deform_Cell(CellClass *cell) (0x00685150)
 // Whether the cell is free: every occupier with unknown_7d set is of kind
 // 0x0F or 1, there is no second occupier, flag bits 0x500 are clear, the
 // cell north (adjacent 0) is not blocked unless its 0x800 bit is set, the
@@ -230,10 +230,10 @@ bool __fastcall unknown_undo_cell_open_6850b0(CellClass *cell, bool flag)
 #include "shared/map_view.hpp"
 #include "shared/adjacent_cell.hpp"
 
-bool __fastcall unknown_undo_cell_free_685150(CellClass *cell, bool flag)
+bool __fastcall Can_Deform_Cell(CellClass *cell, bool flag)
 {
     for (ObjectClass *object = cell->OccupierPtr; object != 0; object = object->unknown_30) {
-        if (object->unknown_7d && object->Kind_Of() != 0x0F && object->Kind_Of() != 1) {
+        if (object->IsActive && object->Kind_Of() != 0x0F && object->Kind_Of() != 1) {
             return false;
         }
     }
@@ -296,10 +296,10 @@ void __fastcall Build_Deform_Grid_00685290(bool flag, Cell position)
                 int ramp = Map[cell].unknown_11c;
                 int level = Map[cell].unknown_11b * 15;
                 value = *_ramp_corners[ramp] + level;
-                if (!unknown_undo_cell_free_685150(&Map[cell], flag)
-                    || !unknown_undo_cell_free_685150(&Map[cell - Cell(0, 1)], flag)
-                    || !unknown_undo_cell_free_685150(&Map[cell - Cell(1, 1)], flag)
-                    || !unknown_undo_cell_free_685150(&Map[cell - Cell(1, 0)], flag)) {
+                if (!Can_Deform_Cell(&Map[cell], flag)
+                    || !Can_Deform_Cell(&Map[cell - Cell(0, 1)], flag)
+                    || !Can_Deform_Cell(&Map[cell - Cell(1, 1)], flag)
+                    || !Can_Deform_Cell(&Map[cell - Cell(1, 0)], flag)) {
                     grid->unknown_04 = 1;
                 }
                 if (cell == position || cell - Cell(0, 1) == position
@@ -353,19 +353,19 @@ void Init_Deform_Grid_RMG_00685600()
                 int level = Map[cell].unknown_11b * 15;
                 value = *_ramp_corners[ramp] + level;
                 if (Generation_Cell_In_Bounds_0058da10(position + Cell(0, -1))
-                    && !unknown_undo_cell_open_6850b0(&Map[position + Cell(0, -1)], true)) {
+                    && !Can_Deform_Cell_RMG(&Map[position + Cell(0, -1)], true)) {
                     grid->unknown_04 = 1;
                 }
                 if (Generation_Cell_In_Bounds_0058da10(position + Cell(-1, -1))
-                    && !unknown_undo_cell_open_6850b0(&Map[position + Cell(-1, -1)], true)) {
+                    && !Can_Deform_Cell_RMG(&Map[position + Cell(-1, -1)], true)) {
                     grid->unknown_04 = 1;
                 }
                 if (Generation_Cell_In_Bounds_0058da10(position + Cell(-1, 0))
-                    && !unknown_undo_cell_open_6850b0(&Map[position + Cell(-1, 0)], true)) {
+                    && !Can_Deform_Cell_RMG(&Map[position + Cell(-1, 0)], true)) {
                     grid->unknown_04 = 1;
                 }
                 if (Generation_Cell_In_Bounds_0058da10(position)
-                    && !unknown_undo_cell_open_6850b0(&Map[position], true)) {
+                    && !Can_Deform_Cell_RMG(&Map[position], true)) {
                     grid->unknown_04 = 1;
                 }
             } else {
@@ -404,7 +404,7 @@ bool __fastcall Commit_Deform_Grid_00685ac0(bool forced, Cell center)
     for (int y = lo.Y; y <= hi.Y; y++) {
         for (int x = lo.X; x <= hi.X; x++) {
             CellClass *cell = &Map[Cell(x + unknown_undo_x_8286e8, y + unknown_undo_y_8286ec)];
-            if (!unknown_undo_cell_free_685150(cell, forced)) continue;
+            if (!Can_Deform_Cell(cell, forced)) continue;
             UnknownUndoCell &point1 = unknown_undo_cells_abceac[x + y * unknown_undo_width_8286e4];
             UnknownUndoCell &point2 = unknown_undo_cells_abceac[x + 1 + y * unknown_undo_width_8286e4];
             UnknownUndoCell &point3 = unknown_undo_cells_abceac[x + 1 + (y + 1) * unknown_undo_width_8286e4];
@@ -546,7 +546,7 @@ bool Commit_Deform_Grid_RMG_006863e0()
                 if (heights[index] > highest) highest = heights[index];
             }
             if (highest - lowest > 15) continue;
-            if (unknown_undo_cell_open_6850b0(cell, true)) {
+            if (Can_Deform_Cell_RMG(cell, true)) {
                 cell->unknown_11b = lowest / 15;
             } else {
                 continue;

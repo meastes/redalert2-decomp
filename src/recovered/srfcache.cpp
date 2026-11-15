@@ -202,7 +202,7 @@ bool SurfaceCacheClass::Load_Image_0068c600(char const *name, int arg2, int arg3
     PaletteClass palette;
     UnknownBitmapEntry entry;
     CCFileClass file(name);
-    Surface *pcx = unknown_load_pcx_60d110(&file, &palette, 0, 0);
+    Surface *pcx = Read_PCX_File(&file, &palette, 0, 0);
     Surface *image = pcx;
     if (pcx == 0) return false;
 

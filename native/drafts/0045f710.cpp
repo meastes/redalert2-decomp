@@ -88,7 +88,7 @@ inline int Coord_Distance_lab(CoordStruct const &a, CoordStruct const &b)
 void BulletClass::AI()
 {
     ObjectClass::AI();
-    if (!unknown_7d) {
+    if (!IsActive) {
         return;
     }
     if (SpawnNextAnim) {
