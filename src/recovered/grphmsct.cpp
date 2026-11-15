@@ -184,7 +184,7 @@ bool __fastcall VectorCursor_UnsignedInt_Boolean_Conversion_004e0690(int cursor_
 // Owner: VectorCursor<unsigned int, DynamicVectorClass<unsigned int>>, virtual slot 0 (vtable +0x0) (from RTTI/vtables).
 // Body: 32 bytes (frozen inventory bound).
 // Referenced from 1 site (data).
-// Ghidra prototype: undefined4 * __thiscall FUN_004e06a0(undefined4 *param_1,byte param_2)
+// Ghidra prototype: undefined4 * __thiscall VectorCursor_UnsignedInt_Scalar_Deleting_Destructor_004e06a0(undefined4 *param_1,byte param_2)
 // Callees with accepted source:
 //   FUN_00781d3b -> src/recovered/00781d3b.cpp
 //
@@ -195,14 +195,14 @@ bool __fastcall VectorCursor_UnsignedInt_Boolean_Conversion_004e0690(int cursor_
 namespace seed_004e06a0 {
 
 extern void  operator_delete_00781d3b(unsigned int allocation_address);
-extern "C" void* PTR_FUN_007a2c08;
+extern "C" void* VectorCursor_UnsignedInt_VTable_007a2c08;
 
-struct Owner_004e06a0 { unsigned int * FUN_004e06a0(unsigned char deletion_flags); };
+struct Owner_004e06a0 { unsigned int * VectorCursor_UnsignedInt_Scalar_Deleting_Destructor_004e06a0(unsigned char deletion_flags); };
 
-unsigned int * Owner_004e06a0::FUN_004e06a0(unsigned char deletion_flags)
+unsigned int * Owner_004e06a0::VectorCursor_UnsignedInt_Scalar_Deleting_Destructor_004e06a0(unsigned char deletion_flags)
 {
     unsigned int * object_words = (unsigned int *)this;
-    *object_words = (unsigned int)(&PTR_FUN_007a2c08);
+    *object_words = (unsigned int)(&VectorCursor_UnsignedInt_VTable_007a2c08);
     if ((deletion_flags & 1) != 0) {
         operator_delete_00781d3b((unsigned int)(object_words));
     }

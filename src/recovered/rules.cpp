@@ -3194,7 +3194,7 @@ void __fastcall Read_Art_INI()
 // Owner: VectorClass<int>, stores the VectorClass<int> vtable (constructor or destructor) (from RTTI/vtables).
 // Body: 45 bytes (frozen inventory bound).
 // Referenced from 17 sites (unconditional call).
-// Ghidra prototype: void __fastcall FUN_00652810(undefined4 *param_1)
+// Ghidra prototype: void __fastcall VectorClass_Int_Destructor_00652810(undefined4 *param_1)
 // Callees with accepted source:
 //   FUN_00781d3b -> src/recovered/00781d3b.cpp
 //
@@ -3205,11 +3205,11 @@ void __fastcall Read_Art_INI()
 namespace seed_00652810 {
 
 extern void  operator_delete_00781d3b(unsigned int allocation_address);
-extern "C" void* PTR_FUN_0079d9d4;
+extern "C" void* VectorClass_Int_VTable_0079d9d4;
 
-void __fastcall FUN_00652810(unsigned int *vector_words)
+void __fastcall VectorClass_Int_Destructor_00652810(unsigned int *vector_words)
 {
-    *vector_words = (unsigned int)(&PTR_FUN_0079d9d4);
+    *vector_words = (unsigned int)(&VectorClass_Int_VTable_0079d9d4);
     if ((vector_words[1] != 0) && (*(char *)((int)vector_words + 0xd) != '\0')) {
         operator_delete_00781d3b((unsigned int)(vector_words[1]));
         vector_words[1] = 0;

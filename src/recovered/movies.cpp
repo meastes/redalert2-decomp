@@ -816,14 +816,14 @@ void* Leaf_5a2280::get(unsigned int flags) { unsigned int pointer = *(unsigned i
 namespace seed_005a22d0 {
 
 extern void  operator_delete_00781d3b(unsigned int allocation_address);
-extern "C" void* PTR_FUN_007a6604;
+extern "C" void* VectorClass_CharPtr_VTable_007a6604;
 
 struct Owner_005a22d0 { unsigned int * FUN_005a22d0(unsigned char deletion_flags); };
 
 unsigned int * Owner_005a22d0::FUN_005a22d0(unsigned char deletion_flags)
 {
     unsigned int * object_words = (unsigned int *)this;
-    *object_words = (unsigned int)(&PTR_FUN_007a6604);
+    *object_words = (unsigned int)(&VectorClass_CharPtr_VTable_007a6604);
     if ((object_words[1] != 0) && (*(char *)((int)object_words + 0xd) != '\0')) {
         operator_delete_00781d3b((unsigned int)(object_words[1]));
         object_words[1] = 0;

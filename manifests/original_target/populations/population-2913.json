@@ -4,8 +4,8 @@
     "id": "population-2913",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "946f86b718ae661a4d02b3fa5799eed5a9090b7f3182b89fabbd820e6c8a2699",
-    "historical_acceptance_sha256": "61657a26cb398a69af94c1ec2f77158933545033090aaf22ab47d108809b9105",
+    "historical_population_sha256": "2316dd21dd1fd308a5c879b67795571444ff7ba4894778081084bba86682193c",
+    "historical_acceptance_sha256": "3972c6b28114e34d2e9a1ea0d0b3b4a4cef581cf2605d65f36e417f894f7358a",
     "separate_units": true
   },
   "references": {
@@ -293,7 +293,7 @@
     "_Frame_00a40d2c": 10751276,
     "_PTR_s_EMPTY_007d65cc": 8218060,
     "_s_Adding_event__s_007d6890": 8218768,
-    "_PTR_FUN_0079d9d4": 7985620,
+    "_VectorClass_Int_VTable_0079d9d4": 7985620,
     "_PTR_FUN_007a2abc": 8006332,
     "?FUN_004d4640@": 5064256,
     "?FUN_0042f350@": 4387664,
@@ -308,8 +308,8 @@
     "_audio_file_cursor_y_00a522a0": 10822304,
     "_audio_file_mode_00a522ac": 10822316,
     "_audio_file_ready_00a522b0": 10822320,
-    "_PTR_FUN_007a5ad8": 8018648,
-    "_PTR_FUN_007a5ae4": 8018660,
+    "_DynamicVectorClass_SubzoneConnectionStruct_VTable_007a5ad8": 8018648,
+    "_DynamicVectorClass_SubzoneConnectionStruct_Clear_VTableSlot_007a5ae4": 8018660,
     "?FUN_0058b420@": 5813280,
     "?FUN_0058d970@": 5822832,
     "_DAT_00a70cc4": 10947780,
@@ -7562,7 +7562,7 @@
         {
           "offset": 21,
           "kind": 6,
-          "symbol": "_PTR_FUN_007a5ad8",
+          "symbol": "_DynamicVectorClass_SubzoneConnectionStruct_VTable_007a5ad8",
           "target": 8018648,
           "addend": 0,
           "resolved": 8018648
@@ -7570,13 +7570,13 @@
         {
           "offset": 37,
           "kind": 6,
-          "symbol": "_PTR_FUN_007a5ae4",
+          "symbol": "_DynamicVectorClass_SubzoneConnectionStruct_Clear_VTableSlot_007a5ae4",
           "target": 8018660,
           "addend": 0,
           "resolved": 8018660
         }
       ],
-      "source_sha256": "06cd4e32ea86d060fbef5b56d8f896ab0d070ecbe67098ed593a2b85f862e472",
+      "source_sha256": "9dd80a62bc132e55312de8575515feb83070d026634a097d2c1d094d77bfb315",
       "source": "src/recovered/classes/DynamicVectorClass_SubzoneConnectionStruct/SubzoneTrackingStruct_Constructor.cpp",
       "population": "population-2913",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",

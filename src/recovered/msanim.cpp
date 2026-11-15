@@ -326,18 +326,18 @@ MSOverlayAnim::MSOverlayAnim(Wstring const &filename, int x, int y, ConvertClass
 namespace seed_005ad410 {
 
 extern void  operator_delete_00781d3b(unsigned int allocation_address);
-extern "C" void* PTR_FUN_007a6d3c;
-extern "C" void* PTR_FUN_007a6d64;
+extern "C" void* MSAnim_VTable_007a6d3c;
+extern "C" void* MSShapeAnim_VTable_007a6d64;
 
 void __fastcall FUN_005ad410(unsigned int *object_words)
 {
-    *object_words = (unsigned int)(&PTR_FUN_007a6d64);
+    *object_words = (unsigned int)(&MSShapeAnim_VTable_007a6d64);
     if ((object_words[7] != 0) && (*(char *)(object_words + 0xf) != '\0')) {
         operator_delete_00781d3b((unsigned int)(object_words[7]));
         object_words[7] = 0;
         *(unsigned char *)(object_words + 0xf) = 0;
     }
-    *object_words = (unsigned int)(&PTR_FUN_007a6d3c);
+    *object_words = (unsigned int)(&MSAnim_VTable_007a6d3c);
     return;
 }
 

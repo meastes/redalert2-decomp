@@ -242,16 +242,16 @@ alignas(16) unsigned char ra2_orig_0062[32] __asm__("_vtable_4686d0");
 __asm__(".globl _vtable_468720\n.set _vtable_468720, _vtable_4686d0\n");
 // row	_ActionNames	0x0079D888	268	ptrs	ActionNames	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 alignas(16) unsigned char ra2_orig_0063[544] __asm__("_ActionNames");
-// row	_PTR_FUN_0079d9d4	0x0079D9D4	12	ptr	PTR_FUN_0079d9d4	src/recovered/004919b0.cpp
+// row	_VectorClass_Int_VTable_0079d9d4	0x0079D9D4	12	ptr	VectorClass_Int_VTable_0079d9d4	src/recovered/004919b0.cpp
 // row	_base_dispatch_0046ce20	0x0079D9D4	12	bytes	base_dispatch_0046ce20	src/recovered/word_storage/CopyWordStorage_0046ce20.cpp
 // row	_base_dispatch_0046d1f0	0x0079D9D4	12	bytes	base_dispatch_0046d1f0	src/recovered/word_storage/InitializeWordStorage_0046d1f0.cpp
 // row	_vtable_46cf50	0x0079D9D4	12	bytes	vtable_46cf50	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
 // row	_vtable_46da70	0x0079D9D4	12	bytes	vtable_46da70	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
-alignas(16) unsigned char ra2_orig_0064[32] __asm__("_PTR_FUN_0079d9d4");
-__asm__(".globl _base_dispatch_0046ce20\n.set _base_dispatch_0046ce20, _PTR_FUN_0079d9d4\n");
-__asm__(".globl _base_dispatch_0046d1f0\n.set _base_dispatch_0046d1f0, _PTR_FUN_0079d9d4\n");
-__asm__(".globl _vtable_46cf50\n.set _vtable_46cf50, _PTR_FUN_0079d9d4\n");
-__asm__(".globl _vtable_46da70\n.set _vtable_46da70, _PTR_FUN_0079d9d4\n");
+alignas(16) unsigned char ra2_orig_0064[32] __asm__("_VectorClass_Int_VTable_0079d9d4");
+__asm__(".globl _base_dispatch_0046ce20\n.set _base_dispatch_0046ce20, _VectorClass_Int_VTable_0079d9d4\n");
+__asm__(".globl _base_dispatch_0046d1f0\n.set _base_dispatch_0046d1f0, _VectorClass_Int_VTable_0079d9d4\n");
+__asm__(".globl _vtable_46cf50\n.set _vtable_46cf50, _VectorClass_Int_VTable_0079d9d4\n");
+__asm__(".globl _vtable_46da70\n.set _vtable_46da70, _VectorClass_Int_VTable_0079d9d4\n");
 // row	_base_dispatch_006634e0	0x0079DA14	32	bytes	base_dispatch_006634e0	src/recovered/word_storage/InitializeWordStorage_0046d1f0.cpp
 // row	_table_46dbd0	0x0079DA14	32	bytes	table_46dbd0	src/recovered/classes/VectorClass_unsigned_int/0042b510.cpp
 // row	_vtable_46ceb0	0x0079DA14	32	bytes	vtable_46ceb0	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
@@ -693,10 +693,10 @@ __asm__(".globl _vtable_4dbc40\n.set _vtable_4dbc40, _table_4f8a40\n");
 alignas(16) unsigned char ra2_orig_0193[32] __asm__("_table_4df2e0");
 __asm__(".globl _vtable_4df240\n.set _vtable_4df240, _table_4df2e0\n");
 __asm__(".globl _vtable_4df290\n.set _vtable_4df290, _table_4df2e0\n");
-// row	_PTR_FUN_007a2b84	0x007A2B84	20	ptr	PTR_FUN_007a2b84	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
-alignas(16) unsigned char ra2_orig_0194[48] __asm__("_PTR_FUN_007a2b84");
-// row	_PTR_FUN_007a2c08	0x007A2C08	32	ptr	PTR_FUN_007a2c08	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
-alignas(16) unsigned char ra2_orig_0195[64] __asm__("_PTR_FUN_007a2c08");
+// row	_VectorCursor_GraphicMenuItemPtr_VTable_007a2b84	0x007A2B84	20	ptr	VectorCursor_GraphicMenuItemPtr_VTable_007a2b84	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
+alignas(16) unsigned char ra2_orig_0194[48] __asm__("_VectorCursor_GraphicMenuItemPtr_VTable_007a2b84");
+// row	_VectorCursor_UnsignedInt_VTable_007a2c08	0x007A2C08	32	ptr	VectorCursor_UnsignedInt_VTable_007a2c08	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
+alignas(16) unsigned char ra2_orig_0195[64] __asm__("_VectorCursor_UnsignedInt_VTable_007a2c08");
 // row	_vtable_4f8670	0x007A2D14	32	bytes	vtable_4f8670	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
 // row	_vtable_4f86c0	0x007A2D14	32	bytes	vtable_4f86c0	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
 alignas(16) unsigned char ra2_orig_0196[32] __asm__("_vtable_4f8670");
@@ -877,10 +877,10 @@ alignas(16) unsigned char ra2_orig_0235[32] __asm__("_array_extension_dispatch_0
 // row	_vtable_56c8c0	0x007A5A98	64	bytes	vtable_56c8c0	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
 alignas(16) unsigned char ra2_orig_0236[64] __asm__("_vtable_56c870");
 __asm__(".globl _vtable_56c8c0\n.set _vtable_56c8c0, _vtable_56c870\n");
-// row	_PTR_FUN_007a5ad8	0x007A5AD8	12	ptr	PTR_FUN_007a5ad8	src/recovered/004919b0.cpp
-alignas(16) unsigned char ra2_orig_0237[32] __asm__("_PTR_FUN_007a5ad8");
-// row	_PTR_FUN_007a5ae4	0x007A5AE4	20	ptr	PTR_FUN_007a5ae4	src/recovered/004919b0.cpp
-alignas(16) unsigned char ra2_orig_0238[48] __asm__("_PTR_FUN_007a5ae4");
+// row	_DynamicVectorClass_SubzoneConnectionStruct_VTable_007a5ad8	0x007A5AD8	12	ptr	DynamicVectorClass_SubzoneConnectionStruct_VTable_007a5ad8	src/recovered/004919b0.cpp
+alignas(16) unsigned char ra2_orig_0237[32] __asm__("_DynamicVectorClass_SubzoneConnectionStruct_VTable_007a5ad8");
+// row	_DynamicVectorClass_SubzoneConnectionStruct_Clear_VTableSlot_007a5ae4	0x007A5AE4	20	ptr	DynamicVectorClass_SubzoneConnectionStruct_Clear_VTableSlot_007a5ae4	src/recovered/004919b0.cpp
+alignas(16) unsigned char ra2_orig_0238[48] __asm__("_DynamicVectorClass_SubzoneConnectionStruct_Clear_VTableSlot_007a5ae4");
 // row	_array_extension_base_dispatch_0059ffe0	0x007A5AF8	32	bytes	array_extension_base_dispatch_0059ffe0	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 // row	_array_storage_dispatch_0056cdd0	0x007A5AF8	32	bytes	array_storage_dispatch_0056cdd0	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 // row	_vtable_56c910	0x007A5AF8	32	bytes	vtable_56c910	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
@@ -1001,12 +1001,12 @@ __asm__(".globl _vtable_58ee80\n.set _vtable_58ee80, _table_58f2d0\n");
 alignas(16) unsigned char ra2_orig_0286[16] __asm__("_vein_idle_scale_7a5fe8");
 // row	_unknown_double_7a6020	0x007A6020	8	bytes	unknown_double_7a6020	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 alignas(16) unsigned char ra2_orig_0287[16] __asm__("_unknown_double_7a6020");
-// row	_PTR_FUN_007a6604	0x007A6604	32	ptr	PTR_FUN_007a6604	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
+// row	_VectorClass_CharPtr_VTable_007a6604	0x007A6604	32	ptr	VectorClass_CharPtr_VTable_007a6604	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
 // row	_table_6f8b90	0x007A6604	32	bytes	table_6f8b90	src/recovered/classes/VectorClass_TechnoClass_ptr/0040bc10.cpp
 // row	_vtable_5a2280	0x007A6604	32	bytes	vtable_5a2280	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
-alignas(16) unsigned char ra2_orig_0288[64] __asm__("_PTR_FUN_007a6604");
-__asm__(".globl _table_6f8b90\n.set _table_6f8b90, _PTR_FUN_007a6604\n");
-__asm__(".globl _vtable_5a2280\n.set _vtable_5a2280, _PTR_FUN_007a6604\n");
+alignas(16) unsigned char ra2_orig_0288[64] __asm__("_VectorClass_CharPtr_VTable_007a6604");
+__asm__(".globl _table_6f8b90\n.set _table_6f8b90, _VectorClass_CharPtr_VTable_007a6604\n");
+__asm__(".globl _vtable_5a2280\n.set _vtable_5a2280, _VectorClass_CharPtr_VTable_007a6604\n");
 // row	_PTR_FUN_007a6884	0x007A6884	32	ptr	PTR_FUN_007a6884	src/recovered/004919b0.cpp
 // row	_vtable_5a6c40	0x007A6884	32	bytes	vtable_5a6c40	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
 // row	_vtable_5a6c90	0x007A6884	32	bytes	vtable_5a6c90	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
@@ -1038,10 +1038,10 @@ alignas(16) unsigned char ra2_orig_0295[400] __asm__("_MultiplayerSiege_VTable_0
 alignas(16) unsigned char ra2_orig_0296[32] __asm__("_MultiplayerSiegeDefenderTeam_VTable_007a6c54");
 // row	_MultiplayerSiegeAttackerTeam_VTable_007a6c64	0x007A6C64	32	ptr	MultiplayerSiegeAttackerTeam_VTable_007a6c64	src/recovered/004919b0.cpp
 alignas(16) unsigned char ra2_orig_0297[64] __asm__("_MultiplayerSiegeAttackerTeam_VTable_007a6c64");
-// row	_PTR_FUN_007a6d3c	0x007A6D3C	40	ptr	PTR_FUN_007a6d3c	src/recovered/header_statics/00727100/HeaderStatics_empty_rect_init_00727100.cpp
-alignas(16) unsigned char ra2_orig_0298[80] __asm__("_PTR_FUN_007a6d3c");
-// row	_PTR_FUN_007a6d64	0x007A6D64	40	ptr	PTR_FUN_007a6d64	src/recovered/header_statics/00727100/HeaderStatics_empty_rect_init_00727100.cpp
-alignas(16) unsigned char ra2_orig_0299[80] __asm__("_PTR_FUN_007a6d64");
+// row	_MSAnim_VTable_007a6d3c	0x007A6D3C	40	ptr	MSAnim_VTable_007a6d3c	src/recovered/header_statics/00727100/HeaderStatics_empty_rect_init_00727100.cpp
+alignas(16) unsigned char ra2_orig_0298[80] __asm__("_MSAnim_VTable_007a6d3c");
+// row	_MSShapeAnim_VTable_007a6d64	0x007A6D64	40	ptr	MSShapeAnim_VTable_007a6d64	src/recovered/header_statics/00727100/HeaderStatics_empty_rect_init_00727100.cpp
+alignas(16) unsigned char ra2_orig_0299[80] __asm__("_MSShapeAnim_VTable_007a6d64");
 // row	_table_7304c0	0x007A6F48	32	bytes	table_7304c0	src/recovered/classes/VectorClass_TechnoClass_ptr/0040bc10.cpp
 alignas(16) unsigned char ra2_orig_0300[32] __asm__("_table_7304c0");
 // row	_array_extension_dispatch_00682580	0x007A6FA8	32	bytes	array_extension_dispatch_00682580	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
