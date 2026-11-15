@@ -146,7 +146,7 @@ void __fastcall Unknown_005cbf20(HWND dialog, int id, NodeNameType *entry, int u
             } else {
                 Unknown_005bbdc0();
             }
-            Unknown_005c3810(true, false);
+            PumpGameopts(true, false);
         }
     }
 }

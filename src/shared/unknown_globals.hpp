@@ -365,7 +365,7 @@ public:
     bool Unknown_0042E700(int house);           // 0x0042E700 true when one of the house's three slots is empty
 #ifdef UNKNOWN_BEACONS_DECLARE_TEXT
     // The house's beacon whose text is being edited (flag 2; house -1: any), else none (0x0042E940).
-    UnknownBeacon *Unknown_0042E940(int house);
+    UnknownBeacon *FindSelected(int house);
     // Sets the edited beacon's text (none: the edit was cancelled; done: the text is final; 0x0042EC20).
     void EditBeaconMessage_0042ec20(unsigned short const *text, int x, int y, bool done);
 #endif

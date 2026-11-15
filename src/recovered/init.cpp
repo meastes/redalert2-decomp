@@ -1215,7 +1215,7 @@ top:
                 if (PacketTransport != 0) {
                     if (unknown_session_a3d298.ViaPacketRouter) {
                         if (PacketRouterConnection != 0) {
-                            OwnerTalk.Unknown_0063FC90();
+                            OwnerTalk.Send_Shutdown();
                         }
                         unknown_session_a3d298.ViaPacketRouter = false;
                     }
@@ -5134,7 +5134,7 @@ void CenterBaseCommandClass::Execute(int key) const
         for (int index = 0; index < Units.Count(); index++) {
             UnitClass *unit = Units[index];
             if (unit != 0 && !unit->unknown_76 && unit->House->Is_Player_Control()
-                && unit->Type == unknown_player_a35db4->Unknown_004EF6F0(Rules->BaseUnit)) {
+                && unit->Type == unknown_player_a35db4->Get_First_Ownable(Rules->BaseUnit)) {
                 yard = unit->Center_Coord();
                 break;
             }

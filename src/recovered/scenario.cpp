@@ -1940,7 +1940,7 @@ void __fastcall Assign_Houses_0065fbb0()
     int count = unknown_players_a3fa7c.Count();
     for (int index = 0; index < count; index++) {
         if (unknown_players_a3fa7c[index]->unknown_4b == -3) {
-            unknown_players_a3fa7c[index]->unknown_66e2d0(0);
+            unknown_players_a3fa7c[index]->Set_Country(0);
         }
     }
 
@@ -2174,7 +2174,7 @@ void __fastcall Create_Units_00660320(bool official)
         house->BaseCenter = CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
 
         if (unknown_flag_a3d2b8) {
-            TechnoClass *unit = (TechnoClass *)new UnitClass(house->Unknown_004EF6F0(Rules->BaseUnit), house);
+            TechnoClass *unit = (TechnoClass *)new UnitClass(house->Get_First_Ownable(Rules->BaseUnit), house);
             if (!unit->Unlimbo(&CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0), 0) && !Unknown_00660b60(unit, cell, 1)) {
                 delete unit;
                 unit = 0;

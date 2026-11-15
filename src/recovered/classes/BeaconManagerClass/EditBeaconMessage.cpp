@@ -19,7 +19,7 @@ void BeaconManagerClass::EditBeaconMessage_0042ec20(unsigned short const *text, 
     UnknownBeacon *beacon;
     edited = house == -1 && slot == -1;
     if (edited) {
-        beacon = Unknown_0042E940(-1);
+        beacon = FindSelected(-1);
     } else {
         beacon = unknown_00[house][slot];
     }

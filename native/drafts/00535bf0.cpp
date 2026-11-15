@@ -347,7 +347,7 @@ void Unknown535910::Unknown_00535BF0()
     }
 
     {
-    int side = unknown_players_a3fa7c[0]->unknown_66e290();
+    int side = unknown_players_a3fa7c[0]->Get_Country();
     char const *suffix = VideoModeWidth == unknown_screen_widths_7add68[0] ? unknown_suffix_7df398 : unknown_suffix_7df39c;
     Loading_Filename(filename, side, suffix);
     unknown_44 = (void *)Unknown_Load_Shape_00495270(filename, unknown_4d);

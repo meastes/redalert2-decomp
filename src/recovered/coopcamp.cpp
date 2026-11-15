@@ -415,12 +415,12 @@ bool CoopCampaignClass::Save_Campaign_0048f040()
             ini.Put_String(section,key,MapNames[i]);
         }
         if(unknown_players_a3fa7c.Count()) {
-            ini.Put_HousesType(section,campaign_key_House1_007d4fcc,unknown_players_a3fa7c[0]->unknown_66e290());
+            ini.Put_HousesType(section,campaign_key_House1_007d4fcc,unknown_players_a3fa7c[0]->Get_Country());
             ini.Put_Int(section,campaign_key_Color1_007d4fc4,unknown_players_a3fa7c[0]->Get_Color_0066e2a0());
         }
         for(int player=1;player<unknown_players_a3fa7c.Count();++player) {
             if(unknown_player_slot_types_00a3d300[player-1]==-1) {
-                ini.Put_HousesType(section,campaign_key_House2_007d4fbc,unknown_players_a3fa7c[player]->unknown_66e290());
+                ini.Put_HousesType(section,campaign_key_House2_007d4fbc,unknown_players_a3fa7c[player]->Get_Country());
                 ini.Put_Int(section,campaign_key_Color2_007d4fb4,unknown_players_a3fa7c[player]->Get_Color_0066e2a0());
                 break;
             }

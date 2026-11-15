@@ -920,7 +920,7 @@ void __fastcall Encode_Game_Options_0073ccb0(char *out)
     memset(wol_useroptions_b29ad4,0,sizeof(wol_useroptions_b29ad4));
     for(int i=0,count=unknown_players_a3fa7c.Count();i<count;i++) {
         NodeNameType *entry=unknown_players_a3fa7c[i];
-        int country=entry->unknown_66e290();
+        int country=entry->Get_Country();
         int color=entry->unknown_66e2a0();
         int address=0,port=0,ping=0;
         for(int j=0;j<8;j++) {
@@ -1148,9 +1148,9 @@ int __fastcall Set_Channel_Player_Options_0073d550(Wstring const &name,int count
     HWND window=(HWND)WS_Find_Dialog_00735940(0xc2);
     if(!window) window=(HWND)WS_Find_Dialog_00735940(0xc9);
     NodeNameType *player=unknown_player_slots_a3fa98[found];
-    if(player->unknown_66e290()!=country) {
+    if(player->Get_Country()!=country) {
         changed=1;
-        player->unknown_66e2d0(country);
+        player->Set_Country(country);
         int side=Player_Side_Combo_ID_4d1350(found);
         int previous=Side_Combo_Data_4d1c70(window,side,-1);
         if(country==-3) {
@@ -1170,7 +1170,7 @@ int __fastcall Set_Channel_Player_Options_0073d550(Wstring const &name,int count
             Fill_Color_Combo_4d2080(window,color_control);
             Select_Color_Combo_4d2480(window,color_control,-2);
         }
-        if(player->unknown_66e290()==-3) player->Team=-1;
+        if(player->Get_Country()==-3) player->Team=-1;
     }
     if(unknown_player_slots_a3fa98[found]->unknown_66e2a0()!=color) player->unknown_66e300(color);
     if(unknown_player_slots_a3fa98[found]==unknown_players_a3fa7c[0]) unknown_a3d3b4=color;
@@ -3572,7 +3572,7 @@ bool __fastcall Host_Game_007459a0()
         unknown_session_a3d298.Set_Value_00672a30(profile->Country,false);
         unknown_session_a3d298.Set_Value_00672ae0(profile->Color,false);
     }
-    who->unknown_66e2d0(unknown_session_a3d298.Value_0124_006729f0());
+    who->Set_Country(unknown_session_a3d298.Value_0124_006729f0());
     who->unknown_66e300(unknown_session_a3d298.Value_011c_00672a10());
     who->unknown_67=1;
     who->Team=0;
@@ -3582,7 +3582,7 @@ bool __fastcall Host_Game_007459a0()
     if(unknown_a72c68) {
         unknown_lobby_flag_7e6d90=0;
         who->Team=-1;
-        who->unknown_66e2d0(-3);
+        who->Set_Country(-3);
     }
     unknown_players_a3fa7c.Add(who);
     Seat_First_Player_005c8cd0(0);
@@ -5299,12 +5299,12 @@ int __stdcall WOL_Game_Options_Proc_0074a710(HWND window,UINT message,WPARAM wpa
         case 0x522: case 0x523: case 0x524: case 0x525: case 0x526: case 0x527: case 0x528: case 0x6a2:
             if((unsigned short)(wparam>>16)!=1 || unknown_b2ac40) goto host_unhandled;
             Set_Slot_Color_005c9ab0(window,command);
-            Unknown_005c3810(true,false); Refresh_Slot_Settings_005ca000(window,true);
+            PumpGameopts(true,false); Refresh_Slot_Settings_005ca000(window,true);
             return 0;
         case 0x510: case 0x513: case 0x514: case 0x51e: case 0x51f: case 0x520: case 0x521: case 0x6a1:
             if((unsigned short)(wparam>>16)!=1 || unknown_b2ac40) goto host_unhandled;
             Set_Slot_Country_005c9a10(window,command);
-            Unknown_005c3810(true,false); Refresh_Slot_Settings_005ca000(window,true);
+            PumpGameopts(true,false); Refresh_Slot_Settings_005ca000(window,true);
             return 0;
         case 0x588: {
             SetFocus(GetDlgItem(window,0x540));
@@ -5360,7 +5360,7 @@ int __stdcall WOL_Game_Options_Proc_0074a710(HWND window,UINT message,WPARAM wpa
                 if(count1!=count2) { Unknown_005C2C80(-1,StringTable::Load_String(host_label_7fec10,0,wol_source_file_007fd62c,0x3a10)); return 0; }
             }
             mode->unknown_slot22(); unknown_session_a3d298.Unknown_00672BB0(); Unknown_0073c480();
-            Unknown_005c3810(true,true); mode->unknown_slot21(); mode->unknown_slot9();
+            PumpGameopts(true,true); mode->unknown_slot21(); mode->unknown_slot9();
             WOL::User user; memset(&user,0,sizeof(user)); WOL::User *head=0;
             for(int v=0;v<unknown_users_b2a728.Count;++v) {
                 unknown_users_b2a728.Get_Copy(user,v); WOL::User *next=new WOL::User; *next=user; next->next=head; head=next;
@@ -5383,7 +5383,7 @@ int __stdcall WOL_Game_Options_Proc_0074a710(HWND window,UINT message,WPARAM wpa
             if(cancelled) {
                 unknown_session_a3d2b4=old; Select_Scenario_005c7c30(old); Update_Network_Dialog_Preview(window);
                 host_scenario_enabled_7e6dc0=true; ShowWindow(window,5); unknown_dialog_5ecf40(window,0);
-                Load_Random_Map_Preview_005cc800(window); Unknown_005c3810(true,false); InvalidateRect(window,0,0); return 0;
+                Load_Random_Map_Preview_005cc800(window); PumpGameopts(true,false); InvalidateRect(window,0,0); return 0;
             }
             if(!Select_Scenario_005c7c30(unknown_session_a3d2b4)) unknown_session_a3d2b4=old;
             else {
@@ -5392,7 +5392,7 @@ int __stdcall WOL_Game_Options_Proc_0074a710(HWND window,UINT message,WPARAM wpa
                 if(observers && !new_observers) Unknown_005cb560(window);
                 if(ai && !new_ai) {
                     if(Unknown_Clear_Closed_Slots_005cacb0(window)) {
-                        unknown_session_a3d298.AICount=0; Unknown_0073c480(); Unknown_0073FEE0(0,false); Unknown_005c3810(true,false);
+                        unknown_session_a3d298.AICount=0; Unknown_0073c480(); Unknown_0073FEE0(0,false); PumpGameopts(true,false);
                     } else Unknown_0073FEE0(0,true);
                 }
                 Change_Scenario_Slots_005cb8d0(window,old,unknown_session_a3d2b4);
@@ -5402,7 +5402,7 @@ int __stdcall WOL_Game_Options_Proc_0074a710(HWND window,UINT message,WPARAM wpa
             if(strcmp(filename,host_scenario_file_a3d8f0) || Compare_Wide_007837d3(description,unknown_map_name_a3d342)) {
                 for(int accepted=(int)&unknown_player_b29cf0[1].unknown_20;accepted<(int)&unknown_player_b29cf0[8].unknown_20;accepted+=sizeof(WolPlayerData)) *(int *)accepted=0;
             }
-            Unknown_Enable_Start_005c9700(); Load_Random_Map_Preview_005cc800(window); Refresh_Slot_Settings_005ca000(window,true); Unknown_005c3810(true,false); InvalidateRect(window,0,0);
+            Unknown_Enable_Start_005c9700(); Load_Random_Map_Preview_005cc800(window); Refresh_Slot_Settings_005ca000(window,true); PumpGameopts(true,false); InvalidateRect(window,0,0);
             return 0;
         }
         }
@@ -5422,7 +5422,7 @@ int __stdcall WOL_Game_Options_Proc_0074a710(HWND window,UINT message,WPARAM wpa
         if(unknown_session_a3d298.Mode && !unknown_session_a3d298.Mode->unknown_slot40()) {
             unknown_lobby_flag_7e6d90=-1; unknown_a72c68=0; Unknown_005cd540(0);
             unknown_players_a3fa7c[0]->Team=0;
-            unknown_player_slots_a3fa98[0]->unknown_66e2d0(unknown_session_a3d298.Mode->unknown_slot10());
+            unknown_player_slots_a3fa98[0]->Set_Country(unknown_session_a3d298.Mode->unknown_slot10());
             unknown_player_slots_a3fa98[0]->unknown_66e300(-2); Fill_Color_Combos_4d2300(window);
         }
         Unknown_005c9b90(window,0,true); Change_Scenario_Slots_005cb8d0(window,-1,unknown_session_a3d2b4);
@@ -6639,7 +6639,7 @@ squads_done:;
     g_PlayingNetGame=true;
     Debug_Printf(start_text_007ff290);
     unknown_chat_a72cfc->unknown_slot09();
-    Unknown_Pregame_Setup_005c74f0();
+    PregameSetup();
     unknown_b2ac45=false;
     unknown_b2ac44=false;
 }
@@ -7408,7 +7408,7 @@ void __fastcall Start_Test_Network_Game_007516c0()
     test_network_ids_007f60d0[1]=1235;test_network_ids_007f60d0[2]=1236;test_network_ids_007f60d0[3]=1237;
     test_network_end_flag_00a40d2c=0;
     unknown_squad_1_b2a820[0]=0;unknown_squad_2_b293d8[0]=0;
-    Unknown_Pregame_Setup_005c74f0();
+    PregameSetup();
 }
 
 
@@ -10604,7 +10604,7 @@ void __fastcall Apply_Endpoint_Map_0075c570(char const *text)
     bool found = false;
     int index = 0;
     for (; index < unknown_session_a3d298.Scenarios.Count(); index++) {
-        if (unknown_session_a3d298.Scenarios[index]->Unknown_006720C0()) {
+        if (unknown_session_a3d298.Scenarios[index]->Is_Random_Map()) {
             found = true;
             break;
         }
@@ -11447,7 +11447,7 @@ static inline void Request_Squad(WOL::User *user)
 }
 static inline void Make_Observer(NodeNameType *node)
 {
-    node->unknown_66e2d0(-3);
+    node->Set_Country(-3);
     node->unknown_66e300(-2);
     node->Team = -1;
 }
@@ -11578,10 +11578,10 @@ HRESULT __stdcall CChatEventSink::OnChannelJoin(HRESULT result, WOL::Channel *ch
             Clear_Slot_Lists_005c8a70();
             Unknown_Reset_Slots_005c8a90();
             NodeNameType *node = New_Player(user);
-            node->unknown_66e2d0(-2);
+            node->Set_Country(-2);
             node->unknown_66e300(-2);
             if (!Is_Online_Session() && unknown_a72c68) {
-                node->unknown_66e2d0(-3);
+                node->Set_Country(-3);
                 node->Team = -1;
             }
             unknown_session_a3d298.Players.Add(node);
@@ -11707,8 +11707,8 @@ HRESULT __stdcall CChatEventSink::OnChannelJoin(HRESULT result, WOL::Channel *ch
                     if (taken == 0) break;
                 }
                 NodeNameType *node = New_Player(user);
-                if (unknown_mode_a3d29c) node->unknown_66e2d0(unknown_mode_a3d29c->unknown_slot10());
-                else node->unknown_66e2d0(-2);
+                if (unknown_mode_a3d29c) node->Set_Country(unknown_mode_a3d29c->unknown_slot10());
+                else node->Set_Country(-2);
                 node->unknown_66e300(-2);
                 if (!Is_Online_Session() && Slots_Filled_005c9440()) Make_Observer(node);
                 if ((user->flags & 0x8000) && !Is_Online_Session() && unknown_a72c68) Make_Observer(node);
@@ -11738,7 +11738,7 @@ HRESULT __stdcall CChatEventSink::OnChannelJoin(HRESULT result, WOL::Channel *ch
                 Debug_Printf("Sending observer slot of %c\n", text[1]);
                 unknown_chat_a72cfc->unknown_slot15(text);
                 Unknown_0073c480();
-                Unknown_005c3810(true, false);
+                PumpGameopts(true, false);
                 if (Is_Host_005c86a0()) {
                     Broadcast_User_Pings_0075b1b0();
                     if (unknown_b2ac40 == 0) {
@@ -11757,7 +11757,7 @@ HRESULT __stdcall CChatEventSink::OnChannelJoin(HRESULT result, WOL::Channel *ch
             }
         } else if (!(user->flags & 0x8000)) {
             NodeNameType *node = New_Player(user);
-            node->unknown_66e2d0(-2);
+            node->Set_Country(-2);
             node->unknown_66e300(-2);
             unknown_session_a3d298.Players.Add(node);
             HWND guest = (HWND)WS_Find_Dialog_00735940(0xc9);
@@ -11854,7 +11854,7 @@ HRESULT __stdcall CChatEventSink::OnUserList(HRESULT result,WOL::Channel *channe
                 WideString wide_name=Wstring_To_Wide(user->name);
                 wcscpy(node->Name,wide_name.Get());
                 node->Address=Unknown_0073c130(user);
-                node->unknown_66e2d0(-2);
+                node->Set_Country(-2);
                 node->unknown_66e300(-2);
                 unknown_session_a3d298.Players.Add(node);
             }
@@ -11897,7 +11897,7 @@ HRESULT __stdcall CChatEventSink::OnUserList(HRESULT result,WOL::Channel *channe
                 }
                 if (!unknown_a72c68 && !Is_Online_Session() && unknown_session_a3d298.Value_0124_006729f0() == -3) {
                     if (unknown_session_a3d298.Players.Count() != 0) {
-                        unknown_session_a3d298.Set_Value_00672a30(unknown_session_a3d298.Players[0]->unknown_66e290(),false);
+                        unknown_session_a3d298.Set_Value_00672a30(unknown_session_a3d298.Players[0]->Get_Country(),false);
                         unknown_session_a3d298.Set_Value_00672ae0(unknown_session_a3d298.Players[0]->unknown_66e2a0(),false);
                     } else {
                         unknown_session_a3d298.Set_Value_00672a30(-2,false);

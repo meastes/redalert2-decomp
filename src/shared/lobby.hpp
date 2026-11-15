@@ -101,9 +101,9 @@ void __fastcall Unknown_005c34b0(HWND dialog);
 // Refreshes a lobby dialog (0x005C7570).
 void __fastcall Update_Network_Dialog_Preview(HWND dialog);
 // Sends the lobby state (0x005C3810; flags not recovered).
-void __fastcall Unknown_005c3810(bool unknown_1, bool unknown_2);
+void __fastcall PumpGameopts(bool unknown_1, bool unknown_2);
 // Starts a multiplayer game's pregame state (0x005C74F0).
-void Unknown_Pregame_Setup_005c74f0();
+void PregameSetup();
 
 // The index-matched player's value (+0x67) for a nick name, 1 for the host's own name, -1 when unknown (0x005BCC60).
 int __fastcall Unknown_Find_Player_By_Name_005bcc60(char const *name);

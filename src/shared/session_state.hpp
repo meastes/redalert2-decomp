@@ -410,7 +410,7 @@ struct SessionClass {
     // Reads the player, serial, phone book and SyncBug settings from RA2.INI (0x0066F3A0).
     void Read_MultiPlayer_Settings();
     // Adds the four TXT_CWAIT_* strings to CallWaitStrings (0x0066EAA0).
-    void Unknown_0066EAA0();
+    void Load_Call_Wait_Strings();
     // Reads the scenario descriptions and sets UniqueID (0x0066EDB0; Red Alert's One_Time).
     void One_Time();
     void Read_Scenario_Descriptions();      // 0x00670C50

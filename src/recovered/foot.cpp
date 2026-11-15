@@ -3465,7 +3465,7 @@ Cell FootClass::unknown_4cbb40(int radius)
         return center;
     }
 
-    int numharv = House->unknown_5470.unknown_func_491d10(House->Unknown_004EF6F0(Rules->unknown_9ec)->ArrayIndex);
+    int numharv = House->unknown_5470.unknown_func_491d10(House->Get_First_Ownable(Rules->unknown_9ec)->ArrayIndex);
     if (numharv < 1) {
         numharv = 1;
     }

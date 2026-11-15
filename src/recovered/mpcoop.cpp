@@ -326,12 +326,12 @@ bool MPCooperative::AssignTeamsAtStart()
     }
     Unknown_005A3760(Get_Lobby_Dialog_005c2c40());
     for (int i = 0; i < unknown_players_a3fa7c.Count(); i++) {
-        if (!unknown_slot7(unknown_players_a3fa7c[i]->unknown_66e290())) {
+        if (!unknown_slot7(unknown_players_a3fa7c[i]->Get_Country())) {
             if (players > 1) {
-                unknown_players_a3fa7c[i]->unknown_66e2d0(-2);
+                unknown_players_a3fa7c[i]->Set_Country(-2);
             } else {
                 int house = Find_Country_Index_004904A0(record->Players[0]);
-                unknown_players_a3fa7c[i]->unknown_66e2d0(house);
+                unknown_players_a3fa7c[i]->Set_Country(house);
             }
         }
     }
@@ -457,11 +457,11 @@ void MPCooperative::Unknown_005A3760(HWND dialog)
                     Unknown_005A3650(dialog, id);
                     if (players > 1) {
                         Select_Side_Combo_4d1a90(dialog, id, -2);
-                        unknown_player_slots_a3fa98[i]->unknown_66e2d0(-2);
+                        unknown_player_slots_a3fa98[i]->Set_Country(-2);
                     } else {
                         int house = Find_Country_Index_004904A0(record->Players[0]);
                         Select_Side_Combo_4d1a90(dialog, id, house);
-                        unknown_player_slots_a3fa98[i]->unknown_66e2d0(house);
+                        unknown_player_slots_a3fa98[i]->Set_Country(house);
                     }
                 }
                 Unknown_005cb170(dialog, count);
@@ -1119,7 +1119,7 @@ void MPCooperative::unknown_slot30()
             Unknown_005c34b0(dialog);
             Update_Network_Dialog_Preview(dialog);
         }
-        Unknown_005c3810(true, true);
+        PumpGameopts(true, true);
     }
     if (unknown_campaign_44 != 0) {
         unknown_campaign_44->Set_Names(unknown_empty_wide_839d4c, unknown_empty_wide_839d4c);
@@ -1297,7 +1297,7 @@ extern unsigned int unknown_b2ab84;
 extern int unknown_pings_b2a734[];
 extern IPXManagerClass Ipx;
 extern OwnerTalkClass OwnerTalk;
-void Unknown_Pregame_Setup_005c74f0();
+void PregameSetup();
 extern CCToolTip *ToolTips;
 
 void MPCooperative::unknown_slot37()
@@ -1488,7 +1488,7 @@ void MPCooperative::unknown_slot37()
     unknown_squad_1_b2a820[0] = '\0';
     Options.GameSpeed = unknown_session_a3d298.GameSpeed_30;
     unknown_squad_2_b293d8[0] = '\0';
-    Unknown_Pregame_Setup_005c74f0();
+    PregameSetup();
     DoList.Count = 0;
     DoList.Head = 0;
     DoList.Tail = 0;
@@ -1502,7 +1502,7 @@ void MPCooperative::unknown_slot37()
     }
     if (unknown_flag_a3fba8) {
         if (PacketRouterConnection) {
-            OwnerTalk.Unknown_0063FC90();
+            OwnerTalk.Send_Shutdown();
         }
         unknown_flag_a3fba8 = false;
     }

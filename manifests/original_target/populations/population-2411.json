@@ -4,8 +4,8 @@
     "id": "population-2411",
     "inventory_sha256": "03cf95c9e66a31d4e68989e23496678c60eecde1aaa578e80131ed9e241698aa",
     "gaps_sha256": "0a9fbf83ac1b6ccaf26861877b194c6e5db82d823c80c2c04f61c405eaa5b565",
-    "historical_population_sha256": "5d979d3fc4b37b672112e13dbe213d2f4c0e97f743345f11a8c60d17e2c52097",
-    "historical_acceptance_sha256": "dedc2a9b842592727b30497a7baf7db0667dd0c1c43c864d0c523d015dd957aa"
+    "historical_population_sha256": "b2beff2ef6e2e9d9bd0134255dd5128033c4081fb310e2ca63e4611a7edaad3b",
+    "historical_acceptance_sha256": "83a2cd43651ce16f8a060cf5697568545642c3397e04f58adae711428d7b77b7"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -2328,7 +2328,7 @@
     "?Contains_Any@WideString@@QBE_NPBG@Z": 7804224,
     "?Get@UnknownList_768260@@QAE_NPAPAXH@Z": 7766624,
     "?unknown_players_a3fa7c@@3V?$DynamicVectorClass@PAUNodeNameType@@@@A": 10746492,
-    "?unknown_66e290@NodeNameType@@QAEHXZ": 6742672,
+    "?Get_Country@NodeNameType@@QAEHXZ": 6742672,
     "?PopulateTeamDropdown@MultiplayerGameMode@@UAEXPAUHWND__@@PBV?$DynamicVectorClass@H@@H@Z": 5993696,
     "?DrawTeamDropdown@MultiplayerGameMode@@UAEXPAUHWND__@@PBV?$DynamicVectorClass@PAVMultiMission@@@@PAVMultiMission@@@Z": 5993808,
     "?PopulateTeamDropdownForPlayer@MultiplayerGameMode@@UAEXPAUHWND__@@H@Z": 5993936,
@@ -4290,7 +4290,7 @@
     "?Next@?$QueueClass@VEventClass@@$0IA@@@QAEHXZ": 6482400,
     "_wcsncpy": 7878178,
     "?Reset@ScriptClass@@QAE_NXZ": 6719744,
-    "?unknown_66e2d0@NodeNameType@@QAEXH@Z": 6742736,
+    "?Set_Country@NodeNameType@@QAEXH@Z": 6742736,
     "?ID@?$VectorClass@UUndoInfoStruct@@@@UAEHABUUndoInfoStruct@@@Z": 6844768,
     "?ID@?$DynamicVectorClass@UUndoInfoStruct@@@@UAEHABUUndoInfoStruct@@@Z": 6845168,
     "?ID@?$VectorClass@UDirtyAreaStruct@@@@UAEHABUDirtyAreaStruct@@@Z": 6998848,
@@ -6044,7 +6044,7 @@
     "?Render@VoxelDrawSystem@@YI?AUSurfaceRegion@@XZ": 7436512,
     "??0Surface@@QAE@HH@Z": 4844944,
     "?Destroy_Low_Bridge_Span@MapClass@@QAEXABVCell@@@Z": 5598192,
-    "?Unknown_0042E940@BeaconManagerClass@@QAEPAVUnknownBeacon@@H@Z": 4385088,
+    "?FindSelected@BeaconManagerClass@@QAEPAVUnknownBeacon@@H@Z": 4385088,
     "?EditBeaconMessage_0042ec20@BeaconManagerClass@@QAEXPBGHH_N@Z": 4385824,
     "??_GWstring@@QAEPAXI@Z": 7759808,
     "?Shrink@?$WolArrayList@VWstring@@@@QAE_NXZ": 7764768,

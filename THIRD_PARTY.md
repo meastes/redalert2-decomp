@@ -174,6 +174,8 @@ inspection tools; VC6 and CrossOver are legitimate user-supplied local build too
   (typedef against its base type), for 11 units.
   Adopted 2026-11-15 (lane M1 batch p2, names only): 492 function and global names for address-named placeholders
   across 324 units, from ra2-decomp's names of byte-identical twins (scope agreeing) or else mischa85 names.csv.
+  Adopted 2026-11-15 (lane M1 batch p3, names only): 18 function names from ra2-decomp's byte-identical twins in units
+  without a TibSun/mischa85 counterpart, each name also present in the TibSun archive or mischa85 (YRpp-only names left out).
 
 ## Native linked libraries (tested development versions)
 

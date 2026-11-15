@@ -9,7 +9,7 @@ extern "C" int __cdecl _stricmp(char const *a, char const *b);   // 0x00781F20
 
 // 0x006720C0 (decompile: _stricmp(this + 0x58, "RandMap.Sed") == 0): whether the
 // map is the random map generator's seed file rather than a map.
-bool MultiMission::Unknown_006720C0()
+bool MultiMission::Is_Random_Map()
 {
     return _stricmp(unknown_58, "RandMap.Sed") == 0;
 }

@@ -201,12 +201,12 @@ class Leaf_435ff0 { public: unsigned int get(); };
 unsigned int Leaf_435ff0::get() { return *(unsigned int*)((char*)this + 0x30); }
 
 
-// int BombClass::Unknown_00436000() const (0x00436000): the frame of the
+// int BombClass::Get_Current_Flicker_Frame() const (0x00436000): the frame of the
 // bomb's flickering icon: two per sixth of IvanTimedDelay since it was
 // planted, plus one in the second half of each IvanIconFlickerRate period,
 // at most 11; 12 for a type 1 bomb.
 
-int BombClass::Unknown_00436000() const
+int BombClass::Get_Current_Flicker_Frame() const
 {
     if (Type == 1) {
         return 12;
@@ -223,10 +223,10 @@ int BombClass::Unknown_00436000() const
 }
 
 
-// bool BombClass::Unknown_00436070() const (0x00436070): whether a timed bomb
+// bool BombClass::Time_To_Explode() const (0x00436070): whether a timed bomb
 // (type 0) has reached its frame without being disarmed.
 
-bool BombClass::Unknown_00436070() const
+bool BombClass::Time_To_Explode() const
 {
     if (Type == 0 && Frame > unknown_38 && !unknown_58) {
         return true;

@@ -644,9 +644,9 @@ bool PlanningNodeClass::Is_In_Loop()
 }
 
 
-// void PlanningNodeClass::unknown_611440() (0x00611440)
+// void PlanningNodeClass::Promote_Events() (0x00611440)
 
-void PlanningNodeClass::unknown_611440()
+void PlanningNodeClass::Promote_Events()
 {
     int count = Members.Count();
     for (int index = 0; index < count; index++) {
@@ -903,7 +903,7 @@ void PlanningNodeClass::Dump() const
 }
 
 
-// int PlanningNodeClass::unknown_611a80(TechnoClass *techno) (0x00611A80)
+// int PlanningNodeClass::Find_Branch(TechnoClass *techno) (0x00611A80)
 // The index of the branch whose event lies at the coordinate of the
 // techno's event on the previous node of its path, or -1 (also -1 when the
 // previous node is the path's last node). Names are hypotheses.
@@ -911,7 +911,7 @@ void PlanningNodeClass::Dump() const
 // Member_Index 0x00611050 called) are expanded inline; the branch coordinate
 // is a named local compared with operator== (0x0061A8B0, expanded).
 
-int PlanningNodeClass::unknown_611a80(TechnoClass *techno)
+int PlanningNodeClass::Find_Branch(TechnoClass *techno)
 {
     PlanningNodeClass *previous = Previous(techno);
     if (previous != Planning_Token(techno)->Last_Node()) {
@@ -939,7 +939,7 @@ int PlanningNodeClass::unknown_611a80(TechnoClass *techno)
 int PlanningNodeClass::unknown_611bd0(PlanningMemberClass *member)
 {
     TechnoClass *owner = member->Get_Owner();
-    int index = unknown_611a80(owner);
+    int index = Find_Branch(owner);
     if (index == -1) {
         PlanningNodeClass *previous = Previous(owner);
         PlanningNodeClass *last = Planning_Token(owner)->Last_Node();
@@ -954,14 +954,14 @@ int PlanningNodeClass::unknown_611bd0(PlanningMemberClass *member)
         Branches.Add(branch);
         int count = Branches.Count() - 1;
         if (unknown_6114e0())
-            unknown_611fd0();
-        unknown_612b50(false);
+            Locate_Loop_Branch();
+        Reset_Colors(false);
         member->Set_BranchIndex(count);
         return count;
     } else {
         PlanningBranchClass *branch = Branches[index];
         branch->Set_unknown_74(-1);
-        unknown_612b50(false);
+        Reset_Colors(false);
         branch->Increment_Count();
         member->Set_BranchIndex(index);
         return index;
@@ -982,7 +982,7 @@ void PlanningNodeClass::unknown_611e20(PlanningMemberClass *member)
     if (member->BranchIndex != -1) {
         PlanningBranchClass *branch = Branches[member->BranchIndex];
         branch->unknown_74 = -1;
-        unknown_612b50(false);
+        Reset_Colors(false);
         if (--branch->Count == 0) {
             Planning_Queue_Node(this);
         }
@@ -1039,11 +1039,11 @@ void PlanningNodeClass::unknown_611fa0(PlanningMemberClass *member)
 }
 
 
-// void PlanningNodeClass::unknown_611fd0() (0x00611FD0)
+// void PlanningNodeClass::Locate_Loop_Branch() (0x00611FD0)
 // Finds the loop branch: the branch with the same origin coordinate as the
 // node's own (loop) branch, or -1.
 
-void PlanningNodeClass::unknown_611fd0()
+void PlanningNodeClass::Locate_Loop_Branch()
 {
     unknown_b0 = -1;
     if (Branch.Get_Count()) {
@@ -1280,10 +1280,10 @@ int PlanningNodeClass::Loop_Color()
 }
 
 
-// void PlanningNodeClass::unknown_612b50(bool all) (0x00612B50)
+// void PlanningNodeClass::Reset_Colors(bool all) (0x00612B50)
 // Forgets the node's computed index (and, with all, those of its branches).
 
-void PlanningNodeClass::unknown_612b50(bool all)
+void PlanningNodeClass::Reset_Colors(bool all)
 {
     unknown_b4 = -1;
     if (all) {
@@ -1631,14 +1631,14 @@ void PlanningTokenClass::unknown_613a80()
 {
     if (unknown_98) {
         PlanningNodeClass *node = Loop_Node();
-        if (node != 0) node->unknown_612b50(true);
+        if (node != 0) node->Reset_Colors(true);
         unknown_98 = false;
     }
     int start = unknown_8c == -1 ? 0 : unknown_8c;
     int count = Nodes.Count();
     for (int index = start; index < count; index++) {
         PlanningNodeClass *node = Nodes[index];
-        if (node != 0) node->unknown_612b50(true);
+        if (node != 0) node->Reset_Colors(true);
     }
     unknown_8c = -1;
 }
@@ -1885,10 +1885,10 @@ unsigned int __fastcall unknown_get_94_00613d70(int self)
 }  // namespace seed_00613d70
 
 
-// int PlanningTokenClass::unknown_613d80() const (0x00613D80)
+// int PlanningTokenClass::Loop_Start_Valid() const (0x00613D80)
 // False while the loop start is negative (no loop).
 
-int PlanningTokenClass::unknown_613d80() const
+int PlanningTokenClass::Loop_Start_Valid() const
 {
     if (LoopStart <= 0 && LoopStart != 0) {
         return 0;
@@ -1977,10 +1977,10 @@ unsigned char __fastcall unknown_get_99_00613dd0(int self)
 }  // namespace seed_00613dd0
 
 
-// void PlanningTokenClass::unknown_613de0() (0x00613DE0)
+// void PlanningTokenClass::Dec_Loop_Start() (0x00613DE0)
 // Steps the loop start back one, never below 0.
 
-void PlanningTokenClass::unknown_613de0()
+void PlanningTokenClass::Dec_Loop_Start()
 {
     LoopStart = LoopStart - 1;
     LoopStart = LoopStart > 0 ? LoopStart : 0;
@@ -3181,7 +3181,7 @@ void __fastcall Planning_Remove_Node(PlanningNodeClass *node)
 // void __fastcall Planning_Unknown_616a50(TechnoClass *techno) (0x00616A50)
 // When a member of the first node of the techno's path takes slot 275,
 // every node of the loop (from LoopStart to the path's end) turns its
-// members' kind-2 orders into kind 0x1D (PlanningNodeClass::unknown_611440).
+// members' kind-2 orders into kind 0x1D (PlanningNodeClass::Promote_Events).
 
 void __fastcall Planning_Unknown_616a50(TechnoClass *techno)
 {
@@ -3193,7 +3193,7 @@ void __fastcall Planning_Unknown_616a50(TechnoClass *techno)
     for (int i = 0; i < members; i++) {
         if (first->Members[i]->Owner->CanAttackOnTheMove()) {
             for (int index = start; index < count; index++) {
-                token->Node_At(index)->unknown_611440();
+                token->Node_At(index)->Promote_Events();
             }
             return;
         }

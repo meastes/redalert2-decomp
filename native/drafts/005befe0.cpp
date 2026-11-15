@@ -160,7 +160,7 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
                     IsRandomMap = true;
                     ShowWindow(window, SW_SHOW);
                     Load_Random_Map_Preview_005cc800(window);
-                    Unknown_005c3810(true, false);
+                    PumpGameopts(true, false);
                     InvalidateRect(window, 0, FALSE);
                     return 0;
                 }
@@ -182,7 +182,7 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
                     unknown_session_a3d298.AICount = 0;
                     Send_Slot_Names_005bbd20();
                     Unknown_005bbdd0(false);
-                    Unknown_005c3810(true, false);
+                    PumpGameopts(true, false);
                     return 0;
                 }
                 Unknown_005bbdd0(true);
@@ -199,7 +199,7 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
         case 0x6A1:             // the country combo boxes
             if ((unsigned short)(wparam >> 16) == 1 && !unknown_lock_a71e98) {
                 Set_Slot_Country_005c9a10(window, id);
-                Unknown_005c3810(true, false);
+                PumpGameopts(true, false);
                 Unknown_005bbdd0(false);
                 return 0;
             }
@@ -214,7 +214,7 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
         case 0x6A2:             // the colour combo boxes
             if ((unsigned short)(wparam >> 16) == 1 && !unknown_lock_a71e98) {
                 Set_Slot_Color_005c9ab0(window, id);
-                Unknown_005c3810(true, false);
+                PumpGameopts(true, false);
                 Unknown_005bbdd0(false);
                 return 0;
             }
@@ -241,14 +241,14 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
             unknown_a72c68 = 0;
             Unknown_005cd540(0);
             unknown_player_slots_a3fa98[0]->Team = 0;
-            unknown_player_slots_a3fa98[0]->unknown_66e2d0(unknown_session_a3d298.Mode->unknown_slot10());
+            unknown_player_slots_a3fa98[0]->Set_Country(unknown_session_a3d298.Mode->unknown_slot10());
             unknown_player_slots_a3fa98[0]->unknown_66e300(-2);
             Fill_Color_Combos_4d2300(window);
         }
         Unknown_005c9b90(window, 0, true);
         Change_Scenario_Slots_005cb8d0(window, -1, unknown_session_a3d2b4);
         if (unknown_lobby_flag_7e6d90 == 0 && unknown_session_a3d298.Mode != 0 && unknown_session_a3d298.Mode->unknown_slot40()) {
-            unknown_player_slots_a3fa98[0]->unknown_66e2d0(-3);
+            unknown_player_slots_a3fa98[0]->Set_Country(-3);
             unknown_player_slots_a3fa98[0]->Team = -1;
         }
         Refresh_Slot_Images_005c9ec0(window);

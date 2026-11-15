@@ -452,7 +452,7 @@ int OwnerTalkClass::Unknown_0063FBA0()
 
 
 // 0x0063FC90: tells the router to stop (type 3) and waits up to 900 ticks for the send queue to empty.
-void OwnerTalkClass::Unknown_0063FC90()
+void OwnerTalkClass::Send_Shutdown()
 {
     TalkPacketStruct packet = {0};
     CDTimerClass<SystemTimerClass> timer;

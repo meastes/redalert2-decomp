@@ -301,7 +301,7 @@ public:
     bool Is_At(CoordStruct coord) const;                       // 0x00611310
     ::Rect Rect() const;                                      // 0x00611360
     bool Is_In_Loop();                                       // 0x006113F0
-    void unknown_611440();                                    // 0x00611440
+    void Promote_Events();                                    // 0x00611440
     PlanningMemberClass *Member_For(TechnoClass *techno) const;   // 0x00611470
     int Branch_Count() const;                                 // 0x006114C0
     bool Has_Branch_Members() const;                          // 0x006114D0
@@ -319,14 +319,14 @@ public:
     bool Is_Queued() const;                                   // 0x00611720
     void unknown_611730();                                    // 0x00611730
     void unknown_611770();                                    // 0x00611770
-    int unknown_611a80(TechnoClass *techno);                  // 0x00611A80
+    int Find_Branch(TechnoClass *techno);                  // 0x00611A80
     void Dump() const;                                        // 0x006118E0
     int unknown_611bd0(PlanningMemberClass *member);         // 0x00611BD0
     void unknown_611e20(PlanningMemberClass *member);         // 0x00611E20
     void unknown_611ee0();                                    // 0x00611EE0
     bool Is_Loop_Start(TechnoClass *techno);                  // 0x00611F60
     void unknown_611fa0(PlanningMemberClass *member);         // 0x00611FA0
-    void unknown_611fd0();                                    // 0x00611FD0
+    void Locate_Loop_Branch();                                    // 0x00611FD0
     void unknown_612090();                                    // 0x00612090
     void unknown_6120c0();                                    // 0x006120C0
     void Draw_Marker(int color);                              // 0x006120F0
@@ -360,7 +360,7 @@ public:
     int Highlight_Color();                                    // 0x0061A060
     int Branch_Color(int index);                              // 0x006127E0
     int Loop_Color();                                         // 0x006129B0
-    void unknown_612b50(bool all);                             // 0x00612B50
+    void Reset_Colors(bool all);                             // 0x00612B50
 #ifdef RA2_COORD_EQUAL_MEMBER
     // Lists the node among the planned nodes (0x00615B60).
     void Unknown_00615B60() { unknown_list_00a76628.Add(this); }
@@ -444,8 +444,8 @@ public:
     void unknown_613c80(PlanningNodeClass *node);             // 0x00613C80
     EventClass Event_At(int index);                           // 0x00613CA0
     EventClass Get_Event() const;                             // 0x00613D00
-    int unknown_613d80() const;                               // 0x00613D80
-    void unknown_613de0();                                    // 0x00613DE0
+    int Loop_Start_Valid() const;                               // 0x00613D80
+    void Dec_Loop_Start();                                    // 0x00613DE0
 
     // The node at index, wrapping into the loop past the end; 0 outside.
     PlanningNodeClass *Node_At(int index) const;             // 0x00613C00

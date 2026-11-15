@@ -4,8 +4,8 @@
     "id": "population-4429",
     "inventory_sha256": "4a080188f91c7673d3b6b2ee21f62950179ab3a34c27edebdca1dc59368e436e",
     "gaps_sha256": "4f132647b19c9ee125ad3693a85d2389aef3ea88315f886bed4dfb7ce39c4192",
-    "historical_population_sha256": "4301a150d18b95c388f1067e8731e46c0047e87da15b1edbdae08024583fdbef",
-    "historical_acceptance_sha256": "c51a6c0b0225bacfb9e3b34390da1eb08007a157ab14fb8a416038f5a1c6172d"
+    "historical_population_sha256": "71e65a573635ecfdd3b4b3e5c1d88865a29466a2b11aee585eb26c882f932010",
+    "historical_acceptance_sha256": "bd59efcb6eb55d4fa899c0b765f0f7aa29e4c4823e6c58ab8a76ce1ea9a425be"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -5783,7 +5783,7 @@
     "__imp__GetStockObject@4": 7970948,
     "?Unknown_0051A2B0@@YA_NXZ": 5350064,
     "?DebugStringNoPrefix@@YAXPBDZZ": 4809824,
-    "?Unknown_0066EAA0@SessionClass@@QAEXXZ": 6744736,
+    "?Load_Call_Wait_Strings@SessionClass@@QAEXXZ": 6744736,
     "?One_Time@SessionClass@@QAEXXZ": 6745520,
     "?Read_Scenario_Descriptions@SessionClass@@QAEXXZ": 6753360,
     "?Read@SessionOptionsClass@@QAEXAAVCCINIClass@@PBDHH@Z": 6746608,
@@ -8261,7 +8261,7 @@
     "?Fill_In_Data_0065cdd0@@YIXXZ": 6671824,
     "?Wait_For_Players_0065c520@@YI_NXZ": 6669600,
     "?Multiplayer_Start_Waypoints_0065fff0@@YI?AV?$DynamicVectorClass@VCell@@@@_N@Z": 6684656,
-    "?Unknown_004EF6F0@HouseClass@@QAEPAVUnitTypeClass@@ABV?$TypeList@PAVUnitTypeClass@@@@@Z": 5175024,
+    "?Get_First_Ownable@HouseClass@@QAEPAVUnitTypeClass@@ABV?$TypeList@PAVUnitTypeClass@@@@@Z": 5175024,
     "?Unknown_00660b60@@YIHPAVObjectClass@@AAVCell@@H@Z": 6687584,
     "??_7SwizzleManagerClass@@6B@": 8045360,
     "?Process_Tables@SwizzleManagerClass@@AAEXXZ": 6945840,
@@ -8611,7 +8611,7 @@
     "?unknown_slot28@BuildingClass@@UAEHPAVObjectClass@@_N@Z": 4470944,
     "?Add@StaticBufferClass@@QAEPAUEntry@1@AAVSurface@@ABUSurfaceRegion@@@Z": 6922704,
     "?Render@VoxelDrawSystem@@YI?AUSurfaceRegion@@XZ": 7436512,
-    "?Unknown_0042E940@BeaconManagerClass@@QAEPAVUnknownBeacon@@H@Z": 4385088,
+    "?FindSelected@BeaconManagerClass@@QAEPAVUnknownBeacon@@H@Z": 4385088,
     "?EditBeaconMessage_0042ec20@BeaconManagerClass@@QAEXPBGHH_N@Z": 4385824,
     "??0UnknownBeacon@@QAE@XZ": 4381152,
     "??1BeaconManagerClass@@QAE@XZ": 4382976,

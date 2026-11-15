@@ -156,7 +156,7 @@ void  FUN_0066ee40(void)
 // shared/vector_class.hpp in the unit).
 
 // The country (+0x4B); -2 when +0x4F marks it random.
-int NodeNameType::unknown_66e290()
+int NodeNameType::Get_Country()
 {
     if (unknown_4f == -2) {
         return -2;
@@ -186,7 +186,7 @@ int NodeNameType::Get_Color_0066e2b0()
 
 
 // Sets the country; -2 (random) stores country 0 and marks +0x4F.
-void NodeNameType::unknown_66e2d0(int value)
+void NodeNameType::Set_Country(int value)
 {
     if (value == -2) {
         unknown_4b = 0;
@@ -434,7 +434,7 @@ SessionClass::SessionClass() : Mode(0)
 extern char const *unknown_call_wait_labels_7f3214[4];
 extern "C" unsigned short *__cdecl _wcsdup(unsigned short const *string);
 
-void SessionClass::Unknown_0066EAA0()
+void SessionClass::Load_Call_Wait_Strings()
 {
     for (int i = 0; i < 4; i++) {
         CallWaitStrings.Add(_wcsdup(StringTable::Load_String(unknown_call_wait_labels_7f3214[i], 0,
@@ -1505,7 +1505,7 @@ void MultiMission::Set_Official(bool official)
 
 
 // Whether the map allows the game mode named: with no GameModes listed only "standard" is allowed.
-bool MultiMission::Unknown_006720E0(Wstring &mode)
+bool MultiMission::Supports_Game_Mode(Wstring &mode)
 {
     if (GameModes.Count() == 0) {
         return mode == "standard";

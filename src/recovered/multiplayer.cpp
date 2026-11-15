@@ -228,7 +228,7 @@ void __fastcall MultiplayerGameMode::unknown_fill_list_5b71e0(HWND list, int id)
 bool MultiplayerGameMode::AssignTeams()
 {
     for (int index = 0; index < unknown_players_a3fa7c.Count(); index++) {
-        if (unknown_players_a3fa7c[index]->unknown_66e290() == -3) {
+        if (unknown_players_a3fa7c[index]->Get_Country() == -3) {
             unknown_players_a3fa7c[index]->Team = -1;
         } else {
             unknown_players_a3fa7c[index]->Team = index;
@@ -307,13 +307,13 @@ int MultiplayerGameMode::FirstValidMapIndex()
 
 bool MultiplayerGameMode::unknown_5b7470(MultiMission *map)
 {
-    if (map->Unknown_006720C0()) {
+    if (map->Is_Random_Map()) {
         return IsAIAllowed();
     }
     if (!map->unknown_17c && unknown_73c370()) {
         return false;
     }
-    return map->Unknown_006720E0(unknown_30);
+    return map->Supports_Game_Mode(unknown_30);
 }
 
 
@@ -676,7 +676,7 @@ bool MultiplayerGameMode::SpawnBaseUnits(HouseClass *house, int *money)
     if (!unknown_session_a3d298.unknown_bases_20) {
         return true;
     }
-    UnitTypeClass *type = house->Unknown_004EF6F0(Rules->BaseUnit);
+    UnitTypeClass *type = house->Get_First_Ownable(Rules->BaseUnit);
     if (type != 0) {
         TechnoClass *unit = (TechnoClass *)new UnitClass(type, house);
         if (unit != 0) {

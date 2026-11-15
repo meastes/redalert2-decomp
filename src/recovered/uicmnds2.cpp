@@ -250,7 +250,7 @@ int __fastcall String_Table_Init_006f8e30(char const *filename)
     qsort(unknown_labels_ad0440, unknown_label_count_ad0438, sizeof(StringLabel), (int (__cdecl *)(void const *, void const *))_stricmp);
     Debug_Printf("MaxLabelLen = %d\n", unknown_max_label_length_ad0428);
     Debug_Printf("Language: %s\n", unknown_table_name_6f8e00(unknown_language_7f8da0));
-    unknown_session_a3d298.Unknown_0066EAA0();
+    unknown_session_a3d298.Load_Call_Wait_Strings();
     unknown_map_seed_a6fd68.Set_Default_Description_00576fe0();
     return 1;
 }

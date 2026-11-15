@@ -4,8 +4,8 @@
     "id": "population-4267",
     "inventory_sha256": "90340d07e0ea1ea4559b2bfd1e2f2fb073d6b83833c5b9541611896c6fb2b096",
     "gaps_sha256": "b307564bc9db776fe198dd0e9936a18185920ad5da99be333230a203b05e8b43",
-    "historical_population_sha256": "ed96501afc9b147f82f5837f74f405cb0e1b05b4446794107dbe3f3f1f8595fe",
-    "historical_acceptance_sha256": "b1a1085a6a9c348195445d0029205a75b1f2fe4c537cf825325d319e75fe5f2c"
+    "historical_population_sha256": "367ec3791c6c6916a81735ef3200102a273eab030700bde454cc965af0d3eb96",
+    "historical_acceptance_sha256": "02a83d72082d43faa7e271024e75d2745b9d954f1ecd2d89cac46fdea1a311fa"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -5598,7 +5598,7 @@
     "?Render@VoxelDrawSystem@@YI?AUSurfaceRegion@@XZ": 7436512,
     "?Search_For_Node@?$IndexClass@HPAVCommandClass@@@@ABEPBUNodeElement@1@ABH@Z": 5512928,
     "?Is_Archive_Same@?$IndexClass@HPAVCommandClass@@@@ABE_NABH@Z": 5512896,
-    "?Unknown_0042E940@BeaconManagerClass@@QAEPAVUnknownBeacon@@H@Z": 4385088,
+    "?FindSelected@BeaconManagerClass@@QAEPAVUnknownBeacon@@H@Z": 4385088,
     "?EditBeaconMessage_0042ec20@BeaconManagerClass@@QAEXPBGHH_N@Z": 4385824,
     "??_GWstring@@QAEPAXI@Z": 7759808,
     "?Remove@SuperClass@@QAE_NXZ": 6934336,
@@ -6123,7 +6123,7 @@
     "??_7?$VectorClass@PAVVoxelAnimTypeClass@@@@6B@": 8032536,
     "??_7?$VectorClass@PAVSmudgeTypeClass@@@@6B@": 8032568,
     "??_7?$VectorClass@PAVTerrainTypeClass@@@@6B@": 8032600,
-    "?unknown_66e290@NodeNameType@@QAEHXZ": 6742672,
+    "?Get_Country@NodeNameType@@QAEHXZ": 6742672,
     "?unknown_66e2a0@NodeNameType@@QAEHXZ": 6742688,
     "?Get_Color_0066e2b0@NodeNameType@@QAEHXZ": 6742704,
     "??8?$VectorClass@PAVGlobalPacketType@@@@UBE_NABV0@@Z": 6767312,
@@ -6178,7 +6178,7 @@
     "?Init@AudioSourceInfo@@QAIXPAXH@Z": 4228352,
     "?Set_Port@IPXAddressClass@@QAEXG@Z": 5388640,
     "?Has_Window@ProgressScreenClass@@QAE_NXZ": 6423488,
-    "?unknown_66e2d0@NodeNameType@@QAEXH@Z": 6742736,
+    "?Set_Country@NodeNameType@@QAEXH@Z": 6742736,
     "?Full_Name@Owner_006e7cb0@seed_006e7cb0@@QAEHI@Z": 7240880,
     "?Init@WinsockInterfaceClass@@QAE_NXZ": 7778464,
     "?unknown_66e300@NodeNameType@@QAEXH@Z": 6742784,
@@ -6658,7 +6658,7 @@
           "resolved": 10938212
         }
       ],
-      "source_sha256": "6ee23176aeca9fbe2c7f246c7671a9289e2e4cbd5416a7fdc6fc7cf825c656f2",
+      "source_sha256": "78aff8060dcb3e772ff7a170f2fb7a4d68b93827375cfe75b7c178b9ec8f1367",
       "source": "src/recovered/ldprgmgr.cpp",
       "population": "population-4267",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -6724,7 +6724,7 @@
           "resolved": 10938224
         }
       ],
-      "source_sha256": "6ee23176aeca9fbe2c7f246c7671a9289e2e4cbd5416a7fdc6fc7cf825c656f2",
+      "source_sha256": "78aff8060dcb3e772ff7a170f2fb7a4d68b93827375cfe75b7c178b9ec8f1367",
       "source": "src/recovered/ldprgmgr.cpp",
       "population": "population-4267",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -6774,7 +6774,7 @@
           "resolved": 10938296
         }
       ],
-      "source_sha256": "6ee23176aeca9fbe2c7f246c7671a9289e2e4cbd5416a7fdc6fc7cf825c656f2",
+      "source_sha256": "78aff8060dcb3e772ff7a170f2fb7a4d68b93827375cfe75b7c178b9ec8f1367",
       "source": "src/recovered/ldprgmgr.cpp",
       "population": "population-4267",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -6824,7 +6824,7 @@
           "resolved": 10938280
         }
       ],
-      "source_sha256": "6ee23176aeca9fbe2c7f246c7671a9289e2e4cbd5416a7fdc6fc7cf825c656f2",
+      "source_sha256": "78aff8060dcb3e772ff7a170f2fb7a4d68b93827375cfe75b7c178b9ec8f1367",
       "source": "src/recovered/ldprgmgr.cpp",
       "population": "population-4267",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -6874,7 +6874,7 @@
           "resolved": 10938272
         }
       ],
-      "source_sha256": "6ee23176aeca9fbe2c7f246c7671a9289e2e4cbd5416a7fdc6fc7cf825c656f2",
+      "source_sha256": "78aff8060dcb3e772ff7a170f2fb7a4d68b93827375cfe75b7c178b9ec8f1367",
       "source": "src/recovered/ldprgmgr.cpp",
       "population": "population-4267",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -6924,7 +6924,7 @@
           "resolved": 10938232
         }
       ],
-      "source_sha256": "6ee23176aeca9fbe2c7f246c7671a9289e2e4cbd5416a7fdc6fc7cf825c656f2",
+      "source_sha256": "78aff8060dcb3e772ff7a170f2fb7a4d68b93827375cfe75b7c178b9ec8f1367",
       "source": "src/recovered/ldprgmgr.cpp",
       "population": "population-4267",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -6974,7 +6974,7 @@
           "resolved": 10938192
         }
       ],
-      "source_sha256": "6ee23176aeca9fbe2c7f246c7671a9289e2e4cbd5416a7fdc6fc7cf825c656f2",
+      "source_sha256": "78aff8060dcb3e772ff7a170f2fb7a4d68b93827375cfe75b7c178b9ec8f1367",
       "source": "src/recovered/ldprgmgr.cpp",
       "population": "population-4267",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -7056,7 +7056,7 @@
           "resolved": 10938304
         }
       ],
-      "source_sha256": "6ee23176aeca9fbe2c7f246c7671a9289e2e4cbd5416a7fdc6fc7cf825c656f2",
+      "source_sha256": "78aff8060dcb3e772ff7a170f2fb7a4d68b93827375cfe75b7c178b9ec8f1367",
       "source": "src/recovered/ldprgmgr.cpp",
       "population": "population-4267",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -7114,7 +7114,7 @@
           "resolved": 10938240
         }
       ],
-      "source_sha256": "6ee23176aeca9fbe2c7f246c7671a9289e2e4cbd5416a7fdc6fc7cf825c656f2",
+      "source_sha256": "78aff8060dcb3e772ff7a170f2fb7a4d68b93827375cfe75b7c178b9ec8f1367",
       "source": "src/recovered/ldprgmgr.cpp",
       "population": "population-4267",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -7172,7 +7172,7 @@
           "resolved": 10938264
         }
       ],
-      "source_sha256": "6ee23176aeca9fbe2c7f246c7671a9289e2e4cbd5416a7fdc6fc7cf825c656f2",
+      "source_sha256": "78aff8060dcb3e772ff7a170f2fb7a4d68b93827375cfe75b7c178b9ec8f1367",
       "source": "src/recovered/ldprgmgr.cpp",
       "population": "population-4267",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -7230,7 +7230,7 @@
           "resolved": 10938288
         }
       ],
-      "source_sha256": "6ee23176aeca9fbe2c7f246c7671a9289e2e4cbd5416a7fdc6fc7cf825c656f2",
+      "source_sha256": "78aff8060dcb3e772ff7a170f2fb7a4d68b93827375cfe75b7c178b9ec8f1367",
       "source": "src/recovered/ldprgmgr.cpp",
       "population": "population-4267",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -7272,7 +7272,7 @@
           "resolved": 10938218
         }
       ],
-      "source_sha256": "6ee23176aeca9fbe2c7f246c7671a9289e2e4cbd5416a7fdc6fc7cf825c656f2",
+      "source_sha256": "78aff8060dcb3e772ff7a170f2fb7a4d68b93827375cfe75b7c178b9ec8f1367",
       "source": "src/recovered/ldprgmgr.cpp",
       "population": "population-4267",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -7322,7 +7322,7 @@
           "resolved": 10938256
         }
       ],
-      "source_sha256": "6ee23176aeca9fbe2c7f246c7671a9289e2e4cbd5416a7fdc6fc7cf825c656f2",
+      "source_sha256": "78aff8060dcb3e772ff7a170f2fb7a4d68b93827375cfe75b7c178b9ec8f1367",
       "source": "src/recovered/ldprgmgr.cpp",
       "population": "population-4267",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -7481,7 +7481,7 @@
           "resolved": 10938308
         }
       ],
-      "source_sha256": "6ee23176aeca9fbe2c7f246c7671a9289e2e4cbd5416a7fdc6fc7cf825c656f2",
+      "source_sha256": "78aff8060dcb3e772ff7a170f2fb7a4d68b93827375cfe75b7c178b9ec8f1367",
       "source": "src/recovered/ldprgmgr.cpp",
       "population": "population-4267",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -7547,7 +7547,7 @@
           "resolved": 10938308
         }
       ],
-      "source_sha256": "6ee23176aeca9fbe2c7f246c7671a9289e2e4cbd5416a7fdc6fc7cf825c656f2",
+      "source_sha256": "78aff8060dcb3e772ff7a170f2fb7a4d68b93827375cfe75b7c178b9ec8f1367",
       "source": "src/recovered/ldprgmgr.cpp",
       "population": "population-4267",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -7581,7 +7581,7 @@
           "resolved": 8017052
         }
       ],
-      "source_sha256": "6ee23176aeca9fbe2c7f246c7671a9289e2e4cbd5416a7fdc6fc7cf825c656f2",
+      "source_sha256": "78aff8060dcb3e772ff7a170f2fb7a4d68b93827375cfe75b7c178b9ec8f1367",
       "source": "src/recovered/ldprgmgr.cpp",
       "population": "population-4267",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -7631,7 +7631,7 @@
           "resolved": 8052072
         }
       ],
-      "source_sha256": "6ee23176aeca9fbe2c7f246c7671a9289e2e4cbd5416a7fdc6fc7cf825c656f2",
+      "source_sha256": "78aff8060dcb3e772ff7a170f2fb7a4d68b93827375cfe75b7c178b9ec8f1367",
       "source": "src/recovered/ldprgmgr.cpp",
       "population": "population-4267",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -7721,7 +7721,7 @@
           "resolved": 1821142
         }
       ],
-      "source_sha256": "6ee23176aeca9fbe2c7f246c7671a9289e2e4cbd5416a7fdc6fc7cf825c656f2",
+      "source_sha256": "78aff8060dcb3e772ff7a170f2fb7a4d68b93827375cfe75b7c178b9ec8f1367",
       "source": "src/recovered/ldprgmgr.cpp",
       "population": "population-4267",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -7787,7 +7787,7 @@
           "resolved": 8725476
         }
       ],
-      "source_sha256": "6ee23176aeca9fbe2c7f246c7671a9289e2e4cbd5416a7fdc6fc7cf825c656f2",
+      "source_sha256": "78aff8060dcb3e772ff7a170f2fb7a4d68b93827375cfe75b7c178b9ec8f1367",
       "source": "src/recovered/ldprgmgr.cpp",
       "population": "population-4267",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -7853,7 +7853,7 @@
           "resolved": 8725476
         }
       ],
-      "source_sha256": "6ee23176aeca9fbe2c7f246c7671a9289e2e4cbd5416a7fdc6fc7cf825c656f2",
+      "source_sha256": "78aff8060dcb3e772ff7a170f2fb7a4d68b93827375cfe75b7c178b9ec8f1367",
       "source": "src/recovered/ldprgmgr.cpp",
       "population": "population-4267",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -7911,7 +7911,7 @@
           "resolved": 818759
         }
       ],
-      "source_sha256": "6ee23176aeca9fbe2c7f246c7671a9289e2e4cbd5416a7fdc6fc7cf825c656f2",
+      "source_sha256": "78aff8060dcb3e772ff7a170f2fb7a4d68b93827375cfe75b7c178b9ec8f1367",
       "source": "src/recovered/ldprgmgr.cpp",
       "population": "population-4267",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -8001,7 +8001,7 @@
           "resolved": 815663
         }
       ],
-      "source_sha256": "6ee23176aeca9fbe2c7f246c7671a9289e2e4cbd5416a7fdc6fc7cf825c656f2",
+      "source_sha256": "78aff8060dcb3e772ff7a170f2fb7a4d68b93827375cfe75b7c178b9ec8f1367",
       "source": "src/recovered/ldprgmgr.cpp",
       "population": "population-4267",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -8217,7 +8217,7 @@
           "resolved": 8725476
         }
       ],
-      "source_sha256": "6ee23176aeca9fbe2c7f246c7671a9289e2e4cbd5416a7fdc6fc7cf825c656f2",
+      "source_sha256": "78aff8060dcb3e772ff7a170f2fb7a4d68b93827375cfe75b7c178b9ec8f1367",
       "source": "src/recovered/ldprgmgr.cpp",
       "population": "population-4267",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -8291,7 +8291,7 @@
           "resolved": 8725472
         }
       ],
-      "source_sha256": "6ee23176aeca9fbe2c7f246c7671a9289e2e4cbd5416a7fdc6fc7cf825c656f2",
+      "source_sha256": "78aff8060dcb3e772ff7a170f2fb7a4d68b93827375cfe75b7c178b9ec8f1367",
       "source": "src/recovered/ldprgmgr.cpp",
       "population": "population-4267",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",

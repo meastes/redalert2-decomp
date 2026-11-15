@@ -237,7 +237,7 @@ void __fastcall Unknown_0053F780()
     Debug_Printf("Disconnect_Gracefully\n");
     if (unknown_game_mode_a3d298 == 4 && PacketTransport != 0 && unknown_flag_a3fba8) {
         if (PacketRouterConnection != 0) {
-            OwnerTalk.Unknown_0063FC90();
+            OwnerTalk.Send_Shutdown();
             CDTimerClass<SystemTimerClass> timer = 480;
             while (timer.Value() != 0) {
                 Service_Game_IO_00481fb0();
@@ -803,7 +803,7 @@ void __fastcall Message_Input(int &input)
         int ascii = (unsigned char)Main_Loop_To_ASCII(WWKeyboard, input);
         if (ascii == '\r' || ascii == '\\' || ascii == '\b') {
             txt[0] = 0;
-            bool beacon = unknown_object_84e8d0.Unknown_0042E940(unknown_player_a35db4->ArrayIndex) != 0;
+            bool beacon = unknown_object_84e8d0.FindSelected(unknown_player_a35db4->ArrayIndex) != 0;
             if (beacon) {
                 swprintf(txt, StringTable::Load_String("TXT_BEACON_MESSAGE", 0, "D:\\Ra2\\MainLoop.CPP", 1796));
             } else {
@@ -848,7 +848,7 @@ void __fastcall Message_Input(int &input)
         }
     }
 
-    if ((unknown_object_84e8d0.Unknown_0042E940(unknown_player_a35db4->ArrayIndex) && copy_input && rc == 1) || rc == 2 || rc == 4 || IMEComposing) {
+    if ((unknown_object_84e8d0.FindSelected(unknown_player_a35db4->ArrayIndex) && copy_input && rc == 1) || rc == 2 || rc == 4 || IMEComposing) {
         if (copy_input == 0x1B) {
             unknown_object_84e8d0.EditBeaconMessage_0042ec20(0, -1, -1, true);
         } else {
@@ -881,7 +881,7 @@ void __fastcall Message_Input(int &input)
                 wcscpy(unknown_last_message_a3f122, (wchar_t *)(packet + 0x19));
             }
         } else if (unknown_session_a3d298.Type == 3 || unknown_session_a3d298.Type == 4) {
-            if (unknown_object_84e8d0.Unknown_0042E940(unknown_player_a35db4->ArrayIndex)) {
+            if (unknown_object_84e8d0.FindSelected(unknown_player_a35db4->ArrayIndex)) {
                 unknown_object_84e8d0.EditBeaconMessage_0042ec20(unknown_session_a3d298.Messages.Get_Edit_Buf(), -1, -1, true);
             } else {
                 if (unknown_session_a3d298.Type == 4) {

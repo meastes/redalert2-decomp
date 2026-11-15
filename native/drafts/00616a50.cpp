@@ -7,7 +7,7 @@
 // void __fastcall Planning_Unknown_616a50(TechnoClass *techno) (0x00616A50)
 // When a member of the first node of the techno's path takes slot 275,
 // every node of the loop (from LoopStart to the path's end) turns its
-// members' kind-2 orders into kind 0x1D (PlanningNodeClass::unknown_611440).
+// members' kind-2 orders into kind 0x1D (PlanningNodeClass::Promote_Events).
 #include "shared/planning.hpp"
 
 void __fastcall Planning_Unknown_616a50(TechnoClass *techno)
@@ -20,7 +20,7 @@ void __fastcall Planning_Unknown_616a50(TechnoClass *techno)
     for (int i = 0; i < members; i++) {
         if (first->Members[i]->Owner->CanAttackOnTheMove()) {
             for (int index = start; index < count; index++) {
-                token->Node_At(index)->unknown_611440();
+                token->Node_At(index)->Promote_Events();
             }
             return;
         }

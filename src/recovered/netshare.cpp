@@ -527,7 +527,7 @@ void __fastcall Unknown_005c34f0()
 }
 
 
-// void __fastcall Unknown_005c3810(bool unknown_1, bool unknown_2) (0x005C3810)
+// void __fastcall PumpGameopts(bool unknown_1, bool unknown_2) (0x005C3810)
 // Sends the game options when the session's settings differ from the last sent copy (or a resend is
 // forced), at most once a second; the copy is refreshed before the send.
 
@@ -547,7 +547,7 @@ extern unsigned short unknown_sent_map_name_a72c90[44];
 extern char unknown_sent_file_name_a72890[14];
 extern char unknown_sent_digest_a728a0[33];
 
-void __fastcall Unknown_005c3810(bool unknown_1, bool unknown_2)
+void __fastcall PumpGameopts(bool unknown_1, bool unknown_2)
 {
     char buffer[0x208];
     bool changed = false;
@@ -1675,7 +1675,7 @@ bool Lobby_Dialog_Update_005c67c0()
         }
         if (found != -1 && found != unknown_lobby_map_a728d0) {
             Select_Scenario_005c7c30(found);
-            if (unknown_multi_missions_a3d8d8[found]->Unknown_006720C0()) {
+            if (unknown_multi_missions_a3d8d8[found]->Is_Random_Map()) {
                 delete MultiplayerMapPreview;
                 MultiplayerMapPreview = new MapPreviewClass;
                 MultiplayerMapPreview->Read_PCX_Preview("RandMap.img");
@@ -2046,7 +2046,7 @@ bool __fastcall Accept_Map_Selection_005c71f0(HWND dialog)
 }
 
 
-// void Unknown_Pregame_Setup_005c74f0() (0x005C74F0)
+// void PregameSetup() (0x005C74F0)
 // Starts a multiplayer game's pregame state: the scenario takes the session's
 // tech level, the frame counter and the crate count are reset, the number of
 // players is logged and the global game options take the session's bridge and
@@ -2054,7 +2054,7 @@ bool __fastcall Accept_Map_Selection_005c71f0(HWND dialog)
 
 void Debug_Log(char const *format, ...);
 
-void Unknown_Pregame_Setup_005c74f0()
+void PregameSetup()
 {
     unknown_id_source_a3d290->TechLevel = unknown_session_a3d2b4;
     Frame = 0;
@@ -2469,7 +2469,7 @@ int __fastcall Make_Random_Map_005c84e0()
     int index;
     bool found = false;
     for (index = 0; index < unknown_multi_missions_a3d8d8.Count(); index++) {
-        if (unknown_multi_missions_a3d8d8[index]->Unknown_006720C0()) {
+        if (unknown_multi_missions_a3d8d8[index]->Is_Random_Map()) {
             found = true;
             break;
         }
@@ -3431,7 +3431,7 @@ void __fastcall Set_Slot_Country_005c9a10(HWND dialog, int id)
     if (slot == unknown_lobby_a3fa94) {
         unknown_session_a3d298.Set_Value_00672a30(country, false);
         if (unknown_players_a3fa7c.Count() != 0) {
-            unknown_players_a3fa7c[0]->unknown_66e2d0(country);
+            unknown_players_a3fa7c[0]->Set_Country(country);
         }
     } else {
         NodeNameType *entry = unknown_player_slots_a3fa98[slot];
@@ -3679,7 +3679,7 @@ int __fastcall Slot_Country_005ca3f0(int slot)
     if (entry == unknown_player_a72d44) {
         return -3;
     }
-    return entry->unknown_66e290();
+    return entry->Get_Country();
 }
 
 
@@ -4095,7 +4095,7 @@ void __fastcall Unknown_005cb3f0(HWND dialog, int first, int count)
     }
     Unknown_005cae00(dialog, first, count);
     Unknown_005bbdc0();
-    Unknown_005c3810(true, false);
+    PumpGameopts(true, false);
 }
 
 
@@ -4142,7 +4142,7 @@ void __fastcall Clear_Observer_Slots_005cb560(HWND dialog)
         Set_Slot_Country_005c9a10(dialog, Player_Side_Combo_ID_4d1350(unknown_lobby_flag_7e6d90));
     }
     Unknown_005bbdc0();
-    Unknown_005c3810(true, false);
+    PumpGameopts(true, false);
 }
 
 
@@ -4167,7 +4167,7 @@ void __fastcall Reset_Slots_From_005cb7c0(HWND dialog, int first)
     } else {
         Unknown_005bbdc0();
     }
-    Unknown_005c3810(true, false);
+    PumpGameopts(true, false);
 }
 
 
@@ -4232,7 +4232,7 @@ void __fastcall Change_Scenario_Slots_005cb8d0(HWND dialog, int previous, int sc
         } else {
             Unknown_005bbdc0();
         }
-        Unknown_005c3810(true, false);
+        PumpGameopts(true, false);
     } else if (extra + players >= 7) {
         Unknown_005cb3f0(dialog, 7, 1);
     }
@@ -4289,10 +4289,10 @@ bool __fastcall Unknown_005cbdb0(HWND dialog, int count, bool unknown_1, bool un
         if (i >= count) {
             bool player = entry != 0 && entry != unknown_open_entry_a72d2c && entry != unknown_closed_entry_a72d30
                 && entry != unknown_player_a72d44 && entry != unknown_waiting_entry_a72d40;
-            if (player && entry->unknown_66e290() != -3) {
+            if (player && entry->Get_Country() != -3) {
                 return true;
             }
-            if (unknown_session_a3d29c != 0 && !unknown_2 && player && entry->unknown_66e290() == -3) {
+            if (unknown_session_a3d29c != 0 && !unknown_2 && player && entry->Get_Country() == -3) {
                 return true;
             }
         }
@@ -4447,7 +4447,7 @@ void __fastcall Unknown_005cbf20(HWND dialog, int id, NodeNameType *entry, int u
             } else {
                 Unknown_005bbdc0();
             }
-            Unknown_005c3810(true, false);
+            PumpGameopts(true, false);
         }
     }
 }
@@ -4482,7 +4482,7 @@ void __fastcall Select_Entry_Kind_005cc700(HWND dialog, int id, int kind)
 
 void __fastcall Load_Random_Map_Preview_005cc800(HWND dialog)
 {
-    if (unknown_multi_missions_a3d8d8[unknown_session_a3d2b4]->Unknown_006720C0()) {
+    if (unknown_multi_missions_a3d8d8[unknown_session_a3d2b4]->Is_Random_Map()) {
         delete MultiplayerMapPreview;
         MultiplayerMapPreview = new MapPreviewClass;
         MultiplayerMapPreview->Read_PCX_Preview("RandMap.img");

@@ -31,7 +31,7 @@ public:
     // The first disk of its list (0x00671F90).
     int Unknown_00671F90();
     // Whether the text at +0x58 is a fixed string (0x006720C0).
-    bool Unknown_006720C0();
+    bool Is_Random_Map();
 #ifdef MULTI_MISSION_ACCESSORS
     // TibSun's inline accessors (session.h MultiMission), only where shared/modem_host.hpp asks for them (the
     // WOnline.cpp unit's register ties move when MultiMission gains members). Get_Official gives
@@ -55,7 +55,7 @@ public:
     // Sets the official flag (+0x17C) (0x006720B0; Red Alert's Set_Official; no direct caller).
     void Set_Official(bool official);
     // Whether the map allows the game mode named (0x006720E0).
-    bool Unknown_006720E0(Wstring &mode);
+    bool Supports_Game_Mode(Wstring &mode);
 
     unsigned short Description[0x2C];      // +0x00 the map's description (ModemGuest 0x00597E50 shows it)
     char unknown_58[0x15C - 0x58];          // +0x58 the map's file name (the cooperative campaign records list it)

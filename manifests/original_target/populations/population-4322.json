@@ -4,8 +4,8 @@
     "id": "population-4322",
     "inventory_sha256": "fbf0d41afff1e8448201f7705b31dfdbe5673f193560ce48dbc43ef3b5938a93",
     "gaps_sha256": "609ffb5d9636767bc34cb773e7d4d9fbe296e6e7f970e757ec321a622f78e375",
-    "historical_population_sha256": "fea369834d687729bc838efc03f56379b1d5f08c18c4eef9d830205708c6559f",
-    "historical_acceptance_sha256": "7c6911ef02e87e64aacf24f41d10855ce49246ba4c7bded9d3e01c2ab7e9d93c"
+    "historical_population_sha256": "a304252aae09c3728e7956378cedec9b2f907519e930ba29ecec6c7901a03948",
+    "historical_acceptance_sha256": "f7c1906bd72feedf0f96a267dc6cd3a5b1b7b2c67bc2e24e3a26f57293e1726a"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -4632,7 +4632,7 @@
     "?Kind_Of@ScriptClass@@UBEHXZ": 6722096,
     "?Kind_Of@ScriptTypeClass@@UBEHXZ": 6722272,
     "?Fetch_Heap_ID@ScriptTypeClass@@UBEHXZ": 6722304,
-    "?unknown_66e290@NodeNameType@@QAEHXZ": 6742672,
+    "?Get_Country@NodeNameType@@QAEHXZ": 6742672,
     "?unknown_66e2a0@NodeNameType@@QAEHXZ": 6742688,
     "?Get_Color_0066e2b0@NodeNameType@@QAEHXZ": 6742704,
     "?get@Leaf_6715c0@@QAEXXZ": 6755776,
@@ -5143,7 +5143,7 @@
     "?Is_Open@RawFileClass@@UBE_NXZ": 6526160,
     "_wcsncpy": 7878178,
     "?Reset@ScriptClass@@QAE_NXZ": 6719744,
-    "?unknown_66e2d0@NodeNameType@@QAEXH@Z": 6742736,
+    "?Set_Country@NodeNameType@@QAEXH@Z": 6742736,
     "?FUN_00672f20@Owner_00672f20@seed_00672f20@@QAEXH@Z": 6762272,
     "?Techno_Type_Class@TechnoClass@@UAEPAVTechnoTypeClass@@XZ": 7082688,
     "?Reset_All_Timed_Events@TriggerClass@@QAEXXZ": 7263872,
@@ -7335,7 +7335,7 @@
     "?unknown_5e1f30@OwnerDraw@@YIXPAUHWND__@@PAVSurface@@@Z": 6168368,
     "?unknown_flag_images_7f86b0@@3PAPBDA": 8357552,
     "?unknown_player_a72d44@@3PAUNodeNameType@@A": 10956100,
-    "?Unknown_Pregame_Setup_005c74f0@@YAXXZ": 6059248,
+    "?PregameSetup@@YAXXZ": 6059248,
     "?unknown_session_a3d2b4@@3HA": 10736308,
     "?unknown_session_a3d33d@@3_NA": 10736445,
     "?unknown_session_a3d2c8@@3HA": 10736328,
@@ -7451,7 +7451,7 @@
     "?Unknown_005c3450@@YIXPAUHWND__@@PAVMultiplayerGameMode@@@Z": 6042704,
     "?Unknown_005c34b0@@YIXPAUHWND__@@@Z": 6042800,
     "?Update_Network_Dialog_Preview@@YIXPAUHWND__@@@Z": 6059376,
-    "?Unknown_005c3810@@YIX_N0@Z": 6043664,
+    "?PumpGameopts@@YIX_N0@Z": 6043664,
     "?unknown_slot31@MPCooperative@@UAEXXZ": 5919120,
     "?CheckStartConditions@MPCooperative@@UAE_NPAVWideString@@@Z": 5911264,
     "?unknown_slot29@MPCooperative@@UAE_NXZ": 5916320,
@@ -7531,7 +7531,7 @@
     "?unknown_a40c38@@3HA": 10751032,
     "?Unknown_0051A2B0@@YA_NXZ": 5350064,
     "?DebugStringNoPrefix@@YAXPBDZZ": 4809824,
-    "?Unknown_0066EAA0@SessionClass@@QAEXXZ": 6744736,
+    "?Load_Call_Wait_Strings@SessionClass@@QAEXXZ": 6744736,
     "?Read_Scenario_Descriptions@SessionClass@@QAEXXZ": 6753360,
     "?Read@SessionOptionsClass@@QAEXAAVCCINIClass@@PBDHH@Z": 6746608,
     "?Write@SessionOptionsClass@@QAEXAAVCCINIClass@@PBD@Z": 6750832,
@@ -8092,7 +8092,7 @@
     "?Scroll_Map@DisplayClass@@QAE_NHPAH_N@Z": 4823904,
     "?Search_For_Node@?$IndexClass@HPAVCommandClass@@@@ABEPBUNodeElement@1@ABH@Z": 5512928,
     "?Is_Archive_Same@?$IndexClass@HPAVCommandClass@@@@ABE_NABH@Z": 5512896,
-    "?Unknown_0042E940@BeaconManagerClass@@QAEPAVUnknownBeacon@@H@Z": 4385088,
+    "?FindSelected@BeaconManagerClass@@QAEPAVUnknownBeacon@@H@Z": 4385088,
     "?EditBeaconMessage_0042ec20@BeaconManagerClass@@QAEXPBGHH_N@Z": 4385824,
     "?Get_Edit_Buf@MessageListClass@@QAEPAGXZ": 5985760,
     "??_GWstring@@QAEPAXI@Z": 7759808,
@@ -8755,7 +8755,10 @@
     "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096,
     "??_E?$VectorClass@PAVTechnoClass@@@@UAEPAXI@Z": 4242288,
     "??_E?$VectorClass@PAVMixFileClass@@@@UAEPAXI@Z": 4249296,
-    "??_E?$VectorClass@PAVWarheadTypeClass@@@@UAEPAXI@Z": 4257408
+    "??_E?$VectorClass@PAVWarheadTypeClass@@@@UAEPAXI@Z": 4257408,
+    "??_E?$VectorClass@PAVBombClass@@@@UAEPAXI@Z": 4242128,
+    "??_E?$VectorClass@PAVIsometricTileClass@@@@UAEPAXI@Z": 4245968,
+    "??_E?$VectorClass@UUndoInfoStruct@@@@UAEPAXI@Z": 6845232
   },
   "regions": [
     {
@@ -8980,7 +8983,7 @@
         {
           "offset": 283,
           "kind": 20,
-          "symbol": "?unknown_66e290@NodeNameType@@QAEHXZ",
+          "symbol": "?Get_Country@NodeNameType@@QAEHXZ",
           "target": 6742672,
           "addend": 0,
           "resolved": 4293970145
@@ -9474,7 +9477,7 @@
           "resolved": 7971992
         }
       ],
-      "source_sha256": "6b7aae5cfbbfa06da93de63d2afe9a517f70f4d13dbe7514bd12e10c316049a7",
+      "source_sha256": "67682c56ede5298ecb733ff13a83765a8f2a35b989a5b8cf4c634bcfc50cddf6",
       "source": "src/recovered/classes/CChatEventSink/OnPublicGameOptions.cpp",
       "population": "population-4322",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",

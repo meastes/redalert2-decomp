@@ -267,7 +267,7 @@ public:
     void Update_Present_Super_Weapons();                            // 0x004F4B20 (BuildingClass destructor, for a building with a usable super weapon)
     // The first unit type of the list this house can own (0x004EF6F0; the
     // multiplayer base unit from Rules BaseUnit, Create_Units 0x00660320).
-    UnitTypeClass *Unknown_004EF6F0(TypeList<UnitTypeClass *> const &list);
+    UnitTypeClass *Get_First_Ownable(TypeList<UnitTypeClass *> const &list);
     bool Is_Human_Player();                                // 0x004F52F0 (hypothesis)
     static HouseClass *__fastcall As_Pointer(int type);    // 0x004ED760 (the house of a house type index)
     float Harvested(float amount, int type);                // 0x004E5100 (credits for harvested tiberium)

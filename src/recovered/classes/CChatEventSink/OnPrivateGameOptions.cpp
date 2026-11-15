@@ -83,7 +83,7 @@ HRESULT __stdcall CChatEventSink::OnPrivateGameOptions(HRESULT,WOL::User *user,c
             Debug_Printf(options_debug_7fdfd0,user->name,country,color,address.As_String(),unknown_session_a3d298.unknown_299c.unknown[row],value);
             HWND window=(HWND)WS_Find_Dialog_00735940(0xc2);
             if(!window) window=(HWND)WS_Find_Dialog_00735940(0xc9);
-            int old_country=unknown_player_slots_a3fa98[row]->unknown_66e290();
+            int old_country=unknown_player_slots_a3fa98[row]->Get_Country();
             NodeNameType *player=unknown_player_slots_a3fa98[row];
             bool become_observer=false,become_player=false,changed=false;
             if(old_country==-3) {
@@ -98,9 +98,9 @@ HRESULT __stdcall CChatEventSink::OnPrivateGameOptions(HRESULT,WOL::User *user,c
                 if(host && !_stricmp(host->name,unknown_wstring_b26cb8.Peek_Buffer())) {
                     if(Slots_Filled_005c9440()) {
                         Unknown_005cbf20(window,Slot_Control_Id_005c97a0(row),unknown_player_a72d44,0);
-                        changed=true;Unknown_0073c480();Unknown_005c3810(true,false);Unknown_0073FEE0(0,false);
+                        changed=true;Unknown_0073c480();PumpGameopts(true,false);Unknown_0073FEE0(0,false);
                     } else {
-                        player->unknown_66e2d0(-2);player->Team=0;
+                        player->Set_Country(-2);player->Team=0;
                         Unknown_005cbf20(window,Slot_Control_Id_005c97a0(unknown_lobby_flag_7e6d90),unknown_player_a72d44,0);
                         index=Assign_Slot_005c9170(player);
                         Unknown_005cbf20(window,Slot_Control_Id_005c97a0(index),player,0);
@@ -115,7 +115,7 @@ HRESULT __stdcall CChatEventSink::OnPrivateGameOptions(HRESULT,WOL::User *user,c
                         Unknown_005cbf20(window,Slot_Control_Id_005c97a0(index),unknown_open_entry_a72d2c,0);
                         Unknown_0073c480();
                     } else {
-                        player->unknown_66e2d0(-3);player->Team=-1;
+                        player->Set_Country(-3);player->Team=-1;
                         Unknown_005cbf20(window,Slot_Control_Id_005c97a0(index),unknown_open_entry_a72d2c,0);
                         Unknown_005cbf20(window,Slot_Control_Id_005c97a0(unknown_lobby_flag_7e6d90),player,0);
                         Unknown_0073c480();
@@ -134,7 +134,7 @@ HRESULT __stdcall CChatEventSink::OnPrivateGameOptions(HRESULT,WOL::User *user,c
                 country=unknown_session_a3d298.Mode->unknown_slot7(old_country)?old_country:-2;
                 country_changed=true;
             }
-            if(country_changed) unknown_player_slots_a3fa98[index]->unknown_66e2d0(country);
+            if(country_changed) unknown_player_slots_a3fa98[index]->Set_Country(country);
             bool color_changed=unknown_player_slots_a3fa98[index]->unknown_66e2a0()!=color;
             if(color_changed) {
                 if(unknown_session_a3d298.Unknown_006728D0(color)) color=-2;
@@ -143,7 +143,7 @@ HRESULT __stdcall CChatEventSink::OnPrivateGameOptions(HRESULT,WOL::User *user,c
             if(!country_changed && !color_changed) goto request_done;
         } else goto request_done;
 refresh_options:
-        Unknown_005c3810(true,false);Unknown_0073FEE0(0,false);
+        PumpGameopts(true,false);Unknown_0073FEE0(0,false);
 request_done:
         free(buffer);
         break;

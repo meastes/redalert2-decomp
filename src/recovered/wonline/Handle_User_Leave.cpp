@@ -173,7 +173,7 @@ void __fastcall Handle_User_Leave_00741750(WOL::User *user)
         if (unknown_b2ac58) {
             Unknown_005c9700();
             Unknown_0073c480();
-            Unknown_005c3810(true,true);
+            PumpGameopts(true,true);
             if (Current_Dialog_Id_00735b20() == 0x6b) {
                 HWND window=WS_Top_Window();
                 int index=SendDlgItemMessageA(window,0x6eb,0x188,0,0);
@@ -205,7 +205,7 @@ void __fastcall Handle_User_Leave_00741750(WOL::User *user)
 // @ref ?Set_Player_Ping_4d1060@@YIXPAUHWND__@@HH@Z=004d1060
 // @ref ?Store_User_Ping_0075b110@@YIXPBDH@Z=0075b110
 // @ref ?Unknown_005C2C80@@YAXHPBGZZ=005c2c80
-// @ref ?Unknown_005c3810@@YIX_N0@Z=005c3810
+// @ref ?PumpGameopts@@YIX_N0@Z=005c3810
 // @ref ?Unknown_005c9320@@YI_NPAUNodeNameType@@@Z=005c9320
 // @ref ?Unknown_005c9700@@YAXXZ=005c9700
 // @ref ?Unknown_005cd030@@YIXPAUHWND__@@_N@Z=005cd030

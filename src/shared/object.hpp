@@ -79,9 +79,9 @@ public:
 
     void Unknown_00435D30();            // 0x00435D30 (sets the bomb off at once: DETONATE events)
     void Disarm();            // 0x00435FB0 (disarms: lets go of the target, the owner and the sound)
-    int Unknown_00436000() const;       // 0x00436000 (the flicker frame, 0..11; 12 for a type 1 bomb)
+    int Get_Current_Flicker_Frame() const;       // 0x00436000 (the flicker frame, 0..11; 12 for a type 1 bomb)
     int Unknown_00435FF0() const;       // 0x00435FF0 (the bomb type, +0x30; TechnoClass slot 28)
-    bool Unknown_00436070() const;      // 0x00436070 (a timed bomb, type 0, whose delay has passed)
+    bool Time_To_Explode() const;      // 0x00436070 (a timed bomb, type 0, whose delay has passed)
 
     virtual HRESULT __stdcall GetClassID(GUID *clsid);                  // 0x00436100 slot 3
     virtual HRESULT __stdcall Load(IStream *stream);                    // 0x00436140 slot 5

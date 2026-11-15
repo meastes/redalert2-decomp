@@ -2536,7 +2536,7 @@ bool CellClass::Goodie_Check(ObjectClass *crate_object)
             }
         } else {
             HouseClass *house = object->House;
-            UnitTypeClass *mcv = house->Unknown_004EF6F0(Rules->BaseUnit);
+            UnitTypeClass *mcv = house->Get_First_Ownable(Rules->BaseUnit);
             if (house->CurBuildings == 0 && house->Available_Money() > 1500 &&
                     house->unknown_5430.unknown_func_491d10(mcv->ArrayIndex) == 0 && unknown_flag_a3d2b8) {
                 powerup = CRATE_UNIT;
@@ -2666,14 +2666,14 @@ crate_money:
                 Debug_Printf("Crate at %d,%d contains a unit\n", MapCoords.X, MapCoords.Y);
                 UnitTypeClass *utp = 0;
                 if (force_mcv) {
-                    utp = object->House->Unknown_004EF6F0(Rules->BaseUnit);
+                    utp = object->House->Get_First_Ownable(Rules->BaseUnit);
                 }
                 if (utp == 0 &&
                         (object->House->unknown_5420.unknown_func_491d10(Rules->BuildRefinery[0]->ArrayIndex) > 0 ||
                          object->House->unknown_5420.unknown_func_491d10(Rules->BuildRefinery[1]->ArrayIndex) > 0) &&
                         object->House->unknown_5430.unknown_func_491d10(Rules->unknown_9ec[0]->ArrayIndex) == 0 &&
                         object->House->unknown_5430.unknown_func_491d10(Rules->unknown_9ec[1]->ArrayIndex) == 0) {
-                    utp = object->House->Unknown_004EF6F0(Rules->unknown_9ec);
+                    utp = object->House->Get_First_Ownable(Rules->unknown_9ec);
                 }
                 if (Rules->UnitCrateType != 0) {
                     utp = Rules->UnitCrateType;

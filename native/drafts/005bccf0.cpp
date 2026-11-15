@@ -27,9 +27,9 @@ int __fastcall Set_Slot_Country_Color_005bccf0(char const *name, int country, in
         dialog = WS_Find_Dialog_00735940(0xBD);
     }
     NodeNameType *entry = unknown_player_slots_a3fa98[slot];
-    if (entry->unknown_66e290() != country) {
+    if (entry->Get_Country() != country) {
         changed = 1;
-        entry->unknown_66e2d0(country);
+        entry->Set_Country(country);
     }
     int id = Player_Side_Combo_ID_4d1350(slot);
     bool observer = Side_Combo_Data_4d1c70(dialog, id, -1) == -3;

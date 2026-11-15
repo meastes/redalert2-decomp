@@ -569,10 +569,10 @@ UnknownBeacon *BeaconManagerClass::FindBeaconAt_0042e860(CoordStruct coord)
 }
 
 
-// BeaconManagerClass::Unknown_0042E940 (0x0042E940): the house's beacon whose text is being edited
+// BeaconManagerClass::FindSelected (0x0042E940): the house's beacon whose text is being edited
 // (flag 2; house -1: any house's), else none.
 
-UnknownBeacon *BeaconManagerClass::Unknown_0042E940(int house)
+UnknownBeacon *BeaconManagerClass::FindSelected(int house)
 {
     if (unknown_60) {
         for (int index = 0; index < 8; index++) {
@@ -604,7 +604,7 @@ void BeaconManagerClass::Unknown_0042E990(int house, int slot)
         UnknownBeacon *beacon;
         edited = house == -1 && slot == -1;
         if (edited) {
-            beacon = Unknown_0042E940(-1);
+            beacon = FindSelected(-1);
         } else {
             beacon = unknown_00[house][slot];
         }

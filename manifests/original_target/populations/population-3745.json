@@ -4,8 +4,8 @@
     "id": "population-3745",
     "inventory_sha256": "dc62176afe5c7e1fca8ff2a394bdf0f73d8c3fd19a4465012ed6d6b75b11e3cb",
     "gaps_sha256": "6bbbb1f5ff45e5beb274c1d562b6634b986cc91a326aaccd6995c6a6af088f7f",
-    "historical_population_sha256": "95f255bac639f953fe90b40e194d4a59dfe158109f6db405f93bd1bb81b69ee1",
-    "historical_acceptance_sha256": "3f4996b88ae0b1dc610112c60db6fd6427767f7a3d9964e1445210c7ed90532a"
+    "historical_population_sha256": "1530dd8685dc6522cd3e95dc787d26bc8d93695591eb91cf71896d55c0c71596",
+    "historical_acceptance_sha256": "a50974ab0f8a4c20cedc7c86d1208b26ab0479c21c48a3ffcb5dd63c5eb5c258"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -3304,7 +3304,7 @@
     "?Render@VoxelDrawSystem@@YI?AUSurfaceRegion@@XZ": 7436512,
     "??0Surface@@QAE@HH@Z": 4844944,
     "?Destroy_Low_Bridge_Span@MapClass@@QAEXABVCell@@@Z": 5598192,
-    "?Unknown_0042E940@BeaconManagerClass@@QAEPAVUnknownBeacon@@H@Z": 4385088,
+    "?FindSelected@BeaconManagerClass@@QAEPAVUnknownBeacon@@H@Z": 4385088,
     "?EditBeaconMessage_0042ec20@BeaconManagerClass@@QAEXPBGHH_N@Z": 4385824,
     "__real@8@4004d800000000000000": 8045168,
     "??0UnknownBeacon@@QAE@XZ": 4381152,
@@ -7772,7 +7772,7 @@
     "?Kick_Player_Now@@YIXPAVConnManClass@@HPAUFrameSyncStruct@@E@Z": 6453056,
     "?Concat_Message@MessageListClass@@QAEHPBGH0H@Z": 5984704,
     "?Add_Message@MessageListClass@@QAEPAVTextLabelClass@@PBGH0HIH_N@Z": 5983648,
-    "?Unknown_0066EAA0@SessionClass@@QAEXXZ": 6744736,
+    "?Load_Call_Wait_Strings@SessionClass@@QAEXXZ": 6744736,
     "?Read_Scenario_Descriptions@SessionClass@@QAEXXZ": 6753360,
     "?Compute_Unique_ID@SessionClass@@QAEKXZ": 6755840,
     "?Set_Value_00672a30@SessionClass@@QAEXH_N@Z": 6761008,

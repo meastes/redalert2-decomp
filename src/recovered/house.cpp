@@ -448,7 +448,7 @@ bool HouseClass::Can_Make_Money_004e27e0()
 {
     int credits=Available_Money();
     int refinery_cost=unknown_func_4ef600(Rules->BuildRefinery)->Cost_Of(this);
-    int harvester_cost=Unknown_004EF6F0(Rules->unknown_9ec)->Cost_Of(this);
+    int harvester_cost=Get_First_Ownable(Rules->unknown_9ec)->Cost_Of(this);
     bool has_refinery=unknown_5460.unknown_func_491d10(Rules->BuildRefinery[0]->ArrayIndex)>0 ||
                       unknown_5460.unknown_func_491d10(Rules->BuildRefinery[1]->ArrayIndex)>0;
     bool has_harvester=unknown_5470.unknown_func_491d10(Rules->unknown_9ec[0]->ArrayIndex)>0 ||
@@ -1215,7 +1215,7 @@ defeat_checked:;
             }
         } else if (mode==2) {
             AI_Unit();
-            UnitTypeClass *harvester=Unknown_004EF6F0(Rules->unknown_9ec);
+            UnitTypeClass *harvester=Get_First_Ownable(Rules->unknown_9ec);
             if (unknown_5540!=harvester->ArrayIndex) {
                 AI_Infantry();
                 AI_Aircraft();
@@ -2873,7 +2873,7 @@ bool HouseClass::AI_Raise_Money_004e90f0(int urgency)
                               unknown_5460.unknown_func_491d10(Rules->BuildRefinery[1]->ArrayIndex)>0) &&
                              (unknown_5460.unknown_func_491d10(Rules->BuildWeapons[0]->ArrayIndex)>0 ||
                               unknown_5460.unknown_func_491d10(Rules->BuildWeapons[1]->ArrayIndex)>0);
-    if (can_build_harvester) needed=Unknown_004EF6F0(Rules->unknown_9ec)->Cost_Of(this);
+    if (can_build_harvester) needed=Get_First_Ownable(Rules->unknown_9ec)->Cost_Of(this);
     else needed=unknown_func_4ef600(Rules->BuildRefinery)->Cost_Of(this);
     int i=unknown_55f0.Nodes.Count()-1;
     for (;i>=0;--i) {
@@ -2910,7 +2910,7 @@ bool HouseClass::AI_Raise_Money_004e90f0(int urgency)
             unknown_5548=-1;
             unknown_553c=-1;
             if (can_build_harvester) {
-                unknown_5540=Unknown_004EF6F0(Rules->unknown_9ec)->ArrayIndex;
+                unknown_5540=Get_First_Ownable(Rules->unknown_9ec)->ArrayIndex;
                 unknown_12c=2;
             } else {
                 int next=unknown_55f0.Next_Buildable_Index();
@@ -3042,14 +3042,14 @@ int HouseClass::AI_Unit()
 {
     if (unknown_5540 != -1) return 15;
 
-    int harvesters = unknown_5470.unknown_func_491d10(Unknown_004EF6F0(Rules->unknown_9ec)->ArrayIndex);
+    int harvesters = unknown_5470.unknown_func_491d10(Get_First_Ownable(Rules->unknown_9ec)->ArrayIndex);
     int refineries = unknown_5460.unknown_func_491d10(Rules->BuildRefinery[0]->ArrayIndex)
         + unknown_5460.unknown_func_491d10(Rules->BuildRefinery[1]->ArrayIndex);
     int per_refinery = Rules->HarvestersPerRefinery;
     if (unknown_194 >= Rules->IQHarvester && !unknown_189 && !Is_Human_Control()
             && per_refinery * refineries > harvesters) {
-        if ((unsigned)Unknown_004EF6F0(Rules->unknown_9ec)->TechLevel <= (unsigned)unknown_11c) {
-            unknown_5540 = Unknown_004EF6F0(Rules->unknown_9ec)->ArrayIndex;
+        if ((unsigned)Get_First_Ownable(Rules->unknown_9ec)->TechLevel <= (unsigned)unknown_11c) {
+            unknown_5540 = Get_First_Ownable(Rules->unknown_9ec)->ArrayIndex;
             return 15;
         }
     }
@@ -5188,12 +5188,12 @@ BuildingTypeClass *HouseClass::unknown_func_4ef600(DynamicVectorClass<BuildingTy
 }
 
 
-// UnitTypeClass *HouseClass::Unknown_004EF6F0(TypeList<UnitTypeClass *> const &list) (0x004EF6F0)
+// UnitTypeClass *HouseClass::Get_First_Ownable(TypeList<UnitTypeClass *> const &list) (0x004EF6F0)
 // The first unit type of the list this house's country may own (its owner bit
 // is the index of the parent country's house type), else 0 (AI expands it for
 // Rules HarvesterUnit; Create_Units 0x00660320 calls it for BaseUnit).
 
-UnitTypeClass *HouseClass::Unknown_004EF6F0(TypeList<UnitTypeClass *> const &list)
+UnitTypeClass *HouseClass::Get_First_Ownable(TypeList<UnitTypeClass *> const &list)
 {
     int owner = 1 << HouseTypeClass::Find_Index(Type->ParentCountry);
     for (int index = 0; index < list.Count(); index++) {

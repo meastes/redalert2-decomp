@@ -40,11 +40,11 @@ struct NodeNameType {
 #else
     char unknown_73[0x75 - 0x73];
 #endif
-    int unknown_66e290();
+    int Get_Country();
     int unknown_66e2a0();
     int Get_Color_0066e2b0();          // 0x0066E2B0 the colour (+0x53; -2 when +0x57 is -2 and +0x53 is -1)
     int Get_Color_0066e2a0(); // Same actual accessor; original +53/+57 sentinel operation.
-    void unknown_66e2d0(int value);
+    void Set_Country(int value);
     void unknown_66e300(int value);
 };
 #pragma pack(pop)

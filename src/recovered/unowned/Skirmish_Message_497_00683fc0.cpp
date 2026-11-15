@@ -136,7 +136,7 @@ int __fastcall Skirmish_Message_497(HWND dialog, WPARAM wparam, LPARAM lparam)
     if (item) SendMessageA(item, 0xF1, unknown_session_a3d298.unknown_a8 != false, 0);
     item = GetDlgItem(dialog, 0x696);
     if (item) SendMessageA(item, 0xF1, unknown_session_a3d298.unknown_crates_29 != false, 0);
-    if (map->Unknown_006720C0()) {
+    if (map->Is_Random_Map()) {
         if (MultiplayerMapPreview) delete MultiplayerMapPreview;
         MultiplayerMapPreview = new MapPreviewClass;
         MultiplayerMapPreview->Read_PCX_Preview("RandMap.img");

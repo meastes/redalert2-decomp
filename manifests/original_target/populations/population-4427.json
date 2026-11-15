@@ -4,8 +4,8 @@
     "id": "population-4427",
     "inventory_sha256": "b6047876bb36bea5f8541882ea35b4b691929b609c59a7250f926aabe1518a2b",
     "gaps_sha256": "25bc691900fe659f630940bcb5664c802d4e5e9376599fd72065cc1bfc7349db",
-    "historical_population_sha256": "9ef854ae87f47f419191e5741a219dfb537a3c7b6083dcc5b60a66c7b0d6d423",
-    "historical_acceptance_sha256": "56758d1bc817de060f2998375e7bf7aea6ed3f68f994f68a6505c2c241533da4"
+    "historical_population_sha256": "0bd223a5dcc609ca015b63aff1c69a802fed7c8916d649be3521a820a96a13cc",
+    "historical_acceptance_sha256": "95c9c38b3d65250c09eefe20bb004de3e517e300561ae2b2e3c8cd1cc2abd798"
   },
   "references": {
     "?FUN_006f8a20@": 7309856,
@@ -7187,7 +7187,7 @@
     "?Repair_Low_Bridge2_Span@MapClass@@QAEXABVCell@@@Z": 5641024,
     "?Repair_Low_Bridge2_EW@MapClass@@QAEXABVCell@@@Z": 5644128,
     "?Repair_Low_Bridge2_NS@MapClass@@QAEXABVCell@@@Z": 5645392,
-    "?Unknown_0042E940@BeaconManagerClass@@QAEPAVUnknownBeacon@@H@Z": 4385088,
+    "?FindSelected@BeaconManagerClass@@QAEPAVUnknownBeacon@@H@Z": 4385088,
     "?EditBeaconMessage_0042ec20@BeaconManagerClass@@QAEXPBGHH_N@Z": 4385824,
     "?Remove@SuperClass@@QAE_NXZ": 6934336,
     "__real@8@4004d800000000000000": 8045168,
@@ -9633,7 +9633,7 @@
     "?Kick_Player_Now@@YIXPAVConnManClass@@HPAUFrameSyncStruct@@E@Z": 6453056,
     "?Concat_Message@MessageListClass@@QAEHPBGH0H@Z": 5984704,
     "?Add_Message@MessageListClass@@QAEPAVTextLabelClass@@PBGH0HIH_N@Z": 5983648,
-    "?Unknown_0066EAA0@SessionClass@@QAEXXZ": 6744736,
+    "?Load_Call_Wait_Strings@SessionClass@@QAEXXZ": 6744736,
     "?Read_Scenario_Descriptions@SessionClass@@QAEXXZ": 6753360,
     "?Compute_Unique_ID@SessionClass@@QAEKXZ": 6755840,
     "?Set_Value_00672a30@SessionClass@@QAEXH_N@Z": 6761008,
@@ -10403,7 +10403,7 @@
     "?ID_Number@HouseClass@@W3AGJXZ": 5213872,
     "??_GGenericList@@UAEPAXI@Z": 4252192,
     "?unknown_ini_8396e0@@3VCCINIClass@@A": 8623840,
-    "?Unknown_004EF6F0@HouseClass@@QAEPAVUnitTypeClass@@ABV?$TypeList@PAVUnitTypeClass@@@@@Z": 5175024,
+    "?Get_First_Ownable@HouseClass@@QAEPAVUnitTypeClass@@ABV?$TypeList@PAVUnitTypeClass@@@@@Z": 5175024,
     "?Insert@WideString@@QAE_NGI@Z": 7800288,
     "?Attacked@HouseClass@@QAEXPAVTechnoClass@@@Z": 5132128,
     "?unknown_func_4f3420@HouseClass@@QAEXXZ": 5190688,

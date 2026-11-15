@@ -88,7 +88,7 @@ void __fastcall Skirmish_Command(HWND dialog, int id, HWND control, int code)
             Select_Scenario_005c7c30(old_scenario);
             Update_Network_Dialog_Preview(dialog);
             ShowWindow(dialog, SW_SHOW);
-            if (unknown_session_a3d298.Scenarios[unknown_session_a3d298.ScenarioIndex]->Unknown_006720C0()) {
+            if (unknown_session_a3d298.Scenarios[unknown_session_a3d298.ScenarioIndex]->Is_Random_Map()) {
                 if (MultiplayerMapPreview) {
                     delete MultiplayerMapPreview;
                 }
@@ -126,7 +126,7 @@ void __fastcall Skirmish_Command(HWND dialog, int id, HWND control, int code)
         if (Select_Scenario_005c7c30(unknown_session_a3d298.ScenarioIndex)) {
             Unknown_005c3450(dialog, MultiplayerGameMode::unknown_find_mode_5b6fe0(unknown_session_a3d298.GameModeIndex));
             Unknown_005c34b0(dialog);
-            if (unknown_session_a3d298.Scenarios[unknown_session_a3d298.ScenarioIndex]->Unknown_006720C0()) {
+            if (unknown_session_a3d298.Scenarios[unknown_session_a3d298.ScenarioIndex]->Is_Random_Map()) {
                 if (MultiplayerMapPreview) {
                     delete MultiplayerMapPreview;
                     MultiplayerMapPreview = new MapPreviewClass;

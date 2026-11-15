@@ -153,7 +153,7 @@ void __fastcall Unknown_005bbdd0(bool full)
                 wchar_t info[128];
                 wchar_t country_name[128];
                 swprintf(info,L"%s",unknown_players_a3fa7c[player]);
-                int country=unknown_players_a3fa7c[player]->unknown_66e290();
+                int country=unknown_players_a3fa7c[player]->Get_Country();
                 Surface *flag=Country_Flag(country);
                 switch(country) {
                 case 0: swprintf(country_name,L"%s",StringTable::Load_String("TXT_GDI",0,"D:\\Ra2\\netdlg2.cpp",383)); break;
@@ -344,7 +344,7 @@ void __fastcall Build_Game_Options_005bc940(char *out)
     memset(net2_useroptions_a71bdc,0,sizeof(net2_useroptions_a71bdc));
     for(int i=0,count=unknown_players_a3fa7c.Count();i<count;i++) {
         NodeNameType *entry=unknown_players_a3fa7c[i];
-        int country=entry->unknown_66e290();
+        int country=entry->Get_Country();
         int color=entry->unknown_66e2a0();
         unsigned short const *player_name=unknown_players_a3fa7c[i]->Name;
         sprintf(net2_useroptions_a71bdc+strlen(net2_useroptions_a71bdc),"%s,%d,%d,%x,%x,%x,",Wide_To_Narrow_006fa120(player_name),country,color,0,0,0);
@@ -439,9 +439,9 @@ int __fastcall Set_Slot_Country_Color_005bccf0(char const *name, int country, in
         dialog = WS_Find_Dialog_00735940(0xBD);
     }
     NodeNameType *entry = unknown_player_slots_a3fa98[slot];
-    if (entry->unknown_66e290() != country) {
+    if (entry->Get_Country() != country) {
         changed = 1;
-        entry->unknown_66e2d0(country);
+        entry->Set_Country(country);
     }
     int id = Player_Side_Combo_ID_4d1350(slot);
     bool observer = Side_Combo_Data_4d1c70(dialog, id, -1) == -3;
@@ -583,7 +583,7 @@ bool __fastcall Net_Join_Dialog_005bd070()
                 Unknown_005c01d0(0, 0, 0, 0);
                 Get_Join_Responses_005c08a0();
                 if (Current_Dialog_Id_00735b20() == 0xBC) {
-                    Unknown_005c3810(false, false);
+                    PumpGameopts(false, false);
                 }
                 Process_Timeouts_005bc500();
             }
@@ -763,7 +763,7 @@ bool __fastcall Net_Join_Dialog_005bd070()
                 memset(who, 0, sizeof(*who));
                 wcscpy(who->Name, Narrow_To_Wide_006fa180(unknown_name_a3d3a0));
                 strcpy(who->unknown_34, unknown_a71bc4);
-                who->unknown_66e2d0(unknown_session_a3d298.Value_0124_006729f0());
+                who->Set_Country(unknown_session_a3d298.Value_0124_006729f0());
                 who->unknown_66e300(unknown_session_a3d298.Value_011c_00672a10());
                 who->unknown_67 = 1;
                 who->Team = 0;
@@ -771,8 +771,8 @@ bool __fastcall Net_Join_Dialog_005bd070()
                 if (unknown_a71e99) {
                     unknown_lobby_flag_7e6d90 = 0;
                     who->Team = -1;
-                } else if (who->unknown_66e290() == -3) {
-                    who->unknown_66e2d0(-2);
+                } else if (who->Get_Country() == -3) {
+                    who->Set_Country(-2);
                 }
                 unknown_session_a3d298.Players.Add(who);
                 if (unknown_session_a3d298.Mode) {
@@ -782,7 +782,7 @@ bool __fastcall Net_Join_Dialog_005bd070()
                 Unknown_Reset_Slots_005c8a90();
                 Seat_First_Player_005c8cd0(0);
                 if (unknown_lobby_flag_7e6d90 == 0) {
-                    unknown_player_slots_a3fa98[0]->unknown_66e2d0(-3);
+                    unknown_player_slots_a3fa98[0]->Set_Country(-3);
                     unknown_player_slots_a3fa98[0]->Team = -1;
                 }
                 unknown_join_state_a71e94 = 2;
@@ -825,7 +825,7 @@ bool __fastcall Net_Join_Dialog_005bd070()
                 Start_Joined_Game_005be3b0(1);
             }
             unknown_lobby_result_a71e8c = 0;
-            Unknown_Pregame_Setup_005c74f0();
+            PregameSetup();
             unknown_session_a3d298.unknown_2cc = 5;
             unknown_a3fba4 = 0;
             unknown_session_a3d298.unknown_2e4 = 0;
@@ -908,7 +908,7 @@ bool __fastcall Net_Join_Dialog_005bd070()
                     }
                     mode->unknown_slot22();
                     unknown_session_a3d298.Unknown_00672BB0();
-                    Unknown_005c3810(true, true);
+                    PumpGameopts(true, true);
                     {
                         UnknownGlobalPacket packet;
                         memset(&packet, 0, sizeof(packet));
@@ -926,7 +926,7 @@ bool __fastcall Net_Join_Dialog_005bd070()
                         delete MultiplayerMapPreview;
                         MultiplayerMapPreview = 0;
                     }
-                    Unknown_Pregame_Setup_005c74f0();
+                    PregameSetup();
                     unknown_session_a3d298.unknown_2cc = 5;
                     unknown_a3fba4 = 0;
                     unknown_session_a3d298.unknown_2e4 = 0;
@@ -1398,7 +1398,7 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
                     IsRandomMap = true;
                     ShowWindow(window, SW_SHOW);
                     Load_Random_Map_Preview_005cc800(window);
-                    Unknown_005c3810(true, false);
+                    PumpGameopts(true, false);
                     InvalidateRect(window, 0, FALSE);
                     return 0;
                 }
@@ -1420,7 +1420,7 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
                     unknown_session_a3d298.AICount = 0;
                     Send_Slot_Names_005bbd20();
                     Unknown_005bbdd0(false);
-                    Unknown_005c3810(true, false);
+                    PumpGameopts(true, false);
                     return 0;
                 }
                 Unknown_005bbdd0(true);
@@ -1437,7 +1437,7 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
         case 0x6A1:             // the country combo boxes
             if ((unsigned short)(wparam >> 16) == 1 && !unknown_lock_a71e98) {
                 Set_Slot_Country_005c9a10(window, id);
-                Unknown_005c3810(true, false);
+                PumpGameopts(true, false);
                 Unknown_005bbdd0(false);
                 return 0;
             }
@@ -1452,7 +1452,7 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
         case 0x6A2:             // the colour combo boxes
             if ((unsigned short)(wparam >> 16) == 1 && !unknown_lock_a71e98) {
                 Set_Slot_Color_005c9ab0(window, id);
-                Unknown_005c3810(true, false);
+                PumpGameopts(true, false);
                 Unknown_005bbdd0(false);
                 return 0;
             }
@@ -1479,14 +1479,14 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
             unknown_a72c68 = 0;
             Unknown_005cd540(0);
             unknown_player_slots_a3fa98[0]->Team = 0;
-            unknown_player_slots_a3fa98[0]->unknown_66e2d0(unknown_session_a3d298.Mode->unknown_slot10());
+            unknown_player_slots_a3fa98[0]->Set_Country(unknown_session_a3d298.Mode->unknown_slot10());
             unknown_player_slots_a3fa98[0]->unknown_66e300(-2);
             Fill_Color_Combos_4d2300(window);
         }
         Unknown_005c9b90(window, 0, true);
         Change_Scenario_Slots_005cb8d0(window, -1, unknown_session_a3d2b4);
         if (unknown_lobby_flag_7e6d90 == 0 && unknown_session_a3d298.Mode != 0 && unknown_session_a3d298.Mode->unknown_slot40()) {
-            unknown_player_slots_a3fa98[0]->unknown_66e2d0(-3);
+            unknown_player_slots_a3fa98[0]->Set_Country(-3);
             unknown_player_slots_a3fa98[0]->Team = -1;
         }
         Refresh_Slot_Images_005c9ec0(window);
@@ -1812,7 +1812,7 @@ bool __fastcall Answer_Query_005c05f0(UnknownGlobalPacket *packet, IPXAddressCla
             }
             Ipx.Send_Global_Message(&answer, sizeof(answer), 1, address, 0, 0);
             if (Compare_Narrow_00781f20(packet->Name, Wide_To_Narrow_006fa120(unknown_players_a3fa7c[0]->Name)) == 0) {
-                Unknown_005c3810(true, true);
+                PumpGameopts(true, true);
                 if (unknown_session_a3d29c) {
                     unknown_session_a3d29c->unknown_slot20();
                 }
@@ -1956,7 +1956,7 @@ void __fastcall Get_Join_Responses_005c08a0()
                 wcscpy(who->Name, Narrow_To_Wide_006fa180(unknown_gpacket_a3f640.Name));
                 strcpy(who->unknown_34, unknown_gpacket_a3f640.unknown_18);
                 who->Address = unknown_address_a3f80c;
-                who->unknown_66e2d0(unknown_gpacket_a3f640.PlayerInfo.unknown_2f);
+                who->Set_Country(unknown_gpacket_a3f640.PlayerInfo.unknown_2f);
                 who->unknown_66e300(unknown_gpacket_a3f640.PlayerInfo.unknown_33);
                 if (unknown_gpacket_a3f640.PlayerInfo.Observer) {
                     who->Team = -1;
@@ -2000,7 +2000,7 @@ void __fastcall Get_Join_Responses_005c08a0()
                 who = new NodeNameType;
                 memset(who, 0, sizeof(*who));
                 wcscpy(who->Name, Narrow_To_Wide_006fa180(unknown_name_a3d3a0));
-                who->unknown_66e2d0(unknown_session_a3d298.Value_0124_006729f0());
+                who->Set_Country(unknown_session_a3d298.Value_0124_006729f0());
                 who->unknown_66e300(unknown_session_a3d298.Value_011c_00672a10());
                 unknown_lobby_flag_7e6d90 = unknown_gpacket_a3f640.PlayerInfo.Observer;
                 if (unknown_gpacket_a3f640.PlayerInfo.Slot == unknown_gpacket_a3f640.PlayerInfo.Observer && unknown_gpacket_a3f640.PlayerInfo.unknown_2f == -3) {
@@ -2123,9 +2123,9 @@ void __fastcall Get_Join_Responses_005c08a0()
                         if (!dialog) {
                             dialog = WS_Find_Dialog_00735940(0xBD);
                         }
-                        bool house_changed = unknown_player_slots_a3fa98[i]->unknown_66e290() != newhouse;
+                        bool house_changed = unknown_player_slots_a3fa98[i]->Get_Country() != newhouse;
                         if (house_changed) {
-                            unknown_player_slots_a3fa98[i]->unknown_66e2d0(newhouse);
+                            unknown_player_slots_a3fa98[i]->Set_Country(newhouse);
                         }
                         bool color_changed = unknown_player_slots_a3fa98[i]->Get_Color_0066e2a0() != newcolor;
                         if (color_changed) {
@@ -2136,7 +2136,7 @@ void __fastcall Get_Join_Responses_005c08a0()
                         }
                         if (house_changed || color_changed) {
                             display_users = true;
-                            Unknown_005c3810(true, false);
+                            PumpGameopts(true, false);
                         }
                     }
                     break;
@@ -2366,7 +2366,7 @@ void __fastcall Get_Join_Responses_005c08a0()
                 wcscpy(who->Name, Narrow_To_Wide_006fa180(unknown_gpacket_a3f640.Name));
                 who->Address = unknown_address_a3f80c;
                 if (unknown_session_a3d298.Mode) {
-                    who->unknown_66e2d0(!unknown_session_a3d298.Mode->unknown_slot7(unknown_gpacket_a3f640.Join.unknown_2f) ? unknown_session_a3d298.Mode->unknown_slot10() : unknown_gpacket_a3f640.Join.unknown_2f);
+                    who->Set_Country(!unknown_session_a3d298.Mode->unknown_slot7(unknown_gpacket_a3f640.Join.unknown_2f) ? unknown_session_a3d298.Mode->unknown_slot10() : unknown_gpacket_a3f640.Join.unknown_2f);
                 }
                 strcpy(who->unknown_34, unknown_gpacket_a3f640.unknown_18);
                 int color = unknown_gpacket_a3f640.Join.unknown_33;
@@ -2375,15 +2375,15 @@ void __fastcall Get_Join_Responses_005c08a0()
                 }
                 if (unknown_gpacket_a3f640.Join.unknown_57 == 1) {
                     color = -2;
-                    who->unknown_66e2d0(-3);
+                    who->Set_Country(-3);
                     who->Team = -1;
                 } else {
                     who->Team = 0;
                     if (unknown_gpacket_a3f640.Join.unknown_2f == -3) {
                         if (unknown_session_a3d298.Mode) {
-                            who->unknown_66e2d0(unknown_session_a3d298.Mode->unknown_slot10());
+                            who->Set_Country(unknown_session_a3d298.Mode->unknown_slot10());
                         } else {
-                            who->unknown_66e2d0(-2);
+                            who->Set_Country(-2);
                         }
                     }
                 }
@@ -2395,7 +2395,7 @@ void __fastcall Get_Join_Responses_005c08a0()
                 packet.Command = 7;
                 strcpy(packet.Name, unknown_name_a3d3a0);
                 display_users = true;
-                packet.PlayerInfo.unknown_2f = who->unknown_66e290();
+                packet.PlayerInfo.unknown_2f = who->Get_Country();
                 packet.PlayerInfo.unknown_33 = who->Get_Color_0066e2a0();
                 packet.PlayerInfo.Observer = unknown_lobby_flag_7e6d90;
                 packet.PlayerInfo.Slot = slot;
@@ -2407,7 +2407,7 @@ void __fastcall Get_Join_Responses_005c08a0()
                         unknown_int_a3db1c = rows;
                     }
                 }
-                Unknown_005c3810(true, false);
+                PumpGameopts(true, false);
                 UnknownGlobalPacket slots;
                 memset(&slots, 0, sizeof(slots));
                 slots.Command = 0x16;

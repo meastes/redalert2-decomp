@@ -498,7 +498,7 @@ void ProgressScreenClass::Draw_Player(ColorScheme *scheme, wchar_t const *name, 
     name_point.Y = y + text_offset;
     Draw_Bar(bar, fraction, HiddenSurface, scheme);
     if (flag) {
-        int country = unknown_players_a3fa7c[player]->unknown_66e290();
+        int country = unknown_players_a3fa7c[player]->Get_Country();
         if ((unknown_game_mode_a3d298 == 3 || unknown_game_mode_a3d298 == 4) && unknown_players_a3fa7c[player]->Team == -1) country = -3;
         Surface *image = Country_Flag(country);
         if (image) Draw_Flag(flag_point, image);

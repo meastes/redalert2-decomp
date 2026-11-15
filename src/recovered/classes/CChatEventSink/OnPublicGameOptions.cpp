@@ -63,7 +63,7 @@ HRESULT __stdcall CChatEventSink::OnPublicGameOptions(HRESULT result, WOL::Chann
         WideString name = Wstring_To_Wide(unknown_wstring_b26cb8);
         NodeNameType *node = Unknown_Find_Lobby_Name_005c8b20(name.Get());
         if (!node) return S_OK;
-        if (node->unknown_66e290() < 0 || node->unknown_66e2a0() < 0 || *options < '0' || *options > '9') return S_OK;
+        if (node->Get_Country() < 0 || node->unknown_66e2a0() < 0 || *options < '0' || *options > '9') return S_OK;
         if (unknown_users_b2a728.Count == 2) unknown_chat_a72cfc->unknown_slot15("A1");
         return S_OK;
     }

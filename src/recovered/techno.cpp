@@ -936,7 +936,7 @@ void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
             Point2D bomb_point;
             TacticalMap->Coord_To_Pixel(unknown_slot42(), bomb_point);
             CC_Draw_Shape(LogicalSurface, static_cast<ConvertClass *>(unknown_convert_8323c8),
-                static_cast<ShapeFileStruct const *>(Rules->BombCursorShape), unknown_38->Unknown_00436000(),
+                static_cast<ShapeFileStruct const *>(Rules->BombCursorShape), unknown_38->Get_Current_Flicker_Frame(),
                 bomb_point, unknown_rect_839630, 0xe00, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
         }
         if (this && Kind_Of() == 6) {
@@ -2186,7 +2186,7 @@ void TechnoClass::AI()
             if (unknown_slot209(&coord,1) && unknown_228!=target) unknown_404=true;
         }
     }
-    if (unknown_38 && unknown_38->Unknown_00436070()) unknown_38->Unknown_00435D30();
+    if (unknown_38 && unknown_38->Time_To_Explode()) unknown_38->Unknown_00435D30();
     if (!IsActive) return;
     if (unknown_slot157()) {
         ++Strength;
