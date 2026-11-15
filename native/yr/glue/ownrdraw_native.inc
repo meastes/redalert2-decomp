@@ -184,16 +184,16 @@ extern HWND DAT_00AC48C0;                         // 0x00AC48C0 the open combo d
 extern HWND DAT_00AC48C4;                         // 0x00AC48C4 its owner dialog
 int __fastcall Is_Web_Browser_Visible(void);
 bool __fastcall RunOpenAnimationIfNeeded(HWND dialog);
-void __fastcall WideToCharString(char *destination, unsigned short const *source, int length);
+void __fastcall WideToCharString(char *destination, wchar_t const *source, int length);
 void __fastcall FUN_0072AA10(Rect *rect, int x, int y);
 BOOL CALLBACK ODAddWindowToList(HWND window, ArrayList<HWND> *list);
+LRESULT CALLBACK FUN_0060D540(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
 namespace OwnerDraw {
 int __fastcall ServiceIMEMessage(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
 int __fastcall GetIMEResult(void);
 void __fastcall CancelIMEComposition(void);
 LRESULT CALLBACK OwnerDrawButtonHandler(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
 LRESULT CALLBACK ListBoxHandler(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
-LRESULT CALLBACK ComboDropWindowHandler(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
 
 LRESULT CALLBACK DefaultHandler(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
@@ -489,7 +489,7 @@ LRESULT CALLBACK DefaultHandler(HWND window, UINT message, WPARAM wparam, LPARAM
 			if (destination != NULL) {
 				*destination = '\0';
 				if (data->Wide.text != NULL) {
-					WideToCharString(destination, (unsigned short const *)data->Wide.text, wparam);
+					WideToCharString(destination, data->Wide.text, wparam - 1);   // NATIVE: gamemd.exe passes wparam and writes one byte past the buffer
 					if (wparam > 0) {
 						destination[wparam - 1] = '\0';
 					}
@@ -629,7 +629,7 @@ after_messages:
 						children.get(child, index);
 						WNDPROC childproc = NULL;
 						DialogProcs.getValue(child, childproc);
-						if (childproc != ComboDropWindowHandler) {
+						if (childproc != ::FUN_0060D540) {
 							InvalidateRect(child, NULL, FALSE);
 							UpdateWindow(child);
 						} else {

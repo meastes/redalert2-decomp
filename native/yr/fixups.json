@@ -285,6 +285,108 @@
    "why": "ToolTip::Text holds either 0 or the label's char pointer (tooltip.cpp passes it to StringTable::LoadString); a 32-bit int cuts the pointer natively, intptr_t keeps it (lane Y3)."
   },
   {
+   "file": "hdr/isotype.h",
+   "old": "\t\tIsoTileRecord *Tiles[1];",
+   "new": "\t\tstruct TileRef {   // NATIVE: the file's 4-byte record slot (ra2port::IsoTileRef), read as a pointer\n\t\t\tra2port::IsoTileRef Ref;\n\t\t\toperator IsoTileRecord *() const { return (IsoTileRecord *)Ref.get(); }\n\t\t\tIsoTileRecord * operator->() const { return (IsoTileRecord *)Ref.get(); }\n\t\t\tvoid Resolve(void const * base) { Ref.Resolve(base); }\n\t\t} Tiles[1];",
+   "why": "An .tem/.sno/.urb tile set holds 4-byte record offsets the game converts in place to pointers; natively each slot keeps the record's distance from the slot (ra2port::IsoTileRef, as ra2-native's IsoTileSet) and reads back as a pointer (lane Y3)."
+  },
+  {
+   "file": "hdr/abuffer.h",
+   "old": "void Set(unsigned int dst,",
+   "new": "void Set(uintptr_t dst,",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/abuffer.h",
+   "old": "unsigned int Get_Buffer_Offset(Point2D position);",
+   "new": "uintptr_t Get_Buffer_Offset(Point2D position);",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/abuffer.h",
+   "old": "unsigned int Wrap_Overflow(unsigned int position) const;",
+   "new": "uintptr_t Wrap_Overflow(uintptr_t position) const;",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/abuffer.h",
+   "old": "unsigned int Wrap_Underflow(unsigned int position) const;",
+   "new": "uintptr_t Wrap_Underflow(uintptr_t position) const;",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/abuffer.h",
+   "old": "unsigned int Get_Buffer_End(void) const",
+   "new": "uintptr_t Get_Buffer_End(void) const",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/abuffer.h",
+   "old": "unsigned int BufferStart;\n\t\tunsigned int BufferEnd;",
+   "new": "uintptr_t BufferStart;\n\t\tuintptr_t BufferEnd;",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/abuffer.h",
+   "old": "inline unsigned int ABuffer::Wrap_Overflow(unsigned int position) const",
+   "new": "inline uintptr_t ABuffer::Wrap_Overflow(uintptr_t position) const",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/abuffer.h",
+   "old": "inline unsigned int ABuffer::Wrap_Underflow(unsigned int position) const",
+   "new": "inline uintptr_t ABuffer::Wrap_Underflow(uintptr_t position) const",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/zbuffer.h",
+   "old": "void Set(unsigned int dst,",
+   "new": "void Set(uintptr_t dst,",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/zbuffer.h",
+   "old": "unsigned int Get_Buffer_Offset(Point2D position);",
+   "new": "uintptr_t Get_Buffer_Offset(Point2D position);",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/zbuffer.h",
+   "old": "unsigned int Wrap_Overflow(unsigned int position) const;",
+   "new": "uintptr_t Wrap_Overflow(uintptr_t position) const;",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/zbuffer.h",
+   "old": "unsigned int Wrap_Underflow(unsigned int position) const;",
+   "new": "uintptr_t Wrap_Underflow(uintptr_t position) const;",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/zbuffer.h",
+   "old": "unsigned int Get_Buffer_End(void) const",
+   "new": "uintptr_t Get_Buffer_End(void) const",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/zbuffer.h",
+   "old": "unsigned int BufferStart;\n\t\tunsigned int BufferEnd;",
+   "new": "uintptr_t BufferStart;\n\t\tuintptr_t BufferEnd;",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/zbuffer.h",
+   "old": "inline unsigned int ZBuffer::Wrap_Overflow(unsigned int position) const",
+   "new": "inline uintptr_t ZBuffer::Wrap_Overflow(uintptr_t position) const",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/zbuffer.h",
+   "old": "inline unsigned int ZBuffer::Wrap_Underflow(unsigned int position) const",
+   "new": "inline uintptr_t ZBuffer::Wrap_Underflow(uintptr_t position) const",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
    "file": "src/radar.cpp",
    "old": "tip.Text = (int)\"",
    "new": "tip.Text = (intptr_t)\"",
@@ -295,6 +397,12 @@
    "old": "tip.Text = (int)text;",
    "new": "tip.Text = (intptr_t)text;",
    "why": "The tooltip label's pointer stored whole (ToolTip::Text is intptr_t natively; lane Y3)."
+  },
+  {
+   "file": "src/tab.cpp",
+   "old": "int p = (int)CommandBarStatics::Buttons; for(; p < (int)(CommandBarStatics::Buttons + 25);",
+   "new": "intptr_t p = (intptr_t)CommandBarStatics::Buttons; for(; p < (intptr_t)(CommandBarStatics::Buttons + 25);",
+   "why": "The command-bar button walk steps a whole pointer (a 32-bit int cuts it natively; lane Y3)."
   },
   {
    "file": "src/sidebar.cpp",
@@ -349,6 +457,271 @@
    "old": "(char *)this + 0x",
    "new": "((char *)&this->Dialog - 0x28) + 0x",
    "why": "The record constructor's other raw 32-bit offsets, taken through the pointer-free Dialog view as for (char *)data (lane Y3)."
+  },
+  {
+   "file": "src/globals.cpp",
+   "old": "DynamicVectorClass<SideClass *> Sides;",
+   "new": "/* native: Sides is SideClass::Array's storage (one address), bound by yr_aliases.py */",
+   "why": "gamemd.exe has one vector at this address, which the tree defines twice (Sides here, SideClass::Array in its class unit); natively two definitions were two vectors (rules filled one, the skirmish dialog read the other), so this name becomes an alias of the class array (lane Y3)."
+  },
+  {
+   "file": "src/globals.cpp",
+   "old": "DynamicVectorClass<HouseTypeClass *> HouseTypes;",
+   "new": "/* native: HouseTypes is HouseTypeClass::Array's storage (one address), bound by yr_aliases.py */",
+   "why": "gamemd.exe has one vector at this address, which the tree defines twice (HouseTypes here, HouseTypeClass::Array in its class unit); natively two definitions were two vectors (rules filled one, the skirmish dialog read the other), so this name becomes an alias of the class array (lane Y3)."
+  },
+  {
+   "file": "src/globals.cpp",
+   "old": "DynamicVectorClass<TeamTypeClass *> TeamTypes;",
+   "new": "/* native: TeamTypes is TeamTypeClass::Array's storage (one address), bound by yr_aliases.py */",
+   "why": "gamemd.exe has one vector at this address, which the tree defines twice (TeamTypes here, TeamTypeClass::Array in its class unit); natively two definitions were two vectors (rules filled one, the skirmish dialog read the other), so this name becomes an alias of the class array (lane Y3)."
+  },
+  {
+   "file": "src/globals.cpp",
+   "old": "DynamicVectorClass<TechnoTypeClass *> TechnoTypes;",
+   "new": "/* native: TechnoTypes is TechnoTypeClass::Array's storage (one address), bound by yr_aliases.py */",
+   "why": "gamemd.exe has one vector at this address, which the tree defines twice (TechnoTypes here, TechnoTypeClass::Array in its class unit); natively two definitions were two vectors (rules filled one, the skirmish dialog read the other), so this name becomes an alias of the class array (lane Y3)."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "append": "ownrdraw_combo_native.inc",
+   "why": "OwnerDraw::ComboBoxHandler (0x00617250) and the ComboDropWin procedure FUN_0060D540 (0x0060D540), unmatched in the YR tree; native drafts from the RA2 tree's rewrite and matched twin with gamemd.exe's globals (lane Y3)."
+  },
+  {
+   "file": "src/srfcache.cpp",
+   "append": "srfcache_native.inc",
+   "why": "SurfaceCacheClass::Draw (0x006BA3E0) and DrawMasked, unmatched in the YR tree; TibSun's text, adopted with attribution (lane Y3)."
+  },
+  {
+   "file": "src/map.cpp",
+   "append": "map_native.inc",
+   "why": "MapClass::Set_Map_Dimensions (0x00565C10) is unmatched in the YR tree; TibSun's text, adopted with attribution (lane Y3)."
+  },
+  {
+   "file": "src/map.cpp",
+   "append": "map_zones_native.inc",
+   "why": "MapClass's zone and pathfinding functions, Place_Down/Pick_Up, threat, bridge repair and fog tests, unmatched in the YR tree; TibSun's text, adopted with attribution (lane Y3)."
+  },
+  {
+   "file": "src/ldprgmgr.cpp",
+   "append": "ldprgmgr_native.inc",
+   "why": "LoadProgressManager::Draw (0x00552D60) is unmatched in the YR tree and has no RA2 twin; a partial behaviour draft (the skirmish loading picture) from gamemd.exe's code (lane Y3)."
+  },
+  {
+   "file": "src/progress2.cpp",
+   "append": "progress_native.inc",
+   "why": "ProgressScreenClass::Draw_Player (0x00643720) is unmatched in the YR tree; a native draft from gamemd.exe's code (lane Y3)."
+  },
+  {
+   "file": "src/palette.cpp",
+   "append": "palette_native.inc",
+   "why": "FUN_006267A0 (0x006267A0, the scheme library's theater change) is unmatched in the YR tree; a native draft from gamemd.exe's code (lane Y3)."
+  },
+  {
+   "file": "src/isotype.cpp",
+   "old": "\t\t\t\t\t\tIsoTileRecord ** record = &mixfile_set->Tiles[j];\n\t\t\t\t\t\tif (*record != 0 && (unsigned int)*record < (unsigned int)mixfile_set) {\n\t\t\t\t\t\t\t*record = (IsoTileRecord *)((unsigned int)mixfile_set + (unsigned int)*record);\n\t\t\t\t\t\t}",
+   "new": "\t\t\t\t\t\tmixfile_set->Tiles[j].Resolve(mixfile_set);   // NATIVE: offset -> record reference (the original's 'not yet a pointer' test is Resolve's)",
+   "why": "The tile set's record offsets resolved through the native slot (lane Y3)."
+  },
+  {
+   "file": "src/isotype.cpp",
+   "old": "\t\tif (tileset->Tiles[i] != NULL) {\n\t\t\tunsigned char * ptr = (unsigned char *)ImageData;\n\t\t\t// Only fix up pointers that have not been converted already. The file\n\t\t\t// has just been read fresh, so none of them ever have been.\n\t\t\tif ((void *)tileset->Tiles[i] < ptr) {\n\t\t\t\ttileset->Tiles[i] = (IsoTileRecord *)(ptr + (unsigned int)tileset->Tiles[i]);\n\t\t\t}",
+   "new": "\t\tif (tileset->Tiles[i].Ref != 0) {   // NATIVE: the raw slot (an unresolved offset reads back as no record)\n\t\t\tunsigned char * ptr = (unsigned char *)ImageData;\n\t\t\t// Only fix up pointers that have not been converted already. The file\n\t\t\t// has just been read fresh, so none of them ever have been.\n\t\t\ttileset->Tiles[i].Resolve(ptr);   // NATIVE: offset -> record reference",
+   "why": "The tile set's record offsets resolved through the native slot (lane Y3)."
+  },
+  {
+   "file": "src/overtype.cpp",
+   "append": "shapeset_native.inc",
+   "why": "ShapeSet::Get_Color is unmatched in the YR tree; TibSun's inline text (lane Y3)."
+  },
+  {
+   "file": "src/unit.cpp",
+   "append": "unit_native.inc",
+   "why": "UnitClass functions unmatched in the YR tree; TibSun's text as native drafts (lane Y3)."
+  },
+  {
+   "file": "src/cell.cpp",
+   "append": "cell_native.inc",
+   "why": "CellClass functions unmatched in the YR tree; TibSun's text as native drafts (lane Y3)."
+  },
+  {
+   "file": "src/taction.cpp",
+   "append": "taction_native.inc",
+   "why": "Attaches_To(TActionType) is unmatched in the YR tree; TibSun's text with gamemd.exe's case list (lane Y3)."
+  },
+  {
+   "file": "src/scenario.cpp",
+   "append": "scenario_native.inc",
+   "why": "Wait_For_Players_To_Load is unmatched in the YR tree; a partial native draft from gamemd.exe's code (lane Y3)."
+  },
+  {
+   "file": "src/tactical.cpp",
+   "append": "tactical_native.inc",
+   "why": "Tactical functions unmatched in the YR tree; TibSun's text adjusted to gamemd.exe as native drafts (lane Y3)."
+  },
+  {
+   "file": "src/builtype.cpp",
+   "append": "builtype_native.inc",
+   "why": "BuildingTypeClass functions unmatched in the YR tree; TibSun's text as native drafts (lane Y3)."
+  },
+  {
+   "file": "src/alphashp.cpp",
+   "append": "alphashp_native.inc",
+   "why": "AlphaShapeClass::Draw_All is unmatched in the YR tree; TibSun's text as a native draft (lane Y3)."
+  },
+  {
+   "file": "src/abuffer.cpp",
+   "old": "BufferStart = (unsigned int)(SurfacePtr->Lock());",
+   "new": "BufferStart = (uintptr_t)(SurfacePtr->Lock());",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "src/abuffer.cpp",
+   "old": "void ABuffer::Set(unsigned int dst,",
+   "new": "void ABuffer::Set(uintptr_t dst,",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "src/abuffer.cpp",
+   "old": "dst = (unsigned int)((unsigned short *)dst + 1);",
+   "new": "dst = (uintptr_t)((unsigned short *)dst + 1);",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "src/abuffer.cpp",
+   "old": "unsigned int new_offset = Wrap_Underflow(SurfaceOffset + BufferStart);",
+   "new": "uintptr_t new_offset = Wrap_Underflow(SurfaceOffset + BufferStart);",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "src/abuffer.cpp",
+   "old": "unsigned int buffptr = Get_Buffer_Offset(Point2D(rect.X, rect.Y));",
+   "new": "uintptr_t buffptr = Get_Buffer_Offset(Point2D(rect.X, rect.Y));",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "src/abuffer.cpp",
+   "old": "unsigned int ABuffer::Get_Buffer_Offset(Point2D pos)\n{\n\tunsigned int buffptr = (unsigned int)SurfacePtr->Lock(pos);",
+   "new": "uintptr_t ABuffer::Get_Buffer_Offset(Point2D pos)\n{\n\tuintptr_t buffptr = (uintptr_t)SurfacePtr->Lock(pos);",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "src/zbuffer.cpp",
+   "old": "BufferStart = (unsigned int)(SurfacePtr->Lock());",
+   "new": "BufferStart = (uintptr_t)(SurfacePtr->Lock());",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "src/zbuffer.cpp",
+   "old": "void ZBuffer::Set(unsigned int dst,",
+   "new": "void ZBuffer::Set(uintptr_t dst,",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "src/zbuffer.cpp",
+   "old": "dst = (unsigned int)((unsigned short *)dst + 1);",
+   "new": "dst = (uintptr_t)((unsigned short *)dst + 1);",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "src/zbuffer.cpp",
+   "old": "unsigned int new_offset = Wrap_Underflow(SurfaceOffset + BufferStart);",
+   "new": "uintptr_t new_offset = Wrap_Underflow(SurfaceOffset + BufferStart);",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "src/zbuffer.cpp",
+   "old": "unsigned int buffptr = Get_Buffer_Offset(Point2D(rect.X, rect.Y));",
+   "new": "uintptr_t buffptr = Get_Buffer_Offset(Point2D(rect.X, rect.Y));",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "src/zbuffer.cpp",
+   "old": "unsigned int ZBuffer::Get_Buffer_Offset(Point2D pos)\n{\n\tunsigned int buffptr = (unsigned int)SurfacePtr->Lock(pos);",
+   "new": "uintptr_t ZBuffer::Get_Buffer_Offset(Point2D pos)\n{\n\tuintptr_t buffptr = (uintptr_t)SurfacePtr->Lock(pos);",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "src/isotype.cpp",
+   "append": "isotype_native.inc",
+   "why": "IsometricTileTypeClass::Draw_Tile is unmatched in the YR tree; the RA2 tree's native draft of its twin with YR names (lane Y3)."
+  },
+  {
+   "file": "src/blowfish.cpp",
+   "old": "int zbuffer_offset = 0;\n\tint abuffer_offset = 0;",
+   "new": "intptr_t zbuffer_offset = 0;\n\tintptr_t abuffer_offset = 0;",
+   "why": "RLE_Blit and Buffer_To_Surface_With_Z keep the depth and alpha buffer positions (addresses from Get_Buffer_Offset) in ints; pointer-width natively (lane Y3)."
+  },
+  {
+   "file": "src/techno.cpp",
+   "append": "techno_native.inc",
+   "why": "TechnoClass functions unmatched in the YR tree; TibSun's text adjusted to gamemd.exe as native drafts (lane Y3)."
+  },
+  {
+   "file": "src/credits.cpp",
+   "append": "credits_native.inc",
+   "why": "CreditClass::Graphic_Logic is unmatched in the YR tree; a native draft from gamemd.exe's code (lane Y3)."
+  },
+  {
+   "file": "src/radar.cpp",
+   "old": "extern int DAT_00B04A38;",
+   "new": "extern intptr_t DAT_00B04A38;",
+   "why": "The radar's animation shape pointer kept in an int global (DAT_00B04A38 = RadarAnimShape); pointer-width natively (lane Y3)."
+  },
+  {
+   "file": "src/radar.cpp",
+   "old": "\tDAT_00B04A38 = RadarAnimShape;",
+   "new": "\tDAT_00B04A38 = (intptr_t)RadarAnimShape;",
+   "why": "As above (lane Y3)."
+  },
+  {
+   "file": "src/radar.cpp",
+   "old": "extern int RadarAnimShape;",
+   "new": "extern class SHPStruct * RadarAnimShape;",
+   "why": "radar.cpp declares the radar animation shape (an SHPStruct * that txtlabel2.cpp loads) as int; natively the int read takes only the pointer's low half (lane Y3)."
+  },
+  {
+   "file": "src/drive.cpp",
+   "append": "drive_native.inc",
+   "why": "DriveLocomotionClass functions unmatched in the YR tree; TibSun's text as native drafts (lane Y3)."
+  },
+  {
+   "file": "src/voc.cpp",
+   "old": "DAT_00B1D3A4 = FUN_004074D0(200, 60);",
+   "new": "DAT_00B1D3A4 = FUN_004074D0(200, sizeof(SoundNode));   // NATIVE: 60 is VC6's sizeof(SoundNode)",
+   "why": "The positional-sound pool's item size is the 32-bit SoundNode's 60 bytes; the native SoundNode is larger and overran its neighbours' links (lane Y3)."
+  },
+  {
+   "file": "src/house.cpp",
+   "append": "house_native.inc",
+   "why": "HouseClass functions unmatched in the YR tree; TibSun's text as native drafts (lane Y3)."
+  },
+  {
+   "file": "src/queue.cpp",
+   "append": "queue_native.inc",
+   "why": "Execute_DoList (FUN_0064C380) is unmatched in the YR tree; TibSun's text as a native draft (lane Y3)."
+  },
+  {
+   "file": "src/planmgr.cpp",
+   "append": "planmgr_native.inc",
+   "why": "FUN_0063AB60 (planning-mode test) is unmatched in the YR tree; a partial native draft from gamemd.exe's code (lane Y3)."
+  },
+  {
+   "file": "src/display.cpp",
+   "append": "display_native.inc",
+   "why": "DisplayClass functions unmatched in the YR tree; TibSun's text as native drafts (lane Y3)."
+  },
+  {
+   "file": "src/vox.cpp",
+   "append": "vox_native.inc",
+   "why": "FUN_00752760 (the EVA speech service) is unmatched in the YR tree; a native draft from gamemd.exe's code (lane Y3)."
+  },
+  {
+   "file": "src/voxlib.cpp",
+   "regex": true,
+   "old": "short\\((float\\(.*?\\)(?: / [a-z_]+)? \\* 256)\\);",
+   "new": "(short)ra2port::x87_ftol(\\1);",
+   "why": "VC6 converts the voxel span steps (8.8 fixed point) to short through _ftol, which wraps a value past 32767 into the 16-bit step the drawers expect; arm64's float-to-short conversion saturates instead, so the voxel bodies drew nowhere. ra2port::x87_ftol keeps the x87 result (lane Y3)."
   }
  ]
 }

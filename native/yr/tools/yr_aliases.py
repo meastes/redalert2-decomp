@@ -96,6 +96,8 @@ def main():
     paths = [l.strip() for l in a.inputs.read_text().splitlines() if l.strip()]
     defined, undefined = nm(paths)
     dem_undefined = demangle(sorted(undefined))
+    # Plain (unmangled) C++ globals: _HouseTypes is HouseTypes (c++filt leaves the underscore).
+    dem_undefined = {s: (d[1:] if not s.startswith('__Z') and d.startswith('_') else d) for s, d in dem_undefined.items()}
     data_by_name = {}
     for line in GLOBALS.read_text().splitlines():
         if line and not line.startswith('#') and not line.startswith('name\t'):

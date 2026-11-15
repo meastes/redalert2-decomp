@@ -106,3 +106,13 @@ add_custom_command(TARGET yr-native PRE_LINK
   COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tools/defer_initializers.py"
           --inputs "${RA2_NATIVE_YR_GEN}/link_inputs.txt"
   VERBATIM)
+
+# ctest yr-native-skirmish-smoke (lane Y3): YR's menus to a skirmish, about 20 s of play, the
+# in-game options' Abort Mission and back to the skirmish setup, through scripted input
+# (yr/tests/yr_skirmish_smoke.py). Only in a -DRA2_NATIVE_YR=ON build; skipped (77) without the
+# installed game (RA2_NATIVE_YR_DATA_DIR: the RA2 folder with Yuri's Revenge, read only).
+set(RA2_NATIVE_YR_DATA_DIR "$ENV{RA2_NATIVE_YR_DATA_DIR}" CACHE PATH "Installed RA2 + Yuri's Revenge folder for the yr-native skirmish smoke test (read only)")
+add_test(NAME yr-native-skirmish-smoke COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_skirmish_smoke.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-skirmish-smoke")
+set_tests_properties(yr-native-skirmish-smoke PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 300)

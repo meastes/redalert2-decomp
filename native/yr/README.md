@@ -101,6 +101,35 @@ twin `src/recovered/voxel.cpp` Unknown_00718060).
 Run: the "Yuri's Revenge" main menu shows (Single Player, Internet, Network, Movies & Credits,
 Options, Exit Game, Version 1.001) with its TV movie playing, and Main_Menu's loop runs. Link closure: 343 entries.
 
+## Stage 2, lane Y3 (2026-11-15): first playable, a skirmish on the Mac
+
+Main menu -> Single Player -> Skirmish setup -> Start Game -> the skirmish loads and runs: the
+tactical view (tiles, shroud, overlays, terrain, buildings, infantry, voxel vehicles), the
+sidebar, the radar frame and the credits; the units move, take selection, the H (base) and D
+(deploy) keys; Escape opens Game Options, Abort Mission and its question return to the skirmish
+setup. `ctest -R yr-native-skirmish-smoke` (yr/tests/yr_skirmish_smoke.py; a -DRA2_NATIVE_YR=ON
+build, RA2_NATIVE_YR_DATA_DIR set to the RA2 + YR folder) runs that route with scripted input.
+
+Fixes of note on the way (all NATIVE, native/yr only): yr_data.py loads enumerations, the theater
+table and VoxelRenderOrientations from gamemd.exe and sizes arrays bounded by enumerators (the
+RadiusTable overran MainWindow); tile sets' record slots (ra2port::IsoTileRef), the ABuffer/ZBuffer
+ring positions and RLE_Blit's buffer positions at pointer width; the radar animation shape and the
+command-bar button walk no longer go through ints; the positional-sound pool sized from the native
+SoundNode; the voxel span steps through ra2port::x87_ftol. Drafts (NON-EXACT, from the RA2 twins,
+TibSun's text or gamemd.exe's code): Tactical::Render (YR's foreground pass), Draw_Tile, the
+sidebar and strip AI/Draw_It/Recalc, Techno_Draw_Object, the voxel render, the zone and subzone
+spans, Execute_DoList, the EVA speech service, the display cursor and Mouse_Left_Up, and others in
+yr/glue/*.inc; many traps were gamemd names of functions the tree has under another name
+(data/name_aliases.tsv).
+
+Known gaps: a skirmish abort returns to the setup without a score screen (YR does that); the score
+screen needs a won or lost game, not scripted yet (the start position is random, so the units'
+screen positions vary). Partial drafts: Wait_For_Players_To_Load (the network wait),
+FUN_0063AB60/FUN_0063A5A0 (planning mode), LoadProgressManager::Draw (campaign screen),
+StripClass::Draw_It (the observer list), Can_Deploy_Now (TibSun's text, not YR's 891-byte version),
+the strip's production-abandon events in Recalc. One intermittent fault in
+ColorScheme::GeneratePalette during a load (Init_Theater; seen once in about twenty runs).
+
 ## Next
 
 1. The buttons' targets (input not yet exercised; the runs are unattended): each submenu

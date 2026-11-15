@@ -45,7 +45,10 @@ GLOBALS = ROOT / 'native/yr/data/globals.tsv'
 RDATA = (0x7E1000, 0x811074)
 DATA = (0x812000, 0x87E000, 0xB79BE4)     # start, end of the file-backed part, end
 CAP = 0x10000
-POD_STRUCTS = {'GUID', 'IID', 'CLSID', '_GUID', 'RECT', 'POINT', 'tagRECT', 'tagPOINT'}
+POD_STRUCTS = {'GUID', 'IID', 'CLSID', '_GUID', 'RECT', 'POINT', 'tagRECT', 'tagPOINT',
+               'TheaterDataType',   # theater.h: chars, floats and ints only (lane Y3)
+               'VoxelRenderOrientation'}   # voxdrsys.h: nine ints (lane Y3)
+POD_SIZES = {'TheaterDataType': 0x70, 'VoxelRenderOrientation': 36}
 ADDRESS = re.compile(r'_([0-9A-Fa-f]{8})$')
 
 
@@ -74,13 +77,45 @@ def text_index(gen):
     return index
 
 
+def enum_values(gen):
+    """The enumerators of the generated headers and units with their values (THEATER_COUNT is 6,
+    wave.cpp's _RADIUS_TABLE_SIZE 300), for array bounds written with an enumerator
+    (`Theaters[THEATER_COUNT]`, `RadiusTable[_RADIUS_TABLE_SIZE][_RADIUS_TABLE_SIZE]`; lane Y3)."""
+    values = {}
+    for path in list((gen / 'hdr').rglob('*')) + list((gen / 'units').glob('*.cpp')):
+        if not path.is_file():
+            continue
+        text = re.sub(r'//[^\n]*|/\*.*?\*/', '', path.read_text(encoding='latin-1'), flags=re.S)
+        for body in re.findall(r'\benum\s+\w*\s*(?::\s*\w+\s*)?\{([^}]*)\}', text):
+            nxt = 0
+            for item in body.split(','):
+                m = re.match(r'\s*(\w+)\s*(?:=\s*(.+?))?\s*$', item)
+                if not m:
+                    continue
+                if m.group(2) is not None:
+                    v = m.group(2).strip()
+                    try:
+                        nxt = int(v, 0)
+                    except ValueError:
+                        if v not in values:
+                            continue
+                        nxt = values[v]
+                values.setdefault(m.group(1), nxt)
+                nxt += 1
+    return values
+
+
+ENUM_VALUES = {}
+
+
 def dims(name, lines):
-    """The array bounds of `name`'s declaration (numbers only), or None when it is not read."""
+    """The array bounds of `name`'s declaration (numbers or enumerators), or None when it is not read."""
     rx = re.compile(r'\b%s\b\s*((?:\[\s*\w*\s*\]\s*)+)' % re.escape(name))
     for line in lines:
         m = rx.search(line)
         if m:
             bounds = re.findall(r'\[\s*(\w*)\s*\]', m.group(1))
+            bounds = [str(ENUM_VALUES[b]) if b in ENUM_VALUES else b for b in bounds]
             if all(b.isdigit() for b in bounds):
                 out = 1
                 for b in bounds:
@@ -125,6 +160,14 @@ def main():
     wanted.sort()
     starts = sorted(set(known.values()) | {w[0] for w in wanted})
     index = text_index(a.gen)
+    ENUM_VALUES.update(enum_values(a.gen))
+    covers = []                  # (start, end, symbol) of storage with a declared extent
+    # Enumerations are loaded as their 32-bit value (VC6 and the native build both give an
+    # enum int width): LastTheater starts at THEATER_NONE, not zero (lane Y3).
+    enums = set()
+    for path in (a.gen / 'hdr').rglob('*'):
+        if path.is_file():
+            enums.update(re.findall(r'\benum\s+(\w+)\s*(?::\s*\w+\s*)?\{', path.read_text(encoding='latin-1')))
     out, places, report = [], [], defaultdict(list)
     defs = []
     primary = {}                 # address -> the storage variable of the first name there
@@ -133,6 +176,13 @@ def main():
         if address in primary:
             # One original address, several names (VisibleSurface and DAT_00887308): one storage.
             aliases.append('__asm__(".globl %s\\n%s = %s");   // %s, the same address' % (symbol, symbol, primary[address], name))
+            continue
+        inside = next((c for c in covers if c[0] < address < c[1]), None)
+        if inside:
+            # A name inside a declared array (DAT_007E1BD0 is Theaters[0]'s radar brightness):
+            # an offset into that array's storage, not a copy of its own (lane Y3).
+            aliases.append('__asm__(".globl %s\\n%s = %s + %d");   // %s, inside %s' % (
+                symbol, symbol, inside[2], address - inside[0], name, inside[2]))
             continue
         primary[address] = symbol
         short = name.split('::')[-1]
@@ -157,8 +207,14 @@ def main():
                 width = original_data.SCALAR_WIDTH.get(base, 4)
                 extent = width * count if count else gap
                 shape, storage = 0, extent
+            elif stars == 0 and base in enums:
+                extent = 4 * count if count else gap
+                shape, storage = 0, extent
             elif stars == 0 and base in POD_STRUCTS:
                 extent = 16 * count if base in ('GUID', 'IID', 'CLSID', '_GUID') and count else (gap if not count else extent)
+                if base in POD_SIZES and count:
+                    extent = POD_SIZES[base] * count
+                    covers.append((address, address + extent, symbol))
                 shape, storage = 0, extent
         if storage <= 0:
             storage = 8
