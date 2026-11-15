@@ -60,6 +60,8 @@ extern "C" __attribute__((weak)) int ra2_native_message_edit_open(void) { return
 bool text_field_focused() { return ra2port_text_input_wanted() || ra2_native_new_edit_focused(); }
 extern "C" int ra2port_menu_shown(void);          // port/src/user32.cpp: a menu dialog is shown (no sidebar)
 extern "C" uintptr_t ra2port_top_dialog(void);    // port/src/user32.cpp: the topmost shown dialog (0: none)
+extern "C" int ra2port_top_dialog_rect(int r[4]);   // its rectangle in game pixels (0: none; lane C16)
+extern "C" int ra2port_top_dialog_controls(int (*r)[4], int max);   // its visible controls' rectangles (lane C16)
 extern "C" __attribute__((weak)) bool ra2port_presents_held(void);   // port/src/user32.cpp
 
 namespace {
@@ -177,6 +179,8 @@ SDL_FingerID toggle_finger = 0;            // the finger that pressed a toggle (
 Uint32 const kScriptedToolbar = SDL_EVENT_USER + 0x5C;   // input script "toolbar ITEM" (never pushed to SDL)
 Uint32 const kScriptedZoom = SDL_EVENT_USER + 0x5D;      // input script "zoom FACTOR X Y" (lane C16)
 Uint32 const kScriptedMapCheck = SDL_EVENT_USER + 0x5E;  // input script "mapcheck" (lane C16)
+Uint32 const kScriptedDump = SDL_EVENT_USER + 0x5F;      // input script "dump" (lane C16)
+bool window_dump_now = false;   // the next present writes RA2_NATIVE_WINDOW_DUMP's picture whatever its period
 void (*before_exit)() = nullptr;     // the app's settings (main.cpp)
 // The last pointer position in game pixels (the trackpad hook's cursor).
 float pointer_x = 0, pointer_y = 0;
@@ -258,6 +262,8 @@ bool is_fullscreen() { return window && (SDL_GetWindowFlags(window) & SDL_WINDOW
 // The window in points for a game resolution: the game's pixels at one
 // point each (two device pixels on a Retina display), smaller only when that
 // does not fit the display's usable area.
+int render_scale = 1;                       // the game's screen to the window's (lane C16; update_layout_scaled)
+extern "C" int ra2_enh_render_scale(void);
 void fit_window(int width, int height)
 {
     if (!window || is_fullscreen()) return;
@@ -266,6 +272,15 @@ void fit_window(int width, int height)
     double ratio = 1.0;
     split_fitted = ra2_enh_sidebar_split(height, &ratio);
     if (split_fitted) w = (int)(width - kSidebarWidth + kSidebarWidth * ratio + 0.5);
+    // A render scale (lane C16): the window the screen's own size before it was scaled (the map
+    // column and the height above the command bar render_scale times smaller), with the sidebar
+    // column at its interface size.
+    int r = ra2_enh_render_scale();
+    if (r > 1) {
+        h = (height - 32) / r + 32;
+        double side = split_fitted ? kSidebarWidth * ratio / r : kSidebarWidth;
+        w = (int)((width - kSidebarWidth) / r + side + 0.5);
+    }
     // RA2_NATIVE_WINDOW_ZOOM=<factor> (tests): the window that many times the picture, so
     // the picture is scaled (tests/enhancements_frames.py compares the scaling modes).
     static const double zoom = getenv("RA2_NATIVE_WINDOW_ZOOM") ? atof(getenv("RA2_NATIVE_WINDOW_ZOOM")) : 0.0;
@@ -319,6 +334,102 @@ bool split_wanted(double *ratio)
     if (ra2port_menu_shown() || ra2port::movie_playing() || !ra2_enh_game_in_play()) return false;
     return ra2_enh_sidebar_split(pic_h, ratio);
 }
+// The layout with a render scale above 1 (lane C16): the game's screen is render_scale times the
+// window's in its map column and above the command bar (its 168 sidebar columns and 32 command bar rows
+// keep their sizes). In play (no dialog up, no movie) the map is shown through the zoom (the game's
+// zoom is render_scale times the player's; 1 is the player's 0.5x, the art's own pixels), the command
+// bar's left part and the sidebar render_scale times larger, so the window holds what it held without
+// it. Elsewhere (the menus, dialogs, movies, loading and score screens, all centred on the screen) the
+// screen's centre, the window's size at render_scale's divided size, is shown at the window's scale:
+// the picture's rectangle is the whole screen at that scale, larger than the window (the drawing
+// clips; the mouse maps through it as ever). True when it laid the picture out.
+bool update_layout_scaled()
+{
+    const int r = render_scale, kCmd = 32;
+    double nominal_w = (pic_w - kSidebarWidth) / (double)r + kSidebarWidth, nominal_h = (pic_h - kCmd) / (double)r + kCmd;
+    int full[4];
+    bool play = split_on && ra2_enh_tactical_rect(full);
+    if (!play) {
+        double scale = SDL_min(usable.w / nominal_w, usable.h / nominal_h);
+        split_on = zoom_on = false;
+        split_scale = scale;
+        int d[4];
+        if (ra2_enh_game_in_play() && ra2port_menu_shown() && !ra2port::movie_playing() && ra2port_top_dialog_rect(d)) {
+            // A dialog in play (the in-game menu and the dialogs it opens). The game lays it out for
+            // its larger screen: the menu's backdrop at the map column's top left at its own size,
+            // its buttons in the sidebar column (at the top, Resume at the bottom of the column),
+            // the command bar's left part at the bottom, and the dialogs it opens at the map
+            // column's centre. Shown as the window's layout: a window's size of the map column
+            // (the backdrop, or the part around the dialog on top), the command bar's left part,
+            // and the sidebar column's top and bottom.
+            double map_w = pic_w - kSidebarWidth, map_h = pic_h - kCmd;
+            double cw = map_w / r, ch = map_h / r;
+            double sx = 0, sy = 0;
+            if (d[2] < map_w || d[3] < map_h) {
+                sx = SDL_clamp(d[0] + d[2] / 2.0 - cw / 2, 0.0, map_w - cw);
+                sy = SDL_clamp(d[1] + d[3] / 2.0 - ch / 2, 0.0, map_h - ch);
+            }
+            double px = usable.x + (usable.w - nominal_w * scale) / 2, py = usable.y + (usable.h - nominal_h * scale) / 2;
+            picture = hostos::Rect{px, py, nominal_w * scale, nominal_h * scale};
+            regions.clear();
+            auto add = [](double sx, double sy, double sw, double sh, double dx, double dy, double dw, double dh) {
+                if (sw > 0 && sh > 0 && dw > 0 && dh > 0) regions.push_back(Region{sx, sy, sw, sh, dx, dy, dw, dh});
+            };
+            const double bottom = 100;   // the sidebar column's bottom rows (the Resume button)
+            double top = nominal_h - bottom;
+            if (sx == 0 && sy == 0) {
+                // The menu's own screens (Save, Load, Game Controls) keep its backdrop at the top left
+                // and centre their controls in the map column: with controls there (above the command
+                // bar, whose own controls keep their place) past the backdrop's window, the window's
+                // size at the map column's centre is shown (where the original puts them at the
+                // window's size; the backdrop's lower right quarter shows behind them).
+                int c[64][4];
+                int n = ra2port_top_dialog_controls(c, 64);
+                for (int i = 0; i < n; ++i) {
+                    if (c[i][0] >= map_w || c[i][1] >= map_h || (c[i][0] + c[i][2] <= cw && c[i][1] + c[i][3] <= ch)) continue;
+                    sx = (map_w - cw) / 2;
+                    sy = (map_h - ch) / 2;
+                    break;
+                }
+            }
+            add(sx, sy, cw, ch, px, py, cw * scale, ch * scale);
+            add(0, map_h, cw, kCmd, px, py + ch * scale, cw * scale, kCmd * scale);
+            add(map_w, 0, kSidebarWidth, top, px + cw * scale, py, kSidebarWidth * scale, top * scale);
+            add(map_w, pic_h - bottom, kSidebarWidth, bottom, px + cw * scale, py + top * scale, kSidebarWidth * scale, bottom * scale);
+            fprintf(stderr, "host: layout: dialog in play %dx%d at %d,%d: map column from %.0f,%.0f\n", d[2], d[3], d[0], d[1], sx, sy);
+            if (system_toolbar) hostos::keys_button_place(keys_rect());
+            return true;
+        }
+        double cx = usable.x + usable.w / 2, cy = usable.y + usable.h / 2;
+        picture = hostos::Rect{cx - pic_w * scale / 2, cy - pic_h * scale / 2, pic_w * scale, pic_h * scale};
+        regions.clear();
+        if (system_toolbar) hostos::keys_button_place(keys_rect());
+        return true;
+    }
+    double map_w = pic_w - kSidebarWidth, tac_h = full[1] + full[3], cmd = pic_h - tac_h;
+    double rows = (pic_h + kCmd * (r - 1)) / split_ratio;
+    double W = map_w + kSidebarWidth * split_ratio, H = tac_h + cmd * r;
+    double scale = SDL_min(usable.w / W, usable.h / H);
+    split_scale = scale;
+    double px = usable.x + (usable.w - W * scale) / 2, py = usable.y + (usable.h - H * scale) / 2;
+    picture = hostos::Rect{px, py, W * scale, H * scale};
+    regions.clear();
+    auto add = [](double sx, double sy, double sw, double sh, double dx, double dy, double dw, double dh) {
+        if (sw > 0 && sh > 0 && dw > 0 && dh > 0) regions.push_back(Region{sx, sy, sw, sh, dx, dy, dw, dh});
+    };
+    // The map (the zoom region first: map_anchor takes it): the part shown, or the whole tactical area.
+    if (zoom_on) add(zoom_show[0], zoom_show[1], zoom_show[2], zoom_show[3], px + full[0] * scale, py + full[1] * scale, full[2] * scale, full[3] * scale);
+    else add(full[0], full[1], full[2], full[3], px + full[0] * scale, py + full[1] * scale, full[2] * scale, full[3] * scale);
+    // The command bar's left part, render_scale times larger, under the map.
+    add(0, tac_h, map_w / r, cmd, px, py + tac_h * scale, map_w * scale, cmd * r * scale);
+    add(map_w, 0, kSidebarWidth, rows, px + map_w * scale, py, kSidebarWidth * split_ratio * scale, rows * split_ratio * scale);
+    const Region &side = regions.back();
+    fprintf(stderr, "host: layout: map zoom %.3f (render scale %d), sidebar %.1f,%.1f %.1fx%.1f\n", map_zoom / r, r, side.dx, side.dy,
+            side.dw, side.dh);
+    if (system_toolbar) hostos::keys_button_place(keys_rect());
+    return true;
+}
+
 void update_layout()
 {
     layout_dirty = false;
@@ -362,6 +473,10 @@ void update_layout()
     zoom_on = !ra2port_menu_shown() && !ra2port::movie_playing() && ra2_enh_map_shown(pic_w, pic_h, zoom_show, zoom_full);
     zoom_generation = ra2_enh_map_generation();
     map_zoom = zoom_on ? (double)zoom_full[2] / zoom_show[2] : 1.0;
+    // The render scale (lane C16, Zoom gestures: the game's screen twice the window's in its map
+    // column and above the command bar; link/native_map_zoom.cpp Native_Render_Size).
+    render_scale = ra2_enh_render_scale();
+    if (render_scale > 1 && update_layout_scaled()) return;
     double pw = split_on ? pic_w - kSidebarWidth + kSidebarWidth * split_ratio : pic_w;
     double scale = SDL_min(usable.w / pw, usable.h / pic_h);
     split_scale = scale;
@@ -1323,8 +1438,8 @@ void pump_events()
                 pointer_x = wx;
                 pointer_y = wy;
                 // The map follows the fingers: zoomed, each game pixel is map_zoom times larger.
-                pan_dx += e.wheel.x * 10.0f / (float)map_zoom;
-                pan_dy -= e.wheel.y * 10.0f / (float)map_zoom;
+                pan_dx += e.wheel.x * 10.0f * render_scale / (float)map_zoom;
+                pan_dy -= e.wheel.y * 10.0f * render_scale / (float)map_zoom;
                 pan_last_ms = SDL_GetTicks();
                 break;
             }
@@ -1379,6 +1494,20 @@ void pump_events()
     touch_moves_due();
     static const bool keep_cursor = getenv("RA2_NATIVE_TOUCH_CURSOR") != nullptr;
     if (touch_ui && !keep_cursor) ra2_native_hide_game_cursor();
+    if (render_scale > 1) {
+        // A render scale above 1 (lane C16): the layout of a dialog in play follows the dialog on top.
+        // (its handle, rectangle and visible controls: the menu's screens change them).
+        static int shown[6] = {0, 0, 0, 0, 0, 0};
+        int d[6] = {0, 0, 0, 0, 0, 0};
+        if (!ra2port_top_dialog_rect(d)) d[2] = d[3] = 0;
+        int c[64][4];
+        d[4] = (int)(ra2port_top_dialog() & 0x7FFFFFFF);
+        d[5] = ra2port_top_dialog_controls(c, 64);
+        if (memcmp(d, shown, sizeof d) != 0) {
+            memcpy(shown, d, sizeof d);
+            layout_dirty = true;
+        }
+    }
     if (touch_ui) {
         // Another dialog on top is another screen (lane C13): the keyboard asked for goes away.
         uintptr_t top = ra2port_top_dialog();
@@ -1659,9 +1788,11 @@ void present_now(const void *pixels, int width, int height, int pitch)
     static const char *window_dump_period = getenv("RA2_NATIVE_WINDOW_DUMP_MS");
     static Uint64 window_dump_ms = 0;
     static int window_dump_count = 0;
-    if (window_dump && *window_dump && (window_dump_count == 0 ||
+    if (window_dump && *window_dump && (window_dump_count == 0 || window_dump_now ||
             SDL_GetTicks() - window_dump_ms >= (Uint64)(window_dump_period ? atoi(window_dump_period) : 2000))) {
         window_dump_ms = SDL_GetTicks();
+        if (window_dump_now) fprintf(stderr, "host: window dump %d\n", window_dump_count);
+        window_dump_now = false;
         if (SDL_Surface *shot = SDL_RenderReadPixels(renderer, nullptr)) {
             char name[1024];
             snprintf(name, sizeof name, "%s.%d.bmp", window_dump, window_dump_count++);
@@ -1882,6 +2013,16 @@ void load_script()
             if (!ok) fprintf(stderr, "input-script: cannot read line %d %s\n", frame, action.c_str());
             continue;
         }
+        if (action == "dump") {
+            // dump: the last picture drawn again and written to RA2_NATIVE_WINDOW_DUMP whatever its
+            // period (lane C16's tests: a dialog idle in its own loop presents nothing new; timed
+            // "tMS dump" lines play there too).
+            Scripted s = {frame, {}, std::string()};
+            if (script_ms >= 0) { s.ms = script_ms; s.frame = 0x7FFFFFFF; s.dialog = script_dialog; }
+            s.event.type = kScriptedDump;
+            script.push_back(s);
+            continue;
+        }
         if (action == "mapcheck") {
             // mapcheck: the window mapping checked both ways over the tactical area (lane C16's tests).
             Scripted s = {frame, {}, std::string()};
@@ -2070,6 +2211,11 @@ void play(Scripted &s, int number)
         if (e.type == kScriptedToolbar) {
             fprintf(stderr, "input-script: frame %d: toolbar item %d\n", number, (int)e.user.code);
             toolbar_tapped((int)e.user.code);
+            return;
+        }
+        if (e.type == kScriptedDump) {
+            window_dump_now = true;
+            redraw();
             return;
         }
         if (e.type == kScriptedMapCheck) {

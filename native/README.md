@@ -739,7 +739,7 @@ ORIGINAL preset's frames byte-identical to the defaults outside the menu's anima
 pixels, and the ENHANCED preset's different.
 
 Zoom gestures (C16; the user's smooth pinch zoom, the Outpost 2 port's model): with the setting on,
-the map's zoom follows the player in play, from 1x to 3x: a mouse wheel over the map (10% a notch)
+the map's zoom follows the player in play, from 0.5x to 3x: a mouse wheel over the map (10% a notch)
 and a trackpad pinch (SDL_EVENT_PINCH_UPDATE) about the pointer, a two-finger pinch on a touch screen
 about its middle; Map zoom is the zoom a game starts at. The world point under the pointer or the
 pinch's middle stays where it is. The part of the map shown is the tactical rectangle divided by the
@@ -755,12 +755,31 @@ Picture scaling's (Nearest gives crisp pixels). Touch (`touch.cpp`): two fingers
 by max(8 points, 4%) before they move as a pan become a pinch, which only zooms (no pan, no click),
 each move scaling by the span over the last; a gesture already a pan, a selection box or a tap stays
 one. The span is measured in window points, so it does not follow the zoom it makes. Below 1x (more
-map than the screen) is not yet there: it needs a game screen larger than the window in play.
+map than the window): with the setting on, a game screen of 800x600 or more is made twice as large in
+its map column and above the command bar, (w-168)*2+168 by (h-32)*2+32 (`Native_Render_Size`,
+native fixups at WinMain 0x0068E280 after RA2.INI and at Set_Display_Mode 0x005434E0's top), and the
+game's zoom is the player's times that render scale, so 0.5x shows the art at its own pixels. The
+host shows the sidebar at Game interface size times the render scale and the command bar's left part
+twice as large, so the window's layout is unchanged; the menus, their dialogs and the loading screen
+show the screen's centre at the window's scale (`update_layout_scaled`). The in-game menu, which the
+game lays out for its larger screen (its backdrop at the map column's top left, its buttons at the
+sidebar column's top and bottom, the Save, Load and Game Controls screens' controls at the map
+column's centre), is shown as at the window's size: a window's size of the map column (the backdrop,
+or the part at its centre while that screen's controls are there, or around a smaller dialog on
+top), the command bar's left part, and the sidebar column's top and its bottom 100 rows
+(`ra2port_top_dialog_rect`, `ra2port_top_dialog_controls`). The score screen is not yet checked
+at the render scale (a skirmish's abort returns to the skirmish setup). A start is centred on the point
+the game asked for (its base) before the larger screen's map edge moved it (native fixup at
+Tactical::Set_Tactical_Position 0x006A6640, `Native_View_Asked`).
 Off by default and in the Original preset (the Enhanced preset leaves it). ctest
 `native-zoom-steps` (`tests/zoom_input.py`; input script `zoom FACTOR X Y|@ID`, `mapcheck`) zooms
-to 1.37x, 2.6x and back, checking the view logged, the window mapping both ways over the shown map, a
+to 1.37x, 2.6x and out to 0.5x, checking the view logged, the window mapping both ways over the shown map, a
 click through the window on a given tank at each zoom, and that the sidebar stays put;
-`native-zoom-pinch` plays a scripted two-finger pinch out and back in.
+`native-zoom-pinch` plays a scripted two-finger pinch out and back in; `native-zoom-menu` opens
+the in-game menu at the render scale, its Save screen, Back and Resume Mission through the window
+and checks the layouts shown. The input script's `dump` (also timed: `dN+MS dump`) writes the
+last picture to RA2_NATIVE_WINDOW_DUMP whatever its period: a dialog idle in its own loop presents
+nothing new.
 
 Queue five with Shift (C16, the user's 2026-11-14 list; written from the behaviour the
 redalert2-recomp design notes describe, no code taken): with the setting on, Shift with a click

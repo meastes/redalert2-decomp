@@ -318,12 +318,32 @@ extern "C" int ra2_enh_sidebar_buttons_inside(int rows)
     }
     return 1;
 }
+// The render scale (lane C16, zooming out below 1x): with Zoom gestures on, the game's screen in
+// play is this many times the window's (link/native_map_zoom.cpp Native_Render_Size, taken when the
+// game sets its display mode): the map column and its height less the command bar, so the map can show
+// more than the window at the art's own pixels. The sidebar and the command bar are shown this many
+// times larger (with the interface size), the menus and dialogs are shown from the screen's centre at
+// the window's scale (host.cpp). 1 without it (the original's screen).
+namespace {
+int render_scale = 1;
+constexpr int kCommandBar = 32;    // the command bar's rows below the tactical area (1024x768: 856x736)
+}
+extern "C" void ra2_enh_set_render_scale(int scale) { render_scale = scale > 1 ? scale : 1; }
+extern "C" int ra2_enh_render_scale(void) { return render_scale; }
 extern "C" int ra2_enh_sidebar_height(int screen_height)
 {
     load();
     double ratio = atof(current["uisize"].c_str());
     int h = screen_height;
-    if (ratio > 1.0) {
+    if (render_scale > 1) {
+        // The sidebar's rows shown render_scale (times the interface size) larger fill the map column's
+        // height on the window: the tactical area and the command bar shown render_scale larger.
+        ratio = (ratio > 1.0 ? ratio : 1.0) * render_scale;
+        h = (int)((screen_height + kCommandBar * (render_scale - 1)) / ratio + 0.5) & ~1;
+        if (h < kSidebarMinHeight) h = kSidebarMinHeight;
+        while (h < screen_height && !ra2_enh_sidebar_buttons_inside(h)) h += 2;
+        if (h > screen_height) h = screen_height;
+    } else if (ratio > 1.0) {
         h = (int)(screen_height / ratio + 0.5) & ~1;
         if (h < kSidebarMinHeight) h = kSidebarMinHeight;
         while (h < screen_height && !ra2_enh_sidebar_buttons_inside(h)) h += 2;   // a few rows less enlarged
@@ -340,7 +360,7 @@ extern "C" int ra2_enh_sidebar_height(int screen_height)
 bool ra2_enh_sidebar_split(int picture_height, double *ratio)
 {
     if (sidebar_for != picture_height || sidebar_rows <= 0 || sidebar_rows >= picture_height) return false;
-    *ratio = (double)picture_height / sidebar_rows;
+    *ratio = (double)(picture_height + kCommandBar * (render_scale - 1)) / sidebar_rows;
     return true;
 }
 

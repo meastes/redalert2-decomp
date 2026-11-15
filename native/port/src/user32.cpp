@@ -716,6 +716,38 @@ extern "C" uintptr_t ra2port_top_dialog(void)
         if (Window *w = win(*it)) if (w->visible) return (uintptr_t)*it;
     return 0;
 }
+// The topmost shown dialog's rectangle in game pixels (x, y, width, height); 0 when none (lane C16:
+// the host shows an in-play dialog's part of a screen larger than the window).
+extern "C" int ra2port_top_dialog_rect(int r[4])
+{
+    RECT rc;
+    HWND h = (HWND)ra2port_top_dialog();
+    if (!h || !GetWindowRect(h, &rc)) return 0;
+    r[0] = rc.left;
+    r[1] = rc.top;
+    r[2] = rc.right - rc.left;
+    r[3] = rc.bottom - rc.top;
+    return 1;
+}
+// The topmost shown dialog's visible controls' rectangles in game pixels (x, y, width, height), up to
+// max of them; the count (lane C16).
+extern "C" int ra2port_top_dialog_controls(int (*r)[4], int max)
+{
+    Window *d = win((HWND)ra2port_top_dialog());
+    int n = 0;
+    if (!d) return 0;
+    for (HWND h : d->children) {
+        RECT rc;
+        Window *c = win(h);
+        if (n >= max || !c || !c->visible || !GetWindowRect(h, &rc)) continue;
+        r[n][0] = rc.left;
+        r[n][1] = rc.top;
+        r[n][2] = rc.right - rc.left;
+        r[n][3] = rc.bottom - rc.top;
+        ++n;
+    }
+    return n;
+}
 extern "C" bool ra2port_presents_held(void)
 {
     bool menu = dialog_shown();

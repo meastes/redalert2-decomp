@@ -4,17 +4,22 @@
 game's state and the host's own measures:
 
   steps   the zoom gestures' steps (input script "zoom FACTOR X Y", the wheel's and a pinch's path)
-          to 1.37x, 2.6x and back to 1x. At each zoom: the logged view (link/native_map_zoom.cpp
+          to 1.37x, 2.6x and out to 0.5x (the least: the game's screen is twice the window's in its
+          map column, link/native_map_zoom.cpp Native_Render_Size). At each zoom: the logged view (link/native_map_zoom.cpp
           "zoom:") has the zoom asked for, a view no larger than the tactical area and a shown part of
           the tactical area divided by the zoom; the window mapping checked both ways over the shown
           map ("mapcheck": no pixel comes back as another); a click through the window (as a
           player's, RA2_NATIVE_SCRIPT_AS_USER) on a given tank selects that tank; and the sidebar's
           place in the window ("host: layout") is the same at every zoom.
+  menu    the in-game menu at the render scale (Escape), its Save screen, Back and Resume Mission, each
+          clicked through the window (as a player's): the host shows the menu's backdrop (the map
+          column from 0,0), then the Save screen's controls (from the map column's centre, 428,368 at
+          1024x768), then the menu again, then the game, which plays on to its last frame.
   pinch   two scripted fingers (the touch controls on, RA2_NATIVE_TOUCH_UI) move apart from 100 to
           220 points: a pinch (no click, no selection, no pan), the zoom about 2.2x; then they move
           together: back down.
 
-  zoom_input.py --case steps|pinch --binary <ra2-native> --data-dir <installed RA2> --game-exe <game.exe>
+  zoom_input.py --case steps|menu|pinch --binary <ra2-native> --data-dir <installed RA2> --game-exe <game.exe>
                 [--log <file>]
 
 Without the data folder or game.exe it exits 77 (skipped); the Windows build too (no window
@@ -30,17 +35,24 @@ SKIP = 77
 BAD = re.compile(r'unrecovered|trap|signal \d+|SIG(SEGV|BUS|ILL|ABRT|FPE)|crash:|abort', re.I)
 ZOOM = re.compile(r'^zoom: ([\d.]+) -> ([\d.]+) at [-\d.]+,[-\d.]+: view (\d+)x(\d+), shown ([\d.]+)x([\d.]+) from', re.M)
 CHECK = re.compile(r'^host: mapcheck at map zoom ([\d.]+): (\d+) pixels, largest error ([\d.]+), (\d+) come back as another', re.M)
-LAYOUT = re.compile(r'^host: layout: map zoom ([\d.]+), sidebar ([\d.,x ]+)$', re.M)
+LAYOUT = re.compile(r'^host: layout: map zoom ([\d.]+)(?: \(render scale \d+\))?, sidebar ([\d.,x ]+)$', re.M)
+SCREEN = re.compile(r"^zoom: render scale (\d+): the game's screen (\d+)x(\d+) for", re.M)
 STATE = re.compile(r'^harness-state (\d+) selected (\d+);(.*)$', re.M)
-FULL = (856, 736)    # the tactical area at 1024x768 (the skirmish harness's screen)
+FULL = (856, 736)    # the tactical area at 1024x768 (the skirmish harness's screen), at render scale 1
 
 # Each zoom is anchored at the tank clicked next, so that tank stays on the screen (the start
 # positions vary).
 STEPS = ['90 mapcheck', '100 zoom 1.37 @MTNK:1', '110 mapcheck', '120 click @MTNK:1',
          '150 zoom 1.9 @MTNK:2', '160 mapcheck', '170 click @MTNK:2',
          '200 zoom 0.1 400 300', '210 mapcheck', '220 click @MTNK:3']
-WANT_ZOOMS = [1.369, 2.602, 1.0]
+WANT_ZOOMS = [1.369, 2.602, 0.5]     # as the player sees them (the logged zoom over the render scale)
 CLICKS = [(140, 1), (195, 2), (240, 3)]     # frame, the tank (n-th MTNK) selected then
+
+# The in-game menu's buttons in game pixels at render scale 2 (a 1880x1504 screen): Save Game in the
+# sidebar column's list, Back and Resume Mission at its bottom ("dN": the N-th dialog shown).
+MENU = ['150 key Escape', 'd1+1500 click 1739 287', 'd2+1500 click 1795 1464', 'd3+1500 click 1795 1464']
+MENU_WANT = ['0,0', '428,368', '0,0']
+DIALOG = re.compile(r'^host: layout: dialog in play \d+x\d+ at -?\d+,-?\d+: map column from (-?\d+,-?\d+)$', re.M)
 
 
 def pinch_script():
@@ -59,7 +71,7 @@ def tanks_selected(state):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument('--case', required=True, choices=['steps', 'pinch'])
+    ap.add_argument('--case', required=True, choices=['steps', 'menu', 'pinch'])
     ap.add_argument('--binary', required=True)
     ap.add_argument('--data-dir', default=os.environ.get('RA2_NATIVE_CENSUS_DATA_DIR', ''))
     ap.add_argument('--game-exe', default=os.environ.get('RA2_NATIVE_CENSUS_GAME_EXE', ''))
@@ -78,6 +90,9 @@ def main():
     if a.case == 'steps':
         env['RA2_NATIVE_SCRIPT_AS_USER'] = '1'
         lines, frames = STEPS, 250
+    elif a.case == 'menu':
+        env['RA2_NATIVE_SCRIPT_AS_USER'] = '1'
+        lines, frames = MENU, 250
     else:
         env['RA2_NATIVE_TOUCH_UI'] = '1'
         lines, frames = pinch_script(), 140
@@ -98,18 +113,26 @@ def main():
     bad = [l for l in out.splitlines() if BAD.search(l)]
     if p.returncode != 0 or bad:
         problems.append('exit %d, %d bad lines' % (p.returncode, len(bad)))
+    full, scale = FULL, 1
+    m = SCREEN.search(out)
+    if m:
+        scale = int(m.group(1))
+        full = (int(m.group(2)) - 168, int(m.group(3)) - 32)
+    print('render scale %d: tactical area %dx%d' % (scale, full[0], full[1]))
+    if scale != 2:
+        problems.append('render scale %d, wanted 2 (Zoom gestures on)' % scale)
     zooms = [(float(m.group(1)), float(m.group(2)), int(m.group(3)), int(m.group(4)), float(m.group(5)), float(m.group(6)))
              for m in ZOOM.finditer(out)]
     for z0, z1, vw, vh, sw, sh in zooms:
         print('zoom %.3f -> %.3f: view %dx%d, shown %.2fx%.2f' % (z0, z1, vw, vh, sw, sh))
-        if vw > FULL[0] or vh > FULL[1] or sw > vw or sh > vh:
+        if vw > full[0] or vh > full[1] or sw > vw or sh > vh:
             problems.append('zoom %.3f: view %dx%d or shown %.1fx%.1f too large' % (z1, vw, vh, sw, sh))
         # (the log's zoom has three decimals: compared as tactical area over shown part)
-        if abs(FULL[0] / sw - z1) > 0.002 or abs(FULL[1] / sh - z1) > 0.002:
+        if abs(full[0] / sw - z1) > 0.002 or abs(full[1] / sh - z1) > 0.002:
             problems.append('zoom %.3f: shown %.2fx%.2f, not the tactical area divided by the zoom' % (z1, sw, sh))
     states = {int(m.group(1)): (int(m.group(2)), m.group(3)) for m in STATE.finditer(out)}
     if a.case == 'steps':
-        got = [round(z[1], 3) for z in zooms]
+        got = [round(z[1] / scale, 3) for z in zooms]
         if [abs(g - w) < 0.002 for g, w in zip(got, WANT_ZOOMS)] != [True] * len(WANT_ZOOMS) or len(got) != len(WANT_ZOOMS):
             problems.append('zooms %s, wanted %s' % (got, WANT_ZOOMS))
         checks = [(float(m.group(1)), int(m.group(2)), float(m.group(3)), int(m.group(4))) for m in CHECK.finditer(out)]
@@ -129,14 +152,27 @@ def main():
             print('frame %d: tanks selected %s (wanted [%d])' % (frame, sel, tank))
             if sel != [tank]:
                 problems.append('frame %d: tanks selected %s, not [%d]' % (frame, sel, tank))
+    elif a.case == 'menu':
+        shown = []
+        for m in DIALOG.finditer(out):
+            if not shown or shown[-1] != m.group(1):
+                shown.append(m.group(1))
+        print('in-game menu layouts: %s' % shown)
+        if shown != MENU_WANT:
+            problems.append('the dialog layouts were %s, wanted %s' % (shown, MENU_WANT))
+        last = out.rfind('host: layout: dialog in play')
+        if last < 0 or 'host: layout: map zoom' not in out[last:]:
+            problems.append('the game was not shown again after Resume Mission')
+        if 'stopped: target reached' not in out:
+            problems.append('the game did not play on to its last frame')
     else:
         if 'touch: pinch (' not in out:
             problems.append('no pinch')
         for word in ('touch: tap', 'two-finger tap right click', 'touch: two fingers moved', 'touch: left', 'touch: right'):
             if word in out:
                 problems.append('the pinch also made "%s"' % word)
-        peak = max([z[1] for z in zooms] or [0])
-        last = zooms[-1][1] if zooms else 0
+        peak = max([z[1] / scale for z in zooms] or [0])
+        last = zooms[-1][1] / scale if zooms else 0
         print('pinch: highest zoom %.3f, last %.3f' % (peak, last))
         if not 2.1 <= peak <= 2.3:
             problems.append('the pinch to 220 of 100 points zoomed to %.3f, not about 2.2' % peak)

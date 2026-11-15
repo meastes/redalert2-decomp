@@ -3234,6 +3234,41 @@
    "old": "    short *line = (short *)Buffer + (Pitch * y + x);\n    while (height--) {\n",
    "new": "    if (!ra2port_font_rows_ok(this, Buffer, x, y, height, x, x + width - 1, ClipBox.left, ClipBox.top, ClipBox.right, ClipBox.bottom)) return unknown_2c + width + x;   // NATIVE (C17)\n    short *line = (short *)Buffer + (Pitch * y + x);\n    while (height--) {\n",
    "why": "Native only (lane C17, codex4 R740/R744: SAVE0029 faulted in Draw_Char's clipped blit, a 16-bit store, drawing a selected unit's team number at 800x600). The original's text always lands inside the surface it locked (Set_Surface clips the clip box to it). Natively a draw whose rows or columns would fall outside the locked surface is reported once on stderr (font: ...) with the surface, clip box and position, and the character is skipped, so the cause can be read instead of a fault. A draw inside the surface, every original case, is unchanged."
+  },
+  {
+   "source": "src/recovered/startup.cpp",
+   "old": "        unknown_screen_height_a40b3c = unknown_ini_839740.Get_Int(\"Video\", \"ScreenHeight\", unknown_screen_height_a40b3c);\n",
+   "new": "        unknown_screen_height_a40b3c = unknown_ini_839740.Get_Int(\"Video\", \"ScreenHeight\", unknown_screen_height_a40b3c);\n        Native_Render_Size(&unknown_screen_width_a40b38, &unknown_screen_height_a40b3c);\n",
+   "why": "Native addition (C16, Zoom gestures: zooming out below 1x; not original behaviour): with the Enhancements setting Zoom gestures on, the game's screen is made twice the window's in its map column and above the command bar, so the map can be shown down to 0.5x at the art's own pixels; the host shows the sidebar, the command bar, the menus and the dialogs at the window's scale (link/native_map_zoom.cpp Native_Render_Size). Off (the default and the ORIGINAL preset): the size asked for. This row: WinMain 0x0068E280: the screen size read from RA2.INI.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/mainopt.cpp",
+   "old": "bool __fastcall Set_Display_Mode(int width, int height)\n{\n    Debug_Printf(\"About to set video mode\\n\");\n",
+   "new": "extern \"C\" void Native_Render_Size(int *w, int *h);   // NATIVE (C16): link/native_map_zoom.cpp\nbool __fastcall Set_Display_Mode(int width, int height)\n{\n    Native_Render_Size(&width, &height);\n    Debug_Printf(\"About to set video mode\\n\");\n",
+   "why": "Native addition (C16, Zoom gestures: zooming out below 1x; not original behaviour): with the Enhancements setting Zoom gestures on, the game's screen is made twice the window's in its map column and above the command bar, so the map can be shown down to 0.5x at the art's own pixels; the host shows the sidebar, the command bar, the menus and the dialogs at the window's scale (link/native_map_zoom.cpp Native_Render_Size). Off (the default and the ORIGINAL preset): the size asked for. This row: Set_Display_Mode 0x005434E0 (the Options dialog's resolution change).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/startup.cpp",
+   "old": "extern int unknown_screen_width_a40b38;\n",
+   "new": "extern int unknown_screen_width_a40b38;\nextern \"C\" void Native_Render_Size(int *w, int *h);   // NATIVE (C16): link/native_map_zoom.cpp\n",
+   "why": "Native addition (C16, Zoom gestures: zooming out below 1x; not original behaviour): with the Enhancements setting Zoom gestures on, the game's screen is made twice the window's in its map column and above the command bar, so the map can be shown down to 0.5x at the art's own pixels; the host shows the sidebar, the command bar, the menus and the dialogs at the window's scale (link/native_map_zoom.cpp Native_Render_Size). Off (the default and the ORIGINAL preset): the size asked for. This row: declares it for WinMain.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/Tactical/Tactical_Set_View_Point_006a6640.cpp",
+   "old": "    unknown_d64 = Point2D(x, y);\n",
+   "new": "    Native_View_Asked(point.X, point.Y);   // NATIVE (C16): link/native_map_zoom.cpp\n    unknown_d64 = Point2D(x, y);\n",
+   "why": "Native addition (C16, Zoom gestures: zooming out below 1x; not original behaviour): with Zoom gestures on, the game frames the start for its larger screen, where the map's edge can move the point it asked for; the start's zoomed view is centred on the point asked (link/native_map_zoom.cpp Native_View_Asked). Off (the default and the ORIGINAL preset) the point is only recorded. This row: Tactical::Set_Tactical_Position 0x006A6640 records the point asked before its clamp.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/Tactical/Tactical_Set_View_Point_006a6640.cpp",
+   "old": "#include \"shared/unknown_globals.hpp\"\n",
+   "new": "#include \"shared/unknown_globals.hpp\"\n\nvoid Native_View_Asked(int x, int y);   // NATIVE (C16): link/native_map_zoom.cpp\n",
+   "why": "Native addition (C16, Zoom gestures: zooming out below 1x; not original behaviour): with Zoom gestures on, the game frames the start for its larger screen, where the map's edge can move the point it asked for; the start's zoomed view is centred on the point asked (link/native_map_zoom.cpp Native_View_Asked). Off (the default and the ORIGINAL preset) the point is only recorded. This row: declares it.",
+   "verified": false
   }
  ]
 }

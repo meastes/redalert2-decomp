@@ -39,6 +39,8 @@ extern "C" __attribute__((weak)) double ra2_enh_map_zoom(void) { return 1.0; }
 extern "C" __attribute__((weak)) void ra2_enh_map_view(int, int, int, int, int, int, int, int) {}
 extern "C" __attribute__((weak)) void ra2_enh_in_play(int) {}
 extern "C" __attribute__((weak)) void ra2_enh_map_show(double, double, double, double) {}
+extern "C" __attribute__((weak)) int ra2_enh_zoom_gestures(void) { return 0; }
+extern "C" __attribute__((weak)) void ra2_enh_set_render_scale(int) {}
 
 namespace {
 double game_zoom = 1.0;      // the zoom of the game running (taken at its start or load)
@@ -58,7 +60,11 @@ namespace {
 // only when the rounded size changes. The world point under the pinch's middle or the cursor stays
 // where it is on the screen: the view's position (Tactical +0xD64, its centre) is moved by whole
 // pixels and the rest is the fraction.
-constexpr double kZoomMin = 1.0, kZoomMax = 3.0;
+// The zoom range the player sees: 0.5x to 3x; the game's own zoom is that times the render scale
+// (Native_Render_Size), never below 1 (the view never larger than the tactical area).
+constexpr double kZoomMin = 0.5, kZoomMax = 3.0;
+int render_scale = 1;
+double zoom_min() { return kZoomMin * render_scale < 1.0 ? 1.0 : kZoomMin * render_scale; }
 double show_ox = 0, show_oy = 0, show_w = 0, show_h = 0;
 double pending_factor = 1.0, pending_ax = 0, pending_ay = 0;
 bool pending = false;
@@ -98,6 +104,20 @@ Rect Native_Map_View(Rect const &rect)
 }
 
 namespace {
+// The view's origin (Tactical +0xB0, the world pixel at its top left; the game keeps it as the view
+// position +0xD64 less half the tactical screen rectangle, Unknown_006A9170) read fresh, and set to a
+// given origin through the position (the offset between the two measured, not assumed).
+Point2D view_origin(Tactical *t)
+{
+    t->Set_Tactical_Position_006a6640(t->Get_Tactical_Position());   // the origin follows the view's size now
+    return Point2D(t->TacPixelX, t->TacPixelY);
+}
+Point2D set_view_origin(Tactical *t, int x, int y)
+{
+    Point2D now = view_origin(t), centre = t->Get_Tactical_Position();
+    t->Set_Tactical_Position_006a6640(Point2D(x + centre.X - now.X, y + centre.Y - now.Y));
+    return Point2D(t->TacPixelX, t->TacPixelY);
+}
 // The zoom asked for, applied at a frame's end (Native_Map_Zoom_Frame): the zoom is multiplied and
 // kept in range; the world point at (ax, ay) (game pixels across the tactical rectangle, from its
 // corner) stays there.
@@ -106,18 +126,18 @@ void apply_zoom()
     pending = false;
     Tactical *tactical = unknown_tactical_83996c;
     double z0 = game_zoom, z1 = z0 * pending_factor;
-    if (z1 < kZoomMin) z1 = kZoomMin;
-    if (z1 > kZoomMax) z1 = kZoomMax;
+    if (z1 < zoom_min()) z1 = zoom_min();
+    if (z1 > kZoomMax * render_scale) z1 = kZoomMax * render_scale;
     if (!tactical || z1 == z0) return;
     Rect full = Get_Title_Screen_Area_006f1f30();
     double ax = pending_ax < 0 ? 0 : pending_ax > full.Width ? full.Width : pending_ax;
     double ay = pending_ay < 0 ? 0 : pending_ay > full.Height ? full.Height : pending_ay;
     // The world pixel under the anchor now: the view's origin (its centre less half the view) and
     // the fraction shown past it.
-    Point2D centre = tactical->Get_Tactical_Position();
-    Rect const &view0 = unknown_rect_839630;
-    double wx = centre.X - view0.Width / 2 + show_ox + ax / z0;
-    double wy = centre.Y - view0.Height / 2 + show_oy + ay / z0;
+    Point2D origin0 = view_origin(tactical);
+    Rect const view0 = unknown_rect_839630;
+    double wx = origin0.X + show_ox + ax / z0;
+    double wy = origin0.Y + show_oy + ay / z0;
     game_zoom = z1;
     view_zoom = z1;
     Rect view1 = Native_Map_View(full);
@@ -130,10 +150,9 @@ void apply_zoom()
     int tx = (int)ox, ty = (int)oy;
     if (tx > ox) --tx;
     if (ty > oy) --ty;
-    tactical->Set_Tactical_Position_006a6640(Point2D(tx + view.Width / 2, ty + view.Height / 2));
-    Point2D placed = tactical->Get_Tactical_Position();
-    show_ox = ox - (placed.X - view.Width / 2);
-    show_oy = oy - (placed.Y - view.Height / 2);
+    Point2D placed = set_view_origin(tactical, tx, ty);
+    show_ox = ox - placed.X;
+    show_oy = oy - placed.Y;
     if (show_ox < 0) show_ox = 0;
     if (show_oy < 0) show_oy = 0;
     if (show_ox + show_w > view.Width) show_ox = view.Width - show_w;
@@ -141,7 +160,7 @@ void apply_zoom()
     if (z1 == 1.0) show_ox = show_oy = 0;
     report_show(view);
     fprintf(stderr, "zoom: %.3f -> %.3f at %.0f,%.0f: view %dx%d, shown %.2fx%.2f from %.2f,%.2f, origin %d,%d\n", z0, z1, ax, ay,
-            view.Width, view.Height, show_w, show_h, show_ox, show_oy, placed.X - view.Width / 2, placed.Y - view.Height / 2);
+            view.Width, view.Height, show_w, show_h, show_ox, show_oy, placed.X, placed.Y);
     Map.Flag_To_Redraw(1);
 }
 }  // namespace
@@ -206,8 +225,18 @@ void Native_Hd_Vehicles_Start();   // link/native_hd_vehicles.cpp (HD vehicles, 
 void Native_Map_Zoom_Load()
 {
     ra2_enh_in_play(0);
-    game_zoom = ra2_enh_map_zoom();
+    game_zoom = ra2_enh_map_zoom() * render_scale;
     Native_Hd_Vehicles_Start();
+}
+
+// The point the game last asked the view to centre on, before the map's edge moved it (native fixup:
+// Tactical::Set_Tactical_Position 0x006A6640; lane C16). Cleared when a scenario starts.
+static bool view_asked = false;
+static Point2D view_asked_at;
+void Native_View_Asked(int x, int y)
+{
+    view_asked = true;
+    view_asked_at = Point2D(x, y);
 }
 
 // A scenario starts (Start_Scenario, native fixup at its top): the loading screen and the
@@ -216,6 +245,7 @@ void Native_Map_Zoom_Load()
 void Native_Sidebar_New_Game();     // link/native_enhancements.cpp (Game interface size, C7)
 void Native_Map_Zoom_Leave()
 {
+    view_asked = false;
     ra2_enh_in_play(0);
     Native_Sidebar_New_Game();
 }
@@ -225,11 +255,29 @@ void Native_Map_Zoom_Leave()
 // (Set_View_Dimensions with the tactical rectangle, as Set_Display_Mode 0x005434E0 does).
 void Native_Map_Zoom_Start()
 {
-    game_zoom = ra2_enh_map_zoom();
+    game_zoom = ra2_enh_map_zoom() * render_scale;
     Native_Hd_Vehicles_Start();
     if (game_zoom != view_zoom) {
         Rect tactical = Get_Title_Screen_Area_006f1f30();
+        // The point the game framed the start on (its base) is at the centre of what is shown zoomed
+        // (lane C16: the view's origin kept the old size's, and a zoomed start showed the base in a
+        // corner; with a larger screen the map's edge had moved the base off the centre, so the point
+        // asked is used, else the centre of what the game shows now).
+        Tactical *t = unknown_tactical_83996c;
+        bool asked = view_asked;
+        Point2D asked_at = view_asked_at;
+        double cx = 0, cy = 0;
+        if (t) {
+            Point2D o = view_origin(t);
+            cx = asked ? asked_at.X : o.X + unknown_rect_839630.Width / 2.0;
+            cy = asked ? asked_at.Y : o.Y + unknown_rect_839630.Height / 2.0;
+        }
         Map.unknown_slot42(tactical);
+        if (t) {
+            show_ox = show_oy = 0;
+            set_view_origin(t, (int)(cx - show_w / 2), (int)(cy - show_h / 2));
+            report_show(unknown_rect_839630);
+        }
         Map.Flag_To_Redraw(2);
     }
 }
@@ -247,4 +295,23 @@ void Native_Map_Zoom_Frame()
 void Native_Map_Zoom_End()
 {
     ra2_enh_in_play(0);
+}
+
+// The screen size (native fixups: WinMain 0x0068E280 after reading RA2.INI, Set_Display_Mode 0x005434E0 at
+// its top; lane C16, zooming out below 1x): with Zoom
+// gestures on, a game screen of 800x600 or more is made render scale (2) times larger in its map
+// column and in the height above the command bar: (w - 168) * 2 + 168 by (h - 32) * 2 + 32. The
+// sidebar's 168 columns and the command bar's 32 rows keep their sizes (the host shows them twice as
+// large), so the window shows the same layout and the map can be shown down to 0.5x with the art's own
+// pixels. Taken at each mode set (the start's; the Options dialog's resolution change).
+extern "C" void Native_Render_Size(int *w, int *h)
+{
+    int scale = ra2_enh_zoom_gestures() && *w >= 800 && *h >= 600 ? 2 : 1;
+    render_scale = scale;
+    ra2_enh_set_render_scale(scale);
+    if (scale == 1) return;
+    int nw = *w, nh = *h;
+    *w = (nw - 168) * scale + 168;
+    *h = (nh - 32) * scale + 32;
+    fprintf(stderr, "zoom: render scale %d: the game's screen %dx%d for %dx%d\n", scale, *w, *h, nw, nh);
 }
