@@ -74,10 +74,10 @@ namespace {
 struct Find : HandleObject {
     std::string dir, pattern, dir_game;
     DIR *d = nullptr;
-    // The write directory's twin of dir is listed first (files the game
-    // wrote there, e.g. its saved games; Scout1125), then dir; a name
-    // listed once is not listed again.
-    std::string next_dir;
+    // The mod's twin of dir is listed first (lane C16), then the write
+    // directory's (files the game wrote there, e.g. its saved games;
+    // Scout1125), then dir; a name listed once is not listed again.
+    std::vector<std::string> next_dirs;
     std::set<std::string> seen;
     ~Find() { if (d) closedir(d); }
 };
@@ -94,10 +94,10 @@ bool find_next(Find *f, WIN32_FIND_DATAA *data)
     for (;;) {
     struct dirent *e = f->d ? readdir(f->d) : nullptr;
     if (!e) {
-        if (f->next_dir.empty()) return false;
+        if (f->next_dirs.empty()) return false;
         if (f->d) closedir(f->d);
-        f->dir = f->next_dir;
-        f->next_dir.clear();
+        f->dir = f->next_dirs.front();
+        f->next_dirs.erase(f->next_dirs.begin());
         f->d = opendir(f->dir.c_str());
         continue;
     }
@@ -429,16 +429,14 @@ HANDLE FindFirstFileA(const char *spec, WIN32_FIND_DATAA *data)
     std::string g = spec ? spec : "";
     size_t gs = g.find_last_of("\\/:");
     f->pattern = gs == std::string::npos ? g : g.substr(gs + 1);
-    std::string twin = overlay_path(f->dir);
-    struct stat twin_st;
-    if (!twin.empty() && twin != f->dir && stat(twin.c_str(), &twin_st) == 0 && S_ISDIR(twin_st.st_mode)) {
-        f->next_dir = f->dir;
-        f->dir = twin;
-    }
+    // The folder's twins in the mod, the write folder and the installation, in that order (lane C16).
+    std::vector<std::string> dirs = ra2port::layer_dirs(f->dir);
+    f->dir = dirs.front();
+    f->next_dirs.assign(dirs.begin() + 1, dirs.end());
     f->d = opendir(f->dir.c_str());
-    if (!f->d && !f->next_dir.empty()) {
-        f->dir = f->next_dir;
-        f->next_dir.clear();
+    while (!f->d && !f->next_dirs.empty()) {
+        f->dir = f->next_dirs.front();
+        f->next_dirs.erase(f->next_dirs.begin());
         f->d = opendir(f->dir.c_str());
     }
     if (!f->d || !find_next(f, data)) {

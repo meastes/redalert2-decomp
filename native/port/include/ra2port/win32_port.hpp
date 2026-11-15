@@ -12,6 +12,7 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <vector>
+#include <string>
 
 typedef int32_t BOOL;
 typedef uint32_t DWORD;
@@ -74,6 +75,12 @@ int host_path_missing();
 // with a write directory set (--write-dir, always under --run-to) they land in
 // that overlay and the installation is never modified.
 void set_write_dir(const char *dir);
+// The mod folder (--mod / RA2_NATIVE_MOD, lane C16): a read layer ahead of the write folder and
+// the installation; null without one. layer_dirs: a host folder's twins in the mod, the write
+// folder and the installation that exist, in reading order (FindFirstFileA lists them merged).
+void set_mod_dir(const char *dir);
+const char *mod_dir();
+std::vector<std::string> layer_dirs(const std::string &host_dir);
 const char *write_dir();
 char *host_path_write(const char *game_path, char *out, size_t n);
 

@@ -881,6 +881,26 @@ inside the game's own pacing); the Windows build under Wine (x86_64 under Rosett
 (10 ms at -O0); the iOS Simulator 2.5 ms (20.8 frames a second, 148 MB, as without). Shadows' 2x edges are closed (a 3x3 dilation then
 erosion of the four passes' union, the 1x render's own pixels kept) so they are solid, not checkered.
 
+### Mods (C16, level 1)
+
+A mod is a folder of the game's own kinds of files: loose `rules.ini`, `art.ini`, string tables,
+shapes, `expand##.mix` (Ares/Phobos and other DLL mods are out of scope). `--mod=<name or folder>`
+(or `RA2_NATIVE_MOD`) picks one: a folder given as it is, else `Mods/<name>` in the app's support
+folder (the Mac app: `~/Library/Application Support/RA2Native/Mods`) or in the game folder, folder
+names in any case. The port reads it as a layer ahead of the write folder and the installation
+(`port/src/port_core.cpp` `host_path`, `layer_dirs`; `ra2port::set_mod_dir`): a file the mod has,
+in any case at the same path below it as below the installation, is the file the game opens;
+folders stay the installation's, and `FindFirstFileA` lists the mod's, the write folder's and the
+installation's merged (the first spelling of a name wins), so Init_Bootstrap_Mixfiles finds a
+mod's `expand##.mix` beside the game's and CCFileClass's loose-file preference reads its
+`rules.ini`. Nothing is written into a mod: a write over a mod's file goes to the write folder.
+Without a mod nothing changes. A mod that ships an `RA2.INI` shadows the player's settings file for
+reading (keep it out of mods). ctest `native-mod-layers` (`tests/mod_layers.cpp`) checks the layers
+in a made-up installation; `native-mod-rules` (`tests/mod_rules.py`) has the game write its own
+RULES.INI (`RA2_NATIVE_HARNESS_DUMP_RULES`, `link/harness_mod.cpp`), makes a mod from it with the
+Grizzly's cost set to 1234, and checks the costs the game loads with the mod and without
+(`RA2_NATIVE_HARNESS_COST`).
+
 ### Original saves (C6, roadmap (d))
 
 End state (user, 2026-11-14): original-format saves only, as in the Outpost 2 port; the port's own

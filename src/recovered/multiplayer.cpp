@@ -894,11 +894,11 @@ void __fastcall MultiplayerGameMode::Read_Game_Modes_5b8490(Wstring const &secti
 
 namespace seed_005b8bc0 {
 
-extern "C" void* PTR_FUN_007a72b0;
+extern "C" void* MultiplayerGameMode_InitializerBase_VTable_007a72b0;
 
 void __fastcall FUN_005b8bc0(unsigned int *object_words)
 {
-    *object_words = (unsigned int)(&PTR_FUN_007a72b0);
+    *object_words = (unsigned int)(&MultiplayerGameMode_InitializerBase_VTable_007a72b0);
     return;
 }
 
@@ -950,7 +950,7 @@ void MultiplayerGameMode::unknown_delete_modes_5b8d40()
 // Owner: MultiplayerGameMode::InitializerBase, virtual slot 0 (vtable +0x0) (from RTTI/vtables).
 // Body: 32 bytes (frozen inventory bound).
 // Referenced from 1 site (data).
-// Ghidra prototype: undefined4 * __thiscall FUN_005b8ec0(undefined4 *param_1,byte param_2)
+// Ghidra prototype: undefined4 * __thiscall MultiplayerGameMode_InitializerBase_Scalar_Deleting_Destructor_005b8ec0(undefined4 *param_1,byte param_2)
 // Callees with accepted source:
 //   FUN_00781d3b -> src/recovered/00781d3b.cpp
 //
@@ -961,14 +961,14 @@ void MultiplayerGameMode::unknown_delete_modes_5b8d40()
 namespace seed_005b8ec0 {
 
 extern void  operator_delete_00781d3b(unsigned int allocation_address);
-extern "C" void* PTR_FUN_007a72b0;
+extern "C" void* MultiplayerGameMode_InitializerBase_VTable_007a72b0;
 
-struct Owner_005b8ec0 { unsigned int * FUN_005b8ec0(unsigned char deletion_flags); };
+struct Owner_005b8ec0 { unsigned int * MultiplayerGameMode_InitializerBase_Scalar_Deleting_Destructor_005b8ec0(unsigned char deletion_flags); };
 
-unsigned int * Owner_005b8ec0::FUN_005b8ec0(unsigned char deletion_flags)
+unsigned int * Owner_005b8ec0::MultiplayerGameMode_InitializerBase_Scalar_Deleting_Destructor_005b8ec0(unsigned char deletion_flags)
 {
     unsigned int * object_words = (unsigned int *)this;
-    *object_words = (unsigned int)(&PTR_FUN_007a72b0);
+    *object_words = (unsigned int)(&MultiplayerGameMode_InitializerBase_VTable_007a72b0);
     if ((deletion_flags & 1) != 0) {
         operator_delete_00781d3b((unsigned int)(object_words));
     }

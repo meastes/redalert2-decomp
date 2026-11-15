@@ -33,6 +33,12 @@ std::string &data_root() { static std::string d; return d; }
 // writes land here instead of the user's installation, which stays read-only;
 // reads look here first so the game sees its own writes.
 std::string &write_root() { static std::string d; return d; }
+// Mod folder (--mod / RA2_NATIVE_MOD; lane C16, mod support level 1): a read layer ahead of the
+// write overlay and the installation. A file or folder the mod has (any case, the same path
+// below it as below the installation) is the one the game reads: loose rules.ini, art.ini,
+// string tables and shapes, expand##.mix (Init_Bootstrap_Mixfiles lists them through
+// FindFirstFileA, which lists the layers merged). The mod folder is never written.
+std::string &mod_root() { static std::string d; return d; }
 const Host *current_host = nullptr;
 const uintptr_t HANDLE_BASE = 0x100;
 }
@@ -230,7 +236,47 @@ std::string resolve_below(const std::string &root, const std::string &rel, bool 
     if (found) *found = all;
     return result;
 }
+// A host path's part below the installation, the write folder or the mod folder ("/A/b.ini"),
+// or "" when it is below none of them.
+std::string layer_relative(const std::string &host)
+{
+    for (const std::string *root : {&mod_root(), &write_root(), &data_root()}) {
+        if (root->empty()) continue;
+        if (host.compare(0, root->size(), *root) == 0 && (host.size() == root->size() || host[root->size()] == '/'))
+            return host.size() == root->size() ? std::string("/") : host.substr(root->size());
+    }
+    return std::string();
+}
 }  // namespace
+
+// The folders that hold a host folder's files for the game, in the order they are read: the mod's
+// twin, the write folder's twin, the installation's (those that exist; lane C16). FindFirstFileA
+// lists them merged, the first spelling of a name winning.
+std::vector<std::string> layer_dirs(const std::string &host_dir)
+{
+    std::vector<std::string> dirs;
+    std::string rel = layer_relative(host_dir);
+    if (rel.empty()) {
+        dirs.push_back(host_dir);
+        return dirs;
+    }
+    for (const std::string *root : {&mod_root(), &write_root(), &data_root()}) {
+        if (root->empty()) continue;
+        bool found = false;
+        std::string d = rel == "/" ? *root : resolve_below(*root, rel, &found);
+        if (rel == "/") found = true;
+        struct stat st;
+        if (!found || stat(d.c_str(), &st) != 0 || !S_ISDIR(st.st_mode)) continue;
+        bool listed = false;
+        for (const std::string &e : dirs) listed = listed || e == d;
+        if (!listed) dirs.push_back(d);
+    }
+    if (dirs.empty()) dirs.push_back(host_dir);
+    return dirs;
+}
+
+void set_mod_dir(const char *dir) { mod_root() = dir ? dir : ""; }
+const char *mod_dir() { return mod_root().empty() ? nullptr : mod_root().c_str(); }
 
 int host_path_missing() { return last_lookup; }
 
@@ -269,6 +315,23 @@ char *host_path(const char *game_path, char *out, size_t n)
         if (slash == std::string::npos) break;
         start = slash + 1;
     }
+    if (!mod_root().empty()) {
+        // The mod's twin, when it exists (any case), is the file the game reads (lane C16):
+        // ahead of the write folder's and the installation's.
+        // Files only: a folder stays the installation's (or the write folder's), and its listing
+        // merges the mod's (layer_dirs).
+        std::string rel = layer_relative(result);
+        if (!rel.empty() && rel != "/") {
+            bool found = false;
+            std::string twin = resolve_below(mod_root(), rel, &found);
+            struct stat st;
+            if (found && stat(twin.c_str(), &st) == 0 && S_ISREG(st.st_mode)) {
+                last_lookup = 0;
+                snprintf(out, n, "%s", twin.c_str());
+                return out;
+            }
+        }
+    }
     if (!write_root().empty()) {
         // The write folder's twin, when it exists (any case), is the file the game sees.
         std::string w = overlay_path(result);
@@ -300,6 +363,9 @@ std::string overlay_path(const std::string &host)
         rel = host.substr(base.size());
     else if (host.compare(0, write_root().size(), write_root()) == 0)
         return host;
+    else if (!mod_root().empty() && host.compare(0, mod_root().size(), mod_root()) == 0 &&
+             (host.size() == mod_root().size() || host[mod_root().size()] == '/'))
+        rel = host.substr(mod_root().size());     // a write over a mod's file goes to the write folder (lane C16)
     else
         rel = "/" + host.substr(host.rfind('/') == std::string::npos ? 0 : host.rfind('/') + 1);
     return write_root() + rel;

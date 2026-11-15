@@ -198,6 +198,13 @@ add_executable(native-core-check tests/core_check.cpp "${RA2_NATIVE_GEN}/fast_ma
 target_link_libraries(native-core-check PRIVATE ra2_recovered)
 target_link_options(native-core-check PRIVATE -Wl,-dead_strip)
 add_test(NAME native-core-check COMMAND native-core-check)
+# Mods (lane C16): the port's read layers (a mod ahead of the write folder and the installation;
+# merged listings; writes never into the mod) in a made-up installation (tests/mod_layers.cpp).
+if(NOT WIN32)
+  add_executable(native-mod-layers tests/mod_layers.cpp)
+  target_link_libraries(native-mod-layers PRIVATE ra2_port)
+  add_test(NAME native-mod-layers COMMAND native-mod-layers "${CMAKE_CURRENT_BINARY_DIR}/mod-layers")
+endif()
 
 # 6. The behaviour rewrites of the handwritten-assembly functions
 #    (link/behaviour_asm_*.cpp, behaviour_rewrites.json) against references
@@ -562,6 +569,12 @@ if(RA2_NATIVE_SDL)
                    --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --log "${CMAKE_CURRENT_BINARY_DIR}/native-zoom-${ra2_zoom_case}.log")
           set_tests_properties(native-zoom-${ra2_zoom_case} PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 400)
         endforeach()
+        # 12d. Mods (C16, level 1): a mod made at test time (the game's rules with the Grizzly's
+        #      cost changed) is read ahead of the installation; without a mod nothing changes.
+        add_test(NAME native-mod-rules COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/mod_rules.py"
+                 --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+                 --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/mod-rules" ${ra2_wine_args_mods})
+        set_tests_properties(native-mod-rules PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 600)
         # 13. Touch controls (C10): the app's movies, menus and a game with the touch controls on;
         #     Skip alone during a movie, the Keys button alone in the menus (its tap turns the
         #     keyboard on), the toolbar alone in play.

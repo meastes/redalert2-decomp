@@ -134,8 +134,14 @@ int const registered = (ra2port_set_point_resolver(Resolve), 0);
 
 int Native_Session_Message_Count();   // harness_event_test.cpp
 // Called by the frame seam (harness_skirmish.cpp) after each Main_Loop frame.
+void Native_Harness_Rules();          // harness_mod.cpp (lane C16)
 void Native_Harness_Input(int frame)
 {
+    static bool rules_noted = false;
+    if (!rules_noted) {
+        rules_noted = true;
+        Native_Harness_Rules();
+    }
     // RA2_NATIVE_INPUT_LOG=<n>: also every n frames (harness-input-<frame>).
     static int every = -1;
     if (every < 0) {

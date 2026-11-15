@@ -655,7 +655,7 @@ void Voices::Anim::Restore(int unknown1)
 
 namespace seed_00732c30 {
 
-extern "C" void* PTR_FUN_0079c4dc;
+extern "C" void* DynamicVectorClass_UnsignedInt_VTable_0079c4dc;
 
 void __fastcall FUN_00732c30(unsigned int *vector_words)
 {
@@ -663,7 +663,7 @@ void __fastcall FUN_00732c30(unsigned int *vector_words)
     vector_words[1] = 0;
     vector_words[2] = 0;
     *(unsigned char *)((int)vector_words + 0xd) = 0;
-    *vector_words = (unsigned int)(&PTR_FUN_0079c4dc);
+    *vector_words = (unsigned int)(&DynamicVectorClass_UnsignedInt_VTable_0079c4dc);
     vector_words[5] = 10;
     vector_words[4] = 0;
     return;
@@ -677,7 +677,7 @@ void __fastcall FUN_00732c30(unsigned int *vector_words)
 // Owner: WorldDominationTour::Voices::Anim, virtual slot 0 (vtable +0x0) (from RTTI/vtables).
 // Body: 36 bytes (frozen inventory bound).
 // Referenced from 1 site (data).
-// Ghidra prototype: undefined4 * __thiscall FUN_00732c80(undefined4 *param_1,byte param_2)
+// Ghidra prototype: undefined4 * __thiscall WorldDominationTour_Voices_Anim_Scalar_Deleting_Destructor_00732c80(undefined4 *param_1,byte param_2)
 // Callees with accepted source:
 //   MSAnim_Destructor_005ac690 -> src/recovered/classes/MSAnim/005ac690.cpp
 //   FUN_00781d3b -> src/recovered/00781d3b.cpp
@@ -690,14 +690,14 @@ namespace seed_00732c80 {
 
 extern void __fastcall MSAnim_Destructor_005ac690(void);
 extern void  operator_delete_00781d3b(unsigned int allocation_address);
-extern "C" void* PTR_FUN_007af40c;
+extern "C" void* WorldDominationTour_Voices_Anim_VTable_007af40c;
 
-struct Owner_00732c80 { unsigned int * FUN_00732c80(unsigned char deletion_flags); };
+struct Owner_00732c80 { unsigned int * WorldDominationTour_Voices_Anim_Scalar_Deleting_Destructor_00732c80(unsigned char deletion_flags); };
 
-unsigned int * Owner_00732c80::FUN_00732c80(unsigned char deletion_flags)
+unsigned int * Owner_00732c80::WorldDominationTour_Voices_Anim_Scalar_Deleting_Destructor_00732c80(unsigned char deletion_flags)
 {
     unsigned int * object_words = (unsigned int *)this;
-    *object_words = (unsigned int)(&PTR_FUN_007af40c);
+    *object_words = (unsigned int)(&WorldDominationTour_Voices_Anim_VTable_007af40c);
     MSAnim_Destructor_005ac690();
     if ((deletion_flags & 1) != 0) {
         operator_delete_00781d3b((unsigned int)(object_words));

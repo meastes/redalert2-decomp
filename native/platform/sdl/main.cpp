@@ -24,6 +24,12 @@
 #include <TargetConditionals.h>
 #endif
 #include "ra2port/win32_port.hpp"
+#include <dirent.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/stat.h>
+#include <string>
+#include <vector>
 
 #ifdef RA2_NATIVE_GAME
 // The recovered entry point (0x0068E280). Not yet in the tree: with
@@ -100,6 +106,47 @@ void ra2_enhancements_store(std::string (*get)(const char *), void (*set)(const 
 #ifdef RA2_NATIVE_GAME
 extern "C" int ra2_native_draw_selftest(void);   // link/selftest_draw.cpp (lane C17, tests)
 #endif
+// The folder of a mod named on the command line (lane C16): the name as a folder, else
+// Mods/<name> in the app's support folder (the app) or in the game folder, folder names in any
+// case; "" when there is none.
+static bool is_dir(const std::string &p)
+{
+    struct stat st;
+    return stat(p.c_str(), &st) == 0 && S_ISDIR(st.st_mode);
+}
+static std::string child_any_case(const std::string &dir, const std::string &name)
+{
+    if (is_dir(dir + "/" + name)) return dir + "/" + name;
+    if (DIR *d = opendir(dir.c_str())) {
+        while (struct dirent *e = readdir(d)) {
+            if (!strcasecmp(e->d_name, name.c_str()) && is_dir(dir + "/" + e->d_name)) {
+                std::string found = dir + "/" + e->d_name;
+                closedir(d);
+                return found;
+            }
+        }
+        closedir(d);
+    }
+    return std::string();
+}
+static std::string find_mod(const char *mod, const char *data)
+{
+    std::string m = mod;
+    if (m.find('/') != std::string::npos || m.find('\\') != std::string::npos) return is_dir(m) ? m : std::string();
+    std::vector<std::string> roots;
+#ifdef RA2_APP_MODE
+    roots.push_back(app::support_dir());
+#endif
+    if (data) roots.push_back(data);
+    for (const std::string &root : roots) {
+        std::string mods = child_any_case(root, "Mods");
+        if (mods.empty()) continue;
+        std::string found = child_any_case(mods, m);
+        if (!found.empty()) return found;
+    }
+    return std::string();
+}
+
 int main(int argc, char **argv)
 {
 #ifdef RA2_NATIVE_GAME
@@ -135,6 +182,7 @@ int main(int argc, char **argv)
     // Mac app mode (README "Mac app"): RA2.app launched from Finder, or --app.
     // First-run setup, the settings, the log file and the crash dialog.
     bool app_flag = false, setup_flag = false;
+    const char *mod = getenv("RA2_NATIVE_MOD");
     for (int i = 1; i < argc; ++i) {
         if (!strcmp(argv[i], "--data-dir") && i + 1 < argc) data = argv[++i];
         else if (!strcmp(argv[i], "--smoke-test")) smoke = true;
@@ -155,6 +203,9 @@ int main(int argc, char **argv)
         // load <file> as Resume at start does (ra2port::request_resume); with
         // --run-to=frames --frames=N the run ends N Main_Loop frames into the loaded game.
         else if (!strncmp(argv[i], "--load-save=", 12)) ra2port::request_resume(argv[i] + 12);
+        // --mod=<name or folder> (lane C16, mod support level 1; RA2_NATIVE_MOD the same): the
+        // mod's folder is read ahead of the installation (ra2port::set_mod_dir).
+        else if (!strncmp(argv[i], "--mod=", 6)) mod = argv[i] + 6;
     }
 #ifdef RA2_APP_MODE
     bool app_mode = app_flag || (app::in_bundle() && !run_to && !skirmish && !smoke);
@@ -326,6 +377,17 @@ int main(int argc, char **argv)
     }
 #endif
     if (data) ra2port::set_data_dir(data);
+    if (mod && *mod) {
+        // A mod (lane C16): a folder given as it is, else Mods/<name> beside the app's settings
+        // (the app) or in the installation (any case for the folder names).
+        std::string found = find_mod(mod, data);
+        if (found.empty()) {
+            fprintf(stderr, "mod: %s not found (a folder, or Mods/%s in the app's folder or the game folder); none used\n", mod, mod);
+        } else {
+            ra2port::set_mod_dir(found.c_str());
+            fprintf(stderr, "mod: %s from %s\n", mod, found.c_str());
+        }
+    }
 #ifdef RA2_NATIVE_GAME
     {
         // Every static initialiser has run when main is reached.
