@@ -195,7 +195,14 @@ class Audit:
         if path not in self.blobs:
             self.blobs[path] = path.read_bytes()
         data = self.blobs[path]
-        require(expected is None or self.sha(data) == expected, 'Hash drift: ' + str(path))
+        if expected is not None:
+            # A blob read again (populations share inventory files) is hashed once: the digest is
+            # kept beside the very bytes object it was computed from.
+            memo = self.__dict__.setdefault('_read_digests', {})
+            known = memo.get(path)
+            if known is None or known[0] is not data:
+                known = memo[path] = (data, self.sha(data))
+            require(known[1] == expected, 'Hash drift: ' + str(path))
         return data
 
     @staticmethod

@@ -11,10 +11,13 @@ game's state and the host's own measures:
           map ("mapcheck": no pixel comes back as another); a click through the window (as a
           player's, RA2_NATIVE_SCRIPT_AS_USER) on a given tank selects that tank; and the sidebar's
           place in the window ("host: layout") is the same at every zoom.
-  menu    the in-game menu at the render scale (Escape), its Save screen, Back and Resume Mission, each
-          clicked through the window (as a player's): the host shows the menu's backdrop (the map
-          column from 0,0), then the Save screen's controls (from the map column's centre, 428,368 at
-          1024x768), then the menu again, then the game, which plays on to its last frame.
+  menu    the in-game menu at the render scale (Escape), its Save screen, Back, Abort Mission and the
+          Abort screen's Resume Mission, each clicked through the window (as a player's) where the
+          original at 1024x768 has them: the game lays the dialogs out at the window's size
+          (link/native_map_zoom.cpp Native_Dialog_Screen: "in-play dialogs at 1024x768") and the host
+          shows that part (the column's bottom button, Back and Resume Mission, is where the
+          original has it only when the interface art was laid out again); then the game plays on
+          to its last frame with the play layout back.
   pinch   two scripted fingers (the touch controls on, RA2_NATIVE_TOUCH_UI) move apart from 100 to
           220 points: a pinch (no click, no selection, no pan), the zoom about 2.2x; then they move
           together: back down.
@@ -48,11 +51,11 @@ STEPS = ['90 mapcheck', '100 zoom 1.37 @MTNK:1', '110 mapcheck', '120 click @MTN
 WANT_ZOOMS = [1.369, 2.602, 0.5]     # as the player sees them (the logged zoom over the render scale)
 CLICKS = [(140, 1), (195, 2), (240, 3)]     # frame, the tank (n-th MTNK) selected then
 
-# The in-game menu's buttons in game pixels at render scale 2 (a 1880x1504 screen): Save Game in the
-# sidebar column's list, Back and Resume Mission at its bottom ("dN": the N-th dialog shown).
-MENU = ['150 key Escape', 'd1+1500 click 1739 287', 'd2+1500 click 1795 1464', 'd3+1500 click 1795 1464']
-MENU_WANT = ['0,0', '428,368', '0,0']
-DIALOG = re.compile(r'^host: layout: dialog in play \d+x\d+ at -?\d+,-?\d+: map column from (-?\d+,-?\d+)$', re.M)
+# The in-game menu's buttons in game pixels, where the original at 1024x768 has them: Save Game and
+# Abort Mission in the sidebar column's list, Back and Resume Mission at its bottom ("dN": the N-th
+# dialog shown: 1 the menu, 2 Save, 3 the menu, 4 Abort).
+MENU = ['150 key Escape', 'd1+1500 click 940 289', 'd2+1500 click 940 714', 'd3+1500 click 940 339',
+        'd4+1500 click 940 714']
 
 
 def pinch_script():
@@ -153,14 +156,15 @@ def main():
             if sel != [tank]:
                 problems.append('frame %d: tanks selected %s, not [%d]' % (frame, sel, tank))
     elif a.case == 'menu':
-        shown = []
-        for m in DIALOG.finditer(out):
-            if not shown or shown[-1] != m.group(1):
-                shown.append(m.group(1))
-        print('in-game menu layouts: %s' % shown)
-        if shown != MENU_WANT:
-            problems.append('the dialog layouts were %s, wanted %s' % (shown, MENU_WANT))
-        last = out.rfind('host: layout: dialog in play')
+        want = 'zoom: in-play dialogs at %dx%d' % (full[0] // scale + 168, full[1] // scale + 32)
+        print('%s: %s' % (want, want in out))
+        if want not in out:
+            problems.append('the dialogs were not laid out at the window\'s size ("%s")' % want)
+        if 'host: layout: in-play dialogs at' not in out:
+            problems.append('the host did not show the dialogs\' part of the screen')
+        if 'host: layout: dialog in play' in out:
+            problems.append('a dialog was shown with the larger screen\'s layout')
+        last = out.rfind('host: layout: in-play dialogs at')
         if last < 0 or 'host: layout: map zoom' not in out[last:]:
             problems.append('the game was not shown again after Resume Mission')
         if 'stopped: target reached' not in out:

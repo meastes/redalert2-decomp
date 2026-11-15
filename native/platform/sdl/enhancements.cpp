@@ -330,6 +330,11 @@ constexpr int kCommandBar = 32;    // the command bar's rows below the tactical 
 }
 extern "C" void ra2_enh_set_render_scale(int scale) { render_scale = scale > 1 ? scale : 1; }
 extern "C" int ra2_enh_render_scale(void) { return render_scale; }
+// The in-play dialogs laid out at the window's size at the screen's top left (lane C16,
+// link/native_map_zoom.cpp Native_Dialog_Screen).
+int dialog_screen = 0;
+extern "C" void ra2_enh_set_dialog_screen(int on) { dialog_screen = on; }
+extern "C" int ra2_enh_dialog_screen(void) { return dialog_screen; }
 extern "C" int ra2_enh_sidebar_height(int screen_height)
 {
     load();

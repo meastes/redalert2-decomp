@@ -794,10 +794,11 @@ def main():
                              'where the linker puts it, behind padding, with every reference through a symbol; '
                              'writes shifted.exe, not an exact image')
     args=parser.parse_args(); started=time.monotonic()
-    marks=[started]
+    from job_control import Stages, full_build_lock, heavy_slots, WEIGHTS
+    stages=Stages()
     def phase(name):
-        # Elapsed time per build phase, on stderr (the receipt keeps the total).
-        now=time.monotonic(); print('phase %s: %.1fs'%(name,now-marks[-1]),file=sys.stderr,flush=True); marks.append(now)
+        # Elapsed time per build phase: on stderr as it happens, in the receipt's "stages" at the end.
+        item=stages.mark(name); print('phase %s: %.1fs'%(name,item['seconds']),file=sys.stderr,flush=True)
     config=json.loads(args.config.read_text());catalog_blobs={};catalog=catalog_io.load(args.manifest,blobs=catalog_blobs)
     audit=CanonicalAudit(REPOSITORY,catalog,config)
     toolchain_pins=json.loads((REPOSITORY/'manifests/toolchain.json').read_text())
@@ -814,13 +815,27 @@ def main():
             'Build output must stay beneath ignored root build/private')
     require('"' not in str(destination) and '\n' not in str(destination),'Unsupported assembler path')
     destination.mkdir(parents=True,exist_ok=False)
+    # One whole-file build at a time (the shared full-build lock, reentrant under a wrapper that
+    # holds it), then heavy-job slots (job_control.py). A shift build is not a whole-file gate.
+    from contextlib import ExitStack
+    held=ExitStack()
+    if not args.shift_module:
+        held.enter_context(full_build_lock()); stages.mark('full-build lock wait')
+        config=gate_config(config)
+    held.enter_context(heavy_slots('build.py '+destination.name,WEIGHTS['full_build'])); stages.mark('heavy-job slot wait')
+    with held:
+        _build(args,config,catalog,catalog_blobs,audit,tools,library,assembly,generated,destination,started,stages,phase)
+
+
+def _build(args,config,catalog,catalog_blobs,audit,tools,library,assembly,generated,destination,started,stages,phase):
+    import library_build, assembly_build, generated_data
     # A gate that fails from here on still leaves a receipt (whole_file_receipt.py).
     global GATE_STARTED; GATE_STARTED=not args.shift_module
     # Pin authored tools and source catalog at build start. Verify again at end.
     inputs=[REPOSITORY/'manifests/toolchain.json',
             *[Path(__file__).with_name(name) for name in ['build.py','remote_compile.py','canonical.py','catalog_io.py','source_paths.py','verify_manifest.py','coff.py','compiler_output.py',
                                                            'library_build.py','library_identity.py','library_link.py',
-                                                           'assembly_tools.py','assembly_build.py','assembly_link.py','generated_data.py']],
+                                                           'assembly_tools.py','assembly_build.py','assembly_link.py','generated_data.py','job_control.py']],
             *generated_data.inputs(generated),
             *([library_build.MANIFEST] if library else []),
             *([assembly_build.MANIFEST, *[REPOSITORY/s for s in assembly['sources']], *[REPOSITORY/s for s in assembly.get('includes', {})]] if assembly else [])]
@@ -871,6 +886,7 @@ def main():
                   assembly_regions=0 if not assembly else len(assembly['regions']),
                   generated_data_bytes=json.loads((destination/'integration-receipt.json').read_text()).get('generated_data_bytes', 0),
                   toolchain=tools,authored_dependencies=fingerprints,seconds=time.monotonic()-started,
+                  stages=stages.items,lock_waits=lock_waits(destination),
                   compile_policy='Fresh accepted-only sources; historical population/option groups, no candidate-search matrices')
     if not args.keep_intermediates:
         report.update(removed_after_verification=dict(
@@ -885,7 +901,40 @@ def main():
                                   build_receipt=str(destination/'build-receipt.json'))
     if not args.keep_intermediates:
         remove_intermediates(destination,len(compiled))
+    print(stages.table('build stages'),file=sys.stderr,flush=True)
+    waits=report['lock_waits']
+    if waits:
+        print('  of which waiting for the compiler lock: %s'%', '.join('%s %.1fs'%(k,v) for k,v in sorted(waits.items())),
+              file=sys.stderr,flush=True)
     print(json.dumps(dict(receipt=str(destination/'build-receipt.json'),**{k:report[k] for k in ['whole_file_exact','output_sha256','tracked_sources','seconds']})))
+
+
+def gate_config(config):
+    """The config a whole-file build runs with. With `gate_wine_prefix` (and `gate_lock`) set, the
+    build's compile and link sessions use that prefix and lock instead of the shared ones: the
+    full-build lock already serializes whole-file builds, so a gate no longer queues behind lane
+    candidate compiles on the shared compiler lock (lane P1: 785 s of a 1,156 s build). The
+    compiler, the fixed compile folder and every comparison are unchanged."""
+    if config.get('wine_kind') != 'wine' or not config.get('gate_wine_prefix'):
+        return config
+    # Beside the shared lock, so the remote host's lock (remote_compile.settings) stays the shared one.
+    require(config.get('gate_lock') and Path(config['gate_lock']).parent == Path(config['lock']).parent,
+            'gate_wine_prefix needs gate_lock in the folder of lock')
+    return dict(config, wine_prefix=config['gate_wine_prefix'], lock=config['gate_lock'])
+
+
+def lock_waits(destination):
+    """Seconds each Wine step (compile, compile-retry, link, assemble, ...) waited for the compiler
+    lock, from its NAME-command.json receipt; steps that did not wait are left out."""
+    out={}
+    for path in sorted(Path(destination).glob('*-command.json')):
+        try:
+            value=json.loads(path.read_text()).get('lock_wait_seconds')
+        except (OSError,ValueError,AttributeError):
+            continue
+        if value and value>=0.05:
+            out[path.name[:-len('-command.json')]]=round(value,3)
+    return out
 
 
 GATE_STARTED=False

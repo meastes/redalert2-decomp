@@ -97,8 +97,14 @@ extern "C" int ra2_enh_sidebar_height(int screen_height);   // platform/sdl/enha
 void ra2_enhancements_store(std::string (*get)(const char *), void (*set)(const char *, const char *));
 #endif
 
+#ifdef RA2_NATIVE_GAME
+extern "C" int ra2_native_draw_selftest(void);   // link/selftest_draw.cpp (lane C17, tests)
+#endif
 int main(int argc, char **argv)
 {
+#ifdef RA2_NATIVE_GAME
+    if (getenv("RA2_NATIVE_DRAW_SELFTEST")) return ra2_native_draw_selftest();
+#endif
 #ifdef RA2_APP_MODE
     // The crash dialog of RA2.app (app_mode.hpp): a fresh process.
     if (argc == 3 && !strcmp(argv[1], "--crash-report")) return app::crash_report(argv[2]);

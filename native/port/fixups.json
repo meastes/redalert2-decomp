@@ -3221,19 +3221,19 @@
    "source": "src/recovered/bitfont.cpp",
    "old": "    Pitch = (unsigned)surface->Stride() >> 1;\n",
    "new": "    Pitch = (unsigned)surface->Stride() >> 1;\n    ra2port_font_surface(this, Buffer, (int)Pitch, surface->Get_Width(), surface->Get_Height());   // NATIVE (C17): the locked surface's size\n",
-   "why": "Native only (lane C17, codex4 R740/R744: SAVE0029 faulted in Draw_Char's clipped blit, a 16-bit store, drawing a selected unit's team number at 800x600). The original's text always lands inside the surface it locked (Set_Surface clips the clip box to it). Natively a draw whose rows or columns would fall outside the locked surface is reported once on stderr (font: ...) with the surface, clip box and position, and the character is skipped, so the cause can be read instead of a fault. A draw inside the surface, every original case, is unchanged."
+   "why": "Native only (lane C17, codex4 R740/R744/R749/R751: SAVE0029 faulted in Draw_Char's clipped blit, a 16-bit store, drawing a selected unit's team number at 800x600). The cause: the row pointer is Buffer + (Pitch * y + x) with Pitch unsigned, so a character starting left of the surface (x < 0) on its top row (y 0) gives a negative 32-bit offset that VC6's 32-bit pointer arithmetic wraps back into the surface but LP64/LLP64 zero-extends to about 8 GB past it; the offset is computed signed (the same address as VC6's wrap). Besides, The original's text always lands inside the surface it locked (Set_Surface clips the clip box to it). Natively a draw whose rows or columns would fall outside the locked surface is reported once on stderr (font: ...) with the surface, clip box and position, and the character is skipped, so the cause can be read instead of a fault. A draw inside the surface, every original case, is unchanged."
   },
   {
    "source": "src/recovered/bitfont.cpp",
    "old": "            short *line = (short *)Buffer + (Pitch * y + x);\n            int clipL = clipped.left;\n",
-   "new": "            if (!ra2port_font_rows_ok(this, Buffer, x, y, rows, clipped.left, clipped.right, ClipBox.left, ClipBox.top, ClipBox.right, ClipBox.bottom)) return unknown_2c + width + x;   // NATIVE (C17)\n            short *line = (short *)Buffer + (Pitch * y + x);\n            int clipL = clipped.left;\n",
-   "why": "Native only (lane C17, codex4 R740/R744: SAVE0029 faulted in Draw_Char's clipped blit, a 16-bit store, drawing a selected unit's team number at 800x600). The original's text always lands inside the surface it locked (Set_Surface clips the clip box to it). Natively a draw whose rows or columns would fall outside the locked surface is reported once on stderr (font: ...) with the surface, clip box and position, and the character is skipped, so the cause can be read instead of a fault. A draw inside the surface, every original case, is unchanged."
+   "new": "            if (!ra2port_font_rows_ok(this, Buffer, x, y, rows, clipped.left, clipped.right, ClipBox.left, ClipBox.top, ClipBox.right, ClipBox.bottom)) return unknown_2c + width + x;   // NATIVE (C17)\n            short *line = (short *)Buffer + ((long long)(int)Pitch * y + x);   // NATIVE (C17): signed, as VC6's 32-bit wrap\n            int clipL = clipped.left;\n",
+   "why": "Native only (lane C17, codex4 R740/R744/R749/R751: SAVE0029 faulted in Draw_Char's clipped blit, a 16-bit store, drawing a selected unit's team number at 800x600). The cause: the row pointer is Buffer + (Pitch * y + x) with Pitch unsigned, so a character starting left of the surface (x < 0) on its top row (y 0) gives a negative 32-bit offset that VC6's 32-bit pointer arithmetic wraps back into the surface but LP64/LLP64 zero-extends to about 8 GB past it; the offset is computed signed (the same address as VC6's wrap). Besides, The original's text always lands inside the surface it locked (Set_Surface clips the clip box to it). Natively a draw whose rows or columns would fall outside the locked surface is reported once on stderr (font: ...) with the surface, clip box and position, and the character is skipped, so the cause can be read instead of a fault. A draw inside the surface, every original case, is unchanged."
   },
   {
    "source": "src/recovered/bitfont.cpp",
    "old": "    short *line = (short *)Buffer + (Pitch * y + x);\n    while (height--) {\n",
-   "new": "    if (!ra2port_font_rows_ok(this, Buffer, x, y, height, x, x + width - 1, ClipBox.left, ClipBox.top, ClipBox.right, ClipBox.bottom)) return unknown_2c + width + x;   // NATIVE (C17)\n    short *line = (short *)Buffer + (Pitch * y + x);\n    while (height--) {\n",
-   "why": "Native only (lane C17, codex4 R740/R744: SAVE0029 faulted in Draw_Char's clipped blit, a 16-bit store, drawing a selected unit's team number at 800x600). The original's text always lands inside the surface it locked (Set_Surface clips the clip box to it). Natively a draw whose rows or columns would fall outside the locked surface is reported once on stderr (font: ...) with the surface, clip box and position, and the character is skipped, so the cause can be read instead of a fault. A draw inside the surface, every original case, is unchanged."
+   "new": "    if (!ra2port_font_rows_ok(this, Buffer, x, y, height, x, x + width - 1, ClipBox.left, ClipBox.top, ClipBox.right, ClipBox.bottom)) return unknown_2c + width + x;   // NATIVE (C17)\n    short *line = (short *)Buffer + ((long long)(int)Pitch * y + x);   // NATIVE (C17): signed, as VC6's 32-bit wrap\n    while (height--) {\n",
+   "why": "Native only (lane C17, codex4 R740/R744/R749/R751: SAVE0029 faulted in Draw_Char's clipped blit, a 16-bit store, drawing a selected unit's team number at 800x600). The cause: the row pointer is Buffer + (Pitch * y + x) with Pitch unsigned, so a character starting left of the surface (x < 0) on its top row (y 0) gives a negative 32-bit offset that VC6's 32-bit pointer arithmetic wraps back into the surface but LP64/LLP64 zero-extends to about 8 GB past it; the offset is computed signed (the same address as VC6's wrap). Besides, The original's text always lands inside the surface it locked (Set_Surface clips the clip box to it). Natively a draw whose rows or columns would fall outside the locked surface is reported once on stderr (font: ...) with the surface, clip box and position, and the character is skipped, so the cause can be read instead of a fault. A draw inside the surface, every original case, is unchanged."
   },
   {
    "source": "src/recovered/startup.cpp",
@@ -3268,6 +3268,69 @@
    "old": "#include \"shared/unknown_globals.hpp\"\n",
    "new": "#include \"shared/unknown_globals.hpp\"\n\nvoid Native_View_Asked(int x, int y);   // NATIVE (C16): link/native_map_zoom.cpp\n",
    "why": "Native addition (C16, Zoom gestures: zooming out below 1x; not original behaviour): with Zoom gestures on, the game frames the start for its larger screen, where the map's edge can move the point it asked for; the start's zoomed view is centred on the point asked (link/native_map_zoom.cpp Native_View_Asked). Off (the default and the ORIGINAL preset) the point is only recorded. This row: declares it.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/vqalib_unvq.cpp",
+   "old": "dst += count * 8 - rowbytes;",
+   "new": "dst += (int)(count * 8 - rowbytes);   // NATIVE (C17): signed, as VC6's 32-bit wrap",
+   "why": "Native only (lane C17 pitch sweep): a pointer advanced by an unsigned 32-bit difference that is negative (the step back from the end of a block's rows to the next block). VC6's 32-bit pointers wrap it back; LP64/LLP64 zero-extends it to about 4 GB ahead (the same class as Draw_Char's row pointer, codex4 R749/R751). The difference is taken as int, which gives the address VC6 computes."
+  },
+  {
+   "source": "src/recovered/vqalib_unvq.cpp",
+   "old": "dst += 8 - rowbytes;",
+   "new": "dst += (int)(8 - rowbytes);   // NATIVE (C17): signed, as VC6's 32-bit wrap",
+   "why": "Native only (lane C17 pitch sweep): a pointer advanced by an unsigned 32-bit difference that is negative (the step back from the end of a block's rows to the next block). VC6's 32-bit pointers wrap it back; LP64/LLP64 zero-extends it to about 4 GB ahead (the same class as Draw_Char's row pointer, codex4 R749/R751). The difference is taken as int, which gives the address VC6 computes."
+  },
+  {
+   "source": "src/recovered/unvqtblc.cpp",
+   "old": "out += count * 8 - block_height;",
+   "new": "out += (int)(count * 8 - block_height);   // NATIVE (C17): signed, as VC6's 32-bit wrap",
+   "why": "Native only (lane C17 pitch sweep): a pointer advanced by an unsigned 32-bit difference that is negative (the step back from the end of a block's rows to the next block). VC6's 32-bit pointers wrap it back; LP64/LLP64 zero-extends it to about 4 GB ahead (the same class as Draw_Char's row pointer, codex4 R749/R751). The difference is taken as int, which gives the address VC6 computes."
+  },
+  {
+   "source": "src/recovered/unvqtblc.cpp",
+   "old": "out += 8 * count - block_height;",
+   "new": "out += (int)(8 * count - block_height);   // NATIVE (C17): signed, as VC6's 32-bit wrap",
+   "why": "Native only (lane C17 pitch sweep): a pointer advanced by an unsigned 32-bit difference that is negative (the step back from the end of a block's rows to the next block). VC6's 32-bit pointers wrap it back; LP64/LLP64 zero-extends it to about 4 GB ahead (the same class as Draw_Char's row pointer, codex4 R749/R751). The difference is taken as int, which gives the address VC6 computes."
+  },
+  {
+   "source": "src/recovered/unvqtblc.cpp",
+   "old": "dst += 8 - block_row_stride;",
+   "new": "dst += (int)(8 - block_row_stride);   // NATIVE (C17): signed, as VC6's 32-bit wrap",
+   "why": "Native only (lane C17 pitch sweep): a pointer advanced by an unsigned 32-bit difference that is negative (the step back from the end of a block's rows to the next block). VC6's 32-bit pointers wrap it back; LP64/LLP64 zero-extends it to about 4 GB ahead (the same class as Draw_Char's row pointer, codex4 R749/R751). The difference is taken as int, which gives the address VC6 computes."
+  },
+  {
+   "source": "src/recovered/unvqtblc.cpp",
+   "old": "out += 8 * repeats - (int)(width << 2);",
+   "new": "out += (int)(8 * repeats - (int)(width << 2));   // NATIVE (C17): signed, as VC6's 32-bit wrap",
+   "why": "Native only (lane C17 pitch sweep): a pointer advanced by an unsigned 32-bit difference that is negative (the step back from the end of a block's rows to the next block). VC6's 32-bit pointers wrap it back; LP64/LLP64 zero-extends it to about 4 GB ahead (the same class as Draw_Char's row pointer, codex4 R749/R751). The difference is taken as int, which gives the address VC6 computes."
+  },
+  {
+   "source": "src/recovered/unvqtblc.cpp",
+   "old": "out += 8 * count - (int)(width << 2);",
+   "new": "out += (int)(8 * count - (int)(width << 2));   // NATIVE (C17): signed, as VC6's 32-bit wrap",
+   "why": "Native only (lane C17 pitch sweep): a pointer advanced by an unsigned 32-bit difference that is negative (the step back from the end of a block's rows to the next block). VC6's 32-bit pointers wrap it back; LP64/LLP64 zero-extends it to about 4 GB ahead (the same class as Draw_Char's row pointer, codex4 R749/R751). The difference is taken as int, which gives the address VC6 computes."
+  },
+  {
+   "source": "src/recovered/conquer.cpp",
+   "old": "    while (unknown_int_a40d48 != 0) {\n",
+   "new": "    Native_Dialog_Screen(true);   // NATIVE (C16): link/native_map_zoom.cpp\n    while (unknown_int_a40d48 != 0) {\n",
+   "why": "Native addition (C16, Zoom gestures: zooming out below 1x; not original behaviour): with Zoom gestures on the game's screen is twice the window's in its map column, and the in-game dialogs (the in-game menu, Abort Mission, Save/Load, Game Controls, Diplomacy, the message boxes) are laid out for the screen size; for their time the screen size is the window's, so each is laid out as the original lays it out at the window's size and the host shows it at the window's scale (link/native_map_zoom.cpp Native_Dialog_Screen). Off (the default and the ORIGINAL preset): nothing changes. This row: Special_Dialog 0x00481850 before its dialog loop.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/conquer.cpp",
+   "old": "    UpdateWindow(MainWindow);\n",
+   "new": "    Native_Dialog_Screen(false);   // NATIVE (C16)\n    UpdateWindow(MainWindow);\n",
+   "why": "Native addition (C16, Zoom gestures: zooming out below 1x; not original behaviour): with Zoom gestures on the game's screen is twice the window's in its map column, and the in-game dialogs (the in-game menu, Abort Mission, Save/Load, Game Controls, Diplomacy, the message boxes) are laid out for the screen size; for their time the screen size is the window's, so each is laid out as the original lays it out at the window's size and the host shows it at the window's scale (link/native_map_zoom.cpp Native_Dialog_Screen). Off (the default and the ORIGINAL preset): nothing changes. This row: after the loop, the screen size restored.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/conquer.cpp",
+   "old": "void __fastcall Special_Dialog_00481850()\n{\n",
+   "new": "void Native_Dialog_Screen(bool on);   // NATIVE (C16): link/native_map_zoom.cpp\nvoid __fastcall Special_Dialog_00481850()\n{\n",
+   "why": "Native addition (C16, Zoom gestures: zooming out below 1x; not original behaviour): with Zoom gestures on the game's screen is twice the window's in its map column, and the in-game dialogs (the in-game menu, Abort Mission, Save/Load, Game Controls, Diplomacy, the message boxes) are laid out for the screen size; for their time the screen size is the window's, so each is laid out as the original lays it out at the window's size and the host shows it at the window's scale (link/native_map_zoom.cpp Native_Dialog_Screen). Off (the default and the ORIGINAL preset): nothing changes. This row: declares it.",
    "verified": false
   }
  ]

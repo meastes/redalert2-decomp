@@ -411,6 +411,17 @@ if(RA2_NATIVE_SDL)
       # The run's own limit (420 s; about 40 s alone) ends it before ctest's timeout, so a
       # stalled run still prints its milestones and the main thread's backtrace (C5).
       set_tests_properties(native-census PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 480)
+      # 8f. Pointers moved by negative unsigned 32-bit offsets (C17 pitch sweep; codex4 R749/R751 SAVE0029):
+      #     link/selftest_draw.cpp in the game binary; under Wine on the Windows build.
+      if(WIN32)
+        if(RA2_NATIVE_WINE)
+          add_test(NAME native-draw-selftest COMMAND "${CMAKE_COMMAND}" -E env RA2_NATIVE_DRAW_SELFTEST=1
+                   "WINEPREFIX=${CMAKE_CURRENT_BINARY_DIR}/wine/draw" WINEDEBUG=-all
+                   "${RA2_NATIVE_WINE}" $<TARGET_FILE:ra2-native>)
+        endif()
+      elseif(NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
+        add_test(NAME native-draw-selftest COMMAND "${CMAKE_COMMAND}" -E env RA2_NATIVE_DRAW_SELFTEST=1 $<TARGET_FILE:ra2-native>)
+      endif()
       # 8e. A loaded game abandoned and the game ended by the menus' Exit (C15f, codex4
       #     R710/R719): WinMain and the exit-time teardown end cleanly (tests/exit_route.py).
       add_test(NAME native-exit-route COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/exit_route.py"

@@ -11,13 +11,16 @@
    with `refile_unit.py unjoin UNIT --base REV`);
 3. module_check.py must pass;
 4. the native tree must configure, build and pass ctest (the configured build folder is
-   reused: it carries the machine's census paths), with the link closure at its baseline.
-Writes OUTPUT/join-gate.json and exits 1 on any failure. No join lands without it.
+   reused: it carries the machine's census paths), with the link closure at its baseline
+   (native_gate.py).
+A native-only change (gate_scope.py, or --scope native) runs step 4 alone and records the exact
+whole-file receipt it rests on. build.py takes the full-build lock for step 1 only, so a wrapper
+should not hold it around the whole gate. Writes OUTPUT/join-gate.json (with stage timings) and
+exits 1 on any failure. No join lands without it.
 """
 import argparse
 import json
 from pathlib import Path
-import re
 import subprocess
 import sys
 
@@ -78,68 +81,71 @@ def main():
     parser.add_argument('--base', required=True, help='the revision before the joins')
     parser.add_argument('--native-build', type=Path, default=REPOSITORY / 'build/native-play')
     parser.add_argument('--output', type=Path, default=REPOSITORY / 'build/join-gate')
+    parser.add_argument('--scope', choices=['auto', 'exact', 'native'], default='auto',
+                        help='auto (gate_scope.py on BASE..HEAD): a native-only change skips steps 1-3')
     args = parser.parse_args()
     out = args.output.resolve()
     out.parent.mkdir(parents=True, exist_ok=True)
     python = sys.executable
-    receipt = dict(base=args.base, checks={})
+    import gate_scope
+    import native_gate
+    from job_control import Stages
+    stages = Stages()
+    scope = args.scope
+    if scope == 'auto':
+        scope = gate_scope.scope(gate_scope.changed_paths(args.base))
+        scope = 'exact' if scope == 'none' else scope
+    receipt = dict(base=args.base, scope=scope, checks={}, stages=stages.items)
     ok = True
-    # 1. whole-file build
-    build_dir = out / 'build'
     import shutil
-    shutil.rmtree(build_dir, ignore_errors=True)
-    code = run(['./build.command', '--keep-intermediates', '--output', str(build_dir)], out.parent / 'join-gate-build.log')
-    found = None
-    if (build_dir / 'build-receipt.json').exists():
-        found = json.loads((build_dir / 'build-receipt.json').read_text())
-    exact = code == 0 and found is not None and found.get('whole_file_exact') and found.get('output_sha256') == TARGET_SHA256
-    receipt['checks']['whole_file_exact'] = dict(ok=bool(exact), sha256=found and found.get('output_sha256'),
-                                                 tracked_sources=found and found.get('tracked_sources'))
-    ok &= bool(exact)
-    import whole_file_receipt
-    whole_file_receipt.record('join_gate.py', bool(exact), found and found.get('output_sha256'), base=args.base)
-    # 2. module maps and the RTTI condition
-    if exact:
-        run([python, '-B', 'tools/original_target/module_ledger.py', str(build_dir), '--write'], out.parent / 'join-gate-maps.log')
-        units = joined_units(args.base)
-        failed = rtti_check(units, args.base)
-        receipt['checks']['rtti'] = dict(ok=not failed, units=len(units), failed=failed)
-        ok &= not failed
-    # 3. module agreement
-    code = run([python, '-B', 'tools/original_target/module_check.py'], out.parent / 'join-gate-module-check.log')
-    receipt['checks']['module_check'] = dict(ok=code == 0)
-    ok &= code == 0
-    # 4. native configure, build, ctest, link closure
-    native = args.native_build.resolve()
-    if not (native / 'CMakeCache.txt').exists():
-        receipt['checks']['native'] = dict(ok=False, reason='%s is not a configured native build' % native)
-        ok = False
+    build_dir = out / 'build'
+    if scope == 'native':
+        # Nothing the exact build reads changed: no full-build lock, no whole-file build; the gate
+        # rests on the last exact whole-file receipt for an ancestor of HEAD.
+        resting = gate_scope.resting_receipt()
+        receipt['rests_on_whole_file_receipt'] = resting
+        receipt['checks']['whole_file_exact'] = dict(ok=resting is not None, skipped='native-only change',
+                                                     rests_on=resting and resting['commit'])
+        ok &= resting is not None
     else:
-        steps = [('configure', ['cmake', '-S', 'native', '-B', str(native)]), ('build', ['cmake', '--build', str(native)]),
-                 ('ctest', ['ctest', '--test-dir', str(native)])]
-        result = {}
-        for name, command in steps:
-            code = run(command, out.parent / ('join-gate-native-%s.log' % name))
-            result[name] = code == 0
-            if code:
-                break
-        log = (out.parent / 'join-gate-native-ctest.log')
-        text = log.read_text() if log.exists() else ''
-        passed = re.search(r'\d+% tests passed(?:, \d+ tests failed)? out of \d+', text)
-        closure = re.search(r'link-closure baseline: (\d+) undefined \(baseline (\d+)\) ok', text)
-        if closure is None and (native / 'Testing/Temporary/LastTest.log').exists():
-            closure = re.search(r'link-closure baseline: (\d+) undefined \(baseline (\d+)\) ok',
-                                (native / 'Testing/Temporary/LastTest.log').read_text())
-        result.update(tests=passed.group(0) if passed else None,
-                      link_closure=int(closure.group(1)) if closure else None)
-        native_ok = all(result.get(n) for n, _ in steps) and closure is not None
-        receipt['checks']['native'] = dict(ok=native_ok, **result)
-        ok &= native_ok
+        # 1. whole-file build (build.py takes the full-build lock and heavy-job slots itself)
+        shutil.rmtree(build_dir, ignore_errors=True)
+        with stages('whole-file build'):
+            code = run(['./build.command', '--keep-intermediates', '--output', str(build_dir)], out.parent / 'join-gate-build.log')
+        found = None
+        if (build_dir / 'build-receipt.json').exists():
+            found = json.loads((build_dir / 'build-receipt.json').read_text())
+        exact = code == 0 and found is not None and found.get('whole_file_exact') and found.get('output_sha256') == TARGET_SHA256
+        receipt['checks']['whole_file_exact'] = dict(ok=bool(exact), sha256=found and found.get('output_sha256'),
+                                                     tracked_sources=found and found.get('tracked_sources'),
+                                                     build_stages=found and found.get('stages'))
+        ok &= bool(exact)
+        import whole_file_receipt
+        whole_file_receipt.record('join_gate.py', bool(exact), found and found.get('output_sha256'), base=args.base)
+        # 2. module maps and the RTTI condition
+        if exact:
+            with stages('module maps and RTTI'):
+                run([python, '-B', 'tools/original_target/module_ledger.py', str(build_dir), '--write'], out.parent / 'join-gate-maps.log')
+                units = joined_units(args.base)
+                failed = rtti_check(units, args.base)
+            receipt['checks']['rtti'] = dict(ok=not failed, units=len(units), failed=failed)
+            ok &= not failed
+        # 3. module agreement
+        with stages('module check'):
+            code = run([python, '-B', 'tools/original_target/module_check.py'], out.parent / 'join-gate-module-check.log')
+        receipt['checks']['module_check'] = dict(ok=code == 0)
+        ok &= code == 0
+    # 4. native configure, build, ctest, link closure (heavy-job slots, never the full-build lock)
+    native = native_gate.gate(args.native_build, out.parent, stages=stages)
+    receipt['checks']['native'] = dict(ok=native['ok'], **{k: v for k, v in native.items() if k not in ('ok', 'stages')})
+    ok &= native['ok']
     receipt['ok'] = bool(ok)
+    receipt['seconds'] = stages.total()
     out.mkdir(parents=True, exist_ok=True)
     (out / 'join-gate.json').write_text(json.dumps(receipt, indent=1) + '\n')
     shutil.rmtree(build_dir, ignore_errors=True)      # the kept intermediates are large; the maps are written
-    print(json.dumps(receipt, indent=1))
+    print(native_gate.table(native, stages), file=sys.stderr)
+    print(json.dumps({k: v for k, v in receipt.items() if k != 'stages'}, indent=1))
     raise SystemExit(0 if ok else 1)
 
 

@@ -195,6 +195,60 @@ tracked-source reproduction. Native build entrypoints are preserved separately
 under `historical/native-reconstruction/`; old root native caches are stale after
 the move and were not tested during this migration.
 
+## Gates, locks and stage timings (lane P1, 2026-11-15)
+
+**Stage timings.** build.py writes `stages` (seconds per stage, in order) and `lock_waits`
+(seconds each Wine step waited for the compiler lock) into build-receipt.json and prints the
+table at the end. `tools/original_target/native_gate.py` runs the native gate (configure,
+compile and link, ctest, optional `--played COMMAND`) and writes DIR/native-gate.json: stage
+seconds, each test's seconds and status (ctest JUnit), the slowest compile steps (.ninja_log),
+the link-closure count and the whole-file receipt the native tree rests on. join_gate.py
+records the same stages.
+
+**Which gate.** `gate_scope.py --base REV`: a change that touches only `native/` (native tests,
+docs) is scope `native`: native gate only, no full-build lock, no whole-file build; its receipt
+names the last exact whole-file receipt for an ancestor of HEAD (`rests_on_whole_file_receipt`).
+Anything that touches `src/`, `manifests/`, the build tools or `build.command` is scope `exact`:
+whole-file exact gate, then native compile and ctest. join_gate.py applies it (`--scope auto`).
+
+**Locks.** build.py takes the shared full-build lock itself (the mkdir lock of
+private/tools/fullbuild_lock.sh, build/owner-watch/fullbuild.lock in the main checkout, reentrant
+under a wrapper that already holds it), then heavy-job slots. The native gate never takes the
+full-build lock. Wrappers that hold the full-build lock around all of join_gate.py (lane gate.sh
+scripts) keep the native stage under it; drop the wrapper's lock, the build takes it.
+Optional config keys `gate_wine_prefix` and `gate_lock` (beside `lock`) give whole-file builds
+their own Wine prefix and compiler lock, so a gate does not queue behind lane candidate compiles
+on the shared compiler lock (785 s of the 1,156 s build of 2026-11-14).
+
+**Heavy-job cap.** `job_control.py` keeps a counting semaphore of flock'd slot files in
+build/owner-watch/heavy/ (count: RA2_HEAVY_SLOTS, else the integer in build/owner-watch/heavy/slots,
+else 4; 0 turns it off). Weights: whole-file build 2, native compile 2, ctest 1 per two parallel
+tests. `job_control.py run --weight N [--full-build] -- COMMAND` runs any other heavy command
+under it; `job_control.py status` lists the holders. Order is always full-build lock, then slots.
+
+Measured 2026-11-15 on the 10-core 16 GB Mac after the restart (load 4-10, lane C16 running):
+
+| Stage | Before | After |
+|---|---:|---:|
+| whole-file build: load and audit setup | 71.7 s | 13.4 s |
+| compile (object cache; 23 / 0 groups compiled) | 7.5 s | 3.0 s |
+| verify fresh objects | 37.8 s | 48.8-62.1 s (load) |
+| integrate and link | 25.2 s | 25.8-27.8 s |
+| final input checks | 75.9 s | 28.0-33.5 s |
+| **whole-file build total** | **220 s** | **127-142 s** |
+| native gate: configure | 12.6 s | 11.8 s |
+| native compile and link (cold, 1,527 steps) | 27.8 s | 12.5 s incremental |
+| ctest, 30 tests | 1,069.5 s serial | 270.3 s `--ctest-jobs 4` |
+| **native gate total** | **1,110 s** | **295 s** |
+
+The setup and final checks were spent re-reading, re-hashing and re-scanning each module source
+once per row (validate_catalog); they now read each source once. ctest is real-time bound (the
+games run frames at game speed: load stays near 4 at -j4); its critical path is
+native-original-save-write (186 s). A parallel run's failures are run again alone (the known
+frame-timing flakes; native-zoom-steps failed once at -j4 and passed alone) and both results stay
+in the receipt. On this Mac about 11 GB is in use before any heavy job; a whole-file build peaks
+near 2.9 GB, a cold native compile near 1.2 GB of clang, one ctest game near 0.25 GB.
+
 ## Fixed compile folder (build environment, 2026-11-13)
 
 Every compile runs at one path layout (`build.compile_units`, all tools that compile):

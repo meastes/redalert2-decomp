@@ -421,10 +421,13 @@ def validate_data_bound_by(row, source_rows):
             'data_bound_by differs between rows of one source: %08x' % row['entry'])
 
 
-def validate_declarations_only(row, data):
+def validate_declarations_only(row, data, switched=None):
     """Refuse a declarations-only flag that disagrees with the row's source text and body;
-    return whether the row is flagged."""
-    expected = bool(DECLARATIONS_ONLY_SWITCH.search(data)) and references_container_member(row)
+    return whether the row is flagged. `switched`: the text's DECLARATIONS_ONLY_SWITCH search,
+    when the caller already made it."""
+    if switched is None:
+        switched = bool(DECLARATIONS_ONLY_SWITCH.search(data))
+    expected = switched and references_container_member(row)
     flag, note = row.get('declarations_only'), row.get('declarations_only_note')
     if not expected:
         require(flag is None and note is None,
@@ -518,7 +521,7 @@ def validate_includes(data, headers, name=None, sdk=None):
     # Apply preprocessing character/line/comment phases before recognizing
     # directives, so comments or continuations cannot hide a dependency.
     text = data.decode()
-    for old, new in [('??=', '#'), ('??/', chr(92)), ('??\'', '^'), ('??(', '['),
+    for old, new in [] if '??' not in text else [('??=', '#'), ('??/', chr(92)), ('??\'', '^'), ('??(', '['),
                      ('??)', ']'), ('??!', '|'), ('??<', '{'), ('??>', '}'), ('??-', '~')]:
         text = text.replace(old, new)
     text = re.sub(r'\\\r?\n', '', text)
@@ -529,6 +532,7 @@ def validate_includes(data, headers, name=None, sdk=None):
     includes = set()
     switch = []    # one entry per open conditional: inside an RA2_SDK_HEADERS-true branch
     for line in text.splitlines():
+        if '#' not in line: continue     # (no directive without one; `%:` became `#` above)
         directive = re.match(r'^\s*#\s*(\w+)', line)
         if not directive: continue
         kind = directive[1]
@@ -624,6 +628,7 @@ def validate_catalog(repository, catalog, modules=True):
     for row in catalog['regions']:
         module_rows.setdefault(row['source'], []).append(row)
     policies = {p['id'] for p in catalog['populations'] if p.get('compiler_output_policy')}
+    sources = {}
     for row in sorted(catalog['regions'], key=lambda r: r['entry']):
         va = row['entry']
         # One region, one unit: a second row at an accepted entry (a function claimed by the
@@ -651,10 +656,15 @@ def validate_catalog(repository, catalog, modules=True):
             require(row['population'] not in policies and row['bound_population'] not in policies,
                     'Joined row in a closed compiler-output population: %08x' % va)
         require(row['options'] in RECORDED_OPTIONS, 'Unsupported accepted options')
-        resolved = source_path(repository, row['source'])
-        data = read[resolved] = resolved.read_bytes()
-        require(sha(data) == row['source_sha256'], 'Source hash drift')
-        validate_includes(data, headers)
+        # A module source backs several rows: read, hash and scan its includes once (same bytes,
+        # same result); each row's own hash is still compared.
+        if row['source'] not in sources:
+            resolved = source_path(repository, row['source'])
+            data = read[resolved] = resolved.read_bytes()
+            sources[row['source']] = (data, sha(data), bool(DECLARATIONS_ONLY_SWITCH.search(data)))
+            validate_includes(data, headers)
+        data, digest, switched = sources[row['source']]
+        require(digest == row['source_sha256'], 'Source hash drift')
         if len(module_rows.get(row['source'], ())) > 1:
             if row['source'] not in module_blocks:
                 module_blocks[row['source']] = module_inline_asm_blocks(
@@ -666,7 +676,7 @@ def validate_catalog(repository, catalog, modules=True):
         validate_count_calibrated(row)
         validate_split_declaration(row)
         validate_unit_evidence(row, module_rows.get(row['source'], ()))
-        validate_declarations_only(row, data)
+        validate_declarations_only(row, data, switched)
         validate_data_bound_by(row, module_rows.get(row['source'], ()))
         entries.add(va); orders.add(row['source_order'])
         cursor = va + row['full_extent_bytes']

@@ -761,14 +761,17 @@ native fixups at WinMain 0x0068E280 after RA2.INI and at Set_Display_Mode 0x0054
 game's zoom is the player's times that render scale, so 0.5x shows the art at its own pixels. The
 host shows the sidebar at Game interface size times the render scale and the command bar's left part
 twice as large, so the window's layout is unchanged; the menus, their dialogs and the loading screen
-show the screen's centre at the window's scale (`update_layout_scaled`). The in-game menu, which the
-game lays out for its larger screen (its backdrop at the map column's top left, its buttons at the
-sidebar column's top and bottom, the Save, Load and Game Controls screens' controls at the map
-column's centre), is shown as at the window's size: a window's size of the map column (the backdrop,
-or the part at its centre while that screen's controls are there, or around a smaller dialog on
-top), the command bar's left part, and the sidebar column's top and its bottom 100 rows
-(`ra2port_top_dialog_rect`, `ra2port_top_dialog_controls`). The score screen is not yet checked
-at the render scale (a skirmish's abort returns to the skirmish setup). A start is centred on the point
+show the screen's centre at the window's scale (`update_layout_scaled`). The in-game dialogs (the
+in-game menu, Abort Mission, Save, Load, Game Controls, Diplomacy, their message boxes) are laid
+out at the window's size: for Special_Dialog's loop (native fixup at 0x00481850) the screen size
+0x008523E0 x 0x008523E4 is the window's and the interface art's two layouts (0x006F33B0, 0x006F4C90)
+are made again for it, so each dialog is laid out at the screen's top left as the original lays it
+out at the window's size (the Abort screen's backdrop, message and column, the column's bottom
+button), and the host shows that part at the window's scale (`Native_Dialog_Screen`,
+`ra2_enh_dialog_screen`); the screen size and the layouts are restored when the loop ends (the
+user's Duo report). A dialog in play outside that loop is shown through regions as a fallback
+(`ra2port_top_dialog_rect`, `ra2port_top_dialog_controls`). The score screen is not yet checked at
+the render scale (a skirmish's abort returns to the skirmish setup). A start is centred on the point
 the game asked for (its base) before the larger screen's map edge moved it (native fixup at
 Tactical::Set_Tactical_Position 0x006A6640, `Native_View_Asked`).
 Off by default and in the Original preset (the Enhanced preset leaves it). ctest
@@ -776,8 +779,9 @@ Off by default and in the Original preset (the Enhanced preset leaves it). ctest
 to 1.37x, 2.6x and out to 0.5x, checking the view logged, the window mapping both ways over the shown map, a
 click through the window on a given tank at each zoom, and that the sidebar stays put;
 `native-zoom-pinch` plays a scripted two-finger pinch out and back in; `native-zoom-menu` opens
-the in-game menu at the render scale, its Save screen, Back and Resume Mission through the window
-and checks the layouts shown. The input script's `dump` (also timed: `dN+MS dump`) writes the
+the in-game menu at the render scale, its Save screen, Back, Abort Mission and the Abort screen's
+Resume Mission through the window where the original at the window's size has them, and checks the
+dialogs were laid out at the window's size and the game plays on. The input script's `dump` (also timed: `dN+MS dump`) writes the
 last picture to RA2_NATIVE_WINDOW_DUMP whatever its period: a dialog idle in its own loop presents
 nothing new.
 
@@ -980,6 +984,24 @@ loads Allied 1 (`ALL01T.sav` in the census data folder) through the menus with
 `--load-save=<file>` (a test run's Resume at start: `--run-to=frames --frames=N` ends
 N frames into the loaded game) and fails on a trap, a fault, a swizzle failure, a type
 read without a map, or no object converted.
+
+### Pointer offsets in unsigned 32-bit arithmetic (lane C17)
+
+VC6's pointers are 32 bits, so a pointer moved by an unsigned 32-bit offset that is really
+negative (a row pointer `Buffer + (Pitch * y + x)` with x < 0, a step back `dst += 8 -
+rowbytes`) wraps back to the right address; on LP64/LLP64 the offset is zero-extended and the
+pointer lands about 4 GB (8 GB for 16-bit pixels) away. That faulted SAVE0029 on Windows
+(codex4 R740-R751: a selected unit's team number at the top left). `tools/pitch_wrap_check.yaml`
+is a clang-tidy query check for such offsets (a pointer offset of type unsigned int with a
+signed operand inside); over the Mac and Windows trees it found the two Draw_Char row
+pointers and seven steps in the VQA C decoders (vqalib_unvq.cpp, unvqtblc.cpp). Each is
+fixed in port/fixups.json by taking the offset as signed ("signed, as VC6's 32-bit wrap"),
+the address VC6 computes. The rest of its hits, and of a broader query over every unsigned
+offset, are offsets that cannot be negative (counts, masks, hashes, positive pitches,
+`strlen() - 1` on non-empty strings). ctest `native-draw-selftest` (link/selftest_draw.cpp,
+RA2_NATIVE_DRAW_SELFTEST=1 in the game binary, under Wine on Windows) draws one negative-offset
+case per family: text (Draw_Char at -4,0 and 4,-2) and VQA (UnVQ2_4x4_Table, two blocks: the
+second was lost); each fails without its fixup.
 
 ## Layers
 

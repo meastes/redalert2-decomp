@@ -264,6 +264,7 @@ bool is_fullscreen() { return window && (SDL_GetWindowFlags(window) & SDL_WINDOW
 // does not fit the display's usable area.
 int render_scale = 1;                       // the game's screen to the window's (lane C16; update_layout_scaled)
 extern "C" int ra2_enh_render_scale(void);
+extern "C" int ra2_enh_dialog_screen(void);   // platform/sdl/enhancements.cpp: in-play dialogs at the window's size (C16)
 void fit_window(int width, int height)
 {
     if (!window || is_fullscreen()) return;
@@ -353,6 +354,17 @@ bool update_layout_scaled()
         double scale = SDL_min(usable.w / nominal_w, usable.h / nominal_h);
         split_on = zoom_on = false;
         split_scale = scale;
+        if (ra2_enh_dialog_screen()) {
+            // The in-play dialogs laid out at the window's size at the screen's top left (lane C16,
+            // link/native_map_zoom.cpp Native_Dialog_Screen): that part at the window's scale, as the
+            // original at the window's size.
+            double px = usable.x + (usable.w - nominal_w * scale) / 2, py = usable.y + (usable.h - nominal_h * scale) / 2;
+            picture = hostos::Rect{px, py, pic_w * scale, pic_h * scale};
+            regions.clear();
+            fprintf(stderr, "host: layout: in-play dialogs at %.0fx%.0f, the screen's top left\n", nominal_w, nominal_h);
+            if (system_toolbar) hostos::keys_button_place(keys_rect());
+            return true;
+        }
         int d[4];
         if (ra2_enh_game_in_play() && ra2port_menu_shown() && !ra2port::movie_playing() && ra2port_top_dialog_rect(d)) {
             // A dialog in play (the in-game menu and the dialogs it opens). The game lays it out for
@@ -1497,12 +1509,13 @@ void pump_events()
     if (render_scale > 1) {
         // A render scale above 1 (lane C16): the layout of a dialog in play follows the dialog on top.
         // (its handle, rectangle and visible controls: the menu's screens change them).
-        static int shown[6] = {0, 0, 0, 0, 0, 0};
-        int d[6] = {0, 0, 0, 0, 0, 0};
+        static int shown[7] = {0, 0, 0, 0, 0, 0, 0};
+        int d[7] = {0, 0, 0, 0, 0, 0, 0};
         if (!ra2port_top_dialog_rect(d)) d[2] = d[3] = 0;
         int c[64][4];
         d[4] = (int)(ra2port_top_dialog() & 0x7FFFFFFF);
         d[5] = ra2port_top_dialog_controls(c, 64);
+        d[6] = ra2_enh_dialog_screen();
         if (memcmp(d, shown, sizeof d) != 0) {
             memcpy(shown, d, sizeof d);
             layout_dirty = true;

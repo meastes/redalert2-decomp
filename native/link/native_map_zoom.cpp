@@ -41,6 +41,7 @@ extern "C" __attribute__((weak)) void ra2_enh_in_play(int) {}
 extern "C" __attribute__((weak)) void ra2_enh_map_show(double, double, double, double) {}
 extern "C" __attribute__((weak)) int ra2_enh_zoom_gestures(void) { return 0; }
 extern "C" __attribute__((weak)) void ra2_enh_set_render_scale(int) {}
+extern "C" __attribute__((weak)) void ra2_enh_set_dialog_screen(int) {}
 
 namespace {
 double game_zoom = 1.0;      // the zoom of the game running (taken at its start or load)
@@ -314,4 +315,52 @@ extern "C" void Native_Render_Size(int *w, int *h)
     *w = (nw - 168) * scale + 168;
     *h = (nh - 32) * scale + 32;
     fprintf(stderr, "zoom: render scale %d: the game's screen %dx%d for %dx%d\n", scale, *w, *h, nw, nh);
+}
+
+// The in-play dialogs at the window's size (native fixup: Special_Dialog 0x00481850 around its dialog
+// loop; lane C16, the user's Duo report of the Abort Mission screen): the game lays out its full-screen
+// dialogs for the screen size (0x008523E0 x 0x008523E4: the dialog's size, its backdrop and sidebar
+// column art, its controls centred or anchored to its edges), and at render scale 2 that is the larger
+// screen, the backdrop left in a corner. For the dialogs' time the screen size is the window's
+// ((w - 168) / 2 + 168 by (h - 32) / 2 + 32): each dialog is laid out at the top left of the screen as the
+// original lays it out at the window's size, and the host shows that part at the window's scale
+// (ra2_enh_set_dialog_screen). Restored when the loop ends; at render scale 1 nothing changes.
+void __fastcall Unknown_Reset_Art_006F33B0(int width, int height);   // txtlabel2.cpp: the interface art's layout for a size
+extern bool unknown_flag_ac119c;                                      // 0x00AC119C: that layout made
+void __fastcall Unknown_6F5400();                                     // txtlabel2.cpp: frees the sidebar art's layout
+void __fastcall Unknown_Layout_Sidebar_006F4C90(int width, int height);   // and makes it for a size
+extern bool unknown_flag_ac11b0;                                      // 0x00AC11B0: that layout made
+int Native_Sidebar_Height(int screen_height);                        // link/native_enhancements.cpp
+// Both interface art layouts made again for a screen width (the sidebar art's height is the
+// sidebar's, Native_Sidebar_Height of the real screen, the same at both sizes).
+static void relayout_art(int width, int height, int screen_height)
+{
+    if (unknown_flag_ac119c) Unknown_Reset_Art_006F33B0(width, height);
+    if (unknown_flag_ac11b0) {
+        Unknown_6F5400();
+        Unknown_Layout_Sidebar_006F4C90(width, Native_Sidebar_Height(screen_height));
+    }
+}
+void Native_Dialog_Screen(bool on)
+{
+    static int saved_w = 0, saved_h = 0;
+    static bool set = false;
+    if (on && render_scale > 1 && !set) {
+        saved_w = unknown_8523e0;
+        saved_h = unknown_8523e4;
+        unknown_8523e0 = (saved_w - 168) / render_scale + 168;
+        unknown_8523e4 = (saved_h - 32) / render_scale + 32;
+        set = true;
+        // The interface art's layouts (the dialogs' backdrop and sidebar column, the places of the
+        // column's bottom buttons) made again for that size, as a mode change makes them.
+        relayout_art(unknown_8523e0, unknown_8523e4, saved_h);
+        ra2_enh_set_dialog_screen(1);
+        fprintf(stderr, "zoom: in-play dialogs at %dx%d (the screen %dx%d)\n", unknown_8523e0, unknown_8523e4, saved_w, saved_h);
+    } else if (!on && set) {
+        unknown_8523e0 = saved_w;
+        unknown_8523e4 = saved_h;
+        set = false;
+        relayout_art(saved_w, saved_h, saved_h);
+        ra2_enh_set_dialog_screen(0);
+    }
 }
