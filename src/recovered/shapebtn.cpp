@@ -14,6 +14,7 @@
 
 // From mischa85/RedAlert2 dbca015 src/shapebtn.cpp (matching RA2 1.006 decomp; TibSun shapebtn.cpp); modified:
 // Parameter names from mischa85/RedAlert2 392e904 src/shapebtn.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/shapebtn.cpp where both functions declare the same local types (names only).
 // the function bodies are this tree's accepted ones (the shape is the raw shape file, not ShapeSet; the
 // drawing call is CC_Draw_Shape with its full argument list) (modules.json source_gaps).
 
@@ -232,8 +233,8 @@ int ShapeButtonClass::Draw_Me(int forced)
         } else {
             shapenum = IsPressed ? 1 : 0;
         }
-        Surface *surface = DrawOnSidebar ? SidebarSurface : unknown_surface_83995c;
-        CC_Draw_Shape(surface, (ConvertClass *)ShapeDrawer, (ShapeFileStruct const *)ShapeData, shapenum,
+        Surface *surf = DrawOnSidebar ? SidebarSurface : unknown_surface_83995c;
+        CC_Draw_Shape(surf, (ConvertClass *)ShapeDrawer, (ShapeFileStruct const *)ShapeData, shapenum,
                       Point2D(X + DrawOffsetX, Y + DrawOffsetY), unknown_window_839640, DrawFaded ? 0x800 : 0,
                       0, 0, 0, 1000, 0, 0, Point2D(0, 0));
         IsDrawn = true;

@@ -13,6 +13,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/mpmath.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/mpmath.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/mpmath.cpp where both functions declare the same local types (names only).
 
 // mpmath.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -409,8 +410,8 @@ int __fastcall XMP_DER_Length_Encode(unsigned long length, unsigned char *output
     } else {
         output[0] = (unsigned char)(Length_Bytes(length) | 0x80);
         header_length = 1;
-        for (int index = Length_Bytes(length); index != 0; index--) {
-            output[header_length++] = (unsigned char)(length >> ((index - 1) * 8));
+        for (int byte_counter = Length_Bytes(length); byte_counter != 0; byte_counter--) {
+            output[header_length++] = (unsigned char)(length >> ((byte_counter - 1) * 8));
         }
     }
     return header_length;
@@ -446,12 +447,12 @@ int __fastcall XMP_DER_Encode(digit const *from, unsigned char *output, int prec
 {
     unsigned char buffer[MAX_UNIT_PRECISION * sizeof(digit) + 1];
 
-    int header_length = 0;
-    unsigned number_length = XMP_Encode(buffer, from, precision);
-    output[header_length++] = 0x02;
-    header_length += XMP_DER_Length_Encode(number_length, &output[header_length]);
-    memcpy(&output[header_length], buffer, number_length);
-    return header_length + number_length;
+    int header_count = 0;
+    unsigned number_count = XMP_Encode(buffer, from, precision);
+    output[header_count++] = 0x02;
+    header_count += XMP_DER_Length_Encode(number_count, &output[header_count]);
+    memcpy(&output[header_count], buffer, number_count);
+    return header_count + number_count;
 }
 
 
@@ -1091,19 +1092,19 @@ void __fastcall XMP_Init(digit *number, digit value, int precision)
 
 int __fastcall XMP_Count_Bits(digit const *number, int precision)
 {
-    int sigdigits = XMP_Significance(number, precision);
-    if (!sigdigits) {
+    int sub_precision = XMP_Significance(number, precision);
+    if (!sub_precision) {
         return 0;
     }
 
-    int bits = sigdigits * UNITSIZE;
-    number += sigdigits - 1;
-    digit bitmask = UPPER_MOST_BIT;
-    while (!(*number & bitmask)) {
-        bitmask >>= 1;
-        bits--;
+    int total_bit_count = sub_precision * UNITSIZE;
+    number += sub_precision - 1;
+    digit high_bit_mask = UPPER_MOST_BIT;
+    while (!(*number & high_bit_mask)) {
+        high_bit_mask >>= 1;
+        total_bit_count--;
     }
-    return bits;
+    return total_bit_count;
 }
 
 
@@ -2532,9 +2533,9 @@ bool __fastcall XMP_Fermat_Test(digit const *candidate_prime, unsigned rounds, i
 
     for (unsigned i = 0; i < rounds; i++) {
         digit result[MAX_UNIT_PRECISION];
-        digit small[MAX_UNIT_PRECISION];
-        XMP_Init(small, primeTable[i], precision);
-        XMP_Exponent_Mod(result, small, term, candidate_prime, precision);
+        digit small_prime[MAX_UNIT_PRECISION];
+        XMP_Init(small_prime, primeTable[i], precision);
+        XMP_Exponent_Mod(result, small_prime, term, candidate_prime, precision);
         if (!XMP_Test_Eq_Int(result, 1, precision)) {
             return false;
         }

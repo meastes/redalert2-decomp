@@ -14,6 +14,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/trigtype.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/trigtype.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/trigtype.cpp where both functions declare the same local types (names only).
 
 // trigtype.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -177,14 +178,14 @@ TriggerTypeClass::~TriggerTypeClass()
 
 bool TriggerTypeClass::Is_Cross_Vertical() const
 {
-    bool result = false;
-    for (TEventClass *item = FirstEvent; item != 0; item = item->Next) {
-        if (item->Type == 0x1A) {
-            result = true;
+    bool found = false;
+    for (TEventClass *tevent = FirstEvent; tevent != 0; tevent = tevent->Next) {
+        if (tevent->Type == 0x1A) {
+            found = true;
             break;
         }
     }
-    return result;
+    return found;
 }
 
 
@@ -199,14 +200,14 @@ bool TriggerTypeClass::Is_Cross_Vertical() const
 
 bool TriggerTypeClass::Is_Cross_Horizontal() const
 {
-    bool result = false;
-    for (TEventClass *item = FirstEvent; item != 0; item = item->Next) {
-        if (item->Type == 0x19) {
-            result = true;
+    bool found = false;
+    for (TEventClass *tevent = FirstEvent; tevent != 0; tevent = tevent->Next) {
+        if (tevent->Type == 0x19) {
+            found = true;
             break;
         }
     }
-    return result;
+    return found;
 }
 
 
@@ -221,14 +222,14 @@ bool TriggerTypeClass::Is_Cross_Horizontal() const
 
 bool TriggerTypeClass::Is_Enters_Zone() const
 {
-    bool result = false;
-    for (TEventClass *item = FirstEvent; item != 0; item = item->Next) {
-        if (item->Type == 0x18) {
-            result = true;
+    bool found = false;
+    for (TEventClass *tevent = FirstEvent; tevent != 0; tevent = tevent->Next) {
+        if (tevent->Type == 0x18) {
+            found = true;
             break;
         }
     }
-    return result;
+    return found;
 }
 
 
@@ -243,14 +244,14 @@ bool TriggerTypeClass::Is_Enters_Zone() const
 
 bool TriggerTypeClass::Is_Allow_Win() const
 {
-    bool result = false;
-    for (TActionClass *item = FirstAction; item != 0; item = item->Next) {
-        if (item->Type == 0xF) {
-            result = true;
+    bool found = false;
+    for (TActionClass *taction = FirstAction; taction != 0; taction = taction->Next) {
+        if (taction->Type == 0xF) {
+            found = true;
             break;
         }
     }
-    return result;
+    return found;
 }
 
 
@@ -266,14 +267,14 @@ bool TriggerTypeClass::Is_Allow_Win() const
 
 bool TriggerTypeClass::Is_Linked_To_Global(int global) const
 {
-    bool result = false;
+    bool found = false;
     for (TEventClass *event = FirstEvent; event != 0; event = event->Next) {
         if ((event->Type == 0x1B || event->Type == 0x1C) && event->Data == global) {
-            result = true;
+            found = true;
             break;
         }
     }
-    return result;
+    return found;
 }
 
 
@@ -289,14 +290,14 @@ bool TriggerTypeClass::Is_Linked_To_Global(int global) const
 
 bool TriggerTypeClass::Is_Linked_To_Local(int local) const
 {
-    bool result = false;
+    bool found = false;
     for (TEventClass *event = FirstEvent; event != 0; event = event->Next) {
         if ((event->Type == 0x24 || event->Type == 0x25) && event->Data == local) {
-            result = true;
+            found = true;
             break;
         }
     }
-    return result;
+    return found;
 }
 
 
@@ -324,14 +325,14 @@ void TriggerTypeClass::Detach(AbstractClass *target, bool all)
     if (LinkedTo != 0 && (AbstractClass *)LinkedTo == target) {
         LinkedTo = LinkedTo->LinkedTo;
     }
-    for (TActionClass *action = FirstAction; action != 0; action = action->Next) {
-        action->Detach(target, true);
+    for (TActionClass *taction = FirstAction; taction != 0; taction = taction->Next) {
+        taction->Detach(target, true);
     }
     if ((AbstractClass *)FirstAction == target) {
         FirstAction = FirstAction->Next;
     }
-    for (TEventClass *event = FirstEvent; event != 0; event = event->Next) {
-        event->Detach(target, true);
+    for (TEventClass *tevent = FirstEvent; tevent != 0; tevent = tevent->Next) {
+        tevent->Detach(target, true);
     }
     if ((AbstractClass *)FirstEvent == target) {
         FirstEvent = FirstEvent->Next;
@@ -695,19 +696,19 @@ void __fastcall TriggerTypeClass::Write_Scenario_INI(CCINIClass &ini)
 
 bool TriggerTypeClass::Delete_Action(TActionClass *taction)
 {
-    TActionClass *current = FirstAction;
-    if (current == taction) {
+    TActionClass *tptr = FirstAction;
+    if (tptr == taction) {
         FirstAction = taction->Next;
         delete taction;
         return true;
     }
-    while (current != 0) {
-        if (current->Next == taction) {
-            current->Next = current->Next->Next;
+    while (tptr != 0) {
+        if (tptr->Next == taction) {
+            tptr->Next = tptr->Next->Next;
             delete taction;
             return true;
         }
-        current = current->Next;
+        tptr = tptr->Next;
     }
     return false;
 }
@@ -726,19 +727,19 @@ bool TriggerTypeClass::Delete_Action(TActionClass *taction)
 
 bool TriggerTypeClass::Delete_Event(TEventClass *tevent)
 {
-    TEventClass *current = FirstEvent;
-    if (current == tevent) {
+    TEventClass *tptr = FirstEvent;
+    if (tptr == tevent) {
         FirstEvent = tevent->Next;
         delete tevent;
         return true;
     }
-    while (current != 0) {
-        if (current->Next == tevent) {
-            current->Next = current->Next->Next;
+    while (tptr != 0) {
+        if (tptr->Next == tevent) {
+            tptr->Next = tptr->Next->Next;
             delete tevent;
             return true;
         }
-        current = current->Next;
+        tptr = tptr->Next;
     }
     return false;
 }

@@ -9,6 +9,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/droppod.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/droppod.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/droppod.cpp where both functions declare the same local types (names only).
 
 // droppod.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -283,9 +284,9 @@ HRESULT __stdcall DropPodLocomotionClass::Load(IStream *stream)
     HRESULT result = LocomotionClass::Load(stream);
     if (SUCCEEDED(result)) {
         new (this) DropPodLocomotionClass(NoInitClass());
-        bool piggybacking;
-        stream->Read(&piggybacking, sizeof(piggybacking), 0);
-        if (piggybacking) {
+        bool haspiggy;
+        stream->Read(&haspiggy, sizeof(haspiggy), 0);
+        if (haspiggy) {
             result = OleLoadFromStream(stream, IID_ILocomotion, (void **)&Piggybacker);
         }
     }

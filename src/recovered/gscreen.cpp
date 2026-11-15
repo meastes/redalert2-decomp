@@ -13,6 +13,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/gscreen.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/gscreen.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/gscreen.cpp where both functions declare the same local types (names only).
 
 // gscreen.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -413,17 +414,17 @@ bool GScreenClass::Remove_A_Button(GadgetClass &gadget)
 
 void GScreenClass::Render()
 {
-    Surface *old = unknown_surface_83995c;
+    Surface *oldpage = unknown_surface_83995c;
     unknown_surface_83995c = unknown_surface_839964;
     WWMouse->Erase_Mouse(unknown_surface_839964, false);
 
-    bool any = IsToRedraw != 0;
+    bool redraw = IsToRedraw != 0;
     bool complete = IsToRedraw == 2;
     IsToRedraw = 0;
-    TacticalMap->Render(unknown_surface_839964, any, 0);
-    TacticalMap->Render(unknown_surface_839964, any, 1);
+    TacticalMap->Render(unknown_surface_839964, redraw, 0);
+    TacticalMap->Render(unknown_surface_839964, redraw, 1);
     Draw_It(complete);
-    TacticalMap->Render(unknown_surface_839964, any, 2);
+    TacticalMap->Render(unknown_surface_839964, redraw, 2);
 
     if (unknown_flag_abcd85 && !Debug_Map) {
         WWMouse->Erase_Mouse(SidebarSurface, true);
@@ -441,7 +442,7 @@ void GScreenClass::Render()
     }
     WWMouse->Draw_Mouse(unknown_surface_839964, false);
     Blit_Display();
-    unknown_surface_83995c = old;
+    unknown_surface_83995c = oldpage;
 }
 
 

@@ -3,6 +3,7 @@
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 // Parameter names from mischa85/RedAlert2 392e904 src/vqa.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/vqa.cpp where both functions declare the same local types (names only).
 
 // vqa.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -88,12 +89,12 @@ DynamicVectorClass<MovieHandle *> unknown_movie_handles_af8fd8;
 
 bool VQA_Message_Handler()
 {
-    MSG message;
+    MSG msg;
     ++MessageLoopCount;
-    if (Peek_Windows_Message(&message, 0, 0, 0, 0)) {
-        if (Get_Windows_Message(&message, 0, 0, 0)) {
-            TranslateMessage(&message);
-            DispatchMessageA(&message);
+    if (Peek_Windows_Message(&msg, 0, 0, 0, 0)) {
+        if (Get_Windows_Message(&msg, 0, 0, 0)) {
+            TranslateMessage(&msg);
+            DispatchMessageA(&msg);
         } else {
             return false;
         }

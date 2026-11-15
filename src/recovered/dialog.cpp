@@ -13,6 +13,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/dialog.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/dialog.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/dialog.cpp where both functions declare the same local types (names only).
 
 // dialog.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -90,7 +91,7 @@ struct BoxStyleType {
 void __fastcall Draw_Box(Rect const &rect, int up, bool filled)
 {
     ColorScheme *scheme = ColorSchemes[Gadget_Color_Scheme()];
-    BoxStyleType const styles[6] = {
+    BoxStyleType const ButtonColors[6] = {
         {scheme->unknown_color_0x320, scheme->unknown_color_0x328, scheme->unknown_color_0x31c, scheme->unknown_color_0x324},
         {scheme->unknown_color_0x320, scheme->unknown_color_0x31c, scheme->unknown_color_0x328, scheme->unknown_color_0x324},
         {13, 15, 12, 13},
@@ -98,7 +99,7 @@ void __fastcall Draw_Box(Rect const &rect, int up, bool filled)
         {scheme->unknown_color_0x320, scheme->unknown_color_0x32c, scheme->unknown_color_0x32c, scheme->unknown_color_0x320},
         {scheme->unknown_color_0x320, scheme->unknown_color_0x32c, scheme->unknown_color_0x32c, scheme->unknown_color_0x320},
     };
-    BoxStyleType const &colors = styles[up];
+    BoxStyleType const &colors = ButtonColors[up];
 
     if (filled) {
         unknown_surface_83995c->Fill_Rect(rect, scheme->Converter->Convert(colors.Filler));

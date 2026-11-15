@@ -14,6 +14,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/infatype.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/infatype.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/infatype.cpp where both functions declare the same local types (names only).
 
 // infatype.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -325,9 +326,9 @@ int __fastcall InfantryTypeClass::From_Name(char const *name)
     if (_stricmp(name, "<none>") == 0 || _stricmp(name, "none") == 0) {
         return -1;
     }
-    for (int index = 0; index < InfantryTypes.Count(); index++) {
-        if (_stricmp(InfantryTypes[index]->ID, name) == 0) {
-            return index;
+    for (int classid = 0; classid < InfantryTypes.Count(); classid++) {
+        if (_stricmp(InfantryTypes[classid]->ID, name) == 0) {
+            return classid;
         }
     }
     return -1;

@@ -10,6 +10,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/suprtype.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/suprtype.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/suprtype.cpp where both functions declare the same local types (names only).
 
 // suprtype.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -361,9 +362,9 @@ int __fastcall SuperWeaponTypeClass::Find_Index(char const *name)
 
 SuperWeaponTypeClass *__fastcall SuperWeaponTypeClass::From_Action(int action)
 {
-    for (int index = 0; index < SuperWeaponTypes.Count(); index++) {
-        if (SuperWeaponTypes[index]->Action == action) {
-            return SuperWeaponTypes[index];
+    for (int classid = 0; classid < SuperWeaponTypes.Count(); classid++) {
+        if (SuperWeaponTypes[classid]->Action == action) {
+            return SuperWeaponTypes[classid];
         }
     }
     return 0;

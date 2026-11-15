@@ -9,6 +9,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/mschoice.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/mschoice.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/mschoice.cpp where both functions declare the same local types (names only).
 
 // mschoice.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -486,19 +487,19 @@ MSAnimEntry::MSAnimEntry(Wstring const &string) :
     unknown_0C(0)
 {
     Wstring token;
-    int position = string.Get_Token(0, ",", token);
+    int pos = string.Get_Token(0, ",", token);
     if (token.Length() > 0) {
         Name = token;
     }
-    position = string.Get_Token(position, ",", token);
+    pos = string.Get_Token(pos, ",", token);
     if (token.Length() > 0) {
         unknown_04 = token.As_Integer();
     }
-    position = string.Get_Token(position, ",", token);
+    pos = string.Get_Token(pos, ",", token);
     if (token.Length() > 0) {
         unknown_08 = token.As_Integer();
     }
-    string.Get_Token(position, ",", token);
+    string.Get_Token(pos, ",", token);
     if (token.Length() > 0) {
         unknown_0C = token.As_Integer();
     }
@@ -525,12 +526,12 @@ MSSfxEntry::MSSfxEntry(Wstring const &name, Wstring const &string) :
     Volume(255)
 {
     if (name != 0 && AudioDeviceAvailable()) {
-        Wstring file;
-        int position = string.Get_Token(0, ",", file);
-        Wstring volume;
-        string.Get_Token(position, ",", volume);
-        if (volume != 0) {
-            Volume = volume.As_Integer();
+        Wstring file_name;
+        int pos = string.Get_Token(0, ",", file_name);
+        Wstring volume_str;
+        string.Get_Token(pos, ",", volume_str);
+        if (volume_str != 0) {
+            Volume = volume_str.As_Integer();
             if (Volume > 100) {
                 Volume = 100;
             } else if (Volume < 0) {
@@ -538,7 +539,7 @@ MSSfxEntry::MSSfxEntry(Wstring const &name, Wstring const &string) :
             }
             Volume = Volume * 255 / 100;
         }
-        if (Volume > 0 && file != 0) {
+        if (Volume > 0 && file_name != 0) {
             Name = name;
         }
     }

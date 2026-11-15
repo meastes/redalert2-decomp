@@ -13,6 +13,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/rgb.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/rgb.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/rgb.cpp where both functions declare the same local types (names only).
 
 // rgb.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -84,10 +85,10 @@ RGBClass &RGBClass::Set(RGBClass const &rgb, float value)
 
 void RGBClass::Adjust(int ratio, RGBClass const &rgb)
 {
-    int weight = ratio & 0xFF;
-    Red = (unsigned char)(Red + ((int)rgb.Red - (int)Red) * weight / 256);
-    Green = (unsigned char)(Green + ((int)rgb.Green - (int)Green) * weight / 256);
-    Blue = (unsigned char)(Blue + ((int)rgb.Blue - (int)Blue) * weight / 256);
+    int value = ratio & 0xFF;
+    Red = (unsigned char)(Red + ((int)rgb.Red - (int)Red) * value / 256);
+    Green = (unsigned char)(Green + ((int)rgb.Green - (int)Green) * value / 256);
+    Blue = (unsigned char)(Blue + ((int)rgb.Blue - (int)Blue) * value / 256);
 }
 
 

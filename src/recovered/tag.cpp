@@ -8,6 +8,7 @@
  ******************************************************************************/
 // From mischa85/RedAlert2 392e904 src/tag.cpp (matching RA2 1.006 decomp; TibSun tag.cpp): global names and
 // Parameter names from mischa85/RedAlert2 392e904 src/tag.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/tag.cpp where both functions declare the same local types (names only).
 // function comments; modified (our module form and header state, Route A unit map
 // manifests/original_target/modules/tag.json).
 
@@ -279,8 +280,8 @@ bool TagClass::Is_Allow_Win() const
 
 bool TagClass::Is_Trigger_Attached(TriggerClass *trigger) const
 {
-    for (TriggerClass *attached = Trigger; attached != 0; attached = attached->LinkedTo) {
-        if (attached == trigger) {
+    for (TriggerClass *trigptr = Trigger; trigptr != 0; trigptr = trigptr->LinkedTo) {
+        if (trigptr == trigger) {
             return true;
         }
     }
@@ -309,9 +310,9 @@ bool TagClass::Is_Trigger_Attached(TriggerClass *trigger) const
 
 bool TagClass::Spring(int event, ObjectClass *object, Cell cell, bool forced, int source)
 {
-    bool sprung = false;
-    bool remove = false;
-    bool detach = false;
+    bool res = false;
+    bool die = false;
+    bool det = false;
     if (IsCurrentlySprung) {
         return false;
     }
@@ -322,29 +323,29 @@ bool TagClass::Spring(int event, ObjectClass *object, Cell cell, bool forced, in
             case 0:
                 trigger->Spring(object, cell);
                 trigger->Mark_To_Delete();
-                sprung = true;
-                remove = true;
-                detach = true;
+                res = true;
+                die = true;
+                det = true;
                 break;
             case 1:
                 if (AttachCount == 1) {
                     trigger->Spring(object, cell);
                     trigger->Mark_To_Delete();
-                    remove = true;
-                    sprung = true;
+                    die = true;
+                    res = true;
                 } else {
-                    detach = true;
+                    det = true;
                 }
                 break;
             case 2:
                 trigger->Spring(object, cell);
-                sprung = true;
+                res = true;
                 break;
             }
         }
     }
     IsCurrentlySprung = false;
-    if (detach) {
+    if (det) {
         if (object != 0 && object->unknown_34 == this) {
             object->Attach_Tag(0);
         }
@@ -352,11 +353,11 @@ bool TagClass::Spring(int event, ObjectClass *object, Cell cell, bool forced, in
             Map[cell].Attach_Tag(0);
         }
     }
-    if (remove) {
+    if (die) {
         Unknown_006ECB90(this, true);
         ObjectsToDelete.Add(this);
     }
-    return sprung;
+    return res;
 }
 
 

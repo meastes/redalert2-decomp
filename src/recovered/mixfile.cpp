@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/mixfile.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Local variable names from mischa85/RedAlert2 392e904 src/mixfile.cpp where both functions declare the same local types (names only).
 
 // mixfile.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -253,9 +254,9 @@ MixFileClass *__fastcall MixFileClass::Finder(char const *filename)
     while (ptr->Is_Valid()) {
         char path[260];
         char name[256];
-        char extension[256];
-        _splitpath(ptr->Filename, 0, 0, name, extension);
-        _makepath(path, 0, 0, name, extension);
+        char ext[256];
+        _splitpath(ptr->Filename, 0, 0, name, ext);
+        _makepath(path, 0, 0, name, ext);
         if (_stricmp(path, filename) == 0) {
             return ptr;
         }

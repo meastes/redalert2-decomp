@@ -14,6 +14,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/smudge.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/smudge.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/smudge.cpp where both functions declare the same local types (names only).
 
 // smudge.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -169,9 +170,9 @@ SmudgeClass::~SmudgeClass()
 bool SmudgeClass::Mark(int mark)
 {
     if (ObjectClass::Mark(mark) && (mark == 1 || mark == 3)) {
-        Cell cell = Cell(unknown_slot104());
-        if (ScenarioInit > 0 || Debug_Map || Class->Can_Place(cell, true)) {
-            Class->Place(cell);
+        Cell origin = Cell(unknown_slot104());
+        if (ScenarioInit > 0 || Debug_Map || Class->Can_Place(origin, true)) {
+            Class->Place(origin);
         }
         unknown_74 = false;
         Delete_Me();

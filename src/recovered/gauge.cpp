@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/gauge.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Local variable names from mischa85/RedAlert2 392e904 src/gauge.cpp where both functions declare the same local types (names only).
 
 // gauge.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -189,17 +190,17 @@ int GaugeClass::Pixel_To_Value(int pixel)
 
 int GaugeClass::Value_To_Pixel(int value)
 {
-    int start;
     int maximum;
+    int start;
     if (IsHorizontal) {
-        maximum = Width;
-        start = X;
+        start = Width;
+        maximum = X;
     } else {
-        maximum = Height;
-        start = Y;
+        start = Height;
+        maximum = Y;
     }
-    maximum -= 2;
-    return (int)((double)value / MaxValue * maximum + start);
+    start -= 2;
+    return (int)((double)value / MaxValue * start + maximum);
 }
 
 

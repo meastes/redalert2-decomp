@@ -14,6 +14,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/taskforc.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/taskforc.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/taskforc.cpp where both functions declare the same local types (names only).
 
 // taskforc.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -275,15 +276,15 @@ void __fastcall TaskForceClass::Write_Scenario_INI(CCINIClass &ini, int is_globa
 
 bool TaskForceClass::Read_INI(CCINIClass &ini)
 {
-    char entry[32];
-    char buffer[128];
+    char buf[32];
+    char entry[128];
 
     if (AbstractTypeClass::Read_INI(ini)) {
         CountEntries = 0;
         for (int index = 0; index < 6; index++) {
-            sprintf(entry, "%d", index);
-            if (ini.Get_String(ID, entry, "", buffer, sizeof(buffer)) > 0) {
-                Entries[CountEntries] = TaskForceEntryStruct(buffer);
+            sprintf(buf, "%d", index);
+            if (ini.Get_String(ID, buf, "", entry, sizeof(entry)) > 0) {
+                Entries[CountEntries] = TaskForceEntryStruct(entry);
                 if (Entries[CountEntries].Type != 0) {
                     CountEntries++;
                 }

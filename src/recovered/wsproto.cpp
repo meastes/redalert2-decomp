@@ -13,6 +13,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/wsproto.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/wsproto.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/wsproto.cpp where both functions declare the same local types (names only).
 
 // wsproto.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -590,7 +591,7 @@ WinsockInterfaceClass::WinsockBufferType *WinsockInterfaceClass::Get_New_In_Buff
         buffer->IsAllocated = true;
         buffer->InUse = true;
     } else {
-        for (int i = 0; i < 128; i++) {
+        for (int pos = 0; pos < 128; pos++) {
             int index = NextInBuffer++;
             if (NextInBuffer > 127) {
                 NextInBuffer = 0;

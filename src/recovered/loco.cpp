@@ -9,6 +9,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/loco.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/loco.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/loco.cpp where both functions declare the same local types (names only).
 
 // loco.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -141,14 +142,14 @@ HRESULT __stdcall LocomotionClass::Link_To_Object(void *pointer)
 
 Matrix3D * __stdcall LocomotionClass::Draw_Matrix(Matrix3D *matrix, int *key)
 {
-    Matrix3D transform;
-    transform.Make_Identity();
-    transform.Rotate_Z((float)((Dir_To_32(LinkedTo->unknown_2e0.Current()) - 8) * -0.19634954084936207));
+    Matrix3D draw_matrix;
+    draw_matrix.Make_Identity();
+    draw_matrix.Rotate_Z((float)((Dir_To_32(LinkedTo->unknown_2e0.Current()) - 8) * -0.19634954084936207));
     if (key != 0 && *key != -1) {
         *key <<= 5;
         *key |= Dir_To_32(LinkedTo->unknown_2e0.Current());
     }
-    *matrix = transform;
+    *matrix = draw_matrix;
     return matrix;
 }
 

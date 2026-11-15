@@ -14,6 +14,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/ccini.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/ccini.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/ccini.cpp where both functions declare the same local types (names only).
 
 // ccini.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -255,11 +256,11 @@ int CCINIClass::Save(Pipe &pipe, bool withdigest)
 
 int CCINIClass::Get_Lepton(char const *section, char const *entry, int defvalue) const
 {
-    double value = Get_Double(section, entry, -1.0);
-    if (value == -1.0) {
+    double result = Get_Double(section, entry, -1.0);
+    if (result == -1.0) {
         return defvalue;
     }
-    return value * 256.0;
+    return result * 256.0;
 }
 
 
@@ -869,13 +870,13 @@ bool CCINIClass::Put_Houses(char const *section, char const *entry, int value)
     char buffer[128];
     buffer[0] = '\0';
     if (value != 0) {
-        for (int index = 0; index < Houses.Count(); index++) {
-            HouseClass *house = Houses[index];
-            if ((value & (1 << house->ArrayIndex)) != 0) {
+        for (int house = 0; house < Houses.Count(); house++) {
+            HouseClass *ptr = Houses[house];
+            if ((value & (1 << ptr->ArrayIndex)) != 0) {
                 if (buffer[0] != '\0') {
                     strcat(buffer, ",");
                 }
-                strcat(buffer, house->IniName);
+                strcat(buffer, ptr->IniName);
             }
         }
         if (buffer[0] != '\0') {

@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/bar.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Local variable names from mischa85/RedAlert2 392e904 src/bar.cpp where both functions declare the same local types (names only).
 
 // bar.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -203,7 +204,7 @@ void ProgressBarClass::Redraw() const
     }
     WWMouse->Show_Mouse();
 
-    ProgressBarClass *me = (ProgressBarClass *)this;
-    me->LastDisplayCurrent = CurrentValue;
-    me->IsDrawn = true;
+    ProgressBarClass *bar = (ProgressBarClass *)this;
+    bar->LastDisplayCurrent = CurrentValue;
+    bar->IsDrawn = true;
 }

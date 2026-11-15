@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/link.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Local variable names from mischa85/RedAlert2 392e904 src/link.cpp where both functions declare the same local types (names only).
 
 // link.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -242,12 +243,12 @@ LinkClass &LinkClass::Tail_Of_List()
 
 LinkClass &LinkClass::Add(LinkClass &list)
 {
-    LinkClass *next = list.Next;
+    LinkClass *ptr = list.Next;
     list.Next = this;
     Prev = &list;
-    Next = next;
-    if (next != 0) {
-        next->Prev = this;
+    Next = ptr;
+    if (ptr != 0) {
+        ptr->Prev = this;
     }
     return Head_Of_List();
 }
@@ -271,9 +272,9 @@ LinkClass &LinkClass::Add(LinkClass &list)
 
 LinkClass &LinkClass::Add_Head(LinkClass &list)
 {
-    LinkClass *head = &list.Head_Of_List();
-    head->Prev = this;
-    Next = head;
+    LinkClass *ptr = &list.Head_Of_List();
+    ptr->Prev = this;
+    Next = ptr;
     Prev = 0;
     return *this;
 }
@@ -297,9 +298,9 @@ LinkClass &LinkClass::Add_Head(LinkClass &list)
 
 LinkClass &LinkClass::Add_Tail(LinkClass &list)
 {
-    LinkClass *tail = &list.Tail_Of_List();
-    tail->Next = this;
-    Prev = tail;
+    LinkClass *ptr = &list.Tail_Of_List();
+    ptr->Next = this;
+    Prev = ptr;
     Next = 0;
     return Head_Of_List();
 }

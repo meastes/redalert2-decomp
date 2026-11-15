@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/cheklist.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Local variable names from mischa85/RedAlert2 392e904 src/cheklist.cpp where both functions declare the same local types (names only).
 
 // cheklist.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -80,9 +81,9 @@ CheckListClass::CheckListClass(int id, int x, int y, int w, int h, unsigned flag
 CheckListClass::~CheckListClass()
 {
     while (List.Count()) {
-        CheckObject *object = (CheckObject *)ListClass::Get_Item(0);
+        CheckObject *obj = (CheckObject *)ListClass::Get_Item(0);
         ListClass::Remove_Item(0);
-        delete object;
+        delete obj;
     }
 }
 
@@ -241,9 +242,9 @@ void CheckListClass::Set_Selected_Index(wchar_t *text)
 
 void CheckListClass::Check_Item(int index, bool checked)
 {
-    CheckObject *object = (CheckObject *)ListClass::Get_Item(index);
-    if (object != 0 && object->IsChecked != checked) {
-        object->IsChecked = checked;
+    CheckObject *obj = (CheckObject *)ListClass::Get_Item(index);
+    if (obj != 0 && obj->IsChecked != checked) {
+        obj->IsChecked = checked;
         Flag_To_Redraw();
     }
 }
@@ -269,9 +270,9 @@ void CheckListClass::Check_Item(int index, bool checked)
 
 bool CheckListClass::Is_Checked(int index) const
 {
-    CheckObject *object = (CheckObject *)ListClass::Get_Item(index);
-    if (object != 0) {
-        return object->IsChecked;
+    CheckObject *obj = (CheckObject *)ListClass::Get_Item(index);
+    if (obj != 0) {
+        return obj->IsChecked;
     }
     return false;
 }

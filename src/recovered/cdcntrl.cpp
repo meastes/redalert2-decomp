@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/cdcntrl.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Local variable names from mischa85/RedAlert2 392e904 src/cdcntrl.cpp where both functions declare the same local types (names only).
 
 // cdcntrl.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -230,8 +231,8 @@ bool CDControlClass::Unlock_Volume(HANDLE volume)
 
 bool CDControlClass::Dismount_Volume(HANDLE volume)
 {
-    DWORD returned;
-    bool result = DeviceIoControl(volume, FSCTL_DISMOUNT_VOLUME, 0, 0, 0, 0, &returned, 0);
+    DWORD bytes_returned;
+    bool result = DeviceIoControl(volume, FSCTL_DISMOUNT_VOLUME, 0, 0, 0, 0, &bytes_returned, 0);
     if (!result) {
         Debug_Printf("DeviceIoControl failed to dismount volume. Error %d - %s\n", GetLastError(), 0);
     }
@@ -257,11 +258,11 @@ bool CDControlClass::Dismount_Volume(HANDLE volume)
 
 bool CDControlClass::Prevent_Removal_Of_Volume(HANDLE volume, bool prevent)
 {
-    DWORD returned;
-    PREVENT_MEDIA_REMOVAL removal;
-    removal.PreventMediaRemoval = prevent;
-    bool result = DeviceIoControl(volume, IOCTL_STORAGE_MEDIA_REMOVAL, &removal, sizeof(removal), 0, 0,
-                                  &returned, 0);
+    DWORD bytes_returned;
+    PREVENT_MEDIA_REMOVAL pmrbuffer;
+    pmrbuffer.PreventMediaRemoval = prevent;
+    bool result = DeviceIoControl(volume, IOCTL_STORAGE_MEDIA_REMOVAL, &pmrbuffer, sizeof(pmrbuffer), 0, 0,
+                                  &bytes_returned, 0);
     if (!result) {
         Debug_Printf("DeviceIoControl failed to prevent media removal. Error %d - %s\n", GetLastError(), 0);
     }
@@ -286,8 +287,8 @@ bool CDControlClass::Prevent_Removal_Of_Volume(HANDLE volume, bool prevent)
 
 bool CDControlClass::Auto_Eject_Volume(HANDLE volume)
 {
-    DWORD returned;
-    bool result = DeviceIoControl(volume, IOCTL_STORAGE_EJECT_MEDIA, 0, 0, 0, 0, &returned, 0);
+    DWORD bytes_returned;
+    bool result = DeviceIoControl(volume, IOCTL_STORAGE_EJECT_MEDIA, 0, 0, 0, 0, &bytes_returned, 0);
     if (!result) {
         Debug_Printf("DeviceIoControl failed to eject media. Error %d - %s\n", GetLastError(), 0);
     }

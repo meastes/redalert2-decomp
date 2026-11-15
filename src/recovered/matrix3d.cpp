@@ -13,6 +13,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/matrix3d.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/matrix3d.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/matrix3d.cpp where both functions declare the same local types (names only).
 
 // matrix3d.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -408,22 +409,22 @@ void Matrix3D::Pre_Rotate_X(float theta)
     float s = Fast_Sin(theta);
     float c = Fast_Cos(theta);
     float ns = -s;
-    float a0 = Row[1][0];
-    float a1 = Row[1][1];
-    float a2 = Row[1][2];
-    float a3 = Row[1][3];
-    float b0 = Row[2][0];
-    float b1 = Row[2][1];
-    float b2 = Row[2][2];
-    float b3 = Row[2][3];
-    Row[1][0] = c * a0 + ns * b0;
-    Row[1][1] = c * a1 + ns * b1;
-    Row[1][2] = c * a2 + ns * b2;
-    Row[1][3] = c * a3 + ns * b3;
-    Row[2][0] = s * a0 + c * b0;
-    Row[2][1] = s * a1 + c * b1;
-    Row[2][2] = s * a2 + c * b2;
-    Row[2][3] = s * a3 + c * b3;
+    float m10 = Row[1][0];
+    float m11 = Row[1][1];
+    float m12 = Row[1][2];
+    float m13 = Row[1][3];
+    float m20 = Row[2][0];
+    float m21 = Row[2][1];
+    float m22 = Row[2][2];
+    float m23 = Row[2][3];
+    Row[1][0] = c * m10 + ns * m20;
+    Row[1][1] = c * m11 + ns * m21;
+    Row[1][2] = c * m12 + ns * m22;
+    Row[1][3] = c * m13 + ns * m23;
+    Row[2][0] = s * m10 + c * m20;
+    Row[2][1] = s * m11 + c * m21;
+    Row[2][2] = s * m12 + c * m22;
+    Row[2][3] = s * m13 + c * m23;
 }
 
 
@@ -446,22 +447,22 @@ void Matrix3D::Pre_Rotate_Y(float theta)
     float sine = Fast_Sin(theta);
     float cosine = Fast_Cos(theta);
     float const &negative_sine = -sine;
-    float first_x = Row[0][0];
-    float first_y = Row[0][1];
-    float first_z = Row[0][2];
-    float first_translation = Row[0][3];
-    float third_x = Row[2][0];
-    float third_y = Row[2][1];
-    float third_z = Row[2][2];
-    float third_translation = Row[2][3];
-    Row[0][0] = third_x * sine + first_x * cosine;
-    Row[0][1] = third_y * sine + first_y * cosine;
-    Row[0][2] = third_z * sine + first_z * cosine;
-    Row[0][3] = third_translation * sine + first_translation * cosine;
-    Row[2][0] = first_x * negative_sine + third_x * cosine;
-    Row[2][1] = first_y * negative_sine + third_y * cosine;
-    Row[2][2] = first_z * negative_sine + third_z * cosine;
-    Row[2][3] = first_translation * negative_sine + third_translation * cosine;
+    float m00 = Row[0][0];
+    float m01 = Row[0][1];
+    float m02 = Row[0][2];
+    float m03 = Row[0][3];
+    float m20 = Row[2][0];
+    float m21 = Row[2][1];
+    float m22 = Row[2][2];
+    float m23 = Row[2][3];
+    Row[0][0] = m20 * sine + m00 * cosine;
+    Row[0][1] = m21 * sine + m01 * cosine;
+    Row[0][2] = m22 * sine + m02 * cosine;
+    Row[0][3] = m23 * sine + m03 * cosine;
+    Row[2][0] = m00 * negative_sine + m20 * cosine;
+    Row[2][1] = m01 * negative_sine + m21 * cosine;
+    Row[2][2] = m02 * negative_sine + m22 * cosine;
+    Row[2][3] = m03 * negative_sine + m23 * cosine;
 }
 
 
@@ -486,22 +487,22 @@ void Matrix3D::Pre_Rotate_Z(float theta)
     float s = Fast_Sin(theta);
     float c = Fast_Cos(theta);
     float ns = -s;
-    float a0 = Row[0][0];
-    float a1 = Row[0][1];
-    float a2 = Row[0][2];
-    float a3 = Row[0][3];
-    float b0 = Row[1][0];
-    float b1 = Row[1][1];
-    float b2 = Row[1][2];
-    float b3 = Row[1][3];
-    Row[0][0] = c * a0 + ns * b0;
-    Row[0][1] = c * a1 + ns * b1;
-    Row[0][2] = c * a2 + ns * b2;
-    Row[0][3] = c * a3 + ns * b3;
-    Row[1][0] = s * a0 + c * b0;
-    Row[1][1] = s * a1 + c * b1;
-    Row[1][2] = s * a2 + c * b2;
-    Row[1][3] = s * a3 + c * b3;
+    float m00 = Row[0][0];
+    float m01 = Row[0][1];
+    float m02 = Row[0][2];
+    float m03 = Row[0][3];
+    float m10 = Row[1][0];
+    float m11 = Row[1][1];
+    float m12 = Row[1][2];
+    float m13 = Row[1][3];
+    Row[0][0] = c * m00 + ns * m10;
+    Row[0][1] = c * m01 + ns * m11;
+    Row[0][2] = c * m02 + ns * m12;
+    Row[0][3] = c * m03 + ns * m13;
+    Row[1][0] = s * m00 + c * m10;
+    Row[1][1] = s * m01 + c * m11;
+    Row[1][2] = s * m02 + c * m12;
+    Row[1][3] = s * m03 + c * m13;
 }
 
 

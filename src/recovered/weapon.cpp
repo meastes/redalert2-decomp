@@ -14,6 +14,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/weapon.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/weapon.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/weapon.cpp where both functions declare the same local types (names only).
 
 // weapon.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -297,11 +298,11 @@ bool WeaponTypeClass::Read_INI(CCINIClass &ini)
 void WeaponTypeClass::Init_Max_Speed()
 {
     if (Projectile != 0 && Projectile->ROT == 0) {
-        double speed = Rules->unknown_1320;
+        double gravity = Rules->unknown_1320;
         if (Projectile->Floater) {
-            speed = Unknown_0047FCD0();
+            gravity = Unknown_0047FCD0();
         }
-        unknown_a8 = Unknown_0047FB70(unknown_b4, speed);
+        unknown_a8 = Unknown_0047FB70(unknown_b4, gravity);
     }
 }
 
@@ -561,8 +562,8 @@ int __fastcall WeaponTypeClass::Index_From_Name(char const *name)
 int WeaponTypeClass::Get_Speed(int range) const
 {
     if (Projectile != 0 && Projectile->ROT == 0) {
-        double speed = Projectile->Floater ? Unknown_0047FCD0() : Rules->unknown_1320;
-        return Unknown_0047FB70(range, speed);
+        double gravity = Projectile->Floater ? Unknown_0047FCD0() : Rules->unknown_1320;
+        return Unknown_0047FB70(range, gravity);
     }
     return unknown_a8;
 }

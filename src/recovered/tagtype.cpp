@@ -9,6 +9,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/tagtype.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/tagtype.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/tagtype.cpp where both functions declare the same local types (names only).
 
 // tagtype.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -108,13 +109,13 @@ TagTypeClass::TagTypeClass(char const *name) :
 TagTypeClass::~TagTypeClass()
 {
     Unknown_006ECB90(this, true);
-    TriggerTypeClass *trigger = FirstTrigger;
+    TriggerTypeClass *trigtype = FirstTrigger;
     FirstTrigger = 0;
-    while (trigger != 0) {
-        TriggerTypeClass *next = trigger->LinkedTo;
-        trigger->LinkedTo = 0;
-        delete trigger;
-        trigger = next;
+    while (trigtype != 0) {
+        TriggerTypeClass *linked = trigtype->LinkedTo;
+        trigtype->LinkedTo = 0;
+        delete trigtype;
+        trigtype = linked;
     }
     for (int index = 0; index < Tags.Count(); index++) {
         if (Tags[index]->Class == this) {
@@ -156,17 +157,17 @@ bool TagTypeClass::Link(TriggerTypeClass *trigger)
 
 bool TagTypeClass::Unlink(TriggerTypeClass *trigger)
 {
-    TriggerTypeClass *current = FirstTrigger;
-    if (current == trigger) {
+    TriggerTypeClass *trigtype = FirstTrigger;
+    if (trigtype == trigger) {
         FirstTrigger = trigger->LinkedTo;
         return true;
     }
-    while (current != 0) {
-        if (current->LinkedTo == trigger) {
-            current->LinkedTo = trigger->LinkedTo;
+    while (trigtype != 0) {
+        if (trigtype->LinkedTo == trigger) {
+            trigtype->LinkedTo = trigger->LinkedTo;
             return true;
         }
-        current = current->LinkedTo;
+        trigtype = trigtype->LinkedTo;
     }
     return false;
 }
@@ -200,9 +201,9 @@ TagTypeClass *__fastcall TagTypeClass::From_Name(char const *name)
 {
     if (name != 0) {
         for (int index = 0; index < TagTypes.Count(); index++) {
-            TagTypeClass *type = TagTypes[index];
-            if (!_stricmp(type->ID, name) || !_stricmp(type->Name, name)) {
-                return type;
+            TagTypeClass *ttptr = TagTypes[index];
+            if (!_stricmp(ttptr->ID, name) || !_stricmp(ttptr->Name, name)) {
+                return ttptr;
             }
         }
     }
@@ -404,8 +405,8 @@ bool TagTypeClass::Is_Enters_Zone() const
 
 bool TagTypeClass::Is_Linked(TriggerTypeClass *trigger) const
 {
-    for (TriggerTypeClass *attached = FirstTrigger; attached != 0; attached = attached->LinkedTo) {
-        if (attached == trigger) {
+    for (TriggerTypeClass *trigtype = FirstTrigger; trigtype != 0; trigtype = trigtype->LinkedTo) {
+        if (trigtype == trigger) {
             return true;
         }
     }

@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/counter.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Local variable names from mischa85/RedAlert2 392e904 src/counter.cpp where both functions declare the same local types (names only).
 
 // counter.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -61,7 +62,7 @@ HRESULT CounterClass::Save(IStream *stream) {
  int count=VectorMax;
  HRESULT result=stream->Write(&count,4,0);
  if (FAILED(result)) return result;
- for(int i=0;i<count;++i) { result=stream->Write(&Vector[i],4,0);if (FAILED(result)) return result; }
+ for(int index=0;index<count;++index) { result=stream->Write(&Vector[index],4,0);if (FAILED(result)) return result; }
  return 0;
 }
 
@@ -78,7 +79,7 @@ HRESULT CounterClass::Load(IStream *stream) {
  HRESULT result=stream->Read(&count,4,0);
  if (FAILED(result)) return result;
  if (!Resize(count)) return 8;
- for(int i=0;i<count;++i) { result=stream->Read(&Vector[i],4,0);if(FAILED(result))return result; }
+ for(int index=0;index<count;++index) { result=stream->Read(&Vector[index],4,0);if(FAILED(result))return result; }
  return 0;
 }
 

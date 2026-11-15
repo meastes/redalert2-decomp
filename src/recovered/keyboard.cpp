@@ -13,6 +13,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/keyboard.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/keyboard.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/keyboard.cpp where both functions declare the same local types (names only).
 
 // keyboard.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -564,9 +565,9 @@ KeyNumType WWKeyboardClass::Peek_Element()
 bool WWKeyboardClass::Put_Element(KeyNumType val)
 {
     if (!Is_Buffer_Full()) {
-        int next = (Tail + 1) % 256;
+        int temp = (Tail + 1) % 256;
         Buffer[Tail] = val;
-        Tail = next;
+        Tail = temp;
         return true;
     }
     return false;

@@ -158,6 +158,8 @@ inspection tools; VC6 and CrossOver are legitimate user-supplied local build too
   Adopted 2026-11-15 (lane M1 batch u1, names only): parameter names of functions both files define, for 34
   units (list in the commit message), each file carrying a provenance line.
   Adopted 2026-11-15 (lane M1 batch u2, names only): the same for 76 further units.
+  Adopted 2026-11-15 (lane M1 batch l1, names only): local-variable names of functions that declare the same
+  sequence of local types in both files, for 56 units (list in the commit message).
 
 ## Native linked libraries (tested development versions)
 

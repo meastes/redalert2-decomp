@@ -9,6 +9,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/app.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/app.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/app.cpp where both functions declare the same local types (names only).
 
 // app.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -309,9 +310,9 @@ HRESULT __stdcall ApplicationClass::get_ScenarioName(BSTR *retval)
     if (retval == 0) {
         return E_POINTER;
     }
-    wchar_t text[32];
-    MultiByteToWideChar(0, 1, unknown_id_source_a3d290->FileName, -1, text, 32);
-    *retval = SysAllocString(text);
+    wchar_t psz[32];
+    MultiByteToWideChar(0, 1, unknown_id_source_a3d290->FileName, -1, psz, 32);
+    *retval = SysAllocString(psz);
     return S_OK;
 }
 

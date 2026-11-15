@@ -13,6 +13,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/ipxgconn.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/ipxgconn.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/ipxgconn.cpp where both functions declare the same local types (names only).
 
 // ipxgconn.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -342,18 +343,18 @@ int IPXGlobalConnClass::Peek_Packet(int index, void *buf, int *buflen, IPXAddres
     if (Queue->ReceiveCount < index) {
         return 0;
     }
-    ReceiveQueueType *rec = Queue->Get_Receive(index);
-    if (rec == 0 || rec->IsRead) {
+    ReceiveQueueType *rec_entry = Queue->Get_Receive(index);
+    if (rec_entry == 0 || rec_entry->IsRead) {
         return 0;
     }
-    GlobalHeaderType *packet = (GlobalHeaderType *)rec->Buffer;
-    int packetlen = rec->BufLen - sizeof(GlobalHeaderType);
+    GlobalHeaderType *packet = (GlobalHeaderType *)rec_entry->Buffer;
+    int packetlen = rec_entry->BufLen - sizeof(GlobalHeaderType);
     if (packetlen > 0) {
-        memcpy(buf, rec->Buffer + sizeof(GlobalHeaderType), packetlen);
+        memcpy(buf, rec_entry->Buffer + sizeof(GlobalHeaderType), packetlen);
     }
     *buflen = packetlen;
     *product_id = packet->ProductID;
-    *address = *((IPXAddressClass *)rec->ExtraBuffer);
+    *address = *((IPXAddressClass *)rec_entry->ExtraBuffer);
     if (packet_id) {
         *packet_id = packet->PacketID;
     }
@@ -403,14 +404,14 @@ void IPXGlobalConnClass::Mark_Packet_Read(int index)
 
 int IPXGlobalConnClass::Send(char *buf, int buflen, void *extrabuf, int extralen, bool flag, unsigned short port)
 {
-    IPXAddressClass *address = (IPXAddressClass *)extrabuf;
-    if (address->Is_Broadcast()) {
+    IPXAddressClass *addr = (IPXAddressClass *)extrabuf;
+    if (addr->Is_Broadcast()) {
         return Broadcast(buf, buflen);
     }
-    if (unknown_game_mode_a3d298 == 3 && IsBridge && !memcmp(address, BridgeNet, 4)) {
-        return Send_To(buf, buflen, address, BridgeNode, flag, 0);
+    if (unknown_game_mode_a3d298 == 3 && IsBridge && !memcmp(addr, BridgeNet, 4)) {
+        return Send_To(buf, buflen, addr, BridgeNode, flag, 0);
     }
-    return Send_To(buf, buflen, address, 0, flag, port);
+    return Send_To(buf, buflen, addr, 0, flag, port);
 }
 
 

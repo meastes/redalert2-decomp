@@ -1,5 +1,6 @@
 // Westwood radio.cpp in one source (twins: mischa85/RedAlert2 src/radio.cpp on this target, TibSun radio.cpp):
 // Parameter names from mischa85/RedAlert2 392e904 src/radio.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/radio.cpp where both functions declare the same local types (names only).
 // the accepted bodies in the unit's order. Names follow the template where taking them changes no other
 // unit; the rest are recorded in modules.json radio.
 
@@ -311,10 +312,10 @@ bool RadioClass::HasAnyLink() const {
 
 
 void RadioClass::SetLinkCount(int count) {
-    int previous = RadioLinks.Length();
-    if (count > previous) {
+    int old = RadioLinks.Length();
+    if (count > old) {
         RadioLinks.Resize(count);
-        for (int index = previous; index < count; ++index) RadioLinks[index] = 0;
+        for (int index = old; index < count; ++index) RadioLinks[index] = 0;
     }
 }
 

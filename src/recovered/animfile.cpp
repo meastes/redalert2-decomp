@@ -9,6 +9,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/animfile.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/animfile.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/animfile.cpp where both functions declare the same local types (names only).
 
 // animfile.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -179,11 +180,11 @@ bool AnimFile::Validate()
 
 int AnimFile::Get_Frame_Count()
 {
-    int count = Header.FrameCount;
+    int num = Header.FrameCount;
     if (Header.HasLastDelta) {
-        count--;
+        num--;
     }
-    return count;
+    return num;
 }
 
 

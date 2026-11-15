@@ -13,6 +13,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/wspudp.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/wspudp.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/wspudp.cpp where both functions declare the same local types (names only).
 
 // wspudp.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -461,15 +462,15 @@ void UDPInterfaceClass::Broadcast(void *buffer, int buffer_len, bool alternate)
         *(unsigned long *)&packet->Address[4] = *(unsigned long *)BroadcastAddresses[i];
         packet->unknown_1a = BroadcastPorts[i];
         Build_Packet_CRC(packet);
-        SOCKET socket;
+        SOCKET send_socket;
         if (alternate) {
             AltBuffers.Add(packet);
-            socket = Socket2;
+            send_socket = Socket2;
         } else {
             OutBuffers.Add(packet);
-            socket = Socket;
+            send_socket = Socket;
         }
-        SendMessageA((HWND)unknown_window_b263d8, Protocol_Event_Message(socket), 0, 2);
+        SendMessageA((HWND)unknown_window_b263d8, Protocol_Event_Message(send_socket), 0, 2);
         Unknown_005B5EE0();
     }
 }

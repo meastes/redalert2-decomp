@@ -14,6 +14,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/factory.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/factory.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/factory.cpp where both functions declare the same local types (names only).
 
 // factory.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -404,11 +405,11 @@ HRESULT __stdcall FactoryClass::Save(IStream *stream, BOOL cleardirty)
 {
     HRESULT result = AbstractClass::Save(stream, cleardirty);
     if (SUCCEEDED(result)) {
-        int count = Queue.Count();
-        result = stream->Write(&count, sizeof(count), 0);
+        int index = Queue.Count();
+        result = stream->Write(&index, sizeof(index), 0);
         if (SUCCEEDED(result)) {
-            for (int index = 0; index < count; ++index) {
-                result = stream->Write(&Queue[index], sizeof(Queue[index]), 0);
+            for (int count = 0; count < index; ++count) {
+                result = stream->Write(&Queue[count], sizeof(Queue[count]), 0);
                 if (FAILED(result)) return S_OK;
             }
             return S_OK;

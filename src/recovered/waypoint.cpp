@@ -9,6 +9,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/waypoint.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/waypoint.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/waypoint.cpp where both functions declare the same local types (names only).
 
 // waypoint.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -369,12 +370,12 @@ HRESULT __stdcall WaypointPathClass::Load(IStream *stream)
     }
     new (&Waypoints) DynamicVectorClass<WaypointClass>;
     for (int index = 0; index < count; index++) {
-        WaypointClass waypoint;
-        result = stream->Read(&waypoint, sizeof(waypoint), 0);
+        WaypointClass obj;
+        result = stream->Read(&obj, sizeof(obj), 0);
         if (FAILED(result)) {
             return result;
         }
-        Waypoints.Add(waypoint);
+        Waypoints.Add(obj);
     }
     return S_OK;
 }

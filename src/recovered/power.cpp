@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/power.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Local variable names from mischa85/RedAlert2 392e904 src/power.cpp where both functions declare the same local types (names only).
 
 // power.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -273,12 +274,12 @@ int PowerClass::Desired_Power_Height()
 
 int PowerClass::Update_Delay()
 {
-    int value = Desired_Power_Height();
-    int total = RedPipCount + YellowPipCount + GreenPipCount;
-    if (total > value) {
-        total = value;
+    int desired_pips = Desired_Power_Height();
+    int current_pips = RedPipCount + YellowPipCount + GreenPipCount;
+    if (current_pips > desired_pips) {
+        current_pips = desired_pips;
     }
-    return (int)((double)total / value * 5.0);
+    return (int)((double)current_pips / desired_pips * 5.0);
 }
 
 

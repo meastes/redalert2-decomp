@@ -9,6 +9,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/msanim.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/msanim.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/msanim.cpp where both functions declare the same local types (names only).
 
 // msanim.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -136,10 +137,10 @@ MSShapeAnim::~MSShapeAnim()
 
 void MSShapeAnim::Set_Frame(int frame)
 {
-    Rect old = Get_Rect();
+    Rect rect = Get_Rect();
     Frame = frame;
-    if (old != Get_Rect()) {
-        HiddenSurface->Copy_From(old, *AlternateSurface, old, false, true);
+    if (rect != Get_Rect()) {
+        HiddenSurface->Copy_From(rect, *AlternateSurface, rect, false, true);
     }
     if (Frame >= (unsigned)Shape->FrameCount) {
         Frame = Shape->FrameCount - 1;
@@ -187,18 +188,18 @@ bool MSShapeAnim::Advance(Surface *surface, Rect *rect)
 {
     if (unknown_0C == true && Timer.Value()==0) {
         Timer=unknown_24;
-        Rect old=Frame_Rect();
-        old.X=X+old.X; old.Y=old.Y+Y;
-        if (Flags & 0x200) { old.X-=Shape->Width/2; old.Y-=Shape->Height/2; }
-        surface->Copy_From(old,*AlternateSurface,old,false,true);
+        Rect draw_rect=Frame_Rect();
+        draw_rect.X=X+draw_rect.X; draw_rect.Y=draw_rect.Y+Y;
+        if (Flags & 0x200) { draw_rect.X-=Shape->Width/2; draw_rect.Y-=Shape->Height/2; }
+        surface->Copy_From(draw_rect,*AlternateSurface,draw_rect,false,true);
         if (++Frame>EndFrame) {
-            if (!unknown_34) { *rect=old; return true; }
+            if (!unknown_34) { *rect=draw_rect; return true; }
             Frame=StartFrame;
         }
         CC_Draw_Shape(surface,Drawer,Shape,Frame,Point2D(X,Y),surface->Get_Rect(),Flags|0x400,0,0,0,1000,0,0,Point2D(0,0));
         *rect=Frame_Rect(); rect->X=rect->X+X; rect->Y=rect->Y+Y;
         if (Flags & 0x200) { rect->X-=Shape->Width/2; rect->Y-=Shape->Height/2; }
-        *rect=Union(*rect,old);
+        *rect=Union(*rect,draw_rect);
         return false;
     }
     rect->Set(0,0,0,0);
@@ -680,9 +681,9 @@ bool MSBinkAnim::Advance(Surface *surface, Rect *rect)
     if (!Movie->Is_Finished() && Movie->Render_Frame()) {
         Draw(surface, 0);
         *rect = MovieRect;
-        int index = Anims->ID(this);
+        int my_id = Anims->ID(this);
         for (int i = 0; i < Anims->Count(); i++) {
-            if (i != index) {
+            if (i != my_id) {
                 (*Anims)[i]->Draw(surface, &MovieRect);
             }
         }
@@ -1548,12 +1549,12 @@ bool MSPCXAnim::Advance(Surface *surface, Rect *rect)
             if (Image != 0) {
                 Background->Copy_From(PCXRect, *Image, Image->Get_Rect(), false, true);
                 Draw(surface, 0);
-                Rect area = PCXRect;
-                *rect = area;
-                int index = Anims->ID(this);
+                Rect rect2 = PCXRect;
+                *rect = rect2;
+                int my_id = Anims->ID(this);
                 for (int i = 0; i < Anims->Count(); i++) {
-                    if (i != index) {
-                        (*Anims)[i]->Draw(surface, &area);
+                    if (i != my_id) {
+                        (*Anims)[i]->Draw(surface, &rect2);
                     }
                 }
             }

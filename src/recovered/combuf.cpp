@@ -13,6 +13,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/combuf.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/combuf.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/combuf.cpp where both functions declare the same local types (names only).
 
 // combuf.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -545,13 +546,13 @@ ReceiveQueueType *CommBufferClass::Get_Receive(int index)
 
 void CommBufferClass::Add_Delay(unsigned long delay)
 {
-    int roundup = 0;
+    int roundoff = 0;
     if (NumDelay == 256) {
         DelaySum += delay - MeanDelay;
         if ((DelaySum & 0xff) > 127) {
-            roundup = 1;
+            roundoff = 1;
         }
-        MeanDelay = (DelaySum >> 8) + roundup;
+        MeanDelay = (DelaySum >> 8) + roundoff;
     } else {
         NumDelay++;
         DelaySum += delay;

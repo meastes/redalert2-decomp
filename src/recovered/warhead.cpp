@@ -14,6 +14,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/warhead.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/warhead.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/warhead.cpp where both functions declare the same local types (names only).
 
 // warhead.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -337,8 +338,8 @@ void WarheadTypeClass::Compute_CRC(WWCRCEngine &crc) const
     crc((long)ShakeXhi);
     crc((long)ShakeYlo);
     crc((long)ShakeYhi);
-    for (int i = 0; i < 11; i++) {
-        crc(Verses[i]);
+    for (int armor = 0; armor < 11; armor++) {
+        crc(Verses[armor]);
     }
     crc((long)AnimList.Count());
     crc((long)InfDeath);

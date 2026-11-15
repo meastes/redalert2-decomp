@@ -3,6 +3,7 @@
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 // Parameter names from mischa85/RedAlert2 392e904 src/movies.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/movies.cpp where both functions declare the same local types (names only).
 
 // movies.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -86,12 +87,12 @@ DynamicVectorClass<char const *> unknown_char_const_ptr_list_00a71050;
 
 int __fastcall Movie_Lock_Surface()
 {
-    Surface *surface = CurrentVQAMovie->FrameSurface;
-    void *buffer = surface->Lock();
-    VQAClass *player = CurrentVQAMovie->Player;
-    player->Set_Draw_Buffer(0, surface->Stride() / surface->Bytes_Per_Pixel(), surface->Get_Height(),
+    Surface *surf = CurrentVQAMovie->FrameSurface;
+    void *buffptr = surf->Lock();
+    VQAClass *vqa = CurrentVQAMovie->Player;
+    vqa->Set_Draw_Buffer(0, surf->Stride() / surf->Bytes_Per_Pixel(), surf->Get_Height(),
                              CurrentVQAMovie->Source.X, CurrentVQAMovie->Source.Y);
-    return (int)buffer;
+    return (int)buffptr;
 }
 
 
@@ -350,9 +351,9 @@ bool __fastcall Movie_Advance_Frame(VQAMovie *handle, bool *finished)
         return false;
     }
     CurrentVQAMovie = handle;
-    bool result = handle->Player->Advance_Frame(finished);
+    bool res = handle->Player->Advance_Frame(finished);
     CurrentVQAMovie = 0;
-    return result;
+    return res;
 }
 
 
@@ -690,27 +691,27 @@ MovieHandle::~MovieHandle()
 
 bool __fastcall Find_Movie_File(char const *name, char *out, int unused)
 {
-    char filename[200];
+    char buffer[200];
 
-    strcpy(filename, name);
-    char *extension = filename;
-    while (*extension != '\0' && *extension != '.') {
-        extension++;
+    strcpy(buffer, name);
+    char *ext = buffer;
+    while (*ext != '\0' && *ext != '.') {
+        ext++;
     }
-    *extension = '\0';
-    Options.Unlock_Movie(filename);
+    *ext = '\0';
+    Options.Unlock_Movie(buffer);
 
-    strcpy(extension, ".BIK");
-    if (CCFileClass(filename).Is_Available()) {
+    strcpy(ext, ".BIK");
+    if (CCFileClass(buffer).Is_Available()) {
         if (out != 0) {
-            strcpy(out, filename);
+            strcpy(out, buffer);
         }
         return true;
     }
-    strcpy(extension, ".VQA");
-    if (CCFileClass(filename).Is_Available()) {
+    strcpy(ext, ".VQA");
+    if (CCFileClass(buffer).Is_Available()) {
         if (out != 0) {
-            strcpy(out, filename);
+            strcpy(out, buffer);
         }
         return true;
     }

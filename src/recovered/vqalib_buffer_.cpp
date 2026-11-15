@@ -1,3 +1,9 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+// Local variable names from mischa85/RedAlert2 392e904 src/vqalib_buffer_.cpp where both functions declare the same local types (names only).
+
 // vqalib_buffer_.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -470,7 +476,7 @@ void __fastcall FreeBuffers(VQAHandleP *vqap)
 
 long __fastcall VQA_Configure_Buffer(VQAHandleP *vqap)
 {
-    unsigned char *buffer;
+    unsigned char *buf;
     int width;
     int height;
     VQAConfig *config = &vqap->Config;
@@ -493,28 +499,28 @@ long __fastcall VQA_Configure_Buffer(VQAHandleP *vqap)
             if (header->ColorMode == 1 || header->ColorMode == 4) {
                 size *= 2;
             }
-            buffer = (unsigned char *)config->MemoryHandler((VQAHandle *)vqap, VQAMEM_ALLOC, 0, size);
-            if (buffer == 0) {
+            buf = (unsigned char *)config->MemoryHandler((VQAHandle *)vqap, VQAMEM_ALLOC, 0, size);
+            if (buf == 0) {
                 return -8;
             }
             vqap->MemUsed += size;
-            config->MemoryHandler((VQAHandle *)vqap, VQAMEM_LOCK, (int)buffer, size);
-            memset(buffer, 0, size);
-            vqap->AltImageBuf = buffer;
+            config->MemoryHandler((VQAHandle *)vqap, VQAMEM_LOCK, (int)buf, size);
+            memset(buf, 0, size);
+            vqap->AltImageBuf = buf;
             vqap->AltImageWidth = width;
             vqap->AltImageHeight = height;
             vqap->Flags |= 0x20;
         } else {
-            buffer = (unsigned char *)config->ImageBuf;
+            buf = (unsigned char *)config->ImageBuf;
         }
     } else {
         if (config->ImageBuf != 0) {
-            buffer = (unsigned char *)config->ImageBuf;
+            buf = (unsigned char *)config->ImageBuf;
         } else {
             return -9;
         }
     }
-    VQA_Set_DrawBuffer((VQAHandle *)vqap, (int)buffer, width, height, config->X1, config->Y1);
+    VQA_Set_DrawBuffer((VQAHandle *)vqap, (int)buf, width, height, config->X1, config->Y1);
     vqap->Flags |= 0x10;
     return -1;
 }

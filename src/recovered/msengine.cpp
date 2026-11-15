@@ -9,6 +9,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/msengine.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/msengine.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/msengine.cpp where both functions declare the same local types (names only).
 
 // msengine.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -319,16 +320,16 @@ void MSEngine::Blit_Rects(Surface *surface)
 void MSEngine::Blit_Rect(Surface *surface, Rect const &rect)
 {
     if (rect.Width > 0 && rect.Height > 0) {
-        RECT client;
-        GetClientRect(MainWindow, &client);
-        ClientToScreen(MainWindow, (POINT *)&client);
+        RECT client_rect;
+        GetClientRect(MainWindow, &client_rect);
+        ClientToScreen(MainWindow, (POINT *)&client_rect);
         if (WWMouse != 0) {
             WWMouse->Draw_Mouse(surface);
         }
-        Rect dest = rect;
-        dest.X += client.left;
-        dest.Y += client.top;
-        unknown_surface_839950->Copy_From(dest, *surface, rect, false, true);
+        Rect offset_rect = rect;
+        offset_rect.X += client_rect.left;
+        offset_rect.Y += client_rect.top;
+        unknown_surface_839950->Copy_From(offset_rect, *surface, rect, false, true);
         if (WWMouse != 0) {
             WWMouse->Erase_Mouse(surface);
         }

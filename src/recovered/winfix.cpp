@@ -11,6 +11,7 @@
  * disclaimers apply; see LICENSE.md.
  ******************************************************************************/
 // From mischa85/RedAlert2 392e904 src/winfix.cpp (matching RA2 1.006 decomp; Renegade/TibSun WinFix.CPP): function,
+// Local variable names from mischa85/RedAlert2 392e904 src/winfix.cpp where both functions declare the same local types (names only).
 // global and parameter names and comments; modified (our module form and header state, Route A unit map
 // manifests/original_target/modules/winfix.json).
 
@@ -65,14 +66,14 @@ bool __fastcall TreeView_Begin_Drag(HWND window, HWND hwndTV, NMTREEVIEWA *lpnmt
         TreeView_DraggedItem = lpnmtv->itemNew.hItem;
         SendMessageA(hwndTV, 0x110B, 9, 0);                                     // TVM_SELECTITEM, TVGN_DROPHILITE
         TreeView_ImageList = (void *)SendMessageA(hwndTV, 0x1112, 0, (LPARAM)lpnmtv->itemNew.hItem);   // TVM_CREATEDRAGIMAGE
-        RECT rect;
-        *(void **)&rect = lpnmtv->itemNew.hItem;
-        SendMessageA(hwndTV, 0x1104, 0, (LPARAM)&rect);                         // TVM_GETITEMRECT
+        RECT rcItem;
+        *(void **)&rcItem = lpnmtv->itemNew.hItem;
+        SendMessageA(hwndTV, 0x1104, 0, (LPARAM)&rcItem);                         // TVM_GETITEMRECT
         int indent = SendMessageA(hwndTV, 0x1106, 0, 0);                        // TVM_GETINDENT
-        int x = lpnmtv->ptDrag.x - indent - rect.left;
-        int y = lpnmtv->ptDrag.y - rect.top;
+        int hotspotx = lpnmtv->ptDrag.x - indent - rcItem.left;
+        int hotspoty = lpnmtv->ptDrag.y - rcItem.top;
         SetCapture(window);
-        ImageList_BeginDrag(TreeView_ImageList, 0, x, y);
+        ImageList_BeginDrag(TreeView_ImageList, 0, hotspotx, hotspoty);
         ImageList_DragEnter(window, 0, 0);
         SetTimer(window, 1, 1, 0);
         s_dragging = true;
@@ -128,22 +129,22 @@ item_data __fastcall TreeView_get_item_data(unsigned long xy)
     POINT point;
     point.x = xy & 0xffff;
     point.y = xy >> 16;
-    HWND window = ChildWindowFromPoint((HWND)GetWindowLongA(TreeView_LastHandle, -8), point);
-    HWND target = (HWND)GetWindowLongA(window, -8);
-    if (window == (HWND)GetWindowLongA(TreeView_LastHandle, -8)) {
-        target = window;
+    HWND hwnd1 = ChildWindowFromPoint((HWND)GetWindowLongA(TreeView_LastHandle, -8), point);
+    HWND hwnd2 = (HWND)GetWindowLongA(hwnd1, -8);
+    if (hwnd1 == (HWND)GetWindowLongA(TreeView_LastHandle, -8)) {
+        hwnd2 = hwnd1;
     }
-    RECT rectangle;
+    RECT rect;
     POINT screen;
     screen.x = point.x;
     screen.y = point.y;
-    ClientToScreen(target, &screen);
+    ClientToScreen(hwnd2, &screen);
     data.Screen = screen;
-    GetWindowRect(window, &rectangle);
-    screen.x -= rectangle.left;
-    screen.y -= rectangle.top;
-    data.Window = window;
-    data.Target = target;
+    GetWindowRect(hwnd1, &rect);
+    screen.x -= rect.left;
+    screen.y -= rect.top;
+    data.Window = hwnd1;
+    data.Target = hwnd2;
     data.Tree = TreeView_LastHandle;
     data.Item = TreeView_DraggedItem;
     data.Client = point;

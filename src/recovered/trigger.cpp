@@ -14,6 +14,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/trigger.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/trigger.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/trigger.cpp where both functions declare the same local types (names only).
 
 // trigger.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -358,13 +359,13 @@ bool TriggerClass::Spring(ObjectClass *object, Cell cell)
     if (!IsActive || IsToDelete) {
         return false;
     }
-    bool acted = false;
-    for (TActionClass *action = Class->FirstAction; action != 0; action = action->Next) {
-        if (action->Execute(HouseClass::As_Pointer(Class->House->ArrayIndex), object, this, &cell)) {
-            acted = true;
+    bool done = false;
+    for (TActionClass *taction = Class->FirstAction; taction != 0; taction = taction->Next) {
+        if (taction->Execute(HouseClass::As_Pointer(Class->House->ArrayIndex), object, this, &cell)) {
+            done = true;
         }
     }
-    return acted;
+    return done;
 }
 
 

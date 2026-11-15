@@ -13,6 +13,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/terrtype.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/terrtype.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/terrtype.cpp where both functions declare the same local types (names only).
 
 // terrtype.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -323,9 +324,9 @@ bool TerrainTypeClass::Read_INI(CCINIClass &ini)
         Foundation = ArtINI.Get_Foundation(unknown_1c8, "Foundation", Foundation);
         OccupyList = unknown_foundation_lists_ac0430[Foundation];
         if (!unknown_1fc) {
-            char fullname[512];
-            _makepath(fullname, 0, 0, unknown_1c8, ".SHP");
-            unknown_a4 = (void *)MixFileClass::Retrieve(fullname);
+            char filename[512];
+            _makepath(filename, 0, 0, unknown_1c8, ".SHP");
+            unknown_a4 = (void *)MixFileClass::Retrieve(filename);
         }
         ShapeFileStruct const *shape = (ShapeFileStruct const *)Get_Image_Data();
         if (shape != 0) {

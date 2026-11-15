@@ -13,6 +13,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/lcwpipe.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/lcwpipe.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/lcwpipe.cpp where both functions declare the same local types (names only).
 
 // lcwpipe.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -240,11 +241,11 @@ int LCWPipe::Flush()
                 BlockHeader.CompCount = 0xFFFF;
             }
         } else {
-            int compressed = LCW_Comp(Buffer, Buffer2, Counter);
-            BlockHeader.CompCount = (unsigned short)compressed;
+            int len = LCW_Comp(Buffer, Buffer2, Counter);
+            BlockHeader.CompCount = (unsigned short)len;
             BlockHeader.UncompCount = (unsigned short)Counter;
             total += Pipe::Put(&BlockHeader, sizeof(BlockHeader));
-            total += Pipe::Put(Buffer2, compressed);
+            total += Pipe::Put(Buffer2, len);
             Counter = 0;
         }
     }

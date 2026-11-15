@@ -3,6 +3,7 @@
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 // Parameter names from mischa85/RedAlert2 392e904 src/mpfreeforall.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/mpfreeforall.cpp where both functions declare the same local types (names only).
 
 // mpfreeforall.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -145,13 +146,13 @@ void __fastcall Clear_ComboBox(HWND combo);
 void FreeForAll::PopulateTeamDropdownForPlayer(HWND hwnd, int index)
 {
     Clear_ComboBox(hwnd);
-    MultiplayerTeam *entry = GetTeam(index);
-    if (entry != 0) {
-        entry->AddToList(hwnd);
+    MultiplayerTeam *team = GetTeam(index);
+    if (team != 0) {
+        team->AddToList(hwnd);
     }
-    entry = GetTeam(-1);
-    if (entry != 0) {
-        entry->AddToList(hwnd);
+    team = GetTeam(-1);
+    if (team != 0) {
+        team->AddToList(hwnd);
     }
     SendMessageA(hwnd, 0x14e, 0, 0);    // CB_SETCURSEL
 }

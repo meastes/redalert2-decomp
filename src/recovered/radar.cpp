@@ -13,6 +13,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/radar.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/radar.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/radar.cpp where both functions declare the same local types (names only).
 
 // radar.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -1190,20 +1191,20 @@ Rect RadarClass::Compute_Background(Rect const &cell_rect, Rect &update_rect, bo
         Fill_In_Background(cell_rect, update_rect);
     }
 
-    int rect1_width = cell_rect.Width;
+    int cell_width = cell_rect.Width;
     float zoom_scale = unknown_1484;
     int surface_width;
     int surface_height;
 
     if (unknown_121c == 0) {
-        zoom_scale = 140 / (float)rect1_width;
+        zoom_scale = 140 / (float)cell_width;
         float scaled_height = cell_rect.Height * zoom_scale;
         if (scaled_height < 108) {
             surface_width = 140;
             surface_height = scaled_height;
         } else {
             zoom_scale = 108 / (float)cell_rect.Height;
-            float scaled_width = rect1_width * zoom_scale;
+            float scaled_width = cell_width * zoom_scale;
             surface_width = scaled_width;
             surface_height = 108;
         }
@@ -1263,7 +1264,7 @@ Rect RadarClass::Compute_Background(Rect const &cell_rect, Rect &update_rect, bo
                             y_weight = 1.0f;
                         }
 
-                        int idx = src_x_min + srcy * rect1_width;
+                        int idx = src_x_min + srcy * cell_width;
 
                         for (int srcx = src_x_min; srcx < src_x_max; ++srcx, ++idx) {
 
@@ -1372,10 +1373,10 @@ void RadarClass::Fill_In_Background(Rect const &cell_rect, Rect const &update_re
 
 Rect RadarClass::Cell_Radar_Rect(Cell const &cell)
 {
-    int cx = cell.X;
-    int cy = cell.Y;
-    int x = unknown_148c - cy + cx;
-    int y = cy - unknown_1494 + cx;
+    int cellx = cell.X;
+    int celly = cell.Y;
+    int x = unknown_148c - celly + cellx;
+    int y = celly - unknown_1494 + cellx;
     int width = 2;
     if (x == -1) {
         x = 0;
@@ -1399,10 +1400,10 @@ Rect RadarClass::Cell_Radar_Rect(Cell const &cell)
 
 Rect RadarClass::Cell_To_Radar_Pixel(Cell const &cell)
 {
-    int cx = cell.X;
-    int cy = cell.Y;
-    int x = (int)((unknown_148c - cy + cx) * unknown_1484 + unknown_1498.X);
-    int y = (int)((cy - unknown_1494 + cx) * unknown_1484 + unknown_1498.Y);
+    int cellx = cell.X;
+    int celly = cell.Y;
+    int x = (int)((unknown_148c - celly + cellx) * unknown_1484 + unknown_1498.X);
+    int y = (int)((celly - unknown_1494 + cellx) * unknown_1484 + unknown_1498.Y);
     if (x == unknown_1498.X - 1) {
         x++;
     }
@@ -2546,9 +2547,9 @@ void RadarClass::Update_Transmission()
 void RadarClass::Play_Movie()
 {
     MovieHandle *movie = 0;
-    bool flag = false;
-    bool playing = IngameVQ.Count() > 0;
-    if (!unknown_14b9 && playing) {
+    bool hold = false;
+    bool has = IngameVQ.Count() > 0;
+    if (!unknown_14b9 && has) {
         Speech_Is_Playing();
     }
     if (unknown_14d6 == true && !unknown_14b9) {
@@ -2558,25 +2559,25 @@ void RadarClass::Play_Movie()
         unknown_1208 = Rect(unknown_11e0, unknown_11e8, SidebarWidth, 110);
         Debug_Printf("Radar: Movie full redrawn\n");
     }
-    bool done;
-    if (playing && IngameVQ.Count() > 0 && (movie = IngameVQ[0]) != 0) {
+    bool finished;
+    if (has && IngameVQ.Count() > 0 && (movie = IngameVQ[0]) != 0) {
         if (movie->AdvanceFrame() == true) {
             unknown_1208 = Rect(unknown_11e0, unknown_11e8, SidebarWidth, 110);
         }
-        done = movie->Is_Finished();
-        flag = movie->unknown_04;
-    } else if (playing) {
-        done = true;
+        finished = movie->Is_Finished();
+        hold = movie->unknown_04;
+    } else if (has) {
+        finished = true;
     } else {
-        done = false;
+        finished = false;
     }
-    if (done == true) {
+    if (finished == true) {
         if (movie != 0) {
             IngameVQ.Delete(movie);
             delete movie;
         }
-        playing = IngameVQ.Count() != 0;
-        if (playing) {
+        has = IngameVQ.Count() != 0;
+        if (has) {
             Debug_Printf("Radar: Next movie.\n");
             unknown_14bc.Unknown_00406070();
             unknown_14bc.Unknown_00406100(Voc_Play(Rules->unknown_618, 1.0f, 0x2000, 0), 0);
@@ -2585,20 +2586,20 @@ void RadarClass::Play_Movie()
         }
     }
     unknown_14d5 = false;
-    if (!playing) {
+    if (!has) {
         Debug_Printf("Radar: Movie done.\n");
         unknown_14a8 = 5;
         Radar_Activate(unknown_14b0, false);
         Unknown_005A0AC0();
-        flag = playing;
+        hold = has;
         unknown_14bc.Unknown_00406070();
         unknown_14bc.Unknown_00406100(Voc_Play(Rules->MovieOff, 1.0f, 0x2000, 0), 0);
         Set_Frame_Rate_Limit(Rules->DetailMinFrameRateNormal);
         unknown_14d5 = true;
     }
-    unknown_14b9 = !done;
-    if (unknown_14b8 != flag) {
-        if (flag) {
+    unknown_14b9 = !finished;
+    if (unknown_14b8 != hold) {
+        if (hold) {
             Hold_Scenario(0);
             unknown_14b8 = true;
         } else {

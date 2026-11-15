@@ -1,5 +1,6 @@
 // Westwood rawfile.cpp in one source (twins: mischa85/RedAlert2 src/rawfile.cpp, TibSun rawfile.cpp): the accepted
 // Parameter names from mischa85/RedAlert2 392e904 src/rawfile.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/rawfile.cpp where both functions declare the same local types (names only).
 // bodies; the file and size types stay long until the FileClass hierarchy is converted.
 
 #include "shared/raw_file_class.hpp"
@@ -374,11 +375,11 @@ int RawFileClass::Delete()
 unsigned long RawFileClass::Get_Date_Time()
 {
     BY_HANDLE_FILE_INFORMATION info;
-    WORD date;
-    WORD time;
+    WORD dosdate;
+    WORD dostime;
     if (GetFileInformationByHandle(Handle, &info)) {
-        FileTimeToDosDateTime(&info.ftLastWriteTime, &date, &time);
-        return ((unsigned long)date << 16) | time;
+        FileTimeToDosDateTime(&info.ftLastWriteTime, &dosdate, &dostime);
+        return ((unsigned long)dosdate << 16) | dostime;
     }
     return 0;
 }
@@ -394,9 +395,9 @@ bool RawFileClass::Set_Date_Time(unsigned long datetime)
     if (Handle != INVALID_HANDLE_VALUE) {
         BY_HANDLE_FILE_INFORMATION info;
         if (GetFileInformationByHandle(Handle, &info)) {
-            FILETIME time;
-            if (DosDateTimeToFileTime((WORD)(datetime >> 16), (WORD)datetime, &time)) {
-                return SetFileTime(Handle, &info.ftCreationTime, &time, &time) != 0;
+            FILETIME filetime;
+            if (DosDateTimeToFileTime((WORD)(datetime >> 16), (WORD)datetime, &filetime)) {
+                return SetFileTime(Handle, &info.ftCreationTime, &filetime, &filetime) != 0;
             }
         }
     }

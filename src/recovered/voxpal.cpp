@@ -9,6 +9,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/voxpal.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/voxpal.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/voxpal.cpp where both functions declare the same local types (names only).
 
 // voxpal.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -76,13 +77,13 @@ VoxelPaletteLibrary::~VoxelPaletteLibrary()
 /// <returns>Returns with zero if the palette was read, or one if it could not be.</returns>
 int VoxelPaletteLibrary::Read_Colors(FileClass *file)
 {
-    int failed = 0;
+    int result = 0;
     file->Open(1);
     if (file->Read(Colors, 0x300) != 0x300) {
-        failed = 1;
+        result = 1;
     }
     file->Close();
-    return failed;
+    return result;
 }
 
 

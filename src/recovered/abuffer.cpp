@@ -9,6 +9,7 @@
 // Function comment blocks from mischa85/RedAlert2 392e904 src/abuffer.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
 // Parameter names from mischa85/RedAlert2 392e904 src/abuffer.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/abuffer.cpp where both functions declare the same local types (names only).
 
 // abuffer.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -63,16 +64,16 @@ ABuffer::ABuffer(Rect rect)
 // origin, into surface at the area's position (a view of the buffer).
 void ABuffer::Copy_To(::Surface &surface, Rect rect)
 {
-    unsigned short *pixels = (unsigned short *)surface.Lock(Point2D(rect.X, rect.Y));
-    unsigned short *depth = (unsigned short *)(BufferHead + BufferOffset);
-    int skip = surface.Stride() / 2 - rect.Width;
-    if (pixels && rect.Height > 0) {
+    unsigned short *surfbuffptr = (unsigned short *)surface.Lock(Point2D(rect.X, rect.Y));
+    unsigned short *pixptr = (unsigned short *)(BufferHead + BufferOffset);
+    int steps = surface.Stride() / 2 - rect.Width;
+    if (surfbuffptr && rect.Height > 0) {
         for (int row = rect.Height; row; --row) {
             for (int column = rect.Width; column > 0; --column) {
-                *pixels++ = *depth++;
-                depth = Wrap_Pointer(depth);
+                *surfbuffptr++ = *pixptr++;
+                pixptr = Wrap_Pointer(pixptr);
             }
-            pixels += skip;
+            surfbuffptr += steps;
         }
     }
     surface.Unlock();

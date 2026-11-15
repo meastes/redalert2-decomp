@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/packet.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Local variable names from mischa85/RedAlert2 392e904 src/packet.cpp where both functions declare the same local types (names only).
 
 // packet.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -43,11 +44,11 @@
 
 PacketClass::~PacketClass()
 {
-    FieldClass *node = Head;
-    while (node != 0) {
-        FieldClass *next = node->Next;
-        delete node;
-        node = next;
+    FieldClass *current = Head;
+    while (current != 0) {
+        FieldClass *next = current->Next;
+        delete current;
+        current = next;
     }
 }
 
